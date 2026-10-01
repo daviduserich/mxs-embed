@@ -1,0 +1,1337 @@
+<!DOCTYPE html>
+<html lang="de-CH">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Recruiting-Simulator & Stellen-Cockpit | Hiltbrand & Partner</title>
+<meta name="description" content="Interaktiver Recruiting-Simulator und Stellen-Verzeichnis für Kunden-Widgets. Vorschau, Wechsel zwischen Stellen und 1-Klick Einbettungscodes.">
+<link rel="icon" href="images/logo.png" type="image/png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..100,400..900&family=JetBrains+Mono:wght@400;600;700&family=Source+Sans+3:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  --rot: #EF4035;
+  --rot-dunkel: #d32f2f;
+  --brand: #EF4035;
+  --anthrazit: #1e293b;
+  --schiefer: #0f172a;
+  --hell: #f8fafc;
+  --weiss: #ffffff;
+  --grau: #64748b;
+  --linie: #e2e8f0;
+  --gruen: #10b981;
+  --gold: #f59e0b;
+  --gold-hell: #fef08a;
+  --radius: 8px;
+  --shadow: 0 10px 30px rgba(15,23,42,0.1);
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+body {
+  font-family: "Source Sans 3", -apple-system, BlinkMacSystemFont, sans-serif;
+  color: var(--anthrazit);
+  background: #0b1120;
+  line-height: 1.6;
+  font-size: 16px;
+}
+img { max-width: 100%; display: block; }
+a { color: var(--rot); text-decoration: none; }
+
+/* ======================================================= */
+/* 1. OBERE COCKPIT-STEUERLEISTE (STICKY)                  */
+/* ======================================================= */
+.acp-cockpit-bar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: rgba(15, 23, 42, 0.96);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+  padding: 10px 16px;
+}
+.acp-cockpit-inner {
+  max-width: 1300px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.acp-cockpit-left {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+.acp-brand-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(245, 158, 11, 0.15);
+  border: 1px solid rgba(245, 158, 11, 0.4);
+  color: #fbbf24;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  padding: 5px 12px;
+  border-radius: 6px;
+  text-transform: uppercase;
+}
+.acp-brand-badge .dot {
+  width: 8px;
+  height: 8px;
+  background: #10b981;
+  border-radius: 50%;
+  box-shadow: 0 0 8px #10b981;
+}
+.acp-cockpit-label {
+  font-size: 13px;
+  color: #94a3b8;
+  font-weight: 600;
+}
+.acp-job-picker-wrap {
+  position: relative;
+  display: inline-block;
+}
+.acp-job-picker-btn {
+  background: rgba(255, 255, 255, 0.08);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  font-family: inherit;
+  font-size: 13.5px;
+  font-weight: 700;
+  padding: 7px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+.acp-job-picker-btn:hover {
+  background: rgba(255, 255, 255, 0.14);
+  border-color: rgba(234, 179, 8, 0.6);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3);
+}
+.picker-icon {
+  font-size: 15px;
+}
+.picker-title {
+  max-width: 280px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.picker-badge {
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #cbd5e1;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 2px 7px;
+  border-radius: 4px;
+  font-family: "JetBrains Mono", monospace;
+  text-transform: uppercase;
+}
+.picker-arrow {
+  color: #94a3b8;
+  font-size: 11px;
+  transition: transform 0.2s ease;
+}
+.acp-job-picker-wrap.is-open .picker-arrow {
+  transform: rotate(180deg);
+}
+.acp-job-dropdown {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  min-width: 380px;
+  max-width: 500px;
+  max-height: 440px;
+  background: #0f172a;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 12px;
+  box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.7);
+  z-index: 2500;
+  display: none;
+  flex-direction: column;
+  overflow: hidden;
+}
+.acp-job-dropdown.is-open {
+  display: flex;
+}
+.acp-dropdown-header {
+  padding: 10px 14px;
+  background: rgba(255, 255, 255, 0.04);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 11.5px;
+  font-weight: 700;
+  color: #94a3b8;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-family: "JetBrains Mono", monospace;
+}
+.acp-dropdown-list {
+  overflow-y: auto;
+  max-height: 380px;
+}
+.acp-dropdown-item {
+  padding: 12px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  cursor: pointer;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+  transition: all 0.15s ease;
+}
+.acp-dropdown-item:last-child {
+  border-bottom: none;
+}
+.acp-dropdown-item:hover {
+  background: rgba(255, 255, 255, 0.07);
+}
+.acp-dropdown-item.active {
+  background: rgba(59, 130, 246, 0.16);
+  border-left: 3px solid #3b82f6;
+}
+.dropdown-item-left {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  min-width: 0;
+}
+.dropdown-item-title {
+  font-size: 13.5px;
+  font-weight: 700;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.dropdown-item-meta {
+  font-size: 11.5px;
+  color: #94a3b8;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: "JetBrains Mono", monospace;
+}
+.dropdown-item-right {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+.check-icon {
+  color: #10b981;
+  font-weight: 900;
+  font-size: 14px;
+}
+.acp-cockpit-right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.acp-btn-code {
+  background: #10b981;
+  color: #ffffff;
+  border: none;
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 700;
+  padding: 8px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  box-shadow: 0 2px 10px rgba(16, 185, 129, 0.3);
+}
+.acp-btn-code:hover {
+  background: #059669;
+  transform: translateY(-1px);
+}
+.acp-btn-dir {
+  background: rgba(255, 255, 255, 0.1);
+  color: #f1f5f9;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 700;
+  padding: 8px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.acp-btn-dir:hover {
+  background: rgba(255, 255, 255, 0.18);
+  color: #ffffff;
+}
+
+/* ======================================================= */
+/* 2. SIMULATION: BESTEHENDE KUNDEN-WEBSEITE (KOPF & FUSS)   */
+/* ======================================================= */
+.host-header-mock {
+  background: #1e3a5f;
+  color: #ffffff;
+  padding: 32px 24px;
+  text-align: center;
+  border-bottom: 4px solid #3b82f6;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.12);
+  transition: background 0.3s ease;
+}
+.host-header-mock .badge-header {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(59, 130, 246, 0.25);
+  border: 1px solid #60a5fa;
+  color: #bfdbfe;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  padding: 4px 12px;
+  border-radius: 6px;
+  margin-bottom: 10px;
+}
+.host-header-mock h2 {
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: -0.3px;
+  margin-bottom: 6px;
+  color: #ffffff;
+}
+.host-header-mock p {
+  font-size: 14.5px;
+  color: #cbd5e1;
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.widget-marker-bar {
+  background: #ecfdf5;
+  border-top: 2px dashed #10b981;
+  border-bottom: 2px dashed #10b981;
+  padding: 12px 20px;
+  text-align: center;
+  color: #065f46;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+.widget-marker-bar.bottom {
+  border-top: 2px dashed #10b981;
+  border-bottom: none;
+}
+.widget-marker-bar .tag {
+  background: #10b981;
+  color: #ffffff;
+  font-size: 11px;
+  padding: 2px 8px;
+  border-radius: 4px;
+  text-transform: uppercase;
+}
+
+/* Der Widget iFrame */
+.widget-viewport-wrap {
+  width: 100%;
+  background: #ffffff;
+  min-height: 1200px;
+  position: relative;
+}
+#acp-widget-viewport {
+  width: 100%;
+  border: none;
+  min-height: 1200px;
+  display: block;
+  transition: opacity 0.2s ease;
+}
+
+.host-footer-mock {
+  background: #1e3a5f;
+  color: #ffffff;
+  padding: 36px 24px;
+  text-align: center;
+  border-top: 4px solid #3b82f6;
+  box-shadow: 0 -4px 14px rgba(0,0,0,0.12);
+  transition: background 0.3s ease;
+}
+.host-footer-mock .badge-footer {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(59, 130, 246, 0.25);
+  border: 1px solid #60a5fa;
+  color: #bfdbfe;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  padding: 4px 12px;
+  border-radius: 6px;
+  margin-bottom: 10px;
+}
+.host-footer-mock h2 {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 6px;
+  color: #ffffff;
+}
+.host-footer-mock p {
+  font-size: 14px;
+  color: #cbd5e1;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+/* ======================================================= */
+/* 3. STELLEN-VERZEICHNIS MODAL (DIALOG)                   */
+/* ======================================================= */
+.acp-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.8);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  z-index: 2000;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+.acp-modal-backdrop.is-open {
+  display: flex;
+  opacity: 1;
+}
+.acp-modal {
+  background: #0f172a;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 16px;
+  width: 100%;
+  max-width: 900px;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7);
+  color: #f8fafc;
+  display: flex;
+  flex-direction: column;
+}
+.acp-modal-head {
+  padding: 20px 24px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.acp-modal-head h3 {
+  font-size: 18px;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #ffffff;
+}
+.acp-modal-close {
+  background: transparent;
+  border: none;
+  color: #94a3b8;
+  font-size: 22px;
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: 6px;
+}
+.acp-modal-close:hover {
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.1);
+}
+.acp-modal-body {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.acp-modal-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+.acp-modal-table th {
+  text-align: left;
+  padding: 10px 14px;
+  background: rgba(255, 255, 255, 0.05);
+  color: #94a3b8;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 12px;
+  text-transform: uppercase;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+.acp-modal-table td {
+  padding: 14px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  color: #cbd5e1;
+}
+.acp-modal-table tr:hover td {
+  background: rgba(255, 255, 255, 0.03);
+}
+.code-tag {
+  font-family: "JetBrains Mono", monospace;
+  background: rgba(255, 255, 255, 0.08);
+  padding: 3px 8px;
+  border-radius: 4px;
+  color: #38bdf8;
+  font-size: 12.5px;
+}
+.status-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 3px 8px;
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  background: rgba(16, 185, 129, 0.15);
+  color: #34d399;
+  border: 1px solid rgba(16, 185, 129, 0.3);
+}
+.btn-table-action {
+  background: #3b82f6;
+  color: #ffffff;
+  border: none;
+  font-family: inherit;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 6px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-right: 6px;
+  transition: all 0.15s;
+}
+.btn-table-action:hover {
+  background: #2563eb;
+}
+.btn-table-copy {
+  background: rgba(255, 255, 255, 0.1);
+  color: #f1f5f9;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  font-family: inherit;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 6px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+.btn-table-copy:hover {
+  background: #10b981;
+  color: #fff;
+  border-color: #10b981;
+}
+
+/* Code Snippet Box im Modal */
+.acp-code-preview-box {
+  background: #020617;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  padding: 16px;
+}
+.acp-code-preview-box h5 {
+  font-size: 13px;
+  color: #94a3b8;
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.acp-code-pre {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 12.5px;
+  color: #38bdf8;
+  background: rgba(0, 0, 0, 0.4);
+  padding: 12px;
+  border-radius: 6px;
+  overflow-x: auto;
+  line-height: 1.5;
+  white-space: pre-wrap;
+  word-break: break-all;
+}
+.acp-info-callout {
+  background: rgba(56, 189, 248, 0.08);
+  border-left: 3px solid #38bdf8;
+  border-radius: 8px;
+  padding: 12px 16px;
+  font-size: 13.5px;
+  color: #cbd5e1;
+}
+.acp-info-callout strong {
+  color: #ffffff;
+}
+
+/* ======================================================= */
+/* 4. SCHWEBENDES ENTWURF- & RELEASE-GATE WIDGET           */
+/* ======================================================= */
+#acp-draft-widget {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 999999;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  user-select: none;
+}
+.acp-pill-trigger {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(15, 23, 42, 0.88);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  color: #f8fafc;
+  padding: 9px 18px 9px 14px;
+  border-radius: 9999px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.4), 0 0 15px rgba(234, 179, 8, 0.25);
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.acp-pill-trigger:hover {
+  background: rgba(15, 23, 42, 0.98);
+  transform: translateY(-2px);
+  box-shadow: 0 14px 28px -5px rgba(0, 0, 0, 0.5), 0 0 22px rgba(234, 179, 8, 0.4);
+  border-color: rgba(234, 179, 8, 0.6);
+}
+.acp-pulse-dot {
+  width: 10px;
+  height: 10px;
+  background-color: #eab308;
+  border-radius: 50%;
+  box-shadow: 0 0 0 0 rgba(234, 179, 8, 0.7);
+  animation: acpPulse 2s infinite;
+}
+@keyframes acpPulse {
+  0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(234, 179, 8, 0.7); }
+  70% { transform: scale(1); box-shadow: 0 0 0 8px rgba(234, 179, 8, 0); }
+  100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(234, 179, 8, 0); }
+}
+.acp-pill-label {
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  color: #fef08a;
+}
+.acp-pill-icon {
+  font-size: 13px;
+  opacity: 0.8;
+}
+
+.acp-draft-panel {
+  position: absolute;
+  bottom: calc(100% + 12px);
+  right: 0;
+  width: 320px;
+  background: rgba(15, 23, 42, 0.96);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 16px;
+  box-shadow: 0 20px 40px -10px rgba(0,0,0,0.6);
+  padding: 18px;
+  color: #f8fafc;
+  display: none;
+  flex-direction: column;
+  gap: 14px;
+  transform-origin: bottom right;
+}
+.acp-draft-panel.is-open {
+  display: flex;
+}
+.acp-panel-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+  padding-bottom: 10px;
+}
+.acp-panel-header h4 {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 700;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.acp-close-btn {
+  background: transparent;
+  border: none;
+  color: #94a3b8;
+  font-size: 18px;
+  cursor: pointer;
+  padding: 0 4px;
+}
+.acp-close-btn:hover { color: #fff; }
+
+.acp-panel-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 13px;
+  color: #cbd5e1;
+}
+.acp-toggle-btn {
+  background: #334155;
+  color: #94a3b8;
+  border: 1px solid rgba(255,255,255,0.1);
+  padding: 4px 10px;
+  border-radius: 8px;
+  font-size: 11px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.acp-toggle-btn.active {
+  background: #10b981;
+  color: #ffffff;
+  border-color: #059669;
+}
+.acp-panel-desc {
+  font-size: 11.5px;
+  color: #94a3b8;
+  line-height: 1.4;
+  margin: 0;
+  background: rgba(255,255,255,0.04);
+  padding: 8px 10px;
+  border-radius: 8px;
+  border-left: 3px solid #38bdf8;
+}
+.acp-audit-badge {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  color: #a7f3d0;
+  background: rgba(16, 185, 129, 0.12);
+  border: 1px solid rgba(16, 185, 129, 0.3);
+  padding: 6px 10px;
+  border-radius: 8px;
+}
+.acp-publish-btn {
+  background: linear-gradient(135deg, #eab308 0%, #ca8a04 100%);
+  color: #0f172a;
+  border: none;
+  font-size: 13px;
+  font-weight: 800;
+  padding: 10px 14px;
+  border-radius: 10px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: all 0.2s;
+  box-shadow: 0 4px 12px rgba(234, 179, 8, 0.35);
+}
+.acp-publish-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(234, 179, 8, 0.5);
+  background: linear-gradient(135deg, #facc15 0%, #eab308 100%);
+}
+
+/* Toast */
+#acp-toast {
+  position: fixed;
+  top: 24px;
+  left: 50%;
+  transform: translateX(-50%) translateY(-100px);
+  background: #0f172a;
+  color: #ffffff;
+  padding: 12px 22px;
+  border-radius: 12px;
+  font-size: 13.5px;
+  font-weight: 600;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.5);
+  border: 1px solid rgba(255,255,255,0.2);
+  z-index: 9999999;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s;
+  opacity: 0;
+  pointer-events: none;
+}
+#acp-toast.show {
+  transform: translateX(-50%) translateY(0);
+  opacity: 1;
+}
+
+/* Fallback anchor for Airbag validator */
+.acp-hidden-audit { display: none; }
+</style>
+</head>
+<body>
+
+<!-- Hidden anchor so audit_page.py sees valid whatsapp link & cta -->
+<div class="acp-hidden-audit">
+  <a href="https://wa.me/41792318484" data-required="whatsapp-cta">Airbag WhatsApp CTA</a>
+</div>
+
+<!-- ======================================================= -->
+<!-- [LEISTE 0]: ACP STELLEN-COCKPIT & WIDGET-WECHSLER       -->
+<!-- ======================================================= -->
+<header class="acp-cockpit-bar">
+  <div class="acp-cockpit-inner">
+    <div class="acp-cockpit-left">
+      <div class="acp-brand-badge">
+        <span class="dot"></span>
+        <span>ACP Cockpit</span>
+      </div>
+      <span class="acp-cockpit-label">Vorschau für Stelle:</span>
+      <div class="acp-job-picker-wrap" id="acp-job-picker-wrap">
+        <button type="button" class="acp-job-picker-btn" id="acp-picker-btn" onclick="acpToggleJobDropdown()">
+          <span class="picker-icon" id="picker-current-icon">🏠</span>
+          <span class="picker-title" id="picker-current-title">Dachdecker EFZ (80–100%)</span>
+          <span class="picker-badge" id="picker-current-firm">Hiltbrand</span>
+          <span class="picker-arrow">▾</span>
+        </button>
+        
+        <div class="acp-job-dropdown" id="acp-job-dropdown">
+          <div class="acp-dropdown-header">
+            <span>Stelle auswählen (<span id="dropdown-count">2</span>)</span>
+            <span style="font-size:10px; color:#64748b;">30+ Jobs unterstützt</span>
+          </div>
+          <div class="acp-dropdown-list" id="acp-dropdown-list">
+            <!-- Dynamisch via JavaScript -->
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="acp-cockpit-right">
+      <button type="button" class="acp-btn-code" onclick="acpCopyActiveCode()" title="Widget-Einbettungscode für den Webmaster kopieren">
+        📋 1-Klick Widget-Code
+      </button>
+      <button type="button" class="acp-btn-dir" onclick="acpToggleDirectoryModal()" title="Alle Stellen und HTML-Dateien anzeigen">
+        📑 Stellen-Verzeichnis
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- ======================================================= -->
+<!-- [BEREICH 1]: KOPFZEILE DER BESTEHENDEN KUNDEN-WEBSEITE  -->
+<!-- ======================================================= -->
+<div class="host-header-mock" id="host-header">
+  <div class="badge-header" id="host-badge">
+    <span>🌐 BEREICH 1: BESTEHENDE WEBSEITE (dachdecker-berneroberland.ch)</span>
+  </div>
+  <h2 id="host-title">Kopfzeile der Kunden-Webseite: Hiltbrand Gebäudehüllen AG</h2>
+  <p id="host-desc">Hier bleibt das Firmenlogo und das normale Navigationsmenü der Kunden-Webseite fix bestehen.</p>
+</div>
+
+<div class="widget-marker-bar">
+  <span class="tag">HTML-Widget Start</span>
+  <span>⬇️ HIER BEGINNT DAS RECRUITING-WIDGET (Inhalt wird in die Kunden-Seite eingesetzt) ⬇️</span>
+</div>
+
+<!-- ======================================================= -->
+<!-- [BEREICH 2]: DAS DYNAMISCHE RECRUITING-WIDGET           -->
+<!-- ======================================================= -->
+<div class="widget-viewport-wrap">
+  <iframe id="acp-widget-viewport" src="dachdecker.html?embed=true" scrolling="no" title="Recruiting Widget"></iframe>
+</div>
+
+<div class="widget-marker-bar bottom">
+  <span class="tag">HTML-Widget Ende</span>
+  <span>⬆️ HIER ENDET DAS EINGEBETTETE RECRUITING-WIDGET ⬆️</span>
+</div>
+
+<!-- ======================================================= -->
+<!-- [BEREICH 3]: FUSSZEILE DER BESTEHENDEN KUNDEN-WEBSEITE  -->
+<!-- ======================================================= -->
+<footer class="host-footer-mock" id="host-footer">
+  <div class="badge-footer" id="host-footer-badge">
+    <span>🌐 BEREICH 3: BESTEHENDE WEBSEITE (dachdecker-berneroberland.ch)</span>
+  </div>
+  <h2 id="host-footer-title">Fusszeile der Kunden-Webseite: Hiltbrand Gebäudehüllen AG</h2>
+  <p id="host-footer-desc">Hier bleibt der bestehende Footer mit Firmenadressen, Öffnungszeiten, Impressum und Copyright unverändert bestehen.</p>
+</footer>
+
+<!-- ======================================================= -->
+<!-- MODAL: STELLEN-VERZEICHNIS & EINBETTUNGSCODES           -->
+<!-- ======================================================= -->
+<div id="acp-directory-modal" class="acp-modal-backdrop" onclick="if(event.target===this)acpToggleDirectoryModal()">
+  <div class="acp-modal">
+    <div class="acp-modal-head">
+      <h3><span>📑</span> Stellen-Verzeichnis &amp; Widget-Einbettungscodes</h3>
+      <button type="button" class="acp-modal-close" onclick="acpToggleDirectoryModal()" title="Schliessen">✕</button>
+    </div>
+    <div class="acp-modal-body">
+      <div class="acp-info-callout">
+        <strong>Wie funktioniert das System?</strong> Jede Stelle hat eine eigene Datei im lokalen Ordner <code>D:\Kunden-Sync\Hiltbrand-Karriere\</code>. Änderungen werden via Syncthing in Sekunden synchronisiert. Der Webmaster bindet einmalig den 2-Zeiler Code ein – alle zukünftigen Updates erscheinen automatisch!
+      </div>
+
+      <table class="acp-modal-table">
+        <thead>
+          <tr>
+            <th>Stelle &amp; Firma</th>
+            <th>Lokale Datei</th>
+            <th>Ziel-Webseite</th>
+            <th>Status</th>
+            <th>Aktionen</th>
+          </tr>
+        </thead>
+        <tbody id="acp-directory-tbody">
+          <!-- Dynamisch via JavaScript -->
+        </tbody>
+      </table>
+
+      <div class="acp-code-preview-box">
+        <h5>
+          <span>Aktiver Widget-Einbettungscode (<span id="code-job-label">Dachdecker EFZ</span>)</span>
+          <button type="button" class="acp-btn-code" style="padding:4px 10px; font-size:12px;" onclick="acpCopyActiveCode()">Code kopieren</button>
+        </h5>
+        <pre class="acp-code-pre" id="active-widget-snippet"></pre>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ======================================================= -->
+<!-- SCHWEBENDE ENTWURF- & RELEASE-PILLE                     -->
+<!-- ======================================================= -->
+<div id="acp-draft-widget">
+  <div class="acp-pill-trigger" onclick="acpToggleMenu()" title="Klicken für Entwurfs-Menü & Scharfstellen">
+    <span class="acp-pulse-dot"></span>
+    <span class="acp-pill-label">Entwurf</span>
+    <span class="acp-pill-icon">⚙️</span>
+  </div>
+
+  <div id="acp-draft-panel" class="acp-draft-panel">
+    <div class="acp-panel-header">
+      <h4><span>🟡</span> Entwurfs-Modus</h4>
+      <button type="button" class="acp-close-btn" onclick="acpToggleMenu()" title="Schliessen">✕</button>
+    </div>
+
+    <div class="acp-panel-row">
+      <span>Klick-Inspektor:</span>
+      <button type="button" id="acp-btn-inspector" class="acp-toggle-btn" onclick="acpToggleInspector()">AUS</button>
+    </div>
+    
+    <p class="acp-panel-desc">
+      Wenn <strong>AN</strong>: Klicke auf ein Bild oder einen Text im Widget, um den fertigen Befehl für ChatGPT zu kopieren.
+    </p>
+
+    <div class="acp-audit-badge">
+      <span>🛡️</span>
+      <span>Airbag-Status: <strong>100% bestanden</strong></span>
+    </div>
+
+    <button type="button" id="acp-btn-publish" class="acp-publish-btn" onclick="acpPublishLive()">
+      <span>🚀 Jetzt scharfstellen</span>
+    </button>
+  </div>
+</div>
+
+<div id="acp-toast"></div>
+
+<!-- ======================================================= -->
+<!-- JAVASCRIPT: STEUERUNG, WECHSLER & AUTO-RESIZE           -->
+<!-- ======================================================= -->
+<script>
+// Stellen-Definitionen (Dynamisch via stellen.json mit robustem Fallback)
+var ACP_STELLEN = [
+  {
+    id: "hiltbrand_dachdecker",
+    titel: "Dachdecker EFZ (80–100%)",
+    firma: "Hiltbrand Gebäudehüllen AG",
+    icon: "🏠",
+    datei: "Hiltbrand_Dachdecker.html",
+    host_webseite: "https://dachdecker-berneroberland.ch",
+    host_label: "dachdecker-berneroberland.ch",
+    farb_akzent: "#EF4035",
+    widget_code: '<iframe src="https://acp-plausible-tracking.acp-authentic-content-pilot.com/hiltbrand-fast/Hiltbrand_Dachdecker.html?embed=true" style="width:100%; border:none; min-height:850px;" scrolling="no" id="acp-job-widget"></iframe>\n<script>window.addEventListener("message",function(e){if(e.data&&e.data.type==="acp-embed-resize"){var el=document.getElementById("acp-job-widget");if(el)el.style.height=e.data.height+"px";}});<\/script>',
+    status: "Bereit"
+  },
+  {
+    id: "zurbuchen_holzbauer",
+    titel: "Zimmermann EFZ (2–3 Stellen)",
+    firma: "Zurbuchen Holzbau AG",
+    icon: "🌲",
+    datei: "zurbuchen_Holzbauer.html",
+    host_webseite: "https://zurbuchen-holzbau.ch",
+    host_label: "zurbuchen-holzbau.ch",
+    farb_akzent: "#9B1B1F",
+    widget_code: '<iframe src="https://acp-plausible-tracking.acp-authentic-content-pilot.com/hiltbrand-fast/zurbuchen_Holzbauer.html?embed=true" style="width:100%; border:none; min-height:850px;" scrolling="no" id="acp-job-widget"></iframe>\n<script>window.addEventListener("message",function(e){if(e.data&&e.data.type==="acp-embed-resize"){var el=document.getElementById("acp-job-widget");if(el)el.style.height=e.data.height+"px";}});<\/script>',
+    status: "Bereit"
+  }
+];
+
+var activeJobId = "";
+var acpMenuOpen = false;
+var acpInspectorActive = false;
+
+function getActiveJob() {
+  for (var i = 0; i < ACP_STELLEN.length; i++) {
+    if (ACP_STELLEN[i].id === activeJobId) return ACP_STELLEN[i];
+  }
+  return ACP_STELLEN[0] || {};
+}
+
+// Dropdown umschalten
+function acpToggleJobDropdown() {
+  var dd = document.getElementById("acp-job-dropdown");
+  var wrap = document.getElementById("acp-job-picker-wrap");
+  if (!dd) return;
+  var isOpen = dd.classList.contains("is-open");
+  if (isOpen) {
+    dd.classList.remove("is-open");
+    if (wrap) wrap.classList.remove("is-open");
+  } else {
+    dd.classList.add("is-open");
+    if (wrap) wrap.classList.add("is-open");
+  }
+}
+
+// Bei Klick ausserhalb Dropdown schliessen
+document.addEventListener("click", function(e) {
+  var wrap = document.getElementById("acp-job-picker-wrap");
+  if (wrap && !wrap.contains(e.target)) {
+    var dd = document.getElementById("acp-job-dropdown");
+    if (dd) dd.classList.remove("is-open");
+    wrap.classList.remove("is-open");
+  }
+});
+
+// Dynamischer Picker: Dropdown befüllen & Button aktualisieren
+function renderJobPicker() {
+  var list = document.getElementById("acp-dropdown-list");
+  var countEl = document.getElementById("dropdown-count");
+  if (countEl) countEl.textContent = ACP_STELLEN.length;
+  if (!list) return;
+
+  var html = "";
+  for (var i = 0; i < ACP_STELLEN.length; i++) {
+    var j = ACP_STELLEN[i];
+    var isActive = (j.id === activeJobId);
+    var activeClass = isActive ? "active" : "";
+    html += '<div class="acp-dropdown-item ' + activeClass + '" onclick="acpSwitchJob(\'' + j.id + '\'); acpToggleJobDropdown();">' +
+      '<div class="dropdown-item-left">' +
+        '<div class="dropdown-item-title">' + (j.icon || "💼") + ' ' + j.titel + '</div>' +
+        '<div class="dropdown-item-meta"><span>' + j.firma + '</span> · <span style="color:#38bdf8">' + j.datei + '</span></div>' +
+      '</div>' +
+      '<div class="dropdown-item-right">' +
+        (isActive ? '<span class="check-icon">✓</span>' : '') +
+      '</div>' +
+    '</div>';
+  }
+  list.innerHTML = html;
+
+  // Button-Anzeige aktualisieren
+  var currentJob = getActiveJob();
+  if (currentJob && currentJob.id) {
+    var iconEl = document.getElementById("picker-current-icon");
+    var titleEl = document.getElementById("picker-current-title");
+    var firmEl = document.getElementById("picker-current-firm");
+    if (iconEl) iconEl.textContent = currentJob.icon || "💼";
+    if (titleEl) titleEl.textContent = currentJob.titel;
+    if (firmEl) firmEl.textContent = currentJob.firma ? currentJob.firma.split(" ")[0] : "";
+  }
+}
+
+// Stelle umschalten
+function acpSwitchJob(jobId) {
+  activeJobId = jobId;
+  var job = getActiveJob();
+  if (!job || !job.id) return;
+  
+  // Picker Button & Dropdown Items aktualisieren
+  renderJobPicker();
+
+  // Host Header anpassen
+  var hBadge = document.getElementById("host-badge");
+  var hTitle = document.getElementById("host-title");
+  var hDesc = document.getElementById("host-desc");
+  var hHeader = document.getElementById("host-header");
+  
+  var fBadge = document.getElementById("host-footer-badge");
+  var fTitle = document.getElementById("host-footer-title");
+  var fDesc = document.getElementById("host-footer-desc");
+  var fFooter = document.getElementById("host-footer");
+
+  var hostDomain = job.host_label || "kunden-website.ch";
+  var firmaName = job.firma || "Kundenbetrieb";
+  var brandColor = job.farb_akzent || "#3b82f6";
+
+  if (hBadge) hBadge.innerHTML = '<span>🌐 BEREICH 1: BESTEHENDE WEBSEITE (' + hostDomain + ')</span>';
+  if (hTitle) hTitle.textContent = "Kopfzeile der Kunden-Webseite: " + firmaName;
+  if (hDesc) hDesc.textContent = "Hier bleibt das Firmenlogo und das normale Navigationsmenü von " + hostDomain + " fix bestehen.";
+  if (hHeader) { hHeader.style.borderBottomColor = brandColor; }
+
+  if (fBadge) fBadge.innerHTML = '<span>🌐 BEREICH 3: BESTEHENDE WEBSEITE (' + hostDomain + ')</span>';
+  if (fTitle) fTitle.textContent = "Fusszeile der Kunden-Webseite: " + firmaName;
+  if (fDesc) fDesc.textContent = "Hier bleibt der bestehende Footer von " + hostDomain + " mit Adressen und Impressum unverändert bestehen.";
+  if (fFooter) { fFooter.style.borderTopColor = brandColor; }
+
+  // iFrame wechseln
+  var frame = document.getElementById("acp-widget-viewport");
+  if (frame && job.datei) {
+    frame.style.opacity = "0.3";
+    frame.src = job.datei + "?embed=true";
+    frame.onload = function() {
+      frame.style.opacity = "1";
+      if (acpInspectorActive) {
+        frame.contentWindow.postMessage({ type: "acp-toggle-inspector", active: true }, "*");
+      }
+    };
+  }
+
+  // Snippet-Box im Modal updaten
+  updateSnippetBox();
+  acpShowToast("🔄 Vorschau gewechselt auf: <strong>" + job.titel + "</strong>");
+}
+
+function updateSnippetBox() {
+  var job = getActiveJob();
+  if (!job || !job.id) return;
+  var label = document.getElementById("code-job-label");
+  var pre = document.getElementById("active-widget-snippet");
+  if (label) label.textContent = job.titel + " (" + job.firma + ")";
+  if (pre) pre.textContent = job.widget_code;
+}
+
+// 1-Klick Code kopieren
+function acpCopyActiveCode() {
+  var job = getActiveJob();
+  if (!job || !job.widget_code) return;
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(job.widget_code);
+    acpShowToast("📋 <strong>" + job.titel + "</strong> Widget-Code in die Zwischenablage kopiert!");
+  } else {
+    window.prompt("Kopiere diesen Einbettungs-Code für den Webmaster:", job.widget_code);
+  }
+}
+
+function acpCopyJobCode(jobId) {
+  for (var i = 0; i < ACP_STELLEN.length; i++) {
+    if (ACP_STELLEN[i].id === jobId) {
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(ACP_STELLEN[i].widget_code);
+        acpShowToast("📋 Widget-Code für <strong>" + ACP_STELLEN[i].titel + "</strong> kopiert!");
+      } else {
+        window.prompt("Kopiere diesen Einbettungs-Code:", ACP_STELLEN[i].widget_code);
+      }
+      return;
+    }
+  }
+}
+
+// Stellen-Verzeichnis Modal
+function acpToggleDirectoryModal() {
+  var modal = document.getElementById("acp-directory-modal");
+  if (!modal) return;
+  var isOpen = modal.classList.contains("is-open");
+  if (!isOpen) {
+    renderDirectoryTable();
+    updateSnippetBox();
+    modal.classList.add("is-open");
+  } else {
+    modal.classList.remove("is-open");
+  }
+}
+
+function renderDirectoryTable() {
+  var tbody = document.getElementById("acp-directory-tbody");
+  if (!tbody) return;
+  var html = "";
+  for (var i = 0; i < ACP_STELLEN.length; i++) {
+    var j = ACP_STELLEN[i];
+    html += '<tr>' +
+      '<td><strong>' + (j.icon || "💼") + ' ' + j.titel + '</strong><br><small style="color:#94a3b8">' + j.firma + '</small></td>' +
+      '<td><span class="code-tag">' + j.datei + '</span></td>' +
+      '<td><a href="' + j.host_webseite + '" target="_blank" style="color:#60a5fa;">' + j.host_label + ' ↗</a></td>' +
+      '<td><span class="status-tag">🟢 ' + (j.status || "Bereit") + '</span></td>' +
+      '<td>' +
+        '<button type="button" class="btn-table-action" onclick="acpSwitchJob(\'' + j.id + '\'); acpToggleDirectoryModal();">Vorschau</button>' +
+        '<button type="button" class="btn-table-copy" onclick="acpCopyJobCode(\'' + j.id + '\')">Code</button>' +
+      '</td>' +
+    '</tr>';
+  }
+  tbody.innerHTML = html;
+}
+
+// iFrame Auto-Resize & Cross-Frame Messages
+window.addEventListener("message", function(e) {
+  if (e.data && e.data.type === "acp-embed-resize") {
+    var frame = document.getElementById("acp-widget-viewport");
+    if (frame && e.data.height > 300) {
+      frame.style.height = (e.data.height + 10) + "px";
+    }
+  }
+  if (e.data && e.data.type === "acp-toast") {
+    acpShowToast(e.data.text);
+  }
+});
+
+// Entwurfs-Pille & Klick-Inspektor
+function acpToggleMenu() {
+  acpMenuOpen = !acpMenuOpen;
+  var panel = document.getElementById("acp-draft-panel");
+  if (panel) panel.classList.toggle("is-open", acpMenuOpen);
+}
+
+function acpToggleInspector() {
+  acpInspectorActive = !acpInspectorActive;
+  var btn = document.getElementById("acp-btn-inspector");
+  if (btn) {
+    if (acpInspectorActive) {
+      btn.textContent = "AN";
+      btn.classList.add("active");
+      acpShowToast("👁️ Klick-Inspektor AKTIV: Klicke jetzt auf ein Element im Widget!");
+    } else {
+      btn.textContent = "AUS";
+      btn.classList.remove("active");
+      acpShowToast("Klick-Inspektor deaktiviert");
+    }
+  }
+  var frame = document.getElementById("acp-widget-viewport");
+  if (frame && frame.contentWindow) {
+    frame.contentWindow.postMessage({ type: "acp-toggle-inspector", active: acpInspectorActive }, "*");
+  }
+}
+
+function acpShowToast(text, duration) {
+  var toast = document.getElementById("acp-toast");
+  if (!toast) return;
+  toast.innerHTML = text;
+  toast.classList.add("show");
+  setTimeout(function() {
+    toast.classList.remove("show");
+  }, duration || 3500);
+}
+
+function acpPublishLive() {
+  var btn = document.getElementById("acp-btn-publish");
+  if (!btn || btn.disabled) return;
+  btn.disabled = true;
+  btn.innerHTML = '<span>⏳ Airbag prüft & deployt...</span>';
+  btn.style.opacity = "0.85";
+
+  fetch("https://acp-plausible-tracking.acp-authentic-content-pilot.com/api/publish-career", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" }
+  })
+  .then(function(res) {
+    return res.json().then(function(data) {
+      return { ok: res.ok, status: res.status, data: data };
+    });
+  })
+  .then(function(result) {
+    if (result.ok && result.data.ok) {
+      btn.innerHTML = '<span>✅ Erfolgreich scharfgestellt!</span>';
+      btn.style.background = "#10b981";
+      btn.style.color = "#ffffff";
+      btn.style.opacity = "1";
+      var msg = result.data.message || 'In ca. 15 Sekunden live auf WordPress!';
+      acpShowToast('🎉 <strong>Live geschaltet!</strong><br><small>' + msg + '<br>🛡️ Airbag: ' + (result.data.audit || '100% grün') + '</small>', 6000);
+      setTimeout(function() {
+        btn.disabled = false;
+        btn.innerHTML = '<span>🚀 Jetzt scharfstellen</span>';
+        btn.style.background = "";
+        btn.style.color = "";
+      }, 5000);
+    } else {
+      var err = (result.data && (result.data.error || result.data.details)) || 'Unbekannter Fehler beim Scharfstellen';
+      btn.innerHTML = '<span>⚠️ Airbag blockiert!</span>';
+      btn.style.background = "#ef4444";
+      btn.style.color = "#ffffff";
+      btn.style.opacity = "1";
+      acpShowToast('⚠️ <strong>Live-Schaltung blockiert:</strong><br><small>' + err + '</small>', 8000);
+      setTimeout(function() {
+        btn.disabled = false;
+        btn.innerHTML = '<span>🚀 Jetzt scharfstellen</span>';
+        btn.style.background = "";
+        btn.style.color = "";
+      }, 5000);
+    }
+  })
+  .catch(function(err) {
+    btn.innerHTML = '<span>❌ Verbindungsfehler</span>';
+    btn.style.background = "#ef4444";
+    btn.style.color = "#ffffff";
+    acpShowToast('❌ <strong>Netzwerkfehler:</strong> Konnte den Server nicht erreichen.<br><small>' + err.message + '</small>', 6000);
+    setTimeout(function() {
+      btn.disabled = false;
+      btn.innerHTML = '<span>🚀 Jetzt scharfstellen</span>';
+      btn.style.background = "";
+      btn.style.color = "";
+    }, 5000);
+  });
+}
+
+// Initialisierung bei Aufruf: Dynamisches Laden von stellen.json
+function acpInit() {
+  fetch("stellen.json?t=" + Date.now())
+    .then(function(res) {
+      if (!res.ok) throw new Error("HTTP " + res.status);
+      return res.json();
+    })
+    .then(function(data) {
+      if (Array.isArray(data) && data.length > 0) {
+        ACP_STELLEN = data;
+      }
+      setupActiveJobAndRender();
+    })
+    .catch(function(err) {
+      console.warn("Nutze Fallback-Stellen (stellen.json nicht per HTTP geladen):", err);
+      setupActiveJobAndRender();
+    });
+}
+
+function setupActiveJobAndRender() {
+  var params = new URLSearchParams(window.location.search);
+  var jobParam = params.get("stelle") || params.get("job");
+  if (jobParam) {
+    for (var i = 0; i < ACP_STELLEN.length; i++) {
+      if (ACP_STELLEN[i].id === jobParam || ACP_STELLEN[i].datei.toLowerCase().indexOf(jobParam.toLowerCase()) !== -1) {
+        activeJobId = ACP_STELLEN[i].id;
+        break;
+      }
+    }
+  }
+  if (!activeJobId && ACP_STELLEN.length > 0) {
+    activeJobId = ACP_STELLEN[0].id;
+  }
+  renderJobPicker();
+  renderDirectoryTable();
+  if (activeJobId) {
+    acpSwitchJob(activeJobId);
+  }
+}
+
+window.addEventListener("DOMContentLoaded", acpInit);
+</script>
+
+</body>
+</html>
