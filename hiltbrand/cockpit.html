@@ -239,6 +239,185 @@ a { color: var(--rot); text-decoration: none; }
   font-weight: 900;
   font-size: 14px;
 }
+
+/* Live Status Badge in Cockpit Bar */
+.acp-live-badge-wrap {
+  display: inline-flex;
+  align-items: center;
+}
+.acp-live-status-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 5px 12px;
+  border-radius: 6px;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.4px;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+.acp-live-status-pill.is-live {
+  background: rgba(16, 185, 129, 0.15);
+  border: 1px solid rgba(16, 185, 129, 0.5);
+  color: #34d399;
+}
+.acp-live-status-pill.is-live:hover {
+  background: rgba(16, 185, 129, 0.25);
+  border-color: #10b981;
+  box-shadow: 0 0 12px rgba(16, 185, 129, 0.3);
+}
+.acp-live-status-pill.is-draft {
+  background: rgba(148, 163, 184, 0.12);
+  border: 1px solid rgba(148, 163, 184, 0.3);
+  color: #94a3b8;
+}
+.acp-live-pulse-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #10b981;
+  box-shadow: 0 0 8px #10b981;
+  animation: acpPulse 2s infinite;
+}
+@keyframes acpPulse {
+  0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); }
+  70% { transform: scale(1.05); box-shadow: 0 0 0 6px rgba(16, 185, 129, 0); }
+  100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+}
+.acp-draft-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #94a3b8;
+}
+.acp-badge-mini {
+  font-size: 10px;
+  font-weight: 800;
+  font-family: "JetBrains Mono", monospace;
+  padding: 2px 6px;
+  border-radius: 4px;
+  letter-spacing: 0.3px;
+  text-transform: uppercase;
+}
+.acp-badge-mini.live {
+  background: rgba(16, 185, 129, 0.2);
+  border: 1px solid rgba(16, 185, 129, 0.5);
+  color: #34d399;
+}
+.acp-badge-mini.draft {
+  background: rgba(148, 163, 184, 0.15);
+  border: 1px solid rgba(148, 163, 184, 0.3);
+  color: #94a3b8;
+}
+.acp-badge-mini.ready {
+  background: rgba(234, 179, 8, 0.15);
+  border: 1px solid rgba(234, 179, 8, 0.4);
+  color: #facc15;
+}
+
+/* 4-Stufen Kaskaden Diagramm im Hilfe-Modal */
+.acp-pipeline-card {
+  background: rgba(15, 23, 42, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 12px;
+  padding: 16px;
+  margin: 18px 0;
+}
+.acp-pipeline-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+.acp-pipeline-title {
+  font-size: 12px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  color: #60a5fa;
+  font-family: "JetBrains Mono", monospace;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.acp-pipeline-steps {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.acp-step-box {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 8px;
+  padding: 10px 14px;
+  transition: all 0.2s ease;
+}
+.acp-step-box:hover {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(255, 255, 255, 0.18);
+}
+.acp-step-box.live-target {
+  background: rgba(16, 185, 129, 0.08);
+  border-color: rgba(16, 185, 129, 0.35);
+}
+.acp-step-num {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 11px;
+  font-weight: 800;
+  padding: 3px 7px;
+  border-radius: 5px;
+  background: rgba(255, 255, 255, 0.1);
+  color: #f1f5f9;
+  flex-shrink: 0;
+}
+.acp-step-box.live-target .acp-step-num {
+  background: #10b981;
+  color: #0f172a;
+}
+.acp-step-content {
+  flex: 1;
+  min-width: 0;
+}
+.acp-step-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 2px;
+}
+.acp-step-label {
+  font-size: 13px;
+  font-weight: 700;
+  color: #f8fafc;
+}
+.acp-step-badge {
+  font-size: 10px;
+  font-family: "JetBrains Mono", monospace;
+  font-weight: 700;
+  padding: 2px 6px;
+  border-radius: 4px;
+  text-transform: uppercase;
+}
+.acp-step-desc {
+  font-size: 12px;
+  color: #94a3b8;
+  line-height: 1.4;
+  margin: 0;
+}
+.acp-step-arrow {
+  text-align: center;
+  color: #64748b;
+  font-size: 12px;
+  line-height: 1;
+  margin: -4px 0;
+}
+
 .acp-cockpit-right {
   display: flex;
   align-items: center;
@@ -810,6 +989,7 @@ a { color: var(--rot); text-decoration: none; }
   opacity: 1;
 }
 
+
 /* Fallback anchor for Airbag validator */
 .acp-hidden-audit { display: none; }
 </style>
@@ -850,6 +1030,7 @@ a { color: var(--rot); text-decoration: none; }
           </div>
         </div>
       </div>
+      <div class="acp-live-badge-wrap" id="acp-live-badge-wrap"></div>
     </div>
     <div class="acp-cockpit-right">
       <button type="button" class="acp-btn-help" onclick="acpToggleHelpModal()" title="Kurzanleitung: So funktioniert das Cockpit">
@@ -1043,6 +1224,72 @@ a { color: var(--rot); text-decoration: none; }
         </div>
       </div>
 
+      <!-- 4-STUFEN PROZESS-SCHEMA -->
+      <div class="acp-pipeline-card">
+        <div class="acp-pipeline-header">
+          <span class="acp-pipeline-title">⚡ Die 4-Stufen-Kaskade (Vom Ordner zur Live-Webseite)</span>
+          <span style="font-size:10px; color:#10b981; font-family:'JetBrains Mono',monospace; font-weight:700;">● VOLLAUTOMATISCH</span>
+        </div>
+        <div class="acp-pipeline-steps">
+          
+          <div class="acp-step-box">
+            <span class="acp-step-num">STUFE 1</span>
+            <div class="acp-step-content">
+              <div class="acp-step-head">
+                <span class="acp-step-label">💻 Dein Laptop (Lokaler Arbeitsplatz)</span>
+                <span class="acp-step-badge" style="background:rgba(255,255,255,0.1); color:#cbd5e1;">Lokal</span>
+              </div>
+              <p class="acp-step-desc">Du passt die HTML-Datei lokal an (z. B. mit ChatGPT) und prüfst sie hier im Cockpit. Deine echte Firmen-Webseite bleibt zu 100% geschützt.</p>
+            </div>
+          </div>
+
+          <div class="acp-step-arrow">▼ Klick auf [ 🚀 Jetzt scharfstellen ]</div>
+
+          <div class="acp-step-box">
+            <span class="acp-step-num">STUFE 2</span>
+            <div class="acp-step-content">
+              <div class="acp-step-head">
+                <span class="acp-step-label">🛡️ Magnet-XS Cloud (Airbag &amp; Synchronisation)</span>
+                <span class="acp-step-badge" style="background:rgba(234,179,8,0.2); color:#facc15;">Airbag-Prüfung</span>
+              </div>
+              <p class="acp-step-desc">Der Airbag prüft die Datei in 0.3s auf intakte HTML-Tags, WhatsApp-Links und Schweizer Telefonnummern. Verhindert Fehler automatisch.</p>
+            </div>
+          </div>
+
+          <div class="acp-step-arrow">▼ Bei 100% grünem Airbag</div>
+
+          <div class="acp-step-box">
+            <span class="acp-step-num">STUFE 3</span>
+            <div class="acp-step-content">
+              <div class="acp-step-head">
+                <span class="acp-step-label">⚡ Magnet-XS Edge-CDN (embed.magnet-xs.ch)</span>
+                <span class="acp-step-badge" style="background:rgba(59,130,246,0.2); color:#60a5fa;">&lt; 50ms Auslieferung</span>
+              </div>
+              <p class="acp-step-desc">Schweizer Hochgeschwindigkeits-Server (Zürich &amp; Genf) stellen die fertige Datei für das Einbettungs-Widget bereit.</p>
+            </div>
+          </div>
+
+          <div class="acp-step-arrow">▼ Automatisches Widget-Update</div>
+
+          <div class="acp-step-box live-target">
+            <span class="acp-step-num" style="background:#10b981; color:#0f172a;">STUFE 4</span>
+            <div class="acp-step-content">
+              <div class="acp-step-head">
+                <span class="acp-step-label">🌐 Live-Webseite (dachdecker-berneroberland.ch/jobs/)</span>
+                <span class="acp-step-badge" style="background:rgba(16,185,129,0.25); color:#34d399;">🟢 LIVE FÜR BEWERBER</span>
+              </div>
+              <p class="acp-step-desc">Das feste Widget in WordPress zeigt sofort die neue Version an – ohne dass jemand am WordPress-CMS arbeiten muss!</p>
+            </div>
+          </div>
+
+        </div>
+
+        <div style="margin-top:12px; padding:10px 12px; background:rgba(255,255,255,0.04); border-radius:6px; font-size:11.5px; color:#94a3b8; line-height:1.45;">
+          💡 <strong>Warum ist genau eine Datei öffentlich live?</strong><br>
+          In WordPress ist der feste 2-Zeiler Widget-Code eingebettet, der auf eine bestimmte Datei verlinkt (aktuell: <code>Hiltbrand_Dachdecker_Pragmatisch.html</code>). Alle anderen Dateien im Cockpit sind <strong>sichere Entwürfe</strong>. Sie werden erst live geschaltet, wenn der Webmaster das Widget auf die neue Stelle einstellt.
+        </div>
+      </div>
+
       <div style="padding: 14px 18px; background: rgba(59, 130, 246, 0.12); border: 1px solid rgba(59, 130, 246, 0.25); border-radius: 8px;">
         <div style="font-weight: 700; color: #60a5fa; margin-bottom: 3px; font-size: 13px;">📍 Wo bin ich gerade?</div>
         <div style="font-size: 12.5px; color: #cbd5e1;">
@@ -1071,8 +1318,11 @@ var ACP_STELLEN = [
     host_webseite: "https://dachdecker-berneroberland.ch",
     host_label: "dachdecker-berneroberland.ch",
     farb_akzent: "#EF4035",
-    widget_code: '<iframe src="https://embed.magnet-xs.ch/hiltbrand/Hiltbrand_Dachdecker_Pragmatisch.html" style="width:100%; border:none; min-height:850px;" scrolling="no" id="acp-job-widget"></iframe>\n<script>window.addEventListener("message",function(e){if(e.data&&e.data.type==="acp-embed-resize"){var el=document.getElementById("acp-job-widget");if(el)el.style.height=e.data.height+"px";}});<\/script>',
-    status: "Live auf Website"
+    widget_code: '<iframe src="https://embed.magnet-xs.ch/hiltbrand/Hiltbrand_Dachdecker_Pragmatisch.html?embed=true" style="width:100%; border:none; min-height:850px;" scrolling="no" id="acp-job-widget"></iframe>\n<script>window.addEventListener("message",function(e){if(e.data&&e.data.type==="acp-embed-resize"){var el=document.getElementById("acp-job-widget");if(el)el.style.height=e.data.height+"px";}});<\/script>',
+    is_live: true,
+    live_url: "https://dachdecker-berneroberland.ch/jobs/",
+    status: "Live auf Website",
+    status_badge: "🟢 LIVE AUF WEBSEITE"
   },
   {
     id: "hiltbrand_dachdecker",
@@ -1083,8 +1333,11 @@ var ACP_STELLEN = [
     host_webseite: "https://dachdecker-berneroberland.ch",
     host_label: "dachdecker-berneroberland.ch",
     farb_akzent: "#EF4035",
-    widget_code: '<iframe src="https://embed.magnet-xs.ch/hiltbrand/Hiltbrand_Dachdecker.html" style="width:100%; border:none; min-height:850px;" scrolling="no" id="acp-job-widget"></iframe>\n<script>window.addEventListener("message",function(e){if(e.data&&e.data.type==="acp-embed-resize"){var el=document.getElementById("acp-job-widget");if(el)el.style.height=e.data.height+"px";}});<\/script>',
-    status: "Bereit"
+    widget_code: '<iframe src="https://embed.magnet-xs.ch/hiltbrand/Hiltbrand_Dachdecker.html?embed=true" style="width:100%; border:none; min-height:850px;" scrolling="no" id="acp-job-widget"></iframe>\n<script>window.addEventListener("message",function(e){if(e.data&&e.data.type==="acp-embed-resize"){var el=document.getElementById("acp-job-widget");if(el)el.style.height=e.data.height+"px";}});<\/script>',
+    is_live: false,
+    live_url: "",
+    status: "Entwurf (Vorlage)",
+    status_badge: "⚪ ENTWURF"
   },
   {
     id: "zurbuchen_holzbauer",
@@ -1095,8 +1348,11 @@ var ACP_STELLEN = [
     host_webseite: "https://zurbuchen-holzbau.ch",
     host_label: "zurbuchen-holzbau.ch",
     farb_akzent: "#9B1B1F",
-    widget_code: '<iframe src="https://embed.magnet-xs.ch/zurbuchen/zurbuchen_Holzbauer.html" style="width:100%; border:none; min-height:850px;" scrolling="no" id="acp-job-widget"></iframe>\n<script>window.addEventListener("message",function(e){if(e.data&&e.data.type==="acp-embed-resize"){var el=document.getElementById("acp-job-widget");if(el)el.style.height=e.data.height+"px";}});<\/script>',
-    status: "Bereit"
+    widget_code: '<iframe src="https://embed.magnet-xs.ch/zurbuchen/zurbuchen_Holzbauer.html?embed=true" style="width:100%; border:none; min-height:850px;" scrolling="no" id="acp-job-widget"></iframe>\n<script>window.addEventListener("message",function(e){if(e.data&&e.data.type==="acp-embed-resize"){var el=document.getElementById("acp-job-widget");if(el)el.style.height=e.data.height+"px";}});<\/script>',
+    is_live: false,
+    live_url: "",
+    status: "Bereit für Zurbuchen",
+    status_badge: "🟡 BEREIT"
   }
 ];
 
@@ -1109,6 +1365,33 @@ function getActiveJob() {
     if (ACP_STELLEN[i].id === activeJobId) return ACP_STELLEN[i];
   }
   return ACP_STELLEN[0] || {};
+}
+
+// Live-Badge in der Cockpit-Leiste aktualisieren
+function updateLiveStatusBadge(job) {
+  var wrap = document.getElementById("acp-live-badge-wrap");
+  if (!wrap) return;
+  if (!job) { wrap.innerHTML = ""; return; }
+  
+  if (job.is_live) {
+    var url = job.live_url || "https://dachdecker-berneroberland.ch/jobs/";
+    var domain = (job.host_label || "dachdecker-berneroberland.ch").toUpperCase();
+    wrap.innerHTML = '<a href="' + url + '" target="_blank" class="acp-live-status-pill is-live" title="Diese Stelle ist öffentlich eingebettet. Klicken, um live auf ' + domain + ' anzuschauen!">' +
+      '<span class="acp-live-pulse-dot"></span>' +
+      '<span>🟢 LIVE AUF ' + domain + '</span>' +
+      '<span style="font-size:10px; opacity:0.8;">↗</span>' +
+    '</a>';
+  } else if (job.id && job.id.indexOf("zurbuchen") !== -1) {
+    wrap.innerHTML = '<span class="acp-live-status-pill is-draft" style="border-color: rgba(234,179,8,0.4); color: #facc15;" title="Bereit zur Einbettung auf zurbuchen-holzbau.ch">' +
+      '<span class="acp-draft-dot" style="background:#facc15;"></span>' +
+      '<span>🟡 BEREIT (Zurbuchen Holzbau AG)</span>' +
+    '</span>';
+  } else {
+    wrap.innerHTML = '<span class="acp-live-status-pill is-draft" title="Diese Vorlage ist nicht im WordPress-Widget eingebettet (Sicherer lokaler Entwurf)">' +
+      '<span class="acp-draft-dot"></span>' +
+      '<span>⚪ ENTWURF (Vorlage)</span>' +
+    '</span>';
+  }
 }
 
 // Dropdown umschalten
@@ -1148,19 +1431,30 @@ function renderJobPicker() {
     var j = ACP_STELLEN[i];
     var isActive = (j.id === activeJobId);
     var activeClass = isActive ? "active" : "";
+    
+    var badgeHtml = "";
+    if (j.is_live) {
+      badgeHtml = '<span class="acp-badge-mini live">🟢 LIVE</span>';
+    } else if (j.id && j.id.indexOf("zurbuchen") !== -1) {
+      badgeHtml = '<span class="acp-badge-mini ready">🟡 BEREIT</span>';
+    } else {
+      badgeHtml = '<span class="acp-badge-mini draft">⚪ ENTWURF</span>';
+    }
+
     html += '<div class="acp-dropdown-item ' + activeClass + '" onclick="acpSwitchJob(\'' + j.id + '\'); acpToggleJobDropdown();">' +
       '<div class="dropdown-item-left">' +
         '<div class="dropdown-item-title">' + (j.icon || "💼") + ' ' + j.titel + '</div>' +
         '<div class="dropdown-item-meta"><span>' + j.firma + '</span> · <span style="color:#38bdf8">' + j.datei + '</span></div>' +
       '</div>' +
       '<div class="dropdown-item-right">' +
+        badgeHtml +
         (isActive ? '<span class="check-icon">✓</span>' : '') +
       '</div>' +
     '</div>';
   }
   list.innerHTML = html;
 
-  // Button-Anzeige aktualisieren
+  // Button-Anzeige & Live-Badge aktualisieren
   var currentJob = getActiveJob();
   if (currentJob && currentJob.id) {
     var iconEl = document.getElementById("picker-current-icon");
@@ -1169,6 +1463,7 @@ function renderJobPicker() {
     if (iconEl) iconEl.textContent = currentJob.icon || "💼";
     if (titleEl) titleEl.textContent = currentJob.titel;
     if (firmEl) firmEl.textContent = currentJob.firma ? currentJob.firma.split(" ")[0] : "";
+    updateLiveStatusBadge(currentJob);
   }
 }
 
@@ -1302,11 +1597,20 @@ function renderDirectoryTable() {
   var html = "";
   for (var i = 0; i < ACP_STELLEN.length; i++) {
     var j = ACP_STELLEN[i];
+    var statusBadge = "";
+    if (j.is_live) {
+      statusBadge = '<span class="status-tag live">🟢 Live auf Website</span>';
+    } else if (j.id && j.id.indexOf("zurbuchen") !== -1) {
+      statusBadge = '<span class="status-tag ready" style="background:rgba(234,179,8,0.15); color:#facc15; border-color:rgba(234,179,8,0.4);">🟡 Bereit</span>';
+    } else {
+      statusBadge = '<span class="status-tag draft" style="background:rgba(148,163,184,0.12); color:#94a3b8; border-color:rgba(148,163,184,0.3);">⚪ Entwurf</span>';
+    }
+
     html += '<tr>' +
       '<td><strong>' + (j.icon || "💼") + ' ' + j.titel + '</strong><br><small style="color:#94a3b8">' + j.firma + '</small></td>' +
       '<td><span class="code-tag">' + j.datei + '</span></td>' +
       '<td><a href="' + j.host_webseite + '" target="_blank" style="color:#60a5fa;">' + j.host_label + ' ↗</a></td>' +
-      '<td><span class="status-tag">🟢 ' + (j.status || "Bereit") + '</span></td>' +
+      '<td>' + statusBadge + '</td>' +
       '<td>' +
         '<button type="button" class="btn-table-action" onclick="acpSwitchJob(\'' + j.id + '\'); acpToggleDirectoryModal();">Vorschau</button>' +
         '<button type="button" class="btn-table-copy" onclick="acpCopyJobCode(\'' + j.id + '\')">Code</button>' +
