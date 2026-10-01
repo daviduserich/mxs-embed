@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Recruiting-Simulator & Stellen-Cockpit | Hiltbrand & Partner</title>
+<title>Hiltbrand Karriere · Lokales Steuerungs-Cockpit</title>
 <meta name="description" content="Interaktiver Recruiting-Simulator und Stellen-Verzeichnis für Kunden-Widgets. Vorschau, Wechsel zwischen Stellen und 1-Klick Einbettungscodes.">
 <link rel="icon" href="images/logo.png" type="image/png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -282,6 +282,27 @@ a { color: var(--rot); text-decoration: none; }
 .acp-btn-dir:hover {
   background: rgba(255, 255, 255, 0.18);
   color: #ffffff;
+}
+.acp-btn-help {
+  background: rgba(59, 130, 246, 0.18);
+  color: #93c5fd;
+  border: 1px solid rgba(59, 130, 246, 0.4);
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 700;
+  padding: 8px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.acp-btn-help:hover {
+  background: rgba(59, 130, 246, 0.3);
+  color: #ffffff;
+  border-color: #60a5fa;
+  transform: translateY(-1px);
 }
 
 /* ======================================================= */
@@ -806,7 +827,7 @@ a { color: var(--rot); text-decoration: none; }
     <div class="acp-cockpit-left">
       <div class="acp-brand-badge">
         <span class="dot"></span>
-        <span>ACP Cockpit</span>
+        <span>LOKALES COCKPIT</span>
       </div>
       <span class="acp-cockpit-label">Vorschau für Stelle:</span>
       <div class="acp-job-picker-wrap" id="acp-job-picker-wrap">
@@ -829,6 +850,9 @@ a { color: var(--rot); text-decoration: none; }
       </div>
     </div>
     <div class="acp-cockpit-right">
+      <button type="button" class="acp-btn-help" onclick="acpToggleHelpModal()" title="Kurzanleitung: So funktioniert das Cockpit">
+        💡 So geht's
+      </button>
       <button type="button" class="acp-btn-code" onclick="acpCopyActiveCode()" title="Widget-Einbettungscode für den Webmaster kopieren">
         📋 1-Klick Widget-Code
       </button>
@@ -956,6 +980,59 @@ a { color: var(--rot); text-decoration: none; }
     <button type="button" id="acp-btn-publish" class="acp-publish-btn" onclick="acpPublishLive()">
       <span>🚀 Jetzt scharfstellen</span>
     </button>
+  </div>
+</div>
+
+<!-- ======================================================= -->
+<!-- MODAL: SO FUNKTIONIERT'S (KURZE ANLEITUNG)              -->
+<!-- ======================================================= -->
+<div id="acp-help-modal" class="acp-modal-backdrop" onclick="if(event.target===this)acpToggleHelpModal()">
+  <div class="acp-modal" style="max-width: 680px;">
+    <div class="acp-modal-head">
+      <h3><span>💡</span> So funktioniert dein Karriere-Cockpit</h3>
+      <button type="button" class="acp-modal-close" onclick="acpToggleHelpModal()" title="Schliessen">✕</button>
+    </div>
+    <div class="acp-modal-body" style="padding: 24px; color: #cbd5e1; font-size: 14px; line-height: 1.6;">
+      
+      <div style="display: flex; gap: 16px; margin-bottom: 22px;">
+        <div style="background: #3b82f6; color: #fff; width: 34px; height: 34px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 15px; flex-shrink: 0;">1</div>
+        <div>
+          <h4 style="margin: 0 0 4px 0; color: #fff; font-size: 15.5px;">Text oder Bild mit ChatGPT anpassen</h4>
+          <p style="margin: 0; color: #94a3b8; font-size: 13.5px;">
+            Schalte unten rechts den <strong>Klick-Inspektor</strong> auf <code>AN</code> und klicke auf das Element im Inserat (z. B. Titel, Vorteile, WhatsApp-Button). Der passende Befehl wird automatisch kopiert. Gib ihn an ChatGPT oder passe die HTML-Datei direkt an.
+          </p>
+        </div>
+      </div>
+
+      <div style="display: flex; gap: 16px; margin-bottom: 22px;">
+        <div style="background: #eab308; color: #0f172a; width: 34px; height: 34px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 15px; flex-shrink: 0;">2</div>
+        <div>
+          <h4 style="margin: 0 0 4px 0; color: #fff; font-size: 15.5px;">Im Ordner speichern &amp; Vorschau prüfen (Entwurf)</h4>
+          <p style="margin: 0; color: #94a3b8; font-size: 13.5px;">
+            Speichere die geänderte Datei in deinem Ordner <code>Hiltbrand-Karriere</code> und drücke hier <code>F5</code>. Du siehst deine Änderung <strong>sofort als Entwurf</strong>.<br>
+            <span style="color: #10b981; font-weight: 600;">🛡️ Die echte Firmen-Webseite bleibt zu diesem Zeitpunkt zu 100% unberührt!</span>
+          </p>
+        </div>
+      </div>
+
+      <div style="display: flex; gap: 16px; margin-bottom: 20px;">
+        <div style="background: #10b981; color: #fff; width: 34px; height: 34px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 15px; flex-shrink: 0;">3</div>
+        <div>
+          <h4 style="margin: 0 0 4px 0; color: #fff; font-size: 15.5px;">Mit 1 Klick scharfstellen</h4>
+          <p style="margin: 0; color: #94a3b8; font-size: 13.5px;">
+            Wenn die Vorschau passt, klicke unten rechts im gelben Kreis auf <strong>[ 🚀 Jetzt scharfstellen ]</strong>. Der Airbag prüft die Datei in 0.3s auf Fehler. Wenn alles grün ist, wird die Änderung weltweit auf deine Firmen-Webseite übertragen – live in ca. 15 Sekunden!
+          </p>
+        </div>
+      </div>
+
+      <div style="padding: 14px 18px; background: rgba(59, 130, 246, 0.12); border: 1px solid rgba(59, 130, 246, 0.25); border-radius: 8px;">
+        <div style="font-weight: 700; color: #60a5fa; margin-bottom: 3px; font-size: 13px;">📍 Wo bin ich gerade?</div>
+        <div style="font-size: 12.5px; color: #cbd5e1;">
+          Du bist hier in deinem <strong>Lokalen Cockpit</strong> (deine persönliche Werkstatt auf deinem Computer). Erst mit Klick auf <em>«Jetzt scharfstellen»</em> wird es auf <a href="https://dachdecker-berneroberland.ch/jobs/" target="_blank" style="color: #38bdf8; text-decoration: underline;">dachdecker-berneroberland.ch/jobs/</a> sichtbar.
+        </div>
+      </div>
+
+    </div>
   </div>
 </div>
 
@@ -1162,6 +1239,13 @@ function acpCopyJobCode(jobId) {
       return;
     }
   }
+}
+
+// Hilfe-Modal: So funktioniert's
+function acpToggleHelpModal() {
+  var modal = document.getElementById("acp-help-modal");
+  if (!modal) return;
+  modal.classList.toggle("is-open");
 }
 
 // Stellen-Verzeichnis Modal
