@@ -996,13 +996,29 @@ a { color: var(--rot); text-decoration: none; }
     </div>
     <div class="acp-modal-body" style="padding: 24px; color: #cbd5e1; font-size: 14px; line-height: 1.6;">
       
-      <div style="display: flex; gap: 16px; margin-bottom: 22px;">
+      <div style="display: flex; gap: 16px; margin-bottom: 14px;">
         <div style="background: #3b82f6; color: #fff; width: 34px; height: 34px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 15px; flex-shrink: 0;">1</div>
         <div>
           <h4 style="margin: 0 0 4px 0; color: #fff; font-size: 15.5px;">Text oder Bild mit ChatGPT anpassen</h4>
           <p style="margin: 0; color: #94a3b8; font-size: 13.5px;">
             Schalte unten rechts den <strong>Klick-Inspektor</strong> auf <code>AN</code> und klicke auf das Element im Inserat (z. B. Titel, Vorteile, WhatsApp-Button). Der passende Befehl wird automatisch kopiert. Gib ihn an ChatGPT oder passe die HTML-Datei direkt an.
           </p>
+        </div>
+      </div>
+
+      <!-- Der Zauber-Befehl für ChatGPT / Gemini -->
+      <div style="margin: 0 0 22px 50px; background: rgba(15, 23, 42, 0.7); border: 1px solid rgba(234, 179, 8, 0.35); border-radius: 10px; padding: 12px 14px;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+          <span style="font-size: 11.5px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.5px; color: #facc15; font-family: 'JetBrains Mono', monospace;">
+            🤖 Der Zauber-Befehl für ChatGPT &amp; Gemini
+          </span>
+          <button type="button" class="btn-table-copy" style="padding: 3px 9px; font-size: 11px; background: rgba(234, 179, 8, 0.2); border-color: rgba(234, 179, 8, 0.5); color: #fef08a; cursor: pointer;" onclick="acpCopyAiPrompt(this)">📋 Kopieren</button>
+        </div>
+        <p style="font-size: 12px; color: #f8fafc; line-height: 1.5; margin: 0; font-family: monospace; background: rgba(0,0,0,0.35); padding: 8px 10px; border-radius: 6px; border: 1px solid rgba(255,255,255,0.08);">
+          «Bitte gib mir den Quellcode immer als eine einzige, vollständige und ungekürzte HTML-Datei aus – ausnahmslos von &lt;!DOCTYPE html&gt; bis &lt;/html&gt;. Verwende keine Code-Auslassungen (wie // ... restlicher Code ...), keine Zusammenfassungen und erstelle die Ausgabe direkt als einhängenden Code-Block in deiner Antwort.»
+        </p>
+        <div style="font-size: 11px; color: #94a3b8; margin-top: 6px;">
+          💡 <em>Hänge diesen Satz an jede deiner KI-Anfragen an. So schneidet dir keine KI mehr den Anfang oder das Design ab!</em>
         </div>
       </div>
 
@@ -1240,6 +1256,22 @@ function acpCopyJobCode(jobId) {
       }
       return;
     }
+  }
+}
+
+// KI-Befehl aus Hilfe-Modal kopieren
+function acpCopyAiPrompt(btn) {
+  var text = "Bitte gib mir den Quellcode immer als eine einzige, vollständige und ungekürzte HTML-Datei aus – ausnahmslos von <!DOCTYPE html> bis </html>. Verwende keine Code-Auslassungen (wie // ... restlicher Code ...), keine Zusammenfassungen und erstelle die Ausgabe direkt als einhängenden Code-Block in deiner Antwort.";
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(text);
+    acpShowToast("📋 KI-Befehl in die Zwischenablage kopiert!");
+    if (btn) {
+      var orig = btn.textContent;
+      btn.textContent = "✓ Kopiert!";
+      setTimeout(function() { btn.textContent = orig; }, 2000);
+    }
+  } else {
+    window.prompt("Kopiere diesen Befehl für deine KI:", text);
   }
 }
 
