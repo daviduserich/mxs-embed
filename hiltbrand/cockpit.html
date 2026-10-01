@@ -81,6 +81,13 @@ a { color: var(--rot); text-decoration: none; }
   padding: 5px 12px;
   border-radius: 6px;
   text-transform: uppercase;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+.acp-brand-badge:hover {
+  background: rgba(245, 158, 11, 0.25);
+  border-color: #f59e0b;
 }
 .acp-brand-badge .dot {
   width: 8px;
@@ -422,6 +429,29 @@ a { color: var(--rot); text-decoration: none; }
   display: flex;
   align-items: center;
   gap: 10px;
+}
+.acp-btn-online {
+  background: rgba(59, 130, 246, 0.2);
+  color: #60a5fa;
+  border: 1px solid rgba(59, 130, 246, 0.45);
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 700;
+  padding: 8px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  text-decoration: none;
+}
+.acp-btn-online:hover {
+  background: #2563eb;
+  color: #ffffff;
+  border-color: #2563eb;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.4);
 }
 .acp-btn-code {
   background: #10b981;
@@ -1007,10 +1037,10 @@ a { color: var(--rot); text-decoration: none; }
 <header class="acp-cockpit-bar">
   <div class="acp-cockpit-inner">
     <div class="acp-cockpit-left">
-      <div class="acp-brand-badge">
+      <a href="https://embed.magnet-xs.ch/hiltbrand/cockpit" target="_blank" class="acp-brand-badge" id="acp-brand-badge" title="Klicken, um zum Online-Cockpit auf embed.magnet-xs.ch zu wechseln">
         <span class="dot"></span>
-        <span>LOKALES COCKPIT</span>
-      </div>
+        <span id="acp-brand-label">LOKALES COCKPIT</span>
+      </a>
       <span class="acp-cockpit-label">Vorschau für Stelle:</span>
       <div class="acp-job-picker-wrap" id="acp-job-picker-wrap">
         <button type="button" class="acp-job-picker-btn" id="acp-picker-btn" onclick="acpToggleJobDropdown()">
@@ -1033,6 +1063,9 @@ a { color: var(--rot); text-decoration: none; }
       <div class="acp-live-badge-wrap" id="acp-live-badge-wrap"></div>
     </div>
     <div class="acp-cockpit-right">
+      <a href="https://embed.magnet-xs.ch/hiltbrand/cockpit" target="_blank" class="acp-btn-online" id="acp-online-btn" title="Online-Cockpit im Web aufrufen (embed.magnet-xs.ch/hiltbrand/cockpit)">
+        🌐 Online-Cockpit ↗
+      </a>
       <button type="button" class="acp-btn-help" onclick="acpToggleHelpModal()" title="Kurzanleitung: So funktioniert das Cockpit">
         💡 So geht's
       </button>
@@ -1096,7 +1129,8 @@ a { color: var(--rot); text-decoration: none; }
     </div>
     <div class="acp-modal-body">
       <div class="acp-info-callout">
-        <strong>Wie funktioniert das System?</strong> Jede Stelle hat eine eigene Datei im lokalen Ordner <code>D:\Kunden-Sync\Hiltbrand-Karriere\</code>. Änderungen werden via Syncthing in Sekunden synchronisiert. Der Webmaster bindet einmalig den 2-Zeiler Code ein – alle zukünftigen Updates erscheinen automatisch!
+        <strong>Wie funktioniert das System?</strong> Jede Stelle hat eine eigene Datei im lokalen Ordner <code>D:\Kunden-Sync\Hiltbrand-Karriere\</code>. Änderungen werden via Syncthing in Sekunden synchronisiert. Der Webmaster bindet einmalig den 2-Zeiler Code ein – alle zukünftigen Updates erscheinen automatisch!<br>
+        <span style="display:inline-block; margin-top:8px;">🌐 <strong>Online-Cockpit (Weltweit erreichbar):</strong> <a href="https://embed.magnet-xs.ch/hiltbrand/cockpit" target="_blank" style="color:#38bdf8; font-weight:700; text-decoration:underline;">embed.magnet-xs.ch/hiltbrand/cockpit ↗</a></span>
       </div>
 
       <table class="acp-modal-table">
@@ -1294,6 +1328,10 @@ a { color: var(--rot); text-decoration: none; }
         <div style="font-weight: 700; color: #60a5fa; margin-bottom: 3px; font-size: 13px;">📍 Wo bin ich gerade?</div>
         <div style="font-size: 12.5px; color: #cbd5e1;">
           Du bist hier in deinem <strong>Lokalen Cockpit</strong> (deine persönliche Werkstatt auf deinem Computer). Erst mit Klick auf <em>«Jetzt scharfstellen»</em> wird es auf <a href="https://dachdecker-berneroberland.ch/jobs/" target="_blank" style="color: #38bdf8; text-decoration: underline;">dachdecker-berneroberland.ch/jobs/</a> sichtbar.
+        </div>
+        <div style="margin-top: 10px; padding-top: 8px; border-top: 1px solid rgba(255,255,255,0.08); display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px; font-size: 12px;">
+          <span>🌐 <strong>Online-Cockpit:</strong> <a href="https://embed.magnet-xs.ch/hiltbrand/cockpit" target="_blank" style="color: #38bdf8; font-family: 'JetBrains Mono', monospace; text-decoration: underline;">embed.magnet-xs.ch/hiltbrand/cockpit ↗</a></span>
+          <button type="button" class="btn-table-copy" style="padding: 2px 8px; font-size: 11px;" onclick="acpCopyOnlineUrl(this)">📋 Kopieren</button>
         </div>
       </div>
 
@@ -1570,6 +1608,22 @@ function acpCopyAiPrompt(btn) {
   }
 }
 
+// Online-Cockpit URL kopieren
+function acpCopyOnlineUrl(btn) {
+  var url = "https://embed.magnet-xs.ch/hiltbrand/cockpit";
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(url);
+    acpShowToast("📋 <strong>Online-Cockpit Link kopiert!</strong><br><small>" + url + "</small>");
+    if (btn) {
+      var orig = btn.textContent;
+      btn.textContent = "✓ Kopiert!";
+      setTimeout(function() { btn.textContent = orig; }, 2000);
+    }
+  } else {
+    window.prompt("Kopiere die Online-Cockpit Adresse:", url);
+  }
+}
+
 // Hilfe-Modal: So funktioniert's
 function acpToggleHelpModal() {
   var modal = document.getElementById("acp-help-modal");
@@ -1748,6 +1802,39 @@ function acpInit() {
     });
 }
 
+function checkEnvironmentAndRender() {
+  var isOnline = (window.location.protocol === "http:" || window.location.protocol === "https:");
+  var badgeLabel = document.getElementById("acp-brand-label");
+  var brandBadge = document.getElementById("acp-brand-badge");
+  var onlineBtn = document.getElementById("acp-online-btn");
+
+  if (isOnline) {
+    if (badgeLabel) badgeLabel.textContent = "ONLINE COCKPIT";
+    if (brandBadge) {
+      brandBadge.style.background = "rgba(59, 130, 246, 0.2)";
+      brandBadge.style.borderColor = "rgba(59, 130, 246, 0.5)";
+      brandBadge.style.color = "#93c5fd";
+      brandBadge.title = "Du bist im Online-Cockpit auf embed.magnet-xs.ch";
+    }
+    if (onlineBtn) {
+      onlineBtn.innerHTML = "📋 Online-Link kopieren";
+      onlineBtn.title = "Link zu diesem Online-Cockpit in die Zwischenablage kopieren";
+      onlineBtn.onclick = function(e) {
+        e.preventDefault();
+        acpCopyOnlineUrl(onlineBtn);
+      };
+    }
+  } else {
+    if (badgeLabel) badgeLabel.textContent = "LOKALES COCKPIT";
+    if (onlineBtn) {
+      onlineBtn.href = "https://embed.magnet-xs.ch/hiltbrand/cockpit";
+      onlineBtn.target = "_blank";
+      onlineBtn.innerHTML = "🌐 Online-Cockpit ↗";
+      onlineBtn.title = "Online-Cockpit im Web aufrufen (embed.magnet-xs.ch/hiltbrand/cockpit)";
+    }
+  }
+}
+
 function setupActiveJobAndRender() {
   var params = new URLSearchParams(window.location.search);
   var jobParam = params.get("stelle") || params.get("job");
@@ -1762,6 +1849,7 @@ function setupActiveJobAndRender() {
   if (!activeJobId && ACP_STELLEN.length > 0) {
     activeJobId = ACP_STELLEN[0].id;
   }
+  checkEnvironmentAndRender();
   renderJobPicker();
   renderDirectoryTable();
   if (activeJobId) {
