@@ -523,6 +523,19 @@ h2 {
   section { padding: 48px 16px; }
   .blitz-karte { padding: 24px 18px; }
 }
+
+/* Klick-Inspektor Modus */
+body.acp-inspector-on [data-slot] {
+  outline: 2px dashed #0284c7 !important;
+  outline-offset: 3px !important;
+  cursor: pointer !important;
+  position: relative;
+  transition: outline 0.2s, background-color 0.2s;
+}
+body.acp-inspector-on [data-slot]:hover {
+  outline: 2px solid #eab308 !important;
+  background-color: rgba(234, 179, 8, 0.12) !important;
+}
 </style>
 </head>
 <body>
@@ -806,6 +819,42 @@ document.addEventListener('click', function(e) {
     a.rel = 'noopener noreferrer';
   } else if (href.startsWith('tel:')) {
     a.target = '_top';
+  }
+}, true);
+
+// Klick-Inspektor Listener
+var acpInspectorActive = false;
+window.addEventListener("message", function(e) {
+  if (e.data && e.data.type === "acp-toggle-inspector") {
+    acpInspectorActive = !!e.data.active;
+    document.body.classList.toggle("acp-inspector-on", acpInspectorActive);
+  }
+});
+
+// Slot-Klick: Erzeugt Prompt für ChatGPT
+document.addEventListener('click', function(e) {
+  if (!acpInspectorActive) return;
+  var slotEl = e.target.closest('[data-slot]');
+  if (slotEl) {
+    e.preventDefault();
+    e.stopPropagation();
+    var slotName = slotEl.getAttribute('data-slot');
+    var isImg = slotEl.tagName.toLowerCase() === 'img';
+    var promptText = '';
+    if (slotName === 'hero.hintergrund.bild') {
+      promptText = 'Tausche das große Hero-Hintergrundbild im Slot "hero.hintergrund.bild" (images/hero.jpg) in Hiltbrand_Dachdecker_Pragmatisch.html gegen folgendes neue Foto aus: [BILD_HIER_EINFÜGEN]';
+    } else if (isImg) {
+      promptText = 'Tausche das Bild im Slot "' + slotName + '" in Hiltbrand_Dachdecker_Pragmatisch.html gegen folgendes neue Foto aus: [BILD_HIER_EINFÜGEN]';
+    } else {
+      promptText = 'Ändere den Inhalt im Slot "' + slotName + '" in Hiltbrand_Dachdecker_Pragmatisch.html wie folgt: [NEUER_TEXT_HIER]';
+    }
+    
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(promptText);
+    }
+    if (window.parent && window.parent !== window) {
+      window.parent.postMessage({ type: 'acp-toast', text: '📋 Prompt für Slot <strong>' + slotName + '</strong> in die Zwischenablage kopiert!' }, '*');
+    }
   }
 }, true);
 
