@@ -342,7 +342,7 @@ h2 {
 }
 
 /* ======================================================= */
-/* 4. BLITZBEWERBUNG (WHATSAPP-FOKUS)                      */
+/* 4. BLITZBEWERBUNG (KLAR GETRENNTER WEG)                 */
 /* ======================================================= */
 .blitz {
   background: var(--anthrazit);
@@ -406,16 +406,16 @@ h2 {
 
 .wa-direkt-box {
   margin-top: 26px;
-  padding: 20px 24px;
+  padding: 22px 24px;
   background: #f0fdf4;
   border: 1.5px solid #86efac;
   border-radius: var(--radius);
   text-align: center;
 }
 .wa-direkt-box p {
-  font-size: 15px;
+  font-size: 15.5px;
   color: #166534;
-  font-weight: 600;
+  font-weight: 700;
   margin-bottom: 12px;
 }
 .wa-direkt-actions {
@@ -671,7 +671,7 @@ body.acp-inspector-on [data-slot]:hover {
 </section>
 
 <!-- ======================================================= -->
-<!-- BLITZBEWERBUNG: 30 SEKUNDEN                             -->
+<!-- BLITZBEWERBUNG: OPTIMIERTES FORMULAR & KLARER CHAT      -->
 <!-- ======================================================= -->
 <section class="blitz" id="blitz">
   <div class="wrap-schmal">
@@ -680,36 +680,37 @@ body.acp-inspector-on [data-slot]:hover {
     <p class="lead" data-slot="blitz.lead">Kein Lebenslauf, kein Anschreiben. Sag uns nur, wie wir dich erreichen dürfen – Eljas meldet sich persönlich bei dir.</p>
 
     <div class="blitz-karte" data-slot="blitz.formular">
-      <h3 data-slot="blitz.karte.titel">Deine Blitzbewerbung</h3>
-      <p class="hinweis" data-slot="blitz.karte.hinweis">Eljas meldet sich persönlich – garantiert innert 24 Stunden.</p>
+      <h3 data-slot="blitz.karte.titel">Deine Blitzbewerbung per E-Mail / Rückruf</h3>
+      <p class="hinweis" data-slot="blitz.karte.hinweis">Daten eintragen &amp; mit einem Klick abschicken – Eljas meldet sich innert 24h.</p>
       
-      <div class="feld">
-        <label for="bname">Dein Vor- und Nachname</label>
-        <input type="text" id="bname" placeholder="z. B. Marc Steiner" autocomplete="name">
-      </div>
-      <div class="feld">
-        <label for="btel">Deine Handynummer</label>
-        <input type="tel" id="btel" placeholder="z. B. 079 987 65 43" autocomplete="tel">
-      </div>
-      <div class="feld">
-        <label for="bzeit">Wann dürfen wir anrufen?</label>
-        <select id="bzeit">
-          <option>Über Mittag (12–13 Uhr)</option>
-          <option>Nach Feierabend (ab 17 Uhr)</option>
-          <option>Am Samstagvormittag</option>
-          <option>Jederzeit – ruft einfach an</option>
-        </select>
-      </div>
-      
-      <div class="blitz-buttons">
-        <button class="btn wa" onclick="sendeWA()" data-required="whatsapp-cta" data-slot="blitz.btn.wa">💬 Per WhatsApp senden</button>
-        <button class="btn" onclick="sendeMail()" data-slot="blitz.btn.mail">✉️ Per E-Mail senden</button>
-      </div>
+      <form id="blitzForm" onsubmit="sendeBewerbung(event)">
+        <div class="feld">
+          <label for="bname">Dein Vor- und Nachname</label>
+          <input type="text" id="bname" placeholder="z. B. Marc Steiner" required autocomplete="name">
+        </div>
+        <div class="feld">
+          <label for="btel">Deine Handynummer</label>
+          <input type="tel" id="btel" placeholder="z. B. 079 987 65 43" required autocomplete="tel">
+        </div>
+        <div class="feld">
+          <label for="bzeit">Wann dürfen wir anrufen?</label>
+          <select id="bzeit">
+            <option>Über Mittag (12–13 Uhr)</option>
+            <option>Nach Feierabend (ab 17 Uhr)</option>
+            <option>Am Samstagvormittag</option>
+            <option>Jederzeit – ruft einfach an</option>
+          </select>
+        </div>
+        
+        <div class="blitz-buttons">
+          <button type="submit" class="btn" style="width: 100%; font-size: 17px;" data-slot="blitz.btn.mail">✉️ Blitzbewerbung jetzt abschicken</button>
+        </div>
+      </form>
       
       <div class="wa-direkt-box">
-        <p>Oder kontaktiere Eljas direkt ohne Formular:</p>
+        <p>Lieber direkt ohne Formular per WhatsApp schreiben?</p>
         <div class="wa-direkt-actions">
-          <a class="btn wa" href="https://wa.me/41792318484?text=Hoi%20Eljas%2C%20ich%20interessiere%20mich%20f%C3%BCr%20die%20Dachdecker-Stelle%20bei%20Hiltbrand." data-required="whatsapp-cta" target="_blank" rel="noopener noreferrer">💬 WhatsApp: 079 231 84 84</a>
+          <a class="btn wa" href="https://wa.me/41792318484?text=Hoi%20Eljas%2C%20ich%20interessiere%20mich%20f%C3%BCr%20die%20Dachdecker-Stelle%20bei%20Hiltbrand." data-required="whatsapp-cta" target="_blank" rel="noopener noreferrer">💬 Direkt-Chat auf WhatsApp öffnen</a>
           <a class="btn" style="background:var(--anthrazit)" href="tel:+41792318484" target="_top">📞 Anrufen: 079 231 84 84</a>
         </div>
       </div>
@@ -730,7 +731,7 @@ body.acp-inspector-on [data-slot]:hover {
     <div style="margin-top:28px">
       <details data-slot="faq.1">
         <summary>Ich bin noch fest angestellt. Bleibt das vertraulich?</summary>
-        <p>Absolut. Deine Kontaktaufnahme bleibt zu 100% diskret zwischen dir und Elias. Wir rufen ausschliesslich zu deinen Wunschzeiten an.</p>
+        <p>Absolut. Deine Kontaktaufnahme bleibt zu 100% diskret zwischen dir und Eljas. Wir rufen ausschliesslich zu deinen Wunschzeiten an.</p>
       </details>
       <details data-slot="faq.2">
         <summary>Brauche ich ein vollständiges Bewerbungsdossier?</summary>
@@ -738,7 +739,7 @@ body.acp-inspector-on [data-slot]:hover {
       </details>
       <details data-slot="faq.3">
         <summary>Wie sieht es mit dem Lohn aus?</summary>
-        <p>Wir zahlen überdurchschnittlich und über dem GAV. Eine konkrete Zahl bespricht Elias direkt beim ersten Kennenlernen am Telefon mit dir.</p>
+        <p>Wir zahlen überdurchschnittlich und über dem GAV. Eine konkrete Zahl bespricht Eljas direkt beim ersten Kennenlernen am Telefon mit dir.</p>
       </details>
       <details data-slot="faq.4">
         <summary>Ich komme aus einem verwandten Beruf (Zimmermann, Spengler, Polybauer)?</summary>
@@ -784,12 +785,9 @@ function lesen() {
   var z = document.getElementById("bzeit").value;
   return { n: n, t: t, z: z };
 }
-function sendeWA() {
-  var d = lesen();
-  var msg = "Hoi Eljas, ich interessiere mich für die Dachdecker-Stelle bei Hiltbrand.\n\nName: " + d.n + "\nNummer: " + d.t + "\nErreichbar: " + d.z;
-  window.open("https://wa.me/41792318484?text=" + encodeURIComponent(msg), "_blank");
-}
-function sendeMail() {
+
+function sendeBewerbung(e) {
+  e.preventDefault();
   var d = lesen();
   var text = "Hoi Eljas\n\nIch interessiere mich für die Dachdecker-Stelle bei Hiltbrand.\n\nName: " + d.n + "\nNummer: " + d.t + "\nErreichbar: " + d.z;
   var mailUrl = "mailto:eh@hiltbrand.swiss?cc=info@hiltbrand.swiss&subject=" + encodeURIComponent("Blitzbewerbung Dachdecker – " + d.n) + "&body=" + encodeURIComponent(text);
