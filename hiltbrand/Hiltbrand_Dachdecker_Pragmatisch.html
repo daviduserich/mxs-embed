@@ -342,7 +342,7 @@ h2 {
 }
 
 /* ======================================================= */
-/* 4. BLITZBEWERBUNG (KLAR GETRENNTER WEG)                 */
+/* 4. UNVERBINDLICHER KONTAKT / RÜCKRUF                    */
 /* ======================================================= */
 .blitz {
   background: var(--anthrazit);
@@ -557,7 +557,7 @@ body.acp-inspector-on [data-slot]:hover {
     <span>Überdurchschnittlicher Lohn</span>
     <span>Modernste Ausrüstung &amp; Drohnen</span>
     <span>Faire Arbeitszeiten</span>
-    <span>Blitzbewerbung ohne Lebenslauf</span>
+    <span>Unverbindlicher Erstkontakt</span>
   </div>
 </div>
 
@@ -671,17 +671,17 @@ body.acp-inspector-on [data-slot]:hover {
 </section>
 
 <!-- ======================================================= -->
-<!-- BLITZBEWERBUNG: OPTIMIERTES FORMULAR & KLARER CHAT      -->
+<!-- UNVERBINDLICHER KONTAKT / RÜCKRUF                       -->
 <!-- ======================================================= -->
 <section class="blitz" id="blitz">
   <div class="wrap-schmal">
-    <div class="eyebrow2" style="color:var(--rot)" data-slot="blitz.eyebrow">Blitzbewerbung</div>
-    <h2 data-slot="blitz.titel">30 Sekunden. Drei Angaben. Fertig.</h2>
-    <p class="lead" data-slot="blitz.lead">Kein Lebenslauf, kein Anschreiben. Sag uns nur, wie wir dich erreichen dürfen – Eljas meldet sich persönlich bei dir.</p>
+    <div class="eyebrow2" style="color:var(--rot)" data-slot="blitz.eyebrow">Unverbindlicher Kontakt</div>
+    <h2 data-slot="blitz.titel">Einfach kurz melden. Ganz ohne Papierkram.</h2>
+    <p class="lead" data-slot="blitz.lead">Kein Lebenslauf, kein Anschreiben. Sag Eljas einfach, wann er dich kurz anrufen darf – unverbindlich und vertraulich.</p>
 
     <div class="blitz-karte" data-slot="blitz.formular">
-      <h3 data-slot="blitz.karte.titel">Deine Blitzbewerbung per E-Mail / Rückruf</h3>
-      <p class="hinweis" data-slot="blitz.karte.hinweis">Daten eintragen &amp; mit einem Klick abschicken – Eljas meldet sich innert 24h.</p>
+      <h3 data-slot="blitz.karte.titel">Nachricht an Eljas &amp; Rückruf anfordern</h3>
+      <p class="hinweis" data-slot="blitz.karte.hinweis">Gib kurz deine Nummer an – Eljas meldet sich persönlich bei dir.</p>
       
       <form id="blitzForm" onsubmit="sendeBewerbung(event)">
         <div class="feld">
@@ -703,7 +703,7 @@ body.acp-inspector-on [data-slot]:hover {
         </div>
         
         <div class="blitz-buttons">
-          <button type="submit" class="btn" style="width: 100%; font-size: 17px;" data-slot="blitz.btn.mail">✉️ Blitzbewerbung jetzt abschicken</button>
+          <button type="submit" class="btn" style="width: 100%; font-size: 17px;" data-slot="blitz.btn.mail">📞 Nachricht senden &amp; Rückruf anfordern</button>
         </div>
       </form>
       
@@ -790,7 +790,7 @@ function sendeBewerbung(e) {
   e.preventDefault();
   var d = lesen();
   var text = "Hoi Eljas\n\nIch interessiere mich für die Dachdecker-Stelle bei Hiltbrand.\n\nName: " + d.n + "\nNummer: " + d.t + "\nErreichbar: " + d.z;
-  var mailUrl = "mailto:eh@hiltbrand.swiss?cc=info@hiltbrand.swiss&subject=" + encodeURIComponent("Blitzbewerbung Dachdecker – " + d.n) + "&body=" + encodeURIComponent(text);
+  var mailUrl = "mailto:eh@hiltbrand.swiss?cc=info@hiltbrand.swiss&subject=" + encodeURIComponent("Rückrufanfrage Dachdecker – " + d.n) + "&body=" + encodeURIComponent(text);
   window.open(mailUrl, "_blank");
 }
 
