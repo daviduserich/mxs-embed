@@ -1,0 +1,775 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WebPilot — Deine Website. Gesteuert mit deiner eigenen KI.</title>
+  <meta name="description" content="Schluss mit CMS-Frust und teuren Agenturen. Steuere deine Website direkt über deine gewohnte KI oder per 1-Klick-Bildaustausch. Sub-50ms schnell und unzerstörbar durch den Sicherheits-Airbag.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600;700&display=swap" rel="stylesheet">
+  
+  <style>
+    /* ==========================================================================
+       SWISS ARCHITECTURAL CANVAS & LUMINOUS OBSIDIAN THEME
+       Design-System Konformität: AGENTS.md § 5.6d (Kicker-Gesetz) & § 5.6e (Fluchtlinie)
+       ========================================================================== */
+    :root {
+      --bg-base: #08090e;
+      --bg-surface: #0f111a;
+      --bg-card: #151824;
+      --bg-card-hover: #1c2030;
+      --border-subtle: #23283d;
+      --border-focus: #3b4261;
+      
+      --amber-accent: #f59e0b;
+      --amber-glow: rgba(245, 158, 11, 0.18);
+      --cyan-accent: #38bdf8;
+      --green-status: #10b981;
+      --red-alert: #ef4444;
+      
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --text-dim: #64748b;
+      
+      --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+      
+      --max-width: 1100px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg-base);
+      color: var(--text-main);
+      font-family: var(--font-sans);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    /* Einheitliche Fluchtlinie gemäss § 5.6e */
+    .container {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      width: 100%;
+      padding: 0 24px;
+      box-sizing: border-box;
+    }
+
+    /* ==========================================================================
+       KICKER-GESETZ (AGENTS.md § 5.6d) - 100% FREISTEHEND, KEINE BOX, KEIN BADGE
+       ========================================================================== */
+    .kicker {
+      font-family: var(--font-mono) !important;
+      font-size: 11px !important;
+      font-weight: 700 !important;
+      text-transform: uppercase !important;
+      letter-spacing: 0.12em !important;
+      color: var(--amber-accent) !important;
+      background: transparent !important;
+      border: none !important;
+      padding: 0 !important;
+      margin: 0 0 16px 0 !important;
+      box-shadow: none !important;
+      display: inline-block !important;
+    }
+
+    /* Header & Navigation */
+    header {
+      padding: 24px 0;
+      border-bottom: 1px solid var(--border-subtle);
+      background: rgba(8, 9, 14, 0.85);
+      backdrop-filter: blur(12px);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .nav-wrap {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      color: var(--text-main);
+      font-weight: 800;
+      font-size: 1.25rem;
+      letter-spacing: -0.02em;
+    }
+
+    .logo-badge {
+      background: var(--amber-glow);
+      color: var(--amber-accent);
+      border: 1px solid rgba(245, 158, 11, 0.3);
+      font-family: var(--font-mono);
+      font-size: 10px;
+      padding: 2px 6px;
+      border-radius: 4px; /* 4px nur innerhalb von Badges erlaubt */
+      font-weight: 600;
+    }
+
+    .nav-cta {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-main);
+      padding: 8px 18px;
+      font-size: 0.875rem;
+      font-weight: 600;
+      border-radius: 6px;
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
+
+    .nav-cta:hover {
+      border-color: var(--amber-accent);
+      color: var(--amber-accent);
+    }
+
+    /* Hero Sektion */
+    .hero-section {
+      padding: 80px 0 60px 0;
+      border-bottom: 1px solid var(--border-subtle);
+      position: relative;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 48px;
+      align-items: center;
+    }
+
+    h1 {
+      font-size: 2.85rem;
+      font-weight: 800;
+      line-height: 1.15;
+      letter-spacing: -0.03em;
+      margin-bottom: 24px;
+    }
+
+    h1 span.highlight {
+      background: linear-gradient(135deg, #f8fafc 40%, var(--amber-accent) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero-lead {
+      font-size: 1.15rem;
+      color: var(--text-muted);
+      line-height: 1.65;
+      margin-bottom: 32px;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 16px;
+      align-items: center;
+      margin-bottom: 40px;
+    }
+
+    .btn-primary {
+      background: var(--amber-accent);
+      color: #000;
+      font-weight: 700;
+      padding: 14px 28px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-size: 1rem;
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      border: none;
+      cursor: pointer;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(245, 158, 11, 0.35);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: var(--text-main);
+      border: 1px solid var(--border-subtle);
+      font-weight: 600;
+      padding: 14px 24px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-size: 1rem;
+      transition: all 0.2s ease;
+    }
+
+    .btn-secondary:hover {
+      border-color: var(--text-muted);
+      background: var(--bg-surface);
+    }
+
+    .hero-metrics {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      padding-top: 24px;
+      border-top: 1px solid var(--border-subtle);
+    }
+
+    .metric-item .val {
+      font-family: var(--font-mono);
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--text-main);
+    }
+
+    .metric-item .label {
+      font-size: 0.8rem;
+      color: var(--text-dim);
+    }
+
+    /* Live-Simulator Stage */
+    .simulator-stage {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: 12px;
+      padding: 24px;
+      position: relative;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+    }
+
+    .simulator-topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 16px;
+      margin-bottom: 16px;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .sim-tag {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--green-status);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .sim-tag .dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--green-status);
+      box-shadow: 0 0 8px var(--green-status);
+    }
+
+    /* Interaktives Simulator-Inserat */
+    .sim-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: 8px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .sim-hero-img {
+      width: 100%;
+      height: 160px;
+      object-fit: cover;
+      display: block;
+      cursor: pointer;
+      position: relative;
+      transition: filter 0.2s ease;
+    }
+
+    .sim-hero-img:hover {
+      filter: brightness(1.1);
+    }
+
+    .sim-overlay-hint {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      background: rgba(0,0,0,0.85);
+      border: 1px solid var(--amber-accent);
+      color: var(--amber-accent);
+      font-family: var(--font-mono);
+      font-size: 10px;
+      font-weight: 600;
+      padding: 4px 8px;
+      border-radius: 4px;
+      cursor: pointer;
+      pointer-events: auto;
+      transition: all 0.15s ease;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+    }
+
+    .sim-overlay-hint:hover {
+      background: var(--amber-accent);
+      color: #000;
+      transform: scale(1.05);
+    }
+
+    .sim-content {
+      padding: 20px;
+    }
+
+    .sim-slot {
+      padding: 4px 8px;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background 0.15s ease, border-color 0.15s ease;
+      position: relative;
+      display: inline-block;
+      border: 1px dashed transparent;
+    }
+
+    .sim-slot:hover {
+      background: rgba(245, 158, 11, 0.12);
+      border-color: var(--amber-accent);
+    }
+
+    .sim-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: var(--text-main);
+    }
+
+    .sim-sub {
+      font-size: 0.875rem;
+      color: var(--text-muted);
+      margin-bottom: 16px;
+    }
+
+    .sim-btn-cta {
+      background: #25d366;
+      color: #fff;
+      font-weight: 700;
+      font-size: 0.85rem;
+      padding: 10px 16px;
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      width: fit-content;
+      text-decoration: none;
+      margin-top: 12px;
+    }
+
+    .sim-prompt-box {
+      margin-top: 16px;
+      background: #000;
+      border: 1px solid var(--border-subtle);
+      border-radius: 6px;
+      padding: 12px;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--cyan-accent);
+      display: none;
+    }
+
+    .sim-prompt-box.active {
+      display: block;
+      animation: fadeIn 0.3s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(4px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Das Dilemma Sektion */
+    .section-spacing {
+      padding: 90px 0;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .section-header {
+      margin-bottom: 48px;
+    }
+
+    h2 {
+      font-size: 2.15rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      margin-bottom: 16px;
+    }
+
+    .section-desc {
+      color: var(--text-muted);
+      font-size: 1.05rem;
+      max-width: 680px;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: 8px;
+      padding: 32px 24px;
+      transition: border-color 0.2s ease;
+    }
+
+    .card:hover {
+      border-color: var(--border-focus);
+    }
+
+    .card-icon {
+      font-size: 1.75rem;
+      margin-bottom: 16px;
+    }
+
+    .card h3 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+
+    .card p {
+      color: var(--text-muted);
+      font-size: 0.925rem;
+      line-height: 1.6;
+    }
+
+    /* Die 3 Pfeiler der WebPilot Engine */
+    .pillar-card {
+      border-left: 3px solid var(--amber-accent);
+    }
+
+    /* Wirtschaftlichkeit / ROI */
+    .roi-box {
+      background: var(--bg-surface);
+      border: 1px solid rgba(245, 158, 11, 0.3);
+      border-radius: 10px;
+      padding: 40px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: center;
+    }
+
+    .roi-price {
+      font-family: var(--font-mono);
+      font-size: 3rem;
+      font-weight: 800;
+      color: var(--amber-accent);
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+
+    .roi-price span {
+      font-size: 1.25rem;
+      color: var(--text-muted);
+    }
+
+    /* Footer */
+    footer {
+      padding: 40px 0;
+      border-top: 1px solid var(--border-subtle);
+      color: var(--text-dim);
+      font-size: 0.85rem;
+    }
+
+    .footer-wrap {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .hero-grid {
+        grid-template-columns: 1fr;
+      }
+      .grid-3 {
+        grid-template-columns: 1fr;
+      }
+      .roi-box {
+        grid-template-columns: 1fr;
+      }
+      h1 {
+        font-size: 2.2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="container nav-wrap">
+      <a href="#" class="logo">
+        WEBPILOT
+        <span class="logo-badge">by Magnet XS</span>
+      </a>
+      <a href="#demo" class="nav-cta">Live-Demo testen</a>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="container hero-grid">
+      
+      <!-- Linke Spalte: Copywriting & Value Prop -->
+      <div>
+        <p class="kicker">KEIN CMS. KEINE AGENTUR-FALLE. DIE UNZERSTÖRBARE WEB-ENGINE.</p>
+        <h1>Deine Website. Gesteuert mit <span class="highlight">deiner eigenen KI</span>.</h1>
+        <p class="hero-lead">
+          Schluss mit überladenen WordPress-Menüs, Sicherheitslücken und 150-Franken-Stundensätzen für Textänderungen. Mit WebPilot steuerst du deinen Auftritt direkt über deine gewohnte KI oder per 1-Klick-Bildaustausch – abgesichert durch einen deterministischen Sicherheits-Airbag.
+        </p>
+
+        <div class="hero-actions">
+          <a href="#roi" class="btn-primary">
+            <span>In 48h live gehen</span>
+            <span>➔</span>
+          </a>
+          <a href="#how" class="btn-secondary">Wie es funktioniert</a>
+        </div>
+
+        <div class="hero-metrics">
+          <div class="metric-item">
+            <div class="val">&lt; 50ms</div>
+            <div class="label">Schweizer Edge-Speed</div>
+          </div>
+          <div class="metric-item">
+            <div class="val">100%</div>
+            <div class="label">Airbag-Ausfallschutz</div>
+          </div>
+          <div class="metric-item">
+            <div class="val">0 CHF</div>
+            <div class="label">Wartungs-Stundensätze</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Rechte Spalte: Interaktiver Live-Simulator -->
+      <div id="demo">
+        <div class="simulator-stage">
+          <div class="simulator-topbar">
+            <span class="sim-tag">
+              <span class="dot"></span> LIVE-PROOF SIMULATOR
+            </span>
+            <span style="font-family: var(--font-mono); font-size: 11px; color: var(--text-dim);">
+              Klick zum Testen 👆
+            </span>
+          </div>
+
+          <div class="sim-card">
+            <div style="position: relative;">
+              <img id="simHeroImg" 
+                   src="images/hero.jpg" 
+                   alt="Baustellen-Hero" 
+                   class="sim-hero-img" 
+                   onclick="swapSimPhoto()">
+              <div class="sim-overlay-hint" onclick="swapSimPhoto()">
+                📸 1-KLICK: BILD TAUSCHEN
+              </div>
+            </div>
+
+            <div class="sim-content">
+              <div class="sim-slot" onclick="copySimPrompt('hero.titel', 'Sanitärinstallateur EFZ (80–100%)')">
+                <div class="sim-title" id="simTitle">Sanitärinstallateur EFZ (80–100%)</div>
+              </div>
+              <br>
+              <div class="sim-slot" onclick="copySimPrompt('hero.subline', 'Familienbetrieb in Bremgarten. 5 Wochen Ferien, moderner Bus, kein Notdienst am Wochenende.')">
+                <div class="sim-sub" id="simSub">
+                  Familienbetrieb in Bremgarten. 5 Wochen Ferien, moderner Bus, kein Notdienst am Wochenende.
+                </div>
+              </div>
+
+              <div>
+                <a href="javascript:void(0)" class="sim-btn-cta" onclick="alert('✅ Dieser WhatsApp-Button ist durch den deterministischen Airbag unlöschbar geschützt!')">
+                  <span>💬 Express-Bewerbung via WhatsApp</span>
+                </a>
+              </div>
+
+              <div id="simPromptBox" class="sim-prompt-box">
+                <!-- Dynamischer ChatGPT-Befehl -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Das Dilemma Sektion -->
+  <section class="section-spacing">
+    <div class="container">
+      <div class="section-header">
+        <p class="kicker">DAS KMU-DILEMMA</p>
+        <h2>Warum 72% aller Firmen-Websites verstauben</h2>
+        <p class="section-desc">
+          Du führst einen Betrieb, kein IT-Unternehmen. Trotzdem zwingt dich der Markt seit Jahren in zwei Sackgassen:
+        </p>
+      </div>
+
+      <div class="grid-3">
+        <div class="card">
+          <div class="card-icon">⚠️</div>
+          <h3>Der CMS-Albtraum</h3>
+          <p>
+            WordPress-Systeme veralten, Plugins beissen sich und nach jedem Update zittert man vor weissen Bildschirmen. Das Backend ist so kompliziert, dass niemand freiwillig einen neuen Job oder eine Baustelle einpflegt.
+          </p>
+        </div>
+
+        <div class="card">
+          <div class="card-icon">💸</div>
+          <h3>Die Agentur-Falle</h3>
+          <p>
+            Du willst nur einen Text anpassen oder ein Mitarbeiterfoto tauschen? Die Agentur schreibt ein Ticket, verlangt 150.– CHF Stundensatz und braucht 10 Tage für die Umsetzung. Du zahlst monatlich für nichts.
+          </p>
+        </div>
+
+        <div class="card">
+          <div class="card-icon">🤖</div>
+          <h3>Die ungenutzte KI-Lücke</h3>
+          <p>
+            Über 60% der Geschäftsführer nutzen heute privat ChatGPT. Aber den Text fehlerfrei auf die eigene Website zu bringen, scheiterte bisher an fehlendem Programmierwissen. WebPilot schliesst genau diese Lücke.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Die 3 Pfeiler der WebPilot Engine -->
+  <section id="how" class="section-spacing">
+    <div class="container">
+      <div class="section-header">
+        <p class="kicker">DIE DREI PFEILER DER ENGINE</p>
+        <h2>Volle Kontrolle. Null Ausfallrisiko.</h2>
+        <p class="section-desc">
+          Wir haben Inhalt und Infrastruktur radikal getrennt. Du bedienst deine Seite mit der KI deiner Wahl — unsere Engine garantiert Sicherheit und Lichtgeschwindigkeit.
+        </p>
+      </div>
+
+      <div class="grid-3">
+        <div class="card pillar-card">
+          <div class="card-icon">🎯</div>
+          <h3>1. Klick-Inspektor</h3>
+          <p>
+            Klicke im Cockpit auf die Stelle, die du ändern willst. Das System generiert automatisch den mundgerechten Prompt für dein ChatGPT. Diktieren, einfügen, fertig.
+          </p>
+        </div>
+
+        <div class="card pillar-card">
+          <div class="card-icon">🛡️</div>
+          <h3>2. Deterministischer Airbag</h3>
+          <p>
+            Kein unvollständiger KI-Code gelangt je online. Unser Wächter-Skript prüft Syntax, Pflicht-CTAs und Bildpfade vor dem Livegang. Du kannst deine Website niemals zerstören.
+          </p>
+        </div>
+
+        <div class="card pillar-card">
+          <div class="card-icon">⚡</div>
+          <h3>3. Swiss Edge-CDN</h3>
+          <p>
+            Kein lahmer Apache-Server, kein PHP-Ballast. Deine Seiten werden über Schweizer Rechenzentren (Zürich & Genf) in unter 50 Millisekunden ausgeliefert. Unhackbar und wartungsfrei.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Wirtschaftlichkeit & ROI -->
+  <section id="roi" class="section-spacing">
+    <div class="container">
+      <div class="section-header">
+        <p class="kicker">ÖKONOMISCHE KALIBRIERUNG</p>
+        <h2>Der No-Brainer ROI für Schweizer Betriebe</h2>
+        <p class="section-desc">
+          Keine versteckten Agentur-Stunden. Ein transparenter Festpreis, der sich ab dem ersten Monat selbst bezahlt.
+        </p>
+      </div>
+
+      <div class="roi-box">
+        <div>
+          <div class="roi-price">295.– <span>CHF / Monat</span></div>
+          <p style="color: var(--text-muted); margin-bottom: 20px;">
+            Schlüsselfertige Infrastruktur, weltweites CDN, deterministischer Airbag, Wächter-Daemons & laufender Support.
+          </p>
+          <ul style="list-style: none; color: var(--text-main); font-size: 0.95rem; line-height: 2;">
+            <li>✅ Einmaliges Setup: CHF 2'500.– (Schlüsselfertig in 48h)</li>
+            <li>✅ Inklusive 1-Klick-Cockpit & Klick-Inspektor</li>
+            <li>✅ Unlimitierte Text- & Bildänderungen</li>
+            <li>✅ Keine CMS-Wartungsverträge mehr nötig</li>
+          </ul>
+        </div>
+
+        <div style="background: var(--bg-card); padding: 28px; border-radius: 8px; border: 1px solid var(--border-subtle);">
+          <div class="kicker" style="color: var(--cyan-accent) !important;">DIE SUISSETEC-RECHNUNG</div>
+          <h4 style="font-size: 1.2rem; margin-bottom: 12px;">Exakt 2 Monteurstunden im Monat</h4>
+          <p style="color: var(--text-muted); font-size: 0.9rem; line-height: 1.6;">
+            Nach Schweizer Branchen-Regietarifen (CHF 120.– bis 165.–/h) entspricht das gesamte WebPilot-Abo exakt <strong>zwei Arbeitsstunden eines Monteurs</strong> oder einem einzigen kleinen Serviceeinsatz (z. B. Spülkasten reparieren).
+          </p>
+          <div style="margin-top: 20px;">
+            <a href="mailto:david@magnet-xs.ch?subject=WebPilot%2048h-Setup%20anfragen" class="btn-primary" style="width: 100%; justify-content: center;">
+              Jetzt Grundseite anfragen (48h)
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container footer-wrap">
+      <div>
+        © 2026 WebPilot — Ein System-Produkt von <strong>Magnet XS GmbH</strong>.
+      </div>
+      <div style="font-family: var(--font-mono); font-size: 11px;">
+        Designed on Swiss Architectural Canvas · Powered by Airbag Engine
+      </div>
+    </div>
+  </footer>
+
+  <!-- Interaktives Simulator-Skript -->
+  <script>
+    const simPhotos = [
+      "images/hero.jpg",
+      "images/stefan.jpg",
+      "images/michael.jpg",
+      "images/benefits_drohne.jpg"
+    ];
+    let photoIndex = 0;
+
+    function swapSimPhoto() {
+      photoIndex = (photoIndex + 1) % simPhotos.length;
+      const img = document.getElementById('simHeroImg');
+      img.src = simPhotos[photoIndex];
+      showPromptFeedback("⚡ 1-Klick-Tausch ausgeführt: Foto in 0.01s im DOM gewechselt & Airbag-validiert!");
+    }
+
+    function copySimPrompt(slot, text) {
+      const promptText = `Ändere im Slot '${slot}' den Inhalt zu folgendem Text:\n"${text}"\nAchte darauf, dass die Ansprache sympathisch und auf Augenhöhe bleibt.`;
+      
+      navigator.clipboard.writeText(promptText).catch(() => {});
+      
+      showPromptFeedback(`📋 Befehl für ChatGPT in Zwischenablage kopiert:\n"${promptText}"\n\n➔ Jetzt einfach in dein ChatGPT einfügen!`);
+    }
+
+    function showPromptFeedback(msg) {
+      const box = document.getElementById('simPromptBox');
+      box.innerText = msg;
+      box.classList.add('active');
+    }
+  </script>
+</body>
+</html>
