@@ -50,7 +50,7 @@ header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,0.96);backdr
 .btn.wa:hover{background:var(--gruen-dunkel);box-shadow:0 6px 18px rgba(31,122,61,0.35)}
 
 /* Hero */
-.hero{background:linear-gradient(rgba(30,25,22,.65),rgba(30,25,22,.78)),url("images/hero.jpg") center/cover no-repeat;color:#fff;text-align:center;padding:90px 20px 75px}
+.hero{background:linear-gradient(rgba(30,25,22,.65),rgba(30,25,22,.78)),url("images/zurbuchen/hero.jpg") center/cover no-repeat;color:#fff;text-align:center;padding:90px 20px 75px}
 .hero .eyebrow{display:inline-block;background:var(--rot);padding:6px 16px;border-radius:4px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;font-size:13px;margin-bottom:20px}
 .hero h1{font-size:clamp(32px,5.5vw,58px);font-weight:800;line-height:1.1;font-stretch:85%;margin-bottom:18px}
 .hero h1 span{color:var(--holz)}
@@ -721,7 +721,7 @@ document.addEventListener('click', function(e) {
           currentSrc = (idx !== -1) ? u.substring(idx) : u;
         }
       }
-      if (!currentSrc) currentSrc = 'images/hero.jpg';
+      if (!currentSrc) currentSrc = 'images/zurbuchen/hero.jpg';
     } else if (imgEl) {
       currentSrc = imgEl.getAttribute('src') || '';
     } else if (slotEl && isImg) {
