@@ -536,6 +536,102 @@ body.acp-inspector-on [data-slot]:hover {
   outline: 2px solid #eab308 !important;
   background-color: rgba(234, 179, 8, 0.12) !important;
 }
+
+/* BILD-TAUSCH SPOTLIGHT-MODUS: 
+   Alles Nicht-Austauschbare wird auf 30% gedimmt, austauschbare Bilder leuchten intensiv gelb */
+body.acp-swap-mode-active h1,
+body.acp-swap-mode-active h2,
+body.acp-swap-mode-active h3,
+body.acp-swap-mode-active h4,
+body.acp-swap-mode-active h5,
+body.acp-swap-mode-active p,
+body.acp-swap-mode-active .eyebrow,
+body.acp-swap-mode-active .eyebrow2,
+body.acp-swap-mode-active .trust,
+body.acp-swap-mode-active .hero-cta,
+body.acp-swap-mode-active .btn,
+body.acp-swap-mode-active button,
+body.acp-swap-mode-active .gruende,
+body.acp-swap-mode-active .grund,
+body.acp-swap-mode-active .inserat,
+body.acp-swap-mode-active .inserat-bg,
+body.acp-swap-mode-active .blitz-bewerbung,
+body.acp-swap-mode-active .blitz-karte,
+body.acp-swap-mode-active .faq,
+body.acp-swap-mode-active .rot-linie,
+body.acp-swap-mode-active .sticky-cta,
+body.acp-swap-mode-active .wa-direkt-box,
+body.acp-swap-mode-active .kontakt-karte,
+body.acp-swap-mode-active footer {
+  opacity: 0.3 !important;
+  pointer-events: none !important;
+  transition: opacity 0.3s ease !important;
+}
+
+body.acp-swap-mode-active .hero {
+  position: relative !important;
+  cursor: pointer !important;
+  pointer-events: auto !important;
+  outline: 4px solid #eab308 !important;
+  outline-offset: -4px !important;
+  box-shadow: inset 0 0 60px rgba(234, 179, 8, 0.4), 0 0 40px rgba(234, 179, 8, 0.6) !important;
+  opacity: 1 !important;
+}
+body.acp-swap-mode-active .hero:hover {
+  outline-color: #facc15 !important;
+  box-shadow: inset 0 0 80px rgba(250, 204, 21, 0.6), 0 0 60px rgba(250, 204, 21, 0.9) !important;
+}
+body.acp-swap-mode-active .hero::before {
+  content: "🎯 HIER KLICKEN: HERO-HINTERGRUNDBILD ERSETZEN" !important;
+  position: absolute !important;
+  top: 24px !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  z-index: 1000 !important;
+  background: #eab308 !important;
+  color: #0f172a !important;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
+  font-size: 13.5px !important;
+  font-weight: 800 !important;
+  letter-spacing: 0.5px !important;
+  padding: 8px 22px !important;
+  border-radius: 9999px !important;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.6), 0 0 25px rgba(234, 179, 8, 0.9) !important;
+  pointer-events: none !important;
+  animation: acpPulseBadge 2s infinite ease-in-out !important;
+  white-space: nowrap !important;
+}
+
+body.acp-swap-mode-active img,
+body.acp-swap-mode-active [data-slot*="bild"],
+body.acp-swap-mode-active [data-slot*="foto"],
+body.acp-swap-mode-active [data-slot*="image"],
+body.acp-swap-mode-active [data-slot*="logo"],
+body.acp-swap-mode-active .kollege img,
+body.acp-swap-mode-active .team-card img {
+  opacity: 1 !important;
+  outline: 3.5px solid #eab308 !important;
+  outline-offset: 4px !important;
+  box-shadow: 0 0 30px rgba(234, 179, 8, 0.85) !important;
+  cursor: pointer !important;
+  pointer-events: auto !important;
+  position: relative !important;
+  z-index: 100 !important;
+  transition: transform 0.2s ease, box-shadow 0.2s ease !important;
+}
+body.acp-swap-mode-active img:hover,
+body.acp-swap-mode-active [data-slot*="bild"]:hover,
+body.acp-swap-mode-active [data-slot*="foto"]:hover {
+  transform: scale(1.03) !important;
+  outline-color: #facc15 !important;
+  box-shadow: 0 0 45px rgba(250, 204, 21, 1) !important;
+}
+
+@keyframes acpPulseBadge {
+  0% { transform: translateX(-50%) scale(1); }
+  50% { transform: translateX(-50%) scale(1.05); }
+  100% { transform: translateX(-50%) scale(1); }
+}
 </style>
 </head>
 <body>
@@ -820,44 +916,59 @@ document.addEventListener('click', function(e) {
   }
 }, true);
 
-// Klick-Inspektor Listener
+// Klick-Inspektor & Swap-Modus Listener
 var acpInspectorActive = false;
 window.addEventListener("message", function(e) {
   if (e.data && e.data.type === "acp-toggle-inspector") {
     acpInspectorActive = !!e.data.active;
     document.body.classList.toggle("acp-inspector-on", acpInspectorActive);
   }
+  if (e.data && e.data.type === "acp-toggle-swap-mode") {
+    document.body.classList.toggle("acp-swap-mode-active", !!e.data.active);
+  }
 });
 
-// Slot-Klick: Erzeugt Prompt für ChatGPT
+// Slot-Klick: Erzeugt Prompt für ChatGPT oder leitet Ziel an Cockpit weiter
 document.addEventListener('click', function(e) {
-  if (!acpInspectorActive) return;
+  var isSwapActive = document.body.classList.contains("acp-swap-mode-active");
+  if (!acpInspectorActive && !isSwapActive) return;
+
   var heroEl = e.target.closest('.hero');
   var slotEl = e.target.closest('[data-slot]');
-  if (slotEl || heroEl) {
+  var imgEl = e.target.closest('img');
+
+  if (isSwapActive && !heroEl && !imgEl && (!slotEl || !slotEl.matches('[data-slot*="bild"], [data-slot*="foto"], [data-slot*="image"], [data-slot*="logo"], img'))) {
+    return;
+  }
+
+  if (slotEl || heroEl || imgEl) {
     e.preventDefault();
     e.stopPropagation();
-    var slotName = slotEl ? slotEl.getAttribute('data-slot') : 'hero.hintergrund.bild';
-    var isImg = slotEl ? (slotEl.tagName.toLowerCase() === 'img') : false;
-    var isHero = (slotName === 'hero.hintergrund.bild') || (!isImg && heroEl);
+    var slotName = slotEl ? slotEl.getAttribute('data-slot') : '';
+    var isImg = imgEl ? true : (slotEl ? (slotEl.tagName.toLowerCase() === 'img') : false);
+    var isHero = (slotName === 'hero.hintergrund.bild') || (!isImg && heroEl && !imgEl);
     if (isHero) {
       slotName = 'hero.hintergrund.bild';
+    } else if (!slotName && imgEl) {
+      var src = imgEl.getAttribute('src') || '';
+      slotName = 'bild.' + (src.split('/').pop() || 'unbekannt');
     }
+    var currentSrc = isHero ? 'images/hero.jpg' : (imgEl ? (imgEl.getAttribute('src') || '') : (slotEl && isImg ? slotEl.getAttribute('src') : ''));
+    var thisFile = (window.location.pathname.split('/').pop() || 'Hiltbrand_Dachdecker_Pragmatisch.html').split('?')[0];
+
     var promptText = '';
     if (isHero) {
-      promptText = 'Tausche das große Hero-Hintergrundbild im Slot "hero.hintergrund.bild" (images/hero.jpg) in Hiltbrand_Dachdecker_Pragmatisch.html gegen folgendes neue Foto aus: [BILD_HIER_EINFÜGEN]';
+      promptText = 'Tausche das große Hero-Hintergrundbild im Slot "hero.hintergrund.bild" (images/hero.jpg) in ' + thisFile + ' gegen folgendes neue Foto aus: [BILD_HIER_EINFÜGEN]';
     } else if (isImg) {
-      promptText = 'Tausche das Bild im Slot "' + slotName + '" in Hiltbrand_Dachdecker_Pragmatisch.html gegen folgendes neue Foto aus: [BILD_HIER_EINFÜGEN]';
+      promptText = 'Tausche das Bild im Slot "' + slotName + '" (' + currentSrc + ') in ' + thisFile + ' gegen folgendes neue Foto aus: [BILD_HIER_EINFÜGEN]';
     } else {
-      promptText = 'Ändere den Inhalt im Slot "' + slotName + '" in Hiltbrand_Dachdecker_Pragmatisch.html wie folgt: [NEUER_TEXT_HIER]';
+      promptText = 'Ändere den Inhalt im Slot "' + slotName + '" in ' + thisFile + ' wie folgt: [NEUER_TEXT_HIER]';
     }
     
     if (navigator.clipboard && navigator.clipboard.writeText) {
       navigator.clipboard.writeText(promptText);
     }
     if (window.parent && window.parent !== window) {
-      var currentSrc = isHero ? 'images/hero.jpg' : (isImg ? (slotEl.getAttribute('src') || '') : '');
-      var thisFile = (window.location.pathname.split('/').pop() || 'Hiltbrand_Dachdecker_Pragmatisch.html').split('?')[0];
       window.parent.postMessage({
         type: 'acp-slot-click',
         slot: slotName,
@@ -866,7 +977,7 @@ document.addEventListener('click', function(e) {
         currentSrc: currentSrc,
         datei: thisFile
       }, '*');
-      window.parent.postMessage({ type: 'acp-toast', text: '📋 Prompt für Slot <strong>' + slotName + '</strong> in die Zwischenablage kopiert!' }, '*');
+      window.parent.postMessage({ type: 'acp-toast', text: '🎯 Zielbild gewählt: <strong>' + (currentSrc.split('/').pop() || slotName) + '</strong>' }, '*');
     }
   }
 }, true);
