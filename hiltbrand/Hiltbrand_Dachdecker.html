@@ -1000,6 +1000,17 @@ document.addEventListener("click", function(e) {
       navigator.clipboard.writeText(promptText);
       acpShowToast('📋 Prompt für Slot <strong>' + slotName + '</strong> in Zwischenablage kopiert!');
       if (window.parent && window.parent !== window) {
+        var isHero = (slotName === 'hero.hintergrund.bild');
+        var currentSrc = isHero ? 'images/hero.jpg' : (isImg ? (slotted.getAttribute('src') || '') : '');
+        var thisFile = (window.location.pathname.split('/').pop() || 'Hiltbrand_Dachdecker.html').split('?')[0];
+        window.parent.postMessage({
+          type: 'acp-slot-click',
+          slot: slotName,
+          isImg: isImg || isHero,
+          isHero: isHero,
+          currentSrc: currentSrc,
+          datei: thisFile
+        }, '*');
         window.parent.postMessage({ type: 'acp-toast', text: '📋 Prompt für Slot <strong>' + slotName + '</strong> in Zwischenablage kopiert!' }, '*');
       }
     } else {
