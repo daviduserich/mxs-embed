@@ -832,14 +832,19 @@ window.addEventListener("message", function(e) {
 // Slot-Klick: Erzeugt Prompt für ChatGPT
 document.addEventListener('click', function(e) {
   if (!acpInspectorActive) return;
+  var heroEl = e.target.closest('.hero');
   var slotEl = e.target.closest('[data-slot]');
-  if (slotEl) {
+  if (slotEl || heroEl) {
     e.preventDefault();
     e.stopPropagation();
-    var slotName = slotEl.getAttribute('data-slot');
-    var isImg = slotEl.tagName.toLowerCase() === 'img';
+    var slotName = slotEl ? slotEl.getAttribute('data-slot') : 'hero.hintergrund.bild';
+    var isImg = slotEl ? (slotEl.tagName.toLowerCase() === 'img') : false;
+    var isHero = (slotName === 'hero.hintergrund.bild') || (!isImg && heroEl);
+    if (isHero) {
+      slotName = 'hero.hintergrund.bild';
+    }
     var promptText = '';
-    if (slotName === 'hero.hintergrund.bild') {
+    if (isHero) {
       promptText = 'Tausche das große Hero-Hintergrundbild im Slot "hero.hintergrund.bild" (images/hero.jpg) in Hiltbrand_Dachdecker_Pragmatisch.html gegen folgendes neue Foto aus: [BILD_HIER_EINFÜGEN]';
     } else if (isImg) {
       promptText = 'Tausche das Bild im Slot "' + slotName + '" in Hiltbrand_Dachdecker_Pragmatisch.html gegen folgendes neue Foto aus: [BILD_HIER_EINFÜGEN]';
@@ -851,7 +856,6 @@ document.addEventListener('click', function(e) {
       navigator.clipboard.writeText(promptText);
     }
     if (window.parent && window.parent !== window) {
-      var isHero = (slotName === 'hero.hintergrund.bild');
       var currentSrc = isHero ? 'images/hero.jpg' : (isImg ? (slotEl.getAttribute('src') || '') : '');
       var thisFile = (window.location.pathname.split('/').pop() || 'Hiltbrand_Dachdecker_Pragmatisch.html').split('?')[0];
       window.parent.postMessage({
