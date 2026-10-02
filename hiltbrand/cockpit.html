@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Hiltbrand & Zurbuchen Karriere-Cockpit · v3.2.0</title>
+<title>Hiltbrand & Zurbuchen Karriere-Cockpit · v3.2.2</title>
 <meta name="description" content="Interaktiver Recruiting-Simulator und Stellen-Verzeichnis für Kunden-Widgets. Vorschau, Wechsel zwischen Stellen und 1-Klick Einbettungscodes.">
 <link rel="icon" href="images/logo.png" type="image/png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -1492,8 +1492,9 @@ a { color: var(--rot); text-decoration: none; }
 /* Fallback anchor for Airbag validator */
 .acp-hidden-audit { display: none; }
 
+
 /* ======================================================= */
-/* COCKPIT v3.2.0: VERSION BADGE & FULLSCREEN MODALS       */
+/* COCKPIT v3.2.2: FULLPAGE SPA VIEWS (ZERO INNER SCROLL)  */
 /* ======================================================= */
 body.acp-modal-open {
   overflow: hidden !important;
@@ -1521,96 +1522,299 @@ body.acp-modal-open {
   color: #10b981;
 }
 
+/* 100% FULLPAGE MODAL OVERLAY (NATÜRLICHER SEITEN-SCROLL, KEINE INNEREN BOX-SCROLLER) */
 .acp-modal-backdrop {
-  position: fixed;
-  inset: 0;
-  background: rgba(8, 12, 22, 0.94);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  z-index: 3000;
-  display: none;
-  align-items: center;
-  justify-content: center;
-  padding: 0;
-  opacity: 0;
-  transition: opacity 0.2s ease;
+  position: fixed !important;
+  inset: 0 !important;
+  width: 100vw !important;
+  height: 100vh !important;
+  background: #090e1a !important;
+  z-index: 3000 !important;
+  display: none !important;
+  overflow-y: auto !important;
+  overflow-x: hidden !important;
+  -webkit-overflow-scrolling: touch !important;
+  padding: 0 !important;
+  margin: 0 !important;
 }
 .acp-modal-backdrop.is-open {
-  display: flex;
-  opacity: 1;
+  display: block !important;
 }
 
-/* TRUE FULLSCREEN MODAL VIEW */
+/* INNERE SEITE: VOLLSTÄNDIG OFFEN, KEIN EIGENER SCROLLBALKEN */
+.acp-modal,
+#acp-directory-modal .acp-modal,
+#acp-images-modal .acp-modal,
+#acp-help-modal .acp-modal,
 .acp-modal.acp-modal-fullscreen {
-  position: fixed;
-  inset: 0;
-  width: 100vw;
-  height: 100vh;
-  max-width: 100vw;
-  max-height: 100vh;
-  border-radius: 0;
-  border: none;
-  background: #090e1a;
-  display: flex;
-  flex-direction: column;
-  overflow: hidden;
-  box-shadow: none;
-  color: #f8fafc;
+  width: 100% !important;
+  max-width: 100% !important;
+  min-height: 100vh !important;
+  background: transparent !important;
+  border: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  overflow: visible !important;
+  color: #f8fafc !important;
 }
 
-.acp-modal.acp-modal-fullscreen .acp-modal-head {
-  padding: 16px 36px;
-  background: #0f172a;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-shrink: 0;
-}
-.acp-modal.acp-modal-fullscreen .acp-modal-head h3 {
-  font-size: 19px;
-  font-weight: 800;
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  color: #ffffff;
-  margin: 0;
-}
-
-.acp-modal.acp-modal-fullscreen .acp-modal-close {
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  color: #f1f5f9;
-  font-size: 13px;
-  font-weight: 700;
-  cursor: pointer;
-  padding: 8px 16px;
-  border-radius: 8px;
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  transition: all 0.15s ease;
-}
-.acp-modal.acp-modal-fullscreen .acp-modal-close:hover {
-  background: #ef4444;
-  border-color: #ef4444;
-  color: #ffffff;
+/* STICKY TOP APP-BAR */
+.acp-modal-head,
+#acp-directory-modal .acp-modal-head,
+#acp-images-modal .acp-modal-head,
+#acp-help-modal .acp-modal-head {
+  position: sticky !important;
+  top: 0 !important;
+  z-index: 100 !important;
+  width: 100% !important;
+  background: rgba(15, 23, 42, 0.95) !important;
+  backdrop-filter: blur(14px) !important;
+  -webkit-backdrop-filter: blur(14px) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12) !important;
+  padding: 16px 40px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  box-sizing: border-box !important;
+  flex-shrink: 0 !important;
 }
 
-.acp-modal.acp-modal-fullscreen .acp-modal-body {
-  padding: 24px 40px 60px 40px;
-  flex: 1;
-  overflow-y: auto;
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
+.acp-modal-head h3,
+#acp-directory-modal .acp-modal-head h3,
+#acp-images-modal .acp-modal-head h3,
+#acp-help-modal .acp-modal-head h3 {
+  font-size: 19px !important;
+  font-weight: 800 !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 12px !important;
+  color: #ffffff !important;
+  margin: 0 !important;
 }
 
-/* RESPONSIVE WIDESCREEN IMAGES GRID */
+.acp-modal-close {
+  background: rgba(255, 255, 255, 0.08) !important;
+  border: 1px solid rgba(255, 255, 255, 0.16) !important;
+  color: #f1f5f9 !important;
+  font-size: 13px !important;
+  font-weight: 700 !important;
+  cursor: pointer !important;
+  padding: 8px 18px !important;
+  border-radius: 8px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+  transition: all 0.15s ease !important;
+}
+.acp-modal-close:hover {
+  background: #ef4444 !important;
+  border-color: #ef4444 !important;
+  color: #ffffff !important;
+}
+
+/* SEITEN-INHALT: FLIESST NATÜRLICH, KEIN EIGENER SCROLLBALKEN */
+.acp-modal-body,
+#acp-directory-modal .acp-modal-body,
+#acp-images-modal .acp-modal-body {
+  width: 100% !important;
+  max-width: 1440px !important;
+  margin: 0 auto !important;
+  padding: 32px 40px 100px 40px !important;
+  box-sizing: border-box !important;
+  overflow: visible !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 24px !important;
+}
+
+#acp-help-modal .acp-modal-body {
+  width: 100% !important;
+  max-width: 960px !important;
+  margin: 0 auto !important;
+  padding: 32px 40px 100px 40px !important;
+  box-sizing: border-box !important;
+  overflow: visible !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 20px !important;
+}
+
+/* STELLEN-ZENTRALE: VOLLKOMMEN FREI VON INNEN-SCROLLBALKEN */
+.acp-jobs-table-wrap {
+  overflow: visible !important;
+  overflow-x: visible !important;
+  overflow-y: visible !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  border-radius: 12px !important;
+  background: rgba(15, 23, 42, 0.6) !important;
+  width: 100% !important;
+}
+.acp-jobs-table {
+  width: 100% !important;
+  table-layout: auto !important;
+  border-collapse: collapse !important;
+}
+.acp-jobs-table th {
+  background: rgba(30, 41, 59, 0.7) !important;
+  color: #94a3b8 !important;
+  font-family: 'JetBrains Mono', monospace !important;
+  font-size: 11.5px !important;
+  font-weight: 800 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.5px !important;
+  padding: 14px 20px !important;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.1) !important;
+  white-space: nowrap !important;
+}
+.acp-jobs-table td {
+  padding: 16px 20px !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06) !important;
+  vertical-align: middle !important;
+}
+.acp-code-preview-box pre,
+.acp-code-pre {
+  white-space: pre-wrap !important;
+  word-break: break-all !important;
+  overflow-x: hidden !important;
+  max-height: none !important;
+}
+
+/* ASSET-GALERIE: NICHT GEQUETSCHT, SAUBERES PROPORTIONALES RENDER */
 .acp-images-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
-  gap: 22px;
+  display: grid !important;
+  grid-template-columns: repeat(auto-fill, minmax(290px, 1fr)) !important;
+  gap: 24px !important;
+  width: 100% !important;
+  overflow: visible !important;
+}
+
+.acp-image-card {
+  background: rgba(30, 41, 59, 0.6) !important;
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
+  border-radius: 12px !important;
+  overflow: hidden !important;
+  display: flex !important;
+  flex-direction: column !important;
+  min-height: 350px !important;
+  transition: transform 0.2s ease, border-color 0.2s ease !important;
+}
+.acp-image-card:hover {
+  transform: translateY(-3px) !important;
+  border-color: rgba(234, 179, 8, 0.6) !important;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5) !important;
+}
+
+.acp-card-thumb-wrap,
+.acp-image-card-thumb-wrap {
+  width: 100% !important;
+  height: 200px !important;
+  min-height: 200px !important;
+  max-height: 200px !important;
+  background: #020617 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  overflow: hidden !important;
+  position: relative !important;
+}
+
+.acp-card-thumb,
+.acp-image-card-thumb {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  object-position: center !important;
+  display: block !important;
+  transition: transform 0.25s ease !important;
+}
+.acp-image-card:hover .acp-card-thumb,
+.acp-image-card:hover .acp-image-card-thumb {
+  transform: scale(1.04) !important;
+}
+
+.acp-card-body,
+.acp-image-card-body {
+  padding: 14px 16px !important;
+  flex: 1 1 auto !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: space-between !important;
+  gap: 8px !important;
+}
+
+.acp-card-title,
+.acp-image-card-title {
+  font-size: 13.5px !important;
+  font-weight: 700 !important;
+  color: #f8fafc !important;
+  word-break: break-all !important;
+  line-height: 1.35 !important;
+}
+
+.acp-card-meta,
+.acp-image-card-meta {
+  font-size: 11px !important;
+  color: #94a3b8 !important;
+  font-family: 'JetBrains Mono', monospace !important;
+}
+
+.acp-card-badge,
+.acp-image-card-badge {
+  font-size: 11px !important;
+  font-weight: 700 !important;
+  padding: 3px 8px !important;
+  border-radius: 4px !important;
+  display: inline-block !important;
+  width: fit-content !important;
+}
+
+.acp-card-actions,
+.acp-image-card-actions {
+  display: flex !important;
+  gap: 8px !important;
+  margin-top: 6px !important;
+}
+
+.btn-card-swap,
+.btn-card-choose {
+  flex: 1 !important;
+  background: rgba(234, 179, 8, 0.18) !important;
+  color: #facc15 !important;
+  border: 1px solid rgba(234, 179, 8, 0.45) !important;
+  font-family: inherit !important;
+  font-size: 12px !important;
+  font-weight: 700 !important;
+  padding: 8px 12px !important;
+  border-radius: 6px !important;
+  cursor: pointer !important;
+  transition: all 0.2s !important;
+  text-align: center !important;
+}
+.btn-card-swap:hover,
+.btn-card-choose:hover {
+  background: #eab308 !important;
+  color: #0f172a !important;
+}
+
+.btn-card-copy {
+  background: rgba(255, 255, 255, 0.08) !important;
+  color: #cbd5e1 !important;
+  border: 1px solid rgba(255, 255, 255, 0.15) !important;
+  font-family: inherit !important;
+  font-size: 12px !important;
+  font-weight: 600 !important;
+  padding: 8px 12px !important;
+  border-radius: 6px !important;
+  cursor: pointer !important;
+  transition: all 0.2s !important;
+}
+.btn-card-copy:hover {
+  background: rgba(255, 255, 255, 0.18) !important;
+  color: #ffffff !important;
 }
 
 </style>
@@ -1632,7 +1836,7 @@ body.acp-modal-open {
         <span class="dot"></span>
         <span id="acp-brand-label">LOKALES COCKPIT</span>
       </a>
-      <span class="acp-version-badge" id="acp-version-badge" title="Magnet-XS Cockpit Framework Version & Build-Stand">v3.2.0</span>
+      <span class="acp-version-badge" id="acp-version-badge" title="Magnet-XS Cockpit Framework Version & Build-Stand">v3.2.2</span>
       <span class="acp-cockpit-label">Vorschau für Stelle:</span>
       <div class="acp-job-picker-wrap" id="acp-job-picker-wrap">
         <button type="button" class="acp-job-picker-btn" id="acp-picker-btn" onclick="acpToggleDirectoryModal()">
@@ -1876,7 +2080,7 @@ body.acp-modal-open {
 <!-- MODAL: SO FUNKTIONIERT'S (KURZE ANLEITUNG)              -->
 <!-- ======================================================= -->
 <div id="acp-help-modal" class="acp-modal-backdrop" onclick="if(event.target===this)acpToggleHelpModal()">
-  <div class="acp-modal" style="max-width: 680px;">
+  <div class="acp-modal" >
     <div class="acp-modal-head">
       <h3><span>💡</span> So funktioniert dein Karriere-Cockpit</h3>
       <button type="button" class="acp-modal-close" onclick="acpToggleHelpModal()" title="Schliessen">✕</button>
@@ -2018,10 +2222,10 @@ body.acp-modal-open {
 <!-- ======================================================= -->
 <script>
 // =======================================================
-// MAGNET-XS COCKPIT FRAMEWORK v3.2.0
+// MAGNET-XS COCKPIT FRAMEWORK v3.2.2
 // Build: 2026-10-02 11:35 CEST
 // =======================================================
-var ACP_COCKPIT_VERSION = "v3.2.0";
+var ACP_COCKPIT_VERSION = "v3.2.2";
 var ACP_COCKPIT_BUILD = "2026-10-02 11:35";
 
 // Manifest-Daten mit robusten Fallbacks
