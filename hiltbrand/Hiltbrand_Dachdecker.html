@@ -361,7 +361,7 @@ body.acp-swap-mode-active .hero:hover {
   box-shadow: inset 0 0 120px rgba(250, 204, 21, 0.65), 0 0 80px rgba(250, 204, 21, 0.9) !important;
 }
 body.acp-swap-mode-active .hero::before {
-  content: "🎯 HIER KLICKEN: HERO-HINTERGRUNDBILD ERSETZEN" !important;
+  content: "⚡ HIER KLICKEN: HERO-BILD SOFORT ERSETZEN (1-KLICK)" !important;
   position: absolute !important;
   top: 24px !important;
   left: 50% !important;
@@ -1085,6 +1085,20 @@ window.addEventListener("message", function(e) {
   if (e.data && e.data.type === "acp-toggle-swap-mode") {
     document.body.classList.toggle("acp-swap-mode-active", !!e.data.active);
   }
+  if (e.data && e.data.type === "acp-apply-swap-preview") {
+    var newSrc = e.data.newSrc;
+    if (e.data.isHero) {
+      var hero = document.querySelector('.hero');
+      if (hero) {
+        hero.style.backgroundImage = 'linear-gradient(rgba(15,23,42,0.75), rgba(15,23,42,0.85)), url("' + newSrc + '")';
+      }
+    } else if (e.data.slot) {
+      var targetEl = document.querySelector('[data-slot="' + e.data.slot + '"]');
+      if (targetEl && targetEl.tagName.toLowerCase() === 'img') {
+        targetEl.src = newSrc;
+      }
+    }
+  }
 });
 
 document.addEventListener("click", function(e) {
@@ -1116,11 +1130,11 @@ document.addEventListener("click", function(e) {
     if (isHero) {
       if (heroEl) {
         var bg = window.getComputedStyle(heroEl).backgroundImage || "";
-        var m = bg.match(/url\(["']?(.*?)["']?\)/);
+        var m = bg.match(/url\(["']?([^"'\)]+)["']?\)/);
         if (m && m[1]) {
-          var u = m[1];
+          var u = m[1].replace(/['"]/g, '').split('?')[0].trim();
           var idx = u.indexOf("images/");
-          currentSrc = (idx !== -1) ? u.substring(idx) : u;
+          currentSrc = (idx !== -1) ? u.substring(idx) : u.split("/").pop();
         }
       }
       if (!currentSrc) currentSrc = "images/hero.jpg";
