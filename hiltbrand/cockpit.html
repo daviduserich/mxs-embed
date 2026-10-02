@@ -1078,6 +1078,178 @@ a { color: var(--rot); text-decoration: none; }
   border-color: #10b981;
 }
 
+
+/* ======================================================= */
+/* STELLEN-ZENTRALE: VOLLBILD-MODAL & TABELLE             */
+/* ======================================================= */
+#acp-directory-modal .acp-modal {
+  max-width: 1240px !important;
+  width: 95vw !important;
+  max-height: 92vh !important;
+}
+
+.acp-jobs-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+  padding-bottom: 8px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+.acp-jobs-filter-pills {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.acp-job-filter-pill {
+  background: rgba(255, 255, 255, 0.06);
+  color: #94a3b8;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 9999px;
+  padding: 6px 14px;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.15s;
+  font-family: inherit;
+}
+.acp-job-filter-pill:hover {
+  background: rgba(255, 255, 255, 0.12);
+  color: #f8fafc;
+}
+.acp-job-filter-pill.active {
+  background: #3b82f6;
+  color: #ffffff;
+  border-color: #3b82f6;
+  box-shadow: 0 0 12px rgba(59, 130, 246, 0.4);
+}
+.acp-jobs-search-input {
+  background: rgba(15, 23, 42, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 8px;
+  padding: 8px 14px;
+  color: #ffffff;
+  font-size: 12.5px;
+  width: 280px;
+  font-family: inherit;
+}
+.acp-jobs-search-input:focus {
+  outline: none;
+  border-color: #38bdf8;
+  box-shadow: 0 0 10px rgba(56, 189, 248, 0.25);
+}
+
+.acp-jobs-table-wrap {
+  overflow-x: auto;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(15, 23, 42, 0.4);
+}
+.acp-jobs-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-size: 13.5px;
+}
+.acp-jobs-table th {
+  background: rgba(30, 41, 59, 0.7);
+  color: #94a3b8;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding: 12px 16px;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+  white-space: nowrap;
+}
+.acp-jobs-table td {
+  padding: 14px 16px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  vertical-align: middle;
+}
+.acp-jobs-table tr:hover td {
+  background: rgba(255, 255, 255, 0.03);
+}
+.acp-jobs-table tr.is-active-job td {
+  background: rgba(56, 189, 248, 0.07);
+}
+.acp-jobs-table tr.is-active-job {
+  border-left: 4px solid #38bdf8;
+}
+
+.job-filename-badge {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 13px;
+  font-weight: 700;
+  color: #38bdf8;
+  background: rgba(56, 189, 248, 0.1);
+  border: 1px solid rgba(56, 189, 248, 0.25);
+  padding: 4px 8px;
+  border-radius: 6px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+.job-filename-badge:hover {
+  background: rgba(56, 189, 248, 0.2);
+  border-color: #38bdf8;
+}
+
+.job-title-cell {
+  font-size: 14.5px;
+  font-weight: 700;
+  color: #f8fafc;
+}
+.job-title-subline {
+  font-size: 12px;
+  color: #94a3b8;
+  margin-top: 3px;
+}
+.job-active-marker {
+  display: inline-block;
+  background: rgba(56, 189, 248, 0.2);
+  color: #38bdf8;
+  border: 1px solid rgba(56, 189, 248, 0.4);
+  font-size: 10px;
+  font-weight: 800;
+  text-transform: uppercase;
+  padding: 2px 6px;
+  border-radius: 4px;
+  margin-left: 8px;
+  vertical-align: middle;
+}
+
+.btn-job-switch {
+  background: #3b82f6;
+  color: #ffffff;
+  border: none;
+  font-family: inherit;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 7px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.15s;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  white-space: nowrap;
+}
+.btn-job-switch:hover {
+  background: #2563eb;
+  transform: translateY(-1px);
+}
+.btn-job-switch.is-current {
+  background: rgba(56, 189, 248, 0.2);
+  color: #38bdf8;
+  border: 1px solid rgba(56, 189, 248, 0.4);
+  cursor: default;
+}
+
 /* Code Snippet Box im Modal */
 .acp-code-preview-box {
   background: #020617;
@@ -1340,7 +1512,7 @@ a { color: var(--rot); text-decoration: none; }
       </a>
       <span class="acp-cockpit-label">Vorschau für Stelle:</span>
       <div class="acp-job-picker-wrap" id="acp-job-picker-wrap">
-        <button type="button" class="acp-job-picker-btn" id="acp-picker-btn" onclick="acpToggleJobDropdown()">
+        <button type="button" class="acp-job-picker-btn" id="acp-picker-btn" onclick="acpToggleDirectoryModal()">
           <span class="picker-icon" id="picker-current-icon">🏠</span>
           <span class="picker-title" id="picker-current-title">Dachdecker EFZ (80–100%)</span>
           <span class="picker-badge" id="picker-current-firm">Hiltbrand</span>
@@ -1482,33 +1654,52 @@ a { color: var(--rot); text-decoration: none; }
 <div id="acp-directory-modal" class="acp-modal-backdrop" onclick="if(event.target===this)acpToggleDirectoryModal()">
   <div class="acp-modal">
     <div class="acp-modal-head">
-      <h3><span>📑</span> Stellen-Verzeichnis &amp; Widget-Einbettungscodes</h3>
+      <div>
+        <h3 style="display:flex; align-items:center; gap:10px; margin-bottom:4px;">
+          <span>📑</span> Stellen-Zentrale &amp; Inserate-Manager
+        </h3>
+        <p style="font-size:12.5px; color:#94a3b8; margin:0;">
+          Wähle ein Inserat aus, um es direkt im Cockpit zu bearbeiten oder kopiere den Einbettungscode für den Webmaster.
+        </p>
+      </div>
       <button type="button" class="acp-modal-close" onclick="acpToggleDirectoryModal()" title="Schliessen">✕</button>
     </div>
     <div class="acp-modal-body">
-      <div class="acp-info-callout">
-        <strong>Wie funktioniert das System?</strong> Jede Stelle hat eine eigene Datei im lokalen Ordner <code>D:\Kunden-Sync\Hiltbrand-Karriere\</code>. Änderungen werden via Syncthing in Sekunden synchronisiert. Der Webmaster bindet einmalig den 2-Zeiler Code ein – alle zukünftigen Updates erscheinen automatisch!<br>
-        <span style="display:inline-block; margin-top:8px;">🌐 <strong>Online-Cockpit (Weltweit erreichbar):</strong> <a href="https://embed.magnet-xs.ch/hiltbrand/cockpit" target="_blank" style="color:#38bdf8; font-weight:700; text-decoration:underline;">embed.magnet-xs.ch/hiltbrand/cockpit ↗</a></span>
+      <div class="acp-info-callout" style="border-left-color: #3b82f6;">
+        <strong>Lokaler Speicherort:</strong> Jede Stelle entspricht einer echten HTML-Datei in <code>D:\Kunden-Sync\Hiltbrand-Karriere\</code>. Änderungen werden via Syncthing in Sekunden abgeglichen.<br>
+        <span style="display:inline-block; margin-top:8px;">🌐 <strong>Globales Edge-Cockpit:</strong> <a href="https://embed.magnet-xs.ch/hiltbrand/cockpit" target="_blank" style="color:#38bdf8; font-weight:700; text-decoration:underline;">embed.magnet-xs.ch/hiltbrand/cockpit ↗</a> · 📁 <strong>Stellen-Katalog:</strong> <a href="STELLEN_VERZEICHNIS.md" target="_blank" style="color:#facc15; font-weight:700; text-decoration:underline;">STELLEN_VERZEICHNIS.md öffnen ↗</a></span>
       </div>
 
-      <table class="acp-modal-table">
-        <thead>
-          <tr>
-            <th>Stelle &amp; Firma</th>
-            <th>Lokale Datei</th>
-            <th>Ziel-Webseite</th>
-            <th>Status</th>
-            <th>Aktionen</th>
-          </tr>
-        </thead>
-        <tbody id="acp-directory-tbody">
-          <!-- Dynamisch via JavaScript -->
-        </tbody>
-      </table>
+      <div class="acp-jobs-toolbar">
+        <div class="acp-jobs-filter-pills" id="acp-jobs-filter-pills">
+          <button type="button" class="acp-job-filter-pill active" onclick="acpSetJobFilter('alle')">🏢 Alle Inserate (<span id="count-jobs-all">0</span>)</button>
+          <button type="button" class="acp-job-filter-pill" onclick="acpSetJobFilter('hiltbrand')">🏠 Hiltbrand Gebäudehüllen (<span id="count-jobs-hiltbrand">0</span>)</button>
+          <button type="button" class="acp-job-filter-pill" onclick="acpSetJobFilter('zurbuchen')">🌲 Zurbuchen Holzbau (<span id="count-jobs-zurbuchen">0</span>)</button>
+          <button type="button" class="acp-job-filter-pill" onclick="acpSetJobFilter('live')">🟢 Nur Live-Widget (<span id="count-jobs-live">0</span>)</button>
+        </div>
+        <input type="text" id="acp-jobs-search" class="acp-jobs-search-input" placeholder="🔍 Datei oder Stelle suchen..." oninput="acpFilterJobs()">
+      </div>
+
+      <div class="acp-jobs-table-wrap">
+        <table class="acp-jobs-table">
+          <thead>
+            <tr>
+              <th style="width:260px;">📁 Dateiname im Explorer</th>
+              <th>🎯 Inserat- &amp; Hero-Titel</th>
+              <th style="width:210px;">🏢 Firma / Mandant</th>
+              <th style="width:140px;">🟢 Status</th>
+              <th style="width:180px; text-align:right;">⚡ Aktionen</th>
+            </tr>
+          </thead>
+          <tbody id="acp-directory-tbody">
+            <!-- Dynamisch via JavaScript -->
+          </tbody>
+        </table>
+      </div>
 
       <div class="acp-code-preview-box">
         <h5>
-          <span>Aktiver Widget-Einbettungscode (<span id="code-job-label">Dachdecker EFZ</span>)</span>
+          <span>Aktiver 1-Klick Einbettungscode (<strong id="code-job-label" style="color:#ffffff;">Dachdecker EFZ</strong>)</span>
           <button type="button" class="acp-btn-code" style="padding:4px 10px; font-size:12px;" onclick="acpCopyActiveCode()">Code kopieren</button>
         </h5>
         <pre class="acp-code-pre" id="active-widget-snippet"></pre>
@@ -2244,6 +2435,10 @@ function acpToggleHelpModal() {
 }
 
 // Stellen-Verzeichnis Modal
+// Stellen-Manifest & Filter-State
+var ACP_STELLEN = [{"id": "hiltbrand_dachdecker", "titel": "Dachdecker EFZ (80–100%)", "firma": "Hiltbrand Gebäudehüllen AG", "icon": "🏠", "datei": "Hiltbrand_Dachdecker.html", "host_webseite": "https://dachdecker-berneroberland.ch", "host_label": "dachdecker-berneroberland.ch", "farb_akzent": "#EF4035", "widget_code": "<iframe src=\"https://embed.magnet-xs.ch/hiltbrand/Hiltbrand_Dachdecker.html?embed=true\" style=\"width:100%; border:none; min-height:850px;\" scrolling=\"no\" id=\"acp-job-widget\"></iframe>\n<script>window.addEventListener(\"message\",function(e){if(e.data&&e.data.type===\"acp-embed-resize\"){var el=document.getElementById(\"acp-job-widget\");if(el)el.style.height=e.data.height+\"px\";}});</script>", "is_live": false, "live_url": "", "status": "Entwurf (Vorlage)", "status_badge": "⚪ ENTWURF"}, {"id": "hiltbrand_dachdecker_pragmatisch", "titel": "Dachdecker EFZ (Pragmatisch & WhatsApp)", "firma": "Hiltbrand Gebäudehüllen AG", "icon": "🏠", "datei": "Hiltbrand_Dachdecker_Pragmatisch.html", "host_webseite": "https://dachdecker-berneroberland.ch", "host_label": "dachdecker-berneroberland.ch", "farb_akzent": "#EF4035", "widget_code": "<iframe src=\"https://embed.magnet-xs.ch/hiltbrand/Hiltbrand_Dachdecker_Pragmatisch.html?embed=true\" style=\"width:100%; border:none; min-height:850px;\" scrolling=\"no\" id=\"acp-job-widget\"></iframe>\n<script>window.addEventListener(\"message\",function(e){if(e.data&&e.data.type===\"acp-embed-resize\"){var el=document.getElementById(\"acp-job-widget\");if(el)el.style.height=e.data.height+\"px\";}});</script>", "is_live": true, "live_url": "https://dachdecker-berneroberland.ch/jobs/", "status": "Live auf Webseite", "status_badge": "🟢 LIVE AUF WEBSEITE"}, {"id": "zurbuchen_holzbauer", "titel": "Zimmermann EFZ (2–3 Stellen)", "firma": "Zurbuchen Holzbau AG", "icon": "🌲", "datei": "zurbuchen_Holzbauer.html", "host_webseite": "https://zurbuchen-holzbau.ch", "host_label": "zurbuchen-holzbau.ch", "farb_akzent": "#9B1B1F", "widget_code": "<iframe src=\"https://embed.magnet-xs.ch/zurbuchen/zurbuchen_Holzbauer.html?embed=true\" style=\"width:100%; border:none; min-height:850px;\" scrolling=\"no\" id=\"acp-job-widget\"></iframe>\n<script>window.addEventListener(\"message\",function(e){if(e.data&&e.data.type===\"acp-embed-resize\"){var el=document.getElementById(\"acp-job-widget\");if(el)el.style.height=e.data.height+\"px\";}});</script>", "is_live": false, "live_url": "", "status": "Bereit für Zurbuchen", "status_badge": "🟡 BEREIT"}];
+var acpCurrentJobFilter = 'alle';
+
 function acpToggleDirectoryModal() {
   var modal = document.getElementById("acp-directory-modal");
   if (!modal) return;
@@ -2257,33 +2452,112 @@ function acpToggleDirectoryModal() {
   }
 }
 
+function acpSetJobFilter(filter) {
+  acpCurrentJobFilter = filter;
+  var pills = document.querySelectorAll(".acp-job-filter-pill");
+  pills.forEach(function(p) { p.classList.remove("active"); });
+  if (event && event.target) event.target.classList.add("active");
+  renderDirectoryTable();
+}
+
+function acpFilterJobs() {
+  renderDirectoryTable();
+}
+
 function renderDirectoryTable() {
   var tbody = document.getElementById("acp-directory-tbody");
   if (!tbody) return;
+
+  var searchInput = document.getElementById("acp-jobs-search");
+  var query = (searchInput ? searchInput.value : "").toLowerCase().trim();
+
+  // Zähler aktualisieren
+  var countAll = ACP_STELLEN.length;
+  var countHiltbrand = ACP_STELLEN.filter(function(j) { return (j.firma || '').indexOf('Hiltbrand') !== -1; }).length;
+  var countZurbuchen = ACP_STELLEN.filter(function(j) { return (j.firma || '').indexOf('Zurbuchen') !== -1; }).length;
+  var countLive = ACP_STELLEN.filter(function(j) { return !!j.is_live; }).length;
+
+  var elAll = document.getElementById("count-jobs-all");
+  var elHb = document.getElementById("count-jobs-hiltbrand");
+  var elZb = document.getElementById("count-jobs-zurbuchen");
+  var elLive = document.getElementById("count-jobs-live");
+
+  if (elAll) elAll.textContent = countAll;
+  if (elHb) elHb.textContent = countHiltbrand;
+  if (elZb) elZb.textContent = countZurbuchen;
+  if (elLive) elLive.textContent = countLive;
+
+  var filtered = ACP_STELLEN.filter(function(j) {
+    if (acpCurrentJobFilter === 'hiltbrand' && (j.firma || '').indexOf('Hiltbrand') === -1) return false;
+    if (acpCurrentJobFilter === 'zurbuchen' && (j.firma || '').indexOf('Zurbuchen') === -1) return false;
+    if (acpCurrentJobFilter === 'live' && !j.is_live) return false;
+
+    if (query) {
+      var mFile = (j.datei || '').toLowerCase().indexOf(query) !== -1;
+      var mTitle = (j.titel || '').toLowerCase().indexOf(query) !== -1;
+      var mFirma = (j.firma || '').toLowerCase().indexOf(query) !== -1;
+      if (!mFile && !mTitle && !mFirma) return false;
+    }
+    return true;
+  });
+
+  if (filtered.length === 0) {
+    tbody.innerHTML = '<tr><td colspan="5" style="text-align:center; padding:40px; color:#94a3b8;">Keine Inserate für diese Auswahl gefunden.</td></tr>';
+    return;
+  }
+
   var html = "";
-  for (var i = 0; i < ACP_STELLEN.length; i++) {
-    var j = ACP_STELLEN[i];
+  for (var i = 0; i < filtered.length; i++) {
+    var j = filtered[i];
+    var isCurrent = (j.id === activeJobId);
+    var rowClass = isCurrent ? "is-active-job" : "";
+
     var statusBadge = "";
     if (j.is_live) {
-      statusBadge = '<span class="status-tag live">🟢 Live auf Website</span>';
+      statusBadge = '<span class="status-tag live" style="background:rgba(16,185,129,0.18); color:#34d399; border:1px solid rgba(16,185,129,0.35);">🟢 Live auf Website</span>';
     } else if (j.id && j.id.indexOf("zurbuchen") !== -1) {
-      statusBadge = '<span class="status-tag ready" style="background:rgba(234,179,8,0.15); color:#facc15; border-color:rgba(234,179,8,0.4);">🟡 Bereit</span>';
+      statusBadge = '<span class="status-tag ready" style="background:rgba(234,179,8,0.15); color:#facc15; border:1px solid rgba(234,179,8,0.4);">🟡 Bereit</span>';
     } else {
-      statusBadge = '<span class="status-tag draft" style="background:rgba(148,163,184,0.12); color:#94a3b8; border-color:rgba(148,163,184,0.3);">⚪ Entwurf</span>';
+      statusBadge = '<span class="status-tag draft" style="background:rgba(148,163,184,0.12); color:#94a3b8; border:1px solid rgba(148,163,184,0.3);">⚪ Entwurf</span>';
     }
 
-    html += '<tr>' +
-      '<td><strong>' + (j.icon || "💼") + ' ' + j.titel + '</strong><br><small style="color:#94a3b8">' + j.firma + '</small></td>' +
-      '<td><span class="code-tag">' + j.datei + '</span></td>' +
-      '<td><a href="' + j.host_webseite + '" target="_blank" style="color:#60a5fa;">' + j.host_label + ' ↗</a></td>' +
-      '<td>' + statusBadge + '</td>' +
+    var actionBtn = isCurrent ?
+      '<button type="button" class="btn-job-switch is-current">✓ Aktiv im Cockpit</button>' :
+      '<button type="button" class="btn-job-switch" onclick="acpSwitchJob(\'' + j.id + '\'); acpToggleDirectoryModal();">👁️ Im Cockpit öffnen</button>';
+
+    html += '<tr class="' + rowClass + '">' +
       '<td>' +
-        '<button type="button" class="btn-table-action" onclick="acpSwitchJob(\'' + j.id + '\'); acpToggleDirectoryModal();">Vorschau</button>' +
-        '<button type="button" class="btn-table-copy" onclick="acpCopyJobCode(\'' + j.id + '\')">Code</button>' +
+        '<span class="job-filename-badge" onclick="acpCopyJobFilename(\'' + j.datei + '\')" title="Dateiname für Windows Explorer kopieren">' +
+          '📄 ' + j.datei +
+        '</span>' +
+      '</td>' +
+      '<td>' +
+        '<div class="job-title-cell">' +
+          (j.icon || "💼") + ' ' + j.titel +
+          (isCurrent ? '<span class="job-active-marker">Aktuell</span>' : '') +
+        '</div>' +
+        '<div class="job-title-subline">' +
+          '<a href="' + j.host_webseite + '" target="_blank" style="color:#60a5fa; text-decoration:none;">' + j.host_label + ' ↗</a>' +
+        '</div>' +
+      '</td>' +
+      '<td>' +
+        '<strong style="color:#f8fafc; font-size:13px;">' + j.firma + '</strong>' +
+      '</td>' +
+      '<td>' + statusBadge + '</td>' +
+      '<td style="text-align:right; white-space:nowrap;">' +
+        actionBtn +
+        '<button type="button" class="btn-table-copy" style="margin-left:6px;" onclick="acpCopyJobCode(\'' + j.id + '\')" title="1-Klick Code für WordPress kopieren">📋 Code</button>' +
       '</td>' +
     '</tr>';
   }
   tbody.innerHTML = html;
+}
+
+function acpCopyJobFilename(filename) {
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(filename);
+    acpShowToast('📋 Dateiname <code>' + filename + '</code> kopiert!');
+  }
 }
 
 // iFrame Auto-Resize & Cross-Frame Messages
