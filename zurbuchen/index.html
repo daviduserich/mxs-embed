@@ -685,13 +685,28 @@ window.addEventListener("message", function(e) {
   }
   if (e.data && e.data.type === "acp-apply-swap-preview") {
     var newSrc = e.data.newSrc;
+    var oldSrc = e.data.oldSrc || "";
     if (e.data.isHero) {
       var hero = document.querySelector('.hero');
       if (hero) {
         hero.style.backgroundImage = 'linear-gradient(rgba(30,25,22,.65),rgba(30,25,22,.78)), url("' + newSrc + '")';
       }
-    } else if (e.data.slot) {
-      var targetEl = document.querySelector('[data-slot="' + e.data.slot + '"]');
+    } else {
+      var targetEl = null;
+      if (e.data.slot) {
+        targetEl = document.querySelector('[data-slot="' + e.data.slot + '"]');
+      }
+      if (!targetEl && oldSrc) {
+        var oldName = oldSrc.split('/').pop().split('?')[0];
+        var allImgs = document.querySelectorAll('img');
+        for (var i = 0; i < allImgs.length; i++) {
+          var s = allImgs[i].getAttribute('src') || '';
+          if (s.indexOf(oldName) !== -1) {
+            targetEl = allImgs[i];
+            break;
+          }
+        }
+      }
       if (targetEl && targetEl.tagName.toLowerCase() === 'img') {
         targetEl.src = newSrc;
       }
