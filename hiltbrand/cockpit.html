@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Hiltbrand & Zurbuchen Karriere-Cockpit · v3.2.6</title>
+<title>Hiltbrand & Zurbuchen Karriere-Cockpit · v3.2.7</title>
 <meta name="description" content="Interaktiver Recruiting-Simulator und Stellen-Verzeichnis für Kunden-Widgets. Vorschau, Wechsel zwischen Stellen und 1-Klick Einbettungscodes.">
 <link rel="icon" href="images/logo.png" type="image/png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -1498,8 +1498,10 @@ a { color: var(--rot); text-decoration: none; }
 
 
 
+
+
 /* ======================================================= */
-/* COCKPIT v3.2.6: FULLPAGE SPA VIEWS (ZERO INNER SCROLL)  */
+/* COCKPIT v3.2.7: FULLPAGE SPA VIEWS (ZERO INNER SCROLL)  */
 /* ======================================================= */
 body.acp-modal-open {
   overflow: hidden !important;
@@ -1927,7 +1929,7 @@ body.acp-modal-open {
         <span class="dot"></span>
         <span id="acp-brand-label">LOKALES COCKPIT</span>
       </a>
-      <span class="acp-version-badge" id="acp-version-badge" title="Magnet-XS Cockpit Framework Version & Build-Stand">v3.2.6</span>
+      <span class="acp-version-badge" id="acp-version-badge" title="Magnet-XS Cockpit Framework Version & Build-Stand">v3.2.7</span>
       <span class="acp-cockpit-label">Vorschau für Stelle:</span>
       <div class="acp-job-picker-wrap" id="acp-job-picker-wrap">
         <button type="button" class="acp-job-picker-btn" id="acp-picker-btn" onclick="acpToggleDirectoryModal()">
@@ -2313,14 +2315,14 @@ body.acp-modal-open {
 <!-- ======================================================= -->
 <script>
 // =======================================================
-// MAGNET-XS COCKPIT FRAMEWORK v3.2.6
-// Build: 2026-10-02 12:30 CEST
+// MAGNET-XS COCKPIT FRAMEWORK v3.2.7
+// Build: 2026-10-02 16:40 CEST
 // =======================================================
-var ACP_COCKPIT_VERSION = "v3.2.6";
-var ACP_COCKPIT_BUILD = "2026-10-02 12:30";
+var ACP_COCKPIT_VERSION = "v3.2.7";
+var ACP_COCKPIT_BUILD = "2026-10-02 16:40";
 
 // Manifest-Daten mit robusten Fallbacks
-var ACP_BILDER = [{"id": "images_benefits_drohne_jpg", "filename": "benefits_drohne.jpg", "rel_path": "images/benefits_drohne.jpg", "folder": "hiltbrand", "category": "Baustelle & Benefit", "dimensions": "1400x1050", "size_kb": 482.5, "cdn_url": "https://embed.magnet-xs.ch/hiltbrand/images/benefits_drohne.jpg", "is_used": false, "used_in": []}, {"id": "images_danke_png", "filename": "danke.png", "rel_path": "images/danke.png", "folder": "hiltbrand", "category": "Baustelle & Benefit", "dimensions": "1456x816", "size_kb": 1490.5, "cdn_url": "https://embed.magnet-xs.ch/hiltbrand/images/danke.png", "is_used": false, "used_in": []}, {"id": "images_hero_jpg", "filename": "hero.jpg", "rel_path": "images/hero.jpg", "folder": "hiltbrand", "category": "Hero & Header", "dimensions": "1400x933", "size_kb": 160.7, "cdn_url": "https://embed.magnet-xs.ch/hiltbrand/images/hero.jpg", "is_used": true, "used_in": [{"datei": "Hiltbrand_Dachdecker.html", "slot": "", "is_hero": true}, {"datei": "Hiltbrand_Dachdecker_Pragmatisch.html", "slot": "", "is_hero": true}, {"datei": "zurbuchen_Holzbauer.html", "slot": "", "is_hero": true}]}, {"id": "images_logo_png", "filename": "logo.png", "rel_path": "images/logo.png", "folder": "hiltbrand", "category": "Logo & Icon", "dimensions": "260x150", "size_kb": 8.2, "cdn_url": "https://embed.magnet-xs.ch/hiltbrand/images/logo.png", "is_used": true, "used_in": [{"datei": "Hiltbrand_Dachdecker.html", "slot": "", "is_hero": false}, {"datei": "Hiltbrand_Dachdecker_Pragmatisch.html", "slot": "", "is_hero": false}, {"datei": "zurbuchen_Holzbauer.html", "slot": "", "is_hero": false}]}, {"id": "images_michael_jpg", "filename": "michael.jpg", "rel_path": "images/michael.jpg", "folder": "hiltbrand", "category": "Team & Porträt", "dimensions": "834x788", "size_kb": 186.7, "cdn_url": "https://embed.magnet-xs.ch/hiltbrand/images/michael.jpg", "is_used": true, "used_in": [{"datei": "Hiltbrand_Dachdecker.html", "slot": "team.michael.foto", "is_hero": false}, {"datei": "zurbuchen_Holzbauer.html", "slot": "", "is_hero": false}]}, {"id": "images_q1_benefit_jpg", "filename": "q1_benefit.jpg", "rel_path": "images/q1_benefit.jpg", "folder": "hiltbrand", "category": "Baustelle & Benefit", "dimensions": "1400x1050", "size_kb": 295.8, "cdn_url": "https://embed.magnet-xs.ch/hiltbrand/images/q1_benefit.jpg", "is_used": false, "used_in": []}, {"id": "images_q1_bewaehrtes_handwerk_png", "filename": "q1_bewaehrtes_handwerk.png", "rel_path": "images/q1_bewaehrtes_handwerk.png", "folder": "hiltbrand", "category": "Baustelle & Benefit", "dimensions": "200x160", "size_kb": 37.6, "cdn_url": "https://embed.magnet-xs.ch/hiltbrand/images/q1_bewaehrtes_handwerk.png", "is_used": false, "used_in": []}, {"id": "images_q1_effiziente_maschinen_png", "filename": "q1_effiziente_maschinen.png", "rel_path": "images/q1_effiziente_maschinen.png", "folder": "hiltbrand", "category": "Baustelle & Benefit", "dimensions": "200x160", "size_kb": 38.0, "cdn_url": "https://embed.magnet-xs.ch/hiltbrand/images/q1_effiziente_maschinen.png", "is_used": false, "used_in": []}, {"id": "images_q1_moderne_technik_png", "filename": "q1_moderne_technik.png", "rel_path": "images/q1_moderne_technik.png", "folder": "hiltbrand", "category": "Baustelle & Benefit", "dimensions": "200x160", "size_kb": 37.8, "cdn_url": "https://embed.magnet-xs.ch/hiltbrand/images/q1_moderne_technik.png", "is_used": false, "used_in": []}, {"id": "images_q1_sicherer_arbeitgeber_png", "filename": "q1_sicherer_arbeitgeber.png", "rel_path": "images/q1_sicherer_arbeitgeber.png", "folder": "hiltbrand", "category": "Baustelle & Benefit", "dimensions": "200x160", "size_kb": 37.8, "cdn_url": "https://embed.magnet-xs.ch/hiltbrand/images/q1_sicherer_arbeitgeber.png", "is_used": false, "used_in": []}, {"id": "images_q2_baustellen_png", "filename": "q2_baustellen.png", "rel_path": "images/q2_baustellen.png", "folder": "hiltbrand", "category": "Baustelle & Benefit", "dimensions": "200x160", "size_kb": 39.3, "cdn_url": "https://embed.magnet-xs.ch/hiltbrand/images/q2_baustellen.png", "is_used": false, "used_in": []}, {"id": "images_q2_benefit_jpg", "filename": "q2_benefit.jpg", "rel_path": "images/q2_benefit.jpg", "folder": "hiltbrand", "category": "Baustelle & Benefit", "dimensions": "1400x1050", "size_kb": 325.7, "cdn_url": "https://embed.magnet-xs.ch/hiltbrand/images/q2_benefit.jpg", "is_used": false, "used_in": []}, {"id": "images_q2_details_png", "filename": "q2_details.png", "rel_path": "images/q2_details.png", "folder": "hiltbrand", "category": "Baustelle & Benefit", "dimensions": "200x160", "size_kb": 38.5, "cdn_url": "https://embed.magnet-xs.ch/hiltbrand/images/q2_details.png", "is_used": false, "used_in": []}, {"id": "images_q2_ganzheitlich_png", "filename": "q2_ganzheitlich.png", "rel_path": "images/q2_ganzheitlich.png", "folder": "hiltbrand", "category": "Baustelle & Benefit", "dimensions": "200x160", "size_kb": 38.8, "cdn_url": "https://embed.magnet-xs.ch/hiltbrand/images/q2_ganzheitlich.png", "is_used": false, "used_in": []}, {"id": "images_q2_kundenkontakt_png", "filename": "q2_kundenkontakt.png", "rel_path": "images/q2_kundenkontakt.png", "folder": "hiltbrand", "category": "Baustelle & Benefit", "dimensions": "200x160", "size_kb": 38.6, "cdn_url": "https://embed.magnet-xs.ch/hiltbrand/images/q2_kundenkontakt.png", "is_used": false, "used_in": []}, {"id": "images_q3_ansagen_png", "filename": "q3_ansagen.png", "rel_path": "images/q3_ansagen.png", "folder": "hiltbrand", "category": "Baustelle & Benefit", "dimensions": "200x160", "size_kb": 47.1, "cdn_url": "https://embed.magnet-xs.ch/hiltbrand/images/q3_ansagen.png", "is_used": false, "used_in": []}, {"id": "images_q3_benefit_png", "filename": "q3_benefit.png", "rel_path": "images/q3_benefit.png", "folder": "hiltbrand", "category": "Baustelle & Benefit", "dimensions": "1456x816", "size_kb": 1296.6, "cdn_url": "https://embed.magnet-xs.ch/hiltbrand/images/q3_benefit.png", "is_used": false, "used_in": []}, {"id": "images_q3_ehrgeiz_png", "filename": "q3_ehrgeiz.png", "rel_path": "images/q3_ehrgeiz.png", "folder": "hiltbrand", "category": "Baustelle & Benefit", "dimensions": "200x160", "size_kb": 47.7, "cdn_url": "https://embed.magnet-xs.ch/hiltbrand/images/q3_ehrgeiz.png", "is_used": false, "used_in": []}, {"id": "images_q3_freiraum_png", "filename": "q3_freiraum.png", "rel_path": "images/q3_freiraum.png", "folder": "hiltbrand", "category": "Baustelle & Benefit", "dimensions": "200x160", "size_kb": 47.2, "cdn_url": "https://embed.magnet-xs.ch/hiltbrand/images/q3_freiraum.png", "is_used": false, "used_in": []}, {"id": "images_q3_kameradschaft_png", "filename": "q3_kameradschaft.png", "rel_path": "images/q3_kameradschaft.png", "folder": "hiltbrand", "category": "Baustelle & Benefit", "dimensions": "200x160", "size_kb": 47.2, "cdn_url": "https://embed.magnet-xs.ch/hiltbrand/images/q3_kameradschaft.png", "is_used": false, "used_in": []}, {"id": "images_stefan_jpg", "filename": "stefan.jpg", "rel_path": "images/stefan.jpg", "folder": "hiltbrand", "category": "Team & Porträt", "dimensions": "1400x1337", "size_kb": 204.2, "cdn_url": "https://embed.magnet-xs.ch/hiltbrand/images/stefan.jpg", "is_used": true, "used_in": [{"datei": "Hiltbrand_Dachdecker.html", "slot": "team.stefan.foto", "is_hero": false}]}, {"id": "images_team_alt_jpg", "filename": "team_alt.jpg", "rel_path": "images/team_alt.jpg", "folder": "hiltbrand", "category": "Team & Porträt", "dimensions": "1400x933", "size_kb": 259.8, "cdn_url": "https://embed.magnet-xs.ch/hiltbrand/images/team_alt.jpg", "is_used": false, "used_in": []}, {"id": "images_vorstellung_jpg", "filename": "vorstellung.jpg", "rel_path": "images/vorstellung.jpg", "folder": "hiltbrand", "category": "Baustelle & Benefit", "dimensions": "1400x933", "size_kb": 160.7, "cdn_url": "https://embed.magnet-xs.ch/hiltbrand/images/vorstellung.jpg", "is_used": false, "used_in": []}, {"id": "images_zurbuchen_alain_jpg", "filename": "alain.jpg", "rel_path": "images/zurbuchen/alain.jpg", "folder": "zurbuchen", "category": "Team & Porträt", "dimensions": "320x320", "size_kb": 10.5, "cdn_url": "https://embed.magnet-xs.ch/zurbuchen/images/zurbuchen/alain.jpg", "is_used": true, "used_in": [{"datei": "zurbuchen_Holzbauer.html", "slot": "", "is_hero": false}]}, {"id": "images_zurbuchen_beat_jpg", "filename": "beat.jpg", "rel_path": "images/zurbuchen/beat.jpg", "folder": "zurbuchen", "category": "Team & Porträt", "dimensions": "320x320", "size_kb": 10.2, "cdn_url": "https://embed.magnet-xs.ch/zurbuchen/images/zurbuchen/beat.jpg", "is_used": true, "used_in": [{"datei": "zurbuchen_Holzbauer.html", "slot": "", "is_hero": false}]}, {"id": "images_zurbuchen_cta_bg_jpg", "filename": "cta_bg.jpg", "rel_path": "images/zurbuchen/cta_bg.jpg", "folder": "zurbuchen", "category": "Baustelle & Benefit", "dimensions": "300x300", "size_kb": 14.5, "cdn_url": "https://embed.magnet-xs.ch/zurbuchen/images/zurbuchen/cta_bg.jpg", "is_used": true, "used_in": [{"datei": "zurbuchen_Holzbauer.html", "slot": "", "is_hero": false}]}, {"id": "images_zurbuchen_hero_jpg", "filename": "hero.jpg", "rel_path": "images/zurbuchen/hero.jpg", "folder": "zurbuchen", "category": "Hero & Header", "dimensions": "300x300", "size_kb": 23.8, "cdn_url": "https://embed.magnet-xs.ch/zurbuchen/images/zurbuchen/hero.jpg", "is_used": true, "used_in": [{"datei": "Hiltbrand_Dachdecker.html", "slot": "", "is_hero": true}, {"datei": "Hiltbrand_Dachdecker_Pragmatisch.html", "slot": "", "is_hero": true}, {"datei": "zurbuchen_Holzbauer.html", "slot": "", "is_hero": true}]}, {"id": "images_zurbuchen_jonas_jpg", "filename": "jonas.jpg", "rel_path": "images/zurbuchen/jonas.jpg", "folder": "zurbuchen", "category": "Team & Porträt", "dimensions": "320x320", "size_kb": 16.4, "cdn_url": "https://embed.magnet-xs.ch/zurbuchen/images/zurbuchen/jonas.jpg", "is_used": true, "used_in": [{"datei": "zurbuchen_Holzbauer.html", "slot": "", "is_hero": false}]}, {"id": "images_zurbuchen_levin_jpg", "filename": "levin.jpg", "rel_path": "images/zurbuchen/levin.jpg", "folder": "zurbuchen", "category": "Team & Porträt", "dimensions": "320x320", "size_kb": 36.1, "cdn_url": "https://embed.magnet-xs.ch/zurbuchen/images/zurbuchen/levin.jpg", "is_used": true, "used_in": [{"datei": "zurbuchen_Holzbauer.html", "slot": "", "is_hero": false}]}, {"id": "images_zurbuchen_logo_negativ_png", "filename": "logo-negativ.png", "rel_path": "images/zurbuchen/logo-negativ.png", "folder": "zurbuchen", "category": "Logo & Icon", "dimensions": "240x113", "size_kb": 3.7, "cdn_url": "https://embed.magnet-xs.ch/zurbuchen/images/zurbuchen/logo-negativ.png", "is_used": true, "used_in": [{"datei": "zurbuchen_Holzbauer.html", "slot": "", "is_hero": false}]}, {"id": "images_zurbuchen_logo_png", "filename": "logo.png", "rel_path": "images/zurbuchen/logo.png", "folder": "zurbuchen", "category": "Logo & Icon", "dimensions": "240x113", "size_kb": 4.1, "cdn_url": "https://embed.magnet-xs.ch/zurbuchen/images/zurbuchen/logo.png", "is_used": true, "used_in": [{"datei": "Hiltbrand_Dachdecker.html", "slot": "", "is_hero": false}, {"datei": "Hiltbrand_Dachdecker_Pragmatisch.html", "slot": "", "is_hero": false}, {"datei": "zurbuchen_Holzbauer.html", "slot": "", "is_hero": false}]}, {"id": "images_zurbuchen_markus_jpg", "filename": "markus.jpg", "rel_path": "images/zurbuchen/markus.jpg", "folder": "zurbuchen", "category": "Team & Porträt", "dimensions": "320x320", "size_kb": 37.4, "cdn_url": "https://embed.magnet-xs.ch/zurbuchen/images/zurbuchen/markus.jpg", "is_used": true, "used_in": [{"datei": "zurbuchen_Holzbauer.html", "slot": "", "is_hero": false}]}, {"id": "images_zurbuchen_michael_jpg", "filename": "michael.jpg", "rel_path": "images/zurbuchen/michael.jpg", "folder": "zurbuchen", "category": "Team & Porträt", "dimensions": "320x320", "size_kb": 11.2, "cdn_url": "https://embed.magnet-xs.ch/zurbuchen/images/zurbuchen/michael.jpg", "is_used": true, "used_in": [{"datei": "Hiltbrand_Dachdecker.html", "slot": "team.michael.foto", "is_hero": false}, {"datei": "zurbuchen_Holzbauer.html", "slot": "", "is_hero": false}]}, {"id": "images_zurbuchen_samuel_jpg", "filename": "samuel.jpg", "rel_path": "images/zurbuchen/samuel.jpg", "folder": "zurbuchen", "category": "Team & Porträt", "dimensions": "320x320", "size_kb": 8.2, "cdn_url": "https://embed.magnet-xs.ch/zurbuchen/images/zurbuchen/samuel.jpg", "is_used": true, "used_in": [{"datei": "zurbuchen_Holzbauer.html", "slot": "", "is_hero": false}]}, {"id": "images_zurbuchen_simon_jpg", "filename": "simon.jpg", "rel_path": "images/zurbuchen/simon.jpg", "folder": "zurbuchen", "category": "Team & Porträt", "dimensions": "320x321", "size_kb": 6.8, "cdn_url": "https://embed.magnet-xs.ch/zurbuchen/images/zurbuchen/simon.jpg", "is_used": true, "used_in": [{"datei": "zurbuchen_Holzbauer.html", "slot": "", "is_hero": false}]}];
+var ACP_BILDER = [{"id": "images_benefits_drohne_jpg", "filename": "benefits_drohne.jpg", "rel_path": "images/benefits_drohne.jpg", "folder": "hiltbrand", "category": "Baustelle & Benefit", "dimensions": "1400x1050", "size_kb": 482.5, "cdn_url": "https://embed.magnet-xs.ch/hiltbrand/images/benefits_drohne.jpg", "is_used": false, "used_in": []}, {"id": "images_danke_png", "filename": "danke.png", "rel_path": "images/danke.png", "folder": "hiltbrand", "category": "Baustelle & Benefit", "dimensions": "1456x816", "size_kb": 1490.5, "cdn_url": "https://embed.magnet-xs.ch/hiltbrand/images/danke.png", "is_used": true, "used_in": [{"datei": "zurbuchen_Holzbauer.html", "slot": "", "is_hero": false}]}, {"id": "images_hero_jpg", "filename": "hero.jpg", "rel_path": "images/hero.jpg", "folder": "hiltbrand", "category": "Hero & Header", "dimensions": "1400x933", "size_kb": 160.7, "cdn_url": "https://embed.magnet-xs.ch/hiltbrand/images/hero.jpg", "is_used": true, "used_in": [{"datei": "Hiltbrand_Dachdecker.html", "slot": "", "is_hero": true}, {"datei": "Hiltbrand_Dachdecker_Pragmatisch.html", "slot": "", "is_hero": true}]}, {"id": "images_logo_png", "filename": "logo.png", "rel_path": "images/logo.png", "folder": "hiltbrand", "category": "Logo & Icon", "dimensions": "260x150", "size_kb": 8.2, "cdn_url": "https://embed.magnet-xs.ch/hiltbrand/images/logo.png", "is_used": true, "used_in": [{"datei": "Hiltbrand_Dachdecker.html", "slot": "", "is_hero": false}, {"datei": "Hiltbrand_Dachdecker_Pragmatisch.html", "slot": "", "is_hero": false}, {"datei": "zurbuchen_Holzbauer.html", "slot": "", "is_hero": false}]}, {"id": "images_michael_jpg", "filename": "michael.jpg", "rel_path": "images/michael.jpg", "folder": "hiltbrand", "category": "Team & Porträt", "dimensions": "834x788", "size_kb": 186.7, "cdn_url": "https://embed.magnet-xs.ch/hiltbrand/images/michael.jpg", "is_used": true, "used_in": [{"datei": "Hiltbrand_Dachdecker.html", "slot": "team.michael.foto", "is_hero": false}, {"datei": "zurbuchen_Holzbauer.html", "slot": "", "is_hero": false}]}, {"id": "images_q1_benefit_jpg", "filename": "q1_benefit.jpg", "rel_path": "images/q1_benefit.jpg", "folder": "hiltbrand", "category": "Baustelle & Benefit", "dimensions": "1400x1050", "size_kb": 295.8, "cdn_url": "https://embed.magnet-xs.ch/hiltbrand/images/q1_benefit.jpg", "is_used": false, "used_in": []}, {"id": "images_q1_bewaehrtes_handwerk_png", "filename": "q1_bewaehrtes_handwerk.png", "rel_path": "images/q1_bewaehrtes_handwerk.png", "folder": "hiltbrand", "category": "Baustelle & Benefit", "dimensions": "200x160", "size_kb": 37.6, "cdn_url": "https://embed.magnet-xs.ch/hiltbrand/images/q1_bewaehrtes_handwerk.png", "is_used": false, "used_in": []}, {"id": "images_q1_effiziente_maschinen_png", "filename": "q1_effiziente_maschinen.png", "rel_path": "images/q1_effiziente_maschinen.png", "folder": "hiltbrand", "category": "Baustelle & Benefit", "dimensions": "200x160", "size_kb": 38.0, "cdn_url": "https://embed.magnet-xs.ch/hiltbrand/images/q1_effiziente_maschinen.png", "is_used": false, "used_in": []}, {"id": "images_q1_moderne_technik_png", "filename": "q1_moderne_technik.png", "rel_path": "images/q1_moderne_technik.png", "folder": "hiltbrand", "category": "Baustelle & Benefit", "dimensions": "200x160", "size_kb": 37.8, "cdn_url": "https://embed.magnet-xs.ch/hiltbrand/images/q1_moderne_technik.png", "is_used": false, "used_in": []}, {"id": "images_q1_sicherer_arbeitgeber_png", "filename": "q1_sicherer_arbeitgeber.png", "rel_path": "images/q1_sicherer_arbeitgeber.png", "folder": "hiltbrand", "category": "Baustelle & Benefit", "dimensions": "200x160", "size_kb": 37.8, "cdn_url": "https://embed.magnet-xs.ch/hiltbrand/images/q1_sicherer_arbeitgeber.png", "is_used": false, "used_in": []}, {"id": "images_q2_baustellen_png", "filename": "q2_baustellen.png", "rel_path": "images/q2_baustellen.png", "folder": "hiltbrand", "category": "Baustelle & Benefit", "dimensions": "200x160", "size_kb": 39.3, "cdn_url": "https://embed.magnet-xs.ch/hiltbrand/images/q2_baustellen.png", "is_used": false, "used_in": []}, {"id": "images_q2_benefit_jpg", "filename": "q2_benefit.jpg", "rel_path": "images/q2_benefit.jpg", "folder": "hiltbrand", "category": "Baustelle & Benefit", "dimensions": "1400x1050", "size_kb": 325.7, "cdn_url": "https://embed.magnet-xs.ch/hiltbrand/images/q2_benefit.jpg", "is_used": false, "used_in": []}, {"id": "images_q2_details_png", "filename": "q2_details.png", "rel_path": "images/q2_details.png", "folder": "hiltbrand", "category": "Baustelle & Benefit", "dimensions": "200x160", "size_kb": 38.5, "cdn_url": "https://embed.magnet-xs.ch/hiltbrand/images/q2_details.png", "is_used": false, "used_in": []}, {"id": "images_q2_ganzheitlich_png", "filename": "q2_ganzheitlich.png", "rel_path": "images/q2_ganzheitlich.png", "folder": "hiltbrand", "category": "Baustelle & Benefit", "dimensions": "200x160", "size_kb": 38.8, "cdn_url": "https://embed.magnet-xs.ch/hiltbrand/images/q2_ganzheitlich.png", "is_used": false, "used_in": []}, {"id": "images_q2_kundenkontakt_png", "filename": "q2_kundenkontakt.png", "rel_path": "images/q2_kundenkontakt.png", "folder": "hiltbrand", "category": "Baustelle & Benefit", "dimensions": "200x160", "size_kb": 38.6, "cdn_url": "https://embed.magnet-xs.ch/hiltbrand/images/q2_kundenkontakt.png", "is_used": false, "used_in": []}, {"id": "images_q3_ansagen_png", "filename": "q3_ansagen.png", "rel_path": "images/q3_ansagen.png", "folder": "hiltbrand", "category": "Baustelle & Benefit", "dimensions": "200x160", "size_kb": 47.1, "cdn_url": "https://embed.magnet-xs.ch/hiltbrand/images/q3_ansagen.png", "is_used": false, "used_in": []}, {"id": "images_q3_benefit_png", "filename": "q3_benefit.png", "rel_path": "images/q3_benefit.png", "folder": "hiltbrand", "category": "Baustelle & Benefit", "dimensions": "1456x816", "size_kb": 1296.6, "cdn_url": "https://embed.magnet-xs.ch/hiltbrand/images/q3_benefit.png", "is_used": false, "used_in": []}, {"id": "images_q3_ehrgeiz_png", "filename": "q3_ehrgeiz.png", "rel_path": "images/q3_ehrgeiz.png", "folder": "hiltbrand", "category": "Baustelle & Benefit", "dimensions": "200x160", "size_kb": 47.7, "cdn_url": "https://embed.magnet-xs.ch/hiltbrand/images/q3_ehrgeiz.png", "is_used": false, "used_in": []}, {"id": "images_q3_freiraum_png", "filename": "q3_freiraum.png", "rel_path": "images/q3_freiraum.png", "folder": "hiltbrand", "category": "Baustelle & Benefit", "dimensions": "200x160", "size_kb": 47.2, "cdn_url": "https://embed.magnet-xs.ch/hiltbrand/images/q3_freiraum.png", "is_used": false, "used_in": []}, {"id": "images_q3_kameradschaft_png", "filename": "q3_kameradschaft.png", "rel_path": "images/q3_kameradschaft.png", "folder": "hiltbrand", "category": "Baustelle & Benefit", "dimensions": "200x160", "size_kb": 47.2, "cdn_url": "https://embed.magnet-xs.ch/hiltbrand/images/q3_kameradschaft.png", "is_used": false, "used_in": []}, {"id": "images_stefan_jpg", "filename": "stefan.jpg", "rel_path": "images/stefan.jpg", "folder": "hiltbrand", "category": "Team & Porträt", "dimensions": "1400x1337", "size_kb": 204.2, "cdn_url": "https://embed.magnet-xs.ch/hiltbrand/images/stefan.jpg", "is_used": true, "used_in": [{"datei": "Hiltbrand_Dachdecker.html", "slot": "team.stefan.foto", "is_hero": false}]}, {"id": "images_team_alt_jpg", "filename": "team_alt.jpg", "rel_path": "images/team_alt.jpg", "folder": "hiltbrand", "category": "Team & Porträt", "dimensions": "1400x933", "size_kb": 259.8, "cdn_url": "https://embed.magnet-xs.ch/hiltbrand/images/team_alt.jpg", "is_used": false, "used_in": []}, {"id": "images_vorstellung_jpg", "filename": "vorstellung.jpg", "rel_path": "images/vorstellung.jpg", "folder": "hiltbrand", "category": "Baustelle & Benefit", "dimensions": "1400x933", "size_kb": 160.7, "cdn_url": "https://embed.magnet-xs.ch/hiltbrand/images/vorstellung.jpg", "is_used": false, "used_in": []}, {"id": "images_zurbuchen_alain_jpg", "filename": "alain.jpg", "rel_path": "images/zurbuchen/alain.jpg", "folder": "zurbuchen", "category": "Team & Porträt", "dimensions": "320x320", "size_kb": 10.5, "cdn_url": "https://embed.magnet-xs.ch/zurbuchen/images/zurbuchen/alain.jpg", "is_used": true, "used_in": [{"datei": "zurbuchen_Holzbauer.html", "slot": "", "is_hero": false}]}, {"id": "images_zurbuchen_beat_jpg", "filename": "beat.jpg", "rel_path": "images/zurbuchen/beat.jpg", "folder": "zurbuchen", "category": "Team & Porträt", "dimensions": "320x320", "size_kb": 10.2, "cdn_url": "https://embed.magnet-xs.ch/zurbuchen/images/zurbuchen/beat.jpg", "is_used": true, "used_in": [{"datei": "zurbuchen_Holzbauer.html", "slot": "", "is_hero": false}]}, {"id": "images_zurbuchen_cta_bg_jpg", "filename": "cta_bg.jpg", "rel_path": "images/zurbuchen/cta_bg.jpg", "folder": "zurbuchen", "category": "Baustelle & Benefit", "dimensions": "300x300", "size_kb": 14.5, "cdn_url": "https://embed.magnet-xs.ch/zurbuchen/images/zurbuchen/cta_bg.jpg", "is_used": true, "used_in": [{"datei": "zurbuchen_Holzbauer.html", "slot": "", "is_hero": false}]}, {"id": "images_zurbuchen_hero_jpg", "filename": "hero.jpg", "rel_path": "images/zurbuchen/hero.jpg", "folder": "zurbuchen", "category": "Hero & Header", "dimensions": "300x300", "size_kb": 23.8, "cdn_url": "https://embed.magnet-xs.ch/zurbuchen/images/zurbuchen/hero.jpg", "is_used": true, "used_in": [{"datei": "Hiltbrand_Dachdecker.html", "slot": "", "is_hero": true}, {"datei": "Hiltbrand_Dachdecker_Pragmatisch.html", "slot": "", "is_hero": true}]}, {"id": "images_zurbuchen_jonas_jpg", "filename": "jonas.jpg", "rel_path": "images/zurbuchen/jonas.jpg", "folder": "zurbuchen", "category": "Team & Porträt", "dimensions": "320x320", "size_kb": 16.4, "cdn_url": "https://embed.magnet-xs.ch/zurbuchen/images/zurbuchen/jonas.jpg", "is_used": true, "used_in": [{"datei": "zurbuchen_Holzbauer.html", "slot": "", "is_hero": false}]}, {"id": "images_zurbuchen_levin_jpg", "filename": "levin.jpg", "rel_path": "images/zurbuchen/levin.jpg", "folder": "zurbuchen", "category": "Team & Porträt", "dimensions": "320x320", "size_kb": 36.1, "cdn_url": "https://embed.magnet-xs.ch/zurbuchen/images/zurbuchen/levin.jpg", "is_used": true, "used_in": [{"datei": "zurbuchen_Holzbauer.html", "slot": "", "is_hero": false}]}, {"id": "images_zurbuchen_logo_negativ_png", "filename": "logo-negativ.png", "rel_path": "images/zurbuchen/logo-negativ.png", "folder": "zurbuchen", "category": "Logo & Icon", "dimensions": "240x113", "size_kb": 3.7, "cdn_url": "https://embed.magnet-xs.ch/zurbuchen/images/zurbuchen/logo-negativ.png", "is_used": true, "used_in": [{"datei": "zurbuchen_Holzbauer.html", "slot": "", "is_hero": false}]}, {"id": "images_zurbuchen_logo_png", "filename": "logo.png", "rel_path": "images/zurbuchen/logo.png", "folder": "zurbuchen", "category": "Logo & Icon", "dimensions": "240x113", "size_kb": 4.1, "cdn_url": "https://embed.magnet-xs.ch/zurbuchen/images/zurbuchen/logo.png", "is_used": true, "used_in": [{"datei": "Hiltbrand_Dachdecker.html", "slot": "", "is_hero": false}, {"datei": "Hiltbrand_Dachdecker_Pragmatisch.html", "slot": "", "is_hero": false}, {"datei": "zurbuchen_Holzbauer.html", "slot": "", "is_hero": false}]}, {"id": "images_zurbuchen_markus_jpg", "filename": "markus.jpg", "rel_path": "images/zurbuchen/markus.jpg", "folder": "zurbuchen", "category": "Team & Porträt", "dimensions": "320x320", "size_kb": 37.4, "cdn_url": "https://embed.magnet-xs.ch/zurbuchen/images/zurbuchen/markus.jpg", "is_used": true, "used_in": [{"datei": "zurbuchen_Holzbauer.html", "slot": "", "is_hero": false}]}, {"id": "images_zurbuchen_michael_jpg", "filename": "michael.jpg", "rel_path": "images/zurbuchen/michael.jpg", "folder": "zurbuchen", "category": "Team & Porträt", "dimensions": "320x320", "size_kb": 11.2, "cdn_url": "https://embed.magnet-xs.ch/zurbuchen/images/zurbuchen/michael.jpg", "is_used": true, "used_in": [{"datei": "Hiltbrand_Dachdecker.html", "slot": "team.michael.foto", "is_hero": false}, {"datei": "zurbuchen_Holzbauer.html", "slot": "", "is_hero": false}]}, {"id": "images_zurbuchen_samuel_jpg", "filename": "samuel.jpg", "rel_path": "images/zurbuchen/samuel.jpg", "folder": "zurbuchen", "category": "Team & Porträt", "dimensions": "320x320", "size_kb": 8.2, "cdn_url": "https://embed.magnet-xs.ch/zurbuchen/images/zurbuchen/samuel.jpg", "is_used": true, "used_in": [{"datei": "zurbuchen_Holzbauer.html", "slot": "", "is_hero": false}]}, {"id": "images_zurbuchen_simon_jpg", "filename": "simon.jpg", "rel_path": "images/zurbuchen/simon.jpg", "folder": "zurbuchen", "category": "Team & Porträt", "dimensions": "320x321", "size_kb": 6.8, "cdn_url": "https://embed.magnet-xs.ch/zurbuchen/images/zurbuchen/simon.jpg", "is_used": true, "used_in": [{"datei": "zurbuchen_Holzbauer.html", "slot": "", "is_hero": false}]}];
 var ACP_STELLEN = [{"id": "hiltbrand_dachdecker", "titel": "Dachdecker EFZ (80–100%)", "firma": "Hiltbrand Gebäudehüllen AG", "icon": "🏠", "datei": "Hiltbrand_Dachdecker.html", "host_webseite": "https://dachdecker-berneroberland.ch", "host_label": "dachdecker-berneroberland.ch", "farb_akzent": "#EF4035", "widget_code": "<iframe src=\"https://embed.magnet-xs.ch/hiltbrand/Hiltbrand_Dachdecker.html?embed=true\" style=\"width:100%; border:none; min-height:850px;\" scrolling=\"no\" id=\"acp-job-widget\"></iframe>\n<script>window.addEventListener(\"message\",function(e){if(e.data&&e.data.type===\"acp-embed-resize\"){var el=document.getElementById(\"acp-job-widget\");if(el)el.style.height=e.data.height+\"px\";}});<\\/script>", "is_live": false, "live_url": "", "status": "Entwurf (Vorlage)", "status_badge": "⚪ ENTWURF"}, {"id": "hiltbrand_dachdecker_pragmatisch", "titel": "Dachdecker EFZ (Pragmatisch & WhatsApp)", "firma": "Hiltbrand Gebäudehüllen AG", "icon": "🏠", "datei": "Hiltbrand_Dachdecker_Pragmatisch.html", "host_webseite": "https://dachdecker-berneroberland.ch", "host_label": "dachdecker-berneroberland.ch", "farb_akzent": "#EF4035", "widget_code": "<iframe src=\"https://embed.magnet-xs.ch/hiltbrand/Hiltbrand_Dachdecker_Pragmatisch.html?embed=true\" style=\"width:100%; border:none; min-height:850px;\" scrolling=\"no\" id=\"acp-job-widget\"></iframe>\n<script>window.addEventListener(\"message\",function(e){if(e.data&&e.data.type===\"acp-embed-resize\"){var el=document.getElementById(\"acp-job-widget\");if(el)el.style.height=e.data.height+\"px\";}});<\\/script>", "is_live": true, "live_url": "https://dachdecker-berneroberland.ch/jobs/", "status": "Live auf Webseite", "status_badge": "🟢 LIVE AUF WEBSEITE"}, {"id": "zurbuchen_holzbauer", "titel": "Zimmermann EFZ (2–3 Stellen)", "firma": "Zurbuchen Holzbau AG", "icon": "🌲", "datei": "zurbuchen_Holzbauer.html", "host_webseite": "https://zurbuchen-holzbau.ch", "host_label": "zurbuchen-holzbau.ch", "farb_akzent": "#9B1B1F", "widget_code": "<iframe src=\"https://embed.magnet-xs.ch/zurbuchen/zurbuchen_Holzbauer.html?embed=true\" style=\"width:100%; border:none; min-height:850px;\" scrolling=\"no\" id=\"acp-job-widget\"></iframe>\n<script>window.addEventListener(\"message\",function(e){if(e.data&&e.data.type===\"acp-embed-resize\"){var el=document.getElementById(\"acp-job-widget\");if(el)el.style.height=e.data.height+\"px\";}});<\\/script>", "is_live": false, "live_url": "", "status": "Bereit für Zurbuchen", "status_badge": "🟡 BEREIT"}];
 
 // Globaler State
@@ -2705,6 +2707,8 @@ function acpEnsureSpotlightCssInDoc(doc) {
     var style = doc.createElement("style");
     style.id = "acp-swap-spotlight-css";
     style.textContent = [
+      "body.acp-swap-mode-active .top-bar,",
+      "body.acp-swap-mode-active header:not(:has(img)),",
       "body.acp-swap-mode-active h1,",
       "body.acp-swap-mode-active h2,",
       "body.acp-swap-mode-active h3,",
@@ -2723,13 +2727,19 @@ function acpEnsureSpotlightCssInDoc(doc) {
       "body.acp-swap-mode-active .inserat-bg,",
       "body.acp-swap-mode-active .blitz-bewerbung,",
       "body.acp-swap-mode-active .blitz-karte,",
+      "body.acp-swap-mode-active .form-box,",
+      "body.acp-swap-mode-active form,",
       "body.acp-swap-mode-active .faq,",
       "body.acp-swap-mode-active .rot-linie,",
       "body.acp-swap-mode-active .sticky-cta,",
       "body.acp-swap-mode-active .wa-direkt-box,",
       "body.acp-swap-mode-active .kontakt-karte,",
+      "body.acp-swap-mode-active .vorteil,",
+      "body.acp-swap-mode-active .fakten,",
+      "body.acp-swap-mode-active .leistungen,",
+      "body.acp-swap-mode-active .cta-band,",
       "body.acp-swap-mode-active footer {",
-      "  opacity: 0.3 !important;",
+      "  opacity: 0.25 !important;",
       "  pointer-events: none !important;",
       "  transition: opacity 0.3s ease !important;",
       "}",
@@ -2737,14 +2747,14 @@ function acpEnsureSpotlightCssInDoc(doc) {
       "  position: relative !important;",
       "  cursor: pointer !important;",
       "  pointer-events: auto !important;",
-      "  outline: 4px solid #eab308 !important;",
-      "  outline-offset: -4px !important;",
-      "  box-shadow: inset 0 0 60px rgba(234, 179, 8, 0.4), 0 0 40px rgba(234, 179, 8, 0.6) !important;",
+      "  outline: 5px solid #facc15 !important;",
+      "  outline-offset: -5px !important;",
+      "  box-shadow: inset 0 0 100px rgba(250, 204, 21, 0.45), 0 0 60px rgba(250, 204, 21, 0.7) !important;",
       "  opacity: 1 !important;",
       "}",
       "body.acp-swap-mode-active .hero:hover {",
-      "  outline-color: #facc15 !important;",
-      "  box-shadow: inset 0 0 80px rgba(250, 204, 21, 0.6), 0 0 60px rgba(250, 204, 21, 0.9) !important;",
+      "  outline-color: #ffffff !important;",
+      "  box-shadow: inset 0 0 120px rgba(250, 204, 21, 0.65), 0 0 80px rgba(250, 204, 21, 0.9) !important;",
       "}",
       "body.acp-swap-mode-active .hero::before {",
       "  content: \"🎯 HIER KLICKEN: HERO-HINTERGRUNDBILD ERSETZEN\" !important;",
@@ -2753,16 +2763,17 @@ function acpEnsureSpotlightCssInDoc(doc) {
       "  left: 50% !important;",
       "  transform: translateX(-50%) !important;",
       "  z-index: 1000 !important;",
-      "  background: #eab308 !important;",
+      "  background: #facc15 !important;",
       "  color: #0f172a !important;",
       "  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;",
-      "  font-size: 13.5px !important;",
+      "  font-size: 14px !important;",
       "  font-weight: 800 !important;",
       "  letter-spacing: 0.5px !important;",
-      "  padding: 8px 22px !important;",
+      "  padding: 10px 24px !important;",
       "  border-radius: 9999px !important;",
-      "  box-shadow: 0 4px 20px rgba(0,0,0,0.6), 0 0 25px rgba(234, 179, 8, 0.9) !important;",
+      "  box-shadow: 0 4px 25px rgba(0,0,0,0.7), 0 0 30px rgba(250, 204, 21, 0.9) !important;",
       "  pointer-events: none !important;",
+      "  animation: acpPulseBadge 1.8s infinite ease-in-out !important;",
       "  white-space: nowrap !important;",
       "}",
       "body.acp-swap-mode-active img,",
@@ -2773,21 +2784,32 @@ function acpEnsureSpotlightCssInDoc(doc) {
       "body.acp-swap-mode-active .kollege img,",
       "body.acp-swap-mode-active .team-card img {",
       "  opacity: 1 !important;",
-      "  outline: 3.5px solid #eab308 !important;",
+      "  outline: 4px solid #facc15 !important;",
       "  outline-offset: 4px !important;",
-      "  box-shadow: 0 0 30px rgba(234, 179, 8, 0.85) !important;",
+      "  box-shadow: 0 0 35px rgba(250, 204, 21, 0.95), 0 0 15px rgba(250, 204, 21, 0.8) !important;",
       "  cursor: pointer !important;",
       "  pointer-events: auto !important;",
       "  position: relative !important;",
-      "  z-index: 100 !important;",
-      "  transition: transform 0.2s ease, box-shadow 0.2s ease !important;",
+      "  z-index: 200 !important;",
+      "  transition: transform 0.2s ease, box-shadow 0.2s ease, outline-color 0.2s ease !important;",
       "}",
       "body.acp-swap-mode-active img:hover,",
       "body.acp-swap-mode-active [data-slot*=\"bild\"]:hover,",
       "body.acp-swap-mode-active [data-slot*=\"foto\"]:hover {",
-      "  transform: scale(1.03) !important;",
-      "  outline-color: #facc15 !important;",
-      "  box-shadow: 0 0 45px rgba(250, 204, 21, 1) !important;",
+      "  transform: scale(1.06) !important;",
+      "  outline-color: #ffffff !important;",
+      "  box-shadow: 0 0 50px rgba(250, 204, 21, 1), 0 0 25px #ffffff !important;",
+      "}",
+      "body.acp-swap-mode-active .team,",
+      "body.acp-swap-mode-active .kollegen,",
+      "body.acp-swap-mode-active .kollege {",
+      "  opacity: 1 !important;",
+      "  pointer-events: auto !important;",
+      "}",
+      "body.acp-swap-mode-active .kollege strong,",
+      "body.acp-swap-mode-active .kollege span {",
+      "  opacity: 0.9 !important;",
+      "  color: #facc15 !important;",
       "}"
     ].join("\n");
     doc.head.appendChild(style);
@@ -2967,7 +2989,7 @@ function acpExecuteDirectSwap() {
   var btn = document.querySelector(".btn-swap-exec");
   if (btn) {
     btn.disabled = true;
-    btn.textContent = "⏳ Tausche...";
+    btn.textContent = "⏳ Tausche & Deploye...";
   }
 
   var payload = {
@@ -2975,6 +2997,8 @@ function acpExecuteDirectSwap() {
     old_path: acpTargetSwapSlot.currentSrc,
     new_path: acpSelectedSwapImage.rel_path
   };
+
+  acpShowToast("⚡ <strong>Bildtausch gestartet:</strong> Tausche Bild und übertrage Änderung an Cloudflare Pages...", 8000);
 
   fetch("/api/publish-career/swap-image", {
     method: "POST",
@@ -2986,11 +3010,18 @@ function acpExecuteDirectSwap() {
   })
   .then(function(result) {
     if (result.ok && result.data.ok) {
-      acpShowToast('✅ <strong>Bild erfolgreich getauscht!</strong><br><small>' + result.data.message + '</small>', 6000);
+      acpShowToast('✅ <strong>Bild erfolgreich getauscht!</strong><br><small>Cloudflare Pages aktualisiert den Edge-Cache in ca. 10–15 Sekunden. Vorschau lädt gleich neu...</small>', 12000);
       var frame = document.getElementById("acp-widget-viewport");
       if (frame) {
         var baseSrc = frame.src.split('?')[0];
         frame.src = baseSrc + '?embed=true&t=' + Date.now();
+        setTimeout(function() {
+          frame.src = baseSrc + '?embed=true&t=' + Date.now();
+        }, 5000);
+        setTimeout(function() {
+          frame.src = baseSrc + '?embed=true&t=' + Date.now();
+          acpShowToast('🔄 <strong>Vorschau aktualisiert!</strong> Das neue Bild ist jetzt weltweit live.', 5000);
+        }, 12000);
       }
       acpCancelSwap();
     } else {
