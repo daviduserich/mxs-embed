@@ -2149,294 +2149,7 @@ function acpCopyCombinedPrompt() {
 }
 
 // Stellen-Definitionen (Dynamisch via stellen.json mit robustem Fallback)
-var ACP_STELLEN = [
-  {
-    id: "hiltbrand_dachdecker_pragmatisch",
-    titel: "Dachdecker EFZ (Pragmatisch & WhatsApp)",
-    firma: "Hiltbrand Gebäudehüllen AG",
-    icon: "🏠",
-    datei: "Hiltbrand_Dachdecker_Pragmatisch.html",
-    host_webseite: "https://dachdecker-berneroberland.ch",
-    host_label: "dachdecker-berneroberland.ch",
-    farb_akzent: "#EF4035",
-    widget_code: '<iframe src="https://embed.magnet-xs.ch/hiltbrand/Hiltbrand_Dachdecker_Pragmatisch.html?embed=true" style="width:100%; border:none; min-height:850px;" scrolling="no" id="acp-job-widget"></iframe>\n<script>window.addEventListener("message",function(e){if(e.data&&e.data.type==="acp-embed-resize"){var el=document.getElementById("acp-job-widget");if(el)el.style.height=e.data.height+"px";}});<\/script>',
-    is_live: true,
-    live_url: "https://dachdecker-berneroberland.ch/jobs/",
-    status: "Live auf Website",
-    status_badge: "🟢 LIVE AUF WEBSEITE"
-  },
-  {
-    id: "hiltbrand_dachdecker",
-    titel: "Dachdecker EFZ (Detail-Version)",
-    firma: "Hiltbrand Gebäudehüllen AG",
-    icon: "🏠",
-    datei: "Hiltbrand_Dachdecker.html",
-    host_webseite: "https://dachdecker-berneroberland.ch",
-    host_label: "dachdecker-berneroberland.ch",
-    farb_akzent: "#EF4035",
-    widget_code: '<iframe src="https://embed.magnet-xs.ch/hiltbrand/Hiltbrand_Dachdecker.html?embed=true" style="width:100%; border:none; min-height:850px;" scrolling="no" id="acp-job-widget"></iframe>\n<script>window.addEventListener("message",function(e){if(e.data&&e.data.type==="acp-embed-resize"){var el=document.getElementById("acp-job-widget");if(el)el.style.height=e.data.height+"px";}});<\/script>',
-    is_live: false,
-    live_url: "",
-    status: "Entwurf (Vorlage)",
-    status_badge: "⚪ ENTWURF"
-  },
-  {
-    id: "zurbuchen_holzbauer",
-    titel: "Zimmermann EFZ (2–3 Stellen)",
-    firma: "Zurbuchen Holzbau AG",
-    icon: "🌲",
-    datei: "zurbuchen_Holzbauer.html",
-    host_webseite: "https://zurbuchen-holzbau.ch",
-    host_label: "zurbuchen-holzbau.ch",
-    farb_akzent: "#9B1B1F",
-    widget_code: '<iframe src="https://embed.magnet-xs.ch/zurbuchen/zurbuchen_Holzbauer.html?embed=true" style="width:100%; border:none; min-height:850px;" scrolling="no" id="acp-job-widget"></iframe>\n<script>window.addEventListener("message",function(e){if(e.data&&e.data.type==="acp-embed-resize"){var el=document.getElementById("acp-job-widget");if(el)el.style.height=e.data.height+"px";}});<\/script>',
-    is_live: false,
-    live_url: "",
-    status: "Bereit für Zurbuchen",
-    status_badge: "🟡 BEREIT"
-  }
-];
-
-var activeJobId = "";
-var acpMenuOpen = false;
-var acpInspectorActive = false;
-
-function getActiveJob() {
-  for (var i = 0; i < ACP_STELLEN.length; i++) {
-    if (ACP_STELLEN[i].id === activeJobId) return ACP_STELLEN[i];
-  }
-  return ACP_STELLEN[0] || {};
-}
-
-// Live-Badge in der Cockpit-Leiste aktualisieren
-function updateLiveStatusBadge(job) {
-  var wrap = document.getElementById("acp-live-badge-wrap");
-  if (!wrap) return;
-  if (!job) { wrap.innerHTML = ""; return; }
-  
-  if (job.is_live) {
-    var url = job.live_url || "https://dachdecker-berneroberland.ch/jobs/";
-    var domain = (job.host_label || "dachdecker-berneroberland.ch").toUpperCase();
-    wrap.innerHTML = '<a href="' + url + '" target="_blank" class="acp-live-status-pill is-live" title="Diese Stelle ist öffentlich eingebettet. Klicken, um live auf ' + domain + ' anzuschauen!">' +
-      '<span class="acp-live-pulse-dot"></span>' +
-      '<span>🟢 LIVE AUF ' + domain + '</span>' +
-      '<span style="font-size:10px; opacity:0.8;">↗</span>' +
-    '</a>';
-  } else if (job.id && job.id.indexOf("zurbuchen") !== -1) {
-    wrap.innerHTML = '<span class="acp-live-status-pill is-draft" style="border-color: rgba(234,179,8,0.4); color: #facc15;" title="Bereit zur Einbettung auf zurbuchen-holzbau.ch">' +
-      '<span class="acp-draft-dot" style="background:#facc15;"></span>' +
-      '<span>🟡 BEREIT (Zurbuchen Holzbau AG)</span>' +
-    '</span>';
-  } else {
-    wrap.innerHTML = '<span class="acp-live-status-pill is-draft" title="Diese Vorlage ist nicht im WordPress-Widget eingebettet (Sicherer lokaler Entwurf)">' +
-      '<span class="acp-draft-dot"></span>' +
-      '<span>⚪ ENTWURF (Vorlage)</span>' +
-    '</span>';
-  }
-}
-
-// Dropdown umschalten
-function acpToggleJobDropdown() {
-  var dd = document.getElementById("acp-job-dropdown");
-  var wrap = document.getElementById("acp-job-picker-wrap");
-  if (!dd) return;
-  var isOpen = dd.classList.contains("is-open");
-  if (isOpen) {
-    dd.classList.remove("is-open");
-    if (wrap) wrap.classList.remove("is-open");
-  } else {
-    dd.classList.add("is-open");
-    if (wrap) wrap.classList.add("is-open");
-  }
-}
-
-// Bei Klick ausserhalb Dropdown schliessen
-document.addEventListener("click", function(e) {
-  var wrap = document.getElementById("acp-job-picker-wrap");
-  if (wrap && !wrap.contains(e.target)) {
-    var dd = document.getElementById("acp-job-dropdown");
-    if (dd) dd.classList.remove("is-open");
-    wrap.classList.remove("is-open");
-  }
-});
-
-// Dynamischer Picker: Dropdown befüllen & Button aktualisieren
-function renderJobPicker() {
-  var list = document.getElementById("acp-dropdown-list");
-  var countEl = document.getElementById("dropdown-count");
-  if (countEl) countEl.textContent = ACP_STELLEN.length;
-  if (!list) return;
-
-  var html = "";
-  for (var i = 0; i < ACP_STELLEN.length; i++) {
-    var j = ACP_STELLEN[i];
-    var isActive = (j.id === activeJobId);
-    var activeClass = isActive ? "active" : "";
-    
-    var badgeHtml = "";
-    if (j.is_live) {
-      badgeHtml = '<span class="acp-badge-mini live">🟢 LIVE</span>';
-    } else if (j.id && j.id.indexOf("zurbuchen") !== -1) {
-      badgeHtml = '<span class="acp-badge-mini ready">🟡 BEREIT</span>';
-    } else {
-      badgeHtml = '<span class="acp-badge-mini draft">⚪ ENTWURF</span>';
-    }
-
-    html += '<div class="acp-dropdown-item ' + activeClass + '" onclick="acpSwitchJob(\'' + j.id + '\'); acpToggleJobDropdown();">' +
-      '<div class="dropdown-item-left">' +
-        '<div class="dropdown-item-title">' + (j.icon || "💼") + ' ' + j.titel + '</div>' +
-        '<div class="dropdown-item-meta"><span>' + j.firma + '</span> · <span style="color:#38bdf8">' + j.datei + '</span></div>' +
-      '</div>' +
-      '<div class="dropdown-item-right">' +
-        badgeHtml +
-        (isActive ? '<span class="check-icon">✓</span>' : '') +
-      '</div>' +
-    '</div>';
-  }
-  list.innerHTML = html;
-
-  // Button-Anzeige & Live-Badge aktualisieren
-  var currentJob = getActiveJob();
-  if (currentJob && currentJob.id) {
-    var iconEl = document.getElementById("picker-current-icon");
-    var titleEl = document.getElementById("picker-current-title");
-    var firmEl = document.getElementById("picker-current-firm");
-    if (iconEl) iconEl.textContent = currentJob.icon || "💼";
-    if (titleEl) titleEl.textContent = currentJob.titel;
-    if (firmEl) firmEl.textContent = currentJob.firma ? currentJob.firma.split(" ")[0] : "";
-    updateLiveStatusBadge(currentJob);
-  }
-}
-
-// Stelle umschalten
-function acpSwitchJob(jobId) {
-  activeJobId = jobId;
-  var job = getActiveJob();
-  if (!job || !job.id) return;
-  
-  // Picker Button & Dropdown Items aktualisieren
-  renderJobPicker();
-
-  // Host Header anpassen
-  var hBadge = document.getElementById("host-badge");
-  var hTitle = document.getElementById("host-title");
-  var hDesc = document.getElementById("host-desc");
-  var hHeader = document.getElementById("host-header");
-  
-  var fBadge = document.getElementById("host-footer-badge");
-  var fTitle = document.getElementById("host-footer-title");
-  var fDesc = document.getElementById("host-footer-desc");
-  var fFooter = document.getElementById("host-footer");
-
-  var hostDomain = job.host_label || "kunden-website.ch";
-  var firmaName = job.firma || "Kundenbetrieb";
-  var brandColor = job.farb_akzent || "#3b82f6";
-
-  if (hBadge) hBadge.innerHTML = '<span>🌐 BEREICH 1: BESTEHENDE WEBSEITE (' + hostDomain + ')</span>';
-  if (hTitle) hTitle.textContent = "Kopfzeile der Kunden-Webseite: " + firmaName;
-  if (hDesc) hDesc.textContent = "Hier bleibt das Firmenlogo und das normale Navigationsmenü von " + hostDomain + " fix bestehen.";
-  if (hHeader) { hHeader.style.borderBottomColor = brandColor; }
-
-  if (fBadge) fBadge.innerHTML = '<span>🌐 BEREICH 3: BESTEHENDE WEBSEITE (' + hostDomain + ')</span>';
-  if (fTitle) fTitle.textContent = "Fusszeile der Kunden-Webseite: " + firmaName;
-  if (fDesc) fDesc.textContent = "Hier bleibt der bestehende Footer von " + hostDomain + " mit Adressen und Impressum unverändert bestehen.";
-  if (fFooter) { fFooter.style.borderTopColor = brandColor; }
-
-  // iFrame wechseln
-  var frame = document.getElementById("acp-widget-viewport");
-  if (frame && job.datei) {
-    frame.style.opacity = "0.3";
-    frame.src = job.datei + "?embed=true";
-    frame.onload = function() {
-      frame.style.opacity = "1";
-      if (acpInspectorActive) {
-        frame.contentWindow.postMessage({ type: "acp-toggle-inspector", active: true }, "*");
-      }
-    };
-  }
-
-  // Snippet-Box im Modal updaten
-  updateSnippetBox();
-  acpShowToast("🔄 Vorschau gewechselt auf: <strong>" + job.titel + "</strong>");
-}
-
-function updateSnippetBox() {
-  var job = getActiveJob();
-  if (!job || !job.id) return;
-  var label = document.getElementById("code-job-label");
-  var pre = document.getElementById("active-widget-snippet");
-  if (label) label.textContent = job.titel + " (" + job.firma + ")";
-  if (pre) pre.textContent = job.widget_code;
-}
-
-// 1-Klick Code kopieren
-function acpCopyActiveCode() {
-  var job = getActiveJob();
-  if (!job || !job.widget_code) return;
-  if (navigator.clipboard && navigator.clipboard.writeText) {
-    navigator.clipboard.writeText(job.widget_code);
-    acpShowToast("📋 <strong>" + job.titel + "</strong> Widget-Code in die Zwischenablage kopiert!");
-  } else {
-    window.prompt("Kopiere diesen Einbettungs-Code für den Webmaster:", job.widget_code);
-  }
-}
-
-function acpCopyJobCode(jobId) {
-  for (var i = 0; i < ACP_STELLEN.length; i++) {
-    if (ACP_STELLEN[i].id === jobId) {
-      if (navigator.clipboard && navigator.clipboard.writeText) {
-        navigator.clipboard.writeText(ACP_STELLEN[i].widget_code);
-        acpShowToast("📋 Widget-Code für <strong>" + ACP_STELLEN[i].titel + "</strong> kopiert!");
-      } else {
-        window.prompt("Kopiere diesen Einbettungs-Code:", ACP_STELLEN[i].widget_code);
-      }
-      return;
-    }
-  }
-}
-
-// KI-Befehl aus Hilfe-Modal kopieren
-function acpCopyAiPrompt(btn) {
-  var text = "Bitte gib mir den Quellcode immer als eine einzige, vollständige und ungekürzte HTML-Datei aus – ausnahmslos von <!DOCTYPE html> bis </html>. Verwende keine Code-Auslassungen (wie // ... restlicher Code ...), keine Zusammenfassungen und erstelle die Ausgabe direkt als einhängenden Code-Block in deiner Antwort.";
-  if (navigator.clipboard && navigator.clipboard.writeText) {
-    navigator.clipboard.writeText(text);
-    acpShowToast("📋 KI-Befehl in die Zwischenablage kopiert!");
-    if (btn) {
-      var orig = btn.textContent;
-      btn.textContent = "✓ Kopiert!";
-      setTimeout(function() { btn.textContent = orig; }, 2000);
-    }
-  } else {
-    window.prompt("Kopiere diesen Befehl für deine KI:", text);
-  }
-}
-
-// Online-Cockpit URL kopieren
-function acpCopyOnlineUrl(btn) {
-  var url = "https://embed.magnet-xs.ch/hiltbrand/cockpit";
-  if (navigator.clipboard && navigator.clipboard.writeText) {
-    navigator.clipboard.writeText(url);
-    acpShowToast("📋 <strong>Online-Cockpit Link kopiert!</strong><br><small>" + url + "</small>");
-    if (btn) {
-      var orig = btn.textContent;
-      btn.textContent = "✓ Kopiert!";
-      setTimeout(function() { btn.textContent = orig; }, 2000);
-    }
-  } else {
-    window.prompt("Kopiere die Online-Cockpit Adresse:", url);
-  }
-}
-
-// Hilfe-Modal: So funktioniert's
-function acpToggleHelpModal() {
-  var modal = document.getElementById("acp-help-modal");
-  if (!modal) return;
-  modal.classList.toggle("is-open");
-}
-
-// Stellen-Verzeichnis Modal
-// Stellen-Manifest & Filter-State
-var ACP_STELLEN = [{"id": "hiltbrand_dachdecker", "titel": "Dachdecker EFZ (80–100%)", "firma": "Hiltbrand Gebäudehüllen AG", "icon": "🏠", "datei": "Hiltbrand_Dachdecker.html", "host_webseite": "https://dachdecker-berneroberland.ch", "host_label": "dachdecker-berneroberland.ch", "farb_akzent": "#EF4035", "widget_code": "<iframe src=\"https://embed.magnet-xs.ch/hiltbrand/Hiltbrand_Dachdecker.html?embed=true\" style=\"width:100%; border:none; min-height:850px;\" scrolling=\"no\" id=\"acp-job-widget\"></iframe>\n<script>window.addEventListener(\"message\",function(e){if(e.data&&e.data.type===\"acp-embed-resize\"){var el=document.getElementById(\"acp-job-widget\");if(el)el.style.height=e.data.height+\"px\";}});<\/script>", "is_live": false, "live_url": "", "status": "Entwurf (Vorlage)", "status_badge": "⚪ ENTWURF"}, {"id": "hiltbrand_dachdecker_pragmatisch", "titel": "Dachdecker EFZ (Pragmatisch & WhatsApp)", "firma": "Hiltbrand Gebäudehüllen AG", "icon": "🏠", "datei": "Hiltbrand_Dachdecker_Pragmatisch.html", "host_webseite": "https://dachdecker-berneroberland.ch", "host_label": "dachdecker-berneroberland.ch", "farb_akzent": "#EF4035", "widget_code": "<iframe src=\"https://embed.magnet-xs.ch/hiltbrand/Hiltbrand_Dachdecker_Pragmatisch.html?embed=true\" style=\"width:100%; border:none; min-height:850px;\" scrolling=\"no\" id=\"acp-job-widget\"></iframe>\n<script>window.addEventListener(\"message\",function(e){if(e.data&&e.data.type===\"acp-embed-resize\"){var el=document.getElementById(\"acp-job-widget\");if(el)el.style.height=e.data.height+\"px\";}});<\/script>", "is_live": true, "live_url": "https://dachdecker-berneroberland.ch/jobs/", "status": "Live auf Webseite", "status_badge": "🟢 LIVE AUF WEBSEITE"}, {"id": "zurbuchen_holzbauer", "titel": "Zimmermann EFZ (2–3 Stellen)", "firma": "Zurbuchen Holzbau AG", "icon": "🌲", "datei": "zurbuchen_Holzbauer.html", "host_webseite": "https://zurbuchen-holzbau.ch", "host_label": "zurbuchen-holzbau.ch", "farb_akzent": "#9B1B1F", "widget_code": "<iframe src=\"https://embed.magnet-xs.ch/zurbuchen/zurbuchen_Holzbauer.html?embed=true\" style=\"width:100%; border:none; min-height:850px;\" scrolling=\"no\" id=\"acp-job-widget\"></iframe>\n<script>window.addEventListener(\"message\",function(e){if(e.data&&e.data.type===\"acp-embed-resize\"){var el=document.getElementById(\"acp-job-widget\");if(el)el.style.height=e.data.height+\"px\";}});<\/script>", "is_live": false, "live_url": "", "status": "Bereit für Zurbuchen", "status_badge": "🟡 BEREIT"}];
+var ACP_STELLEN = [{"id": "hiltbrand_dachdecker", "titel": "Dachdecker EFZ (80–100%)", "firma": "Hiltbrand Gebäudehüllen AG", "icon": "🏠", "datei": "Hiltbrand_Dachdecker.html", "host_webseite": "https://dachdecker-berneroberland.ch", "host_label": "dachdecker-berneroberland.ch", "farb_akzent": "#EF4035", "widget_code": "<iframe src=\"https://embed.magnet-xs.ch/hiltbrand/Hiltbrand_Dachdecker.html?embed=true\" style=\"width:100%; border:none; min-height:850px;\" scrolling=\"no\" id=\"acp-job-widget\"></iframe>\n<script>window.addEventListener(\"message\",function(e){if(e.data&&e.data.type===\"acp-embed-resize\"){var el=document.getElementById(\"acp-job-widget\");if(el)el.style.height=e.data.height+\"px\";}});<\\/script>", "is_live": false, "live_url": "", "status": "Entwurf (Vorlage)", "status_badge": "⚪ ENTWURF"}, {"id": "hiltbrand_dachdecker_pragmatisch", "titel": "Dachdecker EFZ (Pragmatisch & WhatsApp)", "firma": "Hiltbrand Gebäudehüllen AG", "icon": "🏠", "datei": "Hiltbrand_Dachdecker_Pragmatisch.html", "host_webseite": "https://dachdecker-berneroberland.ch", "host_label": "dachdecker-berneroberland.ch", "farb_akzent": "#EF4035", "widget_code": "<iframe src=\"https://embed.magnet-xs.ch/hiltbrand/Hiltbrand_Dachdecker_Pragmatisch.html?embed=true\" style=\"width:100%; border:none; min-height:850px;\" scrolling=\"no\" id=\"acp-job-widget\"></iframe>\n<script>window.addEventListener(\"message\",function(e){if(e.data&&e.data.type===\"acp-embed-resize\"){var el=document.getElementById(\"acp-job-widget\");if(el)el.style.height=e.data.height+\"px\";}});<\\/script>", "is_live": true, "live_url": "https://dachdecker-berneroberland.ch/jobs/", "status": "Live auf Webseite", "status_badge": "🟢 LIVE AUF WEBSEITE"}, {"id": "zurbuchen_holzbauer", "titel": "Zimmermann EFZ (2–3 Stellen)", "firma": "Zurbuchen Holzbau AG", "icon": "🌲", "datei": "zurbuchen_Holzbauer.html", "host_webseite": "https://zurbuchen-holzbau.ch", "host_label": "zurbuchen-holzbau.ch", "farb_akzent": "#9B1B1F", "widget_code": "<iframe src=\"https://embed.magnet-xs.ch/zurbuchen/zurbuchen_Holzbauer.html?embed=true\" style=\"width:100%; border:none; min-height:850px;\" scrolling=\"no\" id=\"acp-job-widget\"></iframe>\n<script>window.addEventListener(\"message\",function(e){if(e.data&&e.data.type===\"acp-embed-resize\"){var el=document.getElementById(\"acp-job-widget\");if(el)el.style.height=e.data.height+\"px\";}});<\\/script>", "is_live": false, "live_url": "", "status": "Bereit für Zurbuchen", "status_badge": "🟡 BEREIT"}];
 var acpCurrentJobFilter = 'alle';
 
 function acpToggleDirectoryModal() {
@@ -2509,6 +2222,25 @@ function renderDirectoryTable() {
   var html = "";
   for (var i = 0; i < filtered.length; i++) {
     var j = filtered[i];
+        var subfolder = j.folder || ((j.firma && j.firma.indexOf('Zurbuchen') !== -1) ? 'zurbuchen' : 'hiltbrand');
+    var edgePreviewUrl = j.edge_url || ('https://embed.magnet-xs.ch/' + subfolder + '/' + j.datei);
+    var cleanEdgeDomain = 'embed.magnet-xs.ch/' + subfolder + '/' + j.datei;
+
+    var previewLinkBlock = '<div class="job-title-subline" style="display:flex; align-items:center; gap:8px; margin-top:5px; flex-wrap:wrap;">' +
+      '<span style="color:#94a3b8; font-size:11.5px; font-weight:600;">🔗 Vorschau:</span>' +
+      '<a href="' + edgePreviewUrl + '" target="_blank" style="color:#38bdf8; font-family:\'JetBrains Mono\',monospace; font-size:11.5px; text-decoration:none; display:inline-flex; align-items:center; gap:4px;" title="Vorschau direkt im neuen Browser-Tab öffnen">' +
+        cleanEdgeDomain + ' ↗' +
+      '</a>' +
+      '<button type="button" class="btn-copy-preview-link" onclick="acpCopyPreviewUrl(\'' + edgePreviewUrl + '\', \'' + j.titel + '\')" title="Vorschau-Link für WhatsApp oder E-Mail kopieren" style="background:rgba(56,189,248,0.15); color:#38bdf8; border:1px solid rgba(56,189,248,0.3); border-radius:4px; padding:2px 7px; font-size:11px; font-weight:700; cursor:pointer;">' +
+        '📋 Link teilen' +
+      '</button>' +
+    '</div>';
+
+    if (j.is_live && j.live_url) {
+      previewLinkBlock += '<div style="margin-top:4px; font-size:11.5px; color:#34d399;">' +
+        '🌐 Live eingebettet: <a href="' + j.live_url + '" target="_blank" style="color:#34d399; font-weight:700; text-decoration:underline;">' + j.live_url.replace('https://','').replace(/\/$/,'') + ' ↗</a>' +
+      '</div>';
+    }
     var isCurrent = (j.id === activeJobId);
     var rowClass = isCurrent ? "is-active-job" : "";
 
@@ -2536,9 +2268,7 @@ function renderDirectoryTable() {
           (j.icon || "💼") + ' ' + j.titel +
           (isCurrent ? '<span class="job-active-marker">Aktuell</span>' : '') +
         '</div>' +
-        '<div class="job-title-subline">' +
-          '<a href="' + j.host_webseite + '" target="_blank" style="color:#60a5fa; text-decoration:none;">' + j.host_label + ' ↗</a>' +
-        '</div>' +
+        previewLinkBlock +
       '</td>' +
       '<td>' +
         '<strong style="color:#f8fafc; font-size:13px;">' + j.firma + '</strong>' +
@@ -2551,6 +2281,16 @@ function renderDirectoryTable() {
     '</tr>';
   }
   tbody.innerHTML = html;
+}
+
+
+function acpCopyPreviewUrl(url, title) {
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(url);
+    acpShowToast('🔗 <strong>Vorschau-Link kopiert!</strong><br><small>' + url + '<br>👉 Ideal zum Teilen per WhatsApp oder E-Mail.</small>', 5000);
+  } else {
+    window.prompt("Kopiere diesen Vorschau-Link:", url);
+  }
 }
 
 function acpCopyJobFilename(filename) {
