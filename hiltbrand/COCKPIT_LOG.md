@@ -27,3 +27,4 @@
 - `2026-10-03 17:45:42` · **🗑️ Bild gelöscht:** `foto_06_ohne_rand.jpg` dauerhaft aus Bilder-Pool und Cloudflare Pages entfernt | 🚀 Commit `feat(assets): delete unused image foto_06_ohne_rand.jpg`
 - `2026-10-03 17:53:29` · **🚀 Scharfgestellt:** Manuelle Live-Schaltung über Cockpit ausgelöst | ✅ Airbag: 100% grün | 🚀 Commit `feat(publish): client live update from Cockpit at 2026-10-03 17:53:27`
 - `2026-10-03 17:57:53` · **🚀 Scharfgestellt:** Manuelle Live-Schaltung über Cockpit ausgelöst | ✅ Airbag: 100% grün | 🚀 Commit `feat(publish): client live update from Cockpit at 2026-10-03 17:57:51`
+- `2026-10-03 18:01:13` · **🗑️ Bild gelöscht:** `melcos_keyframe_1.jpg` dauerhaft aus Bilder-Pool und Cloudflare Pages entfernt | 🚀 Commit `feat(assets): delete unused image melcos_keyframe_1.jpg`
