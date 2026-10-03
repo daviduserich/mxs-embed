@@ -32,6 +32,7 @@ Automatisch generierte Übersicht aller verfügbaren Bild-Assets im Ordner `imag
 | ![q3_kameradschaft.png](images/q3_kameradschaft.png) | `q3_kameradschaft.png` | Baustelle & Benefit | 47.2 KB | 200x160 | 28.09.2026 17:35 | ⚪ Frei verfügbar |
 | ![stefan.jpg](images/stefan.jpg) | `stefan.jpg` | Team & Porträt | 204.2 KB | 1400x1337 | 28.09.2026 17:35 | 🟢 Im Einsatz in `Hiltbrand_Dachdecker.html` |
 | ![team_alt.jpg](images/team_alt.jpg) | `team_alt.jpg` | Team & Porträt | 259.8 KB | 1400x933 | 28.09.2026 17:35 | ⚪ Frei verfügbar |
+| ![test_delete_probe.png](images/test_delete_probe.png) | `test_delete_probe.png` | Baustelle & Benefit | 0.3 KB | 100x100 | 03.10.2026 17:43 | ⚪ Frei verfügbar |
 | ![vorstellung.jpg](images/vorstellung.jpg) | `vorstellung.jpg` | Baustelle & Benefit | 160.7 KB | 1400x933 | 28.09.2026 17:35 | ⚪ Frei verfügbar |
 | ![alain.jpg](images/zurbuchen/alain.jpg) | `alain.jpg` | Team & Porträt | 10.5 KB | 320x320 | 28.09.2026 19:08 | 🟢 Im Einsatz in `zurbuchen_Holzbauer.html` |
 | ![beat.jpg](images/zurbuchen/beat.jpg) | `beat.jpg` | Team & Porträt | 10.2 KB | 320x320 | 28.09.2026 19:08 | 🟢 Im Einsatz in `zurbuchen_Holzbauer.html` |
