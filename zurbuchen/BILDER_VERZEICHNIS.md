@@ -9,6 +9,7 @@ Automatisch generierte Übersicht aller verfügbaren Bild-Assets im Ordner `imag
 | Miniatur | Dateiname | Kategorie | Grösse | Dimension | Datum | Status |
 |---|---|---|---|---|---|---|
 | ![benefits_drohne.jpg](images/benefits_drohne.jpg) | `benefits_drohne.jpg` | Baustelle & Benefit | 482.5 KB | 1400x1050 | 28.09.2026 17:35 | ⚪ Frei verfügbar |
+| ![cws-promo-440x280.png](images/cws-promo-440x280.png) | `cws-promo-440x280.png` | Baustelle & Benefit | 8.0 KB | 440x280 | 03.10.2026 18:11 | ⚪ Frei verfügbar |
 | ![cws-screenshot-1280x800.png](images/cws-screenshot-1280x800.png) | `cws-screenshot-1280x800.png` | Baustelle & Benefit | 216.5 KB | 1280x800 | 03.10.2026 18:02 | ⚪ Frei verfügbar |
 | ![danke.png](images/danke.png) | `danke.png` | Baustelle & Benefit | 1490.5 KB | 1456x816 | 28.09.2026 17:35 | ⚪ Frei verfügbar |
 | ![hero.jpg](images/hero.jpg) | `hero.jpg` | Hero & Header | 160.7 KB | 1400x933 | 28.09.2026 17:35 | 🟢 Im Einsatz in `Hiltbrand_Dachdecker.html` |
