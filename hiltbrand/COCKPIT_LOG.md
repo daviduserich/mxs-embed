@@ -14,3 +14,4 @@
 - `2026-10-03 14:36:33` · **🧪 Test-Alarm:** Erfolgreicher Telegram-Test über REST-API durchgeführt.
 - `2026-10-03 14:36:43` · **ℹ️ BROWSER-EVENT:** Cockpit gestartet Browser Test
 - `2026-10-03 14:36:58` · **🚨 BROWSER-FEHLER:** Test-Fehlererkennung Simulation eines abgefangenen Fehlers
+- `2026-10-03 14:37:17` · **🚀 Scharfgestellt:** Manuelle Live-Schaltung über Cockpit ausgelöst | ✅ Airbag: 100% grün | 🚀 Commit `feat(publish): client live update from Cockpit at 2026-10-03 14:37:14`
