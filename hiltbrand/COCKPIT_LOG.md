@@ -23,3 +23,4 @@
 - `2026-10-03 17:29:59` · **🖼️ Foto hochgeladen:** `melcos_keyframe_1.jpg` (1058.6 KB) | Bereit für 1-Klick-Tausch | 🚀 Commit `feat(assets): upload image melcos_keyframe_1.jpg (1058.6 KB)`
 - `2026-10-03 17:41:19` · **🚀 Scharfgestellt:** Manuelle Live-Schaltung über Cockpit ausgelöst | ✅ Airbag: 100% grün | 🚀 Commit `feat(publish): client live update from Cockpit at 2026-10-03 17:41:17`
 - `2026-10-03 17:43:40` · **🖼️ Foto hochgeladen:** `test_delete_probe.png` (0.3 KB) | Bereit für 1-Klick-Tausch | 🚀 Commit `feat(assets): upload image test_delete_probe.png (0.3 KB)`
+- `2026-10-03 17:43:48` · **🗑️ Bild gelöscht:** `test_delete_probe.png` dauerhaft aus Bilder-Pool und Cloudflare Pages entfernt | 🚀 Commit `feat(assets): delete unused image test_delete_probe.png`
