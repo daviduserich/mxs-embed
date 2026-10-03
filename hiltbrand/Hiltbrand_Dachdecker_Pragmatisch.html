@@ -932,7 +932,10 @@ window.addEventListener("message", function(e) {
     if (e.data.isHero) {
       var hero = document.querySelector('.hero');
       if (hero) {
-        hero.style.backgroundImage = 'linear-gradient(rgba(17,24,39,0.78), rgba(17,24,39,0.88)), url("' + newSrc + '")';
+        hero.style.backgroundImage = 'linear-gradient(rgba(35,31,32,.72), rgba(35,31,32,.86)), url("' + newSrc + '")';
+        hero.style.backgroundPosition = 'center top';
+        hero.style.backgroundSize = 'cover';
+        hero.style.backgroundRepeat = 'no-repeat';
       }
     } else {
       var targetEl = null;
