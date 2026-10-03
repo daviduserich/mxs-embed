@@ -15,3 +15,4 @@
 - `2026-10-03 14:36:43` · **ℹ️ BROWSER-EVENT:** Cockpit gestartet Browser Test
 - `2026-10-03 14:36:58` · **🚨 BROWSER-FEHLER:** Test-Fehlererkennung Simulation eines abgefangenen Fehlers
 - `2026-10-03 14:37:17` · **🚀 Scharfgestellt:** Manuelle Live-Schaltung über Cockpit ausgelöst | ✅ Airbag: 100% grün | 🚀 Commit `feat(publish): client live update from Cockpit at 2026-10-03 14:37:14`
+- `2026-10-03 15:41:59` · **🖼️ Bildtausch:** `benefits_drohne.jpg` ➔ `q1_benefit.jpg` in `zurbuchen_Holzbauer.html` | ✅ Airbag: 100% grün | 🚀 Commit `feat(swap): image in zurbuchen_Holzbauer.html swapped (benefits_drohne.jpg -> q1_benefit.jpg) at 2026-10-03 15:41:57` (Cloudflare Pages weltweit aktiv)
