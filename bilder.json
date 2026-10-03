@@ -74,11 +74,6 @@
         "datei": "Hiltbrand_Dachdecker_Pragmatisch.html",
         "slot": "",
         "is_hero": false
-      },
-      {
-        "datei": "zurbuchen_Holzbauer.html",
-        "slot": "",
-        "is_hero": false
       }
     ]
   },
@@ -112,11 +107,6 @@
       {
         "datei": "Hiltbrand_Dachdecker.html",
         "slot": "team.michael.foto",
-        "is_hero": false
-      },
-      {
-        "datei": "zurbuchen_Holzbauer.html",
-        "slot": "",
         "is_hero": false
       }
     ]
@@ -450,19 +440,8 @@
     "mtime": 1790622487,
     "mtime_str": "28.09.2026 19:08",
     "cdn_url": "https://embed.magnet-xs.ch/zurbuchen/images/zurbuchen/hero.jpg",
-    "is_used": true,
-    "used_in": [
-      {
-        "datei": "Hiltbrand_Dachdecker.html",
-        "slot": "",
-        "is_hero": true
-      },
-      {
-        "datei": "Hiltbrand_Dachdecker_Pragmatisch.html",
-        "slot": "",
-        "is_hero": true
-      }
-    ]
+    "is_used": false,
+    "used_in": []
   },
   {
     "id": "images_zurbuchen_jonas_jpg",
@@ -538,16 +517,6 @@
     "is_used": true,
     "used_in": [
       {
-        "datei": "Hiltbrand_Dachdecker.html",
-        "slot": "",
-        "is_hero": false
-      },
-      {
-        "datei": "Hiltbrand_Dachdecker_Pragmatisch.html",
-        "slot": "",
-        "is_hero": false
-      },
-      {
         "datei": "zurbuchen_Holzbauer.html",
         "slot": "",
         "is_hero": false
@@ -587,11 +556,6 @@
     "cdn_url": "https://embed.magnet-xs.ch/zurbuchen/images/zurbuchen/michael.jpg",
     "is_used": true,
     "used_in": [
-      {
-        "datei": "Hiltbrand_Dachdecker.html",
-        "slot": "team.michael.foto",
-        "is_hero": false
-      },
       {
         "datei": "zurbuchen_Holzbauer.html",
         "slot": "",

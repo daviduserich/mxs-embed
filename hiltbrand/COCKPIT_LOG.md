@@ -25,3 +25,4 @@
 - `2026-10-03 17:43:40` · **🖼️ Foto hochgeladen:** `test_delete_probe.png` (0.3 KB) | Bereit für 1-Klick-Tausch | 🚀 Commit `feat(assets): upload image test_delete_probe.png (0.3 KB)`
 - `2026-10-03 17:43:48` · **🗑️ Bild gelöscht:** `test_delete_probe.png` dauerhaft aus Bilder-Pool und Cloudflare Pages entfernt | 🚀 Commit `feat(assets): delete unused image test_delete_probe.png`
 - `2026-10-03 17:45:42` · **🗑️ Bild gelöscht:** `foto_06_ohne_rand.jpg` dauerhaft aus Bilder-Pool und Cloudflare Pages entfernt | 🚀 Commit `feat(assets): delete unused image foto_06_ohne_rand.jpg`
+- `2026-10-03 17:53:29` · **🚀 Scharfgestellt:** Manuelle Live-Schaltung über Cockpit ausgelöst | ✅ Airbag: 100% grün | 🚀 Commit `feat(publish): client live update from Cockpit at 2026-10-03 17:53:27`
