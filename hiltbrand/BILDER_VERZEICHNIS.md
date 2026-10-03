@@ -10,6 +10,7 @@ Automatisch generierte Übersicht aller verfügbaren Bild-Assets im Ordner `imag
 |---|---|---|---|---|---|
 | ![benefits_drohne.jpg](images/benefits_drohne.jpg) | `benefits_drohne.jpg` | Baustelle & Benefit | 482.5 KB | 1400x1050 | ⚪ Frei verfügbar |
 | ![danke.png](images/danke.png) | `danke.png` | Baustelle & Benefit | 1490.5 KB | 1456x816 | ⚪ Frei verfügbar |
+| ![foto_06_ohne_rand.jpg](images/foto_06_ohne_rand.jpg) | `foto_06_ohne_rand.jpg` | Baustelle & Benefit | 165.5 KB | 720x960 | ⚪ Frei verfügbar |
 | ![hero.jpg](images/hero.jpg) | `hero.jpg` | Hero & Header | 160.7 KB | 1400x933 | 🟢 Im Einsatz in `Hiltbrand_Dachdecker.html` |
 | ![logo.png](images/logo.png) | `logo.png` | Logo & Icon | 8.2 KB | 260x150 | 🟢 Im Einsatz in `Hiltbrand_Dachdecker.html` |
 | ![michael.jpg](images/michael.jpg) | `michael.jpg` | Team & Porträt | 186.7 KB | 834x788 | 🟢 Im Einsatz in `Hiltbrand_Dachdecker.html` |
