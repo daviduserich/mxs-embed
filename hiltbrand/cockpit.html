@@ -1514,6 +1514,8 @@ a { color: var(--rot); text-decoration: none; }
 
 
 
+
+
 /* ======================================================= */
 /* COCKPIT v3.3.0: SWISS ARCHITECTURAL CANVAS & OBSIDIAN   */
 /* ======================================================= */
@@ -1530,10 +1532,12 @@ body.acp-modal-open {
   position: sticky !important;
   top: 0 !important;
   z-index: 2000 !important;
-  height: 56px !important;
+  min-height: 56px !important;
+  height: auto !important;
   display: flex !important;
   align-items: center !important;
-  padding: 0 20px !important;
+  padding: 8px 20px !important;
+  box-sizing: border-box !important;
 }
 .acp-cockpit-inner {
   width: 100% !important;
@@ -1542,7 +1546,14 @@ body.acp-modal-open {
   display: flex !important;
   align-items: center !important;
   justify-content: space-between !important;
-  gap: 16px !important;
+  gap: 10px 16px !important;
+  flex-wrap: wrap !important;
+}
+.picker-title {
+  max-width: 220px !important;
+  white-space: nowrap !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
 }
 .acp-cockpit-left {
   display: flex !important;
@@ -1648,6 +1659,10 @@ body.acp-modal-open {
   border-radius: 4px !important;
   text-decoration: none !important;
   letter-spacing: 0.4px !important;
+  max-width: 260px !important;
+  white-space: nowrap !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
   transition: all 0.15s ease !important;
 }
 .acp-live-status-pill.is-live {
@@ -2447,19 +2462,19 @@ body.acp-modal-open {
     <div class="acp-cockpit-right">
       <button type="button" class="acp-nav-btn" onclick="acpToggleImagesModal()" title="Bilder-Pool durchsuchen &amp; tauschen">
         <span class="nav-icon">🖼️</span>
-        <span class="nav-label">Bilder-Pool</span>
+        <span class="nav-label">Bilder</span>
       </button>
       <button type="button" class="acp-nav-btn acp-nav-btn-directory" onclick="acpToggleDirectoryModal()" title="Stellen-Zentrale: Mandanten &amp; Inserate">
         <span class="nav-icon">📑</span>
-        <span class="nav-label">Stellen-Zentrale</span>
+        <span class="nav-label">Stellen</span>
       </button>
       <button type="button" class="acp-nav-btn" onclick="acpCopyActiveCode()" title="1-Klick Widget-Code für den Webmaster kopieren">
         <span class="nav-icon">📋</span>
-        <span class="nav-label">1-Klick Code</span>
+        <span class="nav-label">Code</span>
       </button>
       <button type="button" class="acp-nav-btn" onclick="acpToggleHelpModal()" title="Anleitung &amp; Erklärung">
         <span class="nav-icon">💡</span>
-        <span class="nav-label">Anleitung</span>
+        <span class="nav-label">Hilfe</span>
       </button>
       <a href="https://embed.magnet-xs.ch/hiltbrand/cockpit" target="_blank" class="acp-nav-btn acp-nav-btn-online" id="acp-online-btn" title="Online-Cockpit aufrufen">
         <span class="nav-icon">🌐</span>
@@ -3876,15 +3891,12 @@ function checkEnvironmentAndRender() {
   var onlineBtn = document.getElementById("acp-online-btn");
 
   if (isOnline) {
-    if (badgeLabel) badgeLabel.textContent = "ONLINE COCKPIT";
+    if (badgeLabel) badgeLabel.textContent = "KARRIERE-STUDIO";
     if (brandBadge) {
-      brandBadge.style.background = "rgba(59, 130, 246, 0.2)";
-      brandBadge.style.borderColor = "rgba(59, 130, 246, 0.5)";
-      brandBadge.style.color = "#93c5fd";
-      brandBadge.title = "Du bist im Online-Cockpit auf embed.magnet-xs.ch";
+      brandBadge.title = "Magnet-XS Karriere-Studio (Online auf Cloudflare Pages)";
     }
     if (onlineBtn) {
-      onlineBtn.innerHTML = "📋 Online-Link kopieren";
+      onlineBtn.innerHTML = '<span class="nav-icon">🔗</span><span class="nav-label">Link</span>';
       onlineBtn.title = "Link zu diesem Online-Cockpit in die Zwischenablage kopieren";
       onlineBtn.onclick = function(e) {
         e.preventDefault();
@@ -3892,12 +3904,12 @@ function checkEnvironmentAndRender() {
       };
     }
   } else {
-    if (badgeLabel) badgeLabel.textContent = "LOKALES COCKPIT";
+    if (badgeLabel) badgeLabel.textContent = "KARRIERE-STUDIO";
     if (onlineBtn) {
       onlineBtn.href = "https://embed.magnet-xs.ch/hiltbrand/cockpit";
       onlineBtn.target = "_blank";
-      onlineBtn.innerHTML = "🌐 Online-Cockpit ↗";
-      onlineBtn.title = "Online-Cockpit im Web aufrufen (embed.magnet-xs.ch/hiltbrand/cockpit)";
+      onlineBtn.innerHTML = '<span class="nav-icon">🌐</span><span class="nav-label">Online</span>';
+      onlineBtn.title = "Online-Cockpit auf embed.magnet-xs.ch öffnen";
     }
   }
 }
