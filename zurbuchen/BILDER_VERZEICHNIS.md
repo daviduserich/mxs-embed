@@ -13,7 +13,6 @@ Automatisch generierte Übersicht aller verfügbaren Bild-Assets im Ordner `imag
 | ![danke.png](images/danke.png) | `danke.png` | Baustelle & Benefit | 1490.5 KB | 1456x816 | 28.09.2026 17:35 | ⚪ Frei verfügbar |
 | ![hero.jpg](images/hero.jpg) | `hero.jpg` | Hero & Header | 160.7 KB | 1400x933 | 28.09.2026 17:35 | 🟢 Im Einsatz in `Hiltbrand_Dachdecker.html` |
 | ![logo.png](images/logo.png) | `logo.png` | Logo & Icon | 8.2 KB | 260x150 | 28.09.2026 17:35 | 🟢 Im Einsatz in `Hiltbrand_Dachdecker.html` |
-| ![melcos_keyframe_2.jpg](images/melcos_keyframe_2.jpg) | `melcos_keyframe_2.jpg` | Baustelle & Benefit | 1055.4 KB | 3840x2160 | 03.10.2026 18:01 | ⚪ Frei verfügbar |
 | ![michael.jpg](images/michael.jpg) | `michael.jpg` | Team & Porträt | 186.7 KB | 834x788 | 28.09.2026 17:35 | 🟢 Im Einsatz in `Hiltbrand_Dachdecker.html` |
 | ![q1_benefit.jpg](images/q1_benefit.jpg) | `q1_benefit.jpg` | Baustelle & Benefit | 295.8 KB | 1400x1050 | 28.09.2026 17:35 | 🟢 Im Einsatz in `zurbuchen_Holzbauer.html` |
 | ![q1_bewaehrtes_handwerk.png](images/q1_bewaehrtes_handwerk.png) | `q1_bewaehrtes_handwerk.png` | Baustelle & Benefit | 37.6 KB | 200x160 | 28.09.2026 17:35 | ⚪ Frei verfügbar |
