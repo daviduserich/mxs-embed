@@ -1234,6 +1234,14 @@ document.addEventListener('click', function(e) {
   }
 }, true);
 
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') {
+    if (window.parent && window.parent !== window) {
+      window.parent.postMessage({ type: 'acp-cancel-swap' }, '*');
+    }
+  }
+});
+
 </script>
 
 </body>
