@@ -31,3 +31,4 @@
 - `2026-10-03 18:01:34` · **🖼️ Foto hochgeladen:** `melcos_keyframe_2.jpg` (1055.4 KB) | Bereit für 1-Klick-Tausch | 🚀 Commit `feat(assets): upload image melcos_keyframe_2.jpg (1055.4 KB)`
 - `2026-10-03 18:02:18` · **🖼️ Foto hochgeladen:** `cws-screenshot-1280x800.png` (216.5 KB) | Bereit für 1-Klick-Tausch | 🚀 Commit `feat(assets): upload image cws-screenshot-1280x800.png (216.5 KB)`
 - `2026-10-03 18:06:44` · **🚀 Scharfgestellt:** Manuelle Live-Schaltung über Cockpit ausgelöst | ✅ Airbag: 100% grün | 🚀 Commit `feat(publish): client live update from Cockpit at 2026-10-03 18:06:42`
+- `2026-10-03 18:11:52` · **🖼️ Foto hochgeladen:** `cws-promo-440x280.png` (8.0 KB) | Bereit für 1-Klick-Tausch | 🚀 Commit `feat(assets): upload image cws-promo-440x280.png (8.0 KB)`
