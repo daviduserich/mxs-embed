@@ -33,3 +33,4 @@
 - `2026-10-03 18:06:44` · **🚀 Scharfgestellt:** Manuelle Live-Schaltung über Cockpit ausgelöst | ✅ Airbag: 100% grün | 🚀 Commit `feat(publish): client live update from Cockpit at 2026-10-03 18:06:42`
 - `2026-10-03 18:11:52` · **🖼️ Foto hochgeladen:** `cws-promo-440x280.png` (8.0 KB) | Bereit für 1-Klick-Tausch | 🚀 Commit `feat(assets): upload image cws-promo-440x280.png (8.0 KB)`
 - `2026-10-03 18:12:03` · **🗑️ Bild gelöscht:** `cws-screenshot-1280x800.png` dauerhaft aus Bilder-Pool und Cloudflare Pages entfernt | 🚀 Commit `feat(assets): delete unused image cws-screenshot-1280x800.png`
+- `2026-10-03 18:12:14` · **🗑️ Bild gelöscht:** `melcos_keyframe_2.jpg` dauerhaft aus Bilder-Pool und Cloudflare Pages entfernt | 🚀 Commit `feat(assets): delete unused image melcos_keyframe_2.jpg`
