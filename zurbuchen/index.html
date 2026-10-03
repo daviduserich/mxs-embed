@@ -50,7 +50,7 @@ header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,0.96);backdr
 .btn.wa:hover{background:var(--gruen-dunkel);box-shadow:0 6px 18px rgba(31,122,61,0.35)}
 
 /* Hero */
-.hero{background:linear-gradient(rgba(30,25,22,.65),rgba(30,25,22,.78)),url("images/hero.jpg") center top/cover no-repeat;color:#fff;text-align:center;padding:90px 20px 75px}
+.hero{background:linear-gradient(rgba(30,25,22,.65),rgba(30,25,22,.78)),url("images/benefits_drohne.jpg") center top/cover no-repeat;color:#fff;text-align:center;padding:90px 20px 75px}
 .hero .eyebrow{display:inline-block;background:var(--rot);padding:6px 16px;border-radius:4px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;font-size:13px;margin-bottom:20px}
 .hero h1{font-size:clamp(32px,5.5vw,58px);font-weight:800;line-height:1.1;font-stretch:85%;margin-bottom:18px}
 .hero h1 span{color:var(--holz)}
@@ -138,7 +138,7 @@ h2{font-size:clamp(26px,3.8vw,40px);font-weight:800;font-stretch:88%;line-height
 .faq details p{padding:0 20px 18px;color:var(--grau);font-size:15.5px}
 
 /* CTA-Band */
-.cta-band{background:linear-gradient(rgba(122,21,24,.92),rgba(122,21,24,.92)),url("images/hero.jpg") center/cover;color:#fff;text-align:center}
+.cta-band{background:linear-gradient(rgba(122,21,24,.92),rgba(122,21,24,.92)),url("images/benefits_drohne.jpg") center/cover;color:#fff;text-align:center}
 .cta-band h2{color:#fff}
 .cta-band p{max-width:620px;margin:0 auto 26px;font-size:18.5px;opacity:.95}
 .kontakt-karte{margin:30px auto 0;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.25);border-radius:var(--radius);padding:24px 30px;max-width:500px;font-size:16px}
@@ -753,7 +753,7 @@ document.addEventListener('click', function(e) {
           currentSrc = (idx !== -1) ? u.substring(idx) : u.split('/').pop();
         }
       }
-      if (!currentSrc) currentSrc = 'images/hero.jpg';
+      if (!currentSrc) currentSrc = 'images/benefits_drohne.jpg';
     } else if (imgEl) {
       currentSrc = imgEl.getAttribute('src') || '';
     } else if (slotEl && isImg) {
