@@ -91,12 +91,105 @@
 
     .btn-wa-apply { display: inline-flex; align-items: center; justify-content: center; gap: 8px; background: #25D366; color: #fff !important; font-weight: 700; font-size: 0.9rem; padding: 12px 20px; border-radius: var(--radius-md); text-decoration: none; width: 100%; box-shadow: 0 4px 14px rgba(37, 211, 102, 0.25); }
 
-    /* STICKY THUMB BAR */
-    .thumb-bar { position: fixed; bottom: 0; left: 0; right: 0; background: rgba(255, 255, 255, 0.96); backdrop-filter: blur(12px); border-top: 1px solid var(--border); padding: 10px 14px; padding-bottom: calc(10px + env(safe-area-inset-bottom, 0px)); display: flex; gap: 10px; z-index: 950; }
-    .btn-thumb { flex: 1; height: 48px; border-radius: var(--radius-md); font-size: 0.88rem; font-weight: 700; display: inline-flex; align-items: center; justify-content: center; gap: 6px; text-decoration: none; color: #fff; }
-    .btn-thumb-phone { background: var(--primary); }
-    .btn-thumb-whatsapp { background: #25D366; }
-    .bottom-buffer { height: 74px; }
+    /* FLOATING CONTACT ACTIONS (NEUROLOGISCH ABGESETZT VOM FOOTER) */
+    .floating-actions {
+      position: fixed;
+      bottom: calc(18px + env(safe-area-inset-bottom, 0px));
+      left: 16px;
+      right: 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      pointer-events: none;
+      z-index: 1200;
+    }
+    .float-btn {
+      pointer-events: auto;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.2s;
+    }
+    .float-btn:active {
+      transform: scale(0.92);
+    }
+    .float-phone {
+      background: rgba(35, 31, 32, 0.94);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1.5px solid rgba(255, 255, 255, 0.22);
+      border-radius: 999px;
+      padding: 7px 16px 7px 8px;
+      gap: 9px;
+      color: #ffffff;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+    }
+    .float-phone-icon {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: var(--primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #ffffff;
+    }
+    .float-phone-text {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+    }
+    .float-whatsapp {
+      position: relative;
+      width: 58px;
+      height: 58px;
+      border-radius: 50%;
+      background: #25D366;
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 10px 28px rgba(37, 211, 102, 0.48);
+      border: 2.5px solid #ffffff;
+    }
+    .wa-ripple {
+      position: absolute;
+      inset: -6px;
+      border-radius: 50%;
+      border: 2px solid #25D366;
+      opacity: 0.6;
+      animation: waPulse 2.4s ease-out infinite;
+      pointer-events: none;
+    }
+    @keyframes waPulse {
+      0% { transform: scale(0.95); opacity: 0.8; }
+      60% { transform: scale(1.25); opacity: 0; }
+      100% { transform: scale(1.25); opacity: 0; }
+    }
+    .float-wa-tooltip {
+      position: absolute;
+      top: -32px;
+      right: 0;
+      background: rgba(35, 31, 32, 0.94);
+      backdrop-filter: blur(8px);
+      color: #ffffff;
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: 999px;
+      white-space: nowrap;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+      animation: tooltipFloat 3s ease-in-out infinite alternate;
+    }
+    @keyframes tooltipFloat {
+      0% { transform: translateY(0); }
+      100% { transform: translateY(-3px); }
+    }
+    .bottom-buffer {
+      height: 90px;
+    }
 
     /* FOOTER */
     .footer-wrap { width: 100%; background: #1c191a; color: #94a3b8; border-top: 1px solid #2e282a; }
@@ -113,7 +206,7 @@
       .benefits-grid { grid-template-columns: repeat(3, 1fr); gap: 20px; }
       .btn-wa-apply { width: auto; align-self: flex-start; padding: 12px 28px; }
       .btn-coffee { width: auto; }
-      .thumb-bar, .bottom-buffer { display: none; }
+      .floating-actions, .bottom-buffer { display: none !important; }
       .footer-inner { padding: 48px 24px; }
     }
   
@@ -307,13 +400,25 @@
 
   <div class="bottom-buffer"></div>
 
-  <!-- STICKY THUMB BAR -->
-  <div class="thumb-bar">
-    <a href="tel:+41335300204" class="btn-thumb btn-thumb-phone">
-      <span>📞</span> 033 530 02 04
+  <!-- SCHWEBENDE KONTAKT-AKTIONEN (NEUROLOGISCH ABGESETZT VOM FOOTER) -->
+  <div class="floating-actions" id="floatingActions">
+    <!-- ANRUF / PIKETT BUTTON (LINKS) -->
+    <a href="tel:+41335300204" class="float-btn float-phone" aria-label="Direkt anrufen">
+      <div class="float-phone-icon">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+        </svg>
+      </div>
+      <span class="float-phone-text">033 530 02 04</span>
     </a>
-    <a href="https://wa.me/41792318484" class="btn-thumb btn-thumb-whatsapp">
-      <span>💬</span> WhatsApp
+
+    <!-- RUNDER WHATSAPP FAB (RECHTS) -->
+    <a href="https://wa.me/41792318484?text=Hallo%20Benji,%20ich%20habe%20eine%20Anfrage%20zu%20einem%20Projekt" target="_blank" rel="noopener" class="float-btn float-whatsapp" aria-label="WhatsApp Direktchat mit Benji">
+      <div class="wa-ripple"></div>
+      <svg viewBox="0 0 24 24" width="30" height="30" fill="currentColor">
+        <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2zm.01 1.67c2.2 0 4.26.86 5.82 2.42a8.225 8.225 0 0 1 2.41 5.83c0 4.54-3.7 8.24-8.24 8.24-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.188 8.188 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.24-8.24zm4.52 11.66c-.25-.13-1.47-.72-1.7-.81-.23-.08-.39-.13-.56.13-.17.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.13-1.06-.39-2.02-1.25-.75-.67-1.25-1.5-1.4-1.75-.14-.25-.02-.39.11-.51.11-.11.25-.29.37-.44.13-.14.17-.25.25-.42.08-.17.04-.31-.02-.44-.06-.13-.56-1.34-.76-1.84-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.44.06-.67.31-.23.25-.88.86-.88 2.1 0 1.24.9 2.44 1.03 2.61.13.17 1.77 2.7 4.29 3.79.6.26 1.07.41 1.44.53.6.19 1.15.16 1.58.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.07.15-1.18-.07-.12-.23-.19-.48-.31z"/>
+      </svg>
+      <span class="float-wa-tooltip">WhatsApp an Benji 👋</span>
     </a>
   </div>
 
