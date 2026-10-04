@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-  <title>Technologie & Schweizer Edge — WebPilot Enterprise Stack</title>
+  <title>Über uns — WebPilot // Magnet XS GmbH Thun & Zürich</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
@@ -28,7 +28,7 @@
     html { overflow-x: clip; }
     body { width: 100%; min-height: 100vh; overflow-x: clip; background: var(--bg); color: var(--text); font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; line-height: 1.5; font-size: 15px; }
 
-    /* HEADER (STICKY) */
+    /* HEADER */
     .top-bar { padding: 12px 16px; border-bottom: 1px solid var(--border); background: rgba(9, 10, 15, 0.95); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); position: -webkit-sticky; position: sticky; top: 0; z-index: 1000; width: 100%; }
     .top-bar-inner { max-width: 1100px; margin: 0 auto; width: 100%; display: flex; justify-content: space-between; align-items: center; gap: 16px; }
     .brand-logo-wrap { display: flex; align-items: center; gap: 10px; text-decoration: none; color: inherit; }
@@ -45,7 +45,7 @@
     .nav-burger svg { width: 22px; height: 22px; stroke: var(--text); }
 
     /* MOBILE DRAWER */
-    .nav-drawer { display: none; position: fixed; inset: 64px 0 0 0; background: rgba(9, 10, 15, 0.98); backdrop-filter: blur(16px); z-index: 850; padding: 24px 20px; flex-direction: column; gap: 16px; }
+    .nav-drawer { display: none; position: fixed; inset: 64px 0 0 0; background: rgba(9, 10, 15, 0.98); backdrop-filter: blur(16px); z-index: 950; padding: 24px 20px; flex-direction: column; gap: 16px; }
     .nav-drawer.open { display: flex; }
     .nav-link { font-size: 1.15rem; font-weight: 700; color: #fff; text-decoration: none; padding: 12px 0; border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; }
 
@@ -62,18 +62,26 @@
     .section-title { font-size: 1.5rem; font-weight: 800; letter-spacing: -0.02em; line-height: 1.25; margin-bottom: 8px; }
     .section-subtitle { font-size: 0.9rem; color: var(--muted); line-height: 1.5; margin-bottom: 24px; }
 
-    /* TECH GRID */
-    .tech-grid { display: grid; grid-template-columns: 1fr; gap: 20px; }
-    .tech-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-md); padding: 24px; display: flex; flex-direction: column; gap: 10px; }
-    .tech-pill { font-family: 'JetBrains Mono', monospace; font-size: 0.72rem; color: var(--cyan); background: rgba(56, 189, 248, 0.1); padding: 4px 8px; border-radius: 4px; display: inline-block; width: fit-content; }
-    .tech-title { font-size: 1.2rem; font-weight: 800; color: #fff; }
-    .tech-text { font-size: 0.88rem; color: var(--muted); line-height: 1.5; }
+    /* STORY GRID */
+    .story-grid { display: grid; grid-template-columns: 1fr; gap: 24px; }
+    .story-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 28px; display: flex; flex-direction: column; gap: 14px; }
+    .story-card h3 { font-size: 1.25rem; font-weight: 800; color: #fff; }
+    .story-card p { font-size: 0.92rem; color: var(--muted); line-height: 1.6; }
 
-    /* CODE STACK BOX */
-    .code-box { background: #050608; border: 1px solid var(--border); border-radius: var(--radius-md); padding: 18px; font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; color: #cbd5e1; overflow-x: auto; margin-top: 24px; }
-    .code-box .comment { color: #64748b; }
-    .code-box .kw { color: var(--amber); font-weight: 700; }
-    .code-box .fn { color: var(--cyan); }
+    /* FOUNDER BOX */
+    .founder-box { background: linear-gradient(135deg, var(--surface) 0%, var(--surface-2) 100%); border: 1px solid var(--border-bright); border-radius: var(--radius-lg); padding: 28px; display: flex; flex-direction: column; gap: 18px; margin-top: 24px; }
+    .founder-meta { display: flex; align-items: center; gap: 16px; }
+    .founder-avatar { width: 64px; height: 64px; border-radius: 50%; background: var(--amber); color: #000; font-weight: 800; font-size: 1.5rem; display: flex; align-items: center; justify-content: center; flex-shrink: 0; box-shadow: 0 0 20px var(--amber-glow); }
+    .founder-name { font-size: 1.3rem; font-weight: 800; color: #fff; }
+    .founder-role { font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; color: var(--amber); text-transform: uppercase; }
+    .founder-quote { font-style: italic; font-size: 0.95rem; color: #cbd5e1; line-height: 1.6; border-left: 3px solid var(--amber); padding-left: 16px; margin: 6px 0; }
+
+    /* VALUE LIST */
+    .values-grid { display: grid; grid-template-columns: 1fr; gap: 16px; margin-top: 20px; }
+    .value-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-md); padding: 20px; display: flex; gap: 14px; }
+    .value-icon { font-size: 1.5rem; flex-shrink: 0; }
+    .value-title { font-size: 1.05rem; font-weight: 700; color: #fff; margin-bottom: 4px; }
+    .value-text { font-size: 0.85rem; color: var(--muted); line-height: 1.5; }
 
     /* STICKY THUMB BAR */
     .thumb-bar { position: fixed; bottom: 0; left: 0; right: 0; background: rgba(9, 10, 15, 0.96); backdrop-filter: blur(12px); border-top: 1px solid var(--border); padding: 10px 14px; padding-bottom: calc(10px + env(safe-area-inset-bottom, 0px)); display: flex; gap: 10px; z-index: 950; }
@@ -94,7 +102,8 @@
       .page-hero { padding: 56px 24px 44px 24px; }
       .page-title { font-size: 2.3rem; }
       .section-inner { padding: 56px 24px; }
-      .tech-grid { grid-template-columns: 1fr 1fr; gap: 24px; }
+      .story-grid { grid-template-columns: 1fr 1fr; gap: 24px; }
+      .values-grid { grid-template-columns: repeat(3, 1fr); gap: 20px; }
       .thumb-bar, .bottom-buffer { display: none; }
       .footer-inner { padding: 48px 24px; }
     }
@@ -102,7 +111,7 @@
 </head>
 <body>
 
-  <!-- HEADER -->
+  <!-- HEADER (STICKY) -->
   <header class="top-bar">
     <div class="top-bar-inner">
       <a href="index.html" class="brand-logo-wrap">
@@ -126,9 +135,9 @@
       </a>
       <nav class="desktop-nav">
         <a href="index.html" class="desk-nav-link">Übersicht</a>
-        <a href="ueber-uns.html" class="desk-nav-link">Über uns</a>
+        <a href="ueber-uns.html" class="desk-nav-link active">Über uns</a>
         <a href="angebot.html" class="desk-nav-link">Angebot & Preise</a>
-        <a href="technologie.html" class="desk-nav-link active">Technologie</a>
+        <a href="technologie.html" class="desk-nav-link">Technologie</a>
         <a href="kontakt.html" class="desk-nav-link">Kontakt & Analyse</a>
         <a href="angebot.html" class="btn-desk-cta">Ab CHF 1'490.– starten</a>
       </nav>
@@ -141,72 +150,107 @@
   <!-- MOBILE NAV DRAWER -->
   <nav class="nav-drawer" id="navDrawer">
     <a href="index.html" class="nav-link">Übersicht <span>→</span></a>
-    <a href="ueber-uns.html" class="nav-link">Über uns <span>→</span></a>
+    <a href="ueber-uns.html" class="nav-link" style="color:var(--amber);">Über uns <span>→</span></a>
     <a href="angebot.html" class="nav-link">Angebot & Preise <span>→</span></a>
-    <a href="technologie.html" class="nav-link" style="color:var(--amber);">Technologie & Edge <span>→</span></a>
+    <a href="technologie.html" class="nav-link">Technologie & Edge <span>→</span></a>
     <a href="kontakt.html" class="nav-link">Kontakt & Speed-Analyse <span>→</span></a>
   </nav>
 
   <!-- HERO -->
   <section class="page-hero">
     <div class="page-hero-inner">
-      <span class="section-kicker">Schweizer Edge Stack 2026</span>
-      <h1 class="page-title">Warum statischer Edge-Code jedes CMS deklassiert.</h1>
+      <span class="section-kicker">Made in Switzerland // Thun & Zürich</span>
+      <h1 class="page-title">Schweizer Handwerk verdient Schweizer Präzision im Web.</h1>
       <p class="page-desc">
-        Wir haben das Web neu gedacht: Keine altersschwachen SQL-Datenbanken, keine PHP-Interpretationszeit, keine verwundbaren Plugin-Wüsten.
+        Hinter WebPilot steht kein anonymer Softwarekonzern und keine Agentur mit teurem Wasserkopf. 
+        Wir sind Ingenieure und Macher der Magnet XS GmbH, die das Web für Schweizer KMUs von Grund auf neu gebaut haben.
       </p>
     </div>
   </section>
 
-  <!-- TECH CARDS -->
+  <!-- MISSION & STORY -->
   <div class="section-wrap">
     <div class="section-inner">
-      <span class="section-kicker">Die vier Säulen</span>
-      <h2 class="section-title">Architektur ohne Schwachstellen</h2>
-      <p class="section-subtitle">Präzise abgestimmte Komponenten für maximale Ladezeit und Zuverlässigkeit.</p>
+      <span class="section-kicker">Unsere Mission</span>
+      <h2 class="section-title">Warum wir WebPilot gebaut haben</h2>
+      <p class="section-subtitle">Der Bruch mit veralteten Agentur-Methoden.</p>
 
-      <div class="tech-grid">
-        <div class="tech-card">
-          <span class="tech-pill">SUB-50MS TTFB</span>
-          <h3 class="tech-title">1. Cloudflare Pages Swiss Edge</h3>
-          <p class="tech-text">
-            Ihre Website wird global in über 300 Rechenzentren und primär direkt an den Internet-Knotenpunkten Zürich (ZRH) und Genf (GVA) vorgehalten. Der Browser Ihrer Kunden erhält das fertige Dokument ohne jeden Datenbankzugriff in unter 50 Millisekunden.
+      <div class="story-grid">
+        <div class="story-card">
+          <div style="font-size: 2rem;">🛑</div>
+          <h3>Das traditionelle CMS-Dilemma</h3>
+          <p>
+            Seit über einem Jahrzehnt erleben Handwerksbetriebe und KMUs denselben Frust: 
+            Für CHF 8'000 bis CHF 15'000 wird eine WordPress-Website verkauft. Doch nach wenigen Monaten stürzen Plugins ab, Sicherheitslücken klaffen, 
+            und für die kleinste Textänderung stellt die Agentur CHF 200.– pro Stunde in Rechnung. 
+            Auf dem Smartphone dauert der Ladevorgang 4 Sekunden — die Hälfte der Kunden springt ab.
           </p>
         </div>
 
-        <div class="tech-card">
-          <span class="tech-pill">ZERO VULNERABILITIES</span>
-          <h3 class="tech-title">2. Der statische Sicherheits-Airbag</h3>
-          <p class="tech-text">
-            99% aller Web-Angriffe zielen auf SQL-Injections, veraltete PHP-Versionen oder WordPress-Plugins ab. Bei WebPilot existiert im Frontend überhaupt keine angreifbare Datenbank mehr. Ihre Website ist technisch unhackbar.
-          </p>
-        </div>
-
-        <div class="tech-card">
-          <span class="tech-pill">VAULT-AS-A-CMS</span>
-          <h3 class="tech-title">3. Versioniertes Markdown & Git</h3>
-          <p class="tech-text">
-            Jeder Text, jedes Team-Mitglied und jedes Projekt ist in strukturierten Markdown- und JSON-Dateien im Schweizer Vault gespeichert. Jede Änderung wird per Git automatisch versioniert. Ein Rollback dauert exakt einen Klick.
-          </p>
-        </div>
-
-        <div class="tech-card">
-          <span class="tech-pill">KI & MULTIMODAL</span>
-          <h3 class="tech-title">4. Direkte Steuerung per KI</h3>
-          <p class="tech-text">
-            Statt sich durch verschachtelte Redaktionssysteme zu klicken, steuern Sie Ihre Seite wie einen Co-Piloten: Über Sprachnachrichten, Fotos oder Ihre eigene KI (ChatGPT, Claude). WebPilot übersetzt Ihre Wünsche in sauberen Code.
+        <div class="story-card">
+          <div style="font-size: 2rem;">⚡</div>
+          <h3>Die WebPilot Antwort</h3>
+          <p>
+            Wir haben uns gefragt: Warum braucht eine solide Firmenwebsite eine fehleranfällige Datenbank und hunderte Plugins? 
+            Die Antwort: Sie braucht es nicht. 
+            WebPilot liefert reinen, statischen Schweizer Edge-Code direkt über die Internetknotenpunkte Zürich und Genf. 
+            Das Ergebnis: 0.3 Sekunden Ladezeit, unzerstörbar gegen Angriffe und Aktualisierungen direkt per Sprachnachricht oder KI.
           </p>
         </div>
       </div>
 
-      <!-- ARCHITEKTUR CODE SNIPPET -->
-      <div class="code-box">
-<span class="comment">// WebPilot Pipeline: Von der Baustelle auf den Schweizer Edge-Server</span>
-<span class="kw">Input:</span> Sprachmemo vom Meister ("Dach in Spiez fertiggestellt, Foto anhängen")
-  └── <span class="fn">Deepgram STT</span> & <span class="fn">LLM Strukturierung</span> (ACP Engine)
-  └── <span class="fn">Git Commit</span> ins Vault-Repository (Snapshot gesichert)
-  └── <span class="fn">Cloudflare Swiss Edge Deploy</span> (Zürich ZRH / Genf GVA)
-  └── <span class="kw">Live in 0.3s</span> beim Kunden auf dem Handy.
+      <!-- DIE KÖPFE DAHINTER -->
+      <div class="founder-box">
+        <div class="founder-meta">
+          <div class="founder-avatar">DH</div>
+          <div>
+            <div class="founder-name">David Hügli</div>
+            <div class="founder-role">Gründer & System-Architekt // Magnet XS GmbH</div>
+          </div>
+        </div>
+        <div class="founder-quote">
+          «Eine Firmenwebsite ist kein abstraktes Design-Kunstwerk. Sie ist das digitale Schaufenster eines Betriebs: 
+          Sie muss am Handy blitzschnell laden, sofort Vertrauen stiften und den Besucher mit einem einzigen Daumentipp zum Telefonhörer oder zu WhatsApp greifen lassen.»
+        </div>
+        <p style="font-size: 0.9rem; color: var(--muted); line-height: 1.6;">
+          David Hügli entwickelt seit Jahren hochgradig automatisierte KI- und Edge-Systeme für Schweizer Unternehmen (u.a. Authentic Content Pilot und WebPilot). 
+          Mit Sitz in Thun und Zürich verbinden wir fundiertes technisches Engineering mit dem tiefen Verständnis für den praktischen Alltag von Schweizer KMUs.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- DIE DREI PRINZIPIEN -->
+  <div class="section-wrap" style="background: var(--surface);">
+    <div class="section-inner">
+      <span class="section-kicker">Unsere Werte</span>
+      <h2 class="section-title">Worauf Sie sich bei uns verlassen können</h2>
+      <p class="section-subtitle">Klare Prinzipien ohne Kleingedrucktes.</p>
+
+      <div class="values-grid">
+        <div class="value-card">
+          <div class="value-icon">🇨🇭</div>
+          <div>
+            <div class="value-title">100% Swiss Edge & revDSG</div>
+            <div class="value-text">Auslieferung primär über Cloudflare ZRH & GVA. Keine Drittanbieter-Tracker, daher 100% konform zum neuen Schweizer Datenschutzgesetz ohne lästige Cookie-Banner.</div>
+          </div>
+        </div>
+
+        <div class="value-card">
+          <div class="value-icon">🔓</div>
+          <div>
+            <div class="value-title">Volle Souveränität</div>
+            <div class="value-text">Ihre Domain bleibt zu 100% in Ihrem Besitz. Keine Knebelverträge, keine mehrjährigen Bindungen — unser Service ist jederzeit monatlich kündbar.</div>
+          </div>
+        </div>
+
+        <div class="value-card">
+          <div class="value-icon">🤝</div>
+          <div>
+            <div class="value-title">Persönlicher Draht</div>
+            <div class="value-text">Sie sprechen nicht mit einem anonymen Callcenter, sondern direkt mit den Entwicklern und Betreuern in Thun. Schnelle Antworten via WhatsApp oder Telefon.</div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -216,7 +260,7 @@
   <!-- STICKY THUMB BAR -->
   <div class="thumb-bar">
     <a href="angebot.html" class="btn-thumb btn-thumb-cta">
-      <span>🚀</span> Zu den Angeboten
+      <span>🚀</span> Pakete ab CHF 1'490.–
     </a>
     <a href="https://wa.me/41790000000" class="btn-thumb btn-thumb-wa">
       <span>💬</span> WhatsApp
