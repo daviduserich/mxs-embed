@@ -551,7 +551,28 @@
       box-shadow: var(--shadow-md);
       border-color: var(--primary);
     }
+    
     .benefit-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: var(--radius-sm);
+      background: rgba(239, 64, 53, 0.08);
+      border: 1px solid rgba(239, 64, 53, 0.2);
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 16px;
+      transition: all 0.2s;
+    }
+    .benefit-item:hover .benefit-icon {
+      background: var(--primary);
+      color: #ffffff;
+      border-color: var(--primary);
+      transform: scale(1.05);
+    }
+
+    .benefit-icon-orig {
       font-size: 1.8rem;
       margin-bottom: 12px;
     }
@@ -726,7 +747,7 @@
         <a href="kontakt.html" class="desk-nav-link">Kontakt & 24h-Pikett</a>
         
         <a href="tel:+41335300204" class="desk-phone-pill">
-          <span>📞</span> 033 530 02 04
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="margin-right:2px;"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg> 033 530 02 04
         </a>
         <a href="kontakt.html" class="btn-desk-contact">Offerte anfragen</a>
       </nav>
@@ -758,7 +779,7 @@
     </a>
 
     <a href="tel:+41335300204" class="drawer-phone-btn">
-      <span>📞</span> Anruf: 033 530 02 04
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="margin-right:2px;"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg> Anruf: 033 530 02 04
     </a>
 
     <div class="drawer-social">
@@ -805,7 +826,7 @@
           Kein Lebenslauf, kein Anschreiben: Schreib Benjamin («Benji») Hiltbrand einfach kurz auf WhatsApp.
         </p>
         <a href="https://wa.me/41792318484?text=Hallo%20Benji,%20ich%20habe%20eure%20Website%20gesehen%20und%20wollte%20mich%20gerne%20mal%20unverbindlich%20austauschen." class="btn-coffee">
-          <span>💬</span> Benji auf WhatsApp schreiben
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" style="margin-right:3px;"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg> Benji Hiltbrand auf WhatsApp schreiben
         </a>
       </div>
 
@@ -815,7 +836,7 @@
 
       <div class="benefits-grid">
         <div class="benefit-item">
-          <div class="benefit-icon">🏖️</div>
+          <div class="benefit-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></div>
           <div>
             <div class="benefit-title">5 Wochen Ferien & fairer Lohn</div>
             <div class="benefit-text">Überdurchschnittliche Entlöhnung, pünktliche Auszahlung und garantierte 5 Wochen Erholung pro Jahr.</div>
@@ -823,7 +844,7 @@
         </div>
 
         <div class="benefit-item">
-          <div class="benefit-icon">🚜</div>
+          <div class="benefit-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 18H3c-.6 0-1-.4-1-1V7c0-.6.4-1 1-1h10c.6 0 1 .4 1 1v11"/><path d="M14 9h4l4 4v4c0 .6-.4 1-1 1h-2"/><circle cx="7" cy="18" r="2"/><circle cx="17" cy="18" r="2"/></svg></div>
           <div>
             <div class="benefit-title">Eigener Autokran & Hilti-Maschinen</div>
             <div class="benefit-text">Moderner Böcker Autokran, Akku-Werkzeuge von Hilti und ergonomische Schräglifte schonen deine Gesundheit.</div>
@@ -831,7 +852,7 @@
         </div>
 
         <div class="benefit-item">
-          <div class="benefit-icon">🤝</div>
+          <div class="benefit-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
           <div>
             <div class="benefit-title">Familiäre Atmosphäre</div>
             <div class="benefit-text">Flache Hierarchien, gemeinsame Znüni-Pausen in der Werkstatt in Krattigen und ein Team, das zusammenhält.</div>
@@ -839,7 +860,7 @@
         </div>
 
         <div class="benefit-item">
-          <div class="benefit-icon">👕</div>
+          <div class="benefit-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></div>
           <div>
             <div class="benefit-title">Komplette Arbeitskleidung</div>
             <div class="benefit-text">Engelbert Strauss Qualitätskleidung für Sommer und Winter, inklusive Waschservice und PSA-Ausrüstung.</div>
@@ -847,7 +868,7 @@
         </div>
 
         <div class="benefit-item">
-          <div class="benefit-icon">🎓</div>
+          <div class="benefit-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg></div>
           <div>
             <div class="benefit-title">Weiterbildung & Meisterprüfung</div>
             <div class="benefit-text">Wir finanzieren und unterstützen Berufsabschlüsse, Polier-, Meister- und Solarmontage-Kurse grosszügig.</div>
@@ -855,7 +876,7 @@
         </div>
 
         <div class="benefit-item">
-          <div class="benefit-icon">⏱️</div>
+          <div class="benefit-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m8 3 4 8 5-5 5 15H2L8 3z"/></svg></div>
           <div>
             <div class="benefit-title">Geregelte Arbeitszeiten</div>
             <div class="benefit-text">Klare Zeiterfassung, keine endlosen unbezahlten Überstunden und pünktlicher Feierabend ins Wochenende.</div>
@@ -877,9 +898,9 @@
         <span class="job-badge">AB SOFORT ODER NACH VEREINBARUNG</span>
         <h3 class="job-title">Dachdecker EFZ / Steildach-Spezialist (m/w/d)</h3>
         <div class="job-meta">
-          <span class="job-meta-item">📍 Krattigen & Berner Oberland</span>
-          <span class="job-meta-item">💼 80% – 100%</span>
-          <span class="job-meta-item">🛠️ Steildach, Ziegel, Schiefer & Dämmung</span>
+          <span class="job-meta-item">Standort: Krattigen & Berner Oberland</span>
+          <span class="job-meta-item">Pensum: 80% – 100%</span>
+          <span class="job-meta-item">Fokus: Steildach, Ziegel, Schiefer & Dämmung</span>
         </div>
         <p class="job-desc">
           Du führst anspruchsvolle Eindeckungen, energetische Dachsanierungen und Dachfenstermontagen im Berner Oberland aus. Unterstützt durch unseren eigenen Autokran.
@@ -890,7 +911,7 @@
           <li>Führerausweis Kat. B von Vorteil</li>
         </ul>
         <a href="https://wa.me/41792318484?text=Hallo%20Benji,%20ich%20interessiere%20mich%20f%C3%BCr%20die%20Stelle%20als%20Dachdecker%20EFZ." class="btn-wa-apply">
-          <span>⚡</span> In 30 Sekunden per WhatsApp bewerben
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" style="margin-right:2px;"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg> In 30 Sekunden per WhatsApp bewerben
         </a>
       </div>
 
@@ -899,9 +920,9 @@
         <span class="job-badge">AB SOFORT ODER NACH VEREINBARUNG</span>
         <h3 class="job-title">Fassadenbauer EFZ / Bauspengler EFZ (m/w/d)</h3>
         <div class="job-meta">
-          <span class="job-meta-item">📍 Krattigen & Berner Oberland</span>
-          <span class="job-meta-item">💼 80% – 100%</span>
-          <span class="job-meta-item">🛠️ Hinterlüftete Fassaden, Blech & Solar</span>
+          <span class="job-meta-item">Standort: Krattigen & Berner Oberland</span>
+          <span class="job-meta-item">Pensum: 80% – 100%</span>
+          <span class="job-meta-item">Fokus: Hinterlüftete Fassaden, Blech & Solar</span>
         </div>
         <p class="job-desc">
           Du montierst moderne hinterlüftete Fassadensysteme (Holz, Faserzement, Metall), führst Spenglerarbeiten aus oder installierst Indach-Photovoltaik.
@@ -912,7 +933,7 @@
           <li>Führerausweis Kat. B von Vorteil</li>
         </ul>
         <a href="https://wa.me/41792318484?text=Hallo%20Benji,%20ich%20interessiere%20mich%20f%C3%BCr%20die%20Stelle%20als%20Fassadenbauer%20/%20Spengler." class="btn-wa-apply">
-          <span>⚡</span> In 30 Sekunden per WhatsApp bewerben
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" style="margin-right:2px;"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg> In 30 Sekunden per WhatsApp bewerben
         </a>
       </div>
     </div>
@@ -995,13 +1016,13 @@
   <!-- SCHWEBENDE KONTAKT-AKTIONEN (NUR AUF MOBILE SICHTBAR) -->
   <div class="floating-actions" id="floatingActions">
     <a href="tel:+41335300204" class="float-btn float-phone" aria-label="Hiltbrand Notdienst & Büro anrufen">
-      <div class="float-phone-icon">📞</div>
+      <div class="float-phone-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
       <div class="float-phone-text">033 530 02 04</div>
     </a>
 
     <a href="https://wa.me/41792318484?text=Hallo%20Hiltbrand-Team,%20ich%20interessiere%20mich%20f%C3%BCr%20eine%20Offerte/Beratung." target="_blank" rel="noopener" class="float-btn float-whatsapp" aria-label="Per WhatsApp schreiben">
       <div class="wa-ripple"></div>
-      <div class="float-wa-tooltip">💬 Offerte in 2 Min</div>
+      <div class="float-wa-tooltip">Offerte in 2 Min</div>
       <svg width="30" height="30" viewBox="0 0 24 24" fill="currentColor">
         <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
       </svg>
