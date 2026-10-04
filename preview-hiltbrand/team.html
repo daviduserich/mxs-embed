@@ -100,36 +100,18 @@
       gap: 24px;
     }
     .brand-logo-wrap {
-      display: flex;
+      display: inline-flex;
       align-items: center;
-      gap: 12px;
       text-decoration: none;
       color: inherit;
       flex-shrink: 0;
     }
     .brand-logo-img {
-      height: 38px;
+      height: 42px;
       width: auto;
-      max-width: 130px;
+      max-width: 170px;
       object-fit: contain;
-    }
-    .brand-text {
-      display: flex;
-      flex-direction: column;
-    }
-    .brand-name {
-      font-size: 1.05rem;
-      font-weight: 800;
-      letter-spacing: -0.02em;
-      line-height: 1.2;
-      color: var(--anthrazit);
-    }
-    .brand-region {
-      font-size: 0.72rem;
-      color: var(--muted);
-      font-weight: 600;
-      font-family: 'JetBrains Mono', monospace;
-      letter-spacing: -0.01em;
+      display: block;
     }
 
     /* DESKTOP NAVIGATION */
@@ -782,12 +764,8 @@
   <!-- HEADER (STICKY) -->
   <header class="top-bar">
     <div class="top-bar-inner">
-      <a href="index.html" class="brand-logo-wrap">
-        <img src="images/logo.png" alt="Hiltbrand Gebäudehüllen AG Logo" class="brand-logo-img">
-        <div class="brand-text">
-          <div class="brand-name">Hiltbrand</div>
-          <div class="brand-region">Gebäudehüllen AG • Krattigen</div>
-        </div>
+      <a href="index.html" class="brand-logo-wrap" aria-label="Hiltbrand Gebäudehüllen AG Startseite">
+        <img src="images/logo.png" alt="Hiltbrand Gebäudehüllen AG" class="brand-logo-img">
       </a>
 
       <!-- DESKTOP NAVIGATION -->
