@@ -30,8 +30,14 @@
     "mtime": 1791096955,
     "mtime_str": "04.10.2026 06:55",
     "cdn_url": "https://embed.magnet-xs.ch/muster-holzbau/images/hero.jpg",
-    "is_used": false,
-    "used_in": []
+    "is_used": true,
+    "used_in": [
+      {
+        "datei": "index.html",
+        "slot": "image",
+        "is_hero": true
+      }
+    ]
   },
   {
     "id": "images_hero_svg",
@@ -72,14 +78,8 @@
     "mtime": 1791096955,
     "mtime_str": "04.10.2026 06:55",
     "cdn_url": "https://embed.magnet-xs.ch/muster-holzbau/images/michael.jpg",
-    "is_used": true,
-    "used_in": [
-      {
-        "datei": "index.html",
-        "slot": "image",
-        "is_hero": false
-      }
-    ]
+    "is_used": false,
+    "used_in": []
   },
   {
     "id": "images_stefan_jpg",
