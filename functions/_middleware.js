@@ -4,53 +4,66 @@ export async function onRequest(context) {
 
   // 1. Hostname: webpilot.magnet-xs.ch
   if (hostname.startsWith('webpilot.')) {
-    // If not already accessing /webpilot path internally
-    if (!url.pathname.startsWith('/webpilot')) {
-      let targetPath = url.pathname;
-      if (targetPath === '/' || targetPath === '') {
-        targetPath = '/webpilot/index.html';
-      } else if (!targetPath.includes('.')) {
-        // e.g. /ueber-uns -> /webpilot/ueber-uns.html
-        targetPath = `/webpilot${targetPath}.html`;
-      } else {
-        targetPath = `/webpilot${targetPath}`;
-      }
-
-      const rewriteUrl = new URL(targetPath, url.origin);
-      rewriteUrl.search = url.search;
-      return context.env.ASSETS.fetch(new Request(rewriteUrl, context.request));
+    let targetPath = url.pathname;
+    if (targetPath === '/' || targetPath === '') {
+      targetPath = '/webpilot/';
+    } else if (!targetPath.startsWith('/webpilot')) {
+      targetPath = `/webpilot${targetPath}`;
     }
+
+    const rewriteUrl = new URL(targetPath, url.origin);
+    rewriteUrl.search = url.search;
+    const response = await context.env.ASSETS.fetch(new Request(rewriteUrl, context.request));
+
+    if ([301, 302, 307, 308].includes(response.status)) {
+      const loc = response.headers.get('location');
+      if (loc && loc.startsWith('/webpilot')) {
+        const cleanLoc = loc.replace(/^\/webpilot/, '') || '/';
+        const newHeaders = new Headers(response.headers);
+        newHeaders.set('location', cleanLoc);
+        return new Response(response.body, {
+          status: response.status,
+          headers: newHeaders
+        });
+      }
+    }
+    return response;
   }
 
   // 2. Hostname: vorschau.magnet-xs.ch
   if (hostname.startsWith('vorschau.')) {
-    // Match /hiltbrand or /hiltbrand/...
-    if (url.pathname.startsWith('/hiltbrand')) {
-      let rest = url.pathname.replace(/^\/hiltbrand\/?/, '');
-      if (rest === '' || rest === '/') {
-        rest = 'index.html';
-      } else if (!rest.includes('.')) {
-        rest = `${rest}.html`;
-      }
-      const targetPath = `/preview-hiltbrand/${rest}`;
-      const rewriteUrl = new URL(targetPath, url.origin);
-      rewriteUrl.search = url.search;
-      return context.env.ASSETS.fetch(new Request(rewriteUrl, context.request));
+    if (url.pathname === '/' || url.pathname === '') {
+      return Response.redirect('https://magnet-xs.com', 302);
     }
 
-    // Match /birchmeier or /birchmeier/...
-    if (url.pathname.startsWith('/birchmeier')) {
-      let rest = url.pathname.replace(/^\/birchmeier\/?/, '');
-      if (rest === '' || rest === '/') {
-        rest = 'index.html';
-      } else if (!rest.includes('.')) {
-        rest = `${rest}.html`;
-      }
-      const targetPath = `/preview-birchmeier/${rest}`;
-      const rewriteUrl = new URL(targetPath, url.origin);
-      rewriteUrl.search = url.search;
-      return context.env.ASSETS.fetch(new Request(rewriteUrl, context.request));
+    let targetPath = url.pathname;
+    if (url.pathname.startsWith('/hiltbrand')) {
+      const rest = url.pathname.replace(/^\/hiltbrand/, '');
+      targetPath = `/preview-hiltbrand${rest === '' ? '/' : rest}`;
+    } else if (url.pathname.startsWith('/birchmeier')) {
+      const rest = url.pathname.replace(/^\/birchmeier/, '');
+      targetPath = `/preview-birchmeier${rest === '' ? '/' : rest}`;
     }
+
+    const rewriteUrl = new URL(targetPath, url.origin);
+    rewriteUrl.search = url.search;
+    const response = await context.env.ASSETS.fetch(new Request(rewriteUrl, context.request));
+
+    if ([301, 302, 307, 308].includes(response.status)) {
+      const loc = response.headers.get('location');
+      if (loc) {
+        let cleanLoc = loc
+          .replace(/^\/preview-hiltbrand/, '/hiltbrand')
+          .replace(/^\/preview-birchmeier/, '/birchmeier');
+        const newHeaders = new Headers(response.headers);
+        newHeaders.set('location', cleanLoc);
+        return new Response(response.body, {
+          status: response.status,
+          headers: newHeaders
+        });
+      }
+    }
+    return response;
   }
 
   return context.next();
