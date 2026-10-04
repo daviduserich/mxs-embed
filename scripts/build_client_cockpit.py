@@ -4,7 +4,7 @@
 WebPilot Client Cockpit Compiler (v3.3.0)
 ========================================
 Generiert aus den Vorlagen templates/cockpit-app.html und templates/cockpit-script-template.js
-ein vollständiges, voll funktionsfähiges WebPilot Studio Cockpit v3.3.0 für jeden Mandanten:
+ein vollständiges, voll funktionsfähiges WebPilot Studio Cockpit v{fw_version} für jeden Mandanten:
 - Vollständige obere Studio-Leiste mit Magnet-XS Signet & Device Simulator (Desktop/Smartphone)
 - Vollständiges Bilder-Pool Modal mit Drag & Drop Upload, dynamischer Sortierung und Löschfunktion
 - Vollständiger 1-Klick Bildtausch Modus mit Spotlight & ESC-Abbruch
@@ -20,6 +20,7 @@ import shutil
 import argparse
 from pathlib import Path
 from datetime import datetime
+from zoneinfo import ZoneInfo
 
 BASE_DIR = Path(__file__).resolve().parent.parent  # mxs-embed
 TEMPLATES_DIR = BASE_DIR / "templates"
@@ -157,6 +158,12 @@ def scan_stellen(client_dir: Path, slug: str, name: str):
         json.dump(stellen, f, indent=2, ensure_ascii=False)
     return stellen
 
+def get_framework_version() -> str:
+    v_file = BASE_DIR / "VERSION"
+    if v_file.exists():
+        return v_file.read_text(encoding="utf-8").strip()
+    return "3.4.0"
+
 def build_cockpit(slug: str):
     """Kompiliert das vollwertige WebPilot Cockpit v3.3.0 für den Mandanten."""
     client_dir = BASE_DIR / slug
@@ -182,7 +189,13 @@ def build_cockpit(slug: str):
     js_template_code = js_template_file.read_text(encoding="utf-8")
 
     # 3. Branding & Pfade anpassen
-    content = re.sub(r'<title>.*?</title>', f'<title>{name} · WebPilot Studio · v3.3.0</title>', content, flags=re.IGNORECASE)
+    fw_version = get_framework_version()
+    now_build = datetime.now(ZoneInfo("Europe/Zurich")).strftime("%Y-%m-%d %H:%M")
+
+    content = re.sub(r'<title>.*?</title>', f'<title>{name} · WebPilot Studio · v{fw_version}</title>', content, flags=re.IGNORECASE)
+    content = re.sub(r'<span class="acp-version-badge"[^>]*>.*?</span>', f'<span class="acp-version-badge" id="acp-version-badge" title="WebPilot Framework v{fw_version}">v{fw_version}</span>', content)
+    brand_title = "WEBPILOT STUDIO" if slug != "hiltbrand" else "KARRIERE-STUDIO"
+    content = content.replace('<span class="acp-brand-text" id="acp-brand-label">KARRIERE-STUDIO</span>', f'<span class="acp-brand-text" id="acp-brand-label">{brand_title}</span>')
     content = content.replace('Hiltbrand & Zurbuchen Karriere-Studio', f'{name} WebPilot Studio')
     content = content.replace('id="picker-current-firm">Hiltbrand<', f'id="picker-current-firm">{name}<')
     content = content.replace('id="acp-stage-client-pill">Hiltbrand Gebäudehüllen AG<', f'id="acp-stage-client-pill">{name}<')
@@ -200,8 +213,9 @@ def build_cockpit(slug: str):
     stellen_json_str = json.dumps(stellen, ensure_ascii=False)
     bilder_json_str = json.dumps(bilder, ensure_ascii=False)
 
-    now_build = datetime.now().strftime("%Y-%m-%d %H:%M")
-    compiled_js = re.sub(r'var ACP_COCKPIT_BUILD = ".*?";', f'var ACP_COCKPIT_BUILD = "{now_build}";', js_template_code)
+    compiled_js = re.sub(r'var ACP_COCKPIT_VERSION = ".*?";', f'var ACP_COCKPIT_VERSION = "v{fw_version}";', js_template_code)
+    compiled_js = re.sub(r'var ACP_COCKPIT_BUILD = ".*?";', f'var ACP_COCKPIT_BUILD = "{now_build}";', compiled_js)
+    compiled_js = compiled_js.replace('Magnet-XS Karriere-Cockpit', f'{name} WebPilot Studio')
     compiled_js = compiled_js.replace("/* __BILDER_JSON__ */", bilder_json_str)
     compiled_js = compiled_js.replace("/* __STELLEN_JSON__ */", stellen_json_str)
     
@@ -216,7 +230,7 @@ def build_cockpit(slug: str):
 
     target_cockpit = client_dir / "cockpit.html"
     target_cockpit.write_text(content, encoding="utf-8")
-    print(f"✨ Vollwertiges WebPilot Studio Cockpit v3.3.0 für {name} ({slug}) generiert: {len(content)} Bytes")
+    print(f"✨ Vollwertiges WebPilot Studio Cockpit v{fw_version} für {name} ({slug}) generiert: {len(content)} Bytes")
     return True
 
 if __name__ == "__main__":
