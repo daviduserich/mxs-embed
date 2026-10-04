@@ -1,0 +1,1121 @@
+<!DOCTYPE html>
+<html lang="de-CH">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <title>Hiltbrand Bedachungen & Spenglerei — Schweizer Meisterhandwerk</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+  <style>
+    /* ==========================================================================
+       WEBPILOT CLIENT FRAMEWORK v1.0 — 100% MOBILE FIRST ARCHITECTURE
+       Basis: 360px–420px (Smartphone). Progressive Expansion bei 768px & 1024px.
+       Zero-Horizontal-Scroll Airbag, Thumb-Zone Ergonomie, Design-Tokens.
+       ========================================================================== */
+
+    :root {
+      /* Standard Brand Token: Hiltbrand (Tannengrün & Alpin-Holz) */
+      --brand-primary: #15803d;
+      --brand-primary-dark: #166534;
+      --brand-primary-glow: rgba(21, 128, 61, 0.15);
+      --brand-accent: #d97706;
+      --brand-bg: #ffffff;
+      --brand-surface: #f8fafc;
+      --brand-surface-2: #f1f5f9;
+      --brand-border: #e2e8f0;
+      --brand-text: #0f172a;
+      --brand-text-muted: #64748b;
+      --brand-text-sub: #94a3b8;
+      
+      --radius-sm: 6px;
+      --radius-md: 10px;
+      --radius-lg: 16px;
+      --shadow-sm: 0 1px 3px rgba(0,0,0,0.06);
+      --shadow-md: 0 6px 20px -4px rgba(0,0,0,0.08);
+      --shadow-lg: 0 16px 36px -8px rgba(0,0,0,0.12);
+    }
+
+    /* THEME PRESET: BIRCHMEIER (Sanitär & Haustechnik) */
+    body.theme-birchmeier {
+      --brand-primary: #0284c7;
+      --brand-primary-dark: #0369a1;
+      --brand-primary-glow: rgba(2, 132, 199, 0.15);
+      --brand-accent: #ea580c;
+    }
+
+    /* THEME PRESET: SOLECO (Solar & Energie) */
+    body.theme-soleco {
+      --brand-primary: #f6a000;
+      --brand-primary-dark: #d97706;
+      --brand-primary-glow: rgba(246, 160, 0, 0.2);
+      --brand-accent: #17140f;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    html, body {
+      width: 100%;
+      min-height: 100vh;
+      overflow-x: hidden; /* Airbag: 0 Horizontales Wackeln */
+      background-color: var(--brand-bg);
+      color: var(--brand-text);
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      line-height: 1.5;
+      font-size: 15px;
+    }
+
+    /* LIVE TOKEN & DEMO CONTROLLER (Nur für David als Chairman) */
+    .demo-bar {
+      background: #09090b;
+      color: #f4f4f5;
+      padding: 8px 12px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.72rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 8px;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      border-bottom: 1px solid #27272a;
+    }
+
+    .demo-tokens {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .token-btn {
+      background: #18181b;
+      border: 1px solid #3f3f46;
+      color: #e4e4e7;
+      padding: 3px 8px;
+      border-radius: 4px;
+      font-size: 0.68rem;
+      cursor: pointer;
+      font-family: inherit;
+    }
+
+    .token-btn.active {
+      border-color: #f59e0b;
+      color: #f59e0b;
+      font-weight: 700;
+    }
+
+    .job-toggle-btn {
+      background: rgba(16, 185, 129, 0.15);
+      border: 1px solid #10b981;
+      color: #10b981;
+      padding: 3px 8px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-weight: 700;
+      font-size: 0.68rem;
+    }
+
+    .job-toggle-btn.paused {
+      background: rgba(239, 68, 68, 0.15);
+      border-color: #ef4444;
+      color: #ef4444;
+    }
+
+    /* TOP BAR / NAVIGATION (100% Mobile First) */
+    .top-bar {
+      padding: 12px 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid var(--brand-border);
+      background: rgba(255, 255, 255, 0.96);
+      backdrop-filter: blur(10px);
+      position: sticky;
+      top: 36px;
+      z-index: 900;
+    }
+
+    .brand-logo-wrap {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .brand-mark {
+      width: 34px;
+      height: 34px;
+      border-radius: var(--radius-sm);
+      background: var(--brand-primary);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 1rem;
+      box-shadow: 0 2px 8px var(--brand-primary-glow);
+    }
+
+    .brand-name {
+      font-size: 1rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      line-height: 1.2;
+    }
+
+    .brand-region {
+      font-size: 0.72rem;
+      color: var(--brand-text-muted);
+      font-weight: 500;
+    }
+
+    .nav-burger {
+      width: 44px;
+      height: 44px;
+      border: 1px solid var(--brand-border);
+      background: var(--brand-surface);
+      border-radius: var(--radius-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+    }
+
+    .nav-burger svg { width: 22px; height: 22px; stroke: var(--brand-text); }
+
+    /* MOBILE NAV DRAWER */
+    .nav-drawer {
+      display: none;
+      position: fixed;
+      inset: 80px 0 0 0;
+      background: rgba(255, 255, 255, 0.98);
+      backdrop-filter: blur(16px);
+      z-index: 850;
+      padding: 24px 20px;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .nav-drawer.open {
+      display: flex;
+    }
+
+    .nav-link {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--brand-text);
+      text-decoration: none;
+      padding: 10px 0;
+      border-bottom: 1px solid var(--brand-border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .nav-link-badge {
+      font-size: 0.7rem;
+      background: var(--brand-primary-glow);
+      color: var(--brand-primary);
+      padding: 2px 8px;
+      border-radius: 999px;
+      font-weight: 700;
+    }
+
+    /* HERO SECTION (MOBILE FIRST) */
+    .hero {
+      padding: 24px 16px 32px 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+      position: relative;
+      background: linear-gradient(180deg, var(--brand-surface) 0%, #ffffff 100%);
+      border-bottom: 1px solid var(--brand-border);
+    }
+
+    .hero-kicker-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .kicker-pill {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--brand-primary);
+      background: var(--brand-primary-glow);
+      padding: 4px 10px;
+      border-radius: 999px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .kicker-pill-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--brand-primary);
+      box-shadow: 0 0 6px var(--brand-primary);
+    }
+
+    .hero-title {
+      font-size: 1.75rem;
+      font-weight: 800;
+      line-height: 1.15;
+      letter-spacing: -0.03em;
+      color: var(--brand-text);
+    }
+
+    .hero-subtitle {
+      font-size: 0.95rem;
+      color: var(--brand-text-muted);
+      line-height: 1.5;
+    }
+
+    .hero-media {
+      width: 100%;
+      aspect-ratio: 16/10;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      box-shadow: var(--shadow-md);
+      position: relative;
+      background: #000;
+    }
+
+    .hero-media-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      animation: dhKenburns 14s ease-in-out infinite alternate;
+    }
+
+    @keyframes dhKenburns {
+      0% { transform: scale(1.05); }
+      100% { transform: scale(1.15) translate(-1%, -1%); }
+    }
+
+    .hero-media-badge {
+      position: absolute;
+      bottom: 12px;
+      left: 12px;
+      background: rgba(15, 23, 42, 0.85);
+      backdrop-filter: blur(8px);
+      color: #fff;
+      font-size: 0.72rem;
+      font-weight: 600;
+      padding: 4px 10px;
+      border-radius: var(--radius-sm);
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .btn-cta {
+      width: 100%;
+      min-height: 50px;
+      border-radius: var(--radius-md);
+      font-size: 0.95rem;
+      font-weight: 700;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      text-decoration: none;
+      cursor: pointer;
+      border: none;
+      transition: all 0.15s ease;
+    }
+
+    .btn-cta-primary {
+      background: var(--brand-primary);
+      color: #ffffff;
+      box-shadow: 0 4px 14px var(--brand-primary-glow);
+    }
+
+    .btn-cta-whatsapp {
+      background: #25D366;
+      color: #ffffff;
+    }
+
+    /* SECTION SHARED */
+    .section {
+      padding: 36px 16px;
+      border-bottom: 1px solid var(--brand-border);
+    }
+
+    .section-kicker {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.72rem;
+      color: var(--brand-primary);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 4px;
+      display: block;
+    }
+
+    .section-title {
+      font-size: 1.45rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      line-height: 1.25;
+      margin-bottom: 10px;
+    }
+
+    .section-desc {
+      font-size: 0.9rem;
+      color: var(--brand-text-muted);
+      line-height: 1.5;
+      margin-bottom: 20px;
+    }
+
+    /* LEISTUNGEN KACHELN (Mobile First Cards) */
+    .service-cards {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .service-card {
+      background: var(--brand-surface);
+      border: 1px solid var(--brand-border);
+      border-radius: var(--radius-md);
+      padding: 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .service-card-head {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .service-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: var(--radius-sm);
+      background: var(--brand-primary-glow);
+      color: var(--brand-primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      flex-shrink: 0;
+    }
+
+    .service-title {
+      font-size: 1.05rem;
+      font-weight: 700;
+    }
+
+    .service-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      font-size: 0.85rem;
+      color: var(--brand-text-muted);
+    }
+
+    .service-list li {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .service-list li::before {
+      content: '✓';
+      color: var(--brand-primary);
+      font-weight: 800;
+    }
+
+    /* DAS SOLECO-TEAM SYSTEM (Porträts & Direkt-Durchwahl) */
+    .team-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .team-card {
+      background: #ffffff;
+      border: 1px solid var(--brand-border);
+      border-radius: var(--radius-md);
+      padding: 16px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .team-photo {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      object-fit: cover;
+      background: var(--brand-surface-2);
+      border: 2px solid var(--brand-border);
+      flex-shrink: 0;
+    }
+
+    .team-meta {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      flex: 1;
+      min-width: 0;
+    }
+
+    .team-name {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--brand-text);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .team-role {
+      font-size: 0.78rem;
+      color: var(--brand-text-muted);
+    }
+
+    .team-contact-row {
+      display: flex;
+      gap: 8px;
+      margin-top: 6px;
+    }
+
+    .btn-team-phone {
+      font-size: 0.72rem;
+      font-weight: 600;
+      color: var(--brand-primary);
+      background: var(--brand-primary-glow);
+      border: 1px solid transparent;
+      padding: 4px 10px;
+      border-radius: var(--radius-sm);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    /* DIE 2-EBENEN HR-ARCHITEKTUR (EMPLOYER BRANDING vs JOBS) */
+    .hr-container {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    /* EBENE 1: EMPLOYER BRANDING (ALWAYS-ON) */
+    .employer-branding-box {
+      background: linear-gradient(135deg, var(--brand-surface) 0%, #ffffff 100%);
+      border: 2px solid var(--brand-border);
+      border-radius: var(--radius-lg);
+      padding: 22px 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .eb-badge {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.7rem;
+      font-weight: 700;
+      color: var(--brand-primary);
+      text-transform: uppercase;
+    }
+
+    .eb-perks-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin: 8px 0;
+    }
+
+    .eb-perk {
+      background: #ffffff;
+      border: 1px solid var(--brand-border);
+      padding: 10px;
+      border-radius: var(--radius-sm);
+      font-size: 0.8rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .eb-coffee-cta {
+      background: #ffffff;
+      border: 1px dashed var(--brand-primary);
+      padding: 12px 14px;
+      border-radius: var(--radius-md);
+      font-size: 0.85rem;
+      color: var(--brand-text);
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    /* EBENE 2: KONKRETE VAKANZEN (ON-DEMAND) */
+    .active-job-box {
+      background: #ffffff;
+      border: 2px solid var(--brand-primary);
+      border-radius: var(--radius-lg);
+      padding: 22px 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      box-shadow: 0 10px 24px var(--brand-primary-glow);
+      position: relative;
+    }
+
+    .job-ribbon {
+      position: absolute;
+      top: -12px;
+      right: 18px;
+      background: var(--brand-primary);
+      color: #fff;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.68rem;
+      font-weight: 700;
+      padding: 3px 10px;
+      border-radius: 999px;
+      text-transform: uppercase;
+    }
+
+    .express-apply-card {
+      background: var(--brand-surface);
+      border: 1px solid var(--brand-border);
+      border-radius: var(--radius-md);
+      padding: 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .express-apply-title {
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--brand-text);
+    }
+
+    .express-input {
+      width: 100%;
+      height: 44px;
+      background: #ffffff;
+      border: 1px solid var(--brand-border);
+      border-radius: var(--radius-sm);
+      padding: 0 12px;
+      font-size: 0.9rem;
+      font-family: inherit;
+    }
+
+    /* ACP STORIES / BLOG SLOT */
+    .stories-scroll {
+      display: flex;
+      gap: 14px;
+      overflow-x: auto;
+      padding-bottom: 8px;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .story-card {
+      min-width: 240px;
+      max-width: 240px;
+      background: var(--brand-surface);
+      border: 1px solid var(--brand-border);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+
+    .story-img {
+      width: 100%;
+      aspect-ratio: 4/3;
+      object-fit: cover;
+      background: #cbd5e1;
+    }
+
+    .story-body {
+      padding: 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .story-meta {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.68rem;
+      color: var(--brand-primary);
+      font-weight: 700;
+    }
+
+    .story-title {
+      font-size: 0.85rem;
+      font-weight: 700;
+      line-height: 1.3;
+    }
+
+    /* STICKY THUMB-ZONE BAR (Unten fixiert auf Smartphones) */
+    .thumb-bar {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: rgba(255, 255, 255, 0.96);
+      backdrop-filter: blur(12px);
+      border-top: 1px solid var(--brand-border);
+      padding: 10px 14px;
+      padding-bottom: calc(10px + env(safe-area-inset-bottom, 0px));
+      display: flex;
+      gap: 10px;
+      z-index: 950;
+      box-shadow: 0 -4px 16px rgba(0,0,0,0.06);
+    }
+
+    .btn-thumb {
+      flex: 1;
+      height: 48px;
+      border-radius: var(--radius-md);
+      font-size: 0.88rem;
+      font-weight: 700;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      text-decoration: none;
+      color: #fff;
+    }
+
+    .btn-thumb-phone {
+      background: var(--brand-primary);
+    }
+
+    .btn-thumb-whatsapp {
+      background: #25D366;
+    }
+
+    /* PADDING BUFFER FÜR STICKY BAR */
+    .bottom-buffer {
+      height: 74px;
+    }
+
+    /* FOOTER */
+    .footer {
+      padding: 24px 16px;
+      background: #0f172a;
+      color: #94a3b8;
+      font-size: 0.8rem;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    /* ==========================================================================
+       PROGRESSIVE ENHANCEMENT: TABLET & DESKTOP (Nur ab 768px bzw. 1024px)
+       Mobile bleibt die unveränderliche Basis!
+       ========================================================================== */
+    @media (min-width: 768px) {
+      .top-bar { padding: 16px 32px; top: 38px; }
+      .hero { padding: 48px 32px; flex-direction: row; align-items: center; gap: 36px; }
+      .hero-content { flex: 1; }
+      .hero-media { flex: 1; aspect-ratio: 4/3; }
+      .hero-title { font-size: 2.4rem; }
+      .service-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+      .team-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+      .hr-container { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+      .section { padding: 56px 32px; max-width: 1100px; margin: 0 auto; width: 100%; }
+      .thumb-bar { display: none; } /* Desktop braucht keine Thumb-Bar */
+      .bottom-buffer { display: none; }
+    }
+  </style>
+</head>
+<body id="themeBody" class="theme-hiltbrand">
+
+  <!-- CHAIRMAN LIVE CONTROLLER (Token & Job Switcher) -->
+  <aside class="demo-bar">
+    <div class="demo-tokens">
+      <span style="color: #a1a1aa;">🎨 Marke:</span>
+      <button class="token-btn active" id="btnHiltbrand" onclick="switchTheme('hiltbrand')">🌲 Hiltbrand</button>
+      <button class="token-btn" id="btnBirchmeier" onclick="switchTheme('birchmeier')">💧 Birchmeier</button>
+      <button class="token-btn" id="btnSoleco" onclick="switchTheme('soleco')">☀️ Soleco</button>
+    </div>
+    <div style="display: flex; align-items: center; gap: 6px;">
+      <span style="color: #a1a1aa;">HR-Ebene 2:</span>
+      <button class="job-toggle-btn" id="btnJobToggle" onclick="toggleJobs()">Jobs: AKTIV (1)</button>
+    </div>
+  </aside>
+
+  <!-- TOP BAR / HEADER -->
+  <header class="top-bar">
+    <a href="#" class="brand-logo-wrap">
+      <div class="brand-mark" id="brandMark">H</div>
+      <div>
+        <div class="brand-name" id="brandName">Hiltbrand</div>
+        <div class="brand-region" id="brandSub">Bedachungen & Spenglerei • Thun</div>
+      </div>
+    </a>
+    <button class="nav-burger" onclick="toggleDrawer()" aria-label="Menü öffnen">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+  </header>
+
+  <!-- MOBILE NAV DRAWER -->
+  <nav class="nav-drawer" id="navDrawer">
+    <a href="#leistungen" class="nav-link" onclick="toggleDrawer()">Leistungen & Handwerk <span>→</span></a>
+    <a href="#team" class="nav-link" onclick="toggleDrawer()">Unser Team & Gesichter <span>→</span></a>
+    <a href="#employer-branding" class="nav-link" onclick="toggleDrawer()">Arbeiten bei uns <span>→</span></a>
+    <a href="#jobs" class="nav-link" id="navJobLink" onclick="toggleDrawer()">Offene Stellen <span class="nav-link-badge">1 Stelle</span></a>
+    <a href="#kontakt" class="nav-link" onclick="toggleDrawer()">Kontakt & 24h-Service <span>→</span></a>
+  </nav>
+
+  <!-- HERO SECTION -->
+  <section class="hero">
+    <div class="hero-content">
+      <div class="hero-kicker-row">
+        <span class="kicker-pill"><span class="kicker-pill-dot"></span> <span id="heroKicker">Meisterbetrieb seit 1954</span></span>
+        <span style="font-family:'JetBrains Mono',monospace; font-size:0.72rem; color:var(--brand-text-muted);">0.3s Edge Speed</span>
+      </div>
+      <h1 class="hero-title" id="heroTitle">Dächer & Fassaden, die Generationen schützen.</h1>
+      <p class="hero-subtitle" id="heroDesc">
+        Ihr zertifizierter Fachbetrieb für Steildächer, Spenglereiarbeiten und energetische Dachsanierungen im Berner Oberland.
+      </p>
+      <div class="hero-actions" style="margin-top: 18px;">
+        <a href="tel:+41336711818" class="btn-cta btn-cta-primary" id="btnHeroPhone">
+          <span>📞</span> <span id="heroPhoneText">033 671 18 18 anrufen</span>
+        </a>
+        <a href="https://wa.me/41790000000" class="btn-cta btn-cta-whatsapp">
+          <span>💬</span> Per WhatsApp anfragen
+        </a>
+      </div>
+    </div>
+
+    <div class="hero-media">
+      <img src="https://images.unsplash.com/photo-1541888946425-d0fbb186f5f7?auto=format&fit=crop&w=800&q=80" alt="Handwerker auf dem Dach" class="hero-media-img" id="heroImg">
+      <div class="hero-media-badge" id="heroImgBadge">📍 Einsatzort: Region Thun / Berner Oberland</div>
+    </div>
+  </section>
+
+  <!-- LEISTUNGEN -->
+  <section class="section" id="leistungen">
+    <span class="section-kicker">Unsere Kernkompetenzen</span>
+    <h2 class="section-title">Solides Handwerk ohne Kompromisse.</h2>
+    <p class="section-desc">Wir setzen auf langlebige Schweizer Baumaterialien und meisterhafte Verarbeitung.</p>
+
+    <div class="service-cards" id="servicesGrid">
+      <!-- Kachel 1 -->
+      <div class="service-card">
+        <div class="service-card-head">
+          <div class="service-icon">🏠</div>
+          <h3 class="service-title">Steildach & Eindeckung</h3>
+        </div>
+        <p style="font-size: 0.85rem; color: var(--brand-text-muted);">Ziegel-, Schiefer- und Eternitdächer. Sturmsicher verlegt mit Garantie.</p>
+        <ul class="service-list">
+          <li>Tonziegel & Naturschiefer</li>
+          <li>Unterdächer & Wärmedämmung</li>
+          <li>Dachfenster (Velux) Einbau</li>
+        </ul>
+      </div>
+
+      <!-- Kachel 2 -->
+      <div class="service-card">
+        <div class="service-card-head">
+          <div class="service-icon">⚡</div>
+          <h3 class="service-title">Bauspenglerei & Rinnen</h3>
+        </div>
+        <p style="font-size: 0.85rem; color: var(--brand-text-muted);">Präzise Blechbearbeitung in Kupfer, Zink und Aluminium nach Mass.</p>
+        <ul class="service-list">
+          <li>Dachrinnen & Ablaufrohre</li>
+          <li>Lukarnen- & Kaminverkleidungen</li>
+          <li>Blitzschutzanlagen VKF-zertifiziert</li>
+        </ul>
+      </div>
+
+      <!-- Kachel 3 -->
+      <div class="service-card">
+        <div class="service-card-head">
+          <div class="service-icon">☀️</div>
+          <h3 class="service-title">Dachsanierung & Solar</h3>
+        </div>
+        <p style="font-size: 0.85rem; color: var(--brand-text-muted);">Energetische Gesamtsanierung nach Minergie-Standard inklusive Solardach.</p>
+        <ul class="service-list">
+          <li>Aufdachdämmung nach GEAK</li>
+          <li>Integrierte Photovoltaik-Dächer</li>
+          <li>Begleitung Fördergelder Bund/Kanton</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- DAS TEAM (SOLECO-VORBILD: Echte Gesichter & Direktkontakt) -->
+  <section class="section" id="team" style="background: var(--brand-surface);">
+    <span class="section-kicker">Die Gesichter dahinter</span>
+    <h2 class="section-title">Menschen, denen Sie vertrauen können.</h2>
+    <p class="section-desc">Bei uns sprechen Sie direkt mit den Meistern und Projektleitern vor Ort.</p>
+
+    <div class="team-grid">
+      <!-- Person 1 -->
+      <div class="team-card">
+        <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=200&q=80" alt="Geschäftsführer" class="team-photo">
+        <div class="team-meta">
+          <div class="team-name">Beat Hiltbrand</div>
+          <div class="team-role">Geschäftsführer & Dachdeckermeister</div>
+          <div class="team-contact-row">
+            <a href="tel:+41336711818" class="btn-team-phone">📞 Direkt anrufen</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Person 2 -->
+      <div class="team-card">
+        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=200&q=80" alt="Leiterin Administration" class="team-photo">
+        <div class="team-meta">
+          <div class="team-name">Sandra Hiltbrand</div>
+          <div class="team-role">Leiterin Administration & Kundendienst</div>
+          <div class="team-contact-row">
+            <a href="mailto:info@hiltbrand-bedachungen.ch" class="btn-team-phone">✉️ E-Mail senden</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2-EBENEN HR ARCHITEKTUR: EMPLOYER BRANDING & AKTUELLE JOBS -->
+  <section class="section" id="employer-branding">
+    <span class="section-kicker">Team & Karriere</span>
+    <h2 class="section-title">Arbeiten bei Hiltbrand.</h2>
+    <p class="section-desc">Keine anonyme Nummer im Großkonzern, sondern familiärer Zusammenhalt.</p>
+
+    <div class="hr-container">
+
+      <!-- EBENE 1: EMPLOYER BRANDING (365 TAGE ALWAYS-ON) -->
+      <div class="employer-branding-box">
+        <div class="eb-badge">★ EBENE 1: Unsere Kultur & Werte</div>
+        <h3 style="font-size: 1.15rem; font-weight: 800;">Wir halten zusammen — bei Sonne und bei Sturm.</h3>
+        <p style="font-size: 0.85rem; color: var(--brand-text-muted); line-height: 1.45;">
+          Wir investieren in moderne Maschinen, hochwertige Schutzkleidung und ein Team, das sich aufeinander verlassen kann.
+        </p>
+
+        <div class="eb-perks-grid">
+          <div class="eb-perk">🌴 5 Wochen Ferien</div>
+          <div class="eb-perk">🚐 Eigener Servicebus</div>
+          <div class="eb-perk">⏱️ Faire Überstundenregelung</div>
+          <div class="eb-perk">☕ Kaffee & Znüni im Magazin</div>
+        </div>
+
+        <div class="eb-coffee-cta">
+          <strong>Immer Zeit für gute Fachleute:</strong>
+          <span style="font-size: 0.82rem; color: var(--brand-text-muted);">
+            Auch wenn aktuell keine passende Stelle offen ist: Wir freuen uns immer über das Kennenlernen motivierter Handwerker.
+          </span>
+          <a href="https://wa.me/41790000000?text=Hallo%20Beat,%20ich%20würde%20gerne%20mal%20auf%20einen%20Kaffee%20vorbeikommen." class="btn-cta btn-cta-whatsapp" style="margin-top: 6px; min-height: 42px; font-size: 0.85rem;">
+            💬 Auf einen Kaffee vorbeikommen
+          </a>
+        </div>
+      </div>
+
+      <!-- EBENE 2: KONKRETE OFFENE STELLE (BEDARFSGESTEUERT / ON-DEMAND) -->
+      <div class="active-job-box" id="activeJobBox">
+        <div class="job-ribbon">🔥 1 Offene Stelle</div>
+        <div>
+          <span class="section-kicker" style="font-size: 0.68rem;">Festanstellung 80–100%</span>
+          <h3 style="font-size: 1.2rem; font-weight: 800; color: var(--brand-text);">Dachdecker EFZ / Steildach</h3>
+          <div style="font-size: 0.8rem; color: var(--brand-text-muted); margin-top: 4px;">
+            Arbeitsort: Berner Oberland • Eintritt: Per sofort oder n. V.
+          </div>
+        </div>
+
+        <ul class="service-list" style="font-size: 0.82rem;">
+          <li>Selbstständige Eindeckung von Steildächern</li>
+          <li>Montage von Unterdächern und Velux-Fenstern</li>
+          <li>Geregelte Arbeitszeiten & moderne Ausrüstung</li>
+        </ul>
+
+        <!-- 60-SEKUNDEN EXPRESS BEWERBUNG (OHNE PDF / LEBENSLAUF) -->
+        <div class="express-apply-card">
+          <div class="express-apply-title">⚡ 60-Sekunden Express-Bewerbung:</div>
+          <form onsubmit="handleExpressApply(event)">
+            <input type="text" class="express-input" placeholder="Dein Vorname & Name" required>
+            <input type="tel" class="express-input" placeholder="Deine Handy-Nummer (für WhatsApp)" style="margin-top: 8px;" required>
+            <button type="submit" class="btn-cta btn-cta-primary" style="margin-top: 10px; min-height: 44px; font-size: 0.88rem;">
+              Absenden (Wir rufen dich an) →
+            </button>
+          </form>
+          <div id="applySuccess" style="font-size: 0.8rem; color: var(--brand-primary); font-weight: 700; display: none;">
+            ✓ Danke! Beat Hiltbrand meldet sich innerhalb von 24h per WhatsApp bei dir.
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ACP BAUSTELLEN-STORIES / BLOG SLOT -->
+  <section class="section" id="stories" style="background: var(--brand-surface);">
+    <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 14px;">
+      <div>
+        <span class="section-kicker">Live von der Baustelle</span>
+        <h2 class="section-title" style="margin-bottom: 0;">Aktuelle Projekte</h2>
+      </div>
+      <span style="font-family:'JetBrains Mono',monospace; font-size:0.7rem; color:var(--brand-primary);">ACP Memo Feed</span>
+    </div>
+
+    <div class="stories-scroll">
+      <!-- Story 1 -->
+      <div class="story-card">
+        <img src="https://images.unsplash.com/photo-1613490493576-7fde63acd811?auto=format&fit=crop&w=400&q=80" alt="Sanierung Spiez" class="story-img">
+        <div class="story-body">
+          <span class="story-meta">Gestern • Baustelle Spiez</span>
+          <h4 class="story-title">Steildach-Dämmung nach Minergie fertiggestellt</h4>
+        </div>
+      </div>
+
+      <!-- Story 2 -->
+      <div class="story-card">
+        <img src="https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=400&q=80" alt="Kupferrinne Thun" class="story-img">
+        <div class="story-body">
+          <span class="story-meta">Vor 3 Tagen • Thun Altstadt</span>
+          <h4 class="story-title">Handgefertigte Kupfer-Lukarne montiert</h4>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PADDING BUFFER FÜR STICKY BAR -->
+  <div class="bottom-buffer"></div>
+
+  <!-- STICKY THUMB-ZONE BAR (FÜR SMARTPHONES) -->
+  <div class="thumb-bar" id="thumbBar">
+    <a href="tel:+41336711818" class="btn-thumb btn-thumb-phone" id="btnThumbPhone">
+      <span>📞</span> <span id="thumbPhoneText">033 671 18 18</span>
+    </a>
+    <a href="https://wa.me/41790000000" class="btn-thumb btn-thumb-whatsapp">
+      <span>💬</span> WhatsApp
+    </a>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer" id="kontakt">
+    <div style="font-weight: 800; font-size: 1rem; color: #fff;" id="footerBrand">Hiltbrand Bedachungen & Spenglerei GmbH</div>
+    <div>Werkstrasse 14 • 3600 Thun • Tel: 033 671 18 18</div>
+    <div style="font-family:'JetBrains Mono',monospace; font-size:0.7rem; color:#64748b; margin-top:8px;">
+      Powered by WebPilot // Swiss Edge Engine (0.3s TTFB) • 100% Mobile First Architecture
+    </div>
+  </footer>
+
+  <script>
+    // THEME DATA PRESETS FÜR DEN CHAIRMAN
+    const THEMES = {
+      'hiltbrand': {
+        class: 'theme-hiltbrand',
+        mark: 'H',
+        name: 'Hiltbrand',
+        sub: 'Bedachungen & Spenglerei • Thun',
+        kicker: 'Meisterbetrieb seit 1954',
+        title: 'Dächer & Fassaden, die Generationen schützen.',
+        desc: 'Ihr zertifizierter Fachbetrieb für Steildächer, Spenglereiarbeiten und energetische Dachsanierungen im Berner Oberland.',
+        phone: '033 671 18 18',
+        tel: '+41336711818',
+        badge: '📍 Einsatzort: Region Thun / Berner Oberland'
+      },
+      'birchmeier': {
+        class: 'theme-birchmeier',
+        mark: 'B',
+        name: 'Birchmeier-Hohler',
+        sub: 'Sanitär, Heizung & Notdienst • Bremgarten AG',
+        kicker: 'Familienbetrieb seit 1931',
+        title: 'Moderne Bäder, Wärmepumpen & 24h-Sanitärnotdienst.',
+        desc: 'Ihr Schweizer Fachbetrieb für schlüsselfertige Badumbauten, effiziente Heizsysteme und Rohrreparaturen im Kanton Aargau.',
+        phone: '056 648 22 22',
+        tel: '+41566482222',
+        badge: '📍 Einsatzort: Bremgarten, Wohlen & Freiamt'
+      },
+      'soleco': {
+        class: 'theme-soleco',
+        mark: 'S',
+        name: 'Soleco AG',
+        sub: 'Wärmepumpen & Solarsysteme • Maur ZH',
+        kicker: 'Über 100 Anlagen in der Schweiz',
+        title: 'Wärmepumpe, Speicher & Optimizer zum Fixpreis.',
+        desc: 'Ihr intelligentes Energiesystem aus einer Hand: Wärmepumpe, Batteriespeicher und Schweizer Energiemanagement.',
+        phone: '043 883 90 18',
+        tel: '+41438839018',
+        badge: '📍 Einsatzort: Zürich, Aargau & Ostschweiz'
+      }
+    };
+
+    let jobsActive = true;
+
+    function switchTheme(themeKey) {
+      const t = THEMES[themeKey];
+      if (!t) return;
+
+      document.body.className = t.class;
+      document.querySelectorAll('.token-btn').forEach(btn => btn.classList.remove('active'));
+      
+      if (themeKey === 'hiltbrand') document.getElementById('btnHiltbrand').classList.add('active');
+      if (themeKey === 'birchmeier') document.getElementById('btnBirchmeier').classList.add('active');
+      if (themeKey === 'soleco') document.getElementById('btnSoleco').classList.add('active');
+
+      document.getElementById('brandMark').textContent = t.mark;
+      document.getElementById('brandName').textContent = t.name;
+      document.getElementById('brandSub').textContent = t.sub;
+      document.getElementById('heroKicker').textContent = t.kicker;
+      document.getElementById('heroTitle').textContent = t.title;
+      document.getElementById('heroDesc').textContent = t.desc;
+      document.getElementById('heroPhoneText').textContent = t.phone + ' anrufen';
+      document.getElementById('btnHeroPhone').href = 'tel:' + t.tel;
+      document.getElementById('thumbPhoneText').textContent = t.phone;
+      document.getElementById('btnThumbPhone').href = 'tel:' + t.tel;
+      document.getElementById('heroImgBadge').textContent = t.badge;
+      document.getElementById('footerBrand').textContent = t.name + ' GmbH';
+    }
+
+    function toggleJobs() {
+      jobsActive = !jobsActive;
+      const jobBox = document.getElementById('activeJobBox');
+      const navLink = document.getElementById('navJobLink');
+      const toggleBtn = document.getElementById('btnJobToggle');
+
+      if (jobsActive) {
+        jobBox.style.display = 'flex';
+        navLink.style.display = 'flex';
+        toggleBtn.textContent = 'Jobs: AKTIV (1)';
+        toggleBtn.classList.remove('paused');
+      } else {
+        jobBox.style.display = 'none';
+        navLink.style.display = 'none';
+        toggleBtn.textContent = 'Jobs: PAUSIERT (0)';
+        toggleBtn.classList.add('paused');
+      }
+    }
+
+    function toggleDrawer() {
+      const drawer = document.getElementById('navDrawer');
+      drawer.classList.toggle('open');
+    }
+
+    function handleExpressApply(e) {
+      e.preventDefault();
+      document.getElementById('applySuccess').style.display = 'block';
+      e.target.reset();
+    }
+  </script>
+</body>
+</html>
