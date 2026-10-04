@@ -172,7 +172,7 @@
       padding: 7px 15px;
       background: var(--surface);
       border: 1px solid var(--border);
-      border-radius: 999px;
+      border-radius: var(--radius-sm);
       text-decoration: none;
       color: var(--anthrazit);
       font-family: 'JetBrains Mono', monospace;
@@ -616,11 +616,18 @@
       color: var(--muted);
     }
     .job-badge {
-      background: var(--primary-glow);
-      color: var(--primary);
-      padding: 3px 10px;
-      border-radius: 999px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: #f1f5f9;
+      color: #334155;
+      border: 1px solid #e2e8f0;
+      padding: 4px 10px;
+      border-radius: 4px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.72rem;
       font-weight: 700;
+      letter-spacing: 0.03em;
     }
     .job-desc {
       font-size: 0.92rem;
@@ -818,7 +825,7 @@
       
       <!-- SPONTAN KAFFEE BOX -->
       <div class="coffee-card">
-        <span class="coffee-tag">☕ Ebene 1: Spontanbewerbung & Kennenlernen</span>
+        <span class="coffee-tag">● Initiativbewerbung // Unverbindlicher Kaffee in Krattigen</span>
         <h2 class="coffee-title">Auf einen unkomplizierten Kaffee in Krattigen?</h2>
         <p class="coffee-desc">
           Du bist Dachdecker, Spengler, Polybauer oder Zimmermann und suchst ein Umfeld, in dem deine Leistung ehrlich geschätzt wird? 
@@ -889,13 +896,13 @@
   <!-- EBENE 2: KONKRETE OFFENE STELLEN -->
   <div class="section-wrap" style="background: var(--surface);">
     <div class="section-inner">
-      <span class="section-kicker">Ebene 2: Aktuelle Vakanzen</span>
+      <span class="section-kicker">● Offene Stellen // Meisterbetrieb Krattigen</span>
       <h2 class="section-title">Offene Stellen in Krattigen</h2>
       <p class="section-subtitle">Du möchtest direkt bei uns anpacken? Hier sind unsere aktuellen Vakanzen.</p>
 
       <!-- JOB 1 -->
       <div class="job-card">
-        <span class="job-badge">AB SOFORT ODER NACH VEREINBARUNG</span>
+        <span class="job-badge"><span style="display:inline-block;width:6px;height:6px;border-radius:50%;background:#10b981;"></span> AB SOFORT ODER NACH VEREINBARUNG</span>
         <h3 class="job-title">Dachdecker EFZ / Steildach-Spezialist (m/w/d)</h3>
         <div class="job-meta">
           <span class="job-meta-item">Standort: Krattigen & Berner Oberland</span>
@@ -917,7 +924,7 @@
 
       <!-- JOB 2 -->
       <div class="job-card">
-        <span class="job-badge">AB SOFORT ODER NACH VEREINBARUNG</span>
+        <span class="job-badge"><span style="display:inline-block;width:6px;height:6px;border-radius:50%;background:#10b981;"></span> AB SOFORT ODER NACH VEREINBARUNG</span>
         <h3 class="job-title">Fassadenbauer EFZ / Bauspengler EFZ (m/w/d)</h3>
         <div class="job-meta">
           <span class="job-meta-item">Standort: Krattigen & Berner Oberland</span>
@@ -994,14 +1001,14 @@
         </div>
       </div>
 
-      <!-- COL 4: ACP CONTENT ENGINE -->
+      <!-- COL 4: LIVE UPDATES -->
       <div class="footer-col">
         <h4>Live von der Baustelle</h4>
         <p style="font-size: 0.85rem;">
           Verfolgen Sie unsere aktuellen Sanierungen und Drohnen-Einblicke direkt auf der Startseite unter <em>«● Frisch aus der Region»</em>.
         </p>
         <div style="margin-top: 14px; font-family: 'JetBrains Mono', monospace; font-size: 0.74rem; color: var(--primary); font-weight: 700;">
-          ⚡ Synchronisiert via ACP Engine
+          <span style="display:inline-block;width:6px;height:6px;border-radius:50%;background:#10b981;margin-right:6px;vertical-align:middle;"></span>Live-Betrieb & Hosting: Schweizer Edge (Zürich & Bern)
         </div>
       </div>
     </div>
@@ -1009,7 +1016,7 @@
     <!-- FOOTER BOTTOM MIT MOBILE SCROLL AIRBAG -->
     <div class="footer-bottom">
       <div>© 2026 Hiltbrand Gebäudehüllen AG, Krattigen. Meisterbetrieb in 3. Generation.</div>
-      <div>Powered by WebPilot // Schweizer Hosting (Zürich & Bern) • 100% Mobile & Desktop Perfection</div>
+      <div>Webmaster & Hosting: WebPilot // Schweizer Meister-Infrastruktur</div>
     </div>
   </footer>
 
