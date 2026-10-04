@@ -10,15 +10,16 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --primary: #EF4035; /* Echte Hiltbrand Firmenfarbe */
+      --primary: #EF4035; /* Hiltbrand Firmenrot */
       --primary-dark: #D32F2F;
-      --primary-glow: rgba(239, 64, 53, 0.15);
+      --primary-glow: rgba(239, 64, 53, 0.18);
       --anthrazit: #231F20; /* Dachschiefer Anthrazit */
       --accent: #231F20;
       --bg: #ffffff;
       --surface: #f8fafc;
       --surface-2: #f1f5f9;
       --border: #e2e8f0;
+      --border-dark: #332f30;
       --text: #231F20;
       --muted: #64748b;
       --radius-sm: 6px;
@@ -26,94 +27,379 @@
       --radius-lg: 16px;
       --shadow-sm: 0 1px 3px rgba(0,0,0,0.06);
       --shadow-md: 0 6px 20px -4px rgba(0,0,0,0.08);
+      --shadow-lg: 0 12px 32px -4px rgba(0,0,0,0.12);
     }
     * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
-    html { overflow-x: clip; }
-    body { width: 100%; min-height: 100vh; overflow-x: clip; background: var(--bg); color: var(--text); font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; line-height: 1.5; font-size: 15px; }
+    html { overflow-x: clip; scroll-behavior: smooth; }
+    body {
+      width: 100%;
+      min-height: 100vh;
+      overflow-x: clip;
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      line-height: 1.55;
+      font-size: 15px;
+      -webkit-font-smoothing: antialiased;
+    }
+    img { max-width: 100%; height: auto; display: block; }
+
+    /* SWISS ARCHITECTURAL CANVAS & KICKER RULES (AGENTS.md § 5.6d & § 5.6e) */
+    .section-wrap { width: 100%; border-bottom: 1px solid var(--border); }
+    .section-inner { max-width: 1100px; margin: 0 auto; padding: 50px 20px; width: 100%; }
+    .section-kicker, .kicker {
+      font-family: 'JetBrains Mono', monospace !important;
+      font-size: 11px !important;
+      color: var(--primary) !important;
+      font-weight: 700 !important;
+      text-transform: uppercase !important;
+      letter-spacing: 0.1em !important;
+      background: transparent !important;
+      border: none !important;
+      padding: 0 !important;
+      box-shadow: none !important;
+      margin-bottom: 8px !important;
+      display: inline-block !important;
+    }
+    .section-title {
+      font-size: 1.75rem;
+      font-weight: 800;
+      letter-spacing: -0.025em;
+      line-height: 1.25;
+      margin-bottom: 10px;
+      color: var(--anthrazit);
+    }
+    .section-desc {
+      font-size: 0.95rem;
+      color: var(--muted);
+      line-height: 1.6;
+      margin-bottom: 28px;
+      max-width: 720px;
+    }
 
     /* HEADER (STICKY) */
-    .top-bar { padding: 10px 16px; border-bottom: 1px solid var(--border); background: rgba(255, 255, 255, 0.98); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); position: -webkit-sticky; position: sticky; top: 0; z-index: 1000; width: 100%; }
-    .top-bar-inner { max-width: 1100px; margin: 0 auto; width: 100%; display: flex; justify-content: space-between; align-items: center; gap: 16px; }
-    .brand-logo-wrap { display: flex; align-items: center; gap: 12px; text-decoration: none; color: inherit; }
-    .brand-logo-img { height: 38px; width: auto; max-width: 130px; object-fit: contain; }
-    .brand-name { font-size: 1.05rem; font-weight: 800; letter-spacing: -0.02em; line-height: 1.2; color: var(--anthrazit); }
-    .brand-region { font-size: 0.72rem; color: var(--muted); font-weight: 500; }
+    .top-bar {
+      padding: 12px 20px;
+      border-bottom: 1px solid var(--border);
+      background: rgba(255, 255, 255, 0.96);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      position: -webkit-sticky;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      width: 100%;
+    }
+    .top-bar-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 24px;
+    }
+    .brand-logo-wrap {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: inherit;
+      flex-shrink: 0;
+    }
+    .brand-logo-img {
+      height: 38px;
+      width: auto;
+      max-width: 130px;
+      object-fit: contain;
+    }
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+    }
+    .brand-name {
+      font-size: 1.05rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      line-height: 1.2;
+      color: var(--anthrazit);
+    }
+    .brand-region {
+      font-size: 0.72rem;
+      color: var(--muted);
+      font-weight: 600;
+      font-family: 'JetBrains Mono', monospace;
+      letter-spacing: -0.01em;
+    }
 
-    .desktop-nav { display: none; align-items: center; gap: 20px; }
-    .desk-nav-link { font-size: 0.88rem; font-weight: 600; color: var(--text); text-decoration: none; transition: color 0.15s ease; }
-    .desk-nav-link:hover, .desk-nav-link.active { color: var(--primary); }
-    
-    .header-social { display: flex; gap: 8px; align-items: center; padding-left: 12px; border-left: 1px solid var(--border); }
-    .social-icon-btn { display: inline-flex; align-items: center; justify-content: center; width: 30px; height: 30px; border-radius: 50%; background: var(--surface); color: var(--anthrazit); text-decoration: none; font-size: 0.75rem; font-weight: 700; font-family: 'JetBrains Mono', monospace; transition: all 0.2s; border: 1px solid var(--border); }
-    .social-icon-btn:hover { background: var(--primary); color: #fff; border-color: var(--primary); transform: translateY(-1px); }
+    /* DESKTOP NAVIGATION */
+    .desktop-nav {
+      display: none;
+      align-items: center;
+      gap: 22px;
+    }
+    .desk-nav-link {
+      font-size: 0.92rem;
+      font-weight: 600;
+      color: var(--text);
+      text-decoration: none;
+      transition: color 0.15s ease;
+      position: relative;
+      padding: 6px 0;
+      white-space: nowrap;
+    }
+    .desk-nav-link:hover {
+      color: var(--primary);
+    }
+    .desk-nav-link.active {
+      color: var(--primary);
+      font-weight: 700;
+    }
+    .desk-nav-link.active::after {
+      content: '';
+      position: absolute;
+      bottom: -1px;
+      left: 0;
+      right: 0;
+      height: 2.5px;
+      background: var(--primary);
+      border-radius: 2px;
+    }
+    .desk-phone-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 7px 15px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      text-decoration: none;
+      color: var(--anthrazit);
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.82rem;
+      font-weight: 700;
+      transition: all 0.2s;
+      white-space: nowrap;
+    }
+    .desk-phone-pill:hover {
+      border-color: var(--primary);
+      color: var(--primary);
+      background: #ffffff;
+      box-shadow: var(--shadow-sm);
+    }
+    .btn-desk-contact {
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: #ffffff !important;
+      background: var(--primary);
+      padding: 9px 20px;
+      border-radius: var(--radius-sm);
+      text-decoration: none;
+      box-shadow: 0 2px 10px var(--primary-glow);
+      transition: background 0.15s, transform 0.15s;
+      white-space: nowrap;
+    }
+    .btn-desk-contact:hover {
+      background: var(--primary-dark);
+      transform: translateY(-1px);
+    }
 
-    .btn-desk-contact { font-size: 0.82rem; font-weight: 700; color: #fff !important; background: var(--primary); padding: 7px 14px; border-radius: var(--radius-sm); text-decoration: none; box-shadow: 0 2px 8px var(--primary-glow); }
-    .btn-desk-contact:hover { background: var(--primary-dark); }
-
-    .nav-burger { width: 44px; height: 44px; border: 1px solid var(--border); background: var(--surface); border-radius: var(--radius-sm); display: flex; align-items: center; justify-content: center; cursor: pointer; }
-    .nav-burger svg { width: 22px; height: 22px; stroke: var(--text); }
+    /* BURGER BUTTON (MOBILE) */
+    .nav-burger {
+      width: 44px;
+      height: 44px;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      border-radius: var(--radius-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      color: var(--text);
+      flex-shrink: 0;
+    }
+    .nav-burger svg {
+      width: 22px;
+      height: 22px;
+      stroke: var(--text);
+    }
 
     /* MOBILE DRAWER */
-    .nav-drawer { display: none; position: fixed; inset: 59px 0 0 0; background: rgba(255, 255, 255, 0.98); backdrop-filter: blur(16px); z-index: 850; padding: 24px 20px; flex-direction: column; gap: 16px; }
-    .nav-drawer.open { display: flex; }
-    .nav-link { font-size: 1.15rem; font-weight: 700; color: var(--text); text-decoration: none; padding: 12px 0; border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; }
-    .drawer-social { display: flex; gap: 10px; padding: 12px 0; align-items: center; }
+    .nav-drawer {
+      display: none;
+      position: fixed;
+      inset: 63px 0 0 0;
+      background: rgba(255, 255, 255, 0.98);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      z-index: 999;
+      padding: 24px 20px;
+      flex-direction: column;
+      gap: 12px;
+      overflow-y: auto;
+    }
+    .nav-drawer.open {
+      display: flex;
+    }
+    .drawer-link {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--text);
+      text-decoration: none;
+      padding: 14px 0;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .drawer-link.active {
+      color: var(--primary);
+    }
+    .drawer-phone-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 14px 20px;
+      background: var(--anthrazit);
+      color: #ffffff;
+      text-decoration: none;
+      border-radius: var(--radius-sm);
+      font-family: 'JetBrains Mono', monospace;
+      font-weight: 700;
+      margin-top: 10px;
+    }
+    .drawer-social {
+      display: flex;
+      gap: 12px;
+      padding: 14px 0;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .social-icon-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background: var(--surface);
+      color: var(--anthrazit);
+      text-decoration: none;
+      font-size: 0.82rem;
+      font-weight: 700;
+      font-family: 'JetBrains Mono', monospace;
+      transition: all 0.2s;
+      border: 1px solid var(--border);
+    }
+    .social-icon-btn:hover {
+      background: var(--primary);
+      color: #fff;
+      border-color: var(--primary);
+    }
+    .social-icon-btn.wa-icon {
+      background: #25D366;
+      color: #fff;
+      border-color: #25D366;
+    }
 
-    /* HERO */
-    .hero-wrap { width: 100%; background: linear-gradient(180deg, var(--surface) 0%, #ffffff 100%); border-bottom: 1px solid var(--border); padding: 28px 16px 36px 16px; }
-    .hero-inner { max-width: 1100px; margin: 0 auto; width: 100%; display: flex; flex-direction: column; gap: 22px; }
-    .kicker-pill { font-family: 'JetBrains Mono', monospace; font-size: 0.72rem; font-weight: 700; color: var(--primary); background: var(--primary-glow); padding: 4px 10px; border-radius: 999px; display: inline-flex; align-items: center; gap: 6px; }
-    .kicker-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--primary); }
-    .hero-title { font-size: 1.85rem; font-weight: 800; line-height: 1.18; letter-spacing: -0.03em; margin-top: 10px; color: var(--anthrazit); }
-    .hero-subtitle { font-size: 0.95rem; color: var(--muted); line-height: 1.55; margin-top: 8px; }
-    
-    .hero-media { width: 100%; aspect-ratio: 16/10; border-radius: var(--radius-md); overflow: hidden; box-shadow: var(--shadow-md); position: relative; background: var(--surface-2); }
-    .hero-media-img { width: 100%; height: 100%; object-fit: cover; display: block; animation: dhKenburns 14s ease-in-out infinite alternate; }
-    @keyframes dhKenburns { 0% { transform: scale(1.02); } 100% { transform: scale(1.10) translate(-0.8%, -0.6%); } }
-    .hero-media-badge { position: absolute; bottom: 12px; left: 12px; background: rgba(35, 31, 32, 0.90); backdrop-filter: blur(8px); color: #fff; font-size: 0.72rem; font-weight: 600; padding: 5px 12px; border-radius: var(--radius-sm); }
+    /* FOOTER */
+    .footer-wrap {
+      width: 100%;
+      background: var(--anthrazit);
+      color: #94a3b8;
+      border-top: 1px solid var(--border-dark);
+      padding: 56px 20px 0;
+    }
+    .footer-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 36px;
+      padding-bottom: 44px;
+    }
+    .footer-col h4 {
+      color: #ffffff;
+      font-size: 0.98rem;
+      font-weight: 800;
+      margin-bottom: 16px;
+      letter-spacing: -0.01em;
+    }
+    .footer-col p {
+      font-size: 0.88rem;
+      line-height: 1.65;
+      margin-bottom: 10px;
+    }
+    .footer-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .footer-link-a {
+      color: #94a3b8;
+      text-decoration: none;
+      font-size: 0.88rem;
+      transition: color 0.15s;
+    }
+    .footer-link-a:hover {
+      color: #ffffff;
+    }
+    .social-pill-group {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .social-pill-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      padding: 7px 14px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: var(--radius-sm);
+      color: #cbd5e1;
+      text-decoration: none;
+      font-size: 0.82rem;
+      font-weight: 600;
+      transition: all 0.2s;
+      width: fit-content;
+    }
+    .social-pill-btn:hover {
+      background: var(--primary);
+      color: #ffffff;
+      border-color: var(--primary);
+      transform: translateX(2px);
+    }
+    .social-pill-btn.wa-pill {
+      background: rgba(37,211,102,0.15);
+      border-color: rgba(37,211,102,0.3);
+      color: #25D366;
+    }
+    .social-pill-btn.wa-pill:hover {
+      background: #25D366;
+      color: #ffffff;
+    }
 
-    .hero-actions { display: flex; flex-direction: column; gap: 10px; margin-top: 18px; }
-    .btn-cta { width: 100%; min-height: 50px; border-radius: var(--radius-md); font-size: 0.95rem; font-weight: 700; display: inline-flex; align-items: center; justify-content: center; gap: 8px; text-decoration: none; cursor: pointer; border: none; }
-    .btn-cta-primary { background: var(--primary); color: #ffffff; box-shadow: 0 4px 14px var(--primary-glow); }
-    .btn-cta-whatsapp { background: #25D366; color: #ffffff; }
+    /* FOOTER BOTTOM WITH MOBILE SCROLL AIRBAG */
+    .footer-bottom {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding-top: 24px;
+      padding-bottom: calc(140px + env(safe-area-inset-bottom, 0px)); /* Mobile Airbag: Leaves 140px space below text so floating buttons never cover it */
+      border-top: 1px solid rgba(255,255,255,0.1);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.72rem;
+      color: #64748b;
+    }
 
-    /* SECTIONS */
-    .section-wrap { width: 100%; border-bottom: 1px solid var(--border); }
-    .section-inner { max-width: 1100px; margin: 0 auto; padding: 36px 16px; width: 100%; }
-    .section-kicker { font-family: 'JetBrains Mono', monospace; font-size: 0.72rem; color: var(--primary); font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 4px; display: block; }
-    .section-title { font-size: 1.45rem; font-weight: 800; letter-spacing: -0.02em; line-height: 1.25; margin-bottom: 8px; color: var(--anthrazit); }
-    .section-desc { font-size: 0.9rem; color: var(--muted); line-height: 1.5; margin-bottom: 22px; }
-
-    /* LEISTUNGEN KACHELN */
-    .service-cards { display: flex; flex-direction: column; gap: 14px; }
-    .service-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-md); padding: 20px; display: flex; flex-direction: column; gap: 10px; }
-    .service-card-head { display: flex; align-items: center; gap: 12px; }
-    .service-icon { width: 42px; height: 42px; border-radius: var(--radius-sm); background: var(--primary-glow); color: var(--primary); display: flex; align-items: center; justify-content: center; font-size: 1.25rem; flex-shrink: 0; }
-    .service-title { font-size: 1.05rem; font-weight: 700; color: var(--anthrazit); }
-    .service-list { list-style: none; display: flex; flex-direction: column; gap: 6px; font-size: 0.85rem; color: var(--muted); margin-top: 4px; }
-    .service-list li { display: flex; align-items: center; gap: 6px; }
-    .service-list li::before { content: '✓'; color: var(--primary); font-weight: 800; }
-
-    /* TEASER BOXEN */
-    .teaser-grid { display: grid; grid-template-columns: 1fr; gap: 16px; }
-    .teaser-card { background: #ffffff; border: 1px solid var(--border); border-radius: var(--radius-md); padding: 20px; display: flex; flex-direction: column; gap: 10px; }
-    .teaser-link { color: var(--primary); font-weight: 700; text-decoration: none; font-size: 0.88rem; display: inline-flex; align-items: center; gap: 4px; margin-top: auto; }
-
-    /* STORIES */
-    .stories-scroll { display: flex; gap: 14px; overflow-x: auto; padding-bottom: 8px; -webkit-overflow-scrolling: touch; }
-    .story-card { min-width: 260px; max-width: 260px; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-md); overflow: hidden; flex-shrink: 0; }
-    .story-img { width: 100%; aspect-ratio: 4/3; object-fit: cover; background: #cbd5e1; display: block; }
-    .story-body { padding: 12px; display: flex; flex-direction: column; gap: 4px; }
-
-    /* BLOG CARDS (ACP SYMBIOSE) */
-    .blog-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 18px; margin-top: 14px; }
-    .blog-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-md); padding: 18px; display: flex; flex-direction: column; gap: 8px; transition: transform 0.2s, box-shadow 0.2s; }
-    .blog-card:hover { transform: translateY(-2px); box-shadow: var(--shadow-sm); border-color: rgba(239, 64, 53, 0.3); }
-    .blog-meta { font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; color: var(--primary); font-weight: 700; }
-    .blog-title { font-size: 0.98rem; font-weight: 800; color: var(--anthrazit); line-height: 1.35; }
-    .blog-excerpt { font-size: 0.85rem; color: var(--muted); line-height: 1.5; flex-grow: 1; }
-
-    /* FLOATING CONTACT ACTIONS (NEUROLOGISCH ABGESETZT VOM FOOTER) */
+    /* FLOATING CONTACT ACTIONS (MOBILE ONLY) */
     .floating-actions {
       position: fixed;
       bottom: calc(18px + env(safe-area-inset-bottom, 0px));
@@ -136,12 +422,12 @@
       transform: scale(0.92);
     }
     .float-phone {
-      background: rgba(35, 31, 32, 0.94);
+      background: rgba(35, 31, 32, 0.95);
       backdrop-filter: blur(12px);
       -webkit-backdrop-filter: blur(12px);
-      border: 1.5px solid rgba(255, 255, 255, 0.22);
+      border: 1.5px solid rgba(255, 255, 255, 0.25);
       border-radius: 999px;
-      padding: 7px 16px 7px 8px;
+      padding: 8px 16px 8px 8px;
       gap: 9px;
       color: #ffffff;
       box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
@@ -155,10 +441,11 @@
       align-items: center;
       justify-content: center;
       color: #ffffff;
+      font-size: 0.95rem;
     }
     .float-phone-text {
       font-family: 'JetBrains Mono', monospace;
-      font-size: 0.82rem;
+      font-size: 0.84rem;
       font-weight: 700;
       letter-spacing: 0.02em;
     }
@@ -209,89 +496,341 @@
       0% { transform: translateY(0); }
       100% { transform: translateY(-3px); }
     }
-    .bottom-buffer {
-      height: 90px;
-    }
 
-    /* FOOTER */
-    .footer-wrap { width: 100%; background: var(--anthrazit); color: #94a3b8; border-top: 1px solid #332f30; padding: 45px 16px 25px; }
-    .footer-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 30px; margin-bottom: 30px; }
-    .footer-col h4 { color: #ffffff; font-size: 0.95rem; font-weight: 800; margin-bottom: 14px; }
-    .footer-col p { font-size: 0.85rem; line-height: 1.6; margin-bottom: 8px; }
-    .footer-links { list-style: none; display: flex; flex-direction: column; gap: 8px; }
-    .footer-link-a { color: #94a3b8; text-decoration: none; font-size: 0.85rem; transition: color 0.15s; }
-    .footer-link-a:hover { color: #ffffff; }
-    .social-pill-group { display: flex; flex-direction: column; gap: 8px; }
-    .social-pill-btn { display: inline-flex; align-items: center; gap: 8px; padding: 6px 12px; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); border-radius: var(--radius-sm); color: #cbd5e1; text-decoration: none; font-size: 0.82rem; font-weight: 600; transition: all 0.2s; width: fit-content; }
-    .social-pill-btn:hover { background: var(--primary); color: #ffffff; border-color: var(--primary); }
-    .footer-bottom { max-width: 1100px; margin: 0 auto; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.08); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; font-family: 'JetBrains Mono', monospace; font-size: 0.72rem; color: #64748b; }
-
-    /* DESKTOP MEDIA QUERY (min-width: 768px) */
-    @media (min-width: 768px) {
+    /* SHARED DESKTOP RULES (min-width: 860px) */
+    @media (min-width: 860px) {
       .desktop-nav { display: flex; }
       .nav-burger { display: none !important; }
-      .hero-wrap { padding: 56px 24px; }
-      .hero-inner { display: grid; grid-template-columns: 1.15fr 0.85fr; align-items: center; gap: 48px; }
-      .hero-title { font-size: 2.6rem; }
-      .hero-actions { flex-direction: row; }
-      .btn-cta { width: auto; padding: 0 24px; }
-      .service-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
-      .teaser-grid { grid-template-columns: 1fr 1fr; }
-      .floating-actions, .bottom-buffer { display: none !important; }
+      .nav-drawer { display: none !important; }
+      .floating-actions { display: none !important; }
+      .footer-inner { grid-template-columns: 1.3fr 1fr 1.25fr 1fr; gap: 40px; }
+      .footer-bottom { padding-bottom: 28px; }
     }
+
+    /* INDEX SPECIFIC STYLES */
+    .hero-wrap {
+      padding: 40px 20px;
+      background: linear-gradient(180deg, var(--surface) 0%, #ffffff 100%);
+    }
+    .hero-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+    }
+    .hero-text-side {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .hero-title {
+      font-size: 2rem;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1.18;
+      margin: 8px 0 16px;
+      color: var(--anthrazit);
+    }
+    .hero-subtitle {
+      font-size: 1rem;
+      color: var(--muted);
+      line-height: 1.6;
+      margin-bottom: 24px;
+    }
+    .hero-actions {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .btn-cta {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      height: 50px;
+      padding: 0 24px;
+      border-radius: var(--radius-sm);
+      font-size: 0.95rem;
+      font-weight: 700;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+    .btn-cta-primary {
+      background: var(--primary);
+      color: #fff;
+      box-shadow: 0 4px 16px var(--primary-glow);
+    }
+    .btn-cta-primary:hover {
+      background: var(--primary-dark);
+      transform: translateY(-1px);
+    }
+    .btn-cta-whatsapp {
+      background: #25D366;
+      color: #fff;
+      box-shadow: 0 4px 16px rgba(37,211,102,0.3);
+    }
+    .btn-cta-whatsapp:hover {
+      background: #1ebc59;
+      transform: translateY(-1px);
+    }
+    .hero-media {
+      position: relative;
+      width: 100%;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-md);
+    }
+    .hero-media-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .hero-media-badge {
+      position: absolute;
+      bottom: 14px;
+      left: 14px;
+      background: rgba(35, 31, 32, 0.88);
+      backdrop-filter: blur(8px);
+      color: #fff;
+      padding: 6px 12px;
+      border-radius: 999px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.72rem;
+      font-weight: 600;
+      border: 1px solid rgba(255,255,255,0.15);
+    }
+
+    /* STORIES (FRISCH AUS DER REGION) */
+    .stories-scroll {
+      display: flex;
+      overflow-x: auto;
+      gap: 16px;
+      padding-bottom: 12px;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+    }
+    .stories-scroll::-webkit-scrollbar { display: none; }
+    .story-card {
+      min-width: 280px;
+      flex: 0 0 auto;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .story-card:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-md);
+      border-color: var(--primary);
+    }
+    .story-img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+    .story-body {
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+
+    /* SERVICES */
+    .service-cards {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+    .service-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 24px;
+      transition: transform 0.2s, box-shadow 0.2s;
+      display: flex;
+      flex-direction: column;
+    }
+    .service-card:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-md);
+      border-color: var(--primary);
+    }
+    .service-card-head {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+    .service-icon { font-size: 1.5rem; }
+    .service-title {
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: var(--anthrazit);
+    }
+    .service-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      font-size: 0.88rem;
+      color: var(--muted);
+    }
+    .service-list li {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    /* TEASERS & BLOG */
+    .teaser-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+    .teaser-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 28px;
+      display: flex;
+      flex-direction: column;
+    }
+    .teaser-link {
+      color: var(--primary);
+      font-weight: 700;
+      text-decoration: none;
+      margin-top: auto;
+      padding-top: 14px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .blog-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+    .blog-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 20px;
+      text-decoration: none;
+      color: inherit;
+      transition: all 0.2s;
+    }
+    .blog-card:hover {
+      border-color: var(--primary);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-sm);
+    }
+
+    /* INDEX DESKTOP RESPONSIVENESS */
+    @media (min-width: 860px) {
+      .hero-wrap { padding: 64px 20px; }
+      .hero-inner {
+        display: grid;
+        grid-template-columns: 1.15fr 0.85fr;
+        gap: 48px;
+        align-items: stretch;
+      }
+      .hero-title { font-size: 2.85rem; }
+      .hero-actions { flex-direction: row; }
+      .btn-cta { width: auto; padding: 0 28px; }
+      .hero-media { height: 100%; min-height: 400px; }
+      .stories-scroll {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 24px;
+        overflow-x: visible;
+        padding-bottom: 0;
+      }
+      .story-card { min-width: 0; width: 100%; }
+      .service-cards {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 24px;
+      }
+      .teaser-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 28px;
+      }
+      .blog-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 24px;
+      }
+    }
+
   </style>
 </head>
 <body>
 
-  <!-- HEADER -->
+  <!-- HEADER (STICKY) -->
   <header class="top-bar">
     <div class="top-bar-inner">
       <a href="index.html" class="brand-logo-wrap">
         <img src="images/logo.png" alt="Hiltbrand Gebäudehüllen AG Logo" class="brand-logo-img">
-        <div>
+        <div class="brand-text">
           <div class="brand-name">Hiltbrand</div>
           <div class="brand-region">Gebäudehüllen AG • Krattigen</div>
         </div>
       </a>
 
+      <!-- DESKTOP NAVIGATION -->
       <nav class="desktop-nav">
         <a href="index.html" class="desk-nav-link active">Startseite</a>
         <a href="team.html" class="desk-nav-link">Über uns & Team</a>
         <a href="karriere.html" class="desk-nav-link">Karriere & Jobs</a>
         <a href="kontakt.html" class="desk-nav-link">Kontakt & 24h-Pikett</a>
         
-        <div class="header-social">
-          <a href="https://www.linkedin.com/company/hiltbrand-geb%C3%A4udeh%C3%Bcllen-gmbh/" target="_blank" rel="noopener" class="social-icon-btn" title="LinkedIn">in</a>
-          <a href="https://www.instagram.com/hiltbrand_gebaudehuellen/" target="_blank" rel="noopener" class="social-icon-btn" title="Instagram">IG</a>
-          <a href="https://www.facebook.com/hiltbrandgebaudehuellen" target="_blank" rel="noopener" class="social-icon-btn" title="Facebook">FB</a>
-          <a href="https://x.com/HiltbrandAG" target="_blank" rel="noopener" class="social-icon-btn" title="X (Twitter)">𝕏</a>
-          <a href="https://wa.me/41792318484" target="_blank" rel="noopener" class="social-icon-btn" title="WhatsApp" style="background:#25D366; color:#fff; border-color:#25D366;">WA</a>
-        </div>
-
+        <a href="tel:+41335300204" class="desk-phone-pill">
+          <span>📞</span> 033 530 02 04
+        </a>
         <a href="kontakt.html" class="btn-desk-contact">Offerte anfragen</a>
       </nav>
 
+      <!-- MOBILE BURGER BUTTON -->
       <button class="nav-burger" onclick="toggleDrawer()" aria-label="Menü öffnen">
         <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
       </button>
     </div>
   </header>
 
-  <!-- MOBILE DRAWER -->
+  <!-- MOBILE NAVIGATION DRAWER -->
   <div class="nav-drawer" id="navDrawer">
-    <a href="index.html" class="nav-link">Startseite <span>→</span></a>
-    <a href="team.html" class="nav-link">Über uns & Team <span>→</span></a>
-    <a href="karriere.html" class="nav-link">Karriere & Offene Stellen <span>→</span></a>
-    <a href="kontakt.html" class="nav-link">Kontakt & Sturm-Notdienst <span>→</span></a>
+    <a href="index.html" class="drawer-link active">
+      <span>Startseite & Gewerke</span>
+      <span>→</span>
+    </a>
+    <a href="team.html" class="drawer-link">
+      <span>Über uns & Team</span>
+      <span>→</span>
+    </a>
+    <a href="karriere.html" class="drawer-link">
+      <span>Karriere & Offene Stellen</span>
+      <span>→</span>
+    </a>
+    <a href="kontakt.html" class="drawer-link">
+      <span>Kontakt & 24h-Pikett</span>
+      <span>→</span>
+    </a>
+
+    <a href="tel:+41335300204" class="drawer-phone-btn">
+      <span>📞</span> Anruf: 033 530 02 04
+    </a>
+
     <div class="drawer-social">
-      <span style="font-size:0.8rem; color:var(--muted); margin-right:4px;">Social:</span>
-      <a href="https://www.linkedin.com/company/hiltbrand-geb%C3%A4udeh%C3%Bcllen-gmbh/" target="_blank" rel="noopener" class="social-icon-btn" title="LinkedIn">in</a>
+      <a href="https://www.linkedin.com/company/hiltbrand-geb%C3%A4udeh%C3%Bcllen-gmbh/" target="_blank" rel="noopener" class="social-icon-btn" title="LinkedIn Hiltbrand AG">in</a>
+      <a href="https://www.linkedin.com/in/eljas-hiltbrand-949121b7/" target="_blank" rel="noopener" class="social-icon-btn" title="LinkedIn Eljas Hiltbrand">👤</a>
       <a href="https://www.instagram.com/hiltbrand_gebaudehuellen/" target="_blank" rel="noopener" class="social-icon-btn" title="Instagram">IG</a>
       <a href="https://www.facebook.com/hiltbrandgebaudehuellen" target="_blank" rel="noopener" class="social-icon-btn" title="Facebook">FB</a>
       <a href="https://x.com/HiltbrandAG" target="_blank" rel="noopener" class="social-icon-btn" title="X (Twitter)">𝕏</a>
-      <a href="https://wa.me/41792318484" target="_blank" rel="noopener" class="social-icon-btn" style="background:#25D366; color:#fff; border-color:#25D366;">WA</a>
+      <a href="https://wa.me/41792318484" target="_blank" rel="noopener" class="social-icon-btn wa-icon" title="WhatsApp Direkt">WA</a>
     </div>
-    <a href="kontakt.html" class="btn-cta btn-cta-primary" style="margin-top: 10px;">Jetzt Offerte anfordern</a>
   </div>
 
   <!-- HERO -->
@@ -489,61 +1028,40 @@
     </div>
   </div>
 
-  <div class="bottom-buffer"></div>
-
-  <!-- SCHWEBENDE KONTAKT-AKTIONEN (NEUROLOGISCH ABGESETZT VOM FOOTER) -->
-  <div class="floating-actions" id="floatingActions">
-    <!-- ANRUF / PIKETT BUTTON (LINKS) -->
-    <a href="tel:+41335300204" class="float-btn float-phone" aria-label="Direkt anrufen">
-      <div class="float-phone-icon">
-        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
-        </svg>
-      </div>
-      <span class="float-phone-text">033 530 02 04</span>
-    </a>
-
-    <!-- RUNDER WHATSAPP FAB (RECHTS) -->
-    <a href="https://wa.me/41792318484?text=Hallo%20Benji,%20ich%20habe%20eine%20Anfrage%20zu%20einem%20Projekt" target="_blank" rel="noopener" class="float-btn float-whatsapp" aria-label="WhatsApp Direktchat mit Benji">
-      <div class="wa-ripple"></div>
-      <svg viewBox="0 0 24 24" width="30" height="30" fill="currentColor">
-        <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2zm.01 1.67c2.2 0 4.26.86 5.82 2.42a8.225 8.225 0 0 1 2.41 5.83c0 4.54-3.7 8.24-8.24 8.24-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.188 8.188 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.24-8.24zm4.52 11.66c-.25-.13-1.47-.72-1.7-.81-.23-.08-.39-.13-.56.13-.17.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.13-1.06-.39-2.02-1.25-.75-.67-1.25-1.5-1.4-1.75-.14-.25-.02-.39.11-.51.11-.11.25-.29.37-.44.13-.14.17-.25.25-.42.08-.17.04-.31-.02-.44-.06-.13-.56-1.34-.76-1.84-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.44.06-.67.31-.23.25-.88.86-.88 2.1 0 1.24.9 2.44 1.03 2.61.13.17 1.77 2.7 4.29 3.79.6.26 1.07.41 1.44.53.6.19 1.15.16 1.58.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.07.15-1.18-.07-.12-.23-.19-.48-.31z"/>
-      </svg>
-      <span class="float-wa-tooltip">WhatsApp an Benji 👋</span>
-    </a>
-  </div>
-
-  <!-- FOOTER -->
+  <!-- SWISS 4-COLUMN FOOTER -->
   <footer class="footer-wrap">
     <div class="footer-inner">
-      <!-- COL 1 -->
+      <!-- COL 1: FIRMENDATEN -->
       <div class="footer-col">
-        <div style="font-weight: 800; font-size: 1.1rem; color: #fff; margin-bottom:8px;">Hiltbrand Gebäudehüllen AG</div>
-        <p>Risegasse 27<br>3704 Krattigen (Berner Oberland)</p>
-        <p style="margin-top:10px;">
-          <strong>Tel:</strong> 033 530 02 04<br>
+        <div style="font-weight: 800; font-size: 1.15rem; color: #fff; margin-bottom: 10px; letter-spacing: -0.01em;">Hiltbrand Gebäudehüllen AG</div>
+        <p>Risegasse 27<br>3704 Krattigen (Berner Oberland / Thunersee)</p>
+        <p style="margin-top: 14px;">
+          <strong>Telefon:</strong> 033 530 02 04<br>
           <strong>Mobil / WhatsApp:</strong> 079 231 84 84<br>
           <strong>E-Mail:</strong> info@hiltbrand.swiss
         </p>
       </div>
 
-      <!-- COL 2 -->
+      <!-- COL 2: NAVIGATION -->
       <div class="footer-col">
         <h4>Navigation</h4>
         <ul class="footer-links">
-          <li><a href="index.html" class="footer-link-a" style="color:#fff; font-weight:700;">Startseite & Gewerke</a></li>
+          <li><a href="index.html" class="footer-link-a">Startseite & Gewerke</a></li>
           <li><a href="team.html" class="footer-link-a">Über uns & Team</a></li>
-          <li><a href="karriere.html" class="footer-link-a">Karriere & Vakanzen</a></li>
+          <li><a href="karriere.html" class="footer-link-a">Karriere & Jobs</a></li>
           <li><a href="kontakt.html" class="footer-link-a">Kontakt & 24h Sturm-Pikett</a></li>
         </ul>
       </div>
 
-      <!-- COL 3: SOCIAL MEDIA -->
+      <!-- COL 3: SOCIAL MEDIA MATRIX -->
       <div class="footer-col">
         <h4>Social Media & Vernetzung</h4>
         <div class="social-pill-group">
           <a href="https://www.linkedin.com/company/hiltbrand-geb%C3%A4udeh%C3%Bcllen-gmbh/" target="_blank" rel="noopener" class="social-pill-btn">
             <span>💼</span> LinkedIn (Hiltbrand AG)
+          </a>
+          <a href="https://www.linkedin.com/in/eljas-hiltbrand-949121b7/" target="_blank" rel="noopener" class="social-pill-btn">
+            <span>👤</span> Eljas Hiltbrand (LinkedIn)
           </a>
           <a href="https://www.instagram.com/hiltbrand_gebaudehuellen/" target="_blank" rel="noopener" class="social-pill-btn">
             <span>📷</span> Instagram (@hiltbrand_gebaudehuellen)
@@ -554,34 +1072,51 @@
           <a href="https://x.com/HiltbrandAG" target="_blank" rel="noopener" class="social-pill-btn">
             <span>✖️</span> X / Twitter (@HiltbrandAG)
           </a>
-          <a href="https://wa.me/41792318484" target="_blank" rel="noopener" class="social-pill-btn" style="background:rgba(37,211,102,0.15); border-color:rgba(37,211,102,0.3); color:#25D366;">
+          <a href="https://wa.me/41792318484" target="_blank" rel="noopener" class="social-pill-btn wa-pill">
             <span>💬</span> WhatsApp Direkt-Draht
           </a>
         </div>
       </div>
-      </div>
 
-      <!-- COL 4: CONTENT ENGINE & ACP -->
+      <!-- COL 4: ACP CONTENT ENGINE -->
       <div class="footer-col">
         <h4>Live von der Baustelle</h4>
-        <p style="font-size:0.82rem;">
+        <p style="font-size: 0.85rem;">
           Verfolgen Sie unsere aktuellen Sanierungen und Drohnen-Einblicke direkt auf der Startseite unter <em>«● Frisch aus der Region»</em>.
         </p>
-        <div style="margin-top:12px; font-family:'JetBrains Mono',monospace; font-size:0.72rem; color:var(--primary); font-weight:700;">
+        <div style="margin-top: 14px; font-family: 'JetBrains Mono', monospace; font-size: 0.74rem; color: var(--primary); font-weight: 700;">
           ⚡ Synchronisiert via ACP Engine
         </div>
       </div>
     </div>
 
+    <!-- FOOTER BOTTOM MIT MOBILE SCROLL AIRBAG -->
     <div class="footer-bottom">
-      <div>© 2026 Hiltbrand Gebäudehüllen AG, Krattigen. Alle Rechte vorbehalten.</div>
-      <div>Powered by WebPilot // Schweizer Hosting (Zürich & Genf) • 100% Mobile First Architecture</div>
+      <div>© 2026 Hiltbrand Gebäudehüllen AG, Krattigen. Meisterbetrieb in 3. Generation.</div>
+      <div>Powered by WebPilot // Schweizer Hosting (Zürich & Bern) • 100% Mobile & Desktop Perfection</div>
     </div>
   </footer>
 
+  <!-- SCHWEBENDE KONTAKT-AKTIONEN (NUR AUF MOBILE SICHTBAR) -->
+  <div class="floating-actions" id="floatingActions">
+    <a href="tel:+41335300204" class="float-btn float-phone" aria-label="Hiltbrand Notdienst & Büro anrufen">
+      <div class="float-phone-icon">📞</div>
+      <div class="float-phone-text">033 530 02 04</div>
+    </a>
+
+    <a href="https://wa.me/41792318484?text=Hallo%20Hiltbrand-Team,%20ich%20interessiere%20mich%20f%C3%BCr%20eine%20Offerte/Beratung." target="_blank" rel="noopener" class="float-btn float-whatsapp" aria-label="Per WhatsApp schreiben">
+      <div class="wa-ripple"></div>
+      <div class="float-wa-tooltip">💬 Offerte in 2 Min</div>
+      <svg width="30" height="30" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
+      </svg>
+    </a>
+  </div>
+
   <script>
     function toggleDrawer() {
-      document.getElementById('navDrawer').classList.toggle('open');
+      var d = document.getElementById('navDrawer');
+      if (d) d.classList.toggle('open');
     }
   </script>
 </body>
