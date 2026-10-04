@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
   <title>Über uns & Team — Hiltbrand Gebäudehüllen AG | Krattigen</title>
-  <meta name="description" content="Lernen Sie das Team der Hiltbrand Gebäudehüllen AG kennen. Eljas Hiltbrand (Meister HFP), Benjamin Hiltbrand und 15 Spezialisten in Krattigen am Thunersee.">
+  <meta name="description" content="Lernen Sie das Team der Hiltbrand Gebäudehüllen AG kennen. Geschäftsleitung, persönliche Ansprechpartner im Verkauf und 15 Fachhandwerker in Krattigen am Thunersee.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
@@ -12,7 +12,7 @@
     :root {
       --primary: #EF4035;
       --primary-dark: #D32F2F;
-      --primary-glow: rgba(239, 64, 53, 0.15);
+      --primary-glow: rgba(239, 64, 53, 0.12);
       --anthrazit: #231F20;
       --accent: #231F20;
       --bg: #ffffff;
@@ -33,280 +33,378 @@
 
     /* HEADER (STICKY) */
     .top-bar { padding: 10px 16px; border-bottom: 1px solid var(--border); background: rgba(255, 255, 255, 0.98); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); position: -webkit-sticky; position: sticky; top: 0; z-index: 1000; width: 100%; }
-    .top-bar-inner { max-width: 1100px; margin: 0 auto; width: 100%; display: flex; justify-content: space-between; align-items: center; gap: 16px; }
-    .brand-logo-wrap { display: flex; align-items: center; gap: 12px; text-decoration: none; color: inherit; }
-    .brand-logo-img { height: 38px; width: auto; max-width: 130px; object-fit: contain; }
-    .brand-name { font-size: 1.05rem; font-weight: 800; letter-spacing: -0.02em; line-height: 1.2; color: var(--anthrazit); }
-    .brand-region { font-size: 0.72rem; color: var(--muted); font-weight: 500; }
+    .top-bar-inner { max-width: 1100px; margin: 0 auto; width: 100%; display: flex; justify-content: space-between; align-items: center; }
+    .brand-logo-wrap { display: flex; align-items: center; gap: 10px; text-decoration: none; color: inherit; }
+    .brand-logo-img { height: 38px; width: auto; object-fit: contain; }
+    
+    .nav-links { display: flex; gap: 20px; align-items: center; }
+    .nav-link { text-decoration: none; color: var(--muted); font-size: 0.9rem; font-weight: 500; transition: color 0.15s; }
+    .nav-link:hover, .nav-link.active { color: var(--primary); font-weight: 700; }
+    
+    .header-social { display: flex; gap: 10px; align-items: center; margin-left: 8px; padding-left: 14px; border-left: 1px solid var(--border); }
+    .social-icon-btn { display: inline-flex; align-items: center; justify-content: center; width: 32px; height: 32px; border-radius: 50%; background: var(--surface); color: var(--anthrazit); text-decoration: none; font-size: 0.78rem; font-weight: 700; font-family: 'JetBrains Mono', monospace; transition: all 0.2s; border: 1px solid var(--border); }
+    .social-icon-btn:hover { background: var(--primary); color: #fff; border-color: var(--primary); transform: translateY(-1px); }
 
-    .desktop-nav { display: none; align-items: center; gap: 24px; }
-    .desk-nav-link { font-size: 0.88rem; font-weight: 600; color: var(--text); text-decoration: none; transition: color 0.15s ease; }
-    .desk-nav-link:hover, .desk-nav-link.active { color: var(--primary); }
-    .btn-desk-contact { font-size: 0.85rem; font-weight: 700; color: #fff !important; background: var(--primary); padding: 8px 16px; border-radius: var(--radius-sm); text-decoration: none; box-shadow: 0 2px 8px var(--primary-glow); }
+    .nav-cta-btn { background: var(--primary); color: #ffffff !important; padding: 7px 14px; border-radius: var(--radius-sm); font-weight: 700; font-size: 0.82rem; text-decoration: none; transition: background 0.15s; }
+    .nav-cta-btn:hover { background: var(--primary-dark); }
+    .burger-btn { display: none; background: none; border: none; font-size: 1.4rem; cursor: pointer; color: var(--text); padding: 4px; }
 
-    .nav-burger { width: 44px; height: 44px; border: 1px solid var(--border); background: var(--surface); border-radius: var(--radius-sm); display: flex; align-items: center; justify-content: center; cursor: pointer; }
-    .nav-burger svg { width: 22px; height: 22px; stroke: var(--text); }
+    @media (max-width: 860px) {
+      .nav-links, .header-social { display: none; }
+      .burger-btn { display: block; }
+    }
 
-    /* MOBILE DRAWER */
-    .nav-drawer { display: none; position: fixed; inset: 64px 0 0 0; background: rgba(255, 255, 255, 0.98); backdrop-filter: blur(16px); z-index: 850; padding: 24px 20px; flex-direction: column; gap: 16px; }
+    /* DRAWER */
+    .nav-drawer { display: none; position: fixed; top: 59px; left: 0; right: 0; background: #ffffff; border-bottom: 1px solid var(--border); padding: 18px 20px; box-shadow: var(--shadow-md); z-index: 999; flex-direction: column; gap: 14px; }
     .nav-drawer.open { display: flex; }
-    .nav-link { font-size: 1.15rem; font-weight: 700; color: var(--text); text-decoration: none; padding: 12px 0; border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; }
+    .drawer-link { font-size: 1rem; font-weight: 600; text-decoration: none; color: var(--text); padding: 8px 0; border-bottom: 1px solid var(--surface-2); }
+    .drawer-link.active { color: var(--primary); }
+    .drawer-social { display: flex; gap: 10px; padding: 10px 0; align-items: center; }
 
     /* HERO */
-    .page-hero { width: 100%; background: linear-gradient(180deg, var(--surface) 0%, #ffffff 100%); border-bottom: 1px solid var(--border); padding: 36px 16px; }
-    .page-hero-inner { max-width: 1100px; margin: 0 auto; width: 100%; }
-    .section-kicker { font-family: 'JetBrains Mono', monospace; font-size: 0.72rem; color: var(--primary); font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 6px; display: block; }
-    .page-title { font-size: 1.85rem; font-weight: 800; line-height: 1.2; letter-spacing: -0.03em; margin-bottom: 10px; color: var(--anthrazit); }
-    .page-desc { font-size: 0.95rem; color: var(--muted); line-height: 1.6; max-width: 680px; }
+    .hero-team { background: linear-gradient(180deg, var(--surface) 0%, #ffffff 100%); padding: 50px 20px 30px; border-bottom: 1px solid var(--border); }
+    .hero-team-inner { max-width: 1100px; margin: 0 auto; }
+    .kicker { font-family: 'JetBrains Mono', monospace; font-size: 0.72rem; color: var(--primary); font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 10px; display: block; }
+    .hero-title { font-size: clamp(1.8rem, 4vw, 2.5rem); font-weight: 800; color: var(--anthrazit); line-height: 1.15; margin-bottom: 12px; }
+    .hero-subtitle { font-size: 1.05rem; color: var(--muted); max-width: 720px; line-height: 1.6; }
 
-    /* SECTIONS */
-    .section-wrap { width: 100%; border-bottom: 1px solid var(--border); }
-    .section-inner { max-width: 1100px; margin: 0 auto; padding: 40px 16px; width: 100%; }
-    .section-title { font-size: 1.45rem; font-weight: 800; letter-spacing: -0.02em; line-height: 1.25; margin-bottom: 8px; color: var(--anthrazit); }
-    .section-subtitle { font-size: 0.9rem; color: var(--muted); line-height: 1.5; margin-bottom: 24px; }
+    /* SECTION LAYOUT */
+    .section-pad { padding: 45px 20px; max-width: 1100px; margin: 0 auto; }
+    .category-header { margin-bottom: 24px; padding-bottom: 10px; border-bottom: 2px solid var(--surface-2); display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 10px; }
+    .category-title { font-size: 1.35rem; font-weight: 800; color: var(--anthrazit); display: flex; align-items: center; gap: 8px; }
+    .category-title::before { content: ''; display: inline-block; width: 4px; height: 18px; background: var(--primary); border-radius: 2px; }
+    .category-desc { font-size: 0.88rem; color: var(--muted); }
 
-    /* TEAM GRID (Soleco Style) */
-    .team-grid { display: grid; grid-template-columns: 1fr; gap: 20px; }
-    .member-card { background: #ffffff; border: 1px solid var(--border); border-radius: var(--radius-md); overflow: hidden; box-shadow: var(--shadow-sm); display: flex; flex-direction: column; }
-    .member-photo-wrap { width: 100%; aspect-ratio: 1/1; position: relative; background: var(--surface-2); overflow: hidden; }
-    .member-photo { width: 100%; height: 100%; object-fit: cover; object-position: top center; display: block; }
-    .member-badge { position: absolute; bottom: 10px; left: 10px; background: rgba(35, 31, 32, 0.90); backdrop-filter: blur(8px); color: #fff; font-size: 0.72rem; font-weight: 600; padding: 4px 10px; border-radius: var(--radius-sm); }
-    .member-info { padding: 18px; display: flex; flex-direction: column; gap: 6px; flex: 1; }
-    .member-name { font-size: 1.15rem; font-weight: 800; letter-spacing: -0.02em; color: var(--anthrazit); }
-    .member-role { font-size: 0.85rem; color: var(--primary); font-weight: 700; }
-    .member-bio { font-size: 0.85rem; color: var(--muted); line-height: 1.5; margin: 6px 0 10px 0; }
-    .member-contacts { margin-top: auto; display: flex; flex-direction: column; gap: 6px; border-top: 1px solid var(--border); padding-top: 12px; font-size: 0.82rem; }
-    .member-contact-link { display: inline-flex; align-items: center; gap: 8px; color: var(--text); text-decoration: none; font-weight: 600; }
-    .member-contact-link:hover { color: var(--primary); }
+    /* TEAM GRID */
+    .team-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; margin-bottom: 40px; }
+    .member-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg); overflow: hidden; transition: transform 0.2s, box-shadow 0.2s; display: flex; flex-direction: column; }
+    .member-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); border-color: rgba(239, 64, 53, 0.3); }
+    .member-photo-wrap { position: relative; width: 100%; aspect-ratio: 4/3; background: #e2e8f0; overflow: hidden; }
+    .member-photo { width: 100%; height: 100%; object-fit: cover; object-position: center top; transition: transform 0.3s; }
+    .member-card:hover .member-photo { transform: scale(1.02); }
+    .member-badge { position: absolute; bottom: 12px; left: 12px; background: rgba(35, 31, 32, 0.88); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); color: #ffffff; font-family: 'JetBrains Mono', monospace; font-size: 0.68rem; font-weight: 700; padding: 4px 10px; border-radius: 4px; border: 1px solid rgba(255,255,255,0.15); }
+    
+    .member-info { padding: 20px; display: flex; flex-direction: column; flex-grow: 1; }
+    .member-name { font-size: 1.15rem; font-weight: 800; color: var(--anthrazit); margin-bottom: 4px; }
+    .member-role { font-size: 0.82rem; font-weight: 700; color: var(--primary); margin-bottom: 10px; font-family: 'JetBrains Mono', monospace; }
+    .member-bio { font-size: 0.88rem; color: var(--muted); line-height: 1.5; margin-bottom: 16px; flex-grow: 1; }
+    
+    .member-contacts { display: flex; flex-wrap: wrap; gap: 8px; padding-top: 14px; border-top: 1px solid var(--border); font-size: 0.82rem; }
+    .member-contact-link { display: inline-flex; align-items: center; gap: 5px; color: var(--text); text-decoration: none; padding: 5px 10px; background: #ffffff; border: 1px solid var(--border); border-radius: var(--radius-sm); font-weight: 600; transition: all 0.15s; }
+    .member-contact-link:hover { border-color: var(--primary); color: var(--primary); }
+    .member-contact-link.wa:hover { border-color: #25D366; color: #25D366; }
 
-    /* TEAM GROUP PHOTO BANNER */
-    .group-banner { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg); overflow: hidden; margin-top: 36px; }
-    .group-img { width: 100%; max-height: 420px; object-fit: cover; display: block; }
-    .group-content { padding: 24px; }
-
-    /* VALUE BOXES */
-    .values-grid { display: grid; grid-template-columns: 1fr; gap: 16px; margin-top: 24px; }
-    .value-box { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-md); padding: 20px; }
-    .value-icon { font-size: 1.5rem; margin-bottom: 8px; }
-    .value-title { font-size: 1.05rem; font-weight: 700; margin-bottom: 6px; color: var(--anthrazit); }
-    .value-text { font-size: 0.85rem; color: var(--muted); line-height: 1.5; }
-
-    /* STICKY THUMB BAR */
-    .thumb-bar { position: fixed; bottom: 0; left: 0; right: 0; background: rgba(255, 255, 255, 0.96); backdrop-filter: blur(12px); border-top: 1px solid var(--border); padding: 10px 14px; padding-bottom: calc(10px + env(safe-area-inset-bottom, 0px)); display: flex; gap: 10px; z-index: 950; }
-    .btn-thumb { flex: 1; height: 48px; border-radius: var(--radius-md); font-size: 0.88rem; font-weight: 700; display: inline-flex; align-items: center; justify-content: center; gap: 6px; text-decoration: none; color: #fff; }
-    .btn-thumb-phone { background: var(--primary); }
-    .btn-thumb-whatsapp { background: #25D366; }
-    .bottom-buffer { height: 74px; }
+    /* CREW PANORAMA */
+    .crew-banner { background: var(--anthrazit); border-radius: var(--radius-lg); overflow: hidden; color: #ffffff; margin: 40px 0 20px; border: 1px solid #332f30; }
+    .crew-img { width: 100%; height: 320px; object-fit: cover; object-position: center; display: block; opacity: 0.9; }
+    .crew-content { padding: 24px 28px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; }
+    .crew-text h3 { font-size: 1.3rem; font-weight: 800; margin-bottom: 6px; }
+    .crew-text p { font-size: 0.92rem; color: #94a3b8; max-width: 600px; }
+    
+    /* MODULAR COCKPIT NOTICE */
+    .cockpit-info-box { background: var(--surface); border: 1px dashed var(--border); border-radius: var(--radius-md); padding: 18px 22px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 14px; margin-top: 25px; }
+    .cockpit-info-text { font-size: 0.85rem; color: var(--muted); }
+    .cockpit-info-text strong { color: var(--anthrazit); }
+    .cockpit-pill { background: #ffffff; border: 1px solid var(--border); padding: 4px 10px; border-radius: 4px; font-family: 'JetBrains Mono', monospace; font-size: 0.72rem; color: var(--primary); font-weight: 700; }
 
     /* FOOTER */
-    .footer-wrap { width: 100%; background: #1c191a; color: #94a3b8; border-top: 1px solid #2e282a; }
-    .footer-inner { max-width: 1100px; margin: 0 auto; padding: 40px 16px; font-size: 0.82rem; line-height: 1.6; }
+    .footer-wrap { background: var(--anthrazit); color: #94a3b8; padding: 45px 20px 25px; border-top: 1px solid #332f30; }
+    .footer-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 30px; margin-bottom: 30px; }
+    .footer-col h4 { color: #ffffff; font-size: 0.95rem; font-weight: 800; margin-bottom: 14px; letter-spacing: -0.01em; }
+    .footer-col p { font-size: 0.85rem; line-height: 1.6; margin-bottom: 8px; }
+    .footer-links { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+    .footer-link-a { color: #94a3b8; text-decoration: none; font-size: 0.85rem; transition: color 0.15s; }
+    .footer-link-a:hover { color: #ffffff; }
+    
+    .social-pill-group { display: flex; flex-direction: column; gap: 8px; }
+    .social-pill-btn { display: inline-flex; align-items: center; gap: 8px; padding: 6px 12px; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); border-radius: var(--radius-sm); color: #cbd5e1; text-decoration: none; font-size: 0.82rem; font-weight: 600; transition: all 0.2s; width: fit-content; }
+    .social-pill-btn:hover { background: var(--primary); color: #ffffff; border-color: var(--primary); }
 
-    /* DESKTOP MEDIA QUERY (min-width: 768px) */
-    @media (min-width: 768px) {
-      .desktop-nav { display: flex; }
-      .nav-burger { display: none !important; }
-      .page-hero { padding: 56px 24px; }
-      .page-title { font-size: 2.4rem; }
-      .section-inner { padding: 56px 24px; }
-      .section-title { font-size: 1.95rem; }
-      .team-grid { grid-template-columns: repeat(2, 1fr); gap: 24px; }
-      .values-grid { grid-template-columns: repeat(3, 1fr); gap: 24px; }
-      .thumb-bar, .bottom-buffer { display: none; }
-      .footer-inner { padding: 48px 24px; }
-    }
+    .footer-bottom { max-width: 1100px; margin: 0 auto; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.08); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; font-family: 'JetBrains Mono', monospace; font-size: 0.72rem; color: #64748b; }
   </style>
 </head>
 <body>
 
-  <!-- HEADER (STICKY) -->
+  <!-- HEADER -->
   <header class="top-bar">
     <div class="top-bar-inner">
       <a href="index.html" class="brand-logo-wrap">
-        <img src="images/logo.png" alt="Hiltbrand Gebäudehüllen AG" class="brand-logo-img">
-        <div>
-          <div class="brand-name">Hiltbrand Gebäudehüllen AG</div>
-          <div class="brand-region">Risegasse 27, Krattigen • Berner Oberland</div>
-        </div>
+        <img src="images/logo.png" alt="Hiltbrand Gebäudehüllen AG Logo" class="brand-logo-img">
       </a>
-      <nav class="desktop-nav">
-        <a href="index.html" class="desk-nav-link">Startseite</a>
-        <a href="team.html" class="desk-nav-link active">Über uns & Team</a>
-        <a href="karriere.html" class="desk-nav-link">Karriere & Jobs</a>
-        <a href="kontakt.html" class="desk-nav-link">Kontakt</a>
-        <a href="kontakt.html" class="btn-desk-contact">Offerte anfragen</a>
+      
+      <nav class="nav-links">
+        <a href="index.html" class="nav-link">Startseite</a>
+        <a href="team.html" class="nav-link active">Über uns & Team</a>
+        <a href="karriere.html" class="nav-link">Karriere & Jobs</a>
+        <a href="kontakt.html" class="nav-link">Kontakt & 24h-Pikett</a>
+        <a href="kontakt.html" class="nav-cta-btn">Offerte anfragen</a>
       </nav>
-      <button class="nav-burger" onclick="toggleDrawer()" aria-label="Menü öffnen">
-        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
-      </button>
+
+      <div class="header-social">
+        <a href="https://www.instagram.com/hiltbrand_gebaudehuellen/" target="_blank" rel="noopener" class="social-icon-btn" title="Instagram">IG</a>
+        <a href="https://www.facebook.com/hiltbrandgebaudehuellen" target="_blank" rel="noopener" class="social-icon-btn" title="Facebook">FB</a>
+        <a href="https://wa.me/41792318484" target="_blank" rel="noopener" class="social-icon-btn" title="WhatsApp" style="background:#25D366; color:#fff; border-color:#25D366;">WA</a>
+      </div>
+
+      <button class="burger-btn" onclick="toggleDrawer()" aria-label="Menü öffnen">☰</button>
     </div>
   </header>
 
-  <!-- MOBILE NAV DRAWER -->
-  <nav class="nav-drawer" id="navDrawer">
-    <a href="index.html" class="nav-link">Startseite <span>→</span></a>
-    <a href="team.html" class="nav-link" style="color:var(--primary);">Über uns & Team <span>→</span></a>
-    <a href="karriere.html" class="nav-link">Karriere & Jobs <span>→</span></a>
-    <a href="kontakt.html" class="nav-link">Kontakt & 24h-Service <span>→</span></a>
-  </nav>
+  <!-- MOBILE DRAWER -->
+  <div class="nav-drawer" id="navDrawer">
+    <a href="index.html" class="drawer-link">Startseite</a>
+    <a href="team.html" class="drawer-link active">Über uns & Team</a>
+    <a href="karriere.html" class="drawer-link">Karriere & Jobs</a>
+    <a href="kontakt.html" class="drawer-link">Kontakt & Notdienst</a>
+    <div class="drawer-social">
+      <span style="font-size:0.8rem; color:var(--muted); margin-right:4px;">Folgen:</span>
+      <a href="https://www.instagram.com/hiltbrand_gebaudehuellen/" target="_blank" rel="noopener" class="social-icon-btn">IG</a>
+      <a href="https://www.facebook.com/hiltbrandgebaudehuellen" target="_blank" rel="noopener" class="social-icon-btn">FB</a>
+      <a href="https://wa.me/41792318484" target="_blank" rel="noopener" class="social-icon-btn" style="background:#25D366; color:#fff; border-color:#25D366;">WA</a>
+    </div>
+    <a href="kontakt.html" class="nav-cta-btn" style="text-align:center; margin-top:8px;">Offerte anfragen</a>
+  </div>
 
   <!-- HERO -->
-  <section class="page-hero">
-    <div class="page-hero-inner">
-      <span class="section-kicker">3. Generation // Seit 2015 in Krattigen</span>
-      <h1 class="page-title">Handwerk, Verantwortung und familiäre Verankerung.</h1>
-      <p class="page-desc">
-        Gegründet aus traditionsreicher Familiengeschichte, geführt von den Brüdern Eljas und Benjamin Hiltbrand. 
-        Mit eigenem Maschinen- und Kranpark garantieren wir im gesamten Berner Oberland höchste Ausführungsqualität an Dach und Wand.
+  <section class="hero-team">
+    <div class="hero-team-inner">
+      <span class="kicker">● Mensch & Handwerk // Krattigen Berner Oberland</span>
+      <h1 class="hero-title">Die Köpfe hinter Ihrem dichten Dach.</h1>
+      <p class="hero-subtitle">
+        Persönlicher Kontakt, meisterliche Beratung und 15 Spezialisten fest verwurzelt in der Region. Bei uns wissen Sie immer genau, wer Ihr Projekt von der Planung bis zur letzten Schraube verantwortet.
       </p>
     </div>
   </section>
 
-  <!-- TEAM GRID (SOLECO STYLE MIT ECHTEN PERSONEN) -->
-  <div class="section-wrap">
-    <div class="section-inner">
-      <span class="section-kicker">Ansprechpartner</span>
-      <h2 class="section-title">Die Köpfe der Hiltbrand Gebäudehüllen AG</h2>
-      <p class="section-subtitle">Persönlicher Kontakt, meisterliche Beratung und direkte Erreichbarkeit.</p>
+  <!-- MAIN TEAM SECTIONS -->
+  <main class="section-pad">
 
-      <div class="team-grid">
-        <!-- 1. ELJAS HILTBRAND -->
-        <div class="member-card">
-          <div class="member-photo-wrap">
-            <img src="images/michael.jpg" alt="Eljas Hiltbrand" class="member-photo">
-            <span class="member-badge">Geschäftsleitung</span>
-          </div>
-          <div class="member-info">
-            <div class="member-name">Eljas Hiltbrand</div>
-            <div class="member-role">VRP & CEO // Eidg. dipl. Gebäudehüllen-Meister HFP</div>
-            <div class="member-bio">
-              Führt das Unternehmen mit Meisterdiplom und tiefem Fachwissen für Steildächer, energetische Dachsanierungen und anspruchsvolle Architekturverglasungen.
-            </div>
-            <div class="member-contacts">
-              <a href="tel:+41335300204" class="member-contact-link">📞 +41 33 530 02 04</a>
-              <a href="mailto:eljas@hiltbrand.swiss" class="member-contact-link">✉️ eljas@hiltbrand.swiss</a>
-            </div>
-          </div>
+    <!-- KATEGORIE 1: GESCHÄFTSLEITUNG -->
+    <div class="category-header">
+      <div>
+        <h2 class="category-title">Geschäftsleitung & Unternehmensführung</h2>
+        <div class="category-desc">Strategische Verantwortung, Meisterkompetenz und operative Führung.</div>
+      </div>
+    </div>
+
+    <div class="team-grid">
+      <!-- 1. ELJAS HILTBRAND -->
+      <div class="member-card">
+        <div class="member-photo-wrap">
+          <img src="images/michael.jpg" alt="Eljas Hiltbrand" class="member-photo">
+          <span class="member-badge">Chefetage</span>
         </div>
-
-        <!-- 2. BENJAMIN HILTBRAND -->
-        <div class="member-card">
-          <div class="member-photo-wrap">
-            <img src="images/stefan.jpg" alt="Benjamin Hiltbrand" class="member-photo">
-            <span class="member-badge">Geschäftsleitung</span>
+        <div class="member-info">
+          <div class="member-name">Eljas Hiltbrand</div>
+          <div class="member-role">VRP & CEO // Eidg. dipl. Gebäudehüllen-Meister HFP</div>
+          <div class="member-bio">
+            Führt das Unternehmen mit Meisterdiplom und tiefem Fachwissen für Steildächer, energetische Dachsanierungen und anspruchsvolle Architekturverglasungen.
           </div>
-          <div class="member-info">
-            <div class="member-name">Benjamin «Benji» Hiltbrand</div>
-            <div class="member-role">Mitgeschäftsführer // Fassadenbau & Solarsysteme</div>
-            <div class="member-bio">
-              Ihr Experte für ästhetische hinterlüftete Fassadensysteme, Photovoltaik-Gebäudehüllen und Innenausbau. Zuständig für Baustellenkoordination und Lehrlingsausbildung.
-            </div>
-            <div class="member-contacts">
-              <a href="tel:+41792318484" class="member-contact-link">📞 +41 79 231 84 84</a>
-              <a href="mailto:benjamin@hiltbrand.swiss" class="member-contact-link">✉️ benjamin@hiltbrand.swiss</a>
-            </div>
-          </div>
-        </div>
-
-        <!-- 3. STEFAN RUBIN -->
-        <div class="member-card">
-          <div class="member-photo-wrap">
-            <img src="images/vorstellung.jpg" alt="Stefan Rubin" class="member-photo">
-            <span class="member-badge">Spenglerei</span>
-          </div>
-          <div class="member-info">
-            <div class="member-name">Stefan Rubin</div>
-            <div class="member-role">Leiter Bauspenglerei & Blitzschutz</div>
-            <div class="member-bio">
-              Handgefertigte Kupfer- und Zinkarbeiten, Kamin- und Lukarnen-Einkleidungen sowie normgerechte Blitzschutzanlagen für dauerhaften Witterungsschutz.
-            </div>
-            <div class="member-contacts">
-              <a href="tel:+41335300204" class="member-contact-link">📞 +41 33 530 02 04</a>
-              <a href="mailto:info@hiltbrand.swiss" class="member-contact-link">✉️ info@hiltbrand.swiss</a>
-            </div>
-          </div>
-        </div>
-
-        <!-- 4. LENNART ZERTH -->
-        <div class="member-card">
-          <div class="member-photo-wrap">
-            <img src="images/q1_benefit.jpg" alt="Lennart Zerth" class="member-photo">
-            <span class="member-badge">Service & Unterhalt</span>
-          </div>
-          <div class="member-info">
-            <div class="member-name">Lennart Zerth</div>
-            <div class="member-role">Leiter Unterhalt, Reparaturen & Absturzsicherung</div>
-            <div class="member-bio">
-              Verantwortet den schnellen 24h-Reparaturdienst nach Unwettern, periodische Dachkontrollen und zertifizierte Sicherungssysteme für Handwerker und Eigentümer.
-            </div>
-            <div class="member-contacts">
-              <a href="tel:+41335300204" class="member-contact-link">📞 +41 33 530 02 04</a>
-              <a href="mailto:info@hiltbrand.swiss" class="member-contact-link">✉️ info@hiltbrand.swiss</a>
-            </div>
+          <div class="member-contacts">
+            <a href="tel:+41335300204" class="member-contact-link">📞 033 530 02 04</a>
+            <a href="mailto:eljas@hiltbrand.swiss" class="member-contact-link">✉️ eljas@hiltbrand.swiss</a>
+            <a href="https://www.linkedin.com/search/results/all/?keywords=Hiltbrand%20Geb%C3%A4udeh%C3%BCllen" target="_blank" rel="noopener" class="member-contact-link">in LinkedIn</a>
           </div>
         </div>
       </div>
 
-      <!-- TEAM GRUPPENFOTO -->
-      <div class="group-banner">
-        <img src="images/team_alt.jpg" alt="Das Hiltbrand Team in Krattigen" class="group-img">
-        <div class="group-content">
-          <h3 style="font-size: 1.25rem; font-weight: 800; margin-bottom: 8px; color: var(--anthrazit);">15 Spezialisten für Ihre Gebäudehülle</h3>
-          <p style="font-size: 0.9rem; color: var(--muted); line-height: 1.55;">
-            Hinter jedem dichten Dach und jeder langlebigen Fassade steht ein Team aus ausgebildeten Dachdeckern, Spenglern und Fassadenbauern, die täglich mit Herzblut und modernster Sicherheitstechnik auf den Baustellen des Berner Oberlands im Einsatz sind.
+      <!-- 2. BENJAMIN HILTBRAND -->
+      <div class="member-card">
+        <div class="member-photo-wrap">
+          <img src="images/stefan.jpg" alt="Benjamin Hiltbrand" class="member-photo">
+          <span class="member-badge">Chefetage</span>
+        </div>
+        <div class="member-info">
+          <div class="member-name">Benjamin «Benji» Hiltbrand</div>
+          <div class="member-role">Mitgeschäftsführer // Leitung Fassadenbau & Solar</div>
+          <div class="member-bio">
+            Verantwortet die zukunftsträchtigen Bereiche Photovoltaik-Integration, hinterlüftete Gebäudehüllen und moderne Lehrlingsförderung.
+          </div>
+          <div class="member-contacts">
+            <a href="tel:+41792318484" class="member-contact-link">📱 079 231 84 84</a>
+            <a href="https://wa.me/41792318484" target="_blank" rel="noopener" class="member-contact-link wa">💬 WhatsApp</a>
+            <a href="mailto:benji@hiltbrand.swiss" class="member-contact-link">✉️ benji@hiltbrand.swiss</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- KATEGORIE 2: BERATUNG, VERKAUF & PROJEKTLEITUNG -->
+    <div class="category-header" style="margin-top:20px;">
+      <div>
+        <h2 class="category-title">Beratung, Verkauf & Projektleitung</h2>
+        <div class="category-desc">Ihre direkten Ansprechpartner für Erstberatung, Kostenschätzungen und Bauleitung.</div>
+      </div>
+    </div>
+
+    <div class="team-grid">
+      <!-- 3. MICHAEL MÄXU -->
+      <div class="member-card">
+        <div class="member-photo-wrap">
+          <img src="images/vorstellung.jpg" alt="Michael Mäxu" class="member-photo">
+          <span class="member-badge">Verkauf & Projektleitung</span>
+        </div>
+        <div class="member-info">
+          <div class="member-name">Michael «Mäxu»</div>
+          <div class="member-role">Bauführer & Technische Beratung // Gebäudehülle EFZ</div>
+          <div class="member-bio">
+            Erste Anlaufstelle für private Bauherren und Architekten. Koordiniert Vor-Ort-Termine, prüft Dachzustände und erstellt transparente Offerten ohne versteckte Kosten.
+          </div>
+          <div class="member-contacts">
+            <a href="tel:+41335300204" class="member-contact-link">📞 033 530 02 04</a>
+            <a href="mailto:beratung@hiltbrand.swiss" class="member-contact-link">✉️ beratung@hiltbrand.swiss</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 4. KUNDENBERATUNG -->
+      <div class="member-card">
+        <div class="member-photo-wrap">
+          <img src="images/hero.jpg" alt="Kundenberatung & Offertwesen" class="member-photo">
+          <span class="member-badge">Kundenberatung</span>
+        </div>
+        <div class="member-info">
+          <div class="member-name">Kundenberatung & Offertwesen</div>
+          <div class="member-role">Offerten & Machbarkeitsprüfungen // Spiez & Krattigen</div>
+          <div class="member-bio">
+            Unterstützt Sie bei der Berechnung kantonaler Fördergelder (GEAK / Minergie) und plant die termingerechte Umsetzung Ihrer Dach- oder Fassadensanierung.
+          </div>
+          <div class="member-contacts">
+            <a href="tel:+41335300204" class="member-contact-link">📞 033 530 02 04</a>
+            <a href="kontakt.html" class="member-contact-link">📝 Direktanfrage</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- KATEGORIE 3: AUF DER BAUSTELLE & MONTAGE-TEAM -->
+    <div class="category-header" style="margin-top:20px;">
+      <div>
+        <h2 class="category-title">Auf der Baustelle & Montage-Team</h2>
+        <div class="category-desc">Unsere erfahrenen Vorarbeiter, Gesellen und Handwerker direkt vor Ort.</div>
+      </div>
+    </div>
+
+    <div class="team-grid">
+      <!-- 5. STEFAN RUBIN -->
+      <div class="member-card">
+        <div class="member-photo-wrap">
+          <img src="images/q1_benefit.jpg" alt="Stefan Rubin" class="member-photo">
+          <span class="member-badge">Steildach-Leitung</span>
+        </div>
+        <div class="member-info">
+          <div class="member-name">Stefan Rubin</div>
+          <div class="member-role">Leiter Steildach // Eidg. dipl. Dachdecker-Vorarbeiter</div>
+          <div class="member-bio">
+            Langjährige Handwerkserfahrung auf den Steildächern des Berner Oberlands. Ausbildner unserer Lehrlinge und Garant für höchste handwerkliche Präzision.
+          </div>
+          <div class="member-contacts">
+            <span class="member-contact-link" style="background:var(--surface-2); border-color:transparent;">🔨 Steildach & Ziegel</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 6. LENNART ZERTH -->
+      <div class="member-card">
+        <div class="member-photo-wrap">
+          <img src="images/benefits_drohne.jpg" alt="Lennart Zerth" class="member-photo">
+          <span class="member-badge">Flachdach-Spezialist</span>
+        </div>
+        <div class="member-info">
+          <div class="member-name">Lennart Zerth</div>
+          <div class="member-role">Objektleiter Flachdach & Abdichtungen // Flachdachbauer EFZ</div>
+          <div class="member-bio">
+            Spezialist für nahtlose bituminöse und Kunststoff-Abdichtungen, Wärmedämmungen und extensive Dachbegrünungen im Objektbau.
+          </div>
+          <div class="member-contacts">
+            <span class="member-contact-link" style="background:var(--surface-2); border-color:transparent;">🛡️ Flachdach & Sika</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- DIE GANZE CREW: PANORAMA -->
+    <div class="crew-banner">
+      <img src="images/team_alt.jpg" alt="Hiltbrand Montage-Crew Krattigen" class="crew-img">
+      <div class="crew-content">
+        <div class="crew-text">
+          <h3>15 Spezialisten für Ihre Gebäudehülle</h3>
+          <p>
+            Dachdecker EFZ, Fassadenbauer, Bauspengler und motivierte Lernende — gemeinsam sind wir bei jedem Wetter für den Werterhalt Ihrer Immobilie im Einsatz.
           </p>
         </div>
+        <a href="karriere.html" class="nav-cta-btn" style="padding:10px 20px; font-size:0.9rem;">Werde Teil des Teams →</a>
       </div>
     </div>
-  </div>
 
-  <!-- DIE DREI WERTE -->
-  <div class="section-wrap" style="background: var(--surface);">
-    <div class="section-inner">
-      <span class="section-kicker">Unsere Werte</span>
-      <h2 class="section-title">Wofür wir seit Generationen stehen</h2>
-      <p class="section-subtitle">Solides Handwerk braucht klare Prinzipien.</p>
-
-      <div class="values-grid">
-        <div class="value-box">
-          <div class="value-icon">🏔️</div>
-          <div class="value-title">Regionalität & Treue</div>
-          <div class="value-text">Verwurzelt in Krattigen am Thunersee. Wir kennen das alpine Klima und die spezifischen Anforderungen an Schneelasten und Windkräfte im Berner Oberland.</div>
-        </div>
-        <div class="value-box">
-          <div class="value-icon">🏗️</div>
-          <div class="value-title">Alles aus einer Hand</div>
-          <div class="value-text">Von der ersten Beratung und Drohneninspektion über den Holzausbau bis zur Solar- und Spenglerarbeit: Keine Reibungsverluste durch Drittunternehmen.</div>
-        </div>
-        <div class="value-box">
-          <div class="value-icon">🤝</div>
-          <div class="value-title">Verlässliche Partnerschaft</div>
-          <div class="value-text">Termintreue und Kostensicherheit sind für uns keine Floskeln, sondern Schweizer Handwerkerehre. Bei uns gilt das gegebene Wort.</div>
-        </div>
+    <!-- COCKPIT SELF-SERVICE NOTICE -->
+    <div class="cockpit-info-box">
+      <div class="cockpit-info-text">
+        <strong>⚙️ Modulares Team-System (WebPilot & Cockpit):</strong> Neue Mitarbeiter, Team-Fotos und Kontaktdaten können jederzeit im Kunden-Cockpit mit 1 Klick ergänzt, bearbeitet oder deaktiviert werden.
       </div>
+      <span class="cockpit-pill">● 1-Klick Self-Service</span>
     </div>
-  </div>
 
-  <div class="bottom-buffer"></div>
-
-  <!-- STICKY THUMB BAR -->
-  <div class="thumb-bar">
-    <a href="tel:+41335300204" class="btn-thumb btn-thumb-phone">
-      <span>📞</span> 033 530 02 04
-    </a>
-    <a href="https://wa.me/41792318484" class="btn-thumb btn-thumb-whatsapp">
-      <span>💬</span> WhatsApp
-    </a>
-  </div>
+  </main>
 
   <!-- FOOTER -->
   <footer class="footer-wrap">
     <div class="footer-inner">
-      <div style="font-weight: 800; font-size: 1.05rem; color: #fff;">Hiltbrand Gebäudehüllen AG</div>
-      <div>Risegasse 27 • 3704 Krattigen • Tel: 033 530 02 04 • Mobil: 079 231 84 84 • info@hiltbrand.swiss</div>
-      <div style="font-family:'JetBrains Mono',monospace; font-size:0.7rem; color:#64748b; margin-top:8px;">
-        Powered by WebPilot // Schweizer Hosting (Zürich & Genf) • 100% Mobile First Architecture
+      <!-- COL 1 -->
+      <div class="footer-col">
+        <div style="font-weight: 800; font-size: 1.1rem; color: #fff; margin-bottom:8px;">Hiltbrand Gebäudehüllen AG</div>
+        <p>Risegasse 27<br>3704 Krattigen (Berner Oberland)</p>
+        <p style="margin-top:10px;">
+          <strong>Tel:</strong> 033 530 02 04<br>
+          <strong>Mobil / WhatsApp:</strong> 079 231 84 84<br>
+          <strong>E-Mail:</strong> info@hiltbrand.swiss
+        </p>
       </div>
+
+      <!-- COL 2 -->
+      <div class="footer-col">
+        <h4>Navigation</h4>
+        <ul class="footer-links">
+          <li><a href="index.html" class="footer-link-a">Startseite & Gewerke</a></li>
+          <li><a href="team.html" class="footer-link-a" style="color:#fff; font-weight:700;">Über uns & Team</a></li>
+          <li><a href="karriere.html" class="footer-link-a">Karriere & Vakanzen</a></li>
+          <li><a href="kontakt.html" class="footer-link-a">Kontakt & 24h Sturm-Pikett</a></li>
+        </ul>
+      </div>
+
+      <!-- COL 3: SOCIAL MEDIA -->
+      <div class="footer-col">
+        <h4>Social Media & Vernetzung</h4>
+        <div class="social-pill-group">
+          <a href="https://www.instagram.com/hiltbrand_gebaudehuellen/" target="_blank" rel="noopener" class="social-pill-btn">
+            <span>📷</span> Instagram (@hiltbrand_gebaudehuellen)
+          </a>
+          <a href="https://www.facebook.com/hiltbrandgebaudehuellen" target="_blank" rel="noopener" class="social-pill-btn">
+            <span>👥</span> Facebook (Hiltbrand Gebäudehüllen)
+          </a>
+          <a href="https://wa.me/41792318484" target="_blank" rel="noopener" class="social-pill-btn" style="background:rgba(37,211,102,0.15); border-color:rgba(37,211,102,0.3); color:#25D366;">
+            <span>💬</span> WhatsApp Direkt-Draht
+          </a>
+        </div>
+      </div>
+
+      <!-- COL 4: CONTENT ENGINE & ACP -->
+      <div class="footer-col">
+        <h4>Live von der Baustelle</h4>
+        <p style="font-size:0.82rem;">
+          Verfolgen Sie unsere aktuellen Sanierungen und Drohnen-Einblicke direkt auf der Startseite unter <em>«● Frisch aus der Region»</em>.
+        </p>
+        <div style="margin-top:12px; font-family:'JetBrains Mono',monospace; font-size:0.72rem; color:var(--primary); font-weight:700;">
+          ⚡ Synchronisiert via ACP Engine
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div>© 2026 Hiltbrand Gebäudehüllen AG, Krattigen. Alle Rechte vorbehalten.</div>
+      <div>Powered by WebPilot // Schweizer Hosting (Zürich & Genf) • 100% Mobile First Architecture</div>
     </div>
   </footer>
 

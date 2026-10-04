@@ -109,6 +109,22 @@
       .thumb-bar, .bottom-buffer { display: none; }
       .footer-inner { padding: 48px 24px; }
     }
+  
+    .header-social { display: flex; gap: 8px; align-items: center; padding-left: 12px; border-left: 1px solid var(--border); }
+    .social-icon-btn { display: inline-flex; align-items: center; justify-content: center; width: 30px; height: 30px; border-radius: 50%; background: var(--surface); color: var(--anthrazit); text-decoration: none; font-size: 0.75rem; font-weight: 700; font-family: 'JetBrains Mono', monospace; transition: all 0.2s; border: 1px solid var(--border); }
+    .social-icon-btn:hover { background: var(--primary); color: #fff; border-color: var(--primary); transform: translateY(-1px); }
+    .drawer-social { display: flex; gap: 10px; padding: 12px 0; align-items: center; }
+    .social-pill-group { display: flex; flex-direction: column; gap: 8px; }
+    .social-pill-btn { display: inline-flex; align-items: center; gap: 8px; padding: 6px 12px; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); border-radius: var(--radius-sm); color: #cbd5e1; text-decoration: none; font-size: 0.82rem; font-weight: 600; transition: all 0.2s; width: fit-content; }
+    .social-pill-btn:hover { background: var(--primary); color: #ffffff; border-color: var(--primary); }
+    .footer-col h4 { color: #ffffff; font-size: 0.95rem; font-weight: 800; margin-bottom: 14px; }
+    .footer-col p { font-size: 0.85rem; line-height: 1.6; margin-bottom: 8px; }
+    .footer-links { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+    .footer-link-a { color: #94a3b8; text-decoration: none; font-size: 0.85rem; transition: color 0.15s; }
+    .footer-link-a:hover { color: #ffffff; }
+    .footer-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 30px; margin-bottom: 30px; }
+    .footer-bottom { max-width: 1100px; margin: 0 auto; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.08); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; font-family: 'JetBrains Mono', monospace; font-size: 0.72rem; color: #64748b; }
+
   </style>
 </head>
 <body>
@@ -268,14 +284,62 @@
     </a>
   </div>
 
-  <!-- FOOTER -->
+    <!-- FOOTER -->
   <footer class="footer-wrap">
     <div class="footer-inner">
-      <div style="font-weight: 800; font-size: 1.05rem; color: #fff;">Hiltbrand Gebäudehüllen AG</div>
-      <div>Risegasse 27 • 3704 Krattigen • Tel: 033 530 02 04 • Mobil: 079 231 84 84 • info@hiltbrand.swiss</div>
-      <div style="font-family:'JetBrains Mono',monospace; font-size:0.7rem; color:#64748b; margin-top:8px;">
-        Powered by WebPilot // Schweizer Hosting (Zürich & Genf) • 100% Mobile First Architecture
+      <!-- COL 1 -->
+      <div class="footer-col">
+        <div style="font-weight: 800; font-size: 1.1rem; color: #fff; margin-bottom:8px;">Hiltbrand Gebäudehüllen AG</div>
+        <p>Risegasse 27<br>3704 Krattigen (Berner Oberland)</p>
+        <p style="margin-top:10px;">
+          <strong>Tel:</strong> 033 530 02 04<br>
+          <strong>Mobil / WhatsApp:</strong> 079 231 84 84<br>
+          <strong>E-Mail:</strong> info@hiltbrand.swiss
+        </p>
       </div>
+
+      <!-- COL 2 -->
+      <div class="footer-col">
+        <h4>Navigation</h4>
+        <ul class="footer-links">
+          <li><a href="index.html" class="footer-link-a">Startseite & Gewerke</a></li>
+          <li><a href="team.html" class="footer-link-a">Über uns & Team</a></li>
+          <li><a href="karriere.html" class="footer-link-a">Karriere & Vakanzen</a></li>
+          <li><a href="kontakt.html" class="footer-link-a">Kontakt & 24h Sturm-Pikett</a></li>
+        </ul>
+      </div>
+
+      <!-- COL 3: SOCIAL MEDIA -->
+      <div class="footer-col">
+        <h4>Social Media & Vernetzung</h4>
+        <div class="social-pill-group">
+          <a href="https://www.instagram.com/hiltbrand_gebaudehuellen/" target="_blank" rel="noopener" class="social-pill-btn">
+            <span>📷</span> Instagram (@hiltbrand_gebaudehuellen)
+          </a>
+          <a href="https://www.facebook.com/hiltbrandgebaudehuellen" target="_blank" rel="noopener" class="social-pill-btn">
+            <span>👥</span> Facebook (Hiltbrand Gebäudehüllen)
+          </a>
+          <a href="https://wa.me/41792318484" target="_blank" rel="noopener" class="social-pill-btn" style="background:rgba(37,211,102,0.15); border-color:rgba(37,211,102,0.3); color:#25D366;">
+            <span>💬</span> WhatsApp Direkt-Draht
+          </a>
+        </div>
+      </div>
+
+      <!-- COL 4: CONTENT ENGINE & ACP -->
+      <div class="footer-col">
+        <h4>Live von der Baustelle</h4>
+        <p style="font-size:0.82rem;">
+          Verfolgen Sie unsere aktuellen Sanierungen und Drohnen-Einblicke direkt auf der Startseite unter <em>«● Frisch aus der Region»</em>.
+        </p>
+        <div style="margin-top:12px; font-family:'JetBrains Mono',monospace; font-size:0.72rem; color:var(--primary); font-weight:700;">
+          ⚡ Synchronisiert via ACP Engine
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div>© 2026 Hiltbrand Gebäudehüllen AG, Krattigen. Alle Rechte vorbehalten.</div>
+      <div>Powered by WebPilot // Schweizer Hosting (Zürich & Genf) • 100% Mobile First Architecture</div>
     </div>
   </footer>
 
