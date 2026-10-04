@@ -340,6 +340,11 @@
       border-left: 4px solid var(--emerald);
     }
 
+    .decision-card.commented {
+      border-left: 4px solid var(--blue);
+      border-color: rgba(56, 189, 248, 0.4);
+    }
+
     .decision-card.pending {
       border-left: 4px solid var(--amber);
     }
@@ -378,6 +383,12 @@
       background: var(--emerald-glow);
       color: var(--emerald);
       border: 1px solid var(--emerald);
+    }
+
+    .badge-commented {
+      background: rgba(56, 189, 248, 0.15);
+      color: var(--blue);
+      border: 1px solid var(--blue);
     }
 
     .badge-pending {
@@ -995,8 +1006,25 @@
         container.innerHTML = '';
         data.decisions.forEach(d => {
           const isApproved = d.status === 'GENEHMIGT';
+          const isCommented = d.status && d.status.startsWith('KOMMENTIERT:');
+          const commentText = isCommented ? d.status.replace('KOMMENTIERT:', '').trim() : '';
+
+          let cardClass = 'decision-card pending';
+          let badgeClass = 'badge-status badge-pending';
+          let badgeText = '⏳ Offen';
+
+          if (isApproved) {
+            cardClass = 'decision-card approved';
+            badgeClass = 'badge-status badge-approved';
+            badgeText = '✅ Genehmigt';
+          } else if (isCommented) {
+            cardClass = 'decision-card commented';
+            badgeClass = 'badge-status badge-commented';
+            badgeText = '💬 Kommentiert';
+          }
+
           const card = document.createElement('div');
-          card.className = `decision-card ${isApproved ? 'approved' : 'pending'}`;
+          card.className = cardClass;
           card.id = `card-${d.id}`;
 
           let actionsHtml = '';
@@ -1005,9 +1033,21 @@
           } else {
             actionsHtml = `
               <div class="decision-actions" id="actions-${d.id}">
-                <button class="btn btn-approve" onclick="submitDecision('${d.id}', 'GENEHMIGT')">✓ Genehmigen</button>
+                <button class="btn btn-approve" onclick="submitDecision('${d.id}', 'GENEHMIGT')">✓ ${isCommented ? 'Jetzt Freigeben' : 'Genehmigen'}</button>
                 <button class="btn btn-reject" onclick="submitDecision('${d.id}', 'ABGELEHNT')">✕ Ablehnen</button>
-                <button class="btn btn-outline" onclick="promptFeedback('${d.id}')">💬 Notiz</button>
+                <button class="btn btn-outline" onclick="promptFeedback('${d.id}')">💬 ${isCommented ? 'Kommentar anpassen' : 'Notiz'}</button>
+              </div>
+            `;
+          }
+
+          let commentBoxHtml = '';
+          if (isCommented) {
+            commentBoxHtml = `
+              <div style="background: rgba(56, 189, 248, 0.08); border-left: 3px solid var(--blue); padding: 12px 14px; border-radius: 0 8px 8px 0; margin: 4px 0;">
+                <div style="font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; color: var(--blue); font-weight: 700; text-transform: uppercase; margin-bottom: 4px;">
+                  💬 David (Chairman Feedback):
+                </div>
+                <div style="font-size: 0.85rem; color: #e0f2fe; line-height: 1.45; white-space: pre-wrap;">${commentText}</div>
               </div>
             `;
           }
@@ -1018,12 +1058,13 @@
                 <h3>Vorlage #${d.id}: ${d.title}</h3>
                 <div class="decision-meta">Zone Rot: Chairman-Freigabe erforderlich</div>
               </div>
-              <span class="badge-status ${isApproved ? 'badge-approved' : 'badge-pending'}" id="badge-${d.id}">
-                ${isApproved ? '✅ Genehmigt' : '⏳ Offen'}
+              <span class="${badgeClass}" id="badge-${d.id}">
+                ${badgeText}
               </span>
             </div>
             <p class="decision-body">${d.problem || 'Strategische Weichenstellung.'}</p>
             ${d.recommendation ? `<div class="decision-recommendation"><strong>Board-Empfehlung:</strong> ${d.recommendation}</div>` : ''}
+            ${commentBoxHtml}
             ${actionsHtml}
           `;
           container.appendChild(card);
@@ -1069,15 +1110,23 @@
         if (response.ok) {
           card.classList.remove('pending');
           if (decision === 'GENEHMIGT') {
+            card.classList.remove('commented');
             card.classList.add('approved');
             badge.className = 'badge-status badge-approved';
             badge.textContent = '✅ Genehmigt';
+            actions.innerHTML = `<span style="font-size: 0.82rem; color: var(--emerald); font-weight: 600;">Beschluss [GENEHMIGT] live im Tresor synchronisiert!</span>`;
+          } else if (decision.startsWith('KOMMENTIERT:')) {
+            card.classList.add('commented');
+            badge.className = 'badge-status badge-commented';
+            badge.textContent = '💬 Kommentiert';
+            actions.innerHTML = `<span style="font-size: 0.82rem; color: var(--blue); font-weight: 600;">Kommentar live im Tresor synchronisiert!</span>`;
+            setTimeout(loadBoardroomState, 500);
           } else {
             badge.className = 'badge-status';
             badge.style.color = 'var(--ruby)';
             badge.textContent = '✕ ' + decision;
+            actions.innerHTML = `<span style="font-size: 0.82rem; color: var(--ruby); font-weight: 600;">Beschluss [${decision}] live im Tresor synchronisiert!</span>`;
           }
-          actions.innerHTML = `<span style="font-size: 0.82rem; color: var(--emerald); font-weight: 600;">Beschluss [${decision}] live im Tresor synchronisiert!</span>`;
         }
       } catch (e) {
         alert('Fehler beim Übermitteln der Entscheidung: ' + e.message);
