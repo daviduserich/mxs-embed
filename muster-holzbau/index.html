@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Muster Holzbau AG · Offene Stellen & Einblicke</title>
+  <meta name="description" content="Offene Stellen und Einblicke bei Muster Holzbau AG in Thun. Bewirb dich unkompliziert per WhatsApp oder Telefon.">
+  
+  <!-- Zero-Cookie Analytics via Plausible Proxy -->
+  <script defer data-domain="muster-holzbau.embed.magnet-xs.ch" src="/api/event"></script>
+
+  <style>
+    :root {
+      --primary: #d97706;
+      --bg: #0B0D0E;
+      --card-bg: #14171A;
+      --card-border: rgba(255, 255, 255, 0.08);
+      --text: #F3F4F6;
+      --text-muted: #9CA3AF;
+      --radius: 8px;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.5;
+      padding-bottom: 80px;
+    }
+    /* KICKER-GESETZ (§ 5.6d): 100% freistehend, kein Container, kein Badge */
+    .kicker {
+      font-family: ui-monospace, SFMono-Regular, "JetBrains Mono", Menlo, Consolas, monospace;
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--primary);
+      background: transparent !important;
+      border: none !important;
+      padding: 0 !important;
+      box-shadow: none !important;
+      margin-bottom: 12px;
+      display: inline-block;
+    }
+    /* FLUCHTLINIEN-GESETZ (§ 5.6e): Einheitlich 1100px */
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 24px;
+      width: 100%;
+    }
+    header {
+      padding: 24px 0;
+      border-bottom: 1px solid var(--card-border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .brand-name {
+      font-size: 20px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: #fff;
+    }
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--card-border);
+      border-radius: 4px;
+      padding: 4px 10px;
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+    /* Instant Announcement Banner */
+    #announcement-banner {
+      display: none;
+      background: rgba(217, 119, 6, 0.15);
+      border-bottom: 1px solid rgba(217, 119, 6, 0.3);
+      color: #FCD34D;
+      padding: 12px 0;
+      font-size: 14px;
+      text-align: center;
+    }
+    #announcement-banner.is-active {
+      display: block;
+    }
+    .hero {
+      padding: 64px 0 48px;
+    }
+    .hero h1 {
+      font-size: clamp(32px, 5vw, 54px);
+      font-weight: 800;
+      line-height: 1.15;
+      letter-spacing: -0.03em;
+      margin-bottom: 20px;
+      max-width: 800px;
+    }
+    .hero-lead {
+      font-size: 18px;
+      color: var(--text-muted);
+      max-width: 680px;
+      margin-bottom: 36px;
+    }
+    .hero-image-wrap {
+      border-radius: var(--radius);
+      overflow: hidden;
+      border: 1px solid var(--card-border);
+      margin-bottom: 48px;
+      background: #111;
+      aspect-ratio: 16/9;
+    }
+    .hero-image-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 24px;
+      margin-top: 32px;
+    }
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius);
+      padding: 28px;
+    }
+    .card h3 {
+      font-size: 20px;
+      margin-bottom: 12px;
+    }
+    .card p {
+      color: var(--text-muted);
+      font-size: 15px;
+      margin-bottom: 20px;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 12px 20px;
+      border-radius: var(--radius);
+      font-size: 14px;
+      font-weight: 600;
+      text-decoration: none;
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+    .btn-primary {
+      background: var(--primary);
+      color: #fff;
+      border: none;
+    }
+    .btn-primary:hover {
+      filter: brightness(1.1);
+    }
+    .btn-secondary {
+      background: rgba(255,255,255,0.06);
+      color: #fff;
+      border: 1px solid var(--card-border);
+    }
+    .cta-banner {
+      margin-top: 64px;
+      background: linear-gradient(180deg, #181B1F 0%, #111316 100%);
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius);
+      padding: 40px;
+      text-align: center;
+    }
+    footer {
+      margin-top: 80px;
+      border-top: 1px solid var(--card-border);
+      padding-top: 32px;
+      font-size: 13px;
+      color: var(--text-muted);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Instant Announcement Banner -->
+  <div id="announcement-banner">
+    <div class="container">
+      <span id="announcement-text"></span>
+    </div>
+  </div>
+
+  <div class="container">
+    <header>
+      <div class="brand-name">Muster Holzbau AG</div>
+      <div class="badge">📍 Thun · Holzbau & Bedachungen</div>
+    </header>
+
+    <main class="hero">
+      <div class="kicker" data-slot="kicker">Karriere & Team</div>
+      <h1 data-slot="hero-title">Werde Teil unseres Teams bei Muster Holzbau AG.</h1>
+      <p class="hero-lead" data-slot="hero-lead">
+        Wir packen an, schätzen echtes Handwerk und bieten moderne Arbeitsbedingungen 
+        mit 5 Wochen Ferien und fairem Lohn in Thun.
+      </p>
+
+      <div class="hero-image-wrap">
+        <img id="slot-hero-img" src="images/hero.svg" alt="Team Muster Holzbau AG" data-slot="hero-image">
+      </div>
+
+      <div class="card-grid">
+        <div class="card" data-slot="job-card-1">
+          <div class="badge" style="margin-bottom: 12px;">Festanstellung 80–100%</div>
+          <h3 data-slot="job-1-title">Fachhandwerker / Vorarbeiter (m/w/d)</h3>
+          <p data-slot="job-1-desc">
+            Selbstständiges Arbeiten auf Baustellen in der Region Thun, modernes Werkzeug und ein kollegiales Team.
+          </p>
+          <a href="https://wa.me/41791234567?text=Hallo%20Muster Holzbau AG%2C%20ich%20interessiere%20mich%20f%C3%BCr%20die%20offene%20Stelle!" class="btn btn-primary" target="_blank" rel="noopener">
+            💬 In 30 Sek. per WhatsApp bewerben
+          </a>
+        </div>
+
+        <div class="card" data-slot="job-card-2">
+          <div class="badge" style="margin-bottom: 12px;">Initiativbewerbung</div>
+          <h3 data-slot="job-2-title">Quereinsteiger oder Profi?</h3>
+          <p data-slot="job-2-desc">
+            Deine Position ist nicht aufgeführt? Schreib uns kurz oder ruf an. Gute Leute mit Motivation finden bei uns immer einen Platz.
+          </p>
+          <a href="tel:+41331234567" class="btn btn-secondary">
+            📞 Unverbindlich anrufen (+41 33 123 45 67)
+          </a>
+        </div>
+      </div>
+
+      <div class="cta-banner">
+        <h2>Unkompliziert kennenlernen</h2>
+        <p style="color: var(--text-muted); margin: 12px auto 24px; max-width: 500px;">
+          Kein Lebenslauf nötig. Sag uns einfach kurz, wer du bist und was du bisher gemacht hast.
+        </p>
+        <a href="https://wa.me/41791234567?text=Hallo%20Muster Holzbau AG%2C%20ich%20m%C3%B6chte%20euch%20gerne%20kennenlernen." class="btn btn-primary" style="font-size: 16px; padding: 14px 28px;" target="_blank" rel="noopener">
+          💬 Direktnachricht per WhatsApp starten
+        </a>
+      </div>
+    </main>
+
+    <footer>
+      <div>&copy; 2026 Muster Holzbau AG · Thun</div>
+      <div style="display: flex; gap: 16px;">
+        <span>🔒 Zero-Cookie WebPilot</span>
+        <span>⚡ &lt; 50ms Swiss Edge</span>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    // 0.01s Instant Announcement Check
+    fetch('announcements.json?t=' + Date.now())
+      .then(res => res.json())
+      .then(data => {
+        if (data && data.active && data.message) {
+          const banner = document.getElementById('announcement-banner');
+          const text = document.getElementById('announcement-text');
+          text.textContent = data.message;
+          banner.classList.add('is-active');
+        }
+      })
+      .catch(() => {});
+  </script>
+</body>
+</html>

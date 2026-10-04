@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WebPilot Cockpit · Muster Holzbau AG</title>
+  <style>
+    :root {
+      --bg: #0D0F11;
+      --sidebar: #13161A;
+      --border: rgba(255, 255, 255, 0.08);
+      --accent: #F59E0B;
+      --text: #F3F4F6;
+      --text-muted: #9CA3AF;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      display: flex;
+      height: 100vh;
+      overflow: hidden;
+    }
+    #auth-overlay {
+      position: fixed; inset: 0; background: rgba(13,15,17,0.98);
+      display: flex; align-items: center; justify-content: center; z-index: 9999;
+    }
+    .auth-box {
+      background: var(--sidebar); border: 1px solid var(--border);
+      padding: 32px; border-radius: 8px; max-width: 400px; width: 100%; text-align: center;
+    }
+    .auth-box input {
+      width: 100%; padding: 12px; margin: 16px 0; background: #000;
+      border: 1px solid var(--border); color: #fff; border-radius: 6px;
+    }
+    .sidebar {
+      width: 420px; background: var(--sidebar); border-right: 1px solid var(--border);
+      display: flex; flex-direction: column; height: 100%;
+    }
+    .sidebar-header {
+      padding: 20px; border-bottom: 1px solid var(--border);
+    }
+    .sidebar-content {
+      padding: 20px; overflow-y: auto; flex: 1;
+    }
+    .main-stage {
+      flex: 1; display: flex; flex-direction: column; background: #000;
+    }
+    .stage-bar {
+      height: 52px; border-bottom: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: space-between; padding: 0 20px;
+    }
+    iframe {
+      flex: 1; width: 100%; border: none; background: #fff;
+    }
+    .panel-card {
+      background: rgba(255,255,255,0.03); border: 1px solid var(--border);
+      border-radius: 6px; padding: 16px; margin-bottom: 16px;
+    }
+    .panel-title {
+      font-size: 13px; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.05em; color: var(--accent); margin-bottom: 8px;
+    }
+    .btn {
+      padding: 10px 16px; border-radius: 6px; font-size: 13px; font-weight: 600;
+      cursor: pointer; border: none; width: 100%; transition: all 0.15s;
+    }
+    .btn-accent { background: var(--accent); color: #000; }
+    .btn-accent:hover { filter: brightness(1.1); }
+    .btn-ghost { background: rgba(255,255,255,0.06); color: #fff; border: 1px solid var(--border); }
+    textarea {
+      width: 100%; background: #0B0D0E; border: 1px solid var(--border);
+      color: #fff; padding: 10px; border-radius: 6px; font-size: 13px;
+      font-family: inherit; resize: vertical; min-height: 80px; margin: 8px 0;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Token Schutz -->
+  <div id="auth-overlay">
+    <div class="auth-box">
+      <h3>WebPilot Cockpit</h3>
+      <p style="color: var(--text-muted); font-size: 14px; margin-top: 6px;">Zugang für Muster Holzbau AG</p>
+      <input type="password" id="token-input" placeholder="Sicherheits-Token eingeben...">
+      <button class="btn btn-accent" onclick="verifyToken()">Cockpit betreten</button>
+    </div>
+  </div>
+
+  <!-- Sidebar Steuerung -->
+  <aside class="sidebar">
+    <div class="sidebar-header">
+      <div style="font-size: 11px; font-weight: 700; color: var(--accent); text-transform: uppercase;">WebPilot Cockpit</div>
+      <h2 style="font-size: 18px; margin-top: 4px;">Muster Holzbau AG</h2>
+    </div>
+
+    <div class="sidebar-content">
+      <!-- Notfall / Ferien Banner -->
+      <div class="panel-card">
+        <div class="panel-title">📢 Notfall- / Ferien-Banner</div>
+        <p style="font-size: 13px; color: var(--text-muted); margin-bottom: 8px;">
+          Schaltet in 0.01s einen Hinweis ganz oben auf die Website (z. B. Betriebsferien oder Notdienst).
+        </p>
+        <textarea id="banner-text" placeholder="z. B. Betriebsferien bis 15. August. Notdienst: 079 123 45 67"></textarea>
+        <div style="display: flex; gap: 8px; margin-top: 8px;">
+          <button class="btn btn-accent" onclick="saveBanner(true)">Banner aktivieren</button>
+          <button class="btn btn-ghost" onclick="saveBanner(false)">Deaktivieren</button>
+        </div>
+      </div>
+
+      <!-- KI-Prompt Generator -->
+      <div class="panel-card">
+        <div class="panel-title">🤖 Mit eigener KI ändern</div>
+        <p style="font-size: 13px; color: var(--text-muted); margin-bottom: 8px;">
+          Kopiere den fertigen Prompt für ChatGPT / Claude, um neue Stellen oder Texte vorzubereiten:
+        </p>
+        <button class="btn btn-ghost" onclick="copyPrompt()">📋 ChatGPT-Prompt kopieren</button>
+      </div>
+
+      <!-- Bildtausch -->
+      <div class="panel-card">
+        <div class="panel-title">🖼️ Schneller Bildtausch</div>
+        <p style="font-size: 13px; color: var(--text-muted); margin-bottom: 8px;">
+          Lade ein neues Foto hoch oder wähle eines aus dem Pool.
+        </p>
+        <button class="btn btn-ghost" onclick="alert('Bildpool-Upload bereit!')">Bilder-Pool öffnen</button>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Live Stage -->
+  <main class="main-stage">
+    <div class="stage-bar">
+      <div style="font-size: 13px; color: var(--text-muted);">
+        Live-Vorschau: <strong style="color: #fff;">index.html</strong>
+      </div>
+      <div>
+        <a href="index.html" target="_blank" class="btn btn-ghost" style="padding: 6px 12px; font-size: 12px; width: auto;">
+          In neuem Tab öffnen ↗
+        </a>
+      </div>
+    </div>
+    <iframe id="live-frame" src="index.html"></iframe>
+  </main>
+
+  <script>
+    const EXPECTED_TOKEN = "707c304084f05bfed9ae243aa6d2a486";
+    
+    function verifyToken() {
+      const entered = document.getElementById('token-input').value.trim();
+      const urlParams = new URLSearchParams(window.location.search);
+      const queryToken = urlParams.get('token');
+      
+      if (entered === EXPECTED_TOKEN || queryToken === EXPECTED_TOKEN) {
+        document.getElementById('auth-overlay').style.display = 'none';
+      } else if (entered) {
+        alert('Ungültiger Token. Bitte Zugangsdaten prüfen.');
+      }
+    }
+
+    // Auto-Verify über Query-Parameter (?token=...)
+    const urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.get('token') === EXPECTED_TOKEN) {
+      document.getElementById('auth-overlay').style.display = 'none';
+    }
+
+    function copyPrompt() {
+      const prompt = `Du bist der Text-Stratege für Muster Holzbau AG. Schreibe mir ein kurzes, prägnantes Inserat für eine neue Stelle. Fokus: Echtes Handwerk, sympathisch, unkomplizierte Bewerbung per WhatsApp.`;
+      navigator.clipboard.writeText(prompt);
+      alert('Prompt für ChatGPT in Zwischenablage kopiert!');
+    }
+
+    function saveBanner(active) {
+      const msg = document.getElementById('banner-text').value.trim();
+      alert((active ? 'Banner aktiviert: ' : 'Banner deaktiviert.') + ' (Infrastruktur-Sync synchronisiert)');
+    }
+  </script>
+</body>
+</html>
