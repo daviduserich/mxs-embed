@@ -55,7 +55,7 @@ def generate_index_html(config: dict) -> str:
   <meta name="brand-color" content="{color}">
   
   <!-- Zero-Cookie Analytics via Plausible Proxy -->
-  <script defer data-domain="{slug}.embed.magnet-xs.ch" data-api="/api/event" src="/js/script.js"></script>
+  <!-- <script defer data-domain="{slug}.embed.magnet-xs.ch" data-api="/api/event" src="/js/script.js"></script> -->
 
   <style>
     :root {{

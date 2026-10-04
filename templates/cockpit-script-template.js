@@ -32,7 +32,7 @@ function acpLog(level, message, details) {
     item.innerHTML = '<span style="color:#64748b;">[' + timeStr + ']</span> ' +
       '<span style="color:' + color + '; font-weight:700;">[' + tag + ']</span> ' +
       '<span>' + message + '</span>' +
-      (details ? '<div style="color:#94a3b8; font-size:11px; margin-left:14px; margin-top:2px; font-family:'JetBrains Mono',monospace;">' + details + '</div>' : '');
+      (details ? '<div style="color:#94a3b8; font-size:11px; margin-left:14px; margin-top:2px; font-family:monospace;">' + details + '</div>' : '');
     consoleEl.appendChild(item);
     consoleEl.scrollTop = consoleEl.scrollHeight;
   }
