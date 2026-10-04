@@ -1,23 +1,25 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="de-CH">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-  <title>Kontakt & 24h Notdienst — Hiltbrand Bedachungen & Spenglerei Thun</title>
+  <title>Kontakt & Offerte — Hiltbrand Gebäudehüllen AG | Krattigen</title>
+  <meta name="description" content="Kontaktieren Sie Hiltbrand Gebäudehüllen AG in Krattigen. Tel. 033 530 02 04 / Mobil 079 231 84 84 / info@hiltbrand.swiss. Kostenlose Offerte für Steildach, Flachdach & Fassade.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --primary: #15803d;
-      --primary-dark: #166534;
-      --primary-glow: rgba(21, 128, 61, 0.15);
-      --accent: #d97706;
+      --primary: #EF4035;
+      --primary-dark: #D32F2F;
+      --primary-glow: rgba(239, 64, 53, 0.15);
+      --anthrazit: #231F20;
+      --accent: #231F20;
       --bg: #ffffff;
       --surface: #f8fafc;
       --surface-2: #f1f5f9;
       --border: #e2e8f0;
-      --text: #0f172a;
+      --text: #231F20;
       --muted: #64748b;
       --radius-sm: 6px;
       --radius-md: 10px;
@@ -30,11 +32,11 @@
     body { width: 100%; min-height: 100vh; overflow-x: clip; background: var(--bg); color: var(--text); font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; line-height: 1.5; font-size: 15px; }
 
     /* HEADER (STICKY) */
-    .top-bar { padding: 12px 16px; border-bottom: 1px solid var(--border); background: rgba(255, 255, 255, 0.98); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); position: -webkit-sticky; position: sticky; top: 0; z-index: 1000; width: 100%; }
+    .top-bar { padding: 10px 16px; border-bottom: 1px solid var(--border); background: rgba(255, 255, 255, 0.98); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); position: -webkit-sticky; position: sticky; top: 0; z-index: 1000; width: 100%; }
     .top-bar-inner { max-width: 1100px; margin: 0 auto; width: 100%; display: flex; justify-content: space-between; align-items: center; gap: 16px; }
-    .brand-logo-wrap { display: flex; align-items: center; gap: 10px; text-decoration: none; color: inherit; }
-    .brand-mark { width: 38px; height: 38px; border-radius: var(--radius-sm); background: var(--primary); color: #fff; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 1.1rem; box-shadow: 0 2px 8px var(--primary-glow); }
-    .brand-name { font-size: 1.05rem; font-weight: 800; letter-spacing: -0.02em; line-height: 1.2; }
+    .brand-logo-wrap { display: flex; align-items: center; gap: 12px; text-decoration: none; color: inherit; }
+    .brand-logo-img { height: 38px; width: auto; max-width: 130px; object-fit: contain; }
+    .brand-name { font-size: 1.05rem; font-weight: 800; letter-spacing: -0.02em; line-height: 1.2; color: var(--anthrazit); }
     .brand-region { font-size: 0.72rem; color: var(--muted); font-weight: 500; }
 
     .desktop-nav { display: none; align-items: center; gap: 24px; }
@@ -54,36 +56,36 @@
     .page-hero { width: 100%; background: linear-gradient(180deg, var(--surface) 0%, #ffffff 100%); border-bottom: 1px solid var(--border); padding: 36px 16px; }
     .page-hero-inner { max-width: 1100px; margin: 0 auto; width: 100%; }
     .section-kicker { font-family: 'JetBrains Mono', monospace; font-size: 0.72rem; color: var(--primary); font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 6px; display: block; }
-    .page-title { font-size: 1.85rem; font-weight: 800; line-height: 1.2; letter-spacing: -0.03em; margin-bottom: 10px; }
+    .page-title { font-size: 1.85rem; font-weight: 800; line-height: 1.2; letter-spacing: -0.03em; margin-bottom: 10px; color: var(--anthrazit); }
     .page-desc { font-size: 0.95rem; color: var(--muted); line-height: 1.6; max-width: 680px; }
 
     /* SECTIONS */
     .section-wrap { width: 100%; border-bottom: 1px solid var(--border); }
     .section-inner { max-width: 1100px; margin: 0 auto; padding: 40px 16px; width: 100%; }
 
-    /* 24H NOTFALL NOTIZ */
-    .emergency-banner { background: #fee2e2; border: 1px solid #fca5a5; border-radius: var(--radius-md); padding: 18px 20px; display: flex; flex-direction: column; gap: 8px; margin-bottom: 28px; }
-    .emergency-tag { font-family: 'JetBrains Mono', monospace; font-size: 0.72rem; font-weight: 800; color: #b91c1c; text-transform: uppercase; }
-    .emergency-title { font-size: 1.1rem; font-weight: 800; color: #991b1b; }
-    .emergency-desc { font-size: 0.88rem; color: #7f1d1d; line-height: 1.4; }
+    /* NOTFALL BANNER */
+    .emergency-banner { background: #fef2f2; border: 1px solid #fecaca; border-radius: var(--radius-md); padding: 20px; margin-bottom: 30px; }
+    .emergency-tag { font-family: 'JetBrains Mono', monospace; font-size: 0.72rem; font-weight: 700; color: #dc2626; text-transform: uppercase; margin-bottom: 6px; }
+    .emergency-title { font-size: 1.15rem; font-weight: 800; color: #991b1b; margin-bottom: 6px; }
+    .emergency-desc { font-size: 0.88rem; color: #7f1d1d; line-height: 1.5; }
 
     /* CONTACT GRID */
     .contact-grid { display: grid; grid-template-columns: 1fr; gap: 24px; }
-    .contact-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-md); padding: 24px; display: flex; flex-direction: column; gap: 14px; }
+    .contact-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-md); padding: 22px; display: flex; flex-direction: column; gap: 16px; }
     .contact-row { display: flex; gap: 14px; align-items: flex-start; }
-    .contact-icon { width: 40px; height: 40px; border-radius: var(--radius-sm); background: var(--primary-glow); color: var(--primary); display: flex; align-items: center; justify-content: center; font-size: 1.2rem; flex-shrink: 0; }
-    .contact-label { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--muted); font-weight: 700; margin-bottom: 2px; }
-    .contact-value { font-size: 1.05rem; font-weight: 700; color: var(--text); text-decoration: none; }
-    .contact-sub { font-size: 0.82rem; color: var(--muted); margin-top: 2px; }
+    .contact-icon { font-size: 1.3rem; flex-shrink: 0; margin-top: 2px; }
+    .contact-label { font-size: 0.75rem; text-transform: uppercase; font-family: 'JetBrains Mono', monospace; color: var(--muted); font-weight: 700; }
+    .contact-value { font-size: 1rem; font-weight: 700; color: var(--anthrazit); text-decoration: none; margin-top: 2px; display: block; }
+    .contact-sub { font-size: 0.8rem; color: var(--muted); margin-top: 2px; }
 
-    /* FORM */
-    .form-card { background: #ffffff; border: 1px solid var(--border); border-radius: var(--radius-md); padding: 24px; box-shadow: var(--shadow-sm); }
-    .form-group { display: flex; flex-direction: column; gap: 6px; margin-bottom: 14px; }
-    .form-label { font-size: 0.85rem; font-weight: 700; color: var(--text); }
-    .form-input, .form-textarea { width: 100%; border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 12px 14px; font-size: 0.95rem; background: #ffffff; font-family: inherit; }
-    .form-input:focus, .form-textarea:focus { outline: none; border-color: var(--primary); box-shadow: 0 0 0 3px var(--primary-glow); }
+    /* FORM CARD */
+    .form-card { background: #ffffff; border: 1px solid var(--border); border-radius: var(--radius-md); padding: 22px; box-shadow: var(--shadow-sm); }
+    .form-group { margin-bottom: 16px; }
+    .form-label { display: block; font-size: 0.82rem; font-weight: 700; margin-bottom: 6px; color: var(--anthrazit); }
+    .form-input, .form-textarea { width: 100%; padding: 12px 14px; border: 1px solid var(--border); border-radius: var(--radius-sm); font-size: 0.9rem; font-family: inherit; color: var(--text); background: var(--surface); outline: none; transition: border-color 0.15s ease; }
+    .form-input:focus, .form-textarea:focus { border-color: var(--primary); background: #fff; }
     .form-textarea { min-height: 110px; resize: vertical; }
-    .btn-submit { width: 100%; height: 50px; background: var(--primary); color: #fff; font-size: 1rem; font-weight: 700; border-radius: var(--radius-md); border: none; cursor: pointer; display: inline-flex; align-items: center; justify-content: center; gap: 8px; box-shadow: 0 4px 14px var(--primary-glow); }
+    .btn-submit { width: 100%; height: 50px; background: var(--primary); color: #fff; font-weight: 700; font-size: 0.95rem; border: none; border-radius: var(--radius-md); cursor: pointer; display: inline-flex; align-items: center; justify-content: center; gap: 8px; box-shadow: 0 4px 14px var(--primary-glow); }
 
     /* STICKY THUMB BAR */
     .thumb-bar { position: fixed; bottom: 0; left: 0; right: 0; background: rgba(255, 255, 255, 0.96); backdrop-filter: blur(12px); border-top: 1px solid var(--border); padding: 10px 14px; padding-bottom: calc(10px + env(safe-area-inset-bottom, 0px)); display: flex; gap: 10px; z-index: 950; }
@@ -93,41 +95,40 @@
     .bottom-buffer { height: 74px; }
 
     /* FOOTER */
-    .footer-wrap { width: 100%; background: #0f172a; color: #94a3b8; border-top: 1px solid #1e293b; }
-    .footer-inner { max-width: 1100px; margin: 0 auto; padding: 36px 16px; font-size: 0.82rem; display: flex; flex-direction: column; gap: 12px; }
+    .footer-wrap { width: 100%; background: #1c191a; color: #94a3b8; border-top: 1px solid #2e282a; }
+    .footer-inner { max-width: 1100px; margin: 0 auto; padding: 40px 16px; font-size: 0.82rem; line-height: 1.6; }
 
-    /* DESKTOP RESPONSIVE */
+    /* DESKTOP MEDIA QUERY (min-width: 768px) */
     @media (min-width: 768px) {
-      .top-bar { padding: 14px 24px; }
       .desktop-nav { display: flex; }
       .nav-burger { display: none !important; }
-      .page-hero { padding: 56px 24px 44px 24px; }
-      .page-title { font-size: 2.3rem; }
+      .page-hero { padding: 56px 24px; }
+      .page-title { font-size: 2.4rem; }
       .section-inner { padding: 56px 24px; }
       .contact-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
       .thumb-bar, .bottom-buffer { display: none; }
-      .footer-inner { padding: 44px 24px; }
+      .footer-inner { padding: 48px 24px; }
     }
   </style>
 </head>
 <body>
 
-  <!-- HEADER -->
+  <!-- HEADER (STICKY) -->
   <header class="top-bar">
     <div class="top-bar-inner">
       <a href="index.html" class="brand-logo-wrap">
-        <div class="brand-mark">H</div>
+        <img src="images/logo.png" alt="Hiltbrand Gebäudehüllen AG" class="brand-logo-img">
         <div>
-          <div class="brand-name">Hiltbrand</div>
-          <div class="brand-region">Bedachungen & Spenglerei • Thun</div>
+          <div class="brand-name">Hiltbrand Gebäudehüllen AG</div>
+          <div class="brand-region">Risegasse 27, Krattigen • Berner Oberland</div>
         </div>
       </a>
       <nav class="desktop-nav">
         <a href="index.html" class="desk-nav-link">Startseite</a>
         <a href="team.html" class="desk-nav-link">Über uns & Team</a>
-        <a href="karriere.html" class="desk-nav-link">Arbeiten bei uns</a>
-        <a href="kontakt.html" class="desk-nav-link active">Kontakt & Notdienst</a>
-        <a href="tel:+41336711818" class="btn-desk-contact">📞 033 671 18 18</a>
+        <a href="karriere.html" class="desk-nav-link">Karriere & Jobs</a>
+        <a href="kontakt.html" class="desk-nav-link active">Kontakt</a>
+        <a href="kontakt.html" class="btn-desk-contact">Offerte anfragen</a>
       </nav>
       <button class="nav-burger" onclick="toggleDrawer()" aria-label="Menü öffnen">
         <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
@@ -139,17 +140,17 @@
   <nav class="nav-drawer" id="navDrawer">
     <a href="index.html" class="nav-link">Startseite <span>→</span></a>
     <a href="team.html" class="nav-link">Über uns & Team <span>→</span></a>
-    <a href="karriere.html" class="nav-link">Arbeiten bei uns (Karriere) <span>→</span></a>
+    <a href="karriere.html" class="nav-link">Karriere & Jobs <span>→</span></a>
     <a href="kontakt.html" class="nav-link" style="color:var(--primary);">Kontakt & 24h-Service <span>→</span></a>
   </nav>
 
-  <!-- PAGE HERO -->
+  <!-- HERO -->
   <section class="page-hero">
     <div class="page-hero-inner">
-      <span class="section-kicker">Standort & Erreichbarkeit</span>
+      <span class="section-kicker">Direkter Kontakt // Krattigen</span>
       <h1 class="page-title">Wir sind für Sie da. Schnell und verlässlich.</h1>
       <p class="page-desc">
-        Ob geplante Dachsanierung, Bauspenglerarbeit oder akuter Sturmschaden: Nehmen Sie direkt mit unserer Werkstatt in Thun Kontakt auf.
+        Ob geplante Dachsanierung, Solarmontage, Fassadenisolation oder akuter Sturmschaden: Nehmen Sie direkt mit unserer Werkstatt in Krattigen Kontakt auf.
       </p>
     </div>
   </section>
@@ -160,25 +161,25 @@
 
       <!-- 24H NOTFALL -->
       <div class="emergency-banner">
-        <div class="emergency-tag">⚡ 24h Sturmschaden- & Notfalldienst</div>
-        <div class="emergency-title">Wassereinbruch oder abgedeckte Ziegel nach Sturm?</div>
+        <div class="emergency-tag">⚡ Sturmschaden- & Notfalldienst</div>
+        <div class="emergency-title">Wassereinbruch, abgedeckte Ziegel oder Hagelschlag?</div>
         <div class="emergency-desc">
-          Unser Notdienst ist bei akuten Unwetterschäden rund um die Uhr einsatzbereit. 
-          Rufen Sie direkt unsere Notfall-Hotline an: <a href="tel:+41336711818" style="color:#991b1b; font-weight:800; text-decoration:underline;">033 671 18 18</a>
+          Unser Reparaturdienst ist bei akuten Unwetterschäden im Berner Oberland schnell vor Ort. 
+          Rufen Sie direkt unsere Mobilnummer an: <a href="tel:+41792318484" style="color:#991b1b; font-weight:800; text-decoration:underline;">079 231 84 84</a>
         </div>
       </div>
 
       <div class="contact-grid">
         <!-- KONTAKT DETAILS -->
         <div class="contact-card">
-          <h2 style="font-size: 1.25rem; font-weight: 800; margin-bottom: 6px;">Kontaktdaten & Werkstatt</h2>
+          <h2 style="font-size: 1.25rem; font-weight: 800; margin-bottom: 6px; color: var(--anthrazit);">Kontaktdaten & Werkstatt</h2>
           
           <div class="contact-row">
             <div class="contact-icon">📍</div>
             <div>
-              <div class="contact-label">Standort</div>
-              <div class="contact-value">Hiltbrand Bedachungen & Spenglerei GmbH</div>
-              <div class="contact-sub">Werkstrasse 14 • 3600 Thun</div>
+              <div class="contact-label">Firmensitz & Werkhof</div>
+              <div class="contact-value">Hiltbrand Gebäudehüllen AG</div>
+              <div class="contact-sub">Risegasse 27 • 3704 Krattigen</div>
             </div>
           </div>
 
@@ -186,8 +187,17 @@
             <div class="contact-icon">📞</div>
             <div>
               <div class="contact-label">Telefon Zentrale</div>
-              <a href="tel:+41336711818" class="contact-value">033 671 18 18</a>
-              <div class="contact-sub">Mo–Fr 07:00 – 12:00 / 13:15 – 17:30 Uhr</div>
+              <a href="tel:+41335300204" class="contact-value">033 530 02 04</a>
+              <div class="contact-sub">Mo–Fr 08:00 – 12:00 / 13:30 – 17:00 Uhr</div>
+            </div>
+          </div>
+
+          <div class="contact-row">
+            <div class="contact-icon">📱</div>
+            <div>
+              <div class="contact-label">Mobil / Notfall</div>
+              <a href="tel:+41792318484" class="contact-value">079 231 84 84</a>
+              <div class="contact-sub">Direktkontakt zu Benjamin Hiltbrand</div>
             </div>
           </div>
 
@@ -195,8 +205,8 @@
             <div class="contact-icon">✉️</div>
             <div>
               <div class="contact-label">E-Mail</div>
-              <a href="mailto:info@hiltbrand-bedachungen.ch" class="contact-value">info@hiltbrand-bedachungen.ch</a>
-              <div class="contact-sub">Antwort werktags innerhalb von 24 Stunden</div>
+              <a href="mailto:info@hiltbrand.swiss" class="contact-value">info@hiltbrand.swiss</a>
+              <div class="contact-sub">Antwort werktags garantiert innerhalb von 24 Stunden</div>
             </div>
           </div>
 
@@ -204,21 +214,21 @@
             <div class="contact-icon">💬</div>
             <div>
               <div class="contact-label">WhatsApp Direktkontakt</div>
-              <a href="https://wa.me/41790000000" class="contact-value" style="color: #16a34a;">079 000 00 00</a>
-              <div class="contact-sub">Fotos von Dachschäden direkt per WhatsApp schicken</div>
+              <a href="https://wa.me/41792318484" class="contact-value" style="color: #25D366;">079 231 84 84</a>
+              <div class="contact-sub">Fotos von Baustellen oder Schäden unkompliziert schicken</div>
             </div>
           </div>
 
           <div style="background: var(--surface-2); border-radius: var(--radius-sm); padding: 14px; margin-top: 10px; font-size: 0.85rem; color: var(--muted);">
-            <strong>📍 Unser Haupteinsatzgebiet:</strong><br>
-            Thun, Steffisburg, Heimberg, Spiez, Hilterfingen, Oberhofen, Uetendorf, Wattenwil und das gesamte Berner Oberland.
+            <strong>📍 Unser regionales Einsatzgebiet:</strong><br>
+            Krattigen, Spiez, Thun, Interlaken, Frutigen, Aeschi, Steffisburg, Heimberg und das gesamte Berner Oberland.
           </div>
         </div>
 
         <!-- FORMULAR -->
         <div class="form-card">
-          <span class="section-kicker">Nachricht senden</span>
-          <h3 style="font-size: 1.2rem; font-weight: 800; margin-bottom: 14px;">Offerte oder Beratung anfordern</h3>
+          <span class="section-kicker">Kostenlose Anfrage</span>
+          <h3 style="font-size: 1.2rem; font-weight: 800; margin-bottom: 14px; color: var(--anthrazit);">Offerte oder Beratung anfordern</h3>
           
           <form onsubmit="event.preventDefault(); alert('Vielen Dank für Ihre Anfrage! Wir melden uns schnellstmöglich bei Ihnen.');">
             <div class="form-group">
@@ -235,15 +245,14 @@
             </div>
             <div class="form-group">
               <label class="form-label">Ihr Anliegen</label>
-              <textarea class="form-textarea" placeholder="Beschreiben Sie kurz Ihr Projekt (z. B. Dachfenster tauschen, Eindeckung sanieren, Spenglerarbeit)..."></textarea>
+              <textarea class="form-textarea" placeholder="Beschreiben Sie kurz Ihr Projekt (z. B. Steildachsanierung, Dachfenster ersetzen, Fassadendämmung, Photovoltaik)..."></textarea>
             </div>
             <button type="submit" class="btn-submit">
-              <span>✉️</span> Nachricht jetzt absenden
+              <span>✉️</span> Offerte jetzt anfordern
             </button>
           </form>
         </div>
       </div>
-
     </div>
   </div>
 
@@ -251,10 +260,10 @@
 
   <!-- STICKY THUMB BAR -->
   <div class="thumb-bar">
-    <a href="tel:+41336711818" class="btn-thumb btn-thumb-phone">
-      <span>📞</span> 033 671 18 18
+    <a href="tel:+41335300204" class="btn-thumb btn-thumb-phone">
+      <span>📞</span> 033 530 02 04
     </a>
-    <a href="https://wa.me/41790000000" class="btn-thumb btn-thumb-whatsapp">
+    <a href="https://wa.me/41792318484" class="btn-thumb btn-thumb-whatsapp">
       <span>💬</span> WhatsApp
     </a>
   </div>
@@ -262,8 +271,8 @@
   <!-- FOOTER -->
   <footer class="footer-wrap">
     <div class="footer-inner">
-      <div style="font-weight: 800; font-size: 1.05rem; color: #fff;">Hiltbrand Bedachungen & Spenglerei GmbH</div>
-      <div>Werkstrasse 14 • 3600 Thun • Tel: 033 671 18 18 • info@hiltbrand-bedachungen.ch</div>
+      <div style="font-weight: 800; font-size: 1.05rem; color: #fff;">Hiltbrand Gebäudehüllen AG</div>
+      <div>Risegasse 27 • 3704 Krattigen • Tel: 033 530 02 04 • Mobil: 079 231 84 84 • info@hiltbrand.swiss</div>
       <div style="font-family:'JetBrains Mono',monospace; font-size:0.7rem; color:#64748b; margin-top:8px;">
         Powered by WebPilot // Schweizer Hosting (Zürich & Genf) • 100% Mobile First Architecture
       </div>
@@ -277,4 +286,3 @@
   </script>
 </body>
 </html>
-

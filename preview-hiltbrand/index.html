@@ -1,23 +1,25 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="de-CH">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-  <title>Hiltbrand Bedachungen & Spenglerei — Ihr Meisterbetrieb in Thun & Berner Oberland</title>
+  <title>Hiltbrand Gebäudehüllen AG — Steildach, Flachdach & Fassade | Krattigen & Berner Oberland</title>
+  <meta name="description" content="Hiltbrand Gebäudehüllen AG in Krattigen. Meisterbetrieb in 3. Generation für Steildach, Flachdach, Fassadenbau, Solarsysteme und Spenglerei im Berner Oberland.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --primary: #15803d;
-      --primary-dark: #166534;
-      --primary-glow: rgba(21, 128, 61, 0.15);
-      --accent: #d97706;
+      --primary: #EF4035; /* Echte Hiltbrand Firmenfarbe */
+      --primary-dark: #D32F2F;
+      --primary-glow: rgba(239, 64, 53, 0.15);
+      --anthrazit: #231F20; /* Dachschiefer Anthrazit */
+      --accent: #231F20;
       --bg: #ffffff;
       --surface: #f8fafc;
       --surface-2: #f1f5f9;
       --border: #e2e8f0;
-      --text: #0f172a;
+      --text: #231F20;
       --muted: #64748b;
       --radius-sm: 6px;
       --radius-md: 10px;
@@ -30,11 +32,11 @@
     body { width: 100%; min-height: 100vh; overflow-x: clip; background: var(--bg); color: var(--text); font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; line-height: 1.5; font-size: 15px; }
 
     /* HEADER (STICKY) */
-    .top-bar { padding: 12px 16px; border-bottom: 1px solid var(--border); background: rgba(255, 255, 255, 0.98); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); position: -webkit-sticky; position: sticky; top: 0; z-index: 1000; width: 100%; }
+    .top-bar { padding: 10px 16px; border-bottom: 1px solid var(--border); background: rgba(255, 255, 255, 0.98); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); position: -webkit-sticky; position: sticky; top: 0; z-index: 1000; width: 100%; }
     .top-bar-inner { max-width: 1100px; margin: 0 auto; width: 100%; display: flex; justify-content: space-between; align-items: center; gap: 16px; }
-    .brand-logo-wrap { display: flex; align-items: center; gap: 10px; text-decoration: none; color: inherit; }
-    .brand-mark { width: 38px; height: 38px; border-radius: var(--radius-sm); background: var(--primary); color: #fff; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 1.1rem; box-shadow: 0 2px 8px var(--primary-glow); }
-    .brand-name { font-size: 1.05rem; font-weight: 800; letter-spacing: -0.02em; line-height: 1.2; }
+    .brand-logo-wrap { display: flex; align-items: center; gap: 12px; text-decoration: none; color: inherit; }
+    .brand-logo-img { height: 38px; width: auto; max-width: 130px; object-fit: contain; }
+    .brand-name { font-size: 1.05rem; font-weight: 800; letter-spacing: -0.02em; line-height: 1.2; color: var(--anthrazit); }
     .brand-region { font-size: 0.72rem; color: var(--muted); font-weight: 500; }
 
     .desktop-nav { display: none; align-items: center; gap: 24px; }
@@ -55,13 +57,13 @@
     .hero-inner { max-width: 1100px; margin: 0 auto; width: 100%; display: flex; flex-direction: column; gap: 22px; }
     .kicker-pill { font-family: 'JetBrains Mono', monospace; font-size: 0.72rem; font-weight: 700; color: var(--primary); background: var(--primary-glow); padding: 4px 10px; border-radius: 999px; display: inline-flex; align-items: center; gap: 6px; }
     .kicker-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--primary); }
-    .hero-title { font-size: 1.85rem; font-weight: 800; line-height: 1.15; letter-spacing: -0.03em; margin-top: 10px; }
-    .hero-subtitle { font-size: 0.95rem; color: var(--muted); line-height: 1.5; margin-top: 8px; }
+    .hero-title { font-size: 1.85rem; font-weight: 800; line-height: 1.18; letter-spacing: -0.03em; margin-top: 10px; color: var(--anthrazit); }
+    .hero-subtitle { font-size: 0.95rem; color: var(--muted); line-height: 1.55; margin-top: 8px; }
     
     .hero-media { width: 100%; aspect-ratio: 16/10; border-radius: var(--radius-md); overflow: hidden; box-shadow: var(--shadow-md); position: relative; background: var(--surface-2); }
     .hero-media-img { width: 100%; height: 100%; object-fit: cover; display: block; animation: dhKenburns 14s ease-in-out infinite alternate; }
     @keyframes dhKenburns { 0% { transform: scale(1.02); } 100% { transform: scale(1.10) translate(-0.8%, -0.6%); } }
-    .hero-media-badge { position: absolute; bottom: 12px; left: 12px; background: rgba(15, 23, 42, 0.85); backdrop-filter: blur(8px); color: #fff; font-size: 0.72rem; font-weight: 600; padding: 5px 12px; border-radius: var(--radius-sm); }
+    .hero-media-badge { position: absolute; bottom: 12px; left: 12px; background: rgba(35, 31, 32, 0.90); backdrop-filter: blur(8px); color: #fff; font-size: 0.72rem; font-weight: 600; padding: 5px 12px; border-radius: var(--radius-sm); }
 
     .hero-actions { display: flex; flex-direction: column; gap: 10px; margin-top: 18px; }
     .btn-cta { width: 100%; min-height: 50px; border-radius: var(--radius-md); font-size: 0.95rem; font-weight: 700; display: inline-flex; align-items: center; justify-content: center; gap: 8px; text-decoration: none; cursor: pointer; border: none; }
@@ -72,7 +74,7 @@
     .section-wrap { width: 100%; border-bottom: 1px solid var(--border); }
     .section-inner { max-width: 1100px; margin: 0 auto; padding: 36px 16px; width: 100%; }
     .section-kicker { font-family: 'JetBrains Mono', monospace; font-size: 0.72rem; color: var(--primary); font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 4px; display: block; }
-    .section-title { font-size: 1.45rem; font-weight: 800; letter-spacing: -0.02em; line-height: 1.25; margin-bottom: 8px; }
+    .section-title { font-size: 1.45rem; font-weight: 800; letter-spacing: -0.02em; line-height: 1.25; margin-bottom: 8px; color: var(--anthrazit); }
     .section-desc { font-size: 0.9rem; color: var(--muted); line-height: 1.5; margin-bottom: 22px; }
 
     /* LEISTUNGEN KACHELN */
@@ -80,7 +82,7 @@
     .service-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-md); padding: 20px; display: flex; flex-direction: column; gap: 10px; }
     .service-card-head { display: flex; align-items: center; gap: 12px; }
     .service-icon { width: 42px; height: 42px; border-radius: var(--radius-sm); background: var(--primary-glow); color: var(--primary); display: flex; align-items: center; justify-content: center; font-size: 1.25rem; flex-shrink: 0; }
-    .service-title { font-size: 1.05rem; font-weight: 700; }
+    .service-title { font-size: 1.05rem; font-weight: 700; color: var(--anthrazit); }
     .service-list { list-style: none; display: flex; flex-direction: column; gap: 6px; font-size: 0.85rem; color: var(--muted); margin-top: 4px; }
     .service-list li { display: flex; align-items: center; gap: 6px; }
     .service-list li::before { content: '✓'; color: var(--primary); font-weight: 800; }
@@ -93,7 +95,7 @@
     /* STORIES */
     .stories-scroll { display: flex; gap: 14px; overflow-x: auto; padding-bottom: 8px; -webkit-overflow-scrolling: touch; }
     .story-card { min-width: 260px; max-width: 260px; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-md); overflow: hidden; flex-shrink: 0; }
-    .story-img { width: 100%; aspect-ratio: 4/3; object-fit: cover; background: #cbd5e1; }
+    .story-img { width: 100%; aspect-ratio: 4/3; object-fit: cover; background: #cbd5e1; display: block; }
     .story-body { padding: 12px; display: flex; flex-direction: column; gap: 4px; }
 
     /* STICKY THUMB BAR */
@@ -104,47 +106,47 @@
     .bottom-buffer { height: 74px; }
 
     /* FOOTER */
-    .footer-wrap { width: 100%; background: #0f172a; color: #94a3b8; border-top: 1px solid #1e293b; }
-    .footer-inner { max-width: 1100px; margin: 0 auto; padding: 36px 16px; font-size: 0.82rem; display: flex; flex-direction: column; gap: 12px; }
+    .footer-wrap { width: 100%; background: #1c191a; color: #94a3b8; border-top: 1px solid #2e282a; }
+    .footer-inner { max-width: 1100px; margin: 0 auto; padding: 40px 16px; font-size: 0.82rem; line-height: 1.6; }
 
-    /* DESKTOP RESPONSIVE */
+    /* DESKTOP MEDIA QUERY (min-width: 768px) */
     @media (min-width: 768px) {
-      .top-bar { padding: 14px 24px; }
       .desktop-nav { display: flex; }
       .nav-burger { display: none !important; }
-      .hero-wrap { padding: 48px 24px 56px 24px; }
-      .hero-inner { flex-direction: row; align-items: center; justify-content: space-between; gap: 48px; }
-      .hero-content { flex: 1.1; }
-      .hero-media { flex: 0 0 460px; max-width: 460px; max-height: 380px; aspect-ratio: 4/3; }
-      .hero-title { font-size: 2.3rem; }
-      .hero-actions { flex-direction: row; max-width: 480px; }
+      .hero-wrap { padding: 56px 24px; }
+      .hero-inner { display: grid; grid-template-columns: 1.15fr 0.85fr; align-items: center; gap: 48px; }
+      .hero-title { font-size: 2.6rem; }
+      .hero-actions { flex-direction: row; }
       .btn-cta { width: auto; padding: 0 24px; }
       .section-inner { padding: 56px 24px; }
-      .service-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
-      .teaser-grid { grid-template-columns: 1fr 1fr; gap: 20px; }
+      .section-title { font-size: 1.95rem; }
+      .service-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+      .teaser-grid { grid-template-columns: 1fr 1fr; gap: 24px; }
+      .stories-scroll { display: grid; grid-template-columns: repeat(3, 1fr); overflow-x: visible; }
+      .story-card { min-width: auto; max-width: none; }
       .thumb-bar, .bottom-buffer { display: none; }
-      .footer-inner { padding: 44px 24px; }
+      .footer-inner { padding: 48px 24px; }
     }
   </style>
 </head>
 <body>
 
-  <!-- HEADER -->
+  <!-- HEADER (STICKY) -->
   <header class="top-bar">
     <div class="top-bar-inner">
       <a href="index.html" class="brand-logo-wrap">
-        <div class="brand-mark">H</div>
+        <img src="images/logo.png" alt="Hiltbrand Gebäudehüllen AG" class="brand-logo-img">
         <div>
-          <div class="brand-name">Hiltbrand</div>
-          <div class="brand-region">Bedachungen & Spenglerei • Thun</div>
+          <div class="brand-name">Hiltbrand Gebäudehüllen AG</div>
+          <div class="brand-region">Risegasse 27, Krattigen • Berner Oberland</div>
         </div>
       </a>
       <nav class="desktop-nav">
         <a href="index.html" class="desk-nav-link active">Startseite</a>
         <a href="team.html" class="desk-nav-link">Über uns & Team</a>
-        <a href="karriere.html" class="desk-nav-link">Arbeiten bei uns</a>
-        <a href="kontakt.html" class="desk-nav-link">Kontakt & Notdienst</a>
-        <a href="tel:+41336711818" class="btn-desk-contact">📞 033 671 18 18</a>
+        <a href="karriere.html" class="desk-nav-link">Karriere & Jobs</a>
+        <a href="kontakt.html" class="desk-nav-link">Kontakt</a>
+        <a href="kontakt.html" class="btn-desk-contact">Offerte anfragen</a>
       </nav>
       <button class="nav-burger" onclick="toggleDrawer()" aria-label="Menü öffnen">
         <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
@@ -154,110 +156,149 @@
 
   <!-- MOBILE NAV DRAWER -->
   <nav class="nav-drawer" id="navDrawer">
-    <a href="index.html" class="nav-link">Startseite <span>→</span></a>
+    <a href="index.html" class="nav-link" style="color:var(--primary);">Startseite <span>→</span></a>
     <a href="team.html" class="nav-link">Über uns & Team <span>→</span></a>
-    <a href="karriere.html" class="nav-link">Arbeiten bei uns (Karriere) <span>→</span></a>
+    <a href="karriere.html" class="nav-link">Karriere & Jobs <span>→</span></a>
     <a href="kontakt.html" class="nav-link">Kontakt & 24h-Service <span>→</span></a>
   </nav>
 
   <!-- HERO -->
   <section class="hero-wrap">
     <div class="hero-inner">
-      <div class="hero-content">
-        <div class="hero-kicker-row">
-          <span class="kicker-pill"><span class="kicker-dot"></span> Meisterbetrieb seit 1954</span>
-          <span style="font-family:'JetBrains Mono',monospace; font-size:0.72rem; color:var(--muted);">0.3s Edge Speed</span>
-        </div>
-        <h1 class="hero-title">Dächer & Fassaden, die Generationen schützen.</h1>
+      <div>
+        <span class="kicker-pill"><span class="kicker-dot"></span> Meisterbetrieb in 3. Generation // Krattigen</span>
+        <h1 class="hero-title">Dach, Fassade & Solar aus einer Hand im Berner Oberland.</h1>
         <p class="hero-subtitle">
-          Ihr zertifizierter Fachbetrieb für Steildächer, Bauspenglerei und energetische Dachsanierungen im Berner Oberland.
+          Hiltbrand Gebäudehüllen AG — Ob Steildachsanierung, modernes Flachdach, hinterlüftete Fassade oder Photovoltaik: 
+          Wir garantieren Schutz, Wertbeständigkeit und echte handwerkliche Schweizer Präzision für Ihr Zuhause.
         </p>
         <div class="hero-actions">
-          <a href="tel:+41336711818" class="btn-cta btn-cta-primary">
-            <span>📞</span> 033 671 18 18 anrufen
+          <a href="kontakt.html" class="btn-cta btn-cta-primary">
+            <span>📋</span> Jetzt Offerte anfordern
           </a>
-          <a href="https://wa.me/41790000000" class="btn-cta btn-cta-whatsapp">
-            <span>💬</span> Per WhatsApp anfragen
+          <a href="https://wa.me/41792318484" class="btn-cta btn-cta-whatsapp">
+            <span>💬</span> WhatsApp Direktkontakt
           </a>
         </div>
       </div>
       <div class="hero-media">
-        <img src="https://embed.magnet-xs.ch/hiltbrand/images/hero.jpg" alt="Dachdecker bei der Arbeit" class="hero-media-img">
-        <div class="hero-media-badge">📍 Einsatzort: Region Thun / Berner Oberland</div>
+        <img src="images/hero.jpg" alt="Dachdeckerarbeiten Hiltbrand Gebäudehüllen AG" class="hero-media-img">
+        <div class="hero-media-badge">📍 Baustelle Krattigen / Thunersee</div>
       </div>
     </div>
   </section>
 
   <!-- LEISTUNGEN -->
-  <div class="section-wrap" id="leistungen">
+  <div class="section-wrap">
     <div class="section-inner">
-      <span class="section-kicker">Unsere Kernkompetenzen</span>
-      <h2 class="section-title">Solides Handwerk ohne Kompromisse.</h2>
-      <p class="section-desc">Wir setzen auf langlebige Schweizer Baumaterialien und meisterhafte Verarbeitung.</p>
+      <span class="section-kicker">Unser Handwerk</span>
+      <h2 class="section-title">Alles rund um die Gebäudehülle</h2>
+      <p class="section-desc">Ganzheitliche Beratung, eigene Meisterausführung und zuverlässige Termintreue.</p>
 
       <div class="service-cards">
+        <!-- 1. STEILDACH -->
         <div class="service-card">
           <div class="service-card-head">
             <div class="service-icon">🏠</div>
-            <h3 class="service-title">Steildach & Eindeckung</h3>
+            <div class="service-title">Steildach & Dachfenster</div>
           </div>
-          <p style="font-size: 0.85rem; color: var(--muted);">Ziegel-, Schiefer- und Eternitdächer. Sturmsicher verlegt mit Garantie.</p>
           <ul class="service-list">
-            <li>Tonziegel & Naturschiefer</li>
-            <li>Unterdächer & Wärmedämmung</li>
-            <li>Dachfenster (Velux) Einbau</li>
+            <li>Ton- und Betonziegel-Eindeckungen aller Art</li>
+            <li>Energetische Aufsparrendämmung nach Minergie</li>
+            <li>Velux Dachfenster & grossflächige Dachverglasungen</li>
           </ul>
         </div>
 
+        <!-- 2. FLACHDACH -->
         <div class="service-card">
           <div class="service-card-head">
-            <div class="service-icon">⚡</div>
-            <h3 class="service-title">Bauspenglerei & Rinnen</h3>
+            <div class="service-icon">🏢</div>
+            <div class="service-title">Flachdach & Abdichtungen</div>
           </div>
-          <p style="font-size: 0.85rem; color: var(--muted);">Präzise Blechbearbeitung in Kupfer, Zink und Aluminium nach Mass.</p>
           <ul class="service-list">
-            <li>Dachrinnen & Ablaufrohre</li>
-            <li>Lukarnen- & Kaminverkleidungen</li>
-            <li>Blitzschutzanlagen VKF-zertifiziert</li>
+            <li>Bitumen- und Kunststoff-Abdichtungen</li>
+            <li>Terrassenbeläge & ökologische Dachbegrünungen</li>
+            <li>Regelmässige Dichtigkeitsprüfungen & Wartungsverträge</li>
           </ul>
         </div>
 
+        <!-- 3. FASSADENBAU -->
+        <div class="service-card">
+          <div class="service-card-head">
+            <div class="service-icon">🧱</div>
+            <div class="service-title">Fassadenbau & Dämmung</div>
+          </div>
+          <ul class="service-list">
+            <li>Hinterlüftete Fassadensysteme (Eternit, Holz, Metall)</li>
+            <li>Nachhaltige Wärmedämmung senkt Heizkosten spürbar</li>
+            <li>Witterungsschutz mit anspruchsvoller Gebäude-Ästhetik</li>
+          </ul>
+        </div>
+
+        <!-- 4. SOLAR & PV -->
         <div class="service-card">
           <div class="service-card-head">
             <div class="service-icon">☀️</div>
-            <h3 class="service-title">Dachsanierung & Solar</h3>
+            <div class="service-title">Solarsysteme & Autarkie</div>
           </div>
-          <p style="font-size: 0.85rem; color: var(--muted);">Energetische Gesamtsanierung nach Minergie-Standard inklusive Solardach.</p>
           <ul class="service-list">
-            <li>Aufdachdämmung nach GEAK</li>
-            <li>Integrierte Photovoltaik-Dächer</li>
-            <li>Begleitung Fördergelder Bund/Kanton</li>
+            <li>Indach- und Aufdach-Photovoltaikanlagen</li>
+            <li>Perfekt integriert in Dach und Fassadenarchitektur</li>
+            <li>Planung, Montage & Abstimmung aus einer Hand</li>
+          </ul>
+        </div>
+
+        <!-- 5. SPENGLEREI -->
+        <div class="service-card">
+          <div class="service-card-head">
+            <div class="service-icon">🔨</div>
+            <div class="service-title">Bauspenglerei & Blitzschutz</div>
+          </div>
+          <ul class="service-list">
+            <li>Massgefertigte Dachrinnen, Ablaufrohre & Blechdächer</li>
+            <li>Kamin- und Lukarnen-Verkleidungen (Kupfer, Zink, Alu)</li>
+            <li>Geprüfte Blitzschutzanlagen nach VKF-Norm</li>
+          </ul>
+        </div>
+
+        <!-- 6. KRAN & SERVICE -->
+        <div class="service-card">
+          <div class="service-card-head">
+            <div class="service-icon">🚜</div>
+            <div class="service-title">Kran, Hebebühne & Unterhalt</div>
+          </div>
+          <ul class="service-list">
+            <li>Eigener Autokran für schwer zugängliche Hanglagen</li>
+            <li>Schnelle Sturmschaden-Behebung & Reparaturen</li>
+            <li>Zertifizierte Absturzsicherungssysteme</li>
           </ul>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- MULTI-PAGE TEASER BEREICH (TEAM & KARRIERE VORSCHAU) -->
+  <!-- TEASER ZU UNTERSEITEN (TEAM & KARRIERE) -->
   <div class="section-wrap" style="background: var(--surface);">
     <div class="section-inner">
-      <span class="section-kicker">Das Unternehmen</span>
-      <h2 class="section-title">Vertrauen entsteht durch Menschen.</h2>
-      <p class="section-desc">Lernen Sie unsere Meister kennen oder werden Sie Teil unseres Teams.</p>
+      <span class="section-kicker">Mehr erfahren</span>
+      <h2 class="section-title">Lernen Sie uns kennen</h2>
+      <p class="section-desc">Die Menschen hinter dem Handwerk und unsere offenen Stellen.</p>
 
       <div class="teaser-grid">
         <div class="teaser-card">
-          <h3 style="font-size: 1.1rem; font-weight: 700;">Über uns & Meister-Team</h3>
+          <div style="font-size: 1.7rem;">👥</div>
+          <h3 style="font-size: 1.15rem; font-weight: 700; color: var(--anthrazit);">Über uns & das Meister-Team</h3>
           <p style="font-size: 0.88rem; color: var(--muted); line-height: 1.5;">
-            Familienbetrieb in 3. Generation. Erfahren Sie mehr über unsere Geschichte und sprechen Sie direkt mit den Meistern und Projektleitern vor Ort.
+            Lernen Sie Eljas Hiltbrand (Gebäudehüllen-Meister HFP), Benjamin Hiltbrand und unser 15-köpfiges Fachkräfteteam in Krattigen kennen.
           </p>
-          <a href="team.html" class="teaser-link">Zum Team & Ansprechpartnern →</a>
+          <a href="team.html" class="teaser-link">Team-Porträts ansehen →</a>
         </div>
 
         <div class="teaser-card">
-          <h3 style="font-size: 1.1rem; font-weight: 700;">Arbeiten bei Hiltbrand (Karriere)</h3>
+          <div style="font-size: 1.7rem;">🛠️</div>
+          <h3 style="font-size: 1.15rem; font-weight: 700; color: var(--anthrazit);">Karriere & Offene Stellen</h3>
           <p style="font-size: 0.88rem; color: var(--muted); line-height: 1.5;">
-            5 Wochen Ferien, moderner Fuhrpark und familiärer Zusammenhalt. Entdecken Sie unsere Unternehmenskultur oder bewerben Sie sich in 60 Sekunden.
+            5 Wochen Ferien, moderner Autokran und starker Zusammenhalt. Wir suchen aktuell Dachdecker EFZ und Fassadenbauer.
           </p>
           <a href="karriere.html" class="teaser-link">Karriere & Einblicke ansehen →</a>
         </div>
@@ -265,7 +306,7 @@
     </div>
   </div>
 
-  <!-- ACP BAUSTELLEN-STORIES -->
+  <!-- ACP BAUSTELLEN-STORIES (ECHTE REFERENZEN AUS DEM TRESOR) -->
   <div class="section-wrap">
     <div class="section-inner">
       <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 14px;">
@@ -277,19 +318,30 @@
       </div>
 
       <div class="stories-scroll">
+        <!-- STORY 1 -->
         <div class="story-card">
-          <img src="https://embed.magnet-xs.ch/hiltbrand/images/benefits_drohne.jpg" alt="Sanierung Spiez" class="story-img">
+          <img src="images/hero.jpg" alt="Steildachsanierung Krattigen" class="story-img">
           <div class="story-body">
-            <span style="font-family:'JetBrains Mono',monospace; font-size:0.68rem; color:var(--primary); font-weight:700;">Gestern • Baustelle Spiez</span>
-            <h4 style="font-size:0.88rem; font-weight:700; line-height:1.3;">Steildach-Dämmung nach Minergie fertiggestellt</h4>
+            <span style="font-family:'JetBrains Mono',monospace; font-size:0.68rem; color:var(--primary); font-weight:700;">Gestern • Krattigen</span>
+            <h4 style="font-size:0.88rem; font-weight:700; line-height:1.3; color:var(--anthrazit);">Komplette Steildachsanierung mit Minergie-Dämmung</h4>
           </div>
         </div>
 
+        <!-- STORY 2 -->
         <div class="story-card">
-          <img src="https://embed.magnet-xs.ch/hiltbrand/images/vorstellung.jpg" alt="Kupferrinne Thun" class="story-img">
+          <img src="images/benefits_drohne.jpg" alt="Drohnenaufnahme Thunersee" class="story-img">
           <div class="story-body">
-            <span style="font-family:'JetBrains Mono',monospace; font-size:0.68rem; color:var(--primary); font-weight:700;">Vor 3 Tagen • Altstadt</span>
-            <h4 style="font-size:0.88rem; font-weight:700; line-height:1.3;">Handgefertigte Kupfer-Lukarne montiert</h4>
+            <span style="font-family:'JetBrains Mono',monospace; font-size:0.68rem; color:var(--primary); font-weight:700;">Vor 2 Tagen • Thunersee</span>
+            <h4 style="font-size:0.88rem; font-weight:700; line-height:1.3; color:var(--anthrazit);">Drohnen-Inspektion & Solarmontage am Hang</h4>
+          </div>
+        </div>
+
+        <!-- STORY 3 -->
+        <div class="story-card">
+          <img src="images/q1_benefit.jpg" alt="Bauspenglerei Spiez" class="story-img">
+          <div class="story-body">
+            <span style="font-family:'JetBrains Mono',monospace; font-size:0.68rem; color:var(--primary); font-weight:700;">Vor 4 Tagen • Spiez</span>
+            <h4 style="font-size:0.88rem; font-weight:700; line-height:1.3; color:var(--anthrazit);">Handgefertigte Kupfer-Lukarne & Rinne montiert</h4>
           </div>
         </div>
       </div>
@@ -300,10 +352,10 @@
 
   <!-- STICKY THUMB BAR -->
   <div class="thumb-bar">
-    <a href="tel:+41336711818" class="btn-thumb btn-thumb-phone">
-      <span>📞</span> 033 671 18 18
+    <a href="tel:+41335300204" class="btn-thumb btn-thumb-phone">
+      <span>📞</span> 033 530 02 04
     </a>
-    <a href="https://wa.me/41790000000" class="btn-thumb btn-thumb-whatsapp">
+    <a href="https://wa.me/41792318484" class="btn-thumb btn-thumb-whatsapp">
       <span>💬</span> WhatsApp
     </a>
   </div>
@@ -311,8 +363,8 @@
   <!-- FOOTER -->
   <footer class="footer-wrap">
     <div class="footer-inner">
-      <div style="font-weight: 800; font-size: 1.05rem; color: #fff;">Hiltbrand Bedachungen & Spenglerei GmbH</div>
-      <div>Werkstrasse 14 • 3600 Thun • Tel: 033 671 18 18 • info@hiltbrand-bedachungen.ch</div>
+      <div style="font-weight: 800; font-size: 1.05rem; color: #fff;">Hiltbrand Gebäudehüllen AG</div>
+      <div>Risegasse 27 • 3704 Krattigen • Tel: 033 530 02 04 • Mobil: 079 231 84 84 • info@hiltbrand.swiss</div>
       <div style="font-family:'JetBrains Mono',monospace; font-size:0.7rem; color:#64748b; margin-top:8px;">
         Powered by WebPilot // Schweizer Hosting (Zürich & Genf) • 100% Mobile First Architecture
       </div>
@@ -326,4 +378,3 @@
   </script>
 </body>
 </html>
-

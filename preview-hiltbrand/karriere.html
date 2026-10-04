@@ -1,23 +1,25 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="de-CH">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-  <title>Arbeiten bei Hiltbrand — Karriere & Jobs im Dachdecker- & Spenglerhandwerk</title>
+  <title>Karriere & Jobs — Hiltbrand Gebäudehüllen AG | Krattigen</title>
+  <meta name="description" content="Arbeiten bei Hiltbrand Gebäudehüllen AG in Krattigen. 5 Wochen Ferien, moderner Autokran, Hilti-Equipment. Dachdecker EFZ & Fassadenbauer gesucht. 30s-WhatsApp-Bewerbung.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --primary: #15803d;
-      --primary-dark: #166534;
-      --primary-glow: rgba(21, 128, 61, 0.15);
-      --accent: #d97706;
+      --primary: #EF4035;
+      --primary-dark: #D32F2F;
+      --primary-glow: rgba(239, 64, 53, 0.15);
+      --anthrazit: #231F20;
+      --accent: #231F20;
       --bg: #ffffff;
       --surface: #f8fafc;
       --surface-2: #f1f5f9;
       --border: #e2e8f0;
-      --text: #0f172a;
+      --text: #231F20;
       --muted: #64748b;
       --radius-sm: 6px;
       --radius-md: 10px;
@@ -30,11 +32,11 @@
     body { width: 100%; min-height: 100vh; overflow-x: clip; background: var(--bg); color: var(--text); font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; line-height: 1.5; font-size: 15px; }
 
     /* HEADER (STICKY) */
-    .top-bar { padding: 12px 16px; border-bottom: 1px solid var(--border); background: rgba(255, 255, 255, 0.98); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); position: -webkit-sticky; position: sticky; top: 0; z-index: 1000; width: 100%; }
+    .top-bar { padding: 10px 16px; border-bottom: 1px solid var(--border); background: rgba(255, 255, 255, 0.98); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); position: -webkit-sticky; position: sticky; top: 0; z-index: 1000; width: 100%; }
     .top-bar-inner { max-width: 1100px; margin: 0 auto; width: 100%; display: flex; justify-content: space-between; align-items: center; gap: 16px; }
-    .brand-logo-wrap { display: flex; align-items: center; gap: 10px; text-decoration: none; color: inherit; }
-    .brand-mark { width: 38px; height: 38px; border-radius: var(--radius-sm); background: var(--primary); color: #fff; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 1.1rem; box-shadow: 0 2px 8px var(--primary-glow); }
-    .brand-name { font-size: 1.05rem; font-weight: 800; letter-spacing: -0.02em; line-height: 1.2; }
+    .brand-logo-wrap { display: flex; align-items: center; gap: 12px; text-decoration: none; color: inherit; }
+    .brand-logo-img { height: 38px; width: auto; max-width: 130px; object-fit: contain; }
+    .brand-name { font-size: 1.05rem; font-weight: 800; letter-spacing: -0.02em; line-height: 1.2; color: var(--anthrazit); }
     .brand-region { font-size: 0.72rem; color: var(--muted); font-weight: 500; }
 
     .desktop-nav { display: none; align-items: center; gap: 24px; }
@@ -54,43 +56,40 @@
     .page-hero { width: 100%; background: linear-gradient(180deg, var(--surface) 0%, #ffffff 100%); border-bottom: 1px solid var(--border); padding: 36px 16px; }
     .page-hero-inner { max-width: 1100px; margin: 0 auto; width: 100%; }
     .section-kicker { font-family: 'JetBrains Mono', monospace; font-size: 0.72rem; color: var(--primary); font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 6px; display: block; }
-    .page-title { font-size: 1.85rem; font-weight: 800; line-height: 1.2; letter-spacing: -0.03em; margin-bottom: 10px; }
+    .page-title { font-size: 1.85rem; font-weight: 800; line-height: 1.2; letter-spacing: -0.03em; margin-bottom: 10px; color: var(--anthrazit); }
     .page-desc { font-size: 0.95rem; color: var(--muted); line-height: 1.6; max-width: 680px; }
 
     /* SECTIONS */
     .section-wrap { width: 100%; border-bottom: 1px solid var(--border); }
     .section-inner { max-width: 1100px; margin: 0 auto; padding: 40px 16px; width: 100%; }
-    .section-title { font-size: 1.45rem; font-weight: 800; letter-spacing: -0.02em; line-height: 1.25; margin-bottom: 8px; }
+    .section-title { font-size: 1.45rem; font-weight: 800; letter-spacing: -0.02em; line-height: 1.25; margin-bottom: 8px; color: var(--anthrazit); }
     .section-subtitle { font-size: 0.9rem; color: var(--muted); line-height: 1.5; margin-bottom: 24px; }
 
     /* BENEFITS GRID */
-    .benefits-grid { display: grid; grid-template-columns: 1fr; gap: 14px; }
+    .benefits-grid { display: grid; grid-template-columns: 1fr; gap: 16px; }
     .benefit-item { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-md); padding: 18px; display: flex; gap: 14px; align-items: flex-start; }
-    .benefit-icon { width: 38px; height: 38px; border-radius: var(--radius-sm); background: var(--primary-glow); color: var(--primary); display: flex; align-items: center; justify-content: center; font-size: 1.2rem; flex-shrink: 0; }
-    .benefit-title { font-size: 0.98rem; font-weight: 700; margin-bottom: 4px; }
+    .benefit-icon { font-size: 1.5rem; flex-shrink: 0; }
+    .benefit-title { font-size: 1rem; font-weight: 700; margin-bottom: 4px; color: var(--anthrazit); }
     .benefit-text { font-size: 0.85rem; color: var(--muted); line-height: 1.5; }
 
-    /* JOB CARD (EBENE 2) */
-    .job-card { background: #ffffff; border: 2px solid var(--primary); border-radius: var(--radius-md); padding: 24px; box-shadow: var(--shadow-md); position: relative; margin-bottom: 20px; }
-    .job-badge { position: absolute; top: -12px; left: 20px; background: var(--primary); color: #fff; font-family: 'JetBrains Mono', monospace; font-size: 0.72rem; font-weight: 700; padding: 4px 12px; border-radius: 999px; }
-    .job-title { font-size: 1.3rem; font-weight: 800; margin-top: 6px; margin-bottom: 8px; }
-    .job-meta { display: flex; flex-wrap: wrap; gap: 12px; font-size: 0.85rem; color: var(--muted); margin-bottom: 16px; }
+    /* EBENE 1: SPONTAN-KAFFEE BOX */
+    .coffee-card { background: linear-gradient(135deg, rgba(239, 64, 53, 0.08) 0%, rgba(35, 31, 32, 0.04) 100%); border: 2px dashed var(--primary); border-radius: var(--radius-lg); padding: 24px; display: flex; flex-direction: column; gap: 12px; margin-bottom: 32px; }
+    .coffee-tag { font-family: 'JetBrains Mono', monospace; font-size: 0.72rem; color: var(--primary); font-weight: 800; text-transform: uppercase; }
+    .coffee-title { font-size: 1.3rem; font-weight: 800; color: var(--anthrazit); }
+    .coffee-desc { font-size: 0.9rem; color: var(--text); line-height: 1.55; }
+    .btn-coffee { display: inline-flex; align-items: center; justify-content: center; gap: 8px; background: var(--primary); color: #fff; font-weight: 700; font-size: 0.9rem; padding: 12px 20px; border-radius: var(--radius-md); text-decoration: none; width: 100%; max-width: 320px; box-shadow: 0 4px 14px var(--primary-glow); }
+
+    /* EBENE 2: VAKANZEN */
+    .job-card { background: #ffffff; border: 1px solid var(--border); border-radius: var(--radius-md); padding: 22px; box-shadow: var(--shadow-sm); display: flex; flex-direction: column; gap: 12px; margin-bottom: 18px; }
+    .job-badge { font-family: 'JetBrains Mono', monospace; font-size: 0.68rem; font-weight: 700; color: var(--primary); background: var(--primary-glow); padding: 3px 8px; border-radius: var(--radius-sm); align-self: flex-start; }
+    .job-title { font-size: 1.2rem; font-weight: 800; color: var(--anthrazit); }
+    .job-meta { display: flex; flex-wrap: wrap; gap: 12px; font-size: 0.82rem; color: var(--muted); }
     .job-meta-item { display: inline-flex; align-items: center; gap: 4px; }
-    .job-tasks { list-style: none; display: flex; flex-direction: column; gap: 6px; font-size: 0.88rem; color: var(--text); margin-bottom: 20px; }
-    .job-tasks li { display: flex; align-items: center; gap: 8px; }
-    .job-tasks li::before { content: '✓'; color: var(--primary); font-weight: 800; }
+    .job-desc { font-size: 0.88rem; color: var(--text); line-height: 1.55; }
+    .job-reqs { list-style: none; display: flex; flex-direction: column; gap: 5px; font-size: 0.85rem; color: var(--muted); margin: 6px 0; }
+    .job-reqs li::before { content: '• '; color: var(--primary); font-weight: 800; }
 
-    /* EXPRESS FORMULAR (60 SEKUNDEN) */
-    .express-box { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 24px; margin-top: 24px; }
-    .form-group { display: flex; flex-direction: column; gap: 6px; margin-bottom: 14px; }
-    .form-label { font-size: 0.85rem; font-weight: 700; color: var(--text); }
-    .form-input { width: 100%; height: 46px; border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 0 14px; font-size: 0.95rem; background: #ffffff; font-family: inherit; }
-    .form-input:focus { outline: none; border-color: var(--primary); box-shadow: 0 0 0 3px var(--primary-glow); }
-    .btn-apply { width: 100%; height: 50px; background: var(--primary); color: #fff; font-size: 1rem; font-weight: 700; border-radius: var(--radius-md); border: none; cursor: pointer; display: inline-flex; align-items: center; justify-content: center; gap: 8px; box-shadow: 0 4px 14px var(--primary-glow); }
-    .btn-wa-apply { width: 100%; height: 50px; background: #25D366; color: #fff; font-size: 1rem; font-weight: 700; border-radius: var(--radius-md); text-decoration: none; display: inline-flex; align-items: center; justify-content: center; gap: 8px; margin-top: 10px; }
-
-    /* PASSIVE POOL (EBENE 1) */
-    .passive-box { background: #0f172a; color: #fff; border-radius: var(--radius-lg); padding: 32px 24px; text-align: center; }
+    .btn-wa-apply { display: inline-flex; align-items: center; justify-content: center; gap: 8px; background: #25D366; color: #fff !important; font-weight: 700; font-size: 0.9rem; padding: 12px 20px; border-radius: var(--radius-md); text-decoration: none; width: 100%; box-shadow: 0 4px 14px rgba(37, 211, 102, 0.25); }
 
     /* STICKY THUMB BAR */
     .thumb-bar { position: fixed; bottom: 0; left: 0; right: 0; background: rgba(255, 255, 255, 0.96); backdrop-filter: blur(12px); border-top: 1px solid var(--border); padding: 10px 14px; padding-bottom: calc(10px + env(safe-area-inset-bottom, 0px)); display: flex; gap: 10px; z-index: 950; }
@@ -100,42 +99,43 @@
     .bottom-buffer { height: 74px; }
 
     /* FOOTER */
-    .footer-wrap { width: 100%; background: #0f172a; color: #94a3b8; border-top: 1px solid #1e293b; }
-    .footer-inner { max-width: 1100px; margin: 0 auto; padding: 36px 16px; font-size: 0.82rem; display: flex; flex-direction: column; gap: 12px; }
+    .footer-wrap { width: 100%; background: #1c191a; color: #94a3b8; border-top: 1px solid #2e282a; }
+    .footer-inner { max-width: 1100px; margin: 0 auto; padding: 40px 16px; font-size: 0.82rem; line-height: 1.6; }
 
-    /* DESKTOP RESPONSIVE */
+    /* DESKTOP MEDIA QUERY (min-width: 768px) */
     @media (min-width: 768px) {
-      .top-bar { padding: 14px 24px; }
       .desktop-nav { display: flex; }
       .nav-burger { display: none !important; }
-      .page-hero { padding: 56px 24px 44px 24px; }
-      .page-title { font-size: 2.3rem; }
+      .page-hero { padding: 56px 24px; }
+      .page-title { font-size: 2.4rem; }
       .section-inner { padding: 56px 24px; }
+      .section-title { font-size: 1.95rem; }
       .benefits-grid { grid-template-columns: repeat(3, 1fr); gap: 20px; }
+      .btn-wa-apply { width: auto; align-self: flex-start; padding: 12px 28px; }
+      .btn-coffee { width: auto; }
       .thumb-bar, .bottom-buffer { display: none; }
-      .footer-inner { padding: 44px 24px; }
-      .apply-layout { display: grid; grid-template-columns: 1.2fr 1fr; gap: 36px; align-items: start; }
+      .footer-inner { padding: 48px 24px; }
     }
   </style>
 </head>
 <body>
 
-  <!-- HEADER -->
+  <!-- HEADER (STICKY) -->
   <header class="top-bar">
     <div class="top-bar-inner">
       <a href="index.html" class="brand-logo-wrap">
-        <div class="brand-mark">H</div>
+        <img src="images/logo.png" alt="Hiltbrand Gebäudehüllen AG" class="brand-logo-img">
         <div>
-          <div class="brand-name">Hiltbrand</div>
-          <div class="brand-region">Bedachungen & Spenglerei • Thun</div>
+          <div class="brand-name">Hiltbrand Gebäudehüllen AG</div>
+          <div class="brand-region">Risegasse 27, Krattigen • Berner Oberland</div>
         </div>
       </a>
       <nav class="desktop-nav">
         <a href="index.html" class="desk-nav-link">Startseite</a>
         <a href="team.html" class="desk-nav-link">Über uns & Team</a>
-        <a href="karriere.html" class="desk-nav-link active">Arbeiten bei uns</a>
-        <a href="kontakt.html" class="desk-nav-link">Kontakt & Notdienst</a>
-        <a href="tel:+41336711818" class="btn-desk-contact">📞 033 671 18 18</a>
+        <a href="karriere.html" class="desk-nav-link active">Karriere & Jobs</a>
+        <a href="kontakt.html" class="desk-nav-link">Kontakt</a>
+        <a href="kontakt.html" class="btn-desk-contact">Offerte anfragen</a>
       </nav>
       <button class="nav-burger" onclick="toggleDrawer()" aria-label="Menü öffnen">
         <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
@@ -147,27 +147,42 @@
   <nav class="nav-drawer" id="navDrawer">
     <a href="index.html" class="nav-link">Startseite <span>→</span></a>
     <a href="team.html" class="nav-link">Über uns & Team <span>→</span></a>
-    <a href="karriere.html" class="nav-link" style="color:var(--primary);">Arbeiten bei uns (Karriere) <span>→</span></a>
+    <a href="karriere.html" class="nav-link" style="color:var(--primary);">Karriere & Jobs <span>→</span></a>
     <a href="kontakt.html" class="nav-link">Kontakt & 24h-Service <span>→</span></a>
   </nav>
 
-  <!-- PAGE HERO -->
+  <!-- HERO -->
   <section class="page-hero">
     <div class="page-hero-inner">
-      <span class="section-kicker">Kultur & Karriere</span>
+      <span class="section-kicker">Karriere bei Hiltbrand</span>
       <h1 class="page-title">Handwerk mit Stolz, modernstem Equipment und Respekt.</h1>
       <p class="page-desc">
-        Wir schätzen gute Handwerker. Bei uns schleppt niemand Ziegel von Hand auf den First — wir investieren konsequent in Kräne, Schräglifte und beste Schutzausrüstung.
+        Wir schätzen gutes Handwerk. Bei uns schleppt niemand Ziegel von Hand auf den First — wir investieren konsequent in eigene Kräne, Schräglifte und beste Schutzausrüstung.
       </p>
     </div>
   </section>
 
-  <!-- BENEFITS (EBENE 1: ALWAYS-ON KULTUR) -->
+  <!-- EBENE 1: ALWAYS-ON KULTUR & SPONTAN-KAFFEE -->
   <div class="section-wrap">
     <div class="section-inner">
+      
+      <!-- SPONTAN KAFFEE BOX -->
+      <div class="coffee-card">
+        <span class="coffee-tag">☕ Ebene 1: Spontanbewerbung & Kennenlernen</span>
+        <h2 class="coffee-title">Auf einen unkomplizierten Kaffee in Krattigen?</h2>
+        <p class="coffee-desc">
+          Du bist Dachdecker, Spengler, Polybauer oder Zimmermann und suchst ein Umfeld, in dem deine Leistung ehrlich geschätzt wird? 
+          Bei uns läuft es rund — aber für echte Macher und Talente haben wir immer die Tür offen. 
+          Kein Lebenslauf, kein Anschreiben: Schreib Benjamin («Benji») Hiltbrand einfach kurz auf WhatsApp.
+        </p>
+        <a href="https://wa.me/41792318484?text=Hallo%20Benji,%20ich%20habe%20eure%20Website%20gesehen%20und%20wollte%20mich%20gerne%20mal%20unverbindlich%20austauschen." class="btn-coffee">
+          <span>💬</span> Benji auf WhatsApp schreiben
+        </a>
+      </div>
+
       <span class="section-kicker">Gute Gründe für Hiltbrand</span>
       <h2 class="section-title">Was wir dir als Arbeitgeber bieten</h2>
-      <p class="section-subtitle">Weil echte Spitzenleistung nur im richtigen Umfeld möglich ist.</p>
+      <p class="section-subtitle">Weil Spitzenleistung nur in einem gesunden, modernen Umfeld entsteht.</p>
 
       <div class="benefits-grid">
         <div class="benefit-item">
@@ -181,16 +196,16 @@
         <div class="benefit-item">
           <div class="benefit-icon">🚜</div>
           <div>
-            <div class="benefit-title">Moderner Maschinen- & Fuhrpark</div>
-            <div class="benefit-text">Eigener Böcker Autokran, Akku-Werkzeuge von Hilti und ergonomische Schräglifte schonen deinen Rücken.</div>
+            <div class="benefit-title">Eigener Autokran & Hilti-Maschinen</div>
+            <div class="benefit-text">Moderner Böcker Autokran, Akku-Werkzeuge von Hilti und ergonomische Schräglifte schonen deine Gesundheit.</div>
           </div>
         </div>
 
         <div class="benefit-item">
-          <div class="benefit-icon">☕</div>
+          <div class="benefit-icon">🤝</div>
           <div>
             <div class="benefit-title">Familiäre Atmosphäre</div>
-            <div class="benefit-text">Flache Hierarchien, gemeinsame Znüni-Pausen in der Werkstatt und ein Team, das sich aufeinander verlassen kann.</div>
+            <div class="benefit-text">Flache Hierarchien, gemeinsame Znüni-Pausen in der Werkstatt in Krattigen und ein Team, das zusammenhält.</div>
           </div>
         </div>
 
@@ -198,7 +213,7 @@
           <div class="benefit-icon">👕</div>
           <div>
             <div class="benefit-title">Komplette Arbeitskleidung</div>
-            <div class="benefit-text">Engelbert Strauss Qualitätskleidung für Sommer und Winter, inklusive Waschservice und PSA-Sicherheitsausrüstung.</div>
+            <div class="benefit-text">Engelbert Strauss Qualitätskleidung für Sommer und Winter, inklusive Waschservice und PSA-Ausrüstung.</div>
           </div>
         </div>
 
@@ -214,90 +229,61 @@
           <div class="benefit-icon">⏱️</div>
           <div>
             <div class="benefit-title">Geregelte Arbeitszeiten</div>
-            <div class="benefit-text">Klare Arbeitszeitkonten, keine endlosen unbezahlten Überstunden und verlässliche Feierabende am Freitag.</div>
+            <div class="benefit-text">Klare Zeiterfassung, keine endlosen unbezahlten Überstunden und pünktlicher Feierabend ins Wochenende.</div>
           </div>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- AKTUELLE VAKANZEN (EBENE 2: AKTIVE STELLEN) -->
+  <!-- EBENE 2: KONKRETE OFFENE STELLEN -->
   <div class="section-wrap" style="background: var(--surface);">
     <div class="section-inner">
-      <span class="section-kicker">Offene Stellen (Ebene 2)</span>
-      <h2 class="section-title">Aktuell suchen wir Verstärkung</h2>
-      <p class="section-subtitle">Du möchtest direkt bei uns anpacken? Hier ist deine Chance.</p>
+      <span class="section-kicker">Ebene 2: Aktuelle Vakanzen</span>
+      <h2 class="section-title">Offene Stellen in Krattigen</h2>
+      <p class="section-subtitle">Du möchtest direkt bei uns anpacken? Hier sind unsere aktuellen Vakanzen.</p>
 
-      <div class="apply-layout">
-        <div>
-          <!-- JOB CARD -->
-          <div class="job-card">
-            <span class="job-badge">SOFORT ODER NACH VEREINBARUNG</span>
-            <h3 class="job-title">Dachdecker EFZ / Spengler EFZ (m/w/d)</h3>
-            <div class="job-meta">
-              <span class="job-meta-item">📍 Thun & Berner Oberland</span>
-              <span class="job-meta-item">💼 80% – 100%</span>
-              <span class="job-meta-item">🛠️ Steildach & Bauspenglerei</span>
-            </div>
-            <p style="font-size: 0.9rem; color: var(--muted); margin-bottom: 14px;">
-              Du führst selbstständig oder im 2er-Team anspruchsvolle Eindeckungs-, Sanierungs- und Spenglerarbeiten im Raum Thun aus.
-            </p>
-            <ul class="job-tasks">
-              <li>Verlegen von Tonziegeln, Schiefer- und Faserzementplatten</li>
-              <li>Montage von Lukarnen, Dachfenstern und Rinnensystemen</li>
-              <li>Energetische Dämmarbeiten und Photovoltaik-Vorbereitung</li>
-              <li>Führerausweis Kat. B von Vorteil</li>
-            </ul>
-          </div>
+      <!-- JOB 1 -->
+      <div class="job-card">
+        <span class="job-badge">AB SOFORT ODER NACH VEREINBARUNG</span>
+        <h3 class="job-title">Dachdecker EFZ / Steildach-Spezialist (m/w/d)</h3>
+        <div class="job-meta">
+          <span class="job-meta-item">📍 Krattigen & Berner Oberland</span>
+          <span class="job-meta-item">💼 80% – 100%</span>
+          <span class="job-meta-item">🛠️ Steildach, Ziegel, Schiefer & Dämmung</span>
         </div>
-
-        <!-- 60-SEKUNDEN EXPRESS-BEWERBUNG -->
-        <div class="express-box">
-          <span class="section-kicker">60-Sekunden Express</span>
-          <h3 style="font-size: 1.15rem; font-weight: 800; margin-bottom: 6px;">Kein Anschreiben. Kein Lebenslauf nötig.</h3>
-          <p style="font-size: 0.85rem; color: var(--muted); margin-bottom: 18px;">
-            Hinterlasse einfach deine Handynummer. Michael Hiltbrand ruft dich diskret für ein unkompliziertes 5-Minuten-Gespräch an.
-          </p>
-
-          <form onsubmit="event.preventDefault(); alert('Vielen Dank! Michael Hiltbrand meldet sich innerhalb von 24 Stunden bei dir.');">
-            <div class="form-group">
-              <label class="form-label">Dein Vor- und Nachname</label>
-              <input type="text" class="form-input" placeholder="z. B. Marc Gerber" required>
-            </div>
-            <div class="form-group">
-              <label class="form-label">Deine Handynummer</label>
-              <input type="tel" class="form-input" placeholder="z. B. 079 123 45 67" required>
-            </div>
-            <div class="form-group">
-              <label class="form-label">Dein Beruf / Erfahrung</label>
-              <input type="text" class="form-input" placeholder="z. B. Dachdecker EFZ seit 4 Jahren">
-            </div>
-            <button type="submit" class="btn-apply">
-              <span>🚀</span> In 60 Sekunden absenden
-            </button>
-          </form>
-
-          <div style="text-align: center; margin: 14px 0; font-size: 0.8rem; color: var(--muted);">oder direkt via WhatsApp:</div>
-          <a href="https://wa.me/41790000000?text=Hallo%20Michael,%20ich%20habe%20eure%20Stellenausschreibung%20gesehen%20und%20h%C3%A4tte%20Interesse." class="btn-wa-apply">
-            <span>💬</span> Per WhatsApp schreiben
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- INITIATIV & KAFFEE (EBENE 1: TALENT POOL) -->
-  <div class="section-wrap">
-    <div class="section-inner">
-      <div class="passive-box">
-        <span style="font-family:'JetBrains Mono',monospace; font-size:0.75rem; color:#f59e0b; font-weight:700; text-transform:uppercase;">Initiativ & Unverbindlich</span>
-        <h2 style="font-size: 1.6rem; font-weight: 800; margin: 10px 0;">Nicht die passende Stelle dabei?</h2>
-        <p style="font-size: 0.95rem; color: #cbd5e1; max-width: 600px; margin: 0 auto 24px auto; line-height: 1.6;">
-          Bei uns läuft alles rund — aber wir sind immer offen für talentierte Macher, Quereinsteiger oder Lernende. 
-          Komm einfach mal auf einen ungezwungenen Kaffee in unserer Werkstatt in Thun vorbei.
+        <p class="job-desc">
+          Du führst anspruchsvolle Eindeckungen, energetische Dachsanierungen und Dachfenstermontagen im Berner Oberland aus. Unterstützt durch unseren eigenen Autokran.
         </p>
-        <a href="tel:+41336711818" style="background: #ffffff; color: #0f172a; padding: 12px 24px; border-radius: var(--radius-md); font-weight: 700; text-decoration: none; display: inline-flex; align-items: center; gap: 8px;">
-          ☕ Auf einen Kaffee verabreden
+        <ul class="job-reqs">
+          <li>Abgeschlossene Ausbildung als Dachdecker EFZ oder Polybauer</li>
+          <li>Schwindelfrei, wetterfest und Freude am selbstständigen Arbeiten</li>
+          <li>Führerausweis Kat. B von Vorteil</li>
+        </ul>
+        <a href="https://wa.me/41792318484?text=Hallo%20Benji,%20ich%20interessiere%20mich%20f%C3%BCr%20die%20Stelle%20als%20Dachdecker%20EFZ." class="btn-wa-apply">
+          <span>⚡</span> In 30 Sekunden per WhatsApp bewerben
+        </a>
+      </div>
+
+      <!-- JOB 2 -->
+      <div class="job-card">
+        <span class="job-badge">AB SOFORT ODER NACH VEREINBARUNG</span>
+        <h3 class="job-title">Fassadenbauer EFZ / Bauspengler EFZ (m/w/d)</h3>
+        <div class="job-meta">
+          <span class="job-meta-item">📍 Krattigen & Berner Oberland</span>
+          <span class="job-meta-item">💼 80% – 100%</span>
+          <span class="job-meta-item">🛠️ Hinterlüftete Fassaden, Blech & Solar</span>
+        </div>
+        <p class="job-desc">
+          Du montierst moderne hinterlüftete Fassadensysteme (Holz, Faserzement, Metall), führst Spenglerarbeiten aus oder installierst Indach-Photovoltaik.
+        </p>
+        <ul class="job-reqs">
+          <li>Ausbildung als Fassadenbauer EFZ, Spengler EFZ oder verwandter Handwerksberuf</li>
+          <li>Sorgfältige, saubere Arbeitsweise und Teamgeist</li>
+          <li>Führerausweis Kat. B von Vorteil</li>
+        </ul>
+        <a href="https://wa.me/41792318484?text=Hallo%20Benji,%20ich%20interessiere%20mich%20f%C3%BCr%20die%20Stelle%20als%20Fassadenbauer%20/%20Spengler." class="btn-wa-apply">
+          <span>⚡</span> In 30 Sekunden per WhatsApp bewerben
         </a>
       </div>
     </div>
@@ -307,10 +293,10 @@
 
   <!-- STICKY THUMB BAR -->
   <div class="thumb-bar">
-    <a href="tel:+41336711818" class="btn-thumb btn-thumb-phone">
-      <span>📞</span> 033 671 18 18
+    <a href="tel:+41335300204" class="btn-thumb btn-thumb-phone">
+      <span>📞</span> 033 530 02 04
     </a>
-    <a href="https://wa.me/41790000000" class="btn-thumb btn-thumb-whatsapp">
+    <a href="https://wa.me/41792318484" class="btn-thumb btn-thumb-whatsapp">
       <span>💬</span> WhatsApp
     </a>
   </div>
@@ -318,8 +304,8 @@
   <!-- FOOTER -->
   <footer class="footer-wrap">
     <div class="footer-inner">
-      <div style="font-weight: 800; font-size: 1.05rem; color: #fff;">Hiltbrand Bedachungen & Spenglerei GmbH</div>
-      <div>Werkstrasse 14 • 3600 Thun • Tel: 033 671 18 18 • info@hiltbrand-bedachungen.ch</div>
+      <div style="font-weight: 800; font-size: 1.05rem; color: #fff;">Hiltbrand Gebäudehüllen AG</div>
+      <div>Risegasse 27 • 3704 Krattigen • Tel: 033 530 02 04 • Mobil: 079 231 84 84 • info@hiltbrand.swiss</div>
       <div style="font-family:'JetBrains Mono',monospace; font-size:0.7rem; color:#64748b; margin-top:8px;">
         Powered by WebPilot // Schweizer Hosting (Zürich & Genf) • 100% Mobile First Architecture
       </div>
@@ -333,4 +319,3 @@
   </script>
 </body>
 </html>
-

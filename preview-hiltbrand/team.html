@@ -1,23 +1,25 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="de-CH">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-  <title>Über uns & Team — Hiltbrand Bedachungen & Spenglerei Thun</title>
+  <title>Über uns & Team — Hiltbrand Gebäudehüllen AG | Krattigen</title>
+  <meta name="description" content="Lernen Sie das Team der Hiltbrand Gebäudehüllen AG kennen. Eljas Hiltbrand (Meister HFP), Benjamin Hiltbrand und 15 Spezialisten in Krattigen am Thunersee.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --primary: #15803d;
-      --primary-dark: #166534;
-      --primary-glow: rgba(21, 128, 61, 0.15);
-      --accent: #d97706;
+      --primary: #EF4035;
+      --primary-dark: #D32F2F;
+      --primary-glow: rgba(239, 64, 53, 0.15);
+      --anthrazit: #231F20;
+      --accent: #231F20;
       --bg: #ffffff;
       --surface: #f8fafc;
       --surface-2: #f1f5f9;
       --border: #e2e8f0;
-      --text: #0f172a;
+      --text: #231F20;
       --muted: #64748b;
       --radius-sm: 6px;
       --radius-md: 10px;
@@ -30,11 +32,11 @@
     body { width: 100%; min-height: 100vh; overflow-x: clip; background: var(--bg); color: var(--text); font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; line-height: 1.5; font-size: 15px; }
 
     /* HEADER (STICKY) */
-    .top-bar { padding: 12px 16px; border-bottom: 1px solid var(--border); background: rgba(255, 255, 255, 0.98); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); position: -webkit-sticky; position: sticky; top: 0; z-index: 1000; width: 100%; }
+    .top-bar { padding: 10px 16px; border-bottom: 1px solid var(--border); background: rgba(255, 255, 255, 0.98); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); position: -webkit-sticky; position: sticky; top: 0; z-index: 1000; width: 100%; }
     .top-bar-inner { max-width: 1100px; margin: 0 auto; width: 100%; display: flex; justify-content: space-between; align-items: center; gap: 16px; }
-    .brand-logo-wrap { display: flex; align-items: center; gap: 10px; text-decoration: none; color: inherit; }
-    .brand-mark { width: 38px; height: 38px; border-radius: var(--radius-sm); background: var(--primary); color: #fff; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 1.1rem; box-shadow: 0 2px 8px var(--primary-glow); }
-    .brand-name { font-size: 1.05rem; font-weight: 800; letter-spacing: -0.02em; line-height: 1.2; }
+    .brand-logo-wrap { display: flex; align-items: center; gap: 12px; text-decoration: none; color: inherit; }
+    .brand-logo-img { height: 38px; width: auto; max-width: 130px; object-fit: contain; }
+    .brand-name { font-size: 1.05rem; font-weight: 800; letter-spacing: -0.02em; line-height: 1.2; color: var(--anthrazit); }
     .brand-region { font-size: 0.72rem; color: var(--muted); font-weight: 500; }
 
     .desktop-nav { display: none; align-items: center; gap: 24px; }
@@ -54,30 +56,30 @@
     .page-hero { width: 100%; background: linear-gradient(180deg, var(--surface) 0%, #ffffff 100%); border-bottom: 1px solid var(--border); padding: 36px 16px; }
     .page-hero-inner { max-width: 1100px; margin: 0 auto; width: 100%; }
     .section-kicker { font-family: 'JetBrains Mono', monospace; font-size: 0.72rem; color: var(--primary); font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 6px; display: block; }
-    .page-title { font-size: 1.85rem; font-weight: 800; line-height: 1.2; letter-spacing: -0.03em; margin-bottom: 10px; }
+    .page-title { font-size: 1.85rem; font-weight: 800; line-height: 1.2; letter-spacing: -0.03em; margin-bottom: 10px; color: var(--anthrazit); }
     .page-desc { font-size: 0.95rem; color: var(--muted); line-height: 1.6; max-width: 680px; }
 
     /* SECTIONS */
     .section-wrap { width: 100%; border-bottom: 1px solid var(--border); }
     .section-inner { max-width: 1100px; margin: 0 auto; padding: 40px 16px; width: 100%; }
-    .section-title { font-size: 1.45rem; font-weight: 800; letter-spacing: -0.02em; line-height: 1.25; margin-bottom: 8px; }
+    .section-title { font-size: 1.45rem; font-weight: 800; letter-spacing: -0.02em; line-height: 1.25; margin-bottom: 8px; color: var(--anthrazit); }
     .section-subtitle { font-size: 0.9rem; color: var(--muted); line-height: 1.5; margin-bottom: 24px; }
 
     /* TEAM GRID (Soleco Style) */
     .team-grid { display: grid; grid-template-columns: 1fr; gap: 20px; }
-    .member-card { background: #ffffff; border: 1px solid var(--border); border-radius: var(--radius-md); overflow: hidden; box-shadow: var(--shadow-sm); display: flex; flex-direction: column; transition: transform 0.15s ease, box-shadow 0.15s ease; }
+    .member-card { background: #ffffff; border: 1px solid var(--border); border-radius: var(--radius-md); overflow: hidden; box-shadow: var(--shadow-sm); display: flex; flex-direction: column; }
     .member-photo-wrap { width: 100%; aspect-ratio: 1/1; position: relative; background: var(--surface-2); overflow: hidden; }
     .member-photo { width: 100%; height: 100%; object-fit: cover; object-position: top center; display: block; }
-    .member-badge { position: absolute; bottom: 10px; left: 10px; background: rgba(15, 23, 42, 0.85); backdrop-filter: blur(8px); color: #fff; font-size: 0.72rem; font-weight: 600; padding: 4px 10px; border-radius: var(--radius-sm); }
+    .member-badge { position: absolute; bottom: 10px; left: 10px; background: rgba(35, 31, 32, 0.90); backdrop-filter: blur(8px); color: #fff; font-size: 0.72rem; font-weight: 600; padding: 4px 10px; border-radius: var(--radius-sm); }
     .member-info { padding: 18px; display: flex; flex-direction: column; gap: 6px; flex: 1; }
-    .member-name { font-size: 1.15rem; font-weight: 800; letter-spacing: -0.02em; }
+    .member-name { font-size: 1.15rem; font-weight: 800; letter-spacing: -0.02em; color: var(--anthrazit); }
     .member-role { font-size: 0.85rem; color: var(--primary); font-weight: 700; }
     .member-bio { font-size: 0.85rem; color: var(--muted); line-height: 1.5; margin: 6px 0 10px 0; }
     .member-contacts { margin-top: auto; display: flex; flex-direction: column; gap: 6px; border-top: 1px solid var(--border); padding-top: 12px; font-size: 0.82rem; }
     .member-contact-link { display: inline-flex; align-items: center; gap: 8px; color: var(--text); text-decoration: none; font-weight: 600; }
     .member-contact-link:hover { color: var(--primary); }
 
-    /* TEAM GROUP PHOTO */
+    /* TEAM GROUP PHOTO BANNER */
     .group-banner { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg); overflow: hidden; margin-top: 36px; }
     .group-img { width: 100%; max-height: 420px; object-fit: cover; display: block; }
     .group-content { padding: 24px; }
@@ -86,7 +88,7 @@
     .values-grid { display: grid; grid-template-columns: 1fr; gap: 16px; margin-top: 24px; }
     .value-box { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-md); padding: 20px; }
     .value-icon { font-size: 1.5rem; margin-bottom: 8px; }
-    .value-title { font-size: 1.05rem; font-weight: 700; margin-bottom: 6px; }
+    .value-title { font-size: 1.05rem; font-weight: 700; margin-bottom: 6px; color: var(--anthrazit); }
     .value-text { font-size: 0.85rem; color: var(--muted); line-height: 1.5; }
 
     /* STICKY THUMB BAR */
@@ -97,42 +99,42 @@
     .bottom-buffer { height: 74px; }
 
     /* FOOTER */
-    .footer-wrap { width: 100%; background: #0f172a; color: #94a3b8; border-top: 1px solid #1e293b; }
-    .footer-inner { max-width: 1100px; margin: 0 auto; padding: 36px 16px; font-size: 0.82rem; display: flex; flex-direction: column; gap: 12px; }
+    .footer-wrap { width: 100%; background: #1c191a; color: #94a3b8; border-top: 1px solid #2e282a; }
+    .footer-inner { max-width: 1100px; margin: 0 auto; padding: 40px 16px; font-size: 0.82rem; line-height: 1.6; }
 
-    /* DESKTOP RESPONSIVE */
+    /* DESKTOP MEDIA QUERY (min-width: 768px) */
     @media (min-width: 768px) {
-      .top-bar { padding: 14px 24px; }
       .desktop-nav { display: flex; }
       .nav-burger { display: none !important; }
-      .page-hero { padding: 56px 24px 44px 24px; }
-      .page-title { font-size: 2.3rem; }
+      .page-hero { padding: 56px 24px; }
+      .page-title { font-size: 2.4rem; }
       .section-inner { padding: 56px 24px; }
-      .team-grid { grid-template-columns: repeat(4, 1fr); gap: 20px; }
-      .values-grid { grid-template-columns: repeat(3, 1fr); gap: 20px; }
+      .section-title { font-size: 1.95rem; }
+      .team-grid { grid-template-columns: repeat(2, 1fr); gap: 24px; }
+      .values-grid { grid-template-columns: repeat(3, 1fr); gap: 24px; }
       .thumb-bar, .bottom-buffer { display: none; }
-      .footer-inner { padding: 44px 24px; }
+      .footer-inner { padding: 48px 24px; }
     }
   </style>
 </head>
 <body>
 
-  <!-- HEADER -->
+  <!-- HEADER (STICKY) -->
   <header class="top-bar">
     <div class="top-bar-inner">
       <a href="index.html" class="brand-logo-wrap">
-        <div class="brand-mark">H</div>
+        <img src="images/logo.png" alt="Hiltbrand Gebäudehüllen AG" class="brand-logo-img">
         <div>
-          <div class="brand-name">Hiltbrand</div>
-          <div class="brand-region">Bedachungen & Spenglerei • Thun</div>
+          <div class="brand-name">Hiltbrand Gebäudehüllen AG</div>
+          <div class="brand-region">Risegasse 27, Krattigen • Berner Oberland</div>
         </div>
       </a>
       <nav class="desktop-nav">
         <a href="index.html" class="desk-nav-link">Startseite</a>
         <a href="team.html" class="desk-nav-link active">Über uns & Team</a>
-        <a href="karriere.html" class="desk-nav-link">Arbeiten bei uns</a>
-        <a href="kontakt.html" class="desk-nav-link">Kontakt & Notdienst</a>
-        <a href="tel:+41336711818" class="btn-desk-contact">📞 033 671 18 18</a>
+        <a href="karriere.html" class="desk-nav-link">Karriere & Jobs</a>
+        <a href="kontakt.html" class="desk-nav-link">Kontakt</a>
+        <a href="kontakt.html" class="btn-desk-contact">Offerte anfragen</a>
       </nav>
       <button class="nav-burger" onclick="toggleDrawer()" aria-label="Menü öffnen">
         <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
@@ -144,136 +146,142 @@
   <nav class="nav-drawer" id="navDrawer">
     <a href="index.html" class="nav-link">Startseite <span>→</span></a>
     <a href="team.html" class="nav-link" style="color:var(--primary);">Über uns & Team <span>→</span></a>
-    <a href="karriere.html" class="nav-link">Arbeiten bei uns (Karriere) <span>→</span></a>
+    <a href="karriere.html" class="nav-link">Karriere & Jobs <span>→</span></a>
     <a href="kontakt.html" class="nav-link">Kontakt & 24h-Service <span>→</span></a>
   </nav>
 
-  <!-- PAGE HERO -->
+  <!-- HERO -->
   <section class="page-hero">
     <div class="page-hero-inner">
-      <span class="section-kicker">Familienbetrieb seit 1954</span>
-      <h1 class="page-title">Ihre Ansprechpartner auf Augenhöhe.</h1>
+      <span class="section-kicker">3. Generation // Seit 2015 in Krattigen</span>
+      <h1 class="page-title">Handwerk, Verantwortung und familiäre Verankerung.</h1>
       <p class="page-desc">
-        Wir sind kein anonymer Großkonzern, sondern ein inhabergeführter Thuner Meisterbetrieb. 
-        Bei uns sprechen Sie direkt mit den Fachleuten, die Ihr Projekt planen und auf dem Dach verantworten.
+        Gegründet aus traditionsreicher Familiengeschichte, geführt von den Brüdern Eljas und Benjamin Hiltbrand. 
+        Mit eigenem Maschinen- und Kranpark garantieren wir im gesamten Berner Oberland höchste Ausführungsqualität an Dach und Wand.
       </p>
     </div>
   </section>
 
-  <!-- TEAM SECTION -->
+  <!-- TEAM GRID (SOLECO STYLE MIT ECHTEN PERSONEN) -->
   <div class="section-wrap">
     <div class="section-inner">
-      <span class="section-kicker">Geschäftsleitung & Meister</span>
-      <h2 class="section-title">Kompetenz, Erfahrung und Leidenschaft</h2>
-      <p class="section-subtitle">Direkte Erreichbarkeit und persönliche Betreuung für jedes Bauvorhaben.</p>
+      <span class="section-kicker">Ansprechpartner</span>
+      <h2 class="section-title">Die Köpfe der Hiltbrand Gebäudehüllen AG</h2>
+      <p class="section-subtitle">Persönlicher Kontakt, meisterliche Beratung und direkte Erreichbarkeit.</p>
 
       <div class="team-grid">
-        <!-- Michael Hiltbrand -->
+        <!-- 1. ELJAS HILTBRAND -->
         <div class="member-card">
           <div class="member-photo-wrap">
-            <img src="https://embed.magnet-xs.ch/hiltbrand/images/michael.jpg" alt="Michael Hiltbrand" class="member-photo">
-            <div class="member-badge">Geschäftsleitung</div>
+            <img src="images/michael.jpg" alt="Eljas Hiltbrand" class="member-photo">
+            <span class="member-badge">Geschäftsleitung</span>
           </div>
           <div class="member-info">
-            <div class="member-name">Michael Hiltbrand</div>
-            <div class="member-role">Eidg. dipl. Dachdeckermeister</div>
-            <p class="member-bio">Verantwortet die Gesamtleitung und technische Planung anspruchsvoller Steildach- und Sanierungsprojekte.</p>
+            <div class="member-name">Eljas Hiltbrand</div>
+            <div class="member-role">VRP & CEO // Eidg. dipl. Gebäudehüllen-Meister HFP</div>
+            <div class="member-bio">
+              Führt das Unternehmen mit Meisterdiplom und tiefem Fachwissen für Steildächer, energetische Dachsanierungen und anspruchsvolle Architekturverglasungen.
+            </div>
             <div class="member-contacts">
-              <a href="tel:+41336711818" class="member-contact-link">📞 Direkt: 033 671 18 18</a>
-              <a href="mailto:m.hiltbrand@hiltbrand-bedachungen.ch" class="member-contact-link">✉️ E-Mail senden</a>
+              <a href="tel:+41335300204" class="member-contact-link">📞 +41 33 530 02 04</a>
+              <a href="mailto:eljas@hiltbrand.swiss" class="member-contact-link">✉️ eljas@hiltbrand.swiss</a>
             </div>
           </div>
         </div>
 
-        <!-- Stefan Hiltbrand -->
+        <!-- 2. BENJAMIN HILTBRAND -->
         <div class="member-card">
           <div class="member-photo-wrap">
-            <img src="https://embed.magnet-xs.ch/hiltbrand/images/stefan.jpg" alt="Stefan Hiltbrand" class="member-photo">
-            <div class="member-badge">Projektleitung</div>
+            <img src="images/stefan.jpg" alt="Benjamin Hiltbrand" class="member-photo">
+            <span class="member-badge">Geschäftsleitung</span>
           </div>
           <div class="member-info">
-            <div class="member-name">Stefan Hiltbrand</div>
-            <div class="member-role">Eidg. dipl. Spenglermeister</div>
-            <p class="member-bio">Spezialist für Bauspenglerei, Lukarnen, massgefertigte Blechverkleidungen und Blitzschutzsysteme.</p>
+            <div class="member-name">Benjamin «Benji» Hiltbrand</div>
+            <div class="member-role">Mitgeschäftsführer // Fassadenbau & Solarsysteme</div>
+            <div class="member-bio">
+              Ihr Experte für ästhetische hinterlüftete Fassadensysteme, Photovoltaik-Gebäudehüllen und Innenausbau. Zuständig für Baustellenkoordination und Lehrlingsausbildung.
+            </div>
             <div class="member-contacts">
-              <a href="tel:+41336711818" class="member-contact-link">📞 Direkt: 033 671 18 19</a>
-              <a href="mailto:s.hiltbrand@hiltbrand-bedachungen.ch" class="member-contact-link">✉️ E-Mail senden</a>
+              <a href="tel:+41792318484" class="member-contact-link">📞 +41 79 231 84 84</a>
+              <a href="mailto:benjamin@hiltbrand.swiss" class="member-contact-link">✉️ benjamin@hiltbrand.swiss</a>
             </div>
           </div>
         </div>
 
-        <!-- Beat Hiltbrand -->
+        <!-- 3. STEFAN RUBIN -->
         <div class="member-card">
           <div class="member-photo-wrap">
-            <img src="https://embed.magnet-xs.ch/hiltbrand/images/team_alt.jpg" alt="Beat Hiltbrand" class="member-photo" style="object-position: 20% center;">
-            <div class="member-badge">Senior Partner</div>
+            <img src="images/vorstellung.jpg" alt="Stefan Rubin" class="member-photo">
+            <span class="member-badge">Spenglerei</span>
           </div>
           <div class="member-info">
-            <div class="member-name">Beat Hiltbrand</div>
-            <div class="member-role">Dachdeckermeister & Beratung</div>
-            <p class="member-bio">Über 40 Jahre Erfahrung im Oberländer Handwerk. Unterstützt Bauherren bei Expertisen und Schadensfällen.</p>
+            <div class="member-name">Stefan Rubin</div>
+            <div class="member-role">Leiter Bauspenglerei & Blitzschutz</div>
+            <div class="member-bio">
+              Handgefertigte Kupfer- und Zinkarbeiten, Kamin- und Lukarnen-Einkleidungen sowie normgerechte Blitzschutzanlagen für dauerhaften Witterungsschutz.
+            </div>
             <div class="member-contacts">
-              <a href="tel:+41336711818" class="member-contact-link">📞 Telefon Zentrale</a>
-              <a href="mailto:info@hiltbrand-bedachungen.ch" class="member-contact-link">✉️ E-Mail senden</a>
+              <a href="tel:+41335300204" class="member-contact-link">📞 +41 33 530 02 04</a>
+              <a href="mailto:info@hiltbrand.swiss" class="member-contact-link">✉️ info@hiltbrand.swiss</a>
             </div>
           </div>
         </div>
 
-        <!-- Sandra Hiltbrand -->
+        <!-- 4. LENNART ZERTH -->
         <div class="member-card">
           <div class="member-photo-wrap">
-            <img src="https://embed.magnet-xs.ch/hiltbrand/images/danke.png" alt="Sandra Hiltbrand" class="member-photo" style="object-position: center 20%;">
-            <div class="member-badge">Administration</div>
+            <img src="images/q1_benefit.jpg" alt="Lennart Zerth" class="member-photo">
+            <span class="member-badge">Service & Unterhalt</span>
           </div>
           <div class="member-info">
-            <div class="member-name">Sandra Hiltbrand</div>
-            <div class="member-role">Leitung Administration & Finanzen</div>
-            <p class="member-bio">Ihre erste freundliche Anlaufstelle für Offertanfragen, Terminabstimmungen und Kundenbetreuung.</p>
+            <div class="member-name">Lennart Zerth</div>
+            <div class="member-role">Leiter Unterhalt, Reparaturen & Absturzsicherung</div>
+            <div class="member-bio">
+              Verantwortet den schnellen 24h-Reparaturdienst nach Unwettern, periodische Dachkontrollen und zertifizierte Sicherungssysteme für Handwerker und Eigentümer.
+            </div>
             <div class="member-contacts">
-              <a href="tel:+41336711818" class="member-contact-link">📞 033 671 18 18</a>
-              <a href="mailto:administration@hiltbrand-bedachungen.ch" class="member-contact-link">✉️ E-Mail senden</a>
+              <a href="tel:+41335300204" class="member-contact-link">📞 +41 33 530 02 04</a>
+              <a href="mailto:info@hiltbrand.swiss" class="member-contact-link">✉️ info@hiltbrand.swiss</a>
             </div>
           </div>
         </div>
       </div>
 
-      <!-- GESAMT-EQUIPE -->
+      <!-- TEAM GRUPPENFOTO -->
       <div class="group-banner">
-        <img src="https://embed.magnet-xs.ch/hiltbrand/images/team_alt.jpg" alt="Hiltbrand Equipe vor Werkstatt" class="group-img">
+        <img src="images/team_alt.jpg" alt="Das Hiltbrand Team in Krattigen" class="group-img">
         <div class="group-content">
-          <span class="section-kicker">Unsere Equipe</span>
-          <h3 style="font-size: 1.25rem; font-weight: 800; margin-bottom: 8px;">14 ausgebildete Handwerker & 3 Lernende</h3>
-          <p style="font-size: 0.9rem; color: var(--muted); line-height: 1.5;">
-            Wir bilden seit über 60 Jahren kontinuierlich Lehrlinge im Dachdecker- und Spenglerhandwerk aus. 
-            Unsere Equipe besteht aus langjährigen Fachkräften mit Schweizer EFZ-Abschluss, die mit modernster Kran- und Hebetechnik arbeiten.
+          <h3 style="font-size: 1.25rem; font-weight: 800; margin-bottom: 8px; color: var(--anthrazit);">15 Spezialisten für Ihre Gebäudehülle</h3>
+          <p style="font-size: 0.9rem; color: var(--muted); line-height: 1.55;">
+            Hinter jedem dichten Dach und jeder langlebigen Fassade steht ein Team aus ausgebildeten Dachdeckern, Spenglern und Fassadenbauern, die täglich mit Herzblut und modernster Sicherheitstechnik auf den Baustellen des Berner Oberlands im Einsatz sind.
           </p>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- WERTE & VERSPRECHEN -->
+  <!-- DIE DREI WERTE -->
   <div class="section-wrap" style="background: var(--surface);">
     <div class="section-inner">
-      <span class="section-kicker">Unsere Grundsätze</span>
-      <h2 class="section-title">Drei Versprechen an jeden Kunden</h2>
-      <p class="section-subtitle">Wie wir täglich auf der Baustelle arbeiten.</p>
+      <span class="section-kicker">Unsere Werte</span>
+      <h2 class="section-title">Wofür wir seit Generationen stehen</h2>
+      <p class="section-subtitle">Solides Handwerk braucht klare Prinzipien.</p>
 
       <div class="values-grid">
         <div class="value-box">
-          <div class="value-icon">📐</div>
-          <div class="value-title">SIA-Normen & Meistergarantie</div>
-          <p class="value-text">Wir bauen nach den strengsten Schweizer SIA-Normen und verwenden ausschliesslich geprüfte, wetterfeste Qualitätsmaterialien.</p>
+          <div class="value-icon">🏔️</div>
+          <div class="value-title">Regionalität & Treue</div>
+          <div class="value-text">Verwurzelt in Krattigen am Thunersee. Wir kennen das alpine Klima und die spezifischen Anforderungen an Schneelasten und Windkräfte im Berner Oberland.</div>
+        </div>
+        <div class="value-box">
+          <div class="value-icon">🏗️</div>
+          <div class="value-title">Alles aus einer Hand</div>
+          <div class="value-text">Von der ersten Beratung und Drohneninspektion über den Holzausbau bis zur Solar- und Spenglerarbeit: Keine Reibungsverluste durch Drittunternehmen.</div>
         </div>
         <div class="value-box">
           <div class="value-icon">🤝</div>
-          <div class="value-title">Feste Ansprechpartner</div>
-          <p class="value-text">Vom ersten Beratungsgespräch bis zur Bauabnahme begleitet Sie derselbe Projektleiter. Keine Weitergabe an Subunternehmer.</p>
-        </div>
-        <div class="value-box">
-          <div class="value-icon">🧹</div>
-          <div class="value-title">Saubere & sichere Baustelle</div>
-          <p class="value-text">Respekt vor Ihrem Eigentum: Wir hinterlassen jede Baustelle am Feierabend aufgeräumt und wetterfest gesichert.</p>
+          <div class="value-title">Verlässliche Partnerschaft</div>
+          <div class="value-text">Termintreue und Kostensicherheit sind für uns keine Floskeln, sondern Schweizer Handwerkerehre. Bei uns gilt das gegebene Wort.</div>
         </div>
       </div>
     </div>
@@ -283,10 +291,10 @@
 
   <!-- STICKY THUMB BAR -->
   <div class="thumb-bar">
-    <a href="tel:+41336711818" class="btn-thumb btn-thumb-phone">
-      <span>📞</span> 033 671 18 18
+    <a href="tel:+41335300204" class="btn-thumb btn-thumb-phone">
+      <span>📞</span> 033 530 02 04
     </a>
-    <a href="https://wa.me/41790000000" class="btn-thumb btn-thumb-whatsapp">
+    <a href="https://wa.me/41792318484" class="btn-thumb btn-thumb-whatsapp">
       <span>💬</span> WhatsApp
     </a>
   </div>
@@ -294,8 +302,8 @@
   <!-- FOOTER -->
   <footer class="footer-wrap">
     <div class="footer-inner">
-      <div style="font-weight: 800; font-size: 1.05rem; color: #fff;">Hiltbrand Bedachungen & Spenglerei GmbH</div>
-      <div>Werkstrasse 14 • 3600 Thun • Tel: 033 671 18 18 • info@hiltbrand-bedachungen.ch</div>
+      <div style="font-weight: 800; font-size: 1.05rem; color: #fff;">Hiltbrand Gebäudehüllen AG</div>
+      <div>Risegasse 27 • 3704 Krattigen • Tel: 033 530 02 04 • Mobil: 079 231 84 84 • info@hiltbrand.swiss</div>
       <div style="font-family:'JetBrains Mono',monospace; font-size:0.7rem; color:#64748b; margin-top:8px;">
         Powered by WebPilot // Schweizer Hosting (Zürich & Genf) • 100% Mobile First Architecture
       </div>
@@ -309,4 +317,3 @@
   </script>
 </body>
 </html>
-
