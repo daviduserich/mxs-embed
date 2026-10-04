@@ -1,10 +1,124 @@
-{
-  "images": [
-    {
-      "filename": "hero.svg",
-      "title": "Titelbild",
-      "slot": "hero-image",
-      "is_used": true
-    }
-  ]
-}
+[
+  {
+    "id": "images_benefits_drohne_jpg",
+    "filename": "benefits_drohne.jpg",
+    "rel_path": "images/benefits_drohne.jpg",
+    "folder": "muster-holzbau",
+    "category": "Baustelle & Benefit",
+    "dimensions": "1400x1050",
+    "size_kb": 482.5,
+    "mtime": 1791096979,
+    "mtime_str": "04.10.2026 06:56",
+    "cdn_url": "https://embed.magnet-xs.ch/muster-holzbau/images/benefits_drohne.jpg",
+    "is_used": true,
+    "used_in": [
+      {
+        "datei": "index.html",
+        "slot": "image",
+        "is_hero": false
+      }
+    ]
+  },
+  {
+    "id": "images_hero_jpg",
+    "filename": "hero.jpg",
+    "rel_path": "images/hero.jpg",
+    "folder": "muster-holzbau",
+    "category": "Hero & Header",
+    "dimensions": "1400x933",
+    "size_kb": 160.7,
+    "mtime": 1791096979,
+    "mtime_str": "04.10.2026 06:56",
+    "cdn_url": "https://embed.magnet-xs.ch/muster-holzbau/images/hero.jpg",
+    "is_used": true,
+    "used_in": [
+      {
+        "datei": "index.html",
+        "slot": "image",
+        "is_hero": true
+      }
+    ]
+  },
+  {
+    "id": "images_hero_svg",
+    "filename": "hero.svg",
+    "rel_path": "images/hero.svg",
+    "folder": "muster-holzbau",
+    "category": "Hero & Header",
+    "dimensions": "Unbekannt",
+    "size_kb": 0.8,
+    "mtime": 1791095801,
+    "mtime_str": "04.10.2026 06:36",
+    "cdn_url": "https://embed.magnet-xs.ch/muster-holzbau/images/hero.svg",
+    "is_used": false,
+    "used_in": []
+  },
+  {
+    "id": "images_logo_png",
+    "filename": "logo.png",
+    "rel_path": "images/logo.png",
+    "folder": "muster-holzbau",
+    "category": "Logo & Icon",
+    "dimensions": "260x150",
+    "size_kb": 8.2,
+    "mtime": 1791096979,
+    "mtime_str": "04.10.2026 06:56",
+    "cdn_url": "https://embed.magnet-xs.ch/muster-holzbau/images/logo.png",
+    "is_used": false,
+    "used_in": []
+  },
+  {
+    "id": "images_michael_jpg",
+    "filename": "michael.jpg",
+    "rel_path": "images/michael.jpg",
+    "folder": "muster-holzbau",
+    "category": "Team & Porträt",
+    "dimensions": "834x788",
+    "size_kb": 186.7,
+    "mtime": 1791096979,
+    "mtime_str": "04.10.2026 06:56",
+    "cdn_url": "https://embed.magnet-xs.ch/muster-holzbau/images/michael.jpg",
+    "is_used": true,
+    "used_in": [
+      {
+        "datei": "index.html",
+        "slot": "image",
+        "is_hero": false
+      }
+    ]
+  },
+  {
+    "id": "images_stefan_jpg",
+    "filename": "stefan.jpg",
+    "rel_path": "images/stefan.jpg",
+    "folder": "muster-holzbau",
+    "category": "Team & Porträt",
+    "dimensions": "1400x1337",
+    "size_kb": 204.2,
+    "mtime": 1791096979,
+    "mtime_str": "04.10.2026 06:56",
+    "cdn_url": "https://embed.magnet-xs.ch/muster-holzbau/images/stefan.jpg",
+    "is_used": true,
+    "used_in": [
+      {
+        "datei": "index.html",
+        "slot": "image",
+        "is_hero": false
+      }
+    ]
+  },
+  {
+    "id": "images_team_alt_jpg",
+    "filename": "team_alt.jpg",
+    "rel_path": "images/team_alt.jpg",
+    "folder": "muster-holzbau",
+    "category": "Team & Porträt",
+    "dimensions": "1400x933",
+    "size_kb": 259.8,
+    "mtime": 1791096979,
+    "mtime_str": "04.10.2026 06:56",
+    "cdn_url": "https://embed.magnet-xs.ch/muster-holzbau/images/team_alt.jpg",
+    "is_used": false,
+    "used_in": []
+  }
+]

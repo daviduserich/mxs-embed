@@ -1,10 +1,13 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="de-CH">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Muster Holzbau AG · Offene Stellen & Einblicke</title>
-  <meta name="description" content="Offene Stellen und Einblicke bei Muster Holzbau AG in Thun. Bewirb dich unkompliziert per WhatsApp oder Telefon.">
+  <title>Muster Holzbau AG · Holzbau & Bedachungen Thun</title>
+  <meta name="description" content="Offene Stellen und Karriere bei Muster Holzbau AG in Thun. Bewirb dich unkompliziert per WhatsApp oder Telefon.">
+  <meta name="firma" content="Muster Holzbau AG">
+  <meta name="host-website" content="https://muster-holzbau.ch">
+  <meta name="brand-color" content="#d97706">
   
   <!-- Zero-Cookie Analytics via Plausible Proxy -->
   <script defer data-domain="muster-holzbau.embed.magnet-xs.ch" src="/api/event"></script>
@@ -12,6 +15,7 @@
   <style>
     :root {
       --primary: #d97706;
+      --primary-hover: #b45309;
       --bg: #0B0D0E;
       --card-bg: #14171A;
       --card-border: rgba(255, 255, 255, 0.08);
@@ -110,6 +114,7 @@
       margin-bottom: 48px;
       background: #111;
       aspect-ratio: 16/9;
+      position: relative;
     }
     .hero-image-wrap img {
       width: 100%;
@@ -157,13 +162,50 @@
       border: none;
     }
     .btn-primary:hover {
-      filter: brightness(1.1);
+      background: var(--primary-hover);
     }
     .btn-secondary {
       background: rgba(255,255,255,0.06);
       color: #fff;
       border: 1px solid var(--card-border);
     }
+
+    /* Team Grid */
+    .team-section {
+      margin-top: 64px;
+    }
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 24px;
+      margin-top: 24px;
+    }
+    .team-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius);
+      overflow: hidden;
+    }
+    .team-card-img {
+      width: 100%;
+      aspect-ratio: 4/3;
+      object-fit: cover;
+      display: block;
+      background: #1a1a1a;
+    }
+    .team-card-body {
+      padding: 20px;
+    }
+    .team-card-name {
+      font-size: 17px;
+      font-weight: 700;
+    }
+    .team-card-role {
+      font-size: 13px;
+      color: var(--primary);
+      margin-top: 4px;
+    }
+
     .cta-banner {
       margin-top: 64px;
       background: linear-gradient(180deg, #181B1F 0%, #111316 100%);
@@ -183,6 +225,39 @@
       align-items: center;
       flex-wrap: wrap;
       gap: 16px;
+    }
+
+    /* ======================================================= */
+    /* WEBPILOT 1-KLICK BILDTAUSCH & SPOTLIGHT STYLES         */
+    /* ======================================================= */
+    body.acp-swap-mode-active .hero h1,
+    body.acp-swap-mode-active .hero p,
+    body.acp-swap-mode-active .card-grid,
+    body.acp-swap-mode-active .cta-banner,
+    body.acp-swap-mode-active footer,
+    body.acp-swap-mode-active header {
+      opacity: 0.25 !important;
+      pointer-events: none !important;
+      transition: opacity 0.3s ease !important;
+    }
+    body.acp-swap-mode-active img,
+    body.acp-swap-mode-active [data-slot*="image"],
+    body.acp-swap-mode-active [data-slot*="foto"],
+    body.acp-swap-mode-active [data-slot*="bild"] {
+      opacity: 1 !important;
+      outline: 4px solid #f59e0b !important;
+      outline-offset: 4px !important;
+      box-shadow: 0 0 35px rgba(245, 158, 11, 0.95), 0 0 15px rgba(245, 158, 11, 0.8) !important;
+      cursor: pointer !important;
+      pointer-events: auto !important;
+      position: relative !important;
+      z-index: 200 !important;
+      transition: transform 0.2s ease, box-shadow 0.2s ease !important;
+    }
+    body.acp-swap-mode-active img:hover {
+      transform: scale(1.03) !important;
+      outline-color: #ffffff !important;
+      box-shadow: 0 0 50px rgba(245, 158, 11, 1), 0 0 25px #ffffff !important;
     }
   </style>
 </head>
@@ -210,7 +285,7 @@
       </p>
 
       <div class="hero-image-wrap">
-        <img id="slot-hero-img" src="images/hero.svg" alt="Team Muster Holzbau AG" data-slot="hero-image">
+        <img id="slot-hero-img" src="images/hero.jpg" alt="Team Muster Holzbau AG" data-slot="hero-image">
       </div>
 
       <div class="card-grid">
@@ -220,7 +295,7 @@
           <p data-slot="job-1-desc">
             Selbstständiges Arbeiten auf Baustellen in der Region Thun, modernes Werkzeug und ein kollegiales Team.
           </p>
-          <a href="https://wa.me/41791234567?text=Hallo%20Muster Holzbau AG%2C%20ich%20interessiere%20mich%20f%C3%BCr%20die%20offene%20Stelle!" class="btn btn-primary" target="_blank" rel="noopener">
+          <a href="https://wa.me/41791234567?text=Hallo%20Muster%20Holzbau%20AG%2C%20ich%20interessiere%20mich%20f%C3%BCr%20die%20offene%20Stelle!" class="btn btn-primary" target="_blank" rel="noopener">
             💬 In 30 Sek. per WhatsApp bewerben
           </a>
         </div>
@@ -237,12 +312,41 @@
         </div>
       </div>
 
+      <!-- Team Showcase -->
+      <section class="team-section">
+        <div class="kicker">Dein Zukünftiges Team</div>
+        <h2>Echte Kollegen auf der Baustelle</h2>
+        <div class="team-grid">
+          <div class="team-card">
+            <img src="images/michael.jpg" alt="Michael · Vorarbeiter Holzbau" class="team-card-img" data-slot="team-michael">
+            <div class="team-card-body">
+              <div class="team-card-name">Michael</div>
+              <div class="team-card-role">Vorarbeiter Holzbau</div>
+            </div>
+          </div>
+          <div class="team-card">
+            <img src="images/stefan.jpg" alt="Stefan · Zimmermann EFZ" class="team-card-img" data-slot="team-stefan">
+            <div class="team-card-body">
+              <div class="team-card-name">Stefan</div>
+              <div class="team-card-role">Zimmermann EFZ</div>
+            </div>
+          </div>
+          <div class="team-card">
+            <img src="images/benefits_drohne.jpg" alt="Moderne Holzbauten im Berner Oberland" class="team-card-img" data-slot="team-drohne">
+            <div class="team-card-body">
+              <div class="team-card-name">Projekt Drohnenblick</div>
+              <div class="team-card-role">Baustelle Berner Oberland</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <div class="cta-banner">
         <h2>Unkompliziert kennenlernen</h2>
         <p style="color: var(--text-muted); margin: 12px auto 24px; max-width: 500px;">
           Kein Lebenslauf nötig. Sag uns einfach kurz, wer du bist und was du bisher gemacht hast.
         </p>
-        <a href="https://wa.me/41791234567?text=Hallo%20Muster Holzbau AG%2C%20ich%20m%C3%B6chte%20euch%20gerne%20kennenlernen." class="btn btn-primary" style="font-size: 16px; padding: 14px 28px;" target="_blank" rel="noopener">
+        <a href="https://wa.me/41791234567?text=Hallo%20Muster%20Holzbau%20AG%2C%20ich%20m%C3%B6chte%20euch%20gerne%20kennenlernen." class="btn btn-primary" style="font-size: 16px; padding: 14px 28px;" target="_blank" rel="noopener">
           💬 Direktnachricht per WhatsApp starten
         </a>
       </div>
@@ -270,6 +374,53 @@
         }
       })
       .catch(() => {});
+
+    // WebPilot PostMessage Bridge für Cockpit
+    window.addEventListener("message", function(e) {
+      if (!e.data) return;
+      if (e.data.type === "acp-set-swap-mode") {
+        document.body.classList.toggle("acp-swap-mode-active", !!e.data.active);
+      }
+      if (e.data.type === "acp-apply-swap-preview") {
+        var targetEl = null;
+        if (e.data.slot) {
+          targetEl = document.querySelector('[data-slot="' + e.data.slot + '"]');
+        }
+        if (!targetEl && e.data.isHero) {
+          targetEl = document.getElementById('slot-hero-img');
+        }
+        if (targetEl) {
+          targetEl.src = e.data.newSrc;
+        }
+      }
+    });
+
+    // Klick auf ein Bild im Swap-Modus
+    document.addEventListener("click", function(e) {
+      if (!document.body.classList.contains("acp-swap-mode-active")) return;
+      var img = e.target.closest('img');
+      if (img) {
+        e.preventDefault();
+        e.stopPropagation();
+        var slot = img.getAttribute('data-slot') || img.id || 'hero-image';
+        var src = img.getAttribute('src') || '';
+        window.parent.postMessage({
+          type: 'acp-client-slot-click',
+          slot: slot,
+          isImg: true,
+          isHero: (slot === 'hero-image' || img.id === 'slot-hero-img'),
+          currentSrc: src,
+          datei: 'index.html'
+        }, '*');
+      }
+    });
+
+    // Universelle ESC Taste
+    window.addEventListener("keydown", function(e) {
+      if (e.key === "Escape" && document.body.classList.contains("acp-swap-mode-active")) {
+        window.parent.postMessage({ type: 'acp-cancel-swap' }, '*');
+      }
+    });
   </script>
 </body>
 </html>
