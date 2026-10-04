@@ -1,774 +1,351 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="de-CH">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>WebPilot — Deine Website. Gesteuert mit deiner eigenen KI.</title>
-  <meta name="description" content="Schluss mit CMS-Frust und teuren Agenturen. Steuere deine Website direkt über deine gewohnte KI oder per 1-Klick-Bildaustausch. Sub-50ms schnell und unzerstörbar durch den Sicherheits-Airbag.">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <title>WebPilot — Die unzerstörbare Schweizer KMU-Website</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600;700&display=swap" rel="stylesheet">
-  
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
   <style>
-    /* ==========================================================================
-       SWISS ARCHITECTURAL CANVAS & LUMINOUS OBSIDIAN THEME
-       Design-System Konformität: AGENTS.md § 5.6d (Kicker-Gesetz) & § 5.6e (Fluchtlinie)
-       ========================================================================== */
     :root {
-      --bg-base: #08090e;
-      --bg-surface: #0f111a;
-      --bg-card: #151824;
-      --bg-card-hover: #1c2030;
-      --border-subtle: #23283d;
-      --border-focus: #3b4261;
-      
-      --amber-accent: #f59e0b;
+      --bg: #090a0f;
+      --surface: #111420;
+      --surface-2: #181d2e;
+      --border: #232a42;
+      --border-bright: #384266;
+      --text: #f8fafc;
+      --muted: #94a3b8;
+      --amber: #f59e0b;
       --amber-glow: rgba(245, 158, 11, 0.18);
-      --cyan-accent: #38bdf8;
-      --green-status: #10b981;
-      --red-alert: #ef4444;
-      
-      --text-main: #f8fafc;
-      --text-muted: #94a3b8;
-      --text-dim: #64748b;
-      
-      --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-      --font-mono: 'JetBrains Mono', monospace;
-      
-      --max-width: 1100px;
+      --cyan: #38bdf8;
+      --green: #10b981;
+      --radius-sm: 6px;
+      --radius-md: 10px;
+      --radius-lg: 16px;
     }
+    * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+    html, body { width: 100%; min-height: 100vh; overflow-x: hidden; background: var(--bg); color: var(--text); font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; line-height: 1.5; font-size: 15px; }
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+    /* HEADER */
+    .top-bar { padding: 12px 16px; border-bottom: 1px solid var(--border); background: rgba(9, 10, 15, 0.95); backdrop-filter: blur(14px); position: sticky; top: 0; z-index: 900; }
+    .top-bar-inner { max-width: 1100px; margin: 0 auto; width: 100%; display: flex; justify-content: space-between; align-items: center; gap: 16px; }
+    .brand-logo-wrap { display: flex; align-items: center; gap: 10px; text-decoration: none; color: inherit; }
+    .brand-icon { width: 36px; height: 36px; display: flex; align-items: center; justify-content: center; }
+    .brand-title { font-size: 1.15rem; font-weight: 800; letter-spacing: -0.03em; color: #fff; }
+    .brand-tag { font-family: 'JetBrains Mono', monospace; font-size: 0.65rem; color: var(--amber); letter-spacing: 0.08em; text-transform: uppercase; }
 
-    body {
-      background-color: var(--bg-base);
-      color: var(--text-main);
-      font-family: var(--font-sans);
-      line-height: 1.6;
-      -webkit-font-smoothing: antialiased;
-      overflow-x: hidden;
-    }
+    .desktop-nav { display: none; align-items: center; gap: 24px; }
+    .desk-nav-link { font-size: 0.88rem; font-weight: 600; color: var(--muted); text-decoration: none; transition: color 0.15s ease; }
+    .desk-nav-link:hover, .desk-nav-link.active { color: #fff; }
+    .btn-desk-cta { font-size: 0.85rem; font-weight: 700; color: #000 !important; background: var(--amber); padding: 8px 16px; border-radius: var(--radius-sm); text-decoration: none; }
 
-    /* Einheitliche Fluchtlinie gemäss § 5.6e */
-    .container {
-      max-width: var(--max-width);
-      margin: 0 auto;
-      width: 100%;
-      padding: 0 24px;
-      box-sizing: border-box;
-    }
+    .nav-burger { width: 44px; height: 44px; border: 1px solid var(--border); background: var(--surface); border-radius: var(--radius-sm); display: flex; align-items: center; justify-content: center; cursor: pointer; }
+    .nav-burger svg { width: 22px; height: 22px; stroke: var(--text); }
 
-    /* ==========================================================================
-       KICKER-GESETZ (AGENTS.md § 5.6d) - 100% FREISTEHEND, KEINE BOX, KEIN BADGE
-       ========================================================================== */
-    .kicker {
-      font-family: var(--font-mono) !important;
-      font-size: 11px !important;
-      font-weight: 700 !important;
-      text-transform: uppercase !important;
-      letter-spacing: 0.12em !important;
-      color: var(--amber-accent) !important;
-      background: transparent !important;
-      border: none !important;
-      padding: 0 !important;
-      margin: 0 0 16px 0 !important;
-      box-shadow: none !important;
-      display: inline-block !important;
-    }
+    /* MOBILE DRAWER */
+    .nav-drawer { display: none; position: fixed; inset: 64px 0 0 0; background: rgba(9, 10, 15, 0.98); backdrop-filter: blur(16px); z-index: 850; padding: 24px 20px; flex-direction: column; gap: 16px; }
+    .nav-drawer.open { display: flex; }
+    .nav-link { font-size: 1.15rem; font-weight: 700; color: #fff; text-decoration: none; padding: 12px 0; border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; }
 
-    /* Header & Navigation */
-    header {
-      padding: 24px 0;
-      border-bottom: 1px solid var(--border-subtle);
-      background: rgba(8, 9, 14, 0.85);
-      backdrop-filter: blur(12px);
-      position: sticky;
-      top: 0;
-      z-index: 100;
-    }
+    /* HERO */
+    .hero-wrap { width: 100%; border-bottom: 1px solid var(--border); padding: 32px 16px 44px 16px; background: radial-gradient(circle at 50% 0%, #171d2f 0%, #090a0f 70%); }
+    .hero-inner { max-width: 1100px; margin: 0 auto; width: 100%; display: flex; flex-direction: column; gap: 24px; }
+    .hero-kicker { font-family: 'JetBrains Mono', monospace; font-size: 0.72rem; color: var(--amber); font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; display: inline-flex; align-items: center; gap: 8px; }
+    .hero-kicker-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--amber); box-shadow: 0 0 10px var(--amber); }
+    .hero-title { font-size: 1.95rem; font-weight: 800; line-height: 1.15; letter-spacing: -0.03em; margin-top: 8px; }
+    .hero-title span { color: var(--amber); }
+    .hero-subtitle { font-size: 0.98rem; color: var(--muted); line-height: 1.6; margin-top: 10px; max-width: 640px; }
 
-    .nav-wrap {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
+    .hero-metrics { display: flex; gap: 14px; margin-top: 12px; }
+    .metric-badge { font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; background: var(--surface); border: 1px solid var(--border); padding: 6px 12px; border-radius: var(--radius-sm); color: var(--text); }
+    .metric-badge strong { color: var(--green); }
 
-    .logo {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      text-decoration: none;
-      color: var(--text-main);
-      font-weight: 800;
-      font-size: 1.25rem;
-      letter-spacing: -0.02em;
-    }
+    .hero-actions { display: flex; flex-direction: column; gap: 10px; margin-top: 18px; }
+    .btn-cta { width: 100%; min-height: 50px; border-radius: var(--radius-md); font-size: 0.95rem; font-weight: 700; display: inline-flex; align-items: center; justify-content: center; gap: 8px; text-decoration: none; cursor: pointer; border: none; }
+    .btn-cta-amber { background: var(--amber); color: #000; box-shadow: 0 4px 20px var(--amber-glow); }
+    .btn-cta-ghost { background: var(--surface); color: #fff; border: 1px solid var(--border); }
 
-    .logo-badge {
-      background: var(--amber-glow);
-      color: var(--amber-accent);
-      border: 1px solid rgba(245, 158, 11, 0.3);
-      font-family: var(--font-mono);
-      font-size: 10px;
-      padding: 2px 6px;
-      border-radius: 4px; /* 4px nur innerhalb von Badges erlaubt */
-      font-weight: 600;
-    }
+    /* SECTIONS */
+    .section-wrap { width: 100%; border-bottom: 1px solid var(--border); }
+    .section-inner { max-width: 1100px; margin: 0 auto; padding: 40px 16px; width: 100%; }
+    .section-kicker { font-family: 'JetBrains Mono', monospace; font-size: 0.72rem; color: var(--amber); font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 4px; display: block; }
+    .section-title { font-size: 1.5rem; font-weight: 800; letter-spacing: -0.02em; line-height: 1.25; margin-bottom: 8px; }
+    .section-desc { font-size: 0.92rem; color: var(--muted); line-height: 1.6; margin-bottom: 24px; max-width: 700px; }
 
-    .nav-cta {
-      background: var(--bg-card);
-      border: 1px solid var(--border-subtle);
-      color: var(--text-main);
-      padding: 8px 18px;
-      font-size: 0.875rem;
-      font-weight: 600;
-      border-radius: 6px;
-      text-decoration: none;
-      transition: all 0.2s ease;
-    }
+    /* PILLARS */
+    .pillar-cards { display: flex; flex-direction: column; gap: 16px; }
+    .pillar-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-md); padding: 22px; display: flex; flex-direction: column; gap: 10px; }
+    .pillar-icon { font-size: 1.6rem; margin-bottom: 2px; }
+    .pillar-title { font-size: 1.15rem; font-weight: 700; }
+    .pillar-text { font-size: 0.88rem; color: var(--muted); line-height: 1.5; }
 
-    .nav-cta:hover {
-      border-color: var(--amber-accent);
-      color: var(--amber-accent);
-    }
+    /* COMPARISON */
+    .vs-box { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 24px; margin-top: 14px; }
+    .vs-grid { display: grid; grid-template-columns: 1fr; gap: 18px; margin-top: 16px; }
+    .vs-col { padding: 16px; border-radius: var(--radius-md); }
+    .vs-old { background: rgba(239, 68, 68, 0.05); border: 1px solid rgba(239, 68, 68, 0.2); }
+    .vs-new { background: rgba(16, 185, 129, 0.06); border: 1px solid rgba(16, 185, 129, 0.3); }
+    .vs-title { font-size: 1rem; font-weight: 800; margin-bottom: 8px; }
+    .vs-list { list-style: none; display: flex; flex-direction: column; gap: 6px; font-size: 0.85rem; }
 
-    /* Hero Sektion */
-    .hero-section {
-      padding: 80px 0 60px 0;
-      border-bottom: 1px solid var(--border-subtle);
-      position: relative;
-    }
+    /* TEASERS */
+    .teaser-grid { display: grid; grid-template-columns: 1fr; gap: 16px; }
+    .teaser-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-md); padding: 22px; display: flex; flex-direction: column; gap: 8px; }
+    .teaser-link { color: var(--amber); font-weight: 700; text-decoration: none; font-size: 0.88rem; display: inline-flex; align-items: center; gap: 6px; margin-top: auto; }
 
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1.15fr 0.85fr;
-      gap: 48px;
-      align-items: center;
-    }
+    /* STICKY THUMB BAR */
+    .thumb-bar { position: fixed; bottom: 0; left: 0; right: 0; background: rgba(9, 10, 15, 0.96); backdrop-filter: blur(12px); border-top: 1px solid var(--border); padding: 10px 14px; padding-bottom: calc(10px + env(safe-area-inset-bottom, 0px)); display: flex; gap: 10px; z-index: 950; }
+    .btn-thumb { flex: 1; height: 48px; border-radius: var(--radius-md); font-size: 0.88rem; font-weight: 700; display: inline-flex; align-items: center; justify-content: center; gap: 6px; text-decoration: none; }
+    .btn-thumb-cta { background: var(--amber); color: #000; }
+    .btn-thumb-wa { background: #25D366; color: #fff; }
+    .bottom-buffer { height: 74px; }
 
-    h1 {
-      font-size: 2.85rem;
-      font-weight: 800;
-      line-height: 1.15;
-      letter-spacing: -0.03em;
-      margin-bottom: 24px;
-    }
+    /* FOOTER */
+    .footer-wrap { width: 100%; background: #050608; color: #64748b; border-top: 1px solid var(--border); }
+    .footer-inner { max-width: 1100px; margin: 0 auto; padding: 40px 16px; font-size: 0.82rem; display: flex; flex-direction: column; gap: 12px; }
 
-    h1 span.highlight {
-      background: linear-gradient(135deg, #f8fafc 40%, var(--amber-accent) 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-
-    .hero-lead {
-      font-size: 1.15rem;
-      color: var(--text-muted);
-      line-height: 1.65;
-      margin-bottom: 32px;
-    }
-
-    .hero-actions {
-      display: flex;
-      gap: 16px;
-      align-items: center;
-      margin-bottom: 40px;
-    }
-
-    .btn-primary {
-      background: var(--amber-accent);
-      color: #000;
-      font-weight: 700;
-      padding: 14px 28px;
-      border-radius: 6px;
-      text-decoration: none;
-      font-size: 1rem;
-      transition: transform 0.15s ease, box-shadow 0.15s ease;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      border: none;
-      cursor: pointer;
-    }
-
-    .btn-primary:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 24px rgba(245, 158, 11, 0.35);
-    }
-
-    .btn-secondary {
-      background: transparent;
-      color: var(--text-main);
-      border: 1px solid var(--border-subtle);
-      font-weight: 600;
-      padding: 14px 24px;
-      border-radius: 6px;
-      text-decoration: none;
-      font-size: 1rem;
-      transition: all 0.2s ease;
-    }
-
-    .btn-secondary:hover {
-      border-color: var(--text-muted);
-      background: var(--bg-surface);
-    }
-
-    .hero-metrics {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
-      padding-top: 24px;
-      border-top: 1px solid var(--border-subtle);
-    }
-
-    .metric-item .val {
-      font-family: var(--font-mono);
-      font-size: 1.4rem;
-      font-weight: 700;
-      color: var(--text-main);
-    }
-
-    .metric-item .label {
-      font-size: 0.8rem;
-      color: var(--text-dim);
-    }
-
-    /* Live-Simulator Stage */
-    .simulator-stage {
-      background: var(--bg-surface);
-      border: 1px solid var(--border-subtle);
-      border-radius: 12px;
-      padding: 24px;
-      position: relative;
-      box-shadow: 0 20px 40px rgba(0,0,0,0.5);
-    }
-
-    .simulator-topbar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding-bottom: 16px;
-      margin-bottom: 16px;
-      border-bottom: 1px solid var(--border-subtle);
-    }
-
-    .sim-tag {
-      font-family: var(--font-mono);
-      font-size: 11px;
-      color: var(--green-status);
-      display: flex;
-      align-items: center;
-      gap: 6px;
-    }
-
-    .sim-tag .dot {
-      width: 7px;
-      height: 7px;
-      border-radius: 50%;
-      background: var(--green-status);
-      box-shadow: 0 0 8px var(--green-status);
-    }
-
-    /* Interaktives Simulator-Inserat */
-    .sim-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border-subtle);
-      border-radius: 8px;
-      overflow: hidden;
-      position: relative;
-    }
-
-    .sim-hero-img {
-      width: 100%;
-      height: 160px;
-      object-fit: cover;
-      display: block;
-      cursor: pointer;
-      position: relative;
-      transition: filter 0.2s ease;
-    }
-
-    .sim-hero-img:hover {
-      filter: brightness(1.1);
-    }
-
-    .sim-overlay-hint {
-      position: absolute;
-      top: 12px;
-      right: 12px;
-      background: rgba(0,0,0,0.85);
-      border: 1px solid var(--amber-accent);
-      color: var(--amber-accent);
-      font-family: var(--font-mono);
-      font-size: 10px;
-      font-weight: 600;
-      padding: 4px 8px;
-      border-radius: 4px;
-      cursor: pointer;
-      pointer-events: auto;
-      transition: all 0.15s ease;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.5);
-    }
-
-    .sim-overlay-hint:hover {
-      background: var(--amber-accent);
-      color: #000;
-      transform: scale(1.05);
-    }
-
-    .sim-content {
-      padding: 20px;
-    }
-
-    .sim-slot {
-      padding: 4px 8px;
-      border-radius: 4px;
-      cursor: pointer;
-      transition: background 0.15s ease, border-color 0.15s ease;
-      position: relative;
-      display: inline-block;
-      border: 1px dashed transparent;
-    }
-
-    .sim-slot:hover {
-      background: rgba(245, 158, 11, 0.12);
-      border-color: var(--amber-accent);
-    }
-
-    .sim-title {
-      font-size: 1.25rem;
-      font-weight: 700;
-      margin-bottom: 8px;
-      color: var(--text-main);
-    }
-
-    .sim-sub {
-      font-size: 0.875rem;
-      color: var(--text-muted);
-      margin-bottom: 16px;
-    }
-
-    .sim-btn-cta {
-      background: #25d366;
-      color: #fff;
-      font-weight: 700;
-      font-size: 0.85rem;
-      padding: 10px 16px;
-      border-radius: 6px;
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      width: fit-content;
-      text-decoration: none;
-      margin-top: 12px;
-    }
-
-    .sim-prompt-box {
-      margin-top: 16px;
-      background: #000;
-      border: 1px solid var(--border-subtle);
-      border-radius: 6px;
-      padding: 12px;
-      font-family: var(--font-mono);
-      font-size: 11px;
-      color: var(--cyan-accent);
-      display: none;
-    }
-
-    .sim-prompt-box.active {
-      display: block;
-      animation: fadeIn 0.3s ease;
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(4px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    /* Das Dilemma Sektion */
-    .section-spacing {
-      padding: 90px 0;
-      border-bottom: 1px solid var(--border-subtle);
-    }
-
-    .section-header {
-      margin-bottom: 48px;
-    }
-
-    h2 {
-      font-size: 2.15rem;
-      font-weight: 800;
-      letter-spacing: -0.02em;
-      margin-bottom: 16px;
-    }
-
-    .section-desc {
-      color: var(--text-muted);
-      font-size: 1.05rem;
-      max-width: 680px;
-    }
-
-    .grid-3 {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
-    }
-
-    .card {
-      background: var(--bg-surface);
-      border: 1px solid var(--border-subtle);
-      border-radius: 8px;
-      padding: 32px 24px;
-      transition: border-color 0.2s ease;
-    }
-
-    .card:hover {
-      border-color: var(--border-focus);
-    }
-
-    .card-icon {
-      font-size: 1.75rem;
-      margin-bottom: 16px;
-    }
-
-    .card h3 {
-      font-size: 1.25rem;
-      font-weight: 700;
-      margin-bottom: 12px;
-    }
-
-    .card p {
-      color: var(--text-muted);
-      font-size: 0.925rem;
-      line-height: 1.6;
-    }
-
-    /* Die 3 Pfeiler der WebPilot Engine */
-    .pillar-card {
-      border-left: 3px solid var(--amber-accent);
-    }
-
-    /* Wirtschaftlichkeit / ROI */
-    .roi-box {
-      background: var(--bg-surface);
-      border: 1px solid rgba(245, 158, 11, 0.3);
-      border-radius: 10px;
-      padding: 40px;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 40px;
-      align-items: center;
-    }
-
-    .roi-price {
-      font-family: var(--font-mono);
-      font-size: 3rem;
-      font-weight: 800;
-      color: var(--amber-accent);
-      line-height: 1;
-      margin-bottom: 8px;
-    }
-
-    .roi-price span {
-      font-size: 1.25rem;
-      color: var(--text-muted);
-    }
-
-    /* Footer */
-    footer {
-      padding: 40px 0;
-      border-top: 1px solid var(--border-subtle);
-      color: var(--text-dim);
-      font-size: 0.85rem;
-    }
-
-    .footer-wrap {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    /* Responsive */
-    @media (max-width: 900px) {
-      .hero-grid {
-        grid-template-columns: 1fr;
-      }
-      .grid-3 {
-        grid-template-columns: 1fr;
-      }
-      .roi-box {
-        grid-template-columns: 1fr;
-      }
-      h1 {
-        font-size: 2.2rem;
-      }
+    /* DESKTOP RESPONSIVE */
+    @media (min-width: 768px) {
+      .top-bar { padding: 14px 24px; }
+      .desktop-nav { display: flex; }
+      .nav-burger { display: none !important; }
+      .hero-wrap { padding: 64px 24px 72px 24px; }
+      .hero-inner { flex-direction: row; align-items: center; justify-content: space-between; gap: 48px; }
+      .hero-content { flex: 1.2; }
+      .hero-stage-box { flex: 0 0 420px; max-width: 420px; }
+      .hero-title { font-size: 2.6rem; }
+      .hero-actions { flex-direction: row; max-width: 440px; }
+      .btn-cta { width: auto; padding: 0 24px; }
+      .section-inner { padding: 60px 24px; }
+      .pillar-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+      .vs-grid { grid-template-columns: 1fr 1fr; gap: 24px; }
+      .teaser-grid { grid-template-columns: 1fr 1fr; gap: 20px; }
+      .thumb-bar, .bottom-buffer { display: none; }
+      .footer-inner { padding: 48px 24px; }
     }
   </style>
 </head>
 <body>
 
-  <!-- Header -->
-  <header>
-    <div class="container nav-wrap">
-      <a href="#" class="logo">
-        WEBPILOT
-        <span class="logo-badge">by Magnet XS</span>
+  <!-- HEADER -->
+  <header class="top-bar">
+    <div class="top-bar-inner">
+      <a href="index.html" class="brand-logo-wrap">
+        <div class="brand-icon">
+          <!-- Bernoulli Delta Wing SVG (#LOG-01B) -->
+          <svg width="34" height="34" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="wpDeltaGrad" x1="20" y1="20" x2="80" y2="80" gradientUnits="userSpaceOnUse">
+                <stop offset="0%" stop-color="#FCD34D"/>
+                <stop offset="100%" stop-color="#F59E0B"/>
+              </linearGradient>
+            </defs>
+            <path d="M50 16 L18 78 L50 62 L82 78 L50 16 Z" fill="url(#wpDeltaGrad)"/>
+            <path d="M50 16 L50 62 L82 78 L50 16 Z" fill="#D97706"/>
+            <circle cx="50" cy="46" r="4" fill="#FFFFFF"/>
+          </svg>
+        </div>
+        <div>
+          <div class="brand-title">WebPilot</div>
+          <div class="brand-tag">Swiss Edge Engine</div>
+        </div>
       </a>
-      <a href="#demo" class="nav-cta">Live-Demo testen</a>
+      <nav class="desktop-nav">
+        <a href="index.html" class="desk-nav-link active">Übersicht</a>
+        <a href="angebot.html" class="desk-nav-link">Angebot & Preise</a>
+        <a href="technologie.html" class="desk-nav-link">Technologie</a>
+        <a href="kontakt.html" class="desk-nav-link">Kontakt & Analyse</a>
+        <a href="angebot.html" class="btn-desk-cta">Ab CHF 1'490.– starten</a>
+      </nav>
+      <button class="nav-burger" onclick="toggleDrawer()" aria-label="Menü öffnen">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
     </div>
   </header>
 
-  <!-- Hero Section -->
-  <section class="hero-section">
-    <div class="container hero-grid">
-      
-      <!-- Linke Spalte: Copywriting & Value Prop -->
-      <div>
-        <p class="kicker">KEIN CMS. KEINE AGENTUR-FALLE. DIE UNZERSTÖRBARE WEB-ENGINE.</p>
-        <h1>Deine Website. Gesteuert mit <span class="highlight">deiner eigenen KI</span>.</h1>
-        <p class="hero-lead">
-          Schluss mit überladenen WordPress-Menüs, Sicherheitslücken und 150-Franken-Stundensätzen für Textänderungen. Mit WebPilot steuerst du deinen Auftritt direkt über deine gewohnte KI oder per 1-Klick-Bildaustausch – abgesichert durch einen deterministischen Sicherheits-Airbag.
-        </p>
+  <!-- MOBILE NAV DRAWER -->
+  <nav class="nav-drawer" id="navDrawer">
+    <a href="index.html" class="nav-link" style="color:var(--amber);">Übersicht <span>→</span></a>
+    <a href="angebot.html" class="nav-link">Angebot & Preise <span>→</span></a>
+    <a href="technologie.html" class="nav-link">Technologie & Edge <span>→</span></a>
+    <a href="kontakt.html" class="nav-link">Kontakt & Speed-Analyse <span>→</span></a>
+  </nav>
 
-        <div class="hero-actions">
-          <a href="#roi" class="btn-primary">
-            <span>In 48h live gehen</span>
-            <span>➔</span>
-          </a>
-          <a href="#how" class="btn-secondary">Wie es funktioniert</a>
+  <!-- HERO -->
+  <section class="hero-wrap">
+    <div class="hero-inner">
+      <div class="hero-content">
+        <div class="hero-kicker">
+          <span class="hero-kicker-dot"></span> Swiss Enterprise Stack // Edge 2026
         </div>
+        <h1 class="hero-title">
+          Die unzerstörbare Website, die du mit <span>deiner eigenen KI</span> steuerst.
+        </h1>
+        <p class="hero-subtitle">
+          Schluss mit CMS-Frust, zerschossenen WordPress-Plugins und 5-stelligen Agenturrechnungen. 
+          WebPilot liefert kompromisslose 0.3s Schweizer Ladezeit, 100% Mobile-First Handwerks-Präzision und Updates per Sprachnachricht.
+        </p>
 
         <div class="hero-metrics">
-          <div class="metric-item">
-            <div class="val">&lt; 50ms</div>
-            <div class="label">Schweizer Edge-Speed</div>
-          </div>
-          <div class="metric-item">
-            <div class="val">100%</div>
-            <div class="label">Airbag-Ausfallschutz</div>
-          </div>
-          <div class="metric-item">
-            <div class="val">0 CHF</div>
-            <div class="label">Wartungs-Stundensätze</div>
-          </div>
+          <div class="metric-badge">TTFB: <strong>&lt; 50ms</strong></div>
+          <div class="metric-badge">Cloudflare: <strong>ZRH / GVA</strong></div>
+          <div class="metric-badge">Wartung: <strong>0 Min./Mt.</strong></div>
+        </div>
+
+        <div class="hero-actions">
+          <a href="angebot.html" class="btn-cta btn-cta-amber">
+            <span>🚀</span> Pakete ansehen (ab CHF 1'490.–)
+          </a>
+          <a href="technologie.html" class="btn-cta btn-cta-ghost">
+            <span>⚡</span> Warum wir WordPress ablösen
+          </a>
         </div>
       </div>
 
-      <!-- Rechte Spalte: Interaktiver Live-Simulator -->
-      <div id="demo">
-        <div class="simulator-stage">
-          <div class="simulator-topbar">
-            <span class="sim-tag">
-              <span class="dot"></span> LIVE-PROOF SIMULATOR
-            </span>
-            <span style="font-family: var(--font-mono); font-size: 11px; color: var(--text-dim);">
-              Klick zum Testen 👆
-            </span>
+      <!-- HERO VISUAL STAGE -->
+      <div class="hero-stage-box">
+        <div style="background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 24px; box-shadow: 0 10px 30px rgba(0,0,0,0.5);">
+          <div style="display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid var(--border); padding-bottom: 12px; margin-bottom: 16px;">
+            <span style="font-family:'JetBrains Mono',monospace; font-size:0.75rem; color:var(--amber);">WEBPILOT EDGE RUNTIME</span>
+            <span style="font-size:0.75rem; color:var(--green); font-weight:700;">● SYSTEM ONLINE</span>
           </div>
-
-          <div class="sim-card">
-            <div style="position: relative;">
-              <img id="simHeroImg" 
-                   src="images/hero.jpg" 
-                   alt="Baustellen-Hero" 
-                   class="sim-hero-img" 
-                   onclick="swapSimPhoto()">
-              <div class="sim-overlay-hint" onclick="swapSimPhoto()">
-                📸 1-KLICK: BILD TAUSCHEN
-              </div>
+          <div style="display:flex; flex-direction:column; gap:12px; font-size:0.85rem;">
+            <div style="background: var(--surface-2); padding: 10px; border-radius: var(--radius-sm); border: 1px solid var(--border-bright);">
+              <span style="color:var(--muted); font-size:0.75rem;">1-Klick Content Update:</span><br>
+              <strong>«Ändere den Kicker auf Solardach-Förderung 2026»</strong>
             </div>
-
-            <div class="sim-content">
-              <div class="sim-slot" onclick="copySimPrompt('hero.titel', 'Dachdecker EFZ / Steildach (80–100%)')">
-                <div class="sim-title" id="simTitle">Dachdecker EFZ / Steildach (80–100%)</div>
-              </div>
-              <br>
-              <div class="sim-slot" onclick="copySimPrompt('hero.subline', 'Hiltbrand Gebäudehüllen, Berner Oberland. 5 Wochen Ferien, modernster Fuhrpark & Kran, echte Kameradschaft auf Augenhöhe.')">
-                <div class="sim-sub" id="simSub">
-                  Hiltbrand Gebäudehüllen, Berner Oberland. 5 Wochen Ferien, modernster Fuhrpark & Kran, echte Kameradschaft auf Augenhöhe.
-                </div>
-              </div>
-
-              <div>
-                <a href="javascript:void(0)" class="sim-btn-cta" onclick="alert('✅ Dieser WhatsApp-Button ist durch den deterministischen Airbag unlöschbar geschützt!')">
-                  <span>💬 Express-Bewerbung via WhatsApp</span>
-                </a>
-              </div>
-
-              <div id="simPromptBox" class="sim-prompt-box">
-                <!-- Dynamischer ChatGPT-Befehl -->
-              </div>
+            <div style="background: rgba(16, 185, 129, 0.1); border: 1px solid rgba(16, 185, 129, 0.3); padding: 10px; border-radius: var(--radius-sm); color: #fff;">
+              <span style="color:var(--green); font-weight:700;">✓ Edge Sync ausgeführt:</span><br>
+              Bereitgestellt in Zürich & Genf in 420 Millisekunden. Kein Cache löschen nötig.
             </div>
           </div>
         </div>
       </div>
-
     </div>
   </section>
 
-  <!-- Das Dilemma Sektion -->
-  <section class="section-spacing">
-    <div class="container">
-      <div class="section-header">
-        <p class="kicker">DAS KMU-DILEMMA</p>
-        <h2>Warum 72% aller Firmen-Websites verstauben</h2>
-        <p class="section-desc">
-          Du führst einen Betrieb, kein IT-Unternehmen. Trotzdem zwingt dich der Markt seit Jahren in zwei Sackgassen:
-        </p>
-      </div>
+  <!-- DREI PFEILER -->
+  <div class="section-wrap">
+    <div class="section-inner">
+      <span class="section-kicker">Das Fundament</span>
+      <h2 class="section-title">Warum KMUs auf WebPilot umsteigen</h2>
+      <p class="section-desc">Die Kombination aus Schweizer Edge-Infrastruktur und autonomer Pflege spart Zeit, Nerven und Budget.</p>
 
-      <div class="grid-3">
-        <div class="card">
-          <div class="card-icon">⚠️</div>
-          <h3>Der CMS-Albtraum</h3>
-          <p>
-            WordPress-Systeme veralten, Plugins beissen sich und nach jedem Update zittert man vor weissen Bildschirmen. Das Backend ist so kompliziert, dass niemand freiwillig einen neuen Job oder eine Baustelle einpflegt.
+      <div class="pillar-cards">
+        <div class="pillar-card">
+          <div class="pillar-icon">⚡</div>
+          <h3 class="pillar-title">Sub-50ms Edge Performance</h3>
+          <p class="pillar-text">
+            Gehostet direkt auf den Schweizer Internetknotenpunkten (ZRH/GVA). Google liebt Ladezeiten unter 0.5s — Ihre Kunden am Smartphone noch mehr.
           </p>
         </div>
 
-        <div class="card">
-          <div class="card-icon">💸</div>
-          <h3>Die Agentur-Falle</h3>
-          <p>
-            Du willst nur einen Text anpassen oder ein Mitarbeiterfoto tauschen? Die Agentur schreibt ein Ticket, verlangt 150.– CHF Stundensatz und braucht 10 Tage für die Umsetzung. Du zahlst monatlich für nichts.
+        <div class="pillar-card">
+          <div class="pillar-icon">🛡️</div>
+          <h3 class="pillar-title">Unzerstörbarer Sicherheits-Airbag</h3>
+          <p class="pillar-text">
+            Keine SQL-Datenbanken im Frontend. Keine PHP-Sicherheitslücken. Kein Hacker der Welt kann diese statische Edge-Site kompromittieren.
           </p>
         </div>
 
-        <div class="card">
-          <div class="card-icon">🤖</div>
-          <h3>Die ungenutzte KI-Lücke</h3>
-          <p>
-            Über 60% der Geschäftsführer nutzen heute privat ChatGPT. Aber den Text fehlerfrei auf die eigene Website zu bringen, scheiterte bisher an fehlendem Programmierwissen. WebPilot schliesst genau diese Lücke.
+        <div class="pillar-card">
+          <div class="pillar-icon">🎙️</div>
+          <h3 class="pillar-title">Pflege mit eigener KI & Sprache</h3>
+          <p class="pillar-text">
+            Vergessen Sie verwirrende Admin-Panels. Schicken Sie einfach eine Sprachnotiz oder tippen Sie in ChatGPT/Claude: WebPilot passt Texte und Fotos an.
           </p>
         </div>
       </div>
     </div>
-  </section>
+  </div>
 
-  <!-- Die 3 Pfeiler der WebPilot Engine -->
-  <section id="how" class="section-spacing">
-    <div class="container">
-      <div class="section-header">
-        <p class="kicker">DIE DREI PFEILER DER ENGINE</p>
-        <h2>Volle Kontrolle. Null Ausfallrisiko.</h2>
-        <p class="section-desc">
-          Wir haben Inhalt und Infrastruktur radikal getrennt. Du bedienst deine Seite mit der KI deiner Wahl — unsere Engine garantiert Sicherheit und Lichtgeschwindigkeit.
-        </p>
-      </div>
+  <!-- VERGLEICH WORDPRESS VS WEBPILOT -->
+  <div class="section-wrap" style="background: var(--surface);">
+    <div class="section-inner">
+      <span class="section-kicker">Der ehrliche Vergleich</span>
+      <h2 class="section-title">Alte Agentur-Welt vs. Schweizer WebPilot</h2>
+      <p class="section-desc">Warum das traditionelle CMS-Modell für 90% aller KMUs und Handwerker überholt ist.</p>
 
-      <div class="grid-3">
-        <div class="card pillar-card">
-          <div class="card-icon">🎯</div>
-          <h3>1. Klick-Inspektor</h3>
-          <p>
-            Klicke im Cockpit auf die Stelle, die du ändern willst. Das System generiert automatisch den mundgerechten Prompt für dein ChatGPT. Diktieren, einfügen, fertig.
-          </p>
-        </div>
+      <div class="vs-box">
+        <div class="vs-grid">
+          <div class="vs-col vs-old">
+            <div class="vs-title" style="color: #ef4444;">❌ Das traditionelle WordPress-Dilemma</div>
+            <ul class="vs-list">
+              <li>Ladezeiten von 2 bis 5 Sekunden bei jedem Seitenaufruf</li>
+              <li>Wöchentliche Sicherheits-Updates und Plugin-Konflikte</li>
+              <li>Jede kleine Textänderung kostet teure Agenturstunden</li>
+              <li>White Screen of Death nach PHP-Updates</li>
+            </ul>
+          </div>
 
-        <div class="card pillar-card">
-          <div class="card-icon">🛡️</div>
-          <h3>2. Deterministischer Airbag</h3>
-          <p>
-            Kein unvollständiger KI-Code gelangt je online. Unser Wächter-Skript prüft Syntax, Pflicht-CTAs und Bildpfade vor dem Livegang. Du kannst deine Website niemals zerstören.
-          </p>
-        </div>
-
-        <div class="card pillar-card">
-          <div class="card-icon">⚡</div>
-          <h3>3. Swiss Edge-CDN</h3>
-          <p>
-            Kein lahmer Apache-Server, kein PHP-Ballast. Deine Seiten werden über Schweizer Rechenzentren (Zürich & Genf) in unter 50 Millisekunden ausgeliefert. Unhackbar und wartungsfrei.
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Wirtschaftlichkeit & ROI -->
-  <section id="roi" class="section-spacing">
-    <div class="container">
-      <div class="section-header">
-        <p class="kicker">ÖKONOMISCHE KALIBRIERUNG</p>
-        <h2>Der No-Brainer ROI für Schweizer Betriebe</h2>
-        <p class="section-desc">
-          Keine versteckten Agentur-Stunden. Ein transparenter Festpreis, der sich ab dem ersten Monat selbst bezahlt.
-        </p>
-      </div>
-
-      <div class="roi-box">
-        <div>
-          <div class="roi-price">295.– <span>CHF / Monat</span></div>
-          <p style="color: var(--text-muted); margin-bottom: 20px;">
-            Schlüsselfertige Infrastruktur, weltweites CDN, deterministischer Airbag, Wächter-Daemons & laufender Support.
-          </p>
-          <ul style="list-style: none; color: var(--text-main); font-size: 0.95rem; line-height: 2;">
-            <li>✅ Einmaliges Setup: CHF 2'500.– (Schlüsselfertig in 48h)</li>
-            <li>✅ Inklusive 1-Klick-Cockpit & Klick-Inspektor</li>
-            <li>✅ Unlimitierte Text- & Bildänderungen</li>
-            <li>✅ Keine CMS-Wartungsverträge mehr nötig</li>
-          </ul>
-        </div>
-
-        <div style="background: var(--bg-card); padding: 28px; border-radius: 8px; border: 1px solid var(--border-subtle);">
-          <div class="kicker" style="color: var(--cyan-accent) !important;">DIE SUISSETEC-RECHNUNG</div>
-          <h4 style="font-size: 1.2rem; margin-bottom: 12px;">Exakt 2 Monteurstunden im Monat</h4>
-          <p style="color: var(--text-muted); font-size: 0.9rem; line-height: 1.6;">
-            Nach Schweizer Branchen-Regietarifen (CHF 120.– bis 165.–/h) entspricht das gesamte WebPilot-Abo exakt <strong>zwei Arbeitsstunden eines Monteurs</strong> oder einem einzigen kleinen Serviceeinsatz (z. B. Spülkasten reparieren).
-          </p>
-          <div style="margin-top: 20px;">
-            <a href="mailto:david@magnet-xs.ch?subject=WebPilot%2048h-Setup%20anfragen" class="btn-primary" style="width: 100%; justify-content: center;">
-              Jetzt Grundseite anfragen (48h)
-            </a>
+          <div class="vs-col vs-new">
+            <div class="vs-title" style="color: #10b981;">✅ Die WebPilot Edge Lösung</div>
+            <ul class="vs-list">
+              <li>0.3 Sekunden Ladezeit (10x schneller)</li>
+              <li>0 Plugin-Updates — unzerstörbar und wartungsfrei</li>
+              <li>Einfach per Sprachnachricht oder Bild-Upload aktualisieren</li>
+              <li>Faire Schweizer Fixpreise ohne versteckte Kosten</li>
+            </ul>
           </div>
         </div>
       </div>
     </div>
-  </section>
+  </div>
 
-  <!-- Footer -->
-  <footer>
-    <div class="container footer-wrap">
-      <div>
-        © 2026 WebPilot — Ein System-Produkt von <strong>Magnet XS GmbH</strong>.
+  <!-- TEASERS ZU UNTERSEITEN -->
+  <div class="section-wrap">
+    <div class="section-inner">
+      <span class="section-kicker">Weiterlesen & Informieren</span>
+      <h2 class="section-title">Erfahren Sie mehr über WebPilot</h2>
+      <p class="section-desc">Transparente Preise und tiefgehende Technologie-Einblicke.</p>
+
+      <div class="teaser-grid">
+        <div class="teaser-card">
+          <h3 style="font-size: 1.15rem; font-weight: 700;">Angebot & Fixpreise</h3>
+          <p style="font-size: 0.88rem; color: var(--muted); line-height: 1.5;">
+            Web-Rescue & Relaunch ab CHF 1'490.– einmalig. Schweizer Edge-Hosting & Airbag-Schutz für CHF 79.– im Monat.
+          </p>
+          <a href="angebot.html" class="teaser-link">Zu den Paketen & Details →</a>
+        </div>
+
+        <div class="teaser-card">
+          <h3 style="font-size: 1.15rem; font-weight: 700;">Technologie & Schweizer Edge</h3>
+          <p style="font-size: 0.88rem; color: var(--muted); line-height: 1.5;">
+            Wie Cloudflare Pages, Obsidian Vault CMS und Git-Sicherheitsmechanismen jede herkömmliche KMU-Website deklassieren.
+          </p>
+          <a href="technologie.html" class="teaser-link">Technologie-Deep-Dive ansehen →</a>
+        </div>
       </div>
-      <div style="font-family: var(--font-mono); font-size: 11px;">
-        Designed on Swiss Architectural Canvas · Powered by Airbag Engine
+    </div>
+  </div>
+
+  <div class="bottom-buffer"></div>
+
+  <!-- STICKY THUMB BAR -->
+  <div class="thumb-bar">
+    <a href="angebot.html" class="btn-thumb btn-thumb-cta">
+      <span>🚀</span> Pakete ab CHF 1'490.–
+    </a>
+    <a href="https://wa.me/41790000000" class="btn-thumb btn-thumb-wa">
+      <span>💬</span> WhatsApp
+    </a>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer-wrap">
+    <div class="footer-inner">
+      <div style="font-weight: 800; font-size: 1.05rem; color: #fff;">WebPilot // Ein Produkt der Magnet XS GmbH</div>
+      <div>Werkstrasse 14 • 3600 Thun & Zürich • info@magnet-xs.ch</div>
+      <div style="font-family:'JetBrains Mono',monospace; font-size:0.7rem; color:#475569; margin-top:8px;">
+        Swiss Edge Deployment • 0.3s TTFB • Bernoulli Delta-Jet Architecture 2026
       </div>
     </div>
   </footer>
 
-  <!-- Interaktives Simulator-Skript -->
   <script>
-    const simPhotos = [
-      "images/hero.jpg",
-      "images/stefan.jpg",
-      "images/michael.jpg",
-      "images/benefits_drohne.jpg"
-    ];
-    let photoIndex = 0;
-
-    function swapSimPhoto() {
-      photoIndex = (photoIndex + 1) % simPhotos.length;
-      const img = document.getElementById('simHeroImg');
-      img.src = simPhotos[photoIndex];
-      showPromptFeedback("⚡ 1-Klick-Tausch ausgeführt: Foto in 0.01s im DOM gewechselt & Airbag-validiert!");
-    }
-
-    function copySimPrompt(slot, text) {
-      const promptText = `Ändere im Slot '${slot}' den Inhalt zu folgendem Text:\n"${text}"\nAchte darauf, dass die Ansprache sympathisch und auf Augenhöhe bleibt.`;
-      
-      navigator.clipboard.writeText(promptText).catch(() => {});
-      
-      showPromptFeedback(`📋 Befehl für ChatGPT in Zwischenablage kopiert:\n"${promptText}"\n\n➔ Jetzt einfach in dein ChatGPT einfügen!`);
-    }
-
-    function showPromptFeedback(msg) {
-      const box = document.getElementById('simPromptBox');
-      box.innerText = msg;
-      box.classList.add('active');
+    function toggleDrawer() {
+      document.getElementById('navDrawer').classList.toggle('open');
     }
   </script>
 </body>

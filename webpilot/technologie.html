@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="de-CH">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <title>Technologie & Schweizer Edge — WebPilot Enterprise Stack</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #090a0f;
+      --surface: #111420;
+      --surface-2: #181d2e;
+      --border: #232a42;
+      --border-bright: #384266;
+      --text: #f8fafc;
+      --muted: #94a3b8;
+      --amber: #f59e0b;
+      --amber-glow: rgba(245, 158, 11, 0.18);
+      --cyan: #38bdf8;
+      --green: #10b981;
+      --radius-sm: 6px;
+      --radius-md: 10px;
+      --radius-lg: 16px;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+    html, body { width: 100%; min-height: 100vh; overflow-x: hidden; background: var(--bg); color: var(--text); font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; line-height: 1.5; font-size: 15px; }
+
+    /* HEADER */
+    .top-bar { padding: 12px 16px; border-bottom: 1px solid var(--border); background: rgba(9, 10, 15, 0.95); backdrop-filter: blur(14px); position: sticky; top: 0; z-index: 900; }
+    .top-bar-inner { max-width: 1100px; margin: 0 auto; width: 100%; display: flex; justify-content: space-between; align-items: center; gap: 16px; }
+    .brand-logo-wrap { display: flex; align-items: center; gap: 10px; text-decoration: none; color: inherit; }
+    .brand-icon { width: 36px; height: 36px; display: flex; align-items: center; justify-content: center; }
+    .brand-title { font-size: 1.15rem; font-weight: 800; letter-spacing: -0.03em; color: #fff; }
+    .brand-tag { font-family: 'JetBrains Mono', monospace; font-size: 0.65rem; color: var(--amber); letter-spacing: 0.08em; text-transform: uppercase; }
+
+    .desktop-nav { display: none; align-items: center; gap: 24px; }
+    .desk-nav-link { font-size: 0.88rem; font-weight: 600; color: var(--muted); text-decoration: none; transition: color 0.15s ease; }
+    .desk-nav-link:hover, .desk-nav-link.active { color: #fff; }
+    .btn-desk-cta { font-size: 0.85rem; font-weight: 700; color: #000 !important; background: var(--amber); padding: 8px 16px; border-radius: var(--radius-sm); text-decoration: none; }
+
+    .nav-burger { width: 44px; height: 44px; border: 1px solid var(--border); background: var(--surface); border-radius: var(--radius-sm); display: flex; align-items: center; justify-content: center; cursor: pointer; }
+    .nav-burger svg { width: 22px; height: 22px; stroke: var(--text); }
+
+    /* MOBILE DRAWER */
+    .nav-drawer { display: none; position: fixed; inset: 64px 0 0 0; background: rgba(9, 10, 15, 0.98); backdrop-filter: blur(16px); z-index: 850; padding: 24px 20px; flex-direction: column; gap: 16px; }
+    .nav-drawer.open { display: flex; }
+    .nav-link { font-size: 1.15rem; font-weight: 700; color: #fff; text-decoration: none; padding: 12px 0; border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; }
+
+    /* HERO */
+    .page-hero { width: 100%; border-bottom: 1px solid var(--border); padding: 36px 16px; background: radial-gradient(circle at 50% 0%, #171d2f 0%, #090a0f 70%); }
+    .page-hero-inner { max-width: 1100px; margin: 0 auto; width: 100%; }
+    .section-kicker { font-family: 'JetBrains Mono', monospace; font-size: 0.72rem; color: var(--amber); font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 6px; display: block; }
+    .page-title { font-size: 1.9rem; font-weight: 800; line-height: 1.2; letter-spacing: -0.03em; margin-bottom: 10px; }
+    .page-desc { font-size: 0.95rem; color: var(--muted); line-height: 1.6; max-width: 680px; }
+
+    /* SECTIONS */
+    .section-wrap { width: 100%; border-bottom: 1px solid var(--border); }
+    .section-inner { max-width: 1100px; margin: 0 auto; padding: 40px 16px; width: 100%; }
+    .section-title { font-size: 1.5rem; font-weight: 800; letter-spacing: -0.02em; line-height: 1.25; margin-bottom: 8px; }
+    .section-subtitle { font-size: 0.9rem; color: var(--muted); line-height: 1.5; margin-bottom: 24px; }
+
+    /* TECH GRID */
+    .tech-grid { display: grid; grid-template-columns: 1fr; gap: 20px; }
+    .tech-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-md); padding: 24px; display: flex; flex-direction: column; gap: 10px; }
+    .tech-pill { font-family: 'JetBrains Mono', monospace; font-size: 0.72rem; color: var(--cyan); background: rgba(56, 189, 248, 0.1); padding: 4px 8px; border-radius: 4px; display: inline-block; width: fit-content; }
+    .tech-title { font-size: 1.2rem; font-weight: 800; color: #fff; }
+    .tech-text { font-size: 0.88rem; color: var(--muted); line-height: 1.5; }
+
+    /* CODE STACK BOX */
+    .code-box { background: #050608; border: 1px solid var(--border); border-radius: var(--radius-md); padding: 18px; font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; color: #cbd5e1; overflow-x: auto; margin-top: 24px; }
+    .code-box .comment { color: #64748b; }
+    .code-box .kw { color: var(--amber); font-weight: 700; }
+    .code-box .fn { color: var(--cyan); }
+
+    /* STICKY THUMB BAR */
+    .thumb-bar { position: fixed; bottom: 0; left: 0; right: 0; background: rgba(9, 10, 15, 0.96); backdrop-filter: blur(12px); border-top: 1px solid var(--border); padding: 10px 14px; padding-bottom: calc(10px + env(safe-area-inset-bottom, 0px)); display: flex; gap: 10px; z-index: 950; }
+    .btn-thumb { flex: 1; height: 48px; border-radius: var(--radius-md); font-size: 0.88rem; font-weight: 700; display: inline-flex; align-items: center; justify-content: center; gap: 6px; text-decoration: none; }
+    .btn-thumb-cta { background: var(--amber); color: #000; }
+    .btn-thumb-wa { background: #25D366; color: #fff; }
+    .bottom-buffer { height: 74px; }
+
+    /* FOOTER */
+    .footer-wrap { width: 100%; background: #050608; color: #64748b; border-top: 1px solid var(--border); }
+    .footer-inner { max-width: 1100px; margin: 0 auto; padding: 40px 16px; font-size: 0.82rem; display: flex; flex-direction: column; gap: 12px; }
+
+    /* DESKTOP RESPONSIVE */
+    @media (min-width: 768px) {
+      .top-bar { padding: 14px 24px; }
+      .desktop-nav { display: flex; }
+      .nav-burger { display: none !important; }
+      .page-hero { padding: 56px 24px 44px 24px; }
+      .page-title { font-size: 2.3rem; }
+      .section-inner { padding: 56px 24px; }
+      .tech-grid { grid-template-columns: 1fr 1fr; gap: 24px; }
+      .thumb-bar, .bottom-buffer { display: none; }
+      .footer-inner { padding: 48px 24px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="top-bar">
+    <div class="top-bar-inner">
+      <a href="index.html" class="brand-logo-wrap">
+        <div class="brand-icon">
+          <svg width="34" height="34" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="wpDeltaGrad" x1="20" y1="20" x2="80" y2="80" gradientUnits="userSpaceOnUse">
+                <stop offset="0%" stop-color="#FCD34D"/>
+                <stop offset="100%" stop-color="#F59E0B"/>
+              </linearGradient>
+            </defs>
+            <path d="M50 16 L18 78 L50 62 L82 78 L50 16 Z" fill="url(#wpDeltaGrad)"/>
+            <path d="M50 16 L50 62 L82 78 L50 16 Z" fill="#D97706"/>
+            <circle cx="50" cy="46" r="4" fill="#FFFFFF"/>
+          </svg>
+        </div>
+        <div>
+          <div class="brand-title">WebPilot</div>
+          <div class="brand-tag">Swiss Edge Engine</div>
+        </div>
+      </a>
+      <nav class="desktop-nav">
+        <a href="index.html" class="desk-nav-link">Übersicht</a>
+        <a href="angebot.html" class="desk-nav-link">Angebot & Preise</a>
+        <a href="technologie.html" class="desk-nav-link active">Technologie</a>
+        <a href="kontakt.html" class="desk-nav-link">Kontakt & Analyse</a>
+        <a href="angebot.html" class="btn-desk-cta">Ab CHF 1'490.– starten</a>
+      </nav>
+      <button class="nav-burger" onclick="toggleDrawer()" aria-label="Menü öffnen">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- MOBILE NAV DRAWER -->
+  <nav class="nav-drawer" id="navDrawer">
+    <a href="index.html" class="nav-link">Übersicht <span>→</span></a>
+    <a href="angebot.html" class="nav-link">Angebot & Preise <span>→</span></a>
+    <a href="technologie.html" class="nav-link" style="color:var(--amber);">Technologie & Edge <span>→</span></a>
+    <a href="kontakt.html" class="nav-link">Kontakt & Speed-Analyse <span>→</span></a>
+  </nav>
+
+  <!-- HERO -->
+  <section class="page-hero">
+    <div class="page-hero-inner">
+      <span class="section-kicker">Schweizer Edge Stack 2026</span>
+      <h1 class="page-title">Warum statischer Edge-Code jedes CMS deklassiert.</h1>
+      <p class="page-desc">
+        Wir haben das Web neu gedacht: Keine altersschwachen SQL-Datenbanken, keine PHP-Interpretationszeit, keine verwundbaren Plugin-Wüsten.
+      </p>
+    </div>
+  </section>
+
+  <!-- TECH CARDS -->
+  <div class="section-wrap">
+    <div class="section-inner">
+      <span class="section-kicker">Die vier Säulen</span>
+      <h2 class="section-title">Architektur ohne Schwachstellen</h2>
+      <p class="section-subtitle">Präzise abgestimmte Komponenten für maximale Ladezeit und Zuverlässigkeit.</p>
+
+      <div class="tech-grid">
+        <div class="tech-card">
+          <span class="tech-pill">SUB-50MS TTFB</span>
+          <h3 class="tech-title">1. Cloudflare Pages Swiss Edge</h3>
+          <p class="tech-text">
+            Ihre Website wird global in über 300 Rechenzentren und primär direkt an den Internet-Knotenpunkten Zürich (ZRH) und Genf (GVA) vorgehalten. Der Browser Ihrer Kunden erhält das fertige Dokument ohne jeden Datenbankzugriff in unter 50 Millisekunden.
+          </p>
+        </div>
+
+        <div class="tech-card">
+          <span class="tech-pill">ZERO VULNERABILITIES</span>
+          <h3 class="tech-title">2. Der statische Sicherheits-Airbag</h3>
+          <p class="tech-text">
+            99% aller Web-Angriffe zielen auf SQL-Injections, veraltete PHP-Versionen oder WordPress-Plugins ab. Bei WebPilot existiert im Frontend überhaupt keine angreifbare Datenbank mehr. Ihre Website ist technisch unhackbar.
+          </p>
+        </div>
+
+        <div class="tech-card">
+          <span class="tech-pill">VAULT-AS-A-CMS</span>
+          <h3 class="tech-title">3. Versioniertes Markdown & Git</h3>
+          <p class="tech-text">
+            Jeder Text, jedes Team-Mitglied und jedes Projekt ist in strukturierten Markdown- und JSON-Dateien im Schweizer Vault gespeichert. Jede Änderung wird per Git automatisch versioniert. Ein Rollback dauert exakt einen Klick.
+          </p>
+        </div>
+
+        <div class="tech-card">
+          <span class="tech-pill">KI & MULTIMODAL</span>
+          <h3 class="tech-title">4. Direkte Steuerung per KI</h3>
+          <p class="tech-text">
+            Statt sich durch verschachtelte Redaktionssysteme zu klicken, steuern Sie Ihre Seite wie einen Co-Piloten: Über Sprachnachrichten, Fotos oder Ihre eigene KI (ChatGPT, Claude). WebPilot übersetzt Ihre Wünsche in sauberen Code.
+          </p>
+        </div>
+      </div>
+
+      <!-- ARCHITEKTUR CODE SNIPPET -->
+      <div class="code-box">
+<span class="comment">// WebPilot Pipeline: Von der Baustelle auf den Schweizer Edge-Server</span>
+<span class="kw">Input:</span> Sprachmemo vom Meister ("Dach in Spiez fertiggestellt, Foto anhängen")
+  └── <span class="fn">Deepgram STT</span> & <span class="fn">LLM Strukturierung</span> (ACP Engine)
+  └── <span class="fn">Git Commit</span> ins Vault-Repository (Snapshot gesichert)
+  └── <span class="fn">Cloudflare Swiss Edge Deploy</span> (Zürich ZRH / Genf GVA)
+  └── <span class="kw">Live in 0.3s</span> beim Kunden auf dem Handy.
+      </div>
+    </div>
+  </div>
+
+  <div class="bottom-buffer"></div>
+
+  <!-- STICKY THUMB BAR -->
+  <div class="thumb-bar">
+    <a href="angebot.html" class="btn-thumb btn-thumb-cta">
+      <span>🚀</span> Zu den Angeboten
+    </a>
+    <a href="https://wa.me/41790000000" class="btn-thumb btn-thumb-wa">
+      <span>💬</span> WhatsApp
+    </a>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer-wrap">
+    <div class="footer-inner">
+      <div style="font-weight: 800; font-size: 1.05rem; color: #fff;">WebPilot // Ein Produkt der Magnet XS GmbH</div>
+      <div>Werkstrasse 14 • 3600 Thun & Zürich • info@magnet-xs.ch</div>
+      <div style="font-family:'JetBrains Mono',monospace; font-size:0.7rem; color:#475569; margin-top:8px;">
+        Swiss Edge Deployment • 0.3s TTFB • Bernoulli Delta-Jet Architecture 2026
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    function toggleDrawer() {
+      document.getElementById('navDrawer').classList.toggle('open');
+    }
+  </script>
+</body>
+</html>

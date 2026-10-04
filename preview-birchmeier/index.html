@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="de-CH">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <title>Birchmeier-Hohler Haustechnik AG — Sanitär, Heizung & Badumbauten Bremgarten</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #0284c7;
+      --primary-dark: #0369a1;
+      --primary-glow: rgba(2, 132, 199, 0.15);
+      --accent: #f59e0b;
+      --bg: #ffffff;
+      --surface: #f8fafc;
+      --surface-2: #f1f5f9;
+      --border: #e2e8f0;
+      --text: #0f172a;
+      --muted: #64748b;
+      --radius-sm: 6px;
+      --radius-md: 10px;
+      --radius-lg: 16px;
+      --shadow-sm: 0 1px 3px rgba(0,0,0,0.06);
+      --shadow-md: 0 6px 20px -4px rgba(0,0,0,0.08);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+    html, body { width: 100%; min-height: 100vh; overflow-x: hidden; background: var(--bg); color: var(--text); font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; line-height: 1.5; font-size: 15px; }
+
+    /* HEADER */
+    .top-bar { padding: 12px 16px; border-bottom: 1px solid var(--border); background: rgba(255, 255, 255, 0.98); backdrop-filter: blur(10px); position: sticky; top: 0; z-index: 900; }
+    .top-bar-inner { max-width: 1100px; margin: 0 auto; width: 100%; display: flex; justify-content: space-between; align-items: center; gap: 16px; }
+    .brand-logo-wrap { display: flex; align-items: center; gap: 10px; text-decoration: none; color: inherit; }
+    .brand-mark { width: 38px; height: 38px; border-radius: var(--radius-sm); background: var(--primary); color: #fff; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 1rem; box-shadow: 0 2px 8px var(--primary-glow); }
+    .brand-name { font-size: 1.05rem; font-weight: 800; letter-spacing: -0.02em; line-height: 1.2; }
+    .brand-region { font-size: 0.72rem; color: var(--muted); font-weight: 500; }
+
+    .desktop-nav { display: none; align-items: center; gap: 24px; }
+    .desk-nav-link { font-size: 0.88rem; font-weight: 600; color: var(--text); text-decoration: none; transition: color 0.15s ease; }
+    .desk-nav-link:hover, .desk-nav-link.active { color: var(--primary); }
+    .btn-desk-contact { font-size: 0.85rem; font-weight: 700; color: #fff !important; background: var(--primary); padding: 8px 16px; border-radius: var(--radius-sm); text-decoration: none; box-shadow: 0 2px 8px var(--primary-glow); }
+
+    .nav-burger { width: 44px; height: 44px; border: 1px solid var(--border); background: var(--surface); border-radius: var(--radius-sm); display: flex; align-items: center; justify-content: center; cursor: pointer; }
+    .nav-burger svg { width: 22px; height: 22px; stroke: var(--text); }
+
+    /* MOBILE DRAWER */
+    .nav-drawer { display: none; position: fixed; inset: 64px 0 0 0; background: rgba(255, 255, 255, 0.98); backdrop-filter: blur(16px); z-index: 850; padding: 24px 20px; flex-direction: column; gap: 16px; }
+    .nav-drawer.open { display: flex; }
+    .nav-link { font-size: 1.15rem; font-weight: 700; color: var(--text); text-decoration: none; padding: 12px 0; border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; }
+
+    /* HERO */
+    .hero-wrap { width: 100%; background: linear-gradient(180deg, var(--surface) 0%, #ffffff 100%); border-bottom: 1px solid var(--border); padding: 28px 16px 36px 16px; }
+    .hero-inner { max-width: 1100px; margin: 0 auto; width: 100%; display: flex; flex-direction: column; gap: 22px; }
+    .kicker-pill { font-family: 'JetBrains Mono', monospace; font-size: 0.72rem; font-weight: 700; color: var(--primary); background: var(--primary-glow); padding: 4px 10px; border-radius: 999px; display: inline-flex; align-items: center; gap: 6px; }
+    .kicker-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--primary); }
+    .hero-title { font-size: 1.85rem; font-weight: 800; line-height: 1.15; letter-spacing: -0.03em; margin-top: 10px; }
+    .hero-subtitle { font-size: 0.95rem; color: var(--muted); line-height: 1.5; margin-top: 8px; }
+    
+    .hero-media { width: 100%; aspect-ratio: 16/10; border-radius: var(--radius-md); overflow: hidden; box-shadow: var(--shadow-md); position: relative; background: #0f172a; }
+    .hero-stage { width: 100%; height: 100%; display: flex; flex-direction: column; justify-content: center; align-items: center; background: radial-gradient(circle at 30% 30%, #0369a1 0%, #0f172a 80%); color: #fff; padding: 24px; text-align: center; }
+    .hero-media-badge { position: absolute; bottom: 12px; left: 12px; background: rgba(15, 23, 42, 0.85); backdrop-filter: blur(8px); color: #fff; font-size: 0.72rem; font-weight: 600; padding: 5px 12px; border-radius: var(--radius-sm); }
+
+    .hero-actions { display: flex; flex-direction: column; gap: 10px; margin-top: 18px; }
+    .btn-cta { width: 100%; min-height: 50px; border-radius: var(--radius-md); font-size: 0.95rem; font-weight: 700; display: inline-flex; align-items: center; justify-content: center; gap: 8px; text-decoration: none; cursor: pointer; border: none; }
+    .btn-cta-primary { background: var(--primary); color: #ffffff; box-shadow: 0 4px 14px var(--primary-glow); }
+    .btn-cta-whatsapp { background: #25D366; color: #ffffff; }
+
+    /* SECTIONS */
+    .section-wrap { width: 100%; border-bottom: 1px solid var(--border); }
+    .section-inner { max-width: 1100px; margin: 0 auto; padding: 36px 16px; width: 100%; }
+    .section-kicker { font-family: 'JetBrains Mono', monospace; font-size: 0.72rem; color: var(--primary); font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 4px; display: block; }
+    .section-title { font-size: 1.45rem; font-weight: 800; letter-spacing: -0.02em; line-height: 1.25; margin-bottom: 8px; }
+    .section-desc { font-size: 0.9rem; color: var(--muted); line-height: 1.5; margin-bottom: 22px; }
+
+    /* LEISTUNGEN KACHELN */
+    .service-cards { display: flex; flex-direction: column; gap: 14px; }
+    .service-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-md); padding: 20px; display: flex; flex-direction: column; gap: 10px; }
+    .service-card-head { display: flex; align-items: center; gap: 12px; }
+    .service-icon { width: 42px; height: 42px; border-radius: var(--radius-sm); background: var(--primary-glow); color: var(--primary); display: flex; align-items: center; justify-content: center; font-size: 1.25rem; flex-shrink: 0; }
+    .service-title { font-size: 1.05rem; font-weight: 700; }
+    .service-list { list-style: none; display: flex; flex-direction: column; gap: 6px; font-size: 0.85rem; color: var(--muted); margin-top: 4px; }
+    .service-list li { display: flex; align-items: center; gap: 6px; }
+    .service-list li::before { content: '✓'; color: var(--primary); font-weight: 800; }
+
+    /* TEASER BOXEN */
+    .teaser-grid { display: grid; grid-template-columns: 1fr; gap: 16px; }
+    .teaser-card { background: #ffffff; border: 1px solid var(--border); border-radius: var(--radius-md); padding: 20px; display: flex; flex-direction: column; gap: 10px; }
+    .teaser-link { color: var(--primary); font-weight: 700; text-decoration: none; font-size: 0.88rem; display: inline-flex; align-items: center; gap: 4px; margin-top: auto; }
+
+    /* STICKY THUMB BAR */
+    .thumb-bar { position: fixed; bottom: 0; left: 0; right: 0; background: rgba(255, 255, 255, 0.96); backdrop-filter: blur(12px); border-top: 1px solid var(--border); padding: 10px 14px; padding-bottom: calc(10px + env(safe-area-inset-bottom, 0px)); display: flex; gap: 10px; z-index: 950; }
+    .btn-thumb { flex: 1; height: 48px; border-radius: var(--radius-md); font-size: 0.88rem; font-weight: 700; display: inline-flex; align-items: center; justify-content: center; gap: 6px; text-decoration: none; color: #fff; }
+    .btn-thumb-phone { background: var(--primary); }
+    .btn-thumb-whatsapp { background: #25D366; }
+    .bottom-buffer { height: 74px; }
+
+    /* FOOTER */
+    .footer-wrap { width: 100%; background: #0f172a; color: #94a3b8; border-top: 1px solid #1e293b; }
+    .footer-inner { max-width: 1100px; margin: 0 auto; padding: 36px 16px; font-size: 0.82rem; display: flex; flex-direction: column; gap: 12px; }
+
+    /* DESKTOP RESPONSIVE */
+    @media (min-width: 768px) {
+      .top-bar { padding: 14px 24px; }
+      .desktop-nav { display: flex; }
+      .nav-burger { display: none !important; }
+      .hero-wrap { padding: 48px 24px 56px 24px; }
+      .hero-inner { flex-direction: row; align-items: center; justify-content: space-between; gap: 48px; }
+      .hero-content { flex: 1.1; }
+      .hero-media { flex: 0 0 460px; max-width: 460px; max-height: 380px; aspect-ratio: 4/3; }
+      .hero-title { font-size: 2.3rem; }
+      .hero-actions { flex-direction: row; max-width: 480px; }
+      .btn-cta { width: auto; padding: 0 24px; }
+      .section-inner { padding: 56px 24px; }
+      .service-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+      .teaser-grid { grid-template-columns: 1fr 1fr; gap: 20px; }
+      .thumb-bar, .bottom-buffer { display: none; }
+      .footer-inner { padding: 44px 24px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="top-bar">
+    <div class="top-bar-inner">
+      <a href="index.html" class="brand-logo-wrap">
+        <div class="brand-mark">BH</div>
+        <div>
+          <div class="brand-name">Birchmeier-Hohler</div>
+          <div class="brand-region">Haustechnik AG • Bremgarten AG</div>
+        </div>
+      </a>
+      <nav class="desktop-nav">
+        <a href="index.html" class="desk-nav-link active">Startseite</a>
+        <a href="team.html" class="desk-nav-link">Über uns & Team</a>
+        <a href="karriere.html" class="desk-nav-link">Arbeiten bei uns</a>
+        <a href="kontakt.html" class="desk-nav-link">Kontakt & Notdienst</a>
+        <a href="tel:+41566482020" class="btn-desk-contact">📞 056 648 20 20</a>
+      </nav>
+      <button class="nav-burger" onclick="toggleDrawer()" aria-label="Menü öffnen">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- MOBILE NAV DRAWER -->
+  <nav class="nav-drawer" id="navDrawer">
+    <a href="index.html" class="nav-link">Startseite <span>→</span></a>
+    <a href="team.html" class="nav-link">Über uns & Team <span>→</span></a>
+    <a href="karriere.html" class="nav-link">Arbeiten bei uns (Karriere) <span>→</span></a>
+    <a href="kontakt.html" class="nav-link">Kontakt & 24h-Service <span>→</span></a>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero-wrap">
+    <div class="hero-inner">
+      <div class="hero-content">
+        <div class="hero-kicker-row">
+          <span class="kicker-pill"><span class="kicker-dot"></span> Haustechnik-Meister seit 1978</span>
+          <span style="font-family:'JetBrains Mono',monospace; font-size:0.72rem; color:var(--muted);">0.3s Edge Speed</span>
+        </div>
+        <h1 class="hero-title">Wasser, Wärme & Bäder in Schweizer Präzision.</h1>
+        <p class="hero-subtitle">
+          Ihr Fachbetrieb für Sanitärinstallationen, Wärmepumpen-Sanierungen und schlüsselfertige Badumbauten in Bremgarten und im Freiamt.
+        </p>
+        <div class="hero-actions">
+          <a href="tel:+41566482020" class="btn-cta btn-cta-primary">
+            <span>📞</span> 056 648 20 20 anrufen
+          </a>
+          <a href="https://wa.me/41790000000" class="btn-cta btn-cta-whatsapp">
+            <span>💬</span> Per WhatsApp anfragen
+          </a>
+        </div>
+      </div>
+      <div class="hero-media">
+        <div class="hero-stage">
+          <div style="font-size: 3rem; margin-bottom: 10px;">🚿 ♨️ 💧</div>
+          <div style="font-size: 1.25rem; font-weight: 800; letter-spacing: -0.02em;">Haustechnik aus einer Hand</div>
+          <div style="font-size: 0.85rem; color: #94a3b8; margin-top: 6px; max-width: 320px;">Sanitär • Heizung • Badplanung • 24h Pikettdienst</div>
+        </div>
+        <div class="hero-media-badge">📍 Einsatzort: Bremgarten & Region Freiamt</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LEISTUNGEN -->
+  <div class="section-wrap" id="leistungen">
+    <div class="section-inner">
+      <span class="section-kicker">Unsere Kompetenzen</span>
+      <h2 class="section-title">Zuverlässige Haustechnik für Ihr Zuhause.</h2>
+      <p class="section-desc">Von der schnellen Reparatur des tropfenden Hahns bis zur kompletten Heizungsablösung.</p>
+
+      <div class="service-cards">
+        <div class="service-card">
+          <div class="service-card-head">
+            <div class="service-icon">🚿</div>
+            <h3 class="service-title">Sanitär & Notdienst</h3>
+          </div>
+          <p style="font-size: 0.85rem; color: var(--muted);">Trinkwasserhygiene, Rohrleitungen und schneller 24h-Pikettdienst bei Wasserschaden.</p>
+          <ul class="service-list">
+            <li>Boilerentkalkung & Wasserenthärtung</li>
+            <li>Leitungsersatz & Reparaturen</li>
+            <li>24h-Pikettdienst Freiamt</li>
+          </ul>
+        </div>
+
+        <div class="service-card">
+          <div class="service-card-head">
+            <div class="service-icon">♨️</div>
+            <h3 class="service-title">Heizung & Wärmepumpen</h3>
+          </div>
+          <p style="font-size: 0.85rem; color: var(--muted);">Zukunftssichere Heizlösungen: Luft/Wasser- und Erdsonden-Wärmepumpen nach Mass.</p>
+          <ul class="service-list">
+            <li>Ersatz von Öl- und Gasheizungen</li>
+            <li>Fussbodenheizungen & Spülung</li>
+            <li>Abwicklung aller Fördergesuche</li>
+          </ul>
+        </div>
+
+        <div class="service-card">
+          <div class="service-card-head">
+            <div class="service-icon">🛁</div>
+            <h3 class="service-title">Badumbau Komplett</h3>
+          </div>
+          <p style="font-size: 0.85rem; color: var(--muted);">Ihr neues Traumbad schlüsselfertig mit nur einem einzigen Ansprechpartner koordiniert.</p>
+          <ul class="service-list">
+            <li>3D-Badplanung & Beratung</li>
+            <li>Barrierefreie Duschbereiche</li>
+            <li>Koordination aller Platten- & Elektriker</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MULTI-PAGE TEASER BEREICH -->
+  <div class="section-wrap" style="background: var(--surface);">
+    <div class="section-inner">
+      <span class="section-kicker">Das Unternehmen</span>
+      <h2 class="section-title">Erfahrung seit bald einem halben Jahrhundert.</h2>
+      <p class="section-desc">Lernen Sie das Team hinter Birchmeier-Hohler kennen.</p>
+
+      <div class="teaser-grid">
+        <div class="teaser-card">
+          <h3 style="font-size: 1.1rem; font-weight: 700;">Über uns & Meister-Team</h3>
+          <p style="font-size: 0.88rem; color: var(--muted); line-height: 1.5;">
+            Inhabergeführtes Fachunternehmen in Bremgarten. Erfahren Sie mehr über unsere Werte, Geschichte und unsere Meister.
+          </p>
+          <a href="team.html" class="teaser-link">Zum Team & Ansprechpartnern →</a>
+        </div>
+
+        <div class="teaser-card">
+          <h3 style="font-size: 1.1rem; font-weight: 700;">Arbeiten bei uns (Karriere)</h3>
+          <p style="font-size: 0.88rem; color: var(--muted); line-height: 1.5;">
+            Eigenes Servicefahrzeug mit nach Hause nehmen, 5 Wochen Ferien und ein kollegiales Team im Freiamt. Express-Bewerbung in 60s.
+          </p>
+          <a href="karriere.html" class="teaser-link">Karriere & offene Stellen ansehen →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="bottom-buffer"></div>
+
+  <!-- STICKY THUMB BAR -->
+  <div class="thumb-bar">
+    <a href="tel:+41566482020" class="btn-thumb btn-thumb-phone">
+      <span>📞</span> 056 648 20 20
+    </a>
+    <a href="https://wa.me/41790000000" class="btn-thumb btn-thumb-whatsapp">
+      <span>💬</span> WhatsApp
+    </a>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer-wrap">
+    <div class="footer-inner">
+      <div style="font-weight: 800; font-size: 1.05rem; color: #fff;">Birchmeier-Hohler Haustechnik AG</div>
+      <div>Zürcherstrasse 28 • 5620 Bremgarten AG • Tel: 056 648 20 20 • info@birchmeier-hohler.ch</div>
+      <div style="font-family:'JetBrains Mono',monospace; font-size:0.7rem; color:#64748b; margin-top:8px;">
+        Powered by WebPilot // Swiss Edge Engine (0.3s TTFB) • 100% Mobile First Architecture
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    function toggleDrawer() {
+      document.getElementById('navDrawer').classList.toggle('open');
+    }
+  </script>
+</body>
+</html>

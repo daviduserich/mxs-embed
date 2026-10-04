@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="de-CH">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <title>Angebot & Preise — WebPilot Schweizer KMU-Websites</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #090a0f;
+      --surface: #111420;
+      --surface-2: #181d2e;
+      --border: #232a42;
+      --border-bright: #384266;
+      --text: #f8fafc;
+      --muted: #94a3b8;
+      --amber: #f59e0b;
+      --amber-glow: rgba(245, 158, 11, 0.18);
+      --cyan: #38bdf8;
+      --green: #10b981;
+      --radius-sm: 6px;
+      --radius-md: 10px;
+      --radius-lg: 16px;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+    html, body { width: 100%; min-height: 100vh; overflow-x: hidden; background: var(--bg); color: var(--text); font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; line-height: 1.5; font-size: 15px; }
+
+    /* HEADER */
+    .top-bar { padding: 12px 16px; border-bottom: 1px solid var(--border); background: rgba(9, 10, 15, 0.95); backdrop-filter: blur(14px); position: sticky; top: 0; z-index: 900; }
+    .top-bar-inner { max-width: 1100px; margin: 0 auto; width: 100%; display: flex; justify-content: space-between; align-items: center; gap: 16px; }
+    .brand-logo-wrap { display: flex; align-items: center; gap: 10px; text-decoration: none; color: inherit; }
+    .brand-icon { width: 36px; height: 36px; display: flex; align-items: center; justify-content: center; }
+    .brand-title { font-size: 1.15rem; font-weight: 800; letter-spacing: -0.03em; color: #fff; }
+    .brand-tag { font-family: 'JetBrains Mono', monospace; font-size: 0.65rem; color: var(--amber); letter-spacing: 0.08em; text-transform: uppercase; }
+
+    .desktop-nav { display: none; align-items: center; gap: 24px; }
+    .desk-nav-link { font-size: 0.88rem; font-weight: 600; color: var(--muted); text-decoration: none; transition: color 0.15s ease; }
+    .desk-nav-link:hover, .desk-nav-link.active { color: #fff; }
+    .btn-desk-cta { font-size: 0.85rem; font-weight: 700; color: #000 !important; background: var(--amber); padding: 8px 16px; border-radius: var(--radius-sm); text-decoration: none; }
+
+    .nav-burger { width: 44px; height: 44px; border: 1px solid var(--border); background: var(--surface); border-radius: var(--radius-sm); display: flex; align-items: center; justify-content: center; cursor: pointer; }
+    .nav-burger svg { width: 22px; height: 22px; stroke: var(--text); }
+
+    /* MOBILE DRAWER */
+    .nav-drawer { display: none; position: fixed; inset: 64px 0 0 0; background: rgba(9, 10, 15, 0.98); backdrop-filter: blur(16px); z-index: 850; padding: 24px 20px; flex-direction: column; gap: 16px; }
+    .nav-drawer.open { display: flex; }
+    .nav-link { font-size: 1.15rem; font-weight: 700; color: #fff; text-decoration: none; padding: 12px 0; border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; }
+
+    /* HERO */
+    .page-hero { width: 100%; border-bottom: 1px solid var(--border); padding: 36px 16px; background: radial-gradient(circle at 50% 0%, #171d2f 0%, #090a0f 70%); }
+    .page-hero-inner { max-width: 1100px; margin: 0 auto; width: 100%; }
+    .section-kicker { font-family: 'JetBrains Mono', monospace; font-size: 0.72rem; color: var(--amber); font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 6px; display: block; }
+    .page-title { font-size: 1.9rem; font-weight: 800; line-height: 1.2; letter-spacing: -0.03em; margin-bottom: 10px; }
+    .page-desc { font-size: 0.95rem; color: var(--muted); line-height: 1.6; max-width: 680px; }
+
+    /* SECTIONS */
+    .section-wrap { width: 100%; border-bottom: 1px solid var(--border); }
+    .section-inner { max-width: 1100px; margin: 0 auto; padding: 40px 16px; width: 100%; }
+    .section-title { font-size: 1.5rem; font-weight: 800; letter-spacing: -0.02em; line-height: 1.25; margin-bottom: 8px; }
+    .section-subtitle { font-size: 0.9rem; color: var(--muted); line-height: 1.5; margin-bottom: 24px; }
+
+    /* PRICING GRID */
+    .pricing-grid { display: grid; grid-template-columns: 1fr; gap: 24px; }
+    .price-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 28px; display: flex; flex-direction: column; gap: 16px; position: relative; }
+    .price-card.featured { border-color: var(--amber); box-shadow: 0 4px 30px rgba(245, 158, 11, 0.12); }
+    .price-badge { position: absolute; top: -12px; left: 24px; background: var(--amber); color: #000; font-family: 'JetBrains Mono', monospace; font-size: 0.72rem; font-weight: 700; padding: 4px 12px; border-radius: 999px; }
+    .price-amount { font-size: 2.2rem; font-weight: 800; letter-spacing: -0.03em; color: #fff; }
+    .price-amount span { font-size: 0.95rem; font-weight: 500; color: var(--muted); }
+    .price-list { list-style: none; display: flex; flex-direction: column; gap: 10px; font-size: 0.88rem; margin: 8px 0 16px 0; }
+    .price-list li { display: flex; align-items: flex-start; gap: 8px; }
+    .price-list li::before { content: '✓'; color: var(--green); font-weight: 800; }
+
+    .btn-price { width: 100%; height: 50px; border-radius: var(--radius-md); font-size: 0.95rem; font-weight: 700; display: inline-flex; align-items: center; justify-content: center; gap: 8px; text-decoration: none; cursor: pointer; border: none; }
+    .btn-price-amber { background: var(--amber); color: #000; }
+    .btn-price-ghost { background: var(--surface-2); color: #fff; border: 1px solid var(--border); }
+
+    /* FAQ */
+    .faq-list { display: flex; flex-direction: column; gap: 14px; }
+    .faq-item { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-md); padding: 20px; }
+    .faq-q { font-size: 1.05rem; font-weight: 700; margin-bottom: 6px; color: #fff; }
+    .faq-a { font-size: 0.88rem; color: var(--muted); line-height: 1.5; }
+
+    /* STICKY THUMB BAR */
+    .thumb-bar { position: fixed; bottom: 0; left: 0; right: 0; background: rgba(9, 10, 15, 0.96); backdrop-filter: blur(12px); border-top: 1px solid var(--border); padding: 10px 14px; padding-bottom: calc(10px + env(safe-area-inset-bottom, 0px)); display: flex; gap: 10px; z-index: 950; }
+    .btn-thumb { flex: 1; height: 48px; border-radius: var(--radius-md); font-size: 0.88rem; font-weight: 700; display: inline-flex; align-items: center; justify-content: center; gap: 6px; text-decoration: none; }
+    .btn-thumb-cta { background: var(--amber); color: #000; }
+    .btn-thumb-wa { background: #25D366; color: #fff; }
+    .bottom-buffer { height: 74px; }
+
+    /* FOOTER */
+    .footer-wrap { width: 100%; background: #050608; color: #64748b; border-top: 1px solid var(--border); }
+    .footer-inner { max-width: 1100px; margin: 0 auto; padding: 40px 16px; font-size: 0.82rem; display: flex; flex-direction: column; gap: 12px; }
+
+    /* DESKTOP RESPONSIVE */
+    @media (min-width: 768px) {
+      .top-bar { padding: 14px 24px; }
+      .desktop-nav { display: flex; }
+      .nav-burger { display: none !important; }
+      .page-hero { padding: 56px 24px 44px 24px; }
+      .page-title { font-size: 2.3rem; }
+      .section-inner { padding: 56px 24px; }
+      .pricing-grid { grid-template-columns: 1fr 1fr; gap: 28px; }
+      .thumb-bar, .bottom-buffer { display: none; }
+      .footer-inner { padding: 48px 24px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="top-bar">
+    <div class="top-bar-inner">
+      <a href="index.html" class="brand-logo-wrap">
+        <div class="brand-icon">
+          <svg width="34" height="34" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="wpDeltaGrad" x1="20" y1="20" x2="80" y2="80" gradientUnits="userSpaceOnUse">
+                <stop offset="0%" stop-color="#FCD34D"/>
+                <stop offset="100%" stop-color="#F59E0B"/>
+              </linearGradient>
+            </defs>
+            <path d="M50 16 L18 78 L50 62 L82 78 L50 16 Z" fill="url(#wpDeltaGrad)"/>
+            <path d="M50 16 L50 62 L82 78 L50 16 Z" fill="#D97706"/>
+            <circle cx="50" cy="46" r="4" fill="#FFFFFF"/>
+          </svg>
+        </div>
+        <div>
+          <div class="brand-title">WebPilot</div>
+          <div class="brand-tag">Swiss Edge Engine</div>
+        </div>
+      </a>
+      <nav class="desktop-nav">
+        <a href="index.html" class="desk-nav-link">Übersicht</a>
+        <a href="angebot.html" class="desk-nav-link active">Angebot & Preise</a>
+        <a href="technologie.html" class="desk-nav-link">Technologie</a>
+        <a href="kontakt.html" class="desk-nav-link">Kontakt & Analyse</a>
+        <a href="kontakt.html" class="btn-desk-cta">Erstgespräch buchen</a>
+      </nav>
+      <button class="nav-burger" onclick="toggleDrawer()" aria-label="Menü öffnen">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- MOBILE NAV DRAWER -->
+  <nav class="nav-drawer" id="navDrawer">
+    <a href="index.html" class="nav-link">Übersicht <span>→</span></a>
+    <a href="angebot.html" class="nav-link" style="color:var(--amber);">Angebot & Preise <span>→</span></a>
+    <a href="technologie.html" class="nav-link">Technologie & Edge <span>→</span></a>
+    <a href="kontakt.html" class="nav-link">Kontakt & Speed-Analyse <span>→</span></a>
+  </nav>
+
+  <!-- HERO -->
+  <section class="page-hero">
+    <div class="page-hero-inner">
+      <span class="section-kicker">Transparente Schweizer Fixpreise</span>
+      <h1 class="page-title">Keine Agentur-Aufschläge. Keine versteckten Kosten.</h1>
+      <p class="page-desc">
+        Alles, was ein modernes Handwerks- oder Dienstleistungsunternehmen braucht: 
+        Einmaliger schlüsselfertiger Relaunch plus monatlicher Rundum-Schutz auf der Schweizer Cloudflare Edge.
+      </p>
+    </div>
+  </section>
+
+  <!-- PRICING CARDS -->
+  <div class="section-wrap">
+    <div class="section-inner">
+      <div class="pricing-grid">
+        <!-- PAKET 1: RELAUNCH -->
+        <div class="price-card featured">
+          <div class="price-badge">BELIEBTESTER EINSTIEG</div>
+          <span class="section-kicker">Einmalige Investition</span>
+          <h2 style="font-size: 1.4rem; font-weight: 800; color: #fff;">Web-Rescue & Relaunch</h2>
+          <div class="price-amount">CHF 1'490.– <span>einmalig</span></div>
+          <p style="font-size: 0.88rem; color: var(--muted); line-height: 1.5;">
+            Wir übernehmen alle Inhalte Ihrer aktuellen Website, optimieren Texte und Bilder für Mobile First und bauen Ihre neue Edge-Präsenz komplett schlüsselfertig.
+          </p>
+          <ul class="price-list">
+            <li>4 vorkonfigurierte Schweizer Seiten (Start, Team, 2-Tier Karriere, Kontakt)</li>
+            <li>Komplette Übernahme & Schärfung Ihrer bestehenden Firmentexte</li>
+            <li>100% Mobile-First Touch-Optimierung mit Sticky Call-to-Action</li>
+            <li>0.3s Ladezeit-Garantie (Google Core Web Vitals Bestnoten)</li>
+            <li>Nahtlose Domain-Umschaltung ohne 1 Sekunde Downtime</li>
+            <li>Live in 48 bis 72 Stunden</li>
+          </ul>
+          <a href="kontakt.html" class="btn-price btn-price-amber">Jetzt Relaunch anfragen</a>
+        </div>
+
+        <!-- PAKET 2: RUNNING EDGE -->
+        <div class="price-card">
+          <span class="section-kicker">Monatlicher Betrieb</span>
+          <h2 style="font-size: 1.4rem; font-weight: 800; color: #fff;">Living Web & Edge Hosting</h2>
+          <div class="price-amount">CHF 79.– <span>/ Monat</span></div>
+          <p style="font-size: 0.88rem; color: var(--muted); line-height: 1.5;">
+            Die unzerstörbare Betriebs-Garantie auf der Schweizer Cloudflare Edge (ZRH/GVA) inklusive unlimitierter Content-Anpassungen.
+          </p>
+          <ul class="price-list">
+            <li>Schweizer Cloudflare Edge Hosting (Sub-50ms TTFB weltweit)</li>
+            <li>Unlimitierter Content-Austausch per WhatsApp oder Sprachnachricht</li>
+            <li>Vault-as-a-CMS & ACP Integration für automatische Baustellen-Updates</li>
+            <li>Automatischer Sicherheits-Airbag mit Snapshot-Rollback</li>
+            <li>Schweizer SSL, DDoS-Schutz & DNS-Management inklusive</li>
+            <li>Keine Vertragslaufzeit — jederzeit monatlich kündbar</li>
+          </ul>
+          <a href="kontakt.html" class="btn-price btn-price-ghost">Erstgespräch vereinbaren</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FAQ SECTION -->
+  <div class="section-wrap" style="background: var(--surface);">
+    <div class="section-inner">
+      <span class="section-kicker">Häufige Fragen</span>
+      <h2 class="section-title">Klartext für Unternehmer</h2>
+      <p class="section-subtitle">Die wichtigsten Antworten auf einen Blick.</p>
+
+      <div class="faq-list">
+        <div class="faq-item">
+          <div class="faq-q">Muss ich meine bestehende Domain abgeben?</div>
+          <div class="faq-a">
+            Nein, niemals! Sie bleiben zu 100% Inhaber Ihrer Domain bei Ihrem bisherigen Registrar (z. B. Hostpoint, Infomaniak, Switch). Wir schalten lediglich die DNS-Einträge auf unsere blitzschnelle Schweizer Cloudflare Edge um.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q">Warum ist WebPilot so viel schneller als mein bisheriges WordPress?</div>
+          <div class="faq-a">
+            WordPress muss bei jedem einzelnen Seitenaufruf eine Datenbank abfragen und Dutzende PHP-Skripte ausführen. WebPilot liefert vorgerenderte statische HTML5-Dateien direkt aus dem Cache der Zürcher und Genfer Serverknotenpunkte aus. Das spart 90% der Ladezeit.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q">Wie funktioniert die Anpassung von Texten oder Bildern?</div>
+          <div class="faq-a">
+            Sie müssen sich in kein kompliziertes WordPress-Backend mehr einloggen. Schicken Sie uns einfach ein Foto oder eine kurze Sprachnachricht («Bitte ändere unsere Öffnungszeiten für den Karfreitag»). Das System übernimmt die Anpassung automatisch und synchronisiert sie in Millisekunden.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q">Was bedeutet der Sicherheits-Airbag?</div>
+          <div class="faq-a">
+            Jede Änderung an Ihrer Website wird in einem versionierten Git-Repository im Schweizer Vault gespeichert. Sollte jemals ein Tippfehler passieren oder ein Bild falsch sein, lässt sich jeder Zustand mit einem einzigen Knopfdruck innerhalb von Sekunden wiederherstellen.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="bottom-buffer"></div>
+
+  <!-- STICKY THUMB BAR -->
+  <div class="thumb-bar">
+    <a href="kontakt.html" class="btn-thumb btn-thumb-cta">
+      <span>🚀</span> Jetzt anfragen
+    </a>
+    <a href="https://wa.me/41790000000" class="btn-thumb btn-thumb-wa">
+      <span>💬</span> WhatsApp
+    </a>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer-wrap">
+    <div class="footer-inner">
+      <div style="font-weight: 800; font-size: 1.05rem; color: #fff;">WebPilot // Ein Produkt der Magnet XS GmbH</div>
+      <div>Werkstrasse 14 • 3600 Thun & Zürich • info@magnet-xs.ch</div>
+      <div style="font-family:'JetBrains Mono',monospace; font-size:0.7rem; color:#475569; margin-top:8px;">
+        Swiss Edge Deployment • 0.3s TTFB • Bernoulli Delta-Jet Architecture 2026
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    function toggleDrawer() {
+      document.getElementById('navDrawer').classList.toggle('open');
+    }
+  </script>
+</body>
+</html>
