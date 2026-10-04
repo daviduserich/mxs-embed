@@ -1,3 +1,94 @@
+
+// =======================================================
+// LIVE-AKTIVITÄTS-LOGGING & AUDIT-TRAIL
+// =======================================================
+var acpClientLogs = [];
+function acpLog(level, message, details) {
+  var now = new Date();
+  var timeStr = now.toTimeString().split(' ')[0];
+  var entry = {
+    time: timeStr,
+    level: level || 'info',
+    message: message || '',
+    details: details || ''
+  };
+  acpClientLogs.push(entry);
+
+  var consoleEl = document.getElementById("acp-log-console");
+  if (consoleEl) {
+    if (acpClientLogs.length === 1 && consoleEl.innerText.indexOf("Warte auf Aktionen") !== -1) {
+      consoleEl.innerHTML = "";
+    }
+    var color = '#38bdf8';
+    var tag = 'INFO';
+    if (level === 'swap') { color = '#facc15'; tag = 'SWAP'; }
+    if (level === 'success') { color = '#22c55e'; tag = 'SUCCESS'; }
+    if (level === 'error') { color = '#ef4444'; tag = 'ERROR'; }
+    if (level === 'server') { color = '#a855f7'; tag = 'SERVER'; }
+
+    var item = document.createElement("div");
+    item.style.marginBottom = "6px";
+    item.style.wordBreak = "break-all";
+    item.innerHTML = '<span style="color:#64748b;">[' + timeStr + ']</span> ' +
+      '<span style="color:' + color + '; font-weight:700;">[' + tag + ']</span> ' +
+      '<span>' + message + '</span>' +
+      (details ? '<div style="color:#94a3b8; font-size:11px; margin-left:14px; margin-top:2px; font-family:'JetBrains Mono',monospace;">' + details + '</div>' : '');
+    consoleEl.appendChild(item);
+    consoleEl.scrollTop = consoleEl.scrollHeight;
+  }
+
+  var countBadge = document.getElementById("acp-log-count");
+  if (countBadge) {
+    countBadge.style.display = "inline-block";
+    countBadge.textContent = acpClientLogs.length;
+    if (level === 'error') {
+      countBadge.style.background = '#ef4444';
+    }
+  }
+
+  if (level === 'error') {
+    console.error('[WebPilot Studio]', timeStr, message, details || '');
+  } else {
+    console.log('[WebPilot Studio]', timeStr, message, details || '');
+  }
+}
+
+function acpToggleLogModal() {
+  var modal = document.getElementById("acp-log-modal");
+  if (!modal) return;
+  modal.classList.toggle("is-open");
+  acpUpdateBodyModalClass();
+}
+
+function acpClearClientLog() {
+  acpClientLogs = [];
+  var consoleEl = document.getElementById("acp-log-console");
+  if (consoleEl) consoleEl.innerHTML = '<div style="color:#64748b; font-style:italic;">Protokoll geleert.</div>';
+  var countBadge = document.getElementById("acp-log-count");
+  if (countBadge) {
+    countBadge.textContent = "0";
+    countBadge.style.background = "#d97706";
+  }
+}
+
+function acpFetchServerLog() {
+  var currentJob = getActiveJob();
+  var clientSlug = currentJob.folder || 'hiltbrand';
+  acpLog('info', '📡 Frage Server-Logbuch ab...', 'Mandant: ' + clientSlug);
+  fetch('/api/publish-career/logs?client=' + encodeURIComponent(clientSlug))
+    .then(function(res) { return res.json(); })
+    .then(function(data) {
+      if (data && data.ok) {
+        acpLog('server', '📋 Server-Log geladen (' + data.client + '):', '<pre style="margin:4px 0; white-space:pre-wrap; max-height:200px; overflow-y:auto; background:rgba(0,0,0,0.3); padding:6px; border-radius:4px;">' + (data.log || 'Keine Daten') + '</pre>');
+      } else {
+        acpLog('error', 'Konnte Server-Log nicht laden: ' + ((data && data.error) || 'Unbekannt'));
+      }
+    })
+    .catch(function(err) {
+      acpLog('error', 'Netzwerkfehler beim Laden des Server-Logs: ' + err.message);
+    });
+}
+
 // =======================================================
 // MAGNET-XS COCKPIT FRAMEWORK v3.3.0 (SWISS ARCHITECTURAL CANVAS)
 // Build: 2026-10-03 15:30 CEST
@@ -94,6 +185,8 @@ document.addEventListener("keydown", function(e) {
     if (dm && dm.classList.contains("is-open")) acpToggleDirectoryModal();
     var hm = document.getElementById("acp-help-modal");
     if (hm && hm.classList.contains("is-open")) acpToggleHelpModal();
+    var lm = document.getElementById("acp-log-modal");
+    if (lm && lm.classList.contains("is-open")) acpToggleLogModal();
   }
 });
 
@@ -887,6 +980,7 @@ function getUsedImagesForCurrentJob() {
 
 function acpSelectSwapImage(relPath, filename) {
   acpSelectedSwapImage = { rel_path: relPath, filename: filename };
+  acpLog("info", "📷 Tausch-Bild ausgewählt: " + filename, "Pfad: " + relPath);
   if (acpImagesModalOpen) {
     acpToggleImagesModal();
   }
@@ -1018,6 +1112,7 @@ function acpHandleSlotClick(data) {
   var actionsBox = document.getElementById("acp-swap-actions");
   var cleanOld = acpTargetSwapSlot.currentSrc.split('/').pop() || acpTargetSwapSlot.slot;
   var cleanNew = acpSelectedSwapImage.filename;
+  acpLog("swap", "🎯 Tauschziel im Inserat gewählt: " + cleanOld + " ➔ " + cleanNew, "Datei: " + activeFile + " · Slot: " + acpTargetSwapSlot.slot);
 
   if (targetHint) {
     targetHint.innerHTML = '<span style="color:#22c55e; font-weight:700;">✅ Tausche:</span> ' +
@@ -1066,10 +1161,13 @@ function acpExecuteDirectSwap() {
 
   var cleanOld = acpTargetSwapSlot.currentSrc.split('/').pop() || acpTargetSwapSlot.slot;
   var cleanNew = acpSelectedSwapImage.filename;
+  acpLog("swap", "🎯 Tauschziel im Inserat gewählt: " + cleanOld + " ➔ " + cleanNew, "Datei: " + activeFile + " · Slot: " + acpTargetSwapSlot.slot);
 
   acpShowToast('⚡ <strong>Bildtausch gestartet:</strong> Tausche ' + cleanOld + ' ➔ ' + cleanNew + '...<br><small>Cloudflare Pages aktualisiert den Edge-Cache...</small>', 8000);
 
+  var currentJob = getActiveJob();
   var payload = {
+    client: currentJob.folder || 'hiltbrand',
     file: acpTargetSwapSlot.datei,
     old_path: acpTargetSwapSlot.currentSrc,
     new_path: acpSelectedSwapImage.rel_path,
@@ -1077,6 +1175,7 @@ function acpExecuteDirectSwap() {
     slot: acpTargetSwapSlot.slot || ""
   };
 
+  acpLog("info", "⚡ Sende Tausch an VPS (swap-image)...", "Mandant: " + (payload.client || "") + " · " + cleanOld + " ➔ " + cleanNew);
   fetch("/api/publish-career/swap-image", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
@@ -1091,9 +1190,11 @@ function acpExecuteDirectSwap() {
       // 1. Swap-Dock & Spotlight lautlos schliessen (das Bild bleibt im DOM stabil erhalten!)
       acpCancelSwap(true);
       // 2. Erfolgs-Meldung anzeigen (KEIN zerstörerischer iFrame-Reload!)
+      acpLog("success", "🎉 Bildtausch erfolgreich verarbeitet!", "Edge CDN synchronisiert · Datei: " + payload.file);
       acpShowToast('🎉 <strong>Bild erfolgreich getauscht!</strong><br><small><strong>' + cleanNew + '</strong> ist jetzt im HTML fest verankert und weltweit live.</small>', 8000);
     } else {
       var err = (result.data && result.data.error) || 'Fehler beim Bildtausch';
+      acpLog("error", "❌ Tausch vom Server abgewiesen: " + err, JSON.stringify(result.data));
       acpShowToast('❌ <strong>Fehler:</strong> ' + err, 7000);
       acpReportClientEvent('error', 'Bildtausch abgelehnt: ' + err, payload);
       if (btn) {

@@ -98,6 +98,17 @@ def generate_index_html(config: dict) -> str:
       padding: 0 24px;
       width: 100%;
     }}
+    /* Bimodale Weiche (§ 1.1 WebPilot): Widget-Modus vs. Standalone-Modus */
+    body.is-embedded header,
+    body.is-embedded footer {{
+      display: none !important;
+    }}
+    body.is-embedded {{
+      padding-bottom: 24px !important;
+    }}
+    body.is-embedded .hero {{
+      padding-top: 16px !important;
+    }}
     header {{
       padding: 24px 0;
       border-bottom: 1px solid var(--card-border);
@@ -315,8 +326,13 @@ def generate_index_html(config: dict) -> str:
 
   <div class="container">
     <header>
-      <div class="brand-name">{name}</div>
-      <div class="badge">📍 {city} · {industry}</div>
+      <div style="display:flex; align-items:center; gap:16px;">
+        <div class="brand-name">{name}</div>
+        <div class="badge">📍 {city} · {industry}</div>
+      </div>
+      <div style="display:flex; align-items:center; gap:12px;">
+        <a href="tel:{phone.replace(' ', '')}" class="btn btn-secondary" style="padding: 7px 14px; font-size: 13px; text-decoration:none;">📞 {phone}</a>
+      </div>
     </header>
 
     <main class="hero">
@@ -396,8 +412,11 @@ def generate_index_html(config: dict) -> str:
     </main>
 
     <footer>
-      <div>&copy; {time.strftime('%Y')} {name} · {city}</div>
-      <div style="display: flex; gap: 16px;">
+      <div>
+        <strong>&copy; {time.strftime('%Y')} {name}</strong> · {city}<br>
+        <span style="font-size: 11px; color: var(--text-muted);">🇨🇭 100% gehostet in Zürich (ZRH) · Zero-Cookie · revDSG-konform</span>
+      </div>
+      <div style="display: flex; gap: 16px; align-items: center;">
         <span>🔒 Zero-Cookie WebPilot</span>
         <span>⚡ &lt; 50ms Swiss Edge</span>
       </div>
@@ -418,6 +437,25 @@ def generate_index_html(config: dict) -> str:
       }})
       .catch(() => {{}});
 
+    // Bimodale Weiche: Automatisch oder per Parameter ?embed=true erkennen
+    if (new URLSearchParams(window.location.search).get('embed') === 'true' || (window.parent !== window && !window.location.href.includes('cockpit'))) {{
+      document.body.classList.add('is-embedded');
+    }}
+
+    // Auto-Height Anpassung für Cockpit & WordPress-Einbettung
+    function notifyParentHeight() {{
+      if (window.parent !== window) {{
+        var h = Math.max(document.documentElement.scrollHeight, document.body.scrollHeight);
+        window.parent.postMessage({{ type: 'acp-embed-resize', height: h }}, '*');
+      }}
+    }}
+    window.addEventListener('load', notifyParentHeight);
+    window.addEventListener('resize', notifyParentHeight);
+    if (window.ResizeObserver) {{
+      new ResizeObserver(notifyParentHeight).observe(document.body);
+    }}
+    setInterval(notifyParentHeight, 1500);
+
     // WebPilot PostMessage Bridge für Cockpit
     window.addEventListener("message", function(e) {{
       if (!e.data) return;
@@ -430,10 +468,15 @@ def generate_index_html(config: dict) -> str:
           targetEl = document.querySelector('[data-slot="' + e.data.slot + '"]');
         }}
         if (!targetEl && e.data.isHero) {{
-          targetEl = document.getElementById('slot-hero-img');
+          targetEl = document.getElementById('slot-hero-img') || document.querySelector('.hero img');
+        }}
+        if (!targetEl && e.data.oldSrc) {{
+          var oldName = e.data.oldSrc.split('/').pop().split('?')[0];
+          targetEl = document.querySelector('img[src*="' + oldName + '"]');
         }}
         if (targetEl) {{
           targetEl.src = e.data.newSrc;
+          notifyParentHeight();
         }}
       }}
     }});

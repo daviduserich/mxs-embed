@@ -2706,6 +2706,11 @@ body.acp-modal-open {
         <span class="nav-icon">📋</span>
         <span class="nav-label">Code</span>
       </button>
+            <button type="button" class="acp-nav-btn acp-nav-btn-log" id="acp-btn-live-log" onclick="acpToggleLogModal()" title="Live-Aktivitäts-Logbuch &amp; Audit-Trail">
+        <span class="nav-icon">📜</span>
+        <span class="nav-label">Log</span>
+        <span class="nav-badge" id="acp-log-count" style="display:none; background:#d97706; color:#fff; border-radius:10px; padding:1px 6px; font-size:10px; font-weight:700; margin-left:4px;">0</span>
+      </button>
       <button type="button" class="acp-nav-btn" onclick="acpToggleHelpModal()" title="Anleitung &amp; Erklärung">
         <span class="nav-icon">💡</span>
         <span class="nav-label">Hilfe</span>
@@ -2766,7 +2771,7 @@ body.acp-modal-open {
 
     <!-- Recruiting Widget Viewport -->
     <div class="widget-viewport-wrap">
-      <iframe id="acp-widget-viewport" src="Hiltbrand_Dachdecker_Pragmatisch.html?embed=true" scrolling="no" title="Recruiting Widget"></iframe>
+      <iframe id="acp-widget-viewport" src="Hiltbrand_Dachdecker_Pragmatisch.html?embed=true" scrolling="auto" title="Recruiting Widget"></iframe>
     </div>
   </div>
 </main>
@@ -3096,6 +3101,37 @@ body.acp-modal-open {
         </div>
       </div>
 
+    </div>
+  </div>
+</div>
+
+<!-- ======================================================= -->
+<!-- MODAL: LIVE-AKTIVITÄTS-LOGBUCH & AUDIT-TRAIL           -->
+<!-- ======================================================= -->
+<div id="acp-log-modal" class="acp-modal-backdrop" onclick="if(event.target===this)acpToggleLogModal()">
+  <div class="acp-modal" style="max-width: 860px; width: 92%;">
+    <div class="acp-modal-head">
+      <div>
+        <div class="acp-modal-kicker">// AUDIT-TRAIL ⬥ ECHTZEIT-LOGGING</div>
+        <h3 class="acp-modal-heading">📋 Live-Aktivitäts-Protokoll</h3>
+      </div>
+      <div style="display:flex; align-items:center; gap:8px;">
+        <button type="button" class="acp-btn-ghost" onclick="acpClearClientLog()" style="font-size:12px; padding:4px 10px; color:#94a3b8; border:1px solid #334155; border-radius:4px; background:transparent; cursor:pointer;">🗑️ Log leeren</button>
+        <button type="button" class="acp-modal-close" onclick="acpToggleLogModal()" title="Schliessen (ESC)">✕ Schliessen (ESC)</button>
+      </div>
+    </div>
+    <div class="acp-modal-body" style="padding: 16px;">
+      <div style="margin-bottom: 12px; display:flex; justify-content:space-between; align-items:center; font-size:12px; color:#94a3b8;">
+        <span>Erfasst alle Klicks, Bildwechsel, API-Aufrufe und Server-Antworten in Echtzeit:</span>
+        <span id="acp-log-status" style="color:#22c55e; font-weight:600;">● Live verbunden</span>
+      </div>
+      <div id="acp-log-console" style="background:#090d16; border:1px solid #1e293b; border-radius:6px; padding:12px; font-family:'JetBrains Mono',monospace; font-size:12px; line-height:1.6; max-height:420px; overflow-y:auto; color:#e2e8f0;">
+        <div style="color:#64748b; font-style:italic;">Warte auf Aktionen...</div>
+      </div>
+      <div style="margin-top: 12px; display:flex; justify-content:space-between; align-items:center;">
+        <span style="font-size:11px; color:#64748b;">Server-Logbuch: <code>COCKPIT_LOG.md</code></span>
+        <button type="button" class="btn btn-secondary" onclick="acpFetchServerLog()" style="font-size:12px; padding:6px 12px; cursor:pointer; background:#1e293b; color:#f8fafc; border:1px solid #334155; border-radius:4px;">🔄 Server-Logbuch laden</button>
+      </div>
     </div>
   </div>
 </div>
