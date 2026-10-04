@@ -299,7 +299,7 @@
       </p>
 
       <div class="hero-image-wrap">
-        <img id="slot-hero-img" src="images/hero.jpg" alt="Team Muster Holzbau AG" data-slot="hero-image">
+        <img id="slot-hero-img" src="images/benefits_drohne.jpg" alt="Team Muster Holzbau AG" data-slot="hero-image">
       </div>
 
       <div class="card-grid">
@@ -332,7 +332,7 @@
         <h2>Echte Kollegen auf der Baustelle</h2>
         <div class="team-grid">
           <div class="team-card">
-            <img src="images/hero.jpg" alt="Michael · Vorarbeiter" class="team-card-img" data-slot="team-michael">
+            <img src="images/benefits_drohne.jpg" alt="Michael · Vorarbeiter" class="team-card-img" data-slot="team-michael">
             <div class="team-card-body">
               <div class="team-card-name">Michael</div>
               <div class="team-card-role">Vorarbeiter Holzbau</div>
@@ -451,7 +451,7 @@
         e.preventDefault();
         e.stopPropagation();
         var heroImg = hero.querySelector('img') || document.getElementById('slot-hero-img');
-        var src = heroImg ? (heroImg.getAttribute('src') || 'images/hero.jpg') : 'images/hero.jpg';
+        var src = heroImg ? (heroImg.getAttribute('src') || 'images/benefits_drohne.jpg') : 'images/benefits_drohne.jpg';
         var slot = heroImg ? (heroImg.getAttribute('data-slot') || 'hero-image') : 'hero-image';
         window.parent.postMessage({
           type: 'acp-slot-click',
