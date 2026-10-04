@@ -1159,16 +1159,17 @@ function acpExecuteDirectSwap() {
     btn.textContent = "⏳ Tausche & Deploye...";
   }
 
+  var currentJob = getActiveJob();
+  var activeFile = (acpTargetSwapSlot && acpTargetSwapSlot.datei) || (currentJob ? currentJob.datei : 'index.html');
   var cleanOld = acpTargetSwapSlot.currentSrc.split('/').pop() || acpTargetSwapSlot.slot;
   var cleanNew = acpSelectedSwapImage.filename;
   acpLog("swap", "🎯 Tauschziel im Inserat gewählt: " + cleanOld + " ➔ " + cleanNew, "Datei: " + activeFile + " · Slot: " + acpTargetSwapSlot.slot);
 
   acpShowToast('⚡ <strong>Bildtausch gestartet:</strong> Tausche ' + cleanOld + ' ➔ ' + cleanNew + '...<br><small>Cloudflare Pages aktualisiert den Edge-Cache...</small>', 8000);
 
-  var currentJob = getActiveJob();
   var payload = {
     client: currentJob.folder || 'hiltbrand',
-    file: acpTargetSwapSlot.datei,
+    file: activeFile,
     old_path: acpTargetSwapSlot.currentSrc,
     new_path: acpSelectedSwapImage.rel_path,
     is_hero: !!acpTargetSwapSlot.isHero,
@@ -1395,7 +1396,7 @@ window.addEventListener("message", function(e) {
       frame.style.height = (e.data.height + 10) + "px";
     }
   }
-  if (e.data && e.data.type === "acp-slot-click") {
+  if (e.data && (e.data.type === "acp-slot-click" || e.data.type === "acp-client-slot-click")) {
     acpHandleSlotClick(e.data);
   }
   if (e.data && e.data.type === "acp-toast") {

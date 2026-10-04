@@ -459,7 +459,7 @@ def generate_index_html(config: dict) -> str:
     // WebPilot PostMessage Bridge für Cockpit
     window.addEventListener("message", function(e) {{
       if (!e.data) return;
-      if (e.data.type === "acp-set-swap-mode") {{
+      if (e.data.type === "acp-set-swap-mode" || e.data.type === "acp-toggle-swap-mode") {{
         document.body.classList.toggle("acp-swap-mode-active", !!e.data.active);
       }}
       if (e.data.type === "acp-apply-swap-preview") {{
@@ -481,20 +481,52 @@ def generate_index_html(config: dict) -> str:
       }}
     }});
 
-    // Klick auf ein Bild im Swap-Modus
+    // Klick auf ein Bild oder Hero im Swap-Modus
     document.addEventListener("click", function(e) {{
       if (!document.body.classList.contains("acp-swap-mode-active")) return;
       var img = e.target.closest('img');
+      var hero = e.target.closest('.hero');
+      var card = e.target.closest('.team-card') || e.target.closest('.card');
+
       if (img) {{
         e.preventDefault();
         e.stopPropagation();
         var slot = img.getAttribute('data-slot') || img.id || 'hero-image';
         var src = img.getAttribute('src') || '';
+        var isHero = (slot === 'hero-image' || img.id === 'slot-hero-img' || !!img.closest('.hero'));
         window.parent.postMessage({{
-          type: 'acp-client-slot-click',
+          type: 'acp-slot-click',
           slot: slot,
           isImg: true,
-          isHero: (slot === 'hero-image' || img.id === 'slot-hero-img'),
+          isHero: isHero,
+          currentSrc: src,
+          datei: 'index.html'
+        }}, '*');
+      }} else if (hero) {{
+        e.preventDefault();
+        e.stopPropagation();
+        var heroImg = hero.querySelector('img') || document.getElementById('slot-hero-img');
+        var src = heroImg ? (heroImg.getAttribute('src') || 'images/hero.jpg') : 'images/hero.jpg';
+        var slot = heroImg ? (heroImg.getAttribute('data-slot') || 'hero-image') : 'hero-image';
+        window.parent.postMessage({{
+          type: 'acp-slot-click',
+          slot: slot,
+          isImg: true,
+          isHero: true,
+          currentSrc: src,
+          datei: 'index.html'
+        }}, '*');
+      }} else if (card && card.querySelector('img')) {{
+        e.preventDefault();
+        e.stopPropagation();
+        var cImg = card.querySelector('img');
+        var slot = cImg.getAttribute('data-slot') || cImg.id || 'team-image';
+        var src = cImg.getAttribute('src') || '';
+        window.parent.postMessage({{
+          type: 'acp-slot-click',
+          slot: slot,
+          isImg: true,
+          isHero: false,
           currentSrc: src,
           datei: 'index.html'
         }}, '*');
