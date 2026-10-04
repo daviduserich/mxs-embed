@@ -1,0 +1,1129 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>WebPilot // Executive Boardroom — David Hügli</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-dark: #09090b;
+      --card-bg: #141417;
+      --card-border: #27272a;
+      --card-border-hover: #3f3f46;
+      --text-main: #f4f4f5;
+      --text-muted: #a1a1aa;
+      --text-sub: #71717a;
+      --amber: #f59e0b;
+      --amber-glow: rgba(245, 158, 11, 0.12);
+      --emerald: #10b981;
+      --emerald-glow: rgba(16, 185, 129, 0.12);
+      --ruby: #ef4444;
+      --ruby-glow: rgba(239, 68, 68, 0.15);
+      --blue: #38bdf8;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    body {
+      background-color: var(--bg-dark);
+      color: var(--text-main);
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      line-height: 1.5;
+      min-height: 100vh;
+      padding: 20px 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    @media (max-width: 640px) {
+      body {
+        padding: 16px;
+        gap: 18px;
+      }
+    }
+
+    /* TOP BAR */
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid var(--card-border);
+      padding-bottom: 16px;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .logo-signet {
+      width: 36px;
+      height: 36px;
+      background: linear-gradient(135deg, #18181b 0%, #09090b 100%);
+      border: 1px solid var(--amber);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 0 16px var(--amber-glow);
+      flex-shrink: 0;
+    }
+
+    .logo-signet svg {
+      width: 18px;
+      height: 18px;
+      fill: var(--amber);
+    }
+
+    .brand-title {
+      font-size: 1.1rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: #fff;
+    }
+
+    .brand-kicker {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.68rem;
+      color: var(--amber);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      display: block;
+    }
+
+    .header-meta {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .role-badge {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.72rem;
+      background: #18181b;
+      border: 1px solid #3f3f46;
+      padding: 5px 10px;
+      border-radius: 6px;
+      color: #e4e4e7;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .btn-lock {
+      background: transparent;
+      border: none;
+      color: var(--text-sub);
+      cursor: pointer;
+      font-size: 0.8rem;
+      padding: 0 4px;
+    }
+
+    .btn-lock:hover {
+      color: var(--ruby);
+    }
+
+    .status-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.72rem;
+      background: var(--emerald-glow);
+      border: 1px solid var(--emerald);
+      color: var(--emerald);
+      padding: 5px 12px;
+      border-radius: 9999px;
+      font-weight: 600;
+    }
+
+    .status-dot {
+      width: 8px;
+      height: 8px;
+      background: var(--emerald);
+      border-radius: 50%;
+      box-shadow: 0 0 8px var(--emerald);
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.4; transform: scale(0.85); }
+    }
+
+    /* KPI GRID */
+    .kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 14px;
+    }
+
+    .kpi-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 10px;
+      padding: 16px 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      transition: border-color 0.2s ease;
+    }
+
+    .kpi-card:hover {
+      border-color: var(--card-border-hover);
+    }
+
+    .kpi-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.68rem;
+      color: var(--text-sub);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .kpi-value {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #fff;
+      letter-spacing: -0.02em;
+    }
+
+    .kpi-sub {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+
+    /* THE TWO WORLDS HERO BANNER */
+    .two-worlds-banner {
+      background: linear-gradient(180deg, rgba(24, 24, 27, 0.7) 0%, rgba(9, 9, 11, 0.9) 100%);
+      border: 1px solid var(--card-border);
+      border-radius: 12px;
+      padding: 20px 24px;
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      gap: 20px;
+      align-items: center;
+    }
+
+    @media (max-width: 768px) {
+      .two-worlds-banner {
+        grid-template-columns: 1fr;
+        gap: 14px;
+      }
+      .worlds-divider {
+        display: none !important;
+      }
+    }
+
+    .world-box {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .world-tag {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--amber);
+    }
+
+    .world-title {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: #fff;
+    }
+
+    .world-desc {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      line-height: 1.45;
+    }
+
+    .worlds-divider {
+      width: 1px;
+      height: 70px;
+      background: var(--card-border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    .factory-law-pill {
+      position: absolute;
+      background: #18181b;
+      border: 1px solid var(--amber);
+      color: var(--amber);
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.65rem;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: 9999px;
+      white-space: nowrap;
+      box-shadow: 0 0 12px var(--amber-glow);
+    }
+
+    /* TABS */
+    .tabs-nav {
+      display: flex;
+      gap: 10px;
+      border-bottom: 1px solid var(--card-border);
+      padding-bottom: 10px;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .tab-btn {
+      background: transparent;
+      border: 1px solid transparent;
+      color: var(--text-muted);
+      font-family: 'Inter', sans-serif;
+      font-size: 0.82rem;
+      font-weight: 600;
+      padding: 7px 14px;
+      border-radius: 6px;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: all 0.2s ease;
+    }
+
+    .tab-btn:hover {
+      color: #fff;
+      background: #18181b;
+    }
+
+    .tab-btn.active {
+      color: #fff;
+      background: #18181b;
+      border-color: #3f3f46;
+    }
+
+    .tab-pane {
+      display: none;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .tab-pane.active {
+      display: flex;
+    }
+
+    /* DECISION QUEUE CARDS */
+    .decision-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 10px;
+      padding: 18px 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      position: relative;
+    }
+
+    .decision-card.approved {
+      border-left: 4px solid var(--emerald);
+    }
+
+    .decision-card.pending {
+      border-left: 4px solid var(--amber);
+    }
+
+    .decision-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 10px;
+    }
+
+    .decision-title-group h3 {
+      font-size: 1rem;
+      font-weight: 700;
+      color: #fff;
+    }
+
+    .decision-meta {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.72rem;
+      color: var(--text-sub);
+      margin-top: 3px;
+    }
+
+    .badge-status {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.7rem;
+      padding: 3px 8px;
+      border-radius: 4px;
+      font-weight: 700;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    .badge-approved {
+      background: var(--emerald-glow);
+      color: var(--emerald);
+      border: 1px solid var(--emerald);
+    }
+
+    .badge-pending {
+      background: var(--amber-glow);
+      color: var(--amber);
+      border: 1px solid var(--amber);
+    }
+
+    .decision-body {
+      font-size: 0.85rem;
+      color: #d4d4d8;
+      line-height: 1.5;
+    }
+
+    .decision-recommendation {
+      background: #18181b;
+      border-left: 2px solid var(--blue);
+      padding: 10px 12px;
+      border-radius: 0 6px 6px 0;
+      font-size: 0.82rem;
+      color: #93c5fd;
+    }
+
+    .decision-actions {
+      display: flex;
+      gap: 8px;
+      margin-top: 4px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 600;
+      padding: 7px 14px;
+      border-radius: 6px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.15s ease;
+      border: 1px solid transparent;
+      min-height: 36px;
+    }
+
+    .btn-approve {
+      background: var(--emerald);
+      color: #000;
+    }
+
+    .btn-approve:hover {
+      background: #059669;
+    }
+
+    .btn-reject {
+      background: transparent;
+      border-color: #ef4444;
+      color: #ef4444;
+    }
+
+    .btn-reject:hover {
+      background: var(--ruby-glow);
+    }
+
+    .btn-outline {
+      background: transparent;
+      border-color: #3f3f46;
+      color: #a1a1aa;
+    }
+
+    .btn-outline:hover {
+      background: #18181b;
+      color: #fff;
+    }
+
+    /* AGENT TASK BOARD */
+    .agent-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 14px;
+    }
+
+    .agent-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 10px;
+      padding: 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .agent-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .agent-avatar {
+      font-size: 1.4rem;
+    }
+
+    .agent-name {
+      font-size: 0.92rem;
+      font-weight: 700;
+      color: #fff;
+    }
+
+    .agent-role {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.68rem;
+      color: var(--amber);
+    }
+
+    .task-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .task-item {
+      font-size: 0.8rem;
+      color: #d4d4d8;
+      background: #18181b;
+      border: 1px solid #27272a;
+      padding: 8px 10px;
+      border-radius: 6px;
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+    }
+
+    .task-item.done {
+      color: #71717a;
+      text-decoration: line-through;
+    }
+
+    /* IDEA INPUT */
+    .idea-box {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 10px;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .idea-box h3 {
+      font-size: 0.95rem;
+      color: #fff;
+    }
+
+    .idea-input-row {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .idea-input {
+      flex: 1;
+      min-width: 240px;
+      background: #18181b;
+      border: 1px solid #3f3f46;
+      border-radius: 6px;
+      padding: 10px 14px;
+      color: #fff;
+      font-family: inherit;
+      font-size: 0.88rem;
+    }
+
+    .idea-input:focus {
+      outline: none;
+      border-color: var(--amber);
+    }
+
+    .ideas-list {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-top: 10px;
+    }
+
+    .idea-item-card {
+      background: #18181b;
+      border: 1px solid #27272a;
+      border-radius: 6px;
+      padding: 10px 14px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+    }
+
+    /* PIN GATE MODAL */
+    .pin-modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(9, 9, 11, 0.94);
+      backdrop-filter: blur(8px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+      padding: 20px;
+    }
+
+    .pin-modal-card {
+      background: #141417;
+      border: 1px solid var(--amber);
+      box-shadow: 0 0 32px var(--amber-glow);
+      border-radius: 14px;
+      padding: 28px 24px;
+      width: 100%;
+      max-width: 380px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      text-align: center;
+    }
+
+    .pin-modal-signet {
+      width: 48px;
+      height: 48px;
+      background: #18181b;
+      border: 1px solid var(--amber);
+      border-radius: 10px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .pin-modal-signet svg {
+      width: 24px;
+      height: 24px;
+      fill: var(--amber);
+    }
+
+    .pin-input {
+      background: #18181b;
+      border: 1px solid #3f3f46;
+      border-radius: 8px;
+      padding: 12px 14px;
+      color: #fff;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 1rem;
+      text-align: center;
+      letter-spacing: 0.1em;
+    }
+
+    .pin-input:focus {
+      outline: none;
+      border-color: var(--amber);
+    }
+
+    /* FOOTER */
+    .footer {
+      margin-top: auto;
+      border-top: 1px solid var(--card-border);
+      padding-top: 14px;
+      display: flex;
+      justify-content: space-between;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.7rem;
+      color: var(--text-sub);
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- PIN GATE OVERLAY -->
+  <div id="pinOverlay" class="pin-modal-overlay" style="display: none;">
+    <div class="pin-modal-card">
+      <div class="pin-modal-signet">
+        <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+      </div>
+      <div>
+        <span class="brand-kicker">Schweizer Edge Vault Airbag</span>
+        <h2 style="font-size: 1.15rem; font-weight: 700; color: #fff; margin-top: 4px;">WebPilot Boardroom</h2>
+        <p style="font-size: 0.8rem; color: var(--text-muted); margin-top: 4px;">
+          Zugriff ausschliesslich für Chairman & Mentor <strong>David Hügli</strong>.
+        </p>
+      </div>
+      <form onsubmit="handlePinSubmit(event)">
+        <input type="password" id="pinField" class="pin-input" placeholder="Chairman PIN eingeben..." autofocus autocomplete="current-password">
+        <button type="submit" class="btn btn-approve" style="width: 100%; margin-top: 12px; justify-content: center; min-height: 42px;">
+          Vorstandszimmer entsperren →
+        </button>
+      </form>
+      <div id="pinError" style="font-size: 0.78rem; color: var(--ruby); display: none;">
+        ✕ Ungültige Chairman PIN. Zugriff verweigert.
+      </div>
+    </div>
+  </div>
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="brand">
+      <div class="logo-signet">
+        <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+      </div>
+      <div>
+        <span class="brand-kicker">Autonomous Company OS</span>
+        <h1 class="brand-title">WebPilot // Executive Boardroom</h1>
+      </div>
+    </div>
+    <div class="header-meta">
+      <div class="role-badge">
+        <span>Chairman: <strong>David Hügli</strong></span>
+        <button class="btn-lock" onclick="lockBoardroom()" title="Vorstandszimmer sperren">🔒</button>
+      </div>
+      <div class="status-pill">
+        <span class="status-dot"></span>
+        <span id="liveStatusText">EDGE LIVE (ZRH)</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- KPI SUMMARY -->
+  <section class="kpi-grid">
+    <div class="kpi-card">
+      <span class="kpi-label">Aktive Mandate (Proof)</span>
+      <div class="kpi-value"><span id="kpiActiveMandates">2</span> <span style="font-size: 0.85rem; color: var(--text-sub);">/ <span id="kpiTargetMandates">10</span></span></div>
+      <span class="kpi-sub">Muster-Holzbau, Hiltbrand</span>
+    </div>
+    <div class="kpi-card">
+      <span class="kpi-label">Umsatz-Ziel Etappe 1</span>
+      <div class="kpi-value" id="kpiRevenueTarget">CHF 1'490.–</div>
+      <span class="kpi-sub">1. bezahlter Web-Rescue</span>
+    </div>
+    <div class="kpi-card">
+      <span class="kpi-label">Edge Latenz (Zürich/Genf)</span>
+      <div class="kpi-value" id="kpiEdgeLatency" style="color: var(--emerald);">0.3s</div>
+      <span class="kpi-sub">Sub-50ms TTFB weltweit</span>
+    </div>
+    <div class="kpi-card">
+      <span class="kpi-label">Fulfillment-Fabrik</span>
+      <div class="kpi-value" id="kpiFactoryVer" style="color: var(--amber);">v3.4.0</div>
+      <span class="kpi-sub">1-Klick Cockpit & Airbag aktiv</span>
+    </div>
+  </section>
+
+  <!-- TWO WORLDS HERO BANNER -->
+  <section class="two-worlds-banner">
+    <div class="world-box">
+      <span class="world-tag">Welt 1: Die Firmen-Maschine</span>
+      <h2 class="world-title">Company OS & Governance</h2>
+      <p class="world-desc">Autonome Führung durch das KI-Kollektiv (Grok, Claude Code, Antigravity, Hermes). David agiert als externer Mentor & Chairman.</p>
+    </div>
+    <div class="worlds-divider">
+      <div class="factory-law-pill">«Fix the Factory, NOT the Output!»</div>
+    </div>
+    <div class="world-box">
+      <span class="world-tag">Welt 2: Die Fulfillment-Maschine</span>
+      <h2 class="world-title">Production Factory</h2>
+      <p class="world-desc">Generatoren, Slot-Parser und Airbags. Fehler werden niemals isoliert an Kunden-Dateien geflickt, sondern immer in der Fabrik behoben.</p>
+    </div>
+  </section>
+
+  <!-- NAVIGATION TABS -->
+  <nav class="tabs-nav">
+    <button class="tab-btn active" onclick="switchTab('tab-decisions')">⚡ Decision Queue (David)</button>
+    <button class="tab-btn" onclick="switchTab('tab-tasks')">🤖 Live Boardroom & KIs</button>
+    <button class="tab-btn" onclick="switchTab('tab-roadmap')">🧭 Roadmap First Revenue</button>
+    <button class="tab-btn" onclick="switchTab('tab-ideas')">💡 Ideen-Inkubator</button>
+  </nav>
+
+  <!-- TAB: DECISION QUEUE -->
+  <main id="tab-decisions" class="tab-pane active">
+    <div id="decisionsContainer" style="display: flex; flex-direction: column; gap: 14px;">
+      <!-- Dynamisch befüllt via API -->
+      <div style="font-size: 0.85rem; color: var(--text-muted); padding: 12px;">Lade Beschlussvorlagen aus dem Tresor...</div>
+    </div>
+  </main>
+
+  <!-- TAB: TASKS / BOARDROOM -->
+  <section id="tab-tasks" class="tab-pane">
+    <div class="agent-grid">
+      <!-- GROK -->
+      <div class="agent-card">
+        <div class="agent-header">
+          <span class="agent-avatar">🦁</span>
+          <div>
+            <h3 class="agent-name">Grok (xAI)</h3>
+            <span class="agent-role">Head of Market Intelligence & Copy</span>
+          </div>
+        </div>
+        <ul class="task-list" id="tasksGrok">
+          <li class="task-item">Task G-01: Schweizer Handwerker-Frust Analyse auf X/Web.</li>
+          <li class="task-item">Task G-02: 4-Zeilen Kaltakquise-Copy für «Instant Web-Rescue».</li>
+          <li class="task-item">Task G-03: Schweizer WordPress-Wartungsvertrag Pricing Check.</li>
+        </ul>
+      </div>
+
+      <!-- CLAUDE CODE -->
+      <div class="agent-card">
+        <div class="agent-header">
+          <span class="agent-avatar">🏛️</span>
+          <div>
+            <h3 class="agent-name">Claude Code</h3>
+            <span class="agent-role">Head of Architecture & CTO</span>
+          </div>
+        </div>
+        <ul class="task-list" id="tasksClaude">
+          <li class="task-item">Task C-01: Slotting-Architektur Audit (`data-slot` Semantik).</li>
+          <li class="task-item">Task C-02: CSS-Bereinigung & Zero-Dependency Audit.</li>
+        </ul>
+      </div>
+
+      <!-- ANTIGRAVITY -->
+      <div class="agent-card">
+        <div class="agent-header">
+          <span class="agent-avatar">⚡</span>
+          <div>
+            <h3 class="agent-name">Antigravity</h3>
+            <span class="agent-role">COO & Chief Dispatcher</span>
+          </div>
+        </div>
+        <ul class="task-list" id="tasksAntigravity">
+          <li class="task-item done">Task A-01: CONSTITUTION.md & Pricing Specs erstellt.</li>
+          <li class="task-item done">Task A-02: boardroom.html & serve_boardroom.py gebaut.</li>
+          <li class="task-item done">Task A-03: Cloudflare Edge Boardroom Bridge live geschaltet.</li>
+          <li class="task-item">Task A-04: create_client_site.py URL-Scraper für 15-Min-Mockups.</li>
+        </ul>
+      </div>
+
+      <!-- HERMES -->
+      <div class="agent-card">
+        <div class="agent-header">
+          <span class="agent-avatar">📚</span>
+          <div>
+            <h3 class="agent-name">Hermes</h3>
+            <span class="agent-role">Company Secretary</span>
+          </div>
+        </div>
+        <ul class="task-list" id="tasksHermes">
+          <li class="task-item">Task H-01: Verlinkung aller neuen Specs im Vault-Index.</li>
+          <li class="task-item">Task H-02: Triage der Inbox & verwaister Entwürfe.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- TAB: ROADMAP -->
+  <section id="tab-roadmap" class="tab-pane">
+    <div class="decision-card">
+      <div class="decision-header">
+        <div class="decision-title-group">
+          <h3>Etappe 1: Brand & Offer-Packaging (Tag 1–2) — AKTIV</h3>
+          <div class="decision-meta">Fokus: 2 Angebote fixieren, Logo & Vorab-Akquise Text</div>
+        </div>
+        <span class="badge-status badge-pending">In Bearbeitung</span>
+      </div>
+      <p class="decision-body">
+        Etablierung der CHF 1'490.– «Instant Web-Rescue» Positionierung. 
+        Grok formuliert die Ansprache, Antigravity baut das Signet.
+      </p>
+    </div>
+    <div class="decision-card">
+      <div class="decision-header">
+        <div class="decision-title-group">
+          <h3>Etappe 2: Fulfillment-Maschine MVP-Reife (Tag 3–5)</h3>
+          <div class="decision-meta">Fokus: Generator baut in 15 Min. aus alter URL neues Edge-Web</div>
+        </div>
+        <span class="badge-status" style="background:#27272a; color:#a1a1aa;">Geplant</span>
+      </div>
+    </div>
+    <div class="decision-card">
+      <div class="decision-header">
+        <div class="decision-title-group">
+          <h3>Etappe 3 & 4: Live Proof & «Show, Don't Tell» Kaltakquise</h3>
+          <div class="decision-meta">Fokus: 10 Schweizer Betriebe mit fertiger Vorschau ansprechen</div>
+        </div>
+        <span class="badge-status" style="background:#27272a; color:#a1a1aa;">Geplant</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- TAB: IDEAS -->
+  <section id="tab-ideas" class="tab-pane">
+    <div class="idea-box">
+      <h3>💡 Neuen Impuls / Frage für den Ideen-Inkubator erfassen</h3>
+      <p style="font-size: 0.85rem; color: var(--text-muted);">
+        David, wirf hier spontane Gedanken hinein. Sie werden direkt in <code>IDEEN-INBOX.md</code> gespeichert und via Telegram bestätigt.
+      </p>
+      <div class="idea-input-row">
+        <input type="text" id="newIdeaInput" class="idea-input" placeholder="Z. B.: Sollten wir Handwerkern auch einen automatischen WhatsApp-Notdienst-Button anbieten?">
+        <button class="btn btn-approve" onclick="submitIdea()">In Inbox ablegen</button>
+      </div>
+      <div id="ideaFeedback" style="font-size: 0.8rem; color: var(--emerald); display: none;"></div>
+    </div>
+
+    <div class="ideas-list" id="ideasList">
+      <!-- Dynamisch aus dem Tresor befüllt -->
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <span>WebPilot-Pro0416 • Swiss Architectural Canvas</span>
+    <span>Single Source of State: <code>BOARD-ROOM.md</code> (Vault Plain)</span>
+    <span>Cloudflare Edge: <code>embed.magnet-xs.ch</code></span>
+  </footer>
+
+  <script>
+    // Konfiguration der API: Erkennt automatisch ob lokal oder online auf Cloudflare
+    const API_BASE = window.location.origin.includes('localhost') 
+      ? 'http://localhost:8088/api' 
+      : '/api/publish-career/boardroom';
+
+    let currentKey = '';
+
+    function getSavedKey() {
+      // 1. Prüfe URL-Parameter (?key=...)
+      const urlParams = new URLSearchParams(window.location.search);
+      const urlKey = urlParams.get('key');
+      if (urlKey) {
+        localStorage.setItem('wp_boardroom_key', urlKey);
+        // URL im Browser bereinigen ohne Neuladen
+        window.history.replaceState({}, document.title, window.location.pathname);
+        return urlKey;
+      }
+      // 2. Prüfe LocalStorage
+      return localStorage.getItem('wp_boardroom_key') || '';
+    }
+
+    function checkAuth() {
+      currentKey = getSavedKey();
+      if (!currentKey) {
+        document.getElementById('pinOverlay').style.display = 'flex';
+      } else {
+        document.getElementById('pinOverlay').style.display = 'none';
+        loadBoardroomState();
+      }
+    }
+
+    async function handlePinSubmit(e) {
+      e.preventDefault();
+      const val = document.getElementById('pinField').value.trim();
+      if (!val) return;
+
+      const errEl = document.getElementById('pinError');
+      errEl.style.display = 'none';
+
+      try {
+        const res = await fetch(`${API_BASE}/state?_t=${Date.now()}`, {
+          headers: { 'X-Boardroom-Key': val }
+        });
+        if (res.ok) {
+          localStorage.setItem('wp_boardroom_key', val);
+          currentKey = val;
+          document.getElementById('pinOverlay').style.display = 'none';
+          loadBoardroomState();
+        } else {
+          errEl.style.display = 'block';
+        }
+      } catch (err) {
+        errEl.textContent = '✕ Verbindungsfehler zum Server.';
+        errEl.style.display = 'block';
+      }
+    }
+
+    function lockBoardroom() {
+      localStorage.removeItem('wp_boardroom_key');
+      currentKey = '';
+      document.getElementById('pinOverlay').style.display = 'flex';
+      document.getElementById('pinField').value = '';
+    }
+
+    function switchTab(tabId) {
+      document.querySelectorAll('.tab-pane').forEach(el => el.classList.remove('active'));
+      document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
+      document.getElementById(tabId).classList.add('active');
+      event.target.classList.add('active');
+    }
+
+    async function loadBoardroomState() {
+      try {
+        const res = await fetch(`${API_BASE}/state?_t=${Date.now()}`, {
+          headers: { 'X-Boardroom-Key': currentKey }
+        });
+        if (res.status === 401) {
+          lockBoardroom();
+          return;
+        }
+        const data = await res.json();
+        if (data.ok) {
+          renderDashboard(data);
+        }
+      } catch (e) {
+        console.error('Boardroom Fetch Error:', e);
+      }
+    }
+
+    function renderDashboard(data) {
+      // KPIs
+      if (data.kpis) {
+        document.getElementById('kpiActiveMandates').textContent = data.kpis.active_mandates || '2';
+        document.getElementById('kpiTargetMandates').textContent = data.kpis.target_mandates || '10';
+        document.getElementById('kpiRevenueTarget').textContent = data.kpis.revenue_target || "CHF 1'490.–";
+        document.getElementById('kpiEdgeLatency').textContent = data.kpis.edge_latency || '0.3s';
+        document.getElementById('kpiFactoryVer').textContent = data.kpis.factory_version || 'v3.4.0';
+      }
+
+      // Decisions
+      const container = document.getElementById('decisionsContainer');
+      if (data.decisions && data.decisions.length > 0) {
+        container.innerHTML = '';
+        data.decisions.forEach(d => {
+          const isApproved = d.status === 'GENEHMIGT';
+          const card = document.createElement('div');
+          card.className = `decision-card ${isApproved ? 'approved' : 'pending'}`;
+          card.id = `card-${d.id}`;
+
+          let actionsHtml = '';
+          if (isApproved) {
+            actionsHtml = `<span style="font-size: 0.8rem; color: var(--emerald); font-weight: 600;">✓ Durch David genehmigt (Live im Tresor).</span>`;
+          } else {
+            actionsHtml = `
+              <div class="decision-actions" id="actions-${d.id}">
+                <button class="btn btn-approve" onclick="submitDecision('${d.id}', 'GENEHMIGT')">✓ Genehmigen</button>
+                <button class="btn btn-reject" onclick="submitDecision('${d.id}', 'ABGELEHNT')">✕ Ablehnen</button>
+                <button class="btn btn-outline" onclick="promptFeedback('${d.id}')">💬 Notiz</button>
+              </div>
+            `;
+          }
+
+          card.innerHTML = `
+            <div class="decision-header">
+              <div class="decision-title-group">
+                <h3>Vorlage #${d.id}: ${d.title}</h3>
+                <div class="decision-meta">Zone Rot: Chairman-Freigabe erforderlich</div>
+              </div>
+              <span class="badge-status ${isApproved ? 'badge-approved' : 'badge-pending'}" id="badge-${d.id}">
+                ${isApproved ? '✅ Genehmigt' : '⏳ Offen'}
+              </span>
+            </div>
+            <p class="decision-body">${d.problem || 'Strategische Weichenstellung.'}</p>
+            ${d.recommendation ? `<div class="decision-recommendation"><strong>Board-Empfehlung:</strong> ${d.recommendation}</div>` : ''}
+            ${actionsHtml}
+          `;
+          container.appendChild(card);
+        });
+      }
+
+      // Ideas
+      const ideasList = document.getElementById('ideasList');
+      if (data.ideas && data.ideas.length > 0) {
+        ideasList.innerHTML = '';
+        data.ideas.forEach(i => {
+          const item = document.createElement('div');
+          item.className = 'idea-item-card';
+          item.innerHTML = `
+            <div>
+              <div style="font-size: 0.85rem; color: #fff;">${i.idea}</div>
+              <div style="font-size: 0.72rem; color: var(--text-sub); margin-top: 2px;">
+                ${i.date} • ${i.author} • <span style="color: var(--amber);">${i.category}</span>
+              </div>
+            </div>
+            <span class="badge-status" style="background: #27272a; color: #a1a1aa; font-size: 0.68rem;">${i.status}</span>
+          `;
+          ideasList.appendChild(item);
+        });
+      }
+    }
+
+    async function submitDecision(id, decision) {
+      try {
+        const response = await fetch(`${API_BASE}/decide`, {
+          method: 'POST',
+          headers: { 
+            'Content-Type': 'application/json',
+            'X-Boardroom-Key': currentKey
+          },
+          body: JSON.stringify({ id: id, decision: decision })
+        });
+        
+        const card = document.getElementById('card-' + id);
+        const badge = document.getElementById('badge-' + id);
+        const actions = document.getElementById('actions-' + id);
+
+        if (response.ok) {
+          card.classList.remove('pending');
+          if (decision === 'GENEHMIGT') {
+            card.classList.add('approved');
+            badge.className = 'badge-status badge-approved';
+            badge.textContent = '✅ Genehmigt';
+          } else {
+            badge.className = 'badge-status';
+            badge.style.color = 'var(--ruby)';
+            badge.textContent = '✕ ' + decision;
+          }
+          actions.innerHTML = `<span style="font-size: 0.82rem; color: var(--emerald); font-weight: 600;">Beschluss [${decision}] live im Tresor synchronisiert!</span>`;
+        }
+      } catch (e) {
+        alert('Fehler beim Übermitteln der Entscheidung: ' + e.message);
+      }
+    }
+
+    async function submitIdea() {
+      const input = document.getElementById('newIdeaInput');
+      const val = input.value.trim();
+      if (!val) return;
+
+      try {
+        const res = await fetch(`${API_BASE}/idea`, {
+          method: 'POST',
+          headers: { 
+            'Content-Type': 'application/json',
+            'X-Boardroom-Key': currentKey
+          },
+          body: JSON.stringify({ idea: val })
+        });
+        if (res.ok) {
+          showIdeaFeedback('✓ Idee erfolgreich in IDEEN-INBOX.md gespeichert & Telegram gesendet!');
+          input.value = '';
+          loadBoardroomState();
+        }
+      } catch (e) {
+        showIdeaFeedback('Fehler beim Speichern der Idee.');
+      }
+    }
+
+    function showIdeaFeedback(msg) {
+      const fb = document.getElementById('ideaFeedback');
+      fb.textContent = msg;
+      fb.style.display = 'block';
+      setTimeout(() => fb.style.display = 'none', 4000);
+    }
+
+    function promptFeedback(id) {
+      const note = prompt('Dein Feedback / Notiz für das KI-Board zu Vorlage #' + id + ':');
+      if (note) {
+        submitDecision(id, 'KOMMENTIERT: ' + note);
+      }
+    }
+
+    // Beim Laden starten
+    window.addEventListener('DOMContentLoaded', checkAuth);
+  </script>
+</body>
+</html>
