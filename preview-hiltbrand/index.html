@@ -999,7 +999,7 @@
 <body>
 
   <!-- HEADER (STICKY) -->
-  <header class="top-bar">
+  <header class="top-bar" data-section="header">
     <div class="top-bar-inner">
       <a href="index.html" class="brand-logo-wrap" aria-label="Hiltbrand Gebäudehüllen AG Startseite">
         <img src="images/logo.png" alt="Hiltbrand Gebäudehüllen AG" class="brand-logo-img">
@@ -1068,7 +1068,7 @@
   </div>
 
   <!-- HERO -->
-  <div class="hero-wrap">
+  <section class="hero-wrap" data-section="hero">
     <div class="hero-inner">
       <div class="hero-text-side">
         <span class="section-kicker">● Meisterbetrieb seit 3 Generationen · Krattigen</span>
@@ -1102,10 +1102,10 @@
         <div class="hero-media-badge">● Risegasse 27, Krattigen</div>
       </div>
     </div>
-  </div>
+  </section>
 
   <!-- LEISTUNGEN -->
-  <div class="section-wrap">
+  <section class="section-wrap" data-section="services" id="leistungen">
     <div class="section-inner">
       <span class="section-kicker">● Fachkompetenz · Gebäudehülle</span>
       <h2 class="section-title">Alles rund um die Gebäudehülle</h2>
@@ -1152,10 +1152,10 @@
         </div>
       </div>
     </div>
-  </div>
+  </section>
 
   <!-- STORIES & SOCIAL LIVE CAROUSEL (ECHTE PROJEKTE AUS ACP) -->
-  <div class="section-wrap" id="stories" style="background:var(--surface);">
+  <section class="section-wrap" data-section="stories" id="stories" style="background:var(--surface);">
     <div class="section-inner">
       <div class="stories-header">
         <span class="section-kicker">● Live von der Baustelle</span>
@@ -1272,10 +1272,10 @@
         Aktuelle Werkstatt- & Baustellen-Einblicke direkt aus Krattigen und dem Berner Oberland.
       </div>
     </div>
-  </div>
+  </section>
 
   <!-- RATGEBER & BLOG -->
-  <div class="section-wrap">
+  <section class="section-wrap" data-section="ratgeber" id="ratgeber">
     <div class="section-inner">
       <div style="display:flex; justify-content:space-between; align-items:flex-end; margin-bottom:28px; flex-wrap:wrap; gap:16px;">
         <div>
@@ -1315,10 +1315,13 @@
         </a>
       </div>
     </div>
-  </div>
+  </section>
+
+  <!-- FAQ SEKTION (REUSABLE) -->
+  
 
   <!-- TEASER TEAM & KARRIERE -->
-  <div class="section-wrap" style="background:var(--surface);">
+  <section class="section-wrap" data-section="team_teaser" id="ueber-uns" style="background:var(--surface);">
     <div class="section-inner">
       <span class="section-kicker">● Tradition & Meisterteam</span>
       <h2 class="section-title">Lernen Sie uns kennen</h2>
@@ -1342,10 +1345,10 @@
         </div>
       </div>
     </div>
-  </div>
+  </section>
 
   <!-- SWISS 4-COLUMN FOOTER -->
-  <footer class="footer-wrap">
+  <footer class="footer-wrap" data-section="footer">
     <div class="footer-inner">
       <!-- COL 1: FIRMENDATEN -->
       <div class="footer-col">
