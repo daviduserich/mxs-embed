@@ -30,14 +30,49 @@ export async function onRequest(context) {
     return response;
   }
 
-  // 2. Hostname: vorschau.magnet-xs.ch
+  // 2. Token-Guard for Hiltbrand (Blocks direct & rewritten access without token)
+  const isHiltbrand = url.pathname.startsWith('/hiltbrand') || url.pathname.startsWith('/preview-hiltbrand');
+  if (isHiltbrand) {
+    const validTokens = ['hb2026', 'hb-preview', 'hiltbrand'];
+    const tokenParam = url.searchParams.get('token');
+    const cookieHeader = context.request.headers.get('Cookie') || '';
+    const hasValidCookie = validTokens.some(t => cookieHeader.includes(`hb_preview_token=${t}`));
+    const hasValidToken = validTokens.includes(tokenParam);
+
+    // Static assets (CSS, JS, images) pass through if cookie present OR requested as asset
+    const isAsset = url.pathname.includes('/images/') || 
+                    url.pathname.endsWith('.png') || 
+                    url.pathname.endsWith('.jpg') || 
+                    url.pathname.endsWith('.jpeg') || 
+                    url.pathname.endsWith('.webp') || 
+                    url.pathname.endsWith('.svg') || 
+                    url.pathname.endsWith('.css') || 
+                    url.pathname.endsWith('.js');
+
+    if (!hasValidToken && !hasValidCookie && !isAsset) {
+      // Redirect directly to WebPilot
+      return Response.redirect('https://webpilot.magnet-xs.ch/', 302);
+    }
+  }
+
+  // 3. Hostname: vorschau.magnet-xs.ch
   if (hostname.startsWith('vorschau.')) {
     if (url.pathname === '/' || url.pathname === '') {
       return Response.redirect('https://magnet-xs.com', 302);
     }
 
+    // Direct /preview-hiltbrand requests redirect to /hiltbrand
+    if (url.pathname.startsWith('/preview-hiltbrand')) {
+      const rest = url.pathname.replace(/^\/preview-hiltbrand/, '');
+      const redirectUrl = new URL(`/hiltbrand${rest}`, url.origin);
+      redirectUrl.search = url.search;
+      return Response.redirect(redirectUrl.toString(), 302);
+    }
+
     let targetPath = url.pathname;
+    let isHiltbrandPath = false;
     if (url.pathname.startsWith('/hiltbrand')) {
+      isHiltbrandPath = true;
       const rest = url.pathname.replace(/^\/hiltbrand/, '');
       targetPath = `/preview-hiltbrand${rest === '' ? '/' : rest}`;
     } else if (url.pathname.startsWith('/birchmeier')) {
@@ -49,13 +84,20 @@ export async function onRequest(context) {
     rewriteUrl.search = url.search;
     const response = await context.env.ASSETS.fetch(new Request(rewriteUrl, context.request));
 
+    let newHeaders = new Headers(response.headers);
+    if (isHiltbrandPath) {
+      const tokenParam = url.searchParams.get('token');
+      if (tokenParam) {
+        newHeaders.append('Set-Cookie', `hb_preview_token=${tokenParam}; Path=/; Max-Age=86400; SameSite=Lax`);
+      }
+    }
+
     if ([301, 302, 307, 308].includes(response.status)) {
       const loc = response.headers.get('location');
       if (loc) {
         let cleanLoc = loc
           .replace(/^\/preview-hiltbrand/, '/hiltbrand')
           .replace(/^\/preview-birchmeier/, '/birchmeier');
-        const newHeaders = new Headers(response.headers);
         newHeaders.set('location', cleanLoc);
         return new Response(response.body, {
           status: response.status,
@@ -63,7 +105,10 @@ export async function onRequest(context) {
         });
       }
     }
-    return response;
+    return new Response(response.body, {
+      status: response.status,
+      headers: newHeaders
+    });
   }
 
   return context.next();

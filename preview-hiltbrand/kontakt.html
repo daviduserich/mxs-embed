@@ -1,6 +1,22 @@
 <!DOCTYPE html>
 <html lang="de-CH">
 <head>
+  <script>
+    (function() {
+      var p = new URLSearchParams(window.location.search);
+      var t = p.get('token');
+      var valid = ['hb2026', 'hb-preview', 'hiltbrand'];
+      if (t && valid.indexOf(t) !== -1) {
+        try { sessionStorage.setItem('hb_preview_token', t); } catch(e) {}
+      } else {
+        var saved = null;
+        try { saved = sessionStorage.getItem('hb_preview_token'); } catch(e) {}
+        if (!saved || valid.indexOf(saved) === -1) {
+          window.location.replace('https://webpilot.magnet-xs.ch/');
+        }
+      }
+    })();
+  </script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
   <title>Kontakt & 24h Sturm-Pikett — Hiltbrand Gebäudehüllen AG | Krattigen</title>
