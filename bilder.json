@@ -24,8 +24,14 @@
     "mtime": 1790616901,
     "mtime_str": "28.09.2026 17:35",
     "cdn_url": "https://embed.magnet-xs.ch/hiltbrand/images/danke.png",
-    "is_used": false,
-    "used_in": []
+    "is_used": true,
+    "used_in": [
+      {
+        "datei": "zurbuchen_Holzbauer.html",
+        "slot": "",
+        "is_hero": false
+      }
+    ]
   },
   {
     "id": "images_hero_jpg",
@@ -108,14 +114,8 @@
     "mtime": 1790616901,
     "mtime_str": "28.09.2026 17:35",
     "cdn_url": "https://embed.magnet-xs.ch/hiltbrand/images/q1_benefit.jpg",
-    "is_used": true,
-    "used_in": [
-      {
-        "datei": "zurbuchen_Holzbauer.html",
-        "slot": "",
-        "is_hero": false
-      }
-    ]
+    "is_used": false,
+    "used_in": []
   },
   {
     "id": "images_q1_bewaehrtes_handwerk_png",

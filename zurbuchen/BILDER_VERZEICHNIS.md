@@ -9,11 +9,11 @@ Automatisch generierte Übersicht aller verfügbaren Bild-Assets im Ordner `imag
 | Miniatur | Dateiname | Kategorie | Grösse | Dimension | Datum | Status |
 |---|---|---|---|---|---|---|
 | ![benefits_drohne.jpg](images/benefits_drohne.jpg) | `benefits_drohne.jpg` | Baustelle & Benefit | 482.5 KB | 1400x1050 | 28.09.2026 17:35 | ⚪ Frei verfügbar |
-| ![danke.png](images/danke.png) | `danke.png` | Baustelle & Benefit | 1490.5 KB | 1456x816 | 28.09.2026 17:35 | ⚪ Frei verfügbar |
+| ![danke.png](images/danke.png) | `danke.png` | Baustelle & Benefit | 1490.5 KB | 1456x816 | 28.09.2026 17:35 | 🟢 Im Einsatz in `zurbuchen_Holzbauer.html` |
 | ![hero.jpg](images/hero.jpg) | `hero.jpg` | Hero & Header | 160.7 KB | 1400x933 | 28.09.2026 17:35 | 🟢 Im Einsatz in `Hiltbrand_Dachdecker.html` |
 | ![logo.png](images/logo.png) | `logo.png` | Logo & Icon | 8.2 KB | 260x150 | 28.09.2026 17:35 | 🟢 Im Einsatz in `Hiltbrand_Dachdecker.html` |
 | ![michael.jpg](images/michael.jpg) | `michael.jpg` | Team & Porträt | 186.7 KB | 834x788 | 28.09.2026 17:35 | 🟢 Im Einsatz in `Hiltbrand_Dachdecker.html` |
-| ![q1_benefit.jpg](images/q1_benefit.jpg) | `q1_benefit.jpg` | Baustelle & Benefit | 295.8 KB | 1400x1050 | 28.09.2026 17:35 | 🟢 Im Einsatz in `zurbuchen_Holzbauer.html` |
+| ![q1_benefit.jpg](images/q1_benefit.jpg) | `q1_benefit.jpg` | Baustelle & Benefit | 295.8 KB | 1400x1050 | 28.09.2026 17:35 | ⚪ Frei verfügbar |
 | ![q1_bewaehrtes_handwerk.png](images/q1_bewaehrtes_handwerk.png) | `q1_bewaehrtes_handwerk.png` | Baustelle & Benefit | 37.6 KB | 200x160 | 28.09.2026 17:35 | ⚪ Frei verfügbar |
 | ![q1_effiziente_maschinen.png](images/q1_effiziente_maschinen.png) | `q1_effiziente_maschinen.png` | Baustelle & Benefit | 38.0 KB | 200x160 | 28.09.2026 17:35 | ⚪ Frei verfügbar |
 | ![q1_moderne_technik.png](images/q1_moderne_technik.png) | `q1_moderne_technik.png` | Baustelle & Benefit | 37.8 KB | 200x160 | 28.09.2026 17:35 | ⚪ Frei verfügbar |
