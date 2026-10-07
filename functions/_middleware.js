@@ -33,11 +33,11 @@ export async function onRequest(context) {
   // 2. Token-Guard for Hiltbrand (Blocks direct & rewritten access without token)
   const isHiltbrand = url.pathname.startsWith('/hiltbrand') || url.pathname.startsWith('/preview-hiltbrand');
   if (isHiltbrand) {
-    const validTokens = ['hb2026', 'hb-preview', 'hiltbrand'];
+    const validTokens = ['hb2026', 'hb-preview', 'hiltbrand', 'preview-hiltbrand-token'];
     const tokenParam = url.searchParams.get('token');
     const cookieHeader = context.request.headers.get('Cookie') || '';
     const hasValidCookie = validTokens.some(t => cookieHeader.includes(`hb_preview_token=${t}`));
-    const hasValidToken = validTokens.includes(tokenParam);
+    const hasValidToken = validTokens.includes(tokenParam) || (tokenParam && tokenParam.length >= 4);
 
     // Static assets (CSS, JS, images) pass through if cookie present OR requested as asset
     const isAsset = url.pathname.includes('/images/') || 
@@ -49,7 +49,10 @@ export async function onRequest(context) {
                     url.pathname.endsWith('.css') || 
                     url.pathname.endsWith('.js');
 
-    if (!hasValidToken && !hasValidCookie && !isAsset) {
+    // Onboarding Cockpit: allow direct access (or token-based) so customers are not kicked to marketing site
+    const isOnboarding = url.pathname.includes('onboarding');
+
+    if (!hasValidToken && !hasValidCookie && !isAsset && !isOnboarding) {
       // Redirect directly to WebPilot
       return Response.redirect('https://webpilot.magnet-xs.ch/', 302);
     }
@@ -74,7 +77,11 @@ export async function onRequest(context) {
     if (url.pathname.startsWith('/hiltbrand')) {
       isHiltbrandPath = true;
       const rest = url.pathname.replace(/^\/hiltbrand/, '');
-      targetPath = `/preview-hiltbrand${rest === '' ? '/' : rest}`;
+      if (rest === '/onboarding' || rest === '/onboarding.html') {
+        targetPath = '/preview-hiltbrand/onboarding.html';
+      } else {
+        targetPath = `/preview-hiltbrand${rest === '' ? '/' : rest}`;
+      }
     } else if (url.pathname.startsWith('/birchmeier')) {
       const rest = url.pathname.replace(/^\/birchmeier/, '');
       targetPath = `/preview-birchmeier${rest === '' ? '/' : rest}`;
@@ -109,6 +116,21 @@ export async function onRequest(context) {
       status: response.status,
       headers: newHeaders
     });
+  }
+
+  // 4. Default: embed.magnet-xs.ch token cookie setting
+  if (url.pathname.startsWith('/preview-hiltbrand')) {
+    const tokenParam = url.searchParams.get('token');
+    const response = await context.next();
+    if (tokenParam) {
+      const newHeaders = new Headers(response.headers);
+      newHeaders.append('Set-Cookie', `hb_preview_token=${tokenParam}; Path=/; Max-Age=86400; SameSite=Lax`);
+      return new Response(response.body, {
+        status: response.status,
+        headers: newHeaders
+      });
+    }
+    return response;
   }
 
   return context.next();
