@@ -525,25 +525,185 @@
       padding: 12px;
       z-index: 1;
     }
-    .team-stage-divider {
+    /* FULL-SCREEN TEAM STUDIO OVERLAY */
+    .team-studio-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 3000;
+      background: var(--bg);
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
+      display: none;
+      flex-direction: column;
+    }
+    .team-studio-overlay.open {
       display: flex;
+    }
+    .team-studio-header {
+      position: sticky;
+      top: 0;
+      z-index: 3010;
+      background: rgba(11, 13, 14, 0.96);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+      padding: 16px 24px;
+    }
+    .team-studio-header-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
       align-items: center;
-      gap: 10px;
-      margin: 14px 0 8px;
-      padding-bottom: 6px;
+      gap: 16px;
+    }
+    .team-studio-body {
+      max-width: 1200px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 32px 24px 120px;
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+    }
+    .studio-infobox {
+      background: rgba(245, 158, 11, 0.06);
+      border: 1px solid rgba(245, 158, 11, 0.28);
+      border-radius: var(--radius-sm);
+      padding: 16px 20px;
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+    }
+    .studio-stage-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      transition: border-color 0.2s;
+    }
+    .studio-stage-card:hover {
+      border-color: rgba(255, 255, 255, 0.15);
+    }
+    .studio-stage-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+      padding-bottom: 16px;
       border-bottom: 1px solid rgba(255, 255, 255, 0.08);
     }
-    .team-stage-title {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 11px;
-      font-weight: 700;
-      color: var(--bernstein);
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
+    .studio-stage-inputs {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      flex: 1;
+      min-width: 260px;
     }
-    .team-stage-desc {
-      font-size: 11.5px;
+    .studio-stage-title-input {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      font-size: 17px;
+      font-weight: 700;
+      color: #fff;
+      background: transparent;
+      border: 1px dashed transparent;
+      border-radius: 4px;
+      padding: 4px 8px;
+      outline: none;
+      width: 100%;
+      transition: all 0.15s ease;
+    }
+    .studio-stage-title-input:hover, .studio-stage-title-input:focus {
+      background: rgba(255, 255, 255, 0.04);
+      border-color: var(--bernstein);
+    }
+    .studio-stage-sub-input {
+      font-size: 13px;
       color: var(--muted);
+      background: transparent;
+      border: 1px dashed transparent;
+      border-radius: 4px;
+      padding: 2px 8px;
+      outline: none;
+      width: 100%;
+    }
+    .studio-stage-sub-input:hover, .studio-stage-sub-input:focus {
+      background: rgba(255, 255, 255, 0.04);
+      border-color: var(--border);
+    }
+    .studio-members-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 16px;
+    }
+    .studio-member-card {
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      position: relative;
+    }
+    .studio-avatar-area {
+      width: 100%;
+      height: 160px;
+      background: #111;
+      border-radius: 4px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .studio-avatar-img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 2;
+    }
+    .studio-monogram-badge {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      font-size: 34px;
+      font-weight: 800;
+      color: var(--bernstein);
+      letter-spacing: 0.05em;
+      background: rgba(245, 158, 11, 0.08);
+      border: 1px solid rgba(245, 158, 11, 0.25);
+      border-radius: 8px;
+      width: 80px;
+      height: 80px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .studio-member-actions {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .studio-del-btn {
+      background: transparent;
+      border: 1px solid rgba(239, 64, 53, 0.3);
+      color: #EF4035;
+      border-radius: 4px;
+      padding: 6px 12px;
+      font-size: 12px;
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+    .studio-del-btn:hover {
+      background: rgba(239, 64, 53, 0.15);
+      border-color: #EF4035;
     }
 
     /* ACTION BAR (STICKY BOTTOM) */
@@ -752,7 +912,15 @@
               <h4>1. Teamseite & Mitarbeiter-Strukturierung</h4>
               <p>Wie möchten Sie Ihr Team online präsentieren?</p>
             </div>
-            <span class="dash-badge-orange" id="badgeTeam">Wahl nötig</span>
+            <span class="dash-badge-green" id="badgeTeam">Aktiv</span>
+          </div>
+
+          <!-- NO-PHOTO AUSWEG BANNER -->
+          <div class="studio-infobox" style="margin-bottom: 12px; background: rgba(245, 158, 11, 0.06); border-color: rgba(245, 158, 11, 0.3);">
+            <span style="font-size: 20px; line-height: 1;">💡</span>
+            <div style="font-size: 12.5px; color: var(--muted); line-height: 1.5;">
+              <strong style="color: #fff;">Noch gar keine Mitarbeiter-Fotos zur Hand?</strong> Kein Problem! Ihre Website kann trotzdem sofort heute live gehen. Wählen Sie <strong>Option C</strong> (vorerst ohne Teamseite starten) oder <strong>Option A</strong> mit reinen Visitenkarten ohne Fotos (WebPilot generiert automatisch edle Schweizer Typo-Monogramme).
+            </div>
           </div>
 
           <div class="radio-tiles">
@@ -765,12 +933,12 @@
               </div>
             </label>
 
-            <!-- OPTION A: VOLLSTÄNDIG -->
+            <!-- OPTION A: VOLLSTÄNDIGES ORGANIGRAMM IM STUDIO -->
             <label class="radio-tile" id="tileTeamA">
               <input type="radio" name="teamMode" value="full" onchange="updateTeamMode()">
               <div class="radio-text">
-                <h5>Option A: Vollständiges 3-Stufen Organigramm</h5>
-                <p>1. Geschäftsleitung & Meister &nbsp;•&nbsp; 2. Projektleitung & Verkauf &nbsp;•&nbsp; 3. Handwerker EFZ & Lernende mit Einzelfotos.</p>
+                <h5>Option A: Vollständiges Organigramm (Im Vollbild-Studio bearbeiten)</h5>
+                <p>Eigene Stufen festlegen (Geschäftsleitung, Projektleitung, Fachkräfte etc.), Mitglieder erfassen, Einzelfotos hochladen oder Typo-Monogramme nutzen.</p>
               </div>
             </label>
 
@@ -796,11 +964,11 @@
                 <input type="file" accept="image/*" id="fileGl" style="display:none" onchange="handleImageUpload(event, 'previewGlImg', 'placeholderGl')">
                 <button type="button" class="preview-btn" onclick="document.getElementById('fileGl').click()" style="justify-content:center;">Foto wählen 📷</button>
                 <input type="text" class="form-input" id="inputGlName" placeholder="Name (z.B. Eljas Hiltbrand)" value="Eljas Hiltbrand">
-                <input type="text" class="form-input" id="inputGlRole" placeholder="Funktion (z.B. Inhaber & Meister)" value="Inhaber & Geschäftsführer">
+                <input type="text" class="form-input" id="inputGlRole" placeholder="Funktion (z.B. Inhaber & Geschäftsführer)" value="Inhaber & Geschäftsführer">
               </div>
 
               <div class="team-upload-box">
-                <span class="form-label">Team-Gruppenfoto</span>
+                <span class="form-label">Team-Gruppenfoto (oder Werkstatt/Flotte)</span>
                 <div class="team-avatar-preview" id="previewCrewWrap">
                   <img src="images/team_alt.jpg" alt="Team Gruppenfoto" id="previewCrewImg" onerror="this.style.display='none'">
                   <span class="avatar-placeholder" id="placeholderCrew">Gruppenfoto hochladen</span>
@@ -812,104 +980,18 @@
             </div>
           </div>
 
-          <!-- BEREICH OPTION A (VOLLSTÄNDIGES 3-STUFEN ORGANIGRAMM) -->
+          <!-- BEREICH OPTION A (VOLLSTÄNDIGES ORGANIGRAMM IM STUDIO) -->
           <div id="teamAreaOptionA" style="display: none; flex-direction: column; gap: 14px; margin-top: 8px;">
-            <!-- STUFE 1 -->
-            <div>
-              <div class="team-stage-divider">
-                <span class="team-stage-title">Stufe 1: Geschäftsleitung & Unternehmensführung</span>
-                <span class="team-stage-desc">Verantwortung & Meisterkompetenz</span>
-              </div>
-              <div class="team-upload-grid">
-                <div class="team-upload-box">
-                  <span class="form-label">Inhaber & Geschäftsführer</span>
-                  <div class="team-avatar-preview">
-                    <img src="images/michael.jpg" alt="Inhaber" id="prevA_gl1" onerror="this.style.display='none'">
-                    <span class="avatar-placeholder">Foto hochladen</span>
-                  </div>
-                  <input type="file" accept="image/*" id="fileA_gl1" style="display:none" onchange="handleImageUpload(event, 'prevA_gl1')">
-                  <button type="button" class="preview-btn" onclick="document.getElementById('fileA_gl1').click()" style="justify-content:center;">Foto wählen 📷</button>
-                  <input type="text" class="form-input" placeholder="Name" value="Eljas Hiltbrand">
-                  <input type="text" class="form-input" placeholder="Funktion" value="Inhaber & Geschäftsführer, Eidg. dipl. Meister HFP">
-                </div>
-                <div class="team-upload-box">
-                  <span class="form-label">Mitgeschäftsführer / Partner</span>
-                  <div class="team-avatar-preview">
-                    <img src="images/stefan.jpg" alt="Mit-GL" id="prevA_gl2" onerror="this.style.display='none'">
-                    <span class="avatar-placeholder">Foto hochladen</span>
-                  </div>
-                  <input type="file" accept="image/*" id="fileA_gl2" style="display:none" onchange="handleImageUpload(event, 'prevA_gl2')">
-                  <button type="button" class="preview-btn" onclick="document.getElementById('fileA_gl2').click()" style="justify-content:center;">Foto wählen 📷</button>
-                  <input type="text" class="form-input" placeholder="Name" value="Benjamin «Benji» Hiltbrand">
-                  <input type="text" class="form-input" placeholder="Funktion" value="Mitgeschäftsführer, Fassadenbau & Solar">
+            <div style="background: rgba(255, 255, 255, 0.03); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 18px; display: flex; flex-direction: column; gap: 14px;">
+              <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 12px;">
+                <div>
+                  <span class="dash-badge-green" id="studioSummaryBadge">3 Stufen konfiguriert</span>
+                  <h5 style="color:#fff; font-size:14.5px; margin-top:6px; font-weight:700;">Mehrstufiges Firmen-Organigramm</h5>
+                  <p style="color:var(--muted); font-size:12.5px; margin-top:2px;" id="studioSummaryText">5 Teammitglieder erfasst (Fotos & Schweizer Monogramme)</p>
                 </div>
               </div>
-            </div>
-
-            <!-- STUFE 2 -->
-            <div>
-              <div class="team-stage-divider">
-                <span class="team-stage-title">Stufe 2: Beratung, Verkauf & Projektleitung</span>
-                <span class="team-stage-desc">Offertwesen & Bauleitung</span>
-              </div>
-              <div class="team-upload-grid">
-                <div class="team-upload-box">
-                  <span class="form-label">Bauführer / Projektleiter</span>
-                  <div class="team-avatar-preview">
-                    <img src="images/vorstellung.jpg" alt="Projektleiter" id="prevA_pl1" onerror="this.style.display='none'">
-                    <span class="avatar-placeholder">Foto hochladen</span>
-                  </div>
-                  <input type="file" accept="image/*" id="fileA_pl1" style="display:none" onchange="handleImageUpload(event, 'prevA_pl1')">
-                  <button type="button" class="preview-btn" onclick="document.getElementById('fileA_pl1').click()" style="justify-content:center;">Foto wählen 📷</button>
-                  <input type="text" class="form-input" placeholder="Name" value="Michael «Mäxu»">
-                  <input type="text" class="form-input" placeholder="Funktion" value="Bauführer & Technische Beratung, Gebäudehülle EFZ">
-                </div>
-                <div class="team-upload-box">
-                  <span class="form-label">Kundenberatung & Administration</span>
-                  <div class="team-avatar-preview">
-                    <img src="" alt="Kundenberatung" id="prevA_kb1" onerror="this.style.display='none'">
-                    <span class="avatar-placeholder">Edles Monogramm [KB]</span>
-                  </div>
-                  <input type="file" accept="image/*" id="fileA_kb1" style="display:none" onchange="handleImageUpload(event, 'prevA_kb1')">
-                  <button type="button" class="preview-btn" onclick="document.getElementById('fileA_kb1').click()" style="justify-content:center;">Foto wählen (oder Monogramm) 📷</button>
-                  <input type="text" class="form-input" placeholder="Name" value="Kundenberatung & Offertwesen">
-                  <input type="text" class="form-input" placeholder="Funktion" value="Offerten & Machbarkeitsprüfungen">
-                </div>
-              </div>
-            </div>
-
-            <!-- STUFE 3 -->
-            <div>
-              <div class="team-stage-divider">
-                <span class="team-stage-title">Stufe 3: Auf der Baustelle & Montage-Team</span>
-                <span class="team-stage-desc">Handwerker EFZ, Fachmonteure & Lernende</span>
-              </div>
-              <div class="team-upload-grid" id="gridStage3">
-                <div class="team-upload-box">
-                  <span class="form-label">Vorarbeiter / Handwerker EFZ</span>
-                  <div class="team-avatar-preview">
-                    <img src="" alt="Vorarbeiter" id="prevA_mb1" onerror="this.style.display='none'">
-                    <span class="avatar-placeholder">Edles Monogramm [SR]</span>
-                  </div>
-                  <input type="file" accept="image/*" id="fileA_mb1" style="display:none" onchange="handleImageUpload(event, 'prevA_mb1')">
-                  <button type="button" class="preview-btn" onclick="document.getElementById('fileA_mb1').click()" style="justify-content:center;">Foto wählen (oder Monogramm) 📷</button>
-                  <input type="text" class="form-input" placeholder="Name" value="Stefan Rubin">
-                  <input type="text" class="form-input" placeholder="Funktion" value="Leiter Steildach, Dachdecker-Vorarbeiter">
-                </div>
-                <div class="team-upload-box">
-                  <span class="form-label">Fachmonteur EFZ</span>
-                  <div class="team-avatar-preview">
-                    <img src="" alt="Fachmonteur" id="prevA_mb2" onerror="this.style.display='none'">
-                    <span class="avatar-placeholder">Edles Monogramm [LZ]</span>
-                  </div>
-                  <input type="file" accept="image/*" id="fileA_mb2" style="display:none" onchange="handleImageUpload(event, 'prevA_mb2')">
-                  <button type="button" class="preview-btn" onclick="document.getElementById('fileA_mb2').click()" style="justify-content:center;">Foto wählen (oder Monogramm) 📷</button>
-                  <input type="text" class="form-input" placeholder="Name" value="Lennart Zerth">
-                  <input type="text" class="form-input" placeholder="Funktion" value="Flachdach-Spezialist, Abdichter EFZ">
-                </div>
-              </div>
-              <button type="button" class="preview-btn" onclick="addStage3Member()" style="margin-top:10px; width:100%; justify-content:center;">
-                + Weiteres Teammitglied hinzufügen
+              <button type="button" class="submit-btn" onclick="openTeamStudio()" style="justify-content: center; width: 100%; padding: 13px; font-size: 14px;">
+                <span>↗ Team im Vollbild-Studio bearbeiten</span>
               </button>
             </div>
           </div>
@@ -1028,6 +1110,55 @@
     </div>
   </div>
 
+  <!-- VOLLBILD TEAM-STUDIO (FULL-SCREEN MODAL) -->
+  <div class="team-studio-overlay" id="teamStudioModal">
+    <div class="team-studio-header">
+      <div class="team-studio-header-inner">
+        <button type="button" class="preview-btn" onclick="closeTeamStudio()">
+          <span>← Zurück zum Cockpit</span>
+        </button>
+        <div style="text-align: center;">
+          <div style="font-family: 'Inter', -apple-system, sans-serif; font-size: 15px; font-weight: 700; color: #fff; letter-spacing: 0.04em;">
+            TEAM-STUDIO: HIERARCHIE &amp; MITARBEITER
+          </div>
+          <div style="display: flex; align-items: center; justify-content: center; gap: 8px; margin-top: 2px;">
+            <span class="dash-badge-green" id="studioLiveBadge">● 3 STUFEN AKTIV</span>
+            <span style="font-size: 11.5px; color: var(--text-dim); font-family: 'JetBrains Mono', monospace;" id="studioMemberCount">5 Personen erfasst</span>
+          </div>
+        </div>
+        <button type="button" class="submit-btn" onclick="saveTeamStudio()" style="padding: 10px 20px; font-size: 13.5px;">
+          <span>✓ Team-Struktur übernehmen</span>
+        </button>
+      </div>
+    </div>
+
+    <div class="team-studio-body">
+      <!-- INFO BANNER: KEINE FOTOS? -->
+      <div class="studio-infobox">
+        <span style="font-size: 24px; line-height: 1;">💡</span>
+        <div style="font-size: 13px; color: var(--muted); line-height: 1.55;">
+          <strong style="color: #fff;">Keine Porträtfotos zur Hand? Kein Problem!</strong><br>
+          Fotos sind rein optional. Für jedes Teammitglied ohne eigenes Foto generiert WebPilot automatisch ein <strong>edles Schweizer Typo-Monogramm</strong> (z. B. <code>[EH]</code> auf dunklem Obsidian-Canvas). Das sieht modern und hochwertig aus (wie bei Schweizer Architekten &amp; Kanzleien) und verhindert jegliche Verzögerung beim Go-Live.
+        </div>
+      </div>
+
+      <!-- CONTAINER FÜR DYNAMISCHE STUFEN -->
+      <div id="studioStagesContainer" style="display: flex; flex-direction: column; gap: 24px;">
+        <!-- Dynamisch befüllt durch renderStudioStages() -->
+      </div>
+
+      <!-- BUTTON NEUE STUFE HINZUFÜGEN -->
+      <div style="text-align: center; margin-top: 10px;">
+        <button type="button" class="preview-btn" onclick="addStudioStage()" style="padding: 14px 28px; font-size: 14px; font-weight: 700; border-style: dashed; width: 100%; max-width: 450px; justify-content: center; margin: 0 auto;">
+          <span>+ Neue Stufe / Abteilung hinzufügen</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- VERSTECKTES STUDIO UPLOAD INPUT -->
+  <input type="file" id="studioFileInput" accept="image/*" style="display:none" onchange="handleStudioImageFile(event)">
+
   <!-- TOAST FEEDBACK -->
   <div class="toast" id="toastMessage">
     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
@@ -1059,6 +1190,316 @@
       }
     };
 
+    // TEAM DATA HIERARCHY STATE
+    let teamData = {
+      stages: [
+        {
+          id: 'stage_gl',
+          title: 'Stufe 1: Geschäftsleitung & Inhaber',
+          subtitle: 'Unternehmensführung & Kundenbetreuung',
+          members: [
+            { id: 'm1', name: 'Eljas Hiltbrand', role: 'Inhaber & Geschäftsführer', photo: 'images/michael.jpg', email: 'info@hiltbrand.swiss' },
+            { id: 'm2', name: 'Benjamin «Benji» Hiltbrand', role: 'Mitgeschäftsführer, Fassadenbau & Solar', photo: 'images/stefan.jpg', email: '' }
+          ]
+        },
+        {
+          id: 'stage_pl',
+          title: 'Stufe 2: Beratung, Verkauf & Projektleitung',
+          subtitle: 'Offertwesen & Bauleitung',
+          members: [
+            { id: 'm3', name: 'Michael «Mäxu»', role: 'Bauführer & Technische Beratung', photo: 'images/vorstellung.jpg', email: '' },
+            { id: 'm4', name: 'Kundenberatung & Administration', role: 'Offerten & Machbarkeitsprüfungen', photo: '', email: '' }
+          ]
+        },
+        {
+          id: 'stage_team',
+          title: 'Stufe 3: Fachkräfte, Ausführung & Lernende',
+          subtitle: 'Handwerker EFZ, Fachmonteure & Spezialisten vor Ort',
+          members: [
+            { id: 'm5', name: 'Stefan Rubin', role: 'Leiter Steildach, Vorarbeiter', photo: '', email: '' },
+            { id: 'm6', name: 'Lennart Zerth', role: 'Flachdach-Spezialist, Abdichter EFZ', photo: '', email: '' }
+          ]
+        }
+      ]
+    };
+
+    let activeUploadTarget = null; // { stageId, memberId }
+
+    function getMonogram(name) {
+      if (!name || !name.trim()) return '●';
+      const clean = name.replace(/«[^»]+»/g, '').replace(/\([^)]+\)/g, '').trim();
+      const parts = clean.split(/\s+/).filter(Boolean);
+      if (parts.length === 0) return '●';
+      if (parts.length === 1) return parts[0].substring(0, 2).toUpperCase();
+      return (parts[0][0] + parts[parts.length - 1][0]).toUpperCase();
+    }
+
+    function openTeamStudio() {
+      document.getElementById('teamStudioModal').classList.add('open');
+      document.body.style.overflow = 'hidden';
+      renderStudioStages();
+    }
+
+    function closeTeamStudio() {
+      document.getElementById('teamStudioModal').classList.remove('open');
+      document.body.style.overflow = '';
+      updateStudioSummary();
+    }
+
+    function saveTeamStudio() {
+      closeTeamStudio();
+      showToast('Team-Struktur erfolgreich übernommen.');
+      recalcScore();
+    }
+
+    function updateStudioSummary() {
+      let totalMembers = 0;
+      let totalPhotos = 0;
+      teamData.stages.forEach(s => {
+        totalMembers += s.members.length;
+        totalPhotos += s.members.filter(m => m.photo).length;
+      });
+
+      const badge = document.getElementById('studioSummaryBadge');
+      const text = document.getElementById('studioSummaryText');
+      const liveBadge = document.getElementById('studioLiveBadge');
+      const memberCount = document.getElementById('studioMemberCount');
+
+      const stageCount = teamData.stages.length;
+      if (badge) badge.textContent = `${stageCount} ${stageCount === 1 ? 'Stufe' : 'Stufen'} konfiguriert`;
+      if (liveBadge) liveBadge.textContent = `● ${stageCount} ${stageCount === 1 ? 'STUFE' : 'STUFEN'} AKTIV`;
+      if (text) text.textContent = `${totalMembers} Teammitglieder erfasst (${totalPhotos} mit Foto, ${totalMembers - totalPhotos} mit Monogramm)`;
+      if (memberCount) memberCount.textContent = `${totalMembers} Personen erfasst`;
+    }
+
+    function renderStudioStages() {
+      const container = document.getElementById('studioStagesContainer');
+      if (!container) return;
+      container.innerHTML = '';
+
+      teamData.stages.forEach((stage) => {
+        const stageCard = document.createElement('div');
+        stageCard.className = 'studio-stage-card';
+
+        // Stage Header
+        const head = document.createElement('div');
+        head.className = 'studio-stage-head';
+        head.innerHTML = `
+          <div class="studio-stage-inputs">
+            <input type="text" class="studio-stage-title-input" value="${escapeHtml(stage.title)}" 
+                   placeholder="Stufen-Titel (z.B. Geschäftsleitung & Inhaber)" 
+                   oninput="updateStageTitle('${stage.id}', this.value)">
+            <input type="text" class="studio-stage-sub-input" value="${escapeHtml(stage.subtitle || '')}" 
+                   placeholder="Untertitel / Beschreibung (z.B. Offertwesen & Kundenberatung)" 
+                   oninput="updateStageSub('${stage.id}', this.value)">
+          </div>
+          <div style="display: flex; gap: 8px; align-items: center;">
+            <button type="button" class="preview-btn" onclick="addMemberToStage('${stage.id}')" style="padding: 7px 14px; font-size: 12.5px;">
+              <span>+ Person hinzufügen</span>
+            </button>
+            ${teamData.stages.length > 1 ? `
+              <button type="button" class="studio-del-btn" onclick="removeStage('${stage.id}')" title="Ganze Stufe löschen">
+                ✕ Stufe löschen
+              </button>
+            ` : ''}
+          </div>
+        `;
+        stageCard.appendChild(head);
+
+        // Members Grid
+        const grid = document.createElement('div');
+        grid.className = 'studio-members-grid';
+
+        stage.members.forEach(member => {
+          const mCard = document.createElement('div');
+          mCard.className = 'studio-member-card';
+
+          const monogram = getMonogram(member.name);
+          const hasPhoto = !!member.photo;
+
+          mCard.innerHTML = `
+            <div class="studio-avatar-area" id="avatarArea_${member.id}">
+              ${hasPhoto ? `<img src="${member.photo}" class="studio-avatar-img" id="img_${member.id}" onerror="handlePhotoError('${stage.id}', '${member.id}')">` : ''}
+              <div class="studio-monogram-badge" id="mono_${member.id}" style="${hasPhoto ? 'display:none;' : ''}">
+                ${monogram}
+              </div>
+            </div>
+
+            <div class="studio-member-actions">
+              <button type="button" class="preview-btn" onclick="triggerStudioUpload('${stage.id}', '${member.id}')" style="padding: 5px 10px; font-size: 11.5px; flex: 1; justify-content: center;">
+                <span>${hasPhoto ? '📷 Foto ändern' : '📷 Foto wählen'}</span>
+              </button>
+              ${hasPhoto ? `
+                <button type="button" class="studio-del-btn" onclick="removeMemberPhoto('${stage.id}', '${member.id}')" title="Foto entfernen und Monogramm nutzen">
+                  Monogramm
+                </button>
+              ` : ''}
+              <button type="button" class="studio-del-btn" onclick="removeMember('${stage.id}', '${member.id}')" title="Person entfernen">
+                ✕
+              </button>
+            </div>
+
+            <div style="display: flex; flex-direction: column; gap: 6px;">
+              <input type="text" class="form-input" style="font-weight: 700; font-size: 13.5px;" 
+                     value="${escapeHtml(member.name)}" placeholder="Name (z.B. Stefan Rubin)" 
+                     oninput="updateMemberField('${stage.id}', '${member.id}', 'name', this.value)">
+              <input type="text" class="form-input" style="font-size: 12.5px; color: var(--muted);" 
+                     value="${escapeHtml(member.role)}" placeholder="Funktion / Rolle" 
+                     oninput="updateMemberField('${stage.id}', '${member.id}', 'role', this.value)">
+              <input type="text" class="form-input" style="font-size: 11.5px; color: var(--text-dim);" 
+                     value="${escapeHtml(member.email || '')}" placeholder="Direktkontakt (optional: Tel / Mail)" 
+                     oninput="updateMemberField('${stage.id}', '${member.id}', 'email', this.value)">
+            </div>
+          `;
+          grid.appendChild(mCard);
+        });
+
+        stageCard.appendChild(grid);
+        container.appendChild(stageCard);
+      });
+
+      updateStudioSummary();
+    }
+
+    function escapeHtml(str) {
+      if (!str) return '';
+      return String(str).replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+    }
+
+    function updateStageTitle(stageId, val) {
+      const s = teamData.stages.find(x => x.id === stageId);
+      if (s) s.title = val;
+    }
+
+    function updateStageSub(stageId, val) {
+      const s = teamData.stages.find(x => x.id === stageId);
+      if (s) s.subtitle = val;
+    }
+
+    function removeStage(stageId) {
+      if (teamData.stages.length <= 1) {
+        showToast('Mindestens eine Stufe muss erhalten bleiben.');
+        return;
+      }
+      teamData.stages = teamData.stages.filter(x => x.id !== stageId);
+      renderStudioStages();
+      showToast('Stufe entfernt.');
+    }
+
+    function addStudioStage() {
+      const num = teamData.stages.length + 1;
+      const newStage = {
+        id: 'stage_' + Date.now(),
+        title: `Stufe ${num}: Neues Team / Abteilung`,
+        subtitle: 'Fachbereich & Aufgaben',
+        members: [
+          { id: 'm_' + Date.now(), name: '', role: '', photo: '', email: '' }
+        ]
+      };
+      teamData.stages.push(newStage);
+      renderStudioStages();
+      showToast('Neue Stufe hinzugefügt.');
+    }
+
+    function updateMemberField(stageId, memberId, field, val) {
+      const s = teamData.stages.find(x => x.id === stageId);
+      if (!s) return;
+      const m = s.members.find(x => x.id === memberId);
+      if (!m) return;
+      m[field] = val;
+
+      if (field === 'name' && !m.photo) {
+        const monoElem = document.getElementById(`mono_${memberId}`);
+        if (monoElem) monoElem.textContent = getMonogram(val);
+      }
+    }
+
+    function removeMember(stageId, memberId) {
+      const s = teamData.stages.find(x => x.id === stageId);
+      if (!s) return;
+      s.members = s.members.filter(x => x.id !== memberId);
+      renderStudioStages();
+    }
+
+    function addMemberToStage(stageId) {
+      const s = teamData.stages.find(x => x.id === stageId);
+      if (!s) return;
+      s.members.push({
+        id: 'm_' + Date.now(),
+        name: '',
+        role: '',
+        photo: '',
+        email: ''
+      });
+      renderStudioStages();
+    }
+
+    function triggerStudioUpload(stageId, memberId) {
+      activeUploadTarget = { stageId, memberId };
+      const fileInput = document.getElementById('studioFileInput');
+      if (fileInput) fileInput.click();
+    }
+
+    function removeMemberPhoto(stageId, memberId) {
+      const s = teamData.stages.find(x => x.id === stageId);
+      if (!s) return;
+      const m = s.members.find(x => x.id === memberId);
+      if (!m) return;
+      m.photo = '';
+      renderStudioStages();
+      showToast('Foto entfernt. Schweizer Monogramm aktiviert.');
+    }
+
+    function handlePhotoError(stageId, memberId) {
+      removeMemberPhoto(stageId, memberId);
+    }
+
+    function handleStudioImageFile(e) {
+      const file = e.target.files[0];
+      if (!file || !activeUploadTarget) return;
+
+      const reader = new FileReader();
+      reader.onload = function(evt) {
+        const img = new Image();
+        img.onload = function() {
+          const canvas = document.createElement('canvas');
+          let width = img.width;
+          let height = img.height;
+          const maxDim = 800; // Kompakt für schnelles Laden & Speicher
+
+          if (width > maxDim || height > maxDim) {
+            if (width > height) {
+              height = Math.round((height * maxDim) / width);
+              width = maxDim;
+            } else {
+              width = Math.round((width * maxDim) / height);
+              height = maxDim;
+            }
+          }
+
+          canvas.width = width;
+          canvas.height = height;
+          const ctx = canvas.getContext('2d');
+          ctx.drawImage(img, 0, 0, width, height);
+
+          const dataUrl = canvas.toDataURL('image/jpeg', 0.84);
+          
+          const s = teamData.stages.find(x => x.id === activeUploadTarget.stageId);
+          if (s) {
+            const m = s.members.find(x => x.id === activeUploadTarget.memberId);
+            if (m) {
+              m.photo = dataUrl;
+            }
+          }
+          renderStudioStages();
+          showToast('Foto optimiert und übernommen.');
+        };
+        img.src = evt.target.result;
+      };
+      reader.readAsDataURL(file);
+      e.target.value = ''; // Reset input
+    }
+
     function updateTeamMode() {
       const mode = document.querySelector('input[name="teamMode"]:checked').value;
       state.enabled_sections.team_mode = mode;
@@ -1085,7 +1526,9 @@
         areaB.style.display = 'none';
         areaC.style.display = 'none';
         badge.className = 'dash-badge-green';
-        badge.textContent = '3-Stufen Organigramm';
+        badge.textContent = 'Organigramm (Studio)';
+        updateStudioSummary();
+        openTeamStudio();
       } else {
         state.enabled_sections.team_page = true;
         areaA.style.display = 'none';
@@ -1095,29 +1538,6 @@
         badge.textContent = 'Chef + Gruppenfoto';
       }
       recalcScore();
-    }
-
-    let extraMemberCount = 2;
-    function addStage3Member() {
-      extraMemberCount++;
-      const id = 'prevA_extra' + extraMemberCount;
-      const fileId = 'fileA_extra' + extraMemberCount;
-      const grid = document.getElementById('gridStage3');
-      const div = document.createElement('div');
-      div.className = 'team-upload-box';
-      div.innerHTML = `
-        <span class="form-label">Teammitglied #${extraMemberCount}</span>
-        <div class="team-avatar-preview">
-          <img src="" alt="Foto" id="${id}" onerror="this.style.display='none'">
-          <span class="avatar-placeholder">Foto (oder Monogramm)</span>
-        </div>
-        <input type="file" accept="image/*" id="${fileId}" style="display:none" onchange="handleImageUpload(event, '${id}')">
-        <button type="button" class="preview-btn" onclick="document.getElementById('${fileId}').click()" style="justify-content:center;">Foto wählen 📷</button>
-        <input type="text" class="form-input" placeholder="Name (z.B. Marco Gerber)">
-        <input type="text" class="form-input" placeholder="Funktion (z.B. Dachdecker EFZ)">
-      `;
-      grid.appendChild(div);
-      showToast('Weiteres Mitglied hinzugefügt.');
     }
 
     function toggleWhatsappOptOut() {
@@ -1295,6 +1715,7 @@
       const submission = {
         timestamp: new Date().toISOString(),
         enabled_sections: state.enabled_sections,
+        team_hierarchy: teamData.stages,
         whatsapp_opt_out: document.getElementById('checkOptOutWhatsapp').checked,
         whatsapp_number: document.getElementById('inputWhatsapp').value.trim(),
         pikett_mode: document.querySelector('input[name="pikettChoice"]:checked').value,
@@ -1320,6 +1741,7 @@
 
     // Initialisierung beim Laden
     window.addEventListener('DOMContentLoaded', () => {
+      updateStudioSummary();
       recalcScore();
     });
   </script>
