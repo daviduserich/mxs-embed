@@ -497,27 +497,53 @@
     }
     .team-avatar-preview {
       width: 100%;
-      height: 140px;
+      height: 150px;
       background: #111;
       border-radius: 4px;
       overflow: hidden;
-      display: flex;
-      align-items: center;
-      justify-content: center;
       border: 1px solid var(--border);
       position: relative;
     }
     .team-avatar-preview img {
+      position: absolute;
+      inset: 0;
       width: 100%;
       height: 100%;
       object-fit: cover;
+      z-index: 2;
     }
     .avatar-placeholder {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       font-family: 'JetBrains Mono', monospace;
       font-size: 11px;
       color: var(--text-dim);
       text-align: center;
-      padding: 8px;
+      padding: 12px;
+      z-index: 1;
+    }
+    .team-stage-divider {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin: 14px 0 8px;
+      padding-bottom: 6px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    .team-stage-title {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--bernstein);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+    .team-stage-desc {
+      font-size: 11.5px;
+      color: var(--muted);
     }
 
     /* ACTION BAR (STICKY BOTTOM) */
@@ -633,7 +659,7 @@
   <section class="progress-hero">
     <div class="container">
       <span class="kicker">● Schneller Mandanten-Go-Live · Swiss Precision</span>
-      <h1 class="hero-title">Ihre neue Website steht zu <span id="heroScoreDisplay" style="color:var(--bernstein);">83%</span> bereit!</h1>
+      <h1 class="hero-title">Ihre neue Website steht zu <span id="heroScoreDisplay" style="color:var(--bernstein);">78%</span> bereit!</h1>
       <p class="hero-desc">
         Wir haben Ihre Daten automatisch aus dem Schweizer Handelsregister (Zefix) und Ihrem bisherigen Webauftritt übernommen. 
         Bitte prüfen Sie kurz die Stammdaten und treffen Sie die 3 markierten Entscheidungen, damit wir die Website final auf die Swiss Edge schalten können.
@@ -646,10 +672,10 @@
             <span class="action-status-dot" id="headerDot"></span>
             <span id="progressText">3 Lücken offen — In 2 Minuten abgeschlossen</span>
           </span>
-          <span class="progress-score" id="scoreNumber">83 / 100%</span>
+          <span class="progress-score" id="scoreNumber">78 / 100%</span>
         </div>
         <div class="progress-track">
-          <div class="progress-fill" id="progressFill" style="width: 83%;"></div>
+          <div class="progress-fill" id="progressFill" style="width: 78%;"></div>
         </div>
       </div>
     </div>
@@ -688,7 +714,7 @@
           </div>
           <div class="field-item">
             <span class="field-key">Haupttelefon</span>
-            <span class="field-val"><a href="tel:+41335300204" id="valPhone">+41 33 530 02 04</a></span>
+            <span class="field-val"><a href="tel:+41335300204" id="valPhone">033 530 02 04</a></span>
           </div>
           <div class="field-item">
             <span class="field-key">E-Mail</span>
@@ -696,7 +722,7 @@
           </div>
           <div class="field-item">
             <span class="field-key">Aktuelle Domain</span>
-            <span class="field-val" id="valDomain">hiltbrand.swiss</span>
+            <span class="field-val" id="valDomain">hiltbrand-ag.ch</span>
           </div>
         </div>
 
@@ -758,14 +784,14 @@
             </label>
           </div>
 
-          <!-- UPLOAD SECTION FÜR OPTION B -->
-          <div id="teamUploadArea" style="display: flex; flex-direction: column; gap: 12px; margin-top: 8px;">
+          <!-- BEREICH OPTION B (CHEF + GRUPPENFOTO - STANDARD) -->
+          <div id="teamAreaOptionB" style="display: flex; flex-direction: column; gap: 12px; margin-top: 8px;">
             <div class="team-upload-grid">
               <div class="team-upload-box">
                 <span class="form-label">Foto Ansprechpartner / Inhaber</span>
                 <div class="team-avatar-preview" id="previewGlWrap">
                   <img src="images/michael.jpg" alt="GL Foto" id="previewGlImg" onerror="this.style.display='none'">
-                  <span class="avatar-placeholder" id="placeholderGl">Foto hochladen (Selfie/Porträt)</span>
+                  <span class="avatar-placeholder" id="placeholderGl">Foto hochladen (Porträt)</span>
                 </div>
                 <input type="file" accept="image/*" id="fileGl" style="display:none" onchange="handleImageUpload(event, 'previewGlImg', 'placeholderGl')">
                 <button type="button" class="preview-btn" onclick="document.getElementById('fileGl').click()" style="justify-content:center;">Foto wählen 📷</button>
@@ -782,6 +808,121 @@
                 <input type="file" accept="image/*" id="fileCrew" style="display:none" onchange="handleImageUpload(event, 'previewCrewImg', 'placeholderCrew')">
                 <button type="button" class="preview-btn" onclick="document.getElementById('fileCrew').click()" style="justify-content:center;">Foto wählen 📷</button>
                 <input type="text" class="form-input" id="inputCrewText" placeholder="Claim (z.B. 15 Spezialisten für Ihre Gebäudehülle)" value="15 Spezialisten für Ihre Gebäudehülle">
+              </div>
+            </div>
+          </div>
+
+          <!-- BEREICH OPTION A (VOLLSTÄNDIGES 3-STUFEN ORGANIGRAMM) -->
+          <div id="teamAreaOptionA" style="display: none; flex-direction: column; gap: 14px; margin-top: 8px;">
+            <!-- STUFE 1 -->
+            <div>
+              <div class="team-stage-divider">
+                <span class="team-stage-title">Stufe 1: Geschäftsleitung & Unternehmensführung</span>
+                <span class="team-stage-desc">Verantwortung & Meisterkompetenz</span>
+              </div>
+              <div class="team-upload-grid">
+                <div class="team-upload-box">
+                  <span class="form-label">Inhaber & Geschäftsführer</span>
+                  <div class="team-avatar-preview">
+                    <img src="images/michael.jpg" alt="Inhaber" id="prevA_gl1" onerror="this.style.display='none'">
+                    <span class="avatar-placeholder">Foto hochladen</span>
+                  </div>
+                  <input type="file" accept="image/*" id="fileA_gl1" style="display:none" onchange="handleImageUpload(event, 'prevA_gl1')">
+                  <button type="button" class="preview-btn" onclick="document.getElementById('fileA_gl1').click()" style="justify-content:center;">Foto wählen 📷</button>
+                  <input type="text" class="form-input" placeholder="Name" value="Eljas Hiltbrand">
+                  <input type="text" class="form-input" placeholder="Funktion" value="Inhaber & Geschäftsführer, Eidg. dipl. Meister HFP">
+                </div>
+                <div class="team-upload-box">
+                  <span class="form-label">Mitgeschäftsführer / Partner</span>
+                  <div class="team-avatar-preview">
+                    <img src="images/stefan.jpg" alt="Mit-GL" id="prevA_gl2" onerror="this.style.display='none'">
+                    <span class="avatar-placeholder">Foto hochladen</span>
+                  </div>
+                  <input type="file" accept="image/*" id="fileA_gl2" style="display:none" onchange="handleImageUpload(event, 'prevA_gl2')">
+                  <button type="button" class="preview-btn" onclick="document.getElementById('fileA_gl2').click()" style="justify-content:center;">Foto wählen 📷</button>
+                  <input type="text" class="form-input" placeholder="Name" value="Benjamin «Benji» Hiltbrand">
+                  <input type="text" class="form-input" placeholder="Funktion" value="Mitgeschäftsführer, Fassadenbau & Solar">
+                </div>
+              </div>
+            </div>
+
+            <!-- STUFE 2 -->
+            <div>
+              <div class="team-stage-divider">
+                <span class="team-stage-title">Stufe 2: Beratung, Verkauf & Projektleitung</span>
+                <span class="team-stage-desc">Offertwesen & Bauleitung</span>
+              </div>
+              <div class="team-upload-grid">
+                <div class="team-upload-box">
+                  <span class="form-label">Bauführer / Projektleiter</span>
+                  <div class="team-avatar-preview">
+                    <img src="images/vorstellung.jpg" alt="Projektleiter" id="prevA_pl1" onerror="this.style.display='none'">
+                    <span class="avatar-placeholder">Foto hochladen</span>
+                  </div>
+                  <input type="file" accept="image/*" id="fileA_pl1" style="display:none" onchange="handleImageUpload(event, 'prevA_pl1')">
+                  <button type="button" class="preview-btn" onclick="document.getElementById('fileA_pl1').click()" style="justify-content:center;">Foto wählen 📷</button>
+                  <input type="text" class="form-input" placeholder="Name" value="Michael «Mäxu»">
+                  <input type="text" class="form-input" placeholder="Funktion" value="Bauführer & Technische Beratung, Gebäudehülle EFZ">
+                </div>
+                <div class="team-upload-box">
+                  <span class="form-label">Kundenberatung & Administration</span>
+                  <div class="team-avatar-preview">
+                    <img src="" alt="Kundenberatung" id="prevA_kb1" onerror="this.style.display='none'">
+                    <span class="avatar-placeholder">Edles Monogramm [KB]</span>
+                  </div>
+                  <input type="file" accept="image/*" id="fileA_kb1" style="display:none" onchange="handleImageUpload(event, 'prevA_kb1')">
+                  <button type="button" class="preview-btn" onclick="document.getElementById('fileA_kb1').click()" style="justify-content:center;">Foto wählen (oder Monogramm) 📷</button>
+                  <input type="text" class="form-input" placeholder="Name" value="Kundenberatung & Offertwesen">
+                  <input type="text" class="form-input" placeholder="Funktion" value="Offerten & Machbarkeitsprüfungen">
+                </div>
+              </div>
+            </div>
+
+            <!-- STUFE 3 -->
+            <div>
+              <div class="team-stage-divider">
+                <span class="team-stage-title">Stufe 3: Auf der Baustelle & Montage-Team</span>
+                <span class="team-stage-desc">Handwerker EFZ, Fachmonteure & Lernende</span>
+              </div>
+              <div class="team-upload-grid" id="gridStage3">
+                <div class="team-upload-box">
+                  <span class="form-label">Vorarbeiter / Handwerker EFZ</span>
+                  <div class="team-avatar-preview">
+                    <img src="" alt="Vorarbeiter" id="prevA_mb1" onerror="this.style.display='none'">
+                    <span class="avatar-placeholder">Edles Monogramm [SR]</span>
+                  </div>
+                  <input type="file" accept="image/*" id="fileA_mb1" style="display:none" onchange="handleImageUpload(event, 'prevA_mb1')">
+                  <button type="button" class="preview-btn" onclick="document.getElementById('fileA_mb1').click()" style="justify-content:center;">Foto wählen (oder Monogramm) 📷</button>
+                  <input type="text" class="form-input" placeholder="Name" value="Stefan Rubin">
+                  <input type="text" class="form-input" placeholder="Funktion" value="Leiter Steildach, Dachdecker-Vorarbeiter">
+                </div>
+                <div class="team-upload-box">
+                  <span class="form-label">Fachmonteur EFZ</span>
+                  <div class="team-avatar-preview">
+                    <img src="" alt="Fachmonteur" id="prevA_mb2" onerror="this.style.display='none'">
+                    <span class="avatar-placeholder">Edles Monogramm [LZ]</span>
+                  </div>
+                  <input type="file" accept="image/*" id="fileA_mb2" style="display:none" onchange="handleImageUpload(event, 'prevA_mb2')">
+                  <button type="button" class="preview-btn" onclick="document.getElementById('fileA_mb2').click()" style="justify-content:center;">Foto wählen (oder Monogramm) 📷</button>
+                  <input type="text" class="form-input" placeholder="Name" value="Lennart Zerth">
+                  <input type="text" class="form-input" placeholder="Funktion" value="Flachdach-Spezialist, Abdichter EFZ">
+                </div>
+              </div>
+              <button type="button" class="preview-btn" onclick="addStage3Member()" style="margin-top:10px; width:100%; justify-content:center;">
+                + Weiteres Teammitglied hinzufügen
+              </button>
+            </div>
+          </div>
+
+          <!-- BEREICH OPTION C (VORERST OHNE TEAMSEITE STARTEN) -->
+          <div id="teamAreaOptionC" style="display: none; margin-top: 8px;">
+            <div style="background: rgba(16, 185, 129, 0.08); border: 1px solid rgba(16, 185, 129, 0.3); border-radius: var(--radius-sm); padding: 16px; display: flex; gap: 12px; align-items: flex-start;">
+              <span style="font-size: 22px; line-height: 1;">✅</span>
+              <div>
+                <div style="font-weight: 700; color: #34D399; font-size: 14px; margin-bottom: 4px;">Website startet vorerst ohne Teamseite</div>
+                <p style="font-size: 12.5px; color: var(--muted); line-height: 1.55;">
+                  Die Teamseite wird in Navigation und Footer automatisch ausgeblendet. Auf der Startseite und unter «Über uns» erscheint Ihr starker Vertrauenstext (z. B. <em>«Meisterbetrieb in 3. Generation – ein eingespieltes Schweizer Team aus Fachkräften und Lernenden»</em>). Keine Mitarbeiterfotos nötig — <strong>100% Bereit für den Go-Live!</strong>
+                </p>
               </div>
             </div>
           </div>
@@ -831,7 +972,7 @@
               <input type="radio" name="pikettChoice" value="no" checked onchange="updatePikettChoice()">
               <div class="radio-text">
                 <h5>Nein, reguläre Bürozeiten (kein 24h-Notfalldienst)</h5>
-                <p>Es werden keine 24h-Pikett-Badges geschaltet. Anfragen werden für die normalen Arbeitszeiten entgegengenommen.</p>
+                <p>Es werden keine Notdienst-Badges geschaltet. Anfragen werden für die normalen Arbeitszeiten entgegengenommen.</p>
               </div>
             </label>
           </div>
@@ -911,10 +1052,10 @@
         street: "Risegasse 27",
         zip: "3704",
         city: "Krattigen",
-        phone: "+41 33 530 02 04",
+        phone: "033 530 02 04",
         email: "info@hiltbrand.swiss",
         whatsapp: "079 231 84 84",
-        website: "https://hiltbrand.swiss"
+        website: "https://hiltbrand-ag.ch"
       }
     };
 
@@ -926,21 +1067,57 @@
       document.getElementById('tileTeamB').classList.toggle('active', mode === 'gl_only_group');
       document.getElementById('tileTeamC').classList.toggle('active', mode === 'none');
 
-      const uploadArea = document.getElementById('teamUploadArea');
+      const areaA = document.getElementById('teamAreaOptionA');
+      const areaB = document.getElementById('teamAreaOptionB');
+      const areaC = document.getElementById('teamAreaOptionC');
       const badge = document.getElementById('badgeTeam');
 
       if (mode === 'none') {
         state.enabled_sections.team_page = false;
-        uploadArea.style.display = 'none';
+        areaA.style.display = 'none';
+        areaB.style.display = 'none';
+        areaC.style.display = 'block';
         badge.className = 'dash-badge-green';
-        badge.textContent = 'Deaktiviert (100%)';
+        badge.textContent = 'Ohne Team (100%)';
+      } else if (mode === 'full') {
+        state.enabled_sections.team_page = true;
+        areaA.style.display = 'flex';
+        areaB.style.display = 'none';
+        areaC.style.display = 'none';
+        badge.className = 'dash-badge-green';
+        badge.textContent = '3-Stufen Organigramm';
       } else {
         state.enabled_sections.team_page = true;
-        uploadArea.style.display = 'flex';
+        areaA.style.display = 'none';
+        areaB.style.display = 'flex';
+        areaC.style.display = 'none';
         badge.className = 'dash-badge-green';
-        badge.textContent = 'Bereit';
+        badge.textContent = 'Chef + Gruppenfoto';
       }
       recalcScore();
+    }
+
+    let extraMemberCount = 2;
+    function addStage3Member() {
+      extraMemberCount++;
+      const id = 'prevA_extra' + extraMemberCount;
+      const fileId = 'fileA_extra' + extraMemberCount;
+      const grid = document.getElementById('gridStage3');
+      const div = document.createElement('div');
+      div.className = 'team-upload-box';
+      div.innerHTML = `
+        <span class="form-label">Teammitglied #${extraMemberCount}</span>
+        <div class="team-avatar-preview">
+          <img src="" alt="Foto" id="${id}" onerror="this.style.display='none'">
+          <span class="avatar-placeholder">Foto (oder Monogramm)</span>
+        </div>
+        <input type="file" accept="image/*" id="${fileId}" style="display:none" onchange="handleImageUpload(event, '${id}')">
+        <button type="button" class="preview-btn" onclick="document.getElementById('${fileId}').click()" style="justify-content:center;">Foto wählen 📷</button>
+        <input type="text" class="form-input" placeholder="Name (z.B. Marco Gerber)">
+        <input type="text" class="form-input" placeholder="Funktion (z.B. Dachdecker EFZ)">
+      `;
+      grid.appendChild(div);
+      showToast('Weiteres Mitglied hinzugefügt.');
     }
 
     function toggleWhatsappOptOut() {
