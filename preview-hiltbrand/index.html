@@ -537,8 +537,6 @@
       .floating-actions { display: none !important; }
       .footer-inner { grid-template-columns: 1.3fr 1fr 1.25fr 1fr; gap: 40px; }
       .footer-bottom { padding-bottom: 28px; }
-      .stories-slider-wrap { padding: 0 54px; }
-      .stories-arrow-btn { display: inline-flex; }
     }
 
     /* INDEX SPECIFIC STYLES */
@@ -686,59 +684,20 @@
     }
     .stories-slider-wrap {
       position: relative;
-      width: 100%;
+      width: calc(100% + 40px);
+      margin-left: -20px;
+      margin-right: -20px;
+      padding: 0;
     }
     .stories-arrow-btn {
-      display: none;
-      position: absolute;
-      top: 100px;
-      transform: translateY(-50%);
-      width: 42px;
-      height: 42px;
-      border-radius: 4px;
-      border: 1px solid var(--border);
-      background: rgba(255, 255, 255, 0.96);
-      backdrop-filter: blur(8px);
-      -webkit-backdrop-filter: blur(8px);
-      color: var(--anthrazit);
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      z-index: 25;
-      transition: all 0.18s cubic-bezier(0.16, 1, 0.3, 1);
-      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12), 0 1px 3px rgba(0, 0, 0, 0.08);
-    }
-    .stories-arrow-btn:hover {
-      border-color: var(--primary);
-      color: var(--primary);
-      background: #ffffff;
-      transform: translateY(-50%) scale(1.06);
-      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.16);
-    }
-    .stories-arrow-btn:active {
-      transform: translateY(-50%) scale(0.96);
-    }
-    .stories-arrow-prev {
-      left: 0;
-    }
-    .stories-arrow-next {
-      right: 0;
-    }
-
-    @media (min-width: 860px) {
-      .stories-slider-wrap {
-        padding: 0 54px;
-      }
-      .stories-arrow-btn {
-        display: inline-flex;
-      }
+      display: none !important;
     }
 
     .stories-scroll {
       display: flex;
       overflow-x: auto;
-      gap: 20px;
-      padding-bottom: 12px;
+      gap: 16px;
+      padding: 4px 20px 20px 20px;
       -webkit-overflow-scrolling: touch;
       scrollbar-width: none;
       scroll-snap-type: x mandatory;
@@ -747,9 +706,9 @@
     .stories-scroll::-webkit-scrollbar { display: none; }
     
     .story-card {
-      flex: 0 0 85%;
-      min-width: 280px;
-      max-width: 320px;
+      flex: 0 0 76%;
+      min-width: 250px;
+      max-width: 290px;
       scroll-snap-align: start;
       background: #ffffff;
       border: 1px solid var(--border);
@@ -967,18 +926,31 @@
       .hero-actions { flex-direction: row; }
       .btn-cta { width: auto; }
       .hero-media { height: 100%; min-height: 400px; }
+      .stories-slider-wrap {
+        width: 100%;
+        margin-left: 0;
+        margin-right: 0;
+        padding: 0;
+      }
+      .stories-arrow-btn {
+        display: none !important;
+      }
       .stories-scroll {
-        display: flex;
-        overflow-x: auto;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
         gap: 24px;
-        scroll-snap-type: x mandatory;
-        padding-bottom: 12px;
+        overflow-x: visible;
+        padding: 0;
+        scroll-snap-type: none;
       }
       .story-card {
-        flex: 0 0 calc((100% - 48px) / 3);
-        min-width: calc((100% - 48px) / 3);
-        max-width: calc((100% - 48px) / 3);
-        scroll-snap-align: start;
+        flex: none;
+        min-width: 0;
+        max-width: none;
+        width: 100%;
+      }
+      .story-card:nth-child(n+4) {
+        display: none !important;
       }
       .service-cards {
         grid-template-columns: repeat(3, 1fr);
@@ -1154,8 +1126,7 @@
     </div>
   </section>
 
-  <!-- STORIES & SOCIAL LIVE CAROUSEL (ECHTE PROJEKTE AUS ACP) -->
-    <!-- STORIES & PROJEKTE SEKTION (ACP LIVE-SYNC) -->
+  <!-- STORIES & PROJEKTE SEKTION (ACP LIVE-SYNC) -->
     <!-- STORIES & PROJEKTE SEKTION (ACP LIVE-SYNC) -->
     <!-- STORIES & PROJEKTE SEKTION (ACP LIVE-SYNC) -->
   <section class="section-wrap" data-section="stories" id="stories" style="background:var(--surface);">
@@ -1168,13 +1139,9 @@
 
       <!-- CAROUSEL SLIDER WRAP -->
       <div class="stories-slider-wrap">
-        <button class="stories-arrow-btn stories-arrow-prev" onclick="scrollStories(-1)" aria-label="Vorheriges Projekt">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
-        </button>
-
-      <!-- CAROUSEL TRACK -->
-      <div class="stories-scroll" id="storiesContainer">
-        
+        <!-- CAROUSEL TRACK -->
+        <div class="stories-scroll" id="storiesContainer">
+          
         <!-- PROJEKT 1: PROJEKT THUNERSEE -->
         <div class="story-card">
           <div class="story-img-wrap">
@@ -1251,11 +1218,7 @@
           </div>
         </div>
 
-      </div>
-
-        <button class="stories-arrow-btn stories-arrow-next" onclick="scrollStories(1)" aria-label="Nächstes Projekt">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
-        </button>
+        </div>
       </div>
     </div>
   </section>
@@ -1428,39 +1391,6 @@
       var d = document.getElementById('navDrawer');
       if (d) d.classList.toggle('open');
     }
-
-    function scrollStories(dir) {
-      var c = document.getElementById('storiesContainer');
-      if (c) {
-        var card = c.querySelector('.story-card');
-        var scrollAmount = card ? (card.offsetWidth + 24) : 340;
-        c.scrollBy({ left: dir * scrollAmount, behavior: 'smooth' });
-        setTimeout(updateStoryArrows, 320);
-      }
-    }
-
-    function updateStoryArrows() {
-      var c = document.getElementById('storiesContainer');
-      var prev = document.querySelector('.stories-arrow-prev');
-      var next = document.querySelector('.stories-arrow-next');
-      if (!c || !prev || !next) return;
-      var atStart = c.scrollLeft <= 8;
-      var atEnd = Math.ceil(c.scrollLeft + c.clientWidth) >= (c.scrollWidth - 8);
-      prev.style.opacity = atStart ? '0.25' : '1';
-      prev.style.pointerEvents = atStart ? 'none' : 'auto';
-      next.style.opacity = atEnd ? '0.25' : '1';
-      next.style.pointerEvents = atEnd ? 'none' : 'auto';
-    }
-
-    document.addEventListener('DOMContentLoaded', function() {
-      var c = document.getElementById('storiesContainer');
-      if (c) {
-        c.addEventListener('scroll', updateStoryArrows, { passive: true });
-        updateStoryArrows();
-      }
-    });
-    window.addEventListener('resize', updateStoryArrows);
-    setTimeout(updateStoryArrows, 200);
   </script>
 </body>
 </html>
