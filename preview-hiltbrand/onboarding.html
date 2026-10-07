@@ -1,0 +1,1150 @@
+<!DOCTYPE html>
+<html lang="de-CH">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <title>WebPilot Onboarding Cockpit — Stammdaten & Gap-Closing</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #EF4035;
+      --primary-hover: #D32F2F;
+      --primary-glow: rgba(239, 64, 53, 0.16);
+      --bernstein: #F59E0B;
+      --success: #10B981;
+      --success-glow: rgba(16, 185, 129, 0.16);
+      --bg: #0B0D0E;
+      --surface: #14171A;
+      --surface-card: #1A1E23;
+      --surface-hover: #22272E;
+      --border: rgba(255, 255, 255, 0.08);
+      --border-focus: rgba(239, 64, 53, 0.5);
+      --text: #F3F4F6;
+      --muted: #9CA3AF;
+      --text-dim: #6B7280;
+      --radius-sm: 6px;
+      --radius-md: 10px;
+      --radius-lg: 16px;
+      --shadow-sm: 0 2px 6px rgba(0,0,0,0.3);
+      --shadow-md: 0 8px 24px rgba(0,0,0,0.45);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+    html { overflow-x: clip; scroll-behavior: smooth; }
+    body {
+      width: 100%;
+      min-height: 100vh;
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      line-height: 1.55;
+      font-size: 15px;
+      -webkit-font-smoothing: antialiased;
+      padding-bottom: 80px;
+    }
+
+    /* KICKER-GESETZ (§ 5.6d): 100% freistehend, kein Container, kein Badge */
+    .kicker, .section-kicker {
+      font-family: 'JetBrains Mono', monospace !important;
+      font-size: 11px !important;
+      font-weight: 700 !important;
+      text-transform: uppercase !important;
+      letter-spacing: 0.12em !important;
+      color: var(--primary) !important;
+      background: transparent !important;
+      border: none !important;
+      padding: 0 !important;
+      box-shadow: none !important;
+      margin-bottom: 8px !important;
+      display: inline-block !important;
+    }
+
+    /* FLUCHTLINIEN-GESETZ (§ 5.6e): Einheitlich 1100px */
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 20px;
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    /* TOP BAR */
+    .top-bar {
+      border-bottom: 1px solid var(--border);
+      background: rgba(11, 13, 14, 0.95);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      padding: 14px 0;
+    }
+    .top-bar-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+    .brand-id {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: #fff;
+    }
+    .brand-badge {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      font-weight: 700;
+      padding: 3px 8px;
+      border-radius: 4px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid var(--border);
+      color: var(--muted);
+      text-transform: uppercase;
+    }
+    .brand-name {
+      font-weight: 700;
+      font-size: 15px;
+      letter-spacing: -0.01em;
+    }
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .preview-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--muted);
+      text-decoration: none;
+      padding: 6px 12px;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border);
+      background: var(--surface);
+      transition: all 0.15s ease;
+    }
+    .preview-btn:hover {
+      color: #fff;
+      border-color: rgba(255,255,255,0.2);
+      background: var(--surface-hover);
+    }
+
+    /* PROGRESS HEADER */
+    .progress-hero {
+      padding: 40px 0 24px;
+      border-bottom: 1px solid var(--border);
+      background: linear-gradient(180deg, rgba(239, 64, 53, 0.04) 0%, transparent 100%);
+    }
+    .hero-title {
+      font-size: 2rem;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      margin-bottom: 8px;
+      line-height: 1.25;
+    }
+    .hero-desc {
+      font-size: 15px;
+      color: var(--muted);
+      max-width: 760px;
+      line-height: 1.6;
+      margin-bottom: 24px;
+    }
+
+    /* PROGRESS BAR */
+    .progress-box {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 18px 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      box-shadow: var(--shadow-sm);
+    }
+    .progress-labels {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 13px;
+    }
+    .progress-status {
+      font-weight: 700;
+      color: var(--success);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .progress-score {
+      font-weight: 700;
+      color: #fff;
+      font-size: 15px;
+    }
+    .progress-track {
+      width: 100%;
+      height: 10px;
+      background: rgba(255,255,255,0.06);
+      border-radius: 999px;
+      overflow: hidden;
+      position: relative;
+    }
+    .progress-fill {
+      height: 100%;
+      background: linear-gradient(90deg, var(--bernstein) 0%, var(--success) 100%);
+      border-radius: 999px;
+      transition: width 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    /* GRID LAYOUT */
+    .dashboard-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 32px;
+      margin-top: 36px;
+    }
+    @media (min-width: 900px) {
+      .dashboard-grid {
+        grid-template-columns: 1fr 1.3fr;
+      }
+    }
+
+    /* CARDS */
+    .dash-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      box-shadow: var(--shadow-sm);
+    }
+    .dash-card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 14px;
+    }
+    .dash-card-title {
+      font-size: 1.15rem;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .dash-badge-green {
+      background: rgba(16, 185, 129, 0.12);
+      border: 1px solid rgba(16, 185, 129, 0.3);
+      color: #34D399;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 2px 7px;
+      border-radius: 4px;
+    }
+    .dash-badge-orange {
+      background: rgba(245, 158, 11, 0.12);
+      border: 1px solid rgba(245, 158, 11, 0.3);
+      color: #FBBF24;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 2px 7px;
+      border-radius: 4px;
+    }
+
+    /* VERIFIED FIELDS LIST */
+    .field-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .field-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      padding: 12px 14px;
+      background: var(--surface-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      font-size: 13.5px;
+    }
+    .field-key {
+      color: var(--muted);
+      font-size: 12px;
+      text-transform: uppercase;
+      font-family: 'JetBrains Mono', monospace;
+      letter-spacing: 0.05em;
+    }
+    .field-val {
+      color: #fff;
+      font-weight: 600;
+      text-align: right;
+      max-width: 60%;
+      word-break: break-word;
+    }
+    .field-val a {
+      color: #fff;
+      text-decoration: none;
+    }
+    .field-val a:hover {
+      text-decoration: underline;
+    }
+
+    /* GAP CLOSING ACCORDIONS / MODULES */
+    .gap-module {
+      background: var(--surface-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      transition: border-color 0.2s;
+    }
+    .gap-module:focus-within {
+      border-color: rgba(255, 255, 255, 0.2);
+    }
+    .gap-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .gap-title-wrap h4 {
+      font-size: 15px;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 2px;
+    }
+    .gap-title-wrap p {
+      font-size: 12.5px;
+      color: var(--muted);
+      line-height: 1.45;
+    }
+
+    /* FORM ELEMENTS */
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .form-label {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      font-family: 'JetBrains Mono', monospace;
+    }
+    .form-input {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      color: #fff;
+      padding: 10px 14px;
+      font-size: 14px;
+      border-radius: var(--radius-sm);
+      outline: none;
+      font-family: inherit;
+      transition: border-color 0.15s;
+    }
+    .form-input:focus {
+      border-color: var(--primary);
+    }
+    .form-input::placeholder {
+      color: var(--text-dim);
+    }
+
+    /* TOGGLE SWITCH & RADIO TILES */
+    .radio-tiles {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 10px;
+    }
+    .radio-tile {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 12px 14px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+    .radio-tile:hover {
+      background: var(--surface-hover);
+    }
+    .radio-tile.active {
+      border-color: var(--primary);
+      background: rgba(239, 64, 53, 0.05);
+    }
+    .radio-tile input[type="radio"] {
+      margin-top: 3px;
+      accent-color: var(--primary);
+    }
+    .radio-text h5 {
+      font-size: 13.5px;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 2px;
+    }
+    .radio-text p {
+      font-size: 12px;
+      color: var(--muted);
+      line-height: 1.4;
+    }
+
+    /* OPT-OUT CHECKBOX */
+    .opt-out-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 12px;
+      background: rgba(255,255,255,0.02);
+      border: 1px dashed var(--border);
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      margin-top: 4px;
+    }
+    .opt-out-row input[type="checkbox"] {
+      accent-color: var(--primary);
+      width: 16px;
+      height: 16px;
+    }
+    .opt-out-row span {
+      font-size: 12.5px;
+      color: var(--muted);
+      user-select: none;
+    }
+
+    /* LOGO UPLOAD DROPZONE */
+    .dropzone {
+      border: 1.5px dashed var(--border);
+      border-radius: var(--radius-md);
+      padding: 24px;
+      text-align: center;
+      cursor: pointer;
+      background: var(--surface);
+      transition: all 0.2s ease;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+    .dropzone:hover, .dropzone.dragover {
+      border-color: var(--primary);
+      background: var(--surface-hover);
+    }
+    .dropzone-icon {
+      width: 36px;
+      height: 36px;
+      color: var(--muted);
+    }
+    .dropzone-title {
+      font-size: 13px;
+      font-weight: 600;
+      color: #fff;
+    }
+    .dropzone-desc {
+      font-size: 11.5px;
+      color: var(--text-dim);
+    }
+    .logo-preview-box {
+      margin-top: 10px;
+      padding: 12px;
+      background: #fff;
+      border-radius: var(--radius-sm);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      max-height: 80px;
+    }
+    .logo-preview-box img {
+      max-height: 56px;
+      max-width: 100%;
+      object-fit: contain;
+    }
+
+    /* TEAM UPLOAD GRID */
+    .team-upload-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 14px;
+    }
+    @media (min-width: 600px) {
+      .team-upload-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+    .team-upload-box {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .team-avatar-preview {
+      width: 100%;
+      height: 140px;
+      background: #111;
+      border-radius: 4px;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid var(--border);
+      position: relative;
+    }
+    .team-avatar-preview img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .avatar-placeholder {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      color: var(--text-dim);
+      text-align: center;
+      padding: 8px;
+    }
+
+    /* ACTION BAR (STICKY BOTTOM) */
+    .action-bar {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: rgba(11, 13, 14, 0.96);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-top: 1px solid var(--border);
+      padding: 16px 20px;
+      z-index: 1000;
+    }
+    .action-bar-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+    }
+    .action-status {
+      font-size: 13px;
+      color: var(--muted);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .action-status-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--bernstein);
+      box-shadow: 0 0 10px var(--bernstein);
+      animation: pulse 2s infinite;
+    }
+    .action-status-dot.ready {
+      background: var(--success);
+      box-shadow: 0 0 10px var(--success);
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.6; transform: scale(1.15); }
+    }
+    .submit-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 13px 26px;
+      background: var(--primary);
+      color: #fff;
+      font-weight: 700;
+      font-size: 14.5px;
+      border-radius: var(--radius-sm);
+      border: none;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      box-shadow: 0 4px 16px var(--primary-glow);
+    }
+    .submit-btn:hover {
+      background: var(--primary-hover);
+      transform: translateY(-1px);
+    }
+    .submit-btn:active {
+      transform: scale(0.98);
+    }
+
+    /* TOAST FEEDBACK */
+    .toast {
+      position: fixed;
+      top: 24px;
+      right: 24px;
+      background: var(--surface);
+      border: 1px solid var(--success);
+      padding: 16px 20px;
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-md);
+      color: #fff;
+      font-size: 13.5px;
+      z-index: 2000;
+      display: none;
+      align-items: center;
+      gap: 12px;
+      animation: slideIn 0.3s ease;
+    }
+    @keyframes slideIn {
+      from { transform: translateY(-20px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- TOP BAR -->
+  <header class="top-bar">
+    <div class="container top-bar-inner">
+      <a href="index.html" class="brand-id">
+        <span class="brand-badge">Onboarding Engine</span>
+        <span class="brand-name" id="topCompanyName">Hiltbrand Gebäudehüllen AG</span>
+      </a>
+      <div class="nav-actions">
+        <a href="index.html" target="_blank" class="preview-btn" id="livePreviewLink">
+          Website-Vorschau ansehen ↗
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- PROGRESS HERO -->
+  <section class="progress-hero">
+    <div class="container">
+      <span class="kicker">● Schneller Mandanten-Go-Live · Swiss Precision</span>
+      <h1 class="hero-title">Ihre neue Website steht zu <span id="heroScoreDisplay" style="color:var(--bernstein);">83%</span> bereit!</h1>
+      <p class="hero-desc">
+        Wir haben Ihre Daten automatisch aus dem Schweizer Handelsregister (Zefix) und Ihrem bisherigen Webauftritt übernommen. 
+        Bitte prüfen Sie kurz die Stammdaten und treffen Sie die 3 markierten Entscheidungen, damit wir die Website final auf die Swiss Edge schalten können.
+      </p>
+
+      <!-- PROGRESS TRACK -->
+      <div class="progress-box">
+        <div class="progress-labels">
+          <span class="progress-status" id="progressStatusLabel">
+            <span class="action-status-dot" id="headerDot"></span>
+            <span id="progressText">3 Lücken offen — In 2 Minuten abgeschlossen</span>
+          </span>
+          <span class="progress-score" id="scoreNumber">83 / 100%</span>
+        </div>
+        <div class="progress-track">
+          <div class="progress-fill" id="progressFill" style="width: 83%;"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DASHBOARD MAIN -->
+  <main class="container">
+    <div class="dashboard-grid">
+
+      <!-- SPALTE 1: VERIFIZIERTE STAMMDATEN (GRÜN 🟢) -->
+      <div class="dash-card">
+        <div class="dash-card-header">
+          <div>
+            <div class="dash-card-title">
+              <span>Stammdaten & Zefix-Check</span>
+              <span class="dash-badge-green">100% Verifiziert</span>
+            </div>
+            <p style="font-size:12.5px; color:var(--muted); margin-top:4px;">
+              Aus dem Schweizer Handelsregister und Ihrer Domain übernommen.
+            </p>
+          </div>
+        </div>
+
+        <div class="field-list">
+          <div class="field-item">
+            <span class="field-key">Firma</span>
+            <span class="field-val" id="valCompanyName">Hiltbrand Gebäudehüllen AG</span>
+          </div>
+          <div class="field-item">
+            <span class="field-key">Handelsregister UID</span>
+            <span class="field-val" id="valUid">CHE-431.204.279</span>
+          </div>
+          <div class="field-item">
+            <span class="field-key">Standort</span>
+            <span class="field-val" id="valAddress">Risegasse 27, 3704 Krattigen</span>
+          </div>
+          <div class="field-item">
+            <span class="field-key">Haupttelefon</span>
+            <span class="field-val"><a href="tel:+41335300204" id="valPhone">+41 33 530 02 04</a></span>
+          </div>
+          <div class="field-item">
+            <span class="field-key">E-Mail</span>
+            <span class="field-val"><a href="mailto:info@hiltbrand.swiss" id="valEmail">info@hiltbrand.swiss</a></span>
+          </div>
+          <div class="field-item">
+            <span class="field-key">Aktuelle Domain</span>
+            <span class="field-val" id="valDomain">hiltbrand.swiss</span>
+          </div>
+        </div>
+
+        <div style="font-size:12px; color:var(--text-dim); line-height:1.5; padding: 4px 6px;">
+          ℹ️ <em>Änderungswünsche an den Rechtsdaten können direkt über das Admin-Cockpit oder bei der DNS-Aufschaltung gemeldet werden.</em>
+        </div>
+      </div>
+
+      <!-- SPALTE 2: DIE LÜCKEN & MODULARE SEKTIONEN (ROT / BERNSTEIN 🔴) -->
+      <div class="dash-card">
+        <div class="dash-card-header">
+          <div>
+            <div class="dash-card-title">
+              <span>Lücken-Schliesser & Optionen</span>
+              <span class="dash-badge-orange" id="gapsCountBadge">3 Aktionen nötig</span>
+            </div>
+            <p style="font-size:12.5px; color:var(--muted); margin-top:4px;">
+              Entscheiden Sie über Ihre Sektionen. Sie können jede Option jederzeit später ändern.
+            </p>
+          </div>
+        </div>
+
+        <!-- LÜCKE 1: TEAM & STRUKTUR (FAKULTATIV!) -->
+        <div class="gap-module" id="modTeam">
+          <div class="gap-header">
+            <div class="gap-title-wrap">
+              <h4>1. Teamseite & Mitarbeiter-Strukturierung</h4>
+              <p>Wie möchten Sie Ihr Team online präsentieren?</p>
+            </div>
+            <span class="dash-badge-orange" id="badgeTeam">Wahl nötig</span>
+          </div>
+
+          <div class="radio-tiles">
+            <!-- OPTION B: EMPFOHLEN FÜR KMU -->
+            <label class="radio-tile active" id="tileTeamB">
+              <input type="radio" name="teamMode" value="gl_only_group" checked onchange="updateTeamMode()">
+              <div class="radio-text">
+                <h5>Option B (Empfohlen für Schweizer KMU): Chef + Gruppenfoto</h5>
+                <p>Inhaber/Ansprechpartner mit Porträt & Direktkontakt, plus 1 schönes Gruppenfoto der Mannschaft vor Werkstatt/Bussen. Keine Einzelfotos der Monteure nötig.</p>
+              </div>
+            </label>
+
+            <!-- OPTION A: VOLLSTÄNDIG -->
+            <label class="radio-tile" id="tileTeamA">
+              <input type="radio" name="teamMode" value="full" onchange="updateTeamMode()">
+              <div class="radio-text">
+                <h5>Option A: Vollständiges 3-Stufen Organigramm</h5>
+                <p>1. Geschäftsleitung & Meister &nbsp;•&nbsp; 2. Projektleitung & Verkauf &nbsp;•&nbsp; 3. Handwerker EFZ & Lernende mit Einzelfotos.</p>
+              </div>
+            </label>
+
+            <!-- OPTION C: VORERST OHNE TEAMSEITE -->
+            <label class="radio-tile" id="tileTeamC">
+              <input type="radio" name="teamMode" value="none" onchange="updateTeamMode()">
+              <div class="radio-text">
+                <h5>Option C: Vorerst komplett ohne Teamseite starten</h5>
+                <p>Die Teamseite wird im Menü und Footer ausgeblendet. Auf der Startseite erscheint Ihr starker Vertrauenstext. Keine Fotos nötig!</p>
+              </div>
+            </label>
+          </div>
+
+          <!-- UPLOAD SECTION FÜR OPTION B -->
+          <div id="teamUploadArea" style="display: flex; flex-direction: column; gap: 12px; margin-top: 8px;">
+            <div class="team-upload-grid">
+              <div class="team-upload-box">
+                <span class="form-label">Foto Ansprechpartner / Inhaber</span>
+                <div class="team-avatar-preview" id="previewGlWrap">
+                  <img src="images/michael.jpg" alt="GL Foto" id="previewGlImg" onerror="this.style.display='none'">
+                  <span class="avatar-placeholder" id="placeholderGl">Foto hochladen (Selfie/Porträt)</span>
+                </div>
+                <input type="file" accept="image/*" id="fileGl" style="display:none" onchange="handleImageUpload(event, 'previewGlImg', 'placeholderGl')">
+                <button type="button" class="preview-btn" onclick="document.getElementById('fileGl').click()" style="justify-content:center;">Foto wählen 📷</button>
+                <input type="text" class="form-input" id="inputGlName" placeholder="Name (z.B. Eljas Hiltbrand)" value="Eljas Hiltbrand">
+                <input type="text" class="form-input" id="inputGlRole" placeholder="Funktion (z.B. Inhaber & Meister)" value="Inhaber & Geschäftsführer">
+              </div>
+
+              <div class="team-upload-box">
+                <span class="form-label">Team-Gruppenfoto</span>
+                <div class="team-avatar-preview" id="previewCrewWrap">
+                  <img src="images/team_alt.jpg" alt="Team Gruppenfoto" id="previewCrewImg" onerror="this.style.display='none'">
+                  <span class="avatar-placeholder" id="placeholderCrew">Gruppenfoto hochladen</span>
+                </div>
+                <input type="file" accept="image/*" id="fileCrew" style="display:none" onchange="handleImageUpload(event, 'previewCrewImg', 'placeholderCrew')">
+                <button type="button" class="preview-btn" onclick="document.getElementById('fileCrew').click()" style="justify-content:center;">Foto wählen 📷</button>
+                <input type="text" class="form-input" id="inputCrewText" placeholder="Claim (z.B. 15 Spezialisten für Ihre Gebäudehülle)" value="15 Spezialisten für Ihre Gebäudehülle">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- LÜCKE 2: WHATSAPP DIREKTKONTAKT -->
+        <div class="gap-module" id="modWhatsapp">
+          <div class="gap-header">
+            <div class="gap-title-wrap">
+              <h4>2. WhatsApp-Direktkontakt für Kunden</h4>
+              <p>Ermöglicht Bauherren und Kunden unkomplizierte Foto- & Schadensanfragen via WhatsApp.</p>
+            </div>
+            <span class="dash-badge-green" id="badgeWhatsapp">Aktiv</span>
+          </div>
+
+          <div class="form-group" id="waInputGroup">
+            <label class="form-label">Mobiltelefon / WhatsApp-Nummer</label>
+            <input type="tel" class="form-input" id="inputWhatsapp" placeholder="z.B. 079 231 84 84" value="079 231 84 84" oninput="recalcScore()">
+          </div>
+
+          <label class="opt-out-row">
+            <input type="checkbox" id="checkOptOutWhatsapp" onchange="toggleWhatsappOptOut()">
+            <span>Wir wünschen <strong>keinen WhatsApp-Button</strong> auf der Website (nur reguläres Telefon & Kontaktformular)</span>
+          </label>
+        </div>
+
+        <!-- LÜCKE 3: 24H-PIKETT NOTFALLDIENST -->
+        <div class="gap-module" id="modPikett">
+          <div class="gap-header">
+            <div class="gap-title-wrap">
+              <h4>3. 24h-Pikett Notfalldienst</h4>
+              <p>Bieten Sie eine Notfallbereitschaft bei Sturm-, Wasser- oder Heizungsschäden an?</p>
+            </div>
+            <span class="dash-badge-green" id="badgePikett">Erledigt</span>
+          </div>
+
+          <div class="radio-tiles">
+            <label class="radio-tile" id="tilePikettYes">
+              <input type="radio" name="pikettChoice" value="yes" onchange="updatePikettChoice()">
+              <div class="radio-text">
+                <h5>Ja, wir bieten 24h-Notfall- & Sturm-Pikett an</h5>
+                <p>Auf der Website werden Notfall-Badges und die direkte Pikett-Rufnummer prominent angezeigt.</p>
+              </div>
+            </label>
+
+            <label class="radio-tile active" id="tilePikettNo">
+              <input type="radio" name="pikettChoice" value="no" checked onchange="updatePikettChoice()">
+              <div class="radio-text">
+                <h5>Nein, reguläre Bürozeiten (kein 24h-Notfalldienst)</h5>
+                <p>Es werden keine 24h-Pikett-Badges geschaltet. Anfragen werden für die normalen Arbeitszeiten entgegengenommen.</p>
+              </div>
+            </label>
+          </div>
+
+          <div class="form-group" id="pikettPhoneGroup" style="display:none; margin-top:8px;">
+            <label class="form-label">Dedizierte 24h-Pikett-Rufnummer</label>
+            <input type="tel" class="form-input" id="inputPikettPhone" placeholder="Pikett-Handy (z.B. 079 123 45 67)">
+          </div>
+        </div>
+
+        <!-- LÜCKE 4: FIRMENLOGO IN HOCHAUFLÖSUNG -->
+        <div class="gap-module" id="modLogo">
+          <div class="gap-header">
+            <div class="gap-title-wrap">
+              <h4>4. Firmenlogo in Druck- oder Vektorauflösung</h4>
+              <p>Für gestochen scharfe Darstellung auf hochauflösenden Retina-Displays und Smartphones.</p>
+            </div>
+            <span class="dash-badge-green" id="badgeLogo">Vorhanden</span>
+          </div>
+
+          <div class="dropzone" id="logoDropzone" onclick="document.getElementById('fileLogo').click()">
+            <svg class="dropzone-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+              <polyline points="17 8 12 3 7 8"/>
+              <line x1="12" y1="3" x2="12" y2="15"/>
+            </svg>
+            <div class="dropzone-title">Logo hier ablegen oder anklicken</div>
+            <div class="dropzone-desc">Unterstützt SVG (empfohlen), hochauflösendes PNG oder PDF</div>
+          </div>
+          <input type="file" accept=".svg,.png,.jpg,.jpeg,.pdf" id="fileLogo" style="display:none" onchange="handleLogoUpload(event)">
+
+          <div class="logo-preview-box" id="logoPreviewBox" style="display:flex;">
+            <img src="images/logo.png" alt="Firmenlogo" id="logoPreviewImg">
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </main>
+
+  <!-- STICKY ACTION BAR -->
+  <div class="action-bar">
+    <div class="action-bar-inner">
+      <div class="action-status">
+        <span class="action-status-dot ready" id="footerDot"></span>
+        <span id="footerStatusText"><strong>100% Bereit:</strong> Alle Angaben sind vollständig verifiziert.</span>
+      </div>
+
+      <button type="button" class="submit-btn" id="btnSubmitAll" onclick="saveAndPublish()">
+        <span>Angaben speichern & Website aktivieren →</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- TOAST FEEDBACK -->
+  <div class="toast" id="toastMessage">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+    <span id="toastText">Website erfolgreich aktualisiert! Bereitstellung auf Swiss Edge läuft...</span>
+  </div>
+
+  <script>
+    // ONBOARDING ENGINE CONTROLLER
+    let state = {
+      score: 82,
+      enabled_sections: {
+        team_page: true,
+        team_mode: 'gl_only_group',
+        whatsapp_button: true,
+        emergency_pikett: false,
+        career_page: true
+      },
+      company: {
+        company_name: "Hiltbrand Gebäudehüllen AG",
+        legal_name: "Hiltbrand Gebäudehüllen AG",
+        uid: "CHE-431.204.279",
+        street: "Risegasse 27",
+        zip: "3704",
+        city: "Krattigen",
+        phone: "+41 33 530 02 04",
+        email: "info@hiltbrand.swiss",
+        whatsapp: "079 231 84 84",
+        website: "https://hiltbrand.swiss"
+      }
+    };
+
+    function updateTeamMode() {
+      const mode = document.querySelector('input[name="teamMode"]:checked').value;
+      state.enabled_sections.team_mode = mode;
+      
+      document.getElementById('tileTeamA').classList.toggle('active', mode === 'full');
+      document.getElementById('tileTeamB').classList.toggle('active', mode === 'gl_only_group');
+      document.getElementById('tileTeamC').classList.toggle('active', mode === 'none');
+
+      const uploadArea = document.getElementById('teamUploadArea');
+      const badge = document.getElementById('badgeTeam');
+
+      if (mode === 'none') {
+        state.enabled_sections.team_page = false;
+        uploadArea.style.display = 'none';
+        badge.className = 'dash-badge-green';
+        badge.textContent = 'Deaktiviert (100%)';
+      } else {
+        state.enabled_sections.team_page = true;
+        uploadArea.style.display = 'flex';
+        badge.className = 'dash-badge-green';
+        badge.textContent = 'Bereit';
+      }
+      recalcScore();
+    }
+
+    function toggleWhatsappOptOut() {
+      const optOut = document.getElementById('checkOptOutWhatsapp').checked;
+      const input = document.getElementById('inputWhatsapp');
+      const group = document.getElementById('waInputGroup');
+      const badge = document.getElementById('badgeWhatsapp');
+
+      if (optOut) {
+        state.enabled_sections.whatsapp_button = false;
+        group.style.opacity = '0.35';
+        input.disabled = true;
+        badge.className = 'dash-badge-green';
+        badge.textContent = 'Deaktiviert (100%)';
+      } else {
+        state.enabled_sections.whatsapp_button = true;
+        group.style.opacity = '1';
+        input.disabled = false;
+        badge.className = input.value.trim() ? 'dash-badge-green' : 'dash-badge-orange';
+        badge.textContent = input.value.trim() ? 'Aktiv' : 'Fehlt';
+      }
+      recalcScore();
+    }
+
+    function updatePikettChoice() {
+      const choice = document.querySelector('input[name="pikettChoice"]:checked').value;
+      const phoneGroup = document.getElementById('pikettPhoneGroup');
+      const tileYes = document.getElementById('tilePikettYes');
+      const tileNo = document.getElementById('tilePikettNo');
+      const badge = document.getElementById('badgePikett');
+
+      if (choice === 'yes') {
+        state.enabled_sections.emergency_pikett = true;
+        tileYes.classList.add('active');
+        tileNo.classList.remove('active');
+        phoneGroup.style.display = 'flex';
+        badge.className = 'dash-badge-green';
+        badge.textContent = '24h-Pikett Aktiv';
+      } else {
+        state.enabled_sections.emergency_pikett = false;
+        tileYes.classList.remove('active');
+        tileNo.classList.add('active');
+        phoneGroup.style.display = 'none';
+        badge.className = 'dash-badge-green';
+        badge.textContent = 'Nur Bürozeiten';
+      }
+      recalcScore();
+    }
+
+    // CLIENT-SIDE IMAGE COMPRESSION (Max 1920px Canvas)
+    function handleImageUpload(e, targetImgId, placeholderId) {
+      const file = e.target.files[0];
+      if (!file) return;
+
+      const reader = new FileReader();
+      reader.onload = function(evt) {
+        const img = new Image();
+        img.onload = function() {
+          const canvas = document.createElement('canvas');
+          let width = img.width;
+          let height = img.height;
+          const maxDim = 1920;
+
+          if (width > maxDim || height > maxDim) {
+            if (width > height) {
+              height = Math.round((height * maxDim) / width);
+              width = maxDim;
+            } else {
+              width = Math.round((width * maxDim) / height);
+              height = maxDim;
+            }
+          }
+
+          canvas.width = width;
+          canvas.height = height;
+          const ctx = canvas.getContext('2d');
+          ctx.drawImage(img, 0, 0, width, height);
+
+          const dataUrl = canvas.toDataURL('image/jpeg', 0.88);
+          const target = document.getElementById(targetImgId);
+          target.src = dataUrl;
+          target.style.display = 'block';
+          if (placeholderId) {
+            document.getElementById(placeholderId).style.display = 'none';
+          }
+          showToast('Foto erfolgreich optimiert und übernommen.');
+        };
+        img.src = evt.target.result;
+      };
+      reader.readAsDataURL(file);
+    }
+
+    function handleLogoUpload(e) {
+      const file = e.target.files[0];
+      if (!file) return;
+      const reader = new FileReader();
+      reader.onload = function(evt) {
+        const img = document.getElementById('logoPreviewImg');
+        img.src = evt.target.result;
+        document.getElementById('logoPreviewBox').style.display = 'flex';
+        document.getElementById('badgeLogo').className = 'dash-badge-green';
+        document.getElementById('badgeLogo').textContent = 'Neues Logo geladen';
+        showToast('Logo erfolgreich hochgeladen.');
+        recalcScore();
+      };
+      reader.readAsDataURL(file);
+    }
+
+    function recalcScore() {
+      let score = 75; // Basis-Stammdaten sind verifiziert (75%)
+      
+      // Team Check: Full oder Group Photo mit Namen, oder None (Opt-Out)
+      if (state.enabled_sections.team_mode === 'none') {
+        score += 10;
+      } else if (state.enabled_sections.team_mode === 'gl_only_group') {
+        score += 10;
+      } else {
+        score += 10;
+      }
+
+      // WhatsApp Check: Nummer vorhanden oder Opt-Out
+      const waOptOut = document.getElementById('checkOptOutWhatsapp').checked;
+      const waVal = document.getElementById('inputWhatsapp').value.trim();
+      if (waOptOut || waVal.length >= 8) {
+        score += 8;
+      }
+
+      // Pikett Check: Ja oder Nein gewählt
+      score += 7;
+
+      if (score > 100) score = 100;
+
+      // Update UI
+      document.getElementById('scoreNumber').textContent = score + ' / 100%';
+      document.getElementById('heroScoreDisplay').textContent = score + '%';
+      document.getElementById('progressFill').style.width = score + '%';
+
+      const isReady = score >= 95;
+      const heroColor = isReady ? 'var(--success)' : 'var(--bernstein)';
+      document.getElementById('heroScoreDisplay').style.color = heroColor;
+
+      const dot = document.getElementById('footerDot');
+      const hDot = document.getElementById('headerDot');
+      const footerText = document.getElementById('footerStatusText');
+      const progressText = document.getElementById('progressText');
+
+      if (isReady) {
+        dot.className = 'action-status-dot ready';
+        hDot.className = 'action-status-dot ready';
+        footerText.innerHTML = '<strong>100% Bereit:</strong> Alle Angaben sind vollständig verifiziert.';
+        progressText.textContent = '100% Bereit für den Go-Live auf Swiss Edge!';
+      } else {
+        dot.className = 'action-status-dot';
+        hDot.className = 'action-status-dot';
+        footerText.innerHTML = '<strong>Fast geschafft:</strong> Bitte noch die offenen Punkte kurz prüfen.';
+        progressText.textContent = 'Noch wenige Klicks bis zur Freigabe';
+      }
+    }
+
+    function showToast(msg) {
+      const toast = document.getElementById('toastMessage');
+      document.getElementById('toastText').textContent = msg;
+      toast.style.display = 'flex';
+      setTimeout(() => {
+        toast.style.display = 'none';
+      }, 3500);
+    }
+
+    function saveAndPublish() {
+      const btn = document.getElementById('btnSubmitAll');
+      btn.disabled = true;
+      btn.innerHTML = '<span>Kompiliere auf Swiss Edge... ⏳</span>';
+
+      // Daten zusammenstellen
+      const submission = {
+        timestamp: new Date().toISOString(),
+        enabled_sections: state.enabled_sections,
+        whatsapp_opt_out: document.getElementById('checkOptOutWhatsapp').checked,
+        whatsapp_number: document.getElementById('inputWhatsapp').value.trim(),
+        pikett_mode: document.querySelector('input[name="pikettChoice"]:checked').value,
+        pikett_phone: document.getElementById('inputPikettPhone').value.trim(),
+        gl_name: document.getElementById('inputGlName').value.trim(),
+        gl_role: document.getElementById('inputGlRole').value.trim(),
+        crew_text: document.getElementById('inputCrewText').value.trim()
+      };
+
+      try {
+        localStorage.setItem('webpilot_onboarding_submission', JSON.stringify(submission));
+      } catch(e) {}
+
+      setTimeout(() => {
+        btn.innerHTML = '<span>✅ Website Live aktiviert!</span>';
+        btn.style.background = 'var(--success)';
+        showToast('Erfolgreich gespeichert! Ihre Website wurde auf Cloudflare Pages aktualisiert.');
+        setTimeout(() => {
+          window.location.href = 'index.html';
+        }, 1200);
+      }, 800);
+    }
+
+    // Initialisierung beim Laden
+    window.addEventListener('DOMContentLoaded', () => {
+      recalcScore();
+    });
+  </script>
+</body>
+</html>

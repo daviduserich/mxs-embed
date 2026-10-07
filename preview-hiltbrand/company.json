@@ -2,15 +2,59 @@
   "company_name": "Hiltbrand Gebäudehüllen AG",
   "legal_name": "Hiltbrand Gebäudehüllen AG",
   "claim": "Meisterbetrieb in 3. Generation",
-  "street": "Dorfstrasse 12",
+  "street": "Risegasse 27",
   "zip": "3704",
   "city": "Krattigen",
-  "canton": "BE",
+  "canton": "CH",
   "country": "Schweiz",
-  "email": "info@hiltbrand-ag.ch",
+  "email": "info@hiltbrand.swiss",
   "phone": "+41 33 530 02 04",
-  "whatsapp": "41792318484",
-  "website": "https://hiltbrand-ag.ch",
+  "whatsapp": "+41 79 231 84 84",
+  "website": "https://hiltbrand.swiss",
+  "zefix_uid": "CHE-431.204.279",
+  "industry_id": "bedachung_gebaeudehuelle",
+  "industry_label": "bedachung_gebaeudehuelle",
+  "enabled_sections": {
+    "team_page": true,
+    "team_mode": "gl_only_group",
+    "whatsapp_button": true,
+    "emergency_pikett": false,
+    "career_page": true
+  },
+  "onboarding": {
+    "score": 83,
+    "status": "gaps_pending",
+    "verified_fields": [
+      "company_name",
+      "legal_name",
+      "street",
+      "zip",
+      "phone",
+      "email",
+      "zefix_uid",
+      "whatsapp"
+    ],
+    "gaps": [
+      {
+        "id": "team_structure",
+        "title": "Team & Mitarbeiter-Präsentation",
+        "type": "choice_with_upload",
+        "status": "pending",
+        "weight": 10,
+        "default": "gl_only_group",
+        "description": "Option B (Chef + Gruppenfoto) oder Option C (Vorerst ohne Teamseite starten)"
+      },
+      {
+        "id": "emergency_pikett",
+        "title": "24h-Pikett Notfalldienst",
+        "type": "radio_toggle",
+        "status": "pending",
+        "weight": 7,
+        "default": "none",
+        "description": "24h-Notfalldienst aktiv oder reguläre Bürozeiten"
+      }
+    ]
+  },
   "copyright": "© 2026 Hiltbrand Gebäudehüllen AG, Krattigen. Meisterbetrieb in 3. Generation.",
   "acp_client_id": "e42fadc0-8891-4a1c-abfe-4945a5cd89c8",
   "instagram_profile": "https://www.instagram.com/hiltbrand_gebaeudehuellen/",
