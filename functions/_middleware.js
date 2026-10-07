@@ -78,7 +78,7 @@ export async function onRequest(context) {
       isHiltbrandPath = true;
       const rest = url.pathname.replace(/^\/hiltbrand/, '');
       if (rest === '/onboarding' || rest === '/onboarding.html') {
-        targetPath = '/preview-hiltbrand/onboarding.html';
+        targetPath = '/preview-hiltbrand/onboarding';
       } else {
         targetPath = `/preview-hiltbrand${rest === '' ? '/' : rest}`;
       }
@@ -105,6 +105,11 @@ export async function onRequest(context) {
         let cleanLoc = loc
           .replace(/^\/preview-hiltbrand/, '/hiltbrand')
           .replace(/^\/preview-birchmeier/, '/birchmeier');
+        if (cleanLoc === url.pathname) {
+          // Verhindert Endlosschleife bei Cloudflare Clean URLs!
+          const directUrl = new URL(loc, url.origin);
+          return await context.env.ASSETS.fetch(new Request(directUrl, context.request));
+        }
         newHeaders.set('location', cleanLoc);
         return new Response(response.body, {
           status: response.status,
