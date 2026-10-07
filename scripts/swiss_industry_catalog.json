@@ -1,0 +1,350 @@
+{
+  "_meta": {
+    "version": "1.0.0",
+    "updated": "2026-10-07",
+    "description": "Zentraler Schweizer Branchen-Thesaurus für WebPilot. Enthält authentische Schweizer Fachtermini, EFZ-Berufsbezeichnungen, Verbandsnormen und strikte Tabus (vermeide) für jede Branche."
+  },
+  "industries": {
+    "bedachung_gebaeudehuelle": {
+      "name": "Bedachung, Spenglerei & Gebäudehülle",
+      "aliases": ["dachdecker", "spengler", "bedachungen", "gebaeudehuelle", "fassadenbau", "flachdach", "steildach", "dachsanierung"],
+      "verband_normen": {
+        "verband": "Gebäudehülle Schweiz",
+        "normen": ["SIA 232 (Geneigte Dächer)", "SIA 271 (Flachdächer)", "SUVA BauAV (Absturzsicherung)"],
+        "pruefstellen": ["SUVA", "SIA", "VKF Brandschutz"]
+      },
+      "berufsbezeichnungen_efz": [
+        "Dachdecker EFZ",
+        "Spengler EFZ",
+        "Polybauer EFZ",
+        "Bauführer Gebäudehülle",
+        "Handwerker EFZ und Fachmonteure",
+        "Lernende Gebäudehülle EFZ"
+      ],
+      "kernleistungen": [
+        "Steildach & Ziegeleindeckung",
+        "Flachdach & Abdichtungstechnik",
+        "Fassadenbau & Hinterlüftete Fassaden",
+        "Präzisions-Bauspenglerei",
+        "Lukarnen & Dachfenster",
+        "Energetische Gesamtsanierung",
+        "Integrierte Photovoltaik",
+        "24h Sturm-Pikett"
+      ],
+      "fachvokabular": {
+        "verwende": [
+          "Lukarne", "Lukarnen", "Dachstock", "Estrich", "Kamin", "Kamine", "Unterdach", "Dachhaut",
+          "Spenglerarbeiten", "Rinnen", "Ablaufrohre", "Wärmedämmung", "Fördergelder",
+          "Handwerker EFZ", "Fachmonteure", "Lernende", "24h Sturm-Pikett", "Offerte", "Ferien"
+        ],
+        "vermeide": [
+          "Gaube", "Gauben", "Dachboden", "Schornstein", "Schornsteine", "Geselle", "Gesellen",
+          "Gewerke", "Gewerk", "TÜV", "Kostenvoranschlag", "Notdienst", "Fördermittel", "Urlaub"
+        ]
+      },
+      "pikett_bezeichnung": "24h Sturm-Pikett & Notfallkontakt",
+      "typische_kundenfragen": [
+        "Was kostet eine Dachsanierung und welche kantonalen Fördergelder kann ich beantragen?",
+        "Übernimmt die Gebäudeversicherung den Sturmschaden an Ziegeln und Lukarnen?",
+        "Wie lange hält eine Flachdachabdichtung bei extremen Wetterlagen im Berner Oberland?"
+      ]
+    },
+    "sanitaer_heizung_haustechnik": {
+      "name": "Sanitär, Heizung & Haustechnik",
+      "aliases": ["sanitaer", "heizung", "haustechnik", "waermepumpen", "badumbau", "spenglerei_sanitaer", "gebaeudetechnik"],
+      "verband_normen": {
+        "verband": "suissetec (Schweizerisch-Liechtensteinischer Gebäudetechnikverband)",
+        "normen": ["SIA 384/1 (Heizungsanlagen)", "SIA 385 (Wasserversorgung)", "GEAK (Gebäudeenergieausweis)"],
+        "pruefstellen": ["SVGW", "suissetec", "Kantonale Energieämter"]
+      },
+      "berufsbezeichnungen_efz": [
+        "Sanitärinstallateur EFZ",
+        "Heizungsinstallateur EFZ",
+        "Haustechnikpraktiker EBA",
+        "Chefmonteur Sanitär / Heizung mit eidg. Fachausweis",
+        "Lernende Gebäudetechnik EFZ"
+      ],
+      "kernleistungen": [
+        "Wärmepumpen (Luft/Wasser & Erdsonde)",
+        "Moderner Badumbau & Sanitärinstallation",
+        "Boiler-Entkalkung & Wasseraufbereitung",
+        "Fussbodenheizung & Heizungsersatz",
+        "Solarthermie & Gebäudeenergie",
+        "24h Sanitär- & Heizungs-Pikett"
+      ],
+      "fachvokabular": {
+        "verwende": [
+          "Wärmepumpe", "Erdsonden", "Boiler", "Wasseraufbereitung", "Entkalkungsanlage", "Badumbau",
+          "Fussbodenheizung", "GEAK", "Fördergelder Das Gebäudeprogramm", "Sanitärinstallateur EFZ",
+          "Handwerker EFZ", "24h Sanitär-Pikett", "Offerte", "Ferien"
+        ],
+        "vermeide": [
+          "Klempner", "Warmwasserspeicher", "Installateurgeselle", "Geselle", "Gewerke",
+          "Notdienst", "Kostenvoranschlag", "Fördermittel", "Urlaub"
+        ]
+      },
+      "pikett_bezeichnung": "24h Sanitär- & Heizungs-Pikett",
+      "typische_kundenfragen": [
+        "Wie hoch sind die Fördergelder beim Ersatz einer Ölheizung durch eine Wärmepumpe?",
+        "Wie lange dauert eine Badsanierung von der Planung bis zur Montage?",
+        "Wann muss ein Boiler fachmännisch entkalkt werden?"
+      ]
+    },
+    "schreinerei_innenausbau": {
+      "name": "Schreinerei, Holzbau & Innenausbau",
+      "aliases": ["schreinerei", "schreiner", "innenausbau", "holzbau", "moebelbau", "kuechenbau", "tueren_fenster"],
+      "verband_normen": {
+        "verband": "VSSM (Verband Schweizerischer Schreinermeister und Möbelfabrikanten)",
+        "normen": ["SIA 343 (Türen und Tore)", "SIA 331 (Fenster)", "Lignum Schweizer Holz"],
+        "pruefstellen": ["Lignum", "VSSM", "SIA"]
+      },
+      "berufsbezeichnungen_efz": [
+        "Schreiner EFZ (Möbel/Innenausbau oder Bau/Fenster)",
+        "Zimmermann EFZ",
+        "Schreinermeister mit eidg. Diplom",
+        "Lernende Schreiner EFZ"
+      ],
+      "kernleistungen": [
+        "Individueller Innenausbau & Möbel nach Mass",
+        "Schweizer Massivholzküchen",
+        "Türen, Zargen & Sicherheitsschlösser",
+        "Fensterbau & energetische Fensterverglasung",
+        "Bodenbeläge, Parkett & Restauration"
+      ],
+      "fachvokabular": {
+        "verwende": [
+          "Schreiner EFZ", "Zimmermann EFZ", "Massivholz", "Schweizer Holz", "Innenausbau",
+          "Fensterzargen", "Parkett", "Massanfertigung", "Handwerker EFZ", "Lernende", "Offerte"
+        ],
+        "vermeide": [
+          "Tischler", "Tischlerei", "Tischlergeselle", "Geselle", "Gewerke", "Notdienst", "Urlaub"
+        ]
+      },
+      "pikett_bezeichnung": "Schreiner Notfall-Reparaturdienst & Einbruchschäden",
+      "typische_kundenfragen": [
+        "Verarbeiten Sie zertifiziertes Schweizer Holz aus nachhaltiger Forstwirtschaft?",
+        "Können bestehende Einbauschränke millimetergenau an Dachschrägen angepasst werden?",
+        "Was kostet eine massgefertigte Schreinerküche im Vergleich zu Systemanbietern?"
+      ]
+    },
+    "photovoltaik_solartechnik": {
+      "name": "Photovoltaik, Solartechnik & Speicher",
+      "aliases": ["solar", "photovoltaik", "solartechnik", "stromspeicher", "solaranlagen", "solardach"],
+      "verband_normen": {
+        "verband": "Swissolar (Schweizerischer Fachverband für Sonnenenergie)",
+        "normen": ["NIV Art. 7/9/14", "SIA 387/4 (Elektrizität in Gebäuden)", "Pronovo Richtlinien"],
+        "pruefstellen": ["Pronovo", "ESTI", "Swissolar"]
+      },
+      "berufsbezeichnungen_efz": [
+        "Solarmonteur EFZ",
+        "Solarinstallateur EFZ",
+        "Elektroinstallateur EFZ",
+        "Projektleiter Solarmontage"
+      ],
+      "kernleistungen": [
+        "Photovoltaik-Aufdachanlagen & Indach-Systeme",
+        "Batteriespeicher & Energiemanagement",
+        "Zusammenschluss zum Eigenverbrauch (ZEV)",
+        "Pronovo Fördergeld-Abwicklung (KLEIV/GREIV)",
+        "Wartung, Monitoring & Ertragsoptimierung"
+      ],
+      "fachvokabular": {
+        "verwende": [
+          "PV-Anlage", "Eigenverbrauchsoptimierung", "ZEV", "Pronovo", "Einmalvergütung (EIV)",
+          "Netzeinspeisung", "Batteriespeicher", "Wechselrichter", "Solarinstallateur EFZ", "Offerte"
+        ],
+        "vermeide": [
+          "EEG-Einspeisevergütung", "EEG-Umlage", "Bundesnetzagentur", "Gewerke", "Geselle", "Fördermittel"
+        ]
+      },
+      "pikett_bezeichnung": "PV-Störungsdienst & Wechselrichter-Pikett",
+      "typische_kundenfragen": [
+        "Wie viel Prozent meines Solarstroms kann ich mit einer Wärmepumpe selbst verbrauchen?",
+        "Welche Pronovo-Fördergelder stehen mir im Kanton zur Verfügung?",
+        "Lohnt sich ein ZEV (Zusammenschluss zum Eigenverbrauch) für Mehrfamilienhäuser?"
+      ]
+    },
+    "elektro_gebaeudetechnik": {
+      "name": "Elektroinstallation & Gebäudeautomation",
+      "aliases": ["elektro", "elektroinstallation", "elektriker", "automation", "knx", "sicherheitsnachweis"],
+      "verband_normen": {
+        "verband": "EIT.swiss (Verband der Elektrobranche)",
+        "normen": ["NIV (Niederspannungs-Installationsverordnung)", "NIN (Niederspannungs-Installationsnorm)", "ESTI Weisungen"],
+        "pruefstellen": ["ESTI (Eidg. Starkstrominspektorat)", "EIT.swiss"]
+      },
+      "berufsbezeichnungen_efz": [
+        "Elektroinstallateur EFZ",
+        "Montage-Elektriker EFZ",
+        "Gebäudeinformatiker EFZ",
+        "Eidg. dipl. Elektroinstallateur (Meister)"
+      ],
+      "kernleistungen": [
+        "Starkstrom- & Schwachstrominstallationen",
+        "Schaltanlagen & Hauptverteiler",
+        "Sicherheitsnachweis (SiNa) & Periodische Kontrolle",
+        "Smart Home, KNX & Gebäudeautomation",
+        "E-Mobilität Ladestationen (Wallbox)",
+        "24h Elektro-Pikett bei Stromausfall"
+      ],
+      "fachvokabular": {
+        "verwende": [
+          "Starkstrom", "Schwachstrom", "Hauptverteilung", "Tableau", "Sicherheitsnachweis (SiNa)",
+          "NIV-Messung", "Elektroinstallateur EFZ", "24h Elektro-Pikett", "Offerte"
+        ],
+        "vermeide": [
+          "Elektrikergeselle", "Geselle", "VDE-Prüfung", "Sicherungskasten (statt Tableau)", "Gewerke", "Notdienst"
+        ]
+      },
+      "pikett_bezeichnung": "24h Elektro-Pikett bei Stromausfall & Kurzschluss",
+      "typische_kundenfragen": [
+        "Wann verlangt das Elektrizitätswerk den periodischen Sicherheitsnachweis (SiNa)?",
+        "Welche Leistung benötigt eine Wallbox für mein Elektrofahrzeug in der Einstellhalle?",
+        "Wie rüste ich eine bestehende Wohnung auf energieeffiziente LED- und Smart-Home-Steuerung um?"
+      ]
+    },
+    "architektur_bauingenieur": {
+      "name": "Architektur, Bauplanung & Ingenieurwesen",
+      "aliases": ["architektur", "architekt", "bauingenieur", "bauplanung", "bauleitung", "generalplaner"],
+      "verband_normen": {
+        "verband": "SIA (Schweizerischer Ingenieur- und Architektenverein)",
+        "normen": ["SIA 102 (Leistungen und Honorare Architekten)", "SIA 118 (Bedingungen für Bauarbeiten)", "NPK (Normpositionen-Katalog)"],
+        "pruefstellen": ["SIA", "Kantonale Baukommissionen"]
+      },
+      "berufsbezeichnungen_efz": [
+        "Architekt ETH / FH",
+        "Bauingenieur ETH / FH",
+        "Zeichner EFZ Fachrichtung Architektur / Ingenieurbau",
+        "Bauleiter mit eidg. Diplom"
+      ],
+      "kernleistungen": [
+        "Machbarkeitsstudien & Vorprojekte",
+        "Baugesuchseingabe & Bewilligungsverfahren",
+        "Ausführungs- & Detailplanung",
+        "Devisierung nach NPK & Offertenvergleich",
+        "Örtliche Bauleitung, Kostenkontrolle & Bauabnahme"
+      ],
+      "fachvokabular": {
+        "verwende": [
+          "Baugesuch", "Baupublikation", "Devisierung", "NPK", "SIA 102", "SIA 118",
+          "Architekt ETH/FH", "Bauleitung", "Bauherrschaft", "Offertvergleich", "Ferien"
+        ],
+        "vermeide": [
+          "HOAI", "Baugenehmigungsantrag", "Bauherr (ohne Bauherrschaft)", "Gewerke", "Kostenvoranschlag (statt Kostenschätzung nach SIA)"
+        ]
+      },
+      "pikett_bezeichnung": "Bauherrenberatung & Krisenintervention Baustelle",
+      "typische_kundenfragen": [
+        "Wie lange dauert das kantonale Baugesuchsverfahren in unserer Gemeinde?",
+        "Wie garantieren Sie die Einhaltung des Kostenvoranschlags gemäss SIA 102?",
+        "Welche energetischen Sanierungsmassnahmen rechnen sich langfristig am stärksten?"
+      ]
+    },
+    "treuhand_finanzen_kmu": {
+      "name": "Treuhand, Steuerberatung & Wirtschaftsprüfung",
+      "aliases": ["treuhand", "buchhaltung", "steuern", "lohnwesen", "wirtschaftspruefung", "unternehmensberatung"],
+      "verband_normen": {
+        "verband": "Treuhand|Suisse / EXPERTsuisse",
+        "normen": ["Schweizerisches Obligationenrecht (OR)", "MWSTG", "Kantonale Steuergesetze"],
+        "pruefstellen": ["Eidg. Steuerverwaltung (ESTV)", "Kantonale Steuerämter"]
+      },
+      "berufsbezeichnungen_efz": [
+        "Treuhänder mit eidg. Fachausweis",
+        "Dipl. Wirtschaftsprüfer",
+        "Dipl. Steuerexperte",
+        "Fachmann Finanz- und Rechnungswesen mit eidg. Fachausweis"
+      ],
+      "kernleistungen": [
+        "Finanzbuchhaltung & Jahresabschlüsse nach OR",
+        "MWST-Abrechnungen (Effektiv & Saldosteuersatz)",
+        "Lohnbuchhaltung, Sozialversicherungen & Lohnausweise",
+        "Steuererklärungen für juristische & natürliche Personen",
+        "Eingeschränkte Revision & Nachfolgeplanung für KMU"
+      ],
+      "fachvokabular": {
+        "verwende": [
+          "MWST", "Saldosteuersatz", "Jahresabschluss", "Lohnadministration", "Lohnausweis",
+          "Quellensteuer", "AHV/IV/EO/ALV", "BVG Pensionskasse", "Treuhänder", "Offerte"
+        ],
+        "vermeide": [
+          "Umsatzsteuer", "Mehrwertsteuer (MwSt. mit Punkt)", "Steuerberater", "Finanzamt", "Gewerbesteuer", "Umsatzsteuervoranmeldung"
+        ]
+      },
+      "pikett_bezeichnung": "Express-Treuhandservice bei Fristen & Revisionen",
+      "typische_kundenfragen": [
+        "Lohnt sich für mein KMU die Abrechnung der MWST nach der Saldosteuersatzmethode?",
+        "Wie optimiere ich als Inhaber die Dividenden- und Lohnbezüge steuerlich sauber?",
+        "Welche Pflichten gelten bei der Abrechnung der neuen Quellensteuertarife?"
+      ]
+    },
+    "b2b_fuehrung_beratung": {
+      "name": "Führungskräfteentwicklung & KMU-Beratung",
+      "aliases": ["fuehrung", "leadership", "coaching", "sparring", "unternehmensentwicklung", "kmu_beratung"],
+      "verband_normen": {
+        "verband": "Schweizerische Gesellschaft für Organisation und Management (SGO)",
+        "normen": ["Schweizer KMU-Standards", "Praxisorientierte Führungssysteme"]
+      },
+      "berufsbezeichnungen_efz": [
+        "Führungscoach / Sparringspartner für KMU",
+        "Organisationsentwickler",
+        "Ehemalige Geschäftsführer & Werkleiter"
+      ],
+      "kernleistungen": [
+        "Praxisprogramm 'Führung im Alltag' für Team- & Schichtleiter",
+        "Einführung robuster Führungssysteme für gewerblich-technische Betriebe",
+        "1:1 Sparring für Inhaber & Geschäftsleitungsmitglieder",
+        "Produktivitätssteigerung & Senkung von Fluktuation/Fehlzeiten"
+      ],
+      "fachvokabular": {
+        "verwende": [
+          "Führung im Alltag", "Sparring", "KMU", "Teamleiter", "Schichtleiter",
+          "Bereichsleiter", "Geschäftsführer", "Bodenständigkeit", "Schweizer Understatement", "Offerte"
+        ],
+        "vermeide": [
+          "Hyperautomatisierung", "Disruption", "Mindset", "Synergien", "US-Jargon", "Beraterfloskeln"
+        ]
+      },
+      "pikett_bezeichnung": "Krisen-Sparring für Inhaber & Geschäftsleitung",
+      "typische_kundenfragen": [
+        "Wie mache ich neue Vorarbeiter und Teamleiter schnell fit für schwierige Führungsgespräche?",
+        "Wie senken wir Reibungsverluste zwischen Werkstatt, Baustelle und Büro?",
+        "Wie behalten wir als Inhaber in Wachstumsphasen den Überblick ohne Mikromanagement?"
+      ]
+    },
+    "druck_medien": {
+      "name": "Druckerei, Werbetechnik & Printmedien",
+      "aliases": ["druckerei", "print", "druck", "offsetdruck", "digitaldruck", "werbetechnik", "beschriftung"],
+      "verband_normen": {
+        "verband": "dpsuisse (Verband der Schweizer Druckindustrie)",
+        "normen": ["ISO 12647 (Prozessstandard Offsetdruck)", "FSC Zertifizierung", "PDF/X-4 Standards"]
+      },
+      "berufsbezeichnungen_efz": [
+        "Polygraf EFZ",
+        "Drucktechnologe EFZ",
+        "Printmedienverarbeiter EFZ",
+        "Werbetechniker EFZ"
+      ],
+      "kernleistungen": [
+        "Hochwertiger Offset- & Digitaldruck",
+        "Geschäftsdrucksachen, Briefschaften & Visitenkarten",
+        "Broschüren, Magazine & Geschäftsberichte",
+        "Fahrzeugbeschriftung, Fassadentafeln & Werbetechnik",
+        "Druckveredelung (Heissfolie, Blindprägung, Relieflack)"
+      ],
+      "fachvokabular": {
+        "verwende": [
+          "Drucktechnologe EFZ", "Polygraf EFZ", "Schweizer Druckqualität", "Offsetdruck",
+          "Veredelung", "Briefschaften", "Werbetechnik", "FSC", "Offerte"
+        ],
+        "vermeide": [
+          "Druckergeselle", "Geselle", "Billigdrucker", "Flyer-Discounter", "Gewerke"
+        ]
+      },
+      "pikett_bezeichnung": "Express-Druckservice & Notfall-Nachdrucke",
+      "typische_kundenfragen": [
+        "Welches Papier eignet sich am besten für eine edle Haptik bei Firmenbroschüren?",
+        "Bis wann müssen Druckdaten geliefert werden für einen Express-Auftrag am selben Tag?",
+        "Wie stellen wir sicher, dass unsere Unternehmensfarben (Pantone) farbecht gedruckt werden?"
+      ]
+    }
+  }
+}
