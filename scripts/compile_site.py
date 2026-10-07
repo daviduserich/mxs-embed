@@ -112,7 +112,7 @@ def compile_html(html: str, i18n_data: dict, slot_data: dict) -> tuple[str, dict
             return new_full
         else:
             stats["placeholders_updated"] += 1
-            return f"{pre}data-i18n-placeholder=\"{key}\" placeholder=\"{val_str}\"{post}"
+            return f'{pre}data-i18n-placeholder="{key}" placeholder="{val_str}"{post}'
 
     p_plh = re.compile(
         r'(?P<pre><[a-zA-Z0-9]+\b[^>]*?\b)data-i18n-placeholder=["\'](?P<key>[a-zA-Z0-9_.-]+)["\'](?P<post>[^>]*>)',
@@ -153,6 +153,16 @@ def compile_html(html: str, i18n_data: dict, slot_data: dict) -> tuple[str, dict
     )
     html = p_slot.sub(slot_replacer, html)
 
+    # 4. Swiss Lexicon Guard (§ Helvetische Doktrin): Erzwingt Schweizer Vokabular & Eszett-Verbot
+    try:
+        from swiss_lexicon_guard import enforce_swiss_standards
+        html, swiss_fixes = enforce_swiss_standards(html)
+        stats["swiss_fixes"] = len(swiss_fixes)
+        stats["swiss_details"] = [f["description"] for f in swiss_fixes]
+    except ImportError:
+        stats["swiss_fixes"] = 0
+        stats["swiss_details"] = []
+
     return html, stats
 
 
@@ -174,6 +184,7 @@ def compile_site_dir(site_dir: Path, lang: str = "de", dry_run: bool = False) ->
         "i18n_updated": 0,
         "slots_updated": 0,
         "placeholders_updated": 0,
+        "swiss_fixes": 0,
         "missing_keys": set(),
     }
 
@@ -182,12 +193,13 @@ def compile_site_dir(site_dir: Path, lang: str = "de", dry_run: bool = False) ->
             content = f.read()
 
         new_content, f_stats = compile_html(content, i18n_dict, slot_data)
-        mod = (f_stats["i18n_updated"] + f_stats["slots_updated"] + f_stats["placeholders_updated"]) > 0
+        mod = (f_stats["i18n_updated"] + f_stats["slots_updated"] + f_stats["placeholders_updated"] + f_stats.get("swiss_fixes", 0)) > 0
         if mod:
             total_stats["files_modified"] += 1
             total_stats["i18n_updated"] += f_stats["i18n_updated"]
             total_stats["slots_updated"] += f_stats["slots_updated"]
             total_stats["placeholders_updated"] += f_stats["placeholders_updated"]
+            total_stats["swiss_fixes"] += f_stats.get("swiss_fixes", 0)
             if not dry_run:
                 with open(hf, "w", encoding="utf-8") as f:
                     f.write(new_content)
@@ -236,6 +248,7 @@ def main():
         print(f"  Slots synchronisiert: {res['slots_updated']}")
         print(f"  i18n-Strings synchronisiert: {res['i18n_updated']}")
         print(f"  Placeholders synchronisiert: {res['placeholders_updated']}")
+        print(f"  Swiss Lexicon Anpassungen: {res['swiss_fixes']}")
         if res["missing_keys"]:
             print(f"  WARNUNG: Fehlende Keys im Wörterbuch: {', '.join(res['missing_keys'])}")
         if res["files_modified"] > 0:
