@@ -30,7 +30,7 @@ import subprocess
 from pathlib import Path
 from datetime import datetime
 
-# Basis-Verzeichnis: /home/brainuser/workspaces/mxs-embed
+# Basis-Verzeichnis ermitteln
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
@@ -68,7 +68,7 @@ def compute_derived_fields(data: dict) -> dict:
         d["footer_address"] = " • ".join(parts)
 
     if "footer_brand" not in d and prod_name and legal_name:
-        d["footer_brand"] = f"{prod_name} // Ein Produkt der {legal_name}"
+        d["footer_brand"] = f"{prod_name} · Ein Produkt der {legal_name}"
 
     if "copyright" not in d and legal_name:
         d["copyright"] = f"© {now_year} {legal_name}, {city}."
