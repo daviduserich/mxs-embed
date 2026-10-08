@@ -107,6 +107,9 @@ function sanitizeStellen(list) {
   });
 }
 
+// Mandanten- & Branchen-Profil (Dynamisch injiziert durch build_client_cockpit.py)
+var ACP_CLIENT_PROFILE = /* __CLIENT_PROFILE_JSON__ */ || {};
+
 // Manifest-Daten mit robusten Fallbacks
 var ACP_BILDER = /* __BILDER_JSON__ */;
 var ACP_STELLEN = sanitizeStellen(/* __STELLEN_JSON__ */);
@@ -513,7 +516,10 @@ function acpRenderImagesGrid() {
     if (acpCurrentImageFilter === 'used' && !b.is_used) return false;
     if (acpCurrentImageFilter === 'hero' && b.category !== 'Hero & Header') return false;
     if (acpCurrentImageFilter === 'team' && b.category !== 'Team & Porträt') return false;
-    if (acpCurrentImageFilter === 'benefit' && b.category !== 'Baustelle & Benefit') return false;
+    if (acpCurrentImageFilter === 'benefit') {
+      var workLabel = (window.ACP_CLIENT_PROFILE && window.ACP_CLIENT_PROFILE.work_category_label) || 'Baustelle & Benefit';
+      if (b.category !== 'Baustelle & Benefit' && b.category !== 'Baustelle & Projekte' && b.category !== workLabel) return false;
+    }
     if (acpCurrentImageFilter === 'logo' && b.category !== 'Logo & Icon') return false;
 
     if (query) {
@@ -1256,15 +1262,6 @@ function acpToggleDirectoryModal() {
 
 function acpSetJobFilter(filter) {
   acpCurrentJobFilter = filter;
-  var pills = document.querySelectorAll(".acp-job-filter-pill");
-  pills.forEach(function(p) {
-    var attr = p.getAttribute("data-filter");
-    if (attr === filter || (!attr && filter === 'alle' && p.textContent.indexOf('Alle') !== -1)) {
-      p.classList.add("active");
-    } else {
-      p.classList.remove("active");
-    }
-  });
   renderDirectoryTable();
 }
 
@@ -1280,24 +1277,48 @@ function renderDirectoryTable() {
   var query = (searchInput ? searchInput.value : "").toLowerCase().trim();
 
   var countAll = ACP_STELLEN.length;
-  var countHiltbrand = ACP_STELLEN.filter(function(j) { return (j.firma || '').indexOf('Hiltbrand') !== -1; }).length;
-  var countZurbuchen = ACP_STELLEN.filter(function(j) { return (j.firma || '').indexOf('Zurbuchen') !== -1; }).length;
   var countLive = ACP_STELLEN.filter(function(j) { return !!j.is_live; }).length;
 
-  var elAll = document.getElementById("count-jobs-all");
-  var elHb = document.getElementById("count-jobs-hiltbrand");
-  var elZb = document.getElementById("count-jobs-zurbuchen");
-  var elLive = document.getElementById("count-jobs-live");
+  // Firmen-Zählung dynamisch ermitteln
+  var companyCounts = {};
+  ACP_STELLEN.forEach(function(j) {
+    var fn = (j.firma || "").trim();
+    if (fn) {
+      companyCounts[fn] = (companyCounts[fn] || 0) + 1;
+    }
+  });
+  var companyNames = Object.keys(companyCounts);
 
-  if (elAll) elAll.textContent = countAll;
-  if (elHb) elHb.textContent = countHiltbrand;
-  if (elZb) elZb.textContent = countZurbuchen;
-  if (elLive) elLive.textContent = countLive;
+  // Filter-Pills dynamisch rendern falls Pills-Container vorhanden
+  var pillsContainer = document.getElementById("acp-jobs-filter-pills");
+  if (pillsContainer) {
+    var pillsHtml = '<button type="button" class="acp-job-filter-pill' + (acpCurrentJobFilter === 'alle' ? ' active' : '') + '" data-filter="alle" onclick="acpSetJobFilter(\'alle\')">🏢 Alle Inserate (<span id="count-jobs-all">' + countAll + '</span>)</button>';
+    
+    if (companyNames.length > 1) {
+      companyNames.forEach(function(cName) {
+        var isAct = (acpCurrentJobFilter === cName || acpCurrentJobFilter === ('firma:' + cName) || (cName.indexOf('Hiltbrand') !== -1 && acpCurrentJobFilter === 'hiltbrand') || (cName.indexOf('Zurbuchen') !== -1 && acpCurrentJobFilter === 'zurbuchen'));
+        var icon = '🏢';
+        var cLower = cName.toLowerCase();
+        if (cLower.indexOf('holz') !== -1 || cLower.indexOf('zurbuchen') !== -1) icon = '🌲';
+        else if (cLower.indexOf('dach') !== -1 || cLower.indexOf('hiltbrand') !== -1 || cLower.indexOf('gebäude') !== -1) icon = '🏠';
+        
+        pillsHtml += ' <button type="button" class="acp-job-filter-pill' + (isAct ? ' active' : '') + '" data-filter="firma:' + cName + '" onclick="acpSetJobFilter(\'firma:' + cName.replace(/'/g, "\\'") + '\')">' + icon + ' ' + cName + ' (<span>' + companyCounts[cName] + '</span>)</button>';
+      });
+    }
+
+    pillsHtml += ' <button type="button" class="acp-job-filter-pill' + (acpCurrentJobFilter === 'live' ? ' active' : '') + '" data-filter="live" onclick="acpSetJobFilter(\'live\')">🟢 Nur Live-Widget (<span id="count-jobs-live">' + countLive + '</span>)</button>';
+    
+    pillsContainer.innerHTML = pillsHtml;
+  }
 
   var filtered = ACP_STELLEN.filter(function(j) {
+    if (acpCurrentJobFilter === 'live' && !j.is_live) return false;
+    if (acpCurrentJobFilter.indexOf('firma:') === 0) {
+      var targetFirma = acpCurrentJobFilter.substring(6);
+      if ((j.firma || '').indexOf(targetFirma) === -1) return false;
+    }
     if (acpCurrentJobFilter === 'hiltbrand' && (j.firma || '').indexOf('Hiltbrand') === -1) return false;
     if (acpCurrentJobFilter === 'zurbuchen' && (j.firma || '').indexOf('Zurbuchen') === -1) return false;
-    if (acpCurrentJobFilter === 'live' && !j.is_live) return false;
 
     if (query) {
       var mFile = (j.datei || '').toLowerCase().indexOf(query) !== -1;
@@ -1316,7 +1337,7 @@ function renderDirectoryTable() {
   var html = "";
   for (var i = 0; i < filtered.length; i++) {
     var j = filtered[i];
-    var subfolder = j.folder || ((j.firma && j.firma.indexOf('Zurbuchen') !== -1) ? 'zurbuchen' : 'hiltbrand');
+    var subfolder = j.folder || (window.ACP_CLIENT_PROFILE && window.ACP_CLIENT_PROFILE.slug) || ((j.firma && j.firma.indexOf('Zurbuchen') !== -1) ? 'zurbuchen' : 'hiltbrand');
     var edgePreviewUrl = j.edge_url || ('https://embed.magnet-xs.ch/' + subfolder + '/' + j.datei);
     var cleanEdgeDomain = 'embed.magnet-xs.ch/' + subfolder + '/' + j.datei;
 
@@ -1734,8 +1755,14 @@ function acpBuildFullContextEnvelope(targetSecId, customGoal) {
   var prevInfo = prevSec ? "Liegt direkt NACH: [" + prevSec.id + "] " + prevSec.title : "Liegt ganz oben auf der Seite (Hero-Bereich)";
   var nextInfo = nextSec ? "Liegt direkt VOR: [" + nextSec.id + "] " + nextSec.title : "Liegt direkt vor dem Footer";
 
+  var profile = window.ACP_CLIENT_PROFILE || {};
+  var industryLabel = profile.industry_label || "Schweizer Unternehmens-Website";
+  var promptRules = (profile.prompt_rules && profile.prompt_rules.length > 0)
+    ? profile.prompt_rules.join("\n")
+    : "- Schweizer Geschäftsbegriffe: \"Leistungen\" (nie \"Gewerke\"), \"Fachspezialisten EFZ\" (nie \"Gesellen\"), \"Lernende\" (nie \"Azubis\"), \"Offerte\" (nie \"Kostenvoranschlag\"), \"Ferien\" (nie \"Urlaub\").";
+
   var prompt = 
-"Du bist mein technischer Web-Entwickler für meine Schweizer Handwerker-Website (WebPilot Obsidian-Dark Design).\n" +
+"Du bist mein technischer Web-Entwickler für meine " + industryLabel + " (WebPilot Obsidian-Dark Design).\n" +
 "Ich möchte die Sektion \"" + targetSec.title + "\" (data-section=\"" + targetSec.id + "\") anpassen.\n\n" +
 
 "================================================================================\n" +
@@ -1750,7 +1777,7 @@ function acpBuildFullContextEnvelope(targetSecId, customGoal) {
 "2. VERBINDLICHE SCHWEIZER SPRACH- & DESIGN-DOKTRIN:\n" +
 "================================================================================\n" +
 "- Sprache: Authentisches Schweizer Hochdeutsch (100% Verbot von \"ß\", nutze \"ss\").\n" +
-"- Schweizer Handwerksbegriffe: \"Leistungen\" (nie \"Gewerke\"), \"Handwerker EFZ / Fachmonteure\" (nie \"Gesellen\"), \"Lernende\" (nie \"Azubis\"), \"24h-Pikett\" (nie \"Notdienst\"), \"Offerte\" (nie \"Kostenvoranschlag\"), \"Ferien\" (nie \"Urlaub\").\n" +
+promptRules + "\n" +
 "- Schweizer Typografie: Nutze die bestehenden Klassen (.section-wrap, .section-inner, .section-kicker, .section-title, .section-desc).\n" +
 "- Kicker-Regel: <span class=\"section-kicker\">● Kicker-Text</span> ist 100% freistehend (keine Box, kein Badge-Rahmen).\n" +
 "- Zero-Emoji: Keine bunten Emojis in Überschriften oder Badges.\n" +
@@ -1793,11 +1820,18 @@ function acpCopyFullPagePrompt() {
     alert("Konnte den Quellcode der Seite nicht einlesen.");
     return;
   }
+  var profile = window.ACP_CLIENT_PROFILE || {};
+  var industryLabel = profile.industry_label || "Schweizer Unternehmens-Website";
+  var promptRules = (profile.prompt_rules && profile.prompt_rules.length > 0)
+    ? profile.prompt_rules.join("\n")
+    : "- Schweizer Geschäftsbegriffe: \"Leistungen\" (nie \"Gewerke\"), \"Fachspezialisten EFZ\" (nie \"Gesellen\"), \"Lernende\" (nie \"Azubis\"), \"Offerte\" (nie \"Kostenvoranschlag\"), \"Ferien\" (nie \"Urlaub\").";
+
   var prompt = 
-"Du bist mein technischer Web-Redakteur für meine Schweizer Handwerker-Website.\n" +
+"Du bist mein technischer Web-Redakteur für meine " + industryLabel + ".\n" +
 "Ich übergebe dir hier den VOLLSTÄNDIGEN Quellcode meiner Website (HTML5).\n\n" +
 "MEINE REGELN:\n" +
-"1. Schweizer Hochdeutsch (0x 'ß', Schweizer Fachbegriffe).\n" +
+"1. Schweizer Hochdeutsch (0x 'ß', Schweizer Fachbegriffe):\n" +
+promptRules + "\n" +
 "2. Schweizer Obsidian-Design & bestehende Klassen beibehalten.\n" +
 "3. AUSGABE-PFLICHT: Gib mir den Quellcode immer als eine einzige, vollständige und ungekürzte HTML-Datei aus – ausnahmslos von <!DOCTYPE html> bis </html>. Verwende keine Code-Auslassungen!\n\n" +
 "QUELLCODE:\n" + fullHtml;
@@ -1948,8 +1982,14 @@ function acpCopyGeneratedNewSectionPrompt() {
   var afterSec = acpScannedSections.find(function(s) { return s.id === pos; }) || acpScannedSections[0];
   var slug = topic.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
 
+  var profile = window.ACP_CLIENT_PROFILE || {};
+  var industryLabel = profile.industry_label || "Schweizer Unternehmens-Website";
+  var promptRules = (profile.prompt_rules && profile.prompt_rules.length > 0)
+    ? profile.prompt_rules.join("\n")
+    : "- Schweizer Geschäftsbegriffe: \"Leistungen\" (nie \"Gewerke\"), \"Fachspezialisten EFZ\" (nie \"Gesellen\"), \"Lernende\" (nie \"Azubis\"), \"Offerte\" (nie \"Kostenvoranschlag\"), \"Ferien\" (nie \"Urlaub\").";
+
   var prompt = 
-"Du bist mein technischer Web-Entwickler für meine Schweizer Handwerker-Website (WebPilot Obsidian-Dark Design).\n" +
+"Du bist mein technischer Web-Entwickler für meine " + industryLabel + " (WebPilot Obsidian-Dark Design).\n" +
 "Erstelle mir eine NEUE HTML5-Sektion für folgendes Thema:\n" +
 "\"" + topic + "\"\n\n" +
 
@@ -1968,7 +2008,7 @@ function acpCopyGeneratedNewSectionPrompt() {
 "- Titel: <h2 class=\"section-title\">Prägnante Überschrift</h2>\n" +
 "- Untertitel: <p class=\"section-desc\">Kurze, vertrauensbildende Beschreibung.</p>\n" +
 "- Grid: Responsives CSS-Grid mit style=\"display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:24px;\"\n" +
-"- Sprache: 100% Schweizer Hochdeutsch (0x \"ß\", Schweizer Fachbegriffe).\n" +
+"- Sprache & Fachbegriffe:\n" + promptRules + "\n" +
 "- Emojis: 0 bunte Emojis.\n\n" +
 
 "================================================================================\n" +

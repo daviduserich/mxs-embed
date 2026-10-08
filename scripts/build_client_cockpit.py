@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-WebPilot Client Cockpit Compiler (v3.3.0)
+WebPilot Client Cockpit Compiler (v3.4.1)
 ========================================
 Generiert aus den Vorlagen templates/cockpit-app.html und templates/cockpit-script-template.js
 ein vollständiges, voll funktionsfähiges WebPilot Studio Cockpit v{fw_version} für jeden Mandanten:
@@ -10,6 +10,7 @@ ein vollständiges, voll funktionsfähiges WebPilot Studio Cockpit v{fw_version}
 - Vollständiger 1-Klick Bildtausch Modus mit Spotlight & ESC-Abbruch
 - Vollständige Einbettungscodes & CNAME-Anleitungen
 - 100% autark und Cloudflare Edge-kompatibel
+- Dynamisches Branchen- & Fachbegriffs-Profil (swiss_industry_catalog.json)
 """
 
 import os
@@ -24,6 +25,15 @@ from zoneinfo import ZoneInfo
 
 BASE_DIR = Path(__file__).resolve().parent.parent  # mxs-embed
 TEMPLATES_DIR = BASE_DIR / "templates"
+SCRIPTS_DIR = BASE_DIR / "scripts"
+
+if str(SCRIPTS_DIR) not in sys.path:
+    sys.path.insert(0, str(SCRIPTS_DIR))
+
+try:
+    import industry_resolver
+except ImportError:
+    industry_resolver = None
 
 def get_image_info(path):
     """Liest Bilddimensionen und Dateigrösse aus."""
@@ -54,14 +64,112 @@ def get_image_info(path):
     dim = f"{w}x{h}" if (w and h) else "Unbekannt"
     return size_kb, dim
 
-def scan_images(client_dir: Path, slug: str):
+def get_client_profile(slug: str, client_dir: Path, name: str) -> dict:
+    """Ermittelt das dynamische Branchen- und Mandantenprofil inkl. Fachtermini."""
+    clean_slug = slug.replace("preview-", "")
+    cfg_data = {}
+    for cfg_candidate in [
+        client_dir / "company.json",
+        client_dir / "config.json",
+        client_dir / "01-Company-Specs" / "company.json"
+    ]:
+        if cfg_candidate.exists():
+            try:
+                cfg_data = json.loads(cfg_candidate.read_text(encoding="utf-8"))
+                break
+            except Exception:
+                pass
+
+    industry_query = cfg_data.get("industry") or cfg_data.get("branche") or name
+    if "hiltbrand" in clean_slug.lower():
+        industry_query = "Bedachung"
+    elif "birchmeier" in clean_slug.lower():
+        industry_query = "Sanitär"
+
+    industry_info = None
+    if industry_resolver:
+        try:
+            industry_info = industry_resolver.resolve_industry(industry_query)
+        except Exception:
+            pass
+
+    if industry_info:
+        ind_id = industry_info.get("id", "generic")
+        ind_name = industry_info.get("name", "Schweizer Unternehmen")
+        fachvok = industry_info.get("fachvokabular", {})
+        use_terms = fachvok.get("verwende", [])[:8]
+        avoid_terms = fachvok.get("vermeide", [])[:8]
+        efz_jobs = industry_info.get("berufsbezeichnungen_efz", [])[:4]
+        verband = industry_info.get("verband_normen", {}).get("verband", "")
+
+        if ind_id in ["bedachung_gebaeudehuelle", "schreinerei_innenausbau", "photovoltaik_solartechnik", "elektro_gebaeudetechnik", "sanitaer_heizung_haustechnik"]:
+            work_label = "Baustelle & Projekte"
+            industry_label = f"Schweizer {ind_name}-Meisterbetrieb"
+        elif ind_id in ["treuhand_finanzen_kmu", "b2b_fuehrung_beratung"]:
+            work_label = "Mandate & Einblicke"
+            industry_label = f"Schweizer {ind_name}-Kanzlei"
+        elif ind_id in ["architektur_bauingenieur"]:
+            work_label = "Projekte & Bauwerke"
+            industry_label = f"Schweizer {ind_name}-Büro"
+        else:
+            work_label = "Praxis & Projekte"
+            industry_label = f"Schweizer {ind_name}"
+
+        if cfg_data.get("work_category_label"):
+            work_label = cfg_data.get("work_category_label")
+        elif "hiltbrand" in clean_slug.lower():
+            work_label = "Baustelle & Benefit"
+
+        rules = []
+        if verband:
+            rules.append(f"- Branchen-Standard: {verband}.")
+        if use_terms:
+            rules.append(f"- Schweizer Fachvokabular (aktiv nutzen): {', '.join(use_terms)}.")
+        if avoid_terms:
+            rules.append(f"- Verbotenes Fremdvokabular (nie verwenden!): {', '.join(avoid_terms)}.")
+        if efz_jobs:
+            rules.append(f"- Offizielle Berufsbezeichnungen: {', '.join(efz_jobs)}.")
+        rules.append("- Grunddoktrin: 'Leistungen' (nie 'Gewerke'), 'Offerte' (nie 'Kostenvoranschlag'), 'Ferien' (nie 'Urlaub'), 'Lernende' (nie 'Azubis').")
+    else:
+        ind_id = "universal_swiss_kmu"
+        ind_name = "Schweizer KMU"
+        industry_label = "Schweizer Unternehmens-Website"
+        work_label = cfg_data.get("work_category_label") or ("Baustelle & Benefit" if "hiltbrand" in clean_slug.lower() else "Projekte & Einblicke")
+        rules = [
+            "- Sprache: Authentisches Schweizer Hochdeutsch (100% Verbot von 'ß', nutze 'ss').",
+            "- Schweizer Geschäftsbegriffe: 'Leistungen' (nie 'Gewerke'), 'Fachspezialisten EFZ' (nie 'Gesellen'), 'Lernende' (nie 'Azubis'), 'Offerte' (nie 'Kostenvoranschlag'), 'Ferien' (nie 'Urlaub')."
+        ]
+
+    short_name = cfg_data.get("short_name") or (name.split()[0] if name else "Unternehmen")
+    host_url = cfg_data.get("host_url") or f"https://embed.magnet-xs.ch/{slug}/cockpit"
+    host_jobs_url = cfg_data.get("host_jobs_url") or f"https://embed.magnet-xs.ch/{slug}/"
+    if clean_slug == "hiltbrand":
+        host_jobs_url = "https://dachdecker-berneroberland.ch/jobs/"
+
+    brand_title = cfg_data.get("studio_title") or ("KARRIERE-STUDIO" if clean_slug == "hiltbrand" else "WEBPILOT STUDIO")
+
+    return {
+        "slug": slug,
+        "clean_slug": clean_slug,
+        "name": name,
+        "short_name": short_name,
+        "industry_id": ind_id,
+        "industry_name": ind_name,
+        "industry_label": industry_label,
+        "work_category_label": work_label,
+        "brand_title": brand_title,
+        "prompt_rules": rules,
+        "host_url": host_url,
+        "host_jobs_url": host_jobs_url
+    }
+
+def scan_images(client_dir: Path, slug: str, default_category: str = "Baustelle & Benefit"):
     """Scannt images/ Ordner und erzeugt bilder.json."""
     images_dir = client_dir / "images"
     bilder = []
     if not images_dir.exists():
         return bilder
 
-    # Prüfe wo Bilder verwendet werden
     html_files = list(client_dir.glob("*.html"))
     html_contents = {f.name: f.read_text(encoding="utf-8", errors="ignore") for f in html_files if f.name != "cockpit.html"}
 
@@ -79,7 +187,7 @@ def scan_images(client_dir: Path, slug: str):
         rel_path = f"images/{p.name}"
         cdn_url = f"https://embed.magnet-xs.ch/{slug}/{rel_path}"
         
-        category = "Baustelle & Benefit"
+        category = default_category
         if "hero" in p.name.lower():
             category = "Hero & Header"
         elif "logo" in p.name.lower():
@@ -87,7 +195,6 @@ def scan_images(client_dir: Path, slug: str):
         elif any(k in p.name.lower() for k in ["team", "michael", "stefan", "beat", "alain"]):
             category = "Team & Porträt"
 
-        # Check used
         used_in = []
         for doc_name, content in html_contents.items():
             if rel_path in content or p.name in content:
@@ -162,10 +269,10 @@ def get_framework_version() -> str:
     v_file = BASE_DIR / "VERSION"
     if v_file.exists():
         return v_file.read_text(encoding="utf-8").strip()
-    return "3.4.0"
+    return "3.4.1"
 
 def build_cockpit(slug: str):
-    """Kompiliert das vollwertige WebPilot Cockpit v3.3.0 für den Mandanten."""
+    """Kompiliert das vollwertige WebPilot Cockpit für den Mandanten."""
     client_dir = BASE_DIR / slug
     if not client_dir.exists():
         print(f"❌ Mandant {slug} nicht gefunden in {client_dir}")
@@ -174,50 +281,100 @@ def build_cockpit(slug: str):
     config_file = client_dir / "config.json"
     name = slug.replace("-", " ").title()
     if config_file.exists():
-        cfg = json.loads(config_file.read_text(encoding="utf-8"))
-        name = cfg.get("name", name)
+        try:
+            cfg = json.loads(config_file.read_text(encoding="utf-8"))
+            name = cfg.get("name", name)
+        except Exception:
+            pass
+
+    clean_slug = slug.replace("preview-", "")
+    profile = get_client_profile(slug, client_dir, name)
+    name = profile["name"]
+    short_name = profile["short_name"]
+    host_url = profile["host_url"]
+    host_jobs_url = profile["host_jobs_url"]
+    clean_host_url = host_url.replace("https://", "").replace("http://", "")
+    clean_jobs_domain = host_jobs_url.replace("https://", "").replace("http://", "")
+    brand_title = profile["brand_title"]
+    work_category_label = profile["work_category_label"]
 
     # 1. Bilder & Stellen scannen
-    bilder = scan_images(client_dir, slug)
+    bilder = scan_images(client_dir, slug, default_category=work_category_label)
     stellen = scan_stellen(client_dir, slug, name)
 
-    # 2. Template einlesen
+    # 2. Viewport- und Dateivorgaben ermitteln
+    default_viewport_file = "index.html"
+    default_viewport_src = "index.html?embed=true"
+    initial_job_title = "Aktive Stelle"
+
+    if clean_slug == "hiltbrand" and (client_dir / "Hiltbrand_Dachdecker_Pragmatisch.html").exists():
+        default_viewport_file = "Hiltbrand_Dachdecker_Pragmatisch.html"
+        default_viewport_src = "Hiltbrand_Dachdecker_Pragmatisch.html?embed=true"
+        initial_job_title = "Dachdecker EFZ (80–100%)"
+    elif stellen:
+        default_viewport_file = stellen[0].get("datei", "index.html")
+        default_viewport_src = f"{default_viewport_file}?embed=true"
+        initial_job_title = stellen[0].get("titel", "Aktive Stelle")
+
+    sync_folder_name = "Hiltbrand-Karriere" if "hiltbrand" in clean_slug else f"{clean_slug}-web"
+
+    # 3. Template einlesen
     cockpit_app_file = TEMPLATES_DIR / "cockpit-app.html"
     js_template_file = TEMPLATES_DIR / "cockpit-script-template.js"
     
     content = cockpit_app_file.read_text(encoding="utf-8")
     js_template_code = js_template_file.read_text(encoding="utf-8")
 
-    # 3. Branding & Pfade anpassen
+    # 4. Branding & Pfade anpassen
     fw_version = get_framework_version()
     now_build = datetime.now(ZoneInfo("Europe/Zurich")).strftime("%Y-%m-%d %H:%M")
 
+    # Platzhalter ersetzen
+    replacements = {
+        "__CLIENT_NAME__": name,
+        "__CLIENT_SHORT_NAME__": short_name,
+        "__CLIENT_SLUG__": slug,
+        "__CLIENT_STUDIO_TITLE__": brand_title,
+        "__FRAMEWORK_VERSION__": fw_version,
+        "__HOST_URL__": host_url,
+        "__HOST_URL_CLEAN__": clean_host_url,
+        "__HOST_JOBS_URL__": host_jobs_url,
+        "__HOST_JOBS_DOMAIN__": clean_jobs_domain,
+        "__WORK_CATEGORY_LABEL__": work_category_label,
+        "__DEFAULT_VIEWPORT_SRC__": default_viewport_src,
+        "__DEFAULT_VIEWPORT_FILE__": default_viewport_file,
+        "__INITIAL_JOB_TITLE__": initial_job_title,
+        "__SYNC_FOLDER_NAME__": sync_folder_name
+    }
+    for placeholder, val in replacements.items():
+        content = content.replace(placeholder, str(val))
+
+    # Regex-Absicherungen für Alt-Templates / Fallbacks
     content = re.sub(r'<title>.*?</title>', f'<title>{name} · WebPilot Studio · v{fw_version}</title>', content, flags=re.IGNORECASE)
     content = re.sub(r'<span class="acp-version-badge"[^>]*>.*?</span>', f'<span class="acp-version-badge" id="acp-version-badge" title="WebPilot Framework v{fw_version}">v{fw_version}</span>', content)
-    brand_title = "WEBPILOT STUDIO" if slug != "hiltbrand" else "KARRIERE-STUDIO"
     content = content.replace('<span class="acp-brand-text" id="acp-brand-label">KARRIERE-STUDIO</span>', f'<span class="acp-brand-text" id="acp-brand-label">{brand_title}</span>')
     content = content.replace('Hiltbrand & Zurbuchen Karriere-Studio', f'{name} WebPilot Studio')
     content = content.replace('id="picker-current-firm">Hiltbrand<', f'id="picker-current-firm">{name}<')
     content = content.replace('id="acp-stage-client-pill">Hiltbrand Gebäudehüllen AG<', f'id="acp-stage-client-pill">{name}<')
     content = content.replace('https://embed.magnet-xs.ch/hiltbrand/cockpit', f'https://embed.magnet-xs.ch/{slug}/cockpit')
-    content = content.replace('https://dachdecker-berneroberland.ch/jobs/', f'https://embed.magnet-xs.ch/{slug}/')
-    content = content.replace('Hiltbrand-Karriere\\images\\', f'{slug}\\images\\')
-    content = content.replace('Hiltbrand_Dachdecker_Pragmatisch.html?embed=true', 'index.html?embed=true')
-    content = content.replace('src="Hiltbrand_Dachdecker_Pragmatisch.html?embed=true"', 'src="index.html?embed=true"')
+    content = content.replace('https://dachdecker-berneroberland.ch/jobs/', host_jobs_url if clean_slug == 'hiltbrand' else f'https://embed.magnet-xs.ch/{slug}/')
+    content = content.replace('Hiltbrand-Karriere\\images\\', f'{sync_folder_name}\\images\\')
 
-    # 4. JS Template füllen
+    # 5. JS Template füllen
     for s in stellen:
         if "widget_code" in s:
             s["widget_code"] = s["widget_code"].replace("</script>", "<\\/script>")
 
     stellen_json_str = json.dumps(stellen, ensure_ascii=False)
     bilder_json_str = json.dumps(bilder, ensure_ascii=False)
+    profile_json_str = json.dumps(profile, indent=2, ensure_ascii=False)
 
     compiled_js = re.sub(r'var ACP_COCKPIT_VERSION = ".*?";', f'var ACP_COCKPIT_VERSION = "v{fw_version}";', js_template_code)
     compiled_js = re.sub(r'var ACP_COCKPIT_BUILD = ".*?";', f'var ACP_COCKPIT_BUILD = "{now_build}";', compiled_js)
     compiled_js = compiled_js.replace('Magnet-XS Karriere-Cockpit', f'{name} WebPilot Studio')
     compiled_js = compiled_js.replace("/* __BILDER_JSON__ */", bilder_json_str)
     compiled_js = compiled_js.replace("/* __STELLEN_JSON__ */", stellen_json_str)
+    compiled_js = compiled_js.replace("/* __CLIENT_PROFILE_JSON__ */", profile_json_str)
     
     # Pfad-Ersetzungen im JS
     compiled_js = compiled_js.replace("https://embed.magnet-xs.ch/hiltbrand/", f"https://embed.magnet-xs.ch/{slug}/")
@@ -225,7 +382,6 @@ def build_cockpit(slug: str):
     compiled_js = compiled_js.replace('"hiltbrand"', f'"{slug}"')
 
     # Script-Tag ersetzen
-    new_script_tag = f"<script>\n{compiled_js}\n</script>"
     new_script_tag = f'<script id="acp-studio-main-engine">\n{compiled_js}\n</script>'
     if '<script id="acp-studio-main-engine">' in content:
         content = re.sub(r'<script id="acp-studio-main-engine">.*?</script>', lambda m: new_script_tag, content, flags=re.DOTALL)
@@ -241,7 +397,7 @@ def build_cockpit(slug: str):
     return True
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description="Build Client Cockpit v3.3.0")
+    parser = argparse.ArgumentParser(description="Build Client Cockpit v3.4.1")
     parser.add_argument("--slug", required=True, help="Mandanten-Slug (z. B. muster-holzbau)")
     args = parser.parse_args()
     build_cockpit(args.slug)

@@ -9,7 +9,7 @@
     var t = p.get('token');
     if (t) {
       var segs = window.location.pathname.split('/').filter(Boolean);
-      var rootSeg = segs[0] || 'hiltbrand';
+      var rootSeg = segs[0] || 'preview-hiltbrand';
       var clientSlug = rootSeg.replace(/^preview-/, '');
       var cookiePath = '/' + rootSeg + '/';
       document.cookie = "mxs_auth_" + clientSlug + "=" + encodeURIComponent(t) + "; Path=" + cookiePath + "; Max-Age=2592000; SameSite=Lax";
@@ -26,7 +26,7 @@
 </script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Preview Hiltbrand · WebPilot Studio · v3.4.0</title>
+<title>Preview Hiltbrand · WebPilot Studio · v3.4.1</title>
 <meta name="description" content="Interaktiver Recruiting-Simulator und Stellen-Verzeichnis für Kunden-Widgets. Vorschau, Wechsel zwischen Stellen und 1-Klick Einbettungscodes.">
 <link rel="icon" href="images/logo.png" type="image/png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -2685,11 +2685,11 @@ body.acp-modal-open {
   <div class="acp-cockpit-inner">
     <div class="acp-cockpit-left">
       <div class="acp-brand-cluster">
-        <a href="https://embed.magnet-xs.ch/preview-hiltbrand/cockpit" target="_blank" class="acp-brand-badge" id="acp-brand-badge" title="Magnet-XS Karriere-Studio">
+        <a href="https://embed.magnet-xs.ch/preview-hiltbrand/cockpit" target="_blank" class="acp-brand-badge" id="acp-brand-badge" title="WebPilot Studio">
           <span class="acp-brand-signet">⬥</span>
-          <span class="acp-brand-text" id="acp-brand-label">WEBPILOT STUDIO</span>
+          <span class="acp-brand-text" id="acp-brand-label">KARRIERE-STUDIO</span>
         </a>
-        <span class="acp-version-badge" id="acp-version-badge" title="WebPilot Framework v3.4.0">v3.4.0</span>
+        <span class="acp-version-badge" id="acp-version-badge" title="WebPilot Framework v3.4.1">v3.4.1</span>
       </div>
 
       <div class="acp-topbar-divider"></div>
@@ -2697,8 +2697,8 @@ body.acp-modal-open {
       <div class="acp-job-picker-wrap" id="acp-job-picker-wrap">
         <button type="button" class="acp-job-picker-btn" id="acp-picker-btn" onclick="acpToggleJobDropdown()">
           <span class="picker-icon" id="picker-current-icon">🏠</span>
-          <span class="picker-title" id="picker-current-title">Dachdecker EFZ (80–100%)</span>
-          <span class="picker-badge" id="picker-current-firm">Preview Hiltbrand</span>
+          <span class="picker-title" id="picker-current-title">Hiltbrand Gebäudehüllen AG — Steildach, Flachdach & Fassade</span>
+          <span class="picker-badge" id="picker-current-firm">Preview</span>
           <span class="picker-arrow">▾</span>
         </button>
         
@@ -2787,8 +2787,8 @@ body.acp-modal-open {
       </div>
       <div class="acp-browser-url-pill">
         <span class="acp-url-lock">🔒</span>
-        <span class="acp-url-address" id="acp-stage-browser-url">https://embed.magnet-xs.ch/preview-hiltbrand/</span>
-        <a href="https://embed.magnet-xs.ch/preview-hiltbrand/" target="_blank" id="acp-stage-external-link" class="acp-url-open-ext" title="Original-Seite im neuen Browser-Tab öffnen">↗</a>
+        <span class="acp-url-address" id="acp-stage-browser-url">https://dachdecker-berneroberland.ch/jobs/</span>
+        <a href="https://dachdecker-berneroberland.ch/jobs/" target="_blank" id="acp-stage-external-link" class="acp-url-open-ext" title="Original-Seite im neuen Browser-Tab öffnen">↗</a>
       </div>
       <div class="acp-stage-meta-cluster">
         <span class="acp-stage-client-badge" id="acp-stage-client-pill">Preview Hiltbrand</span>
@@ -2951,7 +2951,7 @@ body.acp-modal-open {
               💡 <em>Perfekt für deine Karriereseite: Lade hier gezielt Fotos für Stellenanzeigen, Team-Porträts und Baustellen hoch. Die Bilder werden über unser weltweites Edge-Netzwerk blitzschnell ausgeliefert (bitte nicht als allgemeines Fotoalbum nutzen).</em>
             </div>
             <div class="acp-upload-local-hint">
-              📁 <em>Alternativ: Foto einfach direkt in deinen Ordner <code>preview-hiltbrand\images\</code> ablegen.</em>
+              📁 <em>Alternativ: Foto einfach direkt in deinen Ordner <code>Hiltbrand-Karriere\images\</code> ablegen.</em>
             </div>
           </div>
         </div>
@@ -2967,7 +2967,7 @@ body.acp-modal-open {
           <button type="button" class="acp-filter-pill" onclick="acpSetImageFilter('used')">🟢 Im Einsatz (<span id="count-used">0</span>)</button>
           <button type="button" class="acp-filter-pill" onclick="acpSetImageFilter('hero')">Hero &amp; Header</button>
           <button type="button" class="acp-filter-pill" onclick="acpSetImageFilter('team')">Team &amp; Porträt</button>
-          <button type="button" class="acp-filter-pill" onclick="acpSetImageFilter('benefit')">Baustelle &amp; Benefit</button>
+          <button type="button" class="acp-filter-pill" onclick="acpSetImageFilter('benefit')">Baustelle & Benefit</button>
           <button type="button" class="acp-filter-pill" onclick="acpSetImageFilter('logo')">Logo &amp; Icon</button>
         </div>
         <div class="acp-toolbar-right">
@@ -3027,8 +3027,6 @@ body.acp-modal-open {
       <div class="acp-jobs-toolbar">
         <div class="acp-jobs-filter-pills" id="acp-jobs-filter-pills">
           <button type="button" class="acp-job-filter-pill active" data-filter="alle" onclick="acpSetJobFilter('alle')">🏢 Alle Inserate (<span id="count-jobs-all">0</span>)</button>
-          <button type="button" class="acp-job-filter-pill" data-filter="hiltbrand" onclick="acpSetJobFilter('hiltbrand')">🏠 Hiltbrand Gebäudehüllen (<span id="count-jobs-hiltbrand">0</span>)</button>
-          <button type="button" class="acp-job-filter-pill" data-filter="zurbuchen" onclick="acpSetJobFilter('zurbuchen')">🌲 Zurbuchen Holzbau (<span id="count-jobs-zurbuchen">0</span>)</button>
           <button type="button" class="acp-job-filter-pill" data-filter="live" onclick="acpSetJobFilter('live')">🟢 Nur Live-Widget (<span id="count-jobs-live">0</span>)</button>
         </div>
         <input type="text" id="acp-jobs-search" class="acp-jobs-search-input" placeholder="🔍 Datei oder Stelle suchen..." oninput="acpFilterJobs()">
@@ -3052,7 +3050,7 @@ body.acp-modal-open {
 
       <div class="acp-code-preview-box">
         <h5>
-          <span>Aktiver 1-Klick Einbettungscode (<strong id="code-job-label" style="color:#ffffff;">Dachdecker EFZ</strong>)</span>
+          <span>Aktiver 1-Klick Einbettungscode (<strong id="code-job-label" style="color:#ffffff;">Hiltbrand Gebäudehüllen AG — Steildach, Flachdach & Fassade</strong>)</span>
           <button type="button" class="acp-btn-code" style="padding:4px 10px; font-size:12px;" onclick="acpCopyActiveCode()">Code kopieren</button>
         </h5>
         <pre class="acp-code-pre" id="active-widget-snippet"></pre>
@@ -3222,17 +3220,17 @@ body.acp-modal-open {
 
         <div style="margin-top:12px; padding:10px 12px; background:rgba(255,255,255,0.04); border-radius:6px; font-size:11.5px; color:#94a3b8; line-height:1.45;">
           💡 <strong>Warum ist genau eine Datei öffentlich live?</strong><br>
-          In WordPress ist der feste 2-Zeiler Widget-Code eingebettet, der auf eine bestimmte Datei verlinkt (aktuell: <code>Hiltbrand_Dachdecker_Pragmatisch.html</code>). Alle anderen Dateien im Cockpit sind <strong>sichere Entwürfe</strong>. Sie werden erst live geschaltet, wenn der Webmaster das Widget auf die neue Stelle einstellt.
+          In WordPress ist der feste 2-Zeiler Widget-Code eingebettet, der auf eine bestimmte Datei verlinkt (aktuell: <code>index.html</code>). Alle anderen Dateien im Cockpit sind <strong>sichere Entwürfe</strong>. Sie werden erst live geschaltet, wenn der Webmaster das Widget auf die neue Stelle einstellt.
         </div>
       </div>
 
       <div style="padding: 14px 18px; background: rgba(59, 130, 246, 0.12); border: 1px solid rgba(59, 130, 246, 0.25); border-radius: 8px;">
         <div style="font-weight: 700; color: #60a5fa; margin-bottom: 3px; font-size: 13px;">📍 Wo bin ich gerade?</div>
         <div style="font-size: 12.5px; color: #cbd5e1;">
-          Du bist hier in deinem <strong>Lokalen Cockpit</strong> (deine persönliche Werkstatt auf deinem Computer). Erst mit Klick auf <em>«Jetzt scharfstellen»</em> wird es auf <a href="https://embed.magnet-xs.ch/preview-hiltbrand/" target="_blank" style="color: #38bdf8; text-decoration: underline;">dachdecker-berneroberland.ch/jobs/</a> sichtbar.
+          Du bist hier in deinem <strong>Lokalen Cockpit</strong> (deine persönliche Werkstatt auf deinem Computer). Erst mit Klick auf <em>«Jetzt scharfstellen»</em> wird es auf <a href="https://dachdecker-berneroberland.ch/jobs/" target="_blank" style="color: #38bdf8; text-decoration: underline;">dachdecker-berneroberland.ch/jobs/</a> sichtbar.
         </div>
         <div style="margin-top: 10px; padding-top: 8px; border-top: 1px solid rgba(255,255,255,0.08); display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px; font-size: 12px;">
-          <span>🌐 <strong>Online-Cockpit:</strong> <a href="https://embed.magnet-xs.ch/preview-hiltbrand/cockpit" target="_blank" style="color: #38bdf8; font-family: 'JetBrains Mono', monospace; text-decoration: underline;">embed.magnet-xs.ch/hiltbrand/cockpit ↗</a></span>
+          <span>🌐 <strong>Online-Cockpit:</strong> <a href="https://embed.magnet-xs.ch/preview-hiltbrand/cockpit" target="_blank" style="color: #38bdf8; font-family: 'JetBrains Mono', monospace; text-decoration: underline;">embed.magnet-xs.ch/preview-hiltbrand/cockpit ↗</a></span>
           <button type="button" class="btn-table-copy" style="padding: 2px 8px; font-size: 11px;" onclick="acpCopyOnlineUrl(this)">📋 Kopieren</button>
         </div>
       </div>
@@ -3373,8 +3371,8 @@ function acpFetchServerLog() {
 // MAGNET-XS COCKPIT FRAMEWORK v3.3.0 (SWISS ARCHITECTURAL CANVAS)
 // Build: 2026-10-03 15:30 CEST
 // =======================================================
-var ACP_COCKPIT_VERSION = "v3.4.0";
-var ACP_COCKPIT_BUILD = "2026-10-08 10:23";
+var ACP_COCKPIT_VERSION = "v3.4.1";
+var ACP_COCKPIT_BUILD = "2026-10-08 10:40";
 
 function sanitizeStellen(list) {
   if (!Array.isArray(list)) return [];
@@ -3386,6 +3384,28 @@ function sanitizeStellen(list) {
     return f.indexOf("cockpit") === -1 && id.indexOf("cockpit") === -1 && t.indexOf("cockpit") === -1;
   });
 }
+
+// Mandanten- & Branchen-Profil (Dynamisch injiziert durch build_client_cockpit.py)
+var ACP_CLIENT_PROFILE = {
+  "slug": "preview-hiltbrand",
+  "clean_slug": "preview-hiltbrand",
+  "name": "Preview Hiltbrand",
+  "short_name": "Preview",
+  "industry_id": "bedachung_gebaeudehuelle",
+  "industry_name": "Bedachung, Spenglerei & Gebäudehülle",
+  "industry_label": "Schweizer Bedachung, Spenglerei & Gebäudehülle-Meisterbetrieb",
+  "work_category_label": "Baustelle & Benefit",
+  "brand_title": "KARRIERE-STUDIO",
+  "prompt_rules": [
+    "- Branchen-Standard: Gebäudehülle Schweiz.",
+    "- Schweizer Fachvokabular (aktiv nutzen): Lukarne, Lukarnen, Dachstock, Estrich, Kamin, Kamine, Unterdach, Dachhaut.",
+    "- Verbotenes Fremdvokabular (nie verwenden!): Gaube, Gauben, Dachboden, Schornstein, Schornsteine, Geselle, Gesellen, Gewerke.",
+    "- Offizielle Berufsbezeichnungen: Dachdecker EFZ, Spengler EFZ, Polybauer EFZ, Bauführer Gebäudehülle.",
+    "- Grunddoktrin: 'Leistungen' (nie 'Gewerke'), 'Offerte' (nie 'Kostenvoranschlag'), 'Ferien' (nie 'Urlaub'), 'Lernende' (nie 'Azubis')."
+  ],
+  "host_url": "https://embed.magnet-xs.ch/preview-hiltbrand/cockpit",
+  "host_jobs_url": "https://dachdecker-berneroberland.ch/jobs/"
+} || {};
 
 // Manifest-Daten mit robusten Fallbacks
 var ACP_BILDER = [{"id": "images_benefits_drohne_jpg", "filename": "benefits_drohne.jpg", "rel_path": "images/benefits_drohne.jpg", "folder": "preview-hiltbrand", "category": "Baustelle & Benefit", "dimensions": "1400x1050", "size_kb": 482.5, "mtime": 1791122920, "mtime_str": "04.10.2026 14:08", "cdn_url": "https://embed.magnet-xs.ch/preview-hiltbrand/images/benefits_drohne.jpg", "is_used": false, "used_in": []}, {"id": "images_danke_png", "filename": "danke.png", "rel_path": "images/danke.png", "folder": "preview-hiltbrand", "category": "Baustelle & Benefit", "dimensions": "1456x816", "size_kb": 1490.5, "mtime": 1791122920, "mtime_str": "04.10.2026 14:08", "cdn_url": "https://embed.magnet-xs.ch/preview-hiltbrand/images/danke.png", "is_used": false, "used_in": []}, {"id": "images_hero_jpg", "filename": "hero.jpg", "rel_path": "images/hero.jpg", "folder": "preview-hiltbrand", "category": "Hero & Header", "dimensions": "1400x933", "size_kb": 160.7, "mtime": 1791122920, "mtime_str": "04.10.2026 14:08", "cdn_url": "https://embed.magnet-xs.ch/preview-hiltbrand/images/hero.jpg", "is_used": true, "used_in": [{"datei": "index.html", "slot": "image", "is_hero": true}]}, {"id": "images_logo_png", "filename": "logo.png", "rel_path": "images/logo.png", "folder": "preview-hiltbrand", "category": "Logo & Icon", "dimensions": "260x150", "size_kb": 8.2, "mtime": 1791122920, "mtime_str": "04.10.2026 14:08", "cdn_url": "https://embed.magnet-xs.ch/preview-hiltbrand/images/logo.png", "is_used": true, "used_in": [{"datei": "onboarding.html", "slot": "image", "is_hero": false}, {"datei": "kontakt.html", "slot": "image", "is_hero": false}, {"datei": "index.html", "slot": "image", "is_hero": false}, {"datei": "karriere.html", "slot": "image", "is_hero": false}, {"datei": "team.html", "slot": "image", "is_hero": false}]}, {"id": "images_michael_jpg", "filename": "michael.jpg", "rel_path": "images/michael.jpg", "folder": "preview-hiltbrand", "category": "Team & Porträt", "dimensions": "834x788", "size_kb": 186.7, "mtime": 1791122920, "mtime_str": "04.10.2026 14:08", "cdn_url": "https://embed.magnet-xs.ch/preview-hiltbrand/images/michael.jpg", "is_used": true, "used_in": [{"datei": "onboarding.html", "slot": "image", "is_hero": false}, {"datei": "team.html", "slot": "image", "is_hero": false}]}, {"id": "images_q1_benefit_jpg", "filename": "q1_benefit.jpg", "rel_path": "images/q1_benefit.jpg", "folder": "preview-hiltbrand", "category": "Baustelle & Benefit", "dimensions": "1400x1050", "size_kb": 295.8, "mtime": 1791122920, "mtime_str": "04.10.2026 14:08", "cdn_url": "https://embed.magnet-xs.ch/preview-hiltbrand/images/q1_benefit.jpg", "is_used": false, "used_in": []}, {"id": "images_q1_bewaehrtes_handwerk_png", "filename": "q1_bewaehrtes_handwerk.png", "rel_path": "images/q1_bewaehrtes_handwerk.png", "folder": "preview-hiltbrand", "category": "Baustelle & Benefit", "dimensions": "200x160", "size_kb": 37.6, "mtime": 1791122920, "mtime_str": "04.10.2026 14:08", "cdn_url": "https://embed.magnet-xs.ch/preview-hiltbrand/images/q1_bewaehrtes_handwerk.png", "is_used": false, "used_in": []}, {"id": "images_q1_effiziente_maschinen_png", "filename": "q1_effiziente_maschinen.png", "rel_path": "images/q1_effiziente_maschinen.png", "folder": "preview-hiltbrand", "category": "Baustelle & Benefit", "dimensions": "200x160", "size_kb": 38.0, "mtime": 1791122920, "mtime_str": "04.10.2026 14:08", "cdn_url": "https://embed.magnet-xs.ch/preview-hiltbrand/images/q1_effiziente_maschinen.png", "is_used": false, "used_in": []}, {"id": "images_q1_moderne_technik_png", "filename": "q1_moderne_technik.png", "rel_path": "images/q1_moderne_technik.png", "folder": "preview-hiltbrand", "category": "Baustelle & Benefit", "dimensions": "200x160", "size_kb": 37.8, "mtime": 1791122920, "mtime_str": "04.10.2026 14:08", "cdn_url": "https://embed.magnet-xs.ch/preview-hiltbrand/images/q1_moderne_technik.png", "is_used": false, "used_in": []}, {"id": "images_q1_sicherer_arbeitgeber_png", "filename": "q1_sicherer_arbeitgeber.png", "rel_path": "images/q1_sicherer_arbeitgeber.png", "folder": "preview-hiltbrand", "category": "Baustelle & Benefit", "dimensions": "200x160", "size_kb": 37.8, "mtime": 1791122920, "mtime_str": "04.10.2026 14:08", "cdn_url": "https://embed.magnet-xs.ch/preview-hiltbrand/images/q1_sicherer_arbeitgeber.png", "is_used": false, "used_in": []}, {"id": "images_q2_baustellen_png", "filename": "q2_baustellen.png", "rel_path": "images/q2_baustellen.png", "folder": "preview-hiltbrand", "category": "Baustelle & Benefit", "dimensions": "200x160", "size_kb": 39.3, "mtime": 1791122920, "mtime_str": "04.10.2026 14:08", "cdn_url": "https://embed.magnet-xs.ch/preview-hiltbrand/images/q2_baustellen.png", "is_used": false, "used_in": []}, {"id": "images_q2_benefit_jpg", "filename": "q2_benefit.jpg", "rel_path": "images/q2_benefit.jpg", "folder": "preview-hiltbrand", "category": "Baustelle & Benefit", "dimensions": "1400x1050", "size_kb": 325.7, "mtime": 1791122920, "mtime_str": "04.10.2026 14:08", "cdn_url": "https://embed.magnet-xs.ch/preview-hiltbrand/images/q2_benefit.jpg", "is_used": false, "used_in": []}, {"id": "images_q2_details_png", "filename": "q2_details.png", "rel_path": "images/q2_details.png", "folder": "preview-hiltbrand", "category": "Baustelle & Benefit", "dimensions": "200x160", "size_kb": 38.5, "mtime": 1791122920, "mtime_str": "04.10.2026 14:08", "cdn_url": "https://embed.magnet-xs.ch/preview-hiltbrand/images/q2_details.png", "is_used": false, "used_in": []}, {"id": "images_q2_ganzheitlich_png", "filename": "q2_ganzheitlich.png", "rel_path": "images/q2_ganzheitlich.png", "folder": "preview-hiltbrand", "category": "Baustelle & Benefit", "dimensions": "200x160", "size_kb": 38.8, "mtime": 1791122920, "mtime_str": "04.10.2026 14:08", "cdn_url": "https://embed.magnet-xs.ch/preview-hiltbrand/images/q2_ganzheitlich.png", "is_used": false, "used_in": []}, {"id": "images_q2_kundenkontakt_png", "filename": "q2_kundenkontakt.png", "rel_path": "images/q2_kundenkontakt.png", "folder": "preview-hiltbrand", "category": "Baustelle & Benefit", "dimensions": "200x160", "size_kb": 38.6, "mtime": 1791122920, "mtime_str": "04.10.2026 14:08", "cdn_url": "https://embed.magnet-xs.ch/preview-hiltbrand/images/q2_kundenkontakt.png", "is_used": false, "used_in": []}, {"id": "images_q3_ansagen_png", "filename": "q3_ansagen.png", "rel_path": "images/q3_ansagen.png", "folder": "preview-hiltbrand", "category": "Baustelle & Benefit", "dimensions": "200x160", "size_kb": 47.1, "mtime": 1791122920, "mtime_str": "04.10.2026 14:08", "cdn_url": "https://embed.magnet-xs.ch/preview-hiltbrand/images/q3_ansagen.png", "is_used": false, "used_in": []}, {"id": "images_q3_benefit_png", "filename": "q3_benefit.png", "rel_path": "images/q3_benefit.png", "folder": "preview-hiltbrand", "category": "Baustelle & Benefit", "dimensions": "1456x816", "size_kb": 1296.6, "mtime": 1791122920, "mtime_str": "04.10.2026 14:08", "cdn_url": "https://embed.magnet-xs.ch/preview-hiltbrand/images/q3_benefit.png", "is_used": false, "used_in": []}, {"id": "images_q3_ehrgeiz_png", "filename": "q3_ehrgeiz.png", "rel_path": "images/q3_ehrgeiz.png", "folder": "preview-hiltbrand", "category": "Baustelle & Benefit", "dimensions": "200x160", "size_kb": 47.7, "mtime": 1791122920, "mtime_str": "04.10.2026 14:08", "cdn_url": "https://embed.magnet-xs.ch/preview-hiltbrand/images/q3_ehrgeiz.png", "is_used": false, "used_in": []}, {"id": "images_q3_freiraum_png", "filename": "q3_freiraum.png", "rel_path": "images/q3_freiraum.png", "folder": "preview-hiltbrand", "category": "Baustelle & Benefit", "dimensions": "200x160", "size_kb": 47.2, "mtime": 1791122920, "mtime_str": "04.10.2026 14:08", "cdn_url": "https://embed.magnet-xs.ch/preview-hiltbrand/images/q3_freiraum.png", "is_used": false, "used_in": []}, {"id": "images_q3_kameradschaft_png", "filename": "q3_kameradschaft.png", "rel_path": "images/q3_kameradschaft.png", "folder": "preview-hiltbrand", "category": "Baustelle & Benefit", "dimensions": "200x160", "size_kb": 47.2, "mtime": 1791122920, "mtime_str": "04.10.2026 14:08", "cdn_url": "https://embed.magnet-xs.ch/preview-hiltbrand/images/q3_kameradschaft.png", "is_used": false, "used_in": []}, {"id": "images_stefan_jpg", "filename": "stefan.jpg", "rel_path": "images/stefan.jpg", "folder": "preview-hiltbrand", "category": "Team & Porträt", "dimensions": "1400x1337", "size_kb": 204.2, "mtime": 1791122920, "mtime_str": "04.10.2026 14:08", "cdn_url": "https://embed.magnet-xs.ch/preview-hiltbrand/images/stefan.jpg", "is_used": true, "used_in": [{"datei": "onboarding.html", "slot": "image", "is_hero": false}, {"datei": "team.html", "slot": "image", "is_hero": false}]}, {"id": "images_team_alt_jpg", "filename": "team_alt.jpg", "rel_path": "images/team_alt.jpg", "folder": "preview-hiltbrand", "category": "Team & Porträt", "dimensions": "1400x933", "size_kb": 259.8, "mtime": 1791122920, "mtime_str": "04.10.2026 14:08", "cdn_url": "https://embed.magnet-xs.ch/preview-hiltbrand/images/team_alt.jpg", "is_used": true, "used_in": [{"datei": "onboarding.html", "slot": "image", "is_hero": false}, {"datei": "team.html", "slot": "image", "is_hero": false}]}, {"id": "images_vorstellung_jpg", "filename": "vorstellung.jpg", "rel_path": "images/vorstellung.jpg", "folder": "preview-hiltbrand", "category": "Baustelle & Benefit", "dimensions": "1400x933", "size_kb": 160.7, "mtime": 1791122920, "mtime_str": "04.10.2026 14:08", "cdn_url": "https://embed.magnet-xs.ch/preview-hiltbrand/images/vorstellung.jpg", "is_used": true, "used_in": [{"datei": "onboarding.html", "slot": "image", "is_hero": false}, {"datei": "team.html", "slot": "image", "is_hero": false}]}];
@@ -3793,7 +3813,10 @@ function acpRenderImagesGrid() {
     if (acpCurrentImageFilter === 'used' && !b.is_used) return false;
     if (acpCurrentImageFilter === 'hero' && b.category !== 'Hero & Header') return false;
     if (acpCurrentImageFilter === 'team' && b.category !== 'Team & Porträt') return false;
-    if (acpCurrentImageFilter === 'benefit' && b.category !== 'Baustelle & Benefit') return false;
+    if (acpCurrentImageFilter === 'benefit') {
+      var workLabel = (window.ACP_CLIENT_PROFILE && window.ACP_CLIENT_PROFILE.work_category_label) || 'Baustelle & Benefit';
+      if (b.category !== 'Baustelle & Benefit' && b.category !== 'Baustelle & Projekte' && b.category !== workLabel) return false;
+    }
     if (acpCurrentImageFilter === 'logo' && b.category !== 'Logo & Icon') return false;
 
     if (query) {
@@ -4536,15 +4559,6 @@ function acpToggleDirectoryModal() {
 
 function acpSetJobFilter(filter) {
   acpCurrentJobFilter = filter;
-  var pills = document.querySelectorAll(".acp-job-filter-pill");
-  pills.forEach(function(p) {
-    var attr = p.getAttribute("data-filter");
-    if (attr === filter || (!attr && filter === 'alle' && p.textContent.indexOf('Alle') !== -1)) {
-      p.classList.add("active");
-    } else {
-      p.classList.remove("active");
-    }
-  });
   renderDirectoryTable();
 }
 
@@ -4560,24 +4574,48 @@ function renderDirectoryTable() {
   var query = (searchInput ? searchInput.value : "").toLowerCase().trim();
 
   var countAll = ACP_STELLEN.length;
-  var countHiltbrand = ACP_STELLEN.filter(function(j) { return (j.firma || '').indexOf('Hiltbrand') !== -1; }).length;
-  var countZurbuchen = ACP_STELLEN.filter(function(j) { return (j.firma || '').indexOf('Zurbuchen') !== -1; }).length;
   var countLive = ACP_STELLEN.filter(function(j) { return !!j.is_live; }).length;
 
-  var elAll = document.getElementById("count-jobs-all");
-  var elHb = document.getElementById("count-jobs-hiltbrand");
-  var elZb = document.getElementById("count-jobs-zurbuchen");
-  var elLive = document.getElementById("count-jobs-live");
+  // Firmen-Zählung dynamisch ermitteln
+  var companyCounts = {};
+  ACP_STELLEN.forEach(function(j) {
+    var fn = (j.firma || "").trim();
+    if (fn) {
+      companyCounts[fn] = (companyCounts[fn] || 0) + 1;
+    }
+  });
+  var companyNames = Object.keys(companyCounts);
 
-  if (elAll) elAll.textContent = countAll;
-  if (elHb) elHb.textContent = countHiltbrand;
-  if (elZb) elZb.textContent = countZurbuchen;
-  if (elLive) elLive.textContent = countLive;
+  // Filter-Pills dynamisch rendern falls Pills-Container vorhanden
+  var pillsContainer = document.getElementById("acp-jobs-filter-pills");
+  if (pillsContainer) {
+    var pillsHtml = '<button type="button" class="acp-job-filter-pill' + (acpCurrentJobFilter === 'alle' ? ' active' : '') + '" data-filter="alle" onclick="acpSetJobFilter(\'alle\')">🏢 Alle Inserate (<span id="count-jobs-all">' + countAll + '</span>)</button>';
+    
+    if (companyNames.length > 1) {
+      companyNames.forEach(function(cName) {
+        var isAct = (acpCurrentJobFilter === cName || acpCurrentJobFilter === ('firma:' + cName) || (cName.indexOf('Hiltbrand') !== -1 && acpCurrentJobFilter === 'preview-hiltbrand') || (cName.indexOf('Zurbuchen') !== -1 && acpCurrentJobFilter === 'zurbuchen'));
+        var icon = '🏢';
+        var cLower = cName.toLowerCase();
+        if (cLower.indexOf('holz') !== -1 || cLower.indexOf('zurbuchen') !== -1) icon = '🌲';
+        else if (cLower.indexOf('dach') !== -1 || cLower.indexOf('preview-hiltbrand') !== -1 || cLower.indexOf('gebäude') !== -1) icon = '🏠';
+        
+        pillsHtml += ' <button type="button" class="acp-job-filter-pill' + (isAct ? ' active' : '') + '" data-filter="firma:' + cName + '" onclick="acpSetJobFilter(\'firma:' + cName.replace(/'/g, "\\'") + '\')">' + icon + ' ' + cName + ' (<span>' + companyCounts[cName] + '</span>)</button>';
+      });
+    }
+
+    pillsHtml += ' <button type="button" class="acp-job-filter-pill' + (acpCurrentJobFilter === 'live' ? ' active' : '') + '" data-filter="live" onclick="acpSetJobFilter(\'live\')">🟢 Nur Live-Widget (<span id="count-jobs-live">' + countLive + '</span>)</button>';
+    
+    pillsContainer.innerHTML = pillsHtml;
+  }
 
   var filtered = ACP_STELLEN.filter(function(j) {
+    if (acpCurrentJobFilter === 'live' && !j.is_live) return false;
+    if (acpCurrentJobFilter.indexOf('firma:') === 0) {
+      var targetFirma = acpCurrentJobFilter.substring(6);
+      if ((j.firma || '').indexOf(targetFirma) === -1) return false;
+    }
     if (acpCurrentJobFilter === 'preview-hiltbrand' && (j.firma || '').indexOf('Hiltbrand') === -1) return false;
     if (acpCurrentJobFilter === 'zurbuchen' && (j.firma || '').indexOf('Zurbuchen') === -1) return false;
-    if (acpCurrentJobFilter === 'live' && !j.is_live) return false;
 
     if (query) {
       var mFile = (j.datei || '').toLowerCase().indexOf(query) !== -1;
@@ -4596,7 +4634,7 @@ function renderDirectoryTable() {
   var html = "";
   for (var i = 0; i < filtered.length; i++) {
     var j = filtered[i];
-    var subfolder = j.folder || ((j.firma && j.firma.indexOf('Zurbuchen') !== -1) ? 'zurbuchen' : 'preview-hiltbrand');
+    var subfolder = j.folder || (window.ACP_CLIENT_PROFILE && window.ACP_CLIENT_PROFILE.slug) || ((j.firma && j.firma.indexOf('Zurbuchen') !== -1) ? 'zurbuchen' : 'preview-hiltbrand');
     var edgePreviewUrl = j.edge_url || ('https://embed.magnet-xs.ch/' + subfolder + '/' + j.datei);
     var cleanEdgeDomain = 'embed.magnet-xs.ch/' + subfolder + '/' + j.datei;
 
@@ -5014,8 +5052,14 @@ function acpBuildFullContextEnvelope(targetSecId, customGoal) {
   var prevInfo = prevSec ? "Liegt direkt NACH: [" + prevSec.id + "] " + prevSec.title : "Liegt ganz oben auf der Seite (Hero-Bereich)";
   var nextInfo = nextSec ? "Liegt direkt VOR: [" + nextSec.id + "] " + nextSec.title : "Liegt direkt vor dem Footer";
 
+  var profile = window.ACP_CLIENT_PROFILE || {};
+  var industryLabel = profile.industry_label || "Schweizer Unternehmens-Website";
+  var promptRules = (profile.prompt_rules && profile.prompt_rules.length > 0)
+    ? profile.prompt_rules.join("\n")
+    : "- Schweizer Geschäftsbegriffe: \"Leistungen\" (nie \"Gewerke\"), \"Fachspezialisten EFZ\" (nie \"Gesellen\"), \"Lernende\" (nie \"Azubis\"), \"Offerte\" (nie \"Kostenvoranschlag\"), \"Ferien\" (nie \"Urlaub\").";
+
   var prompt = 
-"Du bist mein technischer Web-Entwickler für meine Schweizer Handwerker-Website (WebPilot Obsidian-Dark Design).\n" +
+"Du bist mein technischer Web-Entwickler für meine " + industryLabel + " (WebPilot Obsidian-Dark Design).\n" +
 "Ich möchte die Sektion \"" + targetSec.title + "\" (data-section=\"" + targetSec.id + "\") anpassen.\n\n" +
 
 "================================================================================\n" +
@@ -5030,7 +5074,7 @@ function acpBuildFullContextEnvelope(targetSecId, customGoal) {
 "2. VERBINDLICHE SCHWEIZER SPRACH- & DESIGN-DOKTRIN:\n" +
 "================================================================================\n" +
 "- Sprache: Authentisches Schweizer Hochdeutsch (100% Verbot von \"ß\", nutze \"ss\").\n" +
-"- Schweizer Handwerksbegriffe: \"Leistungen\" (nie \"Gewerke\"), \"Handwerker EFZ / Fachmonteure\" (nie \"Gesellen\"), \"Lernende\" (nie \"Azubis\"), \"24h-Pikett\" (nie \"Notdienst\"), \"Offerte\" (nie \"Kostenvoranschlag\"), \"Ferien\" (nie \"Urlaub\").\n" +
+promptRules + "\n" +
 "- Schweizer Typografie: Nutze die bestehenden Klassen (.section-wrap, .section-inner, .section-kicker, .section-title, .section-desc).\n" +
 "- Kicker-Regel: <span class=\"section-kicker\">● Kicker-Text</span> ist 100% freistehend (keine Box, kein Badge-Rahmen).\n" +
 "- Zero-Emoji: Keine bunten Emojis in Überschriften oder Badges.\n" +
@@ -5073,11 +5117,18 @@ function acpCopyFullPagePrompt() {
     alert("Konnte den Quellcode der Seite nicht einlesen.");
     return;
   }
+  var profile = window.ACP_CLIENT_PROFILE || {};
+  var industryLabel = profile.industry_label || "Schweizer Unternehmens-Website";
+  var promptRules = (profile.prompt_rules && profile.prompt_rules.length > 0)
+    ? profile.prompt_rules.join("\n")
+    : "- Schweizer Geschäftsbegriffe: \"Leistungen\" (nie \"Gewerke\"), \"Fachspezialisten EFZ\" (nie \"Gesellen\"), \"Lernende\" (nie \"Azubis\"), \"Offerte\" (nie \"Kostenvoranschlag\"), \"Ferien\" (nie \"Urlaub\").";
+
   var prompt = 
-"Du bist mein technischer Web-Redakteur für meine Schweizer Handwerker-Website.\n" +
+"Du bist mein technischer Web-Redakteur für meine " + industryLabel + ".\n" +
 "Ich übergebe dir hier den VOLLSTÄNDIGEN Quellcode meiner Website (HTML5).\n\n" +
 "MEINE REGELN:\n" +
-"1. Schweizer Hochdeutsch (0x 'ß', Schweizer Fachbegriffe).\n" +
+"1. Schweizer Hochdeutsch (0x 'ß', Schweizer Fachbegriffe):\n" +
+promptRules + "\n" +
 "2. Schweizer Obsidian-Design & bestehende Klassen beibehalten.\n" +
 "3. AUSGABE-PFLICHT: Gib mir den Quellcode immer als eine einzige, vollständige und ungekürzte HTML-Datei aus – ausnahmslos von <!DOCTYPE html> bis </html>. Verwende keine Code-Auslassungen!\n\n" +
 "QUELLCODE:\n" + fullHtml;
@@ -5228,8 +5279,14 @@ function acpCopyGeneratedNewSectionPrompt() {
   var afterSec = acpScannedSections.find(function(s) { return s.id === pos; }) || acpScannedSections[0];
   var slug = topic.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
 
+  var profile = window.ACP_CLIENT_PROFILE || {};
+  var industryLabel = profile.industry_label || "Schweizer Unternehmens-Website";
+  var promptRules = (profile.prompt_rules && profile.prompt_rules.length > 0)
+    ? profile.prompt_rules.join("\n")
+    : "- Schweizer Geschäftsbegriffe: \"Leistungen\" (nie \"Gewerke\"), \"Fachspezialisten EFZ\" (nie \"Gesellen\"), \"Lernende\" (nie \"Azubis\"), \"Offerte\" (nie \"Kostenvoranschlag\"), \"Ferien\" (nie \"Urlaub\").";
+
   var prompt = 
-"Du bist mein technischer Web-Entwickler für meine Schweizer Handwerker-Website (WebPilot Obsidian-Dark Design).\n" +
+"Du bist mein technischer Web-Entwickler für meine " + industryLabel + " (WebPilot Obsidian-Dark Design).\n" +
 "Erstelle mir eine NEUE HTML5-Sektion für folgendes Thema:\n" +
 "\"" + topic + "\"\n\n" +
 
@@ -5248,7 +5305,7 @@ function acpCopyGeneratedNewSectionPrompt() {
 "- Titel: <h2 class=\"section-title\">Prägnante Überschrift</h2>\n" +
 "- Untertitel: <p class=\"section-desc\">Kurze, vertrauensbildende Beschreibung.</p>\n" +
 "- Grid: Responsives CSS-Grid mit style=\"display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:24px;\"\n" +
-"- Sprache: 100% Schweizer Hochdeutsch (0x \"ß\", Schweizer Fachbegriffe).\n" +
+"- Sprache & Fachbegriffe:\n" + promptRules + "\n" +
 "- Emojis: 0 bunte Emojis.\n\n" +
 
 "================================================================================\n" +
