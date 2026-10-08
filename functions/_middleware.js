@@ -8,7 +8,7 @@ export async function onRequest(context) {
     if (targetPath === '/' || targetPath === '') {
       targetPath = '/webpilot/';
     } else if (!targetPath.startsWith('/webpilot')) {
-      targetPath = ;
+      targetPath = `/webpilot${targetPath}`;
     }
 
     const rewriteUrl = new URL(targetPath, url.origin);
@@ -52,19 +52,21 @@ export async function onRequest(context) {
                     url.pathname.endsWith('.js') ||
                     url.pathname.endsWith('.ico');
 
-    // Mandanten-spezifische Tokens (Krypto-Secrets + kontrollierte Vorschau-Tokens)
+    // Mandanten-spezifische Tokens (Krypto-Secrets)
     const clientTokens = {
-      'hiltbrand': ['hb_sec_9e2f48b7c0d3a5a81e9', 'hb2026'],
-      'birchmeier': ['bm_sec_7a1c8f3e2d9b4a5f', 'bm2026'],
-      'default': [, ]
+      'hiltbrand': ['hb_sec_9e2f48b7c0d3a5a81e9'],
+      'preview-hiltbrand': ['hb_sec_9e2f48b7c0d3a5a81e9', 'hb2026'],
+      'birchmeier': ['bm_sec_7a1c8f3e2d9b4a5f'],
+      'preview-birchmeier': ['bm_sec_7a1c8f3e2d9b4a5f', 'bm2026'],
+      'default': [clientSlug + '_sec_master', clientSlug + '2026']
     };
-    const validTokens = clientTokens[clientSlug] || clientTokens['default'];
+    const validTokens = clientTokens[rootSegment] || clientTokens[clientSlug] || clientTokens['default'];
 
     const tokenParam = url.searchParams.get('token');
     const cookieHeader = context.request.headers.get('Cookie') || '';
 
-    // Mandanten-isoliertes Cookie prüfen (mxs_auth_[slug]) + Legacy-Support für Hiltbrand
-    const tenantCookieKey = ;
+    // Mandanten-isoliertes Cookie prüfen: mxs_auth_[slug]= + Legacy-Support für Hiltbrand
+    const tenantCookieKey = 'mxs_auth_' + clientSlug + '=';
     const legacyCockpitKey = 'hb_cockpit_token=';
     const legacyPreviewKey = 'hb_preview_token=';
 
@@ -75,7 +77,7 @@ export async function onRequest(context) {
 
     const hasValidToken = tokenParam && validTokens.includes(tokenParam);
 
-    // Schutzwall: Cockpits und Vorschau verlangen Autorisierung!
+    // Schutzwall: Cockpits verlangen echten Token oder Cookie!
     if (isCockpit) {
       if (!hasValidToken && !hasValidCookie) {
         return Response.redirect('https://webpilot.magnet-xs.ch/', 302);
@@ -109,9 +111,9 @@ export async function onRequest(context) {
       activeClientSlug = match[1];
       const rest = match[2] || '';
       if (rest === '/onboarding' || rest === '/onboarding.html') {
-        targetPath = ;
+        targetPath = `/preview-${activeClientSlug}/onboarding`;
       } else {
-        targetPath = ;
+        targetPath = `/preview-${activeClientSlug}${rest === '' ? '/' : rest}`;
       }
     }
 
@@ -123,9 +125,9 @@ export async function onRequest(context) {
     if (isClientPath) {
       const tokenParam = url.searchParams.get('token');
       if (tokenParam) {
-        newHeaders.append('Set-Cookie', );
+        newHeaders.append('Set-Cookie', `mxs_auth_${activeClientSlug}=${tokenParam}; Path=/${activeClientSlug}/; Max-Age=86400; SameSite=Lax`);
         if (activeClientSlug === 'hiltbrand') {
-          newHeaders.append('Set-Cookie', );
+          newHeaders.append('Set-Cookie', `hb_preview_token=${tokenParam}; Path=/hiltbrand/; Max-Age=86400; SameSite=Lax`);
         }
       }
     }
@@ -133,7 +135,7 @@ export async function onRequest(context) {
     if ([301, 302, 307, 308].includes(response.status)) {
       const loc = response.headers.get('location');
       if (loc) {
-        let cleanLoc = loc.replace(/^\/preview-([a-zA-Z0-9_-]+)/, '/');
+        let cleanLoc = loc.replace(/^\/preview-([a-zA-Z0-9_-]+)/, '/$1');
         if (cleanLoc === url.pathname) {
           const directUrl = new URL(loc, url.origin);
           return await context.env.ASSETS.fetch(new Request(directUrl, context.request));
@@ -158,18 +160,20 @@ export async function onRequest(context) {
     const response = await context.next();
     if (tokenParam) {
       const clientTokens = {
-        'hiltbrand': ['hb_sec_9e2f48b7c0d3a5a81e9', 'hb2026'],
-        'birchmeier': ['bm_sec_7a1c8f3e2d9b4a5f', 'bm2026'],
-        'default': [, ]
+        'hiltbrand': ['hb_sec_9e2f48b7c0d3a5a81e9'],
+        'preview-hiltbrand': ['hb_sec_9e2f48b7c0d3a5a81e9', 'hb2026'],
+        'birchmeier': ['bm_sec_7a1c8f3e2d9b4a5f'],
+        'preview-birchmeier': ['bm_sec_7a1c8f3e2d9b4a5f', 'bm2026'],
+        'default': [clientSlug + '_sec_master', clientSlug + '2026']
       };
-      const validTokens = clientTokens[clientSlug] || clientTokens['default'];
+      const validTokens = clientTokens[rootSegment] || clientTokens[clientSlug] || clientTokens['default'];
       if (validTokens.includes(tokenParam)) {
         const newHeaders = new Headers(response.headers);
-        const cookiePath = ;
-        newHeaders.append('Set-Cookie', );
+        const cookiePath = '/' + rootSegment + '/';
+        newHeaders.append('Set-Cookie', 'mxs_auth_' + clientSlug + '=' + tokenParam + '; Path=' + cookiePath + '; Max-Age=2592000; SameSite=Lax');
         if (clientSlug === 'hiltbrand') {
-          newHeaders.append('Set-Cookie', );
-          newHeaders.append('Set-Cookie', );
+          newHeaders.append('Set-Cookie', 'hb_cockpit_token=' + tokenParam + '; Path=' + cookiePath + '; Max-Age=2592000; SameSite=Lax');
+          newHeaders.append('Set-Cookie', 'hb_preview_token=' + tokenParam + '; Path=' + cookiePath + '; Max-Age=2592000; SameSite=Lax');
         }
         return new Response(response.body, {
           status: response.status,
