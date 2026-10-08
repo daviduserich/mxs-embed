@@ -179,6 +179,12 @@ document.addEventListener("keydown", function(e) {
       acpCancelSwap();
       return;
     }
+    var sm = document.getElementById("acp-sections-modal");
+    if (sm && sm.classList.contains("is-open")) acpToggleSectionsModal();
+    var rm = document.getElementById("acp-replace-section-modal");
+    if (rm && rm.style.display !== "none") acpCloseReplaceSectionModal();
+    var nm = document.getElementById("acp-new-section-modal");
+    if (nm && nm.style.display !== "none") acpCloseNewSectionModal();
     var im = document.getElementById("acp-images-modal");
     if (im && im.classList.contains("is-open")) acpToggleImagesModal();
     var dm = document.getElementById("acp-directory-modal");
@@ -1596,3 +1602,423 @@ function acpInit() {
 }
 
 window.addEventListener("DOMContentLoaded", acpInit);
+
+
+// =======================================================
+// [SEKTIONEN & KI-BAUKASTEN] FULL-CONTEXT ENVELOPE ENGINE
+// =======================================================
+var acpSectionsModalOpen = false;
+var acpScannedSections = [];
+var acpActiveEditSectionId = null;
+
+function acpToggleSectionsModal() {
+  acpSectionsModalOpen = !acpSectionsModalOpen;
+  var modal = document.getElementById("acp-sections-modal");
+  if (modal) modal.classList.toggle("is-open", acpSectionsModalOpen);
+  acpUpdateBodyModalClass();
+  if (acpSectionsModalOpen) {
+    acpScanAndRenderSections();
+  }
+}
+
+function acpScanAndRenderSections() {
+  var iframe = document.getElementById("acp-widget-viewport");
+  var grid = document.getElementById("acp-sections-grid");
+  var badge = document.getElementById("acp-sections-count-badge");
+  if (!grid) return;
+
+  grid.innerHTML = '<div style="color:var(--grau); padding:20px;">Lese Sektionen aus der Live-Bühne ein...</div>';
+
+  var doc = null;
+  try {
+    if (iframe && (iframe.contentDocument || iframe.contentWindow)) {
+      doc = iframe.contentDocument || iframe.contentWindow.document;
+    }
+  } catch(e) {
+    console.warn("Iframe Zugriff eingeschränkt:", e);
+  }
+
+  acpScannedSections = [];
+
+  if (doc) {
+    var elements = doc.querySelectorAll("[data-section], section, header.site-header, footer.site-footer, .header-wrap, .footer-wrap");
+    elements.forEach(function(el, idx) {
+      var id = el.getAttribute("data-section") || el.id || el.tagName.toLowerCase();
+      if (id === "acp-cockpit-bar" || el.closest(".acp-cockpit-bar")) return;
+      if (acpScannedSections.some(function(s) { return s.id === id; })) return;
+
+      var kicker = el.querySelector(".section-kicker, .hero-kicker, .kicker, .tag");
+      var title = el.querySelector(".section-title, .hero-title, h1, h2, h3");
+
+      var kickerText = kicker ? kicker.innerText.trim() : "";
+      var titleText = title ? title.innerText.trim() : (el.getAttribute("aria-label") || id);
+
+      var lines = el.outerHTML.split("\n").length;
+      var charCount = el.outerHTML.length;
+
+      acpScannedSections.push({
+        id: id,
+        tag: el.tagName.toLowerCase(),
+        kicker: kickerText,
+        title: titleText,
+        lines: lines,
+        chars: charCount,
+        outerHTML: el.outerHTML,
+        index: idx
+      });
+    });
+  }
+
+  if (acpScannedSections.length === 0) {
+    acpScannedSections = [
+      { id: "hero", kicker: "Meisterbetrieb in 3. Generation", title: "Gebäudehüllen & Photovoltaik", lines: 120, chars: 4800, outerHTML: '<section class="section-wrap hero-wrap" data-section="hero">...</section>' },
+      { id: "services", kicker: "Kompetenzen & Handwerk", title: "Unsere Kernleistungen im Berner Oberland", lines: 95, chars: 3600, outerHTML: '<section class="section-wrap" data-section="services">...</section>' },
+      { id: "stories", kicker: "Direkt aus der Praxis", title: "Aktuelle Baustellen & Referenzen", lines: 80, chars: 3100, outerHTML: '<section class="section-wrap" data-section="stories">...</section>' },
+      { id: "ratgeber", kicker: "Fachwissen & Ratgeber", title: "Wissen direkt vom Gebäudehüllen-Meister", lines: 75, chars: 2900, outerHTML: '<section class="section-wrap" data-section="ratgeber">...</section>' },
+      { id: "team_teaser", kicker: "Menschen & Handwerk", title: "Das Team der Hiltbrand Gebäudehüllen AG", lines: 85, chars: 3400, outerHTML: '<section class="section-wrap" data-section="team_teaser">...</section>' },
+      { id: "kontakt", kicker: "Direktkontakt & 24h-Pikett", title: "Offerte anfordern & Kontakt", lines: 110, chars: 4200, outerHTML: '<section class="section-wrap" data-section="kontakt">...</section>' }
+    ];
+  }
+
+  if (badge) {
+    badge.textContent = "● " + acpScannedSections.length + " Sektionen aktiv";
+  }
+
+  grid.innerHTML = "";
+  acpScannedSections.forEach(function(sec, idx) {
+    var card = document.createElement("div");
+    card.className = "acp-section-card";
+    card.style.cssText = "background: rgba(15, 23, 42, 0.85); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 12px; padding: 20px; display: flex; flex-direction: column; justify-content: space-between; gap: 16px;";
+
+    var isSystem = (sec.id === "header" || sec.id === "footer");
+    var badgeColor = isSystem ? "rgba(148, 163, 184, 0.2)" : "rgba(245, 158, 11, 0.15)";
+    var badgeText = isSystem ? "SYSTEM" : "SEKTION " + (idx + 1);
+    var badgeTextColor = isSystem ? "#94a3b8" : "#fbbf24";
+
+    card.innerHTML = 
+      '<div>' +
+        '<div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px;">' +
+          '<span style="font-family:\'JetBrains Mono\',monospace; font-size:11px; font-weight:700; background:' + badgeColor + '; color:' + badgeTextColor + '; padding:3px 8px; border-radius:4px;">' + badgeText + '</span>' +
+          '<span style="font-family:\'JetBrains Mono\',monospace; font-size:11px; color:#64748b;">data-section="' + sec.id + '"</span>' +
+        '</div>' +
+        (sec.kicker ? '<div style="font-family:\'JetBrains Mono\',monospace; font-size:11px; color:#f59e0b; margin-bottom:4px;">' + sec.kicker + '</div>' : '') +
+        '<h4 style="color:#fff; font-size:16px; font-weight:700; line-height:1.4; margin-bottom:8px;">' + sec.title + '</h4>' +
+        '<div style="font-size:12px; color:#64748b;">' + sec.lines + ' Zeilen · ca. ' + Math.round(sec.chars / 100) / 10 + ' KB Quelltext</div>' +
+      '</div>' +
+      '<div style="display:flex; gap:8px; flex-wrap:wrap; padding-top:12px; border-top:1px solid rgba(255,255,255,0.08);">' +
+        '<button type="button" class="acp-btn-secondary" onclick="acpCopySectionPrompt(\'' + sec.id + '\')" style="flex:1; padding:8px 12px; font-size:12.5px; justify-content:center;" title="Kopiert Prompt inkl. vollem Seiten-Kontext">' +
+          '<span>📋 Prompt kopieren</span>' +
+        '</button>' +
+        '<button type="button" class="acp-btn-secondary" onclick="acpOpenReplaceSectionModal(\'' + sec.id + '\')" style="padding:8px 12px; font-size:12.5px;" title="Modifizierten KI-Code einfügen">' +
+          '<span>✏️ Ersetzen</span>' +
+        '</button>' +
+        (!isSystem ? '<button type="button" class="acp-btn-secondary" onclick="acpRemoveSection(\'' + sec.id + '\')" style="padding:8px 10px; font-size:12.5px; color:#ef4444; border-color:rgba(239,68,68,0.3);" title="Sektion entfernen"><span>🗑️</span></button>' : '') +
+      '</div>';
+
+    grid.appendChild(card);
+  });
+}
+
+function acpBuildFullContextEnvelope(targetSecId, customGoal) {
+  var targetSec = acpScannedSections.find(function(s) { return s.id === targetSecId; });
+  if (!targetSec) return "";
+
+  var sectionsOutline = acpScannedSections.map(function(s, i) {
+    return "   " + (i + 1) + ". [" + s.id + "] " + (s.kicker ? s.kicker + " · " : "") + s.title;
+  }).join("\n");
+
+  var targetIdx = acpScannedSections.findIndex(function(s) { return s.id === targetSecId; });
+  var prevSec = targetIdx > 0 ? acpScannedSections[targetIdx - 1] : null;
+  var nextSec = targetIdx < acpScannedSections.length - 1 ? acpScannedSections[targetIdx + 1] : null;
+
+  var prevInfo = prevSec ? "Liegt direkt NACH: [" + prevSec.id + "] " + prevSec.title : "Liegt ganz oben auf der Seite (Hero-Bereich)";
+  var nextInfo = nextSec ? "Liegt direkt VOR: [" + nextSec.id + "] " + nextSec.title : "Liegt direkt vor dem Footer";
+
+  var prompt = 
+"Du bist mein technischer Web-Entwickler für meine Schweizer Handwerker-Website (WebPilot Obsidian-Dark Design).\n" +
+"Ich möchte die Sektion \"" + targetSec.title + "\" (data-section=\"" + targetSec.id + "\") anpassen.\n\n" +
+
+"================================================================================\n" +
+"1. GESAMT-KONTEXT DER SEITE (FÜR TONALITÄT, STIMMIGKEIT & FLOW):\n" +
+"================================================================================\n" +
+"- Vorhandene Abschnitte auf dieser Seite:\n" + sectionsOutline + "\n\n" +
+"- Position dieser Sektion im Fluss der Seite:\n" +
+"  * " + prevInfo + "\n" +
+"  * " + nextInfo + "\n\n" +
+
+"================================================================================\n" +
+"2. VERBINDLICHE SCHWEIZER SPRACH- & DESIGN-DOKTRIN:\n" +
+"================================================================================\n" +
+"- Sprache: Authentisches Schweizer Hochdeutsch (100% Verbot von \"ß\", nutze \"ss\").\n" +
+"- Schweizer Handwerksbegriffe: \"Leistungen\" (nie \"Gewerke\"), \"Handwerker EFZ / Fachmonteure\" (nie \"Gesellen\"), \"Lernende\" (nie \"Azubis\"), \"24h-Pikett\" (nie \"Notdienst\"), \"Offerte\" (nie \"Kostenvoranschlag\"), \"Ferien\" (nie \"Urlaub\").\n" +
+"- Schweizer Typografie: Nutze die bestehenden Klassen (.section-wrap, .section-inner, .section-kicker, .section-title, .section-desc).\n" +
+"- Kicker-Regel: <span class=\"section-kicker\">● Kicker-Text</span> ist 100% freistehend (keine Box, kein Badge-Rahmen).\n" +
+"- Zero-Emoji: Keine bunten Emojis in Überschriften oder Badges.\n" +
+"- Bilder: Bildpfade zeigen auf \"images/[dateiname.jpg]\".\n\n" +
+
+"================================================================================\n" +
+"3. AKTUELLER QUELLCODE DIESER SEKTION (ZUR BEARBEITUNG):\n" +
+"================================================================================\n" +
+targetSec.outerHTML + "\n\n" +
+
+"================================================================================\n" +
+"4. MEIN ÄNDERUNGSWUNSCH:\n" +
+"================================================================================\n" +
+(customGoal ? customGoal : "[Hier konkreten Änderungswunsch eingeben, z.B. Text umschreiben, Vorteil anpassen, 4. Bildkarte hinzufügen]") + "\n\n" +
+
+"================================================================================\n" +
+"AUSGABE-REGEL (GOLDENE REGEL):\n" +
+"================================================================================\n" +
+"Nutze den gesamten Kontext für Tonalität und Flow, aber gib mir als Antwort AUSSCHLIESSLICH den vollständigen, sauberen HTML-Code von <section ...> bis </section> im Codeblock aus.\n" +
+"Schliesse ausnahmslos alle Tags (<div>, <section>, <p>, <span>) sauber ab. Keine Auslassungen (wie // ... restlicher Code ...)!";
+
+  return prompt;
+}
+
+function acpCopySectionPrompt(secId) {
+  var promptText = acpBuildFullContextEnvelope(secId, "");
+  if (!promptText) return;
+  navigator.clipboard.writeText(promptText).then(function() {
+    alert("✓ Vollständiger Prompt für Sektion [" + secId + "] inklusive Gesamt-Kontext in die Zwischenablage kopiert!\n\nJetzt einfach in ChatGPT oder Claude einfügen.");
+  }).catch(function() {
+    window.prompt("Kopiere diesen Prompt für ChatGPT / Claude:", promptText);
+  });
+}
+
+function acpCopyFullPagePrompt() {
+  var iframe = document.getElementById("acp-widget-viewport");
+  var doc = iframe ? (iframe.contentDocument || iframe.contentWindow.document) : null;
+  var fullHtml = doc ? doc.documentElement.outerHTML : "";
+  if (!fullHtml) {
+    alert("Konnte den Quellcode der Seite nicht einlesen.");
+    return;
+  }
+  var prompt = 
+"Du bist mein technischer Web-Redakteur für meine Schweizer Handwerker-Website.\n" +
+"Ich übergebe dir hier den VOLLSTÄNDIGEN Quellcode meiner Website (HTML5).\n\n" +
+"MEINE REGELN:\n" +
+"1. Schweizer Hochdeutsch (0x 'ß', Schweizer Fachbegriffe).\n" +
+"2. Schweizer Obsidian-Design & bestehende Klassen beibehalten.\n" +
+"3. AUSGABE-PFLICHT: Gib mir den Quellcode immer als eine einzige, vollständige und ungekürzte HTML-Datei aus – ausnahmslos von <!DOCTYPE html> bis </html>. Verwende keine Code-Auslassungen!\n\n" +
+"QUELLCODE:\n" + fullHtml;
+
+  navigator.clipboard.writeText(prompt).then(function() {
+    alert("✓ Komplette HTML-Seite inklusive Master-Prompt kopiert!");
+  }).catch(function() {
+    window.prompt("Kopiere die ganze Seite:", prompt);
+  });
+}
+
+function acpOpenReplaceSectionModal(secId) {
+  acpActiveEditSectionId = secId;
+  var modal = document.getElementById("acp-replace-section-modal");
+  var title = document.getElementById("acp-replace-modal-title");
+  var textarea = document.getElementById("acp-replace-code-input");
+  var status = document.getElementById("acp-replace-airbag-status");
+  if (status) status.style.display = "none";
+  if (title) title.textContent = "Sektion [" + secId + "] bearbeiten & ersetzen";
+  if (textarea) textarea.value = "";
+  if (modal) modal.style.display = "block";
+}
+
+function acpCloseReplaceSectionModal() {
+  var modal = document.getElementById("acp-replace-section-modal");
+  if (modal) modal.style.display = "none";
+}
+
+function acpValidateSectionHtml(html) {
+  if (!html || !html.trim()) {
+    return { ok: false, error: "Der Code ist leer!" };
+  }
+  var clean = html.trim();
+  if (!clean.startsWith("<section") || !clean.endsWith("</section>")) {
+    return { ok: false, error: "Der Code muss mit <section ...> beginnen und mit </section> enden." };
+  }
+  var checkTags = ["section", "div", "p", "span", "a", "h2", "h3", "h4", "ul", "ol", "li"];
+  for (var i = 0; i < checkTags.length; i++) {
+    var tag = checkTags[i];
+    var openRegex = new RegExp("<" + tag + "(\\s+[^>]*)?>", "gi");
+    var closeRegex = new RegExp("</" + tag + ">", "gi");
+    var openCount = (clean.match(openRegex) || []).length;
+    var closeCount = (clean.match(closeRegex) || []).length;
+    if (openCount !== closeCount) {
+      return { 
+        ok: false, 
+        error: "Tag-Fehler bei <" + tag + ">: Wurde " + openCount + "x geöffnet, aber " + closeCount + "x geschlossen. Bitte sag ChatGPT: 'Schliesse alle <" + tag + "> Tags sauber ab!'" 
+      };
+    }
+  }
+  if (/<script\b[^>]*>/i.test(clean)) {
+    return { ok: false, error: "Sicherheits-Schranke: <script>-Tags sind in Inhalts-Sektionen nicht erlaubt." };
+  }
+  return { ok: true, html: clean };
+}
+
+function acpSubmitReplaceSection() {
+  var textarea = document.getElementById("acp-replace-code-input");
+  var status = document.getElementById("acp-replace-airbag-status");
+  if (!textarea || !textarea.value) return;
+
+  var validation = acpValidateSectionHtml(textarea.value);
+  if (!validation.ok) {
+    if (status) {
+      status.style.display = "block";
+      status.style.color = "#ef4444";
+      status.style.background = "rgba(239, 68, 68, 0.1)";
+      status.style.padding = "10px 14px";
+      status.style.borderRadius = "6px";
+      status.style.border = "1px solid rgba(239, 68, 68, 0.3)";
+      status.innerHTML = "🚨 <strong>Airbag-Schranke:</strong> " + validation.error;
+    }
+    return;
+  }
+
+  var iframe = document.getElementById("acp-widget-viewport");
+  var doc = iframe ? (iframe.contentDocument || iframe.contentWindow.document) : null;
+  if (!doc) {
+    alert("Iframe nicht verfügbar!");
+    return;
+  }
+
+  var targetEl = doc.querySelector('[data-section="' + acpActiveEditSectionId + '"]') || doc.getElementById(acpActiveEditSectionId);
+  if (!targetEl) {
+    alert("Ziel-Sektion [" + acpActiveEditSectionId + "] nicht im Dokument gefunden!");
+    return;
+  }
+
+  var temp = doc.createElement("div");
+  temp.innerHTML = validation.html;
+  var newSecEl = temp.firstElementChild;
+
+  targetEl.parentNode.replaceChild(newSecEl, targetEl);
+  acpCloseReplaceSectionModal();
+  acpScanAndRenderSections();
+  alert("✓ Sektion [" + acpActiveEditSectionId + "] erfolgreich aktualisiert!");
+}
+
+function acpOpenNewSectionModal() {
+  var modal = document.getElementById("acp-new-section-modal");
+  var select = document.getElementById("acp-new-sec-position");
+  var status = document.getElementById("acp-new-airbag-status");
+  if (status) status.style.display = "none";
+
+  if (select) {
+    select.innerHTML = "";
+    acpScannedSections.forEach(function(s) {
+      var opt = document.createElement("option");
+      opt.value = s.id;
+      opt.textContent = "Nach [" + s.id + "] " + s.title;
+      select.appendChild(opt);
+    });
+  }
+  if (modal) modal.style.display = "block";
+}
+
+function acpCloseNewSectionModal() {
+  var modal = document.getElementById("acp-new-section-modal");
+  if (modal) modal.style.display = "none";
+}
+
+function acpCopyGeneratedNewSectionPrompt() {
+  var select = document.getElementById("acp-new-sec-position");
+  var topicInput = document.getElementById("acp-new-sec-topic");
+  var pos = select ? select.value : "services";
+  var topic = topicInput && topicInput.value ? topicInput.value : "Unsere Partnerbetriebe & Netzwerke";
+
+  var afterSec = acpScannedSections.find(function(s) { return s.id === pos; }) || acpScannedSections[0];
+  var slug = topic.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+
+  var prompt = 
+"Du bist mein technischer Web-Entwickler für meine Schweizer Handwerker-Website (WebPilot Obsidian-Dark Design).\n" +
+"Erstelle mir eine NEUE HTML5-Sektion für folgendes Thema:\n" +
+"\"" + topic + "\"\n\n" +
+
+"================================================================================\n" +
+"1. POSITIONIERUNG & GESAMT-KONTEXT DER SEITE:\n" +
+"================================================================================\n" +
+"- Die neue Sektion wird direkt nach [" + afterSec.id + "] \"" + afterSec.title + "\" eingehängt.\n" +
+"- Sie muss sich nahtlos in das Obsidian-Dark Theme (#0b0f19 Canvas, Platin-Text, Bernstein/Gold Akzente) einfügen.\n\n" +
+
+"================================================================================\n" +
+"2. STRUKTUR- & CSS-VORGABEN:\n" +
+"================================================================================\n" +
+"- Root-Tag: <section class=\"section-wrap\" data-section=\"" + slug + "\" id=\"" + slug + "\">\n" +
+"- Inner-Container: <div class=\"section-inner\">\n" +
+"- Kicker: <span class=\"section-kicker\">● THEMA</span> (11px JetBrains Mono, freistehend, kein Rahmen)\n" +
+"- Titel: <h2 class=\"section-title\">Prägnante Überschrift</h2>\n" +
+"- Untertitel: <p class=\"section-desc\">Kurze, vertrauensbildende Beschreibung.</p>\n" +
+"- Grid: Responsives CSS-Grid mit style=\"display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:24px;\"\n" +
+"- Sprache: 100% Schweizer Hochdeutsch (0x \"ß\", Schweizer Fachbegriffe).\n" +
+"- Emojis: 0 bunte Emojis.\n\n" +
+
+"================================================================================\n" +
+"AUSGABE-REGEL:\n" +
+"================================================================================\n" +
+"Gib mir als Antwort AUSSCHLIESSLICH den fertigen, validen HTML-Code von <section ...> bis </section> im Codeblock aus.\n" +
+"Alle Tags müssen zwingend vollständig geschlossen sein!";
+
+  navigator.clipboard.writeText(prompt).then(function() {
+    alert("✓ Neuer Sektions-Prompt mit Schweizer Design-Vorgaben kopiert!\n\nJetzt in ChatGPT oder Claude einfügen.");
+  }).catch(function() {
+    window.prompt("Kopiere diesen Prompt:", prompt);
+  });
+}
+
+function acpSubmitNewSection() {
+  var textarea = document.getElementById("acp-new-sec-code-input");
+  var select = document.getElementById("acp-new-sec-position");
+  var status = document.getElementById("acp-new-airbag-status");
+  if (!textarea || !textarea.value) return;
+
+  var validation = acpValidateSectionHtml(textarea.value);
+  if (!validation.ok) {
+    if (status) {
+      status.style.display = "block";
+      status.style.color = "#ef4444";
+      status.style.background = "rgba(239, 68, 68, 0.1)";
+      status.style.padding = "10px 14px";
+      status.style.borderRadius = "6px";
+      status.style.border = "1px solid rgba(239, 68, 68, 0.3)";
+      status.innerHTML = "🚨 <strong>Airbag-Schranke:</strong> " + validation.error;
+    }
+    return;
+  }
+
+  var iframe = document.getElementById("acp-widget-viewport");
+  var doc = iframe ? (iframe.contentDocument || iframe.contentWindow.document) : null;
+  if (!doc) {
+    alert("Iframe nicht verfügbar!");
+    return;
+  }
+
+  var afterSecId = select ? select.value : "services";
+  var targetEl = doc.querySelector('[data-section="' + afterSecId + '"]') || doc.getElementById(afterSecId);
+  if (!targetEl) {
+    alert("Ziel-Sektion [" + afterSecId + "] nicht im Dokument gefunden!");
+    return;
+  }
+
+  var temp = doc.createElement("div");
+  temp.innerHTML = validation.html;
+  var newSecEl = temp.firstElementChild;
+
+  targetEl.parentNode.insertBefore(newSecEl, targetEl.nextSibling);
+  acpCloseNewSectionModal();
+  acpScanAndRenderSections();
+  alert("✓ Neue Sektion erfolgreich nach [" + afterSecId + "] eingehängt!");
+}
+
+function acpRemoveSection(secId) {
+  if (!confirm("Möchtest du die Sektion [" + secId + "] wirklich ausblenden?")) return;
+  var iframe = document.getElementById("acp-widget-viewport");
+  var doc = iframe ? (iframe.contentDocument || iframe.contentWindow.document) : null;
+  if (!doc) return;
+
+  var targetEl = doc.querySelector('[data-section="' + secId + '"]') || doc.getElementById(secId);
+  if (targetEl) {
+    targetEl.remove();
+    acpScanAndRenderSections();
+    alert("✓ Sektion [" + secId + "] entfernt!");
+  }
+}
+

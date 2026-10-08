@@ -226,7 +226,14 @@ def build_cockpit(slug: str):
 
     # Script-Tag ersetzen
     new_script_tag = f"<script>\n{compiled_js}\n</script>"
-    content = re.sub(r"<script>.*?</script>", lambda m: new_script_tag, content, flags=re.DOTALL)
+    new_script_tag = f'<script id="acp-studio-main-engine">\n{compiled_js}\n</script>'
+    if '<script id="acp-studio-main-engine">' in content:
+        content = re.sub(r'<script id="acp-studio-main-engine">.*?</script>', lambda m: new_script_tag, content, flags=re.DOTALL)
+    else:
+        last_idx = content.rfind("<script")
+        if last_idx != -1:
+            end_idx = content.find("</script>", last_idx) + len("</script>")
+            content = content[:last_idx] + new_script_tag + content[end_idx:]
 
     target_cockpit = client_dir / "cockpit.html"
     target_cockpit.write_text(content, encoding="utf-8")

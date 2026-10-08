@@ -19,7 +19,7 @@
 </script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Hiltbrand & Zurbuchen Karriere-Studio · v3.3.0</title>
+<title>Hiltbrand · WebPilot Studio · v3.4.0</title>
 <meta name="description" content="Interaktiver Recruiting-Simulator und Stellen-Verzeichnis für Kunden-Widgets. Vorschau, Wechsel zwischen Stellen und 1-Klick Einbettungscodes.">
 <link rel="icon" href="images/logo.png" type="image/png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -2682,7 +2682,7 @@ body.acp-modal-open {
           <span class="acp-brand-signet">⬥</span>
           <span class="acp-brand-text" id="acp-brand-label">KARRIERE-STUDIO</span>
         </a>
-        <span class="acp-version-badge" id="acp-version-badge" title="Cockpit Framework Version">v3.3.0</span>
+        <span class="acp-version-badge" id="acp-version-badge" title="WebPilot Framework v3.4.0">v3.4.0</span>
       </div>
 
       <div class="acp-topbar-divider"></div>
@@ -2710,6 +2710,10 @@ body.acp-modal-open {
     </div>
 
     <div class="acp-cockpit-right">
+            <button type="button" class="acp-nav-btn acp-nav-btn-sections" onclick="acpToggleSectionsModal()" title="Sektionen &amp; KI-Baukasten mit vollem Seiten-Kontext" style="border-color: rgba(245, 158, 11, 0.4); background: rgba(245, 158, 11, 0.1);">
+        <span class="nav-icon">🧩</span>
+        <span class="nav-label" style="color: #fbbf24; font-weight: 700;">Sektionen &amp; KI</span>
+      </button>
       <button type="button" class="acp-nav-btn" onclick="acpToggleImagesModal()" title="Bilder-Pool durchsuchen &amp; tauschen">
         <span class="nav-icon">🖼️</span>
         <span class="nav-label">Bilder</span>
@@ -2721,6 +2725,11 @@ body.acp-modal-open {
       <button type="button" class="acp-nav-btn" onclick="acpCopyActiveCode()" title="1-Klick Widget-Code für den Webmaster kopieren">
         <span class="nav-icon">📋</span>
         <span class="nav-label">Code</span>
+      </button>
+            <button type="button" class="acp-nav-btn acp-nav-btn-log" id="acp-btn-live-log" onclick="acpToggleLogModal()" title="Live-Aktivitäts-Logbuch &amp; Audit-Trail">
+        <span class="nav-icon">📜</span>
+        <span class="nav-label">Log</span>
+        <span class="nav-badge" id="acp-log-count" style="display:none; background:#d97706; color:#fff; border-radius:10px; padding:1px 6px; font-size:10px; font-weight:700; margin-left:4px;">0</span>
       </button>
       <button type="button" class="acp-nav-btn" onclick="acpToggleHelpModal()" title="Anleitung &amp; Erklärung">
         <span class="nav-icon">💡</span>
@@ -2771,18 +2780,18 @@ body.acp-modal-open {
       </div>
       <div class="acp-browser-url-pill">
         <span class="acp-url-lock">🔒</span>
-        <span class="acp-url-address" id="acp-stage-browser-url">https://dachdecker-berneroberland.ch/jobs/</span>
-        <a href="https://dachdecker-berneroberland.ch/jobs/" target="_blank" id="acp-stage-external-link" class="acp-url-open-ext" title="Original-Seite im neuen Browser-Tab öffnen">↗</a>
+        <span class="acp-url-address" id="acp-stage-browser-url">https://embed.magnet-xs.ch/hiltbrand/</span>
+        <a href="https://embed.magnet-xs.ch/hiltbrand/" target="_blank" id="acp-stage-external-link" class="acp-url-open-ext" title="Original-Seite im neuen Browser-Tab öffnen">↗</a>
       </div>
       <div class="acp-stage-meta-cluster">
-        <span class="acp-stage-client-badge" id="acp-stage-client-pill">Hiltbrand Gebäudehüllen AG</span>
+        <span class="acp-stage-client-badge" id="acp-stage-client-pill">Hiltbrand</span>
         <span class="acp-stage-device-tag">Desktop · 100% Fluid</span>
       </div>
     </div>
 
     <!-- Recruiting Widget Viewport -->
     <div class="widget-viewport-wrap">
-      <iframe id="acp-widget-viewport" src="Hiltbrand_Dachdecker_Pragmatisch.html?embed=true" scrolling="no" title="Recruiting Widget"></iframe>
+      <iframe id="acp-widget-viewport" src="index.html?embed=true" scrolling="auto" title="Recruiting Widget"></iframe>
     </div>
   </div>
 </main>
@@ -2792,6 +2801,115 @@ body.acp-modal-open {
 <!-- ======================================================= -->
 <!-- MODAL: BILDER-VERZEICHNIS & ASSET-GALERIE               -->
 <!-- ======================================================= -->
+<!-- ======================================================= -->
+<!-- MODAL: SEKTIONEN & KI-BAUKASTEN                         -->
+<!-- ======================================================= -->
+<div id="acp-sections-modal" class="acp-modal-backdrop" onclick="if(event.target===this)acpToggleSectionsModal()">
+  <div class="acp-modal acp-modal-fullscreen">
+    <div class="acp-modal-head">
+      <div>
+        <div class="acp-modal-kicker">// WEBPILOT FREIHEIT ⬥ DYNAMISCHER KI-BAUKASTEN</div>
+        <h3 class="acp-modal-heading">Sektionen &amp; KI-Editor</h3>
+        <p class="acp-modal-subline">Sektionen mit ChatGPT/Claude mutieren oder völlig neue Abschnitte mit vollem Seiten-Kontext erschaffen.</p>
+      </div>
+      <div class="acp-modal-actions">
+        <button type="button" class="acp-btn-secondary" onclick="acpCopyFullPagePrompt()" title="Kopiert den kompletten Seiten-Code mit Master-Prompt">
+          <span>📄 Ganze Seite (Voll-Modus)</span>
+        </button>
+        <button type="button" class="acp-btn-primary" onclick="acpOpenNewSectionModal()" style="background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%); color: #000; font-weight: 800; border: none;">
+          <span>+ Neue Sektion mit KI erstellen</span>
+        </button>
+        <button type="button" class="acp-btn-close" onclick="acpToggleSectionsModal()" title="Schliessen (ESC)">✕ Schliessen</button>
+      </div>
+    </div>
+
+    <div class="acp-modal-body">
+      <div style="background: rgba(245, 158, 11, 0.08); border: 1px solid rgba(245, 158, 11, 0.25); border-radius: 8px; padding: 14px 18px; margin-bottom: 24px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px;">
+        <div style="display: flex; align-items: center; gap: 12px;">
+          <span style="font-size: 20px;">🛡️</span>
+          <span style="font-size: 13.5px; color: #f8fafc;">
+            <strong>Full-Context Envelope aktiv:</strong> Jeder generierte Prompt enthält die Schweizer Design-Regeln und die gesamte Seiten-DNA, damit ChatGPT keine Doppelspurigkeiten oder Stilbrüche erzeugt.
+          </span>
+        </div>
+        <div style="font-family: 'JetBrains Mono', monospace; font-size: 11.5px; color: #fbbf24; background: rgba(0,0,0,0.3); padding: 4px 10px; border-radius: 4px;" id="acp-sections-count-badge">
+          ● Sektionen werden analysiert...
+        </div>
+      </div>
+
+      <div id="acp-sections-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(360px, 1fr)); gap: 20px;">
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL: SEKTION ERSETZEN & AIRBAG CHECK -->
+<div id="acp-replace-section-modal" class="acp-modal-backdrop" onclick="if(event.target===this)acpCloseReplaceSectionModal()" style="display:none; z-index:4000;">
+  <div class="acp-modal" style="max-width:780px; margin:40px auto; background:#0f172a; border:1px solid rgba(255,255,255,0.15); border-radius:14px; padding:28px; box-shadow:0 25px 60px rgba(0,0,0,0.8);">
+    <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:18px;">
+      <div>
+        <span style="font-family:'JetBrains Mono',monospace; font-size:11px; color:#f59e0b; font-weight:700;">// AIRBAG-CHECK ⬥ CODE EINSETZEN</span>
+        <h3 style="color:#fff; font-size:18px; margin-top:4px;" id="acp-replace-modal-title">Sektion bearbeiten</h3>
+      </div>
+      <button type="button" class="acp-btn-close" onclick="acpCloseReplaceSectionModal()">✕</button>
+    </div>
+    <p style="font-size:13px; color:#94a3b8; margin-bottom:14px;">
+      Füge hier die Antwort von ChatGPT oder Claude ein. Der <strong>Airbag</strong> prüft vor dem Einhängen automatisch, ob alle HTML-Tags sauber geschlossen sind.
+    </p>
+    <textarea id="acp-replace-code-input" rows="12" style="width:100%; background:#090d16; border:1px solid rgba(255,255,255,0.15); border-radius:8px; color:#e2e8f0; font-family:'JetBrains Mono',monospace; font-size:12px; padding:14px; box-sizing:border-box; resize:vertical;" placeholder="<section class='section-wrap' data-section='...'>&#10;  ...&#10;</section>"></textarea>
+    <div id="acp-replace-airbag-status" style="margin-top:12px; font-size:12.5px; display:none;"></div>
+    <div style="display:flex; justify-content:flex-end; gap:12px; margin-top:20px;">
+      <button type="button" class="acp-btn-secondary" onclick="acpCloseReplaceSectionModal()">Abbrechen</button>
+      <button type="button" class="acp-btn-primary" id="acp-btn-apply-replace" onclick="acpSubmitReplaceSection()" style="background:#10b981; color:#fff; font-weight:700;">
+        <span>✓ Sektion prüfen &amp; live aktualisieren</span>
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL: NEUE SEKTION MIT KI ERSTELLEN -->
+<div id="acp-new-section-modal" class="acp-modal-backdrop" onclick="if(event.target===this)acpCloseNewSectionModal()" style="display:none; z-index:4000;">
+  <div class="acp-modal" style="max-width:820px; margin:40px auto; background:#0f172a; border:1px solid rgba(245,158,11,0.3); border-radius:14px; padding:28px; box-shadow:0 25px 60px rgba(0,0,0,0.8);">
+    <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:18px;">
+      <div>
+        <span style="font-family:'JetBrains Mono',monospace; font-size:11px; color:#f59e0b; font-weight:700;">// NEUER ABSCHNITT ⬥ FULL-CONTEXT ENVELOPE</span>
+        <h3 style="color:#fff; font-size:19px; margin-top:4px;">Neue Sektion mit KI erschaffen</h3>
+      </div>
+      <button type="button" class="acp-btn-close" onclick="acpCloseNewSectionModal()">✕</button>
+    </div>
+    
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-bottom:16px;">
+      <div>
+        <label style="display:block; font-size:12.5px; font-weight:700; color:#cbd5e1; margin-bottom:6px;">1. Position im Seitenfluss</label>
+        <select id="acp-new-sec-position" style="width:100%; background:#090d16; border:1px solid rgba(255,255,255,0.15); border-radius:8px; color:#fff; padding:10px; font-size:13px;">
+        </select>
+      </div>
+      <div>
+        <label style="display:block; font-size:12.5px; font-weight:700; color:#cbd5e1; margin-bottom:6px;">2. Thema / Inhalt der Sektion</label>
+        <input type="text" id="acp-new-sec-topic" placeholder="z. B. Unsere 4 Partnerbetriebe mit Verlinkung" style="width:100%; background:#090d16; border:1px solid rgba(255,255,255,0.15); border-radius:8px; color:#fff; padding:10px; font-size:13px; box-sizing:border-box;">
+      </div>
+    </div>
+
+    <div style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-radius:8px; padding:14px; margin-bottom:16px; display:flex; justify-content:space-between; align-items:center;">
+      <span style="font-size:13px; color:#94a3b8;">Schritt A: Prompt inklusive Schweizer Design-Regeln für ChatGPT/Claude generieren:</span>
+      <button type="button" class="acp-btn-secondary" onclick="acpCopyGeneratedNewSectionPrompt()" style="background:#f59e0b; color:#000; font-weight:800; border:none; padding:8px 16px;">
+        <span>📋 Prompt kopieren</span>
+      </button>
+    </div>
+
+    <label style="display:block; font-size:12.5px; font-weight:700; color:#cbd5e1; margin-bottom:6px;">Schritt B: Generierten Code der KI hier einfügen:</label>
+    <textarea id="acp-new-sec-code-input" rows="8" style="width:100%; background:#090d16; border:1px solid rgba(255,255,255,0.15); border-radius:8px; color:#e2e8f0; font-family:'JetBrains Mono',monospace; font-size:12px; padding:12px; box-sizing:border-box; resize:vertical;" placeholder="<section class='section-wrap' data-section='...'>&#10;  ...&#10;</section>"></textarea>
+    
+    <div id="acp-new-airbag-status" style="margin-top:10px; font-size:12.5px; display:none;"></div>
+
+    <div style="display:flex; justify-content:flex-end; gap:12px; margin-top:20px;">
+      <button type="button" class="acp-btn-secondary" onclick="acpCloseNewSectionModal()">Abbrechen</button>
+      <button type="button" class="acp-btn-primary" id="acp-btn-apply-new" onclick="acpSubmitNewSection()" style="background:#10b981; color:#fff; font-weight:700;">
+        <span>✓ Neue Sektion einhängen &amp; aktivieren</span>
+      </button>
+    </div>
+  </div>
+</div>
+
 <div id="acp-images-modal" class="acp-modal-backdrop" onclick="if(event.target===this)acpToggleImagesModal()">
   <div class="acp-modal acp-modal-fullscreen">
     <div class="acp-modal-head">
@@ -2826,7 +2944,7 @@ body.acp-modal-open {
               💡 <em>Perfekt für deine Karriereseite: Lade hier gezielt Fotos für Stellenanzeigen, Team-Porträts und Baustellen hoch. Die Bilder werden über unser weltweites Edge-Netzwerk blitzschnell ausgeliefert (bitte nicht als allgemeines Fotoalbum nutzen).</em>
             </div>
             <div class="acp-upload-local-hint">
-              📁 <em>Alternativ: Foto einfach direkt in deinen Ordner <code>Hiltbrand-Karriere\images\</code> ablegen.</em>
+              📁 <em>Alternativ: Foto einfach direkt in deinen Ordner <code>hiltbrand\images\</code> ablegen.</em>
             </div>
           </div>
         </div>
@@ -3104,7 +3222,7 @@ body.acp-modal-open {
       <div style="padding: 14px 18px; background: rgba(59, 130, 246, 0.12); border: 1px solid rgba(59, 130, 246, 0.25); border-radius: 8px;">
         <div style="font-weight: 700; color: #60a5fa; margin-bottom: 3px; font-size: 13px;">📍 Wo bin ich gerade?</div>
         <div style="font-size: 12.5px; color: #cbd5e1;">
-          Du bist hier in deinem <strong>Lokalen Cockpit</strong> (deine persönliche Werkstatt auf deinem Computer). Erst mit Klick auf <em>«Jetzt scharfstellen»</em> wird es auf <a href="https://dachdecker-berneroberland.ch/jobs/" target="_blank" style="color: #38bdf8; text-decoration: underline;">dachdecker-berneroberland.ch/jobs/</a> sichtbar.
+          Du bist hier in deinem <strong>Lokalen Cockpit</strong> (deine persönliche Werkstatt auf deinem Computer). Erst mit Klick auf <em>«Jetzt scharfstellen»</em> wird es auf <a href="https://embed.magnet-xs.ch/hiltbrand/" target="_blank" style="color: #38bdf8; text-decoration: underline;">dachdecker-berneroberland.ch/jobs/</a> sichtbar.
         </div>
         <div style="margin-top: 10px; padding-top: 8px; border-top: 1px solid rgba(255,255,255,0.08); display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px; font-size: 12px;">
           <span>🌐 <strong>Online-Cockpit:</strong> <a href="https://embed.magnet-xs.ch/hiltbrand/cockpit" target="_blank" style="color: #38bdf8; font-family: 'JetBrains Mono', monospace; text-decoration: underline;">embed.magnet-xs.ch/hiltbrand/cockpit ↗</a></span>
@@ -3116,18 +3234,140 @@ body.acp-modal-open {
   </div>
 </div>
 
+<!-- ======================================================= -->
+<!-- MODAL: LIVE-AKTIVITÄTS-LOGBUCH & AUDIT-TRAIL           -->
+<!-- ======================================================= -->
+<div id="acp-log-modal" class="acp-modal-backdrop" onclick="if(event.target===this)acpToggleLogModal()">
+  <div class="acp-modal" style="max-width: 860px; width: 92%;">
+    <div class="acp-modal-head">
+      <div>
+        <div class="acp-modal-kicker">// AUDIT-TRAIL ⬥ ECHTZEIT-LOGGING</div>
+        <h3 class="acp-modal-heading">📋 Live-Aktivitäts-Protokoll</h3>
+      </div>
+      <div style="display:flex; align-items:center; gap:8px;">
+        <button type="button" class="acp-btn-ghost" onclick="acpClearClientLog()" style="font-size:12px; padding:4px 10px; color:#94a3b8; border:1px solid #334155; border-radius:4px; background:transparent; cursor:pointer;">🗑️ Log leeren</button>
+        <button type="button" class="acp-modal-close" onclick="acpToggleLogModal()" title="Schliessen (ESC)">✕ Schliessen (ESC)</button>
+      </div>
+    </div>
+    <div class="acp-modal-body" style="padding: 16px;">
+      <div style="margin-bottom: 12px; display:flex; justify-content:space-between; align-items:center; font-size:12px; color:#94a3b8;">
+        <span>Erfasst alle Klicks, Bildwechsel, API-Aufrufe und Server-Antworten in Echtzeit:</span>
+        <span id="acp-log-status" style="color:#22c55e; font-weight:600;">● Live verbunden</span>
+      </div>
+      <div id="acp-log-console" style="background:#090d16; border:1px solid #1e293b; border-radius:6px; padding:12px; font-family:'JetBrains Mono',monospace; font-size:12px; line-height:1.6; max-height:420px; overflow-y:auto; color:#e2e8f0;">
+        <div style="color:#64748b; font-style:italic;">Warte auf Aktionen...</div>
+      </div>
+      <div style="margin-top: 12px; display:flex; justify-content:space-between; align-items:center;">
+        <span style="font-size:11px; color:#64748b;">Server-Logbuch: <code>COCKPIT_LOG.md</code></span>
+        <button type="button" class="btn btn-secondary" onclick="acpFetchServerLog()" style="font-size:12px; padding:6px 12px; cursor:pointer; background:#1e293b; color:#f8fafc; border:1px solid #334155; border-radius:4px;">🔄 Server-Logbuch laden</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 <div id="acp-toast"></div>
 
 <!-- ======================================================= -->
 <!-- JAVASCRIPT: STEUERUNG, WECHSLER & AUTO-RESIZE           -->
 <!-- ======================================================= -->
-<script>
+<script id="acp-studio-main-engine">
+
+// =======================================================
+// LIVE-AKTIVITÄTS-LOGGING & AUDIT-TRAIL
+// =======================================================
+var acpClientLogs = [];
+function acpLog(level, message, details) {
+  var now = new Date();
+  var timeStr = now.toTimeString().split(' ')[0];
+  var entry = {
+    time: timeStr,
+    level: level || 'info',
+    message: message || '',
+    details: details || ''
+  };
+  acpClientLogs.push(entry);
+
+  var consoleEl = document.getElementById("acp-log-console");
+  if (consoleEl) {
+    if (acpClientLogs.length === 1 && consoleEl.innerText.indexOf("Warte auf Aktionen") !== -1) {
+      consoleEl.innerHTML = "";
+    }
+    var color = '#38bdf8';
+    var tag = 'INFO';
+    if (level === 'swap') { color = '#facc15'; tag = 'SWAP'; }
+    if (level === 'success') { color = '#22c55e'; tag = 'SUCCESS'; }
+    if (level === 'error') { color = '#ef4444'; tag = 'ERROR'; }
+    if (level === 'server') { color = '#a855f7'; tag = 'SERVER'; }
+
+    var item = document.createElement("div");
+    item.style.marginBottom = "6px";
+    item.style.wordBreak = "break-all";
+    item.innerHTML = '<span style="color:#64748b;">[' + timeStr + ']</span> ' +
+      '<span style="color:' + color + '; font-weight:700;">[' + tag + ']</span> ' +
+      '<span>' + message + '</span>' +
+      (details ? '<div style="color:#94a3b8; font-size:11px; margin-left:14px; margin-top:2px; font-family:monospace;">' + details + '</div>' : '');
+    consoleEl.appendChild(item);
+    consoleEl.scrollTop = consoleEl.scrollHeight;
+  }
+
+  var countBadge = document.getElementById("acp-log-count");
+  if (countBadge) {
+    countBadge.style.display = "inline-block";
+    countBadge.textContent = acpClientLogs.length;
+    if (level === 'error') {
+      countBadge.style.background = '#ef4444';
+    }
+  }
+
+  if (level === 'error') {
+    console.error('[WebPilot Studio]', timeStr, message, details || '');
+  } else {
+    console.log('[WebPilot Studio]', timeStr, message, details || '');
+  }
+}
+
+function acpToggleLogModal() {
+  var modal = document.getElementById("acp-log-modal");
+  if (!modal) return;
+  modal.classList.toggle("is-open");
+  acpUpdateBodyModalClass();
+}
+
+function acpClearClientLog() {
+  acpClientLogs = [];
+  var consoleEl = document.getElementById("acp-log-console");
+  if (consoleEl) consoleEl.innerHTML = '<div style="color:#64748b; font-style:italic;">Protokoll geleert.</div>';
+  var countBadge = document.getElementById("acp-log-count");
+  if (countBadge) {
+    countBadge.textContent = "0";
+    countBadge.style.background = "#d97706";
+  }
+}
+
+function acpFetchServerLog() {
+  var currentJob = getActiveJob();
+  var clientSlug = currentJob.folder || 'hiltbrand';
+  acpLog('info', '📡 Frage Server-Logbuch ab...', 'Mandant: ' + clientSlug);
+  fetch('/api/publish-career/logs?client=' + encodeURIComponent(clientSlug))
+    .then(function(res) { return res.json(); })
+    .then(function(data) {
+      if (data && data.ok) {
+        acpLog('server', '📋 Server-Log geladen (' + data.client + '):', '<pre style="margin:4px 0; white-space:pre-wrap; max-height:200px; overflow-y:auto; background:rgba(0,0,0,0.3); padding:6px; border-radius:4px;">' + (data.log || 'Keine Daten') + '</pre>');
+      } else {
+        acpLog('error', 'Konnte Server-Log nicht laden: ' + ((data && data.error) || 'Unbekannt'));
+      }
+    })
+    .catch(function(err) {
+      acpLog('error', 'Netzwerkfehler beim Laden des Server-Logs: ' + err.message);
+    });
+}
+
 // =======================================================
 // MAGNET-XS COCKPIT FRAMEWORK v3.3.0 (SWISS ARCHITECTURAL CANVAS)
 // Build: 2026-10-03 15:30 CEST
 // =======================================================
-var ACP_COCKPIT_VERSION = "v3.3.0";
-var ACP_COCKPIT_BUILD = "2026-10-03 18:06";
+var ACP_COCKPIT_VERSION = "v3.4.0";
+var ACP_COCKPIT_BUILD = "2026-10-08 08:51";
 
 function sanitizeStellen(list) {
   if (!Array.isArray(list)) return [];
@@ -3141,8 +3381,8 @@ function sanitizeStellen(list) {
 }
 
 // Manifest-Daten mit robusten Fallbacks
-var ACP_BILDER = [{"id": "images_benefits_drohne_jpg", "filename": "benefits_drohne.jpg", "rel_path": "images/benefits_drohne.jpg", "folder": "hiltbrand", "category": "Baustelle & Benefit", "dimensions": "1400x1050", "size_kb": 482.5, "mtime": 1790616901, "mtime_str": "28.09.2026 17:35", "cdn_url": "https://embed.magnet-xs.ch/hiltbrand/images/benefits_drohne.jpg", "is_used": false, "used_in": []}, {"id": "images_cws_screenshot_1280x800_png", "filename": "cws-screenshot-1280x800.png", "rel_path": "images/cws-screenshot-1280x800.png", "folder": "hiltbrand", "category": "Baustelle & Benefit", "dimensions": "1280x800", "size_kb": 216.5, "mtime": 1791050535, "mtime_str": "03.10.2026 18:02", "cdn_url": "https://embed.magnet-xs.ch/hiltbrand/images/cws-screenshot-1280x800.png", "is_used": false, "used_in": []}, {"id": "images_danke_png", "filename": "danke.png", "rel_path": "images/danke.png", "folder": "hiltbrand", "category": "Baustelle & Benefit", "dimensions": "1456x816", "size_kb": 1490.5, "mtime": 1790616901, "mtime_str": "28.09.2026 17:35", "cdn_url": "https://embed.magnet-xs.ch/hiltbrand/images/danke.png", "is_used": false, "used_in": []}, {"id": "images_hero_jpg", "filename": "hero.jpg", "rel_path": "images/hero.jpg", "folder": "hiltbrand", "category": "Hero & Header", "dimensions": "1400x933", "size_kb": 160.7, "mtime": 1790616901, "mtime_str": "28.09.2026 17:35", "cdn_url": "https://embed.magnet-xs.ch/hiltbrand/images/hero.jpg", "is_used": true, "used_in": [{"datei": "Hiltbrand_Dachdecker.html", "slot": "", "is_hero": true}, {"datei": "Hiltbrand_Dachdecker_Pragmatisch.html", "slot": "", "is_hero": true}]}, {"id": "images_logo_png", "filename": "logo.png", "rel_path": "images/logo.png", "folder": "hiltbrand", "category": "Logo & Icon", "dimensions": "260x150", "size_kb": 8.2, "mtime": 1790616901, "mtime_str": "28.09.2026 17:35", "cdn_url": "https://embed.magnet-xs.ch/hiltbrand/images/logo.png", "is_used": true, "used_in": [{"datei": "Hiltbrand_Dachdecker.html", "slot": "", "is_hero": false}, {"datei": "Hiltbrand_Dachdecker_Pragmatisch.html", "slot": "", "is_hero": false}]}, {"id": "images_melcos_keyframe_2_jpg", "filename": "melcos_keyframe_2.jpg", "rel_path": "images/melcos_keyframe_2.jpg", "folder": "hiltbrand", "category": "Baustelle & Benefit", "dimensions": "3840x2160", "size_kb": 1055.4, "mtime": 1791050491, "mtime_str": "03.10.2026 18:01", "cdn_url": "https://embed.magnet-xs.ch/hiltbrand/images/melcos_keyframe_2.jpg", "is_used": false, "used_in": []}, {"id": "images_michael_jpg", "filename": "michael.jpg", "rel_path": "images/michael.jpg", "folder": "hiltbrand", "category": "Team & Porträt", "dimensions": "834x788", "size_kb": 186.7, "mtime": 1790616901, "mtime_str": "28.09.2026 17:35", "cdn_url": "https://embed.magnet-xs.ch/hiltbrand/images/michael.jpg", "is_used": true, "used_in": [{"datei": "Hiltbrand_Dachdecker.html", "slot": "team.michael.foto", "is_hero": false}]}, {"id": "images_q1_benefit_jpg", "filename": "q1_benefit.jpg", "rel_path": "images/q1_benefit.jpg", "folder": "hiltbrand", "category": "Baustelle & Benefit", "dimensions": "1400x1050", "size_kb": 295.8, "mtime": 1790616901, "mtime_str": "28.09.2026 17:35", "cdn_url": "https://embed.magnet-xs.ch/hiltbrand/images/q1_benefit.jpg", "is_used": true, "used_in": [{"datei": "zurbuchen_Holzbauer.html", "slot": "", "is_hero": false}]}, {"id": "images_q1_bewaehrtes_handwerk_png", "filename": "q1_bewaehrtes_handwerk.png", "rel_path": "images/q1_bewaehrtes_handwerk.png", "folder": "hiltbrand", "category": "Baustelle & Benefit", "dimensions": "200x160", "size_kb": 37.6, "mtime": 1790616901, "mtime_str": "28.09.2026 17:35", "cdn_url": "https://embed.magnet-xs.ch/hiltbrand/images/q1_bewaehrtes_handwerk.png", "is_used": false, "used_in": []}, {"id": "images_q1_effiziente_maschinen_png", "filename": "q1_effiziente_maschinen.png", "rel_path": "images/q1_effiziente_maschinen.png", "folder": "hiltbrand", "category": "Baustelle & Benefit", "dimensions": "200x160", "size_kb": 38.0, "mtime": 1790616901, "mtime_str": "28.09.2026 17:35", "cdn_url": "https://embed.magnet-xs.ch/hiltbrand/images/q1_effiziente_maschinen.png", "is_used": false, "used_in": []}, {"id": "images_q1_moderne_technik_png", "filename": "q1_moderne_technik.png", "rel_path": "images/q1_moderne_technik.png", "folder": "hiltbrand", "category": "Baustelle & Benefit", "dimensions": "200x160", "size_kb": 37.8, "mtime": 1790616901, "mtime_str": "28.09.2026 17:35", "cdn_url": "https://embed.magnet-xs.ch/hiltbrand/images/q1_moderne_technik.png", "is_used": false, "used_in": []}, {"id": "images_q1_sicherer_arbeitgeber_png", "filename": "q1_sicherer_arbeitgeber.png", "rel_path": "images/q1_sicherer_arbeitgeber.png", "folder": "hiltbrand", "category": "Baustelle & Benefit", "dimensions": "200x160", "size_kb": 37.8, "mtime": 1790616901, "mtime_str": "28.09.2026 17:35", "cdn_url": "https://embed.magnet-xs.ch/hiltbrand/images/q1_sicherer_arbeitgeber.png", "is_used": false, "used_in": []}, {"id": "images_q2_baustellen_png", "filename": "q2_baustellen.png", "rel_path": "images/q2_baustellen.png", "folder": "hiltbrand", "category": "Baustelle & Benefit", "dimensions": "200x160", "size_kb": 39.3, "mtime": 1790616901, "mtime_str": "28.09.2026 17:35", "cdn_url": "https://embed.magnet-xs.ch/hiltbrand/images/q2_baustellen.png", "is_used": false, "used_in": []}, {"id": "images_q2_benefit_jpg", "filename": "q2_benefit.jpg", "rel_path": "images/q2_benefit.jpg", "folder": "hiltbrand", "category": "Baustelle & Benefit", "dimensions": "1400x1050", "size_kb": 325.7, "mtime": 1790616901, "mtime_str": "28.09.2026 17:35", "cdn_url": "https://embed.magnet-xs.ch/hiltbrand/images/q2_benefit.jpg", "is_used": false, "used_in": []}, {"id": "images_q2_details_png", "filename": "q2_details.png", "rel_path": "images/q2_details.png", "folder": "hiltbrand", "category": "Baustelle & Benefit", "dimensions": "200x160", "size_kb": 38.5, "mtime": 1790616901, "mtime_str": "28.09.2026 17:35", "cdn_url": "https://embed.magnet-xs.ch/hiltbrand/images/q2_details.png", "is_used": false, "used_in": []}, {"id": "images_q2_ganzheitlich_png", "filename": "q2_ganzheitlich.png", "rel_path": "images/q2_ganzheitlich.png", "folder": "hiltbrand", "category": "Baustelle & Benefit", "dimensions": "200x160", "size_kb": 38.8, "mtime": 1790616901, "mtime_str": "28.09.2026 17:35", "cdn_url": "https://embed.magnet-xs.ch/hiltbrand/images/q2_ganzheitlich.png", "is_used": false, "used_in": []}, {"id": "images_q2_kundenkontakt_png", "filename": "q2_kundenkontakt.png", "rel_path": "images/q2_kundenkontakt.png", "folder": "hiltbrand", "category": "Baustelle & Benefit", "dimensions": "200x160", "size_kb": 38.6, "mtime": 1790616901, "mtime_str": "28.09.2026 17:35", "cdn_url": "https://embed.magnet-xs.ch/hiltbrand/images/q2_kundenkontakt.png", "is_used": false, "used_in": []}, {"id": "images_q3_ansagen_png", "filename": "q3_ansagen.png", "rel_path": "images/q3_ansagen.png", "folder": "hiltbrand", "category": "Baustelle & Benefit", "dimensions": "200x160", "size_kb": 47.1, "mtime": 1790616901, "mtime_str": "28.09.2026 17:35", "cdn_url": "https://embed.magnet-xs.ch/hiltbrand/images/q3_ansagen.png", "is_used": false, "used_in": []}, {"id": "images_q3_benefit_png", "filename": "q3_benefit.png", "rel_path": "images/q3_benefit.png", "folder": "hiltbrand", "category": "Baustelle & Benefit", "dimensions": "1456x816", "size_kb": 1296.6, "mtime": 1790616901, "mtime_str": "28.09.2026 17:35", "cdn_url": "https://embed.magnet-xs.ch/hiltbrand/images/q3_benefit.png", "is_used": false, "used_in": []}, {"id": "images_q3_ehrgeiz_png", "filename": "q3_ehrgeiz.png", "rel_path": "images/q3_ehrgeiz.png", "folder": "hiltbrand", "category": "Baustelle & Benefit", "dimensions": "200x160", "size_kb": 47.7, "mtime": 1790616901, "mtime_str": "28.09.2026 17:35", "cdn_url": "https://embed.magnet-xs.ch/hiltbrand/images/q3_ehrgeiz.png", "is_used": false, "used_in": []}, {"id": "images_q3_freiraum_png", "filename": "q3_freiraum.png", "rel_path": "images/q3_freiraum.png", "folder": "hiltbrand", "category": "Baustelle & Benefit", "dimensions": "200x160", "size_kb": 47.2, "mtime": 1790616901, "mtime_str": "28.09.2026 17:35", "cdn_url": "https://embed.magnet-xs.ch/hiltbrand/images/q3_freiraum.png", "is_used": false, "used_in": []}, {"id": "images_q3_kameradschaft_png", "filename": "q3_kameradschaft.png", "rel_path": "images/q3_kameradschaft.png", "folder": "hiltbrand", "category": "Baustelle & Benefit", "dimensions": "200x160", "size_kb": 47.2, "mtime": 1790616901, "mtime_str": "28.09.2026 17:35", "cdn_url": "https://embed.magnet-xs.ch/hiltbrand/images/q3_kameradschaft.png", "is_used": false, "used_in": []}, {"id": "images_stefan_jpg", "filename": "stefan.jpg", "rel_path": "images/stefan.jpg", "folder": "hiltbrand", "category": "Team & Porträt", "dimensions": "1400x1337", "size_kb": 204.2, "mtime": 1790616901, "mtime_str": "28.09.2026 17:35", "cdn_url": "https://embed.magnet-xs.ch/hiltbrand/images/stefan.jpg", "is_used": true, "used_in": [{"datei": "Hiltbrand_Dachdecker.html", "slot": "team.stefan.foto", "is_hero": false}]}, {"id": "images_team_alt_jpg", "filename": "team_alt.jpg", "rel_path": "images/team_alt.jpg", "folder": "hiltbrand", "category": "Team & Porträt", "dimensions": "1400x933", "size_kb": 259.8, "mtime": 1790616901, "mtime_str": "28.09.2026 17:35", "cdn_url": "https://embed.magnet-xs.ch/hiltbrand/images/team_alt.jpg", "is_used": false, "used_in": []}, {"id": "images_vorstellung_jpg", "filename": "vorstellung.jpg", "rel_path": "images/vorstellung.jpg", "folder": "hiltbrand", "category": "Baustelle & Benefit", "dimensions": "1400x933", "size_kb": 160.7, "mtime": 1790616901, "mtime_str": "28.09.2026 17:35", "cdn_url": "https://embed.magnet-xs.ch/hiltbrand/images/vorstellung.jpg", "is_used": false, "used_in": []}, {"id": "images_zurbuchen_alain_jpg", "filename": "alain.jpg", "rel_path": "images/zurbuchen/alain.jpg", "folder": "zurbuchen", "category": "Team & Porträt", "dimensions": "320x320", "size_kb": 10.5, "mtime": 1790622487, "mtime_str": "28.09.2026 19:08", "cdn_url": "https://embed.magnet-xs.ch/zurbuchen/images/zurbuchen/alain.jpg", "is_used": true, "used_in": [{"datei": "zurbuchen_Holzbauer.html", "slot": "", "is_hero": false}]}, {"id": "images_zurbuchen_beat_jpg", "filename": "beat.jpg", "rel_path": "images/zurbuchen/beat.jpg", "folder": "zurbuchen", "category": "Team & Porträt", "dimensions": "320x320", "size_kb": 10.2, "mtime": 1790622487, "mtime_str": "28.09.2026 19:08", "cdn_url": "https://embed.magnet-xs.ch/zurbuchen/images/zurbuchen/beat.jpg", "is_used": true, "used_in": [{"datei": "zurbuchen_Holzbauer.html", "slot": "", "is_hero": false}]}, {"id": "images_zurbuchen_cta_bg_jpg", "filename": "cta_bg.jpg", "rel_path": "images/zurbuchen/cta_bg.jpg", "folder": "zurbuchen", "category": "Baustelle & Benefit", "dimensions": "300x300", "size_kb": 14.5, "mtime": 1790622487, "mtime_str": "28.09.2026 19:08", "cdn_url": "https://embed.magnet-xs.ch/zurbuchen/images/zurbuchen/cta_bg.jpg", "is_used": false, "used_in": []}, {"id": "images_zurbuchen_hero_jpg", "filename": "hero.jpg", "rel_path": "images/zurbuchen/hero.jpg", "folder": "zurbuchen", "category": "Hero & Header", "dimensions": "300x300", "size_kb": 23.8, "mtime": 1790622487, "mtime_str": "28.09.2026 19:08", "cdn_url": "https://embed.magnet-xs.ch/zurbuchen/images/zurbuchen/hero.jpg", "is_used": false, "used_in": []}, {"id": "images_zurbuchen_jonas_jpg", "filename": "jonas.jpg", "rel_path": "images/zurbuchen/jonas.jpg", "folder": "zurbuchen", "category": "Team & Porträt", "dimensions": "320x320", "size_kb": 16.4, "mtime": 1790622487, "mtime_str": "28.09.2026 19:08", "cdn_url": "https://embed.magnet-xs.ch/zurbuchen/images/zurbuchen/jonas.jpg", "is_used": true, "used_in": [{"datei": "zurbuchen_Holzbauer.html", "slot": "", "is_hero": false}]}, {"id": "images_zurbuchen_levin_jpg", "filename": "levin.jpg", "rel_path": "images/zurbuchen/levin.jpg", "folder": "zurbuchen", "category": "Team & Porträt", "dimensions": "320x320", "size_kb": 36.1, "mtime": 1790622487, "mtime_str": "28.09.2026 19:08", "cdn_url": "https://embed.magnet-xs.ch/zurbuchen/images/zurbuchen/levin.jpg", "is_used": true, "used_in": [{"datei": "zurbuchen_Holzbauer.html", "slot": "", "is_hero": false}]}, {"id": "images_zurbuchen_logo_negativ_png", "filename": "logo-negativ.png", "rel_path": "images/zurbuchen/logo-negativ.png", "folder": "zurbuchen", "category": "Logo & Icon", "dimensions": "240x113", "size_kb": 3.7, "mtime": 1790622487, "mtime_str": "28.09.2026 19:08", "cdn_url": "https://embed.magnet-xs.ch/zurbuchen/images/zurbuchen/logo-negativ.png", "is_used": true, "used_in": [{"datei": "zurbuchen_Holzbauer.html", "slot": "", "is_hero": false}]}, {"id": "images_zurbuchen_logo_png", "filename": "logo.png", "rel_path": "images/zurbuchen/logo.png", "folder": "zurbuchen", "category": "Logo & Icon", "dimensions": "240x113", "size_kb": 4.1, "mtime": 1790622487, "mtime_str": "28.09.2026 19:08", "cdn_url": "https://embed.magnet-xs.ch/zurbuchen/images/zurbuchen/logo.png", "is_used": true, "used_in": [{"datei": "zurbuchen_Holzbauer.html", "slot": "", "is_hero": false}]}, {"id": "images_zurbuchen_markus_jpg", "filename": "markus.jpg", "rel_path": "images/zurbuchen/markus.jpg", "folder": "zurbuchen", "category": "Team & Porträt", "dimensions": "320x320", "size_kb": 37.4, "mtime": 1790622487, "mtime_str": "28.09.2026 19:08", "cdn_url": "https://embed.magnet-xs.ch/zurbuchen/images/zurbuchen/markus.jpg", "is_used": true, "used_in": [{"datei": "zurbuchen_Holzbauer.html", "slot": "", "is_hero": false}]}, {"id": "images_zurbuchen_michael_jpg", "filename": "michael.jpg", "rel_path": "images/zurbuchen/michael.jpg", "folder": "zurbuchen", "category": "Team & Porträt", "dimensions": "320x320", "size_kb": 11.2, "mtime": 1790622487, "mtime_str": "28.09.2026 19:08", "cdn_url": "https://embed.magnet-xs.ch/zurbuchen/images/zurbuchen/michael.jpg", "is_used": true, "used_in": [{"datei": "zurbuchen_Holzbauer.html", "slot": "", "is_hero": false}]}, {"id": "images_zurbuchen_samuel_jpg", "filename": "samuel.jpg", "rel_path": "images/zurbuchen/samuel.jpg", "folder": "zurbuchen", "category": "Team & Porträt", "dimensions": "320x320", "size_kb": 8.2, "mtime": 1790622487, "mtime_str": "28.09.2026 19:08", "cdn_url": "https://embed.magnet-xs.ch/zurbuchen/images/zurbuchen/samuel.jpg", "is_used": true, "used_in": [{"datei": "zurbuchen_Holzbauer.html", "slot": "", "is_hero": false}]}, {"id": "images_zurbuchen_simon_jpg", "filename": "simon.jpg", "rel_path": "images/zurbuchen/simon.jpg", "folder": "zurbuchen", "category": "Team & Porträt", "dimensions": "320x321", "size_kb": 6.8, "mtime": 1790622487, "mtime_str": "28.09.2026 19:08", "cdn_url": "https://embed.magnet-xs.ch/zurbuchen/images/zurbuchen/simon.jpg", "is_used": true, "used_in": [{"datei": "zurbuchen_Holzbauer.html", "slot": "", "is_hero": false}]}];
-var ACP_STELLEN = sanitizeStellen([{"id": "hiltbrand_dachdecker", "titel": "Dachdecker EFZ (80–100%)", "firma": "Hiltbrand Gebäudehüllen AG", "icon": "🏠", "datei": "Hiltbrand_Dachdecker.html", "folder": "hiltbrand", "edge_url": "https://embed.magnet-xs.ch/hiltbrand/Hiltbrand_Dachdecker.html", "host_webseite": "https://dachdecker-berneroberland.ch", "host_label": "dachdecker-berneroberland.ch", "farb_akzent": "#EF4035", "widget_code": "<iframe src=\"https://embed.magnet-xs.ch/hiltbrand/Hiltbrand_Dachdecker.html?embed=true\" style=\"width:100%; border:none; min-height:850px;\" scrolling=\"no\" id=\"acp-job-widget\"></iframe>\n<script>window.addEventListener(\"message\",function(e){if(e.data&&e.data.type===\"acp-embed-resize\"){var el=document.getElementById(\"acp-job-widget\");if(el)el.style.height=e.data.height+\"px\";}});<\\/script>", "is_live": false, "live_url": "", "status": "Entwurf (Vorlage)", "status_badge": "⚪ ENTWURF"}, {"id": "hiltbrand_dachdecker_pragmatisch", "titel": "Dachdecker EFZ (Pragmatisch & WhatsApp)", "firma": "Hiltbrand Gebäudehüllen AG", "icon": "🏠", "datei": "Hiltbrand_Dachdecker_Pragmatisch.html", "folder": "hiltbrand", "edge_url": "https://embed.magnet-xs.ch/hiltbrand/Hiltbrand_Dachdecker_Pragmatisch.html", "host_webseite": "https://dachdecker-berneroberland.ch", "host_label": "dachdecker-berneroberland.ch", "farb_akzent": "#EF4035", "widget_code": "<iframe src=\"https://embed.magnet-xs.ch/hiltbrand/Hiltbrand_Dachdecker_Pragmatisch.html?embed=true\" style=\"width:100%; border:none; min-height:850px;\" scrolling=\"no\" id=\"acp-job-widget\"></iframe>\n<script>window.addEventListener(\"message\",function(e){if(e.data&&e.data.type===\"acp-embed-resize\"){var el=document.getElementById(\"acp-job-widget\");if(el)el.style.height=e.data.height+\"px\";}});<\\/script>", "is_live": true, "live_url": "https://dachdecker-berneroberland.ch/jobs/", "status": "Live auf Webseite", "status_badge": "🟢 LIVE AUF WEBSEITE"}, {"id": "zurbuchen_holzbauer", "titel": "Zimmermann EFZ (2–3 Stellen)", "firma": "Zurbuchen Holzbau AG", "icon": "🌲", "datei": "zurbuchen_Holzbauer.html", "folder": "zurbuchen", "edge_url": "https://embed.magnet-xs.ch/zurbuchen/zurbuchen_Holzbauer.html", "host_webseite": "https://zurbuchen-holzbau.ch", "host_label": "zurbuchen-holzbau.ch", "farb_akzent": "#9B1B1F", "widget_code": "<iframe src=\"https://embed.magnet-xs.ch/zurbuchen/zurbuchen_Holzbauer.html?embed=true\" style=\"width:100%; border:none; min-height:850px;\" scrolling=\"no\" id=\"acp-job-widget\"></iframe>\n<script>window.addEventListener(\"message\",function(e){if(e.data&&e.data.type===\"acp-embed-resize\"){var el=document.getElementById(\"acp-job-widget\");if(el)el.style.height=e.data.height+\"px\";}});<\\/script>", "is_live": false, "live_url": "", "status": "Bereit für Zurbuchen", "status_badge": "🟡 BEREIT"}]);
+var ACP_BILDER = [{"id": "images_benefits_drohne_jpg", "filename": "benefits_drohne.jpg", "rel_path": "images/benefits_drohne.jpg", "folder": "hiltbrand", "category": "Baustelle & Benefit", "dimensions": "1400x1050", "size_kb": 482.5, "mtime": 1790616901, "mtime_str": "28.09.2026 17:35", "cdn_url": "https://embed.magnet-xs.ch/hiltbrand/images/benefits_drohne.jpg", "is_used": false, "used_in": []}, {"id": "images_danke_png", "filename": "danke.png", "rel_path": "images/danke.png", "folder": "hiltbrand", "category": "Baustelle & Benefit", "dimensions": "1456x816", "size_kb": 1490.5, "mtime": 1790616901, "mtime_str": "28.09.2026 17:35", "cdn_url": "https://embed.magnet-xs.ch/hiltbrand/images/danke.png", "is_used": true, "used_in": [{"datei": "zurbuchen_Holzbauer.html", "slot": "image", "is_hero": false}]}, {"id": "images_hero_jpg", "filename": "hero.jpg", "rel_path": "images/hero.jpg", "folder": "hiltbrand", "category": "Hero & Header", "dimensions": "1400x933", "size_kb": 160.7, "mtime": 1790616901, "mtime_str": "28.09.2026 17:35", "cdn_url": "https://embed.magnet-xs.ch/hiltbrand/images/hero.jpg", "is_used": true, "used_in": [{"datei": "index.html", "slot": "image", "is_hero": true}, {"datei": "Hiltbrand_Dachdecker_Pragmatisch.html", "slot": "image", "is_hero": true}, {"datei": "Hiltbrand_Dachdecker.html", "slot": "image", "is_hero": true}]}, {"id": "images_logo_png", "filename": "logo.png", "rel_path": "images/logo.png", "folder": "hiltbrand", "category": "Logo & Icon", "dimensions": "260x150", "size_kb": 8.2, "mtime": 1790616901, "mtime_str": "28.09.2026 17:35", "cdn_url": "https://embed.magnet-xs.ch/hiltbrand/images/logo.png", "is_used": true, "used_in": [{"datei": "zurbuchen_Holzbauer.html", "slot": "image", "is_hero": false}, {"datei": "index.html", "slot": "image", "is_hero": false}, {"datei": "Hiltbrand_Dachdecker_Pragmatisch.html", "slot": "image", "is_hero": false}, {"datei": "Hiltbrand_Dachdecker.html", "slot": "image", "is_hero": false}]}, {"id": "images_michael_jpg", "filename": "michael.jpg", "rel_path": "images/michael.jpg", "folder": "hiltbrand", "category": "Team & Porträt", "dimensions": "834x788", "size_kb": 186.7, "mtime": 1790616901, "mtime_str": "28.09.2026 17:35", "cdn_url": "https://embed.magnet-xs.ch/hiltbrand/images/michael.jpg", "is_used": true, "used_in": [{"datei": "zurbuchen_Holzbauer.html", "slot": "image", "is_hero": false}, {"datei": "Hiltbrand_Dachdecker.html", "slot": "image", "is_hero": false}]}, {"id": "images_q1_benefit_jpg", "filename": "q1_benefit.jpg", "rel_path": "images/q1_benefit.jpg", "folder": "hiltbrand", "category": "Baustelle & Benefit", "dimensions": "1400x1050", "size_kb": 295.8, "mtime": 1790616901, "mtime_str": "28.09.2026 17:35", "cdn_url": "https://embed.magnet-xs.ch/hiltbrand/images/q1_benefit.jpg", "is_used": false, "used_in": []}, {"id": "images_q1_bewaehrtes_handwerk_png", "filename": "q1_bewaehrtes_handwerk.png", "rel_path": "images/q1_bewaehrtes_handwerk.png", "folder": "hiltbrand", "category": "Baustelle & Benefit", "dimensions": "200x160", "size_kb": 37.6, "mtime": 1790616901, "mtime_str": "28.09.2026 17:35", "cdn_url": "https://embed.magnet-xs.ch/hiltbrand/images/q1_bewaehrtes_handwerk.png", "is_used": false, "used_in": []}, {"id": "images_q1_effiziente_maschinen_png", "filename": "q1_effiziente_maschinen.png", "rel_path": "images/q1_effiziente_maschinen.png", "folder": "hiltbrand", "category": "Baustelle & Benefit", "dimensions": "200x160", "size_kb": 38.0, "mtime": 1790616901, "mtime_str": "28.09.2026 17:35", "cdn_url": "https://embed.magnet-xs.ch/hiltbrand/images/q1_effiziente_maschinen.png", "is_used": false, "used_in": []}, {"id": "images_q1_moderne_technik_png", "filename": "q1_moderne_technik.png", "rel_path": "images/q1_moderne_technik.png", "folder": "hiltbrand", "category": "Baustelle & Benefit", "dimensions": "200x160", "size_kb": 37.8, "mtime": 1790616901, "mtime_str": "28.09.2026 17:35", "cdn_url": "https://embed.magnet-xs.ch/hiltbrand/images/q1_moderne_technik.png", "is_used": false, "used_in": []}, {"id": "images_q1_sicherer_arbeitgeber_png", "filename": "q1_sicherer_arbeitgeber.png", "rel_path": "images/q1_sicherer_arbeitgeber.png", "folder": "hiltbrand", "category": "Baustelle & Benefit", "dimensions": "200x160", "size_kb": 37.8, "mtime": 1790616901, "mtime_str": "28.09.2026 17:35", "cdn_url": "https://embed.magnet-xs.ch/hiltbrand/images/q1_sicherer_arbeitgeber.png", "is_used": false, "used_in": []}, {"id": "images_q2_baustellen_png", "filename": "q2_baustellen.png", "rel_path": "images/q2_baustellen.png", "folder": "hiltbrand", "category": "Baustelle & Benefit", "dimensions": "200x160", "size_kb": 39.3, "mtime": 1790616901, "mtime_str": "28.09.2026 17:35", "cdn_url": "https://embed.magnet-xs.ch/hiltbrand/images/q2_baustellen.png", "is_used": false, "used_in": []}, {"id": "images_q2_benefit_jpg", "filename": "q2_benefit.jpg", "rel_path": "images/q2_benefit.jpg", "folder": "hiltbrand", "category": "Baustelle & Benefit", "dimensions": "1400x1050", "size_kb": 325.7, "mtime": 1790616901, "mtime_str": "28.09.2026 17:35", "cdn_url": "https://embed.magnet-xs.ch/hiltbrand/images/q2_benefit.jpg", "is_used": false, "used_in": []}, {"id": "images_q2_details_png", "filename": "q2_details.png", "rel_path": "images/q2_details.png", "folder": "hiltbrand", "category": "Baustelle & Benefit", "dimensions": "200x160", "size_kb": 38.5, "mtime": 1790616901, "mtime_str": "28.09.2026 17:35", "cdn_url": "https://embed.magnet-xs.ch/hiltbrand/images/q2_details.png", "is_used": false, "used_in": []}, {"id": "images_q2_ganzheitlich_png", "filename": "q2_ganzheitlich.png", "rel_path": "images/q2_ganzheitlich.png", "folder": "hiltbrand", "category": "Baustelle & Benefit", "dimensions": "200x160", "size_kb": 38.8, "mtime": 1790616901, "mtime_str": "28.09.2026 17:35", "cdn_url": "https://embed.magnet-xs.ch/hiltbrand/images/q2_ganzheitlich.png", "is_used": false, "used_in": []}, {"id": "images_q2_kundenkontakt_png", "filename": "q2_kundenkontakt.png", "rel_path": "images/q2_kundenkontakt.png", "folder": "hiltbrand", "category": "Baustelle & Benefit", "dimensions": "200x160", "size_kb": 38.6, "mtime": 1790616901, "mtime_str": "28.09.2026 17:35", "cdn_url": "https://embed.magnet-xs.ch/hiltbrand/images/q2_kundenkontakt.png", "is_used": false, "used_in": []}, {"id": "images_q3_ansagen_png", "filename": "q3_ansagen.png", "rel_path": "images/q3_ansagen.png", "folder": "hiltbrand", "category": "Baustelle & Benefit", "dimensions": "200x160", "size_kb": 47.1, "mtime": 1790616901, "mtime_str": "28.09.2026 17:35", "cdn_url": "https://embed.magnet-xs.ch/hiltbrand/images/q3_ansagen.png", "is_used": false, "used_in": []}, {"id": "images_q3_benefit_png", "filename": "q3_benefit.png", "rel_path": "images/q3_benefit.png", "folder": "hiltbrand", "category": "Baustelle & Benefit", "dimensions": "1456x816", "size_kb": 1296.6, "mtime": 1790616901, "mtime_str": "28.09.2026 17:35", "cdn_url": "https://embed.magnet-xs.ch/hiltbrand/images/q3_benefit.png", "is_used": false, "used_in": []}, {"id": "images_q3_ehrgeiz_png", "filename": "q3_ehrgeiz.png", "rel_path": "images/q3_ehrgeiz.png", "folder": "hiltbrand", "category": "Baustelle & Benefit", "dimensions": "200x160", "size_kb": 47.7, "mtime": 1790616901, "mtime_str": "28.09.2026 17:35", "cdn_url": "https://embed.magnet-xs.ch/hiltbrand/images/q3_ehrgeiz.png", "is_used": false, "used_in": []}, {"id": "images_q3_freiraum_png", "filename": "q3_freiraum.png", "rel_path": "images/q3_freiraum.png", "folder": "hiltbrand", "category": "Baustelle & Benefit", "dimensions": "200x160", "size_kb": 47.2, "mtime": 1790616901, "mtime_str": "28.09.2026 17:35", "cdn_url": "https://embed.magnet-xs.ch/hiltbrand/images/q3_freiraum.png", "is_used": false, "used_in": []}, {"id": "images_q3_kameradschaft_png", "filename": "q3_kameradschaft.png", "rel_path": "images/q3_kameradschaft.png", "folder": "hiltbrand", "category": "Baustelle & Benefit", "dimensions": "200x160", "size_kb": 47.2, "mtime": 1790616901, "mtime_str": "28.09.2026 17:35", "cdn_url": "https://embed.magnet-xs.ch/hiltbrand/images/q3_kameradschaft.png", "is_used": false, "used_in": []}, {"id": "images_stefan_jpg", "filename": "stefan.jpg", "rel_path": "images/stefan.jpg", "folder": "hiltbrand", "category": "Team & Porträt", "dimensions": "1400x1337", "size_kb": 204.2, "mtime": 1790616901, "mtime_str": "28.09.2026 17:35", "cdn_url": "https://embed.magnet-xs.ch/hiltbrand/images/stefan.jpg", "is_used": true, "used_in": [{"datei": "Hiltbrand_Dachdecker.html", "slot": "image", "is_hero": false}]}, {"id": "images_team_alt_jpg", "filename": "team_alt.jpg", "rel_path": "images/team_alt.jpg", "folder": "hiltbrand", "category": "Team & Porträt", "dimensions": "1400x933", "size_kb": 259.8, "mtime": 1790616901, "mtime_str": "28.09.2026 17:35", "cdn_url": "https://embed.magnet-xs.ch/hiltbrand/images/team_alt.jpg", "is_used": false, "used_in": []}, {"id": "images_vorstellung_jpg", "filename": "vorstellung.jpg", "rel_path": "images/vorstellung.jpg", "folder": "hiltbrand", "category": "Baustelle & Benefit", "dimensions": "1400x933", "size_kb": 160.7, "mtime": 1790616901, "mtime_str": "28.09.2026 17:35", "cdn_url": "https://embed.magnet-xs.ch/hiltbrand/images/vorstellung.jpg", "is_used": false, "used_in": []}];
+var ACP_STELLEN = sanitizeStellen([{"id": "hiltbrand_dachdecker", "titel": "Dachdecker EFZ gesucht (80–100%)", "firma": "Hiltbrand", "icon": "🏗️", "datei": "Hiltbrand_Dachdecker.html", "folder": "hiltbrand", "edge_url": "https://embed.magnet-xs.ch/hiltbrand/Hiltbrand_Dachdecker.html", "host_webseite": "https://hiltbrand.ch", "host_label": "hiltbrand.ch", "farb_akzent": "#d97706", "widget_code": "<iframe src=\"https://embed.magnet-xs.ch/hiltbrand/Hiltbrand_Dachdecker.html?embed=true\" style=\"width:100%; border:none; min-height:850px;\" scrolling=\"no\" id=\"acp-job-widget\"></iframe>\n<script>window.addEventListener(\"message\",function(e){if(e.data&&e.data.type===\"acp-embed-resize\"){var el=document.getElementById(\"acp-job-widget\");if(el)el.style.height=e.data.height+\"px\";}});<\\/script>", "is_live": true, "live_url": "https://embed.magnet-xs.ch/hiltbrand/Hiltbrand_Dachdecker.html", "status": "Live auf Edge CDN", "status_badge": "🟢 LIVE"}, {"id": "hiltbrand_dachdecker_pragmatisch", "titel": "Dachdecker EFZ (Pragmatisch &amp; WhatsApp)", "firma": "Hiltbrand", "icon": "🏗️", "datei": "Hiltbrand_Dachdecker_Pragmatisch.html", "folder": "hiltbrand", "edge_url": "https://embed.magnet-xs.ch/hiltbrand/Hiltbrand_Dachdecker_Pragmatisch.html", "host_webseite": "https://hiltbrand.ch", "host_label": "hiltbrand.ch", "farb_akzent": "#d97706", "widget_code": "<iframe src=\"https://embed.magnet-xs.ch/hiltbrand/Hiltbrand_Dachdecker_Pragmatisch.html?embed=true\" style=\"width:100%; border:none; min-height:850px;\" scrolling=\"no\" id=\"acp-job-widget\"></iframe>\n<script>window.addEventListener(\"message\",function(e){if(e.data&&e.data.type===\"acp-embed-resize\"){var el=document.getElementById(\"acp-job-widget\");if(el)el.style.height=e.data.height+\"px\";}});<\\/script>", "is_live": true, "live_url": "https://embed.magnet-xs.ch/hiltbrand/Hiltbrand_Dachdecker_Pragmatisch.html", "status": "Live auf Edge CDN", "status_badge": "🟢 LIVE"}, {"id": "index", "titel": "Dachdecker EFZ (Pragmatisch &amp; WhatsApp)", "firma": "Hiltbrand", "icon": "🏗️", "datei": "index.html", "folder": "hiltbrand", "edge_url": "https://embed.magnet-xs.ch/hiltbrand/index.html", "host_webseite": "https://hiltbrand.ch", "host_label": "hiltbrand.ch", "farb_akzent": "#d97706", "widget_code": "<iframe src=\"https://embed.magnet-xs.ch/hiltbrand/index.html?embed=true\" style=\"width:100%; border:none; min-height:850px;\" scrolling=\"no\" id=\"acp-job-widget\"></iframe>\n<script>window.addEventListener(\"message\",function(e){if(e.data&&e.data.type===\"acp-embed-resize\"){var el=document.getElementById(\"acp-job-widget\");if(el)el.style.height=e.data.height+\"px\";}});<\\/script>", "is_live": true, "live_url": "https://embed.magnet-xs.ch/hiltbrand/index.html", "status": "Live auf Edge CDN", "status_badge": "🟢 LIVE"}, {"id": "zurbuchen_holzbauer", "titel": "Zimmermann EFZ gesucht (2–3 Stellen)", "firma": "Hiltbrand", "icon": "🏗️", "datei": "zurbuchen_Holzbauer.html", "folder": "hiltbrand", "edge_url": "https://embed.magnet-xs.ch/hiltbrand/zurbuchen_Holzbauer.html", "host_webseite": "https://hiltbrand.ch", "host_label": "hiltbrand.ch", "farb_akzent": "#d97706", "widget_code": "<iframe src=\"https://embed.magnet-xs.ch/hiltbrand/zurbuchen_Holzbauer.html?embed=true\" style=\"width:100%; border:none; min-height:850px;\" scrolling=\"no\" id=\"acp-job-widget\"></iframe>\n<script>window.addEventListener(\"message\",function(e){if(e.data&&e.data.type===\"acp-embed-resize\"){var el=document.getElementById(\"acp-job-widget\");if(el)el.style.height=e.data.height+\"px\";}});<\\/script>", "is_live": true, "live_url": "https://embed.magnet-xs.ch/hiltbrand/zurbuchen_Holzbauer.html", "status": "Live auf Edge CDN", "status_badge": "🟢 LIVE"}]);
 
 // Globaler State
 var activeJobId = "";
@@ -3212,12 +3452,20 @@ document.addEventListener("keydown", function(e) {
       acpCancelSwap();
       return;
     }
+    var sm = document.getElementById("acp-sections-modal");
+    if (sm && sm.classList.contains("is-open")) acpToggleSectionsModal();
+    var rm = document.getElementById("acp-replace-section-modal");
+    if (rm && rm.style.display !== "none") acpCloseReplaceSectionModal();
+    var nm = document.getElementById("acp-new-section-modal");
+    if (nm && nm.style.display !== "none") acpCloseNewSectionModal();
     var im = document.getElementById("acp-images-modal");
     if (im && im.classList.contains("is-open")) acpToggleImagesModal();
     var dm = document.getElementById("acp-directory-modal");
     if (dm && dm.classList.contains("is-open")) acpToggleDirectoryModal();
     var hm = document.getElementById("acp-help-modal");
     if (hm && hm.classList.contains("is-open")) acpToggleHelpModal();
+    var lm = document.getElementById("acp-log-modal");
+    if (lm && lm.classList.contains("is-open")) acpToggleLogModal();
   }
 });
 
@@ -4011,6 +4259,7 @@ function getUsedImagesForCurrentJob() {
 
 function acpSelectSwapImage(relPath, filename) {
   acpSelectedSwapImage = { rel_path: relPath, filename: filename };
+  acpLog("info", "📷 Tausch-Bild ausgewählt: " + filename, "Pfad: " + relPath);
   if (acpImagesModalOpen) {
     acpToggleImagesModal();
   }
@@ -4142,6 +4391,7 @@ function acpHandleSlotClick(data) {
   var actionsBox = document.getElementById("acp-swap-actions");
   var cleanOld = acpTargetSwapSlot.currentSrc.split('/').pop() || acpTargetSwapSlot.slot;
   var cleanNew = acpSelectedSwapImage.filename;
+  acpLog("swap", "🎯 Tauschziel im Inserat gewählt: " + cleanOld + " ➔ " + cleanNew, "Datei: " + activeFile + " · Slot: " + acpTargetSwapSlot.slot);
 
   if (targetHint) {
     targetHint.innerHTML = '<span style="color:#22c55e; font-weight:700;">✅ Tausche:</span> ' +
@@ -4188,19 +4438,24 @@ function acpExecuteDirectSwap() {
     btn.textContent = "⏳ Tausche & Deploye...";
   }
 
+  var currentJob = getActiveJob();
+  var activeFile = (acpTargetSwapSlot && acpTargetSwapSlot.datei) || (currentJob ? currentJob.datei : 'index.html');
   var cleanOld = acpTargetSwapSlot.currentSrc.split('/').pop() || acpTargetSwapSlot.slot;
   var cleanNew = acpSelectedSwapImage.filename;
+  acpLog("swap", "🎯 Tauschziel im Inserat gewählt: " + cleanOld + " ➔ " + cleanNew, "Datei: " + activeFile + " · Slot: " + acpTargetSwapSlot.slot);
 
   acpShowToast('⚡ <strong>Bildtausch gestartet:</strong> Tausche ' + cleanOld + ' ➔ ' + cleanNew + '...<br><small>Cloudflare Pages aktualisiert den Edge-Cache...</small>', 8000);
 
   var payload = {
-    file: acpTargetSwapSlot.datei,
+    client: currentJob.folder || 'hiltbrand',
+    file: activeFile,
     old_path: acpTargetSwapSlot.currentSrc,
     new_path: acpSelectedSwapImage.rel_path,
     is_hero: !!acpTargetSwapSlot.isHero,
     slot: acpTargetSwapSlot.slot || ""
   };
 
+  acpLog("info", "⚡ Sende Tausch an VPS (swap-image)...", "Mandant: " + (payload.client || "") + " · " + cleanOld + " ➔ " + cleanNew);
   fetch("/api/publish-career/swap-image", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
@@ -4215,9 +4470,11 @@ function acpExecuteDirectSwap() {
       // 1. Swap-Dock & Spotlight lautlos schliessen (das Bild bleibt im DOM stabil erhalten!)
       acpCancelSwap(true);
       // 2. Erfolgs-Meldung anzeigen (KEIN zerstörerischer iFrame-Reload!)
+      acpLog("success", "🎉 Bildtausch erfolgreich verarbeitet!", "Edge CDN synchronisiert · Datei: " + payload.file);
       acpShowToast('🎉 <strong>Bild erfolgreich getauscht!</strong><br><small><strong>' + cleanNew + '</strong> ist jetzt im HTML fest verankert und weltweit live.</small>', 8000);
     } else {
       var err = (result.data && result.data.error) || 'Fehler beim Bildtausch';
+      acpLog("error", "❌ Tausch vom Server abgewiesen: " + err, JSON.stringify(result.data));
       acpShowToast('❌ <strong>Fehler:</strong> ' + err, 7000);
       acpReportClientEvent('error', 'Bildtausch abgelehnt: ' + err, payload);
       if (btn) {
@@ -4418,7 +4675,7 @@ window.addEventListener("message", function(e) {
       frame.style.height = (e.data.height + 10) + "px";
     }
   }
-  if (e.data && e.data.type === "acp-slot-click") {
+  if (e.data && (e.data.type === "acp-slot-click" || e.data.type === "acp-client-slot-click")) {
     acpHandleSlotClick(e.data);
   }
   if (e.data && e.data.type === "acp-toast") {
@@ -4591,7 +4848,7 @@ function setupActiveJobAndRender() {
 }
 
 function acpInit() {
-  console.log("🚀 Magnet-XS Karriere-Cockpit " + ACP_COCKPIT_VERSION + " [Build " + ACP_COCKPIT_BUILD + "] geladen.");
+  console.log("🚀 Hiltbrand WebPilot Studio " + ACP_COCKPIT_VERSION + " [Build " + ACP_COCKPIT_BUILD + "] geladen.");
   acpInitUploadDropzone();
   var statusBox = document.getElementById("acp-upload-status");
   if (statusBox) statusBox.classList.remove("is-active");
@@ -4618,6 +4875,426 @@ function acpInit() {
 }
 
 window.addEventListener("DOMContentLoaded", acpInit);
+
+
+// =======================================================
+// [SEKTIONEN & KI-BAUKASTEN] FULL-CONTEXT ENVELOPE ENGINE
+// =======================================================
+var acpSectionsModalOpen = false;
+var acpScannedSections = [];
+var acpActiveEditSectionId = null;
+
+function acpToggleSectionsModal() {
+  acpSectionsModalOpen = !acpSectionsModalOpen;
+  var modal = document.getElementById("acp-sections-modal");
+  if (modal) modal.classList.toggle("is-open", acpSectionsModalOpen);
+  acpUpdateBodyModalClass();
+  if (acpSectionsModalOpen) {
+    acpScanAndRenderSections();
+  }
+}
+
+function acpScanAndRenderSections() {
+  var iframe = document.getElementById("acp-widget-viewport");
+  var grid = document.getElementById("acp-sections-grid");
+  var badge = document.getElementById("acp-sections-count-badge");
+  if (!grid) return;
+
+  grid.innerHTML = '<div style="color:var(--grau); padding:20px;">Lese Sektionen aus der Live-Bühne ein...</div>';
+
+  var doc = null;
+  try {
+    if (iframe && (iframe.contentDocument || iframe.contentWindow)) {
+      doc = iframe.contentDocument || iframe.contentWindow.document;
+    }
+  } catch(e) {
+    console.warn("Iframe Zugriff eingeschränkt:", e);
+  }
+
+  acpScannedSections = [];
+
+  if (doc) {
+    var elements = doc.querySelectorAll("[data-section], section, header.site-header, footer.site-footer, .header-wrap, .footer-wrap");
+    elements.forEach(function(el, idx) {
+      var id = el.getAttribute("data-section") || el.id || el.tagName.toLowerCase();
+      if (id === "acp-cockpit-bar" || el.closest(".acp-cockpit-bar")) return;
+      if (acpScannedSections.some(function(s) { return s.id === id; })) return;
+
+      var kicker = el.querySelector(".section-kicker, .hero-kicker, .kicker, .tag");
+      var title = el.querySelector(".section-title, .hero-title, h1, h2, h3");
+
+      var kickerText = kicker ? kicker.innerText.trim() : "";
+      var titleText = title ? title.innerText.trim() : (el.getAttribute("aria-label") || id);
+
+      var lines = el.outerHTML.split("\n").length;
+      var charCount = el.outerHTML.length;
+
+      acpScannedSections.push({
+        id: id,
+        tag: el.tagName.toLowerCase(),
+        kicker: kickerText,
+        title: titleText,
+        lines: lines,
+        chars: charCount,
+        outerHTML: el.outerHTML,
+        index: idx
+      });
+    });
+  }
+
+  if (acpScannedSections.length === 0) {
+    acpScannedSections = [
+      { id: "hero", kicker: "Meisterbetrieb in 3. Generation", title: "Gebäudehüllen & Photovoltaik", lines: 120, chars: 4800, outerHTML: '<section class="section-wrap hero-wrap" data-section="hero">...</section>' },
+      { id: "services", kicker: "Kompetenzen & Handwerk", title: "Unsere Kernleistungen im Berner Oberland", lines: 95, chars: 3600, outerHTML: '<section class="section-wrap" data-section="services">...</section>' },
+      { id: "stories", kicker: "Direkt aus der Praxis", title: "Aktuelle Baustellen & Referenzen", lines: 80, chars: 3100, outerHTML: '<section class="section-wrap" data-section="stories">...</section>' },
+      { id: "ratgeber", kicker: "Fachwissen & Ratgeber", title: "Wissen direkt vom Gebäudehüllen-Meister", lines: 75, chars: 2900, outerHTML: '<section class="section-wrap" data-section="ratgeber">...</section>' },
+      { id: "team_teaser", kicker: "Menschen & Handwerk", title: "Das Team der Hiltbrand Gebäudehüllen AG", lines: 85, chars: 3400, outerHTML: '<section class="section-wrap" data-section="team_teaser">...</section>' },
+      { id: "kontakt", kicker: "Direktkontakt & 24h-Pikett", title: "Offerte anfordern & Kontakt", lines: 110, chars: 4200, outerHTML: '<section class="section-wrap" data-section="kontakt">...</section>' }
+    ];
+  }
+
+  if (badge) {
+    badge.textContent = "● " + acpScannedSections.length + " Sektionen aktiv";
+  }
+
+  grid.innerHTML = "";
+  acpScannedSections.forEach(function(sec, idx) {
+    var card = document.createElement("div");
+    card.className = "acp-section-card";
+    card.style.cssText = "background: rgba(15, 23, 42, 0.85); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 12px; padding: 20px; display: flex; flex-direction: column; justify-content: space-between; gap: 16px;";
+
+    var isSystem = (sec.id === "header" || sec.id === "footer");
+    var badgeColor = isSystem ? "rgba(148, 163, 184, 0.2)" : "rgba(245, 158, 11, 0.15)";
+    var badgeText = isSystem ? "SYSTEM" : "SEKTION " + (idx + 1);
+    var badgeTextColor = isSystem ? "#94a3b8" : "#fbbf24";
+
+    card.innerHTML = 
+      '<div>' +
+        '<div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px;">' +
+          '<span style="font-family:\'JetBrains Mono\',monospace; font-size:11px; font-weight:700; background:' + badgeColor + '; color:' + badgeTextColor + '; padding:3px 8px; border-radius:4px;">' + badgeText + '</span>' +
+          '<span style="font-family:\'JetBrains Mono\',monospace; font-size:11px; color:#64748b;">data-section="' + sec.id + '"</span>' +
+        '</div>' +
+        (sec.kicker ? '<div style="font-family:\'JetBrains Mono\',monospace; font-size:11px; color:#f59e0b; margin-bottom:4px;">' + sec.kicker + '</div>' : '') +
+        '<h4 style="color:#fff; font-size:16px; font-weight:700; line-height:1.4; margin-bottom:8px;">' + sec.title + '</h4>' +
+        '<div style="font-size:12px; color:#64748b;">' + sec.lines + ' Zeilen · ca. ' + Math.round(sec.chars / 100) / 10 + ' KB Quelltext</div>' +
+      '</div>' +
+      '<div style="display:flex; gap:8px; flex-wrap:wrap; padding-top:12px; border-top:1px solid rgba(255,255,255,0.08);">' +
+        '<button type="button" class="acp-btn-secondary" onclick="acpCopySectionPrompt(\'' + sec.id + '\')" style="flex:1; padding:8px 12px; font-size:12.5px; justify-content:center;" title="Kopiert Prompt inkl. vollem Seiten-Kontext">' +
+          '<span>📋 Prompt kopieren</span>' +
+        '</button>' +
+        '<button type="button" class="acp-btn-secondary" onclick="acpOpenReplaceSectionModal(\'' + sec.id + '\')" style="padding:8px 12px; font-size:12.5px;" title="Modifizierten KI-Code einfügen">' +
+          '<span>✏️ Ersetzen</span>' +
+        '</button>' +
+        (!isSystem ? '<button type="button" class="acp-btn-secondary" onclick="acpRemoveSection(\'' + sec.id + '\')" style="padding:8px 10px; font-size:12.5px; color:#ef4444; border-color:rgba(239,68,68,0.3);" title="Sektion entfernen"><span>🗑️</span></button>' : '') +
+      '</div>';
+
+    grid.appendChild(card);
+  });
+}
+
+function acpBuildFullContextEnvelope(targetSecId, customGoal) {
+  var targetSec = acpScannedSections.find(function(s) { return s.id === targetSecId; });
+  if (!targetSec) return "";
+
+  var sectionsOutline = acpScannedSections.map(function(s, i) {
+    return "   " + (i + 1) + ". [" + s.id + "] " + (s.kicker ? s.kicker + " · " : "") + s.title;
+  }).join("\n");
+
+  var targetIdx = acpScannedSections.findIndex(function(s) { return s.id === targetSecId; });
+  var prevSec = targetIdx > 0 ? acpScannedSections[targetIdx - 1] : null;
+  var nextSec = targetIdx < acpScannedSections.length - 1 ? acpScannedSections[targetIdx + 1] : null;
+
+  var prevInfo = prevSec ? "Liegt direkt NACH: [" + prevSec.id + "] " + prevSec.title : "Liegt ganz oben auf der Seite (Hero-Bereich)";
+  var nextInfo = nextSec ? "Liegt direkt VOR: [" + nextSec.id + "] " + nextSec.title : "Liegt direkt vor dem Footer";
+
+  var prompt = 
+"Du bist mein technischer Web-Entwickler für meine Schweizer Handwerker-Website (WebPilot Obsidian-Dark Design).\n" +
+"Ich möchte die Sektion \"" + targetSec.title + "\" (data-section=\"" + targetSec.id + "\") anpassen.\n\n" +
+
+"================================================================================\n" +
+"1. GESAMT-KONTEXT DER SEITE (FÜR TONALITÄT, STIMMIGKEIT & FLOW):\n" +
+"================================================================================\n" +
+"- Vorhandene Abschnitte auf dieser Seite:\n" + sectionsOutline + "\n\n" +
+"- Position dieser Sektion im Fluss der Seite:\n" +
+"  * " + prevInfo + "\n" +
+"  * " + nextInfo + "\n\n" +
+
+"================================================================================\n" +
+"2. VERBINDLICHE SCHWEIZER SPRACH- & DESIGN-DOKTRIN:\n" +
+"================================================================================\n" +
+"- Sprache: Authentisches Schweizer Hochdeutsch (100% Verbot von \"ß\", nutze \"ss\").\n" +
+"- Schweizer Handwerksbegriffe: \"Leistungen\" (nie \"Gewerke\"), \"Handwerker EFZ / Fachmonteure\" (nie \"Gesellen\"), \"Lernende\" (nie \"Azubis\"), \"24h-Pikett\" (nie \"Notdienst\"), \"Offerte\" (nie \"Kostenvoranschlag\"), \"Ferien\" (nie \"Urlaub\").\n" +
+"- Schweizer Typografie: Nutze die bestehenden Klassen (.section-wrap, .section-inner, .section-kicker, .section-title, .section-desc).\n" +
+"- Kicker-Regel: <span class=\"section-kicker\">● Kicker-Text</span> ist 100% freistehend (keine Box, kein Badge-Rahmen).\n" +
+"- Zero-Emoji: Keine bunten Emojis in Überschriften oder Badges.\n" +
+"- Bilder: Bildpfade zeigen auf \"images/[dateiname.jpg]\".\n\n" +
+
+"================================================================================\n" +
+"3. AKTUELLER QUELLCODE DIESER SEKTION (ZUR BEARBEITUNG):\n" +
+"================================================================================\n" +
+targetSec.outerHTML + "\n\n" +
+
+"================================================================================\n" +
+"4. MEIN ÄNDERUNGSWUNSCH:\n" +
+"================================================================================\n" +
+(customGoal ? customGoal : "[Hier konkreten Änderungswunsch eingeben, z.B. Text umschreiben, Vorteil anpassen, 4. Bildkarte hinzufügen]") + "\n\n" +
+
+"================================================================================\n" +
+"AUSGABE-REGEL (GOLDENE REGEL):\n" +
+"================================================================================\n" +
+"Nutze den gesamten Kontext für Tonalität und Flow, aber gib mir als Antwort AUSSCHLIESSLICH den vollständigen, sauberen HTML-Code von <section ...> bis </section> im Codeblock aus.\n" +
+"Schliesse ausnahmslos alle Tags (<div>, <section>, <p>, <span>) sauber ab. Keine Auslassungen (wie // ... restlicher Code ...)!";
+
+  return prompt;
+}
+
+function acpCopySectionPrompt(secId) {
+  var promptText = acpBuildFullContextEnvelope(secId, "");
+  if (!promptText) return;
+  navigator.clipboard.writeText(promptText).then(function() {
+    alert("✓ Vollständiger Prompt für Sektion [" + secId + "] inklusive Gesamt-Kontext in die Zwischenablage kopiert!\n\nJetzt einfach in ChatGPT oder Claude einfügen.");
+  }).catch(function() {
+    window.prompt("Kopiere diesen Prompt für ChatGPT / Claude:", promptText);
+  });
+}
+
+function acpCopyFullPagePrompt() {
+  var iframe = document.getElementById("acp-widget-viewport");
+  var doc = iframe ? (iframe.contentDocument || iframe.contentWindow.document) : null;
+  var fullHtml = doc ? doc.documentElement.outerHTML : "";
+  if (!fullHtml) {
+    alert("Konnte den Quellcode der Seite nicht einlesen.");
+    return;
+  }
+  var prompt = 
+"Du bist mein technischer Web-Redakteur für meine Schweizer Handwerker-Website.\n" +
+"Ich übergebe dir hier den VOLLSTÄNDIGEN Quellcode meiner Website (HTML5).\n\n" +
+"MEINE REGELN:\n" +
+"1. Schweizer Hochdeutsch (0x 'ß', Schweizer Fachbegriffe).\n" +
+"2. Schweizer Obsidian-Design & bestehende Klassen beibehalten.\n" +
+"3. AUSGABE-PFLICHT: Gib mir den Quellcode immer als eine einzige, vollständige und ungekürzte HTML-Datei aus – ausnahmslos von <!DOCTYPE html> bis </html>. Verwende keine Code-Auslassungen!\n\n" +
+"QUELLCODE:\n" + fullHtml;
+
+  navigator.clipboard.writeText(prompt).then(function() {
+    alert("✓ Komplette HTML-Seite inklusive Master-Prompt kopiert!");
+  }).catch(function() {
+    window.prompt("Kopiere die ganze Seite:", prompt);
+  });
+}
+
+function acpOpenReplaceSectionModal(secId) {
+  acpActiveEditSectionId = secId;
+  var modal = document.getElementById("acp-replace-section-modal");
+  var title = document.getElementById("acp-replace-modal-title");
+  var textarea = document.getElementById("acp-replace-code-input");
+  var status = document.getElementById("acp-replace-airbag-status");
+  if (status) status.style.display = "none";
+  if (title) title.textContent = "Sektion [" + secId + "] bearbeiten & ersetzen";
+  if (textarea) textarea.value = "";
+  if (modal) modal.style.display = "block";
+}
+
+function acpCloseReplaceSectionModal() {
+  var modal = document.getElementById("acp-replace-section-modal");
+  if (modal) modal.style.display = "none";
+}
+
+function acpValidateSectionHtml(html) {
+  if (!html || !html.trim()) {
+    return { ok: false, error: "Der Code ist leer!" };
+  }
+  var clean = html.trim();
+  if (!clean.startsWith("<section") || !clean.endsWith("</section>")) {
+    return { ok: false, error: "Der Code muss mit <section ...> beginnen und mit </section> enden." };
+  }
+  var checkTags = ["section", "div", "p", "span", "a", "h2", "h3", "h4", "ul", "ol", "li"];
+  for (var i = 0; i < checkTags.length; i++) {
+    var tag = checkTags[i];
+    var openRegex = new RegExp("<" + tag + "(\\s+[^>]*)?>", "gi");
+    var closeRegex = new RegExp("</" + tag + ">", "gi");
+    var openCount = (clean.match(openRegex) || []).length;
+    var closeCount = (clean.match(closeRegex) || []).length;
+    if (openCount !== closeCount) {
+      return { 
+        ok: false, 
+        error: "Tag-Fehler bei <" + tag + ">: Wurde " + openCount + "x geöffnet, aber " + closeCount + "x geschlossen. Bitte sag ChatGPT: 'Schliesse alle <" + tag + "> Tags sauber ab!'" 
+      };
+    }
+  }
+  if (/<script\b[^>]*>/i.test(clean)) {
+    return { ok: false, error: "Sicherheits-Schranke: <script>-Tags sind in Inhalts-Sektionen nicht erlaubt." };
+  }
+  return { ok: true, html: clean };
+}
+
+function acpSubmitReplaceSection() {
+  var textarea = document.getElementById("acp-replace-code-input");
+  var status = document.getElementById("acp-replace-airbag-status");
+  if (!textarea || !textarea.value) return;
+
+  var validation = acpValidateSectionHtml(textarea.value);
+  if (!validation.ok) {
+    if (status) {
+      status.style.display = "block";
+      status.style.color = "#ef4444";
+      status.style.background = "rgba(239, 68, 68, 0.1)";
+      status.style.padding = "10px 14px";
+      status.style.borderRadius = "6px";
+      status.style.border = "1px solid rgba(239, 68, 68, 0.3)";
+      status.innerHTML = "🚨 <strong>Airbag-Schranke:</strong> " + validation.error;
+    }
+    return;
+  }
+
+  var iframe = document.getElementById("acp-widget-viewport");
+  var doc = iframe ? (iframe.contentDocument || iframe.contentWindow.document) : null;
+  if (!doc) {
+    alert("Iframe nicht verfügbar!");
+    return;
+  }
+
+  var targetEl = doc.querySelector('[data-section="' + acpActiveEditSectionId + '"]') || doc.getElementById(acpActiveEditSectionId);
+  if (!targetEl) {
+    alert("Ziel-Sektion [" + acpActiveEditSectionId + "] nicht im Dokument gefunden!");
+    return;
+  }
+
+  var temp = doc.createElement("div");
+  temp.innerHTML = validation.html;
+  var newSecEl = temp.firstElementChild;
+
+  targetEl.parentNode.replaceChild(newSecEl, targetEl);
+  acpCloseReplaceSectionModal();
+  acpScanAndRenderSections();
+  alert("✓ Sektion [" + acpActiveEditSectionId + "] erfolgreich aktualisiert!");
+}
+
+function acpOpenNewSectionModal() {
+  var modal = document.getElementById("acp-new-section-modal");
+  var select = document.getElementById("acp-new-sec-position");
+  var status = document.getElementById("acp-new-airbag-status");
+  if (status) status.style.display = "none";
+
+  if (select) {
+    select.innerHTML = "";
+    acpScannedSections.forEach(function(s) {
+      var opt = document.createElement("option");
+      opt.value = s.id;
+      opt.textContent = "Nach [" + s.id + "] " + s.title;
+      select.appendChild(opt);
+    });
+  }
+  if (modal) modal.style.display = "block";
+}
+
+function acpCloseNewSectionModal() {
+  var modal = document.getElementById("acp-new-section-modal");
+  if (modal) modal.style.display = "none";
+}
+
+function acpCopyGeneratedNewSectionPrompt() {
+  var select = document.getElementById("acp-new-sec-position");
+  var topicInput = document.getElementById("acp-new-sec-topic");
+  var pos = select ? select.value : "services";
+  var topic = topicInput && topicInput.value ? topicInput.value : "Unsere Partnerbetriebe & Netzwerke";
+
+  var afterSec = acpScannedSections.find(function(s) { return s.id === pos; }) || acpScannedSections[0];
+  var slug = topic.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+
+  var prompt = 
+"Du bist mein technischer Web-Entwickler für meine Schweizer Handwerker-Website (WebPilot Obsidian-Dark Design).\n" +
+"Erstelle mir eine NEUE HTML5-Sektion für folgendes Thema:\n" +
+"\"" + topic + "\"\n\n" +
+
+"================================================================================\n" +
+"1. POSITIONIERUNG & GESAMT-KONTEXT DER SEITE:\n" +
+"================================================================================\n" +
+"- Die neue Sektion wird direkt nach [" + afterSec.id + "] \"" + afterSec.title + "\" eingehängt.\n" +
+"- Sie muss sich nahtlos in das Obsidian-Dark Theme (#0b0f19 Canvas, Platin-Text, Bernstein/Gold Akzente) einfügen.\n\n" +
+
+"================================================================================\n" +
+"2. STRUKTUR- & CSS-VORGABEN:\n" +
+"================================================================================\n" +
+"- Root-Tag: <section class=\"section-wrap\" data-section=\"" + slug + "\" id=\"" + slug + "\">\n" +
+"- Inner-Container: <div class=\"section-inner\">\n" +
+"- Kicker: <span class=\"section-kicker\">● THEMA</span> (11px JetBrains Mono, freistehend, kein Rahmen)\n" +
+"- Titel: <h2 class=\"section-title\">Prägnante Überschrift</h2>\n" +
+"- Untertitel: <p class=\"section-desc\">Kurze, vertrauensbildende Beschreibung.</p>\n" +
+"- Grid: Responsives CSS-Grid mit style=\"display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:24px;\"\n" +
+"- Sprache: 100% Schweizer Hochdeutsch (0x \"ß\", Schweizer Fachbegriffe).\n" +
+"- Emojis: 0 bunte Emojis.\n\n" +
+
+"================================================================================\n" +
+"AUSGABE-REGEL:\n" +
+"================================================================================\n" +
+"Gib mir als Antwort AUSSCHLIESSLICH den fertigen, validen HTML-Code von <section ...> bis </section> im Codeblock aus.\n" +
+"Alle Tags müssen zwingend vollständig geschlossen sein!";
+
+  navigator.clipboard.writeText(prompt).then(function() {
+    alert("✓ Neuer Sektions-Prompt mit Schweizer Design-Vorgaben kopiert!\n\nJetzt in ChatGPT oder Claude einfügen.");
+  }).catch(function() {
+    window.prompt("Kopiere diesen Prompt:", prompt);
+  });
+}
+
+function acpSubmitNewSection() {
+  var textarea = document.getElementById("acp-new-sec-code-input");
+  var select = document.getElementById("acp-new-sec-position");
+  var status = document.getElementById("acp-new-airbag-status");
+  if (!textarea || !textarea.value) return;
+
+  var validation = acpValidateSectionHtml(textarea.value);
+  if (!validation.ok) {
+    if (status) {
+      status.style.display = "block";
+      status.style.color = "#ef4444";
+      status.style.background = "rgba(239, 68, 68, 0.1)";
+      status.style.padding = "10px 14px";
+      status.style.borderRadius = "6px";
+      status.style.border = "1px solid rgba(239, 68, 68, 0.3)";
+      status.innerHTML = "🚨 <strong>Airbag-Schranke:</strong> " + validation.error;
+    }
+    return;
+  }
+
+  var iframe = document.getElementById("acp-widget-viewport");
+  var doc = iframe ? (iframe.contentDocument || iframe.contentWindow.document) : null;
+  if (!doc) {
+    alert("Iframe nicht verfügbar!");
+    return;
+  }
+
+  var afterSecId = select ? select.value : "services";
+  var targetEl = doc.querySelector('[data-section="' + afterSecId + '"]') || doc.getElementById(afterSecId);
+  if (!targetEl) {
+    alert("Ziel-Sektion [" + afterSecId + "] nicht im Dokument gefunden!");
+    return;
+  }
+
+  var temp = doc.createElement("div");
+  temp.innerHTML = validation.html;
+  var newSecEl = temp.firstElementChild;
+
+  targetEl.parentNode.insertBefore(newSecEl, targetEl.nextSibling);
+  acpCloseNewSectionModal();
+  acpScanAndRenderSections();
+  alert("✓ Neue Sektion erfolgreich nach [" + afterSecId + "] eingehängt!");
+}
+
+function acpRemoveSection(secId) {
+  if (!confirm("Möchtest du die Sektion [" + secId + "] wirklich ausblenden?")) return;
+  var iframe = document.getElementById("acp-widget-viewport");
+  var doc = iframe ? (iframe.contentDocument || iframe.contentWindow.document) : null;
+  if (!doc) return;
+
+  var targetEl = doc.querySelector('[data-section="' + secId + '"]') || doc.getElementById(secId);
+  if (targetEl) {
+    targetEl.remove();
+    acpScanAndRenderSections();
+    alert("✓ Sektion [" + secId + "] entfernt!");
+  }
+}
+
 
 </script>
 

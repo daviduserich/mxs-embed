@@ -28,7 +28,7 @@
     "used_in": [
       {
         "datei": "zurbuchen_Holzbauer.html",
-        "slot": "",
+        "slot": "image",
         "is_hero": false
       }
     ]
@@ -47,13 +47,18 @@
     "is_used": true,
     "used_in": [
       {
-        "datei": "Hiltbrand_Dachdecker.html",
-        "slot": "",
+        "datei": "index.html",
+        "slot": "image",
         "is_hero": true
       },
       {
         "datei": "Hiltbrand_Dachdecker_Pragmatisch.html",
-        "slot": "",
+        "slot": "image",
+        "is_hero": true
+      },
+      {
+        "datei": "Hiltbrand_Dachdecker.html",
+        "slot": "image",
         "is_hero": true
       }
     ]
@@ -72,13 +77,23 @@
     "is_used": true,
     "used_in": [
       {
-        "datei": "Hiltbrand_Dachdecker.html",
-        "slot": "",
+        "datei": "zurbuchen_Holzbauer.html",
+        "slot": "image",
+        "is_hero": false
+      },
+      {
+        "datei": "index.html",
+        "slot": "image",
         "is_hero": false
       },
       {
         "datei": "Hiltbrand_Dachdecker_Pragmatisch.html",
-        "slot": "",
+        "slot": "image",
+        "is_hero": false
+      },
+      {
+        "datei": "Hiltbrand_Dachdecker.html",
+        "slot": "image",
         "is_hero": false
       }
     ]
@@ -97,8 +112,13 @@
     "is_used": true,
     "used_in": [
       {
+        "datei": "zurbuchen_Holzbauer.html",
+        "slot": "image",
+        "is_hero": false
+      },
+      {
         "datei": "Hiltbrand_Dachdecker.html",
-        "slot": "team.michael.foto",
+        "slot": "image",
         "is_hero": false
       }
     ]
@@ -328,7 +348,7 @@
     "used_in": [
       {
         "datei": "Hiltbrand_Dachdecker.html",
-        "slot": "team.stefan.foto",
+        "slot": "image",
         "is_hero": false
       }
     ]
@@ -360,233 +380,5 @@
     "cdn_url": "https://embed.magnet-xs.ch/hiltbrand/images/vorstellung.jpg",
     "is_used": false,
     "used_in": []
-  },
-  {
-    "id": "images_zurbuchen_alain_jpg",
-    "filename": "alain.jpg",
-    "rel_path": "images/zurbuchen/alain.jpg",
-    "folder": "zurbuchen",
-    "category": "Team & Porträt",
-    "dimensions": "320x320",
-    "size_kb": 10.5,
-    "mtime": 1790622487,
-    "mtime_str": "28.09.2026 19:08",
-    "cdn_url": "https://embed.magnet-xs.ch/zurbuchen/images/zurbuchen/alain.jpg",
-    "is_used": true,
-    "used_in": [
-      {
-        "datei": "zurbuchen_Holzbauer.html",
-        "slot": "",
-        "is_hero": false
-      }
-    ]
-  },
-  {
-    "id": "images_zurbuchen_beat_jpg",
-    "filename": "beat.jpg",
-    "rel_path": "images/zurbuchen/beat.jpg",
-    "folder": "zurbuchen",
-    "category": "Team & Porträt",
-    "dimensions": "320x320",
-    "size_kb": 10.2,
-    "mtime": 1790622487,
-    "mtime_str": "28.09.2026 19:08",
-    "cdn_url": "https://embed.magnet-xs.ch/zurbuchen/images/zurbuchen/beat.jpg",
-    "is_used": true,
-    "used_in": [
-      {
-        "datei": "zurbuchen_Holzbauer.html",
-        "slot": "",
-        "is_hero": false
-      }
-    ]
-  },
-  {
-    "id": "images_zurbuchen_cta_bg_jpg",
-    "filename": "cta_bg.jpg",
-    "rel_path": "images/zurbuchen/cta_bg.jpg",
-    "folder": "zurbuchen",
-    "category": "Baustelle & Benefit",
-    "dimensions": "300x300",
-    "size_kb": 14.5,
-    "mtime": 1790622487,
-    "mtime_str": "28.09.2026 19:08",
-    "cdn_url": "https://embed.magnet-xs.ch/zurbuchen/images/zurbuchen/cta_bg.jpg",
-    "is_used": false,
-    "used_in": []
-  },
-  {
-    "id": "images_zurbuchen_hero_jpg",
-    "filename": "hero.jpg",
-    "rel_path": "images/zurbuchen/hero.jpg",
-    "folder": "zurbuchen",
-    "category": "Hero & Header",
-    "dimensions": "300x300",
-    "size_kb": 23.8,
-    "mtime": 1790622487,
-    "mtime_str": "28.09.2026 19:08",
-    "cdn_url": "https://embed.magnet-xs.ch/zurbuchen/images/zurbuchen/hero.jpg",
-    "is_used": false,
-    "used_in": []
-  },
-  {
-    "id": "images_zurbuchen_jonas_jpg",
-    "filename": "jonas.jpg",
-    "rel_path": "images/zurbuchen/jonas.jpg",
-    "folder": "zurbuchen",
-    "category": "Team & Porträt",
-    "dimensions": "320x320",
-    "size_kb": 16.4,
-    "mtime": 1790622487,
-    "mtime_str": "28.09.2026 19:08",
-    "cdn_url": "https://embed.magnet-xs.ch/zurbuchen/images/zurbuchen/jonas.jpg",
-    "is_used": true,
-    "used_in": [
-      {
-        "datei": "zurbuchen_Holzbauer.html",
-        "slot": "",
-        "is_hero": false
-      }
-    ]
-  },
-  {
-    "id": "images_zurbuchen_levin_jpg",
-    "filename": "levin.jpg",
-    "rel_path": "images/zurbuchen/levin.jpg",
-    "folder": "zurbuchen",
-    "category": "Team & Porträt",
-    "dimensions": "320x320",
-    "size_kb": 36.1,
-    "mtime": 1790622487,
-    "mtime_str": "28.09.2026 19:08",
-    "cdn_url": "https://embed.magnet-xs.ch/zurbuchen/images/zurbuchen/levin.jpg",
-    "is_used": true,
-    "used_in": [
-      {
-        "datei": "zurbuchen_Holzbauer.html",
-        "slot": "",
-        "is_hero": false
-      }
-    ]
-  },
-  {
-    "id": "images_zurbuchen_logo_negativ_png",
-    "filename": "logo-negativ.png",
-    "rel_path": "images/zurbuchen/logo-negativ.png",
-    "folder": "zurbuchen",
-    "category": "Logo & Icon",
-    "dimensions": "240x113",
-    "size_kb": 3.7,
-    "mtime": 1790622487,
-    "mtime_str": "28.09.2026 19:08",
-    "cdn_url": "https://embed.magnet-xs.ch/zurbuchen/images/zurbuchen/logo-negativ.png",
-    "is_used": true,
-    "used_in": [
-      {
-        "datei": "zurbuchen_Holzbauer.html",
-        "slot": "",
-        "is_hero": false
-      }
-    ]
-  },
-  {
-    "id": "images_zurbuchen_logo_png",
-    "filename": "logo.png",
-    "rel_path": "images/zurbuchen/logo.png",
-    "folder": "zurbuchen",
-    "category": "Logo & Icon",
-    "dimensions": "240x113",
-    "size_kb": 4.1,
-    "mtime": 1790622487,
-    "mtime_str": "28.09.2026 19:08",
-    "cdn_url": "https://embed.magnet-xs.ch/zurbuchen/images/zurbuchen/logo.png",
-    "is_used": true,
-    "used_in": [
-      {
-        "datei": "zurbuchen_Holzbauer.html",
-        "slot": "",
-        "is_hero": false
-      }
-    ]
-  },
-  {
-    "id": "images_zurbuchen_markus_jpg",
-    "filename": "markus.jpg",
-    "rel_path": "images/zurbuchen/markus.jpg",
-    "folder": "zurbuchen",
-    "category": "Team & Porträt",
-    "dimensions": "320x320",
-    "size_kb": 37.4,
-    "mtime": 1790622487,
-    "mtime_str": "28.09.2026 19:08",
-    "cdn_url": "https://embed.magnet-xs.ch/zurbuchen/images/zurbuchen/markus.jpg",
-    "is_used": true,
-    "used_in": [
-      {
-        "datei": "zurbuchen_Holzbauer.html",
-        "slot": "",
-        "is_hero": false
-      }
-    ]
-  },
-  {
-    "id": "images_zurbuchen_michael_jpg",
-    "filename": "michael.jpg",
-    "rel_path": "images/zurbuchen/michael.jpg",
-    "folder": "zurbuchen",
-    "category": "Team & Porträt",
-    "dimensions": "320x320",
-    "size_kb": 11.2,
-    "mtime": 1790622487,
-    "mtime_str": "28.09.2026 19:08",
-    "cdn_url": "https://embed.magnet-xs.ch/zurbuchen/images/zurbuchen/michael.jpg",
-    "is_used": true,
-    "used_in": [
-      {
-        "datei": "zurbuchen_Holzbauer.html",
-        "slot": "",
-        "is_hero": false
-      }
-    ]
-  },
-  {
-    "id": "images_zurbuchen_samuel_jpg",
-    "filename": "samuel.jpg",
-    "rel_path": "images/zurbuchen/samuel.jpg",
-    "folder": "zurbuchen",
-    "category": "Team & Porträt",
-    "dimensions": "320x320",
-    "size_kb": 8.2,
-    "mtime": 1790622487,
-    "mtime_str": "28.09.2026 19:08",
-    "cdn_url": "https://embed.magnet-xs.ch/zurbuchen/images/zurbuchen/samuel.jpg",
-    "is_used": true,
-    "used_in": [
-      {
-        "datei": "zurbuchen_Holzbauer.html",
-        "slot": "",
-        "is_hero": false
-      }
-    ]
-  },
-  {
-    "id": "images_zurbuchen_simon_jpg",
-    "filename": "simon.jpg",
-    "rel_path": "images/zurbuchen/simon.jpg",
-    "folder": "zurbuchen",
-    "category": "Team & Porträt",
-    "dimensions": "320x321",
-    "size_kb": 6.8,
-    "mtime": 1790622487,
-    "mtime_str": "28.09.2026 19:08",
-    "cdn_url": "https://embed.magnet-xs.ch/zurbuchen/images/zurbuchen/simon.jpg",
-    "is_used": true,
-    "used_in": [
-      {
-        "datei": "zurbuchen_Holzbauer.html",
-        "slot": "",
-        "is_hero": false
-      }
-    ]
   }
 ]
