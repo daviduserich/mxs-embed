@@ -49,10 +49,10 @@ export async function onRequest(context) {
                     url.pathname.endsWith('.css') || 
                     url.pathname.endsWith('.js');
 
-    // Onboarding Cockpit: allow direct access (or token-based) so customers are not kicked to marketing site
-    const isOnboarding = url.pathname.includes('onboarding');
+    // Cockpit & Onboarding: allow direct access so customers and tools are never locked out
+    const isCockpitOrOnboarding = url.pathname.includes('cockpit') || url.pathname.includes('onboarding');
 
-    if (!hasValidToken && !hasValidCookie && !isAsset && !isOnboarding) {
+    if (!hasValidToken && !hasValidCookie && !isAsset && !isCockpitOrOnboarding) {
       // Redirect directly to WebPilot
       return Response.redirect('https://webpilot.magnet-xs.ch/', 302);
     }
