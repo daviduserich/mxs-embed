@@ -1,0 +1,4747 @@
+<!DOCTYPE html>
+<html lang="de-CH">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Preview Hiltbrand · WebPilot Studio · v3.4.0</title>
+<meta name="description" content="Interaktiver Recruiting-Simulator und Stellen-Verzeichnis für Kunden-Widgets. Vorschau, Wechsel zwischen Stellen und 1-Klick Einbettungscodes.">
+<link rel="icon" href="images/logo.png" type="image/png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..100,400..900&family=JetBrains+Mono:wght@400;600;700&family=Source+Sans+3:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  --rot: #EF4035;
+  --rot-dunkel: #d32f2f;
+  --brand: #EF4035;
+  --anthrazit: #1e293b;
+  --schiefer: #0f172a;
+  --hell: #f8fafc;
+  --weiss: #ffffff;
+  --grau: #64748b;
+  --linie: #e2e8f0;
+  --gruen: #10b981;
+  --gold: #f59e0b;
+  --gold-hell: #fef08a;
+  --radius: 8px;
+  --shadow: 0 10px 30px rgba(15,23,42,0.1);
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+body {
+  font-family: "Source Sans 3", -apple-system, BlinkMacSystemFont, sans-serif;
+  color: var(--anthrazit);
+  background: #0b1120;
+  line-height: 1.6;
+  font-size: 16px;
+}
+img { max-width: 100%; display: block; }
+a { color: var(--rot); text-decoration: none; }
+
+/* ======================================================= */
+/* 1. OBERE COCKPIT-STEUERLEISTE (STICKY)                  */
+/* ======================================================= */
+.acp-cockpit-bar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: rgba(15, 23, 42, 0.96);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+  padding: 10px 16px;
+}
+.acp-cockpit-inner {
+  max-width: 1300px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.acp-cockpit-left {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+.acp-brand-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(245, 158, 11, 0.15);
+  border: 1px solid rgba(245, 158, 11, 0.4);
+  color: #fbbf24;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  padding: 5px 12px;
+  border-radius: 6px;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+.acp-brand-badge:hover {
+  background: rgba(245, 158, 11, 0.25);
+  border-color: #f59e0b;
+}
+.acp-brand-badge .dot {
+  width: 8px;
+  height: 8px;
+  background: #10b981;
+  border-radius: 50%;
+  box-shadow: 0 0 8px #10b981;
+}
+.acp-cockpit-label {
+  font-size: 13px;
+  color: #94a3b8;
+  font-weight: 600;
+}
+.acp-job-picker-wrap {
+  position: relative;
+  display: inline-block;
+}
+.acp-job-picker-btn {
+  background: rgba(255, 255, 255, 0.08);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  font-family: inherit;
+  font-size: 13.5px;
+  font-weight: 700;
+  padding: 7px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+.acp-job-picker-btn:hover {
+  background: rgba(255, 255, 255, 0.14);
+  border-color: rgba(234, 179, 8, 0.6);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3);
+}
+.picker-icon {
+  font-size: 15px;
+}
+.picker-title {
+  max-width: 280px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.picker-badge {
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #cbd5e1;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 2px 7px;
+  border-radius: 4px;
+  font-family: "JetBrains Mono", monospace;
+  text-transform: uppercase;
+}
+.picker-arrow {
+  color: #94a3b8;
+  font-size: 11px;
+  transition: transform 0.2s ease;
+}
+.acp-job-picker-wrap.is-open .picker-arrow {
+  transform: rotate(180deg);
+}
+.acp-job-dropdown {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  min-width: 380px;
+  max-width: 500px;
+  max-height: 440px;
+  background: #0f172a;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 12px;
+  box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.7);
+  z-index: 2500;
+  display: none;
+  flex-direction: column;
+  overflow: hidden;
+}
+.acp-job-dropdown.is-open {
+  display: flex;
+}
+.acp-dropdown-header {
+  padding: 10px 14px;
+  background: rgba(255, 255, 255, 0.04);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 11.5px;
+  font-weight: 700;
+  color: #94a3b8;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-family: "JetBrains Mono", monospace;
+}
+.acp-dropdown-list {
+  overflow-y: auto;
+  max-height: 380px;
+}
+.acp-dropdown-item {
+  padding: 12px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  cursor: pointer;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+  transition: all 0.15s ease;
+}
+.acp-dropdown-item:last-child {
+  border-bottom: none;
+}
+.acp-dropdown-item:hover {
+  background: rgba(255, 255, 255, 0.07);
+}
+.acp-dropdown-item.active {
+  background: rgba(59, 130, 246, 0.16);
+  border-left: 3px solid #3b82f6;
+}
+.dropdown-item-left {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  min-width: 0;
+}
+.dropdown-item-title {
+  font-size: 13.5px;
+  font-weight: 700;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.dropdown-item-meta {
+  font-size: 11.5px;
+  color: #94a3b8;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: "JetBrains Mono", monospace;
+}
+.dropdown-item-right {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+.check-icon {
+  color: #10b981;
+  font-weight: 900;
+  font-size: 14px;
+}
+
+/* Live Status Badge in Cockpit Bar */
+.acp-live-badge-wrap {
+  display: inline-flex;
+  align-items: center;
+}
+.acp-live-status-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 5px 12px;
+  border-radius: 6px;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.4px;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+.acp-live-status-pill.is-live {
+  background: rgba(16, 185, 129, 0.15);
+  border: 1px solid rgba(16, 185, 129, 0.5);
+  color: #34d399;
+}
+.acp-live-status-pill.is-live:hover {
+  background: rgba(16, 185, 129, 0.25);
+  border-color: #10b981;
+  box-shadow: 0 0 12px rgba(16, 185, 129, 0.3);
+}
+.acp-live-status-pill.is-draft {
+  background: rgba(148, 163, 184, 0.12);
+  border: 1px solid rgba(148, 163, 184, 0.3);
+  color: #94a3b8;
+}
+.acp-live-pulse-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #10b981;
+  box-shadow: 0 0 8px #10b981;
+  animation: acpPulse 2s infinite;
+}
+@keyframes acpPulse {
+  0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); }
+  70% { transform: scale(1.05); box-shadow: 0 0 0 6px rgba(16, 185, 129, 0); }
+  100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+}
+.acp-draft-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #94a3b8;
+}
+.acp-badge-mini {
+  font-size: 10px;
+  font-weight: 800;
+  font-family: "JetBrains Mono", monospace;
+  padding: 2px 6px;
+  border-radius: 4px;
+  letter-spacing: 0.3px;
+  text-transform: uppercase;
+}
+.acp-badge-mini.live {
+  background: rgba(16, 185, 129, 0.2);
+  border: 1px solid rgba(16, 185, 129, 0.5);
+  color: #34d399;
+}
+.acp-badge-mini.draft {
+  background: rgba(148, 163, 184, 0.15);
+  border: 1px solid rgba(148, 163, 184, 0.3);
+  color: #94a3b8;
+}
+.acp-badge-mini.ready {
+  background: rgba(234, 179, 8, 0.15);
+  border: 1px solid rgba(234, 179, 8, 0.4);
+  color: #facc15;
+}
+
+/* 4-Stufen Kaskaden Diagramm im Hilfe-Modal */
+.acp-pipeline-card {
+  background: rgba(15, 23, 42, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 12px;
+  padding: 16px;
+  margin: 18px 0;
+}
+.acp-pipeline-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+.acp-pipeline-title {
+  font-size: 12px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  color: #60a5fa;
+  font-family: "JetBrains Mono", monospace;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.acp-pipeline-steps {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.acp-step-box {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 8px;
+  padding: 10px 14px;
+  transition: all 0.2s ease;
+}
+.acp-step-box:hover {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(255, 255, 255, 0.18);
+}
+.acp-step-box.live-target {
+  background: rgba(16, 185, 129, 0.08);
+  border-color: rgba(16, 185, 129, 0.35);
+}
+.acp-step-num {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 11px;
+  font-weight: 800;
+  padding: 3px 7px;
+  border-radius: 5px;
+  background: rgba(255, 255, 255, 0.1);
+  color: #f1f5f9;
+  flex-shrink: 0;
+}
+.acp-step-box.live-target .acp-step-num {
+  background: #10b981;
+  color: #0f172a;
+}
+.acp-step-content {
+  flex: 1;
+  min-width: 0;
+}
+.acp-step-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 2px;
+}
+.acp-step-label {
+  font-size: 13px;
+  font-weight: 700;
+  color: #f8fafc;
+}
+.acp-step-badge {
+  font-size: 10px;
+  font-family: "JetBrains Mono", monospace;
+  font-weight: 700;
+  padding: 2px 6px;
+  border-radius: 4px;
+  text-transform: uppercase;
+}
+.acp-step-desc {
+  font-size: 12px;
+  color: #94a3b8;
+  line-height: 1.4;
+  margin: 0;
+}
+.acp-step-arrow {
+  text-align: center;
+  color: #64748b;
+  font-size: 12px;
+  line-height: 1;
+  margin: -4px 0;
+}
+
+.acp-cockpit-right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.acp-btn-online {
+  background: rgba(59, 130, 246, 0.2);
+  color: #60a5fa;
+  border: 1px solid rgba(59, 130, 246, 0.45);
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 700;
+  padding: 8px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  text-decoration: none;
+}
+.acp-btn-online:hover {
+  background: #2563eb;
+  color: #ffffff;
+  border-color: #2563eb;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.4);
+}
+.acp-btn-code {
+  background: #10b981;
+  color: #ffffff;
+  border: none;
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 700;
+  padding: 8px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  box-shadow: 0 2px 10px rgba(16, 185, 129, 0.3);
+}
+.acp-btn-code:hover {
+  background: #059669;
+  transform: translateY(-1px);
+}
+
+.acp-btn-images {
+  background: rgba(234, 179, 8, 0.15) !important;
+  color: #facc15 !important;
+  border-color: rgba(234, 179, 8, 0.4) !important;
+}
+.acp-btn-images:hover {
+  background: rgba(234, 179, 8, 0.28) !important;
+  color: #ffffff !important;
+  border-color: #facc15 !important;
+  transform: translateY(-1px);
+}
+
+/* ======================================================= */
+/* FLOATING SWAP DOCK (BILD-TAUSCH-LEISTE)                 */
+/* ======================================================= */
+.acp-swap-dock {
+  position: sticky;
+  top: 57px;
+  z-index: 1000;
+  background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+  border-bottom: 2px solid #eab308;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6), 0 0 16px rgba(234, 179, 8, 0.25);
+  padding: 10px 24px;
+  display: none;
+  animation: acpSlideDown 0.25s ease-out forwards;
+}
+.acp-swap-dock.is-active {
+  display: block;
+}
+@keyframes acpSlideDown {
+  from { transform: translateY(-100%); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+.acp-swap-dock-inner {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.acp-swap-col {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.acp-swap-badge {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding: 3px 8px;
+  border-radius: 4px;
+}
+.acp-swap-badge-source {
+  background: rgba(234, 179, 8, 0.2);
+  color: #facc15;
+  border: 1px solid rgba(234, 179, 8, 0.4);
+}
+.acp-swap-badge-target {
+  background: rgba(59, 130, 246, 0.2);
+  color: #93c5fd;
+  border: 1px solid rgba(59, 130, 246, 0.4);
+}
+.acp-swap-thumb {
+  width: 40px;
+  height: 40px;
+  border-radius: 6px;
+  object-fit: cover;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: #020617;
+}
+.acp-swap-arrow {
+  color: #eab308;
+  font-size: 18px;
+  font-weight: 800;
+}
+.acp-swap-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.btn-swap-exec {
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  color: #ffffff;
+  border: none;
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 800;
+  padding: 8px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  box-shadow: 0 2px 10px rgba(16, 185, 129, 0.4);
+  transition: all 0.2s;
+}
+.btn-swap-exec:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 14px rgba(16, 185, 129, 0.6);
+}
+.btn-swap-prompt {
+  background: rgba(59, 130, 246, 0.2);
+  color: #93c5fd;
+  border: 1px solid rgba(59, 130, 246, 0.5);
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 700;
+  padding: 8px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.btn-swap-prompt:hover {
+  background: rgba(59, 130, 246, 0.35);
+  color: #ffffff;
+}
+.btn-swap-cancel {
+  background: transparent;
+  color: #94a3b8;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  padding: 7px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 13px;
+  transition: all 0.2s;
+}
+.btn-swap-cancel:hover {
+  color: #ffffff;
+  border-color: rgba(255, 255, 255, 0.35);
+}
+
+/* ======================================================= */
+/* BILDER-VERZEICHNIS MODAL                                */
+/* ======================================================= */
+.acp-images-toolbar {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 18px;
+  flex-wrap: wrap;
+}
+.acp-filter-pills {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.acp-filter-pill {
+  background: rgba(255, 255, 255, 0.06);
+  color: #cbd5e1;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  font-family: inherit;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 5px 12px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.acp-filter-pill.active, .acp-filter-pill:hover {
+  background: #3b82f6;
+  color: #ffffff;
+  border-color: #3b82f6;
+}
+.acp-images-search {
+  background: rgba(15, 23, 42, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #ffffff;
+  padding: 6px 14px;
+  border-radius: 6px;
+  font-size: 12.5px;
+  width: 250px;
+  font-family: inherit;
+}
+.acp-images-search:focus {
+  outline: none;
+  border-color: #38bdf8;
+}
+.acp-images-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 16px;
+  max-height: 60vh;
+  overflow-y: auto;
+  padding-right: 6px;
+}
+.acp-image-card {
+  background: rgba(30, 41, 59, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 10px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s, border-color 0.2s;
+}
+.acp-image-card:hover {
+  transform: translateY(-2px);
+  border-color: rgba(234, 179, 8, 0.4);
+}
+.acp-image-card-thumb-wrap {
+  width: 100%;
+  height: 140px;
+  background: #020617;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  position: relative;
+}
+.acp-image-card-thumb {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  transition: transform 0.25s;
+}
+.acp-image-card:hover .acp-image-card-thumb {
+  transform: scale(1.05);
+}
+.acp-image-card-body {
+  padding: 12px 14px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.acp-image-card-title {
+  font-size: 13px;
+  font-weight: 700;
+  color: #f8fafc;
+  word-break: break-all;
+  margin-bottom: 4px;
+}
+.acp-image-card-meta {
+  font-size: 11px;
+  color: #94a3b8;
+  font-family: 'JetBrains Mono', monospace;
+  margin-bottom: 8px;
+}
+.acp-image-card-badge {
+  font-size: 10.5px;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 4px;
+  display: inline-block;
+  margin-bottom: 12px;
+}
+.badge-used {
+  background: rgba(16, 185, 129, 0.15);
+  color: #34d399;
+  border: 1px solid rgba(16, 185, 129, 0.3);
+}
+.badge-free {
+  background: rgba(148, 163, 184, 0.1);
+  color: #94a3b8;
+  border: 1px solid rgba(148, 163, 184, 0.2);
+}
+.acp-image-card-actions {
+  display: flex;
+  gap: 8px;
+}
+.btn-card-choose {
+  flex: 1;
+  background: rgba(234, 179, 8, 0.18);
+  color: #facc15;
+  border: 1px solid rgba(234, 179, 8, 0.4);
+  font-family: inherit;
+  font-size: 11.5px;
+  font-weight: 700;
+  padding: 6px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s;
+  text-align: center;
+}
+.btn-card-choose:hover {
+  background: #eab308;
+  color: #0f172a;
+}
+.btn-card-copy {
+  background: rgba(255, 255, 255, 0.08);
+  color: #cbd5e1;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  font-family: inherit;
+  font-size: 11.5px;
+  font-weight: 600;
+  padding: 6px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.btn-card-copy:hover {
+  background: rgba(255, 255, 255, 0.18);
+  color: #ffffff;
+}
+
+.acp-btn-dir {
+  background: rgba(255, 255, 255, 0.1);
+  color: #f1f5f9;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 700;
+  padding: 8px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.acp-btn-dir:hover {
+  background: rgba(255, 255, 255, 0.18);
+  color: #ffffff;
+}
+.acp-btn-help {
+  background: rgba(59, 130, 246, 0.18);
+  color: #93c5fd;
+  border: 1px solid rgba(59, 130, 246, 0.4);
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 700;
+  padding: 8px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.acp-btn-help:hover {
+  background: rgba(59, 130, 246, 0.3);
+  color: #ffffff;
+  border-color: #60a5fa;
+  transform: translateY(-1px);
+}
+
+/* ======================================================= */
+/* 2. SIMULATION: BESTEHENDE KUNDEN-WEBSEITE (KOPF & FUSS)   */
+/* ======================================================= */
+.host-header-mock {
+  background: #1e3a5f;
+  color: #ffffff;
+  padding: 32px 24px;
+  text-align: center;
+  border-bottom: 4px solid #3b82f6;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.12);
+  transition: background 0.3s ease;
+}
+.host-header-mock .badge-header {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(59, 130, 246, 0.25);
+  border: 1px solid #60a5fa;
+  color: #bfdbfe;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  padding: 4px 12px;
+  border-radius: 6px;
+  margin-bottom: 10px;
+}
+.host-header-mock h2 {
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: -0.3px;
+  margin-bottom: 6px;
+  color: #ffffff;
+}
+.host-header-mock p {
+  font-size: 14.5px;
+  color: #cbd5e1;
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.widget-marker-bar {
+  background: #ecfdf5;
+  border-top: 2px dashed #10b981;
+  border-bottom: 2px dashed #10b981;
+  padding: 12px 20px;
+  text-align: center;
+  color: #065f46;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+.widget-marker-bar.bottom {
+  border-top: 2px dashed #10b981;
+  border-bottom: none;
+}
+.widget-marker-bar .tag {
+  background: #10b981;
+  color: #ffffff;
+  font-size: 11px;
+  padding: 2px 8px;
+  border-radius: 4px;
+  text-transform: uppercase;
+}
+
+/* Der Widget iFrame */
+.widget-viewport-wrap {
+  width: 100%;
+  background: #ffffff;
+  min-height: 1200px;
+  position: relative;
+}
+#acp-widget-viewport {
+  width: 100%;
+  border: none;
+  min-height: 1200px;
+  display: block;
+  transition: opacity 0.2s ease;
+}
+
+.host-footer-mock {
+  background: #1e3a5f;
+  color: #ffffff;
+  padding: 36px 24px;
+  text-align: center;
+  border-top: 4px solid #3b82f6;
+  box-shadow: 0 -4px 14px rgba(0,0,0,0.12);
+  transition: background 0.3s ease;
+}
+.host-footer-mock .badge-footer {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(59, 130, 246, 0.25);
+  border: 1px solid #60a5fa;
+  color: #bfdbfe;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  padding: 4px 12px;
+  border-radius: 6px;
+  margin-bottom: 10px;
+}
+.host-footer-mock h2 {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 6px;
+  color: #ffffff;
+}
+.host-footer-mock p {
+  font-size: 14px;
+  color: #cbd5e1;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+/* ======================================================= */
+/* 3. STELLEN-VERZEICHNIS MODAL (DIALOG)                   */
+/* ======================================================= */
+.acp-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.8);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  z-index: 2000;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+.acp-modal-backdrop.is-open {
+  display: flex;
+  opacity: 1;
+}
+.acp-modal {
+  background: #0f172a;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 16px;
+  width: 100%;
+  max-width: 900px;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7);
+  color: #f8fafc;
+  display: flex;
+  flex-direction: column;
+}
+.acp-modal-head {
+  padding: 20px 24px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.acp-modal-head h3 {
+  font-size: 18px;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #ffffff;
+}
+.acp-modal-close {
+  background: transparent;
+  border: none;
+  color: #94a3b8;
+  font-size: 22px;
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: 6px;
+}
+.acp-modal-close:hover {
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.1);
+}
+.acp-modal-body {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.acp-modal-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+.acp-modal-table th {
+  text-align: left;
+  padding: 10px 14px;
+  background: rgba(255, 255, 255, 0.05);
+  color: #94a3b8;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 12px;
+  text-transform: uppercase;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+.acp-modal-table td {
+  padding: 14px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  color: #cbd5e1;
+}
+.acp-modal-table tr:hover td {
+  background: rgba(255, 255, 255, 0.03);
+}
+.code-tag {
+  font-family: "JetBrains Mono", monospace;
+  background: rgba(255, 255, 255, 0.08);
+  padding: 3px 8px;
+  border-radius: 4px;
+  color: #38bdf8;
+  font-size: 12.5px;
+}
+.status-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 3px 8px;
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  background: rgba(16, 185, 129, 0.15);
+  color: #34d399;
+  border: 1px solid rgba(16, 185, 129, 0.3);
+}
+.btn-table-action {
+  background: #3b82f6;
+  color: #ffffff;
+  border: none;
+  font-family: inherit;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 6px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-right: 6px;
+  transition: all 0.15s;
+}
+.btn-table-action:hover {
+  background: #2563eb;
+}
+.btn-table-copy {
+  background: rgba(255, 255, 255, 0.1);
+  color: #f1f5f9;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  font-family: inherit;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 6px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+.btn-table-copy:hover {
+  background: #10b981;
+  color: #fff;
+  border-color: #10b981;
+}
+
+
+/* ======================================================= */
+/* STELLEN-ZENTRALE: VOLLBILD-MODAL & TABELLE             */
+/* ======================================================= */
+#acp-directory-modal .acp-modal {
+  max-width: 1240px !important;
+  width: 95vw !important;
+  max-height: 92vh !important;
+}
+
+.acp-jobs-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+  padding-bottom: 8px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+.acp-jobs-filter-pills {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.acp-job-filter-pill {
+  background: rgba(255, 255, 255, 0.06);
+  color: #94a3b8;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 9999px;
+  padding: 6px 14px;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.15s;
+  font-family: inherit;
+}
+.acp-job-filter-pill:hover {
+  background: rgba(255, 255, 255, 0.12);
+  color: #f8fafc;
+}
+.acp-job-filter-pill.active {
+  background: #3b82f6;
+  color: #ffffff;
+  border-color: #3b82f6;
+  box-shadow: 0 0 12px rgba(59, 130, 246, 0.4);
+}
+.acp-jobs-search-input {
+  background: rgba(15, 23, 42, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 8px;
+  padding: 8px 14px;
+  color: #ffffff;
+  font-size: 12.5px;
+  width: 280px;
+  font-family: inherit;
+}
+.acp-jobs-search-input:focus {
+  outline: none;
+  border-color: #38bdf8;
+  box-shadow: 0 0 10px rgba(56, 189, 248, 0.25);
+}
+
+.acp-jobs-table-wrap {
+  overflow-x: auto;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(15, 23, 42, 0.4);
+}
+.acp-jobs-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-size: 13.5px;
+}
+.acp-jobs-table th {
+  background: rgba(30, 41, 59, 0.7);
+  color: #94a3b8;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding: 12px 16px;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+  white-space: nowrap;
+}
+.acp-jobs-table td {
+  padding: 14px 16px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  vertical-align: middle;
+}
+.acp-jobs-table tr:hover td {
+  background: rgba(255, 255, 255, 0.03);
+}
+.acp-jobs-table tr.is-active-job td {
+  background: rgba(56, 189, 248, 0.07);
+}
+.acp-jobs-table tr.is-active-job {
+  border-left: 4px solid #38bdf8;
+}
+
+.job-filename-badge {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 13px;
+  font-weight: 700;
+  color: #38bdf8;
+  background: rgba(56, 189, 248, 0.1);
+  border: 1px solid rgba(56, 189, 248, 0.25);
+  padding: 4px 8px;
+  border-radius: 6px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+.job-filename-badge:hover {
+  background: rgba(56, 189, 248, 0.2);
+  border-color: #38bdf8;
+}
+
+.job-title-cell {
+  font-size: 14.5px;
+  font-weight: 700;
+  color: #f8fafc;
+}
+.job-title-subline {
+  font-size: 12px;
+  color: #94a3b8;
+  margin-top: 3px;
+}
+.job-active-marker {
+  display: inline-block;
+  background: rgba(56, 189, 248, 0.2);
+  color: #38bdf8;
+  border: 1px solid rgba(56, 189, 248, 0.4);
+  font-size: 10px;
+  font-weight: 800;
+  text-transform: uppercase;
+  padding: 2px 6px;
+  border-radius: 4px;
+  margin-left: 8px;
+  vertical-align: middle;
+}
+
+.btn-job-switch {
+  background: #3b82f6;
+  color: #ffffff;
+  border: none;
+  font-family: inherit;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 7px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.15s;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  white-space: nowrap;
+}
+.btn-job-switch:hover {
+  background: #2563eb;
+  transform: translateY(-1px);
+}
+.btn-job-switch.is-current {
+  background: rgba(56, 189, 248, 0.2);
+  color: #38bdf8;
+  border: 1px solid rgba(56, 189, 248, 0.4);
+  cursor: default;
+}
+
+/* Code Snippet Box im Modal */
+.acp-code-preview-box {
+  background: #020617;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  padding: 16px;
+}
+.acp-code-preview-box h5 {
+  font-size: 13px;
+  color: #94a3b8;
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.acp-code-pre {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 12.5px;
+  color: #38bdf8;
+  background: rgba(0, 0, 0, 0.4);
+  padding: 12px;
+  border-radius: 6px;
+  overflow-x: auto;
+  line-height: 1.5;
+  white-space: pre-wrap;
+  word-break: break-all;
+}
+.acp-info-callout {
+  background: rgba(56, 189, 248, 0.08);
+  border-left: 3px solid #38bdf8;
+  border-radius: 8px;
+  padding: 12px 16px;
+  font-size: 13.5px;
+  color: #cbd5e1;
+}
+.acp-info-callout strong {
+  color: #ffffff;
+}
+
+/* ======================================================= */
+/* 4. SCHWEBENDES ENTWURF- & RELEASE-GATE WIDGET           */
+/* ======================================================= */
+#acp-draft-widget {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 999999;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  user-select: none;
+}
+.acp-pill-trigger {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(15, 23, 42, 0.88);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  color: #f8fafc;
+  padding: 9px 18px 9px 14px;
+  border-radius: 9999px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.4), 0 0 15px rgba(234, 179, 8, 0.25);
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.acp-pill-trigger:hover {
+  background: rgba(15, 23, 42, 0.98);
+  transform: translateY(-2px);
+  box-shadow: 0 14px 28px -5px rgba(0, 0, 0, 0.5), 0 0 22px rgba(234, 179, 8, 0.4);
+  border-color: rgba(234, 179, 8, 0.6);
+}
+.acp-pulse-dot {
+  width: 10px;
+  height: 10px;
+  background-color: #eab308;
+  border-radius: 50%;
+  box-shadow: 0 0 0 0 rgba(234, 179, 8, 0.7);
+  animation: acpPulse 2s infinite;
+}
+@keyframes acpPulse {
+  0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(234, 179, 8, 0.7); }
+  70% { transform: scale(1); box-shadow: 0 0 0 8px rgba(234, 179, 8, 0); }
+  100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(234, 179, 8, 0); }
+}
+.acp-pill-label {
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  color: #fef08a;
+}
+.acp-pill-icon {
+  font-size: 13px;
+  opacity: 0.8;
+}
+
+.acp-draft-panel {
+  position: absolute;
+  bottom: calc(100% + 12px);
+  right: 0;
+  width: 320px;
+  background: rgba(15, 23, 42, 0.96);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 16px;
+  box-shadow: 0 20px 40px -10px rgba(0,0,0,0.6);
+  padding: 18px;
+  color: #f8fafc;
+  display: none;
+  flex-direction: column;
+  gap: 14px;
+  transform-origin: bottom right;
+}
+.acp-draft-panel.is-open {
+  display: flex;
+}
+.acp-panel-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+  padding-bottom: 10px;
+}
+.acp-panel-header h4 {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 700;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.acp-close-btn {
+  background: transparent;
+  border: none;
+  color: #94a3b8;
+  font-size: 18px;
+  cursor: pointer;
+  padding: 0 4px;
+}
+.acp-close-btn:hover { color: #fff; }
+
+.acp-panel-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 13px;
+  color: #cbd5e1;
+}
+.acp-toggle-btn {
+  background: #334155;
+  color: #94a3b8;
+  border: 1px solid rgba(255,255,255,0.1);
+  padding: 4px 10px;
+  border-radius: 8px;
+  font-size: 11px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.acp-toggle-btn.active {
+  background: #10b981;
+  color: #ffffff;
+  border-color: #059669;
+}
+.acp-panel-desc {
+  font-size: 11.5px;
+  color: #94a3b8;
+  line-height: 1.4;
+  margin: 0;
+  background: rgba(255,255,255,0.04);
+  padding: 8px 10px;
+  border-radius: 8px;
+  border-left: 3px solid #38bdf8;
+}
+.acp-audit-badge {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  color: #a7f3d0;
+  background: rgba(16, 185, 129, 0.12);
+  border: 1px solid rgba(16, 185, 129, 0.3);
+  padding: 6px 10px;
+  border-radius: 8px;
+}
+.acp-publish-btn {
+  background: linear-gradient(135deg, #eab308 0%, #ca8a04 100%);
+  color: #0f172a;
+  border: none;
+  font-size: 13px;
+  font-weight: 800;
+  padding: 10px 14px;
+  border-radius: 10px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: all 0.2s;
+  box-shadow: 0 4px 12px rgba(234, 179, 8, 0.35);
+}
+.acp-publish-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(234, 179, 8, 0.5);
+  background: linear-gradient(135deg, #facc15 0%, #eab308 100%);
+}
+
+/* Toast */
+#acp-toast {
+  position: fixed;
+  bottom: 28px;
+  left: 50%;
+  transform: translateX(-50%) translateY(50px);
+  background: #0f172a;
+  color: #ffffff;
+  padding: 12px 24px;
+  border-radius: 12px;
+  font-size: 13.5px;
+  font-weight: 600;
+  box-shadow: 0 16px 36px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,255,255,0.18);
+  border: 1px solid rgba(255,255,255,0.2);
+  z-index: 9999999;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s;
+  opacity: 0;
+  pointer-events: none;
+  max-width: 90vw;
+  text-align: center;
+}
+#acp-toast.show {
+  transform: translateX(-50%) translateY(0);
+  opacity: 1;
+}
+
+
+/* Fallback anchor for Airbag validator */
+.acp-hidden-audit { display: none; }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ======================================================= */
+/* COCKPIT v3.3.0: SWISS ARCHITECTURAL CANVAS & OBSIDIAN   */
+/* ======================================================= */
+body.acp-modal-open {
+  overflow: hidden !important;
+}
+
+/* TOPBAR STUDIO STYLING */
+.acp-cockpit-bar {
+  background: rgba(10, 14, 23, 0.95) !important;
+  backdrop-filter: blur(16px) !important;
+  -webkit-backdrop-filter: blur(16px) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+  position: sticky !important;
+  top: 0 !important;
+  z-index: 2000 !important;
+  min-height: 56px !important;
+  height: auto !important;
+  display: flex !important;
+  align-items: center !important;
+  padding: 8px 20px !important;
+  box-sizing: border-box !important;
+}
+.acp-cockpit-inner {
+  width: 100% !important;
+  max-width: 1440px !important;
+  margin: 0 auto !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  gap: 10px 16px !important;
+  flex-wrap: wrap !important;
+}
+.picker-title {
+  max-width: 220px !important;
+  white-space: nowrap !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+}
+.acp-cockpit-left {
+  display: flex !important;
+  align-items: center !important;
+  gap: 12px !important;
+  min-width: 0 !important;
+}
+.acp-brand-cluster {
+  display: flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+}
+.acp-brand-badge {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+  background: rgba(245, 158, 11, 0.1) !important;
+  border: 1px solid rgba(245, 158, 11, 0.3) !important;
+  color: #fbbf24 !important;
+  padding: 4px 10px !important;
+  border-radius: 4px !important;
+  font-family: 'JetBrains Mono', monospace !important;
+  font-size: 11px !important;
+  font-weight: 800 !important;
+  letter-spacing: 0.6px !important;
+  text-decoration: none !important;
+  transition: all 0.15s ease !important;
+}
+.acp-brand-badge:hover {
+  background: rgba(245, 158, 11, 0.2) !important;
+  border-color: #f59e0b !important;
+}
+.acp-brand-signet {
+  color: #f59e0b !important;
+  font-size: 10px !important;
+}
+.acp-version-badge {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 5px !important;
+  padding: 3px 8px !important;
+  border-radius: 4px !important;
+  font-family: 'JetBrains Mono', monospace !important;
+  font-size: 10.5px !important;
+  font-weight: 700 !important;
+  background: rgba(255, 255, 255, 0.05) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  color: #94a3b8 !important;
+  letter-spacing: 0.5px !important;
+  vertical-align: middle !important;
+}
+.acp-version-badge::before {
+  content: "●" !important;
+  font-size: 7px !important;
+  color: #10b981 !important;
+}
+.acp-topbar-divider {
+  width: 1px !important;
+  height: 20px !important;
+  background: rgba(255, 255, 255, 0.1) !important;
+}
+
+.acp-nav-btn {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+  background: rgba(255, 255, 255, 0.04) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  color: #e2e8f0 !important;
+  font-size: 12.5px !important;
+  font-weight: 600 !important;
+  padding: 6px 12px !important;
+  border-radius: 6px !important;
+  cursor: pointer !important;
+  text-decoration: none !important;
+  transition: all 0.15s ease !important;
+}
+.acp-nav-btn:hover {
+  background: rgba(255, 255, 255, 0.09) !important;
+  border-color: rgba(255, 255, 255, 0.2) !important;
+  color: #ffffff !important;
+}
+.acp-nav-btn-directory {
+  border-color: rgba(245, 158, 11, 0.3) !important;
+  color: #fde68a !important;
+  background: rgba(245, 158, 11, 0.08) !important;
+}
+.acp-nav-btn-directory:hover {
+  background: rgba(245, 158, 11, 0.16) !important;
+  border-color: #f59e0b !important;
+  color: #ffffff !important;
+}
+
+/* LIVE STATUS PILLS IN BAR */
+.acp-live-status-pill {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+  font-family: 'JetBrains Mono', monospace !important;
+  font-size: 10.5px !important;
+  font-weight: 700 !important;
+  padding: 4px 10px !important;
+  border-radius: 4px !important;
+  text-decoration: none !important;
+  letter-spacing: 0.4px !important;
+  max-width: 260px !important;
+  white-space: nowrap !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  transition: all 0.15s ease !important;
+}
+.acp-live-status-pill.is-live {
+  background: rgba(16, 185, 129, 0.12) !important;
+  border: 1px solid rgba(16, 185, 129, 0.35) !important;
+  color: #34d399 !important;
+}
+.acp-live-status-pill.is-live:hover {
+  background: rgba(16, 185, 129, 0.22) !important;
+  border-color: #10b981 !important;
+}
+.acp-live-pulse-dot {
+  width: 7px !important;
+  height: 7px !important;
+  border-radius: 50% !important;
+  background: #10b981 !important;
+  box-shadow: 0 0 8px #10b981 !important;
+  animation: acpPulse 1.8s infinite !important;
+}
+.acp-live-status-pill.is-ready {
+  background: rgba(245, 158, 11, 0.1) !important;
+  border: 1px solid rgba(245, 158, 11, 0.3) !important;
+  color: #fbbf24 !important;
+}
+.acp-draft-dot.is-ready {
+  width: 7px !important;
+  height: 7px !important;
+  border-radius: 50% !important;
+  background: #f59e0b !important;
+}
+.acp-live-status-pill.is-draft {
+  background: rgba(148, 163, 184, 0.08) !important;
+  border: 1px solid rgba(148, 163, 184, 0.18) !important;
+  color: #94a3b8 !important;
+}
+.acp-draft-dot {
+  width: 7px !important;
+  height: 7px !important;
+  border-radius: 50% !important;
+  background: #64748b !important;
+}
+
+/* STUDIO CANVAS & DEVICE STAGE */
+.acp-studio-canvas {
+  width: 100% !important;
+  min-height: calc(100vh - 56px) !important;
+  background: #080c14 !important;
+  background-image: 
+    radial-gradient(circle at 50% 0%, rgba(245, 158, 11, 0.04) 0%, transparent 60%),
+    linear-gradient(rgba(255, 255, 255, 0.015) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.015) 1px, transparent 1px) !important;
+  background-size: 100% 100%, 32px 32px, 32px 32px !important;
+  padding: 32px 24px 80px 24px !important;
+  box-sizing: border-box !important;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: flex-start !important;
+}
+.acp-studio-stage {
+  width: 100% !important;
+  max-width: 1140px !important;
+  margin: 0 auto !important;
+  background: #0d121f !important;
+  border: 1px solid rgba(255, 255, 255, 0.09) !important;
+  border-radius: 12px !important;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.8), 0 0 0 1px rgba(255, 255, 255, 0.05) !important;
+  overflow: hidden !important;
+}
+.acp-stage-browser-bar {
+  background: #111827 !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+  padding: 10px 16px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  gap: 16px !important;
+}
+.acp-browser-dots {
+  display: flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+  flex-shrink: 0 !important;
+}
+.acp-browser-dots .b-dot {
+  width: 10px !important;
+  height: 10px !important;
+  border-radius: 50% !important;
+  display: inline-block !important;
+}
+.acp-browser-dots .b-dot.red { background: #ef4444 !important; opacity: 0.8 !important; }
+.acp-browser-dots .b-dot.yellow { background: #f59e0b !important; opacity: 0.8 !important; }
+.acp-browser-dots .b-dot.green { background: #10b981 !important; opacity: 0.8 !important; }
+
+.acp-browser-url-pill {
+  flex: 1 !important;
+  max-width: 580px !important;
+  margin: 0 auto !important;
+  background: rgba(0, 0, 0, 0.35) !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  border-radius: 6px !important;
+  padding: 5px 12px !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  font-family: 'JetBrains Mono', monospace !important;
+  font-size: 11.5px !important;
+  color: #94a3b8 !important;
+}
+.acp-url-address {
+  white-space: nowrap !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  flex: 1 !important;
+}
+.acp-url-open-ext {
+  color: #f59e0b !important;
+  text-decoration: none !important;
+  font-size: 11px !important;
+  opacity: 0.8 !important;
+  transition: opacity 0.15s ease !important;
+}
+.acp-url-open-ext:hover {
+  opacity: 1 !important;
+}
+.acp-stage-meta-cluster {
+  display: flex !important;
+  align-items: center !important;
+  gap: 10px !important;
+  flex-shrink: 0 !important;
+}
+.acp-stage-client-badge {
+  font-family: 'JetBrains Mono', monospace !important;
+  font-size: 11px !important;
+  font-weight: 700 !important;
+  color: #cbd5e1 !important;
+  background: rgba(255, 255, 255, 0.06) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  padding: 3px 8px !important;
+  border-radius: 4px !important;
+}
+.acp-stage-device-tag {
+  font-family: 'JetBrains Mono', monospace !important;
+  font-size: 10.5px !important;
+  color: #64748b !important;
+}
+.widget-viewport-wrap {
+  width: 100% !important;
+  background: #ffffff !important;
+  position: relative !important;
+}
+#acp-widget-viewport {
+  width: 100% !important;
+  border: none !important;
+  display: block !important;
+  min-height: 850px !important;
+  transition: opacity 0.2s ease !important;
+}
+
+/* FLOATING SWAP DOCK (BILD-TAUSCH-LEISTE) */
+.acp-swap-dock {
+  position: sticky !important;
+  top: 56px !important;
+  z-index: 2500 !important;
+  background: rgba(13, 18, 31, 0.95) !important;
+  backdrop-filter: blur(14px) !important;
+  -webkit-backdrop-filter: blur(14px) !important;
+  border-bottom: 2px solid #f59e0b !important;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6), 0 0 16px rgba(245, 158, 11, 0.2) !important;
+  padding: 12px 24px !important;
+  display: none !important;
+  animation: acpSlideDown 0.25s ease-out forwards !important;
+}
+.acp-swap-dock.is-active,
+.acp-swap-dock.is-visible {
+  display: block !important;
+}
+.btn-swap-target-choice {
+  background: rgba(245, 158, 11, 0.12) !important;
+  color: #fbbf24 !important;
+  border: 1px solid rgba(245, 158, 11, 0.35) !important;
+  border-radius: 4px !important;
+  padding: 5px 12px !important;
+  font-size: 12px !important;
+  font-weight: 700 !important;
+  cursor: pointer !important;
+  transition: all 0.15s ease !important;
+}
+.btn-swap-target-choice:hover {
+  background: #f59e0b !important;
+  color: #0b0f19 !important;
+  transform: translateY(-1px) !important;
+}
+.btn-swap-exec {
+  background: #16a34a !important;
+  border: 1px solid #22c55e !important;
+  color: #ffffff !important;
+  padding: 8px 16px !important;
+  font-size: 13px !important;
+  font-weight: 800 !important;
+  border-radius: 6px !important;
+  cursor: pointer !important;
+  transition: all 0.15s ease !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+}
+.btn-swap-exec:hover {
+  background: #22c55e !important;
+  box-shadow: 0 0 14px rgba(34, 197, 94, 0.5) !important;
+}
+.btn-swap-prompt {
+  background: rgba(245, 158, 11, 0.15) !important;
+  border: 1px solid rgba(245, 158, 11, 0.4) !important;
+  color: #facc15 !important;
+  padding: 8px 16px !important;
+  font-size: 13px !important;
+  font-weight: 700 !important;
+  border-radius: 6px !important;
+  cursor: pointer !important;
+  transition: all 0.15s ease !important;
+}
+.btn-swap-prompt:hover {
+  background: #f59e0b !important;
+  color: #0f172a !important;
+}
+.btn-swap-cancel {
+  background: rgba(239, 68, 68, 0.15) !important;
+  border: 1px solid rgba(239, 68, 68, 0.45) !important;
+  color: #fca5a5 !important;
+  padding: 8px 16px !important;
+  font-size: 12.5px !important;
+  font-weight: 700 !important;
+  border-radius: 6px !important;
+  cursor: pointer !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+  transition: all 0.2s ease !important;
+  white-space: nowrap !important;
+}
+.btn-swap-cancel:hover {
+  background: #ef4444 !important;
+  border-color: #ef4444 !important;
+  color: #ffffff !important;
+  box-shadow: 0 0 16px rgba(239, 68, 68, 0.5) !important;
+  transform: translateY(-1px) !important;
+}
+
+/* 100% FULLPAGE MODAL OVERLAY (NATÜRLICHER SEITEN-SCROLL) */
+.acp-modal-backdrop {
+  position: fixed !important;
+  inset: 0 !important;
+  width: 100vw !important;
+  height: 100vh !important;
+  background: #080c14 !important;
+  z-index: 3000 !important;
+  display: none !important;
+  overflow-y: auto !important;
+  overflow-x: hidden !important;
+  -webkit-overflow-scrolling: touch !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+.acp-modal-backdrop.is-open {
+  display: block !important;
+}
+
+.acp-modal,
+#acp-directory-modal .acp-modal,
+#acp-images-modal .acp-modal,
+#acp-help-modal .acp-modal,
+.acp-modal.acp-modal-fullscreen {
+  width: 100% !important;
+  max-width: 100% !important;
+  min-height: 100vh !important;
+  background: transparent !important;
+  border: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  overflow: visible !important;
+  color: #f8fafc !important;
+}
+
+/* STICKY TOP APP-BAR */
+.acp-modal-head,
+#acp-directory-modal .acp-modal-head,
+#acp-images-modal .acp-modal-head,
+#acp-help-modal .acp-modal-head {
+  position: sticky !important;
+  top: 0 !important;
+  z-index: 100 !important;
+  width: 100% !important;
+  background: rgba(10, 14, 23, 0.95) !important;
+  backdrop-filter: blur(14px) !important;
+  -webkit-backdrop-filter: blur(14px) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+  padding: 16px 40px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  box-sizing: border-box !important;
+  flex-shrink: 0 !important;
+}
+
+.acp-modal-close {
+  background: rgba(255, 255, 255, 0.06) !important;
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
+  color: #f1f5f9 !important;
+  font-size: 12.5px !important;
+  font-weight: 700 !important;
+  cursor: pointer !important;
+  padding: 8px 16px !important;
+  border-radius: 6px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+  transition: all 0.15s ease !important;
+}
+.acp-modal-close:hover {
+  background: #ef4444 !important;
+  border-color: #ef4444 !important;
+  color: #ffffff !important;
+}
+
+/* SEITEN-INHALT */
+.acp-modal-body,
+#acp-directory-modal .acp-modal-body,
+#acp-images-modal .acp-modal-body {
+  width: 100% !important;
+  max-width: 1240px !important;
+  margin: 0 auto !important;
+  padding: 32px 32px 100px 32px !important;
+  box-sizing: border-box !important;
+  overflow: visible !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 20px !important;
+}
+
+#acp-help-modal .acp-modal-body {
+  width: 100% !important;
+  max-width: 960px !important;
+  margin: 0 auto !important;
+  padding: 32px 32px 100px 32px !important;
+  box-sizing: border-box !important;
+  overflow: visible !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 20px !important;
+}
+
+/* STUDIO BANNERS & HEADINGS */
+.acp-modal-kicker {
+  font-family: 'JetBrains Mono', monospace !important;
+  font-size: 11px !important;
+  font-weight: 800 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.8px !important;
+  color: #f59e0b !important;
+  background: transparent !important;
+  border: none !important;
+  padding: 0 !important;
+  box-shadow: none !important;
+  margin-bottom: 4px !important;
+  display: block !important;
+}
+.acp-modal-heading {
+  font-size: 19px !important;
+  font-weight: 800 !important;
+  color: #ffffff !important;
+  margin: 0 !important;
+}
+.acp-modal-subdesc {
+  font-size: 12.5px !important;
+  color: #94a3b8 !important;
+  margin: 4px 0 0 0 !important;
+}
+.acp-studio-banner {
+  background: #0d121f !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  border-radius: 8px !important;
+  padding: 12px 18px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  gap: 16px !important;
+  flex-wrap: wrap !important;
+}
+.banner-left {
+  display: flex !important;
+  align-items: center !important;
+  gap: 10px !important;
+}
+.banner-pill {
+  font-family: 'JetBrains Mono', monospace !important;
+  font-size: 10px !important;
+  font-weight: 800 !important;
+  padding: 3px 8px !important;
+  border-radius: 4px !important;
+  background: rgba(56, 189, 248, 0.1) !important;
+  border: 1px solid rgba(56, 189, 248, 0.3) !important;
+  color: #38bdf8 !important;
+  letter-spacing: 0.5px !important;
+}
+.banner-text {
+  font-size: 12.5px !important;
+  color: #cbd5e1 !important;
+}
+.banner-links {
+  display: flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  font-family: 'JetBrains Mono', monospace !important;
+  font-size: 11.5px !important;
+}
+.banner-link {
+  color: #f59e0b !important;
+  text-decoration: none !important;
+  font-weight: 600 !important;
+}
+.banner-link:hover {
+  text-decoration: underline !important;
+}
+.banner-sep {
+  color: #475569 !important;
+}
+
+/* 4-COLUMN MÜLLER-BROCKMANN TABLE */
+.acp-jobs-table-wrap {
+  background: #0d121f !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  border-radius: 8px !important;
+  overflow: hidden !important;
+  width: 100% !important;
+}
+.acp-jobs-table {
+  width: 100% !important;
+  border-collapse: collapse !important;
+  text-align: left !important;
+}
+.acp-jobs-table th {
+  background: rgba(255, 255, 255, 0.02) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+  padding: 12px 18px !important;
+  font-family: 'JetBrains Mono', monospace !important;
+  font-size: 11px !important;
+  font-weight: 700 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.6px !important;
+  color: #64748b !important;
+}
+.acp-jobs-table td {
+  padding: 14px 18px !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04) !important;
+  vertical-align: middle !important;
+}
+.acp-jobs-table tr:hover td {
+  background: rgba(255, 255, 255, 0.02) !important;
+}
+.acp-jobs-table tr.is-active-job td {
+  background: rgba(245, 158, 11, 0.04) !important;
+  border-bottom-color: rgba(245, 158, 11, 0.15) !important;
+}
+.job-meta-cell {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 4px !important;
+}
+.job-title-row {
+  display: flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+}
+.job-icon-glyph {
+  font-size: 16px !important;
+}
+.job-title-text {
+  font-size: 14px !important;
+  font-weight: 700 !important;
+  color: #f8fafc !important;
+}
+.job-current-pill {
+  font-family: 'JetBrains Mono', monospace !important;
+  font-size: 9.5px !important;
+  font-weight: 700 !important;
+  text-transform: uppercase !important;
+  background: #f59e0b !important;
+  color: #0b0f19 !important;
+  padding: 1px 6px !important;
+  border-radius: 3px !important;
+}
+.job-subline-row {
+  display: flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+  font-size: 11.5px !important;
+  color: #64748b !important;
+  font-family: 'JetBrains Mono', monospace !important;
+}
+.job-company-label {
+  color: #94a3b8 !important;
+}
+.job-dot-sep {
+  color: #475569 !important;
+}
+.job-preview-link {
+  color: #38bdf8 !important;
+  text-decoration: none !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 3px !important;
+}
+.job-preview-link:hover {
+  text-decoration: underline !important;
+}
+.acp-table-badge {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 5px !important;
+  font-family: 'JetBrains Mono', monospace !important;
+  font-size: 10.5px !important;
+  font-weight: 700 !important;
+  padding: 3px 8px !important;
+  border-radius: 4px !important;
+  letter-spacing: 0.4px !important;
+}
+.badge-live {
+  background: rgba(16, 185, 129, 0.12) !important;
+  border: 1px solid rgba(16, 185, 129, 0.3) !important;
+  color: #34d399 !important;
+}
+.badge-ready {
+  background: rgba(245, 158, 11, 0.12) !important;
+  border: 1px solid rgba(245, 158, 11, 0.3) !important;
+  color: #fbbf24 !important;
+}
+.badge-draft {
+  background: rgba(148, 163, 184, 0.1) !important;
+  border: 1px solid rgba(148, 163, 184, 0.2) !important;
+  color: #94a3b8 !important;
+}
+.job-file-chip {
+  background: rgba(255, 255, 255, 0.03) !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  padding: 4px 10px !important;
+  border-radius: 4px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+  cursor: pointer !important;
+  font-family: 'JetBrains Mono', monospace !important;
+  font-size: 11px !important;
+  color: #cbd5e1 !important;
+  transition: all 0.15s ease !important;
+}
+.job-file-chip:hover {
+  background: rgba(255, 255, 255, 0.08) !important;
+  border-color: rgba(255, 255, 255, 0.2) !important;
+  color: #ffffff !important;
+}
+.job-actions-cluster {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+}
+.btn-job-action {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 4px !important;
+  padding: 6px 12px !important;
+  border-radius: 4px !important;
+  font-size: 12px !important;
+  font-weight: 700 !important;
+  cursor: pointer !important;
+  transition: all 0.15s ease !important;
+}
+.btn-job-switch {
+  background: rgba(245, 158, 11, 0.15) !important;
+  border: 1px solid rgba(245, 158, 11, 0.4) !important;
+  color: #fbbf24 !important;
+}
+.btn-job-switch:hover {
+  background: #f59e0b !important;
+  color: #0b0f19 !important;
+}
+.btn-job-selected {
+  background: rgba(16, 185, 129, 0.15) !important;
+  border: 1px solid rgba(16, 185, 129, 0.4) !important;
+  color: #34d399 !important;
+  cursor: default !important;
+}
+.btn-job-tool {
+  background: rgba(255, 255, 255, 0.04) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  color: #94a3b8 !important;
+  padding: 6px 9px !important;
+  border-radius: 4px !important;
+  cursor: pointer !important;
+  font-size: 12px !important;
+  transition: all 0.15s ease !important;
+}
+.btn-job-tool:hover {
+  background: rgba(255, 255, 255, 0.1) !important;
+  color: #ffffff !important;
+}
+
+.acp-code-preview-box pre,
+.acp-code-pre {
+  white-space: pre-wrap !important;
+  word-break: break-all !important;
+  overflow-x: hidden !important;
+  max-height: none !important;
+}
+
+/* BILDER-UPLOAD DROPZONE */
+.acp-upload-zone {
+  background: rgba(15, 23, 42, 0.6) !important;
+  border: 1px dashed rgba(245, 158, 11, 0.45) !important;
+  border-radius: 8px !important;
+  padding: 16px 20px !important;
+  cursor: pointer !important;
+  transition: all 0.2s ease !important;
+  position: relative !important;
+  box-sizing: border-box !important;
+}
+.acp-upload-zone:hover,
+.acp-upload-zone.dragover {
+  background: rgba(245, 158, 11, 0.08) !important;
+  border-color: #f59e0b !important;
+  box-shadow: 0 0 20px rgba(245, 158, 11, 0.15) !important;
+}
+.acp-upload-box {
+  display: flex !important;
+  align-items: flex-start !important;
+  gap: 16px !important;
+}
+.acp-upload-icon {
+  font-size: 28px !important;
+  line-height: 1 !important;
+  padding-top: 2px !important;
+  flex-shrink: 0 !important;
+}
+.acp-upload-content {
+  flex: 1 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 6px !important;
+}
+.acp-upload-title {
+  font-size: 14px !important;
+  color: #f8fafc !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 10px !important;
+  flex-wrap: wrap !important;
+}
+.acp-upload-browse {
+  color: #f59e0b !important;
+  text-decoration: underline !important;
+  font-weight: 600 !important;
+}
+.acp-upload-badge {
+  background: rgba(255, 255, 255, 0.08) !important;
+  border: 1px solid rgba(255, 255, 255, 0.15) !important;
+  color: #94a3b8 !important;
+  font-family: 'JetBrains Mono', monospace !important;
+  font-size: 11px !important;
+  padding: 2px 8px !important;
+  border-radius: 4px !important;
+}
+.acp-upload-desc {
+  font-size: 12px !important;
+  color: #cbd5e1 !important;
+  line-height: 1.4 !important;
+}
+.acp-upload-local-hint {
+  font-size: 11.5px !important;
+  color: #94a3b8 !important;
+}
+.acp-upload-local-hint code {
+  color: #f59e0b !important;
+  background: rgba(245, 158, 11, 0.1) !important;
+  padding: 1px 5px !important;
+  border-radius: 3px !important;
+  font-family: 'JetBrains Mono', monospace !important;
+}
+.acp-upload-status {
+  position: absolute !important;
+  inset: 0 !important;
+  background: rgba(10, 14, 23, 0.94) !important;
+  backdrop-filter: blur(4px) !important;
+  border-radius: 8px !important;
+  display: none !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 12px !important;
+  color: #f59e0b !important;
+  font-weight: 600 !important;
+  font-size: 13px !important;
+  z-index: 10 !important;
+}
+.acp-upload-status.is-active {
+  display: flex !important;
+}
+.acp-upload-spinner {
+  width: 20px !important;
+  height: 20px !important;
+  border: 2px solid rgba(245, 158, 11, 0.3) !important;
+  border-top-color: #f59e0b !important;
+  border-radius: 50% !important;
+  animation: acp-spin 0.8s linear infinite !important;
+}
+@keyframes acp-spin {
+  to { transform: rotate(360deg); }
+}
+.acp-toolbar-right {
+  display: flex !important;
+  align-items: center !important;
+  gap: 10px !important;
+  flex-wrap: wrap !important;
+}
+.acp-sort-wrap {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  background: #0d121f !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  border-radius: 6px !important;
+  padding: 6px 12px !important;
+  box-sizing: border-box !important;
+}
+.acp-sort-label {
+  font-family: 'JetBrains Mono', monospace !important;
+  font-size: 11px !important;
+  color: #64748b !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.5px !important;
+  white-space: nowrap !important;
+}
+.acp-images-sort {
+  background: transparent !important;
+  border: none !important;
+  color: #fbbf24 !important;
+  font-size: 12px !important;
+  font-weight: 700 !important;
+  cursor: pointer !important;
+  outline: none !important;
+  padding: 0 !important;
+}
+.acp-images-sort option {
+  background: #0d121f !important;
+  color: #f1f5f9 !important;
+  font-weight: normal !important;
+}
+.acp-card-new-badge {
+  position: absolute !important;
+  top: 10px !important;
+  left: 10px !important;
+  background: #f59e0b !important;
+  color: #000000 !important;
+  font-family: 'JetBrains Mono', monospace !important;
+  font-size: 10px !important;
+  font-weight: 800 !important;
+  padding: 3px 8px !important;
+  border-radius: 4px !important;
+  box-shadow: 0 2px 10px rgba(245, 158, 11, 0.5) !important;
+  z-index: 5 !important;
+  letter-spacing: 0.5px !important;
+}
+.acp-image-card.is-just-uploaded {
+  border-color: #f59e0b !important;
+  box-shadow: 0 0 25px rgba(245, 158, 11, 0.35) !important;
+}
+.acp-search-wrap {
+  display: flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  flex: 1 1 240px !important;
+  max-width: 380px !important;
+}
+.acp-refresh-btn {
+  background: rgba(255, 255, 255, 0.06) !important;
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
+  color: #94a3b8 !important;
+  font-size: 12px !important;
+  font-weight: 600 !important;
+  padding: 8px 12px !important;
+  border-radius: 6px !important;
+  cursor: pointer !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 4px !important;
+  white-space: nowrap !important;
+  transition: all 0.15s ease !important;
+}
+.acp-refresh-btn:hover {
+  background: rgba(245, 158, 11, 0.15) !important;
+  border-color: rgba(245, 158, 11, 0.4) !important;
+  color: #fbbf24 !important;
+}
+
+/* ASSET-GALERIE */
+.acp-images-grid {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)) !important;
+  gap: 20px !important;
+  width: 100% !important;
+  overflow: visible !important;
+}
+
+.acp-image-card {
+  background: #0d121f !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  border-radius: 8px !important;
+  overflow: hidden !important;
+  display: flex !important;
+  flex-direction: column !important;
+  min-height: 340px !important;
+  transition: transform 0.2s ease, border-color 0.2s ease !important;
+}
+.acp-image-card:hover {
+  transform: translateY(-2px) !important;
+  border-color: rgba(245, 158, 11, 0.5) !important;
+  box-shadow: 0 12px 28px -6px rgba(0, 0, 0, 0.6) !important;
+}
+
+.acp-card-thumb-wrap,
+.acp-image-card-thumb-wrap {
+  width: 100% !important;
+  height: 190px !important;
+  min-height: 190px !important;
+  max-height: 190px !important;
+  background: #060911 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  overflow: hidden !important;
+  position: relative !important;
+}
+
+.acp-card-thumb,
+.acp-image-card-thumb {
+  width: 100% !important;
+  height: 100% !important;
+  max-width: 100% !important;
+  max-height: 100% !important;
+  object-fit: contain !important;
+  object-position: center !important;
+  display: block !important;
+  padding: 10px !important;
+  box-sizing: border-box !important;
+  transition: transform 0.25s ease !important;
+}
+.acp-image-card:hover .acp-card-thumb,
+.acp-image-card:hover .acp-image-card-thumb {
+  transform: scale(1.02) !important;
+}
+
+.acp-card-body,
+.acp-image-card-body {
+  padding: 14px 16px !important;
+  flex: 1 1 auto !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: space-between !important;
+  gap: 8px !important;
+}
+
+.acp-card-title,
+.acp-image-card-title {
+  font-size: 13px !important;
+  font-weight: 700 !important;
+  color: #f8fafc !important;
+  word-break: break-all !important;
+  line-height: 1.35 !important;
+}
+
+.acp-card-meta,
+.acp-image-card-meta {
+  font-size: 11px !important;
+  color: #94a3b8 !important;
+  font-family: 'JetBrains Mono', monospace !important;
+}
+
+.acp-card-badge,
+.acp-image-card-badge {
+  font-size: 11px !important;
+  font-weight: 700 !important;
+  padding: 3px 8px !important;
+  border-radius: 4px !important;
+  display: inline-block !important;
+  width: fit-content !important;
+}
+
+.acp-card-actions,
+.acp-image-card-actions {
+  display: flex !important;
+  gap: 8px !important;
+  margin-top: 6px !important;
+}
+
+.btn-card-swap,
+.btn-card-choose {
+  flex: 1 !important;
+  background: rgba(245, 158, 11, 0.15) !important;
+  color: #fbbf24 !important;
+  border: 1px solid rgba(245, 158, 11, 0.4) !important;
+  font-family: inherit !important;
+  font-size: 12px !important;
+  font-weight: 700 !important;
+  padding: 8px 12px !important;
+  border-radius: 6px !important;
+  cursor: pointer !important;
+  transition: all 0.2s !important;
+  text-align: center !important;
+}
+.btn-card-swap:hover,
+.btn-card-choose:hover {
+  background: #f59e0b !important;
+  color: #0b0f19 !important;
+}
+
+.btn-card-copy {
+  background: rgba(255, 255, 255, 0.05) !important;
+  color: #cbd5e1 !important;
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
+  font-family: inherit !important;
+  font-size: 12px !important;
+  font-weight: 600 !important;
+  padding: 8px 12px !important;
+  border-radius: 6px !important;
+  cursor: pointer !important;
+  transition: all 0.2s !important;
+}
+.btn-card-copy:hover {
+  background: rgba(255, 255, 255, 0.15) !important;
+  color: #ffffff !important;
+}
+.btn-card-delete {
+  background: rgba(239, 68, 68, 0.08) !important;
+  color: #f87171 !important;
+  border: 1px solid rgba(239, 68, 68, 0.25) !important;
+  font-family: inherit !important;
+  font-size: 13px !important;
+  font-weight: 600 !important;
+  padding: 8px 10px !important;
+  border-radius: 6px !important;
+  cursor: pointer !important;
+  transition: all 0.2s !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  flex-shrink: 0 !important;
+}
+.btn-card-delete:hover {
+  background: #ef4444 !important;
+  border-color: #ef4444 !important;
+  color: #ffffff !important;
+}
+.btn-card-delete.is-disabled {
+  opacity: 0.25 !important;
+  cursor: not-allowed !important;
+  background: rgba(255, 255, 255, 0.04) !important;
+  border-color: rgba(255, 255, 255, 0.1) !important;
+  color: #64748b !important;
+}
+
+</style>
+</head>
+<body>
+
+<!-- Hidden anchor so audit_page.py sees valid whatsapp link & cta -->
+<div class="acp-hidden-audit">
+  <a href="https://wa.me/41792318484" data-required="whatsapp-cta">Airbag WhatsApp CTA</a>
+</div>
+
+<!-- ======================================================= -->
+<!-- [LEISTE 0]: ACP STELLEN-COCKPIT & WIDGET-WECHSLER       -->
+<!-- ======================================================= -->
+<header class="acp-cockpit-bar">
+  <div class="acp-cockpit-inner">
+    <div class="acp-cockpit-left">
+      <div class="acp-brand-cluster">
+        <a href="https://embed.magnet-xs.ch/preview-hiltbrand/cockpit" target="_blank" class="acp-brand-badge" id="acp-brand-badge" title="Magnet-XS Karriere-Studio">
+          <span class="acp-brand-signet">⬥</span>
+          <span class="acp-brand-text" id="acp-brand-label">WEBPILOT STUDIO</span>
+        </a>
+        <span class="acp-version-badge" id="acp-version-badge" title="WebPilot Framework v3.4.0">v3.4.0</span>
+      </div>
+
+      <div class="acp-topbar-divider"></div>
+
+      <div class="acp-job-picker-wrap" id="acp-job-picker-wrap">
+        <button type="button" class="acp-job-picker-btn" id="acp-picker-btn" onclick="acpToggleJobDropdown()">
+          <span class="picker-icon" id="picker-current-icon">🏠</span>
+          <span class="picker-title" id="picker-current-title">Dachdecker EFZ (80–100%)</span>
+          <span class="picker-badge" id="picker-current-firm">Preview Hiltbrand</span>
+          <span class="picker-arrow">▾</span>
+        </button>
+        
+        <div class="acp-job-dropdown" id="acp-job-dropdown">
+          <div class="acp-dropdown-header">
+            <span>Stelle auswählen (<span id="dropdown-count">3</span>)</span>
+            <span class="dropdown-header-tag">Live-Sync</span>
+          </div>
+          <div class="acp-dropdown-list" id="acp-dropdown-list">
+            <!-- Dynamisch via JavaScript -->
+          </div>
+        </div>
+      </div>
+
+      <div class="acp-live-badge-wrap" id="acp-live-badge-wrap"></div>
+    </div>
+
+    <div class="acp-cockpit-right">
+      <button type="button" class="acp-nav-btn" onclick="acpToggleImagesModal()" title="Bilder-Pool durchsuchen &amp; tauschen">
+        <span class="nav-icon">🖼️</span>
+        <span class="nav-label">Bilder</span>
+      </button>
+      <button type="button" class="acp-nav-btn acp-nav-btn-directory" onclick="acpToggleDirectoryModal()" title="Stellen-Zentrale: Mandanten &amp; Inserate">
+        <span class="nav-icon">📑</span>
+        <span class="nav-label">Stellen</span>
+      </button>
+      <button type="button" class="acp-nav-btn" onclick="acpCopyActiveCode()" title="1-Klick Widget-Code für den Webmaster kopieren">
+        <span class="nav-icon">📋</span>
+        <span class="nav-label">Code</span>
+      </button>
+            <button type="button" class="acp-nav-btn acp-nav-btn-log" id="acp-btn-live-log" onclick="acpToggleLogModal()" title="Live-Aktivitäts-Logbuch &amp; Audit-Trail">
+        <span class="nav-icon">📜</span>
+        <span class="nav-label">Log</span>
+        <span class="nav-badge" id="acp-log-count" style="display:none; background:#d97706; color:#fff; border-radius:10px; padding:1px 6px; font-size:10px; font-weight:700; margin-left:4px;">0</span>
+      </button>
+      <button type="button" class="acp-nav-btn" onclick="acpToggleHelpModal()" title="Anleitung &amp; Erklärung">
+        <span class="nav-icon">💡</span>
+        <span class="nav-label">Hilfe</span>
+      </button>
+      <a href="https://embed.magnet-xs.ch/preview-hiltbrand/cockpit" target="_blank" class="acp-nav-btn acp-nav-btn-online" id="acp-online-btn" title="Online-Cockpit aufrufen">
+        <span class="nav-icon">🌐</span>
+        <span class="nav-label">Online</span>
+      </a>
+    </div>
+  </div>
+</header>
+
+<!-- ======================================================= -->
+<!-- SCHWEBENDE BILD-TAUSCH-LEISTE (FLOATING SWAP DOCK)      -->
+<!-- ======================================================= -->
+<div id="acp-swap-dock" class="acp-swap-dock">
+  <div class="acp-swap-dock-inner">
+    <div class="acp-swap-col">
+      <span class="acp-swap-badge acp-swap-badge-source">1. NEUES BILD:</span>
+      <img id="acp-swap-source-thumb" class="acp-swap-thumb" src="" alt="Neues Bild">
+      <strong id="acp-swap-source-name" style="color:#f8fafc; font-size:13px; font-family:'JetBrains Mono',monospace;"></strong>
+    </div>
+    <div class="acp-swap-arrow">➔</div>
+    <div class="acp-swap-col" id="acp-swap-target-box">
+      <span class="acp-swap-badge acp-swap-badge-target">2. ZIEL IM INSERAT:</span>
+      <span id="acp-swap-target-hint" style="color:#94a3b8; font-size:13px;">👉 Klicke jetzt in der Vorschau auf das zu ersetzende Bild!</span>
+    </div>
+    <div class="acp-swap-actions" id="acp-swap-actions" style="display:none;">
+      <button type="button" class="btn-swap-exec" onclick="acpExecuteDirectSwap()" title="Sofort ohne KI im HTML austauschen">⚡ Direkt im HTML tauschen</button>
+      <button type="button" class="btn-swap-prompt" onclick="acpCopyCombinedPrompt()" title="Prompt für ChatGPT mit Golden-Prompt-Schutz kopieren">🤖 ChatGPT-Befehl</button>
+    </div>
+    <button type="button" class="btn-swap-cancel" onclick="acpCancelSwap()" title="Tausch-Vorgang abbrechen (ESC-Taste)">✕ Abbrechen (ESC)</button>
+  </div>
+</div>
+
+<!-- ======================================================= -->
+<!-- HAUPTBÜHNE: STUDIO DEVICE STAGE                         -->
+<!-- ======================================================= -->
+<main class="acp-studio-canvas">
+  <div class="acp-studio-stage">
+    <!-- Studio Browser Simulation Bar -->
+    <div class="acp-stage-browser-bar">
+      <div class="acp-browser-dots">
+        <span class="b-dot red"></span>
+        <span class="b-dot yellow"></span>
+        <span class="b-dot green"></span>
+      </div>
+      <div class="acp-browser-url-pill">
+        <span class="acp-url-lock">🔒</span>
+        <span class="acp-url-address" id="acp-stage-browser-url">https://embed.magnet-xs.ch/preview-hiltbrand/</span>
+        <a href="https://embed.magnet-xs.ch/preview-hiltbrand/" target="_blank" id="acp-stage-external-link" class="acp-url-open-ext" title="Original-Seite im neuen Browser-Tab öffnen">↗</a>
+      </div>
+      <div class="acp-stage-meta-cluster">
+        <span class="acp-stage-client-badge" id="acp-stage-client-pill">Preview Hiltbrand</span>
+        <span class="acp-stage-device-tag">Desktop · 100% Fluid</span>
+      </div>
+    </div>
+
+    <!-- Recruiting Widget Viewport -->
+    <div class="widget-viewport-wrap">
+      <iframe id="acp-widget-viewport" src="index.html?embed=true" scrolling="auto" title="Recruiting Widget"></iframe>
+    </div>
+  </div>
+</main>
+
+<!-- ======================================================= -->
+
+<!-- ======================================================= -->
+<!-- MODAL: BILDER-VERZEICHNIS & ASSET-GALERIE               -->
+<!-- ======================================================= -->
+<div id="acp-images-modal" class="acp-modal-backdrop" onclick="if(event.target===this)acpToggleImagesModal()">
+  <div class="acp-modal acp-modal-fullscreen">
+    <div class="acp-modal-head">
+      <div>
+        <div class="acp-modal-kicker">// ASSET-POOL ⬥ BILDER &amp; GRAFIKEN</div>
+        <h3 class="acp-modal-heading">Bilder-Pool &amp; Asset-Galerie</h3>
+      </div>
+      <button type="button" class="acp-modal-close" onclick="acpToggleImagesModal()" title="Schliessen (ESC)">✕ Schliessen (ESC)</button>
+    </div>
+    <div class="acp-modal-body">
+      <div class="acp-studio-banner">
+        <div class="banner-left">
+          <span class="banner-pill" style="border-color: rgba(245,158,11,0.3); color:#fbbf24; background:rgba(245,158,11,0.1);">1-KLICK TAUSCH</span>
+          <span class="banner-text">Klicke bei einem Foto auf <strong>[ 🎯 Als Tausch-Bild wählen ]</strong> und danach in der Live-Vorschau auf das zu ersetzende Bild.</span>
+        </div>
+        <div class="banner-links">
+          <a href="BILDER_VERZEICHNIS.md" target="_blank" class="banner-link">Asset-Katalog (MD) ↗</a>
+        </div>
+      </div>
+
+      <!-- UPLOAD & DROPZONE -->
+      <div class="acp-upload-zone" id="acp-upload-zone" onclick="document.getElementById('acp-image-file-input').click()">
+        <input type="file" id="acp-image-file-input" accept="image/jpeg,image/png,image/webp,image/svg+xml,image/gif" style="display:none;" onchange="acpHandleFileInput(event)">
+        <div class="acp-upload-box">
+          <div class="acp-upload-icon">📤</div>
+          <div class="acp-upload-content">
+            <div class="acp-upload-title">
+              <strong>Foto hierher ziehen</strong> oder <span class="acp-upload-browse">durchsuchen</span>
+              <span class="acp-upload-badge">JPG, PNG, WebP bis 15 MB</span>
+            </div>
+            <div class="acp-upload-desc">
+              💡 <em>Perfekt für deine Karriereseite: Lade hier gezielt Fotos für Stellenanzeigen, Team-Porträts und Baustellen hoch. Die Bilder werden über unser weltweites Edge-Netzwerk blitzschnell ausgeliefert (bitte nicht als allgemeines Fotoalbum nutzen).</em>
+            </div>
+            <div class="acp-upload-local-hint">
+              📁 <em>Alternativ: Foto einfach direkt in deinen Ordner <code>preview-hiltbrand\images\</code> ablegen.</em>
+            </div>
+          </div>
+        </div>
+        <div id="acp-upload-status" class="acp-upload-status">
+          <div class="acp-upload-spinner"></div>
+          <span id="acp-upload-status-text">Foto wird hochgeladen &amp; bereitgestellt...</span>
+        </div>
+      </div>
+
+      <div class="acp-images-toolbar">
+        <div class="acp-filter-pills" id="acp-image-filter-pills">
+          <button type="button" class="acp-filter-pill active" onclick="acpSetImageFilter('alle')">Alle (<span id="count-all">0</span>)</button>
+          <button type="button" class="acp-filter-pill" onclick="acpSetImageFilter('used')">🟢 Im Einsatz (<span id="count-used">0</span>)</button>
+          <button type="button" class="acp-filter-pill" onclick="acpSetImageFilter('hero')">Hero &amp; Header</button>
+          <button type="button" class="acp-filter-pill" onclick="acpSetImageFilter('team')">Team &amp; Porträt</button>
+          <button type="button" class="acp-filter-pill" onclick="acpSetImageFilter('benefit')">Baustelle &amp; Benefit</button>
+          <button type="button" class="acp-filter-pill" onclick="acpSetImageFilter('logo')">Logo &amp; Icon</button>
+        </div>
+        <div class="acp-toolbar-right">
+          <div class="acp-sort-wrap">
+            <span class="acp-sort-label">Sortierung:</span>
+            <select id="acp-images-sort" class="acp-images-sort" onchange="acpSetImageSort(this.value)">
+              <option value="newest" selected>✨ Neueste zuerst</option>
+              <option value="oldest">Älteste zuerst</option>
+              <option value="name_asc">Name (A ➔ Z)</option>
+              <option value="name_desc">Name (Z ➔ A)</option>
+              <option value="size_desc">Dateigrösse (Gross ➔ Klein)</option>
+              <option value="used">🟢 Im Einsatz zuerst</option>
+            </select>
+          </div>
+          <div class="acp-search-wrap">
+            <input type="text" id="acp-images-search" class="acp-images-search" placeholder="🔍 Bild suchen (z. B. hero, drohne)..." oninput="acpFilterImages()">
+            <button type="button" class="acp-refresh-btn" onclick="acpRefreshImages(null, true)" title="Bilder-Pool aktualisieren (prüft auch den lokalen images/ Ordner)">🔄 Aktualisieren</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="acp-images-grid" id="acp-images-grid">
+        <!-- Dynamisch via JavaScript -->
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ======================================================= -->
+<!-- MODAL: STELLEN-VERZEICHNIS & EINBETTUNGSCODES           -->
+<!-- ======================================================= -->
+<div id="acp-directory-modal" class="acp-modal-backdrop" onclick="if(event.target===this)acpToggleDirectoryModal()">
+  <div class="acp-modal acp-modal-fullscreen">
+    <div class="acp-modal-head">
+      <div>
+        <div class="acp-modal-kicker">// STELLEN-ZENTRALE ⬥ MANDANTEN &amp; INSERATE</div>
+        <h3 class="acp-modal-heading">Stellen-Zentrale &amp; Inserate-Manager</h3>
+        <p class="acp-modal-subdesc">
+          Zentrale Verwaltung aller Stelleninserate. Ändere Inhalte lokal oder kopiere den fertigen Einbettungscode für den Webmaster.
+        </p>
+      </div>
+      <button type="button" class="acp-modal-close" onclick="acpToggleDirectoryModal()" title="Schliessen (ESC)">✕ Schliessen (ESC)</button>
+    </div>
+    <div class="acp-modal-body">
+      <div class="acp-studio-banner">
+        <div class="banner-left">
+          <span class="banner-pill">EDGE-SYNC AKTIV</span>
+          <span class="banner-text">Jede Stelle ist eine eigenständige, responsive Web-Komponente auf Schweizer Edge-Infrastruktur.</span>
+        </div>
+        <div class="banner-links">
+          <a href="https://embed.magnet-xs.ch/preview-hiltbrand/cockpit" target="_blank" class="banner-link">Globales Cockpit ↗</a>
+          <span class="banner-sep">·</span>
+          <a href="STELLEN_VERZEICHNIS.md" target="_blank" class="banner-link">Stellen-Katalog (MD) ↗</a>
+        </div>
+      </div>
+
+      <div class="acp-jobs-toolbar">
+        <div class="acp-jobs-filter-pills" id="acp-jobs-filter-pills">
+          <button type="button" class="acp-job-filter-pill active" data-filter="alle" onclick="acpSetJobFilter('alle')">🏢 Alle Inserate (<span id="count-jobs-all">0</span>)</button>
+          <button type="button" class="acp-job-filter-pill" data-filter="hiltbrand" onclick="acpSetJobFilter('hiltbrand')">🏠 Hiltbrand Gebäudehüllen (<span id="count-jobs-hiltbrand">0</span>)</button>
+          <button type="button" class="acp-job-filter-pill" data-filter="zurbuchen" onclick="acpSetJobFilter('zurbuchen')">🌲 Zurbuchen Holzbau (<span id="count-jobs-zurbuchen">0</span>)</button>
+          <button type="button" class="acp-job-filter-pill" data-filter="live" onclick="acpSetJobFilter('live')">🟢 Nur Live-Widget (<span id="count-jobs-live">0</span>)</button>
+        </div>
+        <input type="text" id="acp-jobs-search" class="acp-jobs-search-input" placeholder="🔍 Datei oder Stelle suchen..." oninput="acpFilterJobs()">
+      </div>
+
+      <div class="acp-jobs-table-wrap">
+        <table class="acp-jobs-table">
+          <thead>
+            <tr>
+              <th>Stelle &amp; Mandant</th>
+              <th style="width:140px;">Status</th>
+              <th style="width:280px;">Sync-Datei</th>
+              <th style="width:200px; text-align:right;">Aktionen</th>
+            </tr>
+          </thead>
+          <tbody id="acp-directory-tbody">
+            <!-- Dynamisch via JavaScript -->
+          </tbody>
+        </table>
+      </div>
+
+      <div class="acp-code-preview-box">
+        <h5>
+          <span>Aktiver 1-Klick Einbettungscode (<strong id="code-job-label" style="color:#ffffff;">Dachdecker EFZ</strong>)</span>
+          <button type="button" class="acp-btn-code" style="padding:4px 10px; font-size:12px;" onclick="acpCopyActiveCode()">Code kopieren</button>
+        </h5>
+        <pre class="acp-code-pre" id="active-widget-snippet"></pre>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ======================================================= -->
+<!-- SCHWEBENDE ENTWURF- & RELEASE-PILLE                     -->
+<!-- ======================================================= -->
+<div id="acp-draft-widget">
+  <div class="acp-pill-trigger" onclick="acpToggleMenu()" title="Klicken für Entwurfs-Menü & Scharfstellen">
+    <span class="acp-pulse-dot"></span>
+    <span class="acp-pill-label">Entwurf</span>
+    <span class="acp-pill-icon">⚙️</span>
+  </div>
+
+  <div id="acp-draft-panel" class="acp-draft-panel">
+    <div class="acp-panel-header">
+      <h4><span>🟡</span> Entwurfs-Modus</h4>
+      <button type="button" class="acp-close-btn" onclick="acpToggleMenu()" title="Schliessen">✕</button>
+    </div>
+
+    <div class="acp-panel-row">
+      <span>Klick-Inspektor:</span>
+      <button type="button" id="acp-btn-inspector" class="acp-toggle-btn" onclick="acpToggleInspector()">AUS</button>
+    </div>
+    
+    <p class="acp-panel-desc">
+      Wenn <strong>AN</strong>: Klicke auf ein Bild oder einen Text im Widget, um den fertigen Befehl für ChatGPT zu kopieren.
+    </p>
+
+    <div class="acp-audit-badge">
+      <span>🛡️</span>
+      <span>Airbag-Status: <strong>100% bestanden</strong></span>
+    </div>
+
+    <div style="font-size: 11.5px; line-height: 1.45; color: #cbd5e1; background: rgba(255,255,255,0.05); padding: 9px 12px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.08); margin: 10px 0 12px 0;">
+      🔒 <strong>2-Stufen-Sicherheit:</strong><br>
+      Deine Datei-Änderungen sind sofort hier als <strong>Entwurf</strong> sichtbar. Erst ein Klick auf den Button unten schaltet die Version live auf die echte Firmen-Webseite.
+    </div>
+
+    <button type="button" id="acp-btn-publish" class="acp-publish-btn" onclick="acpPublishLive()">
+      <span>🚀 Jetzt scharfstellen</span>
+    </button>
+  </div>
+</div>
+
+<!-- ======================================================= -->
+<!-- MODAL: SO FUNKTIONIERT'S (KURZE ANLEITUNG)              -->
+<!-- ======================================================= -->
+<div id="acp-help-modal" class="acp-modal-backdrop" onclick="if(event.target===this)acpToggleHelpModal()">
+  <div class="acp-modal" >
+    <div class="acp-modal-head">
+      <h3><span>💡</span> So funktioniert dein Karriere-Cockpit</h3>
+      <button type="button" class="acp-modal-close" onclick="acpToggleHelpModal()" title="Schliessen">✕</button>
+    </div>
+    <div class="acp-modal-body" style="padding: 24px; color: #cbd5e1; font-size: 14px; line-height: 1.6;">
+      
+      <div style="display: flex; gap: 16px; margin-bottom: 14px;">
+        <div style="background: #3b82f6; color: #fff; width: 34px; height: 34px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 15px; flex-shrink: 0;">1</div>
+        <div>
+          <h4 style="margin: 0 0 4px 0; color: #fff; font-size: 15.5px;">Text oder Bild mit ChatGPT anpassen</h4>
+          <p style="margin: 0; color: #94a3b8; font-size: 13.5px;">
+            Schalte unten rechts den <strong>Klick-Inspektor</strong> auf <code>AN</code> und klicke auf das Element im Inserat (z. B. Titel, Vorteile, WhatsApp-Button). Der passende Befehl wird automatisch kopiert. Gib ihn an ChatGPT oder passe die HTML-Datei direkt an.
+          </p>
+        </div>
+      </div>
+
+      <!-- Der Zauber-Befehl für ChatGPT / Gemini -->
+      <div style="margin: 0 0 22px 50px; background: rgba(15, 23, 42, 0.7); border: 1px solid rgba(234, 179, 8, 0.35); border-radius: 10px; padding: 12px 14px;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+          <span style="font-size: 11.5px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.5px; color: #facc15; font-family: 'JetBrains Mono', monospace;">
+            🤖 Der Zauber-Befehl für ChatGPT &amp; Gemini
+          </span>
+          <button type="button" class="btn-table-copy" style="padding: 3px 9px; font-size: 11px; background: rgba(234, 179, 8, 0.2); border-color: rgba(234, 179, 8, 0.5); color: #fef08a; cursor: pointer;" onclick="acpCopyAiPrompt(this)">📋 Kopieren</button>
+        </div>
+        <p style="font-size: 12px; color: #f8fafc; line-height: 1.5; margin: 0; font-family: monospace; background: rgba(0,0,0,0.35); padding: 8px 10px; border-radius: 6px; border: 1px solid rgba(255,255,255,0.08);">
+          «Bitte gib mir den Quellcode immer als eine einzige, vollständige und ungekürzte HTML-Datei aus – ausnahmslos von &lt;!DOCTYPE html&gt; bis &lt;/html&gt;. Verwende keine Code-Auslassungen (wie // ... restlicher Code ...), keine Zusammenfassungen und erstelle die Ausgabe direkt als einhängenden Code-Block in deiner Antwort.»
+        </p>
+        <div style="font-size: 11px; color: #94a3b8; margin-top: 6px;">
+          💡 <em>Hänge diesen Satz an jede deiner KI-Anfragen an. So schneidet dir keine KI mehr den Anfang oder das Design ab!</em>
+        </div>
+      </div>
+
+      <div style="display: flex; gap: 16px; margin-bottom: 22px;">
+        <div style="background: #eab308; color: #0f172a; width: 34px; height: 34px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 15px; flex-shrink: 0;">2</div>
+        <div>
+          <h4 style="margin: 0 0 4px 0; color: #fff; font-size: 15.5px;">Im Ordner speichern &amp; Vorschau prüfen (Entwurf)</h4>
+          <p style="margin: 0; color: #94a3b8; font-size: 13.5px;">
+            Speichere die geänderte Datei in deinem Ordner <code>Hiltbrand-Karriere</code> und drücke hier <code>F5</code>. Du siehst deine Änderung <strong>sofort als Entwurf</strong>.<br>
+            <span style="color: #10b981; font-weight: 600;">🛡️ Die echte Firmen-Webseite bleibt zu diesem Zeitpunkt zu 100% unberührt!</span>
+          </p>
+        </div>
+      </div>
+
+      <div style="display: flex; gap: 16px; margin-bottom: 20px;">
+        <div style="background: #10b981; color: #fff; width: 34px; height: 34px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 15px; flex-shrink: 0;">3</div>
+        <div>
+          <h4 style="margin: 0 0 4px 0; color: #fff; font-size: 15.5px;">Mit 1 Klick scharfstellen</h4>
+          <p style="margin: 0; color: #94a3b8; font-size: 13.5px;">
+            Wenn die Vorschau passt, klicke unten rechts im gelben Kreis auf <strong>[ 🚀 Jetzt scharfstellen ]</strong>. Der Airbag prüft die Datei in 0.3s auf Fehler. Wenn alles grün ist, wird die Änderung weltweit auf deine Firmen-Webseite übertragen – live in ca. 15 Sekunden!
+          </p>
+        </div>
+      </div>
+
+      <!-- 4-STUFEN PROZESS-SCHEMA -->
+      <div class="acp-pipeline-card">
+        <div class="acp-pipeline-header">
+          <span class="acp-pipeline-title">⚡ Die 4-Stufen-Kaskade (Vom Ordner zur Live-Webseite)</span>
+          <span style="font-size:10px; color:#10b981; font-family:'JetBrains Mono',monospace; font-weight:700;">● VOLLAUTOMATISCH</span>
+        </div>
+        <div class="acp-pipeline-steps">
+          
+          <div class="acp-step-box">
+            <span class="acp-step-num">STUFE 1</span>
+            <div class="acp-step-content">
+              <div class="acp-step-head">
+                <span class="acp-step-label">💻 Dein Laptop (Lokaler Arbeitsplatz)</span>
+                <span class="acp-step-badge" style="background:rgba(255,255,255,0.1); color:#cbd5e1;">Lokal</span>
+              </div>
+              <p class="acp-step-desc">Du passt die HTML-Datei lokal an (z. B. mit ChatGPT) und prüfst sie hier im Cockpit. Deine echte Firmen-Webseite bleibt zu 100% geschützt.</p>
+            </div>
+          </div>
+
+          <div class="acp-step-arrow">▼ Klick auf [ 🚀 Jetzt scharfstellen ]</div>
+
+          <div class="acp-step-box">
+            <span class="acp-step-num">STUFE 2</span>
+            <div class="acp-step-content">
+              <div class="acp-step-head">
+                <span class="acp-step-label">🛡️ Magnet-XS Cloud (Airbag &amp; Synchronisation)</span>
+                <span class="acp-step-badge" style="background:rgba(234,179,8,0.2); color:#facc15;">Airbag-Prüfung</span>
+              </div>
+              <p class="acp-step-desc">Der Airbag prüft die Datei in 0.3s auf intakte HTML-Tags, WhatsApp-Links und Schweizer Telefonnummern. Verhindert Fehler automatisch.</p>
+            </div>
+          </div>
+
+          <div class="acp-step-arrow">▼ Bei 100% grünem Airbag</div>
+
+          <div class="acp-step-box">
+            <span class="acp-step-num">STUFE 3</span>
+            <div class="acp-step-content">
+              <div class="acp-step-head">
+                <span class="acp-step-label">⚡ Magnet-XS Edge-CDN (embed.magnet-xs.ch)</span>
+                <span class="acp-step-badge" style="background:rgba(59,130,246,0.2); color:#60a5fa;">&lt; 50ms Auslieferung</span>
+              </div>
+              <p class="acp-step-desc">Schweizer Hochgeschwindigkeits-Server (Zürich &amp; Genf) stellen die fertige Datei für das Einbettungs-Widget bereit.</p>
+            </div>
+          </div>
+
+          <div class="acp-step-arrow">▼ Automatisches Widget-Update</div>
+
+          <div class="acp-step-box live-target">
+            <span class="acp-step-num" style="background:#10b981; color:#0f172a;">STUFE 4</span>
+            <div class="acp-step-content">
+              <div class="acp-step-head">
+                <span class="acp-step-label">🌐 Live-Webseite (dachdecker-berneroberland.ch/jobs/)</span>
+                <span class="acp-step-badge" style="background:rgba(16,185,129,0.25); color:#34d399;">🟢 LIVE FÜR BEWERBER</span>
+              </div>
+              <p class="acp-step-desc">Das feste Widget in WordPress zeigt sofort die neue Version an – ohne dass jemand am WordPress-CMS arbeiten muss!</p>
+            </div>
+          </div>
+
+        </div>
+
+        <div style="margin-top:12px; padding:10px 12px; background:rgba(255,255,255,0.04); border-radius:6px; font-size:11.5px; color:#94a3b8; line-height:1.45;">
+          💡 <strong>Warum ist genau eine Datei öffentlich live?</strong><br>
+          In WordPress ist der feste 2-Zeiler Widget-Code eingebettet, der auf eine bestimmte Datei verlinkt (aktuell: <code>Hiltbrand_Dachdecker_Pragmatisch.html</code>). Alle anderen Dateien im Cockpit sind <strong>sichere Entwürfe</strong>. Sie werden erst live geschaltet, wenn der Webmaster das Widget auf die neue Stelle einstellt.
+        </div>
+      </div>
+
+      <div style="padding: 14px 18px; background: rgba(59, 130, 246, 0.12); border: 1px solid rgba(59, 130, 246, 0.25); border-radius: 8px;">
+        <div style="font-weight: 700; color: #60a5fa; margin-bottom: 3px; font-size: 13px;">📍 Wo bin ich gerade?</div>
+        <div style="font-size: 12.5px; color: #cbd5e1;">
+          Du bist hier in deinem <strong>Lokalen Cockpit</strong> (deine persönliche Werkstatt auf deinem Computer). Erst mit Klick auf <em>«Jetzt scharfstellen»</em> wird es auf <a href="https://embed.magnet-xs.ch/preview-hiltbrand/" target="_blank" style="color: #38bdf8; text-decoration: underline;">dachdecker-berneroberland.ch/jobs/</a> sichtbar.
+        </div>
+        <div style="margin-top: 10px; padding-top: 8px; border-top: 1px solid rgba(255,255,255,0.08); display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px; font-size: 12px;">
+          <span>🌐 <strong>Online-Cockpit:</strong> <a href="https://embed.magnet-xs.ch/preview-hiltbrand/cockpit" target="_blank" style="color: #38bdf8; font-family: 'JetBrains Mono', monospace; text-decoration: underline;">embed.magnet-xs.ch/hiltbrand/cockpit ↗</a></span>
+          <button type="button" class="btn-table-copy" style="padding: 2px 8px; font-size: 11px;" onclick="acpCopyOnlineUrl(this)">📋 Kopieren</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- ======================================================= -->
+<!-- MODAL: LIVE-AKTIVITÄTS-LOGBUCH & AUDIT-TRAIL           -->
+<!-- ======================================================= -->
+<div id="acp-log-modal" class="acp-modal-backdrop" onclick="if(event.target===this)acpToggleLogModal()">
+  <div class="acp-modal" style="max-width: 860px; width: 92%;">
+    <div class="acp-modal-head">
+      <div>
+        <div class="acp-modal-kicker">// AUDIT-TRAIL ⬥ ECHTZEIT-LOGGING</div>
+        <h3 class="acp-modal-heading">📋 Live-Aktivitäts-Protokoll</h3>
+      </div>
+      <div style="display:flex; align-items:center; gap:8px;">
+        <button type="button" class="acp-btn-ghost" onclick="acpClearClientLog()" style="font-size:12px; padding:4px 10px; color:#94a3b8; border:1px solid #334155; border-radius:4px; background:transparent; cursor:pointer;">🗑️ Log leeren</button>
+        <button type="button" class="acp-modal-close" onclick="acpToggleLogModal()" title="Schliessen (ESC)">✕ Schliessen (ESC)</button>
+      </div>
+    </div>
+    <div class="acp-modal-body" style="padding: 16px;">
+      <div style="margin-bottom: 12px; display:flex; justify-content:space-between; align-items:center; font-size:12px; color:#94a3b8;">
+        <span>Erfasst alle Klicks, Bildwechsel, API-Aufrufe und Server-Antworten in Echtzeit:</span>
+        <span id="acp-log-status" style="color:#22c55e; font-weight:600;">● Live verbunden</span>
+      </div>
+      <div id="acp-log-console" style="background:#090d16; border:1px solid #1e293b; border-radius:6px; padding:12px; font-family:'JetBrains Mono',monospace; font-size:12px; line-height:1.6; max-height:420px; overflow-y:auto; color:#e2e8f0;">
+        <div style="color:#64748b; font-style:italic;">Warte auf Aktionen...</div>
+      </div>
+      <div style="margin-top: 12px; display:flex; justify-content:space-between; align-items:center;">
+        <span style="font-size:11px; color:#64748b;">Server-Logbuch: <code>COCKPIT_LOG.md</code></span>
+        <button type="button" class="btn btn-secondary" onclick="acpFetchServerLog()" style="font-size:12px; padding:6px 12px; cursor:pointer; background:#1e293b; color:#f8fafc; border:1px solid #334155; border-radius:4px;">🔄 Server-Logbuch laden</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="acp-toast"></div>
+
+<!-- ======================================================= -->
+<!-- JAVASCRIPT: STEUERUNG, WECHSLER & AUTO-RESIZE           -->
+<!-- ======================================================= -->
+<script>
+
+// =======================================================
+// LIVE-AKTIVITÄTS-LOGGING & AUDIT-TRAIL
+// =======================================================
+var acpClientLogs = [];
+function acpLog(level, message, details) {
+  var now = new Date();
+  var timeStr = now.toTimeString().split(' ')[0];
+  var entry = {
+    time: timeStr,
+    level: level || 'info',
+    message: message || '',
+    details: details || ''
+  };
+  acpClientLogs.push(entry);
+
+  var consoleEl = document.getElementById("acp-log-console");
+  if (consoleEl) {
+    if (acpClientLogs.length === 1 && consoleEl.innerText.indexOf("Warte auf Aktionen") !== -1) {
+      consoleEl.innerHTML = "";
+    }
+    var color = '#38bdf8';
+    var tag = 'INFO';
+    if (level === 'swap') { color = '#facc15'; tag = 'SWAP'; }
+    if (level === 'success') { color = '#22c55e'; tag = 'SUCCESS'; }
+    if (level === 'error') { color = '#ef4444'; tag = 'ERROR'; }
+    if (level === 'server') { color = '#a855f7'; tag = 'SERVER'; }
+
+    var item = document.createElement("div");
+    item.style.marginBottom = "6px";
+    item.style.wordBreak = "break-all";
+    item.innerHTML = '<span style="color:#64748b;">[' + timeStr + ']</span> ' +
+      '<span style="color:' + color + '; font-weight:700;">[' + tag + ']</span> ' +
+      '<span>' + message + '</span>' +
+      (details ? '<div style="color:#94a3b8; font-size:11px; margin-left:14px; margin-top:2px; font-family:monospace;">' + details + '</div>' : '');
+    consoleEl.appendChild(item);
+    consoleEl.scrollTop = consoleEl.scrollHeight;
+  }
+
+  var countBadge = document.getElementById("acp-log-count");
+  if (countBadge) {
+    countBadge.style.display = "inline-block";
+    countBadge.textContent = acpClientLogs.length;
+    if (level === 'error') {
+      countBadge.style.background = '#ef4444';
+    }
+  }
+
+  if (level === 'error') {
+    console.error('[WebPilot Studio]', timeStr, message, details || '');
+  } else {
+    console.log('[WebPilot Studio]', timeStr, message, details || '');
+  }
+}
+
+function acpToggleLogModal() {
+  var modal = document.getElementById("acp-log-modal");
+  if (!modal) return;
+  modal.classList.toggle("is-open");
+  acpUpdateBodyModalClass();
+}
+
+function acpClearClientLog() {
+  acpClientLogs = [];
+  var consoleEl = document.getElementById("acp-log-console");
+  if (consoleEl) consoleEl.innerHTML = '<div style="color:#64748b; font-style:italic;">Protokoll geleert.</div>';
+  var countBadge = document.getElementById("acp-log-count");
+  if (countBadge) {
+    countBadge.textContent = "0";
+    countBadge.style.background = "#d97706";
+  }
+}
+
+function acpFetchServerLog() {
+  var currentJob = getActiveJob();
+  var clientSlug = currentJob.folder || 'preview-hiltbrand';
+  acpLog('info', '📡 Frage Server-Logbuch ab...', 'Mandant: ' + clientSlug);
+  fetch('/api/publish-career/logs?client=' + encodeURIComponent(clientSlug))
+    .then(function(res) { return res.json(); })
+    .then(function(data) {
+      if (data && data.ok) {
+        acpLog('server', '📋 Server-Log geladen (' + data.client + '):', '<pre style="margin:4px 0; white-space:pre-wrap; max-height:200px; overflow-y:auto; background:rgba(0,0,0,0.3); padding:6px; border-radius:4px;">' + (data.log || 'Keine Daten') + '</pre>');
+      } else {
+        acpLog('error', 'Konnte Server-Log nicht laden: ' + ((data && data.error) || 'Unbekannt'));
+      }
+    })
+    .catch(function(err) {
+      acpLog('error', 'Netzwerkfehler beim Laden des Server-Logs: ' + err.message);
+    });
+}
+
+// =======================================================
+// MAGNET-XS COCKPIT FRAMEWORK v3.3.0 (SWISS ARCHITECTURAL CANVAS)
+// Build: 2026-10-03 15:30 CEST
+// =======================================================
+var ACP_COCKPIT_VERSION = "v3.4.0";
+var ACP_COCKPIT_BUILD = "2026-10-08 07:54";
+
+function sanitizeStellen(list) {
+  if (!Array.isArray(list)) return [];
+  return list.filter(function(j) {
+    if (!j) return false;
+    var f = (j.datei || "").toLowerCase();
+    var id = (j.id || "").toLowerCase();
+    var t = (j.titel || "").toLowerCase();
+    return f.indexOf("cockpit") === -1 && id.indexOf("cockpit") === -1 && t.indexOf("cockpit") === -1;
+  });
+}
+
+// Manifest-Daten mit robusten Fallbacks
+var ACP_BILDER = [{"id": "images_benefits_drohne_jpg", "filename": "benefits_drohne.jpg", "rel_path": "images/benefits_drohne.jpg", "folder": "preview-hiltbrand", "category": "Baustelle & Benefit", "dimensions": "1400x1050", "size_kb": 482.5, "mtime": 1791122920, "mtime_str": "04.10.2026 14:08", "cdn_url": "https://embed.magnet-xs.ch/preview-hiltbrand/images/benefits_drohne.jpg", "is_used": false, "used_in": []}, {"id": "images_danke_png", "filename": "danke.png", "rel_path": "images/danke.png", "folder": "preview-hiltbrand", "category": "Baustelle & Benefit", "dimensions": "1456x816", "size_kb": 1490.5, "mtime": 1791122920, "mtime_str": "04.10.2026 14:08", "cdn_url": "https://embed.magnet-xs.ch/preview-hiltbrand/images/danke.png", "is_used": false, "used_in": []}, {"id": "images_hero_jpg", "filename": "hero.jpg", "rel_path": "images/hero.jpg", "folder": "preview-hiltbrand", "category": "Hero & Header", "dimensions": "1400x933", "size_kb": 160.7, "mtime": 1791122920, "mtime_str": "04.10.2026 14:08", "cdn_url": "https://embed.magnet-xs.ch/preview-hiltbrand/images/hero.jpg", "is_used": true, "used_in": [{"datei": "index.html", "slot": "image", "is_hero": true}]}, {"id": "images_logo_png", "filename": "logo.png", "rel_path": "images/logo.png", "folder": "preview-hiltbrand", "category": "Logo & Icon", "dimensions": "260x150", "size_kb": 8.2, "mtime": 1791122920, "mtime_str": "04.10.2026 14:08", "cdn_url": "https://embed.magnet-xs.ch/preview-hiltbrand/images/logo.png", "is_used": true, "used_in": [{"datei": "onboarding.html", "slot": "image", "is_hero": false}, {"datei": "kontakt.html", "slot": "image", "is_hero": false}, {"datei": "index.html", "slot": "image", "is_hero": false}, {"datei": "karriere.html", "slot": "image", "is_hero": false}, {"datei": "team.html", "slot": "image", "is_hero": false}]}, {"id": "images_michael_jpg", "filename": "michael.jpg", "rel_path": "images/michael.jpg", "folder": "preview-hiltbrand", "category": "Team & Porträt", "dimensions": "834x788", "size_kb": 186.7, "mtime": 1791122920, "mtime_str": "04.10.2026 14:08", "cdn_url": "https://embed.magnet-xs.ch/preview-hiltbrand/images/michael.jpg", "is_used": true, "used_in": [{"datei": "onboarding.html", "slot": "image", "is_hero": false}, {"datei": "team.html", "slot": "image", "is_hero": false}]}, {"id": "images_q1_benefit_jpg", "filename": "q1_benefit.jpg", "rel_path": "images/q1_benefit.jpg", "folder": "preview-hiltbrand", "category": "Baustelle & Benefit", "dimensions": "1400x1050", "size_kb": 295.8, "mtime": 1791122920, "mtime_str": "04.10.2026 14:08", "cdn_url": "https://embed.magnet-xs.ch/preview-hiltbrand/images/q1_benefit.jpg", "is_used": false, "used_in": []}, {"id": "images_q1_bewaehrtes_handwerk_png", "filename": "q1_bewaehrtes_handwerk.png", "rel_path": "images/q1_bewaehrtes_handwerk.png", "folder": "preview-hiltbrand", "category": "Baustelle & Benefit", "dimensions": "200x160", "size_kb": 37.6, "mtime": 1791122920, "mtime_str": "04.10.2026 14:08", "cdn_url": "https://embed.magnet-xs.ch/preview-hiltbrand/images/q1_bewaehrtes_handwerk.png", "is_used": false, "used_in": []}, {"id": "images_q1_effiziente_maschinen_png", "filename": "q1_effiziente_maschinen.png", "rel_path": "images/q1_effiziente_maschinen.png", "folder": "preview-hiltbrand", "category": "Baustelle & Benefit", "dimensions": "200x160", "size_kb": 38.0, "mtime": 1791122920, "mtime_str": "04.10.2026 14:08", "cdn_url": "https://embed.magnet-xs.ch/preview-hiltbrand/images/q1_effiziente_maschinen.png", "is_used": false, "used_in": []}, {"id": "images_q1_moderne_technik_png", "filename": "q1_moderne_technik.png", "rel_path": "images/q1_moderne_technik.png", "folder": "preview-hiltbrand", "category": "Baustelle & Benefit", "dimensions": "200x160", "size_kb": 37.8, "mtime": 1791122920, "mtime_str": "04.10.2026 14:08", "cdn_url": "https://embed.magnet-xs.ch/preview-hiltbrand/images/q1_moderne_technik.png", "is_used": false, "used_in": []}, {"id": "images_q1_sicherer_arbeitgeber_png", "filename": "q1_sicherer_arbeitgeber.png", "rel_path": "images/q1_sicherer_arbeitgeber.png", "folder": "preview-hiltbrand", "category": "Baustelle & Benefit", "dimensions": "200x160", "size_kb": 37.8, "mtime": 1791122920, "mtime_str": "04.10.2026 14:08", "cdn_url": "https://embed.magnet-xs.ch/preview-hiltbrand/images/q1_sicherer_arbeitgeber.png", "is_used": false, "used_in": []}, {"id": "images_q2_baustellen_png", "filename": "q2_baustellen.png", "rel_path": "images/q2_baustellen.png", "folder": "preview-hiltbrand", "category": "Baustelle & Benefit", "dimensions": "200x160", "size_kb": 39.3, "mtime": 1791122920, "mtime_str": "04.10.2026 14:08", "cdn_url": "https://embed.magnet-xs.ch/preview-hiltbrand/images/q2_baustellen.png", "is_used": false, "used_in": []}, {"id": "images_q2_benefit_jpg", "filename": "q2_benefit.jpg", "rel_path": "images/q2_benefit.jpg", "folder": "preview-hiltbrand", "category": "Baustelle & Benefit", "dimensions": "1400x1050", "size_kb": 325.7, "mtime": 1791122920, "mtime_str": "04.10.2026 14:08", "cdn_url": "https://embed.magnet-xs.ch/preview-hiltbrand/images/q2_benefit.jpg", "is_used": false, "used_in": []}, {"id": "images_q2_details_png", "filename": "q2_details.png", "rel_path": "images/q2_details.png", "folder": "preview-hiltbrand", "category": "Baustelle & Benefit", "dimensions": "200x160", "size_kb": 38.5, "mtime": 1791122920, "mtime_str": "04.10.2026 14:08", "cdn_url": "https://embed.magnet-xs.ch/preview-hiltbrand/images/q2_details.png", "is_used": false, "used_in": []}, {"id": "images_q2_ganzheitlich_png", "filename": "q2_ganzheitlich.png", "rel_path": "images/q2_ganzheitlich.png", "folder": "preview-hiltbrand", "category": "Baustelle & Benefit", "dimensions": "200x160", "size_kb": 38.8, "mtime": 1791122920, "mtime_str": "04.10.2026 14:08", "cdn_url": "https://embed.magnet-xs.ch/preview-hiltbrand/images/q2_ganzheitlich.png", "is_used": false, "used_in": []}, {"id": "images_q2_kundenkontakt_png", "filename": "q2_kundenkontakt.png", "rel_path": "images/q2_kundenkontakt.png", "folder": "preview-hiltbrand", "category": "Baustelle & Benefit", "dimensions": "200x160", "size_kb": 38.6, "mtime": 1791122920, "mtime_str": "04.10.2026 14:08", "cdn_url": "https://embed.magnet-xs.ch/preview-hiltbrand/images/q2_kundenkontakt.png", "is_used": false, "used_in": []}, {"id": "images_q3_ansagen_png", "filename": "q3_ansagen.png", "rel_path": "images/q3_ansagen.png", "folder": "preview-hiltbrand", "category": "Baustelle & Benefit", "dimensions": "200x160", "size_kb": 47.1, "mtime": 1791122920, "mtime_str": "04.10.2026 14:08", "cdn_url": "https://embed.magnet-xs.ch/preview-hiltbrand/images/q3_ansagen.png", "is_used": false, "used_in": []}, {"id": "images_q3_benefit_png", "filename": "q3_benefit.png", "rel_path": "images/q3_benefit.png", "folder": "preview-hiltbrand", "category": "Baustelle & Benefit", "dimensions": "1456x816", "size_kb": 1296.6, "mtime": 1791122920, "mtime_str": "04.10.2026 14:08", "cdn_url": "https://embed.magnet-xs.ch/preview-hiltbrand/images/q3_benefit.png", "is_used": false, "used_in": []}, {"id": "images_q3_ehrgeiz_png", "filename": "q3_ehrgeiz.png", "rel_path": "images/q3_ehrgeiz.png", "folder": "preview-hiltbrand", "category": "Baustelle & Benefit", "dimensions": "200x160", "size_kb": 47.7, "mtime": 1791122920, "mtime_str": "04.10.2026 14:08", "cdn_url": "https://embed.magnet-xs.ch/preview-hiltbrand/images/q3_ehrgeiz.png", "is_used": false, "used_in": []}, {"id": "images_q3_freiraum_png", "filename": "q3_freiraum.png", "rel_path": "images/q3_freiraum.png", "folder": "preview-hiltbrand", "category": "Baustelle & Benefit", "dimensions": "200x160", "size_kb": 47.2, "mtime": 1791122920, "mtime_str": "04.10.2026 14:08", "cdn_url": "https://embed.magnet-xs.ch/preview-hiltbrand/images/q3_freiraum.png", "is_used": false, "used_in": []}, {"id": "images_q3_kameradschaft_png", "filename": "q3_kameradschaft.png", "rel_path": "images/q3_kameradschaft.png", "folder": "preview-hiltbrand", "category": "Baustelle & Benefit", "dimensions": "200x160", "size_kb": 47.2, "mtime": 1791122920, "mtime_str": "04.10.2026 14:08", "cdn_url": "https://embed.magnet-xs.ch/preview-hiltbrand/images/q3_kameradschaft.png", "is_used": false, "used_in": []}, {"id": "images_stefan_jpg", "filename": "stefan.jpg", "rel_path": "images/stefan.jpg", "folder": "preview-hiltbrand", "category": "Team & Porträt", "dimensions": "1400x1337", "size_kb": 204.2, "mtime": 1791122920, "mtime_str": "04.10.2026 14:08", "cdn_url": "https://embed.magnet-xs.ch/preview-hiltbrand/images/stefan.jpg", "is_used": true, "used_in": [{"datei": "onboarding.html", "slot": "image", "is_hero": false}, {"datei": "team.html", "slot": "image", "is_hero": false}]}, {"id": "images_team_alt_jpg", "filename": "team_alt.jpg", "rel_path": "images/team_alt.jpg", "folder": "preview-hiltbrand", "category": "Team & Porträt", "dimensions": "1400x933", "size_kb": 259.8, "mtime": 1791122920, "mtime_str": "04.10.2026 14:08", "cdn_url": "https://embed.magnet-xs.ch/preview-hiltbrand/images/team_alt.jpg", "is_used": true, "used_in": [{"datei": "onboarding.html", "slot": "image", "is_hero": false}, {"datei": "team.html", "slot": "image", "is_hero": false}]}, {"id": "images_vorstellung_jpg", "filename": "vorstellung.jpg", "rel_path": "images/vorstellung.jpg", "folder": "preview-hiltbrand", "category": "Baustelle & Benefit", "dimensions": "1400x933", "size_kb": 160.7, "mtime": 1791122920, "mtime_str": "04.10.2026 14:08", "cdn_url": "https://embed.magnet-xs.ch/preview-hiltbrand/images/vorstellung.jpg", "is_used": true, "used_in": [{"datei": "onboarding.html", "slot": "image", "is_hero": false}, {"datei": "team.html", "slot": "image", "is_hero": false}]}];
+var ACP_STELLEN = sanitizeStellen([{"id": "index", "titel": "Hiltbrand Gebäudehüllen AG — Steildach, Flachdach & Fassade", "firma": "Preview Hiltbrand", "icon": "🏗️", "datei": "index.html", "folder": "preview-hiltbrand", "edge_url": "https://embed.magnet-xs.ch/preview-hiltbrand/index.html", "host_webseite": "https://preview-hiltbrand.ch", "host_label": "preview-hiltbrand.ch", "farb_akzent": "#d97706", "widget_code": "<iframe src=\"https://embed.magnet-xs.ch/preview-hiltbrand/index.html?embed=true\" style=\"width:100%; border:none; min-height:850px;\" scrolling=\"no\" id=\"acp-job-widget\"></iframe>\n<script>window.addEventListener(\"message\",function(e){if(e.data&&e.data.type===\"acp-embed-resize\"){var el=document.getElementById(\"acp-job-widget\");if(el)el.style.height=e.data.height+\"px\";}});<\\/script>", "is_live": true, "live_url": "https://embed.magnet-xs.ch/preview-hiltbrand/index.html", "status": "Live auf Edge CDN", "status_badge": "🟢 LIVE"}, {"id": "karriere", "titel": "Karriere & Jobs — Hiltbrand Gebäudehüllen AG", "firma": "Preview Hiltbrand", "icon": "🏗️", "datei": "karriere.html", "folder": "preview-hiltbrand", "edge_url": "https://embed.magnet-xs.ch/preview-hiltbrand/karriere.html", "host_webseite": "https://preview-hiltbrand.ch", "host_label": "preview-hiltbrand.ch", "farb_akzent": "#d97706", "widget_code": "<iframe src=\"https://embed.magnet-xs.ch/preview-hiltbrand/karriere.html?embed=true\" style=\"width:100%; border:none; min-height:850px;\" scrolling=\"no\" id=\"acp-job-widget\"></iframe>\n<script>window.addEventListener(\"message\",function(e){if(e.data&&e.data.type===\"acp-embed-resize\"){var el=document.getElementById(\"acp-job-widget\");if(el)el.style.height=e.data.height+\"px\";}});<\\/script>", "is_live": true, "live_url": "https://embed.magnet-xs.ch/preview-hiltbrand/karriere.html", "status": "Live auf Edge CDN", "status_badge": "🟢 LIVE"}, {"id": "kontakt", "titel": "Kontakt & 24h Sturm-Pikett — Hiltbrand Gebäudehüllen AG", "firma": "Preview Hiltbrand", "icon": "🏗️", "datei": "kontakt.html", "folder": "preview-hiltbrand", "edge_url": "https://embed.magnet-xs.ch/preview-hiltbrand/kontakt.html", "host_webseite": "https://preview-hiltbrand.ch", "host_label": "preview-hiltbrand.ch", "farb_akzent": "#d97706", "widget_code": "<iframe src=\"https://embed.magnet-xs.ch/preview-hiltbrand/kontakt.html?embed=true\" style=\"width:100%; border:none; min-height:850px;\" scrolling=\"no\" id=\"acp-job-widget\"></iframe>\n<script>window.addEventListener(\"message\",function(e){if(e.data&&e.data.type===\"acp-embed-resize\"){var el=document.getElementById(\"acp-job-widget\");if(el)el.style.height=e.data.height+\"px\";}});<\\/script>", "is_live": true, "live_url": "https://embed.magnet-xs.ch/preview-hiltbrand/kontakt.html", "status": "Live auf Edge CDN", "status_badge": "🟢 LIVE"}, {"id": "onboarding", "titel": "WebPilot Onboarding Cockpit — Stammdaten & Gap-Closing", "firma": "Preview Hiltbrand", "icon": "🏗️", "datei": "onboarding.html", "folder": "preview-hiltbrand", "edge_url": "https://embed.magnet-xs.ch/preview-hiltbrand/onboarding.html", "host_webseite": "https://preview-hiltbrand.ch", "host_label": "preview-hiltbrand.ch", "farb_akzent": "#d97706", "widget_code": "<iframe src=\"https://embed.magnet-xs.ch/preview-hiltbrand/onboarding.html?embed=true\" style=\"width:100%; border:none; min-height:850px;\" scrolling=\"no\" id=\"acp-job-widget\"></iframe>\n<script>window.addEventListener(\"message\",function(e){if(e.data&&e.data.type===\"acp-embed-resize\"){var el=document.getElementById(\"acp-job-widget\");if(el)el.style.height=e.data.height+\"px\";}});<\\/script>", "is_live": true, "live_url": "https://embed.magnet-xs.ch/preview-hiltbrand/onboarding.html", "status": "Live auf Edge CDN", "status_badge": "🟢 LIVE"}, {"id": "team", "titel": "Über uns & Team — Hiltbrand Gebäudehüllen AG", "firma": "Preview Hiltbrand", "icon": "🏗️", "datei": "team.html", "folder": "preview-hiltbrand", "edge_url": "https://embed.magnet-xs.ch/preview-hiltbrand/team.html", "host_webseite": "https://preview-hiltbrand.ch", "host_label": "preview-hiltbrand.ch", "farb_akzent": "#d97706", "widget_code": "<iframe src=\"https://embed.magnet-xs.ch/preview-hiltbrand/team.html?embed=true\" style=\"width:100%; border:none; min-height:850px;\" scrolling=\"no\" id=\"acp-job-widget\"></iframe>\n<script>window.addEventListener(\"message\",function(e){if(e.data&&e.data.type===\"acp-embed-resize\"){var el=document.getElementById(\"acp-job-widget\");if(el)el.style.height=e.data.height+\"px\";}});<\\/script>", "is_live": true, "live_url": "https://embed.magnet-xs.ch/preview-hiltbrand/team.html", "status": "Live auf Edge CDN", "status_badge": "🟢 LIVE"}]);
+
+// Globaler State
+var activeJobId = "";
+var acpMenuOpen = false;
+var acpInspectorActive = false;
+var acpImagesModalOpen = false;
+var acpDirectoryModalOpen = false;
+var acpHelpModalOpen = false;
+var acpSelectedSwapImage = null; // { rel_path, filename }
+var acpTargetSwapSlot = null;    // { slot, isImg, isHero, currentSrc, datei }
+var acpCurrentImageFilter = 'alle';
+var acpCurrentJobFilter = 'alle';
+var acpCurrentImageSort = 'newest';
+var acpJustUploadedRelPath = '';
+var acpLocalBlobPreviews = {}; // Map: rel_path / filename -> blob: URL (0ms Sofort-Preview aus Browser-RAM)
+
+// Smart Thumbnail Error Handler: Falls Cloudflare Pages Edge das frisch hochgeladene Bild noch deployt (404),
+// wird automatisch bis zu 6x alle 2.5s nachgefragt, anstatt sofort permanent 'Bild fehlt' anzuzeigen.
+function acpHandleThumbError(imgEl, originalSrc) {
+  if (!imgEl) return;
+  var retries = parseInt(imgEl.getAttribute("data-acp-retries") || "0", 10);
+  if (retries < 6) {
+    imgEl.setAttribute("data-acp-retries", (retries + 1).toString());
+    imgEl.style.opacity = "0.35";
+    imgEl.style.filter = "grayscale(80%)";
+    imgEl.style.transition = "opacity 0.3s ease, filter 0.3s ease";
+    setTimeout(function() {
+      if (!imgEl) return;
+      var clean = (originalSrc || imgEl.getAttribute("data-original-src") || imgEl.src || "").split("?")[0];
+      if (!clean) return;
+      imgEl.src = clean + "?cf_t=" + Date.now();
+      imgEl.onload = function() {
+        imgEl.style.opacity = "1";
+        imgEl.style.filter = "none";
+        imgEl.removeAttribute("data-acp-retries");
+      };
+    }, 2500);
+    return;
+  }
+  // Nach 6 Fehlversuchen (~15s Edge-Deployment Timeout)
+  imgEl.style.opacity = "1";
+  imgEl.style.filter = "none";
+  imgEl.src = 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100"><rect fill="%231e293b" width="100" height="100"/><text fill="%2364748b" x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-size="12">Bild fehlt</text></svg>';
+}
+
+// Body Scroll-Lock Manager (Verhindert doppelte Scrollbalken im Vollbildmodus)
+function acpUpdateBodyModalClass() {
+  var isAnyOpen = false;
+  var modals = document.querySelectorAll(".acp-modal-backdrop");
+  for (var i = 0; i < modals.length; i++) {
+    if (modals[i].classList.contains("is-open")) {
+      isAnyOpen = true;
+      break;
+    }
+  }
+  if (isAnyOpen) {
+    document.body.classList.add("acp-modal-open");
+  } else {
+    document.body.classList.remove("acp-modal-open");
+  }
+}
+
+// ESC Taste schliesst Tausch-Modus und alle Modals
+document.addEventListener("keydown", function(e) {
+  if (e.key === "Escape") {
+    if (acpSelectedSwapImage) {
+      acpCancelSwap();
+      return;
+    }
+    var im = document.getElementById("acp-images-modal");
+    if (im && im.classList.contains("is-open")) acpToggleImagesModal();
+    var dm = document.getElementById("acp-directory-modal");
+    if (dm && dm.classList.contains("is-open")) acpToggleDirectoryModal();
+    var hm = document.getElementById("acp-help-modal");
+    if (hm && hm.classList.contains("is-open")) acpToggleHelpModal();
+    var lm = document.getElementById("acp-log-modal");
+    if (lm && lm.classList.contains("is-open")) acpToggleLogModal();
+  }
+});
+
+// -------------------------------------------------------
+// [1] STELLEN-VERWALTUNG & JOB PICKER
+// -------------------------------------------------------
+function getActiveJob() {
+  for (var i = 0; i < ACP_STELLEN.length; i++) {
+    if (ACP_STELLEN[i].id === activeJobId) return ACP_STELLEN[i];
+  }
+  return ACP_STELLEN[0] || {};
+}
+
+function updateLiveStatusBadge(job) {
+  var wrap = document.getElementById("acp-live-badge-wrap");
+  if (!wrap) return;
+  if (!job) { wrap.innerHTML = ""; return; }
+  
+  if (job.is_live) {
+    var url = job.live_url || "https://dachdecker-berneroberland.ch/jobs/";
+    var domain = (job.host_label || "dachdecker-berneroberland.ch");
+    wrap.innerHTML = '<a href="' + url + '" target="_blank" class="acp-live-status-pill is-live" title="Diese Stelle ist öffentlich eingebettet. Klicken, um live auf ' + domain + ' anzuschauen!">' +
+      '<span class="acp-live-pulse-dot"></span>' +
+      '<span>LIVE · ' + domain + '</span>' +
+      '<span class="acp-pill-ext">↗</span>' +
+    '</a>';
+  } else if (job.id && job.id.indexOf("zurbuchen") !== -1) {
+    wrap.innerHTML = '<span class="acp-live-status-pill is-ready" title="Bereit zur Einbettung auf zurbuchen-holzbau.ch">' +
+      '<span class="acp-draft-dot is-ready"></span>' +
+      '<span>BEREIT · Zurbuchen Holzbau</span>' +
+    '</span>';
+  } else {
+    wrap.innerHTML = '<span class="acp-live-status-pill is-draft" title="Sicherer lokaler Entwurf">' +
+      '<span class="acp-draft-dot"></span>' +
+      '<span>ENTWURF · Vorlage</span>' +
+    '</span>';
+  }
+}
+
+function acpToggleJobDropdown() {
+  var dd = document.getElementById("acp-job-dropdown");
+  var wrap = document.getElementById("acp-job-picker-wrap");
+  if (!dd) return;
+  var isOpen = dd.classList.contains("is-open");
+  if (isOpen) {
+    dd.classList.remove("is-open");
+    if (wrap) wrap.classList.remove("is-open");
+  } else {
+    dd.classList.add("is-open");
+    if (wrap) wrap.classList.add("is-open");
+  }
+}
+
+document.addEventListener("click", function(e) {
+  var wrap = document.getElementById("acp-job-picker-wrap");
+  if (wrap && !wrap.contains(e.target)) {
+    var dd = document.getElementById("acp-job-dropdown");
+    if (dd) dd.classList.remove("is-open");
+    wrap.classList.remove("is-open");
+  }
+});
+
+function renderJobPicker() {
+  var list = document.getElementById("acp-dropdown-list");
+  var countEl = document.getElementById("dropdown-count");
+  if (countEl) countEl.textContent = ACP_STELLEN.length;
+  if (!list) return;
+
+  var html = "";
+  for (var i = 0; i < ACP_STELLEN.length; i++) {
+    var j = ACP_STELLEN[i];
+    var isActive = (j.id === activeJobId);
+    var activeClass = isActive ? "active" : "";
+    
+    var badgeHtml = "";
+    if (j.is_live) {
+      badgeHtml = '<span class="acp-badge-mini live">🟢 LIVE</span>';
+    } else if (j.id && j.id.indexOf("zurbuchen") !== -1) {
+      badgeHtml = '<span class="acp-badge-mini ready">🟡 BEREIT</span>';
+    } else {
+      badgeHtml = '<span class="acp-badge-mini draft">⚪ ENTWURF</span>';
+    }
+
+    html += '<div class="acp-dropdown-item ' + activeClass + '" onclick="acpSwitchJob(\'' + j.id + '\'); acpToggleJobDropdown();">' +
+      '<div class="dropdown-item-left">' +
+        '<div class="dropdown-item-title">' + (j.icon || "💼") + ' ' + j.titel + '</div>' +
+        '<div class="dropdown-item-meta"><span>' + j.firma + '</span> · <span style="color:#38bdf8">' + j.datei + '</span></div>' +
+      '</div>' +
+      '<div class="dropdown-item-right">' +
+        badgeHtml +
+        (isActive ? '<span class="check-icon">✓</span>' : '') +
+      '</div>' +
+    '</div>';
+  }
+  list.innerHTML = html;
+
+  var currentJob = getActiveJob();
+  if (currentJob && currentJob.id) {
+    var iconEl = document.getElementById("picker-current-icon");
+    var titleEl = document.getElementById("picker-current-title");
+    var firmEl = document.getElementById("picker-current-firm");
+    if (iconEl) iconEl.textContent = currentJob.icon || "💼";
+    if (titleEl) titleEl.textContent = currentJob.titel;
+    if (firmEl) firmEl.textContent = currentJob.firma ? currentJob.firma.split(" ")[0] : "";
+    updateLiveStatusBadge(currentJob);
+  }
+}
+
+function acpSwitchJob(jobId, forceReload) {
+  activeJobId = jobId;
+  var job = getActiveJob();
+  if (!job || !job.id) return;
+  
+  renderJobPicker();
+
+  var hostDomain = job.host_label || "dachdecker-berneroberland.ch";
+  var firmaName = job.firma || "Kundenbetrieb";
+  var brandColor = job.farb_akzent || "#3b82f6";
+
+  // Studio Device Stage updates
+  var stageUrl = document.getElementById("acp-stage-browser-url");
+  var stageLink = document.getElementById("acp-stage-external-link");
+  var stagePill = document.getElementById("acp-stage-client-pill");
+  var subfolder = job.folder || ((job.firma && job.firma.indexOf("Zurbuchen") !== -1) ? "zurbuchen" : "preview-hiltbrand");
+  var edgePreviewUrl = job.edge_url || ("https://embed.magnet-xs.ch/" + subfolder + "/" + job.datei);
+  var targetLiveUrl = job.live_url || (job.is_live ? ("https://" + hostDomain + "/jobs/") : edgePreviewUrl);
+
+  if (stageUrl) stageUrl.textContent = targetLiveUrl;
+  if (stageLink) stageLink.href = targetLiveUrl;
+  if (stagePill) stagePill.textContent = firmaName;
+
+  // Fallbacks for mock headers if present
+  var hBadge = document.getElementById("host-badge");
+  var hTitle = document.getElementById("host-title");
+  var hDesc = document.getElementById("host-desc");
+  var hHeader = document.getElementById("host-header");
+  var fBadge = document.getElementById("host-footer-badge");
+  var fTitle = document.getElementById("host-footer-title");
+  var fDesc = document.getElementById("host-footer-desc");
+  var fFooter = document.getElementById("host-footer");
+
+  if (hBadge) hBadge.innerHTML = '<span>🌐 BEREICH 1: BESTEHENDE WEBSEITE (' + hostDomain + ')</span>';
+  if (hTitle) hTitle.textContent = "Kopfzeile der Kunden-Webseite: " + firmaName;
+  if (hDesc) hDesc.textContent = "Hier bleibt das Firmenlogo und das normale Navigationsmenü von " + hostDomain + " fix bestehen.";
+  if (hHeader) { hHeader.style.borderBottomColor = brandColor; }
+
+  if (fBadge) fBadge.innerHTML = '<span>🌐 BEREICH 3: BESTEHENDE WEBSEITE (' + hostDomain + ')</span>';
+  if (fTitle) fTitle.textContent = "Fusszeile der Kunden-Webseite: " + firmaName;
+  if (fDesc) fDesc.textContent = "Hier bleibt der bestehende Footer von " + hostDomain + " mit Adressen und Impressum unverändert bestehen.";
+  if (fFooter) { fFooter.style.borderTopColor = brandColor; }
+
+  var frame = document.getElementById("acp-widget-viewport");
+  if (frame && job.datei) {
+    var currentSrc = frame.getAttribute("src") || frame.src || "";
+    var cleanCurrent = currentSrc.split("?")[0].replace(/\.html$/, "").split("/").pop().toLowerCase();
+    var cleanTarget = job.datei.replace(/\.html$/, "").toLowerCase();
+    var isSameJob = (cleanCurrent === cleanTarget);
+
+    if (!isSameJob || forceReload) {
+      frame.style.opacity = "0.3";
+      var targetSrc = "";
+      if (window.location.protocol === "file:") {
+        targetSrc = job.datei + "?embed=true";
+      } else {
+        var base = edgePreviewUrl;
+        if (base.indexOf("embed.magnet-xs.ch") !== -1 && base.endsWith(".html")) {
+          base = base.replace(/\.html$/, "");
+        }
+        targetSrc = base + (base.indexOf("?") === -1 ? "?embed=true" : "&embed=true");
+      }
+      frame.src = targetSrc;
+      frame.onload = function() {
+        frame.style.opacity = "1";
+        if (acpInspectorActive) {
+          frame.contentWindow.postMessage({ type: "acp-toggle-inspector", active: true }, "*");
+        }
+        if (acpSelectedSwapImage) {
+          acpDispatchSwapMode(true);
+        }
+      };
+    } else {
+      // Job ist bereits aktiv geladen: iFrame NICHT neu laden, damit Bildtausch-Vorschau nicht zurückspringt!
+      if (acpInspectorActive && frame.contentWindow) {
+        frame.contentWindow.postMessage({ type: "acp-toggle-inspector", active: true }, "*");
+      }
+      if (acpSelectedSwapImage && frame.contentWindow) {
+        acpDispatchSwapMode(true);
+      }
+    }
+  }
+
+  updateSnippetBox();
+  acpShowToast("🔄 Vorschau gewechselt auf: <strong>" + job.titel + "</strong>");
+}
+
+function updateSnippetBox() {
+  var job = getActiveJob();
+  if (!job || !job.id) return;
+  var label = document.getElementById("code-job-label");
+  var pre = document.getElementById("active-widget-snippet");
+  if (label) label.textContent = job.titel + " (" + job.firma + ")";
+  if (pre) pre.textContent = job.widget_code;
+}
+
+function acpCopyActiveCode() {
+  var job = getActiveJob();
+  if (!job || !job.widget_code) return;
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(job.widget_code);
+    acpShowToast("📋 <strong>" + job.titel + "</strong> Widget-Code in die Zwischenablage kopiert!");
+  } else {
+    window.prompt("Kopiere diesen Einbettungs-Code für den Webmaster:", job.widget_code);
+  }
+}
+
+function acpCopyJobCode(jobId) {
+  for (var i = 0; i < ACP_STELLEN.length; i++) {
+    if (ACP_STELLEN[i].id === jobId) {
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(ACP_STELLEN[i].widget_code);
+        acpShowToast("📋 Widget-Code für <strong>" + ACP_STELLEN[i].titel + "</strong> kopiert!");
+      } else {
+        window.prompt("Kopiere diesen Einbettungs-Code:", ACP_STELLEN[i].widget_code);
+      }
+      return;
+    }
+  }
+}
+
+function acpCopyAiPrompt(btn) {
+  var text = "Bitte gib mir den Quellcode immer als eine einzige, vollständige und ungekürzte HTML-Datei aus – ausnahmslos von <!DOCTYPE html> bis </html>. Verwende keine Code-Auslassungen (wie // ... restlicher Code ...), keine Zusammenfassungen und erstelle die Ausgabe direkt als einhängenden Code-Block in deiner Antwort.";
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(text);
+    acpShowToast("📋 KI-Befehl in die Zwischenablage kopiert!");
+    if (btn) {
+      var orig = btn.textContent;
+      btn.textContent = "✓ Kopiert!";
+      setTimeout(function() { btn.textContent = orig; }, 2000);
+    }
+  } else {
+    window.prompt("Kopiere diesen Befehl für deine KI:", text);
+  }
+}
+
+function acpCopyOnlineUrl(btn) {
+  var url = "https://embed.magnet-xs.ch/preview-hiltbrand/cockpit";
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(url);
+    acpShowToast("📋 <strong>Online-Cockpit Link kopiert!</strong><br><small>" + url + "</small>");
+    if (btn) {
+      var orig = btn.textContent;
+      btn.textContent = "✓ Kopiert!";
+      setTimeout(function() { btn.textContent = orig; }, 2000);
+    }
+  } else {
+    window.prompt("Kopiere die Online-Cockpit Adresse:", url);
+  }
+}
+
+function acpToggleHelpModal() {
+  var modal = document.getElementById("acp-help-modal");
+  if (!modal) return;
+  modal.classList.toggle("is-open");
+  acpUpdateBodyModalClass();
+}
+
+// -------------------------------------------------------
+// [2] BILDER-VERZEICHNIS & ASSET-GALERIE
+// -------------------------------------------------------
+function acpToggleImagesModal() {
+  acpImagesModalOpen = !acpImagesModalOpen;
+  var modal = document.getElementById("acp-images-modal");
+  if (modal) modal.classList.toggle("is-open", acpImagesModalOpen);
+  acpUpdateBodyModalClass();
+  
+  // Spinner sicherheitshalber deaktivieren
+  var statusBox = document.getElementById("acp-upload-status");
+  if (statusBox) statusBox.classList.remove("is-active");
+
+  if (acpImagesModalOpen) {
+    acpRefreshImages();
+    acpRenderImagesGrid();
+  }
+}
+
+function acpSetImageFilter(category) {
+  acpCurrentImageFilter = category;
+  var pills = document.querySelectorAll(".acp-filter-pill");
+  pills.forEach(function(p) { p.classList.remove("active"); });
+  if (event && event.target) event.target.classList.add("active");
+  acpRenderImagesGrid();
+}
+
+function acpFilterImages() {
+  acpRenderImagesGrid();
+}
+
+function acpSetImageSort(sortKey) {
+  acpCurrentImageSort = sortKey;
+  acpRenderImagesGrid();
+}
+
+function acpRenderImagesGrid() {
+  var grid = document.getElementById("acp-images-grid");
+  if (!grid) return;
+
+  var searchInput = document.getElementById("acp-images-search");
+  var query = (searchInput ? searchInput.value : "").toLowerCase().trim();
+
+  var countAll = ACP_BILDER.length;
+  var countUsed = ACP_BILDER.filter(function(b) { return b.is_used; }).length;
+  var elAll = document.getElementById("count-all");
+  var elUsed = document.getElementById("count-used");
+  if (elAll) elAll.textContent = countAll;
+  if (elUsed) elUsed.textContent = countUsed;
+
+  var filtered = ACP_BILDER.filter(function(b) {
+    if (acpCurrentImageFilter === 'used' && !b.is_used) return false;
+    if (acpCurrentImageFilter === 'hero' && b.category !== 'Hero & Header') return false;
+    if (acpCurrentImageFilter === 'team' && b.category !== 'Team & Porträt') return false;
+    if (acpCurrentImageFilter === 'benefit' && b.category !== 'Baustelle & Benefit') return false;
+    if (acpCurrentImageFilter === 'logo' && b.category !== 'Logo & Icon') return false;
+
+    if (query) {
+      var matchName = b.filename.toLowerCase().indexOf(query) !== -1;
+      var matchPath = b.rel_path.toLowerCase().indexOf(query) !== -1;
+      var matchCat = (b.category || '').toLowerCase().indexOf(query) !== -1;
+      return matchName || matchPath || matchCat;
+    }
+    return true;
+  });
+
+  // Sortierung anwenden
+  filtered.sort(function(a, b) {
+    if (acpCurrentImageSort === 'newest') {
+      return (b.mtime || 0) - (a.mtime || 0);
+    }
+    if (acpCurrentImageSort === 'oldest') {
+      return (a.mtime || 0) - (b.mtime || 0);
+    }
+    if (acpCurrentImageSort === 'name_asc') {
+      return (a.filename || '').localeCompare(b.filename || '');
+    }
+    if (acpCurrentImageSort === 'name_desc') {
+      return (b.filename || '').localeCompare(a.filename || '');
+    }
+    if (acpCurrentImageSort === 'size_desc') {
+      return (b.size_kb || 0) - (a.size_kb || 0);
+    }
+    if (acpCurrentImageSort === 'used') {
+      if (a.is_used !== b.is_used) {
+        return a.is_used ? -1 : 1;
+      }
+      return (b.mtime || 0) - (a.mtime || 0);
+    }
+    return 0;
+  });
+
+  if (filtered.length === 0) {
+    grid.innerHTML = '<div style="grid-column: 1/-1; text-align: center; padding: 50px 20px; color: #94a3b8;">' +
+      '<div style="font-size: 32px; margin-bottom: 10px;">🔍</div>' +
+      '<div>Keine Bilder für diese Auswahl gefunden.</div>' +
+    '</div>';
+    return;
+  }
+
+  var html = '';
+  for (var i = 0; i < filtered.length; i++) {
+    var img = filtered[i];
+    var isNewlyUploaded = acpJustUploadedRelPath && (img.rel_path === acpJustUploadedRelPath || img.filename === acpJustUploadedRelPath);
+    var cardClasses = 'acp-image-card' + (isNewlyUploaded ? ' is-just-uploaded' : '');
+    var newBadge = isNewlyUploaded ? '<div class="acp-card-new-badge">✨ NEU HOCHGELADEN</div>' : '';
+    var dateMeta = img.mtime_str ? ' · ' + img.mtime_str : '';
+    var badgeClass = img.is_used ? 'badge-used' : 'badge-free';
+    var badgeText = img.is_used ? '🟢 Im Einsatz (' + img.used_in.length + ')' : '⚪ Frei verfügbar';
+    var usedDetails = '';
+    if (img.is_used && img.used_in && img.used_in.length > 0) {
+      usedDetails = '<div style="font-size:10px; color:#94a3b8; margin-top:3px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;" title="' + img.used_in.map(function(u){return u.datei;}).join(', ') + '">' +
+        img.used_in.map(function(u){ return u.datei; }).join(', ') +
+      '</div>';
+    }
+
+    var effectiveThumbSrc = acpLocalBlobPreviews[img.rel_path] || acpLocalBlobPreviews[img.filename] || img.rel_path;
+
+    html += '<div class="' + cardClasses + '">' +
+      '<div class="acp-card-thumb-wrap">' +
+        newBadge +
+        '<img src="' + effectiveThumbSrc + '" alt="' + img.filename + '" class="acp-card-thumb" loading="lazy" data-original-src="' + img.rel_path + '" onerror="acpHandleThumbError(this, \'' + img.rel_path.replace(/'/g, "\\'") + '\');">' +
+      '</div>' +
+      '<div class="acp-card-body">' +
+        '<div class="acp-card-title" title="' + img.filename + '">' + img.filename + '</div>' +
+        '<div class="acp-card-meta">' + img.dimensions + ' · ' + img.size_kb + ' KB' + dateMeta + '</div>' +
+        '<div class="acp-card-badge ' + badgeClass + '">' + badgeText + usedDetails + '</div>' +
+        '<div class="acp-card-actions">' +
+          '<button type="button" class="btn-card-swap" onclick="acpSelectSwapImage(\'' + img.rel_path + '\', \'' + img.filename + '\')" title="Als neues Foto für Bildtausch auswählen">🎯 Als Tausch-Bild wählen</button>' +
+          '<button type="button" class="btn-card-copy" onclick="acpCopyImagePath(\'' + img.rel_path + '\')" title="Pfad in die Zwischenablage kopieren">📋 Pfad</button>' +
+          '<button type="button" class="btn-card-delete ' + (img.is_used ? 'is-disabled' : '') + '" onclick="acpDeleteImage(\'' + img.rel_path + '\', \'' + img.filename.replace(/'/g, "\\'") + '\', ' + (img.is_used ? 'true' : 'false') + ')" title="' + (img.is_used ? 'Im Einsatz — kann nicht gelöscht werden' : 'Foto aus Pool & Cloudflare löschen') + '">🗑️</button>' +
+        '</div>' +
+      '</div>' +
+    '</div>';
+  }
+  grid.innerHTML = html;
+}
+
+function acpCopyImagePath(relPath) {
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(relPath);
+  }
+  acpShowToast('📋 Bildpfad <code>' + relPath + '</code> kopiert!');
+}
+
+function acpRefreshImages(highlightRelPath, showToast) {
+  if (window.location.protocol === "http:" || window.location.protocol === "https:") {
+    fetch("bilder.json?t=" + Date.now())
+      .then(function(res) {
+        if (!res.ok) throw new Error("HTTP " + res.status);
+        return res.json();
+      })
+      .then(function(data) {
+        if (Array.isArray(data) && data.length > 0) {
+          ACP_BILDER = data;
+          if (highlightRelPath) {
+            var foundIdx = -1;
+            for (var i = 0; i < ACP_BILDER.length; i++) {
+              if (ACP_BILDER[i].rel_path === highlightRelPath || ACP_BILDER[i].filename === highlightRelPath) {
+                foundIdx = i;
+                break;
+              }
+            }
+            if (foundIdx > -1) {
+              var item = ACP_BILDER.splice(foundIdx, 1)[0];
+              ACP_BILDER.unshift(item);
+            }
+          }
+          acpRenderImagesGrid();
+          if (showToast) {
+            acpShowToast('🔄 Bilder-Pool aktualisiert (' + ACP_BILDER.length + ' Fotos bereit)');
+          }
+        }
+      })
+      .catch(function(err) {
+        console.warn("Konnte bilder.json nicht dynamisch abrufen:", err.message);
+      });
+  }
+}
+
+function acpHandleFileInput(event) {
+  if (!event || !event.target || !event.target.files) return;
+  var file = event.target.files[0];
+  if (file) {
+    acpUploadImageFile(file);
+  }
+  event.target.value = "";
+}
+
+function acpInitUploadDropzone() {
+  var zone = document.getElementById("acp-upload-zone");
+  if (!zone) return;
+
+  ["dragenter", "dragover"].forEach(function(eventName) {
+    zone.addEventListener(eventName, function(e) {
+      e.preventDefault();
+      e.stopPropagation();
+      zone.classList.add("dragover");
+    }, false);
+  });
+
+  ["dragleave", "drop"].forEach(function(eventName) {
+    zone.addEventListener(eventName, function(e) {
+      e.preventDefault();
+      e.stopPropagation();
+      zone.classList.remove("dragover");
+    }, false);
+  });
+
+  zone.addEventListener("drop", function(e) {
+    var dt = e.dataTransfer;
+    if (dt && dt.files && dt.files.length > 0) {
+      acpUploadImageFile(dt.files[0]);
+    }
+  }, false);
+}
+
+function acpUploadImageFile(file) {
+  if (!file) return;
+
+  if (window.location.protocol === "file:") {
+    acpShowToast("📁 Im lokalen Dateimodus: Bitte lege Fotos direkt in deinen Ordner <code>images/</code> ab.");
+    return;
+  }
+
+  var validExts = [".jpg", ".jpeg", ".png", ".webp", ".svg", ".gif"];
+  var fileName = file.name.toLowerCase();
+  var isValidExt = validExts.some(function(ext) { return fileName.endsWith(ext); });
+  if (!isValidExt) {
+    acpShowToast("⚠️ Dateiformat wird nicht unterstützt. Erlaubt sind JPG, PNG, WebP, SVG, GIF.");
+    return;
+  }
+
+  if (file.size > 15 * 1024 * 1024) {
+    acpShowToast("⚠️ Das Foto ist grösser als 15 MB. Bitte wähle eine kleinere Datei.");
+    return;
+  }
+
+  var statusBox = document.getElementById("acp-upload-status");
+  var statusText = document.getElementById("acp-upload-status-text");
+  if (statusBox) statusBox.classList.add("is-active");
+  if (statusText) statusText.textContent = "Foto '" + file.name + "' wird hochgeladen & bereitgestellt...";
+
+  // 0ms Sofort-Vorschau: Erstelle lokalen Blob-URL direkt aus dem File-Objekt im Browser-RAM
+  var localBlobUrl = "";
+  try {
+    if (window.URL && window.URL.createObjectURL) {
+      localBlobUrl = URL.createObjectURL(file);
+      acpLocalBlobPreviews[file.name] = localBlobUrl;
+      acpLocalBlobPreviews["images/" + file.name] = localBlobUrl;
+      var safeName = file.name.replace(/[^a-zA-Z0-9._-]/g, "_");
+      acpLocalBlobPreviews[safeName] = localBlobUrl;
+      acpLocalBlobPreviews["images/" + safeName] = localBlobUrl;
+    }
+  } catch (blobErr) {
+    console.warn("Konnte Blob-Preview nicht erstellen:", blobErr);
+  }
+
+  var fd = new FormData();
+  fd.append("file", file);
+
+  fetch("/api/publish-career/upload-image", {
+    method: "POST",
+    body: fd
+  })
+    .then(function(res) {
+      return res.json().then(function(json) {
+        if (!res.ok) throw new Error(json.error || ("HTTP " + res.status));
+        return json;
+      });
+    })
+    .then(function(data) {
+      if (statusBox) statusBox.classList.remove("is-active");
+      if (data.ok) {
+        if (localBlobUrl) {
+          if (data.rel_path) acpLocalBlobPreviews[data.rel_path] = localBlobUrl;
+          if (data.filename) acpLocalBlobPreviews[data.filename] = localBlobUrl;
+        }
+        if (Array.isArray(data.bilder) && data.bilder.length > 0) {
+          ACP_BILDER = data.bilder;
+        }
+        acpJustUploadedRelPath = data.rel_path;
+        acpCurrentImageSort = "newest";
+        var sortEl = document.getElementById("acp-images-sort");
+        if (sortEl) sortEl.value = "newest";
+
+        acpRenderImagesGrid();
+
+        // Automatisch nach oben scrollen, damit das neue Bild sofort im Blickfeld ist
+        var modal = document.getElementById("acp-images-modal");
+        if (modal) {
+          var modalBody = modal.querySelector(".acp-modal-body");
+          if (modalBody) modalBody.scrollTop = 0;
+        }
+
+        acpShowToast("✅ Foto <code>" + data.filename + "</code> (" + data.size_kb + " KB) erfolgreich im Bilder-Pool bereitgestellt!");
+      } else {
+        throw new Error(data.error || "Upload fehlgeschlagen");
+      }
+    })
+    .catch(function(err) {
+      if (statusBox) statusBox.classList.remove("is-active");
+      console.error("Upload-Fehler:", err);
+      acpShowToast("🚨 Upload fehlgeschlagen: " + err.message);
+      acpReportClientEvent("error", "Foto-Upload im Cockpit fehlgeschlagen", err.message);
+    });
+}
+
+function acpDeleteImage(relPath, filename, isUsed) {
+  if (isUsed) {
+    acpShowToast("⚠️ Das Foto <code>" + filename + "</code> wird aktuell in einer Stelle verwendet und kann nicht gelöscht werden. Tausche es zuerst aus.");
+    return;
+  }
+
+  if (window.location.protocol === "file:") {
+    acpShowToast("📁 Im lokalen Dateimodus: Bitte lösche die Datei direkt aus deinem Ordner <code>images/</code>.");
+    return;
+  }
+
+  var confirmed = confirm("Möchtest du das Foto '" + filename + "' wirklich löschen?\n\nEs wird dauerhaft aus dem Bilder-Pool, dem lokalen Ordner und von Cloudflare Pages entfernt.");
+  if (!confirmed) return;
+
+  var statusBox = document.getElementById("acp-upload-status");
+  var statusText = document.getElementById("acp-upload-status-text");
+  if (statusBox) statusBox.classList.add("is-active");
+  if (statusText) statusText.textContent = "Foto '" + filename + "' wird gelöscht...";
+
+  fetch("/api/publish-career/delete-image", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ rel_path: relPath })
+  })
+    .then(function(res) {
+      return res.json().then(function(json) {
+        if (!res.ok) throw new Error(json.error || ("HTTP " + res.status));
+        return json;
+      });
+    })
+    .then(function(data) {
+      if (statusBox) statusBox.classList.remove("is-active");
+      if (data.ok) {
+        if (Array.isArray(data.bilder)) {
+          ACP_BILDER = data.bilder;
+        } else {
+          ACP_BILDER = ACP_BILDER.filter(function(b) { return b.rel_path !== relPath; });
+        }
+        if (acpJustUploadedRelPath === relPath) {
+          acpJustUploadedRelPath = null;
+        }
+        delete acpLocalBlobPreviews[relPath];
+        delete acpLocalBlobPreviews[filename];
+        acpRenderImagesGrid();
+        acpShowToast("🗑️ Foto <code>" + filename + "</code> erfolgreich gelöscht.");
+      } else {
+        throw new Error(data.error || "Löschen fehlgeschlagen");
+      }
+    })
+    .catch(function(err) {
+      if (statusBox) statusBox.classList.remove("is-active");
+      console.error("Lösch-Fehler:", err);
+      acpShowToast("🚨 Löschen fehlgeschlagen: " + err.message);
+      acpReportClientEvent("error", "Foto-Löschen im Cockpit fehlgeschlagen", err.message);
+    });
+}
+
+function acpEnsureSpotlightCssInDoc(doc) {
+  if (!doc) return;
+  var existing = doc.getElementById("acp-swap-spotlight-css");
+  if (!existing) {
+    var style = doc.createElement("style");
+    style.id = "acp-swap-spotlight-css";
+    style.textContent = [
+      "body.acp-swap-mode-active .top-bar,",
+      "body.acp-swap-mode-active header:not(:has(img)),",
+      "body.acp-swap-mode-active h1,",
+      "body.acp-swap-mode-active h2,",
+      "body.acp-swap-mode-active h3,",
+      "body.acp-swap-mode-active h4,",
+      "body.acp-swap-mode-active h5,",
+      "body.acp-swap-mode-active p,",
+      "body.acp-swap-mode-active .eyebrow,",
+      "body.acp-swap-mode-active .eyebrow2,",
+      "body.acp-swap-mode-active .trust,",
+      "body.acp-swap-mode-active .hero-cta,",
+      "body.acp-swap-mode-active .btn,",
+      "body.acp-swap-mode-active button,",
+      "body.acp-swap-mode-active .gruende,",
+      "body.acp-swap-mode-active .grund,",
+      "body.acp-swap-mode-active .inserat,",
+      "body.acp-swap-mode-active .inserat-bg,",
+      "body.acp-swap-mode-active .blitz-bewerbung,",
+      "body.acp-swap-mode-active .blitz-karte,",
+      "body.acp-swap-mode-active .form-box,",
+      "body.acp-swap-mode-active form,",
+      "body.acp-swap-mode-active .faq,",
+      "body.acp-swap-mode-active .rot-linie,",
+      "body.acp-swap-mode-active .sticky-cta,",
+      "body.acp-swap-mode-active .wa-direkt-box,",
+      "body.acp-swap-mode-active .kontakt-karte,",
+      "body.acp-swap-mode-active .vorteil,",
+      "body.acp-swap-mode-active .fakten,",
+      "body.acp-swap-mode-active .leistungen,",
+      "body.acp-swap-mode-active .cta-band,",
+      "body.acp-swap-mode-active footer {",
+      "  opacity: 0.25 !important;",
+      "  pointer-events: none !important;",
+      "  transition: opacity 0.3s ease !important;",
+      "}",
+      "body.acp-swap-mode-active .hero {",
+      "  position: relative !important;",
+      "  cursor: pointer !important;",
+      "  pointer-events: auto !important;",
+      "  outline: 5px solid #facc15 !important;",
+      "  outline-offset: -5px !important;",
+      "  box-shadow: inset 0 0 100px rgba(250, 204, 21, 0.45), 0 0 60px rgba(250, 204, 21, 0.7) !important;",
+      "  opacity: 1 !important;",
+      "}",
+      "body.acp-swap-mode-active .hero:hover {",
+      "  outline-color: #ffffff !important;",
+      "  box-shadow: inset 0 0 120px rgba(250, 204, 21, 0.65), 0 0 80px rgba(250, 204, 21, 0.9) !important;",
+      "}",
+      "body.acp-swap-mode-active .hero::before {",
+      "  content: \"⚡ HIER KLICKEN: HERO-BILD SOFORT ERSETZEN (oder ESC zum Abbrechen)\" !important;",
+      "  position: absolute !important;",
+      "  top: 24px !important;",
+      "  left: 50% !important;",
+      "  transform: translateX(-50%) !important;",
+      "  z-index: 1000 !important;",
+      "  background: #facc15 !important;",
+      "  color: #0f172a !important;",
+      "  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;",
+      "  font-size: 14px !important;",
+      "  font-weight: 800 !important;",
+      "  letter-spacing: 0.5px !important;",
+      "  padding: 10px 24px !important;",
+      "  border-radius: 9999px !important;",
+      "  box-shadow: 0 4px 25px rgba(0,0,0,0.7), 0 0 30px rgba(250, 204, 21, 0.9) !important;",
+      "  pointer-events: none !important;",
+      "  animation: acpPulseBadge 1.8s infinite ease-in-out !important;",
+      "  white-space: nowrap !important;",
+      "}",
+      "body.acp-swap-mode-active img,",
+      "body.acp-swap-mode-active [data-slot*=\"bild\"],",
+      "body.acp-swap-mode-active [data-slot*=\"foto\"],",
+      "body.acp-swap-mode-active [data-slot*=\"image\"],",
+      "body.acp-swap-mode-active [data-slot*=\"logo\"],",
+      "body.acp-swap-mode-active .kollege img,",
+      "body.acp-swap-mode-active .team-card img {",
+      "  opacity: 1 !important;",
+      "  outline: 4px solid #facc15 !important;",
+      "  outline-offset: 4px !important;",
+      "  box-shadow: 0 0 35px rgba(250, 204, 21, 0.95), 0 0 15px rgba(250, 204, 21, 0.8) !important;",
+      "  cursor: pointer !important;",
+      "  pointer-events: auto !important;",
+      "  position: relative !important;",
+      "  z-index: 200 !important;",
+      "  transition: transform 0.2s ease, box-shadow 0.2s ease, outline-color 0.2s ease !important;",
+      "}",
+      "body.acp-swap-mode-active img:hover,",
+      "body.acp-swap-mode-active [data-slot*=\"bild\"]:hover,",
+      "body.acp-swap-mode-active [data-slot*=\"foto\"]:hover {",
+      "  transform: scale(1.06) !important;",
+      "  outline-color: #ffffff !important;",
+      "  box-shadow: 0 0 50px rgba(250, 204, 21, 1), 0 0 25px #ffffff !important;",
+      "}",
+      "body.acp-swap-mode-active .team,",
+      "body.acp-swap-mode-active .kollegen,",
+      "body.acp-swap-mode-active .kollege {",
+      "  opacity: 1 !important;",
+      "  pointer-events: auto !important;",
+      "}",
+      "body.acp-swap-mode-active .kollege strong,",
+      "body.acp-swap-mode-active .kollege span {",
+      "  opacity: 0.9 !important;",
+      "  color: #facc15 !important;",
+      "}"
+    ].join("\n");
+    doc.head.appendChild(style);
+  }
+}
+
+function acpDispatchSwapMode(active) {
+  var frame = document.getElementById("acp-widget-viewport");
+  if (frame && frame.contentWindow) {
+    frame.contentWindow.postMessage({ type: "acp-toggle-swap-mode", active: !!active }, "*");
+    try {
+      if (frame.contentDocument && frame.contentDocument.body) {
+        frame.contentDocument.body.classList.toggle("acp-swap-mode-active", !!active);
+        acpEnsureSpotlightCssInDoc(frame.contentDocument);
+      }
+    } catch(e) {}
+  }
+}
+
+function getUsedImagesForCurrentJob() {
+  var currentJob = getActiveJob();
+  var activeFile = currentJob.datei || 'Hiltbrand_Dachdecker_Pragmatisch.html';
+  var list = [];
+  var seen = {};
+  if (Array.isArray(ACP_BILDER)) {
+    for (var i = 0; i < ACP_BILDER.length; i++) {
+      var b = ACP_BILDER[i];
+      if (b.is_used && Array.isArray(b.used_in)) {
+        for (var k = 0; k < b.used_in.length; k++) {
+          if (b.used_in[k].datei === activeFile) {
+            var key = b.filename;
+            if (!seen[key]) {
+              seen[key] = true;
+              list.push({
+                filename: b.filename,
+                rel_path: b.rel_path,
+                slot: b.used_in[k].slot || (b.used_in[k].is_hero ? 'hero.hintergrund.bild' : b.filename),
+                is_hero: !!b.used_in[k].is_hero,
+                category: b.category || ''
+              });
+            }
+            break;
+          }
+        }
+      }
+    }
+  }
+  return list;
+}
+
+function acpSelectSwapImage(relPath, filename) {
+  acpSelectedSwapImage = { rel_path: relPath, filename: filename };
+  acpLog("info", "📷 Tausch-Bild ausgewählt: " + filename, "Pfad: " + relPath);
+  if (acpImagesModalOpen) {
+    acpToggleImagesModal();
+  }
+
+  var dock = document.getElementById("acp-swap-dock");
+  var thumb = document.getElementById("acp-swap-source-thumb");
+  var nameEl = document.getElementById("acp-swap-source-name");
+  var targetHint = document.getElementById("acp-swap-target-hint");
+  var actionsBox = document.getElementById("acp-swap-actions");
+
+  var effectiveThumb = acpLocalBlobPreviews[relPath] || acpLocalBlobPreviews[filename] || relPath;
+  if (thumb) {
+    thumb.src = effectiveThumb;
+    thumb.onerror = function() {
+      acpHandleThumbError(thumb, relPath);
+    };
+  }
+  if (nameEl) nameEl.textContent = filename;
+
+  var usedImages = getUsedImagesForCurrentJob();
+
+  if (targetHint) {
+    if (usedImages.length > 0) {
+      var btnsHtml = '<div style="display:flex; align-items:center; gap:8px; flex-wrap:wrap;">' +
+        '<span style="color:#facc15; font-size:12px; font-weight:700;">👉 Wähle das zu ersetzende Bild:</span>';
+      for (var u = 0; u < usedImages.length; u++) {
+        var uImg = usedImages[u];
+        var label = uImg.is_hero ? ('🖼️ Hero-Hintergrund (' + uImg.filename + ')') : ('📷 ' + uImg.filename);
+        btnsHtml += '<button type="button" class="btn-swap-target-choice" onclick="acpSelectTargetDirect(\'' + uImg.rel_path + '\', \'' + uImg.slot + '\', ' + uImg.is_hero + ')">' + label + '</button>';
+      }
+      btnsHtml += '<span style="color:#94a3b8; font-size:11px;">(oder klicke in der Vorschau darauf)</span></div>';
+      targetHint.innerHTML = btnsHtml;
+    } else {
+      targetHint.innerHTML = '<span style="color:#facc15; font-size:12px; font-weight:700;">👉 Klicke jetzt in der Vorschau auf das Bild, das du ersetzen möchtest...</span>';
+    }
+  }
+
+  if (actionsBox) actionsBox.style.display = "none";
+  if (dock) {
+    dock.classList.add("is-visible");
+    dock.classList.add("is-active");
+  }
+
+  if (!acpInspectorActive) {
+    acpToggleInspector();
+  }
+
+  acpDispatchSwapMode(true);
+
+  window.scrollTo({ top: 0, behavior: "smooth" });
+  acpShowToast('🎯 Tausch-Bild gewählt: <strong>' + filename + '</strong><br><small>Wähle nun das Zielbild in der gelben Leiste oben oder klicke in der Vorschau darauf.</small>', 5000);
+}
+
+function acpSelectTargetDirect(srcPath, slotName, isHero) {
+  acpHandleSlotClick({
+    slot: slotName,
+    isImg: true,
+    isHero: isHero,
+    currentSrc: srcPath
+  });
+}
+
+function acpResetTargetChoice() {
+  acpTargetSwapSlot = null;
+  var actionsBox = document.getElementById("acp-swap-actions");
+  if (actionsBox) actionsBox.style.display = "none";
+  if (acpSelectedSwapImage) {
+    acpSelectSwapImage(acpSelectedSwapImage.rel_path, acpSelectedSwapImage.filename);
+  }
+}
+
+function acpCancelSwap(silent) {
+  acpSelectedSwapImage = null;
+  acpTargetSwapSlot = null;
+  var dock = document.getElementById("acp-swap-dock");
+  if (dock) {
+    dock.classList.remove("is-visible");
+    dock.classList.remove("is-active");
+  }
+  var targetHint = document.getElementById("acp-swap-target-hint");
+  if (targetHint) {
+    targetHint.textContent = "👉 Klicke jetzt in der Vorschau auf das zu ersetzende Bild!";
+    targetHint.style.color = "#94a3b8";
+  }
+  var actionsBox = document.getElementById("acp-swap-actions");
+  if (actionsBox) actionsBox.style.display = "none";
+  acpDispatchSwapMode(false);
+  if (!silent) {
+    acpShowToast('Tausch-Vorgang beendet.');
+  }
+}
+
+function acpHandleSlotClick(data) {
+  if (!acpSelectedSwapImage) {
+    acpShowToast('💡 <strong>Klick-Inspektor:</strong> Öffne zuerst oben <strong>[ 🖼️ Bilder ]</strong> und wähle ein Tausch-Foto aus!', 4000);
+    return;
+  }
+
+  var currentJob = getActiveJob();
+  var activeFile = currentJob.datei || 'Hiltbrand_Dachdecker_Pragmatisch.html';
+
+  var currentSrc = (data.currentSrc || data.src || '').replace(/['"]/g, '').split('?')[0].trim();
+  if (!currentSrc && data.isHero) {
+    currentSrc = 'images/hero.jpg';
+  }
+
+  acpTargetSwapSlot = {
+    slot: data.slot || 'hero.hintergrund.bild',
+    isImg: data.isImg,
+    isHero: data.isHero,
+    currentSrc: currentSrc,
+    datei: activeFile
+  };
+
+  // 1. Sofortige visuelle Rückmeldung im iframe (Zero-Latency Feedback!)
+  var frame = document.getElementById("acp-widget-viewport");
+  if (frame && frame.contentWindow) {
+    var effectivePreviewSrc = acpLocalBlobPreviews[acpSelectedSwapImage.rel_path] || acpLocalBlobPreviews[acpSelectedSwapImage.filename] || acpSelectedSwapImage.rel_path;
+    frame.contentWindow.postMessage({
+      type: "acp-apply-swap-preview",
+      slot: acpTargetSwapSlot.slot,
+      isHero: acpTargetSwapSlot.isHero,
+      newSrc: effectivePreviewSrc,
+      oldSrc: acpTargetSwapSlot.currentSrc
+    }, "*");
+  }
+
+  var targetHint = document.getElementById("acp-swap-target-hint");
+  var actionsBox = document.getElementById("acp-swap-actions");
+  var cleanOld = acpTargetSwapSlot.currentSrc.split('/').pop() || acpTargetSwapSlot.slot;
+  var cleanNew = acpSelectedSwapImage.filename;
+  acpLog("swap", "🎯 Tauschziel im Inserat gewählt: " + cleanOld + " ➔ " + cleanNew, "Datei: " + activeFile + " · Slot: " + acpTargetSwapSlot.slot);
+
+  if (targetHint) {
+    targetHint.innerHTML = '<span style="color:#22c55e; font-weight:700;">✅ Tausche:</span> ' +
+      '<strong style="color:#f87171;">' + cleanOld + '</strong> ➔ <strong style="color:#38bdf8;">' + cleanNew + '</strong> in <code>' + activeFile + '</code>';
+  }
+  if (actionsBox) {
+    actionsBox.style.display = "flex";
+  }
+
+  // 2. Automatischer 1-Klick-Tausch sofort ausführen!
+  acpExecuteDirectSwap();
+}
+
+function acpReportClientEvent(level, message, details) {
+  try {
+    if (window.location.protocol === "http:" || window.location.protocol === "https:") {
+      fetch("/api/publish-career/log-client-event", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          level: level || "info",
+          message: message || "Browser-Ereignis",
+          details: details ? (typeof details === "string" ? details : JSON.stringify(details)) : ""
+        }),
+        keepalive: true
+      }).catch(function() {});
+    }
+  } catch(e) {}
+}
+
+var acpIsSwapping = false;
+
+function acpExecuteDirectSwap() {
+  if (!acpSelectedSwapImage || !acpTargetSwapSlot) return;
+  if (acpIsSwapping) {
+    acpShowToast('⏳ <strong>Bildtausch läuft bereits...</strong> Einen kurzen Moment bitte.', 3000);
+    return;
+  }
+  acpIsSwapping = true;
+
+  var btn = document.querySelector(".btn-swap-exec");
+  if (btn) {
+    btn.disabled = true;
+    btn.textContent = "⏳ Tausche & Deploye...";
+  }
+
+  var currentJob = getActiveJob();
+  var activeFile = (acpTargetSwapSlot && acpTargetSwapSlot.datei) || (currentJob ? currentJob.datei : 'index.html');
+  var cleanOld = acpTargetSwapSlot.currentSrc.split('/').pop() || acpTargetSwapSlot.slot;
+  var cleanNew = acpSelectedSwapImage.filename;
+  acpLog("swap", "🎯 Tauschziel im Inserat gewählt: " + cleanOld + " ➔ " + cleanNew, "Datei: " + activeFile + " · Slot: " + acpTargetSwapSlot.slot);
+
+  acpShowToast('⚡ <strong>Bildtausch gestartet:</strong> Tausche ' + cleanOld + ' ➔ ' + cleanNew + '...<br><small>Cloudflare Pages aktualisiert den Edge-Cache...</small>', 8000);
+
+  var payload = {
+    client: currentJob.folder || 'preview-hiltbrand',
+    file: activeFile,
+    old_path: acpTargetSwapSlot.currentSrc,
+    new_path: acpSelectedSwapImage.rel_path,
+    is_hero: !!acpTargetSwapSlot.isHero,
+    slot: acpTargetSwapSlot.slot || ""
+  };
+
+  acpLog("info", "⚡ Sende Tausch an VPS (swap-image)...", "Mandant: " + (payload.client || "") + " · " + cleanOld + " ➔ " + cleanNew);
+  fetch("/api/publish-career/swap-image", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(payload)
+  })
+  .then(function(res) {
+    return res.json().then(function(data) { return { ok: res.ok, data: data }; });
+  })
+  .then(function(result) {
+    acpIsSwapping = false;
+    if (result.ok && result.data.ok) {
+      // 1. Swap-Dock & Spotlight lautlos schliessen (das Bild bleibt im DOM stabil erhalten!)
+      acpCancelSwap(true);
+      // 2. Erfolgs-Meldung anzeigen (KEIN zerstörerischer iFrame-Reload!)
+      acpLog("success", "🎉 Bildtausch erfolgreich verarbeitet!", "Edge CDN synchronisiert · Datei: " + payload.file);
+      acpShowToast('🎉 <strong>Bild erfolgreich getauscht!</strong><br><small><strong>' + cleanNew + '</strong> ist jetzt im HTML fest verankert und weltweit live.</small>', 8000);
+    } else {
+      var err = (result.data && result.data.error) || 'Fehler beim Bildtausch';
+      acpLog("error", "❌ Tausch vom Server abgewiesen: " + err, JSON.stringify(result.data));
+      acpShowToast('❌ <strong>Fehler:</strong> ' + err, 7000);
+      acpReportClientEvent('error', 'Bildtausch abgelehnt: ' + err, payload);
+      if (btn) {
+        btn.disabled = false;
+        btn.textContent = "⚡ Direkt im HTML tauschen";
+      }
+    }
+  })
+  .catch(function(err) {
+    acpIsSwapping = false;
+    acpShowToast('❌ <strong>Netzwerkfehler:</strong> ' + err.message, 6000);
+    acpReportClientEvent('error', 'Netzwerkfehler bei Bildtausch: ' + err.message, payload);
+    if (btn) {
+      btn.disabled = false;
+      btn.textContent = "⚡ Direkt im HTML tauschen";
+    }
+  });
+}
+
+function acpCopyCombinedPrompt() {
+  if (!acpSelectedSwapImage || !acpTargetSwapSlot) return;
+
+  var promptText = 'Ersetze in der Datei "' + acpTargetSwapSlot.datei + '" im Slot "' + acpTargetSwapSlot.slot + '" das Bild (' + acpTargetSwapSlot.currentSrc + ') durch das neue Bild "' + acpSelectedSwapImage.rel_path + '".\n\n' +
+    'REGELN:\n' +
+    '1. Gib ausnahmslos den VOLLSTÄNDIGEN Quellcode von <!DOCTYPE html> bis </html> aus.\n' +
+    '2. Keine Kürzungen, keine Auslassungen, keine Platzhalter.\n' +
+    '3. Belasse alle Design-Systeme, WhatsApp-Buttons und CSS-Regeln unverändert.';
+
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(promptText);
+  }
+  acpShowToast('🤖 <strong>ChatGPT-Kombi-Prompt kopiert!</strong><br><small>Füge den Befehl in ChatGPT oder Gemini ein.</small>', 5000);
+  acpCancelSwap();
+}
+
+// -------------------------------------------------------
+// [3] STELLEN-ZENTRALE & INSERATE-MANAGER
+// -------------------------------------------------------
+function acpToggleDirectoryModal() {
+  var modal = document.getElementById("acp-directory-modal");
+  if (!modal) return;
+  var isOpen = modal.classList.contains("is-open");
+  if (!isOpen) {
+    renderDirectoryTable();
+    updateSnippetBox();
+    modal.classList.add("is-open");
+  } else {
+    modal.classList.remove("is-open");
+  }
+  acpUpdateBodyModalClass();
+}
+
+function acpSetJobFilter(filter) {
+  acpCurrentJobFilter = filter;
+  var pills = document.querySelectorAll(".acp-job-filter-pill");
+  pills.forEach(function(p) {
+    var attr = p.getAttribute("data-filter");
+    if (attr === filter || (!attr && filter === 'alle' && p.textContent.indexOf('Alle') !== -1)) {
+      p.classList.add("active");
+    } else {
+      p.classList.remove("active");
+    }
+  });
+  renderDirectoryTable();
+}
+
+function acpFilterJobs() {
+  renderDirectoryTable();
+}
+
+function renderDirectoryTable() {
+  var tbody = document.getElementById("acp-directory-tbody");
+  if (!tbody) return;
+
+  var searchInput = document.getElementById("acp-jobs-search");
+  var query = (searchInput ? searchInput.value : "").toLowerCase().trim();
+
+  var countAll = ACP_STELLEN.length;
+  var countHiltbrand = ACP_STELLEN.filter(function(j) { return (j.firma || '').indexOf('Hiltbrand') !== -1; }).length;
+  var countZurbuchen = ACP_STELLEN.filter(function(j) { return (j.firma || '').indexOf('Zurbuchen') !== -1; }).length;
+  var countLive = ACP_STELLEN.filter(function(j) { return !!j.is_live; }).length;
+
+  var elAll = document.getElementById("count-jobs-all");
+  var elHb = document.getElementById("count-jobs-hiltbrand");
+  var elZb = document.getElementById("count-jobs-zurbuchen");
+  var elLive = document.getElementById("count-jobs-live");
+
+  if (elAll) elAll.textContent = countAll;
+  if (elHb) elHb.textContent = countHiltbrand;
+  if (elZb) elZb.textContent = countZurbuchen;
+  if (elLive) elLive.textContent = countLive;
+
+  var filtered = ACP_STELLEN.filter(function(j) {
+    if (acpCurrentJobFilter === 'preview-hiltbrand' && (j.firma || '').indexOf('Hiltbrand') === -1) return false;
+    if (acpCurrentJobFilter === 'zurbuchen' && (j.firma || '').indexOf('Zurbuchen') === -1) return false;
+    if (acpCurrentJobFilter === 'live' && !j.is_live) return false;
+
+    if (query) {
+      var mFile = (j.datei || '').toLowerCase().indexOf(query) !== -1;
+      var mTitle = (j.titel || '').toLowerCase().indexOf(query) !== -1;
+      var mFirma = (j.firma || '').toLowerCase().indexOf(query) !== -1;
+      return mFile || mTitle || mFirma;
+    }
+    return true;
+  });
+
+  if (filtered.length === 0) {
+    tbody.innerHTML = '<tr><td colspan="4" style="text-align:center; padding:48px 20px; color:#64748b; font-family:\'JetBrains Mono\',monospace; font-size:13px;">Keine passenden Stellen gefunden.</td></tr>';
+    return;
+  }
+
+  var html = "";
+  for (var i = 0; i < filtered.length; i++) {
+    var j = filtered[i];
+    var subfolder = j.folder || ((j.firma && j.firma.indexOf('Zurbuchen') !== -1) ? 'zurbuchen' : 'preview-hiltbrand');
+    var edgePreviewUrl = j.edge_url || ('https://embed.magnet-xs.ch/' + subfolder + '/' + j.datei);
+    var cleanEdgeDomain = 'embed.magnet-xs.ch/' + subfolder + '/' + j.datei;
+
+    var isCurrent = (j.id === activeJobId);
+    var rowClass = isCurrent ? "is-active-job" : "";
+    
+    var statusBadge = "";
+    if (j.is_live) {
+      statusBadge = '<span class="acp-table-badge badge-live"><span class="badge-dot-live">●</span> LIVE</span>';
+    } else if (j.id && j.id.indexOf("zurbuchen") !== -1) {
+      statusBadge = '<span class="acp-table-badge badge-ready"><span class="badge-dot-ready">●</span> BEREIT</span>';
+    } else {
+      statusBadge = '<span class="acp-table-badge badge-draft"><span class="badge-dot-draft">●</span> ENTWURF</span>';
+    }
+
+    var actionBtn = isCurrent ?
+      '<button type="button" class="btn-job-action btn-job-selected" disabled><span class="action-icon">✓</span> Aktiv</button>' :
+      '<button type="button" class="btn-job-action btn-job-switch" onclick="acpSwitchJob(\'' + j.id + '\'); acpToggleDirectoryModal();"><span class="action-icon">⚡</span> Auswählen</button>';
+
+    html += '<tr class="' + rowClass + '">' +
+      '<td>' +
+        '<div class="job-meta-cell">' +
+          '<div class="job-title-row">' +
+            '<span class="job-icon-glyph">' + (j.icon || "💼") + '</span>' +
+            '<strong class="job-title-text">' + j.titel + '</strong>' +
+            (isCurrent ? '<span class="job-current-pill">Aktiv</span>' : '') +
+          '</div>' +
+          '<div class="job-subline-row">' +
+            '<span class="job-company-label">' + j.firma + '</span>' +
+            '<span class="job-dot-sep">·</span>' +
+            '<a href="' + edgePreviewUrl + '" target="_blank" class="job-preview-link" title="Öffentliche Edge-Vorschau im Browser-Tab öffnen">' +
+              '<span>' + cleanEdgeDomain + '</span>' +
+              '<span class="link-arrow">↗</span>' +
+            '</a>' +
+          '</div>' +
+        '</div>' +
+      '</td>' +
+      '<td>' +
+        statusBadge +
+      '</td>' +
+      '<td>' +
+        '<button type="button" class="job-file-chip" onclick="acpCopyJobFilename(\'' + j.datei + '\')" title="Klicken, um Dateinamen zu kopieren">' +
+          '<span class="file-icon">📄</span>' +
+          '<span class="file-name">' + j.datei + '</span>' +
+          '<span class="file-copy-icon">📋</span>' +
+        '</button>' +
+      '</td>' +
+      '<td style="text-align:right; white-space:nowrap;">' +
+        '<div class="job-actions-cluster">' +
+          actionBtn +
+          '<button type="button" class="btn-job-tool" onclick="acpCopyPreviewUrl(\'' + edgePreviewUrl + '\', \'' + j.titel + '\')" title="Vorschau-Link teilen (WhatsApp / Mail)">🔗</button>' +
+          '<button type="button" class="btn-job-tool" onclick="acpCopyJobCode(\'' + j.id + '\')" title="Einbettungs-Code für Webmaster kopieren">📋</button>' +
+        '</div>' +
+      '</td>' +
+    '</tr>';
+  }
+  tbody.innerHTML = html;
+}
+
+function acpCopyPreviewUrl(url, title) {
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(url);
+    acpShowToast('🔗 <strong>Vorschau-Link kopiert!</strong><br><small>' + url + '<br>👉 Ideal zum Teilen per WhatsApp oder E-Mail.</small>', 5000);
+  } else {
+    window.prompt("Kopiere diesen Vorschau-Link:", url);
+  }
+}
+
+function acpCopyJobFilename(filename) {
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(filename);
+    acpShowToast('📋 Dateiname <code>' + filename + '</code> kopiert!');
+  }
+}
+
+// -------------------------------------------------------
+// [4] EVENT LISTENER & INSPEKTOR
+// -------------------------------------------------------
+window.addEventListener("message", function(e) {
+  if (e.data && e.data.type === "acp-embed-resize") {
+    var frame = document.getElementById("acp-widget-viewport");
+    if (frame && e.data.height > 300) {
+      frame.style.height = (e.data.height + 10) + "px";
+    }
+  }
+  if (e.data && (e.data.type === "acp-slot-click" || e.data.type === "acp-client-slot-click")) {
+    acpHandleSlotClick(e.data);
+  }
+  if (e.data && e.data.type === "acp-toast") {
+    acpShowToast(e.data.text);
+  }
+  if (e.data && e.data.type === "acp-cancel-swap") {
+    acpCancelSwap();
+  }
+});
+
+function acpToggleMenu() {
+  acpMenuOpen = !acpMenuOpen;
+  var panel = document.getElementById("acp-draft-panel");
+  if (panel) panel.classList.toggle("is-open", acpMenuOpen);
+}
+
+function acpToggleInspector() {
+  acpInspectorActive = !acpInspectorActive;
+  var btn = document.getElementById("acp-btn-inspector");
+  if (btn) {
+    if (acpInspectorActive) {
+      btn.textContent = "AN";
+      btn.classList.add("active");
+      acpShowToast("🔍 <strong>Klick-Inspektor AN:</strong> Klicke auf ein Bild oder einen Text im Inserat.", 4000);
+    } else {
+      btn.textContent = "AUS";
+      btn.classList.remove("active");
+      acpShowToast("Klick-Inspektor AUS");
+    }
+  }
+  var frame = document.getElementById("acp-widget-viewport");
+  if (frame && frame.contentWindow) {
+    frame.contentWindow.postMessage({ type: "acp-toggle-inspector", active: acpInspectorActive }, "*");
+  }
+}
+
+function acpShowToast(text, duration) {
+  var toast = document.getElementById("acp-toast");
+  if (!toast) return;
+  toast.innerHTML = text;
+  toast.classList.add("is-visible");
+  setTimeout(function() {
+    toast.classList.remove("is-visible");
+  }, duration || 3500);
+}
+
+// -------------------------------------------------------
+// [5] SCHARFSTELLEN / PUBLISH
+// -------------------------------------------------------
+function acpPublishLive() {
+  var btn = document.getElementById("acp-btn-publish");
+  if (!btn || btn.disabled) return;
+
+  btn.disabled = true;
+  btn.innerHTML = '<span>⏳ Airbag prüft...</span>';
+  btn.style.background = "#d97706";
+  btn.style.color = "#ffffff";
+
+  fetch("/api/publish-career", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" }
+  })
+  .then(function(res) {
+    return res.json().then(function(data) { return { ok: res.ok, data: data }; });
+  })
+  .then(function(result) {
+    if (result.ok && result.data.ok) {
+      btn.innerHTML = '<span>✅ Live geschaltet!</span>';
+      btn.style.background = "#10b981";
+      btn.style.color = "#ffffff";
+      var msg = result.data.message || 'In ca. 15 Sekunden live auf WordPress!';
+      acpShowToast('🚀 <strong>Erfolgreich scharfgestellt!</strong><br><small>' + msg + '</small>', 6000);
+      setTimeout(function() {
+        btn.disabled = false;
+        btn.innerHTML = '<span>🚀 Jetzt scharfstellen</span>';
+        btn.style.background = "";
+        btn.style.color = "";
+      }, 5000);
+    } else {
+      var err = (result.data && (result.data.error || result.data.details)) || 'Unbekannter Fehler';
+      btn.innerHTML = '<span>⚠️ Fehler beim Deploy</span>';
+      btn.style.background = "#ef4444";
+      btn.style.color = "#ffffff";
+      acpShowToast('⚠️ <strong>Live-Schaltung abgelehnt:</strong><br><small>' + err + '</small>', 8000);
+      acpReportClientEvent('error', 'Live-Schaltung abgelehnt: ' + err);
+      setTimeout(function() {
+        btn.disabled = false;
+        btn.innerHTML = '<span>🚀 Jetzt scharfstellen</span>';
+        btn.style.background = "";
+        btn.style.color = "";
+      }, 6000);
+    }
+  })
+  .catch(function(err) {
+    btn.innerHTML = '<span>❌ Verbindungsfehler</span>';
+    btn.style.background = "#ef4444";
+    btn.style.color = "#ffffff";
+    acpShowToast('❌ <strong>Netzwerkfehler:</strong> Konnte den Server nicht erreichen.<br><small>' + err.message + '</small>', 6000);
+    acpReportClientEvent('error', 'Verbindungsfehler bei Live-Schaltung: ' + err.message);
+    setTimeout(function() {
+      btn.disabled = false;
+      btn.innerHTML = '<span>🚀 Jetzt scharfstellen</span>';
+      btn.style.background = "";
+      btn.style.color = "";
+    }, 5000);
+  });
+}
+
+// -------------------------------------------------------
+// [6] INITIALISIERUNG
+// -------------------------------------------------------
+function checkEnvironmentAndRender() {
+  var isOnline = (window.location.protocol === "http:" || window.location.protocol === "https:");
+  var badgeLabel = document.getElementById("acp-brand-label");
+  var brandBadge = document.getElementById("acp-brand-badge");
+  var onlineBtn = document.getElementById("acp-online-btn");
+
+  if (isOnline) {
+    if (badgeLabel) badgeLabel.textContent = "KARRIERE-STUDIO";
+    if (brandBadge) {
+      brandBadge.title = "Magnet-XS Karriere-Studio (Online auf Cloudflare Pages)";
+    }
+    if (onlineBtn) {
+      onlineBtn.innerHTML = '<span class="nav-icon">🔗</span><span class="nav-label">Link</span>';
+      onlineBtn.title = "Link zu diesem Online-Cockpit in die Zwischenablage kopieren";
+      onlineBtn.onclick = function(e) {
+        e.preventDefault();
+        acpCopyOnlineUrl(onlineBtn);
+      };
+    }
+  } else {
+    if (badgeLabel) badgeLabel.textContent = "KARRIERE-STUDIO";
+    if (onlineBtn) {
+      onlineBtn.href = "https://embed.magnet-xs.ch/preview-hiltbrand/cockpit";
+      onlineBtn.target = "_blank";
+      onlineBtn.innerHTML = '<span class="nav-icon">🌐</span><span class="nav-label">Online</span>';
+      onlineBtn.title = "Online-Cockpit auf embed.magnet-xs.ch öffnen";
+    }
+  }
+}
+
+function setupActiveJobAndRender() {
+  var params = new URLSearchParams(window.location.search);
+  var jobParam = params.get("stelle") || params.get("job");
+  if (jobParam) {
+    for (var i = 0; i < ACP_STELLEN.length; i++) {
+      if (ACP_STELLEN[i].id === jobParam || ACP_STELLEN[i].datei.toLowerCase().indexOf(jobParam.toLowerCase()) !== -1) {
+        activeJobId = ACP_STELLEN[i].id;
+        break;
+      }
+    }
+  }
+  if (!activeJobId && ACP_STELLEN.length > 0) {
+    for (var k = 0; k < ACP_STELLEN.length; k++) {
+      if (ACP_STELLEN[k].is_live) {
+        activeJobId = ACP_STELLEN[k].id;
+        break;
+      }
+    }
+    if (!activeJobId) {
+      activeJobId = ACP_STELLEN[0].id;
+    }
+  }
+  checkEnvironmentAndRender();
+  renderJobPicker();
+  renderDirectoryTable();
+  if (activeJobId) {
+    acpSwitchJob(activeJobId);
+  }
+}
+
+function acpInit() {
+  console.log("🚀 Preview Hiltbrand WebPilot Studio " + ACP_COCKPIT_VERSION + " [Build " + ACP_COCKPIT_BUILD + "] geladen.");
+  acpInitUploadDropzone();
+  var statusBox = document.getElementById("acp-upload-status");
+  if (statusBox) statusBox.classList.remove("is-active");
+  if (window.location.protocol === "http:" || window.location.protocol === "https:") {
+    acpRefreshImages();
+    fetch("stellen.json?t=" + Date.now())
+      .then(function(res) {
+        if (!res.ok) throw new Error("HTTP " + res.status);
+        return res.json();
+      })
+      .then(function(data) {
+        if (Array.isArray(data) && data.length > 0) {
+          ACP_STELLEN = sanitizeStellen(data);
+        }
+        setupActiveJobAndRender();
+      })
+      .catch(function(err) {
+        console.warn("Nutze statische Fallback-Stellen:", err.message);
+        setupActiveJobAndRender();
+      });
+  } else {
+    setupActiveJobAndRender();
+  }
+}
+
+window.addEventListener("DOMContentLoaded", acpInit);
+
+</script>
+
+</body>
+</html>
