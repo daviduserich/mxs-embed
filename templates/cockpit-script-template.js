@@ -1834,10 +1834,32 @@ function acpValidateSectionHtml(html) {
   if (!clean.startsWith("<section") || !clean.endsWith("</section>")) {
     return { ok: false, error: "Der Code muss mit <section ...> beginnen und mit </section> enden." };
   }
+
+  // 1. Gefährliche / ausführbare Tags deterministisch blockieren (White-Hat Airbag)
+  var forbiddenTags = /<(script|iframe|object|embed|form|meta|base|style)\b[^>]*>/i;
+  var mTag = clean.match(forbiddenTags);
+  if (mTag) {
+    return { ok: false, error: "Sicherheits-Schranke: Ausführbare Tags (<" + mTag[1] + ">) sind in Inhalts-Sektionen verboten." };
+  }
+
+  // 2. Inline Event-Handler blockieren (onerror, onload, onclick, onmouseover etc.)
+  if (/\son[a-zA-Z]+\s*=/i.test(clean)) {
+    return { ok: false, error: "Sicherheits-Schranke: Inline-JavaScript (on... Event-Handler wie onerror, onclick) ist aus Sicherheitsgründen verboten." };
+  }
+
+  // 3. Pseudo-Protokolle (javascript:, data:text/html) blockieren
+  if (/(href|src|action)\s*=\s*["'\s]*javascript:/i.test(clean)) {
+    return { ok: false, error: "Sicherheits-Schranke: javascript:... URLs sind aus Sicherheitsgründen verboten." };
+  }
+  if (/(href|src)\s*=\s*["'\s]*data:text\/html/i.test(clean)) {
+    return { ok: false, error: "Sicherheits-Schranke: data:text/html URLs sind nicht erlaubt." };
+  }
+
+  // 4. Tag-Balancierung
   var checkTags = ["section", "div", "p", "span", "a", "h2", "h3", "h4", "ul", "ol", "li"];
   for (var i = 0; i < checkTags.length; i++) {
     var tag = checkTags[i];
-    var openRegex = new RegExp("<" + tag + "(\\s+[^>]*)?>", "gi");
+    var openRegex = new RegExp("<" + tag + "(\s+[^>]*)?>", "gi");
     var closeRegex = new RegExp("</" + tag + ">", "gi");
     var openCount = (clean.match(openRegex) || []).length;
     var closeCount = (clean.match(closeRegex) || []).length;
@@ -1848,9 +1870,7 @@ function acpValidateSectionHtml(html) {
       };
     }
   }
-  if (/<script\b[^>]*>/i.test(clean)) {
-    return { ok: false, error: "Sicherheits-Schranke: <script>-Tags sind in Inhalts-Sektionen nicht erlaubt." };
-  }
+
   return { ok: true, html: clean };
 }
 

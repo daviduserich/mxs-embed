@@ -2,14 +2,21 @@
 <html lang="de-CH">
 <head>
 <script>
-// Visual Shield & Clean Omnibox Sweep (Anti-Screen-Recording Leak)
+// Visual Shield & Clean Omnibox Sweep (Anti-Screen-Recording Leak & Tenant-Scoped Cookies)
 (function() {
   try {
     var p = new URLSearchParams(window.location.search);
     var t = p.get('token');
     if (t) {
-      document.cookie = "hb_cockpit_token=" + encodeURIComponent(t) + "; Path=/; Max-Age=2592000; SameSite=Lax";
-      document.cookie = "hb_preview_token=" + encodeURIComponent(t) + "; Path=/; Max-Age=2592000; SameSite=Lax";
+      var segs = window.location.pathname.split('/').filter(Boolean);
+      var rootSeg = segs[0] || 'hiltbrand';
+      var clientSlug = rootSeg.replace(/^preview-/, '');
+      var cookiePath = '/' + rootSeg + '/';
+      document.cookie = "mxs_auth_" + clientSlug + "=" + encodeURIComponent(t) + "; Path=" + cookiePath + "; Max-Age=2592000; SameSite=Lax";
+      if (clientSlug === 'hiltbrand') {
+        document.cookie = "hb_cockpit_token=" + encodeURIComponent(t) + "; Path=" + cookiePath + "; Max-Age=2592000; SameSite=Lax";
+        document.cookie = "hb_preview_token=" + encodeURIComponent(t) + "; Path=" + cookiePath + "; Max-Age=2592000; SameSite=Lax";
+      }
       if (window.history && window.history.replaceState) {
         window.history.replaceState({}, document.title, window.location.pathname);
       }
@@ -3367,7 +3374,7 @@ function acpFetchServerLog() {
 // Build: 2026-10-03 15:30 CEST
 // =======================================================
 var ACP_COCKPIT_VERSION = "v3.4.0";
-var ACP_COCKPIT_BUILD = "2026-10-08 08:51";
+var ACP_COCKPIT_BUILD = "2026-10-08 10:23";
 
 function sanitizeStellen(list) {
   if (!Array.isArray(list)) return [];
@@ -5107,10 +5114,32 @@ function acpValidateSectionHtml(html) {
   if (!clean.startsWith("<section") || !clean.endsWith("</section>")) {
     return { ok: false, error: "Der Code muss mit <section ...> beginnen und mit </section> enden." };
   }
+
+  // 1. Gefährliche / ausführbare Tags deterministisch blockieren (White-Hat Airbag)
+  var forbiddenTags = /<(script|iframe|object|embed|form|meta|base|style)\b[^>]*>/i;
+  var mTag = clean.match(forbiddenTags);
+  if (mTag) {
+    return { ok: false, error: "Sicherheits-Schranke: Ausführbare Tags (<" + mTag[1] + ">) sind in Inhalts-Sektionen verboten." };
+  }
+
+  // 2. Inline Event-Handler blockieren (onerror, onload, onclick, onmouseover etc.)
+  if (/\son[a-zA-Z]+\s*=/i.test(clean)) {
+    return { ok: false, error: "Sicherheits-Schranke: Inline-JavaScript (on... Event-Handler wie onerror, onclick) ist aus Sicherheitsgründen verboten." };
+  }
+
+  // 3. Pseudo-Protokolle (javascript:, data:text/html) blockieren
+  if (/(href|src|action)\s*=\s*["'\s]*javascript:/i.test(clean)) {
+    return { ok: false, error: "Sicherheits-Schranke: javascript:... URLs sind aus Sicherheitsgründen verboten." };
+  }
+  if (/(href|src)\s*=\s*["'\s]*data:text\/html/i.test(clean)) {
+    return { ok: false, error: "Sicherheits-Schranke: data:text/html URLs sind nicht erlaubt." };
+  }
+
+  // 4. Tag-Balancierung
   var checkTags = ["section", "div", "p", "span", "a", "h2", "h3", "h4", "ul", "ol", "li"];
   for (var i = 0; i < checkTags.length; i++) {
     var tag = checkTags[i];
-    var openRegex = new RegExp("<" + tag + "(\\s+[^>]*)?>", "gi");
+    var openRegex = new RegExp("<" + tag + "(\s+[^>]*)?>", "gi");
     var closeRegex = new RegExp("</" + tag + ">", "gi");
     var openCount = (clean.match(openRegex) || []).length;
     var closeCount = (clean.match(closeRegex) || []).length;
@@ -5121,9 +5150,7 @@ function acpValidateSectionHtml(html) {
       };
     }
   }
-  if (/<script\b[^>]*>/i.test(clean)) {
-    return { ok: false, error: "Sicherheits-Schranke: <script>-Tags sind in Inhalts-Sektionen nicht erlaubt." };
-  }
+
   return { ok: true, html: clean };
 }
 

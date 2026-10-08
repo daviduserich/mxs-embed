@@ -2,14 +2,21 @@
 <html lang="de-CH">
 <head>
 <script>
-// Visual Shield & Clean Omnibox Sweep (Anti-Screen-Recording Leak)
+// Visual Shield & Clean Omnibox Sweep (Anti-Screen-Recording Leak & Tenant-Scoped Cookies)
 (function() {
   try {
     var p = new URLSearchParams(window.location.search);
     var t = p.get('token');
     if (t) {
-      document.cookie = "hb_cockpit_token=" + encodeURIComponent(t) + "; Path=/; Max-Age=2592000; SameSite=Lax";
-      document.cookie = "hb_preview_token=" + encodeURIComponent(t) + "; Path=/; Max-Age=2592000; SameSite=Lax";
+      var segs = window.location.pathname.split('/').filter(Boolean);
+      var rootSeg = segs[0] || 'hiltbrand';
+      var clientSlug = rootSeg.replace(/^preview-/, '');
+      var cookiePath = '/' + rootSeg + '/';
+      document.cookie = "mxs_auth_" + clientSlug + "=" + encodeURIComponent(t) + "; Path=" + cookiePath + "; Max-Age=2592000; SameSite=Lax";
+      if (clientSlug === 'hiltbrand') {
+        document.cookie = "hb_cockpit_token=" + encodeURIComponent(t) + "; Path=" + cookiePath + "; Max-Age=2592000; SameSite=Lax";
+        document.cookie = "hb_preview_token=" + encodeURIComponent(t) + "; Path=" + cookiePath + "; Max-Age=2592000; SameSite=Lax";
+      }
       if (window.history && window.history.replaceState) {
         window.history.replaceState({}, document.title, window.location.pathname);
       }
