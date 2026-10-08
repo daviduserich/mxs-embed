@@ -1,6 +1,22 @@
 <!DOCTYPE html>
 <html lang="de-CH">
 <head>
+<script>
+// Visual Shield & Clean Omnibox Sweep (Anti-Screen-Recording Leak)
+(function() {
+  try {
+    var p = new URLSearchParams(window.location.search);
+    var t = p.get('token');
+    if (t) {
+      document.cookie = "hb_cockpit_token=" + encodeURIComponent(t) + "; Path=/; Max-Age=2592000; SameSite=Lax";
+      document.cookie = "hb_preview_token=" + encodeURIComponent(t) + "; Path=/; Max-Age=2592000; SameSite=Lax";
+      if (window.history && window.history.replaceState) {
+        window.history.replaceState({}, document.title, window.location.pathname);
+      }
+    }
+  } catch(e) {}
+})();
+</script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Preview Hiltbrand · WebPilot Studio · v3.4.0</title>

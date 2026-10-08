@@ -30,16 +30,16 @@ export async function onRequest(context) {
     return response;
   }
 
-  // 2. Token-Guard for Hiltbrand (Blocks direct & rewritten access without token)
+  // 2. Token-Guard for Hiltbrand & Cockpits (Edge Shield & Video Leak Protection)
   const isHiltbrand = url.pathname.startsWith('/hiltbrand') || url.pathname.startsWith('/preview-hiltbrand');
   if (isHiltbrand) {
-    const validTokens = ['hb2026', 'hb-preview', 'hiltbrand', 'preview-hiltbrand-token'];
+    const validTokens = ['hb_sec_9e2f48b7c0d3a5a81e9', 'hb2026', 'hb-preview', 'hiltbrand', 'preview-hiltbrand-token'];
     const tokenParam = url.searchParams.get('token');
     const cookieHeader = context.request.headers.get('Cookie') || '';
-    const hasValidCookie = validTokens.some(t => cookieHeader.includes(`hb_preview_token=${t}`));
-    const hasValidToken = validTokens.includes(tokenParam) || (tokenParam && tokenParam.length >= 4);
+    const hasValidCookie = validTokens.some(t => cookieHeader.includes('hb_cockpit_token=' + t) || cookieHeader.includes('hb_preview_token=' + t));
+    const hasValidToken = validTokens.includes(tokenParam);
 
-    // Static assets (CSS, JS, images) pass through if cookie present OR requested as asset
+    // Static assets (CSS, JS, images) pass through
     const isAsset = url.pathname.includes('/images/') || 
                     url.pathname.endsWith('.png') || 
                     url.pathname.endsWith('.jpg') || 
@@ -49,11 +49,15 @@ export async function onRequest(context) {
                     url.pathname.endsWith('.css') || 
                     url.pathname.endsWith('.js');
 
-    // Cockpit & Onboarding: allow direct access so customers and tools are never locked out
-    const isCockpitOrOnboarding = url.pathname.includes('cockpit') || url.pathname.includes('onboarding');
+    const isCockpit = url.pathname.includes('cockpit');
+    const isOnboarding = url.pathname.includes('onboarding');
 
-    if (!hasValidToken && !hasValidCookie && !isAsset && !isCockpitOrOnboarding) {
-      // Redirect directly to WebPilot
+    // Cockpit & Preview require valid token or valid cookie!
+    if (isCockpit) {
+      if (!hasValidToken && !hasValidCookie) {
+        return Response.redirect('https://webpilot.magnet-xs.ch/', 302);
+      }
+    } else if (!hasValidToken && !hasValidCookie && !isAsset && !isOnboarding) {
       return Response.redirect('https://webpilot.magnet-xs.ch/', 302);
     }
   }
@@ -124,12 +128,13 @@ export async function onRequest(context) {
   }
 
   // 4. Default: embed.magnet-xs.ch token cookie setting
-  if (url.pathname.startsWith('/preview-hiltbrand')) {
+  if (url.pathname.startsWith('/preview-hiltbrand') || url.pathname.startsWith('/hiltbrand')) {
     const tokenParam = url.searchParams.get('token');
     const response = await context.next();
     if (tokenParam) {
       const newHeaders = new Headers(response.headers);
-      newHeaders.append('Set-Cookie', `hb_preview_token=${tokenParam}; Path=/; Max-Age=86400; SameSite=Lax`);
+      newHeaders.append('Set-Cookie', 'hb_cockpit_token=' + tokenParam + '; Path=/; Max-Age=2592000; SameSite=Lax');
+      newHeaders.append('Set-Cookie', 'hb_preview_token=' + tokenParam + '; Path=/; Max-Age=2592000; SameSite=Lax');
       return new Response(response.body, {
         status: response.status,
         headers: newHeaders
