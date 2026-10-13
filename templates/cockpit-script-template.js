@@ -123,6 +123,7 @@ var acpDirectoryModalOpen = false;
 var acpHelpModalOpen = false;
 var acpSelectedSwapImage = null; // { rel_path, filename }
 var acpTargetSwapSlot = null;    // { slot, isImg, isHero, currentSrc, datei }
+var acpClickedTargetElement = null; // Direktes iFrame-DOM-Element für chirurgischen Bildtausch
 var acpCurrentImageFilter = 'alle';
 var acpCurrentJobFilter = 'alle';
 var acpCurrentImageSort = 'newest';
@@ -977,14 +978,22 @@ function acpEnsureSpotlightCssInDoc(doc) {
       if (targetImg) {
         e.preventDefault();
         e.stopPropagation();
-        var src = targetImg.getAttribute("src") || "";
+        acpClickedTargetElement = targetImg;
+        var src = (targetImg.getAttribute("src") || "").replace(/['"]/g, "").split("?")[0].trim();
         var slot = targetImg.getAttribute("data-slot") || targetImg.id || (src.split("/").pop() || "image");
         var isHero = (targetImg.classList && targetImg.classList.contains("hero")) || src.indexOf("hero") !== -1;
-        acpSelectTargetDirect(src, slot, isHero, thisDocFile);
+
+        // Kontext-Ermittlung zur eindeutigen Isolierung (Name, Alt-Attribut, Slot)
+        var card = targetImg.closest ? targetImg.closest(".member-card, .team-card, .team-upload-box, [data-slot], [data-member-id], article, section, div") : null;
+        var nameEl = card ? card.querySelector(".member-name, [id*='Name'], [name*='name'], h2, h3, h4, strong") : null;
+        var slotContext = targetImg.getAttribute("alt") || (nameEl ? (nameEl.value || nameEl.textContent || "").trim() : "") || targetImg.id || "";
+
+        acpSelectTargetDirect(src, slot, isHero, thisDocFile, slotContext);
       } else if (targetHero) {
         e.preventDefault();
         e.stopPropagation();
-        acpSelectTargetDirect("images/hero.jpg", "hero.hintergrund.bild", true, thisDocFile);
+        acpClickedTargetElement = targetHero;
+        acpSelectTargetDirect("images/hero.jpg", "hero.hintergrund.bild", true, thisDocFile, "hero");
       }
     }, true);
 
@@ -1101,13 +1110,14 @@ function acpSelectSwapImage(relPath, filename) {
   acpShowToast('🎯 Tausch-Bild gewählt: <strong>' + filename + '</strong><br><small>Wähle nun das Zielbild in der gelben Leiste oben oder klicke in der Vorschau darauf.</small>', 5000);
 }
 
-function acpSelectTargetDirect(srcPath, slotName, isHero, docFile) {
+function acpSelectTargetDirect(srcPath, slotName, isHero, docFile, slotContext) {
   acpHandleSlotClick({
     slot: slotName,
     isImg: true,
     isHero: isHero,
     currentSrc: srcPath,
-    datei: docFile
+    datei: docFile,
+    context: slotContext || ""
   });
 }
 
@@ -1123,6 +1133,7 @@ function acpResetTargetChoice() {
 function acpCancelSwap(silent) {
   acpSelectedSwapImage = null;
   acpTargetSwapSlot = null;
+  acpClickedTargetElement = null;
   var dock = document.getElementById("acp-swap-dock");
   if (dock) {
     dock.classList.remove("is-visible");
@@ -1195,7 +1206,8 @@ function acpHandleSlotClick(data) {
     isImg: data.isImg,
     isHero: data.isHero,
     currentSrc: currentSrc,
-    datei: activeFile
+    datei: activeFile,
+    context: data.context || ''
   };
 
   // 1. Sofortige visuelle Rückmeldung im iframe (Zero-Latency Feedback!)
@@ -1214,13 +1226,22 @@ function acpHandleSlotClick(data) {
     try {
       var idoc = frame.contentDocument || (frame.contentWindow && frame.contentWindow.document);
       if (idoc) {
-        var imgs = idoc.querySelectorAll("img");
-        for (var m = 0; m < imgs.length; m++) {
-          var isrc = imgs[m].getAttribute("src") || "";
-          if (isrc === acpTargetSwapSlot.currentSrc || (cleanOld && isrc.indexOf(cleanOld) !== -1)) {
-            imgs[m].src = effectivePreviewSrc;
-            imgs[m].style.outline = "4px solid #22c55e";
-            break;
+        if (acpClickedTargetElement) {
+          if (acpClickedTargetElement.tagName === "IMG") {
+            acpClickedTargetElement.src = effectivePreviewSrc;
+          } else {
+            acpClickedTargetElement.style.backgroundImage = 'url("' + effectivePreviewSrc + '")';
+          }
+          acpClickedTargetElement.style.outline = "4px solid #22c55e";
+        } else {
+          var imgs = idoc.querySelectorAll("img");
+          for (var m = 0; m < imgs.length; m++) {
+            var isrc = (imgs[m].getAttribute("src") || "").replace(/['"]/g, "").split("?")[0].trim();
+            if (isrc === acpTargetSwapSlot.currentSrc || (cleanOld && isrc.indexOf(cleanOld) !== -1)) {
+              imgs[m].src = effectivePreviewSrc;
+              imgs[m].style.outline = "4px solid #22c55e";
+              break;
+            }
           }
         }
       }
@@ -1287,12 +1308,13 @@ function acpExecuteDirectSwap() {
   acpShowToast('⚡ <strong>Bildtausch gestartet:</strong> Tausche ' + cleanOld + ' ➔ ' + cleanNew + '...<br><small>Cloudflare Pages aktualisiert den Edge-Cache...</small>', 8000);
 
   var payload = {
-    client: currentJob.folder || 'hiltbrand',
+    client: currentJob.folder || 'preview-hiltbrand',
     file: activeFile,
     old_path: acpTargetSwapSlot.currentSrc,
     new_path: acpSelectedSwapImage.rel_path,
     is_hero: !!acpTargetSwapSlot.isHero,
-    slot: acpTargetSwapSlot.slot || ""
+    slot: acpTargetSwapSlot.slot || "",
+    context: acpTargetSwapSlot.context || ""
   };
 
   acpLog("info", "⚡ Sende Tausch an VPS (swap-image)...", "Mandant: " + (payload.client || "") + " · " + cleanOld + " ➔ " + cleanNew);
@@ -1312,13 +1334,24 @@ function acpExecuteDirectSwap() {
         var f = document.getElementById("acp-widget-viewport");
         var idoc = f ? (f.contentDocument || (f.contentWindow && f.contentWindow.document)) : null;
         if (idoc) {
-          var allImgs = idoc.querySelectorAll("img");
-          for (var k = 0; k < allImgs.length; k++) {
-            var imgS = allImgs[k].getAttribute("src") || "";
-            if (imgS.indexOf(cleanNew) !== -1 || imgS.indexOf(cleanOld) !== -1 || imgS === payload.old_path) {
-              allImgs[k].src = payload.new_path + "?t=" + Date.now();
-              allImgs[k].style.outline = "4px solid #22c55e";
-              setTimeout((function(el) { return function() { if (el) el.style.outline = ""; }; })(allImgs[k]), 3000);
+          if (acpClickedTargetElement) {
+            if (acpClickedTargetElement.tagName === "IMG") {
+              acpClickedTargetElement.src = payload.new_path + "?t=" + Date.now();
+            } else {
+              acpClickedTargetElement.style.backgroundImage = 'url("' + payload.new_path + "?t=" + Date.now() + '")';
+            }
+            acpClickedTargetElement.style.outline = "4px solid #22c55e";
+            setTimeout((function(el) { return function() { if (el) el.style.outline = ""; }; })(acpClickedTargetElement), 3000);
+          } else {
+            var allImgs = idoc.querySelectorAll("img");
+            for (var k = 0; k < allImgs.length; k++) {
+              var imgS = (allImgs[k].getAttribute("src") || "").replace(/['"]/g, "").split("?")[0].trim();
+              if (imgS === payload.old_path || (cleanOld && imgS.indexOf(cleanOld) !== -1)) {
+                allImgs[k].src = payload.new_path + "?t=" + Date.now();
+                allImgs[k].style.outline = "4px solid #22c55e";
+                setTimeout((function(el) { return function() { if (el) el.style.outline = ""; }; })(allImgs[k]), 3000);
+                break;
+              }
             }
           }
         }
