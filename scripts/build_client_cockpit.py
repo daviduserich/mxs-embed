@@ -403,6 +403,20 @@ def build_cockpit(slug: str):
     content = content.replace('https://dachdecker-berneroberland.ch/jobs/', host_jobs_url if clean_slug == 'hiltbrand' else f'https://embed.magnet-xs.ch/{slug}/')
     content = content.replace('Hiltbrand-Karriere\\images\\', f'{sync_folder_name}\\images\\')
 
+    if profile.get("is_website_studio", False):
+        content = content.replace('<span class="nav-label">Stellen</span>', '<span class="nav-label">Seiten</span>')
+        content = content.replace('title="Stellen-Zentrale: Mandanten &amp; Inserate"', 'title="Seiten-Zentrale: Navigation &amp; Entwürfe"')
+        content = content.replace('<span>Stelle auswählen (<span id="dropdown-count">3</span>)</span>', f'<span>Seite auswählen (<span id="dropdown-count">{len(stellen)}</span>)</span>')
+        content = content.replace('// STELLEN-ZENTRALE ⬥ MANDANTEN &amp; INSERATE', '// SEITEN-ZENTRALE ⬥ NAVIGATION &amp; ENTWÜRFE')
+        content = content.replace('Stellen-Zentrale &amp; Inserate-Manager', 'Seiten-Zentrale &amp; Entwurfs-Manager')
+        content = content.replace('Zentrale Verwaltung aller Stelleninserate. Ändere Inhalte lokal oder kopiere den fertigen Einbettungscode für den Webmaster.', 'Zentrale Übersicht aller Seiten und Entwürfe deiner Website auf Schweizer Edge-Infrastruktur.')
+        content = content.replace('Jede Stelle ist eine eigenständige, responsive Web-Komponente auf Schweizer Edge-Infrastruktur.', 'Jede Unterseite ist eine eigenständige, responsive Web-Komponente auf Schweizer Edge-Infrastruktur.')
+        content = content.replace('placeholder="🔍 Datei oder Stelle suchen..."', 'placeholder="🔍 Unterseite suchen..."')
+        content = content.replace('<th>Stelle &amp; Mandant</th>', '<th>Seite &amp; Bereich</th>')
+        content = content.replace('<h3><span>💡</span> So funktioniert dein Karriere-Cockpit</h3>', '<h3><span>💡</span> So funktioniert dein WebPilot Studio</h3>')
+        content = content.replace('Perfekt für deine Karriereseite: Lade hier gezielt Fotos für Stellenanzeigen, Team-Porträts und Baustellen hoch.', 'Perfekt für deine Firmen-Website: Lade hier gezielt Fotos für Team-Porträts, Referenzen und Baustellen hoch.')
+        content = content.replace('Stellen-Katalog (MD) ↗', 'Seiten-Übersicht ↗')
+
     # 5. JS Template füllen
     for s in stellen:
         if "widget_code" in s:

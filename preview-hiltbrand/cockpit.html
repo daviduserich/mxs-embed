@@ -2769,7 +2769,7 @@ a.badge-live:hover {
         
         <div class="acp-job-dropdown" id="acp-job-dropdown">
           <div class="acp-dropdown-header">
-            <span>Stelle auswählen (<span id="dropdown-count">3</span>)</span>
+            <span>Seite auswählen (<span id="dropdown-count">5</span>)</span>
             <span class="dropdown-header-tag">Live-Sync</span>
           </div>
           <div class="acp-dropdown-list" id="acp-dropdown-list">
@@ -2790,9 +2790,9 @@ a.badge-live:hover {
         <span class="nav-icon">🖼️</span>
         <span class="nav-label">Bilder</span>
       </button>
-      <button type="button" class="acp-nav-btn acp-nav-btn-directory" onclick="acpToggleDirectoryModal()" title="Stellen-Zentrale: Mandanten &amp; Inserate">
+      <button type="button" class="acp-nav-btn acp-nav-btn-directory" onclick="acpToggleDirectoryModal()" title="Seiten-Zentrale: Navigation &amp; Entwürfe">
         <span class="nav-icon">📑</span>
-        <span class="nav-label">Stellen</span>
+        <span class="nav-label">Seiten</span>
       </button>
       <button type="button" class="acp-nav-btn" onclick="acpCopyActiveCode()" title="1-Klick Widget-Code für den Webmaster kopieren">
         <span class="nav-icon">📋</span>
@@ -3013,7 +3013,7 @@ a.badge-live:hover {
               <span class="acp-upload-badge">JPG, PNG, WebP bis 15 MB</span>
             </div>
             <div class="acp-upload-desc">
-              💡 <em>Perfekt für deine Karriereseite: Lade hier gezielt Fotos für Stellenanzeigen, Team-Porträts und Baustellen hoch. Die Bilder werden über unser weltweites Edge-Netzwerk blitzschnell ausgeliefert (bitte nicht als allgemeines Fotoalbum nutzen).</em>
+              💡 <em>Perfekt für deine Firmen-Website: Lade hier gezielt Fotos für Team-Porträts, Referenzen und Baustellen hoch. Die Bilder werden über unser weltweites Edge-Netzwerk blitzschnell ausgeliefert (bitte nicht als allgemeines Fotoalbum nutzen).</em>
             </div>
             <div class="acp-upload-local-hint">
               📁 <em>Alternativ: Foto einfach direkt in deinen Ordner <code>Hiltbrand-Karriere\images\</code> ablegen.</em>
@@ -3068,10 +3068,10 @@ a.badge-live:hover {
   <div class="acp-modal acp-modal-fullscreen">
     <div class="acp-modal-head">
       <div>
-        <div class="acp-modal-kicker">// STELLEN-ZENTRALE ⬥ MANDANTEN &amp; INSERATE</div>
-        <h3 class="acp-modal-heading">Stellen-Zentrale &amp; Inserate-Manager</h3>
+        <div class="acp-modal-kicker">// SEITEN-ZENTRALE ⬥ NAVIGATION &amp; ENTWÜRFE</div>
+        <h3 class="acp-modal-heading">Seiten-Zentrale &amp; Entwurfs-Manager</h3>
         <p class="acp-modal-subdesc">
-          Zentrale Verwaltung aller Stelleninserate. Ändere Inhalte lokal oder kopiere den fertigen Einbettungscode für den Webmaster.
+          Zentrale Übersicht aller Seiten und Entwürfe deiner Website auf Schweizer Edge-Infrastruktur.
         </p>
       </div>
       <button type="button" class="acp-modal-close" onclick="acpToggleDirectoryModal()" title="Schliessen (ESC)">✕ Schliessen (ESC)</button>
@@ -3080,12 +3080,12 @@ a.badge-live:hover {
       <div class="acp-studio-banner">
         <div class="banner-left">
           <span class="banner-pill">EDGE-SYNC AKTIV</span>
-          <span class="banner-text">Jede Stelle ist eine eigenständige, responsive Web-Komponente auf Schweizer Edge-Infrastruktur.</span>
+          <span class="banner-text">Jede Unterseite ist eine eigenständige, responsive Web-Komponente auf Schweizer Edge-Infrastruktur.</span>
         </div>
         <div class="banner-links">
           <a href="https://embed.magnet-xs.ch/preview-hiltbrand/cockpit" target="_blank" class="banner-link">Globales Cockpit ↗</a>
           <span class="banner-sep">·</span>
-          <a href="STELLEN_VERZEICHNIS.md" target="_blank" class="banner-link">Stellen-Katalog (MD) ↗</a>
+          <a href="STELLEN_VERZEICHNIS.md" target="_blank" class="banner-link">Seiten-Übersicht ↗</a>
         </div>
       </div>
 
@@ -3094,14 +3094,14 @@ a.badge-live:hover {
           <button type="button" class="acp-job-filter-pill active" data-filter="alle" onclick="acpSetJobFilter('alle')">🏢 Alle Inserate (<span id="count-jobs-all">0</span>)</button>
           <button type="button" class="acp-job-filter-pill" data-filter="live" onclick="acpSetJobFilter('live')">🟢 Nur Live-Widget (<span id="count-jobs-live">0</span>)</button>
         </div>
-        <input type="text" id="acp-jobs-search" class="acp-jobs-search-input" placeholder="🔍 Datei oder Stelle suchen..." oninput="acpFilterJobs()">
+        <input type="text" id="acp-jobs-search" class="acp-jobs-search-input" placeholder="🔍 Unterseite suchen..." oninput="acpFilterJobs()">
       </div>
 
       <div class="acp-jobs-table-wrap">
         <table class="acp-jobs-table">
           <thead>
             <tr>
-              <th>Stelle &amp; Mandant</th>
+              <th>Seite &amp; Bereich</th>
               <th style="width:140px;">Status</th>
               <th style="width:280px;">Sync-Datei</th>
               <th style="width:200px; text-align:right;">Aktionen</th>
@@ -3171,7 +3171,7 @@ a.badge-live:hover {
 <div id="acp-help-modal" class="acp-modal-backdrop" onclick="if(event.target===this)acpToggleHelpModal()">
   <div class="acp-modal" >
     <div class="acp-modal-head">
-      <h3><span>💡</span> So funktioniert dein Karriere-Cockpit</h3>
+      <h3><span>💡</span> So funktioniert dein WebPilot Studio</h3>
       <button type="button" class="acp-modal-close" onclick="acpToggleHelpModal()" title="Schliessen">✕</button>
     </div>
     <div class="acp-modal-body" style="padding: 24px; color: #cbd5e1; font-size: 14px; line-height: 1.6;">
@@ -3437,7 +3437,7 @@ function acpFetchServerLog() {
 // Build: 2026-10-03 15:30 CEST
 // =======================================================
 var ACP_COCKPIT_VERSION = "v3.4.1";
-var ACP_COCKPIT_BUILD = "2026-10-13 16:08";
+var ACP_COCKPIT_BUILD = "2026-10-13 16:19";
 
 function sanitizeStellen(list) {
   if (!Array.isArray(list)) return [];
@@ -4683,9 +4683,12 @@ function renderDirectoryTable() {
   // Filter-Pills dynamisch rendern falls Pills-Container vorhanden
   var pillsContainer = document.getElementById("acp-jobs-filter-pills");
   if (pillsContainer) {
-    var pillsHtml = '<button type="button" class="acp-job-filter-pill' + (acpCurrentJobFilter === 'alle' ? ' active' : '') + '" data-filter="alle" onclick="acpSetJobFilter(\'alle\')">🏢 Alle Inserate (<span id="count-jobs-all">' + countAll + '</span>)</button>';
+    var isWebsite = (typeof ACP_CLIENT_PROFILE !== "undefined" && (ACP_CLIENT_PROFILE.is_website_studio || (ACP_CLIENT_PROFILE.studio_title && ACP_CLIENT_PROFILE.studio_title.indexOf("WEBPILOT") !== -1)));
+    var allLabel = isWebsite ? "📄 Alle Seiten" : "🏢 Alle Inserate";
+    var liveLabel = isWebsite ? "🟢 Live publiziert" : "🟢 Live eingebettet";
+    var pillsHtml = '<button type="button" class="acp-job-filter-pill' + (acpCurrentJobFilter === 'alle' ? ' active' : '') + '" data-filter="alle" onclick="acpSetJobFilter('alle')">' + allLabel + ' (<span id="count-jobs-all">' + countAll + '</span>)</button>';
     
-    pillsHtml += ' <button type="button" class="acp-job-filter-pill' + (acpCurrentJobFilter === 'live' ? ' active' : '') + '" data-filter="live" onclick="acpSetJobFilter(\'live\')">🟢 Live eingebettet (<span id="count-jobs-live">' + countLive + '</span>)</button>';
+    pillsHtml += ' <button type="button" class="acp-job-filter-pill' + (acpCurrentJobFilter === 'live' ? ' active' : '') + '" data-filter="live" onclick="acpSetJobFilter('live')">' + liveLabel + ' (<span id="count-jobs-live">' + countLive + '</span>)</button>';
     
     pillsHtml += ' <button type="button" class="acp-job-filter-pill' + (acpCurrentJobFilter === 'draft' ? ' active' : '') + '" data-filter="draft" onclick="acpSetJobFilter(\'draft\')">🟡 Entwürfe (<span id="count-jobs-draft">' + countDraft + '</span>)</button>';
 

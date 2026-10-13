@@ -1313,9 +1313,12 @@ function renderDirectoryTable() {
   // Filter-Pills dynamisch rendern falls Pills-Container vorhanden
   var pillsContainer = document.getElementById("acp-jobs-filter-pills");
   if (pillsContainer) {
-    var pillsHtml = '<button type="button" class="acp-job-filter-pill' + (acpCurrentJobFilter === 'alle' ? ' active' : '') + '" data-filter="alle" onclick="acpSetJobFilter(\'alle\')">🏢 Alle Inserate (<span id="count-jobs-all">' + countAll + '</span>)</button>';
+    var isWebsite = (typeof ACP_CLIENT_PROFILE !== "undefined" && (ACP_CLIENT_PROFILE.is_website_studio || (ACP_CLIENT_PROFILE.studio_title && ACP_CLIENT_PROFILE.studio_title.indexOf("WEBPILOT") !== -1)));
+    var allLabel = isWebsite ? "📄 Alle Seiten" : "🏢 Alle Inserate";
+    var liveLabel = isWebsite ? "🟢 Live publiziert" : "🟢 Live eingebettet";
+    var pillsHtml = '<button type="button" class="acp-job-filter-pill' + (acpCurrentJobFilter === 'alle' ? ' active' : '') + '" data-filter="alle" onclick="acpSetJobFilter('alle')">' + allLabel + ' (<span id="count-jobs-all">' + countAll + '</span>)</button>';
     
-    pillsHtml += ' <button type="button" class="acp-job-filter-pill' + (acpCurrentJobFilter === 'live' ? ' active' : '') + '" data-filter="live" onclick="acpSetJobFilter(\'live\')">🟢 Live eingebettet (<span id="count-jobs-live">' + countLive + '</span>)</button>';
+    pillsHtml += ' <button type="button" class="acp-job-filter-pill' + (acpCurrentJobFilter === 'live' ? ' active' : '') + '" data-filter="live" onclick="acpSetJobFilter('live')">' + liveLabel + ' (<span id="count-jobs-live">' + countLive + '</span>)</button>';
     
     pillsHtml += ' <button type="button" class="acp-job-filter-pill' + (acpCurrentJobFilter === 'draft' ? ' active' : '') + '" data-filter="draft" onclick="acpSetJobFilter(\'draft\')">🟡 Entwürfe (<span id="count-jobs-draft">' + countDraft + '</span>)</button>';
 
