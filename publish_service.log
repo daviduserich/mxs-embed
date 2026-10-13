@@ -31,3 +31,7 @@
 [2026-10-13 19:17:15] [preview-birchmeier] [UPLOAD_IMAGE] [SUCCESS] niesen_i_20190316_180802.jpg (457.7 KB)
 [2026-10-13 19:17:19] [preview-birchmeier] [SWAP_REQUEST] [START] file=karriere.html, old=images/sanitaer_hero.jpg, new=images/niesen_i_20190316_180802.jpg, slot=hero-image
 [2026-10-13 19:17:19] [preview-birchmeier] [SWAP_CONTEXT_MATCH] [PRECISION] Tausch präzise im Kontext 'Birchmeier-Hohler Handwerk und Service' ausgeführt.
+[2026-10-13 19:17:21] [preview-birchmeier] [SWAP_SUCCESS] [DEPLOYED] sanitaer_hero.jpg -> niesen_i_20190316_180802.jpg in karriere.html
+[2026-10-13 19:50:45] [preview-birchmeier] [REPLACE_SECTION_REQ] [START] file=karriere.html, sec_id=vorteile, len=3265
+[2026-10-13 19:50:45] [preview-birchmeier] [REPLACE_SECTION_REJ] [TAG_MISMATCH] Airbag-Fehler: Ungleiche Anzahl von <section> (0) und </section> (1).
+[2026-10-13 19:51:33] [preview-birchmeier] [REPLACE_SECTION_REQ] [START] file=karriere.html, sec_id=vorteile, len=3265
