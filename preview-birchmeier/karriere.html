@@ -1,9 +1,10 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="de-CH">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-  <title>Arbeiten bei Birchmeier-Hohler — Karriere & Jobs Haustechnik Bremgarten</title>
+  <title>Karriere & Jobs — Birchmeier-Hohler GmbH Bremgarten</title>
+  <meta name="description" content="Offene Stellen bei Birchmeier-Hohler GmbH in Bremgarten AG: Sanitärinstallateur EFZ & Heizungsinstallateur EFZ (80–100%). Familienbetrieb seit 1931. Jetzt in 30 Sekunden bewerben.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
@@ -13,304 +14,1031 @@
       --primary-dark: #0369a1;
       --primary-glow: rgba(2, 132, 199, 0.15);
       --accent: #f59e0b;
+      --accent-glow: rgba(245, 158, 11, 0.15);
       --bg: #ffffff;
       --surface: #f8fafc;
       --surface-2: #f1f5f9;
       --border: #e2e8f0;
+      --border-dark: #334155;
       --text: #0f172a;
-      --muted: #64748b;
+      --text-muted: #64748b;
+      --dark-bg: #0f172a;
+      --dark-surface: #1e293b;
       --radius-sm: 6px;
       --radius-md: 10px;
       --radius-lg: 16px;
       --shadow-sm: 0 1px 3px rgba(0,0,0,0.06);
       --shadow-md: 0 6px 20px -4px rgba(0,0,0,0.08);
+      --shadow-lg: 0 12px 32px -6px rgba(0,0,0,0.12);
     }
     * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
-    html { overflow-x: clip; }
-    body { width: 100%; min-height: 100vh; overflow-x: clip; background: var(--bg); color: var(--text); font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; line-height: 1.5; font-size: 15px; }
+    html { overflow-x: clip; scroll-behavior: smooth; }
+    body {
+      width: 100%;
+      min-height: 100vh;
+      overflow-x: clip;
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      line-height: 1.5;
+      font-size: 15px;
+    }
 
-    /* HEADER (STICKY) */
-    .top-bar { padding: 12px 16px; border-bottom: 1px solid var(--border); background: rgba(255, 255, 255, 0.98); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); position: -webkit-sticky; position: sticky; top: 0; z-index: 1000; width: 100%; }
-    .top-bar-inner { max-width: 1100px; margin: 0 auto; width: 100%; display: flex; justify-content: space-between; align-items: center; gap: 16px; }
-    .brand-logo-wrap { display: flex; align-items: center; gap: 10px; text-decoration: none; color: inherit; }
-    .brand-mark { width: 38px; height: 38px; border-radius: var(--radius-sm); background: var(--primary); color: #fff; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 1rem; box-shadow: 0 2px 8px var(--primary-glow); }
-    .brand-name { font-size: 1.05rem; font-weight: 800; letter-spacing: -0.02em; line-height: 1.2; }
-    .brand-region { font-size: 0.72rem; color: var(--muted); font-weight: 500; }
+    /* TOP BAR */
+    .top-bar {
+      padding: 12px 16px;
+      border-bottom: 1px solid var(--border);
+      background: rgba(255, 255, 255, 0.98);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      position: -webkit-sticky;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      width: 100%;
+    }
+    .top-bar-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+    }
+    .brand-logo-wrap {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: inherit;
+    }
+    .brand-logo-img {
+      height: 42px;
+      width: auto;
+      object-fit: contain;
+      border-radius: var(--radius-sm);
+    }
+    .brand-text-block {
+      display: flex;
+      flex-direction: column;
+    }
+    .brand-name {
+      font-size: 1.05rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      line-height: 1.2;
+    }
+    .brand-region {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      font-weight: 500;
+    }
 
-    .desktop-nav { display: none; align-items: center; gap: 24px; }
-    .desk-nav-link { font-size: 0.88rem; font-weight: 600; color: var(--text); text-decoration: none; transition: color 0.15s ease; }
-    .desk-nav-link:hover, .desk-nav-link.active { color: var(--primary); }
-    .btn-desk-contact { font-size: 0.85rem; font-weight: 700; color: #fff !important; background: var(--primary); padding: 8px 16px; border-radius: var(--radius-sm); text-decoration: none; box-shadow: 0 2px 8px var(--primary-glow); }
+    .desktop-nav {
+      display: none;
+      align-items: center;
+      gap: 20px;
+    }
+    .desk-nav-link {
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--text);
+      text-decoration: none;
+      transition: color 0.15s ease;
+    }
+    .desk-nav-link:hover, .desk-nav-link.active {
+      color: var(--primary);
+    }
+    .btn-desk-direct {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: #fff !important;
+      background: var(--primary);
+      padding: 9px 18px;
+      border-radius: var(--radius-sm);
+      text-decoration: none;
+      box-shadow: 0 2px 8px var(--primary-glow);
+      transition: background 0.15s ease;
+    }
+    .btn-desk-direct:hover {
+      background: var(--primary-dark);
+    }
 
-    .nav-burger { width: 44px; height: 44px; border: 1px solid var(--border); background: var(--surface); border-radius: var(--radius-sm); display: flex; align-items: center; justify-content: center; cursor: pointer; }
-    .nav-burger svg { width: 22px; height: 22px; stroke: var(--text); }
+    .nav-burger {
+      width: 44px;
+      height: 44px;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      border-radius: var(--radius-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+    }
+    .nav-burger svg {
+      width: 22px;
+      height: 22px;
+      stroke: var(--text);
+    }
 
     /* MOBILE DRAWER */
-    .nav-drawer { display: none; position: fixed; inset: 64px 0 0 0; background: rgba(255, 255, 255, 0.98); backdrop-filter: blur(16px); z-index: 850; padding: 24px 20px; flex-direction: column; gap: 16px; }
-    .nav-drawer.open { display: flex; }
-    .nav-link { font-size: 1.15rem; font-weight: 700; color: var(--text); text-decoration: none; padding: 12px 0; border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; }
+    .nav-drawer {
+      display: none;
+      position: fixed;
+      inset: 68px 0 0 0;
+      background: rgba(255, 255, 255, 0.98);
+      backdrop-filter: blur(16px);
+      z-index: 850;
+      padding: 24px 20px;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .nav-drawer.open {
+      display: flex;
+    }
+    .nav-link {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--text);
+      text-decoration: none;
+      padding: 12px 0;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    /* KICKER-GESETZ (FREISTEHEND, 100% COMPLIANT) */
+    .section-kicker {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      line-height: 1;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--accent);
+      background: transparent !important;
+      border: none !important;
+      padding: 0 !important;
+      box-shadow: none !important;
+      display: inline-block;
+      margin-bottom: 8px;
+    }
+    .section-kicker-blue {
+      color: var(--primary);
+    }
 
     /* HERO */
-    .page-hero { width: 100%; background: linear-gradient(180deg, var(--surface) 0%, #ffffff 100%); border-bottom: 1px solid var(--border); padding: 36px 16px; }
-    .page-hero-inner { max-width: 1100px; margin: 0 auto; width: 100%; }
-    .section-kicker { font-family: 'JetBrains Mono', monospace; font-size: 0.72rem; color: var(--primary); font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 6px; display: block; }
-    .page-title { font-size: 1.85rem; font-weight: 800; line-height: 1.2; letter-spacing: -0.03em; margin-bottom: 10px; }
-    .page-desc { font-size: 0.95rem; color: var(--muted); line-height: 1.6; max-width: 680px; }
+    .hero-wrap {
+      width: 100%;
+      background: linear-gradient(180deg, #f8fafc 0%, #ffffff 100%);
+      border-bottom: 1px solid var(--border);
+      padding: 36px 16px 44px 16px;
+    }
+    .hero-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      width: 100%;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 32px;
+      align-items: center;
+    }
+    .hero-title {
+      font-size: 2.1rem;
+      font-weight: 800;
+      line-height: 1.15;
+      letter-spacing: -0.03em;
+      margin-bottom: 14px;
+      color: var(--text);
+    }
+    .hero-title span {
+      color: var(--primary);
+    }
+    .hero-subtitle {
+      font-size: 1.05rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+      margin-bottom: 24px;
+      max-width: 580px;
+    }
+    .hero-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+    .stat-card {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      padding: 12px;
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-sm);
+    }
+    .stat-number {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 1.35rem;
+      font-weight: 800;
+      color: var(--primary);
+      line-height: 1.1;
+    }
+    .stat-label {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      font-weight: 600;
+      margin-top: 4px;
+    }
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .hero-media {
+      position: relative;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-lg);
+      border: 1px solid var(--border);
+      aspect-ratio: 16 / 10;
+      background: var(--surface-2);
+    }
+    .hero-media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .hero-badge-float {
+      position: absolute;
+      bottom: 16px;
+      left: 16px;
+      background: rgba(15, 23, 42, 0.88);
+      color: #ffffff;
+      backdrop-filter: blur(8px);
+      padding: 10px 14px;
+      border-radius: var(--radius-md);
+      font-size: 0.82rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+    }
 
-    /* SECTIONS */
-    .section-wrap { width: 100%; border-bottom: 1px solid var(--border); }
-    .section-inner { max-width: 1100px; margin: 0 auto; padding: 40px 16px; width: 100%; }
-    .section-title { font-size: 1.45rem; font-weight: 800; letter-spacing: -0.02em; line-height: 1.25; margin-bottom: 8px; }
-    .section-subtitle { font-size: 0.9rem; color: var(--muted); line-height: 1.5; margin-bottom: 24px; }
+    /* BUTTONS */
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      background: var(--primary);
+      color: #ffffff !important;
+      font-weight: 700;
+      font-size: 0.95rem;
+      padding: 14px 24px;
+      border-radius: var(--radius-sm);
+      text-decoration: none;
+      box-shadow: 0 4px 14px var(--primary-glow);
+      transition: transform 0.1s ease, background 0.15s ease;
+      border: none;
+      cursor: pointer;
+    }
+    .btn-primary:hover {
+      background: var(--primary-dark);
+      transform: translateY(-1px);
+    }
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      background: var(--surface);
+      color: var(--text) !important;
+      font-weight: 700;
+      font-size: 0.95rem;
+      padding: 14px 20px;
+      border-radius: var(--radius-sm);
+      text-decoration: none;
+      border: 1px solid var(--border);
+      transition: background 0.15s ease;
+    }
+    .btn-secondary:hover {
+      background: var(--surface-2);
+    }
+    .btn-wa {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      background: #25d366;
+      color: #ffffff !important;
+      font-weight: 700;
+      font-size: 0.95rem;
+      padding: 14px 24px;
+      border-radius: var(--radius-sm);
+      text-decoration: none;
+      box-shadow: 0 4px 14px rgba(37, 211, 102, 0.25);
+      border: none;
+      cursor: pointer;
+      width: 100%;
+    }
+
+    /* SECTION LAYOUT (1100PX FLUCHTLINIEN-GESETZ) */
+    .section-wrap {
+      width: 100%;
+      padding: 56px 16px;
+      border-bottom: 1px solid var(--border);
+    }
+    .section-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      width: 100%;
+      box-sizing: border-box;
+    }
+    .section-header {
+      margin-bottom: 32px;
+    }
+    .section-title {
+      font-size: 1.85rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      line-height: 1.2;
+      margin-top: 4px;
+      color: var(--text);
+    }
+    .section-desc {
+      font-size: 0.98rem;
+      color: var(--text-muted);
+      margin-top: 8px;
+      max-width: 680px;
+      line-height: 1.6;
+    }
+
+    /* JOB SWITCHER & CARDS */
+    .jobs-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 28px;
+    }
+    .job-card {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-md);
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .job-card:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-lg);
+    }
+    .job-card-header {
+      padding: 24px;
+      border-bottom: 1px solid var(--border);
+      background: linear-gradient(180deg, var(--surface) 0%, #ffffff 100%);
+    }
+    .job-badge-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 12px;
+    }
+    .job-badge {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: 4px;
+      background: var(--surface-2);
+      color: var(--text);
+      border: 1px solid var(--border);
+    }
+    .job-badge-primary {
+      background: var(--primary-glow);
+      color: var(--primary);
+      border-color: rgba(2, 132, 199, 0.2);
+    }
+    .job-badge-accent {
+      background: var(--accent-glow);
+      color: #b45309;
+      border-color: rgba(245, 158, 11, 0.25);
+    }
+    .job-title {
+      font-size: 1.45rem;
+      font-weight: 800;
+      line-height: 1.25;
+      letter-spacing: -0.02em;
+      color: var(--text);
+      margin-bottom: 8px;
+    }
+    .job-subtitle {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+    .job-card-body {
+      padding: 24px;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 24px;
+    }
+    .job-column-title {
+      font-size: 0.88rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: var(--primary-dark);
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .job-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .job-list li {
+      position: relative;
+      padding-left: 24px;
+      font-size: 0.92rem;
+      color: var(--text);
+      line-height: 1.45;
+    }
+    .job-list li::before {
+      content: "✔";
+      position: absolute;
+      left: 0;
+      color: var(--primary);
+      font-weight: 800;
+      font-size: 0.85rem;
+    }
+    .job-card-footer {
+      padding: 18px 24px;
+      background: var(--surface);
+      border-top: 1px solid var(--border);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+    }
 
     /* BENEFITS GRID */
-    .benefits-grid { display: grid; grid-template-columns: 1fr; gap: 14px; }
-    .benefit-item { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-md); padding: 18px; display: flex; gap: 14px; align-items: flex-start; }
-    .benefit-icon { width: 38px; height: 38px; border-radius: var(--radius-sm); background: var(--primary-glow); color: var(--primary); display: flex; align-items: center; justify-content: center; font-size: 1.2rem; flex-shrink: 0; }
-    .benefit-title { font-size: 0.98rem; font-weight: 700; margin-bottom: 4px; }
-    .benefit-text { font-size: 0.85rem; color: var(--muted); line-height: 1.5; }
+    .benefits-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+    .benefit-item {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      padding: 20px;
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-sm);
+    }
+    .benefit-icon {
+      font-size: 1.6rem;
+      margin-bottom: 10px;
+      display: inline-block;
+    }
+    .benefit-title {
+      font-size: 1.05rem;
+      font-weight: 800;
+      margin-bottom: 6px;
+      color: var(--text);
+    }
+    .benefit-text {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      line-height: 1.55;
+    }
 
-    /* JOB CARD */
-    .job-card { background: #ffffff; border: 2px solid var(--primary); border-radius: var(--radius-md); padding: 24px; box-shadow: var(--shadow-md); position: relative; margin-bottom: 20px; }
-    .job-badge { position: absolute; top: -12px; left: 20px; background: var(--primary); color: #fff; font-family: 'JetBrains Mono', monospace; font-size: 0.72rem; font-weight: 700; padding: 4px 12px; border-radius: 999px; }
-    .job-title { font-size: 1.3rem; font-weight: 800; margin-top: 6px; margin-bottom: 8px; }
-    .job-meta { display: flex; flex-wrap: wrap; gap: 12px; font-size: 0.85rem; color: var(--muted); margin-bottom: 16px; }
-    .job-meta-item { display: inline-flex; align-items: center; gap: 4px; }
-    .job-tasks { list-style: none; display: flex; flex-direction: column; gap: 6px; font-size: 0.88rem; color: var(--text); margin-bottom: 20px; }
-    .job-tasks li { display: flex; align-items: center; gap: 8px; }
-    .job-tasks li::before { content: '✓'; color: var(--primary); font-weight: 800; }
+    /* EXPRESS APPLICATION FORM BOX */
+    .apply-section {
+      background: linear-gradient(180deg, var(--dark-bg) 0%, #020617 100%);
+      color: #ffffff;
+      border-bottom: 1px solid var(--border-dark);
+    }
+    .apply-card {
+      background: var(--dark-surface);
+      border: 1px solid var(--border-dark);
+      border-radius: var(--radius-lg);
+      padding: 28px 20px;
+      box-shadow: var(--shadow-lg);
+      max-width: 680px;
+      margin: 0 auto;
+    }
+    .apply-badge {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: #38bdf8;
+      margin-bottom: 8px;
+      display: inline-block;
+      text-transform: uppercase;
+    }
+    .apply-title {
+      font-size: 1.65rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      margin-bottom: 8px;
+      color: #ffffff;
+    }
+    .apply-desc {
+      font-size: 0.92rem;
+      color: #94a3b8;
+      margin-bottom: 24px;
+      line-height: 1.6;
+    }
+    .form-group {
+      margin-bottom: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .form-label {
+      font-size: 0.84rem;
+      font-weight: 700;
+      color: #cbd5e1;
+    }
+    .form-input, .form-select, .form-textarea {
+      width: 100%;
+      padding: 13px 14px;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border-dark);
+      background: #0f172a;
+      color: #ffffff;
+      font-family: inherit;
+      font-size: 0.95rem;
+      outline: none;
+      transition: border-color 0.15s ease;
+    }
+    .form-input:focus, .form-select:focus, .form-textarea:focus {
+      border-color: var(--primary);
+    }
+    .form-input::placeholder, .form-textarea::placeholder {
+      color: #475569;
+    }
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+    .divider-text {
+      display: flex;
+      align-items: center;
+      text-align: center;
+      margin: 20px 0;
+      color: #64748b;
+      font-size: 0.8rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .divider-text::before, .divider-text::after {
+      content: '';
+      flex: 1;
+      border-bottom: 1px solid var(--border-dark);
+    }
+    .divider-text:not(:empty)::before {
+      margin-right: 12px;
+    }
+    .divider-text:not(:empty)::after {
+      margin-left: 12px;
+    }
 
-    /* EXPRESS FORMULAR */
-    .express-box { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 24px; }
-    .form-group { display: flex; flex-direction: column; gap: 6px; margin-bottom: 14px; }
-    .form-label { font-size: 0.85rem; font-weight: 700; color: var(--text); }
-    .form-input { width: 100%; height: 46px; border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 0 14px; font-size: 0.95rem; background: #ffffff; font-family: inherit; }
-    .form-input:focus { outline: none; border-color: var(--primary); box-shadow: 0 0 0 3px var(--primary-glow); }
-    .btn-apply { width: 100%; height: 50px; background: var(--primary); color: #fff; font-size: 1rem; font-weight: 700; border-radius: var(--radius-md); border: none; cursor: pointer; display: inline-flex; align-items: center; justify-content: center; gap: 8px; box-shadow: 0 4px 14px var(--primary-glow); }
-    .btn-wa-apply { width: 100%; height: 50px; background: #25D366; color: #fff; font-size: 1rem; font-weight: 700; border-radius: var(--radius-md); text-decoration: none; display: inline-flex; align-items: center; justify-content: center; gap: 8px; margin-top: 10px; }
-
-    /* PASSIVE POOL */
-    .passive-box { background: #0f172a; color: #fff; border-radius: var(--radius-lg); padding: 32px 24px; text-align: center; }
-
-    /* STICKY THUMB BAR */
-    .thumb-bar { position: fixed; bottom: 0; left: 0; right: 0; background: rgba(255, 255, 255, 0.96); backdrop-filter: blur(12px); border-top: 1px solid var(--border); padding: 10px 14px; padding-bottom: calc(10px + env(safe-area-inset-bottom, 0px)); display: flex; gap: 10px; z-index: 950; }
-    .btn-thumb { flex: 1; height: 48px; border-radius: var(--radius-md); font-size: 0.88rem; font-weight: 700; display: inline-flex; align-items: center; justify-content: center; gap: 6px; text-decoration: none; color: #fff; }
-    .btn-thumb-phone { background: var(--primary); }
-    .btn-thumb-whatsapp { background: #25D366; }
-    .bottom-buffer { height: 74px; }
+    /* KAFFEE BOX (INFORMAL STEP) */
+    .coffee-box {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 28px 24px;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 20px;
+      align-items: center;
+      box-shadow: var(--shadow-md);
+      margin-top: 36px;
+    }
+    .coffee-title {
+      font-size: 1.35rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      margin-bottom: 6px;
+    }
+    .coffee-text {
+      font-size: 0.92rem;
+      color: var(--text-muted);
+      line-height: 1.55;
+    }
 
     /* FOOTER */
-    .footer-wrap { width: 100%; background: #0f172a; color: #94a3b8; border-top: 1px solid #1e293b; }
-    .footer-inner { max-width: 1100px; margin: 0 auto; padding: 36px 16px; font-size: 0.82rem; display: flex; flex-direction: column; gap: 12px; }
+    .footer-wrap {
+      width: 100%;
+      background: var(--dark-bg);
+      color: #94a3b8;
+      padding: 40px 16px 90px 16px;
+      font-size: 0.85rem;
+      border-top: 1px solid var(--border-dark);
+    }
+    .footer-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .footer-brand {
+      color: #ffffff;
+      font-weight: 800;
+      font-size: 1.05rem;
+    }
 
-    /* DESKTOP RESPONSIVE */
+    /* STICKY BOTTOM THUMB BAR FOR MOBILE */
+    .thumb-bar {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: rgba(15, 23, 42, 0.96);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-top: 1px solid rgba(255, 255, 255, 0.12);
+      padding: 10px 16px;
+      display: grid;
+      grid-template-columns: 1fr 1.3fr;
+      gap: 10px;
+      z-index: 999;
+    }
+    .btn-thumb {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      padding: 12px 10px;
+      border-radius: var(--radius-sm);
+      text-decoration: none;
+      text-align: center;
+    }
+    .btn-thumb-phone {
+      background: rgba(255, 255, 255, 0.12);
+      color: #ffffff;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+    }
+    .btn-thumb-wa {
+      background: #25d366;
+      color: #ffffff;
+      box-shadow: 0 2px 8px rgba(37, 211, 102, 0.3);
+    }
+
+    /* RESPONSIVE DESKTOP BREAKPOINTS (min-width: 768px) */
     @media (min-width: 768px) {
-      .top-bar { padding: 14px 24px; }
+      .top-bar { padding: 16px 24px; }
       .desktop-nav { display: flex; }
-      .nav-burger { display: none !important; }
-      .page-hero { padding: 56px 24px 44px 24px; }
-      .page-title { font-size: 2.3rem; }
-      .section-inner { padding: 56px 24px; }
-      .benefits-grid { grid-template-columns: repeat(3, 1fr); gap: 20px; }
-      .thumb-bar, .bottom-buffer { display: none; }
-      .footer-inner { padding: 44px 24px; }
-      .apply-layout { display: grid; grid-template-columns: 1.2fr 1fr; gap: 36px; align-items: start; }
+      .nav-burger { display: none; }
+      .hero-inner { grid-template-columns: 1.15fr 0.85fr; gap: 48px; }
+      .hero-title { font-size: 2.7rem; }
+      .jobs-grid { grid-template-columns: 1fr 1fr; }
+      .job-card-body { grid-template-columns: 1fr; }
+      .benefits-grid { grid-template-columns: repeat(3, 1fr); }
+      .form-row { grid-template-columns: 1fr 1fr; }
+      .coffee-box { grid-template-columns: 1fr auto; padding: 32px; }
+      .thumb-bar { display: none; }
+      .footer-wrap { padding-bottom: 40px; }
     }
   </style>
 </head>
 <body>
 
-  <!-- HEADER -->
+  <!-- TOP BAR -->
   <header class="top-bar">
     <div class="top-bar-inner">
       <a href="index.html" class="brand-logo-wrap">
-        <div class="brand-mark">BH</div>
-        <div>
-          <div class="brand-name">Birchmeier-Hohler</div>
-          <div class="brand-region">Haustechnik AG • Bremgarten AG</div>
+        <img src="images/logo.jpg" alt="Birchmeier-Hohler GmbH Logo" class="brand-logo-img" data-slot="brand-logo">
+        <div class="brand-text-block">
+          <span class="brand-name">Birchmeier-Hohler</span>
+          <span class="brand-region">Sanitär & Heizungen • Bremgarten AG</span>
         </div>
       </a>
       <nav class="desktop-nav">
-        <a href="index.html" class="desk-nav-link">Startseite</a>
-        <a href="team.html" class="desk-nav-link">Über uns & Team</a>
-        <a href="karriere.html" class="desk-nav-link active">Arbeiten bei uns</a>
-        <a href="kontakt.html" class="desk-nav-link">Kontakt & 24h-Pikett</a>
-        <a href="tel:+41566482020" class="btn-desk-contact">📞 056 648 20 20</a>
+        <a href="#stellen" class="desk-nav-link active">Offene Stellen</a>
+        <a href="#vorteile" class="desk-nav-link">Deine Vorteile</a>
+        <a href="#bewerben" class="desk-nav-link">Express-Bewerbung</a>
+        <a href="tel:+41566333375" class="btn-desk-direct">
+          <span>📞</span> 056 633 33 75
+        </a>
       </nav>
       <button class="nav-burger" onclick="toggleDrawer()" aria-label="Menü öffnen">
-        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
       </button>
     </div>
   </header>
 
-  <!-- MOBILE NAV DRAWER -->
-  <nav class="nav-drawer" id="navDrawer">
-    <a href="index.html" class="nav-link">Startseite <span>→</span></a>
-    <a href="team.html" class="nav-link">Über uns & Team <span>→</span></a>
-    <a href="karriere.html" class="nav-link" style="color:var(--primary);">Arbeiten bei uns (Karriere) <span>→</span></a>
-    <a href="kontakt.html" class="nav-link">Kontakt & 24h-Service <span>→</span></a>
-  </nav>
+  <!-- MOBILE DRAWER -->
+  <div class="nav-drawer" id="navDrawer">
+    <a href="#stellen" class="nav-link" onclick="toggleDrawer()">Offene Stellen <span>➔</span></a>
+    <a href="#vorteile" class="nav-link" onclick="toggleDrawer()">Deine Vorteile <span>➔</span></a>
+    <a href="#bewerben" class="nav-link" onclick="toggleDrawer()">Express-Bewerbung <span>➔</span></a>
+    <a href="tel:+41566333375" class="btn-primary" style="margin-top: 12px; width: 100%;">
+      <span>📞</span> Direkt anrufen: 056 633 33 75
+    </a>
+  </div>
 
-  <!-- PAGE HERO -->
-  <section class="page-hero">
-    <div class="page-hero-inner">
-      <span class="section-kicker">Kultur & Karriere im Freiamt</span>
-      <h1 class="page-title">Handwerk mit top Ausrüstung und Wertschätzung.</h1>
-      <p class="page-desc">
-        Du bist Sanitärinstallateur oder Heizungsmonteur mit Leidenschaft? Bei uns erwarten dich moderne Werkzeuge, ein eigenes voll ausgerüstetes Fahrzeug und echter Zusammenhalt.
-      </p>
-    </div>
-  </section>
+  <!-- HERO SECTION -->
+  <section class="hero-wrap">
+    <div class="hero-inner">
+      <div class="hero-content">
+        <span class="section-kicker">● KARRIERE IN BREMGARTEN</span>
+        <h1 class="hero-title">Echtes Handwerk.<br><span>Familienbetrieb</span> seit 1931.</h1>
+        <p class="hero-subtitle">
+          Wir suchen Verstärkung für unser Team an der Wohlerstrasse in Bremgarten. 
+          Freu dich auf moderne Arbeitsgeräte, ein eigenes Servicefahrzeug, kurze Wege im Freiamt und Wertschätzung auf Augenhöhe.
+        </p>
 
-  <!-- BENEFITS (EBENE 1) -->
-  <div class="section-wrap">
-    <div class="section-inner">
-      <span class="section-kicker">Gute Gründe für uns</span>
-      <h2 class="section-title">Was dir Birchmeier-Hohler bietet</h2>
-      <p class="section-subtitle">Faire Bedingungen für echte Fachkräfte.</p>
-
-      <div class="benefits-grid">
-        <div class="benefit-item">
-          <div class="benefit-icon">🚐</div>
-          <div>
-            <div class="benefit-title">Eigenes Servicefahrzeug</div>
-            <div class="benefit-text">Voll ausgerüsteter VW Transporter, den du direkt von zu Hause aus nutzen darfst.</div>
+        <div class="hero-stats">
+          <div class="stat-card">
+            <div class="stat-number">1931</div>
+            <div class="stat-label">Gegründet in Bremgarten</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">3. Gen.</div>
+            <div class="stat-label">Inhabergeführt durch Stefan</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">5 Wo.</div>
+            <div class="stat-label">Ferien & faires Gehalt</div>
           </div>
         </div>
 
-        <div class="benefit-item">
-          <div class="benefit-icon">🏖️</div>
-          <div>
-            <div class="benefit-title">5 Wochen Ferien & fairer Lohn</div>
-            <div class="benefit-text">Attraktive Entlöhnung, pünktliche 13 Monatslöhne und verlässliche Ferienplanung.</div>
-          </div>
+        <div class="hero-actions">
+          <a href="#stellen" class="btn-primary">
+            <span>🔍</span> 2 Stellen ansehen
+          </a>
+          <a href="#bewerben" class="btn-secondary">
+            <span>⚡</span> In 30 Sek. bewerben
+          </a>
         </div>
+      </div>
 
-        <div class="benefit-item">
-          <div class="benefit-icon">🛠️</div>
-          <div>
-            <div class="benefit-title">Modernste Markenwerkzeuge</div>
-            <div class="benefit-text">Hilti Akku-Presswerkzeuge, Rohrkameras und digitale Spülkompressoren der neusten Generation.</div>
-          </div>
-        </div>
-
-        <div class="benefit-item">
-          <div class="benefit-icon">🤝</div>
-          <div>
-            <div class="benefit-title">Kollegiales Freiamter Team</div>
-            <div class="benefit-text">Kein Ellenbogen-Druck. Wir helfen einander aus und schätzen den Austausch auf Augenhöhe.</div>
-          </div>
-        </div>
-
-        <div class="benefit-item">
-          <div class="benefit-icon">🎓</div>
-          <div>
-            <div class="benefit-title">Weiterbildung & Kurse</div>
-            <div class="benefit-text">Wir finanzieren Kurse für Wärmepumpen-Fachmann, Suissetec-Zertifikate oder Chefmonteur.</div>
-          </div>
-        </div>
-
-        <div class="benefit-item">
-          <div class="benefit-icon">⏱️</div>
-          <div>
-            <div class="benefit-title">Geregelte Arbeitszeiten</div>
-            <div class="benefit-text">Faire Pikett-Vergütung im Turnus und keine unbezahlten Überstunden.</div>
-          </div>
+      <div class="hero-media">
+        <img src="images/sanitaer_hero.jpg" alt="Birchmeier-Hohler Handwerk und Service" data-slot="hero-image">
+        <div class="hero-badge-float">
+          <span>📍</span> Wohlerstrasse 17, 5620 Bremgarten
         </div>
       </div>
     </div>
-  </div>
+  </section>
 
-  <!-- AKTUELLE VAKANZ (EBENE 2) -->
-  <div class="section-wrap" style="background: var(--surface);">
+  <!-- STELLEN SECTION -->
+  <section class="section-wrap" id="stellen">
     <div class="section-inner">
-      <span class="section-kicker">Offene Stellen (Ebene 2)</span>
-      <h2 class="section-title">Werde Teil unserer Equipe</h2>
-      <p class="section-subtitle">Direkt einsteigen und Verantwortung übernehmen.</p>
+      <div class="section-header">
+        <span class="section-kicker">● OFFENE POSITIONEN</span>
+        <h2 class="section-title">Wähle deinen Fachbereich</h2>
+        <p class="section-desc">
+          Zwei Berufe, ein starkes Team. Wir suchen gelernte Handwerker EFZ, die selbstständig arbeiten und Freude an sauberer Haustechnik haben.
+        </p>
+      </div>
 
-      <div class="apply-layout">
-        <div>
-          <!-- JOB CARD -->
-          <div class="job-card">
-            <span class="job-badge">SOFORT ODER NACH VEREINBARUNG</span>
-            <h3 class="job-title">Sanitärinstallateur EFZ / Servicemonteur (m/w/d)</h3>
-            <div class="job-meta">
-              <span class="job-meta-item">📍 Bremgarten AG & Freiamt</span>
-              <span class="job-meta-item">💼 80% – 100%</span>
-              <span class="job-meta-item">🛠️ Badumbau & Kundendienst</span>
+      <div class="jobs-grid">
+
+        <!-- STELLE 1: SANITÄR -->
+        <article class="job-card">
+          <div class="job-card-header">
+            <div class="job-badge-row">
+              <span class="job-badge job-badge-primary">Sanitär</span>
+              <span class="job-badge">80–100%</span>
+              <span class="job-badge job-badge-accent">Festanstellung</span>
             </div>
-            <p style="font-size: 0.9rem; color: var(--muted); margin-bottom: 14px;">
-              Selbstständiges Ausführen von Service- und Montagearbeiten bei Privatkunden, Liegenschaftsverwaltungen und Badumbauten.
-            </p>
-            <ul class="job-tasks">
-              <li>Reparaturen, Leitungsersatz und Enthärtungsanlagen</li>
-              <li>Montage von Vorwandinstallationen und Sanitär-Apparaten</li>
-              <li>Direkter, freundlicher Kontakt zu unseren geschätzten Kunden</li>
-              <li>Abgeschlossene Berufslehre EFZ und Führerschein Kat. B</li>
-            </ul>
+            <h3 class="job-title">Sanitärinstallateur EFZ / Servicemonteur</h3>
+            <p class="job-subtitle">Selbstständige Montage, Badumbauten und Reparaturservice in der Region Bremgarten & Freiamt.</p>
           </div>
+
+          <div style="height: 180px; overflow: hidden; background: #e2e8f0;">
+            <img src="images/badumbau.jpg" alt="Sanitärinstallateur bei Badumbau" style="width: 100%; height: 100%; object-fit: cover;" data-slot="sanitaer-job-img">
+          </div>
+
+          <div class="job-card-body">
+            <div>
+              <h4 class="job-column-title"><span>🛠️</span> Deine Aufgaben</h4>
+              <ul class="job-list">
+                <li>Ausführung von Sanitärinstallationen bei Neu- und Badumbauten</li>
+                <li>Wartung, Instandhaltung und Reparaturen bei Privatkunden</li>
+                <li>Boilerentkalkungen, Einbau von Wasserentkalkungsanlagen</li>
+                <li>Ersatz von Armaturen, Mischbatterien und Verteilbatterien</li>
+                <li>Direkter, freundlicher Kundenkontakt vor Ort</li>
+              </ul>
+            </div>
+
+            <div>
+              <h4 class="job-column-title"><span>📋</span> Dein Profil</h4>
+              <ul class="job-list">
+                <li>Abgeschlossene Berufslehre als <strong>Sanitärinstallateur EFZ</strong></li>
+                <li>Führerausweis Kat. B (zwingend)</li>
+                <li>Selbstständige, exakte und saubere Arbeitsweise</li>
+                <li>Freundliches Auftreten und gute Deutschkenntnisse</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="job-card-footer">
+            <span style="font-family:'JetBrains Mono',monospace; font-size:0.8rem; color:var(--text-muted);">
+              Pensum: 80%–100% nach Wunsch
+            </span>
+            <a href="#bewerben" class="btn-primary" onclick="setJobChoice('Sanitärinstallateur EFZ')">
+              <span>🚀</span> Jetzt bewerben
+            </a>
+          </div>
+        </article>
+
+        <!-- STELLE 2: HEIZUNG -->
+        <article class="job-card">
+          <div class="job-card-header">
+            <div class="job-badge-row">
+              <span class="job-badge job-badge-primary">Heizung</span>
+              <span class="job-badge">80–100%</span>
+              <span class="job-badge job-badge-accent">Festanstellung</span>
+            </div>
+            <h3 class="job-title">Heizungsinstallateur EFZ / Heizungsmonteur</h3>
+            <p class="job-subtitle">Heizungssanierungen, moderne Wärmepumpen (Sole/Luft) und periodische Systemkontrollen.</p>
+          </div>
+
+          <div style="height: 180px; overflow: hidden; background: #e2e8f0;">
+            <img src="images/heizung_hero.jpg" alt="Heizungsinstallateur bei Wärmepumpen-Montage" style="width: 100%; height: 100%; object-fit: cover;" data-slot="heizung-job-img">
+          </div>
+
+          <div class="job-card-body">
+            <div>
+              <h4 class="job-column-title"><span>🔥</span> Deine Aufgaben</h4>
+              <ul class="job-list">
+                <li>Installation und Montage moderner Wärmepumpen (Luft/Wasser & Sole/Wasser)</li>
+                <li>Heizungssanierungen, Pellets- und Holzfeuerungen</li>
+                <li>Periodische Heizwasserkontrollen, Spülungen und Vakuumentgasung</li>
+                <li>Behebung von Störungen und Inbetriebnahme von Heizanlagen</li>
+                <li>Fachgerechte Dokumentation und Kundenberatung</li>
+              </ul>
+            </div>
+
+            <div>
+              <h4 class="job-column-title"><span>📋</span> Dein Profil</h4>
+              <ul class="job-list">
+                <li>Abgeschlossene Berufslehre als <strong>Heizungsinstallateur EFZ</strong></li>
+                <li>Führerausweis Kat. B (zwingend)</li>
+                <li>Interesse an erneuerbaren Energien und Wärmepumpen</li>
+                <li>Zuverlässigkeit, Teamgeist und lösungsorientiertes Denken</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="job-card-footer">
+            <span style="font-family:'JetBrains Mono',monospace; font-size:0.8rem; color:var(--text-muted);">
+              Pensum: 80%–100% nach Wunsch
+            </span>
+            <a href="#bewerben" class="btn-primary" onclick="setJobChoice('Heizungsinstallateur EFZ')">
+              <span>🚀</span> Jetzt bewerben
+            </a>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- BENEFITS SECTION -->
+  <section class="section-wrap" id="vorteile" style="background: var(--surface);">
+    <div class="section-inner">
+      <div class="section-header">
+        <span class="section-kicker">● DEIN MEHRWERT</span>
+        <h2 class="section-title">Warum Birchmeier-Hohler?</h2>
+        <p class="section-desc">
+          Als inhabergeführter Kleinbetrieb in 3. Generation legen wir grössten Wert darauf, dass unsere Handwerker sich wohlfühlen und stolz auf ihre Arbeit sind.
+        </p>
+      </div>
+
+      <div class="benefits-grid">
+        <div class="benefit-item">
+          <span class="benefit-icon">🚐</span>
+          <h3 class="benefit-title">Eigenes Servicefahrzeug</h3>
+          <p class="benefit-text">Voll ausgerüstet mit hochwertigen Werkzeugen und Maschinen (Hilti, Milwaukee). Dein Auto, dein Werkzeug, dein Arbeitsplatz.</p>
         </div>
 
-        <!-- EXPRESS BEWERBUNG -->
-        <div class="express-box">
-          <span class="section-kicker">60-Sekunden Express</span>
-          <h3 style="font-size: 1.15rem; font-weight: 800; margin-bottom: 6px;">Kein Lebenslauf nötig.</h3>
-          <p style="font-size: 0.85rem; color: var(--muted); margin-bottom: 18px;">
-            Trag einfach deine Telefonnummer ein. Stefan Birchmeier ruft dich diskret für einen kurzen Austausch an.
+        <div class="benefit-item">
+          <span class="benefit-icon">🤝</span>
+          <h3 class="benefit-title">Flache Hierarchien</h3>
+          <p class="benefit-text">Bei uns bist du keine Nummer im Grosskonzern. Du sprichst direkt mit Inhaber Stefan Birchmeier. Kurze Entscheidungen und offene Ohren.</p>
+        </div>
+
+        <div class="benefit-item">
+          <span class="benefit-icon">📍</span>
+          <h3 class="benefit-title">Regionale Baustellen</h3>
+          <p class="benefit-text">Keine stundenlangen Staus nach Zürich oder Bern. Unsere Projekte liegen im Raum Bremgarten, Wohlen und Freiamt.</p>
+        </div>
+
+        <div class="benefit-item">
+          <span class="benefit-icon">🌴</span>
+          <h3 class="benefit-title">5 Wochen Ferien & fairer Lohn</h3>
+          <p class="benefit-text">Zeitgemässe Entlöhnung nach Suissetec-Standard, gute Sozialleistungen, bezahlte Weiterbildungen und echte Erholung.</p>
+        </div>
+
+        <div class="benefit-item">
+          <span class="benefit-icon">🎓</span>
+          <h3 class="benefit-title">Weiterbildung gefördert</h3>
+          <p class="benefit-text">Egal ob Fachbewilligung Kältemittel, Impulsberatung erneuerbares Heizen oder Chefmonteur — wir unterstützen deine Entwicklung finanziell.</p>
+        </div>
+
+        <div class="benefit-item">
+          <span class="benefit-icon">☕</span>
+          <h3 class="benefit-title">Kollegialer Zusammenhalt</h3>
+          <p class="benefit-text">Gemeinsamer Znüni am Freitagmorgen, gegenseitige Unterstützung bei kniffligen Baustellen und ein respektvoller Ton.</p>
+        </div>
+      </div>
+
+      <!-- KAFFEE BOX -->
+      <div class="coffee-box">
+        <div>
+          <span class="section-kicker" style="color:var(--primary);">● UNVERBINDLICH KENNENLERNEN</span>
+          <h3 class="coffee-title">Noch unsicher? Komm auf einen Kaffee vorbei!</h3>
+          <p class="coffee-text">
+            Keine Bewerbungsmappe nötig. Schau einfach bei uns an der <strong>Wohlerstrasse 17 in Bremgarten</strong> vorbei, 
+            trink einen Kaffee mit Stefan und schau dir den Betrieb ganz unverbindlich an.
           </p>
-
-          <form onsubmit="event.preventDefault(); alert('Vielen Dank! Stefan Birchmeier meldet sich innerhalb von 24 Stunden bei dir.');">
-            <div class="form-group">
-              <label class="form-label">Dein Vor- und Nachname</label>
-              <input type="text" class="form-input" placeholder="z. B. Patrick Meier" required>
-            </div>
-            <div class="form-group">
-              <label class="form-label">Deine Handynummer</label>
-              <input type="tel" class="form-input" placeholder="z. B. 079 987 65 43" required>
-            </div>
-            <div class="form-group">
-              <label class="form-label">Dein Beruf</label>
-              <input type="text" class="form-input" placeholder="z. B. Sanitärinstallateur EFZ">
-            </div>
-            <button type="submit" class="btn-apply">
-              <span>🚀</span> In 60 Sekunden absenden
-            </button>
-          </form>
-
-          <div style="text-align: center; margin: 14px 0; font-size: 0.8rem; color: var(--muted);">oder direkt via WhatsApp:</div>
-          <a href="https://wa.me/41790000000?text=Hallo%20Stefan,%20ich%20habe%20eure%20Stellenanzeige%20f%C3%BCr%20Sanit%C3%A4r%20gesehen." class="btn-wa-apply">
-            <span>💬</span> Per WhatsApp schreiben
+        </div>
+        <div>
+          <a href="tel:+41566333375" class="btn-secondary" style="white-space: nowrap;">
+            <span>☕</span> Termin vereinbaren
           </a>
         </div>
       </div>
     </div>
-  </div>
+  </section>
 
-  <!-- INITIATIV (EBENE 1) -->
-  <div class="section-wrap">
+  <!-- EXPRESS APPLICATION FORM -->
+  <section class="section-wrap apply-section" id="bewerben">
     <div class="section-inner">
-      <div class="passive-box">
-        <span style="font-family:'JetBrains Mono',monospace; font-size:0.75rem; color:#f59e0b; font-weight:700; text-transform:uppercase;">Initiativ</span>
-        <h2 style="font-size: 1.6rem; font-weight: 800; margin: 10px 0;">Spontan ins Gespräch kommen?</h2>
-        <p style="font-size: 0.95rem; color: #cbd5e1; max-width: 600px; margin: 0 auto 24px auto; line-height: 1.6;">
-          Wir sind immer interessiert an motivierten Heizungsmonteuren, Planern oder Lernenden. 
-          Komm einfach auf einen Kaffee an der Zürcherstrasse 28 in Bremgarten vorbei.
+      <div class="apply-card">
+        <span class="apply-badge">● IN 30 SEKUNDEN</span>
+        <h2 class="apply-title">Express-Bewerbung ohne Lebenslauf</h2>
+        <p class="apply-desc">
+          Trag einfach deine Angaben ein. Stefan Birchmeier ruft dich diskret für ein kurzes, unkompliziertes Telefongespräch an.
         </p>
-        <a href="tel:+41566482020" style="background: #ffffff; color: #0f172a; padding: 12px 24px; border-radius: var(--radius-md); font-weight: 700; text-decoration: none; display: inline-flex; align-items: center; gap: 8px;">
-          ☕ Auf einen Kaffee vorbeikommen
+
+        <form onsubmit="handleApplySubmit(event)" id="expressForm">
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="applicantName">Vor- und Nachname *</label>
+              <input type="text" id="applicantName" class="form-input" placeholder="z. B. Patrick Meier" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="applicantPhone">Handynummer *</label>
+              <input type="tel" id="applicantPhone" class="form-input" placeholder="z. B. 079 123 45 67" required>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="applicantJob">Interesse an Stelle</label>
+            <select id="applicantJob" class="form-select">
+              <option value="Sanitärinstallateur EFZ">Sanitärinstallateur EFZ / Servicemonteur (80–100%)</option>
+              <option value="Heizungsinstallateur EFZ">Heizungsinstallateur EFZ / Heizungsmonteur (80–100%)</option>
+              <option value="Spontan / Andere">Spontanbewerbung / Andere Fachrichtung</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="applicantMsg">Kurze Notiz (optional)</label>
+            <textarea id="applicantMsg" class="form-textarea" rows="2" placeholder="Wann bist du am besten erreichbar?"></textarea>
+          </div>
+
+          <button type="submit" class="btn-primary" style="width: 100%; padding: 16px; font-size: 1rem;">
+            <span>🚀</span> In 30 Sekunden absenden
+          </button>
+        </form>
+
+        <div class="divider-text">oder noch schneller via WhatsApp</div>
+
+        <a href="https://wa.me/41790000000?text=Hallo%20Stefan,%20ich%20habe%20eure%20Stellenanzeige%20f%C3%BCr%20Sanit%C3%A4r%20/%20Heizung%20gesehen%20und%20wollte%20mich%20kurz%20melden." class="btn-wa" target="_blank" rel="noopener">
+          <span>💬</span> Direkt per WhatsApp an Stefan schreiben
         </a>
       </div>
     </div>
-  </div>
+  </section>
 
-  <div class="bottom-buffer"></div>
-
-  <!-- STICKY THUMB BAR -->
+  <!-- STICKY MOBILE BOTTOM BAR -->
   <div class="thumb-bar">
-    <a href="tel:+41566482020" class="btn-thumb btn-thumb-phone">
-      <span>📞</span> 056 648 20 20
+    <a href="tel:+41566333375" class="btn-thumb btn-thumb-phone">
+      <span>📞</span> Anrufen
     </a>
-    <a href="https://wa.me/41790000000" class="btn-thumb btn-thumb-whatsapp">
+    <a href="https://wa.me/41790000000?text=Hallo%20Stefan,%20ich%20interessiere%20mich%20f%C3%BCr%20eure%20offenen%20Stellen." class="btn-thumb btn-thumb-wa" target="_blank" rel="noopener">
       <span>💬</span> WhatsApp
     </a>
   </div>
@@ -318,19 +1046,54 @@
   <!-- FOOTER -->
   <footer class="footer-wrap">
     <div class="footer-inner">
-      <div style="font-weight: 800; font-size: 1.05rem; color: #fff;">Birchmeier-Hohler Haustechnik AG</div>
-      <div>Zürcherstrasse 28 • 5620 Bremgarten AG • Tel: 056 648 20 20 • info@birchmeier-hohler.ch</div>
-      <div style="font-family:'JetBrains Mono',monospace; font-size:0.7rem; color:#64748b; margin-top:8px;">
-        Powered by WebPilot // Schweizer Hosting (Zürich & Genf) • 100% Mobile First Architecture
+      <div class="footer-brand">Birchmeier-Hohler GmbH • Haustechnik seit 1931</div>
+      <div>Wohlerstrasse 17 • 5620 Bremgarten AG • Tel: 056 633 33 75 • info@birchmeier-hohler.ch</div>
+      <div style="font-family:'JetBrains Mono',monospace; font-size:0.75rem; color:#64748b; margin-top:8px;">
+        Powered by WebPilot // Meisterbetrieb in 3. Generation • Inhabergeführt durch Stefan Birchmeier
       </div>
     </div>
   </footer>
 
   <script>
     function toggleDrawer() {
-      document.getElementById('navDrawer').classList.toggle('open');
+      var d = document.getElementById('navDrawer');
+      if (d) d.classList.toggle('open');
     }
+
+    function setJobChoice(jobName) {
+      var sel = document.getElementById('applicantJob');
+      if (sel) {
+        for (var i = 0; i < sel.options.length; i++) {
+          if (sel.options[i].value.indexOf(jobName) !== -1 || jobName.indexOf(sel.options[i].value) !== -1) {
+            sel.selectedIndex = i;
+            break;
+          }
+        }
+      }
+    }
+
+    function handleApplySubmit(e) {
+      e.preventDefault();
+      var name = document.getElementById('applicantName').value;
+      var phone = document.getElementById('applicantPhone').value;
+      var job = document.getElementById('applicantJob').value;
+      
+      alert('Vielen Dank, ' + name + '! Deine Angaben wurden übermittelt. Stefan Birchmeier wird dich unter ' + phone + ' diskret für ein kurzes Gespräch kontaktieren.');
+      document.getElementById('expressForm').reset();
+    }
+
+    /* Iframe Resizer for seamless embedding */
+    window.addEventListener('load', function() {
+      function sendHeight() {
+        var h = document.documentElement.scrollHeight || document.body.scrollHeight;
+        if (window.parent && window.parent.postMessage) {
+          window.parent.postMessage({ type: 'acp-embed-resize', height: h }, '*');
+        }
+      }
+      sendHeight();
+      window.addEventListener('resize', sendHeight);
+      setTimeout(sendHeight, 800);
+    });
   </script>
 </body>
 </html>
-
