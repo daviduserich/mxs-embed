@@ -3466,9 +3466,9 @@ var ACP_CLIENT_PROFILE = {
   "prompt_rules": [
     "- Branchen-Standard: suissetec (Schweizerisch-Liechtensteinischer Gebäudetechnikverband).",
     "- Schweizer Fachvokabular (aktiv nutzen): Wärmepumpe, Erdsonden, Boiler, Wasseraufbereitung, Entkalkungsanlage, Badumbau, Fussbodenheizung, GEAK.",
-    "- Verbotenes Fremdvokabular (nie verwenden!): Klempner, Warmwasserspeicher, Installateurgeselle, Geselle, Gewerke, Notdienst, Kostenvoranschlag, Fördermittel.",
+    "- Verbotenes Fremdvokabular (nie verwenden!): Klempner, Warmwasserspeicher, Installateurgeselle, Handwerker EFZ, Leistungen, 24h-Pikett, Offerte, Fördergelder.",
     "- Offizielle Berufsbezeichnungen: Sanitärinstallateur EFZ, Heizungsinstallateur EFZ, Haustechnikpraktiker EBA, Chefmonteur Sanitär / Heizung mit eidg. Fachausweis.",
-    "- Grunddoktrin: 'Leistungen' (nie 'Gewerke'), 'Offerte' (nie 'Kostenvoranschlag'), 'Ferien' (nie 'Urlaub'), 'Lernende' (nie 'Azubis')."
+    "- Grunddoktrin: 'Leistungen' (nie 'Leistungen'), 'Offerte' (nie 'Offerte'), 'Ferien' (nie 'Ferien'), 'Lernende' (nie 'Lernende')."
   ],
   "host_url": "https://embed.magnet-xs.ch/preview-birchmeier/cockpit",
   "host_jobs_url": "https://embed.magnet-xs.ch/preview-birchmeier/",
@@ -5330,7 +5330,7 @@ function acpBuildFullContextEnvelope(targetSecId, customGoal) {
   var industryLabel = profile.industry_label || "Schweizer Unternehmens-Website";
   var promptRules = (profile.prompt_rules && profile.prompt_rules.length > 0)
     ? profile.prompt_rules.join("\n")
-    : "- Schweizer Geschäftsbegriffe: \"Leistungen\" (nie \"Gewerke\"), \"Fachspezialisten EFZ\" (nie \"Gesellen\"), \"Lernende\" (nie \"Azubis\"), \"Offerte\" (nie \"Kostenvoranschlag\"), \"Ferien\" (nie \"Urlaub\").";
+    : "- Schweizer Geschäftsbegriffe: \"Leistungen\" (nie \"Leistungen\"), \"Fachspezialisten EFZ\" (nie \"Handwerker EFZ und Fachmonteure\"), \"Lernende\" (nie \"Lernende\"), \"Offerte\" (nie \"Offerte\"), \"Ferien\" (nie \"Ferien\").";
 
   var prompt = 
 "Du bist mein technischer Web-Entwickler für meine " + industryLabel + " (WebPilot Obsidian-Dark Design).\n" +
@@ -5347,7 +5347,7 @@ function acpBuildFullContextEnvelope(targetSecId, customGoal) {
 "================================================================================\n" +
 "2. VERBINDLICHE SCHWEIZER SPRACH- & DESIGN-DOKTRIN:\n" +
 "================================================================================\n" +
-"- Sprache: Authentisches Schweizer Hochdeutsch (100% Verbot von \"ß\", nutze \"ss\").\n" +
+"- Sprache: Authentisches Schweizer Hochdeutsch (100% Verbot von \"ss\", nutze \"ss\").\n" +
 promptRules + "\n" +
 "- Schweizer Typografie: Nutze die bestehenden Klassen (.section-wrap, .section-inner, .section-kicker, .section-title, .section-desc).\n" +
 "- Kicker-Regel: <span class=\"section-kicker\">● Kicker-Text</span> ist 100% freistehend (keine Box, kein Badge-Rahmen).\n" +
@@ -5395,13 +5395,13 @@ function acpCopyFullPagePrompt() {
   var industryLabel = profile.industry_label || "Schweizer Unternehmens-Website";
   var promptRules = (profile.prompt_rules && profile.prompt_rules.length > 0)
     ? profile.prompt_rules.join("\n")
-    : "- Schweizer Geschäftsbegriffe: \"Leistungen\" (nie \"Gewerke\"), \"Fachspezialisten EFZ\" (nie \"Gesellen\"), \"Lernende\" (nie \"Azubis\"), \"Offerte\" (nie \"Kostenvoranschlag\"), \"Ferien\" (nie \"Urlaub\").";
+    : "- Schweizer Geschäftsbegriffe: \"Leistungen\" (nie \"Leistungen\"), \"Fachspezialisten EFZ\" (nie \"Handwerker EFZ und Fachmonteure\"), \"Lernende\" (nie \"Lernende\"), \"Offerte\" (nie \"Offerte\"), \"Ferien\" (nie \"Ferien\").";
 
   var prompt = 
 "Du bist mein technischer Web-Redakteur für meine " + industryLabel + ".\n" +
 "Ich übergebe dir hier den VOLLSTÄNDIGEN Quellcode meiner Website (HTML5).\n\n" +
 "MEINE REGELN:\n" +
-"1. Schweizer Hochdeutsch (0x 'ß', Schweizer Fachbegriffe):\n" +
+"1. Schweizer Hochdeutsch (0x 'ss', Schweizer Fachbegriffe):\n" +
 promptRules + "\n" +
 "2. Schweizer Obsidian-Design & bestehende Klassen beibehalten.\n" +
 "3. AUSGABE-PFLICHT: Gib mir den Quellcode immer als eine einzige, vollständige und ungekürzte HTML-Datei aus – ausnahmslos von <!DOCTYPE html> bis </html>. Verwende keine Code-Auslassungen!\n\n" +
@@ -5557,7 +5557,7 @@ function acpCopyGeneratedNewSectionPrompt() {
   var industryLabel = profile.industry_label || "Schweizer Unternehmens-Website";
   var promptRules = (profile.prompt_rules && profile.prompt_rules.length > 0)
     ? profile.prompt_rules.join("\n")
-    : "- Schweizer Geschäftsbegriffe: \"Leistungen\" (nie \"Gewerke\"), \"Fachspezialisten EFZ\" (nie \"Gesellen\"), \"Lernende\" (nie \"Azubis\"), \"Offerte\" (nie \"Kostenvoranschlag\"), \"Ferien\" (nie \"Urlaub\").";
+    : "- Schweizer Geschäftsbegriffe: \"Leistungen\" (nie \"Leistungen\"), \"Fachspezialisten EFZ\" (nie \"Handwerker EFZ und Fachmonteure\"), \"Lernende\" (nie \"Lernende\"), \"Offerte\" (nie \"Offerte\"), \"Ferien\" (nie \"Ferien\").";
 
   var prompt = 
 "Du bist mein technischer Web-Entwickler für meine " + industryLabel + " (WebPilot Obsidian-Dark Design).\n" +
