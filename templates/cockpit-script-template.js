@@ -394,6 +394,7 @@ function acpSwitchJob(jobId, forceReload) {
         }
         if (acpSelectedSwapImage) {
           acpDispatchSwapMode(true);
+          acpRenderSwapDockTargets();
         }
       };
     } else {
@@ -403,6 +404,7 @@ function acpSwitchJob(jobId, forceReload) {
       }
       if (acpSelectedSwapImage && frame.contentWindow) {
         acpDispatchSwapMode(true);
+        acpRenderSwapDockTargets();
       }
     }
   }
@@ -964,6 +966,33 @@ function acpEnsureSpotlightCssInDoc(doc) {
     ].join("\n");
     doc.head.appendChild(style);
   }
+
+  if (!doc._acpSwapListenerAttached) {
+    doc._acpSwapListenerAttached = true;
+    doc.addEventListener("click", function(e) {
+      if (!acpSelectedSwapImage) return;
+      var targetImg = e.target.closest ? e.target.closest("img") : null;
+      var targetHero = e.target.closest ? e.target.closest(".hero, [data-slot*='hero']") : null;
+      if (targetImg) {
+        e.preventDefault();
+        e.stopPropagation();
+        var src = targetImg.getAttribute("src") || "";
+        var slot = targetImg.getAttribute("data-slot") || targetImg.id || (src.split("/").pop() || "image");
+        var isHero = (targetImg.classList && targetImg.classList.contains("hero")) || src.indexOf("hero") !== -1;
+        acpSelectTargetDirect(src, slot, isHero);
+      } else if (targetHero) {
+        e.preventDefault();
+        e.stopPropagation();
+        acpSelectTargetDirect("images/hero.jpg", "hero.hintergrund.bild", true);
+      }
+    }, true);
+
+    doc.addEventListener("keydown", function(e) {
+      if (e.key === "Escape" && acpSelectedSwapImage) {
+        acpCancelSwap();
+      }
+    }, true);
+  }
 }
 
 function acpDispatchSwapMode(active) {
@@ -1010,6 +1039,25 @@ function getUsedImagesForCurrentJob() {
   return list;
 }
 
+function acpRenderSwapDockTargets() {
+  var targetHint = document.getElementById("acp-swap-target-hint");
+  if (!targetHint) return;
+  var usedImages = getUsedImagesForCurrentJob();
+  if (usedImages.length > 0) {
+    var btnsHtml = '<div style="display:flex; align-items:center; gap:8px; flex-wrap:wrap;">' +
+      '<span style="color:#facc15; font-size:12px; font-weight:700;">👉 Wähle das zu ersetzende Bild:</span>';
+    for (var u = 0; u < usedImages.length; u++) {
+      var uImg = usedImages[u];
+      var label = uImg.is_hero ? ('🖼️ Hero-Hintergrund (' + uImg.filename + ')') : ('📷 ' + uImg.filename);
+      btnsHtml += '<button type="button" class="btn-swap-target-choice" onclick="acpSelectTargetDirect(\'' + uImg.rel_path + '\', \'' + uImg.slot + '\', ' + uImg.is_hero + ')">' + label + '</button>';
+    }
+    btnsHtml += '<span style="color:#94a3b8; font-size:11px;">(oder klicke in der Vorschau darauf)</span></div>';
+    targetHint.innerHTML = btnsHtml;
+  } else {
+    targetHint.innerHTML = '<span style="color:#facc15; font-size:12px; font-weight:700;">👉 Klicke jetzt in der Vorschau auf das Bild, das du ersetzen möchtest...</span>';
+  }
+}
+
 function acpSelectSwapImage(relPath, filename) {
   acpSelectedSwapImage = { rel_path: relPath, filename: filename };
   acpLog("info", "📷 Tausch-Bild ausgewählt: " + filename, "Pfad: " + relPath);
@@ -1032,23 +1080,7 @@ function acpSelectSwapImage(relPath, filename) {
   }
   if (nameEl) nameEl.textContent = filename;
 
-  var usedImages = getUsedImagesForCurrentJob();
-
-  if (targetHint) {
-    if (usedImages.length > 0) {
-      var btnsHtml = '<div style="display:flex; align-items:center; gap:8px; flex-wrap:wrap;">' +
-        '<span style="color:#facc15; font-size:12px; font-weight:700;">👉 Wähle das zu ersetzende Bild:</span>';
-      for (var u = 0; u < usedImages.length; u++) {
-        var uImg = usedImages[u];
-        var label = uImg.is_hero ? ('🖼️ Hero-Hintergrund (' + uImg.filename + ')') : ('📷 ' + uImg.filename);
-        btnsHtml += '<button type="button" class="btn-swap-target-choice" onclick="acpSelectTargetDirect(\'' + uImg.rel_path + '\', \'' + uImg.slot + '\', ' + uImg.is_hero + ')">' + label + '</button>';
-      }
-      btnsHtml += '<span style="color:#94a3b8; font-size:11px;">(oder klicke in der Vorschau darauf)</span></div>';
-      targetHint.innerHTML = btnsHtml;
-    } else {
-      targetHint.innerHTML = '<span style="color:#facc15; font-size:12px; font-weight:700;">👉 Klicke jetzt in der Vorschau auf das Bild, das du ersetzen möchtest...</span>';
-    }
-  }
+  acpRenderSwapDockTargets();
 
   if (actionsBox) actionsBox.style.display = "none";
   if (dock) {
