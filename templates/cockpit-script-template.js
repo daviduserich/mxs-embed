@@ -382,10 +382,18 @@ function acpSwitchJob(jobId, forceReload) {
         targetSrc = job.datei + "?embed=true";
       } else {
         var base = edgePreviewUrl;
-        if (base.indexOf("embed.magnet-xs.ch") !== -1 && base.endsWith(".html")) {
+        if (window.location.hostname.indexOf("vorschau.") !== -1) {
+          var cleanClient = subfolder.replace(/^preview-/, "");
+          var cleanPage = job.datei.replace(/\.html$/, "");
+          base = window.location.origin + "/" + cleanClient + "/" + cleanPage;
+        } else if (base.indexOf("embed.magnet-xs.ch") !== -1 && base.endsWith(".html")) {
           base = base.replace(/\.html$/, "");
         }
+        var curToken = new URLSearchParams(window.location.search).get("token");
         targetSrc = base + (base.indexOf("?") === -1 ? "?embed=true" : "&embed=true");
+        if (curToken && targetSrc.indexOf("token=") === -1) {
+          targetSrc += "&token=" + encodeURIComponent(curToken);
+        }
       }
       frame.src = targetSrc;
       frame.onload = function() {

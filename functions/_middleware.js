@@ -85,14 +85,21 @@ export async function onRequest(context) {
     // A) COCKPITS (/cockpit): Verlangen zwingend einen gültigen Token oder Cookie!
     if (isCockpit) {
       if (!hasValidToken && !hasValidCookie) {
-        return Response.redirect('https://webpilot.magnet-xs.ch/', 302);
+        return new Response('Zugriff geschützt. Bitte Cockpit mit gültigem Mandanten-Token öffnen.', {
+          status: 403,
+          headers: { 'Content-Type': 'text/plain; charset=utf-8' }
+        });
       }
     }
     // B) VORSCHAU-HOST (vorschau.magnet-xs.ch) oder PREVIEWS (preview-*):
     // Verlangen Token oder Cookie, AUSSER bei Assets, Iframe-Embeds und Onboarding
     // WICHTIG: Live-Widgets auf embed.magnet-xs.ch/hiltbrand/*.html sind ECHTE PUBLIKATIONEN und dürfen NIEMALS blockiert werden!
+    // NIEMALS auf WebPilot umleiten, sondern sauberen 403-Schutzstatus liefern!
     else if ((isVorschauHost || isPreview) && !isEmbed && !hasValidToken && !hasValidCookie && !isAsset && !isOnboarding) {
-      return Response.redirect('https://webpilot.magnet-xs.ch/', 302);
+      return new Response('Vorschau geschützt. Bitte über das Mandanten-Cockpit mit Token aufrufen.', {
+        status: 403,
+        headers: { 'Content-Type': 'text/plain; charset=utf-8' }
+      });
     }
   }
 
