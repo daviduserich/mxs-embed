@@ -73,7 +73,7 @@ function acpClearClientLog() {
 
 function acpFetchServerLog() {
   var currentJob = getActiveJob();
-  var clientSlug = currentJob.folder || 'hiltbrand';
+  var clientSlug = (currentJob && currentJob.folder) || (window.ACP_CLIENT_PROFILE && window.ACP_CLIENT_PROFILE.slug) || 'preview-birchmeier';
   acpLog('info', '📡 Frage Server-Logbuch ab...', 'Mandant: ' + clientSlug);
   fetch('/api/publish-career/logs?client=' + encodeURIComponent(clientSlug))
     .then(function(res) { return res.json(); })
@@ -340,12 +340,41 @@ function acpSwitchJob(jobId, forceReload) {
   var stageUrl = document.getElementById("acp-stage-browser-url");
   var stageLink = document.getElementById("acp-stage-external-link");
   var stagePill = document.getElementById("acp-stage-client-pill");
-  var subfolder = job.folder || ((job.firma && job.firma.indexOf("Zurbuchen") !== -1) ? "zurbuchen" : "hiltbrand");
+  var profileSlug = (typeof ACP_CLIENT_PROFILE !== "undefined" && ACP_CLIENT_PROFILE.slug) ? ACP_CLIENT_PROFILE.slug : "";
+  var subfolder = job.folder || profileSlug || ((job.firma && job.firma.indexOf("Zurbuchen") !== -1) ? "zurbuchen" : "hiltbrand");
+  var cleanClient = profileSlug.replace("preview-", "") || subfolder.replace("preview-", "");
   var edgePreviewUrl = job.edge_url || ("https://embed.magnet-xs.ch/" + subfolder + "/" + job.datei);
-  var targetLiveUrl = job.embedded_page_url || (job.is_live ? job.live_url : edgePreviewUrl);
 
-  if (stageUrl) stageUrl.textContent = targetLiveUrl;
-  if (stageLink) stageLink.href = targetLiveUrl;
+  var curToken = new URLSearchParams(window.location.search).get("token");
+  var isDirectHost = (window.location.origin.indexOf("vorschau.magnet-xs.ch") !== -1);
+  var cleanPage = (job.datei || "index.html").replace(/\.html$/, "");
+  if (cleanPage === "index") cleanPage = "";
+
+  var targetLiveUrl = "";
+  var displayUrl = "";
+
+  if (job.embedded_page_url || (job.is_live && job.live_url)) {
+    targetLiveUrl = job.embedded_page_url || job.live_url;
+    displayUrl = targetLiveUrl.replace(/^https?:\/\//, "");
+  } else if (isDirectHost) {
+    targetLiveUrl = window.location.origin + "/" + cleanClient + "/" + (cleanPage ? cleanPage : "");
+    if (curToken) {
+      targetLiveUrl += (targetLiveUrl.indexOf("?") === -1 ? "?token=" : "&token=") + encodeURIComponent(curToken);
+    }
+    displayUrl = window.location.origin.replace(/^https?:\/\//, "") + "/" + cleanClient + "/" + (cleanPage ? cleanPage : "");
+  } else {
+    targetLiveUrl = edgePreviewUrl;
+    if (curToken && targetLiveUrl.indexOf("token=") === -1) {
+      targetLiveUrl += (targetLiveUrl.indexOf("?") === -1 ? "?token=" : "&token=") + encodeURIComponent(curToken);
+    }
+    displayUrl = edgePreviewUrl.replace(/^https?:\/\//, "");
+  }
+
+  if (stageUrl) stageUrl.textContent = displayUrl;
+  if (stageLink) {
+    stageLink.href = targetLiveUrl;
+    stageLink.title = "Seite im neuen Tab öffnen (" + targetLiveUrl + ")";
+  }
   if (stagePill) stagePill.textContent = firmaName;
 
   // Fallbacks for mock headers if present
@@ -472,7 +501,10 @@ function acpCopyAiPrompt(btn) {
 }
 
 function acpCopyOnlineUrl(btn) {
-  var url = "https://embed.magnet-xs.ch/hiltbrand/cockpit";
+  var url = window.location.href;
+  if (window.location.protocol === "file:" && typeof ACP_CLIENT_PROFILE !== "undefined" && ACP_CLIENT_PROFILE.host_url) {
+    url = ACP_CLIENT_PROFILE.host_url;
+  }
   if (navigator.clipboard && navigator.clipboard.writeText) {
     navigator.clipboard.writeText(url);
     acpShowToast("📋 <strong>Online-Cockpit Link kopiert!</strong><br><small>" + url + "</small>");
@@ -1316,7 +1348,7 @@ function acpExecuteDirectSwap() {
   acpShowToast('⚡ <strong>Bildtausch gestartet:</strong> Tausche ' + cleanOld + ' ➔ ' + cleanNew + '...<br><small>Cloudflare Pages aktualisiert den Edge-Cache...</small>', 8000);
 
   var payload = {
-    client: currentJob.folder || 'preview-hiltbrand',
+    client: (currentJob && currentJob.folder) || (window.ACP_CLIENT_PROFILE && window.ACP_CLIENT_PROFILE.slug) || 'preview-birchmeier',
     file: activeFile,
     old_path: acpTargetSwapSlot.currentSrc,
     new_path: acpSelectedSwapImage.rel_path,
@@ -1762,7 +1794,7 @@ function checkEnvironmentAndRender() {
     }
   } else {
     if (onlineBtn) {
-      var fallbackUrl = (typeof ACP_CLIENT_PROFILE !== "undefined" && ACP_CLIENT_PROFILE.host_url) ? ACP_CLIENT_PROFILE.host_url : "https://embed.magnet-xs.ch/preview-hiltbrand/cockpit";
+      var fallbackUrl = (typeof ACP_CLIENT_PROFILE !== "undefined" && ACP_CLIENT_PROFILE.host_url) ? ACP_CLIENT_PROFILE.host_url : window.location.href;
       onlineBtn.href = fallbackUrl;
       onlineBtn.target = "_blank";
       onlineBtn.innerHTML = '<span class="nav-icon">🌐</span><span class="nav-label">Online</span>';
