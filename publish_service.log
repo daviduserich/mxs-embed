@@ -18,3 +18,5 @@
 [2026-10-13 15:16:32] [preview-hiltbrand] [SWAP_REJECTED] [NOT_FOUND_IN_HTML] Pfad oder Dateiname 'images/stefan.jpg' wurde in 'index.html' nicht gefunden
 [2026-10-13 15:16:32] [preview-hiltbrand] [CLIENT_ERROR] [EVENT] Bildtausch abgelehnt: Pfad oder Dateiname 'images/stefan.jpg' wurde in 'index.html' nicht gefunden | {"client":"preview-hiltbrand","file":"index.html","old_path":"images/stefan.jpg","new_path":"images/chrome_gq0yxtniax.png","is_hero":false,"slot":"stefan.jpg"}
 [2026-10-13 15:29:09] [preview-hiltbrand] [SWAP_REQUEST] [START] file=onboarding.html, old=images/stefan.jpg, new=images/chrome_gq0yxtniax.png, slot=stefan.jpg
+[2026-10-13 15:29:12] [preview-hiltbrand] [SWAP_SUCCESS] [DEPLOYED] stefan.jpg -> chrome_gq0yxtniax.png in onboarding.html
+[2026-10-13 15:30:01] [preview-hiltbrand] [SWAP_REQUEST] [START] file=team.html, old=images/stefan.jpg, new=images/chrome_gq0yxtniax.png, slot=stefan.jpg

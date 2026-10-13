@@ -30,6 +30,11 @@
         "datei": "onboarding.html",
         "slot": "image",
         "is_hero": false
+      },
+      {
+        "datei": "team.html",
+        "slot": "image",
+        "is_hero": false
       }
     ]
   },
@@ -353,14 +358,8 @@
     "mtime": 1791122920,
     "mtime_str": "04.10.2026 14:08",
     "cdn_url": "https://embed.magnet-xs.ch/preview-hiltbrand/images/stefan.jpg",
-    "is_used": true,
-    "used_in": [
-      {
-        "datei": "team.html",
-        "slot": "image",
-        "is_hero": false
-      }
-    ]
+    "is_used": false,
+    "used_in": []
   },
   {
     "id": "images_team_alt_jpg",
