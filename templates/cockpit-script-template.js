@@ -973,17 +973,18 @@ function acpEnsureSpotlightCssInDoc(doc) {
       if (!acpSelectedSwapImage) return;
       var targetImg = e.target.closest ? e.target.closest("img") : null;
       var targetHero = e.target.closest ? e.target.closest(".hero, [data-slot*='hero']") : null;
+      var thisDocFile = (doc.location && doc.location.pathname) ? doc.location.pathname.split("/").pop().split("?")[0] : "";
       if (targetImg) {
         e.preventDefault();
         e.stopPropagation();
         var src = targetImg.getAttribute("src") || "";
         var slot = targetImg.getAttribute("data-slot") || targetImg.id || (src.split("/").pop() || "image");
         var isHero = (targetImg.classList && targetImg.classList.contains("hero")) || src.indexOf("hero") !== -1;
-        acpSelectTargetDirect(src, slot, isHero);
+        acpSelectTargetDirect(src, slot, isHero, thisDocFile);
       } else if (targetHero) {
         e.preventDefault();
         e.stopPropagation();
-        acpSelectTargetDirect("images/hero.jpg", "hero.hintergrund.bild", true);
+        acpSelectTargetDirect("images/hero.jpg", "hero.hintergrund.bild", true, thisDocFile);
       }
     }, true);
 
@@ -1042,6 +1043,8 @@ function getUsedImagesForCurrentJob() {
 function acpRenderSwapDockTargets() {
   var targetHint = document.getElementById("acp-swap-target-hint");
   if (!targetHint) return;
+  var currentJob = getActiveJob();
+  var activeFile = (currentJob && currentJob.datei) || "index.html";
   var usedImages = getUsedImagesForCurrentJob();
   if (usedImages.length > 0) {
     var btnsHtml = '<div style="display:flex; align-items:center; gap:8px; flex-wrap:wrap;">' +
@@ -1049,7 +1052,7 @@ function acpRenderSwapDockTargets() {
     for (var u = 0; u < usedImages.length; u++) {
       var uImg = usedImages[u];
       var label = uImg.is_hero ? ('🖼️ Hero-Hintergrund (' + uImg.filename + ')') : ('📷 ' + uImg.filename);
-      btnsHtml += '<button type="button" class="btn-swap-target-choice" onclick="acpSelectTargetDirect(\'' + uImg.rel_path + '\', \'' + uImg.slot + '\', ' + uImg.is_hero + ')">' + label + '</button>';
+      btnsHtml += '<button type="button" class="btn-swap-target-choice" onclick="acpSelectTargetDirect(\'' + uImg.rel_path + '\', \'' + uImg.slot + '\', ' + uImg.is_hero + ', \'' + activeFile + '\')">' + label + '</button>';
     }
     btnsHtml += '<span style="color:#94a3b8; font-size:11px;">(oder klicke in der Vorschau darauf)</span></div>';
     targetHint.innerHTML = btnsHtml;
@@ -1098,12 +1101,13 @@ function acpSelectSwapImage(relPath, filename) {
   acpShowToast('🎯 Tausch-Bild gewählt: <strong>' + filename + '</strong><br><small>Wähle nun das Zielbild in der gelben Leiste oben oder klicke in der Vorschau darauf.</small>', 5000);
 }
 
-function acpSelectTargetDirect(srcPath, slotName, isHero) {
+function acpSelectTargetDirect(srcPath, slotName, isHero, docFile) {
   acpHandleSlotClick({
     slot: slotName,
     isImg: true,
     isHero: isHero,
-    currentSrc: srcPath
+    currentSrc: srcPath,
+    datei: docFile
   });
 }
 
@@ -1144,11 +1148,46 @@ function acpHandleSlotClick(data) {
   }
 
   var currentJob = getActiveJob();
-  var activeFile = currentJob.datei || 'Hiltbrand_Dachdecker_Pragmatisch.html';
-
   var currentSrc = (data.currentSrc || data.src || '').replace(/['"]/g, '').split('?')[0].trim();
   if (!currentSrc && data.isHero) {
     currentSrc = 'images/hero.jpg';
+  }
+  var cleanOld = currentSrc.split('/').pop().split('?')[0].trim();
+
+  // 1. Primär: Explizit übergebene Datei
+  var activeFile = data.datei || '';
+
+  // 2. Sekundär: Echte Datei aus dem iFrame-Location auslesen
+  if (!activeFile) {
+    try {
+      var frame = document.getElementById("acp-widget-viewport");
+      if (frame && frame.contentDocument && frame.contentDocument.location) {
+        var realFile = frame.contentDocument.location.pathname.split('/').pop().split('?')[0];
+        if (realFile && realFile.endsWith('.html')) {
+          activeFile = realFile;
+        }
+      }
+    } catch(e) {}
+  }
+
+  // 3. Tertiär: Smart Resolver aus ACP_BILDER (weiss exakt, wo welches Foto vorkommt!)
+  if (Array.isArray(ACP_BILDER) && cleanOld) {
+    for (var b = 0; b < ACP_BILDER.length; b++) {
+      if (ACP_BILDER[b].filename === cleanOld || ACP_BILDER[b].rel_path === currentSrc) {
+        if (Array.isArray(ACP_BILDER[b].used_in) && ACP_BILDER[b].used_in.length > 0) {
+          var inActive = ACP_BILDER[b].used_in.some(function(u) { return u.datei === activeFile; });
+          if (!inActive) {
+            activeFile = ACP_BILDER[b].used_in[0].datei;
+          }
+        }
+        break;
+      }
+    }
+  }
+
+  // 4. Fallback auf aktiven Job
+  if (!activeFile) {
+    activeFile = (currentJob && currentJob.datei) || 'index.html';
   }
 
   acpTargetSwapSlot = {
