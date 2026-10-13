@@ -53,36 +53,44 @@ def find_tag_span(html: str, start_pos: int, tag_name: str) -> tuple[int, int]:
 
 
 def parse_sections(html: str) -> list[dict]:
-    """Findet alle Elemente mit data-section='...' auf der Seite."""
+    """Findet alle Sektionen (data-section oder id auf section, header, footer)."""
     sections = []
-    # Matcht <section ... data-section="xyz" ...> oder div/header/footer
-    pattern = re.compile(
-        r'<(?P<tag>section|div|header|footer)\b(?P<attrs>[^>]*?\bdata-section=["\'](?P<id>[a-zA-Z0-9_-]+)["\'][^>]*)>',
-        re.IGNORECASE,
-    )
-
+    seen_ids = set()
+    pattern = re.compile(r"<(section|div|header|footer)\b([^>]*)>", re.I)
     for m in pattern.finditer(html):
         start_idx = m.start()
-        tag = m.group("tag").lower()
-        sec_id = m.group("id")
-        attrs = m.group("attrs")
-
-        # Ende finden
+        tag = m.group(1).lower()
+        attrs = m.group(2)
+        if "acp-cockpit" in attrs or "acp-cockpit" in tag:
+            continue
+        sec_id = None
+        ds_match = re.search(r"""data-section=["']([a-zA-Z0-9_-]+)""", attrs, re.I)
+        if ds_match:
+            sec_id = ds_match.group(1)
+        elif tag in ("section", "header", "footer"):
+            id_match = re.search(r"""id=["']([a-zA-Z0-9_-]+)""", attrs, re.I)
+            if id_match:
+                sec_id = id_match.group(1)
+            elif "hero" in attrs.lower():
+                sec_id = "hero"
+            elif tag == "header":
+                sec_id = "header"
+            elif tag == "footer":
+                sec_id = "footer"
+        if not sec_id or sec_id in seen_ids:
+            continue
         s_pos, e_pos = find_tag_span(html, start_idx, tag)
         if s_pos != -1 and e_pos != -1:
+            seen_ids.add(sec_id)
             content = html[s_pos:e_pos]
             start_line = html.count("\n", 0, s_pos) + 1
             end_line = html.count("\n", 0, e_pos) + 1
-
-            # Titel / Überschrift extrahieren für hübsche Anzeige
-            h_match = re.search(r'<h[1-4][^>]*>(.*?)</h[1-4]>', content, re.DOTALL | re.IGNORECASE)
+            h_match = re.search(r"<h[1-4][^>]*>(.*?)</h[1-4]>", content, re.S | re.I)
             title = ""
             if h_match:
-                title = re.sub(r'<[^>]+>', '', h_match.group(1)).strip()
-
-            k_match = re.search(r'class=["\'][^"\']*section-kicker[^"\']*["\'][^>]*>(.*?)<', content, re.IGNORECASE)
+                title = re.sub(r"<[^>]+>", "", h_match.group(1)).strip()
+            k_match = re.search(r"""class=["'][^"']*(?:section|hero)-kicker[^"']*["'][^>]*>(.*?)<""", content, re.I)
             kicker = k_match.group(1).strip() if k_match else ""
-
             sections.append({
                 "id": sec_id,
                 "tag": tag,
@@ -95,7 +103,6 @@ def parse_sections(html: str) -> list[dict]:
                 "kicker": kicker,
                 "raw": content,
             })
-
     return sections
 
 

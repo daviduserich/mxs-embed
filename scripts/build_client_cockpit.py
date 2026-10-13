@@ -129,15 +129,15 @@ def get_client_profile(slug: str, client_dir: Path, name: str) -> dict:
             rules.append(f"- Verbotenes Fremdvokabular (nie verwenden!): {', '.join(avoid_terms)}.")
         if efz_jobs:
             rules.append(f"- Offizielle Berufsbezeichnungen: {', '.join(efz_jobs)}.")
-        rules.append("- Grunddoktrin: 'Leistungen' (nie 'Gewerke'), 'Offerte' (nie 'Kostenvoranschlag'), 'Ferien' (nie 'Urlaub'), 'Lernende' (nie 'Azubis').")
+        rules.append("- Grunddoktrin: Verbindlich 'Leistungen', 'Offerte', 'Ferien', 'Lernende', 'Handwerker EFZ', '24h-Pikett' verwenden. Verbot von scharfem S (nur 'ss').")
     else:
         ind_id = "universal_swiss_kmu"
         ind_name = "Schweizer KMU"
         industry_label = "Schweizer Unternehmens-Website"
         work_label = cfg_data.get("work_category_label") or ("Baustelle & Benefit" if "hiltbrand" in clean_slug.lower() else "Projekte & Einblicke")
         rules = [
-            "- Sprache: Authentisches Schweizer Hochdeutsch (100% Verbot von 'ß', nutze 'ss').",
-            "- Schweizer Geschäftsbegriffe: 'Leistungen' (nie 'Gewerke'), 'Fachspezialisten EFZ' (nie 'Gesellen'), 'Lernende' (nie 'Azubis'), 'Offerte' (nie 'Kostenvoranschlag'), 'Ferien' (nie 'Urlaub')."
+            "- Sprache: Authentisches Schweizer Hochdeutsch (Verbot von scharfem S / Eszett, immer 'ss' verwenden).",
+            "- Schweizer Geschäftsbegriffe: Verbindlich 'Leistungen', 'Fachspezialisten EFZ', 'Lernende', 'Offerte', 'Ferien', '24h-Pikett' verwenden."
         ]
 
     short_name = cfg_data.get("short_name") or (name.split()[0] if name else "Unternehmen")

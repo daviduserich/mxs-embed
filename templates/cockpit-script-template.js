@@ -1972,7 +1972,7 @@ window.addEventListener("DOMContentLoaded", acpInit);
 
 
 // =======================================================
-// [SEKTIONEN & KI-BAUKASTEN] FULL-CONTEXT ENVELOPE ENGINE
+// [SEKTIONEN & KI-COACH] INTERAKTIVE WEBPILOT COACH ENGINE
 // =======================================================
 var acpSectionsModalOpen = false;
 var acpScannedSections = [];
@@ -1986,6 +1986,113 @@ function acpToggleSectionsModal() {
   if (acpSectionsModalOpen) {
     acpScanAndRenderSections();
   }
+}
+
+function acpGetSectionArchetype(sec) {
+  var id = (sec.id || "").toLowerCase();
+  var raw = (sec.raw || sec.outerHTML || "").toLowerCase();
+  var kicker = (sec.kicker || "").toLowerCase();
+  var title = (sec.title || "").toLowerCase();
+
+  if (id === "top-bar" || id === "header" || sec.tag === "header") {
+    return { name: "KOPFZEILE & NAV", icon: "🧭", color: "rgba(148, 163, 184, 0.18)", text: "#94a3b8" };
+  }
+  if (id === "footer" || sec.tag === "footer") {
+    return { name: "FUSSZEILE & IMPRESSUM", icon: "⚖️", color: "rgba(148, 163, 184, 0.18)", text: "#94a3b8" };
+  }
+  if (id.includes("hero") || raw.includes("hero-wrap") || raw.includes("progress-hero")) {
+    return { name: "HERO-BÜHNE", icon: "🖼️", color: "rgba(245, 158, 11, 0.2)", text: "#fbbf24" };
+  }
+  if (id.includes("stell") || id.includes("job") || raw.includes("job-card") || title.includes("position") || title.includes("fachbereich")) {
+    return { name: "OFFENE STELLEN", icon: "💼", color: "rgba(59, 130, 246, 0.2)", text: "#60a5fa" };
+  }
+  if (id.includes("vorteil") || id.includes("benefit") || id.includes("kultur") || title.includes("mehrwert") || title.includes("warum")) {
+    return { name: "VORTEILE & KULTUR", icon: "⭐", color: "rgba(234, 179, 8, 0.2)", text: "#facc15" };
+  }
+  if (id.includes("bewerb") || id.includes("apply") || raw.includes("apply-section") || title.includes("bewerbung")) {
+    return { name: "EXPRESS-BEWERBUNG", icon: "📱", color: "rgba(16, 185, 129, 0.2)", text: "#34d399" };
+  }
+  if (id.includes("team") || raw.includes("team-card") || title.includes("team") || title.includes("meister")) {
+    return { name: "TEAM & BETRIEB", icon: "👥", color: "rgba(168, 85, 247, 0.2)", text: "#c084fc" };
+  }
+  if (id.includes("kontakt") || raw.includes("contact") || title.includes("kontakt") || title.includes("pikett")) {
+    return { name: "KONTAKT & 24H-PIKETT", icon: "📞", color: "rgba(239, 68, 68, 0.2)", text: "#f87171" };
+  }
+  return { name: "INHALTS-ABSCHNITT", icon: "📄", color: "rgba(245, 158, 11, 0.15)", text: "#fbbf24" };
+}
+
+function acpAnalyzeSectionContent(secEl) {
+  var imgs = secEl.querySelectorAll("img, picture, svg");
+  var allWithStyle = secEl.querySelectorAll("[style*='url('], [style*='background-image']");
+  var totalImages = imgs.length + allWithStyle.length;
+
+  var text = secEl.innerText || "";
+  var wordCount = text.trim().split(/\s+/).filter(Boolean).length;
+
+  var cards = secEl.querySelectorAll(".job-card, .benefit-card, .team-card, .feature-card, .step-item");
+  var cardCount = cards.length;
+
+  return {
+    images: totalImages,
+    words: wordCount,
+    cards: cardCount
+  };
+}
+
+function acpGenerateMiniPreviewSrcdoc(secHtml) {
+  var iframe = document.getElementById("acp-widget-viewport");
+  var doc = iframe ? (iframe.contentDocument || iframe.contentWindow.document) : null;
+  var stylesHtml = "";
+  var baseHref = "";
+
+  if (doc) {
+    baseHref = doc.location.href;
+    var linksAndStyles = doc.querySelectorAll("link[rel='stylesheet'], style, link[rel='preconnect']");
+    linksAndStyles.forEach(function(el) {
+      stylesHtml += el.outerHTML + "\n";
+    });
+  }
+
+  return '<!DOCTYPE html><html><head>' +
+    '<base href="' + baseHref + '">' +
+    '<meta charset="utf-8">' +
+    '<meta name="viewport" content="width=1200">' +
+    stylesHtml +
+    '<style>' +
+    '  html, body { margin:0; padding:0; background: #06090e !important; overflow: hidden !important; width:1200px !important; min-height: 600px !important; }' +
+    '  .section-wrap, .hero-wrap, .apply-section, header, footer { animation: none !important; opacity: 1 !important; transform: none !important; }' +
+    '  * { -webkit-font-smoothing: antialiased; }' +
+    '</style>' +
+    '</head><body>' +
+    secHtml +
+    '</body></html>';
+}
+
+function acpScrollToSectionInViewport(secId) {
+  var iframe = document.getElementById("acp-widget-viewport");
+  var doc = iframe ? (iframe.contentDocument || iframe.contentWindow.document) : null;
+  if (!doc) return;
+
+  var targetEl = doc.querySelector('[data-section="' + secId + '"]') || doc.getElementById(secId);
+  if (!targetEl) return;
+
+  acpToggleSectionsModal();
+
+  targetEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+  var origTransition = targetEl.style.transition;
+  var origOutline = targetEl.style.outline;
+  var origShadow = targetEl.style.boxShadow;
+
+  targetEl.style.transition = 'all 0.3s ease';
+  targetEl.style.outline = '3px solid #f59e0b';
+  targetEl.style.boxShadow = '0 0 50px rgba(245, 158, 11, 0.5)';
+
+  setTimeout(function() {
+    targetEl.style.outline = origOutline;
+    targetEl.style.boxShadow = origShadow;
+    targetEl.style.transition = origTransition;
+  }, 2500);
 }
 
 function acpScanAndRenderSections() {
@@ -2008,9 +2115,16 @@ function acpScanAndRenderSections() {
   acpScannedSections = [];
 
   if (doc) {
-    var elements = doc.querySelectorAll("[data-section], section, header.site-header, footer.site-footer, .header-wrap, .footer-wrap");
+    var elements = doc.querySelectorAll("[data-section], section, header.site-header, footer.site-footer, header.top-bar, footer.footer-wrap, .header-wrap, .footer-wrap");
     elements.forEach(function(el, idx) {
-      var id = el.getAttribute("data-section") || el.id || el.tagName.toLowerCase();
+      var id = el.getAttribute("data-section") || el.id;
+      if (!id) {
+        if (el.tagName.toLowerCase() === "header") id = "header";
+        else if (el.tagName.toLowerCase() === "footer") id = "footer";
+        else if (el.className && el.className.includes("hero")) id = "hero";
+        else id = "section-" + (idx + 1);
+      }
+
       if (id === "acp-cockpit-bar" || el.closest(".acp-cockpit-bar")) return;
       if (acpScannedSections.some(function(s) { return s.id === id; })) return;
 
@@ -2022,6 +2136,7 @@ function acpScanAndRenderSections() {
 
       var lines = el.outerHTML.split("\n").length;
       var charCount = el.outerHTML.length;
+      var analysis = acpAnalyzeSectionContent(el);
 
       acpScannedSections.push({
         id: id,
@@ -2031,20 +2146,10 @@ function acpScanAndRenderSections() {
         lines: lines,
         chars: charCount,
         outerHTML: el.outerHTML,
+        analysis: analysis,
         index: idx
       });
     });
-  }
-
-  if (acpScannedSections.length === 0) {
-    acpScannedSections = [
-      { id: "hero", kicker: "Meisterbetrieb in 3. Generation", title: "Gebäudehüllen & Photovoltaik", lines: 120, chars: 4800, outerHTML: '<section class="section-wrap hero-wrap" data-section="hero">...</section>' },
-      { id: "services", kicker: "Kompetenzen & Handwerk", title: "Unsere Kernleistungen im Berner Oberland", lines: 95, chars: 3600, outerHTML: '<section class="section-wrap" data-section="services">...</section>' },
-      { id: "stories", kicker: "Direkt aus der Praxis", title: "Aktuelle Baustellen & Referenzen", lines: 80, chars: 3100, outerHTML: '<section class="section-wrap" data-section="stories">...</section>' },
-      { id: "ratgeber", kicker: "Fachwissen & Ratgeber", title: "Wissen direkt vom Gebäudehüllen-Meister", lines: 75, chars: 2900, outerHTML: '<section class="section-wrap" data-section="ratgeber">...</section>' },
-      { id: "team_teaser", kicker: "Menschen & Handwerk", title: "Das Team der Hiltbrand Gebäudehüllen AG", lines: 85, chars: 3400, outerHTML: '<section class="section-wrap" data-section="team_teaser">...</section>' },
-      { id: "kontakt", kicker: "Direktkontakt & 24h-Pikett", title: "Offerte anfordern & Kontakt", lines: 110, chars: 4200, outerHTML: '<section class="section-wrap" data-section="kontakt">...</section>' }
-    ];
   }
 
   if (badge) {
@@ -2055,38 +2160,60 @@ function acpScanAndRenderSections() {
   acpScannedSections.forEach(function(sec, idx) {
     var card = document.createElement("div");
     card.className = "acp-section-card";
-    card.style.cssText = "background: rgba(15, 23, 42, 0.85); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 12px; padding: 20px; display: flex; flex-direction: column; justify-content: space-between; gap: 16px;";
 
-    var isSystem = (sec.id === "header" || sec.id === "footer");
-    var badgeColor = isSystem ? "rgba(148, 163, 184, 0.2)" : "rgba(245, 158, 11, 0.15)";
-    var badgeText = isSystem ? "SYSTEM" : "SEKTION " + (idx + 1);
-    var badgeTextColor = isSystem ? "#94a3b8" : "#fbbf24";
+    var isSystem = (sec.id === "header" || sec.id === "footer" || sec.id === "top-bar");
+    var archetype = acpGetSectionArchetype(sec);
+    var srcdocHtml = acpGenerateMiniPreviewSrcdoc(sec.outerHTML);
+
+    var metaTagsHtml = "";
+    if (sec.analysis) {
+      if (sec.analysis.images > 0) metaTagsHtml += '<span class="acp-sec-meta-tag">📷 ' + sec.analysis.images + ' ' + (sec.analysis.images === 1 ? 'Bild' : 'Bilder') + '</span> · ';
+      if (sec.analysis.cards > 0) metaTagsHtml += '<span class="acp-sec-meta-tag">💼 ' + sec.analysis.cards + ' Kacheln</span> · ';
+      metaTagsHtml += '<span class="acp-sec-meta-tag">📝 ca. ' + sec.analysis.words + ' Wörter</span>';
+    }
 
     card.innerHTML = 
       '<div>' +
-        '<div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px;">' +
-          '<span style="font-family:\'JetBrains Mono\',monospace; font-size:11px; font-weight:700; background:' + badgeColor + '; color:' + badgeTextColor + '; padding:3px 8px; border-radius:4px;">' + badgeText + '</span>' +
-          '<span style="font-family:\'JetBrains Mono\',monospace; font-size:11px; color:#64748b;">data-section="' + sec.id + '"</span>' +
+        '<div class="acp-sec-head" style="margin-bottom: 12px;">' +
+          '<span class="acp-sec-archetype-pill" style="background:' + archetype.color + '; color:' + archetype.text + ';">' +
+            archetype.icon + ' ' + archetype.name +
+          '</span>' +
+          '<span class="acp-sec-id-badge">data-section="' + sec.id + '"</span>' +
         '</div>' +
-        (sec.kicker ? '<div style="font-family:\'JetBrains Mono\',monospace; font-size:11px; color:#f59e0b; margin-bottom:4px;">' + sec.kicker + '</div>' : '') +
-        '<h4 style="color:#fff; font-size:16px; font-weight:700; line-height:1.4; margin-bottom:8px;">' + sec.title + '</h4>' +
-        '<div style="font-size:12px; color:#64748b;">' + sec.lines + ' Zeilen · ca. ' + Math.round(sec.chars / 100) / 10 + ' KB Quelltext</div>' +
+
+        '<div class="acp-sec-mini-stage" onclick="acpScrollToSectionInViewport(\'' + sec.id + '\')" title="Klicken, um im Live-Simulator direkt zu diesem Abschnitt zu springen">' +
+          '<iframe class="acp-sec-mini-iframe" srcdoc="' + srcdocHtml.replace(/"/g, '&quot;') + '" sandbox="allow-same-origin allow-scripts"></iframe>' +
+          '<div class="acp-sec-mini-overlay">' +
+            '<button type="button" class="acp-sec-mini-jump-btn"><span>👁️ Im Simulator ansehen</span></button>' +
+          '</div>' +
+        '</div>' +
+
+        '<div style="margin-top: 14px;">' +
+          (sec.kicker ? '<div style="font-family:\'JetBrains Mono\',monospace; font-size:11px; color:#f59e0b; margin-bottom:4px; font-weight:700;">' + sec.kicker + '</div>' : '') +
+          '<h4 style="color:#fff; font-size:15px; font-weight:700; line-height:1.4; margin: 0 0 8px 0;">' + sec.title + '</h4>' +
+          '<div class="acp-sec-meta-row">' +
+            metaTagsHtml +
+          '</div>' +
+        '</div>' +
       '</div>' +
-      '<div style="display:flex; gap:8px; flex-wrap:wrap; padding-top:12px; border-top:1px solid rgba(255,255,255,0.08);">' +
-        '<button type="button" class="acp-btn-secondary" onclick="acpCopySectionPrompt(\'' + sec.id + '\')" style="flex:1; padding:8px 12px; font-size:12.5px; justify-content:center;" title="Kopiert Prompt inkl. vollem Seiten-Kontext">' +
-          '<span>📋 Prompt kopieren</span>' +
+
+      '<div style="display:flex; gap:8px; flex-wrap:wrap; padding-top:14px; border-top:1px solid rgba(255,255,255,0.08);">' +
+        '<button type="button" class="acp-btn-secondary" onclick="acpCopySectionPrompt(\'' + sec.id + '\')" style="flex:1.2; padding:9px 12px; font-size:12.5px; justify-content:center; background:rgba(245,158,11,0.12); border-color:rgba(245,158,11,0.3); color:#fbbf24; font-weight:700;" title="Kopiert den interaktiven Coach-Prompt für ChatGPT oder Claude">' +
+          '<span>💬 KI-Coach konsultieren</span>' +
         '</button>' +
-        '<button type="button" class="acp-btn-secondary" onclick="acpOpenReplaceSectionModal(\'' + sec.id + '\')" style="padding:8px 12px; font-size:12.5px;" title="Modifizierten KI-Code einfügen">' +
+        '<button type="button" class="acp-btn-secondary" onclick="acpOpenReplaceSectionModal(\'' + sec.id + '\')" style="padding:9px 12px; font-size:12.5px;" title="Modifizierten KI-Code einfügen & dauerhaft speichern">' +
           '<span>✏️ Ersetzen</span>' +
         '</button>' +
-        (!isSystem ? '<button type="button" class="acp-btn-secondary" onclick="acpRemoveSection(\'' + sec.id + '\')" style="padding:8px 10px; font-size:12.5px; color:#ef4444; border-color:rgba(239,68,68,0.3);" title="Sektion entfernen"><span>🗑️</span></button>' : '') +
+        '<button type="button" class="acp-btn-secondary" onclick="acpScrollToSectionInViewport(\'' + sec.id + '\')" style="padding:9px 10px; font-size:12.5px;" title="Im Simulator ansehen">' +
+          '<span>👁️</span>' +
+        '</button>' +
       '</div>';
 
     grid.appendChild(card);
   });
 }
 
-function acpBuildFullContextEnvelope(targetSecId, customGoal) {
+function acpBuildSectionCoachPrompt(targetSecId) {
   var targetSec = acpScannedSections.find(function(s) { return s.id === targetSecId; });
   if (!targetSec) return "";
 
@@ -2098,64 +2225,125 @@ function acpBuildFullContextEnvelope(targetSecId, customGoal) {
   var prevSec = targetIdx > 0 ? acpScannedSections[targetIdx - 1] : null;
   var nextSec = targetIdx < acpScannedSections.length - 1 ? acpScannedSections[targetIdx + 1] : null;
 
-  var prevInfo = prevSec ? "Liegt direkt NACH: [" + prevSec.id + "] " + prevSec.title : "Liegt ganz oben auf der Seite (Hero-Bereich)";
-  var nextInfo = nextSec ? "Liegt direkt VOR: [" + nextSec.id + "] " + nextSec.title : "Liegt direkt vor dem Footer";
+  var prevInfo = prevSec ? "Direkt davor liegt: [" + prevSec.id + "] " + prevSec.title : "Liegt ganz oben auf der Seite (Hero-Bühne)";
+  var nextInfo = nextSec ? "Direkt danach folgt: [" + nextSec.id + "] " + nextSec.title : "Schliesst die Seite ab (direkt vor dem Footer)";
 
   var profile = window.ACP_CLIENT_PROFILE || {};
-  var industryLabel = profile.industry_label || "Schweizer Unternehmens-Website";
+  var companyName = profile.company_name || profile.name || "unser Betrieb";
+  var industryLabel = profile.industry_label || "Schweizer Handwerks- & Meisterbetrieb";
   var promptRules = (profile.prompt_rules && profile.prompt_rules.length > 0)
     ? profile.prompt_rules.join("\n")
-    : "- Schweizer Geschäftsbegriffe: \"Leistungen\" (nie \"Gewerke\"), \"Fachspezialisten EFZ\" (nie \"Gesellen\"), \"Lernende\" (nie \"Azubis\"), \"Offerte\" (nie \"Kostenvoranschlag\"), \"Ferien\" (nie \"Urlaub\").";
+    : "- Schweizer Geschäftsbegriffe: \"Leistungen\" (nie \"Gewerke\"), \"Handwerker EFZ / Fachmonteure\" (nie \"Gesellen\"), \"Lernende\" (nie \"Azubis\"), \"Offerte\" (nie \"Kostenvoranschlag\"), \"Ferien\" (nie \"Urlaub\"), \"24h-Pikett\" (nie \"Notdienst\").";
 
   var prompt = 
-"Du bist mein technischer Web-Entwickler für meine " + industryLabel + " (WebPilot Obsidian-Dark Design).\n" +
-"Ich möchte die Sektion \"" + targetSec.title + "\" (data-section=\"" + targetSec.id + "\") anpassen.\n\n" +
+"================================================================================\n" +
+"🚨 STRIKTE VERHALTENSREGEL FÜR DEINE ALLERERSTE ANTWORT:\n" +
+"GIB JETZT NOCH KEINEN PROGRAMMIERCODE AUS! KEIN HTML, KEIN CSS, KEIN JAVASCRIPT!\n" +
+"================================================================================\n\n" +
+
+"Du bist mein persönlicher WebPilot Sektions-Coach für " + companyName + " (" + industryLabel + ").\n" +
+"Ich übergebe dir hier den aktuellen Stand unserer Webseiten-Sektion \"" + targetSec.title + "\" (data-section=\"" + targetSec.id + "\").\n\n" +
+
+"DEINE AUFGABE IN DIESEM CHAT:\n" +
+"Coache mich als Inhaber / Webseiten-Betreiber sympathisch, lösungsorientiert und strukturiert durch die Optimierung dieses Abschnitts. Führe ein aktives Beratungsgespräch mit mir, statt mich mit Code zu überrollen!\n\n" +
+
+"--------------------------------------------------------------------------------\n" +
+"ANTWORTE IN DEINEM ALLERERSTEN SCHRITT EXAKT IN DIESEM 4-PUNKTE-FORMAT:\n" +
+"--------------------------------------------------------------------------------\n" +
+"1. Freundliche Begrüssung: Begrüsse mich kurz und stelle dich als mein persönlicher WebPilot-Coach für die Sektion \"" + targetSec.title + "\" vor.\n" +
+"2. Ehrlicher Status-Check: Fasse in 2 bis 3 Sätzen zusammen, wie dieser Abschnitt aktuell auf Schweizer Besucher und Fachkräfte wirkt und wo er noch Potenzial hat.\n" +
+"3. 3 bis 4 konkrete Coaching-Impulse: Mache mir 3-4 massgeschneiderte, sofort verständliche Vorschläge für diesen Abschnitt (z.B. A: Nutzenversprechen schärfen, B: Neues Team- oder Leistungselement hinzufügen, C: Tonalität & Vertrauensbeweise stärken, D: Spezifischer Wunsch nach meiner Wahl).\n" +
+"4. Die Coach-Frage: Frage mich am Ende direkt: «Welche dieser Richtungen spricht Sie am meisten an, oder was möchten Sie ganz konkret verändern?»\n\n" +
+
+"--------------------------------------------------------------------------------\n" +
+"REGEL FÜR DEN SPÄTEREN CODE-EXPORT (ERST NACH FREIGABE IM CHAT):\n" +
+"--------------------------------------------------------------------------------\n" +
+"Erst wenn wir die Änderungen gemeinsam besprochen haben und ich sage «Ja, bitte den Code ausgeben» oder «Erstelle den HTML-Code», gibst du mir den vollständigen, sauberen HTML-Codeblock von <section ...> bis </section> aus.\n" +
+"- 100% syntaktisch sauber: Alle Tags (<section>, <div>, <span>, <p>) vollständig geschlossen.\n" +
+"- Keine Code-Auslassungen (keine Platzhalter wie '... restlicher Code ...')!\n" +
+"- Keine <script> oder <iframe> Tags in der Sektion.\n\n" +
 
 "================================================================================\n" +
-"1. GESAMT-KONTEXT DER SEITE (FÜR TONALITÄT, STIMMIGKEIT & FLOW):\n" +
+"GESAMT-KONTEXT DER SEITE (FÜR TONALITÄT, ROTEN FADEN & DESIGN-FLOW):\n" +
 "================================================================================\n" +
-"- Vorhandene Abschnitte auf dieser Seite:\n" + sectionsOutline + "\n\n" +
+"- Alle Abschnitte dieser Seite im Überblick:\n" + sectionsOutline + "\n\n" +
 "- Position dieser Sektion im Fluss der Seite:\n" +
 "  * " + prevInfo + "\n" +
 "  * " + nextInfo + "\n\n" +
 
 "================================================================================\n" +
-"2. VERBINDLICHE SCHWEIZER SPRACH- & DESIGN-DOKTRIN:\n" +
+"VERBINDLICHE SCHWEIZER SPRACH- & DESIGN-DOKTRIN:\n" +
 "================================================================================\n" +
-"- Sprache: Authentisches Schweizer Hochdeutsch (100% Verbot von \"ß\", nutze \"ss\").\n" +
+"- Sprache: Authentisches Schweizer Hochdeutsch (100% Verbot von \"ß\", verwende immer \"ss\").\n" +
 promptRules + "\n" +
-"- Schweizer Typografie: Nutze die bestehenden Klassen (.section-wrap, .section-inner, .section-kicker, .section-title, .section-desc).\n" +
-"- Kicker-Regel: <span class=\"section-kicker\">● Kicker-Text</span> ist 100% freistehend (keine Box, kein Badge-Rahmen).\n" +
-"- Zero-Emoji: Keine bunten Emojis in Überschriften oder Badges.\n" +
-"- Bilder: Bildpfade zeigen auf \"images/[dateiname.jpg]\".\n\n" +
+"- Schweizer Typografie: Nutze die Klassen (.section-wrap, .section-inner, .section-kicker, .section-title, .section-desc).\n" +
+"- Kicker-Regel: <span class=\"section-kicker\">● Kicker-Text</span> ist 100% freistehend in JetBrains Mono (niemals in einer Box oder einem Badge-Rahmen).\n" +
+"- Fluchtlinie: max-width 1100px mit margin 0 auto.\n" +
+"- Bilder: Relative Pfade wie \"images/[dateiname.jpg]\".\n\n" +
 
 "================================================================================\n" +
-"3. AKTUELLER QUELLCODE DIESER SEKTION (ZUR BEARBEITUNG):\n" +
+"AKTUELLER QUELLTEXT DIESER SEKTION (ZUR ANALYSE):\n" +
 "================================================================================\n" +
-targetSec.outerHTML + "\n\n" +
-
-"================================================================================\n" +
-"4. MEIN ÄNDERUNGSWUNSCH:\n" +
-"================================================================================\n" +
-(customGoal ? customGoal : "[Hier konkreten Änderungswunsch eingeben, z.B. Text umschreiben, Vorteil anpassen, 4. Bildkarte hinzufügen]") + "\n\n" +
-
-"================================================================================\n" +
-"AUSGABE-REGEL (GOLDENE REGEL):\n" +
-"================================================================================\n" +
-"Nutze den gesamten Kontext für Tonalität und Flow, aber gib mir als Antwort AUSSCHLIESSLICH den vollständigen, sauberen HTML-Code von <section ...> bis </section> im Codeblock aus.\n" +
-"Schliesse ausnahmslos alle Tags (<div>, <section>, <p>, <span>) sauber ab. Keine Auslassungen (wie // ... restlicher Code ...)!";
+targetSec.outerHTML;
 
   return prompt;
 }
 
 function acpCopySectionPrompt(secId) {
-  var promptText = acpBuildFullContextEnvelope(secId, "");
+  var promptText = acpBuildSectionCoachPrompt(secId);
   if (!promptText) return;
+
   navigator.clipboard.writeText(promptText).then(function() {
-    alert("✓ Vollständiger Prompt für Sektion [" + secId + "] inklusive Gesamt-Kontext in die Zwischenablage kopiert!\n\nJetzt einfach in ChatGPT oder Claude einfügen.");
+    acpShowCoachPromptSuccessModal(secId);
   }).catch(function() {
     window.prompt("Kopiere diesen Prompt für ChatGPT / Claude:", promptText);
   });
+}
+
+function acpShowCoachPromptSuccessModal(secId) {
+  var targetSec = acpScannedSections.find(function(s) { return s.id === secId; });
+  var title = targetSec ? targetSec.title : secId;
+
+  var oldToast = document.getElementById("acp-coach-copied-toast");
+  if (oldToast && oldToast.parentNode) oldToast.parentNode.removeChild(oldToast);
+
+  var toast = document.createElement("div");
+  toast.id = "acp-coach-copied-toast";
+  toast.className = "acp-coach-toast";
+
+  toast.innerHTML = 
+    '<div style="display:flex; justify-content:space-between; align-items:flex-start;">' +
+      '<div style="display:flex; align-items:center; gap:10px;">' +
+        '<span style="font-size:24px;">💬</span>' +
+        '<div>' +
+          '<div style="font-family:\'JetBrains Mono\',monospace; font-size:11px; color:#f59e0b; font-weight:700;">// KI-COACH PROMPT KOPIERT</div>' +
+          '<div style="font-size:14px; font-weight:700; color:#fff;">Sektion «' + title + '»</div>' +
+        '</div>' +
+      '</div>' +
+      '<button type="button" onclick="this.closest(\'.acp-coach-toast\').remove()" style="background:none; border:none; color:#64748b; font-size:16px; cursor:pointer; padding:0 4px;">✕</button>' +
+    '</div>' +
+    '<p style="font-size:12.5px; color:#94a3b8; margin:0; line-height:1.45;">' +
+      'Der Coach-Prompt wurde in deine Zwischenablage kopiert. Öffne jetzt einfach deine bevorzugte KI und füge ihn mit <strong>Strg + V</strong> ein:' +
+    '</p>' +
+    '<div style="display:flex; gap:10px; margin-top:4px;">' +
+      '<a href="https://chatgpt.com/" target="_blank" rel="noopener" style="flex:1; text-align:center; background:#10a37f; color:#fff; font-size:12px; font-weight:700; padding:8px 12px; border-radius:6px; text-decoration:none; display:inline-flex; align-items:center; justify-content:center; gap:6px;">' +
+        '<span>🤖 ChatGPT öffnen ↗</span>' +
+      '</a>' +
+      '<a href="https://claude.ai/" target="_blank" rel="noopener" style="flex:1; text-align:center; background:#d97706; color:#fff; font-size:12px; font-weight:700; padding:8px 12px; border-radius:6px; text-decoration:none; display:inline-flex; align-items:center; justify-content:center; gap:6px;">' +
+        '<span>🧠 Claude öffnen ↗</span>' +
+      '</a>' +
+    '</div>';
+
+  document.body.appendChild(toast);
+
+  setTimeout(function() {
+    if (toast && toast.parentNode) {
+      toast.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
+      toast.style.opacity = '0';
+      toast.style.transform = 'translateY(20px)';
+      setTimeout(function() { if (toast && toast.parentNode) toast.parentNode.removeChild(toast); }, 400);
+    }
+  }, 10000);
 }
 
 function acpCopyFullPagePrompt() {
@@ -2167,23 +2355,24 @@ function acpCopyFullPagePrompt() {
     return;
   }
   var profile = window.ACP_CLIENT_PROFILE || {};
+  var companyName = profile.company_name || profile.name || "unser Betrieb";
   var industryLabel = profile.industry_label || "Schweizer Unternehmens-Website";
   var promptRules = (profile.prompt_rules && profile.prompt_rules.length > 0)
     ? profile.prompt_rules.join("\n")
-    : "- Schweizer Geschäftsbegriffe: \"Leistungen\" (nie \"Gewerke\"), \"Fachspezialisten EFZ\" (nie \"Gesellen\"), \"Lernende\" (nie \"Azubis\"), \"Offerte\" (nie \"Kostenvoranschlag\"), \"Ferien\" (nie \"Urlaub\").";
+    : "- Schweizer Geschäftsbegriffe: \"Leistungen\" (nie \"Gewerke\"), \"Handwerker EFZ / Fachmonteure\" (nie \"Gesellen\"), \"Lernende\" (nie \"Azubis\"), \"Offerte\" (nie \"Kostenvoranschlag\"), \"Ferien\" (nie \"Urlaub\").";
 
   var prompt = 
-"Du bist mein technischer Web-Redakteur für meine " + industryLabel + ".\n" +
+"Du bist mein technischer Web-Redakteur für " + companyName + " (" + industryLabel + ").\n" +
 "Ich übergebe dir hier den VOLLSTÄNDIGEN Quellcode meiner Website (HTML5).\n\n" +
 "MEINE REGELN:\n" +
-"1. Schweizer Hochdeutsch (0x 'ß', Schweizer Fachbegriffe):\n" +
+"1. Schweizer Hochdeutsch (0x scharfes S, nur 'ss', Schweizer Fachbegriffe):\n" +
 promptRules + "\n" +
 "2. Schweizer Obsidian-Design & bestehende Klassen beibehalten.\n" +
 "3. AUSGABE-PFLICHT: Gib mir den Quellcode immer als eine einzige, vollständige und ungekürzte HTML-Datei aus – ausnahmslos von <!DOCTYPE html> bis </html>. Verwende keine Code-Auslassungen!\n\n" +
 "QUELLCODE:\n" + fullHtml;
 
   navigator.clipboard.writeText(prompt).then(function() {
-    alert("✓ Komplette HTML-Seite inklusive Master-Prompt kopiert!");
+    alert("✓ Komplette HTML-Seite inklusive Master-Prompt kopiert!\n\nJetzt in ChatGPT oder Claude einfügen.");
   }).catch(function() {
     window.prompt("Kopiere die ganze Seite:", prompt);
   });
@@ -2196,7 +2385,7 @@ function acpOpenReplaceSectionModal(secId) {
   var textarea = document.getElementById("acp-replace-code-input");
   var status = document.getElementById("acp-replace-airbag-status");
   if (status) status.style.display = "none";
-  if (title) title.textContent = "Sektion [" + secId + "] bearbeiten & ersetzen";
+  if (title) title.textContent = "Sektion [" + secId + "] bearbeiten & dauerhaft speichern";
   if (textarea) textarea.value = "";
   if (modal) modal.style.display = "block";
 }
@@ -2215,19 +2404,16 @@ function acpValidateSectionHtml(html) {
     return { ok: false, error: "Der Code muss mit <section ...> beginnen und mit </section> enden." };
   }
 
-  // 1. Gefährliche / ausführbare Tags deterministisch blockieren (White-Hat Airbag)
   var forbiddenTags = /<(script|iframe|object|embed|form|meta|base|style)\b[^>]*>/i;
   var mTag = clean.match(forbiddenTags);
   if (mTag) {
     return { ok: false, error: "Sicherheits-Schranke: Ausführbare Tags (<" + mTag[1] + ">) sind in Inhalts-Sektionen verboten." };
   }
 
-  // 2. Inline Event-Handler blockieren (onerror, onload, onclick, onmouseover etc.)
   if (/\son[a-zA-Z]+\s*=/i.test(clean)) {
     return { ok: false, error: "Sicherheits-Schranke: Inline-JavaScript (on... Event-Handler wie onerror, onclick) ist aus Sicherheitsgründen verboten." };
   }
 
-  // 3. Pseudo-Protokolle (javascript:, data:text/html) blockieren
   if (/(href|src|action)\s*=\s*["'\s]*javascript:/i.test(clean)) {
     return { ok: false, error: "Sicherheits-Schranke: javascript:... URLs sind aus Sicherheitsgründen verboten." };
   }
@@ -2235,7 +2421,6 @@ function acpValidateSectionHtml(html) {
     return { ok: false, error: "Sicherheits-Schranke: data:text/html URLs sind nicht erlaubt." };
   }
 
-  // 4. Tag-Balancierung
   var checkTags = ["section", "div", "p", "span", "a", "h2", "h3", "h4", "ul", "ol", "li"];
   for (var i = 0; i < checkTags.length; i++) {
     var tag = checkTags[i];
@@ -2257,6 +2442,7 @@ function acpValidateSectionHtml(html) {
 function acpSubmitReplaceSection() {
   var textarea = document.getElementById("acp-replace-code-input");
   var status = document.getElementById("acp-replace-airbag-status");
+  var applyBtn = document.getElementById("acp-btn-apply-replace");
   if (!textarea || !textarea.value) return;
 
   var validation = acpValidateSectionHtml(textarea.value);
@@ -2274,26 +2460,85 @@ function acpSubmitReplaceSection() {
   }
 
   var iframe = document.getElementById("acp-widget-viewport");
-  var doc = iframe ? (iframe.contentDocument || iframe.contentWindow.document) : null;
-  if (!doc) {
-    alert("Iframe nicht verfügbar!");
-    return;
+  var targetFile = "index.html";
+  if (iframe && iframe.getAttribute("src")) {
+    var srcVal = iframe.getAttribute("src").split("?")[0];
+    if (srcVal.endsWith(".html")) {
+      targetFile = srcVal.split("/").pop();
+    }
   }
 
-  var targetEl = doc.querySelector('[data-section="' + acpActiveEditSectionId + '"]') || doc.getElementById(acpActiveEditSectionId);
-  if (!targetEl) {
-    alert("Ziel-Sektion [" + acpActiveEditSectionId + "] nicht im Dokument gefunden!");
-    return;
+  var clientSlug = window.ACP_CURRENT_CLIENT || (window.location.pathname.split("/")[1] || "preview-birchmeier");
+
+  if (applyBtn) {
+    applyBtn.disabled = true;
+    applyBtn.innerHTML = "<span>⏳ Speichere &amp; Edge CDN synchronisieren...</span>";
   }
 
-  var temp = doc.createElement("div");
-  temp.innerHTML = validation.html;
-  var newSecEl = temp.firstElementChild;
+  if (status) {
+    status.style.display = "block";
+    status.style.color = "#fbbf24";
+    status.style.background = "rgba(245, 158, 11, 0.1)";
+    status.style.padding = "10px 14px";
+    status.style.borderRadius = "6px";
+    status.style.border = "1px solid rgba(245, 158, 11, 0.3)";
+    status.innerHTML = "⚡ <strong>Airbag grün:</strong> Sende neue Sektion an Cloudflare Edge CDN...";
+  }
 
-  targetEl.parentNode.replaceChild(newSecEl, targetEl);
-  acpCloseReplaceSectionModal();
-  acpScanAndRenderSections();
-  alert("✓ Sektion [" + acpActiveEditSectionId + "] erfolgreich aktualisiert!");
+  var payload = {
+    client: clientSlug,
+    file: targetFile,
+    section_id: acpActiveEditSectionId,
+    content: validation.html
+  };
+
+  fetch("/api/publish-career/replace-section", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(payload)
+  })
+  .then(function(res) {
+    if (!res.ok) {
+      return res.json().then(function(j) { throw new Error(j.error || ("HTTP " + res.status)); });
+    }
+    return res.json();
+  })
+  .then(function(data) {
+    if (applyBtn) {
+      applyBtn.disabled = false;
+      applyBtn.innerHTML = "<span>✓ Sektion prüfen &amp; live aktualisieren</span>";
+    }
+    acpCloseReplaceSectionModal();
+
+    if (typeof acpAutoSyncViewport === "function") {
+      acpAutoSyncViewport("Sektion [" + acpActiveEditSectionId + "] aktualisiert");
+    } else if (iframe) {
+      var curSrc = iframe.src.split("?")[0];
+      iframe.src = curSrc + "?t=" + Date.now();
+    }
+
+    setTimeout(function() {
+      acpScanAndRenderSections();
+    }, 1500);
+
+    alert("🎉 Sektion [" + acpActiveEditSectionId + "] erfolgreich dauerhaft gespeichert und auf Cloudflare Pages bereitgestellt!");
+  })
+  .catch(function(err) {
+    console.error("Fehler beim Ersetzen der Sektion:", err);
+    if (applyBtn) {
+      applyBtn.disabled = false;
+      applyBtn.innerHTML = "<span>✓ Sektion prüfen &amp; live aktualisieren</span>";
+    }
+    if (status) {
+      status.style.display = "block";
+      status.style.color = "#ef4444";
+      status.style.background = "rgba(239, 68, 68, 0.1)";
+      status.style.padding = "10px 14px";
+      status.style.borderRadius = "6px";
+      status.style.border = "1px solid rgba(239, 68, 68, 0.3)";
+      status.innerHTML = "🚨 <strong>Server-Fehler:</strong> " + err.message;
+    }
+  });
 }
 
 function acpOpenNewSectionModal() {
@@ -2329,89 +2574,40 @@ function acpCopyGeneratedNewSectionPrompt() {
   var slug = topic.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
 
   var profile = window.ACP_CLIENT_PROFILE || {};
+  var companyName = profile.company_name || profile.name || "unser Betrieb";
   var industryLabel = profile.industry_label || "Schweizer Unternehmens-Website";
   var promptRules = (profile.prompt_rules && profile.prompt_rules.length > 0)
     ? profile.prompt_rules.join("\n")
-    : "- Schweizer Geschäftsbegriffe: \"Leistungen\" (nie \"Gewerke\"), \"Fachspezialisten EFZ\" (nie \"Gesellen\"), \"Lernende\" (nie \"Azubis\"), \"Offerte\" (nie \"Kostenvoranschlag\"), \"Ferien\" (nie \"Urlaub\").";
+    : "- Schweizer Geschäftsbegriffe: \"Leistungen\" (nie \"Gewerke\"), \"Handwerker EFZ / Fachmonteure\" (nie \"Gesellen\"), \"Lernende\" (nie \"Azubis\"), \"Offerte\" (nie \"Kostenvoranschlag\"), \"Ferien\" (nie \"Urlaub\").";
 
   var prompt = 
-"Du bist mein technischer Web-Entwickler für meine " + industryLabel + " (WebPilot Obsidian-Dark Design).\n" +
-"Erstelle mir eine NEUE HTML5-Sektion für folgendes Thema:\n" +
-"\"" + topic + "\"\n\n" +
+"================================================================================\n" +
+"🚨 STRIKTE VERHALTENSREGEL FÜR DEINE ALLERERSTE ANTWORT:\n" +
+"GIB JETZT NOCH KEINEN PROGRAMMIERCODE AUS! KEIN HTML, KEIN CSS, KEIN JAVASCRIPT!\n" +
+"================================================================================\n\n" +
 
-"================================================================================\n" +
-"1. POSITIONIERUNG & GESAMT-KONTEXT DER SEITE:\n" +
-"================================================================================\n" +
-"- Die neue Sektion wird direkt nach [" + afterSec.id + "] \"" + afterSec.title + "\" eingehängt.\n" +
-"- Sie muss sich nahtlos in das Obsidian-Dark Theme (#0b0f19 Canvas, Platin-Text, Bernstein/Gold Akzente) einfügen.\n\n" +
+"Du bist mein persönlicher WebPilot Sektions-Coach für " + companyName + " (" + industryLabel + ").\n" +
+"Wir möchten auf unserer Website einen völlig NEUEN Abschnitt zum Thema \"" + topic + "\" erstellen.\n\n" +
 
-"================================================================================\n" +
-"2. STRUKTUR- & CSS-VORGABEN:\n" +
-"================================================================================\n" +
-"- Root-Tag: <section class=\"section-wrap\" data-section=\"" + slug + "\" id=\"" + slug + "\">\n" +
-"- Inner-Container: <div class=\"section-inner\">\n" +
-"- Kicker: <span class=\"section-kicker\">● THEMA</span> (11px JetBrains Mono, freistehend, kein Rahmen)\n" +
-"- Titel: <h2 class=\"section-title\">Prägnante Überschrift</h2>\n" +
-"- Untertitel: <p class=\"section-desc\">Kurze, vertrauensbildende Beschreibung.</p>\n" +
-"- Grid: Responsives CSS-Grid mit style=\"display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:24px;\"\n" +
-"- Sprache & Fachbegriffe:\n" + promptRules + "\n" +
-"- Emojis: 0 bunte Emojis.\n\n" +
+"POSITIONIERUNG IM SEITENFLUSS:\n" +
+"- Der neue Abschnitt wird direkt NACH der Sektion [" + afterSec.id + "] \"" + afterSec.title + "\" eingefügt.\n\n" +
 
-"================================================================================\n" +
-"AUSGABE-REGEL:\n" +
-"================================================================================\n" +
-"Gib mir als Antwort AUSSCHLIESSLICH den fertigen, validen HTML-Code von <section ...> bis </section> im Codeblock aus.\n" +
-"Alle Tags müssen zwingend vollständig geschlossen sein!";
+"ANTWORTE IN DEINEM ALLERERSTEN SCHRITT EXAKT IN DIESEM FORMAT:\n" +
+"1. Kurze Begrüssung & Coaching-Einschätzung zu diesem neuen Thema.\n" +
+"2. Mache mir 2 bis 3 konkrete Strukturvorschläge, wie wir dieses Thema am besten aufbauen (z.B. 3 Kacheln mit Icons, Vorher/Nachher Vergleich oder kompakter Infoblock).\n" +
+"3. Frage mich, welche Variante mir am besten zusagt.\n\n" +
+
+"ERST NACH MEINER FREIGABE:\n" +
+"Erst wenn ich dir Feedback gebe, generierst du den fertigen HTML-Code von <section class=\"section-wrap\" data-section=\"" + slug + "\" id=\"" + slug + "\"> bis </section>.\n" +
+"- Schweizer Typografie: .section-wrap, .section-inner, freistehender .section-kicker, .section-title, .section-desc.\n" +
+"- Sprache: Schweizer Hochdeutsch (Verbot von scharfem S, nur 'ss').\n" +
+promptRules;
 
   navigator.clipboard.writeText(prompt).then(function() {
-    alert("✓ Neuer Sektions-Prompt mit Schweizer Design-Vorgaben kopiert!\n\nJetzt in ChatGPT oder Claude einfügen.");
+    alert("✓ Neuer Coach-Prompt für zusätzlichen Abschnitt kopiert!\n\nJetzt in ChatGPT oder Claude einfügen.");
   }).catch(function() {
     window.prompt("Kopiere diesen Prompt:", prompt);
   });
-}
-
-function acpSubmitNewSection() {
-  var textarea = document.getElementById("acp-new-sec-code-input");
-  var select = document.getElementById("acp-new-sec-position");
-  var status = document.getElementById("acp-new-airbag-status");
-  if (!textarea || !textarea.value) return;
-
-  var validation = acpValidateSectionHtml(textarea.value);
-  if (!validation.ok) {
-    if (status) {
-      status.style.display = "block";
-      status.style.color = "#ef4444";
-      status.style.background = "rgba(239, 68, 68, 0.1)";
-      status.style.padding = "10px 14px";
-      status.style.borderRadius = "6px";
-      status.style.border = "1px solid rgba(239, 68, 68, 0.3)";
-      status.innerHTML = "🚨 <strong>Airbag-Schranke:</strong> " + validation.error;
-    }
-    return;
-  }
-
-  var iframe = document.getElementById("acp-widget-viewport");
-  var doc = iframe ? (iframe.contentDocument || iframe.contentWindow.document) : null;
-  if (!doc) {
-    alert("Iframe nicht verfügbar!");
-    return;
-  }
-
-  var afterSecId = select ? select.value : "services";
-  var targetEl = doc.querySelector('[data-section="' + afterSecId + '"]') || doc.getElementById(afterSecId);
-  if (!targetEl) {
-    alert("Ziel-Sektion [" + afterSecId + "] nicht im Dokument gefunden!");
-    return;
-  }
-
-  var temp = doc.createElement("div");
-  temp.innerHTML = validation.html;
-  var newSecEl = temp.firstElementChild;
-
-  targetEl.parentNode.insertBefore(newSecEl, targetEl.nextSibling);
-  acpCloseNewSectionModal();
-  acpScanAndRenderSections();
-  alert("✓ Neue Sektion erfolgreich nach [" + afterSecId + "] eingehängt!");
 }
 
 function acpRemoveSection(secId) {
@@ -2424,7 +2620,6 @@ function acpRemoveSection(secId) {
   if (targetEl) {
     targetEl.remove();
     acpScanAndRenderSections();
-    alert("✓ Sektion [" + secId + "] entfernt!");
+    alert("✓ Sektion [" + secId + "] im Simulator ausgeblendet!");
   }
 }
-

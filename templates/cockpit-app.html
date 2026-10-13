@@ -2734,6 +2734,154 @@ a.badge-live:hover {
   color: #64748b !important;
 }
 
+
+/* ==========================================================================
+   WEBPILOT STUDIO: DYNAMISCHER SEKTIONEN- & COACH-BAUKASTEN
+   ========================================================================== */
+.acp-section-card {
+  background: rgba(15, 23, 42, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 14px;
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 14px;
+  transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
+  position: relative;
+}
+
+.acp-section-card:hover {
+  border-color: rgba(245, 158, 11, 0.4);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5);
+  transform: translateY(-2px);
+}
+
+.acp-sec-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+}
+
+.acp-sec-archetype-pill {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: 4px;
+  letter-spacing: 0.03em;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.acp-sec-id-badge {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  color: #94a3b8;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 3px 7px;
+  border-radius: 4px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* Scaled Mini-Viewport */
+.acp-sec-mini-stage {
+  position: relative;
+  width: 100%;
+  height: 180px;
+  border-radius: 8px;
+  overflow: hidden;
+  background: #06090e;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  cursor: pointer;
+}
+
+.acp-sec-mini-iframe {
+  width: 416%;
+  height: 750px;
+  border: none;
+  transform: scale(0.24);
+  transform-origin: 0 0;
+  pointer-events: none;
+  background: #090d16;
+}
+
+.acp-sec-mini-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(10, 15, 29, 0.65);
+  backdrop-filter: blur(2px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  z-index: 5;
+}
+
+.acp-sec-mini-stage:hover .acp-sec-mini-overlay {
+  opacity: 1;
+}
+
+.acp-sec-mini-jump-btn {
+  background: rgba(245, 158, 11, 0.9);
+  color: #000;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 7px 14px;
+  border-radius: 6px;
+  border: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+  pointer-events: auto;
+}
+
+.acp-sec-meta-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 11.5px;
+  color: #64748b;
+  font-family: 'JetBrains Mono', monospace;
+  flex-wrap: wrap;
+}
+
+.acp-sec-meta-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.acp-coach-toast {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background: #0f172a;
+  border: 1px solid #f59e0b;
+  border-radius: 12px;
+  padding: 18px 24px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8), 0 0 30px rgba(245, 158, 11, 0.2);
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-width: 440px;
+  animation: acpSlideInUp 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes acpSlideInUp {
+  from { transform: translateY(30px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
 </style>
 </head>
 <body>
@@ -2880,9 +3028,9 @@ a.badge-live:hover {
   <div class="acp-modal acp-modal-fullscreen">
     <div class="acp-modal-head">
       <div>
-        <div class="acp-modal-kicker">// WEBPILOT FREIHEIT ⬥ DYNAMISCHER KI-BAUKASTEN</div>
-        <h3 class="acp-modal-heading">Sektionen &amp; KI-Editor</h3>
-        <p class="acp-modal-subline">Sektionen mit ChatGPT/Claude mutieren oder völlig neue Abschnitte mit vollem Seiten-Kontext erschaffen.</p>
+        <div class="acp-modal-kicker">// WEBPILOT FREIHEIT ⬥ INTERAKTIVER KI-SEKTIONS-COACH</div>
+        <h3 class="acp-modal-heading">Sektionen &amp; KI-Coach</h3>
+        <p class="acp-modal-subline">Visuelle Miniatur-Bühne aller Abschnitte. Lasse dich von deinem persönlichen KI-Coach interaktiv beraten und mutiere Sektionen mit 1-Klick.</p>
       </div>
       <div class="acp-modal-actions">
         <button type="button" class="acp-btn-secondary" onclick="acpCopyFullPagePrompt()" title="Kopiert den kompletten Seiten-Code mit Master-Prompt">
@@ -2900,7 +3048,7 @@ a.badge-live:hover {
         <div style="display: flex; align-items: center; gap: 12px;">
           <span style="font-size: 20px;">🛡️</span>
           <span style="font-size: 13.5px; color: #f8fafc;">
-            <strong>Full-Context Envelope aktiv:</strong> Jeder generierte Prompt enthält die Schweizer Design-Regeln und die gesamte Seiten-DNA, damit ChatGPT keine Doppelspurigkeiten oder Stilbrüche erzeugt.
+            <strong>Interaktiver KI-Coach &amp; Miniatur-Bühne aktiv:</strong> Der KI-Coach berät dich im aktiven Dialog (kein Code-Dump). Klicke auf ein Miniaturbild, um im Simulator direkt zum Abschnitt zu springen.
           </span>
         </div>
         <div style="font-family: 'JetBrains Mono', monospace; font-size: 11.5px; color: #fbbf24; background: rgba(0,0,0,0.3); padding: 4px 10px; border-radius: 4px;" id="acp-sections-count-badge">
