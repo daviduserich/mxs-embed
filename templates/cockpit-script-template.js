@@ -1209,6 +1209,22 @@ function acpHandleSlotClick(data) {
       newSrc: effectivePreviewSrc,
       oldSrc: acpTargetSwapSlot.currentSrc
     }, "*");
+
+    // Direktes In-Memory DOM-Update im iFrame (wirkt sofort ohne Seiten-Reload!)
+    try {
+      var idoc = frame.contentDocument || (frame.contentWindow && frame.contentWindow.document);
+      if (idoc) {
+        var imgs = idoc.querySelectorAll("img");
+        for (var m = 0; m < imgs.length; m++) {
+          var isrc = imgs[m].getAttribute("src") || "";
+          if (isrc === acpTargetSwapSlot.currentSrc || (cleanOld && isrc.indexOf(cleanOld) !== -1)) {
+            imgs[m].src = effectivePreviewSrc;
+            imgs[m].style.outline = "4px solid #22c55e";
+            break;
+          }
+        }
+      }
+    } catch(e) {}
   }
 
   var targetHint = document.getElementById("acp-swap-target-hint");
@@ -1291,9 +1307,27 @@ function acpExecuteDirectSwap() {
   .then(function(result) {
     acpIsSwapping = false;
     if (result.ok && result.data.ok) {
-      // 1. Swap-Dock & Spotlight lautlos schliessen (das Bild bleibt im DOM stabil erhalten!)
+      // 1. Bild im iFrame-DOM sofort mit dem neuen Pfad arretieren (Zero-Latency!)
+      try {
+        var f = document.getElementById("acp-widget-viewport");
+        var idoc = f ? (f.contentDocument || (f.contentWindow && f.contentWindow.document)) : null;
+        if (idoc) {
+          var allImgs = idoc.querySelectorAll("img");
+          for (var k = 0; k < allImgs.length; k++) {
+            var imgS = allImgs[k].getAttribute("src") || "";
+            if (imgS.indexOf(cleanNew) !== -1 || imgS.indexOf(cleanOld) !== -1 || imgS === payload.old_path) {
+              allImgs[k].src = payload.new_path + "?t=" + Date.now();
+              allImgs[k].style.outline = "4px solid #22c55e";
+              setTimeout((function(el) { return function() { if (el) el.style.outline = ""; }; })(allImgs[k]), 3000);
+            }
+          }
+        }
+      } catch(e) {}
+
+      // 2. Swap-Dock & Spotlight lautlos schliessen
       acpCancelSwap(true);
-      // 2. Erfolgs-Meldung anzeigen (KEIN zerstörerischer iFrame-Reload!)
+
+      // 3. Erfolgs-Meldung anzeigen
       acpLog("success", "🎉 Bildtausch erfolgreich verarbeitet!", "Edge CDN synchronisiert · Datei: " + payload.file);
       acpShowToast('🎉 <strong>Bild erfolgreich getauscht!</strong><br><small><strong>' + cleanNew + '</strong> ist jetzt im HTML fest verankert und weltweit live.</small>', 8000);
     } else {
