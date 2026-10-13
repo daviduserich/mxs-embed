@@ -148,6 +148,15 @@ def get_client_profile(slug: str, client_dir: Path, name: str) -> dict:
 
     brand_title = cfg_data.get("studio_title") or ("KARRIERE-STUDIO" if clean_slug == "hiltbrand" else "WEBPILOT STUDIO")
 
+    live_embeds = cfg_data.get("live_embeds", {})
+    if not live_embeds and clean_slug == "hiltbrand":
+        live_embeds = {
+            "Hiltbrand_Dachdecker_Pragmatisch.html": {
+                "url": "https://dachdecker-berneroberland.ch/jobs/",
+                "label": "dachdecker-berneroberland.ch/jobs/"
+            }
+        }
+
     return {
         "slug": slug,
         "clean_slug": clean_slug,
@@ -160,7 +169,8 @@ def get_client_profile(slug: str, client_dir: Path, name: str) -> dict:
         "brand_title": brand_title,
         "prompt_rules": rules,
         "host_url": host_url,
-        "host_jobs_url": host_jobs_url
+        "host_jobs_url": host_jobs_url,
+        "live_embeds": live_embeds
     }
 
 def scan_images(client_dir: Path, slug: str, default_category: str = "Baustelle & Benefit"):
@@ -221,8 +231,20 @@ def scan_images(client_dir: Path, slug: str, default_category: str = "Baustelle 
         json.dump(bilder, f, indent=2, ensure_ascii=False)
     return bilder
 
-def scan_stellen(client_dir: Path, slug: str, name: str):
-    """Scannt HTML-Dateien und erzeugt stellen.json."""
+def scan_stellen(client_dir: Path, slug: str, name: str, profile: dict = None):
+    """Scannt HTML-Dateien und erzeugt stellen.json mit genauer Live-Widget vs. Entwurf Erkennung."""
+    clean_slug = slug.replace("preview-", "")
+    live_embeds = {}
+    if profile and isinstance(profile.get("live_embeds"), dict):
+        live_embeds = profile["live_embeds"]
+    elif clean_slug == "hiltbrand":
+        live_embeds = {
+            "Hiltbrand_Dachdecker_Pragmatisch.html": {
+                "url": "https://dachdecker-berneroberland.ch/jobs/",
+                "label": "dachdecker-berneroberland.ch/jobs/"
+            }
+        }
+
     html_files = [f for f in sorted(client_dir.glob("*.html")) if f.name != "cockpit.html"]
     stellen = []
     
@@ -243,6 +265,20 @@ def scan_stellen(client_dir: Path, slug: str, name: str):
             f'}});</script>'
         )
         
+        is_live = False
+        embedded_url = None
+        embedded_label = "Nicht eingebaut"
+        status = "Entwurf im Studio"
+        status_badge = "🟡 ENTWURF"
+        
+        if f.name in live_embeds:
+            info = live_embeds[f.name]
+            is_live = True
+            embedded_url = info.get("url", "")
+            embedded_label = info.get("label") or embedded_url.replace("https://", "").replace("http://", "").rstrip("/")
+            status = f"Live als Widget eingebaut auf {embedded_label}"
+            status_badge = "🟢 LIVE WIDGET"
+        
         stellen.append({
             "id": f.stem.lower(),
             "titel": title,
@@ -251,14 +287,17 @@ def scan_stellen(client_dir: Path, slug: str, name: str):
             "datei": f.name,
             "folder": slug,
             "edge_url": edge_url,
-            "host_webseite": f"https://{slug}.ch",
-            "host_label": f"{slug}.ch",
+            "host_webseite": embedded_url or (profile.get("host_jobs_url") if profile else f"https://embed.magnet-xs.ch/{slug}/"),
+            "host_label": embedded_label,
             "farb_akzent": "#d97706",
             "widget_code": widget_code,
-            "is_live": True,
-            "live_url": edge_url,
-            "status": "Live auf Edge CDN",
-            "status_badge": "🟢 LIVE"
+            "is_live": is_live,
+            "is_live_embedded": is_live,
+            "live_url": embedded_url or edge_url,
+            "embedded_page_url": embedded_url,
+            "embedded_page_label": embedded_label,
+            "status": status,
+            "status_badge": status_badge
         })
 
     with open(client_dir / "stellen.json", "w", encoding="utf-8") as f:
@@ -300,7 +339,7 @@ def build_cockpit(slug: str):
 
     # 1. Bilder & Stellen scannen
     bilder = scan_images(client_dir, slug, default_category=work_category_label)
-    stellen = scan_stellen(client_dir, slug, name)
+    stellen = scan_stellen(client_dir, slug, name, profile=profile)
 
     # 2. Viewport- und Dateivorgaben ermitteln
     default_viewport_file = "index.html"

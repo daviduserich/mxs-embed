@@ -2232,6 +2232,14 @@ body.acp-modal-open {
   background: rgba(16, 185, 129, 0.12) !important;
   border: 1px solid rgba(16, 185, 129, 0.3) !important;
   color: #34d399 !important;
+  text-decoration: none !important;
+  transition: all 0.15s ease !important;
+}
+a.badge-live:hover {
+  background: rgba(16, 185, 129, 0.25) !important;
+  border-color: rgba(16, 185, 129, 0.6) !important;
+  box-shadow: 0 0 10px rgba(16, 185, 129, 0.25) !important;
+  color: #6ee7b7 !important;
 }
 .badge-ready {
   background: rgba(245, 158, 11, 0.12) !important;
@@ -2242,6 +2250,24 @@ body.acp-modal-open {
   background: rgba(148, 163, 184, 0.1) !important;
   border: 1px solid rgba(148, 163, 184, 0.2) !important;
   color: #94a3b8 !important;
+}
+.job-status-cell {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 4px !important;
+  align-items: flex-start !important;
+}
+.job-embedded-subline {
+  font-family: 'JetBrains Mono', monospace !important;
+  font-size: 10px !important;
+  color: #64748b !important;
+  line-height: 1.2 !important;
+}
+.job-embedded-subline strong {
+  color: #94a3b8 !important;
+}
+.job-embedded-subline.text-muted {
+  color: #475569 !important;
 }
 .job-file-chip {
   background: rgba(255, 255, 255, 0.03) !important;
@@ -3372,7 +3398,7 @@ function acpFetchServerLog() {
 // Build: 2026-10-03 15:30 CEST
 // =======================================================
 var ACP_COCKPIT_VERSION = "v3.4.1";
-var ACP_COCKPIT_BUILD = "2026-10-08 10:40";
+var ACP_COCKPIT_BUILD = "2026-10-13 13:58";
 
 function sanitizeStellen(list) {
   if (!Array.isArray(list)) return [];
@@ -3404,12 +3430,18 @@ var ACP_CLIENT_PROFILE = {
     "- Grunddoktrin: 'Leistungen' (nie 'Gewerke'), 'Offerte' (nie 'Kostenvoranschlag'), 'Ferien' (nie 'Urlaub'), 'Lernende' (nie 'Azubis')."
   ],
   "host_url": "https://embed.magnet-xs.ch/hiltbrand/cockpit",
-  "host_jobs_url": "https://dachdecker-berneroberland.ch/jobs/"
-} || {};
+  "host_jobs_url": "https://dachdecker-berneroberland.ch/jobs/",
+  "live_embeds": {
+    "Hiltbrand_Dachdecker_Pragmatisch.html": {
+      "url": "https://dachdecker-berneroberland.ch/jobs/",
+      "label": "dachdecker-berneroberland.ch/jobs/"
+    }
+  }
+};
 
 // Manifest-Daten mit robusten Fallbacks
 var ACP_BILDER = [{"id": "images_benefits_drohne_jpg", "filename": "benefits_drohne.jpg", "rel_path": "images/benefits_drohne.jpg", "folder": "hiltbrand", "category": "Baustelle & Benefit", "dimensions": "1400x1050", "size_kb": 482.5, "mtime": 1790616901, "mtime_str": "28.09.2026 17:35", "cdn_url": "https://embed.magnet-xs.ch/hiltbrand/images/benefits_drohne.jpg", "is_used": false, "used_in": []}, {"id": "images_danke_png", "filename": "danke.png", "rel_path": "images/danke.png", "folder": "hiltbrand", "category": "Baustelle & Benefit", "dimensions": "1456x816", "size_kb": 1490.5, "mtime": 1790616901, "mtime_str": "28.09.2026 17:35", "cdn_url": "https://embed.magnet-xs.ch/hiltbrand/images/danke.png", "is_used": true, "used_in": [{"datei": "zurbuchen_Holzbauer.html", "slot": "image", "is_hero": false}]}, {"id": "images_hero_jpg", "filename": "hero.jpg", "rel_path": "images/hero.jpg", "folder": "hiltbrand", "category": "Hero & Header", "dimensions": "1400x933", "size_kb": 160.7, "mtime": 1790616901, "mtime_str": "28.09.2026 17:35", "cdn_url": "https://embed.magnet-xs.ch/hiltbrand/images/hero.jpg", "is_used": true, "used_in": [{"datei": "index.html", "slot": "image", "is_hero": true}, {"datei": "Hiltbrand_Dachdecker_Pragmatisch.html", "slot": "image", "is_hero": true}, {"datei": "Hiltbrand_Dachdecker.html", "slot": "image", "is_hero": true}]}, {"id": "images_logo_png", "filename": "logo.png", "rel_path": "images/logo.png", "folder": "hiltbrand", "category": "Logo & Icon", "dimensions": "260x150", "size_kb": 8.2, "mtime": 1790616901, "mtime_str": "28.09.2026 17:35", "cdn_url": "https://embed.magnet-xs.ch/hiltbrand/images/logo.png", "is_used": true, "used_in": [{"datei": "zurbuchen_Holzbauer.html", "slot": "image", "is_hero": false}, {"datei": "index.html", "slot": "image", "is_hero": false}, {"datei": "Hiltbrand_Dachdecker_Pragmatisch.html", "slot": "image", "is_hero": false}, {"datei": "Hiltbrand_Dachdecker.html", "slot": "image", "is_hero": false}]}, {"id": "images_michael_jpg", "filename": "michael.jpg", "rel_path": "images/michael.jpg", "folder": "hiltbrand", "category": "Team & Porträt", "dimensions": "834x788", "size_kb": 186.7, "mtime": 1790616901, "mtime_str": "28.09.2026 17:35", "cdn_url": "https://embed.magnet-xs.ch/hiltbrand/images/michael.jpg", "is_used": true, "used_in": [{"datei": "zurbuchen_Holzbauer.html", "slot": "image", "is_hero": false}, {"datei": "Hiltbrand_Dachdecker.html", "slot": "image", "is_hero": false}]}, {"id": "images_q1_benefit_jpg", "filename": "q1_benefit.jpg", "rel_path": "images/q1_benefit.jpg", "folder": "hiltbrand", "category": "Baustelle & Benefit", "dimensions": "1400x1050", "size_kb": 295.8, "mtime": 1790616901, "mtime_str": "28.09.2026 17:35", "cdn_url": "https://embed.magnet-xs.ch/hiltbrand/images/q1_benefit.jpg", "is_used": false, "used_in": []}, {"id": "images_q1_bewaehrtes_handwerk_png", "filename": "q1_bewaehrtes_handwerk.png", "rel_path": "images/q1_bewaehrtes_handwerk.png", "folder": "hiltbrand", "category": "Baustelle & Benefit", "dimensions": "200x160", "size_kb": 37.6, "mtime": 1790616901, "mtime_str": "28.09.2026 17:35", "cdn_url": "https://embed.magnet-xs.ch/hiltbrand/images/q1_bewaehrtes_handwerk.png", "is_used": false, "used_in": []}, {"id": "images_q1_effiziente_maschinen_png", "filename": "q1_effiziente_maschinen.png", "rel_path": "images/q1_effiziente_maschinen.png", "folder": "hiltbrand", "category": "Baustelle & Benefit", "dimensions": "200x160", "size_kb": 38.0, "mtime": 1790616901, "mtime_str": "28.09.2026 17:35", "cdn_url": "https://embed.magnet-xs.ch/hiltbrand/images/q1_effiziente_maschinen.png", "is_used": false, "used_in": []}, {"id": "images_q1_moderne_technik_png", "filename": "q1_moderne_technik.png", "rel_path": "images/q1_moderne_technik.png", "folder": "hiltbrand", "category": "Baustelle & Benefit", "dimensions": "200x160", "size_kb": 37.8, "mtime": 1790616901, "mtime_str": "28.09.2026 17:35", "cdn_url": "https://embed.magnet-xs.ch/hiltbrand/images/q1_moderne_technik.png", "is_used": false, "used_in": []}, {"id": "images_q1_sicherer_arbeitgeber_png", "filename": "q1_sicherer_arbeitgeber.png", "rel_path": "images/q1_sicherer_arbeitgeber.png", "folder": "hiltbrand", "category": "Baustelle & Benefit", "dimensions": "200x160", "size_kb": 37.8, "mtime": 1790616901, "mtime_str": "28.09.2026 17:35", "cdn_url": "https://embed.magnet-xs.ch/hiltbrand/images/q1_sicherer_arbeitgeber.png", "is_used": false, "used_in": []}, {"id": "images_q2_baustellen_png", "filename": "q2_baustellen.png", "rel_path": "images/q2_baustellen.png", "folder": "hiltbrand", "category": "Baustelle & Benefit", "dimensions": "200x160", "size_kb": 39.3, "mtime": 1790616901, "mtime_str": "28.09.2026 17:35", "cdn_url": "https://embed.magnet-xs.ch/hiltbrand/images/q2_baustellen.png", "is_used": false, "used_in": []}, {"id": "images_q2_benefit_jpg", "filename": "q2_benefit.jpg", "rel_path": "images/q2_benefit.jpg", "folder": "hiltbrand", "category": "Baustelle & Benefit", "dimensions": "1400x1050", "size_kb": 325.7, "mtime": 1790616901, "mtime_str": "28.09.2026 17:35", "cdn_url": "https://embed.magnet-xs.ch/hiltbrand/images/q2_benefit.jpg", "is_used": false, "used_in": []}, {"id": "images_q2_details_png", "filename": "q2_details.png", "rel_path": "images/q2_details.png", "folder": "hiltbrand", "category": "Baustelle & Benefit", "dimensions": "200x160", "size_kb": 38.5, "mtime": 1790616901, "mtime_str": "28.09.2026 17:35", "cdn_url": "https://embed.magnet-xs.ch/hiltbrand/images/q2_details.png", "is_used": false, "used_in": []}, {"id": "images_q2_ganzheitlich_png", "filename": "q2_ganzheitlich.png", "rel_path": "images/q2_ganzheitlich.png", "folder": "hiltbrand", "category": "Baustelle & Benefit", "dimensions": "200x160", "size_kb": 38.8, "mtime": 1790616901, "mtime_str": "28.09.2026 17:35", "cdn_url": "https://embed.magnet-xs.ch/hiltbrand/images/q2_ganzheitlich.png", "is_used": false, "used_in": []}, {"id": "images_q2_kundenkontakt_png", "filename": "q2_kundenkontakt.png", "rel_path": "images/q2_kundenkontakt.png", "folder": "hiltbrand", "category": "Baustelle & Benefit", "dimensions": "200x160", "size_kb": 38.6, "mtime": 1790616901, "mtime_str": "28.09.2026 17:35", "cdn_url": "https://embed.magnet-xs.ch/hiltbrand/images/q2_kundenkontakt.png", "is_used": false, "used_in": []}, {"id": "images_q3_ansagen_png", "filename": "q3_ansagen.png", "rel_path": "images/q3_ansagen.png", "folder": "hiltbrand", "category": "Baustelle & Benefit", "dimensions": "200x160", "size_kb": 47.1, "mtime": 1790616901, "mtime_str": "28.09.2026 17:35", "cdn_url": "https://embed.magnet-xs.ch/hiltbrand/images/q3_ansagen.png", "is_used": false, "used_in": []}, {"id": "images_q3_benefit_png", "filename": "q3_benefit.png", "rel_path": "images/q3_benefit.png", "folder": "hiltbrand", "category": "Baustelle & Benefit", "dimensions": "1456x816", "size_kb": 1296.6, "mtime": 1790616901, "mtime_str": "28.09.2026 17:35", "cdn_url": "https://embed.magnet-xs.ch/hiltbrand/images/q3_benefit.png", "is_used": false, "used_in": []}, {"id": "images_q3_ehrgeiz_png", "filename": "q3_ehrgeiz.png", "rel_path": "images/q3_ehrgeiz.png", "folder": "hiltbrand", "category": "Baustelle & Benefit", "dimensions": "200x160", "size_kb": 47.7, "mtime": 1790616901, "mtime_str": "28.09.2026 17:35", "cdn_url": "https://embed.magnet-xs.ch/hiltbrand/images/q3_ehrgeiz.png", "is_used": false, "used_in": []}, {"id": "images_q3_freiraum_png", "filename": "q3_freiraum.png", "rel_path": "images/q3_freiraum.png", "folder": "hiltbrand", "category": "Baustelle & Benefit", "dimensions": "200x160", "size_kb": 47.2, "mtime": 1790616901, "mtime_str": "28.09.2026 17:35", "cdn_url": "https://embed.magnet-xs.ch/hiltbrand/images/q3_freiraum.png", "is_used": false, "used_in": []}, {"id": "images_q3_kameradschaft_png", "filename": "q3_kameradschaft.png", "rel_path": "images/q3_kameradschaft.png", "folder": "hiltbrand", "category": "Baustelle & Benefit", "dimensions": "200x160", "size_kb": 47.2, "mtime": 1790616901, "mtime_str": "28.09.2026 17:35", "cdn_url": "https://embed.magnet-xs.ch/hiltbrand/images/q3_kameradschaft.png", "is_used": false, "used_in": []}, {"id": "images_stefan_jpg", "filename": "stefan.jpg", "rel_path": "images/stefan.jpg", "folder": "hiltbrand", "category": "Team & Porträt", "dimensions": "1400x1337", "size_kb": 204.2, "mtime": 1790616901, "mtime_str": "28.09.2026 17:35", "cdn_url": "https://embed.magnet-xs.ch/hiltbrand/images/stefan.jpg", "is_used": true, "used_in": [{"datei": "Hiltbrand_Dachdecker.html", "slot": "image", "is_hero": false}]}, {"id": "images_team_alt_jpg", "filename": "team_alt.jpg", "rel_path": "images/team_alt.jpg", "folder": "hiltbrand", "category": "Team & Porträt", "dimensions": "1400x933", "size_kb": 259.8, "mtime": 1790616901, "mtime_str": "28.09.2026 17:35", "cdn_url": "https://embed.magnet-xs.ch/hiltbrand/images/team_alt.jpg", "is_used": false, "used_in": []}, {"id": "images_vorstellung_jpg", "filename": "vorstellung.jpg", "rel_path": "images/vorstellung.jpg", "folder": "hiltbrand", "category": "Baustelle & Benefit", "dimensions": "1400x933", "size_kb": 160.7, "mtime": 1790616901, "mtime_str": "28.09.2026 17:35", "cdn_url": "https://embed.magnet-xs.ch/hiltbrand/images/vorstellung.jpg", "is_used": false, "used_in": []}];
-var ACP_STELLEN = sanitizeStellen([{"id": "hiltbrand_dachdecker", "titel": "Dachdecker EFZ gesucht (80–100%)", "firma": "Hiltbrand", "icon": "🏗️", "datei": "Hiltbrand_Dachdecker.html", "folder": "hiltbrand", "edge_url": "https://embed.magnet-xs.ch/hiltbrand/Hiltbrand_Dachdecker.html", "host_webseite": "https://hiltbrand.ch", "host_label": "hiltbrand.ch", "farb_akzent": "#d97706", "widget_code": "<iframe src=\"https://embed.magnet-xs.ch/hiltbrand/Hiltbrand_Dachdecker.html?embed=true\" style=\"width:100%; border:none; min-height:850px;\" scrolling=\"no\" id=\"acp-job-widget\"></iframe>\n<script>window.addEventListener(\"message\",function(e){if(e.data&&e.data.type===\"acp-embed-resize\"){var el=document.getElementById(\"acp-job-widget\");if(el)el.style.height=e.data.height+\"px\";}});<\\/script>", "is_live": true, "live_url": "https://embed.magnet-xs.ch/hiltbrand/Hiltbrand_Dachdecker.html", "status": "Live auf Edge CDN", "status_badge": "🟢 LIVE"}, {"id": "hiltbrand_dachdecker_pragmatisch", "titel": "Dachdecker EFZ (Pragmatisch &amp; WhatsApp)", "firma": "Hiltbrand", "icon": "🏗️", "datei": "Hiltbrand_Dachdecker_Pragmatisch.html", "folder": "hiltbrand", "edge_url": "https://embed.magnet-xs.ch/hiltbrand/Hiltbrand_Dachdecker_Pragmatisch.html", "host_webseite": "https://hiltbrand.ch", "host_label": "hiltbrand.ch", "farb_akzent": "#d97706", "widget_code": "<iframe src=\"https://embed.magnet-xs.ch/hiltbrand/Hiltbrand_Dachdecker_Pragmatisch.html?embed=true\" style=\"width:100%; border:none; min-height:850px;\" scrolling=\"no\" id=\"acp-job-widget\"></iframe>\n<script>window.addEventListener(\"message\",function(e){if(e.data&&e.data.type===\"acp-embed-resize\"){var el=document.getElementById(\"acp-job-widget\");if(el)el.style.height=e.data.height+\"px\";}});<\\/script>", "is_live": true, "live_url": "https://embed.magnet-xs.ch/hiltbrand/Hiltbrand_Dachdecker_Pragmatisch.html", "status": "Live auf Edge CDN", "status_badge": "🟢 LIVE"}, {"id": "index", "titel": "Dachdecker EFZ (Pragmatisch &amp; WhatsApp)", "firma": "Hiltbrand", "icon": "🏗️", "datei": "index.html", "folder": "hiltbrand", "edge_url": "https://embed.magnet-xs.ch/hiltbrand/index.html", "host_webseite": "https://hiltbrand.ch", "host_label": "hiltbrand.ch", "farb_akzent": "#d97706", "widget_code": "<iframe src=\"https://embed.magnet-xs.ch/hiltbrand/index.html?embed=true\" style=\"width:100%; border:none; min-height:850px;\" scrolling=\"no\" id=\"acp-job-widget\"></iframe>\n<script>window.addEventListener(\"message\",function(e){if(e.data&&e.data.type===\"acp-embed-resize\"){var el=document.getElementById(\"acp-job-widget\");if(el)el.style.height=e.data.height+\"px\";}});<\\/script>", "is_live": true, "live_url": "https://embed.magnet-xs.ch/hiltbrand/index.html", "status": "Live auf Edge CDN", "status_badge": "🟢 LIVE"}, {"id": "zurbuchen_holzbauer", "titel": "Zimmermann EFZ gesucht (2–3 Stellen)", "firma": "Hiltbrand", "icon": "🏗️", "datei": "zurbuchen_Holzbauer.html", "folder": "hiltbrand", "edge_url": "https://embed.magnet-xs.ch/hiltbrand/zurbuchen_Holzbauer.html", "host_webseite": "https://hiltbrand.ch", "host_label": "hiltbrand.ch", "farb_akzent": "#d97706", "widget_code": "<iframe src=\"https://embed.magnet-xs.ch/hiltbrand/zurbuchen_Holzbauer.html?embed=true\" style=\"width:100%; border:none; min-height:850px;\" scrolling=\"no\" id=\"acp-job-widget\"></iframe>\n<script>window.addEventListener(\"message\",function(e){if(e.data&&e.data.type===\"acp-embed-resize\"){var el=document.getElementById(\"acp-job-widget\");if(el)el.style.height=e.data.height+\"px\";}});<\\/script>", "is_live": true, "live_url": "https://embed.magnet-xs.ch/hiltbrand/zurbuchen_Holzbauer.html", "status": "Live auf Edge CDN", "status_badge": "🟢 LIVE"}]);
+var ACP_STELLEN = sanitizeStellen([{"id": "hiltbrand_dachdecker", "titel": "Dachdecker EFZ gesucht (80–100%)", "firma": "Hiltbrand", "icon": "🏗️", "datei": "Hiltbrand_Dachdecker.html", "folder": "hiltbrand", "edge_url": "https://embed.magnet-xs.ch/hiltbrand/Hiltbrand_Dachdecker.html", "host_webseite": "https://dachdecker-berneroberland.ch/jobs/", "host_label": "Nicht eingebaut", "farb_akzent": "#d97706", "widget_code": "<iframe src=\"https://embed.magnet-xs.ch/hiltbrand/Hiltbrand_Dachdecker.html?embed=true\" style=\"width:100%; border:none; min-height:850px;\" scrolling=\"no\" id=\"acp-job-widget\"></iframe>\n<script>window.addEventListener(\"message\",function(e){if(e.data&&e.data.type===\"acp-embed-resize\"){var el=document.getElementById(\"acp-job-widget\");if(el)el.style.height=e.data.height+\"px\";}});<\\/script>", "is_live": false, "is_live_embedded": false, "live_url": "https://embed.magnet-xs.ch/hiltbrand/Hiltbrand_Dachdecker.html", "embedded_page_url": null, "embedded_page_label": "Nicht eingebaut", "status": "Entwurf im Studio", "status_badge": "🟡 ENTWURF"}, {"id": "hiltbrand_dachdecker_pragmatisch", "titel": "Dachdecker EFZ (Pragmatisch &amp; WhatsApp)", "firma": "Hiltbrand", "icon": "🏗️", "datei": "Hiltbrand_Dachdecker_Pragmatisch.html", "folder": "hiltbrand", "edge_url": "https://embed.magnet-xs.ch/hiltbrand/Hiltbrand_Dachdecker_Pragmatisch.html", "host_webseite": "https://dachdecker-berneroberland.ch/jobs/", "host_label": "dachdecker-berneroberland.ch/jobs/", "farb_akzent": "#d97706", "widget_code": "<iframe src=\"https://embed.magnet-xs.ch/hiltbrand/Hiltbrand_Dachdecker_Pragmatisch.html?embed=true\" style=\"width:100%; border:none; min-height:850px;\" scrolling=\"no\" id=\"acp-job-widget\"></iframe>\n<script>window.addEventListener(\"message\",function(e){if(e.data&&e.data.type===\"acp-embed-resize\"){var el=document.getElementById(\"acp-job-widget\");if(el)el.style.height=e.data.height+\"px\";}});<\\/script>", "is_live": true, "is_live_embedded": true, "live_url": "https://dachdecker-berneroberland.ch/jobs/", "embedded_page_url": "https://dachdecker-berneroberland.ch/jobs/", "embedded_page_label": "dachdecker-berneroberland.ch/jobs/", "status": "Live als Widget eingebaut auf dachdecker-berneroberland.ch/jobs/", "status_badge": "🟢 LIVE WIDGET"}, {"id": "index", "titel": "Dachdecker EFZ (Pragmatisch &amp; WhatsApp)", "firma": "Hiltbrand", "icon": "🏗️", "datei": "index.html", "folder": "hiltbrand", "edge_url": "https://embed.magnet-xs.ch/hiltbrand/index.html", "host_webseite": "https://dachdecker-berneroberland.ch/jobs/", "host_label": "Nicht eingebaut", "farb_akzent": "#d97706", "widget_code": "<iframe src=\"https://embed.magnet-xs.ch/hiltbrand/index.html?embed=true\" style=\"width:100%; border:none; min-height:850px;\" scrolling=\"no\" id=\"acp-job-widget\"></iframe>\n<script>window.addEventListener(\"message\",function(e){if(e.data&&e.data.type===\"acp-embed-resize\"){var el=document.getElementById(\"acp-job-widget\");if(el)el.style.height=e.data.height+\"px\";}});<\\/script>", "is_live": false, "is_live_embedded": false, "live_url": "https://embed.magnet-xs.ch/hiltbrand/index.html", "embedded_page_url": null, "embedded_page_label": "Nicht eingebaut", "status": "Entwurf im Studio", "status_badge": "🟡 ENTWURF"}, {"id": "zurbuchen_holzbauer", "titel": "Zimmermann EFZ gesucht (2–3 Stellen)", "firma": "Hiltbrand", "icon": "🏗️", "datei": "zurbuchen_Holzbauer.html", "folder": "hiltbrand", "edge_url": "https://embed.magnet-xs.ch/hiltbrand/zurbuchen_Holzbauer.html", "host_webseite": "https://dachdecker-berneroberland.ch/jobs/", "host_label": "Nicht eingebaut", "farb_akzent": "#d97706", "widget_code": "<iframe src=\"https://embed.magnet-xs.ch/hiltbrand/zurbuchen_Holzbauer.html?embed=true\" style=\"width:100%; border:none; min-height:850px;\" scrolling=\"no\" id=\"acp-job-widget\"></iframe>\n<script>window.addEventListener(\"message\",function(e){if(e.data&&e.data.type===\"acp-embed-resize\"){var el=document.getElementById(\"acp-job-widget\");if(el)el.style.height=e.data.height+\"px\";}});<\\/script>", "is_live": false, "is_live_embedded": false, "live_url": "https://embed.magnet-xs.ch/hiltbrand/zurbuchen_Holzbauer.html", "embedded_page_url": null, "embedded_page_label": "Nicht eingebaut", "status": "Entwurf im Studio", "status_badge": "🟡 ENTWURF"}]);
 
 // Globaler State
 var activeJobId = "";
@@ -3506,15 +3538,28 @@ function getActiveJob() {
   return ACP_STELLEN[0] || {};
 }
 
+function acpCleanUrlLabel(u) {
+  if (!u) return "";
+  var s = String(u);
+  var protoIdx = s.indexOf("://");
+  if (protoIdx !== -1) {
+    s = s.substring(protoIdx + 3);
+  }
+  if (s.charAt(s.length - 1) === "/") {
+    s = s.substring(0, s.length - 1);
+  }
+  return s;
+}
+
 function updateLiveStatusBadge(job) {
   var wrap = document.getElementById("acp-live-badge-wrap");
   if (!wrap) return;
   if (!job) { wrap.innerHTML = ""; return; }
   
   if (job.is_live) {
-    var url = job.live_url || "https://dachdecker-berneroberland.ch/jobs/";
-    var domain = (job.host_label || "dachdecker-berneroberland.ch");
-    wrap.innerHTML = '<a href="' + url + '" target="_blank" class="acp-live-status-pill is-live" title="Diese Stelle ist öffentlich eingebettet. Klicken, um live auf ' + domain + ' anzuschauen!">' +
+    var url = job.embedded_page_url || job.live_url || "https://dachdecker-berneroberland.ch/jobs/";
+    var domain = job.embedded_page_label || (job.host_label || acpCleanUrlLabel(url));
+    wrap.innerHTML = '<a href="' + url + '" target="_blank" rel="noopener noreferrer" class="acp-live-status-pill is-live" title="Dieses Inserat ist öffentlich als Live-Widget eingebaut auf: ' + url + ' (Klicken, um Seite im neuen Tab zu öffnen)">' +
       '<span class="acp-live-pulse-dot"></span>' +
       '<span>LIVE · ' + domain + '</span>' +
       '<span class="acp-pill-ext">↗</span>' +
@@ -3525,12 +3570,13 @@ function updateLiveStatusBadge(job) {
       '<span>BEREIT · Zurbuchen Holzbau</span>' +
     '</span>';
   } else {
-    wrap.innerHTML = '<span class="acp-live-status-pill is-draft" title="Sicherer lokaler Entwurf">' +
+    wrap.innerHTML = '<span class="acp-live-status-pill is-draft" title="Dieser Entwurf ist noch in keiner Website als Widget eingebaut. Er steht bereit im Studio zur Bearbeitung und Einbettung.">' +
       '<span class="acp-draft-dot"></span>' +
-      '<span>ENTWURF · Vorlage</span>' +
+      '<span>ENTWURF · Nicht eingebettet</span>' +
     '</span>';
   }
 }
+window.acpUpdateLiveBadge = updateLiveStatusBadge;
 
 function acpToggleJobDropdown() {
   var dd = document.getElementById("acp-job-dropdown");
@@ -3568,18 +3614,23 @@ function renderJobPicker() {
     var activeClass = isActive ? "active" : "";
     
     var badgeHtml = "";
+    var targetSubline = "";
     if (j.is_live) {
-      badgeHtml = '<span class="acp-badge-mini live">🟢 LIVE</span>';
+      badgeHtml = '<span class="acp-badge-mini live">🟢 LIVE WIDGET</span>';
+      var tgt = j.embedded_page_label || (j.embedded_page_url ? acpCleanUrlLabel(j.embedded_page_url) : 'Eingebaut');
+      targetSubline = ' · <span style="color:#10b981; font-weight:600;">Eingebaut: ' + tgt + '</span>';
     } else if (j.id && j.id.indexOf("zurbuchen") !== -1) {
       badgeHtml = '<span class="acp-badge-mini ready">🟡 BEREIT</span>';
+      targetSubline = ' · <span style="color:#fbbf24;">Bereit zur Einbettung</span>';
     } else {
       badgeHtml = '<span class="acp-badge-mini draft">⚪ ENTWURF</span>';
+      targetSubline = ' · <span style="color:#94a3b8;">Nicht eingebaut</span>';
     }
 
     html += '<div class="acp-dropdown-item ' + activeClass + '" onclick="acpSwitchJob(\'' + j.id + '\'); acpToggleJobDropdown();">' +
       '<div class="dropdown-item-left">' +
         '<div class="dropdown-item-title">' + (j.icon || "💼") + ' ' + j.titel + '</div>' +
-        '<div class="dropdown-item-meta"><span>' + j.firma + '</span> · <span style="color:#38bdf8">' + j.datei + '</span></div>' +
+        '<div class="dropdown-item-meta"><span>' + j.firma + '</span> · <span style="color:#38bdf8">' + j.datei + '</span>' + targetSubline + '</div>' +
       '</div>' +
       '<div class="dropdown-item-right">' +
         badgeHtml +
@@ -3618,7 +3669,7 @@ function acpSwitchJob(jobId, forceReload) {
   var stagePill = document.getElementById("acp-stage-client-pill");
   var subfolder = job.folder || ((job.firma && job.firma.indexOf("Zurbuchen") !== -1) ? "zurbuchen" : "hiltbrand");
   var edgePreviewUrl = job.edge_url || ("https://embed.magnet-xs.ch/" + subfolder + "/" + job.datei);
-  var targetLiveUrl = job.live_url || (job.is_live ? ("https://" + hostDomain + "/jobs/") : edgePreviewUrl);
+  var targetLiveUrl = job.embedded_page_url || (job.is_live ? job.live_url : edgePreviewUrl);
 
   if (stageUrl) stageUrl.textContent = targetLiveUrl;
   if (stageLink) stageLink.href = targetLiveUrl;
@@ -4575,6 +4626,7 @@ function renderDirectoryTable() {
 
   var countAll = ACP_STELLEN.length;
   var countLive = ACP_STELLEN.filter(function(j) { return !!j.is_live; }).length;
+  var countDraft = countAll - countLive;
 
   // Firmen-Zählung dynamisch ermitteln
   var companyCounts = {};
@@ -4591,6 +4643,10 @@ function renderDirectoryTable() {
   if (pillsContainer) {
     var pillsHtml = '<button type="button" class="acp-job-filter-pill' + (acpCurrentJobFilter === 'alle' ? ' active' : '') + '" data-filter="alle" onclick="acpSetJobFilter(\'alle\')">🏢 Alle Inserate (<span id="count-jobs-all">' + countAll + '</span>)</button>';
     
+    pillsHtml += ' <button type="button" class="acp-job-filter-pill' + (acpCurrentJobFilter === 'live' ? ' active' : '') + '" data-filter="live" onclick="acpSetJobFilter(\'live\')">🟢 Live eingebettet (<span id="count-jobs-live">' + countLive + '</span>)</button>';
+    
+    pillsHtml += ' <button type="button" class="acp-job-filter-pill' + (acpCurrentJobFilter === 'draft' ? ' active' : '') + '" data-filter="draft" onclick="acpSetJobFilter(\'draft\')">🟡 Entwürfe (<span id="count-jobs-draft">' + countDraft + '</span>)</button>';
+
     if (companyNames.length > 1) {
       companyNames.forEach(function(cName) {
         var isAct = (acpCurrentJobFilter === cName || acpCurrentJobFilter === ('firma:' + cName) || (cName.indexOf('Hiltbrand') !== -1 && acpCurrentJobFilter === 'hiltbrand') || (cName.indexOf('Zurbuchen') !== -1 && acpCurrentJobFilter === 'zurbuchen'));
@@ -4602,14 +4658,13 @@ function renderDirectoryTable() {
         pillsHtml += ' <button type="button" class="acp-job-filter-pill' + (isAct ? ' active' : '') + '" data-filter="firma:' + cName + '" onclick="acpSetJobFilter(\'firma:' + cName.replace(/'/g, "\\'") + '\')">' + icon + ' ' + cName + ' (<span>' + companyCounts[cName] + '</span>)</button>';
       });
     }
-
-    pillsHtml += ' <button type="button" class="acp-job-filter-pill' + (acpCurrentJobFilter === 'live' ? ' active' : '') + '" data-filter="live" onclick="acpSetJobFilter(\'live\')">🟢 Nur Live-Widget (<span id="count-jobs-live">' + countLive + '</span>)</button>';
     
     pillsContainer.innerHTML = pillsHtml;
   }
 
   var filtered = ACP_STELLEN.filter(function(j) {
     if (acpCurrentJobFilter === 'live' && !j.is_live) return false;
+    if (acpCurrentJobFilter === 'draft' && j.is_live) return false;
     if (acpCurrentJobFilter.indexOf('firma:') === 0) {
       var targetFirma = acpCurrentJobFilter.substring(6);
       if ((j.firma || '').indexOf(targetFirma) === -1) return false;
@@ -4627,7 +4682,13 @@ function renderDirectoryTable() {
   });
 
   if (filtered.length === 0) {
-    tbody.innerHTML = '<tr><td colspan="4" style="text-align:center; padding:48px 20px; color:#64748b; font-family:\'JetBrains Mono\',monospace; font-size:13px;">Keine passenden Stellen gefunden.</td></tr>';
+    var emptyMsg = "Keine passenden Stellen gefunden.";
+    if (acpCurrentJobFilter === "live") {
+      emptyMsg = "Noch keine Stellen als Live-Widget eingebaut. Kopiere den Widget-Code eines Entwurfs, um ihn in deine Website einzubinden.";
+    } else if (acpCurrentJobFilter === "draft") {
+      emptyMsg = "Keine un-eingebetteten Entwürfe vorhanden. Alle Stellen sind aktuell live eingebunden.";
+    }
+    tbody.innerHTML = '<tr><td colspan="4" style="text-align:center; padding:48px 20px; color:#64748b; font-family:\'JetBrains Mono\',monospace; font-size:13px;">' + emptyMsg + '</td></tr>';
     return;
   }
 
@@ -4643,11 +4704,28 @@ function renderDirectoryTable() {
     
     var statusBadge = "";
     if (j.is_live) {
-      statusBadge = '<span class="acp-table-badge badge-live"><span class="badge-dot-live">●</span> LIVE</span>';
+      var liveTgtUrl = j.embedded_page_url || j.live_url;
+      var liveTgtLbl = j.embedded_page_label || (liveTgtUrl ? acpCleanUrlLabel(liveTgtUrl) : 'Live');
+      statusBadge = '<div class="job-status-cell">' +
+        '<a href="' + liveTgtUrl + '" target="_blank" rel="noopener noreferrer" class="acp-table-badge badge-live" title="Öffentlich eingebaut auf ' + liveTgtUrl + ' (Klicken, um die Live-Seite im neuen Tab zu öffnen)">' +
+          '<span class="badge-dot-live">●</span> LIVE WIDGET ↗' +
+        '</a>' +
+        '<div class="job-embedded-subline" title="' + liveTgtUrl + '">Eingebaut: <strong>' + liveTgtLbl + '</strong></div>' +
+      '</div>';
     } else if (j.id && j.id.indexOf("zurbuchen") !== -1) {
-      statusBadge = '<span class="acp-table-badge badge-ready"><span class="badge-dot-ready">●</span> BEREIT</span>';
+      statusBadge = '<div class="job-status-cell">' +
+        '<span class="acp-table-badge badge-ready">' +
+          '<span class="badge-dot-ready">●</span> BEREIT' +
+        '</span>' +
+        '<div class="job-embedded-subline text-muted">Bereit zur Einbettung</div>' +
+      '</div>';
     } else {
-      statusBadge = '<span class="acp-table-badge badge-draft"><span class="badge-dot-draft">●</span> ENTWURF</span>';
+      statusBadge = '<div class="job-status-cell">' +
+        '<span class="acp-table-badge badge-draft">' +
+          '<span class="badge-dot-draft">●</span> ENTWURF' +
+        '</span>' +
+        '<div class="job-embedded-subline text-muted">Nicht eingebaut</div>' +
+      '</div>';
     }
 
     var actionBtn = isCurrent ?

@@ -2232,6 +2232,14 @@ body.acp-modal-open {
   background: rgba(16, 185, 129, 0.12) !important;
   border: 1px solid rgba(16, 185, 129, 0.3) !important;
   color: #34d399 !important;
+  text-decoration: none !important;
+  transition: all 0.15s ease !important;
+}
+a.badge-live:hover {
+  background: rgba(16, 185, 129, 0.25) !important;
+  border-color: rgba(16, 185, 129, 0.6) !important;
+  box-shadow: 0 0 10px rgba(16, 185, 129, 0.25) !important;
+  color: #6ee7b7 !important;
 }
 .badge-ready {
   background: rgba(245, 158, 11, 0.12) !important;
@@ -2242,6 +2250,24 @@ body.acp-modal-open {
   background: rgba(148, 163, 184, 0.1) !important;
   border: 1px solid rgba(148, 163, 184, 0.2) !important;
   color: #94a3b8 !important;
+}
+.job-status-cell {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 4px !important;
+  align-items: flex-start !important;
+}
+.job-embedded-subline {
+  font-family: 'JetBrains Mono', monospace !important;
+  font-size: 10px !important;
+  color: #64748b !important;
+  line-height: 1.2 !important;
+}
+.job-embedded-subline strong {
+  color: #94a3b8 !important;
+}
+.job-embedded-subline.text-muted {
+  color: #475569 !important;
 }
 .job-file-chip {
   background: rgba(255, 255, 255, 0.03) !important;

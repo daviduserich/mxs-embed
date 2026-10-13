@@ -108,7 +108,7 @@ function sanitizeStellen(list) {
 }
 
 // Mandanten- & Branchen-Profil (Dynamisch injiziert durch build_client_cockpit.py)
-var ACP_CLIENT_PROFILE = /* __CLIENT_PROFILE_JSON__ */ || {};
+var ACP_CLIENT_PROFILE = /* __CLIENT_PROFILE_JSON__ */;
 
 // Manifest-Daten mit robusten Fallbacks
 var ACP_BILDER = /* __BILDER_JSON__ */;
@@ -209,15 +209,28 @@ function getActiveJob() {
   return ACP_STELLEN[0] || {};
 }
 
+function acpCleanUrlLabel(u) {
+  if (!u) return "";
+  var s = String(u);
+  var protoIdx = s.indexOf("://");
+  if (protoIdx !== -1) {
+    s = s.substring(protoIdx + 3);
+  }
+  if (s.charAt(s.length - 1) === "/") {
+    s = s.substring(0, s.length - 1);
+  }
+  return s;
+}
+
 function updateLiveStatusBadge(job) {
   var wrap = document.getElementById("acp-live-badge-wrap");
   if (!wrap) return;
   if (!job) { wrap.innerHTML = ""; return; }
   
   if (job.is_live) {
-    var url = job.live_url || "https://dachdecker-berneroberland.ch/jobs/";
-    var domain = (job.host_label || "dachdecker-berneroberland.ch");
-    wrap.innerHTML = '<a href="' + url + '" target="_blank" class="acp-live-status-pill is-live" title="Diese Stelle ist öffentlich eingebettet. Klicken, um live auf ' + domain + ' anzuschauen!">' +
+    var url = job.embedded_page_url || job.live_url || "https://dachdecker-berneroberland.ch/jobs/";
+    var domain = job.embedded_page_label || (job.host_label || acpCleanUrlLabel(url));
+    wrap.innerHTML = '<a href="' + url + '" target="_blank" rel="noopener noreferrer" class="acp-live-status-pill is-live" title="Dieses Inserat ist öffentlich als Live-Widget eingebaut auf: ' + url + ' (Klicken, um Seite im neuen Tab zu öffnen)">' +
       '<span class="acp-live-pulse-dot"></span>' +
       '<span>LIVE · ' + domain + '</span>' +
       '<span class="acp-pill-ext">↗</span>' +
@@ -228,12 +241,13 @@ function updateLiveStatusBadge(job) {
       '<span>BEREIT · Zurbuchen Holzbau</span>' +
     '</span>';
   } else {
-    wrap.innerHTML = '<span class="acp-live-status-pill is-draft" title="Sicherer lokaler Entwurf">' +
+    wrap.innerHTML = '<span class="acp-live-status-pill is-draft" title="Dieser Entwurf ist noch in keiner Website als Widget eingebaut. Er steht bereit im Studio zur Bearbeitung und Einbettung.">' +
       '<span class="acp-draft-dot"></span>' +
-      '<span>ENTWURF · Vorlage</span>' +
+      '<span>ENTWURF · Nicht eingebettet</span>' +
     '</span>';
   }
 }
+window.acpUpdateLiveBadge = updateLiveStatusBadge;
 
 function acpToggleJobDropdown() {
   var dd = document.getElementById("acp-job-dropdown");
@@ -271,18 +285,23 @@ function renderJobPicker() {
     var activeClass = isActive ? "active" : "";
     
     var badgeHtml = "";
+    var targetSubline = "";
     if (j.is_live) {
-      badgeHtml = '<span class="acp-badge-mini live">🟢 LIVE</span>';
+      badgeHtml = '<span class="acp-badge-mini live">🟢 LIVE WIDGET</span>';
+      var tgt = j.embedded_page_label || (j.embedded_page_url ? acpCleanUrlLabel(j.embedded_page_url) : 'Eingebaut');
+      targetSubline = ' · <span style="color:#10b981; font-weight:600;">Eingebaut: ' + tgt + '</span>';
     } else if (j.id && j.id.indexOf("zurbuchen") !== -1) {
       badgeHtml = '<span class="acp-badge-mini ready">🟡 BEREIT</span>';
+      targetSubline = ' · <span style="color:#fbbf24;">Bereit zur Einbettung</span>';
     } else {
       badgeHtml = '<span class="acp-badge-mini draft">⚪ ENTWURF</span>';
+      targetSubline = ' · <span style="color:#94a3b8;">Nicht eingebaut</span>';
     }
 
     html += '<div class="acp-dropdown-item ' + activeClass + '" onclick="acpSwitchJob(\'' + j.id + '\'); acpToggleJobDropdown();">' +
       '<div class="dropdown-item-left">' +
         '<div class="dropdown-item-title">' + (j.icon || "💼") + ' ' + j.titel + '</div>' +
-        '<div class="dropdown-item-meta"><span>' + j.firma + '</span> · <span style="color:#38bdf8">' + j.datei + '</span></div>' +
+        '<div class="dropdown-item-meta"><span>' + j.firma + '</span> · <span style="color:#38bdf8">' + j.datei + '</span>' + targetSubline + '</div>' +
       '</div>' +
       '<div class="dropdown-item-right">' +
         badgeHtml +
@@ -321,7 +340,7 @@ function acpSwitchJob(jobId, forceReload) {
   var stagePill = document.getElementById("acp-stage-client-pill");
   var subfolder = job.folder || ((job.firma && job.firma.indexOf("Zurbuchen") !== -1) ? "zurbuchen" : "hiltbrand");
   var edgePreviewUrl = job.edge_url || ("https://embed.magnet-xs.ch/" + subfolder + "/" + job.datei);
-  var targetLiveUrl = job.live_url || (job.is_live ? ("https://" + hostDomain + "/jobs/") : edgePreviewUrl);
+  var targetLiveUrl = job.embedded_page_url || (job.is_live ? job.live_url : edgePreviewUrl);
 
   if (stageUrl) stageUrl.textContent = targetLiveUrl;
   if (stageLink) stageLink.href = targetLiveUrl;
@@ -1278,6 +1297,7 @@ function renderDirectoryTable() {
 
   var countAll = ACP_STELLEN.length;
   var countLive = ACP_STELLEN.filter(function(j) { return !!j.is_live; }).length;
+  var countDraft = countAll - countLive;
 
   // Firmen-Zählung dynamisch ermitteln
   var companyCounts = {};
@@ -1294,6 +1314,10 @@ function renderDirectoryTable() {
   if (pillsContainer) {
     var pillsHtml = '<button type="button" class="acp-job-filter-pill' + (acpCurrentJobFilter === 'alle' ? ' active' : '') + '" data-filter="alle" onclick="acpSetJobFilter(\'alle\')">🏢 Alle Inserate (<span id="count-jobs-all">' + countAll + '</span>)</button>';
     
+    pillsHtml += ' <button type="button" class="acp-job-filter-pill' + (acpCurrentJobFilter === 'live' ? ' active' : '') + '" data-filter="live" onclick="acpSetJobFilter(\'live\')">🟢 Live eingebettet (<span id="count-jobs-live">' + countLive + '</span>)</button>';
+    
+    pillsHtml += ' <button type="button" class="acp-job-filter-pill' + (acpCurrentJobFilter === 'draft' ? ' active' : '') + '" data-filter="draft" onclick="acpSetJobFilter(\'draft\')">🟡 Entwürfe (<span id="count-jobs-draft">' + countDraft + '</span>)</button>';
+
     if (companyNames.length > 1) {
       companyNames.forEach(function(cName) {
         var isAct = (acpCurrentJobFilter === cName || acpCurrentJobFilter === ('firma:' + cName) || (cName.indexOf('Hiltbrand') !== -1 && acpCurrentJobFilter === 'hiltbrand') || (cName.indexOf('Zurbuchen') !== -1 && acpCurrentJobFilter === 'zurbuchen'));
@@ -1305,14 +1329,13 @@ function renderDirectoryTable() {
         pillsHtml += ' <button type="button" class="acp-job-filter-pill' + (isAct ? ' active' : '') + '" data-filter="firma:' + cName + '" onclick="acpSetJobFilter(\'firma:' + cName.replace(/'/g, "\\'") + '\')">' + icon + ' ' + cName + ' (<span>' + companyCounts[cName] + '</span>)</button>';
       });
     }
-
-    pillsHtml += ' <button type="button" class="acp-job-filter-pill' + (acpCurrentJobFilter === 'live' ? ' active' : '') + '" data-filter="live" onclick="acpSetJobFilter(\'live\')">🟢 Nur Live-Widget (<span id="count-jobs-live">' + countLive + '</span>)</button>';
     
     pillsContainer.innerHTML = pillsHtml;
   }
 
   var filtered = ACP_STELLEN.filter(function(j) {
     if (acpCurrentJobFilter === 'live' && !j.is_live) return false;
+    if (acpCurrentJobFilter === 'draft' && j.is_live) return false;
     if (acpCurrentJobFilter.indexOf('firma:') === 0) {
       var targetFirma = acpCurrentJobFilter.substring(6);
       if ((j.firma || '').indexOf(targetFirma) === -1) return false;
@@ -1330,7 +1353,13 @@ function renderDirectoryTable() {
   });
 
   if (filtered.length === 0) {
-    tbody.innerHTML = '<tr><td colspan="4" style="text-align:center; padding:48px 20px; color:#64748b; font-family:\'JetBrains Mono\',monospace; font-size:13px;">Keine passenden Stellen gefunden.</td></tr>';
+    var emptyMsg = "Keine passenden Stellen gefunden.";
+    if (acpCurrentJobFilter === "live") {
+      emptyMsg = "Noch keine Stellen als Live-Widget eingebaut. Kopiere den Widget-Code eines Entwurfs, um ihn in deine Website einzubinden.";
+    } else if (acpCurrentJobFilter === "draft") {
+      emptyMsg = "Keine un-eingebetteten Entwürfe vorhanden. Alle Stellen sind aktuell live eingebunden.";
+    }
+    tbody.innerHTML = '<tr><td colspan="4" style="text-align:center; padding:48px 20px; color:#64748b; font-family:\'JetBrains Mono\',monospace; font-size:13px;">' + emptyMsg + '</td></tr>';
     return;
   }
 
@@ -1346,11 +1375,28 @@ function renderDirectoryTable() {
     
     var statusBadge = "";
     if (j.is_live) {
-      statusBadge = '<span class="acp-table-badge badge-live"><span class="badge-dot-live">●</span> LIVE</span>';
+      var liveTgtUrl = j.embedded_page_url || j.live_url;
+      var liveTgtLbl = j.embedded_page_label || (liveTgtUrl ? acpCleanUrlLabel(liveTgtUrl) : 'Live');
+      statusBadge = '<div class="job-status-cell">' +
+        '<a href="' + liveTgtUrl + '" target="_blank" rel="noopener noreferrer" class="acp-table-badge badge-live" title="Öffentlich eingebaut auf ' + liveTgtUrl + ' (Klicken, um die Live-Seite im neuen Tab zu öffnen)">' +
+          '<span class="badge-dot-live">●</span> LIVE WIDGET ↗' +
+        '</a>' +
+        '<div class="job-embedded-subline" title="' + liveTgtUrl + '">Eingebaut: <strong>' + liveTgtLbl + '</strong></div>' +
+      '</div>';
     } else if (j.id && j.id.indexOf("zurbuchen") !== -1) {
-      statusBadge = '<span class="acp-table-badge badge-ready"><span class="badge-dot-ready">●</span> BEREIT</span>';
+      statusBadge = '<div class="job-status-cell">' +
+        '<span class="acp-table-badge badge-ready">' +
+          '<span class="badge-dot-ready">●</span> BEREIT' +
+        '</span>' +
+        '<div class="job-embedded-subline text-muted">Bereit zur Einbettung</div>' +
+      '</div>';
     } else {
-      statusBadge = '<span class="acp-table-badge badge-draft"><span class="badge-dot-draft">●</span> ENTWURF</span>';
+      statusBadge = '<div class="job-status-cell">' +
+        '<span class="acp-table-badge badge-draft">' +
+          '<span class="badge-dot-draft">●</span> ENTWURF' +
+        '</span>' +
+        '<div class="job-embedded-subline text-muted">Nicht eingebaut</div>' +
+      '</div>';
     }
 
     var actionBtn = isCurrent ?
