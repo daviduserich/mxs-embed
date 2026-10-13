@@ -180,9 +180,9 @@ a { color: var(--rot); text-decoration: none; }
   position: absolute;
   top: calc(100% + 8px);
   left: 0;
-  min-width: 380px;
-  max-width: 500px;
-  max-height: 440px;
+  min-width: 440px;
+  max-width: 540px;
+  max-height: 480px;
   background: #0f172a;
   border: 1px solid rgba(255, 255, 255, 0.18);
   border-radius: 12px;
@@ -191,6 +191,12 @@ a { color: var(--rot); text-decoration: none; }
   display: none;
   flex-direction: column;
   overflow: hidden;
+}
+@media (max-width: 520px) {
+  .acp-job-dropdown {
+    min-width: calc(100vw - 28px);
+    max-width: calc(100vw - 28px);
+  }
 }
 .acp-job-dropdown.is-open {
   display: flex;
@@ -211,14 +217,14 @@ a { color: var(--rot); text-decoration: none; }
 }
 .acp-dropdown-list {
   overflow-y: auto;
-  max-height: 380px;
+  max-height: 400px;
 }
 .acp-dropdown-item {
   padding: 12px 16px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 12px;
+  gap: 16px;
   cursor: pointer;
   border-bottom: 1px solid rgba(255, 255, 255, 0.04);
   transition: all 0.15s ease;
@@ -238,6 +244,7 @@ a { color: var(--rot); text-decoration: none; }
   flex-direction: column;
   gap: 3px;
   min-width: 0;
+  flex: 1 1 auto;
 }
 .dropdown-item-title {
   font-size: 13.5px;
@@ -251,12 +258,44 @@ a { color: var(--rot); text-decoration: none; }
   text-overflow: ellipsis;
 }
 .dropdown-item-meta {
-  font-size: 11.5px;
-  color: #94a3b8;
+  font-size: 11px;
+  color: #64748b;
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 6px;
   font-family: "JetBrains Mono", monospace;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.dropdown-file-name {
+  color: #38bdf8;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.dropdown-item-target {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 10.5px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin-top: 2px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.dropdown-item-target.is-live {
+  color: #34d399;
+}
+.dropdown-item-target.is-ready {
+  color: #fbbf24;
+}
+.dropdown-item-target.is-draft {
+  color: #64748b;
+}
+.target-bullet {
+  font-weight: 700;
+  font-size: 11px;
 }
 .dropdown-item-right {
   display: flex;

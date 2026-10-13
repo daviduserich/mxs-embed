@@ -285,23 +285,24 @@ function renderJobPicker() {
     var activeClass = isActive ? "active" : "";
     
     var badgeHtml = "";
-    var targetSubline = "";
+    var targetLineHtml = "";
     if (j.is_live) {
       badgeHtml = '<span class="acp-badge-mini live">🟢 LIVE WIDGET</span>';
       var tgt = j.embedded_page_label || (j.embedded_page_url ? acpCleanUrlLabel(j.embedded_page_url) : 'Eingebaut');
-      targetSubline = ' · <span style="color:#10b981; font-weight:600;">Eingebaut: ' + tgt + '</span>';
+      targetLineHtml = '<div class="dropdown-item-target is-live" title="' + (j.embedded_page_url || '') + '"><span class="target-bullet">↗</span> <span>Eingebaut: ' + tgt + '</span></div>';
     } else if (j.id && j.id.indexOf("zurbuchen") !== -1) {
       badgeHtml = '<span class="acp-badge-mini ready">🟡 BEREIT</span>';
-      targetSubline = ' · <span style="color:#fbbf24;">Bereit zur Einbettung</span>';
+      targetLineHtml = '<div class="dropdown-item-target is-ready"><span class="target-bullet">○</span> <span>Bereit zur Einbettung</span></div>';
     } else {
       badgeHtml = '<span class="acp-badge-mini draft">⚪ ENTWURF</span>';
-      targetSubline = ' · <span style="color:#94a3b8;">Nicht eingebaut</span>';
+      targetLineHtml = '<div class="dropdown-item-target is-draft"><span class="target-bullet">○</span> <span>Entwurf · Nicht eingebaut</span></div>';
     }
 
     html += '<div class="acp-dropdown-item ' + activeClass + '" onclick="acpSwitchJob(\'' + j.id + '\'); acpToggleJobDropdown();">' +
       '<div class="dropdown-item-left">' +
         '<div class="dropdown-item-title">' + (j.icon || "💼") + ' ' + j.titel + '</div>' +
-        '<div class="dropdown-item-meta"><span>' + j.firma + '</span> · <span style="color:#38bdf8">' + j.datei + '</span>' + targetSubline + '</div>' +
+        '<div class="dropdown-item-meta"><span>' + j.firma + '</span> · <span class="dropdown-file-name">' + j.datei + '</span></div>' +
+        targetLineHtml +
       '</div>' +
       '<div class="dropdown-item-right">' +
         badgeHtml +
