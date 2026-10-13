@@ -24,8 +24,14 @@
     "mtime": 1791904048,
     "mtime_str": "13.10.2026 15:07",
     "cdn_url": "https://embed.magnet-xs.ch/preview-hiltbrand/images/chrome_gq0yxtniax.png",
-    "is_used": false,
-    "used_in": []
+    "is_used": true,
+    "used_in": [
+      {
+        "datei": "onboarding.html",
+        "slot": "image",
+        "is_hero": false
+      }
+    ]
   },
   {
     "id": "images_danke_png",
@@ -349,11 +355,6 @@
     "cdn_url": "https://embed.magnet-xs.ch/preview-hiltbrand/images/stefan.jpg",
     "is_used": true,
     "used_in": [
-      {
-        "datei": "onboarding.html",
-        "slot": "image",
-        "is_hero": false
-      },
       {
         "datei": "team.html",
         "slot": "image",

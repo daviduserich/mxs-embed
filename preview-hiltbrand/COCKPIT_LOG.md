@@ -8,3 +8,9 @@
 ### Laufende Ereignisse (Chronologisch)
 
 - `2026-10-13 15:07:32` · **🖼️ Foto hochgeladen:** `chrome_gq0yxtniax.png` (541.8 KB) | Bereit für 1-Klick-Tausch | 🚀 Commit `feat(assets): [preview-hiltbrand] upload image chrome_gq0yxtniax.png (541.8 KB)`
+- `2026-10-13 15:16:19` · **⚠️ Tauschziel nicht gefunden:** `images/stefan.jpg` in `index.html` nicht lokalisiert.
+- `2026-10-13 15:16:19` · **[ERROR] Client-Event:** Bildtausch abgelehnt: Pfad oder Dateiname 'images/stefan.jpg' wurde in 'index.html' nicht gefunden ({"client":"preview-hiltbrand","file":"index.html","old_path":"images/stefan.jpg","new_path":"images/chrome_gq0yxtniax.png","is_hero":false,"slot":"stefan.jpg"})
+- `2026-10-13 15:16:31` · **⚠️ Tauschziel nicht gefunden:** `images/stefan.jpg` in `index.html` nicht lokalisiert.
+- `2026-10-13 15:16:31` · **[ERROR] Client-Event:** Bildtausch abgelehnt: Pfad oder Dateiname 'images/stefan.jpg' wurde in 'index.html' nicht gefunden ({"client":"preview-hiltbrand","file":"index.html","old_path":"images/stefan.jpg","new_path":"images/chrome_gq0yxtniax.png","is_hero":false,"slot":"stefan.jpg"})
+- `2026-10-13 15:16:32` · **⚠️ Tauschziel nicht gefunden:** `images/stefan.jpg` in `index.html` nicht lokalisiert.
+- `2026-10-13 15:16:32` · **[ERROR] Client-Event:** Bildtausch abgelehnt: Pfad oder Dateiname 'images/stefan.jpg' wurde in 'index.html' nicht gefunden ({"client":"preview-hiltbrand","file":"index.html","old_path":"images/stefan.jpg","new_path":"images/chrome_gq0yxtniax.png","is_hero":false,"slot":"stefan.jpg"})
