@@ -27,6 +27,11 @@
     "is_used": true,
     "used_in": [
       {
+        "datei": "onboarding.html",
+        "slot": "image",
+        "is_hero": false
+      },
+      {
         "datei": "team.html",
         "slot": "image",
         "is_hero": false
@@ -120,11 +125,6 @@
     "cdn_url": "https://embed.magnet-xs.ch/preview-hiltbrand/images/michael.jpg",
     "is_used": true,
     "used_in": [
-      {
-        "datei": "onboarding.html",
-        "slot": "image",
-        "is_hero": false
-      },
       {
         "datei": "team.html",
         "slot": "image",
