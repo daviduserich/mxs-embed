@@ -3416,7 +3416,7 @@ function acpClearClientLog() {
 
 function acpFetchServerLog() {
   var currentJob = getActiveJob();
-  var clientSlug = currentJob.folder || 'preview-hiltbrand';
+  var clientSlug = (currentJob && currentJob.folder) || (window.ACP_CLIENT_PROFILE && window.ACP_CLIENT_PROFILE.slug) || 'preview-birchmeier';
   acpLog('info', '📡 Frage Server-Logbuch ab...', 'Mandant: ' + clientSlug);
   fetch('/api/publish-career/logs?client=' + encodeURIComponent(clientSlug))
     .then(function(res) { return res.json(); })
@@ -3437,7 +3437,7 @@ function acpFetchServerLog() {
 // Build: 2026-10-03 15:30 CEST
 // =======================================================
 var ACP_COCKPIT_VERSION = "v3.4.1";
-var ACP_COCKPIT_BUILD = "2026-10-13 17:47";
+var ACP_COCKPIT_BUILD = "2026-10-13 21:04";
 
 function sanitizeStellen(list) {
   if (!Array.isArray(list)) return [];
@@ -3466,9 +3466,9 @@ var ACP_CLIENT_PROFILE = {
   "prompt_rules": [
     "- Branchen-Standard: Gebäudehülle Schweiz.",
     "- Schweizer Fachvokabular (aktiv nutzen): Lukarne, Lukarnen, Dachstock, Estrich, Kamin, Kamine, Unterdach, Dachhaut.",
-    "- Verbotenes Fremdvokabular (nie verwenden!): Gaube, Gauben, Dachboden, Schornstein, Schornsteine, Geselle, Gesellen, Gewerke.",
+    "- Verbotenes Fremdvokabular (nie verwenden!): Lukarne, Lukarnen, Dachstock, Kamin, Kamine, Handwerker EFZ, Handwerker EFZ und Fachmonteure, Leistungen.",
     "- Offizielle Berufsbezeichnungen: Dachdecker EFZ, Spengler EFZ, Polybauer EFZ, Bauführer Gebäudehülle.",
-    "- Grunddoktrin: 'Leistungen' (nie 'Gewerke'), 'Offerte' (nie 'Kostenvoranschlag'), 'Ferien' (nie 'Urlaub'), 'Lernende' (nie 'Azubis')."
+    "- Grunddoktrin: 'Leistungen' (nie 'Leistungen'), 'Offerte' (nie 'Offerte'), 'Ferien' (nie 'Ferien'), 'Lernende' (nie 'Lernende')."
   ],
   "host_url": "https://embed.magnet-xs.ch/preview-hiltbrand/cockpit",
   "host_jobs_url": "https://dachdecker-berneroberland.ch/jobs/",
@@ -3710,12 +3710,41 @@ function acpSwitchJob(jobId, forceReload) {
   var stageUrl = document.getElementById("acp-stage-browser-url");
   var stageLink = document.getElementById("acp-stage-external-link");
   var stagePill = document.getElementById("acp-stage-client-pill");
-  var subfolder = job.folder || ((job.firma && job.firma.indexOf("Zurbuchen") !== -1) ? "zurbuchen" : "preview-hiltbrand");
+  var profileSlug = (typeof ACP_CLIENT_PROFILE !== "undefined" && ACP_CLIENT_PROFILE.slug) ? ACP_CLIENT_PROFILE.slug : "";
+  var subfolder = job.folder || profileSlug || ((job.firma && job.firma.indexOf("Zurbuchen") !== -1) ? "zurbuchen" : "preview-hiltbrand");
+  var cleanClient = profileSlug.replace("preview-", "") || subfolder.replace("preview-", "");
   var edgePreviewUrl = job.edge_url || ("https://embed.magnet-xs.ch/" + subfolder + "/" + job.datei);
-  var targetLiveUrl = job.embedded_page_url || (job.is_live ? job.live_url : edgePreviewUrl);
 
-  if (stageUrl) stageUrl.textContent = targetLiveUrl;
-  if (stageLink) stageLink.href = targetLiveUrl;
+  var curToken = new URLSearchParams(window.location.search).get("token");
+  var isDirectHost = (window.location.origin.indexOf("vorschau.magnet-xs.ch") !== -1);
+  var cleanPage = (job.datei || "index.html").replace(/\.html$/, "");
+  if (cleanPage === "index") cleanPage = "";
+
+  var targetLiveUrl = "";
+  var displayUrl = "";
+
+  if (job.embedded_page_url || (job.is_live && job.live_url)) {
+    targetLiveUrl = job.embedded_page_url || job.live_url;
+    displayUrl = targetLiveUrl.replace(/^https?:\/\//, "");
+  } else if (isDirectHost) {
+    targetLiveUrl = window.location.origin + "/" + cleanClient + "/" + (cleanPage ? cleanPage : "");
+    if (curToken) {
+      targetLiveUrl += (targetLiveUrl.indexOf("?") === -1 ? "?token=" : "&token=") + encodeURIComponent(curToken);
+    }
+    displayUrl = window.location.origin.replace(/^https?:\/\//, "") + "/" + cleanClient + "/" + (cleanPage ? cleanPage : "");
+  } else {
+    targetLiveUrl = edgePreviewUrl;
+    if (curToken && targetLiveUrl.indexOf("token=") === -1) {
+      targetLiveUrl += (targetLiveUrl.indexOf("?") === -1 ? "?token=" : "&token=") + encodeURIComponent(curToken);
+    }
+    displayUrl = edgePreviewUrl.replace(/^https?:\/\//, "");
+  }
+
+  if (stageUrl) stageUrl.textContent = displayUrl;
+  if (stageLink) {
+    stageLink.href = targetLiveUrl;
+    stageLink.title = "Seite im neuen Tab öffnen (" + targetLiveUrl + ")";
+  }
   if (stagePill) stagePill.textContent = firmaName;
 
   // Fallbacks for mock headers if present
@@ -3842,7 +3871,10 @@ function acpCopyAiPrompt(btn) {
 }
 
 function acpCopyOnlineUrl(btn) {
-  var url = "https://embed.magnet-xs.ch/preview-hiltbrand/cockpit";
+  var url = window.location.href;
+  if (window.location.protocol === "file:" && typeof ACP_CLIENT_PROFILE !== "undefined" && ACP_CLIENT_PROFILE.host_url) {
+    url = ACP_CLIENT_PROFILE.host_url;
+  }
   if (navigator.clipboard && navigator.clipboard.writeText) {
     navigator.clipboard.writeText(url);
     acpShowToast("📋 <strong>Online-Cockpit Link kopiert!</strong><br><small>" + url + "</small>");
@@ -4686,7 +4718,7 @@ function acpExecuteDirectSwap() {
   acpShowToast('⚡ <strong>Bildtausch gestartet:</strong> Tausche ' + cleanOld + ' ➔ ' + cleanNew + '...<br><small>Cloudflare Pages aktualisiert den Edge-Cache...</small>', 8000);
 
   var payload = {
-    client: currentJob.folder || 'preview-hiltbrand',
+    client: (currentJob && currentJob.folder) || (window.ACP_CLIENT_PROFILE && window.ACP_CLIENT_PROFILE.slug) || 'preview-birchmeier',
     file: activeFile,
     old_path: acpTargetSwapSlot.currentSrc,
     new_path: acpSelectedSwapImage.rel_path,
@@ -5132,7 +5164,7 @@ function checkEnvironmentAndRender() {
     }
   } else {
     if (onlineBtn) {
-      var fallbackUrl = (typeof ACP_CLIENT_PROFILE !== "undefined" && ACP_CLIENT_PROFILE.host_url) ? ACP_CLIENT_PROFILE.host_url : "https://embed.magnet-xs.ch/preview-hiltbrand/cockpit";
+      var fallbackUrl = (typeof ACP_CLIENT_PROFILE !== "undefined" && ACP_CLIENT_PROFILE.host_url) ? ACP_CLIENT_PROFILE.host_url : window.location.href;
       onlineBtn.href = fallbackUrl;
       onlineBtn.target = "_blank";
       onlineBtn.innerHTML = '<span class="nav-icon">🌐</span><span class="nav-label">Online</span>';
@@ -5335,7 +5367,7 @@ function acpBuildFullContextEnvelope(targetSecId, customGoal) {
   var industryLabel = profile.industry_label || "Schweizer Unternehmens-Website";
   var promptRules = (profile.prompt_rules && profile.prompt_rules.length > 0)
     ? profile.prompt_rules.join("\n")
-    : "- Schweizer Geschäftsbegriffe: \"Leistungen\" (nie \"Gewerke\"), \"Fachspezialisten EFZ\" (nie \"Gesellen\"), \"Lernende\" (nie \"Azubis\"), \"Offerte\" (nie \"Kostenvoranschlag\"), \"Ferien\" (nie \"Urlaub\").";
+    : "- Schweizer Geschäftsbegriffe: \"Leistungen\" (nie \"Leistungen\"), \"Fachspezialisten EFZ\" (nie \"Handwerker EFZ und Fachmonteure\"), \"Lernende\" (nie \"Lernende\"), \"Offerte\" (nie \"Offerte\"), \"Ferien\" (nie \"Ferien\").";
 
   var prompt = 
 "Du bist mein technischer Web-Entwickler für meine " + industryLabel + " (WebPilot Obsidian-Dark Design).\n" +
@@ -5352,7 +5384,7 @@ function acpBuildFullContextEnvelope(targetSecId, customGoal) {
 "================================================================================\n" +
 "2. VERBINDLICHE SCHWEIZER SPRACH- & DESIGN-DOKTRIN:\n" +
 "================================================================================\n" +
-"- Sprache: Authentisches Schweizer Hochdeutsch (100% Verbot von \"ß\", nutze \"ss\").\n" +
+"- Sprache: Authentisches Schweizer Hochdeutsch (100% Verbot von \"ss\", nutze \"ss\").\n" +
 promptRules + "\n" +
 "- Schweizer Typografie: Nutze die bestehenden Klassen (.section-wrap, .section-inner, .section-kicker, .section-title, .section-desc).\n" +
 "- Kicker-Regel: <span class=\"section-kicker\">● Kicker-Text</span> ist 100% freistehend (keine Box, kein Badge-Rahmen).\n" +
@@ -5400,13 +5432,13 @@ function acpCopyFullPagePrompt() {
   var industryLabel = profile.industry_label || "Schweizer Unternehmens-Website";
   var promptRules = (profile.prompt_rules && profile.prompt_rules.length > 0)
     ? profile.prompt_rules.join("\n")
-    : "- Schweizer Geschäftsbegriffe: \"Leistungen\" (nie \"Gewerke\"), \"Fachspezialisten EFZ\" (nie \"Gesellen\"), \"Lernende\" (nie \"Azubis\"), \"Offerte\" (nie \"Kostenvoranschlag\"), \"Ferien\" (nie \"Urlaub\").";
+    : "- Schweizer Geschäftsbegriffe: \"Leistungen\" (nie \"Leistungen\"), \"Fachspezialisten EFZ\" (nie \"Handwerker EFZ und Fachmonteure\"), \"Lernende\" (nie \"Lernende\"), \"Offerte\" (nie \"Offerte\"), \"Ferien\" (nie \"Ferien\").";
 
   var prompt = 
 "Du bist mein technischer Web-Redakteur für meine " + industryLabel + ".\n" +
 "Ich übergebe dir hier den VOLLSTÄNDIGEN Quellcode meiner Website (HTML5).\n\n" +
 "MEINE REGELN:\n" +
-"1. Schweizer Hochdeutsch (0x 'ß', Schweizer Fachbegriffe):\n" +
+"1. Schweizer Hochdeutsch (0x 'ss', Schweizer Fachbegriffe):\n" +
 promptRules + "\n" +
 "2. Schweizer Obsidian-Design & bestehende Klassen beibehalten.\n" +
 "3. AUSGABE-PFLICHT: Gib mir den Quellcode immer als eine einzige, vollständige und ungekürzte HTML-Datei aus – ausnahmslos von <!DOCTYPE html> bis </html>. Verwende keine Code-Auslassungen!\n\n" +
@@ -5562,7 +5594,7 @@ function acpCopyGeneratedNewSectionPrompt() {
   var industryLabel = profile.industry_label || "Schweizer Unternehmens-Website";
   var promptRules = (profile.prompt_rules && profile.prompt_rules.length > 0)
     ? profile.prompt_rules.join("\n")
-    : "- Schweizer Geschäftsbegriffe: \"Leistungen\" (nie \"Gewerke\"), \"Fachspezialisten EFZ\" (nie \"Gesellen\"), \"Lernende\" (nie \"Azubis\"), \"Offerte\" (nie \"Kostenvoranschlag\"), \"Ferien\" (nie \"Urlaub\").";
+    : "- Schweizer Geschäftsbegriffe: \"Leistungen\" (nie \"Leistungen\"), \"Fachspezialisten EFZ\" (nie \"Handwerker EFZ und Fachmonteure\"), \"Lernende\" (nie \"Lernende\"), \"Offerte\" (nie \"Offerte\"), \"Ferien\" (nie \"Ferien\").";
 
   var prompt = 
 "Du bist mein technischer Web-Entwickler für meine " + industryLabel + " (WebPilot Obsidian-Dark Design).\n" +
