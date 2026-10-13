@@ -326,6 +326,10 @@ function renderJobPicker() {
 }
 
 function acpSwitchJob(jobId, forceReload) {
+  if (acpSyncPollTimer) {
+    clearTimeout(acpSyncPollTimer);
+    acpSyncPollTimer = null;
+  }
   activeJobId = jobId;
   var job = getActiveJob();
   if (!job || !job.id) return;
@@ -423,6 +427,10 @@ function acpSwitchJob(jobId, forceReload) {
         if (curToken && targetSrc.indexOf("token=") === -1) {
           targetSrc += "&token=" + encodeURIComponent(curToken);
         }
+      }
+      if (forceReload) {
+        var sep = targetSrc.indexOf("?") === -1 ? "?" : "&";
+        targetSrc += sep + "t=" + Date.now();
       }
       frame.src = targetSrc;
       frame.onload = function() {
@@ -1331,6 +1339,79 @@ function acpReportClientEvent(level, message, details) {
 }
 
 var acpIsSwapping = false;
+var acpSyncPollTimer = null;
+
+function acpAutoSyncViewport(targetFile, cleanNewImageName, jobId) {
+  if (acpSyncPollTimer) {
+    clearTimeout(acpSyncPollTimer);
+    acpSyncPollTimer = null;
+  }
+
+  var frame = document.getElementById("acp-widget-viewport");
+  if (!frame) return;
+
+  var currentSrc = frame.getAttribute("src") || frame.src || "";
+  if (!currentSrc) return;
+
+  // Saubere Basis-URL ohne veraltete Cache-Buster oder Probes
+  var cleanBase = currentSrc.split("&t=")[0].split("?t=")[0].split("&_probe=")[0].split("?_probe=")[0];
+  var sep = cleanBase.indexOf("?") === -1 ? "?" : "&";
+
+  var pollCount = 0;
+  var maxPolls = 14; // Bis zu 14 Versuche * 2000ms = 28 Sekunden
+  var pollInterval = 2000;
+
+  acpLog("info", "🔄 Starte automatische Edge-CDN-Synchronisation...", "Datei: " + targetFile + " · Neues Foto: " + cleanNewImageName);
+
+  function pollEdge() {
+    pollCount++;
+    var probeUrl = cleanBase + sep + "_probe=" + Date.now();
+
+    fetch(probeUrl, { cache: "no-store" })
+      .then(function(res) {
+        if (!res.ok) throw new Error("HTTP " + res.status);
+        return res.text();
+      })
+      .then(function(html) {
+        var isLive = (cleanNewImageName && html.indexOf(cleanNewImageName) !== -1);
+        if (isLive || pollCount >= maxPolls) {
+          acpLog("success", "🎉 Edge CDN synchronisiert! Lade Viewport automatisch neu...", "Versuch " + pollCount + " · Datei: " + targetFile);
+          acpReloadViewportWithTransition(cleanBase);
+        } else {
+          acpSyncPollTimer = setTimeout(pollEdge, pollInterval);
+        }
+      })
+      .catch(function(err) {
+        if (pollCount >= maxPolls) {
+          acpLog("warn", "⚠️ Edge-Probe Timeout erreicht. Führe Fallback-Reload durch.");
+          acpReloadViewportWithTransition(cleanBase);
+        } else {
+          acpSyncPollTimer = setTimeout(pollEdge, pollInterval);
+        }
+      });
+  }
+
+  // Erster CDN-Check nach 2.5 Sekunden
+  acpSyncPollTimer = setTimeout(pollEdge, 2500);
+}
+
+function acpReloadViewportWithTransition(cleanBaseUrl) {
+  var frame = document.getElementById("acp-widget-viewport");
+  if (!frame) return;
+
+  frame.style.transition = "opacity 0.25s ease";
+  frame.style.opacity = "0.3";
+
+  var sep = cleanBaseUrl.indexOf("?") === -1 ? "?" : "&";
+  var reloadSrc = cleanBaseUrl + sep + "t=" + Date.now();
+
+  frame.src = reloadSrc;
+  frame.onload = function() {
+    frame.style.opacity = "1";
+    acpShowToast('🎉 <strong>Live-Vorschau aktualisiert!</strong><br><small>Die Seite wurde automatisch mit dem neuen Bild synchronisiert.</small>', 5000);
+    acpLog("success", "✨ Vorschau automatisch aktualisiert", reloadSrc);
+  };
+}
 
 function acpExecuteDirectSwap() {
   if (!acpSelectedSwapImage || !acpTargetSwapSlot) return;
@@ -1348,8 +1429,8 @@ function acpExecuteDirectSwap() {
 
   var currentJob = getActiveJob();
   var activeFile = (acpTargetSwapSlot && acpTargetSwapSlot.datei) || (currentJob ? currentJob.datei : 'index.html');
-  var cleanOld = acpTargetSwapSlot.currentSrc.split('/').pop() || acpTargetSwapSlot.slot;
-  var cleanNew = acpSelectedSwapImage.filename;
+  var cleanOld = (acpTargetSwapSlot.currentSrc.split('/').pop() || acpTargetSwapSlot.slot).split('?')[0].trim();
+  var cleanNew = (acpSelectedSwapImage.filename || '').split('?')[0].trim();
   acpLog("swap", "🎯 Tauschziel im Inserat gewählt: " + cleanOld + " ➔ " + cleanNew, "Datei: " + activeFile + " · Slot: " + acpTargetSwapSlot.slot);
 
   acpShowToast('⚡ <strong>Bildtausch gestartet:</strong> Tausche ' + cleanOld + ' ➔ ' + cleanNew + '...<br><small>Cloudflare Pages aktualisiert den Edge-Cache...</small>', 8000);
@@ -1357,8 +1438,8 @@ function acpExecuteDirectSwap() {
   var payload = {
     client: (currentJob && currentJob.folder) || (window.ACP_CLIENT_PROFILE && window.ACP_CLIENT_PROFILE.slug) || 'preview-birchmeier',
     file: activeFile,
-    old_path: acpTargetSwapSlot.currentSrc,
-    new_path: acpSelectedSwapImage.rel_path,
+    old_path: acpTargetSwapSlot.currentSrc.split('?')[0].trim(),
+    new_path: acpSelectedSwapImage.rel_path.split('?')[0].trim(),
     is_hero: !!acpTargetSwapSlot.isHero,
     slot: acpTargetSwapSlot.slot || "",
     context: acpTargetSwapSlot.context || ""
@@ -1376,30 +1457,44 @@ function acpExecuteDirectSwap() {
   .then(function(result) {
     acpIsSwapping = false;
     if (result.ok && result.data.ok) {
-      // 1. Bild im iFrame-DOM sofort mit dem neuen Pfad arretieren (Zero-Latency!)
+      // 1. Bild im iFrame-DOM sicher arretieren (Zero-Latency ohne 404-Bruch)
+      var safePreviewSrc = (acpLocalBlobPreviews && (acpLocalBlobPreviews[payload.new_path] || acpLocalBlobPreviews[cleanNew])) || "";
+
       try {
         var f = document.getElementById("acp-widget-viewport");
         var idoc = f ? (f.contentDocument || (f.contentWindow && f.contentWindow.document)) : null;
         if (idoc) {
-          if (acpClickedTargetElement) {
-            if (acpClickedTargetElement.tagName === "IMG") {
-              acpClickedTargetElement.src = payload.new_path + "?t=" + Date.now();
-            } else {
-              acpClickedTargetElement.style.backgroundImage = 'url("' + payload.new_path + "?t=" + Date.now() + '")';
-            }
-            acpClickedTargetElement.style.outline = "4px solid #22c55e";
-            setTimeout((function(el) { return function() { if (el) el.style.outline = ""; }; })(acpClickedTargetElement), 3000);
-          } else {
+          var targetEl = acpClickedTargetElement;
+          if (!targetEl) {
             var allImgs = idoc.querySelectorAll("img");
             for (var k = 0; k < allImgs.length; k++) {
               var imgS = (allImgs[k].getAttribute("src") || "").replace(/['"]/g, "").split("?")[0].trim();
               if (imgS === payload.old_path || (cleanOld && imgS.indexOf(cleanOld) !== -1)) {
-                allImgs[k].src = payload.new_path + "?t=" + Date.now();
-                allImgs[k].style.outline = "4px solid #22c55e";
-                setTimeout((function(el) { return function() { if (el) el.style.outline = ""; }; })(allImgs[k]), 3000);
+                targetEl = allImgs[k];
                 break;
               }
             }
+          }
+          if (targetEl) {
+            if (safePreviewSrc && (safePreviewSrc.startsWith("blob:") || safePreviewSrc.startsWith("data:"))) {
+              if (targetEl.tagName === "IMG") {
+                targetEl.src = safePreviewSrc;
+              } else {
+                targetEl.style.backgroundImage = 'url("' + safePreviewSrc + '")';
+              }
+            } else {
+              var probe = new Image();
+              probe.onload = function() {
+                if (targetEl.tagName === "IMG") {
+                  targetEl.src = probe.src;
+                } else {
+                  targetEl.style.backgroundImage = 'url("' + probe.src + '")';
+                }
+              };
+              probe.src = payload.new_path + "?t=" + Date.now();
+            }
+            targetEl.style.outline = "4px solid #22c55e";
+            setTimeout((function(el) { return function() { if (el) el.style.outline = ""; }; })(targetEl), 4000);
           }
         }
       } catch(e) {}
@@ -1407,9 +1502,15 @@ function acpExecuteDirectSwap() {
       // 2. Swap-Dock & Spotlight lautlos schliessen
       acpCancelSwap(true);
 
-      // 3. Erfolgs-Meldung anzeigen
-      acpLog("success", "🎉 Bildtausch erfolgreich verarbeitet!", "Edge CDN synchronisiert · Datei: " + payload.file);
-      acpShowToast('🎉 <strong>Bild erfolgreich getauscht!</strong><br><small><strong>' + cleanNew + '</strong> ist jetzt im HTML fest verankert und weltweit live.</small>', 8000);
+      // 3. Bilder-Pool aktualisieren (zeigt nun an, wo das Bild neu im Einsatz ist)
+      acpRefreshImages();
+
+      // 4. Erfolgs-Meldung & Status
+      acpLog("success", "🎉 Bildtausch auf dem Server verarbeitet!", "Edge CDN synchronisiert · Datei: " + payload.file);
+      acpShowToast('⚡ <strong>Bild im HTML verankert!</strong><br><small>Edge CDN synchronisiert... Die Vorschau aktualisiert sich gleich automatisch.</small>', 15000);
+
+      // 5. Automatischer Viewport Edge-CDN AutoSync & Seamless Reload!
+      acpAutoSyncViewport(activeFile, cleanNew, (currentJob ? currentJob.id : null));
     } else {
       var err = (result.data && result.data.error) || 'Fehler beim Bildtausch';
       acpLog("error", "❌ Tausch vom Server abgewiesen: " + err, JSON.stringify(result.data));
