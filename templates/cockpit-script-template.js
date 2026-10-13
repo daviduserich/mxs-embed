@@ -786,8 +786,12 @@ function acpUploadImageFile(file) {
     console.warn("Konnte Blob-Preview nicht erstellen:", blobErr);
   }
 
+  var currentJob = getActiveJob();
+  var clientSlug = (currentJob && currentJob.folder) || (window.ACP_CLIENT_PROFILE && window.ACP_CLIENT_PROFILE.slug) || "preview-birchmeier";
+
   var fd = new FormData();
   fd.append("file", file);
+  fd.append("client", clientSlug);
 
   fetch("/api/publish-career/upload-image", {
     method: "POST",
@@ -855,10 +859,13 @@ function acpDeleteImage(relPath, filename, isUsed) {
   if (statusBox) statusBox.classList.add("is-active");
   if (statusText) statusText.textContent = "Foto '" + filename + "' wird gelöscht...";
 
+  var currentJob = getActiveJob();
+  var clientSlug = (currentJob && currentJob.folder) || (window.ACP_CLIENT_PROFILE && window.ACP_CLIENT_PROFILE.slug) || "preview-birchmeier";
+
   fetch("/api/publish-career/delete-image", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ rel_path: relPath })
+    body: JSON.stringify({ rel_path: relPath, client: clientSlug })
   })
     .then(function(res) {
       return res.json().then(function(json) {

@@ -33,7 +33,13 @@ export async function onRequest(context) {
   // Pfad-Analyse für Mandanten
   const pathParts = url.pathname.split('/').filter(Boolean);
   const rootSegment = pathParts[0] || '';
-  const isReservedRoot = ['webpilot', 'boardroom', 'images', 'css', 'js', 'fonts', 'favicon.ico', 'robots.txt'].includes(rootSegment);
+
+  // API-Routen direkt an functions/api/[[catchall]].js durchlassen (Bypass für Schutzwall & Client-Routing)
+  if (rootSegment === 'api') {
+    return context.next();
+  }
+
+  const isReservedRoot = ['api', 'webpilot', 'boardroom', 'images', 'css', 'js', 'fonts', 'favicon.ico', 'robots.txt'].includes(rootSegment);
 
   // 2. Token-Guard & Multi-Tenant Isolation für Mandanten-Pfade
   if (rootSegment && !isReservedRoot) {
@@ -122,7 +128,7 @@ export async function onRequest(context) {
     let activeClientSlug = '';
 
     const match = url.pathname.match(/^\/([a-zA-Z0-9_-]+)(\/.*)?$/);
-    if (match && !['webpilot', 'boardroom', 'images', 'css', 'js', 'fonts'].includes(match[1])) {
+    if (match && !['api', 'webpilot', 'boardroom', 'images', 'css', 'js', 'fonts'].includes(match[1])) {
       isClientPath = true;
       activeClientSlug = match[1];
       const rest = match[2] || '';
