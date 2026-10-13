@@ -1587,12 +1587,22 @@ function checkEnvironmentAndRender() {
   var badgeLabel = document.getElementById("acp-brand-label");
   var brandBadge = document.getElementById("acp-brand-badge");
   var onlineBtn = document.getElementById("acp-online-btn");
+  var studioTitle = (typeof ACP_CLIENT_PROFILE !== "undefined" && ACP_CLIENT_PROFILE.studio_title) ? ACP_CLIENT_PROFILE.studio_title : "WEBPILOT STUDIO";
+  var isWebsiteStudio = (studioTitle.indexOf("WEBPILOT") !== -1 || (typeof ACP_CLIENT_PROFILE !== "undefined" && ACP_CLIENT_PROFILE.is_website_studio));
+
+  if (badgeLabel) badgeLabel.textContent = studioTitle;
+  if (brandBadge) brandBadge.title = studioTitle + (isOnline ? " (Online auf Cloudflare Pages)" : " (Lokal)");
+
+  if (isWebsiteStudio) {
+    var pickerHeader = document.querySelector(".acp-dropdown-header span:first-child");
+    if (pickerHeader) pickerHeader.innerHTML = 'Seite auswählen (<span id="dropdown-count">' + ACP_STELLEN.length + '</span>)';
+    var navDir = document.querySelector(".acp-nav-btn-directory .nav-label");
+    if (navDir) navDir.textContent = "Seiten";
+    var navDirBtn = document.querySelector(".acp-nav-btn-directory");
+    if (navDirBtn) navDirBtn.title = "Seiten-Zentrale: Navigation & Entwürfe";
+  }
 
   if (isOnline) {
-    if (badgeLabel) badgeLabel.textContent = "KARRIERE-STUDIO";
-    if (brandBadge) {
-      brandBadge.title = "Magnet-XS Karriere-Studio (Online auf Cloudflare Pages)";
-    }
     if (onlineBtn) {
       onlineBtn.innerHTML = '<span class="nav-icon">🔗</span><span class="nav-label">Link</span>';
       onlineBtn.title = "Link zu diesem Online-Cockpit in die Zwischenablage kopieren";
@@ -1602,9 +1612,9 @@ function checkEnvironmentAndRender() {
       };
     }
   } else {
-    if (badgeLabel) badgeLabel.textContent = "KARRIERE-STUDIO";
     if (onlineBtn) {
-      onlineBtn.href = "https://embed.magnet-xs.ch/hiltbrand/cockpit";
+      var fallbackUrl = (typeof ACP_CLIENT_PROFILE !== "undefined" && ACP_CLIENT_PROFILE.host_url) ? ACP_CLIENT_PROFILE.host_url : "https://embed.magnet-xs.ch/preview-hiltbrand/cockpit";
+      onlineBtn.href = fallbackUrl;
       onlineBtn.target = "_blank";
       onlineBtn.innerHTML = '<span class="nav-icon">🌐</span><span class="nav-label">Online</span>';
       onlineBtn.title = "Online-Cockpit auf embed.magnet-xs.ch öffnen";

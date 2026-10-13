@@ -146,7 +146,9 @@ def get_client_profile(slug: str, client_dir: Path, name: str) -> dict:
     if clean_slug == "hiltbrand":
         host_jobs_url = "https://dachdecker-berneroberland.ch/jobs/"
 
-    brand_title = cfg_data.get("studio_title") or ("KARRIERE-STUDIO" if clean_slug == "hiltbrand" else "WEBPILOT STUDIO")
+    is_website_studio = slug.startswith("preview-") or cfg_data.get("is_website_studio", False)
+    default_title = "WEBPILOT STUDIO" if is_website_studio else "KARRIERE-STUDIO"
+    brand_title = cfg_data.get("studio_title") or default_title
 
     live_embeds = cfg_data.get("live_embeds", {})
     if not live_embeds and clean_slug == "hiltbrand":
@@ -167,6 +169,8 @@ def get_client_profile(slug: str, client_dir: Path, name: str) -> dict:
         "industry_label": industry_label,
         "work_category_label": work_label,
         "brand_title": brand_title,
+        "studio_title": brand_title,
+        "is_website_studio": is_website_studio,
         "prompt_rules": rules,
         "host_url": host_url,
         "host_jobs_url": host_jobs_url,
