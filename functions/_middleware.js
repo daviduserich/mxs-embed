@@ -77,12 +77,21 @@ export async function onRequest(context) {
 
     const hasValidToken = tokenParam && validTokens.includes(tokenParam);
 
-    // Schutzwall: Cockpits verlangen echten Token oder Cookie!
+    const isPreview = rootSegment.startsWith('preview-');
+    const isEmbed = url.searchParams.get('embed') === 'true';
+    const isVorschauHost = hostname.startsWith('vorschau.');
+
+    // Schutzwall:
+    // A) COCKPITS (/cockpit): Verlangen zwingend einen gültigen Token oder Cookie!
     if (isCockpit) {
       if (!hasValidToken && !hasValidCookie) {
         return Response.redirect('https://webpilot.magnet-xs.ch/', 302);
       }
-    } else if (!hasValidToken && !hasValidCookie && !isAsset && !isOnboarding) {
+    }
+    // B) VORSCHAU-HOST (vorschau.magnet-xs.ch) oder PREVIEWS (preview-*):
+    // Verlangen Token oder Cookie, AUSSER bei Assets, Iframe-Embeds und Onboarding
+    // WICHTIG: Live-Widgets auf embed.magnet-xs.ch/hiltbrand/*.html sind ECHTE PUBLIKATIONEN und dürfen NIEMALS blockiert werden!
+    else if ((isVorschauHost || isPreview) && !isEmbed && !hasValidToken && !hasValidCookie && !isAsset && !isOnboarding) {
       return Response.redirect('https://webpilot.magnet-xs.ch/', 302);
     }
   }
