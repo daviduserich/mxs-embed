@@ -438,6 +438,23 @@ def build_cockpit(slug: str):
     compiled_js = compiled_js.replace("'hiltbrand'", f"'{slug}'")
     compiled_js = compiled_js.replace('"hiltbrand"', f'"{slug}"')
 
+    # Node.js Syntaxprüfung des kompilierten JS vor der Injektion
+    node_bin = shutil.which("node") or "/home/brainuser/node-v22/bin/node"
+    if os.path.exists(node_bin):
+        import tempfile
+        import subprocess
+        with tempfile.NamedTemporaryFile("w", suffix=".js", delete=False, encoding="utf-8") as tmp:
+            tmp.write(compiled_js)
+            tmp_path = tmp.name
+        try:
+            res = subprocess.run([node_bin, "-c", tmp_path], capture_output=True, text=True)
+            if res.returncode != 0:
+                print(f"❌ [SyntaxError] Node.js Syntaxprüfung für {slug} fehlgeschlagen:\n{res.stderr}")
+                raise SyntaxError(f"JavaScript-Syntaxfehler in Cockpit-Engine ({slug}): {res.stderr}")
+        finally:
+            if os.path.exists(tmp_path):
+                os.remove(tmp_path)
+
     # Script-Tag ersetzen
     new_script_tag = f'<script id="acp-studio-main-engine">\n{compiled_js}\n</script>'
     if '<script id="acp-studio-main-engine">' in content:
