@@ -23,3 +23,4 @@
 - `2026-10-14 14:20:36` · **⚡ Sektion aktualisiert:** `[leistungen]` in `index.html` | ✅ 100% grün | 🚀 Commit `feat(section): [preview-birchmeier] update [leistungen] in index.html at 2026-10-14 14:20:34`
 - `2026-10-14 14:20:46` · **⚡ Sektion aktualisiert:** `[leistungen]` in `index.html` | ✅ 100% grün | 🚀 Commit `feat(section): [preview-birchmeier] update [leistungen] in index.html at 2026-10-14 14:20:43`
 - `2026-10-14 14:22:27` · **⚡ Sektion aktualisiert:** `[leistungen]` in `index.html` | ✅ 100% grün | 🚀 Commit `feat(section): [preview-birchmeier] update [leistungen] in index.html at 2026-10-14 14:22:24`
+- `2026-10-14 14:22:33` · **🚀 Scharfgestellt:** Live-Schaltung ausgelöst | ✅ 100% grün | 🚀 Commit `feat(publish): [preview-birchmeier] live update at 2026-10-14 14:22:31`
