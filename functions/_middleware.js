@@ -102,6 +102,9 @@ export async function onRequest(context) {
     // WICHTIG: Live-Widgets auf embed.magnet-xs.ch/hiltbrand/*.html sind ECHTE PUBLIKATIONEN und dürfen NIEMALS blockiert werden!
     // NIEMALS auf WebPilot umleiten, sondern sauberen 403-Schutzstatus liefern!
     else if ((isVorschauHost || isPreview) && !isEmbed && !hasValidToken && !hasValidCookie && !isAsset && !isOnboarding) {
+      if (clientSlug === 'birchmeier' || rootSegment.includes('birchmeier')) {
+        return Response.redirect('https://vorschau.magnet-xs.ch/webpilot/', 302);
+      }
       return new Response('Vorschau geschützt. Bitte über das Mandanten-Cockpit mit Token aufrufen.', {
         status: 403,
         headers: { 'Content-Type': 'text/plain; charset=utf-8' }
