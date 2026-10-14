@@ -19,3 +19,4 @@
 - `2026-10-14 13:57:56` · **⚡ Sektion aktualisiert:** `[teaser]` in `index.html` | ✅ 100% grün | 🚀 Commit `feat(section): [preview-birchmeier] update [teaser] in index.html at 2026-10-14 13:57:54`
 - `2026-10-14 13:58:50` · **⚡ Sektion aktualisiert:** `[teaser]` in `index.html` | ✅ 100% grün | 🚀 Commit `feat(section): [preview-birchmeier] update [teaser] in index.html at 2026-10-14 13:58:48`
 - `2026-10-14 13:59:00` · **⚡ Sektion aktualisiert:** `[hero]` in `index.html` | ✅ 100% grün | 🚀 Commit `feat(section): [preview-birchmeier] update [hero] in index.html at 2026-10-14 13:58:58`
+- `2026-10-14 14:16:34` · **⚡ Sektion aktualisiert:** `[hero]` in `index.html` | ✅ 100% grün | 🚀 Commit `feat(section): [preview-birchmeier] update [hero] in index.html at 2026-10-14 14:16:32`
