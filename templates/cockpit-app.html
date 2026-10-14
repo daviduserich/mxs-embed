@@ -1896,6 +1896,107 @@ body.acp-modal-open {
 }
 
 /* FLOATING SWAP DOCK (BILD-TAUSCH-LEISTE) */
+.acp-inline-edit-dock {
+  position: sticky !important;
+  top: 56px !important;
+  z-index: 2500 !important;
+  background: rgba(10, 23, 20, 0.95) !important;
+  backdrop-filter: blur(14px) !important;
+  -webkit-backdrop-filter: blur(14px) !important;
+  border-bottom: 2px solid #10b981 !important;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6), 0 0 16px rgba(16, 185, 129, 0.2) !important;
+  padding: 10px 24px !important;
+  display: none !important;
+  animation: acpSlideDown 0.25s ease-out forwards !important;
+}
+.acp-inline-edit-dock.is-active {
+  display: block !important;
+}
+.acp-inline-edit-dock-inner {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.acp-inline-edit-col-left {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+.acp-inline-edit-badge {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  font-weight: 700;
+  color: #34d399;
+  background: rgba(16, 185, 129, 0.15);
+  border: 1px solid rgba(16, 185, 129, 0.4);
+  padding: 4px 10px;
+  border-radius: 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+.acp-inline-edit-status {
+  color: #f8fafc;
+  font-size: 13px;
+  font-weight: 500;
+}
+.acp-inline-edit-dirty {
+  background: #d97706;
+  color: #ffffff;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 3px 9px;
+  border-radius: 12px;
+  font-family: 'JetBrains Mono', monospace;
+}
+.acp-inline-edit-col-right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.btn-inline-save {
+  background: #10b981 !important;
+  border: 1px solid #34d399 !important;
+  color: #022c22 !important;
+  padding: 8px 16px !important;
+  font-size: 13px !important;
+  font-weight: 800 !important;
+  border-radius: 6px !important;
+  cursor: pointer !important;
+  transition: all 0.15s ease !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+  opacity: 0.5;
+}
+.btn-inline-save:not([disabled]) {
+  opacity: 1 !important;
+}
+.btn-inline-save:not([disabled]):hover {
+  background: #34d399 !important;
+  box-shadow: 0 0 12px rgba(16, 185, 129, 0.4) !important;
+  transform: translateY(-1px) !important;
+}
+.btn-inline-cancel {
+  background: rgba(239, 68, 68, 0.15) !important;
+  border: 1px solid rgba(239, 68, 68, 0.4) !important;
+  color: #fca5a5 !important;
+  padding: 8px 14px !important;
+  font-size: 12px !important;
+  font-weight: 700 !important;
+  border-radius: 6px !important;
+  cursor: pointer !important;
+  transition: all 0.15s ease !important;
+}
+.btn-inline-cancel:hover {
+  background: rgba(239, 68, 68, 0.3) !important;
+  color: #ffffff !important;
+}
+
 .acp-swap-dock {
   position: sticky !important;
   top: 56px !important;
@@ -2979,7 +3080,11 @@ a.badge-live:hover {
     </div>
 
     <div class="acp-cockpit-right">
-            <button type="button" class="acp-nav-btn acp-nav-btn-sections" onclick="acpToggleSectionsModal()" title="Sektionen &amp; KI-Baukasten mit vollem Seiten-Kontext" style="border-color: rgba(245, 158, 11, 0.4); background: rgba(245, 158, 11, 0.1);">
+            <button type="button" class="acp-nav-btn acp-nav-btn-inline-edit" id="acp-btn-toggle-inline-edit" onclick="acpToggleInlineEdit()" title="Texte direkt im Simulator anklicken und umschreiben (wie in Word)" style="border-color: rgba(16, 185, 129, 0.4); background: rgba(16, 185, 129, 0.1);">
+        <span class="nav-icon">✏️</span>
+        <span class="nav-label" style="color: #34d399; font-weight: 700;">Text umschreiben</span>
+      </button>
+      <button type="button" class="acp-nav-btn acp-nav-btn-sections" onclick="acpToggleSectionsModal()" title="Sektionen &amp; KI-Baukasten mit vollem Seiten-Kontext" style="border-color: rgba(245, 158, 11, 0.4); background: rgba(245, 158, 11, 0.1);">
         <span class="nav-icon">🧩</span>
         <span class="nav-label" style="color: #fbbf24; font-weight: 700;">Sektionen &amp; KI</span>
       </button>
@@ -3032,6 +3137,28 @@ a.badge-live:hover {
       <button type="button" class="btn-swap-prompt" onclick="acpCopyCombinedPrompt()" title="Prompt für ChatGPT mit Golden-Prompt-Schutz kopieren">🤖 ChatGPT-Befehl</button>
     </div>
     <button type="button" class="btn-swap-cancel" onclick="acpCancelSwap()" title="Tausch-Vorgang abbrechen (ESC-Taste)">✕ Abbrechen (ESC)</button>
+  </div>
+</div>
+
+<!-- ======================================================= -->
+<!-- SCHWEBENDE TEXT-DIREKTBEARBEITUNGS-LEISTE               -->
+<!-- ======================================================= -->
+<div id="acp-inline-edit-dock" class="acp-inline-edit-dock">
+  <div class="acp-inline-edit-dock-inner">
+    <div class="acp-inline-edit-col-left">
+      <span class="acp-inline-edit-badge">✏️ TEXT-STIFT AKTIV</span>
+      <span id="acp-inline-edit-status-text" class="acp-inline-edit-status">👉 Klicke direkt auf eine Überschrift, einen Absatz oder eine Aufzählung im Simulator und tippe deinen Text ein.</span>
+      <span id="acp-inline-edit-dirty-badge" class="acp-inline-edit-dirty" style="display:none;">0 Sektionen geändert</span>
+    </div>
+    <div class="acp-inline-edit-col-right">
+      <button type="button" id="acp-btn-save-inline" class="btn-inline-save" onclick="acpSaveInlineEdits()" disabled>
+        <span>💾</span>
+        <span id="acp-btn-save-inline-lbl">Änderungen live speichern</span>
+      </button>
+      <button type="button" class="btn-inline-cancel" onclick="acpToggleInlineEdit(false)" title="Bearbeitungsmodus beenden">
+        ✕ Beenden
+      </button>
+    </div>
   </div>
 </div>
 

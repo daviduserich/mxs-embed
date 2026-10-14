@@ -1896,6 +1896,107 @@ body.acp-modal-open {
 }
 
 /* FLOATING SWAP DOCK (BILD-TAUSCH-LEISTE) */
+.acp-inline-edit-dock {
+  position: sticky !important;
+  top: 56px !important;
+  z-index: 2500 !important;
+  background: rgba(10, 23, 20, 0.95) !important;
+  backdrop-filter: blur(14px) !important;
+  -webkit-backdrop-filter: blur(14px) !important;
+  border-bottom: 2px solid #10b981 !important;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6), 0 0 16px rgba(16, 185, 129, 0.2) !important;
+  padding: 10px 24px !important;
+  display: none !important;
+  animation: acpSlideDown 0.25s ease-out forwards !important;
+}
+.acp-inline-edit-dock.is-active {
+  display: block !important;
+}
+.acp-inline-edit-dock-inner {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.acp-inline-edit-col-left {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+.acp-inline-edit-badge {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  font-weight: 700;
+  color: #34d399;
+  background: rgba(16, 185, 129, 0.15);
+  border: 1px solid rgba(16, 185, 129, 0.4);
+  padding: 4px 10px;
+  border-radius: 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+.acp-inline-edit-status {
+  color: #f8fafc;
+  font-size: 13px;
+  font-weight: 500;
+}
+.acp-inline-edit-dirty {
+  background: #d97706;
+  color: #ffffff;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 3px 9px;
+  border-radius: 12px;
+  font-family: 'JetBrains Mono', monospace;
+}
+.acp-inline-edit-col-right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.btn-inline-save {
+  background: #10b981 !important;
+  border: 1px solid #34d399 !important;
+  color: #022c22 !important;
+  padding: 8px 16px !important;
+  font-size: 13px !important;
+  font-weight: 800 !important;
+  border-radius: 6px !important;
+  cursor: pointer !important;
+  transition: all 0.15s ease !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+  opacity: 0.5;
+}
+.btn-inline-save:not([disabled]) {
+  opacity: 1 !important;
+}
+.btn-inline-save:not([disabled]):hover {
+  background: #34d399 !important;
+  box-shadow: 0 0 12px rgba(16, 185, 129, 0.4) !important;
+  transform: translateY(-1px) !important;
+}
+.btn-inline-cancel {
+  background: rgba(239, 68, 68, 0.15) !important;
+  border: 1px solid rgba(239, 68, 68, 0.4) !important;
+  color: #fca5a5 !important;
+  padding: 8px 14px !important;
+  font-size: 12px !important;
+  font-weight: 700 !important;
+  border-radius: 6px !important;
+  cursor: pointer !important;
+  transition: all 0.15s ease !important;
+}
+.btn-inline-cancel:hover {
+  background: rgba(239, 68, 68, 0.3) !important;
+  color: #ffffff !important;
+}
+
 .acp-swap-dock {
   position: sticky !important;
   top: 56px !important;
@@ -2979,7 +3080,11 @@ a.badge-live:hover {
     </div>
 
     <div class="acp-cockpit-right">
-            <button type="button" class="acp-nav-btn acp-nav-btn-sections" onclick="acpToggleSectionsModal()" title="Sektionen &amp; KI-Baukasten mit vollem Seiten-Kontext" style="border-color: rgba(245, 158, 11, 0.4); background: rgba(245, 158, 11, 0.1);">
+            <button type="button" class="acp-nav-btn acp-nav-btn-inline-edit" id="acp-btn-toggle-inline-edit" onclick="acpToggleInlineEdit()" title="Texte direkt im Simulator anklicken und umschreiben (wie in Word)" style="border-color: rgba(16, 185, 129, 0.4); background: rgba(16, 185, 129, 0.1);">
+        <span class="nav-icon">✏️</span>
+        <span class="nav-label" style="color: #34d399; font-weight: 700;">Text umschreiben</span>
+      </button>
+      <button type="button" class="acp-nav-btn acp-nav-btn-sections" onclick="acpToggleSectionsModal()" title="Sektionen &amp; KI-Baukasten mit vollem Seiten-Kontext" style="border-color: rgba(245, 158, 11, 0.4); background: rgba(245, 158, 11, 0.1);">
         <span class="nav-icon">🧩</span>
         <span class="nav-label" style="color: #fbbf24; font-weight: 700;">Sektionen &amp; KI</span>
       </button>
@@ -3032,6 +3137,28 @@ a.badge-live:hover {
       <button type="button" class="btn-swap-prompt" onclick="acpCopyCombinedPrompt()" title="Prompt für ChatGPT mit Golden-Prompt-Schutz kopieren">🤖 ChatGPT-Befehl</button>
     </div>
     <button type="button" class="btn-swap-cancel" onclick="acpCancelSwap()" title="Tausch-Vorgang abbrechen (ESC-Taste)">✕ Abbrechen (ESC)</button>
+  </div>
+</div>
+
+<!-- ======================================================= -->
+<!-- SCHWEBENDE TEXT-DIREKTBEARBEITUNGS-LEISTE               -->
+<!-- ======================================================= -->
+<div id="acp-inline-edit-dock" class="acp-inline-edit-dock">
+  <div class="acp-inline-edit-dock-inner">
+    <div class="acp-inline-edit-col-left">
+      <span class="acp-inline-edit-badge">✏️ TEXT-STIFT AKTIV</span>
+      <span id="acp-inline-edit-status-text" class="acp-inline-edit-status">👉 Klicke direkt auf eine Überschrift, einen Absatz oder eine Aufzählung im Simulator und tippe deinen Text ein.</span>
+      <span id="acp-inline-edit-dirty-badge" class="acp-inline-edit-dirty" style="display:none;">0 Sektionen geändert</span>
+    </div>
+    <div class="acp-inline-edit-col-right">
+      <button type="button" id="acp-btn-save-inline" class="btn-inline-save" onclick="acpSaveInlineEdits()" disabled>
+        <span>💾</span>
+        <span id="acp-btn-save-inline-lbl">Änderungen live speichern</span>
+      </button>
+      <button type="button" class="btn-inline-cancel" onclick="acpToggleInlineEdit(false)" title="Bearbeitungsmodus beenden">
+        ✕ Beenden
+      </button>
+    </div>
   </div>
 </div>
 
@@ -3657,7 +3784,7 @@ function acpFetchServerLog() {
 // Build: 2026-10-03 15:30 CEST
 // =======================================================
 var ACP_COCKPIT_VERSION = "v3.4.1";
-var ACP_COCKPIT_BUILD = "2026-10-14 13:45";
+var ACP_COCKPIT_BUILD = "2026-10-14 15:52";
 
 function sanitizeStellen(list) {
   if (!Array.isArray(list)) return [];
@@ -6103,7 +6230,7 @@ function acpNormalizeAndValidateSection(rawInput, secId) {
   var forbiddenTags = /<(script|iframe|object|embed|form|meta|base|style)\b[^>]*>/i;
   var mTag = clean.match(forbiddenTags);
   if (mTag) {
-    return { ok: false, error: "Sicherheits-Schranke: Ausführbare Tags (<" + mTag[1] + ">) sind in Inhalts-Sektionen verboten." };
+    return { ok: false, error: "Sicherheits-Schranke: Ausführbare Tags (&lt;" + mTag[1] + "&gt;) sind in Inhalts-Sektionen verboten." };
   }
   if (/\son[a-zA-Z]+\s*=/i.test(clean)) {
     return { ok: false, error: "Sicherheits-Schranke: Inline-JavaScript (on... Event-Handler) ist verboten." };
@@ -6112,8 +6239,12 @@ function acpNormalizeAndValidateSection(rawInput, secId) {
     return { ok: false, error: "Sicherheits-Schranke: javascript:... Links sind nicht erlaubt." };
   }
 
-  // 3. Intelligente Sektions-Hülle (Wrapping):
-  var isAlreadySection = /^<(section|header|footer)\b[^>]*>/i.test(clean) && /<\/(section|header|footer)>$/i.test(clean);
+  // 3. Sektions-Erkennung & Auto-Detect Zielsektion
+  var mDataSec = clean.match(/data-section=["']([^"']+)["']/i);
+  var mId = clean.match(/\bid=["']([^"']+)["']/i);
+  var detectedSecId = (mDataSec && mDataSec[1]) || (mId && mId[1]) || null;
+
+  var isAlreadySection = /^<(section|header|footer|div)\b[^>]*>/i.test(clean) && /<\/(section|header|footer|div)>$/i.test(clean);
 
   if (!isAlreadySection) {
     // Wenn HTML-Tags enthalten sind:
@@ -6129,27 +6260,27 @@ function acpNormalizeAndValidateSection(rawInput, secId) {
   } else {
     // Sicherstellen, dass data-section gesetzt ist
     if (!clean.includes('data-section=')) {
-      clean = clean.replace(/^<(section|header|footer)\b/i, '<$1 data-section="' + secId + '"');
+      clean = clean.replace(/^<(section|header|footer|div)\b/i, '<$1 data-section="' + (detectedSecId || secId) + '"');
     }
   }
 
-  // 4. Tag-Balancierung
-  var checkTags = ["section", "div", "p", "span", "a", "h1", "h2", "h3", "h4", "ul", "ol", "li"];
+  // 4. Tag-Balancierung (mit sicherem [\\s>]-Match und maskierten Fehlermeldungen)
+  var checkTags = ["section", "header", "footer", "div", "p", "span", "a", "h1", "h2", "h3", "h4", "ul", "ol", "li"];
   for (var i = 0; i < checkTags.length; i++) {
     var tag = checkTags[i];
-    var openRegex = new RegExp("<" + tag + "(\s+[^>]*)?>", "gi");
+    var openRegex = new RegExp("<" + tag + "([\\s>])", "gi");
     var closeRegex = new RegExp("</" + tag + ">", "gi");
     var openCount = (clean.match(openRegex) || []).length;
     var closeCount = (clean.match(closeRegex) || []).length;
     if (openCount !== closeCount) {
       return { 
         ok: false, 
-        error: "Tag-Fehler bei <" + tag + ">: Wurde " + openCount + "x geöffnet, aber " + closeCount + "x geschlossen. Bitte schliesse alle <" + tag + "> Tags sauber ab." 
+        error: "Tag-Fehler bei &lt;" + tag + "&gt;: Wurde " + openCount + "x geöffnet, aber " + closeCount + "x geschlossen. Bitte schliesse alle &lt;" + tag + "&gt; Tags sauber ab." 
       };
     }
   }
 
-  return { ok: true, html: clean };
+  return { ok: true, html: clean, detectedSecId: detectedSecId };
 }
 
 function acpSubmitReplaceSection() {
@@ -6183,6 +6314,11 @@ function acpSubmitReplaceSection() {
     return;
   }
 
+  var targetSecId = validation.detectedSecId || acpActiveEditSectionId;
+  if (validation.detectedSecId && validation.detectedSecId !== acpActiveEditSectionId) {
+    console.log("[WebPilot Studio] 🔄 Zielsektion automatisch angepasst: " + acpActiveEditSectionId + " -> " + validation.detectedSecId);
+  }
+
   var iframe = document.getElementById("acp-widget-viewport");
   var targetFile = "index.html";
   if (iframe && iframe.getAttribute("src")) {
@@ -6206,13 +6342,13 @@ function acpSubmitReplaceSection() {
     status.style.padding = "10px 14px";
     status.style.borderRadius = "6px";
     status.style.border = "1px solid rgba(245, 158, 11, 0.3)";
-    status.innerHTML = "⚡ <strong>Airbag grün:</strong> Sende neue Sektion an Cloudflare Edge CDN...";
+    status.innerHTML = "⚡ <strong>Airbag grün:</strong> Sende neue Sektion [" + targetSecId + "] an Cloudflare Edge CDN...";
   }
 
   var payload = {
     client: clientSlug,
     file: targetFile,
-    section_id: acpActiveEditSectionId,
+    section_id: targetSecId,
     content: validation.html
   };
 
@@ -6235,7 +6371,7 @@ function acpSubmitReplaceSection() {
     acpCloseReplaceSectionModal();
 
     if (typeof acpAutoSyncViewport === "function") {
-      acpAutoSyncViewport("Sektion [" + acpActiveEditSectionId + "] aktualisiert");
+      acpAutoSyncViewport("Sektion [" + targetSecId + "] aktualisiert");
     } else if (iframe) {
       var curSrc = iframe.src.split("?")[0];
       iframe.src = curSrc + "?t=" + Date.now();
@@ -6245,7 +6381,26 @@ function acpSubmitReplaceSection() {
       acpScanAndRenderSections();
     }, 1500);
 
-    alert("🎉 Sektion [" + acpActiveEditSectionId + "] erfolgreich dauerhaft gespeichert und auf Cloudflare Pages bereitgestellt!");
+    // Toast feedback
+    var toast = document.createElement("div");
+    toast.style.position = "fixed";
+    toast.style.bottom = "30px";
+    toast.style.right = "30px";
+    toast.style.background = "#059669";
+    toast.style.color = "#ffffff";
+    toast.style.padding = "14px 22px";
+    toast.style.borderRadius = "8px";
+    toast.style.fontFamily = "'JetBrains Mono', monospace";
+    toast.style.fontSize = "13px";
+    toast.style.fontWeight = "700";
+    toast.style.boxShadow = "0 10px 30px rgba(0,0,0,0.5)";
+    toast.style.zIndex = "99999";
+    toast.style.display = "flex";
+    toast.style.alignItems = "center";
+    toast.style.gap = "10px";
+    toast.innerHTML = "<span>🎉</span><span>Sektion [" + targetSecId + "] erfolgreich dauerhaft gespeichert und bereitgestellt!</span>";
+    document.body.appendChild(toast);
+    setTimeout(function() { toast.remove(); }, 5000);
   })
   .catch(function(err) {
     console.error("Fehler beim Ersetzen der Sektion:", err);
@@ -6262,6 +6417,323 @@ function acpSubmitReplaceSection() {
       status.style.border = "1px solid rgba(239, 68, 68, 0.3)";
       status.innerHTML = "🚨 <strong>Server-Fehler:</strong> " + err.message;
     }
+  });
+}
+
+/* ======================================================= */
+/* WYSIWYG IN-PLACE TEXT-EDITOR («KLICK & SCHREIB»)         */
+/* ======================================================= */
+var acpInlineEditActive = false;
+var acpDirtySections = new Set();
+
+function acpToggleInlineEdit(forceState) {
+  if (typeof forceState === "boolean") {
+    acpInlineEditActive = forceState;
+  } else {
+    acpInlineEditActive = !acpInlineEditActive;
+  }
+
+  var btn = document.getElementById("acp-btn-toggle-inline-edit");
+  var dock = document.getElementById("acp-inline-edit-dock");
+  var iframe = document.getElementById("acp-widget-viewport");
+
+  if (acpInlineEditActive) {
+    if (btn) {
+      btn.style.borderColor = "#10b981";
+      btn.style.background = "rgba(16, 185, 129, 0.25)";
+      var lbl = btn.querySelector(".nav-label");
+      if (lbl) lbl.textContent = "Text-Stift aktiv";
+      var icon = btn.querySelector(".nav-icon");
+      if (icon) icon.textContent = "✍️";
+    }
+    if (dock) {
+      dock.style.display = "block";
+      dock.classList.add("is-active");
+    }
+    if (iframe) {
+      try {
+        var doc = iframe.contentDocument || (iframe.contentWindow && iframe.contentWindow.document);
+        if (doc) acpApplyInlineEditToIframe(doc);
+      } catch (err) {
+        console.error("[WebPilot Studio] Iframe-Zugriffsfehler beim Starten:", err);
+      }
+    }
+  } else {
+    if (btn) {
+      btn.style.borderColor = "rgba(16, 185, 129, 0.4)";
+      btn.style.background = "rgba(16, 185, 129, 0.1)";
+      var lbl = btn.querySelector(".nav-label");
+      if (lbl) lbl.textContent = "Text umschreiben";
+      var icon = btn.querySelector(".nav-icon");
+      if (icon) icon.textContent = "✏️";
+    }
+    if (dock) {
+      dock.style.display = "none";
+      dock.classList.remove("is-active");
+    }
+    if (iframe) {
+      try {
+        var doc = iframe.contentDocument || (iframe.contentWindow && iframe.contentWindow.document);
+        if (doc) acpRemoveInlineEditFromIframe(doc);
+      } catch (err) {
+        console.error("[WebPilot Studio] Iframe-Zugriffsfehler beim Beenden:", err);
+      }
+    }
+  }
+}
+
+function acpApplyInlineEditToIframe(doc) {
+  if (!doc || !doc.body) return;
+
+  // 1. Inject Styles
+  var existingStyle = doc.getElementById("acp-inline-edit-styles");
+  if (!existingStyle) {
+    var style = doc.createElement("style");
+    style.id = "acp-inline-edit-styles";
+    style.textContent = 
+      '[data-acp-editable="true"] {' +
+      '  outline: 1.5px dashed rgba(245, 158, 11, 0.45) !important;' +
+      '  outline-offset: 3px !important;' +
+      '  cursor: text !important;' +
+      '  border-radius: 3px !important;' +
+      '  transition: outline 0.15s ease, background 0.15s ease !important;' +
+      '}' +
+      '[data-acp-editable="true"]:hover {' +
+      '  outline: 1.5px dashed #f59e0b !important;' +
+      '  background: rgba(245, 158, 11, 0.08) !important;' +
+      '}' +
+      '[data-acp-editable="true"]:focus {' +
+      '  outline: 2px solid #10b981 !important;' +
+      '  background: rgba(16, 185, 129, 0.08) !important;' +
+      '  box-shadow: 0 0 10px rgba(16, 185, 129, 0.25) !important;' +
+      '}' +
+      '.acp-inline-dirty-section {' +
+      '  box-shadow: 0 0 0 2px #10b981 !important;' +
+      '}';
+    doc.head.appendChild(style);
+  }
+
+  // 2. Select text elements
+  var selectors = [
+    "h1", "h2", "h3", "h4", "h5", "h6", "p", "li",
+    ".section-kicker", ".section-title", ".section-desc",
+    ".hero-kicker", ".hero-title", ".hero-desc",
+    ".service-title", ".desk-nav-link", "button:not(.btn-swap-exec)", ".btn"
+  ];
+  var nodes = doc.querySelectorAll(selectors.join(","));
+  for (var i = 0; i < nodes.length; i++) {
+    var el = nodes[i];
+    if (el.querySelector("img, svg, iframe, canvas") && !el.textContent.trim()) {
+      continue;
+    }
+    el.setAttribute("contenteditable", "true");
+    el.setAttribute("data-acp-editable", "true");
+  }
+
+  // 3. Attach listeners (once per document)
+  if (!doc._acpInlineListenersAttached) {
+    doc._acpInlineListenersAttached = true;
+
+    doc.addEventListener("click", function(e) {
+      if (!acpInlineEditActive) return;
+      var a = e.target.closest("a");
+      if (a) {
+        e.preventDefault();
+      }
+    }, true);
+
+    doc.addEventListener("input", function(e) {
+      if (!acpInlineEditActive) return;
+      var sec = e.target.closest("[data-section]") || e.target.closest("section") || e.target.closest("header") || e.target.closest("footer");
+      if (sec) {
+        var secId = sec.getAttribute("data-section") || sec.id || "section";
+        acpDirtySections.add(secId);
+        sec.classList.add("acp-inline-dirty-section");
+        acpUpdateInlineEditStatus();
+      }
+    }, true);
+
+    doc.addEventListener("paste", function(e) {
+      if (!acpInlineEditActive) return;
+      var target = e.target;
+      if (target && target.isContentEditable) {
+        e.preventDefault();
+        var text = (e.clipboardData || window.clipboardData).getData("text/plain");
+        doc.execCommand("insertText", false, text);
+      }
+    }, true);
+
+    doc.addEventListener("keydown", function(e) {
+      if (!acpInlineEditActive) return;
+      if (e.key === "Enter") {
+        var tag = e.target.tagName.toLowerCase();
+        if (["h1", "h2", "h3", "h4", "h5", "h6", "button"].indexOf(tag) !== -1 || e.target.classList.contains("section-kicker")) {
+          e.preventDefault();
+        }
+      } else if (e.key === "Escape") {
+        acpToggleInlineEdit(false);
+      }
+    }, true);
+  }
+}
+
+function acpRemoveInlineEditFromIframe(doc) {
+  if (!doc) return;
+  var editables = doc.querySelectorAll('[data-acp-editable="true"]');
+  for (var i = 0; i < editables.length; i++) {
+    editables[i].removeAttribute("contenteditable");
+    editables[i].removeAttribute("data-acp-editable");
+  }
+  var dirtySecs = doc.querySelectorAll('.acp-inline-dirty-section');
+  for (var j = 0; j < dirtySecs.length; j++) {
+    dirtySecs[j].classList.remove('acp-inline-dirty-section');
+  }
+  var style = doc.getElementById("acp-inline-edit-styles");
+  if (style) style.remove();
+}
+
+function acpUpdateInlineEditStatus() {
+  var count = acpDirtySections.size;
+  var badge = document.getElementById("acp-inline-edit-dirty-badge");
+  var statusText = document.getElementById("acp-inline-edit-status-text");
+  var saveBtn = document.getElementById("acp-btn-save-inline");
+  var saveLbl = document.getElementById("acp-btn-save-inline-lbl");
+
+  if (count > 0) {
+    if (badge) {
+      badge.style.display = "inline-block";
+      badge.textContent = "✓ " + count + (count === 1 ? " Sektion geändert" : " Sektionen geändert");
+    }
+    if (statusText) {
+      var secList = Array.from(acpDirtySections).join(", ");
+      statusText.innerHTML = "<strong>Änderungen erkannt in:</strong> [" + secList + "] — Klicke auf Speichern, um sie dauerhaft bereitzustellen.";
+    }
+    if (saveBtn) {
+      saveBtn.disabled = false;
+      saveBtn.style.opacity = "1";
+      saveBtn.style.cursor = "pointer";
+    }
+    if (saveLbl) {
+      saveLbl.textContent = count === 1 ? "1 Sektion live speichern" : count + " Sektionen live speichern";
+    }
+  } else {
+    if (badge) badge.style.display = "none";
+    if (statusText) {
+      statusText.textContent = "👉 Klicke direkt auf eine Überschrift, einen Absatz oder eine Aufzählung im Simulator und tippe deinen Text ein.";
+    }
+    if (saveBtn) {
+      saveBtn.disabled = true;
+      saveBtn.style.opacity = "0.5";
+      saveBtn.style.cursor = "not-allowed";
+    }
+    if (saveLbl) saveLbl.textContent = "Änderungen live speichern";
+  }
+}
+
+function acpSaveInlineEdits() {
+  if (acpDirtySections.size === 0) return;
+
+  var iframe = document.getElementById("acp-widget-viewport");
+  if (!iframe) return;
+  var doc = iframe.contentDocument || (iframe.contentWindow && iframe.contentWindow.document);
+  if (!doc) return;
+
+  var targetFile = "index.html";
+  if (iframe.getAttribute("src")) {
+    var srcVal = iframe.getAttribute("src").split("?")[0];
+    if (srcVal.endsWith(".html")) {
+      targetFile = srcVal.split("/").pop();
+    }
+  }
+
+  var clientSlug = window.ACP_CURRENT_CLIENT || (window.location.pathname.split("/")[1] || "preview-birchmeier");
+  var saveBtn = document.getElementById("acp-btn-save-inline");
+  var saveLbl = document.getElementById("acp-btn-save-inline-lbl");
+
+  if (saveBtn) {
+    saveBtn.disabled = true;
+    if (saveLbl) saveLbl.innerHTML = "<span>⏳ Speichere &amp; Edge bereitstellen...</span>";
+  }
+
+  var sectionsToSave = Array.from(acpDirtySections);
+  var savePromises = sectionsToSave.map(function(secId) {
+    var secEl = doc.querySelector('[data-section="' + secId + '"]') || doc.getElementById(secId);
+    if (!secEl) {
+      console.warn("[WebPilot Studio] Sektion nicht im DOM gefunden:", secId);
+      return Promise.resolve({ ok: false, error: "Sektion nicht gefunden" });
+    }
+
+    var clone = secEl.cloneNode(true);
+    var editables = clone.querySelectorAll("[contenteditable]");
+    for (var i = 0; i < editables.length; i++) {
+      editables[i].removeAttribute("contenteditable");
+      editables[i].removeAttribute("data-acp-editable");
+    }
+    clone.classList.remove("acp-inline-dirty-section");
+    var cleanHtml = clone.outerHTML;
+
+    var validation = acpNormalizeAndValidateSection(cleanHtml, secId);
+    if (!validation.ok) {
+      return Promise.reject(new Error(validation.error));
+    }
+
+    var payload = {
+      client: clientSlug,
+      file: targetFile,
+      section_id: secId,
+      content: validation.html
+    };
+
+    return fetch("/api/publish-career/replace-section", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(payload)
+    })
+    .then(function(res) {
+      if (!res.ok) {
+        return res.json().then(function(j) { throw new Error(j.error || ("HTTP " + res.status)); });
+      }
+      return res.json();
+    });
+  });
+
+  Promise.all(savePromises)
+  .then(function() {
+    acpDirtySections.clear();
+    acpUpdateInlineEditStatus();
+    if (saveBtn) saveBtn.disabled = false;
+
+    var toast = document.createElement("div");
+    toast.style.position = "fixed";
+    toast.style.bottom = "30px";
+    toast.style.right = "30px";
+    toast.style.background = "#059669";
+    toast.style.color = "#ffffff";
+    toast.style.padding = "14px 22px";
+    toast.style.borderRadius = "8px";
+    toast.style.fontFamily = "'JetBrains Mono', monospace";
+    toast.style.fontSize = "13px";
+    toast.style.fontWeight = "700";
+    toast.style.boxShadow = "0 10px 30px rgba(0,0,0,0.5)";
+    toast.style.zIndex = "99999";
+    toast.style.display = "flex";
+    toast.style.alignItems = "center";
+    toast.style.gap = "10px";
+    toast.innerHTML = "<span>🎉</span><span>Änderungen dauerhaft gespeichert &amp; auf Cloudflare Pages bereitgestellt!</span>";
+    document.body.appendChild(toast);
+    setTimeout(function() { toast.remove(); }, 5000);
+
+    setTimeout(function() {
+      if (typeof acpScanAndRenderSections === "function") {
+        acpScanAndRenderSections();
+      }
+    }, 1200);
+  })
+  .catch(function(err) {
+    console.error("[WebPilot Studio] Fehler beim Speichern der Inline-Änderungen:", err);
+    if (saveBtn) saveBtn.disabled = false;
+    if (saveLbl) saveLbl.textContent = "Erneut versuchen";
+    alert("🚨 Fehler beim Speichern der Textänderungen: " + err.message);
   });
 }
 
@@ -6349,6 +6821,21 @@ function acpRemoveSection(secId) {
     alert("✓ Sektion [" + secId + "] im Simulator ausgeblendet!");
   }
 }
+
+
+  var viewportIframe = document.getElementById("acp-widget-viewport");
+  if (viewportIframe) {
+    viewportIframe.addEventListener("load", function() {
+      if (acpInlineEditActive) {
+        try {
+          var doc = viewportIframe.contentDocument || (viewportIframe.contentWindow && viewportIframe.contentWindow.document);
+          if (doc) acpApplyInlineEditToIframe(doc);
+        } catch(e) {
+          console.warn("[WebPilot Studio] Konnte Inline-Edit nach Iframe-Reload nicht reaktivieren:", e);
+        }
+      }
+    });
+  }
 
 </script>
 
