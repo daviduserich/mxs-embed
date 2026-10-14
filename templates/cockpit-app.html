@@ -2882,6 +2882,55 @@ a.badge-live:hover {
   to { transform: translateY(0); opacity: 1; }
 }
 
+
+/* ======================================================= */
+/* FOKUSSIERTE DIALOG-MODALE (Z-INDEX 5000 ÜBER FULLSCREEN) */
+/* ======================================================= */
+#acp-replace-section-modal,
+#acp-new-section-modal {
+  position: fixed !important;
+  inset: 0 !important;
+  width: 100vw !important;
+  height: 100vh !important;
+  background: rgba(4, 7, 13, 0.88) !important;
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
+  z-index: 5000 !important;
+  display: none !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 20px !important;
+  box-sizing: border-box !important;
+  opacity: 0 !important;
+  transition: opacity 0.2s ease !important;
+}
+
+#acp-replace-section-modal.is-open,
+#acp-new-section-modal.is-open {
+  display: flex !important;
+  opacity: 1 !important;
+}
+
+#acp-replace-section-modal .acp-modal,
+#acp-new-section-modal .acp-modal {
+  width: 100% !important;
+  max-width: 780px !important;
+  min-height: auto !important;
+  height: auto !important;
+  background: #0d131f !important;
+  border: 1px solid rgba(245, 158, 11, 0.35) !important;
+  border-radius: 16px !important;
+  box-shadow: 0 25px 80px rgba(0, 0, 0, 0.9), 0 0 40px rgba(245, 158, 11, 0.12) !important;
+  padding: 28px !important;
+  margin: auto !important;
+  box-sizing: border-box !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 16px !important;
+  color: #f8fafc !important;
+  overflow: visible !important;
+}
+
 </style>
 </head>
 <body>
@@ -3062,25 +3111,48 @@ a.badge-live:hover {
   </div>
 </div>
 
-<!-- MODAL: SEKTION ERSETZEN & AIRBAG CHECK -->
-<div id="acp-replace-section-modal" class="acp-modal-backdrop" onclick="if(event.target===this)acpCloseReplaceSectionModal()" style="display:none; z-index:4000;">
-  <div class="acp-modal" style="max-width:780px; margin:40px auto; background:#0f172a; border:1px solid rgba(255,255,255,0.15); border-radius:14px; padding:28px; box-shadow:0 25px 60px rgba(0,0,0,0.8);">
-    <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:18px;">
+<!-- MODAL: SEKTION ERSETZEN & TEXT/CODE EINFÜGEN -->
+<div id="acp-replace-section-modal" onclick="if(event.target===this)acpCloseReplaceSectionModal()">
+  <div class="acp-modal">
+    <div style="display:flex; justify-content:space-between; align-items:flex-start; border-bottom:1px solid rgba(255,255,255,0.08); padding-bottom:14px;">
       <div>
-        <span style="font-family:'JetBrains Mono',monospace; font-size:11px; color:#f59e0b; font-weight:700;">// AIRBAG-CHECK ⬥ CODE EINSETZEN</span>
-        <h3 style="color:#fff; font-size:18px; margin-top:4px;" id="acp-replace-modal-title">Sektion bearbeiten</h3>
+        <span style="font-family:'JetBrains Mono',monospace; font-size:11px; color:#f59e0b; font-weight:700; letter-spacing:0.5px;">// WEBPILOT FREIHEIT ⬥ NEUEN TEXT ODER CODE EINSETZEN</span>
+        <h3 style="color:#fff; font-size:18px; margin:4px 0 0 0; font-weight:700;" id="acp-replace-modal-title">Sektion bearbeiten</h3>
       </div>
-      <button type="button" class="acp-btn-close" onclick="acpCloseReplaceSectionModal()">✕</button>
+      <button type="button" class="acp-btn-close" onclick="acpCloseReplaceSectionModal()" style="background:none; border:none; color:#94a3b8; font-size:20px; cursor:pointer; padding:4px 8px; line-height:1;">✕</button>
     </div>
-    <p style="font-size:13px; color:#94a3b8; margin-bottom:14px;">
-      Füge hier die Antwort von ChatGPT oder Claude ein. Der <strong>Airbag</strong> prüft vor dem Einhängen automatisch, ob alle HTML-Tags sauber geschlossen sind.
-    </p>
-    <textarea id="acp-replace-code-input" rows="12" style="width:100%; background:#090d16; border:1px solid rgba(255,255,255,0.15); border-radius:8px; color:#e2e8f0; font-family:'JetBrains Mono',monospace; font-size:12px; padding:14px; box-sizing:border-box; resize:vertical;" placeholder="<section class='section-wrap' data-section='...'>&#10;  ...&#10;</section>"></textarea>
-    <div id="acp-replace-airbag-status" style="margin-top:12px; font-size:12.5px; display:none;"></div>
-    <div style="display:flex; justify-content:flex-end; gap:12px; margin-top:20px;">
-      <button type="button" class="acp-btn-secondary" onclick="acpCloseReplaceSectionModal()">Abbrechen</button>
-      <button type="button" class="acp-btn-primary" id="acp-btn-apply-replace" onclick="acpSubmitReplaceSection()" style="background:#10b981; color:#fff; font-weight:700;">
-        <span>✓ Sektion prüfen &amp; live aktualisieren</span>
+
+    <div style="background:rgba(245,158,11,0.06); border:1px solid rgba(245,158,11,0.2); border-radius:8px; padding:12px 16px; font-size:13px; color:#cbd5e1; line-height:1.5;">
+      📋 <strong>So funktioniert's:</strong> Kopiere den neuen Text oder Code aus ChatGPT / Claude und füge ihn unten mit <strong>Strg + V</strong> ein. Unser intelligenter Airbag bereinigt den Code automatisch, schützt das Layout und speichert die Änderung dauerhaft auf dem Server.
+    </div>
+
+    <div>
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+        <label for="acp-replace-code-input" style="font-size:12.5px; font-weight:700; color:#e2e8f0; font-family:'JetBrains Mono',monospace;">
+          EINFÜGE-FELD (TEXT ODER HTML):
+        </label>
+        <span id="acp-replace-char-counter" style="font-size:11.5px; font-family:'JetBrains Mono',monospace; color:#94a3b8;">
+          0 Zeichen
+        </span>
+      </div>
+
+      <textarea id="acp-replace-code-input" rows="11" oninput="acpUpdateReplaceTextFeedback()" onpaste="setTimeout(acpUpdateReplaceTextFeedback, 50)" style="width:100%; background:#06090e; border:1.5px solid rgba(245,158,11,0.3); border-radius:10px; color:#f1f5f9; font-family:'JetBrains Mono',monospace; font-size:12.5px; padding:14px; box-sizing:border-box; resize:vertical; line-height:1.5; outline:none;" placeholder="Hier die Antwort / den Text von ChatGPT oder Claude einfügen (Strg + V)..."></textarea>
+    </div>
+
+    <!-- LIVE-STATUS: DAMIT MAN WEISS DER TEXT IST DRIN -->
+    <div id="acp-replace-live-feedback" style="background:#090d16; border:1px solid rgba(255,255,255,0.08); border-radius:8px; padding:10px 14px; font-size:12.5px;">
+      <span style="color:#94a3b8;">⚪ Noch kein Inhalt eingefügt. Füge deinen Text mit Strg + V ein.</span>
+    </div>
+
+    <div id="acp-replace-airbag-status" style="font-size:12.5px; display:none;"></div>
+
+    <div style="display:flex; justify-content:space-between; align-items:center; margin-top:8px; padding-top:14px; border-top:1px solid rgba(255,255,255,0.08);">
+      <button type="button" class="acp-btn-secondary" onclick="acpCloseReplaceSectionModal()" style="padding:10px 18px; font-size:13px; color:#94a3b8; background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.1); border-radius:6px; cursor:pointer;">
+        Abbrechen
+      </button>
+
+      <button type="button" class="acp-btn-primary" id="acp-btn-apply-replace" onclick="acpSubmitReplaceSection()" style="background:linear-gradient(135deg, #10b981 0%, #059669 100%); color:#ffffff; font-weight:700; font-size:14px; padding:12px 24px; border-radius:8px; border:none; cursor:pointer; display:inline-flex; align-items:center; gap:8px; box-shadow:0 4px 14px rgba(16,185,129,0.35);">
+        <span>🚀 Änderung jetzt absenden &amp; live speichern</span>
       </button>
     </div>
   </div>
