@@ -3784,7 +3784,7 @@ function acpFetchServerLog() {
 // Build: 2026-10-03 15:30 CEST
 // =======================================================
 var ACP_COCKPIT_VERSION = "v3.4.1";
-var ACP_COCKPIT_BUILD = "2026-10-14 16:04";
+var ACP_COCKPIT_BUILD = "2026-10-14 16:11";
 
 function sanitizeStellen(list) {
   if (!Array.isArray(list)) return [];
@@ -6529,15 +6529,16 @@ function acpApplyInlineEditToIframe(doc) {
       '  border: 1px solid rgba(16, 185, 129, 0.5) !important;' +
       '  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.65) !important;' +
       '  border-radius: 8px !important;' +
-      '  padding: 6px 10px !important;' +
+      '  padding: 4px 8px !important;' +
       '  display: flex !important;' +
       '  align-items: center !important;' +
-      '  gap: 8px !important;' +
+      '  gap: 5px !important;' +
       '  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;' +
       '  font-size: 11px !important;' +
       '  color: #f8fafc !important;' +
       '  white-space: nowrap !important;' +
       '  box-sizing: border-box !important;' +
+      '  max-width: calc(100% - 20px) !important;' +
       '}' +
       '.acp-image-toolbar button {' +
       '  background: rgba(255, 255, 255, 0.08) !important;' +
@@ -6545,19 +6546,26 @@ function acpApplyInlineEditToIframe(doc) {
       '  color: #f8fafc !important;' +
       '  font-size: 11px !important;' +
       '  font-weight: 700 !important;' +
-      '  padding: 4px 8px !important;' +
+      '  padding: 3px 6px !important;' +
       '  border-radius: 4px !important;' +
       '  cursor: pointer !important;' +
       '  transition: all 0.15s ease !important;' +
+      '  line-height: 1.2 !important;' +
       '}' +
       '.acp-image-toolbar button:hover {' +
       '  background: #10b981 !important;' +
       '  color: #022c22 !important;' +
       '  border-color: #34d399 !important;' +
       '}' +
+      '.acp-image-toolbar button.is-active {' +
+      '  background: #10b981 !important;' +
+      '  color: #022c22 !important;' +
+      '  border-color: #34d399 !important;' +
+      '  box-shadow: 0 0 8px rgba(16, 185, 129, 0.4) !important;' +
+      '}' +
       '.acp-image-toolbar .tb-sep {' +
       '  width: 1px;' +
-      '  height: 16px;' +
+      '  height: 14px;' +
       '  background: rgba(255, 255, 255, 0.2);' +
       '}' +
       '.acp-img-resize-handle {' +
@@ -6621,6 +6629,32 @@ function acpApplyInlineEditToIframe(doc) {
     if (oldHandle) oldHandle.remove();
   }
 
+  function acpUpdateImageToolbarActiveStates(tb, img) {
+    if (!tb || !img) return;
+    var currentH = img.offsetHeight || 300;
+    var currentPos = (img.style.objectPosition || "center center").toLowerCase();
+
+    var buttons = tb.querySelectorAll("button");
+    for (var b = 0; b < buttons.length; b++) {
+      var btn = buttons[b];
+      var action = btn.getAttribute("data-action");
+      var val = btn.getAttribute("data-val");
+      btn.classList.remove("is-active");
+
+      if (action === "size") {
+        var num = parseInt(val, 10);
+        if (Math.abs(currentH - num) <= 25) {
+          btn.classList.add("is-active");
+        }
+      } else if (action === "focus") {
+        var firstWord = val.split(" ")[0];
+        if (currentPos.indexOf(firstWord) !== -1) {
+          btn.classList.add("is-active");
+        }
+      }
+    }
+  }
+
   function acpPositionImageControls(img) {
     var tb = doc.getElementById("acp-active-image-toolbar");
     var handle = doc.getElementById("acp-active-image-handle");
@@ -6630,16 +6664,37 @@ function acpApplyInlineEditToIframe(doc) {
     var scrollY = doc.defaultView.scrollY || doc.documentElement.scrollTop || 0;
     var scrollX = doc.defaultView.scrollX || doc.documentElement.scrollLeft || 0;
 
+    var viewportWidth = doc.documentElement.clientWidth || doc.body.clientWidth || (doc.defaultView && doc.defaultView.innerWidth) || 1200;
+
     if (tb) {
-      var tbTop = rect.top + scrollY - 44;
-      if (tbTop < scrollY + 10) tbTop = rect.top + scrollY + 10;
+      var tbTop = rect.top + scrollY - 42;
+      if (tbTop < scrollY + 8) {
+        tbTop = rect.top + scrollY + 8;
+      }
       tb.style.top = tbTop + "px";
-      tb.style.left = Math.max(10, rect.left + scrollX) + "px";
+
+      var tbWidth = tb.offsetWidth || 420;
+      var imgLeftDoc = rect.left + scrollX;
+      var imgRightDoc = rect.right + scrollX;
+
+      // Smart alignment:
+      // If aligning left causes toolbar to stick out past the right edge of viewport,
+      // align it flush with the right edge of the image!
+      var targetLeft = imgLeftDoc;
+      if (targetLeft + tbWidth > viewportWidth - 12) {
+        targetLeft = imgRightDoc - tbWidth;
+      }
+      // Clamping: ensure at least 10px from viewport left and at most (viewportWidth - tbWidth - 10px)
+      targetLeft = Math.max(10, Math.min(targetLeft, viewportWidth - tbWidth - 10));
+      tb.style.left = targetLeft + "px";
     }
 
     if (handle) {
       handle.style.top = (rect.bottom + scrollY - 14) + "px";
-      handle.style.left = (rect.left + scrollX + (rect.width / 2) - 50) + "px";
+      var handleWidth = handle.offsetWidth || 90;
+      var handleLeft = rect.left + scrollX + (rect.width / 2) - (handleWidth / 2);
+      handleLeft = Math.max(10, Math.min(handleLeft, viewportWidth - handleWidth - 10));
+      handle.style.left = handleLeft + "px";
     }
   }
 
@@ -6652,17 +6707,19 @@ function acpApplyInlineEditToIframe(doc) {
     tb.id = "acp-active-image-toolbar";
     tb.className = "acp-image-toolbar";
     tb.innerHTML = 
-      '<span style="color:#34d399; font-weight:800;">🖼️ BILD-EINSTELLUNGEN:</span>' +
-      '<button type="button" data-action="size" data-val="260">S (260px)</button>' +
-      '<button type="button" data-action="size" data-val="360">M (360px)</button>' +
-      '<button type="button" data-action="size" data-val="480">L (480px)</button>' +
+      '<span style="color:#34d399; font-weight:800; font-size:11px; display:inline-flex; align-items:center; gap:4px;">🖼️ <span>BILD</span></span>' +
       '<span class="tb-sep"></span>' +
-      '<span style="color:#94a3b8; font-size:10px;">FOKUS:</span>' +
+      '<span style="color:#94a3b8; font-size:10px; font-weight:700;">HÖHE:</span>' +
+      '<button type="button" data-action="size" data-val="260" title="Kompakte Höhe (260px)">S · 260</button>' +
+      '<button type="button" data-action="size" data-val="360" title="Mittlere Höhe (360px)">M · 360</button>' +
+      '<button type="button" data-action="size" data-val="480" title="Grosse Höhe (480px)">L · 480</button>' +
+      '<span class="tb-sep"></span>' +
+      '<span style="color:#94a3b8; font-size:10px; font-weight:700;">FOKUS:</span>' +
       '<button type="button" data-action="focus" data-val="top center" title="Kopf / Oben fokussieren">⬆️ Oben</button>' +
       '<button type="button" data-action="focus" data-val="center center" title="Bildmitte fokussieren">⏺️ Mitte</button>' +
       '<button type="button" data-action="focus" data-val="bottom center" title="Unten fokussieren">⬇️ Unten</button>' +
       '<span class="tb-sep"></span>' +
-      '<button type="button" data-action="close" style="background:rgba(239,68,68,0.2); border-color:rgba(239,68,68,0.4); color:#fca5a5;">✕</button>';
+      '<button type="button" data-action="close" title="Schliessen (ESC)" style="background:rgba(239,68,68,0.2) !important; border-color:rgba(239,68,68,0.4) !important; color:#fca5a5 !important; padding:3px 7px !important;">✕</button>';
 
     tb.addEventListener("click", function(e) {
       e.stopPropagation();
@@ -6690,6 +6747,8 @@ function acpApplyInlineEditToIframe(doc) {
       } else if (action === "focus") {
         img.style.objectPosition = val;
       }
+
+      acpUpdateImageToolbarActiveStates(tb, img);
 
       if (sec) {
         var secId = sec.getAttribute("data-section") || sec.id || "section";
@@ -6754,6 +6813,8 @@ function acpApplyInlineEditToIframe(doc) {
         }
         handle.innerHTML = '<span>⇅</span> <span>Ziehen</span>';
         acpPositionImageControls(img);
+        var tbEl = doc.getElementById("acp-active-image-toolbar");
+        if (tbEl) acpUpdateImageToolbarActiveStates(tbEl, img);
       }
 
       doc.addEventListener("mousemove", onMouseMove);
@@ -6767,6 +6828,7 @@ function acpApplyInlineEditToIframe(doc) {
     doc.body.appendChild(tb);
     doc.body.appendChild(handle);
     acpPositionImageControls(img);
+    acpUpdateImageToolbarActiveStates(tb, img);
   }
 
   // 5. Attach listeners (once per document)
