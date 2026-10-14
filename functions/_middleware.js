@@ -91,6 +91,9 @@ export async function onRequest(context) {
     // A) COCKPITS (/cockpit): Verlangen zwingend einen gültigen Token oder Cookie!
     if (isCockpit) {
       if (!hasValidToken && !hasValidCookie) {
+        if (clientSlug === 'birchmeier' || rootSegment.includes('birchmeier')) {
+          return Response.redirect('https://vorschau.magnet-xs.ch/webpilot/', 302);
+        }
         return new Response('Zugriff geschützt. Bitte Cockpit mit gültigem Mandanten-Token öffnen.', {
           status: 403,
           headers: { 'Content-Type': 'text/plain; charset=utf-8' }
