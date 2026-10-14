@@ -288,52 +288,49 @@
   </section>
 
   <!-- LEISTUNGEN -->
-  <section class="section-wrap" id="leistungen" data-section="leistungen" style="">
+  <section class="section-wrap" id="leistungen" data-section="leistungen">
   <div class="section-inner">
-    <span class="section-kicker">Unsere Kompetenzen</span>
-    <h2 class="section-title">Zuverlässige Haustechnik für Ihr Zuhause.</h2>
-    <p class="section-desc">Von der schnellen Reparatur des tropfenden Hahns bis zur kompletten Heizungsablösung.</p>
-    <div class="service-cards">
-      <div class="service-card">
-        <div class="service-card-head">
-          <div class="service-icon">🚿</div>
-          <h3 class="service-title">Sanitär &amp; 24h-Pikett</h3>
-        </div>
-        <p style="font-size: 0.85rem; color: var(--muted);">Trinkwasserhygiene, Rohrleitungen und schneller 24h-Pikettdienst bei Wasserschaden.</p>
-        <ul class="service-list">
-          <li>Boilerentkalkung &amp; Wasserenthärtung</li>
-          <li>Leitungsersatz &amp; Reparaturen</li>
-          <li>24h-Pikettdienst Freiamt</li>
-          <li>Trinkwasserhygiene &amp; Legionellenprävention</li>
-        </ul>
-      </div>
+Hier ist die angepasste Version. Die beiden Kacheln werden jetzt über ein 2-Spalten-Grid gleichmässig über die volle Breite verteilt:
+
+```html
+<section class="section-wrap acp-inline-dirty-section" id="leistungen" data-section="leistungen">
+  <div class="section-inner">
+    <span class="section-kicker" contenteditable="true" data-acp-editable="true">Unsere Kompetenzen</span>
+    <h2 class="section-title" contenteditable="true" data-acp-editable="true">Heizungen umbauen. Zuverlässig und zukunftssicher.</h2>
+    <p class="section-desc" contenteditable="true" data-acp-editable="true">Vom tropfenden Hahn bis zum kompletten Heizungsersatz: Wir ersetzen Ihre alte Öl- oder Gasheizung durch eine moderne Luft/Wasser-Wärmepumpe – schlank geplant, sauber ausgeführt und mit nur einem Ansprechpartner.</p>
+    <div class="service-cards" style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; width: 100%;">
       <div class="service-card">
         <div class="service-card-head">
           <div class="service-icon">♨️</div>
-          <h3 class="service-title" data-listener-added_4064cafe="true">Heizung &amp; Wärmepumpen</h3>
+          <h3 class="service-title" contenteditable="true" data-acp-editable="true">Heizungsersatz – Öl raus, Luft rein</h3>
         </div>
-        <p style="font-size: 0.85rem; color: var(--muted);">Zukunftssichere Heizlösungen: Luft/Wasser- und Erdsonden-Wärmepumpen nach Mass.</p>
+        <p style="font-size: 0.85rem; color: var(--muted);" contenteditable="true" data-acp-editable="true">Zukunftssichere Wärmepumpen nach Mass. Wir begleiten Sie vom GEAK über die Planung bis zur Inbetriebnahme.</p>
         <ul class="service-list">
-          <li>Ersatz von Öl- und Gasheizungen</li>
-          <li>Fussbodenheizungen &amp; Spülung</li>
-          <li>Abwicklung aller Fördergesuche</li>
-          <li data-listener-added_4064cafe="true">GEAK-Beratung &amp; Heizungsoptimierung</li>
-        <span id="monica-writing-entry-btn-root" style="position: absolute; left: 0px; top: 0px; pointer-events: none;"></span></ul>
+          <li contenteditable="true" data-acp-editable="true">Ersatz von Öl- und Gasheizungen</li>
+          <li contenteditable="true" data-acp-editable="true">Luft/Wasser- und Erdsonden-Wärmepumpen</li>
+          <li contenteditable="true" data-acp-editable="true">Fussbodenheizungen &amp; Spülung</li>
+          <li contenteditable="true" data-acp-editable="true">Abwicklung aller Fördergesuche &amp; GEAK-Beratung</li>
+        </ul>
       </div>
       <div class="service-card">
         <div class="service-card-head">
-          <div class="service-icon">🛁</div>
-          <h3 class="service-title" data-listener-added_4064cafe="true">Badumbau Komplett</h3>
+          <div class="service-icon">🚿</div>
+          <h3 class="service-title" contenteditable="true" data-acp-editable="true">Sanitär &amp; 24h-Pikett</h3>
         </div>
-        <p style="font-size: 0.85rem; color: var(--muted);">Ihr neues Traumbad schlüsselfertig mit nur einem einzigen Ansprechpartner koordiniert.</p>
+        <p style="font-size: 0.85rem; color: var(--muted);" contenteditable="true" data-acp-editable="true">Trinkwasserhygiene, Reparaturen und schneller Einsatz bei Wasserschaden – damit alles im Haus zuverlässig funktioniert.</p>
         <ul class="service-list">
-          <li data-listener-added_4064cafe="true">3D-Badplanung &amp; Beratung</li>
-          <li>Barrierefreie Duschbereiche</li>
-          <li>Koordination aller Platten- &amp; Elektriker</li>
-          <li data-listener-added_4064cafe="true">Schlüsselfertige Umsetzung mit einem Ansprechpartner</li>
+          <li contenteditable="true" data-acp-editable="true">Boilerentkalkung &amp; Wasserenthärtung</li>
+          <li contenteditable="true" data-acp-editable="true">Leitungsersatz &amp; Reparaturen</li>
+          <li contenteditable="true" data-acp-editable="true">24h-Pikettdienst Freiamt</li>
+          <li contenteditable="true" data-acp-editable="true">Trinkwasserhygiene &amp; Legionellenprävention</li>
         </ul>
       </div>
     </div>
+  </div>
+</section>
+```
+
+Die beiden Kacheln sollten jetzt gleich breit und sauber nebeneinander sitzen. Passt das so?
   </div>
 </section>
 
