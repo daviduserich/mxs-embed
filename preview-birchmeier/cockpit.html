@@ -3082,7 +3082,7 @@ a.badge-live:hover {
     <div class="acp-cockpit-right">
             <button type="button" class="acp-nav-btn acp-nav-btn-inline-edit" id="acp-btn-toggle-inline-edit" onclick="acpToggleInlineEdit()" title="Texte direkt im Simulator anklicken und umschreiben (wie in Word)" style="border-color: rgba(16, 185, 129, 0.4); background: rgba(16, 185, 129, 0.1);">
         <span class="nav-icon">✏️</span>
-        <span class="nav-label" style="color: #34d399; font-weight: 700;">Text umschreiben</span>
+        <span class="nav-label" style="color: #34d399; font-weight: 700;">Text &amp; Bild umschreiben</span>
       </button>
       <button type="button" class="acp-nav-btn acp-nav-btn-sections" onclick="acpToggleSectionsModal()" title="Sektionen &amp; KI-Baukasten mit vollem Seiten-Kontext" style="border-color: rgba(245, 158, 11, 0.4); background: rgba(245, 158, 11, 0.1);">
         <span class="nav-icon">🧩</span>
@@ -3146,8 +3146,8 @@ a.badge-live:hover {
 <div id="acp-inline-edit-dock" class="acp-inline-edit-dock">
   <div class="acp-inline-edit-dock-inner">
     <div class="acp-inline-edit-col-left">
-      <span class="acp-inline-edit-badge">✏️ TEXT-STIFT AKTIV</span>
-      <span id="acp-inline-edit-status-text" class="acp-inline-edit-status">👉 Klicke direkt auf eine Überschrift, einen Absatz oder eine Aufzählung im Simulator und tippe deinen Text ein.</span>
+      <span class="acp-inline-edit-badge">✏️ DIREKT-BEARBEITUNG AKTIV</span>
+      <span id="acp-inline-edit-status-text" class="acp-inline-edit-status">👉 Klicke auf einen Text zum Umschreiben – oder klicke auf ein Bild, um Grösse &amp; Fokus direkt anzupassen!</span>
       <span id="acp-inline-edit-dirty-badge" class="acp-inline-edit-dirty" style="display:none;">0 Sektionen geändert</span>
     </div>
     <div class="acp-inline-edit-col-right">
@@ -3784,7 +3784,7 @@ function acpFetchServerLog() {
 // Build: 2026-10-03 15:30 CEST
 // =======================================================
 var ACP_COCKPIT_VERSION = "v3.4.1";
-var ACP_COCKPIT_BUILD = "2026-10-14 15:58";
+var ACP_COCKPIT_BUILD = "2026-10-14 16:04";
 
 function sanitizeStellen(list) {
   if (!Array.isArray(list)) return [];
@@ -6442,7 +6442,7 @@ function acpToggleInlineEdit(forceState) {
       btn.style.borderColor = "#10b981";
       btn.style.background = "rgba(16, 185, 129, 0.25)";
       var lbl = btn.querySelector(".nav-label");
-      if (lbl) lbl.textContent = "Text-Stift aktiv";
+      if (lbl) lbl.textContent = "Direkt-Edit aktiv";
       var icon = btn.querySelector(".nav-icon");
       if (icon) icon.textContent = "✍️";
     }
@@ -6463,7 +6463,7 @@ function acpToggleInlineEdit(forceState) {
       btn.style.borderColor = "rgba(16, 185, 129, 0.4)";
       btn.style.background = "rgba(16, 185, 129, 0.1)";
       var lbl = btn.querySelector(".nav-label");
-      if (lbl) lbl.textContent = "Text umschreiben";
+      if (lbl) lbl.textContent = "Text & Bild umschreiben";
       var icon = btn.querySelector(".nav-icon");
       if (icon) icon.textContent = "✏️";
     }
@@ -6507,6 +6507,76 @@ function acpApplyInlineEditToIframe(doc) {
       '  background: rgba(16, 185, 129, 0.08) !important;' +
       '  box-shadow: 0 0 10px rgba(16, 185, 129, 0.25) !important;' +
       '}' +
+      '[data-acp-image="true"] {' +
+      '  cursor: pointer !important;' +
+      '  transition: outline 0.15s ease, box-shadow 0.15s ease !important;' +
+      '}' +
+      '[data-acp-image="true"]:hover {' +
+      '  outline: 2px dashed #f59e0b !important;' +
+      '  outline-offset: 3px !important;' +
+      '}' +
+      '[data-acp-image="true"].acp-img-selected {' +
+      '  outline: 3px solid #10b981 !important;' +
+      '  outline-offset: 3px !important;' +
+      '  box-shadow: 0 0 16px rgba(16, 185, 129, 0.45) !important;' +
+      '}' +
+      '.acp-image-toolbar {' +
+      '  position: absolute !important;' +
+      '  z-index: 999999 !important;' +
+      '  background: rgba(15, 23, 42, 0.96) !important;' +
+      '  backdrop-filter: blur(12px) !important;' +
+      '  -webkit-backdrop-filter: blur(12px) !important;' +
+      '  border: 1px solid rgba(16, 185, 129, 0.5) !important;' +
+      '  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.65) !important;' +
+      '  border-radius: 8px !important;' +
+      '  padding: 6px 10px !important;' +
+      '  display: flex !important;' +
+      '  align-items: center !important;' +
+      '  gap: 8px !important;' +
+      '  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;' +
+      '  font-size: 11px !important;' +
+      '  color: #f8fafc !important;' +
+      '  white-space: nowrap !important;' +
+      '  box-sizing: border-box !important;' +
+      '}' +
+      '.acp-image-toolbar button {' +
+      '  background: rgba(255, 255, 255, 0.08) !important;' +
+      '  border: 1px solid rgba(255, 255, 255, 0.2) !important;' +
+      '  color: #f8fafc !important;' +
+      '  font-size: 11px !important;' +
+      '  font-weight: 700 !important;' +
+      '  padding: 4px 8px !important;' +
+      '  border-radius: 4px !important;' +
+      '  cursor: pointer !important;' +
+      '  transition: all 0.15s ease !important;' +
+      '}' +
+      '.acp-image-toolbar button:hover {' +
+      '  background: #10b981 !important;' +
+      '  color: #022c22 !important;' +
+      '  border-color: #34d399 !important;' +
+      '}' +
+      '.acp-image-toolbar .tb-sep {' +
+      '  width: 1px;' +
+      '  height: 16px;' +
+      '  background: rgba(255, 255, 255, 0.2);' +
+      '}' +
+      '.acp-img-resize-handle {' +
+      '  position: absolute !important;' +
+      '  z-index: 999998 !important;' +
+      '  background: #10b981 !important;' +
+      '  color: #022c22 !important;' +
+      '  font-family: "JetBrains Mono", monospace !important;' +
+      '  font-size: 11px !important;' +
+      '  font-weight: 800 !important;' +
+      '  padding: 3px 12px !important;' +
+      '  border-radius: 12px !important;' +
+      '  cursor: ns-resize !important;' +
+      '  user-select: none !important;' +
+      '  box-shadow: 0 4px 14px rgba(0,0,0,0.6) !important;' +
+      '  display: flex !important;' +
+      '  align-items: center !important;' +
+      '  gap: 4px !important;' +
+      '}' +
       '.acp-inline-dirty-section {' +
       '  box-shadow: 0 0 0 2px #10b981 !important;' +
       '}';
@@ -6530,15 +6600,203 @@ function acpApplyInlineEditToIframe(doc) {
     el.setAttribute("data-acp-editable", "true");
   }
 
-  // 3. Attach listeners (once per document)
+  // 3. Select image elements
+  var imgs = doc.querySelectorAll("img");
+  for (var j = 0; j < imgs.length; j++) {
+    var imgEl = imgs[j];
+    imgEl.setAttribute("data-acp-image", "true");
+  }
+
+  // 4. Image selection & resize helper functions
+  var currentSelectedImg = null;
+
+  function acpDeselectImage() {
+    if (currentSelectedImg) {
+      currentSelectedImg.classList.remove("acp-img-selected");
+      currentSelectedImg = null;
+    }
+    var oldTb = doc.getElementById("acp-active-image-toolbar");
+    if (oldTb) oldTb.remove();
+    var oldHandle = doc.getElementById("acp-active-image-handle");
+    if (oldHandle) oldHandle.remove();
+  }
+
+  function acpPositionImageControls(img) {
+    var tb = doc.getElementById("acp-active-image-toolbar");
+    var handle = doc.getElementById("acp-active-image-handle");
+    if (!tb && !handle) return;
+
+    var rect = img.getBoundingClientRect();
+    var scrollY = doc.defaultView.scrollY || doc.documentElement.scrollTop || 0;
+    var scrollX = doc.defaultView.scrollX || doc.documentElement.scrollLeft || 0;
+
+    if (tb) {
+      var tbTop = rect.top + scrollY - 44;
+      if (tbTop < scrollY + 10) tbTop = rect.top + scrollY + 10;
+      tb.style.top = tbTop + "px";
+      tb.style.left = Math.max(10, rect.left + scrollX) + "px";
+    }
+
+    if (handle) {
+      handle.style.top = (rect.bottom + scrollY - 14) + "px";
+      handle.style.left = (rect.left + scrollX + (rect.width / 2) - 50) + "px";
+    }
+  }
+
+  function acpSelectImage(img) {
+    acpDeselectImage();
+    currentSelectedImg = img;
+    img.classList.add("acp-img-selected");
+
+    var tb = doc.createElement("div");
+    tb.id = "acp-active-image-toolbar";
+    tb.className = "acp-image-toolbar";
+    tb.innerHTML = 
+      '<span style="color:#34d399; font-weight:800;">🖼️ BILD-EINSTELLUNGEN:</span>' +
+      '<button type="button" data-action="size" data-val="260">S (260px)</button>' +
+      '<button type="button" data-action="size" data-val="360">M (360px)</button>' +
+      '<button type="button" data-action="size" data-val="480">L (480px)</button>' +
+      '<span class="tb-sep"></span>' +
+      '<span style="color:#94a3b8; font-size:10px;">FOKUS:</span>' +
+      '<button type="button" data-action="focus" data-val="top center" title="Kopf / Oben fokussieren">⬆️ Oben</button>' +
+      '<button type="button" data-action="focus" data-val="center center" title="Bildmitte fokussieren">⏺️ Mitte</button>' +
+      '<button type="button" data-action="focus" data-val="bottom center" title="Unten fokussieren">⬇️ Unten</button>' +
+      '<span class="tb-sep"></span>' +
+      '<button type="button" data-action="close" style="background:rgba(239,68,68,0.2); border-color:rgba(239,68,68,0.4); color:#fca5a5;">✕</button>';
+
+    tb.addEventListener("click", function(e) {
+      e.stopPropagation();
+      var btn = e.target.closest("button");
+      if (!btn) return;
+      var action = btn.getAttribute("data-action");
+      var val = btn.getAttribute("data-val");
+
+      if (action === "close") {
+        acpDeselectImage();
+        return;
+      }
+
+      var sec = img.closest("[data-section]") || img.closest("section") || img.closest("header") || img.closest("footer");
+
+      if (action === "size") {
+        var h = val + "px";
+        img.style.height = h;
+        img.style.maxHeight = "none";
+        img.style.objectFit = "cover";
+        if (img.parentElement && (img.parentElement.classList.contains("hero-media") || img.parentElement.classList.contains("job-image-wrap") || img.parentElement.classList.contains("team-media"))) {
+          img.parentElement.style.height = h;
+          img.parentElement.style.maxHeight = "none";
+        }
+      } else if (action === "focus") {
+        img.style.objectPosition = val;
+      }
+
+      if (sec) {
+        var secId = sec.getAttribute("data-section") || sec.id || "section";
+        acpDirtySections.add(secId);
+        sec.classList.add("acp-inline-dirty-section");
+        acpUpdateInlineEditStatus();
+      }
+
+      setTimeout(function() {
+        acpPositionImageControls(img);
+      }, 50);
+    });
+
+    var handle = doc.createElement("div");
+    handle.id = "acp-active-image-handle";
+    handle.className = "acp-img-resize-handle";
+    handle.innerHTML = '<span>⇅</span> <span>Ziehen</span>';
+
+    // Drag handling
+    var isDragging = false;
+    var startY = 0;
+    var startHeight = 0;
+
+    handle.addEventListener("mousedown", function(e) {
+      e.preventDefault();
+      e.stopPropagation();
+      isDragging = true;
+      startY = e.clientY;
+      startHeight = img.offsetHeight || 300;
+
+      function onMouseMove(moveEvent) {
+        if (!isDragging) return;
+        var delta = moveEvent.clientY - startY;
+        var newH = Math.max(160, Math.min(800, startHeight + delta));
+        img.style.height = newH + "px";
+        img.style.maxHeight = "none";
+        img.style.objectFit = "cover";
+        if (img.parentElement && (img.parentElement.classList.contains("hero-media") || img.parentElement.classList.contains("job-image-wrap") || img.parentElement.classList.contains("team-media"))) {
+          img.parentElement.style.height = newH + "px";
+          img.parentElement.style.maxHeight = "none";
+        }
+        handle.innerHTML = '<span>⇅</span> <span>Höhe: ' + newH + 'px</span>';
+        acpPositionImageControls(img);
+      }
+
+      function onMouseUp() {
+        if (!isDragging) return;
+        isDragging = false;
+        doc.removeEventListener("mousemove", onMouseMove);
+        doc.removeEventListener("mouseup", onMouseUp);
+        try {
+          window.removeEventListener("mousemove", onMouseMove);
+          window.removeEventListener("mouseup", onMouseUp);
+        } catch (_) {}
+
+        var sec = img.closest("[data-section]") || img.closest("section") || img.closest("header") || img.closest("footer");
+        if (sec) {
+          var secId = sec.getAttribute("data-section") || sec.id || "section";
+          acpDirtySections.add(secId);
+          sec.classList.add("acp-inline-dirty-section");
+          acpUpdateInlineEditStatus();
+        }
+        handle.innerHTML = '<span>⇅</span> <span>Ziehen</span>';
+        acpPositionImageControls(img);
+      }
+
+      doc.addEventListener("mousemove", onMouseMove);
+      doc.addEventListener("mouseup", onMouseUp);
+      try {
+        window.addEventListener("mousemove", onMouseMove);
+        window.addEventListener("mouseup", onMouseUp);
+      } catch (_) {}
+    });
+
+    doc.body.appendChild(tb);
+    doc.body.appendChild(handle);
+    acpPositionImageControls(img);
+  }
+
+  // 5. Attach listeners (once per document)
   if (!doc._acpInlineListenersAttached) {
     doc._acpInlineListenersAttached = true;
 
+    if (doc.defaultView) {
+      doc.defaultView.addEventListener("scroll", function() {
+        if (currentSelectedImg) acpPositionImageControls(currentSelectedImg);
+      }, { passive: true });
+      doc.defaultView.addEventListener("resize", function() {
+        if (currentSelectedImg) acpPositionImageControls(currentSelectedImg);
+      }, { passive: true });
+    }
+
     doc.addEventListener("click", function(e) {
       if (!acpInlineEditActive) return;
+      var img = e.target.closest("img");
+      if (img && img.getAttribute("data-acp-image") === "true") {
+        e.preventDefault();
+        e.stopPropagation();
+        acpSelectImage(img);
+        return;
+      }
       var a = e.target.closest("a");
       if (a) {
         e.preventDefault();
+      }
+      if (!e.target.closest("#acp-active-image-toolbar") && !e.target.closest("#acp-active-image-handle")) {
+        acpDeselectImage();
       }
     }, true);
 
@@ -6571,6 +6829,7 @@ function acpApplyInlineEditToIframe(doc) {
           e.preventDefault();
         }
       } else if (e.key === "Escape") {
+        acpDeselectImage();
         acpToggleInlineEdit(false);
       }
     }, true);
@@ -6579,10 +6838,20 @@ function acpApplyInlineEditToIframe(doc) {
 
 function acpRemoveInlineEditFromIframe(doc) {
   if (!doc) return;
+  var oldTb = doc.getElementById("acp-active-image-toolbar");
+  if (oldTb) oldTb.remove();
+  var oldHandle = doc.getElementById("acp-active-image-handle");
+  if (oldHandle) oldHandle.remove();
+
   var editables = doc.querySelectorAll('[data-acp-editable="true"]');
   for (var i = 0; i < editables.length; i++) {
     editables[i].removeAttribute("contenteditable");
     editables[i].removeAttribute("data-acp-editable");
+  }
+  var imgs = doc.querySelectorAll('[data-acp-image="true"]');
+  for (var k = 0; k < imgs.length; k++) {
+    imgs[k].removeAttribute("data-acp-image");
+    imgs[k].classList.remove("acp-img-selected");
   }
   var dirtySecs = doc.querySelectorAll('.acp-inline-dirty-section');
   for (var j = 0; j < dirtySecs.length; j++) {
@@ -6619,7 +6888,7 @@ function acpUpdateInlineEditStatus() {
   } else {
     if (badge) badge.style.display = "none";
     if (statusText) {
-      statusText.textContent = "👉 Klicke direkt auf eine Überschrift, einen Absatz oder eine Aufzählung im Simulator und tippe deinen Text ein.";
+      statusText.textContent = "👉 Klicke auf einen Text zum Umschreiben – oder klicke auf ein Bild, um Grösse & Fokus direkt anzupassen!";
     }
     if (saveBtn) {
       saveBtn.disabled = true;
@@ -6664,10 +6933,20 @@ function acpSaveInlineEdits() {
     }
 
     var clone = secEl.cloneNode(true);
+    var oldTb = clone.querySelector("#acp-active-image-toolbar");
+    if (oldTb) oldTb.remove();
+    var oldHandle = clone.querySelector("#acp-active-image-handle");
+    if (oldHandle) oldHandle.remove();
+
     var editables = clone.querySelectorAll("[contenteditable]");
     for (var i = 0; i < editables.length; i++) {
       editables[i].removeAttribute("contenteditable");
       editables[i].removeAttribute("data-acp-editable");
+    }
+    var imgs = clone.querySelectorAll("img");
+    for (var k = 0; k < imgs.length; k++) {
+      imgs[k].removeAttribute("data-acp-image");
+      imgs[k].classList.remove("acp-img-selected");
     }
     clone.classList.remove("acp-inline-dirty-section");
     var cleanHtml = clone.outerHTML;
@@ -6733,7 +7012,7 @@ function acpSaveInlineEdits() {
     console.error("[WebPilot Studio] Fehler beim Speichern der Inline-Änderungen:", err);
     if (saveBtn) saveBtn.disabled = false;
     if (saveLbl) saveLbl.textContent = "Erneut versuchen";
-    alert("🚨 Fehler beim Speichern der Textänderungen: " + err.message);
+    alert("🚨 Fehler beim Speichern der Text- oder Bildänderungen: " + err.message);
   });
 }
 
