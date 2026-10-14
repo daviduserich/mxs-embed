@@ -27,11 +27,6 @@
     "is_used": true,
     "used_in": [
       {
-        "datei": "index.html",
-        "slot": "image",
-        "is_hero": false
-      },
-      {
         "datei": "karriere.html",
         "slot": "image",
         "is_hero": false
@@ -132,8 +127,14 @@
     "mtime": 1791919032,
     "mtime_str": "13.10.2026 19:17",
     "cdn_url": "https://embed.magnet-xs.ch/preview-birchmeier/images/niesen_i_20190316_180802.jpg",
-    "is_used": false,
-    "used_in": []
+    "is_used": true,
+    "used_in": [
+      {
+        "datei": "index.html",
+        "slot": "image",
+        "is_hero": false
+      }
+    ]
   },
   {
     "id": "images_planung_jpg",
