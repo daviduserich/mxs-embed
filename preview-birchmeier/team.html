@@ -64,22 +64,14 @@
     .brand-logo-img {
       height: 36px;
       max-width: 195px;
+      flex-shrink: 0;
       width: auto;
       object-fit: contain;
       display: block;
     }
-    .brand-subline {
-      display: none;
-      font-size: 0.72rem;
-      color: var(--muted, #64748b);
-      font-weight: 500;
-      margin-left: 12px;
-      padding-left: 12px;
-      border-left: 1px solid var(--border, #e2e8f0);
-      white-space: nowrap;
-    }
+    
     @media (min-width: 960px) {
-      .brand-subline { display: inline-block; }
+      
       .brand-logo-img { height: 40px; max-width: 220px; }
     }
     .desktop-nav {
@@ -129,7 +121,7 @@
       height: 22px;
       stroke: var(--text);
     }
-    @media (min-width: 860px) {
+    @media (min-width: 980px) {
       .desktop-nav { display: flex !important; }
       .nav-burger { display: none !important; }
     }
@@ -221,7 +213,6 @@
     <div class="top-bar-inner">
       <a href="index.html" class="brand-logo-wrap" aria-label="Birchmeier-Hohler Startseite">
         <img src="images/logo.jpg" alt="Birchmeier-Hohler GmbH Logo" class="brand-logo-img" data-slot="brand-logo">
-        <span class="brand-subline">Sanitär & Heizungen • Bremgarten AG</span>
       </a>
       <nav class="desktop-nav">
         <a href="index.html" class="desk-nav-link">Startseite</a>
