@@ -62,8 +62,8 @@ export async function onRequest(context) {
     const clientTokens = {
       'hiltbrand': ['hb_sec_9e2f48b7c0d3a5a81e9', 'hb2026'],
       'preview-hiltbrand': ['hb_sec_9e2f48b7c0d3a5a81e9', 'hb2026'],
-      'birchmeier': ['bm_sec_7a1c8f3e2d9b4a5f', 'bm2026'],
-      'preview-birchmeier': ['bm_sec_7a1c8f3e2d9b4a5f', 'bm2026'],
+      'birchmeier': ['bm_sec_7a1c8f3e2d9b4a5f', 'bm_live_9k7p2x4m8'],
+      'preview-birchmeier': ['bm_sec_7a1c8f3e2d9b4a5f', 'bm_live_9k7p2x4m8'],
       'default': [clientSlug + '_sec_master', clientSlug + '2026']
     };
     const validTokens = clientTokens[rootSegment] || clientTokens[clientSlug] || clientTokens['default'];
@@ -184,8 +184,8 @@ export async function onRequest(context) {
       const clientTokens = {
         'hiltbrand': ['hb_sec_9e2f48b7c0d3a5a81e9', 'hb2026'],
         'preview-hiltbrand': ['hb_sec_9e2f48b7c0d3a5a81e9', 'hb2026'],
-        'birchmeier': ['bm_sec_7a1c8f3e2d9b4a5f', 'bm2026'],
-        'preview-birchmeier': ['bm_sec_7a1c8f3e2d9b4a5f', 'bm2026'],
+        'birchmeier': ['bm_sec_7a1c8f3e2d9b4a5f', 'bm_live_9k7p2x4m8'],
+        'preview-birchmeier': ['bm_sec_7a1c8f3e2d9b4a5f', 'bm_live_9k7p2x4m8'],
         'default': [clientSlug + '_sec_master', clientSlug + '2026']
       };
       const validTokens = clientTokens[rootSegment] || clientTokens[clientSlug] || clientTokens['default'];
