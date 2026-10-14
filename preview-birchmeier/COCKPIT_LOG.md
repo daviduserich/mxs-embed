@@ -14,3 +14,4 @@
 - `2026-10-14 11:20:27` · **🖼️ Bildtausch:** `badumbau.jpg` ➔ `niesen_i_20190316_180802.jpg` in `index.html` | ✅ 100% grün | 🚀 Commit `feat(swap): [preview-birchmeier] image in index.html swapped (badumbau.jpg -> niesen_i_20190316_180802.jpg) at 2026-10-14 11:20:24`
 - `2026-10-14 11:45:07` · **🖼️ Bildtausch:** `badumbau.jpg` ➔ `armatur.jpg` in `karriere.html` | ✅ 100% grün | 🚀 Commit `feat(swap): [preview-birchmeier] image in karriere.html swapped (badumbau.jpg -> armatur.jpg) at 2026-10-14 11:45:04`
 - `2026-10-14 13:52:34` · **⚡ Sektion aktualisiert:** `[leistungen]` in `index.html` | ✅ 100% grün | 🚀 Commit `feat(section): [preview-birchmeier] update [leistungen] in index.html at 2026-10-14 13:52:32`
+- `2026-10-14 13:56:17` · **⚡ Sektion aktualisiert:** `[hero]` in `index.html` | ✅ 100% grün | 🚀 Commit `feat(section): [preview-birchmeier] update [hero] in index.html at 2026-10-14 13:56:15`
