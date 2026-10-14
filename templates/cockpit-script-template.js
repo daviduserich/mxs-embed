@@ -2069,17 +2069,54 @@ function acpGenerateMiniPreviewSrcdoc(secHtml) {
 }
 
 function acpScrollToSectionInViewport(secId) {
+  console.log("[WebPilot Studio] 🎯 Springe zu Sektion:", secId);
   var iframe = document.getElementById("acp-widget-viewport");
   var doc = iframe ? (iframe.contentDocument || iframe.contentWindow.document) : null;
-  if (!doc) return;
+  if (!doc) {
+    console.warn("[WebPilot Studio] Kein iframe-Document gefunden");
+    return;
+  }
 
+  // 1. Suche nach data-section oder id
   var targetEl = doc.querySelector('[data-section="' + secId + '"]') || doc.getElementById(secId);
-  if (!targetEl) return;
 
-  acpToggleSectionsModal();
+  // 2. Smarte Fallbacks nach Archetyp / Klassen
+  if (!targetEl) {
+    if (secId === "hero" || secId.includes("hero")) {
+      targetEl = doc.querySelector(".hero-wrap, .page-hero, .hero, section");
+    } else if (secId === "top-bar" || secId === "header") {
+      targetEl = doc.querySelector("header, .top-bar, .header-wrap");
+    } else if (secId === "footer") {
+      targetEl = doc.querySelector("footer, .footer-wrap, .block-footer");
+    } else if (secId === "leistungen" || secId.includes("service")) {
+      targetEl = doc.querySelector("#leistungen, .service-cards, [id*='leistung']");
+    } else if (secId === "stellen" || secId.includes("job")) {
+      targetEl = doc.querySelector("#stellen, .jobs-grid, [id*='stell']");
+    } else if (secId === "vorteile" || secId.includes("benefit")) {
+      targetEl = doc.querySelector("#vorteile, .benefits-grid, [id*='vorteil']");
+    } else if (secId === "bewerben" || secId.includes("apply")) {
+      targetEl = doc.querySelector("#bewerben, .apply-section, form");
+    }
+  }
 
-  targetEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  if (!targetEl) {
+    console.warn("[WebPilot Studio] Sektion nicht im DOM gefunden:", secId);
+    return;
+  }
 
+  // Modal schliessen
+  if (acpSectionsModalOpen) {
+    acpToggleSectionsModal();
+  }
+
+  // Sanftes Scrollen zur Zielsektion
+  try {
+    targetEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  } catch (e) {
+    targetEl.scrollIntoView();
+  }
+
+  // Visueller bernsteinfarbener Hervorhebungs-Impuls (2.5 Sekunden)
   var origTransition = targetEl.style.transition;
   var origOutline = targetEl.style.outline;
   var origShadow = targetEl.style.boxShadow;
@@ -2119,10 +2156,14 @@ function acpScanAndRenderSections() {
     elements.forEach(function(el, idx) {
       var id = el.getAttribute("data-section") || el.id;
       if (!id) {
-        if (el.tagName.toLowerCase() === "header") id = "header";
+        if (el.tagName.toLowerCase() === "header") id = "top-bar";
         else if (el.tagName.toLowerCase() === "footer") id = "footer";
-        else if (el.className && el.className.includes("hero")) id = "hero";
+        else if (el.className && (el.className.includes("hero") || el.className.includes("page-hero"))) id = "hero";
         else id = "section-" + (idx + 1);
+      }
+      // Garantiere data-section im Live-iFrame DOM für deterministisches Anspringen
+      if (!el.getAttribute("data-section")) {
+        el.setAttribute("data-section", id);
       }
 
       if (id === "acp-cockpit-bar" || el.closest(".acp-cockpit-bar")) return;
@@ -2182,9 +2223,9 @@ function acpScanAndRenderSections() {
         '</div>' +
 
         '<div class="acp-sec-mini-stage" onclick="acpScrollToSectionInViewport(\'' + sec.id + '\')" title="Klicken, um im Live-Simulator direkt zu diesem Abschnitt zu springen">' +
-          '<iframe class="acp-sec-mini-iframe" srcdoc="' + srcdocHtml.replace(/"/g, '&quot;') + '" sandbox="allow-same-origin allow-scripts"></iframe>' +
-          '<div class="acp-sec-mini-overlay">' +
-            '<button type="button" class="acp-sec-mini-jump-btn"><span>👁️ Im Simulator ansehen</span></button>' +
+          '<iframe class="acp-sec-mini-iframe" srcdoc="' + srcdocHtml.replace(/"/g, '&quot;') + '"></iframe>' +
+          '<div class="acp-sec-mini-overlay" onclick="acpScrollToSectionInViewport(\'' + sec.id + '\')">' +
+            '<button type="button" class="acp-sec-mini-jump-btn" onclick="event.stopPropagation(); acpScrollToSectionInViewport(\'' + sec.id + '\')"><span>👁️ Im Simulator ansehen</span></button>' +
           '</div>' +
         '</div>' +
 
