@@ -73,3 +73,9 @@
 [2026-10-20 12:51:47] [preview-birchmeier] [REPLACE_SECTION_REQ] [START] file=index.html, sec_id=hero, len=1741
 [2026-10-20 12:51:49] [preview-birchmeier] [REPLACE_SECTION_OK] [DEPLOYED] [hero] in index.html
 [2026-10-20 13:01:05] [preview-birchmeier] [REPLACE_SECTION_REQ] [START] file=index.html, sec_id=top-bar, len=1130
+[2026-10-20 13:01:08] [preview-birchmeier] [REPLACE_SECTION_OK] [DEPLOYED] [top-bar] in index.html
+[2026-10-20 13:01:25] [preview-birchmeier] [REPLACE_SECTION_REQ] [START] file=index.html, sec_id=top-bar, len=86
+[2026-10-20 13:01:25] [preview-birchmeier] [REPLACE_SECTION_REJ] [SECURITY_EVENT] Sicherheits-Schranke: Gefährlicher Event-Handler onerror ist verboten.
+[2026-10-20 13:01:31] [preview-birchmeier] [REPLACE_SECTION_REQ] [START] file=index.html, sec_id=top-bar, len=122
+[2026-10-20 13:01:31] [preview-birchmeier] [REPLACE_SECTION_REJ] [SECURITY_EVENT] Sicherheits-Schranke: Nicht genehmigter Inline-JavaScript-Code in onclick ("window.location='http://evil.com'").
+[2026-10-20 13:04:24] [preview-birchmeier] [REPLACE_SECTION_REQ] [START] file=index.html, sec_id=top-bar, len=1245
