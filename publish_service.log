@@ -79,3 +79,5 @@
 [2026-10-20 13:01:31] [preview-birchmeier] [REPLACE_SECTION_REQ] [START] file=index.html, sec_id=top-bar, len=122
 [2026-10-20 13:01:31] [preview-birchmeier] [REPLACE_SECTION_REJ] [SECURITY_EVENT] Sicherheits-Schranke: Nicht genehmigter Inline-JavaScript-Code in onclick ("window.location='http://evil.com'").
 [2026-10-20 13:04:24] [preview-birchmeier] [REPLACE_SECTION_REQ] [START] file=index.html, sec_id=top-bar, len=1245
+[2026-10-20 13:04:26] [preview-birchmeier] [REPLACE_SECTION_OK] [DEPLOYED] [top-bar] in index.html
+[2026-10-20 13:04:32] [preview-birchmeier] [REPLACE_SECTION_REQ] [START] file=index.html, sec_id=top-bar, len=1235
