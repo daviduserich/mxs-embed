@@ -2604,14 +2604,27 @@ function acpNormalizeAndValidateSection(rawInput, secId) {
   });
 
   // 2. Sicherheits-Check: Keine ausführbaren Skripte oder iframes
-  var forbiddenTags = /<(script|iframe|object|embed|form|meta|base|style)\b[^>]*>/i;
+  var forbiddenTags = /<(script|iframe|object|embed|meta|base|style)\b[^>]*>/i;
   var mTag = clean.match(forbiddenTags);
   if (mTag) {
     return { ok: false, error: "Sicherheits-Schranke: Ausführbare Tags (&lt;" + mTag[1] + "&gt;) sind in Inhalts-Sektionen verboten." };
   }
-  if (/\son[a-zA-Z]+\s*=/i.test(clean)) {
-    return { ok: false, error: "Sicherheits-Schranke: Inline-JavaScript (on... Event-Handler) ist verboten." };
+
+  // Whitelist für legitime WebPilot-System-Handler (Navigation, Formulare, Stellen-Auswahl)
+  var allowedHandlers = /^(?:toggleDrawer\(\)|setJobChoice\([^)]*\)|handleApplySubmit\(event\)|event\.preventDefault\(\).*?|history\.back\(\))$/i;
+  var evRegex = /\s(on[a-zA-Z]+)\s*=\s*(?:"([^"]*)"|'([^']*)'|([^\s>]+))/gi;
+  var evMatch;
+  while ((evMatch = evRegex.exec(clean)) !== null) {
+    var evName = (evMatch[1] || "").toLowerCase();
+    var evBody = (evMatch[2] || evMatch[3] || evMatch[4] || "").trim();
+    if (evName === "onerror" || evName === "onload" || evName === "onunload" || evName.indexOf("onmouse") === 0 || evName.indexOf("onkey") === 0) {
+      return { ok: false, error: "Sicherheits-Schranke: Gefährlicher Event-Handler " + evName + " ist verboten." };
+    }
+    if (!allowedHandlers.test(evBody)) {
+      return { ok: false, error: "Sicherheits-Schranke: Nicht genehmigter Inline-JavaScript-Code in " + evName + " (\"" + evBody + "\")." };
+    }
   }
+
   if (/(href|src|action)\s*=\s*["'\s]*javascript:/i.test(clean)) {
     return { ok: false, error: "Sicherheits-Schranke: javascript:... Links sind nicht erlaubt." };
   }
