@@ -1851,15 +1851,43 @@ body.acp-modal-open {
   text-overflow: ellipsis !important;
   flex: 1 !important;
 }
+.acp-nav-btn-preview-ext {
+  transition: all 0.15s ease !important;
+}
+.acp-nav-btn-preview-ext:hover {
+  background: rgba(59, 130, 246, 0.25) !important;
+  border-color: #60a5fa !important;
+  box-shadow: 0 0 12px rgba(59, 130, 246, 0.35) !important;
+}
+.acp-browser-url-pill {
+  cursor: pointer !important;
+  transition: border-color 0.15s ease, background 0.15s ease !important;
+}
+.acp-browser-url-pill:hover {
+  border-color: rgba(56, 189, 248, 0.45) !important;
+  background: rgba(0, 0, 0, 0.5) !important;
+}
 .acp-url-open-ext {
-  color: #f59e0b !important;
+  color: #38bdf8 !important;
+  background: rgba(56, 189, 248, 0.15) !important;
+  border: 1px solid rgba(56, 189, 248, 0.35) !important;
   text-decoration: none !important;
   font-size: 11px !important;
-  opacity: 0.8 !important;
-  transition: opacity 0.15s ease !important;
+  font-weight: 700 !important;
+  padding: 2px 8px !important;
+  border-radius: 4px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 4px !important;
+  white-space: nowrap !important;
+  transition: all 0.15s ease !important;
+  cursor: pointer !important;
 }
 .acp-url-open-ext:hover {
-  opacity: 1 !important;
+  background: #0284c7 !important;
+  color: #ffffff !important;
+  border-color: #38bdf8 !important;
+  box-shadow: 0 0 10px rgba(56, 189, 248, 0.4) !important;
 }
 .acp-stage-meta-cluster {
   display: flex !important;
@@ -3109,6 +3137,10 @@ a.badge-live:hover {
         <span class="nav-icon">💡</span>
         <span class="nav-label">Hilfe</span>
       </button>
+      <a href="#" target="_blank" class="acp-nav-btn acp-nav-btn-preview-ext" id="acp-btn-open-preview-tab" onclick="acpOpenPreviewInNewTab(event)" title="Vorschau-Seite im neuen Browser-Tab öffnen (Vollbild ohne Cockpit)" style="border-color: rgba(59, 130, 246, 0.45); background: rgba(59, 130, 246, 0.12);">
+        <span class="nav-icon" style="color: #60a5fa;">↗</span>
+        <span class="nav-label" style="color: #93c5fd; font-weight: 700;">Vorschau</span>
+      </a>
       <a href="__HOST_URL__" target="_blank" class="acp-nav-btn acp-nav-btn-online" id="acp-online-btn" title="Online-Cockpit aufrufen">
         <span class="nav-icon">🌐</span>
         <span class="nav-label">Online</span>
@@ -3174,10 +3206,13 @@ a.badge-live:hover {
         <span class="b-dot yellow"></span>
         <span class="b-dot green"></span>
       </div>
-      <div class="acp-browser-url-pill">
+      <div class="acp-browser-url-pill" onclick="acpOpenPreviewInNewTab(event)" title="Klicken, um Vorschau in neuem Tab zu öffnen">
         <span class="acp-url-lock">🔒</span>
         <span class="acp-url-address" id="acp-stage-browser-url">__HOST_JOBS_URL__</span>
-        <a href="__HOST_JOBS_URL__" target="_blank" id="acp-stage-external-link" class="acp-url-open-ext" title="Original-Seite im neuen Browser-Tab öffnen">↗</a>
+        <a href="__HOST_JOBS_URL__" target="_blank" id="acp-stage-external-link" class="acp-url-open-ext" onclick="acpOpenPreviewInNewTab(event)" title="Vorschau-Seite im neuen Browser-Tab öffnen">
+          <span>Im neuen Tab öffnen</span>
+          <span style="font-weight: 800; font-size: 11px;">↗</span>
+        </a>
       </div>
       <div class="acp-stage-meta-cluster">
         <span class="acp-stage-client-badge" id="acp-stage-client-pill">__CLIENT_NAME__</span>

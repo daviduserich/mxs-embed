@@ -1,4 +1,58 @@
 
+function acpGetActivePreviewUrl() {
+  var iframe = document.getElementById("acp-widget-viewport");
+  var curToken = new URLSearchParams(window.location.search).get("token");
+  var profileSlug = (typeof ACP_CLIENT_PROFILE !== "undefined" && ACP_CLIENT_PROFILE.slug) ? ACP_CLIENT_PROFILE.slug : "";
+  var clientSlug = window.ACP_CURRENT_CLIENT || profileSlug || (window.location.pathname.split("/")[1] || "preview-birchmeier");
+  var cleanClient = clientSlug.replace("preview-", "");
+
+  var targetFile = "index.html";
+  var job = (typeof getActiveJob === "function") ? getActiveJob() : null;
+  if (job && job.datei) {
+    targetFile = job.datei;
+  }
+  if (iframe) {
+    try {
+      if (iframe.contentWindow && iframe.contentWindow.location && iframe.contentWindow.location.pathname) {
+        var path = iframe.contentWindow.location.pathname.split("/").pop();
+        if (path && path.endsWith(".html")) targetFile = path;
+      }
+    } catch (_) {}
+    if (targetFile === "index.html" && iframe.getAttribute("src")) {
+      var srcVal = iframe.getAttribute("src").split("?")[0].split("/").pop();
+      if (srcVal && srcVal.endsWith(".html")) targetFile = srcVal;
+    }
+  }
+
+  var cleanPage = targetFile.replace(/\.html$/, "");
+  if (cleanPage === "index") cleanPage = "";
+
+  var isDirectHost = (window.location.origin.indexOf("vorschau.magnet-xs.ch") !== -1);
+  var url = "";
+
+  if (isDirectHost) {
+    url = window.location.origin + "/" + cleanClient + "/" + (cleanPage ? cleanPage : "");
+    if (curToken) {
+      url += (url.indexOf("?") === -1 ? "?token=" : "&token=") + encodeURIComponent(curToken);
+    }
+  } else {
+    var base = (job && job.edge_url) ? job.edge_url : (window.location.origin + "/" + cleanClient + "/" + (cleanPage ? cleanPage + ".html" : "index.html"));
+    url = base;
+    if (curToken && url.indexOf("token=") === -1) {
+      url += (url.indexOf("?") === -1 ? "?token=" : "&token=") + encodeURIComponent(curToken);
+    }
+  }
+  return url;
+}
+
+function acpOpenPreviewInNewTab(e) {
+  if (e && e.preventDefault) e.preventDefault();
+  if (e && e.stopPropagation) e.stopPropagation();
+  var url = acpGetActivePreviewUrl();
+  window.open(url, "_blank");
+}
+
+
 // =======================================================
 // LIVE-AKTIVITÄTS-LOGGING & AUDIT-TRAIL
 // =======================================================
@@ -378,6 +432,11 @@ function acpSwitchJob(jobId, forceReload) {
   if (stageLink) {
     stageLink.href = targetLiveUrl;
     stageLink.title = "Seite im neuen Tab öffnen (" + targetLiveUrl + ")";
+  }
+  var topPreviewBtn = document.getElementById("acp-btn-open-preview-tab");
+  if (topPreviewBtn) {
+    topPreviewBtn.href = targetLiveUrl;
+    topPreviewBtn.title = "Vorschau «" + (job.titel || firmaName) + "» im neuen Tab öffnen (" + targetLiveUrl + ")";
   }
   if (stagePill) stagePill.textContent = firmaName;
 
