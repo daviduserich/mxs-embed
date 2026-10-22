@@ -639,7 +639,7 @@ body.acp-swap-mode-active [data-slot*="foto"]:hover {
 <!-- ======================================================= -->
 <!-- HERO: DIREKTER SCHNELLEINSTIEG OHNE HEADER              -->
 <!-- ======================================================= -->
-<div class="hero" data-slot="hero.hintergrund.bild">
+<div class="hero" id="hero" data-section="hero" data-slot="hero.hintergrund.bild">
   <span class="eyebrow" data-slot="hero.badge">Karriere bei Hiltbrand · 3704 Krattigen</span>
   <h1 data-slot="hero.titel">Dachdecker EFZ gesucht.<br>Dein Revier ist das <span>Berner Oberland</span>.</h1>
   <p data-slot="hero.lead">Familienbetrieb in 3. Generation – Handwerk trifft Hightech (Drohnen, Solar &amp; modernste Gebäudehüllen). Bewirb dich direkt in 30 Sekunden ohne Bewerbungsmappe.</p>
@@ -662,7 +662,7 @@ body.acp-swap-mode-active [data-slot*="foto"]:hover {
 <!-- ======================================================= -->
 <!-- VORTEILE: WARUM HILTBRAND (TOP 4 FAKTEN)                -->
 <!-- ======================================================= -->
-<section class="wrap">
+<section class="wrap" id="vorteile" data-section="vorteile">
   <div class="wrap-schmal" style="text-align:center">
     <div class="eyebrow2" data-slot="vorteile.eyebrow">Deine Vorteile</div>
     <h2 data-slot="vorteile.titel">Warum du bei uns richtig bist.</h2>
@@ -696,7 +696,7 @@ body.acp-swap-mode-active [data-slot*="foto"]:hover {
 <!-- ======================================================= -->
 <!-- INSERAT: DETAILS ZUR STELLE                             -->
 <!-- ======================================================= -->
-<section class="inserat-bg">
+<section class="inserat-bg" id="stelle" data-section="stelle">
   <div class="wrap">
     <div class="wrap-schmal" style="text-align:center">
       <div class="eyebrow2" data-slot="inserat.eyebrow">Offene Stelle</div>
@@ -769,7 +769,7 @@ body.acp-swap-mode-active [data-slot*="foto"]:hover {
 <!-- ======================================================= -->
 <!-- UNVERBINDLICHER KONTAKT / RÜCKRUF                       -->
 <!-- ======================================================= -->
-<section class="blitz" id="blitz">
+<section class="blitz" id="blitz" data-section="blitz">
   <div class="wrap-schmal">
     <div class="eyebrow2" style="color:var(--rot)" data-slot="blitz.eyebrow">Unverbindlicher Kontakt</div>
     <h2 data-slot="blitz.titel">Einfach kurz melden. Ganz ohne Papierkram.</h2>
@@ -819,7 +819,7 @@ body.acp-swap-mode-active [data-slot*="foto"]:hover {
 <!-- ======================================================= -->
 <!-- FAQ: HÄUFIGE FRAGEN                                     -->
 <!-- ======================================================= -->
-<section class="faq" style="background:var(--hell)">
+<section class="faq" id="faq" data-section="faq" style="background:var(--hell)">
   <div class="wrap-schmal">
     <div class="eyebrow2" data-slot="faq.eyebrow">Ehrliche Antworten</div>
     <h2 data-slot="faq.titel">Was du dich wahrscheinlich fragst.</h2>
@@ -848,7 +848,7 @@ body.acp-swap-mode-active [data-slot*="foto"]:hover {
 <!-- ======================================================= -->
 <!-- CTA-BAND: ABSCHLIESSENDER AUFRUF                        -->
 <!-- ======================================================= -->
-<section class="cta-band">
+<section class="cta-band" id="cta" data-section="cta">
   <div class="wrap-schmal">
     <h2 data-slot="cta.titel">Dachdecker aus Leidenschaft? Wir haben deinen Platz.</h2>
     <p data-slot="cta.lead">Melde dich direkt bei Eljas – kürzer als deine Znüni-Pause.</p>
@@ -1006,7 +1006,7 @@ document.addEventListener('click', function(e) {
 
     var promptText = '';
     if (isHero) {
-      promptText = 'Tausche das große Hero-Hintergrundbild im Slot "hero.hintergrund.bild" (' + currentSrc + ') in ' + thisFile + ' gegen folgendes neue Foto aus: [BILD_HIER_EINFÜGEN]';
+      promptText = 'Tausche das grosse Hero-Hintergrundbild im Slot "hero.hintergrund.bild" (' + currentSrc + ') in ' + thisFile + ' gegen folgendes neue Foto aus: [BILD_HIER_EINFÜGEN]';
     } else if (isImg) {
       promptText = 'Tausche das Bild im Slot "' + slotName + '" (' + currentSrc + ') in ' + thisFile + ' gegen folgendes neue Foto aus: [BILD_HIER_EINFÜGEN]';
     } else {

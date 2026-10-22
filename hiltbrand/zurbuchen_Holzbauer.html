@@ -294,7 +294,7 @@ body.acp-swap-mode-active .kollege span {
 <!-- ======================================================= -->
 <!-- [SEKTION 1]: HEADER & NAVIGATION                         -->
 <!-- ======================================================= -->
-<header>
+<header id="header" data-section="header">
   <div class="nav">
     <a href="https://zurbuchen-holzbau.ch/"><img src="images/zurbuchen/logo.png" alt="Zurbuchen Holzbau AG"></a>
     <nav class="nav-links">
@@ -334,7 +334,7 @@ body.acp-swap-mode-active .kollege span {
 <!-- ======================================================= -->
 <!-- [SEKTION 3]: WARUM WIR (DIE 6 VORTEILE)                  -->
 <!-- ======================================================= -->
-<section id="warum">
+<section id="warum" data-section="warum">
   <div class="wrap">
     <div class="eyebrow2">Was es nur bei uns gibt</div>
     <h2>Vier Dinge, die dir kein anderer Holzbauer bieten kann.</h2>
@@ -368,7 +368,7 @@ body.acp-swap-mode-active .kollege span {
 <!-- ======================================================= -->
 <!-- [SEKTION 4]: DER EHRLICHE DEAL (WAS WIR NICHT WOLLEN)       -->
 <!-- ======================================================= -->
-<section id="ehrlich" style="background:var(--holz-hell)">
+<section id="ehrlich" data-section="ehrlich" style="background:var(--holz-hell)">
   <div class="wrap">
     <div class="eyebrow2">Klartext</div>
     <h2>Weil Handwerker keine Werbe-Märchen brauchen.</h2>
@@ -404,7 +404,7 @@ body.acp-swap-mode-active .kollege span {
 <!-- ======================================================= -->
 <!-- [SEKTION 5]: TEAM & VIBE (FOTOS & ATMOSPHÄRE)            -->
 <!-- ======================================================= -->
-<section id="team">
+<section id="team" data-section="team">
   <div class="wrap">
     <div class="eyebrow2">Deine zukünftigen Kollegen</div>
     <h2>Die kennst du bald beim Vornamen.</h2>
@@ -426,7 +426,7 @@ body.acp-swap-mode-active .kollege span {
 <!-- ======================================================= -->
 <!-- [SEKTION 6]: STELLENPROFIL (AUFGABEN & QUALIFIKATION)      -->
 <!-- ======================================================= -->
-<section class="inserat-bg" id="stelle">
+<section class="inserat-bg" id="stelle" data-section="stelle">
   <div class="wrap">
     <div class="eyebrow2">Offene Stelle</div>
     <h2>Zimmermann / Zimmerin EFZ – 2–3 Stellen</h2>
@@ -500,7 +500,7 @@ body.acp-swap-mode-active .kollege span {
 <!-- ======================================================= -->
 <!-- [SEKTION 7]: BLITZBEWERBUNG (WHATSAPP-FORMULAR)         -->
 <!-- ======================================================= -->
-<section class="blitz" id="blitz">
+<section class="blitz" id="blitz" data-section="blitz">
   <div class="wrap-schmal">
     <div class="eyebrow2" style="color:var(--holz)">Blitzbewerbung</div>
     <h2>30 Sekunden. Drei Angaben. Fertig.</h2>
@@ -540,7 +540,7 @@ body.acp-swap-mode-active .kollege span {
 <!-- ======================================================= -->
 <!-- [SEKTION 8]: FAQ (HÄUFIGE FRAGEN)                        -->
 <!-- ======================================================= -->
-<section class="faq" id="faq" style="background:var(--holz-hell)">
+<section class="faq" id="faq" data-section="faq" style="background:var(--holz-hell)">
   <div class="wrap-schmal">
     <div class="eyebrow2">Ehrliche Antworten</div>
     <h2>Was du dich wahrscheinlich fragst.</h2>
@@ -574,7 +574,7 @@ body.acp-swap-mode-active .kollege span {
 <!-- ======================================================= -->
 <!-- [SEKTION 9]: ABSCHLUSS-AUFRUF (CTA-BAND)                 -->
 <!-- ======================================================= -->
-<section class="cta-band">
+<section class="cta-band" id="cta" data-section="cta">
   <div class="wrap-schmal">
     <h2>Der Niesen wartet nicht. Wir auch nicht.</h2>
     <p>2–3 Plätze, dann ist das Team komplett. Schreib jetzt «Hoi Markus» – dauert kürzer als deine Znüni-Pause.</p>
@@ -593,7 +593,7 @@ body.acp-swap-mode-active .kollege span {
 <!-- ======================================================= -->
 <!-- [SEKTION 10]: FOOTER & IMPRESSUM                          -->
 <!-- ======================================================= -->
-<footer>
+<footer id="footer" data-section="footer">
   <div class="foot">
     <div>
       <img src="images/zurbuchen/logo-negativ.png" alt="Zurbuchen Holzbau AG" style="height:52px;width:auto;margin-bottom:14px">
@@ -763,7 +763,7 @@ document.addEventListener('click', function(e) {
 
     var promptText = '';
     if (isHero) {
-      promptText = 'Tausche das große Hero-Hintergrundbild im Slot "hero.hintergrund.bild" (' + currentSrc + ') in ' + thisFile + ' gegen folgendes neue Foto aus: [BILD_HIER_EINFÜGEN]';
+      promptText = 'Tausche das grosse Hero-Hintergrundbild im Slot "hero.hintergrund.bild" (' + currentSrc + ') in ' + thisFile + ' gegen folgendes neue Foto aus: [BILD_HIER_EINFÜGEN]';
     } else if (isImg) {
       promptText = 'Tausche das Bild im Slot "' + slotName + '" (' + currentSrc + ') in ' + thisFile + ' gegen folgendes neue Foto aus: [BILD_HIER_EINFÜGEN]';
     } else {

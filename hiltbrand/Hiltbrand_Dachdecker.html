@@ -418,7 +418,7 @@ body.acp-swap-mode-active [data-slot*="foto"]:hover {
 <!-- ======================================================= -->
 <!-- [BEREICH 1]: KOPFZEILE DER BESTEHENDEN KUNDEN-WEBSEITE  -->
 <!-- ======================================================= -->
-<header class="host-header-mock">
+<header class="host-header-mock" id="header" data-section="header">
   <div class="badge-header">
     <span>🌐 BEREICH 1: BESTEHENDE WEBSEITE (z. B. dachdecker-berneroberland.ch oder zurbuchen.com)</span>
   </div>
@@ -461,7 +461,7 @@ body.acp-swap-mode-active [data-slot*="foto"]:hover {
 <!-- ======================================================= -->
 <!-- [SEKTION 3]: WARUM WIR (DIE 6 VORTEILE)                  -->
 <!-- ======================================================= -->
-<section id="warum">
+<section id="warum" data-section="warum">
   <div class="wrap">
     <div class="eyebrow2" data-slot="warum.eyebrow">Was deinen Job bei uns besonders macht</div>
     <h2 data-slot="warum.titel">Vier Dinge, die dir kaum ein anderer Betrieb bieten kann.</h2>
@@ -479,7 +479,7 @@ body.acp-swap-mode-active [data-slot*="foto"]:hover {
       <div class="grund" data-slot="warum.karte.3">
         <div class="zahl">🏔</div>
         <h3 data-slot="warum.karte.3.titel">Baustellen im Berner Oberland</h3>
-        <p data-slot="warum.karte.3.text">Thun, Spiez, Frutigen, Interlaken. Du arbeitest dort, wo andere Urlaub machen – und bist am Feierabend um 17:30 pünktlich daheim. Keine sinnlosen Fernmontagen.</p>
+        <p data-slot="warum.karte.3.text">Thun, Spiez, Frutigen, Interlaken. Du arbeitest dort, wo andere Ferien machen – und bist am Feierabend um 17:30 pünktlich daheim. Keine sinnlosen Fernmontagen.</p>
       </div>
       <div class="grund" data-slot="warum.karte.4">
         <div class="zahl">🤝</div>
@@ -495,7 +495,7 @@ body.acp-swap-mode-active [data-slot*="foto"]:hover {
 <!-- ======================================================= -->
 <!-- [SEKTION 4]: DER EHRLICHE DEAL (WAS WIR NICHT WOLLEN)       -->
 <!-- ======================================================= -->
-<section id="ehrlich" style="background:var(--hell)">
+<section id="ehrlich" data-section="ehrlich" style="background:var(--hell)">
   <div class="wrap">
     <div class="eyebrow2" data-slot="ehrlich.eyebrow">Klartext</div>
     <h2 data-slot="ehrlich.titel">Weil Handwerker Taten statt Floskeln schätzen.</h2>
@@ -530,7 +530,7 @@ body.acp-swap-mode-active [data-slot*="foto"]:hover {
 <!-- ======================================================= -->
 <!-- [SEKTION 5]: TEAM & VIBE (FOTOS & ATMOSPHÄRE)            -->
 <!-- ======================================================= -->
-<section id="team">
+<section id="team" data-section="team">
   <div class="wrap">
     <div class="eyebrow2">Lerne dein Team kennen</div>
     <h2>Kollegen, auf die du dich blind verlassen kannst.</h2>
@@ -560,7 +560,7 @@ body.acp-swap-mode-active [data-slot*="foto"]:hover {
 <!-- ======================================================= -->
 <!-- [SEKTION 6]: STELLENPROFIL (AUFGABEN & QUALIFIKATION)      -->
 <!-- ======================================================= -->
-<section class="inserat-bg" id="stelle" data-slot="stelle.sektion">
+<section class="inserat-bg" id="stelle" data-section="stelle" data-slot="stelle.sektion">
   <div class="wrap">
     <div class="eyebrow2" data-slot="stelle.eyebrow">Offene Stelle</div>
     <h2 data-slot="stelle.titel">Dachdecker / Dachdeckerin EFZ – 80–100%</h2>
@@ -578,7 +578,7 @@ body.acp-swap-mode-active [data-slot*="foto"]:hover {
           <span class="fakt">📍 Krattigen (Region Thun / Spiez / BEO)</span>
           <span class="fakt">🕓 80–100% (flexibel vereinbar)</span>
           <span class="fakt">💰 Überdurchschnittlicher Lohn nach Erfahrung</span>
-          <span class="fakt">🏠 Ausschließlich regionale Baustellen – abends daheim</span>
+          <span class="fakt">🏠 Ausschliesslich regionale Baustellen – abends daheim</span>
         </div>
 
         <div class="spalten">
@@ -631,7 +631,7 @@ body.acp-swap-mode-active [data-slot*="foto"]:hover {
 <!-- ======================================================= -->
 <!-- [SEKTION 7]: BLITZBEWERBUNG (WHATSAPP-FORMULAR)         -->
 <!-- ======================================================= -->
-<section class="blitz" id="blitz" data-slot="blitz.sektion">
+<section class="blitz" id="blitz" data-section="blitz" data-slot="blitz.sektion">
   <div class="wrap-schmal">
     <div class="eyebrow2" style="color:var(--rot)" data-slot="blitz.eyebrow">Blitzbewerbung</div>
     <h2 data-slot="blitz.titel">30 Sekunden. Drei Angaben. Fertig.</h2>
@@ -671,7 +671,7 @@ body.acp-swap-mode-active [data-slot*="foto"]:hover {
 <!-- ======================================================= -->
 <!-- [SEKTION 8]: FAQ (HÄUFIGE FRAGEN)                        -->
 <!-- ======================================================= -->
-<section class="faq" id="faq" style="background:var(--hell)">
+<section class="faq" id="faq" data-section="faq" style="background:var(--hell)">
   <div class="wrap-schmal">
     <div class="eyebrow2" data-slot="faq.eyebrow">Ehrliche Antworten</div>
     <h2 data-slot="faq.titel">Was du dich wahrscheinlich fragst.</h2>
@@ -701,7 +701,7 @@ body.acp-swap-mode-active [data-slot*="foto"]:hover {
 <!-- ======================================================= -->
 <!-- [SEKTION 9]: ABSCHLUSS-AUFRUF (CTA-BAND)                 -->
 <!-- ======================================================= -->
-<section class="cta-band">
+<section class="cta-band" id="cta" data-section="cta">
   <div class="wrap-schmal">
     <h2 data-slot="cta.titel">Dachdecker aus Leidenschaft? Wir haben deinen Platz.</h2>
     <p data-slot="cta.lead">Melde dich direkt bei Elias – kürzer als deine Znüni-Pause.</p>
@@ -723,7 +723,7 @@ body.acp-swap-mode-active [data-slot*="foto"]:hover {
 <!-- ======================================================= -->
 <!-- [BEREICH 3]: FUSSZEILE DER BESTEHENDEN KUNDEN-WEBSEITE  -->
 <!-- ======================================================= -->
-<footer class="host-footer-mock">
+<footer class="host-footer-mock" id="footer" data-section="footer">
   <div class="badge-footer">
     <span>🌐 BEREICH 3: BESTEHENDE WEBSEITE (z. B. dachdecker-berneroberland.ch oder zurbuchen.com)</span>
   </div>
@@ -1165,7 +1165,7 @@ document.addEventListener("click", function(e) {
 
     var promptText;
     if (isHero) {
-      promptText = 'Tausche das große Hero-Hintergrundbild im Slot "hero.hintergrund.bild" (' + currentSrc + ') in ' + thisFile + ' gegen folgendes neue Foto aus: [BILD_HIER_EINFÜGEN]';
+      promptText = 'Tausche das grosse Hero-Hintergrundbild im Slot "hero.hintergrund.bild" (' + currentSrc + ') in ' + thisFile + ' gegen folgendes neue Foto aus: [BILD_HIER_EINFÜGEN]';
     } else if (isImg) {
       promptText = 'Tausche das Bild im Slot "' + slotName + '" (' + currentSrc + ') in ' + thisFile + ' gegen folgendes neue Foto aus: [BILD_HIER_EINFÜGEN]';
     } else {
