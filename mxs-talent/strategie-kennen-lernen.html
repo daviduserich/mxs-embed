@@ -684,6 +684,25 @@
       justify-content: center;
       cursor: pointer;
     }
+
+    .lightbox-stage {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .lightbox-zoom-pill {
+      display: none;
+    }
+    .lightbox-modal.zoomed .lightbox-img {
+      max-width: none;
+      max-height: none;
+      width: min(1400px, 165vw);
+      cursor: zoom-out;
+    }
+    .lightbox-img {
+      cursor: zoom-in;
+    }
+
     .lightbox-img {
       max-width: 94vw;
       max-height: 88vh;
@@ -781,6 +800,121 @@
     }
 
     @media (max-width: 768px) {
+      /* ── Mobile Topbar & Hero Harmonie (1-Zeilen-Garantie & Above-the-Fold Fokus) ── */
+      .container {
+        padding: 0 18px;
+      }
+      .topbar-inner {
+        padding: 7px 18px;
+        flex-wrap: nowrap;
+        gap: 8px;
+      }
+      .topbar-back {
+        white-space: nowrap;
+        font-size: 11.5px;
+      }
+      .topbar-contact {
+        gap: 10px;
+        flex-shrink: 0;
+      }
+      .topbar-contact a {
+        white-space: nowrap;
+        font-size: 11.5px;
+      }
+      .topbar-contact a[href^="mailto:"] {
+        display: none;
+      }
+      .header-inner {
+        padding: 10px 18px;
+      }
+      .brand-logo-img {
+        height: 34px;
+      }
+      .section-kicker {
+        font-size: 10.5px;
+        letter-spacing: 0.05em;
+        margin-bottom: 8px;
+      }
+      .hero-section {
+        padding: 24px 0 40px;
+      }
+      .hero-title {
+        font-size: 1.52rem;
+        line-height: 1.22;
+        letter-spacing: -0.025em;
+        margin-bottom: 16px;
+      }
+      .hero-bullets {
+        gap: 10px;
+        margin-bottom: 20px;
+      }
+      .hero-bullets li {
+        font-size: 14.5px;
+        line-height: 1.45;
+      }
+      .hero-cta-row {
+        gap: 10px;
+        margin-bottom: 18px;
+      }
+      .hero-cta-row .btn {
+        width: 100%;
+        justify-content: center;
+      }
+      /* Echte Mobile-Lupe (180% Pan & Zoom) in der Lightbox auf Smartphones */
+      .lightbox-modal {
+        padding: 0;
+        overflow: auto;
+        -webkit-overflow-scrolling: touch;
+        align-items: flex-start;
+        justify-content: flex-start;
+      }
+      .lightbox-stage {
+        min-width: 100vw;
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 64px 16px 40px;
+      }
+      .lightbox-modal.zoomed .lightbox-stage {
+        width: 185vw;
+        min-width: 185vw;
+        padding: 64px 24px 48px;
+      }
+      .lightbox-modal.zoomed .lightbox-img {
+        width: 175vw;
+        max-width: none;
+        max-height: none;
+      }
+      .lightbox-close {
+        position: fixed;
+        top: 14px;
+        right: 14px;
+        z-index: 10002;
+        background: rgba(15, 23, 42, 0.88);
+      }
+      .lightbox-zoom-pill {
+        position: fixed;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 10002;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        background: rgba(15, 23, 42, 0.90);
+        border: 1px solid rgba(255,255,255,0.22);
+        color: #ffffff;
+        font-family: var(--font-mono);
+        font-size: 11.5px;
+        font-weight: 600;
+        padding: 9px 16px;
+        border-radius: 8px;
+        box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+        cursor: pointer;
+        white-space: nowrap;
+      }
+
       .topbar-rating { display: none; }
       .form-row, .advisors-grid, .ref-cards-grid, .footer-grid {
         grid-template-columns: 1fr;
@@ -1195,12 +1329,18 @@
     </div>
   </footer>
 
-  <!-- Lightbox Modal -->
-  <div class="lightbox-modal" id="lightboxModal" onclick="closeLightbox()">
-    <button type="button" class="lightbox-close" aria-label="Schliessen" onclick="closeLightbox()">
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    <!-- Lightbox Modal (echter 180% Detail-Zoom auf Mobile & Desktop) -->
+  <div class="lightbox-modal" id="lightboxModal" onclick="if(event.target===this||event.target.classList.contains('lightbox-stage'))closeLightbox()">
+    <button type="button" class="lightbox-close" onclick="closeLightbox()" aria-label="Schliessen">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
     </button>
-    <img src="images/1.png" alt="Vollbild-Ansicht" class="lightbox-img" id="lightboxImg" onclick="event.stopPropagation()">
+    <button type="button" class="lightbox-zoom-pill" id="lightboxZoomBtn" onclick="toggleLightboxZoom(event)">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+      <span id="lightboxZoomLabel">Ansicht 180 % (verschiebbar) · Tippen für 100 %</span>
+    </button>
+    <div class="lightbox-stage">
+      <img src="" alt="Vergrösserte Grafik-Ansicht" class="lightbox-img" id="lightboxImg" onclick="toggleLightboxZoom(event)">
+    </div>
   </div>
 
   <script>
@@ -1220,19 +1360,48 @@
         btn.classList.remove('open');
       }
     }
-    function openLightbox(src) {
+        function openLightbox(src) {
       var modal = document.getElementById('lightboxModal');
       var img = document.getElementById('lightboxImg');
-      if (modal && img) {
-        img.src = src;
-        modal.classList.add('active');
+      var lbl = document.getElementById('lightboxZoomLabel');
+      if (!modal || !img) return;
+      img.src = src;
+      modal.classList.add('active');
+      /* Auf Mobile (< 768px) sofort im echten 180%-Lesemodus öffnen, damit das Bild wirklich grösser wird! */
+      if (window.innerWidth <= 768) {
+        modal.classList.add('zoomed');
+        if (lbl) lbl.textContent = '180 % Lese-Zoom (frei verschiebbar) · Tippen für 100 %';
+        setTimeout(function() {
+          modal.scrollLeft = (modal.scrollWidth - modal.clientWidth) / 4;
+        }, 20);
+      } else {
+        modal.classList.remove('zoomed');
+      }
+      document.body.style.overflow = 'hidden';
+    }
+
+    function toggleLightboxZoom(e) {
+      if (e) e.stopPropagation();
+      var modal = document.getElementById('lightboxModal');
+      var lbl = document.getElementById('lightboxZoomLabel');
+      if (!modal) return;
+      modal.classList.toggle('zoomed');
+      var isZ = modal.classList.contains('zoomed');
+      if (lbl) {
+        lbl.textContent = isZ
+          ? '180 % Lese-Zoom (frei verschiebbar) · Tippen für 100 %'
+          : '100 % Übersicht · Tippen für 180 % Lese-Zoom';
       }
     }
+
     function closeLightbox() {
       var modal = document.getElementById('lightboxModal');
-      if (modal) {
-        modal.classList.remove('active');
-      }
+      var img = document.getElementById('lightboxImg');
+      if (!modal) return;
+      modal.classList.remove('active');
+      modal.classList.remove('zoomed');
+      if (img) img.src = '';
+      document.body.style.overflow = '';
     }
 
     function selectVariant(variantKey) {
