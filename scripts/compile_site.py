@@ -207,6 +207,18 @@ def compile_site_dir(site_dir: Path, lang: str = "de", dry_run: bool = False) ->
         for m in f_stats["missing_keys"]:
             total_stats["missing_keys"].add(m)
 
+    # 5. Multi-Page CSS & Layout Parity Guard (verhindert Cross-Page CSS Drift & Klammer-Brüche)
+    try:
+        from css_layout_guard import enforce_site_css_parity
+        css_rep = enforce_site_css_parity(site_dir, auto_fix=not dry_run)
+        total_stats["css_fixed"] = css_rep.get("missing_classes_fixed", [])
+        total_stats["css_brace_errors"] = css_rep.get("brace_errors", [])
+        if total_stats["css_fixed"]:
+            total_stats["files_modified"] += 1
+    except ImportError:
+        total_stats["css_fixed"] = []
+        total_stats["css_brace_errors"] = []
+
     total_stats["missing_keys"] = list(total_stats["missing_keys"])
     return total_stats
 
@@ -249,6 +261,10 @@ def main():
         print(f"  i18n-Strings synchronisiert: {res['i18n_updated']}")
         print(f"  Placeholders synchronisiert: {res['placeholders_updated']}")
         print(f"  Swiss Lexicon Anpassungen: {res['swiss_fixes']}")
+        if res.get("css_fixed"):
+            print(f"  CSS-Parität synchronisiert: {', '.join(res['css_fixed'])}")
+        if res.get("css_brace_errors"):
+            print(f"  🚨 CSS-Klammer-Fehler: {', '.join(res['css_brace_errors'])}")
         if res["missing_keys"]:
             print(f"  WARNUNG: Fehlende Keys im Wörterbuch: {', '.join(res['missing_keys'])}")
         if res["files_modified"] > 0:
