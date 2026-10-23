@@ -691,6 +691,87 @@
       object-fit: contain;
     }
 
+
+    /* ── Sektions-Header Systematik (#UI-01 / #UI-02) ── */
+    .section-header {
+      margin-bottom: 36px;
+    }
+    .section-header h2 {
+      font-size: clamp(1.75rem, 3.2vw, 2.35rem);
+      font-weight: 800;
+      margin-bottom: 12px;
+      letter-spacing: -0.02em;
+    }
+    .section-header p {
+      color: var(--text-muted);
+      font-size: 16px;
+      max-width: 760px;
+    }
+
+
+    /* ── Custom Video Facade (Poster + Play Overlay) ── */
+    .video-facade {
+      position: relative;
+      width: 100%;
+       height: 100%;
+      cursor: pointer;
+      overflow: hidden;
+      background: #0f172a;
+      display: block;
+    }
+    .video-facade-poster {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.35s ease, filter 0.35s ease;
+      filter: brightness(0.88);
+    }
+    .video-facade:hover .video-facade-poster {
+      transform: scale(1.03);
+      filter: brightness(0.78);
+    }
+    .video-facade-overlay {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      background: linear-gradient(180deg, rgba(15,23,42,0.10) 0%, rgba(15,23,42,0.55) 100%);
+      z-index: 2;
+    }
+    .video-play-btn {
+      width: 68px;
+      height: 68px;
+      border-radius: 8px;
+      background: var(--recruiting);
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 12px 28px rgba(37, 99, 235, 0.42);
+      transition: transform 0.2s ease, background 0.2s ease;
+    }
+    .video-facade:hover .video-play-btn {
+      transform: scale(1.07);
+      background: var(--recruiting-hover);
+    }
+    .video-facade-badge {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: #ffffff;
+      background: rgba(15, 23, 42, 0.78);
+      padding: 6px 12px;
+      border-radius: 4px;
+      border: 1px solid rgba(255,255,255,0.18);
+    }
+
     @media (max-width: 960px) {
       .main-nav, .header-actions { display: none; }
       .burger-btn { display: inline-flex; }
@@ -866,7 +947,15 @@
           <div>
             <div class="video-card">
               <div class="video-16x9">
-                <iframe src="https://player.vimeo.com/video/1020900402?color&amp;autopause=0&amp;loop=0&amp;muted=0&amp;title=1&amp;portrait=1&amp;byline=1&amp;h=fbbbd4d4a8" title="David Hügli im Interview" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+                <div class="video-facade" id="interviewFacade" onclick="playInterviewVideo(this)" role="button" tabindex="0" aria-label="David Hügli im Interview zur modernen Personalgewinnung abspielen" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();playInterviewVideo(this);}">
+                <img src="images/a4ce3d14-117b-400a-b0bb-a6461f2c909b.jpeg" alt="David Hügli im Interview zur modernen Personalgewinnung" class="video-facade-poster">
+                <div class="video-facade-overlay">
+                  <div class="video-play-btn">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="6 4 20 12 6 20 6 4"/></svg>
+                  </div>
+                  <span class="video-facade-badge">Interview abspielen</span>
+                </div>
+              </div>
               </div>
               <p class="video-desc">
                 Im Interview erläutert David Hügli, wie er das heutige Recruiting bewertet und welche Massnahmen er empfiehlt, um nachhaltig die besten Mitarbeiter zu rekrutieren.
@@ -969,13 +1058,12 @@
     <!-- ── Sektion 3: Referenzen & KI-Schutz (#Referenzen-Anfordern) ── -->
     <section id="Referenzen-Anfordern" data-section="Referenzen-Anfordern" class="references-section">
       <div class="container">
-        <div class="section-header">
-          <span class="section-kicker">REFERENZEN &amp; DATENSCHUTZ</span>
-          <h2>Unsere Referenzen: Vertrauen und Schutz im digitalen Zeitalter</h2>
-        </div>
-
         <div class="ref-story-box">
-          <p><strong>Liebe Interessentinnen und Interessenten</strong></p>
+          <div class="ref-story-header" style="margin-bottom: 24px; padding-bottom: 20px; border-bottom: 1px solid var(--border);">
+            <span class="section-kicker">REFERENZEN &amp; DATENSCHUTZ</span>
+            <h2 style="font-size: clamp(1.65rem, 3vw, 2.2rem); font-weight: 800; margin: 0; letter-spacing: -0.02em;">Unsere Referenzen: Vertrauen und Schutz im digitalen Zeitalter</h2>
+          </div>
+          <p style="font-size: 16px; color: var(--text); margin-bottom: 14px;"><strong>Liebe Interessentinnen und Interessenten</strong></p>
           <p>Wir legen grössten Wert auf die Zufriedenheit unserer Kunden und deren Schutz in der digitalen Welt. In einer Zeit, in der die künstliche Intelligenz rasante Fortschritte macht, sehen wir uns in der Verantwortung, verantwortungsvoll mit den Daten und der Privatsphäre unserer Kunden umzugehen.</p>
 
           <h3>Warum wir keine öffentlichen Video-Testimonials mehr zeigen</h3>
@@ -1042,8 +1130,7 @@
             4800 CH-Zofingen
           </div>
           <ul class="footer-contact-list">
-            <li><a href="tel:+41625112105">+41 62 511 21 05 (Zentrale)</a></li>
-            <li><a href="tel:+41625112106">+41 62 511 21 06 (Direktberatung)</a></li>
+            <li><a href="tel:+41625112106">+41 62 511 21 06</a></li>
             <li><a href="mailto:recruiting@mxs-talent-solutions.com">recruiting@mxs-talent-solutions.com</a></li>
           </ul>
         </div>
@@ -1295,6 +1382,13 @@
         closeMobileMenu();
       }
     });
+
+    function playInterviewVideo(el) {
+      if (!el || el.dataset.playing === '1') return;
+      el.dataset.playing = '1';
+      el.innerHTML = '<iframe src="https://www.youtube-nocookie.com/embed/SpX7dU11fec?autoplay=1&rel=0" title="David Hügli im Interview zur modernen Personalgewinnung" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen style="position:absolute;inset:0;width:100%;height:100%;border:0;"></iframe>';
+    }
+
   </script>
 </body>
 </html>

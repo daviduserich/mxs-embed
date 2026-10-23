@@ -431,6 +431,23 @@
     .footer-bottom-links { display: flex; gap: 20px; }
     .footer-bottom-links a { color: #94a3b8; text-decoration: none; }
 
+
+    /* ── Sektions-Header Systematik (#UI-01 / #UI-02) ── */
+    .section-header {
+      margin-bottom: 36px;
+    }
+    .section-header h2 {
+      font-size: clamp(1.75rem, 3.2vw, 2.35rem);
+      font-weight: 800;
+      margin-bottom: 12px;
+      letter-spacing: -0.02em;
+    }
+    .section-header p {
+      color: var(--text-muted);
+      font-size: 16px;
+      max-width: 760px;
+    }
+
     @media (max-width: 960px) {
       .main-nav, .header-actions { display: none; }
       .burger-btn { display: inline-flex; }
@@ -669,8 +686,7 @@
             4800 CH-Zofingen
           </div>
           <ul class="footer-contact-list">
-            <li><a href="tel:+41625112105">+41 62 511 21 05 (Zentrale)</a></li>
-            <li><a href="tel:+41625112106">+41 62 511 21 06 (Direktberatung)</a></li>
+            <li><a href="tel:+41625112106">+41 62 511 21 06</a></li>
             <li><a href="mailto:recruiting@mxs-talent-solutions.com">recruiting@mxs-talent-solutions.com</a></li>
           </ul>
         </div>
