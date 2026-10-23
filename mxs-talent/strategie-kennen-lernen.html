@@ -1,0 +1,1300 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <meta http-equiv="X-XSS-Protection" content="1; mode=block">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <title>Strategie kennenlernen &amp; Referenzen | mXs Talent Solutions</title>
+  <meta name="description" content="Erfahren Sie in einem kurzen Gespräch, wie Ihre Möglichkeiten im modernen Recruiting aussehen. 100 % kostenlos und unverbindlich. mXs Talent Solutions, Zofingen.">
+  <link rel="icon" type="image/png" href="images/Favicon_mxs_64p_V02.png">
+  <link rel="apple-touch-icon" href="images/cropped-Favicon_mxs_64p.png">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://mxs-talent-solutions.com/strategie-kennen-lernen.html">
+  <meta property="og:title" content="Strategie kennenlernen &amp; Referenzen — mXs Talent Solutions">
+  <meta property="og:description" content="Lernen Sie unser Vorgehen kennen: Bewerbungen von Kandidaten, die fachlich und charakterlich zu Ihnen passen.">
+  <meta property="og:locale" content="de_CH">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #f7f7f4;
+      --surface: #ffffff;
+      --surface-2: #f0f0eb;
+      --surface-hover: #e7e7e1;
+      --border: #e4e4e0;
+      --border-strong: rgba(0, 0, 0, 0.14);
+      --border-hover: rgba(0, 0, 0, 0.22);
+
+      --text: #121316;
+      --text-muted: #484c56;
+      --text-dim: #787e8e;
+
+      --recruiting: #2563eb;
+      --recruiting-dark: #1d4ed8;
+      --recruiting-soft: rgba(37, 99, 235, 0.08);
+      --recruiting-border: rgba(37, 99, 235, 0.24);
+      --acp: #e8781e;
+      --green: #059669;
+
+      --radius-sm: 4px;
+      --radius-md: 8px;
+    }
+
+    html { scroll-behavior: smooth; font-size: 16px; overflow-x: clip; }
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      -webkit-font-smoothing: antialiased;
+      overflow-x: clip;
+      min-height: 100vh;
+      line-height: 1.65;
+    }
+
+    h1, h2, h3, h4 {
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      color: var(--text);
+      letter-spacing: -0.025em;
+      line-height: 1.22;
+    }
+
+    a { color: inherit; }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      width: 100%;
+      padding: 0 24px;
+      box-sizing: border-box;
+    }
+
+    .section-kicker,
+    .hero-kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: transparent !important;
+      border: none !important;
+      padding: 0 !important;
+      box-shadow: none !important;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--recruiting);
+      margin-bottom: 12px;
+    }
+
+    /* ── Topbar & Header ── */
+    .topbar {
+      background: #121316;
+      color: #e2e8f0;
+      font-size: 12.5px;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+    .topbar-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 8px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .topbar-back {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: #ffffff;
+      text-decoration: none;
+      font-weight: 600;
+    }
+    .topbar-back:hover { color: #60a5fa; }
+    .topbar-rating {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: #cbd5e1;
+      font-weight: 500;
+    }
+    .topbar-stars { display: inline-flex; gap: 2px; color: #f59e0b; }
+    .topbar-contact { display: inline-flex; align-items: center; gap: 16px; }
+    .topbar-contact a {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      color: #e2e8f0;
+      text-decoration: none;
+      font-weight: 500;
+    }
+    .topbar-contact a:hover { color: #ffffff; }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(247, 247, 244, 0.94);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      border-bottom: 1px solid var(--border);
+    }
+    .header-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 12px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+    .brand-logo-link { display: inline-flex; align-items: center; text-decoration: none; }
+    .brand-logo-img { height: 40px; width: auto; object-fit: contain; display: block; }
+    .main-nav { display: flex; align-items: center; gap: 22px; }
+    .main-nav a {
+      font-size: 13.5px;
+      font-weight: 600;
+      color: var(--text-muted);
+      text-decoration: none;
+      white-space: nowrap;
+    }
+    .main-nav a:hover, .main-nav a.active { color: var(--recruiting); }
+    .header-actions { display: flex; align-items: center; gap: 10px; }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      font-family: 'Inter', sans-serif;
+      font-size: 14px;
+      font-weight: 600;
+      padding: 11px 18px;
+      border-radius: var(--radius-md);
+      text-decoration: none;
+      cursor: pointer;
+      transition: all 0.18s ease;
+      border: 1px solid transparent;
+      line-height: 1.2;
+    }
+    .btn-primary {
+      background: var(--recruiting);
+      color: #ffffff;
+      border-color: var(--recruiting-dark);
+      box-shadow: 0 2px 8px rgba(37, 99, 235, 0.22);
+    }
+    .btn-primary:hover {
+      background: var(--recruiting-dark);
+      transform: translateY(-1px);
+    }
+    .btn-secondary {
+      background: var(--surface);
+      color: var(--text);
+      border-color: var(--border-strong);
+    }
+    .btn-secondary:hover { background: var(--surface-2); }
+    .btn-sm { font-size: 13px; padding: 9px 14px; }
+
+    .burger-btn {
+      display: none;
+      width: 40px;
+      height: 40px;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border-strong);
+      background: var(--surface);
+      color: var(--text);
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+    }
+    .burger-btn .icon-close { display: none; }
+    .burger-btn.open .icon-menu { display: none; }
+    .burger-btn.open .icon-close { display: block; }
+
+    .mobile-drawer {
+      display: none;
+      background: var(--surface);
+      border-bottom: 1px solid var(--border-strong);
+      padding: 16px 24px 24px;
+      box-shadow: 0 12px 28px rgba(0,0,0,0.08);
+    }
+    .mobile-drawer.open { display: block; }
+    .mobile-drawer-links { display: flex; flex-direction: column; gap: 4px; margin-bottom: 16px; }
+    .mobile-drawer-links a {
+      padding: 11px 12px;
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--text);
+      text-decoration: none;
+      border-radius: var(--radius-sm);
+      border-bottom: 1px solid rgba(0,0,0,0.04);
+    }
+    .mobile-drawer-cta { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+    .mobile-drawer-cta .full { grid-column: 1 / -1; }
+
+    /* ── Sektion 1: 3-Varianten-Leittext-Umschalter (#strategie_hero) ── */
+    .variant-section {
+      padding: 56px 0 44px;
+      border-bottom: 1px solid var(--border);
+    }
+    .variant-tabs-bar {
+      display: inline-flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      background: var(--surface);
+      border: 1px solid var(--border-strong);
+      border-radius: var(--radius-md);
+      padding: 6px;
+      margin-bottom: 28px;
+    }
+    .variant-tab-btn {
+      font-family: 'Inter', sans-serif;
+      font-size: 13.5px;
+      font-weight: 600;
+      padding: 9px 16px;
+      border-radius: var(--radius-sm);
+      border: 1px solid transparent;
+      background: transparent;
+      color: var(--text-muted);
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+    .variant-tab-btn:hover {
+      color: var(--text);
+      background: var(--surface-2);
+    }
+    .variant-tab-btn.active {
+      background: var(--recruiting);
+      color: #ffffff;
+      border-color: var(--recruiting-dark);
+      box-shadow: 0 2px 6px rgba(37, 99, 235, 0.22);
+    }
+
+    .variant-card {
+      background: var(--surface);
+      border: 1px solid var(--border-strong);
+      border-left: 4px solid var(--recruiting);
+      border-radius: var(--radius-md);
+      padding: 36px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+    }
+    .variant-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 36px;
+    }
+    .variant-col h2 {
+      font-size: clamp(1.35rem, 2.3vw, 1.75rem);
+      margin-bottom: 12px;
+    }
+    .variant-col p {
+      font-size: 15.5px;
+      color: var(--text-muted);
+      line-height: 1.7;
+    }
+
+    /* ── Sektion 2: 2-Spalten-Hauptbereich (Video + Ansprechpartner | Direktformular) ── */
+    .dialog-section {
+      padding: 64px 0 84px;
+      border-bottom: 1px solid var(--border);
+    }
+    .dialog-grid {
+      display: grid;
+      grid-template-columns: 0.96fr 1.04fr;
+      gap: 44px;
+      align-items: start;
+    }
+    .video-card {
+      background: var(--surface);
+      border: 1px solid var(--border-strong);
+      border-radius: var(--radius-md);
+      padding: 12px;
+      margin-bottom: 24px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.04);
+    }
+    .video-16x9 {
+      position: relative;
+      width: 100%;
+      padding-bottom: 56.25%;
+      background: #0f172a;
+      border-radius: var(--radius-sm);
+      overflow: hidden;
+    }
+    .video-16x9 iframe {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+    .video-desc {
+      padding: 14px 8px 4px;
+      font-size: 14.5px;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    .advisors-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    .advisor-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 14px;
+      text-align: center;
+    }
+    .advisor-card img {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+      border-radius: var(--radius-sm);
+      margin-bottom: 10px;
+      display: block;
+    }
+    .advisor-name {
+      font-weight: 700;
+      font-size: 14.5px;
+      color: var(--text);
+      margin-bottom: 2px;
+    }
+    .advisor-role {
+      font-size: 12.5px;
+      color: var(--text-muted);
+    }
+
+    /* Direct Contact Bar & Form */
+    .direct-contact-bar {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 14px 18px;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .direct-contact-label {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--text);
+    }
+    .direct-contact-actions {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .contact-pill-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 12.5px;
+      font-weight: 600;
+      padding: 7px 11px;
+      border-radius: var(--radius-sm);
+      text-decoration: none;
+      border: 1px solid var(--border-strong);
+      background: var(--surface-2);
+      color: var(--text);
+      transition: all 0.15s ease;
+    }
+    .contact-pill-btn:hover {
+      background: var(--surface-hover);
+      border-color: var(--border-hover);
+    }
+    .contact-pill-btn.whatsapp {
+      background: rgba(37, 211, 102, 0.1);
+      border-color: rgba(37, 211, 102, 0.35);
+      color: #0d8438;
+    }
+
+    .form-card {
+      background: var(--surface);
+      border: 1px solid var(--border-strong);
+      border-radius: var(--radius-md);
+      padding: 32px;
+      box-shadow: 0 8px 28px rgba(0,0,0,0.04);
+    }
+    .form-card h3 {
+      font-size: 21px;
+      margin-bottom: 6px;
+    }
+    .form-card-sub {
+      font-size: 14px;
+      color: var(--text-muted);
+      margin-bottom: 22px;
+    }
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-bottom: 16px;
+    }
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 16px;
+    }
+    .form-row .form-group { margin-bottom: 0; }
+    .form-group label {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 6px;
+    }
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      padding: 11px 13px;
+      font-size: 14px;
+      font-family: inherit;
+      background: #fafaf8;
+      border: 1px solid var(--border-strong);
+      border-radius: var(--radius-sm);
+      color: var(--text);
+      transition: all 0.18s ease;
+    }
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      outline: none;
+      background: #ffffff;
+      border-color: var(--recruiting);
+      box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+    }
+    .form-group textarea {
+      min-height: 96px;
+      resize: vertical;
+    }
+    .form-submit {
+      width: 100%;
+      padding: 13px 22px;
+      background: var(--recruiting);
+      color: #ffffff;
+      border: 1px solid var(--recruiting-dark);
+      border-radius: var(--radius-md);
+      font-size: 15px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.18s ease;
+      box-shadow: 0 3px 12px rgba(37, 99, 235, 0.25);
+    }
+    .form-submit:hover {
+      background: var(--recruiting-dark);
+      transform: translateY(-1px);
+    }
+    .form-privacy {
+      margin-top: 14px;
+      font-size: 12.5px;
+      color: var(--text-dim);
+      line-height: 1.55;
+    }
+    .form-privacy a {
+      color: var(--recruiting);
+      text-decoration: underline;
+    }
+    .form-success {
+      display: none;
+      text-align: center;
+      padding: 32px 16px;
+    }
+    .form-success.active { display: block; }
+    .form-success h3 {
+      font-size: 22px;
+      margin-bottom: 8px;
+    }
+    .form-success p {
+      color: var(--text-muted);
+      font-size: 15px;
+    }
+
+    /* ── Sektion 3: Referenzen & KI-Schutz (#Referenzen-Anfordern) ── */
+    .references-section {
+      padding: 84px 0;
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+    }
+    .ref-story-box {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 36px;
+      margin-bottom: 40px;
+    }
+    .ref-story-box h3 {
+      font-size: 20px;
+      margin: 22px 0 10px;
+    }
+    .ref-story-box h3:first-of-type {
+      margin-top: 0;
+    }
+    .ref-story-box p {
+      font-size: 15px;
+      color: var(--text-muted);
+      margin-bottom: 12px;
+    }
+    .ref-bullets {
+      list-style: none;
+      margin: 12px 0 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .ref-bullets li {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--text);
+    }
+    .ref-bullets li svg {
+      color: var(--recruiting);
+      flex-shrink: 0;
+    }
+
+    .ref-cards-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+    .ref-card {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 10px;
+      cursor: zoom-in;
+      transition: all 0.2s ease;
+    }
+    .ref-card:hover {
+      border-color: var(--recruiting);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+    }
+    .ref-card img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: var(--radius-sm);
+    }
+
+    /* ── Footer & Lightbox ── */
+    .site-footer {
+      background: #121316;
+      color: #cbd5e1;
+      padding: 72px 0 40px;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 1.2fr 1fr 1fr;
+      gap: 36px;
+      padding-bottom: 48px;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+    .footer-col h4 {
+      color: #ffffff;
+      font-size: 14px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: 18px;
+      font-family: 'JetBrains Mono', monospace;
+    }
+    .footer-logo-img {
+      height: 36px;
+      width: auto;
+      margin-bottom: 16px;
+      background: #ffffff;
+      padding: 6px 10px;
+      border-radius: var(--radius-sm);
+    }
+    .footer-address { font-size: 14px; line-height: 1.7; color: #94a3b8; margin-bottom: 16px; }
+    .footer-contact-list { list-style: none; display: flex; flex-direction: column; gap: 8px; font-size: 14px; }
+    .footer-contact-list a { color: #e2e8f0; text-decoration: none; }
+    .footer-contacts-cards { display: flex; flex-direction: column; gap: 12px; }
+    .footer-person {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: var(--radius-md);
+      padding: 10px 12px;
+    }
+    .footer-person img { width: 52px; height: 52px; border-radius: var(--radius-sm); object-fit: cover; }
+    .footer-person-name { font-weight: 700; font-size: 14px; color: #ffffff; }
+    .footer-person-role { font-size: 12px; color: #94a3b8; }
+    .footer-links { list-style: none; display: flex; flex-direction: column; gap: 9px; font-size: 13.5px; }
+    .footer-links a { color: #94a3b8; text-decoration: none; }
+    .footer-links a:hover { color: #ffffff; }
+    .footer-bottom {
+      padding-top: 28px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+      font-size: 13px;
+      color: #64748b;
+    }
+    .footer-bottom-links { display: flex; gap: 20px; }
+    .footer-bottom-links a { color: #94a3b8; text-decoration: none; }
+
+    .lightbox-modal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      background: rgba(12, 14, 18, 0.92);
+      backdrop-filter: blur(8px);
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+    .lightbox-modal.active { display: flex; }
+    .lightbox-close {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      width: 44px;
+      height: 44px;
+      border-radius: var(--radius-md);
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.2);
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+    }
+    .lightbox-img {
+      max-width: 94vw;
+      max-height: 88vh;
+      border-radius: var(--radius-md);
+      object-fit: contain;
+    }
+
+    @media (max-width: 960px) {
+      .main-nav, .header-actions { display: none; }
+      .burger-btn { display: inline-flex; }
+      .variant-grid, .dialog-grid { grid-template-columns: 1fr; gap: 28px; }
+      .ref-cards-grid { grid-template-columns: repeat(2, 1fr); }
+      .footer-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 768px) {
+      .topbar-rating { display: none; }
+      .form-row, .advisors-grid, .ref-cards-grid, .footer-grid {
+        grid-template-columns: 1fr;
+      }
+      .variant-card, .form-card, .ref-story-box {
+        padding: 24px 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top-Info-Leiste -->
+  <div class="topbar">
+    <div class="topbar-inner">
+      <a href="https://magnet-xs.com" class="topbar-back">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m15 18-6-6 6-6"/></svg>
+        <span>Zurück zu magnet-Xs</span>
+      </a>
+      <div class="topbar-rating">
+        <span class="topbar-stars" aria-hidden="true">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        </span>
+        <span>98 % unserer Kunden bewerten uns mit «Sehr gut»</span>
+      </div>
+      <div class="topbar-contact">
+        <a href="tel:+41625112106">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          <span>+41 62 511 21 06</span>
+        </a>
+        <a href="mailto:recruiting@mxs-talent-solutions.com">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+          <span>recruiting@mxs-talent-solutions.com</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Sticky Header -->
+  <header class="site-header" id="header" data-section="header">
+    <div class="header-inner">
+      <a href="index.html" class="brand-logo-link">
+        <img src="images/mxs_Talensolutions_Logo_new_2._HP-Header_ausgerichtet_Green_Talent_V04.png" alt="mXs Talent Solutions Logo" class="brand-logo-img">
+      </a>
+
+      <nav class="main-nav" aria-label="Hauptnavigation">
+        <a href="index.html">Übersicht</a>
+        <a href="index.html#ueber_uns">Über uns</a>
+        <a href="index.html#Ausbildungspartner">Ausbildung</a>
+        <a href="bremskloetze.html">Methode &amp; Videos</a>
+        <a href="index.html#Prozess_und_Zusammenarbeit">Zusammenarbeit</a>
+        <a href="#Referenzen-Anfordern">Referenzen</a>
+      </nav>
+
+      <div class="header-actions">
+        <a href="#strategie_dialog" class="btn btn-primary btn-sm">
+          <span>Beratung buchen</span>
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+        </a>
+      </div>
+
+      <button type="button" class="burger-btn" id="burgerBtn" aria-label="Menü öffnen" onclick="toggleMobileMenu()">
+        <svg class="icon-menu" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        <svg class="icon-close" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+
+    <div class="mobile-drawer" id="mobileDrawer">
+      <div class="mobile-drawer-links">
+        <a href="index.html" onclick="closeMobileMenu()">Übersicht</a>
+        <a href="index.html#ueber_uns" onclick="closeMobileMenu()">Über uns</a>
+        <a href="index.html#Ausbildungspartner" onclick="closeMobileMenu()">Ausbildung</a>
+        <a href="bremskloetze.html" onclick="closeMobileMenu()">Methode &amp; Videos</a>
+        <a href="index.html#Prozess_und_Zusammenarbeit" onclick="closeMobileMenu()">Zusammenarbeit</a>
+        <a href="#Referenzen-Anfordern" onclick="closeMobileMenu()">Referenzen</a>
+      </div>
+      <div class="mobile-drawer-cta">
+        <a href="#strategie_dialog" class="btn btn-primary full" onclick="closeMobileMenu()">Beratung buchen</a>
+        <a href="tel:+41625112106" class="btn btn-secondary">Anrufen</a>
+        <a href="mailto:recruiting@mxs-talent-solutions.com" class="btn btn-secondary">E-Mail</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- ── Sektion 1: Interaktiver 3-Varianten-Leittext-Umschalter (#strategie_hero) ── -->
+    <section id="strategie_hero" data-section="strategie_hero" class="variant-section">
+      <div class="container">
+        <span class="hero-kicker">STRATEGIE KENNENLERNEN · UNVERBINDLICHES ERSTGESPRÄCH</span>
+        <h1 style="font-size: clamp(1.9rem, 3.4vw, 2.65rem); margin-bottom: 20px;">Wie möchten Sie Ihr Recruiting verstärken?</h1>
+
+        <!-- 3 Klickbare Themen-Pills -->
+        <div class="variant-tabs-bar" role="tablist" aria-label="Beratungsschwerpunkt wählen">
+          <button type="button" class="variant-tab-btn active" id="tab_neutraler_Leittext" onclick="selectVariant('neutraler_Leittext')">
+            Allgemeine Strategieberatung
+          </button>
+          <button type="button" class="variant-tab-btn" id="tab_D4_you" onclick="selectVariant('D4_you')">
+            Externe Personalabteilung
+          </button>
+          <button type="button" class="variant-tab-btn" id="tab_Ausbildung" onclick="selectVariant('Ausbildung')">
+            Ausbildung &amp; Coaching
+          </button>
+        </div>
+
+        <!-- Variante 1: Neutraler Leittext (Default aktiv!) -->
+        <div id="neutraler_Leittext" class="variant-card">
+          <div class="variant-grid">
+            <div class="variant-col">
+              <span class="section-kicker">UNSERE VERPFLICHTUNG</span>
+              <h2>Unsere Verpflichtung</h2>
+              <p>Sie erhalten Bewerbungen von Kandidaten, die nebst dem Fachlichen auch charakterlich zu Ihnen passen. Das führt zu Mitarbeitern, die eigenmotiviert arbeiten und wirken wollen. Als Folge davon steigt auf der einen Seite die Freude an und auf der anderen Seite sinkt der Führungsaufwand ab!</p>
+            </div>
+            <div class="variant-col">
+              <span class="section-kicker">IHR NÄCHSTER SCHRITT</span>
+              <h2>Lernen Sie unser Vorgehen kennen</h2>
+              <p>Erfahren Sie in einem kurzen Gespräch, wie Ihre Möglichkeiten aussehen. Es ist einfacher als Sie denken! Sie erfahren – wie Sie mit unserer Unterstützung an Ihr Ziel gelangen. Dass Sie endlich wieder kontinuierlich und hochgradig zu Ihnen passende Bewerbungen erhalten!</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Variante 2: Externe Personalabteilung (D4_you) -->
+        <div id="Variante_D4_you" class="variant-card" style="display: none;">
+          <div class="variant-grid">
+            <div class="variant-col">
+              <span class="section-kicker">UNSERE VERPFLICHTUNG · EXTERNE PERSONALABTEILUNG</span>
+              <h2>Unsere Verpflichtung</h2>
+              <p>Bewerbungen von Kandidaten, die nebst dem Fachlichen auch charakterlich zu Ihnen passen. Das führt zu Mitarbeitern, die eigenmotiviert arbeiten und wirken wollen.</p>
+            </div>
+            <div class="variant-col">
+              <span class="section-kicker">IHR NÄCHSTER SCHRITT</span>
+              <h2>Lernen Sie unser Vorgehen kennen</h2>
+              <p>Erfahren Sie in einem kurzen Gespräch, wie Ihre Möglichkeiten aussehen. Sie erfahren – wie wir für Sie – hochgradig passende Bewerbungen generieren.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Variante 3: Ausbildung & Coaching (Ausbildung) -->
+        <div id="Variante_Ausbildung" class="variant-card" style="display: none;">
+          <div class="variant-grid">
+            <div class="variant-col">
+              <span class="section-kicker">UNSERE VERPFLICHTUNG · AUSBILDUNGSPARTNER</span>
+              <h2>Unsere Verpflichtung</h2>
+              <p>Wir befähigen Sie, damit Sie Bewerbungen von Kandidaten, die nebst dem Fachlichen auch charakterlich zu Ihnen passen, selber erzeugen können. Das führt zu Mitarbeitern, die eigenmotiviert arbeiten und wirken wollen.</p>
+            </div>
+            <div class="variant-col">
+              <span class="section-kicker">IHR NÄCHSTER SCHRITT</span>
+              <h2>Lernen Sie unser Vorgehen kennen</h2>
+              <p>Erfahren Sie in einem kurzen Gespräch, wie Ihre Möglichkeiten aussehen. Es ist einfacher als Sie denken! Sie erfahren – wie wir Sie Schritt für Schritt an Ihr Ziel führen – in Eigenregie hochgradig passende Bewerbungen zu generieren.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Sektion 2: 2-Spalten-Hauptbereich (Interview & Ansprechpartner | Direktformular) (#strategie_dialog) ── -->
+    <section id="strategie_dialog" data-section="strategie_dialog" class="dialog-section">
+      <div class="container">
+        <div class="dialog-grid">
+          <!-- Linke Spalte: Vimeo-Interview + David & Carmen -->
+          <div>
+            <div class="video-card">
+              <div class="video-16x9">
+                <iframe src="https://player.vimeo.com/video/1020900402?color&amp;autopause=0&amp;loop=0&amp;muted=0&amp;title=1&amp;portrait=1&amp;byline=1&amp;h=fbbbd4d4a8" title="David Hügli im Interview" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+              </div>
+              <p class="video-desc">
+                Im Interview erläutert David Hügli, wie er das heutige Recruiting bewertet und welche Massnahmen er empfiehlt, um nachhaltig die besten Mitarbeiter zu rekrutieren.
+              </p>
+            </div>
+
+            <div class="advisors-grid">
+              <div class="advisor-card">
+                <img src="images/3.jpg" alt="Ihr Ansprechpartner – David Hügli">
+                <div class="advisor-name">Ihr Ansprechpartner – David Hügli</div>
+                <div class="advisor-role">Geschäftsführer &amp; Recruiting-Stratege</div>
+              </div>
+              <div class="advisor-card">
+                <img src="images/2.jpg" alt="Ihre Ansprechpartnerin – Carmen Caselli">
+                <div class="advisor-name">Ihre Ansprechpartnerin – Carmen Caselli</div>
+                <div class="advisor-role">Beratung Geschäftskunden</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Rechte Spalte: Direct Contact Bar + Natives Kontaktformular -->
+          <div>
+            <div class="direct-contact-bar">
+              <span class="direct-contact-label">Direkter Schweizer Draht:</span>
+              <div class="direct-contact-actions">
+                <a href="https://wa.me/41625112105" target="_blank" rel="noopener" class="contact-pill-btn whatsapp">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771z"/></svg>
+                  <span>WhatsApp</span>
+                </a>
+                <a href="tel:+41625112106" class="contact-pill-btn">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                  <span>+41 62 511 21 06</span>
+                </a>
+                <a href="mailto:recruiting@mxs-talent-solutions.com" class="contact-pill-btn">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                  <span>recruiting@mxs-talent-solutions.com</span>
+                </a>
+              </div>
+            </div>
+
+            <div class="form-card">
+              <h3>Kostenloses Info- &amp; Strategiegespräch anfragen</h3>
+              <p class="form-card-sub">Wir melden uns persönlich bei Ihnen – 100 % unverbindlich und ohne Callcenter.</p>
+
+              <form id="strategyContactForm">
+                <input type="text" name="_hp" id="hpField" style="display:none;" tabindex="-1" autocomplete="off">
+
+                <div class="form-row">
+                  <div class="form-group">
+                    <label for="fullName">Name und Vorname *</label>
+                    <input type="text" id="fullName" name="name" required placeholder="Ihr Vor- und Nachname">
+                  </div>
+                  <div class="form-group">
+                    <label for="companyName">Unternehmen</label>
+                    <input type="text" id="companyName" name="company" placeholder="Firmenname (optional)">
+                  </div>
+                </div>
+
+                <div class="form-row">
+                  <div class="form-group">
+                    <label for="contactChannel">Telefon oder E-Mail *</label>
+                    <input type="text" id="contactChannel" name="contact" required placeholder="+41 79 ... oder ihre@email.ch">
+                  </div>
+                  <div class="form-group">
+                    <label for="topicSelect">Gewünschter Schwerpunkt</label>
+                    <select id="topicSelect" name="topic">
+                      <option value="neutraler_Leittext">Allgemeine Strategieberatung</option>
+                      <option value="D4_you">Externe Personalabteilung (Done-for-You)</option>
+                      <option value="Ausbildung">Ausbildung &amp; Inhouse-Coaching</option>
+                      <option value="Referenzen">Referenzen &amp; Projekt-Einblicke</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label for="messageText">Kurze Nachricht (optional)</label>
+                  <textarea id="messageText" name="message" placeholder="Welche Profile suchen Sie aktuell oder wobei dürfen wir Sie unterstützen?"></textarea>
+                </div>
+
+                <button type="submit" class="form-submit" id="submitBtn">Unverbindliches Gespräch anfragen</button>
+
+                <p class="form-privacy">
+                  Ihre Daten sind bei uns sicher. Wir verarbeiten Ihre persönlichen Daten ausschliesslich zur Bearbeitung Ihrer Anfrage. Weitere Informationen können Sie gerne der <a href="datenschutz.html">Datenschutzerklärung</a> entnehmen.
+                </p>
+              </form>
+
+              <div class="form-success" id="formSuccess">
+                <div style="margin-bottom: 14px;">
+                  <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>
+                </div>
+                <h3>Vielen Dank für Ihre Anfrage!</h3>
+                <p>David Hügli oder Carmen Caselli meldet sich in Kürze persönlich bei Ihnen.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Sektion 3: Referenzen & KI-Schutz (#Referenzen-Anfordern) ── -->
+    <section id="Referenzen-Anfordern" data-section="Referenzen-Anfordern" class="references-section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-kicker">REFERENZEN &amp; DATENSCHUTZ</span>
+          <h2>Unsere Referenzen: Vertrauen und Schutz im digitalen Zeitalter</h2>
+        </div>
+
+        <div class="ref-story-box">
+          <p><strong>Liebe Interessentinnen und Interessenten</strong></p>
+          <p>Wir legen grössten Wert auf die Zufriedenheit unserer Kunden und deren Schutz in der digitalen Welt. In einer Zeit, in der die künstliche Intelligenz rasante Fortschritte macht, sehen wir uns in der Verantwortung, verantwortungsvoll mit den Daten und der Privatsphäre unserer Kunden umzugehen.</p>
+
+          <h3>Warum wir keine öffentlichen Video-Testimonials mehr zeigen</h3>
+          <p>Die heutigen Möglichkeiten der KI-Technologie erlauben es, mit entsprechendem Wissen und Software, innerhalb kürzester Zeit täuschend echte Nachbildungen von Video- und Audioaufnahmen zu erstellen. Um unsere Kunden vor möglichem Missbrauch zu schützen, haben wir uns entschieden, keine frei zugänglichen Video-Testimonials mehr im Internet zu veröffentlichen.</p>
+
+          <h3>Wie Sie dennoch unsere Referenzen einsehen können</h3>
+          <p>Wir verstehen, dass Referenzen für Ihre Entscheidungsfindung von grosser Bedeutung sind. Daher bieten wir Ihnen die Möglichkeit, in einem persönlichen Gespräch Einblick in unsere Kundenstimmen und Referenzprojekte zu erhalten. So können wir sicherstellen, dass diese wertvollen Informationen in einem geschützten Rahmen geteilt werden und damit Datenmissbrauch verhindert wird.</p>
+
+          <h3>Unser Angebot an Sie</h3>
+          <p>Wenn Sie an Referenzen interessiert sind, laden wir Sie herzlich ein, direkt mit uns in Kontakt zu treten. In einem persönlichen Gespräch können wir Ihnen:</p>
+          <ul class="ref-bullets">
+            <li>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="20 6 9 17 4 12"/></svg>
+              <span>Detaillierte Einblicke in erfolgreiche Projekte geben</span>
+            </li>
+            <li>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="20 6 9 17 4 12"/></svg>
+              <span>Video-Testimonials in einer kontrollierten Umgebung zeigen</span>
+            </li>
+            <li>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="20 6 9 17 4 12"/></svg>
+              <span>Sie mit zufriedenen Kunden in Verbindung bringen (nach Absprache)</span>
+            </li>
+          </ul>
+          <p>Wir sind überzeugt, dass dieser Ansatz nicht nur den Schutz unserer bestehenden Kunden gewährleistet, sondern auch Ihnen als Interessenten ein Höchstmass an Vertrauen und Sicherheit bietet.</p>
+          <p>Kontaktieren Sie uns noch heute, um mehr über unsere Erfolgsgeschichten zu erfahren und zu sehen, wie wir auch Ihr Projekt zum Erfolg führen können.</p>
+          <p style="margin-bottom: 0;"><strong>Ihr Team von mXs-Talent-Solutions</strong></p>
+        </div>
+
+        <div class="ref-cards-grid">
+          <div class="ref-card" onclick="openLightbox('images/1.png')">
+            <img src="images/1.png" alt="Kundenstimme &amp; Referenzschutz 1" loading="lazy">
+          </div>
+          <div class="ref-card" onclick="openLightbox('images/2.png')">
+            <img src="images/2.png" alt="Kundenstimme &amp; Referenzschutz 2" loading="lazy">
+          </div>
+          <div class="ref-card" onclick="openLightbox('images/3.png')">
+            <img src="images/3.png" alt="Kundenstimme &amp; Referenzschutz 3" loading="lazy">
+          </div>
+          <div class="ref-card" onclick="openLightbox('images/4.png')">
+            <img src="images/4.png" alt="Kundenstimme &amp; Referenzschutz 4" loading="lazy">
+          </div>
+          <div class="ref-card" onclick="openLightbox('images/5.png')">
+            <img src="images/5.png" alt="Kundenstimme &amp; Referenzschutz 5" loading="lazy">
+          </div>
+          <div class="ref-card" onclick="openLightbox('images/6.png')">
+            <img src="images/6.png" alt="Kundenstimme &amp; Referenzschutz 6" loading="lazy">
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Globaler Footer -->
+  <footer class="site-footer" id="footer" data-section="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <img src="images/mxs_Talensolutions_Logo_new_2._HP-Header_ausgerichtet_Green_Talent_V04.png" alt="mXs Talent Solutions" class="footer-logo-img">
+          <div class="footer-address">
+            <strong>mXs Talent Solutions</strong><br>
+            Eine Einheit der magnet-Xs gmbh<br>
+            Vordere Hauptgasse 104<br>
+            4800 CH-Zofingen
+          </div>
+          <ul class="footer-contact-list">
+            <li><a href="tel:+41625112105">+41 62 511 21 05 (Zentrale)</a></li>
+            <li><a href="tel:+41625112106">+41 62 511 21 06 (Direktberatung)</a></li>
+            <li><a href="mailto:recruiting@mxs-talent-solutions.com">recruiting@mxs-talent-solutions.com</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Ihre Ansprechpartner</h4>
+          <div class="footer-contacts-cards">
+            <div class="footer-person">
+              <img src="images/2.jpg" alt="Carmen Caselli" loading="lazy">
+              <div>
+                <div class="footer-person-name">Carmen Caselli</div>
+                <div class="footer-person-role">Beratung Geschäftskunden</div>
+              </div>
+            </div>
+            <div class="footer-person">
+              <img src="images/3.jpg" alt="David Hügli" loading="lazy">
+              <div>
+                <div class="footer-person-name">David Hügli</div>
+                <div class="footer-person-role">Beratung Geschäftskunden</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4>Leistungen</h4>
+          <ul class="footer-links">
+            <li><a href="index.html#externe_Personalabteilung">Externe Personalabteilung</a></li>
+            <li><a href="index.html#Ausbildungspartner">Ausbildungen &amp; Coaching</a></li>
+            <li><a href="bremskloetze.html#social-recruiting">Social Recruiting Agentur</a></li>
+            <li><a href="index.html#Social_Recruiting_Agentur">Employer Branding Agentur</a></li>
+            <li><a href="index.html#Social_Recruiting_Agentur">Authentische Bilder und Videos</a></li>
+            <li><a href="index.html#Social_Recruiting_Agentur">Employer Branding auf Autopilot</a></li>
+            <li><a href="index.html#personalvermittlung_classic">Personalvermittlung Classic</a></li>
+            <li><a href="index.html#konzept_beratungen">Konzept-Beratungen</a></li>
+            <li><a href="index.html#HR-on-Demand">HR on Demand</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Links &amp; Rechtliches</h4>
+          <ul class="footer-links">
+            <li><a href="strategie-kennen-lernen.html">Strategie kennenlernen</a></li>
+            <li><a href="bremskloetze.html">Die 5 Recruiting-Bremsklötze (Videos)</a></li>
+            <li><a href="#Referenzen-Anfordern">Referenzen &amp; Kundenschutz</a></li>
+            <li><a href="images/AGB-Dauerstellenvermittlung-I-magnet-Xs-gmbh.pdf" target="_blank" rel="noopener">AGB Dauerstellenvermittlung (PDF)</a></li>
+            <li><a href="datenschutz.html">Datenschutz</a></li>
+            <li><a href="impressum.html">Impressum</a></li>
+            <li><a href="https://magnet-xs.com" target="_blank" rel="noopener">Dachmarke magnet-Xs gmbh</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>© 2026 magnet-Xs gmbh · Alle Rechte liegen bei magnet-Xs gmbh, Zofingen.</div>
+        <div class="footer-bottom-links">
+          <a href="datenschutz.html">Datenschutz</a>
+          <a href="impressum.html">Impressum</a>
+          <a href="images/AGB-Dauerstellenvermittlung-I-magnet-Xs-gmbh.pdf" target="_blank" rel="noopener">AGB</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Lightbox Modal -->
+  <div class="lightbox-modal" id="lightboxModal" onclick="closeLightbox()">
+    <button type="button" class="lightbox-close" aria-label="Schliessen" onclick="closeLightbox()">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+    <img src="images/1.png" alt="Vollbild-Ansicht" class="lightbox-img" id="lightboxImg" onclick="event.stopPropagation()">
+  </div>
+
+  <script>
+    function toggleMobileMenu() {
+      var drawer = document.getElementById('mobileDrawer');
+      var btn = document.getElementById('burgerBtn');
+      if (drawer && btn) {
+        drawer.classList.toggle('open');
+        btn.classList.toggle('open');
+      }
+    }
+    function closeMobileMenu() {
+      var drawer = document.getElementById('mobileDrawer');
+      var btn = document.getElementById('burgerBtn');
+      if (drawer && btn) {
+        drawer.classList.remove('open');
+        btn.classList.remove('open');
+      }
+    }
+    function openLightbox(src) {
+      var modal = document.getElementById('lightboxModal');
+      var img = document.getElementById('lightboxImg');
+      if (modal && img) {
+        img.src = src;
+        modal.classList.add('active');
+      }
+    }
+    function closeLightbox() {
+      var modal = document.getElementById('lightboxModal');
+      if (modal) {
+        modal.classList.remove('active');
+      }
+    }
+
+    function selectVariant(variantKey) {
+      var validKeys = ['neutraler_Leittext', 'D4_you', 'Ausbildung'];
+      if (validKeys.indexOf(variantKey) === -1) {
+        variantKey = 'neutraler_Leittext';
+      }
+
+      var containers = {
+        'neutraler_Leittext': document.getElementById('neutraler_Leittext'),
+        'D4_you': document.getElementById('Variante_D4_you'),
+        'Ausbildung': document.getElementById('Variante_Ausbildung')
+      };
+      var tabs = {
+        'neutraler_Leittext': document.getElementById('tab_neutraler_Leittext'),
+        'D4_you': document.getElementById('tab_D4_you'),
+        'Ausbildung': document.getElementById('tab_Ausbildung')
+      };
+
+      for (var k in containers) {
+        if (containers[k]) {
+          containers[k].style.display = (k === variantKey) ? 'block' : 'none';
+        }
+        if (tabs[k]) {
+          if (k === variantKey) {
+            tabs[k].classList.add('active');
+          } else {
+            tabs[k].classList.remove('active');
+          }
+        }
+      }
+
+      var topicSelect = document.getElementById('topicSelect');
+      if (topicSelect) {
+        topicSelect.value = variantKey;
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+      var rawSearch = window.location.search || '';
+      var variantMatch = rawSearch.match(/[?&]variant=([^&#?]*)/i);
+      var scrollMatch = rawSearch.match(/[?&]scrollTo=([^&#?]*)/i);
+
+      if (variantMatch && variantMatch[1]) {
+        selectVariant(decodeURIComponent(variantMatch[1]));
+      } else {
+        selectVariant('neutraler_Leittext');
+      }
+
+      var topicSelect = document.getElementById('topicSelect');
+      if (topicSelect) {
+        topicSelect.addEventListener('change', function() {
+          if (this.value === 'D4_you' || this.value === 'Ausbildung' || this.value === 'neutraler_Leittext') {
+            selectVariant(this.value);
+          }
+        });
+      }
+
+      if (scrollMatch && scrollMatch[1]) {
+        var targetId = decodeURIComponent(scrollMatch[1]);
+        var targetEl = document.getElementById(targetId);
+        if (targetEl) {
+          setTimeout(function() {
+            targetEl.scrollIntoView({ behavior: 'smooth' });
+          }, 250);
+        }
+      }
+    });
+
+    /* Formular-Absendung an GCF_contact_form (inkl. Edge-Fallback & Mailto-Sicherung) */
+    document.getElementById('strategyContactForm').addEventListener('submit', async function(e) {
+      e.preventDefault();
+      var btn = document.getElementById('submitBtn');
+      btn.disabled = true;
+      btn.textContent = 'Wird übermittelt...';
+
+      var nameVal = document.getElementById('fullName').value.trim();
+      var companyVal = document.getElementById('companyName').value.trim();
+      var contactVal = document.getElementById('contactChannel').value.trim();
+      var topicEl = document.getElementById('topicSelect');
+      var topicText = topicEl.options[topicEl.selectedIndex].text;
+      var msgVal = document.getElementById('messageText').value.trim();
+      var hpVal = document.getElementById('hpField').value.trim();
+
+      var isEmail = contactVal.indexOf('@') !== -1;
+      var emailField = isEmail ? contactVal : 'telefon-anfrage@mxs-talent-solutions.com';
+      var phoneField = isEmail ? '+41 62 511 21 06' : contactVal;
+
+      var payload = {
+        name: nameVal + (companyVal ? ' (' + companyVal + ')' : ''),
+        email: emailField,
+        phone: phoneField,
+        time: topicText,
+        web: msgVal || ('Kontaktwunsch via ' + contactVal),
+        source: 'mxs-talent-solutions.com (' + topicText + ')',
+        _hp: hpVal
+      };
+
+      var sentOk = false;
+      try {
+        var res = await fetch('https://contact-form-5pzvo6eena-oa.a.run.app', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload)
+        });
+        if (res.ok) {
+          sentOk = true;
+        }
+      } catch (err) {
+        sentOk = false;
+      }
+
+      if (!sentOk) {
+        try {
+          var edgeRes = await fetch('/api/contact', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(payload)
+          });
+          if (edgeRes.ok) {
+            sentOk = true;
+          }
+        } catch (err2) {
+          sentOk = false;
+        }
+      }
+
+      if (!sentOk) {
+        var subject = encodeURIComponent('Strategie-Anfrage mXs Talent Solutions: ' + nameVal);
+        var body = encodeURIComponent(
+          'Name: ' + nameVal + '\n' +
+          'Unternehmen: ' + (companyVal || '-') + '\n' +
+          'Kontakt: ' + contactVal + '\n' +
+          'Schwerpunkt: ' + topicText + '\n' +
+          'Nachricht: ' + (msgVal || '-')
+        );
+        window.location.href = 'mailto:recruiting@mxs-talent-solutions.com?subject=' + subject + '&body=' + body;
+      }
+
+      document.getElementById('strategyContactForm').style.display = 'none';
+      document.getElementById('formSuccess').classList.add('active');
+    });
+
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') {
+        closeLightbox();
+        closeMobileMenu();
+      }
+    });
+  </script>
+</body>
+</html>

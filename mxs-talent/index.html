@@ -1,0 +1,1977 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <meta http-equiv="X-XSS-Protection" content="1; mode=block">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <title>mXs Talent Solutions | Externe Personalabteilung, Social Recruiting &amp; Ausbildungspartner</title>
+  <meta name="description" content="Buchen Sie uns als externe Personalabteilung oder Ausbildungspartner. Über 30 Jahre Erfahrung, über 400 Kunden und 4'200 rekrutierte Mitarbeitende. Eine Einheit der magnet-Xs gmbh, Zofingen.">
+  <link rel="icon" type="image/png" href="images/Favicon_mxs_64p_V02.png">
+  <link rel="apple-touch-icon" href="images/cropped-Favicon_mxs_64p.png">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://mxs-talent-solutions.com/">
+  <meta property="og:title" content="mXs Talent Solutions — Externe Personalabteilung &amp; Social Recruiting">
+  <meta property="og:description" content="Erhalten Sie Bewerbungen, die fachlich und charakterlich zu Ihrem Unternehmen passen. Über 30 Jahre Erfahrung mit über 400 Kunden.">
+  <meta property="og:locale" content="de_CH">
+
+  <!-- Google Fonts: Plus Jakarta Sans, Inter & JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      /* Swiss Architectural Canvas (magnet-xs.com) */
+      --bg: #f7f7f4;
+      --surface: #ffffff;
+      --surface-2: #f0f0eb;
+      --surface-hover: #e7e7e1;
+      --border: #e4e4e0;
+      --border-strong: rgba(0, 0, 0, 0.14);
+      --border-hover: rgba(0, 0, 0, 0.22);
+
+      /* Typografie */
+      --text: #121316;
+      --text-muted: #484c56;
+      --text-dim: #787e8e;
+
+      /* Marken-Akzente */
+      --recruiting: #2563eb;
+      --recruiting-dark: #1d4ed8;
+      --recruiting-soft: rgba(37, 99, 235, 0.08);
+      --recruiting-border: rgba(37, 99, 235, 0.24);
+      --acp: #e8781e;
+      --green: #059669;
+      --whatsapp-green: #25d366;
+
+      /* Strikte 2-Radius-Hierarchie (#UI-01) */
+      --radius-sm: 4px;
+      --radius-md: 8px;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+      overflow-x: clip;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      -webkit-font-smoothing: antialiased;
+      overflow-x: clip;
+      min-height: 100vh;
+      line-height: 1.65;
+    }
+
+    h1, h2, h3, h4 {
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      color: var(--text);
+      letter-spacing: -0.025em;
+      line-height: 1.2;
+    }
+
+    a { color: inherit; }
+
+    /* Standard-Fluchtlinie 1100px (#UI-02) */
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      width: 100%;
+      padding: 0 24px;
+      box-sizing: border-box;
+    }
+
+    /* 100% Freistehende Kicker (#UI-01) */
+    .section-kicker,
+    .hero-kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: transparent !important;
+      border: none !important;
+      padding: 0 !important;
+      box-shadow: none !important;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--recruiting);
+      margin-bottom: 12px;
+    }
+
+    /* ── Top-Info-Leiste ── */
+    .topbar {
+      background: #121316;
+      color: #e2e8f0;
+      font-size: 12.5px;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+    .topbar-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 8px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .topbar-back {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: #ffffff;
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.15s ease;
+    }
+    .topbar-back:hover { color: #60a5fa; }
+    .topbar-rating {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: #cbd5e1;
+      font-weight: 500;
+    }
+    .topbar-stars {
+      display: inline-flex;
+      align-items: center;
+      gap: 2px;
+      color: #f59e0b;
+    }
+    .topbar-contact {
+      display: inline-flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .topbar-contact a {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      color: #e2e8f0;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.15s ease;
+    }
+    .topbar-contact a:hover { color: #ffffff; }
+
+    /* ── Sticky Hauptnavigation ── */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(247, 247, 244, 0.94);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      border-bottom: 1px solid var(--border);
+    }
+    .header-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 12px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+    .brand-logo-link {
+      display: inline-flex;
+      align-items: center;
+      text-decoration: none;
+      flex-shrink: 0;
+    }
+    .brand-logo-img {
+      height: 40px;
+      width: auto;
+      object-fit: contain;
+      display: block;
+    }
+    .main-nav {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+    }
+    .main-nav a {
+      font-size: 13.5px;
+      font-weight: 600;
+      color: var(--text-muted);
+      text-decoration: none;
+      transition: color 0.15s ease;
+      white-space: nowrap;
+    }
+    .main-nav a:hover,
+    .main-nav a.active {
+      color: var(--recruiting);
+    }
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      font-family: 'Inter', sans-serif;
+      font-size: 14px;
+      font-weight: 600;
+      padding: 11px 18px;
+      border-radius: var(--radius-md);
+      text-decoration: none;
+      cursor: pointer;
+      transition: all 0.18s ease;
+      border: 1px solid transparent;
+      line-height: 1.2;
+    }
+    .btn-primary {
+      background: var(--recruiting);
+      color: #ffffff;
+      border-color: var(--recruiting-dark);
+      box-shadow: 0 2px 8px rgba(37, 99, 235, 0.22);
+    }
+    .btn-primary:hover {
+      background: var(--recruiting-dark);
+      transform: translateY(-1px);
+      box-shadow: 0 4px 14px rgba(37, 99, 235, 0.3);
+    }
+    .btn-secondary {
+      background: var(--surface);
+      color: var(--text);
+      border-color: var(--border-strong);
+    }
+    .btn-secondary:hover {
+      background: var(--surface-2);
+      border-color: var(--border-hover);
+    }
+    .btn-sm {
+      font-size: 13px;
+      padding: 9px 14px;
+    }
+
+    /* Mobile Burger Toggle */
+    .burger-btn {
+      display: none;
+      width: 40px;
+      height: 40px;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border-strong);
+      background: var(--surface);
+      color: var(--text);
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+    }
+    .burger-btn .icon-close { display: none; }
+    .burger-btn.open .icon-menu { display: none; }
+    .burger-btn.open .icon-close { display: block; }
+
+    .mobile-drawer {
+      display: none;
+      background: var(--surface);
+      border-bottom: 1px solid var(--border-strong);
+      padding: 16px 24px 24px;
+      box-shadow: 0 12px 28px rgba(0,0,0,0.08);
+    }
+    .mobile-drawer.open { display: block; }
+    .mobile-drawer-links {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      margin-bottom: 16px;
+    }
+    .mobile-drawer-links a {
+      padding: 11px 12px;
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--text);
+      text-decoration: none;
+      border-radius: var(--radius-sm);
+      border-bottom: 1px solid rgba(0,0,0,0.04);
+    }
+    .mobile-drawer-links a:hover {
+      background: var(--surface-2);
+      color: var(--recruiting);
+    }
+    .mobile-drawer-cta {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+    .mobile-drawer-cta .full { grid-column: 1 / -1; }
+
+    /* ── Sektionen Allgemein ── */
+    .section-pad {
+      padding: 84px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .section-alt {
+      background: var(--surface);
+    }
+    .section-header {
+      margin-bottom: 44px;
+    }
+    .section-header h2 {
+      font-size: clamp(1.75rem, 3.2vw, 2.45rem);
+      font-weight: 800;
+      margin-bottom: 14px;
+    }
+    .section-header p {
+      color: var(--text-muted);
+      font-size: 16px;
+      max-width: 760px;
+    }
+
+    /* ── Sektion 1: Hero (#externe_Personalabteilung) ── */
+    .hero-section {
+      padding: 68px 0 76px;
+      border-bottom: 1px solid var(--border);
+    }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.08fr 0.92fr;
+      gap: 44px;
+      align-items: center;
+    }
+    .hero-title {
+      font-size: clamp(1.95rem, 3.6vw, 2.75rem);
+      font-weight: 800;
+      line-height: 1.15;
+      margin-bottom: 22px;
+    }
+    .hero-bullets {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 28px;
+    }
+    .hero-bullets li {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      font-size: 15.5px;
+      color: var(--text-muted);
+      line-height: 1.55;
+    }
+    .hero-bullets li svg {
+      width: 20px;
+      height: 20px;
+      color: var(--recruiting);
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    .hero-cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+    .video-frame-card {
+      background: var(--surface);
+      border: 1px solid var(--border-strong);
+      border-radius: var(--radius-md);
+      padding: 10px;
+      box-shadow: 0 12px 32px rgba(18, 19, 22, 0.07);
+    }
+    .video-16x9 {
+      position: relative;
+      width: 100%;
+      padding-bottom: 56.25%;
+      background: #0f172a;
+      border-radius: var(--radius-sm);
+      overflow: hidden;
+    }
+    .video-16x9 iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+    .video-caption {
+      padding: 10px 6px 2px;
+      font-size: 12.5px;
+      color: var(--text-dim);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+    }
+    .hero-subnote {
+      margin-top: 32px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--recruiting);
+      border-radius: var(--radius-md);
+      padding: 20px 24px;
+      font-size: 15px;
+      color: var(--text-muted);
+    }
+
+    /* ── Sektion 2: Über uns & 6 Kennzahlen (#ueber_uns) ── */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 0.95fr 1.05fr;
+      gap: 48px;
+      align-items: center;
+      margin-bottom: 48px;
+    }
+    .about-portrait-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 16px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.04);
+    }
+    .about-portrait-card img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: var(--radius-sm);
+    }
+    .about-text h2 {
+      font-size: clamp(1.55rem, 2.8vw, 2.15rem);
+      margin-bottom: 18px;
+    }
+    .about-tagline {
+      font-size: 17px;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 18px;
+    }
+    .signature-img {
+      height: 54px;
+      width: auto;
+      object-fit: contain;
+      display: block;
+    }
+    .kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+    .kpi-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 26px 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.02);
+    }
+    .kpi-number {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: clamp(1.5rem, 2.5vw, 1.95rem);
+      font-weight: 800;
+      color: var(--recruiting);
+      letter-spacing: -0.02em;
+    }
+    .kpi-label {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text-muted);
+    }
+
+    /* ── Sektion 3: 6 Leistungs-Karten (#Social_Recruiting_Agentur) ── */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .service-card {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 30px 26px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: all 0.2s ease;
+    }
+    .service-card:hover {
+      border-color: var(--recruiting-border);
+      transform: translateY(-2px);
+      box-shadow: 0 10px 24px rgba(0,0,0,0.05);
+    }
+    .service-icon {
+      width: 42px;
+      height: 42px;
+      border-radius: var(--radius-sm);
+      background: var(--recruiting-soft);
+      border: 1px solid var(--recruiting-border);
+      color: var(--recruiting);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 18px;
+    }
+    .service-card h3 {
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+    .service-card p {
+      font-size: 14.5px;
+      color: var(--text-muted);
+      margin-bottom: 14px;
+      line-height: 1.65;
+    }
+    .card-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 13.5px;
+      font-weight: 700;
+      color: var(--recruiting);
+      text-decoration: none;
+      margin-top: 8px;
+    }
+    .card-link:hover { text-decoration: underline; }
+
+    /* ── Sektion 4: Ausbildungspartner & 4 Coaching-Karten (#Ausbildungspartner) ── */
+    .training-banner {
+      background: var(--surface);
+      border: 1px solid var(--border-strong);
+      border-radius: var(--radius-md);
+      padding: 40px;
+      margin-bottom: 36px;
+      box-shadow: 0 4px 18px rgba(0,0,0,0.03);
+    }
+    .training-banner h2 {
+      font-size: clamp(1.65rem, 3vw, 2.25rem);
+      margin-bottom: 20px;
+    }
+    .coaching-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+    }
+    .coaching-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 32px 28px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .coaching-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      align-self: flex-start;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      background: var(--recruiting-soft);
+      color: var(--recruiting);
+      border: 1px solid var(--recruiting-border);
+      border-radius: var(--radius-sm);
+      padding: 4px 10px;
+      margin-bottom: 14px;
+    }
+    .coaching-card h3 {
+      font-size: 20px;
+      margin-bottom: 12px;
+    }
+    .coaching-card p {
+      font-size: 14.5px;
+      color: var(--text-muted);
+      margin-bottom: 12px;
+    }
+
+    /* ── Sektion 5: 5x3 Visuelles Showcase (#showcase) ── */
+    .showcase-block {
+      margin-bottom: 56px;
+      padding-bottom: 48px;
+      border-bottom: 1px solid var(--border);
+    }
+    .showcase-block:last-child {
+      margin-bottom: 0;
+      padding-bottom: 0;
+      border-bottom: none;
+    }
+    .showcase-head {
+      margin-bottom: 24px;
+    }
+    .showcase-head h3 {
+      font-size: clamp(1.35rem, 2.4vw, 1.75rem);
+      margin-bottom: 10px;
+    }
+    .showcase-head p {
+      color: var(--text-muted);
+      font-size: 15px;
+      max-width: 820px;
+      margin-bottom: 8px;
+    }
+    .mobile-swipe-hint {
+      display: none;
+      align-items: center;
+      gap: 6px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--recruiting);
+      margin-bottom: 10px;
+    }
+    .showcase-track {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+    .showcase-item {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 10px;
+      cursor: zoom-in;
+      transition: all 0.2s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    .showcase-item:hover {
+      border-color: var(--recruiting);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+    }
+    .showcase-item img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: var(--radius-sm);
+      object-fit: cover;
+    }
+
+    /* ── Sektion 6: HR on Demand (#HR-on-Demand) ── */
+    .hr-support-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+      margin-bottom: 36px;
+    }
+    .hr-callout {
+      background: var(--surface);
+      border: 1px solid var(--border-strong);
+      border-left: 4px solid var(--recruiting);
+      border-radius: var(--radius-md);
+      padding: 34px 32px;
+      margin-bottom: 24px;
+    }
+    .hr-callout:last-child { margin-bottom: 0; }
+    .hr-callout h3 {
+      font-size: clamp(1.3rem, 2.3vw, 1.65rem);
+      margin-bottom: 12px;
+    }
+    .hr-callout p {
+      font-size: 15.5px;
+      color: var(--text-muted);
+    }
+
+    /* ── Sektion 7: 6 Methodik-Bloecke (#methodik) ── */
+    .methodik-list {
+      display: flex;
+      flex-direction: column;
+      gap: 48px;
+    }
+    .methodik-row {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 40px;
+      align-items: center;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 36px;
+    }
+    .methodik-row.reverse {
+      grid-template-columns: 0.95fr 1.05fr;
+    }
+    .methodik-row.reverse .methodik-media {
+      order: -1;
+    }
+    .methodik-text h3 {
+      font-size: clamp(1.35rem, 2.3vw, 1.75rem);
+      margin-bottom: 10px;
+    }
+    .methodik-sub {
+      font-size: 15.5px;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 14px;
+    }
+    .methodik-text p {
+      font-size: 15px;
+      color: var(--text-muted);
+      margin-bottom: 12px;
+    }
+    .methodik-text p:last-child { margin-bottom: 0; }
+    .methodik-media {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 12px;
+      cursor: zoom-in;
+    }
+    .methodik-media img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: var(--radius-sm);
+    }
+
+    /* ── Sektion 8: Prozess & Zusammenarbeit (#Prozess_und_Zusammenarbeit) ── */
+    .trust-box {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 36px 32px;
+      text-align: center;
+      margin-bottom: 64px;
+    }
+    .trust-box h2 {
+      font-size: clamp(1.35rem, 2.4vw, 1.85rem);
+      margin-bottom: 28px;
+    }
+    .trust-badges {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      align-items: center;
+    }
+    .trust-badge-link {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 18px 20px;
+      transition: all 0.2s ease;
+    }
+    .trust-badge-link:hover {
+      border-color: var(--recruiting);
+      transform: translateY(-2px);
+    }
+    .trust-badge-link img {
+      max-width: 100%;
+      height: auto;
+      max-height: 76px;
+      object-fit: contain;
+    }
+
+    .process-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+      margin-bottom: 24px;
+    }
+    .process-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 30px 28px;
+    }
+    .process-meta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 16px;
+    }
+    .process-step-num {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 24px;
+      font-weight: 800;
+      color: var(--recruiting);
+    }
+    .process-duration-badge {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      font-weight: 700;
+      background: var(--surface-2);
+      border: 1px solid var(--border-strong);
+      border-radius: var(--radius-sm);
+      padding: 4px 10px;
+      color: var(--text);
+    }
+    .process-card h3 {
+      font-size: 18.5px;
+      margin-bottom: 10px;
+    }
+    .process-card p {
+      font-size: 14.5px;
+      color: var(--text-muted);
+    }
+    .process-milestone {
+      background: var(--recruiting-soft);
+      border: 1px solid var(--recruiting-border);
+      border-radius: var(--radius-md);
+      padding: 24px 28px;
+      margin-bottom: 24px;
+      display: flex;
+      align-items: center;
+      gap: 18px;
+    }
+    .process-milestone-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: var(--radius-sm);
+      background: var(--recruiting);
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .process-milestone h3 {
+      font-size: 17px;
+      margin-bottom: 4px;
+    }
+    .process-milestone p {
+      font-size: 14.5px;
+      color: var(--text-muted);
+    }
+    .process-final-card {
+      background: var(--surface);
+      border: 2px solid var(--recruiting);
+      border-radius: var(--radius-md);
+      padding: 32px;
+      margin-bottom: 56px;
+    }
+    .process-final-card h3 {
+      font-size: 20px;
+      margin-bottom: 10px;
+    }
+    .process-final-card p {
+      font-size: 15px;
+      color: var(--text-muted);
+    }
+
+    .quote-cta-banner {
+      position: relative;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      background-color: #0f172a;
+      background-image: linear-gradient(135deg, rgba(15, 23, 42, 0.88) 0%, rgba(30, 58, 138, 0.84) 100%), url('images/a4ce3d14-117b-400a-b0bb-a6461f2c909b.jpeg');
+      background-size: cover;
+      background-position: center;
+      padding: 56px 40px;
+      color: #ffffff;
+      text-align: center;
+    }
+    .quote-cta-text {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: clamp(1.2rem, 2.2vw, 1.55rem);
+      font-weight: 700;
+      line-height: 1.5;
+      max-width: 820px;
+      margin: 0 auto 32px;
+      color: #f8fafc;
+    }
+    .quote-cta-banner h2 {
+      color: #ffffff;
+      font-size: clamp(1.5rem, 2.8vw, 2.1rem);
+      margin-bottom: 20px;
+    }
+    .quote-cta-sub {
+      margin-top: 12px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      color: #cbd5e1;
+    }
+
+    /* ── Globaler Footer ── */
+    .site-footer {
+      background: #121316;
+      color: #cbd5e1;
+      padding: 72px 0 40px;
+      border-top: 1px solid rgba(255,255,255,0.08);
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 1.2fr 1fr 1fr;
+      gap: 36px;
+      padding-bottom: 48px;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+    .footer-col h4 {
+      color: #ffffff;
+      font-size: 14px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: 18px;
+      font-family: 'JetBrains Mono', monospace;
+    }
+    .footer-logo-img {
+      height: 36px;
+      width: auto;
+      margin-bottom: 16px;
+      background: #ffffff;
+      padding: 6px 10px;
+      border-radius: var(--radius-sm);
+    }
+    .footer-address {
+      font-size: 14px;
+      line-height: 1.7;
+      color: #94a3b8;
+      margin-bottom: 16px;
+    }
+    .footer-contact-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      font-size: 14px;
+    }
+    .footer-contact-list a {
+      color: #e2e8f0;
+      text-decoration: none;
+    }
+    .footer-contact-list a:hover { color: #60a5fa; }
+    .footer-contacts-cards {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .footer-person {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: var(--radius-md);
+      padding: 10px 12px;
+    }
+    .footer-person img {
+      width: 52px;
+      height: 52px;
+      border-radius: var(--radius-sm);
+      object-fit: cover;
+      flex-shrink: 0;
+    }
+    .footer-person-name {
+      font-weight: 700;
+      font-size: 14px;
+      color: #ffffff;
+    }
+    .footer-person-role {
+      font-size: 12px;
+      color: #94a3b8;
+    }
+    .footer-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 9px;
+      font-size: 13.5px;
+    }
+    .footer-links a {
+      color: #94a3b8;
+      text-decoration: none;
+      transition: color 0.15s ease;
+    }
+    .footer-links a:hover { color: #ffffff; }
+    .footer-bottom {
+      padding-top: 28px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+      font-size: 13px;
+      color: #64748b;
+    }
+    .footer-bottom-links {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    .footer-bottom-links a {
+      color: #94a3b8;
+      text-decoration: none;
+    }
+    .footer-bottom-links a:hover { color: #ffffff; }
+
+    /* ── Lightbox Modal (1-Tap Vollbild-Zoom) ── */
+    .lightbox-modal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      background: rgba(12, 14, 18, 0.92);
+      backdrop-filter: blur(8px);
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+    .lightbox-modal.active {
+      display: flex;
+    }
+    .lightbox-close {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      width: 44px;
+      height: 44px;
+      border-radius: var(--radius-md);
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.2);
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+    }
+    .lightbox-img {
+      max-width: 94vw;
+      max-height: 88vh;
+      border-radius: var(--radius-md);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+      object-fit: contain;
+    }
+
+    /* ── Responsive Breakpoints (100% Mobile-First) ── */
+    @media (max-width: 960px) {
+      .main-nav,
+      .header-actions {
+        display: none;
+      }
+      .burger-btn {
+        display: inline-flex;
+      }
+      .hero-grid,
+      .about-grid,
+      .methodik-row,
+      .methodik-row.reverse {
+        grid-template-columns: 1fr;
+        gap: 28px;
+      }
+      .methodik-row.reverse .methodik-media {
+        order: 0;
+      }
+      .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .footer-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .topbar-rating {
+        display: none;
+      }
+      .topbar-inner {
+        justify-content: space-between;
+        font-size: 11.5px;
+      }
+      .section-pad {
+        padding: 56px 0;
+      }
+      .hero-section {
+        padding: 40px 0 52px;
+      }
+      .kpi-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+      }
+      .kpi-card {
+        padding: 18px 16px;
+      }
+      .services-grid,
+      .coaching-grid,
+      .hr-support-grid,
+      .process-grid,
+      .trust-badges,
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+      .training-banner,
+      .methodik-row,
+      .quote-cta-banner {
+        padding: 24px 20px;
+      }
+      /* Mobile Touch-Swipe-Slider fuer die 5x3 Showcase-Reihen */
+      .mobile-swipe-hint {
+        display: inline-flex;
+      }
+      .showcase-track {
+        display: flex;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        gap: 14px;
+        padding-bottom: 10px;
+        -webkit-overflow-scrolling: touch;
+      }
+      .showcase-item {
+        flex: 0 0 85%;
+        scroll-snap-align: start;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top-Info-Leiste mit Dachmarken-Ruecklink -->
+  <div class="topbar">
+    <div class="topbar-inner">
+      <a href="https://magnet-xs.com" class="topbar-back">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+        <span>Zurück zu magnet-Xs</span>
+      </a>
+      <div class="topbar-rating">
+        <span class="topbar-stars" aria-hidden="true">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        </span>
+        <span>98 % unserer Kunden bewerten uns mit «Sehr gut»</span>
+      </div>
+      <div class="topbar-contact">
+        <a href="tel:+41625112106" data-slot="phone">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          <span>+41 62 511 21 06</span>
+        </a>
+        <a href="mailto:recruiting@mxs-talent-solutions.com" data-slot="email">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+          <span>recruiting@mxs-talent-solutions.com</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Sticky Hauptnavigation -->
+  <header class="site-header" id="header" data-section="header">
+    <div class="header-inner">
+      <a href="index.html" class="brand-logo-link" aria-label="mXs Talent Solutions Startseite">
+        <img src="images/mxs_Talensolutions_Logo_new_2._HP-Header_ausgerichtet_Green_Talent_V04.png" alt="mXs Talent Solutions Logo" class="brand-logo-img">
+      </a>
+
+      <nav class="main-nav" aria-label="Hauptnavigation">
+        <a href="index.html" class="active">Übersicht</a>
+        <a href="index.html#ueber_uns">Über uns</a>
+        <a href="index.html#Ausbildungspartner">Ausbildung</a>
+        <a href="bremskloetze.html">Methode &amp; Videos</a>
+        <a href="index.html#Prozess_und_Zusammenarbeit">Zusammenarbeit</a>
+        <a href="strategie-kennen-lernen.html#Referenzen-Anfordern">Referenzen</a>
+      </nav>
+
+      <div class="header-actions">
+        <a href="strategie-kennen-lernen.html" class="btn btn-primary btn-sm">
+          <span>Beratung buchen</span>
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+        </a>
+      </div>
+
+      <button type="button" class="burger-btn" id="burgerBtn" aria-label="Menü öffnen" onclick="toggleMobileMenu()">
+        <svg class="icon-menu" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        <svg class="icon-close" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+
+    <div class="mobile-drawer" id="mobileDrawer">
+      <div class="mobile-drawer-links">
+        <a href="index.html" onclick="closeMobileMenu()">Übersicht</a>
+        <a href="index.html#ueber_uns" onclick="closeMobileMenu()">Über uns</a>
+        <a href="index.html#Ausbildungspartner" onclick="closeMobileMenu()">Ausbildung</a>
+        <a href="bremskloetze.html" onclick="closeMobileMenu()">Methode &amp; Videos</a>
+        <a href="index.html#Prozess_und_Zusammenarbeit" onclick="closeMobileMenu()">Zusammenarbeit</a>
+        <a href="strategie-kennen-lernen.html#Referenzen-Anfordern" onclick="closeMobileMenu()">Referenzen</a>
+      </div>
+      <div class="mobile-drawer-cta">
+        <a href="strategie-kennen-lernen.html" class="btn btn-primary full">Beratung buchen (kostenlos)</a>
+        <a href="tel:+41625112106" class="btn btn-secondary">Anrufen</a>
+        <a href="mailto:recruiting@mxs-talent-solutions.com" class="btn btn-secondary">E-Mail</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- ── Sektion 1: Externe Personalabteilung (Hero) ── -->
+    <section id="externe_Personalabteilung" data-section="externe_Personalabteilung" class="hero-section">
+      <div class="container">
+        <div class="hero-grid">
+          <div class="hero-copy">
+            <span class="hero-kicker">EXTERNE PERSONALABTEILUNG &amp; DIGITALES RECRUITING</span>
+            <h1 class="hero-title">Buchen Sie uns als externe Personalabteilung für eine zusätzliche Möglichkeit in der digitalen Rekrutierung.</h1>
+            <ul class="hero-bullets">
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                <span>Erhalten Sie Bewerbungen, die auch effektiv dem gesuchten Profil entsprechen ...</span>
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                <span>Über 30 Jahre Erfahrung mit über 400 Kunden und tausenden von Mitarbeiter-Gesprächen.</span>
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                <span>Von Handwerkern bis Ingenieuren – fragen Sie uns nach Ihren Möglichkeiten.</span>
+              </li>
+            </ul>
+            <div class="hero-cta-row">
+              <a href="strategie-kennen-lernen.html?variant=D4_you" class="btn btn-primary">
+                <span>Info-Gespräch (kostenlos)</span>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+              </a>
+              <a href="https://youtu.be/SpX7dU11fec" target="_blank" rel="noopener" class="btn btn-secondary">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8"/></svg>
+                <span>Video auf YouTube ansehen</span>
+              </a>
+            </div>
+          </div>
+
+          <div class="video-frame-card">
+            <div class="video-16x9">
+              <iframe src="https://player.vimeo.com/video/1020900402?color&amp;autopause=0&amp;loop=0&amp;muted=0&amp;title=1&amp;portrait=1&amp;byline=1&amp;h=fbbbd4d4a8" title="David Hügli im Interview zur modernen Personalgewinnung" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+            </div>
+            <div class="video-caption">
+              <span>Interview mit David Hügli zur modernen Personalgewinnung</span>
+              <span>mXs Talent Solutions</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-subnote">
+          Sie suchen Mitarbeiter, die zu Ihnen passen, mit Ihren Werten übereingehen und deshalb gerne und eigenmotiviert gute Leistungen und Stimmung in Ihr Unternehmen bringen? Dann lassen Sie uns «zusammenkommen» – wir freuen uns auf Sie.
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Sektion 2: Über uns & 6 Kennzahlen (#ueber_uns) ── -->
+    <section id="ueber_uns" data-section="ueber_uns" class="section-pad">
+      <div class="container">
+        <div class="about-grid">
+          <div class="about-portrait-card">
+            <img src="images/Hue_im_Anzug_mit_Beschriftung.png" alt="David Hügli – Wo Technik auf Talent(e) trifft">
+          </div>
+          <div class="about-text">
+            <span class="section-kicker">ÜBER UNS · ERFAHRUNG &amp; KOMPETENZ</span>
+            <h2>In über 30 Jahren haben wir Unternehmen aus den unterschiedlichsten Branchen geholfen, im Laufe der Zeit tausende Mitarbeiter erfolgreich zu rekrutieren.</h2>
+            <p class="about-tagline">David Hügli: Wo Technik auf Talent(e) trifft.</p>
+            <img src="images/Hue-Unterschrift.png" alt="Hü Unterschrift" class="signature-img">
+          </div>
+        </div>
+
+        <div class="kpi-grid">
+          <div class="kpi-card">
+            <div class="kpi-number">Mehr als 400</div>
+            <div class="kpi-label">Kunden</div>
+          </div>
+          <div class="kpi-card">
+            <div class="kpi-number">Über 4'200</div>
+            <div class="kpi-label">Mitarbeiter rekrutiert</div>
+          </div>
+          <div class="kpi-card">
+            <div class="kpi-number">Mehr als 56</div>
+            <div class="kpi-label">verschiedene Branchen</div>
+          </div>
+          <div class="kpi-card">
+            <div class="kpi-number">Mehr als 6'000</div>
+            <div class="kpi-label">Interviews</div>
+          </div>
+          <div class="kpi-card">
+            <div class="kpi-number">Über 20'000</div>
+            <div class="kpi-label">Bewerbungen generiert</div>
+          </div>
+          <div class="kpi-card">
+            <div class="kpi-number">Über 2'500</div>
+            <div class="kpi-label">Interview-Stunden</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Sektion 3: Die 6 Leistungs-Karten (#Social_Recruiting_Agentur) ── -->
+    <section id="Social_Recruiting_Agentur" data-section="Social_Recruiting_Agentur" class="section-pad section-alt">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-kicker">AGENTUR-LEISTUNGEN &amp; KONZEPT-BERATUNG</span>
+          <h2>Massgeschneiderte Lösungen für Ihre Personalgewinnung</h2>
+          <p>Von gezielten Social-Recruiting-Kampagnen bis zum vollautomatisierten Employer Branding und Konzept-Beratungen.</p>
+        </div>
+
+        <div class="services-grid">
+          <!-- Karte 1 -->
+          <div class="service-card">
+            <div>
+              <div class="service-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+              </div>
+              <h3>Social Recruiting Agentur</h3>
+              <p>Maximieren Sie Ihre Reichweite und finden Sie qualifizierte Kandidaten, die auch von Ihren Wertvorstellungen her zu Ihnen passen. Das Ganze klappt mittels gezielter Social Media Kampagnen. Unsere Agentur bringt Ihr Recruiting noch tiefer ins digitale Zeitalter.</p>
+            </div>
+            <a href="bremskloetze.html#social-recruiting" class="card-link">
+              <span>Mehr erfahren</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            </a>
+          </div>
+
+          <!-- Karte 2 -->
+          <div class="service-card">
+            <div>
+              <div class="service-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              </div>
+              <h3>Employer Branding Agentur</h3>
+              <p>Stärken Sie Ihre Arbeitgebermarke und ziehen Sie Top-Talente an, die sich mit Ihren Unternehmenswerten identifizieren. Wir schaffen gezielte Employer-Branding-Kampagnen, die Ihre Arbeitgeberattraktivität steigern und Ihr Unternehmen als bevorzugten Arbeitgeber positionieren.</p>
+            </div>
+            <a href="strategie-kennen-lernen.html?variant=D4_you" class="card-link">
+              <span>Mehr erfahren</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            </a>
+          </div>
+
+          <!-- Karte 3 -->
+          <div class="service-card">
+            <div>
+              <div class="service-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+              </div>
+              <h3>Employer Branding: authentische Bilder und Videos</h3>
+              <p>Zeigen Sie, was Ihr Unternehmen wirklich ausmacht, mit authentischen Foto- und Video-Inhalten, die Ihre Kultur und Ihre Werte widerspiegeln. Wir kreieren für Sie überzeugende visuelle Geschichten, die Ihr Employer Branding stärken und Ihre Attraktivität als Arbeitgeber erlebbar und damit greifbar machen.</p>
+            </div>
+            <a href="strategie-kennen-lernen.html?variant=D4_you" class="card-link">
+              <span>Mehr erfahren</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            </a>
+          </div>
+
+          <!-- Karte 4 -->
+          <div class="service-card">
+            <div>
+              <div class="service-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+              </div>
+              <h3>Employer Branding auf Autopilot</h3>
+              <p>Wir automatisieren Ihr Employer Branding mit KI-Tools, die Ihre Inhalte vervielfältigen und optimieren. Erreichen Sie mehr Kandidaten durch massgeschneiderte Inhalte, ohne zusätzlichen Aufwand.</p>
+              <p>Wir kümmern uns für Sie um den gesamten Prozess. So gewinnen Sie Zeit für sich.</p>
+            </div>
+            <a href="strategie-kennen-lernen.html?variant=D4_you" class="card-link">
+              <span>Mehr erfahren</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            </a>
+          </div>
+
+          <!-- Karte 5 -->
+          <div class="service-card" id="personalvermittlung_classic">
+            <div>
+              <div class="service-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+              </div>
+              <h3>KI-gestützte Employer-Branding-Kampagnen &amp; Klassische Personalvermittlung</h3>
+              <p>Ihr individuelles Konzept, um KI-gestützt authentische Kampagnen zu lancieren, die Ihre Werte aufzeigen.</p>
+              <p>In ausgewählten Fällen übernehmen wir für Sie auch Mandate als klassischer Personalvermittler.</p>
+            </div>
+            <a href="strategie-kennen-lernen.html?variant=D4_you" class="card-link">
+              <span>Mehr erfahren</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            </a>
+          </div>
+
+          <!-- Karte 6 -->
+          <div class="service-card" id="konzept_beratungen">
+            <div>
+              <div class="service-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+              </div>
+              <h3>Konzept-Beratungen für die Personalsuche</h3>
+              <p>Dank 30 Jahren Erfahrung profitieren Sie bei uns von individuell auf Sie massgeschneiderten Konzepten und Umsetzungsplänen.</p>
+            </div>
+            <a href="strategie-kennen-lernen.html?variant=D4_you" class="card-link">
+              <span>Mehr erfahren</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Sektion 4: Ausbildungspartner & 4 Coaching-Karten (#Ausbildungspartner) ── -->
+    <section id="Ausbildungspartner" data-section="Ausbildungspartner" class="section-pad">
+      <div class="container">
+        <div class="training-banner">
+          <span class="section-kicker">AUSBILDUNGSPARTNER &amp; INHOUSE-TRAINING</span>
+          <h2>Buchen Sie uns als Ihren Ausbildungspartner und etablieren das Know-How direkt in Ihrem Unternehmen.</h2>
+          <ul class="hero-bullets">
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+              <span>Profitieren Sie von massgeschneiderten Schulungen zur modernen Personalgewinnung für Ihr Team.</span>
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+              <span>Lernen Sie praxisorientierte und wirksame Strategien zur digitalen Rekrutierung und Kandidatenansprache.</span>
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+              <span>Optimieren Sie Ihre internen Prozesse und steigern Sie nachhaltig Ihre Einstellungsquote.</span>
+            </li>
+          </ul>
+          <div class="hero-cta-row">
+            <a href="strategie-kennen-lernen.html?variant=Ausbildung" class="btn btn-primary">
+              <span>Info-Gespräch (kostenlos)</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            </a>
+            <a href="https://youtu.be/SpX7dU11fec" target="_blank" rel="noopener" class="btn btn-secondary">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8"/></svg>
+              <span>Video auf YouTube ansehen</span>
+            </a>
+          </div>
+          <p style="font-size: 14.5px; color: var(--text-muted);">
+            Sie suchen Mitarbeiter, die zu Ihnen passen, mit Ihren Werten übereingehen und deshalb gerne und eigenmotiviert gute Leistungen und Stimmung in Ihr Unternehmen bringen? Dann lassen Sie uns «zusammenkommen» – wir freuen uns auf Sie.
+          </p>
+        </div>
+
+        <div class="coaching-grid">
+          <div class="coaching-card">
+            <div>
+              <span class="coaching-badge">Modul 01 · Komplett-Training</span>
+              <h3>Coaching: Kompletter Funnel-Aufbau</h3>
+              <p>Lernen Sie Schritt für Schritt, wie Sie einen kompletten Online-Recruiting-Funnel von Grund auf aufbauen. Von der technischen Umsetzung bis hin zu den fertigen Inhalten – wir begleiten Sie auf dem Weg zum Erfolg. Nach dem Coaching wissen Sie, wie Sie den gesamten Prozess eigenständig wiederholen können.</p>
+              <p>Das Ergebnis ist, dass Sie selbst wissen, wie Sie, mit diesem Vorgehen, in der heutigen Zeit online die richtigen Menschen für Ihre Stelle und Firma begeistern und natürlich dann auch einstellen können.</p>
+            </div>
+            <a href="strategie-kennen-lernen.html?variant=Ausbildung" class="card-link">
+              <span>Mehr erfahren</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            </a>
+          </div>
+
+          <div class="coaching-card">
+            <div>
+              <span class="coaching-badge">Modul 02 · Hybrid-Modell</span>
+              <h3>Hybrid-Coaching: Funnel-Inhalte optimieren</h3>
+              <p>Wir kümmern uns um die technische Einrichtung Ihres Recruiting-Funnels, während Sie lernen, die passenden Inhalte zu erstellen und einzubinden. Nach dem Coaching sind Sie in der Lage, den Prozess selbstständig fortzusetzen und den oder die Funnel immer neu zu generieren und effizient zu optimieren.</p>
+              <p>Das Ergebnis ist, dass Sie selbst wissen, wie Sie, mit diesem Vorgehen, in der heutigen Zeit online die richtigen Menschen für Ihre Stelle und Firma begeistern und natürlich dann auch einstellen können.</p>
+            </div>
+            <a href="strategie-kennen-lernen.html?variant=Ausbildung" class="card-link">
+              <span>Mehr erfahren</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            </a>
+          </div>
+
+          <div class="coaching-card">
+            <div>
+              <span class="coaching-badge">Modul 03 · Reichweite &amp; Content</span>
+              <h3>Coaching: Social Media Training</h3>
+              <p>Entdecken Sie die Kraft sozialer Medien für Ihr Recruiting. In unserem praxisnahen Training zeigen wir Ihnen, wie Sie die richtigen Plattformen für Ihre Zielgruppe auswählen und effektiv nutzen.</p>
+              <p>Von der Erstellung ansprechender Inhalte bis zur gezielten Ansprache potenzieller Kandidaten – wir vermitteln Ihnen alle nötigen Skills.</p>
+              <p>Nach dem Training sind Sie in der Lage, eine überzeugende Social-Media-Präsenz für Ihr Unternehmen aufzubauen und zeitsparend zu pflegen, wodurch Sie Ihre Wunschkandidaten gezielt ansprechen und anziehen.</p>
+            </div>
+            <a href="strategie-kennen-lernen.html?variant=Ausbildung" class="card-link">
+              <span>Mehr erfahren</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            </a>
+          </div>
+
+          <div class="coaching-card">
+            <div>
+              <span class="coaching-badge">Modul 04 · KI-Beschleunigung</span>
+              <h3>Coaching: KI-gestütztes Employer Branding</h3>
+              <p>Nutzen Sie die Möglichkeiten künstlicher Intelligenz, um Ihr Employer Branding auf ein neues Level zu heben. In unserem innovativen Coaching lernen Sie, wie KI-Tools Ihre Arbeitgebermarke analysieren, optimieren und gezielt positionieren können. Von der Erstellung massgeschneiderter Inhalte bis zur datengesteuerten Zielgruppenansprache – wir zeigen Ihnen, wie Sie KI effektiv und zeitsparend einsetzen. Nach dem Training können Sie modernste Technologien nutzen, um Ihr Unternehmen als attraktiven Arbeitgeber zu präsentieren und die besten Talente anzuziehen.</p>
+            </div>
+            <a href="strategie-kennen-lernen.html?variant=Ausbildung" class="card-link">
+              <span>Mehr erfahren</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Sektion 5: Visuelles Showcase (5x3 Reihen mit Mobile-Swipe & Lightbox) (#showcase) ── -->
+    <section id="showcase" data-section="showcase" class="section-pad section-alt">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-kicker">PRAXIS-BEISPIELE &amp; KAMPAGNEN-EINBLICKE</span>
+          <h2>So präsentieren wir Arbeitgeber authentisch und wirksam</h2>
+        </div>
+
+        <!-- Reihe 5.1 -->
+        <div class="showcase-block">
+          <div class="showcase-head">
+            <h3>Gezielte Kampagnen – Mehr qualifizierte Bewerber erreichen</h3>
+            <p>Durch gezielte Social Media Kampagnen erreichen Sie bis zu 95 % der qualifizierten Fachkräfte in Ihrer Region. Anstatt auf traditionelle Jobbörsen zu setzen, führen wir Ihre Anzeigen dorthin, wo sich Ihre zukünftigen Mitarbeiter wirklich aufhalten – auf Social Media. Mit unseren massgeschneiderten Kampagnen sprechen wir exakt die Kandidaten an, die perfekt zu Ihren Anforderungen und Ihrer bestehenden Arbeitskultur passen.</p>
+          </div>
+          <div class="mobile-swipe-hint">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            <span>Horizontal wischen · Bild antippen zum Vergrössern</span>
+          </div>
+          <div class="showcase-track">
+            <div class="showcase-item" onclick="openLightbox('images/2-2-1024x1024.jpg')">
+              <img src="images/2-2-1024x1024.jpg" alt="Kampagnen-Beispiel 1" loading="lazy">
+            </div>
+            <div class="showcase-item" onclick="openLightbox('images/3-2-1024x1024.jpg')">
+              <img src="images/3-2-1024x1024.jpg" alt="Kampagnen-Beispiel 2" loading="lazy">
+            </div>
+            <div class="showcase-item" onclick="openLightbox('images/Social-Media-Teiler-I-StaubZbinden-I-Projektleiter-1-1000x1000-1.png')">
+              <img src="images/Social-Media-Teiler-I-StaubZbinden-I-Projektleiter-1-1000x1000-1.png" alt="Kampagnen-Beispiel Staub &amp; Zbinden Projektleiter" loading="lazy">
+            </div>
+          </div>
+        </div>
+
+        <!-- Reihe 5.2 -->
+        <div class="showcase-block">
+          <div class="showcase-head">
+            <h3>Qualifizierte Bewerber – Vom ersten Kontakt bis zum Gespräch</h3>
+            <p>Unser Service endet nicht bei der Reichweite. Wir helfen Ihnen, nur die Bewerber zu erreichen, die wirklich Interesse und die nötige Qualifikation für Ihre Stelle mitbringen.</p>
+            <p>Durch den Aufbau von Formularen erhalten Sie eine gezielte Vorqualifizierung und erhalten so Bewerber, die schon im ersten Gespräch überzeugen können.</p>
+          </div>
+          <div class="mobile-swipe-hint">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            <span>Horizontal wischen · Bild antippen zum Vergrössern</span>
+          </div>
+          <div class="showcase-track">
+            <div class="showcase-item" onclick="openLightbox('images/Unbenannt-2_3.png')">
+              <img src="images/Unbenannt-2_3.png" alt="Vorqualifizierung Schritt 1" loading="lazy">
+            </div>
+            <div class="showcase-item" onclick="openLightbox('images/Unbenannt-2_2.png')">
+              <img src="images/Unbenannt-2_2.png" alt="Vorqualifizierung Schritt 2" loading="lazy">
+            </div>
+            <div class="showcase-item" onclick="openLightbox('images/Unbenannt-2.png')">
+              <img src="images/Unbenannt-2.png" alt="Vorqualifizierung Schritt 3" loading="lazy">
+            </div>
+          </div>
+        </div>
+
+        <!-- Reihe 5.3 -->
+        <div class="showcase-block">
+          <div class="showcase-head">
+            <h3>Ihr Arbeitgeberimage – Authentisch und überzeugend präsentieren</h3>
+            <p>Was macht Ihr Unternehmen einzigartig? Wir helfen Ihnen, Ihre DNA, Ihre Werte und Ihre Kultur sichtbar zu machen. Mit authentischen Fotos und Videos geben Sie potenziellen Bewerbern einen echten Einblick in Ihr Unternehmen und schaffen Vertrauen und Begeisterung von Anfang an.</p>
+          </div>
+          <div class="mobile-swipe-hint">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            <span>Horizontal wischen · Bild antippen zum Vergrössern</span>
+          </div>
+          <div class="showcase-track">
+            <div class="showcase-item" onclick="openLightbox('images/Unbenannt-2_8.png')">
+              <img src="images/Unbenannt-2_8.png" alt="Arbeitgeberimage Beispiel 1" loading="lazy">
+            </div>
+            <div class="showcase-item" onclick="openLightbox('images/Unbenannt-2_9.png')">
+              <img src="images/Unbenannt-2_9.png" alt="Arbeitgeberimage Beispiel 2" loading="lazy">
+            </div>
+            <div class="showcase-item" onclick="openLightbox('images/Unbenannt-2_7.png')">
+              <img src="images/Unbenannt-2_7.png" alt="Arbeitgeberimage Beispiel 3" loading="lazy">
+            </div>
+          </div>
+        </div>
+
+        <!-- Reihe 5.4 -->
+        <div class="showcase-block">
+          <div class="showcase-head">
+            <h3>Effiziente Karriereseiten – Mehr Bewerber durch digitale – und doch authentische Erlebnisse</h3>
+            <p>Unsere optimierten Karriereseiten bieten potenziellen Bewerbern einen dreidimensionalen Einblick in Ihr Unternehmen. Durch eine benutzerfreundliche, mobil optimierte Bewerbungserfahrung verwandeln wir bis zu 50 % der Besucher in wirklich interessierte Bewerber.</p>
+          </div>
+          <div class="mobile-swipe-hint">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            <span>Horizontal wischen · Bild antippen zum Vergrössern</span>
+          </div>
+          <div class="showcase-track">
+            <div class="showcase-item" onclick="openLightbox('images/Unbenannt-2_11.png')">
+              <img src="images/Unbenannt-2_11.png" alt="Karriereseite Einblick 1" loading="lazy">
+            </div>
+            <div class="showcase-item" onclick="openLightbox('images/Unbenannt-2_10.png')">
+              <img src="images/Unbenannt-2_10.png" alt="Karriereseite Einblick 2" loading="lazy">
+            </div>
+            <div class="showcase-item" onclick="openLightbox('images/Unbenannt-2_12.png')">
+              <img src="images/Unbenannt-2_12.png" alt="Karriereseite Einblick 3" loading="lazy">
+            </div>
+          </div>
+        </div>
+
+        <!-- Reihe 5.5 -->
+        <div class="showcase-block">
+          <div class="showcase-head">
+            <h3>Langfristiger Erfolg durch nahbares Personalmarketing</h3>
+            <p>Haben Sie sich jemals gefragt, warum Mitarbeiter Höchstleistungen erbringen? Es liegt daran, dass sie in einem Unternehmen arbeiten, das ihre Werte und Überzeugungen widerspiegelt. Unser authentisches Personalmarketing hebt diese Einzigartigkeit hervor und zieht genau die Bewerber an, die perfekt zu Ihrem Unternehmen passen. Das Resultat: motivierte Mitarbeiter, gute Stimmung unter den Mitarbeitern, damit automatisch eine bessere Leistung und langfristiger Erfolg.</p>
+          </div>
+          <div class="mobile-swipe-hint">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            <span>Horizontal wischen · Bild antippen zum Vergrössern</span>
+          </div>
+          <div class="showcase-track">
+            <div class="showcase-item" onclick="openLightbox('images/39edea0c-f2f3-4be7-8140-501a27b2dc78.jpeg')">
+              <img src="images/39edea0c-f2f3-4be7-8140-501a27b2dc78.jpeg" alt="Nahbares Personalmarketing 1" loading="lazy">
+            </div>
+            <div class="showcase-item" onclick="openLightbox('images/6deca7dd-0188-4289-814c-e9821c2d63a4.jpeg')">
+              <img src="images/6deca7dd-0188-4289-814c-e9821c2d63a4.jpeg" alt="Nahbares Personalmarketing 2" loading="lazy">
+            </div>
+            <div class="showcase-item" onclick="openLightbox('images/545cdbe7-b92b-4518-adce-5f243a3dfc14.jpeg')">
+              <img src="images/545cdbe7-b92b-4518-adce-5f243a3dfc14.jpeg" alt="Nahbares Personalmarketing 3" loading="lazy">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Sektion 6: HR on Demand & Team-Entlastung (#HR-on-Demand) ── -->
+    <section id="HR-on-Demand" data-section="HR-on-Demand" class="section-pad">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-kicker">HR ON DEMAND &amp; TEAM-UNTERSTÜTZUNG</span>
+          <h2>Unterstützen Sie Ihr HR-, Marketing- und Employer-Branding-Team dabei:</h2>
+        </div>
+
+        <div class="hr-support-grid">
+          <div class="coaching-card">
+            <div>
+              <h3>Ihr Recruiting authentisch und wirkungsvoll zu digitalisieren und zu stärken</h3>
+              <p>Mit unserer Unterstützung bringen Sie Ihr Recruiting auf das nächste Level. Wir helfen Ihnen dabei, authentische Verbindungen zu potenziellen Bewerbern zu schaffen, indem wir ehrliche und gezielte Kommunikation in den Vordergrund stellen. Gemeinsam setzen wir moderne Tools ein, die es Ihnen ermöglichen, die richtigen Talente zu finden und zu binden – ohne dabei Ihre Authentizität zu verlieren.</p>
+            </div>
+            <a href="strategie-kennen-lernen.html?variant=neutraler_Leittext" class="card-link">
+              <span>Mehr erfahren</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            </a>
+          </div>
+
+          <div class="coaching-card">
+            <div>
+              <h3>Eine starke und glaubwürdige Arbeitgebermarke digital aufzubauen</h3>
+              <p>Wir stehen Ihnen zur Seite, um Ihre Arbeitgebermarke authentisch sichtbar und erlebbar zu machen. Durch den Einsatz moderner Algorithmen und gezielter digitaler Strategien sorgen wir dafür, dass Ihre Botschaften die richtigen Kandidaten erreichen. So schaffen wir gemeinsam eine starke und authentische Marke, die Vertrauen aufbaut und Ihre Werte klar kommuniziert.</p>
+            </div>
+            <a href="strategie-kennen-lernen.html?variant=neutraler_Leittext" class="card-link">
+              <span>Mehr erfahren</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="hr-callout">
+          <h3>Warum: ... das Posten der üblichen Stellenanzeigen auf Social Media ... und der Einsatz von flachen Quiz-Frage-Formularen nicht mehr reicht ...</h3>
+          <p>In Zeiten des Fachkräftemangels ist es für Unternehmen nicht mehr ausreichend, einfache Stellenanzeigen auf Plattformen wie Facebook und Instagram zu schalten. Spätestens seit diesem Jahr ist es unerlässlich, digitales Recruiting ganzheitlich zu betrachten. Dies beginnt nicht nur bei der Ausgestaltung der Stellenanzeigen, sondern geht weit darüber hinaus – bis hin zur strategischen Planung von Werbeanzeigen, die gezielt auf die Bedürfnisse und Wünsche der Bewerber ausgerichtet sind. Es erfordert einen durchdachten Einstellungsprozess, der auf die aktuelle Bewerberlandschaft abgestimmt ist und moderne Technologien effektiv nutzt, um nachhaltige Erfolge im Recruiting zu erzielen.</p>
+        </div>
+
+        <div class="hr-callout">
+          <h3>HR on Demand — Wir sind Ihre Personalabteilung auf Zeit – genau so lange wie Sie uns benötigen</h3>
+          <p>Buchen Sie einfach das, was Sie benötigen und so lange es Ihnen einen Mehrwert bietet. Sie bestimmen, ob Sie den kompletten Recruitingprozess, angefangen von der Formulierung der Stellenbeschreibung bis hin zu interessierten und interviewten Kandidaten, buchen wollen. Oder ob Sie zum Beispiel ab Bewerbungseingang den Prozess selbst in die Hand nehmen wollen. Sie bestimmen, was Ihnen dient.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Sektion 7: Die 6 Methodik-Blöcke (#methodik) ── -->
+    <section id="methodik" data-section="methodik" class="section-pad section-alt">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-kicker">METHODIK, ALGORITHMEN &amp; PSYCHOLOGIE</span>
+          <h2>Warum unsere Recruiting-Systeme zuverlässig Ergebnisse liefern</h2>
+        </div>
+
+        <div class="methodik-list">
+          <!-- 7.1 -->
+          <div class="methodik-row">
+            <div class="methodik-text">
+              <span class="section-kicker">01 · REGIONALE OMNIPRÄSENZ</span>
+              <h3>Recruiting-Kampagnen für Ihren Erfolg</h3>
+              <div class="methodik-sub">Wir machen Sie bei 95 % aller Fachkräfte Ihrer Region auf dem mobilen Endgerät sichtbar</div>
+              <p>Durch den Einsatz der relevanten digitalen Plattformen spielen wir für Sie Ihre offenen Stellen im gesamten Internet aus. So erzielen Sie eine Omnipräsenz in Ihrer Region, die Ihnen niemand so schnell nachmachen kann. Nutzen auch Sie die Kraft und die versteckten Möglichkeiten der Algorithmen.</p>
+            </div>
+            <div class="methodik-media" onclick="openLightbox('images/2da8cf40-b1a0-422e-8ece-1de98311a847_TR.png')">
+              <img src="images/2da8cf40-b1a0-422e-8ece-1de98311a847_TR.png" alt="95 Prozent Sichtbarkeit bei Fachkräften in Ihrer Region" loading="lazy">
+            </div>
+          </div>
+
+          <!-- 7.2 -->
+          <div class="methodik-row reverse">
+            <div class="methodik-text">
+              <span class="section-kicker">02 · DATENMUSTER &amp; ALGORITHMEN</span>
+              <h3>Digitale Muster Künstlicher Intelligenz nutzen</h3>
+              <div class="methodik-sub">Durch gezielte Ansprache auf Basis digitaler Datenmuster und intelligenter Algorithmen sind Ihre offenen Stellen zur richtigen Zeit am richtigen Ort für die richtigen Kandidaten sichtbar.</div>
+              <p>Durch die Analyse der vielfältigen Datenmuster, die Menschen tagtäglich hinterlassen, und den Einsatz fortschrittlicher Algorithmen können wir Ihre Recruiting-Kampagnen gezielt dort platzieren, wo potenzielle Kandidaten sich aufhalten – und genau dann, wenn sie offen für neue Jobangebote sind.</p>
+            </div>
+            <div class="methodik-media" onclick="openLightbox('images/0b46cf0c-24cf-4c4d-aedf-64eaf15e38af.jpeg')">
+              <img src="images/0b46cf0c-24cf-4c4d-aedf-64eaf15e38af.jpeg" alt="Digitale Muster Künstlicher Intelligenz nutzen" loading="lazy">
+            </div>
+          </div>
+
+          <!-- 7.3 -->
+          <div class="methodik-row">
+            <div class="methodik-text">
+              <span class="section-kicker">03 · HÜRDENFREIER EINSTIEG</span>
+              <h3>Mobil optimiert und unkompliziertes Bewerben</h3>
+              <div class="methodik-sub">Unkompliziertes Bewerben – mit Quiz-Formularen den Prozess spielerisch anstossen</div>
+              <p>Mit unseren mobil optimierten und spielerischen Quiz-Formularen machen wir den Bewerbungsprozess so einfach und einladend wie nie zuvor. Studien zeigen, dass Menschen sich eher bewerben, wenn sie auf kreative und unkomplizierte Weise dazu eingeladen werden. Im Gegensatz zu starren Formularen, die oft zu einem schlechten Benutzererlebnis und damit zum Abbruch führen, bieten unsere Quiz-Formulare eine positive und motivierende Erfahrung – selbst für jene, die kurz zuvor noch gar nicht wussten, dass sie sich bewerben möchten. So wird der Bewerbungsprozess für die richtigen Kandidaten, die zu Ihnen passen, zu einer leichten Entscheidung.</p>
+            </div>
+            <div class="methodik-media" onclick="openLightbox('images/ae2c4681-9f17-4db3-8ea7-635c3dabedc8.jpeg')">
+              <img src="images/ae2c4681-9f17-4db3-8ea7-635c3dabedc8.jpeg" alt="Mobil optimierte Quiz-Formulare" loading="lazy">
+            </div>
+          </div>
+
+          <!-- 7.4 -->
+          <div class="methodik-row reverse">
+            <div class="methodik-text">
+              <span class="section-kicker">04 · GESCHWINDIGKEIT GEWINNT</span>
+              <h3>Einstellen ist heute Marketing oder noch klarer: Es ist Verkauf!</h3>
+              <div class="methodik-sub">Rasches Handeln ist Trumpf – sobald ein Bewerber reagiert, agieren wir (oder Ihr System) für Sie!</div>
+              <p>Wenn potenzielle Kandidaten zur richtigen Zeit die passenden Anzeigen auf ihrem Handy sehen und Interesse entwickeln, haben sie oft nicht alle Bewerbungsunterlagen griffbereit. Damit sie sich trotzdem unkompliziert bewerben können, gestalten wir den Einstieg so einfach wie möglich – ohne Hürden. Denn modernes Rekrutieren ist mehr als nur Personalgewinnung, es ist auch Marketing und das Verkaufen der Position sowie der Unternehmenskultur. Genau deshalb ist es entscheidend, schnell zu reagieren – innerhalb von 12 bis 24 Stunden – und dabei authentisch zu kommunizieren. Das darf im ersten Schritt heute durchaus auch automatisiert sein – in der Folge treten Sie dann möglichst rasch konkret mit Ihren Bewerbern in direkten Kontakt.</p>
+            </div>
+            <div class="methodik-media" onclick="openLightbox('images/742d73ee-7295-4210-9a89-cd7eb544cee4.jpeg')">
+              <img src="images/742d73ee-7295-4210-9a89-cd7eb544cee4.jpeg" alt="Einstellen ist heute Marketing und Verkauf" loading="lazy">
+            </div>
+          </div>
+
+          <!-- 7.5 -->
+          <div class="methodik-row">
+            <div class="methodik-text">
+              <span class="section-kicker">05 · FOKUS AUF TOP-KANDIDATEN</span>
+              <h3>Gewinnen Sie Zeit</h3>
+              <div class="methodik-sub">Wir übernehmen den Part der Vorqualifizierung für Sie</div>
+              <p>Zeit ist heute ein kostbares Gut, besonders für Geschäftsführer und Führungskräfte. Wir reagieren blitzschnell auf Bewerbungen – oft innerhalb weniger Minuten. Unser Ziel: Ihre Firma und die Position aktiv zu «verkaufen», bevor vielversprechende Kandidaten abspringen. Durch effiziente Vorqualifizierung filtern wir die besten Bewerber heraus. So können Sie sich auf die finale Auswahl konzentrieren. Wir übernehmen den zeitintensiven Teil des Recruitingprozesses, damit Sie sich auf Ihre Kernaufgaben fokussieren können. Modernes Recruiting bedeutet nicht nur Personalgewinnung, sondern auch gekonntes Marketing für Ihr Unternehmen.</p>
+            </div>
+            <div class="methodik-media" onclick="openLightbox('images/Zeit_Ball_V02.png')">
+              <img src="images/Zeit_Ball_V02.png" alt="Gewinnen Sie Zeit durch Vorqualifizierung" loading="lazy">
+            </div>
+          </div>
+
+          <!-- 7.6 -->
+          <div class="methodik-row reverse">
+            <div class="methodik-text">
+              <span class="section-kicker">06 · AUTHENTISCHE BEGEISTERUNG</span>
+              <h3>Wir begeistern Interessenten</h3>
+              <div class="methodik-sub">Aus Neugierigen werden überzeugte Bewerber</div>
+              <p>Wenn Interessenten auf Ihre Stellenanzeige stossen, zählt jeder Moment. Wir verstehen: Modernes Recruiting ist Marketing. Deshalb reagieren wir (und unsere Systeme) blitzschnell – oft innerhalb weniger Minuten. Unser Ziel: Ihre Firma und die Position aktiv zu «verkaufen», bevor vielversprechende Kandidaten das Interesse verlieren.</p>
+              <p><strong>Wie machen wir das?</strong> Wir führen authentische Gespräche und erarbeiten Stellenausschreibungen mit authentischen Inhalten, die begeistern. Keine Floskeln, sondern ehrliche Einblicke in Ihr Unternehmen. Wir erzählen Ihre Geschichte, vermitteln Ihre Werte und zeigen, was Sie einzigartig macht. So verwandeln wir flüchtiges Interesse in echte Motivation zur Bewerbung und mit dem Commitment, ein wertvolles Teammitglied in Ihrem Unternehmen zu werden.</p>
+              <p><strong>Ergebnis:</strong> Sie erhalten nicht nur Bewerbungen, sondern überzeugte Kandidaten, die schon vom ersten Kontakt an Feuer und Flamme für Ihr Unternehmen sind. Lassen Sie uns gemeinsam Ihre besten zukünftigen Mitarbeiter begeistern!</p>
+            </div>
+            <div class="methodik-media" onclick="openLightbox('images/76cbf091-6133-4a79-a7fe-5ea19a440a18.jpeg')">
+              <img src="images/76cbf091-6133-4a79-a7fe-5ea19a440a18.jpeg" alt="Aus Neugierigen werden überzeugte Bewerber" loading="lazy">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Sektion 8: Prozess & Zusammenarbeit (#Prozess_und_Zusammenarbeit) ── -->
+    <section id="Prozess_und_Zusammenarbeit" data-section="Prozess_und_Zusammenarbeit" class="section-pad">
+      <div class="container">
+        <!-- Vertrauens-Banner -->
+        <div class="trust-box">
+          <span class="section-kicker">BEWÄHRT IN DER PRAXIS</span>
+          <h2>Ob KMU – ob national bekannte Firmen – oder internationale Konzerne: alle haben uns bereits vertraut</h2>
+          <div class="trust-badges">
+            <a href="strategie-kennen-lernen.html#Referenzen-Anfordern" class="trust-badge-link" title="Referenzen einsehen">
+              <img src="images/Logos_Grau_V02_Firma_lokal_V02.png" alt="Lokale KMU Unternehmen" loading="lazy">
+            </a>
+            <a href="strategie-kennen-lernen.html#Referenzen-Anfordern" class="trust-badge-link" title="Referenzen einsehen">
+              <img src="images/Logos_Grau_V02_Firma_national_V03.png" alt="National bekannte Unternehmen" loading="lazy">
+            </a>
+            <a href="strategie-kennen-lernen.html#Referenzen-Anfordern" class="trust-badge-link" title="Referenzen einsehen">
+              <img src="images/Logos_Grau_V02_Firma_International_V02.png" alt="Internationale Konzerne" loading="lazy">
+            </a>
+          </div>
+        </div>
+
+        <!-- 4+1 Prozess-Schritte -->
+        <div class="section-header">
+          <span class="section-kicker">WIE FUNKTIONIERT UNSERE ZUSAMMENARBEIT?</span>
+          <h2>Arbeitgebermarke stärken, Top-Talente gewinnen: Ihr Weg zum Recruiting-Erfolg</h2>
+        </div>
+
+        <div class="process-grid">
+          <div class="process-card">
+            <div class="process-meta">
+              <span class="process-step-num">1.</span>
+              <span class="process-duration-badge">15 Min.</span>
+            </div>
+            <h3>Kennenlernen und Potenzialanalyse</h3>
+            <p>In einem ersten Gespräch lernen wir Ihr Unternehmen kennen und analysieren gemeinsam Ihr Recruiting-Potenzial. Sie erfahren, wie wir als externe Abteilung Ihr Unternehmen unterstützen können.</p>
+          </div>
+
+          <div class="process-card">
+            <div class="process-meta">
+              <span class="process-step-num">2.</span>
+              <span class="process-duration-badge">60 Min.</span>
+            </div>
+            <h3>Entwicklung Ihrer individuellen Strategie</h3>
+            <p>Basierend auf unserer Analyse erarbeiten wir mit Ihnen eine massgeschneiderte Strategie zur langfristigen Lösung Ihres Fachkräftebedarfs. Sie entscheiden, ob Sie diese Strategie mit uns umsetzen möchten.</p>
+          </div>
+
+          <div class="process-card">
+            <div class="process-meta">
+              <span class="process-step-num">3.</span>
+              <span class="process-duration-badge">90 Min.</span>
+            </div>
+            <h3>Ausarbeitung Ihrer einzigartigen Arbeitgeberpositionierung</h3>
+            <p>Gemeinsam mit unserem Expertenteam arbeiten wir Ihre Alleinstellungsmerkmale als Arbeitgeber heraus. Wir helfen Ihnen, Ihre Stärken zu erkennen und diese überzeugend zu kommunizieren.</p>
+          </div>
+
+          <div class="process-card">
+            <div class="process-meta">
+              <span class="process-step-num">4.</span>
+              <span class="process-duration-badge">1 Tag</span>
+            </div>
+            <h3>Umsetzung in ein überzeugendes digitales Produkt</h3>
+            <p>Wir transformieren die gewonnenen Erkenntnisse in ein wirkungsvolles digitales Recruiting-Instrument. Dieses präsentiert Ihr Unternehmen authentisch und spricht gezielt die richtigen Kandidaten an.</p>
+          </div>
+        </div>
+
+        <div class="process-milestone">
+          <div class="process-milestone-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="20 6 9 17 4 12"/></svg>
+          </div>
+          <div>
+            <h3>Ab hier läuft Ihre Kandidaten-Suche aktiv und kontinuierlich</h3>
+            <p>Wir sind stets miteinander im Austausch und Sie sind laufend und transparent im Bild, was in Ihrer Suche der Status ist.</p>
+          </div>
+        </div>
+
+        <div class="process-final-card">
+          <span class="section-kicker">SCHRITT 5 · LAUFENDE BETREUUNG</span>
+          <h3>Aktives Recruiting als Ihre externe Abteilung</h3>
+          <p>Ab jetzt agieren wir als Ihre externe Recruiting-Abteilung. Wir liefern Ihnen qualifizierte Bewerbungen, sodass Sie sich auf die Auswahl und Einstellung der besten Kandidaten konzentrieren können. Wir bleiben in engem Austausch mit Ihnen, überprüfen laufend den Erfolg unserer Massnahmen und passen diese bei Bedarf an. Unser Ziel ist es, Ihnen nachhaltig die besten Talente für Ihr Unternehmen zu sichern.</p>
+        </div>
+
+        <!-- Zitat & Abschluss-CTA -->
+        <div class="quote-cta-banner">
+          <p class="quote-cta-text">«Mit 30 Jahren Branchenerfahrung erkennen wir die einzigartigen Qualitäten Ihres Unternehmens. Wir helfen Ihnen, diese Werte authentisch zu vermitteln, um Mitarbeiter zu gewinnen, die wirklich zu Ihnen passen und langfristig bleiben.»</p>
+          <h2>Jetzt unsere Strategie und das Vorgehen kennenlernen</h2>
+          <a href="strategie-kennen-lernen.html?variant=neutraler_Leittext" class="btn btn-primary">
+            <span>Strategie kennenlernen</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+          </a>
+          <div class="quote-cta-sub">100 % kostenlos und ohne Verpflichtung</div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Globaler Footer -->
+  <footer class="site-footer" id="footer" data-section="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <img src="images/mxs_Talensolutions_Logo_new_2._HP-Header_ausgerichtet_Green_Talent_V04.png" alt="mXs Talent Solutions" class="footer-logo-img">
+          <div class="footer-address">
+            <strong>mXs Talent Solutions</strong><br>
+            Eine Einheit der magnet-Xs gmbh<br>
+            Vordere Hauptgasse 104<br>
+            4800 CH-Zofingen
+          </div>
+          <ul class="footer-contact-list">
+            <li><a href="tel:+41625112105">+41 62 511 21 05 (Zentrale)</a></li>
+            <li><a href="tel:+41625112106">+41 62 511 21 06 (Direktberatung)</a></li>
+            <li><a href="mailto:recruiting@mxs-talent-solutions.com">recruiting@mxs-talent-solutions.com</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Ihre Ansprechpartner</h4>
+          <div class="footer-contacts-cards">
+            <div class="footer-person">
+              <img src="images/2.jpg" alt="Carmen Caselli" loading="lazy">
+              <div>
+                <div class="footer-person-name">Carmen Caselli</div>
+                <div class="footer-person-role">Beratung Geschäftskunden</div>
+              </div>
+            </div>
+            <div class="footer-person">
+              <img src="images/3.jpg" alt="David Hügli" loading="lazy">
+              <div>
+                <div class="footer-person-name">David Hügli</div>
+                <div class="footer-person-role">Beratung Geschäftskunden</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4>Leistungen</h4>
+          <ul class="footer-links">
+            <li><a href="index.html#externe_Personalabteilung">Externe Personalabteilung</a></li>
+            <li><a href="index.html#Ausbildungspartner">Ausbildungen &amp; Coaching</a></li>
+            <li><a href="bremskloetze.html#social-recruiting">Social Recruiting Agentur</a></li>
+            <li><a href="index.html#Social_Recruiting_Agentur">Employer Branding Agentur</a></li>
+            <li><a href="index.html#Social_Recruiting_Agentur">Authentische Bilder und Videos</a></li>
+            <li><a href="index.html#Social_Recruiting_Agentur">Employer Branding auf Autopilot</a></li>
+            <li><a href="index.html#personalvermittlung_classic">Personalvermittlung Classic</a></li>
+            <li><a href="index.html#konzept_beratungen">Konzept-Beratungen</a></li>
+            <li><a href="index.html#HR-on-Demand">HR on Demand</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Links &amp; Rechtliches</h4>
+          <ul class="footer-links">
+            <li><a href="strategie-kennen-lernen.html?variant=neutraler_Leittext">Strategie kennenlernen</a></li>
+            <li><a href="bremskloetze.html">Die 5 Recruiting-Bremsklötze (Videos)</a></li>
+            <li><a href="strategie-kennen-lernen.html#Referenzen-Anfordern">Referenzen &amp; Kundenschutz</a></li>
+            <li><a href="images/AGB-Dauerstellenvermittlung-I-magnet-Xs-gmbh.pdf" target="_blank" rel="noopener">AGB Dauerstellenvermittlung (PDF)</a></li>
+            <li><a href="datenschutz.html">Datenschutz</a></li>
+            <li><a href="impressum.html">Impressum</a></li>
+            <li><a href="https://magnet-xs.com" target="_blank" rel="noopener">Dachmarke magnet-Xs gmbh</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>© 2026 magnet-Xs gmbh · Alle Rechte liegen bei magnet-Xs gmbh, Zofingen.</div>
+        <div class="footer-bottom-links">
+          <a href="datenschutz.html">Datenschutz</a>
+          <a href="impressum.html">Impressum</a>
+          <a href="images/AGB-Dauerstellenvermittlung-I-magnet-Xs-gmbh.pdf" target="_blank" rel="noopener">AGB</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Lightbox Modal -->
+  <div class="lightbox-modal" id="lightboxModal" onclick="closeLightbox()">
+    <button type="button" class="lightbox-close" aria-label="Schliessen" onclick="closeLightbox()">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+    <img src="images/2-2-1024x1024.jpg" alt="Vollbild-Ansicht" class="lightbox-img" id="lightboxImg" onclick="event.stopPropagation()">
+  </div>
+
+  <script>
+    function toggleMobileMenu() {
+      var drawer = document.getElementById('mobileDrawer');
+      var btn = document.getElementById('burgerBtn');
+      if (drawer && btn) {
+        drawer.classList.toggle('open');
+        btn.classList.toggle('open');
+      }
+    }
+    function closeMobileMenu() {
+      var drawer = document.getElementById('mobileDrawer');
+      var btn = document.getElementById('burgerBtn');
+      if (drawer && btn) {
+        drawer.classList.remove('open');
+        btn.classList.remove('open');
+      }
+    }
+    function openLightbox(src) {
+      var modal = document.getElementById('lightboxModal');
+      var img = document.getElementById('lightboxImg');
+      if (modal && img) {
+        img.src = src;
+        modal.classList.add('active');
+      }
+    }
+    function closeLightbox() {
+      var modal = document.getElementById('lightboxModal');
+      if (modal) {
+        modal.classList.remove('active');
+      }
+    }
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') {
+        closeLightbox();
+        closeMobileMenu();
+      }
+    });
+  </script>
+</body>
+</html>

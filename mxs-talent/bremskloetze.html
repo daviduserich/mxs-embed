@@ -1,0 +1,757 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <meta http-equiv="X-XSS-Protection" content="1; mode=block">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <title>Methode, Recruiting-Videos &amp; Social Recruiting | mXs Talent Solutions</title>
+  <meta name="description" content="Die richtigen Mitarbeiter einstellen statt hoffen &amp; Die 5 Recruiting-Bremsklötze. Erfahren Sie, wie Social Recruiting Ihre Personalgewinnung transformiert.">
+  <link rel="icon" type="image/png" href="images/Favicon_mxs_64p_V02.png">
+  <link rel="apple-touch-icon" href="images/cropped-Favicon_mxs_64p.png">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://mxs-talent-solutions.com/bremskloetze.html">
+  <meta property="og:title" content="Die 5 Recruiting-Bremsklötze &amp; Social Recruiting — mXs Talent Solutions">
+  <meta property="og:description" content="Die richtigen Mitarbeiter einstellen statt hoffen. Lernen Sie die 5 Recruiting-Bremsklötze und unsere Social-Recruiting-Methodik kennen.">
+  <meta property="og:locale" content="de_CH">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #f7f7f4;
+      --surface: #ffffff;
+      --surface-2: #f0f0eb;
+      --border: #e4e4e0;
+      --border-strong: rgba(0, 0, 0, 0.14);
+      --text: #121316;
+      --text-muted: #484c56;
+      --text-dim: #787e8e;
+      --recruiting: #2563eb;
+      --recruiting-dark: #1d4ed8;
+      --recruiting-soft: rgba(37, 99, 235, 0.08);
+      --recruiting-border: rgba(37, 99, 235, 0.24);
+      --radius-sm: 4px;
+      --radius-md: 8px;
+    }
+
+    html { scroll-behavior: smooth; font-size: 16px; overflow-x: clip; }
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      -webkit-font-smoothing: antialiased;
+      overflow-x: clip;
+      min-height: 100vh;
+      line-height: 1.65;
+    }
+
+    h1, h2, h3, h4 {
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      color: var(--text);
+      letter-spacing: -0.025em;
+      line-height: 1.22;
+    }
+
+    a { color: inherit; }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      width: 100%;
+      padding: 0 24px;
+      box-sizing: border-box;
+    }
+
+    .section-kicker,
+    .hero-kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: transparent !important;
+      border: none !important;
+      padding: 0 !important;
+      box-shadow: none !important;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--recruiting);
+      margin-bottom: 12px;
+    }
+
+    .topbar {
+      background: #121316;
+      color: #e2e8f0;
+      font-size: 12.5px;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+    .topbar-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 8px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .topbar-back {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: #ffffff;
+      text-decoration: none;
+      font-weight: 600;
+    }
+    .topbar-back:hover { color: #60a5fa; }
+    .topbar-rating {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: #cbd5e1;
+      font-weight: 500;
+    }
+    .topbar-stars { display: inline-flex; gap: 2px; color: #f59e0b; }
+    .topbar-contact { display: inline-flex; align-items: center; gap: 16px; }
+    .topbar-contact a {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      color: #e2e8f0;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(247, 247, 244, 0.94);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      border-bottom: 1px solid var(--border);
+    }
+    .header-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 12px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+    .brand-logo-link { display: inline-flex; align-items: center; text-decoration: none; }
+    .brand-logo-img { height: 40px; width: auto; object-fit: contain; display: block; }
+    .main-nav { display: flex; align-items: center; gap: 22px; }
+    .main-nav a {
+      font-size: 13.5px;
+      font-weight: 600;
+      color: var(--text-muted);
+      text-decoration: none;
+      white-space: nowrap;
+    }
+    .main-nav a:hover, .main-nav a.active { color: var(--recruiting); }
+    .header-actions { display: flex; align-items: center; gap: 10px; }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      font-family: 'Inter', sans-serif;
+      font-size: 14px;
+      font-weight: 600;
+      padding: 11px 18px;
+      border-radius: var(--radius-md);
+      text-decoration: none;
+      cursor: pointer;
+      transition: all 0.18s ease;
+      border: 1px solid transparent;
+      line-height: 1.2;
+    }
+    .btn-primary {
+      background: var(--recruiting);
+      color: #ffffff;
+      border-color: var(--recruiting-dark);
+      box-shadow: 0 2px 8px rgba(37, 99, 235, 0.22);
+    }
+    .btn-primary:hover { background: var(--recruiting-dark); transform: translateY(-1px); }
+    .btn-secondary {
+      background: var(--surface);
+      color: var(--text);
+      border-color: var(--border-strong);
+    }
+    .btn-secondary:hover { background: var(--surface-2); }
+    .btn-sm { font-size: 13px; padding: 9px 14px; }
+
+    .burger-btn {
+      display: none;
+      width: 40px;
+      height: 40px;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border-strong);
+      background: var(--surface);
+      color: var(--text);
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+    }
+    .burger-btn .icon-close { display: none; }
+    .burger-btn.open .icon-menu { display: none; }
+    .burger-btn.open .icon-close { display: block; }
+
+    .mobile-drawer {
+      display: none;
+      background: var(--surface);
+      border-bottom: 1px solid var(--border-strong);
+      padding: 16px 24px 24px;
+      box-shadow: 0 12px 28px rgba(0,0,0,0.08);
+    }
+    .mobile-drawer.open { display: block; }
+    .mobile-drawer-links { display: flex; flex-direction: column; gap: 4px; margin-bottom: 16px; }
+    .mobile-drawer-links a {
+      padding: 11px 12px;
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--text);
+      text-decoration: none;
+      border-radius: var(--radius-sm);
+      border-bottom: 1px solid rgba(0,0,0,0.04);
+    }
+    .mobile-drawer-cta { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+    .mobile-drawer-cta .full { grid-column: 1 / -1; }
+
+    /* ── Video-Sektionen ── */
+    .video-section {
+      padding: 72px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .video-section.alt {
+      background: var(--surface);
+    }
+    .video-header {
+      margin-bottom: 28px;
+    }
+    .video-header h1,
+    .video-header h2 {
+      font-size: clamp(1.75rem, 3.2vw, 2.45rem);
+      font-weight: 800;
+      margin-bottom: 10px;
+    }
+    .video-header p {
+      font-size: 16px;
+      color: var(--text-muted);
+      max-width: 740px;
+    }
+    .stream-stage {
+      background: var(--surface);
+      border: 1px solid var(--border-strong);
+      border-radius: var(--radius-md);
+      padding: 12px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+    }
+    .video-section.alt .stream-stage {
+      background: var(--bg);
+    }
+    .video-16x9 {
+      position: relative;
+      width: 100%;
+      padding-bottom: 56.25%;
+      background: #0f172a;
+      border-radius: var(--radius-sm);
+      overflow: hidden;
+    }
+    .video-16x9 iframe {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+
+    /* ── Sektion 3: Social Recruiting Vertiefung (#social-recruiting) ── */
+    .sr-section {
+      padding: 84px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .sr-intro {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 44px;
+      align-items: center;
+      margin-bottom: 48px;
+    }
+    .sr-intro h2 {
+      font-size: clamp(1.75rem, 3vw, 2.35rem);
+      margin-bottom: 16px;
+    }
+    .sr-intro p {
+      font-size: 15.5px;
+      color: var(--text-muted);
+      margin-bottom: 16px;
+    }
+    .sr-media-card {
+      background: var(--surface);
+      border: 1px solid var(--border-strong);
+      border-radius: var(--radius-md);
+      padding: 12px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.04);
+    }
+    .sr-media-card img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: var(--radius-sm);
+    }
+    .sr-columns {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 28px;
+      margin-bottom: 40px;
+    }
+    .sr-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 32px 28px;
+    }
+    .sr-card h3 {
+      font-size: 20px;
+      margin-bottom: 18px;
+    }
+    .sr-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    .sr-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      font-size: 14.5px;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+    .sr-list li svg {
+      width: 18px;
+      height: 18px;
+      color: var(--recruiting);
+      flex-shrink: 0;
+      margin-top: 3px;
+    }
+    .sr-cta-box {
+      background: var(--surface);
+      border: 1px solid var(--border-strong);
+      border-left: 4px solid var(--recruiting);
+      border-radius: var(--radius-md);
+      padding: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+    .sr-cta-box p {
+      font-size: 15px;
+      color: var(--text-muted);
+      max-width: 680px;
+      margin-bottom: 8px;
+    }
+
+    /* Footer */
+    .site-footer {
+      background: #121316;
+      color: #cbd5e1;
+      padding: 72px 0 40px;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 1.2fr 1fr 1fr;
+      gap: 36px;
+      padding-bottom: 48px;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+    .footer-col h4 {
+      color: #ffffff;
+      font-size: 14px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: 18px;
+      font-family: 'JetBrains Mono', monospace;
+    }
+    .footer-logo-img {
+      height: 36px;
+      width: auto;
+      margin-bottom: 16px;
+      background: #ffffff;
+      padding: 6px 10px;
+      border-radius: var(--radius-sm);
+    }
+    .footer-address { font-size: 14px; line-height: 1.7; color: #94a3b8; margin-bottom: 16px; }
+    .footer-contact-list { list-style: none; display: flex; flex-direction: column; gap: 8px; font-size: 14px; }
+    .footer-contact-list a { color: #e2e8f0; text-decoration: none; }
+    .footer-contacts-cards { display: flex; flex-direction: column; gap: 12px; }
+    .footer-person {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: var(--radius-md);
+      padding: 10px 12px;
+    }
+    .footer-person img { width: 52px; height: 52px; border-radius: var(--radius-sm); object-fit: cover; }
+    .footer-person-name { font-weight: 700; font-size: 14px; color: #ffffff; }
+    .footer-person-role { font-size: 12px; color: #94a3b8; }
+    .footer-links { list-style: none; display: flex; flex-direction: column; gap: 9px; font-size: 13.5px; }
+    .footer-links a { color: #94a3b8; text-decoration: none; }
+    .footer-links a:hover { color: #ffffff; }
+    .footer-bottom {
+      padding-top: 28px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+      font-size: 13px;
+      color: #64748b;
+    }
+    .footer-bottom-links { display: flex; gap: 20px; }
+    .footer-bottom-links a { color: #94a3b8; text-decoration: none; }
+
+    @media (max-width: 960px) {
+      .main-nav, .header-actions { display: none; }
+      .burger-btn { display: inline-flex; }
+      .sr-intro, .sr-columns { grid-template-columns: 1fr; gap: 28px; }
+      .footer-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 768px) {
+      .topbar-rating { display: none; }
+      .video-section, .sr-section { padding: 52px 0; }
+      .footer-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Topbar -->
+  <div class="topbar">
+    <div class="topbar-inner">
+      <a href="https://magnet-xs.com" class="topbar-back">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m15 18-6-6 6-6"/></svg>
+        <span>Zurück zu magnet-Xs</span>
+      </a>
+      <div class="topbar-rating">
+        <span class="topbar-stars" aria-hidden="true">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        </span>
+        <span>98 % unserer Kunden bewerten uns mit «Sehr gut»</span>
+      </div>
+      <div class="topbar-contact">
+        <a href="tel:+41625112106">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          <span>+41 62 511 21 06</span>
+        </a>
+        <a href="mailto:recruiting@mxs-talent-solutions.com">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+          <span>recruiting@mxs-talent-solutions.com</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Sticky Header -->
+  <header class="site-header" id="header" data-section="header">
+    <div class="header-inner">
+      <a href="index.html" class="brand-logo-link">
+        <img src="images/mxs_Talensolutions_Logo_new_2._HP-Header_ausgerichtet_Green_Talent_V04.png" alt="mXs Talent Solutions Logo" class="brand-logo-img">
+      </a>
+
+      <nav class="main-nav" aria-label="Hauptnavigation">
+        <a href="index.html">Übersicht</a>
+        <a href="index.html#ueber_uns">Über uns</a>
+        <a href="index.html#Ausbildungspartner">Ausbildung</a>
+        <a href="bremskloetze.html" class="active">Methode &amp; Videos</a>
+        <a href="index.html#Prozess_und_Zusammenarbeit">Zusammenarbeit</a>
+        <a href="strategie-kennen-lernen.html#Referenzen-Anfordern">Referenzen</a>
+      </nav>
+
+      <div class="header-actions">
+        <a href="strategie-kennen-lernen.html" class="btn btn-primary btn-sm">
+          <span>Beratung buchen</span>
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+        </a>
+      </div>
+
+      <button type="button" class="burger-btn" id="burgerBtn" aria-label="Menü öffnen" onclick="toggleMobileMenu()">
+        <svg class="icon-menu" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        <svg class="icon-close" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+
+    <div class="mobile-drawer" id="mobileDrawer">
+      <div class="mobile-drawer-links">
+        <a href="index.html" onclick="closeMobileMenu()">Übersicht</a>
+        <a href="index.html#ueber_uns" onclick="closeMobileMenu()">Über uns</a>
+        <a href="index.html#Ausbildungspartner" onclick="closeMobileMenu()">Ausbildung</a>
+        <a href="bremskloetze.html" onclick="closeMobileMenu()">Methode &amp; Videos</a>
+        <a href="index.html#Prozess_und_Zusammenarbeit" onclick="closeMobileMenu()">Zusammenarbeit</a>
+        <a href="strategie-kennen-lernen.html#Referenzen-Anfordern" onclick="closeMobileMenu()">Referenzen</a>
+      </div>
+      <div class="mobile-drawer-cta">
+        <a href="strategie-kennen-lernen.html" class="btn btn-primary full">Beratung buchen</a>
+        <a href="tel:+41625112106" class="btn btn-secondary">Anrufen</a>
+        <a href="mailto:recruiting@mxs-talent-solutions.com" class="btn btn-secondary">E-Mail</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- ── Sektion 1: Die richtigen Mitarbeiter einstellen statt hoffen (#einstellen-statt-hoffen) ── -->
+    <section id="einstellen-statt-hoffen" data-section="einstellen-statt-hoffen" class="video-section">
+      <div class="container">
+        <div class="video-header">
+          <span class="hero-kicker">RECRUITING-STRATEGIE IM VIDEO · TEIL 1</span>
+          <h1>Die richtigen Mitarbeiter einstellen statt hoffen ...</h1>
+          <p>Vom Bremsmodus auf die Schnellstrasse: Wie Sie mit einem klaren digitalen System planbar passende Bewerbungen gewinnen.</p>
+        </div>
+
+        <div class="stream-stage">
+          <div class="video-16x9">
+            <iframe src="https://customer-n7bf7wbodbh080kh.cloudflarestream.com/e351c54f59ca36f35d0f59f79be3407f/iframe?poster=https%3A%2F%2Fcustomer-n7bf7wbodbh080kh.cloudflarestream.com%2Fe351c54f59ca36f35d0f59f79be3407f%2Fthumbnails%2Fthumbnail.jpg%3Ftime%3D%26height%3D600" title="Die richtigen Mitarbeiter einstellen statt hoffen" allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture;" allowfullscreen loading="lazy"></iframe>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Sektion 2: Die 5 Recruiting-Bremsklötze (#die-5-recruiting-bremskloetze) ── -->
+    <section id="die-5-recruiting-bremskloetze" data-section="die-5-recruiting-bremskloetze" class="video-section alt">
+      <div class="container">
+        <div class="video-header">
+          <span class="section-kicker">RECRUITING-ANALYSE IM VIDEO · TEIL 2</span>
+          <h2>Die 5 Recruiting-Bremsklötze</h2>
+          <p>Wie war das nochmals mit den 5 Recruiting-Bremsklötzen? Erfahren Sie, welche unsichtbaren Hürden qualifizierte Kandidaten heute vom Bewerben abhalten – und wie Sie diese lösen.</p>
+        </div>
+
+        <div class="stream-stage">
+          <div class="video-16x9">
+            <iframe src="https://customer-n7bf7wbodbh080kh.cloudflarestream.com/50746188853785c2e5a252a0b152a297/iframe?poster=https%3A%2F%2Fcustomer-n7bf7wbodbh080kh.cloudflarestream.com%2F50746188853785c2e5a252a0b152a297%2Fthumbnails%2Fthumbnail.jpg%3Ftime%3D%26height%3D600" title="Die 5 Recruiting-Bremsklötze" allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture;" allowfullscreen loading="lazy"></iframe>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Sektion 3: Social Recruiting Vertiefung (#social-recruiting / e99_expand_01) ── -->
+    <section id="social-recruiting" data-section="social-recruiting" class="sr-section">
+      <div class="container">
+        <div class="sr-intro">
+          <div>
+            <span class="section-kicker">SOCIAL RECRUITING AGENTUR · VERTIEFUNG</span>
+            <h2>Social Recruiting: Der Schlüssel zu Ihrem Recruiting-Erfolg</h2>
+            <p>In der heutigen digitalen Ära hat sich die Art und Weise, wie Unternehmen Talente finden und anwerben, grundlegend verändert. Social Recruiting ist nicht nur ein Trend, sondern eine Notwendigkeit geworden. Unsere Social Recruiting Agentur steht an der Spitze dieser Revolution und bietet Ihnen massgeschneiderte Lösungen, um die besten Kandidaten für Ihr Unternehmen zu gewinnen.</p>
+            <div style="display: flex; gap: 12px; flex-wrap: wrap; margin-top: 24px;">
+              <a href="strategie-kennen-lernen.html?variant=D4_you" class="btn btn-primary">
+                <span>Kostenloses Beratungsgespräch</span>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+              </a>
+              <a href="index.html" class="btn btn-secondary">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m15 18-6-6 6-6"/></svg>
+                <span>Zurück zur Hauptseite</span>
+              </a>
+            </div>
+          </div>
+
+          <div class="sr-media-card">
+            <img src="images/67b5485a-ad6e-4460-9a43-1e0d2226854b.jpeg" alt="Social Recruiting Agentur mXs Talent Solutions" loading="lazy">
+          </div>
+        </div>
+
+        <div class="sr-columns">
+          <div class="sr-card">
+            <span class="section-kicker">IHRE VORTEILE</span>
+            <h3>Warum Social Recruiting?</h3>
+            <ul class="sr-list">
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="20 6 9 17 4 12"/></svg>
+                <span><strong>Grössere Reichweite:</strong> Erreichen Sie aktiv suchende und passive Kandidaten über verschiedene Social-Media-Plattformen.</span>
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="20 6 9 17 4 12"/></svg>
+                <span><strong>Zielgenaue Ansprache:</strong> Nutzen Sie fortschrittliche Targeting-Optionen, um genau die Kandidaten zu erreichen, die zu Ihren Anforderungen passen.</span>
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="20 6 9 17 4 12"/></svg>
+                <span><strong>Employer Branding:</strong> Präsentieren Sie Ihre Unternehmenskultur und Werte authentisch und attraktiv.</span>
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="20 6 9 17 4 12"/></svg>
+                <span><strong>Kosteneffizienz:</strong> Reduzieren Sie Ihre Recruiting-Kosten im Vergleich zu traditionellen Methoden.</span>
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="20 6 9 17 4 12"/></svg>
+                <span><strong>Schnellere Einstellungsprozesse:</strong> Verkürzen Sie die Zeit von der Stellenausschreibung bis zur Einstellung durch direkte Kommunikationswege.</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="sr-card">
+            <span class="section-kicker">UNSER LEISTUNGSUMFANG</span>
+            <h3>Unsere Dienstleistungen</h3>
+            <ul class="sr-list">
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="20 6 9 17 4 12"/></svg>
+                <span><strong>Strategieentwicklung:</strong> Wir analysieren Ihre Recruiting-Ziele und entwickeln eine massgeschneiderte Social-Media-Strategie.</span>
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="20 6 9 17 4 12"/></svg>
+                <span><strong>Content-Erstellung:</strong> Unser Kreativteam erstellt ansprechende Inhalte, die Ihre Stellenangebote und Unternehmenskultur optimal präsentieren.</span>
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="20 6 9 17 4 12"/></svg>
+                <span><strong>Kampagnenmanagement:</strong> Wir planen, implementieren und optimieren Ihre Social-Media-Kampagnen für maximale Sichtbarkeit und Engagement.</span>
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="20 6 9 17 4 12"/></svg>
+                <span><strong>Kandidaten-Screening:</strong> Nutzen Sie unsere KI-gestützten Tools zur effizienten Vorauswahl geeigneter Bewerber.</span>
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="20 6 9 17 4 12"/></svg>
+                <span><strong>Analytik &amp; Reporting:</strong> Erhalten Sie detaillierte Einblicke in die Performance Ihrer Kampagnen und kontinuierliche Optimierungsvorschläge.</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="sr-cta-box">
+          <div>
+            <p><strong>Bringen Sie Ihr Recruiting auf das nächste Level.</strong> Mit unserer Expertise navigieren Sie sicher durch die digitale Recruiting-Landschaft und sichern sich die Talente, die Ihr Unternehmen voranbringen.</p>
+            <p style="margin-bottom: 0;">Kontaktieren Sie uns noch heute für ein kostenloses Beratungsgespräch und erfahren Sie, wie wir Ihre Recruiting-Herausforderungen in Erfolgsgeschichten verwandeln können.</p>
+          </div>
+          <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+            <a href="strategie-kennen-lernen.html?variant=D4_you" class="btn btn-primary">
+              <span>Beratungsgespräch vereinbaren</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            </a>
+            <a href="index.html" class="btn btn-secondary">Zurück zur Hauptseite</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Globaler Footer -->
+  <footer class="site-footer" id="footer" data-section="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <img src="images/mxs_Talensolutions_Logo_new_2._HP-Header_ausgerichtet_Green_Talent_V04.png" alt="mXs Talent Solutions" class="footer-logo-img">
+          <div class="footer-address">
+            <strong>mXs Talent Solutions</strong><br>
+            Eine Einheit der magnet-Xs gmbh<br>
+            Vordere Hauptgasse 104<br>
+            4800 CH-Zofingen
+          </div>
+          <ul class="footer-contact-list">
+            <li><a href="tel:+41625112105">+41 62 511 21 05 (Zentrale)</a></li>
+            <li><a href="tel:+41625112106">+41 62 511 21 06 (Direktberatung)</a></li>
+            <li><a href="mailto:recruiting@mxs-talent-solutions.com">recruiting@mxs-talent-solutions.com</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Ihre Ansprechpartner</h4>
+          <div class="footer-contacts-cards">
+            <div class="footer-person">
+              <img src="images/2.jpg" alt="Carmen Caselli" loading="lazy">
+              <div>
+                <div class="footer-person-name">Carmen Caselli</div>
+                <div class="footer-person-role">Beratung Geschäftskunden</div>
+              </div>
+            </div>
+            <div class="footer-person">
+              <img src="images/3.jpg" alt="David Hügli" loading="lazy">
+              <div>
+                <div class="footer-person-name">David Hügli</div>
+                <div class="footer-person-role">Beratung Geschäftskunden</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4>Leistungen</h4>
+          <ul class="footer-links">
+            <li><a href="index.html#externe_Personalabteilung">Externe Personalabteilung</a></li>
+            <li><a href="index.html#Ausbildungspartner">Ausbildungen &amp; Coaching</a></li>
+            <li><a href="#social-recruiting">Social Recruiting Agentur</a></li>
+            <li><a href="index.html#Social_Recruiting_Agentur">Employer Branding Agentur</a></li>
+            <li><a href="index.html#Social_Recruiting_Agentur">Authentische Bilder und Videos</a></li>
+            <li><a href="index.html#Social_Recruiting_Agentur">Employer Branding auf Autopilot</a></li>
+            <li><a href="index.html#personalvermittlung_classic">Personalvermittlung Classic</a></li>
+            <li><a href="index.html#konzept_beratungen">Konzept-Beratungen</a></li>
+            <li><a href="index.html#HR-on-Demand">HR on Demand</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Links &amp; Rechtliches</h4>
+          <ul class="footer-links">
+            <li><a href="strategie-kennen-lernen.html">Strategie kennenlernen</a></li>
+            <li><a href="bremskloetze.html">Die 5 Recruiting-Bremsklötze (Videos)</a></li>
+            <li><a href="strategie-kennen-lernen.html#Referenzen-Anfordern">Referenzen &amp; Kundenschutz</a></li>
+            <li><a href="images/AGB-Dauerstellenvermittlung-I-magnet-Xs-gmbh.pdf" target="_blank" rel="noopener">AGB Dauerstellenvermittlung (PDF)</a></li>
+            <li><a href="datenschutz.html">Datenschutz</a></li>
+            <li><a href="impressum.html">Impressum</a></li>
+            <li><a href="https://magnet-xs.com" target="_blank" rel="noopener">Dachmarke magnet-Xs gmbh</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>© 2026 magnet-Xs gmbh · Alle Rechte liegen bei magnet-Xs gmbh, Zofingen.</div>
+        <div class="footer-bottom-links">
+          <a href="datenschutz.html">Datenschutz</a>
+          <a href="impressum.html">Impressum</a>
+          <a href="images/AGB-Dauerstellenvermittlung-I-magnet-Xs-gmbh.pdf" target="_blank" rel="noopener">AGB</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    function toggleMobileMenu() {
+      var drawer = document.getElementById('mobileDrawer');
+      var btn = document.getElementById('burgerBtn');
+      if (drawer && btn) {
+        drawer.classList.toggle('open');
+        btn.classList.toggle('open');
+      }
+    }
+    function closeMobileMenu() {
+      var drawer = document.getElementById('mobileDrawer');
+      var btn = document.getElementById('burgerBtn');
+      if (drawer && btn) {
+        drawer.classList.remove('open');
+        btn.classList.remove('open');
+      }
+    }
+  </script>
+</body>
+</html>
