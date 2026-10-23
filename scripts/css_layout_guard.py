@@ -95,6 +95,20 @@ def enforce_site_css_parity(site_dir: Path, auto_fix: bool = True) -> dict:
         for err in b_errs:
             report["brace_errors"].append(f"{hf.name}: {err}")
 
+        # Guard against aspect-ratio 0px collapse (.video-facade inside padding-bottom container)
+        if re.search(r"\.video-facade\s*\{\s*position:\s*relative;", css):
+            if auto_fix:
+                html = re.sub(
+                    r"\.video-facade\s*\{\s*position:\s*relative;",
+                    ".video-facade {\n      position: absolute;\n      inset: 0;",
+                    html
+                )
+                hf.write_text(html, encoding="utf-8")
+                css = extract_style_content(html)
+                report["missing_classes_fixed"].append(f"{hf.name}: .video-facade (position:absolute)")
+            else:
+                report["brace_errors"].append(f"{hf.name}: .video-facade uses position:relative inside padding-bottom box (0px collapse)")
+
         if hf.name == "index.html":
             continue
 
