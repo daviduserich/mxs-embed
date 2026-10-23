@@ -142,6 +142,8 @@ export async function onRequest(context) {
       'birchmeier': ['bm_sec_7a1c8f3e2d9b4a5f', 'bi_live_ea3776_a1ef'],
       'preview-birchmeier': ['bm_sec_7a1c8f3e2d9b4a5f', 'bi_live_ea3776_a1ef'],
       'mxs-talent': ['mxs-talent_sec_master', 'mxs-talent2026'],
+      'cotra': ['cotra_sec_master', 'cotra2026'],
+      'preview-cotra': ['cotra_sec_master', 'cotra2026'],
       'default': [clientSlug + '_sec_master', clientSlug + '2026']
     };
     const validTokens = clientTokens[rootSegment] || clientTokens[clientSlug] || clientTokens['default'];
@@ -269,6 +271,8 @@ export async function onRequest(context) {
         'birchmeier': ['bm_sec_7a1c8f3e2d9b4a5f', 'bi_live_ea3776_a1ef'],
         'preview-birchmeier': ['bm_sec_7a1c8f3e2d9b4a5f', 'bi_live_ea3776_a1ef'],
         'mxs-talent': ['mxs-talent_sec_master', 'mxs-talent2026'],
+      'cotra': ['cotra_sec_master', 'cotra2026'],
+      'preview-cotra': ['cotra_sec_master', 'cotra2026'],
         'default': [clientSlug + '_sec_master', clientSlug + '2026']
       };
       const validTokens = clientTokens[rootSegment] || clientTokens[clientSlug] || clientTokens['default'];
