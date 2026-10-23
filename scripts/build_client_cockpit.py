@@ -249,13 +249,23 @@ def scan_stellen(client_dir: Path, slug: str, name: str, profile: dict = None):
             }
         }
 
-    html_files = [f for f in sorted(client_dir.glob("*.html")) if f.name != "cockpit.html"]
+    import html as _html
+    def _page_sort_key(p):
+        n = p.name.lower()
+        if n == "index.html": return (0, n)
+        if n in ("strategie-kennen-lernen.html", "strategie.html"): return (1, n)
+        if n in ("impressum.html", "datenschutz.html"): return (9, n)
+        return (2, n)
+    html_files = sorted([f for f in client_dir.glob("*.html") if f.name not in ("cockpit.html", "onboarding.html")], key=_page_sort_key)
     stellen = []
     
     for f in html_files:
         content = f.read_text(encoding="utf-8", errors="ignore")
         title_m = re.search(r'<title>(.*?)</title>', content, re.IGNORECASE)
-        title = title_m.group(1).split("·")[0].split("|")[0].strip() if title_m else f.stem
+        raw_title = _html.unescape(title_m.group(1)) if title_m else f.stem
+        title = raw_title.split("·")[0].split("|")[0].split("—")[0].strip() if title_m else f.stem
+        if f.name == "index.html" and title == name:
+            title = f"{name} (Hauptseite)" 
         
         edge_url = f"https://embed.magnet-xs.ch/{slug}/{f.name}"
         widget_code = (
