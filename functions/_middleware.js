@@ -48,6 +48,9 @@ export async function onRequest(context) {
 
   // 1a. Hostname: mxs-talent-solutions.com (Custom Domain Routing -> /mxs-talent/)
   if (hostname.includes('mxs-talent-solutions.com')) {
+    if (url.pathname.includes('/cockpit')) {
+      return Response.redirect(`https://embed.magnet-xs.ch/mxs-talent/cockpit${url.search}`, 302);
+    }
     let targetPath = url.pathname;
     if (targetPath === '/' || targetPath === '') {
       targetPath = '/mxs-talent/';
