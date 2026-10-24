@@ -23,6 +23,16 @@ REDAKTIONS-HINWEIS FÜR COTRA & WEBPILOT STUDIO:
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@600;700&family=Plus+Jakarta+Sans:wght@700;800&display=swap" rel="stylesheet">
+<script>
+(function(){
+  var p = new URLSearchParams(window.location.search);
+  var inFrame = false;
+  try { inFrame = (window.self !== window.top); } catch (e) { inFrame = true; }
+  if (p.get("embed") === "true" || (inFrame && p.get("standalone") !== "true")) {
+    document.documentElement.classList.add("is-embedded");
+  }
+})();
+</script>
 <style>
 :root{
   --rot:#C3191E;
@@ -318,6 +328,7 @@ body:not(.acp-inspector-on):not(.acp-studio-preview) .capsule-locked{
   gap:16px;
   flex-wrap:wrap;
 }
+html.is-embedded .quiz-progress-shell,
 body.is-embedded .quiz-progress-shell{top:10px}
 .quiz-progress-left{display:flex;align-items:center;gap:12px;font-weight:700;font-size:14.5px}
 .quiz-step-badge{
@@ -609,6 +620,9 @@ footer{background:var(--marine);color:#CBD5E1;padding:48px 20px 90px;font-size:1
 .foot a:hover{color:#fff}
 .foot-unten{max-width:1100px;margin:32px auto 0;padding-top:20px;border-top:1px solid rgba(255,255,255,.14);display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;font-size:13px;color:#94A3B8}
 
+html.is-embedded header,
+html.is-embedded footer,
+html.is-embedded #acp-draft-widget,
 body.is-embedded header,
 body.is-embedded footer,
 body.is-embedded #acp-draft-widget{
@@ -1263,7 +1277,10 @@ body.is-embedded #acp-draft-widget{
         </button>
       </div>
 
-      <p class="klein" data-slot="blitz.sicherheit">100% vertraulich &amp; diskret. Dein aktueller Arbeitgeber erfährt nichts von deiner Anfrage. Sabrina Giorgi meldet sich persönlich innert 72 Stunden.</p>
+      <p class="klein" data-slot="blitz.sicherheit">
+        100% vertraulich &amp; diskret. Dein aktueller Arbeitgeber erfährt nichts von deiner Anfrage. Sabrina Giorgi meldet sich persönlich innert 72 Stunden.<br>
+        <span style="display:inline-block;margin-top:6px;font-size:12.5px;color:#64748B">Mit dem Absenden erklärst du dich mit unserer <a href="https://mxs-talent-solutions.com/datenschutz" target="_blank" rel="noopener noreferrer" style="color:var(--marine);text-decoration:underline;font-weight:600">Datenschutzerklärung</a> einverstanden · Technischer Betreiber dieser Seite: <a href="https://mxs-talent-solutions.com/impressum" target="_blank" rel="noopener noreferrer" style="color:var(--marine);text-decoration:underline;font-weight:600">mXs Talent Solutions / magnet-Xs gmbh (Impressum)</a></span>
+      </p>
     </div>
   </div>
 </section>
@@ -1390,24 +1407,28 @@ body.is-embedded #acp-draft-widget{
   </div>
 </section>
 
-<footer id="footer" data-section="footer">
+<footer id="footer" class="standalone-only-footer">
   <div class="foot">
     <div>
-      <h4>COTRA Autotransport AG</h4>
-      <p>Rütiweg 5 · 5242 Lupfig (AG)<br>Standorte: Lupfig · Strengelbach · Härkingen · Studen · Courgenay</p>
+      <h4>Stellenanbieterin</h4>
+      <p><strong>COTRA Autotransport AG</strong><br>Rütiweg 5 · 5242 Lupfig (AG)<br>Standorte: Lupfig · Strengelbach · Härkingen · Studen · Courgenay<br><a href="https://cotra.ch" target="_blank" rel="noopener noreferrer" style="text-decoration:underline">www.cotra.ch</a></p>
     </div>
     <div>
       <h4>Direktkontakt Fahrpersonal</h4>
-      <p>Sabrina Giorgi · Leiterin Fahrpersonal<br>Tel. +41 56 464 61 11 · personal@cotra.ch</p>
+      <p><strong>Sabrina Giorgi</strong> · Leiterin Fahrpersonal<br>Tel. <a href="tel:+41564646111" target="_top">+41 56 464 61 11</a> · <a href="mailto:personal@cotra.ch">personal@cotra.ch</a></p>
     </div>
     <div>
-      <h4>Rechtliches</h4>
-      <p><a href="https://cotra.ch" target="_blank" rel="noopener noreferrer">cotra.ch</a> · Impressum · Datenschutz</p>
+      <h4>Rechtliches &amp; Seitenbetreiber</h4>
+      <p>
+        <a href="https://mxs-talent-solutions.com/impressum" target="_blank" rel="noopener noreferrer" style="text-decoration:underline;font-weight:600;color:#fff">Impressum</a> ·
+        <a href="https://mxs-talent-solutions.com/datenschutz" target="_blank" rel="noopener noreferrer" style="text-decoration:underline;font-weight:600;color:#fff">Datenschutzerklärung</a><br>
+        <span style="display:inline-block;margin-top:6px;font-size:13px;color:#94A3B8">Betreiber dieser Recruiting-Seite:<br><a href="https://mxs-talent-solutions.com/impressum" target="_blank" rel="noopener noreferrer" style="color:#CBD5E1;text-decoration:underline">mXs Talent Solutions (magnet-Xs gmbh, Zofingen)</a></span>
+      </p>
     </div>
   </div>
   <div class="foot-unten">
-    <span>© 2026 COTRA Autotransport AG · Alle Rechte vorbehalten</span>
-    <span>WebPilot Recruiting-System · mXs TalentMatch</span>
+    <span>© 2026 COTRA Autotransport AG · Recruiting-Seite betrieben durch <a href="https://mxs-talent-solutions.com/impressum" target="_blank" rel="noopener noreferrer" style="color:#CBD5E1;text-decoration:underline">mXs Talent Solutions (magnet-Xs gmbh)</a></span>
+    <span><a href="https://mxs-talent-solutions.com/impressum" target="_blank" rel="noopener noreferrer" style="color:#CBD5E1;text-decoration:underline">Impressum</a> · <a href="https://mxs-talent-solutions.com/datenschutz" target="_blank" rel="noopener noreferrer" style="color:#CBD5E1;text-decoration:underline">Datenschutz</a></span>
   </div>
 </footer>
 
@@ -1916,7 +1937,10 @@ renderSandboxPreview();
 // ============================================================================
 (function() {
   const params = new URLSearchParams(window.location.search);
-  if (params.get("embed") === "true") {
+  var inFrame = false;
+  try { inFrame = (window.self !== window.top); } catch (e) { inFrame = true; }
+  if (params.get("embed") === "true" || (inFrame && params.get("standalone") !== "true")) {
+    document.documentElement.classList.add("is-embedded");
     document.body.classList.add("is-embedded");
   }
   if (params.get("studio") === "true" || params.get("preview") === "all") {
@@ -2063,6 +2087,11 @@ body.acp-swap-mode-active img {
       <button type="button" id="acp-btn-inspector" class="acp-toggle-btn" onclick="acpToggleInspector()">AUS</button>
     </div>
 
+    <div class="acp-panel-row">
+      <span>Header &amp; Footer (Widget-Test):</span>
+      <button type="button" id="acp-btn-widget-sim" class="acp-toggle-btn" onclick="acpToggleWidgetSim()">SICHTBAR</button>
+    </div>
+
     <p class="acp-panel-desc">
       Wenn <strong>AN</strong>: Alle Quiz-Kapseln klappen zur Bearbeitung auf und jeder Klick kopiert den Slot-Befehl.
     </p>
@@ -2083,6 +2112,21 @@ function acpToggleMenu() {
   acpMenuOpen = !acpMenuOpen;
   var panel = document.getElementById("acp-draft-panel");
   if (panel) panel.classList.toggle("is-open", acpMenuOpen);
+}
+
+var acpWidgetSimActive = false;
+function acpToggleWidgetSim() {
+  acpWidgetSimActive = !acpWidgetSimActive;
+  var hdr = document.querySelector("header");
+  var ftr = document.querySelector("footer");
+  if (hdr) hdr.style.display = acpWidgetSimActive ? "none" : "";
+  if (ftr) ftr.style.display = acpWidgetSimActive ? "none" : "";
+  var btn = document.getElementById("acp-btn-widget-sim");
+  if (btn) {
+    btn.textContent = acpWidgetSimActive ? "AUSGEBLENDET (WIDGET)" : "SICHTBAR";
+    btn.classList.toggle("active", acpWidgetSimActive);
+  }
+  notifyParentHeight();
 }
 
 function acpToggleInspector() {
