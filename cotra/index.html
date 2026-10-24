@@ -512,13 +512,13 @@ body.acp-studio-preview .benefit-confirm-box{
 .klein{margin-top:16px;font-size:13.5px;color:var(--grau);text-align:center}
 
 /* Sektion 9: Danke & Sandbox Integrations-Vorschau */
-.danke-sec{background:#F0FDF4;border-top:3px solid var(--gruen)}
+.danke-sec{background:linear-gradient(180deg, #F0FDF4 0%, #F8FAFC 100%);border-top:3px solid var(--gruen)}
 .danke-card{
   background:var(--weiss);
   border:1.5px solid #BBF7D0;
   border-radius:var(--radius);
   padding:36px;
-  box-shadow:var(--shadow);
+  box-shadow:var(--shadow-strong);
   margin-bottom:32px;
 }
 .danke-badge{
@@ -526,7 +526,118 @@ body.acp-studio-preview .benefit-confirm-box{
   background:#DCFCE7;color:#166534;
   padding:6px 12px;border-radius:var(--radius-sm);
   font-family:"JetBrains Mono",monospace;font-size:12px;font-weight:700;
-  margin-bottom:16px;
+  margin-bottom:14px;
+}
+.danke-bento-grid{
+  display:grid;
+  grid-template-columns:1.15fr 0.85fr;
+  gap:28px;
+  margin-top:26px;
+  align-items:stretch;
+}
+.danke-video-box{
+  background:#0F172A;
+  color:#F8FAFC;
+  border-radius:var(--radius);
+  padding:22px;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+  box-shadow:0 14px 32px rgba(15,23,42,0.22);
+}
+.danke-video-frame{
+  position:relative;
+  width:100%;
+  border-radius:var(--radius);
+  overflow:hidden;
+  background:#000;
+  border:1px solid rgba(255,255,255,0.14);
+  aspect-ratio:16/9;
+}
+.danke-video-frame video{
+  width:100%;
+  height:100%;
+  display:block;
+  object-fit:cover;
+}
+.danke-sabrina-box{
+  background:var(--hell);
+  border:1px solid var(--linie);
+  border-radius:var(--radius);
+  padding:24px;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+  gap:18px;
+}
+.danke-sabrina-head{
+  display:flex;
+  align-items:center;
+  gap:16px;
+}
+.danke-sabrina-head img{
+  width:84px;
+  height:84px;
+  border-radius:var(--radius);
+  object-fit:cover;
+  border:2px solid var(--rot);
+  flex-shrink:0;
+}
+.danke-steps-list{
+  list-style:none;
+  display:grid;
+  gap:10px;
+  margin-top:4px;
+}
+.danke-steps-list li{
+  display:flex;
+  align-items:flex-start;
+  gap:10px;
+  font-size:14.5px;
+  color:var(--anthrazit);
+  background:var(--weiss);
+  padding:10px 12px;
+  border-radius:var(--radius);
+  border:1px solid var(--linie);
+}
+.danke-step-num{
+  background:var(--marine);
+  color:#fff;
+  font-family:"JetBrains Mono",monospace;
+  font-size:11.5px;
+  font-weight:700;
+  padding:2px 7px;
+  border-radius:var(--radius-sm);
+  flex-shrink:0;
+  margin-top:2px;
+}
+.danke-wa-handover{
+  margin-top:26px;
+  padding:22px;
+  background:#ECFDF5;
+  border:1.5px solid #6EE7B7;
+  border-radius:var(--radius);
+  display:grid;
+  grid-template-columns:1fr auto;
+  gap:22px;
+  align-items:center;
+}
+.danke-qr-box{
+  background:var(--weiss);
+  border:1px solid #A7F3D0;
+  border-radius:var(--radius);
+  padding:12px 14px;
+  text-align:center;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:6px;
+  min-width:160px;
+}
+.danke-qr-box img{
+  width:116px;
+  height:116px;
+  border-radius:var(--radius-sm);
 }
 
 /* Sandbox-Vorschau-Karte */
@@ -653,7 +764,7 @@ body.is-embedded #acp-draft-widget{
 
 /* Responsive (#UI-13: 375px Anti-Quetsch-Schutz) */
 @media(max-width:960px){
-  .hero-inner, .vorstellung-box, .team-hero-banner, .vorteile-top, .ehrlich-grid, .team-strip, .sandbox-grid{
+  .hero-inner, .vorstellung-box, .team-hero-banner, .vorteile-top, .ehrlich-grid, .team-strip, .sandbox-grid, .danke-bento-grid, .danke-wa-handover{
     grid-template-columns:1fr;
   }
   .ablauf-grid{grid-template-columns:1fr 1fr}
@@ -1293,16 +1404,86 @@ body.is-embedded #acp-draft-widget{
     <div class="danke-card">
       <div class="danke-badge">
         <svg class="svg-icon" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>
-        <span id="danke-channel-badge">Bewerbung erfolgreich erfasst</span>
+        <span id="danke-channel-badge">Fast geschafft · Du bist einen grossen Schritt näher!</span>
       </div>
-      <h2 data-slot="danke.titel" id="danke-headline">Vielen Dank für deine Kurzbewerbung!</h2>
-      <p class="lead" data-slot="danke.text" style="margin-bottom:20px">Wir haben deine Angaben und dein 3-Fragen-Profil erhalten. <strong>Sabrina Giorgi</strong> (Leiterin Fahrpersonal) meldet sich innerhalb von maximal 72 Stunden persönlich bei dir.</p>
-      <div style="display:flex;flex-wrap:wrap;gap:14px;align-items:center">
-        <a id="danke-wa-direct-btn" href="https://wa.me/41796326505" target="_blank" rel="noopener noreferrer" class="btn wa">
-          <svg class="svg-icon" viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
-          <span>Vorbereiteten WhatsApp-Chat öffnen</span>
-        </a>
-        <span style="font-size:14.5px;color:var(--grau)">Direktkontakt Fahrpersonal: <strong>+41 56 464 61 11</strong> · Lupfig AG</span>
+      <span class="eyebrow2" data-slot="danke.eyebrow">// DEIN WEG ZUM LKW-CHAUFFEUR BEI COTRA AUTOTRANSPORT AG</span>
+      <h2 data-slot="danke.titel" id="danke-headline">Vielen Dank für dein Interesse!</h2>
+      <p class="lead" data-slot="danke.text" id="danke-subtext" style="margin-bottom:6px">Wir haben deine Angaben und dein 3-Fragen-Profil erhalten. Schau dir jetzt im kurzen <strong>30-Sekunden-Video</strong> dein künftiges Team an — <strong>Sabrina Giorgi</strong> meldet sich persönlich bei dir.</p>
+
+      <div class="danke-bento-grid">
+        <!-- LINKS: 30-Sekunden Dankes- & Einblick-Video -->
+        <div class="danke-video-box">
+          <div>
+            <span class="eyebrow" style="color:#4ADE80;margin-bottom:8px" data-slot="danke.video.kicker">// 30-SEKUNDEN TEAM- &amp; FLOTTEN-EINBLICK</span>
+            <h3 style="color:#fff;font-size:20px;margin-bottom:14px" data-slot="danke.video.titel">Schau kurz rein: Das erwartet dich auf Tour bei COTRA</h3>
+            <div class="danke-video-frame">
+              <video id="cotra-danke-video" controls playsinline preload="metadata" poster="images/sabrina_lkw.jpg" data-slot="danke.video.player">
+                <source src="videos/cotra-danke-30s.mp4" type="video/mp4">
+                Dein Browser unterstützt keine direkte Videowiedergabe.
+              </video>
+            </div>
+          </div>
+          <p style="font-size:13.5px;color:#94A3B8;margin-top:14px" data-slot="danke.video.caption">
+            Echte Einblicke aus unserem Arbeitsalltag: Moderne Scania- &amp; Mercedes-Flotte, saubere Einarbeitung und jeden Abend garantiert zuhause.
+          </p>
+        </div>
+
+        <!-- RECHTS: Sabrina Giorgi Vorstellung (Seite 08) & 3 nächste Schritte -->
+        <div class="danke-sabrina-box">
+          <div>
+            <span class="eyebrow2" style="margin-bottom:10px" data-slot="danke.sabrina.kicker">// DEINE ANSPRECHPARTNERIN</span>
+            <div class="danke-sabrina-head">
+              <img src="images/sabrina_danke.jpg" alt="Sabrina Giorgi vor COTRA LKWs" data-slot="danke.sabrina.foto">
+              <div>
+                <h3 style="font-size:19px;margin-bottom:2px" data-slot="danke.sabrina.name">Über Sabrina Giorgi</h3>
+                <p style="font-size:13.5px;color:var(--rot);font-weight:700" data-slot="danke.sabrina.rolle">Leiterin Fahrpersonal · COTRA Autotransport AG</p>
+              </div>
+            </div>
+            <p style="font-size:14.5px;color:var(--schiefer);margin-top:12px;line-height:1.55" data-slot="danke.sabrina.bio">
+              Sabrina Giorgi ist seit über 15 Jahren mit Freude und Engagement im Transportgewerbe tätig. Sie fährt selber die Trucks, kennt die Herausforderungen der Strasse aus eigener Erfahrung und freut sich darauf, dich persönlich kennenzulernen.
+            </p>
+          </div>
+
+          <div>
+            <h4 style="font-size:14px;text-transform:uppercase;letter-spacing:0.06em;color:var(--marine);margin-bottom:8px" data-slot="danke.steps.titel">So geht es jetzt für dich weiter:</h4>
+            <ul class="danke-steps-list">
+              <li>
+                <span class="danke-step-num">01</span>
+                <span data-slot="danke.steps.1"><strong>Profil &amp; Match reserviert:</strong> Deine 3 Antworten (<span id="danke-ref-code" style="font-family:'JetBrains Mono',monospace;font-weight:700">Ref #CT-2026</span>) sind bei uns hinterlegt.</span>
+              </li>
+              <li>
+                <span class="danke-step-num">02</span>
+                <span data-slot="danke.steps.2"><strong>Persönliche Rückmeldung:</strong> Sabrina Giorgi meldet sich zu deiner Wunschzeit (spätestens innert 72h).</span>
+              </li>
+              <li>
+                <span class="danke-step-num">03</span>
+                <span data-slot="danke.steps.3"><strong>Kennenlernen auf Augenhöhe:</strong> Unkompliziertes Gespräch &amp; Schnuppertag an deinem Wunsch-Standort.</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- WHATSAPP HANDOVER & EIGENES-HANDY QR-WEICHE -->
+      <div class="danke-wa-handover" id="danke-wa-handover-box">
+        <div>
+          <span class="eyebrow2" style="color:#047857;margin-bottom:6px">// DIREKTKONTAKT MIT DEM EIGENEN HANDY ODER WHATSAPP</span>
+          <h3 style="font-size:18px;color:#065F46;margin-bottom:6px" id="danke-wa-title">Direkter Draht zu Sabrina Giorgi per WhatsApp</h3>
+          <p style="font-size:14.5px;color:#064E3B;margin-bottom:14px" id="danke-wa-desc">
+            Wenn du die vorbereitete Nachricht mit deinem <strong>eigenen Handy</strong> per WhatsApp absendest, wird deine Handynummer automatisch als Absender übermittelt — zusammen mit deinem Match-Code.
+          </p>
+          <div style="display:flex;flex-wrap:wrap;gap:12px;align-items:center">
+            <a id="danke-wa-direct-btn" href="https://wa.me/41796326505" target="_blank" rel="noopener noreferrer" class="btn wa" data-required="whatsapp-cta">
+              <svg class="svg-icon" viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+              <span>Vorbereiteten WhatsApp-Chat jetzt öffnen</span>
+            </a>
+            <span style="font-size:14px;color:#065F46">Oder direkt anrufen: <strong><a href="tel:+41564646111" target="_top" style="color:#065F46;text-decoration:underline">+41 56 464 61 11</a></strong> (Lupfig AG)</span>
+          </div>
+        </div>
+        <div class="danke-qr-box" title="Mit deiner Handy-Kamera scannen, um den fertigen WhatsApp-Text direkt auf deinem eigenen Handy abzusenden">
+          <img id="danke-wa-qr-img" src="https://api.qrserver.com/v1/create-qr-code/?size=160x160&data=https%3A%2F%2Fwa.me%2F41796326505" alt="WhatsApp QR-Code für eigenes Handy">
+          <span style="font-size:11.5px;font-weight:700;color:#065F46;line-height:1.25">Am PC? Mit Handy<br>scannen &amp; senden</span>
+        </div>
       </div>
     </div>
 
@@ -1733,16 +1914,20 @@ function submitCotraApplication(channel) {
   const mail = (mailEl ? mailEl.value.trim() : "");
   const hasCe = (ceEl ? ceEl.checked : true);
 
-  if (!name || !tel) {
+  if (channel === "form" && (!name || !tel)) {
     if (errEl) {
       errEl.style.display = "block";
-      errEl.textContent = "Bitte gib kurz deinen Vor- und Nachnamen sowie deine Handy-Nummer an, damit Sabrina Giorgi dich erreichen kann.";
+      errEl.textContent = "Bitte gib für das Direkt-Formular kurz deinen Vor- und Nachnamen sowie deine Handy-Nummer an (oder nutze den grünen WhatsApp-Button mit deinem eigenen Handy).";
     }
     if (!name && nameEl) nameEl.focus();
     else if (!tel && telEl) telEl.focus();
     return;
   }
   if (errEl) errEl.style.display = "none";
+
+  const effectiveName = name || "WhatsApp-Bewerber (Name via WhatsApp-Profil)";
+  const effectiveTel = tel || "Automatisch via Absender-Handy in WhatsApp";
+  const shortRef = "CT-" + String(COTRA_TRACKER_SESSION.sessionId || "2026").slice(0, 4).toUpperCase();
 
   const f1 = quizState.F01 || 1;
   const f2 = quizState.F02 || 1;
@@ -1756,25 +1941,28 @@ function submitCotraApplication(channel) {
   const quizColValue = "Antworten: 1=" + COTRA_QUIZ_META.F01[f1].title + ", 2=" + COTRA_QUIZ_META.F02[f2].title + ", 3=" + COTRA_QUIZ_META.F03[f3].title +
                        " | " + discInfo.quizColumnString;
 
+  const dankeUrl = window.location.origin + window.location.pathname + "?step=danke&KQ_F01=" + f1 + "&KQ_F02=" + f2 + "&KQ_F03=" + f3;
   const waMessage = "Hoi Sabrina, ich habe gerade das 60-Sekunden-Match als Chauffeur Kat. CE bei COTRA gemacht!\n\n" +
-    "• Name: " + name + "\n" +
-    "• Telefon: " + tel + "\n" +
+    (name ? ("• Name: " + name + "\n") : "") +
+    (tel ? ("• Telefon: " + tel + "\n") : "") +
     "• Wunsch-Standort: " + standort + "\n" +
     "• Beste Erreichbarkeit: " + zeit + "\n" +
     "• Führerausweis Kat. CE: " + (hasCe ? "Ja, vorhanden" : "In Vorbereitung") + "\n\n" +
     "Meine 3 Antworten im Match:\n" +
     "1) " + COTRA_QUIZ_META.F01[f1].title + "\n" +
     "2) " + COTRA_QUIZ_META.F02[f2].title + "\n" +
-    "3) " + COTRA_QUIZ_META.F03[f3].title + "\n" +
-    "(Ref: KQ_F01=" + f1 + " KQ_F02=" + f2 + " KQ_F03=" + f3 + ")";
+    "3) " + COTRA_QUIZ_META.F03[f3].title + "\n\n" +
+    "🎬 Mein 30-Sek.-Team-Video: " + dankeUrl + "\n" +
+    "(Match-Code #" + shortRef + ": KQ_F01=" + f1 + " KQ_F02=" + f2 + " KQ_F03=" + f3 + ")";
 
   const waUrl = "https://wa.me/" + COTRA_INTEGRATION_CONFIG.WHATSAPP_NUMBER + "?text=" + encodeURIComponent(waMessage);
 
   const sheetPayload = {
     timestamp: nowStr,
-    name: name,
+    name: effectiveName,
     email: emailColValue,
-    phone: tel,
+    phone: effectiveTel,
+    ref_code: shortRef,
     contact: contactColValue,
     quiz: quizColValue,
     channel: channel,
@@ -1824,13 +2012,28 @@ function submitCotraApplication(channel) {
   const dHeadline = document.getElementById("danke-headline");
   const dBadge = document.getElementById("danke-channel-badge");
   const dWaBtn = document.getElementById("danke-wa-direct-btn");
-  if (dHeadline) dHeadline.textContent = "Vielen Dank, " + name + "! Deine Angaben sind bereit.";
+  const dRefCode = document.getElementById("danke-ref-code");
+  const dQrImg = document.getElementById("danke-wa-qr-img");
+  if (dHeadline) {
+    dHeadline.textContent = name
+      ? ("Vielen Dank, " + name + "! Du bist einen grossen Schritt näher.")
+      : "Fast geschafft! Sende jetzt deine vorbereitete Nachricht im WhatsApp-Chat ab.";
+  }
   if (dBadge) {
     dBadge.textContent = (channel === "whatsapp")
-      ? "WhatsApp-Kanal gewählt · Sandbox-Vorschau aktiv"
-      : "Direkt-Formular gewählt · Sandbox-Vorschau aktiv";
+      ? ("WhatsApp-Bewerbung (" + shortRef + ") · Video-Danke-Seite aktiv")
+      : ("Direkt-Formular (" + shortRef + ") · Video-Danke-Seite aktiv");
   }
+  if (dRefCode) dRefCode.textContent = "Ref #" + shortRef + " (KQ_F01=" + f1 + ", KQ_F02=" + f2 + ", KQ_F03=" + f3 + ")";
   if (dWaBtn) dWaBtn.href = waUrl;
+  if (dQrImg) {
+    dQrImg.src = "https://api.qrserver.com/v1/create-qr-code/?size=160x160&data=" + encodeURIComponent(waUrl);
+  }
+  try {
+    const newUrl = new URL(window.location.href);
+    newUrl.searchParams.set("step", "danke");
+    window.history.replaceState({}, "", newUrl.toString());
+  } catch (e) {}
 
   renderSandboxPreview();
   unlockSectionCapsule("danke", true);
@@ -1945,6 +2148,11 @@ renderSandboxPreview();
   }
   if (params.get("studio") === "true" || params.get("preview") === "all") {
     document.body.classList.add("acp-studio-preview");
+  }
+  if (params.get("step") === "danke") {
+    setTimeout(function() {
+      unlockSectionCapsule("danke", true);
+    }, 150);
   }
 })();
 
@@ -2096,6 +2304,9 @@ body.acp-swap-mode-active img {
       Wenn <strong>AN</strong>: Alle Quiz-Kapseln klappen zur Bearbeitung auf und jeder Klick kopiert den Slot-Befehl.
     </p>
 
+    <button type="button" id="acp-btn-danke-jump" class="acp-publish-btn" style="background:linear-gradient(135deg, #C3191E 0%, #9E1216 100%);margin-bottom:6px" onclick="openSandboxInspector()">
+      <span>🎬 Danke-Seite (mit 30s-Video) zeigen</span>
+    </button>
     <button type="button" id="acp-btn-publish" class="acp-publish-btn" onclick="openSandboxInspector()">
       <span>🔌 Sandbox-Vorschau öffnen</span>
     </button>

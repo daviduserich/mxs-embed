@@ -400,6 +400,56 @@
     ]
   },
   {
+    "id": "images_sabrina_danke_jpg",
+    "filename": "sabrina_danke.jpg",
+    "rel_path": "images/sabrina_danke.jpg",
+    "folder": "cotra",
+    "category": "Fuhrpark & Tour",
+    "dimensions": "1366x767",
+    "size_kb": 142.1,
+    "mtime": 1792843135,
+    "mtime_str": "24.10.2026 11:58",
+    "cdn_url": "https://embed.magnet-xs.ch/cotra/images/sabrina_danke.jpg",
+    "is_used": true,
+    "used_in": [
+      {
+        "datei": "index.html",
+        "slot": "image",
+        "is_hero": false
+      },
+      {
+        "datei": "cotra_Chauffeur_CE.html",
+        "slot": "image",
+        "is_hero": false
+      }
+    ]
+  },
+  {
+    "id": "images_sabrina_lkw_jpg",
+    "filename": "sabrina_lkw.jpg",
+    "rel_path": "images/sabrina_lkw.jpg",
+    "folder": "cotra",
+    "category": "Fuhrpark & Tour",
+    "dimensions": "160x96",
+    "size_kb": 409.2,
+    "mtime": 1792843030,
+    "mtime_str": "24.10.2026 11:57",
+    "cdn_url": "https://embed.magnet-xs.ch/cotra/images/sabrina_lkw.jpg",
+    "is_used": true,
+    "used_in": [
+      {
+        "datei": "index.html",
+        "slot": "image",
+        "is_hero": false
+      },
+      {
+        "datei": "cotra_Chauffeur_CE.html",
+        "slot": "image",
+        "is_hero": false
+      }
+    ]
+  },
+  {
     "id": "images_team_jpg",
     "filename": "team.jpg",
     "rel_path": "images/team.jpg",
