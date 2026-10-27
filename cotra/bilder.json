@@ -55,11 +55,36 @@
     "rel_path": "images/logo.png",
     "folder": "cotra",
     "category": "Logo & Icon",
+    "dimensions": "600x192",
+    "size_kb": 21.8,
+    "mtime": 1793088383,
+    "mtime_str": "27.10.2026 08:06",
+    "cdn_url": "https://embed.magnet-xs.ch/cotra/images/logo.png",
+    "is_used": true,
+    "used_in": [
+      {
+        "datei": "index.html",
+        "slot": "image",
+        "is_hero": false
+      },
+      {
+        "datei": "cotra_Chauffeur_CE.html",
+        "slot": "image",
+        "is_hero": false
+      }
+    ]
+  },
+  {
+    "id": "images_logo_svg",
+    "filename": "logo.svg",
+    "rel_path": "images/logo.svg",
+    "folder": "cotra",
+    "category": "Logo & Icon",
     "dimensions": "Unbekannt",
     "size_kb": 4.0,
-    "mtime": 1792790053,
-    "mtime_str": "23.10.2026 21:14",
-    "cdn_url": "https://embed.magnet-xs.ch/cotra/images/logo.png",
+    "mtime": 1793088279,
+    "mtime_str": "27.10.2026 08:04",
+    "cdn_url": "https://embed.magnet-xs.ch/cotra/images/logo.svg",
     "is_used": true,
     "used_in": [
       {
