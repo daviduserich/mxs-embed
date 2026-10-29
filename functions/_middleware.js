@@ -130,6 +130,7 @@ export async function onRequest(context) {
                     url.pathname.endsWith('.jpg') ||
                     url.pathname.endsWith('.jpeg') ||
                     url.pathname.endsWith('.webp') ||
+                    url.pathname.endsWith('.mp4') ||
                     url.pathname.endsWith('.svg') ||
                     url.pathname.endsWith('.css') ||
                     url.pathname.endsWith('.js') ||
@@ -144,6 +145,8 @@ export async function onRequest(context) {
       'mxs-talent': ['mxs-talent_sec_master', 'mxs-talent2026'],
       'cotra': ['cotra_sec_master', 'cotra2026'],
       'preview-cotra': ['cotra_sec_master', 'cotra2026'],
+      'hochuli': ['hochuli_sec_master', 'hochuli2026'],
+      'preview-hochuli': ['hochuli_sec_master', 'hochuli2026'],
       'default': [clientSlug + '_sec_master', clientSlug + '2026']
     };
     const validTokens = clientTokens[rootSegment] || clientTokens[clientSlug] || clientTokens['default'];
@@ -273,6 +276,8 @@ export async function onRequest(context) {
         'mxs-talent': ['mxs-talent_sec_master', 'mxs-talent2026'],
       'cotra': ['cotra_sec_master', 'cotra2026'],
       'preview-cotra': ['cotra_sec_master', 'cotra2026'],
+      'hochuli': ['hochuli_sec_master', 'hochuli2026'],
+      'preview-hochuli': ['hochuli_sec_master', 'hochuli2026'],
         'default': [clientSlug + '_sec_master', clientSlug + '2026']
       };
       const validTokens = clientTokens[rootSegment] || clientTokens[clientSlug] || clientTokens['default'];

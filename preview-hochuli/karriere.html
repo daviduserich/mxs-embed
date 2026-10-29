@@ -1,0 +1,1635 @@
+<!DOCTYPE html>
+<html lang="de-CH">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <meta http-equiv="X-XSS-Protection" content="1; mode=block">
+  <meta name="referrer" content="no-referrer">
+  <title>Karriere & 5 offene Stellen — Hochuli Schlossrued AG</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&family=Plus+Jakarta+Sans:wght@700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #e30613;
+      --primary-dark: #b9050f;
+      --primary-glow: rgba(227, 6, 19, 0.14);
+      --accent: #e8781e;
+      --sparte-holzbau: #e30613;
+      --sparte-holzbau-bg: rgba(227, 6, 19, 0.08);
+      --sparte-spengler: #d97706;
+      --sparte-spengler-bg: rgba(217, 119, 6, 0.09);
+      --sparte-sanitaer: #0284c7;
+      --sparte-sanitaer-bg: rgba(2, 132, 199, 0.09);
+      --sparte-planung: #059669;
+      --sparte-planung-bg: rgba(5, 150, 105, 0.09);
+      --sparte-pv: #ca8a04;
+      --sparte-pv-bg: rgba(202, 138, 4, 0.10);
+      --bg: #ffffff;
+      --surface: #f8fafc;
+      --surface-2: #f1f5f9;
+      --border: #e2e8f0;
+      --text: #0f172a;
+      --muted: #475569;
+      --radius-badge: 4px;
+      --radius-card: 8px;
+      --shadow-sm: 0 1px 3px rgba(15, 23, 42, 0.06);
+      --shadow-md: 0 8px 24px -4px rgba(15, 23, 42, 0.08);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+    html { overflow-x: clip; scroll-behavior: smooth; }
+    body {
+      width: 100%;
+      min-height: 100vh;
+      overflow-x: clip;
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      line-height: 1.55;
+      font-size: 15px;
+      padding-bottom: calc(88px + env(safe-area-inset-bottom, 20px));
+    }
+    @media (min-width: 980px) {
+      body { padding-bottom: 0; }
+    }
+    h1, h2, h3, h4 {
+      font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
+      color: var(--text);
+      letter-spacing: -0.02em;
+    }
+
+    /* PIKETT & TRUST TOP STRIP (AUF MOBILE & DESKTOP SICHTBAR) */
+    .trust-strip {
+      width: 100%;
+      background: #0f172a;
+      color: #f8fafc;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 8px 16px;
+      font-size: 0.78rem;
+    }
+    .trust-strip-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      width: 100%;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 8px 16px;
+    }
+    .trust-strip-group {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 10px 18px;
+    }
+    .trust-strip-link {
+      color: #f8fafc;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-weight: 600;
+      transition: color 0.15s ease;
+    }
+    .trust-strip-link:hover { color: #ffa858; }
+    .pikett-badge-inline {
+      background: rgba(227, 6, 19, 0.22);
+      border: 1px solid rgba(227, 6, 19, 0.55);
+      color: #fecaca;
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.72rem;
+      font-weight: 700;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .pikett-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 4px;
+      background: #ef4444;
+      display: inline-block;
+    }
+    .rating-mini-badge {
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      color: #fde68a;
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    /* UNIFIED TOP BAR */
+    .top-bar {
+      padding: 12px 16px;
+      border-bottom: 1px solid var(--border);
+      background: rgba(255, 255, 255, 0.98);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      width: 100%;
+    }
+    .top-bar-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+    }
+    .brand-logo-wrap {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: inherit;
+      flex: 0 1 auto;
+    }
+    .brand-logo-img {
+      height: 42px;
+      max-width: 210px;
+      width: auto;
+      object-fit: contain;
+      display: block;
+    }
+    @media (min-width: 980px) {
+      .brand-logo-img { height: 48px; max-width: 240px; }
+    }
+    .desktop-nav {
+      display: none;
+      align-items: center;
+      gap: 18px;
+    }
+    .desk-nav-link {
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--text);
+      text-decoration: none;
+      transition: color 0.15s ease;
+      white-space: nowrap;
+      padding: 4px 0;
+      border-bottom: 2px solid transparent;
+    }
+    .desk-nav-link:hover, .desk-nav-link.active {
+      color: var(--primary);
+      border-bottom-color: var(--primary);
+    }
+    .btn-desk-contact {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: #ffffff !important;
+      background: var(--primary);
+      padding: 9px 16px;
+      border-radius: 8px;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      white-space: nowrap;
+      transition: background 0.15s ease;
+    }
+    .btn-desk-contact:hover { background: var(--primary-dark); }
+    .nav-burger {
+      width: 44px;
+      height: 44px;
+      flex: 0 0 44px;
+      margin-left: auto;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+    }
+    .nav-burger svg { width: 22px; height: 22px; stroke: var(--text); }
+    @media (min-width: 980px) {
+      .desktop-nav { display: flex !important; }
+      .nav-burger { display: none !important; }
+    }
+    .nav-drawer {
+      display: none;
+      position: fixed;
+      top: 98px;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(255, 255, 255, 0.99);
+      z-index: 999;
+      padding: 20px 16px calc(96px + env(safe-area-inset-bottom, 24px)) 16px;
+      flex-direction: column;
+      gap: 10px;
+      overflow-y: auto;
+      border-top: 1px solid var(--border);
+    }
+    .nav-drawer.open { display: flex !important; }
+    .nav-link {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--text);
+      text-decoration: none;
+      padding: 12px 4px;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    /* FREISTEHENDE KICKER (#UI-01 PFLICHT) */
+    .section-kicker {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--accent);
+      background: transparent !important;
+      border: none !important;
+      padding: 0 !important;
+      box-shadow: none !important;
+      display: block;
+      margin-bottom: 8px;
+    }
+    .section-header {
+      margin-bottom: 32px;
+    }
+    .section-title {
+      font-size: 1.65rem;
+      font-weight: 800;
+      line-height: 1.2;
+      margin-bottom: 10px;
+      color: var(--text);
+    }
+    @media (min-width: 768px) {
+      .section-title { font-size: 2.05rem; }
+    }
+    .section-desc {
+      font-size: 0.98rem;
+      color: var(--muted);
+      max-width: 760px;
+      line-height: 1.6;
+    }
+
+    /* 1100PX FLUCHTLINIE (#UI-02 PFLICHT) */
+    .section-wrap {
+      width: 100%;
+      border-bottom: 1px solid var(--border);
+    }
+    .section-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 48px 16px;
+      width: 100%;
+      box-sizing: border-box;
+    }
+    @media (min-width: 768px) {
+      .section-inner { padding: 64px 20px; }
+    }
+
+    /* HERO SECTION */
+    .hero-wrap {
+      width: 100%;
+      background: linear-gradient(180deg, #f8fafc 0%, #ffffff 100%);
+      border-bottom: 1px solid var(--border);
+    }
+    .hero-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 36px 16px 44px 16px;
+      width: 100%;
+      box-sizing: border-box;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 32px;
+      align-items: center;
+    }
+    @media (min-width: 920px) {
+      .hero-inner {
+        grid-template-columns: 1.08fr 0.92fr;
+        gap: 44px;
+        padding: 56px 20px 60px 20px;
+      }
+    }
+    .hero-title {
+      font-size: 1.95rem;
+      font-weight: 800;
+      line-height: 1.15;
+      letter-spacing: -0.025em;
+      margin-bottom: 14px;
+    }
+    @media (min-width: 768px) {
+      .hero-title { font-size: 2.55rem; }
+    }
+    .hero-subtitle {
+      font-size: 1.0rem;
+      color: var(--muted);
+      line-height: 1.6;
+      margin-bottom: 22px;
+    }
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+    .btn-cta {
+      min-height: 46px;
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-size: 0.92rem;
+      font-weight: 700;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      text-decoration: none;
+      cursor: pointer;
+      border: 1px solid transparent;
+      transition: all 0.15s ease;
+    }
+    .btn-cta-primary {
+      background: var(--primary);
+      color: #ffffff;
+      box-shadow: 0 4px 14px var(--primary-glow);
+    }
+    .btn-cta-primary:hover { background: var(--primary-dark); }
+    .btn-cta-secondary {
+      background: #ffffff;
+      color: var(--text);
+      border-color: var(--border);
+    }
+    .btn-cta-secondary:hover { border-color: var(--text); background: var(--surface); }
+    .hero-media {
+      width: 100%;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: var(--shadow-md);
+      position: relative;
+      background: #0f172a;
+      border: 1px solid var(--border);
+      aspect-ratio: 16 / 10;
+    }
+    .hero-media video, .hero-media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .hero-media-badge {
+      position: absolute;
+      bottom: 12px;
+      left: 12px;
+      right: 12px;
+      background: rgba(15, 23, 42, 0.88);
+      backdrop-filter: blur(8px);
+      color: #ffffff;
+      font-size: 0.76rem;
+      font-weight: 600;
+      padding: 8px 12px;
+      border-radius: 4px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    /* 5-SPARTEN FARBLEITSYSTEM (BENTO FILTER & CARDS) */
+    .sparten-filter-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+      margin-bottom: 28px;
+    }
+    @media (min-width: 860px) {
+      .sparten-filter-grid {
+        grid-template-columns: repeat(6, minmax(0, 1fr));
+      }
+    }
+    .sparte-tab-btn {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-top: 4px solid var(--tab-color, var(--primary));
+      border-radius: 8px;
+      padding: 12px 12px;
+      text-align: left;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 6px;
+      transition: all 0.15s ease;
+      font-family: inherit;
+    }
+    .sparte-tab-btn:hover, .sparte-tab-btn.active {
+      background: var(--surface);
+      border-color: var(--tab-color, var(--primary));
+      box-shadow: var(--shadow-sm);
+    }
+    .sparte-tab-num {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.7rem;
+      font-weight: 700;
+      color: var(--tab-color, var(--primary));
+      text-transform: uppercase;
+    }
+    .sparte-tab-title {
+      font-size: 0.86rem;
+      font-weight: 800;
+      color: var(--text);
+      line-height: 1.25;
+    }
+
+    .sparte-section-card {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-top: 4px solid var(--sparte-color, var(--primary));
+      border-radius: 8px;
+      padding: 24px 20px;
+      margin-bottom: 28px;
+      box-shadow: var(--shadow-sm);
+    }
+    @media (min-width: 768px) {
+      .sparte-section-card { padding: 32px 28px; }
+    }
+    .sparte-card-header {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 16px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 24px;
+    }
+    .sparte-tag-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 10px;
+      border-radius: 4px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      background: var(--sparte-bg, var(--sparte-holzbau-bg));
+      color: var(--sparte-color, var(--primary));
+      margin-bottom: 8px;
+    }
+    .sparte-body-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 24px;
+    }
+    @media (min-width: 920px) {
+      .sparte-body-grid {
+        grid-template-columns: 1.15fr 0.85fr;
+        gap: 32px;
+      }
+    }
+    .subservices-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 14px;
+      margin-bottom: 20px;
+    }
+    @media (min-width: 600px) {
+      .subservices-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+    .subservice-box {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 14px 16px;
+    }
+    .subservice-box h4 {
+      font-size: 0.92rem;
+      font-weight: 800;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--text);
+    }
+    .subservice-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+    .subservice-list li {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+    }
+    .subservice-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 4px;
+      background: var(--sparte-color, var(--primary));
+      flex-shrink: 0;
+    }
+
+    /* ANSPRECHPARTNER KARTEN (AUF MOBILE & DESKTOP IMMER SICHTBAR) */
+    .contacts-panel {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    .contacts-panel-title {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--sparte-color, var(--primary));
+    }
+    .leader-card {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 10px 12px;
+    }
+    .leader-avatar {
+      width: 54px;
+      height: 54px;
+      border-radius: 8px;
+      object-fit: cover;
+      flex-shrink: 0;
+      border: 2px solid var(--sparte-color, var(--primary));
+      background: var(--surface-2);
+    }
+    .leader-info {
+      min-width: 0;
+      flex: 1;
+    }
+    .leader-name {
+      font-size: 0.92rem;
+      font-weight: 800;
+      color: var(--text);
+    }
+    .leader-role {
+      font-size: 0.78rem;
+      color: var(--muted);
+      line-height: 1.35;
+      margin-bottom: 4px;
+    }
+    .leader-phone {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: var(--sparte-color, var(--primary));
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+    }
+    .leader-phone:hover { text-decoration: underline; }
+
+    /* REFERENZ & FEEDBACK MINI-ROW IN SPARTE */
+    .sparte-ref-row {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 12px;
+      margin-top: 16px;
+      padding-top: 16px;
+      border-top: 1px solid var(--border);
+    }
+    @media (min-width: 640px) {
+      .sparte-ref-row {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+    .sparte-ref-card {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 8px;
+    }
+    .sparte-ref-img {
+      width: 76px;
+      height: 60px;
+      object-fit: cover;
+      border-radius: 4px;
+      flex-shrink: 0;
+    }
+    .sparte-ref-meta {
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--text);
+      line-height: 1.3;
+    }
+    .sparte-ref-sub {
+      font-size: 0.74rem;
+      color: var(--muted);
+      margin-top: 2px;
+    }
+
+    /* KUNDENFEEDBACK 5.7 / 6.0 SIEGEL (#UI-07 PFLICHT) */
+    .feedback-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 28px;
+      align-items: stretch;
+    }
+    @media (min-width: 880px) {
+      .feedback-grid {
+        grid-template-columns: 0.95fr 1.05fr;
+      }
+    }
+    .score-card-main {
+      background: #0f172a;
+      color: #ffffff;
+      border-radius: 8px;
+      padding: 28px 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 20px;
+    }
+    .score-big-number {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 2.6rem;
+      font-weight: 800;
+      color: #fde68a;
+      line-height: 1;
+    }
+    .score-bars-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .score-bar-row {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+    .score-bar-label {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: #e2e8f0;
+    }
+    .score-bar-val {
+      font-family: 'JetBrains Mono', monospace;
+      color: #fde68a;
+      font-weight: 700;
+    }
+    .score-bar-track {
+      width: 100%;
+      height: 8px;
+      background: rgba(255, 255, 255, 0.12);
+      border-radius: 4px;
+      overflow: hidden;
+    }
+    .score-bar-fill {
+      height: 100%;
+      background: linear-gradient(90deg, #f59e0b 0%, #10b981 100%);
+      border-radius: 4px;
+    }
+    .quotes-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    .quote-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--quote-color, var(--primary));
+      border-radius: 8px;
+      padding: 16px 18px;
+    }
+    .quote-text {
+      font-size: 0.88rem;
+      color: var(--text);
+      font-style: italic;
+      margin-bottom: 8px;
+      line-height: 1.5;
+    }
+    .quote-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.76rem;
+      font-weight: 700;
+      color: var(--muted);
+    }
+
+    /* INTERAKTIVER PARTNER-SCHNELLTEST */
+    .quiz-box {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 24px 20px;
+    }
+    @media (min-width: 768px) {
+      .quiz-box { padding: 32px 28px; }
+    }
+    .quiz-steps-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+    @media (min-width: 860px) {
+      .quiz-steps-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+    .quiz-q-card {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 18px;
+    }
+    .quiz-q-title {
+      font-size: 0.94rem;
+      font-weight: 800;
+      margin-bottom: 12px;
+      color: var(--text);
+    }
+    .quiz-opt-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 8px;
+    }
+    .quiz-opt-btn {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 10px 12px;
+      text-align: left;
+      font-size: 0.84rem;
+      font-weight: 600;
+      color: var(--text);
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: all 0.15s ease;
+      font-family: inherit;
+    }
+    .quiz-opt-btn:hover, .quiz-opt-btn.selected {
+      background: rgba(227, 6, 19, 0.08);
+      border-color: var(--primary);
+      color: var(--primary);
+    }
+    .quiz-result-banner {
+      margin-top: 20px;
+      background: #0f172a;
+      color: #ffffff;
+      border-radius: 8px;
+      padding: 20px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+    }
+
+    /* SOCIAL MEDIA WALL & BLOG GRID (ACP SEKTIONEN A & B) */
+    .social-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+    @media (min-width: 640px) {
+      .social-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+    @media (min-width: 980px) {
+      .social-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+    }
+    .social-card {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      box-shadow: var(--shadow-sm);
+    }
+    .social-img-wrap {
+      width: 100%;
+      aspect-ratio: 4 / 5;
+      background: var(--surface-2);
+      position: relative;
+      overflow: hidden;
+    }
+    .social-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .social-channel-badge {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      background: rgba(15, 23, 42, 0.88);
+      color: #ffffff;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.68rem;
+      font-weight: 700;
+      padding: 4px 8px;
+      border-radius: 4px;
+    }
+    .social-body {
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      flex: 1;
+    }
+    .social-date {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.72rem;
+      color: var(--muted);
+      font-weight: 600;
+    }
+    .social-title {
+      font-size: 0.94rem;
+      font-weight: 800;
+      color: var(--text);
+      line-height: 1.35;
+    }
+    .social-excerpt {
+      font-size: 0.82rem;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    .blog-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 22px;
+    }
+    @media (min-width: 768px) {
+      .blog-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+    .blog-card {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      box-shadow: var(--shadow-sm);
+    }
+    .blog-img-wrap {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      background: var(--surface-2);
+      position: relative;
+      overflow: hidden;
+    }
+    .blog-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .blog-body {
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      flex: 1;
+    }
+    .blog-meta-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .blog-tag {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.7rem;
+      font-weight: 700;
+      padding: 3px 8px;
+      border-radius: 4px;
+      text-transform: uppercase;
+    }
+    .blog-readtime {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.72rem;
+      color: var(--muted);
+      font-weight: 600;
+    }
+    .blog-title {
+      font-size: 1.08rem;
+      font-weight: 800;
+      color: var(--text);
+      line-height: 1.3;
+    }
+    .blog-desc {
+      font-size: 0.86rem;
+      color: var(--muted);
+      line-height: 1.55;
+    }
+
+    /* TEAM, ZEITREISE & LERNENDE (team.html) */
+    .team-dept-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+    @media (min-width: 640px) {
+      .team-dept-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+    @media (min-width: 960px) {
+      .team-dept-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    }
+    .timeline-list {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 14px;
+    }
+    @media (min-width: 768px) {
+      .timeline-list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+    .timeline-item {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--primary);
+      border-radius: 8px;
+      padding: 14px 16px;
+    }
+    .timeline-year {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 4px;
+    }
+    .timeline-text {
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--text);
+    }
+
+    /* KARRIERE & STELLEN-SUITE (karriere.html) */
+    .jobs-list {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+    .job-card {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-left: 5px solid var(--job-color, var(--primary));
+      border-radius: 8px;
+      padding: 22px 20px;
+      box-shadow: var(--shadow-sm);
+    }
+    .job-header {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+    .job-details-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+      margin-top: 14px;
+      padding-top: 14px;
+      border-top: 1px solid var(--border);
+    }
+    @media (min-width: 768px) {
+      .job-details-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+
+    /* KONTAKT & FORMULARE (kontakt.html & karriere.html) */
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 14px;
+    }
+    @media (min-width: 640px) {
+      .form-grid-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+    .form-field {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+    .form-field label {
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--text);
+    }
+    .form-input, .form-select, .form-textarea {
+      width: 100%;
+      padding: 11px 12px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      font-family: inherit;
+      font-size: 0.9rem;
+      color: var(--text);
+      background: #ffffff;
+    }
+    .form-input:focus, .form-select:focus, .form-textarea:focus {
+      outline: none;
+      border-color: var(--primary);
+    }
+
+    /* FOOTER */
+    .footer-wrap {
+      width: 100%;
+      background: #0f172a;
+      color: #cbd5e1;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .footer-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 48px 16px 32px 16px;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 32px;
+    }
+    @media (min-width: 768px) {
+      .footer-inner { grid-template-columns: 1.3fr 1fr 1fr 1.1fr; }
+    }
+    .footer-col h4 {
+      color: #ffffff;
+      font-size: 0.92rem;
+      font-weight: 800;
+      margin-bottom: 14px;
+    }
+    .footer-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .footer-link-a {
+      color: #94a3b8;
+      text-decoration: none;
+      font-size: 0.85rem;
+      transition: color 0.15s ease;
+    }
+    .footer-link-a:hover { color: #ffffff; }
+    .social-icon-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 12px;
+    }
+    .footer-social-icon {
+      width: 38px;
+      height: 38px;
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.08);
+      color: #ffffff;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      transition: background 0.15s ease;
+    }
+    .footer-social-icon:hover { background: var(--primary); }
+    .footer-bottom {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 20px 16px;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      font-size: 0.78rem;
+      color: #94a3b8;
+    }
+    .footer-webpilot-link {
+      color: #f8fafc;
+      text-decoration: none;
+      font-weight: 700;
+    }
+
+    /* STICKY MOBILE DAUMENZONE (#UI-13 PFLICHT) */
+    .mobile-thumb-bar {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: rgba(15, 23, 42, 0.96);
+      backdrop-filter: blur(12px);
+      border-top: 1px solid rgba(255, 255, 255, 0.14);
+      padding: 8px 12px calc(8px + env(safe-area-inset-bottom, 12px)) 12px;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 8px;
+      z-index: 950;
+    }
+    @media (min-width: 980px) {
+      .mobile-thumb-bar { display: none !important; }
+    }
+    .thumb-btn {
+      height: 44px;
+      border-radius: 8px;
+      font-size: 0.76rem;
+      font-weight: 700;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+      color: #ffffff;
+      padding: 0 8px;
+      white-space: nowrap;
+    }
+    .thumb-btn-main { background: #334155; }
+    .thumb-btn-pikett { background: #b91c1c; }
+    .thumb-btn-cta { background: var(--primary); }
+</style>
+</head>
+<body>
+
+  <!-- OBJEKTIVER VERTRAUENS- & 24H-PIKETT-BALKEN (MOBILE & DESKTOP SICHTBAR) -->
+  <div class="trust-strip" data-section-id="pikett-bar" data-section="pikett-bar">
+    <div class="trust-strip-inner">
+      <div class="trust-strip-group">
+        <a href="tel:+41792464963" class="trust-strip-link" data-slot="pikett_top_link">
+          <span class="pikett-badge-inline"><span class="pikett-dot"></span> 24h-Pikett Heizung | Sanitär: +41 79 246 49 63</span>
+        </a>
+        <a href="tel:+41627390020" class="trust-strip-link" data-slot="phone">+41 62 739 00 20</a>
+      </div>
+      <div class="trust-strip-group">
+        <a href="index.html#kundenfeedback" class="rating-mini-badge" data-slot="header_rating_badge">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <span>Kundenfeedback: 5.7 / 6.0 Gesamtnote</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- HAUPTNAVIGATION -->
+  <header class="top-bar" data-section-id="header" data-section="header">
+    <div class="top-bar-inner">
+      <a href="index.html" class="brand-logo-wrap" aria-label="Hochuli Schlossrued AG Startseite">
+        <img src="images/logo.svg" alt="Hochuli Schlossrued AG — Bauen im Vertrauen" class="brand-logo-img" data-slot="brand_logo">
+      </a>
+      <nav class="desktop-nav" aria-label="Hauptnavigation">
+        <a href="index.html" class="desk-nav-link">Startseite &amp; 5 Sparten</a>
+        <a href="index.html#social-media" class="desk-nav-link">Social Feed</a>
+        <a href="index.html#blog" class="desk-nav-link">Ratgeber</a>
+        <a href="team.html" class="desk-nav-link">Über uns &amp; Team</a>
+        <a href="karriere.html" class="desk-nav-link active">Karriere (5 Stellen)</a>
+        <a href="kontakt.html" class="desk-nav-link">Kontakt &amp; Pikett</a>
+        <a href="kontakt.html#terminbuchung" class="btn-desk-contact">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          <span>Offerte / Termin</span>
+        </a>
+      </nav>
+      <button class="nav-burger" id="navBurgerBtn" aria-label="Menü öffnen" onclick="document.getElementById('mobileDrawer').classList.toggle('open')">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <div class="nav-drawer" id="mobileDrawer">
+    <a href="index.html" class="nav-link" onclick="document.getElementById('mobileDrawer').classList.remove('open')">
+      <span>Startseite &amp; 5 Sparten-Leitsystem</span>
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+    </a>
+    <a href="index.html#social-media" class="nav-link" onclick="document.getElementById('mobileDrawer').classList.remove('open')">
+      <span>Einblicke &amp; Social Media Feed</span>
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+    </a>
+    <a href="index.html#blog" class="nav-link" onclick="document.getElementById('mobileDrawer').classList.remove('open')">
+      <span>Fachwissen &amp; Bauherren-Ratgeber</span>
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+    </a>
+    <a href="team.html" class="nav-link" onclick="document.getElementById('mobileDrawer').classList.remove('open')">
+      <span>Über uns, 60 Mitarbeitende &amp; 14 Lernende</span>
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+    </a>
+    <a href="karriere.html" class="nav-link" onclick="document.getElementById('mobileDrawer').classList.remove('open')">
+      <span>Karriere &amp; 5 offene Stellen</span>
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+    </a>
+    <a href="kontakt.html" class="nav-link" onclick="document.getElementById('mobileDrawer').classList.remove('open')">
+      <span>Kontakt, Standort &amp; 24h-Pikett</span>
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+    </a>
+  </div>
+
+  <section class="hero-wrap" id="karriere-hero" data-section-id="karriere-hero" data-section="karriere-hero">
+    <div class="hero-inner">
+      <div>
+        <span class="section-kicker" data-slot="karriere_kicker">// KARRIERE &amp; OFFENE STELLEN · WIR SUCHEN DICH IN SCHLOSSRUED</span>
+        <h1 class="hero-title" data-slot="karriere_title">Verstärke unser Team — 5 offene Stellen im Handwerk &amp; Projektleitung.</h1>
+        <p class="hero-subtitle" data-slot="karriere_subtitle">
+          Unser Unternehmen ist für Berufsleute interessant, die abwechslungsreiche Projekte im Aargau schätzen, in einem eingespielten Team mit modernem Fahrzeug- und Maschinenpark arbeiten wollen und Wert auf echte Wertschätzung legen.
+        </p>
+        <div class="hero-actions">
+          <a href="#stellenliste" class="btn-cta btn-cta-primary">
+            <span>Alle 5 offenen Stellen ansehen</span>
+          </a>
+          <a href="#schnellbewerbung" class="btn-cta btn-cta-secondary">
+            <span>In 60 Sekunden ohne Lebenslauf-Hürde melden</span>
+          </a>
+        </div>
+      </div>
+      <div class="hero-media" style="aspect-ratio: 16 / 9;">
+        <img src="images/karriere-header.jpg" alt="Wir suchen dich — Karriere bei Hochuli Schlossrued AG" data-slot="karriere_hero_img">
+        <div class="hero-media-badge">
+          <span>Direktkontakt: Martin Hochuli (+41 62 739 00 21)</span>
+          <span style="font-family: 'JetBrains Mono', monospace; color: #fde68a;">5 Offene Stellen</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5 OFFENE STELLEN -->
+  <section class="section-wrap" id="stellenliste" data-section-id="stellenliste" data-section="stellenliste">
+    <div class="section-inner">
+      <div class="section-header">
+        <span class="section-kicker" data-slot="jobs_kicker">// AKTUELLE VAKANZEN · FESTANSTELLUNG IN SCHLOSSRUED (80–100%)</span>
+        <h2 class="section-title" data-slot="jobs_title">Unsere 5 offenen Stellen nach Sparte</h2>
+        <p class="section-desc" data-slot="jobs_desc">
+          Klicke bei deiner Wunschstelle direkt auf «In 60 Sek. bewerben» oder rufe Martin Hochuli unkompliziert unter +41 62 739 00 21 an.
+        </p>
+      </div>
+
+      <div class="jobs-list">
+        <!-- JOB 1: ZIMMERMANN / ZIMMERIN EFZ -->
+        <article class="job-card" id="job-zimmermann" style="--job-color: #e30613;" data-slot="job_card_1">
+          <div class="job-header">
+            <div>
+              <span class="sparte-tag-badge" style="background: rgba(227, 6, 19, 0.08); color: #e30613;">SPARTE HOLZBAU + BEDACHUNG · 80–100%</span>
+              <h3 style="font-size: 1.3rem; font-weight: 800;" data-slot="job_1_title">Zimmermann / Zimmerin EFZ (80–100%)</h3>
+            </div>
+            <button type="button" class="btn-cta btn-cta-primary" style="background: #e30613;" onclick="selectJobForApply('Zimmermann / Zimmerin EFZ (80–100%)')">
+              <span>In 60 Sek. bewerben</span>
+            </button>
+          </div>
+          <p style="font-size: 0.9rem; color: var(--muted);" data-slot="job_1_desc">
+            Du arbeitest gerne mit dem Werkstoff Holz und suchst vielseitige Aufgaben vom modernen Holz-Elementbau über Umbauten und Aufstockungen bis zu Dachsanierungen und Fassaden in unserer Region.
+          </p>
+          <div class="job-details-grid">
+            <div>
+              <h4 style="font-size: 0.86rem; margin-bottom: 6px;">Deine Aufgaben &amp; Stärken:</h4>
+              <ul class="subservice-list">
+                <li><span class="subservice-dot" style="background:#e30613;"></span>Abbund, Elementbau, Aufrichten &amp; anspruchsvolle Umbauarbeiten</li>
+                <li><span class="subservice-dot" style="background:#e30613;"></span>Abgeschlossene Ausbildung als Zimmermann / Zimmerin EFZ</li>
+                <li><span class="subservice-dot" style="background:#e30613;"></span>Teamplayer mit Freude an sauberer Schweizer Handwerksqualität</li>
+              </ul>
+            </div>
+            <div>
+              <h4 style="font-size: 0.86rem; margin-bottom: 6px;">Was wir dir bieten:</h4>
+              <ul class="subservice-list">
+                <li><span class="subservice-dot" style="background:#e30613;"></span>Moderne Abbundhalle, Kran- &amp; Fahrzeugflotte in Schlossrued</li>
+                <li><span class="subservice-dot" style="background:#e30613;"></span>Regionale Baustellen ohne lange Pendelwege, faire Entlöhnung &amp; Weiterbildung</li>
+              </ul>
+            </div>
+          </div>
+        </article>
+
+        <!-- JOB 2: SPENGLER/IN EFZ -->
+        <article class="job-card" id="job-spengler" style="--job-color: #d97706;" data-slot="job_card_2">
+          <div class="job-header">
+            <div>
+              <span class="sparte-tag-badge" style="background: rgba(217, 119, 6, 0.1); color: #d97706;">SPARTE SPENGLER + FLACHDACH · 80–100%</span>
+              <h3 style="font-size: 1.3rem; font-weight: 800;" data-slot="job_2_title">Spengler / Spenglerin EFZ (80–100%)</h3>
+            </div>
+            <button type="button" class="btn-cta btn-cta-primary" style="background: #d97706;" onclick="selectJobForApply('Spengler / Spenglerin EFZ (80–100%)')">
+              <span>In 60 Sek. bewerben</span>
+            </button>
+          </div>
+          <p style="font-size: 0.9rem; color: var(--muted);" data-slot="job_2_desc">
+            Für unsere bestens ausgerüstete Spenglerei suchen wir eine engagierte Fachkraft für Metalldächer, PREFA-Blechfassaden, Kamineinfassungen, Lukarnen und Flachdacharbeiten.
+          </p>
+          <div class="job-details-grid">
+            <div>
+              <h4 style="font-size: 0.86rem; margin-bottom: 6px;">Deine Aufgaben &amp; Stärken:</h4>
+              <ul class="subservice-list">
+                <li><span class="subservice-dot" style="background:#d97706;"></span>Herstellung &amp; Montage sämtlicher Bauspenglerarbeiten</li>
+                <li><span class="subservice-dot" style="background:#d97706;"></span>Abgeschlossene Lehre als Spengler/in EFZ &amp; Führerausweis Kat. B</li>
+              </ul>
+            </div>
+            <div>
+              <h4 style="font-size: 0.86rem; margin-bottom: 6px;">Was wir dir bieten:</h4>
+              <ul class="subservice-list">
+                <li><span class="subservice-dot" style="background:#d97706;"></span>Top eingerichtete Spengler-Werkstatt &amp; enge Zusammenarbeit mit unserem Holzbau</li>
+                <li><span class="subservice-dot" style="background:#d97706;"></span>Eingespieltes Team unter Leitung von Alex Kirchhofer &amp; Moses Fricker</li>
+              </ul>
+            </div>
+          </div>
+        </article>
+
+        <!-- JOB 3: TEAMLEITER/IN SPENGLEREI -->
+        <article class="job-card" id="job-teamleiter-spengler" style="--job-color: #d97706;" data-slot="job_card_3">
+          <div class="job-header">
+            <div>
+              <span class="sparte-tag-badge" style="background: rgba(217, 119, 6, 0.1); color: #d97706;">KADERSTELLE · SPENGLER + FLACHDACH · 80–100%</span>
+              <h3 style="font-size: 1.3rem; font-weight: 800;" data-slot="job_3_title">Teamleiter/in Spenglerei (80–100%)</h3>
+            </div>
+            <button type="button" class="btn-cta btn-cta-primary" style="background: #d97706;" onclick="selectJobForApply('Teamleiter/in Spenglerei (80–100%)')">
+              <span>In 60 Sek. bewerben</span>
+            </button>
+          </div>
+          <p style="font-size: 0.9rem; color: var(--muted);" data-slot="job_3_desc">
+            Du möchtest Verantwortung übernehmen, Baustellen selbstständig führen und gemeinsam mit unserem Spengler-Team anspruchsvolle Dach- und Fassadenprojekte realisieren.
+          </p>
+          <div class="job-details-grid">
+            <div>
+              <h4 style="font-size: 0.86rem; margin-bottom: 6px;">Deine Aufgaben &amp; Stärken:</h4>
+              <ul class="subservice-list">
+                <li><span class="subservice-dot" style="background:#d97706;"></span>Führung von Spengler-Projekten von der AVOR bis zur Abnahme</li>
+                <li><span class="subservice-dot" style="background:#d97706;"></span>Spengler/in EFZ (ideal mit Polier-Weiterbildung oder Erfahrung als Vorarbeiter)</li>
+              </ul>
+            </div>
+            <div>
+              <h4 style="font-size: 0.86rem; margin-bottom: 6px;">Was wir dir bieten:</h4>
+              <ul class="subservice-list">
+                <li><span class="subservice-dot" style="background:#d97706;"></span>Hohe Selbstständigkeit, eigenes Geschäftsauto &amp; attraktive Kader-Konditionen</li>
+                <li><span class="subservice-dot" style="background:#d97706;"></span>Volle Rückendeckung durch Projektleitung und Geschäftsleitung</li>
+              </ul>
+            </div>
+          </div>
+        </article>
+
+        <!-- JOB 4: SANITÄR- UND HEIZUNGSINSTALLATEUR/IN EFZ -->
+        <article class="job-card" id="job-sanitaer" style="--job-color: #0284c7;" data-slot="job_card_4">
+          <div class="job-header">
+            <div>
+              <span class="sparte-tag-badge" style="background: rgba(2, 132, 199, 0.1); color: #0284c7;">SPARTE SANITÄR + HEIZUNG · 80–100%</span>
+              <h3 style="font-size: 1.3rem; font-weight: 800;" data-slot="job_4_title">Sanitär- und Heizungsinstallateur/in EFZ (80–100%)</h3>
+            </div>
+            <button type="button" class="btn-cta btn-cta-primary" style="background: #0284c7;" onclick="selectJobForApply('Sanitär- und Heizungsinstallateur/in EFZ (80–100%)')">
+              <span>In 60 Sek. bewerben</span>
+            </button>
+          </div>
+          <p style="font-size: 0.9rem; color: var(--muted);" data-slot="job_4_desc">
+            Ob hochwertiger Badumbau, Wärmepumpen-Installation oder Service-Auftrag: In unserer wachsenden Haustechnik-Abteilung arbeitest du an modernen Anlagen im Suhrental und Raum Aarau.
+          </p>
+          <div class="job-details-grid">
+            <div>
+              <h4 style="font-size: 0.86rem; margin-bottom: 6px;">Deine Aufgaben &amp; Stärken:</h4>
+              <ul class="subservice-list">
+                <li><span class="subservice-dot" style="background:#0284c7;"></span>Sanitär- &amp; Heizungsinstallationen bei Umbauten, Badsanierungen &amp; Heizungs-Ersatz</li>
+                <li><span class="subservice-dot" style="background:#0284c7;"></span>Abschluss als Sanitärinstallateur/in EFZ oder Heizungsinstallateur/in EFZ</li>
+              </ul>
+            </div>
+            <div>
+              <h4 style="font-size: 0.86rem; margin-bottom: 6px;">Was wir dir bieten:</h4>
+              <ul class="subservice-list">
+                <li><span class="subservice-dot" style="background:#0284c7;"></span>Top ausgerüstetes Servicefahrzeug, kollegiales Team unter Sanitärmeister Thomas Bertschi</li>
+                <li><span class="subservice-dot" style="background:#0284c7;"></span>Saubere Projektplanung im Verbund mit unserem eigenen Holzbau &amp; Planungsteam</li>
+              </ul>
+            </div>
+          </div>
+        </article>
+
+        <!-- JOB 5: HOLZBAU PROJEKTLEITER/IN | BAULEITER/IN -->
+        <article class="job-card" id="job-projektleiter" style="--job-color: #e30613;" data-slot="job_card_5">
+          <div class="job-header">
+            <div>
+              <span class="sparte-tag-badge" style="background: rgba(227, 6, 19, 0.08); color: #e30613;">KADERSTELLE · HOLZBAU &amp; PLANUNG · 80–100%</span>
+              <h3 style="font-size: 1.3rem; font-weight: 800;" data-slot="job_5_title">Holzbau Projektleiter/in | Bauleiter/in (80–100%)</h3>
+            </div>
+            <button type="button" class="btn-cta btn-cta-primary" style="background: #e30613;" onclick="selectJobForApply('Holzbau Projektleiter/in | Bauleiter/in (80–100%)')">
+              <span>In 60 Sek. bewerben</span>
+            </button>
+          </div>
+          <p style="font-size: 0.9rem; color: var(--muted);" data-slot="job_5_desc">
+            Du begleitest spannende Holzbau-, Sanierungs- und Umbauprojekte von der Kundenberatung und Kalkulation über die CAD/AVOR-Begleitung bis zur erfolgreichen Bauleitung und Übergabe.
+          </p>
+          <div class="job-details-grid">
+            <div>
+              <h4 style="font-size: 0.86rem; margin-bottom: 6px;">Deine Aufgaben &amp; Stärken:</h4>
+              <ul class="subservice-list">
+                <li><span class="subservice-dot" style="background:#e30613;"></span>Selbstständige Projektleitung, Kundenberatung, Offertwesen &amp; Bauleitung</li>
+                <li><span class="subservice-dot" style="background:#e30613;"></span>Weiterbildung als Holzbau-Polier, Bauführer HF, Techniker HF oder Holzbau-Meister</li>
+              </ul>
+            </div>
+            <div>
+              <h4 style="font-size: 0.86rem; margin-bottom: 6px;">Was wir dir bieten:</h4>
+              <ul class="subservice-list">
+                <li><span class="subservice-dot" style="background:#e30613;"></span>Moderner Arbeitsplatz in Schlossrued, starkes Planungs- &amp; AVOR-Team im Rücken</li>
+                <li><span class="subservice-dot" style="background:#e30613;"></span>Hohe Gestaltungskompetenz und langfristige Perspektive in der Hochuli Gruppe</li>
+              </ul>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 60-SEKUNDEN SCHNELLBEWERBUNG & DIREKTKONTAKT MARTIN HOCHULI -->
+  <section class="section-wrap" id="schnellbewerbung" data-section-id="schnellbewerbung" data-section="schnellbewerbung" style="background: var(--surface);">
+    <div class="section-inner">
+      <div class="sparte-body-grid">
+        <div>
+          <span class="section-kicker" data-slot="apply_kicker">// 60-SEKUNDEN-SCHNELLBEWERBUNG · KEIN MOTIVATIONSSCHREIBEN NÖTIG</span>
+          <h2 class="section-title" data-slot="apply_title">Lass uns unkompliziert bei einem Kaffee in Schlossrued sprechen</h2>
+          <p class="section-desc" style="margin-bottom: 20px;" data-slot="apply_desc">
+            Bei uns zählt der Mensch und das Handwerk — nicht ein seitenlanges Bewerbungsdossier. Trag kurz deine Kontaktdaten ein oder melde dich direkt bei Martin Hochuli.
+          </p>
+          <div class="contacts-panel" style="background: #ffffff;">
+            <div class="contacts-panel-title">// DEIN DIREKTER ANSPRECHPARTNER FÜR BEWERBUNGEN</div>
+            <div class="leader-card">
+              <img src="images/martin-hochuli.jpg" alt="Martin Hochuli" class="leader-avatar">
+              <div class="leader-info">
+                <div class="leader-name">Martin Hochuli</div>
+                <div class="leader-role">Inhaber &amp; Geschäftsführer · Hochuli Schlossrued AG</div>
+                <a href="tel:+41627390021" class="leader-phone">+41 62 739 00 21 (Direktwahl)</a>
+              </div>
+            </div>
+            <div class="leader-card">
+              <img src="images/jacqueline-kunz.jpg" alt="Jacqueline Kunz" class="leader-avatar">
+              <div class="leader-info">
+                <div class="leader-name">Jacqueline Kunz</div>
+                <div class="leader-role">Leiterin Personal &amp; Finanzen</div>
+                <a href="tel:+41627391140" class="leader-phone">+41 62 739 11 40</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="sparte-section-card" style="margin-bottom: 0;">
+          <h3 style="font-size: 1.2rem; font-weight: 800; margin-bottom: 14px;">Schnellbewerbung absenden (60 Sek.)</h3>
+          <form class="form-grid" onsubmit="handleJobSubmit(event)">
+            <div class="form-field">
+              <label for="applyJobSelect">Gewünschte Stelle</label>
+              <select id="applyJobSelect" class="form-select" required>
+                <option value="Zimmermann / Zimmerin EFZ (80–100%)">Zimmermann / Zimmerin EFZ (80–100%)</option>
+                <option value="Spengler / Spenglerin EFZ (80–100%)">Spengler / Spenglerin EFZ (80–100%)</option>
+                <option value="Teamleiter/in Spenglerei (80–100%)">Teamleiter/in Spenglerei (80–100%)</option>
+                <option value="Sanitär- und Heizungsinstallateur/in EFZ (80–100%)">Sanitär- und Heizungsinstallateur/in EFZ (80–100%)</option>
+                <option value="Holzbau Projektleiter/in | Bauleiter/in (80–100%)">Holzbau Projektleiter/in | Bauleiter/in (80–100%)</option>
+                <option value="Lehrstelle / Schnupperlehre EFZ">Lehrstelle / Schnupperlehre EFZ</option>
+              </select>
+            </div>
+            <div class="form-grid form-grid-2">
+              <div class="form-field">
+                <label for="applyName">Vor- und Nachname *</label>
+                <input type="text" id="applyName" class="form-input" placeholder="z. B. Lukas Meier" required>
+              </div>
+              <div class="form-field">
+                <label for="applyPhone">Telefon / Mobile *</label>
+                <input type="tel" id="applyPhone" class="form-input" placeholder="z. B. 079 123 45 67" required>
+              </div>
+            </div>
+            <div class="form-field">
+              <label for="applyEmail">E-Mail-Adresse (optional)</label>
+              <input type="email" id="applyEmail" class="form-input" placeholder="name@beispiel.ch">
+            </div>
+            <div class="form-field">
+              <label for="applyNotes">Kurze Angabe zu deiner Erfahrung / möglichem Starttermin</label>
+              <textarea id="applyNotes" class="form-textarea" rows="3" placeholder="z. B. Gelernter Zimmermann EFZ mit 5 Jahren Erfahrung im Umbau..."></textarea>
+            </div>
+            <button type="submit" class="btn-cta btn-cta-primary" style="width: 100%;">
+              <span>Unverbindliches Kennenlernen anfragen</span>
+            </button>
+            <div id="applyFeedbackMsg" style="display:none; padding: 12px; border-radius: 8px; background: rgba(5, 150, 105, 0.12); color: #059669; font-weight: 700; font-size: 0.85rem;"></div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    function selectJobForApply(jobTitle) {
+      var sel = document.getElementById('applyJobSelect');
+      if (sel) sel.value = jobTitle;
+      var target = document.getElementById('schnellbewerbung');
+      if (target) target.scrollIntoView({ behavior: 'smooth' });
+    }
+    function handleJobSubmit(e) {
+      e.preventDefault();
+      var job = document.getElementById('applyJobSelect').value;
+      var name = document.getElementById('applyName').value;
+      var phone = document.getElementById('applyPhone').value;
+      var msg = document.getElementById('applyFeedbackMsg');
+      msg.style.display = 'block';
+      msg.textContent = 'Herzlichen Dank, ' + name + '! Deine Anfrage für «' + job + '» ist bereit. Martin Hochuli (+41 62 739 00 21) meldet sich persönlich unter ' + phone + ' bei dir.';
+    }
+  </script>
+
+  <footer class="footer-wrap" data-section-id="footer" data-section="footer">
+    <div class="footer-inner">
+      <div class="footer-col">
+        <h4 data-slot="company_name">Hochuli Schlossrued AG</h4>
+        <p style="font-size: 0.85rem; line-height: 1.6; color: #94a3b8; margin-bottom: 12px;" data-slot="footer_address">Hauptstrasse 106 • 5044 Schlossrued • mail@hochuli-gruppe.ch</p>
+        <div class="rating-mini-badge" style="margin-top: 4px;">
+          <span>Kundenfeedback: 5.7 / 6.0 Gesamtnote</span>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4>Unsere 5 Sparten</h4>
+        <ul class="footer-links">
+          <li><a href="index.html#sparte-holzbau" class="footer-link-a">1. Holzbau + Bedachung</a></li>
+          <li><a href="index.html#sparte-spengler" class="footer-link-a">2. Spengler + Flachdach</a></li>
+          <li><a href="index.html#sparte-sanitaer" class="footer-link-a">3. Sanitär + Heizung (inkl. 24h-Pikett)</a></li>
+          <li><a href="index.html#sparte-planung" class="footer-link-a">4. Planung, Neubau &amp; Umbau</a></li>
+          <li><a href="index.html#sparte-pv" class="footer-link-a">5. Photovoltaik &amp; Speichersysteme</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Navigation &amp; Direktwege</h4>
+        <ul class="footer-links">
+          <li><a href="index.html" class="footer-link-a">Startseite &amp; Sparten-Leitsystem</a></li>
+          <li><a href="index.html#social-media" class="footer-link-a">Einblicke &amp; Social Media Wall</a></li>
+          <li><a href="index.html#blog" class="footer-link-a">Ratgeber &amp; Praxiswissen</a></li>
+          <li><a href="team.html" class="footer-link-a">Über uns, Team &amp; 14 Lernende</a></li>
+          <li><a href="karriere.html" class="footer-link-a">Karriere &amp; 5 offene Stellen</a></li>
+          <li><a href="kontakt.html" class="footer-link-a">Kontakt &amp; Online-Terminbuchung</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Öffnungszeiten &amp; Vernetzung</h4>
+        <p style="font-size: 0.84rem; color: #94a3b8; line-height: 1.55;" data-slot="footer_hours">
+          Mo – Do: 07.15 – 12.00 | 13.15 – 17.15 Uhr<br>
+          Freitag: 07.15 – 12.00 | 13.15 – 16.30 Uhr
+        </p>
+        <div class="social-icon-row">
+          <a href="https://www.instagram.com/hochulischlossruedag/" target="_blank" rel="noopener" class="footer-social-icon" title="Instagram" aria-label="Instagram">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          </a>
+          <a href="https://www.linkedin.com/company/hochuli-schlossrued-ag/" target="_blank" rel="noopener" class="footer-social-icon" title="LinkedIn" aria-label="LinkedIn">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+          </a>
+          <a href="https://www.facebook.com/hochulischlossrued" target="_blank" rel="noopener" class="footer-social-icon" title="Facebook" aria-label="Facebook">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div data-slot="copyright">© 2026 Hochuli Schlossrued AG, Hauptstrasse 106, 5044 Schlossrued. Bauen im Vertrauen seit 1934.</div>
+      <div style="display: inline-flex; align-items: center; gap: 8px;">
+        <span style="display: inline-block; width: 6px; height: 6px; border-radius: 4px; background: #10b981;"></span>
+        <span data-slot="hosting_status">Live-Betrieb & Hosting: Schweizer Edge (Zürich & Bern) · WebPilot</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- MOBILE DAUMENZONE (IMMER ERREICHBAR AUF SMARTPHONES) -->
+  <div class="mobile-thumb-bar" id="mobileThumbBar">
+    <a href="tel:+41627390020" class="thumb-btn thumb-btn-main" aria-label="Zentrale Schlossrued anrufen">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+      <span>062 739 00 20</span>
+    </a>
+    <a href="tel:+41792464963" class="thumb-btn thumb-btn-pikett" aria-label="24h-Pikett Heizung Sanitär">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+      <span>24h-Pikett</span>
+    </a>
+    <a href="kontakt.html#terminbuchung" class="thumb-btn thumb-btn-cta" aria-label="Offerte oder Termin anfragen">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+      <span>Termin / Offerte</span>
+    </a>
+  </div>
+  <script>
+    (function() {
+      function sendHeight() {
+        if (window.parent && window.parent !== window) {
+          var h = Math.max(document.body.scrollHeight, document.documentElement.scrollHeight);
+          window.parent.postMessage({ type: "acp-embed-resize", height: h }, "*");
+        }
+      }
+      window.addEventListener("load", sendHeight);
+      window.addEventListener("resize", sendHeight);
+      setTimeout(sendHeight, 600);
+    })();
+  </script>
+
+</body>
+</html>
