@@ -20,13 +20,13 @@
       --amber-glow: rgba(245, 158, 11, 0.18);
       --cyan: #38bdf8;
       --green: #10b981;
-      --radius-sm: 6px;
-      --radius-md: 10px;
-      --radius-lg: 16px;
+      --radius-sm: 4px;
+      --radius-md: 8px;
+      --radius-lg: 8px;
     }
     * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
     html { overflow-x: clip; }
-    body { width: 100%; min-height: 100vh; overflow-x: clip; background: var(--bg); color: var(--text); font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; line-height: 1.5; font-size: 15px; }
+    body { width: 100%; min-height: 100vh; overflow-x: clip; background: var(--bg); color: var(--text); font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; line-height: 1.5; font-size: 15px; padding-bottom: calc(96px + env(safe-area-inset-bottom, 24px)) !important; }
 
     /* HEADER (STICKY) */
     .top-bar { padding: 12px 16px; border-bottom: 1px solid var(--border); background: rgba(9, 10, 15, 0.95); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); position: -webkit-sticky; position: sticky; top: 0; z-index: 1000; width: 100%; }
@@ -66,12 +66,11 @@
     .pricing-grid { display: grid; grid-template-columns: 1fr; gap: 24px; }
     .price-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 28px; display: flex; flex-direction: column; gap: 16px; position: relative; }
     .price-card.featured { border-color: var(--amber); box-shadow: 0 4px 30px rgba(245, 158, 11, 0.12); }
-    .price-badge { position: absolute; top: -12px; left: 24px; background: var(--amber); color: #000; font-family: 'JetBrains Mono', monospace; font-size: 0.72rem; font-weight: 700; padding: 4px 12px; border-radius: 999px; }
+    .price-badge { position: absolute; top: -12px; left: 24px; background: var(--amber); color: #000; font-family: 'JetBrains Mono', monospace; font-size: 0.72rem; font-weight: 700; padding: 4px 12px; border-radius: 4px; }
     .price-amount { font-size: 2.2rem; font-weight: 800; letter-spacing: -0.03em; color: #fff; }
     .price-amount span { font-size: 0.95rem; font-weight: 500; color: var(--muted); }
     .price-list { list-style: none; display: flex; flex-direction: column; gap: 10px; font-size: 0.88rem; margin: 8px 0 16px 0; }
     .price-list li { display: flex; align-items: flex-start; gap: 8px; }
-    .price-list li::before { content: '✓'; color: var(--green); font-weight: 800; }
 
     .btn-price { width: 100%; height: 50px; border-radius: var(--radius-md); font-size: 0.95rem; font-weight: 700; display: inline-flex; align-items: center; justify-content: center; gap: 8px; text-decoration: none; cursor: pointer; border: none; }
     .btn-price-amber { background: var(--amber); color: #000; }
@@ -85,13 +84,13 @@
 
     /* STICKY THUMB BAR */
     .thumb-bar { position: fixed; bottom: 0; left: 0; right: 0; background: rgba(9, 10, 15, 0.96); backdrop-filter: blur(12px); border-top: 1px solid var(--border); padding: 10px 14px; padding-bottom: calc(10px + env(safe-area-inset-bottom, 0px)); display: flex; gap: 10px; z-index: 950; }
-    .btn-thumb { flex: 1; height: 48px; border-radius: var(--radius-md); font-size: 0.88rem; font-weight: 700; display: inline-flex; align-items: center; justify-content: center; gap: 6px; text-decoration: none; }
+    .btn-thumb { flex: 1 1 0; min-width: 0; max-width: 100%; box-sizing: border-box; height: 46px; padding: 0 10px; border-radius: var(--radius-md); font-size: 0.8rem; font-weight: 700; white-space: nowrap; display: inline-flex; align-items: center; justify-content: center; gap: 6px; text-decoration: none; }
     .btn-thumb-cta { background: var(--amber); color: #000; }
     .btn-thumb-wa { background: #25D366; color: #fff; }
     .bottom-buffer { height: 74px; }
 
     /* FOOTER */
-    .footer-wrap { width: 100%; background: #050608; color: #64748b; border-top: 1px solid var(--border); }
+    .footer-wrap { width: 100%; background: #050608; color: #64748b; border-top: 1px solid var(--border); box-shadow: 0 120px 0 #050608; }
     .footer-inner { max-width: 1100px; margin: 0 auto; padding: 40px 16px; font-size: 0.82rem; display: flex; flex-direction: column; gap: 12px; }
 
     /* DESKTOP RESPONSIVE */
@@ -103,8 +102,19 @@
       .page-title { font-size: 2.3rem; }
       .section-inner { padding: 56px 24px; }
       .pricing-grid { grid-template-columns: 1fr 1fr; gap: 28px; }
-      .thumb-bar, .bottom-buffer { display: none; }
+      body { padding-bottom: 0 !important; }
+      .thumb-bar, .bottom-buffer { display: none !important; }
       .footer-inner { padding: 48px 24px; }
+    }
+    @media (max-width: 768px) {
+      .teaser-link,
+      a.contact-value {
+        display: inline-flex !important;
+        align-items: center;
+        min-height: 34px;
+        min-width: 34px;
+        padding: 6px 0;
+      }
     }
   </style>
 </head>
@@ -181,12 +191,12 @@
             Wir übernehmen alle Inhalte Ihrer aktuellen Website, optimieren Texte und Bilder für Mobile First und bauen Ihre neue Web-Präsenz komplett schlüsselfertig.
           </p>
           <ul class="price-list">
-            <li>4 vorkonfigurierte Schweizer Seiten (Start, Team, 2-Ebenen Karriere, Kontakt)</li>
-            <li>Komplette Übernahme & Schärfung Ihrer bestehenden Firmentexte</li>
-            <li>100% Mobile-First Touch-Optimierung mit fester Daumenleiste</li>
-            <li>Blitzschnelle Ladezeit unter 0.5 Sekunden (Top-Werte bei Google & auf dem Handy)</li>
-            <li>Nahtlose Aufschaltung auf Ihre bestehende Domain ohne Unterbruch</li>
-            <li>Live in 48 bis 72 Stunden</li>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0; margin-top:3px;"><polyline points="20 6 9 17 4 12"/></svg><span>4 vorkonfigurierte Schweizer Seiten (Start, Team, 2-Ebenen Karriere, Kontakt)</span></li>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0; margin-top:3px;"><polyline points="20 6 9 17 4 12"/></svg><span>Komplette Übernahme & Schärfung Ihrer bestehenden Firmentexte</span></li>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0; margin-top:3px;"><polyline points="20 6 9 17 4 12"/></svg><span>100% Mobile-First Touch-Optimierung mit fester Daumenleiste</span></li>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0; margin-top:3px;"><polyline points="20 6 9 17 4 12"/></svg><span>Blitzschnelle Ladezeit unter 0.5 Sekunden (Top-Werte bei Google & auf dem Handy)</span></li>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0; margin-top:3px;"><polyline points="20 6 9 17 4 12"/></svg><span>Nahtlose Aufschaltung auf Ihre bestehende Domain ohne Unterbruch</span></li>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0; margin-top:3px;"><polyline points="20 6 9 17 4 12"/></svg><span>Live in 48 bis 72 Stunden</span></li>
           </ul>
           <a href="kontakt.html" class="btn-price btn-price-amber">Jetzt Relaunch anfragen</a>
         </div>
@@ -200,12 +210,12 @@
             Zuverlässiges Schweizer Hochgeschwindigkeits-Hosting in Zürich und Genf — modular erweiterbar um Studio-Cockpit & KI-Autopilot.
           </p>
           <ul class="price-list">
-            <li>Schweizer Hochgeschwindigkeits-Hosting in Zürich und Genf</li>
-            <li>Optional mit WebPilot Studio Cockpit (Bilder & Texte per 1-Klick selbst anpassen)</li>
-            <li>Vorbereitet für automatische Social-Media- & Blog-Updates direkt vom Smartphone</li>
-            <li>Automatische Sicherheitskopie mit 1-Klick-Zurücksetzen</li>
-            <li>SSL-Verschlüsselung, Ausfallschutz & Domain-Betreuung inklusive</li>
-            <li>Keine Mindestvertragslaufzeit — monatlich kündbar</li>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0; margin-top:3px;"><polyline points="20 6 9 17 4 12"/></svg><span>Schweizer Hochgeschwindigkeits-Hosting in Zürich und Genf</span></li>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0; margin-top:3px;"><polyline points="20 6 9 17 4 12"/></svg><span>Optional mit WebPilot Studio Cockpit (Bilder & Texte per 1-Klick selbst anpassen)</span></li>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0; margin-top:3px;"><polyline points="20 6 9 17 4 12"/></svg><span>Vorbereitet für automatische Social-Media- & Blog-Updates direkt vom Smartphone</span></li>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0; margin-top:3px;"><polyline points="20 6 9 17 4 12"/></svg><span>Automatische Sicherheitskopie mit 1-Klick-Zurücksetzen</span></li>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0; margin-top:3px;"><polyline points="20 6 9 17 4 12"/></svg><span>SSL-Verschlüsselung, Ausfallschutz & Domain-Betreuung inklusive</span></li>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0; margin-top:3px;"><polyline points="20 6 9 17 4 12"/></svg><span>Keine Mindestvertragslaufzeit — monatlich kündbar</span></li>
           </ul>
           <a href="kontakt.html" class="btn-price btn-price-ghost">Erstgespräch vereinbaren</a>
         </div>
@@ -252,15 +262,13 @@
     </div>
   </div>
 
-  <div class="bottom-buffer"></div>
-
   <!-- STICKY THUMB BAR -->
   <div class="thumb-bar">
     <a href="kontakt.html" class="btn-thumb btn-thumb-cta">
-      <span>🚀</span> Jetzt anfragen
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0;"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"/><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/></svg> Jetzt anfragen
     </a>
     <a href="https://wa.me/41790000000" class="btn-thumb btn-thumb-wa">
-      <span>💬</span> WhatsApp
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0;"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg> WhatsApp
     </a>
   </div>
 
@@ -269,9 +277,7 @@
     <div class="footer-inner">
       <div style="font-weight: 800; font-size: 1.05rem; color: #fff;" data-slot="footer_brand">WebPilot · Ein Produkt der magnet-Xs gmbh</div>
       <div data-slot="footer_address">Vordere Hauptgasse 104 • 4800 Zofingen • info@magnet-xs.ch</div>
-      <div style="font-family:'JetBrains Mono',monospace; font-size:0.7rem; color:#475569; margin-top:8px;" data-slot="hosting_badge">
-        Gehostet in der Schweiz (Zürich & Genf) • Blitzschnelle Ladezeiten • Version 2026
-      </div>
+      <div style="font-family:'JetBrains Mono',monospace; font-size:0.7rem; color:#475569; margin-top:8px;" data-slot="hosting_badge">Gehostet in der Schweiz (Zürich & Genf) • Blitzschnelle Ladezeiten • Version 2026</div>
     </div>
   </footer>
 

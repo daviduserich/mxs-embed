@@ -38,7 +38,7 @@
       --shadow-md: 0 8px 24px -4px rgba(15, 23, 42, 0.08);
     }
     * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
-    html { overflow-x: clip; scroll-behavior: smooth; }
+    html { overflow-x: clip; }
     body {
       width: 100%;
       min-height: 100vh;
@@ -48,10 +48,10 @@
       font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
       line-height: 1.55;
       font-size: 15px;
-      padding-bottom: calc(88px + env(safe-area-inset-bottom, 20px));
+      padding-bottom: calc(96px + env(safe-area-inset-bottom, 24px)) !important;
     }
     @media (min-width: 980px) {
-      body { padding-bottom: 0; }
+      body { padding-bottom: 0 !important; }
     }
     h1, h2, h3, h4 {
       font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
@@ -1067,6 +1067,7 @@
     .footer-wrap {
       width: 100%;
       background: #0f172a;
+      box-shadow: 0 120px 0 #0f172a;
       color: #cbd5e1;
       border-top: 1px solid rgba(255, 255, 255, 0.1);
     }
@@ -1144,35 +1145,64 @@
       bottom: 0;
       left: 0;
       right: 0;
+      width: 100%;
+      max-width: 100%;
+      box-sizing: border-box;
       background: rgba(15, 23, 42, 0.96);
       backdrop-filter: blur(12px);
       border-top: 1px solid rgba(255, 255, 255, 0.14);
-      padding: 8px 12px calc(8px + env(safe-area-inset-bottom, 12px)) 12px;
-      display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
-      gap: 8px;
+      padding: 8px 10px calc(8px + env(safe-area-inset-bottom, 12px)) 10px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 6px;
       z-index: 950;
     }
     @media (min-width: 980px) {
       .mobile-thumb-bar { display: none !important; }
     }
     .thumb-btn {
+      flex: 1 1 0;
+      min-width: 0;
+      max-width: 100%;
+      box-sizing: border-box;
       height: 44px;
       border-radius: 8px;
-      font-size: 0.76rem;
+      font-size: 0.72rem;
       font-weight: 700;
       text-decoration: none;
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      gap: 5px;
+      gap: 4px;
       color: #ffffff;
-      padding: 0 8px;
+      padding: 0 6px;
       white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
     .thumb-btn-main { background: #334155; }
     .thumb-btn-pikett { background: #b91c1c; }
     .thumb-btn-cta { background: var(--primary); }
+    @media (max-width: 768px) {
+      .trust-strip-link,
+      .rating-mini-badge,
+      .leader-phone,
+      .footer-link-a,
+      .blog-body a,
+      .contacts-panel a,
+      .contact-link {
+        display: inline-flex !important;
+        align-items: center;
+        min-height: 34px;
+        min-width: 34px;
+        padding-top: 5px;
+        padding-bottom: 5px;
+      }
+      .footer-links {
+        gap: 4px;
+      }
+    }
 </style>
 </head>
 <body>
@@ -2085,7 +2115,7 @@
             <div class="quiz-opt-grid">
               <button type="button" class="quiz-opt-btn selected" onclick="selectQuizOpt(this, 1, 'Region Suhrental / Aarau / Lenzburg / Zofingen / Kulm')">
                 <span data-slot="partner_test_span">Region Suhrental, Aarau, Lenzburg, Zofingen, Kulm</span>
-                <span data-slot="partner_test_span_2">✓</span>
+                <span class="quiz-opt-icon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0; vertical-align:-2px;"><polyline points="20 6 9 17 4 12"/></svg></span>
               </button>
               <button type="button" class="quiz-opt-btn" onclick="selectQuizOpt(this, 1, 'Übriger Kanton Aargau / angrenzendes Luzern & Solothurn')">
                 <span data-slot="partner_test_span_3">Übriger Kanton Aargau / angrenzendes LU &amp; SO</span>
@@ -2117,7 +2147,7 @@
             <div class="quiz-opt-grid">
               <button type="button" class="quiz-opt-btn selected" onclick="selectQuizOpt(this, 3, 'Verbindliche Offerte, ein Ansprechpartner & hohe Handwerksqualität')">
                 <span data-slot="partner_test_span_11">Verbindliche Offerte, fixe Termine &amp; Top-Qualität</span>
-                <span data-slot="partner_test_span_12">✓</span>
+                <span class="quiz-opt-icon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0; vertical-align:-2px;"><polyline points="20 6 9 17 4 12"/></svg></span>
               </button>
               <button type="button" class="quiz-opt-btn" onclick="selectQuizOpt(this, 3, 'Saubere Baustelle & persönliche Beratung vor Ort')">
                 <span data-slot="partner_test_span_13">Saubere Baustelle &amp; persönliche Begleitung</span>
@@ -2131,7 +2161,7 @@
             <div class="quiz-opt-grid">
               <button type="button" class="quiz-opt-btn selected" onclick="selectQuizOpt(this, 4, 'Aus einer Hand durch Hochuli Schlossrued AG')">
                 <span data-slot="partner_test_span_15">Am liebsten alles abgestimmt aus einer Hand</span>
-                <span data-slot="partner_test_span_16">✓</span>
+                <span class="quiz-opt-icon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0; vertical-align:-2px;"><polyline points="20 6 9 17 4 12"/></svg></span>
               </button>
               <button type="button" class="quiz-opt-btn" onclick="selectQuizOpt(this, 4, 'Einzelne Sparte direkt mit dem Abteilungsleiter')">
                 <span data-slot="partner_test_span_17">Gezielte Einzel-Leistung direkt mit dem Abteilungsleiter</span>
