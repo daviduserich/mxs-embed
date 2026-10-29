@@ -1181,15 +1181,15 @@
   <div class="trust-strip" data-section-id="pikett-bar" data-section="pikett-bar">
     <div class="trust-strip-inner">
       <div class="trust-strip-group">
-        <a href="tel:+41792464963" class="trust-strip-link" data-slot="pikett_top_link">
-          <span class="pikett-badge-inline"><span class="pikett-dot"></span> 24h-Pikett Heizung | Sanitär: +41 79 246 49 63</span>
+        <a href="tel:+41792464963" class="trust-strip-link">
+          <span data-slot=\"pikett_top_link\" class="pikett-badge-inline"><span class="pikett-dot"></span> 24h-Pikett Heizung | Sanitär: +41 79 246 49 63</span>
         </a>
         <a href="tel:+41627390020" class="trust-strip-link" data-slot="phone">+41 62 739 00 20</a>
       </div>
       <div class="trust-strip-group">
-        <a href="index.html#kundenfeedback" class="rating-mini-badge" data-slot="header_rating_badge">
+        <a href="index.html#kundenfeedback" class="rating-mini-badge">
           <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-          <span>Kundenfeedback: 5.7 / 6.0 Gesamtnote</span>
+          <span data-slot=\"header_rating_badge\">Kundenfeedback: 5.7 / 6.0 Gesamtnote</span>
         </a>
       </div>
     </div>
@@ -1202,15 +1202,15 @@
         <img src="images/logo.svg" alt="Hochuli Schlossrued AG — Bauen im Vertrauen" class="brand-logo-img" data-slot="brand_logo">
       </a>
       <nav class="desktop-nav" aria-label="Hauptnavigation">
-        <a href="index.html" class="desk-nav-link">Startseite &amp; 5 Sparten</a>
-        <a href="index.html#social-media" class="desk-nav-link">Social Feed</a>
-        <a href="index.html#blog" class="desk-nav-link">Ratgeber</a>
-        <a href="team.html" class="desk-nav-link active">Über uns &amp; Team</a>
-        <a href="karriere.html" class="desk-nav-link">Karriere (5 Stellen)</a>
-        <a href="kontakt.html" class="desk-nav-link">Kontakt &amp; Pikett</a>
+        <a href="index.html" class="desk-nav-link" data-slot="nav_link">Startseite &amp; 5 Sparten</a>
+        <a href="index.html#social-media" class="desk-nav-link" data-slot="nav_link_2">Social Feed</a>
+        <a href="index.html#blog" class="desk-nav-link" data-slot="nav_link_3">Ratgeber</a>
+        <a href="team.html" class="desk-nav-link active" data-slot="nav_link_4">Über uns &amp; Team</a>
+        <a href="karriere.html" class="desk-nav-link" data-slot="nav_link_5">Karriere (5 Stellen)</a>
+        <a href="kontakt.html" class="desk-nav-link" data-slot="nav_link_6">Kontakt &amp; Pikett</a>
         <a href="kontakt.html#terminbuchung" class="btn-desk-contact">
           <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-          <span>Offerte / Termin</span>
+          <span data-slot="header_span">Offerte / Termin</span>
         </a>
       </nav>
       <button class="nav-burger" id="navBurgerBtn" aria-label="Menü öffnen" onclick="document.getElementById('mobileDrawer').classList.toggle('open')">
@@ -1221,27 +1221,27 @@
 
   <div class="nav-drawer" id="mobileDrawer">
     <a href="index.html" class="nav-link" onclick="document.getElementById('mobileDrawer').classList.remove('open')">
-      <span>Startseite &amp; 5 Sparten-Leitsystem</span>
+      <span data-slot="team_span">Startseite &amp; 5 Sparten-Leitsystem</span>
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
     </a>
     <a href="index.html#social-media" class="nav-link" onclick="document.getElementById('mobileDrawer').classList.remove('open')">
-      <span>Einblicke &amp; Social Media Feed</span>
+      <span data-slot="team_span_2">Einblicke &amp; Social Media Feed</span>
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
     </a>
     <a href="index.html#blog" class="nav-link" onclick="document.getElementById('mobileDrawer').classList.remove('open')">
-      <span>Fachwissen &amp; Bauherren-Ratgeber</span>
+      <span data-slot="team_span_3">Fachwissen &amp; Bauherren-Ratgeber</span>
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
     </a>
     <a href="team.html" class="nav-link" onclick="document.getElementById('mobileDrawer').classList.remove('open')">
-      <span>Über uns, 60 Mitarbeitende &amp; 14 Lernende</span>
+      <span data-slot="team_span_4">Über uns, 60 Mitarbeitende &amp; 14 Lernende</span>
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
     </a>
     <a href="karriere.html" class="nav-link" onclick="document.getElementById('mobileDrawer').classList.remove('open')">
-      <span>Karriere &amp; 5 offene Stellen</span>
+      <span data-slot="team_span_5">Karriere &amp; 5 offene Stellen</span>
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
     </a>
     <a href="kontakt.html" class="nav-link" onclick="document.getElementById('mobileDrawer').classList.remove('open')">
-      <span>Kontakt, Standort &amp; 24h-Pikett</span>
+      <span data-slot="team_span_6">Kontakt, Standort &amp; 24h-Pikett</span>
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
     </a>
   </div>
@@ -1256,18 +1256,18 @@
         </p>
         <div class="hero-actions">
           <a href="#abteilungen" class="btn-cta btn-cta-primary">
-            <span>Ansprechpartner nach Sparte</span>
+            <span data-slot="team_hero_span">Ansprechpartner nach Sparte</span>
           </a>
           <a href="#lernende" class="btn-cta btn-cta-secondary">
-            <span>Unsere 14 Lernenden &amp; Lehrstellen</span>
+            <span data-slot="team_hero_span_2">Unsere 14 Lernenden &amp; Lehrstellen</span>
           </a>
         </div>
       </div>
       <div class="hero-media">
         <img src="images/team-hauptfoto.jpg" alt="Gesamtteam der Hochuli Schlossrued AG" data-slot="team_hero_img">
         <div class="hero-media-badge">
-          <span>Hochuli Schlossrued AG · Team &amp; Abteilungsleiter</span>
-          <span style="font-family: 'JetBrains Mono', monospace; color: #fde68a;">Seit 1934</span>
+          <span data-slot="team_hero_span_3">Hochuli Schlossrued AG · Team &amp; Abteilungsleiter</span>
+          <span style="font-family: 'JetBrains Mono', monospace; color: #fde68a;" data-slot="team_hero_span_4">Seit 1934</span>
         </div>
       </div>
     </div>
@@ -1285,20 +1285,20 @@
           </p>
           <div class="subservices-grid">
             <div class="subservice-box">
-              <h4>1. Alles aus einer Hand</h4>
-              <p style="font-size: 0.84rem; color: var(--muted);">Kurze Wege zwischen Planung, Holzbau, Dach, Spenglerei, Sanitär, Heizung und Solar verhindern Schnittstellenverluste.</p>
+              <h4 data-slot="werte_h4">1. Alles aus einer Hand</h4>
+              <p style="font-size: 0.84rem; color: var(--muted);" data-slot="werte_p">Kurze Wege zwischen Planung, Holzbau, Dach, Spenglerei, Sanitär, Heizung und Solar verhindern Schnittstellenverluste.</p>
             </div>
             <div class="subservice-box">
-              <h4>2. Ehrliche Beratung</h4>
-              <p style="font-size: 0.84rem; color: var(--muted);">Transparente Offerten, realistische Termine und Lösungen, die technisch und wirtschaftlich langfristig überzeugen (Note 5.8 / 6.0).</p>
+              <h4 data-slot="werte_h4_2">2. Ehrliche Beratung</h4>
+              <p style="font-size: 0.84rem; color: var(--muted);" data-slot="werte_p_2">Transparente Offerten, realistische Termine und Lösungen, die technisch und wirtschaftlich langfristig überzeugen (Note 5.8 / 6.0).</p>
             </div>
             <div class="subservice-box">
-              <h4>3. Starke Berufsbildung</h4>
-              <p style="font-size: 0.84rem; color: var(--muted);">Mit aktuell 14 Lernenden investieren wir aktiv in die nächste Generation von Schweizer Handwerks-Profis.</p>
+              <h4 data-slot="werte_h4_3">3. Starke Berufsbildung</h4>
+              <p style="font-size: 0.84rem; color: var(--muted);" data-slot="werte_p_3">Mit aktuell 14 Lernenden investieren wir aktiv in die nächste Generation von Schweizer Handwerks-Profis.</p>
             </div>
             <div class="subservice-box">
-              <h4>4. Regional verwurzelt</h4>
-              <p style="font-size: 0.84rem; color: var(--muted);">Von Schlossrued aus sind wir im ganzen Suhrental, Raum Aarau, Lenzburg, Zofingen und Kulm rasch bei Ihnen vor Ort.</p>
+              <h4 data-slot="werte_h4_4">4. Regional verwurzelt</h4>
+              <p style="font-size: 0.84rem; color: var(--muted);" data-slot="werte_p_4">Von Schlossrued aus sind wir im ganzen Suhrental, Raum Aarau, Lenzburg, Zofingen und Kulm rasch bei Ihnen vor Ort.</p>
             </div>
           </div>
         </div>
@@ -1323,174 +1323,174 @@
       <div class="team-dept-grid">
         <!-- GL & ADMIN -->
         <div class="contacts-panel" style="--sparte-color: #0f172a; background: #ffffff;">
-          <div class="contacts-panel-title">// GESCHÄFTSLEITUNG &amp; PERSONAL</div>
+          <div class="contacts-panel-title" data-slot="abteilungen_panel_kicker">// GESCHÄFTSLEITUNG &amp; PERSONAL</div>
           <div class="leader-card">
             <img src="images/martin-hochuli.jpg" alt="Martin Hochuli" class="leader-avatar" data-slot="team_martin_img">
             <div class="leader-info">
               <div class="leader-name" data-slot="team_martin_name">Martin Hochuli</div>
               <div class="leader-role" data-slot="team_martin_role">Inhaber | Geschäftsführer (3. Generation)</div>
-              <a href="tel:+41627390021" class="leader-phone">+41 62 739 00 21</a>
+              <a href="tel:+41627390021" class="leader-phone" data-slot="abteilungen_martin_hochuli_phone">+41 62 739 00 21</a>
             </div>
           </div>
           <div class="leader-card">
             <img src="images/jacqueline-kunz.jpg" alt="Jacqueline Kunz" class="leader-avatar" data-slot="team_jacqueline_img">
             <div class="leader-info">
-              <div class="leader-name">Jacqueline Kunz</div>
-              <div class="leader-role">Leiterin Finanzen | Personal</div>
-              <a href="tel:+41627391140" class="leader-phone">+41 62 739 11 40</a>
+              <div class="leader-name" data-slot="abteilungen_jacqueline_kunz_name">Jacqueline Kunz</div>
+              <div class="leader-role" data-slot="abteilungen_jacqueline_kunz_role">Leiterin Finanzen | Personal</div>
+              <a href="tel:+41627391140" class="leader-phone" data-slot="abteilungen_jacqueline_kunz_phone">+41 62 739 11 40</a>
             </div>
           </div>
           <div class="leader-card">
             <img src="images/jenny-ettle.jpg" alt="Jenny Ettle" class="leader-avatar" data-slot="team_jenny_img">
             <div class="leader-info">
-              <div class="leader-name">Jenny Ettle</div>
-              <div class="leader-role">Marketing &amp; Kommunikation</div>
-              <a href="tel:+41627390027" class="leader-phone">+41 62 739 00 27</a>
+              <div class="leader-name" data-slot="abteilungen_jenny_ettle_name">Jenny Ettle</div>
+              <div class="leader-role" data-slot="abteilungen_jenny_ettle_role">Marketing &amp; Kommunikation</div>
+              <a href="tel:+41627390027" class="leader-phone" data-slot="abteilungen_jenny_ettle_phone">+41 62 739 00 27</a>
             </div>
           </div>
         </div>
 
         <!-- HOLZBAU + BEDACHUNG -->
         <div class="contacts-panel" style="--sparte-color: #e30613; background: #ffffff;">
-          <div class="contacts-panel-title">// 01 HOLZBAU + BEDACHUNG</div>
+          <div class="contacts-panel-title" data-slot="abteilungen_panel_kicker_2">// 01 HOLZBAU + BEDACHUNG</div>
           <div class="leader-card">
-            <img src="images/stefan-hofmann.jpg" alt="Stefan Hofmann" class="leader-avatar">
+            <img src="images/stefan-hofmann.jpg" alt="Stefan Hofmann" class="leader-avatar" data-slot="abteilungen_stefan_hofmann_img">
             <div class="leader-info">
-              <div class="leader-name">Stefan Hofmann</div>
-              <div class="leader-role">Dipl. Holzbau-Bauführer HF · Leiter Holzbau</div>
-              <a href="tel:+41627390022" class="leader-phone">+41 62 739 00 22</a>
+              <div class="leader-name" data-slot="abteilungen_stefan_hofmann_name">Stefan Hofmann</div>
+              <div class="leader-role" data-slot="abteilungen_stefan_hofmann_role">Dipl. Holzbau-Bauführer HF · Leiter Holzbau</div>
+              <a href="tel:+41627390022" class="leader-phone" data-slot="abteilungen_stefan_hofmann_phone">+41 62 739 00 22</a>
             </div>
           </div>
           <div class="leader-card">
-            <img src="images/roger-hofmann.jpg" alt="Roger Hofmann" class="leader-avatar">
+            <img src="images/roger-hofmann.jpg" alt="Roger Hofmann" class="leader-avatar" data-slot="abteilungen_roger_hofmann_img">
             <div class="leader-info">
-              <div class="leader-name">Roger Hofmann</div>
-              <div class="leader-role">Eidg. dipl. Holzbau-Meister · Stv. Leiter Holzbau</div>
-              <a href="tel:+41627390023" class="leader-phone">+41 62 739 00 23</a>
+              <div class="leader-name" data-slot="abteilungen_roger_hofmann_name">Roger Hofmann</div>
+              <div class="leader-role" data-slot="abteilungen_roger_hofmann_role">Eidg. dipl. Holzbau-Meister · Stv. Leiter Holzbau</div>
+              <a href="tel:+41627390023" class="leader-phone" data-slot="abteilungen_roger_hofmann_phone">+41 62 739 00 23</a>
             </div>
           </div>
           <div class="leader-card">
-            <img src="images/samuel-buehler.jpg" alt="Samuel Bühler" class="leader-avatar">
+            <img src="images/samuel-buehler.jpg" alt="Samuel Bühler" class="leader-avatar" data-slot="abteilungen_samuel_buehler_img">
             <div class="leader-info">
-              <div class="leader-name">Samuel Bühler</div>
-              <div class="leader-role">Holzbau-Vorarbeiter eidg. FA · AVOR &amp; Lernende</div>
-              <a href="tel:+41627391148" class="leader-phone">+41 62 739 11 48</a>
+              <div class="leader-name" data-slot="abteilungen_samuel_b_hler_name">Samuel Bühler</div>
+              <div class="leader-role" data-slot="abteilungen_samuel_b_hler_role">Holzbau-Vorarbeiter eidg. FA · AVOR &amp; Lernende</div>
+              <a href="tel:+41627391148" class="leader-phone" data-slot="abteilungen_samuel_b_hler_phone">+41 62 739 11 48</a>
             </div>
           </div>
         </div>
 
         <!-- SPENGLER + FLACHDACH -->
         <div class="contacts-panel" style="--sparte-color: #d97706; background: #ffffff;">
-          <div class="contacts-panel-title">// 02 SPENGLER + FLACHDACH</div>
+          <div class="contacts-panel-title" data-slot="abteilungen_panel_kicker_3">// 02 SPENGLER + FLACHDACH</div>
           <div class="leader-card">
-            <img src="images/alex-kirchhofer.jpg" alt="Alex Kirchhofer" class="leader-avatar">
+            <img src="images/alex-kirchhofer.jpg" alt="Alex Kirchhofer" class="leader-avatar" data-slot="abteilungen_alex_kirchhofer_img">
             <div class="leader-info">
-              <div class="leader-name">Alex Kirchhofer</div>
-              <div class="leader-role">Spenglerpolier mit eidg. FA · Leiter Spenglerei</div>
-              <a href="tel:+41627390025" class="leader-phone">+41 62 739 00 25</a>
+              <div class="leader-name" data-slot="abteilungen_alex_kirchhofer_name">Alex Kirchhofer</div>
+              <div class="leader-role" data-slot="abteilungen_alex_kirchhofer_role">Spenglerpolier mit eidg. FA · Leiter Spenglerei</div>
+              <a href="tel:+41627390025" class="leader-phone" data-slot="abteilungen_alex_kirchhofer_phone">+41 62 739 00 25</a>
             </div>
           </div>
           <div class="leader-card">
-            <img src="images/moses-fricker.jpg" alt="Moses Fricker" class="leader-avatar">
+            <img src="images/moses-fricker.jpg" alt="Moses Fricker" class="leader-avatar" data-slot="abteilungen_moses_fricker_img">
             <div class="leader-info">
-              <div class="leader-name">Moses Fricker</div>
-              <div class="leader-role">Spenglerpolier mit eidg. FA · Stv. Leiter Spenglerei</div>
-              <a href="tel:+41627390025" class="leader-phone">+41 62 739 00 25</a>
+              <div class="leader-name" data-slot="abteilungen_moses_fricker_name">Moses Fricker</div>
+              <div class="leader-role" data-slot="abteilungen_moses_fricker_role">Spenglerpolier mit eidg. FA · Stv. Leiter Spenglerei</div>
+              <a href="tel:+41627390025" class="leader-phone" data-slot="abteilungen_moses_fricker_phone">+41 62 739 00 25</a>
             </div>
           </div>
           <div class="leader-card">
-            <img src="images/christian-hunziker.jpg" alt="Christian Hunziker" class="leader-avatar">
+            <img src="images/christian-hunziker.jpg" alt="Christian Hunziker" class="leader-avatar" data-slot="abteilungen_christian_hunziker_img">
             <div class="leader-info">
-              <div class="leader-name">Christian Hunziker</div>
-              <div class="leader-role">Service | Dachfenster &amp; Gebäudehülle</div>
-              <a href="tel:+41627390024" class="leader-phone">+41 62 739 00 24</a>
+              <div class="leader-name" data-slot="abteilungen_christian_hunziker_name">Christian Hunziker</div>
+              <div class="leader-role" data-slot="abteilungen_christian_hunziker_role">Service | Dachfenster &amp; Gebäudehülle</div>
+              <a href="tel:+41627390024" class="leader-phone" data-slot="abteilungen_christian_hunziker_phone">+41 62 739 00 24</a>
             </div>
           </div>
         </div>
 
         <!-- SANITÄR + HEIZUNG -->
         <div class="contacts-panel" style="--sparte-color: #0284c7; background: #ffffff;">
-          <div class="contacts-panel-title">// 03 SANITÄR + HEIZUNG</div>
+          <div class="contacts-panel-title" data-slot="abteilungen_panel_kicker_4">// 03 SANITÄR + HEIZUNG</div>
           <div class="leader-card">
-            <img src="images/thomas-bertschi.jpg" alt="Thomas Bertschi" class="leader-avatar">
+            <img src="images/thomas-bertschi.jpg" alt="Thomas Bertschi" class="leader-avatar" data-slot="abteilungen_thomas_bertschi_img">
             <div class="leader-info">
-              <div class="leader-name">Thomas Bertschi</div>
-              <div class="leader-role">Eidg. dipl. Sanitärmeister · Leiter Sanitär+Heizung</div>
-              <a href="tel:+41627391146" class="leader-phone">+41 62 739 11 46</a>
+              <div class="leader-name" data-slot="abteilungen_thomas_bertschi_name">Thomas Bertschi</div>
+              <div class="leader-role" data-slot="abteilungen_thomas_bertschi_role">Eidg. dipl. Sanitärmeister · Leiter Sanitär+Heizung</div>
+              <a href="tel:+41627391146" class="leader-phone" data-slot="abteilungen_thomas_bertschi_phone">+41 62 739 11 46</a>
             </div>
           </div>
           <div class="leader-card">
-            <img src="images/roland-wuethrich.jpg" alt="Roland Wüthrich" class="leader-avatar">
+            <img src="images/roland-wuethrich.jpg" alt="Roland Wüthrich" class="leader-avatar" data-slot="abteilungen_roland_wuethrich_img">
             <div class="leader-info">
-              <div class="leader-name">Roland Wüthrich</div>
-              <div class="leader-role">Projektleiter Energie &amp; Wärmepumpen</div>
-              <a href="tel:+41627391165" class="leader-phone">+41 62 739 11 65</a>
+              <div class="leader-name" data-slot="abteilungen_roland_w_thrich_name">Roland Wüthrich</div>
+              <div class="leader-role" data-slot="abteilungen_roland_w_thrich_role">Projektleiter Energie &amp; Wärmepumpen</div>
+              <a href="tel:+41627391165" class="leader-phone" data-slot="abteilungen_roland_w_thrich_phone">+41 62 739 11 65</a>
             </div>
           </div>
           <div class="leader-card">
-            <img src="images/monika-schaffner.jpg" alt="Monika Schaffner" class="leader-avatar">
+            <img src="images/monika-schaffner.jpg" alt="Monika Schaffner" class="leader-avatar" data-slot="abteilungen_monika_schaffner_img">
             <div class="leader-info">
-              <div class="leader-name">Monika Schaffner</div>
-              <div class="leader-role">Technische Administration Sanitär | Heizung</div>
-              <a href="tel:+41627237222" class="leader-phone">+41 62 723 72 22</a>
+              <div class="leader-name" data-slot="abteilungen_monika_schaffner_name">Monika Schaffner</div>
+              <div class="leader-role" data-slot="abteilungen_monika_schaffner_role">Technische Administration Sanitär | Heizung</div>
+              <a href="tel:+41627237222" class="leader-phone" data-slot="abteilungen_monika_schaffner_phone">+41 62 723 72 22</a>
             </div>
           </div>
         </div>
 
         <!-- PLANUNG -->
         <div class="contacts-panel" style="--sparte-color: #059669; background: #ffffff;">
-          <div class="contacts-panel-title">// 04 PLANUNG &amp; BAULEITUNG</div>
+          <div class="contacts-panel-title" data-slot="abteilungen_panel_kicker_5">// 04 PLANUNG &amp; BAULEITUNG</div>
           <div class="leader-card">
-            <img src="images/claudia-hauri.jpg" alt="Claudia Hauri" class="leader-avatar">
+            <img src="images/claudia-hauri.jpg" alt="Claudia Hauri" class="leader-avatar" data-slot="abteilungen_claudia_hauri_img">
             <div class="leader-info">
-              <div class="leader-name">Claudia Hauri</div>
-              <div class="leader-role">Leiterin Planung · Architektur &amp; Baurecht</div>
-              <a href="tel:+41627391141" class="leader-phone">+41 62 739 11 41</a>
+              <div class="leader-name" data-slot="abteilungen_claudia_hauri_name">Claudia Hauri</div>
+              <div class="leader-role" data-slot="abteilungen_claudia_hauri_role">Leiterin Planung · Architektur &amp; Baurecht</div>
+              <a href="tel:+41627391141" class="leader-phone" data-slot="abteilungen_claudia_hauri_phone">+41 62 739 11 41</a>
             </div>
           </div>
           <div class="leader-card">
-            <img src="images/dominik-felber.jpg" alt="Dominik Felber" class="leader-avatar">
+            <img src="images/dominik-felber.jpg" alt="Dominik Felber" class="leader-avatar" data-slot="abteilungen_dominik_felber_img">
             <div class="leader-info">
-              <div class="leader-name">Dominik Felber</div>
-              <div class="leader-role">Dipl. Holztechniker HF · Planung &amp; Bauleitung</div>
-              <a href="tel:+41627391142" class="leader-phone">+41 62 739 11 42</a>
+              <div class="leader-name" data-slot="abteilungen_dominik_felber_name">Dominik Felber</div>
+              <div class="leader-role" data-slot="abteilungen_dominik_felber_role">Dipl. Holztechniker HF · Planung &amp; Bauleitung</div>
+              <a href="tel:+41627391142" class="leader-phone" data-slot="abteilungen_dominik_felber_phone">+41 62 739 11 42</a>
             </div>
           </div>
           <div class="leader-card">
-            <img src="images/thomas-ettle.jpg" alt="Thomas Ettle" class="leader-avatar">
+            <img src="images/thomas-ettle.jpg" alt="Thomas Ettle" class="leader-avatar" data-slot="abteilungen_thomas_ettle_img">
             <div class="leader-info">
-              <div class="leader-name">Thomas Ettle &amp; Thomas Perret</div>
-              <div class="leader-role">Dipl. Bauführer SBA (+41 62 739 11 45) · Architekt FHZ</div>
-              <a href="tel:+41627391145" class="leader-phone">+41 62 739 11 45</a>
+              <div class="leader-name" data-slot="abteilungen_thomas_ettle_thomas_perr_name">Thomas Ettle &amp; Thomas Perret</div>
+              <div class="leader-role" data-slot="abteilungen_thomas_ettle_thomas__role">Dipl. Bauführer SBA (+41 62 739 11 45) · Architekt FHZ</div>
+              <a href="tel:+41627391145" class="leader-phone" data-slot="abteilungen_thomas_ettle_thomas__phone">+41 62 739 11 45</a>
             </div>
           </div>
         </div>
 
         <!-- PHOTOVOLTAIK -->
         <div class="contacts-panel" style="--sparte-color: #ca8a04; background: #ffffff;">
-          <div class="contacts-panel-title">// 05 PHOTOVOLTAIK &amp; ENERGIE</div>
+          <div class="contacts-panel-title" data-slot="abteilungen_panel_kicker_6">// 05 PHOTOVOLTAIK &amp; ENERGIE</div>
           <div class="leader-card">
-            <img src="images/michael-zubler.jpg" alt="Michael Zubler" class="leader-avatar">
+            <img src="images/michael-zubler.jpg" alt="Michael Zubler" class="leader-avatar" data-slot="abteilungen_michael_zubler_img">
             <div class="leader-info">
-              <div class="leader-name">Michael Zubler</div>
-              <div class="leader-role">Projektleiter Photovoltaik &amp; Speicher</div>
-              <a href="tel:+41627390029" class="leader-phone">+41 62 739 00 29</a>
+              <div class="leader-name" data-slot="abteilungen_michael_zubler_name">Michael Zubler</div>
+              <div class="leader-role" data-slot="abteilungen_michael_zubler_role">Projektleiter Photovoltaik &amp; Speicher</div>
+              <a href="tel:+41627390029" class="leader-phone" data-slot="abteilungen_michael_zubler_phone">+41 62 739 00 29</a>
             </div>
           </div>
           <div class="leader-card">
-            <img src="images/roger-hofmann.jpg" alt="Roger Hofmann" class="leader-avatar">
+            <img src="images/roger-hofmann.jpg" alt="Roger Hofmann" class="leader-avatar" data-slot="abteilungen_roger_hofmann_img_2">
             <div class="leader-info">
-              <div class="leader-name">Roger Hofmann</div>
-              <div class="leader-role">Energieberater Gebäude &amp; Gebäudehülle</div>
-              <a href="tel:+41627390023" class="leader-phone">+41 62 739 00 23</a>
+              <div class="leader-name" data-slot="abteilungen_roger_hofmann_name_2">Roger Hofmann</div>
+              <div class="leader-role" data-slot="abteilungen_roger_hofmann_role_2">Energieberater Gebäude &amp; Gebäudehülle</div>
+              <a href="tel:+41627390023" class="leader-phone" data-slot="abteilungen_roger_hofmann_phone_2">+41 62 739 00 23</a>
             </div>
           </div>
           <div class="leader-card">
-            <img src="images/roland-wuethrich.jpg" alt="Roland Wüthrich" class="leader-avatar">
+            <img src="images/roland-wuethrich.jpg" alt="Roland Wüthrich" class="leader-avatar" data-slot="abteilungen_roland_wuethrich_img_2">
             <div class="leader-info">
-              <div class="leader-name">Roland Wüthrich</div>
-              <div class="leader-role">Projektleiter Energie &amp; Haustechnik</div>
-              <a href="tel:+41627391165" class="leader-phone">+41 62 739 11 65</a>
+              <div class="leader-name" data-slot="abteilungen_roland_w_thrich_name_2">Roland Wüthrich</div>
+              <div class="leader-role" data-slot="abteilungen_roland_w_thrich_role_2">Projektleiter Energie &amp; Haustechnik</div>
+              <a href="tel:+41627391165" class="leader-phone" data-slot="abteilungen_roland_w_thrich_phone_2">+41 62 739 11 65</a>
             </div>
           </div>
         </div>
@@ -1510,28 +1510,28 @@
           </p>
           <div class="subservices-grid">
             <div class="subservice-box" style="border-left: 4px solid #e30613;">
-              <h4>Zimmermann / Zimmerin EFZ &amp; Dachdecker/in EFZ</h4>
-              <p style="font-size: 0.82rem; color: var(--muted);">Ausbildner: <strong>Samuel Bühler</strong> · Direktwahl <a href="tel:+41627391148" style="color: #e30613; font-weight: 700;">062 739 11 48</a></p>
+              <h4 data-slot="lernende_beruf_1_title">Zimmermann / Zimmerin EFZ &amp; Dachdecker/in EFZ</h4>
+              <p style="font-size: 0.82rem; color: var(--muted);"><span data-slot="lernende_beruf_1_lbl">Ausbildner: </span><strong data-slot="lernende_beruf_1_name">Samuel Bühler</strong><span data-slot="lernende_beruf_1_sep"> · Direktwahl </span><a href="tel:+41627391148" style="color: #e30613; font-weight: 700;" data-slot="lernende_beruf_1_phone">062 739 11 48</a></p>
             </div>
             <div class="subservice-box" style="border-left: 4px solid #d97706;">
-              <h4>Spengler / Spenglerin EFZ</h4>
-              <p style="font-size: 0.82rem; color: var(--muted);">Ausbildner: <strong>Alex Kirchhofer</strong> · Direktwahl <a href="tel:+41627390025" style="color: #d97706; font-weight: 700;">062 739 00 25</a></p>
+              <h4 data-slot="lernende_beruf_2_title">Spengler / Spenglerin EFZ</h4>
+              <p style="font-size: 0.82rem; color: var(--muted);"><span data-slot="lernende_beruf_2_lbl">Ausbildner: </span><strong data-slot="lernende_beruf_2_name">Alex Kirchhofer</strong><span data-slot="lernende_beruf_2_sep"> · Direktwahl </span><a href="tel:+41627390025" style="color: #d97706; font-weight: 700;" data-slot="lernende_beruf_2_phone">062 739 00 25</a></p>
             </div>
             <div class="subservice-box" style="border-left: 4px solid #0284c7;">
-              <h4>Sanitärinstallateur / in EFZ</h4>
-              <p style="font-size: 0.82rem; color: var(--muted);">Ausbildner: <strong>Thomas Bertschi</strong> · Direktwahl <a href="tel:+41627391146" style="color: #0284c7; font-weight: 700;">062 739 11 46</a></p>
+              <h4 data-slot="lernende_beruf_3_title">Sanitärinstallateur / in EFZ</h4>
+              <p style="font-size: 0.82rem; color: var(--muted);"><span data-slot="lernende_beruf_3_lbl">Ausbildner: </span><strong data-slot="lernende_beruf_3_name">Thomas Bertschi</strong><span data-slot="lernende_beruf_3_sep"> · Direktwahl </span><a href="tel:+41627391146" style="color: #0284c7; font-weight: 700;" data-slot="lernende_beruf_3_phone">062 739 11 46</a></p>
             </div>
             <div class="subservice-box" style="border-left: 4px solid #059669;">
-              <h4>Zeichner / Zeichnerin EFZ Architektur</h4>
-              <p style="font-size: 0.82rem; color: var(--muted);">Ausbildnerin: <strong>Claudia Hauri</strong> · Direktwahl <a href="tel:+41627391141" style="color: #059669; font-weight: 700;">062 739 11 41</a></p>
+              <h4 data-slot="lernende_beruf_4_title">Zeichner / Zeichnerin EFZ Architektur</h4>
+              <p style="font-size: 0.82rem; color: var(--muted);"><span data-slot="lernende_beruf_4_lbl">Ausbildnerin: </span><strong data-slot="lernende_beruf_4_name">Claudia Hauri</strong><span data-slot="lernende_beruf_4_sep"> · Direktwahl </span><a href="tel:+41627391141" style="color: #059669; font-weight: 700;" data-slot="lernende_beruf_4_phone">062 739 11 41</a></p>
             </div>
           </div>
         </div>
         <div class="hero-media" style="aspect-ratio: 16 / 9;">
           <img src="images/team-lernende.jpg" alt="Unsere 14 Lernenden der Hochuli Schlossrued AG" data-slot="lernende_img">
           <div class="hero-media-badge">
-            <span>14 Lernende in 5 Lehrberufen EFZ</span>
-            <span style="font-family: 'JetBrains Mono', monospace; color: #fde68a;">Schnupperlehre möglich</span>
+            <span data-slot="lernende_span">14 Lernende in 5 Lehrberufen EFZ</span>
+            <span style="font-family: 'JetBrains Mono', monospace; color: #fde68a;" data-slot="lernende_span_2">Schnupperlehre möglich</span>
           </div>
         </div>
       </div>
@@ -1547,20 +1547,20 @@
       </div>
       <div class="timeline-list">
         <div class="timeline-item">
-          <div class="timeline-year">1934 &amp; 1976 — 1. &amp; 2. GENERATION</div>
-          <div class="timeline-text">Gründung als Zimmerei durch Jakob Hochuli (1934), Bau der Sägerei (1954), Übergabe an Alfred Hochuli (1976) und Neubau der Abbundhalle (1977).</div>
+          <div class="timeline-year" data-slot="geschichte_timeline_year">1934 &amp; 1976 — 1. &amp; 2. GENERATION</div>
+          <div class="timeline-text" data-slot="geschichte_timeline_text">Gründung als Zimmerei durch Jakob Hochuli (1934), Bau der Sägerei (1954), Übergabe an Alfred Hochuli (1976) und Neubau der Abbundhalle (1977).</div>
         </div>
         <div class="timeline-item">
-          <div class="timeline-year">1991 – 2008 — BEDACHUNG &amp; 3. GENERATION</div>
-          <div class="timeline-text">Übernahme Müller Bedachungen Unterkulm (1991), CAD-System Cadwork (1999), Umwandlung in Hochuli Holzbau AG (2001) und Übergabe an Martin Hochuli (2008).</div>
+          <div class="timeline-year" data-slot="geschichte_timeline_year_2">1991 – 2008 — BEDACHUNG &amp; 3. GENERATION</div>
+          <div class="timeline-text" data-slot="geschichte_timeline_text_2">Übernahme Müller Bedachungen Unterkulm (1991), CAD-System Cadwork (1999), Umwandlung in Hochuli Holzbau AG (2001) und Übergabe an Martin Hochuli (2008).</div>
         </div>
         <div class="timeline-item">
-          <div class="timeline-year">2013 – 2020 — SPENGLEREI &amp; PLANUNG</div>
-          <div class="timeline-text">Aufbau der eigenen Spenglerei und Neubau der Lagerhalle (2013) sowie gezielter Ausbau der eigenen Sparte Planung &amp; Bauleitung (2020).</div>
+          <div class="timeline-year" data-slot="geschichte_timeline_year_3">2013 – 2020 — SPENGLEREI &amp; PLANUNG</div>
+          <div class="timeline-text" data-slot="geschichte_timeline_text_3">Aufbau der eigenen Spenglerei und Neubau der Lagerhalle (2013) sowie gezielter Ausbau der eigenen Sparte Planung &amp; Bauleitung (2020).</div>
         </div>
         <div class="timeline-item">
-          <div class="timeline-year">2021 – 2025 — SANITÄR, HEIZUNG, SOLAR &amp; K. SCHAFFNER AG</div>
-          <div class="timeline-text">Aufbau Sanitär+Heizung und Umfirmierung in «Hochuli Schlossrued AG» (2021), Ausbau Sparte Photovoltaik (2023) und Eingliederung der K. Schaffner AG (2025).</div>
+          <div class="timeline-year" data-slot="geschichte_timeline_year_4">2021 – 2025 — SANITÄR, HEIZUNG, SOLAR &amp; K. SCHAFFNER AG</div>
+          <div class="timeline-text" data-slot="geschichte_timeline_text_4">Aufbau Sanitär+Heizung und Umfirmierung in «Hochuli Schlossrued AG» (2021), Ausbau Sparte Photovoltaik (2023) und Eingliederung der K. Schaffner AG (2025).</div>
         </div>
       </div>
     </div>
@@ -1572,35 +1572,35 @@
         <h4 data-slot="company_name">Hochuli Schlossrued AG</h4>
         <p style="font-size: 0.85rem; line-height: 1.6; color: #94a3b8; margin-bottom: 12px;" data-slot="footer_address">Hauptstrasse 106 • 5044 Schlossrued • mail@hochuli-gruppe.ch</p>
         <div class="rating-mini-badge" style="margin-top: 4px;">
-          <span>Kundenfeedback: 5.7 / 6.0 Gesamtnote</span>
+          <span data-slot="footer_span">Kundenfeedback: 5.7 / 6.0 Gesamtnote</span>
         </div>
       </div>
 
       <div class="footer-col">
-        <h4>Unsere 5 Sparten</h4>
+        <h4 data-slot="footer_h4">Unsere 5 Sparten</h4>
         <ul class="footer-links">
-          <li><a href="index.html#sparte-holzbau" class="footer-link-a">1. Holzbau + Bedachung</a></li>
-          <li><a href="index.html#sparte-spengler" class="footer-link-a">2. Spengler + Flachdach</a></li>
-          <li><a href="index.html#sparte-sanitaer" class="footer-link-a">3. Sanitär + Heizung (inkl. 24h-Pikett)</a></li>
-          <li><a href="index.html#sparte-planung" class="footer-link-a">4. Planung, Neubau &amp; Umbau</a></li>
-          <li><a href="index.html#sparte-pv" class="footer-link-a">5. Photovoltaik &amp; Speichersysteme</a></li>
+          <li><a href="index.html#sparte-holzbau" class="footer-link-a" data-slot="footer_link">1. Holzbau + Bedachung</a></li>
+          <li><a href="index.html#sparte-spengler" class="footer-link-a" data-slot="footer_link_2">2. Spengler + Flachdach</a></li>
+          <li><a href="index.html#sparte-sanitaer" class="footer-link-a" data-slot="footer_link_3">3. Sanitär + Heizung (inkl. 24h-Pikett)</a></li>
+          <li><a href="index.html#sparte-planung" class="footer-link-a" data-slot="footer_link_4">4. Planung, Neubau &amp; Umbau</a></li>
+          <li><a href="index.html#sparte-pv" class="footer-link-a" data-slot="footer_link_5">5. Photovoltaik &amp; Speichersysteme</a></li>
         </ul>
       </div>
 
       <div class="footer-col">
-        <h4>Navigation &amp; Direktwege</h4>
+        <h4 data-slot="footer_h4_2">Navigation &amp; Direktwege</h4>
         <ul class="footer-links">
-          <li><a href="index.html" class="footer-link-a">Startseite &amp; Sparten-Leitsystem</a></li>
-          <li><a href="index.html#social-media" class="footer-link-a">Einblicke &amp; Social Media Wall</a></li>
-          <li><a href="index.html#blog" class="footer-link-a">Ratgeber &amp; Praxiswissen</a></li>
-          <li><a href="team.html" class="footer-link-a">Über uns, Team &amp; 14 Lernende</a></li>
-          <li><a href="karriere.html" class="footer-link-a">Karriere &amp; 5 offene Stellen</a></li>
-          <li><a href="kontakt.html" class="footer-link-a">Kontakt &amp; Online-Terminbuchung</a></li>
+          <li><a href="index.html" class="footer-link-a" data-slot="footer_link_6">Startseite &amp; Sparten-Leitsystem</a></li>
+          <li><a href="index.html#social-media" class="footer-link-a" data-slot="footer_link_7">Einblicke &amp; Social Media Wall</a></li>
+          <li><a href="index.html#blog" class="footer-link-a" data-slot="footer_link_8">Ratgeber &amp; Praxiswissen</a></li>
+          <li><a href="team.html" class="footer-link-a" data-slot="footer_link_9">Über uns, Team &amp; 14 Lernende</a></li>
+          <li><a href="karriere.html" class="footer-link-a" data-slot="footer_link_10">Karriere &amp; 5 offene Stellen</a></li>
+          <li><a href="kontakt.html" class="footer-link-a" data-slot="footer_link_11">Kontakt &amp; Online-Terminbuchung</a></li>
         </ul>
       </div>
 
       <div class="footer-col">
-        <h4>Öffnungszeiten &amp; Vernetzung</h4>
+        <h4 data-slot="footer_h4_3">Öffnungszeiten &amp; Vernetzung</h4>
         <p style="font-size: 0.84rem; color: #94a3b8; line-height: 1.55;" data-slot="footer_hours">
           Mo – Do: 07.15 – 12.00 | 13.15 – 17.15 Uhr<br>
           Freitag: 07.15 – 12.00 | 13.15 – 16.30 Uhr
@@ -1632,15 +1632,15 @@
   <div class="mobile-thumb-bar" id="mobileThumbBar">
     <a href="tel:+41627390020" class="thumb-btn thumb-btn-main" aria-label="Zentrale Schlossrued anrufen">
       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-      <span>062 739 00 20</span>
+      <span data-slot="team_span_7">062 739 00 20</span>
     </a>
     <a href="tel:+41792464963" class="thumb-btn thumb-btn-pikett" aria-label="24h-Pikett Heizung Sanitär">
       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
-      <span>24h-Pikett</span>
+      <span data-slot="team_span_8">24h-Pikett</span>
     </a>
     <a href="kontakt.html#terminbuchung" class="thumb-btn thumb-btn-cta" aria-label="Offerte oder Termin anfragen">
       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-      <span>Termin / Offerte</span>
+      <span data-slot="team_span_9">Termin / Offerte</span>
     </a>
   </div>
   <script>

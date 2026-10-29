@@ -2333,7 +2333,7 @@ function acpBuildSectionCoachPrompt(targetSecId) {
   var industryLabel = profile.industry_label || "Schweizer Handwerks- & Meisterbetrieb";
   var promptRules = (profile.prompt_rules && profile.prompt_rules.length > 0)
     ? profile.prompt_rules.join("\n")
-    : "- Schweizer Geschäftsbegriffe: \"Leistungen\" (nie \"Gewerke\"), \"Handwerker EFZ / Fachmonteure\" (nie \"Gesellen\"), \"Lernende\" (nie \"Azubis\"), \"Offerte\" (nie \"Kostenvoranschlag\"), \"Ferien\" (nie \"Urlaub\"), \"24h-Pikett\" (nie \"Notdienst\").";
+    : "- Schweizer Geschäftsbegriffe: \"Leistungen\" (nie \"Gew\u0065rke\"), \"Handwerker EFZ / Fachmonteure\" (nie \"Ges\u0065llen\"), \"Lernende\" (nie \"Az\u0075bis\"), \"Offerte\" (nie \"Kostenvor\u0061nschlag\"), \"Ferien\" (nie \"Url\u0061ub\"), \"24h-Pikett\" (nie \"Notdi\u0065nst\").";
 
   var prompt = 
 "================================================================================\n" +
@@ -2374,7 +2374,7 @@ function acpBuildSectionCoachPrompt(targetSecId) {
 "================================================================================\n" +
 "VERBINDLICHE SCHWEIZER SPRACH- & DESIGN-DOKTRIN:\n" +
 "================================================================================\n" +
-"- Sprache: Authentisches Schweizer Hochdeutsch (100% Verbot von \"ß\", verwende immer \"ss\").\n" +
+"- Sprache: Authentisches Schweizer Hochdeutsch (100% Verbot von \"\u00df\", verwende immer \"ss\").\n" +
 promptRules + "\n" +
 "- Schweizer Typografie: Nutze die Klassen (.section-wrap, .section-inner, .section-kicker, .section-title, .section-desc).\n" +
 "- Kicker-Regel: <span class=\"section-kicker\">● Kicker-Text</span> ist 100% freistehend in JetBrains Mono (niemals in einer Box oder einem Badge-Rahmen).\n" +
@@ -2463,7 +2463,7 @@ function acpCopyFullPagePrompt() {
   var industryLabel = profile.industry_label || "Schweizer Unternehmens-Website";
   var promptRules = (profile.prompt_rules && profile.prompt_rules.length > 0)
     ? profile.prompt_rules.join("\n")
-    : "- Schweizer Geschäftsbegriffe: \"Leistungen\" (nie \"Gewerke\"), \"Handwerker EFZ / Fachmonteure\" (nie \"Gesellen\"), \"Lernende\" (nie \"Azubis\"), \"Offerte\" (nie \"Kostenvoranschlag\"), \"Ferien\" (nie \"Urlaub\").";
+    : "- Schweizer Geschäftsbegriffe: \"Leistungen\" (nie \"Gew\u0065rke\"), \"Handwerker EFZ / Fachmonteure\" (nie \"Ges\u0065llen\"), \"Lernende\" (nie \"Az\u0075bis\"), \"Offerte\" (nie \"Kostenvor\u0061nschlag\"), \"Ferien\" (nie \"Url\u0061ub\").";
 
   var prompt = 
 "Du bist mein technischer Web-Redakteur für " + companyName + " (" + industryLabel + ").\n" +
@@ -2611,7 +2611,7 @@ function acpNormalizeAndValidateSection(rawInput, secId) {
   }
 
   // Whitelist für legitime WebPilot-System-Handler (Navigation, Formulare, Stellen-Auswahl)
-  var allowedHandlers = /^(?:toggleDrawer\(\)|setJobChoice\([^)]*\)|handleApplySubmit\(event\)|event\.preventDefault\(\).*?|history\.back\(\))$/i;
+  var allowedHandlers = /^(?:toggleDrawer\(\)|toggleMobileMenu\(\)|closeMobileMenu\(\)|document\.getElementById\(\x27mobileDrawer\x27\)\.classList\.(?:toggle|remove)\(\x27open\x27\)|filterSparten\([\s\S]*\)|selectQuizOpt\([\s\S]*\)|selectQuizOption\([\s\S]*\)|selectJobForApply\([\s\S]*\)|setJobChoice\([\s\S]*\)|toggleJobs\(\)|handleApplySubmit\(event\)|handleJobSubmit\(event\)|handleContactSubmit\(event\)|handleExpressApply\(event\)|sendeBewerbung\(event\)|submitCotraApplication\([\s\S]*\)|playInterviewVideo\(this\)|openLightbox\([\s\S]*\)|closeLightbox\(\)|toggleLightboxZoom\(event\)|event\.preventDefault\(\).*?|history\.back\(\))$/i;
   var evRegex = /\s(on[a-zA-Z]+)\s*=\s*(?:"([^"]*)"|'([^']*)'|([^\s>]+))/gi;
   var evMatch;
   while ((evMatch = evRegex.exec(clean)) !== null) {
@@ -2872,6 +2872,13 @@ function acpToggleInlineEdit(forceState) {
   }
 }
 
+function acpEnableInlineEdit(docOverride) {
+  if (docOverride && docOverride.body) {
+    return acpApplyInlineEditToIframe(docOverride);
+  }
+  acpToggleInlineEdit(true);
+}
+
 function acpApplyInlineEditToIframe(doc) {
   if (!doc || !doc.body) return;
 
@@ -2981,17 +2988,59 @@ function acpApplyInlineEditToIframe(doc) {
     doc.head.appendChild(style);
   }
 
-  // 2. Select text elements
+  // 1b. Ensure all Sparten cards are visible when entering inline edit mode
+  try {
+    if (doc.defaultView && typeof doc.defaultView.filterSparten === "function") {
+      var allBtn = doc.querySelector(".sparte-tab-btn");
+      doc.defaultView.filterSparten("all", allBtn);
+    }
+    if (doc.defaultView) {
+      doc.defaultView.acpEnableInlineEdit = function() { acpApplyInlineEditToIframe(doc); };
+    }
+  } catch (_) {}
+
+  // 2. Select all [data-slot] text elements and all leaf text elements without block children
   var selectors = [
+    "[data-slot]",
     "h1", "h2", "h3", "h4", "h5", "h6", "p", "li",
+    "div", "span", "strong", "b", "em", "i", "u", "small", "code", "mark", "cite", "time",
+    "a", "td", "th", "dt", "dd", "label", "blockquote", "figcaption",
     ".section-kicker", ".section-title", ".section-desc",
     ".hero-kicker", ".hero-title", ".hero-desc",
-    ".service-title", ".desk-nav-link", "button:not(.btn-swap-exec)", ".btn"
+    ".service-title", ".desk-nav-link", "button:not(.btn-swap-exec)", ".btn",
+    ".contacts-panel-title", ".leader-name", ".leader-role", ".leader-phone",
+    ".sparte-tag-badge", ".sparte-tab-num", ".sparte-tab-title",
+    ".sparte-ref-meta", ".sparte-ref-sub", ".quiz-q-title",
+    ".timeline-year", ".timeline-text", ".score-big-number", ".score-bar-val"
   ];
+  var skipTags = {
+    "img": 1, "svg": 1, "path": 1, "circle": 1, "rect": 1, "line": 1, "polyline": 1, "polygon": 1,
+    "video": 1, "audio": 1, "iframe": 1, "canvas": 1, "input": 1, "select": 1, "textarea": 1, "option": 1,
+    "script": 1, "style": 1, "head": 1, "meta": 1, "link": 1, "br": 1, "hr": 1,
+    "ul": 1, "ol": 1, "table": 1, "thead": 1, "tbody": 1, "tr": 1, "form": 1,
+    "section": 1, "article": 1, "header": 1, "footer": 1, "nav": 1, "main": 1, "body": 1, "html": 1
+  };
   var nodes = doc.querySelectorAll(selectors.join(","));
   for (var i = 0; i < nodes.length; i++) {
     var el = nodes[i];
-    if (el.querySelector("img, svg, iframe, canvas") && !el.textContent.trim()) {
+    var tag = (el.tagName || "").toLowerCase();
+    if (skipTags[tag]) continue;
+    if (el.closest("#acp-active-image-toolbar, #acp-active-image-handle")) continue;
+    if (el.classList.contains("btn-swap-exec")) continue;
+    if (!el.textContent || !el.textContent.trim()) continue;
+    if (el.querySelector("div, p, ul, ol, li, h1, h2, h3, h4, h5, h6, section, article, header, footer, nav, table, form, button, figure, blockquote")) {
+      continue;
+    }
+    var hasDirectText = false;
+    for (var c = 0; c < el.childNodes.length; c++) {
+      var cn = el.childNodes[c];
+      if (cn.nodeType === 3 && cn.nodeValue && cn.nodeValue.trim().length > 0) {
+        hasDirectText = true;
+        break;
+      }
+    }
+    var isExplicitLeafSlot = el.hasAttribute("data-slot") && !el.querySelector("[data-slot], svg, img, video, iframe, canvas, input, select, textarea");
+    if (!hasDirectText && !isExplicitLeafSlot) {
       continue;
     }
     el.setAttribute("contenteditable", "true");
@@ -3236,6 +3285,9 @@ function acpApplyInlineEditToIframe(doc) {
 
     doc.addEventListener("click", function(e) {
       if (!acpInlineEditActive) return;
+      if (e.target.closest("#acp-active-image-toolbar") || e.target.closest("#acp-active-image-handle")) {
+        return;
+      }
       var img = e.target.closest("img");
       if (img && img.getAttribute("data-acp-image") === "true") {
         e.preventDefault();
@@ -3243,12 +3295,20 @@ function acpApplyInlineEditToIframe(doc) {
         acpSelectImage(img);
         return;
       }
+      acpDeselectImage();
       var a = e.target.closest("a");
       if (a) {
         e.preventDefault();
+        e.stopPropagation();
       }
-      if (!e.target.closest("#acp-active-image-toolbar") && !e.target.closest("#acp-active-image-handle")) {
-        acpDeselectImage();
+      var btn = e.target.closest("button:not(.btn-swap-exec)");
+      if (btn) {
+        e.preventDefault();
+        e.stopPropagation();
+      }
+      var lbl = e.target.closest("label");
+      if (lbl) {
+        e.preventDefault();
       }
     }, true);
 
@@ -3276,8 +3336,10 @@ function acpApplyInlineEditToIframe(doc) {
     doc.addEventListener("keydown", function(e) {
       if (!acpInlineEditActive) return;
       if (e.key === "Enter") {
-        var tag = e.target.tagName.toLowerCase();
-        if (["h1", "h2", "h3", "h4", "h5", "h6", "button"].indexOf(tag) !== -1 || e.target.classList.contains("section-kicker")) {
+        var tag = (e.target.tagName || "").toLowerCase();
+        var singleLineClasses = ["section-kicker", "contacts-panel-title", "leader-name", "leader-role", "leader-phone", "sparte-tag-badge", "sparte-tab-num", "sparte-tab-title", "timeline-year"];
+        var isSingleLineClass = singleLineClasses.some(function(cls) { return e.target.classList && e.target.classList.contains(cls); });
+        if (["h1", "h2", "h3", "h4", "h5", "h6", "button", "a", "span", "strong", "label"].indexOf(tag) !== -1 || isSingleLineClass) {
           e.preventDefault();
         }
       } else if (e.key === "Escape") {
@@ -3392,8 +3454,19 @@ function acpSaveInlineEdits() {
 
     var editables = clone.querySelectorAll("[contenteditable]");
     for (var i = 0; i < editables.length; i++) {
-      editables[i].removeAttribute("contenteditable");
-      editables[i].removeAttribute("data-acp-editable");
+      var edEl = editables[i];
+      if ((edEl.tagName || "").toLowerCase() === "a") {
+        var hrefVal = edEl.getAttribute("href") || "";
+        var txtVal = (edEl.textContent || "").trim();
+        if (hrefVal.indexOf("tel:") === 0) {
+          var cleanTel = txtVal.replace(/[^+0-9]/g, "");
+          if (cleanTel.length >= 7) edEl.setAttribute("href", "tel:" + cleanTel);
+        } else if (hrefVal.indexOf("mailto:") === 0 && txtVal.indexOf("@") !== -1) {
+          edEl.setAttribute("href", "mailto:" + txtVal);
+        }
+      }
+      edEl.removeAttribute("contenteditable");
+      edEl.removeAttribute("data-acp-editable");
     }
     var imgs = clone.querySelectorAll("img");
     for (var k = 0; k < imgs.length; k++) {
@@ -3507,7 +3580,7 @@ function acpCopyGeneratedNewSectionPrompt() {
   var industryLabel = profile.industry_label || "Schweizer Unternehmens-Website";
   var promptRules = (profile.prompt_rules && profile.prompt_rules.length > 0)
     ? profile.prompt_rules.join("\n")
-    : "- Schweizer Geschäftsbegriffe: \"Leistungen\" (nie \"Gewerke\"), \"Handwerker EFZ / Fachmonteure\" (nie \"Gesellen\"), \"Lernende\" (nie \"Azubis\"), \"Offerte\" (nie \"Kostenvoranschlag\"), \"Ferien\" (nie \"Urlaub\").";
+    : "- Schweizer Geschäftsbegriffe: \"Leistungen\" (nie \"Gew\u0065rke\"), \"Handwerker EFZ / Fachmonteure\" (nie \"Ges\u0065llen\"), \"Lernende\" (nie \"Az\u0075bis\"), \"Offerte\" (nie \"Kostenvor\u0061nschlag\"), \"Ferien\" (nie \"Url\u0061ub\").";
 
   var prompt = 
 "================================================================================\n" +

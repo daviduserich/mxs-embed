@@ -1181,15 +1181,15 @@
   <div class="trust-strip" data-section-id="pikett-bar" data-section="pikett-bar">
     <div class="trust-strip-inner">
       <div class="trust-strip-group">
-        <a href="tel:+41792464963" class="trust-strip-link" data-slot="pikett_top_link">
-          <span class="pikett-badge-inline"><span class="pikett-dot"></span> 24h-Pikett Heizung | Sanitär: +41 79 246 49 63</span>
+        <a href="tel:+41792464963" class="trust-strip-link">
+          <span data-slot=\"pikett_top_link\" class="pikett-badge-inline"><span class="pikett-dot"></span> 24h-Pikett Heizung | Sanitär: +41 79 246 49 63</span>
         </a>
         <a href="tel:+41627390020" class="trust-strip-link" data-slot="phone">+41 62 739 00 20</a>
       </div>
       <div class="trust-strip-group">
-        <a href="index.html#kundenfeedback" class="rating-mini-badge" data-slot="header_rating_badge">
+        <a href="index.html#kundenfeedback" class="rating-mini-badge">
           <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-          <span>Kundenfeedback: 5.7 / 6.0 Gesamtnote</span>
+          <span data-slot=\"header_rating_badge\">Kundenfeedback: 5.7 / 6.0 Gesamtnote</span>
         </a>
       </div>
     </div>
@@ -1202,15 +1202,15 @@
         <img src="images/logo.svg" alt="Hochuli Schlossrued AG — Bauen im Vertrauen" class="brand-logo-img" data-slot="brand_logo">
       </a>
       <nav class="desktop-nav" aria-label="Hauptnavigation">
-        <a href="index.html" class="desk-nav-link">Startseite &amp; 5 Sparten</a>
-        <a href="index.html#social-media" class="desk-nav-link">Social Feed</a>
-        <a href="index.html#blog" class="desk-nav-link">Ratgeber</a>
-        <a href="team.html" class="desk-nav-link">Über uns &amp; Team</a>
-        <a href="karriere.html" class="desk-nav-link active">Karriere (5 Stellen)</a>
-        <a href="kontakt.html" class="desk-nav-link">Kontakt &amp; Pikett</a>
+        <a href="index.html" class="desk-nav-link" data-slot="nav_link">Startseite &amp; 5 Sparten</a>
+        <a href="index.html#social-media" class="desk-nav-link" data-slot="nav_link_2">Social Feed</a>
+        <a href="index.html#blog" class="desk-nav-link" data-slot="nav_link_3">Ratgeber</a>
+        <a href="team.html" class="desk-nav-link" data-slot="nav_link_4">Über uns &amp; Team</a>
+        <a href="karriere.html" class="desk-nav-link active" data-slot="nav_link_5">Karriere (5 Stellen)</a>
+        <a href="kontakt.html" class="desk-nav-link" data-slot="nav_link_6">Kontakt &amp; Pikett</a>
         <a href="kontakt.html#terminbuchung" class="btn-desk-contact">
           <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-          <span>Offerte / Termin</span>
+          <span data-slot="header_span">Offerte / Termin</span>
         </a>
       </nav>
       <button class="nav-burger" id="navBurgerBtn" aria-label="Menü öffnen" onclick="document.getElementById('mobileDrawer').classList.toggle('open')">
@@ -1221,27 +1221,27 @@
 
   <div class="nav-drawer" id="mobileDrawer">
     <a href="index.html" class="nav-link" onclick="document.getElementById('mobileDrawer').classList.remove('open')">
-      <span>Startseite &amp; 5 Sparten-Leitsystem</span>
+      <span data-slot="karriere_span">Startseite &amp; 5 Sparten-Leitsystem</span>
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
     </a>
     <a href="index.html#social-media" class="nav-link" onclick="document.getElementById('mobileDrawer').classList.remove('open')">
-      <span>Einblicke &amp; Social Media Feed</span>
+      <span data-slot="karriere_span_2">Einblicke &amp; Social Media Feed</span>
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
     </a>
     <a href="index.html#blog" class="nav-link" onclick="document.getElementById('mobileDrawer').classList.remove('open')">
-      <span>Fachwissen &amp; Bauherren-Ratgeber</span>
+      <span data-slot="karriere_span_3">Fachwissen &amp; Bauherren-Ratgeber</span>
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
     </a>
     <a href="team.html" class="nav-link" onclick="document.getElementById('mobileDrawer').classList.remove('open')">
-      <span>Über uns, 60 Mitarbeitende &amp; 14 Lernende</span>
+      <span data-slot="karriere_span_4">Über uns, 60 Mitarbeitende &amp; 14 Lernende</span>
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
     </a>
     <a href="karriere.html" class="nav-link" onclick="document.getElementById('mobileDrawer').classList.remove('open')">
-      <span>Karriere &amp; 5 offene Stellen</span>
+      <span data-slot="karriere_span_5">Karriere &amp; 5 offene Stellen</span>
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
     </a>
     <a href="kontakt.html" class="nav-link" onclick="document.getElementById('mobileDrawer').classList.remove('open')">
-      <span>Kontakt, Standort &amp; 24h-Pikett</span>
+      <span data-slot="karriere_span_6">Kontakt, Standort &amp; 24h-Pikett</span>
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
     </a>
   </div>
@@ -1256,18 +1256,18 @@
         </p>
         <div class="hero-actions">
           <a href="#stellenliste" class="btn-cta btn-cta-primary">
-            <span>Alle 5 offenen Stellen ansehen</span>
+            <span data-slot="karriere_hero_span">Alle 5 offenen Stellen ansehen</span>
           </a>
           <a href="#schnellbewerbung" class="btn-cta btn-cta-secondary">
-            <span>In 60 Sekunden ohne Lebenslauf-Hürde melden</span>
+            <span data-slot="karriere_hero_span_2">In 60 Sekunden ohne Lebenslauf-Hürde melden</span>
           </a>
         </div>
       </div>
       <div class="hero-media" style="aspect-ratio: 16 / 9;">
         <img src="images/karriere-header.jpg" alt="Wir suchen dich — Karriere bei Hochuli Schlossrued AG" data-slot="karriere_hero_img">
         <div class="hero-media-badge">
-          <span>Direktkontakt: Martin Hochuli (+41 62 739 00 21)</span>
-          <span style="font-family: 'JetBrains Mono', monospace; color: #fde68a;">5 Offene Stellen</span>
+          <span data-slot="karriere_hero_span_3">Direktkontakt: Martin Hochuli (+41 62 739 00 21)</span>
+          <span style="font-family: 'JetBrains Mono', monospace; color: #fde68a;" data-slot="karriere_hero_span_4">5 Offene Stellen</span>
         </div>
       </div>
     </div>
@@ -1286,14 +1286,14 @@
 
       <div class="jobs-list">
         <!-- JOB 1: ZIMMERMANN / ZIMMERIN EFZ -->
-        <article class="job-card" id="job-zimmermann" style="--job-color: #e30613;" data-slot="job_card_1">
+        <article class="job-card" id="job-zimmermann" style="--job-color: #e30613;" data-container-slot="job_card_1">
           <div class="job-header">
             <div>
-              <span class="sparte-tag-badge" style="background: rgba(227, 6, 19, 0.08); color: #e30613;">SPARTE HOLZBAU + BEDACHUNG · 80–100%</span>
+              <span class="sparte-tag-badge" style="background: rgba(227, 6, 19, 0.08); color: #e30613;" data-slot="stellenliste_badge">SPARTE HOLZBAU + BEDACHUNG · 80–100%</span>
               <h3 style="font-size: 1.3rem; font-weight: 800;" data-slot="job_1_title">Zimmermann / Zimmerin EFZ (80–100%)</h3>
             </div>
             <button type="button" class="btn-cta btn-cta-primary" style="background: #e30613;" onclick="selectJobForApply('Zimmermann / Zimmerin EFZ (80–100%)')">
-              <span>In 60 Sek. bewerben</span>
+              <span data-slot="stellenliste_span">In 60 Sek. bewerben</span>
             </button>
           </div>
           <p style="font-size: 0.9rem; color: var(--muted);" data-slot="job_1_desc">
@@ -1301,32 +1301,32 @@
           </p>
           <div class="job-details-grid">
             <div>
-              <h4 style="font-size: 0.86rem; margin-bottom: 6px;">Deine Aufgaben &amp; Stärken:</h4>
+              <h4 style="font-size: 0.86rem; margin-bottom: 6px;" data-slot="stellenliste_h4">Deine Aufgaben &amp; Stärken:</h4>
               <ul class="subservice-list">
-                <li><span class="subservice-dot" style="background:#e30613;"></span>Abbund, Elementbau, Aufrichten &amp; anspruchsvolle Umbauarbeiten</li>
-                <li><span class="subservice-dot" style="background:#e30613;"></span>Abgeschlossene Ausbildung als Zimmermann / Zimmerin EFZ</li>
-                <li><span class="subservice-dot" style="background:#e30613;"></span>Teamplayer mit Freude an sauberer Schweizer Handwerksqualität</li>
+                <li data-slot="stellenliste_li"><span class="subservice-dot" style="background:#e30613;"></span>Abbund, Elementbau, Aufrichten &amp; anspruchsvolle Umbauarbeiten</li>
+                <li data-slot="stellenliste_li_2"><span class="subservice-dot" style="background:#e30613;"></span>Abgeschlossene Ausbildung als Zimmermann / Zimmerin EFZ</li>
+                <li data-slot="stellenliste_li_3"><span class="subservice-dot" style="background:#e30613;"></span>Teamplayer mit Freude an sauberer Schweizer Handwerksqualität</li>
               </ul>
             </div>
             <div>
-              <h4 style="font-size: 0.86rem; margin-bottom: 6px;">Was wir dir bieten:</h4>
+              <h4 style="font-size: 0.86rem; margin-bottom: 6px;" data-slot="stellenliste_h4_2">Was wir dir bieten:</h4>
               <ul class="subservice-list">
-                <li><span class="subservice-dot" style="background:#e30613;"></span>Moderne Abbundhalle, Kran- &amp; Fahrzeugflotte in Schlossrued</li>
-                <li><span class="subservice-dot" style="background:#e30613;"></span>Regionale Baustellen ohne lange Pendelwege, faire Entlöhnung &amp; Weiterbildung</li>
+                <li data-slot="stellenliste_li_4"><span class="subservice-dot" style="background:#e30613;"></span>Moderne Abbundhalle, Kran- &amp; Fahrzeugflotte in Schlossrued</li>
+                <li data-slot="stellenliste_li_5"><span class="subservice-dot" style="background:#e30613;"></span>Regionale Baustellen ohne lange Pendelwege, faire Entlöhnung &amp; Weiterbildung</li>
               </ul>
             </div>
           </div>
         </article>
 
         <!-- JOB 2: SPENGLER/IN EFZ -->
-        <article class="job-card" id="job-spengler" style="--job-color: #d97706;" data-slot="job_card_2">
+        <article class="job-card" id="job-spengler" style="--job-color: #d97706;" data-container-slot="job_card_2">
           <div class="job-header">
             <div>
-              <span class="sparte-tag-badge" style="background: rgba(217, 119, 6, 0.1); color: #d97706;">SPARTE SPENGLER + FLACHDACH · 80–100%</span>
+              <span class="sparte-tag-badge" style="background: rgba(217, 119, 6, 0.1); color: #d97706;" data-slot="stellenliste_badge_2">SPARTE SPENGLER + FLACHDACH · 80–100%</span>
               <h3 style="font-size: 1.3rem; font-weight: 800;" data-slot="job_2_title">Spengler / Spenglerin EFZ (80–100%)</h3>
             </div>
             <button type="button" class="btn-cta btn-cta-primary" style="background: #d97706;" onclick="selectJobForApply('Spengler / Spenglerin EFZ (80–100%)')">
-              <span>In 60 Sek. bewerben</span>
+              <span data-slot="stellenliste_span_2">In 60 Sek. bewerben</span>
             </button>
           </div>
           <p style="font-size: 0.9rem; color: var(--muted);" data-slot="job_2_desc">
@@ -1334,31 +1334,31 @@
           </p>
           <div class="job-details-grid">
             <div>
-              <h4 style="font-size: 0.86rem; margin-bottom: 6px;">Deine Aufgaben &amp; Stärken:</h4>
+              <h4 style="font-size: 0.86rem; margin-bottom: 6px;" data-slot="stellenliste_h4_3">Deine Aufgaben &amp; Stärken:</h4>
               <ul class="subservice-list">
-                <li><span class="subservice-dot" style="background:#d97706;"></span>Herstellung &amp; Montage sämtlicher Bauspenglerarbeiten</li>
-                <li><span class="subservice-dot" style="background:#d97706;"></span>Abgeschlossene Lehre als Spengler/in EFZ &amp; Führerausweis Kat. B</li>
+                <li data-slot="stellenliste_li_6"><span class="subservice-dot" style="background:#d97706;"></span>Herstellung &amp; Montage sämtlicher Bauspenglerarbeiten</li>
+                <li data-slot="stellenliste_li_7"><span class="subservice-dot" style="background:#d97706;"></span>Abgeschlossene Lehre als Spengler/in EFZ &amp; Führerausweis Kat. B</li>
               </ul>
             </div>
             <div>
-              <h4 style="font-size: 0.86rem; margin-bottom: 6px;">Was wir dir bieten:</h4>
+              <h4 style="font-size: 0.86rem; margin-bottom: 6px;" data-slot="stellenliste_h4_4">Was wir dir bieten:</h4>
               <ul class="subservice-list">
-                <li><span class="subservice-dot" style="background:#d97706;"></span>Top eingerichtete Spengler-Werkstatt &amp; enge Zusammenarbeit mit unserem Holzbau</li>
-                <li><span class="subservice-dot" style="background:#d97706;"></span>Eingespieltes Team unter Leitung von Alex Kirchhofer &amp; Moses Fricker</li>
+                <li data-slot="stellenliste_li_8"><span class="subservice-dot" style="background:#d97706;"></span>Top eingerichtete Spengler-Werkstatt &amp; enge Zusammenarbeit mit unserem Holzbau</li>
+                <li data-slot="stellenliste_li_9"><span class="subservice-dot" style="background:#d97706;"></span>Eingespieltes Team unter Leitung von Alex Kirchhofer &amp; Moses Fricker</li>
               </ul>
             </div>
           </div>
         </article>
 
         <!-- JOB 3: TEAMLEITER/IN SPENGLEREI -->
-        <article class="job-card" id="job-teamleiter-spengler" style="--job-color: #d97706;" data-slot="job_card_3">
+        <article class="job-card" id="job-teamleiter-spengler" style="--job-color: #d97706;" data-container-slot="job_card_3">
           <div class="job-header">
             <div>
-              <span class="sparte-tag-badge" style="background: rgba(217, 119, 6, 0.1); color: #d97706;">KADERSTELLE · SPENGLER + FLACHDACH · 80–100%</span>
+              <span class="sparte-tag-badge" style="background: rgba(217, 119, 6, 0.1); color: #d97706;" data-slot="stellenliste_badge_3">KADERSTELLE · SPENGLER + FLACHDACH · 80–100%</span>
               <h3 style="font-size: 1.3rem; font-weight: 800;" data-slot="job_3_title">Teamleiter/in Spenglerei (80–100%)</h3>
             </div>
             <button type="button" class="btn-cta btn-cta-primary" style="background: #d97706;" onclick="selectJobForApply('Teamleiter/in Spenglerei (80–100%)')">
-              <span>In 60 Sek. bewerben</span>
+              <span data-slot="stellenliste_span_3">In 60 Sek. bewerben</span>
             </button>
           </div>
           <p style="font-size: 0.9rem; color: var(--muted);" data-slot="job_3_desc">
@@ -1366,31 +1366,31 @@
           </p>
           <div class="job-details-grid">
             <div>
-              <h4 style="font-size: 0.86rem; margin-bottom: 6px;">Deine Aufgaben &amp; Stärken:</h4>
+              <h4 style="font-size: 0.86rem; margin-bottom: 6px;" data-slot="stellenliste_h4_5">Deine Aufgaben &amp; Stärken:</h4>
               <ul class="subservice-list">
-                <li><span class="subservice-dot" style="background:#d97706;"></span>Führung von Spengler-Projekten von der AVOR bis zur Abnahme</li>
-                <li><span class="subservice-dot" style="background:#d97706;"></span>Spengler/in EFZ (ideal mit Polier-Weiterbildung oder Erfahrung als Vorarbeiter)</li>
+                <li data-slot="stellenliste_li_10"><span class="subservice-dot" style="background:#d97706;"></span>Führung von Spengler-Projekten von der AVOR bis zur Abnahme</li>
+                <li data-slot="stellenliste_li_11"><span class="subservice-dot" style="background:#d97706;"></span>Spengler/in EFZ (ideal mit Polier-Weiterbildung oder Erfahrung als Vorarbeiter)</li>
               </ul>
             </div>
             <div>
-              <h4 style="font-size: 0.86rem; margin-bottom: 6px;">Was wir dir bieten:</h4>
+              <h4 style="font-size: 0.86rem; margin-bottom: 6px;" data-slot="stellenliste_h4_6">Was wir dir bieten:</h4>
               <ul class="subservice-list">
-                <li><span class="subservice-dot" style="background:#d97706;"></span>Hohe Selbstständigkeit, eigenes Geschäftsauto &amp; attraktive Kader-Konditionen</li>
-                <li><span class="subservice-dot" style="background:#d97706;"></span>Volle Rückendeckung durch Projektleitung und Geschäftsleitung</li>
+                <li data-slot="stellenliste_li_12"><span class="subservice-dot" style="background:#d97706;"></span>Hohe Selbstständigkeit, eigenes Geschäftsauto &amp; attraktive Kader-Konditionen</li>
+                <li data-slot="stellenliste_li_13"><span class="subservice-dot" style="background:#d97706;"></span>Volle Rückendeckung durch Projektleitung und Geschäftsleitung</li>
               </ul>
             </div>
           </div>
         </article>
 
         <!-- JOB 4: SANITÄR- UND HEIZUNGSINSTALLATEUR/IN EFZ -->
-        <article class="job-card" id="job-sanitaer" style="--job-color: #0284c7;" data-slot="job_card_4">
+        <article class="job-card" id="job-sanitaer" style="--job-color: #0284c7;" data-container-slot="job_card_4">
           <div class="job-header">
             <div>
-              <span class="sparte-tag-badge" style="background: rgba(2, 132, 199, 0.1); color: #0284c7;">SPARTE SANITÄR + HEIZUNG · 80–100%</span>
+              <span class="sparte-tag-badge" style="background: rgba(2, 132, 199, 0.1); color: #0284c7;" data-slot="stellenliste_badge_4">SPARTE SANITÄR + HEIZUNG · 80–100%</span>
               <h3 style="font-size: 1.3rem; font-weight: 800;" data-slot="job_4_title">Sanitär- und Heizungsinstallateur/in EFZ (80–100%)</h3>
             </div>
             <button type="button" class="btn-cta btn-cta-primary" style="background: #0284c7;" onclick="selectJobForApply('Sanitär- und Heizungsinstallateur/in EFZ (80–100%)')">
-              <span>In 60 Sek. bewerben</span>
+              <span data-slot="stellenliste_span_4">In 60 Sek. bewerben</span>
             </button>
           </div>
           <p style="font-size: 0.9rem; color: var(--muted);" data-slot="job_4_desc">
@@ -1398,31 +1398,31 @@
           </p>
           <div class="job-details-grid">
             <div>
-              <h4 style="font-size: 0.86rem; margin-bottom: 6px;">Deine Aufgaben &amp; Stärken:</h4>
+              <h4 style="font-size: 0.86rem; margin-bottom: 6px;" data-slot="stellenliste_h4_7">Deine Aufgaben &amp; Stärken:</h4>
               <ul class="subservice-list">
-                <li><span class="subservice-dot" style="background:#0284c7;"></span>Sanitär- &amp; Heizungsinstallationen bei Umbauten, Badsanierungen &amp; Heizungs-Ersatz</li>
-                <li><span class="subservice-dot" style="background:#0284c7;"></span>Abschluss als Sanitärinstallateur/in EFZ oder Heizungsinstallateur/in EFZ</li>
+                <li data-slot="stellenliste_li_14"><span class="subservice-dot" style="background:#0284c7;"></span>Sanitär- &amp; Heizungsinstallationen bei Umbauten, Badsanierungen &amp; Heizungs-Ersatz</li>
+                <li data-slot="stellenliste_li_15"><span class="subservice-dot" style="background:#0284c7;"></span>Abschluss als Sanitärinstallateur/in EFZ oder Heizungsinstallateur/in EFZ</li>
               </ul>
             </div>
             <div>
-              <h4 style="font-size: 0.86rem; margin-bottom: 6px;">Was wir dir bieten:</h4>
+              <h4 style="font-size: 0.86rem; margin-bottom: 6px;" data-slot="stellenliste_h4_8">Was wir dir bieten:</h4>
               <ul class="subservice-list">
-                <li><span class="subservice-dot" style="background:#0284c7;"></span>Top ausgerüstetes Servicefahrzeug, kollegiales Team unter Sanitärmeister Thomas Bertschi</li>
-                <li><span class="subservice-dot" style="background:#0284c7;"></span>Saubere Projektplanung im Verbund mit unserem eigenen Holzbau &amp; Planungsteam</li>
+                <li data-slot="stellenliste_li_16"><span class="subservice-dot" style="background:#0284c7;"></span>Top ausgerüstetes Servicefahrzeug, kollegiales Team unter Sanitärmeister Thomas Bertschi</li>
+                <li data-slot="stellenliste_li_17"><span class="subservice-dot" style="background:#0284c7;"></span>Saubere Projektplanung im Verbund mit unserem eigenen Holzbau &amp; Planungsteam</li>
               </ul>
             </div>
           </div>
         </article>
 
         <!-- JOB 5: HOLZBAU PROJEKTLEITER/IN | BAULEITER/IN -->
-        <article class="job-card" id="job-projektleiter" style="--job-color: #e30613;" data-slot="job_card_5">
+        <article class="job-card" id="job-projektleiter" style="--job-color: #e30613;" data-container-slot="job_card_5">
           <div class="job-header">
             <div>
-              <span class="sparte-tag-badge" style="background: rgba(227, 6, 19, 0.08); color: #e30613;">KADERSTELLE · HOLZBAU &amp; PLANUNG · 80–100%</span>
+              <span class="sparte-tag-badge" style="background: rgba(227, 6, 19, 0.08); color: #e30613;" data-slot="stellenliste_badge_5">KADERSTELLE · HOLZBAU &amp; PLANUNG · 80–100%</span>
               <h3 style="font-size: 1.3rem; font-weight: 800;" data-slot="job_5_title">Holzbau Projektleiter/in | Bauleiter/in (80–100%)</h3>
             </div>
             <button type="button" class="btn-cta btn-cta-primary" style="background: #e30613;" onclick="selectJobForApply('Holzbau Projektleiter/in | Bauleiter/in (80–100%)')">
-              <span>In 60 Sek. bewerben</span>
+              <span data-slot="stellenliste_span_5">In 60 Sek. bewerben</span>
             </button>
           </div>
           <p style="font-size: 0.9rem; color: var(--muted);" data-slot="job_5_desc">
@@ -1430,17 +1430,17 @@
           </p>
           <div class="job-details-grid">
             <div>
-              <h4 style="font-size: 0.86rem; margin-bottom: 6px;">Deine Aufgaben &amp; Stärken:</h4>
+              <h4 style="font-size: 0.86rem; margin-bottom: 6px;" data-slot="stellenliste_h4_9">Deine Aufgaben &amp; Stärken:</h4>
               <ul class="subservice-list">
-                <li><span class="subservice-dot" style="background:#e30613;"></span>Selbstständige Projektleitung, Kundenberatung, Offertwesen &amp; Bauleitung</li>
-                <li><span class="subservice-dot" style="background:#e30613;"></span>Weiterbildung als Holzbau-Polier, Bauführer HF, Techniker HF oder Holzbau-Meister</li>
+                <li data-slot="stellenliste_li_18"><span class="subservice-dot" style="background:#e30613;"></span>Selbstständige Projektleitung, Kundenberatung, Offertwesen &amp; Bauleitung</li>
+                <li data-slot="stellenliste_li_19"><span class="subservice-dot" style="background:#e30613;"></span>Weiterbildung als Holzbau-Polier, Bauführer HF, Techniker HF oder Holzbau-Meister</li>
               </ul>
             </div>
             <div>
-              <h4 style="font-size: 0.86rem; margin-bottom: 6px;">Was wir dir bieten:</h4>
+              <h4 style="font-size: 0.86rem; margin-bottom: 6px;" data-slot="stellenliste_h4_10">Was wir dir bieten:</h4>
               <ul class="subservice-list">
-                <li><span class="subservice-dot" style="background:#e30613;"></span>Moderner Arbeitsplatz in Schlossrued, starkes Planungs- &amp; AVOR-Team im Rücken</li>
-                <li><span class="subservice-dot" style="background:#e30613;"></span>Hohe Gestaltungskompetenz und langfristige Perspektive in der Hochuli Gruppe</li>
+                <li data-slot="stellenliste_li_20"><span class="subservice-dot" style="background:#e30613;"></span>Moderner Arbeitsplatz in Schlossrued, starkes Planungs- &amp; AVOR-Team im Rücken</li>
+                <li data-slot="stellenliste_li_21"><span class="subservice-dot" style="background:#e30613;"></span>Hohe Gestaltungskompetenz und langfristige Perspektive in der Hochuli Gruppe</li>
               </ul>
             </div>
           </div>
@@ -1460,31 +1460,31 @@
             Bei uns zählt der Mensch und das Handwerk — nicht ein seitenlanges Bewerbungsdossier. Trag kurz deine Kontaktdaten ein oder melde dich direkt bei Martin Hochuli.
           </p>
           <div class="contacts-panel" style="background: #ffffff;">
-            <div class="contacts-panel-title">// DEIN DIREKTER ANSPRECHPARTNER FÜR BEWERBUNGEN</div>
+            <div class="contacts-panel-title" data-slot="schnellbewerbung_panel_kicker">// DEIN DIREKTER ANSPRECHPARTNER FÜR BEWERBUNGEN</div>
             <div class="leader-card">
-              <img src="images/martin-hochuli.jpg" alt="Martin Hochuli" class="leader-avatar">
+              <img src="images/martin-hochuli.jpg" alt="Martin Hochuli" class="leader-avatar" data-slot="schnellbewerbung_martin_hochuli_img">
               <div class="leader-info">
-                <div class="leader-name">Martin Hochuli</div>
-                <div class="leader-role">Inhaber &amp; Geschäftsführer · Hochuli Schlossrued AG</div>
-                <a href="tel:+41627390021" class="leader-phone">+41 62 739 00 21 (Direktwahl)</a>
+                <div class="leader-name" data-slot="schnellbewerbung_martin_hochuli_name">Martin Hochuli</div>
+                <div class="leader-role" data-slot="schnellbewerbung_martin_hochuli_role">Inhaber &amp; Geschäftsführer · Hochuli Schlossrued AG</div>
+                <a href="tel:+41627390021" class="leader-phone" data-slot="schnellbewerbung_martin_hochuli_phone">+41 62 739 00 21 (Direktwahl)</a>
               </div>
             </div>
             <div class="leader-card">
-              <img src="images/jacqueline-kunz.jpg" alt="Jacqueline Kunz" class="leader-avatar">
+              <img src="images/jacqueline-kunz.jpg" alt="Jacqueline Kunz" class="leader-avatar" data-slot="schnellbewerbung_jacqueline_kunz_img">
               <div class="leader-info">
-                <div class="leader-name">Jacqueline Kunz</div>
-                <div class="leader-role">Leiterin Personal &amp; Finanzen</div>
-                <a href="tel:+41627391140" class="leader-phone">+41 62 739 11 40</a>
+                <div class="leader-name" data-slot="schnellbewerbung_jacqueline_kunz_name">Jacqueline Kunz</div>
+                <div class="leader-role" data-slot="schnellbewerbung_jacqueline_kunz_role">Leiterin Personal &amp; Finanzen</div>
+                <a href="tel:+41627391140" class="leader-phone" data-slot="schnellbewerbung_jacqueline_kunz_phone">+41 62 739 11 40</a>
               </div>
             </div>
           </div>
         </div>
 
         <div class="sparte-section-card" style="margin-bottom: 0;">
-          <h3 style="font-size: 1.2rem; font-weight: 800; margin-bottom: 14px;">Schnellbewerbung absenden (60 Sek.)</h3>
+          <h3 style="font-size: 1.2rem; font-weight: 800; margin-bottom: 14px;" data-slot="schnellbewerbung_h3">Schnellbewerbung absenden (60 Sek.)</h3>
           <form class="form-grid" onsubmit="handleJobSubmit(event)">
             <div class="form-field">
-              <label for="applyJobSelect">Gewünschte Stelle</label>
+              <label for="applyJobSelect" data-slot="schnellbewerbung_label">Gewünschte Stelle</label>
               <select id="applyJobSelect" class="form-select" required>
                 <option value="Zimmermann / Zimmerin EFZ (80–100%)">Zimmermann / Zimmerin EFZ (80–100%)</option>
                 <option value="Spengler / Spenglerin EFZ (80–100%)">Spengler / Spenglerin EFZ (80–100%)</option>
@@ -1496,24 +1496,24 @@
             </div>
             <div class="form-grid form-grid-2">
               <div class="form-field">
-                <label for="applyName">Vor- und Nachname *</label>
+                <label for="applyName" data-slot="schnellbewerbung_label_2">Vor- und Nachname *</label>
                 <input type="text" id="applyName" class="form-input" placeholder="z. B. Lukas Meier" required>
               </div>
               <div class="form-field">
-                <label for="applyPhone">Telefon / Mobile *</label>
+                <label for="applyPhone" data-slot="schnellbewerbung_label_3">Telefon / Mobile *</label>
                 <input type="tel" id="applyPhone" class="form-input" placeholder="z. B. 079 123 45 67" required>
               </div>
             </div>
             <div class="form-field">
-              <label for="applyEmail">E-Mail-Adresse (optional)</label>
+              <label for="applyEmail" data-slot="schnellbewerbung_label_4">E-Mail-Adresse (optional)</label>
               <input type="email" id="applyEmail" class="form-input" placeholder="name@beispiel.ch">
             </div>
             <div class="form-field">
-              <label for="applyNotes">Kurze Angabe zu deiner Erfahrung / möglichem Starttermin</label>
+              <label for="applyNotes" data-slot="schnellbewerbung_label_5">Kurze Angabe zu deiner Erfahrung / möglichem Starttermin</label>
               <textarea id="applyNotes" class="form-textarea" rows="3" placeholder="z. B. Gelernter Zimmermann EFZ mit 5 Jahren Erfahrung im Umbau..."></textarea>
             </div>
             <button type="submit" class="btn-cta btn-cta-primary" style="width: 100%;">
-              <span>Unverbindliches Kennenlernen anfragen</span>
+              <span data-slot="schnellbewerbung_span">Unverbindliches Kennenlernen anfragen</span>
             </button>
             <div id="applyFeedbackMsg" style="display:none; padding: 12px; border-radius: 8px; background: rgba(5, 150, 105, 0.12); color: #059669; font-weight: 700; font-size: 0.85rem;"></div>
           </form>
@@ -1546,35 +1546,35 @@
         <h4 data-slot="company_name">Hochuli Schlossrued AG</h4>
         <p style="font-size: 0.85rem; line-height: 1.6; color: #94a3b8; margin-bottom: 12px;" data-slot="footer_address">Hauptstrasse 106 • 5044 Schlossrued • mail@hochuli-gruppe.ch</p>
         <div class="rating-mini-badge" style="margin-top: 4px;">
-          <span>Kundenfeedback: 5.7 / 6.0 Gesamtnote</span>
+          <span data-slot="footer_span">Kundenfeedback: 5.7 / 6.0 Gesamtnote</span>
         </div>
       </div>
 
       <div class="footer-col">
-        <h4>Unsere 5 Sparten</h4>
+        <h4 data-slot="footer_h4">Unsere 5 Sparten</h4>
         <ul class="footer-links">
-          <li><a href="index.html#sparte-holzbau" class="footer-link-a">1. Holzbau + Bedachung</a></li>
-          <li><a href="index.html#sparte-spengler" class="footer-link-a">2. Spengler + Flachdach</a></li>
-          <li><a href="index.html#sparte-sanitaer" class="footer-link-a">3. Sanitär + Heizung (inkl. 24h-Pikett)</a></li>
-          <li><a href="index.html#sparte-planung" class="footer-link-a">4. Planung, Neubau &amp; Umbau</a></li>
-          <li><a href="index.html#sparte-pv" class="footer-link-a">5. Photovoltaik &amp; Speichersysteme</a></li>
+          <li><a href="index.html#sparte-holzbau" class="footer-link-a" data-slot="footer_link">1. Holzbau + Bedachung</a></li>
+          <li><a href="index.html#sparte-spengler" class="footer-link-a" data-slot="footer_link_2">2. Spengler + Flachdach</a></li>
+          <li><a href="index.html#sparte-sanitaer" class="footer-link-a" data-slot="footer_link_3">3. Sanitär + Heizung (inkl. 24h-Pikett)</a></li>
+          <li><a href="index.html#sparte-planung" class="footer-link-a" data-slot="footer_link_4">4. Planung, Neubau &amp; Umbau</a></li>
+          <li><a href="index.html#sparte-pv" class="footer-link-a" data-slot="footer_link_5">5. Photovoltaik &amp; Speichersysteme</a></li>
         </ul>
       </div>
 
       <div class="footer-col">
-        <h4>Navigation &amp; Direktwege</h4>
+        <h4 data-slot="footer_h4_2">Navigation &amp; Direktwege</h4>
         <ul class="footer-links">
-          <li><a href="index.html" class="footer-link-a">Startseite &amp; Sparten-Leitsystem</a></li>
-          <li><a href="index.html#social-media" class="footer-link-a">Einblicke &amp; Social Media Wall</a></li>
-          <li><a href="index.html#blog" class="footer-link-a">Ratgeber &amp; Praxiswissen</a></li>
-          <li><a href="team.html" class="footer-link-a">Über uns, Team &amp; 14 Lernende</a></li>
-          <li><a href="karriere.html" class="footer-link-a">Karriere &amp; 5 offene Stellen</a></li>
-          <li><a href="kontakt.html" class="footer-link-a">Kontakt &amp; Online-Terminbuchung</a></li>
+          <li><a href="index.html" class="footer-link-a" data-slot="footer_link_6">Startseite &amp; Sparten-Leitsystem</a></li>
+          <li><a href="index.html#social-media" class="footer-link-a" data-slot="footer_link_7">Einblicke &amp; Social Media Wall</a></li>
+          <li><a href="index.html#blog" class="footer-link-a" data-slot="footer_link_8">Ratgeber &amp; Praxiswissen</a></li>
+          <li><a href="team.html" class="footer-link-a" data-slot="footer_link_9">Über uns, Team &amp; 14 Lernende</a></li>
+          <li><a href="karriere.html" class="footer-link-a" data-slot="footer_link_10">Karriere &amp; 5 offene Stellen</a></li>
+          <li><a href="kontakt.html" class="footer-link-a" data-slot="footer_link_11">Kontakt &amp; Online-Terminbuchung</a></li>
         </ul>
       </div>
 
       <div class="footer-col">
-        <h4>Öffnungszeiten &amp; Vernetzung</h4>
+        <h4 data-slot="footer_h4_3">Öffnungszeiten &amp; Vernetzung</h4>
         <p style="font-size: 0.84rem; color: #94a3b8; line-height: 1.55;" data-slot="footer_hours">
           Mo – Do: 07.15 – 12.00 | 13.15 – 17.15 Uhr<br>
           Freitag: 07.15 – 12.00 | 13.15 – 16.30 Uhr
@@ -1606,15 +1606,15 @@
   <div class="mobile-thumb-bar" id="mobileThumbBar">
     <a href="tel:+41627390020" class="thumb-btn thumb-btn-main" aria-label="Zentrale Schlossrued anrufen">
       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-      <span>062 739 00 20</span>
+      <span data-slot="karriere_span_7">062 739 00 20</span>
     </a>
     <a href="tel:+41792464963" class="thumb-btn thumb-btn-pikett" aria-label="24h-Pikett Heizung Sanitär">
       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
-      <span>24h-Pikett</span>
+      <span data-slot="karriere_span_8">24h-Pikett</span>
     </a>
     <a href="kontakt.html#terminbuchung" class="thumb-btn thumb-btn-cta" aria-label="Offerte oder Termin anfragen">
       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-      <span>Termin / Offerte</span>
+      <span data-slot="karriere_span_9">Termin / Offerte</span>
     </a>
   </div>
   <script>

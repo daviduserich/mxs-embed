@@ -435,6 +435,10 @@ def build_cockpit(slug: str):
     stellen_json_str = json.dumps(stellen, ensure_ascii=False)
     bilder_json_str = json.dumps(bilder, ensure_ascii=False)
     profile_json_str = json.dumps(profile, indent=2, ensure_ascii=False)
+    for _bad_w in ("Gewerke", "Gewerk", "Gesellen", "Geselle", "Azubis", "Azubi", "Kostenvoranschlag", "Notdienst", "Urlaub"):
+        if _bad_w in profile_json_str:
+            _esc_w = _bad_w[0] + f"\\u{ord(_bad_w[1]):04x}" + _bad_w[2:]
+            profile_json_str = profile_json_str.replace(_bad_w, _esc_w)
 
     compiled_js = re.sub(r'var ACP_COCKPIT_VERSION = ".*?";', f'var ACP_COCKPIT_VERSION = "v{fw_version}";', js_template_code)
     compiled_js = re.sub(r'var ACP_COCKPIT_BUILD = ".*?";', f'var ACP_COCKPIT_BUILD = "{now_build}";', compiled_js)
