@@ -1,0 +1,1297 @@
+<!DOCTYPE html>
+<html lang="de-CH">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <meta http-equiv="X-Frame-Options" content="DENY">
+  <meta http-equiv="X-XSS-Protection" content="1; mode=block">
+  <meta name="referrer" content="no-referrer">
+  <title>WebPilot Partner-Studio · Vorschau-Generator &amp; Auftrags-Cockpit</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-base: #0B0D0E;
+      --bg-card: #14171A;
+      --bg-elevated: #1B1F24;
+      --bg-input: #0F1215;
+      --text-primary: #F3F5F7;
+      --text-secondary: #A0AAB4;
+      --text-muted: #6C7682;
+      --accent: #f0852d;
+      --accent-text: #ffa858;
+      --accent-gradient: linear-gradient(135deg, #f0852d 0%, #d4651a 100%);
+      --border: rgba(255, 255, 255, 0.08);
+      --border-strong: rgba(255, 255, 255, 0.16);
+      --bevel: inset 0 1px 0 0 rgba(255, 255, 255, 0.08);
+      --success: #22c55e;
+      --success-bg: rgba(34, 197, 94, 0.12);
+      --warning: #f59e0b;
+      --warning-bg: rgba(245, 158, 11, 0.12);
+      --danger: #ef4444;
+      --danger-bg: rgba(239, 68, 68, 0.12);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html, body {
+      background-color: var(--bg-base);
+      color: var(--text-primary);
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      font-size: 15px;
+      line-height: 1.55;
+      min-height: 100vh;
+      overflow-x: clip;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .container-1100 {
+      max-width: 1100px;
+      margin: 0 auto;
+      width: 100%;
+      padding: 0 24px;
+      box-sizing: border-box;
+    }
+
+    /* Freistehende Kicker (#UI-01) */
+    .kicker {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--accent-text);
+      background: transparent !important;
+      border: none !important;
+      padding: 0 !important;
+      box-shadow: none !important;
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    h1, h2, h3 {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      color: var(--text-primary);
+      letter-spacing: -0.02em;
+    }
+
+    /* Top Header */
+    .topbar {
+      border-bottom: 1px solid var(--border);
+      background: rgba(11, 13, 14, 0.92);
+      backdrop-filter: blur(12px);
+      position: sticky;
+      top: 0;
+      z-index: 40;
+    }
+
+    .topbar-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      min-height: 70px;
+      gap: 16px;
+      flex-wrap: wrap;
+      padding-top: 12px;
+      padding-bottom: 12px;
+    }
+
+    .brand-group {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .brand-mark {
+      width: 36px;
+      height: 36px;
+      border-radius: 8px;
+      background: var(--accent-gradient);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      box-shadow: var(--bevel);
+      flex-shrink: 0;
+    }
+
+    .brand-title {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 700;
+      font-size: 16px;
+      color: var(--text-primary);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .badge-4 {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      font-weight: 600;
+      padding: 3px 8px;
+      border-radius: 4px;
+      border: 1px solid var(--border-strong);
+      background: rgba(255, 255, 255, 0.06);
+      color: var(--text-primary);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .badge-live {
+      background: var(--success-bg);
+      border-color: rgba(34, 197, 94, 0.35);
+      color: #4ade80;
+    }
+
+    .badge-queue {
+      background: var(--warning-bg);
+      border-color: rgba(245, 158, 11, 0.35);
+      color: #fbbf24;
+    }
+
+    .topbar-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .user-meta {
+      font-size: 13px;
+      color: var(--text-secondary);
+      margin-right: 4px;
+    }
+
+    .user-meta strong {
+      color: var(--text-primary);
+      font-weight: 600;
+    }
+
+    /* Cards (#UI-01: 8px Radius + Obsidian Bevel) */
+    .obsidian-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      box-shadow: var(--bevel);
+      border-radius: 8px;
+      padding: 28px;
+    }
+
+    /* Login Stage */
+    .login-stage {
+      min-height: calc(100vh - 90px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 0;
+    }
+
+    .login-box {
+      width: 100%;
+      max-width: 480px;
+      margin: 0 auto;
+    }
+
+    /* Form Controls (#UI-13 & REVIEW-PATTERNS: font-size 16px gegen iOS Auto-Zoom) */
+    .form-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 20px;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+    }
+
+    .form-group.full-width {
+      grid-column: 1 / -1;
+    }
+
+    label.field-label {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text-primary);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+    }
+
+    .field-hint {
+      font-size: 12px;
+      font-weight: 400;
+      color: var(--text-secondary);
+    }
+
+    input[type="text"],
+    input[type="password"],
+    input[type="url"],
+    textarea,
+    select {
+      width: 100%;
+      font-family: 'Inter', sans-serif;
+      font-size: 16px;
+      color: var(--text-primary);
+      background: var(--bg-input);
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      padding: 12px 14px;
+      outline: none;
+      transition: border-color 0.15s ease;
+    }
+
+    input:focus,
+    textarea:focus,
+    select:focus {
+      border-color: var(--accent);
+    }
+
+    textarea {
+      min-height: 110px;
+      resize: vertical;
+      line-height: 1.5;
+    }
+
+    .code-textarea {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 16px;
+      min-height: 160px;
+    }
+
+    .pw-wrapper {
+      position: relative;
+      display: flex;
+      align-items: center;
+    }
+
+    .pw-wrapper input {
+      padding-right: 44px;
+    }
+
+    .pw-toggle {
+      position: absolute;
+      right: 10px;
+      background: transparent;
+      border: none;
+      color: var(--text-secondary);
+      cursor: pointer;
+      padding: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 4px;
+    }
+
+    .pw-toggle:hover {
+      color: var(--text-primary);
+    }
+
+    .checkbox-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      padding: 12px 14px;
+      background: var(--bg-elevated);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 13.5px;
+      color: var(--text-secondary);
+    }
+
+    .checkbox-row input[type="checkbox"] {
+      width: 18px;
+      height: 18px;
+      margin-top: 2px;
+      accent-color: var(--accent);
+      flex-shrink: 0;
+    }
+
+    /* Buttons (#UI-01: 8px Radius) */
+    .btn {
+      font-family: 'Inter', sans-serif;
+      font-size: 14px;
+      font-weight: 600;
+      border-radius: 8px;
+      padding: 11px 18px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: opacity 0.15s ease, transform 0.1s ease, background-color 0.15s ease;
+      border: 1px solid transparent;
+      line-height: 1.2;
+    }
+
+    .btn:disabled {
+      opacity: 0.55;
+      cursor: not-allowed;
+    }
+
+    .btn-primary {
+      background: var(--accent-gradient);
+      color: #ffffff;
+      box-shadow: var(--bevel);
+    }
+
+    .btn-primary:hover:not(:disabled) {
+      opacity: 0.94;
+    }
+
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.07);
+      border-color: var(--border-strong);
+      color: var(--text-primary);
+    }
+
+    .btn-secondary:hover:not(:disabled) {
+      background: rgba(255, 255, 255, 0.12);
+    }
+
+    .btn-ghost {
+      background: transparent;
+      border-color: var(--border);
+      color: var(--text-secondary);
+    }
+
+    .btn-ghost:hover:not(:disabled) {
+      color: var(--text-primary);
+      border-color: var(--border-strong);
+    }
+
+    .btn-sm {
+      padding: 8px 12px;
+      font-size: 13px;
+    }
+
+    /* Dropzone */
+    .dropzone {
+      border: 1px dashed var(--border-strong);
+      background: var(--bg-input);
+      border-radius: 8px;
+      padding: 20px;
+      text-align: center;
+      cursor: pointer;
+      transition: border-color 0.15s ease, background-color 0.15s ease;
+    }
+
+    .dropzone.dragover {
+      border-color: var(--accent);
+      background: rgba(240, 133, 45, 0.08);
+    }
+
+    .dropzone-title {
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-top: 8px;
+      font-size: 14px;
+    }
+
+    .dropzone-sub {
+      font-size: 12.5px;
+      color: var(--text-secondary);
+      margin-top: 4px;
+    }
+
+    /* Status Banner */
+    .status-banner {
+      padding: 14px 16px;
+      border-radius: 8px;
+      font-size: 14px;
+      display: none;
+      align-items: flex-start;
+      gap: 10px;
+      margin-top: 16px;
+      border: 1px solid var(--border);
+    }
+
+    .status-banner.show {
+      display: flex;
+    }
+
+    .status-banner.ok {
+      background: var(--success-bg);
+      border-color: rgba(34, 197, 94, 0.35);
+      color: #86efac;
+    }
+
+    .status-banner.err {
+      background: var(--danger-bg);
+      border-color: rgba(239, 68, 68, 0.35);
+      color: #fca5a5;
+    }
+
+    /* Studio Sections */
+    .studio-main {
+      padding: 36px 0 80px;
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+    }
+
+    .section-head {
+      margin-bottom: 22px;
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .section-head h2 {
+      font-size: 24px;
+      font-weight: 700;
+    }
+
+    .section-desc {
+      color: var(--text-secondary);
+      font-size: 14.5px;
+      max-width: 780px;
+      margin-top: 6px;
+    }
+
+    /* Jobs List */
+    .jobs-list {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .job-card {
+      background: var(--bg-elevated);
+      border: 1px solid var(--border);
+      box-shadow: var(--bevel);
+      border-radius: 8px;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .job-top {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .job-title {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--text-primary);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .job-meta-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      font-size: 12.5px;
+      color: var(--text-secondary);
+    }
+
+    .aha-box {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 12px 16px;
+    }
+
+    .aha-title {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: var(--accent-text);
+      margin-bottom: 6px;
+      display: block;
+    }
+
+    .aha-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      font-size: 13.5px;
+      color: var(--text-secondary);
+    }
+
+    .aha-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+    }
+
+    /* Symmetrisches Button-Grid (#UI-14 / #UI-02) */
+    .job-actions {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 10px;
+      padding-top: 6px;
+    }
+
+    .hidden {
+      display: none !important;
+    }
+
+    svg.lucide {
+      width: 17px;
+      height: 17px;
+      stroke: currentColor;
+      stroke-width: 1.85;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      fill: none;
+      flex-shrink: 0;
+    }
+
+    @media (max-width: 768px) {
+      .container-1100 {
+        padding: 0 16px;
+      }
+      .obsidian-card {
+        padding: 20px 16px;
+      }
+      .form-grid {
+        grid-template-columns: 1fr;
+      }
+      .job-actions {
+        grid-template-columns: 1fr;
+      }
+      .topbar-inner {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .topbar-actions {
+        width: 100%;
+        justify-content: flex-start;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Navigation Bar -->
+  <header class="topbar">
+    <div class="container-1100 topbar-inner">
+      <div class="brand-group">
+        <div class="brand-mark" aria-hidden="true">
+          <svg class="lucide" viewBox="0 0 24 24">
+            <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+          </svg>
+        </div>
+        <div>
+          <div class="brand-title">
+            <span>WebPilot Partner-Studio</span>
+            <span class="badge-4">JENNY &amp; DAVID</span>
+          </div>
+        </div>
+      </div>
+
+      <div id="topbarUserArea" class="topbar-actions hidden">
+        <span id="userMetaDisplay" class="user-meta"></span>
+        <button type="button" id="btnSendCredsTop" class="btn btn-secondary btn-sm">
+          <svg class="lucide" viewBox="0 0 24 24">
+            <rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect>
+            <line x1="12" y1="18" x2="12.01" y2="18"></line>
+          </svg>
+          <span>Zugangsdaten per WhatsApp ans Natel senden</span>
+        </button>
+        <button type="button" id="btnLogout" class="btn btn-ghost btn-sm">
+          <svg class="lucide" viewBox="0 0 24 24">
+            <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+            <polyline points="16 17 21 12 16 7"></polyline>
+            <line x1="21" y1="12" x2="9" y2="12"></line>
+          </svg>
+          <span>Abmelden</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- SCREEN 1: PASSWORT-SCHUTZWALL -->
+  <main id="loginView" class="login-stage">
+    <div class="container-1100">
+      <div class="obsidian-card login-box">
+        <span class="kicker">// WEBPILOT PARTNER-STUDIO · ZUGANG</span>
+        <h1 style="font-size: 24px; margin-bottom: 8px;">Partner-Anmeldung</h1>
+        <p style="color: var(--text-secondary); font-size: 14px; margin-bottom: 24px;">
+          Melde dich mit deinem persönlichen Partner-Profil an. Auf Wunsch erhältst du deine Zugangsdaten und den Direktlink sofort per WhatsApp auf deine hinterlegte Natelnummer.
+        </p>
+
+        <form id="loginForm" style="display: flex; flex-direction: column; gap: 18px;">
+          <div class="form-group">
+            <label class="field-label" for="loginUsername">Benutzername</label>
+            <input type="text" id="loginUsername" name="username" placeholder="z. B. jenny oder david" autocomplete="username" required>
+          </div>
+
+          <div class="form-group">
+            <label class="field-label" for="loginPassword">Passwort</label>
+            <div class="pw-wrapper">
+              <input type="password" id="loginPassword" name="password" placeholder="Persönliches Passwort eingeben" autocomplete="current-password" required>
+              <button type="button" id="btnTogglePw" class="pw-toggle" aria-label="Passwort anzeigen">
+                <svg class="lucide" viewBox="0 0 24 24">
+                  <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                  <circle cx="12" cy="12" r="3"></circle>
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          <label class="checkbox-row" for="loginSendWhatsapp">
+            <input type="checkbox" id="loginSendWhatsapp" checked>
+            <span>Zugangsdaten beim Einloggen per WhatsApp an meine hinterlegte Natelnummer senden</span>
+          </label>
+
+          <button type="submit" id="btnLoginSubmit" class="btn btn-primary" style="width: 100%; padding: 13px 18px;">
+            <svg class="lucide" viewBox="0 0 24 24">
+              <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+              <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+            </svg>
+            <span>Anmelden &amp; Studio öffnen</span>
+          </button>
+        </form>
+
+        <div id="loginStatusBanner" class="status-banner" role="alert"></div>
+      </div>
+    </div>
+  </main>
+
+  <!-- SCREEN 2: PARTNER-COCKPIT (JENNY & DAVID) -->
+  <main id="studioView" class="studio-main hidden">
+    <div class="container-1100" style="display: flex; flex-direction: column; gap: 32px;">
+
+      <div id="topActionFeedback" class="status-banner" role="status"></div>
+
+      <!-- KARTE 1: NEUER VORSCHAU-AUFTRAG -->
+      <section class="obsidian-card" data-section="partner-intake">
+        <div class="section-head">
+          <div>
+            <span class="kicker">// NEUER VORSCHAU-AUFTRAG · ANTIGRAVITY ENGINE</span>
+            <h2>Neue WebPilot-Vorschauseite erstellen lassen</h2>
+            <p class="section-desc">
+              Gib eine bestehende Website-URL, deinen eigenen HTML-Entwurf aus ChatGPT oder beides zusammen ein. Antigravity baut daraus automatisch die mehrseitige WebPilot-Vorschau inklusive Studio-Cockpit und schickt dir die fertigen Zugangsdaten direkt per WhatsApp auf dein Natel.
+            </p>
+          </div>
+        </div>
+
+        <form id="jobForm" style="display: flex; flex-direction: column; gap: 22px;">
+          <div class="form-grid">
+            <div class="form-group">
+              <label class="field-label" for="jobCompanyName">
+                <span>1. Firmenname (Pflicht)</span>
+              </label>
+              <input type="text" id="jobCompanyName" placeholder="z. B. Hochuli Schlossrued AG" required>
+            </div>
+
+            <div class="form-group">
+              <label class="field-label" for="jobCity">
+                <span>Ort / Region</span>
+                <span class="field-hint">Optional</span>
+              </label>
+              <input type="text" id="jobCity" placeholder="z. B. Schlossrued AG">
+            </div>
+
+            <div class="form-group">
+              <label class="field-label" for="jobSourceUrl">
+                <span>2. Bestehende Website-URL</span>
+                <span class="field-hint">Optional — leer lassen falls keine Website existiert</span>
+              </label>
+              <input type="url" id="jobSourceUrl" placeholder="https://www.beispiel-firma.ch">
+            </div>
+
+            <div class="form-group">
+              <label class="field-label" for="jobSlug">
+                <span>Gewünschter Kurz-Slug</span>
+                <span class="field-hint">Optional — wird sonst automatisch generiert</span>
+              </label>
+              <input type="text" id="jobSlug" placeholder="z. B. hochuli">
+            </div>
+
+            <!-- 3. ChatGPT HTML-Entwurf (Drag & Drop ODER Code einfügen) -->
+            <div class="form-group full-width">
+              <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px;">
+                <label class="field-label" for="jobChatgptHtml">
+                  <span>3. Eigener HTML-Entwurf aus ChatGPT (Optional)</span>
+                </label>
+                <div style="display: flex; align-items: center; gap: 10px;">
+                  <span id="htmlCharCounter" class="badge-4">0 Zeichen</span>
+                  <button type="button" id="btnToggleCodeArea" class="btn btn-ghost btn-sm">
+                    <svg class="lucide" viewBox="0 0 24 24">
+                      <polyline points="16 18 22 12 16 6"></polyline>
+                      <polyline points="8 6 2 12 8 18"></polyline>
+                    </svg>
+                    <span>HTML-Code direkt einfügen / bearbeiten</span>
+                  </button>
+                </div>
+              </div>
+
+              <div id="htmlDropzone" class="dropzone">
+                <input type="file" id="htmlFileInput" accept=".html,.htm,.txt" class="hidden">
+                <svg class="lucide" viewBox="0 0 24 24" style="width: 28px; height: 28px; color: var(--accent-text); margin: 0 auto;">
+                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                  <polyline points="14 2 14 8 20 8"></polyline>
+                  <line x1="12" y1="18" x2="12" y2="12"></line>
+                  <line x1="9" y1="15" x2="15" y2="15"></line>
+                </svg>
+                <div id="htmlDropzoneTitle" class="dropzone-title">ChatGPT .html-Datei hierher ziehen oder antippen zum Auswählen</div>
+                <div class="dropzone-sub">Oder klicke oben rechts auf «HTML-Code direkt einfügen», um Code aus der Zwischenablage einzukopieren.</div>
+              </div>
+
+              <div id="codeAreaWrapper" class="hidden" style="margin-top: 10px;">
+                <textarea id="jobChatgptHtml" class="code-textarea" placeholder="<!DOCTYPE html>&#10;<html>... Hier deinen HTML-Entwurf aus ChatGPT hineinkopieren ...</html>"></textarea>
+              </div>
+            </div>
+
+            <!-- 4. Kontext, Wünsche & Bilder -->
+            <div class="form-group full-width">
+              <label class="field-label" for="jobContextNotes">
+                <span>4. Kontext, Schwerpunkte &amp; Regie-Anweisungen für Antigravity</span>
+                <span class="field-hint">Was ist dem Kunden besonders wichtig?</span>
+              </label>
+              <textarea id="jobContextNotes" placeholder="z. B. 5 Sparten farblich trennen, bestehende Projektbilder &amp; Luftaufnahme-Video übernehmen, Sektionen für aktuelle Social-Media-Einblicke und Fachartikel einbauen, Offerte-Button prominent platzieren..."></textarea>
+            </div>
+
+            <div class="form-group full-width">
+              <label class="field-label" for="jobAssetsInput">
+                <span>Optionale Bilder / Logo hochladen (falls keine bestehende Website vorhanden ist)</span>
+                <span class="field-hint">Max. 10 Dateien (.png, .jpg, .webp, .svg)</span>
+              </label>
+              <input type="file" id="jobAssetsInput" accept=".png,.jpg,.jpeg,.webp,.svg" multiple style="padding: 10px; background: var(--bg-input); border: 1px solid var(--border-strong); border-radius: 8px; color: var(--text-secondary);">
+              <div id="assetsSummary" class="field-hint"></div>
+            </div>
+          </div>
+
+          <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px; padding-top: 6px;">
+            <div style="font-size: 13px; color: var(--text-secondary); display: flex; align-items: center; gap: 8px;">
+              <svg class="lucide" viewBox="0 0 24 24" style="color: var(--accent-text);">
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                <polyline points="22 4 12 14.01 9 11.01"></polyline>
+              </svg>
+              <span>Nach Abschluss erhältst du Vorschau-Link, Studio-Cockpit &amp; Token automatisch per WhatsApp.</span>
+            </div>
+
+            <button type="submit" id="btnSubmitJob" class="btn btn-primary" style="padding: 14px 24px; font-size: 15px;">
+              <svg class="lucide" viewBox="0 0 24 24">
+                <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+              </svg>
+              <span>Vorschau-Seite durch Antigravity bauen lassen</span>
+            </button>
+          </div>
+        </form>
+
+        <div id="jobSubmitBanner" class="status-banner" role="status"></div>
+      </section>
+
+      <!-- KARTE 2: AUFTRAGS-ÜBERSICHT & LIVE-LINKS -->
+      <section class="obsidian-card" data-section="partner-jobs">
+        <div class="section-head">
+          <div>
+            <span class="kicker">// AUFTRAGS-ÜBERSICHT &amp; LIVE-LINKS</span>
+            <h2>Bisherige Vorschau-Seiten &amp; Status</h2>
+            <p class="section-desc">
+              Alle fertiggestellten und laufenden WebPilot-Vorschauen. Mit einem Klick öffnest du die Kunden-Vorschau, das Studio-Cockpit oder schickst dir die Links direkt per WhatsApp aufs Natel.
+            </p>
+          </div>
+          <button type="button" id="btnRefreshJobs" class="btn btn-secondary btn-sm">
+            <svg class="lucide" viewBox="0 0 24 24">
+              <polyline points="23 4 23 10 17 10"></polyline>
+              <polyline points="1 20 1 14 7 14"></polyline>
+              <path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"></path>
+            </svg>
+            <span>Aktualisieren</span>
+          </button>
+        </div>
+
+        <div id="jobsContainer" class="jobs-list"></div>
+      </section>
+
+    </div>
+  </main>
+
+  <script>
+    (function () {
+      const STORAGE_TOKEN_KEY = "wp_partner_session_token";
+      const STORAGE_USER_KEY = "wp_partner_session_user";
+
+      const loginView = document.getElementById("loginView");
+      const studioView = document.getElementById("studioView");
+      const topbarUserArea = document.getElementById("topbarUserArea");
+      const userMetaDisplay = document.getElementById("userMetaDisplay");
+      const loginForm = document.getElementById("loginForm");
+      const loginUsername = document.getElementById("loginUsername");
+      const loginPassword = document.getElementById("loginPassword");
+      const loginSendWhatsapp = document.getElementById("loginSendWhatsapp");
+      const btnTogglePw = document.getElementById("btnTogglePw");
+      const loginStatusBanner = document.getElementById("loginStatusBanner");
+      const topActionFeedback = document.getElementById("topActionFeedback");
+
+      const jobForm = document.getElementById("jobForm");
+      const jobCompanyName = document.getElementById("jobCompanyName");
+      const jobCity = document.getElementById("jobCity");
+      const jobSourceUrl = document.getElementById("jobSourceUrl");
+      const jobSlug = document.getElementById("jobSlug");
+      const jobChatgptHtml = document.getElementById("jobChatgptHtml");
+      const jobContextNotes = document.getElementById("jobContextNotes");
+      const jobAssetsInput = document.getElementById("jobAssetsInput");
+      const assetsSummary = document.getElementById("assetsSummary");
+      const htmlDropzone = document.getElementById("htmlDropzone");
+      const htmlFileInput = document.getElementById("htmlFileInput");
+      const htmlDropzoneTitle = document.getElementById("htmlDropzoneTitle");
+      const htmlCharCounter = document.getElementById("htmlCharCounter");
+      const btnToggleCodeArea = document.getElementById("btnToggleCodeArea");
+      const codeAreaWrapper = document.getElementById("codeAreaWrapper");
+      const jobSubmitBanner = document.getElementById("jobSubmitBanner");
+      const jobsContainer = document.getElementById("jobsContainer");
+
+      let currentToken = sessionStorage.getItem(STORAGE_TOKEN_KEY) || "";
+      let currentUser = null;
+      let loadedChatgptFilename = "";
+      let selectedAssets = [];
+      let pollInterval = null;
+
+      try {
+        const rawUser = sessionStorage.getItem(STORAGE_USER_KEY);
+        if (rawUser) currentUser = JSON.parse(rawUser);
+      } catch (e) {
+        currentUser = null;
+      }
+
+      function showBanner(el, text, isOk) {
+        el.textContent = text;
+        el.className = "status-banner show " + (isOk ? "ok" : "err");
+      }
+
+      function hideBanner(el) {
+        el.className = "status-banner";
+        el.textContent = "";
+      }
+
+      btnTogglePw.addEventListener("click", function () {
+        const isPw = loginPassword.getAttribute("type") === "password";
+        loginPassword.setAttribute("type", isPw ? "text" : "password");
+      });
+
+      btnToggleCodeArea.addEventListener("click", function () {
+        codeAreaWrapper.classList.toggle("hidden");
+      });
+
+      function updateCharCount() {
+        const len = (jobChatgptHtml.value || "").length;
+        htmlCharCounter.textContent = len.toLocaleString("de-CH") + " Zeichen";
+      }
+
+      jobChatgptHtml.addEventListener("input", updateCharCount);
+
+      htmlDropzone.addEventListener("click", function () {
+        htmlFileInput.click();
+      });
+
+      htmlDropzone.addEventListener("dragover", function (e) {
+        e.preventDefault();
+        htmlDropzone.classList.add("dragover");
+      });
+
+      htmlDropzone.addEventListener("dragleave", function () {
+        htmlDropzone.classList.remove("dragover");
+      });
+
+      htmlDropzone.addEventListener("drop", function (e) {
+        e.preventDefault();
+        htmlDropzone.classList.remove("dragover");
+        if (e.dataTransfer && e.dataTransfer.files && e.dataTransfer.files.length > 0) {
+          handleHtmlFile(e.dataTransfer.files[0]);
+        }
+      });
+
+      htmlFileInput.addEventListener("change", function () {
+        if (htmlFileInput.files && htmlFileInput.files.length > 0) {
+          handleHtmlFile(htmlFileInput.files[0]);
+        }
+      });
+
+      function handleHtmlFile(file) {
+        loadedChatgptFilename = file.name;
+        const reader = new FileReader();
+        reader.onload = function (ev) {
+          jobChatgptHtml.value = String(ev.target.result || "");
+          htmlDropzoneTitle.textContent = "Geladen: " + file.name + " (" + jobChatgptHtml.value.length.toLocaleString("de-CH") + " Zeichen)";
+          updateCharCount();
+          codeAreaWrapper.classList.remove("hidden");
+        };
+        reader.readAsText(file, "UTF-8");
+      }
+
+      jobAssetsInput.addEventListener("change", function () {
+        const files = Array.from(jobAssetsInput.files || []).slice(0, 10);
+        selectedAssets = [];
+        if (files.length === 0) {
+          assetsSummary.textContent = "";
+          return;
+        }
+        assetsSummary.textContent = files.length + " Datei(en) ausgewählt — werden für den Upload vorbereitet...";
+        let done = 0;
+        files.forEach(function (f) {
+          const r = new FileReader();
+          r.onload = function (ev) {
+            selectedAssets.push({
+              filename: f.name,
+              data_base64: String(ev.target.result || "")
+            });
+            done += 1;
+            if (done === files.length) {
+              assetsSummary.textContent = selectedAssets.length + " Datei(en) bereit für Übertragung an Antigravity.";
+            }
+          };
+          r.readAsDataURL(f);
+        });
+      });
+
+      async function apiCall(path, options) {
+        const opts = Object.assign({ method: "GET", headers: {} }, options || {});
+        opts.headers["Content-Type"] = "application/json";
+        if (currentToken) {
+          opts.headers["Authorization"] = "Bearer " + currentToken;
+          opts.headers["X-Partner-Token"] = currentToken;
+        }
+        const res = await fetch(path, opts);
+        const data = await res.json().catch(function () { return { ok: false, error: "Ungültige Server-Antwort" }; });
+        return { status: res.status, data: data };
+      }
+
+      function enterStudio(user) {
+        currentUser = user;
+        loginView.classList.add("hidden");
+        studioView.classList.remove("hidden");
+        topbarUserArea.classList.remove("hidden");
+
+        userMetaDisplay.textContent = "";
+        const strong = document.createElement("strong");
+        strong.textContent = user.display_name || user.username;
+        userMetaDisplay.appendChild(document.createTextNode("Angemeldet als "));
+        userMetaDisplay.appendChild(strong);
+        if (user.phone) {
+          userMetaDisplay.appendChild(document.createTextNode(" · WhatsApp: " + user.phone));
+        }
+
+        loadJobs();
+        if (pollInterval) clearInterval(pollInterval);
+        pollInterval = setInterval(loadJobs, 15000);
+      }
+
+      function logout() {
+        currentToken = "";
+        currentUser = null;
+        sessionStorage.removeItem(STORAGE_TOKEN_KEY);
+        sessionStorage.removeItem(STORAGE_USER_KEY);
+        if (pollInterval) clearInterval(pollInterval);
+        studioView.classList.add("hidden");
+        topbarUserArea.classList.add("hidden");
+        loginView.classList.remove("hidden");
+        loginPassword.value = "";
+      }
+
+      document.getElementById("btnLogout").addEventListener("click", logout);
+
+      loginForm.addEventListener("submit", async function (e) {
+        e.preventDefault();
+        hideBanner(loginStatusBanner);
+        const btn = document.getElementById("btnLoginSubmit");
+        btn.disabled = true;
+        try {
+          const resp = await apiCall("/api/partner/login", {
+            method: "POST",
+            body: JSON.stringify({
+              username: loginUsername.value.trim(),
+              password: loginPassword.value,
+              send_whatsapp: loginSendWhatsapp.checked
+            })
+          });
+          if (resp.status !== 200 || !resp.data.ok) {
+            showBanner(loginStatusBanner, resp.data.error || "Anmeldung fehlgeschlagen.", false);
+            btn.disabled = false;
+            return;
+          }
+          currentToken = resp.data.token;
+          sessionStorage.setItem(STORAGE_TOKEN_KEY, currentToken);
+          sessionStorage.setItem(STORAGE_USER_KEY, JSON.stringify(resp.data.user));
+          enterStudio(resp.data.user);
+          if (resp.data.whatsapp_delivered) {
+            showBanner(topActionFeedback, "Willkommen! Deine Zugangsdaten wurden soeben per WhatsApp an " + (resp.data.user.phone || "dein Natel") + " gesendet.", true);
+          }
+        } catch (err) {
+          showBanner(loginStatusBanner, "Verbindungsfehler: " + err.message, false);
+        } finally {
+          btn.disabled = false;
+        }
+      });
+
+      document.getElementById("btnSendCredsTop").addEventListener("click", async function () {
+        const btn = document.getElementById("btnSendCredsTop");
+        btn.disabled = true;
+        hideBanner(topActionFeedback);
+        try {
+          const resp = await apiCall("/api/partner/send-credentials", {
+            method: "POST",
+            body: JSON.stringify({})
+          });
+          if (resp.status === 200 && resp.data.ok) {
+            showBanner(topActionFeedback, "Zugangsdaten wurden erfolgreich per WhatsApp an " + (resp.data.target || "dein Natel") + " gesendet.", true);
+          } else {
+            showBanner(topActionFeedback, resp.data.error || "WhatsApp-Versand fehlgeschlagen.", false);
+          }
+        } catch (err) {
+          showBanner(topActionFeedback, "Fehler beim WhatsApp-Versand: " + err.message, false);
+        } finally {
+          btn.disabled = false;
+        }
+      });
+
+      jobForm.addEventListener("submit", async function (e) {
+        e.preventDefault();
+        hideBanner(jobSubmitBanner);
+        const btn = document.getElementById("btnSubmitJob");
+        btn.disabled = true;
+        try {
+          const payload = {
+            company_name: jobCompanyName.value.trim(),
+            city: jobCity.value.trim(),
+            source_url: jobSourceUrl.value.trim(),
+            slug: jobSlug.value.trim(),
+            chatgpt_html: jobChatgptHtml.value,
+            chatgpt_filename: loadedChatgptFilename,
+            context_notes: jobContextNotes.value.trim(),
+            assets: selectedAssets,
+            send_whatsapp: true
+          };
+          const resp = await apiCall("/api/partner/jobs", {
+            method: "POST",
+            body: JSON.stringify(payload)
+          });
+          if (resp.status === 200 && resp.data.ok) {
+            showBanner(
+              jobSubmitBanner,
+              "Auftrag für «" + resp.data.job.company_name + "» eingereicht! Antigravity baut jetzt die Vorschau-Seite und sendet dir die Links per WhatsApp, sobald sie live ist.",
+              true
+            );
+            jobCompanyName.value = "";
+            jobCity.value = "";
+            jobSourceUrl.value = "";
+            jobSlug.value = "";
+            jobChatgptHtml.value = "";
+            jobContextNotes.value = "";
+            jobAssetsInput.value = "";
+            selectedAssets = [];
+            loadedChatgptFilename = "";
+            assetsSummary.textContent = "";
+            htmlDropzoneTitle.textContent = "ChatGPT .html-Datei hierher ziehen oder antippen zum Auswählen";
+            updateCharCount();
+            loadJobs();
+          } else {
+            showBanner(jobSubmitBanner, resp.data.error || "Auftrag konnte nicht gespeichert werden.", false);
+          }
+        } catch (err) {
+          showBanner(jobSubmitBanner, "Netzwerkfehler: " + err.message, false);
+        } finally {
+          btn.disabled = false;
+        }
+      });
+
+      document.getElementById("btnRefreshJobs").addEventListener("click", loadJobs);
+
+      function createSvgIcon(pathsHtml) {
+        const tpl = document.createElement("template");
+        tpl.innerHTML = '<svg class="lucide" viewBox="0 0 24 24">' + pathsHtml + "</svg>";
+        return tpl.content.firstChild;
+      }
+
+      async function loadJobs() {
+        if (!currentToken) return;
+        try {
+          const resp = await apiCall("/api/partner/jobs", { method: "GET" });
+          if (resp.status === 401) {
+            logout();
+            return;
+          }
+          if (!resp.data || !resp.data.ok) return;
+          renderJobs(resp.data.jobs || []);
+        } catch (err) {
+          // Stille Hintergrund-Wiederholung beim nächsten Intervall
+        }
+      }
+
+      function renderJobs(jobs) {
+        jobsContainer.textContent = "";
+        if (!jobs.length) {
+          const empty = document.createElement("div");
+          empty.style.color = "var(--text-secondary)";
+          empty.textContent = "Noch keine Vorschau-Aufträge vorhanden.";
+          jobsContainer.appendChild(empty);
+          return;
+        }
+
+        jobs.forEach(function (job) {
+          const card = document.createElement("article");
+          card.className = "job-card";
+
+          const top = document.createElement("div");
+          top.className = "job-top";
+
+          const titleWrap = document.createElement("div");
+          const title = document.createElement("div");
+          title.className = "job-title";
+          title.appendChild(document.createTextNode(job.company_name || job.slug));
+
+          if (job.city) {
+            const citySpan = document.createElement("span");
+            citySpan.style.fontSize = "14px";
+            citySpan.style.fontWeight = "500";
+            citySpan.style.color = "var(--text-secondary)";
+            citySpan.textContent = "· " + job.city;
+            title.appendChild(citySpan);
+          }
+
+          const metaRow = document.createElement("div");
+          metaRow.className = "job-meta-row";
+          metaRow.style.marginTop = "4px";
+          metaRow.textContent = "Slug: " + (job.slug || "-") + " · Token: " + (job.access_token || "-") + " · Eingereicht: " + (job.created_at || "-") + (job.created_by_name ? " (" + job.created_by_name + ")" : "");
+
+          titleWrap.appendChild(title);
+          titleWrap.appendChild(metaRow);
+
+          const statusBadge = document.createElement("span");
+          const isCompleted = job.status === "completed";
+          statusBadge.className = "badge-4 " + (isCompleted ? "badge-live" : "badge-queue");
+          statusBadge.textContent = isCompleted ? "LIVE AUF SWISS EDGE" : (job.status === "in_progress" ? "IN ARBEIT DURCH ANTIGRAVITY" : "IN QUEUE EINGEREIHT");
+
+          top.appendChild(titleWrap);
+          top.appendChild(statusBadge);
+          card.appendChild(top);
+
+          if (job.summary) {
+            const sumP = document.createElement("p");
+            sumP.style.fontSize = "13.5px";
+            sumP.style.color = "var(--text-secondary)";
+            sumP.textContent = job.summary;
+            card.appendChild(sumP);
+          }
+
+          if (Array.isArray(job.aha_points) && job.aha_points.length > 0) {
+            const ahaBox = document.createElement("div");
+            ahaBox.className = "aha-box";
+            const ahaTitle = document.createElement("span");
+            ahaTitle.className = "aha-title";
+            ahaTitle.textContent = "// DIE 3 AHA-PUNKTE FUER DAS KUNDENGESPRAECH";
+            ahaBox.appendChild(ahaTitle);
+
+            const ul = document.createElement("ul");
+            ul.className = "aha-list";
+            job.aha_points.forEach(function (pt, i) {
+              const li = document.createElement("li");
+              const num = document.createElement("strong");
+              num.style.color = "var(--accent-text)";
+              num.textContent = (i + 1) + ".";
+              const txt = document.createElement("span");
+              txt.textContent = pt;
+              li.appendChild(num);
+              li.appendChild(txt);
+              ul.appendChild(li);
+            });
+            ahaBox.appendChild(ul);
+            card.appendChild(ahaBox);
+          }
+
+          const actions = document.createElement("div");
+          actions.className = "job-actions";
+
+          const btnPreview = document.createElement("a");
+          btnPreview.className = "btn btn-primary btn-sm";
+          btnPreview.href = job.preview_url || ("https://vorschau.magnet-xs.ch/" + job.slug + "/?token=" + job.access_token);
+          btnPreview.target = "_blank";
+          btnPreview.rel = "noopener noreferrer";
+          btnPreview.appendChild(createSvgIcon('<path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line>'));
+          const prevLabel = document.createElement("span");
+          prevLabel.textContent = "Vorschau öffnen";
+          btnPreview.appendChild(prevLabel);
+
+          const btnCockpit = document.createElement("a");
+          btnCockpit.className = "btn btn-secondary btn-sm";
+          btnCockpit.href = job.cockpit_url || ("https://vorschau.magnet-xs.ch/" + job.slug + "/cockpit?token=" + job.access_token);
+          btnCockpit.target = "_blank";
+          btnCockpit.rel = "noopener noreferrer";
+          btnCockpit.appendChild(createSvgIcon('<circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>'));
+          const cockLabel = document.createElement("span");
+          cockLabel.textContent = "Studio-Cockpit öffnen";
+          btnCockpit.appendChild(cockLabel);
+
+          const btnWhatsapp = document.createElement("button");
+          btnWhatsapp.type = "button";
+          btnWhatsapp.className = "btn btn-secondary btn-sm";
+          btnWhatsapp.appendChild(createSvgIcon('<rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect><line x1="12" y1="18" x2="12.01" y2="18"></line>'));
+          const waLabel = document.createElement("span");
+          waLabel.textContent = "Links per WhatsApp ans Natel senden";
+          btnWhatsapp.appendChild(waLabel);
+
+          btnWhatsapp.addEventListener("click", async function () {
+            btnWhatsapp.disabled = true;
+            waLabel.textContent = "Wird gesendet...";
+            try {
+              const resp = await apiCall("/api/partner/jobs/" + encodeURIComponent(job.job_id) + "/resend-whatsapp", {
+                method: "POST",
+                body: JSON.stringify({})
+              });
+              if (resp.status === 200 && resp.data.ok) {
+                waLabel.textContent = "Aufs Natel gesendet";
+              } else {
+                waLabel.textContent = "Fehler beim Senden";
+              }
+            } catch (e) {
+              waLabel.textContent = "Fehler beim Senden";
+            }
+            setTimeout(function () {
+              btnWhatsapp.disabled = false;
+              waLabel.textContent = "Links per WhatsApp ans Natel senden";
+            }, 3500);
+          });
+
+          actions.appendChild(btnPreview);
+          actions.appendChild(btnCockpit);
+          actions.appendChild(btnWhatsapp);
+          card.appendChild(actions);
+
+          jobsContainer.appendChild(card);
+        });
+      }
+
+      // Falls Session vorhanden, beim Laden direkt prüfen
+      if (currentToken && currentUser) {
+        apiCall("/api/partner/me", { method: "GET" }).then(function (resp) {
+          if (resp.status === 200 && resp.data.ok) {
+            enterStudio(resp.data.user);
+          } else {
+            logout();
+          }
+        });
+      }
+    })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,20 @@
+{
+  "portal_url": "https://vorschau.magnet-xs.ch/partner",
+  "whatsapp_sender_instance": "acp_client_46a6391acdfc4ef9b4166d9cd509bf0e_41625112105",
+  "whatsapp_sender_number": "+41 62 511 21 05",
+  "whatsapp_relay_url": "https://n8n-mxs.com/webhook/webpilot-partner-whatsapp",
+  "whatsapp_relay_secret": "CHANGE_ME_RELAY_SECRET",
+  "notify_admin_copy_to": "+41790000000",
+  "users": {
+    "partner_example": {
+      "display_name": "Partnerin Beispiel",
+      "username": "partner_example",
+      "password": "CHANGE_ME_PASSWORD",
+      "phone": "+41780000000",
+      "email": "partner@example.ch",
+      "role": "partner",
+      "send_whatsapp_on_login": true,
+      "active": true
+    }
+  }
+}

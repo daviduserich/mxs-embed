@@ -1,4 +1,5 @@
--e *.log
+*.log
 __pycache__/
 *.pyc
-
+config/partner_config.json
+partner-jobs/

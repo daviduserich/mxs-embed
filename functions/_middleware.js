@@ -114,7 +114,7 @@ export async function onRequest(context) {
     return context.next();
   }
 
-  const isReservedRoot = ['api', 'webpilot', 'boardroom', 'images', 'css', 'js', 'fonts', 'favicon.ico', 'robots.txt'].includes(rootSegment);
+  const isReservedRoot = ['api', 'webpilot', 'boardroom', 'partner', 'images', 'css', 'js', 'fonts', 'favicon.ico', 'robots.txt'].includes(rootSegment);
 
   // 2. Token-Guard & Multi-Tenant Isolation für Mandanten-Pfade
   if (rootSegment && !isReservedRoot) {
@@ -215,7 +215,7 @@ export async function onRequest(context) {
     let activeClientSlug = '';
 
     const match = url.pathname.match(/^\/([a-zA-Z0-9_-]+)(\/.*)?$/);
-    if (match && !['api', 'webpilot', 'boardroom', 'mxs-talent', 'images', 'css', 'js', 'fonts'].includes(match[1])) {
+    if (match && !['api', 'webpilot', 'boardroom', 'partner', 'mxs-talent', 'images', 'css', 'js', 'fonts'].includes(match[1])) {
       isClientPath = true;
       activeClientSlug = match[1];
       const rest = match[2] || '';

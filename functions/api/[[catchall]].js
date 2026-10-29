@@ -8,8 +8,8 @@ export async function onRequest(context) {
       status: 204,
       headers: {
         "Access-Control-Allow-Origin": "*",
-        "Access-Control-Allow-Methods": "GET, POST, OPTIONS",
-        "Access-Control-Allow-Headers": "Content-Type, Authorization",
+        "Access-Control-Allow-Methods": "GET, POST, DELETE, OPTIONS",
+        "Access-Control-Allow-Headers": "Content-Type, Authorization, X-Partner-Token, X-WebPilot-Relay-Key",
         "Access-Control-Max-Age": "86400"
       }
     });
@@ -29,9 +29,9 @@ export async function onRequest(context) {
     const upstreamResponse = await fetch(targetUrl, reqInit);
     const newHeaders = new Headers(upstreamResponse.headers);
     newHeaders.set("Access-Control-Allow-Origin", "*");
-    newHeaders.set("Access-Control-Allow-Methods", "GET, POST, OPTIONS");
-    newHeaders.set("Access-Control-Allow-Headers", "Content-Type, Authorization");
-    
+    newHeaders.set("Access-Control-Allow-Methods", "GET, POST, DELETE, OPTIONS");
+    newHeaders.set("Access-Control-Allow-Headers", "Content-Type, Authorization, X-Partner-Token, X-WebPilot-Relay-Key");
+
     return new Response(upstreamResponse.body, {
       status: upstreamResponse.status,
       statusText: upstreamResponse.statusText,
