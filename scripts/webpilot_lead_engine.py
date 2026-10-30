@@ -33,7 +33,7 @@ def _load_supabase_creds() -> tuple[str, str]:
     if not key:
         try:
             ps = Path("/home/brainuser/workspaces/Marketing-Hiltbrand-Pro0409/scripts/publish_service.py").read_text(encoding="utf-8")
-            m = re.search(r"SUPABASE_KEY\s*=\s*os\.environ\.get\([^,]+,\s*["\x27]([^"\x27]+)["\x27]\)", ps)
+            m = re.search(r"SUPABASE_KEY\s*=\s*os\.environ\.get\([^,]+,\s*.([^\x22\x27]+).", ps)
             if m:
                 key = m.group(1)
         except Exception:
