@@ -47,12 +47,16 @@ _smtp_cfg_cache = {"data": None, "ts": 0}
 
 
 def get_smtp_config() -> dict:
-    """Laedt SMTP- & E-Mail-Konfiguration aus Supabase system_config (1h Cache)."""
+    """Laedt SMTP- & E-Mail-Konfiguration inkl. Backup-SMTP aus Supabase system_config (300s Cache)."""
     now_ts = time.time()
-    if _smtp_cfg_cache["data"] and (now_ts - _smtp_cfg_cache["ts"] < 3600):
+    if _smtp_cfg_cache["data"] and (now_ts - _smtp_cfg_cache["ts"] < 300):
         return _smtp_cfg_cache["data"]
     try:
-        keys = "smtp_host,smtp_port,smtp_user,smtp_pass,smtp_from,notify_email,resend_api_key"
+        keys = (
+            "smtp_host,smtp_port,smtp_user,smtp_pass,smtp_from,"
+            "smtp_backup_host,smtp_backup_port,smtp_backup_user,smtp_backup_pass,smtp_backup_from,"
+            "notify_email,resend_api_key"
+        )
         url = f"{SUPABASE_URL}/rest/v1/system_config?key=in.({keys})&select=key,value"
         headers = {"apikey": SUPABASE_KEY, "Authorization": f"Bearer {SUPABASE_KEY}"}
         res = requests.get(url, headers=headers, timeout=6)
@@ -166,6 +170,23 @@ def resolve_lead_routing_for_request(slug: str, category: str, sparte: str, urge
     return client_cfg, selected, in_area
 
 
+def _smtp_deliver_message(host: str, port: int, user: str, password: str, msg: EmailMessage) -> None:
+    """Versendet EmailMessage mit Dual-TLS-Weiche: Port 465 = Implicit TLS (SMTP_SSL), sonst STARTTLS."""
+    port_int = int(port or 587)
+    if port_int == 465:
+        with smtplib.SMTP_SSL(host, port_int, timeout=15) as server:
+            server.ehlo()
+            server.login(user, password)
+            server.send_message(msg)
+    else:
+        with smtplib.SMTP(host, port_int, timeout=15) as server:
+            server.ehlo()
+            server.starttls()
+            server.ehlo()
+            server.login(user, password)
+            server.send_message(msg)
+
+
 def send_lead_email_with_pdf(
     to_emails: list[str],
     reply_to: str,
@@ -175,8 +196,9 @@ def send_lead_email_with_pdf(
     pdf_path: Path,
     pdf_filename: str,
     log_fn=None,
+    company_name: str = "WebPilot",
 ) -> tuple[bool, str]:
-    """Versendet die strukturierte HTML-E-Mail samt angehaengtem 1-Seiten-PDF (mit Retry #BE-07)."""
+    """Versendet die strukturierte HTML-E-Mail samt angehaengtem 1-Seiten-PDF (Dual-TLS 465/587 + Kasserver-Fallback #BE-07)."""
     smtp_cfg = get_smtp_config()
     smtp_host = smtp_cfg.get("smtp_host") or os.environ.get("SMTP_HOST") or "w01b7af4.kasserver.com"
     smtp_port = int(smtp_cfg.get("smtp_port") or os.environ.get("SMTP_PORT") or 587)
@@ -184,6 +206,12 @@ def send_lead_email_with_pdf(
     smtp_pass = smtp_cfg.get("smtp_pass") or os.environ.get("SMTP_PASS") or ""
     smtp_from = smtp_cfg.get("smtp_from") or os.environ.get("SMTP_FROM") or "david.huegli@acp-authentic-content-pilot.com"
     fallback_notify = smtp_cfg.get("notify_email") or "david.huegli@magnet-xs.com"
+
+    backup_host = smtp_cfg.get("smtp_backup_host") or os.environ.get("SMTP_BACKUP_HOST") or "w01b7af4.kasserver.com"
+    backup_port = int(smtp_cfg.get("smtp_backup_port") or os.environ.get("SMTP_BACKUP_PORT") or 587)
+    backup_user = smtp_cfg.get("smtp_backup_user") or os.environ.get("SMTP_BACKUP_USER") or "m07d99e5"
+    backup_pass = smtp_cfg.get("smtp_backup_pass") or os.environ.get("SMTP_BACKUP_PASS") or ""
+    backup_from = smtp_cfg.get("smtp_backup_from") or os.environ.get("SMTP_BACKUP_FROM") or smtp_from
 
     real_recipients = []
     for em in (to_emails or []):
@@ -201,12 +229,22 @@ def send_lead_email_with_pdf(
     if not real_recipients:
         real_recipients = [fallback_notify]
 
-    if not smtp_user or not smtp_pass:
+    if (not smtp_user or not smtp_pass) and (not backup_user or not backup_pass):
         return False, "missing_smtp_credentials"
+
+    clean_company = (
+        str(company_name or "WebPilot")
+        .replace("\r", " ")
+        .replace("\n", " ")
+        .replace('"', "")
+        .replace("\u00df", "ss")
+        .strip()
+        or "WebPilot"
+    )
 
     msg = EmailMessage()
     msg["Subject"] = subject.replace("\u00df", "ss")
-    msg["From"] = f"WebPilot Smart-Anfrage <{smtp_from}>"
+    msg["From"] = f"{clean_company} — Smart-Anfrage <{smtp_from}>"
     msg["To"] = ", ".join(real_recipients)
     if reply_to and "@" in reply_to:
         msg["Reply-To"] = reply_to
@@ -224,20 +262,27 @@ def send_lead_email_with_pdf(
         )
 
     last_err = ""
-    for attempt in range(2):
+    if smtp_user and smtp_pass:
+        for attempt in range(2):
+            try:
+                _smtp_deliver_message(smtp_host, smtp_port, smtp_user, smtp_pass, msg)
+                if log_fn:
+                    log_fn("webpilot-lead", "EMAIL_OK", "SENT", f"via={smtp_host}:{smtp_port} from={clean_company} to={real_recipients} pdf={pdf_filename}")
+                return True, "sent_smtp"
+            except Exception as ex:
+                last_err = str(ex)
+                time.sleep(1.0 * (attempt + 1))
+
+    # Automatischer Fallback auf Kasserver-SMTP (w01b7af4.kasserver.com:587)
+    if backup_host and backup_user and backup_pass and (backup_host != smtp_host or backup_port != smtp_port or backup_user != smtp_user):
         try:
-            with smtplib.SMTP(smtp_host, smtp_port, timeout=15) as server:
-                server.ehlo()
-                server.starttls()
-                server.ehlo()
-                server.login(smtp_user, smtp_pass)
-                server.send_message(msg)
+            msg.replace_header("From", f"{clean_company} — Smart-Anfrage <{backup_from}>")
+            _smtp_deliver_message(backup_host, backup_port, backup_user, backup_pass, msg)
             if log_fn:
-                log_fn("webpilot-lead", "EMAIL_OK", "SENT", f"to={real_recipients} pdf={pdf_filename}")
-            return True, "sent_smtp"
-        except Exception as ex:
-            last_err = str(ex)
-            time.sleep(1.0 * (attempt + 1))
+                log_fn("webpilot-lead", "EMAIL_FALLBACK_OK", "WARN", f"primary_err={last_err} fallback={backup_host}:{backup_port} to={real_recipients}")
+            return True, "sent_smtp_fallback"
+        except Exception as fb_ex:
+            last_err = f"primary({smtp_host}:{smtp_port}): {last_err} | fallback({backup_host}:{backup_port}): {fb_ex}"
 
     if log_fn:
         log_fn("webpilot-lead", "EMAIL_ERR", "FAIL", f"to={real_recipients} err={last_err}")
@@ -518,6 +563,7 @@ def process_lead_submission(data: dict, client_ip: str, referer: str, resolve_cl
         pdf_path=pdf_path,
         pdf_filename=pdf_filename,
         log_fn=log_fn,
+        company_name=brand_cfg.get("company_name") or clean_slug.upper(),
     )
 
     whatsapp_sent = False
