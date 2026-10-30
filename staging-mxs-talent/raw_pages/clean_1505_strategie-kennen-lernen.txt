@@ -1,0 +1,117 @@
+### PAGE 1505: strategie-kennen-lernen (https://mxs-talent-solutions.com/strategie-kennen-lernen/) | Title: Strategie kennen lernen
+[CUSTOM SCRIPT]:
+document.addEventListener('DOMContentLoaded', function() {
+    /**
+     * Scrollt sanft zum angegebenen Element.
+     * @param {HTMLElement} element - Das Zielelement, zu dem gescrollt werden soll.
+     */
+    function smoothScrollTo(element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+    }
+
+    /**
+     * Ruft den Wert eines URL-Parameters ab.
+     * @param {string} name - Der Name des abzurufenden URL-Parameters.
+     * @returns {string} Der Wert des URL-Parameters oder ein leerer String, wenn nicht gefunden.
+     */
+    function getUrlParameter(name) {
+        name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
+        var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
+        var results = regex.exec(location.search);
+        return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
+    }
+
+    // Holt die Ziel-Element-ID aus dem URL-Parameter
+    var scrollTarget = getUrlParameter('scrollTo');
+
+    if (scrollTarget) {
+        var targetElement = document.getElementById(scrollTarget);
+        if (targetElement) {
+            // Wartet, bis alle Bilder und Ressourcen geladen sind
+            window.addEventListener('load', function() {
+                // Verzögert das Scrollen um eine kurze Zeit
+                setTimeout(function() {
+                    smoothScrollTo(targetElement);
+
+                    // Stellt sicher, dass die Position beibehalten wird
+                    var checkPosition = setInterval(function() {
+                        var elementPosition = targetElement.getBoundingClientRect().top;
+                        if (Math.abs(elementPosition) > 5) {
+                            window.scrollTo(0, window.pageYOffset + elementPosition);
+                        } else {
+                            clearInterval(checkPosition);
+                        }
+                    }, 100);
+                }, 500);
+            });
+        }
+    }
+});
+[CUSTOM SCRIPT]:
+document.addEventListener('DOMContentLoaded', function() {
+    // Funktion zum Abrufen von URL-Parametern
+    function getUrlParameter(name) {
+        name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
+        var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
+        var results = regex.exec(location.search);
+        return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
+    }
+
+    // Holt die Zielvariante aus dem URL-Parameter
+    var variant = getUrlParameter('variant');
+
+    // Alle Container verstecken
+    document.getElementById('Variante_D4_you').style.display = 'none';
+    document.getElementById('Variante_Ausbildung').style.display = 'none';
+    document.getElementById('neutraler_Leittext').style.display = 'none';
+
+    // Zeige den entsprechenden Container basierend auf dem URL-Parameter an
+    if (variant === 'D4_you') {
+        document.getElementById('Variante_D4_you').style.display = 'block';
+    } else if (variant === 'Ausbildung') {
+        document.getElementById('Variante_Ausbildung').style.display = 'block';
+		
+    } else if (variant === 'neutraler_Leittext') {
+        document.getElementById('neutraler_Leittext').style.display = 'block';
+
+    }
+});
+[CUSTOM SCRIPT]:
+window.jotformEmbedHandler("iframe[id='JotFormIFrame-242875927440061']", "https://form.jotform.com/")
+[IFRAME] src=https://player.vimeo.com/video/1020900402?color&autopause=0&loop=0&muted=0&title=1&portrait=1&byline=1&h=fbbbd4d4a8#t= id=None title=vimeo Video Player
+[IFRAME] src=https://form.jotform.com/242875927440061 id=JotFormIFrame-242875927440061 title=Anfrage via xms-talenstsolutions.com
+--- CONTENT ---
+  [H2 (in #Variante_D4_you)] Unsere Verpflichtung
+  [H2 (in #Variante_D4_you)] Bewerbungen von Kandidaten die nebst dem fachlichen auch charakterlich zu Ihnen passen. Das führt zu Mitarbeitern, die eigenmotiviert arbeiten und wirken wollen.
+  [H2 (in #Variante_D4_you)] Lernen Sie unser Vorgehen kennen
+  [H2 (in #Variante_D4_you)] Erfahren Sie in einem kurzen Gespräch wie Ihre Möglichkeiten aussehen. Sie erfahren – wie wir für Sie – hochgradig passende Bewerbungen generieren.
+  [H2 (in #Variante_Ausbildung)] Unsere Verpflichtung
+  [H2 (in #Variante_Ausbildung)] Wir befähigen Sie , damit Sie Bewerbungen von Kandidaten die nebst dem fachlichen auch charakterlich zu Ihnen passen, selber erzeugen können. Das führt zu Mitarbeitern, die eigenmotiviert arbeiten und wirken wollen.
+  [H2 (in #Variante_Ausbildung)] Lernen Sie unser Vorgehen kennen
+  [H2 (in #Variante_Ausbildung)] Erfahren Sie in einem kurzen Gespräch wie Ihre Möglichkeiten aussehen. Es ist einfacher als Sie denken! Sie erfahren – wie wir Sie Schritt für Schritt an Ihr Ziel führen – in Eigenregie hochgradig passende Bewerbungen zu generieren.
+  [H2 (in #neutraler_Leittext)] Unsere Verpflichtung
+  [H2 (in #neutraler_Leittext)] Sie erhalten Bewerbungen von Kandidaten die nebst dem fachlichen auch charakterlich zu Ihnen passen. Das führt zu Mitarbeitern, die eigenmotiviert arbeiten und wirken wollen. Als Folge davon steigt auf der einen Seite die Freude an und auf der anderen Seite sinkt der Führungsaufwand ab!
+  [H2 (in #neutraler_Leittext)] Lernen Sie unser Vorgehen kennen
+  [H2 (in #neutraler_Leittext)] Erfahren Sie in einem kurzen Gespräch wie Ihre Möglichkeiten aussehen. Es ist einfacher als Sie denken! Sie erfahren – wie Sie mit unserer Unterstützung an Ihr Ziel gelangen. Dass Sie endlich wieder kontinuierlich und hochgradig zu Ihnen passende Bewerbungen erhalten!
+  [P] Im Interview erläutert David Hügli, wie er das heutige Recruiting bewertet und welche Massnahmen er empfiehlt, um nachhaltig die besten Mitarbeiter zu rekrutieren.
+  [P] Ihre Daten sind bei uns sicher. Wir verarbeiten Ihre persönlichen Daten ausschliesslich zur Bearbeitung Ihrer Anfrage. Weitere Informationen können Sie gerne der Datenschutzerklärung entnehmen.
+  [IMG] 3.jpg (alt="") -> https://mxs-talent-solutions.com/wp-content/uploads/2024/10/3.jpg
+  [P] Ihr Ansprechpartner – David Hügli
+  [IMG] 2.jpg (alt="") -> https://mxs-talent-solutions.com/wp-content/uploads/2024/10/2.jpg
+  [P] Ihre Ansprechpartnerin – Carmen Caselli
+  [H2] Referenzen
+  [P] Unsere Referenzen: Vertrauen und Schutz im digitalen Zeitalter Liebe Interessentinnen und Interessenten
+  [P] Wir legen grössten Wert auf die Zufriedenheit unserer Kunden und deren Schutz in der digitalen Welt. In einer Zeit, in der die künstliche Intelligenz rasante Fortschritte macht, sehen wir uns in der Verantwortung, verantwortungsvoll mit den Daten und der Privatsphäre unserer Kunden umzugehen.
+  [P] Warum wir keine öffentlichen Video-Testimonials mehr zeigen Die heutigen Möglichkeiten der KI-Technologie erlauben es, mit entsprechendem Wissen und Software, innerhalb kürzester Zeit täuschend echte Nachbildungen von Video- und Audioaufnahmen zu erstellen. Um unsere Kunden vor möglichem Missbrauch zu schützen, haben wir uns entschieden, keine frei zugänglichen Video-Testimonials mehr im Internet zu veröffentlichen.
+  [P] Wie Sie dennoch unsere Referenzen einsehen können Wir verstehen, dass Referenzen für Ihre Entscheidungsfindung von grosser Bedeutung sind. Daher bieten wir Ihnen die Möglichkeit, in einem persönlichen Gespräch Einblick in unsere Kundenstimmen und Referenzprojekte zu erhalten. So können wir sicherstellen, dass diese wertvollen Informationen in einem geschützten Rahmen geteilt werden und damit Datenmissbrauch verhindert wird.
+  [P] Unser Angebot an Sie Wenn Sie an Referenzen interessiert sind, laden wir Sie herzlich ein, direkt mit uns in Kontakt zu treten. In einem persönlichen Gespräch können wir Ihnen:
+  [P] – Detaillierte Einblicke in erfolgreiche Projekte geben – Video-Testimonials in einer kontrollierten Umgebung zeigen – Sie mit zufriedenen Kunden in Verbindung bringen (nach Absprache)
+  [P] Wir sind überzeugt, dass dieser Ansatz nicht nur den Schutz unserer bestehenden Kunden gewährleistet, sondern auch Ihnen als Interessenten ein Höchstmass an Vertrauen und Sicherheit bietet.
+  [P] Kontaktieren Sie uns noch heute, um mehr über unsere Erfolgsgeschichten zu erfahren und zu sehen, wie wir auch Ihr Projekt zum Erfolg führen können.
+  [P] Ihr Team von mXs-Talent-Solutions
+  [IMG] 4.png (alt="") -> https://mxs-talent-solutions.com/wp-content/uploads/2024/10/4.png
+  [IMG] 6.png (alt="") -> https://mxs-talent-solutions.com/wp-content/uploads/2024/10/6.png
+  [IMG] 3.png (alt="") -> https://mxs-talent-solutions.com/wp-content/uploads/2024/10/3.png
+  [IMG] 1.png (alt="") -> https://mxs-talent-solutions.com/wp-content/uploads/2024/10/1.png
+  [IMG] 2.png (alt="") -> https://mxs-talent-solutions.com/wp-content/uploads/2024/10/2.png
+  [IMG] 5.png (alt="") -> https://mxs-talent-solutions.com/wp-content/uploads/2024/10/5.png

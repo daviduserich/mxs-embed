@@ -1,0 +1,386 @@
+		<div data-elementor-type="wp-page" data-elementor-id="1505" class="elementor elementor-1505" data-elementor-post-type="page">
+				<div class="elementor-element elementor-element-393c492b e-flex e-con-boxed e-con e-parent" data-id="393c492b" data-element_type="container" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+					<div class="e-con-inner">
+		<div class="elementor-element elementor-element-f85aaa1 e-flex e-con-boxed e-con e-child" data-id="f85aaa1" data-element_type="container">
+					<div class="e-con-inner">
+				<div class="elementor-element elementor-element-60c4ad7 elementor-widget elementor-widget-html" data-id="60c4ad7" data-element_type="widget" data-widget_type="html.default">
+				<div class="elementor-widget-container">
+					<!--
+ - Skript für sanftes Scrollen zu einem Element
+ - 
+ - Dieses Skript ermöglicht ein sanftes Scrollen zu einem bestimmten Element auf einer Webseite
+ - basierend auf einem URL-Parameter. Es wurde entwickelt, um die Benutzererfahrung zu verbessern,
+ - indem es einen sanften Übergang zu einem Zielelement nach dem Laden der Seite bietet.
+ - 
+ - Hauptfunktionen:
+ - - Sanftes Scrollen zu einem Zielelement
+ - - Parsen von URL-Parametern zur Zielidentifikation
+ - - Verzögertes Scrollen, um das vollständige Laden der Seite zu berücksichtigen
+ - - Positionsbeibehaltung, um sicherzustellen, dass das Ziel im Sichtfeld bleibt
+ - 
+ - Verwendung:
+ - Fügen Sie dieses Skript in Ihre HTML-Datei ein und fügen Sie einen 'scrollTo'-Parameter
+ - zu Ihrer URL mit der ID des Zielelements hinzu.
+ - Beispiel: https://ihrewebseite.de/seite?scrollTo=zielElementId
+ - 
+ - @version 1.0
+ - @author Erstellt durch: david.huegli@magnet-xs.com | 2024/Okt./Do./17.10.2024/14:20 
+ - @license Vermutlich MIT (bitte überprüfen)
+-->
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    /**
+     * Scrollt sanft zum angegebenen Element.
+     * @param {HTMLElement} element - Das Zielelement, zu dem gescrollt werden soll.
+     */
+    function smoothScrollTo(element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+    }
+
+    /**
+     * Ruft den Wert eines URL-Parameters ab.
+     * @param {string} name - Der Name des abzurufenden URL-Parameters.
+     * @returns {string} Der Wert des URL-Parameters oder ein leerer String, wenn nicht gefunden.
+     */
+    function getUrlParameter(name) {
+        name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
+        var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
+        var results = regex.exec(location.search);
+        return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
+    }
+
+    // Holt die Ziel-Element-ID aus dem URL-Parameter
+    var scrollTarget = getUrlParameter('scrollTo');
+
+    if (scrollTarget) {
+        var targetElement = document.getElementById(scrollTarget);
+        if (targetElement) {
+            // Wartet, bis alle Bilder und Ressourcen geladen sind
+            window.addEventListener('load', function() {
+                // Verzögert das Scrollen um eine kurze Zeit
+                setTimeout(function() {
+                    smoothScrollTo(targetElement);
+
+                    // Stellt sicher, dass die Position beibehalten wird
+                    var checkPosition = setInterval(function() {
+                        var elementPosition = targetElement.getBoundingClientRect().top;
+                        if (Math.abs(elementPosition) > 5) {
+                            window.scrollTo(0, window.pageYOffset + elementPosition);
+                        } else {
+                            clearInterval(checkPosition);
+                        }
+                    }, 100);
+                }, 500);
+            });
+        }
+    }
+});
+</script>
+
+<!--
+ - Implementierungshinweise:
+ - 1. Das Skript verwendet 'DOMContentLoaded', um sicherzustellen, dass es ausgeführt wird, sobald der DOM bereit ist.
+ - 2. Sanftes Scrollen wird mit der nativen 'scrollIntoView'-Methode mit 'behavior: smooth' implementiert.
+ - 3. Das Parsen der URL-Parameter erfolgt manuell, um den 'scrollTo'-Parameter zu extrahieren.
+ - 4. Eine Verzögerung von 500ms wird vor dem Scrollen hinzugefügt, um das Laden dynamischer Inhalte zu ermöglichen.
+ - 5. Ein Intervall wird verwendet, um die Scrollposition beizubehalten und eventuelle Layout-Verschiebungen zu berücksichtigen.
+ - 
+ - Mögliche Verbesserungen:
+ - - Hinzufügen von Fehlerbehandlung für Fälle, in denen das Zielelement nicht existiert.
+ - - Implementierung einer Fallback-Lösung für Browser, die kein sanftes Scrollen unterstützen.
+ - - Erwägen Sie die Verwendung von 'IntersectionObserver' für eine effizientere Positionsüberprüfung.
+ - - Hinzufügen von Optionen zur Anpassung des Scrollverhaltens (z.B. Geschwindigkeit, Offset).
+-->
+				</div>
+				</div>
+					</div>
+				</div>
+				<div class="elementor-element elementor-element-072093f elementor-widget elementor-widget-html" data-id="072093f" data-element_type="widget" data-widget_type="html.default">
+				<div class="elementor-widget-container">
+					
+<!--
+/**
+ * Skript zur dynamischen Anzeige von Inhaltsvarianten basierend auf URL-Parametern
+ * 
+ * Dieses Skript ermöglicht es, verschiedene Inhaltsvarianten auf einer Webseite 
+ * anzuzeigen, basierend auf einem 'variant' URL-Parameter. Es verbessert die 
+ * Flexibilität der Webseite, indem es erlaubt, den angezeigten Inhalt dynamisch 
+ * zu steuern, ohne mehrere separate Seiten zu erstellen.
+ * 
+ * Funktionsweise:
+ * 1. Das Skript wird ausgeführt, sobald das DOM vollständig geladen ist.
+ * 2. Es extrahiert den Wert des 'variant' Parameters aus der URL.
+ * 3. Alle möglichen Inhaltscontainer werden zunächst ausgeblendet.
+ * 4. Basierend auf dem 'variant' Parameter wird der entsprechende Container angezeigt.
+ * 
+ * Hauptfunktionen:
+ * - getUrlParameter(name): Extrahiert den Wert eines spezifischen URL-Parameters.
+ * 
+ * Unterstützte Varianten:
+ * - 'D4_you': Zeigt den Container mit der ID 'Variante_D4_you' an.
+ * - 'Ausbildung': Zeigt den Container mit der ID 'Variante_Ausbildung' an.
+ * - 'neutraler_Leittext': Zeigt den Container mit der ID 'neutraler_Leittext' an.
+ * 
+ * Verwendung:
+ * Fügen Sie dieses Skript in Ihre HTML-Datei ein und verwenden Sie einen URL-Parameter 'variant'
+ * mit einem der unterstützten Werte, z.B.: https://ihrewebseite.de/seite?variant=D4_you
+ * 
+ * Hinweise:
+ * - Stellen Sie sicher, dass die entsprechenden Container-IDs im HTML-Dokument vorhanden sind.
+ * - Wenn kein gültiger 'variant' Parameter angegeben wird, bleibt die Seite leer, da alle
+ *   Container standardmäßig ausgeblendet werden.
+ * - Dieses Skript kann leicht erweitert werden, um zusätzliche Varianten zu unterstützen.
+ * 
+ * @version 1.0
+ * @author Erstellt durch: david.huegli@magnet-xs.com | 2024/Okt./Do./17.10.2024/16:37 
+ * @license [Lizenzinformationen, falls zutreffend]
+ */
+-->
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Funktion zum Abrufen von URL-Parametern
+    function getUrlParameter(name) {
+        name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
+        var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
+        var results = regex.exec(location.search);
+        return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
+    }
+
+    // Holt die Zielvariante aus dem URL-Parameter
+    var variant = getUrlParameter('variant');
+
+    // Alle Container verstecken
+    document.getElementById('Variante_D4_you').style.display = 'none';
+    document.getElementById('Variante_Ausbildung').style.display = 'none';
+    document.getElementById('neutraler_Leittext').style.display = 'none';
+
+    // Zeige den entsprechenden Container basierend auf dem URL-Parameter an
+    if (variant === 'D4_you') {
+        document.getElementById('Variante_D4_you').style.display = 'block';
+    } else if (variant === 'Ausbildung') {
+        document.getElementById('Variante_Ausbildung').style.display = 'block';
+		
+    } else if (variant === 'neutraler_Leittext') {
+        document.getElementById('neutraler_Leittext').style.display = 'block';
+
+    }
+});
+</script>				</div>
+				</div>
+		<div class="elementor-element elementor-element-c62f39f e-flex e-con-boxed e-con e-child" data-id="c62f39f" data-element_type="container" id="Variante_D4_you">
+					<div class="e-con-inner">
+		<div class="elementor-element elementor-element-23dde691 e-grid e-con-full e-con e-child" data-id="23dde691" data-element_type="container" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+		<div class="elementor-element elementor-element-4f8f3ea8 e-con-full e-flex e-con e-child" data-id="4f8f3ea8" data-element_type="container">
+				<div class="elementor-element elementor-element-25f0f88f elementor-widget elementor-widget-heading" data-id="25f0f88f" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+					<h2 class="elementor-heading-title elementor-size-default">Unsere Verpflichtung</h2>				</div>
+				</div>
+				<div class="elementor-element elementor-element-7f16f0eb elementor-widget elementor-widget-heading" data-id="7f16f0eb" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+					<h2 class="elementor-heading-title elementor-size-default">Bewerbungen von Kandidaten die nebst dem fachlichen auch charakterlich zu Ihnen passen.<br><br>
+
+Das führt zu Mitarbeitern, die eigenmotiviert arbeiten und wirken wollen.</h2>				</div>
+				</div>
+				</div>
+		<div class="elementor-element elementor-element-439724e9 e-con-full e-flex e-con e-child" data-id="439724e9" data-element_type="container">
+				<div class="elementor-element elementor-element-308bfd20 elementor-widget elementor-widget-heading" data-id="308bfd20" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+					<h2 class="elementor-heading-title elementor-size-default">Lernen Sie unser Vorgehen kennen</h2>				</div>
+				</div>
+				<div class="elementor-element elementor-element-70330667 elementor-widget elementor-widget-heading" data-id="70330667" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+					<h2 class="elementor-heading-title elementor-size-default">Erfahren Sie in einem kurzen Gespräch wie Ihre Möglichkeiten aussehen.<br> <br>Sie erfahren – wie wir für Sie – hochgradig passende Bewerbungen generieren.</h2>				</div>
+				</div>
+				</div>
+				</div>
+					</div>
+				</div>
+		<div class="elementor-element elementor-element-b634f07 e-flex e-con-boxed e-con e-child" data-id="b634f07" data-element_type="container" id="Variante_Ausbildung">
+					<div class="e-con-inner">
+		<div class="elementor-element elementor-element-f32af26 e-grid e-con-full e-con e-child" data-id="f32af26" data-element_type="container" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+		<div class="elementor-element elementor-element-f45ad9c e-con-full e-flex e-con e-child" data-id="f45ad9c" data-element_type="container">
+				<div class="elementor-element elementor-element-9c04313 elementor-widget elementor-widget-heading" data-id="9c04313" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+					<h2 class="elementor-heading-title elementor-size-default">Unsere Verpflichtung</h2>				</div>
+				</div>
+				<div class="elementor-element elementor-element-7800882 elementor-widget elementor-widget-heading" data-id="7800882" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+					<h2 class="elementor-heading-title elementor-size-default">Wir <b>befähigen Sie</b>, damit Sie Bewerbungen von Kandidaten die nebst dem fachlichen auch charakterlich zu Ihnen passen, selber erzeugen können.<br><br>
+
+Das führt zu Mitarbeitern, die eigenmotiviert arbeiten und wirken wollen.</h2>				</div>
+				</div>
+				</div>
+		<div class="elementor-element elementor-element-44f6954 e-con-full e-flex e-con e-child" data-id="44f6954" data-element_type="container">
+				<div class="elementor-element elementor-element-ca8099e elementor-widget elementor-widget-heading" data-id="ca8099e" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+					<h2 class="elementor-heading-title elementor-size-default">Lernen Sie unser Vorgehen kennen</h2>				</div>
+				</div>
+				<div class="elementor-element elementor-element-055f751 elementor-widget elementor-widget-heading" data-id="055f751" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+					<h2 class="elementor-heading-title elementor-size-default">Erfahren Sie in einem kurzen Gespräch wie Ihre Möglichkeiten aussehen. Es ist einfacher als Sie denken!<br> <br>Sie erfahren – wie wir Sie Schritt für Schritt<b> an Ihr Ziel führen – in Eigenregie</b> hochgradig passende Bewerbungen zu generieren.</h2>				</div>
+				</div>
+				</div>
+				</div>
+					</div>
+				</div>
+		<div class="elementor-element elementor-element-f8e3ef5 e-con-full e-flex e-con e-child" data-id="f8e3ef5" data-element_type="container" id="neutraler_Leittext">
+		<div class="elementor-element elementor-element-660cefb e-grid e-con-full e-con e-child" data-id="660cefb" data-element_type="container" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+		<div class="elementor-element elementor-element-4534e1b e-con-full e-flex e-con e-child" data-id="4534e1b" data-element_type="container">
+				<div class="elementor-element elementor-element-6bd7329 elementor-widget elementor-widget-heading" data-id="6bd7329" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+					<h2 class="elementor-heading-title elementor-size-default">Unsere Verpflichtung</h2>				</div>
+				</div>
+				<div class="elementor-element elementor-element-1e54f26 elementor-widget elementor-widget-heading" data-id="1e54f26" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+					<h2 class="elementor-heading-title elementor-size-default">Sie erhalten Bewerbungen von Kandidaten die nebst dem fachlichen auch charakterlich zu Ihnen passen.<br><br>
+Das führt zu Mitarbeitern, die eigenmotiviert arbeiten und wirken wollen. <br><br>Als Folge davon <b>steigt</b> auf der einen Seite <b>die Freude an</b> und auf der anderen Seite <b>sinkt der Führungsaufwand </b>ab!</h2>				</div>
+				</div>
+				</div>
+		<div class="elementor-element elementor-element-0e1e72f e-con-full e-flex e-con e-child" data-id="0e1e72f" data-element_type="container">
+				<div class="elementor-element elementor-element-035c942 elementor-widget elementor-widget-heading" data-id="035c942" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+					<h2 class="elementor-heading-title elementor-size-default">Lernen Sie unser Vorgehen kennen</h2>				</div>
+				</div>
+				<div class="elementor-element elementor-element-4ad27a8 elementor-widget elementor-widget-heading" data-id="4ad27a8" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+					<h2 class="elementor-heading-title elementor-size-default">Erfahren Sie in einem kurzen Gespräch wie Ihre Möglichkeiten aussehen. Es ist einfacher als Sie denken!<br> <br>Sie erfahren – wie Sie mit unserer Unterstützung an Ihr Ziel gelangen.<br><br>Dass Sie endlich wieder <b>kontinuierlich </b>und hochgradig zu Ihnen <b>passende Bewerbungen</b> erhalten!</h2>				</div>
+				</div>
+				</div>
+				</div>
+				</div>
+		<div class="elementor-element elementor-element-1d64cfe e-con-full e-flex e-con e-child" data-id="1d64cfe" data-element_type="container">
+		<div class="elementor-element elementor-element-99cacb1 e-grid e-con-full e-con e-child" data-id="99cacb1" data-element_type="container" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+		<div class="elementor-element elementor-element-b28af46 e-con-full e-flex e-con e-child" data-id="b28af46" data-element_type="container">
+				<div class="elementor-element elementor-element-2e7fa97d elementor-widget elementor-widget-video" data-id="2e7fa97d" data-element_type="widget" data-settings="{&quot;show_image_overlay&quot;:&quot;yes&quot;,&quot;image_overlay&quot;:{&quot;url&quot;:&quot;https:\/\/mxs-talent-solutions.com\/wp-content\/uploads\/2024\/09\/a4ce3d14-117b-400a-b0bb-a6461f2c909b.jpeg&quot;,&quot;id&quot;:49,&quot;size&quot;:&quot;&quot;,&quot;alt&quot;:&quot;&quot;,&quot;source&quot;:&quot;library&quot;},&quot;video_type&quot;:&quot;vimeo&quot;}" data-widget_type="video.default">
+				<div class="elementor-widget-container">
+							<div class="elementor-wrapper elementor-open-inline">
+			<iframe class="elementor-video-iframe" allowfullscreen allow="clipboard-write" title="vimeo Video Player" src="https://player.vimeo.com/video/1020900402?color&amp;autopause=0&amp;loop=0&amp;muted=0&amp;title=1&amp;portrait=1&amp;byline=1&amp;h=fbbbd4d4a8#t="></iframe>				<div class="elementor-custom-embed-image-overlay" style="background-image: url(https://mxs-talent-solutions.com/wp-content/uploads/2024/09/a4ce3d14-117b-400a-b0bb-a6461f2c909b.jpeg);">
+																<div class="elementor-custom-embed-play" role="button" aria-label="Video abspielen" tabindex="0">
+							<svg aria-hidden="true" class="e-font-icon-svg e-eicon-play" viewBox="0 0 1000 1000" xmlns="http://www.w3.org/2000/svg"><path d="M838 162C746 71 633 25 500 25 371 25 258 71 163 162 71 254 25 367 25 500 25 633 71 746 163 837 254 929 367 979 500 979 633 979 746 933 838 837 929 746 975 633 975 500 975 367 929 254 838 162M808 192C892 279 933 379 933 500 933 621 892 725 808 808 725 892 621 938 500 938 379 938 279 896 196 808 113 725 67 621 67 500 67 379 108 279 196 192 279 108 383 62 500 62 621 62 721 108 808 192M438 392V642L642 517 438 392Z"></path></svg>						</div>
+									</div>
+					</div>
+						</div>
+				</div>
+				<div class="elementor-element elementor-element-1d313147 elementor-widget elementor-widget-text-editor" data-id="1d313147" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+									<p>Im Interview erläutert David Hügli, wie er das heutige Recruiting bewertet und welche Massnahmen er empfiehlt, um nachhaltig die besten Mitarbeiter zu rekrutieren.</p>								</div>
+				</div>
+				</div>
+		<div class="elementor-element elementor-element-85538cc e-con-full e-flex e-con e-child" data-id="85538cc" data-element_type="container">
+				<div class="elementor-element elementor-element-110e7aba elementor-widget elementor-widget-html" data-id="110e7aba" data-element_type="widget" data-widget_type="html.default">
+				<div class="elementor-widget-container">
+					<style>
+  html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+  }
+</style>
+
+<div style="position: relative; width: 100%; padding-bottom: 56.25%; height: 0;">
+  <iframe
+    id="JotFormIFrame-242875927440061"
+    title="Anfrage via xms-talenstsolutions.com"
+    onload="window.parent.scrollTo(0,0)"
+    allowtransparency="true"
+    allow="geolocation; microphone; camera; fullscreen"
+    src="https://form.jotform.com/242875927440061"
+    frameborder="0"
+    style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:none; border-radius: 15px;"
+    scrolling="no"
+  >
+  </iframe>
+</div>
+
+<script src='https://cdn.jotfor.ms/s/umd/latest/for-form-embed-handler.js'></script>
+<script>window.jotformEmbedHandler("iframe[id='JotFormIFrame-242875927440061']", "https://form.jotform.com/")</script>
+				</div>
+				</div>
+				<div class="elementor-element elementor-element-7932ba9 elementor-widget elementor-widget-text-editor" data-id="7932ba9" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+									<p>Ihre Daten sind bei uns sicher. Wir verarbeiten Ihre persönlichen Daten ausschliesslich zur Bearbeitung Ihrer Anfrage. Weitere Informationen können Sie gerne der Datenschutzerklärung entnehmen.</p>								</div>
+				</div>
+				</div>
+				</div>
+				</div>
+					</div>
+				</div>
+		<div class="elementor-element elementor-element-54b853c7 e-flex e-con-boxed e-con e-parent" data-id="54b853c7" data-element_type="container">
+					<div class="e-con-inner">
+		<div class="elementor-element elementor-element-56ae4f39 e-grid e-con-full e-con e-child" data-id="56ae4f39" data-element_type="container">
+		<div class="elementor-element elementor-element-20b26d15 e-con-full e-flex e-con e-child" data-id="20b26d15" data-element_type="container">
+				<div class="elementor-element elementor-element-1f5c2c4c elementor-widget elementor-widget-image" data-id="1f5c2c4c" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+															<img loading="lazy" decoding="async" width="800" height="450" src="https://mxs-talent-solutions.com/wp-content/uploads/2024/10/3.jpg" class="attachment-large size-large wp-image-2223" alt="" srcset="https://mxs-talent-solutions.com/wp-content/uploads/2024/10/3.jpg 960w, https://mxs-talent-solutions.com/wp-content/uploads/2024/10/3-300x169.jpg 300w, https://mxs-talent-solutions.com/wp-content/uploads/2024/10/3-768x432.jpg 768w" sizes="(max-width: 800px) 100vw, 800px" />															</div>
+				</div>
+				<div class="elementor-element elementor-element-5df96556 elementor-widget elementor-widget-text-editor" data-id="5df96556" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+									<p>Ihr Ansprechpartner &#8211; David Hügli</p>								</div>
+				</div>
+		<div class="elementor-element elementor-element-42ebd87 e-con-full e-flex e-con e-child" data-id="42ebd87" data-element_type="container">
+				<div class="elementor-element elementor-element-6c6a3d9 elementor-widget elementor-widget-menu-anchor" data-id="6c6a3d9" data-element_type="widget" data-widget_type="menu-anchor.default">
+				<div class="elementor-widget-container">
+							<div class="elementor-menu-anchor" id="Referenzen-Anfordern"></div>
+						</div>
+				</div>
+				</div>
+				</div>
+		<div class="elementor-element elementor-element-216bfaf0 e-con-full e-flex e-con e-child" data-id="216bfaf0" data-element_type="container">
+				<div class="elementor-element elementor-element-39886a45 elementor-widget elementor-widget-image" data-id="39886a45" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+															<img loading="lazy" decoding="async" width="800" height="450" src="https://mxs-talent-solutions.com/wp-content/uploads/2024/10/2.jpg" class="attachment-large size-large wp-image-2222" alt="" srcset="https://mxs-talent-solutions.com/wp-content/uploads/2024/10/2.jpg 960w, https://mxs-talent-solutions.com/wp-content/uploads/2024/10/2-300x169.jpg 300w, https://mxs-talent-solutions.com/wp-content/uploads/2024/10/2-768x432.jpg 768w" sizes="(max-width: 800px) 100vw, 800px" />															</div>
+				</div>
+				<div class="elementor-element elementor-element-33b62df1 elementor-widget elementor-widget-text-editor" data-id="33b62df1" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+									<p>Ihre Ansprechpartnerin &#8211; Carmen Caselli</p>								</div>
+				</div>
+				</div>
+				</div>
+					</div>
+				</div>
+		<div class="elementor-element elementor-element-3aa78d64 e-flex e-con-boxed e-con e-parent" data-id="3aa78d64" data-element_type="container" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+					<div class="e-con-inner">
+				<div class="elementor-element elementor-element-26cdc675 elementor-widget elementor-widget-heading" data-id="26cdc675" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+					<h2 class="elementor-heading-title elementor-size-default">Referenzen</h2>				</div>
+				</div>
+					</div>
+				</div>
+		<div class="elementor-element elementor-element-f7d5585 e-flex e-con-boxed e-con e-parent" data-id="f7d5585" data-element_type="container">
+					<div class="e-con-inner">
+				<div class="elementor-element elementor-element-7cd2316f elementor-widget elementor-widget-text-editor" data-id="7cd2316f" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+									<p><strong>Unsere Referenzen: Vertrauen und Schutz im digitalen Zeitalter</strong><br />Liebe Interessentinnen und Interessenten</p><p>Wir legen grössten Wert auf die Zufriedenheit unserer Kunden und deren Schutz in der digitalen Welt. In einer Zeit, in der die künstliche Intelligenz rasante Fortschritte macht, sehen wir uns in der Verantwortung, verantwortungsvoll mit den Daten und der Privatsphäre unserer Kunden umzugehen.</p><p><strong>Warum wir keine öffentlichen Video-Testimonials mehr zeigen</strong><br />Die heutigen Möglichkeiten der KI-Technologie erlauben es, mit entsprechendem Wissen und Software, innerhalb kürzester Zeit täuschend echte Nachbildungen von Video- und Audioaufnahmen zu erstellen. Um unsere Kunden vor möglichem Missbrauch zu schützen, haben wir uns entschieden, keine frei zugänglichen Video-Testimonials mehr im Internet zu veröffentlichen.</p><p><strong>Wie Sie dennoch unsere Referenzen einsehen können</strong><br />Wir verstehen, dass Referenzen für Ihre Entscheidungsfindung von grosser Bedeutung sind. Daher bieten wir Ihnen die Möglichkeit, in einem persönlichen Gespräch Einblick in unsere Kundenstimmen und Referenzprojekte zu erhalten. So können wir sicherstellen, dass diese wertvollen Informationen in einem geschützten Rahmen geteilt werden und damit Datenmissbrauch verhindert wird.</p><p><strong>Unser Angebot an Sie</strong><br />Wenn Sie an Referenzen interessiert sind, laden wir Sie herzlich ein, direkt mit uns in Kontakt zu treten. In einem persönlichen Gespräch können wir Ihnen:</p><p>&#8211; Detaillierte Einblicke in erfolgreiche Projekte geben<br />&#8211; Video-Testimonials in einer kontrollierten Umgebung zeigen<br />&#8211; Sie mit zufriedenen Kunden in Verbindung bringen (nach Absprache)</p><p>Wir sind überzeugt, dass dieser Ansatz nicht nur den Schutz unserer bestehenden Kunden gewährleistet, sondern auch Ihnen als Interessenten ein Höchstmass an Vertrauen und Sicherheit bietet.</p><p>Kontaktieren Sie uns noch heute, um mehr über unsere Erfolgsgeschichten zu erfahren und zu sehen, wie wir auch Ihr Projekt zum Erfolg führen können.</p><p>Ihr Team von mXs-Talent-Solutions</p>								</div>
+				</div>
+		<div class="elementor-element elementor-element-40e1cc09 e-grid e-con-full e-con e-child" data-id="40e1cc09" data-element_type="container">
+				<div class="elementor-element elementor-element-727013c4 elementor-widget elementor-widget-image" data-id="727013c4" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+															<img loading="lazy" decoding="async" width="768" height="576" src="https://mxs-talent-solutions.com/wp-content/uploads/2024/10/4.png" class="attachment-large size-large wp-image-1443" alt="" srcset="https://mxs-talent-solutions.com/wp-content/uploads/2024/10/4.png 768w, https://mxs-talent-solutions.com/wp-content/uploads/2024/10/4-300x225.png 300w" sizes="(max-width: 768px) 100vw, 768px" />															</div>
+				</div>
+				<div class="elementor-element elementor-element-4abdf5dc elementor-widget elementor-widget-image" data-id="4abdf5dc" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+															<img loading="lazy" decoding="async" width="768" height="576" src="https://mxs-talent-solutions.com/wp-content/uploads/2024/10/6.png" class="attachment-large size-large wp-image-1442" alt="" srcset="https://mxs-talent-solutions.com/wp-content/uploads/2024/10/6.png 768w, https://mxs-talent-solutions.com/wp-content/uploads/2024/10/6-300x225.png 300w" sizes="(max-width: 768px) 100vw, 768px" />															</div>
+				</div>
+				<div class="elementor-element elementor-element-701e1e04 elementor-widget elementor-widget-image" data-id="701e1e04" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+															<img loading="lazy" decoding="async" width="768" height="576" src="https://mxs-talent-solutions.com/wp-content/uploads/2024/10/3.png" class="attachment-large size-large wp-image-1440" alt="" srcset="https://mxs-talent-solutions.com/wp-content/uploads/2024/10/3.png 768w, https://mxs-talent-solutions.com/wp-content/uploads/2024/10/3-300x225.png 300w" sizes="(max-width: 768px) 100vw, 768px" />															</div>
+				</div>
+				<div class="elementor-element elementor-element-356ae4bc elementor-widget elementor-widget-image" data-id="356ae4bc" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+															<img loading="lazy" decoding="async" width="768" height="576" src="https://mxs-talent-solutions.com/wp-content/uploads/2024/10/1.png" class="attachment-large size-large wp-image-1437" alt="" srcset="https://mxs-talent-solutions.com/wp-content/uploads/2024/10/1.png 768w, https://mxs-talent-solutions.com/wp-content/uploads/2024/10/1-300x225.png 300w" sizes="(max-width: 768px) 100vw, 768px" />															</div>
+				</div>
+				<div class="elementor-element elementor-element-2fff44cf elementor-widget elementor-widget-image" data-id="2fff44cf" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+															<img loading="lazy" decoding="async" width="768" height="576" src="https://mxs-talent-solutions.com/wp-content/uploads/2024/10/2.png" class="attachment-large size-large wp-image-1438" alt="" srcset="https://mxs-talent-solutions.com/wp-content/uploads/2024/10/2.png 768w, https://mxs-talent-solutions.com/wp-content/uploads/2024/10/2-300x225.png 300w" sizes="(max-width: 768px) 100vw, 768px" />															</div>
+				</div>
+				<div class="elementor-element elementor-element-6e2a649a elementor-widget elementor-widget-image" data-id="6e2a649a" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+															<img loading="lazy" decoding="async" width="768" height="576" src="https://mxs-talent-solutions.com/wp-content/uploads/2024/10/5.png" class="attachment-large size-large wp-image-1439" alt="" srcset="https://mxs-talent-solutions.com/wp-content/uploads/2024/10/5.png 768w, https://mxs-talent-solutions.com/wp-content/uploads/2024/10/5-300x225.png 300w" sizes="(max-width: 768px) 100vw, 768px" />															</div>
+				</div>
+				</div>
+					</div>
+				</div>
+				</div>
+		
