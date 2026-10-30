@@ -323,7 +323,7 @@ SHARED_CSS = """
     .nav-drawer {
       display: none;
       position: fixed;
-      inset: 71px 0 0 0;
+      inset: 198px 0 0 0;
       background: rgba(7, 17, 40, 0.98);
       backdrop-filter: blur(16px);
       z-index: 900;

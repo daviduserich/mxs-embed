@@ -216,9 +216,9 @@ function acpHandleThumbError(imgEl, originalSrc) {
 // Body Scroll-Lock Manager (Verhindert doppelte Scrollbalken im Vollbildmodus)
 function acpUpdateBodyModalClass() {
   var isAnyOpen = false;
-  var modals = document.querySelectorAll(".acp-modal-backdrop");
+  var modals = document.querySelectorAll(".acp-modal-backdrop, #acp-replace-section-modal, #acp-new-section-modal");
   for (var i = 0; i < modals.length; i++) {
-    if (modals[i].classList.contains("is-open")) {
+    if (modals[i].classList.contains("is-open") || modals[i].style.display === "flex") {
       isAnyOpen = true;
       break;
     }
@@ -227,6 +227,15 @@ function acpUpdateBodyModalClass() {
     document.body.classList.add("acp-modal-open");
   } else {
     document.body.classList.remove("acp-modal-open");
+  }
+  var swapDock = document.getElementById("acp-swap-dock");
+  var inlineDock = document.getElementById("acp-inline-edit-dock");
+  var isDockOpen = (swapDock && (swapDock.classList.contains("is-open") || swapDock.classList.contains("is-visible") || swapDock.classList.contains("is-active"))) ||
+                   (inlineDock && (inlineDock.classList.contains("is-open") || inlineDock.classList.contains("is-active") || inlineDock.style.display === "block"));
+  if (isDockOpen) {
+    document.body.classList.add("acp-dock-open");
+  } else {
+    document.body.classList.remove("acp-dock-open");
   }
 }
 
@@ -1213,6 +1222,7 @@ function acpSelectSwapImage(relPath, filename) {
     dock.classList.add("is-visible");
     dock.classList.add("is-active");
   }
+  acpUpdateBodyModalClass();
 
   if (!acpInspectorActive) {
     acpToggleInspector();
@@ -1253,6 +1263,7 @@ function acpCancelSwap(silent) {
     dock.classList.remove("is-visible");
     dock.classList.remove("is-active");
   }
+  acpUpdateBodyModalClass();
   var targetHint = document.getElementById("acp-swap-target-hint");
   if (targetHint) {
     targetHint.textContent = " Klicke jetzt in der Vorschau auf das zu ersetzende Bild!";
@@ -1748,15 +1759,22 @@ function renderDirectoryTable() {
       '</div>';
     }
 
+    var svgCheck = '<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>';
+    var svgArrow = '<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>';
+    var svgFile = '<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>';
+    var svgCopy = '<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>';
+    var svgLink = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>';
+    var svgCode = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>';
+
     var actionBtn = isCurrent ?
-      '<button type="button" class="btn-job-action btn-job-selected" disabled><span class="action-icon"></span> Aktiv</button>' :
-      '<button type="button" class="btn-job-action btn-job-switch" onclick="acpSwitchJob(\'' + j.id + '\'); acpToggleDirectoryModal();"><span class="action-icon"></span> Auswählen</button>';
+      '<button type="button" class="btn-job-action btn-job-selected" disabled><span class="action-icon" style="display:inline-flex;align-items:center;">' + svgCheck + '</span><span>Aktiv</span></button>' :
+      '<button type="button" class="btn-job-action btn-job-switch" onclick="acpSwitchJob(\'' + j.id + '\'); acpToggleDirectoryModal();"><span class="action-icon" style="display:inline-flex;align-items:center;">' + svgArrow + '</span><span>Auswählen</span></button>';
 
     html += '<tr class="' + rowClass + '">' +
       '<td>' +
         '<div class="job-meta-cell">' +
           '<div class="job-title-row">' +
-            '<span class="job-icon-glyph">' + (j.icon || "") + '</span>' +
+            '<span class="job-icon-glyph" style="display:inline-flex;align-items:center;color:#ffa858;">' + svgFile + '</span>' +
             '<strong class="job-title-text">' + j.titel + '</strong>' +
             (isCurrent ? '<span class="job-current-pill">Aktiv</span>' : '') +
           '</div>' +
@@ -1775,16 +1793,16 @@ function renderDirectoryTable() {
       '</td>' +
       '<td>' +
         '<button type="button" class="job-file-chip" onclick="acpCopyJobFilename(\'' + j.datei + '\')" title="Klicken, um Dateinamen zu kopieren">' +
-          '<span class="file-icon"></span>' +
+          '<span class="file-icon" style="display:inline-flex;align-items:center;">' + svgFile + '</span>' +
           '<span class="file-name">' + j.datei + '</span>' +
-          '<span class="file-copy-icon"></span>' +
+          '<span class="file-copy-icon" style="display:inline-flex;align-items:center;opacity:0.7;">' + svgCopy + '</span>' +
         '</button>' +
       '</td>' +
       '<td style="text-align:right; white-space:nowrap;">' +
         '<div class="job-actions-cluster">' +
           actionBtn +
-          '<button type="button" class="btn-job-tool" onclick="acpCopyPreviewUrl(\'' + edgePreviewUrl + '\', \'' + j.titel + '\')" title="Vorschau-Link teilen (WhatsApp / Mail)"></button>' +
-          '<button type="button" class="btn-job-tool" onclick="acpCopyJobCode(\'' + j.id + '\')" title="Einbettungs-Code für Webmaster kopieren"></button>' +
+          '<button type="button" class="btn-job-tool" onclick="acpCopyPreviewUrl(\'' + edgePreviewUrl + '\', \'' + j.titel + '\')" title="Vorschau-Link teilen (WhatsApp / Mail)" aria-label="Vorschau-Link kopieren">' + svgLink + '</button>' +
+          '<button type="button" class="btn-job-tool" onclick="acpCopyJobCode(\'' + j.id + '\')" title="Einbettungs-Code für Webmaster kopieren" aria-label="Einbettungs-Code kopieren">' + svgCode + '</button>' +
         '</div>' +
       '</td>' +
     '</tr>';
@@ -2071,7 +2089,7 @@ function acpHumanizeSectionTitle(sec) {
     return "Kopfzeile & Schnellkontakt";
   }
   if (id === "top-bar" || id === "header" || sec.tag === "header") {
-    if (!rawTitle || rawTitle.toLowerCase() === "top-bar" || rawTitle.toLowerCase() === "header" || rawTitle.indexOf("Hauptnavigation") !== -1 || rawTitle.length < 5) {
+    if (!rawTitle || rawTitle.toLowerCase() === "top-bar" || rawTitle.toLowerCase() === "header" || rawTitle.toLowerCase().indexOf("abschnitt") !== -1 || rawTitle.indexOf("Hauptnavigation") !== -1 || rawTitle.length < 5) {
       return "Hauptnavigation & Markenlogo";
     }
     return "Hauptnavigation · " + rawTitle;
@@ -2271,7 +2289,7 @@ function acpScanAndRenderSections() {
 
       var kicker = kickerEl ? kickerEl.textContent.trim().replace(/^[\/\s●•·]+/, "").trim() : "";
       var rawTitle = titleEl ? titleEl.textContent.trim() : "";
-      if (!rawTitle && secId === "top-bar") rawTitle = "Hauptnavigation & Markenlogo";
+      if (!rawTitle && (secId === "top-bar" || secId === "header")) rawTitle = "Hauptnavigation & Markenlogo";
       if (!rawTitle && secId === "footer") rawTitle = "Fusszeile & Rechtliches";
       if (!rawTitle) rawTitle = "Abschnitt " + secId;
 
@@ -2575,6 +2593,7 @@ function acpOpenReplaceSectionModal(secId) {
     modal.style.display = "flex";
   }
   acpUpdateBodyModalClass();
+  acpUpdateBodyModalClass();
 
   // Fokus sofort ins Eingabefeld
   setTimeout(function() {
@@ -2588,6 +2607,7 @@ function acpCloseReplaceSectionModal() {
     modal.classList.remove("is-open");
     modal.style.display = "none";
   }
+  acpUpdateBodyModalClass();
   acpUpdateBodyModalClass();
 }
 
@@ -2898,6 +2918,7 @@ function acpToggleInlineEdit(forceState) {
       dock.style.display = "block";
       dock.classList.add("is-active");
     }
+    acpUpdateBodyModalClass();
     if (iframe) {
       try {
         var doc = iframe.contentDocument || (iframe.contentWindow && iframe.contentWindow.document);
@@ -2918,6 +2939,7 @@ function acpToggleInlineEdit(forceState) {
       dock.style.display = "none";
       dock.classList.remove("is-active");
     }
+    acpUpdateBodyModalClass();
     if (iframe) {
       try {
         var doc = iframe.contentDocument || (iframe.contentWindow && iframe.contentWindow.document);
@@ -3615,11 +3637,13 @@ function acpOpenNewSectionModal() {
   }
   if (modal) { modal.classList.add("is-open"); modal.style.display = "flex"; }
   acpUpdateBodyModalClass();
+  acpUpdateBodyModalClass();
 }
 
 function acpCloseNewSectionModal() {
   var modal = document.getElementById("acp-new-section-modal");
   if (modal) { modal.classList.remove("is-open"); modal.style.display = "none"; }
+  acpUpdateBodyModalClass();
   acpUpdateBodyModalClass();
 }
 

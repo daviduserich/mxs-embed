@@ -1,17 +1,27 @@
 #!/usr/bin/env node
 /**
- * audit_webpilot_devices.mjs — Playwright 3-Zonen Device-Maschine & Doppel-Systemaugen (#UI-01, #UI-13, #UI-14)
- * Prueft preview-hochuli/* und webpilot/* ueber alle 3 Geraete-Zonen:
- *   - Zone 1 Smartphone: 375 x 667
- *   - Zone 2 Laptop:     1366 x 768
- *   - Zone 3 Desktop:    1440 x 900
+ * audit_webpilot_devices.mjs — Playwright 3-Zonen Device-Maschine & Doppel-Systemaugen v2.0 (#UI-01, #UI-06, #UI-13, #UI-14)
+ * Nutzt den zentralen Baustein ./lib/system_eyes_core.mjs (18 Mathematisch-Aesthetische Sensoren S-01..S-18)
+ * und prueft JEDE anwaehlbare Ansicht, Unterseite, Mobile-Menue & Cockpit-Modal:
+ *   - Alle Seiten & Unterseiten in preview-her11/*, preview-hochuli/*, webpilot/*
+ *   - Geoeffnetes Mobile-Burger-Menue (375x667) auf allen Kunden- & Marketing-Seiten
+ *   - Alle 12 anwaehlbaren Studio-Cockpit-Zustaende (Default, Inline-Edit, Job-Dropdown,
+ *     Sections-Modal, Replace-Section-Modal, New-Section-Modal, Images-Modal,
+ *     Pages-Directory-Modal, Draft-Panel, Swap-Dock, Log-Modal, Help-Modal) ueber alle 3 Zonen
  */
 
 import fs from 'fs';
 import path from 'path';
 import http from 'http';
+import { execFileSync } from 'child_process';
 import { fileURLToPath } from 'url';
 import { createRequire } from 'module';
+import {
+  SYSTEM_EYES_VERSION,
+  SYSTEM_EYES_ZONES,
+  SYSTEM_EYES_SENSORS,
+  evaluateSystemEyesInPage
+} from './lib/system_eyes_core.mjs';
 
 const require = createRequire('/home/brainuser/workspaces/ACP-Authentic-Content-Pilot-Pro0396/acp-app/package.json');
 const { chromium } = require('playwright-core');
@@ -26,7 +36,7 @@ const CHROMIUM_PATHS = [
   '/home/brainuser/.cache/ms-playwright/chromium_headless_shell-1217/chrome-headless-shell-linux64/chrome-headless-shell'
 ];
 
-const PAGES = [
+const ALL_PAGES = [
   'preview-her11/index.html',
   'preview-her11/ueber-uns.html',
   'preview-her11/ausbildung.html',
@@ -38,6 +48,7 @@ const PAGES = [
   'preview-hochuli/team.html',
   'preview-hochuli/karriere.html',
   'preview-hochuli/kontakt.html',
+  'preview-hochuli/cockpit.html',
   'webpilot/index.html',
   'webpilot/angebot.html',
   'webpilot/ueber-uns.html',
@@ -45,10 +56,183 @@ const PAGES = [
   'webpilot/kontakt.html'
 ];
 
-const ZONES = [
-  { name: 'mobile_375x667', width: 375, height: 667 },
-  { name: 'laptop_1366x768', width: 1366, height: 768 },
-  { name: 'desktop_1440x900', width: 1440, height: 900 }
+const COCKPIT_STATES = [
+  {
+    id: 'state_inline_edit',
+    label: 'inline-edit-dock',
+    activeScopeSelector: '#acp-inline-edit-dock',
+    open: () => {
+      if (typeof window.acpToggleInlineEdit === 'function') window.acpToggleInlineEdit(true);
+    },
+    close: () => {
+      if (typeof window.acpToggleInlineEdit === 'function') window.acpToggleInlineEdit(false);
+    }
+  },
+  {
+    id: 'state_job_dropdown',
+    label: 'job-dropdown',
+    activeScopeSelector: '#acp-job-dropdown',
+    open: () => {
+      const dd = document.getElementById('acp-job-dropdown');
+      if (dd && !dd.classList.contains('is-open') && typeof window.acpToggleJobDropdown === 'function') {
+        window.acpToggleJobDropdown();
+      }
+    },
+    close: () => {
+      const dd = document.getElementById('acp-job-dropdown');
+      if (dd && dd.classList.contains('is-open') && typeof window.acpToggleJobDropdown === 'function') {
+        window.acpToggleJobDropdown();
+      }
+    }
+  },
+  {
+    id: 'state_sections_modal',
+    label: 'sections-modal',
+    activeScopeSelector: '#acp-sections-modal',
+    open: () => {
+      const m = document.getElementById('acp-sections-modal');
+      if (m && !m.classList.contains('is-open') && typeof window.acpToggleSectionsModal === 'function') {
+        window.acpToggleSectionsModal();
+      }
+    },
+    close: () => {
+      const m = document.getElementById('acp-sections-modal');
+      if (m && m.classList.contains('is-open') && typeof window.acpToggleSectionsModal === 'function') {
+        window.acpToggleSectionsModal();
+      }
+    }
+  },
+  {
+    id: 'state_replace_modal',
+    label: 'replace-section-modal',
+    activeScopeSelector: '#acp-replace-section-modal',
+    open: () => {
+      if (typeof window.acpOpenReplaceSectionModal === 'function') {
+        window.acpOpenReplaceSectionModal('hero');
+      }
+    },
+    close: () => {
+      if (typeof window.acpCloseReplaceSectionModal === 'function') {
+        window.acpCloseReplaceSectionModal();
+      }
+    }
+  },
+  {
+    id: 'state_new_section_modal',
+    label: 'new-section-modal',
+    activeScopeSelector: '#acp-new-section-modal',
+    open: () => {
+      if (typeof window.acpOpenNewSectionModal === 'function') {
+        window.acpOpenNewSectionModal();
+      }
+    },
+    close: () => {
+      if (typeof window.acpCloseNewSectionModal === 'function') {
+        window.acpCloseNewSectionModal();
+      }
+    }
+  },
+  {
+    id: 'state_images_modal',
+    label: 'images-modal',
+    activeScopeSelector: '#acp-images-modal',
+    open: () => {
+      const m = document.getElementById('acp-images-modal');
+      if (m && !m.classList.contains('is-open') && typeof window.acpToggleImagesModal === 'function') {
+        window.acpToggleImagesModal();
+      }
+    },
+    close: () => {
+      const m = document.getElementById('acp-images-modal');
+      if (m && m.classList.contains('is-open') && typeof window.acpToggleImagesModal === 'function') {
+        window.acpToggleImagesModal();
+      }
+    }
+  },
+  {
+    id: 'state_directory_modal',
+    label: 'directory-modal',
+    activeScopeSelector: '#acp-directory-modal',
+    open: () => {
+      const m = document.getElementById('acp-directory-modal');
+      if (m && !m.classList.contains('is-open') && typeof window.acpToggleDirectoryModal === 'function') {
+        window.acpToggleDirectoryModal();
+      }
+    },
+    close: () => {
+      const m = document.getElementById('acp-directory-modal');
+      if (m && m.classList.contains('is-open') && typeof window.acpToggleDirectoryModal === 'function') {
+        window.acpToggleDirectoryModal();
+      }
+    }
+  },
+  {
+    id: 'state_draft_panel',
+    label: 'draft-panel',
+    activeScopeSelector: '#acp-draft-panel',
+    open: () => {
+      const p = document.getElementById('acp-draft-panel');
+      if (p && !p.classList.contains('is-open') && typeof window.acpToggleMenu === 'function') {
+        window.acpToggleMenu();
+      }
+    },
+    close: () => {
+      const p = document.getElementById('acp-draft-panel');
+      if (p && p.classList.contains('is-open') && typeof window.acpToggleMenu === 'function') {
+        window.acpToggleMenu();
+      }
+    }
+  },
+  {
+    id: 'state_swap_dock',
+    label: 'swap-dock',
+    activeScopeSelector: '#acp-swap-dock',
+    open: () => {
+      if (typeof window.acpSelectSwapImage === 'function' && Array.isArray(window.ACP_BILDER) && window.ACP_BILDER.length > 0) {
+        const first = window.ACP_BILDER[0];
+        window.acpSelectSwapImage(first.rel_path, first.filename);
+      }
+    },
+    close: () => {
+      if (typeof window.acpCancelSwap === 'function') {
+        window.acpCancelSwap(true);
+      }
+    }
+  },
+  {
+    id: 'state_log_modal',
+    label: 'log-modal',
+    activeScopeSelector: '#acp-log-modal',
+    open: () => {
+      const m = document.getElementById('acp-log-modal');
+      if (m && !m.classList.contains('is-open') && typeof window.acpToggleLogModal === 'function') {
+        window.acpToggleLogModal();
+      }
+    },
+    close: () => {
+      const m = document.getElementById('acp-log-modal');
+      if (m && m.classList.contains('is-open') && typeof window.acpToggleLogModal === 'function') {
+        window.acpToggleLogModal();
+      }
+    }
+  },
+  {
+    id: 'state_help_modal',
+    label: 'help-modal',
+    activeScopeSelector: '#acp-help-modal',
+    open: () => {
+      const m = document.getElementById('acp-help-modal');
+      if (m && !m.classList.contains('is-open') && typeof window.acpToggleHelpModal === 'function') {
+        window.acpToggleHelpModal();
+      }
+    },
+    close: () => {
+      const m = document.getElementById('acp-help-modal');
+      if (m && m.classList.contains('is-open') && typeof window.acpToggleHelpModal === 'function') {
+        window.acpToggleHelpModal();
+      }
+    }
+  }
 ];
 
 const MIME_TYPES = {
@@ -102,295 +286,123 @@ function getChromium() {
   throw new Error('Chromium binary not found');
 }
 
-async function auditPageZone(page, relPage, zone, screenshotDir) {
+function resolvePagesFromArgs() {
+  const siteIdx = process.argv.indexOf('--site');
+  if (siteIdx !== -1 && process.argv[siteIdx + 1]) {
+    const siteSlug = path.basename(process.argv[siteIdx + 1].replace(/\/+$/, ''));
+    const siteDir = path.join(ROOT_DIR, siteSlug);
+    if (fs.existsSync(siteDir) && fs.statSync(siteDir).isDirectory()) {
+      const htmlFiles = fs.readdirSync(siteDir)
+        .filter(f => f.endsWith('.html'))
+        .sort()
+        .map(f => `${siteSlug}/${f}`);
+      if (htmlFiles.length > 0) return htmlFiles;
+    }
+  }
+  return ALL_PAGES.filter(p => fs.existsSync(path.join(ROOT_DIR, p)));
+}
+
+async function auditPageZone(page, relPage, zone, screenshotDir, options = {}) {
   await page.setViewportSize({ width: zone.width, height: zone.height });
   await page.evaluate(() => window.scrollTo(0, 0));
   await page.waitForTimeout(60);
 
-  if (screenshotDir && (relPage === 'preview-her11/index.html' || relPage === 'preview-her11/cockpit.html' || relPage === 'preview-hochuli/index.html' || relPage === 'webpilot/index.html') && (zone.width === 375 || zone.width === 1440)) {
+  if (screenshotDir && !options.activeScopeSelector && (zone.width === 375 || zone.width === 1440)) {
     fs.mkdirSync(screenshotDir, { recursive: true });
     const slug = relPage.replace(/\//g, '_').replace('.html', '') + '_' + zone.name + '.png';
     await page.screenshot({ path: path.join(screenshotDir, slug), fullPage: false });
   }
 
-  return await page.evaluate(({ relPage, zone }) => {
-    const VW = window.innerWidth;
-    const VH = window.innerHeight;
-    const findings = [];
-    const seen = new Set();
-
-    function addFinding(severity, code, element, selector, details) {
-      const k = `${code}::${selector}::${element}`;
-      if (seen.has(k)) return;
-      seen.add(k);
-      findings.push({ page: relPage, zone: zone.name, severity, code, element, selector, details });
-    }
-
-    function getCssPath(el) {
-      if (!el || el.nodeType !== 1) return 'unknown';
-      const parts = [];
-      let cur = el;
-      let d = 0;
-      while (cur && cur.nodeType === 1 && cur !== document.body && d < 5) {
-        let name = cur.tagName.toLowerCase();
-        if (cur.id) {
-          name += '#' + cur.id;
-          parts.unshift(name);
-          break;
-        }
-        if (cur.className && typeof cur.className === 'string') {
-          const cls = cur.className.trim().split(/\s+/).slice(0, 2).join('.');
-          if (cls) name += '.' + cls;
-        }
-        parts.unshift(name);
-        cur = cur.parentElement;
-        d++;
-      }
-      return parts.join(' > ');
-    }
-
-    function getLabel(el) {
-      if (!el) return '';
-      return (
-        el.getAttribute('aria-label') ||
-        el.innerText ||
-        el.textContent ||
-        el.getAttribute('placeholder') ||
-        el.id ||
-        el.tagName
-      ).toString().replace(/\s+/g, ' ').trim().slice(0, 65);
-    }
-
-    function isVisible(el) {
-      if (!el || el.nodeType !== 1) return false;
-      if (el.hasAttribute('hidden')) return false;
-      let cur = el;
-      while (cur && cur.nodeType === 1) {
-        const st = window.getComputedStyle(cur);
-        if (st.display === 'none' || st.visibility === 'hidden' || parseFloat(st.opacity || '1') <= 0.05) {
-          return false;
-        }
-        cur = cur.parentElement;
-      }
-      const r = el.getBoundingClientRect();
-      return r.width > 2 && r.height > 2;
-    }
-
-    function findStickyOrFixedAncestor(node) {
-      let cur = node;
-      while (cur && cur.nodeType === 1 && cur !== document.body) {
-        const st = window.getComputedStyle(cur);
-        if (st.position === 'fixed' || st.position === 'sticky') return cur;
-        cur = cur.parentElement;
-      }
-      return null;
-    }
-
-    // 1. P1_HORIZONTAL_OVERFLOW
-    const docScrollW = document.documentElement.scrollWidth;
-    if (docScrollW > VW) {
-      addFinding('P1', 'P1_HORIZONTAL_OVERFLOW', 'document.documentElement', 'html', `scrollWidth=${docScrollW}px > innerWidth=${VW}px`);
-    }
-
-    // 2. Interactive elements check: P1_OFFSCREEN_X & P2_CRAMPED_MOBILE
-    const interactiveEls = Array.from(document.querySelectorAll('a[href], button, input:not([type="hidden"]), select, textarea, [role="button"]')).filter(isVisible);
-    for (const el of interactiveEls) {
-      const r = el.getBoundingClientRect();
-      const lbl = getLabel(el);
-      const sel = getCssPath(el);
-
-      if (r.left < 0 || r.right > VW) {
-        addFinding('P1', 'P1_OFFSCREEN_X', lbl, sel, `left=${Math.round(r.left)}px, right=${Math.round(r.right)}px (VW=${VW}px)`);
-      } else if (VW === 375 && el.closest('.mobile-thumb-bar, .thumb-bar')) {
-        if (r.left < 8 || r.right > 367) {
-          addFinding('P1', 'P1_OFFSCREEN_X', lbl, sel, `Mobile-Bar Button zu nah am Rand: left=${Math.round(r.left)}px, right=${Math.round(r.right)}px (Pflicht 8..367px)`);
-        }
-      }
-
-      if (VW < 769) {
-        if (r.width < 34 || r.height < 30) {
-          addFinding('P2', 'P2_CRAMPED_MOBILE', lbl, sel, `Touch-Fläche zu klein auf Mobile: ${Math.round(r.width)}x${Math.round(r.height)}px (Pflicht >= 34x30px)`);
-        }
-      }
-    }
-
-    // 3. P1_ELEMENT_COLLISION
-    const collisionItems = interactiveEls.map(el => ({
-      el,
-      rect: el.getBoundingClientRect(),
-      stickyAnc: findStickyOrFixedAncestor(el)
-    }));
-    for (let i = 0; i < collisionItems.length; i++) {
-      const A = collisionItems[i];
-      for (let j = i + 1; j < collisionItems.length; j++) {
-        const B = collisionItems[j];
-        if (A.el.contains(B.el) || B.el.contains(A.el)) continue;
-        if (A.stickyAnc !== B.stickyAnc) continue;
-        const overlapW = Math.min(A.rect.right, B.rect.right) - Math.max(A.rect.left, B.rect.left);
-        const overlapH = Math.min(A.rect.bottom, B.rect.bottom) - Math.max(A.rect.top, B.rect.top);
-        if (overlapW > 4 && overlapH > 4) {
-          addFinding('P1', 'P1_ELEMENT_COLLISION', `${getLabel(A.el)} vs ${getLabel(B.el)}`, getCssPath(A.el), `Overlap ${Math.round(overlapW)}x${Math.round(overlapH)}px`);
-        }
-      }
-    }
-
-    // 4. P1_MID_SCREEN_SCROLLBAR (Desktop / Laptop)
-    if (VW >= 769) {
-      const allEls = Array.from(document.body.querySelectorAll('*')).filter(isVisible);
-      for (const el of allEls) {
-        if (el.classList.contains('acp-modal-backdrop')) continue;
-        const st = window.getComputedStyle(el);
-        if ((st.overflowY === 'auto' || st.overflowY === 'scroll') && el.scrollHeight > el.clientHeight + 4) {
-          addFinding('P1', 'P1_MID_SCREEN_SCROLLBAR', getLabel(el), getCssPath(el), `scrollHeight=${el.scrollHeight} > clientHeight=${el.clientHeight}`);
-        }
-      }
-    }
-
-    // 5. P2_EMOJI_IN_UI & Checkmarks (✓, ✔, ❌, ✅, Unicode Emojis) + 2-Radius-Architektur (#UI-01) + Unstyled Buttons
-    const emojiRe = /[\u{1F1E6}-\u{1F1FF}\u{1F300}-\u{1FAFF}\u{2600}-\u{26FF}\u{2700}-\u{27BF}\u{231A}-\u{23F3}\u2713\u2714\u2717\u2718]/u;
-    const allDom = Array.from(document.body.querySelectorAll('*')).filter(isVisible);
-    for (const el of allDom) {
-      if (el.tagName === 'SCRIPT' || el.tagName === 'STYLE' || el.tagName === 'SVG' || el.closest('svg')) continue;
-      const directText = Array.from(el.childNodes)
-        .filter(n => n.nodeType === 3)
-        .map(n => n.nodeValue || '')
-        .join(' ')
-        .trim();
-      if (directText && emojiRe.test(directText)) {
-        const m = directText.match(emojiRe);
-        addFinding('P2', 'P2_EMOJI_IN_UI', getLabel(el), getCssPath(el), `Unicode-Emoji/Checkmark "${m[0]}" im DOM gefunden`);
-      }
-      const beforeContent = window.getComputedStyle(el, '::before').content;
-      if (beforeContent && beforeContent !== 'none' && emojiRe.test(beforeContent)) {
-        const m = beforeContent.match(emojiRe);
-        addFinding('P2', 'P2_EMOJI_IN_UI', getLabel(el), getCssPath(el) + '::before', `Unicode-Emoji/Checkmark "${m[0]}" in ::before gefunden`);
-      }
-      // Check border-radius architecture (#UI-01: only 0px, 4px, 8px)
-      const br = window.getComputedStyle(el).borderTopLeftRadius;
-      if (br && br !== '0px' && br !== '4px' && br !== '8px') {
-        addFinding('P2', 'P2_BAD_RADIUS', getLabel(el), getCssPath(el), `Unerlaubter border-radius=${br} (Pflicht: 4px oder 8px nach #UI-01)`);
-      }
-      // Check for unstyled browser default buttons (buttonface / outset border)
-      if (el.tagName === 'BUTTON') {
-        const cs = window.getComputedStyle(el);
-        if (cs.borderTopStyle === 'outset' || cs.backgroundColor === 'rgb(239, 239, 239)' || cs.backgroundColor === 'buttonface') {
-          addFinding('P2', 'P2_UNSTYLED_BUTTON', getLabel(el), getCssPath(el), `Unstyled Browser-Standard-Button gefunden (bg=${cs.backgroundColor}, border=${cs.borderTopStyle})`);
-        }
-      }
-    }
-
-    // 6. P2_ROW_HEIGHT_MISMATCH & P2_RAGGED_RIGHT_EDGE in Grids
-    const grids = Array.from(document.querySelectorAll('.pillar-cards, .vs-grid, .teaser-grid, .price-grid, .story-grid, .values-grid, .arch-grid, .sparten-filter-grid, .subservices-grid, .sparte-ref-row, .quiz-steps-grid, .social-grid, .blog-grid, .team-dept-grid, .timeline-list, .partner-grid, .foerder-grid, .check-grid, .begleitung-grid, .testimonials-grid')).filter(isVisible);
-    for (const g of grids) {
-      const children = Array.from(g.children).filter(isVisible);
-      if (children.length < 2) continue;
-      const rows = [];
-      for (const c of children) {
-        const r = c.getBoundingClientRect();
-        let row = rows.find(rw => Math.abs(rw.top - r.top) <= 10);
-        if (!row) {
-          row = { top: r.top, items: [] };
-          rows.push(row);
-        }
-        row.items.push({ el: c, rect: r });
-      }
-      const gRect = g.getBoundingClientRect();
-      const gPadR = parseFloat(window.getComputedStyle(g).paddingRight || '0') || 0;
-      const expectedRight = gRect.right - gPadR;
-      for (const rw of rows) {
-        rw.items.sort((a, b) => a.rect.left - b.rect.left);
-        const lastItem = rw.items[rw.items.length - 1];
-        if (expectedRight - lastItem.rect.right > 14) {
-          addFinding('P2', 'P2_RAGGED_RIGHT_EDGE', getCssPath(g), getCssPath(g), `Rechte Kante ausgefranst: last.right=${Math.round(lastItem.rect.right)}px vs container.right=${Math.round(expectedRight)}px`);
-        }
-        if (rw.items.length >= 2) {
-          const heights = rw.items.map(i => i.rect.height);
-          const maxH = Math.max(...heights);
-          const minH = Math.min(...heights);
-          if (maxH - minH > 4) {
-            addFinding('P2', 'P2_ROW_HEIGHT_MISMATCH', getCssPath(g), getCssPath(g), `Karten in derselben Zeile haben ungleiche Höhe: min=${Math.round(minH)}px vs max=${Math.round(maxH)}px`);
-          }
-        }
-      }
-    }
-
-    // 7. P1_STICKY_OCCLUDES_FOOTER & P1_PARTIALLY_OCCLUDED_BY_STICKY (Mobile)
-    if (VW < 769) {
-      const stickyBar = document.querySelector('.mobile-thumb-bar, .thumb-bar');
-      const footer = document.querySelector('footer');
-      if (stickyBar && isVisible(stickyBar) && footer && isVisible(footer)) {
-        // Test default window.scrollTo(0, document.documentElement.scrollHeight) without instant to catch smooth-scroll traps
-        window.scrollTo(0, document.documentElement.scrollHeight);
-        const sRect = stickyBar.getBoundingClientRect();
-        const fRect = footer.getBoundingClientRect();
-        if (fRect.bottom > sRect.top - 4) {
-          addFinding(
-            'P1',
-            'P1_STICKY_OCCLUDES_FOOTER',
-            'footer',
-            getCssPath(footer),
-            `Footer wird am unteren Seitenende von Sticky-Bar verdeckt: footer.bottom=${Math.round(fRect.bottom)}px > sticky.top-4=${Math.round(sRect.top - 4)}px (scrollY=${Math.round(window.scrollY)})`
-          );
-        }
-        // Also check lowest interactive element inside footer or page
-        const footerLinks = Array.from(footer.querySelectorAll('a[href], button')).filter(isVisible);
-        for (const fl of footerLinks) {
-          const flr = fl.getBoundingClientRect();
-          if (flr.bottom > sRect.top - 4) {
-            addFinding(
-              'P1',
-              'P1_PARTIALLY_OCCLUDED_BY_STICKY',
-              getLabel(fl),
-              getCssPath(fl),
-              `Footer-Link bei Max-Scroll unter Sticky-Bar: link.bottom=${Math.round(flr.bottom)}px > sticky.top-4=${Math.round(sRect.top - 4)}px`
-            );
-          }
-        }
-      }
-      window.scrollTo(0, 0);
-    }
-
-    return findings;
-  }, { relPage, zone });
+  return await page.evaluate(evaluateSystemEyesInPage, { relPage, zone, options });
 }
 
 async function main() {
+  const pagesToAudit = resolvePagesFromArgs();
   const { server, baseUrl } = await startServer();
   const browser = await chromium.launch({ executablePath: getChromium() });
   const page = await browser.newPage();
   const allFindings = [];
   const screenshotDir = process.argv.includes('--screenshots') ? '/tmp/webpilot_device_screenshots' : null;
+  let totalViewsAudited = 0;
 
-  for (const relPage of PAGES) {
+  for (const relPage of pagesToAudit) {
     await page.goto(`${baseUrl}/${relPage}`, { waitUntil: 'networkidle' });
-    for (const zone of ZONES) {
+
+    // 1. Standard 3-Zone Audit
+    for (const zone of SYSTEM_EYES_ZONES) {
       const f = await auditPageZone(page, relPage, zone, screenshotDir);
       allFindings.push(...f);
+      totalViewsAudited++;
+
+      // 2. Customer/Marketing Website Mobile Burger Menu State (W1) on 375x667
+      if (!relPage.endsWith('cockpit.html') && zone.width === 375) {
+        const openedBurger = await page.evaluate(() => {
+          const btn = document.querySelector('.nav-burger, #navBurgerBtn, #mobileMenuBtn, [aria-label*="Menü"]');
+          if (!btn) return null;
+          btn.click();
+          const drawer = document.querySelector('#mobileNavDrawer.open, #mobileDrawer.open, #navDrawer.open, .mobile-drawer.open, .nav-drawer.open');
+          return drawer ? '#' + (drawer.id || 'mobile-drawer') : null;
+        });
+        if (openedBurger) {
+          await page.waitForTimeout(120);
+          if (screenshotDir && relPage.endsWith('/index.html')) {
+            const clientPrefix = relPage.split('/')[0];
+            await page.screenshot({
+              path: path.join(screenshotDir, `${clientPrefix}_index_burger_open_375x667.png`),
+              fullPage: false
+            });
+          }
+          const bf = await page.evaluate(evaluateSystemEyesInPage, {
+            relPage: `${relPage}#mobile-burger-menu`,
+            zone,
+            options: { activeScopeSelector: openedBurger }
+          });
+          allFindings.push(...bf);
+          totalViewsAudited++;
+
+          // Close burger menu again
+          await page.evaluate(() => {
+            const btn = document.querySelector('.nav-burger, #navBurgerBtn, #mobileMenuBtn, [aria-label*="Menü"]');
+            if (btn) btn.click();
+          });
+          await page.waitForTimeout(60);
+        }
+      }
     }
 
-    // If this is a cockpit page, also open #acp-sections-modal, audit all 3 zones, and capture screenshot
+    // 3. Studio Cockpit Interactive State-Walker (All 11 Additional States x 3 Zones)
     if (relPage.endsWith('cockpit.html')) {
-      for (const zone of ZONES) {
-        await page.setViewportSize({ width: zone.width, height: zone.height });
-        await page.evaluate(() => {
-          const modal = document.getElementById('acp-sections-modal');
-          if (modal && !modal.classList.contains('is-open')) {
-            if (typeof window.acpToggleSectionsModal === 'function') {
-              window.acpToggleSectionsModal();
-            } else {
-              modal.classList.add('is-open');
-            }
+      const clientPrefix = relPage.split('/')[0];
+      for (const state of COCKPIT_STATES) {
+        for (const zone of SYSTEM_EYES_ZONES) {
+          await page.setViewportSize({ width: zone.width, height: zone.height });
+          await page.evaluate(state.open);
+          if (state.id === 'state_images_modal') {
+            await page.evaluate(async () => {
+              const imgs = Array.from(document.querySelectorAll('#acp-images-modal img'));
+              for (const im of imgs) { im.loading = 'eager'; }
+              await Promise.all(imgs.map(im => im.complete ? Promise.resolve() : new Promise(r => { im.onload = r; im.onerror = r; setTimeout(r, 800); })));
+            });
           }
-        });
-        await page.waitForTimeout(350);
-        if (screenshotDir && (zone.width === 1440 || zone.width === 375)) {
-          fs.mkdirSync(screenshotDir, { recursive: true });
-          const clientPrefix = relPage.split('/')[0];
-          const shotName = `${clientPrefix}_cockpit_sections_modal_${zone.width}x${zone.height}.png`;
-          await page.screenshot({ path: path.join(screenshotDir, shotName), fullPage: false });
+          await page.waitForTimeout(state.id === 'state_sections_modal' ? 280 : 120);
+
+          if (screenshotDir && (zone.width === 1440 || zone.width === 375)) {
+            fs.mkdirSync(screenshotDir, { recursive: true });
+            const shotName = `${clientPrefix}_cockpit_${state.id}_${zone.width}x${zone.height}.png`;
+            await page.screenshot({ path: path.join(screenshotDir, shotName), fullPage: false });
+          }
+
+          const sf = await page.evaluate(evaluateSystemEyesInPage, {
+            relPage: `${relPage}#${state.label}`,
+            zone,
+            options: { activeScopeSelector: state.activeScopeSelector }
+          });
+          allFindings.push(...sf);
+          totalViewsAudited++;
+
+          await page.evaluate(state.close);
+          await page.waitForTimeout(60);
         }
-        const mf = await auditPageZone(page, `${relPage}#sections-modal`, zone, null);
-        allFindings.push(...mf);
       }
     }
   }
@@ -398,9 +410,17 @@ async function main() {
   await browser.close();
   server.close();
 
+  if (screenshotDir) {
+    try {
+      execFileSync('python3', [path.join(__dirname, 'build_system_eyes_filmstrips.py')], { stdio: 'inherit' });
+    } catch (e) {
+      console.error('[WARN] Filmstrip build failed:', e.message);
+    }
+  }
+
   const p1 = allFindings.filter(f => f.severity === 'P1');
   const p2 = allFindings.filter(f => f.severity === 'P2');
-  console.log(`=== DEVICE-MASCHINE AUDIT: ${PAGES.length} Pages x ${ZONES.length} Zones (${PAGES.length * ZONES.length} Views) ===`);
+  console.log(`=== DOPPEL-SYSTEMAUGEN v${SYSTEM_EYES_VERSION} AUDIT: ${pagesToAudit.length} Pages | ${totalViewsAudited} Interactive & Device Views | ${SYSTEM_EYES_SENSORS.length} Sensors ===`);
   console.log(`P1 Findings: ${p1.length} | P2 Findings: ${p2.length}`);
   for (const f of allFindings) {
     console.log(`[${f.severity}] [${f.code}] ${f.page} (${f.zone}) :: ${f.selector} ("${f.element}") -> ${f.details}`);

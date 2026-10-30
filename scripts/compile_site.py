@@ -230,6 +230,7 @@ def main():
     parser.add_argument("--all", action="store_true", help="Alle Mandanten kompilieren")
     parser.add_argument("--dry-run", action="store_true", help="Änderungen nur anzeigen")
     parser.add_argument("--git-push", action="store_true", help="Automatisch committen & pushen")
+    parser.add_argument("--skip-device-audit", action="store_true", help="Überspringt das Playwright 3-Zonen Doppel-Systemaugen Gate")
 
     args = parser.parse_args()
     start_time = time.time()
@@ -269,6 +270,19 @@ def main():
             print(f"  WARNUNG: Fehlende Keys im Wörterbuch: {', '.join(res['missing_keys'])}")
         if res["files_modified"] > 0:
             any_changes = True
+
+    if not args.dry_run and not args.skip_device_audit:
+        node_bin = "/home/brainuser/node-v22/bin/node"
+        if not os.path.exists(node_bin):
+            node_bin = "node"
+        audit_script = BASE_DIR / "scripts" / "audit_webpilot_devices.mjs"
+        if audit_script.exists():
+            for td in target_dirs:
+                print(f"\n[Doppel-Systemaugen Gate] Prüfe {td.name} über alle 3 Geräte-Zonen & Interaktions-Ansichten...")
+                proc = subprocess.run([node_bin, str(audit_script), "--site", td.name], cwd=str(BASE_DIR))
+                if proc.returncode != 0:
+                    print(f"🚨 DOPPEL-SYSTEMAUGEN GATE BLOCKIERT: P1/P2 Befunde in {td.name} entdeckt! Bitte vor dem Release beheben.")
+                    sys.exit(1)
 
     if args.git_push and any_changes and not args.dry_run:
         print("\nFühre Git Push aus...")
