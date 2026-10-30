@@ -27,7 +27,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Hochuli Schlossrued AG · WebPilot Studio · v4.0.0</title>
-<meta name="description" content="Interaktiver Recruiting-Simulator und Stellen-Verzeichnis für Kunden-Widgets. Vorschau, Wechsel zwischen Stellen und 1-Klick Einbettungscodes.">
+<meta name="description" content="Hochuli Schlossrued AG · WebPilot Studio — Deine Website direkt im Browser bearbeiten. Texte, Bilder und Seitenabschnitte bequem mit 1 Klick oder mit deiner eigenen KI anpassen.">
+<meta property="og:title" content="Hochuli Schlossrued AG · WebPilot Studio">
+<meta property="og:description" content="Deine Website direkt im Browser bearbeiten — Texte, Bilder und Seitenabschnitte bequem mit 1 Klick oder mit deiner eigenen KI anpassen.">
+<meta property="og:type" content="website">
 <link rel="icon" href="images/logo.png" type="image/png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -3800,7 +3803,7 @@ body {
         
         <div class="acp-job-dropdown" id="acp-job-dropdown">
           <div class="acp-dropdown-header">
-            <span>Seite auswählen (<span id="dropdown-count">4</span>)</span>
+            <span>Seite auswählen (<span id="dropdown-count">3</span>)</span>
             <span class="dropdown-header-tag">Live-Sync</span>
           </div>
           <div class="acp-dropdown-list" id="acp-dropdown-list">
@@ -3825,7 +3828,7 @@ body {
         <span class="nav-icon" style="display:inline-flex;align-items:center;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg></span>
         <span class="nav-label">Bilder</span>
       </button>
-      <button type="button" class="acp-nav-btn acp-nav-btn-directory" onclick="acpToggleDirectoryModal()" title="Seiten-Zentrale: Navigation &amp; Entwürfe">
+      <button type="button" class="acp-nav-btn acp-nav-btn-directory" onclick="acpToggleDirectoryModal()" title="Seiten-Übersicht: Alle Unterseiten &amp; Ansichten">
         <span class="nav-icon" style="display:inline-flex;align-items:center;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></span>
         <span class="nav-label">Seiten</span>
       </button>
@@ -4132,7 +4135,7 @@ body {
               <span class="acp-upload-badge">JPG, PNG, WebP bis 15 MB</span>
             </div>
             <div class="acp-upload-desc">
-              <em>Perfekt für deine Firmen-Website: Lade hier gezielt Fotos für Team-Porträts, Referenzen und Baustellen hoch. Die Bilder werden über unser weltweites Edge-Netzwerk blitzschnell ausgeliefert.</em>
+              <em>Lade hier gezielt Fotos, Logos und Porträts für deine Webseite hoch. Alle Bilder werden automatisch optimiert und blitzschnell ausgeliefert.</em>
             </div>
             <div class="acp-upload-local-hint">
               <em>Alternativ: Foto einfach direkt in deinen Ordner <code>hochuli-web\images\</code> ablegen.</em>
@@ -4190,10 +4193,10 @@ body {
   <div class="acp-modal acp-modal-fullscreen">
     <div class="acp-modal-head">
       <div>
-        <div class="acp-modal-kicker">WEBPILOT STUDIO · SEITEN-ZENTRALE &amp; NAVIGATION</div>
-        <h3 class="acp-modal-heading">Seiten-Zentrale &amp; Entwurfs-Manager</h3>
+        <div class="acp-modal-kicker">WEBPILOT STUDIO · SEITEN-ÜBERSICHT &amp; NAVIGATION</div>
+        <h3 class="acp-modal-heading">Seiten-Übersicht &amp; Unterseiten</h3>
         <p class="acp-modal-subdesc">
-          Zentrale Übersicht aller Seiten und Entwürfe deiner Website auf Schweizer Edge-Infrastruktur.
+          Alle Seiten und Unterseiten deines Webauftritts im Überblick. Wechsle mit einem Klick zwischen den Seiten oder prüfe den Live-Status.
         </p>
       </div>
       <div class="acp-modal-actions">
@@ -4207,7 +4210,7 @@ body {
       <div class="acp-studio-banner">
         <div class="banner-left">
           <span class="banner-pill">EDGE-SYNC AKTIV</span>
-          <span class="banner-text">Jede Unterseite ist eine eigenständige, responsive Web-Komponente auf Schweizer Edge-Infrastruktur.</span>
+          <span class="banner-text">Jede Seite deines Webauftritts ist für Smartphone, Laptop und Desktop optimiert und direkt im Browser bearbeitbar.</span>
         </div>
         <div class="banner-links">
           <a href="https://embed.magnet-xs.ch/preview-hochuli/cockpit" target="_blank" class="banner-link">Globales Cockpit ↗</a>
@@ -4218,17 +4221,17 @@ body {
 
       <div class="acp-jobs-toolbar">
         <div class="acp-jobs-filter-pills" id="acp-jobs-filter-pills">
-          <button type="button" class="acp-job-filter-pill active" data-filter="alle" onclick="acpSetJobFilter('alle')">Alle Inserate (<span id="count-jobs-all">0</span>)</button>
+          <button type="button" class="acp-job-filter-pill active" data-filter="alle" onclick="acpSetJobFilter('alle')">Alle Seiten (<span id="count-jobs-all">0</span>)</button>
           <button type="button" class="acp-job-filter-pill" data-filter="live" onclick="acpSetJobFilter('live')">Nur Live-Widget (<span id="count-jobs-live">0</span>)</button>
         </div>
-        <input type="text" id="acp-jobs-search" class="acp-jobs-search-input" placeholder="Unterseite suchen..." oninput="acpFilterJobs()">
+        <input type="text" id="acp-jobs-search" class="acp-jobs-search-input" placeholder="Seite oder Datei suchen..." oninput="acpFilterJobs()">
       </div>
 
       <div class="acp-jobs-table-wrap">
         <table class="acp-jobs-table">
           <thead>
             <tr>
-              <th>Seite &amp; Bereich</th>
+              <th>Seite &amp; Projekt</th>
               <th style="width:140px;">Status</th>
               <th style="width:280px;">Sync-Datei</th>
               <th style="width:200px; text-align:right;">Aktionen</th>
@@ -4622,7 +4625,7 @@ function acpFetchServerLog() {
 // Build: 2026-10-03 15:30 CEST
 // =======================================================
 var ACP_COCKPIT_VERSION = "v4.0.0";
-var ACP_COCKPIT_BUILD = "2026-10-30 19:09";
+var ACP_COCKPIT_BUILD = "2026-10-30 19:17";
 
 function sanitizeStellen(list) {
   if (!Array.isArray(list)) return [];
