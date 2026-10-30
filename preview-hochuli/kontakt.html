@@ -1076,6 +1076,310 @@
       border-color: var(--primary);
     }
 
+
+    /* SMART-ANFRAGE 3-SCHRITTE ASSISTENT (WEBPILOT DUAL-DELIVERY ENGINE) */
+    .wp-wizard-card {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-top: 4px solid var(--primary);
+      border-radius: 8px;
+      padding: 22px 18px;
+      box-shadow: var(--shadow-sm);
+      box-sizing: border-box;
+      width: 100%;
+      max-width: 100%;
+      overflow-x: hidden;
+    }
+    @media (min-width: 768px) {
+      .wp-wizard-card { padding: 28px 26px; }
+    }
+    .wp-wizard-top {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      margin-bottom: 14px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--border);
+    }
+    .wp-step-indicator {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.78rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: var(--primary);
+      background: rgba(227, 6, 19, 0.08);
+      padding: 5px 10px;
+      border-radius: 4px;
+    }
+    .wp-nav-mini-group {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .wp-btn-mini {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      background: var(--surface);
+      color: var(--text);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      min-height: 36px;
+      min-width: 44px;
+      padding: 7px 12px;
+      font-family: inherit;
+      font-size: 0.76rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+    .wp-btn-mini:hover {
+      border-color: var(--primary);
+      color: var(--primary);
+    }
+    .wp-progress-track {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 6px;
+      margin-bottom: 18px;
+    }
+    .wp-progress-seg {
+      height: 6px;
+      border-radius: 4px;
+      background: #e2e8f0;
+      transition: background 0.2s ease;
+    }
+    .wp-progress-seg.active {
+      background: var(--primary);
+    }
+    .wp-progress-seg.done {
+      background: #059669;
+    }
+    .wp-step-pane {
+      display: none;
+    }
+    .wp-step-pane.active {
+      display: block;
+    }
+    .wp-sub-label {
+      font-size: 0.82rem;
+      font-weight: 800;
+      color: var(--text);
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .wp-tile-grid-2 {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 10px;
+      margin-bottom: 18px;
+      align-items: stretch;
+    }
+    @media (min-width: 540px) {
+      .wp-tile-grid-2 {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+    .wp-tile-btn {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 6px;
+      width: 100%;
+      min-width: 0;
+      max-width: 100%;
+      box-sizing: border-box;
+      overflow-x: hidden;
+      text-align: left;
+      background: #ffffff;
+      border: 1.5px solid var(--border);
+      border-radius: 8px;
+      padding: 12px 14px;
+      font-family: inherit;
+      cursor: pointer;
+      transition: all 0.15s ease;
+      color: var(--text);
+    }
+    .wp-tile-btn:hover {
+      border-color: var(--primary);
+      background: #f8fafc;
+    }
+    .wp-tile-btn.selected {
+      border-color: var(--primary);
+      background: rgba(227, 6, 19, 0.05);
+      box-shadow: 0 0 0 1px var(--primary);
+    }
+    .wp-tile-btn.wp-tile-span-full {
+      grid-column: 1 / -1;
+    }
+    .wp-tile-head {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      width: 100%;
+      min-width: 0;
+    }
+    .wp-tile-icon {
+      width: 30px;
+      height: 30px;
+      border-radius: 4px;
+      background: rgba(227, 6, 19, 0.09);
+      color: var(--primary);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .wp-tile-title {
+      font-size: 0.88rem;
+      font-weight: 800;
+      color: var(--text);
+      line-height: 1.25;
+      word-break: break-word;
+    }
+    .wp-tile-desc {
+      font-size: 0.76rem;
+      color: var(--muted);
+      line-height: 1.35;
+      word-break: break-word;
+    }
+    .wp-pikett-alert {
+      display: none;
+      background: #fef2f2;
+      border: 1.5px solid #ef4444;
+      border-radius: 8px;
+      padding: 12px 14px;
+      margin-bottom: 18px;
+      color: #991b1b;
+      font-size: 0.82rem;
+      line-height: 1.45;
+    }
+    .wp-pikett-alert.visible {
+      display: block;
+    }
+    .wp-upload-zone {
+      border: 1.5px dashed #94a3b8;
+      border-radius: 8px;
+      background: #f8fafc;
+      padding: 14px;
+      text-align: center;
+      margin-top: 6px;
+    }
+    .wp-upload-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      background: #ffffff;
+      color: var(--text);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 9px 14px;
+      font-family: inherit;
+      font-size: 0.82rem;
+      font-weight: 700;
+      cursor: pointer;
+    }
+    .wp-upload-btn:hover {
+      border-color: var(--primary);
+      color: var(--primary);
+    }
+    .wp-photo-thumbs {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 8px;
+      margin-top: 10px;
+    }
+    .wp-thumb-item {
+      position: relative;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      overflow: hidden;
+      background: #ffffff;
+      height: 76px;
+    }
+    .wp-thumb-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .wp-thumb-del {
+      position: absolute;
+      top: 4px;
+      right: 4px;
+      background: rgba(15, 23, 42, 0.85);
+      color: #ffffff;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      border-radius: 4px;
+      padding: 2px 6px;
+      font-size: 0.68rem;
+      font-weight: 700;
+      cursor: pointer;
+    }
+    .wp-plz-badge {
+      display: none;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 12px;
+      border-radius: 8px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      margin-top: 2px;
+    }
+    .wp-plz-badge.in-area {
+      display: inline-flex;
+      background: rgba(5, 150, 105, 0.1);
+      border: 1px solid rgba(5, 150, 105, 0.35);
+      color: #047857;
+    }
+    .wp-plz-badge.out-area {
+      display: inline-flex;
+      background: rgba(217, 119, 6, 0.1);
+      border: 1px solid rgba(217, 119, 6, 0.35);
+      color: #b45309;
+    }
+    .wp-demo-banner {
+      background: #f0f9ff;
+      border: 1px solid #bae6fd;
+      border-radius: 8px;
+      padding: 12px 14px;
+      font-size: 0.8rem;
+      color: #0369a1;
+      line-height: 1.45;
+      margin-top: 4px;
+    }
+    .wp-success-box {
+      display: none;
+      background: #f8fafc;
+      border: 1.5px solid #059669;
+      border-radius: 8px;
+      padding: 20px 18px;
+    }
+    .wp-success-box.visible {
+      display: block;
+    }
+    .wp-wa-preview {
+      background: #0f172a;
+      color: #e2e8f0;
+      border-radius: 8px;
+      padding: 12px 14px;
+      font-size: 0.78rem;
+      line-height: 1.45;
+      white-space: pre-wrap;
+      word-break: break-word;
+      margin-top: 10px;
+      border: 1px solid #334155;
+    }
+
     /* FOOTER */
     .footer-wrap {
       width: 100%;
@@ -1375,63 +1679,642 @@
           </div>
         </div>
 
-        <div class="sparte-section-card" style="margin-bottom: 0;">
-          <h3 style="font-size: 1.25rem; font-weight: 800; margin-bottom: 14px;" data-slot="terminbuchung_h3">Direkt-Anfrage &amp; Terminwunsch</h3>
-          <form class="form-grid" onsubmit="handleContactSubmit(event)">
-            <div class="form-field">
-              <label for="contactSparte" data-slot="terminbuchung_label">Gewünschte Sparte / Leistung *</label>
-              <select id="contactSparte" class="form-select" required>
-                <option value="Holzbau + Bedachung (Stefan & Roger Hofmann)">1. Holzbau + Bedachung (Holzbau, Dachsanierung, Dachfenster, Carport)</option>
-                <option value="Spengler + Flachdach (Alex Kirchhofer)">2. Spengler + Flachdach (Spenglerarbeiten, Blechfassade, Flachdach)</option>
-                <option value="Sanitär + Heizung (Thomas Bertschi / Roland Wüthrich)">3. Sanitär + Heizung (Badumbau, Heizungs-Ersatz, Boiler, Service)</option>
-                <option value="Planung & Bauleitung (Claudia Hauri)">4. Planung (Wohnraumerweiterung, Neubau, Umbau, Baurecht)</option>
-                <option value="Photovoltaik & Speicher (Michael Zubler)">5. Photovoltaik (Photovoltaikanlagen &amp; Speichersysteme)</option>
-                <option value="Gesamtsanierung / Mehrere Sparten">Gesamtsanierung über mehrere Sparten</option>
-              </select>
+        <div class="wp-wizard-card" id="wpSmartWizardCard">
+          <div class="wp-wizard-top">
+            <span class="wp-step-indicator" id="wpStepLabel" data-slot="terminbuchung_step_indicator">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+              <span>Schritt 1/3: Anliegen &amp; Sparte</span>
+            </span>
+            <div class="wp-nav-mini-group">
+              <button type="button" class="wp-btn-mini" id="wpBtnBackTop" onclick="wpPrevStep()" style="display:none;">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="15 18 9 12 15 6"/></svg>
+                <span>Zurück</span>
+              </button>
+              <button type="button" class="wp-btn-mini" id="wpBtnResetTop" onclick="wpResetWizard()">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"/></svg>
+                <span>Neu starten</span>
+              </button>
             </div>
-            <div class="form-grid form-grid-2">
-              <div class="form-field">
-                <label for="contactName" data-slot="terminbuchung_label_2">Vor- und Nachname *</label>
-                <input type="text" id="contactName" class="form-input" placeholder="Ihr Name" required>
+          </div>
+
+          <div class="wp-progress-track" aria-hidden="true">
+            <div class="wp-progress-seg active" id="wpProg1"></div>
+            <div class="wp-progress-seg" id="wpProg2"></div>
+            <div class="wp-progress-seg" id="wpProg3"></div>
+          </div>
+
+          <h3 style="font-size: 1.2rem; font-weight: 800; margin-bottom: 6px;" data-slot="terminbuchung_h3">Smart-Anfrage &amp; Direkt-Auftragsblatt</h3>
+          <p style="font-size: 0.84rem; color: var(--muted); margin-bottom: 16px;" data-slot="terminbuchung_wizard_sub">
+            In 60 Sekunden zum fertigen 1-Seiten-Auftrags-PDF («Monika-&amp;-Monteur-Blatt») mit automatischer Zuweisung an den zuständigen Bereichsleiter in Schlossrued.
+          </p>
+
+          <form id="wpLeadForm" onsubmit="return wpSubmitLead(event)" novalidate>
+            <input type="text" name="website_url" id="wpHoneypot" value="" style="display:none !important;" tabindex="-1" autocomplete="off">
+
+            <!-- SCHRITT 1: ANLIEGEN & SPARTE -->
+            <div class="wp-step-pane active" id="wpStep1">
+              <div class="wp-sub-label">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                <span>1. Was ist Ihr konkretes Anliegen?</span>
               </div>
-              <div class="form-field">
-                <label for="contactLoc" data-slot="terminbuchung_label_3">PLZ / Ort des Bauobjekts *</label>
-                <input type="text" id="contactLoc" class="form-input" placeholder="z. B. 5040 Schöftland" required>
+              <div class="wp-tile-grid-2" id="wpCategoryGrid">
+                <button type="button" class="wp-tile-btn" data-cat="Notfall / Pikett" onclick="wpSelectCategory('Notfall / Pikett')">
+                  <div class="wp-tile-head">
+                    <span class="wp-tile-icon" style="background:rgba(227,6,19,0.12);color:#b91c1c;">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+                    </span>
+                    <span class="wp-tile-title">Notfall / Pikett</span>
+                  </div>
+                  <span class="wp-tile-desc">Heizungsausfall, Rohrbruch, Wasserschaden oder Sturmschaden</span>
+                </button>
+
+                <button type="button" class="wp-tile-btn" data-cat="Reparatur / Störung" onclick="wpSelectCategory('Reparatur / Störung')">
+                  <div class="wp-tile-head">
+                    <span class="wp-tile-icon">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+                    </span>
+                    <span class="wp-tile-title">Reparatur / Störung</span>
+                  </div>
+                  <span class="wp-tile-desc">Defekt beheben, Tropfstelle, Dachleck oder Störungsmeldung</span>
+                </button>
+
+                <button type="button" class="wp-tile-btn selected" data-cat="Offerte / Umbau" onclick="wpSelectCategory('Offerte / Umbau')">
+                  <div class="wp-tile-head">
+                    <span class="wp-tile-icon">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M2 12h20"/><path d="M20 12v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-8"/><path d="m4 8 16-4"/><path d="m8.86 6.78-.45-1.81a2 2 0 0 1 1.45-2.43l1.94-.48a2 2 0 0 1 2.43 1.46l.45 1.8"/></svg>
+                    </span>
+                    <span class="wp-tile-title">Offerte / Umbau</span>
+                  </div>
+                  <span class="wp-tile-desc">Sanierung, Heizungs-Ersatz, Badumbau, Dach, Holzbau oder PV</span>
+                </button>
+
+                <button type="button" class="wp-tile-btn" data-cat="Wartung / Service" onclick="wpSelectCategory('Wartung / Service')">
+                  <div class="wp-tile-head">
+                    <span class="wp-tile-icon">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                    </span>
+                    <span class="wp-tile-title">Wartung / Service</span>
+                  </div>
+                  <span class="wp-tile-desc">Boiler-Entkalkung, Dachkontrolle, Haustechnik-Check</span>
+                </button>
+              </div>
+
+              <!-- NOTFALL-PIKETT SICHERHEITS-BANNER -->
+              <div class="wp-pikett-alert" id="wpPikettBanner">
+                <div style="font-weight:800;margin-bottom:4px;display:flex;align-items:center;gap:6px;">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+                  <span>Sofort-Hilfe bei Wasserschaden oder Heizungsausfall:</span>
+                </div>
+                <div>
+                  1. Haupthahn / Sicherung prüfen · 2. 24h-Pikett direkt anrufen: <a href="tel:+41627261146" style="color:#991b1b;font-weight:800;text-decoration:underline;">062 726 11 46</a> (oder <a href="tel:+41792464963" style="color:#991b1b;font-weight:800;text-decoration:underline;">+41 79 246 49 63</a>) — oder Formular absenden für sofortigen WhatsApp-Alarm an den Pikett-Monteur.
+                </div>
+              </div>
+
+              <div class="wp-sub-label">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+                <span>2. Welchen Fachbereich (Sparte) betrifft Ihre Anfrage?</span>
+              </div>
+              <div class="wp-tile-grid-2" id="wpSparteGrid">
+                <button type="button" class="wp-tile-btn selected" data-sparte="Heizung & Wärmepumpen" onclick="wpSelectSparte('Heizung & Wärmepumpen')">
+                  <div class="wp-tile-head">
+                    <span class="wp-tile-icon" style="background:rgba(2,132,199,0.1);color:#0284c7;">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M14 14.76V3.5a2.5 2.5 0 0 0-5 0v11.26a4.5 4.5 0 1 0 5 0z"/></svg>
+                    </span>
+                    <span class="wp-tile-title">Heizung &amp; Wärmepumpen</span>
+                  </div>
+                  <span class="wp-tile-desc">Leitung: Thomas Bertschi · Wärmepumpen, Heizungs-Ersatz &amp; Pikett</span>
+                </button>
+
+                <button type="button" class="wp-tile-btn" data-sparte="Sanitär & Badezimmer" onclick="wpSelectSparte('Sanitär & Badezimmer')">
+                  <div class="wp-tile-head">
+                    <span class="wp-tile-icon" style="background:rgba(2,132,199,0.1);color:#0284c7;">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg>
+                    </span>
+                    <span class="wp-tile-title">Sanitär &amp; Badezimmer</span>
+                  </div>
+                  <span class="wp-tile-desc">Leitung: Roland Wüthrich · Badumbau, Boiler, Entkalkung &amp; Service</span>
+                </button>
+
+                <button type="button" class="wp-tile-btn" data-sparte="Spenglerei & Gebäudehülle" onclick="wpSelectSparte('Spenglerei & Gebäudehülle')">
+                  <div class="wp-tile-head">
+                    <span class="wp-tile-icon" style="background:rgba(217,119,6,0.1);color:#d97706;">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+                    </span>
+                    <span class="wp-tile-title">Spenglerei &amp; Gebäudehülle</span>
+                  </div>
+                  <span class="wp-tile-desc">Alex Kirchhofer &amp; Stefan Hofmann · Holzbau, Bedachung &amp; Flachdach</span>
+                </button>
+
+                <button type="button" class="wp-tile-btn" data-sparte="Lüftung & Klimatechnik" onclick="wpSelectSparte('Lüftung & Klimatechnik')">
+                  <div class="wp-tile-head">
+                    <span class="wp-tile-icon" style="background:rgba(2,132,199,0.1);color:#0284c7;">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M9.59 4.59A2 2 0 1 1 11 8H2m10.59 11.41A2 2 0 1 0 14 16H2m15.73-8.27A2.5 2.5 0 1 1 19.5 12H2"/></svg>
+                    </span>
+                    <span class="wp-tile-title">Lüftung &amp; Klimatechnik</span>
+                  </div>
+                  <span class="wp-tile-desc">Leitung: Thomas Bertschi · Wohnraumlüftung &amp; Haustechnik-Systeme</span>
+                </button>
+
+                <button type="button" class="wp-tile-btn wp-tile-span-full" data-sparte="Solar & Photovoltaik" onclick="wpSelectSparte('Solar & Photovoltaik')">
+                  <div class="wp-tile-head">
+                    <span class="wp-tile-icon" style="background:rgba(5,150,105,0.1);color:#059669;">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/></svg>
+                    </span>
+                    <span class="wp-tile-title">Solar &amp; Photovoltaik (inkl. Gesamtsanierung &amp; Planung)</span>
+                  </div>
+                  <span class="wp-tile-desc">Michael Zubler &amp; Claudia Hauri · Indach-/Aufdach-PV, Batteriespeicher, Architektur &amp; Bauleitung</span>
+                </button>
+              </div>
+
+              <button type="button" class="btn-cta btn-cta-primary" style="width:100%;" onclick="wpNextStep(2)">
+                <span>Weiter zu Schritt 2: Details &amp; Foto-Upload</span>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="9 18 15 12 9 6"/></svg>
+              </button>
+            </div>
+
+            <!-- SCHRITT 2: DETAILS & FOTO-UPLOAD -->
+            <div class="wp-step-pane" id="wpStep2">
+              <div class="wp-sub-label">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                <span>Gewünschte Dringlichkeit / Zeitraum</span>
+              </div>
+              <div class="wp-tile-grid-2" id="wpUrgencyGrid">
+                <button type="button" class="wp-tile-btn" data-urg="Heute (Dringend)" onclick="wpSelectUrgency('Heute (Dringend)')">
+                  <span class="wp-tile-title">Heute (Dringend)</span>
+                  <span class="wp-tile-desc">Rasche Rückmeldung noch heute</span>
+                </button>
+                <button type="button" class="wp-tile-btn" data-urg="Diese Woche" onclick="wpSelectUrgency('Diese Woche')">
+                  <span class="wp-tile-title">Diese Woche</span>
+                  <span class="wp-tile-desc">Zeitnaher Termin innert 2–4 Tagen</span>
+                </button>
+                <button type="button" class="wp-tile-btn selected" data-urg="Planbar / Nach Absprache" onclick="wpSelectUrgency('Planbar / Nach Absprache')">
+                  <span class="wp-tile-title">Planbar / Nach Absprache</span>
+                  <span class="wp-tile-desc">Reguläre Terminvereinbarung</span>
+                </button>
+                <button type="button" class="wp-tile-btn" data-urg="Nur Richtofferte" onclick="wpSelectUrgency('Nur Richtofferte')">
+                  <span class="wp-tile-title">Nur Richtofferte</span>
+                  <span class="wp-tile-desc">Erste Kostenschätzung &amp; Beratung</span>
+                </button>
+              </div>
+
+              <div class="form-grid form-grid-2" style="margin-bottom: 14px;">
+                <div class="form-field">
+                  <label for="wpObjectType">Gebäude- / Objekt-Art</label>
+                  <select id="wpObjectType" class="form-select">
+                    <option value="Einfamilienhaus">Einfamilienhaus</option>
+                    <option value="Mehrfamilienhaus / Verwaltung">Mehrfamilienhaus / Verwaltung</option>
+                    <option value="Gewerbe / Landwirtschaft / Industrie">Gewerbe / Landwirtschaft / Industrie</option>
+                    <option value="Neubau / Umbau-Projekt">Neubau / Umbau-Projekt</option>
+                  </select>
+                </div>
+                <div class="form-field">
+                  <label for="wpDeviceAge">Bestehende Anlage / Baujahr (optional)</label>
+                  <input type="text" id="wpDeviceAge" class="form-input" placeholder="z. B. Ölheizung 2005, Flachdach 1998">
+                </div>
+              </div>
+
+              <div class="form-field" style="margin-bottom: 14px;">
+                <label for="wpMessage">Kurzbeschreibung Ihres Anliegens (Stichworte genügen)</label>
+                <textarea id="wpMessage" class="form-textarea" rows="3" placeholder="Was dürfen wir für Sie lösen oder offerieren? (z. B. Fehlercode auf Display, gewünschter Umbau, Dachkontrolle)..."></textarea>
+              </div>
+
+              <div class="form-field" style="margin-bottom: 18px;">
+                <label>Fotos vom Typenschild, Schaden oder Bauplan hochladen (optional, max. 3 Bilder)</label>
+                <div class="wp-upload-zone">
+                  <input type="file" id="wpPhotoInput" accept="image/*" multiple style="display:none;" onchange="wpHandlePhotoFiles(this.files)">
+                  <button type="button" class="wp-upload-btn" onclick="wpTriggerPhotoUpload()">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+                    <span>Kamera öffnen oder Fotos auswählen (werden direkt ins Auftrags-PDF eingebettet)</span>
+                  </button>
+                  <div style="font-size:0.74rem;color:var(--muted);margin-top:6px;" id="wpPhotoCounter">0 / 3 Fotos ausgewählt · Automatische Komprimierung aktiv</div>
+                  <div class="wp-photo-thumbs" id="wpPhotoThumbs"></div>
+                </div>
+              </div>
+
+              <div class="form-grid form-grid-2">
+                <button type="button" class="btn-cta btn-cta-secondary" style="width:100%;" onclick="wpPrevStep()">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="15 18 9 12 15 6"/></svg>
+                  <span>Zurück zu Schritt 1</span>
+                </button>
+                <button type="button" class="btn-cta btn-cta-primary" style="width:100%;" onclick="wpNextStep(3)">
+                  <span>Weiter zu Schritt 3: Kontakt</span>
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="9 18 15 12 9 6"/></svg>
+                </button>
               </div>
             </div>
-            <div class="form-grid form-grid-2">
-              <div class="form-field">
-                <label for="contactPhone" data-slot="terminbuchung_label_4">Telefonnummer für Rückruf *</label>
-                <input type="tel" id="contactPhone" class="form-input" placeholder="+41 62 ..." required>
+
+            <!-- SCHRITT 3: KONTAKT, PLZ-CHECK & RÜCKRUF-GARANTIE -->
+            <div class="wp-step-pane" id="wpStep3">
+              <div class="form-grid form-grid-2" style="margin-bottom: 12px;">
+                <div class="form-field">
+                  <label for="contactName" data-slot="terminbuchung_label_2">Vor- und Nachname *</label>
+                  <input type="text" id="contactName" class="form-input" placeholder="z. B. Hans Muster" required>
+                </div>
+                <div class="form-field">
+                  <label for="contactStreet">Strasse &amp; Hausnummer *</label>
+                  <input type="text" id="contactStreet" class="form-input" placeholder="z. B. Hauptstrasse 24" required>
+                </div>
               </div>
-              <div class="form-field">
-                <label for="contactEmail" data-slot="terminbuchung_label_5">E-Mail-Adresse *</label>
-                <input type="email" id="contactEmail" class="form-input" placeholder="ihre@email.ch" required>
+
+              <div class="form-grid form-grid-2" style="margin-bottom: 8px;">
+                <div class="form-field">
+                  <label for="contactLoc" data-slot="terminbuchung_label_3">PLZ &amp; Ort des Einsatzortes *</label>
+                  <input type="text" id="contactLoc" class="form-input" placeholder="z. B. 5040 Schöftland" oninput="wpCheckPlz(this.value)" required>
+                </div>
+                <div class="form-field">
+                  <label for="contactCallbackPref">Bevorzugtes Rückruf-Zeitfenster</label>
+                  <select id="contactCallbackPref" class="form-select">
+                    <option value="So rasch wie möglich">So rasch wie möglich</option>
+                    <option value="Vormittag (07:30 – 11:30 Uhr)">Vormittag (07:30 – 11:30 Uhr)</option>
+                    <option value="Nachmittag (13:30 – 17:00 Uhr)">Nachmittag (13:30 – 17:00 Uhr)</option>
+                  </select>
+                </div>
+              </div>
+
+              <div style="margin-bottom: 12px;">
+                <div class="wp-plz-badge" id="wpPlzBadge">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                  <span id="wpPlzBadgeText">Im Einzugsgebiet der Hochuli Gruppe</span>
+                </div>
+              </div>
+
+              <div class="form-grid form-grid-2" style="margin-bottom: 12px;">
+                <div class="form-field">
+                  <label for="contactPhone" data-slot="terminbuchung_label_4">Mobiltelefon (für Rückruf &amp; WhatsApp) *</label>
+                  <input type="tel" id="contactPhone" class="form-input" placeholder="+41 79 ..." required>
+                </div>
+                <div class="form-field">
+                  <label for="contactEmail" data-slot="terminbuchung_label_5">E-Mail-Adresse (für Auftrags-PDF) *</label>
+                  <input type="email" id="contactEmail" class="form-input" placeholder="ihre@email.ch" required>
+                </div>
+              </div>
+
+              <div class="wp-demo-banner" style="margin-bottom: 14px;">
+                <div style="font-weight:800;display:flex;align-items:center;gap:6px;margin-bottom:3px;">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                  <span>Live-Demo aktiv (Selbsttest-Modus):</span>
+                </div>
+                <div>
+                  Gib deine eigene E-Mail und Handynummer ein — du erhältst nach dem Absenden sofort das echte <strong>1-Seiten-Auftrags-PDF («Monika-&amp;-Monteur-Blatt»)</strong> mit QR-Codes sowie den WhatsApp-Ping direkt auf dein Gerät!
+                </div>
+              </div>
+
+              <div id="wpFormError" style="display:none;padding:10px 12px;border-radius:8px;background:#fef2f2;border:1px solid #ef4444;color:#991b1b;font-size:0.82rem;font-weight:700;margin-bottom:12px;"></div>
+
+              <div class="form-grid form-grid-2">
+                <button type="button" class="btn-cta btn-cta-secondary" style="width:100%;" onclick="wpPrevStep()">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="15 18 9 12 15 6"/></svg>
+                  <span>Zurück zu Schritt 2</span>
+                </button>
+                <button type="submit" class="btn-cta btn-cta-primary" id="wpSubmitBtn" style="width:100%;">
+                  <span data-slot="terminbuchung_span" id="wpSubmitBtnText">Auftragsblatt &amp; Anfrage jetzt absenden</span>
+                </button>
               </div>
             </div>
-            <div class="form-field">
-              <label for="contactMsg" data-slot="terminbuchung_label_6">Ihr Anliegen oder Wunschtermin</label>
-              <textarea id="contactMsg" class="form-textarea" rows="4" placeholder="Beschreiben Sie kurz Ihr Vorhaben (z. B. Dachsanierung mit PV, Badumbau, Heizungs-Ersatz oder Terminwunsch)..."></textarea>
-            </div>
-            <button type="submit" class="btn-cta btn-cta-primary" style="width: 100%;">
-              <span data-slot="terminbuchung_span">Anfrage an zuständigen Abteilungsleiter senden</span>
-            </button>
-            <div id="contactFeedbackMsg" style="display:none; padding: 12px; border-radius: 8px; background: rgba(5, 150, 105, 0.12); color: #059669; font-weight: 700; font-size: 0.85rem;"></div>
           </form>
+
+          <!-- ERFOLGS-COCKPIT NACH ABSENDEN -->
+          <div class="wp-success-box" id="wpSuccessBox">
+            <div style="display:flex;align-items:center;gap:8px;color:#047857;font-weight:800;font-size:1rem;margin-bottom:8px;">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+              <span>Smart-Anfrage erfolgreich übermittelt!</span>
+            </div>
+            <p style="font-size:0.85rem;color:var(--text);line-height:1.5;margin-bottom:14px;">
+              Ihr strukturiertes 1-Seiten-Auftragsblatt wurde in Echtzeit generiert und an die zuständige Fachabteilung in Schlossrued übermittelt.
+            </p>
+            <div style="background:#ffffff;border:1px solid var(--border);border-radius:8px;padding:12px 14px;margin-bottom:14px;font-size:0.84rem;line-height:1.65;">
+              <div><strong>Referenz-Nummer:</strong> <span id="wpResRef" style="color:var(--primary);font-weight:800;">#WP-2026-0000</span></div>
+              <div><strong>Zuständige Fachperson:</strong> <span id="wpResAssigned" style="font-weight:700;">Thomas Bertschi</span></div>
+              <div><strong>Verbindliche Rückruf-Garantie:</strong> <span id="wpResCallback" style="color:#047857;font-weight:700;">Heute verbindlich</span></div>
+              <div><strong>Dual-Delivery Status:</strong> <span id="wpResChannels">E-Mail mit PDF-Anhang &amp; WhatsApp-Ping ausgelöst</span></div>
+            </div>
+
+            <a href="#" target="_blank" rel="noopener" id="wpResPdfBtn" class="btn-cta btn-cta-primary" style="width:100%;margin-bottom:14px;text-decoration:none;">
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+              <span>1-Seiten-Auftrags-PDF («Monika-&amp;-Monteur-Blatt») öffnen</span>
+            </a>
+
+            <div style="font-size:0.78rem;font-weight:800;color:var(--muted);text-transform:uppercase;letter-spacing:0.04em;">
+              Übermittelte WhatsApp-Sofortmeldung an Projektleiter / Pikett:
+            </div>
+            <div class="wp-wa-preview" id="wpResWaPreview"></div>
+
+            <button type="button" class="wp-btn-mini" style="margin-top:14px;" onclick="wpResetWizard()">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"/></svg>
+              <span>Weitere Anfrage erfassen</span>
+            </button>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
   <script>
-    function handleContactSubmit(e) {
-      e.preventDefault();
-      var sparte = document.getElementById('contactSparte').value;
-      var name = document.getElementById('contactName').value;
-      var box = document.getElementById('contactFeedbackMsg');
-      box.style.display = 'block';
-      box.textContent = 'Vielen Dank, ' + name + '! Ihre Anfrage für den Bereich «' + sparte + '» wurde erfasst. Unser zuständiger Abteilungsleiter aus Schlossrued meldet sich in Kürze persönlich bei Ihnen.';
+    var wpState = {
+      step: 1,
+      category: 'Offerte / Umbau',
+      sparte: 'Heizung & Wärmepumpen',
+      urgency: 'Planbar / Nach Absprache',
+      photos: []
+    };
+
+    var wpStepTitles = {
+      1: 'Schritt 1/3: Anliegen & Sparte',
+      2: 'Schritt 2/3: Details & Foto-Upload',
+      3: 'Schritt 3/3: Kontakt & Rückruf-Garantie'
+    };
+
+    function wpUpdateHeader() {
+      var lbl = document.getElementById('wpStepLabel');
+      if (lbl) {
+        var span = lbl.querySelector('span');
+        if (span) span.textContent = wpStepTitles[wpState.step] || wpStepTitles[1];
+      }
+      var backBtn = document.getElementById('wpBtnBackTop');
+      if (backBtn) backBtn.style.display = wpState.step > 1 ? 'inline-flex' : 'none';
+      for (var i = 1; i <= 3; i++) {
+        var seg = document.getElementById('wpProg' + i);
+        var pane = document.getElementById('wpStep' + i);
+        if (seg) {
+          seg.className = 'wp-progress-seg' + (i === wpState.step ? ' active' : (i < wpState.step ? ' done' : ''));
+        }
+        if (pane) {
+          pane.className = 'wp-step-pane' + (i === wpState.step ? ' active' : '');
+        }
+      }
     }
+
+    function wpNextStep(targetStep) {
+      wpState.step = targetStep;
+      wpUpdateHeader();
+    }
+
+    function wpPrevStep() {
+      if (wpState.step > 1) {
+        wpState.step -= 1;
+        wpUpdateHeader();
+      }
+    }
+
+    function wpSelectCategory(cat) {
+      wpState.category = cat;
+      var btns = document.querySelectorAll('#wpCategoryGrid .wp-tile-btn');
+      for (var i = 0; i < btns.length; i++) {
+        btns[i].classList.toggle('selected', btns[i].getAttribute('data-cat') === cat);
+      }
+      var banner = document.getElementById('wpPikettBanner');
+      if (cat === 'Notfall / Pikett') {
+        if (banner) banner.classList.add('visible');
+        wpSelectUrgency('SOFORT (Notfall / Pikett)');
+      } else {
+        if (banner) banner.classList.remove('visible');
+        if (wpState.urgency === 'SOFORT (Notfall / Pikett)') {
+          wpSelectUrgency('Heute (Dringend)');
+        }
+      }
+    }
+
+    function wpSelectSparte(sparte) {
+      wpState.sparte = sparte;
+      var btns = document.querySelectorAll('#wpSparteGrid .wp-tile-btn');
+      for (var i = 0; i < btns.length; i++) {
+        btns[i].classList.toggle('selected', btns[i].getAttribute('data-sparte') === sparte);
+      }
+    }
+
+    function wpSelectUrgency(urg) {
+      wpState.urgency = urg;
+      var btns = document.querySelectorAll('#wpUrgencyGrid .wp-tile-btn');
+      for (var i = 0; i < btns.length; i++) {
+        btns[i].classList.toggle('selected', btns[i].getAttribute('data-urg') === urg);
+      }
+    }
+
+    function wpTriggerPhotoUpload() {
+      var inp = document.getElementById('wpPhotoInput');
+      if (inp) inp.click();
+    }
+
+    function wpCompressImageFile(file, callback) {
+      var reader = new FileReader();
+      reader.onload = function(ev) {
+        var img = new Image();
+        img.onload = function() {
+          var maxDim = 1000;
+          var w = img.width;
+          var h = img.height;
+          if (w > maxDim || h > maxDim) {
+            if (w >= h) {
+              h = Math.round(h * (maxDim / w));
+              w = maxDim;
+            } else {
+              w = Math.round(w * (maxDim / h));
+              h = maxDim;
+            }
+          }
+          var canvas = document.createElement('canvas');
+          canvas.width = w;
+          canvas.height = h;
+          var ctx = canvas.getContext('2d');
+          ctx.drawImage(img, 0, 0, w, h);
+          var dataUrl = canvas.toDataURL('image/jpeg', 0.82);
+          callback(dataUrl);
+        };
+        img.src = ev.target.result;
+      };
+      reader.readAsDataURL(file);
+    }
+
+    function wpRenderPhotos() {
+      var wrap = document.getElementById('wpPhotoThumbs');
+      var cnt = document.getElementById('wpPhotoCounter');
+      if (cnt) cnt.textContent = wpState.photos.length + ' / 3 Fotos ausgewählt · Automatisch für PDF optimiert';
+      if (!wrap) return;
+      wrap.innerHTML = '';
+      for (var i = 0; i < wpState.photos.length; i++) {
+        (function(idx) {
+          var div = document.createElement('div');
+          div.className = 'wp-thumb-item';
+          var im = document.createElement('img');
+          im.src = wpState.photos[idx];
+          im.alt = 'Kundenfoto ' + (idx + 1);
+          var btn = document.createElement('button');
+          btn.type = 'button';
+          btn.className = 'wp-thumb-del';
+          btn.textContent = 'Entfernen';
+          btn.onclick = function() { wpRemovePhoto(idx); };
+          div.appendChild(im);
+          div.appendChild(btn);
+          wrap.appendChild(div);
+        })(i);
+      }
+    }
+
+    function wpHandlePhotoFiles(files) {
+      if (!files || !files.length) return;
+      for (var i = 0; i < files.length; i++) {
+        if (wpState.photos.length >= 3) break;
+        wpCompressImageFile(files[i], function(b64) {
+          if (wpState.photos.length < 3) {
+            wpState.photos.push(b64);
+            wpRenderPhotos();
+          }
+        });
+      }
+    }
+
+    function wpRemovePhoto(idx) {
+      wpState.photos.splice(idx, 1);
+      wpRenderPhotos();
+    }
+
+    function wpCheckPlz(val) {
+      var badge = document.getElementById('wpPlzBadge');
+      var txt = document.getElementById('wpPlzBadgeText');
+      if (!badge || !txt) return;
+      var m = String(val || '').match(/\b(\d{4})\b/);
+      if (!m) {
+        badge.className = 'wp-plz-badge';
+        return;
+      }
+      var plz = m[1];
+      var p2 = plz.substring(0, 2);
+      var corePrefixes = ['50', '51', '52', '53', '54', '55', '56', '57', '46', '48', '60', '61', '62'];
+      if (corePrefixes.indexOf(p2) !== -1) {
+        badge.className = 'wp-plz-badge in-area';
+        txt.textContent = 'PLZ ' + plz + ': Im direkten Einzugsgebiet der Hochuli Gruppe (Suhrental / Aargau / Region)';
+      } else {
+        badge.className = 'wp-plz-badge out-area';
+        txt.textContent = 'PLZ ' + plz + ': Ausserhalb Kerngebiet — wir prüfen Ihren Einsatz gerne individuell';
+      }
+    }
+
+    function wpStripEmojisForDom(str) {
+      return String(str || '').replace(/[\u{1F300}-\u{1FAFF}\u{2600}-\u{27BF}]/gu, '').replace(/\s+\n/g, '\n').trim();
+    }
+
+    function wpResetWizard() {
+      wpState.step = 1;
+      wpState.photos = [];
+      wpRenderPhotos();
+      var form = document.getElementById('wpLeadForm');
+      if (form) {
+        form.reset();
+        form.style.display = 'block';
+      }
+      var sBox = document.getElementById('wpSuccessBox');
+      if (sBox) sBox.classList.remove('visible');
+      var err = document.getElementById('wpFormError');
+      if (err) err.style.display = 'none';
+      var badge = document.getElementById('wpPlzBadge');
+      if (badge) badge.className = 'wp-plz-badge';
+      wpSelectCategory('Offerte / Umbau');
+      wpSelectSparte('Heizung & Wärmepumpen');
+      wpSelectUrgency('Planbar / Nach Absprache');
+      wpUpdateHeader();
+    }
+
+    function wpSubmitLead(e) {
+      if (e) e.preventDefault();
+      var errBox = document.getElementById('wpFormError');
+      if (errBox) errBox.style.display = 'none';
+
+      var name = (document.getElementById('contactName').value || '').trim();
+      var street = (document.getElementById('contactStreet').value || '').trim();
+      var loc = (document.getElementById('contactLoc').value || '').trim();
+      var phone = (document.getElementById('contactPhone').value || '').trim();
+      var email = (document.getElementById('contactEmail').value || '').trim();
+      var callbackPref = (document.getElementById('contactCallbackPref').value || '').trim();
+      var msg = (document.getElementById('wpMessage').value || '').trim();
+      var objType = (document.getElementById('wpObjectType').value || '').trim();
+      var devAge = (document.getElementById('wpDeviceAge').value || '').trim();
+      var hp = (document.getElementById('wpHoneypot').value || '').trim();
+
+      if (!name || (!phone && !email)) {
+        if (errBox) {
+          errBox.textContent = 'Bitte geben Sie Ihren Namen sowie Ihre Telefonnummer oder E-Mail-Adresse an.';
+          errBox.style.display = 'block';
+        }
+        return false;
+      }
+
+      var btn = document.getElementById('wpSubmitBtn');
+      var btnTxt = document.getElementById('wpSubmitBtnText');
+      if (btn) btn.disabled = true;
+      if (btnTxt) btnTxt.textContent = '1-Seiten-PDF & Zuweisung werden erstellt...';
+
+      var payload = {
+        client_slug: 'hochuli',
+        source_page: 'preview-hochuli/kontakt.html',
+        website_url: hp,
+        category: wpState.category,
+        sparte: wpState.sparte,
+        urgency: wpState.urgency,
+        name: name,
+        street: street,
+        plz: loc,
+        phone: phone,
+        email: email,
+        callback_pref: callbackPref,
+        message: msg,
+        extra_fields: {
+          'Objekt-Art': objType,
+          'Bestehende Anlage / Baujahr': devAge || 'Keine Angabe'
+        },
+        photos: wpState.photos,
+        self_test_mode: true
+      };
+
+      fetch('/api/lead-submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      })
+      .then(function(r) { return r.json(); })
+      .then(function(res) {
+        if (btn) btn.disabled = false;
+        if (btnTxt) btnTxt.textContent = 'Auftragsblatt & Anfrage jetzt absenden';
+        if (!res || !res.ok) {
+          if (errBox) {
+            errBox.textContent = (res && res.error) ? res.error : 'Übermittlung fehlgeschlagen. Bitte versuchen Sie es erneut.';
+            errBox.style.display = 'block';
+          }
+          return;
+        }
+        document.getElementById('wpLeadForm').style.display = 'none';
+        document.getElementById('wpResRef').textContent = res.ref_code || '#WP-2026';
+        document.getElementById('wpResAssigned').textContent = res.assigned_to || 'Hochuli Disposition';
+        document.getElementById('wpResCallback').textContent = res.callback_window || 'Verbindlicher Rückruf';
+        var chTxt = '1-Seiten-PDF erstellt';
+        if (res.email_sent) chTxt += ' · E-Mail mit PDF-Anhang zugestellt';
+        if (res.whatsapp_sent) chTxt += ' · WhatsApp-Sofortmeldung zugestellt';
+        document.getElementById('wpResChannels').textContent = chTxt;
+        var pdfBtn = document.getElementById('wpResPdfBtn');
+        if (pdfBtn && res.pdf_url) pdfBtn.href = res.pdf_url;
+        var waBox = document.getElementById('wpResWaPreview');
+        if (waBox) waBox.textContent = wpStripEmojisForDom(res.whatsapp_preview_text || '');
+        document.getElementById('wpSuccessBox').classList.add('visible');
+      })
+      .catch(function() {
+        if (btn) btn.disabled = false;
+        if (btnTxt) btnTxt.textContent = 'Auftragsblatt & Anfrage jetzt absenden';
+        if (errBox) {
+          errBox.textContent = 'Netzwerkfehler bei der Übermittlung. Bitte rufen Sie uns im Notfall direkt unter 062 739 00 20 an.';
+          errBox.style.display = 'block';
+        }
+      });
+      return false;
+    }
+
+    (function() {
+      try {
+        var params = new URLSearchParams(window.location.search);
+        var sp = params.get('sparte');
+        var cat = params.get('category') || params.get('anliegen');
+        if (cat) wpSelectCategory(cat);
+        if (sp) wpSelectSparte(sp);
+      } catch (e) {}
+    })();
   </script>
 
   <footer class="footer-wrap" data-section-id="footer" data-section="footer">

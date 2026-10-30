@@ -771,6 +771,267 @@
       cursor: pointer;
     }
 
+
+    /* WEBPILOT 3-SCHRITTE SMART-ANFRAGE ASSISTENT (HER11 EDITION) */
+    .wp-wizard-top {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      margin-bottom: 14px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--border-light);
+    }
+    .wp-step-indicator {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.76rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--pink);
+      background: var(--pink-soft);
+      padding: 5px 10px;
+      border-radius: var(--radius-badge);
+    }
+    .wp-nav-mini-group {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .wp-btn-mini {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      background: var(--surface-light);
+      color: var(--navy);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-badge);
+      min-height: 36px;
+      min-width: 44px;
+      padding: 7px 12px;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+    .wp-btn-mini:hover {
+      border-color: var(--pink);
+      color: var(--pink);
+    }
+    .wp-progress-track {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 6px;
+      margin-bottom: 18px;
+    }
+    .wp-progress-seg {
+      height: 6px;
+      border-radius: var(--radius-badge);
+      background: #E2E8F0;
+      transition: background 0.2s ease;
+    }
+    .wp-progress-seg.active {
+      background: var(--pink);
+    }
+    .wp-progress-seg.done {
+      background: var(--navy);
+    }
+    .wp-step-pane {
+      display: none;
+    }
+    .wp-step-pane.active {
+      display: block;
+    }
+    .wp-role-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 10px;
+      margin-bottom: 18px;
+      align-items: stretch;
+    }
+    @media (min-width: 560px) {
+      .wp-role-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+    .wp-role-tile {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 6px;
+      width: 100%;
+      min-width: 0;
+      max-width: 100%;
+      box-sizing: border-box;
+      overflow-x: hidden;
+      text-align: left;
+      background: var(--white);
+      border: 1.5px solid var(--border-light);
+      border-radius: var(--radius-card);
+      padding: 12px 14px;
+      font-family: 'Montserrat', sans-serif;
+      cursor: pointer;
+      transition: all 0.15s ease;
+      color: var(--text-dark);
+    }
+    .wp-role-tile:hover {
+      border-color: var(--pink);
+      background: var(--surface-light);
+    }
+    .wp-role-tile.selected {
+      border-color: var(--pink);
+      background: var(--pink-soft);
+      box-shadow: 0 0 0 1px var(--pink);
+    }
+    .wp-role-head {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      width: 100%;
+      min-width: 0;
+    }
+    .wp-role-icon {
+      width: 30px;
+      height: 30px;
+      border-radius: var(--radius-badge);
+      background: rgba(11, 26, 59, 0.08);
+      color: var(--navy);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .wp-role-tile.selected .wp-role-icon {
+      background: var(--pink);
+      color: var(--white);
+    }
+    .wp-role-title {
+      font-size: 0.86rem;
+      font-weight: 800;
+      color: var(--navy);
+      line-height: 1.25;
+      word-break: break-word;
+    }
+    .wp-role-desc {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      line-height: 1.35;
+      word-break: break-word;
+    }
+    .wp-upload-zone {
+      border: 1.5px dashed #94A3B8;
+      border-radius: var(--radius-card);
+      background: var(--surface-light);
+      padding: 14px;
+      text-align: center;
+      margin-top: 4px;
+    }
+    .wp-upload-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      background: var(--white);
+      color: var(--navy);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-card);
+      padding: 9px 14px;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 700;
+      cursor: pointer;
+    }
+    .wp-upload-btn:hover {
+      border-color: var(--pink);
+      color: var(--pink);
+    }
+    .wp-photo-thumbs {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 8px;
+      margin-top: 10px;
+    }
+    .wp-thumb-item {
+      position: relative;
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-card);
+      overflow: hidden;
+      background: var(--white);
+      height: 74px;
+    }
+    .wp-thumb-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .wp-thumb-del {
+      position: absolute;
+      top: 4px;
+      right: 4px;
+      background: rgba(11, 26, 59, 0.88);
+      color: var(--white);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      border-radius: var(--radius-badge);
+      padding: 2px 6px;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.68rem;
+      font-weight: 700;
+      cursor: pointer;
+    }
+    .wp-plz-badge {
+      display: none;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 12px;
+      border-radius: var(--radius-card);
+      font-size: 0.78rem;
+      font-weight: 700;
+    }
+    .wp-plz-badge.in-area {
+      display: inline-flex;
+      background: rgba(5, 150, 105, 0.1);
+      border: 1px solid rgba(5, 150, 105, 0.35);
+      color: #047857;
+    }
+    .wp-demo-banner {
+      background: rgba(11, 26, 59, 0.05);
+      border: 1px solid rgba(11, 26, 59, 0.2);
+      border-left: 4px solid var(--pink);
+      border-radius: var(--radius-card);
+      padding: 12px 14px;
+      font-size: 0.8rem;
+      color: var(--navy);
+      line-height: 1.45;
+    }
+    .wp-success-box {
+      display: none;
+      background: var(--surface-light);
+      border: 1.5px solid var(--pink);
+      border-radius: var(--radius-card);
+      padding: 20px 18px;
+    }
+    .wp-success-box.visible {
+      display: block;
+    }
+    .wp-wa-preview {
+      background: var(--navy);
+      color: #E2E8F0;
+      border-radius: var(--radius-card);
+      padding: 12px 14px;
+      font-size: 0.78rem;
+      line-height: 1.45;
+      white-space: pre-wrap;
+      word-break: break-word;
+      margin-top: 10px;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+    }
+
     /* FOOTER IN DEEPEST NAVY */
     .footer-wrap {
       width: 100%;
@@ -1024,96 +1285,282 @@
     </div>
   </section>
 
-  <!-- KONTAKTFORMULAR & DIREKTER KONTAKT (SEITE 9) -->
+  <!-- KONTAKTFORMULAR & DIREKTER KONTAKT (SEITE 9 — 3-SCHRITTE SMART-ANFRAGE) -->
   <section class="section-wrap" id="kontaktformular" data-section-id="kontaktformular" data-section="kontaktformular" data-section-label="Kontaktformular &amp; Direkter Kontakt">
     <div class="section-inner">
       <div class="split-grid">
-        <div class="her-card" style="padding: 28px;">
-          <span class="section-kicker" data-slot="form_kicker">KONTAKTFORMULAR</span>
-          <h2 class="section-title" style="font-size: 1.45rem;" data-slot="form_title">WIE KÖNNEN WIR HELFEN?</h2>
-          <p class="section-desc" style="margin-bottom: 16px;" data-slot="form_desc">
-            Wähle dein Anliegen aus und sende uns deine Nachricht:
-          </p>
-
-          <div class="topic-selector-grid" role="group" aria-label="Themenauswahl">
-            <button type="button" class="topic-chip-btn active" data-topic="Ausbildung als Spielerin" onclick="selectContactTopic(this, 'Ausbildung als Spielerin')">
-              <span data-slot="topic_opt_1">Ausbildung als Spielerin</span>
-            </button>
-            <button type="button" class="topic-chip-btn" data-topic="Beratung und Begleitung" onclick="selectContactTopic(this, 'Beratung und Begleitung')">
-              <span data-slot="topic_opt_2">Beratung und Begleitung</span>
-            </button>
-            <button type="button" class="topic-chip-btn" data-topic="Ausbildungsbetrieb werden" onclick="selectContactTopic(this, 'Ausbildungsbetrieb werden')">
-              <span data-slot="topic_opt_3">Ausbildungsbetrieb werden</span>
-            </button>
-            <button type="button" class="topic-chip-btn" data-topic="Sponsoring / Partnerschaft" onclick="selectContactTopic(this, 'Sponsoring / Partnerschaft')">
-              <span data-slot="topic_opt_4">Sponsoring / Partnerschaft</span>
-            </button>
-            <button type="button" class="topic-chip-btn" data-topic="Netzwerkpartner werden" onclick="selectContactTopic(this, 'Netzwerkpartner werden')">
-              <span data-slot="topic_opt_5">Netzwerkpartner werden</span>
-            </button>
-            <button type="button" class="topic-chip-btn" data-topic="Allgemeine Anfrage" onclick="selectContactTopic(this, 'Allgemeine Anfrage')">
-              <span data-slot="topic_opt_6">Allgemeine Anfrage</span>
-            </button>
+        <div class="her-card" style="padding: 24px 20px; overflow-x: hidden; box-sizing: border-box;">
+          <div class="wp-wizard-top">
+            <span class="wp-step-indicator" id="wpStepLabel" data-slot="form_kicker">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+              <span>Schritt 1/3: Rolle &amp; Thema</span>
+            </span>
+            <div class="wp-nav-mini-group">
+              <button type="button" class="wp-btn-mini" id="wpBtnBackTop" onclick="wpPrevStep()" style="display:none;">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="15 18 9 12 15 6"/></svg>
+                <span>Zurück</span>
+              </button>
+              <button type="button" class="wp-btn-mini" id="wpBtnResetTop" onclick="wpResetWizard()">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"/></svg>
+                <span>Neu starten</span>
+              </button>
+            </div>
           </div>
 
-          <form id="her11ContactForm" class="form-grid" onsubmit="return handleHer11Submit(event)">
-            <div class="form-field">
-              <label for="contactTopicSelect" class="form-label" data-slot="lbl_thema">Auswahl Thema *</label>
-              <select id="contactTopicSelect" name="thema" class="form-select" required onchange="syncTopicChips(this.value)">
-                <option value="Ausbildung als Spielerin">Ausbildung als Spielerin</option>
-                <option value="Beratung und Begleitung">Beratung und Begleitung</option>
-                <option value="Ausbildungsbetrieb werden">Ausbildungsbetrieb werden</option>
-                <option value="Sponsoring / Partnerschaft">Sponsoring / Partnerschaft</option>
-                <option value="Netzwerkpartner werden">Netzwerkpartner werden</option>
-                <option value="Allgemeine Anfrage">Allgemeine Anfrage</option>
-              </select>
-            </div>
+          <div class="wp-progress-track" aria-hidden="true">
+            <div class="wp-progress-seg active" id="wpProg1"></div>
+            <div class="wp-progress-seg" id="wpProg2"></div>
+            <div class="wp-progress-seg" id="wpProg3"></div>
+          </div>
 
-            <div class="form-grid-2">
-              <div class="form-field">
-                <label for="contactName" class="form-label" data-slot="lbl_name">Vorname / Nachname *</label>
-                <input type="text" id="contactName" name="name" class="form-input" placeholder="Dein Vor- und Nachname" required>
+          <h2 class="section-title" style="font-size: 1.38rem;" data-slot="form_title">WIE KÖNNEN WIR HELFEN?</h2>
+          <p class="section-desc" style="margin-bottom: 16px;" data-slot="form_desc">
+            Wähle deine Rolle — wir erstellen in Echtzeit dein persönliches 1-Seiten-Anfrage-Dossier für Jenny Ettle &amp; Ramona Bachmann:
+          </p>
+
+          <form id="her11ContactForm" class="form-grid" onsubmit="return wpSubmitHer11Lead(event)" novalidate>
+            <input type="text" name="website_url" id="wpHoneypot" value="" style="display:none !important;" tabindex="-1" autocomplete="off">
+
+            <!-- SCHRITT 1: 2x3 ROLLEN-KACHELN -->
+            <div class="wp-step-pane active" id="wpStep1">
+              <div class="wp-role-grid" id="wpRoleGrid" role="group" aria-label="Themenauswahl">
+                <button type="button" class="wp-role-tile selected" data-topic="Ausbildung als Spielerin" onclick="wpSelectHer11Topic('Ausbildung als Spielerin')">
+                  <div class="wp-role-head">
+                    <span class="wp-role-icon">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+                    </span>
+                    <span class="wp-role-title" data-slot="topic_opt_1">Ausbildung als Spielerin</span>
+                  </div>
+                  <span class="wp-role-desc">Sportfreundliche Lehre, KV oder Schule passend zum Trainingsalltag finden</span>
+                </button>
+
+                <button type="button" class="wp-role-tile" data-topic="Beratung und Begleitung" onclick="wpSelectHer11Topic('Beratung und Begleitung')">
+                  <div class="wp-role-head">
+                    <span class="wp-role-icon">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                    </span>
+                    <span class="wp-role-title" data-slot="topic_opt_2">Beratung und Begleitung</span>
+                  </div>
+                  <span class="wp-role-desc">360°-Mentoring: Karriereplanung, Athletik, Mentaltraining &amp; Vorsorge</span>
+                </button>
+
+                <button type="button" class="wp-role-tile" data-topic="Ausbildungsbetrieb werden" onclick="wpSelectHer11Topic('Ausbildungsbetrieb werden')">
+                  <div class="wp-role-head">
+                    <span class="wp-role-icon">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+                    </span>
+                    <span class="wp-role-title" data-slot="topic_opt_3">Ausbildungsbetrieb werden</span>
+                  </div>
+                  <span class="wp-role-desc">Als KMU oder Unternehmen motivierte Nachwuchs-Fussballerinnen ausbilden</span>
+                </button>
+
+                <button type="button" class="wp-role-tile" data-topic="Sponsoring / Partnerschaft" onclick="wpSelectHer11Topic('Sponsoring / Partnerschaft')">
+                  <div class="wp-role-head">
+                    <span class="wp-role-icon">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                    </span>
+                    <span class="wp-role-title" data-slot="topic_opt_4">Sponsoring / Partnerschaft</span>
+                  </div>
+                  <span class="wp-role-desc">Sichtbares Engagement für Chancengleichheit im Schweizer Frauenfussball</span>
+                </button>
+
+                <button type="button" class="wp-role-tile" data-topic="Netzwerkpartner werden" onclick="wpSelectHer11Topic('Netzwerkpartner werden')">
+                  <div class="wp-role-head">
+                    <span class="wp-role-icon">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+                    </span>
+                    <span class="wp-role-title" data-slot="topic_opt_5">Netzwerkpartner werden</span>
+                  </div>
+                  <span class="wp-role-desc">Kooperation für Schulen, Vereine, Verbände &amp; Fachexpertinnen</span>
+                </button>
+
+                <button type="button" class="wp-role-tile" data-topic="Allgemeine Anfrage" onclick="wpSelectHer11Topic('Allgemeine Anfrage')">
+                  <div class="wp-role-head">
+                    <span class="wp-role-icon">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                    </span>
+                    <span class="wp-role-title" data-slot="topic_opt_6">Allgemeine Anfrage</span>
+                  </div>
+                  <span class="wp-role-desc">Medien, Keynotes, Events oder persönlicher Austausch mit HER11</span>
+                </button>
               </div>
-              <div class="form-field">
-                <label for="contactCompany" class="form-label" data-slot="lbl_company">Unternehmen / Verein (optional)</label>
-                <input type="text" id="contactCompany" name="company" class="form-input" placeholder="Firma, Organisation oder Verein">
-              </div>
-            </div>
 
-            <div class="form-grid-2">
-              <div class="form-field">
-                <label for="contactEmail" class="form-label" data-slot="lbl_email">E-Mail-Adresse *</label>
-                <input type="email" id="contactEmail" name="email" class="form-input" placeholder="name@beispiel.ch" required>
-              </div>
-              <div class="form-field">
-                <label for="contactPhone" class="form-label" data-slot="lbl_phone">Telefon (optional)</label>
-                <input type="tel" id="contactPhone" name="phone" class="form-input" placeholder="+41 79 000 00 00">
-              </div>
-            </div>
-
-            <div class="form-field">
-              <label for="contactMessage" class="form-label" data-slot="lbl_message">Nachricht *</label>
-              <textarea id="contactMessage" name="message" class="form-textarea" placeholder="Wie können wir dich oder Ihr Unternehmen unterstützen?" required></textarea>
-            </div>
-
-            <div class="consent-row">
-              <input type="checkbox" id="contactConsent" name="consent" class="consent-checkbox" required aria-label="Einwilligung zur Datenbearbeitung">
-              <label for="contactConsent" style="font-size: 0.82rem; color: var(--text-muted); line-height: 1.5; cursor: pointer;" data-slot="lbl_consent">
-                <strong>Einwilligung zur Datenbearbeitung:</strong> Ich bin damit einverstanden, dass meine Angaben zur Beantwortung meiner Anfrage durch HER11 bearbeitet werden.
-              </label>
-            </div>
-
-            <div>
-              <button type="submit" class="btn-cta btn-cta-pink" style="width: 100%;" data-slot="form_submit_btn">
-                <span>Nachricht senden</span>
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+              <button type="button" class="btn-cta btn-cta-pink" style="width: 100%;" onclick="wpNextStep(2)">
+                <span>Weiter zu Schritt 2: Details &amp; Unterlagen</span>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="9 18 15 12 9 6"/></svg>
               </button>
             </div>
 
-            <div id="contactFormFeedback" style="display: none; padding: 14px; border-radius: 8px; background: rgba(16, 185, 129, 0.12); border: 1px solid rgba(16, 185, 129, 0.4); color: #065F46; font-size: 0.88rem; font-weight: 600;">
-              Vielen Dank für deine Nachricht! Dein E-Mail-Programm wurde mit deiner Anfrage an info@her11.ch geöffnet.
+            <!-- SCHRITT 2: DYNAMISCHE ROLLEN-DETAILS & FOTO-UPLOAD -->
+            <div class="wp-step-pane" id="wpStep2">
+              <div class="form-grid-2" style="margin-bottom: 14px;">
+                <div class="form-field">
+                  <label for="wpDetail1" class="form-label" id="wpDetail1Label">Jahrgang &amp; Aktueller Verein</label>
+                  <input type="text" id="wpDetail1" class="form-input" placeholder="z. B. Jg. 2009 · FC Luzern Frauen U17">
+                </div>
+                <div class="form-field">
+                  <label for="wpDetail2" class="form-label" id="wpDetail2Label">Wunsch-Ausbildung / Profil</label>
+                  <input type="text" id="wpDetail2" class="form-input" placeholder="z. B. Kauffrau EFZ / Sportgymnasium">
+                </div>
+              </div>
+
+              <div class="form-field" style="margin-bottom: 14px;">
+                <label class="form-label">Gewünschter Zeithorizont / Dringlichkeit</label>
+                <div class="wp-role-grid" id="wpUrgencyGrid" style="margin-bottom: 0;">
+                  <button type="button" class="wp-role-tile" data-urg="Diese Woche" onclick="wpSelectHer11Urgency('Diese Woche')">
+                    <span class="wp-role-title">Diese Woche</span>
+                    <span class="wp-role-desc">Zeitnahes Kennenlerngespräch</span>
+                  </button>
+                  <button type="button" class="wp-role-tile selected" data-urg="Planbar / Nach Absprache" onclick="wpSelectHer11Urgency('Planbar / Nach Absprache')">
+                    <span class="wp-role-title">Planbar / Nach Absprache</span>
+                    <span class="wp-role-desc">Reguläre Terminabstimmung</span>
+                  </button>
+                  <button type="button" class="wp-role-tile" data-urg="Kommendes Lehrjahr / Saison" onclick="wpSelectHer11Urgency('Kommendes Lehrjahr / Saison')">
+                    <span class="wp-role-title">Kommendes Lehrjahr / Saison</span>
+                    <span class="wp-role-desc">Frühzeitige Planung &amp; Aufbau</span>
+                  </button>
+                  <button type="button" class="wp-role-tile" data-urg="Heute (Dringend)" onclick="wpSelectHer11Urgency('Heute (Dringend)')">
+                    <span class="wp-role-title">Dringende Rückfrage</span>
+                    <span class="wp-role-desc">Rasche Rückmeldung erwünscht</span>
+                  </button>
+                </div>
+              </div>
+
+              <div class="form-field" style="margin-bottom: 14px;">
+                <label for="contactMessage" class="form-label" data-slot="lbl_message">Persönliche Nachricht / Anliegen *</label>
+                <textarea id="contactMessage" name="message" class="form-textarea" placeholder="Wie können wir dich oder Ihr Unternehmen unterstützen?" required></textarea>
+              </div>
+
+              <div class="form-field" style="margin-bottom: 18px;">
+                <label class="form-label">Fotos oder Impressionen beifügen (optional, max. 3 Bilder für PDF-Dossier)</label>
+                <div class="wp-upload-zone">
+                  <input type="file" id="wpPhotoInput" accept="image/*" multiple style="display:none;" onchange="wpHandlePhotoFiles(this.files)">
+                  <button type="button" class="wp-upload-btn" onclick="wpTriggerPhotoUpload()">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+                    <span>Bild auswählen (Spielerinnen-Porträt, Verein oder Ausbildungsbetrieb)</span>
+                  </button>
+                  <div style="font-size:0.74rem;color:var(--text-muted);margin-top:6px;" id="wpPhotoCounter">0 / 3 Bilder ausgewählt · Automatisch für 1-Seiten-PDF optimiert</div>
+                  <div class="wp-photo-thumbs" id="wpPhotoThumbs"></div>
+                </div>
+              </div>
+
+              <div class="form-grid-2">
+                <button type="button" class="btn-cta btn-cta-navy" style="width: 100%;" onclick="wpPrevStep()">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="15 18 9 12 15 6"/></svg>
+                  <span>Zurück zu Schritt 1</span>
+                </button>
+                <button type="button" class="btn-cta btn-cta-pink" style="width: 100%;" onclick="wpNextStep(3)">
+                  <span>Weiter zu Schritt 3: Kontakt</span>
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="9 18 15 12 9 6"/></svg>
+                </button>
+              </div>
+            </div>
+
+            <!-- SCHRITT 3: KONTAKT, PLZ & LIVE-DEMO SELBSTTEST -->
+            <div class="wp-step-pane" id="wpStep3">
+              <div class="form-grid-2" style="margin-bottom: 12px;">
+                <div class="form-field">
+                  <label for="contactName" class="form-label" data-slot="lbl_name">Vorname / Nachname *</label>
+                  <input type="text" id="contactName" name="name" class="form-input" placeholder="Dein Vor- und Nachname" required>
+                </div>
+                <div class="form-field">
+                  <label for="contactCompany" class="form-label" data-slot="lbl_company">Unternehmen / Verein (optional)</label>
+                  <input type="text" id="contactCompany" name="company" class="form-input" placeholder="Firma, Organisation oder Verein">
+                </div>
+              </div>
+
+              <div class="form-grid-2" style="margin-bottom: 8px;">
+                <div class="form-field">
+                  <label for="contactLoc" class="form-label">PLZ &amp; Ort / Region *</label>
+                  <input type="text" id="contactLoc" name="plz" class="form-input" placeholder="z. B. 6003 Luzern oder 8001 Zürich" oninput="wpCheckHer11Plz(this.value)" required>
+                </div>
+                <div class="form-field">
+                  <label for="contactStreet" class="form-label">Strasse &amp; Nr. (optional)</label>
+                  <input type="text" id="contactStreet" name="street" class="form-input" placeholder="Für Standort-QR-Code im Dossier">
+                </div>
+              </div>
+
+              <div style="margin-bottom: 12px;">
+                <div class="wp-plz-badge" id="wpPlzBadge">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                  <span id="wpPlzBadgeText">Schweizweites HER11 Netzwerk aktiv</span>
+                </div>
+              </div>
+
+              <div class="form-grid-2" style="margin-bottom: 12px;">
+                <div class="form-field">
+                  <label for="contactEmail" class="form-label" data-slot="lbl_email">E-Mail-Adresse (für PDF-Dossier) *</label>
+                  <input type="email" id="contactEmail" name="email" class="form-input" placeholder="name@beispiel.ch" required>
+                </div>
+                <div class="form-field">
+                  <label for="contactPhone" class="form-label" data-slot="lbl_phone">Mobiltelefon (für Rückruf &amp; WhatsApp) *</label>
+                  <input type="tel" id="contactPhone" name="phone" class="form-input" placeholder="+41 79 000 00 00" required>
+                </div>
+              </div>
+
+              <div class="consent-row" style="margin-bottom: 12px;">
+                <input type="checkbox" id="contactConsent" name="consent" class="consent-checkbox" checked required aria-label="Einwilligung zur Datenbearbeitung">
+                <label for="contactConsent" style="font-size: 0.8rem; color: var(--text-muted); line-height: 1.45; cursor: pointer;" data-slot="lbl_consent">
+                  <strong>Einwilligung zur Datenbearbeitung (nDSG):</strong> Ich bin damit einverstanden, dass meine Angaben zur persönlichen Beantwortung meiner Anfrage durch HER11 bearbeitet werden.
+                </label>
+              </div>
+
+              <div class="wp-demo-banner" style="margin-bottom: 14px;">
+                <div style="font-weight:800;display:flex;align-items:center;gap:6px;margin-bottom:3px;color:var(--pink);">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                  <span>Live-Demo aktiv (Selbsttest-Modus):</span>
+                </div>
+                <div>
+                  Gib deine eigene E-Mail und Handynummer ein — du erhältst nach dem Absenden sofort das echte <strong>1-Seiten-PDF-Dossier im HER11-Design</strong> inklusive QR-Codes sowie den WhatsApp-Ping direkt auf dein Handy!
+                </div>
+              </div>
+
+              <div id="wpFormError" style="display:none;padding:10px 12px;border-radius:8px;background:#FEF2F2;border:1px solid #EF4444;color:#991B1B;font-size:0.82rem;font-weight:700;margin-bottom:12px;"></div>
+
+              <div class="form-grid-2">
+                <button type="button" class="btn-cta btn-cta-navy" style="width: 100%;" onclick="wpPrevStep()">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="15 18 9 12 15 6"/></svg>
+                  <span>Zurück zu Schritt 2</span>
+                </button>
+                <button type="submit" class="btn-cta btn-cta-pink" id="wpSubmitBtn" style="width: 100%;" data-slot="form_submit_btn">
+                  <span id="wpSubmitBtnText">1-Seiten-Dossier &amp; Anfrage senden</span>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+                </button>
+              </div>
             </div>
           </form>
+
+          <!-- ERFOLGS-COCKPIT NACH ABSENDEN -->
+          <div class="wp-success-box" id="wpSuccessBox">
+            <div style="display:flex;align-items:center;gap:8px;color:var(--navy);font-weight:800;font-size:1.02rem;margin-bottom:8px;">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#FF0066" stroke-width="2.4"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+              <span>Deine HER11 Smart-Anfrage ist eingegangen!</span>
+            </div>
+            <p style="font-size:0.85rem;color:var(--text-dark);line-height:1.5;margin-bottom:14px;">
+              Dein strukturiertes 1-Seiten-Anfrage-Dossier wurde in Echtzeit generiert und an das HER11-Team übermittelt.
+            </p>
+            <div style="background:var(--white);border:1px solid var(--border-light);border-radius:8px;padding:12px 14px;margin-bottom:14px;font-size:0.84rem;line-height:1.65;">
+              <div><strong>Referenz-Nummer:</strong> <span id="wpResRef" style="color:var(--pink);font-weight:800;">#WP-2026-0000</span></div>
+              <div><strong>Zuständig bei HER11:</strong> <span id="wpResAssigned" style="font-weight:700;">Jenny Ettle &amp; Ramona Bachmann</span></div>
+              <div><strong>Verbindliche Rückmeldung:</strong> <span id="wpResCallback" style="color:#047857;font-weight:700;">Zeitnahe Rückmeldung</span></div>
+              <div><strong>Dual-Delivery Status:</strong> <span id="wpResChannels">1-Seiten-PDF erstellt · E-Mail &amp; WhatsApp ausgelöst</span></div>
+            </div>
+
+            <a href="#" target="_blank" rel="noopener" id="wpResPdfBtn" class="btn-cta btn-cta-pink" style="width:100%;margin-bottom:14px;text-decoration:none;">
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+              <span>1-Seiten-PDF-Dossier (HER11 Anfrage-Blatt) öffnen</span>
+            </a>
+
+            <div style="font-size:0.76rem;font-weight:800;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.04em;">
+              Übermittelte WhatsApp-Sofortmeldung an HER11:
+            </div>
+            <div class="wp-wa-preview" id="wpResWaPreview"></div>
+
+            <button type="button" class="wp-btn-mini" style="margin-top:14px;" onclick="wpResetWizard()">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"/></svg>
+              <span>Weitere Anfrage erfassen</span>
+            </button>
+          </div>
         </div>
 
         <div style="display: flex; flex-direction: column; gap: 20px;">
@@ -1177,47 +1624,320 @@
   </section>
 
   <script>
-    function selectContactTopic(btn, topicVal) {
-      var buttons = document.querySelectorAll('.topic-chip-btn');
-      for (var i = 0; i < buttons.length; i++) {
-        buttons[i].classList.remove('active');
-      }
-      if (btn) btn.classList.add('active');
-      var sel = document.getElementById('contactTopicSelect');
-      if (sel) sel.value = topicVal;
-    }
+    var wpHer11State = {
+      step: 1,
+      topic: 'Ausbildung als Spielerin',
+      urgency: 'Planbar / Nach Absprache',
+      photos: []
+    };
 
-    function syncTopicChips(topicVal) {
-      var buttons = document.querySelectorAll('.topic-chip-btn');
-      for (var i = 0; i < buttons.length; i++) {
-        if (buttons[i].getAttribute('data-topic') === topicVal) {
-          buttons[i].classList.add('active');
-        } else {
-          buttons[i].classList.remove('active');
+    var wpHer11StepTitles = {
+      1: 'Schritt 1/3: Rolle & Thema',
+      2: 'Schritt 2/3: Details & Unterlagen',
+      3: 'Schritt 3/3: Kontakt & Dossier-Versand'
+    };
+
+    var wpHer11RoleConfig = {
+      'Ausbildung als Spielerin': {
+        l1: 'Jahrgang & Aktueller Verein',
+        p1: 'z. B. Jg. 2009 · FC Luzern Frauen U17',
+        l2: 'Wunsch-Ausbildung / Schulprofil',
+        p2: 'z. B. Kauffrau EFZ / Sportgymnasium'
+      },
+      'Beratung und Begleitung': {
+        l1: 'Schwerpunkt der 360°-Begleitung',
+        p1: 'z. B. Karriereplanung, Mentaltraining, Athletik',
+        l2: 'Aktueller Verein / Kaderstufe',
+        p2: 'z. B. NLA / U19-Auswahl'
+      },
+      'Ausbildungsbetrieb werden': {
+        l1: 'Branche & Unternehmensgrösse',
+        p1: 'z. B. Treuhand, IT, Gesundheit (25 Mitarbeitende)',
+        l2: 'Mögliche Lehrberufe & Startjahr',
+        p2: 'z. B. Kauffrau EFZ ab Sommer 2027'
+      },
+      'Sponsoring / Partnerschaft': {
+        l1: 'Gewünschte Partnerschafts-Form',
+        p1: 'z. B. Hauptpartner, Förderpartner, Ausbildungs-Pate',
+        l2: 'Fokus / Zielsetzung Ihres Engagements',
+        p2: 'z. B. Nachwuchsförderung & Employer Branding'
+      },
+      'Netzwerkpartner werden': {
+        l1: 'Fachgebiet / Institution',
+        p1: 'z. B. Sportschule, Sportmedizin, Verband, Verein',
+        l2: 'Region & Kooperations-Idee',
+        p2: 'z. B. Zentralschweiz / Gemeinsame Workshops'
+      },
+      'Allgemeine Anfrage': {
+        l1: 'Betreff / Kontext Ihrer Anfrage',
+        p1: 'z. B. Medienanfrage, Podium, Event',
+        l2: 'Organisation / Funktion',
+        p2: 'z. B. Redaktion / Vereinsvorstand'
+      }
+    };
+
+    function wpUpdateHeader() {
+      var lbl = document.getElementById('wpStepLabel');
+      if (lbl) {
+        var span = lbl.querySelector('span');
+        if (span) span.textContent = wpHer11StepTitles[wpHer11State.step] || wpHer11StepTitles[1];
+      }
+      var backBtn = document.getElementById('wpBtnBackTop');
+      if (backBtn) backBtn.style.display = wpHer11State.step > 1 ? 'inline-flex' : 'none';
+      for (var i = 1; i <= 3; i++) {
+        var seg = document.getElementById('wpProg' + i);
+        var pane = document.getElementById('wpStep' + i);
+        if (seg) {
+          seg.className = 'wp-progress-seg' + (i === wpHer11State.step ? ' active' : (i < wpHer11State.step ? ' done' : ''));
+        }
+        if (pane) {
+          pane.className = 'wp-step-pane' + (i === wpHer11State.step ? ' active' : '');
         }
       }
     }
 
-    function handleHer11Submit(e) {
-      e.preventDefault();
-      var thema = document.getElementById('contactTopicSelect').value;
-      var name = document.getElementById('contactName').value;
-      var company = document.getElementById('contactCompany').value;
-      var email = document.getElementById('contactEmail').value;
-      var phone = document.getElementById('contactPhone').value;
-      var msg = document.getElementById('contactMessage').value;
-      var fb = document.getElementById('contactFormFeedback');
-      if (fb) fb.style.display = 'block';
-      var subject = encodeURIComponent('HER11 Anfrage: ' + thema + ' (' + name + ')');
-      var body = encodeURIComponent(
-        'Thema: ' + thema + '\n' +
-        'Name: ' + name + '\n' +
-        'Unternehmen / Verein: ' + (company || '-') + '\n' +
-        'E-Mail: ' + email + '\n' +
-        'Telefon: ' + (phone || '-') + '\n\n' +
-        'Nachricht:\n' + msg
-      );
-      window.location.href = 'mailto:info@her11.ch?subject=' + subject + '&body=' + body;
+    function wpNextStep(targetStep) {
+      wpHer11State.step = targetStep;
+      wpUpdateHeader();
+    }
+
+    function wpPrevStep() {
+      if (wpHer11State.step > 1) {
+        wpHer11State.step -= 1;
+        wpUpdateHeader();
+      }
+    }
+
+    function wpSelectHer11Topic(topicVal) {
+      wpHer11State.topic = topicVal;
+      var btns = document.querySelectorAll('#wpRoleGrid .wp-role-tile');
+      for (var i = 0; i < btns.length; i++) {
+        btns[i].classList.toggle('selected', btns[i].getAttribute('data-topic') === topicVal);
+      }
+      var cfg = wpHer11RoleConfig[topicVal] || wpHer11RoleConfig['Ausbildung als Spielerin'];
+      var l1 = document.getElementById('wpDetail1Label');
+      var i1 = document.getElementById('wpDetail1');
+      var l2 = document.getElementById('wpDetail2Label');
+      var i2 = document.getElementById('wpDetail2');
+      if (l1) l1.textContent = cfg.l1;
+      if (i1) i1.placeholder = cfg.p1;
+      if (l2) l2.textContent = cfg.l2;
+      if (i2) i2.placeholder = cfg.p2;
+    }
+
+    function wpSelectHer11Urgency(urg) {
+      wpHer11State.urgency = urg;
+      var btns = document.querySelectorAll('#wpUrgencyGrid .wp-role-tile');
+      for (var i = 0; i < btns.length; i++) {
+        btns[i].classList.toggle('selected', btns[i].getAttribute('data-urg') === urg);
+      }
+    }
+
+    function wpTriggerPhotoUpload() {
+      var inp = document.getElementById('wpPhotoInput');
+      if (inp) inp.click();
+    }
+
+    function wpCompressImageFile(file, callback) {
+      var reader = new FileReader();
+      reader.onload = function(ev) {
+        var img = new Image();
+        img.onload = function() {
+          var maxDim = 1000;
+          var w = img.width;
+          var h = img.height;
+          if (w > maxDim || h > maxDim) {
+            if (w >= h) {
+              h = Math.round(h * (maxDim / w));
+              w = maxDim;
+            } else {
+              w = Math.round(w * (maxDim / h));
+              h = maxDim;
+            }
+          }
+          var canvas = document.createElement('canvas');
+          canvas.width = w;
+          canvas.height = h;
+          var ctx = canvas.getContext('2d');
+          ctx.drawImage(img, 0, 0, w, h);
+          callback(canvas.toDataURL('image/jpeg', 0.82));
+        };
+        img.src = ev.target.result;
+      };
+      reader.readAsDataURL(file);
+    }
+
+    function wpRenderPhotos() {
+      var wrap = document.getElementById('wpPhotoThumbs');
+      var cnt = document.getElementById('wpPhotoCounter');
+      if (cnt) cnt.textContent = wpHer11State.photos.length + ' / 3 Bilder ausgewählt · Automatisch für 1-Seiten-PDF optimiert';
+      if (!wrap) return;
+      wrap.innerHTML = '';
+      for (var i = 0; i < wpHer11State.photos.length; i++) {
+        (function(idx) {
+          var div = document.createElement('div');
+          div.className = 'wp-thumb-item';
+          var im = document.createElement('img');
+          im.src = wpHer11State.photos[idx];
+          im.alt = 'Anhang ' + (idx + 1);
+          var btn = document.createElement('button');
+          btn.type = 'button';
+          btn.className = 'wp-thumb-del';
+          btn.textContent = 'Entfernen';
+          btn.onclick = function() { wpRemovePhoto(idx); };
+          div.appendChild(im);
+          div.appendChild(btn);
+          wrap.appendChild(div);
+        })(i);
+      }
+    }
+
+    function wpHandlePhotoFiles(files) {
+      if (!files || !files.length) return;
+      for (var i = 0; i < files.length; i++) {
+        if (wpHer11State.photos.length >= 3) break;
+        wpCompressImageFile(files[i], function(b64) {
+          if (wpHer11State.photos.length < 3) {
+            wpHer11State.photos.push(b64);
+            wpRenderPhotos();
+          }
+        });
+      }
+    }
+
+    function wpRemovePhoto(idx) {
+      wpHer11State.photos.splice(idx, 1);
+      wpRenderPhotos();
+    }
+
+    function wpCheckHer11Plz(val) {
+      var badge = document.getElementById('wpPlzBadge');
+      var txt = document.getElementById('wpPlzBadgeText');
+      if (!badge || !txt) return;
+      var m = String(val || '').match(/\b(\d{4})\b/);
+      if (!m) {
+        badge.className = 'wp-plz-badge';
+        return;
+      }
+      badge.className = 'wp-plz-badge in-area';
+      txt.textContent = 'PLZ ' + m[1] + ': Im schweizweiten HER11 Partner- & Ausbildungs-Netzwerk';
+    }
+
+    function wpStripEmojisForDom(str) {
+      return String(str || '').replace(/[\u{1F300}-\u{1FAFF}\u{2600}-\u{27BF}]/gu, '').replace(/\s+\n/g, '\n').trim();
+    }
+
+    function wpResetWizard() {
+      wpHer11State.step = 1;
+      wpHer11State.photos = [];
+      wpRenderPhotos();
+      var form = document.getElementById('her11ContactForm');
+      if (form) {
+        form.reset();
+        form.style.display = 'grid';
+      }
+      var sBox = document.getElementById('wpSuccessBox');
+      if (sBox) sBox.classList.remove('visible');
+      var err = document.getElementById('wpFormError');
+      if (err) err.style.display = 'none';
+      var badge = document.getElementById('wpPlzBadge');
+      if (badge) badge.className = 'wp-plz-badge';
+      wpSelectHer11Topic('Ausbildung als Spielerin');
+      wpSelectHer11Urgency('Planbar / Nach Absprache');
+      wpUpdateHeader();
+    }
+
+    function wpSubmitHer11Lead(e) {
+      if (e) e.preventDefault();
+      var errBox = document.getElementById('wpFormError');
+      if (errBox) errBox.style.display = 'none';
+
+      var name = (document.getElementById('contactName').value || '').trim();
+      var company = (document.getElementById('contactCompany').value || '').trim();
+      var loc = (document.getElementById('contactLoc').value || '').trim();
+      var street = (document.getElementById('contactStreet').value || '').trim();
+      var email = (document.getElementById('contactEmail').value || '').trim();
+      var phone = (document.getElementById('contactPhone').value || '').trim();
+      var msg = (document.getElementById('contactMessage').value || '').trim();
+      var d1 = (document.getElementById('wpDetail1').value || '').trim();
+      var d2 = (document.getElementById('wpDetail2').value || '').trim();
+      var hp = (document.getElementById('wpHoneypot').value || '').trim();
+
+      if (!name || (!phone && !email)) {
+        if (errBox) {
+          errBox.textContent = 'Bitte gib deinen Namen sowie deine E-Mail-Adresse oder Telefonnummer an.';
+          errBox.style.display = 'block';
+        }
+        return false;
+      }
+
+      var cfg = wpHer11RoleConfig[wpHer11State.topic] || wpHer11RoleConfig['Ausbildung als Spielerin'];
+      var extra = {};
+      extra[cfg.l1] = d1 || 'Keine Angabe';
+      extra[cfg.l2] = d2 || 'Keine Angabe';
+
+      var btn = document.getElementById('wpSubmitBtn');
+      var btnTxt = document.getElementById('wpSubmitBtnText');
+      if (btn) btn.disabled = true;
+      if (btnTxt) btnTxt.textContent = '1-Seiten-PDF-Dossier wird erstellt...';
+
+      var payload = {
+        client_slug: 'her11',
+        source_page: 'preview-her11/kontakt.html',
+        website_url: hp,
+        category: wpHer11State.topic,
+        sparte: wpHer11State.topic,
+        urgency: wpHer11State.urgency,
+        name: name,
+        company: company,
+        street: street,
+        plz: loc,
+        phone: phone,
+        email: email,
+        message: msg || ('Anfrage zum Bereich ' + wpHer11State.topic),
+        extra_fields: extra,
+        photos: wpHer11State.photos,
+        self_test_mode: true
+      };
+
+      fetch('/api/lead-submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      })
+      .then(function(r) { return r.json(); })
+      .then(function(res) {
+        if (btn) btn.disabled = false;
+        if (btnTxt) btnTxt.textContent = '1-Seiten-Dossier & Anfrage senden';
+        if (!res || !res.ok) {
+          if (errBox) {
+            errBox.textContent = (res && res.error) ? res.error : 'Übermittlung fehlgeschlagen. Bitte versuche es erneut.';
+            errBox.style.display = 'block';
+          }
+          return;
+        }
+        document.getElementById('her11ContactForm').style.display = 'none';
+        document.getElementById('wpResRef').textContent = res.ref_code || '#WP-2026';
+        document.getElementById('wpResAssigned').textContent = res.assigned_to || 'Jenny Ettle & Ramona Bachmann';
+        document.getElementById('wpResCallback').textContent = res.callback_window || 'Persönliche Rückmeldung';
+        var chTxt = '1-Seiten-PDF-Dossier erstellt';
+        if (res.email_sent) chTxt += ' · E-Mail mit PDF-Anhang zugestellt';
+        if (res.whatsapp_sent) chTxt += ' · WhatsApp-Sofortmeldung zugestellt';
+        document.getElementById('wpResChannels').textContent = chTxt;
+        var pdfBtn = document.getElementById('wpResPdfBtn');
+        if (pdfBtn && res.pdf_url) pdfBtn.href = res.pdf_url;
+        var waBox = document.getElementById('wpResWaPreview');
+        if (waBox) waBox.textContent = wpStripEmojisForDom(res.whatsapp_preview_text || '');
+        document.getElementById('wpSuccessBox').classList.add('visible');
+      })
+      .catch(function() {
+        if (btn) btn.disabled = false;
+        if (btnTxt) btnTxt.textContent = '1-Seiten-Dossier & Anfrage senden';
+        if (errBox) {
+          errBox.textContent = 'Netzwerkfehler bei der Übermittlung. Bitte schreibe uns direkt an info@her11.ch.';
+          errBox.style.display = 'block';
+        }
+      });
       return false;
     }
 
@@ -1234,9 +1954,7 @@
           'allgemein': 'Allgemeine Anfrage'
         };
         if (map[t]) {
-          var sel = document.getElementById('contactTopicSelect');
-          if (sel) sel.value = map[t];
-          syncTopicChips(map[t]);
+          wpSelectHer11Topic(map[t]);
         }
       } catch(err) {}
     })();

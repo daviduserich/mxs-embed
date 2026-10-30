@@ -225,7 +225,7 @@ def compile_site_dir(site_dir: Path, lang: str = "de", dry_run: bool = False) ->
 
 def main():
     parser = argparse.ArgumentParser(description="WebPilot i18n & Slot Unified Compiler")
-    parser.add_argument("--site", help="Site-Ordner (z.B. preview-hiltbrand, webpilot)")
+    parser.add_argument("--site", "--slug", dest="site", help="Site-Ordner oder Slug (z.B. hochuli, preview-hochuli, her11)")
     parser.add_argument("--lang", default="de", help="Sprache (de, fr, en)")
     parser.add_argument("--all", action="store_true", help="Alle Mandanten kompilieren")
     parser.add_argument("--dry-run", action="store_true", help="Änderungen nur anzeigen")
@@ -242,6 +242,8 @@ def main():
     target_dirs = []
     if args.site:
         p = BASE_DIR / args.site
+        if not p.is_dir() and (BASE_DIR / f"preview-{args.site}").is_dir():
+            p = BASE_DIR / f"preview-{args.site}"
         if not p.is_dir():
             p = Path(args.site).resolve()
         if not p.is_dir():

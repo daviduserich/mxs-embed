@@ -4866,7 +4866,7 @@ function acpFetchServerLog() {
 // Build: 2026-10-03 15:30 CEST
 // =======================================================
 var ACP_COCKPIT_VERSION = "v4.0.0";
-var ACP_COCKPIT_BUILD = "2026-10-30 20:17";
+var ACP_COCKPIT_BUILD = "2026-10-30 20:58";
 
 function sanitizeStellen(list) {
   if (!Array.isArray(list)) return [];
@@ -7427,7 +7427,7 @@ function acpNormalizeAndValidateSection(rawInput, secId) {
   }
 
   // Whitelist für legitime WebPilot-System-Handler (Navigation, Formulare, Stellen-Auswahl)
-  var allowedHandlers = /^(?:toggleDrawer\(\)|toggleMobileMenu\(\)|closeMobileMenu\(\)|document\.getElementById\(\x27mobileDrawer\x27\)\.classList\.(?:toggle|remove)\(\x27open\x27\)|filterSparten\([\s\S]*\)|selectQuizOpt\([\s\S]*\)|selectQuizOption\([\s\S]*\)|selectJobForApply\([\s\S]*\)|setJobChoice\([\s\S]*\)|toggleJobs\(\)|handleApplySubmit\(event\)|handleJobSubmit\(event\)|handleContactSubmit\(event\)|handleExpressApply\(event\)|sendeBewerbung\(event\)|submitCotraApplication\([\s\S]*\)|playInterviewVideo\(this\)|openLightbox\([\s\S]*\)|closeLightbox\(\)|toggleLightboxZoom\(event\)|event\.preventDefault\(\).*?|history\.back\(\))$/i;
+  var allowedHandlers = /^(?:toggleDrawer\(\)|toggleMobileMenu\(\)|closeMobileMenu\(\)|document\.getElementById\(\x27mobileDrawer\x27\)\.classList\.(?:toggle|remove)\(\x27open\x27\)|filterSparten\([\s\S]*\)|selectQuizOpt\([\s\S]*\)|selectQuizOption\([\s\S]*\)|selectJobForApply\([\s\S]*\)|setJobChoice\([\s\S]*\)|toggleJobs\(\)|handleApplySubmit\(event\)|handleJobSubmit\(event\)|handleContactSubmit\(event\)|handleHer11Submit\(event\)|handleHer11ContactSubmit\(event\)|selectContactTopic\([\s\S]*\)|syncTopicChips\([\s\S]*\)|selectRolePill\([\s\S]*\)|wp[a-zA-Z0-9_]+\([\s\S]*\)|return\s+wp[a-zA-Z0-9_]+\([\s\S]*\)|handleExpressApply\(event\)|sendeBewerbung\(event\)|submitCotraApplication\([\s\S]*\)|playInterviewVideo\(this\)|openLightbox\([\s\S]*\)|closeLightbox\(\)|toggleLightboxZoom\(event\)|event\.preventDefault\(\).*?|history\.back\(\))$/i;
   var evRegex = /\s(on[a-zA-Z]+)\s*=\s*(?:"([^"]*)"|'([^']*)'|([^\s>]+))/gi;
   var evMatch;
   while ((evMatch = evRegex.exec(clean)) !== null) {
