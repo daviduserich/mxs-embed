@@ -185,17 +185,9 @@ export async function onRequest(context) {
         });
       }
     }
-    // B) VORSCHAU-HOST (vorschau.magnet-xs.ch) oder PREVIEWS (preview-*):
-    // Verlangen Token oder Cookie, AUSSER bei Assets, Iframe-Embeds, Onboarding und öffentlichen Eigenmarken (mxs-talent)
-    else if ((isVorschauHost || isPreview) && !isPublicMxsBrand && !isEmbed && !hasValidToken && !hasValidCookie && !isAsset && !isOnboarding) {
-      if (clientSlug === 'birchmeier' || rootSegment.includes('birchmeier')) {
-        return Response.redirect('https://vorschau.magnet-xs.ch/webpilot/', 302);
-      }
-      return new Response('Vorschau geschützt. Bitte über das Mandanten-Cockpit mit Token aufrufen.', {
-        status: 403,
-        headers: { 'Content-Type': 'text/plain; charset=utf-8' }
-      });
-    }
+    // B) VORSCHAU-SEITEN (vorschau.magnet-xs.ch/[slug]/):
+    // Normale Webseiten-Vorschauen (ohne /cockpit) sind frei aufrufbar, damit Links direkt geteilt werden koennen.
+    // Nur das Cockpit (/cockpit) bleibt oben unter A) zwingend durch Token/Cookie geschuetzt.
   }
 
   // 3. Hostname: vorschau.magnet-xs.ch (Dynamisches Mandanten-Routing)
