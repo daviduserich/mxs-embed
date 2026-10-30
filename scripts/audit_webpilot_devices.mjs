@@ -238,6 +238,7 @@ async function auditPageZone(page, relPage, zone, screenshotDir) {
     if (VW >= 769) {
       const allEls = Array.from(document.body.querySelectorAll('*')).filter(isVisible);
       for (const el of allEls) {
+        if (el.classList.contains('acp-modal-backdrop')) continue;
         const st = window.getComputedStyle(el);
         if ((st.overflowY === 'auto' || st.overflowY === 'scroll') && el.scrollHeight > el.clientHeight + 4) {
           addFinding('P1', 'P1_MID_SCREEN_SCROLLBAR', getLabel(el), getCssPath(el), `scrollHeight=${el.scrollHeight} > clientHeight=${el.clientHeight}`);
@@ -245,7 +246,7 @@ async function auditPageZone(page, relPage, zone, screenshotDir) {
       }
     }
 
-    // 5. P2_EMOJI_IN_UI & Checkmarks (✓, ✔, ❌, ✅, Unicode Emojis) + 2-Radius-Architektur (#UI-01)
+    // 5. P2_EMOJI_IN_UI & Checkmarks (✓, ✔, ❌, ✅, Unicode Emojis) + 2-Radius-Architektur (#UI-01) + Unstyled Buttons
     const emojiRe = /[\u{1F1E6}-\u{1F1FF}\u{1F300}-\u{1FAFF}\u{2600}-\u{26FF}\u{2700}-\u{27BF}\u{231A}-\u{23F3}\u2713\u2714\u2717\u2718]/u;
     const allDom = Array.from(document.body.querySelectorAll('*')).filter(isVisible);
     for (const el of allDom) {
@@ -268,6 +269,13 @@ async function auditPageZone(page, relPage, zone, screenshotDir) {
       const br = window.getComputedStyle(el).borderTopLeftRadius;
       if (br && br !== '0px' && br !== '4px' && br !== '8px') {
         addFinding('P2', 'P2_BAD_RADIUS', getLabel(el), getCssPath(el), `Unerlaubter border-radius=${br} (Pflicht: 4px oder 8px nach #UI-01)`);
+      }
+      // Check for unstyled browser default buttons (buttonface / outset border)
+      if (el.tagName === 'BUTTON') {
+        const cs = window.getComputedStyle(el);
+        if (cs.borderTopStyle === 'outset' || cs.backgroundColor === 'rgb(239, 239, 239)' || cs.backgroundColor === 'buttonface') {
+          addFinding('P2', 'P2_UNSTYLED_BUTTON', getLabel(el), getCssPath(el), `Unstyled Browser-Standard-Button gefunden (bg=${cs.backgroundColor}, border=${cs.borderTopStyle})`);
+        }
       }
     }
 
@@ -358,6 +366,32 @@ async function main() {
     for (const zone of ZONES) {
       const f = await auditPageZone(page, relPage, zone, screenshotDir);
       allFindings.push(...f);
+    }
+
+    // If this is a cockpit page, also open #acp-sections-modal, audit all 3 zones, and capture screenshot
+    if (relPage.endsWith('cockpit.html')) {
+      for (const zone of ZONES) {
+        await page.setViewportSize({ width: zone.width, height: zone.height });
+        await page.evaluate(() => {
+          const modal = document.getElementById('acp-sections-modal');
+          if (modal && !modal.classList.contains('is-open')) {
+            if (typeof window.acpToggleSectionsModal === 'function') {
+              window.acpToggleSectionsModal();
+            } else {
+              modal.classList.add('is-open');
+            }
+          }
+        });
+        await page.waitForTimeout(350);
+        if (screenshotDir && (zone.width === 1440 || zone.width === 375)) {
+          fs.mkdirSync(screenshotDir, { recursive: true });
+          const clientPrefix = relPage.split('/')[0];
+          const shotName = `${clientPrefix}_cockpit_sections_modal_${zone.width}x${zone.height}.png`;
+          await page.screenshot({ path: path.join(screenshotDir, shotName), fullPage: false });
+        }
+        const mf = await auditPageZone(page, `${relPage}#sections-modal`, zone, null);
+        allFindings.push(...mf);
+      }
     }
   }
 

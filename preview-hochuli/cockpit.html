@@ -26,12 +26,12 @@
 </script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Hochuli Schlossrued AG · WebPilot Studio · v3.4.1</title>
+<title>Hochuli Schlossrued AG · WebPilot Studio · v4.0.0</title>
 <meta name="description" content="Interaktiver Recruiting-Simulator und Stellen-Verzeichnis für Kunden-Widgets. Vorschau, Wechsel zwischen Stellen und 1-Klick Einbettungscodes.">
 <link rel="icon" href="images/logo.png" type="image/png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..100,400..900&family=JetBrains+Mono:wght@400;600;700&family=Source+Sans+3:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..100,400..900&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&family=Source+Sans+3:wght@400;600;700;800&display=swap" rel="stylesheet">
 <style>
 :root {
   --rot: #EF4035;
@@ -102,7 +102,7 @@ a { color: var(--rot); text-decoration: none; }
   font-weight: 700;
   letter-spacing: 0.5px;
   padding: 5px 12px;
-  border-radius: 6px;
+  border-radius: 8px;
   text-transform: uppercase;
   text-decoration: none;
   transition: all 0.2s ease;
@@ -116,7 +116,7 @@ a { color: var(--rot); text-decoration: none; }
   width: 8px;
   height: 8px;
   background: #10b981;
-  border-radius: 50%;
+  border-radius: 8px;
   box-shadow: 0 0 8px #10b981;
 }
 .acp-cockpit-label {
@@ -185,7 +185,7 @@ a { color: var(--rot); text-decoration: none; }
   max-height: 480px;
   background: #0f172a;
   border: 1px solid rgba(255, 255, 255, 0.18);
-  border-radius: 12px;
+  border-radius: 8px;
   box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.7);
   z-index: 2500;
   display: none;
@@ -319,7 +319,7 @@ a { color: var(--rot); text-decoration: none; }
   align-items: center;
   gap: 7px;
   padding: 5px 12px;
-  border-radius: 6px;
+  border-radius: 8px;
   font-family: "JetBrains Mono", monospace;
   font-size: 11px;
   font-weight: 700;
@@ -345,7 +345,7 @@ a { color: var(--rot); text-decoration: none; }
 .acp-live-pulse-dot {
   width: 7px;
   height: 7px;
-  border-radius: 50%;
+  border-radius: 8px;
   background: #10b981;
   box-shadow: 0 0 8px #10b981;
   animation: acpPulse 2s infinite;
@@ -358,7 +358,7 @@ a { color: var(--rot); text-decoration: none; }
 .acp-draft-dot {
   width: 7px;
   height: 7px;
-  border-radius: 50%;
+  border-radius: 8px;
   background: #94a3b8;
 }
 .acp-badge-mini {
@@ -390,7 +390,7 @@ a { color: var(--rot); text-decoration: none; }
 .acp-pipeline-card {
   background: rgba(15, 23, 42, 0.85);
   border: 1px solid rgba(255, 255, 255, 0.12);
-  border-radius: 12px;
+  border-radius: 8px;
   padding: 16px;
   margin: 18px 0;
 }
@@ -441,7 +441,7 @@ a { color: var(--rot); text-decoration: none; }
   font-size: 11px;
   font-weight: 800;
   padding: 3px 7px;
-  border-radius: 5px;
+  border-radius: 4px;
   background: rgba(255, 255, 255, 0.1);
   color: #f1f5f9;
   flex-shrink: 0;
@@ -500,7 +500,7 @@ a { color: var(--rot); text-decoration: none; }
   font-size: 13px;
   font-weight: 700;
   padding: 8px 14px;
-  border-radius: 6px;
+  border-radius: 8px;
   cursor: pointer;
   transition: all 0.2s;
   display: inline-flex;
@@ -523,7 +523,7 @@ a { color: var(--rot); text-decoration: none; }
   font-size: 13px;
   font-weight: 700;
   padding: 8px 16px;
-  border-radius: 6px;
+  border-radius: 8px;
   cursor: pointer;
   transition: all 0.2s;
   display: inline-flex;
@@ -605,7 +605,7 @@ a { color: var(--rot); text-decoration: none; }
 .acp-swap-thumb {
   width: 40px;
   height: 40px;
-  border-radius: 6px;
+  border-radius: 8px;
   object-fit: cover;
   border: 1px solid rgba(255, 255, 255, 0.2);
   background: #020617;
@@ -628,7 +628,7 @@ a { color: var(--rot); text-decoration: none; }
   font-size: 13px;
   font-weight: 800;
   padding: 8px 16px;
-  border-radius: 6px;
+  border-radius: 8px;
   cursor: pointer;
   box-shadow: 0 2px 10px rgba(16, 185, 129, 0.4);
   transition: all 0.2s;
@@ -645,7 +645,7 @@ a { color: var(--rot); text-decoration: none; }
   font-size: 13px;
   font-weight: 700;
   padding: 8px 16px;
-  border-radius: 6px;
+  border-radius: 8px;
   cursor: pointer;
   transition: all 0.2s;
 }
@@ -658,7 +658,7 @@ a { color: var(--rot); text-decoration: none; }
   color: #94a3b8;
   border: 1px solid rgba(255, 255, 255, 0.15);
   padding: 7px 12px;
-  border-radius: 6px;
+  border-radius: 8px;
   cursor: pointer;
   font-size: 13px;
   transition: all 0.2s;
@@ -692,7 +692,7 @@ a { color: var(--rot); text-decoration: none; }
   font-size: 12px;
   font-weight: 600;
   padding: 5px 12px;
-  border-radius: 20px;
+  border-radius: 8px;
   cursor: pointer;
   transition: all 0.2s;
 }
@@ -706,7 +706,7 @@ a { color: var(--rot); text-decoration: none; }
   border: 1px solid rgba(255, 255, 255, 0.15);
   color: #ffffff;
   padding: 6px 14px;
-  border-radius: 6px;
+  border-radius: 8px;
   font-size: 12.5px;
   width: 250px;
   font-family: inherit;
@@ -726,7 +726,7 @@ a { color: var(--rot); text-decoration: none; }
 .acp-image-card {
   background: rgba(30, 41, 59, 0.5);
   border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 10px;
+  border-radius: 8px;
   overflow: hidden;
   display: flex;
   flex-direction: column;
@@ -806,7 +806,7 @@ a { color: var(--rot); text-decoration: none; }
   font-size: 11.5px;
   font-weight: 700;
   padding: 6px 10px;
-  border-radius: 6px;
+  border-radius: 8px;
   cursor: pointer;
   transition: all 0.2s;
   text-align: center;
@@ -823,7 +823,7 @@ a { color: var(--rot); text-decoration: none; }
   font-size: 11.5px;
   font-weight: 600;
   padding: 6px 10px;
-  border-radius: 6px;
+  border-radius: 8px;
   cursor: pointer;
   transition: all 0.2s;
 }
@@ -840,7 +840,7 @@ a { color: var(--rot); text-decoration: none; }
   font-size: 13px;
   font-weight: 700;
   padding: 8px 16px;
-  border-radius: 6px;
+  border-radius: 8px;
   cursor: pointer;
   transition: all 0.2s;
   display: inline-flex;
@@ -859,7 +859,7 @@ a { color: var(--rot); text-decoration: none; }
   font-size: 13px;
   font-weight: 700;
   padding: 8px 16px;
-  border-radius: 6px;
+  border-radius: 8px;
   cursor: pointer;
   transition: all 0.2s;
   display: inline-flex;
@@ -897,7 +897,7 @@ a { color: var(--rot); text-decoration: none; }
   letter-spacing: 0.8px;
   text-transform: uppercase;
   padding: 4px 12px;
-  border-radius: 6px;
+  border-radius: 8px;
   margin-bottom: 10px;
 }
 .host-header-mock h2 {
@@ -978,7 +978,7 @@ a { color: var(--rot); text-decoration: none; }
   letter-spacing: 0.8px;
   text-transform: uppercase;
   padding: 4px 12px;
-  border-radius: 6px;
+  border-radius: 8px;
   margin-bottom: 10px;
 }
 .host-footer-mock h2 {
@@ -1018,7 +1018,7 @@ a { color: var(--rot); text-decoration: none; }
 .acp-modal {
   background: #0f172a;
   border: 1px solid rgba(255, 255, 255, 0.15);
-  border-radius: 16px;
+  border-radius: 8px;
   width: 100%;
   max-width: 900px;
   max-height: 90vh;
@@ -1050,7 +1050,7 @@ a { color: var(--rot); text-decoration: none; }
   font-size: 22px;
   cursor: pointer;
   padding: 4px 8px;
-  border-radius: 6px;
+  border-radius: 8px;
 }
 .acp-modal-close:hover {
   color: #ffffff;
@@ -1114,7 +1114,7 @@ a { color: var(--rot); text-decoration: none; }
   font-size: 12px;
   font-weight: 700;
   padding: 6px 12px;
-  border-radius: 6px;
+  border-radius: 8px;
   cursor: pointer;
   margin-right: 6px;
   transition: all 0.15s;
@@ -1130,7 +1130,7 @@ a { color: var(--rot); text-decoration: none; }
   font-size: 12px;
   font-weight: 700;
   padding: 6px 12px;
-  border-radius: 6px;
+  border-radius: 8px;
   cursor: pointer;
   transition: all 0.15s;
 }
@@ -1168,7 +1168,7 @@ a { color: var(--rot); text-decoration: none; }
   background: rgba(255, 255, 255, 0.06);
   color: #94a3b8;
   border: 1px solid rgba(255, 255, 255, 0.12);
-  border-radius: 9999px;
+  border-radius: 8px;
   padding: 6px 14px;
   font-size: 12px;
   font-weight: 700;
@@ -1249,7 +1249,7 @@ a { color: var(--rot); text-decoration: none; }
   background: rgba(56, 189, 248, 0.1);
   border: 1px solid rgba(56, 189, 248, 0.25);
   padding: 4px 8px;
-  border-radius: 6px;
+  border-radius: 8px;
   display: inline-flex;
   align-items: center;
   gap: 6px;
@@ -1293,7 +1293,7 @@ a { color: var(--rot); text-decoration: none; }
   font-size: 12px;
   font-weight: 700;
   padding: 7px 14px;
-  border-radius: 6px;
+  border-radius: 8px;
   cursor: pointer;
   transition: all 0.15s;
   display: inline-flex;
@@ -1316,7 +1316,7 @@ a { color: var(--rot); text-decoration: none; }
 .acp-code-preview-box {
   background: #020617;
   border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 10px;
+  border-radius: 8px;
   padding: 16px;
 }
 .acp-code-preview-box h5 {
@@ -1333,7 +1333,7 @@ a { color: var(--rot); text-decoration: none; }
   color: #38bdf8;
   background: rgba(0, 0, 0, 0.4);
   padding: 12px;
-  border-radius: 6px;
+  border-radius: 8px;
   overflow-x: auto;
   line-height: 1.5;
   white-space: pre-wrap;
@@ -1371,7 +1371,7 @@ a { color: var(--rot); text-decoration: none; }
   -webkit-backdrop-filter: blur(12px);
   color: #f8fafc;
   padding: 9px 18px 9px 14px;
-  border-radius: 9999px;
+  border-radius: 8px;
   border: 1px solid rgba(255, 255, 255, 0.2);
   box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.4), 0 0 15px rgba(234, 179, 8, 0.25);
   cursor: pointer;
@@ -1387,7 +1387,7 @@ a { color: var(--rot); text-decoration: none; }
   width: 10px;
   height: 10px;
   background-color: #eab308;
-  border-radius: 50%;
+  border-radius: 8px;
   box-shadow: 0 0 0 0 rgba(234, 179, 8, 0.7);
   animation: acpPulse 2s infinite;
 }
@@ -1417,7 +1417,7 @@ a { color: var(--rot); text-decoration: none; }
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   border: 1px solid rgba(255, 255, 255, 0.15);
-  border-radius: 16px;
+  border-radius: 8px;
   box-shadow: 0 20px 40px -10px rgba(0,0,0,0.6);
   padding: 18px;
   color: #f8fafc;
@@ -1506,7 +1506,7 @@ a { color: var(--rot); text-decoration: none; }
   font-size: 13px;
   font-weight: 800;
   padding: 10px 14px;
-  border-radius: 10px;
+  border-radius: 8px;
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -1530,7 +1530,7 @@ a { color: var(--rot); text-decoration: none; }
   background: #0f172a;
   color: #ffffff;
   padding: 12px 24px;
-  border-radius: 12px;
+  border-radius: 8px;
   font-size: 13.5px;
   font-weight: 600;
   box-shadow: 0 16px 36px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,255,255,0.18);
@@ -1680,7 +1680,7 @@ body.acp-modal-open {
   vertical-align: middle !important;
 }
 .acp-version-badge::before {
-  content: "●" !important;
+  content: "" !important; width: 6px !important; height: 6px !important; border-radius: 4px !important; background: #10b981 !important; display: inline-block !important;
   font-size: 7px !important;
   color: #10b981 !important;
 }
@@ -1700,7 +1700,7 @@ body.acp-modal-open {
   font-size: 12.5px !important;
   font-weight: 600 !important;
   padding: 6px 12px !important;
-  border-radius: 6px !important;
+  border-radius: 8px !important;
   cursor: pointer !important;
   text-decoration: none !important;
   transition: all 0.15s ease !important;
@@ -1801,7 +1801,7 @@ body.acp-modal-open {
   margin: 0 auto !important;
   background: #0d121f !important;
   border: 1px solid rgba(255, 255, 255, 0.09) !important;
-  border-radius: 12px !important;
+  border-radius: 8px !important;
   box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.8), 0 0 0 1px rgba(255, 255, 255, 0.05) !important;
   overflow: hidden !important;
 }
@@ -1836,7 +1836,7 @@ body.acp-modal-open {
   margin: 0 auto !important;
   background: rgba(0, 0, 0, 0.35) !important;
   border: 1px solid rgba(255, 255, 255, 0.08) !important;
-  border-radius: 6px !important;
+  border-radius: 8px !important;
   padding: 5px 12px !important;
   display: flex !important;
   align-items: center !important;
@@ -1978,7 +1978,7 @@ body.acp-modal-open {
   font-size: 11px;
   font-weight: 700;
   padding: 3px 9px;
-  border-radius: 12px;
+  border-radius: 8px;
   font-family: 'JetBrains Mono', monospace;
 }
 .acp-inline-edit-col-right {
@@ -1993,7 +1993,7 @@ body.acp-modal-open {
   padding: 8px 16px !important;
   font-size: 13px !important;
   font-weight: 800 !important;
-  border-radius: 6px !important;
+  border-radius: 8px !important;
   cursor: pointer !important;
   transition: all 0.15s ease !important;
   display: inline-flex !important;
@@ -2016,7 +2016,7 @@ body.acp-modal-open {
   padding: 8px 14px !important;
   font-size: 12px !important;
   font-weight: 700 !important;
-  border-radius: 6px !important;
+  border-radius: 8px !important;
   cursor: pointer !important;
   transition: all 0.15s ease !important;
 }
@@ -2065,7 +2065,7 @@ body.acp-modal-open {
   padding: 8px 16px !important;
   font-size: 13px !important;
   font-weight: 800 !important;
-  border-radius: 6px !important;
+  border-radius: 8px !important;
   cursor: pointer !important;
   transition: all 0.15s ease !important;
   display: inline-flex !important;
@@ -2083,7 +2083,7 @@ body.acp-modal-open {
   padding: 8px 16px !important;
   font-size: 13px !important;
   font-weight: 700 !important;
-  border-radius: 6px !important;
+  border-radius: 8px !important;
   cursor: pointer !important;
   transition: all 0.15s ease !important;
 }
@@ -2098,7 +2098,7 @@ body.acp-modal-open {
   padding: 8px 16px !important;
   font-size: 12.5px !important;
   font-weight: 700 !important;
-  border-radius: 6px !important;
+  border-radius: 8px !important;
   cursor: pointer !important;
   display: inline-flex !important;
   align-items: center !important;
@@ -2143,7 +2143,7 @@ body.acp-modal-open {
   min-height: 100vh !important;
   background: transparent !important;
   border: none !important;
-  border-radius: 0 !important;
+  border-radius: 0px !important;
   box-shadow: none !important;
   margin: 0 !important;
   padding: 0 !important;
@@ -2182,7 +2182,7 @@ body.acp-modal-open {
   font-weight: 700 !important;
   cursor: pointer !important;
   padding: 8px 16px !important;
-  border-radius: 6px !important;
+  border-radius: 8px !important;
   display: inline-flex !important;
   align-items: center !important;
   gap: 6px !important;
@@ -2359,7 +2359,7 @@ body.acp-modal-open {
   background: #f59e0b !important;
   color: #0b0f19 !important;
   padding: 1px 6px !important;
-  border-radius: 3px !important;
+  border-radius: 4px !important;
 }
 .job-subline-row {
   display: flex !important;
@@ -2579,7 +2579,7 @@ a.badge-live:hover {
   color: #f59e0b !important;
   background: rgba(245, 158, 11, 0.1) !important;
   padding: 1px 5px !important;
-  border-radius: 3px !important;
+  border-radius: 4px !important;
   font-family: 'JetBrains Mono', monospace !important;
 }
 .acp-upload-status {
@@ -2623,7 +2623,7 @@ a.badge-live:hover {
   gap: 8px !important;
   background: #0d121f !important;
   border: 1px solid rgba(255, 255, 255, 0.1) !important;
-  border-radius: 6px !important;
+  border-radius: 8px !important;
   padding: 6px 12px !important;
   box-sizing: border-box !important;
 }
@@ -2683,7 +2683,7 @@ a.badge-live:hover {
   font-size: 12px !important;
   font-weight: 600 !important;
   padding: 8px 12px !important;
-  border-radius: 6px !important;
+  border-radius: 8px !important;
   cursor: pointer !important;
   display: inline-flex !important;
   align-items: center !important;
@@ -2807,7 +2807,7 @@ a.badge-live:hover {
   font-size: 12px !important;
   font-weight: 700 !important;
   padding: 8px 12px !important;
-  border-radius: 6px !important;
+  border-radius: 8px !important;
   cursor: pointer !important;
   transition: all 0.2s !important;
   text-align: center !important;
@@ -2826,7 +2826,7 @@ a.badge-live:hover {
   font-size: 12px !important;
   font-weight: 600 !important;
   padding: 8px 12px !important;
-  border-radius: 6px !important;
+  border-radius: 8px !important;
   cursor: pointer !important;
   transition: all 0.2s !important;
 }
@@ -2842,7 +2842,7 @@ a.badge-live:hover {
   font-size: 13px !important;
   font-weight: 600 !important;
   padding: 8px 10px !important;
-  border-radius: 6px !important;
+  border-radius: 8px !important;
   cursor: pointer !important;
   transition: all 0.2s !important;
   display: inline-flex !important;
@@ -2870,7 +2870,7 @@ a.badge-live:hover {
 .acp-section-card {
   background: rgba(15, 23, 42, 0.85);
   border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 14px;
+  border-radius: 8px;
   padding: 18px;
   display: flex;
   flex-direction: column;
@@ -2964,7 +2964,7 @@ a.badge-live:hover {
   font-size: 12px;
   font-weight: 700;
   padding: 7px 14px;
-  border-radius: 6px;
+  border-radius: 8px;
   border: none;
   display: inline-flex;
   align-items: center;
@@ -2995,7 +2995,7 @@ a.badge-live:hover {
   right: 30px;
   background: #0f172a;
   border: 1px solid #f59e0b;
-  border-radius: 12px;
+  border-radius: 8px;
   padding: 18px 24px;
   box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8), 0 0 30px rgba(245, 158, 11, 0.2);
   z-index: 9999;
@@ -3048,7 +3048,7 @@ a.badge-live:hover {
   height: auto !important;
   background: #0d131f !important;
   border: 1px solid rgba(245, 158, 11, 0.35) !important;
-  border-radius: 16px !important;
+  border-radius: 8px !important;
   box-shadow: 0 25px 80px rgba(0, 0, 0, 0.9), 0 0 40px rgba(245, 158, 11, 0.12) !important;
   padding: 28px !important;
   margin: auto !important;
@@ -3159,6 +3159,612 @@ html, body {
   }
 }
 
+
+
+
+
+/* ==========================================================================
+   COCKPIT v4.0: LUMINOUS OBSIDIAN & SCHWEIZER MONOCHROMIE (#UI-01, #UI-06)
+   ========================================================================== */
+:root {
+  --accent: #f0852d;
+  --accent-dark: #d4651a;
+  --accent-text: #ffa858;
+  --obsidian-bg: #07090e;
+  --obsidian-card: linear-gradient(180deg, rgba(22, 27, 38, 0.85) 0%, rgba(14, 18, 26, 0.95) 100%);
+  --obsidian-border: rgba(255, 255, 255, 0.08);
+  --obsidian-border-hover: rgba(255, 255, 255, 0.16);
+  --obsidian-bevel: inset 0 1px 0 0 rgba(255, 255, 255, 0.08), 0 12px 32px -8px rgba(0, 0, 0, 0.5);
+  --smoke-bg: rgba(255, 255, 255, 0.06);
+  --smoke-bg-hover: rgba(255, 255, 255, 0.11);
+  --smoke-border: rgba(255, 255, 255, 0.10);
+  --smoke-border-hover: rgba(255, 255, 255, 0.20);
+}
+
+::selection {
+  background: rgba(240, 133, 45, 0.28);
+  color: #ffffff;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif !important;
+  background-color: #07090e !important;
+  background-image: radial-gradient(ellipse at 50% 0%, rgba(240, 133, 45, 0.06) 0%, transparent 70%) !important;
+  color: #f1f5f9 !important;
+  caret-color: var(--accent);
+}
+
+/* 1. TOPBAR: SCHLANK, RUHIG, SCHWEIZER MONOCHROMIE */
+.acp-cockpit-bar {
+  background: rgba(7, 9, 14, 0.92) !important;
+  backdrop-filter: blur(16px) !important;
+  -webkit-backdrop-filter: blur(16px) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+  box-shadow: inset 0 -1px 0 0 rgba(255, 255, 255, 0.04), 0 8px 24px rgba(0, 0, 0, 0.45) !important;
+  padding: 8px 20px !important;
+}
+
+.acp-brand-badge {
+  background: rgba(255, 255, 255, 0.05) !important;
+  border: 1px solid rgba(255, 255, 255, 0.10) !important;
+  box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.06) !important;
+  color: #f8fafc !important;
+  padding: 6px 12px !important;
+  border-radius: 8px !important;
+  font-family: 'Plus Jakarta Sans', 'Inter', sans-serif !important;
+  font-size: 11.5px !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.06em !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+}
+.acp-brand-badge:hover {
+  background: rgba(255, 255, 255, 0.09) !important;
+  border-color: rgba(255, 255, 255, 0.18) !important;
+  color: #ffffff !important;
+}
+.acp-brand-signet {
+  width: 8px !important;
+  height: 8px !important;
+  border-radius: 4px !important;
+  background: linear-gradient(135deg, #f0852d 0%, #d4651a 100%) !important;
+  display: inline-block !important;
+  flex-shrink: 0 !important;
+}
+
+.acp-job-picker-btn {
+  background: rgba(255, 255, 255, 0.05) !important;
+  border: 1px solid rgba(255, 255, 255, 0.10) !important;
+  box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.06) !important;
+  color: #f8fafc !important;
+  font-family: 'Inter', sans-serif !important;
+  font-size: 13px !important;
+  font-weight: 600 !important;
+  padding: 6px 12px !important;
+  border-radius: 8px !important;
+}
+.acp-job-picker-btn:hover {
+  background: rgba(255, 255, 255, 0.10) !important;
+  border-color: rgba(255, 255, 255, 0.18) !important;
+}
+
+/* Topbar Nav Buttons: Titanium-Rauchglas Monochromie */
+.acp-nav-btn,
+.acp-nav-btn-directory,
+.acp-nav-btn-sections,
+.acp-nav-btn-preview-ext,
+.acp-nav-btn-online,
+.acp-nav-btn-log {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+  background: rgba(255, 255, 255, 0.05) !important;
+  border: 1px solid rgba(255, 255, 255, 0.09) !important;
+  box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.05) !important;
+  color: #e2e8f0 !important;
+  font-family: 'Inter', sans-serif !important;
+  font-size: 12px !important;
+  font-weight: 600 !important;
+  padding: 5px 10px !important;
+  white-space: nowrap !important;
+  border-radius: 8px !important;
+  cursor: pointer !important;
+  text-decoration: none !important;
+  transition: all 0.18s ease !important;
+}
+.acp-nav-btn:hover,
+.acp-nav-btn-directory:hover,
+.acp-nav-btn-sections:hover,
+.acp-nav-btn-preview-ext:hover,
+.acp-nav-btn-online:hover,
+.acp-nav-btn-log:hover {
+  background: rgba(255, 255, 255, 0.11) !important;
+  border-color: rgba(255, 255, 255, 0.20) !important;
+  color: #ffffff !important;
+  box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.08) !important;
+}
+.acp-nav-btn .nav-icon,
+.acp-nav-btn .nav-label {
+  color: inherit !important;
+  font-weight: inherit !important;
+  display: inline-flex !important;
+  align-items: center !important;
+}
+
+/* Einziger Primär-Akzent in der Topbar: Direkt-Bearbeitung */
+.acp-nav-btn-inline-edit {
+  background: linear-gradient(135deg, rgba(240, 133, 45, 0.16) 0%, rgba(212, 101, 26, 0.10) 100%) !important;
+  border: 1px solid rgba(240, 133, 45, 0.38) !important;
+  color: #ffa858 !important;
+  font-weight: 700 !important;
+}
+.acp-nav-btn-inline-edit:hover {
+  background: linear-gradient(135deg, #f0852d 0%, #d4651a 100%) !important;
+  border-color: rgba(255, 255, 255, 0.20) !important;
+  color: #ffffff !important;
+}
+.acp-nav-btn-inline-edit.is-active {
+  background: rgba(16, 185, 129, 0.16) !important;
+  border-color: rgba(16, 185, 129, 0.45) !important;
+  color: #34d399 !important;
+}
+
+/* 2. GLOBALES BUTTON-SYSTEM (ZEN MONOCHROMIE — NIE WIEDER BROWSER-BUTTONFACE!) */
+.acp-btn-primary,
+.btn-inline-save:not([disabled]),
+.acp-publish-btn,
+.btn-swap-exec {
+  background: linear-gradient(135deg, #f0852d 0%, #d4651a 100%) !important;
+  color: #ffffff !important;
+  border: 1px solid rgba(255, 255, 255, 0.15) !important;
+  box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.25), 0 4px 14px rgba(240, 133, 45, 0.28) !important;
+  border-radius: 8px !important;
+  font-family: 'Plus Jakarta Sans', 'Inter', sans-serif !important;
+  font-weight: 700 !important;
+  font-size: 13px !important;
+  padding: 9px 16px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 8px !important;
+  cursor: pointer !important;
+  transition: all 0.18s ease !important;
+  text-decoration: none !important;
+  line-height: 1.2 !important;
+}
+.acp-btn-primary:hover,
+.btn-inline-save:not([disabled]):hover,
+.acp-publish-btn:hover,
+.btn-swap-exec:hover {
+  filter: brightness(1.08) !important;
+  transform: translateY(-1px) !important;
+  box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.35), 0 6px 20px rgba(240, 133, 45, 0.38) !important;
+  color: #ffffff !important;
+}
+
+.acp-btn-secondary,
+.acp-btn-ghost,
+.btn-card-swap,
+.btn-card-choose,
+.btn-card-copy,
+.btn-table-copy,
+.btn-job-action,
+.btn-job-switch,
+.acp-refresh-btn,
+.btn-swap-prompt,
+.acp-btn-code {
+  background: rgba(255, 255, 255, 0.06) !important;
+  color: #f1f5f9 !important;
+  border: 1px solid rgba(255, 255, 255, 0.10) !important;
+  box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.06) !important;
+  border-radius: 8px !important;
+  font-family: 'Inter', sans-serif !important;
+  font-weight: 600 !important;
+  font-size: 13px !important;
+  padding: 9px 14px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 8px !important;
+  cursor: pointer !important;
+  transition: all 0.18s ease !important;
+  text-decoration: none !important;
+  line-height: 1.2 !important;
+}
+.acp-btn-secondary:hover,
+.acp-btn-ghost:hover,
+.btn-card-swap:hover,
+.btn-card-choose:hover,
+.btn-card-copy:hover,
+.btn-table-copy:hover,
+.btn-job-action:hover,
+.btn-job-switch:hover,
+.acp-refresh-btn:hover,
+.btn-swap-prompt:hover,
+.acp-btn-code:hover {
+  background: rgba(255, 255, 255, 0.11) !important;
+  border-color: rgba(255, 255, 255, 0.20) !important;
+  color: #ffffff !important;
+  transform: translateY(-1px) !important;
+}
+
+/* KI-Aktion auf Sektions-Karten: Titanium-Rauchglas mit feinem Bernstein-Icon */
+.acp-btn-card-ai {
+  background: rgba(240, 133, 45, 0.08) !important;
+  border-color: rgba(240, 133, 45, 0.24) !important;
+  color: #f8fafc !important;
+}
+.acp-btn-card-ai svg {
+  color: #ffa858 !important;
+}
+.acp-btn-card-ai:hover {
+  background: rgba(240, 133, 45, 0.16) !important;
+  border-color: rgba(240, 133, 45, 0.45) !important;
+  color: #ffffff !important;
+}
+
+/* Icon-Only Buttons (z.B. Auge-Vorschau, Löschen, Tools) */
+.acp-btn-icon,
+.btn-job-tool,
+.btn-card-delete {
+  background: rgba(255, 255, 255, 0.06) !important;
+  color: #cbd5e1 !important;
+  border: 1px solid rgba(255, 255, 255, 0.10) !important;
+  box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.06) !important;
+  border-radius: 8px !important;
+  padding: 9px 11px !important;
+  min-width: 36px !important;
+  min-height: 36px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  cursor: pointer !important;
+  transition: all 0.18s ease !important;
+  flex-shrink: 0 !important;
+}
+.acp-btn-icon:hover,
+.btn-job-tool:hover {
+  background: rgba(255, 255, 255, 0.12) !important;
+  border-color: rgba(255, 255, 255, 0.22) !important;
+  color: #ffffff !important;
+  transform: translateY(-1px) !important;
+}
+.btn-card-delete:hover:not(.is-disabled) {
+  background: rgba(239, 68, 68, 0.18) !important;
+  border-color: rgba(239, 68, 68, 0.45) !important;
+  color: #fca5a5 !important;
+}
+
+/* Schliessen-Buttons (.acp-btn-close & .acp-modal-close) */
+.acp-btn-close,
+.acp-modal-close,
+.acp-close-btn,
+.btn-inline-cancel,
+.btn-swap-cancel {
+  background: rgba(255, 255, 255, 0.06) !important;
+  color: #cbd5e1 !important;
+  border: 1px solid rgba(255, 255, 255, 0.10) !important;
+  box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.06) !important;
+  border-radius: 8px !important;
+  font-family: 'Inter', sans-serif !important;
+  font-weight: 600 !important;
+  font-size: 13px !important;
+  padding: 9px 14px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 7px !important;
+  cursor: pointer !important;
+  transition: all 0.18s ease !important;
+  line-height: 1.2 !important;
+}
+.acp-btn-close:hover,
+.acp-modal-close:hover,
+.acp-close-btn:hover,
+.btn-inline-cancel:hover,
+.btn-swap-cancel:hover {
+  background: rgba(255, 255, 255, 0.12) !important;
+  border-color: rgba(255, 255, 255, 0.22) !important;
+  color: #ffffff !important;
+}
+
+.acp-modal-actions {
+  display: flex !important;
+  align-items: center !important;
+  gap: 10px !important;
+  flex-wrap: wrap !important;
+  flex-shrink: 1 !important;
+  max-width: 100% !important;
+}
+
+/* 3. LUMINOUS OBSIDIAN SURFACES, MODALS & CARDS */
+.acp-studio-canvas,
+.acp-modal-backdrop {
+  background-color: #07090e !important;
+  background-image: radial-gradient(ellipse at 50% 0%, rgba(240, 133, 45, 0.06) 0%, transparent 70%) !important;
+}
+
+.acp-modal-head,
+#acp-directory-modal .acp-modal-head,
+#acp-images-modal .acp-modal-head,
+#acp-help-modal .acp-modal-head,
+#acp-sections-modal .acp-modal-head {
+  background: rgba(7, 9, 14, 0.92) !important;
+  backdrop-filter: blur(16px) !important;
+  -webkit-backdrop-filter: blur(16px) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+  padding: 20px 36px !important;
+  gap: 20px !important;
+  flex-wrap: wrap !important;
+}
+
+/* Freistehende Kicker ohne // Code-Slashes (#UI-01, #UI-03) */
+.acp-modal-kicker,
+.acp-sec-kicker {
+  font-family: 'Plus Jakarta Sans', 'Inter', sans-serif !important;
+  font-size: 11px !important;
+  font-weight: 700 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.08em !important;
+  color: #ffa858 !important;
+  background: transparent !important;
+  border: none !important;
+  padding: 0 !important;
+  box-shadow: none !important;
+  margin-bottom: 6px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+}
+.acp-modal-kicker::before {
+  content: "" !important;
+  width: 14px !important;
+  height: 2px !important;
+  background: #f0852d !important;
+  display: inline-block !important;
+  flex-shrink: 0 !important;
+}
+
+.acp-modal-heading {
+  font-family: 'Plus Jakarta Sans', 'Inter', sans-serif !important;
+  font-size: 21px !important;
+  font-weight: 800 !important;
+  letter-spacing: -0.02em !important;
+  color: #ffffff !important;
+  margin: 0 !important;
+}
+
+.acp-modal-subline,
+.acp-modal-subdesc {
+  font-family: 'Inter', sans-serif !important;
+  font-size: 13.5px !important;
+  color: #94a3b8 !important;
+  margin: 6px 0 0 0 !important;
+  max-width: 720px !important;
+  line-height: 1.5 !important;
+}
+
+/* Edle Tiefen-Karten (Luminous Obsidian Bevel) */
+.acp-section-card,
+.acp-image-card,
+.acp-studio-banner,
+.acp-jobs-table-wrap,
+.acp-code-preview-box,
+.acp-pipeline-card,
+#acp-replace-section-modal .acp-modal,
+#acp-new-section-modal .acp-modal,
+#acp-log-modal .acp-modal {
+  background: linear-gradient(180deg, rgba(22, 27, 38, 0.85) 0%, rgba(14, 18, 26, 0.95) 100%) !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.08), 0 12px 32px -8px rgba(0, 0, 0, 0.5) !important;
+  border-radius: 8px !important;
+}
+
+.acp-section-card {
+  padding: 20px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: space-between !important;
+  gap: 16px !important;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease !important;
+}
+.acp-section-card:hover,
+.acp-image-card:hover {
+  border-color: rgba(255, 255, 255, 0.16) !important;
+  box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.12), 0 16px 36px -8px rgba(0, 0, 0, 0.65) !important;
+  transform: translateY(-2px) !important;
+}
+
+/* Sektions-Karten Kopfzeile (Kategorie-Tag links, Abschnitts-Nummer rechts) */
+.acp-sec-head {
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  gap: 8px !important;
+  margin-bottom: 12px !important;
+}
+.acp-sec-archetype-pill {
+  font-family: 'Inter', sans-serif !important;
+  font-size: 11px !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.05em !important;
+  text-transform: uppercase !important;
+  padding: 4px 9px !important;
+  border-radius: 4px !important;
+  background: rgba(255, 255, 255, 0.05) !important;
+  border: 1px solid rgba(255, 255, 255, 0.09) !important;
+  color: #cbd5e1 !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+}
+.acp-sec-archetype-pill.is-primary {
+  background: rgba(240, 133, 45, 0.12) !important;
+  border-color: rgba(240, 133, 45, 0.28) !important;
+  color: #ffa858 !important;
+}
+.acp-sec-id-badge {
+  font-family: 'Inter', sans-serif !important;
+  font-size: 11px !important;
+  font-weight: 600 !important;
+  color: #94a3b8 !important;
+  background: rgba(255, 255, 255, 0.04) !important;
+  padding: 3px 8px !important;
+  border-radius: 4px !important;
+  border: 1px solid rgba(255, 255, 255, 0.07) !important;
+  font-variant-numeric: tabular-nums !important;
+}
+
+/* Miniatur-Vorschau (.acp-sec-mini-stage) ohne schwarze Löcher */
+.acp-sec-mini-stage {
+  position: relative !important;
+  width: 100% !important;
+  height: 168px !important;
+  border-radius: 8px !important;
+  overflow: hidden !important;
+  background-color: #0d1320 !important;
+  background-image: radial-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px) !important;
+  background-size: 16px 16px !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.05) !important;
+  cursor: pointer !important;
+}
+.acp-sec-mini-stage.is-compact-stage {
+  height: 148px !important;
+}
+.acp-sec-mini-iframe {
+  width: 400% !important;
+  height: 680px !important;
+  border: none !important;
+  transform: scale(0.25) !important;
+  transform-origin: 0 0 !important;
+  pointer-events: none !important;
+  background: #0d1320 !important;
+}
+.acp-sec-mini-stage.is-compact-stage .acp-sec-mini-iframe {
+  height: 592px !important;
+}
+.acp-sec-mini-overlay {
+  background: rgba(7, 9, 14, 0.72) !important;
+  backdrop-filter: blur(3px) !important;
+}
+.acp-sec-mini-jump-btn {
+  background: linear-gradient(135deg, #f0852d 0%, #d4651a 100%) !important;
+  color: #ffffff !important;
+  font-family: 'Plus Jakarta Sans', 'Inter', sans-serif !important;
+  font-size: 12.5px !important;
+  font-weight: 700 !important;
+  padding: 8px 14px !important;
+  border-radius: 8px !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 7px !important;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5) !important;
+  cursor: pointer !important;
+}
+
+.acp-sec-title {
+  font-family: 'Plus Jakarta Sans', 'Inter', sans-serif !important;
+  color: #ffffff !important;
+  font-size: 15.5px !important;
+  font-weight: 700 !important;
+  line-height: 1.35 !important;
+  margin: 0 0 8px 0 !important;
+}
+.acp-sec-meta-row {
+  display: flex !important;
+  align-items: center !important;
+  gap: 14px !important;
+  font-size: 12px !important;
+  color: #94a3b8 !important;
+  font-family: 'Inter', sans-serif !important;
+  font-variant-numeric: tabular-nums !important;
+  flex-wrap: wrap !important;
+}
+.acp-sec-meta-tag {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 5px !important;
+}
+.acp-sec-meta-tag svg {
+  color: #64748b !important;
+}
+.acp-sec-actions {
+  display: flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  flex-wrap: nowrap !important;
+  padding-top: 14px !important;
+  border-top: 1px solid rgba(255, 255, 255, 0.08) !important;
+}
+.acp-sec-actions .acp-btn-secondary {
+  flex: 1 1 auto !important;
+  padding: 8px 10px !important;
+  font-size: 12px !important;
+  white-space: nowrap !important;
+}
+
+/* Filter-Pills in Bilder & Seiten-Zentrale (Strikte 8px statt 9999px) */
+.acp-filter-pill,
+.acp-job-filter-pill {
+  background: rgba(255, 255, 255, 0.05) !important;
+  color: #cbd5e1 !important;
+  border: 1px solid rgba(255, 255, 255, 0.10) !important;
+  border-radius: 8px !important;
+  padding: 6px 13px !important;
+  font-family: 'Inter', sans-serif !important;
+  font-size: 12px !important;
+  font-weight: 600 !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+  cursor: pointer !important;
+  transition: all 0.15s ease !important;
+}
+.acp-filter-pill:hover,
+.acp-job-filter-pill:hover {
+  background: rgba(255, 255, 255, 0.10) !important;
+  color: #ffffff !important;
+}
+.acp-filter-pill.active,
+.acp-job-filter-pill.active {
+  background: rgba(240, 133, 45, 0.16) !important;
+  border-color: rgba(240, 133, 45, 0.45) !important;
+  color: #ffa858 !important;
+  box-shadow: none !important;
+}
+
+@media (max-width: 768px) {
+  .acp-modal-head,
+  #acp-directory-modal .acp-modal-head,
+  #acp-images-modal .acp-modal-head,
+  #acp-help-modal .acp-modal-head,
+  #acp-sections-modal .acp-modal-head {
+    padding: 14px 16px !important;
+  }
+  .acp-modal-actions {
+    width: 100% !important;
+    max-width: 100% !important;
+    gap: 8px !important;
+  }
+  .acp-modal-actions > button {
+    flex: 1 1 auto !important;
+    padding: 8px 10px !important;
+    font-size: 12px !important;
+  }
+  .acp-modal-body,
+  #acp-directory-modal .acp-modal-body,
+  #acp-images-modal .acp-modal-body,
+  #acp-help-modal .acp-modal-body {
+    padding: 16px 14px 80px 14px !important;
+  }
+  #acp-sections-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+
 </style>
 </head>
 <body>
@@ -3169,17 +3775,17 @@ html, body {
 </div>
 
 <!-- ======================================================= -->
-<!-- [LEISTE 0]: ACP STELLEN-COCKPIT & WIDGET-WECHSLER       -->
+<!-- [LEISTE 0]: WEBPILOT STUDIO COCKPIT & SEITEN-WECHSLER   -->
 <!-- ======================================================= -->
 <header class="acp-cockpit-bar">
   <div class="acp-cockpit-inner">
     <div class="acp-cockpit-left">
       <div class="acp-brand-cluster">
         <a href="https://embed.magnet-xs.ch/preview-hochuli/cockpit" target="_blank" class="acp-brand-badge" id="acp-brand-badge" title="WebPilot Studio">
-          <span class="acp-brand-signet">⬥</span>
+          <span class="acp-brand-signet"></span>
           <span class="acp-brand-text" id="acp-brand-label">WEBPILOT STUDIO</span>
         </a>
-        <span class="acp-version-badge" id="acp-version-badge" title="WebPilot Framework v3.4.1">v3.4.1</span>
+        <span class="acp-version-badge" id="acp-version-badge" title="WebPilot Framework v4.0.0">v4.0.0</span>
       </div>
 
       <div class="acp-topbar-divider"></div>
@@ -3207,13 +3813,13 @@ html, body {
     </div>
 
     <div class="acp-cockpit-right">
-            <button type="button" class="acp-nav-btn acp-nav-btn-inline-edit" id="acp-btn-toggle-inline-edit" onclick="acpToggleInlineEdit()" title="Texte direkt im Simulator anklicken und umschreiben (wie in Word)" style="border-color: rgba(16, 185, 129, 0.4); background: rgba(16, 185, 129, 0.1);">
+      <button type="button" class="acp-nav-btn acp-nav-btn-inline-edit" id="acp-btn-toggle-inline-edit" onclick="acpToggleInlineEdit()" title="Texte und Bilder direkt im Simulator anklicken und anpassen">
         <span class="nav-icon" style="display:inline-flex;align-items:center;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg></span>
-        <span class="nav-label" style="color: #34d399; font-weight: 700;">Text &amp; Bild umschreiben</span>
+        <span class="nav-label">Direkt bearbeiten</span>
       </button>
-      <button type="button" class="acp-nav-btn acp-nav-btn-sections" onclick="acpToggleSectionsModal()" title="Sektionen &amp; KI-Baukasten mit vollem Seiten-Kontext" style="border-color: rgba(245, 158, 11, 0.4); background: rgba(245, 158, 11, 0.1);">
+      <button type="button" class="acp-nav-btn acp-nav-btn-sections" onclick="acpToggleSectionsModal()" title="Seiten-Abschnitte &amp; KI-Assistent mit vollem Seiten-Kontext">
         <span class="nav-icon" style="display:inline-flex;align-items:center;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg></span>
-        <span class="nav-label" style="color: #fbbf24; font-weight: 700;">Sektionen &amp; KI</span>
+        <span class="nav-label">Sektionen &amp; KI</span>
       </button>
       <button type="button" class="acp-nav-btn" onclick="acpToggleImagesModal()" title="Bilder-Pool durchsuchen &amp; tauschen">
         <span class="nav-icon" style="display:inline-flex;align-items:center;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg></span>
@@ -3227,18 +3833,18 @@ html, body {
         <span class="nav-icon" style="display:inline-flex;align-items:center;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg></span>
         <span class="nav-label">Code</span>
       </button>
-            <button type="button" class="acp-nav-btn acp-nav-btn-log" id="acp-btn-live-log" onclick="acpToggleLogModal()" title="Live-Aktivitäts-Logbuch &amp; Audit-Trail">
+      <button type="button" class="acp-nav-btn acp-nav-btn-log" id="acp-btn-live-log" onclick="acpToggleLogModal()" title="Live-Aktivitäts-Protokoll &amp; Verlauf">
         <span class="nav-icon" style="display:inline-flex;align-items:center;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></span>
-        <span class="nav-label">Log</span>
-        <span class="nav-badge" id="acp-log-count" style="display:none; background:#d97706; color:#fff; border-radius:10px; padding:1px 6px; font-size:10px; font-weight:700; margin-left:4px;">0</span>
+        <span class="nav-label">Verlauf</span>
+        <span class="nav-badge" id="acp-log-count" style="display:none; background:#d97706; color:#fff; border-radius:4px; padding:1px 6px; font-size:10px; font-weight:700; margin-left:4px;">0</span>
       </button>
       <button type="button" class="acp-nav-btn" onclick="acpToggleHelpModal()" title="Anleitung &amp; Erklärung">
         <span class="nav-icon" style="display:inline-flex;align-items:center;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></span>
         <span class="nav-label">Hilfe</span>
       </button>
-      <a href="#" target="_blank" class="acp-nav-btn acp-nav-btn-preview-ext" id="acp-btn-open-preview-tab" onclick="acpOpenPreviewInNewTab(event)" title="Vorschau-Seite im neuen Browser-Tab öffnen (Vollbild ohne Cockpit)" style="border-color: rgba(59, 130, 246, 0.45); background: rgba(59, 130, 246, 0.12);">
-        <span class="nav-icon" style="color: #60a5fa;">↗</span>
-        <span class="nav-label" style="color: #93c5fd; font-weight: 700;">Vorschau</span>
+      <a href="#" target="_blank" class="acp-nav-btn acp-nav-btn-preview-ext" id="acp-btn-open-preview-tab" onclick="acpOpenPreviewInNewTab(event)" title="Vorschau-Seite im neuen Browser-Tab öffnen (Vollbild ohne Cockpit)">
+        <span class="nav-icon" style="display:inline-flex;align-items:center;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></span>
+        <span class="nav-label">Vorschau</span>
       </a>
       <a href="https://embed.magnet-xs.ch/preview-hochuli/cockpit" target="_blank" class="acp-nav-btn acp-nav-btn-online" id="acp-online-btn" title="Online-Cockpit aufrufen">
         <span class="nav-icon" style="display:inline-flex;align-items:center;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/></svg></span>
@@ -3258,16 +3864,25 @@ html, body {
       <img id="acp-swap-source-thumb" class="acp-swap-thumb" src="" alt="Neues Bild">
       <strong id="acp-swap-source-name" style="color:#f8fafc; font-size:13px; font-family:'JetBrains Mono',monospace;"></strong>
     </div>
-    <div class="acp-swap-arrow">➔</div>
+    <div class="acp-swap-arrow">→</div>
     <div class="acp-swap-col" id="acp-swap-target-box">
-      <span class="acp-swap-badge acp-swap-badge-target">2. ZIEL IM INSERAT:</span>
-      <span id="acp-swap-target-hint" style="color:#94a3b8; font-size:13px;">👉 Klicke jetzt in der Vorschau auf das zu ersetzende Bild!</span>
+      <span class="acp-swap-badge acp-swap-badge-target">2. ZIEL AUF DER SEITE:</span>
+      <span id="acp-swap-target-hint" style="color:#94a3b8; font-size:13px;">Klicke jetzt in der Vorschau auf das zu ersetzende Bild.</span>
     </div>
     <div class="acp-swap-actions" id="acp-swap-actions" style="display:none;">
-      <button type="button" class="btn-swap-exec" onclick="acpExecuteDirectSwap()" title="Sofort ohne KI im HTML austauschen">⚡ Direkt im HTML tauschen</button>
-      <button type="button" class="btn-swap-prompt" onclick="acpCopyCombinedPrompt()" title="Prompt für ChatGPT mit Golden-Prompt-Schutz kopieren">🤖 ChatGPT-Befehl</button>
+      <button type="button" class="btn-swap-exec" onclick="acpExecuteDirectSwap()" title="Sofort ohne KI im HTML austauschen">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+        <span>Direkt im HTML tauschen</span>
+      </button>
+      <button type="button" class="btn-swap-prompt" onclick="acpCopyCombinedPrompt()" title="Prompt für ChatGPT kopieren">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+        <span>KI-Befehl kopieren</span>
+      </button>
     </div>
-    <button type="button" class="btn-swap-cancel" onclick="acpCancelSwap()" title="Tausch-Vorgang abbrechen (ESC-Taste)">✕ Abbrechen (ESC)</button>
+    <button type="button" class="btn-swap-cancel" onclick="acpCancelSwap()" title="Tausch-Vorgang abbrechen (ESC-Taste)">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      <span>Abbrechen (ESC)</span>
+    </button>
   </div>
 </div>
 
@@ -3277,17 +3892,21 @@ html, body {
 <div id="acp-inline-edit-dock" class="acp-inline-edit-dock">
   <div class="acp-inline-edit-dock-inner">
     <div class="acp-inline-edit-col-left">
-      <span class="acp-inline-edit-badge">✏️ DIREKT-BEARBEITUNG AKTIV</span>
-      <span id="acp-inline-edit-status-text" class="acp-inline-edit-status">👉 Klicke auf einen Text zum Umschreiben – oder klicke auf ein Bild, um Grösse &amp; Fokus direkt anzupassen!</span>
-      <span id="acp-inline-edit-dirty-badge" class="acp-inline-edit-dirty" style="display:none;">0 Sektionen geändert</span>
+      <span class="acp-inline-edit-badge" style="display:inline-flex;align-items:center;gap:6px;">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+        <span>DIREKT-BEARBEITUNG AKTIV</span>
+      </span>
+      <span id="acp-inline-edit-status-text" class="acp-inline-edit-status">Klicke direkt auf einen Text zum Umschreiben oder auf ein Bild, um Grösse und Fokus anzupassen.</span>
+      <span id="acp-inline-edit-dirty-badge" class="acp-inline-edit-dirty" style="display:none;">0 Abschnitte geändert</span>
     </div>
     <div class="acp-inline-edit-col-right">
       <button type="button" id="acp-btn-save-inline" class="btn-inline-save" onclick="acpSaveInlineEdits()" disabled>
-        <span>💾</span>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
         <span id="acp-btn-save-inline-lbl">Änderungen live speichern</span>
       </button>
       <button type="button" class="btn-inline-cancel" onclick="acpToggleInlineEdit(false)" title="Bearbeitungsmodus beenden">
-        ✕ Beenden
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        <span>Beenden</span>
       </button>
     </div>
   </div>
@@ -3298,7 +3917,6 @@ html, body {
 <!-- ======================================================= -->
 <main class="acp-studio-canvas">
   <div class="acp-studio-stage">
-    <!-- Studio Browser Simulation Bar -->
     <div class="acp-stage-browser-bar">
       <div class="acp-browser-dots">
         <span class="b-dot red"></span>
@@ -3319,50 +3937,51 @@ html, body {
       </div>
     </div>
 
-    <!-- Recruiting Widget Viewport -->
     <div class="widget-viewport-wrap">
-      <iframe id="acp-widget-viewport" src="index.html?embed=true" scrolling="auto" title="Recruiting Widget"></iframe>
+      <iframe id="acp-widget-viewport" src="index.html?embed=true" scrolling="auto" title="WebPilot Live-Simulator"></iframe>
     </div>
   </div>
 </main>
 
 <!-- ======================================================= -->
-
-<!-- ======================================================= -->
-<!-- MODAL: BILDER-VERZEICHNIS & ASSET-GALERIE               -->
-<!-- ======================================================= -->
-<!-- ======================================================= -->
-<!-- MODAL: SEKTIONEN & KI-BAUKASTEN                         -->
+<!-- MODAL: SEKTIONEN & KI-ASSISTENT                         -->
 <!-- ======================================================= -->
 <div id="acp-sections-modal" class="acp-modal-backdrop" onclick="if(event.target===this)acpToggleSectionsModal()">
   <div class="acp-modal acp-modal-fullscreen">
     <div class="acp-modal-head">
       <div>
-        <div class="acp-modal-kicker">// WEBPILOT FREIHEIT ⬥ INTERAKTIVER KI-SEKTIONS-COACH</div>
-        <h3 class="acp-modal-heading">Sektionen &amp; KI-Coach</h3>
-        <p class="acp-modal-subline">Visuelle Miniatur-Bühne aller Abschnitte. Lasse dich von deinem persönlichen KI-Coach interaktiv beraten und mutiere Sektionen mit 1-Klick.</p>
+        <div class="acp-modal-kicker">WEBPILOT STUDIO · SEKTIONS-ÜBERSICHT &amp; KI-ASSISTENT</div>
+        <h3 class="acp-modal-heading">Seiten-Abschnitte &amp; KI-Bearbeitung</h3>
+        <p class="acp-modal-subline">Alle Abschnitte dieser Seite im Überblick. Klicke auf eine Vorschau, um direkt dorthin zu springen, oder passe Inhalte und Aufbau bequem per KI oder Texteingabe an.</p>
       </div>
       <div class="acp-modal-actions">
-        <button type="button" class="acp-btn-secondary" onclick="acpCopyFullPagePrompt()" title="Kopiert den kompletten Seiten-Code mit Master-Prompt">
-          <span>📄 Ganze Seite (Voll-Modus)</span>
+        <button type="button" class="acp-btn-secondary" onclick="acpCopyFullPagePrompt()" title="Kopiert den gesamten Seiten-Quellcode inklusive Master-Prompt für ChatGPT oder Claude">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+          <span>Ganze Seite kopieren</span>
         </button>
-        <button type="button" class="acp-btn-primary" onclick="acpOpenNewSectionModal()" style="background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%); color: #000; font-weight: 800; border: none;">
-          <span>+ Neue Sektion mit KI erstellen</span>
+        <button type="button" class="acp-btn-primary" onclick="acpOpenNewSectionModal()">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          <span>Neue Sektion erstellen</span>
         </button>
-        <button type="button" class="acp-btn-close" onclick="acpToggleSectionsModal()" title="Schliessen (ESC)">✕ Schliessen</button>
+        <button type="button" class="acp-btn-close" onclick="acpToggleSectionsModal()" title="Schliessen (ESC)">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+          <span>Schliessen</span>
+        </button>
       </div>
     </div>
 
     <div class="acp-modal-body">
-      <div style="background: rgba(245, 158, 11, 0.08); border: 1px solid rgba(245, 158, 11, 0.25); border-radius: 8px; padding: 14px 18px; margin-bottom: 24px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px;">
+      <div class="acp-studio-banner" style="margin-bottom: 8px;">
         <div style="display: flex; align-items: center; gap: 12px;">
-          <span style="font-size: 20px;">🛡️</span>
-          <span style="font-size: 13.5px; color: #f8fafc;">
-            <strong>Interaktiver KI-Coach &amp; Miniatur-Bühne aktiv:</strong> Der KI-Coach berät dich im aktiven Dialog (kein Code-Dump). Klicke auf ein Miniaturbild, um im Simulator direkt zum Abschnitt zu springen.
+          <span style="width: 32px; height: 32px; border-radius: 8px; background: rgba(240, 133, 45, 0.12); border: 1px solid rgba(240, 133, 45, 0.25); color: #ffa858; display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0;">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
+          </span>
+          <span style="font-size: 13px; color: #e2e8f0; line-height: 1.45;">
+            <strong style="color: #ffffff;">Direkt-Navigation &amp; KI-Assistent:</strong> Klicke auf eine Miniatur-Vorschau, um im Simulator direkt zum Abschnitt zu springen, oder wähle <em>«Mit KI anpassen»</em> für geführte Text- und Layout-Vorschläge.
           </span>
         </div>
-        <div style="font-family: 'JetBrains Mono', monospace; font-size: 11.5px; color: #fbbf24; background: rgba(0,0,0,0.3); padding: 4px 10px; border-radius: 4px;" id="acp-sections-count-badge">
-          ● Sektionen werden analysiert...
+        <div style="font-family: 'Inter', sans-serif; font-size: 11.5px; font-weight: 600; color: #cbd5e1; background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.09); padding: 4px 10px; border-radius: 4px;" id="acp-sections-count-badge">
+          Abschnitte werden geladen...
         </div>
       </div>
 
@@ -3375,45 +3994,49 @@ html, body {
 <!-- MODAL: SEKTION ERSETZEN & TEXT/CODE EINFÜGEN -->
 <div id="acp-replace-section-modal" onclick="if(event.target===this)acpCloseReplaceSectionModal()">
   <div class="acp-modal">
-    <div style="display:flex; justify-content:space-between; align-items:flex-start; border-bottom:1px solid rgba(255,255,255,0.08); padding-bottom:14px;">
+    <div style="display:flex; justify-content:space-between; align-items:flex-start; border-bottom:1px solid rgba(255,255,255,0.08); padding-bottom:14px; gap:12px;">
       <div>
-        <span style="font-family:'JetBrains Mono',monospace; font-size:11px; color:#f59e0b; font-weight:700; letter-spacing:0.5px;">// WEBPILOT FREIHEIT ⬥ NEUEN TEXT ODER CODE EINSETZEN</span>
-        <h3 style="color:#fff; font-size:18px; margin:4px 0 0 0; font-weight:700;" id="acp-replace-modal-title">Sektion bearbeiten</h3>
+        <span class="acp-modal-kicker">WEBPILOT STUDIO · INHALT ODER CODE EINSETZEN</span>
+        <h3 style="color:#fff; font-size:18px; margin:2px 0 0 0; font-weight:700; font-family:'Plus Jakarta Sans','Inter',sans-serif;" id="acp-replace-modal-title">Abschnitt bearbeiten</h3>
       </div>
-      <button type="button" class="acp-btn-close" onclick="acpCloseReplaceSectionModal()" style="background:none; border:none; color:#94a3b8; font-size:20px; cursor:pointer; padding:4px 8px; line-height:1;">✕</button>
+      <button type="button" class="acp-btn-close" onclick="acpCloseReplaceSectionModal()">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        <span>Schliessen</span>
+      </button>
     </div>
 
-    <div style="background:rgba(245,158,11,0.06); border:1px solid rgba(245,158,11,0.2); border-radius:8px; padding:12px 16px; font-size:13px; color:#cbd5e1; line-height:1.5;">
-      📋 <strong>So funktioniert's:</strong> Kopiere den neuen Text oder Code aus ChatGPT / Claude und füge ihn unten mit <strong>Strg + V</strong> ein. Unser intelligenter Airbag bereinigt den Code automatisch, schützt das Layout und speichert die Änderung dauerhaft auf dem Server.
+    <div style="background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.08); border-radius:8px; padding:12px 16px; font-size:13px; color:#cbd5e1; line-height:1.5; display:flex; align-items:flex-start; gap:10px;">
+      <span style="color:#ffa858; flex-shrink:0; margin-top:2px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg></span>
+      <span><strong>So funktioniert's:</strong> Kopiere den neuen Text oder HTML-Abschnitt aus ChatGPT oder Claude und füge ihn unten mit <strong>Strg + V</strong> ein. Das System prüft den Aufbau automatisch und speichert die Änderung dauerhaft.</span>
     </div>
 
     <div>
       <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
-        <label for="acp-replace-code-input" style="font-size:12.5px; font-weight:700; color:#e2e8f0; font-family:'JetBrains Mono',monospace;">
-          EINFÜGE-FELD (TEXT ODER HTML):
+        <label for="acp-replace-code-input" style="font-size:12px; font-weight:700; color:#e2e8f0; letter-spacing:0.04em; text-transform:uppercase;">
+          Einfüge-Feld (Text oder HTML):
         </label>
         <span id="acp-replace-char-counter" style="font-size:11.5px; font-family:'JetBrains Mono',monospace; color:#94a3b8;">
           0 Zeichen
         </span>
       </div>
 
-      <textarea id="acp-replace-code-input" rows="11" oninput="acpUpdateReplaceTextFeedback()" onpaste="setTimeout(acpUpdateReplaceTextFeedback, 50)" style="width:100%; background:#06090e; border:1.5px solid rgba(245,158,11,0.3); border-radius:10px; color:#f1f5f9; font-family:'JetBrains Mono',monospace; font-size:12.5px; padding:14px; box-sizing:border-box; resize:vertical; line-height:1.5; outline:none;" placeholder="Hier die Antwort / den Text von ChatGPT oder Claude einfügen (Strg + V)..."></textarea>
+      <textarea id="acp-replace-code-input" rows="11" oninput="acpUpdateReplaceTextFeedback()" onpaste="setTimeout(acpUpdateReplaceTextFeedback, 50)" style="width:100%; background:#07090e; border:1px solid rgba(255,255,255,0.14); border-radius:8px; color:#f1f5f9; font-family:'JetBrains Mono',monospace; font-size:12.5px; padding:14px; box-sizing:border-box; resize:vertical; line-height:1.5; outline:none;" placeholder="Hier die Antwort oder den Text aus ChatGPT / Claude einfügen (Strg + V)..."></textarea>
     </div>
 
-    <!-- LIVE-STATUS: DAMIT MAN WEISS DER TEXT IST DRIN -->
-    <div id="acp-replace-live-feedback" style="background:#090d16; border:1px solid rgba(255,255,255,0.08); border-radius:8px; padding:10px 14px; font-size:12.5px;">
-      <span style="color:#94a3b8;">⚪ Noch kein Inhalt eingefügt. Füge deinen Text mit Strg + V ein.</span>
+    <div id="acp-replace-live-feedback" style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-radius:8px; padding:10px 14px; font-size:12.5px;">
+      <span style="color:#94a3b8;">Noch kein Inhalt eingefügt. Füge deinen Text mit Strg + V ein.</span>
     </div>
 
     <div id="acp-replace-airbag-status" style="font-size:12.5px; display:none;"></div>
 
-    <div style="display:flex; justify-content:space-between; align-items:center; margin-top:8px; padding-top:14px; border-top:1px solid rgba(255,255,255,0.08);">
-      <button type="button" class="acp-btn-secondary" onclick="acpCloseReplaceSectionModal()" style="padding:10px 18px; font-size:13px; color:#94a3b8; background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.1); border-radius:6px; cursor:pointer;">
-        Abbrechen
+    <div style="display:flex; justify-content:space-between; align-items:center; margin-top:8px; padding-top:14px; border-top:1px solid rgba(255,255,255,0.08); gap:12px; flex-wrap:wrap;">
+      <button type="button" class="acp-btn-secondary" onclick="acpCloseReplaceSectionModal()">
+        <span>Abbrechen</span>
       </button>
 
-      <button type="button" class="acp-btn-primary" id="acp-btn-apply-replace" onclick="acpSubmitReplaceSection()" style="background:linear-gradient(135deg, #10b981 0%, #059669 100%); color:#ffffff; font-weight:700; font-size:14px; padding:12px 24px; border-radius:8px; border:none; cursor:pointer; display:inline-flex; align-items:center; gap:8px; box-shadow:0 4px 14px rgba(16,185,129,0.35);">
-        <span>🚀 Änderung jetzt absenden &amp; live speichern</span>
+      <button type="button" class="acp-btn-primary" id="acp-btn-apply-replace" onclick="acpSubmitReplaceSection()">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+        <span>Änderung jetzt live speichern</span>
       </button>
     </div>
   </div>
@@ -3421,62 +4044,75 @@ html, body {
 
 <!-- MODAL: NEUE SEKTION MIT KI ERSTELLEN -->
 <div id="acp-new-section-modal" class="acp-modal-backdrop" onclick="if(event.target===this)acpCloseNewSectionModal()" style="display:none; z-index:4000;">
-  <div class="acp-modal" style="max-width:820px; margin:40px auto; background:#0f172a; border:1px solid rgba(245,158,11,0.3); border-radius:14px; padding:28px; box-shadow:0 25px 60px rgba(0,0,0,0.8);">
-    <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:18px;">
+  <div class="acp-modal" style="max-width:820px; margin:40px auto; padding:28px;">
+    <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:18px; gap:12px;">
       <div>
-        <span style="font-family:'JetBrains Mono',monospace; font-size:11px; color:#f59e0b; font-weight:700;">// NEUER ABSCHNITT ⬥ FULL-CONTEXT ENVELOPE</span>
-        <h3 style="color:#fff; font-size:19px; margin-top:4px;">Neue Sektion mit KI erschaffen</h3>
+        <span class="acp-modal-kicker">WEBPILOT STUDIO · NEUEN ABSCHNITT ERSTELLEN</span>
+        <h3 style="color:#fff; font-size:19px; margin-top:2px; font-family:'Plus Jakarta Sans','Inter',sans-serif;">Neue Sektion mit KI erstellen</h3>
       </div>
-      <button type="button" class="acp-btn-close" onclick="acpCloseNewSectionModal()">✕</button>
+      <button type="button" class="acp-btn-close" onclick="acpCloseNewSectionModal()">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        <span>Schliessen</span>
+      </button>
     </div>
     
     <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-bottom:16px;">
       <div>
-        <label style="display:block; font-size:12.5px; font-weight:700; color:#cbd5e1; margin-bottom:6px;">1. Position im Seitenfluss</label>
-        <select id="acp-new-sec-position" style="width:100%; background:#090d16; border:1px solid rgba(255,255,255,0.15); border-radius:8px; color:#fff; padding:10px; font-size:13px;">
+        <label style="display:block; font-size:12.5px; font-weight:600; color:#cbd5e1; margin-bottom:6px;">1. Position im Seitenfluss</label>
+        <select id="acp-new-sec-position" style="width:100%; background:#07090e; border:1px solid rgba(255,255,255,0.14); border-radius:8px; color:#fff; padding:10px; font-size:13px;">
         </select>
       </div>
       <div>
-        <label style="display:block; font-size:12.5px; font-weight:700; color:#cbd5e1; margin-bottom:6px;">2. Thema / Inhalt der Sektion</label>
-        <input type="text" id="acp-new-sec-topic" placeholder="z. B. Unsere 4 Partnerbetriebe mit Verlinkung" style="width:100%; background:#090d16; border:1px solid rgba(255,255,255,0.15); border-radius:8px; color:#fff; padding:10px; font-size:13px; box-sizing:border-box;">
+        <label style="display:block; font-size:12.5px; font-weight:600; color:#cbd5e1; margin-bottom:6px;">2. Thema / Inhalt des Abschnitts</label>
+        <input type="text" id="acp-new-sec-topic" placeholder="z. B. Unsere Partnerbetriebe im Überblick" style="width:100%; background:#07090e; border:1px solid rgba(255,255,255,0.14); border-radius:8px; color:#fff; padding:10px; font-size:13px; box-sizing:border-box;">
       </div>
     </div>
 
-    <div style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-radius:8px; padding:14px; margin-bottom:16px; display:flex; justify-content:space-between; align-items:center;">
-      <span style="font-size:13px; color:#94a3b8;">Schritt A: Prompt inklusive Schweizer Design-Regeln für ChatGPT/Claude generieren:</span>
-      <button type="button" class="acp-btn-secondary" onclick="acpCopyGeneratedNewSectionPrompt()" style="background:#f59e0b; color:#000; font-weight:800; border:none; padding:8px 16px;">
-        <span>📋 Prompt kopieren</span>
+    <div style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-radius:8px; padding:14px; margin-bottom:16px; display:flex; justify-content:space-between; align-items:center; gap:12px; flex-wrap:wrap;">
+      <span style="font-size:13px; color:#cbd5e1;">Schritt A: Abgestimmten KI-Prompt für ChatGPT oder Claude kopieren:</span>
+      <button type="button" class="acp-btn-secondary" onclick="acpCopyGeneratedNewSectionPrompt()">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+        <span>Prompt kopieren</span>
       </button>
     </div>
 
-    <label style="display:block; font-size:12.5px; font-weight:700; color:#cbd5e1; margin-bottom:6px;">Schritt B: Generierten Code der KI hier einfügen:</label>
-    <textarea id="acp-new-sec-code-input" rows="8" style="width:100%; background:#090d16; border:1px solid rgba(255,255,255,0.15); border-radius:8px; color:#e2e8f0; font-family:'JetBrains Mono',monospace; font-size:12px; padding:12px; box-sizing:border-box; resize:vertical;" placeholder="<section class='section-wrap' data-section='...'>&#10;  ...&#10;</section>"></textarea>
+    <label style="display:block; font-size:12.5px; font-weight:600; color:#cbd5e1; margin-bottom:6px;">Schritt B: Erstellten Code der KI hier einfügen:</label>
+    <textarea id="acp-new-sec-code-input" rows="8" style="width:100%; background:#07090e; border:1px solid rgba(255,255,255,0.14); border-radius:8px; color:#e2e8f0; font-family:'JetBrains Mono',monospace; font-size:12px; padding:12px; box-sizing:border-box; resize:vertical;" placeholder="<section class='section-wrap' data-section='...'>&#10;  ...&#10;</section>"></textarea>
     
     <div id="acp-new-airbag-status" style="margin-top:10px; font-size:12.5px; display:none;"></div>
 
-    <div style="display:flex; justify-content:flex-end; gap:12px; margin-top:20px;">
+    <div style="display:flex; justify-content:flex-end; gap:10px; margin-top:20px;">
       <button type="button" class="acp-btn-secondary" onclick="acpCloseNewSectionModal()">Abbrechen</button>
-      <button type="button" class="acp-btn-primary" id="acp-btn-apply-new" onclick="acpSubmitNewSection()" style="background:#10b981; color:#fff; font-weight:700;">
-        <span>✓ Neue Sektion einhängen &amp; aktivieren</span>
+      <button type="button" class="acp-btn-primary" id="acp-btn-apply-new" onclick="acpSubmitNewSection()">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+        <span>Neue Sektion einhängen &amp; aktivieren</span>
       </button>
     </div>
   </div>
 </div>
 
+<!-- ======================================================= -->
+<!-- MODAL: BILDER-POOL & ASSET-GALERIE                      -->
+<!-- ======================================================= -->
 <div id="acp-images-modal" class="acp-modal-backdrop" onclick="if(event.target===this)acpToggleImagesModal()">
   <div class="acp-modal acp-modal-fullscreen">
     <div class="acp-modal-head">
       <div>
-        <div class="acp-modal-kicker">// ASSET-POOL ⬥ BILDER &amp; GRAFIKEN</div>
+        <div class="acp-modal-kicker">WEBPILOT STUDIO · BILDER-POOL &amp; MEDIEN</div>
         <h3 class="acp-modal-heading">Bilder-Pool &amp; Asset-Galerie</h3>
       </div>
-      <button type="button" class="acp-modal-close" onclick="acpToggleImagesModal()" title="Schliessen (ESC)">✕ Schliessen (ESC)</button>
+      <div class="acp-modal-actions">
+        <button type="button" class="acp-btn-close" onclick="acpToggleImagesModal()" title="Schliessen (ESC)">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+          <span>Schliessen</span>
+        </button>
+      </div>
     </div>
     <div class="acp-modal-body">
       <div class="acp-studio-banner">
         <div class="banner-left">
-          <span class="banner-pill" style="border-color: rgba(245,158,11,0.3); color:#fbbf24; background:rgba(245,158,11,0.1);">1-KLICK TAUSCH</span>
-          <span class="banner-text">Klicke bei einem Foto auf <strong>[ 🎯 Als Tausch-Bild wählen ]</strong> und danach in der Live-Vorschau auf das zu ersetzende Bild.</span>
+          <span class="banner-pill" style="border-color: rgba(240,133,45,0.3); color:#ffa858; background:rgba(240,133,45,0.1);">1-KLICK TAUSCH</span>
+          <span class="banner-text">Klicke bei einem Foto auf <strong>«Als Tausch-Bild wählen»</strong> und danach in der Vorschau auf das zu ersetzende Bild.</span>
         </div>
         <div class="banner-links">
           <a href="BILDER_VERZEICHNIS.md" target="_blank" class="banner-link">Asset-Katalog (MD) ↗</a>
@@ -3487,17 +4123,19 @@ html, body {
       <div class="acp-upload-zone" id="acp-upload-zone" onclick="document.getElementById('acp-image-file-input').click()">
         <input type="file" id="acp-image-file-input" accept="image/jpeg,image/png,image/webp,image/svg+xml,image/gif" style="display:none;" onchange="acpHandleFileInput(event)">
         <div class="acp-upload-box">
-          <div class="acp-upload-icon">📤</div>
+          <div class="acp-upload-icon" style="color:#ffa858; display:inline-flex; align-items:center;">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+          </div>
           <div class="acp-upload-content">
             <div class="acp-upload-title">
               <strong>Foto hierher ziehen</strong> oder <span class="acp-upload-browse">durchsuchen</span>
               <span class="acp-upload-badge">JPG, PNG, WebP bis 15 MB</span>
             </div>
             <div class="acp-upload-desc">
-              💡 <em>Perfekt für deine Firmen-Website: Lade hier gezielt Fotos für Team-Porträts, Referenzen und Baustellen hoch. Die Bilder werden über unser weltweites Edge-Netzwerk blitzschnell ausgeliefert (bitte nicht als allgemeines Fotoalbum nutzen).</em>
+              <em>Perfekt für deine Firmen-Website: Lade hier gezielt Fotos für Team-Porträts, Referenzen und Baustellen hoch. Die Bilder werden über unser weltweites Edge-Netzwerk blitzschnell ausgeliefert.</em>
             </div>
             <div class="acp-upload-local-hint">
-              📁 <em>Alternativ: Foto einfach direkt in deinen Ordner <code>hochuli-web\images\</code> ablegen.</em>
+              <em>Alternativ: Foto einfach direkt in deinen Ordner <code>hochuli-web\images\</code> ablegen.</em>
             </div>
           </div>
         </div>
@@ -3510,7 +4148,7 @@ html, body {
       <div class="acp-images-toolbar">
         <div class="acp-filter-pills" id="acp-image-filter-pills">
           <button type="button" class="acp-filter-pill active" onclick="acpSetImageFilter('alle')">Alle (<span id="count-all">0</span>)</button>
-          <button type="button" class="acp-filter-pill" onclick="acpSetImageFilter('used')">🟢 Im Einsatz (<span id="count-used">0</span>)</button>
+          <button type="button" class="acp-filter-pill" onclick="acpSetImageFilter('used')">Im Einsatz (<span id="count-used">0</span>)</button>
           <button type="button" class="acp-filter-pill" onclick="acpSetImageFilter('hero')">Hero &amp; Header</button>
           <button type="button" class="acp-filter-pill" onclick="acpSetImageFilter('team')">Team &amp; Porträt</button>
           <button type="button" class="acp-filter-pill" onclick="acpSetImageFilter('benefit')">Baustelle & Projekte</button>
@@ -3520,17 +4158,20 @@ html, body {
           <div class="acp-sort-wrap">
             <span class="acp-sort-label">Sortierung:</span>
             <select id="acp-images-sort" class="acp-images-sort" onchange="acpSetImageSort(this.value)">
-              <option value="newest" selected>✨ Neueste zuerst</option>
+              <option value="newest" selected>Neueste zuerst</option>
               <option value="oldest">Älteste zuerst</option>
-              <option value="name_asc">Name (A ➔ Z)</option>
-              <option value="name_desc">Name (Z ➔ A)</option>
-              <option value="size_desc">Dateigrösse (Gross ➔ Klein)</option>
-              <option value="used">🟢 Im Einsatz zuerst</option>
+              <option value="name_asc">Name (A → Z)</option>
+              <option value="name_desc">Name (Z → A)</option>
+              <option value="size_desc">Dateigrösse (Gross → Klein)</option>
+              <option value="used">Im Einsatz zuerst</option>
             </select>
           </div>
           <div class="acp-search-wrap">
-            <input type="text" id="acp-images-search" class="acp-images-search" placeholder="🔍 Bild suchen (z. B. hero, drohne)..." oninput="acpFilterImages()">
-            <button type="button" class="acp-refresh-btn" onclick="acpRefreshImages(null, true)" title="Bilder-Pool aktualisieren (prüft auch den lokalen images/ Ordner)">🔄 Aktualisieren</button>
+            <input type="text" id="acp-images-search" class="acp-images-search" placeholder="Bild suchen (z. B. hero, team)..." oninput="acpFilterImages()">
+            <button type="button" class="acp-refresh-btn" onclick="acpRefreshImages(null, true)" title="Bilder-Pool aktualisieren">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg>
+              <span>Aktualisieren</span>
+            </button>
           </div>
         </div>
       </div>
@@ -3543,19 +4184,24 @@ html, body {
 </div>
 
 <!-- ======================================================= -->
-<!-- MODAL: STELLEN-VERZEICHNIS & EINBETTUNGSCODES           -->
+<!-- MODAL: STELLEN- / SEITEN-VERZEICHNIS                    -->
 <!-- ======================================================= -->
 <div id="acp-directory-modal" class="acp-modal-backdrop" onclick="if(event.target===this)acpToggleDirectoryModal()">
   <div class="acp-modal acp-modal-fullscreen">
     <div class="acp-modal-head">
       <div>
-        <div class="acp-modal-kicker">// SEITEN-ZENTRALE ⬥ NAVIGATION &amp; ENTWÜRFE</div>
+        <div class="acp-modal-kicker">WEBPILOT STUDIO · SEITEN-ZENTRALE &amp; NAVIGATION</div>
         <h3 class="acp-modal-heading">Seiten-Zentrale &amp; Entwurfs-Manager</h3>
         <p class="acp-modal-subdesc">
           Zentrale Übersicht aller Seiten und Entwürfe deiner Website auf Schweizer Edge-Infrastruktur.
         </p>
       </div>
-      <button type="button" class="acp-modal-close" onclick="acpToggleDirectoryModal()" title="Schliessen (ESC)">✕ Schliessen (ESC)</button>
+      <div class="acp-modal-actions">
+        <button type="button" class="acp-btn-close" onclick="acpToggleDirectoryModal()" title="Schliessen (ESC)">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+          <span>Schliessen</span>
+        </button>
+      </div>
     </div>
     <div class="acp-modal-body">
       <div class="acp-studio-banner">
@@ -3572,10 +4218,10 @@ html, body {
 
       <div class="acp-jobs-toolbar">
         <div class="acp-jobs-filter-pills" id="acp-jobs-filter-pills">
-          <button type="button" class="acp-job-filter-pill active" data-filter="alle" onclick="acpSetJobFilter('alle')">🏢 Alle Inserate (<span id="count-jobs-all">0</span>)</button>
-          <button type="button" class="acp-job-filter-pill" data-filter="live" onclick="acpSetJobFilter('live')">🟢 Nur Live-Widget (<span id="count-jobs-live">0</span>)</button>
+          <button type="button" class="acp-job-filter-pill active" data-filter="alle" onclick="acpSetJobFilter('alle')">Alle Inserate (<span id="count-jobs-all">0</span>)</button>
+          <button type="button" class="acp-job-filter-pill" data-filter="live" onclick="acpSetJobFilter('live')">Nur Live-Widget (<span id="count-jobs-live">0</span>)</button>
         </div>
-        <input type="text" id="acp-jobs-search" class="acp-jobs-search-input" placeholder="🔍 Unterseite suchen..." oninput="acpFilterJobs()">
+        <input type="text" id="acp-jobs-search" class="acp-jobs-search-input" placeholder="Unterseite suchen..." oninput="acpFilterJobs()">
       </div>
 
       <div class="acp-jobs-table-wrap">
@@ -3597,7 +4243,10 @@ html, body {
       <div class="acp-code-preview-box">
         <h5>
           <span>Aktiver 1-Klick Einbettungscode (<strong id="code-job-label" style="color:#ffffff;">Hochuli Schlossrued AG (Hauptseite)</strong>)</span>
-          <button type="button" class="acp-btn-code" style="padding:4px 10px; font-size:12px;" onclick="acpCopyActiveCode()">Code kopieren</button>
+          <button type="button" class="acp-btn-secondary" style="padding:6px 12px; font-size:12px;" onclick="acpCopyActiveCode()">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+            <span>Code kopieren</span>
+          </button>
         </h5>
         <pre class="acp-code-pre" id="active-widget-snippet"></pre>
       </div>
@@ -3609,7 +4258,7 @@ html, body {
 <!-- SCHWEBENDE ENTWURF- & RELEASE-PILLE                     -->
 <!-- ======================================================= -->
 <div id="acp-draft-widget">
-  <div class="acp-pill-trigger" onclick="acpToggleMenu()" title="Klicken für Entwurfs-Menü & Scharfstellen">
+  <div class="acp-pill-trigger" onclick="acpToggleMenu()" title="Klicken für Entwurfs-Menü &amp; Scharfstellen">
     <span class="acp-pulse-dot"></span>
     <span class="acp-pill-label">Entwurf</span>
     <span class="acp-pill-icon" style="display:inline-flex;align-items:center;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg></span>
@@ -3617,8 +4266,10 @@ html, body {
 
   <div id="acp-draft-panel" class="acp-draft-panel">
     <div class="acp-panel-header">
-      <h4><span>🟡</span> Entwurfs-Modus</h4>
-      <button type="button" class="acp-close-btn" onclick="acpToggleMenu()" title="Schliessen">✕</button>
+      <h4><span style="width:8px;height:8px;border-radius:4px;background:#f0852d;display:inline-block;"></span> Entwurfs-Modus</h4>
+      <button type="button" class="acp-close-btn" onclick="acpToggleMenu()" title="Schliessen">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
     </div>
 
     <div class="acp-panel-row">
@@ -3627,21 +4278,22 @@ html, body {
     </div>
     
     <p class="acp-panel-desc">
-      Wenn <strong>AN</strong>: Klicke auf ein Bild oder einen Text im Widget, um den fertigen Befehl für ChatGPT zu kopieren.
+      Wenn <strong>AN</strong>: Klicke auf ein Bild oder einen Text in der Vorschau, um das Element gezielt auszuwählen.
     </p>
 
     <div class="acp-audit-badge">
-      <span>🛡️</span>
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
       <span>Airbag-Status: <strong>100% bestanden</strong></span>
     </div>
 
     <div style="font-size: 11.5px; line-height: 1.45; color: #cbd5e1; background: rgba(255,255,255,0.05); padding: 9px 12px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.08); margin: 10px 0 12px 0;">
-      🔒 <strong>2-Stufen-Sicherheit:</strong><br>
-      Deine Datei-Änderungen sind sofort hier als <strong>Entwurf</strong> sichtbar. Erst ein Klick auf den Button unten schaltet die Version live auf die echte Firmen-Webseite.
+      <strong>2-Stufen-Sicherheit:</strong><br>
+      Deine Änderungen sind sofort hier als <strong>Entwurf</strong> sichtbar. Erst mit Klick auf den Button unten wird die Version öffentlich live geschaltet.
     </div>
 
     <button type="button" id="acp-btn-publish" class="acp-publish-btn" onclick="acpPublishLive()">
-      <span>🚀 Jetzt scharfstellen</span>
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+      <span>Jetzt scharfstellen</span>
     </button>
   </div>
 </div>
@@ -3650,134 +4302,123 @@ html, body {
 <!-- MODAL: SO FUNKTIONIERT'S (KURZE ANLEITUNG)              -->
 <!-- ======================================================= -->
 <div id="acp-help-modal" class="acp-modal-backdrop" onclick="if(event.target===this)acpToggleHelpModal()">
-  <div class="acp-modal" >
+  <div class="acp-modal">
     <div class="acp-modal-head">
-      <h3><span>💡</span> So funktioniert dein WebPilot Studio</h3>
-      <button type="button" class="acp-modal-close" onclick="acpToggleHelpModal()" title="Schliessen">✕</button>
+      <div>
+        <div class="acp-modal-kicker">WEBPILOT STUDIO · SCHNELLSTART &amp; ARCHITEKTUR</div>
+        <h3 class="acp-modal-heading">So funktioniert dein WebPilot Studio</h3>
+      </div>
+      <div class="acp-modal-actions">
+        <button type="button" class="acp-btn-close" onclick="acpToggleHelpModal()" title="Schliessen">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+          <span>Schliessen</span>
+        </button>
+      </div>
     </div>
-    <div class="acp-modal-body" style="padding: 24px; color: #cbd5e1; font-size: 14px; line-height: 1.6;">
+    <div class="acp-modal-body" style="color: #cbd5e1; font-size: 14px; line-height: 1.6;">
       
       <div style="display: flex; gap: 16px; margin-bottom: 14px;">
-        <div style="background: #3b82f6; color: #fff; width: 34px; height: 34px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 15px; flex-shrink: 0;">1</div>
+        <div style="background: rgba(240, 133, 45, 0.15); border: 1px solid rgba(240, 133, 45, 0.35); color: #ffa858; width: 34px; height: 34px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 15px; flex-shrink: 0;">1</div>
         <div>
-          <h4 style="margin: 0 0 4px 0; color: #fff; font-size: 15.5px;">Text oder Bild mit ChatGPT anpassen</h4>
+          <h4 style="margin: 0 0 4px 0; color: #fff; font-size: 15.5px;">Texte &amp; Abschnitte direkt oder mit KI anpassen</h4>
           <p style="margin: 0; color: #94a3b8; font-size: 13.5px;">
-            Schalte unten rechts den <strong>Klick-Inspektor</strong> auf <code>AN</code> und klicke auf das Element im Inserat (z. B. Titel, Vorteile, WhatsApp-Button). Der passende Befehl wird automatisch kopiert. Gib ihn an ChatGPT oder passe die HTML-Datei direkt an.
+            Nutze oben <strong>«Text &amp; Bild direkt bearbeiten»</strong>, um Texte wie in einem Dokument direkt anzuklicken, oder öffne <strong>«Sektionen &amp; KI»</strong>, um ganze Seiten-Abschnitte gemeinsam mit deinem KI-Assistenten weiterzuentwickeln.
           </p>
         </div>
       </div>
 
-      <!-- Der Zauber-Befehl für ChatGPT / Gemini -->
-      <div style="margin: 0 0 22px 50px; background: rgba(15, 23, 42, 0.7); border: 1px solid rgba(234, 179, 8, 0.35); border-radius: 10px; padding: 12px 14px;">
-        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-          <span style="font-size: 11.5px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.5px; color: #facc15; font-family: 'JetBrains Mono', monospace;">
-            🤖 Der Zauber-Befehl für ChatGPT &amp; Gemini
+      <div style="margin: 0 0 22px 50px; background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 8px; padding: 14px 16px;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; gap: 10px; flex-wrap: wrap;">
+          <span style="font-size: 11.5px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: #ffa858;">
+            Universal-Hinweis für ChatGPT &amp; Claude
           </span>
-          <button type="button" class="btn-table-copy" style="padding: 3px 9px; font-size: 11px; background: rgba(234, 179, 8, 0.2); border-color: rgba(234, 179, 8, 0.5); color: #fef08a; cursor: pointer;" onclick="acpCopyAiPrompt(this)">📋 Kopieren</button>
+          <button type="button" class="acp-btn-secondary" style="padding: 5px 10px; font-size: 11.5px;" onclick="acpCopyAiPrompt(this)">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+            <span>Kopieren</span>
+          </button>
         </div>
-        <p style="font-size: 12px; color: #f8fafc; line-height: 1.5; margin: 0; font-family: monospace; background: rgba(0,0,0,0.35); padding: 8px 10px; border-radius: 6px; border: 1px solid rgba(255,255,255,0.08);">
-          «Bitte gib mir den Quellcode immer als eine einzige, vollständige und ungekürzte HTML-Datei aus – ausnahmslos von &lt;!DOCTYPE html&gt; bis &lt;/html&gt;. Verwende keine Code-Auslassungen (wie // ... restlicher Code ...), keine Zusammenfassungen und erstelle die Ausgabe direkt als einhängenden Code-Block in deiner Antwort.»
+        <p style="font-size: 12px; color: #f8fafc; line-height: 1.5; margin: 0; font-family: 'JetBrains Mono', monospace; background: rgba(0,0,0,0.35); padding: 10px 12px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.08);">
+          «Bitte gib mir den Quellcode immer als vollständigen und ungekürzten HTML-Block aus. Verwende keine Platzhalter oder Auslassungen und erstelle die Ausgabe direkt als zusammenhängenden Code-Block.»
         </p>
-        <div style="font-size: 11px; color: #94a3b8; margin-top: 6px;">
-          💡 <em>Hänge diesen Satz an jede deiner KI-Anfragen an. So schneidet dir keine KI mehr den Anfang oder das Design ab!</em>
-        </div>
       </div>
 
       <div style="display: flex; gap: 16px; margin-bottom: 22px;">
-        <div style="background: #eab308; color: #0f172a; width: 34px; height: 34px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 15px; flex-shrink: 0;">2</div>
+        <div style="background: rgba(240, 133, 45, 0.15); border: 1px solid rgba(240, 133, 45, 0.35); color: #ffa858; width: 34px; height: 34px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 15px; flex-shrink: 0;">2</div>
         <div>
-          <h4 style="margin: 0 0 4px 0; color: #fff; font-size: 15.5px;">Im Ordner speichern &amp; Vorschau prüfen (Entwurf)</h4>
+          <h4 style="margin: 0 0 4px 0; color: #fff; font-size: 15.5px;">Vorschau im Simulator prüfen</h4>
           <p style="margin: 0; color: #94a3b8; font-size: 13.5px;">
-            Speichere die geänderte Datei in deinem Ordner <code>hochuli-web</code> und drücke hier <code>F5</code>. Du siehst deine Änderung <strong>sofort als Entwurf</strong>.<br>
-            <span style="color: #10b981; font-weight: 600;">🛡️ Die echte Firmen-Webseite bleibt zu diesem Zeitpunkt zu 100% unberührt!</span>
+            Jede Änderung wird sofort in der Vorschau dargestellt und automatisch durch den Qualitäts-Airbag auf intakte Struktur geprüft.
           </p>
         </div>
       </div>
 
       <div style="display: flex; gap: 16px; margin-bottom: 20px;">
-        <div style="background: #10b981; color: #fff; width: 34px; height: 34px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 15px; flex-shrink: 0;">3</div>
+        <div style="background: rgba(16, 185, 129, 0.15); border: 1px solid rgba(16, 185, 129, 0.35); color: #34d399; width: 34px; height: 34px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 15px; flex-shrink: 0;">3</div>
         <div>
-          <h4 style="margin: 0 0 4px 0; color: #fff; font-size: 15.5px;">Mit 1 Klick scharfstellen</h4>
+          <h4 style="margin: 0 0 4px 0; color: #fff; font-size: 15.5px;">Mit 1 Klick live schalten</h4>
           <p style="margin: 0; color: #94a3b8; font-size: 13.5px;">
-            Wenn die Vorschau passt, klicke unten rechts im gelben Kreis auf <strong>[ 🚀 Jetzt scharfstellen ]</strong>. Der Airbag prüft die Datei in 0.3s auf Fehler. Wenn alles grün ist, wird die Änderung weltweit auf deine Firmen-Webseite übertragen – live in ca. 15 Sekunden!
+            Sobald die Vorschau passt, schaltet ein Klick auf <strong>«Jetzt scharfstellen»</strong> die neue Version weltweit über das Schweizer Edge-Netzwerk frei.
           </p>
         </div>
       </div>
 
-      <!-- 4-STUFEN PROZESS-SCHEMA -->
       <div class="acp-pipeline-card">
         <div class="acp-pipeline-header">
-          <span class="acp-pipeline-title">⚡ Die 4-Stufen-Kaskade (Vom Ordner zur Live-Webseite)</span>
-          <span style="font-size:10px; color:#10b981; font-family:'JetBrains Mono',monospace; font-weight:700;">● VOLLAUTOMATISCH</span>
+          <span class="acp-pipeline-title" style="color:#ffa858;">Der 4-Stufen-Sicherheitsablauf</span>
+          <span style="font-size:10px; color:#34d399; font-family:'JetBrains Mono',monospace; font-weight:700;">VOLLAUTOMATISCH</span>
         </div>
         <div class="acp-pipeline-steps">
-          
           <div class="acp-step-box">
             <span class="acp-step-num">STUFE 1</span>
             <div class="acp-step-content">
               <div class="acp-step-head">
-                <span class="acp-step-label">💻 Dein Laptop (Lokaler Arbeitsplatz)</span>
-                <span class="acp-step-badge" style="background:rgba(255,255,255,0.1); color:#cbd5e1;">Lokal</span>
+                <span class="acp-step-label">Studio-Vorschau &amp; Bearbeitung</span>
+                <span class="acp-step-badge" style="background:rgba(255,255,255,0.08); color:#cbd5e1;">Entwurf</span>
               </div>
-              <p class="acp-step-desc">Du passt die HTML-Datei lokal an (z. B. mit ChatGPT) und prüfst sie hier im Cockpit. Deine echte Firmen-Webseite bleibt zu 100% geschützt.</p>
+              <p class="acp-step-desc">Du bearbeitest Texte, Bilder oder Abschnitte bequem im Studio. Die öffentliche Webseite bleibt geschützt.</p>
             </div>
           </div>
-
-          <div class="acp-step-arrow">▼ Klick auf [ 🚀 Jetzt scharfstellen ]</div>
 
           <div class="acp-step-box">
             <span class="acp-step-num">STUFE 2</span>
             <div class="acp-step-content">
               <div class="acp-step-head">
-                <span class="acp-step-label">🛡️ Magnet-XS Cloud (Airbag &amp; Synchronisation)</span>
-                <span class="acp-step-badge" style="background:rgba(234,179,8,0.2); color:#facc15;">Airbag-Prüfung</span>
+                <span class="acp-step-label">Qualitäts-Airbag &amp; Validierung</span>
+                <span class="acp-step-badge" style="background:rgba(240,133,45,0.16); color:#ffa858;">Airbag-Prüfung</span>
               </div>
-              <p class="acp-step-desc">Der Airbag prüft die Datei in 0.3s auf intakte HTML-Tags, WhatsApp-Links und Schweizer Telefonnummern. Verhindert Fehler automatisch.</p>
+              <p class="acp-step-desc">Das System prüft automatisch alle HTML-Tags, Kontakt-Links und Darstellungsregeln.</p>
             </div>
           </div>
-
-          <div class="acp-step-arrow">▼ Bei 100% grünem Airbag</div>
 
           <div class="acp-step-box">
             <span class="acp-step-num">STUFE 3</span>
             <div class="acp-step-content">
               <div class="acp-step-head">
-                <span class="acp-step-label">⚡ Magnet-XS Edge-CDN (embed.magnet-xs.ch)</span>
-                <span class="acp-step-badge" style="background:rgba(59,130,246,0.2); color:#60a5fa;">&lt; 50ms Auslieferung</span>
+                <span class="acp-step-label">Schweizer Edge-Netzwerk (embed.magnet-xs.ch)</span>
+                <span class="acp-step-badge" style="background:rgba(255,255,255,0.08); color:#cbd5e1;">&lt; 50ms Auslieferung</span>
               </div>
-              <p class="acp-step-desc">Schweizer Hochgeschwindigkeits-Server (Zürich &amp; Genf) stellen die fertige Datei für das Einbettungs-Widget bereit.</p>
+              <p class="acp-step-desc">Hochgeschwindigkeits-Server stellen die geprüfte Seite verzögerungsfrei bereit.</p>
             </div>
           </div>
-
-          <div class="acp-step-arrow">▼ Automatisches Widget-Update</div>
 
           <div class="acp-step-box live-target">
             <span class="acp-step-num" style="background:#10b981; color:#0f172a;">STUFE 4</span>
             <div class="acp-step-content">
               <div class="acp-step-head">
-                <span class="acp-step-label">🌐 Live-Webseite (embed.magnet-xs.ch/preview-hochuli/)</span>
-                <span class="acp-step-badge" style="background:rgba(16,185,129,0.25); color:#34d399;">🟢 LIVE FÜR BEWERBER</span>
+                <span class="acp-step-label">Live-Webseite (embed.magnet-xs.ch/preview-hochuli/)</span>
+                <span class="acp-step-badge" style="background:rgba(16,185,129,0.2); color:#34d399;">LIVE PUBLIZIERT</span>
               </div>
-              <p class="acp-step-desc">Das feste Widget in WordPress zeigt sofort die neue Version an – ohne dass jemand am WordPress-CMS arbeiten muss!</p>
+              <p class="acp-step-desc">Besucher sehen sofort die aktualisierte Version auf allen Geräten.</p>
             </div>
           </div>
-
-        </div>
-
-        <div style="margin-top:12px; padding:10px 12px; background:rgba(255,255,255,0.04); border-radius:6px; font-size:11.5px; color:#94a3b8; line-height:1.45;">
-          💡 <strong>Warum ist genau eine Datei öffentlich live?</strong><br>
-          In WordPress ist der feste 2-Zeiler Widget-Code eingebettet, der auf eine bestimmte Datei verlinkt (aktuell: <code>index.html</code>). Alle anderen Dateien im Cockpit sind <strong>sichere Entwürfe</strong>. Sie werden erst live geschaltet, wenn der Webmaster das Widget auf die neue Stelle einstellt.
         </div>
       </div>
 
-      <div style="padding: 14px 18px; background: rgba(59, 130, 246, 0.12); border: 1px solid rgba(59, 130, 246, 0.25); border-radius: 8px;">
-        <div style="font-weight: 700; color: #60a5fa; margin-bottom: 3px; font-size: 13px;">📍 Wo bin ich gerade?</div>
-        <div style="font-size: 12.5px; color: #cbd5e1;">
-          Du bist hier in deinem <strong>Lokalen Cockpit</strong> (deine persönliche Werkstatt auf deinem Computer). Erst mit Klick auf <em>«Jetzt scharfstellen»</em> wird es auf <a href="https://embed.magnet-xs.ch/preview-hochuli/" target="_blank" style="color: #38bdf8; text-decoration: underline;">embed.magnet-xs.ch/preview-hochuli/</a> sichtbar.
-        </div>
-        <div style="margin-top: 10px; padding-top: 8px; border-top: 1px solid rgba(255,255,255,0.08); display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px; font-size: 12px;">
-          <span>🌐 <strong>Online-Cockpit:</strong> <a href="https://embed.magnet-xs.ch/preview-hochuli/cockpit" target="_blank" style="color: #38bdf8; font-family: 'JetBrains Mono', monospace; text-decoration: underline;">embed.magnet-xs.ch/preview-hochuli/cockpit ↗</a></span>
-          <button type="button" class="btn-table-copy" style="padding: 2px 8px; font-size: 11px;" onclick="acpCopyOnlineUrl(this)">📋 Kopieren</button>
+      <div style="padding: 14px 18px; background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 8px;">
+        <div style="font-weight: 700; color: #f8fafc; margin-bottom: 4px; font-size: 13px;">Direktlinks zu deinem Studio</div>
+        <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px; font-size: 12px;">
+          <span><strong>Online-Cockpit:</strong> <a href="https://embed.magnet-xs.ch/preview-hochuli/cockpit" target="_blank" style="color: #ffa858; font-family: 'JetBrains Mono', monospace; text-decoration: underline;">embed.magnet-xs.ch/preview-hochuli/cockpit ↗</a></span>
+          <button type="button" class="acp-btn-secondary" style="padding: 5px 10px; font-size: 11.5px;" onclick="acpCopyOnlineUrl(this)">Link kopieren</button>
         </div>
       </div>
 
@@ -3786,31 +4427,40 @@ html, body {
 </div>
 
 <!-- ======================================================= -->
-<!-- MODAL: LIVE-AKTIVITÄTS-LOGBUCH & AUDIT-TRAIL           -->
+<!-- MODAL: LIVE-AKTIVITÄTS-PROTOKOLL & VERLAUF              -->
 <!-- ======================================================= -->
 <div id="acp-log-modal" class="acp-modal-backdrop" onclick="if(event.target===this)acpToggleLogModal()">
-  <div class="acp-modal" style="max-width: 860px; width: 92%;">
+  <div class="acp-modal" style="max-width: 860px; width: 92%; margin: 40px auto; padding: 0;">
     <div class="acp-modal-head">
       <div>
-        <div class="acp-modal-kicker">// AUDIT-TRAIL ⬥ ECHTZEIT-LOGGING</div>
-        <h3 class="acp-modal-heading">📋 Live-Aktivitäts-Protokoll</h3>
+        <div class="acp-modal-kicker">WEBPILOT STUDIO · AKTIVITÄTS-PROTOKOLL</div>
+        <h3 class="acp-modal-heading">Live-Aktivitäts-Protokoll</h3>
       </div>
-      <div style="display:flex; align-items:center; gap:8px;">
-        <button type="button" class="acp-btn-ghost" onclick="acpClearClientLog()" style="font-size:12px; padding:4px 10px; color:#94a3b8; border:1px solid #334155; border-radius:4px; background:transparent; cursor:pointer;">🗑️ Log leeren</button>
-        <button type="button" class="acp-modal-close" onclick="acpToggleLogModal()" title="Schliessen (ESC)">✕ Schliessen (ESC)</button>
+      <div class="acp-modal-actions">
+        <button type="button" class="acp-btn-secondary" onclick="acpClearClientLog()">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>
+          <span>Protokoll leeren</span>
+        </button>
+        <button type="button" class="acp-btn-close" onclick="acpToggleLogModal()" title="Schliessen (ESC)">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+          <span>Schliessen</span>
+        </button>
       </div>
     </div>
-    <div class="acp-modal-body" style="padding: 16px;">
+    <div class="acp-modal-body" style="padding: 20px 24px;">
       <div style="margin-bottom: 12px; display:flex; justify-content:space-between; align-items:center; font-size:12px; color:#94a3b8;">
-        <span>Erfasst alle Klicks, Bildwechsel, API-Aufrufe und Server-Antworten in Echtzeit:</span>
-        <span id="acp-log-status" style="color:#22c55e; font-weight:600;">● Live verbunden</span>
+        <span>Erfasst alle Änderungen, Bildwechsel und Server-Antworten in Echtzeit:</span>
+        <span id="acp-log-status" style="color:#22c55e; font-weight:600;">Live verbunden</span>
       </div>
-      <div id="acp-log-console" style="background:#090d16; border:1px solid #1e293b; border-radius:6px; padding:12px; font-family:'JetBrains Mono',monospace; font-size:12px; line-height:1.6; max-height:420px; overflow-y:auto; color:#e2e8f0;">
+      <div id="acp-log-console" style="background:#07090e; border:1px solid rgba(255,255,255,0.08); border-radius:8px; padding:14px; font-family:'JetBrains Mono',monospace; font-size:12px; line-height:1.6; max-height:420px; overflow-y:auto; color:#e2e8f0;">
         <div style="color:#64748b; font-style:italic;">Warte auf Aktionen...</div>
       </div>
       <div style="margin-top: 12px; display:flex; justify-content:space-between; align-items:center;">
-        <span style="font-size:11px; color:#64748b;">Server-Logbuch: <code>COCKPIT_LOG.md</code></span>
-        <button type="button" class="btn btn-secondary" onclick="acpFetchServerLog()" style="font-size:12px; padding:6px 12px; cursor:pointer; background:#1e293b; color:#f8fafc; border:1px solid #334155; border-radius:4px;">🔄 Server-Logbuch laden</button>
+        <span style="font-size:11.5px; color:#64748b;">Server-Protokoll: <code>COCKPIT_LOG.md</code></span>
+        <button type="button" class="acp-btn-secondary" onclick="acpFetchServerLog()" style="font-size:12px; padding:7px 12px;">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg>
+          <span>Server-Protokoll laden</span>
+        </button>
       </div>
     </div>
   </div>
@@ -3952,12 +4602,12 @@ function acpClearClientLog() {
 function acpFetchServerLog() {
   var currentJob = getActiveJob();
   var clientSlug = (currentJob && currentJob.folder) || (window.ACP_CLIENT_PROFILE && window.ACP_CLIENT_PROFILE.slug) || 'preview-birchmeier';
-  acpLog('info', '📡 Frage Server-Logbuch ab...', 'Mandant: ' + clientSlug);
+  acpLog('info', ' Frage Server-Logbuch ab...', 'Mandant: ' + clientSlug);
   fetch('/api/publish-career/logs?client=' + encodeURIComponent(clientSlug))
     .then(function(res) { return res.json(); })
     .then(function(data) {
       if (data && data.ok) {
-        acpLog('server', '📋 Server-Log geladen (' + data.client + '):', '<pre style="margin:4px 0; white-space:pre-wrap; max-height:200px; overflow-y:auto; background:rgba(0,0,0,0.3); padding:6px; border-radius:4px;">' + (data.log || 'Keine Daten') + '</pre>');
+        acpLog('server', 'Server-Log geladen (' + data.client + '):', '<pre style="margin:4px 0; white-space:pre-wrap; max-height:200px; overflow-y:auto; background:rgba(0,0,0,0.3); padding:6px; border-radius:4px;">' + (data.log || 'Keine Daten') + '</pre>');
       } else {
         acpLog('error', 'Konnte Server-Log nicht laden: ' + ((data && data.error) || 'Unbekannt'));
       }
@@ -3971,8 +4621,8 @@ function acpFetchServerLog() {
 // MAGNET-XS COCKPIT FRAMEWORK v3.3.0 (SWISS ARCHITECTURAL CANVAS)
 // Build: 2026-10-03 15:30 CEST
 // =======================================================
-var ACP_COCKPIT_VERSION = "v3.4.1";
-var ACP_COCKPIT_BUILD = "2026-10-30 18:29";
+var ACP_COCKPIT_VERSION = "v4.0.0";
+var ACP_COCKPIT_BUILD = "2026-10-30 19:09";
 
 function sanitizeStellen(list) {
   if (!Array.isArray(list)) return [];
@@ -4188,14 +4838,14 @@ function renderJobPicker() {
     var badgeHtml = "";
     var targetLineHtml = "";
     if (j.is_live) {
-      badgeHtml = '<span class="acp-badge-mini live">🟢 LIVE WIDGET</span>';
+      badgeHtml = '<span class="acp-badge-mini live">LIVE WIDGET</span>';
       var tgt = j.embedded_page_label || (j.embedded_page_url ? acpCleanUrlLabel(j.embedded_page_url) : 'Eingebaut');
       targetLineHtml = '<div class="dropdown-item-target is-live" title="' + (j.embedded_page_url || '') + '"><span class="target-bullet">↗</span> <span>Eingebaut: ' + tgt + '</span></div>';
     } else if (j.id && j.id.indexOf("zurbuchen") !== -1) {
-      badgeHtml = '<span class="acp-badge-mini ready">🟡 BEREIT</span>';
+      badgeHtml = '<span class="acp-badge-mini ready"> BEREIT</span>';
       targetLineHtml = '<div class="dropdown-item-target is-ready"><span class="target-bullet">○</span> <span>Bereit zur Einbettung</span></div>';
     } else {
-      badgeHtml = '<span class="acp-badge-mini draft">⚪ ENTWURF</span>';
+      badgeHtml = '<span class="acp-badge-mini draft">ENTWURF</span>';
       targetLineHtml = '<div class="dropdown-item-target is-draft"><span class="target-bullet">○</span> <span>Entwurf · Nicht eingebaut</span></div>';
     }
 
@@ -4296,12 +4946,12 @@ function acpSwitchJob(jobId, forceReload) {
   var fDesc = document.getElementById("host-footer-desc");
   var fFooter = document.getElementById("host-footer");
 
-  if (hBadge) hBadge.innerHTML = '<span>🌐 BEREICH 1: BESTEHENDE WEBSEITE (' + hostDomain + ')</span>';
+  if (hBadge) hBadge.innerHTML = '<span>BEREICH 1: BESTEHENDE WEBSEITE (' + hostDomain + ')</span>';
   if (hTitle) hTitle.textContent = "Kopfzeile der Kunden-Webseite: " + firmaName;
   if (hDesc) hDesc.textContent = "Hier bleibt das Firmenlogo und das normale Navigationsmenü von " + hostDomain + " fix bestehen.";
   if (hHeader) { hHeader.style.borderBottomColor = brandColor; }
 
-  if (fBadge) fBadge.innerHTML = '<span>🌐 BEREICH 3: BESTEHENDE WEBSEITE (' + hostDomain + ')</span>';
+  if (fBadge) fBadge.innerHTML = '<span>BEREICH 3: BESTEHENDE WEBSEITE (' + hostDomain + ')</span>';
   if (fTitle) fTitle.textContent = "Fusszeile der Kunden-Webseite: " + firmaName;
   if (fDesc) fDesc.textContent = "Hier bleibt der bestehende Footer von " + hostDomain + " mit Adressen und Impressum unverändert bestehen.";
   if (fFooter) { fFooter.style.borderTopColor = brandColor; }
@@ -4361,7 +5011,7 @@ function acpSwitchJob(jobId, forceReload) {
   }
 
   updateSnippetBox();
-  acpShowToast("🔄 Vorschau gewechselt auf: <strong>" + job.titel + "</strong>");
+  acpShowToast("Vorschau gewechselt auf: <strong>" + job.titel + "</strong>");
 }
 
 function updateSnippetBox() {
@@ -4378,7 +5028,7 @@ function acpCopyActiveCode() {
   if (!job || !job.widget_code) return;
   if (navigator.clipboard && navigator.clipboard.writeText) {
     navigator.clipboard.writeText(job.widget_code);
-    acpShowToast("📋 <strong>" + job.titel + "</strong> Widget-Code in die Zwischenablage kopiert!");
+    acpShowToast("<strong>" + job.titel + "</strong> Widget-Code in die Zwischenablage kopiert!");
   } else {
     window.prompt("Kopiere diesen Einbettungs-Code für den Webmaster:", job.widget_code);
   }
@@ -4389,7 +5039,7 @@ function acpCopyJobCode(jobId) {
     if (ACP_STELLEN[i].id === jobId) {
       if (navigator.clipboard && navigator.clipboard.writeText) {
         navigator.clipboard.writeText(ACP_STELLEN[i].widget_code);
-        acpShowToast("📋 Widget-Code für <strong>" + ACP_STELLEN[i].titel + "</strong> kopiert!");
+        acpShowToast("Widget-Code für <strong>" + ACP_STELLEN[i].titel + "</strong> kopiert!");
       } else {
         window.prompt("Kopiere diesen Einbettungs-Code:", ACP_STELLEN[i].widget_code);
       }
@@ -4402,10 +5052,10 @@ function acpCopyAiPrompt(btn) {
   var text = "Bitte gib mir den Quellcode immer als eine einzige, vollständige und ungekürzte HTML-Datei aus – ausnahmslos von <!DOCTYPE html> bis </html>. Verwende keine Code-Auslassungen (wie // ... restlicher Code ...), keine Zusammenfassungen und erstelle die Ausgabe direkt als einhängenden Code-Block in deiner Antwort.";
   if (navigator.clipboard && navigator.clipboard.writeText) {
     navigator.clipboard.writeText(text);
-    acpShowToast("📋 KI-Befehl in die Zwischenablage kopiert!");
+    acpShowToast("KI-Befehl in die Zwischenablage kopiert!");
     if (btn) {
       var orig = btn.textContent;
-      btn.textContent = "✓ Kopiert!";
+      btn.textContent = "Kopiert!";
       setTimeout(function() { btn.textContent = orig; }, 2000);
     }
   } else {
@@ -4420,10 +5070,10 @@ function acpCopyOnlineUrl(btn) {
   }
   if (navigator.clipboard && navigator.clipboard.writeText) {
     navigator.clipboard.writeText(url);
-    acpShowToast("📋 <strong>Online-Cockpit Link kopiert!</strong><br><small>" + url + "</small>");
+    acpShowToast("<strong>Online-Cockpit Link kopiert!</strong><br><small>" + url + "</small>");
     if (btn) {
       var orig = btn.textContent;
-      btn.textContent = "✓ Kopiert!";
+      btn.textContent = "Kopiert!";
       setTimeout(function() { btn.textContent = orig; }, 2000);
     }
   } else {
@@ -4535,7 +5185,7 @@ function acpRenderImagesGrid() {
 
   if (filtered.length === 0) {
     grid.innerHTML = '<div style="grid-column: 1/-1; text-align: center; padding: 50px 20px; color: #94a3b8;">' +
-      '<div style="font-size: 32px; margin-bottom: 10px;">🔍</div>' +
+      '<div style="font-size: 32px; margin-bottom: 10px;"></div>' +
       '<div>Keine Bilder für diese Auswahl gefunden.</div>' +
     '</div>';
     return;
@@ -4546,10 +5196,10 @@ function acpRenderImagesGrid() {
     var img = filtered[i];
     var isNewlyUploaded = acpJustUploadedRelPath && (img.rel_path === acpJustUploadedRelPath || img.filename === acpJustUploadedRelPath);
     var cardClasses = 'acp-image-card' + (isNewlyUploaded ? ' is-just-uploaded' : '');
-    var newBadge = isNewlyUploaded ? '<div class="acp-card-new-badge">✨ NEU HOCHGELADEN</div>' : '';
+    var newBadge = isNewlyUploaded ? '<div class="acp-card-new-badge">NEU HOCHGELADEN</div>' : '';
     var dateMeta = img.mtime_str ? ' · ' + img.mtime_str : '';
     var badgeClass = img.is_used ? 'badge-used' : 'badge-free';
-    var badgeText = img.is_used ? '🟢 Im Einsatz (' + img.used_in.length + ')' : '⚪ Frei verfügbar';
+    var badgeText = img.is_used ? 'Im Einsatz (' + img.used_in.length + ')' : 'Frei verfügbar';
     var usedDetails = '';
     if (img.is_used && img.used_in && img.used_in.length > 0) {
       usedDetails = '<div style="font-size:10px; color:#94a3b8; margin-top:3px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;" title="' + img.used_in.map(function(u){return u.datei;}).join(', ') + '">' +
@@ -4569,9 +5219,9 @@ function acpRenderImagesGrid() {
         '<div class="acp-card-meta">' + img.dimensions + ' · ' + img.size_kb + ' KB' + dateMeta + '</div>' +
         '<div class="acp-card-badge ' + badgeClass + '">' + badgeText + usedDetails + '</div>' +
         '<div class="acp-card-actions">' +
-          '<button type="button" class="btn-card-swap" onclick="acpSelectSwapImage(\'' + img.rel_path + '\', \'' + img.filename + '\')" title="Als neues Foto für Bildtausch auswählen">🎯 Als Tausch-Bild wählen</button>' +
-          '<button type="button" class="btn-card-copy" onclick="acpCopyImagePath(\'' + img.rel_path + '\')" title="Pfad in die Zwischenablage kopieren">📋 Pfad</button>' +
-          '<button type="button" class="btn-card-delete ' + (img.is_used ? 'is-disabled' : '') + '" onclick="acpDeleteImage(\'' + img.rel_path + '\', \'' + img.filename.replace(/'/g, "\\'") + '\', ' + (img.is_used ? 'true' : 'false') + ')" title="' + (img.is_used ? 'Im Einsatz — kann nicht gelöscht werden' : 'Foto aus Pool & Cloudflare löschen') + '">🗑️</button>' +
+          '<button type="button" class="btn-card-swap" onclick="acpSelectSwapImage(\'' + img.rel_path + '\', \'' + img.filename + '\')" title="Als neues Foto für Bildtausch auswählen">Als Tausch-Bild wählen</button>' +
+          '<button type="button" class="btn-card-copy" onclick="acpCopyImagePath(\'' + img.rel_path + '\')" title="Pfad in die Zwischenablage kopieren">Pfad</button>' +
+          '<button type="button" class="btn-card-delete ' + (img.is_used ? 'is-disabled' : '') + '" onclick="acpDeleteImage(\'' + img.rel_path + '\', \'' + img.filename.replace(/'/g, "\\'") + '\', ' + (img.is_used ? 'true' : 'false') + ')" title="' + (img.is_used ? 'Im Einsatz — kann nicht gelöscht werden' : 'Foto aus Pool & Cloudflare löschen') + '">×</button>' +
         '</div>' +
       '</div>' +
     '</div>';
@@ -4583,7 +5233,7 @@ function acpCopyImagePath(relPath) {
   if (navigator.clipboard && navigator.clipboard.writeText) {
     navigator.clipboard.writeText(relPath);
   }
-  acpShowToast('📋 Bildpfad <code>' + relPath + '</code> kopiert!');
+  acpShowToast('Bildpfad <code>' + relPath + '</code> kopiert!');
 }
 
 function acpRefreshImages(highlightRelPath, showToast) {
@@ -4611,7 +5261,7 @@ function acpRefreshImages(highlightRelPath, showToast) {
           }
           acpRenderImagesGrid();
           if (showToast) {
-            acpShowToast('🔄 Bilder-Pool aktualisiert (' + ACP_BILDER.length + ' Fotos bereit)');
+            acpShowToast('Bilder-Pool aktualisiert (' + ACP_BILDER.length + ' Fotos bereit)');
           }
         }
       })
@@ -4662,7 +5312,7 @@ function acpUploadImageFile(file) {
   if (!file) return;
 
   if (window.location.protocol === "file:") {
-    acpShowToast("📁 Im lokalen Dateimodus: Bitte lege Fotos direkt in deinen Ordner <code>images/</code> ab.");
+    acpShowToast(" Im lokalen Dateimodus: Bitte lege Fotos direkt in deinen Ordner <code>images/</code> ab.");
     return;
   }
 
@@ -4670,12 +5320,12 @@ function acpUploadImageFile(file) {
   var fileName = file.name.toLowerCase();
   var isValidExt = validExts.some(function(ext) { return fileName.endsWith(ext); });
   if (!isValidExt) {
-    acpShowToast("⚠️ Dateiformat wird nicht unterstützt. Erlaubt sind JPG, PNG, WebP, SVG, GIF.");
+    acpShowToast("Dateiformat wird nicht unterstützt. Erlaubt sind JPG, PNG, WebP, SVG, GIF.");
     return;
   }
 
   if (file.size > 15 * 1024 * 1024) {
-    acpShowToast("⚠️ Das Foto ist grösser als 15 MB. Bitte wähle eine kleinere Datei.");
+    acpShowToast("Das Foto ist grösser als 15 MB. Bitte wähle eine kleinere Datei.");
     return;
   }
 
@@ -4740,7 +5390,7 @@ function acpUploadImageFile(file) {
           if (modalBody) modalBody.scrollTop = 0;
         }
 
-        acpShowToast("✅ Foto <code>" + data.filename + "</code> (" + data.size_kb + " KB) erfolgreich im Bilder-Pool bereitgestellt!");
+        acpShowToast("Foto <code>" + data.filename + "</code> (" + data.size_kb + " KB) erfolgreich im Bilder-Pool bereitgestellt!");
       } else {
         throw new Error(data.error || "Upload fehlgeschlagen");
       }
@@ -4748,19 +5398,19 @@ function acpUploadImageFile(file) {
     .catch(function(err) {
       if (statusBox) statusBox.classList.remove("is-active");
       console.error("Upload-Fehler:", err);
-      acpShowToast("🚨 Upload fehlgeschlagen: " + err.message);
+      acpShowToast("Upload fehlgeschlagen: " + err.message);
       acpReportClientEvent("error", "Foto-Upload im Cockpit fehlgeschlagen", err.message);
     });
 }
 
 function acpDeleteImage(relPath, filename, isUsed) {
   if (isUsed) {
-    acpShowToast("⚠️ Das Foto <code>" + filename + "</code> wird aktuell in einer Stelle verwendet und kann nicht gelöscht werden. Tausche es zuerst aus.");
+    acpShowToast("Das Foto <code>" + filename + "</code> wird aktuell in einer Stelle verwendet und kann nicht gelöscht werden. Tausche es zuerst aus.");
     return;
   }
 
   if (window.location.protocol === "file:") {
-    acpShowToast("📁 Im lokalen Dateimodus: Bitte lösche die Datei direkt aus deinem Ordner <code>images/</code>.");
+    acpShowToast(" Im lokalen Dateimodus: Bitte lösche die Datei direkt aus deinem Ordner <code>images/</code>.");
     return;
   }
 
@@ -4800,7 +5450,7 @@ function acpDeleteImage(relPath, filename, isUsed) {
         delete acpLocalBlobPreviews[relPath];
         delete acpLocalBlobPreviews[filename];
         acpRenderImagesGrid();
-        acpShowToast("🗑️ Foto <code>" + filename + "</code> erfolgreich gelöscht.");
+        acpShowToast("Foto <code>" + filename + "</code> erfolgreich gelöscht.");
       } else {
         throw new Error(data.error || "Löschen fehlgeschlagen");
       }
@@ -4808,7 +5458,7 @@ function acpDeleteImage(relPath, filename, isUsed) {
     .catch(function(err) {
       if (statusBox) statusBox.classList.remove("is-active");
       console.error("Lösch-Fehler:", err);
-      acpShowToast("🚨 Löschen fehlgeschlagen: " + err.message);
+      acpShowToast("Löschen fehlgeschlagen: " + err.message);
       acpReportClientEvent("error", "Foto-Löschen im Cockpit fehlgeschlagen", err.message);
     });
 }
@@ -4870,7 +5520,7 @@ function acpEnsureSpotlightCssInDoc(doc) {
       "  box-shadow: inset 0 0 120px rgba(250, 204, 21, 0.65), 0 0 80px rgba(250, 204, 21, 0.9) !important;",
       "}",
       "body.acp-swap-mode-active .hero::before {",
-      "  content: \"⚡ HIER KLICKEN: HERO-BILD SOFORT ERSETZEN (oder ESC zum Abbrechen)\" !important;",
+      "  content: \"HIER KLICKEN: HERO-BILD SOFORT ERSETZEN (oder ESC zum Abbrechen)\" !important;",
       "  position: absolute !important;",
       "  top: 24px !important;",
       "  left: 50% !important;",
@@ -4883,7 +5533,7 @@ function acpEnsureSpotlightCssInDoc(doc) {
       "  font-weight: 800 !important;",
       "  letter-spacing: 0.5px !important;",
       "  padding: 10px 24px !important;",
-      "  border-radius: 9999px !important;",
+      "  border-radius:8px;",
       "  box-shadow: 0 4px 25px rgba(0,0,0,0.7), 0 0 30px rgba(250, 204, 21, 0.9) !important;",
       "  pointer-events: none !important;",
       "  animation: acpPulseBadge 1.8s infinite ease-in-out !important;",
@@ -5017,22 +5667,22 @@ function acpRenderSwapDockTargets() {
   var usedImages = getUsedImagesForCurrentJob();
   if (usedImages.length > 0) {
     var btnsHtml = '<div style="display:flex; align-items:center; gap:8px; flex-wrap:wrap;">' +
-      '<span style="color:#facc15; font-size:12px; font-weight:700;">👉 Wähle das zu ersetzende Bild:</span>';
+      '<span style="color:#facc15; font-size:12px; font-weight:700;"> Wähle das zu ersetzende Bild:</span>';
     for (var u = 0; u < usedImages.length; u++) {
       var uImg = usedImages[u];
-      var label = uImg.is_hero ? ('🖼️ Hero-Hintergrund (' + uImg.filename + ')') : ('📷 ' + uImg.filename);
+      var label = uImg.is_hero ? ('Hero-Hintergrund (' + uImg.filename + ')') : ('' + uImg.filename);
       btnsHtml += '<button type="button" class="btn-swap-target-choice" onclick="acpSelectTargetDirect(\'' + uImg.rel_path + '\', \'' + uImg.slot + '\', ' + uImg.is_hero + ', \'' + activeFile + '\')">' + label + '</button>';
     }
     btnsHtml += '<span style="color:#94a3b8; font-size:11px;">(oder klicke in der Vorschau darauf)</span></div>';
     targetHint.innerHTML = btnsHtml;
   } else {
-    targetHint.innerHTML = '<span style="color:#facc15; font-size:12px; font-weight:700;">👉 Klicke jetzt in der Vorschau auf das Bild, das du ersetzen möchtest...</span>';
+    targetHint.innerHTML = '<span style="color:#facc15; font-size:12px; font-weight:700;"> Klicke jetzt in der Vorschau auf das Bild, das du ersetzen möchtest...</span>';
   }
 }
 
 function acpSelectSwapImage(relPath, filename) {
   acpSelectedSwapImage = { rel_path: relPath, filename: filename };
-  acpLog("info", "📷 Tausch-Bild ausgewählt: " + filename, "Pfad: " + relPath);
+  acpLog("info", "Tausch-Bild ausgewählt: " + filename, "Pfad: " + relPath);
   if (acpImagesModalOpen) {
     acpToggleImagesModal();
   }
@@ -5067,7 +5717,7 @@ function acpSelectSwapImage(relPath, filename) {
   acpDispatchSwapMode(true);
 
   window.scrollTo({ top: 0, behavior: "smooth" });
-  acpShowToast('🎯 Tausch-Bild gewählt: <strong>' + filename + '</strong><br><small>Wähle nun das Zielbild in der gelben Leiste oben oder klicke in der Vorschau darauf.</small>', 5000);
+  acpShowToast('Tausch-Bild gewählt: <strong>' + filename + '</strong><br><small>Wähle nun das Zielbild in der gelben Leiste oben oder klicke in der Vorschau darauf.</small>', 5000);
 }
 
 function acpSelectTargetDirect(srcPath, slotName, isHero, docFile, slotContext) {
@@ -5101,7 +5751,7 @@ function acpCancelSwap(silent) {
   }
   var targetHint = document.getElementById("acp-swap-target-hint");
   if (targetHint) {
-    targetHint.textContent = "👉 Klicke jetzt in der Vorschau auf das zu ersetzende Bild!";
+    targetHint.textContent = " Klicke jetzt in der Vorschau auf das zu ersetzende Bild!";
     targetHint.style.color = "#94a3b8";
   }
   var actionsBox = document.getElementById("acp-swap-actions");
@@ -5114,7 +5764,7 @@ function acpCancelSwap(silent) {
 
 function acpHandleSlotClick(data) {
   if (!acpSelectedSwapImage) {
-    acpShowToast('💡 <strong>Klick-Inspektor:</strong> Öffne zuerst oben <strong>[ 🖼️ Bilder ]</strong> und wähle ein Tausch-Foto aus!', 4000);
+    acpShowToast('<strong>Klick-Inspektor:</strong> Öffne zuerst oben <strong>[ Bilder ]</strong> und wähle ein Tausch-Foto aus!', 4000);
     return;
   }
 
@@ -5212,11 +5862,11 @@ function acpHandleSlotClick(data) {
   var actionsBox = document.getElementById("acp-swap-actions");
   var cleanOld = acpTargetSwapSlot.currentSrc.split('/').pop() || acpTargetSwapSlot.slot;
   var cleanNew = acpSelectedSwapImage.filename;
-  acpLog("swap", "🎯 Tauschziel im Inserat gewählt: " + cleanOld + " ➔ " + cleanNew, "Datei: " + activeFile + " · Slot: " + acpTargetSwapSlot.slot);
+  acpLog("swap", "Tauschziel im Inserat gewählt: " + cleanOld + " → " + cleanNew, "Datei: " + activeFile + " · Slot: " + acpTargetSwapSlot.slot);
 
   if (targetHint) {
-    targetHint.innerHTML = '<span style="color:#22c55e; font-weight:700;">✅ Tausche:</span> ' +
-      '<strong style="color:#f87171;">' + cleanOld + '</strong> ➔ <strong style="color:#38bdf8;">' + cleanNew + '</strong> in <code>' + activeFile + '</code>';
+    targetHint.innerHTML = '<span style="color:#22c55e; font-weight:700;">Tausche:</span> ' +
+      '<strong style="color:#f87171;">' + cleanOld + '</strong> → <strong style="color:#38bdf8;">' + cleanNew + '</strong> in <code>' + activeFile + '</code>';
   }
   if (actionsBox) {
     actionsBox.style.display = "flex";
@@ -5266,7 +5916,7 @@ function acpAutoSyncViewport(targetFile, cleanNewImageName, jobId) {
   var maxPolls = 14; // Bis zu 14 Versuche * 2000ms = 28 Sekunden
   var pollInterval = 2000;
 
-  acpLog("info", "🔄 Starte automatische Edge-CDN-Synchronisation...", "Datei: " + targetFile + " · Neues Foto: " + cleanNewImageName);
+  acpLog("info", "Starte automatische Edge-CDN-Synchronisation...", "Datei: " + targetFile + " · Neues Foto: " + cleanNewImageName);
 
   function pollEdge() {
     pollCount++;
@@ -5280,7 +5930,7 @@ function acpAutoSyncViewport(targetFile, cleanNewImageName, jobId) {
       .then(function(html) {
         var isLive = (cleanNewImageName && html.indexOf(cleanNewImageName) !== -1);
         if (isLive || pollCount >= maxPolls) {
-          acpLog("success", "🎉 Edge CDN synchronisiert! Lade Viewport automatisch neu...", "Versuch " + pollCount + " · Datei: " + targetFile);
+          acpLog("success", "Edge CDN synchronisiert! Lade Viewport automatisch neu...", "Versuch " + pollCount + " · Datei: " + targetFile);
           acpReloadViewportWithTransition(cleanBase);
         } else {
           acpSyncPollTimer = setTimeout(pollEdge, pollInterval);
@@ -5288,7 +5938,7 @@ function acpAutoSyncViewport(targetFile, cleanNewImageName, jobId) {
       })
       .catch(function(err) {
         if (pollCount >= maxPolls) {
-          acpLog("warn", "⚠️ Edge-Probe Timeout erreicht. Führe Fallback-Reload durch.");
+          acpLog("warn", "Edge-Probe Timeout erreicht. Führe Fallback-Reload durch.");
           acpReloadViewportWithTransition(cleanBase);
         } else {
           acpSyncPollTimer = setTimeout(pollEdge, pollInterval);
@@ -5313,15 +5963,15 @@ function acpReloadViewportWithTransition(cleanBaseUrl) {
   frame.src = reloadSrc;
   frame.onload = function() {
     frame.style.opacity = "1";
-    acpShowToast('🎉 <strong>Live-Vorschau aktualisiert!</strong><br><small>Die Seite wurde automatisch mit dem neuen Bild synchronisiert.</small>', 5000);
-    acpLog("success", "✨ Vorschau automatisch aktualisiert", reloadSrc);
+    acpShowToast('<strong>Live-Vorschau aktualisiert!</strong><br><small>Die Seite wurde automatisch mit dem neuen Bild synchronisiert.</small>', 5000);
+    acpLog("success", "Vorschau automatisch aktualisiert", reloadSrc);
   };
 }
 
 function acpExecuteDirectSwap() {
   if (!acpSelectedSwapImage || !acpTargetSwapSlot) return;
   if (acpIsSwapping) {
-    acpShowToast('⏳ <strong>Bildtausch läuft bereits...</strong> Einen kurzen Moment bitte.', 3000);
+    acpShowToast('<strong>Bildtausch läuft bereits...</strong> Einen kurzen Moment bitte.', 3000);
     return;
   }
   acpIsSwapping = true;
@@ -5329,16 +5979,16 @@ function acpExecuteDirectSwap() {
   var btn = document.querySelector(".btn-swap-exec");
   if (btn) {
     btn.disabled = true;
-    btn.textContent = "⏳ Tausche & Deploye...";
+    btn.textContent = "Tausche & Deploye...";
   }
 
   var currentJob = getActiveJob();
   var activeFile = (acpTargetSwapSlot && acpTargetSwapSlot.datei) || (currentJob ? currentJob.datei : 'index.html');
   var cleanOld = (acpTargetSwapSlot.currentSrc.split('/').pop() || acpTargetSwapSlot.slot).split('?')[0].trim();
   var cleanNew = (acpSelectedSwapImage.filename || '').split('?')[0].trim();
-  acpLog("swap", "🎯 Tauschziel im Inserat gewählt: " + cleanOld + " ➔ " + cleanNew, "Datei: " + activeFile + " · Slot: " + acpTargetSwapSlot.slot);
+  acpLog("swap", "Tauschziel im Inserat gewählt: " + cleanOld + " → " + cleanNew, "Datei: " + activeFile + " · Slot: " + acpTargetSwapSlot.slot);
 
-  acpShowToast('⚡ <strong>Bildtausch gestartet:</strong> Tausche ' + cleanOld + ' ➔ ' + cleanNew + '...<br><small>Cloudflare Pages aktualisiert den Edge-Cache...</small>', 8000);
+  acpShowToast('<strong>Bildtausch gestartet:</strong> Tausche ' + cleanOld + ' → ' + cleanNew + '...<br><small>Cloudflare Pages aktualisiert den Edge-Cache...</small>', 8000);
 
   var payload = {
     client: (currentJob && currentJob.folder) || (window.ACP_CLIENT_PROFILE && window.ACP_CLIENT_PROFILE.slug) || 'preview-birchmeier',
@@ -5350,7 +6000,7 @@ function acpExecuteDirectSwap() {
     context: acpTargetSwapSlot.context || ""
   };
 
-  acpLog("info", "⚡ Sende Tausch an VPS (swap-image)...", "Mandant: " + (payload.client || "") + " · " + cleanOld + " ➔ " + cleanNew);
+  acpLog("info", "Sende Tausch an VPS (swap-image)...", "Mandant: " + (payload.client || "") + " · " + cleanOld + " → " + cleanNew);
   fetch("/api/publish-career/swap-image", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
@@ -5411,29 +6061,29 @@ function acpExecuteDirectSwap() {
       acpRefreshImages();
 
       // 4. Erfolgs-Meldung & Status
-      acpLog("success", "🎉 Bildtausch auf dem Server verarbeitet!", "Edge CDN synchronisiert · Datei: " + payload.file);
-      acpShowToast('⚡ <strong>Bild im HTML verankert!</strong><br><small>Edge CDN synchronisiert... Die Vorschau aktualisiert sich gleich automatisch.</small>', 15000);
+      acpLog("success", "Bildtausch auf dem Server verarbeitet!", "Edge CDN synchronisiert · Datei: " + payload.file);
+      acpShowToast('<strong>Bild im HTML verankert!</strong><br><small>Edge CDN synchronisiert... Die Vorschau aktualisiert sich gleich automatisch.</small>', 15000);
 
       // 5. Automatischer Viewport Edge-CDN AutoSync & Seamless Reload!
       acpAutoSyncViewport(activeFile, cleanNew, (currentJob ? currentJob.id : null));
     } else {
       var err = (result.data && result.data.error) || 'Fehler beim Bildtausch';
-      acpLog("error", "❌ Tausch vom Server abgewiesen: " + err, JSON.stringify(result.data));
-      acpShowToast('❌ <strong>Fehler:</strong> ' + err, 7000);
+      acpLog("error", " Tausch vom Server abgewiesen: " + err, JSON.stringify(result.data));
+      acpShowToast(' <strong>Fehler:</strong> ' + err, 7000);
       acpReportClientEvent('error', 'Bildtausch abgelehnt: ' + err, payload);
       if (btn) {
         btn.disabled = false;
-        btn.textContent = "⚡ Direkt im HTML tauschen";
+        btn.textContent = "Direkt im HTML tauschen";
       }
     }
   })
   .catch(function(err) {
     acpIsSwapping = false;
-    acpShowToast('❌ <strong>Netzwerkfehler:</strong> ' + err.message, 6000);
+    acpShowToast(' <strong>Netzwerkfehler:</strong> ' + err.message, 6000);
     acpReportClientEvent('error', 'Netzwerkfehler bei Bildtausch: ' + err.message, payload);
     if (btn) {
       btn.disabled = false;
-      btn.textContent = "⚡ Direkt im HTML tauschen";
+      btn.textContent = "Direkt im HTML tauschen";
     }
   });
 }
@@ -5450,7 +6100,7 @@ function acpCopyCombinedPrompt() {
   if (navigator.clipboard && navigator.clipboard.writeText) {
     navigator.clipboard.writeText(promptText);
   }
-  acpShowToast('🤖 <strong>ChatGPT-Kombi-Prompt kopiert!</strong><br><small>Füge den Befehl in ChatGPT oder Gemini ein.</small>', 5000);
+  acpShowToast('<strong>ChatGPT-Kombi-Prompt kopiert!</strong><br><small>Füge den Befehl in ChatGPT oder Gemini ein.</small>', 5000);
   acpCancelSwap();
 }
 
@@ -5505,21 +6155,21 @@ function renderDirectoryTable() {
   var pillsContainer = document.getElementById("acp-jobs-filter-pills");
   if (pillsContainer) {
     var isWebsite = (typeof ACP_CLIENT_PROFILE !== "undefined" && (ACP_CLIENT_PROFILE.is_website_studio || (ACP_CLIENT_PROFILE.studio_title && ACP_CLIENT_PROFILE.studio_title.indexOf("WEBPILOT") !== -1)));
-    var allLabel = isWebsite ? "📄 Alle Seiten" : "🏢 Alle Inserate";
-    var liveLabel = isWebsite ? "🟢 Live publiziert" : "🟢 Live eingebettet";
+    var allLabel = isWebsite ? "Alle Seiten" : " Alle Inserate";
+    var liveLabel = isWebsite ? "Live publiziert" : "Live eingebettet";
     var pillsHtml = '<button type="button" class="acp-job-filter-pill' + (acpCurrentJobFilter === 'alle' ? ' active' : '') + '" data-filter="alle" onclick="acpSetJobFilter(\'alle\')">' + allLabel + ' (<span id="count-jobs-all">' + countAll + '</span>)</button>';
     
     pillsHtml += ' <button type="button" class="acp-job-filter-pill' + (acpCurrentJobFilter === 'live' ? ' active' : '') + '" data-filter="live" onclick="acpSetJobFilter(\'live\')">' + liveLabel + ' (<span id="count-jobs-live">' + countLive + '</span>)</button>';
     
-    pillsHtml += ' <button type="button" class="acp-job-filter-pill' + (acpCurrentJobFilter === 'draft' ? ' active' : '') + '" data-filter="draft" onclick="acpSetJobFilter(\'draft\')">🟡 Entwürfe (<span id="count-jobs-draft">' + countDraft + '</span>)</button>';
+    pillsHtml += ' <button type="button" class="acp-job-filter-pill' + (acpCurrentJobFilter === 'draft' ? ' active' : '') + '" data-filter="draft" onclick="acpSetJobFilter(\'draft\')"> Entwürfe (<span id="count-jobs-draft">' + countDraft + '</span>)</button>';
 
     if (companyNames.length > 1) {
       companyNames.forEach(function(cName) {
         var isAct = (acpCurrentJobFilter === cName || acpCurrentJobFilter === ('firma:' + cName) || (cName.indexOf('Hiltbrand') !== -1 && acpCurrentJobFilter === 'preview-hochuli') || (cName.indexOf('Zurbuchen') !== -1 && acpCurrentJobFilter === 'zurbuchen'));
-        var icon = '🏢';
+        var icon = '';
         var cLower = cName.toLowerCase();
-        if (cLower.indexOf('holz') !== -1 || cLower.indexOf('zurbuchen') !== -1) icon = '🌲';
-        else if (cLower.indexOf('dach') !== -1 || cLower.indexOf('preview-hochuli') !== -1 || cLower.indexOf('gebäude') !== -1) icon = '🏠';
+        if (cLower.indexOf('holz') !== -1 || cLower.indexOf('zurbuchen') !== -1) icon = '';
+        else if (cLower.indexOf('dach') !== -1 || cLower.indexOf('preview-hochuli') !== -1 || cLower.indexOf('gebäude') !== -1) icon = '';
         
         pillsHtml += ' <button type="button" class="acp-job-filter-pill' + (isAct ? ' active' : '') + '" data-filter="firma:' + cName + '" onclick="acpSetJobFilter(\'firma:' + cName.replace(/'/g, "\\'") + '\')">' + icon + ' ' + cName + ' (<span>' + companyCounts[cName] + '</span>)</button>';
       });
@@ -5595,14 +6245,14 @@ function renderDirectoryTable() {
     }
 
     var actionBtn = isCurrent ?
-      '<button type="button" class="btn-job-action btn-job-selected" disabled><span class="action-icon">✓</span> Aktiv</button>' :
-      '<button type="button" class="btn-job-action btn-job-switch" onclick="acpSwitchJob(\'' + j.id + '\'); acpToggleDirectoryModal();"><span class="action-icon">⚡</span> Auswählen</button>';
+      '<button type="button" class="btn-job-action btn-job-selected" disabled><span class="action-icon"></span> Aktiv</button>' :
+      '<button type="button" class="btn-job-action btn-job-switch" onclick="acpSwitchJob(\'' + j.id + '\'); acpToggleDirectoryModal();"><span class="action-icon"></span> Auswählen</button>';
 
     html += '<tr class="' + rowClass + '">' +
       '<td>' +
         '<div class="job-meta-cell">' +
           '<div class="job-title-row">' +
-            '<span class="job-icon-glyph">' + (j.icon || "💼") + '</span>' +
+            '<span class="job-icon-glyph">' + (j.icon || "") + '</span>' +
             '<strong class="job-title-text">' + j.titel + '</strong>' +
             (isCurrent ? '<span class="job-current-pill">Aktiv</span>' : '') +
           '</div>' +
@@ -5621,16 +6271,16 @@ function renderDirectoryTable() {
       '</td>' +
       '<td>' +
         '<button type="button" class="job-file-chip" onclick="acpCopyJobFilename(\'' + j.datei + '\')" title="Klicken, um Dateinamen zu kopieren">' +
-          '<span class="file-icon">📄</span>' +
+          '<span class="file-icon"></span>' +
           '<span class="file-name">' + j.datei + '</span>' +
-          '<span class="file-copy-icon">📋</span>' +
+          '<span class="file-copy-icon"></span>' +
         '</button>' +
       '</td>' +
       '<td style="text-align:right; white-space:nowrap;">' +
         '<div class="job-actions-cluster">' +
           actionBtn +
-          '<button type="button" class="btn-job-tool" onclick="acpCopyPreviewUrl(\'' + edgePreviewUrl + '\', \'' + j.titel + '\')" title="Vorschau-Link teilen (WhatsApp / Mail)">🔗</button>' +
-          '<button type="button" class="btn-job-tool" onclick="acpCopyJobCode(\'' + j.id + '\')" title="Einbettungs-Code für Webmaster kopieren">📋</button>' +
+          '<button type="button" class="btn-job-tool" onclick="acpCopyPreviewUrl(\'' + edgePreviewUrl + '\', \'' + j.titel + '\')" title="Vorschau-Link teilen (WhatsApp / Mail)"></button>' +
+          '<button type="button" class="btn-job-tool" onclick="acpCopyJobCode(\'' + j.id + '\')" title="Einbettungs-Code für Webmaster kopieren"></button>' +
         '</div>' +
       '</td>' +
     '</tr>';
@@ -5641,7 +6291,7 @@ function renderDirectoryTable() {
 function acpCopyPreviewUrl(url, title) {
   if (navigator.clipboard && navigator.clipboard.writeText) {
     navigator.clipboard.writeText(url);
-    acpShowToast('🔗 <strong>Vorschau-Link kopiert!</strong><br><small>' + url + '<br>👉 Ideal zum Teilen per WhatsApp oder E-Mail.</small>', 5000);
+    acpShowToast(' <strong>Vorschau-Link kopiert!</strong><br><small>' + url + '<br> Ideal zum Teilen per WhatsApp oder E-Mail.</small>', 5000);
   } else {
     window.prompt("Kopiere diesen Vorschau-Link:", url);
   }
@@ -5650,7 +6300,7 @@ function acpCopyPreviewUrl(url, title) {
 function acpCopyJobFilename(filename) {
   if (navigator.clipboard && navigator.clipboard.writeText) {
     navigator.clipboard.writeText(filename);
-    acpShowToast('📋 Dateiname <code>' + filename + '</code> kopiert!');
+    acpShowToast('Dateiname <code>' + filename + '</code> kopiert!');
   }
 }
 
@@ -5688,7 +6338,7 @@ function acpToggleInspector() {
     if (acpInspectorActive) {
       btn.textContent = "AN";
       btn.classList.add("active");
-      acpShowToast("🔍 <strong>Klick-Inspektor AN:</strong> Klicke auf ein Bild oder einen Text im Inserat.", 4000);
+      acpShowToast("<strong>Klick-Inspektor AN:</strong> Klicke auf ein Bild oder einen Text im Inserat.", 4000);
     } else {
       btn.textContent = "AUS";
       btn.classList.remove("active");
@@ -5719,7 +6369,7 @@ function acpPublishLive() {
   if (!btn || btn.disabled) return;
 
   btn.disabled = true;
-  btn.innerHTML = '<span>⏳ Airbag prüft...</span>';
+  btn.innerHTML = '<span>Airbag prüft...</span>';
   btn.style.background = "#d97706";
   btn.style.color = "#ffffff";
 
@@ -5732,41 +6382,41 @@ function acpPublishLive() {
   })
   .then(function(result) {
     if (result.ok && result.data.ok) {
-      btn.innerHTML = '<span>✅ Live geschaltet!</span>';
+      btn.innerHTML = '<span>Live geschaltet!</span>';
       btn.style.background = "#10b981";
       btn.style.color = "#ffffff";
       var msg = result.data.message || 'In ca. 15 Sekunden live auf WordPress!';
-      acpShowToast('🚀 <strong>Erfolgreich scharfgestellt!</strong><br><small>' + msg + '</small>', 6000);
+      acpShowToast('<strong>Erfolgreich scharfgestellt!</strong><br><small>' + msg + '</small>', 6000);
       setTimeout(function() {
         btn.disabled = false;
-        btn.innerHTML = '<span>🚀 Jetzt scharfstellen</span>';
+        btn.innerHTML = '<span>Jetzt scharfstellen</span>';
         btn.style.background = "";
         btn.style.color = "";
       }, 5000);
     } else {
       var err = (result.data && (result.data.error || result.data.details)) || 'Unbekannter Fehler';
-      btn.innerHTML = '<span>⚠️ Fehler beim Deploy</span>';
+      btn.innerHTML = '<span>Fehler beim Deploy</span>';
       btn.style.background = "#ef4444";
       btn.style.color = "#ffffff";
-      acpShowToast('⚠️ <strong>Live-Schaltung abgelehnt:</strong><br><small>' + err + '</small>', 8000);
+      acpShowToast('<strong>Live-Schaltung abgelehnt:</strong><br><small>' + err + '</small>', 8000);
       acpReportClientEvent('error', 'Live-Schaltung abgelehnt: ' + err);
       setTimeout(function() {
         btn.disabled = false;
-        btn.innerHTML = '<span>🚀 Jetzt scharfstellen</span>';
+        btn.innerHTML = '<span>Jetzt scharfstellen</span>';
         btn.style.background = "";
         btn.style.color = "";
       }, 6000);
     }
   })
   .catch(function(err) {
-    btn.innerHTML = '<span>❌ Verbindungsfehler</span>';
+    btn.innerHTML = '<span> Verbindungsfehler</span>';
     btn.style.background = "#ef4444";
     btn.style.color = "#ffffff";
-    acpShowToast('❌ <strong>Netzwerkfehler:</strong> Konnte den Server nicht erreichen.<br><small>' + err.message + '</small>', 6000);
+    acpShowToast(' <strong>Netzwerkfehler:</strong> Konnte den Server nicht erreichen.<br><small>' + err.message + '</small>', 6000);
     acpReportClientEvent('error', 'Verbindungsfehler bei Live-Schaltung: ' + err.message);
     setTimeout(function() {
       btn.disabled = false;
-      btn.innerHTML = '<span>🚀 Jetzt scharfstellen</span>';
+      btn.innerHTML = '<span>Jetzt scharfstellen</span>';
       btn.style.background = "";
       btn.style.color = "";
     }, 5000);
@@ -5847,7 +6497,7 @@ function setupActiveJobAndRender() {
 }
 
 function acpInit() {
-  console.log("🚀 Hochuli Schlossrued AG WebPilot Studio " + ACP_COCKPIT_VERSION + " [Build " + ACP_COCKPIT_BUILD + "] geladen.");
+  console.log("Hochuli Schlossrued AG WebPilot Studio " + ACP_COCKPIT_VERSION + " [Build " + ACP_COCKPIT_BUILD + "] geladen.");
   acpInitUploadDropzone();
   var statusBox = document.getElementById("acp-upload-status");
   if (statusBox) statusBox.classList.remove("is-active");
@@ -5877,8 +6527,25 @@ window.addEventListener("DOMContentLoaded", acpInit);
 
 
 // =======================================================
-// [SEKTIONEN & KI-COACH] INTERAKTIVE WEBPILOT COACH ENGINE
+// [SEKTIONEN & KI-ASSISTENT] v4.0 ZEN OBSIDIAN ENGINE
 // =======================================================
+var ACP_ICONS = {
+  sparkles: '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3-1.9 5.8a2 2 0 0 1-1.3 1.3L3 12l5.8 1.9a2 2 0 0 1 1.3 1.3L12 21l1.9-5.8a2 2 0 0 1 1.3-1.3L21 12l-5.8-1.9a2 2 0 0 1-1.3-1.3Z"/></svg>',
+  edit: '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>',
+  eye: '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>',
+  image: '<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>',
+  grid: '<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>',
+  fileText: '<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>',
+  compass: '<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>',
+  shield: '<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>',
+  award: '<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg>',
+  users: '<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>',
+  briefcase: '<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>',
+  send: '<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>',
+  check: '<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>',
+  x: '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>'
+};
+
 var acpSectionsModalOpen = false;
 var acpScannedSections = [];
 var acpActiveEditSectionId = null;
@@ -5893,213 +6560,242 @@ function acpToggleSectionsModal() {
   }
 }
 
+function acpHumanizeSectionTitle(sec) {
+  var id = (sec.id || "").toLowerCase();
+  var rawTitle = (sec.title || "").trim();
+  if (id === "top-strip" || id === "pikett-bar" || id === "topbar-strip") {
+    return "Kopfzeile & Schnellkontakt";
+  }
+  if (id === "top-bar" || id === "header" || sec.tag === "header") {
+    if (!rawTitle || rawTitle.toLowerCase() === "top-bar" || rawTitle.toLowerCase() === "header" || rawTitle.indexOf("Hauptnavigation") !== -1 || rawTitle.length < 5) {
+      return "Hauptnavigation & Markenlogo";
+    }
+    return "Hauptnavigation · " + rawTitle;
+  }
+  if (id === "footer" || sec.tag === "footer") {
+    return "Fusszeile & Rechtliches";
+  }
+  if (!rawTitle || rawTitle.toLowerCase() === id) {
+    return id.replace(/[-_]+/g, " ").replace(/\b\w/g, function(l) { return l.toUpperCase(); });
+  }
+  return rawTitle;
+}
+
 function acpGetSectionArchetype(sec) {
   var id = (sec.id || "").toLowerCase();
   var raw = (sec.raw || sec.outerHTML || "").toLowerCase();
   var kicker = (sec.kicker || "").toLowerCase();
   var title = (sec.title || "").toLowerCase();
 
+  if (id === "top-strip" || id === "pikett-bar") {
+    return { name: "KOPFLEISTE & KONTAKT", icon: ACP_ICONS.compass, isPrimary: false };
+  }
   if (id === "top-bar" || id === "header" || sec.tag === "header") {
-    return { name: "KOPFZEILE & NAV", icon: "🧭", color: "rgba(148, 163, 184, 0.18)", text: "#94a3b8" };
+    return { name: "HAUPTNAVIGATION", icon: ACP_ICONS.compass, isPrimary: false };
   }
   if (id === "footer" || sec.tag === "footer") {
-    return { name: "FUSSZEILE & IMPRESSUM", icon: "⚖️", color: "rgba(148, 163, 184, 0.18)", text: "#94a3b8" };
+    return { name: "FUSSZEILE & RECHTLICHES", icon: ACP_ICONS.shield, isPrimary: false };
   }
   if (id.includes("hero") || raw.includes("hero-wrap") || raw.includes("progress-hero")) {
-    return { name: "HERO-BÜHNE", icon: "🖼️", color: "rgba(245, 158, 11, 0.2)", text: "#fbbf24" };
+    return { name: "STARTBÜHNE (HERO)", icon: ACP_ICONS.sparkles, isPrimary: true };
   }
   if (id.includes("stell") || id.includes("job") || raw.includes("job-card") || title.includes("position") || title.includes("fachbereich")) {
-    return { name: "OFFENE STELLEN", icon: "💼", color: "rgba(59, 130, 246, 0.2)", text: "#60a5fa" };
+    return { name: "STELLEN & KARRIERE", icon: ACP_ICONS.briefcase, isPrimary: false };
   }
-  if (id.includes("vorteil") || id.includes("benefit") || id.includes("kultur") || title.includes("mehrwert") || title.includes("warum")) {
-    return { name: "VORTEILE & KULTUR", icon: "⭐", color: "rgba(234, 179, 8, 0.2)", text: "#facc15" };
+  if (id.includes("benefit") || id.includes("vorteil") || id.includes("kultur") || id.includes("werte") || raw.includes("benefits-grid") || raw.includes("value-cards")) {
+    return { name: "VORTEILE & WERTE", icon: ACP_ICONS.award, isPrimary: false };
   }
-  if (id.includes("bewerb") || id.includes("apply") || raw.includes("apply-section") || title.includes("bewerbung")) {
-    return { name: "EXPRESS-BEWERBUNG", icon: "📱", color: "rgba(16, 185, 129, 0.2)", text: "#34d399" };
+  if (id.includes("team") || id.includes("stimmen") || id.includes("about") || id.includes("ueber") || raw.includes("team-grid") || raw.includes("quote")) {
+    return { name: "TEAM & EINBLICKE", icon: ACP_ICONS.users, isPrimary: false };
   }
-  if (id.includes("team") || raw.includes("team-card") || title.includes("team") || title.includes("meister")) {
-    return { name: "TEAM & BETRIEB", icon: "👥", color: "rgba(168, 85, 247, 0.2)", text: "#c084fc" };
+  if (id.includes("apply") || id.includes("kontakt") || id.includes("form") || id.includes("quiz") || raw.includes("<form")) {
+    return { name: "KONTAKT & ANFRAGE", icon: ACP_ICONS.send, isPrimary: false };
   }
-  if (id.includes("kontakt") || raw.includes("contact") || title.includes("kontakt") || title.includes("pikett")) {
-    return { name: "KONTAKT & 24H-PIKETT", icon: "📞", color: "rgba(239, 68, 68, 0.2)", text: "#f87171" };
+  if (id.includes("service") || id.includes("leistung") || id.includes("angebot") || id.includes("sparte") || raw.includes("service-card")) {
+    return { name: "LEISTUNGEN & ANGEBOT", icon: ACP_ICONS.grid, isPrimary: false };
   }
-  return { name: "INHALTS-ABSCHNITT", icon: "📄", color: "rgba(245, 158, 11, 0.15)", text: "#fbbf24" };
+  if (id.includes("warum") || id.includes("mission") || id.includes("vision") || id.includes("problem") || id.includes("chance") || kicker.includes("warum") || kicker.includes("chance") || kicker.includes("mission") || title.includes("unterschied") || title.includes("beides")) {
+    return { name: "MISSION & LEITBILD", icon: ACP_ICONS.compass, isPrimary: false };
+  }
+  if (id.includes("partner") || id.includes("netzwerk") || id.includes("sponsor") || kicker.includes("partner") || kicker.includes("wegbegleiter") || title.includes("unternehmen")) {
+    return { name: "PARTNER & NETZWERK", icon: ACP_ICONS.users, isPrimary: false };
+  }
+  if (id.includes("ausbildung") || id.includes("begleitung") || id.includes("programm") || id.includes("ablauf") || id.includes("weg") || kicker.includes("programm") || kicker.includes("begleitung")) {
+    return { name: "PROGRAMM & BEGLEITUNG", icon: ACP_ICONS.award, isPrimary: false };
+  }
+  if (id.includes("cta") || id.includes("mach-mit") || id.includes("jetzt")) {
+    return { name: "HANDLUNGSIMPULS (CTA)", icon: ACP_ICONS.send, isPrimary: false };
+  }
+  return { name: "INHALTS-SEKTION", icon: ACP_ICONS.fileText, isPrimary: false };
 }
 
-function acpAnalyzeSectionContent(secEl) {
-  var imgs = secEl.querySelectorAll("img, picture, svg");
-  var allWithStyle = secEl.querySelectorAll("[style*='url('], [style*='background-image']");
-  var totalImages = imgs.length + allWithStyle.length;
-
-  var text = secEl.innerText || "";
-  var wordCount = text.trim().split(/\s+/).filter(Boolean).length;
-
-  var cards = secEl.querySelectorAll(".job-card, .benefit-card, .team-card, .feature-card, .step-item");
-  var cardCount = cards.length;
-
-  return {
-    images: totalImages,
-    words: wordCount,
-    cards: cardCount
-  };
+function acpAnalyzeSectionContent(el) {
+  var imgs = el.querySelectorAll("img").length;
+  var cards = el.querySelectorAll(".service-card, .benefit-card, .job-card, .value-card, .team-card, .blog-card, .teaser-card, article").length;
+  var text = (el.textContent || "").replace(/\s+/g, " ").trim();
+  var words = text ? text.split(" ").length : 0;
+  return { images: imgs, cards: cards, words: words };
 }
 
-function acpGenerateMiniPreviewSrcdoc(secHtml) {
+function acpGenerateMiniPreviewSrcdoc(secHtml, sec) {
   var iframe = document.getElementById("acp-widget-viewport");
-  var doc = iframe ? (iframe.contentDocument || iframe.contentWindow.document) : null;
-  var stylesHtml = "";
-  var baseHref = "";
+  var styles = "";
+  var baseHref = window.location.href;
+  var bodyBg = "#0f172a";
+  var bodyColor = "#f8fafc";
+  try {
+    var doc = iframe ? (iframe.contentDocument || iframe.contentWindow.document) : null;
+    if (doc) {
+      if (doc.location && doc.location.href) baseHref = doc.location.href;
+      var styleNodes = doc.querySelectorAll("style, link[rel='stylesheet']");
+      styleNodes.forEach(function(s) { styles += s.outerHTML; });
+      if (doc.body && window.getComputedStyle) {
+        var cs = doc.defaultView ? doc.defaultView.getComputedStyle(doc.body) : null;
+        if (cs && cs.backgroundColor && cs.backgroundColor !== "rgba(0, 0, 0, 0)" && cs.backgroundColor !== "transparent") {
+          bodyBg = cs.backgroundColor;
+        }
+        if (cs && cs.color) {
+          bodyColor = cs.color;
+        }
+      }
+    }
+  } catch(e) {}
 
-  if (doc) {
-    baseHref = doc.location.href;
-    var linksAndStyles = doc.querySelectorAll("link[rel='stylesheet'], style, link[rel='preconnect']");
-    linksAndStyles.forEach(function(el) {
-      stylesHtml += el.outerHTML + "\n";
-    });
+  var secId = (sec && sec.id ? sec.id : "").toLowerCase();
+  var isCompactBar = (secId === "top-strip" || secId === "pikett-bar" || secId === "top-bar" || secId === "header" || (sec && sec.tag === "header"));
+
+  if (isCompactBar) {
+    return '<!DOCTYPE html><html><head><meta charset="utf-8"><base href="' + baseHref + '">' + styles +
+      '<style>' +
+      'html,body{margin:0!important;padding:0!important;width:100%!important;height:100%!important;overflow:hidden!important;background:#0d1320!important;display:flex!important;flex-direction:column!important;justify-content:center!important;padding:36px 48px!important;box-sizing:border-box!important;}' +
+      '.wp-stage-frame{background:' + bodyBg + ';color:' + bodyColor + ';border:1px solid rgba(255,255,255,0.14);border-radius:8px;overflow:hidden;box-shadow:0 24px 60px rgba(0,0,0,0.65);width:100%;}' +
+      '.wp-stage-browser{background:#161f33;padding:12px 20px;display:flex;align-items:center;gap:10px;border-bottom:1px solid rgba(255,255,255,0.08);}' +
+      '.wp-dot{width:11px;height:11px;border-radius:8px;background:rgba(255,255,255,0.22);display:inline-block;}' +
+      '.wp-url{margin-left:12px;height:14px;width:260px;border-radius:4px;background:rgba(255,255,255,0.08);}' +
+      '.wp-stage-content{position:relative;width:100%;}' +
+      '.wp-stage-content *{position:relative!important;top:auto!important;}' +
+      '.wp-stage-skeleton{padding:36px 48px;display:flex;flex-direction:column;gap:16px;background:linear-gradient(180deg, rgba(15,23,42,0.4) 0%, rgba(15,23,42,0.85) 100%);border-top:1px solid rgba(255,255,255,0.06);}' +
+      '.wp-sk-line{height:16px;width:45%;border-radius:8px;background:rgba(255,255,255,0.07);}' +
+      '.wp-sk-line.w2{width:70%;height:28px;background:rgba(255,255,255,0.10);}' +
+      '*{animation:none!important;transition:none!important;}' +
+      '</style></head><body>' +
+      '<div class="wp-stage-frame">' +
+        '<div class="wp-stage-browser"><span class="wp-dot"></span><span class="wp-dot"></span><span class="wp-dot"></span><span class="wp-url"></span></div>' +
+        '<div class="wp-stage-content">' + secHtml + '</div>' +
+        '<div class="wp-stage-skeleton"><div class="wp-sk-line"></div><div class="wp-sk-line w2"></div></div>' +
+      '</div>' +
+      '</body></html>';
   }
 
-  return '<!DOCTYPE html><html><head>' +
-    '<base href="' + baseHref + '">' +
-    '<meta charset="utf-8">' +
-    '<meta name="viewport" content="width=1200">' +
-    stylesHtml +
-    '<style>' +
-    '  html, body { margin:0; padding:0; background: #06090e !important; overflow: hidden !important; width:1200px !important; min-height: 600px !important; }' +
-    '  .section-wrap, .hero-wrap, .apply-section, header, footer { animation: none !important; opacity: 1 !important; transform: none !important; }' +
-    '  * { -webkit-font-smoothing: antialiased; }' +
-    '</style>' +
-    '</head><body>' +
-    secHtml +
-    '</body></html>';
+  return '<!DOCTYPE html><html><head><meta charset="utf-8"><base href="' + baseHref + '">' + styles +
+    '<style>html,body{margin:0!important;padding:0!important;overflow:hidden!important;background:' + bodyBg + '!important;color:' + bodyColor + '!important;min-height:100%!important;}*{animation:none!important;transition:none!important;}</style>' +
+    '</head><body>' + secHtml + '</body></html>';
 }
 
 function acpScrollToSectionInViewport(secId) {
-  console.log("[WebPilot Studio] 🎯 Springe zu Sektion:", secId);
+  var modal = document.getElementById("acp-sections-modal");
+  if (modal) {
+    acpSectionsModalOpen = false;
+    modal.classList.remove("is-open");
+    acpUpdateBodyModalClass();
+  }
   var iframe = document.getElementById("acp-widget-viewport");
-  var doc = iframe ? (iframe.contentDocument || iframe.contentWindow.document) : null;
-  if (!doc) {
-    console.warn("[WebPilot Studio] Kein iframe-Document gefunden");
-    return;
-  }
-
-  // 1. Suche nach data-section oder id
-  var targetEl = doc.querySelector('[data-section="' + secId + '"]') || doc.getElementById(secId);
-
-  // 2. Smarte Fallbacks nach Archetyp / Klassen
-  if (!targetEl) {
-    if (secId === "hero" || secId.includes("hero")) {
-      targetEl = doc.querySelector(".hero-wrap, .page-hero, .hero, section");
-    } else if (secId === "top-bar" || secId === "header") {
-      targetEl = doc.querySelector("header, .top-bar, .header-wrap");
-    } else if (secId === "footer") {
-      targetEl = doc.querySelector("footer, .footer-wrap, .block-footer");
-    } else if (secId === "leistungen" || secId.includes("service")) {
-      targetEl = doc.querySelector("#leistungen, .service-cards, [id*='leistung']");
-    } else if (secId === "stellen" || secId.includes("job")) {
-      targetEl = doc.querySelector("#stellen, .jobs-grid, [id*='stell']");
-    } else if (secId === "vorteile" || secId.includes("benefit")) {
-      targetEl = doc.querySelector("#vorteile, .benefits-grid, [id*='vorteil']");
-    } else if (secId === "bewerben" || secId.includes("apply")) {
-      targetEl = doc.querySelector("#bewerben, .apply-section, form");
-    }
-  }
-
-  if (!targetEl) {
-    console.warn("[WebPilot Studio] Sektion nicht im DOM gefunden:", secId);
-    return;
-  }
-
-  // Modal schliessen
-  if (acpSectionsModalOpen) {
-    acpToggleSectionsModal();
-  }
-
-  // Sanftes Scrollen zur Zielsektion
+  if (!iframe) return;
   try {
-    targetEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
-  } catch (e) {
-    targetEl.scrollIntoView();
-  }
-
-  // Visueller bernsteinfarbener Hervorhebungs-Impuls (2.5 Sekunden)
-  var origTransition = targetEl.style.transition;
-  var origOutline = targetEl.style.outline;
-  var origShadow = targetEl.style.boxShadow;
-
-  targetEl.style.transition = 'all 0.3s ease';
-  targetEl.style.outline = '3px solid #f59e0b';
-  targetEl.style.boxShadow = '0 0 50px rgba(245, 158, 11, 0.5)';
-
-  setTimeout(function() {
-    targetEl.style.outline = origOutline;
-    targetEl.style.boxShadow = origShadow;
-    targetEl.style.transition = origTransition;
-  }, 2500);
+    var doc = iframe.contentDocument || iframe.contentWindow.document;
+    var el = doc.querySelector('[data-section="' + secId + '"]') || doc.getElementById(secId) || doc.querySelector(secId);
+    if (el) {
+      el.scrollIntoView({ behavior: "smooth", block: "center" });
+      var origOutline = el.style.outline;
+      var origTransition = el.style.transition;
+      el.style.transition = "outline 0.3s ease, box-shadow 0.3s ease";
+      el.style.outline = "3px solid #f0852d";
+      el.style.boxShadow = "0 0 35px rgba(240, 133, 45, 0.35)";
+      setTimeout(function() {
+        el.style.outline = origOutline;
+        el.style.boxShadow = "";
+        el.style.transition = origTransition;
+      }, 2400);
+    }
+  } catch(e) {}
 }
 
 function acpScanAndRenderSections() {
   var iframe = document.getElementById("acp-widget-viewport");
   var grid = document.getElementById("acp-sections-grid");
   var badge = document.getElementById("acp-sections-count-badge");
-  if (!grid) return;
-
-  grid.innerHTML = '<div style="color:var(--grau); padding:20px;">Lese Sektionen aus der Live-Bühne ein...</div>';
-
-  var doc = null;
-  try {
-    if (iframe && (iframe.contentDocument || iframe.contentWindow)) {
-      doc = iframe.contentDocument || iframe.contentWindow.document;
-    }
-  } catch(e) {
-    console.warn("Iframe Zugriff eingeschränkt:", e);
-  }
+  if (!grid || !iframe) return;
 
   acpScannedSections = [];
+  var doc = null;
+  try {
+    doc = iframe.contentDocument || iframe.contentWindow.document;
+  } catch(e) {
+    console.warn("Iframe cross-origin:", e);
+  }
 
   if (doc) {
-    var elements = doc.querySelectorAll("[data-section], section, header.site-header, footer.site-footer, header.top-bar, footer.footer-wrap, .header-wrap, .footer-wrap");
-    elements.forEach(function(el, idx) {
-      var id = el.getAttribute("data-section") || el.id;
-      if (!id) {
-        if (el.tagName.toLowerCase() === "header") id = "top-bar";
-        else if (el.tagName.toLowerCase() === "footer") id = "footer";
-        else if (el.className && (el.className.includes("hero") || el.className.includes("page-hero"))) id = "hero";
-        else id = "section-" + (idx + 1);
-      }
-      // Garantiere data-section im Live-iFrame DOM für deterministisches Anspringen
+    var rawNodes = [];
+    var headerEl = doc.querySelector("header.top-bar, header");
+    if (headerEl && !headerEl.hasAttribute("data-section")) {
+      headerEl.setAttribute("data-section", "top-bar");
+    }
+    var footerEl = doc.querySelector("footer.footer, footer");
+    if (footerEl && !footerEl.hasAttribute("data-section")) {
+      footerEl.setAttribute("data-section", "footer");
+    }
+
+    var secElements = doc.querySelectorAll("[data-section], section[id], header, footer");
+    var seenEls = [];
+    secElements.forEach(function(el) {
+      if (seenEls.indexOf(el) !== -1) return;
+      seenEls.push(el);
+      var secId = el.getAttribute("data-section") || el.getAttribute("id") || el.tagName.toLowerCase();
       if (!el.getAttribute("data-section")) {
-        el.setAttribute("data-section", id);
+        el.setAttribute("data-section", secId);
       }
+      rawNodes.push({ el: el, id: secId });
+    });
 
-      if (id === "acp-cockpit-bar" || el.closest(".acp-cockpit-bar")) return;
-      if (acpScannedSections.some(function(s) { return s.id === id; })) return;
+    rawNodes.forEach(function(item, idx) {
+      var el = item.el;
+      var secId = item.id;
 
-      var kicker = el.querySelector(".section-kicker, .hero-kicker, .kicker, .tag");
-      var title = el.querySelector(".section-title, .hero-title, h1, h2, h3");
+      var kickerEl = el.querySelector(".section-kicker, .hero-kicker, .overline, .kicker");
+      var titleEl = el.querySelector("h1, h2, h3, .section-title, .brand-name, .footer-brand h4");
+      var descEl = el.querySelector("p.section-desc, p.lead, p");
 
-      var kickerText = kicker ? kicker.innerText.trim() : "";
-      var titleText = title ? title.innerText.trim() : (el.getAttribute("aria-label") || id);
+      var kicker = kickerEl ? kickerEl.textContent.trim().replace(/^[\/\s●•·]+/, "").trim() : "";
+      var rawTitle = titleEl ? titleEl.textContent.trim() : "";
+      if (!rawTitle && secId === "top-bar") rawTitle = "Hauptnavigation & Markenlogo";
+      if (!rawTitle && secId === "footer") rawTitle = "Fusszeile & Rechtliches";
+      if (!rawTitle) rawTitle = "Abschnitt " + secId;
 
-      var lines = el.outerHTML.split("\n").length;
-      var charCount = el.outerHTML.length;
-      var analysis = acpAnalyzeSectionContent(el);
+      var desc = descEl ? descEl.textContent.trim() : "";
+      if (desc.length > 140) desc = desc.substring(0, 140) + "...";
 
-      acpScannedSections.push({
-        id: id,
+      var clone = el.cloneNode(true);
+      var editBadges = clone.querySelectorAll(".acp-sec-edit-trigger");
+      editBadges.forEach(function(b) { b.remove(); });
+
+      var analysis = acpAnalyzeSectionContent(clone);
+      var secObj = {
+        id: secId,
         tag: el.tagName.toLowerCase(),
-        kicker: kickerText,
-        title: titleText,
-        lines: lines,
-        chars: charCount,
-        outerHTML: el.outerHTML,
+        kicker: kicker,
+        title: rawTitle,
+        desc: desc,
+        outerHTML: clone.outerHTML,
         analysis: analysis,
         index: idx
-      });
+      };
+      secObj.title = acpHumanizeSectionTitle(secObj);
+      acpScannedSections.push(secObj);
     });
   }
 
   if (badge) {
-    badge.textContent = "● " + acpScannedSections.length + " Sektionen aktiv";
+    badge.textContent = acpScannedSections.length + " Abschnitte auf dieser Seite";
   }
 
   grid.innerHTML = "";
@@ -6107,51 +6803,64 @@ function acpScanAndRenderSections() {
     var card = document.createElement("div");
     card.className = "acp-section-card";
 
-    var isSystem = (sec.id === "header" || sec.id === "footer" || sec.id === "top-bar");
+    var secIdLower = (sec.id || "").toLowerCase();
+    var isCompactBar = (secIdLower === "top-strip" || secIdLower === "pikett-bar" || secIdLower === "top-bar" || secIdLower === "header" || sec.tag === "header");
     var archetype = acpGetSectionArchetype(sec);
-    var srcdocHtml = acpGenerateMiniPreviewSrcdoc(sec.outerHTML);
+    var srcdocHtml = acpGenerateMiniPreviewSrcdoc(sec.outerHTML, sec);
+    var numStr = String(idx + 1).padStart(2, "0");
 
-    var metaTagsHtml = "";
+    var metaParts = [];
     if (sec.analysis) {
-      if (sec.analysis.images > 0) metaTagsHtml += '<span class="acp-sec-meta-tag">📷 ' + sec.analysis.images + ' ' + (sec.analysis.images === 1 ? 'Bild' : 'Bilder') + '</span> · ';
-      if (sec.analysis.cards > 0) metaTagsHtml += '<span class="acp-sec-meta-tag">💼 ' + sec.analysis.cards + ' Kacheln</span> · ';
-      metaTagsHtml += '<span class="acp-sec-meta-tag">📝 ca. ' + sec.analysis.words + ' Wörter</span>';
+      if (sec.analysis.images > 0) {
+        metaParts.push('<span class="acp-sec-meta-tag">' + ACP_ICONS.image + '<span>' + sec.analysis.images + ' ' + (sec.analysis.images === 1 ? 'Bild' : 'Bilder') + '</span></span>');
+      }
+      if (sec.analysis.cards > 0) {
+        metaParts.push('<span class="acp-sec-meta-tag">' + ACP_ICONS.grid + '<span>' + sec.analysis.cards + ' ' + (sec.analysis.cards === 1 ? 'Element' : 'Elemente') + '</span></span>');
+      }
+      metaParts.push('<span class="acp-sec-meta-tag">' + ACP_ICONS.fileText + '<span>ca. ' + sec.analysis.words + ' Wörter</span></span>');
     }
+    var metaTagsHtml = metaParts.join('<span style="color:#475569;">·</span>');
 
     card.innerHTML = 
       '<div>' +
-        '<div class="acp-sec-head" style="margin-bottom: 12px;">' +
-          '<span class="acp-sec-archetype-pill" style="background:' + archetype.color + '; color:' + archetype.text + ';">' +
-            archetype.icon + ' ' + archetype.name +
+        '<div class="acp-sec-head">' +
+          '<span class="acp-sec-archetype-pill' + (archetype.isPrimary ? ' is-primary' : '') + '">' +
+            archetype.icon +
+            '<span>' + archetype.name + '</span>' +
           '</span>' +
-          '<span class="acp-sec-id-badge">data-section="' + sec.id + '"</span>' +
+          '<span class="acp-sec-id-badge">Abschnitt ' + numStr + '</span>' +
         '</div>' +
 
-        '<div class="acp-sec-mini-stage" onclick="acpScrollToSectionInViewport(\'' + sec.id + '\')" title="Klicken, um im Live-Simulator direkt zu diesem Abschnitt zu springen">' +
+        '<div class="acp-sec-mini-stage' + (isCompactBar ? ' is-compact-stage' : '') + '" onclick="acpScrollToSectionInViewport(\'' + sec.id + '\')" title="Klicken, um im Simulator direkt zu diesem Abschnitt zu springen">' +
           '<iframe class="acp-sec-mini-iframe" srcdoc="' + srcdocHtml.replace(/"/g, '&quot;') + '"></iframe>' +
           '<div class="acp-sec-mini-overlay" onclick="acpScrollToSectionInViewport(\'' + sec.id + '\')">' +
-            '<button type="button" class="acp-sec-mini-jump-btn" onclick="event.stopPropagation(); acpScrollToSectionInViewport(\'' + sec.id + '\')"><span>👁️ Im Simulator ansehen</span></button>' +
+            '<button type="button" class="acp-sec-mini-jump-btn" onclick="event.stopPropagation(); acpScrollToSectionInViewport(\'' + sec.id + '\')">' +
+              ACP_ICONS.eye +
+              '<span>Im Simulator ansehen</span>' +
+            '</button>' +
           '</div>' +
         '</div>' +
 
         '<div style="margin-top: 14px;">' +
-          (sec.kicker ? '<div style="font-family:\'JetBrains Mono\',monospace; font-size:11px; color:#f59e0b; margin-bottom:4px; font-weight:700;">' + sec.kicker + '</div>' : '') +
-          '<h4 style="color:#fff; font-size:15px; font-weight:700; line-height:1.4; margin: 0 0 8px 0;">' + sec.title + '</h4>' +
+          (sec.kicker ? '<div class="acp-sec-kicker">' + sec.kicker + '</div>' : '') +
+          '<h4 class="acp-sec-title">' + sec.title + '</h4>' +
           '<div class="acp-sec-meta-row">' +
             metaTagsHtml +
           '</div>' +
         '</div>' +
       '</div>' +
 
-      '<div style="display:flex; gap:8px; flex-wrap:wrap; padding-top:14px; border-top:1px solid rgba(255,255,255,0.08);">' +
-        '<button type="button" class="acp-btn-secondary" onclick="acpCopySectionPrompt(\'' + sec.id + '\')" style="flex:1.2; padding:9px 12px; font-size:12.5px; justify-content:center; background:rgba(245,158,11,0.12); border-color:rgba(245,158,11,0.3); color:#fbbf24; font-weight:700;" title="Kopiert den interaktiven Coach-Prompt für ChatGPT oder Claude">' +
-          '<span>💬 KI-Coach konsultieren</span>' +
+      '<div class="acp-sec-actions">' +
+        '<button type="button" class="acp-btn-secondary acp-btn-card-ai" onclick="acpCopySectionPrompt(\'' + sec.id + '\')" title="Kopiert den abgestimmten KI-Prompt für ChatGPT oder Claude">' +
+          ACP_ICONS.sparkles +
+          '<span>Mit KI anpassen</span>' +
         '</button>' +
-        '<button type="button" class="acp-btn-secondary" onclick="acpOpenReplaceSectionModal(\'' + sec.id + '\')" style="padding:9px 12px; font-size:12.5px; font-weight:700; color:#34d399; background:rgba(16,185,129,0.12); border-color:rgba(16,185,129,0.35);" title="Neuen Text oder KI-Code einfügen & dauerhaft speichern">' +
-          '<span>✏️ Text / Code einfügen</span>' +
+        '<button type="button" class="acp-btn-secondary" onclick="acpOpenReplaceSectionModal(\'' + sec.id + '\')" title="Neuen Text oder HTML-Code einfügen und speichern">' +
+          ACP_ICONS.edit +
+          '<span>Text / Code</span>' +
         '</button>' +
-        '<button type="button" class="acp-btn-secondary" onclick="acpScrollToSectionInViewport(\'' + sec.id + '\')" style="padding:9px 10px; font-size:12.5px;" title="Im Simulator ansehen">' +
-          '<span>👁️</span>' +
+        '<button type="button" class="acp-btn-icon" onclick="acpScrollToSectionInViewport(\'' + sec.id + '\')" title="Im Simulator direkt zu diesem Abschnitt springen">' +
+          ACP_ICONS.eye +
         '</button>' +
       '</div>';
 
@@ -6183,7 +6892,7 @@ function acpBuildSectionCoachPrompt(targetSecId) {
 
   var prompt = 
 "================================================================================\n" +
-"🚨 STRIKTE VERHALTENSREGEL FÜR DEINE ALLERERSTE ANTWORT:\n" +
+"STRIKTE VERHALTENSREGEL FÜR DEINE ALLERERSTE ANTWORT:\n" +
 "GIB JETZT NOCH KEINEN PROGRAMMIERCODE AUS! KEIN HTML, KEIN CSS, KEIN JAVASCRIPT!\n" +
 "================================================================================\n\n" +
 
@@ -6224,7 +6933,7 @@ function acpBuildSectionCoachPrompt(targetSecId) {
 promptRules + "\n" +
 "- Schweizer Typografie: Nutze die Klassen (.section-wrap, .section-inner, .section-kicker, .section-title, .section-desc).\n" +
 "- Kicker-Regel: <span class=\"section-kicker\">● Kicker-Text</span> ist 100% freistehend in JetBrains Mono (niemals in einer Box oder einem Badge-Rahmen).\n" +
-"- 🚨 FLUIDE GRID-DOKTRIN (KEINE INLINE-GRIDS): Verwende NIEMALS inline style=\"grid-template-columns: ...\"! Das WebPilot-Design-System nutzt automatische fluide Grids 'repeat(auto-fit, minmax(300px, 1fr))'. Ob du 1, 2, 3 oder 4 Kacheln hast – das System verteilt sie auf Desktop automatisch gleichmässig über die volle Breite und bricht auf Smartphones automatisch sauber auf 1 Spalte um. Inline-Grids zerstören das Mobile-Layout!\n" +
+"- FLUIDE GRID-DOKTRIN (KEINE INLINE-GRIDS): Verwende NIEMALS inline style=\"grid-template-columns: ...\"! Das WebPilot-Design-System nutzt automatische fluide Grids 'repeat(auto-fit, minmax(300px, 1fr))'. Ob du 1, 2, 3 oder 4 Kacheln hast – das System verteilt sie auf Desktop automatisch gleichmässig über die volle Breite und bricht auf Smartphones automatisch sauber auf 1 Spalte um. Inline-Grids zerstören das Mobile-Layout!\n" +
 "- Fluchtlinie: max-width 1100px mit margin 0 auto.\n" +
 "- Bilder: Relative Pfade wie \"images/[dateiname.jpg]\".\n\n" +
 
@@ -6259,28 +6968,28 @@ function acpShowCoachPromptSuccessModal(secId) {
   toast.className = "acp-coach-toast";
 
   toast.innerHTML = 
-    '<div style="display:flex; justify-content:space-between; align-items:flex-start;">' +
+    '<div style="display:flex; justify-content:space-between; align-items:flex-start; gap:12px;">' +
       '<div style="display:flex; align-items:center; gap:10px;">' +
-        '<span style="font-size:24px;">💬</span>' +
+        '<span style="width:32px; height:32px; border-radius:8px; background:rgba(240,133,45,0.14); border:1px solid rgba(240,133,45,0.3); color:#ffa858; display:inline-flex; align-items:center; justify-content:center; flex-shrink:0;">' + ACP_ICONS.sparkles + '</span>' +
         '<div>' +
-          '<div style="font-family:\'JetBrains Mono\',monospace; font-size:11px; color:#f59e0b; font-weight:700;">// KI-COACH PROMPT KOPIERT</div>' +
-          '<div style="font-size:14px; font-weight:700; color:#fff;">Sektion «' + title + '»</div>' +
+          '<div class="acp-modal-kicker" style="margin-bottom:2px;">KI-PROMPT IN ZWISCHENABLAGE KOPIERT</div>' +
+          '<div style="font-size:14px; font-weight:700; color:#fff;">Abschnitt «' + title + '»</div>' +
         '</div>' +
       '</div>' +
-      '<button type="button" onclick="this.closest(\'.acp-coach-toast\').remove()" style="background:none; border:none; color:#64748b; font-size:16px; cursor:pointer; padding:0 4px;">✕</button>' +
+      '<button type="button" class="acp-btn-icon" onclick="this.closest(\'.acp-coach-toast\').remove()" style="min-width:28px; min-height:28px; padding:4px;">' + ACP_ICONS.x + '</button>' +
     '</div>' +
     '<p style="font-size:12.5px; color:#94a3b8; margin:0; line-height:1.45;">' +
-      'Der Coach-Prompt wurde in deine Zwischenablage kopiert. Öffne jetzt einfach deine bevorzugte KI und füge ihn mit <strong>Strg + V</strong> ein:' +
+      'Der abgestimmte KI-Prompt wurde kopiert. Öffne jetzt ChatGPT oder Claude und füge ihn mit <strong>Strg + V</strong> ein:' +
     '</p>' +
     '<div style="display:flex; gap:10px; margin-top:8px; flex-wrap:wrap;">' +
-      '<a href="https://chatgpt.com/" target="_blank" rel="noopener" style="flex:1; min-width:130px; text-align:center; background:#10a37f; color:#fff; font-size:12px; font-weight:700; padding:8px 12px; border-radius:6px; text-decoration:none; display:inline-flex; align-items:center; justify-content:center; gap:6px;">' +
-        '<span>🤖 ChatGPT öffnen ↗</span>' +
+      '<a href="https://chatgpt.com/" target="_blank" rel="noopener" class="acp-btn-secondary" style="flex:1; min-width:130px; font-size:12px; padding:8px 12px;">' +
+        '<span>ChatGPT öffnen ↗</span>' +
       '</a>' +
-      '<a href="https://claude.ai/" target="_blank" rel="noopener" style="flex:1; min-width:130px; text-align:center; background:#d97706; color:#fff; font-size:12px; font-weight:700; padding:8px 12px; border-radius:6px; text-decoration:none; display:inline-flex; align-items:center; justify-content:center; gap:6px;">' +
-        '<span>🧠 Claude öffnen ↗</span>' +
+      '<a href="https://claude.ai/" target="_blank" rel="noopener" class="acp-btn-secondary" style="flex:1; min-width:130px; font-size:12px; padding:8px 12px;">' +
+        '<span>Claude öffnen ↗</span>' +
       '</a>' +
-      '<button type="button" onclick="this.closest(\'.acp-coach-toast\').remove(); acpOpenReplaceSectionModal(\'' + secId + '\')" style="flex:1.4; min-width:160px; text-align:center; background:linear-gradient(135deg, #10b981 0%, #059669 100%); color:#fff; font-size:12px; font-weight:700; padding:8px 12px; border-radius:6px; border:none; cursor:pointer; display:inline-flex; align-items:center; justify-content:center; gap:6px; box-shadow:0 2px 8px rgba(16,185,129,0.3);">' +
-        '<span>✏️ Antwort hier einfügen →</span>' +
+      '<button type="button" class="acp-btn-primary" onclick="this.closest(\'.acp-coach-toast\').remove(); acpOpenReplaceSectionModal(\'' + secId + '\')" style="flex:1.4; min-width:160px; font-size:12px; padding:8px 12px;">' +
+        '<span>Antwort hier einfügen →</span>' +
       '</button>' +
     '</div>';
 
@@ -6322,7 +7031,7 @@ promptRules + "\n" +
 "QUELLCODE:\n" + fullHtml;
 
   navigator.clipboard.writeText(prompt).then(function() {
-    alert("✓ Komplette HTML-Seite inklusive Master-Prompt kopiert!\n\nJetzt in ChatGPT oder Claude einfügen.");
+    alert("Komplette HTML-Seite inklusive Master-Prompt kopiert!\n\nJetzt in ChatGPT oder Claude einfügen.");
   }).catch(function() {
     window.prompt("Kopiere die ganze Seite:", prompt);
   });
@@ -6340,11 +7049,11 @@ function acpOpenReplaceSectionModal(secId) {
   if (title) {
     var targetSec = (acpScannedSections || []).find(function(s) { return s.id === secId; });
     var secTitle = targetSec && targetSec.title ? (' «' + targetSec.title + '»') : '';
-    title.textContent = "Sektion [" + secId + "]" + secTitle + " — Neuer Text / Code";
+    title.textContent = (targetSec && targetSec.title ? targetSec.title : ("Abschnitt " + secId)) + " — Inhalt oder Code einsetzen";
   }
   if (textarea) {
     textarea.value = "";
-    textarea.placeholder = "Hier die Antwort oder den neuen Text von ChatGPT / Claude für Sektion [" + secId + "] einfügen (Strg + V)...";
+    textarea.placeholder = "Hier die Antwort oder den neuen Text aus ChatGPT / Claude einfügen (Strg + V)...";
   }
   if (status) {
     status.style.display = "none";
@@ -6354,7 +7063,7 @@ function acpOpenReplaceSectionModal(secId) {
     counter.textContent = "0 Zeichen";
   }
   if (feedback) {
-    feedback.innerHTML = '<span style="color:#94a3b8;">⚪ Noch kein Inhalt eingefügt. Füge deinen Text mit Strg + V ein.</span>';
+    feedback.innerHTML = '<span style="color:#94a3b8;">Noch kein Inhalt eingefügt. Füge deinen Text mit Strg + V ein.</span>';
   }
 
   if (modal) {
@@ -6391,7 +7100,7 @@ function acpUpdateReplaceTextFeedback() {
   }
 
   if (!val) {
-    feedback.innerHTML = '<span style="color:#94a3b8;">⚪ Noch kein Inhalt eingefügt. Füge deinen Text mit Strg + V ein.</span>';
+    feedback.innerHTML = '<span style="color:#94a3b8;">Noch kein Inhalt eingefügt. Füge deinen Text mit Strg + V ein.</span>';
     if (status) status.style.display = "none";
     return;
   }
@@ -6402,8 +7111,8 @@ function acpUpdateReplaceTextFeedback() {
 
   feedback.innerHTML = 
     '<span style="display:inline-flex; align-items:center; gap:8px; color:#10b981; font-weight:700;">' +
-      '<span style="font-size:16px;">🟢</span>' +
-      '<span>✓ Text ist drin! ' + lines + ' Zeilen • ' + words + ' Wörter • ' + chars + ' Zeichen erkannt. Bereit zum Absenden!</span>' +
+      '<span style="font-size:16px;"></span>' +
+      '<span>Text ist drin! ' + lines + ' Zeilen • ' + words + ' Wörter • ' + chars + ' Zeichen erkannt. Bereit zum Absenden!</span>' +
     '</span>';
 }
 
@@ -6529,9 +7238,9 @@ function acpSubmitReplaceSection() {
       status.style.color = "#ef4444";
       status.style.background = "rgba(239, 68, 68, 0.1)";
       status.style.padding = "10px 14px";
-      status.style.borderRadius = "6px";
+      status.style.borderRadius = "8px";
       status.style.border = "1px solid rgba(239, 68, 68, 0.3)";
-      status.innerHTML = "⚠️ <strong>Bitte zuerst Text einfügen:</strong> Das Feld ist noch leer.";
+      status.innerHTML = "<strong>Bitte zuerst Text einfügen:</strong> Das Feld ist noch leer.";
     }
     return;
   }
@@ -6543,16 +7252,16 @@ function acpSubmitReplaceSection() {
       status.style.color = "#ef4444";
       status.style.background = "rgba(239, 68, 68, 0.1)";
       status.style.padding = "10px 14px";
-      status.style.borderRadius = "6px";
+      status.style.borderRadius = "8px";
       status.style.border = "1px solid rgba(239, 68, 68, 0.3)";
-      status.innerHTML = "🚨 <strong>Airbag-Schranke:</strong> " + validation.error;
+      status.innerHTML = "<strong>Airbag-Schranke:</strong> " + validation.error;
     }
     return;
   }
 
   var targetSecId = validation.detectedSecId || acpActiveEditSectionId;
   if (validation.detectedSecId && validation.detectedSecId !== acpActiveEditSectionId) {
-    console.log("[WebPilot Studio] 🔄 Zielsektion automatisch angepasst: " + acpActiveEditSectionId + " -> " + validation.detectedSecId);
+    console.log("[WebPilot Studio] Zielsektion automatisch angepasst: " + acpActiveEditSectionId + " -> " + validation.detectedSecId);
   }
 
   var iframe = document.getElementById("acp-widget-viewport");
@@ -6568,7 +7277,7 @@ function acpSubmitReplaceSection() {
 
   if (applyBtn) {
     applyBtn.disabled = true;
-    applyBtn.innerHTML = "<span>⏳ Speichere &amp; Edge CDN synchronisieren...</span>";
+    applyBtn.innerHTML = "<span>Speichere &amp; Edge CDN synchronisieren...</span>";
   }
 
   if (status) {
@@ -6576,9 +7285,9 @@ function acpSubmitReplaceSection() {
     status.style.color = "#fbbf24";
     status.style.background = "rgba(245, 158, 11, 0.1)";
     status.style.padding = "10px 14px";
-    status.style.borderRadius = "6px";
+    status.style.borderRadius = "8px";
     status.style.border = "1px solid rgba(245, 158, 11, 0.3)";
-    status.innerHTML = "⚡ <strong>Airbag grün:</strong> Sende neue Sektion [" + targetSecId + "] an Cloudflare Edge CDN...";
+    status.innerHTML = "<strong>Airbag grün:</strong> Sende neue Sektion [" + targetSecId + "] an Cloudflare Edge CDN...";
   }
 
   var payload = {
@@ -6602,7 +7311,7 @@ function acpSubmitReplaceSection() {
   .then(function(data) {
     if (applyBtn) {
       applyBtn.disabled = false;
-      applyBtn.innerHTML = "<span>🚀 Änderung jetzt absenden &amp; live speichern</span>";
+      applyBtn.innerHTML = "<span>Änderung jetzt absenden &amp; live speichern</span>";
     }
     acpCloseReplaceSectionModal();
 
@@ -6634,7 +7343,7 @@ function acpSubmitReplaceSection() {
     toast.style.display = "flex";
     toast.style.alignItems = "center";
     toast.style.gap = "10px";
-    toast.innerHTML = "<span>🎉</span><span>Sektion [" + targetSecId + "] erfolgreich dauerhaft gespeichert und bereitgestellt!</span>";
+    toast.innerHTML = "<span></span><span>Sektion [" + targetSecId + "] erfolgreich dauerhaft gespeichert und bereitgestellt!</span>";
     document.body.appendChild(toast);
     setTimeout(function() { toast.remove(); }, 5000);
   })
@@ -6642,16 +7351,16 @@ function acpSubmitReplaceSection() {
     console.error("Fehler beim Ersetzen der Sektion:", err);
     if (applyBtn) {
       applyBtn.disabled = false;
-      applyBtn.innerHTML = "<span>🚀 Änderung jetzt absenden &amp; live speichern</span>";
+      applyBtn.innerHTML = "<span>Änderung jetzt absenden &amp; live speichern</span>";
     }
     if (status) {
       status.style.display = "block";
       status.style.color = "#ef4444";
       status.style.background = "rgba(239, 68, 68, 0.1)";
       status.style.padding = "10px 14px";
-      status.style.borderRadius = "6px";
+      status.style.borderRadius = "8px";
       status.style.border = "1px solid rgba(239, 68, 68, 0.3)";
-      status.innerHTML = "🚨 <strong>Server-Fehler:</strong> " + err.message;
+      status.innerHTML = "<strong>Server-Fehler:</strong> " + err.message;
     }
   });
 }
@@ -6675,12 +7384,11 @@ function acpToggleInlineEdit(forceState) {
 
   if (acpInlineEditActive) {
     if (btn) {
-      btn.style.borderColor = "#10b981";
-      btn.style.background = "rgba(16, 185, 129, 0.25)";
+      
       var lbl = btn.querySelector(".nav-label");
-      if (lbl) lbl.textContent = "Direkt-Edit aktiv";
-      var icon = btn.querySelector(".nav-icon");
-      if (icon) icon.textContent = "✍️";
+      btn.classList.add("is-active");
+      var lbl = btn.querySelector(".nav-label");
+      if (lbl) lbl.textContent = "Direkt-Bearbeitung aktiv";
     }
     if (dock) {
       dock.style.display = "block";
@@ -6696,12 +7404,11 @@ function acpToggleInlineEdit(forceState) {
     }
   } else {
     if (btn) {
-      btn.style.borderColor = "rgba(16, 185, 129, 0.4)";
-      btn.style.background = "rgba(16, 185, 129, 0.1)";
+      
       var lbl = btn.querySelector(".nav-label");
-      if (lbl) lbl.textContent = "Text & Bild umschreiben";
-      var icon = btn.querySelector(".nav-icon");
-      if (icon) icon.textContent = "✏️";
+      btn.classList.remove("is-active");
+      var lbl = btn.querySelector(".nav-label");
+      if (lbl) lbl.textContent = "Direkt bearbeiten";
     }
     if (dock) {
       dock.style.display = "none";
@@ -6738,7 +7445,7 @@ function acpApplyInlineEditToIframe(doc) {
       '  outline: 1.5px dashed rgba(245, 158, 11, 0.45) !important;' +
       '  outline-offset: 3px !important;' +
       '  cursor: text !important;' +
-      '  border-radius: 3px !important;' +
+      '  border-radius:8px;' +
       '  transition: outline 0.15s ease, background 0.15s ease !important;' +
       '}' +
       '[data-acp-editable="true"]:hover {' +
@@ -6771,7 +7478,7 @@ function acpApplyInlineEditToIframe(doc) {
       '  -webkit-backdrop-filter: blur(12px) !important;' +
       '  border: 1px solid rgba(16, 185, 129, 0.5) !important;' +
       '  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.65) !important;' +
-      '  border-radius: 8px !important;' +
+      '  border-radius:8px;' +
       '  padding: 4px 8px !important;' +
       '  display: flex !important;' +
       '  align-items: center !important;' +
@@ -6790,7 +7497,7 @@ function acpApplyInlineEditToIframe(doc) {
       '  font-size: 11px !important;' +
       '  font-weight: 700 !important;' +
       '  padding: 3px 6px !important;' +
-      '  border-radius: 4px !important;' +
+      '  border-radius:8px;' +
       '  cursor: pointer !important;' +
       '  transition: all 0.15s ease !important;' +
       '  line-height: 1.2 !important;' +
@@ -6820,7 +7527,7 @@ function acpApplyInlineEditToIframe(doc) {
       '  font-size: 11px !important;' +
       '  font-weight: 800 !important;' +
       '  padding: 3px 12px !important;' +
-      '  border-radius: 12px !important;' +
+      '  border-radius:8px;' +
       '  cursor: ns-resize !important;' +
       '  user-select: none !important;' +
       '  box-shadow: 0 4px 14px rgba(0,0,0,0.6) !important;' +
@@ -6992,7 +7699,7 @@ function acpApplyInlineEditToIframe(doc) {
     tb.id = "acp-active-image-toolbar";
     tb.className = "acp-image-toolbar";
     tb.innerHTML = 
-      '<span style="color:#34d399; font-weight:800; font-size:11px; display:inline-flex; align-items:center; gap:4px;">🖼️ <span>BILD</span></span>' +
+      '<span style="color:#34d399; font-weight:800; font-size:11px; display:inline-flex; align-items:center; gap:4px;"><span>BILD</span></span>' +
       '<span class="tb-sep"></span>' +
       '<span style="color:#94a3b8; font-size:10px; font-weight:700;">HÖHE:</span>' +
       '<button type="button" data-action="size" data-val="260" title="Kompakte Höhe (260px)">S · 260</button>' +
@@ -7004,7 +7711,7 @@ function acpApplyInlineEditToIframe(doc) {
       '<button type="button" data-action="focus" data-val="center center" title="Bildmitte fokussieren">⏺️ Mitte</button>' +
       '<button type="button" data-action="focus" data-val="bottom center" title="Unten fokussieren">⬇️ Unten</button>' +
       '<span class="tb-sep"></span>' +
-      '<button type="button" data-action="close" title="Schliessen (ESC)" style="background:rgba(239,68,68,0.2) !important; border-color:rgba(239,68,68,0.4) !important; color:#fca5a5 !important; padding:3px 7px !important;">✕</button>';
+      '<button type="button" data-action="close" title="Schliessen (ESC)" style="background:rgba(239,68,68,0.2) !important; border-color:rgba(239,68,68,0.4) !important; color:#fca5a5 !important; padding:3px 7px !important;">×</button>';
 
     tb.addEventListener("click", function(e) {
       e.stopPropagation();
@@ -7231,7 +7938,7 @@ function acpUpdateInlineEditStatus() {
   if (count > 0) {
     if (badge) {
       badge.style.display = "inline-block";
-      badge.textContent = "✓ " + count + (count === 1 ? " Sektion geändert" : " Sektionen geändert");
+      badge.textContent = "" + count + (count === 1 ? " Sektion geändert" : " Sektionen geändert");
     }
     if (statusText) {
       var secList = Array.from(acpDirtySections).join(", ");
@@ -7248,7 +7955,7 @@ function acpUpdateInlineEditStatus() {
   } else {
     if (badge) badge.style.display = "none";
     if (statusText) {
-      statusText.textContent = "👉 Klicke auf einen Text zum Umschreiben – oder klicke auf ein Bild, um Grösse & Fokus direkt anzupassen!";
+      statusText.textContent = " Klicke auf einen Text zum Umschreiben – oder klicke auf ein Bild, um Grösse & Fokus direkt anzupassen!";
     }
     if (saveBtn) {
       saveBtn.disabled = true;
@@ -7281,7 +7988,7 @@ function acpSaveInlineEdits() {
 
   if (saveBtn) {
     saveBtn.disabled = true;
-    if (saveLbl) saveLbl.innerHTML = "<span>⏳ Speichere &amp; Edge bereitstellen...</span>";
+    if (saveLbl) saveLbl.innerHTML = "<span>Speichere &amp; Edge bereitstellen...</span>";
   }
 
   var sectionsToSave = Array.from(acpDirtySections);
@@ -7369,7 +8076,7 @@ function acpSaveInlineEdits() {
     toast.style.display = "flex";
     toast.style.alignItems = "center";
     toast.style.gap = "10px";
-    toast.innerHTML = "<span>🎉</span><span>Änderungen dauerhaft gespeichert &amp; auf Cloudflare Pages bereitgestellt!</span>";
+    toast.innerHTML = "<span></span><span>Änderungen dauerhaft gespeichert &amp; auf Cloudflare Pages bereitgestellt!</span>";
     document.body.appendChild(toast);
     setTimeout(function() { toast.remove(); }, 5000);
 
@@ -7383,7 +8090,7 @@ function acpSaveInlineEdits() {
     console.error("[WebPilot Studio] Fehler beim Speichern der Inline-Änderungen:", err);
     if (saveBtn) saveBtn.disabled = false;
     if (saveLbl) saveLbl.textContent = "Erneut versuchen";
-    alert("🚨 Fehler beim Speichern der Text- oder Bildänderungen: " + err.message);
+    alert("Fehler beim Speichern der Text- oder Bildänderungen: " + err.message);
   });
 }
 
@@ -7430,7 +8137,7 @@ function acpCopyGeneratedNewSectionPrompt() {
 
   var prompt = 
 "================================================================================\n" +
-"🚨 STRIKTE VERHALTENSREGEL FÜR DEINE ALLERERSTE ANTWORT:\n" +
+"STRIKTE VERHALTENSREGEL FÜR DEINE ALLERERSTE ANTWORT:\n" +
 "GIB JETZT NOCH KEINEN PROGRAMMIERCODE AUS! KEIN HTML, KEIN CSS, KEIN JAVASCRIPT!\n" +
 "================================================================================\n\n" +
 
@@ -7452,7 +8159,7 @@ function acpCopyGeneratedNewSectionPrompt() {
 promptRules;
 
   navigator.clipboard.writeText(prompt).then(function() {
-    alert("✓ Neuer Coach-Prompt für zusätzlichen Abschnitt kopiert!\n\nJetzt in ChatGPT oder Claude einfügen.");
+    alert("Neuer Coach-Prompt für zusätzlichen Abschnitt kopiert!\n\nJetzt in ChatGPT oder Claude einfügen.");
   }).catch(function() {
     window.prompt("Kopiere diesen Prompt:", prompt);
   });
@@ -7468,7 +8175,7 @@ function acpRemoveSection(secId) {
   if (targetEl) {
     targetEl.remove();
     acpScanAndRenderSections();
-    alert("✓ Sektion [" + secId + "] im Simulator ausgeblendet!");
+    alert("Sektion [" + secId + "] im Simulator ausgeblendet!");
   }
 }
 

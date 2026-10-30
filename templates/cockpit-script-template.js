@@ -128,12 +128,12 @@ function acpClearClientLog() {
 function acpFetchServerLog() {
   var currentJob = getActiveJob();
   var clientSlug = (currentJob && currentJob.folder) || (window.ACP_CLIENT_PROFILE && window.ACP_CLIENT_PROFILE.slug) || 'preview-birchmeier';
-  acpLog('info', '📡 Frage Server-Logbuch ab...', 'Mandant: ' + clientSlug);
+  acpLog('info', ' Frage Server-Logbuch ab...', 'Mandant: ' + clientSlug);
   fetch('/api/publish-career/logs?client=' + encodeURIComponent(clientSlug))
     .then(function(res) { return res.json(); })
     .then(function(data) {
       if (data && data.ok) {
-        acpLog('server', '📋 Server-Log geladen (' + data.client + '):', '<pre style="margin:4px 0; white-space:pre-wrap; max-height:200px; overflow-y:auto; background:rgba(0,0,0,0.3); padding:6px; border-radius:4px;">' + (data.log || 'Keine Daten') + '</pre>');
+        acpLog('server', 'Server-Log geladen (' + data.client + '):', '<pre style="margin:4px 0; white-space:pre-wrap; max-height:200px; overflow-y:auto; background:rgba(0,0,0,0.3); padding:6px; border-radius:4px;">' + (data.log || 'Keine Daten') + '</pre>');
       } else {
         acpLog('error', 'Konnte Server-Log nicht laden: ' + ((data && data.error) || 'Unbekannt'));
       }
@@ -147,8 +147,8 @@ function acpFetchServerLog() {
 // MAGNET-XS COCKPIT FRAMEWORK v3.3.0 (SWISS ARCHITECTURAL CANVAS)
 // Build: 2026-10-03 15:30 CEST
 // =======================================================
-var ACP_COCKPIT_VERSION = "v3.3.0";
-var ACP_COCKPIT_BUILD = "2026-10-03 15:30";
+var ACP_COCKPIT_VERSION = "v4.0.0";
+var ACP_COCKPIT_BUILD = "2026-10-30-v4.0-zen-obsidian";
 
 function sanitizeStellen(list) {
   if (!Array.isArray(list)) return [];
@@ -342,14 +342,14 @@ function renderJobPicker() {
     var badgeHtml = "";
     var targetLineHtml = "";
     if (j.is_live) {
-      badgeHtml = '<span class="acp-badge-mini live">🟢 LIVE WIDGET</span>';
+      badgeHtml = '<span class="acp-badge-mini live">LIVE WIDGET</span>';
       var tgt = j.embedded_page_label || (j.embedded_page_url ? acpCleanUrlLabel(j.embedded_page_url) : 'Eingebaut');
       targetLineHtml = '<div class="dropdown-item-target is-live" title="' + (j.embedded_page_url || '') + '"><span class="target-bullet">↗</span> <span>Eingebaut: ' + tgt + '</span></div>';
     } else if (j.id && j.id.indexOf("zurbuchen") !== -1) {
-      badgeHtml = '<span class="acp-badge-mini ready">🟡 BEREIT</span>';
+      badgeHtml = '<span class="acp-badge-mini ready"> BEREIT</span>';
       targetLineHtml = '<div class="dropdown-item-target is-ready"><span class="target-bullet">○</span> <span>Bereit zur Einbettung</span></div>';
     } else {
-      badgeHtml = '<span class="acp-badge-mini draft">⚪ ENTWURF</span>';
+      badgeHtml = '<span class="acp-badge-mini draft">ENTWURF</span>';
       targetLineHtml = '<div class="dropdown-item-target is-draft"><span class="target-bullet">○</span> <span>Entwurf · Nicht eingebaut</span></div>';
     }
 
@@ -450,12 +450,12 @@ function acpSwitchJob(jobId, forceReload) {
   var fDesc = document.getElementById("host-footer-desc");
   var fFooter = document.getElementById("host-footer");
 
-  if (hBadge) hBadge.innerHTML = '<span>🌐 BEREICH 1: BESTEHENDE WEBSEITE (' + hostDomain + ')</span>';
+  if (hBadge) hBadge.innerHTML = '<span>BEREICH 1: BESTEHENDE WEBSEITE (' + hostDomain + ')</span>';
   if (hTitle) hTitle.textContent = "Kopfzeile der Kunden-Webseite: " + firmaName;
   if (hDesc) hDesc.textContent = "Hier bleibt das Firmenlogo und das normale Navigationsmenü von " + hostDomain + " fix bestehen.";
   if (hHeader) { hHeader.style.borderBottomColor = brandColor; }
 
-  if (fBadge) fBadge.innerHTML = '<span>🌐 BEREICH 3: BESTEHENDE WEBSEITE (' + hostDomain + ')</span>';
+  if (fBadge) fBadge.innerHTML = '<span>BEREICH 3: BESTEHENDE WEBSEITE (' + hostDomain + ')</span>';
   if (fTitle) fTitle.textContent = "Fusszeile der Kunden-Webseite: " + firmaName;
   if (fDesc) fDesc.textContent = "Hier bleibt der bestehende Footer von " + hostDomain + " mit Adressen und Impressum unverändert bestehen.";
   if (fFooter) { fFooter.style.borderTopColor = brandColor; }
@@ -515,7 +515,7 @@ function acpSwitchJob(jobId, forceReload) {
   }
 
   updateSnippetBox();
-  acpShowToast("🔄 Vorschau gewechselt auf: <strong>" + job.titel + "</strong>");
+  acpShowToast("Vorschau gewechselt auf: <strong>" + job.titel + "</strong>");
 }
 
 function updateSnippetBox() {
@@ -532,7 +532,7 @@ function acpCopyActiveCode() {
   if (!job || !job.widget_code) return;
   if (navigator.clipboard && navigator.clipboard.writeText) {
     navigator.clipboard.writeText(job.widget_code);
-    acpShowToast("📋 <strong>" + job.titel + "</strong> Widget-Code in die Zwischenablage kopiert!");
+    acpShowToast("<strong>" + job.titel + "</strong> Widget-Code in die Zwischenablage kopiert!");
   } else {
     window.prompt("Kopiere diesen Einbettungs-Code für den Webmaster:", job.widget_code);
   }
@@ -543,7 +543,7 @@ function acpCopyJobCode(jobId) {
     if (ACP_STELLEN[i].id === jobId) {
       if (navigator.clipboard && navigator.clipboard.writeText) {
         navigator.clipboard.writeText(ACP_STELLEN[i].widget_code);
-        acpShowToast("📋 Widget-Code für <strong>" + ACP_STELLEN[i].titel + "</strong> kopiert!");
+        acpShowToast("Widget-Code für <strong>" + ACP_STELLEN[i].titel + "</strong> kopiert!");
       } else {
         window.prompt("Kopiere diesen Einbettungs-Code:", ACP_STELLEN[i].widget_code);
       }
@@ -556,10 +556,10 @@ function acpCopyAiPrompt(btn) {
   var text = "Bitte gib mir den Quellcode immer als eine einzige, vollständige und ungekürzte HTML-Datei aus – ausnahmslos von <!DOCTYPE html> bis </html>. Verwende keine Code-Auslassungen (wie // ... restlicher Code ...), keine Zusammenfassungen und erstelle die Ausgabe direkt als einhängenden Code-Block in deiner Antwort.";
   if (navigator.clipboard && navigator.clipboard.writeText) {
     navigator.clipboard.writeText(text);
-    acpShowToast("📋 KI-Befehl in die Zwischenablage kopiert!");
+    acpShowToast("KI-Befehl in die Zwischenablage kopiert!");
     if (btn) {
       var orig = btn.textContent;
-      btn.textContent = "✓ Kopiert!";
+      btn.textContent = "Kopiert!";
       setTimeout(function() { btn.textContent = orig; }, 2000);
     }
   } else {
@@ -574,10 +574,10 @@ function acpCopyOnlineUrl(btn) {
   }
   if (navigator.clipboard && navigator.clipboard.writeText) {
     navigator.clipboard.writeText(url);
-    acpShowToast("📋 <strong>Online-Cockpit Link kopiert!</strong><br><small>" + url + "</small>");
+    acpShowToast("<strong>Online-Cockpit Link kopiert!</strong><br><small>" + url + "</small>");
     if (btn) {
       var orig = btn.textContent;
-      btn.textContent = "✓ Kopiert!";
+      btn.textContent = "Kopiert!";
       setTimeout(function() { btn.textContent = orig; }, 2000);
     }
   } else {
@@ -689,7 +689,7 @@ function acpRenderImagesGrid() {
 
   if (filtered.length === 0) {
     grid.innerHTML = '<div style="grid-column: 1/-1; text-align: center; padding: 50px 20px; color: #94a3b8;">' +
-      '<div style="font-size: 32px; margin-bottom: 10px;">🔍</div>' +
+      '<div style="font-size: 32px; margin-bottom: 10px;"></div>' +
       '<div>Keine Bilder für diese Auswahl gefunden.</div>' +
     '</div>';
     return;
@@ -700,10 +700,10 @@ function acpRenderImagesGrid() {
     var img = filtered[i];
     var isNewlyUploaded = acpJustUploadedRelPath && (img.rel_path === acpJustUploadedRelPath || img.filename === acpJustUploadedRelPath);
     var cardClasses = 'acp-image-card' + (isNewlyUploaded ? ' is-just-uploaded' : '');
-    var newBadge = isNewlyUploaded ? '<div class="acp-card-new-badge">✨ NEU HOCHGELADEN</div>' : '';
+    var newBadge = isNewlyUploaded ? '<div class="acp-card-new-badge">NEU HOCHGELADEN</div>' : '';
     var dateMeta = img.mtime_str ? ' · ' + img.mtime_str : '';
     var badgeClass = img.is_used ? 'badge-used' : 'badge-free';
-    var badgeText = img.is_used ? '🟢 Im Einsatz (' + img.used_in.length + ')' : '⚪ Frei verfügbar';
+    var badgeText = img.is_used ? 'Im Einsatz (' + img.used_in.length + ')' : 'Frei verfügbar';
     var usedDetails = '';
     if (img.is_used && img.used_in && img.used_in.length > 0) {
       usedDetails = '<div style="font-size:10px; color:#94a3b8; margin-top:3px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;" title="' + img.used_in.map(function(u){return u.datei;}).join(', ') + '">' +
@@ -723,9 +723,9 @@ function acpRenderImagesGrid() {
         '<div class="acp-card-meta">' + img.dimensions + ' · ' + img.size_kb + ' KB' + dateMeta + '</div>' +
         '<div class="acp-card-badge ' + badgeClass + '">' + badgeText + usedDetails + '</div>' +
         '<div class="acp-card-actions">' +
-          '<button type="button" class="btn-card-swap" onclick="acpSelectSwapImage(\'' + img.rel_path + '\', \'' + img.filename + '\')" title="Als neues Foto für Bildtausch auswählen">🎯 Als Tausch-Bild wählen</button>' +
-          '<button type="button" class="btn-card-copy" onclick="acpCopyImagePath(\'' + img.rel_path + '\')" title="Pfad in die Zwischenablage kopieren">📋 Pfad</button>' +
-          '<button type="button" class="btn-card-delete ' + (img.is_used ? 'is-disabled' : '') + '" onclick="acpDeleteImage(\'' + img.rel_path + '\', \'' + img.filename.replace(/'/g, "\\'") + '\', ' + (img.is_used ? 'true' : 'false') + ')" title="' + (img.is_used ? 'Im Einsatz — kann nicht gelöscht werden' : 'Foto aus Pool & Cloudflare löschen') + '">🗑️</button>' +
+          '<button type="button" class="btn-card-swap" onclick="acpSelectSwapImage(\'' + img.rel_path + '\', \'' + img.filename + '\')" title="Als neues Foto für Bildtausch auswählen">Als Tausch-Bild wählen</button>' +
+          '<button type="button" class="btn-card-copy" onclick="acpCopyImagePath(\'' + img.rel_path + '\')" title="Pfad in die Zwischenablage kopieren">Pfad</button>' +
+          '<button type="button" class="btn-card-delete ' + (img.is_used ? 'is-disabled' : '') + '" onclick="acpDeleteImage(\'' + img.rel_path + '\', \'' + img.filename.replace(/'/g, "\\'") + '\', ' + (img.is_used ? 'true' : 'false') + ')" title="' + (img.is_used ? 'Im Einsatz — kann nicht gelöscht werden' : 'Foto aus Pool & Cloudflare löschen') + '">×</button>' +
         '</div>' +
       '</div>' +
     '</div>';
@@ -737,7 +737,7 @@ function acpCopyImagePath(relPath) {
   if (navigator.clipboard && navigator.clipboard.writeText) {
     navigator.clipboard.writeText(relPath);
   }
-  acpShowToast('📋 Bildpfad <code>' + relPath + '</code> kopiert!');
+  acpShowToast('Bildpfad <code>' + relPath + '</code> kopiert!');
 }
 
 function acpRefreshImages(highlightRelPath, showToast) {
@@ -765,7 +765,7 @@ function acpRefreshImages(highlightRelPath, showToast) {
           }
           acpRenderImagesGrid();
           if (showToast) {
-            acpShowToast('🔄 Bilder-Pool aktualisiert (' + ACP_BILDER.length + ' Fotos bereit)');
+            acpShowToast('Bilder-Pool aktualisiert (' + ACP_BILDER.length + ' Fotos bereit)');
           }
         }
       })
@@ -816,7 +816,7 @@ function acpUploadImageFile(file) {
   if (!file) return;
 
   if (window.location.protocol === "file:") {
-    acpShowToast("📁 Im lokalen Dateimodus: Bitte lege Fotos direkt in deinen Ordner <code>images/</code> ab.");
+    acpShowToast(" Im lokalen Dateimodus: Bitte lege Fotos direkt in deinen Ordner <code>images/</code> ab.");
     return;
   }
 
@@ -824,12 +824,12 @@ function acpUploadImageFile(file) {
   var fileName = file.name.toLowerCase();
   var isValidExt = validExts.some(function(ext) { return fileName.endsWith(ext); });
   if (!isValidExt) {
-    acpShowToast("⚠️ Dateiformat wird nicht unterstützt. Erlaubt sind JPG, PNG, WebP, SVG, GIF.");
+    acpShowToast("Dateiformat wird nicht unterstützt. Erlaubt sind JPG, PNG, WebP, SVG, GIF.");
     return;
   }
 
   if (file.size > 15 * 1024 * 1024) {
-    acpShowToast("⚠️ Das Foto ist grösser als 15 MB. Bitte wähle eine kleinere Datei.");
+    acpShowToast("Das Foto ist grösser als 15 MB. Bitte wähle eine kleinere Datei.");
     return;
   }
 
@@ -894,7 +894,7 @@ function acpUploadImageFile(file) {
           if (modalBody) modalBody.scrollTop = 0;
         }
 
-        acpShowToast("✅ Foto <code>" + data.filename + "</code> (" + data.size_kb + " KB) erfolgreich im Bilder-Pool bereitgestellt!");
+        acpShowToast("Foto <code>" + data.filename + "</code> (" + data.size_kb + " KB) erfolgreich im Bilder-Pool bereitgestellt!");
       } else {
         throw new Error(data.error || "Upload fehlgeschlagen");
       }
@@ -902,19 +902,19 @@ function acpUploadImageFile(file) {
     .catch(function(err) {
       if (statusBox) statusBox.classList.remove("is-active");
       console.error("Upload-Fehler:", err);
-      acpShowToast("🚨 Upload fehlgeschlagen: " + err.message);
+      acpShowToast("Upload fehlgeschlagen: " + err.message);
       acpReportClientEvent("error", "Foto-Upload im Cockpit fehlgeschlagen", err.message);
     });
 }
 
 function acpDeleteImage(relPath, filename, isUsed) {
   if (isUsed) {
-    acpShowToast("⚠️ Das Foto <code>" + filename + "</code> wird aktuell in einer Stelle verwendet und kann nicht gelöscht werden. Tausche es zuerst aus.");
+    acpShowToast("Das Foto <code>" + filename + "</code> wird aktuell in einer Stelle verwendet und kann nicht gelöscht werden. Tausche es zuerst aus.");
     return;
   }
 
   if (window.location.protocol === "file:") {
-    acpShowToast("📁 Im lokalen Dateimodus: Bitte lösche die Datei direkt aus deinem Ordner <code>images/</code>.");
+    acpShowToast(" Im lokalen Dateimodus: Bitte lösche die Datei direkt aus deinem Ordner <code>images/</code>.");
     return;
   }
 
@@ -954,7 +954,7 @@ function acpDeleteImage(relPath, filename, isUsed) {
         delete acpLocalBlobPreviews[relPath];
         delete acpLocalBlobPreviews[filename];
         acpRenderImagesGrid();
-        acpShowToast("🗑️ Foto <code>" + filename + "</code> erfolgreich gelöscht.");
+        acpShowToast("Foto <code>" + filename + "</code> erfolgreich gelöscht.");
       } else {
         throw new Error(data.error || "Löschen fehlgeschlagen");
       }
@@ -962,7 +962,7 @@ function acpDeleteImage(relPath, filename, isUsed) {
     .catch(function(err) {
       if (statusBox) statusBox.classList.remove("is-active");
       console.error("Lösch-Fehler:", err);
-      acpShowToast("🚨 Löschen fehlgeschlagen: " + err.message);
+      acpShowToast("Löschen fehlgeschlagen: " + err.message);
       acpReportClientEvent("error", "Foto-Löschen im Cockpit fehlgeschlagen", err.message);
     });
 }
@@ -1024,7 +1024,7 @@ function acpEnsureSpotlightCssInDoc(doc) {
       "  box-shadow: inset 0 0 120px rgba(250, 204, 21, 0.65), 0 0 80px rgba(250, 204, 21, 0.9) !important;",
       "}",
       "body.acp-swap-mode-active .hero::before {",
-      "  content: \"⚡ HIER KLICKEN: HERO-BILD SOFORT ERSETZEN (oder ESC zum Abbrechen)\" !important;",
+      "  content: \"HIER KLICKEN: HERO-BILD SOFORT ERSETZEN (oder ESC zum Abbrechen)\" !important;",
       "  position: absolute !important;",
       "  top: 24px !important;",
       "  left: 50% !important;",
@@ -1037,7 +1037,7 @@ function acpEnsureSpotlightCssInDoc(doc) {
       "  font-weight: 800 !important;",
       "  letter-spacing: 0.5px !important;",
       "  padding: 10px 24px !important;",
-      "  border-radius: 9999px !important;",
+      "  border-radius:8px;",
       "  box-shadow: 0 4px 25px rgba(0,0,0,0.7), 0 0 30px rgba(250, 204, 21, 0.9) !important;",
       "  pointer-events: none !important;",
       "  animation: acpPulseBadge 1.8s infinite ease-in-out !important;",
@@ -1171,22 +1171,22 @@ function acpRenderSwapDockTargets() {
   var usedImages = getUsedImagesForCurrentJob();
   if (usedImages.length > 0) {
     var btnsHtml = '<div style="display:flex; align-items:center; gap:8px; flex-wrap:wrap;">' +
-      '<span style="color:#facc15; font-size:12px; font-weight:700;">👉 Wähle das zu ersetzende Bild:</span>';
+      '<span style="color:#facc15; font-size:12px; font-weight:700;"> Wähle das zu ersetzende Bild:</span>';
     for (var u = 0; u < usedImages.length; u++) {
       var uImg = usedImages[u];
-      var label = uImg.is_hero ? ('🖼️ Hero-Hintergrund (' + uImg.filename + ')') : ('📷 ' + uImg.filename);
+      var label = uImg.is_hero ? ('Hero-Hintergrund (' + uImg.filename + ')') : ('' + uImg.filename);
       btnsHtml += '<button type="button" class="btn-swap-target-choice" onclick="acpSelectTargetDirect(\'' + uImg.rel_path + '\', \'' + uImg.slot + '\', ' + uImg.is_hero + ', \'' + activeFile + '\')">' + label + '</button>';
     }
     btnsHtml += '<span style="color:#94a3b8; font-size:11px;">(oder klicke in der Vorschau darauf)</span></div>';
     targetHint.innerHTML = btnsHtml;
   } else {
-    targetHint.innerHTML = '<span style="color:#facc15; font-size:12px; font-weight:700;">👉 Klicke jetzt in der Vorschau auf das Bild, das du ersetzen möchtest...</span>';
+    targetHint.innerHTML = '<span style="color:#facc15; font-size:12px; font-weight:700;"> Klicke jetzt in der Vorschau auf das Bild, das du ersetzen möchtest...</span>';
   }
 }
 
 function acpSelectSwapImage(relPath, filename) {
   acpSelectedSwapImage = { rel_path: relPath, filename: filename };
-  acpLog("info", "📷 Tausch-Bild ausgewählt: " + filename, "Pfad: " + relPath);
+  acpLog("info", "Tausch-Bild ausgewählt: " + filename, "Pfad: " + relPath);
   if (acpImagesModalOpen) {
     acpToggleImagesModal();
   }
@@ -1221,7 +1221,7 @@ function acpSelectSwapImage(relPath, filename) {
   acpDispatchSwapMode(true);
 
   window.scrollTo({ top: 0, behavior: "smooth" });
-  acpShowToast('🎯 Tausch-Bild gewählt: <strong>' + filename + '</strong><br><small>Wähle nun das Zielbild in der gelben Leiste oben oder klicke in der Vorschau darauf.</small>', 5000);
+  acpShowToast('Tausch-Bild gewählt: <strong>' + filename + '</strong><br><small>Wähle nun das Zielbild in der gelben Leiste oben oder klicke in der Vorschau darauf.</small>', 5000);
 }
 
 function acpSelectTargetDirect(srcPath, slotName, isHero, docFile, slotContext) {
@@ -1255,7 +1255,7 @@ function acpCancelSwap(silent) {
   }
   var targetHint = document.getElementById("acp-swap-target-hint");
   if (targetHint) {
-    targetHint.textContent = "👉 Klicke jetzt in der Vorschau auf das zu ersetzende Bild!";
+    targetHint.textContent = " Klicke jetzt in der Vorschau auf das zu ersetzende Bild!";
     targetHint.style.color = "#94a3b8";
   }
   var actionsBox = document.getElementById("acp-swap-actions");
@@ -1268,7 +1268,7 @@ function acpCancelSwap(silent) {
 
 function acpHandleSlotClick(data) {
   if (!acpSelectedSwapImage) {
-    acpShowToast('💡 <strong>Klick-Inspektor:</strong> Öffne zuerst oben <strong>[ 🖼️ Bilder ]</strong> und wähle ein Tausch-Foto aus!', 4000);
+    acpShowToast('<strong>Klick-Inspektor:</strong> Öffne zuerst oben <strong>[ Bilder ]</strong> und wähle ein Tausch-Foto aus!', 4000);
     return;
   }
 
@@ -1366,11 +1366,11 @@ function acpHandleSlotClick(data) {
   var actionsBox = document.getElementById("acp-swap-actions");
   var cleanOld = acpTargetSwapSlot.currentSrc.split('/').pop() || acpTargetSwapSlot.slot;
   var cleanNew = acpSelectedSwapImage.filename;
-  acpLog("swap", "🎯 Tauschziel im Inserat gewählt: " + cleanOld + " ➔ " + cleanNew, "Datei: " + activeFile + " · Slot: " + acpTargetSwapSlot.slot);
+  acpLog("swap", "Tauschziel im Inserat gewählt: " + cleanOld + " → " + cleanNew, "Datei: " + activeFile + " · Slot: " + acpTargetSwapSlot.slot);
 
   if (targetHint) {
-    targetHint.innerHTML = '<span style="color:#22c55e; font-weight:700;">✅ Tausche:</span> ' +
-      '<strong style="color:#f87171;">' + cleanOld + '</strong> ➔ <strong style="color:#38bdf8;">' + cleanNew + '</strong> in <code>' + activeFile + '</code>';
+    targetHint.innerHTML = '<span style="color:#22c55e; font-weight:700;">Tausche:</span> ' +
+      '<strong style="color:#f87171;">' + cleanOld + '</strong> → <strong style="color:#38bdf8;">' + cleanNew + '</strong> in <code>' + activeFile + '</code>';
   }
   if (actionsBox) {
     actionsBox.style.display = "flex";
@@ -1420,7 +1420,7 @@ function acpAutoSyncViewport(targetFile, cleanNewImageName, jobId) {
   var maxPolls = 14; // Bis zu 14 Versuche * 2000ms = 28 Sekunden
   var pollInterval = 2000;
 
-  acpLog("info", "🔄 Starte automatische Edge-CDN-Synchronisation...", "Datei: " + targetFile + " · Neues Foto: " + cleanNewImageName);
+  acpLog("info", "Starte automatische Edge-CDN-Synchronisation...", "Datei: " + targetFile + " · Neues Foto: " + cleanNewImageName);
 
   function pollEdge() {
     pollCount++;
@@ -1434,7 +1434,7 @@ function acpAutoSyncViewport(targetFile, cleanNewImageName, jobId) {
       .then(function(html) {
         var isLive = (cleanNewImageName && html.indexOf(cleanNewImageName) !== -1);
         if (isLive || pollCount >= maxPolls) {
-          acpLog("success", "🎉 Edge CDN synchronisiert! Lade Viewport automatisch neu...", "Versuch " + pollCount + " · Datei: " + targetFile);
+          acpLog("success", "Edge CDN synchronisiert! Lade Viewport automatisch neu...", "Versuch " + pollCount + " · Datei: " + targetFile);
           acpReloadViewportWithTransition(cleanBase);
         } else {
           acpSyncPollTimer = setTimeout(pollEdge, pollInterval);
@@ -1442,7 +1442,7 @@ function acpAutoSyncViewport(targetFile, cleanNewImageName, jobId) {
       })
       .catch(function(err) {
         if (pollCount >= maxPolls) {
-          acpLog("warn", "⚠️ Edge-Probe Timeout erreicht. Führe Fallback-Reload durch.");
+          acpLog("warn", "Edge-Probe Timeout erreicht. Führe Fallback-Reload durch.");
           acpReloadViewportWithTransition(cleanBase);
         } else {
           acpSyncPollTimer = setTimeout(pollEdge, pollInterval);
@@ -1467,15 +1467,15 @@ function acpReloadViewportWithTransition(cleanBaseUrl) {
   frame.src = reloadSrc;
   frame.onload = function() {
     frame.style.opacity = "1";
-    acpShowToast('🎉 <strong>Live-Vorschau aktualisiert!</strong><br><small>Die Seite wurde automatisch mit dem neuen Bild synchronisiert.</small>', 5000);
-    acpLog("success", "✨ Vorschau automatisch aktualisiert", reloadSrc);
+    acpShowToast('<strong>Live-Vorschau aktualisiert!</strong><br><small>Die Seite wurde automatisch mit dem neuen Bild synchronisiert.</small>', 5000);
+    acpLog("success", "Vorschau automatisch aktualisiert", reloadSrc);
   };
 }
 
 function acpExecuteDirectSwap() {
   if (!acpSelectedSwapImage || !acpTargetSwapSlot) return;
   if (acpIsSwapping) {
-    acpShowToast('⏳ <strong>Bildtausch läuft bereits...</strong> Einen kurzen Moment bitte.', 3000);
+    acpShowToast('<strong>Bildtausch läuft bereits...</strong> Einen kurzen Moment bitte.', 3000);
     return;
   }
   acpIsSwapping = true;
@@ -1483,16 +1483,16 @@ function acpExecuteDirectSwap() {
   var btn = document.querySelector(".btn-swap-exec");
   if (btn) {
     btn.disabled = true;
-    btn.textContent = "⏳ Tausche & Deploye...";
+    btn.textContent = "Tausche & Deploye...";
   }
 
   var currentJob = getActiveJob();
   var activeFile = (acpTargetSwapSlot && acpTargetSwapSlot.datei) || (currentJob ? currentJob.datei : 'index.html');
   var cleanOld = (acpTargetSwapSlot.currentSrc.split('/').pop() || acpTargetSwapSlot.slot).split('?')[0].trim();
   var cleanNew = (acpSelectedSwapImage.filename || '').split('?')[0].trim();
-  acpLog("swap", "🎯 Tauschziel im Inserat gewählt: " + cleanOld + " ➔ " + cleanNew, "Datei: " + activeFile + " · Slot: " + acpTargetSwapSlot.slot);
+  acpLog("swap", "Tauschziel im Inserat gewählt: " + cleanOld + " → " + cleanNew, "Datei: " + activeFile + " · Slot: " + acpTargetSwapSlot.slot);
 
-  acpShowToast('⚡ <strong>Bildtausch gestartet:</strong> Tausche ' + cleanOld + ' ➔ ' + cleanNew + '...<br><small>Cloudflare Pages aktualisiert den Edge-Cache...</small>', 8000);
+  acpShowToast('<strong>Bildtausch gestartet:</strong> Tausche ' + cleanOld + ' → ' + cleanNew + '...<br><small>Cloudflare Pages aktualisiert den Edge-Cache...</small>', 8000);
 
   var payload = {
     client: (currentJob && currentJob.folder) || (window.ACP_CLIENT_PROFILE && window.ACP_CLIENT_PROFILE.slug) || 'preview-birchmeier',
@@ -1504,7 +1504,7 @@ function acpExecuteDirectSwap() {
     context: acpTargetSwapSlot.context || ""
   };
 
-  acpLog("info", "⚡ Sende Tausch an VPS (swap-image)...", "Mandant: " + (payload.client || "") + " · " + cleanOld + " ➔ " + cleanNew);
+  acpLog("info", "Sende Tausch an VPS (swap-image)...", "Mandant: " + (payload.client || "") + " · " + cleanOld + " → " + cleanNew);
   fetch("/api/publish-career/swap-image", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
@@ -1565,29 +1565,29 @@ function acpExecuteDirectSwap() {
       acpRefreshImages();
 
       // 4. Erfolgs-Meldung & Status
-      acpLog("success", "🎉 Bildtausch auf dem Server verarbeitet!", "Edge CDN synchronisiert · Datei: " + payload.file);
-      acpShowToast('⚡ <strong>Bild im HTML verankert!</strong><br><small>Edge CDN synchronisiert... Die Vorschau aktualisiert sich gleich automatisch.</small>', 15000);
+      acpLog("success", "Bildtausch auf dem Server verarbeitet!", "Edge CDN synchronisiert · Datei: " + payload.file);
+      acpShowToast('<strong>Bild im HTML verankert!</strong><br><small>Edge CDN synchronisiert... Die Vorschau aktualisiert sich gleich automatisch.</small>', 15000);
 
       // 5. Automatischer Viewport Edge-CDN AutoSync & Seamless Reload!
       acpAutoSyncViewport(activeFile, cleanNew, (currentJob ? currentJob.id : null));
     } else {
       var err = (result.data && result.data.error) || 'Fehler beim Bildtausch';
-      acpLog("error", "❌ Tausch vom Server abgewiesen: " + err, JSON.stringify(result.data));
-      acpShowToast('❌ <strong>Fehler:</strong> ' + err, 7000);
+      acpLog("error", " Tausch vom Server abgewiesen: " + err, JSON.stringify(result.data));
+      acpShowToast(' <strong>Fehler:</strong> ' + err, 7000);
       acpReportClientEvent('error', 'Bildtausch abgelehnt: ' + err, payload);
       if (btn) {
         btn.disabled = false;
-        btn.textContent = "⚡ Direkt im HTML tauschen";
+        btn.textContent = "Direkt im HTML tauschen";
       }
     }
   })
   .catch(function(err) {
     acpIsSwapping = false;
-    acpShowToast('❌ <strong>Netzwerkfehler:</strong> ' + err.message, 6000);
+    acpShowToast(' <strong>Netzwerkfehler:</strong> ' + err.message, 6000);
     acpReportClientEvent('error', 'Netzwerkfehler bei Bildtausch: ' + err.message, payload);
     if (btn) {
       btn.disabled = false;
-      btn.textContent = "⚡ Direkt im HTML tauschen";
+      btn.textContent = "Direkt im HTML tauschen";
     }
   });
 }
@@ -1604,7 +1604,7 @@ function acpCopyCombinedPrompt() {
   if (navigator.clipboard && navigator.clipboard.writeText) {
     navigator.clipboard.writeText(promptText);
   }
-  acpShowToast('🤖 <strong>ChatGPT-Kombi-Prompt kopiert!</strong><br><small>Füge den Befehl in ChatGPT oder Gemini ein.</small>', 5000);
+  acpShowToast('<strong>ChatGPT-Kombi-Prompt kopiert!</strong><br><small>Füge den Befehl in ChatGPT oder Gemini ein.</small>', 5000);
   acpCancelSwap();
 }
 
@@ -1659,21 +1659,21 @@ function renderDirectoryTable() {
   var pillsContainer = document.getElementById("acp-jobs-filter-pills");
   if (pillsContainer) {
     var isWebsite = (typeof ACP_CLIENT_PROFILE !== "undefined" && (ACP_CLIENT_PROFILE.is_website_studio || (ACP_CLIENT_PROFILE.studio_title && ACP_CLIENT_PROFILE.studio_title.indexOf("WEBPILOT") !== -1)));
-    var allLabel = isWebsite ? "📄 Alle Seiten" : "🏢 Alle Inserate";
-    var liveLabel = isWebsite ? "🟢 Live publiziert" : "🟢 Live eingebettet";
+    var allLabel = isWebsite ? "Alle Seiten" : " Alle Inserate";
+    var liveLabel = isWebsite ? "Live publiziert" : "Live eingebettet";
     var pillsHtml = '<button type="button" class="acp-job-filter-pill' + (acpCurrentJobFilter === 'alle' ? ' active' : '') + '" data-filter="alle" onclick="acpSetJobFilter(\'alle\')">' + allLabel + ' (<span id="count-jobs-all">' + countAll + '</span>)</button>';
     
     pillsHtml += ' <button type="button" class="acp-job-filter-pill' + (acpCurrentJobFilter === 'live' ? ' active' : '') + '" data-filter="live" onclick="acpSetJobFilter(\'live\')">' + liveLabel + ' (<span id="count-jobs-live">' + countLive + '</span>)</button>';
     
-    pillsHtml += ' <button type="button" class="acp-job-filter-pill' + (acpCurrentJobFilter === 'draft' ? ' active' : '') + '" data-filter="draft" onclick="acpSetJobFilter(\'draft\')">🟡 Entwürfe (<span id="count-jobs-draft">' + countDraft + '</span>)</button>';
+    pillsHtml += ' <button type="button" class="acp-job-filter-pill' + (acpCurrentJobFilter === 'draft' ? ' active' : '') + '" data-filter="draft" onclick="acpSetJobFilter(\'draft\')"> Entwürfe (<span id="count-jobs-draft">' + countDraft + '</span>)</button>';
 
     if (companyNames.length > 1) {
       companyNames.forEach(function(cName) {
         var isAct = (acpCurrentJobFilter === cName || acpCurrentJobFilter === ('firma:' + cName) || (cName.indexOf('Hiltbrand') !== -1 && acpCurrentJobFilter === 'hiltbrand') || (cName.indexOf('Zurbuchen') !== -1 && acpCurrentJobFilter === 'zurbuchen'));
-        var icon = '🏢';
+        var icon = '';
         var cLower = cName.toLowerCase();
-        if (cLower.indexOf('holz') !== -1 || cLower.indexOf('zurbuchen') !== -1) icon = '🌲';
-        else if (cLower.indexOf('dach') !== -1 || cLower.indexOf('hiltbrand') !== -1 || cLower.indexOf('gebäude') !== -1) icon = '🏠';
+        if (cLower.indexOf('holz') !== -1 || cLower.indexOf('zurbuchen') !== -1) icon = '';
+        else if (cLower.indexOf('dach') !== -1 || cLower.indexOf('hiltbrand') !== -1 || cLower.indexOf('gebäude') !== -1) icon = '';
         
         pillsHtml += ' <button type="button" class="acp-job-filter-pill' + (isAct ? ' active' : '') + '" data-filter="firma:' + cName + '" onclick="acpSetJobFilter(\'firma:' + cName.replace(/'/g, "\\'") + '\')">' + icon + ' ' + cName + ' (<span>' + companyCounts[cName] + '</span>)</button>';
       });
@@ -1749,14 +1749,14 @@ function renderDirectoryTable() {
     }
 
     var actionBtn = isCurrent ?
-      '<button type="button" class="btn-job-action btn-job-selected" disabled><span class="action-icon">✓</span> Aktiv</button>' :
-      '<button type="button" class="btn-job-action btn-job-switch" onclick="acpSwitchJob(\'' + j.id + '\'); acpToggleDirectoryModal();"><span class="action-icon">⚡</span> Auswählen</button>';
+      '<button type="button" class="btn-job-action btn-job-selected" disabled><span class="action-icon"></span> Aktiv</button>' :
+      '<button type="button" class="btn-job-action btn-job-switch" onclick="acpSwitchJob(\'' + j.id + '\'); acpToggleDirectoryModal();"><span class="action-icon"></span> Auswählen</button>';
 
     html += '<tr class="' + rowClass + '">' +
       '<td>' +
         '<div class="job-meta-cell">' +
           '<div class="job-title-row">' +
-            '<span class="job-icon-glyph">' + (j.icon || "💼") + '</span>' +
+            '<span class="job-icon-glyph">' + (j.icon || "") + '</span>' +
             '<strong class="job-title-text">' + j.titel + '</strong>' +
             (isCurrent ? '<span class="job-current-pill">Aktiv</span>' : '') +
           '</div>' +
@@ -1775,16 +1775,16 @@ function renderDirectoryTable() {
       '</td>' +
       '<td>' +
         '<button type="button" class="job-file-chip" onclick="acpCopyJobFilename(\'' + j.datei + '\')" title="Klicken, um Dateinamen zu kopieren">' +
-          '<span class="file-icon">📄</span>' +
+          '<span class="file-icon"></span>' +
           '<span class="file-name">' + j.datei + '</span>' +
-          '<span class="file-copy-icon">📋</span>' +
+          '<span class="file-copy-icon"></span>' +
         '</button>' +
       '</td>' +
       '<td style="text-align:right; white-space:nowrap;">' +
         '<div class="job-actions-cluster">' +
           actionBtn +
-          '<button type="button" class="btn-job-tool" onclick="acpCopyPreviewUrl(\'' + edgePreviewUrl + '\', \'' + j.titel + '\')" title="Vorschau-Link teilen (WhatsApp / Mail)">🔗</button>' +
-          '<button type="button" class="btn-job-tool" onclick="acpCopyJobCode(\'' + j.id + '\')" title="Einbettungs-Code für Webmaster kopieren">📋</button>' +
+          '<button type="button" class="btn-job-tool" onclick="acpCopyPreviewUrl(\'' + edgePreviewUrl + '\', \'' + j.titel + '\')" title="Vorschau-Link teilen (WhatsApp / Mail)"></button>' +
+          '<button type="button" class="btn-job-tool" onclick="acpCopyJobCode(\'' + j.id + '\')" title="Einbettungs-Code für Webmaster kopieren"></button>' +
         '</div>' +
       '</td>' +
     '</tr>';
@@ -1795,7 +1795,7 @@ function renderDirectoryTable() {
 function acpCopyPreviewUrl(url, title) {
   if (navigator.clipboard && navigator.clipboard.writeText) {
     navigator.clipboard.writeText(url);
-    acpShowToast('🔗 <strong>Vorschau-Link kopiert!</strong><br><small>' + url + '<br>👉 Ideal zum Teilen per WhatsApp oder E-Mail.</small>', 5000);
+    acpShowToast(' <strong>Vorschau-Link kopiert!</strong><br><small>' + url + '<br> Ideal zum Teilen per WhatsApp oder E-Mail.</small>', 5000);
   } else {
     window.prompt("Kopiere diesen Vorschau-Link:", url);
   }
@@ -1804,7 +1804,7 @@ function acpCopyPreviewUrl(url, title) {
 function acpCopyJobFilename(filename) {
   if (navigator.clipboard && navigator.clipboard.writeText) {
     navigator.clipboard.writeText(filename);
-    acpShowToast('📋 Dateiname <code>' + filename + '</code> kopiert!');
+    acpShowToast('Dateiname <code>' + filename + '</code> kopiert!');
   }
 }
 
@@ -1842,7 +1842,7 @@ function acpToggleInspector() {
     if (acpInspectorActive) {
       btn.textContent = "AN";
       btn.classList.add("active");
-      acpShowToast("🔍 <strong>Klick-Inspektor AN:</strong> Klicke auf ein Bild oder einen Text im Inserat.", 4000);
+      acpShowToast("<strong>Klick-Inspektor AN:</strong> Klicke auf ein Bild oder einen Text im Inserat.", 4000);
     } else {
       btn.textContent = "AUS";
       btn.classList.remove("active");
@@ -1873,7 +1873,7 @@ function acpPublishLive() {
   if (!btn || btn.disabled) return;
 
   btn.disabled = true;
-  btn.innerHTML = '<span>⏳ Airbag prüft...</span>';
+  btn.innerHTML = '<span>Airbag prüft...</span>';
   btn.style.background = "#d97706";
   btn.style.color = "#ffffff";
 
@@ -1886,41 +1886,41 @@ function acpPublishLive() {
   })
   .then(function(result) {
     if (result.ok && result.data.ok) {
-      btn.innerHTML = '<span>✅ Live geschaltet!</span>';
+      btn.innerHTML = '<span>Live geschaltet!</span>';
       btn.style.background = "#10b981";
       btn.style.color = "#ffffff";
       var msg = result.data.message || 'In ca. 15 Sekunden live auf WordPress!';
-      acpShowToast('🚀 <strong>Erfolgreich scharfgestellt!</strong><br><small>' + msg + '</small>', 6000);
+      acpShowToast('<strong>Erfolgreich scharfgestellt!</strong><br><small>' + msg + '</small>', 6000);
       setTimeout(function() {
         btn.disabled = false;
-        btn.innerHTML = '<span>🚀 Jetzt scharfstellen</span>';
+        btn.innerHTML = '<span>Jetzt scharfstellen</span>';
         btn.style.background = "";
         btn.style.color = "";
       }, 5000);
     } else {
       var err = (result.data && (result.data.error || result.data.details)) || 'Unbekannter Fehler';
-      btn.innerHTML = '<span>⚠️ Fehler beim Deploy</span>';
+      btn.innerHTML = '<span>Fehler beim Deploy</span>';
       btn.style.background = "#ef4444";
       btn.style.color = "#ffffff";
-      acpShowToast('⚠️ <strong>Live-Schaltung abgelehnt:</strong><br><small>' + err + '</small>', 8000);
+      acpShowToast('<strong>Live-Schaltung abgelehnt:</strong><br><small>' + err + '</small>', 8000);
       acpReportClientEvent('error', 'Live-Schaltung abgelehnt: ' + err);
       setTimeout(function() {
         btn.disabled = false;
-        btn.innerHTML = '<span>🚀 Jetzt scharfstellen</span>';
+        btn.innerHTML = '<span>Jetzt scharfstellen</span>';
         btn.style.background = "";
         btn.style.color = "";
       }, 6000);
     }
   })
   .catch(function(err) {
-    btn.innerHTML = '<span>❌ Verbindungsfehler</span>';
+    btn.innerHTML = '<span> Verbindungsfehler</span>';
     btn.style.background = "#ef4444";
     btn.style.color = "#ffffff";
-    acpShowToast('❌ <strong>Netzwerkfehler:</strong> Konnte den Server nicht erreichen.<br><small>' + err.message + '</small>', 6000);
+    acpShowToast(' <strong>Netzwerkfehler:</strong> Konnte den Server nicht erreichen.<br><small>' + err.message + '</small>', 6000);
     acpReportClientEvent('error', 'Verbindungsfehler bei Live-Schaltung: ' + err.message);
     setTimeout(function() {
       btn.disabled = false;
-      btn.innerHTML = '<span>🚀 Jetzt scharfstellen</span>';
+      btn.innerHTML = '<span>Jetzt scharfstellen</span>';
       btn.style.background = "";
       btn.style.color = "";
     }, 5000);
@@ -2001,7 +2001,7 @@ function setupActiveJobAndRender() {
 }
 
 function acpInit() {
-  console.log("🚀 Magnet-XS Karriere-Cockpit " + ACP_COCKPIT_VERSION + " [Build " + ACP_COCKPIT_BUILD + "] geladen.");
+  console.log("Magnet-XS Karriere-Cockpit " + ACP_COCKPIT_VERSION + " [Build " + ACP_COCKPIT_BUILD + "] geladen.");
   acpInitUploadDropzone();
   var statusBox = document.getElementById("acp-upload-status");
   if (statusBox) statusBox.classList.remove("is-active");
@@ -2031,8 +2031,25 @@ window.addEventListener("DOMContentLoaded", acpInit);
 
 
 // =======================================================
-// [SEKTIONEN & KI-COACH] INTERAKTIVE WEBPILOT COACH ENGINE
+// [SEKTIONEN & KI-ASSISTENT] v4.0 ZEN OBSIDIAN ENGINE
 // =======================================================
+var ACP_ICONS = {
+  sparkles: '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3-1.9 5.8a2 2 0 0 1-1.3 1.3L3 12l5.8 1.9a2 2 0 0 1 1.3 1.3L12 21l1.9-5.8a2 2 0 0 1 1.3-1.3L21 12l-5.8-1.9a2 2 0 0 1-1.3-1.3Z"/></svg>',
+  edit: '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>',
+  eye: '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>',
+  image: '<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>',
+  grid: '<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>',
+  fileText: '<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>',
+  compass: '<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>',
+  shield: '<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>',
+  award: '<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg>',
+  users: '<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>',
+  briefcase: '<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>',
+  send: '<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>',
+  check: '<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>',
+  x: '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>'
+};
+
 var acpSectionsModalOpen = false;
 var acpScannedSections = [];
 var acpActiveEditSectionId = null;
@@ -2047,213 +2064,242 @@ function acpToggleSectionsModal() {
   }
 }
 
+function acpHumanizeSectionTitle(sec) {
+  var id = (sec.id || "").toLowerCase();
+  var rawTitle = (sec.title || "").trim();
+  if (id === "top-strip" || id === "pikett-bar" || id === "topbar-strip") {
+    return "Kopfzeile & Schnellkontakt";
+  }
+  if (id === "top-bar" || id === "header" || sec.tag === "header") {
+    if (!rawTitle || rawTitle.toLowerCase() === "top-bar" || rawTitle.toLowerCase() === "header" || rawTitle.indexOf("Hauptnavigation") !== -1 || rawTitle.length < 5) {
+      return "Hauptnavigation & Markenlogo";
+    }
+    return "Hauptnavigation · " + rawTitle;
+  }
+  if (id === "footer" || sec.tag === "footer") {
+    return "Fusszeile & Rechtliches";
+  }
+  if (!rawTitle || rawTitle.toLowerCase() === id) {
+    return id.replace(/[-_]+/g, " ").replace(/\b\w/g, function(l) { return l.toUpperCase(); });
+  }
+  return rawTitle;
+}
+
 function acpGetSectionArchetype(sec) {
   var id = (sec.id || "").toLowerCase();
   var raw = (sec.raw || sec.outerHTML || "").toLowerCase();
   var kicker = (sec.kicker || "").toLowerCase();
   var title = (sec.title || "").toLowerCase();
 
+  if (id === "top-strip" || id === "pikett-bar") {
+    return { name: "KOPFLEISTE & KONTAKT", icon: ACP_ICONS.compass, isPrimary: false };
+  }
   if (id === "top-bar" || id === "header" || sec.tag === "header") {
-    return { name: "KOPFZEILE & NAV", icon: "🧭", color: "rgba(148, 163, 184, 0.18)", text: "#94a3b8" };
+    return { name: "HAUPTNAVIGATION", icon: ACP_ICONS.compass, isPrimary: false };
   }
   if (id === "footer" || sec.tag === "footer") {
-    return { name: "FUSSZEILE & IMPRESSUM", icon: "⚖️", color: "rgba(148, 163, 184, 0.18)", text: "#94a3b8" };
+    return { name: "FUSSZEILE & RECHTLICHES", icon: ACP_ICONS.shield, isPrimary: false };
   }
   if (id.includes("hero") || raw.includes("hero-wrap") || raw.includes("progress-hero")) {
-    return { name: "HERO-BÜHNE", icon: "🖼️", color: "rgba(245, 158, 11, 0.2)", text: "#fbbf24" };
+    return { name: "STARTBÜHNE (HERO)", icon: ACP_ICONS.sparkles, isPrimary: true };
   }
   if (id.includes("stell") || id.includes("job") || raw.includes("job-card") || title.includes("position") || title.includes("fachbereich")) {
-    return { name: "OFFENE STELLEN", icon: "💼", color: "rgba(59, 130, 246, 0.2)", text: "#60a5fa" };
+    return { name: "STELLEN & KARRIERE", icon: ACP_ICONS.briefcase, isPrimary: false };
   }
-  if (id.includes("vorteil") || id.includes("benefit") || id.includes("kultur") || title.includes("mehrwert") || title.includes("warum")) {
-    return { name: "VORTEILE & KULTUR", icon: "⭐", color: "rgba(234, 179, 8, 0.2)", text: "#facc15" };
+  if (id.includes("benefit") || id.includes("vorteil") || id.includes("kultur") || id.includes("werte") || raw.includes("benefits-grid") || raw.includes("value-cards")) {
+    return { name: "VORTEILE & WERTE", icon: ACP_ICONS.award, isPrimary: false };
   }
-  if (id.includes("bewerb") || id.includes("apply") || raw.includes("apply-section") || title.includes("bewerbung")) {
-    return { name: "EXPRESS-BEWERBUNG", icon: "📱", color: "rgba(16, 185, 129, 0.2)", text: "#34d399" };
+  if (id.includes("team") || id.includes("stimmen") || id.includes("about") || id.includes("ueber") || raw.includes("team-grid") || raw.includes("quote")) {
+    return { name: "TEAM & EINBLICKE", icon: ACP_ICONS.users, isPrimary: false };
   }
-  if (id.includes("team") || raw.includes("team-card") || title.includes("team") || title.includes("meister")) {
-    return { name: "TEAM & BETRIEB", icon: "👥", color: "rgba(168, 85, 247, 0.2)", text: "#c084fc" };
+  if (id.includes("apply") || id.includes("kontakt") || id.includes("form") || id.includes("quiz") || raw.includes("<form")) {
+    return { name: "KONTAKT & ANFRAGE", icon: ACP_ICONS.send, isPrimary: false };
   }
-  if (id.includes("kontakt") || raw.includes("contact") || title.includes("kontakt") || title.includes("pikett")) {
-    return { name: "KONTAKT & 24H-PIKETT", icon: "📞", color: "rgba(239, 68, 68, 0.2)", text: "#f87171" };
+  if (id.includes("service") || id.includes("leistung") || id.includes("angebot") || id.includes("sparte") || raw.includes("service-card")) {
+    return { name: "LEISTUNGEN & ANGEBOT", icon: ACP_ICONS.grid, isPrimary: false };
   }
-  return { name: "INHALTS-ABSCHNITT", icon: "📄", color: "rgba(245, 158, 11, 0.15)", text: "#fbbf24" };
+  if (id.includes("warum") || id.includes("mission") || id.includes("vision") || id.includes("problem") || id.includes("chance") || kicker.includes("warum") || kicker.includes("chance") || kicker.includes("mission") || title.includes("unterschied") || title.includes("beides")) {
+    return { name: "MISSION & LEITBILD", icon: ACP_ICONS.compass, isPrimary: false };
+  }
+  if (id.includes("partner") || id.includes("netzwerk") || id.includes("sponsor") || kicker.includes("partner") || kicker.includes("wegbegleiter") || title.includes("unternehmen")) {
+    return { name: "PARTNER & NETZWERK", icon: ACP_ICONS.users, isPrimary: false };
+  }
+  if (id.includes("ausbildung") || id.includes("begleitung") || id.includes("programm") || id.includes("ablauf") || id.includes("weg") || kicker.includes("programm") || kicker.includes("begleitung")) {
+    return { name: "PROGRAMM & BEGLEITUNG", icon: ACP_ICONS.award, isPrimary: false };
+  }
+  if (id.includes("cta") || id.includes("mach-mit") || id.includes("jetzt")) {
+    return { name: "HANDLUNGSIMPULS (CTA)", icon: ACP_ICONS.send, isPrimary: false };
+  }
+  return { name: "INHALTS-SEKTION", icon: ACP_ICONS.fileText, isPrimary: false };
 }
 
-function acpAnalyzeSectionContent(secEl) {
-  var imgs = secEl.querySelectorAll("img, picture, svg");
-  var allWithStyle = secEl.querySelectorAll("[style*='url('], [style*='background-image']");
-  var totalImages = imgs.length + allWithStyle.length;
-
-  var text = secEl.innerText || "";
-  var wordCount = text.trim().split(/\s+/).filter(Boolean).length;
-
-  var cards = secEl.querySelectorAll(".job-card, .benefit-card, .team-card, .feature-card, .step-item");
-  var cardCount = cards.length;
-
-  return {
-    images: totalImages,
-    words: wordCount,
-    cards: cardCount
-  };
+function acpAnalyzeSectionContent(el) {
+  var imgs = el.querySelectorAll("img").length;
+  var cards = el.querySelectorAll(".service-card, .benefit-card, .job-card, .value-card, .team-card, .blog-card, .teaser-card, article").length;
+  var text = (el.textContent || "").replace(/\s+/g, " ").trim();
+  var words = text ? text.split(" ").length : 0;
+  return { images: imgs, cards: cards, words: words };
 }
 
-function acpGenerateMiniPreviewSrcdoc(secHtml) {
+function acpGenerateMiniPreviewSrcdoc(secHtml, sec) {
   var iframe = document.getElementById("acp-widget-viewport");
-  var doc = iframe ? (iframe.contentDocument || iframe.contentWindow.document) : null;
-  var stylesHtml = "";
-  var baseHref = "";
+  var styles = "";
+  var baseHref = window.location.href;
+  var bodyBg = "#0f172a";
+  var bodyColor = "#f8fafc";
+  try {
+    var doc = iframe ? (iframe.contentDocument || iframe.contentWindow.document) : null;
+    if (doc) {
+      if (doc.location && doc.location.href) baseHref = doc.location.href;
+      var styleNodes = doc.querySelectorAll("style, link[rel='stylesheet']");
+      styleNodes.forEach(function(s) { styles += s.outerHTML; });
+      if (doc.body && window.getComputedStyle) {
+        var cs = doc.defaultView ? doc.defaultView.getComputedStyle(doc.body) : null;
+        if (cs && cs.backgroundColor && cs.backgroundColor !== "rgba(0, 0, 0, 0)" && cs.backgroundColor !== "transparent") {
+          bodyBg = cs.backgroundColor;
+        }
+        if (cs && cs.color) {
+          bodyColor = cs.color;
+        }
+      }
+    }
+  } catch(e) {}
 
-  if (doc) {
-    baseHref = doc.location.href;
-    var linksAndStyles = doc.querySelectorAll("link[rel='stylesheet'], style, link[rel='preconnect']");
-    linksAndStyles.forEach(function(el) {
-      stylesHtml += el.outerHTML + "\n";
-    });
+  var secId = (sec && sec.id ? sec.id : "").toLowerCase();
+  var isCompactBar = (secId === "top-strip" || secId === "pikett-bar" || secId === "top-bar" || secId === "header" || (sec && sec.tag === "header"));
+
+  if (isCompactBar) {
+    return '<!DOCTYPE html><html><head><meta charset="utf-8"><base href="' + baseHref + '">' + styles +
+      '<style>' +
+      'html,body{margin:0!important;padding:0!important;width:100%!important;height:100%!important;overflow:hidden!important;background:#0d1320!important;display:flex!important;flex-direction:column!important;justify-content:center!important;padding:36px 48px!important;box-sizing:border-box!important;}' +
+      '.wp-stage-frame{background:' + bodyBg + ';color:' + bodyColor + ';border:1px solid rgba(255,255,255,0.14);border-radius:8px;overflow:hidden;box-shadow:0 24px 60px rgba(0,0,0,0.65);width:100%;}' +
+      '.wp-stage-browser{background:#161f33;padding:12px 20px;display:flex;align-items:center;gap:10px;border-bottom:1px solid rgba(255,255,255,0.08);}' +
+      '.wp-dot{width:11px;height:11px;border-radius:8px;background:rgba(255,255,255,0.22);display:inline-block;}' +
+      '.wp-url{margin-left:12px;height:14px;width:260px;border-radius:4px;background:rgba(255,255,255,0.08);}' +
+      '.wp-stage-content{position:relative;width:100%;}' +
+      '.wp-stage-content *{position:relative!important;top:auto!important;}' +
+      '.wp-stage-skeleton{padding:36px 48px;display:flex;flex-direction:column;gap:16px;background:linear-gradient(180deg, rgba(15,23,42,0.4) 0%, rgba(15,23,42,0.85) 100%);border-top:1px solid rgba(255,255,255,0.06);}' +
+      '.wp-sk-line{height:16px;width:45%;border-radius:8px;background:rgba(255,255,255,0.07);}' +
+      '.wp-sk-line.w2{width:70%;height:28px;background:rgba(255,255,255,0.10);}' +
+      '*{animation:none!important;transition:none!important;}' +
+      '</style></head><body>' +
+      '<div class="wp-stage-frame">' +
+        '<div class="wp-stage-browser"><span class="wp-dot"></span><span class="wp-dot"></span><span class="wp-dot"></span><span class="wp-url"></span></div>' +
+        '<div class="wp-stage-content">' + secHtml + '</div>' +
+        '<div class="wp-stage-skeleton"><div class="wp-sk-line"></div><div class="wp-sk-line w2"></div></div>' +
+      '</div>' +
+      '</body></html>';
   }
 
-  return '<!DOCTYPE html><html><head>' +
-    '<base href="' + baseHref + '">' +
-    '<meta charset="utf-8">' +
-    '<meta name="viewport" content="width=1200">' +
-    stylesHtml +
-    '<style>' +
-    '  html, body { margin:0; padding:0; background: #06090e !important; overflow: hidden !important; width:1200px !important; min-height: 600px !important; }' +
-    '  .section-wrap, .hero-wrap, .apply-section, header, footer { animation: none !important; opacity: 1 !important; transform: none !important; }' +
-    '  * { -webkit-font-smoothing: antialiased; }' +
-    '</style>' +
-    '</head><body>' +
-    secHtml +
-    '</body></html>';
+  return '<!DOCTYPE html><html><head><meta charset="utf-8"><base href="' + baseHref + '">' + styles +
+    '<style>html,body{margin:0!important;padding:0!important;overflow:hidden!important;background:' + bodyBg + '!important;color:' + bodyColor + '!important;min-height:100%!important;}*{animation:none!important;transition:none!important;}</style>' +
+    '</head><body>' + secHtml + '</body></html>';
 }
 
 function acpScrollToSectionInViewport(secId) {
-  console.log("[WebPilot Studio] 🎯 Springe zu Sektion:", secId);
+  var modal = document.getElementById("acp-sections-modal");
+  if (modal) {
+    acpSectionsModalOpen = false;
+    modal.classList.remove("is-open");
+    acpUpdateBodyModalClass();
+  }
   var iframe = document.getElementById("acp-widget-viewport");
-  var doc = iframe ? (iframe.contentDocument || iframe.contentWindow.document) : null;
-  if (!doc) {
-    console.warn("[WebPilot Studio] Kein iframe-Document gefunden");
-    return;
-  }
-
-  // 1. Suche nach data-section oder id
-  var targetEl = doc.querySelector('[data-section="' + secId + '"]') || doc.getElementById(secId);
-
-  // 2. Smarte Fallbacks nach Archetyp / Klassen
-  if (!targetEl) {
-    if (secId === "hero" || secId.includes("hero")) {
-      targetEl = doc.querySelector(".hero-wrap, .page-hero, .hero, section");
-    } else if (secId === "top-bar" || secId === "header") {
-      targetEl = doc.querySelector("header, .top-bar, .header-wrap");
-    } else if (secId === "footer") {
-      targetEl = doc.querySelector("footer, .footer-wrap, .block-footer");
-    } else if (secId === "leistungen" || secId.includes("service")) {
-      targetEl = doc.querySelector("#leistungen, .service-cards, [id*='leistung']");
-    } else if (secId === "stellen" || secId.includes("job")) {
-      targetEl = doc.querySelector("#stellen, .jobs-grid, [id*='stell']");
-    } else if (secId === "vorteile" || secId.includes("benefit")) {
-      targetEl = doc.querySelector("#vorteile, .benefits-grid, [id*='vorteil']");
-    } else if (secId === "bewerben" || secId.includes("apply")) {
-      targetEl = doc.querySelector("#bewerben, .apply-section, form");
-    }
-  }
-
-  if (!targetEl) {
-    console.warn("[WebPilot Studio] Sektion nicht im DOM gefunden:", secId);
-    return;
-  }
-
-  // Modal schliessen
-  if (acpSectionsModalOpen) {
-    acpToggleSectionsModal();
-  }
-
-  // Sanftes Scrollen zur Zielsektion
+  if (!iframe) return;
   try {
-    targetEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
-  } catch (e) {
-    targetEl.scrollIntoView();
-  }
-
-  // Visueller bernsteinfarbener Hervorhebungs-Impuls (2.5 Sekunden)
-  var origTransition = targetEl.style.transition;
-  var origOutline = targetEl.style.outline;
-  var origShadow = targetEl.style.boxShadow;
-
-  targetEl.style.transition = 'all 0.3s ease';
-  targetEl.style.outline = '3px solid #f59e0b';
-  targetEl.style.boxShadow = '0 0 50px rgba(245, 158, 11, 0.5)';
-
-  setTimeout(function() {
-    targetEl.style.outline = origOutline;
-    targetEl.style.boxShadow = origShadow;
-    targetEl.style.transition = origTransition;
-  }, 2500);
+    var doc = iframe.contentDocument || iframe.contentWindow.document;
+    var el = doc.querySelector('[data-section="' + secId + '"]') || doc.getElementById(secId) || doc.querySelector(secId);
+    if (el) {
+      el.scrollIntoView({ behavior: "smooth", block: "center" });
+      var origOutline = el.style.outline;
+      var origTransition = el.style.transition;
+      el.style.transition = "outline 0.3s ease, box-shadow 0.3s ease";
+      el.style.outline = "3px solid #f0852d";
+      el.style.boxShadow = "0 0 35px rgba(240, 133, 45, 0.35)";
+      setTimeout(function() {
+        el.style.outline = origOutline;
+        el.style.boxShadow = "";
+        el.style.transition = origTransition;
+      }, 2400);
+    }
+  } catch(e) {}
 }
 
 function acpScanAndRenderSections() {
   var iframe = document.getElementById("acp-widget-viewport");
   var grid = document.getElementById("acp-sections-grid");
   var badge = document.getElementById("acp-sections-count-badge");
-  if (!grid) return;
-
-  grid.innerHTML = '<div style="color:var(--grau); padding:20px;">Lese Sektionen aus der Live-Bühne ein...</div>';
-
-  var doc = null;
-  try {
-    if (iframe && (iframe.contentDocument || iframe.contentWindow)) {
-      doc = iframe.contentDocument || iframe.contentWindow.document;
-    }
-  } catch(e) {
-    console.warn("Iframe Zugriff eingeschränkt:", e);
-  }
+  if (!grid || !iframe) return;
 
   acpScannedSections = [];
+  var doc = null;
+  try {
+    doc = iframe.contentDocument || iframe.contentWindow.document;
+  } catch(e) {
+    console.warn("Iframe cross-origin:", e);
+  }
 
   if (doc) {
-    var elements = doc.querySelectorAll("[data-section], section, header.site-header, footer.site-footer, header.top-bar, footer.footer-wrap, .header-wrap, .footer-wrap");
-    elements.forEach(function(el, idx) {
-      var id = el.getAttribute("data-section") || el.id;
-      if (!id) {
-        if (el.tagName.toLowerCase() === "header") id = "top-bar";
-        else if (el.tagName.toLowerCase() === "footer") id = "footer";
-        else if (el.className && (el.className.includes("hero") || el.className.includes("page-hero"))) id = "hero";
-        else id = "section-" + (idx + 1);
-      }
-      // Garantiere data-section im Live-iFrame DOM für deterministisches Anspringen
+    var rawNodes = [];
+    var headerEl = doc.querySelector("header.top-bar, header");
+    if (headerEl && !headerEl.hasAttribute("data-section")) {
+      headerEl.setAttribute("data-section", "top-bar");
+    }
+    var footerEl = doc.querySelector("footer.footer, footer");
+    if (footerEl && !footerEl.hasAttribute("data-section")) {
+      footerEl.setAttribute("data-section", "footer");
+    }
+
+    var secElements = doc.querySelectorAll("[data-section], section[id], header, footer");
+    var seenEls = [];
+    secElements.forEach(function(el) {
+      if (seenEls.indexOf(el) !== -1) return;
+      seenEls.push(el);
+      var secId = el.getAttribute("data-section") || el.getAttribute("id") || el.tagName.toLowerCase();
       if (!el.getAttribute("data-section")) {
-        el.setAttribute("data-section", id);
+        el.setAttribute("data-section", secId);
       }
+      rawNodes.push({ el: el, id: secId });
+    });
 
-      if (id === "acp-cockpit-bar" || el.closest(".acp-cockpit-bar")) return;
-      if (acpScannedSections.some(function(s) { return s.id === id; })) return;
+    rawNodes.forEach(function(item, idx) {
+      var el = item.el;
+      var secId = item.id;
 
-      var kicker = el.querySelector(".section-kicker, .hero-kicker, .kicker, .tag");
-      var title = el.querySelector(".section-title, .hero-title, h1, h2, h3");
+      var kickerEl = el.querySelector(".section-kicker, .hero-kicker, .overline, .kicker");
+      var titleEl = el.querySelector("h1, h2, h3, .section-title, .brand-name, .footer-brand h4");
+      var descEl = el.querySelector("p.section-desc, p.lead, p");
 
-      var kickerText = kicker ? kicker.innerText.trim() : "";
-      var titleText = title ? title.innerText.trim() : (el.getAttribute("aria-label") || id);
+      var kicker = kickerEl ? kickerEl.textContent.trim().replace(/^[\/\s●•·]+/, "").trim() : "";
+      var rawTitle = titleEl ? titleEl.textContent.trim() : "";
+      if (!rawTitle && secId === "top-bar") rawTitle = "Hauptnavigation & Markenlogo";
+      if (!rawTitle && secId === "footer") rawTitle = "Fusszeile & Rechtliches";
+      if (!rawTitle) rawTitle = "Abschnitt " + secId;
 
-      var lines = el.outerHTML.split("\n").length;
-      var charCount = el.outerHTML.length;
-      var analysis = acpAnalyzeSectionContent(el);
+      var desc = descEl ? descEl.textContent.trim() : "";
+      if (desc.length > 140) desc = desc.substring(0, 140) + "...";
 
-      acpScannedSections.push({
-        id: id,
+      var clone = el.cloneNode(true);
+      var editBadges = clone.querySelectorAll(".acp-sec-edit-trigger");
+      editBadges.forEach(function(b) { b.remove(); });
+
+      var analysis = acpAnalyzeSectionContent(clone);
+      var secObj = {
+        id: secId,
         tag: el.tagName.toLowerCase(),
-        kicker: kickerText,
-        title: titleText,
-        lines: lines,
-        chars: charCount,
-        outerHTML: el.outerHTML,
+        kicker: kicker,
+        title: rawTitle,
+        desc: desc,
+        outerHTML: clone.outerHTML,
         analysis: analysis,
         index: idx
-      });
+      };
+      secObj.title = acpHumanizeSectionTitle(secObj);
+      acpScannedSections.push(secObj);
     });
   }
 
   if (badge) {
-    badge.textContent = "● " + acpScannedSections.length + " Sektionen aktiv";
+    badge.textContent = acpScannedSections.length + " Abschnitte auf dieser Seite";
   }
 
   grid.innerHTML = "";
@@ -2261,51 +2307,64 @@ function acpScanAndRenderSections() {
     var card = document.createElement("div");
     card.className = "acp-section-card";
 
-    var isSystem = (sec.id === "header" || sec.id === "footer" || sec.id === "top-bar");
+    var secIdLower = (sec.id || "").toLowerCase();
+    var isCompactBar = (secIdLower === "top-strip" || secIdLower === "pikett-bar" || secIdLower === "top-bar" || secIdLower === "header" || sec.tag === "header");
     var archetype = acpGetSectionArchetype(sec);
-    var srcdocHtml = acpGenerateMiniPreviewSrcdoc(sec.outerHTML);
+    var srcdocHtml = acpGenerateMiniPreviewSrcdoc(sec.outerHTML, sec);
+    var numStr = String(idx + 1).padStart(2, "0");
 
-    var metaTagsHtml = "";
+    var metaParts = [];
     if (sec.analysis) {
-      if (sec.analysis.images > 0) metaTagsHtml += '<span class="acp-sec-meta-tag">📷 ' + sec.analysis.images + ' ' + (sec.analysis.images === 1 ? 'Bild' : 'Bilder') + '</span> · ';
-      if (sec.analysis.cards > 0) metaTagsHtml += '<span class="acp-sec-meta-tag">💼 ' + sec.analysis.cards + ' Kacheln</span> · ';
-      metaTagsHtml += '<span class="acp-sec-meta-tag">📝 ca. ' + sec.analysis.words + ' Wörter</span>';
+      if (sec.analysis.images > 0) {
+        metaParts.push('<span class="acp-sec-meta-tag">' + ACP_ICONS.image + '<span>' + sec.analysis.images + ' ' + (sec.analysis.images === 1 ? 'Bild' : 'Bilder') + '</span></span>');
+      }
+      if (sec.analysis.cards > 0) {
+        metaParts.push('<span class="acp-sec-meta-tag">' + ACP_ICONS.grid + '<span>' + sec.analysis.cards + ' ' + (sec.analysis.cards === 1 ? 'Element' : 'Elemente') + '</span></span>');
+      }
+      metaParts.push('<span class="acp-sec-meta-tag">' + ACP_ICONS.fileText + '<span>ca. ' + sec.analysis.words + ' Wörter</span></span>');
     }
+    var metaTagsHtml = metaParts.join('<span style="color:#475569;">·</span>');
 
     card.innerHTML = 
       '<div>' +
-        '<div class="acp-sec-head" style="margin-bottom: 12px;">' +
-          '<span class="acp-sec-archetype-pill" style="background:' + archetype.color + '; color:' + archetype.text + ';">' +
-            archetype.icon + ' ' + archetype.name +
+        '<div class="acp-sec-head">' +
+          '<span class="acp-sec-archetype-pill' + (archetype.isPrimary ? ' is-primary' : '') + '">' +
+            archetype.icon +
+            '<span>' + archetype.name + '</span>' +
           '</span>' +
-          '<span class="acp-sec-id-badge">data-section="' + sec.id + '"</span>' +
+          '<span class="acp-sec-id-badge">Abschnitt ' + numStr + '</span>' +
         '</div>' +
 
-        '<div class="acp-sec-mini-stage" onclick="acpScrollToSectionInViewport(\'' + sec.id + '\')" title="Klicken, um im Live-Simulator direkt zu diesem Abschnitt zu springen">' +
+        '<div class="acp-sec-mini-stage' + (isCompactBar ? ' is-compact-stage' : '') + '" onclick="acpScrollToSectionInViewport(\'' + sec.id + '\')" title="Klicken, um im Simulator direkt zu diesem Abschnitt zu springen">' +
           '<iframe class="acp-sec-mini-iframe" srcdoc="' + srcdocHtml.replace(/"/g, '&quot;') + '"></iframe>' +
           '<div class="acp-sec-mini-overlay" onclick="acpScrollToSectionInViewport(\'' + sec.id + '\')">' +
-            '<button type="button" class="acp-sec-mini-jump-btn" onclick="event.stopPropagation(); acpScrollToSectionInViewport(\'' + sec.id + '\')"><span>👁️ Im Simulator ansehen</span></button>' +
+            '<button type="button" class="acp-sec-mini-jump-btn" onclick="event.stopPropagation(); acpScrollToSectionInViewport(\'' + sec.id + '\')">' +
+              ACP_ICONS.eye +
+              '<span>Im Simulator ansehen</span>' +
+            '</button>' +
           '</div>' +
         '</div>' +
 
         '<div style="margin-top: 14px;">' +
-          (sec.kicker ? '<div style="font-family:\'JetBrains Mono\',monospace; font-size:11px; color:#f59e0b; margin-bottom:4px; font-weight:700;">' + sec.kicker + '</div>' : '') +
-          '<h4 style="color:#fff; font-size:15px; font-weight:700; line-height:1.4; margin: 0 0 8px 0;">' + sec.title + '</h4>' +
+          (sec.kicker ? '<div class="acp-sec-kicker">' + sec.kicker + '</div>' : '') +
+          '<h4 class="acp-sec-title">' + sec.title + '</h4>' +
           '<div class="acp-sec-meta-row">' +
             metaTagsHtml +
           '</div>' +
         '</div>' +
       '</div>' +
 
-      '<div style="display:flex; gap:8px; flex-wrap:wrap; padding-top:14px; border-top:1px solid rgba(255,255,255,0.08);">' +
-        '<button type="button" class="acp-btn-secondary" onclick="acpCopySectionPrompt(\'' + sec.id + '\')" style="flex:1.2; padding:9px 12px; font-size:12.5px; justify-content:center; background:rgba(245,158,11,0.12); border-color:rgba(245,158,11,0.3); color:#fbbf24; font-weight:700;" title="Kopiert den interaktiven Coach-Prompt für ChatGPT oder Claude">' +
-          '<span>💬 KI-Coach konsultieren</span>' +
+      '<div class="acp-sec-actions">' +
+        '<button type="button" class="acp-btn-secondary acp-btn-card-ai" onclick="acpCopySectionPrompt(\'' + sec.id + '\')" title="Kopiert den abgestimmten KI-Prompt für ChatGPT oder Claude">' +
+          ACP_ICONS.sparkles +
+          '<span>Mit KI anpassen</span>' +
         '</button>' +
-        '<button type="button" class="acp-btn-secondary" onclick="acpOpenReplaceSectionModal(\'' + sec.id + '\')" style="padding:9px 12px; font-size:12.5px; font-weight:700; color:#34d399; background:rgba(16,185,129,0.12); border-color:rgba(16,185,129,0.35);" title="Neuen Text oder KI-Code einfügen & dauerhaft speichern">' +
-          '<span>✏️ Text / Code einfügen</span>' +
+        '<button type="button" class="acp-btn-secondary" onclick="acpOpenReplaceSectionModal(\'' + sec.id + '\')" title="Neuen Text oder HTML-Code einfügen und speichern">' +
+          ACP_ICONS.edit +
+          '<span>Text / Code</span>' +
         '</button>' +
-        '<button type="button" class="acp-btn-secondary" onclick="acpScrollToSectionInViewport(\'' + sec.id + '\')" style="padding:9px 10px; font-size:12.5px;" title="Im Simulator ansehen">' +
-          '<span>👁️</span>' +
+        '<button type="button" class="acp-btn-icon" onclick="acpScrollToSectionInViewport(\'' + sec.id + '\')" title="Im Simulator direkt zu diesem Abschnitt springen">' +
+          ACP_ICONS.eye +
         '</button>' +
       '</div>';
 
@@ -2337,7 +2396,7 @@ function acpBuildSectionCoachPrompt(targetSecId) {
 
   var prompt = 
 "================================================================================\n" +
-"🚨 STRIKTE VERHALTENSREGEL FÜR DEINE ALLERERSTE ANTWORT:\n" +
+"STRIKTE VERHALTENSREGEL FÜR DEINE ALLERERSTE ANTWORT:\n" +
 "GIB JETZT NOCH KEINEN PROGRAMMIERCODE AUS! KEIN HTML, KEIN CSS, KEIN JAVASCRIPT!\n" +
 "================================================================================\n\n" +
 
@@ -2378,7 +2437,7 @@ function acpBuildSectionCoachPrompt(targetSecId) {
 promptRules + "\n" +
 "- Schweizer Typografie: Nutze die Klassen (.section-wrap, .section-inner, .section-kicker, .section-title, .section-desc).\n" +
 "- Kicker-Regel: <span class=\"section-kicker\">● Kicker-Text</span> ist 100% freistehend in JetBrains Mono (niemals in einer Box oder einem Badge-Rahmen).\n" +
-"- 🚨 FLUIDE GRID-DOKTRIN (KEINE INLINE-GRIDS): Verwende NIEMALS inline style=\"grid-template-columns: ...\"! Das WebPilot-Design-System nutzt automatische fluide Grids 'repeat(auto-fit, minmax(300px, 1fr))'. Ob du 1, 2, 3 oder 4 Kacheln hast – das System verteilt sie auf Desktop automatisch gleichmässig über die volle Breite und bricht auf Smartphones automatisch sauber auf 1 Spalte um. Inline-Grids zerstören das Mobile-Layout!\n" +
+"- FLUIDE GRID-DOKTRIN (KEINE INLINE-GRIDS): Verwende NIEMALS inline style=\"grid-template-columns: ...\"! Das WebPilot-Design-System nutzt automatische fluide Grids 'repeat(auto-fit, minmax(300px, 1fr))'. Ob du 1, 2, 3 oder 4 Kacheln hast – das System verteilt sie auf Desktop automatisch gleichmässig über die volle Breite und bricht auf Smartphones automatisch sauber auf 1 Spalte um. Inline-Grids zerstören das Mobile-Layout!\n" +
 "- Fluchtlinie: max-width 1100px mit margin 0 auto.\n" +
 "- Bilder: Relative Pfade wie \"images/[dateiname.jpg]\".\n\n" +
 
@@ -2413,28 +2472,28 @@ function acpShowCoachPromptSuccessModal(secId) {
   toast.className = "acp-coach-toast";
 
   toast.innerHTML = 
-    '<div style="display:flex; justify-content:space-between; align-items:flex-start;">' +
+    '<div style="display:flex; justify-content:space-between; align-items:flex-start; gap:12px;">' +
       '<div style="display:flex; align-items:center; gap:10px;">' +
-        '<span style="font-size:24px;">💬</span>' +
+        '<span style="width:32px; height:32px; border-radius:8px; background:rgba(240,133,45,0.14); border:1px solid rgba(240,133,45,0.3); color:#ffa858; display:inline-flex; align-items:center; justify-content:center; flex-shrink:0;">' + ACP_ICONS.sparkles + '</span>' +
         '<div>' +
-          '<div style="font-family:\'JetBrains Mono\',monospace; font-size:11px; color:#f59e0b; font-weight:700;">// KI-COACH PROMPT KOPIERT</div>' +
-          '<div style="font-size:14px; font-weight:700; color:#fff;">Sektion «' + title + '»</div>' +
+          '<div class="acp-modal-kicker" style="margin-bottom:2px;">KI-PROMPT IN ZWISCHENABLAGE KOPIERT</div>' +
+          '<div style="font-size:14px; font-weight:700; color:#fff;">Abschnitt «' + title + '»</div>' +
         '</div>' +
       '</div>' +
-      '<button type="button" onclick="this.closest(\'.acp-coach-toast\').remove()" style="background:none; border:none; color:#64748b; font-size:16px; cursor:pointer; padding:0 4px;">✕</button>' +
+      '<button type="button" class="acp-btn-icon" onclick="this.closest(\'.acp-coach-toast\').remove()" style="min-width:28px; min-height:28px; padding:4px;">' + ACP_ICONS.x + '</button>' +
     '</div>' +
     '<p style="font-size:12.5px; color:#94a3b8; margin:0; line-height:1.45;">' +
-      'Der Coach-Prompt wurde in deine Zwischenablage kopiert. Öffne jetzt einfach deine bevorzugte KI und füge ihn mit <strong>Strg + V</strong> ein:' +
+      'Der abgestimmte KI-Prompt wurde kopiert. Öffne jetzt ChatGPT oder Claude und füge ihn mit <strong>Strg + V</strong> ein:' +
     '</p>' +
     '<div style="display:flex; gap:10px; margin-top:8px; flex-wrap:wrap;">' +
-      '<a href="https://chatgpt.com/" target="_blank" rel="noopener" style="flex:1; min-width:130px; text-align:center; background:#10a37f; color:#fff; font-size:12px; font-weight:700; padding:8px 12px; border-radius:6px; text-decoration:none; display:inline-flex; align-items:center; justify-content:center; gap:6px;">' +
-        '<span>🤖 ChatGPT öffnen ↗</span>' +
+      '<a href="https://chatgpt.com/" target="_blank" rel="noopener" class="acp-btn-secondary" style="flex:1; min-width:130px; font-size:12px; padding:8px 12px;">' +
+        '<span>ChatGPT öffnen ↗</span>' +
       '</a>' +
-      '<a href="https://claude.ai/" target="_blank" rel="noopener" style="flex:1; min-width:130px; text-align:center; background:#d97706; color:#fff; font-size:12px; font-weight:700; padding:8px 12px; border-radius:6px; text-decoration:none; display:inline-flex; align-items:center; justify-content:center; gap:6px;">' +
-        '<span>🧠 Claude öffnen ↗</span>' +
+      '<a href="https://claude.ai/" target="_blank" rel="noopener" class="acp-btn-secondary" style="flex:1; min-width:130px; font-size:12px; padding:8px 12px;">' +
+        '<span>Claude öffnen ↗</span>' +
       '</a>' +
-      '<button type="button" onclick="this.closest(\'.acp-coach-toast\').remove(); acpOpenReplaceSectionModal(\'' + secId + '\')" style="flex:1.4; min-width:160px; text-align:center; background:linear-gradient(135deg, #10b981 0%, #059669 100%); color:#fff; font-size:12px; font-weight:700; padding:8px 12px; border-radius:6px; border:none; cursor:pointer; display:inline-flex; align-items:center; justify-content:center; gap:6px; box-shadow:0 2px 8px rgba(16,185,129,0.3);">' +
-        '<span>✏️ Antwort hier einfügen →</span>' +
+      '<button type="button" class="acp-btn-primary" onclick="this.closest(\'.acp-coach-toast\').remove(); acpOpenReplaceSectionModal(\'' + secId + '\')" style="flex:1.4; min-width:160px; font-size:12px; padding:8px 12px;">' +
+        '<span>Antwort hier einfügen →</span>' +
       '</button>' +
     '</div>';
 
@@ -2476,7 +2535,7 @@ promptRules + "\n" +
 "QUELLCODE:\n" + fullHtml;
 
   navigator.clipboard.writeText(prompt).then(function() {
-    alert("✓ Komplette HTML-Seite inklusive Master-Prompt kopiert!\n\nJetzt in ChatGPT oder Claude einfügen.");
+    alert("Komplette HTML-Seite inklusive Master-Prompt kopiert!\n\nJetzt in ChatGPT oder Claude einfügen.");
   }).catch(function() {
     window.prompt("Kopiere die ganze Seite:", prompt);
   });
@@ -2494,11 +2553,11 @@ function acpOpenReplaceSectionModal(secId) {
   if (title) {
     var targetSec = (acpScannedSections || []).find(function(s) { return s.id === secId; });
     var secTitle = targetSec && targetSec.title ? (' «' + targetSec.title + '»') : '';
-    title.textContent = "Sektion [" + secId + "]" + secTitle + " — Neuer Text / Code";
+    title.textContent = (targetSec && targetSec.title ? targetSec.title : ("Abschnitt " + secId)) + " — Inhalt oder Code einsetzen";
   }
   if (textarea) {
     textarea.value = "";
-    textarea.placeholder = "Hier die Antwort oder den neuen Text von ChatGPT / Claude für Sektion [" + secId + "] einfügen (Strg + V)...";
+    textarea.placeholder = "Hier die Antwort oder den neuen Text aus ChatGPT / Claude einfügen (Strg + V)...";
   }
   if (status) {
     status.style.display = "none";
@@ -2508,7 +2567,7 @@ function acpOpenReplaceSectionModal(secId) {
     counter.textContent = "0 Zeichen";
   }
   if (feedback) {
-    feedback.innerHTML = '<span style="color:#94a3b8;">⚪ Noch kein Inhalt eingefügt. Füge deinen Text mit Strg + V ein.</span>';
+    feedback.innerHTML = '<span style="color:#94a3b8;">Noch kein Inhalt eingefügt. Füge deinen Text mit Strg + V ein.</span>';
   }
 
   if (modal) {
@@ -2545,7 +2604,7 @@ function acpUpdateReplaceTextFeedback() {
   }
 
   if (!val) {
-    feedback.innerHTML = '<span style="color:#94a3b8;">⚪ Noch kein Inhalt eingefügt. Füge deinen Text mit Strg + V ein.</span>';
+    feedback.innerHTML = '<span style="color:#94a3b8;">Noch kein Inhalt eingefügt. Füge deinen Text mit Strg + V ein.</span>';
     if (status) status.style.display = "none";
     return;
   }
@@ -2556,8 +2615,8 @@ function acpUpdateReplaceTextFeedback() {
 
   feedback.innerHTML = 
     '<span style="display:inline-flex; align-items:center; gap:8px; color:#10b981; font-weight:700;">' +
-      '<span style="font-size:16px;">🟢</span>' +
-      '<span>✓ Text ist drin! ' + lines + ' Zeilen • ' + words + ' Wörter • ' + chars + ' Zeichen erkannt. Bereit zum Absenden!</span>' +
+      '<span style="font-size:16px;"></span>' +
+      '<span>Text ist drin! ' + lines + ' Zeilen • ' + words + ' Wörter • ' + chars + ' Zeichen erkannt. Bereit zum Absenden!</span>' +
     '</span>';
 }
 
@@ -2683,9 +2742,9 @@ function acpSubmitReplaceSection() {
       status.style.color = "#ef4444";
       status.style.background = "rgba(239, 68, 68, 0.1)";
       status.style.padding = "10px 14px";
-      status.style.borderRadius = "6px";
+      status.style.borderRadius = "8px";
       status.style.border = "1px solid rgba(239, 68, 68, 0.3)";
-      status.innerHTML = "⚠️ <strong>Bitte zuerst Text einfügen:</strong> Das Feld ist noch leer.";
+      status.innerHTML = "<strong>Bitte zuerst Text einfügen:</strong> Das Feld ist noch leer.";
     }
     return;
   }
@@ -2697,16 +2756,16 @@ function acpSubmitReplaceSection() {
       status.style.color = "#ef4444";
       status.style.background = "rgba(239, 68, 68, 0.1)";
       status.style.padding = "10px 14px";
-      status.style.borderRadius = "6px";
+      status.style.borderRadius = "8px";
       status.style.border = "1px solid rgba(239, 68, 68, 0.3)";
-      status.innerHTML = "🚨 <strong>Airbag-Schranke:</strong> " + validation.error;
+      status.innerHTML = "<strong>Airbag-Schranke:</strong> " + validation.error;
     }
     return;
   }
 
   var targetSecId = validation.detectedSecId || acpActiveEditSectionId;
   if (validation.detectedSecId && validation.detectedSecId !== acpActiveEditSectionId) {
-    console.log("[WebPilot Studio] 🔄 Zielsektion automatisch angepasst: " + acpActiveEditSectionId + " -> " + validation.detectedSecId);
+    console.log("[WebPilot Studio] Zielsektion automatisch angepasst: " + acpActiveEditSectionId + " -> " + validation.detectedSecId);
   }
 
   var iframe = document.getElementById("acp-widget-viewport");
@@ -2722,7 +2781,7 @@ function acpSubmitReplaceSection() {
 
   if (applyBtn) {
     applyBtn.disabled = true;
-    applyBtn.innerHTML = "<span>⏳ Speichere &amp; Edge CDN synchronisieren...</span>";
+    applyBtn.innerHTML = "<span>Speichere &amp; Edge CDN synchronisieren...</span>";
   }
 
   if (status) {
@@ -2730,9 +2789,9 @@ function acpSubmitReplaceSection() {
     status.style.color = "#fbbf24";
     status.style.background = "rgba(245, 158, 11, 0.1)";
     status.style.padding = "10px 14px";
-    status.style.borderRadius = "6px";
+    status.style.borderRadius = "8px";
     status.style.border = "1px solid rgba(245, 158, 11, 0.3)";
-    status.innerHTML = "⚡ <strong>Airbag grün:</strong> Sende neue Sektion [" + targetSecId + "] an Cloudflare Edge CDN...";
+    status.innerHTML = "<strong>Airbag grün:</strong> Sende neue Sektion [" + targetSecId + "] an Cloudflare Edge CDN...";
   }
 
   var payload = {
@@ -2756,7 +2815,7 @@ function acpSubmitReplaceSection() {
   .then(function(data) {
     if (applyBtn) {
       applyBtn.disabled = false;
-      applyBtn.innerHTML = "<span>🚀 Änderung jetzt absenden &amp; live speichern</span>";
+      applyBtn.innerHTML = "<span>Änderung jetzt absenden &amp; live speichern</span>";
     }
     acpCloseReplaceSectionModal();
 
@@ -2788,7 +2847,7 @@ function acpSubmitReplaceSection() {
     toast.style.display = "flex";
     toast.style.alignItems = "center";
     toast.style.gap = "10px";
-    toast.innerHTML = "<span>🎉</span><span>Sektion [" + targetSecId + "] erfolgreich dauerhaft gespeichert und bereitgestellt!</span>";
+    toast.innerHTML = "<span></span><span>Sektion [" + targetSecId + "] erfolgreich dauerhaft gespeichert und bereitgestellt!</span>";
     document.body.appendChild(toast);
     setTimeout(function() { toast.remove(); }, 5000);
   })
@@ -2796,16 +2855,16 @@ function acpSubmitReplaceSection() {
     console.error("Fehler beim Ersetzen der Sektion:", err);
     if (applyBtn) {
       applyBtn.disabled = false;
-      applyBtn.innerHTML = "<span>🚀 Änderung jetzt absenden &amp; live speichern</span>";
+      applyBtn.innerHTML = "<span>Änderung jetzt absenden &amp; live speichern</span>";
     }
     if (status) {
       status.style.display = "block";
       status.style.color = "#ef4444";
       status.style.background = "rgba(239, 68, 68, 0.1)";
       status.style.padding = "10px 14px";
-      status.style.borderRadius = "6px";
+      status.style.borderRadius = "8px";
       status.style.border = "1px solid rgba(239, 68, 68, 0.3)";
-      status.innerHTML = "🚨 <strong>Server-Fehler:</strong> " + err.message;
+      status.innerHTML = "<strong>Server-Fehler:</strong> " + err.message;
     }
   });
 }
@@ -2829,12 +2888,11 @@ function acpToggleInlineEdit(forceState) {
 
   if (acpInlineEditActive) {
     if (btn) {
-      btn.style.borderColor = "#10b981";
-      btn.style.background = "rgba(16, 185, 129, 0.25)";
+      
       var lbl = btn.querySelector(".nav-label");
-      if (lbl) lbl.textContent = "Direkt-Edit aktiv";
-      var icon = btn.querySelector(".nav-icon");
-      if (icon) icon.textContent = "✍️";
+      btn.classList.add("is-active");
+      var lbl = btn.querySelector(".nav-label");
+      if (lbl) lbl.textContent = "Direkt-Bearbeitung aktiv";
     }
     if (dock) {
       dock.style.display = "block";
@@ -2850,12 +2908,11 @@ function acpToggleInlineEdit(forceState) {
     }
   } else {
     if (btn) {
-      btn.style.borderColor = "rgba(16, 185, 129, 0.4)";
-      btn.style.background = "rgba(16, 185, 129, 0.1)";
+      
       var lbl = btn.querySelector(".nav-label");
-      if (lbl) lbl.textContent = "Text & Bild umschreiben";
-      var icon = btn.querySelector(".nav-icon");
-      if (icon) icon.textContent = "✏️";
+      btn.classList.remove("is-active");
+      var lbl = btn.querySelector(".nav-label");
+      if (lbl) lbl.textContent = "Direkt bearbeiten";
     }
     if (dock) {
       dock.style.display = "none";
@@ -2892,7 +2949,7 @@ function acpApplyInlineEditToIframe(doc) {
       '  outline: 1.5px dashed rgba(245, 158, 11, 0.45) !important;' +
       '  outline-offset: 3px !important;' +
       '  cursor: text !important;' +
-      '  border-radius: 3px !important;' +
+      '  border-radius:8px;' +
       '  transition: outline 0.15s ease, background 0.15s ease !important;' +
       '}' +
       '[data-acp-editable="true"]:hover {' +
@@ -2925,7 +2982,7 @@ function acpApplyInlineEditToIframe(doc) {
       '  -webkit-backdrop-filter: blur(12px) !important;' +
       '  border: 1px solid rgba(16, 185, 129, 0.5) !important;' +
       '  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.65) !important;' +
-      '  border-radius: 8px !important;' +
+      '  border-radius:8px;' +
       '  padding: 4px 8px !important;' +
       '  display: flex !important;' +
       '  align-items: center !important;' +
@@ -2944,7 +3001,7 @@ function acpApplyInlineEditToIframe(doc) {
       '  font-size: 11px !important;' +
       '  font-weight: 700 !important;' +
       '  padding: 3px 6px !important;' +
-      '  border-radius: 4px !important;' +
+      '  border-radius:8px;' +
       '  cursor: pointer !important;' +
       '  transition: all 0.15s ease !important;' +
       '  line-height: 1.2 !important;' +
@@ -2974,7 +3031,7 @@ function acpApplyInlineEditToIframe(doc) {
       '  font-size: 11px !important;' +
       '  font-weight: 800 !important;' +
       '  padding: 3px 12px !important;' +
-      '  border-radius: 12px !important;' +
+      '  border-radius:8px;' +
       '  cursor: ns-resize !important;' +
       '  user-select: none !important;' +
       '  box-shadow: 0 4px 14px rgba(0,0,0,0.6) !important;' +
@@ -3146,7 +3203,7 @@ function acpApplyInlineEditToIframe(doc) {
     tb.id = "acp-active-image-toolbar";
     tb.className = "acp-image-toolbar";
     tb.innerHTML = 
-      '<span style="color:#34d399; font-weight:800; font-size:11px; display:inline-flex; align-items:center; gap:4px;">🖼️ <span>BILD</span></span>' +
+      '<span style="color:#34d399; font-weight:800; font-size:11px; display:inline-flex; align-items:center; gap:4px;"><span>BILD</span></span>' +
       '<span class="tb-sep"></span>' +
       '<span style="color:#94a3b8; font-size:10px; font-weight:700;">HÖHE:</span>' +
       '<button type="button" data-action="size" data-val="260" title="Kompakte Höhe (260px)">S · 260</button>' +
@@ -3158,7 +3215,7 @@ function acpApplyInlineEditToIframe(doc) {
       '<button type="button" data-action="focus" data-val="center center" title="Bildmitte fokussieren">⏺️ Mitte</button>' +
       '<button type="button" data-action="focus" data-val="bottom center" title="Unten fokussieren">⬇️ Unten</button>' +
       '<span class="tb-sep"></span>' +
-      '<button type="button" data-action="close" title="Schliessen (ESC)" style="background:rgba(239,68,68,0.2) !important; border-color:rgba(239,68,68,0.4) !important; color:#fca5a5 !important; padding:3px 7px !important;">✕</button>';
+      '<button type="button" data-action="close" title="Schliessen (ESC)" style="background:rgba(239,68,68,0.2) !important; border-color:rgba(239,68,68,0.4) !important; color:#fca5a5 !important; padding:3px 7px !important;">×</button>';
 
     tb.addEventListener("click", function(e) {
       e.stopPropagation();
@@ -3385,7 +3442,7 @@ function acpUpdateInlineEditStatus() {
   if (count > 0) {
     if (badge) {
       badge.style.display = "inline-block";
-      badge.textContent = "✓ " + count + (count === 1 ? " Sektion geändert" : " Sektionen geändert");
+      badge.textContent = "" + count + (count === 1 ? " Sektion geändert" : " Sektionen geändert");
     }
     if (statusText) {
       var secList = Array.from(acpDirtySections).join(", ");
@@ -3402,7 +3459,7 @@ function acpUpdateInlineEditStatus() {
   } else {
     if (badge) badge.style.display = "none";
     if (statusText) {
-      statusText.textContent = "👉 Klicke auf einen Text zum Umschreiben – oder klicke auf ein Bild, um Grösse & Fokus direkt anzupassen!";
+      statusText.textContent = " Klicke auf einen Text zum Umschreiben – oder klicke auf ein Bild, um Grösse & Fokus direkt anzupassen!";
     }
     if (saveBtn) {
       saveBtn.disabled = true;
@@ -3435,7 +3492,7 @@ function acpSaveInlineEdits() {
 
   if (saveBtn) {
     saveBtn.disabled = true;
-    if (saveLbl) saveLbl.innerHTML = "<span>⏳ Speichere &amp; Edge bereitstellen...</span>";
+    if (saveLbl) saveLbl.innerHTML = "<span>Speichere &amp; Edge bereitstellen...</span>";
   }
 
   var sectionsToSave = Array.from(acpDirtySections);
@@ -3523,7 +3580,7 @@ function acpSaveInlineEdits() {
     toast.style.display = "flex";
     toast.style.alignItems = "center";
     toast.style.gap = "10px";
-    toast.innerHTML = "<span>🎉</span><span>Änderungen dauerhaft gespeichert &amp; auf Cloudflare Pages bereitgestellt!</span>";
+    toast.innerHTML = "<span></span><span>Änderungen dauerhaft gespeichert &amp; auf Cloudflare Pages bereitgestellt!</span>";
     document.body.appendChild(toast);
     setTimeout(function() { toast.remove(); }, 5000);
 
@@ -3537,7 +3594,7 @@ function acpSaveInlineEdits() {
     console.error("[WebPilot Studio] Fehler beim Speichern der Inline-Änderungen:", err);
     if (saveBtn) saveBtn.disabled = false;
     if (saveLbl) saveLbl.textContent = "Erneut versuchen";
-    alert("🚨 Fehler beim Speichern der Text- oder Bildänderungen: " + err.message);
+    alert("Fehler beim Speichern der Text- oder Bildänderungen: " + err.message);
   });
 }
 
@@ -3584,7 +3641,7 @@ function acpCopyGeneratedNewSectionPrompt() {
 
   var prompt = 
 "================================================================================\n" +
-"🚨 STRIKTE VERHALTENSREGEL FÜR DEINE ALLERERSTE ANTWORT:\n" +
+"STRIKTE VERHALTENSREGEL FÜR DEINE ALLERERSTE ANTWORT:\n" +
 "GIB JETZT NOCH KEINEN PROGRAMMIERCODE AUS! KEIN HTML, KEIN CSS, KEIN JAVASCRIPT!\n" +
 "================================================================================\n\n" +
 
@@ -3606,7 +3663,7 @@ function acpCopyGeneratedNewSectionPrompt() {
 promptRules;
 
   navigator.clipboard.writeText(prompt).then(function() {
-    alert("✓ Neuer Coach-Prompt für zusätzlichen Abschnitt kopiert!\n\nJetzt in ChatGPT oder Claude einfügen.");
+    alert("Neuer Coach-Prompt für zusätzlichen Abschnitt kopiert!\n\nJetzt in ChatGPT oder Claude einfügen.");
   }).catch(function() {
     window.prompt("Kopiere diesen Prompt:", prompt);
   });
@@ -3622,7 +3679,7 @@ function acpRemoveSection(secId) {
   if (targetEl) {
     targetEl.remove();
     acpScanAndRenderSections();
-    alert("✓ Sektion [" + secId + "] im Simulator ausgeblendet!");
+    alert("Sektion [" + secId + "] im Simulator ausgeblendet!");
   }
 }
 
