@@ -11,7 +11,7 @@
   <link rel="icon" href="images/favicon-h11.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700&family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,800;1,900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,800;1,900&display=swap" rel="stylesheet">
   <style>
     :root {
       --navy: #0B1A3B;
@@ -97,7 +97,7 @@
       color: #FFD6E6;
       padding: 3px 8px;
       border-radius: var(--radius-badge);
-      font-family: 'JetBrains Mono', monospace;
+      font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif; font-variant-numeric: tabular-nums;
       font-size: 0.7rem;
       font-weight: 700;
       display: inline-flex;
@@ -284,7 +284,7 @@
     /* FREESTANDING KICKERS (#UI-01 & #UI-13: 100% FREISTEHEND, NO PILLS) */
     .section-kicker,
     .hero-kicker {
-      font-family: 'JetBrains Mono', monospace;
+      font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif; font-variant-numeric: tabular-nums;
       font-size: 0.74rem;
       font-weight: 700;
       text-transform: uppercase;
@@ -296,6 +296,19 @@
       box-shadow: none !important;
       display: block;
       margin-bottom: 8px;
+    }
+    .section-kicker::before,
+    .hero-kicker::before {
+      content: "";
+      display: inline-block;
+      width: 16px;
+      height: 2px;
+      background: currentColor;
+      vertical-align: middle;
+      margin-right: 8px;
+      border-radius: 2px;
+      position: relative;
+      top: -1px;
     }
 
     /* HERO SECTIONS (DARK STADIUM LOOK #0B1A3B) */
@@ -347,7 +360,7 @@
       margin-top: 14px;
     }
     .meta-badge-dark {
-      font-family: 'JetBrains Mono', monospace;
+      font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif; font-variant-numeric: tabular-nums;
       font-size: 0.72rem;
       font-weight: 700;
       background: rgba(255, 255, 255, 0.07);
@@ -596,7 +609,7 @@
       flex: 0 0 42px;
     }
     .card-tag-badge {
-      font-family: 'JetBrains Mono', monospace;
+      font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif; font-variant-numeric: tabular-nums;
       font-size: 0.7rem;
       font-weight: 700;
       text-transform: uppercase;
@@ -989,7 +1002,7 @@
   <section class="hero-wrap" id="begleitung-hero" data-section-id="begleitung-hero" data-section="begleitung-hero" data-section-label="04 | Begleitung: Du stehst im Mittelpunkt">
     <div class="hero-inner">
       <div>
-        <span class="hero-kicker" data-slot="begl_hero_kicker">// 04 | BEGLEITUNG · GANZHEITLICHE FÖRDERUNG</span>
+        <span class="hero-kicker" data-slot="begl_hero_kicker">04 | BEGLEITUNG · GANZHEITLICHE FÖRDERUNG</span>
         <h1 class="hero-title" data-slot="begl_hero_title">DU STEHST IM <span>MITTELPUNKT.</span></h1>
         <div class="hero-subheadline" data-slot="begl_hero_sub">Wir begleiten dich. Auf und neben dem Platz.</div>
         <p class="hero-lead" data-slot="begl_hero_p1">
@@ -1009,7 +1022,7 @@
       <div class="hero-visual-card">
         <img src="images/fokus-flutlicht-closeup.webp" alt="Fokus und mentale Stärke einer jungen Fussballerin im Flutlicht" class="hero-visual-img" data-slot="begl_hero_img">
         <div class="hero-visual-caption">
-          <span style="font-family: 'JetBrains Mono', monospace; font-weight: 700; color: #FF0066;" data-slot="begl_cap_tag">5 BEREICHE · 1 ZIEL</span>
+          <span style="font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif; font-variant-numeric: tabular-nums; font-weight: 700; color: #FF0066;" data-slot="begl_cap_tag">5 BEREICHE · 1 ZIEL</span>
           <span data-slot="begl_cap_text">Ganzheitliche Begleitung für Spielerin &amp; Familie.</span>
         </div>
       </div>
@@ -1020,7 +1033,7 @@
   <section class="section-wrap" id="begleitung-bereiche" data-section-id="begleitung-bereiche" data-section="begleitung-bereiche" data-section-label="Die 5 Bereiche unserer Begleitung">
     <div class="section-inner">
       <div class="section-header">
-        <span class="section-kicker" data-slot="bb_kicker">// RUNDUM GESTÄRKT DURCH DEINE ENTWICKLUNG</span>
+        <span class="section-kicker" data-slot="bb_kicker">RUNDUM GESTÄRKT DURCH DEINE ENTWICKLUNG</span>
         <h2 class="section-title" data-slot="bb_title">UNSERE 5 BEGLEITUNGS-BEREICHE</h2>
         <p class="section-desc" data-slot="bb_desc">
           Sportlicher Erfolg und persönliche Reife hängen eng zusammen. Deshalb betrachten wir deine Situation immer als Ganzes.
@@ -1101,7 +1114,7 @@
     <div class="section-inner">
       <div class="cta-banner-box">
         <div style="max-width: 680px;">
-          <span class="section-kicker" data-slot="dw_kicker">// PERSÖNLICH &amp; UNVERBINDLICH</span>
+          <span class="section-kicker" data-slot="dw_kicker">PERSÖNLICH &amp; UNVERBINDLICH</span>
           <h2 class="section-title" style="color: #FFFFFF; margin-bottom: 10px;" data-slot="dw_title">DEIN WEG MIT HER11</h2>
           <p style="font-size: 0.96rem; color: #CBD5E1; line-height: 1.65;" data-slot="dw_text">
             Alles beginnt mit einem persönlichen Gespräch. Wir lernen dich, deine Ziele und deine aktuelle Situation kennen. Gemeinsam schauen wir, wo du Unterstützung benötigst und welche nächsten Schritte sinnvoll sind.

@@ -3,7 +3,7 @@
 """
 Generator fuer HER11 (preview-her11) — Ausbildung & Karrierebegleitung für junge Fussballerinnen
 Setzt das 9-seitige Redaktionskonzept (HER11_Webseitenkonzept.pdf, Oktober 2026), das Brand-Board
-(#0B1A3B Deep Blue, #FF0066 Power Pink, #FFFFFF White, Montserrat + JetBrains Mono) sowie Jennys
+(#0B1A3B Deep Blue, #FF0066 Power Pink, #FFFFFF White, Montserrat Bold / SemiBold / Regular) sowie Jennys
 Wachstums-Sektionen (Ausbildungsbetriebe/Sponsoren, Stimmen, ACP Social Media & Ratgeber) 1:1 um.
 """
 
@@ -72,7 +72,7 @@ site_manifest = {
             "headlines": "Montserrat Bold / ExtraBold",
             "subtitles": "Montserrat SemiBold",
             "body": "Montserrat Regular",
-            "kicker": "JetBrains Mono Bold"
+            "kicker": "Montserrat Bold"
         }
     },
     "pages": [
@@ -173,7 +173,7 @@ SHARED_CSS = """
       color: #FFD6E6;
       padding: 3px 8px;
       border-radius: var(--radius-badge);
-      font-family: 'JetBrains Mono', monospace;
+      font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif; font-variant-numeric: tabular-nums;
       font-size: 0.7rem;
       font-weight: 700;
       display: inline-flex;
@@ -360,7 +360,7 @@ SHARED_CSS = """
     /* FREESTANDING KICKERS (#UI-01 & #UI-13: 100% FREISTEHEND, NO PILLS) */
     .section-kicker,
     .hero-kicker {
-      font-family: 'JetBrains Mono', monospace;
+      font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif; font-variant-numeric: tabular-nums;
       font-size: 0.74rem;
       font-weight: 700;
       text-transform: uppercase;
@@ -372,6 +372,19 @@ SHARED_CSS = """
       box-shadow: none !important;
       display: block;
       margin-bottom: 8px;
+    }
+    .section-kicker::before,
+    .hero-kicker::before {
+      content: "";
+      display: inline-block;
+      width: 16px;
+      height: 2px;
+      background: currentColor;
+      vertical-align: middle;
+      margin-right: 8px;
+      border-radius: 2px;
+      position: relative;
+      top: -1px;
     }
 
     /* HERO SECTIONS (DARK STADIUM LOOK #0B1A3B) */
@@ -423,7 +436,7 @@ SHARED_CSS = """
       margin-top: 14px;
     }
     .meta-badge-dark {
-      font-family: 'JetBrains Mono', monospace;
+      font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif; font-variant-numeric: tabular-nums;
       font-size: 0.72rem;
       font-weight: 700;
       background: rgba(255, 255, 255, 0.07);
@@ -672,7 +685,7 @@ SHARED_CSS = """
       flex: 0 0 42px;
     }
     .card-tag-badge {
-      font-family: 'JetBrains Mono', monospace;
+      font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif; font-variant-numeric: tabular-nums;
       font-size: 0.7rem;
       font-weight: 700;
       text-transform: uppercase;
@@ -1028,7 +1041,7 @@ def render_shell(filename: str, page_title: str, active_nav: str, body_html: str
   <link rel="icon" href="images/favicon-h11.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700&family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,800;1,900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,800;1,900&display=swap" rel="stylesheet">
   <style>{SHARED_CSS}
   </style>
 </head>
@@ -1211,7 +1224,7 @@ INDEX_BODY = """
   <section class="hero-wrap" id="hero" data-section-id="hero" data-section="hero" data-section-label="01 | Hero: Dein Talent. Dein Weg. Deine Zukunft.">
     <div class="hero-inner">
       <div>
-        <span class="hero-kicker" data-slot="index_hero_kicker">// HER11 · AUSBILDUNG &amp; KARRIEREBEGLEITUNG</span>
+        <span class="hero-kicker" data-slot="index_hero_kicker">HER11 · AUSBILDUNG &amp; KARRIEREBEGLEITUNG</span>
         <h1 class="hero-title" data-slot="index_hero_title">DEIN TALENT. DEIN WEG. <span>DEINE ZUKUNFT.</span></h1>
         <div class="hero-subheadline" data-slot="index_hero_sub">Wir schaffen Perspektiven für junge Fussballerinnen.</div>
         <p class="hero-lead" data-slot="index_hero_p1">
@@ -1239,7 +1252,7 @@ INDEX_BODY = """
       <div class="hero-visual-card">
         <img src="images/hero-stadion-11.webp" alt="Spielerin mit Rückennummer HER11 im Stadion-Flutlicht" class="hero-visual-img" data-slot="index_hero_img">
         <div class="hero-visual-caption">
-          <span style="font-family: 'JetBrains Mono', monospace; font-weight: 700; color: #FF0066;" data-slot="index_hero_cap_tag">HER11 · #11</span>
+          <span style="font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif; font-variant-numeric: tabular-nums; font-weight: 700; color: #FF0066;" data-slot="index_hero_cap_tag">HER11 · #11</span>
           <span data-slot="index_hero_cap_text">Ihr Weg. Ihr Spiel. Ihre Zukunft.</span>
         </div>
       </div>
@@ -1252,7 +1265,7 @@ INDEX_BODY = """
       <div class="split-grid" style="margin-bottom: 32px;">
         <div class="split-col-card">
           <div>
-            <span class="section-kicker" data-slot="ausb_intro_kicker">// DUALE KARRIERE IM FRAUENFUSSBALL</span>
+            <span class="section-kicker" data-slot="ausb_intro_kicker">DUALE KARRIERE IM FRAUENFUSSBALL</span>
             <h2 class="section-title" data-slot="ausb_intro_title">FUSSBALL UND AUSBILDUNG. BEIDES IST MÖGLICH.</h2>
             <p class="section-desc" style="margin-top: 12px;" data-slot="ausb_intro_desc">
               Wer im Fussball erfolgreich sein möchte, braucht Zeit für Training, Wettkämpfe und Regeneration. Eine passende Ausbildung sollte diese Entwicklung unterstützen – nicht verhindern. HER11 bringt junge Talente mit Unternehmen zusammen, die bereit sind, Leistungssport und Berufsbildung miteinander zu verbinden.
@@ -1330,7 +1343,7 @@ INDEX_BODY = """
   <section class="section-wrap section-dark" id="mach-mit-intro" data-section-id="mach-mit-intro" data-section="mach-mit-intro" data-section-label="03 | Gemeinsam machen wir den Unterschied">
     <div class="section-inner">
       <div class="section-header">
-        <span class="section-kicker" data-slot="diff_kicker">// NETZWERK FÜR CHANCENGLEICHHEIT</span>
+        <span class="section-kicker" data-slot="diff_kicker">NETZWERK FÜR CHANCENGLEICHHEIT</span>
         <h2 class="section-title" data-slot="diff_title">GEMEINSAM MACHEN WIR DEN UNTERSCHIED.</h2>
         <p class="section-desc" data-slot="diff_desc">
           Wir suchen Menschen und Unternehmen, die an das Potenzial junger Fussballerinnen glauben. Ob mit einer sportfreundlichen Lehrstelle, einer Partnerschaft oder finanzieller Unterstützung: Gemeinsam eröffnen wir jungen Frauen neue Perspektiven.
@@ -1403,7 +1416,7 @@ INDEX_BODY = """
   <section class="section-wrap section-surface" id="partner-netzwerk" data-section-id="partner-netzwerk" data-section="partner-netzwerk" data-section-label="04 | Wachsende Ausbildungsbetriebe &amp; Sponsoren">
     <div class="section-inner">
       <div class="section-header">
-        <span class="section-kicker" data-slot="part_kicker">// UNSERE WEGBEGLEITER &amp; PIONIERE</span>
+        <span class="section-kicker" data-slot="part_kicker">UNSERE WEGBEGLEITER &amp; PIONIERE</span>
         <h2 class="section-title" data-slot="part_title">UNTERNEHMEN, DIE AN JUNGE TALENTE GLAUBEN.</h2>
         <p class="section-desc" data-slot="part_desc">
           Dieses Netzwerk wächst laufend. Hier stellen wir Ausbildungsbetriebe, Sponsoren und Fachpartner vor, die gemeinsam mit HER11 sportfreundliche Lehrstellen und echte Förderstrukturen in der Schweiz aufbauen.
@@ -1486,7 +1499,7 @@ INDEX_BODY = """
   <section class="section-wrap" id="stimmen" data-section-id="stimmen" data-section="stimmen" data-section-label="05 | Stimmen &amp; Perspektiven (Spielerinnen, Eltern, Betriebe)">
     <div class="section-inner">
       <div class="section-header">
-        <span class="section-kicker" data-slot="stimmen_kicker">// STIMMEN ZU HER11 · PERSPEKTIVEN AUS DER PRAXIS</span>
+        <span class="section-kicker" data-slot="stimmen_kicker">STIMMEN ZU HER11 · PERSPEKTIVEN AUS DER PRAXIS</span>
         <h2 class="section-title" data-slot="stimmen_title">WAS SPIELERINNEN, ELTERN UND BETRIEBE BEWEGT.</h2>
         <p class="section-desc" data-slot="stimmen_desc">
           Grosse sportliche Ziele und eine fundierte Berufsausbildung brauchen ein starkes Zusammenspiel zwischen Spielerin, Familie, Verein und Lehrbetrieb.
@@ -1540,7 +1553,7 @@ INDEX_BODY = """
   <section class="section-wrap section-dark" id="social-media" data-section-id="social-media" data-section="social-media" data-section-label="06 | Social Media Einblicke (@her11.ch)">
     <div class="section-inner">
       <div class="section-header">
-        <span class="section-kicker" data-slot="social_kicker">// AUF UND NEBEN DEM PLATZ · @HER11.CH</span>
+        <span class="section-kicker" data-slot="social_kicker">AUF UND NEBEN DEM PLATZ · @HER11.CH</span>
         <h2 class="section-title" data-slot="social_title">EINBLICKE AUS DER BILDWELT VON HER11.</h2>
         <p class="section-desc" data-slot="social_desc">
           Stark. Authentisch. Gemeinsam. Zukunftsorientiert. Verfolge auf unseren Social-Media-Kanälen aktuelle Einblicke, Erfolgsgeschichten junger Talente und Neuigkeiten aus unserem Partnernetzwerk.
@@ -1600,7 +1613,7 @@ INDEX_BODY = """
   <section class="section-wrap" id="blog" data-section-id="blog" data-section="blog" data-section-label="07 | Ratgeber &amp; Wissen rund um duale Karrieren">
     <div class="section-inner">
       <div class="section-header">
-        <span class="section-kicker" data-slot="blog_kicker">// WISSEN FÜR SPIELERINNEN, ELTERN &amp; BETRIEBE</span>
+        <span class="section-kicker" data-slot="blog_kicker">WISSEN FÜR SPIELERINNEN, ELTERN &amp; BETRIEBE</span>
         <h2 class="section-title" data-slot="blog_title">RATGEBER &amp; ORIENTIERUNG RUND UM DUALE KARRIEREN.</h2>
         <p class="section-desc" data-slot="blog_desc">
           Praxisnahe Antworten auf die wichtigsten Fragen beim Übergang von der Schule in die Berufswelt und bei der Förderung junger Fussballerinnen.
@@ -1665,7 +1678,7 @@ UEBER_UNS_BODY = """
   <section class="hero-wrap" id="ueber-hero" data-section-id="ueber-hero" data-section="ueber-hero" data-section-label="02 | Über uns: Weil jede Spielerin ihren eigenen Weg hat">
     <div class="hero-inner">
       <div>
-        <span class="hero-kicker" data-slot="ueber_hero_kicker">// 02 | ÜBER UNS · UNABHÄNGIGE ANLAUFSTELLE</span>
+        <span class="hero-kicker" data-slot="ueber_hero_kicker">02 | ÜBER UNS · UNABHÄNGIGE ANLAUFSTELLE</span>
         <h1 class="hero-title" data-slot="ueber_hero_title">WEIL JEDE SPIELERIN IHREN <span>EIGENEN WEG</span> HAT.</h1>
         <div class="hero-subheadline" data-slot="ueber_hero_sub">HER11 stellt die Spielerin ins Zentrum.</div>
         <p class="hero-lead" data-slot="ueber_hero_p1">
@@ -1688,7 +1701,7 @@ UEBER_UNS_BODY = """
       <div class="hero-visual-card">
         <img src="images/nachwuchs-spielfeldrand.webp" alt="Junge Spielerin mit Fussball am Spielfeldrand" class="hero-visual-img" data-slot="ueber_hero_img">
         <div class="hero-visual-caption">
-          <span style="font-family: 'JetBrains Mono', monospace; font-weight: 700; color: #FF0066;" data-slot="ueber_cap_tag">UNABHÄNGIG &amp; PERSÖNLICH</span>
+          <span style="font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif; font-variant-numeric: tabular-nums; font-weight: 700; color: #FF0066;" data-slot="ueber_cap_tag">UNABHÄNGIG &amp; PERSÖNLICH</span>
           <span data-slot="ueber_cap_text">Auf und neben dem Platz an deiner Seite.</span>
         </div>
       </div>
@@ -1701,7 +1714,7 @@ UEBER_UNS_BODY = """
       <div class="split-grid">
         <div class="split-col-card">
           <div>
-            <span class="section-kicker" data-slot="vision_kicker">// UNSERE LEITIDEE</span>
+            <span class="section-kicker" data-slot="vision_kicker">UNSERE LEITIDEE</span>
             <h2 class="section-title" data-slot="vision_title">UNSERE VISION</h2>
             <p class="section-desc" style="font-size: 1.02rem; color: var(--text-dark); font-weight: 500; margin-top: 12px;" data-slot="vision_text">
               Jede ambitionierte Fussballerin soll die Chance erhalten, ihr Potenzial auszuschöpfen – unabhängig von ihrem familiären Hintergrund oder bestehenden Kontakten. Wir möchten Rahmenbedingungen schaffen, in denen junge Frauen ihren sportlichen Weg verfolgen und gleichzeitig eine solide berufliche Zukunft aufbauen können.
@@ -1726,7 +1739,7 @@ UEBER_UNS_BODY = """
   <section class="section-wrap section-dark" id="werte" data-section-id="werte" data-section="werte" data-section-label="Unsere 4 Grundwerte">
     <div class="section-inner">
       <div class="section-header">
-        <span class="section-kicker" data-slot="werte_kicker">// WOFÜR HER11 STEHT</span>
+        <span class="section-kicker" data-slot="werte_kicker">WOFÜR HER11 STEHT</span>
         <h2 class="section-title" data-slot="werte_title">UNSERE WERTE</h2>
         <p class="section-desc" data-slot="werte_desc">
           Vier klare Grundsätze leiten unser Handeln in der Zusammenarbeit mit Spielerinnen, Familien, Vereinen, Ausbildungsbetrieben und Partnern.
@@ -1793,7 +1806,7 @@ UEBER_UNS_BODY = """
   <section class="section-wrap section-surface" id="team-beirat" data-section-id="team-beirat" data-section="team-beirat" data-section-label="Menschen &amp; Netzwerk hinter HER11">
     <div class="section-inner">
       <div class="section-header">
-        <span class="section-kicker" data-slot="team_kicker">// PERSÖNLICH · UNABHÄNGIG · VERNETZT</span>
+        <span class="section-kicker" data-slot="team_kicker">PERSÖNLICH · UNABHÄNGIG · VERNETZT</span>
         <h2 class="section-title" data-slot="team_title">GEMEINSAM FÜR DIE NÄCHSTE GENERATION IM FRAUENFUSSBALL.</h2>
         <p class="section-desc" data-slot="team_desc">
           Hinter HER11 stehen Menschen aus Sport, Berufsbildung, Wirtschaft und Fachbegleitung, die ihre Erfahrung bündeln, um jungen Fussballerinnen den Weg in eine erfolgreiche sportliche und berufliche Zukunft zu ebnen.
@@ -1855,7 +1868,7 @@ AUSBILDUNG_BODY = """
   <section class="hero-wrap" id="ausbildung-hero" data-section-id="ausbildung-hero" data-section="ausbildung-hero" data-section-label="03 | Ausbildung: Zwei Karrieren. Eine Zukunft.">
     <div class="hero-inner">
       <div>
-        <span class="hero-kicker" data-slot="ausb_hero_kicker">// 03 | AUSBILDUNG · DUALE KARRIERE</span>
+        <span class="hero-kicker" data-slot="ausb_hero_kicker">03 | AUSBILDUNG · DUALE KARRIERE</span>
         <h1 class="hero-title" data-slot="ausb_hero_title">ZWEI KARRIEREN. <span>EINE ZUKUNFT.</span></h1>
         <div class="hero-subheadline" data-slot="ausb_hero_sub">Leistungssport und Berufsbildung gehören zusammen.</div>
         <p class="hero-lead" data-slot="ausb_hero_p1">
@@ -1878,7 +1891,7 @@ AUSBILDUNG_BODY = """
       <div class="hero-visual-card">
         <img src="images/perspektive-alpen-see.webp" alt="Spielerin mit HER11 Rucksack und Fussball mit Blick in die Zukunft" class="hero-visual-img" data-slot="ausb_hero_img">
         <div class="hero-visual-caption">
-          <span style="font-family: 'JetBrains Mono', monospace; font-weight: 700; color: #FF0066;" data-slot="ausb_cap_tag">BERUFSBILDUNG &amp; SPORT</span>
+          <span style="font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif; font-variant-numeric: tabular-nums; font-weight: 700; color: #FF0066;" data-slot="ausb_cap_tag">BERUFSBILDUNG &amp; SPORT</span>
           <span data-slot="ausb_cap_text">Qualifizierte Lehre &amp; Leistungssport vereint.</span>
         </div>
       </div>
@@ -1889,7 +1902,7 @@ AUSBILDUNG_BODY = """
   <section class="section-wrap" id="sportfreundliche-lehrstellen" data-section-id="sportfreundliche-lehrstellen" data-section="sportfreundliche-lehrstellen" data-section-label="Sportfreundliche Lehrstellen: 5 Bausteine">
     <div class="section-inner">
       <div class="section-header">
-        <span class="section-kicker" data-slot="sf_kicker">// WAS DAS KONKRET BEDEUTET</span>
+        <span class="section-kicker" data-slot="sf_kicker">WAS DAS KONKRET BEDEUTET</span>
         <h2 class="section-title" data-slot="sf_title">SPORTFREUNDLICHE LEHRSTELLEN</h2>
         <div class="section-subtitle" data-slot="sf_sub">Unternehmen, die Talente fördern. Auf und neben dem Platz.</div>
         <p class="section-desc" data-slot="sf_desc">
@@ -1972,7 +1985,7 @@ AUSBILDUNG_BODY = """
       <div class="split-grid">
         <div class="split-col-card">
           <div>
-            <span class="section-kicker" data-slot="zg_spielerin_kicker">// PERSPEKTIVE TALENT</span>
+            <span class="section-kicker" data-slot="zg_spielerin_kicker">PERSPEKTIVE TALENT</span>
             <h2 class="section-title" data-slot="zg_spielerin_title">FÜR SPIELERINNEN</h2>
             <div class="section-subtitle" data-slot="zg_spielerin_sub">Dein Fussball. Deine Ausbildung. Dein Weg.</div>
             <p class="section-desc" style="margin-top: 10px;" data-slot="zg_spielerin_text">
@@ -1989,7 +2002,7 @@ AUSBILDUNG_BODY = """
 
         <div class="split-col-card">
           <div>
-            <span class="section-kicker" data-slot="zg_firma_kicker">// PERSPEKTIVE AUSBILDUNGSBETRIEB</span>
+            <span class="section-kicker" data-slot="zg_firma_kicker">PERSPEKTIVE AUSBILDUNGSBETRIEB</span>
             <h2 class="section-title" data-slot="zg_firma_title">FÜR UNTERNEHMEN: MACHEN SIE MIT.</h2>
             <p class="section-desc" style="margin-top: 10px;" data-slot="zg_firma_p1">
               Geben Sie Talenten eine Chance. Junge Leistungssportlerinnen bringen Eigenschaften mit, die auch in der Berufswelt wertvoll sind: Disziplin, Teamgeist, Eigenverantwortung, Belastbarkeit und Zielstrebigkeit.
@@ -2013,7 +2026,7 @@ AUSBILDUNG_BODY = """
   <section class="section-wrap section-surface" id="zusammenarbeit-ablauf" data-section-id="zusammenarbeit-ablauf" data-section="zusammenarbeit-ablauf" data-section-label="So funktioniert die Zusammenarbeit (4 Schritte)">
     <div class="section-inner">
       <div class="section-header">
-        <span class="section-kicker" data-slot="ablauf_kicker">// DER WEG ZUR SPORTFREUNDLICHEN LEHRSTELLE</span>
+        <span class="section-kicker" data-slot="ablauf_kicker">DER WEG ZUR SPORTFREUNDLICHEN LEHRSTELLE</span>
         <h2 class="section-title" data-slot="ablauf_title">SO FUNKTIONIERT DIE ZUSAMMENARBEIT</h2>
         <p class="section-desc" data-slot="ablauf_desc">
           In vier klaren Schritten begleiten wir Ihr Unternehmen und die Spielerin von der ersten Idee bis zum erfolgreichen Lehrabschluss.
@@ -2081,7 +2094,7 @@ AUSBILDUNG_BODY = """
     <div class="section-inner">
       <div class="cta-banner-box">
         <div style="max-width: 680px;">
-          <span class="section-kicker" data-slot="ap_cta_kicker">// JEDER LEHRBETRIEB ZÄHLT</span>
+          <span class="section-kicker" data-slot="ap_cta_kicker">JEDER LEHRBETRIEB ZÄHLT</span>
           <h2 class="section-title" style="color: #FFFFFF; margin-bottom: 8px;" data-slot="ap_cta_title">WERDEN SIE HER11-AUSBILDUNGSPARTNER.</h2>
           <p style="font-size: 0.96rem; color: #CBD5E1; line-height: 1.6;" data-slot="ap_cta_text">
             Ob kleines, mittleres oder grosses Unternehmen: Jede sportfreundliche Lehrstelle kann einen entscheidenden Unterschied machen.
@@ -2106,7 +2119,7 @@ BEGLEITUNG_BODY = """
   <section class="hero-wrap" id="begleitung-hero" data-section-id="begleitung-hero" data-section="begleitung-hero" data-section-label="04 | Begleitung: Du stehst im Mittelpunkt">
     <div class="hero-inner">
       <div>
-        <span class="hero-kicker" data-slot="begl_hero_kicker">// 04 | BEGLEITUNG · GANZHEITLICHE FÖRDERUNG</span>
+        <span class="hero-kicker" data-slot="begl_hero_kicker">04 | BEGLEITUNG · GANZHEITLICHE FÖRDERUNG</span>
         <h1 class="hero-title" data-slot="begl_hero_title">DU STEHST IM <span>MITTELPUNKT.</span></h1>
         <div class="hero-subheadline" data-slot="begl_hero_sub">Wir begleiten dich. Auf und neben dem Platz.</div>
         <p class="hero-lead" data-slot="begl_hero_p1">
@@ -2126,7 +2139,7 @@ BEGLEITUNG_BODY = """
       <div class="hero-visual-card">
         <img src="images/fokus-flutlicht-closeup.webp" alt="Fokus und mentale Stärke einer jungen Fussballerin im Flutlicht" class="hero-visual-img" data-slot="begl_hero_img">
         <div class="hero-visual-caption">
-          <span style="font-family: 'JetBrains Mono', monospace; font-weight: 700; color: #FF0066;" data-slot="begl_cap_tag">5 BEREICHE · 1 ZIEL</span>
+          <span style="font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif; font-variant-numeric: tabular-nums; font-weight: 700; color: #FF0066;" data-slot="begl_cap_tag">5 BEREICHE · 1 ZIEL</span>
           <span data-slot="begl_cap_text">Ganzheitliche Begleitung für Spielerin &amp; Familie.</span>
         </div>
       </div>
@@ -2137,7 +2150,7 @@ BEGLEITUNG_BODY = """
   <section class="section-wrap" id="begleitung-bereiche" data-section-id="begleitung-bereiche" data-section="begleitung-bereiche" data-section-label="Die 5 Bereiche unserer Begleitung">
     <div class="section-inner">
       <div class="section-header">
-        <span class="section-kicker" data-slot="bb_kicker">// RUNDUM GESTÄRKT DURCH DEINE ENTWICKLUNG</span>
+        <span class="section-kicker" data-slot="bb_kicker">RUNDUM GESTÄRKT DURCH DEINE ENTWICKLUNG</span>
         <h2 class="section-title" data-slot="bb_title">UNSERE 5 BEGLEITUNGS-BEREICHE</h2>
         <p class="section-desc" data-slot="bb_desc">
           Sportlicher Erfolg und persönliche Reife hängen eng zusammen. Deshalb betrachten wir deine Situation immer als Ganzes.
@@ -2218,7 +2231,7 @@ BEGLEITUNG_BODY = """
     <div class="section-inner">
       <div class="cta-banner-box">
         <div style="max-width: 680px;">
-          <span class="section-kicker" data-slot="dw_kicker">// PERSÖNLICH &amp; UNVERBINDLICH</span>
+          <span class="section-kicker" data-slot="dw_kicker">PERSÖNLICH &amp; UNVERBINDLICH</span>
           <h2 class="section-title" style="color: #FFFFFF; margin-bottom: 10px;" data-slot="dw_title">DEIN WEG MIT HER11</h2>
           <p style="font-size: 0.96rem; color: #CBD5E1; line-height: 1.65;" data-slot="dw_text">
             Alles beginnt mit einem persönlichen Gespräch. Wir lernen dich, deine Ziele und deine aktuelle Situation kennen. Gemeinsam schauen wir, wo du Unterstützung benötigst und welche nächsten Schritte sinnvoll sind.
@@ -2243,7 +2256,7 @@ MACH_MIT_BODY = """
   <section class="hero-wrap" id="machmit-hero" data-section-id="machmit-hero" data-section="machmit-hero" data-section-label="05 | Mach mit: Gemeinsam schaffen wir Chancen">
     <div class="hero-inner">
       <div>
-        <span class="hero-kicker" data-slot="mm_hero_kicker">// 05 | MACH MIT · ENGAGEMENT MIT WIRKUNG</span>
+        <span class="hero-kicker" data-slot="mm_hero_kicker">05 | MACH MIT · ENGAGEMENT MIT WIRKUNG</span>
         <h1 class="hero-title" data-slot="mm_hero_title">GEMEINSAM SCHAFFEN WIR <span>CHANCEN.</span></h1>
         <div class="hero-subheadline" data-slot="mm_hero_sub">Die Zukunft des Frauenfussballs gestalten wir gemeinsam.</div>
         <p class="hero-lead" data-slot="mm_hero_p1">
@@ -2263,7 +2276,7 @@ MACH_MIT_BODY = """
       <div class="hero-visual-card">
         <img src="images/social-gemeinsam-team11.webp" alt="Vier HER11 Spielerinnen Arm in Arm vor dem Stadion" class="hero-visual-img" data-slot="mm_hero_img">
         <div class="hero-visual-caption">
-          <span style="font-family: 'JetBrains Mono', monospace; font-weight: 700; color: #FF0066;" data-slot="mm_cap_tag">3 WEGE ZUM MITMACHEN</span>
+          <span style="font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif; font-variant-numeric: tabular-nums; font-weight: 700; color: #FF0066;" data-slot="mm_cap_tag">3 WEGE ZUM MITMACHEN</span>
           <span data-slot="mm_cap_text">Ausbildungspartner · Sponsor · Netzwerkpartner</span>
         </div>
       </div>
@@ -2276,7 +2289,7 @@ MACH_MIT_BODY = """
       <div class="split-grid">
         <div class="split-col-card">
           <div>
-            <span class="section-kicker" data-slot="mm_s1_kicker">// WEG 01 · SPORTFREUNDLICHE LEHRSTELLE</span>
+            <span class="section-kicker" data-slot="mm_s1_kicker">WEG 01 · SPORTFREUNDLICHE LEHRSTELLE</span>
             <h2 class="section-title" data-slot="mm_s1_title">01 – AUSBILDUNGSPARTNER WERDEN</h2>
             <p class="section-desc" style="margin-top: 12px;" data-slot="mm_s1_text">
               Ermöglichen Sie eine sportfreundliche Lehrstelle. Sie bilden Lernende aus und möchten jungen Fussballerinnen eine Chance geben? Werden Sie Teil unseres Netzwerks von Ausbildungsbetrieben. Gemeinsam entwickeln wir Lösungen, die eine qualifizierte Berufsausbildung mit den Anforderungen des Leistungssports verbinden. Ihr Engagement schafft konkrete Perspektiven.
@@ -2301,7 +2314,7 @@ MACH_MIT_BODY = """
   <section class="section-wrap section-dark" id="saeule-sponsor" data-section-id="saeule-sponsor" data-section="saeule-sponsor" data-section-label="02 – Sponsor werden &amp; 4 Förderbereiche">
     <div class="section-inner">
       <div class="section-header">
-        <span class="section-kicker" data-slot="mm_s2_kicker">// WEG 02 · ZUKUNFT FÖRDERN</span>
+        <span class="section-kicker" data-slot="mm_s2_kicker">WEG 02 · ZUKUNFT FÖRDERN</span>
         <h2 class="section-title" data-slot="mm_s2_title">02 – SPONSOR WERDEN</h2>
         <div class="section-subtitle" data-slot="mm_s2_sub">UNTERSTÜTZEN SIE IHREN WEG.</div>
         <p class="section-desc" data-slot="mm_s2_desc">
@@ -2310,7 +2323,7 @@ MACH_MIT_BODY = """
       </div>
 
       <div style="margin-bottom: 18px;">
-        <span class="section-kicker" data-slot="mm_foerder_kicker">// IHR ENGAGEMENT KANN VIEL BEWEGEN.</span>
+        <span class="section-kicker" data-slot="mm_foerder_kicker">IHR ENGAGEMENT KANN VIEL BEWEGEN.</span>
       </div>
 
       <div class="foerder-grid" style="margin-bottom: 32px;">
@@ -2369,7 +2382,7 @@ MACH_MIT_BODY = """
 
       <!-- PARTNERSCHAFT MIT WIRKUNG (SEITE 8) -->
       <div class="her-card-pink-callout">
-        <span class="section-kicker" data-slot="pmw_kicker">// MEHR ALS REINE LOGO-PRÄSENZ</span>
+        <span class="section-kicker" data-slot="pmw_kicker">MEHR ALS REINE LOGO-PRÄSENZ</span>
         <h3 class="card-title" style="font-size: 1.35rem;" data-slot="pmw_title">PARTNERSCHAFT MIT WIRKUNG</h3>
         <p class="card-text" style="font-size: 0.95rem;" data-slot="pmw_p1">
           Wir möchten Partnerschaften aufbauen, die mehr bewirken als reine Logo-Präsenz. Gemeinsam mit unseren Sponsoren möchten wir konkrete Projekte und Fördermöglichkeiten entwickeln. Ob als langfristiger HER11-Partner, Förderpartner für ein bestimmtes Thema oder Unterstützer einzelner Spielerinnen: Wir suchen Unternehmen, die unsere Vision teilen.
@@ -2393,7 +2406,7 @@ MACH_MIT_BODY = """
       <div class="split-grid">
         <div class="split-col-card" style="background: var(--white);">
           <div>
-            <span class="section-kicker" data-slot="mm_s3_kicker">// WEG 03 · KOMPETENZ &amp; FACHWISSEN</span>
+            <span class="section-kicker" data-slot="mm_s3_kicker">WEG 03 · KOMPETENZ &amp; FACHWISSEN</span>
             <h2 class="section-title" data-slot="mm_s3_title">03 – NETZWERKPARTNER WERDEN</h2>
             <p class="section-desc" style="margin-top: 12px;" data-slot="mm_s3_text">
               Gemeinsam sind wir stärker. HER11 setzt auf ein Netzwerk kompetenter Fachpersonen und Organisationen. Wir suchen Partner aus den Bereichen Sportmedizin, Physiotherapie, Athletik, Mentaltraining, Bildung und Berufsberatung. Sie möchten Ihr Wissen und Ihre Erfahrung einbringen?
@@ -2419,7 +2432,7 @@ MACH_MIT_BODY = """
   <section class="section-wrap" id="sponsoren-showcase" data-section-id="sponsoren-showcase" data-section="sponsoren-showcase" data-section-label="Wachsende Sponsoren- &amp; Partner-Übersicht">
     <div class="section-inner">
       <div class="section-header">
-        <span class="section-kicker" data-slot="mm_show_kicker">// UNSERE PARTNER, SPONSOREN &amp; LEHRBETRIEBE</span>
+        <span class="section-kicker" data-slot="mm_show_kicker">UNSERE PARTNER, SPONSOREN &amp; LEHRBETRIEBE</span>
         <h2 class="section-title" data-slot="mm_show_title">ENGAGIERTE WEGBEGLEITER IM HER11-NETZWERK.</h2>
         <p class="section-desc" data-slot="mm_show_desc">
           Hier machen wir Unternehmen, Sponsoren, Ausbildungsbetriebe und Fachpartner sichtbar, die gemeinsam mit HER11 Perspektiven für junge Fussballerinnen schaffen.
@@ -2491,7 +2504,7 @@ MACH_MIT_BODY = """
     <div class="section-inner">
       <div class="cta-banner-box">
         <div style="max-width: 680px;">
-          <span class="section-kicker" data-slot="mm_final_kicker">// JEDE GROSSE KARRIERE BEGINNT MIT EINER CHANCE</span>
+          <span class="section-kicker" data-slot="mm_final_kicker">JEDE GROSSE KARRIERE BEGINNT MIT EINER CHANCE</span>
           <h2 class="section-title" style="color: #FFFFFF; margin-bottom: 10px;" data-slot="mm_final_title">SEIEN SIE TEIL IHRER GESCHICHTE.</h2>
           <p style="font-size: 0.96rem; color: #CBD5E1; line-height: 1.65;" data-slot="mm_final_text">
             Jede grosse Karriere beginnt mit einer Chance. Gemeinsam können wir dafür sorgen, dass junge Fussballerinnen die Unterstützung erhalten, die sie auf ihrem Weg benötigen.
@@ -2516,7 +2529,7 @@ KONTAKT_BODY = """
   <section class="hero-wrap" id="kontakt-hero" data-section-id="kontakt-hero" data-section="kontakt-hero" data-section-label="06 | Kontakt: Lass uns gemeinsam etwas bewegen">
     <div class="hero-inner">
       <div>
-        <span class="hero-kicker" data-slot="kon_hero_kicker">// 06 | KONTAKT · PERSÖNLICHE ANLAUFSTELLE</span>
+        <span class="hero-kicker" data-slot="kon_hero_kicker">06 | KONTAKT · PERSÖNLICHE ANLAUFSTELLE</span>
         <h1 class="hero-title" data-slot="kon_hero_title">LASS UNS GEMEINSAM <span>ETWAS BEWEGEN.</span></h1>
         <p class="hero-lead" data-slot="kon_hero_p1">
           Wir freuen uns auf deine Nachricht. Du bist Spielerin und suchst Unterstützung? Sie möchten als Unternehmen sportfreundliche Lehrstellen anbieten? Oder interessieren Sie sich für eine Partnerschaft mit HER11? Wir freuen uns darauf, Sie kennenzulernen.
@@ -2531,7 +2544,7 @@ KONTAKT_BODY = """
       <div class="hero-visual-card">
         <img src="images/hero-stadion-11.webp" alt="HER11 Spielerin im Stadion" class="hero-visual-img" style="height: 250px;" data-slot="kon_hero_img">
         <div class="hero-visual-caption">
-          <span style="font-family: 'JetBrains Mono', monospace; font-weight: 700; color: #FF0066;" data-slot="kon_cap_tag">DIREKTER DRAHT</span>
+          <span style="font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif; font-variant-numeric: tabular-nums; font-weight: 700; color: #FF0066;" data-slot="kon_cap_tag">DIREKTER DRAHT</span>
           <span data-slot="kon_cap_text">Wir melden uns persönlich bei dir / Ihnen.</span>
         </div>
       </div>
@@ -2543,7 +2556,7 @@ KONTAKT_BODY = """
     <div class="section-inner">
       <div class="split-grid">
         <div class="her-card" style="padding: 28px;">
-          <span class="section-kicker" data-slot="form_kicker">// KONTAKTFORMULAR</span>
+          <span class="section-kicker" data-slot="form_kicker">KONTAKTFORMULAR</span>
           <h2 class="section-title" style="font-size: 1.45rem;" data-slot="form_title">WIE KÖNNEN WIR HELFEN?</h2>
           <p class="section-desc" style="margin-bottom: 16px;" data-slot="form_desc">
             Wähle dein Anliegen aus und sende uns deine Nachricht:
@@ -2632,7 +2645,7 @@ KONTAKT_BODY = """
 
         <div style="display: flex; flex-direction: column; gap: 20px;">
           <div class="her-card-dark" style="height: auto;">
-            <span class="section-kicker" data-slot="dir_kicker">// DIREKTER KONTAKT</span>
+            <span class="section-kicker" data-slot="dir_kicker">DIREKTER KONTAKT</span>
             <h3 class="card-title" style="font-size: 1.3rem;" data-slot="dir_title">PERSÖNLICH ERREICHBAR</h3>
             <p class="card-text" data-slot="dir_desc">
               Du kannst uns jederzeit auch direkt per E-Mail kontaktieren. Wir melden uns zeitnah und persönlich bei dir zurück.
@@ -2650,7 +2663,7 @@ KONTAKT_BODY = """
           </div>
 
           <div class="her-card" style="height: auto;">
-            <span class="section-kicker" data-slot="orient_kicker">// ORIENTIERUNG</span>
+            <span class="section-kicker" data-slot="orient_kicker">ORIENTIERUNG</span>
             <h3 class="card-title" data-slot="orient_title">FÜR WEN IST HER11 DA?</h3>
             <p class="card-text" data-slot="orient_text">
               <strong>Spielerinnen &amp; Eltern:</strong> Unabhängige Begleitung bei Ausbildungswahl, Sportschulen, Karriereplanung und Gesundheit.<br><br>
@@ -2668,7 +2681,7 @@ KONTAKT_BODY = """
     <div class="section-inner">
       <div class="split-grid">
         <div class="her-card">
-          <span class="section-kicker" data-slot="imp_kicker">// RECHTLICHES</span>
+          <span class="section-kicker" data-slot="imp_kicker">RECHTLICHES</span>
           <h3 class="card-title" data-slot="imp_title">IMPRESSUM</h3>
           <p class="card-text" data-slot="imp_text">
             <strong>HER11 — Ihr Weg. Ihr Spiel. Ihre Zukunft.</strong><br>
@@ -2680,7 +2693,7 @@ KONTAKT_BODY = """
         </div>
 
         <div class="her-card">
-          <span class="section-kicker" data-slot="ds_kicker">// SCHWEIZER DATENSCHUTZ (nDSG)</span>
+          <span class="section-kicker" data-slot="ds_kicker">SCHWEIZER DATENSCHUTZ (nDSG)</span>
           <h3 class="card-title" data-slot="ds_title">DATENSCHUTZ</h3>
           <p class="card-text" data-slot="ds_text">
             Der Schutz deiner persönlichen Daten ist uns ein zentrales Anliegen. Alle über das Kontaktformular oder per E-Mail übermittelten Angaben werden vertraulich und ausschliesslich zur persönlichen Beantwortung deiner Anfrage gemäss Schweizer Datenschutzgesetz (nDSG) bearbeitet und niemals ohne Rücksprache an Dritte weitergegeben.

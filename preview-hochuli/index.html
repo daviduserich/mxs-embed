@@ -9,7 +9,7 @@
   <title>Hochuli Schlossrued AG — Holzbau, Bedachung, Spengler, Sanitär, Heizung, Planung & Photovoltaik</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&family=Plus+Jakarta+Sans:wght@700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@700;800&display=swap" rel="stylesheet">
   <style>
     :root {
       --primary: #e30613;
@@ -100,7 +100,7 @@
       color: #fecaca;
       padding: 2px 8px;
       border-radius: 4px;
-      font-family: 'JetBrains Mono', monospace;
+      font-family: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; font-variant-numeric: tabular-nums;
       font-size: 0.72rem;
       font-weight: 700;
       display: inline-flex;
@@ -120,7 +120,7 @@
       color: #fde68a;
       padding: 2px 8px;
       border-radius: 4px;
-      font-family: 'JetBrains Mono', monospace;
+      font-family: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; font-variant-numeric: tabular-nums;
       font-size: 0.72rem;
       font-weight: 700;
       text-decoration: none;
@@ -249,8 +249,20 @@
     }
 
     /* FREISTEHENDE KICKER (#UI-01 PFLICHT) */
+    .section-kicker::before {
+      content: "";
+      display: inline-block;
+      width: 16px;
+      height: 2px;
+      background: currentColor;
+      vertical-align: middle;
+      margin-right: 8px;
+      border-radius: 2px;
+      position: relative;
+      top: -1px;
+    }
     .section-kicker {
-      font-family: 'JetBrains Mono', monospace;
+      font-family: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; font-variant-numeric: tabular-nums;
       font-size: 11px;
       font-weight: 700;
       text-transform: uppercase;
@@ -440,7 +452,7 @@
       box-shadow: var(--shadow-sm);
     }
     .sparte-tab-num {
-      font-family: 'JetBrains Mono', monospace;
+      font-family: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; font-variant-numeric: tabular-nums;
       font-size: 0.7rem;
       font-weight: 700;
       color: var(--tab-color, var(--primary));
@@ -481,7 +493,7 @@
       gap: 6px;
       padding: 4px 10px;
       border-radius: 4px;
-      font-family: 'JetBrains Mono', monospace;
+      font-family: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; font-variant-numeric: tabular-nums;
       font-size: 0.72rem;
       font-weight: 700;
       text-transform: uppercase;
@@ -558,7 +570,7 @@
       gap: 14px;
     }
     .contacts-panel-title {
-      font-family: 'JetBrains Mono', monospace;
+      font-family: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; font-variant-numeric: tabular-nums;
       font-size: 0.72rem;
       font-weight: 700;
       text-transform: uppercase;
@@ -599,7 +611,7 @@
       margin-bottom: 4px;
     }
     .leader-phone {
-      font-family: 'JetBrains Mono', monospace;
+      font-family: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; font-variant-numeric: tabular-nums;
       font-size: 0.78rem;
       font-weight: 700;
       color: var(--sparte-color, var(--primary));
@@ -675,7 +687,7 @@
       gap: 20px;
     }
     .score-big-number {
-      font-family: 'JetBrains Mono', monospace;
+      font-family: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; font-variant-numeric: tabular-nums;
       font-size: 2.6rem;
       font-weight: 800;
       color: #fde68a;
@@ -699,7 +711,7 @@
       color: #e2e8f0;
     }
     .score-bar-val {
-      font-family: 'JetBrains Mono', monospace;
+      font-family: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; font-variant-numeric: tabular-nums;
       color: #fde68a;
       font-weight: 700;
     }
@@ -854,7 +866,7 @@
       left: 10px;
       background: rgba(15, 23, 42, 0.88);
       color: #ffffff;
-      font-family: 'JetBrains Mono', monospace;
+      font-family: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; font-variant-numeric: tabular-nums;
       font-size: 0.68rem;
       font-weight: 700;
       padding: 4px 8px;
@@ -868,7 +880,7 @@
       flex: 1;
     }
     .social-date {
-      font-family: 'JetBrains Mono', monospace;
+      font-family: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; font-variant-numeric: tabular-nums;
       font-size: 0.72rem;
       color: var(--muted);
       font-weight: 600;
@@ -930,7 +942,7 @@
       flex-wrap: wrap;
     }
     .blog-tag {
-      font-family: 'JetBrains Mono', monospace;
+      font-family: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; font-variant-numeric: tabular-nums;
       font-size: 0.7rem;
       font-weight: 700;
       padding: 3px 8px;
@@ -938,7 +950,7 @@
       text-transform: uppercase;
     }
     .blog-readtime {
-      font-family: 'JetBrains Mono', monospace;
+      font-family: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; font-variant-numeric: tabular-nums;
       font-size: 0.72rem;
       color: var(--muted);
       font-weight: 600;
@@ -983,7 +995,7 @@
       padding: 14px 16px;
     }
     .timeline-year {
-      font-family: 'JetBrains Mono', monospace;
+      font-family: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; font-variant-numeric: tabular-nums;
       font-size: 0.8rem;
       font-weight: 700;
       color: var(--primary);
@@ -1280,7 +1292,7 @@
   <section class="hero-wrap" id="hero" data-section-id="hero" data-section="hero">
     <div class="hero-inner">
       <div>
-        <span class="section-kicker" data-slot="hero_kicker">// HOCHULI SCHLOSSRUED AG · BAUEN IM VERTRAUEN SEIT 1934</span>
+        <span class="section-kicker" data-slot="hero_kicker">HOCHULI SCHLOSSRUED AG · BAUEN IM VERTRAUEN SEIT 1934</span>
         <h1 class="hero-title" data-slot="hero_title">5 Sparten unter einem Dach — für Ihr Bauprojekt im Aargau &amp; Suhrental.</h1>
         <p class="hero-subtitle" data-slot="hero_subtitle">
           Rund 60 ausgewiesene Fachspezialisten EFZ und 14 Lernende begleiten Sie von der ersten Architektur-Idee über Holzbau, Bedachung, Spenglerei, Sanitär, Heizung und Photovoltaik bis zur Schlüsselübergabe. Direkt ansprechbar, termintreu und mit 5.7 / 6.0 Kundenbewertung.
@@ -1317,7 +1329,7 @@
         </video>
         <div class="hero-media-badge">
           <span data-slot="hero_badge_left">Schlossrued AG · 60 Fachleute · 14 Lernende</span>
-          <span style="font-family: 'JetBrains Mono', monospace; color: #fde68a;" data-slot="hero_badge_right">Note 5.7 / 6.0</span>
+          <span style="font-family: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; font-variant-numeric: tabular-nums; color: #fde68a;" data-slot="hero_badge_right">Note 5.7 / 6.0</span>
         </div>
       </div>
     </div>
@@ -1327,7 +1339,7 @@
   <section class="section-wrap" id="sparten" data-section-id="sparten" data-section="sparten">
     <div class="section-inner">
       <div class="section-header">
-        <span class="section-kicker" data-slot="sparten_kicker">// DAS 5-SPARTEN-FARBLEITSYSTEM · DIREKTER DRAHT ZUM ABTEILUNGSLEITER</span>
+        <span class="section-kicker" data-slot="sparten_kicker">DAS 5-SPARTEN-FARBLEITSYSTEM · DIREKTER DRAHT ZUM ABTEILUNGSLEITER</span>
         <h2 class="section-title" data-slot="sparten_title">Unsere 5 Fachbereiche mit direktem Ansprechpartner</h2>
         <p class="section-desc" data-slot="sparten_desc">
           Kein Suchen in verschachtelten Menüs: Wählen Sie direkt Ihren gewünschten Fachbereich oder betrachten Sie alle 5 Sparten im Überblick — inklusive aller Leistungen, Direktwahlen und Referenzen auf Smartphone und Desktop.
@@ -1337,27 +1349,27 @@
       <!-- INTERAKTIVE SPARTEN-TABS -->
       <div class="sparten-filter-grid" role="tablist" aria-label="Sparten-Filter">
         <button type="button" class="sparte-tab-btn active" style="--tab-color: #0f172a;" onclick="filterSparten('all', this)">
-          <span class="sparte-tab-num" data-slot="sparten_tab_kicker">// ALLE 5 SPARTEN</span>
+          <span class="sparte-tab-num" data-slot="sparten_tab_kicker">ALLE 5 SPARTEN</span>
           <span class="sparte-tab-title" data-slot="sparten_tab_title">Gesamtübersicht anzeigen</span>
         </button>
         <button type="button" class="sparte-tab-btn" style="--tab-color: #e30613;" onclick="filterSparten('holzbau', this)">
-          <span class="sparte-tab-num" data-slot="sparten_tab_kicker_2">// SPARTE 01 · ROT</span>
+          <span class="sparte-tab-num" data-slot="sparten_tab_kicker_2">SPARTE 01 · ROT</span>
           <span class="sparte-tab-title" data-slot="sparten_tab_title_2">Holzbau + Bedachung</span>
         </button>
         <button type="button" class="sparte-tab-btn" style="--tab-color: #d97706;" onclick="filterSparten('spengler', this)">
-          <span class="sparte-tab-num" data-slot="sparten_tab_kicker_3">// SPARTE 02 · GOLD</span>
+          <span class="sparte-tab-num" data-slot="sparten_tab_kicker_3">SPARTE 02 · GOLD</span>
           <span class="sparte-tab-title" data-slot="sparten_tab_title_3">Spengler + Flachdach</span>
         </button>
         <button type="button" class="sparte-tab-btn" style="--tab-color: #0284c7;" onclick="filterSparten('sanitaer', this)">
-          <span class="sparte-tab-num" data-slot="sparten_tab_kicker_4">// SPARTE 03 · BLAU</span>
+          <span class="sparte-tab-num" data-slot="sparten_tab_kicker_4">SPARTE 03 · BLAU</span>
           <span class="sparte-tab-title" data-slot="sparten_tab_title_4">Sanitär + Heizung</span>
         </button>
         <button type="button" class="sparte-tab-btn" style="--tab-color: #059669;" onclick="filterSparten('planung', this)">
-          <span class="sparte-tab-num" data-slot="sparten_tab_kicker_5">// SPARTE 04 · GRÜN</span>
+          <span class="sparte-tab-num" data-slot="sparten_tab_kicker_5">SPARTE 04 · GRÜN</span>
           <span class="sparte-tab-title" data-slot="sparten_tab_title_5">Planung &amp; Bauleitung</span>
         </button>
         <button type="button" class="sparte-tab-btn" style="--tab-color: #ca8a04;" onclick="filterSparten('pv', this)">
-          <span class="sparte-tab-num" data-slot="sparten_tab_kicker_6">// SPARTE 05 · SOLAR</span>
+          <span class="sparte-tab-num" data-slot="sparten_tab_kicker_6">SPARTE 05 · SOLAR</span>
           <span class="sparte-tab-title" data-slot="sparten_tab_title_6">Photovoltaik &amp; Speicher</span>
         </button>
       </div>
@@ -1426,7 +1438,7 @@
           </div>
 
           <div class="contacts-panel">
-            <div class="contacts-panel-title" data-slot="sparten_panel_kicker">// DIREKTE ANSPRECHPARTNER HOLZBAU + BEDACHUNG</div>
+            <div class="contacts-panel-title" data-slot="sparten_panel_kicker">DIREKTE ANSPRECHPARTNER HOLZBAU + BEDACHUNG</div>
             <div class="leader-card">
               <img src="images/stefan-hofmann.jpg" alt="Stefan Hofmann — Leiter Holzbau" class="leader-avatar" data-slot="leader_stefan_img">
               <div class="leader-info">
@@ -1518,7 +1530,7 @@
           </div>
 
           <div class="contacts-panel">
-            <div class="contacts-panel-title" data-slot="sparten_panel_kicker_2">// DIREKTE ANSPRECHPARTNER SPENGLER + FLACHDACH</div>
+            <div class="contacts-panel-title" data-slot="sparten_panel_kicker_2">DIREKTE ANSPRECHPARTNER SPENGLER + FLACHDACH</div>
             <div class="leader-card">
               <img src="images/alex-kirchhofer.jpg" alt="Alex Kirchhofer — Leiter Spenglerei" class="leader-avatar" data-slot="leader_alex_img">
               <div class="leader-info">
@@ -1609,7 +1621,7 @@
           </div>
 
           <div class="contacts-panel">
-            <div class="contacts-panel-title" data-slot="sparten_panel_kicker_3">// DIREKTE ANSPRECHPARTNER SANITÄR + HEIZUNG</div>
+            <div class="contacts-panel-title" data-slot="sparten_panel_kicker_3">DIREKTE ANSPRECHPARTNER SANITÄR + HEIZUNG</div>
             <div class="leader-card">
               <img src="images/thomas-bertschi.jpg" alt="Thomas Bertschi — Leiter Sanitär+Heizung" class="leader-avatar" data-slot="leader_thomas_b_img">
               <div class="leader-info">
@@ -1701,7 +1713,7 @@
           </div>
 
           <div class="contacts-panel">
-            <div class="contacts-panel-title" data-slot="sparten_panel_kicker_4">// DIREKTE ANSPRECHPARTNER PLANUNG &amp; BAULEITUNG</div>
+            <div class="contacts-panel-title" data-slot="sparten_panel_kicker_4">DIREKTE ANSPRECHPARTNER PLANUNG &amp; BAULEITUNG</div>
             <div class="leader-card">
               <img src="images/claudia-hauri.jpg" alt="Claudia Hauri — Leiterin Planung" class="leader-avatar" data-slot="leader_claudia_img">
               <div class="leader-info">
@@ -1793,7 +1805,7 @@
           </div>
 
           <div class="contacts-panel">
-            <div class="contacts-panel-title" data-slot="sparten_panel_kicker_5">// DIREKTE ANSPRECHPARTNER PHOTOVOLTAIK</div>
+            <div class="contacts-panel-title" data-slot="sparten_panel_kicker_5">DIREKTE ANSPRECHPARTNER PHOTOVOLTAIK</div>
             <div class="leader-card">
               <img src="images/michael-zubler.jpg" alt="Michael Zubler — Projektleiter Photovoltaik" class="leader-avatar" data-slot="leader_michael_img">
               <div class="leader-info">
@@ -1828,7 +1840,7 @@
   <section class="section-wrap" id="social-media" data-section-id="social-media" data-section="social-media" style="background: var(--surface);">
     <div class="section-inner">
       <div class="section-header">
-        <span class="section-kicker" data-slot="social_kicker">// EINBLICKE AUS DEM BETRIEBSALLTAG · LIVE SOCIAL FEED</span>
+        <span class="section-kicker" data-slot="social_kicker">EINBLICKE AUS DEM BETRIEBSALLTAG · LIVE SOCIAL FEED</span>
         <h2 class="section-title" data-slot="social_title">Handwerk hautnah — direkt von unseren Baustellen &amp; aus der Werkstatt</h2>
         <p class="section-desc" data-slot="social_desc">
           Echte Geschichten, Lehrlings-Projekte und Jubiläen aus Schlossrued und der Region. Automatisch synchronisiert für unsere Kanäle auf Instagram, LinkedIn und Facebook.
@@ -1903,7 +1915,7 @@
   <section class="section-wrap" id="blog" data-section-id="blog" data-section="blog">
     <div class="section-inner">
       <div class="section-header">
-        <span class="section-kicker" data-slot="blog_kicker">// FACHWISSEN &amp; RATGEBER · ACP CONTENT ENGINE</span>
+        <span class="section-kicker" data-slot="blog_kicker">FACHWISSEN &amp; RATGEBER · ACP CONTENT ENGINE</span>
         <h2 class="section-title" data-slot="blog_title">Ratgeber &amp; Praxiswissen für Bauherren und Eigenheimbesitzer</h2>
         <p class="section-desc" data-slot="blog_desc">
           Fundierte Antworten aus unserer täglichen Praxis in Schlossrued — damit Sie bei Sanierung, Heizungs-Ersatz, Dach und Badumbau die richtigen Entscheidungen treffen.
@@ -2002,7 +2014,7 @@
   <section class="section-wrap" id="kundenfeedback" data-section-id="kundenfeedback" data-section="kundenfeedback" style="background: var(--surface);">
     <div class="section-inner">
       <div class="section-header">
-        <span class="section-kicker" data-slot="feedback_kicker">// GEPRÜFTE KUNDENZUFRIEDENHEIT · ECHTE RÜCKMELDUNGEN AUS DER REGION</span>
+        <span class="section-kicker" data-slot="feedback_kicker">GEPRÜFTE KUNDENZUFRIEDENHEIT · ECHTE RÜCKMELDUNGEN AUS DER REGION</span>
         <h2 class="section-title" data-slot="feedback_title">Kundenfeedback: 5.7 / 6.0 Gesamtnote über alle 5 Sparten</h2>
         <p class="section-desc" data-slot="feedback_desc">
           Nach jedem abgeschlossenen Projekt fragen wir unsere Bauherren nach ihrer ehrlichen Bewertung. Das Resultat ist unser wichtigster Massstab für Qualität, Sauberkeit und Termintreue.
@@ -2012,7 +2024,7 @@
       <div class="feedback-grid">
         <div class="score-card-main">
           <div>
-            <span style="font-family: 'JetBrains Mono', monospace; font-size: 0.72rem; color: #94a3b8; font-weight: 700; text-transform: uppercase;" data-slot="kundenfeedback_span">OFFIZIELLER KUNDEN-QUALITÄTSSPIEGEL</span>
+            <span style="font-family: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; font-variant-numeric: tabular-nums; font-size: 0.72rem; color: #94a3b8; font-weight: 700; text-transform: uppercase;" data-slot="kundenfeedback_span">OFFIZIELLER KUNDEN-QUALITÄTSSPIEGEL</span>
             <div style="display: flex; align-items: baseline; gap: 12px; margin-top: 10px;">
               <span class="score-big-number" data-slot="feedback_total_score">5.7 / 6.0</span>
               <span style="font-size: 0.95rem; font-weight: 700; color: #f8fafc;" data-slot="kundenfeedback_span_2">Gesamtnote (Schweizer Schulnoten-Skala)</span>
@@ -2069,7 +2081,7 @@
             </p>
             <div class="quote-meta">
               <span data-slot="quote_1_meta">Bauherrschaft · Sparte Holzbau + Bedachung</span>
-              <span style="font-family: 'JetBrains Mono', monospace; color: #e30613;" data-slot="kundenfeedback_span_8">5.8 / 6.0</span>
+              <span style="font-family: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; font-variant-numeric: tabular-nums; color: #e30613;" data-slot="kundenfeedback_span_8">5.8 / 6.0</span>
             </div>
           </div>
 
@@ -2079,7 +2091,7 @@
             </p>
             <div class="quote-meta">
               <span data-slot="quote_2_meta">Bauherrschaft · Sparte Planung &amp; Bauleitung</span>
-              <span style="font-family: 'JetBrains Mono', monospace; color: #059669;" data-slot="kundenfeedback_span_9">5.9 / 6.0</span>
+              <span style="font-family: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; font-variant-numeric: tabular-nums; color: #059669;" data-slot="kundenfeedback_span_9">5.9 / 6.0</span>
             </div>
           </div>
 
@@ -2089,7 +2101,7 @@
             </p>
             <div class="quote-meta">
               <span data-slot="quote_3_meta">Eigenheimbesitzer · Sparte Sanitär + Heizung</span>
-              <span style="font-family: 'JetBrains Mono', monospace; color: #0284c7;" data-slot="kundenfeedback_span_10">5.8 / 6.0</span>
+              <span style="font-family: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; font-variant-numeric: tabular-nums; color: #0284c7;" data-slot="kundenfeedback_span_10">5.8 / 6.0</span>
             </div>
           </div>
         </div>
@@ -2101,7 +2113,7 @@
   <section class="section-wrap" id="partner-test" data-section-id="partner-test" data-section="partner-test">
     <div class="section-inner">
       <div class="section-header">
-        <span class="section-kicker" data-slot="quiz_kicker">// INTERAKTIVER PARTNER-SCHNELLTEST · IN 4 KLICKS ZUR EMPFEHLUNG</span>
+        <span class="section-kicker" data-slot="quiz_kicker">INTERAKTIVER PARTNER-SCHNELLTEST · IN 4 KLICKS ZUR EMPFEHLUNG</span>
         <h2 class="section-title" data-slot="quiz_title">Sind wir der richtige Partner für Ihr Bauprojekt?</h2>
         <p class="section-desc" data-slot="quiz_desc">
           Prüfen Sie in 30 Sekunden, ob unsere Arbeitsweise und unsere 5 Sparten zu Ihrem Vorhaben passen — und erhalten Sie sofort den passenden Ansprechpartner in Schlossrued.
@@ -2173,7 +2185,7 @@
 
         <div class="quiz-result-banner" id="quizResultBanner">
           <div>
-            <div style="font-family: 'JetBrains Mono', monospace; font-size: 0.72rem; color: #fde68a; font-weight: 700; text-transform: uppercase;" data-slot="partner_test_div">// ERGEBNIS PARTNER-CHECK: 98 % PASSUNG</div>
+            <div style="font-family: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; font-variant-numeric: tabular-nums; font-size: 0.72rem; color: #fde68a; font-weight: 700; text-transform: uppercase;" data-slot="partner_test_div">ERGEBNIS PARTNER-CHECK: 98 % PASSUNG</div>
             <div style="font-size: 1.05rem; font-weight: 800; margin-top: 4px;" id="quizRecText" data-slot="partner_test_div_2">
               Ideale Passung! Ihre direkten Ansprechpartner in Schlossrued sind Stefan Hofmann (Holzbau, +41 62 739 00 22) und Claudia Hauri (Planung, +41 62 739 11 41).
             </div>

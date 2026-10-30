@@ -11,7 +11,7 @@
   <link rel="icon" href="images/favicon-h11.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700&family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,800;1,900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,800;1,900&display=swap" rel="stylesheet">
   <style>
     :root {
       --navy: #0B1A3B;
@@ -97,7 +97,7 @@
       color: #FFD6E6;
       padding: 3px 8px;
       border-radius: var(--radius-badge);
-      font-family: 'JetBrains Mono', monospace;
+      font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif; font-variant-numeric: tabular-nums;
       font-size: 0.7rem;
       font-weight: 700;
       display: inline-flex;
@@ -284,7 +284,7 @@
     /* FREESTANDING KICKERS (#UI-01 & #UI-13: 100% FREISTEHEND, NO PILLS) */
     .section-kicker,
     .hero-kicker {
-      font-family: 'JetBrains Mono', monospace;
+      font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif; font-variant-numeric: tabular-nums;
       font-size: 0.74rem;
       font-weight: 700;
       text-transform: uppercase;
@@ -296,6 +296,19 @@
       box-shadow: none !important;
       display: block;
       margin-bottom: 8px;
+    }
+    .section-kicker::before,
+    .hero-kicker::before {
+      content: "";
+      display: inline-block;
+      width: 16px;
+      height: 2px;
+      background: currentColor;
+      vertical-align: middle;
+      margin-right: 8px;
+      border-radius: 2px;
+      position: relative;
+      top: -1px;
     }
 
     /* HERO SECTIONS (DARK STADIUM LOOK #0B1A3B) */
@@ -347,7 +360,7 @@
       margin-top: 14px;
     }
     .meta-badge-dark {
-      font-family: 'JetBrains Mono', monospace;
+      font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif; font-variant-numeric: tabular-nums;
       font-size: 0.72rem;
       font-weight: 700;
       background: rgba(255, 255, 255, 0.07);
@@ -596,7 +609,7 @@
       flex: 0 0 42px;
     }
     .card-tag-badge {
-      font-family: 'JetBrains Mono', monospace;
+      font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif; font-variant-numeric: tabular-nums;
       font-size: 0.7rem;
       font-weight: 700;
       text-transform: uppercase;
@@ -989,7 +1002,7 @@
   <section class="hero-wrap" id="hero" data-section-id="hero" data-section="hero" data-section-label="01 | Hero: Dein Talent. Dein Weg. Deine Zukunft.">
     <div class="hero-inner">
       <div>
-        <span class="hero-kicker" data-slot="index_hero_kicker">// HER11 · AUSBILDUNG &amp; KARRIEREBEGLEITUNG</span>
+        <span class="hero-kicker" data-slot="index_hero_kicker">HER11 · AUSBILDUNG &amp; KARRIEREBEGLEITUNG</span>
         <h1 class="hero-title" data-slot="index_hero_title">DEIN TALENT. DEIN WEG. <span>DEINE ZUKUNFT.</span></h1>
         <div class="hero-subheadline" data-slot="index_hero_sub">Wir schaffen Perspektiven für junge Fussballerinnen.</div>
         <p class="hero-lead" data-slot="index_hero_p1">
@@ -1017,7 +1030,7 @@
       <div class="hero-visual-card">
         <img src="images/hero-stadion-11.webp" alt="Spielerin mit Rückennummer HER11 im Stadion-Flutlicht" class="hero-visual-img" data-slot="index_hero_img">
         <div class="hero-visual-caption">
-          <span style="font-family: 'JetBrains Mono', monospace; font-weight: 700; color: #FF0066;" data-slot="index_hero_cap_tag">HER11 · #11</span>
+          <span style="font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif; font-variant-numeric: tabular-nums; font-weight: 700; color: #FF0066;" data-slot="index_hero_cap_tag">HER11 · #11</span>
           <span data-slot="index_hero_cap_text">Ihr Weg. Ihr Spiel. Ihre Zukunft.</span>
         </div>
       </div>
@@ -1030,7 +1043,7 @@
       <div class="split-grid" style="margin-bottom: 32px;">
         <div class="split-col-card">
           <div>
-            <span class="section-kicker" data-slot="ausb_intro_kicker">// DUALE KARRIERE IM FRAUENFUSSBALL</span>
+            <span class="section-kicker" data-slot="ausb_intro_kicker">DUALE KARRIERE IM FRAUENFUSSBALL</span>
             <h2 class="section-title" data-slot="ausb_intro_title">FUSSBALL UND AUSBILDUNG. BEIDES IST MÖGLICH.</h2>
             <p class="section-desc" style="margin-top: 12px;" data-slot="ausb_intro_desc">
               Wer im Fussball erfolgreich sein möchte, braucht Zeit für Training, Wettkämpfe und Regeneration. Eine passende Ausbildung sollte diese Entwicklung unterstützen – nicht verhindern. HER11 bringt junge Talente mit Unternehmen zusammen, die bereit sind, Leistungssport und Berufsbildung miteinander zu verbinden.
@@ -1108,7 +1121,7 @@
   <section class="section-wrap section-dark" id="mach-mit-intro" data-section-id="mach-mit-intro" data-section="mach-mit-intro" data-section-label="03 | Gemeinsam machen wir den Unterschied">
     <div class="section-inner">
       <div class="section-header">
-        <span class="section-kicker" data-slot="diff_kicker">// NETZWERK FÜR CHANCENGLEICHHEIT</span>
+        <span class="section-kicker" data-slot="diff_kicker">NETZWERK FÜR CHANCENGLEICHHEIT</span>
         <h2 class="section-title" data-slot="diff_title">GEMEINSAM MACHEN WIR DEN UNTERSCHIED.</h2>
         <p class="section-desc" data-slot="diff_desc">
           Wir suchen Menschen und Unternehmen, die an das Potenzial junger Fussballerinnen glauben. Ob mit einer sportfreundlichen Lehrstelle, einer Partnerschaft oder finanzieller Unterstützung: Gemeinsam eröffnen wir jungen Frauen neue Perspektiven.
@@ -1181,7 +1194,7 @@
   <section class="section-wrap section-surface" id="partner-netzwerk" data-section-id="partner-netzwerk" data-section="partner-netzwerk" data-section-label="04 | Wachsende Ausbildungsbetriebe &amp; Sponsoren">
     <div class="section-inner">
       <div class="section-header">
-        <span class="section-kicker" data-slot="part_kicker">// UNSERE WEGBEGLEITER &amp; PIONIERE</span>
+        <span class="section-kicker" data-slot="part_kicker">UNSERE WEGBEGLEITER &amp; PIONIERE</span>
         <h2 class="section-title" data-slot="part_title">UNTERNEHMEN, DIE AN JUNGE TALENTE GLAUBEN.</h2>
         <p class="section-desc" data-slot="part_desc">
           Dieses Netzwerk wächst laufend. Hier stellen wir Ausbildungsbetriebe, Sponsoren und Fachpartner vor, die gemeinsam mit HER11 sportfreundliche Lehrstellen und echte Förderstrukturen in der Schweiz aufbauen.
@@ -1264,7 +1277,7 @@
   <section class="section-wrap" id="stimmen" data-section-id="stimmen" data-section="stimmen" data-section-label="05 | Stimmen &amp; Perspektiven (Spielerinnen, Eltern, Betriebe)">
     <div class="section-inner">
       <div class="section-header">
-        <span class="section-kicker" data-slot="stimmen_kicker">// STIMMEN ZU HER11 · PERSPEKTIVEN AUS DER PRAXIS</span>
+        <span class="section-kicker" data-slot="stimmen_kicker">STIMMEN ZU HER11 · PERSPEKTIVEN AUS DER PRAXIS</span>
         <h2 class="section-title" data-slot="stimmen_title">WAS SPIELERINNEN, ELTERN UND BETRIEBE BEWEGT.</h2>
         <p class="section-desc" data-slot="stimmen_desc">
           Grosse sportliche Ziele und eine fundierte Berufsausbildung brauchen ein starkes Zusammenspiel zwischen Spielerin, Familie, Verein und Lehrbetrieb.
@@ -1318,7 +1331,7 @@
   <section class="section-wrap section-dark" id="social-media" data-section-id="social-media" data-section="social-media" data-section-label="06 | Social Media Einblicke (@her11.ch)">
     <div class="section-inner">
       <div class="section-header">
-        <span class="section-kicker" data-slot="social_kicker">// AUF UND NEBEN DEM PLATZ · @HER11.CH</span>
+        <span class="section-kicker" data-slot="social_kicker">AUF UND NEBEN DEM PLATZ · @HER11.CH</span>
         <h2 class="section-title" data-slot="social_title">EINBLICKE AUS DER BILDWELT VON HER11.</h2>
         <p class="section-desc" data-slot="social_desc">
           Stark. Authentisch. Gemeinsam. Zukunftsorientiert. Verfolge auf unseren Social-Media-Kanälen aktuelle Einblicke, Erfolgsgeschichten junger Talente und Neuigkeiten aus unserem Partnernetzwerk.
@@ -1378,7 +1391,7 @@
   <section class="section-wrap" id="blog" data-section-id="blog" data-section="blog" data-section-label="07 | Ratgeber &amp; Wissen rund um duale Karrieren">
     <div class="section-inner">
       <div class="section-header">
-        <span class="section-kicker" data-slot="blog_kicker">// WISSEN FÜR SPIELERINNEN, ELTERN &amp; BETRIEBE</span>
+        <span class="section-kicker" data-slot="blog_kicker">WISSEN FÜR SPIELERINNEN, ELTERN &amp; BETRIEBE</span>
         <h2 class="section-title" data-slot="blog_title">RATGEBER &amp; ORIENTIERUNG RUND UM DUALE KARRIEREN.</h2>
         <p class="section-desc" data-slot="blog_desc">
           Praxisnahe Antworten auf die wichtigsten Fragen beim Übergang von der Schule in die Berufswelt und bei der Förderung junger Fussballerinnen.

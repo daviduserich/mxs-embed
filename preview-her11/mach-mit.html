@@ -11,7 +11,7 @@
   <link rel="icon" href="images/favicon-h11.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700&family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,800;1,900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,800;1,900&display=swap" rel="stylesheet">
   <style>
     :root {
       --navy: #0B1A3B;
@@ -97,7 +97,7 @@
       color: #FFD6E6;
       padding: 3px 8px;
       border-radius: var(--radius-badge);
-      font-family: 'JetBrains Mono', monospace;
+      font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif; font-variant-numeric: tabular-nums;
       font-size: 0.7rem;
       font-weight: 700;
       display: inline-flex;
@@ -284,7 +284,7 @@
     /* FREESTANDING KICKERS (#UI-01 & #UI-13: 100% FREISTEHEND, NO PILLS) */
     .section-kicker,
     .hero-kicker {
-      font-family: 'JetBrains Mono', monospace;
+      font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif; font-variant-numeric: tabular-nums;
       font-size: 0.74rem;
       font-weight: 700;
       text-transform: uppercase;
@@ -296,6 +296,19 @@
       box-shadow: none !important;
       display: block;
       margin-bottom: 8px;
+    }
+    .section-kicker::before,
+    .hero-kicker::before {
+      content: "";
+      display: inline-block;
+      width: 16px;
+      height: 2px;
+      background: currentColor;
+      vertical-align: middle;
+      margin-right: 8px;
+      border-radius: 2px;
+      position: relative;
+      top: -1px;
     }
 
     /* HERO SECTIONS (DARK STADIUM LOOK #0B1A3B) */
@@ -347,7 +360,7 @@
       margin-top: 14px;
     }
     .meta-badge-dark {
-      font-family: 'JetBrains Mono', monospace;
+      font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif; font-variant-numeric: tabular-nums;
       font-size: 0.72rem;
       font-weight: 700;
       background: rgba(255, 255, 255, 0.07);
@@ -596,7 +609,7 @@
       flex: 0 0 42px;
     }
     .card-tag-badge {
-      font-family: 'JetBrains Mono', monospace;
+      font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif; font-variant-numeric: tabular-nums;
       font-size: 0.7rem;
       font-weight: 700;
       text-transform: uppercase;
@@ -989,7 +1002,7 @@
   <section class="hero-wrap" id="machmit-hero" data-section-id="machmit-hero" data-section="machmit-hero" data-section-label="05 | Mach mit: Gemeinsam schaffen wir Chancen">
     <div class="hero-inner">
       <div>
-        <span class="hero-kicker" data-slot="mm_hero_kicker">// 05 | MACH MIT · ENGAGEMENT MIT WIRKUNG</span>
+        <span class="hero-kicker" data-slot="mm_hero_kicker">05 | MACH MIT · ENGAGEMENT MIT WIRKUNG</span>
         <h1 class="hero-title" data-slot="mm_hero_title">GEMEINSAM SCHAFFEN WIR <span>CHANCEN.</span></h1>
         <div class="hero-subheadline" data-slot="mm_hero_sub">Die Zukunft des Frauenfussballs gestalten wir gemeinsam.</div>
         <p class="hero-lead" data-slot="mm_hero_p1">
@@ -1009,7 +1022,7 @@
       <div class="hero-visual-card">
         <img src="images/social-gemeinsam-team11.webp" alt="Vier HER11 Spielerinnen Arm in Arm vor dem Stadion" class="hero-visual-img" data-slot="mm_hero_img">
         <div class="hero-visual-caption">
-          <span style="font-family: 'JetBrains Mono', monospace; font-weight: 700; color: #FF0066;" data-slot="mm_cap_tag">3 WEGE ZUM MITMACHEN</span>
+          <span style="font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif; font-variant-numeric: tabular-nums; font-weight: 700; color: #FF0066;" data-slot="mm_cap_tag">3 WEGE ZUM MITMACHEN</span>
           <span data-slot="mm_cap_text">Ausbildungspartner · Sponsor · Netzwerkpartner</span>
         </div>
       </div>
@@ -1022,7 +1035,7 @@
       <div class="split-grid">
         <div class="split-col-card">
           <div>
-            <span class="section-kicker" data-slot="mm_s1_kicker">// WEG 01 · SPORTFREUNDLICHE LEHRSTELLE</span>
+            <span class="section-kicker" data-slot="mm_s1_kicker">WEG 01 · SPORTFREUNDLICHE LEHRSTELLE</span>
             <h2 class="section-title" data-slot="mm_s1_title">01 – AUSBILDUNGSPARTNER WERDEN</h2>
             <p class="section-desc" style="margin-top: 12px;" data-slot="mm_s1_text">
               Ermöglichen Sie eine sportfreundliche Lehrstelle. Sie bilden Lernende aus und möchten jungen Fussballerinnen eine Chance geben? Werden Sie Teil unseres Netzwerks von Ausbildungsbetrieben. Gemeinsam entwickeln wir Lösungen, die eine qualifizierte Berufsausbildung mit den Anforderungen des Leistungssports verbinden. Ihr Engagement schafft konkrete Perspektiven.
@@ -1047,7 +1060,7 @@
   <section class="section-wrap section-dark" id="saeule-sponsor" data-section-id="saeule-sponsor" data-section="saeule-sponsor" data-section-label="02 – Sponsor werden &amp; 4 Förderbereiche">
     <div class="section-inner">
       <div class="section-header">
-        <span class="section-kicker" data-slot="mm_s2_kicker">// WEG 02 · ZUKUNFT FÖRDERN</span>
+        <span class="section-kicker" data-slot="mm_s2_kicker">WEG 02 · ZUKUNFT FÖRDERN</span>
         <h2 class="section-title" data-slot="mm_s2_title">02 – SPONSOR WERDEN</h2>
         <div class="section-subtitle" data-slot="mm_s2_sub">UNTERSTÜTZEN SIE IHREN WEG.</div>
         <p class="section-desc" data-slot="mm_s2_desc">
@@ -1056,7 +1069,7 @@
       </div>
 
       <div style="margin-bottom: 18px;">
-        <span class="section-kicker" data-slot="mm_foerder_kicker">// IHR ENGAGEMENT KANN VIEL BEWEGEN.</span>
+        <span class="section-kicker" data-slot="mm_foerder_kicker">IHR ENGAGEMENT KANN VIEL BEWEGEN.</span>
       </div>
 
       <div class="foerder-grid" style="margin-bottom: 32px;">
@@ -1115,7 +1128,7 @@
 
       <!-- PARTNERSCHAFT MIT WIRKUNG (SEITE 8) -->
       <div class="her-card-pink-callout">
-        <span class="section-kicker" data-slot="pmw_kicker">// MEHR ALS REINE LOGO-PRÄSENZ</span>
+        <span class="section-kicker" data-slot="pmw_kicker">MEHR ALS REINE LOGO-PRÄSENZ</span>
         <h3 class="card-title" style="font-size: 1.35rem;" data-slot="pmw_title">PARTNERSCHAFT MIT WIRKUNG</h3>
         <p class="card-text" style="font-size: 0.95rem;" data-slot="pmw_p1">
           Wir möchten Partnerschaften aufbauen, die mehr bewirken als reine Logo-Präsenz. Gemeinsam mit unseren Sponsoren möchten wir konkrete Projekte und Fördermöglichkeiten entwickeln. Ob als langfristiger HER11-Partner, Förderpartner für ein bestimmtes Thema oder Unterstützer einzelner Spielerinnen: Wir suchen Unternehmen, die unsere Vision teilen.
@@ -1139,7 +1152,7 @@
       <div class="split-grid">
         <div class="split-col-card" style="background: var(--white);">
           <div>
-            <span class="section-kicker" data-slot="mm_s3_kicker">// WEG 03 · KOMPETENZ &amp; FACHWISSEN</span>
+            <span class="section-kicker" data-slot="mm_s3_kicker">WEG 03 · KOMPETENZ &amp; FACHWISSEN</span>
             <h2 class="section-title" data-slot="mm_s3_title">03 – NETZWERKPARTNER WERDEN</h2>
             <p class="section-desc" style="margin-top: 12px;" data-slot="mm_s3_text">
               Gemeinsam sind wir stärker. HER11 setzt auf ein Netzwerk kompetenter Fachpersonen und Organisationen. Wir suchen Partner aus den Bereichen Sportmedizin, Physiotherapie, Athletik, Mentaltraining, Bildung und Berufsberatung. Sie möchten Ihr Wissen und Ihre Erfahrung einbringen?
@@ -1165,7 +1178,7 @@
   <section class="section-wrap" id="sponsoren-showcase" data-section-id="sponsoren-showcase" data-section="sponsoren-showcase" data-section-label="Wachsende Sponsoren- &amp; Partner-Übersicht">
     <div class="section-inner">
       <div class="section-header">
-        <span class="section-kicker" data-slot="mm_show_kicker">// UNSERE PARTNER, SPONSOREN &amp; LEHRBETRIEBE</span>
+        <span class="section-kicker" data-slot="mm_show_kicker">UNSERE PARTNER, SPONSOREN &amp; LEHRBETRIEBE</span>
         <h2 class="section-title" data-slot="mm_show_title">ENGAGIERTE WEGBEGLEITER IM HER11-NETZWERK.</h2>
         <p class="section-desc" data-slot="mm_show_desc">
           Hier machen wir Unternehmen, Sponsoren, Ausbildungsbetriebe und Fachpartner sichtbar, die gemeinsam mit HER11 Perspektiven für junge Fussballerinnen schaffen.
@@ -1237,7 +1250,7 @@
     <div class="section-inner">
       <div class="cta-banner-box">
         <div style="max-width: 680px;">
-          <span class="section-kicker" data-slot="mm_final_kicker">// JEDE GROSSE KARRIERE BEGINNT MIT EINER CHANCE</span>
+          <span class="section-kicker" data-slot="mm_final_kicker">JEDE GROSSE KARRIERE BEGINNT MIT EINER CHANCE</span>
           <h2 class="section-title" style="color: #FFFFFF; margin-bottom: 10px;" data-slot="mm_final_title">SEIEN SIE TEIL IHRER GESCHICHTE.</h2>
           <p style="font-size: 0.96rem; color: #CBD5E1; line-height: 1.65;" data-slot="mm_final_text">
             Jede grosse Karriere beginnt mit einer Chance. Gemeinsam können wir dafür sorgen, dass junge Fussballerinnen die Unterstützung erhalten, die sie auf ihrem Weg benötigen.

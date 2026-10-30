@@ -11,7 +11,7 @@
   <link rel="icon" href="images/favicon-h11.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700&family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,800;1,900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,800;1,900&display=swap" rel="stylesheet">
   <style>
     :root {
       --navy: #0B1A3B;
@@ -97,7 +97,7 @@
       color: #FFD6E6;
       padding: 3px 8px;
       border-radius: var(--radius-badge);
-      font-family: 'JetBrains Mono', monospace;
+      font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif; font-variant-numeric: tabular-nums;
       font-size: 0.7rem;
       font-weight: 700;
       display: inline-flex;
@@ -284,7 +284,7 @@
     /* FREESTANDING KICKERS (#UI-01 & #UI-13: 100% FREISTEHEND, NO PILLS) */
     .section-kicker,
     .hero-kicker {
-      font-family: 'JetBrains Mono', monospace;
+      font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif; font-variant-numeric: tabular-nums;
       font-size: 0.74rem;
       font-weight: 700;
       text-transform: uppercase;
@@ -296,6 +296,19 @@
       box-shadow: none !important;
       display: block;
       margin-bottom: 8px;
+    }
+    .section-kicker::before,
+    .hero-kicker::before {
+      content: "";
+      display: inline-block;
+      width: 16px;
+      height: 2px;
+      background: currentColor;
+      vertical-align: middle;
+      margin-right: 8px;
+      border-radius: 2px;
+      position: relative;
+      top: -1px;
     }
 
     /* HERO SECTIONS (DARK STADIUM LOOK #0B1A3B) */
@@ -347,7 +360,7 @@
       margin-top: 14px;
     }
     .meta-badge-dark {
-      font-family: 'JetBrains Mono', monospace;
+      font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif; font-variant-numeric: tabular-nums;
       font-size: 0.72rem;
       font-weight: 700;
       background: rgba(255, 255, 255, 0.07);
@@ -596,7 +609,7 @@
       flex: 0 0 42px;
     }
     .card-tag-badge {
-      font-family: 'JetBrains Mono', monospace;
+      font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif; font-variant-numeric: tabular-nums;
       font-size: 0.7rem;
       font-weight: 700;
       text-transform: uppercase;
@@ -989,7 +1002,7 @@
   <section class="hero-wrap" id="kontakt-hero" data-section-id="kontakt-hero" data-section="kontakt-hero" data-section-label="06 | Kontakt: Lass uns gemeinsam etwas bewegen">
     <div class="hero-inner">
       <div>
-        <span class="hero-kicker" data-slot="kon_hero_kicker">// 06 | KONTAKT · PERSÖNLICHE ANLAUFSTELLE</span>
+        <span class="hero-kicker" data-slot="kon_hero_kicker">06 | KONTAKT · PERSÖNLICHE ANLAUFSTELLE</span>
         <h1 class="hero-title" data-slot="kon_hero_title">LASS UNS GEMEINSAM <span>ETWAS BEWEGEN.</span></h1>
         <p class="hero-lead" data-slot="kon_hero_p1">
           Wir freuen uns auf deine Nachricht. Du bist Spielerin und suchst Unterstützung? Sie möchten als Unternehmen sportfreundliche Lehrstellen anbieten? Oder interessieren Sie sich für eine Partnerschaft mit HER11? Wir freuen uns darauf, Sie kennenzulernen.
@@ -1004,7 +1017,7 @@
       <div class="hero-visual-card">
         <img src="images/hero-stadion-11.webp" alt="HER11 Spielerin im Stadion" class="hero-visual-img" style="height: 250px;" data-slot="kon_hero_img">
         <div class="hero-visual-caption">
-          <span style="font-family: 'JetBrains Mono', monospace; font-weight: 700; color: #FF0066;" data-slot="kon_cap_tag">DIREKTER DRAHT</span>
+          <span style="font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif; font-variant-numeric: tabular-nums; font-weight: 700; color: #FF0066;" data-slot="kon_cap_tag">DIREKTER DRAHT</span>
           <span data-slot="kon_cap_text">Wir melden uns persönlich bei dir / Ihnen.</span>
         </div>
       </div>
@@ -1016,7 +1029,7 @@
     <div class="section-inner">
       <div class="split-grid">
         <div class="her-card" style="padding: 28px;">
-          <span class="section-kicker" data-slot="form_kicker">// KONTAKTFORMULAR</span>
+          <span class="section-kicker" data-slot="form_kicker">KONTAKTFORMULAR</span>
           <h2 class="section-title" style="font-size: 1.45rem;" data-slot="form_title">WIE KÖNNEN WIR HELFEN?</h2>
           <p class="section-desc" style="margin-bottom: 16px;" data-slot="form_desc">
             Wähle dein Anliegen aus und sende uns deine Nachricht:
@@ -1105,7 +1118,7 @@
 
         <div style="display: flex; flex-direction: column; gap: 20px;">
           <div class="her-card-dark" style="height: auto;">
-            <span class="section-kicker" data-slot="dir_kicker">// DIREKTER KONTAKT</span>
+            <span class="section-kicker" data-slot="dir_kicker">DIREKTER KONTAKT</span>
             <h3 class="card-title" style="font-size: 1.3rem;" data-slot="dir_title">PERSÖNLICH ERREICHBAR</h3>
             <p class="card-text" data-slot="dir_desc">
               Du kannst uns jederzeit auch direkt per E-Mail kontaktieren. Wir melden uns zeitnah und persönlich bei dir zurück.
@@ -1123,7 +1136,7 @@
           </div>
 
           <div class="her-card" style="height: auto;">
-            <span class="section-kicker" data-slot="orient_kicker">// ORIENTIERUNG</span>
+            <span class="section-kicker" data-slot="orient_kicker">ORIENTIERUNG</span>
             <h3 class="card-title" data-slot="orient_title">FÜR WEN IST HER11 DA?</h3>
             <p class="card-text" data-slot="orient_text">
               <strong>Spielerinnen &amp; Eltern:</strong> Unabhängige Begleitung bei Ausbildungswahl, Sportschulen, Karriereplanung und Gesundheit.<br><br>
@@ -1141,7 +1154,7 @@
     <div class="section-inner">
       <div class="split-grid">
         <div class="her-card">
-          <span class="section-kicker" data-slot="imp_kicker">// RECHTLICHES</span>
+          <span class="section-kicker" data-slot="imp_kicker">RECHTLICHES</span>
           <h3 class="card-title" data-slot="imp_title">IMPRESSUM</h3>
           <p class="card-text" data-slot="imp_text">
             <strong>HER11 — Ihr Weg. Ihr Spiel. Ihre Zukunft.</strong><br>
@@ -1153,7 +1166,7 @@
         </div>
 
         <div class="her-card">
-          <span class="section-kicker" data-slot="ds_kicker">// SCHWEIZER DATENSCHUTZ (nDSG)</span>
+          <span class="section-kicker" data-slot="ds_kicker">SCHWEIZER DATENSCHUTZ (nDSG)</span>
           <h3 class="card-title" data-slot="ds_title">DATENSCHUTZ</h3>
           <p class="card-text" data-slot="ds_text">
             Der Schutz deiner persönlichen Daten ist uns ein zentrales Anliegen. Alle über das Kontaktformular oder per E-Mail übermittelten Angaben werden vertraulich und ausschliesslich zur persönlichen Beantwortung deiner Anfrage gemäss Schweizer Datenschutzgesetz (nDSG) bearbeitet und niemals ohne Rücksprache an Dritte weitergegeben.

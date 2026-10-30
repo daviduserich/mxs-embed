@@ -9,7 +9,7 @@
   <title>Kontakt, Standort Schlossrued & 24h-Pikett — Hochuli Schlossrued AG</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&family=Plus+Jakarta+Sans:wght@700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@700;800&display=swap" rel="stylesheet">
   <style>
     :root {
       --primary: #e30613;
@@ -100,7 +100,7 @@
       color: #fecaca;
       padding: 2px 8px;
       border-radius: 4px;
-      font-family: 'JetBrains Mono', monospace;
+      font-family: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; font-variant-numeric: tabular-nums;
       font-size: 0.72rem;
       font-weight: 700;
       display: inline-flex;
@@ -120,7 +120,7 @@
       color: #fde68a;
       padding: 2px 8px;
       border-radius: 4px;
-      font-family: 'JetBrains Mono', monospace;
+      font-family: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; font-variant-numeric: tabular-nums;
       font-size: 0.72rem;
       font-weight: 700;
       text-decoration: none;
@@ -249,8 +249,20 @@
     }
 
     /* FREISTEHENDE KICKER (#UI-01 PFLICHT) */
+    .section-kicker::before {
+      content: "";
+      display: inline-block;
+      width: 16px;
+      height: 2px;
+      background: currentColor;
+      vertical-align: middle;
+      margin-right: 8px;
+      border-radius: 2px;
+      position: relative;
+      top: -1px;
+    }
     .section-kicker {
-      font-family: 'JetBrains Mono', monospace;
+      font-family: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; font-variant-numeric: tabular-nums;
       font-size: 11px;
       font-weight: 700;
       text-transform: uppercase;
@@ -440,7 +452,7 @@
       box-shadow: var(--shadow-sm);
     }
     .sparte-tab-num {
-      font-family: 'JetBrains Mono', monospace;
+      font-family: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; font-variant-numeric: tabular-nums;
       font-size: 0.7rem;
       font-weight: 700;
       color: var(--tab-color, var(--primary));
@@ -481,7 +493,7 @@
       gap: 6px;
       padding: 4px 10px;
       border-radius: 4px;
-      font-family: 'JetBrains Mono', monospace;
+      font-family: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; font-variant-numeric: tabular-nums;
       font-size: 0.72rem;
       font-weight: 700;
       text-transform: uppercase;
@@ -558,7 +570,7 @@
       gap: 14px;
     }
     .contacts-panel-title {
-      font-family: 'JetBrains Mono', monospace;
+      font-family: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; font-variant-numeric: tabular-nums;
       font-size: 0.72rem;
       font-weight: 700;
       text-transform: uppercase;
@@ -599,7 +611,7 @@
       margin-bottom: 4px;
     }
     .leader-phone {
-      font-family: 'JetBrains Mono', monospace;
+      font-family: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; font-variant-numeric: tabular-nums;
       font-size: 0.78rem;
       font-weight: 700;
       color: var(--sparte-color, var(--primary));
@@ -675,7 +687,7 @@
       gap: 20px;
     }
     .score-big-number {
-      font-family: 'JetBrains Mono', monospace;
+      font-family: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; font-variant-numeric: tabular-nums;
       font-size: 2.6rem;
       font-weight: 800;
       color: #fde68a;
@@ -699,7 +711,7 @@
       color: #e2e8f0;
     }
     .score-bar-val {
-      font-family: 'JetBrains Mono', monospace;
+      font-family: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; font-variant-numeric: tabular-nums;
       color: #fde68a;
       font-weight: 700;
     }
@@ -854,7 +866,7 @@
       left: 10px;
       background: rgba(15, 23, 42, 0.88);
       color: #ffffff;
-      font-family: 'JetBrains Mono', monospace;
+      font-family: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; font-variant-numeric: tabular-nums;
       font-size: 0.68rem;
       font-weight: 700;
       padding: 4px 8px;
@@ -868,7 +880,7 @@
       flex: 1;
     }
     .social-date {
-      font-family: 'JetBrains Mono', monospace;
+      font-family: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; font-variant-numeric: tabular-nums;
       font-size: 0.72rem;
       color: var(--muted);
       font-weight: 600;
@@ -930,7 +942,7 @@
       flex-wrap: wrap;
     }
     .blog-tag {
-      font-family: 'JetBrains Mono', monospace;
+      font-family: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; font-variant-numeric: tabular-nums;
       font-size: 0.7rem;
       font-weight: 700;
       padding: 3px 8px;
@@ -938,7 +950,7 @@
       text-transform: uppercase;
     }
     .blog-readtime {
-      font-family: 'JetBrains Mono', monospace;
+      font-family: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; font-variant-numeric: tabular-nums;
       font-size: 0.72rem;
       color: var(--muted);
       font-weight: 600;
@@ -983,7 +995,7 @@
       padding: 14px 16px;
     }
     .timeline-year {
-      font-family: 'JetBrains Mono', monospace;
+      font-family: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; font-variant-numeric: tabular-nums;
       font-size: 0.8rem;
       font-weight: 700;
       color: var(--primary);
@@ -1279,7 +1291,7 @@
   <section class="hero-wrap" id="kontakt-hero" data-section-id="kontakt-hero" data-section="kontakt-hero">
     <div class="hero-inner">
       <div>
-        <span class="section-kicker" data-slot="kontakt_kicker">// KONTAKT, STANDORT SCHLOSSRUED &amp; 24H-PIKETT</span>
+        <span class="section-kicker" data-slot="kontakt_kicker">KONTAKT, STANDORT SCHLOSSRUED &amp; 24H-PIKETT</span>
         <h1 class="hero-title" data-slot="kontakt_title">Persönlich für Sie da — in Schlossrued und auf Ihrer Baustelle.</h1>
         <p class="hero-subtitle" data-slot="kontakt_subtitle">
           Ob Offerte für Ihr Bauvorhaben, persönlicher Beratungstermin in unserer Ausstellung oder dringender Heizungs-/Sanitär-Notfall ausserhalb der Öffnungszeiten: Hier erreichen Sie direkt die richtige Fachperson.
@@ -1295,7 +1307,7 @@
       </div>
 
       <div class="contacts-panel" style="background: #ffffff; padding: 24px;">
-        <div class="contacts-panel-title" data-slot="kontakt_hero_panel_kicker">// STANDORT &amp; ÖFFNUNGSZEITEN SCHLOSSRUED</div>
+        <div class="contacts-panel-title" data-slot="kontakt_hero_panel_kicker">STANDORT &amp; ÖFFNUNGSZEITEN SCHLOSSRUED</div>
         <div style="font-size: 0.95rem; line-height: 1.6;" data-container-slot="contact_box_details">
           <strong data-slot="contact_box_company">Hochuli Schlossrued AG</strong><br>
           <span data-slot="contact_box_address">Hauptstrasse 106 · 5044 Schlossrued (Kanton Aargau)</span><br>
@@ -1320,7 +1332,7 @@
     <div class="section-inner">
       <div class="sparte-body-grid">
         <div>
-          <span class="section-kicker" data-slot="booking_kicker">// ONLINE-TERMINBUCHUNG &amp; OFFERTEN-ANFRAGE</span>
+          <span class="section-kicker" data-slot="booking_kicker">ONLINE-TERMINBUCHUNG &amp; OFFERTEN-ANFRAGE</span>
           <h2 class="section-title" data-slot="booking_title">Offerte anfordern oder Beratungstermin vereinbaren</h2>
           <p class="section-desc" style="margin-bottom: 20px;" data-slot="booking_desc">
             Wählen Sie Ihren gewünschten Fachbereich — Ihre Anfrage landet ohne Umwege direkt beim zuständigen Abteilungsleiter in Schlossrued.

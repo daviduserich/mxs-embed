@@ -9,7 +9,7 @@
   <title>Über uns, Team & 14 Lernende — Hochuli Schlossrued AG</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&family=Plus+Jakarta+Sans:wght@700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@700;800&display=swap" rel="stylesheet">
   <style>
     :root {
       --primary: #e30613;
@@ -100,7 +100,7 @@
       color: #fecaca;
       padding: 2px 8px;
       border-radius: 4px;
-      font-family: 'JetBrains Mono', monospace;
+      font-family: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; font-variant-numeric: tabular-nums;
       font-size: 0.72rem;
       font-weight: 700;
       display: inline-flex;
@@ -120,7 +120,7 @@
       color: #fde68a;
       padding: 2px 8px;
       border-radius: 4px;
-      font-family: 'JetBrains Mono', monospace;
+      font-family: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; font-variant-numeric: tabular-nums;
       font-size: 0.72rem;
       font-weight: 700;
       text-decoration: none;
@@ -249,8 +249,20 @@
     }
 
     /* FREISTEHENDE KICKER (#UI-01 PFLICHT) */
+    .section-kicker::before {
+      content: "";
+      display: inline-block;
+      width: 16px;
+      height: 2px;
+      background: currentColor;
+      vertical-align: middle;
+      margin-right: 8px;
+      border-radius: 2px;
+      position: relative;
+      top: -1px;
+    }
     .section-kicker {
-      font-family: 'JetBrains Mono', monospace;
+      font-family: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; font-variant-numeric: tabular-nums;
       font-size: 11px;
       font-weight: 700;
       text-transform: uppercase;
@@ -440,7 +452,7 @@
       box-shadow: var(--shadow-sm);
     }
     .sparte-tab-num {
-      font-family: 'JetBrains Mono', monospace;
+      font-family: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; font-variant-numeric: tabular-nums;
       font-size: 0.7rem;
       font-weight: 700;
       color: var(--tab-color, var(--primary));
@@ -481,7 +493,7 @@
       gap: 6px;
       padding: 4px 10px;
       border-radius: 4px;
-      font-family: 'JetBrains Mono', monospace;
+      font-family: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; font-variant-numeric: tabular-nums;
       font-size: 0.72rem;
       font-weight: 700;
       text-transform: uppercase;
@@ -558,7 +570,7 @@
       gap: 14px;
     }
     .contacts-panel-title {
-      font-family: 'JetBrains Mono', monospace;
+      font-family: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; font-variant-numeric: tabular-nums;
       font-size: 0.72rem;
       font-weight: 700;
       text-transform: uppercase;
@@ -599,7 +611,7 @@
       margin-bottom: 4px;
     }
     .leader-phone {
-      font-family: 'JetBrains Mono', monospace;
+      font-family: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; font-variant-numeric: tabular-nums;
       font-size: 0.78rem;
       font-weight: 700;
       color: var(--sparte-color, var(--primary));
@@ -675,7 +687,7 @@
       gap: 20px;
     }
     .score-big-number {
-      font-family: 'JetBrains Mono', monospace;
+      font-family: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; font-variant-numeric: tabular-nums;
       font-size: 2.6rem;
       font-weight: 800;
       color: #fde68a;
@@ -699,7 +711,7 @@
       color: #e2e8f0;
     }
     .score-bar-val {
-      font-family: 'JetBrains Mono', monospace;
+      font-family: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; font-variant-numeric: tabular-nums;
       color: #fde68a;
       font-weight: 700;
     }
@@ -854,7 +866,7 @@
       left: 10px;
       background: rgba(15, 23, 42, 0.88);
       color: #ffffff;
-      font-family: 'JetBrains Mono', monospace;
+      font-family: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; font-variant-numeric: tabular-nums;
       font-size: 0.68rem;
       font-weight: 700;
       padding: 4px 8px;
@@ -868,7 +880,7 @@
       flex: 1;
     }
     .social-date {
-      font-family: 'JetBrains Mono', monospace;
+      font-family: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; font-variant-numeric: tabular-nums;
       font-size: 0.72rem;
       color: var(--muted);
       font-weight: 600;
@@ -930,7 +942,7 @@
       flex-wrap: wrap;
     }
     .blog-tag {
-      font-family: 'JetBrains Mono', monospace;
+      font-family: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; font-variant-numeric: tabular-nums;
       font-size: 0.7rem;
       font-weight: 700;
       padding: 3px 8px;
@@ -938,7 +950,7 @@
       text-transform: uppercase;
     }
     .blog-readtime {
-      font-family: 'JetBrains Mono', monospace;
+      font-family: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; font-variant-numeric: tabular-nums;
       font-size: 0.72rem;
       color: var(--muted);
       font-weight: 600;
@@ -983,7 +995,7 @@
       padding: 14px 16px;
     }
     .timeline-year {
-      font-family: 'JetBrains Mono', monospace;
+      font-family: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; font-variant-numeric: tabular-nums;
       font-size: 0.8rem;
       font-weight: 700;
       color: var(--primary);
@@ -1279,7 +1291,7 @@
   <section class="hero-wrap" id="team-hero" data-section-id="team-hero" data-section="team-hero">
     <div class="hero-inner">
       <div>
-        <span class="section-kicker" data-slot="team_kicker">// ÜBER UNS &amp; TEAM · FAMILIENUNTERNEHMEN IN 3. GENERATION</span>
+        <span class="section-kicker" data-slot="team_kicker">ÜBER UNS &amp; TEAM · FAMILIENUNTERNEHMEN IN 3. GENERATION</span>
         <h1 class="hero-title" data-slot="team_title">Motiviert und bestens aufgestellt — rund 60 Fachleute &amp; 14 Lernende.</h1>
         <p class="hero-subtitle" data-slot="team_subtitle">
           Seit 1934 steht der Name Hochuli in Schlossrued für gelebtes Handwerk, Handschlagqualität und Verlässlichkeit. Unter der Leitung von Inhaber Martin Hochuli vereinen wir heute 5 leistungsstarke Sparten unter einem Dach.
@@ -1297,7 +1309,7 @@
         <img src="images/team-hauptfoto.jpg" alt="Gesamtteam der Hochuli Schlossrued AG" data-slot="team_hero_img">
         <div class="hero-media-badge">
           <span data-slot="team_hero_span_3">Hochuli Schlossrued AG · Team &amp; Abteilungsleiter</span>
-          <span style="font-family: 'JetBrains Mono', monospace; color: #fde68a;" data-slot="team_hero_span_4">Seit 1934</span>
+          <span style="font-family: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; font-variant-numeric: tabular-nums; color: #fde68a;" data-slot="team_hero_span_4">Seit 1934</span>
         </div>
       </div>
     </div>
@@ -1308,7 +1320,7 @@
     <div class="section-inner">
       <div class="sparte-body-grid" style="align-items: center;">
         <div>
-          <span class="section-kicker" data-slot="werte_kicker">// UNSERE LEITPLANKEN · BAUEN IM VERTRAUEN</span>
+          <span class="section-kicker" data-slot="werte_kicker">UNSERE LEITPLANKEN · BAUEN IM VERTRAUEN</span>
           <h2 class="section-title" data-slot="werte_title">Wofür wir jeden Tag auf der Baustelle und im Büro einstehen</h2>
           <p class="section-desc" style="margin-bottom: 20px;" data-slot="werte_desc">
             Ein Bauprojekt ist Vertrauenssache. Deshalb setzen wir auf klare Zuständigkeiten, offene Kommunikation, saubere Baustellen und Handwerker EFZ, die mitdenken.
@@ -1343,7 +1355,7 @@
   <section class="section-wrap" id="abteilungen" data-section-id="abteilungen" data-section="abteilungen" style="background: var(--surface);">
     <div class="section-inner">
       <div class="section-header">
-        <span class="section-kicker" data-slot="dept_kicker">// GESCHÄFTSLEITUNG, ADMINISTRATION &amp; 5 SPARTENLEITUNGEN</span>
+        <span class="section-kicker" data-slot="dept_kicker">GESCHÄFTSLEITUNG, ADMINISTRATION &amp; 5 SPARTENLEITUNGEN</span>
         <h2 class="section-title" data-slot="dept_title">Ihre direkten Köpfe und Ansprechpartner in Schlossrued</h2>
         <p class="section-desc" data-slot="dept_desc">
           Jede Abteilung wird von erfahrenen Meister- und HF-Kadern geführt — mit direkter Durchwahl ohne Warteschleife.
@@ -1353,7 +1365,7 @@
       <div class="team-dept-grid">
         <!-- GL & ADMIN -->
         <div class="contacts-panel" style="--sparte-color: #0f172a; background: #ffffff;">
-          <div class="contacts-panel-title" data-slot="abteilungen_panel_kicker">// GESCHÄFTSLEITUNG &amp; PERSONAL</div>
+          <div class="contacts-panel-title" data-slot="abteilungen_panel_kicker">GESCHÄFTSLEITUNG &amp; PERSONAL</div>
           <div class="leader-card">
             <img src="images/martin-hochuli.jpg" alt="Martin Hochuli" class="leader-avatar" data-slot="team_martin_img">
             <div class="leader-info">
@@ -1382,7 +1394,7 @@
 
         <!-- HOLZBAU + BEDACHUNG -->
         <div class="contacts-panel" style="--sparte-color: #e30613; background: #ffffff;">
-          <div class="contacts-panel-title" data-slot="abteilungen_panel_kicker_2">// 01 HOLZBAU + BEDACHUNG</div>
+          <div class="contacts-panel-title" data-slot="abteilungen_panel_kicker_2">01 HOLZBAU + BEDACHUNG</div>
           <div class="leader-card">
             <img src="images/stefan-hofmann.jpg" alt="Stefan Hofmann" class="leader-avatar" data-slot="abteilungen_stefan_hofmann_img">
             <div class="leader-info">
@@ -1411,7 +1423,7 @@
 
         <!-- SPENGLER + FLACHDACH -->
         <div class="contacts-panel" style="--sparte-color: #d97706; background: #ffffff;">
-          <div class="contacts-panel-title" data-slot="abteilungen_panel_kicker_3">// 02 SPENGLER + FLACHDACH</div>
+          <div class="contacts-panel-title" data-slot="abteilungen_panel_kicker_3">02 SPENGLER + FLACHDACH</div>
           <div class="leader-card">
             <img src="images/alex-kirchhofer.jpg" alt="Alex Kirchhofer" class="leader-avatar" data-slot="abteilungen_alex_kirchhofer_img">
             <div class="leader-info">
@@ -1440,7 +1452,7 @@
 
         <!-- SANITÄR + HEIZUNG -->
         <div class="contacts-panel" style="--sparte-color: #0284c7; background: #ffffff;">
-          <div class="contacts-panel-title" data-slot="abteilungen_panel_kicker_4">// 03 SANITÄR + HEIZUNG</div>
+          <div class="contacts-panel-title" data-slot="abteilungen_panel_kicker_4">03 SANITÄR + HEIZUNG</div>
           <div class="leader-card">
             <img src="images/thomas-bertschi.jpg" alt="Thomas Bertschi" class="leader-avatar" data-slot="abteilungen_thomas_bertschi_img">
             <div class="leader-info">
@@ -1469,7 +1481,7 @@
 
         <!-- PLANUNG -->
         <div class="contacts-panel" style="--sparte-color: #059669; background: #ffffff;">
-          <div class="contacts-panel-title" data-slot="abteilungen_panel_kicker_5">// 04 PLANUNG &amp; BAULEITUNG</div>
+          <div class="contacts-panel-title" data-slot="abteilungen_panel_kicker_5">04 PLANUNG &amp; BAULEITUNG</div>
           <div class="leader-card">
             <img src="images/claudia-hauri.jpg" alt="Claudia Hauri" class="leader-avatar" data-slot="abteilungen_claudia_hauri_img">
             <div class="leader-info">
@@ -1498,7 +1510,7 @@
 
         <!-- PHOTOVOLTAIK -->
         <div class="contacts-panel" style="--sparte-color: #ca8a04; background: #ffffff;">
-          <div class="contacts-panel-title" data-slot="abteilungen_panel_kicker_6">// 05 PHOTOVOLTAIK &amp; ENERGIE</div>
+          <div class="contacts-panel-title" data-slot="abteilungen_panel_kicker_6">05 PHOTOVOLTAIK &amp; ENERGIE</div>
           <div class="leader-card">
             <img src="images/michael-zubler.jpg" alt="Michael Zubler" class="leader-avatar" data-slot="abteilungen_michael_zubler_img">
             <div class="leader-info">
@@ -1533,7 +1545,7 @@
     <div class="section-inner">
       <div class="sparte-body-grid" style="align-items: center;">
         <div>
-          <span class="section-kicker" data-slot="lernende_kicker">// BERUFSBILDUNG &amp; NACHWUCHSFÖRDERUNG · 14 LERNENDE</span>
+          <span class="section-kicker" data-slot="lernende_kicker">BERUFSBILDUNG &amp; NACHWUCHSFÖRDERUNG · 14 LERNENDE</span>
           <h2 class="section-title" data-slot="lernende_title">Unsere 14 Lernenden — Wir bilden die Handwerker EFZ von morgen aus</h2>
           <p class="section-desc" style="margin-bottom: 18px;" data-slot="lernende_desc">
             Als ausgezeichneter Lehrbetrieb im Suhrental begleiten wir aktuell 14 junge Talente auf ihrem Weg zum Eidgenössischen Fähigkeitszeugnis (EFZ). Schnupperlehren sind jederzeit willkommen!
@@ -1561,7 +1573,7 @@
           <img src="images/team-lernende.jpg" alt="Unsere 14 Lernenden der Hochuli Schlossrued AG" data-slot="lernende_img">
           <div class="hero-media-badge">
             <span data-slot="lernende_span">14 Lernende in 5 Lehrberufen EFZ</span>
-            <span style="font-family: 'JetBrains Mono', monospace; color: #fde68a;" data-slot="lernende_span_2">Schnupperlehre möglich</span>
+            <span style="font-family: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; font-variant-numeric: tabular-nums; color: #fde68a;" data-slot="lernende_span_2">Schnupperlehre möglich</span>
           </div>
         </div>
       </div>
@@ -1572,7 +1584,7 @@
   <section class="section-wrap" id="geschichte" data-section-id="geschichte" data-section="geschichte" style="background: var(--surface);">
     <div class="section-inner">
       <div class="section-header">
-        <span class="section-kicker" data-slot="history_kicker">// UNSERE ZEITREISE · MEILENSTEINE SEIT 1934</span>
+        <span class="section-kicker" data-slot="history_kicker">UNSERE ZEITREISE · MEILENSTEINE SEIT 1934</span>
         <h2 class="section-title" data-slot="history_title">Über 90 Jahre Bautradition und Innovation in Schlossrued</h2>
       </div>
       <div class="timeline-list">

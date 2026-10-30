@@ -11,7 +11,7 @@
   <link rel="icon" href="images/favicon-h11.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700&family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,800;1,900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,800;1,900&display=swap" rel="stylesheet">
   <style>
     :root {
       --navy: #0B1A3B;
@@ -97,7 +97,7 @@
       color: #FFD6E6;
       padding: 3px 8px;
       border-radius: var(--radius-badge);
-      font-family: 'JetBrains Mono', monospace;
+      font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif; font-variant-numeric: tabular-nums;
       font-size: 0.7rem;
       font-weight: 700;
       display: inline-flex;
@@ -284,7 +284,7 @@
     /* FREESTANDING KICKERS (#UI-01 & #UI-13: 100% FREISTEHEND, NO PILLS) */
     .section-kicker,
     .hero-kicker {
-      font-family: 'JetBrains Mono', monospace;
+      font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif; font-variant-numeric: tabular-nums;
       font-size: 0.74rem;
       font-weight: 700;
       text-transform: uppercase;
@@ -296,6 +296,19 @@
       box-shadow: none !important;
       display: block;
       margin-bottom: 8px;
+    }
+    .section-kicker::before,
+    .hero-kicker::before {
+      content: "";
+      display: inline-block;
+      width: 16px;
+      height: 2px;
+      background: currentColor;
+      vertical-align: middle;
+      margin-right: 8px;
+      border-radius: 2px;
+      position: relative;
+      top: -1px;
     }
 
     /* HERO SECTIONS (DARK STADIUM LOOK #0B1A3B) */
@@ -347,7 +360,7 @@
       margin-top: 14px;
     }
     .meta-badge-dark {
-      font-family: 'JetBrains Mono', monospace;
+      font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif; font-variant-numeric: tabular-nums;
       font-size: 0.72rem;
       font-weight: 700;
       background: rgba(255, 255, 255, 0.07);
@@ -596,7 +609,7 @@
       flex: 0 0 42px;
     }
     .card-tag-badge {
-      font-family: 'JetBrains Mono', monospace;
+      font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif; font-variant-numeric: tabular-nums;
       font-size: 0.7rem;
       font-weight: 700;
       text-transform: uppercase;
@@ -989,7 +1002,7 @@
   <section class="hero-wrap" id="ueber-hero" data-section-id="ueber-hero" data-section="ueber-hero" data-section-label="02 | Über uns: Weil jede Spielerin ihren eigenen Weg hat">
     <div class="hero-inner">
       <div>
-        <span class="hero-kicker" data-slot="ueber_hero_kicker">// 02 | ÜBER UNS · UNABHÄNGIGE ANLAUFSTELLE</span>
+        <span class="hero-kicker" data-slot="ueber_hero_kicker">02 | ÜBER UNS · UNABHÄNGIGE ANLAUFSTELLE</span>
         <h1 class="hero-title" data-slot="ueber_hero_title">WEIL JEDE SPIELERIN IHREN <span>EIGENEN WEG</span> HAT.</h1>
         <div class="hero-subheadline" data-slot="ueber_hero_sub">HER11 stellt die Spielerin ins Zentrum.</div>
         <p class="hero-lead" data-slot="ueber_hero_p1">
@@ -1012,7 +1025,7 @@
       <div class="hero-visual-card">
         <img src="images/nachwuchs-spielfeldrand.webp" alt="Junge Spielerin mit Fussball am Spielfeldrand" class="hero-visual-img" data-slot="ueber_hero_img">
         <div class="hero-visual-caption">
-          <span style="font-family: 'JetBrains Mono', monospace; font-weight: 700; color: #FF0066;" data-slot="ueber_cap_tag">UNABHÄNGIG &amp; PERSÖNLICH</span>
+          <span style="font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif; font-variant-numeric: tabular-nums; font-weight: 700; color: #FF0066;" data-slot="ueber_cap_tag">UNABHÄNGIG &amp; PERSÖNLICH</span>
           <span data-slot="ueber_cap_text">Auf und neben dem Platz an deiner Seite.</span>
         </div>
       </div>
@@ -1025,7 +1038,7 @@
       <div class="split-grid">
         <div class="split-col-card">
           <div>
-            <span class="section-kicker" data-slot="vision_kicker">// UNSERE LEITIDEE</span>
+            <span class="section-kicker" data-slot="vision_kicker">UNSERE LEITIDEE</span>
             <h2 class="section-title" data-slot="vision_title">UNSERE VISION</h2>
             <p class="section-desc" style="font-size: 1.02rem; color: var(--text-dark); font-weight: 500; margin-top: 12px;" data-slot="vision_text">
               Jede ambitionierte Fussballerin soll die Chance erhalten, ihr Potenzial auszuschöpfen – unabhängig von ihrem familiären Hintergrund oder bestehenden Kontakten. Wir möchten Rahmenbedingungen schaffen, in denen junge Frauen ihren sportlichen Weg verfolgen und gleichzeitig eine solide berufliche Zukunft aufbauen können.
@@ -1050,7 +1063,7 @@
   <section class="section-wrap section-dark" id="werte" data-section-id="werte" data-section="werte" data-section-label="Unsere 4 Grundwerte">
     <div class="section-inner">
       <div class="section-header">
-        <span class="section-kicker" data-slot="werte_kicker">// WOFÜR HER11 STEHT</span>
+        <span class="section-kicker" data-slot="werte_kicker">WOFÜR HER11 STEHT</span>
         <h2 class="section-title" data-slot="werte_title">UNSERE WERTE</h2>
         <p class="section-desc" data-slot="werte_desc">
           Vier klare Grundsätze leiten unser Handeln in der Zusammenarbeit mit Spielerinnen, Familien, Vereinen, Ausbildungsbetrieben und Partnern.
@@ -1117,7 +1130,7 @@
   <section class="section-wrap section-surface" id="team-beirat" data-section-id="team-beirat" data-section="team-beirat" data-section-label="Menschen &amp; Netzwerk hinter HER11">
     <div class="section-inner">
       <div class="section-header">
-        <span class="section-kicker" data-slot="team_kicker">// PERSÖNLICH · UNABHÄNGIG · VERNETZT</span>
+        <span class="section-kicker" data-slot="team_kicker">PERSÖNLICH · UNABHÄNGIG · VERNETZT</span>
         <h2 class="section-title" data-slot="team_title">GEMEINSAM FÜR DIE NÄCHSTE GENERATION IM FRAUENFUSSBALL.</h2>
         <p class="section-desc" data-slot="team_desc">
           Hinter HER11 stehen Menschen aus Sport, Berufsbildung, Wirtschaft und Fachbegleitung, die ihre Erfahrung bündeln, um jungen Fussballerinnen den Weg in eine erfolgreiche sportliche und berufliche Zukunft zu ebnen.

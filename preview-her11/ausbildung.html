@@ -11,7 +11,7 @@
   <link rel="icon" href="images/favicon-h11.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700&family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,800;1,900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,800;1,900&display=swap" rel="stylesheet">
   <style>
     :root {
       --navy: #0B1A3B;
@@ -97,7 +97,7 @@
       color: #FFD6E6;
       padding: 3px 8px;
       border-radius: var(--radius-badge);
-      font-family: 'JetBrains Mono', monospace;
+      font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif; font-variant-numeric: tabular-nums;
       font-size: 0.7rem;
       font-weight: 700;
       display: inline-flex;
@@ -284,7 +284,7 @@
     /* FREESTANDING KICKERS (#UI-01 & #UI-13: 100% FREISTEHEND, NO PILLS) */
     .section-kicker,
     .hero-kicker {
-      font-family: 'JetBrains Mono', monospace;
+      font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif; font-variant-numeric: tabular-nums;
       font-size: 0.74rem;
       font-weight: 700;
       text-transform: uppercase;
@@ -296,6 +296,19 @@
       box-shadow: none !important;
       display: block;
       margin-bottom: 8px;
+    }
+    .section-kicker::before,
+    .hero-kicker::before {
+      content: "";
+      display: inline-block;
+      width: 16px;
+      height: 2px;
+      background: currentColor;
+      vertical-align: middle;
+      margin-right: 8px;
+      border-radius: 2px;
+      position: relative;
+      top: -1px;
     }
 
     /* HERO SECTIONS (DARK STADIUM LOOK #0B1A3B) */
@@ -347,7 +360,7 @@
       margin-top: 14px;
     }
     .meta-badge-dark {
-      font-family: 'JetBrains Mono', monospace;
+      font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif; font-variant-numeric: tabular-nums;
       font-size: 0.72rem;
       font-weight: 700;
       background: rgba(255, 255, 255, 0.07);
@@ -596,7 +609,7 @@
       flex: 0 0 42px;
     }
     .card-tag-badge {
-      font-family: 'JetBrains Mono', monospace;
+      font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif; font-variant-numeric: tabular-nums;
       font-size: 0.7rem;
       font-weight: 700;
       text-transform: uppercase;
@@ -989,7 +1002,7 @@
   <section class="hero-wrap" id="ausbildung-hero" data-section-id="ausbildung-hero" data-section="ausbildung-hero" data-section-label="03 | Ausbildung: Zwei Karrieren. Eine Zukunft.">
     <div class="hero-inner">
       <div>
-        <span class="hero-kicker" data-slot="ausb_hero_kicker">// 03 | AUSBILDUNG · DUALE KARRIERE</span>
+        <span class="hero-kicker" data-slot="ausb_hero_kicker">03 | AUSBILDUNG · DUALE KARRIERE</span>
         <h1 class="hero-title" data-slot="ausb_hero_title">ZWEI KARRIEREN. <span>EINE ZUKUNFT.</span></h1>
         <div class="hero-subheadline" data-slot="ausb_hero_sub">Leistungssport und Berufsbildung gehören zusammen.</div>
         <p class="hero-lead" data-slot="ausb_hero_p1">
@@ -1012,7 +1025,7 @@
       <div class="hero-visual-card">
         <img src="images/perspektive-alpen-see.webp" alt="Spielerin mit HER11 Rucksack und Fussball mit Blick in die Zukunft" class="hero-visual-img" data-slot="ausb_hero_img">
         <div class="hero-visual-caption">
-          <span style="font-family: 'JetBrains Mono', monospace; font-weight: 700; color: #FF0066;" data-slot="ausb_cap_tag">BERUFSBILDUNG &amp; SPORT</span>
+          <span style="font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif; font-variant-numeric: tabular-nums; font-weight: 700; color: #FF0066;" data-slot="ausb_cap_tag">BERUFSBILDUNG &amp; SPORT</span>
           <span data-slot="ausb_cap_text">Qualifizierte Lehre &amp; Leistungssport vereint.</span>
         </div>
       </div>
@@ -1023,7 +1036,7 @@
   <section class="section-wrap" id="sportfreundliche-lehrstellen" data-section-id="sportfreundliche-lehrstellen" data-section="sportfreundliche-lehrstellen" data-section-label="Sportfreundliche Lehrstellen: 5 Bausteine">
     <div class="section-inner">
       <div class="section-header">
-        <span class="section-kicker" data-slot="sf_kicker">// WAS DAS KONKRET BEDEUTET</span>
+        <span class="section-kicker" data-slot="sf_kicker">WAS DAS KONKRET BEDEUTET</span>
         <h2 class="section-title" data-slot="sf_title">SPORTFREUNDLICHE LEHRSTELLEN</h2>
         <div class="section-subtitle" data-slot="sf_sub">Unternehmen, die Talente fördern. Auf und neben dem Platz.</div>
         <p class="section-desc" data-slot="sf_desc">
@@ -1106,7 +1119,7 @@
       <div class="split-grid">
         <div class="split-col-card">
           <div>
-            <span class="section-kicker" data-slot="zg_spielerin_kicker">// PERSPEKTIVE TALENT</span>
+            <span class="section-kicker" data-slot="zg_spielerin_kicker">PERSPEKTIVE TALENT</span>
             <h2 class="section-title" data-slot="zg_spielerin_title">FÜR SPIELERINNEN</h2>
             <div class="section-subtitle" data-slot="zg_spielerin_sub">Dein Fussball. Deine Ausbildung. Dein Weg.</div>
             <p class="section-desc" style="margin-top: 10px;" data-slot="zg_spielerin_text">
@@ -1123,7 +1136,7 @@
 
         <div class="split-col-card">
           <div>
-            <span class="section-kicker" data-slot="zg_firma_kicker">// PERSPEKTIVE AUSBILDUNGSBETRIEB</span>
+            <span class="section-kicker" data-slot="zg_firma_kicker">PERSPEKTIVE AUSBILDUNGSBETRIEB</span>
             <h2 class="section-title" data-slot="zg_firma_title">FÜR UNTERNEHMEN: MACHEN SIE MIT.</h2>
             <p class="section-desc" style="margin-top: 10px;" data-slot="zg_firma_p1">
               Geben Sie Talenten eine Chance. Junge Leistungssportlerinnen bringen Eigenschaften mit, die auch in der Berufswelt wertvoll sind: Disziplin, Teamgeist, Eigenverantwortung, Belastbarkeit und Zielstrebigkeit.
@@ -1147,7 +1160,7 @@
   <section class="section-wrap section-surface" id="zusammenarbeit-ablauf" data-section-id="zusammenarbeit-ablauf" data-section="zusammenarbeit-ablauf" data-section-label="So funktioniert die Zusammenarbeit (4 Schritte)">
     <div class="section-inner">
       <div class="section-header">
-        <span class="section-kicker" data-slot="ablauf_kicker">// DER WEG ZUR SPORTFREUNDLICHEN LEHRSTELLE</span>
+        <span class="section-kicker" data-slot="ablauf_kicker">DER WEG ZUR SPORTFREUNDLICHEN LEHRSTELLE</span>
         <h2 class="section-title" data-slot="ablauf_title">SO FUNKTIONIERT DIE ZUSAMMENARBEIT</h2>
         <p class="section-desc" data-slot="ablauf_desc">
           In vier klaren Schritten begleiten wir Ihr Unternehmen und die Spielerin von der ersten Idee bis zum erfolgreichen Lehrabschluss.
@@ -1215,7 +1228,7 @@
     <div class="section-inner">
       <div class="cta-banner-box">
         <div style="max-width: 680px;">
-          <span class="section-kicker" data-slot="ap_cta_kicker">// JEDER LEHRBETRIEB ZÄHLT</span>
+          <span class="section-kicker" data-slot="ap_cta_kicker">JEDER LEHRBETRIEB ZÄHLT</span>
           <h2 class="section-title" style="color: #FFFFFF; margin-bottom: 8px;" data-slot="ap_cta_title">WERDEN SIE HER11-AUSBILDUNGSPARTNER.</h2>
           <p style="font-size: 0.96rem; color: #CBD5E1; line-height: 1.6;" data-slot="ap_cta_text">
             Ob kleines, mittleres oder grosses Unternehmen: Jede sportfreundliche Lehrstelle kann einen entscheidenden Unterschied machen.
