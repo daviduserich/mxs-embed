@@ -419,6 +419,9 @@ export function evaluateSystemEyesInPage({ relPage, zone, options = {} }) {
     const textNodes = Array.from(el.childNodes).filter(n => n.nodeType === 3 && n.nodeValue.trim().length > 0);
     if (textNodes.length === 0) continue;
     const boxEl = el.closest('button, a, .role-pill, .topic-chip-btn, [class*="badge"], [class*="pill"], [class*="btn"], [class*="card"], td, th, label') || el;
+    const elCs = window.getComputedStyle(el);
+    const boxCs = window.getComputedStyle(boxEl);
+    if (elCs.overflowX === 'hidden' || elCs.overflowX === 'clip' || boxCs.overflowX === 'hidden' || boxCs.overflowX === 'clip') continue;
     const bRect = boxEl.getBoundingClientRect();
     if (bRect.width < 10) continue;
     for (const tn of textNodes) {
