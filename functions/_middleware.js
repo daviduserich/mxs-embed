@@ -147,6 +147,8 @@ export async function onRequest(context) {
       'preview-cotra': ['cotra_sec_master', 'cotra2026'],
       'hochuli': ['hochuli_sec_master', 'hochuli2026'],
       'preview-hochuli': ['hochuli_sec_master', 'hochuli2026'],
+      'her11': ['her11_sec_master', 'her112026'],
+      'preview-her11': ['her11_sec_master', 'her112026'],
       'default': [clientSlug + '_sec_master', clientSlug + '2026']
     };
     const validTokens = clientTokens[rootSegment] || clientTokens[clientSlug] || clientTokens['default'];
@@ -278,6 +280,8 @@ export async function onRequest(context) {
       'preview-cotra': ['cotra_sec_master', 'cotra2026'],
       'hochuli': ['hochuli_sec_master', 'hochuli2026'],
       'preview-hochuli': ['hochuli_sec_master', 'hochuli2026'],
+      'her11': ['her11_sec_master', 'her112026'],
+      'preview-her11': ['her11_sec_master', 'her112026'],
         'default': [clientSlug + '_sec_master', clientSlug + '2026']
       };
       const validTokens = clientTokens[rootSegment] || clientTokens[clientSlug] || clientTokens['default'];

@@ -252,10 +252,23 @@ def scan_stellen(client_dir: Path, slug: str, name: str, profile: dict = None):
     import html as _html
     def _page_sort_key(p):
         n = p.name.lower()
-        if n == "index.html": return (0, n)
-        if n in ("strategie-kennen-lernen.html", "strategie.html"): return (1, n)
-        if n in ("impressum.html", "datenschutz.html"): return (9, n)
-        return (2, n)
+        order_map = {
+            "index.html": 0,
+            "ueber-uns.html": 1,
+            "angebot.html": 1,
+            "strategie-kennen-lernen.html": 1,
+            "strategie.html": 1,
+            "ausbildung.html": 2,
+            "team.html": 2,
+            "begleitung.html": 3,
+            "karriere.html": 3,
+            "mach-mit.html": 4,
+            "technologie.html": 4,
+            "kontakt.html": 5,
+            "impressum.html": 9,
+            "datenschutz.html": 9,
+        }
+        return (order_map.get(n, 6), n)
     html_files = sorted([f for f in client_dir.glob("*.html") if f.name not in ("cockpit.html", "onboarding.html")], key=_page_sort_key)
     stellen = []
     
@@ -283,7 +296,7 @@ def scan_stellen(client_dir: Path, slug: str, name: str, profile: dict = None):
         embedded_url = None
         embedded_label = "Nicht eingebaut"
         status = "Entwurf im Studio"
-        status_badge = "🟡 ENTWURF"
+        status_badge = "ENTWURF"
         
         if f.name in live_embeds:
             info = live_embeds[f.name]
@@ -291,13 +304,13 @@ def scan_stellen(client_dir: Path, slug: str, name: str, profile: dict = None):
             embedded_url = info.get("url", "")
             embedded_label = info.get("label") or embedded_url.replace("https://", "").replace("http://", "").rstrip("/")
             status = f"Live als Widget eingebaut auf {embedded_label}"
-            status_badge = "🟢 LIVE WIDGET"
+            status_badge = "LIVE WIDGET"
         
         stellen.append({
             "id": f.stem.lower(),
             "titel": title,
             "firma": name,
-            "icon": "🏗️",
+            "icon": "",
             "datei": f.name,
             "folder": slug,
             "edge_url": edge_url,
@@ -331,14 +344,16 @@ def build_cockpit(slug: str):
         print(f"❌ Mandant {slug} nicht gefunden in {client_dir}")
         return False
 
-    config_file = client_dir / "config.json"
-    name = slug.replace("-", " ").title()
-    if config_file.exists():
-        try:
-            cfg = json.loads(config_file.read_text(encoding="utf-8"))
-            name = cfg.get("name", name)
-        except Exception:
-            pass
+    name = slug.replace("preview-", "").replace("-", " ").title()
+    for candidate_name in ("config.json", "company.json"):
+        cfg_file = client_dir / candidate_name
+        if cfg_file.exists():
+            try:
+                cfg = json.loads(cfg_file.read_text(encoding="utf-8"))
+                name = cfg.get("name") or cfg.get("company_name") or name
+                break
+            except Exception:
+                pass
 
     clean_slug = slug.replace("preview-", "")
     profile = get_client_profile(slug, client_dir, name)

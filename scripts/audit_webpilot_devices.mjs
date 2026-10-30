@@ -27,6 +27,13 @@ const CHROMIUM_PATHS = [
 ];
 
 const PAGES = [
+  'preview-her11/index.html',
+  'preview-her11/ueber-uns.html',
+  'preview-her11/ausbildung.html',
+  'preview-her11/begleitung.html',
+  'preview-her11/mach-mit.html',
+  'preview-her11/kontakt.html',
+  'preview-her11/cockpit.html',
   'preview-hochuli/index.html',
   'preview-hochuli/team.html',
   'preview-hochuli/karriere.html',
@@ -100,7 +107,7 @@ async function auditPageZone(page, relPage, zone, screenshotDir) {
   await page.evaluate(() => window.scrollTo(0, 0));
   await page.waitForTimeout(60);
 
-  if (screenshotDir && (relPage === 'preview-hochuli/index.html' || relPage === 'webpilot/index.html') && (zone.width === 375 || zone.width === 1440)) {
+  if (screenshotDir && (relPage === 'preview-her11/index.html' || relPage === 'preview-her11/cockpit.html' || relPage === 'preview-hochuli/index.html' || relPage === 'webpilot/index.html') && (zone.width === 375 || zone.width === 1440)) {
     fs.mkdirSync(screenshotDir, { recursive: true });
     const slug = relPage.replace(/\//g, '_').replace('.html', '') + '_' + zone.name + '.png';
     await page.screenshot({ path: path.join(screenshotDir, slug), fullPage: false });
@@ -265,7 +272,7 @@ async function auditPageZone(page, relPage, zone, screenshotDir) {
     }
 
     // 6. P2_ROW_HEIGHT_MISMATCH & P2_RAGGED_RIGHT_EDGE in Grids
-    const grids = Array.from(document.querySelectorAll('.pillar-cards, .vs-grid, .teaser-grid, .price-grid, .story-grid, .values-grid, .arch-grid, .sparten-filter-grid, .subservices-grid, .sparte-ref-row, .quiz-steps-grid, .social-grid, .blog-grid, .team-dept-grid, .timeline-list')).filter(isVisible);
+    const grids = Array.from(document.querySelectorAll('.pillar-cards, .vs-grid, .teaser-grid, .price-grid, .story-grid, .values-grid, .arch-grid, .sparten-filter-grid, .subservices-grid, .sparte-ref-row, .quiz-steps-grid, .social-grid, .blog-grid, .team-dept-grid, .timeline-list, .partner-grid, .foerder-grid, .check-grid, .begleitung-grid, .testimonials-grid')).filter(isVisible);
     for (const g of grids) {
       const children = Array.from(g.children).filter(isVisible);
       if (children.length < 2) continue;

@@ -355,13 +355,13 @@ function renderJobPicker() {
 
     html += '<div class="acp-dropdown-item ' + activeClass + '" onclick="acpSwitchJob(\'' + j.id + '\'); acpToggleJobDropdown();">' +
       '<div class="dropdown-item-left">' +
-        '<div class="dropdown-item-title">' + (j.icon || "💼") + ' ' + j.titel + '</div>' +
+        '<div class="dropdown-item-title">' + j.titel + '</div>' +
         '<div class="dropdown-item-meta"><span>' + j.firma + '</span> · <span class="dropdown-file-name">' + j.datei + '</span></div>' +
         targetLineHtml +
       '</div>' +
       '<div class="dropdown-item-right">' +
         badgeHtml +
-        (isActive ? '<span class="check-icon">✓</span>' : '') +
+        (isActive ? '<span class="check-icon">AKTIV</span>' : '') +
       '</div>' +
     '</div>';
   }
@@ -372,7 +372,7 @@ function renderJobPicker() {
     var iconEl = document.getElementById("picker-current-icon");
     var titleEl = document.getElementById("picker-current-title");
     var firmEl = document.getElementById("picker-current-firm");
-    if (iconEl) iconEl.textContent = currentJob.icon || "💼";
+    if (iconEl) iconEl.innerHTML = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/></svg>';
     if (titleEl) titleEl.textContent = currentJob.titel;
     if (firmEl) firmEl.textContent = currentJob.firma ? currentJob.firma.split(" ")[0] : "";
     updateLiveStatusBadge(currentJob);
@@ -1952,7 +1952,7 @@ function checkEnvironmentAndRender() {
 
   if (isOnline) {
     if (onlineBtn) {
-      onlineBtn.innerHTML = '<span class="nav-icon">🔗</span><span class="nav-label">Link</span>';
+      onlineBtn.innerHTML = '<span class="nav-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg></span><span class="nav-label">Link</span>';
       onlineBtn.title = "Link zu diesem Online-Cockpit in die Zwischenablage kopieren";
       onlineBtn.onclick = function(e) {
         e.preventDefault();
@@ -1964,7 +1964,7 @@ function checkEnvironmentAndRender() {
       var fallbackUrl = (typeof ACP_CLIENT_PROFILE !== "undefined" && ACP_CLIENT_PROFILE.host_url) ? ACP_CLIENT_PROFILE.host_url : window.location.href;
       onlineBtn.href = fallbackUrl;
       onlineBtn.target = "_blank";
-      onlineBtn.innerHTML = '<span class="nav-icon">🌐</span><span class="nav-label">Online</span>';
+      onlineBtn.innerHTML = '<span class="nav-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/></svg></span><span class="nav-label">Online</span>';
       onlineBtn.title = "Online-Cockpit auf embed.magnet-xs.ch öffnen";
     }
   }

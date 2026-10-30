@@ -1751,7 +1751,7 @@ body.acp-modal-open {
 .acp-live-pulse-dot {
   width: 7px !important;
   height: 7px !important;
-  border-radius: 50% !important;
+  border-radius: 4px !important;
   background: #10b981 !important;
   box-shadow: 0 0 8px #10b981 !important;
   animation: acpPulse 1.8s infinite !important;
@@ -1764,7 +1764,7 @@ body.acp-modal-open {
 .acp-draft-dot.is-ready {
   width: 7px !important;
   height: 7px !important;
-  border-radius: 50% !important;
+  border-radius: 4px !important;
   background: #f59e0b !important;
 }
 .acp-live-status-pill.is-draft {
@@ -1775,7 +1775,7 @@ body.acp-modal-open {
 .acp-draft-dot {
   width: 7px !important;
   height: 7px !important;
-  border-radius: 50% !important;
+  border-radius: 4px !important;
   background: #64748b !important;
 }
 
@@ -1823,7 +1823,7 @@ body.acp-modal-open {
 .acp-browser-dots .b-dot {
   width: 10px !important;
   height: 10px !important;
-  border-radius: 50% !important;
+  border-radius: 4px !important;
   display: inline-block !important;
 }
 .acp-browser-dots .b-dot.red { background: #ef4444 !important; opacity: 0.8 !important; }
@@ -2605,7 +2605,7 @@ a.badge-live:hover {
   height: 20px !important;
   border: 2px solid rgba(245, 158, 11, 0.3) !important;
   border-top-color: #f59e0b !important;
-  border-radius: 50% !important;
+  border-radius: 4px !important;
   animation: acp-spin 0.8s linear infinite !important;
 }
 @keyframes acp-spin {
@@ -3060,6 +3060,105 @@ a.badge-live:hover {
   overflow: visible !important;
 }
 
+
+/* === #UI-01 & #UI-13 DEVICE-MASCHINE HARDENING === */
+html, body {
+  overflow-x: clip !important;
+  max-width: 100vw !important;
+}
+.acp-cockpit-bar,
+.acp-cockpit-inner,
+.acp-cockpit-left,
+.acp-cockpit-right,
+.acp-studio-canvas,
+.acp-studio-stage,
+.acp-stage-browser-bar,
+.acp-browser-url-pill {
+  max-width: 100% !important;
+  box-sizing: border-box !important;
+}
+.acp-cockpit-right {
+  flex-wrap: wrap !important;
+}
+.acp-nav-btn,
+.acp-brand-badge,
+.acp-job-picker-btn,
+.acp-url-open-ext {
+  min-height: 32px !important;
+  min-width: 36px !important;
+  border-radius: 8px !important;
+}
+.acp-studio-stage,
+.acp-browser-url-pill,
+.acp-pill-trigger,
+.acp-modal,
+.acp-code-preview-box {
+  border-radius: 8px !important;
+}
+.b-dot,
+.acp-pulse-dot,
+.acp-draft-dot,
+.acp-live-pulse-dot,
+.acp-version-badge,
+.acp-live-status-pill,
+.picker-badge,
+.nav-badge,
+.acp-stage-client-badge,
+.acp-stage-device-tag {
+  border-radius: 4px !important;
+}
+@media (max-width: 768px) {
+  .acp-cockpit-bar {
+    padding: 8px 10px !important;
+  }
+  .acp-cockpit-inner {
+    gap: 8px !important;
+  }
+  .acp-cockpit-left,
+  .acp-cockpit-right {
+    width: 100% !important;
+    flex-wrap: wrap !important;
+    gap: 6px !important;
+  }
+  .acp-topbar-divider {
+    display: none !important;
+  }
+  .acp-job-picker-wrap {
+    width: 100% !important;
+  }
+  .acp-job-picker-btn {
+    width: 100% !important;
+    justify-content: space-between !important;
+  }
+  .acp-nav-btn {
+    flex: 1 1 auto !important;
+    justify-content: center !important;
+    padding: 6px 8px !important;
+    font-size: 11.5px !important;
+  }
+  .acp-studio-canvas {
+    padding: 8px !important;
+  }
+  .acp-stage-browser-bar {
+    flex-wrap: wrap !important;
+    height: auto !important;
+    padding: 8px 10px !important;
+    gap: 6px !important;
+  }
+  .acp-browser-url-pill {
+    width: 100% !important;
+    flex-wrap: wrap !important;
+    justify-content: space-between !important;
+    gap: 6px !important;
+  }
+  .acp-url-address {
+    max-width: 180px !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    white-space: nowrap !important;
+  }
+}
+
 </style>
 </head>
 <body>
@@ -3087,7 +3186,7 @@ a.badge-live:hover {
 
       <div class="acp-job-picker-wrap" id="acp-job-picker-wrap">
         <button type="button" class="acp-job-picker-btn" id="acp-picker-btn" onclick="acpToggleJobDropdown()">
-          <span class="picker-icon" id="picker-current-icon">🏠</span>
+          <span class="picker-icon" id="picker-current-icon" style="display:inline-flex;align-items:center;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/></svg></span>
           <span class="picker-title" id="picker-current-title">__INITIAL_JOB_TITLE__</span>
           <span class="picker-badge" id="picker-current-firm">__CLIENT_SHORT_NAME__</span>
           <span class="picker-arrow">▾</span>
@@ -3109,32 +3208,32 @@ a.badge-live:hover {
 
     <div class="acp-cockpit-right">
             <button type="button" class="acp-nav-btn acp-nav-btn-inline-edit" id="acp-btn-toggle-inline-edit" onclick="acpToggleInlineEdit()" title="Texte direkt im Simulator anklicken und umschreiben (wie in Word)" style="border-color: rgba(16, 185, 129, 0.4); background: rgba(16, 185, 129, 0.1);">
-        <span class="nav-icon">✏️</span>
+        <span class="nav-icon" style="display:inline-flex;align-items:center;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg></span>
         <span class="nav-label" style="color: #34d399; font-weight: 700;">Text &amp; Bild umschreiben</span>
       </button>
       <button type="button" class="acp-nav-btn acp-nav-btn-sections" onclick="acpToggleSectionsModal()" title="Sektionen &amp; KI-Baukasten mit vollem Seiten-Kontext" style="border-color: rgba(245, 158, 11, 0.4); background: rgba(245, 158, 11, 0.1);">
-        <span class="nav-icon">🧩</span>
+        <span class="nav-icon" style="display:inline-flex;align-items:center;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg></span>
         <span class="nav-label" style="color: #fbbf24; font-weight: 700;">Sektionen &amp; KI</span>
       </button>
       <button type="button" class="acp-nav-btn" onclick="acpToggleImagesModal()" title="Bilder-Pool durchsuchen &amp; tauschen">
-        <span class="nav-icon">🖼️</span>
+        <span class="nav-icon" style="display:inline-flex;align-items:center;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg></span>
         <span class="nav-label">Bilder</span>
       </button>
       <button type="button" class="acp-nav-btn acp-nav-btn-directory" onclick="acpToggleDirectoryModal()" title="Stellen-Zentrale: Mandanten &amp; Inserate">
-        <span class="nav-icon">📑</span>
+        <span class="nav-icon" style="display:inline-flex;align-items:center;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></span>
         <span class="nav-label">Stellen</span>
       </button>
       <button type="button" class="acp-nav-btn" onclick="acpCopyActiveCode()" title="1-Klick Widget-Code für den Webmaster kopieren">
-        <span class="nav-icon">📋</span>
+        <span class="nav-icon" style="display:inline-flex;align-items:center;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg></span>
         <span class="nav-label">Code</span>
       </button>
             <button type="button" class="acp-nav-btn acp-nav-btn-log" id="acp-btn-live-log" onclick="acpToggleLogModal()" title="Live-Aktivitäts-Logbuch &amp; Audit-Trail">
-        <span class="nav-icon">📜</span>
+        <span class="nav-icon" style="display:inline-flex;align-items:center;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></span>
         <span class="nav-label">Log</span>
         <span class="nav-badge" id="acp-log-count" style="display:none; background:#d97706; color:#fff; border-radius:10px; padding:1px 6px; font-size:10px; font-weight:700; margin-left:4px;">0</span>
       </button>
       <button type="button" class="acp-nav-btn" onclick="acpToggleHelpModal()" title="Anleitung &amp; Erklärung">
-        <span class="nav-icon">💡</span>
+        <span class="nav-icon" style="display:inline-flex;align-items:center;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></span>
         <span class="nav-label">Hilfe</span>
       </button>
       <a href="#" target="_blank" class="acp-nav-btn acp-nav-btn-preview-ext" id="acp-btn-open-preview-tab" onclick="acpOpenPreviewInNewTab(event)" title="Vorschau-Seite im neuen Browser-Tab öffnen (Vollbild ohne Cockpit)" style="border-color: rgba(59, 130, 246, 0.45); background: rgba(59, 130, 246, 0.12);">
@@ -3142,7 +3241,7 @@ a.badge-live:hover {
         <span class="nav-label" style="color: #93c5fd; font-weight: 700;">Vorschau</span>
       </a>
       <a href="__HOST_URL__" target="_blank" class="acp-nav-btn acp-nav-btn-online" id="acp-online-btn" title="Online-Cockpit aufrufen">
-        <span class="nav-icon">🌐</span>
+        <span class="nav-icon" style="display:inline-flex;align-items:center;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/></svg></span>
         <span class="nav-label">Online</span>
       </a>
     </div>
@@ -3207,7 +3306,7 @@ a.badge-live:hover {
         <span class="b-dot green"></span>
       </div>
       <div class="acp-browser-url-pill" onclick="acpOpenPreviewInNewTab(event)" title="Klicken, um Vorschau in neuem Tab zu öffnen">
-        <span class="acp-url-lock">🔒</span>
+        <span class="acp-url-lock" style="display:inline-flex;align-items:center;"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></span>
         <span class="acp-url-address" id="acp-stage-browser-url">__HOST_JOBS_URL__</span>
         <a href="__HOST_JOBS_URL__" target="_blank" id="acp-stage-external-link" class="acp-url-open-ext" onclick="acpOpenPreviewInNewTab(event)" title="Vorschau-Seite im neuen Browser-Tab öffnen">
           <span>Im neuen Tab öffnen</span>
@@ -3513,7 +3612,7 @@ a.badge-live:hover {
   <div class="acp-pill-trigger" onclick="acpToggleMenu()" title="Klicken für Entwurfs-Menü & Scharfstellen">
     <span class="acp-pulse-dot"></span>
     <span class="acp-pill-label">Entwurf</span>
-    <span class="acp-pill-icon">⚙️</span>
+    <span class="acp-pill-icon" style="display:inline-flex;align-items:center;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg></span>
   </div>
 
   <div id="acp-draft-panel" class="acp-draft-panel">
