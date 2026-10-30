@@ -364,8 +364,14 @@
     "mtime": 1790616901,
     "mtime_str": "28.09.2026 17:35",
     "cdn_url": "https://embed.magnet-xs.ch/hiltbrand/images/vorstellung.jpg",
-    "is_used": false,
-    "used_in": []
+    "is_used": true,
+    "used_in": [
+      {
+        "datei": "Hiltbrand_Dachdecker.html",
+        "slot": "",
+        "is_hero": false
+      }
+    ]
   },
   {
     "id": "images_zurbuchen_alain_jpg",

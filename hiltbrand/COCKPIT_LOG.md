@@ -40,3 +40,4 @@
 - `2026-10-22 13:42:17` · **⚡ Sektion aktualisiert:** `[vorteile]` in `Hiltbrand_Dachdecker_Pragmatisch.html` | ✅ 100% grün | 🚀 Commit `feat(section): [hiltbrand] update [vorteile] in Hiltbrand_Dachdecker_Pragmatisch.html at 2026-10-22 13:42:14`
 - `2026-10-30 07:13:56` · **⚡ Sektion aktualisiert:** `[cta]` in `Hiltbrand_Dachdecker_Pragmatisch.html` | ✅ 100% grün | 🚀 Commit `feat(section): [hiltbrand] update [cta] in Hiltbrand_Dachdecker_Pragmatisch.html at 2026-10-30 07:13:48`
 - `2026-10-30 07:14:06` · **🚀 Scharfgestellt:** Live-Schaltung ausgelöst | ✅ 100% grün | 🚀 Commit `feat(publish): [hiltbrand] live update at 2026-10-30 07:14:03`
+- `2026-10-30 07:33:20` · **🖼️ Bildtausch:** `hero.jpg` ➔ `team_alt.jpg` in `Hiltbrand_Dachdecker.html` | ✅ 100% grün | 🚀 Commit `feat(swap): [hiltbrand] image in Hiltbrand_Dachdecker.html swapped (hero.jpg -> team_alt.jpg) at 2026-10-30 07:33:18`
