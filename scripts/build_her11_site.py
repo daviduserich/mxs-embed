@@ -796,6 +796,7 @@ SHARED_CSS = """
     .form-field {
       display: flex;
       flex-direction: column;
+      justify-content: space-between;
       gap: 6px;
     }
     .form-label {

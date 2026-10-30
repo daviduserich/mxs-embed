@@ -16,7 +16,7 @@
  *     Mobile-Menues und Cockpit-Modals zur verpflichtenden Sichtabnahme per read_file.
  */
 
-export const SYSTEM_EYES_VERSION = '2.0.0';
+export const SYSTEM_EYES_VERSION = '2.1.0';
 
 export const SYSTEM_EYES_ZONES = [
   { name: 'mobile_375x667', width: 375, height: 667, label: 'Zone 1 Smartphone (375×667)' },
@@ -42,7 +42,9 @@ export const SYSTEM_EYES_SENSORS = [
   { id: 'S-15', code: 'P2_ROW_HEIGHT_MISMATCH', severity: 'P2', rule: '#UI-14', desc: 'Karten in derselben Grid-Zeile muessen exakt gleich hoch sein (Toleranz <= 4px)' },
   { id: 'S-16', code: 'P2_SEVERE_TEXT_TRUNCATION', severity: 'P2', rule: '#UI-14', desc: 'Text mit text-overflow:ellipsis darf nicht unter 115px Restbreite abgeschnitten werden' },
   { id: 'S-17', code: 'P2_CLIENT_CODE_FONT_OR_SLASH', severity: 'P2', rule: '#UI-01', desc: 'Auf Kunden-Webseiten sind JetBrains Mono und //-Code-Striche in Kickern/Badges strikt verboten' },
-  { id: 'S-18', code: 'P2_MODAL_OVERLAP_LEAK', severity: 'P2', rule: '#UI-06', desc: 'Bei geoeffnetem Modal darf kein Hintergrund-Widget (#acp-draft-widget) ueber das Modal ragen' }
+  { id: 'S-18', code: 'P2_MODAL_OVERLAP_LEAK', severity: 'P2', rule: '#UI-06', desc: 'Bei geoeffnetem Modal darf kein Hintergrund-Widget (#acp-draft-widget) ueber das Modal ragen' },
+  { id: 'S-19', code: 'P1_TEXT_BLEEDS_CONTAINER', severity: 'P1', rule: '#UI-14', desc: 'Kein Wort/Textknoten darf horizontal ueber den rechten/linken Rand seines Buttons, Badges oder seiner Karte hinausragen' },
+  { id: 'S-20', code: 'P2_FORM_INPUT_MISALIGNMENT', severity: 'P2', rule: '#UI-02', desc: 'Nebeneinanderliegende Formular-Inputs in derselben Zeile muessen auf exakt gleicher vertikaler Hoehe (top) sitzen' }
 ];
 
 /**
@@ -408,6 +410,43 @@ export function evaluateSystemEyesInPage({ relPage, zone, options = {} }) {
       }
     }
     window.scrollTo(0, 0);
+  }
+
+
+  // S-19: P1_TEXT_BLEEDS_CONTAINER (Text node bleeds outside button/badge/pill/card border)
+  for (const el of allDom) {
+    if (['SCRIPT', 'STYLE', 'SVG', 'PATH', 'HTML', 'BODY'].includes(el.tagName) || el.closest('svg')) continue;
+    const textNodes = Array.from(el.childNodes).filter(n => n.nodeType === 3 && n.nodeValue.trim().length > 0);
+    if (textNodes.length === 0) continue;
+    const boxEl = el.closest('button, a, .role-pill, .topic-chip-btn, [class*="badge"], [class*="pill"], [class*="btn"], [class*="card"], td, th, label') || el;
+    const bRect = boxEl.getBoundingClientRect();
+    if (bRect.width < 10) continue;
+    for (const tn of textNodes) {
+      const range = document.createRange();
+      range.selectNodeContents(tn);
+      const rRect = range.getBoundingClientRect();
+      if (rRect.width === 0) continue;
+      if (rRect.right > bRect.right + 1.5 || rRect.left < bRect.left - 1.5) {
+        addFinding('P1', 'P1_TEXT_BLEEDS_CONTAINER', getLabel(boxEl), getCssPath(boxEl), `Text ragt ueber Element-Rahmen hinaus: textRight=${Math.round(rRect.right)}px > boxRight=${Math.round(bRect.right)}px`);
+      }
+    }
+  }
+
+  // S-20: P2_FORM_INPUT_MISALIGNMENT (Sibling inputs in same form row must share exact same top coordinate)
+  const formInputs = Array.from(queryRoot.querySelectorAll('input:not([type="hidden"]):not([type="checkbox"]):not([type="radio"]), select, textarea')).filter(isVisible);
+  for (let i = 0; i < formInputs.length; i++) {
+    for (let j = i + 1; j < formInputs.length; j++) {
+      const A = formInputs[i], B = formInputs[j];
+      const pA = A.parentElement, pB = B.parentElement;
+      if (!pA || !pB || pA.parentElement !== pB.parentElement) continue;
+      const rPA = pA.getBoundingClientRect(), rPB = pB.getBoundingClientRect();
+      if (Math.abs(rPA.left - rPB.left) > 20 && Math.abs(rPA.top - rPB.top) <= 30) {
+        const rA = A.getBoundingClientRect(), rB = B.getBoundingClientRect();
+        if (Math.abs(rA.top - rB.top) > 2) {
+          addFinding('P2', 'P2_FORM_INPUT_MISALIGNMENT', `${getLabel(A)} vs ${getLabel(B)}`, getCssPath(A), `Formular-Inputs in derselben Zeile vertikal versetzt: topA=${Math.round(rA.top)}px vs topB=${Math.round(rB.top)}px`);
+        }
+      }
+    }
   }
 
   return findings;
