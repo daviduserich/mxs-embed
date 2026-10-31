@@ -1,0 +1,2099 @@
+<!DOCTYPE html>
+<html lang="de-CH">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self' https: data: blob:; script-src 'self' 'unsafe-inline' https:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' https: data: blob:; connect-src 'self' https:;">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=()">
+  <title>FC Schlieren — Gegründet 1921 | 33 Teams, Fussballschule & Sportplatz Zelgli</title>
+  <meta name="description" content="Fussballclub Schlieren (gegründet 1921) — 33 Teams, Aktive Herren &amp; Frauen, Junioren A–G, Juniorinnen, Fussballschule &amp; Sportplatz Zelgli in 8952 Schlieren.">
+  <link rel="icon" type="image/png" href="images/favicon-32x32.png">
+  <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Montserrat:wght@600;700;800&amp;display=swap" rel="stylesheet">
+  <style>
+
+    :root {
+      --fcs-blue: #006EAB;
+      --fcs-blue-bright: #1D82BD;
+      --fcs-blue-soft: #EBF5FB;
+      --fcs-navy: #0F172A;
+      --fcs-navy-deep: #0B1324;
+      --fcs-gold: #FDC500;
+      --fcs-gold-dark: #B45309;
+      --fcs-gold-soft: #FEF9C3;
+      --fcs-green: #009245;
+      --fcs-green-soft: #DCFCE7;
+      --bg-page: #F8FAFC;
+      --bg-card: #FFFFFF;
+      --bg-muted: #F1F5F9;
+      --text-main: #0F172A;
+      --text-body: #334155;
+      --text-muted: #475569;
+      --border-light: #E2E8F0;
+      --border-strong: #CBD5E1;
+      --radius-sm: 4px;
+      --radius-md: 8px;
+      --shadow-sm: 0 2px 8px rgba(15, 23, 42, 0.05);
+      --shadow-md: 0 10px 28px rgba(15, 23, 42, 0.08);
+      --shadow-lg: 0 18px 42px rgba(15, 23, 42, 0.14);
+      --container: 1240px;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+      overflow-x: hidden;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      color: var(--text-main);
+      background-color: var(--bg-page);
+      line-height: 1.6;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+      transition: color 0.2s ease, background-color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+    }
+
+    ul {
+      list-style: none;
+    }
+
+    .container {
+      width: 100%;
+      max-width: var(--container);
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* Section Kickers (#UI-06: No JetBrains Mono, No //) */
+    .section-kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.76rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--fcs-blue);
+      margin-bottom: 12px;
+    }
+    .section-kicker::before {
+      content: "";
+      display: inline-block;
+      width: 16px;
+      height: 2px;
+      background-color: var(--fcs-gold);
+      border-radius: 0px;
+      flex-shrink: 0;
+    }
+    .section-kicker.kicker-light {
+      color: var(--fcs-gold);
+    }
+    .section-kicker.kicker-light::before {
+      background-color: #FFFFFF;
+    }
+
+    h1, h2, h3, h4 {
+      font-family: 'Montserrat', sans-serif;
+      color: var(--fcs-navy);
+      line-height: 1.18;
+      letter-spacing: -0.02em;
+    }
+
+    .section-head {
+      max-width: 780px;
+      margin-bottom: 44px;
+    }
+    .section-title {
+      font-size: clamp(1.85rem, 3.2vw, 2.65rem);
+      font-weight: 800;
+      margin-bottom: 14px;
+    }
+    .section-desc {
+      font-size: 1.04rem;
+      color: var(--text-body);
+      line-height: 1.65;
+    }
+
+    section {
+      padding: 84px 0;
+      position: relative;
+    }
+
+    /* Top Info Bar */
+    .top-bar {
+      background-color: var(--fcs-navy-deep);
+      color: #E2E8F0;
+      font-size: 0.8rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      position: relative;
+      z-index: 1002;
+    }
+    .top-bar-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      min-height: 38px;
+      gap: 16px;
+      flex-wrap: wrap;
+      padding-top: 6px;
+      padding-bottom: 6px;
+    }
+    .top-bar-left {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+      font-weight: 500;
+    }
+    .top-bar-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background-color: rgba(253, 197, 0, 0.16);
+      color: var(--fcs-gold);
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: 0.72rem;
+      padding: 2px 8px;
+      border-radius: var(--radius-sm);
+      letter-spacing: 0.04em;
+    }
+    .top-bar-links {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+    .top-bar-links a, .top-bar-links button {
+      color: #E2E8F0;
+      font-size: 0.78rem;
+      font-weight: 600;
+      background: none;
+      border: none;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-family: inherit;
+      padding: 0;
+    }
+    .top-bar-links a:hover, .top-bar-links button:hover {
+      color: var(--fcs-gold);
+    }
+
+    /* Sticky Header */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background-color: rgba(255, 255, 255, 0.97);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border-light);
+      box-shadow: 0 4px 20px rgba(15, 23, 42, 0.05);
+    }
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 82px;
+      gap: 20px;
+    }
+    .brand-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 14px;
+      flex-shrink: 0;
+    }
+    .brand-logo {
+      width: 48px;
+      height: 56px;
+      object-fit: contain;
+      flex-shrink: 0;
+    }
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+    }
+    .brand-name {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.22rem;
+      font-weight: 800;
+      color: var(--fcs-navy);
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+    }
+    .brand-sub {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.68rem;
+      font-weight: 700;
+      color: var(--fcs-blue);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-top: 3px;
+    }
+
+    .main-nav {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .nav-link {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--text-body);
+      padding: 8px 9px;
+      border-radius: var(--radius-sm);
+      white-space: nowrap;
+      min-height: 34px;
+      display: inline-flex;
+      align-items: center;
+    }
+    .nav-link:hover, .nav-link.active {
+      color: var(--fcs-blue);
+      background-color: var(--fcs-blue-soft);
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-shrink: 0;
+    }
+
+    /* Buttons (2-Radius: 4px / 8px) */
+    .btn-cta {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.86rem;
+      font-weight: 700;
+      padding: 12px 20px;
+      border-radius: var(--radius-sm);
+      border: 1px solid transparent;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      text-align: center;
+      line-height: 1.25;
+    }
+    .btn-cta-primary {
+      background-color: var(--fcs-blue);
+      color: #FFFFFF;
+      box-shadow: 0 4px 14px rgba(0, 110, 171, 0.24);
+    }
+    .btn-cta-primary:hover {
+      background-color: #00598A;
+      transform: translateY(-1px);
+    }
+    .btn-cta-gold {
+      background-color: var(--fcs-gold);
+      color: var(--fcs-navy);
+      font-weight: 800;
+      box-shadow: 0 4px 14px rgba(253, 197, 0, 0.28);
+    }
+    .btn-cta-gold:hover {
+      background-color: #EAB308;
+      transform: translateY(-1px);
+    }
+    .btn-cta-navy {
+      background-color: var(--fcs-navy);
+      color: #FFFFFF;
+    }
+    .btn-cta-navy:hover {
+      background-color: #1E293B;
+    }
+    .btn-cta-outline {
+      background-color: #FFFFFF;
+      color: var(--fcs-navy);
+      border-color: var(--border-strong);
+    }
+    .btn-cta-outline:hover {
+      border-color: var(--fcs-blue);
+      color: var(--fcs-blue);
+      background-color: var(--fcs-blue-soft);
+    }
+    .btn-cta-ghost-light {
+      background-color: rgba(255, 255, 255, 0.1);
+      color: #FFFFFF;
+      border-color: rgba(255, 255, 255, 0.28);
+    }
+    .btn-cta-ghost-light:hover {
+      background-color: rgba(255, 255, 255, 0.2);
+    }
+    .btn-sm {
+      padding: 9px 14px;
+      font-size: 0.8rem;
+    }
+
+    /* Mobile Menu Toggle & Drawer (S-04b safe) */
+    .mobile-toggle {
+      display: none;
+      align-items: center;
+      justify-content: center;
+      width: 44px;
+      height: 44px;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border-light);
+      background: #FFFFFF;
+      color: var(--fcs-navy);
+      cursor: pointer;
+    }
+    .mobile-drawer {
+      display: none;
+      position: fixed;
+      top: 82px;
+      left: 0;
+      right: 0;
+      background-color: var(--fcs-navy);
+      border-bottom: 2px solid var(--fcs-gold);
+      padding: 20px 24px 28px;
+      z-index: 999;
+      flex-direction: column;
+      gap: 10px;
+      box-shadow: var(--shadow-lg);
+    }
+    .mobile-drawer.open {
+      display: flex;
+    }
+    .mobile-drawer a {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: #FFFFFF;
+      padding: 12px 14px;
+      border-radius: var(--radius-sm);
+      background-color: rgba(255, 255, 255, 0.05);
+    }
+    .mobile-drawer a:hover {
+      background-color: var(--fcs-blue);
+    }
+
+    /* Hero Section */
+    .hero-section {
+      background: linear-gradient(135deg, #0B1324 0%, #0F2547 55%, #004E7C 100%);
+      color: #FFFFFF;
+      padding: 68px 0 76px;
+      position: relative;
+      overflow: hidden;
+      border-bottom: 4px solid var(--fcs-gold);
+    }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.12fr 0.88fr;
+      gap: 44px;
+      align-items: center;
+    }
+    .hero-title {
+      color: #FFFFFF;
+      font-size: clamp(2.15rem, 4vw, 3.35rem);
+      font-weight: 800;
+      line-height: 1.12;
+      margin-bottom: 18px;
+    }
+    .hero-title span {
+      color: var(--fcs-gold);
+    }
+    .hero-motto-box {
+      background-color: rgba(253, 197, 0, 0.12);
+      border-left: 4px solid var(--fcs-gold);
+      padding: 12px 16px;
+      border-radius: var(--radius-sm);
+      margin-bottom: 20px;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.84rem;
+      font-weight: 700;
+      color: #FEF08A;
+      letter-spacing: 0.02em;
+    }
+    .hero-sub {
+      font-size: 1.05rem;
+      color: #E2E8F0;
+      margin-bottom: 28px;
+      line-height: 1.65;
+    }
+    .hero-cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 36px;
+    }
+    .hero-kpi-strip {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      padding-top: 24px;
+      border-top: 1px solid rgba(255, 255, 255, 0.14);
+    }
+    .hero-kpi-card {
+      background-color: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: var(--radius-md);
+      padding: 12px 14px;
+    }
+    .hero-kpi-num {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.35rem;
+      font-weight: 800;
+      color: var(--fcs-gold);
+      line-height: 1.15;
+    }
+    .hero-kpi-lbl {
+      font-size: 0.76rem;
+      color: #CBD5E1;
+      margin-top: 4px;
+      line-height: 1.35;
+    }
+
+    .hero-visual-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .hero-photo-card {
+      background-color: #1E293B;
+      border: 2px solid rgba(255, 255, 255, 0.18);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      box-shadow: var(--shadow-lg);
+      position: relative;
+    }
+    .hero-photo-card img {
+      width: 100%;
+      height: 270px;
+      object-fit: cover;
+      object-position: center 25%;
+    }
+    .hero-photo-caption {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 12px 16px;
+      background-color: rgba(15, 23, 42, 0.94);
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .hero-photo-caption strong {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.84rem;
+      color: #FFFFFF;
+    }
+    .hero-photo-caption span {
+      font-size: 0.76rem;
+      color: var(--fcs-gold);
+      font-weight: 600;
+    }
+    .hero-secondary-row {
+      display: grid;
+      grid-template-columns: 1.25fr 0.75fr;
+      gap: 16px;
+    }
+    .hero-mini-card {
+      background-color: rgba(15, 23, 42, 0.85);
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .hero-mini-card img {
+      width: 100%;
+      height: 148px;
+      object-fit: cover;
+    }
+    .hero-mini-body {
+      padding: 10px 14px;
+      font-size: 0.78rem;
+      color: #E2E8F0;
+    }
+    .hero-centenary-box {
+      background-color: rgba(255, 255, 255, 0.96);
+      color: var(--fcs-navy);
+      border-radius: var(--radius-md);
+      padding: 14px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      gap: 8px;
+    }
+    .hero-centenary-box img {
+      width: 112px;
+      height: 84px;
+      object-fit: contain;
+    }
+    .hero-centenary-box strong {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.8rem;
+      color: var(--fcs-navy);
+    }
+
+    /* Generic Cards & Grids */
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .grid-4 {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 28px;
+    }
+
+    .card {
+      background-color: var(--bg-card);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-sm);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+    }
+    .card:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-md);
+      border-color: var(--border-strong);
+    }
+    .card-media {
+      position: relative;
+      height: 210px;
+      background-color: var(--fcs-navy);
+      overflow: hidden;
+    }
+    .card-media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .card-badge {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      background-color: var(--fcs-navy);
+      color: var(--fcs-gold);
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 800;
+      padding: 4px 10px;
+      border-radius: var(--radius-sm);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+    .card-body {
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+      gap: 12px;
+    }
+    .card-title {
+      font-size: 1.2rem;
+      font-weight: 800;
+      color: var(--fcs-navy);
+    }
+    .card-text {
+      font-size: 0.93rem;
+      color: var(--text-body);
+      line-height: 1.6;
+    }
+    .card-meta-list {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      padding: 12px 14px;
+      background-color: var(--bg-muted);
+      border-radius: var(--radius-sm);
+      font-size: 0.85rem;
+      color: var(--text-main);
+    }
+    .card-meta-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+    }
+    .card-meta-item svg {
+      color: var(--fcs-blue);
+      flex-shrink: 0;
+      margin-top: 3px;
+    }
+    .card-footer {
+      padding: 0 24px 24px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    /* Department Pillar Cards */
+    .pillar-card {
+      background-color: #FFFFFF;
+      border: 1px solid var(--border-light);
+      border-top: 4px solid var(--fcs-blue);
+      border-radius: var(--radius-md);
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 16px;
+      box-shadow: var(--shadow-sm);
+    }
+    .pillar-card.pillar-gold {
+      border-top-color: var(--fcs-gold);
+    }
+    .pillar-card.pillar-green {
+      border-top-color: var(--fcs-green);
+    }
+    .pillar-count {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 800;
+      color: var(--fcs-blue);
+      background-color: var(--fcs-blue-soft);
+      padding: 4px 10px;
+      border-radius: var(--radius-sm);
+      align-self: flex-start;
+      text-transform: uppercase;
+    }
+    .pillar-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+    .pillar-tag {
+      font-size: 0.76rem;
+      font-weight: 600;
+      padding: 3px 8px;
+      border-radius: var(--radius-sm);
+      background-color: var(--bg-muted);
+      color: var(--text-main);
+      border: 1px solid var(--border-light);
+    }
+
+    /* Board / Vorstand Grid */
+    .board-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-top: 24px;
+    }
+    .board-card {
+      background-color: #FFFFFF;
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-md);
+      padding: 18px 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .board-role {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--fcs-blue);
+    }
+    .board-name {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.05rem;
+      font-weight: 800;
+      color: var(--fcs-navy);
+    }
+    .board-links {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      margin-top: 6px;
+      font-size: 0.84rem;
+      color: var(--text-body);
+    }
+    .board-links a:hover {
+      color: var(--fcs-blue);
+    }
+
+    /* Timeline */
+    .timeline-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      margin-top: 28px;
+    }
+    .timeline-box {
+      background-color: var(--fcs-navy);
+      color: #FFFFFF;
+      border-radius: var(--radius-md);
+      padding: 20px;
+      border-top: 3px solid var(--fcs-gold);
+    }
+    .timeline-year {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: var(--fcs-gold);
+      margin-bottom: 6px;
+    }
+    .timeline-text {
+      font-size: 0.85rem;
+      color: #E2E8F0;
+      line-height: 1.55;
+    }
+
+    /* Sponsors Showcase (Gold / Silver / Bronze) */
+    .sponsor-tier-block {
+      margin-bottom: 36px;
+    }
+    .sponsor-tier-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 16px;
+      padding-bottom: 10px;
+      border-bottom: 2px solid var(--border-light);
+    }
+    .sponsor-tier-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.82rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      padding: 5px 12px;
+      border-radius: var(--radius-sm);
+    }
+    .tier-gold {
+      background-color: var(--fcs-gold-soft);
+      color: #92400E;
+      border: 1px solid #FDE047;
+    }
+    .tier-silver {
+      background-color: #F1F5F9;
+      color: #1E293B;
+      border: 1px solid #CBD5E1;
+    }
+    .tier-bronze {
+      background-color: #FFEDD5;
+      color: #9A3412;
+      border: 1px solid #FDBA74;
+    }
+
+    .sponsors-gold-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+    }
+    .sponsors-silver-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+    .sponsors-bronze-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+    .sponsor-card {
+      background-color: #FFFFFF;
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-md);
+      padding: 22px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      text-align: center;
+      gap: 14px;
+      box-shadow: var(--shadow-sm);
+      transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+    .sponsor-card:hover {
+      transform: translateY(-2px);
+      border-color: var(--fcs-blue);
+      box-shadow: var(--shadow-md);
+    }
+    .sponsor-card.gold-card {
+      border: 2px solid #FDE047;
+      padding: 28px;
+    }
+    .sponsor-logo-wrap {
+      width: 100%;
+      height: 110px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #FFFFFF;
+      padding: 8px;
+    }
+    .sponsor-card.gold-card .sponsor-logo-wrap {
+      height: 140px;
+    }
+    .sponsor-logo-wrap img {
+      max-height: 100%;
+      max-width: 100%;
+      width: auto;
+      height: auto;
+      object-fit: contain;
+    }
+    .sponsor-name {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1rem;
+      font-weight: 800;
+      color: var(--fcs-navy);
+    }
+    .sponsor-role-tag {
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--text-muted);
+    }
+
+    /* Social Wall */
+    .social-filter-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 28px;
+    }
+    .social-tab-btn {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 700;
+      padding: 8px 14px;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border-strong);
+      background-color: #FFFFFF;
+      color: var(--text-body);
+      cursor: pointer;
+    }
+    .social-tab-btn.active, .social-tab-btn:hover {
+      background-color: var(--fcs-blue);
+      color: #FFFFFF;
+      border-color: var(--fcs-blue);
+    }
+
+    /* Footer */
+    .site-footer {
+      background-color: var(--fcs-navy-deep);
+      color: #E2E8F0;
+      padding: 68px 0 36px;
+      border-top: 4px solid var(--fcs-gold);
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.3fr 1fr 1fr 1.1fr;
+      gap: 36px;
+      padding-bottom: 44px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+    }
+    .footer-title {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.92rem;
+      font-weight: 800;
+      color: #FFFFFF;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: 16px;
+    }
+    .footer-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .footer-list a, .footer-list button {
+      color: #CBD5E1;
+      font-size: 0.88rem;
+      background: none;
+      border: none;
+      text-align: left;
+      cursor: pointer;
+      font-family: inherit;
+      padding: 5px 0;
+      min-height: 32px;
+      display: inline-flex;
+      align-items: center;
+    }
+    .footer-bottom a,
+    .board-links a,
+    .staff-card a,
+    .team-sponsor-strip a {
+      display: inline-flex;
+      align-items: center;
+      min-height: 32px;
+      padding: 4px 0;
+    }
+    .footer-list a:hover, .footer-list button:hover {
+      color: var(--fcs-gold);
+    }
+    .footer-bottom {
+      padding-top: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+      font-size: 0.82rem;
+      color: #CBD5E1;
+    }
+
+    /* Blueprint Modal (#wpBlueprintModal) */
+    .wp-modal-backdrop {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background-color: rgba(11, 19, 36, 0.78);
+      backdrop-filter: blur(6px);
+      z-index: 2000;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+    .wp-modal-backdrop.open {
+      display: flex;
+    }
+    .wp-modal-dialog {
+      background-color: #FFFFFF;
+      border: 2px solid var(--fcs-gold);
+      border-radius: var(--radius-md);
+      max-width: 620px;
+      width: 100%;
+      padding: 28px;
+      box-shadow: var(--shadow-lg);
+      position: relative;
+      max-height: 90vh;
+      overflow-y: auto;
+    }
+    .wp-modal-close {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      width: 36px;
+      height: 36px;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border-light);
+      background-color: var(--bg-muted);
+      color: var(--fcs-navy);
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .wp-modal-checklist {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin: 18px 0;
+      padding: 16px;
+      background-color: var(--bg-muted);
+      border-radius: var(--radius-sm);
+    }
+    .wp-modal-check-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 0.88rem;
+      color: var(--text-main);
+    }
+    .wp-modal-check-item svg {
+      color: var(--fcs-green);
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    /* Responsive Breakpoints */
+    @media (max-width: 1080px) {
+      .hero-grid {
+        grid-template-columns: 1fr;
+      }
+      .grid-4, .timeline-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .grid-3, .board-grid, .sponsors-silver-grid, .sponsors-bronze-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .footer-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .main-nav, .header-actions .btn-cta {
+        display: none;
+      }
+      .mobile-toggle {
+        display: inline-flex;
+      }
+    }
+
+    @media (max-width: 720px) {
+      section {
+        padding: 56px 0;
+      }
+      .top-bar-links {
+        display: none;
+      }
+      .hero-kpi-strip {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .hero-secondary-row,
+      .grid-2,
+      .grid-3,
+      .grid-4,
+      .board-grid,
+      .timeline-grid,
+      .sponsors-gold-grid,
+      .sponsors-silver-grid,
+      .sponsors-bronze-grid,
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+      .header-actions .btn-cta-primary {
+        padding: 9px 12px;
+        font-size: 0.78rem;
+      }
+    }
+
+
+  </style>
+</head>
+<body>
+
+  <!-- TOP BAR -->
+  <div class="top-bar">
+    <div class="container top-bar-inner">
+      <div class="top-bar-left">
+        <span class="top-bar-badge" data-slot="topbar_badge">SEIT 21. MÄRZ 1921</span>
+        <span data-slot="topbar_info">Fussballanlage Zelgli · 8952 Schlieren · 33 Mannschaften im SFV</span>
+      </div>
+      <div class="top-bar-links">
+        <a href="index.html#zelgli-verein">Sportplatz Zelgli &amp; Beizli</a>
+        <a href="index.html#sponsoren">Sponsoren &amp; Supporter</a>
+        <button type="button" onclick="wpOpenBlueprintModal('Vereinsdokumente: Statuten, Schutz- &amp; Notfallkonzept', 'Geschäftsstelle &amp; Präsidium', 'Roger Küng (r.kueng@fcschlieren.ch) &amp; Jana Seifriz (j.seifriz@fcschlieren.ch)')">Notfallkonzept &amp; Statuten</button>
+        <a href="kontakt.html?thema=spielbetrieb">Spielverschiebung melden</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- STICKY HEADER -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="brand-link" aria-label="FC Schlieren Startseite">
+        <img src="images/logo-fcschlieren.webp" alt="Wappen FC Schlieren" class="brand-logo" width="48" height="56" data-slot="brand_logo">
+        <div class="brand-text">
+          <span class="brand-name" data-slot="brand_name">FC SCHLIEREN</span>
+          <span class="brand-sub" data-slot="brand_sub">GEGRÜNDET 1921 · ZELGLI</span>
+        </div>
+      </a>
+
+      <nav class="main-nav" aria-label="Hauptnavigation">
+        <a href="index.html" class="nav-link active">Startseite</a>
+        <a href="herren-1.html" class="nav-link ">Teams (33)</a>
+        <a href="index.html#aktuelles-camps" class="nav-link">Fussballschule &amp; Camps</a>
+        <a href="index.html#zelgli-verein" class="nav-link">Zelgli &amp; Verein</a>
+        <a href="index.html#sponsoren" class="nav-link">Sponsoren</a>
+        <a href="kontakt.html" class="nav-link ">Vereins-Zentrale</a>
+      </nav>
+
+      <div class="header-actions">
+        <a href="kontakt.html?thema=probetraining" class="btn-cta btn-cta-primary btn-sm" data-slot="header_cta">
+          <span>Probetraining &amp; Kontakt</span>
+        </a>
+        <button type="button" class="mobile-toggle" id="mobileMenuBtn" aria-label="Menü öffnen" onclick="wpToggleMobileMenu()">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <div class="mobile-drawer" id="mobileDrawer">
+      <a href="index.html" onclick="wpCloseMobileMenu()">Startseite</a>
+      <a href="herren-1.html" onclick="wpCloseMobileMenu()">Muster-Team (Herren 1 / Frauen 1) &amp; 33 Teams</a>
+      <a href="index.html#aktuelles-camps" onclick="wpCloseMobileMenu()">Fussballschule &amp; Fussballcamps</a>
+      <a href="index.html#zelgli-verein" onclick="wpCloseMobileMenu()">Sportplatz Zelgli, Beizli &amp; Vorstand</a>
+      <a href="index.html#sponsoren" onclick="wpCloseMobileMenu()">Sponsoren, Supporter &amp; Business-Club</a>
+      <a href="kontakt.html" onclick="wpCloseMobileMenu()">Vereins- &amp; Probetraining-Zentrale</a>
+    </div>
+  </header>
+
+  <main>
+
+  <!-- 1. HERO SECTION -->
+  <section class="hero-section" data-section="hero">
+    <div class="container hero-grid">
+      <div>
+        <div class="section-kicker kicker-light" data-slot="hero_kicker">FUSSBALLCLUB SCHLIEREN · GEGRÜNDET 21. MÄRZ 1921</div>
+        <h1 class="hero-title" data-slot="hero_title">
+          Leidenschaft, Stolz und <span>33 Teams</span> auf dem Zelgli.
+        </h1>
+        <div class="hero-motto-box" data-slot="hero_motto">
+          «KÄMPFE MIT LEIDENSCHAFT, SIEGE MIT STOLZ — VERLIERE MIT RESPEKT — ABER GIB NIEMALS AUF!»
+        </div>
+        <p class="hero-sub" data-slot="hero_sub">
+          Vom ersten Ballkontakt in der Fussballschule über 25 Nachwuchs-Mannschaften bis zu unseren Aktivteams Herren 1 und Frauen 1: Der FC Schlieren verbindet seit über 100 Jahren sportlichen Ehrgeiz, gelebte Integration und Vereinsfamilie im Herzen des Limmattals.
+        </p>
+
+        <div class="hero-cta-row">
+          <a href="kontakt.html?thema=probetraining" class="btn-cta btn-cta-gold" data-slot="hero_cta_primary">
+            <span>Probetraining &amp; Vereins-Zentrale</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="9 18 15 12 9 6"/></svg>
+          </a>
+          <a href="herren-1.html" class="btn-cta btn-cta-ghost-light" data-slot="hero_cta_secondary">
+            <span>Muster-Team (Herren 1 / Frauen 1) &amp; 33 Teams</span>
+          </a>
+        </div>
+
+        <div class="hero-kpi-strip">
+          <div class="hero-kpi-card">
+            <div class="hero-kpi-num" data-slot="kpi_1_num">1921</div>
+            <div class="hero-kpi-lbl" data-slot="kpi_1_lbl">Gründung am 21. März 1921 · Über 100 Jahre Tradition</div>
+          </div>
+          <div class="hero-kpi-card">
+            <div class="hero-kpi-num" data-slot="kpi_2_num">33 Teams</div>
+            <div class="hero-kpi-lbl" data-slot="kpi_2_lbl">5 Herren/Sen. · 3 Frauen · 17 Junioren · 8 Juniorinnen</div>
+          </div>
+          <div class="hero-kpi-card">
+            <div class="hero-kpi-num" data-slot="kpi_3_num">Zelgli</div>
+            <div class="hero-kpi-lbl" data-slot="kpi_3_lbl">Hauptplatz, Kunstrasen &amp; rauchfreies Club-Beizli</div>
+          </div>
+          <div class="hero-kpi-card">
+            <div class="hero-kpi-num" data-slot="kpi_4_num">11+ Partner</div>
+            <div class="hero-kpi-lbl" data-slot="kpi_4_lbl">Gold-, Silber- &amp; Bronze-Sponsoren + Business-Club</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-visual-stack">
+        <div class="hero-photo-card">
+          <img src="images/hero-herren-1.webp" alt="FC Schlieren 1. Mannschaft Herren 1 auf dem Sportplatz Zelgli" width="640" height="270" data-slot="hero_img_main">
+          <div class="hero-photo-caption">
+            <strong>1. Mannschaft — Herren 1 (Sportplatz Zelgli)</strong>
+            <span>Hauptsponsor: Emil Frey AG, Schlieren</span>
+          </div>
+        </div>
+
+        <div class="hero-secondary-row">
+          <div class="hero-mini-card">
+            <img src="images/hero-frauen-1.webp" alt="FC Schlieren Frauen 1 Mannschaft" width="400" height="148" data-slot="hero_img_secondary">
+            <div class="hero-mini-body">
+              <strong style="color:#FDC500;font-family:'Montserrat',sans-serif;">Frauen 1 — Tradition seit 1979</strong><br>
+              <span>Partner: J.F. Jost &amp; Co. · Waser Facility Management</span>
+            </div>
+          </div>
+          <div class="hero-centenary-box">
+            <img src="images/fcs-100-jahre.webp" alt="100 Jahre FC Schlieren Jubiläumslogo" width="112" height="84" data-slot="hero_img_centenary">
+            <strong>Über 100 Jahre FC Schlieren</strong>
+            <span style="font-size:0.73rem;color:var(--text-muted);">SFV-Verein Nr. 530 · 8952 Schlieren</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. AKTUELLES, FUSSBALLSCHULE & FUSSBALLCAMPS -->
+  <section id="aktuelles-camps" data-section="aktuelles-camps" style="background-color:#FFFFFF;border-bottom:1px solid var(--border-light);">
+    <div class="container">
+      <div class="section-head">
+        <div class="section-kicker" data-slot="camps_kicker">NACHWUCHS &amp; FERIEN-HIGHLIGHTS AUF DEM ZELGLI</div>
+        <h2 class="section-title" data-slot="camps_title">Fussballschule 2026 &amp; Kohler Fussballcamps in Schlieren.</h2>
+        <p class="section-desc" data-slot="camps_desc">
+          Beim FC Schlieren beginnt die Freude am Fussball bereits bei den Jüngsten. Hier findest du alle aktuellen Trainingszeiten der Fussballschule, die Anmeldedaten der Kohler Fussballcamps sowie den offiziellen Camp-Trailer.
+        </p>
+      </div>
+
+      <div class="grid-3">
+        <!-- Card 1: Fussballschule -->
+        <article class="card">
+          <div class="card-media">
+            <img src="images/zelgli-anlage-1.webp" alt="Fussballschule auf dem Sportplatz Zelgli Schlieren" width="420" height="210" loading="lazy" decoding="async" data-slot="camp_1_img">
+            <span class="card-badge">1. Training: 19. August 2026</span>
+          </div>
+          <div class="card-body">
+            <h3 class="card-title" data-slot="camp_1_title">Fussballschule FC Schlieren (Jg. 2016–2022)</h3>
+            <p class="card-text" data-slot="camp_1_desc">
+              Spielerischer Einstieg für Mädchen und Knaben direkt auf unserer Sportanlage Zelgli. Geleitet von unserem Nachwuchs-Team um Gianfranco Gennaro und Luigi Schiavano.
+            </p>
+            <div class="card-meta-list">
+              <div class="card-meta-item">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
+                <span><strong>Jahrgänge:</strong> 2016 / 2017 (Jun. E) · 2018 / 2019 (Jun. F) · 2020–2022 (Jun. G)</span>
+              </div>
+              <div class="card-meta-item">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                <span><strong>Trainingszeit:</strong> Jeden Mittwoch, 16:15 – 17:45 Uhr</span>
+              </div>
+              <div class="card-meta-item">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                <span><strong>Ort &amp; Start:</strong> Sportplatz Zelgli Schlieren · Start 19.08.2026</span>
+              </div>
+            </div>
+          </div>
+          <div class="card-footer">
+            <a href="kontakt.html?thema=probetraining" class="btn-cta btn-cta-primary btn-sm" style="width:100%;">
+              <span>Kind für Fussballschule / Schnuppertraining melden</span>
+            </a>
+          </div>
+        </article>
+
+        <!-- Card 2: Kohler Fussballcamps -->
+        <article class="card">
+          <div class="card-media">
+            <img src="images/fussballcamp-kohler.webp" alt="Kohler Fussballcamps beim FC Schlieren" width="420" height="210" loading="lazy" decoding="async" data-slot="camp_2_img">
+            <span class="card-badge">Ferien-Camp auf dem Zelgli</span>
+          </div>
+          <div class="card-body">
+            <h3 class="card-title" data-slot="camp_2_title">Kohler Fussballcamps auf dem Zelgli</h3>
+            <p class="card-text" data-slot="camp_2_desc">
+              Intensives Technik- und Spieltraining während den Schulferien auf der Sportanlage Zelgli. Inklusive kompletter Trainingsausrüstung, kindergerechter Mittagsverpflegung und Abschlussturnier.
+            </p>
+            <div class="card-meta-list">
+              <div class="card-meta-item">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="20 6 9 17 4 12"/></svg>
+                <span>Offizieller Camp-Partner: <strong>kohler-camp.ch</strong></span>
+              </div>
+              <div class="card-meta-item">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="20 6 9 17 4 12"/></svg>
+                <span>Für Vereinsmitglieder und Gastkinder aus dem ganzen Limmattal</span>
+              </div>
+            </div>
+          </div>
+          <div class="card-footer">
+            <a href="https://kohler-camp.ch" target="_blank" rel="noopener noreferrer" class="btn-cta btn-cta-outline btn-sm" style="flex:1;">
+              <span>Zu kohler-camp.ch</span>
+            </a>
+            <a href="kontakt.html?thema=probetraining" class="btn-cta btn-cta-navy btn-sm" style="flex:1;">
+              <span>Frage ans Sekretariat</span>
+            </a>
+          </div>
+        </article>
+
+        <!-- Card 3: Camp Trailer & Trainingspläne -->
+        <article class="card">
+          <div class="card-media">
+            <img src="images/camp-trailer-thumb.webp" alt="FC Schlieren Fussballcamp Trailer Video" width="420" height="210" loading="lazy" decoding="async" data-slot="camp_3_img">
+            <span class="card-badge">Video-Trailer &amp; Pläne</span>
+          </div>
+          <div class="card-body">
+            <h3 class="card-title" data-slot="camp_3_title">Camp-Trailer &amp; Saison-Trainingspläne</h3>
+            <p class="card-text" data-slot="camp_3_desc">
+              Schau dir den offiziellen Video-Trailer unseres Fussballcamps auf dem Zelgli an oder öffne direkt die aktuellen Platz-, Wintertrainings- und Hallenbelegungspläne des FC Schlieren.
+            </p>
+            <div class="card-meta-list">
+              <div class="card-meta-item">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                <span><strong>Offizielles Video:</strong> Fussballcamp-Trailer (YouTube)</span>
+              </div>
+              <div class="card-meta-item">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/></svg>
+                <span><strong>Spielbetrieb:</strong> Sommer-, Winter- &amp; Hallentrainingsplan</span>
+              </div>
+            </div>
+          </div>
+          <div class="card-footer">
+            <a href="https://youtu.be/R_uQ5BWDFuc" target="_blank" rel="noopener noreferrer" class="btn-cta btn-cta-gold btn-sm" style="flex:1;">
+              <span>Video-Trailer starten</span>
+            </a>
+            <button type="button" class="btn-cta btn-cta-outline btn-sm" style="flex:1;" onclick="wpOpenBlueprintModal('Wintertrainings- &amp; Hallenbelegungsplan', 'Spielbetrieb Zelgli &amp; Sporthallen Schlieren', 'Roger Mehr (r.mehr@fcschlieren.ch) &amp; Jana Seifriz (j.seifriz@fcschlieren.ch)', 'spielbetrieb')">
+              <span>Trainingspläne</span>
+            </button>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. DIE 4 SPORTLICHEN SÄULEN (ALLE 33 TEAMS) -->
+  <section id="abteilungen" data-section="abteilungen">
+    <div class="container">
+      <div class="section-head">
+        <div class="section-kicker" data-slot="dept_kicker">SPORTLICHE HEIMAT FÜR JEDES ALTER</div>
+        <h2 class="section-title" data-slot="dept_title">33 Mannschaften in 4 starken Abteilungen.</h2>
+        <p class="section-desc" data-slot="dept_desc">
+          Als einer der grössten Ausbildungs- und Breitensportvereine im Bezirk Dietikon bietet der FC Schlieren durchgängige Teams von den G-Junioren bis zu den Senioren 50+. Klicke auf unsere Muster-Team-Seite für den vollen Kader-Einblick.
+        </p>
+      </div>
+
+      <div class="grid-4">
+        <!-- Säule 1: Aktive Herren & Senioren -->
+        <div class="pillar-card">
+          <div>
+            <span class="pillar-count">5 Mannschaften</span>
+            <h3 style="font-size:1.22rem;font-weight:800;margin:12px 0 8px;" data-slot="pillar_1_title">Aktive Herren &amp; Senioren</h3>
+            <p style="font-size:0.88rem;color:var(--text-body);margin-bottom:14px;" data-slot="pillar_1_desc">
+              Unser sportliches Aushängeschild <strong>Herren 1</strong> (Trainer: Diego Bürger &amp; Livio Sanseverino), die 2. Mannschaft sowie drei traditionsreiche Senioren-Teams (30+, 40+, 50+).
+            </p>
+            <div class="pillar-tags">
+              <span class="pillar-tag">Herren 1 (Muster-Team)</span>
+              <span class="pillar-tag">Herren 2</span>
+              <span class="pillar-tag">Senioren 30+</span>
+              <span class="pillar-tag">Senioren 40+</span>
+              <span class="pillar-tag">Senioren 50+</span>
+            </div>
+          </div>
+          <div style="padding-top:12px;border-top:1px solid var(--border-light);font-size:0.8rem;color:var(--text-muted);">
+            <strong>Leiter Aktive:</strong> Zoran Perak (z.perak@fcschlieren.ch)
+          </div>
+          <a href="herren-1.html?team=herren1" class="btn-cta btn-cta-primary btn-sm" style="width:100%;">
+            <span>Muster-Team Herren 1 öffnen</span>
+          </a>
+        </div>
+
+        <!-- Säule 2: Aktive Frauen -->
+        <div class="pillar-card pillar-gold">
+          <div>
+            <span class="pillar-count" style="background-color:var(--fcs-gold-soft);color:#92400E;">3 Mannschaften · Seit 1979</span>
+            <h3 style="font-size:1.22rem;font-weight:800;margin:12px 0 8px;" data-slot="pillar_2_title">Aktive Frauen 1, 2 &amp; 3</h3>
+            <p style="font-size:0.88rem;color:var(--text-body);margin-bottom:14px;" data-slot="pillar_2_desc">
+              Bereits 1979 gegründet: Mit drei aktiven Frauenteams gehört der FC Schlieren zu den führenden Adressen für Frauenfussball in der Region Zürich und im Limmattal.
+            </p>
+            <div class="pillar-tags">
+              <span class="pillar-tag">Frauen 1 (Muster-Team)</span>
+              <span class="pillar-tag">Frauen 2</span>
+              <span class="pillar-tag">Frauen 3</span>
+            </div>
+          </div>
+          <div style="padding-top:12px;border-top:1px solid var(--border-light);font-size:0.8rem;color:var(--text-muted);">
+            <strong>Trainer Frauen 1:</strong> Konstantinos Vettas &amp; Sergio Zamora
+          </div>
+          <a href="herren-1.html?team=frauen1" class="btn-cta btn-cta-gold btn-sm" style="width:100%;">
+            <span>Muster-Team Frauen 1 öffnen</span>
+          </a>
+        </div>
+
+        <!-- Säule 3: Junioren A bis G -->
+        <div class="pillar-card pillar-green">
+          <div>
+            <span class="pillar-count" style="background-color:var(--fcs-green-soft);color:#166534;">17 Mannschaften</span>
+            <h3 style="font-size:1.22rem;font-weight:800;margin:12px 0 8px;" data-slot="pillar_3_title">Junioren A bis G</h3>
+            <p style="font-size:0.88rem;color:var(--text-body);margin-bottom:14px;" data-slot="pillar_3_desc">
+              Strukturierte Nachwuchsarbeit über alle Altersstufen: Von den A-, B- und C-Junioren über vier D-Teams (9er &amp; 7er) bis zum Kinderfussball der E-, F- und G-Junioren.
+            </p>
+            <div class="pillar-tags">
+              <span class="pillar-tag">Jun. A</span>
+              <span class="pillar-tag">B1 &amp; B2</span>
+              <span class="pillar-tag">C1–C3</span>
+              <span class="pillar-tag">D1/D2 (9er &amp; 7er)</span>
+              <span class="pillar-tag">E1–E4</span>
+              <span class="pillar-tag">F1–F4 &amp; G</span>
+            </div>
+          </div>
+          <div style="padding-top:12px;border-top:1px solid var(--border-light);font-size:0.8rem;color:var(--text-muted);">
+            <strong>Leiter Junioren:</strong> Luigi Schiavano · Koord.: O. Otero &amp; G. Gennaro
+          </div>
+          <a href="herren-1.html#alle-teams-matrix" class="btn-cta btn-cta-outline btn-sm" style="width:100%;">
+            <span>Alle 17 Junioren-Teams ansehen</span>
+          </a>
+        </div>
+
+        <!-- Säule 4: Juniorinnen U16 bis F -->
+        <div class="pillar-card">
+          <div>
+            <span class="pillar-count">8 Mannschaften</span>
+            <h3 style="font-size:1.22rem;font-weight:800;margin:12px 0 8px;" data-slot="pillar_4_title">Juniorinnen U16 bis F</h3>
+            <p style="font-size:0.88rem;color:var(--text-body);margin-bottom:14px;" data-slot="pillar_4_desc">
+              Eigene Mädchenteams von den F- und E-Juniorinnen über D7er, D9er und U14 Mädchen bis zu den C-, B-Juniorinnen und Frauen U16 — der direkte Weg in unsere Aktivteams.
+            </p>
+            <div class="pillar-tags">
+              <span class="pillar-tag">Frauen U16</span>
+              <span class="pillar-tag">B &amp; C Juniorinnen</span>
+              <span class="pillar-tag">U14 Mädchen</span>
+              <span class="pillar-tag">D9er &amp; D7er</span>
+              <span class="pillar-tag">E &amp; F Juniorinnen</span>
+            </div>
+          </div>
+          <div style="padding-top:12px;border-top:1px solid var(--border-light);font-size:0.8rem;color:var(--text-muted);">
+            <strong>Leiter Juniorinnen:</strong> Mario De Meo · Koord.: L. Mussolin &amp; A. Paradiso
+          </div>
+          <a href="herren-1.html#alle-teams-matrix" class="btn-cta btn-cta-outline btn-sm" style="width:100%;">
+            <span>Alle 8 Juniorinnen-Teams ansehen</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. SPORTPLATZ ZELGLI, CLUBHAUS, VORSTAND & 100+ JAHRE GESCHICHTE -->
+  <section id="zelgli-verein" data-section="zelgli-verein" style="background-color:#FFFFFF;border-top:1px solid var(--border-light);border-bottom:1px solid var(--border-light);">
+    <div class="container">
+      <div class="section-head">
+        <div class="section-kicker" data-slot="club_kicker">HEIMSTÄTTE · CLUB-BEIZLI · VORSTAND · CHRONIK</div>
+        <h2 class="section-title" data-slot="club_title">Sportanlage Zelgli, Clubhaus &amp; Vereinsführung.</h2>
+        <p class="section-desc" data-slot="club_desc">
+          Seit dem Einzug auf der neuerbauten Sportanlage Zelgli im Jahr 1982 schlägt unser Vereinsherz «im Rohr» in 8952 Schlieren — mit Hauptplatz, Kunstrasen, unserem gemütlichen Club-Beizli und einem engagierten Vorstand.
+        </p>
+      </div>
+
+      <!-- Zelgli & Clubhaus 2-Column Showcase -->
+      <div class="grid-2" style="margin-bottom:44px;">
+        <article class="card">
+          <div class="card-media" style="height:240px;">
+            <img src="images/zelgli-luftbild.webp" alt="Luftbild Fussballanlage Zelgli 8952 Schlieren" width="580" height="240" loading="lazy" decoding="async" data-slot="zelgli_img">
+            <span class="card-badge">Sportanlage Zelgli («im Rohr»)</span>
+          </div>
+          <div class="card-body">
+            <h3 class="card-title" data-slot="zelgli_title">Fussballanlage Zelgli, 8952 Schlieren</h3>
+            <p class="card-text" data-slot="zelgli_desc">
+              Unsere Heimstätte umfasst den grossen Hauptplatz (Platz 1 mit Flutlicht und Bandenwerbung), die Trainings- und Wettkampfplätze 2 &amp; 3 (Natur- und Kunstrasen) sowie das Garderobengebäude.
+            </p>
+            <div class="card-meta-list">
+              <div class="card-meta-item">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                <span><strong>Standort:</strong> Sportplatz Zelgli (im Rohr), 8952 Schlieren · Postfach</span>
+              </div>
+              <div class="card-meta-item">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="20 6 9 17 4 12"/></svg>
+                <span><strong>Platzwart &amp; Anlage:</strong> Müslüm Bozan (079 260 63 63 · m.bozan@fcschlieren.ch)</span>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-media" style="height:240px;">
+            <img src="images/clubhaus-beizli-1.webp" alt="Clubhaus und Beizli FC Schlieren" width="580" height="240" loading="lazy" decoding="async" data-slot="beizli_img">
+            <span class="card-badge">Club-Beizli · 40–50 Sitzplätze</span>
+          </div>
+          <div class="card-body">
+            <h3 class="card-title" data-slot="beizli_title">Clubhaus &amp; Beizli FC Schlieren</h3>
+            <p class="card-text" data-slot="beizli_desc">
+              Das rauchfreie Club-Beizli bietet 40 bis 50 gemütliche Innensitzplätze, eine grosse Terrasse direkt am Hauptplatz sowie Beamer und Leinwand für Mannschaftssitzungen, Theorieblöcke oder Vereinsanlässe.
+            </p>
+            <div class="card-meta-list">
+              <div class="card-meta-item">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                <span><strong>Öffnungszeiten:</strong> Mo–Fr 16:45 – 23:00 Uhr · Sa/So gemäss Spielbetrieb</span>
+              </div>
+              <div class="card-meta-item">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                <span><strong>Reservation &amp; Wirt:</strong> Müslüm Bozan · Tel. 079 260 63 63</span>
+              </div>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <!-- 100+ Jahre Geschichte (Original-Meilensteine) -->
+      <div style="background-color:var(--bg-muted);border:1px solid var(--border-light);border-radius:var(--radius-md);padding:28px;margin-bottom:44px;">
+        <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;">
+          <div>
+            <div class="section-kicker" style="margin-bottom:6px;">VEREINSGESCHICHTE SEIT 1921</div>
+            <h3 style="font-size:1.4rem;font-weight:800;">Vom Platz «am Kanal» über Ceylon bis zum 100-Jahr-Jubiläum.</h3>
+          </div>
+          <img src="images/geschichte-chronik.webp" alt="Historische Vereinschronik FC Schlieren" width="180" height="64" loading="lazy" decoding="async" style="border-radius:var(--radius-sm);object-fit:cover;height:64px;width:180px;">
+        </div>
+
+        <div class="timeline-grid">
+          <div class="timeline-box">
+            <div class="timeline-year">21. März 1921</div>
+            <p class="timeline-text">Offizielle Gründung des FC Schlieren (1. Präsident Emil Wild, erster Sportplatz «am Kanal»). 1922 Beitritt zum SFV, 1929 Aufstieg in die Serie B und 1932 Gründung der 1. Junioren-Mannschaft.</p>
+          </div>
+          <div class="timeline-box">
+            <div class="timeline-year">1968 &amp; 1970</div>
+            <p class="timeline-text">Saison 1968/69 Zürcher Regionalmeister der 2. Liga. 1970 legendäre dreiwöchige Asien-Reise nach Bangkok, Singapur, Hongkong und Ceylon — mit Freundschaftsspiel vor 11'000 Zuschauern.</p>
+          </div>
+          <div class="timeline-box">
+            <div class="timeline-year">1973 &amp; 1979</div>
+            <p class="timeline-text">1973 Gründung der Supporter-Vereinigung. 1975 und 1978 zweifacher Gewinn des Limmattal-Cups. 1979 Gründung der Frauenabteilung des FC Schlieren als Pionierverein der Region.</p>
+          </div>
+          <div class="timeline-box">
+            <div class="timeline-year">1982 – 2026</div>
+            <p class="timeline-text">1982 Einzug auf der neuerbauten Sportanlage Zelgli. 1997 Gründung des Business-Clubs. 2021 grosses 100-Jahr-Jubiläum — heute Heimat für 33 Teams im Limmattal.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Vorstand (6 Original-Mitglieder) -->
+      <div>
+        <div class="section-kicker" style="margin-bottom:6px;">VEREINSFÜHRUNG &amp; ANSPRECHPARTNER</div>
+        <h3 style="font-size:1.45rem;font-weight:800;margin-bottom:6px;">Der Vorstand des FC Schlieren</h3>
+        <p style="font-size:0.92rem;color:var(--text-body);">Direkte Erreichbarkeit für Mitglieder, Eltern, Vereine und Partner.</p>
+
+        <div class="board-grid">
+          <div class="board-card">
+            <span class="board-role">Präsident</span>
+            <div class="board-name">Roger Küng</div>
+            <div class="board-links">
+              <a href="mailto:r.kueng@fcschlieren.ch">r.kueng@fcschlieren.ch</a>
+              <a href="tel:+41794002093">079 400 20 93</a>
+            </div>
+          </div>
+
+          <div class="board-card">
+            <span class="board-role">Leiterin Geschäftsstelle &amp; Spielbetrieb</span>
+            <div class="board-name">Jana Seifriz</div>
+            <div class="board-links">
+              <a href="mailto:j.seifriz@fcschlieren.ch">j.seifriz@fcschlieren.ch</a>
+              <a href="tel:+41792424156">079 242 41 56</a>
+            </div>
+          </div>
+
+          <div class="board-card">
+            <span class="board-role">Leiter Finanzen</span>
+            <div class="board-name">Luigi Voci</div>
+            <div class="board-links">
+              <a href="mailto:l.voci@fcschlieren.ch">l.voci@fcschlieren.ch</a>
+              <a href="tel:+41797883324">079 788 33 24</a>
+            </div>
+          </div>
+
+          <div class="board-card">
+            <span class="board-role">Leiter Junioren (A bis G)</span>
+            <div class="board-name">Luigi Schiavano</div>
+            <div class="board-links">
+              <a href="mailto:l.schiavano@fcschlieren.ch">l.schiavano@fcschlieren.ch</a>
+              <a href="tel:+41791095288">079 109 52 88</a>
+            </div>
+          </div>
+
+          <div class="board-card">
+            <span class="board-role">Leiter Juniorinnen (U16 bis F)</span>
+            <div class="board-name">Mario De Meo</div>
+            <div class="board-links">
+              <a href="mailto:m.demeo@fcschlieren.ch">m.demeo@fcschlieren.ch</a>
+              <a href="tel:+41793543723">079 354 37 23</a>
+            </div>
+          </div>
+
+          <div class="board-card">
+            <span class="board-role">Leiter Aktive (Herren &amp; Frauen)</span>
+            <div class="board-name">Zoran Perak</div>
+            <div class="board-links">
+              <a href="mailto:z.perak@fcschlieren.ch">z.perak@fcschlieren.ch</a>
+              <a href="tel:+41762642022">076 264 20 22</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Weitere Funktionäre Kompaktleiste -->
+        <div style="margin-top:16px;padding:16px 20px;background-color:var(--fcs-blue-soft);border:1px solid #BAE6FD;border-radius:var(--radius-md);font-size:0.84rem;color:var(--fcs-navy);display:flex;flex-wrap:wrap;gap:18px;align-items:center;justify-content:space-between;">
+          <div>
+            <strong>Weitere Funktionäre:</strong>
+            Roger Mehr (Leiter Spielbetrieb · r.mehr@fcschlieren.ch · 079 402 83 87) ·
+            Oscar Otero (Koord. D &amp; E Jun.) ·
+            Gianfranco Gennaro (Koord. F &amp; G Jun.) ·
+            Luca Mussolin &amp; Angela Paradiso (Koord. Juniorinnen) ·
+            Sven Seifriz (J+S Coach &amp; Web · s.seifriz@fcschlieren.ch) ·
+            Céline Bürgisser (Material · c.buergisser@fcschlieren.ch) ·
+            Dani Galantucci (Sponsoring · d.galantucci@fcschlieren.ch)
+          </div>
+          <a href="kontakt.html" class="btn-cta btn-cta-primary btn-sm">Direkt zur Vereins-Zentrale</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. ACP LIVE SOCIAL WALL -->
+  <section id="social-wall" data-section="social-media">
+    <div class="container">
+      <div class="section-head">
+        <div class="section-kicker" data-slot="social_kicker">LIVE VOM SPORTPLATZ ZELGLI · VEREINSLEBEN AKTUELL</div>
+        <h2 class="section-title" data-slot="social_title">Einblicke aus Spielbetrieb, Nachwuchs &amp; Vereinsalltag.</h2>
+        <p class="section-desc" data-slot="social_desc">
+          Aktuelle Impressionen unserer Aktivmannschaften, Nachwuchs-Turniere und Vereinsanlässe auf der Sportanlage Zelgli.
+        </p>
+      </div>
+
+      <div class="social-filter-bar" role="tablist" aria-label="Beiträge filtern">
+        <button type="button" class="social-tab-btn active" onclick="wpFilterSocial('all', this)">Alle Beiträge</button>
+        <button type="button" class="social-tab-btn" onclick="wpFilterSocial('aktive', this)">Aktive Herren &amp; Frauen</button>
+        <button type="button" class="social-tab-btn" onclick="wpFilterSocial('nachwuchs', this)">Fussballschule &amp; Nachwuchs</button>
+        <button type="button" class="social-tab-btn" onclick="wpFilterSocial('verein', this)">Zelgli &amp; Sponsoren</button>
+      </div>
+
+      <div class="grid-3" id="wpSocialGrid">
+        <article class="card wp-social-item" data-cat="aktive">
+          <div class="card-media">
+            <img src="images/team-herren-1.webp" alt="FC Schlieren Herren 1 Teamfoto" width="420" height="210" loading="lazy" decoding="async" data-slot="social_1_img">
+            <span class="card-badge">Herren 1 · Heimspiel Zelgli</span>
+          </div>
+          <div class="card-body">
+            <div style="font-size:0.76rem;font-weight:700;color:var(--fcs-blue);text-transform:uppercase;">1. Mannschaft · Aktive Herren</div>
+            <h3 class="card-title" style="font-size:1.08rem;" data-slot="social_1_title">Voller Einsatz auf Platz 1 mit Hauptsponsor Emil Frey AG Schlieren</h3>
+            <p class="card-text" data-slot="social_1_text">
+              Unser Fanionteam unter Trainer Diego Bürger und Co-Trainer Livio Sanseverino bedankt sich bei den zahlreichen Zuschauern und Supportern auf dem Zelgli.
+            </p>
+          </div>
+          <div class="card-footer">
+            <a href="herren-1.html?team=herren1" class="btn-cta btn-cta-outline btn-sm" style="width:100%;">Zum Kader Herren 1 (19 Spieler)</a>
+          </div>
+        </article>
+
+        <article class="card wp-social-item" data-cat="aktive">
+          <div class="card-media">
+            <img src="images/team-frauen-1.webp" alt="FC Schlieren Frauen 1 Teamfoto" width="420" height="210" loading="lazy" decoding="async" data-slot="social_2_img">
+            <span class="card-badge">Frauen 1 · Tradition seit 1979</span>
+          </div>
+          <div class="card-body">
+            <div style="font-size:0.76rem;font-weight:700;color:var(--fcs-blue);text-transform:uppercase;">Frauenabteilung · 3 Aktiv- &amp; 8 Nachwuchsteams</div>
+            <h3 class="card-title" style="font-size:1.08rem;" data-slot="social_2_title">Starke Frauen-Abteilung mit Partner J.F. Jost &amp; Co. &amp; Waser Facility Management</h3>
+            <p class="card-text" data-slot="social_2_text">
+              Drei aktive Frauenteams und acht Juniorinnen-Mannschaften machen den FC Schlieren zu einem Leuchtturm im Zürcher Frauen- und Mädchenfussball.
+            </p>
+          </div>
+          <div class="card-footer">
+            <a href="herren-1.html?team=frauen1" class="btn-cta btn-cta-outline btn-sm" style="width:100%;">Zum Kader Frauen 1 (17 Spielerinnen)</a>
+          </div>
+        </article>
+
+        <article class="card wp-social-item" data-cat="nachwuchs verein">
+          <div class="card-media">
+            <img src="images/zelgli-hauptplatz.webp" alt="Sportplatz Zelgli Hauptplatz FC Schlieren" width="420" height="210" loading="lazy" decoding="async" data-slot="social_3_img">
+            <span class="card-badge">Zelgli · Nachwuchs &amp; Partner</span>
+          </div>
+          <div class="card-body">
+            <div style="font-size:0.76rem;font-weight:700;color:var(--fcs-blue);text-transform:uppercase;">Fussballschule &amp; Vereinsleben</div>
+            <h3 class="card-title" style="font-size:1.08rem;" data-slot="social_3_title">Mittwochnachmittag auf dem Zelgli: Unsere Jüngsten (Jg. 2016–2022) am Ball</h3>
+            <p class="card-text" data-slot="social_3_text">
+              Jeden Mittwoch von 16:15 bis 17:45 Uhr trainieren die Kinder der Fussballschule auf dem Zelgli — während im Club-Beizli bei Müslüm Bozan für Eltern gesorgt ist.
+            </p>
+          </div>
+          <div class="card-footer">
+            <a href="kontakt.html?thema=probetraining" class="btn-cta btn-cta-outline btn-sm" style="width:100%;">Schnuppertraining anfragen</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. UNSERE SPONSOREN, GÖNNER & PARTNER (100% ORIGINAL-BESTAND) -->
+  <section id="sponsoren" data-section="sponsoren" style="background-color:#FFFFFF;border-top:1px solid var(--border-light);">
+    <div class="container">
+      <div class="section-head">
+        <div class="section-kicker" data-slot="sponsors_kicker">HERZLICHEN DANK AN UNSERE PARTNER</div>
+        <h2 class="section-title" data-slot="sponsors_title">Unsere Gold-, Silber- und Bronze-Sponsoren.</h2>
+        <p class="section-desc" data-slot="sponsors_desc">
+          Ein herzliches Dankeschön an unsere treuen Haupt-, Silber- und Bronze-Sponsoren, die Supporter-Vereinigung (seit 1973) und den Business-Club (seit 1997). Ihr Engagement ermöglicht den Spielbetrieb von 33 Mannschaften auf dem Zelgli.
+        </p>
+      </div>
+
+      <!-- TIER 1: GOLD SPONSOREN (2) -->
+      <div class="sponsor-tier-block">
+        <div class="sponsor-tier-header">
+          <span class="sponsor-tier-badge tier-gold">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <span>GOLD SPONSOREN &amp; HAUPTSPONSOREN</span>
+          </span>
+          <span style="font-size:0.82rem;color:var(--text-muted);font-weight:600;">Offizielle Hauptpartner Herren 1 &amp; Frauen 1</span>
+        </div>
+
+        <div class="sponsors-gold-grid">
+          <a href="http://www.emilfrey.ch/schlieren" target="_blank" rel="noopener noreferrer" class="sponsor-card gold-card">
+            <div class="sponsor-logo-wrap">
+              <img src="images/sponsors/gold-01-emil-frey-ag.jpg" alt="Emil Frey AG Schlieren — Gold Sponsor FC Schlieren" width="320" height="120" loading="lazy" decoding="async" data-slot="sponsor_gold_1_img">
+            </div>
+            <div>
+              <div class="sponsor-name" data-slot="sponsor_gold_1_name">Emil Frey AG, Schlieren</div>
+              <div class="sponsor-role-tag">Gold-Sponsor · Offizieller Hauptsponsor Herren 1 · emilfrey.ch/schlieren</div>
+            </div>
+          </a>
+
+          <a href="http://www.lilie-schlieren.ch" target="_blank" rel="noopener noreferrer" class="sponsor-card gold-card">
+            <div class="sponsor-logo-wrap">
+              <img src="images/sponsors/gold-02-j-f-jost-co.jpg" alt="J.F. Jost und Co. — Gold Sponsor FC Schlieren" width="320" height="120" loading="lazy" decoding="async" data-slot="sponsor_gold_2_img">
+            </div>
+            <div>
+              <div class="sponsor-name" data-slot="sponsor_gold_2_name">J.F. Jost &amp; Co.</div>
+              <div class="sponsor-role-tag">Gold-Sponsor · Offizieller Hauptsponsor Frauen 1 · lilie-schlieren.ch</div>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <!-- TIER 2: SILBER SPONSOREN (3) -->
+      <div class="sponsor-tier-block">
+        <div class="sponsor-tier-header">
+          <span class="sponsor-tier-badge tier-silver">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg>
+            <span>SILBER SPONSOREN</span>
+          </span>
+          <span style="font-size:0.82rem;color:var(--text-muted);font-weight:600;">3 offizielle Silber-Partner</span>
+        </div>
+
+        <div class="sponsors-silver-grid">
+          <a href="https://www.sopex.ch/" target="_blank" rel="noopener noreferrer" class="sponsor-card">
+            <div class="sponsor-logo-wrap">
+              <img src="images/sponsors/silver-01-sopex.jpg" alt="SOPEX — Silber Sponsor FC Schlieren" width="240" height="96" loading="lazy" decoding="async" data-slot="sponsor_silver_1_img">
+            </div>
+            <div>
+              <div class="sponsor-name" data-slot="sponsor_silver_1_name">SOPEX</div>
+              <div class="sponsor-role-tag">Silber-Sponsor · sopex.ch</div>
+            </div>
+          </a>
+
+          <div class="sponsor-card">
+            <div class="sponsor-logo-wrap">
+              <img src="images/sponsors/silver-02-vr-ag.jpg" alt="VR AG — Silber Sponsor FC Schlieren" width="240" height="96" loading="lazy" decoding="async" data-slot="sponsor_silver_2_img">
+            </div>
+            <div>
+              <div class="sponsor-name" data-slot="sponsor_silver_2_name">VR AG</div>
+              <div class="sponsor-role-tag">Silber-Sponsor · Region Schlieren</div>
+            </div>
+          </div>
+
+          <div class="sponsor-card">
+            <div class="sponsor-logo-wrap">
+              <img src="images/sponsors/silver-03-waser-facility-managment.png" alt="Waser Facility Management — Silber Sponsor FC Schlieren" width="240" height="96" loading="lazy" decoding="async" data-slot="sponsor_silver_3_img">
+            </div>
+            <div>
+              <div class="sponsor-name" data-slot="sponsor_silver_3_name">Waser Facility Management</div>
+              <div class="sponsor-role-tag">Silber-Sponsor &amp; Co-Sponsor Frauen 1</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- TIER 3: BRONZE SPONSOREN (6) -->
+      <div class="sponsor-tier-block">
+        <div class="sponsor-tier-header">
+          <span class="sponsor-tier-badge tier-bronze">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            <span>BRONZE SPONSOREN &amp; INSTITUTIONELLE PARTNER</span>
+          </span>
+          <span style="font-size:0.82rem;color:var(--text-muted);font-weight:600;">6 offizielle Bronze-Partner</span>
+        </div>
+
+        <div class="sponsors-bronze-grid">
+          <a href="http://www.pizzeria-corona.ch" target="_blank" rel="noopener noreferrer" class="sponsor-card">
+            <div class="sponsor-logo-wrap" style="height:86px;">
+              <img src="images/sponsors/bronze-01-corona-gastro-ag.jpg" alt="Corona Gastro AG Pizzeria Corona Schlieren" width="200" height="80" loading="lazy" decoding="async" data-slot="sponsor_bronze_1_img">
+            </div>
+            <div>
+              <div class="sponsor-name">Corona Gastro AG</div>
+              <div class="sponsor-role-tag">Bronze-Sponsor · pizzeria-corona.ch</div>
+            </div>
+          </a>
+
+          <a href="http://www.physio-welt.ch" target="_blank" rel="noopener noreferrer" class="sponsor-card">
+            <div class="sponsor-logo-wrap" style="height:86px;">
+              <img src="images/sponsors/bronze-02-physio-welt.png" alt="Physio Welt Schlieren" width="200" height="80" loading="lazy" decoding="async" data-slot="sponsor_bronze_2_img">
+            </div>
+            <div>
+              <div class="sponsor-name">Physio Welt</div>
+              <div class="sponsor-role-tag">Bronze-Sponsor · physio-welt.ch</div>
+            </div>
+          </a>
+
+          <a href="http://www.seifrizag.ch" target="_blank" rel="noopener noreferrer" class="sponsor-card">
+            <div class="sponsor-logo-wrap" style="height:86px;">
+              <img src="images/sponsors/bronze-03-seifriz-ag.jpg" alt="Seifriz AG Schlieren" width="200" height="80" loading="lazy" decoding="async" data-slot="sponsor_bronze_3_img">
+            </div>
+            <div>
+              <div class="sponsor-name">Seifriz AG</div>
+              <div class="sponsor-role-tag">Bronze-Sponsor · seifrizag.ch</div>
+            </div>
+          </a>
+
+          <div class="sponsor-card">
+            <div class="sponsor-logo-wrap" style="height:86px;">
+              <img src="images/sponsors/bronze-04-stadt-schlieren.png" alt="Stadt Schlieren" width="200" height="80" loading="lazy" decoding="async" data-slot="sponsor_bronze_4_img">
+            </div>
+            <div>
+              <div class="sponsor-name">Stadt Schlieren</div>
+              <div class="sponsor-role-tag">Standortgemeinde &amp; Sportförderung</div>
+            </div>
+          </div>
+
+          <a href="https://syna.ch/zuerich-schaffhausen/" target="_blank" rel="noopener noreferrer" class="sponsor-card">
+            <div class="sponsor-logo-wrap" style="height:86px;">
+              <img src="images/sponsors/bronze-05-syna-die-gewerkschaft.jpg" alt="Syna Die Gewerkschaft Zürich Schaffhausen" width="200" height="80" loading="lazy" decoding="async" data-slot="sponsor_bronze_5_img">
+            </div>
+            <div>
+              <div class="sponsor-name">Syna - Die Gewerkschaft</div>
+              <div class="sponsor-role-tag">Bronze-Sponsor · syna.ch</div>
+            </div>
+          </a>
+
+          <a href="http://www.zkb.ch" target="_blank" rel="noopener noreferrer" class="sponsor-card">
+            <div class="sponsor-logo-wrap" style="height:86px;">
+              <img src="images/sponsors/bronze-06-zuercher-kantonalbank-filiale-schlieren.jpg" alt="Zürcher Kantonalbank Filiale Schlieren" width="200" height="80" loading="lazy" decoding="async" data-slot="sponsor_bronze_6_img">
+            </div>
+            <div>
+              <div class="sponsor-name">Zürcher Kantonalbank Filiale Schlieren</div>
+              <div class="sponsor-role-tag">Bronze-Sponsor · zkb.ch</div>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <!-- SUPPORTER-VEREINIGUNG, BUSINESS-CLUB & BANDENWERBUNG -->
+      <div class="grid-3" style="margin-top:36px;">
+        <div class="card" style="padding:24px;background-color:var(--fcs-navy);color:#FFFFFF;border-color:var(--fcs-navy);">
+          <div>
+            <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:14px;">
+              <span class="top-bar-badge">SEIT 1973 · RUND 120 MITGLIEDER</span>
+              <img src="images/logo-supporter.webp" alt="Supporter-Vereinigung FC Schlieren" width="84" height="36" loading="lazy" decoding="async" style="object-fit:contain;background:#fff;padding:4px;border-radius:4px;">
+            </div>
+            <h3 style="color:#FFFFFF;font-size:1.18rem;font-weight:800;margin-bottom:8px;">Supporter-Vereinigung FC Schlieren</h3>
+            <p style="font-size:0.88rem;color:#E2E8F0;margin-bottom:14px;">
+              Unterstützt gezielt unsere Junioren- und Aktivabteilung. Freier Eintritt zu sämtlichen Heimspielen auf dem Zelgli sowie Einladung zum jährlichen Supporter-Apéro (Präsident: Dany Tännler).
+            </p>
+            <div style="font-size:0.84rem;color:var(--fcs-gold);font-weight:700;margin-bottom:16px;">
+              Einzelmitgliedschaft: CHF 150.– / Jahr · Paarmitgliedschaft: CHF 250.– / Jahr
+            </div>
+          </div>
+          <a href="kontakt.html?thema=sponsoring" class="btn-cta btn-cta-gold btn-sm" style="width:100%;">Supporter werden</a>
+        </div>
+
+        <div class="card" style="padding:24px;background-color:var(--fcs-navy);color:#FFFFFF;border-color:var(--fcs-navy);">
+          <div>
+            <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:14px;">
+              <span class="top-bar-badge">SEIT 1997 · 49 FIRMENMITGLIEDER</span>
+              <img src="images/logo-businessclub.webp" alt="Business-Club FC Schlieren" width="84" height="36" loading="lazy" decoding="async" style="object-fit:contain;background:#fff;padding:4px;border-radius:4px;">
+            </div>
+            <h3 style="color:#FFFFFF;font-size:1.18rem;font-weight:800;margin-bottom:8px;">Business-Club FC Schlieren</h3>
+            <p style="font-size:0.88rem;color:#E2E8F0;margin-bottom:14px;">
+              Das Unternehmer-Netzwerk im Limmattal mit monatlichem Business-Lunch im Restaurant Corona und gemeinsamen Events (Vorstand: Thomas Bolliger, Diego Würmli, Jürg Zahner, Monika Höhn).
+            </p>
+            <div style="font-size:0.84rem;color:var(--fcs-gold);font-weight:700;margin-bottom:16px;">
+              Jahresbeitrag Business-Club: CHF 850.– / Jahr
+            </div>
+          </div>
+          <a href="kontakt.html?thema=sponsoring" class="btn-cta btn-cta-gold btn-sm" style="width:100%;">Business-Club anfragen</a>
+        </div>
+
+        <div class="card" style="padding:24px;background-color:var(--fcs-blue-soft);border-color:#93C5FD;">
+          <div>
+            <span class="pillar-count" style="margin-bottom:14px;">HAUPTPLATZ ZELGLI · SICHTBARKEIT</span>
+            <h3 style="font-size:1.18rem;font-weight:800;margin-bottom:8px;">Bandenwerbung, Dress- &amp; Matchball-Sponsoring</h3>
+            <p style="font-size:0.88rem;color:var(--text-body);margin-bottom:14px;">
+              Präsentiere dein Unternehmen direkt am Hauptplatz 1 der Sportanlage Zelgli vor tausenden Spielerinnen, Spielern, Eltern und Zuschauern pro Saison (Kontakt: Dani Galantucci).
+            </p>
+            <div style="font-size:0.84rem;color:var(--fcs-navy);font-weight:700;margin-bottom:16px;">
+              Bandenwerbung Platz 1 (3 Meter): CHF 120.– / Laufmeter = CHF 360.– / Jahr
+            </div>
+          </div>
+          <a href="kontakt.html?thema=sponsoring" class="btn-cta btn-cta-primary btn-sm" style="width:100%;">Sponsoring &amp; Bande anfragen</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    function wpFilterSocial(cat, btn) {
+      var btns = document.querySelectorAll('.social-tab-btn');
+      for (var i = 0; i < btns.length; i++) btns[i].classList.remove('active');
+      if (btn) btn.classList.add('active');
+      var items = document.querySelectorAll('.wp-social-item');
+      for (var j = 0; j < items.length; j++) {
+        var c = items[j].getAttribute('data-cat') || '';
+        if (cat === 'all' || c.indexOf(cat) !== -1) {
+          items[j].style.display = 'flex';
+        } else {
+          items[j].style.display = 'none';
+        }
+      }
+    }
+  </script>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer" data-section="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div style="display:flex;align-items:center;gap:12px;margin-bottom:14px;">
+            <img src="images/logo-fcschlieren.webp" alt="FC Schlieren Wappen" width="44" height="52" loading="lazy" decoding="async" style="object-fit:contain;">
+            <div>
+              <div style="font-family:'Montserrat',sans-serif;font-weight:800;font-size:1.1rem;color:#FFFFFF;">FC SCHLIEREN</div>
+              <div style="font-size:0.76rem;color:#FDC500;font-weight:700;">SEIT 21. MÄRZ 1921 · SFV NR. 530</div>
+            </div>
+          </div>
+          <p style="font-size:0.86rem;color:#CBD5E1;line-height:1.6;margin-bottom:14px;" data-slot="footer_about">
+            Heimat für 33 Mannschaften im Limmattal: Aktive Herren &amp; Senioren, Aktive Frauen, 17 Junioren-Teams, 8 Juniorinnen-Teams und unsere Fussballschule auf der Sportanlage Zelgli.
+          </p>
+          <div style="font-size:0.84rem;color:#E2E8F0;font-weight:600;">
+            Fussballanlage Zelgli («im Rohr») · Postfach · 8952 Schlieren
+          </div>
+        </div>
+
+        <div>
+          <div class="footer-title">Mannschaften &amp; Sport</div>
+          <ul class="footer-list">
+            <li><a href="herren-1.html?team=herren1">Herren 1 (Muster-Team-Seite)</a></li>
+            <li><a href="herren-1.html?team=frauen1">Frauen 1 (Muster-Team-Seite)</a></li>
+            <li><a href="herren-1.html#alle-teams-matrix">Alle 33 Teams in der Matrix</a></li>
+            <li><a href="index.html#aktuelles-camps">Fussballschule (Mittwoch 16:15 Uhr)</a></li>
+            <li><a href="index.html#aktuelles-camps">Kohler Fussballcamps &amp; Trailer</a></li>
+            <li><button type="button" onclick="wpOpenBlueprintModal('Wintertrainings- &amp; Hallenplan 2026', 'Spielbetrieb FC Schlieren', 'Roger Mehr (r.mehr@fcschlieren.ch) &amp; Jana Seifriz (j.seifriz@fcschlieren.ch)')">Wintertrainings- &amp; Hallenplan</button></li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="footer-title">Verein, Sponsoren &amp; Zelgli</div>
+          <ul class="footer-list">
+            <li><a href="index.html#zelgli-verein">Vorstand &amp; Funktionäre</a></li>
+            <li><a href="index.html#zelgli-verein">Sportplatz Zelgli &amp; Club-Beizli</a></li>
+            <li><a href="index.html#zelgli-verein">Vereinschronik seit 1921</a></li>
+            <li><a href="index.html#sponsoren">Gold-, Silber- &amp; Bronze-Sponsoren</a></li>
+            <li><a href="kontakt.html?thema=sponsoring">Supporter-Vereinigung (ab CHF 150.–)</a></li>
+            <li><a href="kontakt.html?thema=sponsoring">Business-Club (CHF 850.–) &amp; Bandenwerbung</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="footer-title">Direkt-Service &amp; Formulare</div>
+          <ul class="footer-list">
+            <li><a href="kontakt.html?thema=probetraining">Probetraining anfragen</a></li>
+            <li><a href="kontakt.html?thema=spielbetrieb">Spielverschiebungsgesuch einreichen</a></li>
+            <li><a href="kontakt.html?thema=kleider">Kleiderbestellung / Vereinskollektion</a></li>
+            <li><a href="kontakt.html?thema=mitgliedschaft">Adressänderung / Mutation / Austritt</a></li>
+            <li><button type="button" onclick="wpOpenBlueprintModal('Statuten, Schutzkonzept &amp; Ehrenkodex', 'Präsidium FC Schlieren', 'Roger Küng (r.kueng@fcschlieren.ch)')">Statuten, Schutz- &amp; Notfallkonzept</button></li>
+            <li><button type="button" onclick="wpOpenImpressumModal()">Impressum &amp; Datenschutz</button></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>&copy; 2026 Fussballclub Schlieren (8952 Schlieren) · Alle Rechte vorbehalten.</div>
+        <div style="display:flex;gap:16px;flex-wrap:wrap;">
+          <a href="herren-1.html" style="color:#FDC500;font-weight:700;">Architekten-Musterhaus (Herren 1 &amp; 33 Teams)</a>
+          <a href="kontakt.html" style="color:#E2E8F0;">Vereins-Zentrale</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ARCHITEKTUR-BLAUPAUSEN-MODAL -->
+  <div class="wp-modal-backdrop" id="wpBlueprintModal" role="dialog" aria-modal="true" aria-labelledby="wpBpTitle">
+    <div class="wp-modal-dialog">
+      <button type="button" class="wp-modal-close" aria-label="Dialog schliessen" onclick="wpCloseBlueprintModal()">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+      <div class="section-kicker">ARCHITEKTEN-MUSTERHAUS-PRINZIP · FC SCHLIEREN</div>
+      <h3 id="wpBpTitle" style="font-size:1.35rem;font-weight:800;margin-bottom:8px;">Team-Blaupause: Mannschaft</h3>
+      <p id="wpBpSub" style="font-size:0.9rem;color:var(--text-body);margin-bottom:12px;">
+        Stellvertretend für alle 33 Mannschaften und Unterseiten des FC Schlieren sind in dieser Vorschau die Startseite, die Muster-Teams <strong>Herren 1</strong> und <strong>Frauen 1</strong> sowie die zentrale <strong>Vereins- &amp; Probetraining-Zentrale</strong> komplett mit Originaldaten ausgebaut.
+      </p>
+      <div style="background-color:var(--fcs-blue-soft);border-left:4px solid var(--fcs-blue);padding:12px 14px;border-radius:var(--radius-sm);font-size:0.86rem;margin-bottom:14px;">
+        <div style="font-weight:700;color:var(--fcs-navy);" id="wpBpCategory">Abteilung: Nachwuchs / Aktive</div>
+        <div style="color:var(--text-body);margin-top:2px;" id="wpBpContact">Zuständige Leitung: Zoran Perak / Luigi Schiavano</div>
+      </div>
+
+      <div class="wp-modal-checklist">
+        <div style="font-family:'Montserrat',sans-serif;font-size:0.78rem;font-weight:800;text-transform:uppercase;color:var(--fcs-navy);">
+          In der fertigen Team-Blaupause (analog Herren 1 &amp; Frauen 1) enthalten:
+        </div>
+        <div class="wp-modal-check-item">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><polyline points="20 6 9 17 4 12"/></svg>
+          <span>Offizielles Mannschaftsfoto, Trainingszeiten auf dem Sportplatz Zelgli &amp; Hallenplan</span>
+        </div>
+        <div class="wp-modal-check-item">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><polyline points="20 6 9 17 4 12"/></svg>
+          <span>Spielerkader nach Position (Tor, Verteidigung, Mittelfeld, Sturm) &amp; Trainerstaff mit Direktkontakt</span>
+        </div>
+        <div class="wp-modal-check-item">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><polyline points="20 6 9 17 4 12"/></svg>
+          <span>SFV-Resultate, Matchprogramm-Download sowie zugeordnete Team-Sponsoren &amp; Dress-Partner</span>
+        </div>
+        <div class="wp-modal-check-item">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><polyline points="20 6 9 17 4 12"/></svg>
+          <span>Direkte 1-Klick-Anbindung an Probetraining, Spielverschiebung und Kleiderbestellung</span>
+        </div>
+      </div>
+
+      <div style="display:flex;flex-wrap:wrap;gap:10px;margin-top:18px;">
+        <a href="herren-1.html" class="btn-cta btn-cta-primary btn-sm" onclick="wpCloseBlueprintModal()">
+          <span>Ausgebaute Muster-Seite (Herren 1 / Frauen 1) ansehen</span>
+        </a>
+        <a href="kontakt.html?thema=probetraining" id="wpBpCtaLink" class="btn-cta btn-cta-gold btn-sm">
+          <span>Anfrage / Probetraining für diesen Bereich starten</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- IMPRESSUM MODAL -->
+  <div class="wp-modal-backdrop" id="wpImpressumModal" role="dialog" aria-modal="true" aria-labelledby="wpImpTitle">
+    <div class="wp-modal-dialog">
+      <button type="button" class="wp-modal-close" aria-label="Impressum schliessen" onclick="wpCloseImpressumModal()">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+      <div class="section-kicker">RECHTLICHE ANGABEN · SCHWEIZER DSG</div>
+      <h3 id="wpImpTitle" style="font-size:1.3rem;font-weight:800;margin-bottom:10px;">Impressum &amp; Datenschutz — FC Schlieren</h3>
+      <div style="font-size:0.88rem;color:var(--text-body);display:flex;flex-direction:column;gap:10px;">
+        <p><strong>Vereinsadresse:</strong><br>Fussballclub Schlieren · Sportanlage Zelgli («im Rohr») · Postfach · 8952 Schlieren</p>
+        <p><strong>Vertretungsberechtigter Vorstand:</strong><br>Roger Küng (Präsident, r.kueng@fcschlieren.ch) · Jana Seifriz (Leiterin Geschäftsstelle &amp; Spielbetrieb, j.seifriz@fcschlieren.ch) · Luigi Voci (Leiter Finanzen, l.voci@fcschlieren.ch)</p>
+        <p><strong>Webverantwortlicher &amp; J+S Coach:</strong><br>Sven Seifriz (s.seifriz@fcschlieren.ch)</p>
+        <p><strong>Datenschutz (Schweizer Datenschutzgesetz revDSG):</strong><br>Personendaten aus Kontakt-, Probetraining-, Mutations- und Sponsoring-Anfragen werden ausschliesslich zur Vereinsadministration innerhalb des FC Schlieren verwendet und niemals an unbefugte Dritte weitergegeben.</p>
+      </div>
+      <div style="margin-top:18px;text-align:right;">
+        <button type="button" class="btn-cta btn-cta-navy btn-sm" onclick="wpCloseImpressumModal()">Schliessen</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function wpToggleMobileMenu() {
+      var d = document.getElementById('mobileDrawer');
+      if (d) d.classList.toggle('open');
+    }
+    function wpCloseMobileMenu() {
+      var d = document.getElementById('mobileDrawer');
+      if (d) d.classList.remove('open');
+    }
+    function wpOpenBlueprintModal(title, category, contact, topicParam) {
+      var m = document.getElementById('wpBlueprintModal');
+      if (!m) return;
+      var tEl = document.getElementById('wpBpTitle');
+      var cEl = document.getElementById('wpBpCategory');
+      var pEl = document.getElementById('wpBpContact');
+      var linkEl = document.getElementById('wpBpCtaLink');
+      if (tEl) tEl.textContent = title || 'Team-Blaupause';
+      if (cEl) cEl.textContent = 'Bereich / Abteilung: ' + (category || 'FC Schlieren');
+      if (pEl) pEl.textContent = 'Zuständige Ansprechperson: ' + (contact || 'Geschäftsstelle FC Schlieren (j.seifriz@fcschlieren.ch)');
+      if (linkEl) linkEl.href = 'kontakt.html?thema=' + (topicParam || 'probetraining');
+      m.classList.add('open');
+    }
+    function wpCloseBlueprintModal() {
+      var m = document.getElementById('wpBlueprintModal');
+      if (m) m.classList.remove('open');
+    }
+    function wpOpenImpressumModal() {
+      var m = document.getElementById('wpImpressumModal');
+      if (m) m.classList.add('open');
+    }
+    function wpCloseImpressumModal() {
+      var m = document.getElementById('wpImpressumModal');
+      if (m) m.classList.remove('open');
+    }
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') {
+        wpCloseBlueprintModal();
+        wpCloseImpressumModal();
+        wpCloseMobileMenu();
+      }
+    });
+  </script>
+</body>
+</html>

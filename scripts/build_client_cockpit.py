@@ -255,6 +255,7 @@ def scan_stellen(client_dir: Path, slug: str, name: str, profile: dict = None):
         order_map = {
             "index.html": 0,
             "ueber-uns.html": 1,
+        "herren-1.html": 1,
             "angebot.html": 1,
             "strategie-kennen-lernen.html": 1,
             "strategie.html": 1,

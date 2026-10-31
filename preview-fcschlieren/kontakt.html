@@ -1,0 +1,2331 @@
+<!DOCTYPE html>
+<html lang="de-CH">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self' https: data: blob:; script-src 'self' 'unsafe-inline' https:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' https: data: blob:; connect-src 'self' https:;">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=()">
+  <title>Vereins-, Probetraining-, Spielbetriebs- & Sponsoring-Zentrale | FC Schlieren</title>
+  <meta name="description" content="Fussballclub Schlieren (gegründet 1921) — 33 Teams, Aktive Herren &amp; Frauen, Junioren A–G, Juniorinnen, Fussballschule &amp; Sportplatz Zelgli in 8952 Schlieren.">
+  <link rel="icon" type="image/png" href="images/favicon-32x32.png">
+  <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Montserrat:wght@600;700;800&amp;display=swap" rel="stylesheet">
+  <style>
+
+    :root {
+      --fcs-blue: #006EAB;
+      --fcs-blue-bright: #1D82BD;
+      --fcs-blue-soft: #EBF5FB;
+      --fcs-navy: #0F172A;
+      --fcs-navy-deep: #0B1324;
+      --fcs-gold: #FDC500;
+      --fcs-gold-dark: #B45309;
+      --fcs-gold-soft: #FEF9C3;
+      --fcs-green: #009245;
+      --fcs-green-soft: #DCFCE7;
+      --bg-page: #F8FAFC;
+      --bg-card: #FFFFFF;
+      --bg-muted: #F1F5F9;
+      --text-main: #0F172A;
+      --text-body: #334155;
+      --text-muted: #475569;
+      --border-light: #E2E8F0;
+      --border-strong: #CBD5E1;
+      --radius-sm: 4px;
+      --radius-md: 8px;
+      --shadow-sm: 0 2px 8px rgba(15, 23, 42, 0.05);
+      --shadow-md: 0 10px 28px rgba(15, 23, 42, 0.08);
+      --shadow-lg: 0 18px 42px rgba(15, 23, 42, 0.14);
+      --container: 1240px;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+      overflow-x: hidden;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      color: var(--text-main);
+      background-color: var(--bg-page);
+      line-height: 1.6;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+      transition: color 0.2s ease, background-color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+    }
+
+    ul {
+      list-style: none;
+    }
+
+    .container {
+      width: 100%;
+      max-width: var(--container);
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* Section Kickers (#UI-06: No JetBrains Mono, No //) */
+    .section-kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.76rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--fcs-blue);
+      margin-bottom: 12px;
+    }
+    .section-kicker::before {
+      content: "";
+      display: inline-block;
+      width: 16px;
+      height: 2px;
+      background-color: var(--fcs-gold);
+      border-radius: 0px;
+      flex-shrink: 0;
+    }
+    .section-kicker.kicker-light {
+      color: var(--fcs-gold);
+    }
+    .section-kicker.kicker-light::before {
+      background-color: #FFFFFF;
+    }
+
+    h1, h2, h3, h4 {
+      font-family: 'Montserrat', sans-serif;
+      color: var(--fcs-navy);
+      line-height: 1.18;
+      letter-spacing: -0.02em;
+    }
+
+    .section-head {
+      max-width: 780px;
+      margin-bottom: 44px;
+    }
+    .section-title {
+      font-size: clamp(1.85rem, 3.2vw, 2.65rem);
+      font-weight: 800;
+      margin-bottom: 14px;
+    }
+    .section-desc {
+      font-size: 1.04rem;
+      color: var(--text-body);
+      line-height: 1.65;
+    }
+
+    section {
+      padding: 84px 0;
+      position: relative;
+    }
+
+    /* Top Info Bar */
+    .top-bar {
+      background-color: var(--fcs-navy-deep);
+      color: #E2E8F0;
+      font-size: 0.8rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      position: relative;
+      z-index: 1002;
+    }
+    .top-bar-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      min-height: 38px;
+      gap: 16px;
+      flex-wrap: wrap;
+      padding-top: 6px;
+      padding-bottom: 6px;
+    }
+    .top-bar-left {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+      font-weight: 500;
+    }
+    .top-bar-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background-color: rgba(253, 197, 0, 0.16);
+      color: var(--fcs-gold);
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: 0.72rem;
+      padding: 2px 8px;
+      border-radius: var(--radius-sm);
+      letter-spacing: 0.04em;
+    }
+    .top-bar-links {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+    .top-bar-links a, .top-bar-links button {
+      color: #E2E8F0;
+      font-size: 0.78rem;
+      font-weight: 600;
+      background: none;
+      border: none;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-family: inherit;
+      padding: 0;
+    }
+    .top-bar-links a:hover, .top-bar-links button:hover {
+      color: var(--fcs-gold);
+    }
+
+    /* Sticky Header */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background-color: rgba(255, 255, 255, 0.97);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border-light);
+      box-shadow: 0 4px 20px rgba(15, 23, 42, 0.05);
+    }
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 82px;
+      gap: 20px;
+    }
+    .brand-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 14px;
+      flex-shrink: 0;
+    }
+    .brand-logo {
+      width: 48px;
+      height: 56px;
+      object-fit: contain;
+      flex-shrink: 0;
+    }
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+    }
+    .brand-name {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.22rem;
+      font-weight: 800;
+      color: var(--fcs-navy);
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+    }
+    .brand-sub {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.68rem;
+      font-weight: 700;
+      color: var(--fcs-blue);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-top: 3px;
+    }
+
+    .main-nav {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .nav-link {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--text-body);
+      padding: 8px 9px;
+      border-radius: var(--radius-sm);
+      white-space: nowrap;
+      min-height: 34px;
+      display: inline-flex;
+      align-items: center;
+    }
+    .nav-link:hover, .nav-link.active {
+      color: var(--fcs-blue);
+      background-color: var(--fcs-blue-soft);
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-shrink: 0;
+    }
+
+    /* Buttons (2-Radius: 4px / 8px) */
+    .btn-cta {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.86rem;
+      font-weight: 700;
+      padding: 12px 20px;
+      border-radius: var(--radius-sm);
+      border: 1px solid transparent;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      text-align: center;
+      line-height: 1.25;
+    }
+    .btn-cta-primary {
+      background-color: var(--fcs-blue);
+      color: #FFFFFF;
+      box-shadow: 0 4px 14px rgba(0, 110, 171, 0.24);
+    }
+    .btn-cta-primary:hover {
+      background-color: #00598A;
+      transform: translateY(-1px);
+    }
+    .btn-cta-gold {
+      background-color: var(--fcs-gold);
+      color: var(--fcs-navy);
+      font-weight: 800;
+      box-shadow: 0 4px 14px rgba(253, 197, 0, 0.28);
+    }
+    .btn-cta-gold:hover {
+      background-color: #EAB308;
+      transform: translateY(-1px);
+    }
+    .btn-cta-navy {
+      background-color: var(--fcs-navy);
+      color: #FFFFFF;
+    }
+    .btn-cta-navy:hover {
+      background-color: #1E293B;
+    }
+    .btn-cta-outline {
+      background-color: #FFFFFF;
+      color: var(--fcs-navy);
+      border-color: var(--border-strong);
+    }
+    .btn-cta-outline:hover {
+      border-color: var(--fcs-blue);
+      color: var(--fcs-blue);
+      background-color: var(--fcs-blue-soft);
+    }
+    .btn-cta-ghost-light {
+      background-color: rgba(255, 255, 255, 0.1);
+      color: #FFFFFF;
+      border-color: rgba(255, 255, 255, 0.28);
+    }
+    .btn-cta-ghost-light:hover {
+      background-color: rgba(255, 255, 255, 0.2);
+    }
+    .btn-sm {
+      padding: 9px 14px;
+      font-size: 0.8rem;
+    }
+
+    /* Mobile Menu Toggle & Drawer (S-04b safe) */
+    .mobile-toggle {
+      display: none;
+      align-items: center;
+      justify-content: center;
+      width: 44px;
+      height: 44px;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border-light);
+      background: #FFFFFF;
+      color: var(--fcs-navy);
+      cursor: pointer;
+    }
+    .mobile-drawer {
+      display: none;
+      position: fixed;
+      top: 82px;
+      left: 0;
+      right: 0;
+      background-color: var(--fcs-navy);
+      border-bottom: 2px solid var(--fcs-gold);
+      padding: 20px 24px 28px;
+      z-index: 999;
+      flex-direction: column;
+      gap: 10px;
+      box-shadow: var(--shadow-lg);
+    }
+    .mobile-drawer.open {
+      display: flex;
+    }
+    .mobile-drawer a {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: #FFFFFF;
+      padding: 12px 14px;
+      border-radius: var(--radius-sm);
+      background-color: rgba(255, 255, 255, 0.05);
+    }
+    .mobile-drawer a:hover {
+      background-color: var(--fcs-blue);
+    }
+
+    /* Hero Section */
+    .hero-section {
+      background: linear-gradient(135deg, #0B1324 0%, #0F2547 55%, #004E7C 100%);
+      color: #FFFFFF;
+      padding: 68px 0 76px;
+      position: relative;
+      overflow: hidden;
+      border-bottom: 4px solid var(--fcs-gold);
+    }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.12fr 0.88fr;
+      gap: 44px;
+      align-items: center;
+    }
+    .hero-title {
+      color: #FFFFFF;
+      font-size: clamp(2.15rem, 4vw, 3.35rem);
+      font-weight: 800;
+      line-height: 1.12;
+      margin-bottom: 18px;
+    }
+    .hero-title span {
+      color: var(--fcs-gold);
+    }
+    .hero-motto-box {
+      background-color: rgba(253, 197, 0, 0.12);
+      border-left: 4px solid var(--fcs-gold);
+      padding: 12px 16px;
+      border-radius: var(--radius-sm);
+      margin-bottom: 20px;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.84rem;
+      font-weight: 700;
+      color: #FEF08A;
+      letter-spacing: 0.02em;
+    }
+    .hero-sub {
+      font-size: 1.05rem;
+      color: #E2E8F0;
+      margin-bottom: 28px;
+      line-height: 1.65;
+    }
+    .hero-cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 36px;
+    }
+    .hero-kpi-strip {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      padding-top: 24px;
+      border-top: 1px solid rgba(255, 255, 255, 0.14);
+    }
+    .hero-kpi-card {
+      background-color: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: var(--radius-md);
+      padding: 12px 14px;
+    }
+    .hero-kpi-num {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.35rem;
+      font-weight: 800;
+      color: var(--fcs-gold);
+      line-height: 1.15;
+    }
+    .hero-kpi-lbl {
+      font-size: 0.76rem;
+      color: #CBD5E1;
+      margin-top: 4px;
+      line-height: 1.35;
+    }
+
+    .hero-visual-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .hero-photo-card {
+      background-color: #1E293B;
+      border: 2px solid rgba(255, 255, 255, 0.18);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      box-shadow: var(--shadow-lg);
+      position: relative;
+    }
+    .hero-photo-card img {
+      width: 100%;
+      height: 270px;
+      object-fit: cover;
+      object-position: center 25%;
+    }
+    .hero-photo-caption {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 12px 16px;
+      background-color: rgba(15, 23, 42, 0.94);
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .hero-photo-caption strong {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.84rem;
+      color: #FFFFFF;
+    }
+    .hero-photo-caption span {
+      font-size: 0.76rem;
+      color: var(--fcs-gold);
+      font-weight: 600;
+    }
+    .hero-secondary-row {
+      display: grid;
+      grid-template-columns: 1.25fr 0.75fr;
+      gap: 16px;
+    }
+    .hero-mini-card {
+      background-color: rgba(15, 23, 42, 0.85);
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .hero-mini-card img {
+      width: 100%;
+      height: 148px;
+      object-fit: cover;
+    }
+    .hero-mini-body {
+      padding: 10px 14px;
+      font-size: 0.78rem;
+      color: #E2E8F0;
+    }
+    .hero-centenary-box {
+      background-color: rgba(255, 255, 255, 0.96);
+      color: var(--fcs-navy);
+      border-radius: var(--radius-md);
+      padding: 14px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      gap: 8px;
+    }
+    .hero-centenary-box img {
+      width: 112px;
+      height: 84px;
+      object-fit: contain;
+    }
+    .hero-centenary-box strong {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.8rem;
+      color: var(--fcs-navy);
+    }
+
+    /* Generic Cards & Grids */
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .grid-4 {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 28px;
+    }
+
+    .card {
+      background-color: var(--bg-card);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-sm);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+    }
+    .card:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-md);
+      border-color: var(--border-strong);
+    }
+    .card-media {
+      position: relative;
+      height: 210px;
+      background-color: var(--fcs-navy);
+      overflow: hidden;
+    }
+    .card-media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .card-badge {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      background-color: var(--fcs-navy);
+      color: var(--fcs-gold);
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 800;
+      padding: 4px 10px;
+      border-radius: var(--radius-sm);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+    .card-body {
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+      gap: 12px;
+    }
+    .card-title {
+      font-size: 1.2rem;
+      font-weight: 800;
+      color: var(--fcs-navy);
+    }
+    .card-text {
+      font-size: 0.93rem;
+      color: var(--text-body);
+      line-height: 1.6;
+    }
+    .card-meta-list {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      padding: 12px 14px;
+      background-color: var(--bg-muted);
+      border-radius: var(--radius-sm);
+      font-size: 0.85rem;
+      color: var(--text-main);
+    }
+    .card-meta-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+    }
+    .card-meta-item svg {
+      color: var(--fcs-blue);
+      flex-shrink: 0;
+      margin-top: 3px;
+    }
+    .card-footer {
+      padding: 0 24px 24px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    /* Department Pillar Cards */
+    .pillar-card {
+      background-color: #FFFFFF;
+      border: 1px solid var(--border-light);
+      border-top: 4px solid var(--fcs-blue);
+      border-radius: var(--radius-md);
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 16px;
+      box-shadow: var(--shadow-sm);
+    }
+    .pillar-card.pillar-gold {
+      border-top-color: var(--fcs-gold);
+    }
+    .pillar-card.pillar-green {
+      border-top-color: var(--fcs-green);
+    }
+    .pillar-count {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 800;
+      color: var(--fcs-blue);
+      background-color: var(--fcs-blue-soft);
+      padding: 4px 10px;
+      border-radius: var(--radius-sm);
+      align-self: flex-start;
+      text-transform: uppercase;
+    }
+    .pillar-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+    .pillar-tag {
+      font-size: 0.76rem;
+      font-weight: 600;
+      padding: 3px 8px;
+      border-radius: var(--radius-sm);
+      background-color: var(--bg-muted);
+      color: var(--text-main);
+      border: 1px solid var(--border-light);
+    }
+
+    /* Board / Vorstand Grid */
+    .board-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-top: 24px;
+    }
+    .board-card {
+      background-color: #FFFFFF;
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-md);
+      padding: 18px 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .board-role {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--fcs-blue);
+    }
+    .board-name {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.05rem;
+      font-weight: 800;
+      color: var(--fcs-navy);
+    }
+    .board-links {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      margin-top: 6px;
+      font-size: 0.84rem;
+      color: var(--text-body);
+    }
+    .board-links a:hover {
+      color: var(--fcs-blue);
+    }
+
+    /* Timeline */
+    .timeline-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      margin-top: 28px;
+    }
+    .timeline-box {
+      background-color: var(--fcs-navy);
+      color: #FFFFFF;
+      border-radius: var(--radius-md);
+      padding: 20px;
+      border-top: 3px solid var(--fcs-gold);
+    }
+    .timeline-year {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: var(--fcs-gold);
+      margin-bottom: 6px;
+    }
+    .timeline-text {
+      font-size: 0.85rem;
+      color: #E2E8F0;
+      line-height: 1.55;
+    }
+
+    /* Sponsors Showcase (Gold / Silver / Bronze) */
+    .sponsor-tier-block {
+      margin-bottom: 36px;
+    }
+    .sponsor-tier-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 16px;
+      padding-bottom: 10px;
+      border-bottom: 2px solid var(--border-light);
+    }
+    .sponsor-tier-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.82rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      padding: 5px 12px;
+      border-radius: var(--radius-sm);
+    }
+    .tier-gold {
+      background-color: var(--fcs-gold-soft);
+      color: #92400E;
+      border: 1px solid #FDE047;
+    }
+    .tier-silver {
+      background-color: #F1F5F9;
+      color: #1E293B;
+      border: 1px solid #CBD5E1;
+    }
+    .tier-bronze {
+      background-color: #FFEDD5;
+      color: #9A3412;
+      border: 1px solid #FDBA74;
+    }
+
+    .sponsors-gold-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+    }
+    .sponsors-silver-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+    .sponsors-bronze-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+    .sponsor-card {
+      background-color: #FFFFFF;
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-md);
+      padding: 22px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      text-align: center;
+      gap: 14px;
+      box-shadow: var(--shadow-sm);
+      transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+    .sponsor-card:hover {
+      transform: translateY(-2px);
+      border-color: var(--fcs-blue);
+      box-shadow: var(--shadow-md);
+    }
+    .sponsor-card.gold-card {
+      border: 2px solid #FDE047;
+      padding: 28px;
+    }
+    .sponsor-logo-wrap {
+      width: 100%;
+      height: 110px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #FFFFFF;
+      padding: 8px;
+    }
+    .sponsor-card.gold-card .sponsor-logo-wrap {
+      height: 140px;
+    }
+    .sponsor-logo-wrap img {
+      max-height: 100%;
+      max-width: 100%;
+      width: auto;
+      height: auto;
+      object-fit: contain;
+    }
+    .sponsor-name {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1rem;
+      font-weight: 800;
+      color: var(--fcs-navy);
+    }
+    .sponsor-role-tag {
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--text-muted);
+    }
+
+    /* Social Wall */
+    .social-filter-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 28px;
+    }
+    .social-tab-btn {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 700;
+      padding: 8px 14px;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border-strong);
+      background-color: #FFFFFF;
+      color: var(--text-body);
+      cursor: pointer;
+    }
+    .social-tab-btn.active, .social-tab-btn:hover {
+      background-color: var(--fcs-blue);
+      color: #FFFFFF;
+      border-color: var(--fcs-blue);
+    }
+
+    /* Footer */
+    .site-footer {
+      background-color: var(--fcs-navy-deep);
+      color: #E2E8F0;
+      padding: 68px 0 36px;
+      border-top: 4px solid var(--fcs-gold);
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.3fr 1fr 1fr 1.1fr;
+      gap: 36px;
+      padding-bottom: 44px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+    }
+    .footer-title {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.92rem;
+      font-weight: 800;
+      color: #FFFFFF;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: 16px;
+    }
+    .footer-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .footer-list a, .footer-list button {
+      color: #CBD5E1;
+      font-size: 0.88rem;
+      background: none;
+      border: none;
+      text-align: left;
+      cursor: pointer;
+      font-family: inherit;
+      padding: 5px 0;
+      min-height: 32px;
+      display: inline-flex;
+      align-items: center;
+    }
+    .footer-bottom a,
+    .board-links a,
+    .staff-card a,
+    .team-sponsor-strip a {
+      display: inline-flex;
+      align-items: center;
+      min-height: 32px;
+      padding: 4px 0;
+    }
+    .footer-list a:hover, .footer-list button:hover {
+      color: var(--fcs-gold);
+    }
+    .footer-bottom {
+      padding-top: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+      font-size: 0.82rem;
+      color: #CBD5E1;
+    }
+
+    /* Blueprint Modal (#wpBlueprintModal) */
+    .wp-modal-backdrop {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background-color: rgba(11, 19, 36, 0.78);
+      backdrop-filter: blur(6px);
+      z-index: 2000;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+    .wp-modal-backdrop.open {
+      display: flex;
+    }
+    .wp-modal-dialog {
+      background-color: #FFFFFF;
+      border: 2px solid var(--fcs-gold);
+      border-radius: var(--radius-md);
+      max-width: 620px;
+      width: 100%;
+      padding: 28px;
+      box-shadow: var(--shadow-lg);
+      position: relative;
+      max-height: 90vh;
+      overflow-y: auto;
+    }
+    .wp-modal-close {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      width: 36px;
+      height: 36px;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border-light);
+      background-color: var(--bg-muted);
+      color: var(--fcs-navy);
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .wp-modal-checklist {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin: 18px 0;
+      padding: 16px;
+      background-color: var(--bg-muted);
+      border-radius: var(--radius-sm);
+    }
+    .wp-modal-check-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 0.88rem;
+      color: var(--text-main);
+    }
+    .wp-modal-check-item svg {
+      color: var(--fcs-green);
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    /* Responsive Breakpoints */
+    @media (max-width: 1080px) {
+      .hero-grid {
+        grid-template-columns: 1fr;
+      }
+      .grid-4, .timeline-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .grid-3, .board-grid, .sponsors-silver-grid, .sponsors-bronze-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .footer-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .main-nav, .header-actions .btn-cta {
+        display: none;
+      }
+      .mobile-toggle {
+        display: inline-flex;
+      }
+    }
+
+    @media (max-width: 720px) {
+      section {
+        padding: 56px 0;
+      }
+      .top-bar-links {
+        display: none;
+      }
+      .hero-kpi-strip {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .hero-secondary-row,
+      .grid-2,
+      .grid-3,
+      .grid-4,
+      .board-grid,
+      .timeline-grid,
+      .sponsors-gold-grid,
+      .sponsors-silver-grid,
+      .sponsors-bronze-grid,
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+      .header-actions .btn-cta-primary {
+        padding: 9px 12px;
+        font-size: 0.78rem;
+      }
+    }
+
+
+    .contact-layout {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 40px;
+      align-items: start;
+    }
+    .contact-info-panel {
+      background-color: #FFFFFF;
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-md);
+      padding: 28px;
+      box-shadow: var(--shadow-sm);
+    }
+    .contact-direct-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-top: 20px;
+    }
+    .contact-direct-item {
+      padding: 12px 14px;
+      background-color: var(--bg-page);
+      border: 1px solid var(--border-light);
+      border-left: 3px solid var(--fcs-blue);
+      border-radius: var(--radius-sm);
+      font-size: 0.85rem;
+    }
+    .contact-direct-role {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      color: var(--fcs-blue);
+      letter-spacing: 0.04em;
+    }
+    .contact-direct-person {
+      font-weight: 700;
+      color: var(--fcs-navy);
+      margin-top: 2px;
+    }
+    .contact-direct-links {
+      color: var(--text-body);
+      font-size: 0.82rem;
+      margin-top: 2px;
+    }
+
+    /* Smart Wizard Card */
+    .wizard-card {
+      background-color: #FFFFFF;
+      border: 2px solid var(--fcs-blue);
+      border-radius: var(--radius-md);
+      padding: 32px;
+      box-shadow: var(--shadow-md);
+    }
+    .wp-stepper {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+      margin-bottom: 24px;
+      padding: 6px;
+      background-color: var(--bg-muted);
+      border-radius: var(--radius-md);
+    }
+    .wp-step-pill {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 10px 8px;
+      border-radius: var(--radius-sm);
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.76rem;
+      font-weight: 700;
+      color: var(--text-muted);
+      text-align: center;
+    }
+    .wp-step-pill.active {
+      background-color: var(--fcs-blue);
+      color: #FFFFFF;
+    }
+    .wp-step-pill.done {
+      background-color: var(--fcs-green-soft);
+      color: #166534;
+    }
+    .wp-step-num {
+      width: 22px;
+      height: 22px;
+      border-radius: var(--radius-sm);
+      background-color: rgba(255, 255, 255, 0.2);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.72rem;
+      font-weight: 800;
+      flex-shrink: 0;
+    }
+
+    .wp-step-pane {
+      display: none;
+    }
+    .wp-step-pane.active {
+      display: block;
+    }
+
+    .wp-role-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+      margin-bottom: 22px;
+    }
+    .wp-role-tile {
+      background-color: var(--bg-page);
+      border: 1px solid var(--border-strong);
+      border-radius: var(--radius-md);
+      padding: 14px;
+      text-align: left;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      gap: 6px;
+      transition: all 0.18s ease;
+      font-family: inherit;
+    }
+    .wp-role-tile:hover {
+      border-color: var(--fcs-blue);
+      background-color: #FFFFFF;
+    }
+    .wp-role-tile.selected {
+      border: 2px solid var(--fcs-blue);
+      background-color: var(--fcs-blue-soft);
+    }
+    .wp-role-head {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .wp-role-icon {
+      width: 28px;
+      height: 28px;
+      border-radius: var(--radius-sm);
+      background-color: #FFFFFF;
+      color: var(--fcs-blue);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      border: 1px solid var(--border-light);
+    }
+    .wp-role-title {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.84rem;
+      font-weight: 800;
+      color: var(--fcs-navy);
+      line-height: 1.25;
+    }
+    .wp-role-desc {
+      font-size: 0.76rem;
+      color: var(--text-body);
+      line-height: 1.4;
+    }
+
+    /* Form Fields (S-20 aligned) */
+    .form-grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+      align-items: stretch;
+    }
+    .form-field {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 6px;
+    }
+    .form-label {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: var(--fcs-navy);
+      line-height: 1.3;
+    }
+    .form-input, .form-textarea {
+      width: 100%;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.9rem;
+      color: var(--text-main);
+      background-color: #FFFFFF;
+      border: 1px solid var(--border-strong);
+      border-radius: var(--radius-sm);
+      padding: 11px 14px;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+    .form-input:focus, .form-textarea:focus {
+      outline: none;
+      border-color: var(--fcs-blue);
+      box-shadow: 0 0 0 3px rgba(0, 110, 171, 0.14);
+    }
+    .form-textarea {
+      min-height: 104px;
+      resize: vertical;
+    }
+
+    /* Upload Zone */
+    .wp-upload-zone {
+      border: 1px dashed var(--border-strong);
+      background-color: var(--bg-page);
+      border-radius: var(--radius-md);
+      padding: 14px;
+    }
+    .wp-upload-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 9px 14px;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border-strong);
+      background-color: #FFFFFF;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--fcs-navy);
+      cursor: pointer;
+    }
+    .wp-photo-thumbs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 10px;
+    }
+    .wp-thumb-item {
+      position: relative;
+      width: 72px;
+      height: 72px;
+      border-radius: var(--radius-sm);
+      overflow: hidden;
+      border: 1px solid var(--border-strong);
+    }
+    .wp-thumb-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .wp-thumb-remove {
+      position: absolute;
+      top: 2px;
+      right: 2px;
+      width: 20px;
+      height: 20px;
+      background-color: var(--fcs-navy);
+      color: #FFFFFF;
+      border: none;
+      border-radius: var(--radius-sm);
+      font-size: 0.7rem;
+      cursor: pointer;
+    }
+
+    .wp-plz-badge {
+      display: none;
+      align-items: center;
+      gap: 8px;
+      margin-top: 6px;
+      padding: 8px 12px;
+      border-radius: var(--radius-sm);
+      font-size: 0.78rem;
+      font-weight: 600;
+    }
+    .wp-plz-badge.in-area {
+      display: flex;
+      background-color: var(--fcs-green-soft);
+      color: #166534;
+      border: 1px solid #86EFAC;
+    }
+
+    .wp-selftest-banner {
+      background-color: var(--fcs-gold-soft);
+      border: 1px solid #FDE047;
+      border-left: 4px solid var(--fcs-gold-dark);
+      border-radius: var(--radius-sm);
+      padding: 12px 14px;
+      font-size: 0.8rem;
+      color: #78350F;
+      margin-bottom: 16px;
+    }
+
+    .wp-success-box {
+      display: none;
+      flex-direction: column;
+      gap: 16px;
+      padding: 24px;
+      background-color: var(--bg-page);
+      border: 2px solid var(--fcs-green);
+      border-radius: var(--radius-md);
+    }
+    .wp-success-box.visible {
+      display: flex;
+    }
+    .wp-wa-preview {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.82rem;
+      background-color: #FFFFFF;
+      border: 1px solid var(--border-light);
+      border-left: 4px solid var(--fcs-green);
+      padding: 12px 14px;
+      border-radius: var(--radius-sm);
+      white-space: pre-wrap;
+      color: var(--text-main);
+    }
+
+    @media (max-width: 1080px) {
+      .contact-layout {
+        grid-template-columns: 1fr;
+      }
+    }
+    @media (max-width: 720px) {
+      .wp-role-grid, .form-grid-2, .wp-stepper {
+        grid-template-columns: 1fr;
+      }
+      .wizard-card {
+        padding: 20px;
+      }
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- TOP BAR -->
+  <div class="top-bar">
+    <div class="container top-bar-inner">
+      <div class="top-bar-left">
+        <span class="top-bar-badge" data-slot="topbar_badge">SEIT 21. MÄRZ 1921</span>
+        <span data-slot="topbar_info">Fussballanlage Zelgli · 8952 Schlieren · 33 Mannschaften im SFV</span>
+      </div>
+      <div class="top-bar-links">
+        <a href="index.html#zelgli-verein">Sportplatz Zelgli &amp; Beizli</a>
+        <a href="index.html#sponsoren">Sponsoren &amp; Supporter</a>
+        <button type="button" onclick="wpOpenBlueprintModal('Vereinsdokumente: Statuten, Schutz- &amp; Notfallkonzept', 'Geschäftsstelle &amp; Präsidium', 'Roger Küng (r.kueng@fcschlieren.ch) &amp; Jana Seifriz (j.seifriz@fcschlieren.ch)')">Notfallkonzept &amp; Statuten</button>
+        <a href="kontakt.html?thema=spielbetrieb">Spielverschiebung melden</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- STICKY HEADER -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="brand-link" aria-label="FC Schlieren Startseite">
+        <img src="images/logo-fcschlieren.webp" alt="Wappen FC Schlieren" class="brand-logo" width="48" height="56" data-slot="brand_logo">
+        <div class="brand-text">
+          <span class="brand-name" data-slot="brand_name">FC SCHLIEREN</span>
+          <span class="brand-sub" data-slot="brand_sub">GEGRÜNDET 1921 · ZELGLI</span>
+        </div>
+      </a>
+
+      <nav class="main-nav" aria-label="Hauptnavigation">
+        <a href="index.html" class="nav-link ">Startseite</a>
+        <a href="herren-1.html" class="nav-link ">Teams (33)</a>
+        <a href="index.html#aktuelles-camps" class="nav-link">Fussballschule &amp; Camps</a>
+        <a href="index.html#zelgli-verein" class="nav-link">Zelgli &amp; Verein</a>
+        <a href="index.html#sponsoren" class="nav-link">Sponsoren</a>
+        <a href="kontakt.html" class="nav-link active">Vereins-Zentrale</a>
+      </nav>
+
+      <div class="header-actions">
+        <a href="kontakt.html?thema=probetraining" class="btn-cta btn-cta-primary btn-sm" data-slot="header_cta">
+          <span>Probetraining &amp; Kontakt</span>
+        </a>
+        <button type="button" class="mobile-toggle" id="mobileMenuBtn" aria-label="Menü öffnen" onclick="wpToggleMobileMenu()">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <div class="mobile-drawer" id="mobileDrawer">
+      <a href="index.html" onclick="wpCloseMobileMenu()">Startseite</a>
+      <a href="herren-1.html" onclick="wpCloseMobileMenu()">Muster-Team (Herren 1 / Frauen 1) &amp; 33 Teams</a>
+      <a href="index.html#aktuelles-camps" onclick="wpCloseMobileMenu()">Fussballschule &amp; Fussballcamps</a>
+      <a href="index.html#zelgli-verein" onclick="wpCloseMobileMenu()">Sportplatz Zelgli, Beizli &amp; Vorstand</a>
+      <a href="index.html#sponsoren" onclick="wpCloseMobileMenu()">Sponsoren, Supporter &amp; Business-Club</a>
+      <a href="kontakt.html" onclick="wpCloseMobileMenu()">Vereins- &amp; Probetraining-Zentrale</a>
+    </div>
+  </header>
+
+  <main>
+
+  <section data-section="kontakt-zentrale" style="padding: 60px 0 84px;">
+    <div class="container">
+      <div class="contact-layout">
+        <!-- LEFT COLUMN: VEREINS-ANLAUFSTELLEN -->
+        <div class="contact-info-panel">
+          <div class="section-kicker" data-slot="contact_kicker">VEREINS-, PROBETRAINING- &amp; SPONSORING-ZENTRALE</div>
+          <h1 style="font-size:clamp(1.65rem,2.6vw,2.2rem);font-weight:800;margin-bottom:12px;" data-slot="contact_title">
+            Alle 10 Vereinsformulare gebündelt an einem Ort.
+          </h1>
+          <p style="font-size:0.93rem;color:var(--text-body);margin-bottom:18px;" data-slot="contact_lead">
+            Ob Probetraining für dein Kind, Spielverschiebungsgesuch, Kleiderbestellung, Adressänderung oder Sponsoring-Partnerschaft: Unser geführter 3-Schritte-Assistent leitet dein Anliegen inklusive 1-Seiten-PDF-Dossier direkt an das zuständige Ressort im FC Schlieren weiter.
+          </p>
+
+          <div class="contact-direct-list">
+            <div class="contact-direct-item">
+              <div class="contact-direct-role">Präsidium &amp; Vereinsführung</div>
+              <div class="contact-direct-person">Roger Küng (Präsident)</div>
+              <div class="contact-direct-links">r.kueng@fcschlieren.ch · Tel. 079 400 20 93</div>
+            </div>
+
+            <div class="contact-direct-item">
+              <div class="contact-direct-role">Geschäftsstelle, Mitglieder &amp; Mutationen</div>
+              <div class="contact-direct-person">Jana Seifriz (Leiterin Geschäftsstelle &amp; Spielbetrieb)</div>
+              <div class="contact-direct-links">j.seifriz@fcschlieren.ch · Tel. 079 242 41 56</div>
+            </div>
+
+            <div class="contact-direct-item">
+              <div class="contact-direct-role">Sportliche Leitung &amp; Probetraining</div>
+              <div class="contact-direct-person">Zoran Perak (Aktive) · Luigi Schiavano (Junioren) · Mario De Meo (Juniorinnen)</div>
+              <div class="contact-direct-links">z.perak@fcschlieren.ch · l.schiavano@fcschlieren.ch · m.demeo@fcschlieren.ch</div>
+            </div>
+
+            <div class="contact-direct-item">
+              <div class="contact-direct-role">Spielbetrieb &amp; Spielverschiebungen</div>
+              <div class="contact-direct-person">Roger Mehr (Leiter Spielbetrieb) &amp; Jana Seifriz</div>
+              <div class="contact-direct-links">r.mehr@fcschlieren.ch · Tel. 079 402 83 87</div>
+            </div>
+
+            <div class="contact-direct-item">
+              <div class="contact-direct-role">Material &amp; Kleiderbestellung</div>
+              <div class="contact-direct-person">Céline Bürgisser (Material Junioren &amp; Juniorinnen)</div>
+              <div class="contact-direct-links">c.buergisser@fcschlieren.ch</div>
+            </div>
+
+            <div class="contact-direct-item">
+              <div class="contact-direct-role">Sponsoring, Supporter, Business-Club &amp; Finanzen</div>
+              <div class="contact-direct-person">Dani Galantucci (Sponsoring/Banden) &amp; Luigi Voci (Finanzen)</div>
+              <div class="contact-direct-links">d.galantucci@fcschlieren.ch · l.voci@fcschlieren.ch (079 788 33 24)</div>
+            </div>
+
+            <div class="contact-direct-item">
+              <div class="contact-direct-role">Sportplatz Zelgli &amp; Clubhaus / Beizli</div>
+              <div class="contact-direct-person">Müslüm Bozan (Platzwart &amp; Clubhauswirt)</div>
+              <div class="contact-direct-links">m.bozan@fcschlieren.ch · Tel. 079 260 63 63 · 8952 Schlieren</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- RIGHT COLUMN: 3-STEP SMART WIZARD -->
+        <div class="wizard-card">
+          <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;margin-bottom:14px;">
+            <div>
+              <div class="section-kicker" style="margin-bottom:4px;">DIGITALE VEREINS-ZENTRALE · FC SCHLIEREN</div>
+              <h2 style="font-size:1.35rem;font-weight:800;" id="wpWizardTitle">1. Wähle dein Anliegen</h2>
+            </div>
+            <span class="pillar-count" id="wpActiveAssigneeBadge">Zuständig: Sportliche Leitung</span>
+          </div>
+
+          <div class="wp-stepper" aria-label="Fortschritt">
+            <div class="wp-step-pill active" id="wpStepPill1">
+              <span class="wp-step-num">1</span>
+              <span>Anliegen &amp; Bereich</span>
+            </div>
+            <div class="wp-step-pill" id="wpStepPill2">
+              <span class="wp-step-num">2</span>
+              <span>Details &amp; Beilagen</span>
+            </div>
+            <div class="wp-step-pill" id="wpStepPill3">
+              <span class="wp-step-num">3</span>
+              <span>Kontakt &amp; Dossier</span>
+            </div>
+          </div>
+
+          <form id="fcsContactForm" onsubmit="return wpSubmitFcsLead(event)" novalidate>
+            <!-- Honeypot -->
+            <div style="display:none;" aria-hidden="true">
+              <label for="wpHoneypot">Website URL</label>
+              <input type="text" id="wpHoneypot" name="website_url" tabindex="-1" autocomplete="off">
+            </div>
+
+            <!-- STEP 1: TOPIC SELECTION (6 TILES) -->
+            <div class="wp-step-pane active" id="wpStep1">
+              <div class="wp-role-grid" id="wpTopicGrid">
+                <button type="button" class="wp-role-tile selected" data-topic="Probetraining / Neumitglied" onclick="wpSelectFcsTopic('Probetraining / Neumitglied')">
+                  <div class="wp-role-head">
+                    <span class="wp-role-icon">
+                      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8"/></svg>
+                    </span>
+                    <span class="wp-role-title" data-slot="topic_opt_1">Probetraining / Neumitglied</span>
+                  </div>
+                  <span class="wp-role-desc">Anmeldung für Junioren A–G, Juniorinnen, Fussballschule, Herren oder Frauen</span>
+                </button>
+
+                <button type="button" class="wp-role-tile" data-topic="Sponsoring / Supporter / Business-Club" onclick="wpSelectFcsTopic('Sponsoring / Supporter / Business-Club')">
+                  <div class="wp-role-head">
+                    <span class="wp-role-icon">
+                      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                    </span>
+                    <span class="wp-role-title" data-slot="topic_opt_2">Sponsoring / Supporter</span>
+                  </div>
+                  <span class="wp-role-desc">Hauptsponsor, Bandenwerbung (CHF 360), Supporter (CHF 150) &amp; Business-Club</span>
+                </button>
+
+                <button type="button" class="wp-role-tile" data-topic="Spielbetrieb / Spielverschiebung" onclick="wpSelectFcsTopic('Spielbetrieb / Spielverschiebung')">
+                  <div class="wp-role-head">
+                    <span class="wp-role-icon">
+                      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/></svg>
+                    </span>
+                    <span class="wp-role-title" data-slot="topic_opt_3">Spielbetrieb / Verschiebung</span>
+                  </div>
+                  <span class="wp-role-desc">Spielverschiebungsgesuch, Platzbelegung Zelgli, Schiedsrichter oder Turniere</span>
+                </button>
+
+                <button type="button" class="wp-role-tile" data-topic="Kleiderbestellung / Vereinskollektion" onclick="wpSelectFcsTopic('Kleiderbestellung / Vereinskollektion')">
+                  <div class="wp-role-head">
+                    <span class="wp-role-icon">
+                      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20.38 3.46L16 2a4 4 0 0 1-8 0L3.62 3.46a2 2 0 0 0-1.34 2.23l.58 3.47a1 1 0 0 0 .99.84H6v10c0 1.1.9 2 2 2h8a2 2 0 0 0 2-2V10h2.15a1 1 0 0 0 .99-.84l.58-3.47a2 2 0 0 0-1.34-2.23z"/></svg>
+                    </span>
+                    <span class="wp-role-title" data-slot="topic_opt_4">Kleiderbestellung / Material</span>
+                  </div>
+                  <span class="wp-role-desc">Offizielle FC Schlieren Trainingskleider, Trikots, Stulpen &amp; Ausrüstung</span>
+                </button>
+
+                <button type="button" class="wp-role-tile" data-topic="Mitgliedschaft / Mutation / Austritt" onclick="wpSelectFcsTopic('Mitgliedschaft / Mutation / Austritt')">
+                  <div class="wp-role-head">
+                    <span class="wp-role-icon">
+                      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                    </span>
+                    <span class="wp-role-title" data-slot="topic_opt_5">Mutation / Adresse / Austritt</span>
+                  </div>
+                  <span class="wp-role-desc">Adressänderung, Vereinswechsel, Passwesen, Mitgliederbeitrag oder Austritt</span>
+                </button>
+
+                <button type="button" class="wp-role-tile" data-topic="Clubhaus / Beizli / Allgemeine Anfrage" onclick="wpSelectFcsTopic('Clubhaus / Beizli / Allgemeine Anfrage')">
+                  <div class="wp-role-head">
+                    <span class="wp-role-icon">
+                      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                    </span>
+                    <span class="wp-role-title" data-slot="topic_opt_6">Club-Beizli &amp; Allgemeines</span>
+                  </div>
+                  <span class="wp-role-desc">Reservation Club-Beizli (40–50 Plätze), Sponsorenlauf oder Anfrage an Vorstand</span>
+                </button>
+              </div>
+
+              <button type="button" class="btn-cta btn-cta-primary" style="width:100%;" onclick="wpNextStep(2)">
+                <span>Weiter zu Schritt 2: Angaben &amp; Unterlagen</span>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="9 18 15 12 9 6"/></svg>
+              </button>
+            </div>
+
+            <!-- STEP 2: DYNAMIC DETAILS & PHOTO UPLOAD -->
+            <div class="wp-step-pane" id="wpStep2">
+              <div class="form-grid-2" style="margin-bottom:14px;">
+                <div class="form-field">
+                  <label for="wpDetail1" class="form-label" id="wpDetail1Label">Name &amp; Jahrgang Spieler/in</label>
+                  <input type="text" id="wpDetail1" class="form-input" placeholder="z. B. Jahrgang 2015 · Bisheriger Verein / Einsteiger">
+                </div>
+                <div class="form-field">
+                  <label for="wpDetail2" class="form-label" id="wpDetail2Label">Gewünschte Mannschaft / Abteilung</label>
+                  <input type="text" id="wpDetail2" class="form-input" placeholder="z. B. Junioren D / Fussballschule / Herren 1">
+                </div>
+              </div>
+
+              <div class="form-field" style="margin-bottom:14px;">
+                <label class="form-label">Gewünschter Zeithorizont / Dringlichkeit</label>
+                <div class="wp-role-grid" id="wpUrgencyGrid" style="margin-bottom:0;">
+                  <button type="button" class="wp-role-tile" data-urg="Aktuelle Woche / Nächstes Training" onclick="wpSelectFcsUrgency('Aktuelle Woche / Nächstes Training')">
+                    <span class="wp-role-title">Nächstes Training / Diese Woche</span>
+                    <span class="wp-role-desc">Zeitnahe Rückmeldung erwünscht</span>
+                  </button>
+                  <button type="button" class="wp-role-tile selected" data-urg="Planbar / Laufende Saison" onclick="wpSelectFcsUrgency('Planbar / Laufende Saison')">
+                    <span class="wp-role-title">Planbar / Laufende Saison</span>
+                    <span class="wp-role-desc">Reguläre Bearbeitung durch Ressort</span>
+                  </button>
+                  <button type="button" class="wp-role-tile" data-urg="Kommende Saison / Fussballschule" onclick="wpSelectFcsUrgency('Kommende Saison / Fussballschule')">
+                    <span class="wp-role-title">Neue Saison / Fussballschule</span>
+                    <span class="wp-role-desc">Voranmeldung &amp; Kaderplanung</span>
+                  </button>
+                  <button type="button" class="wp-role-tile" data-urg="Heute (Dringend / Spielbetrieb)" onclick="wpSelectFcsUrgency('Heute (Dringend / Spielbetrieb)')">
+                    <span class="wp-role-title">Dringend (Spielbetrieb / Frist)</span>
+                    <span class="wp-role-desc">Kurzfristiges Gesuch / Rückruf</span>
+                  </button>
+                </div>
+              </div>
+
+              <div class="form-field" style="margin-bottom:14px;">
+                <label for="contactMessage" class="form-label" data-slot="lbl_message">Nachricht / Zusatzangaben ans Ressort *</label>
+                <textarea id="contactMessage" name="message" class="form-textarea" placeholder="Beschreibe kurz dein Anliegen (z. B. Position, Kleidergrössen, Wunschtermin oder Sponsoring-Interesse)..." required></textarea>
+              </div>
+
+              <div class="form-field" style="margin-bottom:18px;">
+                <label class="form-label">Fotos, Formularbeilagen oder Sponsoren-Logo beifügen (optional, max. 3 Bilder)</label>
+                <div class="wp-upload-zone">
+                  <input type="file" id="wpPhotoInput" accept="image/*" multiple style="display:none;" onchange="wpHandlePhotoFiles(this.files)">
+                  <button type="button" class="wp-upload-btn" onclick="wpTriggerPhotoUpload()">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+                    <span>Bild / Beilage auswählen (z. B. Ausweis, Spielplan, Firmenlogo)</span>
+                  </button>
+                  <div style="font-size:0.75rem;color:var(--text-muted);margin-top:6px;" id="wpPhotoCounter">0 / 3 Bilder ausgewählt · Automatisch für das 1-Seiten-PDF-Dossier optimiert</div>
+                  <div class="wp-photo-thumbs" id="wpPhotoThumbs"></div>
+                </div>
+              </div>
+
+              <div class="form-grid-2">
+                <button type="button" class="btn-cta btn-cta-outline" style="width:100%;" onclick="wpPrevStep()">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="15 18 9 12 15 6"/></svg>
+                  <span>Zurück zu Schritt 1</span>
+                </button>
+                <button type="button" class="btn-cta btn-cta-primary" style="width:100%;" onclick="wpNextStep(3)">
+                  <span>Weiter zu Schritt 3: Kontakt</span>
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="9 18 15 12 9 6"/></svg>
+                </button>
+              </div>
+            </div>
+
+            <!-- STEP 3: CONTACT DETAILS & SUBMIT -->
+            <div class="wp-step-pane" id="wpStep3">
+              <div class="wp-selftest-banner">
+                <strong>Vorschau- &amp; Selbst-Test-Modus aktiv:</strong> Du kannst dieses Formular jetzt live testen. Das System generiert sofort ein echtes <strong>1-Seiten-PDF-Vereinsdossier</strong> mit FC-Schlieren-Briefkopf zum Herunterladen, ohne den Vorstand mit Test-Mails zu belasten.
+              </div>
+
+              <div class="form-grid-2" style="margin-bottom:14px;">
+                <div class="form-field">
+                  <label for="contactName" class="form-label" data-slot="lbl_name">Vor- und Nachname (oder Eltern) *</label>
+                  <input type="text" id="contactName" name="name" class="form-input" placeholder="z. B. Marco Muster" required>
+                </div>
+                <div class="form-field">
+                  <label for="contactCompany" class="form-label">Team / Firma / Organisation (optional)</label>
+                  <input type="text" id="contactCompany" name="company" class="form-input" placeholder="z. B. Junioren D1 / Muster AG Schlieren">
+                </div>
+              </div>
+
+              <div class="form-grid-2" style="margin-bottom:14px;">
+                <div class="form-field">
+                  <label for="contactLoc" class="form-label">PLZ &amp; Wohnort *</label>
+                  <input type="text" id="contactLoc" name="plz" class="form-input" placeholder="z. B. 8952 Schlieren" oninput="wpCheckFcsPlz(this.value)" required>
+                </div>
+                <div class="form-field">
+                  <label for="contactStreet" class="form-label">Strasse &amp; Nr. (für Mutationen / Rechnungen)</label>
+                  <input type="text" id="contactStreet" name="street" class="form-input" placeholder="z. B. Badenerstrasse 12">
+                </div>
+              </div>
+
+              <div class="wp-plz-badge" id="wpPlzBadge" style="margin-bottom:14px;">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><polyline points="20 6 9 17 4 12"/></svg>
+                <span id="wpPlzBadgeText">PLZ 8952: Einzugsgebiet Schlieren &amp; Limmattal</span>
+              </div>
+
+              <div class="form-grid-2" style="margin-bottom:18px;">
+                <div class="form-field">
+                  <label for="contactEmail" class="form-label" data-slot="lbl_email">E-Mail-Adresse *</label>
+                  <input type="email" id="contactEmail" name="email" class="form-input" placeholder="name@beispiel.ch" required>
+                </div>
+                <div class="form-field">
+                  <label for="contactPhone" class="form-label" data-slot="lbl_phone">Telefon / Mobile (für Rückruf / WhatsApp) *</label>
+                  <input type="tel" id="contactPhone" name="phone" class="form-input" placeholder="079 123 45 67" required>
+                </div>
+              </div>
+
+              <div id="wpFormError" style="display:none;background-color:#FEE2E2;border:1px solid #FCA5A5;color:#991B1B;padding:10px 14px;border-radius:4px;font-size:0.84rem;margin-bottom:14px;"></div>
+
+              <div class="form-grid-2">
+                <button type="button" class="btn-cta btn-cta-outline" style="width:100%;" onclick="wpPrevStep()">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="15 18 9 12 15 6"/></svg>
+                  <span>Zurück zu Schritt 2</span>
+                </button>
+                <button type="submit" class="btn-cta btn-cta-gold" id="wpSubmitBtn" style="width:100%;" data-slot="btn_submit">
+                  <span id="wpSubmitBtnText">1-Seiten-Dossier &amp; Anfrage senden</span>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+                </button>
+              </div>
+            </div>
+          </form>
+
+          <!-- SUCCESS COCKPIT -->
+          <div class="wp-success-box" id="wpSuccessBox" aria-live="polite">
+            <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;">
+              <div style="display:flex;align-items:center;gap:10px;">
+                <span style="width:36px;height:36px;border-radius:4px;background-color:var(--fcs-green);color:#FFFFFF;display:inline-flex;align-items:center;justify-content:center;">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><polyline points="20 6 9 17 4 12"/></svg>
+                </span>
+                <div>
+                  <div style="font-family:'Montserrat',sans-serif;font-weight:800;font-size:1.05rem;color:var(--fcs-navy);">Vereins-Anfrage &amp; 1-Seiten-PDF-Dossier erstellt</div>
+                  <div style="font-size:0.78rem;color:var(--text-muted);" id="wpResChannels">1-Seiten-PDF-Dossier bereit zum Download</div>
+                </div>
+              </div>
+              <span class="top-bar-badge" style="background-color:var(--fcs-navy);color:var(--fcs-gold);" id="wpResRef">#FCS-2026</span>
+            </div>
+
+            <div class="form-grid-2" style="background-color:#FFFFFF;padding:12px 14px;border-radius:4px;border:1px solid var(--border-light);font-size:0.84rem;">
+              <div>
+                <div style="color:var(--text-muted);font-size:0.75rem;">Zuständiges Ressort im FC Schlieren:</div>
+                <strong style="color:var(--fcs-navy);" id="wpResAssigned">Geschäftsstelle &amp; Sportliche Leitung</strong>
+              </div>
+              <div>
+                <div style="color:var(--text-muted);font-size:0.75rem;">Erwartete Rückmeldung:</div>
+                <strong style="color:var(--fcs-blue);" id="wpResCallback">Innert 24–48 Stunden</strong>
+              </div>
+            </div>
+
+            <div>
+              <div style="font-family:'Montserrat',sans-serif;font-size:0.75rem;font-weight:800;text-transform:uppercase;color:var(--fcs-navy);margin-bottom:6px;">
+                Vorschau der strukturierten WhatsApp-Sofortmeldung ans Ressort:
+              </div>
+              <div class="wp-wa-preview" id="wpResWaPreview"></div>
+            </div>
+
+            <div class="form-grid-2">
+              <a href="kontakt.html" id="wpResPdfBtn" target="_blank" rel="noopener noreferrer" class="btn-cta btn-cta-primary" style="width:100%;">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                <span>1-Seiten-PDF-Dossier öffnen</span>
+              </a>
+              <button type="button" class="btn-cta btn-cta-outline" style="width:100%;" onclick="wpResetWizard()">
+                <span>Weitere Anfrage erfassen</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    var wpFcsState = {
+      step: 1,
+      topic: 'Probetraining / Neumitglied',
+      urgency: 'Planbar / Laufende Saison',
+      photos: []
+    };
+
+    var wpFcsRoleConfig = {
+      'Probetraining / Neumitglied': {
+        assignee: 'Zoran Perak (Aktive), Luigi Schiavano (Junioren) & Mario De Meo (Juniorinnen)',
+        l1: 'Name & Jahrgang Spieler/in',
+        p1: 'z. B. Noah Muster · Jahrgang 2015',
+        l2: 'Gewünschte Mannschaft / Bisheriger Verein',
+        p2: 'z. B. Junioren D / Fussballschule / Herren 1'
+      },
+      'Sponsoring / Supporter / Business-Club': {
+        assignee: 'Dani Galantucci (Sponsoring), Roger Küng (Präsident) & Luigi Voci (Finanzen)',
+        l1: 'Gewünschtes Engagement / Plattform',
+        p1: 'z. B. Bandenwerbung Platz 1 (CHF 360), Supporter (CHF 150) oder Business-Club',
+        l2: 'Unternehmen / Wunsch-Team für Patronat',
+        p2: 'z. B. Muster AG Schlieren · Herren 1 / Frauen 1'
+      },
+      'Spielbetrieb / Spielverschiebung': {
+        assignee: 'Roger Mehr (Leiter Spielbetrieb) & Jana Seifriz (Geschäftsstelle)',
+        l1: 'Mannschaft, Spielnummer & Gegner',
+        p1: 'z. B. Junioren C1 · Spiel-Nr. 40219 vs. FC Dietikon',
+        l2: 'Bisheriges Spieldatum & Neuer Wunschtermin',
+        p2: 'z. B. Verschiebung auf Mittwoch 19:30 Uhr, Platz 2 Zelgli'
+      },
+      'Kleiderbestellung / Vereinskollektion': {
+        assignee: 'Céline Bürgisser (Material Junioren & Juniorinnen)',
+        l1: 'Mannschaft & Name Spieler/in',
+        p1: 'z. B. E2 Junioren · Levin Muster',
+        l2: 'Gewünschte Artikel & Kleidergrösse',
+        p2: 'z. B. Trainingsanzug & Stulpen · Grösse 152'
+      },
+      'Mitgliedschaft / Mutation / Austritt': {
+        assignee: 'Jana Seifriz (Geschäftsstelle) & Luigi Voci (Finanzen)',
+        l1: 'Art der Mutation / Meldung',
+        p1: 'z. B. Adressänderung / Übertritt / Austritt per Saisonende',
+        l2: 'Name Mitglied, Jahrgang & Mannschaft',
+        p2: 'z. B. Sara Muster · Jg. 2010 · B Juniorinnen'
+      },
+      'Clubhaus / Beizli / Allgemeine Anfrage': {
+        assignee: 'Müslüm Bozan (Clubhauswirt & Platzwart) & Roger Küng (Präsident)',
+        l1: 'Betreff / Anlass im Club-Beizli',
+        p1: 'z. B. Mannschaftsessen im Beizli / Anfrage an den Vorstand',
+        l2: 'Wunschdatum & Personenanzahl',
+        p2: 'z. B. Freitag 19:00 Uhr · ca. 25 Personen'
+      }
+    };
+
+    function wpUpdateHeader() {
+      var titles = {
+        1: '1. Wähle dein Anliegen',
+        2: '2. Angaben & Beilagen ergänzen',
+        3: '3. Kontaktdaten & PDF-Dossier'
+      };
+      var tEl = document.getElementById('wpWizardTitle');
+      if (tEl) tEl.textContent = titles[wpFcsState.step] || titles[1];
+      for (var i = 1; i <= 3; i++) {
+        var pane = document.getElementById('wpStep' + i);
+        var pill = document.getElementById('wpStepPill' + i);
+        if (pane) {
+          if (i === wpFcsState.step) pane.classList.add('active');
+          else pane.classList.remove('active');
+        }
+        if (pill) {
+          pill.className = 'wp-step-pill';
+          if (i === wpFcsState.step) pill.classList.add('active');
+          else if (i < wpFcsState.step) pill.classList.add('done');
+        }
+      }
+    }
+
+    function wpSelectFcsTopic(topic) {
+      wpFcsState.topic = topic;
+      var tiles = document.querySelectorAll('#wpTopicGrid .wp-role-tile');
+      for (var i = 0; i < tiles.length; i++) {
+        if (tiles[i].getAttribute('data-topic') === topic) tiles[i].classList.add('selected');
+        else tiles[i].classList.remove('selected');
+      }
+      var cfg = wpFcsRoleConfig[topic] || wpFcsRoleConfig['Probetraining / Neumitglied'];
+      var badge = document.getElementById('wpActiveAssigneeBadge');
+      if (badge) badge.textContent = 'Ressort: ' + cfg.assignee.split('(')[0].trim();
+      var l1 = document.getElementById('wpDetail1Label');
+      var i1 = document.getElementById('wpDetail1');
+      var l2 = document.getElementById('wpDetail2Label');
+      var i2 = document.getElementById('wpDetail2');
+      if (l1) l1.textContent = cfg.l1;
+      if (i1) i1.placeholder = cfg.p1;
+      if (l2) l2.textContent = cfg.l2;
+      if (i2) i2.placeholder = cfg.p2;
+    }
+
+    function wpSelectFcsUrgency(urg) {
+      wpFcsState.urgency = urg;
+      var tiles = document.querySelectorAll('#wpUrgencyGrid .wp-role-tile');
+      for (var i = 0; i < tiles.length; i++) {
+        if (tiles[i].getAttribute('data-urg') === urg) tiles[i].classList.add('selected');
+        else tiles[i].classList.remove('selected');
+      }
+    }
+
+    function wpNextStep(stepNum) {
+      wpFcsState.step = stepNum;
+      wpUpdateHeader();
+    }
+
+    function wpPrevStep() {
+      if (wpFcsState.step > 1) {
+        wpFcsState.step -= 1;
+        wpUpdateHeader();
+      }
+    }
+
+    function wpTriggerPhotoUpload() {
+      var inp = document.getElementById('wpPhotoInput');
+      if (inp) inp.click();
+    }
+
+    function wpCompressImageFile(file, cb) {
+      var reader = new FileReader();
+      reader.onload = function(e) {
+        var img = new Image();
+        img.onload = function() {
+          var maxSide = 1200;
+          var w = img.width;
+          var h = img.height;
+          if (w > maxSide || h > maxSide) {
+            if (w >= h) { h = Math.round(h * (maxSide / w)); w = maxSide; }
+            else { w = Math.round(w * (maxSide / h)); h = maxSide; }
+          }
+          var canvas = document.createElement('canvas');
+          canvas.width = w;
+          canvas.height = h;
+          var ctx = canvas.getContext('2d');
+          ctx.drawImage(img, 0, 0, w, h);
+          cb(canvas.toDataURL('image/jpeg', 0.78));
+        };
+        img.src = e.target.result;
+      };
+      reader.readAsDataURL(file);
+    }
+
+    function wpRenderPhotos() {
+      var box = document.getElementById('wpPhotoThumbs');
+      var cnt = document.getElementById('wpPhotoCounter');
+      if (cnt) cnt.textContent = wpFcsState.photos.length + ' / 3 Bilder ausgewählt · Automatisch für das 1-Seiten-PDF-Dossier optimiert';
+      if (!box) return;
+      box.innerHTML = '';
+      for (var i = 0; i < wpFcsState.photos.length; i++) {
+        (function(idx) {
+          var wrap = document.createElement('div');
+          wrap.className = 'wp-thumb-item';
+          var im = document.createElement('img');
+          im.src = wpFcsState.photos[idx];
+          im.alt = 'Beilage ' + (idx + 1);
+          var btn = document.createElement('button');
+          btn.type = 'button';
+          btn.className = 'wp-thumb-remove';
+          btn.textContent = 'x';
+          btn.onclick = function() { wpRemovePhoto(idx); };
+          wrap.appendChild(im);
+          wrap.appendChild(btn);
+          box.appendChild(wrap);
+        })(i);
+      }
+    }
+
+    function wpHandlePhotoFiles(files) {
+      if (!files || !files.length) return;
+      for (var i = 0; i < files.length; i++) {
+        if (wpFcsState.photos.length >= 3) break;
+        wpCompressImageFile(files[i], function(b64) {
+          if (wpFcsState.photos.length < 3) {
+            wpFcsState.photos.push(b64);
+            wpRenderPhotos();
+          }
+        });
+      }
+    }
+
+    function wpRemovePhoto(idx) {
+      wpFcsState.photos.splice(idx, 1);
+      wpRenderPhotos();
+    }
+
+    function wpCheckFcsPlz(val) {
+      var badge = document.getElementById('wpPlzBadge');
+      var txt = document.getElementById('wpPlzBadgeText');
+      if (!badge || !txt) return;
+      var m = String(val || '').match(/\b(\d{4})\b/);
+      if (!m) {
+        badge.className = 'wp-plz-badge';
+        return;
+      }
+      var plz = parseInt(m[1], 10);
+      badge.className = 'wp-plz-badge in-area';
+      if (plz >= 8900 && plz <= 8967) {
+        txt.textContent = 'PLZ ' + m[1] + ': Direktes Einzugsgebiet Schlieren & Limmattal (Sportanlage Zelgli)';
+      } else {
+        txt.textContent = 'PLZ ' + m[1] + ': Region Zürich / Schweiz — Herzlich willkommen beim FC Schlieren';
+      }
+    }
+
+    function wpStripEmojisForDom(str) {
+      return String(str || '').replace(/[\u{1F300}-\u{1FAFF}\u{2600}-\u{27BF}]/gu, '').replace(/\s+\n/g, '\n').trim();
+    }
+
+    function wpResetWizard() {
+      wpFcsState.step = 1;
+      wpFcsState.photos = [];
+      wpRenderPhotos();
+      var form = document.getElementById('fcsContactForm');
+      if (form) {
+        form.reset();
+        form.style.display = 'block';
+      }
+      var sBox = document.getElementById('wpSuccessBox');
+      if (sBox) sBox.classList.remove('visible');
+      var err = document.getElementById('wpFormError');
+      if (err) err.style.display = 'none';
+      var badge = document.getElementById('wpPlzBadge');
+      if (badge) badge.className = 'wp-plz-badge';
+      wpSelectFcsTopic('Probetraining / Neumitglied');
+      wpSelectFcsUrgency('Planbar / Laufende Saison');
+      wpUpdateHeader();
+    }
+
+    function wpSubmitFcsLead(e) {
+      if (e) e.preventDefault();
+      var errBox = document.getElementById('wpFormError');
+      if (errBox) errBox.style.display = 'none';
+
+      var name = (document.getElementById('contactName').value || '').trim();
+      var company = (document.getElementById('contactCompany').value || '').trim();
+      var loc = (document.getElementById('contactLoc').value || '').trim();
+      var street = (document.getElementById('contactStreet').value || '').trim();
+      var email = (document.getElementById('contactEmail').value || '').trim();
+      var phone = (document.getElementById('contactPhone').value || '').trim();
+      var msg = (document.getElementById('contactMessage').value || '').trim();
+      var d1 = (document.getElementById('wpDetail1').value || '').trim();
+      var d2 = (document.getElementById('wpDetail2').value || '').trim();
+      var hp = (document.getElementById('wpHoneypot').value || '').trim();
+
+      if (!name || (!phone && !email)) {
+        if (errBox) {
+          errBox.textContent = 'Bitte gib deinen Namen sowie deine E-Mail-Adresse oder Telefonnummer an.';
+          errBox.style.display = 'block';
+        }
+        return false;
+      }
+
+      var cfg = wpFcsRoleConfig[wpFcsState.topic] || wpFcsRoleConfig['Probetraining / Neumitglied'];
+      var extra = {};
+      extra[cfg.l1] = d1 || 'Keine Angabe';
+      extra[cfg.l2] = d2 || 'Keine Angabe';
+
+      var btn = document.getElementById('wpSubmitBtn');
+      var btnTxt = document.getElementById('wpSubmitBtnText');
+      if (btn) btn.disabled = true;
+      if (btnTxt) btnTxt.textContent = '1-Seiten-PDF-Dossier wird erstellt...';
+
+      var payload = {
+        client_slug: 'fcschlieren',
+        source_page: 'preview-fcschlieren/kontakt.html',
+        website_url: hp,
+        category: wpFcsState.topic,
+        sparte: wpFcsState.topic,
+        urgency: wpFcsState.urgency,
+        name: name,
+        company: company,
+        street: street,
+        plz: loc,
+        phone: phone,
+        email: email,
+        message: msg || ('Anfrage zum Bereich ' + wpFcsState.topic),
+        extra_fields: extra,
+        photos: wpFcsState.photos,
+        self_test_mode: true
+      };
+
+      fetch('/api/lead-submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      })
+      .then(function(r) { return r.json(); })
+      .then(function(res) {
+        if (btn) btn.disabled = false;
+        if (btnTxt) btnTxt.textContent = '1-Seiten-Dossier & Anfrage senden';
+        if (!res || !res.ok) {
+          if (errBox) {
+            errBox.textContent = (res && res.error) ? res.error : 'Übermittlung fehlgeschlagen. Bitte versuche es erneut.';
+            errBox.style.display = 'block';
+          }
+          return;
+        }
+        document.getElementById('fcsContactForm').style.display = 'none';
+        document.getElementById('wpResRef').textContent = res.ref_code || '#FCS-2026';
+        document.getElementById('wpResAssigned').textContent = res.assigned_to || cfg.assignee;
+        document.getElementById('wpResCallback').textContent = res.callback_window || 'Persönliche Rückmeldung durch das Ressort';
+        var chTxt = '1-Seiten-PDF-Dossier erstellt';
+        if (res.email_sent) chTxt += ' · E-Mail mit PDF-Anhang zugestellt';
+        if (res.whatsapp_sent) chTxt += ' · WhatsApp-Sofortmeldung zugestellt';
+        document.getElementById('wpResChannels').textContent = chTxt;
+        var pdfBtn = document.getElementById('wpResPdfBtn');
+        if (pdfBtn && res.pdf_url) pdfBtn.href = res.pdf_url;
+        var waBox = document.getElementById('wpResWaPreview');
+        if (waBox) waBox.textContent = wpStripEmojisForDom(res.whatsapp_preview_text || '');
+        document.getElementById('wpSuccessBox').classList.add('visible');
+      })
+      .catch(function() {
+        if (btn) btn.disabled = false;
+        if (btnTxt) btnTxt.textContent = '1-Seiten-Dossier & Anfrage senden';
+        if (errBox) {
+          errBox.textContent = 'Netzwerkfehler bei der Übermittlung. Bitte schreibe direkt an j.seifriz@fcschlieren.ch.';
+          errBox.style.display = 'block';
+        }
+      });
+      return false;
+    }
+
+    (function() {
+      try {
+        var params = new URLSearchParams(window.location.search);
+        var t = (params.get('thema') || '').toLowerCase();
+        var map = {
+          'probetraining': 'Probetraining / Neumitglied',
+          'sponsoring': 'Sponsoring / Supporter / Business-Club',
+          'spielbetrieb': 'Spielbetrieb / Spielverschiebung',
+          'kleider': 'Kleiderbestellung / Vereinskollektion',
+          'mitgliedschaft': 'Mitgliedschaft / Mutation / Austritt',
+          'allgemein': 'Clubhaus / Beizli / Allgemeine Anfrage'
+        };
+        if (map[t]) {
+          wpSelectFcsTopic(map[t]);
+        }
+      } catch(err) {}
+    })();
+  </script>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer" data-section="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div style="display:flex;align-items:center;gap:12px;margin-bottom:14px;">
+            <img src="images/logo-fcschlieren.webp" alt="FC Schlieren Wappen" width="44" height="52" loading="lazy" decoding="async" style="object-fit:contain;">
+            <div>
+              <div style="font-family:'Montserrat',sans-serif;font-weight:800;font-size:1.1rem;color:#FFFFFF;">FC SCHLIEREN</div>
+              <div style="font-size:0.76rem;color:#FDC500;font-weight:700;">SEIT 21. MÄRZ 1921 · SFV NR. 530</div>
+            </div>
+          </div>
+          <p style="font-size:0.86rem;color:#CBD5E1;line-height:1.6;margin-bottom:14px;" data-slot="footer_about">
+            Heimat für 33 Mannschaften im Limmattal: Aktive Herren &amp; Senioren, Aktive Frauen, 17 Junioren-Teams, 8 Juniorinnen-Teams und unsere Fussballschule auf der Sportanlage Zelgli.
+          </p>
+          <div style="font-size:0.84rem;color:#E2E8F0;font-weight:600;">
+            Fussballanlage Zelgli («im Rohr») · Postfach · 8952 Schlieren
+          </div>
+        </div>
+
+        <div>
+          <div class="footer-title">Mannschaften &amp; Sport</div>
+          <ul class="footer-list">
+            <li><a href="herren-1.html?team=herren1">Herren 1 (Muster-Team-Seite)</a></li>
+            <li><a href="herren-1.html?team=frauen1">Frauen 1 (Muster-Team-Seite)</a></li>
+            <li><a href="herren-1.html#alle-teams-matrix">Alle 33 Teams in der Matrix</a></li>
+            <li><a href="index.html#aktuelles-camps">Fussballschule (Mittwoch 16:15 Uhr)</a></li>
+            <li><a href="index.html#aktuelles-camps">Kohler Fussballcamps &amp; Trailer</a></li>
+            <li><button type="button" onclick="wpOpenBlueprintModal('Wintertrainings- &amp; Hallenplan 2026', 'Spielbetrieb FC Schlieren', 'Roger Mehr (r.mehr@fcschlieren.ch) &amp; Jana Seifriz (j.seifriz@fcschlieren.ch)')">Wintertrainings- &amp; Hallenplan</button></li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="footer-title">Verein, Sponsoren &amp; Zelgli</div>
+          <ul class="footer-list">
+            <li><a href="index.html#zelgli-verein">Vorstand &amp; Funktionäre</a></li>
+            <li><a href="index.html#zelgli-verein">Sportplatz Zelgli &amp; Club-Beizli</a></li>
+            <li><a href="index.html#zelgli-verein">Vereinschronik seit 1921</a></li>
+            <li><a href="index.html#sponsoren">Gold-, Silber- &amp; Bronze-Sponsoren</a></li>
+            <li><a href="kontakt.html?thema=sponsoring">Supporter-Vereinigung (ab CHF 150.–)</a></li>
+            <li><a href="kontakt.html?thema=sponsoring">Business-Club (CHF 850.–) &amp; Bandenwerbung</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="footer-title">Direkt-Service &amp; Formulare</div>
+          <ul class="footer-list">
+            <li><a href="kontakt.html?thema=probetraining">Probetraining anfragen</a></li>
+            <li><a href="kontakt.html?thema=spielbetrieb">Spielverschiebungsgesuch einreichen</a></li>
+            <li><a href="kontakt.html?thema=kleider">Kleiderbestellung / Vereinskollektion</a></li>
+            <li><a href="kontakt.html?thema=mitgliedschaft">Adressänderung / Mutation / Austritt</a></li>
+            <li><button type="button" onclick="wpOpenBlueprintModal('Statuten, Schutzkonzept &amp; Ehrenkodex', 'Präsidium FC Schlieren', 'Roger Küng (r.kueng@fcschlieren.ch)')">Statuten, Schutz- &amp; Notfallkonzept</button></li>
+            <li><button type="button" onclick="wpOpenImpressumModal()">Impressum &amp; Datenschutz</button></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>&copy; 2026 Fussballclub Schlieren (8952 Schlieren) · Alle Rechte vorbehalten.</div>
+        <div style="display:flex;gap:16px;flex-wrap:wrap;">
+          <a href="herren-1.html" style="color:#FDC500;font-weight:700;">Architekten-Musterhaus (Herren 1 &amp; 33 Teams)</a>
+          <a href="kontakt.html" style="color:#E2E8F0;">Vereins-Zentrale</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ARCHITEKTUR-BLAUPAUSEN-MODAL -->
+  <div class="wp-modal-backdrop" id="wpBlueprintModal" role="dialog" aria-modal="true" aria-labelledby="wpBpTitle">
+    <div class="wp-modal-dialog">
+      <button type="button" class="wp-modal-close" aria-label="Dialog schliessen" onclick="wpCloseBlueprintModal()">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+      <div class="section-kicker">ARCHITEKTEN-MUSTERHAUS-PRINZIP · FC SCHLIEREN</div>
+      <h3 id="wpBpTitle" style="font-size:1.35rem;font-weight:800;margin-bottom:8px;">Team-Blaupause: Mannschaft</h3>
+      <p id="wpBpSub" style="font-size:0.9rem;color:var(--text-body);margin-bottom:12px;">
+        Stellvertretend für alle 33 Mannschaften und Unterseiten des FC Schlieren sind in dieser Vorschau die Startseite, die Muster-Teams <strong>Herren 1</strong> und <strong>Frauen 1</strong> sowie die zentrale <strong>Vereins- &amp; Probetraining-Zentrale</strong> komplett mit Originaldaten ausgebaut.
+      </p>
+      <div style="background-color:var(--fcs-blue-soft);border-left:4px solid var(--fcs-blue);padding:12px 14px;border-radius:var(--radius-sm);font-size:0.86rem;margin-bottom:14px;">
+        <div style="font-weight:700;color:var(--fcs-navy);" id="wpBpCategory">Abteilung: Nachwuchs / Aktive</div>
+        <div style="color:var(--text-body);margin-top:2px;" id="wpBpContact">Zuständige Leitung: Zoran Perak / Luigi Schiavano</div>
+      </div>
+
+      <div class="wp-modal-checklist">
+        <div style="font-family:'Montserrat',sans-serif;font-size:0.78rem;font-weight:800;text-transform:uppercase;color:var(--fcs-navy);">
+          In der fertigen Team-Blaupause (analog Herren 1 &amp; Frauen 1) enthalten:
+        </div>
+        <div class="wp-modal-check-item">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><polyline points="20 6 9 17 4 12"/></svg>
+          <span>Offizielles Mannschaftsfoto, Trainingszeiten auf dem Sportplatz Zelgli &amp; Hallenplan</span>
+        </div>
+        <div class="wp-modal-check-item">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><polyline points="20 6 9 17 4 12"/></svg>
+          <span>Spielerkader nach Position (Tor, Verteidigung, Mittelfeld, Sturm) &amp; Trainerstaff mit Direktkontakt</span>
+        </div>
+        <div class="wp-modal-check-item">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><polyline points="20 6 9 17 4 12"/></svg>
+          <span>SFV-Resultate, Matchprogramm-Download sowie zugeordnete Team-Sponsoren &amp; Dress-Partner</span>
+        </div>
+        <div class="wp-modal-check-item">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><polyline points="20 6 9 17 4 12"/></svg>
+          <span>Direkte 1-Klick-Anbindung an Probetraining, Spielverschiebung und Kleiderbestellung</span>
+        </div>
+      </div>
+
+      <div style="display:flex;flex-wrap:wrap;gap:10px;margin-top:18px;">
+        <a href="herren-1.html" class="btn-cta btn-cta-primary btn-sm" onclick="wpCloseBlueprintModal()">
+          <span>Ausgebaute Muster-Seite (Herren 1 / Frauen 1) ansehen</span>
+        </a>
+        <a href="kontakt.html?thema=probetraining" id="wpBpCtaLink" class="btn-cta btn-cta-gold btn-sm">
+          <span>Anfrage / Probetraining für diesen Bereich starten</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- IMPRESSUM MODAL -->
+  <div class="wp-modal-backdrop" id="wpImpressumModal" role="dialog" aria-modal="true" aria-labelledby="wpImpTitle">
+    <div class="wp-modal-dialog">
+      <button type="button" class="wp-modal-close" aria-label="Impressum schliessen" onclick="wpCloseImpressumModal()">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+      <div class="section-kicker">RECHTLICHE ANGABEN · SCHWEIZER DSG</div>
+      <h3 id="wpImpTitle" style="font-size:1.3rem;font-weight:800;margin-bottom:10px;">Impressum &amp; Datenschutz — FC Schlieren</h3>
+      <div style="font-size:0.88rem;color:var(--text-body);display:flex;flex-direction:column;gap:10px;">
+        <p><strong>Vereinsadresse:</strong><br>Fussballclub Schlieren · Sportanlage Zelgli («im Rohr») · Postfach · 8952 Schlieren</p>
+        <p><strong>Vertretungsberechtigter Vorstand:</strong><br>Roger Küng (Präsident, r.kueng@fcschlieren.ch) · Jana Seifriz (Leiterin Geschäftsstelle &amp; Spielbetrieb, j.seifriz@fcschlieren.ch) · Luigi Voci (Leiter Finanzen, l.voci@fcschlieren.ch)</p>
+        <p><strong>Webverantwortlicher &amp; J+S Coach:</strong><br>Sven Seifriz (s.seifriz@fcschlieren.ch)</p>
+        <p><strong>Datenschutz (Schweizer Datenschutzgesetz revDSG):</strong><br>Personendaten aus Kontakt-, Probetraining-, Mutations- und Sponsoring-Anfragen werden ausschliesslich zur Vereinsadministration innerhalb des FC Schlieren verwendet und niemals an unbefugte Dritte weitergegeben.</p>
+      </div>
+      <div style="margin-top:18px;text-align:right;">
+        <button type="button" class="btn-cta btn-cta-navy btn-sm" onclick="wpCloseImpressumModal()">Schliessen</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function wpToggleMobileMenu() {
+      var d = document.getElementById('mobileDrawer');
+      if (d) d.classList.toggle('open');
+    }
+    function wpCloseMobileMenu() {
+      var d = document.getElementById('mobileDrawer');
+      if (d) d.classList.remove('open');
+    }
+    function wpOpenBlueprintModal(title, category, contact, topicParam) {
+      var m = document.getElementById('wpBlueprintModal');
+      if (!m) return;
+      var tEl = document.getElementById('wpBpTitle');
+      var cEl = document.getElementById('wpBpCategory');
+      var pEl = document.getElementById('wpBpContact');
+      var linkEl = document.getElementById('wpBpCtaLink');
+      if (tEl) tEl.textContent = title || 'Team-Blaupause';
+      if (cEl) cEl.textContent = 'Bereich / Abteilung: ' + (category || 'FC Schlieren');
+      if (pEl) pEl.textContent = 'Zuständige Ansprechperson: ' + (contact || 'Geschäftsstelle FC Schlieren (j.seifriz@fcschlieren.ch)');
+      if (linkEl) linkEl.href = 'kontakt.html?thema=' + (topicParam || 'probetraining');
+      m.classList.add('open');
+    }
+    function wpCloseBlueprintModal() {
+      var m = document.getElementById('wpBlueprintModal');
+      if (m) m.classList.remove('open');
+    }
+    function wpOpenImpressumModal() {
+      var m = document.getElementById('wpImpressumModal');
+      if (m) m.classList.add('open');
+    }
+    function wpCloseImpressumModal() {
+      var m = document.getElementById('wpImpressumModal');
+      if (m) m.classList.remove('open');
+    }
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') {
+        wpCloseBlueprintModal();
+        wpCloseImpressumModal();
+        wpCloseMobileMenu();
+      }
+    });
+  </script>
+</body>
+</html>

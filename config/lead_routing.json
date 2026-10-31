@@ -3,15 +3,39 @@
     "client_slug": "hochuli",
     "company_name": "Hochuli Schlossrued AG",
     "brand_subtitle": "Bauen im Vertrauen · 5 Sparten unter einem Dach",
-    "primary_color": [227, 6, 19],
-    "dark_color": [15, 23, 42],
+    "primary_color": [
+      227,
+      6,
+      19
+    ],
+    "dark_color": [
+      15,
+      23,
+      42
+    ],
     "logo_path": "/home/brainuser/workspaces/mxs-embed/preview-hochuli/images/logo.png",
     "logo_white_bg": true,
     "default_email": "mail@hochuli-gruppe.ch",
     "default_phone": "+41 62 739 00 20",
     "emergency_phone": "062 726 11 46",
     "service_area_label": "Im Einzugsgebiet der Hochuli Gruppe",
-    "service_area_plz_prefixes": ["46", "47", "48", "49", "50", "51", "52", "53", "54", "55", "56", "57", "60", "61", "62"],
+    "service_area_plz_prefixes": [
+      "46",
+      "47",
+      "48",
+      "49",
+      "50",
+      "51",
+      "52",
+      "53",
+      "54",
+      "55",
+      "56",
+      "57",
+      "60",
+      "61",
+      "62"
+    ],
     "default_assignee": {
       "name": "Thomas Bertschi",
       "role": "Bereichsleiter Haustechnik",
@@ -75,15 +99,33 @@
     "client_slug": "her11",
     "company_name": "HER11 — Dein Weg. Dein Spiel. Deine Zukunft.",
     "brand_subtitle": "Duale Karrierebegleitung & Ausbildungsnetzwerk im Schweizer Frauenfussball",
-    "primary_color": [255, 0, 102],
-    "dark_color": [11, 26, 59],
+    "primary_color": [
+      255,
+      0,
+      102
+    ],
+    "dark_color": [
+      11,
+      26,
+      59
+    ],
     "logo_path": "/home/brainuser/workspaces/mxs-embed/preview-her11/images/logo-her11.png",
     "logo_white_bg": false,
     "default_email": "info@her11.ch",
     "default_phone": "+41 78 223 21 80",
     "emergency_phone": "",
     "service_area_label": "Schweizweites HER11 Partner- & Stützpunktnetz",
-    "service_area_plz_prefixes": ["1", "2", "3", "4", "5", "6", "7", "8", "9"],
+    "service_area_plz_prefixes": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6",
+      "7",
+      "8",
+      "9"
+    ],
     "default_assignee": {
       "name": "Jenny Ettle & Ramona Bachmann",
       "role": "Initiantinnen & Geschäftsleitung HER11",
@@ -134,6 +176,64 @@
         "phone": "info@her11.ch",
         "email": "info@her11.ch"
       }
+    }
+  },
+  "fcschlieren": {
+    "company_name": "FC Schlieren",
+    "primary_color": [
+      0,
+      110,
+      171
+    ],
+    "dark_color": [
+      15,
+      23,
+      42
+    ],
+    "logo_path": "/home/brainuser/workspaces/mxs-embed/preview-fcschlieren/images/logo-fcschlieren.png",
+    "routes": {
+      "Probetraining / Neumitglied": {
+        "name": "Zoran Perak (Aktive), Luigi Schiavano (Junioren) & Mario De Meo (Juniorinnen)",
+        "role": "Sportliche Leitung FC Schlieren (Sportplatz Zelgli)",
+        "email": "j.seifriz@fcschlieren.ch",
+        "whatsapp": "+41792424156"
+      },
+      "Sponsoring / Supporter / Business-Club": {
+        "name": "Dani Galantucci (Sponsoring), Roger Küng (Präsident) & Luigi Voci (Finanzen)",
+        "role": "Sponsoring, Supporter-Vereinigung & Business-Club FC Schlieren",
+        "email": "d.galantucci@fcschlieren.ch",
+        "whatsapp": "+41794002093"
+      },
+      "Spielbetrieb / Spielverschiebung": {
+        "name": "Roger Mehr (Leiter Spielbetrieb) & Jana Seifriz (Geschäftsstelle)",
+        "role": "Spielbetrieb & Platzbelegung Zelgli FC Schlieren",
+        "email": "r.mehr@fcschlieren.ch",
+        "whatsapp": "+41794028387"
+      },
+      "Kleiderbestellung / Vereinskollektion": {
+        "name": "Céline Bürgisser",
+        "role": "Material & Vereinskollektion FC Schlieren",
+        "email": "c.buergisser@fcschlieren.ch",
+        "whatsapp": "+41792424156"
+      },
+      "Mitgliedschaft / Mutation / Austritt": {
+        "name": "Jana Seifriz (Geschäftsstelle) & Luigi Voci (Finanzen)",
+        "role": "Mitgliederwesen, Mutationen & Finanzen FC Schlieren",
+        "email": "j.seifriz@fcschlieren.ch",
+        "whatsapp": "+41792424156"
+      },
+      "Clubhaus / Beizli / Allgemeine Anfrage": {
+        "name": "Müslüm Bozan (Clubhauswirt & Platzwart) & Roger Küng (Präsident)",
+        "role": "Clubhaus / Beizli Zelgli & Präsidium FC Schlieren",
+        "email": "m.bozan@fcschlieren.ch",
+        "whatsapp": "+41792606363"
+      }
+    },
+    "default": {
+      "name": "Jana Seifriz (Geschäftsstelle) & Roger Küng (Präsident)",
+      "role": "Geschäftsstelle & Vorstand FC Schlieren",
+      "email": "j.seifriz@fcschlieren.ch",
+      "whatsapp": "+41794002093"
     }
   }
 }
