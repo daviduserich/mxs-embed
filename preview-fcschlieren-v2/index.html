@@ -1,0 +1,2423 @@
+<!DOCTYPE html>
+<html lang="de-CH">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self' https: data: blob:; script-src 'self' 'unsafe-inline' https:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' https: data: blob:; connect-src 'self' https:;">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=()">
+  <title>FC Schlieren (V2 Bauplan-Modus: 6 % Prototyp / 94 % Rohbau) | Architektur-Studie</title>
+  <meta name="description" content="Architektur-Studie &amp; 6-%-Prototyp (Vorschau V2) für den Fussballclub Schlieren: 3 von 48 Seiten exemplarisch ausgearbeitet, 45 Unterseiten &amp; 32 Teams im Bauplan.">
+  <link rel="icon" type="image/png" href="images/favicon-32x32.png">
+  <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Montserrat:wght@600;700;800&amp;display=swap" rel="stylesheet">
+  <style>
+
+    :root {
+      --fcs-blue: #006EAB;
+      --fcs-blue-bright: #1D82BD;
+      --fcs-blue-soft: #EBF5FB;
+      --fcs-navy: #0F172A;
+      --fcs-navy-deep: #0B1324;
+      --fcs-gold: #FDC500;
+      --fcs-gold-dark: #B45309;
+      --fcs-gold-soft: #FEF9C3;
+      --fcs-green: #009245;
+      --fcs-green-soft: #DCFCE7;
+      --bg-page: #F8FAFC;
+      --bg-card: #FFFFFF;
+      --bg-muted: #F1F5F9;
+      --text-main: #0F172A;
+      --text-body: #334155;
+      --text-muted: #475569;
+      --border-light: #E2E8F0;
+      --border-strong: #CBD5E1;
+      --radius-sm: 4px;
+      --radius-md: 8px;
+      --shadow-sm: 0 2px 8px rgba(15, 23, 42, 0.05);
+      --shadow-md: 0 10px 28px rgba(15, 23, 42, 0.08);
+      --shadow-lg: 0 18px 42px rgba(15, 23, 42, 0.14);
+      --container: 1240px;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+      overflow-x: hidden;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      color: var(--text-main);
+      background-color: var(--bg-page);
+      line-height: 1.6;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+      transition: color 0.2s ease, background-color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+    }
+
+    ul {
+      list-style: none;
+    }
+
+    .container {
+      width: 100%;
+      max-width: var(--container);
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* Section Kickers (#UI-06: No JetBrains Mono, No //) */
+    .section-kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.76rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--fcs-blue);
+      margin-bottom: 12px;
+    }
+    .section-kicker::before {
+      content: "";
+      display: inline-block;
+      width: 16px;
+      height: 2px;
+      background-color: var(--fcs-gold);
+      border-radius: 0px;
+      flex-shrink: 0;
+    }
+    .section-kicker.kicker-light {
+      color: var(--fcs-gold);
+    }
+    .section-kicker.kicker-light::before {
+      background-color: #FFFFFF;
+    }
+
+    h1, h2, h3, h4 {
+      font-family: 'Montserrat', sans-serif;
+      color: var(--fcs-navy);
+      line-height: 1.18;
+      letter-spacing: -0.02em;
+    }
+
+    .section-head {
+      max-width: 780px;
+      margin-bottom: 44px;
+    }
+    .section-title {
+      font-size: clamp(1.85rem, 3.2vw, 2.65rem);
+      font-weight: 800;
+      margin-bottom: 14px;
+    }
+    .section-desc {
+      font-size: 1.04rem;
+      color: var(--text-body);
+      line-height: 1.65;
+    }
+
+    section {
+      padding: 84px 0;
+      position: relative;
+    }
+
+
+    /* Variant 1 / 2 Switcher Bar (David & Jenny Direct Comparison) */
+    .wp-v1-switch-bar {
+      background-color: #0B1528;
+      color: #F8FAFC;
+      border-bottom: 1px solid rgba(245, 158, 11, 0.38);
+      font-size: 0.8rem;
+      position: relative;
+      z-index: 1003;
+      padding: 7px 0;
+    }
+    .wp-v1-switch-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .wp-v1-switch-left {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      font-weight: 600;
+      color: #E2E8F0;
+    }
+    .wp-v1-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background-color: rgba(0, 110, 171, 0.35);
+      border: 1px solid rgba(56, 189, 248, 0.45);
+      color: #7DD3FC;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.7rem;
+      font-weight: 800;
+      padding: 3px 8px;
+      border-radius: var(--radius-sm);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+    .wp-v1-switch-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 7px;
+      background-color: #F59E0B;
+      color: #0B1528;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.76rem;
+      font-weight: 800;
+      padding: 6px 12px;
+      min-height: 34px;
+      border-radius: var(--radius-sm);
+      border: 1px solid #FBBF24;
+      text-align: center;
+      line-height: 1.25;
+    }
+    .wp-v1-switch-btn:hover {
+      background-color: #FBBF24;
+      color: #0B1528;
+    }
+    @media (max-width: 720px) {
+      .wp-v1-switch-inner {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 8px;
+      }
+      .wp-v1-switch-btn {
+        width: 100%;
+      }
+    }
+
+    /* Top Info Bar */
+    .top-bar {
+      background-color: var(--fcs-navy-deep);
+      color: #E2E8F0;
+      font-size: 0.8rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      position: relative;
+      z-index: 1002;
+    }
+    .top-bar-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      min-height: 38px;
+      gap: 16px;
+      flex-wrap: wrap;
+      padding-top: 6px;
+      padding-bottom: 6px;
+    }
+    .top-bar-left {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+      font-weight: 500;
+    }
+    .top-bar-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background-color: rgba(253, 197, 0, 0.16);
+      color: var(--fcs-gold);
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: 0.72rem;
+      padding: 2px 8px;
+      border-radius: var(--radius-sm);
+      letter-spacing: 0.04em;
+    }
+    .top-bar-links {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+    .top-bar-links a, .top-bar-links button {
+      color: #E2E8F0;
+      font-size: 0.78rem;
+      font-weight: 600;
+      background: none;
+      border: none;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-family: inherit;
+      padding: 0;
+    }
+    .top-bar-links a:hover, .top-bar-links button:hover {
+      color: var(--fcs-gold);
+    }
+
+    /* Sticky Header */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background-color: rgba(255, 255, 255, 0.97);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border-light);
+      box-shadow: 0 4px 20px rgba(15, 23, 42, 0.05);
+    }
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 82px;
+      gap: 20px;
+    }
+    .brand-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 14px;
+      flex-shrink: 0;
+    }
+    .brand-logo {
+      width: 48px;
+      height: 56px;
+      object-fit: contain;
+      flex-shrink: 0;
+    }
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+    }
+    .brand-name {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.22rem;
+      font-weight: 800;
+      color: var(--fcs-navy);
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+    }
+    .brand-sub {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.68rem;
+      font-weight: 700;
+      color: var(--fcs-blue);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-top: 3px;
+    }
+
+    .main-nav {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .nav-link {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--text-body);
+      padding: 8px 9px;
+      border-radius: var(--radius-sm);
+      white-space: nowrap;
+      min-height: 34px;
+      display: inline-flex;
+      align-items: center;
+    }
+    .nav-link:hover, .nav-link.active {
+      color: var(--fcs-blue);
+      background-color: var(--fcs-blue-soft);
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-shrink: 0;
+    }
+
+    /* Buttons (2-Radius: 4px / 8px) */
+    .btn-cta {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.86rem;
+      font-weight: 700;
+      padding: 12px 20px;
+      border-radius: var(--radius-sm);
+      border: 1px solid transparent;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      text-align: center;
+      line-height: 1.25;
+    }
+    .btn-cta-primary {
+      background-color: var(--fcs-blue);
+      color: #FFFFFF;
+      box-shadow: 0 4px 14px rgba(0, 110, 171, 0.24);
+    }
+    .btn-cta-primary:hover {
+      background-color: #00598A;
+      transform: translateY(-1px);
+    }
+    .btn-cta-gold {
+      background-color: var(--fcs-gold);
+      color: var(--fcs-navy);
+      font-weight: 800;
+      box-shadow: 0 4px 14px rgba(253, 197, 0, 0.28);
+    }
+    .btn-cta-gold:hover {
+      background-color: #EAB308;
+      transform: translateY(-1px);
+    }
+    .btn-cta-navy {
+      background-color: var(--fcs-navy);
+      color: #FFFFFF;
+    }
+    .btn-cta-navy:hover {
+      background-color: #1E293B;
+    }
+    .btn-cta-outline {
+      background-color: #FFFFFF;
+      color: var(--fcs-navy);
+      border-color: var(--border-strong);
+    }
+    .btn-cta-outline:hover {
+      border-color: var(--fcs-blue);
+      color: var(--fcs-blue);
+      background-color: var(--fcs-blue-soft);
+    }
+    .btn-cta-ghost-light {
+      background-color: rgba(255, 255, 255, 0.1);
+      color: #FFFFFF;
+      border-color: rgba(255, 255, 255, 0.28);
+    }
+    .btn-cta-ghost-light:hover {
+      background-color: rgba(255, 255, 255, 0.2);
+    }
+    .btn-sm {
+      padding: 9px 14px;
+      font-size: 0.8rem;
+    }
+
+    /* Mobile Menu Toggle & Drawer (S-04b safe) */
+    .mobile-toggle {
+      display: none;
+      align-items: center;
+      justify-content: center;
+      width: 44px;
+      height: 44px;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border-light);
+      background: #FFFFFF;
+      color: var(--fcs-navy);
+      cursor: pointer;
+    }
+    .mobile-drawer {
+      display: none;
+      position: fixed;
+      top: 82px;
+      left: 0;
+      right: 0;
+      background-color: var(--fcs-navy);
+      border-bottom: 2px solid var(--fcs-gold);
+      padding: 20px 24px 28px;
+      z-index: 999;
+      flex-direction: column;
+      gap: 10px;
+      box-shadow: var(--shadow-lg);
+    }
+    .mobile-drawer.open {
+      display: flex;
+    }
+    .mobile-drawer a {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: #FFFFFF;
+      padding: 12px 14px;
+      border-radius: var(--radius-sm);
+      background-color: rgba(255, 255, 255, 0.05);
+    }
+    .mobile-drawer a:hover {
+      background-color: var(--fcs-blue);
+    }
+
+    /* Hero Section */
+    .hero-section {
+      background: linear-gradient(135deg, #0B1324 0%, #0F2547 55%, #004E7C 100%);
+      color: #FFFFFF;
+      padding: 68px 0 76px;
+      position: relative;
+      overflow: hidden;
+      border-bottom: 4px solid var(--fcs-gold);
+    }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.12fr 0.88fr;
+      gap: 44px;
+      align-items: center;
+    }
+    .hero-title {
+      color: #FFFFFF;
+      font-size: clamp(2.15rem, 4vw, 3.35rem);
+      font-weight: 800;
+      line-height: 1.12;
+      margin-bottom: 18px;
+    }
+    .hero-title span {
+      color: var(--fcs-gold);
+    }
+    .hero-motto-box {
+      background-color: rgba(253, 197, 0, 0.12);
+      border-left: 4px solid var(--fcs-gold);
+      padding: 12px 16px;
+      border-radius: var(--radius-sm);
+      margin-bottom: 20px;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.84rem;
+      font-weight: 700;
+      color: #FEF08A;
+      letter-spacing: 0.02em;
+    }
+    .hero-sub {
+      font-size: 1.05rem;
+      color: #E2E8F0;
+      margin-bottom: 28px;
+      line-height: 1.65;
+    }
+    .hero-cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 36px;
+    }
+    .hero-kpi-strip {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      padding-top: 24px;
+      border-top: 1px solid rgba(255, 255, 255, 0.14);
+    }
+    .hero-kpi-card {
+      background-color: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: var(--radius-md);
+      padding: 12px 14px;
+    }
+    .hero-kpi-num {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.35rem;
+      font-weight: 800;
+      color: var(--fcs-gold);
+      line-height: 1.15;
+    }
+    .hero-kpi-lbl {
+      font-size: 0.76rem;
+      color: #CBD5E1;
+      margin-top: 4px;
+      line-height: 1.35;
+    }
+
+    .hero-visual-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .hero-photo-card {
+      background-color: #1E293B;
+      border: 2px solid rgba(255, 255, 255, 0.18);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      box-shadow: var(--shadow-lg);
+      position: relative;
+    }
+    .hero-photo-card img {
+      width: 100%;
+      height: 270px;
+      object-fit: cover;
+      object-position: center 25%;
+    }
+    .hero-photo-caption {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 12px 16px;
+      background-color: rgba(15, 23, 42, 0.94);
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .hero-photo-caption strong {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.84rem;
+      color: #FFFFFF;
+    }
+    .hero-photo-caption span {
+      font-size: 0.76rem;
+      color: var(--fcs-gold);
+      font-weight: 600;
+    }
+    .hero-secondary-row {
+      display: grid;
+      grid-template-columns: 1.25fr 0.75fr;
+      gap: 16px;
+    }
+    .hero-mini-card {
+      background-color: rgba(15, 23, 42, 0.85);
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .hero-mini-card img {
+      width: 100%;
+      height: 148px;
+      object-fit: cover;
+    }
+    .hero-mini-body {
+      padding: 10px 14px;
+      font-size: 0.78rem;
+      color: #E2E8F0;
+    }
+    .hero-centenary-box {
+      background-color: rgba(255, 255, 255, 0.96);
+      color: var(--fcs-navy);
+      border-radius: var(--radius-md);
+      padding: 14px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      gap: 8px;
+    }
+    .hero-centenary-box img {
+      width: 112px;
+      height: 84px;
+      object-fit: contain;
+    }
+    .hero-centenary-box strong {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.8rem;
+      color: var(--fcs-navy);
+    }
+
+    /* Generic Cards & Grids */
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .grid-4 {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 28px;
+    }
+
+    .card {
+      background-color: var(--bg-card);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-sm);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+    }
+    .card:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-md);
+      border-color: var(--border-strong);
+    }
+    .card-media {
+      position: relative;
+      height: 210px;
+      background-color: var(--fcs-navy);
+      overflow: hidden;
+    }
+    .card-media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .card-badge {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      background-color: var(--fcs-navy);
+      color: var(--fcs-gold);
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 800;
+      padding: 4px 10px;
+      border-radius: var(--radius-sm);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+    .card-body {
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+      gap: 12px;
+    }
+    .card-title {
+      font-size: 1.2rem;
+      font-weight: 800;
+      color: var(--fcs-navy);
+    }
+    .card-text {
+      font-size: 0.93rem;
+      color: var(--text-body);
+      line-height: 1.6;
+    }
+    .card-meta-list {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      padding: 12px 14px;
+      background-color: var(--bg-muted);
+      border-radius: var(--radius-sm);
+      font-size: 0.85rem;
+      color: var(--text-main);
+    }
+    .card-meta-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+    }
+    .card-meta-item svg {
+      color: var(--fcs-blue);
+      flex-shrink: 0;
+      margin-top: 3px;
+    }
+    .card-footer {
+      padding: 0 24px 24px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    /* Department Pillar Cards */
+    .pillar-card {
+      background-color: #FFFFFF;
+      border: 1px solid var(--border-light);
+      border-top: 4px solid var(--fcs-blue);
+      border-radius: var(--radius-md);
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 16px;
+      box-shadow: var(--shadow-sm);
+    }
+    .pillar-card.pillar-gold {
+      border-top-color: var(--fcs-gold);
+    }
+    .pillar-card.pillar-green {
+      border-top-color: var(--fcs-green);
+    }
+    .pillar-count {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 800;
+      color: var(--fcs-blue);
+      background-color: var(--fcs-blue-soft);
+      padding: 4px 10px;
+      border-radius: var(--radius-sm);
+      align-self: flex-start;
+      text-transform: uppercase;
+    }
+    .pillar-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+    .pillar-tag {
+      font-size: 0.76rem;
+      font-weight: 600;
+      padding: 3px 8px;
+      border-radius: var(--radius-sm);
+      background-color: var(--bg-muted);
+      color: var(--text-main);
+      border: 1px solid var(--border-light);
+    }
+
+    /* Board / Vorstand Grid */
+    .board-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-top: 24px;
+    }
+    .board-card {
+      background-color: #FFFFFF;
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-md);
+      padding: 18px 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .board-role {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--fcs-blue);
+    }
+    .board-name {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.05rem;
+      font-weight: 800;
+      color: var(--fcs-navy);
+    }
+    .board-links {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      margin-top: 6px;
+      font-size: 0.84rem;
+      color: var(--text-body);
+    }
+    .board-links a:hover {
+      color: var(--fcs-blue);
+    }
+
+    /* Timeline */
+    .timeline-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      margin-top: 28px;
+    }
+    .timeline-box {
+      background-color: var(--fcs-navy);
+      color: #FFFFFF;
+      border-radius: var(--radius-md);
+      padding: 20px;
+      border-top: 3px solid var(--fcs-gold);
+    }
+    .timeline-year {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: var(--fcs-gold);
+      margin-bottom: 6px;
+    }
+    .timeline-text {
+      font-size: 0.85rem;
+      color: #E2E8F0;
+      line-height: 1.55;
+    }
+
+    /* Sponsors Showcase (Gold / Silver / Bronze) */
+    .sponsor-tier-block {
+      margin-bottom: 36px;
+    }
+    .sponsor-tier-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 16px;
+      padding-bottom: 10px;
+      border-bottom: 2px solid var(--border-light);
+    }
+    .sponsor-tier-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.82rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      padding: 5px 12px;
+      border-radius: var(--radius-sm);
+    }
+    .tier-gold {
+      background-color: var(--fcs-gold-soft);
+      color: #92400E;
+      border: 1px solid #FDE047;
+    }
+    .tier-silver {
+      background-color: #F1F5F9;
+      color: #1E293B;
+      border: 1px solid #CBD5E1;
+    }
+    .tier-bronze {
+      background-color: #FFEDD5;
+      color: #9A3412;
+      border: 1px solid #FDBA74;
+    }
+
+    .sponsors-gold-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+    }
+    .sponsors-silver-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+    .sponsors-bronze-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+    .sponsor-card {
+      background-color: #FFFFFF;
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-md);
+      padding: 22px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      text-align: center;
+      gap: 14px;
+      box-shadow: var(--shadow-sm);
+      transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+    .sponsor-card:hover {
+      transform: translateY(-2px);
+      border-color: var(--fcs-blue);
+      box-shadow: var(--shadow-md);
+    }
+    .sponsor-card.gold-card {
+      border: 2px solid #FDE047;
+      padding: 28px;
+    }
+    .sponsor-logo-wrap {
+      width: 100%;
+      height: 110px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #FFFFFF;
+      padding: 8px;
+    }
+    .sponsor-card.gold-card .sponsor-logo-wrap {
+      height: 140px;
+    }
+    .sponsor-logo-wrap img {
+      max-height: 100%;
+      max-width: 100%;
+      width: auto;
+      height: auto;
+      object-fit: contain;
+    }
+    .sponsor-name {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1rem;
+      font-weight: 800;
+      color: var(--fcs-navy);
+    }
+    .sponsor-role-tag {
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--text-muted);
+    }
+
+    /* Social Wall */
+    .social-filter-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 28px;
+    }
+    .social-tab-btn {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 700;
+      padding: 8px 14px;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border-strong);
+      background-color: #FFFFFF;
+      color: var(--text-body);
+      cursor: pointer;
+    }
+    .social-tab-btn.active, .social-tab-btn:hover {
+      background-color: var(--fcs-blue);
+      color: #FFFFFF;
+      border-color: var(--fcs-blue);
+    }
+
+    /* Footer */
+    .site-footer {
+      background-color: var(--fcs-navy-deep);
+      color: #E2E8F0;
+      padding: 68px 0 36px;
+      border-top: 4px solid var(--fcs-gold);
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.3fr 1fr 1fr 1.1fr;
+      gap: 36px;
+      padding-bottom: 44px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+    }
+    .footer-title {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.92rem;
+      font-weight: 800;
+      color: #FFFFFF;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: 16px;
+    }
+    .footer-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .footer-list a, .footer-list button {
+      color: #CBD5E1;
+      font-size: 0.88rem;
+      background: none;
+      border: none;
+      text-align: left;
+      cursor: pointer;
+      font-family: inherit;
+      padding: 5px 0;
+      min-height: 32px;
+      display: inline-flex;
+      align-items: center;
+    }
+    .footer-bottom a,
+    .board-links a,
+    .staff-card a,
+    .team-sponsor-strip a {
+      display: inline-flex;
+      align-items: center;
+      min-height: 32px;
+      padding: 4px 0;
+    }
+    .footer-list a:hover, .footer-list button:hover {
+      color: var(--fcs-gold);
+    }
+    .footer-bottom {
+      padding-top: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+      font-size: 0.82rem;
+      color: #CBD5E1;
+    }
+
+    /* Blueprint Modal (#wpBlueprintModal) */
+    .wp-modal-backdrop {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background-color: rgba(11, 19, 36, 0.78);
+      backdrop-filter: blur(6px);
+      z-index: 2000;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+    .wp-modal-backdrop.open {
+      display: flex;
+    }
+    .wp-modal-dialog {
+      background-color: #FFFFFF;
+      border: 2px solid var(--fcs-gold);
+      border-radius: var(--radius-md);
+      max-width: 620px;
+      width: 100%;
+      padding: 28px;
+      box-shadow: var(--shadow-lg);
+      position: relative;
+      max-height: 90vh;
+      overflow-y: auto;
+    }
+    .wp-modal-close {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      width: 36px;
+      height: 36px;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border-light);
+      background-color: var(--bg-muted);
+      color: var(--fcs-navy);
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .wp-modal-checklist {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin: 18px 0;
+      padding: 16px;
+      background-color: var(--bg-muted);
+      border-radius: var(--radius-sm);
+    }
+    .wp-modal-check-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 0.88rem;
+      color: var(--text-main);
+    }
+    .wp-modal-check-item svg {
+      color: var(--fcs-green);
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    /* Responsive Breakpoints */
+    @media (max-width: 1080px) {
+      .hero-grid {
+        grid-template-columns: 1fr;
+      }
+      .grid-4, .timeline-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .grid-3, .board-grid, .sponsors-silver-grid, .sponsors-bronze-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .footer-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .main-nav, .header-actions .btn-cta {
+        display: none;
+      }
+      .mobile-toggle {
+        display: inline-flex;
+      }
+    }
+
+    @media (max-width: 720px) {
+      section {
+        padding: 56px 0;
+      }
+      .top-bar-links {
+        display: none;
+      }
+      .hero-kpi-strip {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .hero-secondary-row,
+      .grid-2,
+      .grid-3,
+      .grid-4,
+      .board-grid,
+      .timeline-grid,
+      .sponsors-gold-grid,
+      .sponsors-silver-grid,
+      .sponsors-bronze-grid,
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+      .header-actions .btn-cta-primary {
+        padding: 9px 12px;
+        font-size: 0.78rem;
+      }
+    }
+
+
+    /* ==========================================================================
+       V2: 6-%-BAUPLAN- & MUSTERHAUS-MODUS (ARCHITEKTEN-BLUEPRINT-LOOK)
+       ========================================================================== */
+    .wp-v2-blueprint-bar {
+      background-color: #0B1528;
+      color: #F8FAFC;
+      border-bottom: 2px solid #F59E0B;
+      font-size: 0.8rem;
+      position: relative;
+      z-index: 1003;
+      padding: 10px 0;
+    }
+    .wp-v2-bar-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+    .wp-v2-bar-left {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .wp-v2-study-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background-color: rgba(245, 158, 11, 0.18);
+      border: 1px solid #F59E0B;
+      color: #FBBF24;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.7rem;
+      font-weight: 800;
+      padding: 4px 9px;
+      border-radius: var(--radius-sm);
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+    .wp-v2-bar-status-text {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: #F8FAFC;
+    }
+    .wp-v2-bar-middle {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background-color: rgba(255, 255, 255, 0.06);
+      border: 1px dashed rgba(245, 158, 11, 0.55);
+      padding: 5px 10px;
+      border-radius: var(--radius-sm);
+      flex-wrap: wrap;
+    }
+    .wp-v2-progress-track {
+      width: 108px;
+      height: 10px;
+      background-color: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(255, 255, 255, 0.24);
+      border-radius: var(--radius-sm);
+      overflow: hidden;
+      display: flex;
+      flex-shrink: 0;
+    }
+    .wp-v2-progress-fill {
+      width: 10%;
+      background-color: #F59E0B;
+      height: 100%;
+    }
+    .wp-v2-progress-label {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.73rem;
+      font-weight: 700;
+      color: #FDE68A;
+    }
+    .wp-v2-switch-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 7px;
+      background-color: #F59E0B;
+      color: #0B1528;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.76rem;
+      font-weight: 800;
+      padding: 7px 13px;
+      min-height: 34px;
+      border-radius: var(--radius-sm);
+      border: 1px solid #FBBF24;
+      text-align: center;
+      line-height: 1.25;
+      flex-shrink: 0;
+    }
+    .wp-v2-switch-btn:hover {
+      background-color: #FBBF24;
+      color: #0B1528;
+    }
+
+    /* Navigation with Status Dots & Lock Icon */
+    .header-inner {
+      gap: 12px;
+    }
+    .brand-link {
+      gap: 10px;
+      flex-shrink: 0;
+    }
+    .main-nav {
+      gap: 5px;
+    }
+    .nav-link {
+      font-size: 0.73rem;
+      padding: 7px 9px;
+      gap: 5px;
+      border: 1px solid transparent;
+      background: transparent;
+      cursor: pointer;
+    }
+    .header-actions .btn-cta {
+      display: none;
+    }
+    .nav-link-locked {
+      color: #475569;
+      background-color: #F1F5F9;
+      border: 1px dashed #94A3B8;
+    }
+    .nav-link-locked:hover {
+      color: var(--fcs-navy);
+      background-color: #E2E8F0;
+      border-color: var(--fcs-navy);
+    }
+    .mobile-drawer button.mobile-nav-btn {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.92rem;
+      font-weight: 700;
+      color: #FDE68A;
+      padding: 12px 14px;
+      border-radius: var(--radius-sm);
+      background-color: rgba(245, 158, 11, 0.12);
+      border: 1px dashed rgba(245, 158, 11, 0.55);
+      text-align: left;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      cursor: pointer;
+      width: 100%;
+    }
+
+    /* Architecture Cut Zone (#bauplan-schnitt) */
+    .blueprint-zone-section {
+      background-color: #E2E8F0;
+      background-image:
+        linear-gradient(to right, rgba(15, 23, 42, 0.06) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(15, 23, 42, 0.06) 1px, transparent 1px);
+      background-size: 28px 28px;
+      border-top: 3px dashed #0F172A;
+      border-bottom: 3px dashed #0F172A;
+      padding: 76px 0 88px;
+    }
+    .blueprint-cut-banner {
+      background-color: #0B1528;
+      color: #F8FAFC;
+      border: 2px dashed #F59E0B;
+      border-radius: var(--radius-md);
+      padding: 28px 30px;
+      margin-bottom: 36px;
+      box-shadow: var(--shadow-md);
+    }
+    .blueprint-cut-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-bottom: 14px;
+      padding-bottom: 14px;
+      border-bottom: 1px dashed rgba(245, 158, 11, 0.4);
+    }
+    .blueprint-cut-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background-color: rgba(245, 158, 11, 0.2);
+      border: 1px solid #F59E0B;
+      color: #FBBF24;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.74rem;
+      font-weight: 800;
+      padding: 5px 11px;
+      border-radius: var(--radius-sm);
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+    .blueprint-kpi-row {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+      margin-top: 20px;
+    }
+    .blueprint-kpi-box {
+      background-color: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      border-radius: var(--radius-sm);
+      padding: 14px 16px;
+    }
+    .blueprint-kpi-box.is-open-scope {
+      border: 1px dashed #F59E0B;
+      background-color: rgba(245, 158, 11, 0.08);
+    }
+
+    /* 4 Dashed Blueprint Module Cards */
+    .blueprint-modules-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 28px;
+    }
+    .blueprint-module-card {
+      background-color: rgba(248, 250, 252, 0.96);
+      border: 2px dashed #475569;
+      border-radius: var(--radius-md);
+      padding: 26px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 20px;
+      box-shadow: 0 6px 20px rgba(15, 23, 42, 0.07);
+    }
+    .blueprint-module-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-bottom: 12px;
+    }
+    .blueprint-mod-tag {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 800;
+      color: #0F172A;
+      background-color: #E2E8F0;
+      border: 1px solid #94A3B8;
+      padding: 4px 9px;
+      border-radius: var(--radius-sm);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    .blueprint-lock-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background-color: #FEF3C7;
+      border: 1px solid #D97706;
+      color: #92400E;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.7rem;
+      font-weight: 800;
+      padding: 4px 9px;
+      border-radius: var(--radius-sm);
+      text-transform: uppercase;
+    }
+    .blueprint-module-title {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.22rem;
+      font-weight: 800;
+      color: #0F172A;
+      margin-bottom: 10px;
+      line-height: 1.25;
+    }
+    .blueprint-module-desc {
+      font-size: 0.9rem;
+      color: #334155;
+      line-height: 1.6;
+      margin-bottom: 14px;
+    }
+    .blueprint-mod-progress {
+      background-color: #E2E8F0;
+      border: 1px solid #CBD5E1;
+      border-radius: var(--radius-sm);
+      padding: 10px 12px;
+      margin-bottom: 4px;
+    }
+    .blueprint-mod-progress-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.74rem;
+      font-weight: 800;
+      color: #1E293B;
+      margin-bottom: 6px;
+    }
+    .blueprint-mod-bar {
+      width: 100%;
+      height: 8px;
+      background-color: #CBD5E1;
+      border-radius: var(--radius-sm);
+      overflow: hidden;
+    }
+    .blueprint-mod-bar-fill {
+      height: 100%;
+      background-color: #D97706;
+    }
+
+    /* Wireframe Skeleton Placeholder Box inside Blueprint Card */
+    .wireframe-skeleton-stage {
+      background-color: #E2E8F0;
+      border: 1px dashed #64748B;
+      border-radius: var(--radius-sm);
+      padding: 14px;
+    }
+    .wireframe-stage-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.68rem;
+      font-weight: 800;
+      color: #475569;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      margin-bottom: 10px;
+    }
+    .wireframe-grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+    .wireframe-box {
+      background: repeating-linear-gradient(
+        -45deg,
+        #CBD5E1,
+        #CBD5E1 6px,
+        #DCE4EE 6px,
+        #DCE4EE 12px
+      );
+      border: 1px dashed #64748B;
+      border-radius: var(--radius-sm);
+      height: 54px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #334155;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.66rem;
+      font-weight: 800;
+      text-align: center;
+      padding: 4px;
+    }
+    .wireframe-lines {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      margin-bottom: 12px;
+    }
+    .wireframe-line {
+      height: 8px;
+      background-color: #CBD5E1;
+      border-radius: var(--radius-sm);
+    }
+    .wireframe-line.w-80 { width: 80%; }
+    .wireframe-line.w-60 { width: 60%; }
+
+    /* V2 Team Wireframe Tiles (32 Locked Teams on herren-1.html) */
+    .matrix-team-btn.wireframe-locked {
+      background-color: #F1F5F9;
+      border: 2px dashed #94A3B8;
+      color: #334155;
+    }
+    .matrix-team-btn.wireframe-locked:hover {
+      border-color: #0F172A;
+      background-color: #E2E8F0;
+    }
+    .wireframe-mini-skeleton {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 8px;
+      background-color: #E2E8F0;
+      border: 1px dashed #94A3B8;
+      border-radius: var(--radius-sm);
+      width: 100%;
+    }
+    .wireframe-mini-thumb {
+      width: 28px;
+      height: 22px;
+      background: repeating-linear-gradient(
+        -45deg,
+        #CBD5E1,
+        #CBD5E1 4px,
+        #94A3B8 4px,
+        #94A3B8 8px
+      );
+      border-radius: var(--radius-sm);
+      flex-shrink: 0;
+    }
+    .wireframe-mini-bars {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .wireframe-mini-bar {
+      height: 5px;
+      background-color: #94A3B8;
+      border-radius: var(--radius-sm);
+    }
+    .pill-wireframe-lock {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      background-color: #FEF3C7;
+      color: #92400E;
+      border: 1px solid #F59E0B;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.62rem;
+      font-weight: 800;
+      padding: 2px 6px;
+      border-radius: var(--radius-sm);
+      text-transform: uppercase;
+      flex-shrink: 0;
+    }
+
+    @media (max-width: 1080px) {
+      .blueprint-modules-grid,
+      .blueprint-kpi-row {
+        grid-template-columns: 1fr;
+      }
+    }
+    @media (max-width: 720px) {
+      .wp-v2-bar-inner {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 8px;
+      }
+      .wp-v2-bar-middle {
+        width: 100%;
+      }
+      .wp-v2-switch-btn {
+        width: 100%;
+      }
+      .blueprint-cut-banner {
+        padding: 20px 18px;
+      }
+      .blueprint-module-card {
+        padding: 20px 18px;
+      }
+      .wireframe-grid-3 {
+        grid-template-columns: 1fr;
+      }
+    }
+
+
+  </style>
+</head>
+<body>
+
+  <!-- 1. UNUEBERSEHBARE KONZEPT- & AUSBAUSTUFEN-LEISTE (V2: 6-%-BAUPLAN-MODUS) -->
+  <div class="wp-v2-blueprint-bar">
+    <div class="container wp-v2-bar-inner">
+      <div class="wp-v2-bar-left">
+        <span class="wp-v2-study-badge">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
+          <span>ARCHITEKTUR-STUDIE · VORSCHAU V2</span>
+        </span>
+        <span class="wp-v2-bar-status-text">Ausbaustufe Prototyp: 6 % (3 von 48 Seiten exemplarisch ausgearbeitet)</span>
+      </div>
+
+      <div class="wp-v2-bar-middle" aria-label="Bauplan-Fortschritt 6 Prozent">
+        <div class="wp-v2-progress-track">
+          <div class="wp-v2-progress-fill"></div>
+        </div>
+        <span class="wp-v2-progress-label">6 % fertig · 45 Unterseiten &amp; 32 Teams im Rohbau</span>
+      </div>
+
+      <a href="/fcschlieren/" class="wp-v2-switch-btn">
+        <span>Zu Variante 1 (Voll-Ansicht) wechseln</span>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </a>
+    </div>
+  </div>
+
+  <!-- TOP BAR -->
+  <div class="top-bar">
+    <div class="container top-bar-inner">
+      <div class="top-bar-left">
+        <span class="top-bar-badge" data-slot="topbar_badge">PROTOTYP-AUSBAU: 3 / 48 SEITEN</span>
+        <span data-slot="topbar_info">1 von 33 Teams (Herren 1) &amp; 11 Sponsoren als Musterhaus ausgearbeitet · 94 % Rohbau-Bauplan</span>
+      </div>
+      <div class="top-bar-links">
+        <a href="index.html#sponsoren">11 Sponsoren (Übernommen)</a>
+        <a href="index.html#bauplan-schnitt">Bauplan-Schnitt (45 offene Seiten)</a>
+        <button type="button" onclick="wpOpenBlueprintModal('Rohbau-Modul B: Vereinsdokumente, Statuten &amp; Chronik (7 Unterseiten)', 'Vereinsführung FC Schlieren', 'Roger Küng (r.kueng@fcschlieren.ch) &amp; Jana Seifriz (j.seifriz@fcschlieren.ch)')">Verein &amp; Chronik (0/7 offen)</button>
+        <a href="kontakt.html?thema=probetraining">Smart-Anfrage (Live-Demo)</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- STICKY HEADER (HAUPTNAVIGATION MIT STATUS-PUNKTEN & SCHLOSS-SYMBOL) -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="brand-link" aria-label="FC Schlieren Startseite">
+        <img src="images/logo-fcschlieren.webp" alt="Wappen FC Schlieren" class="brand-logo" width="48" height="56" data-slot="brand_logo">
+        <div class="brand-text">
+          <span class="brand-name" data-slot="brand_name">FC SCHLIEREN</span>
+          <span class="brand-sub" data-slot="brand_sub">SEIT 1921 · BAUPLAN V2</span>
+        </div>
+      </a>
+
+      <nav class="main-nav" aria-label="Hauptnavigation mit Ausbau-Status">
+        <a href="index.html" class="nav-link active">
+          <svg width="8" height="8" viewBox="0 0 8 8" aria-hidden="true"><circle cx="4" cy="4" r="4" fill="#10B981"/></svg>
+          <span>Startseite (Muster)</span>
+        </a>
+        <a href="herren-1.html" class="nav-link ">
+          <svg width="8" height="8" viewBox="0 0 8 8" aria-hidden="true"><circle cx="4" cy="4" r="4" fill="#10B981"/></svg>
+          <span>Muster-Team: Herren 1 (1/33)</span>
+        </a>
+        <a href="index.html#sponsoren" class="nav-link">
+          <svg width="8" height="8" viewBox="0 0 8 8" aria-hidden="true"><circle cx="4" cy="4" r="4" fill="#F59E0B"/></svg>
+          <span>Sponsoren (Übernommen)</span>
+        </a>
+        <button type="button" class="nav-link nav-link-locked" onclick="wpOpenBlueprintModal('Rohbau-Modul B &amp; C: Verein, Vorstand, Chronik &amp; Sportanlage Zelgli (7 Seiten offen)', 'Vereinsführung &amp; Infrastruktur (Noch nicht migriert · 0 %)', 'Roger Küng (Präsident) &amp; Jana Seifriz (Geschäftsstelle)', 'allgemein')">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+          <span>Verein &amp; Zelgli (7 Seiten offen)</span>
+        </button>
+        <a href="kontakt.html" class="nav-link ">
+          <svg width="8" height="8" viewBox="0 0 8 8" aria-hidden="true"><circle cx="4" cy="4" r="4" fill="#10B981"/></svg>
+          <span>Smart-Anfrage (Live-Demo)</span>
+        </a>
+      </nav>
+
+      <div class="header-actions">
+        <a href="kontakt.html?thema=probetraining" class="btn-cta btn-cta-primary btn-sm" data-slot="header_cta">
+          <span>Smart-Anfrage testen</span>
+        </a>
+        <button type="button" class="mobile-toggle" id="mobileMenuBtn" aria-label="Menü öffnen" onclick="wpToggleMobileMenu()">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <div class="mobile-drawer" id="mobileDrawer">
+      <a href="index.html" onclick="wpCloseMobileMenu()">Startseite (Muster · 6 % Prototyp)</a>
+      <a href="herren-1.html" onclick="wpCloseMobileMenu()">Muster-Team: Herren 1 (1/33 fertig · 32 im Rohbau)</a>
+      <a href="index.html#sponsoren" onclick="wpCloseMobileMenu()">Sponsoren (Alle 11 übernommen)</a>
+      <button type="button" class="mobile-nav-btn" onclick="wpCloseMobileMenu(); wpOpenBlueprintModal('Rohbau-Modul B &amp; C: Verein, Vorstand, Chronik &amp; Sportanlage Zelgli (7 Seiten offen)', 'Vereinsführung &amp; Infrastruktur (Noch nicht migriert · 0 %)', 'Roger Küng &amp; Jana Seifriz', 'allgemein')">
+        <span>Verein &amp; Zelgli (7 Seiten offen · Rohbau)</span>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+      </button>
+      <a href="kontakt.html" onclick="wpCloseMobileMenu()">Smart-Anfrage (Live-Demo)</a>
+      <a href="/fcschlieren/" onclick="wpCloseMobileMenu()" style="background-color:#F59E0B;color:#0B1528;">Zu Variante 1 (Voll-Ansicht) wechseln</a>
+    </div>
+  </header>
+
+  <main>
+
+  <!-- 1. HERO SECTION -->
+  <section class="hero-section" data-section="hero">
+    <div class="container hero-grid">
+      <div>
+        <div class="section-kicker kicker-light" data-slot="hero_kicker">FUSSBALLCLUB SCHLIEREN · GEGRÜNDET 21. MÄRZ 1921</div>
+        <h1 class="hero-title" data-slot="hero_title">
+          Leidenschaft, Stolz und <span>33 Teams</span> auf dem Zelgli.
+        </h1>
+        <div class="hero-motto-box" data-slot="hero_motto">
+          «KÄMPFE MIT LEIDENSCHAFT, SIEGE MIT STOLZ — VERLIERE MIT RESPEKT — ABER GIB NIEMALS AUF!»
+        </div>
+        <p class="hero-sub" data-slot="hero_sub">
+          Vom ersten Ballkontakt in der Fussballschule über 25 Nachwuchs-Mannschaften bis zu unseren Aktivteams Herren 1 und Frauen 1: Der FC Schlieren verbindet seit über 100 Jahren sportlichen Ehrgeiz, gelebte Integration und Vereinsfamilie im Herzen des Limmattals.
+        </p>
+
+        <div class="hero-cta-row">
+          <a href="kontakt.html?thema=probetraining" class="btn-cta btn-cta-gold" data-slot="hero_cta_primary">
+            <span>Probetraining &amp; Vereins-Zentrale</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="9 18 15 12 9 6"/></svg>
+          </a>
+          <a href="herren-1.html" class="btn-cta btn-cta-ghost-light" data-slot="hero_cta_secondary">
+            <span>Muster-Team: Herren 1 (1/33 fertig) &amp; 32 Rohbau-Teams</span>
+          </a>
+        </div>
+
+        <div class="hero-kpi-strip">
+          <div class="hero-kpi-card">
+            <div class="hero-kpi-num" data-slot="kpi_1_num">1921</div>
+            <div class="hero-kpi-lbl" data-slot="kpi_1_lbl">Gründung am 21. März 1921 · Über 100 Jahre Tradition</div>
+          </div>
+          <div class="hero-kpi-card">
+            <div class="hero-kpi-num" data-slot="kpi_2_num">33 Teams</div>
+            <div class="hero-kpi-lbl" data-slot="kpi_2_lbl">5 Herren/Sen. · 3 Frauen · 17 Junioren · 8 Juniorinnen</div>
+          </div>
+          <div class="hero-kpi-card">
+            <div class="hero-kpi-num" data-slot="kpi_3_num">Zelgli</div>
+            <div class="hero-kpi-lbl" data-slot="kpi_3_lbl">Hauptplatz, Kunstrasen &amp; rauchfreies Club-Beizli</div>
+          </div>
+          <div class="hero-kpi-card">
+            <div class="hero-kpi-num" data-slot="kpi_4_num">11+ Partner</div>
+            <div class="hero-kpi-lbl" data-slot="kpi_4_lbl">Gold-, Silber- &amp; Bronze-Sponsoren + Business-Club</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-visual-stack">
+        <div class="hero-photo-card">
+          <img src="images/hero-herren-1.webp" alt="FC Schlieren 1. Mannschaft Herren 1 auf dem Sportplatz Zelgli" width="640" height="270" data-slot="hero_img_main">
+          <div class="hero-photo-caption">
+            <strong>1. Mannschaft — Herren 1 (Sportplatz Zelgli)</strong>
+            <span>Hauptsponsor: Emil Frey AG, Schlieren</span>
+          </div>
+        </div>
+
+        <div class="hero-secondary-row">
+          <div class="hero-mini-card">
+            <img src="images/hero-frauen-1.webp" alt="FC Schlieren Frauen 1 Mannschaft" width="400" height="148" data-slot="hero_img_secondary">
+            <div class="hero-mini-body">
+              <strong style="color:#FDC500;font-family:'Montserrat',sans-serif;">Frauen 1 — Tradition seit 1979</strong><br>
+              <span>Partner: J.F. Jost &amp; Co. · Waser Facility Management</span>
+            </div>
+          </div>
+          <div class="hero-centenary-box">
+            <img src="images/fcs-100-jahre.webp" alt="100 Jahre FC Schlieren Jubiläumslogo" width="112" height="84" data-slot="hero_img_centenary">
+            <strong>Über 100 Jahre FC Schlieren</strong>
+            <span style="font-size:0.73rem;color:var(--text-muted);">SFV-Verein Nr. 530 · 8952 Schlieren</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  
+  <!-- 2. UNSERE SPONSOREN, GÖNNER & PARTNER (100% ORIGINAL-BESTAND DIREKT NACH DEM HERO) -->
+  <section id="sponsoren" data-section="sponsoren" style="background-color:#FFFFFF;border-top:1px solid var(--border-light);">
+    <div class="container">
+      <div class="section-head">
+        <div class="section-kicker" data-slot="sponsors_kicker">HERZLICHEN DANK AN UNSERE PARTNER</div>
+        <h2 class="section-title" data-slot="sponsors_title">Unsere Gold-, Silber- und Bronze-Sponsoren.</h2>
+        <p class="section-desc" data-slot="sponsors_desc">
+          Ein herzliches Dankeschön an unsere treuen Haupt-, Silber- und Bronze-Sponsoren, die Supporter-Vereinigung (seit 1973) und den Business-Club (seit 1997). Ihr Engagement ermöglicht den Spielbetrieb von 33 Mannschaften auf dem Zelgli.
+        </p>
+      </div>
+
+      <!-- TIER 1: GOLD SPONSOREN (2) -->
+      <div class="sponsor-tier-block">
+        <div class="sponsor-tier-header">
+          <span class="sponsor-tier-badge tier-gold">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <span>GOLD SPONSOREN &amp; HAUPTSPONSOREN</span>
+          </span>
+          <span style="font-size:0.82rem;color:var(--text-muted);font-weight:600;">Offizielle Hauptpartner Herren 1 &amp; Frauen 1</span>
+        </div>
+
+        <div class="sponsors-gold-grid">
+          <a href="http://www.emilfrey.ch/schlieren" target="_blank" rel="noopener noreferrer" class="sponsor-card gold-card">
+            <div class="sponsor-logo-wrap">
+              <img src="images/sponsors/gold-01-emil-frey-ag.jpg" alt="Emil Frey AG Schlieren — Gold Sponsor FC Schlieren" width="320" height="120" loading="lazy" decoding="async" data-slot="sponsor_gold_1_img">
+            </div>
+            <div>
+              <div class="sponsor-name" data-slot="sponsor_gold_1_name">Emil Frey AG, Schlieren</div>
+              <div class="sponsor-role-tag">Gold-Sponsor · Offizieller Hauptsponsor Herren 1 · emilfrey.ch/schlieren</div>
+            </div>
+          </a>
+
+          <a href="http://www.lilie-schlieren.ch" target="_blank" rel="noopener noreferrer" class="sponsor-card gold-card">
+            <div class="sponsor-logo-wrap">
+              <img src="images/sponsors/gold-02-j-f-jost-co.jpg" alt="J.F. Jost und Co. — Gold Sponsor FC Schlieren" width="320" height="120" loading="lazy" decoding="async" data-slot="sponsor_gold_2_img">
+            </div>
+            <div>
+              <div class="sponsor-name" data-slot="sponsor_gold_2_name">J.F. Jost &amp; Co.</div>
+              <div class="sponsor-role-tag">Gold-Sponsor · Offizieller Hauptsponsor Frauen 1 · lilie-schlieren.ch</div>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <!-- TIER 2: SILBER SPONSOREN (3) -->
+      <div class="sponsor-tier-block">
+        <div class="sponsor-tier-header">
+          <span class="sponsor-tier-badge tier-silver">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg>
+            <span>SILBER SPONSOREN</span>
+          </span>
+          <span style="font-size:0.82rem;color:var(--text-muted);font-weight:600;">3 offizielle Silber-Partner</span>
+        </div>
+
+        <div class="sponsors-silver-grid">
+          <a href="https://www.sopex.ch/" target="_blank" rel="noopener noreferrer" class="sponsor-card">
+            <div class="sponsor-logo-wrap">
+              <img src="images/sponsors/silver-01-sopex.jpg" alt="SOPEX — Silber Sponsor FC Schlieren" width="240" height="96" loading="lazy" decoding="async" data-slot="sponsor_silver_1_img">
+            </div>
+            <div>
+              <div class="sponsor-name" data-slot="sponsor_silver_1_name">SOPEX</div>
+              <div class="sponsor-role-tag">Silber-Sponsor · sopex.ch</div>
+            </div>
+          </a>
+
+          <div class="sponsor-card">
+            <div class="sponsor-logo-wrap">
+              <img src="images/sponsors/silver-02-vr-ag.jpg" alt="VR AG — Silber Sponsor FC Schlieren" width="240" height="96" loading="lazy" decoding="async" data-slot="sponsor_silver_2_img">
+            </div>
+            <div>
+              <div class="sponsor-name" data-slot="sponsor_silver_2_name">VR AG</div>
+              <div class="sponsor-role-tag">Silber-Sponsor · Region Schlieren</div>
+            </div>
+          </div>
+
+          <div class="sponsor-card">
+            <div class="sponsor-logo-wrap">
+              <img src="images/sponsors/silver-03-waser-facility-managment.png" alt="Waser Facility Management — Silber Sponsor FC Schlieren" width="240" height="96" loading="lazy" decoding="async" data-slot="sponsor_silver_3_img">
+            </div>
+            <div>
+              <div class="sponsor-name" data-slot="sponsor_silver_3_name">Waser Facility Management</div>
+              <div class="sponsor-role-tag">Silber-Sponsor &amp; Co-Sponsor Frauen 1</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- TIER 3: BRONZE SPONSOREN (6) -->
+      <div class="sponsor-tier-block">
+        <div class="sponsor-tier-header">
+          <span class="sponsor-tier-badge tier-bronze">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            <span>BRONZE SPONSOREN &amp; INSTITUTIONELLE PARTNER</span>
+          </span>
+          <span style="font-size:0.82rem;color:var(--text-muted);font-weight:600;">6 offizielle Bronze-Partner</span>
+        </div>
+
+        <div class="sponsors-bronze-grid">
+          <a href="http://www.pizzeria-corona.ch" target="_blank" rel="noopener noreferrer" class="sponsor-card">
+            <div class="sponsor-logo-wrap" style="height:86px;">
+              <img src="images/sponsors/bronze-01-corona-gastro-ag.jpg" alt="Corona Gastro AG Pizzeria Corona Schlieren" width="200" height="80" loading="lazy" decoding="async" data-slot="sponsor_bronze_1_img">
+            </div>
+            <div>
+              <div class="sponsor-name">Corona Gastro AG</div>
+              <div class="sponsor-role-tag">Bronze-Sponsor · pizzeria-corona.ch</div>
+            </div>
+          </a>
+
+          <a href="http://www.physio-welt.ch" target="_blank" rel="noopener noreferrer" class="sponsor-card">
+            <div class="sponsor-logo-wrap" style="height:86px;">
+              <img src="images/sponsors/bronze-02-physio-welt.png" alt="Physio Welt Schlieren" width="200" height="80" loading="lazy" decoding="async" data-slot="sponsor_bronze_2_img">
+            </div>
+            <div>
+              <div class="sponsor-name">Physio Welt</div>
+              <div class="sponsor-role-tag">Bronze-Sponsor · physio-welt.ch</div>
+            </div>
+          </a>
+
+          <a href="http://www.seifrizag.ch" target="_blank" rel="noopener noreferrer" class="sponsor-card">
+            <div class="sponsor-logo-wrap" style="height:86px;">
+              <img src="images/sponsors/bronze-03-seifriz-ag.jpg" alt="Seifriz AG Schlieren" width="200" height="80" loading="lazy" decoding="async" data-slot="sponsor_bronze_3_img">
+            </div>
+            <div>
+              <div class="sponsor-name">Seifriz AG</div>
+              <div class="sponsor-role-tag">Bronze-Sponsor · seifrizag.ch</div>
+            </div>
+          </a>
+
+          <div class="sponsor-card">
+            <div class="sponsor-logo-wrap" style="height:86px;">
+              <img src="images/sponsors/bronze-04-stadt-schlieren.png" alt="Stadt Schlieren" width="200" height="80" loading="lazy" decoding="async" data-slot="sponsor_bronze_4_img">
+            </div>
+            <div>
+              <div class="sponsor-name">Stadt Schlieren</div>
+              <div class="sponsor-role-tag">Standortgemeinde &amp; Sportförderung</div>
+            </div>
+          </div>
+
+          <a href="https://syna.ch/zuerich-schaffhausen/" target="_blank" rel="noopener noreferrer" class="sponsor-card">
+            <div class="sponsor-logo-wrap" style="height:86px;">
+              <img src="images/sponsors/bronze-05-syna-die-gewerkschaft.jpg" alt="Syna Die Gewerkschaft Zürich Schaffhausen" width="200" height="80" loading="lazy" decoding="async" data-slot="sponsor_bronze_5_img">
+            </div>
+            <div>
+              <div class="sponsor-name">Syna - Die Gewerkschaft</div>
+              <div class="sponsor-role-tag">Bronze-Sponsor · syna.ch</div>
+            </div>
+          </a>
+
+          <a href="http://www.zkb.ch" target="_blank" rel="noopener noreferrer" class="sponsor-card">
+            <div class="sponsor-logo-wrap" style="height:86px;">
+              <img src="images/sponsors/bronze-06-zuercher-kantonalbank-filiale-schlieren.jpg" alt="Zürcher Kantonalbank Filiale Schlieren" width="200" height="80" loading="lazy" decoding="async" data-slot="sponsor_bronze_6_img">
+            </div>
+            <div>
+              <div class="sponsor-name">Zürcher Kantonalbank Filiale Schlieren</div>
+              <div class="sponsor-role-tag">Bronze-Sponsor · zkb.ch</div>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <!-- SUPPORTER-VEREINIGUNG, BUSINESS-CLUB & BANDENWERBUNG -->
+      <div class="grid-3" style="margin-top:36px;">
+        <div class="card" style="padding:24px;background-color:var(--fcs-navy);color:#FFFFFF;border-color:var(--fcs-navy);">
+          <div>
+            <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:14px;">
+              <span class="top-bar-badge">SEIT 1973 · RUND 120 MITGLIEDER</span>
+              <img src="images/logo-supporter.webp" alt="Supporter-Vereinigung FC Schlieren" width="84" height="36" loading="lazy" decoding="async" style="object-fit:contain;background:#fff;padding:4px;border-radius:4px;">
+            </div>
+            <h3 style="color:#FFFFFF;font-size:1.18rem;font-weight:800;margin-bottom:8px;">Supporter-Vereinigung FC Schlieren</h3>
+            <p style="font-size:0.88rem;color:#E2E8F0;margin-bottom:14px;">
+              Unterstützt gezielt unsere Junioren- und Aktivabteilung. Freier Eintritt zu sämtlichen Heimspielen auf dem Zelgli sowie Einladung zum jährlichen Supporter-Apéro (Präsident: Dany Tännler).
+            </p>
+            <div style="font-size:0.84rem;color:var(--fcs-gold);font-weight:700;margin-bottom:16px;">
+              Einzelmitgliedschaft: CHF 150.– / Jahr · Paarmitgliedschaft: CHF 250.– / Jahr
+            </div>
+          </div>
+          <a href="kontakt.html?thema=sponsoring" class="btn-cta btn-cta-gold btn-sm" style="width:100%;">Supporter werden</a>
+        </div>
+
+        <div class="card" style="padding:24px;background-color:var(--fcs-navy);color:#FFFFFF;border-color:var(--fcs-navy);">
+          <div>
+            <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:14px;">
+              <span class="top-bar-badge">SEIT 1997 · 49 FIRMENMITGLIEDER</span>
+              <img src="images/logo-businessclub.webp" alt="Business-Club FC Schlieren" width="84" height="36" loading="lazy" decoding="async" style="object-fit:contain;background:#fff;padding:4px;border-radius:4px;">
+            </div>
+            <h3 style="color:#FFFFFF;font-size:1.18rem;font-weight:800;margin-bottom:8px;">Business-Club FC Schlieren</h3>
+            <p style="font-size:0.88rem;color:#E2E8F0;margin-bottom:14px;">
+              Das Unternehmer-Netzwerk im Limmattal mit monatlichem Business-Lunch im Restaurant Corona und gemeinsamen Events (Vorstand: Thomas Bolliger, Diego Würmli, Jürg Zahner, Monika Höhn).
+            </p>
+            <div style="font-size:0.84rem;color:var(--fcs-gold);font-weight:700;margin-bottom:16px;">
+              Jahresbeitrag Business-Club: CHF 850.– / Jahr
+            </div>
+          </div>
+          <a href="kontakt.html?thema=sponsoring" class="btn-cta btn-cta-gold btn-sm" style="width:100%;">Business-Club anfragen</a>
+        </div>
+
+        <div class="card" style="padding:24px;background-color:var(--fcs-blue-soft);border-color:#93C5FD;">
+          <div>
+            <span class="pillar-count" style="margin-bottom:14px;">HAUPTPLATZ ZELGLI · SICHTBARKEIT</span>
+            <h3 style="font-size:1.18rem;font-weight:800;margin-bottom:8px;">Bandenwerbung, Dress- &amp; Matchball-Sponsoring</h3>
+            <p style="font-size:0.88rem;color:var(--text-body);margin-bottom:14px;">
+              Präsentiere dein Unternehmen direkt am Hauptplatz 1 der Sportanlage Zelgli vor tausenden Spielerinnen, Spielern, Eltern und Zuschauern pro Saison (Kontakt: Dani Galantucci).
+            </p>
+            <div style="font-size:0.84rem;color:var(--fcs-navy);font-weight:700;margin-bottom:16px;">
+              Bandenwerbung Platz 1 (3 Meter): CHF 120.– / Laufmeter = CHF 360.– / Jahr
+            </div>
+          </div>
+          <a href="kontakt.html?thema=sponsoring" class="btn-cta btn-cta-primary btn-sm" style="width:100%;">Sponsoring &amp; Bande anfragen</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  
+
+  <!-- 3. ARCHITEKTUR-BAUPLAN-SCHNITT (NOCH NICHT UEBERTRAGENE MODULE: 45 VON 48 SEITEN) -->
+  <section id="bauplan-schnitt" class="blueprint-zone-section" data-section="bauplan-schnitt">
+    <div class="container">
+
+      <!-- UNUEBERSEHBARES ARCHITEKTEN-SCHNITT-BANNER -->
+      <div class="blueprint-cut-banner">
+        <div class="blueprint-cut-top">
+          <span class="blueprint-cut-pill">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+            <span>ARCHITEKTUR-BAUPLAN-ZONE · NOCH NICHT ÜBERTRAGENE MODULE (45 VON 48 SEITEN)</span>
+          </span>
+          <span style="font-family:'Montserrat',sans-serif;font-size:0.78rem;font-weight:800;color:#FDE68A;">
+            PROTOTYP-STAND: 6 % FERTIG · 94 % ROHBAU-GERÜST
+          </span>
+        </div>
+
+        <h2 style="color:#FFFFFF;font-size:clamp(1.55rem,2.8vw,2.25rem);font-weight:800;margin-bottom:10px;" data-slot="bp_zone_title">
+          Sichtbarer Architektur-Schnitt: Was oben glänzt vs. was im Hauptauftrag folgt.
+        </h2>
+        <p style="font-size:0.95rem;color:#E2E8F0;line-height:1.65;max-width:920px;" data-slot="bp_zone_desc">
+          Oben siehst du am Hero-Auftritt, an den <strong>11 Original-Sponsoren</strong> und am <strong>Muster-Team Herren 1</strong>, wie hochwertig die neue Plattform des FC Schlieren wirkt. Direkt hier darunter siehst du im gestrichelten Architekten-Bauplan schwarz auf weiss, dass erst <strong>6 % (3 von 48 Seiten / 1 von 33 Teams)</strong> als Prototyp ausgearbeitet sind und die weiteren <strong>94 % (45 Unterseiten &amp; 32 Mannschaften)</strong> erst nach Auftragserteilung übertragen werden.
+        </p>
+
+        <div class="blueprint-kpi-row">
+          <div class="blueprint-kpi-box">
+            <div style="font-family:'Montserrat',sans-serif;font-size:0.72rem;font-weight:800;color:#34D399;text-transform:uppercase;margin-bottom:4px;">
+              BEREITS AUSGEARBEITET IM PROTOTYP (6 % · 3 VON 48 SEITEN)
+            </div>
+            <div style="font-size:0.86rem;color:#F8FAFC;font-weight:600;">
+              1. Startseite (Hero &amp; alle 11 Sponsoren) · 2. Muster-Team <strong>Herren 1 (1/33)</strong> · 3. Smart-Anfrage-Zentrale (Live-Demo inkl. 1-Seiten-PDF)
+            </div>
+          </div>
+          <div class="blueprint-kpi-box is-open-scope">
+            <div style="font-family:'Montserrat',sans-serif;font-size:0.72rem;font-weight:800;color:#FBBF24;text-transform:uppercase;margin-bottom:4px;">
+              OFFEN FÜR HAUPTAUFTRAG (94 % · 45 VON 48 UNTERSEITEN IM ROHBAU)
+            </div>
+            <div style="font-size:0.86rem;color:#F8FAFC;font-weight:600;">
+              32 weitere Mannschafts-Seiten (~480 Porträts) · 7 Vereins-, Vorstands- &amp; Chronik-Seiten · 3 Zelgli- &amp; Beizli-Seiten · 5 Spielbetriebs- &amp; Camp-Seiten
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 4 GESTRICHELTE ARCHITEKTEN-BAUPLAN-KARTEN MIT DRAHTGITTER-SKELETONS -->
+      <div class="blueprint-modules-grid">
+
+        <!-- ROHBAU-MODUL A -->
+        <article class="blueprint-module-card">
+          <div>
+            <div class="blueprint-module-top">
+              <span class="blueprint-mod-tag">ROHBAU-MODUL A · MANNSCHAFTEN</span>
+              <span class="blueprint-lock-badge">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                <span>STATUS: ROHBAU / 3 % ÜBERTRAGEN</span>
+              </span>
+            </div>
+            <h3 class="blueprint-module-title" data-slot="bp_mod_a_title">
+              32 weitere Mannschafts-Seiten (~480 Spieler- &amp; Trainerporträts)
+            </h3>
+            <p class="blueprint-module-desc" data-slot="bp_mod_a_desc">
+              <strong>Status: 1 von 33 Teams (3 %)</strong> als Muster ausgearbeitet (<strong>Herren 1</strong>). Offen für Hauptauftrag: Herren 2, Senioren 30+/40+/50+, Frauen 1–3, 17&times; Junioren A–G, 8&times; Juniorinnen inkl. Kaderlisten, Einzelfotos und Trainingszeiten.
+            </p>
+            <div class="blueprint-mod-progress">
+              <div class="blueprint-mod-progress-head">
+                <span>Ausbaustatus Mannschafts-Seiten</span>
+                <span>1 von 33 Teams (3 %) · 32 Teams offen</span>
+              </div>
+              <div class="blueprint-mod-bar">
+                <div class="blueprint-mod-bar-fill" style="width: 6%;"></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="wireframe-skeleton-stage">
+            <div class="wireframe-stage-header">
+              <span>DRAHTGITTER-PLATZHALTER (32 OFFENE TEAM-SEITEN)</span>
+              <span>BEFÜLLUNG BEI AUFTRAG</span>
+            </div>
+            <div class="wireframe-grid-3">
+              <div class="wireframe-box">FOTO-PLATZHALTER<br>FRAUEN 1–3</div>
+              <div class="wireframe-box">FOTO-PLATZHALTER<br>HERREN 2 / SEN.</div>
+              <div class="wireframe-box">FOTO-PLATZHALTER<br>25&times; NACHWUCHS</div>
+            </div>
+            <div class="wireframe-lines">
+              <div class="wireframe-line w-80"></div>
+              <div class="wireframe-line w-60"></div>
+            </div>
+            <a href="herren-1.html#alle-teams-matrix" class="btn-cta btn-cta-navy btn-sm" style="width:100%;">
+              <span>1 Muster-Team (Herren 1) &amp; 32 Rohbau-Kacheln ansehen</span>
+            </a>
+          </div>
+        </article>
+
+        <!-- ROHBAU-MODUL B -->
+        <article class="blueprint-module-card">
+          <div>
+            <div class="blueprint-module-top">
+              <span class="blueprint-mod-tag">ROHBAU-MODUL B · VEREIN &amp; CHRONIK</span>
+              <span class="blueprint-lock-badge">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                <span>STATUS: ROHBAU / 0 % ÜBERTRAGEN</span>
+              </span>
+            </div>
+            <h3 class="blueprint-module-title" data-slot="bp_mod_b_title">
+              Verein, Vorstand (6), Funktionäre &amp; 100-Jahr-Chronik (7 Unterseiten)
+            </h3>
+            <p class="blueprint-module-desc" data-slot="bp_mod_b_desc">
+              <strong>Status: 0 von 7 Seiten (0 %)</strong> übertragen. Offen für Hauptauftrag: Vorstands- &amp; Funktionärsporträts, Schiedsrichter, Vereinsgeschichte 1921–2021, Statuten, Schutzkonzepte &amp; PDF-Downloads.
+            </p>
+            <div class="blueprint-mod-progress">
+              <div class="blueprint-mod-progress-head">
+                <span>Ausbaustatus Vereins- &amp; Chronik-Seiten</span>
+                <span>0 von 7 Seiten (0 %) · Komplett im Rohbau</span>
+              </div>
+              <div class="blueprint-mod-bar">
+                <div class="blueprint-mod-bar-fill" style="width: 0%;"></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="wireframe-skeleton-stage">
+            <div class="wireframe-stage-header">
+              <span>DRAHTGITTER-PLATZHALTER (VORSTAND &amp; CHRONIK 1921)</span>
+              <span>BEFÜLLUNG BEI AUFTRAG</span>
+            </div>
+            <div class="wireframe-grid-3">
+              <div class="wireframe-box">6&times; VORSTAND<br>PORTRÄT-GERÜST</div>
+              <div class="wireframe-box">CHRONIK-TIMELINE<br>1921–2026</div>
+              <div class="wireframe-box">STATUTEN &amp; PDF<br>DOKUMENTE</div>
+            </div>
+            <div class="wireframe-lines">
+              <div class="wireframe-line w-80"></div>
+              <div class="wireframe-line w-60"></div>
+            </div>
+            <button type="button" class="btn-cta btn-cta-outline btn-sm" style="width:100%;" onclick="wpOpenBlueprintModal('Rohbau-Modul B: Verein, Vorstand (6), Funktionäre &amp; 100-Jahr-Chronik (7 Unterseiten)', '0 von 7 Seiten übertragen (Teil des Hauptauftrags)', 'Roger Küng (Präsident) &amp; Jana Seifriz (Geschäftsstelle)', 'allgemein')">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+              <span>Bauplan-Umfang für Modul B (7 Seiten) prüfen</span>
+            </button>
+          </div>
+        </article>
+
+        <!-- ROHBAU-MODUL C -->
+        <article class="blueprint-module-card">
+          <div>
+            <div class="blueprint-module-top">
+              <span class="blueprint-mod-tag">ROHBAU-MODUL C · SPORTANLAGE ZELGLI</span>
+              <span class="blueprint-lock-badge">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                <span>STATUS: ROHBAU / 0 % ÜBERTRAGEN</span>
+              </span>
+            </div>
+            <h3 class="blueprint-module-title" data-slot="bp_mod_c_title">
+              Sportanlage Zelgli, Platzbelegung &amp; Club-Beizli (3 Unterseiten)
+            </h3>
+            <p class="blueprint-module-desc" data-slot="bp_mod_c_desc">
+              <strong>Status: 0 von 3 Seiten (0 %)</strong> übertragen. Offen für Hauptauftrag: Luftbild &amp; Platzplan Zelgli, Öffnungszeiten &amp; Reservation Club-Beizli, Anfahrt &amp; Parkplätze.
+            </p>
+            <div class="blueprint-mod-progress">
+              <div class="blueprint-mod-progress-head">
+                <span>Ausbaustatus Zelgli &amp; Club-Beizli</span>
+                <span>0 von 3 Seiten (0 %) · Komplett im Rohbau</span>
+              </div>
+              <div class="blueprint-mod-bar">
+                <div class="blueprint-mod-bar-fill" style="width: 0%;"></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="wireframe-skeleton-stage">
+            <div class="wireframe-stage-header">
+              <span>DRAHTGITTER-PLATZHALTER (ZELGLI &amp; CLUB-BEIZLI)</span>
+              <span>BEFÜLLUNG BEI AUFTRAG</span>
+            </div>
+            <div class="wireframe-grid-3">
+              <div class="wireframe-box">LUFTBILD &amp;<br>PLATZPLAN ZELGLI</div>
+              <div class="wireframe-box">CLUB-BEIZLI<br>40–50 PLÄTZE</div>
+              <div class="wireframe-box">ANFAHRT &amp;<br>PARKPLÄTZE</div>
+            </div>
+            <div class="wireframe-lines">
+              <div class="wireframe-line w-80"></div>
+              <div class="wireframe-line w-60"></div>
+            </div>
+            <button type="button" class="btn-cta btn-cta-outline btn-sm" style="width:100%;" onclick="wpOpenBlueprintModal('Rohbau-Modul C: Sportanlage Zelgli, Platzbelegung &amp; Club-Beizli (3 Unterseiten)', '0 von 3 Seiten übertragen (Teil des Hauptauftrags)', 'Müslüm Bozan (Wirt Club-Beizli) &amp; Geschäftsstelle FC Schlieren', 'allgemein')">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+              <span>Bauplan-Umfang für Modul C (3 Seiten) prüfen</span>
+            </button>
+          </div>
+        </article>
+
+        <!-- ROHBAU-MODUL D -->
+        <article class="blueprint-module-card">
+          <div>
+            <div class="blueprint-module-top">
+              <span class="blueprint-mod-tag">ROHBAU-MODUL D · SPIELBETRIEB &amp; CAMPS</span>
+              <span class="blueprint-lock-badge">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                <span>STATUS: ROHBAU / 0 % ÜBERTRAGEN</span>
+              </span>
+            </div>
+            <h3 class="blueprint-module-title" data-slot="bp_mod_d_title">
+              Spielbetrieb, Trainingspläne, Fussballschule &amp; Camps (5 Unterseiten)
+            </h3>
+            <p class="blueprint-module-desc" data-slot="bp_mod_d_desc">
+              <strong>Status: 0 von 5 Seiten (0 %)</strong> übertragen. Offen für Hauptauftrag: Sommer-/Winter-Trainingsplan, Mittwoch-Fussballschule (Jun. E/F/G), Kohler Fussballcamps &amp; FVRZ-Resultate-Anbindung.
+            </p>
+            <div class="blueprint-mod-progress">
+              <div class="blueprint-mod-progress-head">
+                <span>Ausbaustatus Spielbetrieb &amp; Nachwuchs</span>
+                <span>0 von 5 Seiten (0 %) · Komplett im Rohbau</span>
+              </div>
+              <div class="blueprint-mod-bar">
+                <div class="blueprint-mod-bar-fill" style="width: 0%;"></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="wireframe-skeleton-stage">
+            <div class="wireframe-stage-header">
+              <span>DRAHTGITTER-PLATZHALTER (TRAININGSPLÄNE &amp; CAMPS)</span>
+              <span>BEFÜLLUNG BEI AUFTRAG</span>
+            </div>
+            <div class="wireframe-grid-3">
+              <div class="wireframe-box">TRAININGS- &amp;<br>HALLENPLAN</div>
+              <div class="wireframe-box">MITTWOCH-<br>FUSSBALLSCHULE</div>
+              <div class="wireframe-box">KOHLER CAMPS &amp;<br>FVRZ-RESULTATE</div>
+            </div>
+            <div class="wireframe-lines">
+              <div class="wireframe-line w-80"></div>
+              <div class="wireframe-line w-60"></div>
+            </div>
+            <button type="button" class="btn-cta btn-cta-outline btn-sm" style="width:100%;" onclick="wpOpenBlueprintModal('Rohbau-Modul D: Spielbetrieb, Trainingspläne, Fussballschule &amp; Camps (5 Unterseiten)', '0 von 5 Seiten übertragen (Teil des Hauptauftrags)', 'Luigi Schiavano (Leiter Junioren) &amp; Roger Mehr (Spielbetrieb)', 'spielbetrieb')">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+              <span>Bauplan-Umfang für Modul D (5 Seiten) prüfen</span>
+            </button>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer" data-section="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div style="display:flex;align-items:center;gap:12px;margin-bottom:14px;">
+            <img src="images/logo-fcschlieren.webp" alt="FC Schlieren Wappen" width="44" height="52" loading="lazy" decoding="async" style="object-fit:contain;">
+            <div>
+              <div style="font-family:'Montserrat',sans-serif;font-weight:800;font-size:1.1rem;color:#FFFFFF;">FC SCHLIEREN</div>
+              <div style="font-size:0.76rem;color:#FDC500;font-weight:700;">ARCHITEKTUR-STUDIE V2 · 6 % PROTOTYP</div>
+            </div>
+          </div>
+          <p style="font-size:0.86rem;color:#CBD5E1;line-height:1.6;margin-bottom:14px;" data-slot="footer_about">
+            Architekten-Musterhaus &amp; Bauplan-Vorschau für den FC Schlieren: 3 von 48 Seiten (Startseite, 1 Muster-Team Herren 1, Smart-Anfrage) als Qualitätsbeweis ausgearbeitet — 45 Unterseiten &amp; 32 Teams folgen im Hauptauftrag.
+          </p>
+          <div style="font-size:0.84rem;color:#E2E8F0;font-weight:600;">
+            Fussballanlage Zelgli («im Rohr») · Postfach · 8952 Schlieren
+          </div>
+        </div>
+
+        <div>
+          <div class="footer-title">Prototyp (6 % ausgearbeitet)</div>
+          <ul class="footer-list">
+            <li><a href="index.html">Startseite: Hero &amp; Sponsoren (Muster)</a></li>
+            <li><a href="herren-1.html">Muster-Team: Herren 1 (1 von 33 fertig)</a></li>
+            <li><a href="index.html#sponsoren">Alle 11 Sponsoren (Übernommen)</a></li>
+            <li><a href="kontakt.html">Smart-Anfrage-Zentrale (Live-Demo)</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="footer-title">Rohbau-Bauplan (94 % offen)</div>
+          <ul class="footer-list">
+            <li><a href="herren-1.html#alle-teams-matrix">32 weitere Mannschaften (Rohbau)</a></li>
+            <li><button type="button" onclick="wpOpenBlueprintModal('Rohbau-Modul B: Verein, Vorstand (6), Funktionäre &amp; Chronik (7 Unterseiten)', 'Vereinsführung FC Schlieren (0 % übertragen)', 'Roger Küng &amp; Jana Seifriz')">Verein, Vorstand &amp; Chronik (0/7)</button></li>
+            <li><button type="button" onclick="wpOpenBlueprintModal('Rohbau-Modul C: Sportanlage Zelgli, Platzbelegung &amp; Club-Beizli (3 Unterseiten)', 'Infrastruktur &amp; Gastronomie (0 % übertragen)', 'Müslüm Bozan &amp; Geschäftsstelle')">Sportanlage Zelgli &amp; Beizli (0/3)</button></li>
+            <li><button type="button" onclick="wpOpenBlueprintModal('Rohbau-Modul D: Spielbetrieb, Trainingspläne, Fussballschule &amp; Camps (5 Unterseiten)', 'Spielbetrieb &amp; Nachwuchs (0 % übertragen)', 'Luigi Schiavano &amp; Roger Mehr')">Trainingspläne &amp; Camps (0/5)</button></li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="footer-title">Ansichten-Vergleich &amp; Rechtliches</div>
+          <ul class="footer-list">
+            <li><a href="/fcschlieren/" style="color:#FDC500;font-weight:700;">Zu Variante 1 (Voll-Ansicht) wechseln</a></li>
+            <li><a href="index.html#bauplan-schnitt">Architektur-Bauplan-Schnitt ansehen</a></li>
+            <li><button type="button" onclick="wpOpenImpressumModal()">Impressum &amp; Datenschutz</button></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>&copy; 2026 Fussballclub Schlieren (8952 Schlieren) · Konzept- &amp; Bauplan-Studie V2 (Ausbaustufe 6 %).</div>
+        <div style="display:flex;gap:16px;flex-wrap:wrap;">
+          <a href="/fcschlieren/" style="color:#FDC500;font-weight:700;">Variante 1 (Voll-Ansicht) öffnen</a>
+          <a href="herren-1.html" style="color:#E2E8F0;">Muster-Team Herren 1 (1/33)</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ARCHITEKTUR-BLAUPAUSEN-MODAL (V2 BAUPLAN-MODUS) -->
+  <div class="wp-modal-backdrop" id="wpBlueprintModal" role="dialog" aria-modal="true" aria-labelledby="wpBpTitle">
+    <div class="wp-modal-dialog">
+      <button type="button" class="wp-modal-close" aria-label="Dialog schliessen" onclick="wpCloseBlueprintModal()">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+      <div class="section-kicker">BAUPLAN-STATUS: ROHBAU (NOCH NICHT MIGRIERT · TEIL DES HAUPTAUFTRAGS)</div>
+      <h3 id="wpBpTitle" style="font-size:1.35rem;font-weight:800;margin-bottom:8px;">Rohbau-Modul: Noch nicht übertragen</h3>
+      <p id="wpBpSub" style="font-size:0.9rem;color:var(--text-body);margin-bottom:12px;">
+        In dieser <strong>Architektur-Studie (Ausbaustufe 6 % · 3 von 48 Seiten)</strong> sind oben das Design, die 11 Sponsoren und exakt <strong>1 Muster-Team (Herren 1)</strong> ausgearbeitet. Dieses Modul befindet sich bewusst noch im <strong>unbefüllten Rohbau (0 % übertragen)</strong> und wird nach Auftragserteilung komplett mit allen Originaldaten, Fotos und Kadern eingerichtet.
+      </p>
+      <div style="background-color:#FEF3C7;border-left:4px solid #D97706;padding:12px 14px;border-radius:var(--radius-sm);font-size:0.86rem;margin-bottom:14px;">
+        <div style="font-weight:800;color:#92400E;" id="wpBpCategory">Bereich / Abteilung: Rohbau-Modul</div>
+        <div style="color:#78350F;margin-top:2px;" id="wpBpContact">Zuständige Ansprechperson im Verein: Geschäftsstelle FC Schlieren</div>
+      </div>
+
+      <div class="wp-modal-checklist">
+        <div style="font-family:'Montserrat',sans-serif;font-size:0.78rem;font-weight:800;text-transform:uppercase;color:var(--fcs-navy);">
+          Wird nach Auftragserteilung (analog Muster-Team Herren 1) schlüsselfertig übertragen:
+        </div>
+        <div class="wp-modal-check-item">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><polyline points="20 6 9 17 4 12"/></svg>
+          <span>Vollständige Übernahme aller bestehenden Texte, Mannschaftsfotos, Porträts &amp; PDF-Dokumente</span>
+        </div>
+        <div class="wp-modal-check-item">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><polyline points="20 6 9 17 4 12"/></svg>
+          <span>Einrichtung aller 32 weiteren Mannschafts-Seiten (~480 Spieler- &amp; Trainerporträts nach Position)</span>
+        </div>
+        <div class="wp-modal-check-item">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><polyline points="20 6 9 17 4 12"/></svg>
+          <span>Direkte Anbindung an das WebPilot Studio-Cockpit für Sekundenschnelle Änderungen per KI oder 1-Klick</span>
+        </div>
+      </div>
+
+      <div style="display:flex;flex-wrap:wrap;gap:10px;margin-top:18px;">
+        <a href="herren-1.html" class="btn-cta btn-cta-primary btn-sm" onclick="wpCloseBlueprintModal()">
+          <span>Fertiges Muster-Team (Herren 1 · 1/33) ansehen</span>
+        </a>
+        <a href="kontakt.html?thema=probetraining" id="wpBpCtaLink" class="btn-cta btn-cta-gold btn-sm">
+          <span>Smart-Anfrage (Live-Demo) testen</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- IMPRESSUM MODAL -->
+  <div class="wp-modal-backdrop" id="wpImpressumModal" role="dialog" aria-modal="true" aria-labelledby="wpImpTitle">
+    <div class="wp-modal-dialog">
+      <button type="button" class="wp-modal-close" aria-label="Impressum schliessen" onclick="wpCloseImpressumModal()">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+      <div class="section-kicker">RECHTLICHE ANGABEN · SCHWEIZER DSG</div>
+      <h3 id="wpImpTitle" style="font-size:1.3rem;font-weight:800;margin-bottom:10px;">Impressum &amp; Datenschutz — FC Schlieren</h3>
+      <div style="font-size:0.88rem;color:var(--text-body);display:flex;flex-direction:column;gap:10px;">
+        <p><strong>Vereinsadresse:</strong><br>Fussballclub Schlieren · Sportanlage Zelgli («im Rohr») · Postfach · 8952 Schlieren</p>
+        <p><strong>Vertretungsberechtigter Vorstand:</strong><br>Roger Küng (Präsident, r.kueng@fcschlieren.ch) · Jana Seifriz (Leiterin Geschäftsstelle &amp; Spielbetrieb, j.seifriz@fcschlieren.ch) · Luigi Voci (Leiter Finanzen, l.voci@fcschlieren.ch)</p>
+        <p><strong>Webverantwortlicher &amp; J+S Coach:</strong><br>Sven Seifriz (s.seifriz@fcschlieren.ch)</p>
+        <p><strong>Datenschutz (Schweizer Datenschutzgesetz revDSG):</strong><br>Personendaten aus Kontakt-, Probetraining-, Mutations- und Sponsoring-Anfragen werden ausschliesslich zur Vereinsadministration innerhalb des FC Schlieren verwendet und niemals an unbefugte Dritte weitergegeben.</p>
+      </div>
+      <div style="margin-top:18px;text-align:right;">
+        <button type="button" class="btn-cta btn-cta-navy btn-sm" onclick="wpCloseImpressumModal()">Schliessen</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function wpToggleMobileMenu() {
+      var d = document.getElementById('mobileDrawer');
+      if (d) d.classList.toggle('open');
+    }
+    function wpCloseMobileMenu() {
+      var d = document.getElementById('mobileDrawer');
+      if (d) d.classList.remove('open');
+    }
+    function wpOpenBlueprintModal(title, category, contact, topicParam) {
+      var m = document.getElementById('wpBlueprintModal');
+      if (!m) return;
+      var tEl = document.getElementById('wpBpTitle');
+      var cEl = document.getElementById('wpBpCategory');
+      var pEl = document.getElementById('wpBpContact');
+      var linkEl = document.getElementById('wpBpCtaLink');
+      if (tEl) tEl.textContent = title || 'Rohbau-Modul';
+      if (cEl) cEl.textContent = 'Bereich / Ausbaustatus: ' + (category || 'Rohbau (0 % übertragen · Teil des Hauptauftrags)');
+      if (pEl) pEl.textContent = 'Zuständige Ansprechperson: ' + (contact || 'Geschäftsstelle FC Schlieren (j.seifriz@fcschlieren.ch)');
+      if (linkEl) linkEl.href = 'kontakt.html?thema=' + (topicParam || 'probetraining');
+      m.classList.add('open');
+    }
+    function wpCloseBlueprintModal() {
+      var m = document.getElementById('wpBlueprintModal');
+      if (m) m.classList.remove('open');
+    }
+    function wpOpenImpressumModal() {
+      var m = document.getElementById('wpImpressumModal');
+      if (m) m.classList.add('open');
+    }
+    function wpCloseImpressumModal() {
+      var m = document.getElementById('wpImpressumModal');
+      if (m) m.classList.remove('open');
+    }
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') {
+        wpCloseBlueprintModal();
+        wpCloseImpressumModal();
+        wpCloseMobileMenu();
+      }
+    });
+  </script>
+</body>
+</html>
