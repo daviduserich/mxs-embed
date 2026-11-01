@@ -1189,6 +1189,410 @@
       .mobile-thumb-bar { display: none !important; }
     }
 
+  
+/* === WEBPILOT-PARTNER-ATTRIBUTION-CSS-START === */
+    .wp-partner-attr-bar {
+      margin-top: 20px;
+      padding: 16px 18px;
+      background: linear-gradient(135deg, #F8FAFC 0%, #F1F5F9 100%);
+      border: 1px solid #CBD5E1;
+      border-left: 4px solid #FF0066;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 14px;
+      box-sizing: border-box;
+      width: 100%;
+      overflow: hidden;
+    }
+    .wp-partner-attr-left {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      flex: 1 1 260px;
+      min-width: 0;
+    }
+    .wp-partner-attr-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 4px;
+      background-color: #0B1A3B;
+      color: #FBBF24;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    .wp-partner-attr-text {
+      min-width: 0;
+      flex: 1;
+    }
+    .wp-partner-attr-title {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.86rem;
+      font-weight: 800;
+      color: #0B1A3B;
+      line-height: 1.35;
+      margin: 0 0 3px 0;
+    }
+    .wp-partner-attr-sub {
+      font-size: 0.79rem;
+      color: #475569;
+      line-height: 1.4;
+      margin: 0;
+    }
+    .wp-partner-cta-btn {
+      appearance: none;
+      background-color: #0B1A3B;
+      color: #FFFFFF !important;
+      border: 1px solid #0B1A3B;
+      border-radius: 8px;
+      padding: 10px 15px;
+      min-height: 42px;
+      min-width: 44px;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.79rem;
+      font-weight: 700;
+      line-height: 1.3;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      text-align: left;
+      transition: background-color 0.18s ease, border-color 0.18s ease;
+      box-sizing: border-box;
+      overflow: hidden;
+      max-width: 100%;
+    }
+    .wp-partner-cta-btn:hover {
+      background-color: #FF0066;
+      border-color: #FF0066;
+      color: #FFFFFF !important;
+    }
+    .wp-partner-cta-btn svg {
+      flex-shrink: 0;
+    }
+    .wp-partner-footer-btn {
+      appearance: none;
+      background-color: rgba(255, 255, 255, 0.08);
+      color: #F8FAFC !important;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 8px;
+      padding: 7px 13px;
+      min-height: 36px;
+      min-width: 44px;
+      font-family: inherit;
+      font-size: 0.78rem;
+      font-weight: 700;
+      line-height: 1.3;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      text-align: left;
+      transition: background-color 0.18s ease, border-color 0.18s ease;
+      box-sizing: border-box;
+      overflow: hidden;
+      max-width: 100%;
+    }
+    .wp-partner-footer-btn:hover {
+      background-color: rgba(255, 255, 255, 0.16);
+      border-color: #FBBF24;
+      color: #FFFFFF !important;
+    }
+    .wp-partner-footer-btn svg {
+      color: #FBBF24;
+      flex-shrink: 0;
+    }
+    /* Partner Modal (#wpPartnerModal) */
+    .wp-partner-modal-backdrop {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background-color: rgba(11, 19, 36, 0.82);
+      backdrop-filter: blur(6px);
+      z-index: 2200;
+      align-items: center;
+      justify-content: center;
+      padding: 14px;
+      box-sizing: border-box;
+    }
+    .wp-partner-modal-backdrop.open {
+      display: flex;
+    }
+    .wp-partner-modal-dialog {
+      background-color: #FFFFFF;
+      color: #0F172A;
+      border: 2px solid #FF0066;
+      border-radius: 8px;
+      max-width: 640px;
+      width: 100%;
+      padding: 22px 22px 20px 22px;
+      box-shadow: 0 20px 45px rgba(15, 23, 42, 0.35);
+      position: relative;
+      max-height: calc(100dvh - 28px);
+      overflow-y: auto;
+      box-sizing: border-box;
+    }
+    .wp-partner-modal-head {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 10px;
+    }
+    .wp-partner-modal-kicker {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.7rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+      color: #FF0066;
+      display: block;
+      margin-bottom: 4px;
+    }
+    .wp-partner-modal-title {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: #0B1A3B;
+      line-height: 1.25;
+      margin: 0;
+    }
+    .wp-partner-modal-close {
+      appearance: none;
+      width: 38px;
+      height: 38px;
+      min-width: 38px;
+      min-height: 38px;
+      border-radius: 8px;
+      border: 1px solid #CBD5E1;
+      background-color: #F8FAFC;
+      color: #0F172A;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      padding: 0;
+    }
+    .wp-partner-modal-close:hover {
+      background-color: #E2E8F0;
+    }
+    .wp-partner-notice {
+      background-color: #F8FAFC;
+      border: 1px solid #E2E8F0;
+      border-left: 4px solid #0B1A3B;
+      border-radius: 4px;
+      padding: 9px 12px;
+      font-size: 0.78rem;
+      color: #334155;
+      line-height: 1.42;
+      margin-bottom: 14px;
+    }
+    .wp-partner-vcard {
+      background-color: #F8FAFC;
+      border: 1px solid #CBD5E1;
+      border-radius: 8px;
+      padding: 13px 14px;
+      margin-bottom: 14px;
+    }
+    .wp-partner-vcard-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+    .wp-partner-vcard-name {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.96rem;
+      font-weight: 800;
+      color: #0B1A3B;
+      line-height: 1.25;
+    }
+    .wp-partner-vcard-role {
+      font-size: 0.77rem;
+      color: #475569;
+      margin-top: 2px;
+    }
+    .wp-partner-vcard-badge {
+      background-color: #0B1A3B;
+      color: #FFFFFF;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.68rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      padding: 4px 8px;
+      border-radius: 4px;
+      overflow: hidden;
+    }
+    .wp-partner-direct-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 8px;
+    }
+    .wp-partner-direct-btn {
+      text-decoration: none;
+      border-radius: 8px;
+      padding: 8px 10px;
+      min-height: 40px;
+      min-width: 44px;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.76rem;
+      font-weight: 700;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      text-align: center;
+      box-sizing: border-box;
+      overflow: hidden;
+      transition: opacity 0.16s ease, transform 0.16s ease;
+    }
+    .wp-partner-direct-btn svg {
+      flex-shrink: 0;
+    }
+    .wp-partner-direct-wa {
+      background-color: #059669;
+      color: #FFFFFF !important;
+      border: 1px solid #059669;
+    }
+    .wp-partner-direct-tel {
+      background-color: #0B1A3B;
+      color: #FFFFFF !important;
+      border: 1px solid #0B1A3B;
+    }
+    .wp-partner-direct-mail {
+      background-color: #FFFFFF;
+      color: #0B1A3B !important;
+      border: 1px solid #94A3B8;
+    }
+    .wp-partner-form-box {
+      background-color: #FFFFFF;
+      border: 1px solid #CBD5E1;
+      border-radius: 8px;
+      padding: 14px;
+    }
+    .wp-partner-form-title {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.88rem;
+      font-weight: 800;
+      color: #0B1A3B;
+      margin: 0 0 4px 0;
+    }
+    .wp-partner-form-sub {
+      font-size: 0.76rem;
+      color: #475569;
+      margin: 0 0 12px 0;
+      line-height: 1.4;
+    }
+    .wp-partner-form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+    .wp-partner-field {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      margin-bottom: 10px;
+    }
+    .wp-partner-form-grid .wp-partner-field {
+      margin-bottom: 0;
+    }
+    .wp-partner-label {
+      font-size: 0.74rem;
+      font-weight: 700;
+      color: #1E293B;
+      line-height: 1.25;
+    }
+    .wp-partner-input {
+      width: 100%;
+      min-height: 40px;
+      padding: 8px 11px;
+      border: 1px solid #CBD5E1;
+      border-radius: 8px;
+      font-family: inherit;
+      font-size: 0.84rem;
+      color: #0F172A;
+      background-color: #FFFFFF;
+      box-sizing: border-box;
+    }
+    .wp-partner-input:focus {
+      outline: none;
+      border-color: #FF0066;
+    }
+    .wp-partner-submit-btn {
+      appearance: none;
+      width: 100%;
+      min-height: 44px;
+      padding: 11px 16px;
+      background-color: #FF0066;
+      color: #FFFFFF !important;
+      border: 1px solid #FF0066;
+      border-radius: 8px;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.84rem;
+      font-weight: 800;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      box-sizing: border-box;
+      overflow: hidden;
+    }
+    .wp-partner-submit-btn:hover {
+      opacity: 0.94;
+    }
+    .wp-partner-error {
+      display: none;
+      background-color: #FEE2E2;
+      border: 1px solid #FCA5A5;
+      color: #991B1B;
+      padding: 8px 11px;
+      border-radius: 4px;
+      font-size: 0.78rem;
+      margin-bottom: 10px;
+    }
+    .wp-partner-success {
+      display: none;
+      background-color: #ECFDF5;
+      border: 1px solid #6EE7B7;
+      border-radius: 8px;
+      padding: 14px;
+      margin-top: 4px;
+    }
+    @media (max-width: 768px) {
+      body {
+        padding-bottom: 92px !important;
+      }
+      .wp-partner-attr-bar {
+        padding: 14px;
+      }
+      .wp-partner-cta-btn {
+        width: 100%;
+        justify-content: space-between;
+      }
+      .wp-partner-direct-grid {
+        grid-template-columns: 1fr;
+      }
+      .wp-partner-form-grid {
+        grid-template-columns: 1fr;
+      }
+      .wp-partner-modal-dialog {
+        padding: 16px 14px;
+      }
+    }
+/* === WEBPILOT-PARTNER-ATTRIBUTION-CSS-END === */
   </style>
 </head>
 <body>
@@ -1776,7 +2180,13 @@
         <span style="display: inline-block; width: 6px; height: 6px; border-radius: 4px; background: #FF0066;"></span>
         <span data-slot="hosting_status">Live-Betrieb & Hosting: Schweizer Edge · WebPilot Studio v3.4.1</span>
       </div>
-    </div>
+      <!-- === WEBPILOT-PARTNER-FOOTER-START === -->
+        <button type="button" class="wp-partner-footer-btn" data-studio-ignore="true" onclick="wpOpenPartnerModal('footer')">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+          <span>Powered by WebPilot · Partner: Jenny Ettle (JE-MI) — Kontakt &amp; Infos</span>
+        </button>
+        <!-- === WEBPILOT-PARTNER-FOOTER-END === -->
+      </div>
   </footer>
 
   <!-- MOBILE DAUMENZONE (#UI-13) -->
@@ -1808,5 +2218,222 @@
       setTimeout(sendHeight, 600);
     })();
   </script>
+
+  <!-- === WEBPILOT-PARTNER-MODAL-START === -->
+  <div class="wp-partner-modal-backdrop" id="wpPartnerModal" role="dialog" aria-modal="true" aria-labelledby="wpPartnerModalTitle" data-studio-ignore="true" data-allow-scroll="true">
+    <div class="wp-partner-modal-dialog" data-studio-ignore="true" data-allow-scroll="true">
+      <div class="wp-partner-modal-head">
+        <div>
+          <span class="wp-partner-modal-kicker">WEBPILOT PARTNER-KONTAKT · JE-MI · JENNY ETTLE</span>
+          <h3 class="wp-partner-modal-title" id="wpPartnerModalTitle">WebPilot Partner-Kontakt — Eigene Webseite oder Smart-Anfrage modernisieren</h3>
+        </div>
+        <button type="button" class="wp-partner-modal-close" aria-label="Partner-Dialog schliessen" onclick="wpClosePartnerModal()">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+      </div>
+
+      <div class="wp-partner-notice">
+        <strong>Hinweis zur Zuständigkeit:</strong> Direktkontakt zur ausführenden Partner-Agentur (<strong>JE-MI · Jenny Ettle</strong>). Für Anfragen an HER11 nutzen Sie bitte das reguläre Formular auf der Seite.
+      </div>
+
+      <!-- TEIL 1: DIREKTE PARTNER-VISITENKARTE -->
+      <div class="wp-partner-vcard">
+        <div class="wp-partner-vcard-top">
+          <div>
+            <div class="wp-partner-vcard-name">JE-MI · Jenny Ettle</div>
+            <div class="wp-partner-vcard-role">Offizielle WebPilot-Partneragentur (Beratung & Umsetzung)</div>
+          </div>
+          <span class="wp-partner-vcard-badge">Direktkontakt</span>
+        </div>
+        <div class="wp-partner-direct-grid">
+          <a href="https://wa.me/41782232180?text=Guten%20Tag%20Jenny%20Ettle%2C%20ich%20habe%20den%20WebPilot-Auftritt%20von%20HER11%20gesehen%20und%20interessiere%20mich%20f%C3%BCr%20einen%20unverbindlichen%20Musterhaus-Entwurf%20/%20eine%20Smart-Anfrage-Zentrale." target="_blank" rel="noopener noreferrer" class="wp-partner-direct-btn wp-partner-direct-wa">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+            <span>WhatsApp direkt senden</span>
+          </a>
+          <a href="tel:+41782232180" class="wp-partner-direct-btn wp-partner-direct-tel">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            <span>Anrufen (+41 78 223 21 80)</span>
+          </a>
+          <a href="mailto:jenny@je-mi.ch?subject=Anfrage%20WebPilot%20Musterhaus-Entwurf%20%28gesehen%20auf%20HER11%29" class="wp-partner-direct-btn wp-partner-direct-mail">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+            <span>jenny@je-mi.ch</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- TEIL 2: 15-SEKUNDEN-SCHNELLANFRAGE FUER MUSTERHAUS-ENTWURF -->
+      <div class="wp-partner-form-box">
+        <div class="wp-partner-form-title">15-Sekunden-Schnellanfrage: Unverbindlicher Musterhaus-Entwurf</div>
+        <p class="wp-partner-form-sub">
+          Geben Sie Ihre bestehende Webseiten-URL oder den Namen Ihres Vereins / Betriebs an — Jenny Ettle (JE-MI) zeigt Ihnen unverbindlich, wie Ihr moderner WebPilot-Auftritt aussieht.
+        </p>
+
+        <form id="wpPartnerLeadForm" onsubmit="return wpSubmitPartnerLead(event)" novalidate>
+          <div style="display:none;" aria-hidden="true">
+            <label for="wpPartnerHp">Website</label>
+            <input type="text" id="wpPartnerHp" name="website_url" tabindex="-1" autocomplete="off">
+          </div>
+
+          <div class="wp-partner-field">
+            <label for="wpPartnerTargetUrl" class="wp-partner-label">1. Bestehende Webseiten-URL oder Name Ihres Vereins / Betriebs *</label>
+            <input type="text" id="wpPartnerTargetUrl" class="wp-partner-input" placeholder="z. B. www.mein-verein.ch oder Muster AG" required>
+          </div>
+
+          <div class="wp-partner-form-grid">
+            <div class="wp-partner-field">
+              <label for="wpPartnerVisitorName" class="wp-partner-label">2. Ihr Vor- und Nachname *</label>
+              <input type="text" id="wpPartnerVisitorName" class="wp-partner-input" placeholder="Vorname Nachname" required>
+            </div>
+            <div class="wp-partner-field">
+              <label for="wpPartnerVisitorContact" class="wp-partner-label">3. Ihre Telefonnummer oder E-Mail *</label>
+              <input type="text" id="wpPartnerVisitorContact" class="wp-partner-input" placeholder="079 123 45 67 oder name@firma.ch" required>
+            </div>
+          </div>
+
+          <div class="wp-partner-field">
+            <label for="wpPartnerVisitorMsg" class="wp-partner-label">4. Kurze Nachricht (optional)</label>
+            <input type="text" id="wpPartnerVisitorMsg" class="wp-partner-input" placeholder="z. B. Fokus Vereins-Zentrale, Sponsoren oder Smart-Anfrage...">
+          </div>
+
+          <div class="wp-partner-error" id="wpPartnerFormError"></div>
+
+          <button type="submit" class="wp-partner-submit-btn" id="wpPartnerSubmitBtn">
+            <span id="wpPartnerSubmitBtnTxt">Unverbindlichen Musterhaus-Entwurf bei Jenny Ettle anfordern</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </button>
+        </form>
+
+        <div class="wp-partner-success" id="wpPartnerSuccessBox" aria-live="polite">
+          <div style="display:flex;align-items:center;gap:8px;font-weight:800;color:#065F46;font-size:0.94rem;margin-bottom:6px;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2.4"><polyline points="20 6 9 17 4 12"/></svg>
+            <span>Musterhaus-Anfrage an Jenny Ettle (JE-MI) übermittelt!</span>
+          </div>
+          <p style="font-size:0.8rem;color:#1E293B;line-height:1.45;margin:0 0 10px 0;">
+            Ihr 1-Seiten-Anfrage-Dossier (<strong id="wpPartnerResRef">#WP-2026</strong>) wurde erstellt und direkt an <strong>JE-MI · Jenny Ettle</strong> übermittelt.
+          </p>
+          <div style="display:flex;flex-wrap:wrap;gap:8px;">
+            <a href="#" id="wpPartnerResPdfBtn" target="_blank" rel="noopener noreferrer" class="wp-partner-direct-btn wp-partner-direct-tel" style="flex:1 1 200px;">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              <span>1-Seiten-PDF-Dossier öffnen</span>
+            </a>
+            <button type="button" class="wp-partner-direct-btn wp-partner-direct-mail" style="flex:1 1 140px;cursor:pointer;" onclick="wpResetPartnerModal()">
+              <span>Weitere Anfrage</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    var wpPartnerSourceTrigger = 'footer';
+    function wpOpenPartnerModal(triggerSource) {
+      wpPartnerSourceTrigger = triggerSource || 'footer';
+      var m = document.getElementById('wpPartnerModal');
+      if (m) {
+        m.classList.add('open');
+      }
+    }
+    function wpClosePartnerModal() {
+      var m = document.getElementById('wpPartnerModal');
+      if (m) {
+        m.classList.remove('open');
+      }
+    }
+    function wpResetPartnerModal() {
+      var f = document.getElementById('wpPartnerLeadForm');
+      var s = document.getElementById('wpPartnerSuccessBox');
+      var err = document.getElementById('wpPartnerFormError');
+      if (f) { f.reset(); f.style.display = 'block'; }
+      if (s) { s.style.display = 'none'; }
+      if (err) { err.style.display = 'none'; }
+    }
+    function wpSubmitPartnerLead(ev) {
+      if (ev) ev.preventDefault();
+      var hp = (document.getElementById('wpPartnerHp') || {}).value || '';
+      var targetUrl = ((document.getElementById('wpPartnerTargetUrl') || {}).value || '').trim();
+      var visitorName = ((document.getElementById('wpPartnerVisitorName') || {}).value || '').trim();
+      var rawContact = ((document.getElementById('wpPartnerVisitorContact') || {}).value || '').trim();
+      var msg = ((document.getElementById('wpPartnerVisitorMsg') || {}).value || '').trim();
+      var errBox = document.getElementById('wpPartnerFormError');
+      var btn = document.getElementById('wpPartnerSubmitBtn');
+      var btnTxt = document.getElementById('wpPartnerSubmitBtnTxt');
+
+      if (errBox) errBox.style.display = 'none';
+      if (!targetUrl || !visitorName || !rawContact) {
+        if (errBox) {
+          errBox.textContent = 'Bitte geben Sie die gewünschte Webseiten-URL (oder Verein/Betrieb), Ihren Namen sowie Ihre Telefonnummer oder E-Mail-Adresse an.';
+          errBox.style.display = 'block';
+        }
+        return false;
+      }
+
+      var isEmail = rawContact.indexOf('@') !== -1;
+      var emailVal = isEmail ? rawContact : '';
+      var phoneVal = isEmail ? '' : rawContact;
+
+      if (btn) btn.disabled = true;
+      if (btnTxt) btnTxt.textContent = 'Musterhaus-Dossier wird erstellt...';
+
+      var payload = {
+        client_slug: 'webpilot_partner',
+        website_url: hp,
+        category: 'Musterhaus-Entwurf & Web-Modernisierung',
+        sparte: 'Partner: Jenny Ettle (JE-MI)',
+        topic: 'Partner: Jenny Ettle (JE-MI)',
+        urgency: 'Musterhaus-Entwurf angefordert',
+        name: visitorName,
+        company: targetUrl,
+        phone: phoneVal,
+        email: emailVal,
+        source_page: window.location.pathname || 'HER11',
+        message: (msg ? msg + ' — ' : '') + 'Empfehlung über Showcase: HER11 (' + wpPartnerSourceTrigger + ') · Gewünschte Webseite / Verein / Betrieb: ' + targetUrl,
+        extra_fields: {
+          'Gewünschte Ziel-URL / Verein': targetUrl,
+          'Empfehlung über': 'HER11',
+          'Partner-Agentur': 'JE-MI · Jenny Ettle'
+        }
+      };
+
+      fetch('/api/lead-submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      })
+      .then(function(r) { return r.json(); })
+      .then(function(res) {
+        if (btn) btn.disabled = false;
+        if (btnTxt) btnTxt.textContent = 'Unverbindlichen Musterhaus-Entwurf bei Jenny Ettle anfordern';
+        if (!res || !res.ok) {
+          if (errBox) {
+            errBox.textContent = (res && res.error) ? res.error : 'Übermittlung fehlgeschlagen. Bitte versuchen Sie es erneut.';
+            errBox.style.display = 'block';
+          }
+          return;
+        }
+        var formEl = document.getElementById('wpPartnerLeadForm');
+        var succEl = document.getElementById('wpPartnerSuccessBox');
+        var refEl = document.getElementById('wpPartnerResRef');
+        var pdfBtn = document.getElementById('wpPartnerResPdfBtn');
+        if (refEl && res.ref_code) refEl.textContent = res.ref_code;
+        if (pdfBtn && res.pdf_url) pdfBtn.href = res.pdf_url;
+        if (formEl) formEl.style.display = 'none';
+        if (succEl) succEl.style.display = 'block';
+      })
+      .catch(function() {
+        if (btn) btn.disabled = false;
+        if (btnTxt) btnTxt.textContent = 'Unverbindlichen Musterhaus-Entwurf bei Jenny Ettle anfordern';
+        if (errBox) {
+          errBox.textContent = 'Netzwerkfehler. Bitte kontaktieren Sie Jenny Ettle direkt per WhatsApp oder Telefon.';
+          errBox.style.display = 'block';
+        }
+      });
+      return false;
+    }
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') wpClosePartnerModal();
+    });
+  </script>
+  <!-- === WEBPILOT-PARTNER-MODAL-END === -->
 </body>
 </html>

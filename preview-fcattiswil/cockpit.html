@@ -4866,7 +4866,7 @@ function acpFetchServerLog() {
 // Build: 2026-10-03 15:30 CEST
 // =======================================================
 var ACP_COCKPIT_VERSION = "v4.0.0";
-var ACP_COCKPIT_BUILD = "2026-11-01 10:25";
+var ACP_COCKPIT_BUILD = "2026-11-01 15:03";
 
 function sanitizeStellen(list) {
   if (!Array.isArray(list)) return [];
@@ -7841,7 +7841,7 @@ function acpApplyInlineEditToIframe(doc) {
     var el = nodes[i];
     var tag = (el.tagName || "").toLowerCase();
     if (skipTags[tag]) continue;
-    if (el.closest("#acp-active-image-toolbar, #acp-active-image-handle")) continue;
+    if (el.closest("#acp-active-image-toolbar, #acp-active-image-handle, [data-studio-ignore=\"true\"]")) continue;
     if (el.classList.contains("btn-swap-exec")) continue;
     if (!el.textContent || !el.textContent.trim()) continue;
     if (el.querySelector("div, p, ul, ol, li, h1, h2, h3, h4, h5, h6, section, article, header, footer, nav, table, form, button, figure, blockquote")) {

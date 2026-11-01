@@ -123,6 +123,8 @@ export function evaluateSystemEyesInPage({ relPage, zone, options = {} }) {
     while (cur && cur.nodeType === 1 && cur !== document.body) {
       if (
         cur.classList.contains('acp-modal-backdrop') ||
+        cur.classList.contains('wp-partner-modal-backdrop') ||
+        cur.id === 'wpPartnerModal' ||
         cur.id === 'acp-replace-section-modal' ||
         cur.id === 'acp-new-section-modal' ||
         cur.id === 'acp-job-dropdown' ||

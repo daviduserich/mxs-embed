@@ -3104,7 +3104,7 @@ function acpApplyInlineEditToIframe(doc) {
     var el = nodes[i];
     var tag = (el.tagName || "").toLowerCase();
     if (skipTags[tag]) continue;
-    if (el.closest("#acp-active-image-toolbar, #acp-active-image-handle")) continue;
+    if (el.closest("#acp-active-image-toolbar, #acp-active-image-handle, [data-studio-ignore=\"true\"]")) continue;
     if (el.classList.contains("btn-swap-exec")) continue;
     if (!el.textContent || !el.textContent.trim()) continue;
     if (el.querySelector("div, p, ul, ol, li, h1, h2, h3, h4, h5, h6, section, article, header, footer, nav, table, form, button, figure, blockquote")) {

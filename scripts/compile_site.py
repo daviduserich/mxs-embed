@@ -207,6 +207,20 @@ def compile_site_dir(site_dir: Path, lang: str = "de", dry_run: bool = False) ->
         for m in f_stats["missing_keys"]:
             total_stats["missing_keys"].add(m)
 
+    # 4b. Partner Attribution & Modal Guard
+    if not dry_run:
+        try:
+            import inject_partner_attribution as ipa
+            if site_dir.name in ipa.SHOWCASE_CONFIGS:
+                r_data = json.loads(ipa.LEAD_ROUTING_FILE.read_text(encoding="utf-8"))
+                cfg = ipa.SHOWCASE_CONFIGS[site_dir.name]
+                partner = ipa.load_partner_for_showcase(r_data, cfg["routing_slug"])
+                for hf in sorted(p for p in site_dir.glob("*.html") if p.name != "cockpit.html"):
+                    if ipa.process_html_file(hf, partner, cfg):
+                        total_stats["files_modified"] += 1
+        except Exception:
+            pass
+
     # 5. Multi-Page CSS & Layout Parity Guard (verhindert Cross-Page CSS Drift & Klammer-Brüche)
     try:
         from css_layout_guard import enforce_site_css_parity

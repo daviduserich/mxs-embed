@@ -170,21 +170,21 @@ def resolve_lead_routing_for_request(slug: str, category: str, sparte: str, urge
     return client_cfg, selected, in_area
 
 
-def _smtp_deliver_message(host: str, port: int, user: str, password: str, msg: EmailMessage) -> None:
+def _smtp_deliver_message(host: str, port: int, user: str, password: str, msg: EmailMessage, to_addrs: list[str] | None = None) -> None:
     """Versendet EmailMessage mit Dual-TLS-Weiche: Port 465 = Implicit TLS (SMTP_SSL), sonst STARTTLS."""
     port_int = int(port or 587)
     if port_int == 465:
         with smtplib.SMTP_SSL(host, port_int, timeout=15) as server:
             server.ehlo()
             server.login(user, password)
-            server.send_message(msg)
+            server.send_message(msg, to_addrs=to_addrs)
     else:
         with smtplib.SMTP(host, port_int, timeout=15) as server:
             server.ehlo()
             server.starttls()
             server.ehlo()
             server.login(user, password)
-            server.send_message(msg)
+            server.send_message(msg, to_addrs=to_addrs)
 
 
 def send_lead_email_with_pdf(
@@ -197,6 +197,7 @@ def send_lead_email_with_pdf(
     pdf_filename: str,
     log_fn=None,
     company_name: str = "WebPilot",
+    cc_email: str = "",
 ) -> tuple[bool, str]:
     """Versendet die strukturierte HTML-E-Mail samt angehaengtem 1-Seiten-PDF (Dual-TLS 465/587 + Kasserver-Fallback #BE-07)."""
     smtp_cfg = get_smtp_config()
@@ -242,10 +243,29 @@ def send_lead_email_with_pdf(
         or "WebPilot"
     )
 
+    cc_recipients = []
+    if cc_email:
+        raw_ccs = cc_email if isinstance(cc_email, list) else str(cc_email).split(",")
+        for ce in raw_ccs:
+            ce_clean = str(ce or "").strip()
+            if not ce_clean or "@" not in ce_clean:
+                continue
+            dom = ce_clean.split("@", 1)[1].lower()
+            if dom not in ("example.com", "example.ch", "example.org", "test.ch", "test.local", "invalid", "localhost"):
+                if ce_clean not in cc_recipients:
+                    cc_recipients.append(ce_clean)
+
+    envelope_recipients = list(real_recipients)
+    for ce in cc_recipients:
+        if ce not in envelope_recipients:
+            envelope_recipients.append(ce)
+
     msg = EmailMessage()
     msg["Subject"] = subject.replace("\u00df", "ss")
     msg["From"] = f"{clean_company} — Smart-Anfrage <{smtp_from}>"
     msg["To"] = ", ".join(real_recipients)
+    if cc_recipients:
+        msg["Cc"] = ", ".join(cc_recipients)
     if reply_to and "@" in reply_to:
         msg["Reply-To"] = reply_to
 
@@ -265,9 +285,9 @@ def send_lead_email_with_pdf(
     if smtp_user and smtp_pass:
         for attempt in range(2):
             try:
-                _smtp_deliver_message(smtp_host, smtp_port, smtp_user, smtp_pass, msg)
+                _smtp_deliver_message(smtp_host, smtp_port, smtp_user, smtp_pass, msg, to_addrs=envelope_recipients)
                 if log_fn:
-                    log_fn("webpilot-lead", "EMAIL_OK", "SENT", f"via={smtp_host}:{smtp_port} from={clean_company} to={real_recipients} pdf={pdf_filename}")
+                    log_fn("webpilot-lead", "EMAIL_OK", "SENT", f"via={smtp_host}:{smtp_port} from={clean_company} to={real_recipients} cc={cc_recipients} pdf={pdf_filename}")
                 return True, "sent_smtp"
             except Exception as ex:
                 last_err = str(ex)
@@ -277,9 +297,9 @@ def send_lead_email_with_pdf(
     if backup_host and backup_user and backup_pass and (backup_host != smtp_host or backup_port != smtp_port or backup_user != smtp_user):
         try:
             msg.replace_header("From", f"{clean_company} — Smart-Anfrage <{backup_from}>")
-            _smtp_deliver_message(backup_host, backup_port, backup_user, backup_pass, msg)
+            _smtp_deliver_message(backup_host, backup_port, backup_user, backup_pass, msg, to_addrs=envelope_recipients)
             if log_fn:
-                log_fn("webpilot-lead", "EMAIL_FALLBACK_OK", "WARN", f"primary_err={last_err} fallback={backup_host}:{backup_port} to={real_recipients}")
+                log_fn("webpilot-lead", "EMAIL_FALLBACK_OK", "WARN", f"primary_err={last_err} fallback={backup_host}:{backup_port} to={real_recipients} cc={cc_recipients}")
             return True, "sent_smtp_fallback"
         except Exception as fb_ex:
             last_err = f"primary({smtp_host}:{smtp_port}): {last_err} | fallback({backup_host}:{backup_port}): {fb_ex}"
@@ -548,15 +568,27 @@ def process_lead_submission(data: dict, client_ip: str, referer: str, resolve_cl
 
     whatsapp_preview_text = format_lead_whatsapp_message(lead_record, brand_cfg)
 
+    route_email = str(route_target.get("email") or "").strip()
+    cc_email = str(route_target.get("cc_email") or data.get("cc_email") or "").strip()
+    lead_record["assigned_email"] = route_email
+    lead_record["cc_email"] = cc_email
+    meta_path.write_text(json.dumps(lead_record, indent=2, ensure_ascii=False), encoding="utf-8")
+
     target_emails = []
-    if email and "@" in email:
+    if clean_slug == "webpilot_partner" and route_email and "@" in route_email:
+        if data.get("self_test_mode"):
+            target_emails.append(cc_email or "david.huegli@magnet-xs.ch")
+        else:
+            target_emails.append(route_email)
+    if email and "@" in email and email not in target_emails:
         target_emails.append(email)
+
     html_body, text_body = build_lead_email_html(lead_record, brand_cfg)
     pdf_filename = f"Auftrag_{ref_code.lstrip('#')}_{clean_slug.upper()}.pdf"
     subj = f"[{urgency.upper()}] Neue Smart-Anfrage {ref_code} · {brand_cfg.get('company_name', clean_slug)} ({sparte})"
     email_sent, email_status = send_lead_email_with_pdf(
         to_emails=target_emails,
-        reply_to=email,
+        reply_to=email or route_email,
         subject=subj,
         html_body=html_body,
         text_body=text_body,
@@ -564,6 +596,7 @@ def process_lead_submission(data: dict, client_ip: str, referer: str, resolve_cl
         pdf_filename=pdf_filename,
         log_fn=log_fn,
         company_name=brand_cfg.get("company_name") or clean_slug.upper(),
+        cc_email=cc_email,
     )
 
     whatsapp_sent = False
@@ -634,6 +667,8 @@ def process_lead_submission(data: dict, client_ip: str, referer: str, resolve_cl
         "assigned_to": assigned_full,
         "assigned_person": assigned_person,
         "assigned_role": assigned_role,
+        "assigned_email": route_email,
+        "cc_email": cc_email,
         "in_service_area": in_service_area,
         "callback_window": callback_window,
         "email_sent": email_sent,

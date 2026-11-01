@@ -93,7 +93,8 @@
         "phone": "062 726 11 46",
         "email": "mail@hochuli-gruppe.ch"
       }
-    }
+    },
+    "partner_id": "david"
   },
   "her11": {
     "client_slug": "her11",
@@ -176,7 +177,8 @@
         "phone": "info@her11.ch",
         "email": "info@her11.ch"
       }
-    }
+    },
+    "partner_id": "jenny"
   },
   "fcschlieren": {
     "company_name": "FC Schlieren",
@@ -234,7 +236,8 @@
       "role": "Geschäftsstelle & Vorstand FC Schlieren",
       "email": "j.seifriz@fcschlieren.ch",
       "whatsapp": "+41794002093"
-    }
+    },
+    "partner_id": "jenny"
   },
   "fcattiswil": {
     "client_slug": "fcattiswil",
@@ -305,7 +308,8 @@
       "role": "Vorstand FC Attiswil (Sportanlage Lindenrain)",
       "email": "info@fcattiswil.ch",
       "whatsapp": "+41796616612"
-    }
+    },
+    "partner_id": "jenny"
   },
   "scfulenbach": {
     "company_name": "SC Fulenbach",
@@ -371,6 +375,94 @@
       "role": "Vorstand & Sportliche Leitung SC Fulenbach",
       "email": "vorstand@scfulenbach.ch",
       "whatsapp": "+41793978773"
+    },
+    "partner_id": "jenny"
+  },
+  "_partners": {
+    "jenny": {
+      "id": "jenny",
+      "name": "Jenny Ettle",
+      "agency": "JE-MI · Jenny Ettle",
+      "short_agency": "JE-MI",
+      "role": "Offizielle WebPilot-Partneragentur (Beratung & Umsetzung)",
+      "phone": "+41 78 223 21 80",
+      "phone_e164": "+41782232180",
+      "whatsapp_url": "https://wa.me/41782232180",
+      "email": "jenny@je-mi.ch",
+      "cc_email": "david.huegli@magnet-xs.ch",
+      "route_topic": "Partner: Jenny Ettle (JE-MI)"
+    },
+    "david": {
+      "id": "david",
+      "name": "David Hügli",
+      "agency": "Magnet XS · David Hügli",
+      "short_agency": "Magnet XS",
+      "role": "WebPilot Plattform & Architektur",
+      "phone": "+41 79 632 65 05",
+      "phone_e164": "+41796326505",
+      "whatsapp_url": "https://wa.me/41796326505",
+      "email": "david.huegli@magnet-xs.ch",
+      "cc_email": "",
+      "route_topic": "Partner: David Hügli (Magnet XS)"
+    }
+  },
+  "webpilot_partner": {
+    "client_slug": "webpilot_partner",
+    "company_name": "WebPilot Partner-Netzwerk · Musterhaus-Anfrage",
+    "brand_subtitle": "Direkt-Anfrage für Webauftritt & 3-Schritte Smart-Anfrage-Zentrale",
+    "primary_color": [
+      232,
+      120,
+      30
+    ],
+    "dark_color": [
+      15,
+      23,
+      42
+    ],
+    "logo_path": "",
+    "logo_white_bg": false,
+    "default_email": "jenny@je-mi.ch",
+    "default_phone": "+41 78 223 21 80",
+    "service_area_label": "Gesamte Deutschschweiz (Vereine, KMU & Organisationen)",
+    "service_area_plz_prefixes": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6",
+      "7",
+      "8",
+      "9"
+    ],
+    "default_assignee": {
+      "name": "Jenny Ettle (JE-MI)",
+      "role": "Offizielle WebPilot-Partneragentur (Beratung & Umsetzung)",
+      "department": "Partner: Jenny Ettle (JE-MI)",
+      "phone": "+41 78 223 21 80",
+      "email": "jenny@je-mi.ch",
+      "cc_email": "david.huegli@magnet-xs.ch",
+      "whatsapp": "+41782232180"
+    },
+    "routes": {
+      "Partner: Jenny Ettle (JE-MI)": {
+        "name": "Jenny Ettle (JE-MI)",
+        "role": "Offizielle WebPilot-Partneragentur (Beratung & Umsetzung)",
+        "department": "Musterhaus-Entwurf & Web-Modernisierung (JE-MI)",
+        "phone": "+41 78 223 21 80",
+        "email": "jenny@je-mi.ch",
+        "cc_email": "david.huegli@magnet-xs.ch",
+        "whatsapp": "+41782232180"
+      },
+      "Partner: David Hügli (Magnet XS)": {
+        "name": "David Hügli (Magnet XS)",
+        "role": "WebPilot Plattform & Architektur",
+        "department": "Musterhaus-Entwurf & Web-Architektur (Magnet XS)",
+        "phone": "+41 79 632 65 05",
+        "email": "david.huegli@magnet-xs.ch",
+        "whatsapp": "+41796326505"
+      }
     }
   }
 }

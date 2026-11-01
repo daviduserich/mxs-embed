@@ -56,6 +56,10 @@ const ALL_PAGES = [
   'preview-fcattiswil/herren-1.html',
   'preview-fcattiswil/kontakt.html',
   'preview-fcattiswil/cockpit.html',
+  'preview-scfulenbach/index.html',
+  'preview-scfulenbach/herren-1.html',
+  'preview-scfulenbach/kontakt.html',
+  'preview-scfulenbach/cockpit.html',
   'preview-hochuli/index.html',
   'preview-hochuli/team.html',
   'preview-hochuli/karriere.html',
@@ -345,6 +349,32 @@ async function main() {
       const f = await auditPageZone(page, relPage, zone, screenshotDir);
       allFindings.push(...f);
       totalViewsAudited++;
+
+      // 2b. Partner Attribution Modal (#wpPartnerModal) on kontakt.html across all 3 Zones
+      if (relPage.endsWith('/kontakt.html')) {
+        const openedPartner = await page.evaluate(() => {
+          if (typeof window.wpOpenPartnerModal === 'function') {
+            window.wpOpenPartnerModal('audit');
+            const m = document.getElementById('wpPartnerModal');
+            return (m && m.classList.contains('open')) ? '#wpPartnerModal' : null;
+          }
+          return null;
+        });
+        if (openedPartner) {
+          await page.waitForTimeout(80);
+          const pf = await page.evaluate(evaluateSystemEyesInPage, {
+            relPage: `${relPage}#partner-modal`,
+            zone,
+            options: { activeScopeSelector: openedPartner }
+          });
+          allFindings.push(...pf);
+          totalViewsAudited++;
+          await page.evaluate(() => {
+            if (typeof window.wpClosePartnerModal === 'function') window.wpClosePartnerModal();
+          });
+          await page.waitForTimeout(50);
+        }
+      }
 
       // 2. Customer/Marketing Website Mobile Burger Menu State (W1) on 375x667
       if (!relPage.endsWith('cockpit.html') && zone.width === 375) {
