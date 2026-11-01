@@ -1,0 +1,2460 @@
+<!DOCTYPE html>
+<html lang="de-CH">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self' https: data: blob:; script-src 'self' 'unsafe-inline' https:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' https: data: blob:; connect-src 'self' https:;">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=()">
+  <title>Smart-Anfrage, Probetraining, Clubhaus & Sponsoring — FC Attiswil</title>
+  <meta name="description" content="Fussballclub Attiswil (gegründet am 16. Februar 1971) — SFV Quality Club, 14 Mannschaften, 23 Sponsoren &amp; Sportanlage Lindenrain in 4536 Attiswil.">
+  <link rel="icon" type="image/png" href="images/favicon-32x32.png">
+  <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Montserrat:wght@600;700;800&amp;display=swap" rel="stylesheet">
+  <style>
+
+    :root {
+      --fca-navy: #0F172A;
+      --fca-navy-deep: #0B1324;
+      --fca-red: #C81E1E;
+      --fca-red-dark: #991B1B;
+      --fca-red-soft: #FEF2F2;
+      --fca-gold: #F59E0B;
+      --fca-gold-dark: #B45309;
+      --fca-gold-soft: #FEF3C7;
+      --fca-green: #16A34A;
+      --fca-green-soft: #DCFCE7;
+      --bg-page: #F8FAFC;
+      --bg-card: #FFFFFF;
+      --bg-muted: #F1F5F9;
+      --text-main: #0F172A;
+      --text-body: #334155;
+      --text-muted: #475569;
+      --border-light: #E2E8F0;
+      --border-strong: #CBD5E1;
+      --radius-sm: 4px;
+      --radius-md: 8px;
+      --shadow-sm: 0 2px 8px rgba(15, 23, 42, 0.05);
+      --shadow-md: 0 8px 24px rgba(15, 23, 42, 0.08);
+      --shadow-lg: 0 16px 36px rgba(15, 23, 42, 0.14);
+    }
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    html {
+      scroll-behavior: smooth;
+      -webkit-text-size-adjust: 100%;
+    }
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: var(--bg-page);
+      color: var(--text-main);
+      line-height: 1.6;
+      font-size: 16px;
+      overflow-x: hidden;
+    }
+    h1, h2, h3, h4, .heading-font {
+      font-family: 'Montserrat', sans-serif;
+      color: var(--fca-navy);
+      line-height: 1.22;
+      letter-spacing: -0.015em;
+    }
+    a {
+      color: inherit;
+      text-decoration: none;
+      transition: color 0.2s ease, background-color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+    }
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+    ul {
+      list-style: none;
+    }
+    .container {
+      width: 100%;
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+    section {
+      padding: 80px 0;
+      position: relative;
+    }
+    .section-head {
+      max-width: 780px;
+      margin-bottom: 44px;
+    }
+    .section-kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--fca-red);
+      background-color: var(--fca-red-soft);
+      border: 1px solid #FECACA;
+      padding: 6px 12px;
+      border-radius: var(--radius-sm);
+      margin-bottom: 14px;
+    }
+    .section-kicker.kicker-gold {
+      color: #78350F;
+      background-color: var(--fca-gold-soft);
+      border-color: #FDE68A;
+    }
+    .section-kicker.kicker-light {
+      color: #FDE68A;
+      background-color: rgba(245, 158, 11, 0.16);
+      border: 1px solid rgba(245, 158, 11, 0.45);
+    }
+    .section-title {
+      font-size: clamp(1.75rem, 3vw, 2.45rem);
+      font-weight: 800;
+      color: var(--fca-navy);
+      margin-bottom: 14px;
+    }
+    .section-desc {
+      font-size: 1.04rem;
+      color: var(--text-body);
+      line-height: 1.65;
+    }
+    /* V2 Blueprint Bar */
+    .wp-v2-blueprint-bar {
+      background-color: #0B1528;
+      color: #F8FAFC;
+      border-bottom: 2px solid #F59E0B;
+      font-size: 0.8rem;
+      position: relative;
+      z-index: 1003;
+      padding: 10px 0;
+    }
+    .wp-v2-bar-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .wp-v2-bar-left {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 3px;
+    }
+    .wp-v2-study-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      background-color: rgba(245, 158, 11, 0.18);
+      border: 1px solid #F59E0B;
+      color: #FBBF24;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.66rem;
+      font-weight: 800;
+      padding: 3px 7px;
+      border-radius: var(--radius-sm);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+    .wp-v2-bar-status-text {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: #F8FAFC;
+    }
+    .wp-v2-bar-middle {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background-color: rgba(255, 255, 255, 0.06);
+      border: 1px dashed rgba(245, 158, 11, 0.55);
+      padding: 4px 8px;
+      border-radius: var(--radius-sm);
+      flex-wrap: wrap;
+    }
+    .wp-v2-progress-track {
+      width: 68px;
+      height: 8px;
+      background-color: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(255, 255, 255, 0.24);
+      border-radius: var(--radius-sm);
+      overflow: hidden;
+      display: flex;
+      flex-shrink: 0;
+    }
+    .wp-v2-progress-fill {
+      width: 12%;
+      background-color: #F59E0B;
+      height: 100%;
+    }
+    .wp-v2-progress-label {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.69rem;
+      font-weight: 700;
+      color: #FDE68A;
+    }
+    .wp-v2-switch-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      background-color: #F59E0B;
+      color: #0B1528;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 800;
+      padding: 6px 11px;
+      min-height: 34px;
+      border-radius: var(--radius-sm);
+      border: 1px solid #FBBF24;
+      text-align: center;
+      line-height: 1.25;
+      flex-shrink: 0;
+    }
+    .wp-v2-switch-btn:hover {
+      background-color: #FBBF24;
+      color: #0B1528;
+    }
+    /* Top Bar */
+    .top-bar {
+      background-color: var(--fca-navy-deep);
+      color: #F8FAFC;
+      font-size: 0.82rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .top-bar-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 9px 0;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .top-bar-left {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .top-bar-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background-color: var(--fca-red);
+      color: #FFFFFF;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: 0.72rem;
+      padding: 2px 8px;
+      border-radius: var(--radius-sm);
+      letter-spacing: 0.04em;
+    }
+    .top-bar-links {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+    .top-bar-links a, .top-bar-links button {
+      color: #E2E8F0;
+      font-size: 0.78rem;
+      font-weight: 600;
+      background: none;
+      border: none;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-family: inherit;
+      padding: 0;
+    }
+    .top-bar-links a:hover, .top-bar-links button:hover {
+      color: var(--fca-gold);
+    }
+    /* Sticky Header */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background-color: rgba(255, 255, 255, 0.97);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border-light);
+      box-shadow: 0 4px 20px rgba(15, 23, 42, 0.05);
+    }
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 82px;
+      gap: 12px;
+    }
+    .brand-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      flex-shrink: 0;
+    }
+    .brand-logo {
+      width: 50px;
+      height: 50px;
+      object-fit: contain;
+      flex-shrink: 0;
+    }
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+    }
+    .brand-name {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.2rem;
+      font-weight: 800;
+      color: var(--fca-navy);
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+    }
+    .brand-sub {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.66rem;
+      font-weight: 700;
+      color: var(--fca-red);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-top: 3px;
+    }
+    .main-nav {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .nav-link {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.71rem;
+      font-weight: 700;
+      color: var(--text-body);
+      padding: 6px 8px;
+      border-radius: var(--radius-sm);
+      white-space: nowrap;
+      min-height: 34px;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      border: 1px solid transparent;
+      background: transparent;
+      cursor: pointer;
+    }
+    .nav-link:hover, .nav-link.active {
+      color: var(--fca-red);
+      background-color: var(--fca-red-soft);
+    }
+    .nav-link-locked {
+      color: #475569;
+      background-color: #F1F5F9;
+      border: 1px dashed #94A3B8;
+    }
+    .nav-link-locked:hover {
+      color: var(--fca-navy);
+      background-color: #E2E8F0;
+      border-color: var(--fca-navy);
+    }
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-shrink: 0;
+    }
+    .header-actions .btn-cta {
+      display: none;
+    }
+    /* Buttons (2-Radius: 4px / 8px) */
+    .btn-cta {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.86rem;
+      font-weight: 700;
+      padding: 12px 20px;
+      border-radius: var(--radius-sm);
+      border: 1px solid transparent;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      text-align: center;
+      line-height: 1.25;
+    }
+    .btn-cta-primary {
+      background-color: var(--fca-red);
+      color: #FFFFFF;
+      box-shadow: 0 4px 14px rgba(200, 30, 30, 0.24);
+    }
+    .btn-cta-primary:hover {
+      background-color: var(--fca-red-dark);
+      transform: translateY(-1px);
+    }
+    .btn-cta-gold {
+      background-color: var(--fca-gold);
+      color: var(--fca-navy);
+      font-weight: 800;
+      box-shadow: 0 4px 14px rgba(245, 158, 11, 0.28);
+    }
+    .btn-cta-gold:hover {
+      background-color: #D97706;
+      color: #FFFFFF;
+      transform: translateY(-1px);
+    }
+    .btn-cta-navy {
+      background-color: var(--fca-navy);
+      color: #FFFFFF;
+    }
+    .btn-cta-navy:hover {
+      background-color: #1E293B;
+    }
+    .btn-cta-outline {
+      background-color: #FFFFFF;
+      color: var(--fca-navy);
+      border-color: var(--border-strong);
+    }
+    .btn-cta-outline:hover {
+      border-color: var(--fca-red);
+      color: var(--fca-red);
+      background-color: var(--fca-red-soft);
+    }
+    .btn-cta-ghost-light {
+      background-color: rgba(255, 255, 255, 0.1);
+      color: #FFFFFF;
+      border-color: rgba(255, 255, 255, 0.28);
+    }
+    .btn-cta-ghost-light:hover {
+      background-color: rgba(255, 255, 255, 0.2);
+    }
+    .btn-sm {
+      padding: 9px 14px;
+      font-size: 0.8rem;
+    }
+    /* Mobile Menu Toggle & Drawer (S-04b safe) */
+    .mobile-toggle {
+      display: none;
+      align-items: center;
+      justify-content: center;
+      width: 44px;
+      height: 44px;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border-light);
+      background: #FFFFFF;
+      color: var(--fca-navy);
+      cursor: pointer;
+    }
+    .mobile-drawer {
+      display: none;
+      position: fixed;
+      top: 82px;
+      left: 0;
+      right: 0;
+      background-color: var(--fca-navy);
+      border-bottom: 2px solid var(--fca-gold);
+      padding: 20px 24px 28px;
+      z-index: 999;
+      flex-direction: column;
+      gap: 10px;
+      box-shadow: var(--shadow-lg);
+    }
+    .mobile-drawer.open {
+      display: flex;
+    }
+    .mobile-drawer a {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: #FFFFFF;
+      padding: 12px 14px;
+      border-radius: var(--radius-sm);
+      background-color: rgba(255, 255, 255, 0.05);
+    }
+    .mobile-drawer a:hover {
+      background-color: var(--fca-red);
+    }
+    .mobile-drawer button.mobile-nav-btn {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.92rem;
+      font-weight: 700;
+      color: #FDE68A;
+      padding: 12px 14px;
+      border-radius: var(--radius-sm);
+      background-color: rgba(245, 158, 11, 0.12);
+      border: 1px dashed rgba(245, 158, 11, 0.55);
+      text-align: left;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      cursor: pointer;
+      width: 100%;
+    }
+    /* Hero Section */
+    .hero-section {
+      background: linear-gradient(135deg, #0B1324 0%, #1C192E 52%, #6B1414 100%);
+      color: #FFFFFF;
+      padding: 68px 0 76px;
+      position: relative;
+      overflow: hidden;
+      border-bottom: 4px solid var(--fca-gold);
+    }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.12fr 0.88fr;
+      gap: 44px;
+      align-items: center;
+    }
+    .hero-title {
+      color: #FFFFFF;
+      font-size: clamp(2.1rem, 3.8vw, 3.2rem);
+      font-weight: 800;
+      line-height: 1.12;
+      margin-bottom: 18px;
+    }
+    .hero-title span {
+      color: #FBBF24;
+    }
+    .hero-motto-box {
+      background-color: rgba(245, 158, 11, 0.14);
+      border-left: 4px solid var(--fca-gold);
+      padding: 12px 16px;
+      border-radius: var(--radius-sm);
+      margin-bottom: 20px;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.84rem;
+      font-weight: 700;
+      color: #FEF08A;
+      letter-spacing: 0.02em;
+    }
+    .hero-sub {
+      font-size: 1.03rem;
+      color: #E2E8F0;
+      margin-bottom: 28px;
+      line-height: 1.65;
+    }
+    .hero-cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 36px;
+    }
+    .hero-kpi-strip {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      padding-top: 24px;
+      border-top: 1px solid rgba(255, 255, 255, 0.14);
+    }
+    .hero-kpi-card {
+      background-color: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: var(--radius-md);
+      padding: 12px 14px;
+    }
+    .hero-kpi-num {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.28rem;
+      font-weight: 800;
+      color: #FBBF24;
+      line-height: 1.15;
+    }
+    .hero-kpi-lbl {
+      font-size: 0.76rem;
+      color: #CBD5E1;
+      margin-top: 4px;
+      line-height: 1.35;
+    }
+    .hero-visual-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .hero-photo-card {
+      background-color: #1E293B;
+      border: 2px solid rgba(255, 255, 255, 0.18);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      box-shadow: var(--shadow-lg);
+      position: relative;
+    }
+    .hero-photo-card img {
+      width: 100%;
+      height: 270px;
+      object-fit: cover;
+      object-position: center 20%;
+    }
+    .hero-photo-caption {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 12px 16px;
+      background-color: rgba(15, 23, 42, 0.94);
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .hero-photo-caption strong {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.84rem;
+      color: #FFFFFF;
+    }
+    .hero-photo-caption span {
+      font-size: 0.76rem;
+      color: #FBBF24;
+      font-weight: 600;
+    }
+    .hero-secondary-row {
+      display: grid;
+      grid-template-columns: 1.25fr 0.75fr;
+      gap: 16px;
+    }
+    .hero-mini-card {
+      background-color: rgba(15, 23, 42, 0.85);
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .hero-mini-card img {
+      width: 100%;
+      height: 132px;
+      object-fit: cover;
+    }
+    .hero-mini-body {
+      padding: 10px 14px;
+      font-size: 0.78rem;
+      color: #E2E8F0;
+    }
+    .hero-centenary-box {
+      background-color: rgba(255, 255, 255, 0.97);
+      color: var(--fca-navy);
+      border-radius: var(--radius-md);
+      padding: 14px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      gap: 6px;
+    }
+    .hero-centenary-box img {
+      width: 96px;
+      height: 96px;
+      object-fit: contain;
+    }
+    .hero-centenary-box strong {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.78rem;
+      color: var(--fca-navy);
+    }
+    /* Generic Cards & Grids */
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .grid-4 {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 28px;
+    }
+    .card {
+      background-color: var(--bg-card);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-sm);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+    }
+    .card:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-md);
+      border-color: var(--border-strong);
+    }
+    .card-badge {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      background-color: var(--fca-navy);
+      color: #FBBF24;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 800;
+      padding: 4px 10px;
+      border-radius: var(--radius-sm);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+    .pillar-count {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 800;
+      color: var(--fca-red);
+      background-color: var(--fca-red-soft);
+      padding: 4px 10px;
+      border-radius: var(--radius-sm);
+      align-self: flex-start;
+      text-transform: uppercase;
+    }
+    /* Sponsors Showcase (All 23 Sponsors) */
+    .sponsor-tier-block {
+      margin-bottom: 36px;
+    }
+    .sponsor-tier-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 16px;
+      padding-bottom: 10px;
+      border-bottom: 2px solid var(--border-light);
+      flex-wrap: wrap;
+    }
+    .sponsor-tier-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.82rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      padding: 5px 12px;
+      border-radius: var(--radius-sm);
+    }
+    .tier-gold {
+      background-color: var(--fca-gold-soft);
+      color: #92400E;
+      border: 1px solid #FDE047;
+    }
+    .tier-silver {
+      background-color: #F1F5F9;
+      color: #1E293B;
+      border: 1px solid #CBD5E1;
+    }
+    .tier-bronze {
+      background-color: var(--fca-red-soft);
+      color: #991B1B;
+      border: 1px solid #FECACA;
+    }
+    .sponsors-main-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+    }
+    .sponsors-partner-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+    .sponsor-card {
+      background-color: #FFFFFF;
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-md);
+      padding: 18px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      text-align: center;
+      gap: 12px;
+      box-shadow: var(--shadow-sm);
+      transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+    .sponsor-card:hover {
+      transform: translateY(-2px);
+      border-color: var(--fca-red);
+      box-shadow: var(--shadow-md);
+    }
+    .sponsor-card.gold-card {
+      border: 2px solid #FDE047;
+    }
+    .sponsor-logo-wrap {
+      width: 100%;
+      height: 86px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #FFFFFF;
+      padding: 6px;
+    }
+    .sponsor-logo-wrap img {
+      max-height: 100%;
+      max-width: 100%;
+      width: auto;
+      height: auto;
+      object-fit: contain;
+    }
+    .sponsor-name {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.92rem;
+      font-weight: 800;
+      color: var(--fca-navy);
+      line-height: 1.25;
+    }
+    .sponsor-role-tag {
+      font-size: 0.76rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      line-height: 1.35;
+    }
+    /* Architecture Cut Zone (#bauplan-schnitt) */
+    .blueprint-zone-section {
+      background-color: #E2E8F0;
+      background-image:
+        linear-gradient(to right, rgba(15, 23, 42, 0.06) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(15, 23, 42, 0.06) 1px, transparent 1px);
+      background-size: 28px 28px;
+      border-top: 3px dashed #0F172A;
+      border-bottom: 3px dashed #0F172A;
+      padding: 76px 0 88px;
+    }
+    .blueprint-cut-banner {
+      background-color: #0B1528;
+      color: #F8FAFC;
+      border: 2px dashed #F59E0B;
+      border-radius: var(--radius-md);
+      padding: 28px 30px;
+      margin-bottom: 36px;
+      box-shadow: var(--shadow-md);
+    }
+    .blueprint-cut-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-bottom: 14px;
+      padding-bottom: 14px;
+      border-bottom: 1px dashed rgba(245, 158, 11, 0.4);
+    }
+    .blueprint-cut-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background-color: rgba(245, 158, 11, 0.2);
+      border: 1px solid #F59E0B;
+      color: #FBBF24;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.74rem;
+      font-weight: 800;
+      padding: 5px 11px;
+      border-radius: var(--radius-sm);
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+    .blueprint-kpi-row {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+      margin-top: 20px;
+    }
+    .blueprint-kpi-box {
+      background-color: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      border-radius: var(--radius-sm);
+      padding: 14px 16px;
+    }
+    .blueprint-kpi-box.is-open-scope {
+      border: 1px dashed #F59E0B;
+      background-color: rgba(245, 158, 11, 0.08);
+    }
+    /* 4 Dashed Blueprint Module Cards */
+    .blueprint-modules-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 28px;
+    }
+    .blueprint-module-card {
+      background-color: rgba(248, 250, 252, 0.96);
+      border: 2px dashed #475569;
+      border-radius: var(--radius-md);
+      padding: 26px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 20px;
+      box-shadow: 0 6px 20px rgba(15, 23, 42, 0.07);
+    }
+    .blueprint-module-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-bottom: 12px;
+    }
+    .blueprint-mod-tag {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 800;
+      color: #0F172A;
+      background-color: #E2E8F0;
+      border: 1px solid #94A3B8;
+      padding: 4px 9px;
+      border-radius: var(--radius-sm);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    .blueprint-lock-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background-color: #FEF3C7;
+      border: 1px solid #D97706;
+      color: #92400E;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.7rem;
+      font-weight: 800;
+      padding: 4px 9px;
+      border-radius: var(--radius-sm);
+      text-transform: uppercase;
+    }
+    .blueprint-module-title {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.22rem;
+      font-weight: 800;
+      color: #0F172A;
+      margin-bottom: 10px;
+      line-height: 1.25;
+    }
+    .blueprint-module-desc {
+      font-size: 0.9rem;
+      color: #334155;
+      line-height: 1.55;
+      margin-bottom: 14px;
+    }
+    .wireframe-preview-box {
+      background-color: #E2E8F0;
+      border: 1px dashed #64748B;
+      border-radius: var(--radius-sm);
+      padding: 14px;
+    }
+    .wireframe-skeleton-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      margin-bottom: 10px;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.7rem;
+      font-weight: 800;
+      color: #334155;
+      text-transform: uppercase;
+    }
+    .wireframe-grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+    }
+    .wireframe-slot {
+      background-color: #F8FAFC;
+      border: 1px dashed #94A3B8;
+      border-radius: var(--radius-sm);
+      padding: 8px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .wireframe-img-placeholder {
+      height: 36px;
+      background: repeating-linear-gradient(
+        -45deg,
+        #E2E8F0,
+        #E2E8F0 6px,
+        #CBD5E1 6px,
+        #CBD5E1 12px
+      );
+      border-radius: var(--radius-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #334155;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.65rem;
+      font-weight: 800;
+    }
+    .wireframe-line-lg {
+      height: 7px;
+      width: 82%;
+      background-color: #94A3B8;
+      border-radius: var(--radius-sm);
+    }
+    .wireframe-line-sm {
+      height: 6px;
+      width: 56%;
+      background-color: #CBD5E1;
+      border-radius: var(--radius-sm);
+    }
+    .blueprint-checklist {
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+      margin-top: 12px;
+      font-size: 0.83rem;
+      color: #1E293B;
+    }
+    .blueprint-checklist-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+    }
+    .blueprint-checklist-item svg {
+      color: #D97706;
+      flex-shrink: 0;
+      margin-top: 3px;
+    }
+    /* Wireframe Team Cards on herren-1.html */
+    .matrix-team-btn.wireframe-locked {
+      background-color: #F1F5F9;
+      border: 2px dashed #64748B;
+      opacity: 0.94;
+    }
+    .matrix-team-btn.wireframe-locked:hover {
+      border-color: #0F172A;
+      background-color: #E2E8F0;
+    }
+    .wireframe-mini-skeleton {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      width: 100%;
+      padding: 6px 8px;
+      background-color: #E2E8F0;
+      border: 1px dashed #94A3B8;
+      border-radius: var(--radius-sm);
+    }
+    .wireframe-mini-thumb {
+      width: 28px;
+      height: 22px;
+      background: repeating-linear-gradient(
+        -45deg,
+        #CBD5E1,
+        #CBD5E1 4px,
+        #94A3B8 4px,
+        #94A3B8 8px
+      );
+      border-radius: var(--radius-sm);
+      flex-shrink: 0;
+    }
+    .wireframe-mini-bars {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .wireframe-mini-bar {
+      height: 5px;
+      background-color: #94A3B8;
+      border-radius: var(--radius-sm);
+    }
+    .pill-wireframe-lock {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      background-color: #FEF3C7;
+      color: #92400E;
+      border: 1px solid #F59E0B;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.62rem;
+      font-weight: 800;
+      padding: 2px 6px;
+      border-radius: var(--radius-sm);
+      text-transform: uppercase;
+      flex-shrink: 0;
+    }
+    /* Footer */
+    .site-footer {
+      background-color: var(--fca-navy-deep);
+      color: #E2E8F0;
+      padding: 68px 0 36px;
+      border-top: 4px solid var(--fca-gold);
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.3fr 1fr 1fr 1.1fr;
+      gap: 36px;
+      padding-bottom: 44px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+    }
+    .footer-title {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.92rem;
+      font-weight: 800;
+      color: #FFFFFF;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: 16px;
+    }
+    .footer-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .footer-list a, .footer-list button {
+      color: #CBD5E1;
+      font-size: 0.88rem;
+      background: none;
+      border: none;
+      text-align: left;
+      cursor: pointer;
+      font-family: inherit;
+      padding: 5px 0;
+      min-height: 32px;
+      display: inline-flex;
+      align-items: center;
+    }
+    .footer-bottom a,
+    .staff-card a,
+    .team-sponsor-strip a {
+      display: inline-flex;
+      align-items: center;
+      min-height: 32px;
+      padding: 4px 0;
+    }
+    .footer-list a:hover, .footer-list button:hover {
+      color: var(--fca-gold);
+    }
+    .footer-bottom {
+      padding-top: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+      font-size: 0.82rem;
+      color: #CBD5E1;
+    }
+    /* Blueprint Modal (#wpBlueprintModal) */
+    .wp-modal-backdrop {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background-color: rgba(11, 19, 36, 0.78);
+      backdrop-filter: blur(6px);
+      z-index: 2000;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+    .wp-modal-backdrop.open {
+      display: flex;
+    }
+    .wp-modal-dialog {
+      background-color: #FFFFFF;
+      border: 2px solid var(--fca-gold);
+      border-radius: var(--radius-md);
+      max-width: 620px;
+      width: 100%;
+      padding: 28px;
+      box-shadow: var(--shadow-lg);
+      position: relative;
+      max-height: 90vh;
+      overflow-y: auto;
+    }
+    .wp-modal-close {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      width: 36px;
+      height: 36px;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border-light);
+      background-color: var(--bg-muted);
+      color: var(--fca-navy);
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .wp-modal-checklist {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin: 18px 0;
+      padding: 16px;
+      background-color: var(--bg-muted);
+      border-radius: var(--radius-sm);
+    }
+    .wp-modal-check-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 0.88rem;
+      color: var(--text-main);
+    }
+    .wp-modal-check-item svg {
+      color: var(--fca-green);
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    /* Responsive Breakpoints */
+    @media (max-width: 1080px) {
+      .hero-grid,
+      .blueprint-modules-grid,
+      .blueprint-kpi-row {
+        grid-template-columns: 1fr;
+      }
+      .grid-4,
+      .sponsors-main-grid,
+      .sponsors-partner-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .grid-3 {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .footer-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .main-nav, .header-actions .btn-cta {
+        display: none;
+      }
+      .mobile-toggle {
+        display: inline-flex;
+      }
+    }
+    @media (max-width: 720px) {
+      section {
+        padding: 56px 0;
+      }
+      .top-bar-links {
+        display: none;
+      }
+      .wp-v2-bar-inner {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 8px;
+      }
+      .wp-v2-bar-middle,
+      .wp-v2-switch-btn {
+        width: 100%;
+      }
+      .hero-kpi-strip {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .hero-secondary-row,
+      .grid-2,
+      .grid-3,
+      .grid-4,
+      .sponsors-main-grid,
+      .sponsors-partner-grid,
+      .wireframe-grid-3,
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+      .blueprint-cut-banner,
+      .blueprint-module-card {
+        padding: 20px 18px;
+      }
+    }
+
+
+    .contact-layout {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 40px;
+      align-items: start;
+    }
+    .contact-info-panel {
+      background-color: #FFFFFF;
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-md);
+      padding: 28px;
+      box-shadow: var(--shadow-sm);
+    }
+    .contact-direct-list {
+      display: flex;
+      flex-direction: column;
+      gap: 11px;
+      margin-top: 18px;
+    }
+    .contact-direct-item {
+      padding: 11px 14px;
+      background-color: var(--bg-page);
+      border: 1px solid var(--border-light);
+      border-left: 3px solid var(--fca-red);
+      border-radius: var(--radius-sm);
+      font-size: 0.85rem;
+    }
+    .contact-direct-role {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.71rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      color: var(--fca-red);
+      letter-spacing: 0.04em;
+    }
+    .contact-direct-person {
+      font-weight: 700;
+      color: var(--fca-navy);
+      margin-top: 2px;
+    }
+    .contact-direct-links {
+      color: var(--text-body);
+      font-size: 0.81rem;
+      margin-top: 2px;
+    }
+    /* Smart Wizard Card */
+    .wizard-card {
+      background-color: #FFFFFF;
+      border: 2px solid var(--fca-red);
+      border-radius: var(--radius-md);
+      padding: 32px;
+      box-shadow: var(--shadow-md);
+    }
+    .wp-stepper {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+      margin-bottom: 24px;
+      padding: 6px;
+      background-color: var(--bg-muted);
+      border-radius: var(--radius-md);
+    }
+    .wp-step-pill {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 10px 8px;
+      border-radius: var(--radius-sm);
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.76rem;
+      font-weight: 700;
+      color: var(--text-muted);
+      text-align: center;
+    }
+    .wp-step-pill.active {
+      background-color: var(--fca-red);
+      color: #FFFFFF;
+    }
+    .wp-step-pill.done {
+      background-color: var(--fca-green-soft);
+      color: #166534;
+    }
+    .wp-step-num {
+      width: 22px;
+      height: 22px;
+      border-radius: var(--radius-sm);
+      background-color: rgba(255, 255, 255, 0.2);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.72rem;
+      font-weight: 800;
+      flex-shrink: 0;
+    }
+    .wp-step-pane {
+      display: none;
+    }
+    .wp-step-pane.active {
+      display: block;
+    }
+    .wp-role-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+      margin-bottom: 22px;
+    }
+    .wp-role-tile {
+      background-color: var(--bg-page);
+      border: 1px solid var(--border-strong);
+      border-radius: var(--radius-md);
+      padding: 14px;
+      text-align: left;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      gap: 6px;
+      transition: all 0.18s ease;
+      font-family: inherit;
+    }
+    .wp-role-tile:hover {
+      border-color: var(--fca-red);
+      background-color: #FFFFFF;
+    }
+    .wp-role-tile.selected {
+      border: 2px solid var(--fca-red);
+      background-color: var(--fca-red-soft);
+    }
+    .wp-role-head {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .wp-role-icon {
+      width: 28px;
+      height: 28px;
+      border-radius: var(--radius-sm);
+      background-color: #FFFFFF;
+      color: var(--fca-red);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      border: 1px solid var(--border-light);
+    }
+    .wp-role-title {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.84rem;
+      font-weight: 800;
+      color: var(--fca-navy);
+      line-height: 1.25;
+    }
+    .wp-role-desc {
+      font-size: 0.76rem;
+      color: var(--text-body);
+      line-height: 1.4;
+    }
+    /* Form Fields (S-20 aligned) */
+    .form-grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+      align-items: stretch;
+    }
+    .form-field {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 6px;
+    }
+    .form-label {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: var(--fca-navy);
+      line-height: 1.3;
+    }
+    .form-input, .form-textarea {
+      width: 100%;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.9rem;
+      color: var(--text-main);
+      background-color: #FFFFFF;
+      border: 1px solid var(--border-strong);
+      border-radius: var(--radius-sm);
+      padding: 11px 14px;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+    .form-input:focus, .form-textarea:focus {
+      outline: none;
+      border-color: var(--fca-red);
+      box-shadow: 0 0 0 3px rgba(200, 30, 30, 0.14);
+    }
+    .form-textarea {
+      min-height: 104px;
+      resize: vertical;
+    }
+    /* Upload Zone */
+    .wp-upload-zone {
+      border: 1px dashed var(--border-strong);
+      background-color: var(--bg-page);
+      border-radius: var(--radius-md);
+      padding: 14px;
+    }
+    .wp-upload-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 9px 14px;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border-strong);
+      background-color: #FFFFFF;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--fca-navy);
+      cursor: pointer;
+    }
+    .wp-photo-thumbs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 10px;
+    }
+    .wp-thumb-item {
+      position: relative;
+      width: 72px;
+      height: 72px;
+      border-radius: var(--radius-sm);
+      overflow: hidden;
+      border: 1px solid var(--border-strong);
+    }
+    .wp-thumb-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .wp-thumb-remove {
+      position: absolute;
+      top: 2px;
+      right: 2px;
+      width: 20px;
+      height: 20px;
+      background-color: var(--fca-navy);
+      color: #FFFFFF;
+      border: none;
+      border-radius: var(--radius-sm);
+      font-size: 0.7rem;
+      cursor: pointer;
+    }
+    .wp-plz-badge {
+      display: none;
+      align-items: center;
+      gap: 8px;
+      margin-top: 6px;
+      padding: 8px 12px;
+      border-radius: var(--radius-sm);
+      font-size: 0.78rem;
+      font-weight: 600;
+    }
+    .wp-plz-badge.in-area {
+      display: flex;
+      background-color: var(--fca-green-soft);
+      color: #166534;
+      border: 1px solid #86EFAC;
+    }
+    .wp-selftest-banner {
+      background-color: var(--fca-gold-soft);
+      border: 1px solid #FDE047;
+      border-left: 4px solid var(--fca-gold-dark);
+      border-radius: var(--radius-sm);
+      padding: 12px 14px;
+      font-size: 0.8rem;
+      color: #78350F;
+      margin-bottom: 16px;
+    }
+    .wp-success-box {
+      display: none;
+      flex-direction: column;
+      gap: 16px;
+      padding: 24px;
+      background-color: var(--bg-page);
+      border: 2px solid var(--fca-green);
+      border-radius: var(--radius-md);
+    }
+    .wp-success-box.visible {
+      display: flex;
+    }
+    .wp-wa-preview {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.82rem;
+      background-color: #FFFFFF;
+      border: 1px solid var(--border-light);
+      border-left: 4px solid var(--fca-green);
+      padding: 12px 14px;
+      border-radius: var(--radius-sm);
+      white-space: pre-wrap;
+      color: var(--text-main);
+    }
+    @media (max-width: 1080px) {
+      .contact-layout {
+        grid-template-columns: 1fr;
+      }
+    }
+    @media (max-width: 720px) {
+      .wp-role-grid, .form-grid-2, .wp-stepper {
+        grid-template-columns: 1fr;
+      }
+      .wizard-card {
+        padding: 20px;
+      }
+    }
+
+  </style>
+</head>
+<body>
+  <!-- 1. UNUEBERSEHBARE KONZEPT- & AUSBAUSTUFEN-LEISTE (V2: 6-%-BAUPLAN-MODUS) -->
+  <div class="wp-v2-blueprint-bar">
+    <div class="container wp-v2-bar-inner">
+      <div class="wp-v2-bar-left">
+        <span class="wp-v2-study-badge">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
+          <span>ARCHITEKTUR-STUDIE · BAUPLAN V2</span>
+        </span>
+        <span class="wp-v2-bar-status-text">Ausbaustufe Prototyp: 6 % (3 von 53 Seiten exemplarisch ausgearbeitet)</span>
+      </div>
+      <div class="wp-v2-bar-middle" aria-label="Bauplan-Fortschritt 6 Prozent">
+        <div class="wp-v2-progress-track">
+          <div class="wp-v2-progress-fill"></div>
+        </div>
+        <span class="wp-v2-progress-label">6 % fertig · 50 Unterseiten &amp; 13 Teams im Rohbau</span>
+      </div>
+      <a href="kontakt.html?thema=probetraining" class="wp-v2-switch-btn">
+        <span>Smart-Anfrage &amp; 1-Seiten-PDF testen</span>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </a>
+    </div>
+  </div>
+  <!-- TOP BAR -->
+  <div class="top-bar">
+    <div class="container top-bar-inner">
+      <div class="top-bar-left">
+        <span class="top-bar-badge" data-slot="topbar_badge">PROTOTYP-AUSBAU: 3 / 53 SEITEN</span>
+        <span data-slot="topbar_info">1 von 14 Teams (1. Mannschaft) &amp; alle 23 Sponsoren als Musterhaus · 94 % Rohbau-Bauplan</span>
+      </div>
+      <div class="top-bar-links">
+        <a href="index.html#sponsoren">23 Sponsoren &amp; 300er Club</a>
+        <a href="index.html#bauplan-schnitt">Bauplan-Schnitt (50 offene Seiten)</a>
+        <button type="button" onclick="wpOpenBlueprintModal('Rohbau-Modul B: Verein, Vorstand (10), SFV Quality Club &amp; Chronik seit 1971 (14 Unterseiten)', 'Vereinsführung FC Attiswil (0 % übertragen)', 'Konrad Schütz (Präsident · 079 661 66 12) &amp; Philipp Singer (Vizepräsident · 079 304 44 56)')">Verein &amp; Chronik (0/14 offen)</button>
+        <a href="kontakt.html?thema=clubhaus">Clubhaus Lindenrain mieten</a>
+      </div>
+    </div>
+  </div>
+  <!-- STICKY HEADER (HAUPTNAVIGATION MIT STATUS-PUNKTEN & SCHLOSS-SYMBOL) -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="brand-link" aria-label="FC Attiswil Startseite">
+        <img src="images/logo-fcattiswil.webp" alt="Wappen FC Attiswil" class="brand-logo" width="50" height="50" data-slot="brand_logo">
+        <div class="brand-text">
+          <span class="brand-name" data-slot="brand_name">FC ATTISWIL</span>
+          <span class="brand-sub" data-slot="brand_sub">SEIT 1971 · SFV QUALITY CLUB</span>
+        </div>
+      </a>
+      <nav class="main-nav" aria-label="Hauptnavigation mit Ausbau-Status">
+        <a href="index.html" class="nav-link ">
+          <svg width="8" height="8" viewBox="0 0 8 8" aria-hidden="true"><circle cx="4" cy="4" r="4" fill="#10B981"/></svg>
+          <span>Startseite (Muster)</span>
+        </a>
+        <a href="herren-1.html" class="nav-link ">
+          <svg width="8" height="8" viewBox="0 0 8 8" aria-hidden="true"><circle cx="4" cy="4" r="4" fill="#F59E0B"/></svg>
+          <span>1. Mannschaft (1/14)</span>
+        </a>
+        <a href="index.html#sponsoren" class="nav-link">
+          <svg width="8" height="8" viewBox="0 0 8 8" aria-hidden="true"><circle cx="4" cy="4" r="4" fill="#10B981"/></svg>
+          <span>23 Sponsoren</span>
+        </a>
+        <button type="button" class="nav-link nav-link-locked" onclick="wpOpenBlueprintModal('Rohbau-Modul B &amp; C: Verein, Vorstand (10), Chronik seit 1971 &amp; Clubhaus Lindenrain (24 Seiten offen)', 'Vereinsführung &amp; Infrastruktur (Noch nicht migriert · 0 %)', 'Konrad Schütz (Präsident) &amp; Philipp Singer (Vizepräsident / Clubhaus)', 'clubhaus')">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+          <span>Verein &amp; Lindenrain (0/24)</span>
+        </button>
+        <a href="kontakt.html" class="nav-link active">
+          <svg width="8" height="8" viewBox="0 0 8 8" aria-hidden="true"><circle cx="4" cy="4" r="4" fill="#10B981"/></svg>
+          <span>Smart-Anfrage (Live-Demo)</span>
+        </a>
+      </nav>
+      <div class="header-actions">
+        <a href="kontakt.html?thema=probetraining" class="btn-cta btn-cta-primary btn-sm" data-slot="header_cta">
+          <span>Smart-Anfrage testen</span>
+        </a>
+        <button type="button" class="mobile-toggle" id="mobileMenuBtn" aria-label="Menü öffnen" onclick="wpToggleMobileMenu()">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
+      </div>
+    </div>
+    <div class="mobile-drawer" id="mobileDrawer">
+      <a href="index.html" onclick="wpCloseMobileMenu()">Startseite (Muster · 6 % Prototyp)</a>
+      <a href="herren-1.html" onclick="wpCloseMobileMenu()">Muster-Team: 1. Mannschaft (1/14 fertig · 13 im Rohbau)</a>
+      <a href="index.html#sponsoren" onclick="wpCloseMobileMenu()">Sponsoren &amp; 300er Club (Alle 23 übernommen)</a>
+      <button type="button" class="mobile-nav-btn" onclick="wpCloseMobileMenu(); wpOpenBlueprintModal('Rohbau-Modul B &amp; C: Verein, Vorstand, Chronik &amp; Clubhaus Lindenrain (24 Seiten offen)', 'Vereinsführung &amp; Infrastruktur (Noch nicht migriert · 0 %)', 'Konrad Schütz &amp; Philipp Singer', 'clubhaus')">
+        <span>Verein &amp; Lindenrain (24 Seiten offen · Rohbau)</span>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+      </button>
+      <a href="kontakt.html" onclick="wpCloseMobileMenu()">Smart-Anfrage (Live-Demo)</a>
+    </div>
+  </header>
+  <main>
+
+  <section data-section="kontakt-zentrale" style="padding: 60px 0 84px;">
+    <div class="container">
+      <div class="contact-layout">
+        <!-- LEFT COLUMN: VEREINS-ANLAUFSTELLEN FC ATTISWIL -->
+        <div class="contact-info-panel">
+          <div class="section-kicker" data-slot="contact_kicker">VEREINS-, PROBETRAINING-, CLUBHAUS- &amp; SPONSORING-ZENTRALE</div>
+          <h1 style="font-size:clamp(1.62rem,2.5vw,2.15rem);font-weight:800;margin-bottom:12px;" data-slot="contact_title">
+            Direkter Draht zum Vorstand &amp; zu allen Ressorts im FC Attiswil.
+          </h1>
+          <p style="font-size:0.92rem;color:var(--text-body);margin-bottom:16px;" data-slot="contact_lead">
+            Ob Probetraining auf dem Lindenrain, Beitritt zum <strong>300er Club</strong>, Matchballspende (CHF 150.00), Miete des <strong>Clubhauses Lindenrain</strong> (48 Innen- &amp; 40 gedeckte Sitzplätze) oder Mitgliedschaft: Unser 3-Schritte-Assistent erstellt sofort ein übersichtliches <strong>1-Seiten-PDF-Vereinsdossier</strong> für das zuständige Vorstandsmitglied.
+          </p>
+          <div class="contact-direct-list">
+            <div class="contact-direct-item">
+              <div class="contact-direct-role">Präsidium &amp; Vereinsführung</div>
+              <div class="contact-direct-person">Konrad Schütz (Präsident) &amp; Michelle Kurth (Sekretärin / Datenschutz)</div>
+              <div class="contact-direct-links">info@fcattiswil.ch · Tel. 079 661 66 12 · Sportplatzweg 1, 4536 Attiswil</div>
+            </div>
+            <div class="contact-direct-item">
+              <div class="contact-direct-role">Vizepräsidium, Vereinsanlässe &amp; Vermietung Clubhaus Lindenrain</div>
+              <div class="contact-direct-person">Philipp Singer (Vizepräsident) &amp; Christina Lemp (Clubhauswirtin)</div>
+              <div class="contact-direct-links">Tel. 079 304 44 56 (Vermietung) · Tel. 079 916 64 55 (Wirtin) · 48 Innen- / 40 Aussenplätze</div>
+            </div>
+            <div class="contact-direct-item">
+              <div class="contact-direct-role">Sportliche Leitung Aktive &amp; J+S Coach</div>
+              <div class="contact-direct-person">Florian Bohner (Sportchef) &amp; Stephan Sperisen (Trainer 1. Mannschaft)</div>
+              <div class="contact-direct-links">Tel. 079 677 93 52 (Sportchef) · Tel. 079 705 76 06 (Trainer 1. Mannschaft)</div>
+            </div>
+            <div class="contact-direct-item">
+              <div class="contact-direct-role">Frauen 2./3. Liga &amp; Juniorinnen FF-17 / FF-14 / FF-11</div>
+              <div class="contact-direct-person">Celine Lemp (Verantwortliche Frauen &amp; Juniorinnen)</div>
+              <div class="contact-direct-links">Tel. 079 137 82 38 · Dana Scherrer (079 408 28 94) · Tom Moser (079 418 76 68)</div>
+            </div>
+            <div class="contact-direct-item">
+              <div class="contact-direct-role">Junioren B bis G (Piccolos)</div>
+              <div class="contact-direct-person">Levi Meyer (Verantwortlicher Junioren im Vorstand)</div>
+              <div class="contact-direct-links">Tel. 079 475 75 80 · info@fcattiswil.ch</div>
+            </div>
+            <div class="contact-direct-item">
+              <div class="contact-direct-role">Marketing, Sponsoring, 300er Club &amp; Vereinsartikel</div>
+              <div class="contact-direct-person">Raphaela Lüscher (Marketing / Sponsoring &amp; Vereinskollektion)</div>
+              <div class="contact-direct-links">sponsoring@fcattiswil.ch · 300erClub@fcattiswil.ch · Tel. 079 453 88 60</div>
+            </div>
+            <div class="contact-direct-item">
+              <div class="contact-direct-role">Finanzen, Mitgliederbeiträge &amp; Infrastruktur Lindenrain</div>
+              <div class="contact-direct-person">Jörg Scheidegger (Kassier · 032 637 21 76), Sarah Probst (079 535 83 48) &amp; Remo Brudermann (079 533 09 81)</div>
+              <div class="contact-direct-links">Jahresbeitrag: Aktive CHF 160.00 · Junioren CHF 80.00 · Passiv CHF 50.00</div>
+            </div>
+            <div class="contact-direct-item">
+              <div class="contact-direct-role">Schiedsrichter, Platzwart &amp; Fairplay</div>
+              <div class="contact-direct-person">Slavko Martinovic (SR-Verantwortlicher · 079 235 37 35) &amp; Christoph Rüegger (Platzwart · 079 576 76 80)</div>
+              <div class="contact-direct-links">fairplay@fcattiswil.ch · Alfred Bohner (079 226 81 65)</div>
+            </div>
+          </div>
+        </div>
+        <!-- RIGHT COLUMN: 3-STEP SMART WIZARD -->
+        <div class="wizard-card">
+          <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;margin-bottom:14px;">
+            <div>
+              <div class="section-kicker" style="margin-bottom:4px;">DIGITALE VEREINS-ZENTRALE · FC ATTISWIL</div>
+              <h2 style="font-size:1.35rem;font-weight:800;" id="wpWizardTitle">1. Wähle dein Anliegen</h2>
+            </div>
+            <span class="pillar-count" id="wpActiveAssigneeBadge">Zuständig: Sportliche Leitung</span>
+          </div>
+          <div class="wp-stepper" aria-label="Fortschritt">
+            <div class="wp-step-pill active" id="wpStepPill1">
+              <span class="wp-step-num">1</span>
+              <span>Anliegen &amp; Ressort</span>
+            </div>
+            <div class="wp-step-pill" id="wpStepPill2">
+              <span class="wp-step-num">2</span>
+              <span>Details &amp; Beilagen</span>
+            </div>
+            <div class="wp-step-pill" id="wpStepPill3">
+              <span class="wp-step-num">3</span>
+              <span>Kontakt &amp; Dossier</span>
+            </div>
+          </div>
+          <form id="fcaContactForm" onsubmit="return wpSubmitFcaLead(event)" novalidate>
+            <!-- Honeypot -->
+            <div style="display:none;" aria-hidden="true">
+              <label for="wpHoneypot">Website URL</label>
+              <input type="text" id="wpHoneypot" name="website_url" tabindex="-1" autocomplete="off">
+            </div>
+            <!-- STEP 1: TOPIC SELECTION (6 TILES) -->
+            <div class="wp-step-pane active" id="wpStep1">
+              <div class="wp-role-grid" id="wpTopicGrid">
+                <button type="button" class="wp-role-tile selected" data-topic="Probetraining / Neumitglied" onclick="wpSelectFcaTopic('Probetraining / Neumitglied')">
+                  <div class="wp-role-head">
+                    <span class="wp-role-icon">
+                      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8"/></svg>
+                    </span>
+                    <span class="wp-role-title" data-slot="topic_opt_1">Probetraining / Neumitglied</span>
+                  </div>
+                  <span class="wp-role-desc">Schnuppertraining für Junioren B–G, Juniorinnen FF-11 bis FF-17, Frauen, Herren oder Senioren</span>
+                </button>
+                <button type="button" class="wp-role-tile" data-topic="Sponsoring / 300er Club / Matchball" onclick="wpSelectFcaTopic('Sponsoring / 300er Club / Matchball')">
+                  <div class="wp-role-head">
+                    <span class="wp-role-icon">
+                      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                    </span>
+                    <span class="wp-role-title" data-slot="topic_opt_2">Sponsoring / 300er Club / Matchball</span>
+                  </div>
+                  <span class="wp-role-desc">Dress-/Bandensponsoring, 300er Club (CHF 300), Matchballspende (CHF 150) oder AVIA Tankkarte</span>
+                </button>
+                <button type="button" class="wp-role-tile" data-topic="Clubhaus Lindenrain mieten / Anlässe" onclick="wpSelectFcaTopic('Clubhaus Lindenrain mieten / Anlässe')">
+                  <div class="wp-role-head">
+                    <span class="wp-role-icon">
+                      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+                    </span>
+                    <span class="wp-role-title" data-slot="topic_opt_3">Clubhaus Lindenrain mieten / Anlässe</span>
+                  </div>
+                  <span class="wp-role-desc">Reservation Clubhaus (48 Innen- &amp; 40 Aussenplätze), Lottomatch, Maskenball oder Chilbi</span>
+                </button>
+                <button type="button" class="wp-role-tile" data-topic="Spielbetrieb / Turniere / Schiedsrichter" onclick="wpSelectFcaTopic('Spielbetrieb / Turniere / Schiedsrichter')">
+                  <div class="wp-role-head">
+                    <span class="wp-role-icon">
+                      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                    </span>
+                    <span class="wp-role-title" data-slot="topic_opt_4">Spielbetrieb / Turniere / Schiedsrichter</span>
+                  </div>
+                  <span class="wp-role-desc">Spielverschiebungen, Freundschaftsspiele, Schiedsrichter-Interesse oder Platzbelegung</span>
+                </button>
+                <button type="button" class="wp-role-tile" data-topic="Mitgliedschaft / Mutation / Vereinsartikel" onclick="wpSelectFcaTopic('Mitgliedschaft / Mutation / Vereinsartikel')">
+                  <div class="wp-role-head">
+                    <span class="wp-role-icon">
+                      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                    </span>
+                    <span class="wp-role-title" data-slot="topic_opt_5">Mitgliedschaft / Mutation / Vereinsartikel</span>
+                  </div>
+                  <span class="wp-role-desc">Passivmitgliedschaft (CHF 50), Adressänderung, Jahresbeitrag oder FCA-Vereinskollektion</span>
+                </button>
+                <button type="button" class="wp-role-tile" data-topic="Allgemeine Vereinsanfrage / Vorstand" onclick="wpSelectFcaTopic('Allgemeine Vereinsanfrage / Vorstand')">
+                  <div class="wp-role-head">
+                    <span class="wp-role-icon">
+                      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                    </span>
+                    <span class="wp-role-title" data-slot="topic_opt_6">Allgemeine Vereinsanfrage / Vorstand</span>
+                  </div>
+                  <span class="wp-role-desc">Direkte Nachricht an Präsident Konrad Schütz, Sekretariat oder Fairplay-Anlaufstelle</span>
+                </button>
+              </div>
+              <!-- Urgency Selector -->
+              <div style="margin-bottom:20px;">
+                <div class="form-label" style="margin-bottom:8px;">Zeitrahmen / Priorität</div>
+                <div class="form-grid-2" id="wpUrgencyGrid">
+                  <button type="button" class="wp-role-tile selected" data-urgency="Planbar / Laufende Saison" onclick="wpSelectFcaUrgency('Planbar / Laufende Saison')" style="padding:10px 12px;">
+                    <span class="wp-role-title" style="font-size:0.8rem;">Planbar / Laufende Saison</span>
+                    <span class="wp-role-desc" style="font-size:0.72rem;">Reguläre Bearbeitung durch das Ressort (24–48 Std.)</span>
+                  </button>
+                  <button type="button" class="wp-role-tile" data-urgency="Dringend / Nächster Spieltag" onclick="wpSelectFcaUrgency('Dringend / Nächster Spieltag')" style="padding:10px 12px;">
+                    <span class="wp-role-title" style="font-size:0.8rem;">Dringend / Nächster Spieltag</span>
+                    <span class="wp-role-desc" style="font-size:0.72rem;">Kurzfristiges Anliegen (Spielbetrieb / Anlass / Reservation)</span>
+                  </button>
+                </div>
+              </div>
+              <button type="button" class="btn-cta btn-cta-primary" style="width:100%;" onclick="wpNextStep(2)">
+                <span>Weiter zu Schritt 2: Details &amp; Beilagen</span>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="9 18 15 12 9 6"/></svg>
+              </button>
+            </div>
+            <!-- STEP 2: CONTEXT DETAILS & PHOTO UPLOAD -->
+            <div class="wp-step-pane" id="wpStep2">
+              <div class="form-grid-2" style="margin-bottom:14px;">
+                <div class="form-field">
+                  <label for="wpDetail1" class="form-label" id="wpDetail1Label">Name &amp; Jahrgang Spieler/in</label>
+                  <input type="text" id="wpDetail1" class="form-input" placeholder="z. B. Levin Muster · Jahrgang 2015">
+                </div>
+                <div class="form-field">
+                  <label for="wpDetail2" class="form-label" id="wpDetail2Label">Gewünschte Mannschaft / Bisheriger Verein</label>
+                  <input type="text" id="wpDetail2" class="form-input" placeholder="z. B. Junioren E / Frauen 2. Liga / 1. Mannschaft">
+                </div>
+              </div>
+              <div class="form-field" style="margin-bottom:16px;">
+                <label for="contactMessage" class="form-label" data-slot="lbl_message">Nachricht / Details zum Anliegen</label>
+                <textarea id="contactMessage" name="message" class="form-textarea" placeholder="Beschreibe kurz dein Anliegen (z. B. Wunschtermin für Probetraining auf dem Lindenrain, Wunschdatum für Clubhaus-Miete oder gewünschtes Sponsoring-Paket)..."></textarea>
+              </div>
+              <div class="form-field" style="margin-bottom:20px;">
+                <span class="form-label">Optional: Bis zu 3 Bilder / Dokumente anhängen (für 1-Seiten-PDF)</span>
+                <div class="wp-upload-zone">
+                  <input type="file" id="wpPhotoInput" accept="image/*" multiple style="display:none;" onchange="wpHandlePhotoFiles(this.files)">
+                  <button type="button" class="wp-upload-btn" onclick="wpTriggerPhotoUpload()">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+                    <span>Bild / Beilage auswählen (z. B. Firmenlogo, Ausweis, Situationsfoto)</span>
+                  </button>
+                  <div style="font-size:0.75rem;color:var(--text-muted);margin-top:6px;" id="wpPhotoCounter">0 / 3 Bilder ausgewählt · Automatisch für das 1-Seiten-PDF-Dossier optimiert</div>
+                  <div class="wp-photo-thumbs" id="wpPhotoThumbs"></div>
+                </div>
+              </div>
+              <div class="form-grid-2">
+                <button type="button" class="btn-cta btn-cta-outline" style="width:100%;" onclick="wpPrevStep()">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="15 18 9 12 15 6"/></svg>
+                  <span>Zurück zu Schritt 1</span>
+                </button>
+                <button type="button" class="btn-cta btn-cta-primary" style="width:100%;" onclick="wpNextStep(3)">
+                  <span>Weiter zu Schritt 3: Kontakt</span>
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="9 18 15 12 9 6"/></svg>
+                </button>
+              </div>
+            </div>
+            <!-- STEP 3: CONTACT DETAILS & SUBMIT -->
+            <div class="wp-step-pane" id="wpStep3">
+              <div class="wp-selftest-banner">
+                <strong>Vorschau- &amp; Selbst-Test-Modus aktiv:</strong> Du kannst dieses Formular jetzt live testen. Das System generiert sofort ein echtes <strong>1-Seiten-PDF-Vereinsdossier</strong> mit FC-Attiswil-Briefkopf zum Herunterladen, ohne den Vorstand mit Test-Mails zu belasten.
+              </div>
+              <div class="form-grid-2" style="margin-bottom:14px;">
+                <div class="form-field">
+                  <label for="contactName" class="form-label" data-slot="lbl_name">Vor- und Nachname (oder Eltern) *</label>
+                  <input type="text" id="contactName" name="name" class="form-input" placeholder="z. B. Lukas Muster" required>
+                </div>
+                <div class="form-field">
+                  <label for="contactCompany" class="form-label">Team / Firma / Organisation (optional)</label>
+                  <input type="text" id="contactCompany" name="company" class="form-input" placeholder="z. B. Junioren D / Muster AG Attiswil">
+                </div>
+              </div>
+              <div class="form-grid-2" style="margin-bottom:14px;">
+                <div class="form-field">
+                  <label for="contactLoc" class="form-label">PLZ &amp; Wohnort *</label>
+                  <input type="text" id="contactLoc" name="plz" class="form-input" placeholder="z. B. 4536 Attiswil" oninput="wpCheckFcaPlz(this.value)" required>
+                </div>
+                <div class="form-field">
+                  <label for="contactStreet" class="form-label">Strasse &amp; Nr. (für Mutationen / Rechnungen)</label>
+                  <input type="text" id="contactStreet" name="street" class="form-input" placeholder="z. B. Dorfstrasse 14">
+                </div>
+              </div>
+              <div class="wp-plz-badge" id="wpPlzBadge" style="margin-bottom:14px;">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><polyline points="20 6 9 17 4 12"/></svg>
+                <span id="wpPlzBadgeText">PLZ 4536: Einzugsgebiet Attiswil, Oberaargau &amp; Region Solothurn</span>
+              </div>
+              <div class="form-grid-2" style="margin-bottom:18px;">
+                <div class="form-field">
+                  <label for="contactEmail" class="form-label" data-slot="lbl_email">E-Mail-Adresse *</label>
+                  <input type="email" id="contactEmail" name="email" class="form-input" placeholder="name@beispiel.ch" required>
+                </div>
+                <div class="form-field">
+                  <label for="contactPhone" class="form-label" data-slot="lbl_phone">Telefon / Mobile (für Rückruf / WhatsApp) *</label>
+                  <input type="tel" id="contactPhone" name="phone" class="form-input" placeholder="079 123 45 67" required>
+                </div>
+              </div>
+              <div id="wpFormError" style="display:none;background-color:#FEE2E2;border:1px solid #FCA5A5;color:#991B1B;padding:10px 14px;border-radius:4px;font-size:0.84rem;margin-bottom:14px;"></div>
+              <div class="form-grid-2">
+                <button type="button" class="btn-cta btn-cta-outline" style="width:100%;" onclick="wpPrevStep()">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="15 18 9 12 15 6"/></svg>
+                  <span>Zurück zu Schritt 2</span>
+                </button>
+                <button type="submit" class="btn-cta btn-cta-gold" id="wpSubmitBtn" style="width:100%;" data-slot="btn_submit">
+                  <span id="wpSubmitBtnText">1-Seiten-Dossier &amp; Anfrage senden</span>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+                </button>
+              </div>
+            </div>
+          </form>
+          <!-- SUCCESS COCKPIT -->
+          <div class="wp-success-box" id="wpSuccessBox" aria-live="polite">
+            <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;">
+              <div style="display:flex;align-items:center;gap:10px;">
+                <span style="width:36px;height:36px;border-radius:4px;background-color:var(--fca-green);color:#FFFFFF;display:inline-flex;align-items:center;justify-content:center;">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><polyline points="20 6 9 17 4 12"/></svg>
+                </span>
+                <div>
+                  <div style="font-family:'Montserrat',sans-serif;font-weight:800;font-size:1.05rem;color:var(--fca-navy);">Vereins-Anfrage &amp; 1-Seiten-PDF-Dossier erstellt</div>
+                  <div style="font-size:0.78rem;color:var(--text-muted);" id="wpResChannels">1-Seiten-PDF-Dossier bereit zum Download</div>
+                </div>
+              </div>
+              <span class="top-bar-badge" style="background-color:var(--fca-navy);color:#FBBF24;" id="wpResRef">#FCA-2026</span>
+            </div>
+            <div class="form-grid-2" style="background-color:#FFFFFF;padding:12px 14px;border-radius:4px;border:1px solid var(--border-light);font-size:0.84rem;">
+              <div>
+                <div style="color:var(--text-muted);font-size:0.75rem;">Zuständiges Ressort im FC Attiswil:</div>
+                <strong style="color:var(--fca-navy);" id="wpResAssigned">Vorstand &amp; Sportliche Leitung</strong>
+              </div>
+              <div>
+                <div style="color:var(--text-muted);font-size:0.75rem;">Erwartete Rückmeldung:</div>
+                <strong style="color:var(--fca-red);" id="wpResCallback">Innert 24–48 Stunden</strong>
+              </div>
+            </div>
+            <div>
+              <div style="font-family:'Montserrat',sans-serif;font-size:0.75rem;font-weight:800;text-transform:uppercase;color:var(--fca-navy);margin-bottom:6px;">
+                Vorschau der strukturierten WhatsApp-Sofortmeldung ans Ressort:
+              </div>
+              <div class="wp-wa-preview" id="wpResWaPreview"></div>
+            </div>
+            <div class="form-grid-2">
+              <a href="kontakt.html" id="wpResPdfBtn" target="_blank" rel="noopener noreferrer" class="btn-cta btn-cta-primary" style="width:100%;">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                <span>1-Seiten-PDF-Dossier öffnen</span>
+              </a>
+              <button type="button" class="btn-cta btn-cta-outline" style="width:100%;" onclick="wpResetWizard()">
+                <span>Weitere Anfrage erfassen</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <script>
+    var wpFcaState = {
+      step: 1,
+      topic: 'Probetraining / Neumitglied',
+      urgency: 'Planbar / Laufende Saison',
+      photos: []
+    };
+    var wpFcaRoleConfig = {
+      'Probetraining / Neumitglied': {
+        assignee: 'Florian Bohner (Sportchef · 079 677 93 52), Levi Meyer (Junioren · 079 475 75 80) & Celine Lemp (Frauen/Juniorinnen · 079 137 82 38)',
+        l1: 'Name & Jahrgang Spieler/in',
+        p1: 'z. B. Levin Muster · Jahrgang 2015',
+        l2: 'Gewünschte Mannschaft / Bisheriger Verein',
+        p2: 'z. B. Junioren E / Frauen 2. Liga / 1. Mannschaft'
+      },
+      'Sponsoring / 300er Club / Matchball': {
+        assignee: 'Raphaela Lüscher (Marketing & Sponsoring · 079 453 88 60 · sponsoring@fcattiswil.ch)',
+        l1: 'Gewünschtes Engagement / Format',
+        p1: 'z. B. 300er Club (CHF 300), Matchballspende (CHF 150), Dress- oder Bandensponsoring',
+        l2: 'Unternehmen / Wunsch-Team für Patronat',
+        p2: 'z. B. Muster AG Attiswil · 1. Mannschaft / Nachwuchs'
+      },
+      'Clubhaus Lindenrain mieten / Anlässe': {
+        assignee: 'Philipp Singer (Vizepräsident / Anlässe & Vermietung · 079 304 44 56) & Christina Lemp (Wirtin · 079 916 64 55)',
+        l1: 'Gewünschtes Mietdatum / Anlass',
+        p1: 'z. B. Samstag, 14. November 2026 · Familienfest / Vereinsabend',
+        l2: 'Erwartete Personenzahl (max. 48 innen / 40 aussen)',
+        p2: 'z. B. ca. 35 Personen'
+      },
+      'Spielbetrieb / Turniere / Schiedsrichter': {
+        assignee: 'Florian Bohner (Sportchef · 079 677 93 52) & Slavko Martinovic (SR-Verantwortlicher · 079 235 37 35)',
+        l1: 'Betroffenes Team / Spielpaarung',
+        p1: 'z. B. 1. Mannschaft oder Junioren D/9 · SOFV Meisterschaft',
+        l2: 'Wunschdatum / Anliegen Spielbetrieb',
+        p2: 'z. B. Spielverschiebung / Freundschaftsspiel / Schiedsrichter-Kurs'
+      },
+      'Mitgliedschaft / Mutation / Vereinsartikel': {
+        assignee: 'Jörg Scheidegger (Kassier · 032 637 21 76), Michelle Kurth (Sekretärin) & Raphaela Lüscher (Vereinsartikel)',
+        l1: 'Art der Mitgliedschaft / Artikelwunsch',
+        p1: 'z. B. Passivmitglied (CHF 50), Adressänderung oder FCA-Trainerjacke Grösse M',
+        l2: 'Mitglied-Nr. oder bisherige Adresse',
+        p2: 'z. B. Neue Wohnadresse in 4536 Attiswil'
+      },
+      'Allgemeine Vereinsanfrage / Vorstand': {
+        assignee: 'Konrad Schütz (Präsident · 079 661 66 12) & Michelle Kurth (Sekretärin · info@fcattiswil.ch)',
+        l1: 'Betreff / Ressort',
+        p1: 'z. B. Anfrage an das Präsidium / Fairplay / Medien',
+        l2: 'Bezug zum FC Attiswil',
+        p2: 'z. B. Vereinsmitglied / Gemeinde Attiswil / Eltern'
+      }
+    };
+    function wpUpdateHeader() {
+      var titles = {
+        1: '1. Wähle dein Anliegen',
+        2: '2. Eckdaten & Beilagen ergänzen',
+        3: '3. Kontaktdaten & 1-Seiten-Dossier'
+      };
+      var tEl = document.getElementById('wpWizardTitle');
+      if (tEl) tEl.textContent = titles[wpFcaState.step] || titles[1];
+      for (var i = 1; i <= 3; i++) {
+        var pill = document.getElementById('wpStepPill' + i);
+        var pane = document.getElementById('wpStep' + i);
+        if (pill) {
+          pill.className = 'wp-step-pill' + (i === wpFcaState.step ? ' active' : (i < wpFcaState.step ? ' done' : ''));
+        }
+        if (pane) {
+          pane.className = 'wp-step-pane' + (i === wpFcaState.step ? ' active' : '');
+        }
+      }
+    }
+    function wpSelectFcaTopic(topic) {
+      wpFcaState.topic = topic;
+      var btns = document.querySelectorAll('#wpTopicGrid .wp-role-tile');
+      for (var i = 0; i < btns.length; i++) {
+        var b = btns[i];
+        if (b.getAttribute('data-topic') === topic) b.classList.add('selected');
+        else b.classList.remove('selected');
+      }
+      var cfg = wpFcaRoleConfig[topic] || wpFcaRoleConfig['Probetraining / Neumitglied'];
+      var badge = document.getElementById('wpActiveAssigneeBadge');
+      if (badge) badge.textContent = 'Zuständig: ' + cfg.assignee.split('(')[0].trim();
+      var l1 = document.getElementById('wpDetail1Label');
+      var i1 = document.getElementById('wpDetail1');
+      var l2 = document.getElementById('wpDetail2Label');
+      var i2 = document.getElementById('wpDetail2');
+      if (l1) l1.textContent = cfg.l1;
+      if (i1) i1.placeholder = cfg.p1;
+      if (l2) l2.textContent = cfg.l2;
+      if (i2) i2.placeholder = cfg.p2;
+    }
+    function wpSelectFcaUrgency(urg) {
+      wpFcaState.urgency = urg;
+      var btns = document.querySelectorAll('#wpUrgencyGrid .wp-role-tile');
+      for (var i = 0; i < btns.length; i++) {
+        var b = btns[i];
+        if (b.getAttribute('data-urgency') === urg) b.classList.add('selected');
+        else b.classList.remove('selected');
+      }
+    }
+    function wpNextStep(target) {
+      wpFcaState.step = target;
+      wpUpdateHeader();
+    }
+    function wpPrevStep() {
+      if (wpFcaState.step > 1) {
+        wpFcaState.step -= 1;
+        wpUpdateHeader();
+      }
+    }
+    function wpTriggerPhotoUpload() {
+      var inp = document.getElementById('wpPhotoInput');
+      if (inp) inp.click();
+    }
+    function wpCompressImageFile(file, cb) {
+      var reader = new FileReader();
+      reader.onload = function(e) {
+        var img = new Image();
+        img.onload = function() {
+          var maxSide = 1200;
+          var w = img.width;
+          var h = img.height;
+          if (w > maxSide || h > maxSide) {
+            if (w >= h) { h = Math.round(h * (maxSide / w)); w = maxSide; }
+            else { w = Math.round(w * (maxSide / h)); h = maxSide; }
+          }
+          var canvas = document.createElement('canvas');
+          canvas.width = w;
+          canvas.height = h;
+          var ctx = canvas.getContext('2d');
+          ctx.drawImage(img, 0, 0, w, h);
+          cb(canvas.toDataURL('image/jpeg', 0.78));
+        };
+        img.src = e.target.result;
+      };
+      reader.readAsDataURL(file);
+    }
+    function wpRenderPhotos() {
+      var box = document.getElementById('wpPhotoThumbs');
+      var cnt = document.getElementById('wpPhotoCounter');
+      if (cnt) cnt.textContent = wpFcaState.photos.length + ' / 3 Bilder ausgewählt · Automatisch für das 1-Seiten-PDF-Dossier optimiert';
+      if (!box) return;
+      box.innerHTML = '';
+      for (var i = 0; i < wpFcaState.photos.length; i++) {
+        (function(idx) {
+          var wrap = document.createElement('div');
+          wrap.className = 'wp-thumb-item';
+          var im = document.createElement('img');
+          im.src = wpFcaState.photos[idx];
+          im.alt = 'Beilage ' + (idx + 1);
+          var btn = document.createElement('button');
+          btn.type = 'button';
+          btn.className = 'wp-thumb-remove';
+          btn.textContent = 'x';
+          btn.onclick = function() { wpRemovePhoto(idx); };
+          wrap.appendChild(im);
+          wrap.appendChild(btn);
+          box.appendChild(wrap);
+        })(i);
+      }
+    }
+    function wpHandlePhotoFiles(files) {
+      if (!files || !files.length) return;
+      for (var i = 0; i < files.length; i++) {
+        if (wpFcaState.photos.length >= 3) break;
+        wpCompressImageFile(files[i], function(b64) {
+          if (wpFcaState.photos.length < 3) {
+            wpFcaState.photos.push(b64);
+            wpRenderPhotos();
+          }
+        });
+      }
+    }
+    function wpRemovePhoto(idx) {
+      wpFcaState.photos.splice(idx, 1);
+      wpRenderPhotos();
+    }
+    function wpCheckFcaPlz(val) {
+      var badge = document.getElementById('wpPlzBadge');
+      var txt = document.getElementById('wpPlzBadgeText');
+      if (!badge || !txt) return;
+      var m = String(val || '').match(/\b(\d{4})\b/);
+      if (!m) {
+        badge.className = 'wp-plz-badge';
+        return;
+      }
+      var plz = parseInt(m[1], 10);
+      badge.className = 'wp-plz-badge in-area';
+      if ((plz >= 4500 && plz <= 4799) || (plz >= 3300 && plz <= 3399) || (plz >= 4900 && plz <= 4999)) {
+        txt.textContent = 'PLZ ' + m[1] + ': Direktes Einzugsgebiet Attiswil, Oberaargau & Jurasüdfuss (Sportanlage Lindenrain)';
+      } else {
+        txt.textContent = 'PLZ ' + m[1] + ': Region Solothurn / Bern / Schweiz — Herzlich willkommen beim FC Attiswil';
+      }
+    }
+    function wpStripEmojisForDom(str) {
+      return String(str || '').replace(/[\u{1F300}-\u{1FAFF}\u{2600}-\u{27BF}]/gu, '').replace(/\s+\n/g, '\n').trim();
+    }
+    function wpResetWizard() {
+      wpFcaState.step = 1;
+      wpFcaState.photos = [];
+      wpRenderPhotos();
+      var form = document.getElementById('fcaContactForm');
+      if (form) {
+        form.reset();
+        form.style.display = 'block';
+      }
+      var sBox = document.getElementById('wpSuccessBox');
+      if (sBox) sBox.classList.remove('visible');
+      var err = document.getElementById('wpFormError');
+      if (err) err.style.display = 'none';
+      var badge = document.getElementById('wpPlzBadge');
+      if (badge) badge.className = 'wp-plz-badge';
+      wpSelectFcaTopic('Probetraining / Neumitglied');
+      wpSelectFcaUrgency('Planbar / Laufende Saison');
+      wpUpdateHeader();
+    }
+    function wpSubmitFcaLead(e) {
+      if (e) e.preventDefault();
+      var errBox = document.getElementById('wpFormError');
+      if (errBox) errBox.style.display = 'none';
+      var name = (document.getElementById('contactName').value || '').trim();
+      var company = (document.getElementById('contactCompany').value || '').trim();
+      var loc = (document.getElementById('contactLoc').value || '').trim();
+      var street = (document.getElementById('contactStreet').value || '').trim();
+      var email = (document.getElementById('contactEmail').value || '').trim();
+      var phone = (document.getElementById('contactPhone').value || '').trim();
+      var msg = (document.getElementById('contactMessage').value || '').trim();
+      var d1 = (document.getElementById('wpDetail1').value || '').trim();
+      var d2 = (document.getElementById('wpDetail2').value || '').trim();
+      var hp = (document.getElementById('wpHoneypot').value || '').trim();
+      if (!name || (!phone && !email)) {
+        if (errBox) {
+          errBox.textContent = 'Bitte gib deinen Namen sowie deine E-Mail-Adresse oder Telefonnummer an.';
+          errBox.style.display = 'block';
+        }
+        return false;
+      }
+      var cfg = wpFcaRoleConfig[wpFcaState.topic] || wpFcaRoleConfig['Probetraining / Neumitglied'];
+      var extra = {};
+      extra[cfg.l1] = d1 || 'Keine Angabe';
+      extra[cfg.l2] = d2 || 'Keine Angabe';
+      var btn = document.getElementById('wpSubmitBtn');
+      var btnTxt = document.getElementById('wpSubmitBtnText');
+      if (btn) btn.disabled = true;
+      if (btnTxt) btnTxt.textContent = '1-Seiten-PDF-Dossier wird erstellt...';
+      var payload = {
+        client_slug: 'fcattiswil',
+        source_page: 'preview-fcattiswil/kontakt.html',
+        website_url: hp,
+        category: wpFcaState.topic,
+        sparte: wpFcaState.topic,
+        urgency: wpFcaState.urgency,
+        name: name,
+        company: company,
+        street: street,
+        plz: loc,
+        phone: phone,
+        email: email,
+        message: msg || ('Anfrage zum Bereich ' + wpFcaState.topic),
+        extra_fields: extra,
+        photos: wpFcaState.photos,
+        self_test_mode: true
+      };
+      fetch('/api/lead-submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      })
+      .then(function(r) { return r.json(); })
+      .then(function(res) {
+        if (btn) btn.disabled = false;
+        if (btnTxt) btnTxt.textContent = '1-Seiten-Dossier & Anfrage senden';
+        if (!res || !res.ok) {
+          if (errBox) {
+            errBox.textContent = (res && res.error) ? res.error : 'Übermittlung fehlgeschlagen. Bitte versuche es erneut.';
+            errBox.style.display = 'block';
+          }
+          return;
+        }
+        document.getElementById('fcaContactForm').style.display = 'none';
+        document.getElementById('wpResRef').textContent = res.ref_code || '#FCA-2026';
+        document.getElementById('wpResAssigned').textContent = res.assigned_to || cfg.assignee;
+        document.getElementById('wpResCallback').textContent = res.callback_window || 'Persönliche Rückmeldung durch das Ressort';
+        var chTxt = '1-Seiten-PDF-Dossier erstellt';
+        if (res.email_sent) chTxt += ' · E-Mail mit PDF-Anhang zugestellt';
+        if (res.whatsapp_sent) chTxt += ' · WhatsApp-Sofortmeldung zugestellt';
+        document.getElementById('wpResChannels').textContent = chTxt;
+        var pdfBtn = document.getElementById('wpResPdfBtn');
+        if (pdfBtn && res.pdf_url) pdfBtn.href = res.pdf_url;
+        var waBox = document.getElementById('wpResWaPreview');
+        if (waBox) waBox.textContent = wpStripEmojisForDom(res.whatsapp_preview_text || '');
+        document.getElementById('wpSuccessBox').classList.add('visible');
+      })
+      .catch(function() {
+        if (btn) btn.disabled = false;
+        if (btnTxt) btnTxt.textContent = '1-Seiten-Dossier & Anfrage senden';
+        if (errBox) {
+          errBox.textContent = 'Netzwerkfehler bei der Übermittlung. Bitte schreibe direkt an info@fcattiswil.ch.';
+          errBox.style.display = 'block';
+        }
+      });
+      return false;
+    }
+    (function() {
+      try {
+        var params = new URLSearchParams(window.location.search);
+        var t = (params.get('thema') || '').toLowerCase();
+        var map = {
+          'probetraining': 'Probetraining / Neumitglied',
+          'sponsoring': 'Sponsoring / 300er Club / Matchball',
+          'clubhaus': 'Clubhaus Lindenrain mieten / Anlässe',
+          'spielbetrieb': 'Spielbetrieb / Turniere / Schiedsrichter',
+          'mitgliedschaft': 'Mitgliedschaft / Mutation / Vereinsartikel',
+          'allgemein': 'Allgemeine Vereinsanfrage / Vorstand'
+        };
+        if (map[t]) {
+          wpSelectFcaTopic(map[t]);
+        }
+      } catch(err) {}
+    })();
+  </script>
+
+  </main>
+  <!-- FOOTER -->
+  <footer class="site-footer" data-section="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div style="display:flex;align-items:center;gap:12px;margin-bottom:14px;">
+            <img src="images/logo-fcattiswil.webp" alt="FC Attiswil Wappen" width="46" height="46" loading="lazy" decoding="async" style="object-fit:contain;">
+            <div>
+              <div style="font-family:'Montserrat',sans-serif;font-weight:800;font-size:1.1rem;color:#FFFFFF;">FC ATTISWIL</div>
+              <div style="font-size:0.76rem;color:#FBBF24;font-weight:700;">ARCHITEKTUR-STUDIE V2 · 6 % PROTOTYP</div>
+            </div>
+          </div>
+          <p style="font-size:0.86rem;color:#CBD5E1;line-height:1.6;margin-bottom:14px;" data-slot="footer_about">
+            Architekten-Musterhaus &amp; Bauplan-Vorschau für den FC Attiswil (gegründet am 16.02.1971, SFV Quality Club): 3 von 53 Seiten (Startseite, 1 Muster-Team 1. Mannschaft, Smart-Anfrage) als Qualitätsbeweis ausgearbeitet — 50 Unterseiten &amp; 13 Teams folgen im Hauptauftrag.
+          </p>
+          <div style="font-size:0.84rem;color:#E2E8F0;font-weight:600;">
+            Sportanlage Lindenrain · Sportplatzweg 1 · 4536 Attiswil
+          </div>
+        </div>
+        <div>
+          <div class="footer-title">Prototyp (6 % ausgearbeitet)</div>
+          <ul class="footer-list">
+            <li><a href="index.html">Startseite: Hero &amp; Sponsoren (Muster)</a></li>
+            <li><a href="herren-1.html">Muster-Team: 1. Mannschaft (1 von 14 fertig)</a></li>
+            <li><a href="index.html#sponsoren">Alle 23 Sponsoren &amp; 300er Club</a></li>
+            <li><a href="kontakt.html">Smart-Anfrage-Zentrale (Live-Demo)</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-title">Rohbau-Bauplan (94 % offen)</div>
+          <ul class="footer-list">
+            <li><a href="herren-1.html#alle-teams-matrix">13 weitere Mannschaften (Rohbau)</a></li>
+            <li><button type="button" onclick="wpOpenBlueprintModal('Rohbau-Modul B: Verein, Vorstand (10), Funktionäre (8), Schiedsrichter &amp; Chronik seit 1971 (14 Unterseiten)', 'Vereinsführung FC Attiswil (0 % übertragen)', 'Konrad Schütz (Präsident) &amp; Michelle Kurth (Sekretärin)')">Verein, Vorstand &amp; Chronik (0/14)</button></li>
+            <li><button type="button" onclick="wpOpenBlueprintModal('Rohbau-Modul C: Sportanlage Lindenrain, Clubhaus-Vermietung &amp; Anlässe (10 Unterseiten)', 'Infrastruktur &amp; Vereinsleben (0 % übertragen)', 'Philipp Singer (079 304 44 56) &amp; Christina Lemp (079 916 64 55)', 'clubhaus')">Clubhaus Lindenrain &amp; Anlässe (0/10)</button></li>
+            <li><button type="button" onclick="wpOpenBlueprintModal('Rohbau-Modul D: Spielbetrieb, Matchberichte, Vereinsartikel &amp; Foto-Archiv (7 Unterseiten)', 'Spielbetrieb &amp; Medien (0 % übertragen)', 'Florian Bohner (Sportchef) &amp; Raphaela Lüscher (Marketing)')">Spielbetrieb &amp; Galerien (0/7)</button></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-title">Direktkontakt &amp; Rechtliches</div>
+          <ul class="footer-list">
+            <li><a href="kontakt.html?thema=probetraining" style="color:#FBBF24;font-weight:700;">Probetraining &amp; Vereins-Anfrage</a></li>
+            <li><a href="index.html#bauplan-schnitt">Architektur-Bauplan-Schnitt ansehen</a></li>
+            <li><a href="https://www.instagram.com/fc_attiswil/" target="_blank" rel="noopener noreferrer">Instagram (@fc_attiswil)</a></li>
+            <li><button type="button" onclick="wpOpenImpressumModal()">Impressum &amp; Datenschutz</button></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div>&copy; 2026 Fussballclub Attiswil (4536 Attiswil · SOFV Nr. 1880) · Konzept- &amp; Bauplan-Studie V2 (Ausbaustufe 6 %).</div>
+        <div style="display:flex;gap:16px;flex-wrap:wrap;">
+          <a href="herren-1.html" style="color:#FBBF24;font-weight:700;">Muster-Team 1. Mannschaft (1/14)</a>
+          <a href="kontakt.html" style="color:#E2E8F0;">Smart-Anfrage testen</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <!-- ARCHITEKTUR-BLAUPAUSEN-MODAL (V2 BAUPLAN-MODUS) -->
+  <div class="wp-modal-backdrop" id="wpBlueprintModal" role="dialog" aria-modal="true" aria-labelledby="wpBpTitle">
+    <div class="wp-modal-dialog">
+      <button type="button" class="wp-modal-close" aria-label="Dialog schliessen" onclick="wpCloseBlueprintModal()">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+      <div class="section-kicker">BAUPLAN-STATUS: ROHBAU (NOCH NICHT MIGRIERT · TEIL DES HAUPTAUFTRAGS)</div>
+      <h3 id="wpBpTitle" style="font-size:1.35rem;font-weight:800;margin-bottom:8px;">Rohbau-Modul: Noch nicht übertragen</h3>
+      <p id="wpBpSub" style="font-size:0.9rem;color:var(--text-body);margin-bottom:12px;">
+        In dieser <strong>Architektur-Studie (Ausbaustufe 6 % · 3 von 53 Seiten)</strong> sind oben das Design, alle 23 Sponsoren und exakt <strong>1 Muster-Team (1. Mannschaft · Herren 4. Liga)</strong> ausgearbeitet. Dieses Modul befindet sich bewusst noch im <strong>unbefüllten Rohbau (0 % übertragen)</strong> und wird nach Auftragserteilung komplett mit allen Originaldaten, Fotos und Kadern eingerichtet.
+      </p>
+      <div style="background-color:#FEF3C7;border-left:4px solid #D97706;padding:12px 14px;border-radius:var(--radius-sm);font-size:0.86rem;margin-bottom:14px;">
+        <div style="font-weight:800;color:#92400E;" id="wpBpCategory">Bereich / Abteilung: Rohbau-Modul</div>
+        <div style="color:#78350F;margin-top:2px;" id="wpBpContact">Zuständige Ansprechperson im Verein: Vorstand FC Attiswil</div>
+      </div>
+      <div class="wp-modal-checklist">
+        <div style="font-family:'Montserrat',sans-serif;font-size:0.78rem;font-weight:800;text-transform:uppercase;color:var(--fca-navy);">
+          Wird nach Auftragserteilung (analog Muster-Team 1. Mannschaft) schlüsselfertig übertragen:
+        </div>
+        <div class="wp-modal-check-item">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><polyline points="20 6 9 17 4 12"/></svg>
+          <span>Vollständige Übernahme aller bestehenden Texte, Mannschaftsfotos, Porträts &amp; Statuten-PDFs</span>
+        </div>
+        <div class="wp-modal-check-item">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><polyline points="20 6 9 17 4 12"/></svg>
+          <span>Einrichtung aller 13 weiteren Mannschafts-Seiten (Frauen 2./3. Liga, Senioren, Junioren B–G &amp; Juniorinnen FF-17/14/11)</span>
+        </div>
+        <div class="wp-modal-check-item">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><polyline points="20 6 9 17 4 12"/></svg>
+          <span>Direkte Anbindung an das WebPilot Studio-Cockpit für sekundenschnelle Änderungen per KI oder 1-Klick</span>
+        </div>
+      </div>
+      <div style="display:flex;flex-wrap:wrap;gap:10px;margin-top:18px;">
+        <a href="herren-1.html" class="btn-cta btn-cta-primary btn-sm" onclick="wpCloseBlueprintModal()">
+          <span>Fertiges Muster-Team (1. Mannschaft · 1/14) ansehen</span>
+        </a>
+        <a href="kontakt.html?thema=probetraining" id="wpBpCtaLink" class="btn-cta btn-cta-gold btn-sm">
+          <span>Smart-Anfrage (Live-Demo) testen</span>
+        </a>
+      </div>
+    </div>
+  </div>
+  <!-- IMPRESSUM MODAL -->
+  <div class="wp-modal-backdrop" id="wpImpressumModal" role="dialog" aria-modal="true" aria-labelledby="wpImpTitle">
+    <div class="wp-modal-dialog">
+      <button type="button" class="wp-modal-close" aria-label="Impressum schliessen" onclick="wpCloseImpressumModal()">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+      <div class="section-kicker">RECHTLICHE ANGABEN · SCHWEIZER DSG</div>
+      <h3 id="wpImpTitle" style="font-size:1.3rem;font-weight:800;margin-bottom:10px;">Impressum &amp; Datenschutz — FC Attiswil</h3>
+      <div style="font-size:0.88rem;color:var(--text-body);display:flex;flex-direction:column;gap:10px;">
+        <p><strong>Vereinsadresse:</strong><br>Fussballclub Attiswil · Sportanlage Lindenrain · Sportplatzweg 1 · 4536 Attiswil (SOFV-Verein Nr. 1880)</p>
+        <p><strong>Vertretungsberechtigter Vorstand:</strong><br>Konrad Schütz (Präsident, Tel. 079 661 66 12) · Philipp Singer (Vizepräsident / Anlässe &amp; Clubhaus, Tel. 079 304 44 56) · Michelle Kurth (Sekretärin &amp; Datenschutz) · Jörg Scheidegger (Kassier, Tel. 032 637 21 76)</p>
+        <p><strong>Offizielle E-Mail-Kontakte:</strong><br>info@fcattiswil.ch · sponsoring@fcattiswil.ch · 300erClub@fcattiswil.ch · fairplay@fcattiswil.ch</p>
+        <p><strong>Datenschutz (Schweizer Datenschutzgesetz revDSG):</strong><br>Personendaten aus Kontakt-, Probetraining-, Clubhaus- und Sponsoring-Anfragen werden ausschliesslich zur Vereinsadministration innerhalb des FC Attiswil verwendet und niemals an unbefugte Dritte weitergegeben.</p>
+      </div>
+      <div style="margin-top:18px;text-align:right;">
+        <button type="button" class="btn-cta btn-cta-navy btn-sm" onclick="wpCloseImpressumModal()">Schliessen</button>
+      </div>
+    </div>
+  </div>
+  <script>
+    function wpToggleMobileMenu() {
+      var d = document.getElementById('mobileDrawer');
+      if (d) d.classList.toggle('open');
+    }
+    function wpCloseMobileMenu() {
+      var d = document.getElementById('mobileDrawer');
+      if (d) d.classList.remove('open');
+    }
+    function wpOpenBlueprintModal(title, category, contact, topicSlug) {
+      var m = document.getElementById('wpBlueprintModal');
+      if (!m) return;
+      var tEl = document.getElementById('wpBpTitle');
+      var cEl = document.getElementById('wpBpCategory');
+      var pEl = document.getElementById('wpBpContact');
+      var lEl = document.getElementById('wpBpCtaLink');
+      if (tEl) tEl.textContent = title || 'Rohbau-Modul: Noch nicht übertragen';
+      if (cEl) cEl.textContent = 'Bereich / Abteilung: ' + (category || 'Vereins-Architektur');
+      if (pEl) pEl.textContent = 'Zuständig im FC Attiswil: ' + (contact || 'Vorstand FC Attiswil (info@fcattiswil.ch)');
+      if (lEl) lEl.href = 'kontakt.html?thema=' + encodeURIComponent(topicSlug || 'probetraining');
+      m.classList.add('open');
+    }
+    function wpCloseBlueprintModal() {
+      var m = document.getElementById('wpBlueprintModal');
+      if (m) m.classList.remove('open');
+    }
+    function wpOpenImpressumModal() {
+      var m = document.getElementById('wpImpressumModal');
+      if (m) m.classList.add('open');
+    }
+    function wpCloseImpressumModal() {
+      var m = document.getElementById('wpImpressumModal');
+      if (m) m.classList.remove('open');
+    }
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') {
+        wpCloseBlueprintModal();
+        wpCloseImpressumModal();
+        wpCloseMobileMenu();
+      }
+    });
+  </script>
+</body>
+</html>

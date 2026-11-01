@@ -1,0 +1,2160 @@
+<!DOCTYPE html>
+<html lang="de-CH">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self' https: data: blob:; script-src 'self' 'unsafe-inline' https:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' https: data: blob:; connect-src 'self' https:;">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=()">
+  <title>FC Attiswil — Architektur-Studie V2 (6-%-Prototyp & Bauplan)</title>
+  <meta name="description" content="Fussballclub Attiswil (gegründet am 16. Februar 1971) — SFV Quality Club, 14 Mannschaften, 23 Sponsoren &amp; Sportanlage Lindenrain in 4536 Attiswil.">
+  <link rel="icon" type="image/png" href="images/favicon-32x32.png">
+  <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Montserrat:wght@600;700;800&amp;display=swap" rel="stylesheet">
+  <style>
+
+    :root {
+      --fca-navy: #0F172A;
+      --fca-navy-deep: #0B1324;
+      --fca-red: #C81E1E;
+      --fca-red-dark: #991B1B;
+      --fca-red-soft: #FEF2F2;
+      --fca-gold: #F59E0B;
+      --fca-gold-dark: #B45309;
+      --fca-gold-soft: #FEF3C7;
+      --fca-green: #16A34A;
+      --fca-green-soft: #DCFCE7;
+      --bg-page: #F8FAFC;
+      --bg-card: #FFFFFF;
+      --bg-muted: #F1F5F9;
+      --text-main: #0F172A;
+      --text-body: #334155;
+      --text-muted: #475569;
+      --border-light: #E2E8F0;
+      --border-strong: #CBD5E1;
+      --radius-sm: 4px;
+      --radius-md: 8px;
+      --shadow-sm: 0 2px 8px rgba(15, 23, 42, 0.05);
+      --shadow-md: 0 8px 24px rgba(15, 23, 42, 0.08);
+      --shadow-lg: 0 16px 36px rgba(15, 23, 42, 0.14);
+    }
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    html {
+      scroll-behavior: smooth;
+      -webkit-text-size-adjust: 100%;
+    }
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: var(--bg-page);
+      color: var(--text-main);
+      line-height: 1.6;
+      font-size: 16px;
+      overflow-x: hidden;
+    }
+    h1, h2, h3, h4, .heading-font {
+      font-family: 'Montserrat', sans-serif;
+      color: var(--fca-navy);
+      line-height: 1.22;
+      letter-spacing: -0.015em;
+    }
+    a {
+      color: inherit;
+      text-decoration: none;
+      transition: color 0.2s ease, background-color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+    }
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+    ul {
+      list-style: none;
+    }
+    .container {
+      width: 100%;
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+    section {
+      padding: 80px 0;
+      position: relative;
+    }
+    .section-head {
+      max-width: 780px;
+      margin-bottom: 44px;
+    }
+    .section-kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--fca-red);
+      background-color: var(--fca-red-soft);
+      border: 1px solid #FECACA;
+      padding: 6px 12px;
+      border-radius: var(--radius-sm);
+      margin-bottom: 14px;
+    }
+    .section-kicker.kicker-gold {
+      color: #78350F;
+      background-color: var(--fca-gold-soft);
+      border-color: #FDE68A;
+    }
+    .section-kicker.kicker-light {
+      color: #FDE68A;
+      background-color: rgba(245, 158, 11, 0.16);
+      border: 1px solid rgba(245, 158, 11, 0.45);
+    }
+    .section-title {
+      font-size: clamp(1.75rem, 3vw, 2.45rem);
+      font-weight: 800;
+      color: var(--fca-navy);
+      margin-bottom: 14px;
+    }
+    .section-desc {
+      font-size: 1.04rem;
+      color: var(--text-body);
+      line-height: 1.65;
+    }
+    /* V2 Blueprint Bar */
+    .wp-v2-blueprint-bar {
+      background-color: #0B1528;
+      color: #F8FAFC;
+      border-bottom: 2px solid #F59E0B;
+      font-size: 0.8rem;
+      position: relative;
+      z-index: 1003;
+      padding: 10px 0;
+    }
+    .wp-v2-bar-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .wp-v2-bar-left {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 3px;
+    }
+    .wp-v2-study-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      background-color: rgba(245, 158, 11, 0.18);
+      border: 1px solid #F59E0B;
+      color: #FBBF24;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.66rem;
+      font-weight: 800;
+      padding: 3px 7px;
+      border-radius: var(--radius-sm);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+    .wp-v2-bar-status-text {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: #F8FAFC;
+    }
+    .wp-v2-bar-middle {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background-color: rgba(255, 255, 255, 0.06);
+      border: 1px dashed rgba(245, 158, 11, 0.55);
+      padding: 4px 8px;
+      border-radius: var(--radius-sm);
+      flex-wrap: wrap;
+    }
+    .wp-v2-progress-track {
+      width: 68px;
+      height: 8px;
+      background-color: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(255, 255, 255, 0.24);
+      border-radius: var(--radius-sm);
+      overflow: hidden;
+      display: flex;
+      flex-shrink: 0;
+    }
+    .wp-v2-progress-fill {
+      width: 12%;
+      background-color: #F59E0B;
+      height: 100%;
+    }
+    .wp-v2-progress-label {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.69rem;
+      font-weight: 700;
+      color: #FDE68A;
+    }
+    .wp-v2-switch-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      background-color: #F59E0B;
+      color: #0B1528;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 800;
+      padding: 6px 11px;
+      min-height: 34px;
+      border-radius: var(--radius-sm);
+      border: 1px solid #FBBF24;
+      text-align: center;
+      line-height: 1.25;
+      flex-shrink: 0;
+    }
+    .wp-v2-switch-btn:hover {
+      background-color: #FBBF24;
+      color: #0B1528;
+    }
+    /* Top Bar */
+    .top-bar {
+      background-color: var(--fca-navy-deep);
+      color: #F8FAFC;
+      font-size: 0.82rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .top-bar-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 9px 0;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .top-bar-left {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .top-bar-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background-color: var(--fca-red);
+      color: #FFFFFF;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: 0.72rem;
+      padding: 2px 8px;
+      border-radius: var(--radius-sm);
+      letter-spacing: 0.04em;
+    }
+    .top-bar-links {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+    .top-bar-links a, .top-bar-links button {
+      color: #E2E8F0;
+      font-size: 0.78rem;
+      font-weight: 600;
+      background: none;
+      border: none;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-family: inherit;
+      padding: 0;
+    }
+    .top-bar-links a:hover, .top-bar-links button:hover {
+      color: var(--fca-gold);
+    }
+    /* Sticky Header */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background-color: rgba(255, 255, 255, 0.97);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border-light);
+      box-shadow: 0 4px 20px rgba(15, 23, 42, 0.05);
+    }
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 82px;
+      gap: 12px;
+    }
+    .brand-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      flex-shrink: 0;
+    }
+    .brand-logo {
+      width: 50px;
+      height: 50px;
+      object-fit: contain;
+      flex-shrink: 0;
+    }
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+    }
+    .brand-name {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.2rem;
+      font-weight: 800;
+      color: var(--fca-navy);
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+    }
+    .brand-sub {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.66rem;
+      font-weight: 700;
+      color: var(--fca-red);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-top: 3px;
+    }
+    .main-nav {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .nav-link {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.71rem;
+      font-weight: 700;
+      color: var(--text-body);
+      padding: 6px 8px;
+      border-radius: var(--radius-sm);
+      white-space: nowrap;
+      min-height: 34px;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      border: 1px solid transparent;
+      background: transparent;
+      cursor: pointer;
+    }
+    .nav-link:hover, .nav-link.active {
+      color: var(--fca-red);
+      background-color: var(--fca-red-soft);
+    }
+    .nav-link-locked {
+      color: #475569;
+      background-color: #F1F5F9;
+      border: 1px dashed #94A3B8;
+    }
+    .nav-link-locked:hover {
+      color: var(--fca-navy);
+      background-color: #E2E8F0;
+      border-color: var(--fca-navy);
+    }
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-shrink: 0;
+    }
+    .header-actions .btn-cta {
+      display: none;
+    }
+    /* Buttons (2-Radius: 4px / 8px) */
+    .btn-cta {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.86rem;
+      font-weight: 700;
+      padding: 12px 20px;
+      border-radius: var(--radius-sm);
+      border: 1px solid transparent;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      text-align: center;
+      line-height: 1.25;
+    }
+    .btn-cta-primary {
+      background-color: var(--fca-red);
+      color: #FFFFFF;
+      box-shadow: 0 4px 14px rgba(200, 30, 30, 0.24);
+    }
+    .btn-cta-primary:hover {
+      background-color: var(--fca-red-dark);
+      transform: translateY(-1px);
+    }
+    .btn-cta-gold {
+      background-color: var(--fca-gold);
+      color: var(--fca-navy);
+      font-weight: 800;
+      box-shadow: 0 4px 14px rgba(245, 158, 11, 0.28);
+    }
+    .btn-cta-gold:hover {
+      background-color: #D97706;
+      color: #FFFFFF;
+      transform: translateY(-1px);
+    }
+    .btn-cta-navy {
+      background-color: var(--fca-navy);
+      color: #FFFFFF;
+    }
+    .btn-cta-navy:hover {
+      background-color: #1E293B;
+    }
+    .btn-cta-outline {
+      background-color: #FFFFFF;
+      color: var(--fca-navy);
+      border-color: var(--border-strong);
+    }
+    .btn-cta-outline:hover {
+      border-color: var(--fca-red);
+      color: var(--fca-red);
+      background-color: var(--fca-red-soft);
+    }
+    .btn-cta-ghost-light {
+      background-color: rgba(255, 255, 255, 0.1);
+      color: #FFFFFF;
+      border-color: rgba(255, 255, 255, 0.28);
+    }
+    .btn-cta-ghost-light:hover {
+      background-color: rgba(255, 255, 255, 0.2);
+    }
+    .btn-sm {
+      padding: 9px 14px;
+      font-size: 0.8rem;
+    }
+    /* Mobile Menu Toggle & Drawer (S-04b safe) */
+    .mobile-toggle {
+      display: none;
+      align-items: center;
+      justify-content: center;
+      width: 44px;
+      height: 44px;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border-light);
+      background: #FFFFFF;
+      color: var(--fca-navy);
+      cursor: pointer;
+    }
+    .mobile-drawer {
+      display: none;
+      position: fixed;
+      top: 82px;
+      left: 0;
+      right: 0;
+      background-color: var(--fca-navy);
+      border-bottom: 2px solid var(--fca-gold);
+      padding: 20px 24px 28px;
+      z-index: 999;
+      flex-direction: column;
+      gap: 10px;
+      box-shadow: var(--shadow-lg);
+    }
+    .mobile-drawer.open {
+      display: flex;
+    }
+    .mobile-drawer a {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: #FFFFFF;
+      padding: 12px 14px;
+      border-radius: var(--radius-sm);
+      background-color: rgba(255, 255, 255, 0.05);
+    }
+    .mobile-drawer a:hover {
+      background-color: var(--fca-red);
+    }
+    .mobile-drawer button.mobile-nav-btn {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.92rem;
+      font-weight: 700;
+      color: #FDE68A;
+      padding: 12px 14px;
+      border-radius: var(--radius-sm);
+      background-color: rgba(245, 158, 11, 0.12);
+      border: 1px dashed rgba(245, 158, 11, 0.55);
+      text-align: left;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      cursor: pointer;
+      width: 100%;
+    }
+    /* Hero Section */
+    .hero-section {
+      background: linear-gradient(135deg, #0B1324 0%, #1C192E 52%, #6B1414 100%);
+      color: #FFFFFF;
+      padding: 68px 0 76px;
+      position: relative;
+      overflow: hidden;
+      border-bottom: 4px solid var(--fca-gold);
+    }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.12fr 0.88fr;
+      gap: 44px;
+      align-items: center;
+    }
+    .hero-title {
+      color: #FFFFFF;
+      font-size: clamp(2.1rem, 3.8vw, 3.2rem);
+      font-weight: 800;
+      line-height: 1.12;
+      margin-bottom: 18px;
+    }
+    .hero-title span {
+      color: #FBBF24;
+    }
+    .hero-motto-box {
+      background-color: rgba(245, 158, 11, 0.14);
+      border-left: 4px solid var(--fca-gold);
+      padding: 12px 16px;
+      border-radius: var(--radius-sm);
+      margin-bottom: 20px;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.84rem;
+      font-weight: 700;
+      color: #FEF08A;
+      letter-spacing: 0.02em;
+    }
+    .hero-sub {
+      font-size: 1.03rem;
+      color: #E2E8F0;
+      margin-bottom: 28px;
+      line-height: 1.65;
+    }
+    .hero-cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 36px;
+    }
+    .hero-kpi-strip {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      padding-top: 24px;
+      border-top: 1px solid rgba(255, 255, 255, 0.14);
+    }
+    .hero-kpi-card {
+      background-color: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: var(--radius-md);
+      padding: 12px 14px;
+    }
+    .hero-kpi-num {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.28rem;
+      font-weight: 800;
+      color: #FBBF24;
+      line-height: 1.15;
+    }
+    .hero-kpi-lbl {
+      font-size: 0.76rem;
+      color: #CBD5E1;
+      margin-top: 4px;
+      line-height: 1.35;
+    }
+    .hero-visual-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .hero-photo-card {
+      background-color: #1E293B;
+      border: 2px solid rgba(255, 255, 255, 0.18);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      box-shadow: var(--shadow-lg);
+      position: relative;
+    }
+    .hero-photo-card img {
+      width: 100%;
+      height: 270px;
+      object-fit: cover;
+      object-position: center 20%;
+    }
+    .hero-photo-caption {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 12px 16px;
+      background-color: rgba(15, 23, 42, 0.94);
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .hero-photo-caption strong {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.84rem;
+      color: #FFFFFF;
+    }
+    .hero-photo-caption span {
+      font-size: 0.76rem;
+      color: #FBBF24;
+      font-weight: 600;
+    }
+    .hero-secondary-row {
+      display: grid;
+      grid-template-columns: 1.25fr 0.75fr;
+      gap: 16px;
+    }
+    .hero-mini-card {
+      background-color: rgba(15, 23, 42, 0.85);
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .hero-mini-card img {
+      width: 100%;
+      height: 132px;
+      object-fit: cover;
+    }
+    .hero-mini-body {
+      padding: 10px 14px;
+      font-size: 0.78rem;
+      color: #E2E8F0;
+    }
+    .hero-centenary-box {
+      background-color: rgba(255, 255, 255, 0.97);
+      color: var(--fca-navy);
+      border-radius: var(--radius-md);
+      padding: 14px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      gap: 6px;
+    }
+    .hero-centenary-box img {
+      width: 96px;
+      height: 96px;
+      object-fit: contain;
+    }
+    .hero-centenary-box strong {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.78rem;
+      color: var(--fca-navy);
+    }
+    /* Generic Cards & Grids */
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .grid-4 {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 28px;
+    }
+    .card {
+      background-color: var(--bg-card);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-sm);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+    }
+    .card:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-md);
+      border-color: var(--border-strong);
+    }
+    .card-badge {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      background-color: var(--fca-navy);
+      color: #FBBF24;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 800;
+      padding: 4px 10px;
+      border-radius: var(--radius-sm);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+    .pillar-count {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 800;
+      color: var(--fca-red);
+      background-color: var(--fca-red-soft);
+      padding: 4px 10px;
+      border-radius: var(--radius-sm);
+      align-self: flex-start;
+      text-transform: uppercase;
+    }
+    /* Sponsors Showcase (All 23 Sponsors) */
+    .sponsor-tier-block {
+      margin-bottom: 36px;
+    }
+    .sponsor-tier-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 16px;
+      padding-bottom: 10px;
+      border-bottom: 2px solid var(--border-light);
+      flex-wrap: wrap;
+    }
+    .sponsor-tier-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.82rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      padding: 5px 12px;
+      border-radius: var(--radius-sm);
+    }
+    .tier-gold {
+      background-color: var(--fca-gold-soft);
+      color: #92400E;
+      border: 1px solid #FDE047;
+    }
+    .tier-silver {
+      background-color: #F1F5F9;
+      color: #1E293B;
+      border: 1px solid #CBD5E1;
+    }
+    .tier-bronze {
+      background-color: var(--fca-red-soft);
+      color: #991B1B;
+      border: 1px solid #FECACA;
+    }
+    .sponsors-main-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+    }
+    .sponsors-partner-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+    .sponsor-card {
+      background-color: #FFFFFF;
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-md);
+      padding: 18px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      text-align: center;
+      gap: 12px;
+      box-shadow: var(--shadow-sm);
+      transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+    .sponsor-card:hover {
+      transform: translateY(-2px);
+      border-color: var(--fca-red);
+      box-shadow: var(--shadow-md);
+    }
+    .sponsor-card.gold-card {
+      border: 2px solid #FDE047;
+    }
+    .sponsor-logo-wrap {
+      width: 100%;
+      height: 86px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #FFFFFF;
+      padding: 6px;
+    }
+    .sponsor-logo-wrap img {
+      max-height: 100%;
+      max-width: 100%;
+      width: auto;
+      height: auto;
+      object-fit: contain;
+    }
+    .sponsor-name {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.92rem;
+      font-weight: 800;
+      color: var(--fca-navy);
+      line-height: 1.25;
+    }
+    .sponsor-role-tag {
+      font-size: 0.76rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      line-height: 1.35;
+    }
+    /* Architecture Cut Zone (#bauplan-schnitt) */
+    .blueprint-zone-section {
+      background-color: #E2E8F0;
+      background-image:
+        linear-gradient(to right, rgba(15, 23, 42, 0.06) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(15, 23, 42, 0.06) 1px, transparent 1px);
+      background-size: 28px 28px;
+      border-top: 3px dashed #0F172A;
+      border-bottom: 3px dashed #0F172A;
+      padding: 76px 0 88px;
+    }
+    .blueprint-cut-banner {
+      background-color: #0B1528;
+      color: #F8FAFC;
+      border: 2px dashed #F59E0B;
+      border-radius: var(--radius-md);
+      padding: 28px 30px;
+      margin-bottom: 36px;
+      box-shadow: var(--shadow-md);
+    }
+    .blueprint-cut-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-bottom: 14px;
+      padding-bottom: 14px;
+      border-bottom: 1px dashed rgba(245, 158, 11, 0.4);
+    }
+    .blueprint-cut-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background-color: rgba(245, 158, 11, 0.2);
+      border: 1px solid #F59E0B;
+      color: #FBBF24;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.74rem;
+      font-weight: 800;
+      padding: 5px 11px;
+      border-radius: var(--radius-sm);
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+    .blueprint-kpi-row {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+      margin-top: 20px;
+    }
+    .blueprint-kpi-box {
+      background-color: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      border-radius: var(--radius-sm);
+      padding: 14px 16px;
+    }
+    .blueprint-kpi-box.is-open-scope {
+      border: 1px dashed #F59E0B;
+      background-color: rgba(245, 158, 11, 0.08);
+    }
+    /* 4 Dashed Blueprint Module Cards */
+    .blueprint-modules-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 28px;
+    }
+    .blueprint-module-card {
+      background-color: rgba(248, 250, 252, 0.96);
+      border: 2px dashed #475569;
+      border-radius: var(--radius-md);
+      padding: 26px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 20px;
+      box-shadow: 0 6px 20px rgba(15, 23, 42, 0.07);
+    }
+    .blueprint-module-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-bottom: 12px;
+    }
+    .blueprint-mod-tag {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 800;
+      color: #0F172A;
+      background-color: #E2E8F0;
+      border: 1px solid #94A3B8;
+      padding: 4px 9px;
+      border-radius: var(--radius-sm);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    .blueprint-lock-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background-color: #FEF3C7;
+      border: 1px solid #D97706;
+      color: #92400E;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.7rem;
+      font-weight: 800;
+      padding: 4px 9px;
+      border-radius: var(--radius-sm);
+      text-transform: uppercase;
+    }
+    .blueprint-module-title {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.22rem;
+      font-weight: 800;
+      color: #0F172A;
+      margin-bottom: 10px;
+      line-height: 1.25;
+    }
+    .blueprint-module-desc {
+      font-size: 0.9rem;
+      color: #334155;
+      line-height: 1.55;
+      margin-bottom: 14px;
+    }
+    .wireframe-preview-box {
+      background-color: #E2E8F0;
+      border: 1px dashed #64748B;
+      border-radius: var(--radius-sm);
+      padding: 14px;
+    }
+    .wireframe-skeleton-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      margin-bottom: 10px;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.7rem;
+      font-weight: 800;
+      color: #334155;
+      text-transform: uppercase;
+    }
+    .wireframe-grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+    }
+    .wireframe-slot {
+      background-color: #F8FAFC;
+      border: 1px dashed #94A3B8;
+      border-radius: var(--radius-sm);
+      padding: 8px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .wireframe-img-placeholder {
+      height: 36px;
+      background: repeating-linear-gradient(
+        -45deg,
+        #E2E8F0,
+        #E2E8F0 6px,
+        #CBD5E1 6px,
+        #CBD5E1 12px
+      );
+      border-radius: var(--radius-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #334155;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.65rem;
+      font-weight: 800;
+    }
+    .wireframe-line-lg {
+      height: 7px;
+      width: 82%;
+      background-color: #94A3B8;
+      border-radius: var(--radius-sm);
+    }
+    .wireframe-line-sm {
+      height: 6px;
+      width: 56%;
+      background-color: #CBD5E1;
+      border-radius: var(--radius-sm);
+    }
+    .blueprint-checklist {
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+      margin-top: 12px;
+      font-size: 0.83rem;
+      color: #1E293B;
+    }
+    .blueprint-checklist-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+    }
+    .blueprint-checklist-item svg {
+      color: #D97706;
+      flex-shrink: 0;
+      margin-top: 3px;
+    }
+    /* Wireframe Team Cards on herren-1.html */
+    .matrix-team-btn.wireframe-locked {
+      background-color: #F1F5F9;
+      border: 2px dashed #64748B;
+      opacity: 0.94;
+    }
+    .matrix-team-btn.wireframe-locked:hover {
+      border-color: #0F172A;
+      background-color: #E2E8F0;
+    }
+    .wireframe-mini-skeleton {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      width: 100%;
+      padding: 6px 8px;
+      background-color: #E2E8F0;
+      border: 1px dashed #94A3B8;
+      border-radius: var(--radius-sm);
+    }
+    .wireframe-mini-thumb {
+      width: 28px;
+      height: 22px;
+      background: repeating-linear-gradient(
+        -45deg,
+        #CBD5E1,
+        #CBD5E1 4px,
+        #94A3B8 4px,
+        #94A3B8 8px
+      );
+      border-radius: var(--radius-sm);
+      flex-shrink: 0;
+    }
+    .wireframe-mini-bars {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .wireframe-mini-bar {
+      height: 5px;
+      background-color: #94A3B8;
+      border-radius: var(--radius-sm);
+    }
+    .pill-wireframe-lock {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      background-color: #FEF3C7;
+      color: #92400E;
+      border: 1px solid #F59E0B;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.62rem;
+      font-weight: 800;
+      padding: 2px 6px;
+      border-radius: var(--radius-sm);
+      text-transform: uppercase;
+      flex-shrink: 0;
+    }
+    /* Footer */
+    .site-footer {
+      background-color: var(--fca-navy-deep);
+      color: #E2E8F0;
+      padding: 68px 0 36px;
+      border-top: 4px solid var(--fca-gold);
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.3fr 1fr 1fr 1.1fr;
+      gap: 36px;
+      padding-bottom: 44px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+    }
+    .footer-title {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.92rem;
+      font-weight: 800;
+      color: #FFFFFF;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: 16px;
+    }
+    .footer-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .footer-list a, .footer-list button {
+      color: #CBD5E1;
+      font-size: 0.88rem;
+      background: none;
+      border: none;
+      text-align: left;
+      cursor: pointer;
+      font-family: inherit;
+      padding: 5px 0;
+      min-height: 32px;
+      display: inline-flex;
+      align-items: center;
+    }
+    .footer-bottom a,
+    .staff-card a,
+    .team-sponsor-strip a {
+      display: inline-flex;
+      align-items: center;
+      min-height: 32px;
+      padding: 4px 0;
+    }
+    .footer-list a:hover, .footer-list button:hover {
+      color: var(--fca-gold);
+    }
+    .footer-bottom {
+      padding-top: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+      font-size: 0.82rem;
+      color: #CBD5E1;
+    }
+    /* Blueprint Modal (#wpBlueprintModal) */
+    .wp-modal-backdrop {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background-color: rgba(11, 19, 36, 0.78);
+      backdrop-filter: blur(6px);
+      z-index: 2000;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+    .wp-modal-backdrop.open {
+      display: flex;
+    }
+    .wp-modal-dialog {
+      background-color: #FFFFFF;
+      border: 2px solid var(--fca-gold);
+      border-radius: var(--radius-md);
+      max-width: 620px;
+      width: 100%;
+      padding: 28px;
+      box-shadow: var(--shadow-lg);
+      position: relative;
+      max-height: 90vh;
+      overflow-y: auto;
+    }
+    .wp-modal-close {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      width: 36px;
+      height: 36px;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border-light);
+      background-color: var(--bg-muted);
+      color: var(--fca-navy);
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .wp-modal-checklist {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin: 18px 0;
+      padding: 16px;
+      background-color: var(--bg-muted);
+      border-radius: var(--radius-sm);
+    }
+    .wp-modal-check-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 0.88rem;
+      color: var(--text-main);
+    }
+    .wp-modal-check-item svg {
+      color: var(--fca-green);
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    /* Responsive Breakpoints */
+    @media (max-width: 1080px) {
+      .hero-grid,
+      .blueprint-modules-grid,
+      .blueprint-kpi-row {
+        grid-template-columns: 1fr;
+      }
+      .grid-4,
+      .sponsors-main-grid,
+      .sponsors-partner-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .grid-3 {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .footer-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .main-nav, .header-actions .btn-cta {
+        display: none;
+      }
+      .mobile-toggle {
+        display: inline-flex;
+      }
+    }
+    @media (max-width: 720px) {
+      section {
+        padding: 56px 0;
+      }
+      .top-bar-links {
+        display: none;
+      }
+      .wp-v2-bar-inner {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 8px;
+      }
+      .wp-v2-bar-middle,
+      .wp-v2-switch-btn {
+        width: 100%;
+      }
+      .hero-kpi-strip {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .hero-secondary-row,
+      .grid-2,
+      .grid-3,
+      .grid-4,
+      .sponsors-main-grid,
+      .sponsors-partner-grid,
+      .wireframe-grid-3,
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+      .blueprint-cut-banner,
+      .blueprint-module-card {
+        padding: 20px 18px;
+      }
+    }
+
+
+  </style>
+</head>
+<body>
+  <!-- 1. UNUEBERSEHBARE KONZEPT- & AUSBAUSTUFEN-LEISTE (V2: 6-%-BAUPLAN-MODUS) -->
+  <div class="wp-v2-blueprint-bar">
+    <div class="container wp-v2-bar-inner">
+      <div class="wp-v2-bar-left">
+        <span class="wp-v2-study-badge">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
+          <span>ARCHITEKTUR-STUDIE · BAUPLAN V2</span>
+        </span>
+        <span class="wp-v2-bar-status-text">Ausbaustufe Prototyp: 6 % (3 von 53 Seiten exemplarisch ausgearbeitet)</span>
+      </div>
+      <div class="wp-v2-bar-middle" aria-label="Bauplan-Fortschritt 6 Prozent">
+        <div class="wp-v2-progress-track">
+          <div class="wp-v2-progress-fill"></div>
+        </div>
+        <span class="wp-v2-progress-label">6 % fertig · 50 Unterseiten &amp; 13 Teams im Rohbau</span>
+      </div>
+      <a href="kontakt.html?thema=probetraining" class="wp-v2-switch-btn">
+        <span>Smart-Anfrage &amp; 1-Seiten-PDF testen</span>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </a>
+    </div>
+  </div>
+  <!-- TOP BAR -->
+  <div class="top-bar">
+    <div class="container top-bar-inner">
+      <div class="top-bar-left">
+        <span class="top-bar-badge" data-slot="topbar_badge">PROTOTYP-AUSBAU: 3 / 53 SEITEN</span>
+        <span data-slot="topbar_info">1 von 14 Teams (1. Mannschaft) &amp; alle 23 Sponsoren als Musterhaus · 94 % Rohbau-Bauplan</span>
+      </div>
+      <div class="top-bar-links">
+        <a href="index.html#sponsoren">23 Sponsoren &amp; 300er Club</a>
+        <a href="index.html#bauplan-schnitt">Bauplan-Schnitt (50 offene Seiten)</a>
+        <button type="button" onclick="wpOpenBlueprintModal('Rohbau-Modul B: Verein, Vorstand (10), SFV Quality Club &amp; Chronik seit 1971 (14 Unterseiten)', 'Vereinsführung FC Attiswil (0 % übertragen)', 'Konrad Schütz (Präsident · 079 661 66 12) &amp; Philipp Singer (Vizepräsident · 079 304 44 56)')">Verein &amp; Chronik (0/14 offen)</button>
+        <a href="kontakt.html?thema=clubhaus">Clubhaus Lindenrain mieten</a>
+      </div>
+    </div>
+  </div>
+  <!-- STICKY HEADER (HAUPTNAVIGATION MIT STATUS-PUNKTEN & SCHLOSS-SYMBOL) -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="brand-link" aria-label="FC Attiswil Startseite">
+        <img src="images/logo-fcattiswil.webp" alt="Wappen FC Attiswil" class="brand-logo" width="50" height="50" data-slot="brand_logo">
+        <div class="brand-text">
+          <span class="brand-name" data-slot="brand_name">FC ATTISWIL</span>
+          <span class="brand-sub" data-slot="brand_sub">SEIT 1971 · SFV QUALITY CLUB</span>
+        </div>
+      </a>
+      <nav class="main-nav" aria-label="Hauptnavigation mit Ausbau-Status">
+        <a href="index.html" class="nav-link active">
+          <svg width="8" height="8" viewBox="0 0 8 8" aria-hidden="true"><circle cx="4" cy="4" r="4" fill="#10B981"/></svg>
+          <span>Startseite (Muster)</span>
+        </a>
+        <a href="herren-1.html" class="nav-link ">
+          <svg width="8" height="8" viewBox="0 0 8 8" aria-hidden="true"><circle cx="4" cy="4" r="4" fill="#F59E0B"/></svg>
+          <span>1. Mannschaft (1/14)</span>
+        </a>
+        <a href="index.html#sponsoren" class="nav-link">
+          <svg width="8" height="8" viewBox="0 0 8 8" aria-hidden="true"><circle cx="4" cy="4" r="4" fill="#10B981"/></svg>
+          <span>23 Sponsoren</span>
+        </a>
+        <button type="button" class="nav-link nav-link-locked" onclick="wpOpenBlueprintModal('Rohbau-Modul B &amp; C: Verein, Vorstand (10), Chronik seit 1971 &amp; Clubhaus Lindenrain (24 Seiten offen)', 'Vereinsführung &amp; Infrastruktur (Noch nicht migriert · 0 %)', 'Konrad Schütz (Präsident) &amp; Philipp Singer (Vizepräsident / Clubhaus)', 'clubhaus')">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+          <span>Verein &amp; Lindenrain (0/24)</span>
+        </button>
+        <a href="kontakt.html" class="nav-link ">
+          <svg width="8" height="8" viewBox="0 0 8 8" aria-hidden="true"><circle cx="4" cy="4" r="4" fill="#10B981"/></svg>
+          <span>Smart-Anfrage (Live-Demo)</span>
+        </a>
+      </nav>
+      <div class="header-actions">
+        <a href="kontakt.html?thema=probetraining" class="btn-cta btn-cta-primary btn-sm" data-slot="header_cta">
+          <span>Smart-Anfrage testen</span>
+        </a>
+        <button type="button" class="mobile-toggle" id="mobileMenuBtn" aria-label="Menü öffnen" onclick="wpToggleMobileMenu()">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
+      </div>
+    </div>
+    <div class="mobile-drawer" id="mobileDrawer">
+      <a href="index.html" onclick="wpCloseMobileMenu()">Startseite (Muster · 6 % Prototyp)</a>
+      <a href="herren-1.html" onclick="wpCloseMobileMenu()">Muster-Team: 1. Mannschaft (1/14 fertig · 13 im Rohbau)</a>
+      <a href="index.html#sponsoren" onclick="wpCloseMobileMenu()">Sponsoren &amp; 300er Club (Alle 23 übernommen)</a>
+      <button type="button" class="mobile-nav-btn" onclick="wpCloseMobileMenu(); wpOpenBlueprintModal('Rohbau-Modul B &amp; C: Verein, Vorstand, Chronik &amp; Clubhaus Lindenrain (24 Seiten offen)', 'Vereinsführung &amp; Infrastruktur (Noch nicht migriert · 0 %)', 'Konrad Schütz &amp; Philipp Singer', 'clubhaus')">
+        <span>Verein &amp; Lindenrain (24 Seiten offen · Rohbau)</span>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+      </button>
+      <a href="kontakt.html" onclick="wpCloseMobileMenu()">Smart-Anfrage (Live-Demo)</a>
+    </div>
+  </header>
+  <main>
+
+  <!-- 1. HERO SECTION (AUSGEARBEITETES MUSTERHAUS · 6-%-PROTOTYP) -->
+  <section class="hero-section" data-section="hero">
+    <div class="container">
+      <div class="hero-grid">
+        <div>
+          <div class="section-kicker kicker-light" data-slot="hero_kicker">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            <span>GEGRÜNDET AM 16. FEBRUAR 1971 · SFV QUALITY CLUB · SOFV-VEREIN NR. 1880</span>
+          </div>
+          <h1 class="hero-title" data-slot="hero_title">
+            Fussballclub Attiswil — <span>Herzblut auf dem Lindenrain.</span>
+          </h1>
+          <div class="hero-motto-box" data-slot="hero_motto">
+            «Seit dem 16. Februar 1971 die sportliche Heimat im Oberaargau: 14 Mannschaften, zertifizierter SFV Quality Club (20. Juni 2026), eigenes Clubhaus &amp; gelebte Kameradschaft in 4536 Attiswil.»
+          </div>
+          <p class="hero-sub" data-slot="hero_sub">
+            Von unserer <strong>1. Mannschaft (Herren 4. Liga)</strong> und den zwei erfolgreichen Frauenteams (Cupsiegerinnen 2025) über die <strong>Senioren 30+</strong> bis zu <strong>10 Nachwuchs-Teams</strong> (Junioren B–G &amp; Juniorinnen FF-17/FF-14/FF-11): Der FC Attiswil verbindet Breitensport, gezielte Jugendförderung und aktives Dorfleben auf der Sportanlage Lindenrain.
+          </p>
+          <div class="hero-cta-row">
+            <a href="herren-1.html" class="btn-cta btn-cta-gold" data-slot="hero_cta_primary">
+              <span>1. Mannschaft (1/14)</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </a>
+            <a href="kontakt.html?thema=probetraining" class="btn-cta btn-cta-primary" data-slot="hero_cta_secondary">
+              <span>Probetraining &amp; Vereins-Zentrale</span>
+            </a>
+            <a href="#sponsoren" class="btn-cta btn-cta-ghost-light">
+              <span>Alle 23 Sponsoren &amp; 300er Club</span>
+            </a>
+          </div>
+          <div class="hero-kpi-strip">
+            <div class="hero-kpi-card">
+              <div class="hero-kpi-num" data-slot="kpi_1_num">16.02.1971</div>
+              <div class="hero-kpi-lbl" data-slot="kpi_1_lbl">Gründung im Rest. Löwen Attiswil</div>
+            </div>
+            <div class="hero-kpi-card">
+              <div class="hero-kpi-num" data-slot="kpi_2_num">14 Teams</div>
+              <div class="hero-kpi-lbl" data-slot="kpi_2_lbl">1 Muster-Team fertig · 13 im Rohbau</div>
+            </div>
+            <div class="hero-kpi-card">
+              <div class="hero-kpi-num" data-slot="kpi_3_num">SFV Quality</div>
+              <div class="hero-kpi-lbl" data-slot="kpi_3_lbl">Zertifizierter Quality Club (20.06.2026)</div>
+            </div>
+            <div class="hero-kpi-card">
+              <div class="hero-kpi-num" data-slot="kpi_4_num">23 Sponsoren</div>
+              <div class="hero-kpi-lbl" data-slot="kpi_4_lbl">Alle Logos &amp; 300er Club übernommen</div>
+            </div>
+          </div>
+        </div>
+        <div class="hero-visual-stack">
+          <div class="hero-photo-card">
+            <img src="images/hero-herren-1.webp" alt="FC Attiswil 1. Mannschaft Herren 4. Liga auf dem Sportplatz Lindenrain" width="600" height="270" fetchpriority="high" decoding="async" data-slot="hero_main_img">
+            <div class="hero-photo-caption">
+              <strong>1. Mannschaft FC Attiswil · Herren 4. Liga</strong>
+              <span>Muster-Team 1/14 · Dress: Auto Lemp AG</span>
+            </div>
+          </div>
+          <div class="hero-secondary-row">
+            <div class="hero-mini-card">
+              <img src="images/clubhaus-lindenrain.webp" alt="Clubhaus und Sportanlage Lindenrain 4536 Attiswil" width="380" height="132" loading="lazy" decoding="async" data-slot="hero_sub_img">
+              <div class="hero-mini-body">
+                <strong style="color:#FFFFFF;display:block;">Sportanlage &amp; Clubhaus Lindenrain</strong>
+                <span>Sportplatzweg 1, 4536 Attiswil · 48 Innen- &amp; 40 gedeckte Sitzplätze</span>
+              </div>
+            </div>
+            <div class="hero-centenary-box">
+              <img src="images/sfv-quality-club.webp" alt="SFV Quality Club Auszeichnung FC Attiswil" width="96" height="96" loading="lazy" decoding="async" data-slot="hero_centenary_img">
+              <strong>SFV Quality Club</strong>
+              <span style="font-size:0.72rem;color:var(--text-body);line-height:1.25;">Offizielles Label seit 20. Juni 2026</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- 2. ALLE 23 ORIGINAL-SPONSOREN, 300ER CLUB, MATCHBALL & AVIA TANKKARTE -->
+  <section id="sponsoren" data-section="sponsoren" style="background-color:#FFFFFF;border-bottom:1px solid var(--border-light);">
+    <div class="container">
+      <div class="section-head">
+        <div class="section-kicker kicker-gold" data-slot="sponsors_kicker">HERZLICHEN DANK AN UNSERE PARTNER · 100 % ORIGINAL-ÜBERNAHME</div>
+        <h2 class="section-title" data-slot="sponsors_title">Unsere 23 Sponsoren, der 300er Club &amp; Gönner.</h2>
+        <p class="section-desc" data-slot="sponsors_desc">
+          Ohne das treue Gewerbe aus Attiswil, dem Oberaargau und der Region Solothurn wäre ein aktiver Spielbetrieb für 14 Mannschaften auf dem Lindenrain nicht möglich. Alle 23 bestehenden Sponsoren-Logos von <strong>fcattiswil.ch</strong> sind bereits lückenlos übernommen.
+        </p>
+      </div>
+      <!-- Tier 1: 11 Dress-, Trikot- & Team-Hauptsponsoren -->
+      <div class="sponsor-tier-block">
+        <div class="sponsor-tier-header">
+          <span class="sponsor-tier-badge tier-gold">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <span>Trikot-, Dress- &amp; Ausrüstungs-Sponsoren (11 Team-Partner)</span>
+          </span>
+          <span style="font-size:0.82rem;color:var(--text-muted);font-weight:600;">Ressort Sponsoring: Raphaela Lüscher (079 453 88 60 · sponsoring@fcattiswil.ch)</span>
+        </div>
+        <div class="sponsors-main-grid">
+          <a href="https://www.autolemp.ch/" target="_blank" rel="noopener noreferrer" class="sponsor-card gold-card">
+            <div class="sponsor-logo-wrap">
+              <img src="images/sponsors/sponsor-01-auto-lemp.webp" alt="Logo Auto Lemp AG, Attiswil" width="220" height="80" loading="lazy" decoding="async">
+            </div>
+            <div>
+              <div class="sponsor-name">Auto Lemp AG, Attiswil</div>
+              <div class="sponsor-role-tag">Dresssponsor 1. Mannschaft & Frauen 2. Liga</div>
+            </div>
+          </a>
+          <a href="https://www.giacometto.ch/firma/giacometto-transport-ag.html" target="_blank" rel="noopener noreferrer" class="sponsor-card gold-card">
+            <div class="sponsor-logo-wrap">
+              <img src="images/sponsors/sponsor-02-giacometto-transport.webp" alt="Logo Giacometto Transport AG" width="220" height="80" loading="lazy" decoding="async">
+            </div>
+            <div>
+              <div class="sponsor-name">Giacometto Transport AG</div>
+              <div class="sponsor-role-tag">Sponsor Einlaufleibchen 1. Mannschaft</div>
+            </div>
+          </a>
+          <a href="https://www.carrosserie-mastag.ch/" target="_blank" rel="noopener noreferrer" class="sponsor-card gold-card">
+            <div class="sponsor-logo-wrap">
+              <img src="images/sponsors/sponsor-03-carrosserie-mast.webp" alt="Logo Carrosserie Mast AG, Bellach" width="220" height="80" loading="lazy" decoding="async">
+            </div>
+            <div>
+              <div class="sponsor-name">Carrosserie Mast AG, Bellach</div>
+              <div class="sponsor-role-tag">Hauptsponsor Funktionärsjacken</div>
+            </div>
+          </a>
+          <a href="https://www.maxmeyerag.ch/" target="_blank" rel="noopener noreferrer" class="sponsor-card gold-card">
+            <div class="sponsor-logo-wrap">
+              <img src="images/sponsors/sponsor-04-max-meyer-bau.webp" alt="Logo Max Meyer AG, Attiswil" width="220" height="80" loading="lazy" decoding="async">
+            </div>
+            <div>
+              <div class="sponsor-name">Max Meyer AG, Attiswil</div>
+              <div class="sponsor-role-tag">Bauunternehmung (Erbauer Clubhaus) & Sponsor Jun. D/7</div>
+            </div>
+          </a>
+          <a href="https://www.makos.ch/" target="_blank" rel="noopener noreferrer" class="sponsor-card">
+            <div class="sponsor-logo-wrap">
+              <img src="images/sponsors/sponsor-05-makos-bau.webp" alt="Logo Makos Bau GmbH, Flumenthal" width="220" height="80" loading="lazy" decoding="async">
+            </div>
+            <div>
+              <div class="sponsor-name">Makos Bau GmbH, Flumenthal</div>
+              <div class="sponsor-role-tag">Dresssponsor Junioren E & Junioren F</div>
+            </div>
+          </a>
+          <a href="https://texova.ch/" target="_blank" rel="noopener noreferrer" class="sponsor-card">
+            <div class="sponsor-logo-wrap">
+              <img src="images/sponsors/sponsor-06-texova.webp" alt="Logo Texova GmbH" width="220" height="80" loading="lazy" decoding="async">
+            </div>
+            <div>
+              <div class="sponsor-name">Texova GmbH</div>
+              <div class="sponsor-role-tag">Textilveredelung & Dresssponsor Frauen 3. Liga</div>
+            </div>
+          </a>
+          <a href="https://www.lasttrans.ch/" target="_blank" rel="noopener noreferrer" class="sponsor-card">
+            <div class="sponsor-logo-wrap">
+              <img src="images/sponsors/sponsor-07-lasttrans.webp" alt="Logo Lasttrans AG" width="220" height="80" loading="lazy" decoding="async">
+            </div>
+            <div>
+              <div class="sponsor-name">Lasttrans AG</div>
+              <div class="sponsor-role-tag">Transportpartner & Dresssponsor Junioren D/9</div>
+            </div>
+          </a>
+          <a href="https://www.q-21.ch/" target="_blank" rel="noopener noreferrer" class="sponsor-card">
+            <div class="sponsor-logo-wrap">
+              <img src="images/sponsors/sponsor-08-q21-quadro.webp" alt="Logo Q-21 / QUADRO Promotion AG" width="220" height="80" loading="lazy" decoding="async">
+            </div>
+            <div>
+              <div class="sponsor-name">Q-21 / QUADRO Promotion AG</div>
+              <div class="sponsor-role-tag">Dresssponsor Junioren G (Piccolos)</div>
+            </div>
+          </a>
+          <a href="https://www.w-h.ch" target="_blank" rel="noopener noreferrer" class="sponsor-card">
+            <div class="sponsor-logo-wrap">
+              <img src="images/sponsors/sponsor-09-wh-ingenieure.webp" alt="Logo W+H AG Ingenieure & Planer" width="220" height="80" loading="lazy" decoding="async">
+            </div>
+            <div>
+              <div class="sponsor-name">W+H AG Ingenieure & Planer</div>
+              <div class="sponsor-role-tag">Dresssponsor Juniorinnen FF-17</div>
+            </div>
+          </a>
+          <a href="https://axa.ch" target="_blank" rel="noopener noreferrer" class="sponsor-card">
+            <div class="sponsor-logo-wrap">
+              <img src="images/sponsors/sponsor-10-axa-christen.webp" alt="Logo AXA Hauptagentur Bruno Christen" width="220" height="80" loading="lazy" decoding="async">
+            </div>
+            <div>
+              <div class="sponsor-name">AXA Hauptagentur Bruno Christen</div>
+              <div class="sponsor-role-tag">Agentur Oensingen · Sponsor Juniorinnen FF-14</div>
+            </div>
+          </a>
+          <a href="https://neutronix.ch/" target="_blank" rel="noopener noreferrer" class="sponsor-card">
+            <div class="sponsor-logo-wrap">
+              <img src="images/sponsors/sponsor-11-neutronix.webp" alt="Logo Neutronix GmbH" width="220" height="80" loading="lazy" decoding="async">
+            </div>
+            <div>
+              <div class="sponsor-name">Neutronix GmbH</div>
+              <div class="sponsor-role-tag">Dresssponsor Juniorinnen FF-11</div>
+            </div>
+          </a>
+        </div>
+      </div>
+      <!-- Tier 2: 12 Offizielle Vereins-, Infrastruktur- & Gewerbepartner -->
+      <div class="sponsor-tier-block">
+        <div class="sponsor-tier-header">
+          <span class="sponsor-tier-badge tier-silver">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg>
+            <span>Offizielle Vereins-, Infrastruktur- &amp; Gewerbepartner (12 Partner)</span>
+          </span>
+          <span style="font-size:0.82rem;color:var(--text-muted);font-weight:600;">Direkt verlinkt mit den offiziellen Partner-Websites</span>
+        </div>
+        <div class="sponsors-partner-grid">
+          <a href="https://www.fliegenderkoch.ch/gasthofbaerenattiswil" target="_blank" rel="noopener noreferrer" class="sponsor-card">
+            <div class="sponsor-logo-wrap">
+              <img src="images/sponsors/sponsor-12-gasthof-baeren.webp" alt="Logo Gasthof Bären Attiswil" width="200" height="76" loading="lazy" decoding="async">
+            </div>
+            <div>
+              <div class="sponsor-name">Gasthof Bären Attiswil</div>
+              <div class="sponsor-role-tag">Gastronomie- & Vereinsanlass-Partner</div>
+            </div>
+          </a>
+          <a href="https://www.albanisport.ch/320-oeffnungszeiten-balsthal" target="_blank" rel="noopener noreferrer" class="sponsor-card">
+            <div class="sponsor-logo-wrap">
+              <img src="images/sponsors/sponsor-13-albani-sport.webp" alt="Logo Albani Sport, Balsthal" width="200" height="76" loading="lazy" decoding="async">
+            </div>
+            <div>
+              <div class="sponsor-name">Albani Sport, Balsthal</div>
+              <div class="sponsor-role-tag">Offizieller Sport- & Ausrüstungspartner</div>
+            </div>
+          </a>
+          <a href="https://www.juramaterials.ch/de/" target="_blank" rel="noopener noreferrer" class="sponsor-card">
+            <div class="sponsor-logo-wrap">
+              <img src="images/sponsors/sponsor-14-iff-jura-materials.webp" alt="Logo Iff AG / JURA Materials" width="200" height="76" loading="lazy" decoding="async">
+            </div>
+            <div>
+              <div class="sponsor-name">Iff AG / JURA Materials</div>
+              <div class="sponsor-role-tag">Regionaler Baustoff- & Kiespartner</div>
+            </div>
+          </a>
+          <a href="https://www.iktech.ch/" target="_blank" rel="noopener noreferrer" class="sponsor-card">
+            <div class="sponsor-logo-wrap">
+              <img src="images/sponsors/sponsor-15-iktech.webp" alt="Logo IKTech-Dienstleistungen GmbH" width="200" height="76" loading="lazy" decoding="async">
+            </div>
+            <div>
+              <div class="sponsor-name">IKTech-Dienstleistungen GmbH</div>
+              <div class="sponsor-role-tag">IT- & Digitalisierungspartner</div>
+            </div>
+          </a>
+          <a href="https://www.fcattiswil.ch/index.php/sponsoren" target="_blank" rel="noopener noreferrer" class="sponsor-card">
+            <div class="sponsor-logo-wrap">
+              <img src="images/sponsors/sponsor-16-biberstein.webp" alt="Logo Bestattungsdienst Beat Biberstein GmbH" width="200" height="76" loading="lazy" decoding="async">
+            </div>
+            <div>
+              <div class="sponsor-name">Bestattungsdienst Beat Biberstein GmbH</div>
+              <div class="sponsor-role-tag">Regionaler Vereinsunterstützer</div>
+            </div>
+          </a>
+          <a href="https://www.holidog.ch" target="_blank" rel="noopener noreferrer" class="sponsor-card">
+            <div class="sponsor-logo-wrap">
+              <img src="images/sponsors/sponsor-17-holidog.webp" alt="Logo Holidog GmbH" width="200" height="76" loading="lazy" decoding="async">
+            </div>
+            <div>
+              <div class="sponsor-name">Holidog GmbH</div>
+              <div class="sponsor-role-tag">Vereins- & Nachwuchsunterstützer</div>
+            </div>
+          </a>
+          <a href="http://www.physio-wyss.com/" target="_blank" rel="noopener noreferrer" class="sponsor-card">
+            <div class="sponsor-logo-wrap">
+              <img src="images/sponsors/sponsor-18-physio-wyss.webp" alt="Logo Physio Wyss" width="200" height="76" loading="lazy" decoding="async">
+            </div>
+            <div>
+              <div class="sponsor-name">Physio Wyss</div>
+              <div class="sponsor-role-tag">Physiotherapie- & Gesundheitspartner</div>
+            </div>
+          </a>
+          <a href="https://schoeni.ch/" target="_blank" rel="noopener noreferrer" class="sponsor-card">
+            <div class="sponsor-logo-wrap">
+              <img src="images/sponsors/sponsor-19-schoeni-transport.webp" alt="Logo Schöni Transport AG" width="200" height="76" loading="lazy" decoding="async">
+            </div>
+            <div>
+              <div class="sponsor-name">Schöni Transport AG</div>
+              <div class="sponsor-role-tag">Nationaler & internationaler Logistikpartner</div>
+            </div>
+          </a>
+          <a href="https://www.vigier-beton-nordwest.ch/" target="_blank" rel="noopener noreferrer" class="sponsor-card">
+            <div class="sponsor-logo-wrap">
+              <img src="images/sponsors/sponsor-20-vigier-beton.webp" alt="Logo Vigier Beton Nordwest" width="200" height="76" loading="lazy" decoding="async">
+            </div>
+            <div>
+              <div class="sponsor-name">Vigier Beton Nordwest</div>
+              <div class="sponsor-role-tag">Baustoff- & Infrastrukturpartner</div>
+            </div>
+          </a>
+          <a href="https://www.visana.com/" target="_blank" rel="noopener noreferrer" class="sponsor-card">
+            <div class="sponsor-logo-wrap">
+              <img src="images/sponsors/sponsor-21-visana.webp" alt="Logo Visana" width="200" height="76" loading="lazy" decoding="async">
+            </div>
+            <div>
+              <div class="sponsor-name">Visana</div>
+              <div class="sponsor-role-tag">Kranken- & Unfallversicherungspartner</div>
+            </div>
+          </a>
+          <a href="https://www.zurich.ch/de/standorte/generalagentur-howald-scheidegger-ag-3007-bern/berater-standorte/4500-solothurn" target="_blank" rel="noopener noreferrer" class="sponsor-card">
+            <div class="sponsor-logo-wrap">
+              <img src="images/sponsors/sponsor-22-zurich-solothurn.webp" alt="Logo Zurich Generalagentur Howald & Scheidegger AG" width="200" height="76" loading="lazy" decoding="async">
+            </div>
+            <div>
+              <div class="sponsor-name">Zurich Generalagentur Howald & Scheidegger AG</div>
+              <div class="sponsor-role-tag">Standort Solothurn · Versicherungspartner</div>
+            </div>
+          </a>
+          <a href="https://www.hobako.ch" target="_blank" rel="noopener noreferrer" class="sponsor-card">
+            <div class="sponsor-logo-wrap">
+              <img src="images/sponsors/sponsor-23-hobako.webp" alt="Logo Hobako AG" width="200" height="76" loading="lazy" decoding="async">
+            </div>
+            <div>
+              <div class="sponsor-name">Hobako AG</div>
+              <div class="sponsor-role-tag">Holzbau- & Zimmereipartner</div>
+            </div>
+          </a>
+        </div>
+      </div>
+      <!-- Gönner- & Unterstützer-Formate (300er Club, Matchballspende, AVIA Tankkarte) -->
+      <div class="grid-3" style="margin-top:28px;">
+        <div style="background-color:var(--fca-navy);color:#FFFFFF;border-radius:var(--radius-md);padding:24px;border-top:4px solid var(--fca-gold);display:flex;flex-direction:column;justify-content:space-between;gap:14px;">
+          <div>
+            <span class="top-bar-badge" style="background-color:var(--fca-gold);color:var(--fca-navy);margin-bottom:10px;">GÖNNERVEREINIGUNG</span>
+            <h3 style="color:#FFFFFF;font-size:1.18rem;font-weight:800;margin-bottom:8px;">300er Club FC Attiswil</h3>
+            <p style="font-size:0.88rem;color:#E2E8F0;line-height:1.55;">
+              Mit einem Jahresbeitrag von <strong>CHF 300.00</strong> unterstützt der 300er Club gezielt die Juniorenabteilung, Trainingslager und Spezialanschaffungen auf der Sportanlage Lindenrain.
+            </p>
+          </div>
+          <a href="kontakt.html?thema=sponsoring" class="btn-cta btn-cta-gold btn-sm" style="width:100%;">
+            <span>300er-Club-Mitglied werden (300erClub@fcattiswil.ch)</span>
+          </a>
+        </div>
+        <div style="background-color:var(--bg-page);border:1px solid var(--border-strong);border-top:4px solid var(--fca-red);border-radius:var(--radius-md);padding:24px;display:flex;flex-direction:column;justify-content:space-between;gap:14px;">
+          <div>
+            <span class="pillar-count" style="margin-bottom:10px;">HEIMSPIEL-PATRONAT · CHF 150.00</span>
+            <h3 style="font-size:1.18rem;font-weight:800;margin-bottom:8px;">Matchballspende auf dem Lindenrain</h3>
+            <p style="font-size:0.88rem;color:var(--text-body);line-height:1.55;">
+              Spende einen offiziellen Matchball (<strong>CHF 150.00</strong>) für ein Heimspiel der 1. Mannschaft oder unserer Frauenteams — inklusive namentlicher Verdankung im Clubhaus und auf der Website.
+            </p>
+          </div>
+          <a href="kontakt.html?thema=sponsoring" class="btn-cta btn-cta-primary btn-sm" style="width:100%;">
+            <span>Matchballspende online anmelden</span>
+          </a>
+        </div>
+        <div style="background-color:var(--bg-page);border:1px solid var(--border-strong);border-top:4px solid var(--fca-green);border-radius:var(--radius-md);padding:24px;display:flex;flex-direction:column;justify-content:space-between;gap:14px;">
+          <div>
+            <span class="pillar-count" style="background-color:var(--fca-green-soft);color:#166534;margin-bottom:10px;">2 RAPPEN PRO LITER FÜRS TEAM</span>
+            <h3 style="font-size:1.18rem;font-weight:800;margin-bottom:8px;">AVIA Tankkarte &amp; Bandenwerbung</h3>
+            <p style="font-size:0.88rem;color:var(--text-body);line-height:1.55;">
+              Tanken und gleichzeitig den Nachwuchs fördern: Mit der kostenlosen <strong>AVIA Vereins-Tankkarte</strong> fliessen pro getanktem Liter automatisch 2 Rappen in die Vereinskasse des FC Attiswil.
+            </p>
+          </div>
+          <a href="kontakt.html?thema=sponsoring" class="btn-cta btn-cta-outline btn-sm" style="width:100%;">
+            <span>Sponsoring-Dossier &amp; Banden anfragen</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- 3. ARCHITEKTUR-SCHNITT & 94-%-ROHBAU-ZONE (4 GESTRICHELTE BAUPLAN-MODULE) -->
+  <section id="bauplan-schnitt" class="blueprint-zone-section" data-section="bauplan-schnitt">
+    <div class="container">
+      <!-- Trenn-Banner: Warum hier der Rohbau beginnt -->
+      <div class="blueprint-cut-banner">
+        <div class="blueprint-cut-top">
+          <span class="blueprint-cut-pill">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+            <span>BAUPLAN-SCHNITT · ENDE DES AUSGEARBEITETEN 6-%-PROTOTYPS</span>
+          </span>
+          <span style="font-family:'Montserrat',sans-serif;font-size:0.78rem;font-weight:700;color:#FDE68A;">
+            50 von 53 Unterseiten (94 %) &amp; 13 von 14 Teams befinden sich ab hier im Drahtgitter-Rohbau
+          </span>
+        </div>
+        <h2 style="color:#FFFFFF;font-size:clamp(1.45rem,2.5vw,2.05rem);font-weight:800;margin-bottom:10px;">
+          Transparenter Architektur-Entwurf statt unfertiger Webseite: Was hier bereits steht — und was im Hauptauftrag folgt.
+        </h2>
+        <p style="font-size:0.95rem;color:#CBD5E1;line-height:1.65;">
+          Die aktuelle Website <strong>fcattiswil.ch</strong> umfasst <strong>53 Menü-Unterseiten</strong> und <strong>14 Mannschaften</strong>. Damit der Vorstand um Präsident <strong>Konrad Schütz</strong>, Vizepräsident <strong>Philipp Singer</strong>, Sportchef <strong>Florian Bohner</strong> und Marketingchefin <strong>Raphaela Lüscher</strong> das neue System vor einem Entscheid echt prüfen kann, haben wir oben <strong>3 Seiten (6 %) als Musterhaus</strong> komplett eingerichtet — inklusive aller 23 Sponsoren und der <strong>1. Mannschaft (Herren 4. Liga)</strong>. Die folgenden <strong>4 Vereins-Module (50 Seiten / 94 %)</strong> sind als <strong>Architekten-Bauplan im Rohbau</strong> vorbereitet:
+        </p>
+        <div class="blueprint-kpi-row">
+          <div class="blueprint-kpi-box">
+            <div style="font-family:'Montserrat',sans-serif;font-size:0.76rem;font-weight:800;color:#4ADE80;text-transform:uppercase;margin-bottom:4px;">
+              Bereits im Musterhaus fertiggestellt (6 % · 3 von 53 Seiten)
+            </div>
+            <div style="font-size:0.86rem;color:#F8FAFC;">
+              1. Startseite (Hero + 23 Sponsoren &amp; 300er Club) · 2. Muster-Team <strong>1. Mannschaft</strong> (4 Staff-Porträts &amp; 22 Kaderspieler) · 3. Smart-Anfrage-Zentrale (inkl. Live-1-Seiten-PDF mit FC-Attiswil-Briefkopf).
+            </div>
+          </div>
+          <div class="blueprint-kpi-box is-open-scope">
+            <div style="font-family:'Montserrat',sans-serif;font-size:0.76rem;font-weight:800;color:#FBBF24;text-transform:uppercase;margin-bottom:4px;">
+              Noch offen für den Hauptauftrag (94 % · 50 von 53 Seiten im Rohbau)
+            </div>
+            <div style="font-size:0.86rem;color:#F8FAFC;">
+              Alle weiteren <strong>13 Mannschaften</strong> (Frauen 2./3. Liga, Senioren 30+, 7 Junioren- &amp; 3 Juniorinnen-Teams + Team Bravo), Vorstand (10), Funktionäre (8), Schiedsrichter (3), Clubhaus-Vermietung, Anlässe &amp; 55 Jahre Vereinschronik.
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- 4 GESTRICHELTE ROHBAU-MODULE (MODUL A bis D) -->
+      <div class="blueprint-modules-grid">
+        <!-- ROHBAU-MODUL A: 13 WEITERE MANNSCHAFTEN -->
+        <article class="blueprint-module-card">
+          <div>
+            <div class="blueprint-module-top">
+              <span class="blueprint-mod-tag">Rohbau-Modul A · 19 Unterseiten offen</span>
+              <span class="blueprint-lock-badge">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                <span>1/14 fertig · 13 Teams im Rohbau</span>
+              </span>
+            </div>
+            <h3 class="blueprint-module-title">13 weitere Mannschaften &amp; «Team Bravo» (Noch nicht migriert)</h3>
+            <p class="blueprint-module-desc">
+              Während die <strong>1. Mannschaft (Herren 4. Liga)</strong> als Muster-Vorlage komplett live ist, werden die <strong>13 weiteren Teams</strong> im Hauptauftrag exakt nach demselben Standard mit Mannschaftsfoto, Trainer-Kontakt, Trainingszeiten und Kaderliste übernommen:
+            </p>
+            <div class="wireframe-preview-box" aria-hidden="true">
+              <div class="wireframe-skeleton-header">
+                <span>Drahtgitter-Vorschau: 13 offene Team-Seiten</span>
+                <span>0 % befüllt</span>
+              </div>
+              <div class="wireframe-grid-3">
+                <div class="wireframe-slot">
+                  <div class="wireframe-img-placeholder">FRAUEN 2./3. LIGA</div>
+                  <div class="wireframe-line-lg"></div>
+                  <div class="wireframe-line-sm"></div>
+                </div>
+                <div class="wireframe-slot">
+                  <div class="wireframe-img-placeholder">JUNIOREN B–G (7)</div>
+                  <div class="wireframe-line-lg"></div>
+                  <div class="wireframe-line-sm"></div>
+                </div>
+                <div class="wireframe-slot">
+                  <div class="wireframe-img-placeholder">FF-17 / FF-14 / FF-11</div>
+                  <div class="wireframe-line-lg"></div>
+                  <div class="wireframe-line-sm"></div>
+                </div>
+              </div>
+            </div>
+            <div class="blueprint-checklist">
+              <div class="blueprint-checklist-item">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                <span><strong>Aktive Frauen &amp; Senioren (3 Teams):</strong> Frauen 2. Liga (Cupsiegerinnen 2025, Dana Scherrer &amp; Roger Lemp), Frauen 3. Liga (Tom Moser) &amp; Senioren 30+ (Markus Frenzen)</span>
+              </div>
+              <div class="blueprint-checklist-item">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                <span><strong>7 Junioren-Teams (Leitung Levi Meyer):</strong> Junioren B &amp; C (Gruppierung), D/9 (Lasttrans AG), D/7 (Max Meyer AG), E &amp; F (Makos Bau GmbH), G Piccolos (Q-21)</span>
+              </div>
+              <div class="blueprint-checklist-item">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                <span><strong>3 Juniorinnen-Teams (Leitung Celine Lemp) &amp; Plausch:</strong> FF-17 (W+H AG), FF-14 (AXA Bruno Christen), FF-11 (Neutronix GmbH) &amp; Team Bravo</span>
+              </div>
+            </div>
+          </div>
+          <div style="display:flex;flex-wrap:wrap;gap:10px;">
+            <a href="herren-1.html" class="btn-cta btn-cta-primary btn-sm" style="flex:1;">
+              <span>Fertiges Muster-Team (1/14) ansehen</span>
+            </a>
+            <a href="herren-1.html#alle-teams-matrix" class="btn-cta btn-cta-outline btn-sm" style="flex:1;">
+              <span>13 Rohbau-Teams prüfen</span>
+            </a>
+          </div>
+        </article>
+        <!-- ROHBAU-MODUL B: VEREIN, VORSTAND (10), FUNKTIONÄRE (8), SR (3) & CHRONIK SEIT 1971 -->
+        <article class="blueprint-module-card">
+          <div>
+            <div class="blueprint-module-top">
+              <span class="blueprint-mod-tag">Rohbau-Modul B · 14 Unterseiten offen</span>
+              <span class="blueprint-lock-badge">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                <span>Status: Rohbau · 0 % übertragen</span>
+              </span>
+            </div>
+            <h3 class="blueprint-module-title">Verein, Vorstand (10), Funktionäre, Schiedsrichter &amp; Chronik 1971–2026</h3>
+            <p class="blueprint-module-desc">
+              Sämtliche Vereins- und Organisationsseiten von <strong>fcattiswil.ch</strong> sind im Datenmodell bereits erfasst und werden im Hauptauftrag als eigenständige Seiten ausgearbeitet:
+            </p>
+            <div class="wireframe-preview-box" aria-hidden="true">
+              <div class="wireframe-skeleton-header">
+                <span>Drahtgitter-Vorschau: Vereinsführung &amp; Geschichte</span>
+                <span>0 / 14 Seiten gebaut</span>
+              </div>
+              <div class="wireframe-grid-3">
+                <div class="wireframe-slot">
+                  <div class="wireframe-img-placeholder">VORSTAND (10)</div>
+                  <div class="wireframe-line-lg"></div>
+                  <div class="wireframe-line-sm"></div>
+                </div>
+                <div class="wireframe-slot">
+                  <div class="wireframe-img-placeholder">FUNKTIONÄRE &amp; SR</div>
+                  <div class="wireframe-line-lg"></div>
+                  <div class="wireframe-line-sm"></div>
+                </div>
+                <div class="wireframe-slot">
+                  <div class="wireframe-img-placeholder">CHRONIK SEIT 1971</div>
+                  <div class="wireframe-line-lg"></div>
+                  <div class="wireframe-line-sm"></div>
+                </div>
+              </div>
+            </div>
+            <div class="blueprint-checklist">
+              <div class="blueprint-checklist-item">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                <span><strong>Vorstand (10 Porträts):</strong> Konrad Schütz (Präsident), Philipp Singer (Vizepräsident), Michelle Kurth, Florian Bohner, Celine Lemp, Levi Meyer, Jörg Scheidegger, Sarah Probst, Remo Brudermann &amp; Raphaela Lüscher</span>
+              </div>
+              <div class="blueprint-checklist-item">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                <span><strong>Funktionäre (8) &amp; Schiedsrichter (3):</strong> Platzwarte Christoph Rüegger &amp; Alfred Bohner, Markus Schaad, Clubhauswirtin Christina Lemp, Josephina Hohl sowie SR Slavko Martinovic, Dieter Schoch &amp; Luana Sortino</span>
+              </div>
+              <div class="blueprint-checklist-item">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                <span><strong>Chronik seit 16.02.1971 &amp; Statuten:</strong> Gründung im Rest. Löwen (Max Meyer, Martin Zumstein, Walter Zürcher), Ehrenmitglieder, SFV Quality Club Label (20.06.2026) &amp; Statuten (HV 04.07.2026)</span>
+              </div>
+            </div>
+          </div>
+          <button type="button" class="btn-cta btn-cta-outline btn-sm" style="width:100%;" onclick="wpOpenBlueprintModal('Rohbau-Modul B: Verein, Vorstand (10), Funktionäre (8), Schiedsrichter &amp; Chronik (14 Seiten)', 'Vereinsführung FC Attiswil (Status: Rohbau · 0 % übertragen)', 'Konrad Schütz (Präsident · 079 661 66 12) &amp; Michelle Kurth (Sekretärin)', 'allgemein')">
+            <span>Bauplan-Details für Modul B öffnen</span>
+          </button>
+        </article>
+        <!-- ROHBAU-MODUL C: SPORTANLAGE LINDENRAIN, CLUBHAUS-VERMIETUNG & VEREINSANLÄSSE -->
+        <article class="blueprint-module-card">
+          <div>
+            <div class="blueprint-module-top">
+              <span class="blueprint-mod-tag">Rohbau-Modul C · 10 Unterseiten offen</span>
+              <span class="blueprint-lock-badge">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                <span>Status: Rohbau · 0 % übertragen</span>
+              </span>
+            </div>
+            <h3 class="blueprint-module-title">Sportanlage Lindenrain, Clubhaus-Vermietung &amp; Jahresprogramm</h3>
+            <p class="blueprint-module-desc">
+              Das 1993 durch die Max Meyer AG erbaute und 2014/15 erweiterte <strong>Clubhaus Lindenrain</strong> sowie sämtliche traditionellen Attiswiler Vereinsanlässe erhalten eigene Informations- und Reservationsseiten:
+            </p>
+            <div class="wireframe-preview-box" aria-hidden="true">
+              <div class="wireframe-skeleton-header">
+                <span>Drahtgitter-Vorschau: Infrastruktur &amp; Anlässe</span>
+                <span>0 / 10 Seiten gebaut</span>
+              </div>
+              <div class="wireframe-grid-3">
+                <div class="wireframe-slot">
+                  <div class="wireframe-img-placeholder">CLUBHAUS (48+40 PL.)</div>
+                  <div class="wireframe-line-lg"></div>
+                  <div class="wireframe-line-sm"></div>
+                </div>
+                <div class="wireframe-slot">
+                  <div class="wireframe-img-placeholder">LOTTOMATCH &amp; CHILBI</div>
+                  <div class="wireframe-line-lg"></div>
+                  <div class="wireframe-line-sm"></div>
+                </div>
+                <div class="wireframe-slot">
+                  <div class="wireframe-img-placeholder">ANFAHRT LINDENRAIN</div>
+                  <div class="wireframe-line-lg"></div>
+                  <div class="wireframe-line-sm"></div>
+                </div>
+              </div>
+            </div>
+            <div class="blueprint-checklist">
+              <div class="blueprint-checklist-item">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                <span><strong>Clubhaus Lindenrain mieten:</strong> 48 Innensitzplätze + 40 gedeckte Aussensitzplätze am Sportplatzweg 1 (Vermietung: Philipp Singer · 079 304 44 56 · Wirtin: Christina Lemp · 079 916 64 55)</span>
+              </div>
+              <div class="blueprint-checklist-item">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                <span><strong>Vereinsanlässe 2026/27:</strong> Clubversammlung (02.11.), Lottomatch MZH Attiswil (21./22.11.), Kindermaskenball (13.02.), Sponsorenlauf, 56. HV (03.07.), Attiswiler Chilbi &amp; FC Fest</span>
+              </div>
+              <div class="blueprint-checklist-item">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                <span><strong>Sportanlage &amp; Situationsplan:</strong> Hauptspielfeld, Trainingsplatz Hohbühl/Lindenrain, Garderobenbau &amp; Parkordnung</span>
+              </div>
+            </div>
+          </div>
+          <button type="button" class="btn-cta btn-cta-outline btn-sm" style="width:100%;" onclick="wpOpenBlueprintModal('Rohbau-Modul C: Sportanlage Lindenrain, Clubhaus-Vermietung &amp; Vereinsanlässe (10 Seiten)', 'Infrastruktur &amp; Events FC Attiswil (Status: Rohbau · 0 % übertragen)', 'Philipp Singer (Vizepräsident · 079 304 44 56) &amp; Christina Lemp (Clubhauswirtin · 079 916 64 55)', 'clubhaus')">
+            <span>Bauplan-Details für Modul C öffnen</span>
+          </button>
+        </article>
+        <!-- ROHBAU-MODUL D: SPIELBETRIEB, MATCHBERICHTE, VEREINSARTIKEL & FOTO-GALERIEN -->
+        <article class="blueprint-module-card">
+          <div>
+            <div class="blueprint-module-top">
+              <span class="blueprint-mod-tag">Rohbau-Modul D · 7 Unterseiten offen</span>
+              <span class="blueprint-lock-badge">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                <span>Status: Rohbau · 0 % übertragen</span>
+              </span>
+            </div>
+            <h3 class="blueprint-module-title">Matchberichte, SOFV-Spielbetrieb, Vereinskollektion &amp; Foto-Archiv</h3>
+            <p class="blueprint-module-desc">
+              Alle News-Beiträge, Matchberichte der Aktivteams, die offizielle FCA-Vereinskollektion (Albani Sport / Texova) sowie die Bildergalerien vom Lindenrain werden hier gebündelt:
+            </p>
+            <div class="wireframe-preview-box" aria-hidden="true">
+              <div class="wireframe-skeleton-header">
+                <span>Drahtgitter-Vorschau: Spielbetrieb, Shop &amp; Medien</span>
+                <span>0 / 7 Seiten gebaut</span>
+              </div>
+              <div class="wireframe-grid-3">
+                <div class="wireframe-slot">
+                  <div class="wireframe-img-placeholder">MATCHBERICHTE</div>
+                  <div class="wireframe-line-lg"></div>
+                  <div class="wireframe-line-sm"></div>
+                </div>
+                <div class="wireframe-slot">
+                  <div class="wireframe-img-placeholder">VEREINSKOLLEKTION</div>
+                  <div class="wireframe-line-lg"></div>
+                  <div class="wireframe-line-sm"></div>
+                </div>
+                <div class="wireframe-slot">
+                  <div class="wireframe-img-placeholder">FOTO-ARCHIV</div>
+                  <div class="wireframe-line-lg"></div>
+                  <div class="wireframe-line-sm"></div>
+                </div>
+              </div>
+            </div>
+            <div class="blueprint-checklist">
+              <div class="blueprint-checklist-item">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                <span><strong>Aktuelle Matchberichte &amp; SOFV-Tabellen:</strong> Direkt-Integration der Spielpläne &amp; Resultate des Solothurner Fussballverbands (SOFV Verein Nr. 1880)</span>
+              </div>
+              <div class="blueprint-checklist-item">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                <span><strong>Vereinsartikel &amp; Fan-Shop:</strong> Offizielle FC-Attiswil-Kollektion (Koordination: Raphaela Lüscher · 079 453 88 60 · Ausrüster Albani Sport Balsthal)</span>
+              </div>
+              <div class="blueprint-checklist-item">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                <span><strong>Foto-Galerien &amp; Fairplay:</strong> Cupsieg-Feier Frauen 2025, SFV-Zertifizierung 2026, Juniorenlager &amp; Anlaufstelle Fairplay (fairplay@fcattiswil.ch)</span>
+              </div>
+            </div>
+          </div>
+          <button type="button" class="btn-cta btn-cta-outline btn-sm" style="width:100%;" onclick="wpOpenBlueprintModal('Rohbau-Modul D: Spielbetrieb, Matchberichte, Vereinsartikel &amp; Foto-Archiv (7 Seiten)', 'Spielbetrieb &amp; Medien FC Attiswil (Status: Rohbau · 0 % übertragen)', 'Florian Bohner (Sportchef · 079 677 93 52) &amp; Raphaela Lüscher (Vereinsartikel · 079 453 88 60)', 'spielbetrieb')">
+            <span>Bauplan-Details für Modul D öffnen</span>
+          </button>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  </main>
+  <!-- FOOTER -->
+  <footer class="site-footer" data-section="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div style="display:flex;align-items:center;gap:12px;margin-bottom:14px;">
+            <img src="images/logo-fcattiswil.webp" alt="FC Attiswil Wappen" width="46" height="46" loading="lazy" decoding="async" style="object-fit:contain;">
+            <div>
+              <div style="font-family:'Montserrat',sans-serif;font-weight:800;font-size:1.1rem;color:#FFFFFF;">FC ATTISWIL</div>
+              <div style="font-size:0.76rem;color:#FBBF24;font-weight:700;">ARCHITEKTUR-STUDIE V2 · 6 % PROTOTYP</div>
+            </div>
+          </div>
+          <p style="font-size:0.86rem;color:#CBD5E1;line-height:1.6;margin-bottom:14px;" data-slot="footer_about">
+            Architekten-Musterhaus &amp; Bauplan-Vorschau für den FC Attiswil (gegründet am 16.02.1971, SFV Quality Club): 3 von 53 Seiten (Startseite, 1 Muster-Team 1. Mannschaft, Smart-Anfrage) als Qualitätsbeweis ausgearbeitet — 50 Unterseiten &amp; 13 Teams folgen im Hauptauftrag.
+          </p>
+          <div style="font-size:0.84rem;color:#E2E8F0;font-weight:600;">
+            Sportanlage Lindenrain · Sportplatzweg 1 · 4536 Attiswil
+          </div>
+        </div>
+        <div>
+          <div class="footer-title">Prototyp (6 % ausgearbeitet)</div>
+          <ul class="footer-list">
+            <li><a href="index.html">Startseite: Hero &amp; Sponsoren (Muster)</a></li>
+            <li><a href="herren-1.html">Muster-Team: 1. Mannschaft (1 von 14 fertig)</a></li>
+            <li><a href="index.html#sponsoren">Alle 23 Sponsoren &amp; 300er Club</a></li>
+            <li><a href="kontakt.html">Smart-Anfrage-Zentrale (Live-Demo)</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-title">Rohbau-Bauplan (94 % offen)</div>
+          <ul class="footer-list">
+            <li><a href="herren-1.html#alle-teams-matrix">13 weitere Mannschaften (Rohbau)</a></li>
+            <li><button type="button" onclick="wpOpenBlueprintModal('Rohbau-Modul B: Verein, Vorstand (10), Funktionäre (8), Schiedsrichter &amp; Chronik seit 1971 (14 Unterseiten)', 'Vereinsführung FC Attiswil (0 % übertragen)', 'Konrad Schütz (Präsident) &amp; Michelle Kurth (Sekretärin)')">Verein, Vorstand &amp; Chronik (0/14)</button></li>
+            <li><button type="button" onclick="wpOpenBlueprintModal('Rohbau-Modul C: Sportanlage Lindenrain, Clubhaus-Vermietung &amp; Anlässe (10 Unterseiten)', 'Infrastruktur &amp; Vereinsleben (0 % übertragen)', 'Philipp Singer (079 304 44 56) &amp; Christina Lemp (079 916 64 55)', 'clubhaus')">Clubhaus Lindenrain &amp; Anlässe (0/10)</button></li>
+            <li><button type="button" onclick="wpOpenBlueprintModal('Rohbau-Modul D: Spielbetrieb, Matchberichte, Vereinsartikel &amp; Foto-Archiv (7 Unterseiten)', 'Spielbetrieb &amp; Medien (0 % übertragen)', 'Florian Bohner (Sportchef) &amp; Raphaela Lüscher (Marketing)')">Spielbetrieb &amp; Galerien (0/7)</button></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-title">Direktkontakt &amp; Rechtliches</div>
+          <ul class="footer-list">
+            <li><a href="kontakt.html?thema=probetraining" style="color:#FBBF24;font-weight:700;">Probetraining &amp; Vereins-Anfrage</a></li>
+            <li><a href="index.html#bauplan-schnitt">Architektur-Bauplan-Schnitt ansehen</a></li>
+            <li><a href="https://www.instagram.com/fc_attiswil/" target="_blank" rel="noopener noreferrer">Instagram (@fc_attiswil)</a></li>
+            <li><button type="button" onclick="wpOpenImpressumModal()">Impressum &amp; Datenschutz</button></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div>&copy; 2026 Fussballclub Attiswil (4536 Attiswil · SOFV Nr. 1880) · Konzept- &amp; Bauplan-Studie V2 (Ausbaustufe 6 %).</div>
+        <div style="display:flex;gap:16px;flex-wrap:wrap;">
+          <a href="herren-1.html" style="color:#FBBF24;font-weight:700;">Muster-Team 1. Mannschaft (1/14)</a>
+          <a href="kontakt.html" style="color:#E2E8F0;">Smart-Anfrage testen</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <!-- ARCHITEKTUR-BLAUPAUSEN-MODAL (V2 BAUPLAN-MODUS) -->
+  <div class="wp-modal-backdrop" id="wpBlueprintModal" role="dialog" aria-modal="true" aria-labelledby="wpBpTitle">
+    <div class="wp-modal-dialog">
+      <button type="button" class="wp-modal-close" aria-label="Dialog schliessen" onclick="wpCloseBlueprintModal()">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+      <div class="section-kicker">BAUPLAN-STATUS: ROHBAU (NOCH NICHT MIGRIERT · TEIL DES HAUPTAUFTRAGS)</div>
+      <h3 id="wpBpTitle" style="font-size:1.35rem;font-weight:800;margin-bottom:8px;">Rohbau-Modul: Noch nicht übertragen</h3>
+      <p id="wpBpSub" style="font-size:0.9rem;color:var(--text-body);margin-bottom:12px;">
+        In dieser <strong>Architektur-Studie (Ausbaustufe 6 % · 3 von 53 Seiten)</strong> sind oben das Design, alle 23 Sponsoren und exakt <strong>1 Muster-Team (1. Mannschaft · Herren 4. Liga)</strong> ausgearbeitet. Dieses Modul befindet sich bewusst noch im <strong>unbefüllten Rohbau (0 % übertragen)</strong> und wird nach Auftragserteilung komplett mit allen Originaldaten, Fotos und Kadern eingerichtet.
+      </p>
+      <div style="background-color:#FEF3C7;border-left:4px solid #D97706;padding:12px 14px;border-radius:var(--radius-sm);font-size:0.86rem;margin-bottom:14px;">
+        <div style="font-weight:800;color:#92400E;" id="wpBpCategory">Bereich / Abteilung: Rohbau-Modul</div>
+        <div style="color:#78350F;margin-top:2px;" id="wpBpContact">Zuständige Ansprechperson im Verein: Vorstand FC Attiswil</div>
+      </div>
+      <div class="wp-modal-checklist">
+        <div style="font-family:'Montserrat',sans-serif;font-size:0.78rem;font-weight:800;text-transform:uppercase;color:var(--fca-navy);">
+          Wird nach Auftragserteilung (analog Muster-Team 1. Mannschaft) schlüsselfertig übertragen:
+        </div>
+        <div class="wp-modal-check-item">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><polyline points="20 6 9 17 4 12"/></svg>
+          <span>Vollständige Übernahme aller bestehenden Texte, Mannschaftsfotos, Porträts &amp; Statuten-PDFs</span>
+        </div>
+        <div class="wp-modal-check-item">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><polyline points="20 6 9 17 4 12"/></svg>
+          <span>Einrichtung aller 13 weiteren Mannschafts-Seiten (Frauen 2./3. Liga, Senioren, Junioren B–G &amp; Juniorinnen FF-17/14/11)</span>
+        </div>
+        <div class="wp-modal-check-item">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><polyline points="20 6 9 17 4 12"/></svg>
+          <span>Direkte Anbindung an das WebPilot Studio-Cockpit für sekundenschnelle Änderungen per KI oder 1-Klick</span>
+        </div>
+      </div>
+      <div style="display:flex;flex-wrap:wrap;gap:10px;margin-top:18px;">
+        <a href="herren-1.html" class="btn-cta btn-cta-primary btn-sm" onclick="wpCloseBlueprintModal()">
+          <span>Fertiges Muster-Team (1. Mannschaft · 1/14) ansehen</span>
+        </a>
+        <a href="kontakt.html?thema=probetraining" id="wpBpCtaLink" class="btn-cta btn-cta-gold btn-sm">
+          <span>Smart-Anfrage (Live-Demo) testen</span>
+        </a>
+      </div>
+    </div>
+  </div>
+  <!-- IMPRESSUM MODAL -->
+  <div class="wp-modal-backdrop" id="wpImpressumModal" role="dialog" aria-modal="true" aria-labelledby="wpImpTitle">
+    <div class="wp-modal-dialog">
+      <button type="button" class="wp-modal-close" aria-label="Impressum schliessen" onclick="wpCloseImpressumModal()">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+      <div class="section-kicker">RECHTLICHE ANGABEN · SCHWEIZER DSG</div>
+      <h3 id="wpImpTitle" style="font-size:1.3rem;font-weight:800;margin-bottom:10px;">Impressum &amp; Datenschutz — FC Attiswil</h3>
+      <div style="font-size:0.88rem;color:var(--text-body);display:flex;flex-direction:column;gap:10px;">
+        <p><strong>Vereinsadresse:</strong><br>Fussballclub Attiswil · Sportanlage Lindenrain · Sportplatzweg 1 · 4536 Attiswil (SOFV-Verein Nr. 1880)</p>
+        <p><strong>Vertretungsberechtigter Vorstand:</strong><br>Konrad Schütz (Präsident, Tel. 079 661 66 12) · Philipp Singer (Vizepräsident / Anlässe &amp; Clubhaus, Tel. 079 304 44 56) · Michelle Kurth (Sekretärin &amp; Datenschutz) · Jörg Scheidegger (Kassier, Tel. 032 637 21 76)</p>
+        <p><strong>Offizielle E-Mail-Kontakte:</strong><br>info@fcattiswil.ch · sponsoring@fcattiswil.ch · 300erClub@fcattiswil.ch · fairplay@fcattiswil.ch</p>
+        <p><strong>Datenschutz (Schweizer Datenschutzgesetz revDSG):</strong><br>Personendaten aus Kontakt-, Probetraining-, Clubhaus- und Sponsoring-Anfragen werden ausschliesslich zur Vereinsadministration innerhalb des FC Attiswil verwendet und niemals an unbefugte Dritte weitergegeben.</p>
+      </div>
+      <div style="margin-top:18px;text-align:right;">
+        <button type="button" class="btn-cta btn-cta-navy btn-sm" onclick="wpCloseImpressumModal()">Schliessen</button>
+      </div>
+    </div>
+  </div>
+  <script>
+    function wpToggleMobileMenu() {
+      var d = document.getElementById('mobileDrawer');
+      if (d) d.classList.toggle('open');
+    }
+    function wpCloseMobileMenu() {
+      var d = document.getElementById('mobileDrawer');
+      if (d) d.classList.remove('open');
+    }
+    function wpOpenBlueprintModal(title, category, contact, topicSlug) {
+      var m = document.getElementById('wpBlueprintModal');
+      if (!m) return;
+      var tEl = document.getElementById('wpBpTitle');
+      var cEl = document.getElementById('wpBpCategory');
+      var pEl = document.getElementById('wpBpContact');
+      var lEl = document.getElementById('wpBpCtaLink');
+      if (tEl) tEl.textContent = title || 'Rohbau-Modul: Noch nicht übertragen';
+      if (cEl) cEl.textContent = 'Bereich / Abteilung: ' + (category || 'Vereins-Architektur');
+      if (pEl) pEl.textContent = 'Zuständig im FC Attiswil: ' + (contact || 'Vorstand FC Attiswil (info@fcattiswil.ch)');
+      if (lEl) lEl.href = 'kontakt.html?thema=' + encodeURIComponent(topicSlug || 'probetraining');
+      m.classList.add('open');
+    }
+    function wpCloseBlueprintModal() {
+      var m = document.getElementById('wpBlueprintModal');
+      if (m) m.classList.remove('open');
+    }
+    function wpOpenImpressumModal() {
+      var m = document.getElementById('wpImpressumModal');
+      if (m) m.classList.add('open');
+    }
+    function wpCloseImpressumModal() {
+      var m = document.getElementById('wpImpressumModal');
+      if (m) m.classList.remove('open');
+    }
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') {
+        wpCloseBlueprintModal();
+        wpCloseImpressumModal();
+        wpCloseMobileMenu();
+      }
+    });
+  </script>
+</body>
+</html>

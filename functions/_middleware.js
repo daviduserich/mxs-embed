@@ -153,6 +153,8 @@ export async function onRequest(context) {
       'preview-fcschlieren': ['fcschlieren_sec_master', 'fcschlieren2026'],
       'fcschlieren-v2': ['fcschlieren_sec_master', 'fcschlieren2026'],
       'preview-fcschlieren-v2': ['fcschlieren_sec_master', 'fcschlieren2026'],
+      'fcattiswil': ['fcattiswil_sec_master', 'fcattiswil2026'],
+      'preview-fcattiswil': ['fcattiswil_sec_master', 'fcattiswil2026'],
       'default': [clientSlug + '_sec_master', clientSlug + '2026']
     };
     const validTokens = clientTokens[rootSegment] || clientTokens[clientSlug] || clientTokens['default'];
