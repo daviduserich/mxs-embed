@@ -7,7 +7,7 @@ Generates:
   - preview-fcattiswil/config.json
   - preview-fcattiswil/site.json
   - preview-fcattiswil/index.html      (Startseite: Hero + 23 Sponsoren & 300er Club + 94-%-Rohbau-Bauplan-Schnitt)
-  - preview-fcattiswil/herren-1.html   (Muster-Team 1/14: 1. Mannschaft Herren 4. Liga + 13 Rohbau-Teams-Matrix)
+  - preview-fcattiswil/herren-1.html   (Beispiel-Team 1/14: 1. Mannschaft Herren 4. Liga + 13 Rohbau-Teams-Matrix)
   - preview-fcattiswil/kontakt.html    (Smart-Anfrage- & Vereins-Zentrale mit 3-Step-Wizard & 1-Seiten-PDF)
 Strict compliance:
   - 100 % real facts & assets from https://www.fcattiswil.ch
@@ -233,17 +233,17 @@ SPONSORS_PARTNER = [
 ]
 ALL_14_TEAMS_GROUPS = [
     {
-        "group_title": "1. Aktive Herren, Frauen & Senioren (1 Muster fertig · 3 Teams im Rohbau)",
+        "group_title": "1. Aktive Herren, Frauen & Senioren (1 Beispiel-Team ausgearbeitet · 3 weitere vorbereitet)",
         "group_lead": "Sportchef Aktive: Florian Bohner (079 677 93 52) · Frauenverantwortliche: Celine Lemp (079 137 82 38)",
         "teams": [
-            ("1. Mannschaft (Herren 4. Liga)", "Muster-Team 1/14 (Oben komplett ausgearbeitet)", "herren1", "Trainer: Stephan Sperisen (079 705 76 06) & Michael Marti · Di & Do 19:30–21:00 Uhr"),
+            ("1. Mannschaft (Herren 4. Liga)", "Beispiel-Team 1/14 (Oben komplett ausgearbeitet)", "herren1", "Trainer: Stephan Sperisen (079 705 76 06) & Michael Marti · Di & Do 19:30–21:00 Uhr"),
             ("Frauen 2. Liga (Damen A)", "Cupsiegerinnen 2025 (4:0 vs. SC Blusti) · 23 Spielerinnen", "blueprint", "Trainerin: Dana Scherrer (079 408 28 94) & Roger Lemp (079 212 91 36) · Di & Do 19:30–21:00 Uhr · Sponsor: Auto Lemp AG"),
             ("Frauen 3. Liga (Damen B)", "Aktive Frauen (2. Team) · 18 Spielerinnen", "blueprint", "Trainer: Tom Moser (079 418 76 68), Janik Altschul & Dario Bannwart · Mo & Mi 19:15–20:45 Uhr · Sponsor: Texova GmbH"),
             ("Senioren 30+", "Senioren-Abteilung (Training in Wiedlisbach)", "blueprint", "Trainer: Markus Frenzen · Mi 19:30–21:00 Uhr auf dem Sportplatz Wiedlisbach"),
         ],
     },
     {
-        "group_title": "2. Junioren B bis G (0 von 7 Teams migriert · Alle 7 im Rohbau)",
+        "group_title": "2. Junioren B bis G (7 Teams vorbereitet · Folgen beim Ausbau)",
         "group_lead": "Verantwortlicher Junioren im Vorstand: Levi Meyer (079 475 75 80 · info@fcattiswil.ch)",
         "teams": [
             ("Junioren B (Gruppierung)", "Nachwuchs 11er-Fussball (Training in Wiedlisbach)", "blueprint", "Trainer: Patrik Fluri · Kontakt: Levi Meyer (079 475 75 80) · Di & Fr 19:00–20:30 Uhr"),
@@ -256,7 +256,7 @@ ALL_14_TEAMS_GROUPS = [
         ],
     },
     {
-        "group_title": "3. Juniorinnen FF-17 bis FF-11 & Team Bravo (0 von 3 Juniorinnen-Teams migriert · Im Rohbau)",
+        "group_title": "3. Juniorinnen FF-17 bis FF-11 & Team Bravo (4 Teams vorbereitet · Folgen beim Ausbau)",
         "group_lead": "Verantwortliche Frauen & Juniorinnen im Vorstand: Celine Lemp (079 137 82 38 · info@fcattiswil.ch)",
         "teams": [
             ("Juniorinnen FF-17", "Mädchen-Nachwuchs U17 · Sportanlage Lindenrain", "blueprint", "Koordination: Celine Lemp (079 137 82 38) · Sponsor: W+H AG Ingenieure & Planer"),
@@ -1075,7 +1075,7 @@ SHARED_CSS = """
       color: var(--text-muted);
       line-height: 1.35;
     }
-    /* Architecture Cut Zone (#bauplan-schnitt) */
+    /* Architecture Cut Zone (#seiten-uebersicht) */
     .blueprint-zone-section {
       background-color: #E2E8F0;
       background-image:
@@ -1551,21 +1551,21 @@ def render_shell(filename: str, page_title: str, active_nav: str, body_html: str
   </style>
 </head>
 <body>
-  <!-- 1. UNUEBERSEHBARE KONZEPT- & AUSBAUSTUFEN-LEISTE (V2: 6-%-BAUPLAN-MODUS) -->
+  <!-- 1. KONZEPT- & VORSCHAU-LEISTE (VARIANTE 2) -->
   <div class="wp-v2-blueprint-bar">
     <div class="container wp-v2-bar-inner">
       <div class="wp-v2-bar-left">
         <span class="wp-v2-study-badge">
           <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
-          <span>ARCHITEKTUR-STUDIE · BAUPLAN V2</span>
+          <span>UNVERBINDLICHER VORSCHAU-ENTWURF</span>
         </span>
         <span class="wp-v2-bar-status-text">Ausbaustufe Prototyp: 6 % (3 von 53 Seiten exemplarisch ausgearbeitet)</span>
       </div>
-      <div class="wp-v2-bar-middle" aria-label="Bauplan-Fortschritt 6 Prozent">
+      <div class="wp-v2-bar-middle" aria-label="Vorschau-Umfang 3 Beispiel-Seiten">
         <div class="wp-v2-progress-track">
           <div class="wp-v2-progress-fill"></div>
         </div>
-        <span class="wp-v2-progress-label">6 % fertig · 50 Unterseiten &amp; 13 Teams im Rohbau</span>
+        <span class="wp-v2-progress-label">Vorschau-Umfang: 3 Beispiel-Seiten live · 50 weitere Seiten &amp; 13 Teams vorbereitet</span>
       </div>
       <a href="kontakt.html?thema=probetraining" class="wp-v2-switch-btn">
         <span>Smart-Anfrage &amp; 1-Seiten-PDF testen</span>
@@ -1578,12 +1578,12 @@ def render_shell(filename: str, page_title: str, active_nav: str, body_html: str
     <div class="container top-bar-inner">
       <div class="top-bar-left">
         <span class="top-bar-badge" data-slot="topbar_badge">PROTOTYP-AUSBAU: 3 / 53 SEITEN</span>
-        <span data-slot="topbar_info">1 von 14 Teams (1. Mannschaft) &amp; alle 23 Sponsoren als Musterhaus · 94 % Rohbau-Bauplan</span>
+        <span data-slot="topbar_info">Beispiel-Ausbau: 1. Mannschaft &amp; alle 23 Sponsoren live · 50 weitere Seiten folgen beim Ausbau</span>
       </div>
       <div class="top-bar-links">
         <a href="index.html#sponsoren">23 Sponsoren &amp; 300er Club</a>
-        <a href="index.html#bauplan-schnitt">Bauplan-Schnitt (50 offene Seiten)</a>
-        <button type="button" onclick="wpOpenBlueprintModal('Rohbau-Modul B: Verein, Vorstand (10), SFV Quality Club &amp; Chronik seit 1971 (14 Unterseiten)', 'Vereinsführung FC Attiswil (0 % übertragen)', 'Konrad Schütz (Präsident · 079 661 66 12) &amp; Philipp Singer (Vizepräsident · 079 304 44 56)')">Verein &amp; Chronik (0/14 offen)</button>
+        <a href="index.html#seiten-uebersicht">Weitere Seiten (50 vorbereitet)</a>
+        <button type="button" onclick="wpOpenBlueprintModal('Bereich B: Verein, Vorstand (10), SFV Quality Club &amp; Chronik seit 1971 (14 Unterseiten)', 'Vereinsführung FC Attiswil (0 % übertragen)', 'Konrad Schütz (Präsident · 079 661 66 12) &amp; Philipp Singer (Vizepräsident · 079 304 44 56)')">Verein &amp; Chronik (0/14 offen)</button>
         <a href="kontakt.html?thema=clubhaus">Clubhaus Lindenrain mieten</a>
       </div>
     </div>
@@ -1601,7 +1601,7 @@ def render_shell(filename: str, page_title: str, active_nav: str, body_html: str
       <nav class="main-nav" aria-label="Hauptnavigation mit Ausbau-Status">
         <a href="index.html" class="nav-link {nav_start}">
           <svg width="8" height="8" viewBox="0 0 8 8" aria-hidden="true"><circle cx="4" cy="4" r="4" fill="#10B981"/></svg>
-          <span>Startseite (Muster)</span>
+          <span>Startseite (Beispiel)</span>
         </a>
         <a href="herren-1.html" class="nav-link {nav_teams}">
           <svg width="8" height="8" viewBox="0 0 8 8" aria-hidden="true"><circle cx="4" cy="4" r="4" fill="#F59E0B"/></svg>
@@ -1611,7 +1611,7 @@ def render_shell(filename: str, page_title: str, active_nav: str, body_html: str
           <svg width="8" height="8" viewBox="0 0 8 8" aria-hidden="true"><circle cx="4" cy="4" r="4" fill="#10B981"/></svg>
           <span>23 Sponsoren</span>
         </a>
-        <button type="button" class="nav-link nav-link-locked" onclick="wpOpenBlueprintModal('Rohbau-Modul B &amp; C: Verein, Vorstand (10), Chronik seit 1971 &amp; Clubhaus Lindenrain (24 Seiten offen)', 'Vereinsführung &amp; Infrastruktur (Noch nicht migriert · 0 %)', 'Konrad Schütz (Präsident) &amp; Philipp Singer (Vizepräsident / Clubhaus)', 'clubhaus')">
+        <button type="button" class="nav-link nav-link-locked" onclick="wpOpenBlueprintModal('Bereich B &amp; C: Verein, Vorstand (10), Chronik seit 1971 &amp; Clubhaus Lindenrain (24 Seiten offen)', 'Vereinsführung &amp; Infrastruktur (Noch nicht migriert · 0 %)', 'Konrad Schütz (Präsident) &amp; Philipp Singer (Vizepräsident / Clubhaus)', 'clubhaus')">
           <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
           <span>Verein &amp; Lindenrain (0/24)</span>
         </button>
@@ -1630,11 +1630,11 @@ def render_shell(filename: str, page_title: str, active_nav: str, body_html: str
       </div>
     </div>
     <div class="mobile-drawer" id="mobileDrawer">
-      <a href="index.html" onclick="wpCloseMobileMenu()">Startseite (Muster · 6 % Prototyp)</a>
-      <a href="herren-1.html" onclick="wpCloseMobileMenu()">Muster-Team: 1. Mannschaft (1/14 fertig · 13 im Rohbau)</a>
+      <a href="index.html" onclick="wpCloseMobileMenu()">Startseite (Beispiel-Ansicht)</a>
+      <a href="herren-1.html" onclick="wpCloseMobileMenu()">Beispiel-Team: 1. Mannschaft (1/14 ausgearbeitet · 13 weitere folgen)</a>
       <a href="index.html#sponsoren" onclick="wpCloseMobileMenu()">Sponsoren &amp; 300er Club (Alle 23 übernommen)</a>
-      <button type="button" class="mobile-nav-btn" onclick="wpCloseMobileMenu(); wpOpenBlueprintModal('Rohbau-Modul B &amp; C: Verein, Vorstand, Chronik &amp; Clubhaus Lindenrain (24 Seiten offen)', 'Vereinsführung &amp; Infrastruktur (Noch nicht migriert · 0 %)', 'Konrad Schütz &amp; Philipp Singer', 'clubhaus')">
-        <span>Verein &amp; Lindenrain (24 Seiten offen · Rohbau)</span>
+      <button type="button" class="mobile-nav-btn" onclick="wpCloseMobileMenu(); wpOpenBlueprintModal('Bereich B &amp; C: Verein, Vorstand, Chronik &amp; Clubhaus Lindenrain (24 Seiten offen)', 'Vereinsführung &amp; Infrastruktur (Noch nicht migriert · 0 %)', 'Konrad Schütz &amp; Philipp Singer', 'clubhaus')">
+        <span>Verein &amp; Lindenrain (24 weitere Seiten · folgt beim Ausbau)</span>
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
       </button>
       <a href="kontakt.html" onclick="wpCloseMobileMenu()">Smart-Anfrage (Live-Demo)</a>
@@ -1652,11 +1652,11 @@ def render_shell(filename: str, page_title: str, active_nav: str, body_html: str
             <img src="images/logo-fcattiswil.webp" alt="FC Attiswil Wappen" width="46" height="46" loading="lazy" decoding="async" style="object-fit:contain;">
             <div>
               <div style="font-family:'Montserrat',sans-serif;font-weight:800;font-size:1.1rem;color:#FFFFFF;">FC ATTISWIL</div>
-              <div style="font-size:0.76rem;color:#FBBF24;font-weight:700;">ARCHITEKTUR-STUDIE V2 · 6 % PROTOTYP</div>
+              <div style="font-size:0.76rem;color:#FBBF24;font-weight:700;">VORSCHAU-ENTWURF · 3 BEISPIEL-SEITEN LIVE</div>
             </div>
           </div>
           <p style="font-size:0.86rem;color:#CBD5E1;line-height:1.6;margin-bottom:14px;" data-slot="footer_about">
-            Architekten-Musterhaus &amp; Bauplan-Vorschau für den FC Attiswil (gegründet am 16.02.1971, SFV Quality Club): 3 von 53 Seiten (Startseite, 1 Muster-Team 1. Mannschaft, Smart-Anfrage) als Qualitätsbeweis ausgearbeitet — 50 Unterseiten &amp; 13 Teams folgen im Hauptauftrag.
+            Unverbindlicher Vorschau-Entwurf für den FC Attiswil (gegründet am 16.02.1971, SFV Quality Club): 3 von 53 Seiten (Startseite, 1 Beispiel-Team 1. Mannschaft, Smart-Anfrage) als Qualitätsbeweis ausgearbeitet — 50 Unterseiten &amp; 13 Teams folgen im Hauptauftrag.
           </p>
           <div style="font-size:0.84rem;color:#E2E8F0;font-weight:600;">
             Sportanlage Lindenrain · Sportplatzweg 1 · 4536 Attiswil
@@ -1665,58 +1665,58 @@ def render_shell(filename: str, page_title: str, active_nav: str, body_html: str
         <div>
           <div class="footer-title">Prototyp (6 % ausgearbeitet)</div>
           <ul class="footer-list">
-            <li><a href="index.html">Startseite: Hero &amp; Sponsoren (Muster)</a></li>
-            <li><a href="herren-1.html">Muster-Team: 1. Mannschaft (1 von 14 fertig)</a></li>
+            <li><a href="index.html">Startseite: Hero &amp; Sponsoren (Beispiel)</a></li>
+            <li><a href="herren-1.html">Beispiel-Team: 1. Mannschaft (1 von 14 fertig)</a></li>
             <li><a href="index.html#sponsoren">Alle 23 Sponsoren &amp; 300er Club</a></li>
             <li><a href="kontakt.html">Smart-Anfrage-Zentrale (Live-Demo)</a></li>
           </ul>
         </div>
         <div>
-          <div class="footer-title">Rohbau-Bauplan (94 % offen)</div>
+          <div class="footer-title">Weitere Bereiche (folgen beim Ausbau)</div>
           <ul class="footer-list">
-            <li><a href="herren-1.html#alle-teams-matrix">13 weitere Mannschaften (Rohbau)</a></li>
-            <li><button type="button" onclick="wpOpenBlueprintModal('Rohbau-Modul B: Verein, Vorstand (10), Funktionäre (8), Schiedsrichter &amp; Chronik seit 1971 (14 Unterseiten)', 'Vereinsführung FC Attiswil (0 % übertragen)', 'Konrad Schütz (Präsident) &amp; Michelle Kurth (Sekretärin)')">Verein, Vorstand &amp; Chronik (0/14)</button></li>
-            <li><button type="button" onclick="wpOpenBlueprintModal('Rohbau-Modul C: Sportanlage Lindenrain, Clubhaus-Vermietung &amp; Anlässe (10 Unterseiten)', 'Infrastruktur &amp; Vereinsleben (0 % übertragen)', 'Philipp Singer (079 304 44 56) &amp; Christina Lemp (079 916 64 55)', 'clubhaus')">Clubhaus Lindenrain &amp; Anlässe (0/10)</button></li>
-            <li><button type="button" onclick="wpOpenBlueprintModal('Rohbau-Modul D: Spielbetrieb, Matchberichte, Vereinsartikel &amp; Foto-Archiv (7 Unterseiten)', 'Spielbetrieb &amp; Medien (0 % übertragen)', 'Florian Bohner (Sportchef) &amp; Raphaela Lüscher (Marketing)')">Spielbetrieb &amp; Galerien (0/7)</button></li>
+            <li><a href="herren-1.html#alle-teams-matrix">13 weitere Mannschaften (Übersicht)</a></li>
+            <li><button type="button" onclick="wpOpenBlueprintModal('Bereich B: Verein, Vorstand (10), Funktionäre (8), Schiedsrichter &amp; Chronik seit 1971 (14 Unterseiten)', 'Vereinsführung FC Attiswil (0 % übertragen)', 'Konrad Schütz (Präsident) &amp; Michelle Kurth (Sekretärin)')">Verein, Vorstand &amp; Chronik (0/14)</button></li>
+            <li><button type="button" onclick="wpOpenBlueprintModal('Bereich C: Sportanlage Lindenrain, Clubhaus-Vermietung &amp; Anlässe (10 Unterseiten)', 'Infrastruktur &amp; Vereinsleben (0 % übertragen)', 'Philipp Singer (079 304 44 56) &amp; Christina Lemp (079 916 64 55)', 'clubhaus')">Clubhaus Lindenrain &amp; Anlässe (0/10)</button></li>
+            <li><button type="button" onclick="wpOpenBlueprintModal('Bereich D: Spielbetrieb, Matchberichte, Vereinsartikel &amp; Foto-Archiv (7 Unterseiten)', 'Spielbetrieb &amp; Medien (0 % übertragen)', 'Florian Bohner (Sportchef) &amp; Raphaela Lüscher (Marketing)')">Spielbetrieb &amp; Galerien (0/7)</button></li>
           </ul>
         </div>
         <div>
           <div class="footer-title">Direktkontakt &amp; Rechtliches</div>
           <ul class="footer-list">
             <li><a href="kontakt.html?thema=probetraining" style="color:#FBBF24;font-weight:700;">Probetraining &amp; Vereins-Anfrage</a></li>
-            <li><a href="index.html#bauplan-schnitt">Architektur-Bauplan-Schnitt ansehen</a></li>
+            <li><a href="index.html#seiten-uebersicht">Übersicht der weiteren Seiten ansehen</a></li>
             <li><a href="https://www.instagram.com/fc_attiswil/" target="_blank" rel="noopener noreferrer">Instagram (@fc_attiswil)</a></li>
             <li><button type="button" onclick="wpOpenImpressumModal()">Impressum &amp; Datenschutz</button></li>
           </ul>
         </div>
       </div>
       <div class="footer-bottom">
-        <div>&copy; 2026 Fussballclub Attiswil (4536 Attiswil · SOFV Nr. 1880) · Konzept- &amp; Bauplan-Studie V2 (Ausbaustufe 6 %).</div>
+        <div>&copy; 2026 Fussballclub Attiswil (4536 Attiswil · SOFV Nr. 1880) · Unverbindlicher Vorschau-Entwurf (3 Beispiel-Seiten live).</div>
         <div style="display:flex;gap:16px;flex-wrap:wrap;">
-          <a href="herren-1.html" style="color:#FBBF24;font-weight:700;">Muster-Team 1. Mannschaft (1/14)</a>
+          <a href="herren-1.html" style="color:#FBBF24;font-weight:700;">Beispiel-Team 1. Mannschaft (1/14)</a>
           <a href="kontakt.html" style="color:#E2E8F0;">Smart-Anfrage testen</a>
         </div>
       </div>
     </div>
   </footer>
-  <!-- ARCHITEKTUR-BLAUPAUSEN-MODAL (V2 BAUPLAN-MODUS) -->
+  <!-- SEITEN-VORSCHAU-MODAL -->
   <div class="wp-modal-backdrop" id="wpBlueprintModal" role="dialog" aria-modal="true" aria-labelledby="wpBpTitle">
     <div class="wp-modal-dialog">
       <button type="button" class="wp-modal-close" aria-label="Dialog schliessen" onclick="wpCloseBlueprintModal()">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
       </button>
-      <div class="section-kicker">BAUPLAN-STATUS: ROHBAU (NOCH NICHT MIGRIERT · TEIL DES HAUPTAUFTRAGS)</div>
-      <h3 id="wpBpTitle" style="font-size:1.35rem;font-weight:800;margin-bottom:8px;">Rohbau-Modul: Noch nicht übertragen</h3>
+      <div class="section-kicker">SEITEN-VORSCHAU · VORBEREITET FÜR DEN KOMPLETTEN AUSBAU</div>
+      <h3 id="wpBpTitle" style="font-size:1.35rem;font-weight:800;margin-bottom:8px;">Weitere Vereins-Seite: Folgt beim Ausbau</h3>
       <p id="wpBpSub" style="font-size:0.9rem;color:var(--text-body);margin-bottom:12px;">
-        In dieser <strong>Architektur-Studie (Ausbaustufe 6 % · 3 von 53 Seiten)</strong> sind oben das Design, alle 23 Sponsoren und exakt <strong>1 Muster-Team (1. Mannschaft · Herren 4. Liga)</strong> ausgearbeitet. Dieses Modul befindet sich bewusst noch im <strong>unbefüllten Rohbau (0 % übertragen)</strong> und wird nach Auftragserteilung komplett mit allen Originaldaten, Fotos und Kadern eingerichtet.
+        In diesem <strong>Vorschau-Entwurf (3 von 53 Seiten als Beispiel live)</strong> sind oben das Design, alle 23 Sponsoren und exakt <strong>1 Beispiel-Team (1. Mannschaft · Herren 4. Liga)</strong> ausgearbeitet. Dieses Modul befindet sich bewusst noch im <strong>vorbereiteten Platzhalter (folgt beim Ausbau)</strong> und wird nach Auftragserteilung komplett mit allen Originaldaten, Fotos und Kadern eingerichtet.
       </p>
       <div style="background-color:#FEF3C7;border-left:4px solid #D97706;padding:12px 14px;border-radius:var(--radius-sm);font-size:0.86rem;margin-bottom:14px;">
-        <div style="font-weight:800;color:#92400E;" id="wpBpCategory">Bereich / Abteilung: Rohbau-Modul</div>
+        <div style="font-weight:800;color:#92400E;" id="wpBpCategory">Bereich / Abteilung: Vorbereitet für den Ausbau</div>
         <div style="color:#78350F;margin-top:2px;" id="wpBpContact">Zuständige Ansprechperson im Verein: Vorstand FC Attiswil</div>
       </div>
       <div class="wp-modal-checklist">
         <div style="font-family:'Montserrat',sans-serif;font-size:0.78rem;font-weight:800;text-transform:uppercase;color:var(--fca-navy);">
-          Wird nach Auftragserteilung (analog Muster-Team 1. Mannschaft) schlüsselfertig übertragen:
+          Wird nach Auftragserteilung (analog Beispiel-Team 1. Mannschaft) schlüsselfertig übertragen:
         </div>
         <div class="wp-modal-check-item">
           <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><polyline points="20 6 9 17 4 12"/></svg>
@@ -1733,7 +1733,7 @@ def render_shell(filename: str, page_title: str, active_nav: str, body_html: str
       </div>
       <div style="display:flex;flex-wrap:wrap;gap:10px;margin-top:18px;">
         <a href="herren-1.html" class="btn-cta btn-cta-primary btn-sm" onclick="wpCloseBlueprintModal()">
-          <span>Fertiges Muster-Team (1. Mannschaft · 1/14) ansehen</span>
+          <span>Ausgearbeitetes Beispiel-Team (1. Mannschaft · 1/14) ansehen</span>
         </a>
         <a href="kontakt.html?thema=probetraining" id="wpBpCtaLink" class="btn-cta btn-cta-gold btn-sm">
           <span>Smart-Anfrage (Live-Demo) testen</span>
@@ -1776,8 +1776,8 @@ def render_shell(filename: str, page_title: str, active_nav: str, body_html: str
       var cEl = document.getElementById('wpBpCategory');
       var pEl = document.getElementById('wpBpContact');
       var lEl = document.getElementById('wpBpCtaLink');
-      if (tEl) tEl.textContent = title || 'Rohbau-Modul: Noch nicht übertragen';
-      if (cEl) cEl.textContent = 'Bereich / Abteilung: ' + (category || 'Vereins-Architektur');
+      if (tEl) tEl.textContent = title || 'Weitere Vereins-Seite: Folgt beim Ausbau';
+      if (cEl) cEl.textContent = 'Bereich / Abteilung: ' + (category || 'Vereins-Bereich');
       if (pEl) pEl.textContent = 'Zuständig im FC Attiswil: ' + (contact || 'Vorstand FC Attiswil (info@fcattiswil.ch)');
       if (lEl) lEl.href = 'kontakt.html?thema=' + encodeURIComponent(topicSlug || 'probetraining');
       m.classList.add('open');
@@ -1835,7 +1835,7 @@ def build_index_html() -> str:
             </div>
           </a>""")
     body = f"""
-  <!-- 1. HERO SECTION (AUSGEARBEITETES MUSTERHAUS · 6-%-PROTOTYP) -->
+  <!-- 1. HERO SECTION (BEISPIEL-AUSBAU) -->
   <section class="hero-section" data-section="hero">
     <div class="container">
       <div class="hero-grid">
@@ -1872,7 +1872,7 @@ def build_index_html() -> str:
             </div>
             <div class="hero-kpi-card">
               <div class="hero-kpi-num" data-slot="kpi_2_num">14 Teams</div>
-              <div class="hero-kpi-lbl" data-slot="kpi_2_lbl">1 Muster-Team fertig · 13 im Rohbau</div>
+              <div class="hero-kpi-lbl" data-slot="kpi_2_lbl">1 Beispiel-Team live · 13 vorbereitet</div>
             </div>
             <div class="hero-kpi-card">
               <div class="hero-kpi-num" data-slot="kpi_3_num">SFV Quality</div>
@@ -1889,7 +1889,7 @@ def build_index_html() -> str:
             <img src="images/hero-herren-1.webp" alt="FC Attiswil 1. Mannschaft Herren 4. Liga auf dem Sportplatz Lindenrain" width="600" height="270" fetchpriority="high" decoding="async" data-slot="hero_main_img">
             <div class="hero-photo-caption">
               <strong>1. Mannschaft FC Attiswil · Herren 4. Liga</strong>
-              <span>Muster-Team 1/14 · Dress: Auto Lemp AG</span>
+              <span>Beispiel-Team 1/14 · Dress: Auto Lemp AG</span>
             </div>
           </div>
           <div class="hero-secondary-row">
@@ -1985,38 +1985,38 @@ def build_index_html() -> str:
       </div>
     </div>
   </section>
-  <!-- 3. ARCHITEKTUR-SCHNITT & 94-%-ROHBAU-ZONE (4 GESTRICHELTE BAUPLAN-MODULE) -->
-  <section id="bauplan-schnitt" class="blueprint-zone-section" data-section="bauplan-schnitt">
+  <!-- 3. SEITEN-ÜBERSICHT (4 WEITERE BEREICHE) -->
+  <section id="seiten-uebersicht" class="blueprint-zone-section" data-section="seiten-uebersicht">
     <div class="container">
-      <!-- Trenn-Banner: Warum hier der Rohbau beginnt -->
+      <!-- Trenn-Banner: Übersicht der weiteren Seiten -->
       <div class="blueprint-cut-banner">
         <div class="blueprint-cut-top">
           <span class="blueprint-cut-pill">
             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-            <span>BAUPLAN-SCHNITT · ENDE DES AUSGEARBEITETEN 6-%-PROTOTYPS</span>
+            <span>SEITEN-ÜBERSICHT · FOLGT BEIM KOMPLETTEN AUSBAU</span>
           </span>
           <span style="font-family:'Montserrat',sans-serif;font-size:0.78rem;font-weight:700;color:#FDE68A;">
-            50 von 53 Unterseiten (94 %) &amp; 13 von 14 Teams befinden sich ab hier im Drahtgitter-Rohbau
+            50 von 53 Unterseiten (94 %) &amp; 13 von 14 Teams sind ab hier als Vorschau-Übersicht vorbereitet
           </span>
         </div>
         <h2 style="color:#FFFFFF;font-size:clamp(1.45rem,2.5vw,2.05rem);font-weight:800;margin-bottom:10px;">
-          Transparenter Architektur-Entwurf statt unfertiger Webseite: Was hier bereits steht — und was im Hauptauftrag folgt.
+          Transparenter Vorschau-Entwurf: Welche Beispiel-Seiten bereits stehen — und was beim Ausbau folgt.
         </h2>
         <p style="font-size:0.95rem;color:#CBD5E1;line-height:1.65;">
-          Die aktuelle Website <strong>fcattiswil.ch</strong> umfasst <strong>53 Menü-Unterseiten</strong> und <strong>14 Mannschaften</strong>. Damit der Vorstand um Präsident <strong>Konrad Schütz</strong>, Vizepräsident <strong>Philipp Singer</strong>, Sportchef <strong>Florian Bohner</strong> und Marketingchefin <strong>Raphaela Lüscher</strong> das neue System vor einem Entscheid echt prüfen kann, haben wir oben <strong>3 Seiten (6 %) als Musterhaus</strong> komplett eingerichtet — inklusive aller 23 Sponsoren und der <strong>1. Mannschaft (Herren 4. Liga)</strong>. Die folgenden <strong>4 Vereins-Module (50 Seiten / 94 %)</strong> sind als <strong>Architekten-Bauplan im Rohbau</strong> vorbereitet:
+          Die aktuelle Website <strong>fcattiswil.ch</strong> umfasst <strong>53 Menü-Unterseiten</strong> und <strong>14 Mannschaften</strong>. Damit der Vorstand um Präsident <strong>Konrad Schütz</strong>, Vizepräsident <strong>Philipp Singer</strong>, Sportchef <strong>Florian Bohner</strong> und Marketingchefin <strong>Raphaela Lüscher</strong> das neue System vor einem Entscheid echt prüfen kann, haben wir oben <strong>3 Beispiel-Seiten</strong> komplett ausgearbeitet — inklusive aller 23 Sponsoren und der <strong>1. Mannschaft (Herren 4. Liga)</strong>. Die folgenden <strong>4 Vereins-Module (50 Seiten / 94 %)</strong> sind hier als <strong>übersichtliche Vorschau-Bereiche</strong> vorbereitet:
         </p>
         <div class="blueprint-kpi-row">
           <div class="blueprint-kpi-box">
             <div style="font-family:'Montserrat',sans-serif;font-size:0.76rem;font-weight:800;color:#4ADE80;text-transform:uppercase;margin-bottom:4px;">
-              Bereits im Musterhaus fertiggestellt (6 % · 3 von 53 Seiten)
+              Bereits als Beispiel ausgearbeitet (3 von 53 Seiten)
             </div>
             <div style="font-size:0.86rem;color:#F8FAFC;">
-              1. Startseite (Hero + 23 Sponsoren &amp; 300er Club) · 2. Muster-Team <strong>1. Mannschaft</strong> (4 Staff-Porträts &amp; 22 Kaderspieler) · 3. Smart-Anfrage-Zentrale (inkl. Live-1-Seiten-PDF mit FC-Attiswil-Briefkopf).
+              1. Startseite (Hero + 23 Sponsoren &amp; 300er Club) · 2. Beispiel-Team <strong>1. Mannschaft</strong> (4 Staff-Porträts &amp; 22 Kaderspieler) · 3. Smart-Anfrage-Zentrale (inkl. Live-1-Seiten-PDF mit FC-Attiswil-Briefkopf).
             </div>
           </div>
           <div class="blueprint-kpi-box is-open-scope">
             <div style="font-family:'Montserrat',sans-serif;font-size:0.76rem;font-weight:800;color:#FBBF24;text-transform:uppercase;margin-bottom:4px;">
-              Noch offen für den Hauptauftrag (94 % · 50 von 53 Seiten im Rohbau)
+              Folgt beim kompletten Ausbau (50 weitere Seiten vorbereitet)
             </div>
             <div style="font-size:0.86rem;color:#F8FAFC;">
               Alle weiteren <strong>13 Mannschaften</strong> (Frauen 2./3. Liga, Senioren 30+, 7 Junioren- &amp; 3 Juniorinnen-Teams + Team Bravo), Vorstand (10), Funktionäre (8), Schiedsrichter (3), Clubhaus-Vermietung, Anlässe &amp; 55 Jahre Vereinschronik.
@@ -2024,25 +2024,25 @@ def build_index_html() -> str:
           </div>
         </div>
       </div>
-      <!-- 4 GESTRICHELTE ROHBAU-MODULE (MODUL A bis D) -->
+      <!-- 4 WEITERE BEREICHE (BEREICH A bis D) -->
       <div class="blueprint-modules-grid">
-        <!-- ROHBAU-MODUL A: 13 WEITERE MANNSCHAFTEN -->
+        <!-- BEREICH A: 13 WEITERE MANNSCHAFTEN -->
         <article class="blueprint-module-card">
           <div>
             <div class="blueprint-module-top">
-              <span class="blueprint-mod-tag">Rohbau-Modul A · 19 Unterseiten offen</span>
+              <span class="blueprint-mod-tag">Bereich A · 19 Unterseiten offen</span>
               <span class="blueprint-lock-badge">
                 <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-                <span>1/14 fertig · 13 Teams im Rohbau</span>
+                <span>1/14 ausgearbeitet · 13 weitere vorbereitet</span>
               </span>
             </div>
             <h3 class="blueprint-module-title">13 weitere Mannschaften &amp; «Team Bravo» (Noch nicht migriert)</h3>
             <p class="blueprint-module-desc">
-              Während die <strong>1. Mannschaft (Herren 4. Liga)</strong> als Muster-Vorlage komplett live ist, werden die <strong>13 weiteren Teams</strong> im Hauptauftrag exakt nach demselben Standard mit Mannschaftsfoto, Trainer-Kontakt, Trainingszeiten und Kaderliste übernommen:
+              Während die <strong>1. Mannschaft (Herren 4. Liga)</strong> als Beispiel-Team komplett ausgearbeitet ist, werden die <strong>13 weiteren Teams</strong> im Hauptauftrag exakt nach demselben Standard mit Mannschaftsfoto, Trainer-Kontakt, Trainingszeiten und Kaderliste übernommen:
             </p>
             <div class="wireframe-preview-box" aria-hidden="true">
               <div class="wireframe-skeleton-header">
-                <span>Drahtgitter-Vorschau: 13 offene Team-Seiten</span>
+                <span>Vorschau-Übersicht: 13 offene Team-Seiten</span>
                 <span>0 % befüllt</span>
               </div>
               <div class="wireframe-grid-3">
@@ -2080,21 +2080,21 @@ def build_index_html() -> str:
           </div>
           <div style="display:flex;flex-wrap:wrap;gap:10px;">
             <a href="herren-1.html" class="btn-cta btn-cta-primary btn-sm" style="flex:1;">
-              <span>Fertiges Muster-Team (1/14) ansehen</span>
+              <span>Ausgearbeitetes Beispiel-Team (1/14) ansehen</span>
             </a>
             <a href="herren-1.html#alle-teams-matrix" class="btn-cta btn-cta-outline btn-sm" style="flex:1;">
-              <span>13 Rohbau-Teams prüfen</span>
+              <span>13 weitere Teams ansehen</span>
             </a>
           </div>
         </article>
-        <!-- ROHBAU-MODUL B: VEREIN, VORSTAND (10), FUNKTIONÄRE (8), SR (3) & CHRONIK SEIT 1971 -->
+        <!-- BEREICH B: VEREIN, VORSTAND (10), FUNKTIONÄRE (8), SR (3) & CHRONIK SEIT 1971 -->
         <article class="blueprint-module-card">
           <div>
             <div class="blueprint-module-top">
-              <span class="blueprint-mod-tag">Rohbau-Modul B · 14 Unterseiten offen</span>
+              <span class="blueprint-mod-tag">Bereich B · 14 Unterseiten offen</span>
               <span class="blueprint-lock-badge">
                 <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-                <span>Status: Rohbau · 0 % übertragen</span>
+                <span>Status: Vorbereitet · Folgt beim Ausbau</span>
               </span>
             </div>
             <h3 class="blueprint-module-title">Verein, Vorstand (10), Funktionäre, Schiedsrichter &amp; Chronik 1971–2026</h3>
@@ -2103,7 +2103,7 @@ def build_index_html() -> str:
             </p>
             <div class="wireframe-preview-box" aria-hidden="true">
               <div class="wireframe-skeleton-header">
-                <span>Drahtgitter-Vorschau: Vereinsführung &amp; Geschichte</span>
+                <span>Vorschau-Übersicht: Vereinsführung &amp; Geschichte</span>
                 <span>0 / 14 Seiten gebaut</span>
               </div>
               <div class="wireframe-grid-3">
@@ -2139,18 +2139,18 @@ def build_index_html() -> str:
               </div>
             </div>
           </div>
-          <button type="button" class="btn-cta btn-cta-outline btn-sm" style="width:100%;" onclick="wpOpenBlueprintModal('Rohbau-Modul B: Verein, Vorstand (10), Funktionäre (8), Schiedsrichter &amp; Chronik (14 Seiten)', 'Vereinsführung FC Attiswil (Status: Rohbau · 0 % übertragen)', 'Konrad Schütz (Präsident · 079 661 66 12) &amp; Michelle Kurth (Sekretärin)', 'allgemein')">
-            <span>Bauplan-Details für Modul B öffnen</span>
+          <button type="button" class="btn-cta btn-cta-outline btn-sm" style="width:100%;" onclick="wpOpenBlueprintModal('Bereich B: Verein, Vorstand (10), Funktionäre (8), Schiedsrichter &amp; Chronik (14 Seiten)', 'Vereinsführung FC Attiswil (Status: Vorbereitet · Folgt beim Ausbau)', 'Konrad Schütz (Präsident · 079 661 66 12) &amp; Michelle Kurth (Sekretärin)', 'allgemein')">
+            <span>Seiten-Übersicht für Bereich B öffnen</span>
           </button>
         </article>
-        <!-- ROHBAU-MODUL C: SPORTANLAGE LINDENRAIN, CLUBHAUS-VERMIETUNG & VEREINSANLÄSSE -->
+        <!-- BEREICH C: SPORTANLAGE LINDENRAIN, CLUBHAUS-VERMIETUNG & VEREINSANLÄSSE -->
         <article class="blueprint-module-card">
           <div>
             <div class="blueprint-module-top">
-              <span class="blueprint-mod-tag">Rohbau-Modul C · 10 Unterseiten offen</span>
+              <span class="blueprint-mod-tag">Bereich C · 10 Unterseiten offen</span>
               <span class="blueprint-lock-badge">
                 <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-                <span>Status: Rohbau · 0 % übertragen</span>
+                <span>Status: Vorbereitet · Folgt beim Ausbau</span>
               </span>
             </div>
             <h3 class="blueprint-module-title">Sportanlage Lindenrain, Clubhaus-Vermietung &amp; Jahresprogramm</h3>
@@ -2159,7 +2159,7 @@ def build_index_html() -> str:
             </p>
             <div class="wireframe-preview-box" aria-hidden="true">
               <div class="wireframe-skeleton-header">
-                <span>Drahtgitter-Vorschau: Infrastruktur &amp; Anlässe</span>
+                <span>Vorschau-Übersicht: Infrastruktur &amp; Anlässe</span>
                 <span>0 / 10 Seiten gebaut</span>
               </div>
               <div class="wireframe-grid-3">
@@ -2195,18 +2195,18 @@ def build_index_html() -> str:
               </div>
             </div>
           </div>
-          <button type="button" class="btn-cta btn-cta-outline btn-sm" style="width:100%;" onclick="wpOpenBlueprintModal('Rohbau-Modul C: Sportanlage Lindenrain, Clubhaus-Vermietung &amp; Vereinsanlässe (10 Seiten)', 'Infrastruktur &amp; Events FC Attiswil (Status: Rohbau · 0 % übertragen)', 'Philipp Singer (Vizepräsident · 079 304 44 56) &amp; Christina Lemp (Clubhauswirtin · 079 916 64 55)', 'clubhaus')">
-            <span>Bauplan-Details für Modul C öffnen</span>
+          <button type="button" class="btn-cta btn-cta-outline btn-sm" style="width:100%;" onclick="wpOpenBlueprintModal('Bereich C: Sportanlage Lindenrain, Clubhaus-Vermietung &amp; Vereinsanlässe (10 Seiten)', 'Infrastruktur &amp; Events FC Attiswil (Status: Vorbereitet · Folgt beim Ausbau)', 'Philipp Singer (Vizepräsident · 079 304 44 56) &amp; Christina Lemp (Clubhauswirtin · 079 916 64 55)', 'clubhaus')">
+            <span>Seiten-Übersicht für Bereich C öffnen</span>
           </button>
         </article>
-        <!-- ROHBAU-MODUL D: SPIELBETRIEB, MATCHBERICHTE, VEREINSARTIKEL & FOTO-GALERIEN -->
+        <!-- BEREICH D: SPIELBETRIEB, MATCHBERICHTE, VEREINSARTIKEL & FOTO-GALERIEN -->
         <article class="blueprint-module-card">
           <div>
             <div class="blueprint-module-top">
-              <span class="blueprint-mod-tag">Rohbau-Modul D · 7 Unterseiten offen</span>
+              <span class="blueprint-mod-tag">Bereich D · 7 Unterseiten offen</span>
               <span class="blueprint-lock-badge">
                 <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-                <span>Status: Rohbau · 0 % übertragen</span>
+                <span>Status: Vorbereitet · Folgt beim Ausbau</span>
               </span>
             </div>
             <h3 class="blueprint-module-title">Matchberichte, SOFV-Spielbetrieb, Vereinskollektion &amp; Foto-Archiv</h3>
@@ -2215,7 +2215,7 @@ def build_index_html() -> str:
             </p>
             <div class="wireframe-preview-box" aria-hidden="true">
               <div class="wireframe-skeleton-header">
-                <span>Drahtgitter-Vorschau: Spielbetrieb, Shop &amp; Medien</span>
+                <span>Vorschau-Übersicht: Spielbetrieb, Shop &amp; Medien</span>
                 <span>0 / 7 Seiten gebaut</span>
               </div>
               <div class="wireframe-grid-3">
@@ -2251,8 +2251,8 @@ def build_index_html() -> str:
               </div>
             </div>
           </div>
-          <button type="button" class="btn-cta btn-cta-outline btn-sm" style="width:100%;" onclick="wpOpenBlueprintModal('Rohbau-Modul D: Spielbetrieb, Matchberichte, Vereinsartikel &amp; Foto-Archiv (7 Seiten)', 'Spielbetrieb &amp; Medien FC Attiswil (Status: Rohbau · 0 % übertragen)', 'Florian Bohner (Sportchef · 079 677 93 52) &amp; Raphaela Lüscher (Vereinsartikel · 079 453 88 60)', 'spielbetrieb')">
-            <span>Bauplan-Details für Modul D öffnen</span>
+          <button type="button" class="btn-cta btn-cta-outline btn-sm" style="width:100%;" onclick="wpOpenBlueprintModal('Bereich D: Spielbetrieb, Matchberichte, Vereinsartikel &amp; Foto-Archiv (7 Seiten)', 'Spielbetrieb &amp; Medien FC Attiswil (Status: Vorbereitet · Folgt beim Ausbau)', 'Florian Bohner (Sportchef · 079 677 93 52) &amp; Raphaela Lüscher (Vereinsartikel · 079 453 88 60)', 'spielbetrieb')">
+            <span>Seiten-Übersicht für Bereich D öffnen</span>
           </button>
         </article>
       </div>
@@ -2613,18 +2613,18 @@ def build_herren1_html() -> str:
           <button type="button" class="matrix-team-btn live-built" onclick="window.scrollTo({{top: 220, behavior: 'smooth'}});">
             <div class="matrix-team-top">
               <span class="matrix-team-name">{t_name}</span>
-              <span class="matrix-status-pill pill-live">1/14 Muster fertig</span>
+              <span class="matrix-status-pill pill-live">1/14 · Ausgearbeitet</span>
             </div>
-            <span style="font-size:0.78rem;color:var(--text-body);font-weight:600;">Als einziges Muster-Team ausgearbeitet (4 Staff-Mitglieder &amp; 22 Kaderspieler oben sichtbar)</span>
+            <span style="font-size:0.78rem;color:var(--text-body);font-weight:600;">Als Beispiel-Team komplett ausgearbeitet (4 Staff-Mitglieder &amp; 22 Kaderspieler oben sichtbar)</span>
           </button>""")
             else:
                 tiles.append(f"""
-          <button type="button" class="matrix-team-btn wireframe-locked" onclick="wpOpenBlueprintModal('Rohbau-Team: {t_name}', '{t_sub} (Status: Rohbau · Noch nicht migriert)', '{t_contact}', 'probetraining')">
+          <button type="button" class="matrix-team-btn wireframe-locked" onclick="wpOpenBlueprintModal('Team (vorbereitet): {t_name}', '{t_sub} (Status: Vorbereitet · Folgt beim Ausbau)', '{t_contact}', 'probetraining')">
             <div class="matrix-team-top">
               <span class="matrix-team-name">{t_name}</span>
               <span class="pill-wireframe-lock">
                 <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-                <span>ROHBAU</span>
+                <span>VORBEREITET</span>
               </span>
             </div>
             <div class="wireframe-mini-skeleton" aria-hidden="true">
@@ -2647,46 +2647,46 @@ def build_herren1_html() -> str:
       </div>""")
     body = f"""
   <!-- FORTSCHRITTS-BANNER: NUR 1 VON 14 TEAMS (7 %) ALS MUSTER FERTIG — 13 TEAMS OFFEN -->
-  <section class="architect-banner" data-section="musterhaus-hinweis">
+  <section class="architect-banner" data-section="vorschau-hinweis">
     <div class="container">
       <div class="architect-box">
         <div style="max-width:780px;">
-          <div class="section-kicker kicker-light" style="margin-bottom:6px;" data-slot="arch_kicker">MANNSCHAFTS-AUSBAU: 1 VON 14 TEAMS (7 %) ALS MUSTER-VORLAGE FERTIGGESTELLT — 13 TEAMS NOCH OFFEN</div>
+          <div class="section-kicker kicker-light" style="margin-bottom:6px;" data-slot="arch_kicker">MANNSCHAFTS-ÜBERSICHT: 1 BEISPIEL-TEAM AUSGEARBEITET — 13 WEITERE TEAMS VORBEREITET</div>
           <h1 style="color:#FFFFFF;font-size:clamp(1.45rem,2.5vw,2rem);font-weight:800;margin-bottom:8px;" data-slot="arch_title">
-            1 Muster-Team ausgearbeitet (1. Mannschaft) — 13 Mannschaften im Drahtgitter-Rohbau
+            1 Beispiel-Team ausgearbeitet (1. Mannschaft) — 13 weitere Mannschaften vorbereitet
           </h1>
           <p style="font-size:0.9rem;color:#E2E8F0;line-height:1.55;margin-bottom:14px;" data-slot="arch_desc">
-            Um die künftige Qualität am echten Beispiel zu zeigen, ist in dieser Vorschau exakt <strong>1 von 14 Mannschaften (1. Mannschaft · Herren 4. Liga · 7 %)</strong> komplett mit Original-Mannschaftsfoto, den 4 Staff-Mitgliedern, beiden Trikotsponsoren und allen 22 Kaderspielern ausgearbeitet. Alle weiteren <strong>13 Mannschaften (93 %)</strong> — inklusive <em>Frauen 2. Liga (Cupsiegerinnen 2025)</em>, <em>Frauen 3. Liga</em>, <em>Senioren 30+</em>, <em>Junioren B–G</em> und <em>Juniorinnen FF-17/14/11</em> — stehen unten als <strong>gestrichelte Drahtgitter-Rohbau-Kacheln</strong> bereit.
+            Um die künftige Qualität am echten Beispiel zu zeigen, ist in dieser Vorschau exakt <strong>1 von 14 Mannschaften (1. Mannschaft · Herren 4. Liga · 7 %)</strong> komplett mit Original-Mannschaftsfoto, den 4 Staff-Mitgliedern, beiden Trikotsponsoren und allen 22 Kaderspielern ausgearbeitet. Alle weiteren <strong>13 Mannschaften (93 %)</strong> — inklusive <em>Frauen 2. Liga (Cupsiegerinnen 2025)</em>, <em>Frauen 3. Liga</em>, <em>Senioren 30+</em>, <em>Junioren B–G</em> und <em>Juniorinnen FF-17/14/11</em> — stehen unten als <strong>vorbereitete Team-Platzhalter</strong> bereit.
           </p>
           <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap;background:rgba(15,23,42,0.75);border:1px dashed #F59E0B;padding:8px 12px;border-radius:var(--radius-sm);">
             <div class="wp-v2-progress-track" style="width:140px;">
               <div class="wp-v2-progress-fill" style="width:12%;"></div>
             </div>
             <span style="font-family:'Montserrat',sans-serif;font-size:0.75rem;font-weight:800;color:#FDE68A;">
-              1 / 14 Teams fertig (7 %) · 13 Teams + Team Bravo im Rohbau
+              1 von 14 Teams ausgearbeitet · 13 weitere Teams + Team Bravo vorbereitet
             </span>
           </div>
         </div>
         <div style="display:flex;flex-direction:column;gap:8px;flex-shrink:0;">
-          <a href="#alle-teams-matrix" class="btn-cta btn-cta-gold btn-sm">Zu den 13 offenen Rohbau-Teams</a>
+          <a href="#alle-teams-matrix" class="btn-cta btn-cta-gold btn-sm">Zu den 13 weiteren Teams</a>
           <a href="kontakt.html?thema=probetraining" class="btn-cta btn-cta-ghost-light btn-sm">Probetraining-Anfrage testen</a>
         </div>
       </div>
     </div>
   </section>
-  <!-- MUSTER-TEAM SEKTION (1. MANNSCHAFT HERREN 4. LIGA · 1 VON 14) -->
-  <section id="muster-team-detail" data-section="muster-team-detail">
+  <!-- BEISPIEL-TEAM SEKTION (1. MANNSCHAFT HERREN 4. LIGA · 1 VON 14) -->
+  <section id="beispiel-team-detail" data-section="beispiel-team-detail">
     <div class="container">
       <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;margin-bottom:20px;">
         <div class="team-switcher-bar">
           <span class="team-switch-btn active" style="cursor:default;">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><polyline points="20 6 9 17 4 12"/></svg>
-            <span>Muster-Team 1/14: 1. Mannschaft (Herren 4. Liga)</span>
-            <span class="team-switch-badge">22 Spieler · Muster</span>
+            <span>Beispiel-Team 1/14: 1. Mannschaft (Herren 4. Liga)</span>
+            <span class="team-switch-badge">22 Spieler · Beispiel</span>
           </span>
           <a href="#alle-teams-matrix" class="team-switch-btn" style="border:1px dashed #94A3B8;background-color:#E2E8F0;color:#334155;">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-            <span>Teams 2–14: Frauen 2./3. Liga, Senioren &amp; 10 Nachwuchs-Teams (Im Rohbau)</span>
+            <span>Teams 2–14: Frauen 2./3. Liga, Senioren &amp; 10 Nachwuchs-Teams (folgen beim Ausbau)</span>
           </a>
         </div>
         <div style="font-size:0.84rem;color:var(--text-muted);font-weight:600;">
@@ -2759,14 +2759,14 @@ def build_herren1_html() -> str:
       </div>
     </div>
   </section>
-  <!-- 14-MANNSCHAFTEN-MATRIX (1 MUSTER LIVE + 13 ROHBAU-DRAHTGITTER) -->
+  <!-- 14-MANNSCHAFTEN-ÜBERSICHT (1 BEISPIEL-TEAM + 13 VORBEREITET) -->
   <section id="alle-teams-matrix" data-section="alle-teams-matrix" style="background-color:#E2E8F0;border-top:3px dashed #0F172A;">
     <div class="container">
       <div class="section-head">
-        <div class="section-kicker" data-slot="matrix_kicker">GESAMT-ARCHITEKTUR · 1 MUSTER FERTIG · 13 TEAMS IM ROHBAU</div>
-        <h2 class="section-title" data-slot="matrix_title">Alle 14 Mannschaften des FC Attiswil im Bauplan-Überblick.</h2>
+        <div class="section-kicker" data-slot="matrix_kicker">MANNSCHAFTS-ÜBERSICHT · 1 BEISPIEL-TEAM LIVE · 13 WEITERE VORBEREITET</div>
+        <h2 class="section-title" data-slot="matrix_title">Alle 14 Mannschaften des FC Attiswil im Überblick (1 Beispiel-Team ausgearbeitet · 13 weitere vorbereitet).</h2>
         <p class="section-desc" data-slot="matrix_desc">
-          Klicke auf eine der <strong>13 gestrichelten Rohbau-Kacheln</strong>, um die bereits hinterlegten Original-Trainer, Telefonnummern, Trainingszeiten und Sponsoren des jeweiligen Teams in der Bauplan-Vorschau zu prüfen:
+          Klicke auf eine der <strong>13 vorbereiteten Team-Kacheln</strong>, um die bereits hinterlegten Original-Trainer, Telefonnummern, Trainingszeiten und Sponsoren des jeweiligen Teams in der Seiten-Vorschau anzusehen:
         </p>
       </div>
 {''.join(matrix_blocks)}
@@ -2775,7 +2775,7 @@ def build_herren1_html() -> str:
 """
     return render_shell(
         filename="herren-1.html",
-        page_title="1. Mannschaft (Muster-Team 1/14) & 13 Rohbau-Teams — FC Attiswil",
+        page_title="1. Mannschaft (Beispiel-Team 1/14) & 13 Rohbau-Teams — FC Attiswil",
         active_nav="teams",
         body_html=body,
         extra_css=HERREN_EXTRA_CSS,
@@ -3794,9 +3794,9 @@ def write_json_configs() -> None:
         "sections": {
             "hero": True,
             "sponsoren": True,
-            "bauplan-schnitt": True,
-            "musterhaus-hinweis": True,
-            "muster-team-detail": True,
+            "seiten-uebersicht": True,
+            "vorschau-hinweis": True,
+            "beispiel-team-detail": True,
             "alle-teams-matrix": True,
             "kontakt-zentrale": True,
             "footer": True,

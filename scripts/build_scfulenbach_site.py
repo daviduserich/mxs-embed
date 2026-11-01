@@ -2,8 +2,8 @@
 """
 Builds the complete 3-page WebPilot showcase for SC Fulenbach (preview-scfulenbach)
 directly in Variant 2 («Bauplan- & Musterhaus-Modus»):
-  - index.html (Startseite im Bauplan- & Musterhaus-Modus: Hero + 100% Original-Sponsoren + 4 Rohbau-Module für 40 offene Seiten)
-  - herren-1.html (Muster-Team 1. Mannschaft 2. Liga regional fertig + 13 weitere Mannschaften als Rohbau-Drahtgitter in der 14-Teams-Matrix)
+  - index.html (Startseite im Bauplan- & Musterhaus-Modus: Hero + 100% Original-Sponsoren + 4 weitere Bereiche für 40 offene Seiten)
+  - herren-1.html (Beispiel-Team 1. Mannschaft 2. Liga regional fertig + 13 weitere Mannschaften als Rohbau-Drahtgitter in der 14-Teams-Matrix)
   - kontakt.html (3-Schritte Smart-Anfrage-Zentrale + 1-Seiten-PDF-Vereinsdossier für alle 6 Vereinsbereiche)
 Plus company.json, config.json, and site.json.
 Strict adherence to #UI-01..#UI-16, #LANG-01..#LANG-02 (100% ss, zero emojis in DOM, 2-Radius 0/4/8px).
@@ -746,15 +746,15 @@ SHARED_CSS = """
       border-color: var(--border-strong);
     }
 
-    /* Wireframe / Bauplan Section Styles */
-    .wp-bauplan-section {
+    /* Seiten-Übersicht Section Styles */
+    .wp-uebersicht-section {
       background-color: #E2E8F0;
       background-image: radial-gradient(#94A3B8 1px, transparent 1px);
       background-size: 20px 20px;
       border-top: 3px dashed #64748B;
       border-bottom: 3px dashed #64748B;
     }
-    .wp-bauplan-banner {
+    .wp-uebersicht-banner {
       background-color: #0B1528;
       color: #FFFFFF;
       border: 2px solid #F59E0B;
@@ -1242,24 +1242,24 @@ def render_shell(filename: str, page_title: str, active_nav: str, body_html: str
 </head>
 <body>
 
-  <!-- PERMANENTE ARCHITEKTUR-TOP-BAR (V2 BAUPLAN- & MUSTERHAUS-MODUS) -->
+  <!-- PERMANENTE VORSCHAU-TOP-BAR -->
   <div class="wp-arch-topbar">
     <div class="container wp-arch-inner">
       <div class="wp-arch-left">
         <span class="wp-arch-badge" data-slot="topbar_badge">
           <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
-          <span>ARCHITEKTUR-STUDIE · ENTWURF V2</span>
+          <span>UNVERBINDLICHER VORSCHAU-ENTWURF</span>
         </span>
         <span style="font-weight:600;color:#E2E8F0;" data-slot="topbar_info">Ausbaustufe Prototyp: 7 % (3 von 43 Seiten exemplarisch ausgearbeitet)</span>
       </div>
 
       <div class="wp-arch-progress-wrap" aria-label="Projekt-Ausbaustufe 7 Prozent">
         <div class="wp-arch-bar-track"><div class="wp-arch-bar-fill"></div></div>
-        <span class="wp-arch-progress-label">7 % fertig · 40 Unterseiten &amp; 13 Teams im Rohbau</span>
+        <span class="wp-arch-progress-label">Vorschau-Umfang: 3 Beispiel-Seiten live · 40 weitere Seiten &amp; 13 Teams vorbereitet</span>
       </div>
 
       <div class="wp-arch-right">
-        <span class="wp-arch-pill">Musterhaus-Ansicht für SC Fulenbach</span>
+        <span class="wp-arch-pill">Unverbindlicher Vorschau-Entwurf für SC Fulenbach</span>
         <a href="kontakt.html?thema=probetraining" class="wp-arch-cta">
           <span>Smart-Anfrage testen</span>
           <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
@@ -1282,17 +1282,17 @@ def render_shell(filename: str, page_title: str, active_nav: str, body_html: str
       <nav class="main-nav" aria-label="Hauptnavigation">
         <a href="index.html" class="nav-link {nav_start}">
           <span class="wp-status-dot wp-dot-green" aria-hidden="true"></span>
-          <span>Startseite (Muster)</span>
+          <span>Startseite (Beispiel)</span>
         </a>
         <a href="herren-1.html" class="nav-link {nav_teams}">
           <span class="wp-status-dot wp-dot-amber" aria-hidden="true"></span>
-          <span>Muster-Team: 1. Mannschaft (1/14)</span>
+          <span>Beispiel-Team: 1. Mannschaft (1/14)</span>
         </a>
         <a href="index.html#sponsoren" class="nav-link">
           <span class="wp-status-dot wp-dot-green" aria-hidden="true"></span>
           <span>Sponsoren (Übernommen)</span>
         </a>
-        <button type="button" class="nav-link nav-blueprint-trigger" onclick="wpOpenBlueprintModal('Verein, Vorstand, Clubhaus &amp; Events (40 Unterseiten im Rohbau)', 'Rohbau-Module B, C &amp; D (40 von 43 Seiten)', 'Präsident Willi von Arx (vorstand@scfulenbach.ch) · Clubhaus: René Hofstetter (079 302 62 47)', 'clubhaus')">
+        <button type="button" class="nav-link nav-blueprint-trigger" onclick="wpOpenBlueprintModal('Verein, Vorstand, Clubhaus &amp; Events (40 weitere Seiten)', 'Bereiche B, C &amp; D (40 von 43 Seiten vorbereitet)', 'Präsident Willi von Arx (vorstand@scfulenbach.ch) · Clubhaus: René Hofstetter (079 302 62 47)', 'clubhaus')">
           <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#D97706" stroke-width="2.3"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
           <span>Verein &amp; Sportanlage (40 Seiten offen)</span>
         </button>
@@ -1315,19 +1315,19 @@ def render_shell(filename: str, page_title: str, active_nav: str, body_html: str
     <div class="mobile-drawer" id="mobileDrawer">
       <a href="index.html" onclick="wpCloseMobileMenu()">
         <span class="wp-status-dot wp-dot-green"></span>
-        <span>Startseite (Muster-Ansicht)</span>
+        <span>Startseite (Beispiel-Ansicht)</span>
       </a>
       <a href="herren-1.html" onclick="wpCloseMobileMenu()">
         <span class="wp-status-dot wp-dot-amber"></span>
-        <span>Muster-Team: 1. Mannschaft (1/14 fertig · 13 im Rohbau)</span>
+        <span>Beispiel-Team: 1. Mannschaft (1/14 ausgearbeitet · 13 weitere folgen)</span>
       </a>
       <a href="index.html#sponsoren" onclick="wpCloseMobileMenu()">
         <span class="wp-status-dot wp-dot-green"></span>
         <span>Sponsoren &amp; 100er-Club (100 % übernommen)</span>
       </a>
-      <a href="index.html#bauplan-schnitt" onclick="wpCloseMobileMenu()">
+      <a href="index.html#seiten-uebersicht" onclick="wpCloseMobileMenu()">
         <span class="wp-status-dot wp-dot-amber"></span>
-        <span>Verein, Sportplatz Bad &amp; Anlässe (40 Seiten im Rohbau)</span>
+        <span>Verein, Sportplatz Bad &amp; Anlässe (40 weitere Seiten)</span>
       </a>
       <a href="kontakt.html" onclick="wpCloseMobileMenu()">
         <span class="wp-status-dot wp-dot-green"></span>
@@ -1361,23 +1361,23 @@ def render_shell(filename: str, page_title: str, active_nav: str, body_html: str
         </div>
 
         <div>
-          <div class="footer-title">Musterhaus-Seiten (3 / 43 fertig)</div>
+          <div class="footer-title">Ausgearbeitete Beispiel-Seiten (3 von 43)</div>
           <ul class="footer-list">
-            <li><a href="index.html"><span class="wp-status-dot wp-dot-green"></span><span>Startseite &amp; Bauplan-Übersicht</span></a></li>
-            <li><a href="herren-1.html"><span class="wp-status-dot wp-dot-amber"></span><span>Muster-Team: 1. Mannschaft (2. Liga)</span></a></li>
-            <li><a href="herren-1.html#alle-teams-matrix"><span class="wp-status-dot wp-dot-amber"></span><span>Alle 14 Teams in der Rohbau-Matrix</span></a></li>
+            <li><a href="index.html"><span class="wp-status-dot wp-dot-green"></span><span>Startseite &amp; Seiten-Übersicht</span></a></li>
+            <li><a href="herren-1.html"><span class="wp-status-dot wp-dot-amber"></span><span>Beispiel-Team: 1. Mannschaft (2. Liga)</span></a></li>
+            <li><a href="herren-1.html#alle-teams-matrix"><span class="wp-status-dot wp-dot-amber"></span><span>Alle 14 Teams in der Übersicht</span></a></li>
             <li><a href="index.html#sponsoren"><span class="wp-status-dot wp-dot-green"></span><span>Alle 88 Sponsoren-Einträge &amp; 100er-Club</span></a></li>
             <li><a href="kontakt.html"><span class="wp-status-dot wp-dot-green"></span><span>Smart-Anfrage &amp; PDF-Dossier testen</span></a></li>
           </ul>
         </div>
 
         <div>
-          <div class="footer-title">Rohbau-Module (40 / 43 offen)</div>
+          <div class="footer-title">Weitere Bereiche (40 von 43 vorbereitet)</div>
           <ul class="footer-list">
-            <li><button type="button" onclick="wpOpenBlueprintModal('Rohbau-Modul A: 13 weitere Mannschaften (11 Unterseiten)', '2. Mannschaft, Senioren 30+, Gruppierung rot/blau &amp; Junioren D–G', 'Sportchef Mirko Ferrari (079 397 87 73) &amp; Juniorenobmann Michael «Mike» Frieder (079 647 13 33)', 'probetraining')">13 weitere Teams (Rohbau-Modul A)</button></li>
-            <li><button type="button" onclick="wpOpenBlueprintModal('Rohbau-Modul B: Verein, Vorstand (11), Schiedsrichter &amp; Chronik 1944', '11 Vereins-Unterseiten für den Hauptauftrag vorgemerkt', 'Präsident Willi von Arx (vorstand@scfulenbach.ch) · Ehrenpräsident Urs Lehmann', 'mitgliedschaft')">Vorstand, SR &amp; Chronik 1944 (Modul B)</button></li>
-            <li><button type="button" onclick="wpOpenBlueprintModal('Rohbau-Modul C: Sportplatz Bad, Clubhaus (100 Plätze) &amp; Events', '11 Anlage- &amp; Anlass-Unterseiten im Rohbau', 'Clubhaus-Vermietung: René Hofstetter (Tel. 079 302 62 47) · Infrastruktur: Alfred Ammann', 'clubhaus')">Clubhaus mieten &amp; Badfest (Modul C)</button></li>
-            <li><button type="button" onclick="wpOpenBlueprintModal('Rohbau-Modul D: Spielbetrieb, Matchberichte, Lagerwoche &amp; Fanshop', '7 Spielbetriebs- &amp; Shop-Unterseiten im Rohbau', 'Medien &amp; Support: David Ackermann (david.ackermann@scfulenbach.ch)', 'fanshop')">Lagerwoche &amp; SCF-Fanshop (Modul D)</button></li>
+            <li><button type="button" onclick="wpOpenBlueprintModal('Bereich A: 13 weitere Mannschaften (11 Unterseiten)', '2. Mannschaft, Senioren 30+, Gruppierung rot/blau &amp; Junioren D–G', 'Sportchef Mirko Ferrari (079 397 87 73) &amp; Juniorenobmann Michael «Mike» Frieder (079 647 13 33)', 'probetraining')">13 weitere Teams (Bereich A)</button></li>
+            <li><button type="button" onclick="wpOpenBlueprintModal('Bereich B: Verein, Vorstand (11), Schiedsrichter &amp; Chronik 1944', '11 Vereins-Unterseiten für den Hauptauftrag vorgemerkt', 'Präsident Willi von Arx (vorstand@scfulenbach.ch) · Ehrenpräsident Urs Lehmann', 'mitgliedschaft')">Vorstand, SR &amp; Chronik 1944 (Bereich B)</button></li>
+            <li><button type="button" onclick="wpOpenBlueprintModal('Bereich C: Sportplatz Bad, Clubhaus (100 Plätze) &amp; Events', '11 Anlage- &amp; Anlass-Unterseiten (folgen beim Ausbau)', 'Clubhaus-Vermietung: René Hofstetter (Tel. 079 302 62 47) · Infrastruktur: Alfred Ammann', 'clubhaus')">Clubhaus mieten &amp; Badfest (Bereich C)</button></li>
+            <li><button type="button" onclick="wpOpenBlueprintModal('Bereich D: Spielbetrieb, Matchberichte, Lagerwoche &amp; Fanshop', '7 Spielbetriebs- &amp; Shop-Unterseiten (folgen beim Ausbau)', 'Medien &amp; Support: David Ackermann (david.ackermann@scfulenbach.ch)', 'fanshop')">Lagerwoche &amp; SCF-Fanshop (Bereich D)</button></li>
           </ul>
         </div>
 
@@ -1395,23 +1395,23 @@ def render_shell(filename: str, page_title: str, active_nav: str, body_html: str
       </div>
 
       <div class="footer-bottom">
-        <div>&copy; 2026 Sportclub Fulenbach (4629 Fulenbach) · Architektur-Entwurf V2 (Ausbaustufe: 7 % / 3 von 43 Seiten).</div>
+        <div>&copy; 2026 Sportclub Fulenbach (4629 Fulenbach) · Unverbindlicher Vorschau-Entwurf (3 Beispiel-Seiten live, 40 weitere vorbereitet).</div>
         <div style="display:flex;gap:16px;flex-wrap:wrap;">
-          <a href="herren-1.html" style="color:#FBBF24;font-weight:700;">Muster-Team 1. Mannschaft &amp; 14-Teams-Matrix</a>
+          <a href="herren-1.html" style="color:#FBBF24;font-weight:700;">Beispiel-Team 1. Mannschaft &amp; 14-Teams-Matrix</a>
           <a href="kontakt.html" style="color:#E2E8F0;">Smart-Anfrage-Zentrale</a>
         </div>
       </div>
     </div>
   </footer>
 
-  <!-- ARCHITEKTUR-BLAUPAUSEN-MODAL -->
+  <!-- SEITEN-VORSCHAU-MODAL -->
   <div class="wp-modal-backdrop" id="wpBlueprintModal" role="dialog" aria-modal="true" aria-labelledby="wpBpTitle">
     <div class="wp-modal-dialog">
       <button type="button" class="wp-modal-close" aria-label="Dialog schliessen" onclick="wpCloseBlueprintModal()">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
       </button>
-      <div class="section-kicker">BAUPLAN- &amp; MUSTERHAUS-PRINZIP · SC FULENBACH (7 % AUSBAUSTUFE)</div>
-      <h3 id="wpBpTitle" style="font-size:1.32rem;font-weight:800;margin-bottom:8px;">Rohbau-Modul: Vorgemerkt für den Hauptauftrag</h3>
+      <div class="section-kicker">SEITEN-VORSCHAU · SC FULENBACH (FOLGT BEIM AUSBAU)</div>
+      <h3 id="wpBpTitle" style="font-size:1.32rem;font-weight:800;margin-bottom:8px;">Weitere Vereins-Seite: Vorbereitet für den Ausbau</h3>
       <p id="wpBpSub" style="font-size:0.9rem;color:var(--text-body);margin-bottom:12px;">
         Die aktuelle Website <strong>scfulenbach.ch</strong> umfasst <strong>43 Seiten</strong> und <strong>14 Mannschaften</strong>. Damit der Vorstand das neue Design, die Sponsoren-Integration und die digitale Anfrage-Zentrale vorab ohne Risiko prüfen kann, wurden in diesem Prototyp bewusst <strong>3 von 43 Seiten (7 %)</strong> exemplarisch bis ins Detail gebaut.
       </p>
@@ -1444,7 +1444,7 @@ def render_shell(filename: str, page_title: str, active_nav: str, body_html: str
 
       <div style="display:flex;flex-wrap:wrap;gap:10px;margin-top:18px;">
         <a href="herren-1.html" class="btn-cta btn-cta-primary btn-sm" onclick="wpCloseBlueprintModal()">
-          <span>Fertige Muster-Seite (1. Mannschaft) ansehen</span>
+          <span>Ausgearbeitetes Beispiel-Team (1. Mannschaft) ansehen</span>
         </a>
         <a href="kontakt.html?thema=probetraining" id="wpBpCtaLink" class="btn-cta btn-cta-gold btn-sm">
           <span>Anfrage für dieses Ressort live testen</span>
@@ -1537,14 +1537,14 @@ INDEX_BODY = f"""
 
           <div class="hero-cta-row">
             <a href="herren-1.html" class="btn-cta btn-cta-gold" data-slot="hero_cta_primary">
-              <span>Muster-Team: 1. Mannschaft (1/14)</span>
+              <span>Beispiel-Team: 1. Mannschaft (1/14)</span>
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
             </a>
             <a href="kontakt.html?thema=probetraining" class="btn-cta btn-cta-primary" data-slot="hero_cta_secondary">
               <span>Smart-Anfrage &amp; PDF-Dossier testen</span>
             </a>
-            <a href="#bauplan-schnitt" class="btn-cta btn-cta-ghost-light">
-              <span>Bauplan (40 offene Seiten) ansehen</span>
+            <a href="#seiten-uebersicht" class="btn-cta btn-cta-ghost-light">
+              <span>Übersicht (40 weitere Seiten)</span>
             </a>
           </div>
 
@@ -1572,7 +1572,7 @@ INDEX_BODY = f"""
           <div class="hero-main-photo-card">
             <img src="images/team-herren-1.webp" alt="SC Fulenbach 1. Mannschaft 2. Liga regional" width="760" height="300" data-slot="hero_img_main">
             <div class="hero-photo-caption">
-              <strong>1. Mannschaft — 2. Liga regional (Muster-Team 1/14 fertig)</strong>
+              <strong>1. Mannschaft — 2. Liga regional (Beispiel-Team 1/14 fertig)</strong>
               <span>Trainer: Kay Ackermann &amp; Roland Wiss · 20 Kaderspieler</span>
             </div>
           </div>
@@ -1598,39 +1598,39 @@ INDEX_BODY = f"""
     </div>
   </section>
 
-  <!-- 2. DER BEWUSSTE BAUPLAN-SCHNITT (40 VON 43 SEITEN IM ROHBAU) -->
-  <section id="bauplan-schnitt" class="wp-bauplan-section" data-section="bauplan-schnitt">
+  <!-- 2. SEITEN-ÜBERSICHT (40 WEITERE SEITEN VORBEREITET) -->
+  <section id="seiten-uebersicht" class="wp-uebersicht-section" data-section="seiten-uebersicht">
     <div class="container">
-      <div class="wp-bauplan-banner">
+      <div class="wp-uebersicht-banner">
         <div style="max-width:780px;">
-          <div class="section-kicker kicker-light" style="margin-bottom:6px;">ARCHITEKTUR-BAUPLAN-ZONE (NOCH NICHT ÜBERTRAGENE MODULE: 40 VON 43 SEITEN)</div>
+          <div class="section-kicker kicker-light" style="margin-bottom:6px;">ÜBERSICHT DER WEITEREN SEITEN (40 VON 43 SEITEN FOLGEN BEIM AUSBAU)</div>
           <h2 style="color:#FFFFFF;font-size:clamp(1.45rem,2.4vw,2rem);font-weight:800;margin-bottom:8px;">
-            Architekten-Musterhaus: 3 Seiten (7 %) fertig gebaut — 40 Unterseiten im Rohbau.
+            Vorschau-Entwurf: 3 Beispiel-Seiten sind bereits ausgearbeitet — 40 weitere Unterseiten folgen beim Ausbau.
           </h2>
           <p style="font-size:0.92rem;color:#E2E8F0;line-height:1.58;">
-            Die bestehende ClubDesk-Website <strong>scfulenbach.ch</strong> umfasst exakt <strong>43 Seiten</strong> und <strong>14 Mannschaften</strong>. In diesem Entwurf V2 siehst du die Startseite, die <strong>1. Mannschaft (1/14)</strong>, alle <strong>88 Sponsoren-Einträge</strong> sowie die <strong>Smart-Anfrage-Zentrale</strong> im fertigen Vollausbau. Die folgenden <strong>4 Rohbau-Module (40 Unterseiten)</strong> sind als Architektur-Grundriss vorbereitet und werden bei Auftragserteilung 1:1 mit allen Originaldaten übertragen.
+            Die bestehende ClubDesk-Website <strong>scfulenbach.ch</strong> umfasst exakt <strong>43 Seiten</strong> und <strong>14 Mannschaften</strong>. In diesem Entwurf V2 siehst du die Startseite, die <strong>1. Mannschaft (1/14)</strong>, alle <strong>88 Sponsoren-Einträge</strong> sowie die <strong>Smart-Anfrage-Zentrale</strong> im fertigen Vollausbau. Die folgenden <strong>4 weitere Bereiche (40 Unterseiten)</strong> sind als übersichtliche Platzhalter vorbereitet und werden bei Auftragserteilung 1:1 mit allen Originaldaten übertragen.
           </p>
         </div>
         <div style="display:flex;flex-direction:column;gap:8px;flex-shrink:0;">
-          <a href="herren-1.html" class="btn-cta btn-cta-gold btn-sm">Muster-Team (1/14) öffnen</a>
+          <a href="herren-1.html" class="btn-cta btn-cta-gold btn-sm">Beispiel-Team (1/14) öffnen</a>
           <a href="kontakt.html" class="btn-cta btn-cta-ghost-light btn-sm">Smart-Anfrage live testen</a>
         </div>
       </div>
 
       <div class="wp-wireframe-grid">
-        <!-- ROHBAU-MODUL A -->
+        <!-- BEREICH A -->
         <article class="wp-wireframe-card">
           <div>
             <div class="wp-wireframe-top">
               <span class="wp-wireframe-tag">
                 <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/></svg>
-                <span>ROHBAU-MODUL A · MANNSCHAFTEN</span>
+                <span>BEREICH A · MANNSCHAFTEN</span>
               </span>
               <span class="wp-wireframe-count">Ausbaustufe: 1 / 14 Teams = 7 % (11 Seiten offen)</span>
             </div>
             <h3 style="font-size:1.22rem;font-weight:800;margin:14px 0 8px;">13 weitere Mannschafts-Seiten &amp; Trainer-Übersicht</h3>
             <p style="font-size:0.89rem;color:var(--text-body);margin-bottom:14px;">
-              Neben der fertig ausgebauten <strong>1. Mannschaft (2. Liga regional)</strong> führt der SC Fulenbach 13 weitere Teams im aktiven Spielbetrieb. Jedes Team erhält im Hauptauftrag dieselbe Kader-, Trainer- und Sponsoren-Darstellung wie das Muster-Team.
+              Neben der fertig ausgebauten <strong>1. Mannschaft (2. Liga regional)</strong> führt der SC Fulenbach 13 weitere Teams im aktiven Spielbetrieb. Jedes Team erhält im Hauptauftrag dieselbe Kader-, Trainer- und Sponsoren-Darstellung wie das Beispiel-Team.
             </p>
             <div class="wp-wireframe-thumb-row" style="margin-bottom:14px;">
               <img src="images/team-herren-2.webp" alt="SC Fulenbach 2. Mannschaft 4. Liga und Senioren 30+" width="120" height="76" loading="lazy" decoding="async">
@@ -1656,21 +1656,21 @@ INDEX_BODY = f"""
           </div>
           <div style="display:flex;gap:10px;flex-wrap:wrap;">
             <a href="herren-1.html#alle-teams-matrix" class="btn-cta btn-cta-navy btn-sm" style="flex:1;">
-              <span>Zur 14-Teams-Rohbau-Matrix</span>
+              <span>Zur 14-Teams-Übersicht</span>
             </a>
-            <button type="button" class="btn-cta btn-cta-outline btn-sm" style="flex:1;" onclick="wpOpenBlueprintModal('Rohbau-Modul A: 13 weitere Mannschaften &amp; Trainer-Übersicht', '11 Mannschafts-Unterseiten auf scfulenbach.ch (1/14 fertig)', 'Sportchef Mirko Ferrari (079 397 87 73) &amp; Juniorenobmann Michael «Mike» Frieder (079 647 13 33)', 'probetraining')">
+            <button type="button" class="btn-cta btn-cta-outline btn-sm" style="flex:1;" onclick="wpOpenBlueprintModal('Bereich A: 13 weitere Mannschaften &amp; Trainer-Übersicht', '11 Mannschafts-Unterseiten auf scfulenbach.ch (1/14 fertig)', 'Sportchef Mirko Ferrari (079 397 87 73) &amp; Juniorenobmann Michael «Mike» Frieder (079 647 13 33)', 'probetraining')">
               <span>Modul-Details öffnen</span>
             </button>
           </div>
         </article>
 
-        <!-- ROHBAU-MODUL B -->
+        <!-- BEREICH B -->
         <article class="wp-wireframe-card">
           <div>
             <div class="wp-wireframe-top">
               <span class="wp-wireframe-tag">
                 <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-                <span>ROHBAU-MODUL B · VEREIN &amp; VORSTAND</span>
+                <span>BEREICH B · VEREIN &amp; VORSTAND</span>
               </span>
               <span class="wp-wireframe-count">11 Seiten offen (Ausbaustufe: 0 %)</span>
             </div>
@@ -1701,8 +1701,8 @@ INDEX_BODY = f"""
             </div>
           </div>
           <div style="display:flex;gap:10px;flex-wrap:wrap;">
-            <button type="button" class="btn-cta btn-cta-navy btn-sm" style="flex:1;" onclick="wpOpenBlueprintModal('Rohbau-Modul B: Verein, Vorstand (11), Schiedsrichter &amp; Chronik 1944', '11 Vereins-Unterseiten (Vorstand, Statuten, Geschichte, Datenschutz, SR-Ausbildung, G&amp;F 100er-Club, GV)', 'Präsident Willi von Arx (vorstand@scfulenbach.ch) · SR-Verantwortlicher Mirko Ferrari (079 397 87 73)', 'mitgliedschaft')">
-              <span>Rohbau-Details (11 Seiten) ansehen</span>
+            <button type="button" class="btn-cta btn-cta-navy btn-sm" style="flex:1;" onclick="wpOpenBlueprintModal('Bereich B: Verein, Vorstand (11), Schiedsrichter &amp; Chronik 1944', '11 Vereins-Unterseiten (Vorstand, Statuten, Geschichte, Datenschutz, SR-Ausbildung, G&amp;F 100er-Club, GV)', 'Präsident Willi von Arx (vorstand@scfulenbach.ch) · SR-Verantwortlicher Mirko Ferrari (079 397 87 73)', 'mitgliedschaft')">
+              <span>Seiten-Übersicht (11 Seiten) ansehen</span>
             </button>
             <a href="kontakt.html?thema=mitgliedschaft" class="btn-cta btn-cta-outline btn-sm" style="flex:1;">
               <span>Vorstand kontaktieren</span>
@@ -1710,13 +1710,13 @@ INDEX_BODY = f"""
           </div>
         </article>
 
-        <!-- ROHBAU-MODUL C -->
+        <!-- BEREICH C -->
         <article class="wp-wireframe-card">
           <div>
             <div class="wp-wireframe-top">
               <span class="wp-wireframe-tag">
                 <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-                <span>ROHBAU-MODUL C · SPORTPLATZ BAD &amp; EVENTS</span>
+                <span>BEREICH C · SPORTPLATZ BAD &amp; EVENTS</span>
               </span>
               <span class="wp-wireframe-count">11 Seiten offen (Ausbaustufe: 0 %)</span>
             </div>
@@ -1747,8 +1747,8 @@ INDEX_BODY = f"""
             </div>
           </div>
           <div style="display:flex;gap:10px;flex-wrap:wrap;">
-            <button type="button" class="btn-cta btn-cta-navy btn-sm" style="flex:1;" onclick="wpOpenBlueprintModal('Rohbau-Modul C: Sportplatz Bad, Clubhaus (100 Plätze) &amp; Vereinsanlässe', '11 Unterseiten (Standort, Clubhaus mieten, Belegungsplan, Badfest/Dorfturnier, Whisky Night, Raclette-Abend, Cordon-bleu-Festival, 33 Fotoalben)', 'Clubhaus-Vermietung: René Hofstetter (Tel. 079 302 62 47) · Vize-Präsident / Anlässe: Elias Sidler', 'clubhaus')">
-              <span>Rohbau-Details (11 Seiten) ansehen</span>
+            <button type="button" class="btn-cta btn-cta-navy btn-sm" style="flex:1;" onclick="wpOpenBlueprintModal('Bereich C: Sportplatz Bad, Clubhaus (100 Plätze) &amp; Vereinsanlässe', '11 Unterseiten (Standort, Clubhaus mieten, Belegungsplan, Badfest/Dorfturnier, Whisky Night, Raclette-Abend, Cordon-bleu-Festival, 33 Fotoalben)', 'Clubhaus-Vermietung: René Hofstetter (Tel. 079 302 62 47) · Vize-Präsident / Anlässe: Elias Sidler', 'clubhaus')">
+              <span>Seiten-Übersicht (11 Seiten) ansehen</span>
             </button>
             <a href="kontakt.html?thema=clubhaus" class="btn-cta btn-cta-outline btn-sm" style="flex:1;">
               <span>Clubhaus-Miete anfragen</span>
@@ -1756,13 +1756,13 @@ INDEX_BODY = f"""
           </div>
         </article>
 
-        <!-- ROHBAU-MODUL D -->
+        <!-- BEREICH D -->
         <article class="wp-wireframe-card">
           <div>
             <div class="wp-wireframe-top">
               <span class="wp-wireframe-tag">
                 <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-                <span>ROHBAU-MODUL D · SPIELBETRIEB, LAGER &amp; SHOP</span>
+                <span>BEREICH D · SPIELBETRIEB, LAGER &amp; SHOP</span>
               </span>
               <span class="wp-wireframe-count">7 Seiten offen (Ausbaustufe: 0 %)</span>
             </div>
@@ -1793,8 +1793,8 @@ INDEX_BODY = f"""
             </div>
           </div>
           <div style="display:flex;gap:10px;flex-wrap:wrap;">
-            <button type="button" class="btn-cta btn-cta-navy btn-sm" style="flex:1;" onclick="wpOpenBlueprintModal('Rohbau-Modul D: Spielbetrieb, Matchberichte, Lagerwoche &amp; SCF-Fanshop', '7 Unterseiten (News, Matchberichte 1./2. Mannschaft &amp; Senioren, Juniorenlager, Sponsorenlauf, Fanshop)', 'Medien &amp; Support: David Ackermann (david.ackermann@scfulenbach.ch) · Sportchef: Mirko Ferrari', 'fanshop')">
-              <span>Rohbau-Details (7 Seiten) ansehen</span>
+            <button type="button" class="btn-cta btn-cta-navy btn-sm" style="flex:1;" onclick="wpOpenBlueprintModal('Bereich D: Spielbetrieb, Matchberichte, Lagerwoche &amp; SCF-Fanshop', '7 Unterseiten (News, Matchberichte 1./2. Mannschaft &amp; Senioren, Juniorenlager, Sponsorenlauf, Fanshop)', 'Medien &amp; Support: David Ackermann (david.ackermann@scfulenbach.ch) · Sportchef: Mirko Ferrari', 'fanshop')">
+              <span>Seiten-Übersicht (7 Seiten) ansehen</span>
             </button>
             <a href="kontakt.html?thema=fanshop" class="btn-cta btn-cta-outline btn-sm" style="flex:1;">
               <span>Fanartikel / Lager anfragen</span>
@@ -2235,33 +2235,33 @@ HERREN_1_CSS = """
 
 HERREN_1_BODY = """
   <!-- KOPFBEREICH-BANNER: 1 VON 14 TEAMS (7 %) ALS MUSTER-VORLAGE -->
-  <section class="architect-banner" data-section="musterhaus-hinweis">
+  <section class="architect-banner" data-section="vorschau-hinweis">
     <div class="container">
       <div class="architect-box">
         <div style="max-width:780px;">
-          <div class="section-kicker kicker-light" style="margin-bottom:6px;" data-slot="arch_kicker">MANNSCHAFTS-AUSBAU: 1 VON 14 TEAMS (7 %) ALS MUSTER-VORLAGE FERTIGGESTELLT — 13 TEAMS NOCH OFFEN</div>
+          <div class="section-kicker kicker-light" style="margin-bottom:6px;" data-slot="arch_kicker">MANNSCHAFTS-ÜBERSICHT: 1 BEISPIEL-TEAM AUSGEARBEITET — 13 WEITERE TEAMS VORBEREITET</div>
           <h1 style="color:#FFFFFF;font-size:clamp(1.45rem,2.5vw,2.05rem);font-weight:800;margin-bottom:8px;" data-slot="arch_title">
-            Muster-Team: 1. Mannschaft (2. Liga regional) — Referenz-Vorlage für alle 14 Teams
+            Beispiel-Team: 1. Mannschaft (2. Liga regional) — Vorlage für alle 14 Teams
           </h1>
           <p style="font-size:0.9rem;color:#E2E8F0;line-height:1.58;" data-slot="arch_desc">
-            Der SC Fulenbach stellt insgesamt <strong>14 Mannschaften</strong> (3 Aktiv-/Senioren-Teams, 5 Teams der Juniorengruppierung rot/blau und 6 Nachwuchs-Teams D bis G). In diesem Prototyp ist die <strong>1. Mannschaft (1/14 = 7 %)</strong> komplett mit Original-Mannschaftsfoto, Trainer- &amp; Betreuerstab, allen 20 Kaderspielern und den 3 Mannschaftssponsoren ausgebaut. Unten in der <strong>14-Teams-Rohbau-Matrix</strong> sind alle 13 weiteren Teams als Drahtgitter vorbereitet.
+            Der SC Fulenbach stellt insgesamt <strong>14 Mannschaften</strong> (3 Aktiv-/Senioren-Teams, 5 Teams der Juniorengruppierung rot/blau und 6 Nachwuchs-Teams D bis G). In diesem Prototyp ist die <strong>1. Mannschaft (1/14 = 7 %)</strong> komplett mit Original-Mannschaftsfoto, Trainer- &amp; Betreuerstab, allen 20 Kaderspielern und den 3 Mannschaftssponsoren ausgebaut. Unten in der <strong>14-Teams-Übersicht</strong> sind alle 13 weiteren Teams als Platzhalter vorbereitet.
           </p>
         </div>
         <div style="display:flex;flex-direction:column;gap:8px;flex-shrink:0;">
-          <a href="#alle-teams-matrix" class="btn-cta btn-cta-gold btn-sm">Zur 14-Teams-Rohbau-Matrix</a>
+          <a href="#alle-teams-matrix" class="btn-cta btn-cta-gold btn-sm">Zur 14-Teams-Übersicht</a>
           <a href="kontakt.html?thema=probetraining" class="btn-cta btn-cta-ghost-light btn-sm">Probetraining anmelden</a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- MUSTER-TEAM SEKTION: 1. MANNSCHAFT (2. LIGA REGIONAL) -->
-  <section id="muster-team-detail" data-section="muster-team-detail">
+  <!-- BEISPIEL-TEAM SEKTION: 1. MANNSCHAFT (2. LIGA REGIONAL) -->
+  <section id="beispiel-team-detail" data-section="beispiel-team-detail">
     <div class="container">
       <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;margin-bottom:18px;">
         <div style="display:inline-flex;align-items:center;gap:10px;background-color:var(--scf-green-soft);border:1px solid #6EE7B7;padding:8px 14px;border-radius:var(--radius-sm);">
           <span class="wp-status-dot wp-dot-green"></span>
-          <span style="font-family:'Montserrat',sans-serif;font-size:0.82rem;font-weight:800;color:#065F46;">MUSTER-TEAM 1 / 14 FERTIG AUSGEBAUT · 1. MANNSCHAFT (2. LIGA REGIONAL SOFV)</span>
+          <span style="font-family:'Montserrat',sans-serif;font-size:0.82rem;font-weight:800;color:#065F46;">BEISPIEL-TEAM (1 VON 14 AUSGEARBEITET) · 1. MANNSCHAFT (2. LIGA REGIONAL SOFV)</span>
         </div>
 
         <div style="font-size:0.84rem;color:var(--text-muted);font-weight:600;">
@@ -2424,33 +2424,33 @@ HERREN_1_BODY = """
     </div>
   </section>
 
-  <!-- DIE 14-TEAMS-ROHBAU-MATRIX (1 FERTIG, 13 IM ROHBAU) -->
+  <!-- 14-MANNSCHAFTEN-ÜBERSICHT (1 BEISPIEL-TEAM, 13 VORBEREITET) -->
   <section id="alle-teams-matrix" data-section="alle-teams-matrix" style="background-color:#FFFFFF;border-top:1px solid var(--border-light);">
     <div class="container">
       <div class="section-head">
-        <div class="section-kicker" data-slot="matrix_kicker">ARCHITEKTUR-GRUNDRISS · ALLE 14 MANNSCHAFTEN DES SC FULENBACH</div>
-        <h2 class="section-title" data-slot="matrix_title">Die 14-Teams-Rohbau-Matrix (1 Muster fertig · 13 Teams im Rohbau).</h2>
+        <div class="section-kicker" data-slot="matrix_kicker">MANNSCHAFTS-ÜBERSICHT · ALLE 14 MANNSCHAFTEN DES SC FULENBACH</div>
+        <h2 class="section-title" data-slot="matrix_title">Alle 14 Mannschaften im Überblick (1 Beispiel-Team ausgearbeitet · 13 weitere vorbereitet).</h2>
         <p class="section-desc" data-slot="matrix_desc">
-          Klicke auf eine der <strong>13 gestrichelten Rohbau-Kacheln</strong>, um die bereits hinterlegten Original-Trainer, Trainingszeiten und Kadergrössen von <strong>scfulenbach.ch</strong> zu prüfen. Bei Auftragserteilung erhält jedes Team seine voll ausgebaute Seite nach dem Vorbild der 1. Mannschaft.
+          Klicke auf eine der <strong>13 vorbereiteten Team-Kacheln</strong>, um die bereits hinterlegten Original-Trainer, Trainingszeiten und Kadergrössen von <strong>scfulenbach.ch</strong> zu prüfen. Bei Auftragserteilung erhält jedes Team seine voll ausgebaute Seite nach dem Vorbild der 1. Mannschaft.
         </p>
       </div>
 
       <!-- Gruppe 1: Aktive & Senioren (3 Teams) -->
       <div class="matrix-group-block">
         <div class="matrix-group-header">
-          <h3 style="font-size:1.18rem;font-weight:800;">1. Aktive &amp; Senioren (3 Mannschaften — 1 Muster fertig, 2 im Rohbau)</h3>
+          <h3 style="font-size:1.18rem;font-weight:800;">1. Aktive &amp; Senioren (3 Mannschaften — 1 Beispiel-Team ausgearbeitet, 2 vorbereitet)</h3>
           <span style="font-size:0.82rem;color:var(--text-muted);font-weight:600;">Sportchef: Mirko Ferrari (mirko.ferrari@scfulenbach.ch · 079 397 87 73)</span>
         </div>
         <div class="matrix-grid">
-          <a href="#muster-team-detail" class="matrix-team-btn live-built">
+          <a href="#beispiel-team-detail" class="matrix-team-btn live-built">
             <div class="matrix-team-top">
               <span class="matrix-team-name">1. Mannschaft (2. Liga reg.)</span>
-              <span class="matrix-status-pill pill-live">1/14 · Muster fertig</span>
+              <span class="matrix-status-pill pill-live">1/14 · Ausgearbeitet</span>
             </div>
             <span style="font-size:0.78rem;color:#065F46;font-weight:600;">Trainer: Kay Ackermann &amp; Roland Wiss · Di/Do 19:30–21:00 Uhr · 20 Spieler</span>
           </a>
 
-          <button type="button" class="matrix-team-btn" onclick="wpOpenBlueprintModal('Rohbau-Team (2/14): 2. Mannschaft («Zwöi» · 4. Liga SOFV)', 'Aktive Herren · 29 Kaderspieler · Training Di &amp; Do 19:30–21:00 Uhr auf dem Sportplatz Bad', 'Trainer: Marc Haldemann · Co-Trainer: Emanuel Wyss · Sportchef: Mirko Ferrari (079 397 87 73)', 'probetraining')">
+          <button type="button" class="matrix-team-btn" onclick="wpOpenBlueprintModal('Team (2/14 · vorbereitet): 2. Mannschaft («Zwöi» · 4. Liga SOFV)', 'Aktive Herren · 29 Kaderspieler · Training Di &amp; Do 19:30–21:00 Uhr auf dem Sportplatz Bad', 'Trainer: Marc Haldemann · Co-Trainer: Emanuel Wyss · Sportchef: Mirko Ferrari (079 397 87 73)', 'probetraining')">
             <div class="matrix-team-top">
               <span class="matrix-team-name">2. Mannschaft («Zwöi» · 4. Liga)</span>
               <span class="matrix-status-pill pill-blueprint">Noch nicht migriert</span>
@@ -2458,7 +2458,7 @@ HERREN_1_BODY = """
             <span style="font-size:0.78rem;color:var(--text-muted);">Trainer: Marc Haldemann &amp; Emanuel Wyss · Di/Do 19:30 Uhr · 29 Spieler · Teil des Hauptauftrags</span>
           </button>
 
-          <button type="button" class="matrix-team-btn" onclick="wpOpenBlueprintModal('Rohbau-Team (3/14): Senioren 30+ (Meisterschaft &amp; Cup)', 'Senioren 30+ · 26 Kaderspieler · Training Mittwoch 19:30–21:00 Uhr, Spiele Freitagabend', 'Trainer: Walter Müller &amp; Christian Napoli · Sportplatz Bad Fulenbach', 'probetraining')">
+          <button type="button" class="matrix-team-btn" onclick="wpOpenBlueprintModal('Team (3/14 · vorbereitet): Senioren 30+ (Meisterschaft &amp; Cup)', 'Senioren 30+ · 26 Kaderspieler · Training Mittwoch 19:30–21:00 Uhr, Spiele Freitagabend', 'Trainer: Walter Müller &amp; Christian Napoli · Sportplatz Bad Fulenbach', 'probetraining')">
             <div class="matrix-team-top">
               <span class="matrix-team-name">Senioren 30+</span>
               <span class="matrix-status-pill pill-blueprint">Noch nicht migriert</span>
@@ -2471,11 +2471,11 @@ HERREN_1_BODY = """
       <!-- Gruppe 2: Juniorengruppierung rot/blau (5 Teams) -->
       <div class="matrix-group-block">
         <div class="matrix-group-header">
-          <h3 style="font-size:1.18rem;font-weight:800;">2. Juniorengruppierung rot/blau — SC Fulenbach / FC Wolfwil / FC Kestenholz (5 Teams im Rohbau)</h3>
+          <h3 style="font-size:1.18rem;font-weight:800;">2. Juniorengruppierung rot/blau — SC Fulenbach / FC Wolfwil / FC Kestenholz (5 Teams vorbereitet)</h3>
           <span style="font-size:0.82rem;color:var(--text-muted);font-weight:600;">Juniorenobmann: Michael «Mike» Frieder (Tel. 079 647 13 33)</span>
         </div>
         <div class="matrix-grid">
-          <button type="button" class="matrix-team-btn" onclick="wpOpenBlueprintModal('Rohbau-Team (4/14): Junioren B rot/blau', 'Juniorengruppierung SC Fulenbach / FC Wolfwil / FC Kestenholz · 18 Kaderspieler', 'Trainer: Luca Albuquerque Sampaio (C-Diplom), Nico Leber &amp; Jagvir Singh Nagra', 'probetraining')">
+          <button type="button" class="matrix-team-btn" onclick="wpOpenBlueprintModal('Team (4/14 · vorbereitet): Junioren B rot/blau', 'Juniorengruppierung SC Fulenbach / FC Wolfwil / FC Kestenholz · 18 Kaderspieler', 'Trainer: Luca Albuquerque Sampaio (C-Diplom), Nico Leber &amp; Jagvir Singh Nagra', 'probetraining')">
             <div class="matrix-team-top">
               <span class="matrix-team-name">Junioren B rot/blau</span>
               <span class="matrix-status-pill pill-blueprint">Noch nicht migriert</span>
@@ -2483,7 +2483,7 @@ HERREN_1_BODY = """
             <span style="font-size:0.78rem;color:var(--text-muted);">Trainer: L. Albuquerque Sampaio, N. Leber &amp; J. Singh Nagra · 18 Spieler · Teil des Hauptauftrags</span>
           </button>
 
-          <button type="button" class="matrix-team-btn" onclick="wpOpenBlueprintModal('Rohbau-Team (5/14): Junioren Ca rot/blau', 'Juniorengruppierung SC Fulenbach / FC Wolfwil / FC Kestenholz · 19 Kaderspieler', 'Trainer: Marco Wagner &amp; Remo Wagner · Juniorenobmann: Mike Frieder (079 647 13 33)', 'probetraining')">
+          <button type="button" class="matrix-team-btn" onclick="wpOpenBlueprintModal('Team (5/14 · vorbereitet): Junioren Ca rot/blau', 'Juniorengruppierung SC Fulenbach / FC Wolfwil / FC Kestenholz · 19 Kaderspieler', 'Trainer: Marco Wagner &amp; Remo Wagner · Juniorenobmann: Mike Frieder (079 647 13 33)', 'probetraining')">
             <div class="matrix-team-top">
               <span class="matrix-team-name">Junioren Ca rot/blau</span>
               <span class="matrix-status-pill pill-blueprint">Noch nicht migriert</span>
@@ -2491,7 +2491,7 @@ HERREN_1_BODY = """
             <span style="font-size:0.78rem;color:var(--text-muted);">Trainer: Marco Wagner &amp; Remo Wagner · 19 Spieler · Teil des Hauptauftrags</span>
           </button>
 
-          <button type="button" class="matrix-team-btn" onclick="wpOpenBlueprintModal('Rohbau-Team (6/14): Junioren Cb rot/blau', 'Juniorengruppierung SC Fulenbach / FC Wolfwil / FC Kestenholz · 22 Kaderspieler', 'Trainer: Raphael Kronenberg &amp; Nivio Madeira · Juniorenobmann: Mike Frieder (079 647 13 33)', 'probetraining')">
+          <button type="button" class="matrix-team-btn" onclick="wpOpenBlueprintModal('Team (6/14 · vorbereitet): Junioren Cb rot/blau', 'Juniorengruppierung SC Fulenbach / FC Wolfwil / FC Kestenholz · 22 Kaderspieler', 'Trainer: Raphael Kronenberg &amp; Nivio Madeira · Juniorenobmann: Mike Frieder (079 647 13 33)', 'probetraining')">
             <div class="matrix-team-top">
               <span class="matrix-team-name">Junioren Cb rot/blau</span>
               <span class="matrix-status-pill pill-blueprint">Noch nicht migriert</span>
@@ -2499,7 +2499,7 @@ HERREN_1_BODY = """
             <span style="font-size:0.78rem;color:var(--text-muted);">Trainer: Raphael Kronenberg &amp; Nivio Madeira · 22 Spieler · Teil des Hauptauftrags</span>
           </button>
 
-          <button type="button" class="matrix-team-btn" onclick="wpOpenBlueprintModal('Rohbau-Team (7/14): Junioren D rot/blau (9er-Fussball)', 'Juniorengruppierung SC Fulenbach / FC Wolfwil / FC Kestenholz · 24 Kaderspieler', 'Trainer: Hanspeter Ehrenbolger, Fabian Wyss &amp; Roman Wyss', 'probetraining')">
+          <button type="button" class="matrix-team-btn" onclick="wpOpenBlueprintModal('Team (7/14 · vorbereitet): Junioren D rot/blau (9er-Fussball)', 'Juniorengruppierung SC Fulenbach / FC Wolfwil / FC Kestenholz · 24 Kaderspieler', 'Trainer: Hanspeter Ehrenbolger, Fabian Wyss &amp; Roman Wyss', 'probetraining')">
             <div class="matrix-team-top">
               <span class="matrix-team-name">Junioren D rot/blau (9er)</span>
               <span class="matrix-status-pill pill-blueprint">Noch nicht migriert</span>
@@ -2507,7 +2507,7 @@ HERREN_1_BODY = """
             <span style="font-size:0.78rem;color:var(--text-muted);">Trainer: H. Ehrenbolger, F. Wyss &amp; R. Wyss · 9er-Fussball · Teil des Hauptauftrags</span>
           </button>
 
-          <button type="button" class="matrix-team-btn" onclick="wpOpenBlueprintModal('Rohbau-Team (8/14): Junioren D rot/blau (7er-Fussball)', 'Juniorengruppierung SC Fulenbach / FC Wolfwil / FC Kestenholz · D7er-Meisterschaft', 'Trainer: Hanspeter Ehrenbolger, Fabian Wyss &amp; Roman Wyss', 'probetraining')">
+          <button type="button" class="matrix-team-btn" onclick="wpOpenBlueprintModal('Team (8/14 · vorbereitet): Junioren D rot/blau (7er-Fussball)', 'Juniorengruppierung SC Fulenbach / FC Wolfwil / FC Kestenholz · D7er-Meisterschaft', 'Trainer: Hanspeter Ehrenbolger, Fabian Wyss &amp; Roman Wyss', 'probetraining')">
             <div class="matrix-team-top">
               <span class="matrix-team-name">Junioren D rot/blau (7er)</span>
               <span class="matrix-status-pill pill-blueprint">Noch nicht migriert</span>
@@ -2520,11 +2520,11 @@ HERREN_1_BODY = """
       <!-- Gruppe 3: Junioren SC Fulenbach D bis G (6 Teams) -->
       <div class="matrix-group-block" style="margin-bottom:0;">
         <div class="matrix-group-header">
-          <h3 style="font-size:1.18rem;font-weight:800;">3. Nachwuchs SC Fulenbach — Junioren D bis G (6 Teams im Rohbau)</h3>
+          <h3 style="font-size:1.18rem;font-weight:800;">3. Nachwuchs SC Fulenbach — Junioren D bis G (6 Teams vorbereitet)</h3>
           <span style="font-size:0.82rem;color:var(--text-muted);font-weight:600;">Sportplatz Bad Fulenbach · Juniorenobmann: Michael «Mike» Frieder (079 647 13 33)</span>
         </div>
         <div class="matrix-grid">
-          <button type="button" class="matrix-team-btn" onclick="wpOpenBlueprintModal('Rohbau-Team (9/14): Junioren D SC Fulenbach (9er-Fussball)', 'Junioren D SC Fulenbach · 21 Kaderspieler auf dem Sportplatz Bad', 'Trainer: Roger Baumgartner, Martin Nyfeler, Fabian Sager, Emanuel Wyss &amp; Andreas Guldimann', 'probetraining')">
+          <button type="button" class="matrix-team-btn" onclick="wpOpenBlueprintModal('Team (9/14 · vorbereitet): Junioren D SC Fulenbach (9er-Fussball)', 'Junioren D SC Fulenbach · 21 Kaderspieler auf dem Sportplatz Bad', 'Trainer: Roger Baumgartner, Martin Nyfeler, Fabian Sager, Emanuel Wyss &amp; Andreas Guldimann', 'probetraining')">
             <div class="matrix-team-top">
               <span class="matrix-team-name">Junioren D (9er)</span>
               <span class="matrix-status-pill pill-blueprint">Noch nicht migriert</span>
@@ -2532,7 +2532,7 @@ HERREN_1_BODY = """
             <span style="font-size:0.78rem;color:var(--text-muted);">Trainer: R. Baumgartner, M. Nyfeler, F. Sager, E. Wyss &amp; A. Guldimann · Teil des Hauptauftrags</span>
           </button>
 
-          <button type="button" class="matrix-team-btn" onclick="wpOpenBlueprintModal('Rohbau-Team (10/14): Junioren D SC Fulenbach (7er-Fussball)', 'Junioren D SC Fulenbach · 7er-Meisterschaft SOFV', 'Trainer: Roger Baumgartner, Martin Nyfeler, Fabian Sager, Emanuel Wyss &amp; Andreas Guldimann', 'probetraining')">
+          <button type="button" class="matrix-team-btn" onclick="wpOpenBlueprintModal('Team (10/14 · vorbereitet): Junioren D SC Fulenbach (7er-Fussball)', 'Junioren D SC Fulenbach · 7er-Meisterschaft SOFV', 'Trainer: Roger Baumgartner, Martin Nyfeler, Fabian Sager, Emanuel Wyss &amp; Andreas Guldimann', 'probetraining')">
             <div class="matrix-team-top">
               <span class="matrix-team-name">Junioren D (7er)</span>
               <span class="matrix-status-pill pill-blueprint">Noch nicht migriert</span>
@@ -2540,7 +2540,7 @@ HERREN_1_BODY = """
             <span style="font-size:0.78rem;color:var(--text-muted);">Trainer: R. Baumgartner, M. Nyfeler, F. Sager, E. Wyss &amp; A. Guldimann · Teil des Hauptauftrags</span>
           </button>
 
-          <button type="button" class="matrix-team-btn" onclick="wpOpenBlueprintModal('Rohbau-Team (11/14): Junioren Ea SC Fulenbach', 'Junioren E SC Fulenbach · 26 Kinder auf dem Sportplatz Bad', 'Trainer: Stephan Bitterli, Christian Napoli, Michel Allemann &amp; Roland Marti', 'probetraining')">
+          <button type="button" class="matrix-team-btn" onclick="wpOpenBlueprintModal('Team (11/14 · vorbereitet): Junioren Ea SC Fulenbach', 'Junioren E SC Fulenbach · 26 Kinder auf dem Sportplatz Bad', 'Trainer: Stephan Bitterli, Christian Napoli, Michel Allemann &amp; Roland Marti', 'probetraining')">
             <div class="matrix-team-top">
               <span class="matrix-team-name">Junioren Ea</span>
               <span class="matrix-status-pill pill-blueprint">Noch nicht migriert</span>
@@ -2548,7 +2548,7 @@ HERREN_1_BODY = """
             <span style="font-size:0.78rem;color:var(--text-muted);">Trainer: S. Bitterli, C. Napoli, M. Allemann &amp; R. Marti · 26 Kinder · Teil des Hauptauftrags</span>
           </button>
 
-          <button type="button" class="matrix-team-btn" onclick="wpOpenBlueprintModal('Rohbau-Team (12/14): Junioren Eb SC Fulenbach', 'Junioren E SC Fulenbach · Play More Football SOFV', 'Trainer: Stephan Bitterli, Christian Napoli, Michel Allemann &amp; Roland Marti', 'probetraining')">
+          <button type="button" class="matrix-team-btn" onclick="wpOpenBlueprintModal('Team (12/14 · vorbereitet): Junioren Eb SC Fulenbach', 'Junioren E SC Fulenbach · Play More Football SOFV', 'Trainer: Stephan Bitterli, Christian Napoli, Michel Allemann &amp; Roland Marti', 'probetraining')">
             <div class="matrix-team-top">
               <span class="matrix-team-name">Junioren Eb</span>
               <span class="matrix-status-pill pill-blueprint">Noch nicht migriert</span>
@@ -2556,7 +2556,7 @@ HERREN_1_BODY = """
             <span style="font-size:0.78rem;color:var(--text-muted);">Trainer: S. Bitterli, C. Napoli, M. Allemann &amp; R. Marti · Teil des Hauptauftrags</span>
           </button>
 
-          <button type="button" class="matrix-team-btn" onclick="wpOpenBlueprintModal('Rohbau-Team (13/14): Junioren F SC Fulenbach', 'Junioren F SC Fulenbach · 17 Kinder auf dem Sportplatz Bad', 'Trainer: David Ackermann, Fabrice Indermühle &amp; Beat Wiesmann', 'probetraining')">
+          <button type="button" class="matrix-team-btn" onclick="wpOpenBlueprintModal('Team (13/14 · vorbereitet): Junioren F SC Fulenbach', 'Junioren F SC Fulenbach · 17 Kinder auf dem Sportplatz Bad', 'Trainer: David Ackermann, Fabrice Indermühle &amp; Beat Wiesmann', 'probetraining')">
             <div class="matrix-team-top">
               <span class="matrix-team-name">Junioren F</span>
               <span class="matrix-status-pill pill-blueprint">Noch nicht migriert</span>
@@ -2564,7 +2564,7 @@ HERREN_1_BODY = """
             <span style="font-size:0.78rem;color:var(--text-muted);">Trainer: D. Ackermann, F. Indermühle &amp; B. Wiesmann · 17 Kinder · Teil des Hauptauftrags</span>
           </button>
 
-          <button type="button" class="matrix-team-btn" onclick="wpOpenBlueprintModal('Rohbau-Team (14/14): Junioren G (Bambini) SC Fulenbach', 'Junioren G SC Fulenbach · 11 Kinder · Spielerischer Einstieg auf dem Sportplatz Bad', 'Trainer: Giory Bortoluzzi &amp; Markus Wyss · Juniorenobmann: Mike Frieder (079 647 13 33)', 'probetraining')">
+          <button type="button" class="matrix-team-btn" onclick="wpOpenBlueprintModal('Team (14/14 · vorbereitet): Junioren G (Bambini) SC Fulenbach', 'Junioren G SC Fulenbach · 11 Kinder · Spielerischer Einstieg auf dem Sportplatz Bad', 'Trainer: Giory Bortoluzzi &amp; Markus Wyss · Juniorenobmann: Mike Frieder (079 647 13 33)', 'probetraining')">
             <div class="matrix-team-top">
               <span class="matrix-team-name">Junioren G (Bambini)</span>
               <span class="matrix-status-pill pill-blueprint">Noch nicht migriert</span>
@@ -3567,8 +3567,8 @@ KONTAKT_BODY = """
 """
 
 pages_to_write = [
-    ("index.html", "SC Fulenbach — Gegründet 1944 | Architektur-Studie V2 (7 % Musterhaus, 14 Teams & 88 Sponsoren)", "startseite", INDEX_BODY, ""),
-    ("herren-1.html", "Muster-Team: 1. Mannschaft (2. Liga reg.) & 14-Teams-Rohbau-Matrix | SC Fulenbach", "teams", HERREN_1_BODY, HERREN_1_CSS),
+    ("index.html", "SC Fulenbach — Gegründet 1944 | Vorschau-Entwurf V2 (14 Teams & 88 Sponsoren)", "startseite", INDEX_BODY, ""),
+    ("herren-1.html", "Beispiel-Team: 1. Mannschaft (2. Liga reg.) & 14-Teams-Übersicht | SC Fulenbach", "teams", HERREN_1_BODY, HERREN_1_CSS),
     ("kontakt.html", "Smart-Anfrage-Zentrale (Probetraining, Clubhaus, Sponsoring & 1-Seiten-PDF) | SC Fulenbach", "kontakt", KONTAKT_BODY, KONTAKT_CSS),
 ]
 

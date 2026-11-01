@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-inject_partner_attribution.py — Zentraler Partner-Attributions- & Musterhaus-Modal-Baustein
+inject_partner_attribution.py — Zentraler Partner-Attributions- & Vorschau-Modal-Baustein
 ===========================================================================================
 Stattet alle WebPilot-Showcases (preview-fcschlieren, preview-fcschlieren-v2,
 preview-scfulenbach, preview-fcattiswil, preview-her11, preview-hochuli) idempotent aus mit:
@@ -9,7 +9,7 @@ preview-scfulenbach, preview-fcattiswil, preview-her11, preview-hochuli) idempot
      Edle Partner-Empfehlungs-Leiste ("Powered by WebPilot · Beratung & Umsetzung: ...")
   2. Platzierung B (Im Footer jeder Unterseite in .footer-bottom):
      Klickbarer Partner-Button ("Powered by WebPilot · Partner: ... — Kontakt & Infos")
-  3. Partner-Visitenkarten- & 15-Sekunden-Musterhaus-Modal (#wpPartnerModal):
+  3. Partner-Visitenkarten- & 15-Sekunden-Vorschau-Modal (#wpPartnerModal):
      - Teil 1: Direkte Partner-Visitenkarte mit 3 Direkt-Buttons (WhatsApp, Anruf, E-Mail)
      - Teil 2: 15-Sekunden-Schnellanfrage -> POST /api/lead-submit (client_slug: "webpilot_partner")
                inkl. 1-Seiten-PDF-Dossier & CC an David Huegli.
@@ -558,10 +558,10 @@ def build_partner_modal_html(partner: dict, cfg: dict) -> str:
     entity_hint = cfg["entity_hint"]
 
     wa_text = urllib.parse.quote(
-        f"Guten Tag {p_name}, ich habe den WebPilot-Auftritt von {site_label} gesehen und interessiere mich für einen unverbindlichen Musterhaus-Entwurf / eine Smart-Anfrage-Zentrale."
+        f"Guten Tag {p_name}, ich habe den WebPilot-Auftritt von {site_label} gesehen und interessiere mich für einen unverbindlichen Vorschau-Entwurf / eine Smart-Anfrage-Zentrale."
     )
     wa_href = f"{partner['whatsapp_url']}?text={wa_text}"
-    mail_subj = urllib.parse.quote(f"Anfrage WebPilot Musterhaus-Entwurf (gesehen auf {site_label})")
+    mail_subj = urllib.parse.quote(f"Anfrage WebPilot Vorschau-Entwurf (gesehen auf {site_label})")
     mail_href = f"mailto:{p_email}?subject={mail_subj}"
 
     return f"""
@@ -607,9 +607,9 @@ def build_partner_modal_html(partner: dict, cfg: dict) -> str:
         </div>
       </div>
 
-      <!-- TEIL 2: 15-SEKUNDEN-SCHNELLANFRAGE FUER MUSTERHAUS-ENTWURF -->
+      <!-- TEIL 2: 15-SEKUNDEN-SCHNELLANFRAGE FUER VORSCHAU-ENTWURF -->
       <div class="wp-partner-form-box">
-        <div class="wp-partner-form-title">15-Sekunden-Schnellanfrage: Unverbindlicher Musterhaus-Entwurf</div>
+        <div class="wp-partner-form-title">15-Sekunden-Schnellanfrage: Unverbindlicher Vorschau-Entwurf</div>
         <p class="wp-partner-form-sub">
           Geben Sie Ihre bestehende Webseiten-URL oder den Namen Ihres Vereins / Betriebs an — {p_name} ({p_short}) zeigt Ihnen unverbindlich, wie Ihr moderner WebPilot-Auftritt aussieht.
         </p>
@@ -644,7 +644,7 @@ def build_partner_modal_html(partner: dict, cfg: dict) -> str:
           <div class="wp-partner-error" id="wpPartnerFormError"></div>
 
           <button type="submit" class="wp-partner-submit-btn" id="wpPartnerSubmitBtn">
-            <span id="wpPartnerSubmitBtnTxt">Unverbindlichen Musterhaus-Entwurf bei {p_name} anfordern</span>
+            <span id="wpPartnerSubmitBtnTxt">Unverbindlichen Vorschau-Entwurf bei {p_name} anfordern</span>
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
           </button>
         </form>
@@ -652,7 +652,7 @@ def build_partner_modal_html(partner: dict, cfg: dict) -> str:
         <div class="wp-partner-success" id="wpPartnerSuccessBox" aria-live="polite">
           <div style="display:flex;align-items:center;gap:8px;font-weight:800;color:#065F46;font-size:0.94rem;margin-bottom:6px;">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2.4"><polyline points="20 6 9 17 4 12"/></svg>
-            <span>Musterhaus-Anfrage an {p_name} ({p_short}) übermittelt!</span>
+            <span>Anfrage an {p_name} ({p_short}) übermittelt!</span>
           </div>
           <p style="font-size:0.8rem;color:#1E293B;line-height:1.45;margin:0 0 10px 0;">
             Ihr 1-Seiten-Anfrage-Dossier (<strong id="wpPartnerResRef">#WP-2026</strong>) wurde erstellt und direkt an <strong>{p_agency}</strong> übermittelt.
@@ -719,15 +719,15 @@ def build_partner_modal_html(partner: dict, cfg: dict) -> str:
       var phoneVal = isEmail ? '' : rawContact;
 
       if (btn) btn.disabled = true;
-      if (btnTxt) btnTxt.textContent = 'Musterhaus-Dossier wird erstellt...';
+      if (btnTxt) btnTxt.textContent = 'Anfrage wird übermittelt...';
 
       var payload = {{
         client_slug: 'webpilot_partner',
         website_url: hp,
-        category: 'Musterhaus-Entwurf & Web-Modernisierung',
+        category: 'Vorschau-Entwurf & Web-Modernisierung',
         sparte: '{p_topic}',
         topic: '{p_topic}',
-        urgency: 'Musterhaus-Entwurf angefordert',
+        urgency: 'Vorschau-Entwurf angefordert',
         name: visitorName,
         company: targetUrl,
         phone: phoneVal,
@@ -749,7 +749,7 @@ def build_partner_modal_html(partner: dict, cfg: dict) -> str:
       .then(function(r) {{ return r.json(); }})
       .then(function(res) {{
         if (btn) btn.disabled = false;
-        if (btnTxt) btnTxt.textContent = 'Unverbindlichen Musterhaus-Entwurf bei {p_name} anfordern';
+        if (btnTxt) btnTxt.textContent = 'Unverbindlichen Vorschau-Entwurf bei {p_name} anfordern';
         if (!res || !res.ok) {{
           if (errBox) {{
             errBox.textContent = (res && res.error) ? res.error : 'Übermittlung fehlgeschlagen. Bitte versuchen Sie es erneut.';
@@ -768,7 +768,7 @@ def build_partner_modal_html(partner: dict, cfg: dict) -> str:
       }})
       .catch(function() {{
         if (btn) btn.disabled = false;
-        if (btnTxt) btnTxt.textContent = 'Unverbindlichen Musterhaus-Entwurf bei {p_name} anfordern';
+        if (btnTxt) btnTxt.textContent = 'Unverbindlichen Vorschau-Entwurf bei {p_name} anfordern';
         if (errBox) {{
           errBox.textContent = 'Netzwerkfehler. Bitte kontaktieren Sie {p_name} direkt per WhatsApp oder Telefon.';
           errBox.style.display = 'block';

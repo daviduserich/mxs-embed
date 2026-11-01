@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 Builds the 3-page WebPilot showcase Variant 2 for FC Schlieren (preview-fcschlieren-v2):
-«6-%-Bauplan- & Musterhaus-Modus» (3 von 48 Seiten / 1 von 33 Teams ausgearbeitet, 94% im Rohbau-Bauplan).
+«6-%-Bauplan- & Musterhaus-Modus» (3 von 48 Seiten / 1 von 33 Teams ausgearbeitet, 94% vorbereitet-Bauplan).
 Strict adherence to #UI-01..#UI-14, #LANG-01..#LANG-02 (100% ss, zero emojis in DOM, 2-Radius 0/4/8px).
 """
 import json
@@ -49,7 +49,7 @@ site_data = {
 
 V2_BLUEPRINT_CSS = """
     /* ==========================================================================
-       V2: 6-%-BAUPLAN- & MUSTERHAUS-MODUS (ARCHITEKTEN-BLUEPRINT-LOOK)
+       V2: KOMPAKTE VORSCHAU & SEITEN-ÜBERSICHT
        ========================================================================== */
     .wp-v2-blueprint-bar {
       background-color: #0B1528;
@@ -198,7 +198,7 @@ V2_BLUEPRINT_CSS = """
       width: 100%;
     }
 
-    /* Architecture Cut Zone (#bauplan-schnitt) */
+    /* Architecture Cut Zone (#seiten-uebersicht) */
     .blueprint-zone-section {
       background-color: #E2E8F0;
       background-image:
@@ -522,7 +522,7 @@ def render_v2_shell(filename: str, page_title: str, active_nav: str, body_html: 
   <meta name="referrer" content="strict-origin-when-cross-origin">
   <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=()">
   <title>{page_title}</title>
-  <meta name="description" content="Architektur-Studie &amp; 6-%-Prototyp (Vorschau V2) für den Fussballclub Schlieren: 3 von 48 Seiten exemplarisch ausgearbeitet, 45 Unterseiten &amp; 32 Teams im Bauplan.">
+  <meta name="description" content="Unverbindlicher Vorschau-Entwurf (Variante 2) für den Fussballclub Schlieren: 3 von 48 Seiten als Beispiel ausgearbeitet, 45 weitere Unterseiten &amp; 32 Teams in der Übersicht.">
   <link rel="icon" type="image/png" href="images/favicon-32x32.png">
   <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -536,22 +536,22 @@ def render_v2_shell(filename: str, page_title: str, active_nav: str, body_html: 
 </head>
 <body>
 
-  <!-- 1. UNUEBERSEHBARE KONZEPT- & AUSBAUSTUFEN-LEISTE (V2: 6-%-BAUPLAN-MODUS) -->
+  <!-- 1. KONZEPT- & VORSCHAU-LEISTE (VARIANTE 2) -->
   <div class="wp-v2-blueprint-bar">
     <div class="container wp-v2-bar-inner">
       <div class="wp-v2-bar-left">
         <span class="wp-v2-study-badge">
           <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
-          <span>ARCHITEKTUR-STUDIE · VORSCHAU V2</span>
+          <span>KOMPAKTE VORSCHAU · VARIANTE 2</span>
         </span>
         <span class="wp-v2-bar-status-text">Ausbaustufe Prototyp: 6 % (3 von 48 Seiten exemplarisch ausgearbeitet)</span>
       </div>
 
-      <div class="wp-v2-bar-middle" aria-label="Bauplan-Fortschritt 6 Prozent">
+      <div class="wp-v2-bar-middle" aria-label="Vorschau-Umfang 3 Beispiel-Seiten">
         <div class="wp-v2-progress-track">
           <div class="wp-v2-progress-fill"></div>
         </div>
-        <span class="wp-v2-progress-label">6 % fertig · 45 Unterseiten &amp; 32 Teams im Rohbau</span>
+        <span class="wp-v2-progress-label">Vorschau-Umfang: 3 Beispiel-Seiten live · 45 weitere Seiten &amp; 32 Teams vorbereitet</span>
       </div>
 
       <a href="{v1_href}" class="wp-v2-switch-btn">
@@ -566,12 +566,12 @@ def render_v2_shell(filename: str, page_title: str, active_nav: str, body_html: 
     <div class="container top-bar-inner">
       <div class="top-bar-left">
         <span class="top-bar-badge" data-slot="topbar_badge">PROTOTYP-AUSBAU: 3 / 48 SEITEN</span>
-        <span data-slot="topbar_info">1 von 33 Teams (Herren 1) &amp; 11 Sponsoren als Musterhaus ausgearbeitet · 94 % Rohbau-Bauplan</span>
+        <span data-slot="topbar_info">Beispiel-Ausbau: Herren 1 &amp; 11 Sponsoren live · 45 weitere Seiten folgen beim Ausbau</span>
       </div>
       <div class="top-bar-links">
         <a href="index.html#sponsoren">11 Sponsoren (Übernommen)</a>
-        <a href="index.html#bauplan-schnitt">Bauplan-Schnitt (45 offene Seiten)</a>
-        <button type="button" onclick="wpOpenBlueprintModal('Rohbau-Modul B: Vereinsdokumente, Statuten &amp; Chronik (7 Unterseiten)', 'Vereinsführung FC Schlieren', 'Roger Küng (r.kueng@fcschlieren.ch) &amp; Jana Seifriz (j.seifriz@fcschlieren.ch)')">Verein &amp; Chronik (0/7 offen)</button>
+        <a href="index.html#seiten-uebersicht">Weitere Seiten (45 vorbereitet)</a>
+        <button type="button" onclick="wpOpenBlueprintModal('Bereich B: Vereinsdokumente, Statuten &amp; Chronik (7 Unterseiten)', 'Vereinsführung FC Schlieren', 'Roger Küng (r.kueng@fcschlieren.ch) &amp; Jana Seifriz (j.seifriz@fcschlieren.ch)')">Verein &amp; Chronik (0/7 offen)</button>
         <a href="kontakt.html?thema=probetraining">Smart-Anfrage (Live-Demo)</a>
       </div>
     </div>
@@ -584,24 +584,24 @@ def render_v2_shell(filename: str, page_title: str, active_nav: str, body_html: 
         <img src="images/logo-fcschlieren.webp" alt="Wappen FC Schlieren" class="brand-logo" width="48" height="56" data-slot="brand_logo">
         <div class="brand-text">
           <span class="brand-name" data-slot="brand_name">FC SCHLIEREN</span>
-          <span class="brand-sub" data-slot="brand_sub">SEIT 1921 · BAUPLAN V2</span>
+          <span class="brand-sub" data-slot="brand_sub">SEIT 1921 · VORSCHAU V2</span>
         </div>
       </a>
 
       <nav class="main-nav" aria-label="Hauptnavigation mit Ausbau-Status">
         <a href="index.html" class="nav-link {nav_start}">
           <svg width="8" height="8" viewBox="0 0 8 8" aria-hidden="true"><circle cx="4" cy="4" r="4" fill="#10B981"/></svg>
-          <span>Startseite (Muster)</span>
+          <span>Startseite (Beispiel)</span>
         </a>
         <a href="herren-1.html" class="nav-link {nav_teams}">
           <svg width="8" height="8" viewBox="0 0 8 8" aria-hidden="true"><circle cx="4" cy="4" r="4" fill="#10B981"/></svg>
-          <span>Muster-Team: Herren 1 (1/33)</span>
+          <span>Beispiel-Team: Herren 1 (1/33)</span>
         </a>
         <a href="index.html#sponsoren" class="nav-link">
           <svg width="8" height="8" viewBox="0 0 8 8" aria-hidden="true"><circle cx="4" cy="4" r="4" fill="#F59E0B"/></svg>
           <span>Sponsoren (Übernommen)</span>
         </a>
-        <button type="button" class="nav-link nav-link-locked" onclick="wpOpenBlueprintModal('Rohbau-Modul B &amp; C: Verein, Vorstand, Chronik &amp; Sportanlage Zelgli (7 Seiten offen)', 'Vereinsführung &amp; Infrastruktur (Noch nicht migriert · 0 %)', 'Roger Küng (Präsident) &amp; Jana Seifriz (Geschäftsstelle)', 'allgemein')">
+        <button type="button" class="nav-link nav-link-locked" onclick="wpOpenBlueprintModal('Bereich B &amp; C: Verein, Vorstand, Chronik &amp; Sportanlage Zelgli (7 Seiten offen)', 'Vereinsführung &amp; Infrastruktur (Noch nicht migriert · 0 %)', 'Roger Küng (Präsident) &amp; Jana Seifriz (Geschäftsstelle)', 'allgemein')">
           <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
           <span>Verein &amp; Zelgli (7 Seiten offen)</span>
         </button>
@@ -622,11 +622,11 @@ def render_v2_shell(filename: str, page_title: str, active_nav: str, body_html: 
     </div>
 
     <div class="mobile-drawer" id="mobileDrawer">
-      <a href="index.html" onclick="wpCloseMobileMenu()">Startseite (Muster · 6 % Prototyp)</a>
-      <a href="herren-1.html" onclick="wpCloseMobileMenu()">Muster-Team: Herren 1 (1/33 fertig · 32 im Rohbau)</a>
+      <a href="index.html" onclick="wpCloseMobileMenu()">Startseite (Beispiel-Ansicht)</a>
+      <a href="herren-1.html" onclick="wpCloseMobileMenu()">Beispiel-Team: Herren 1 (1/33 ausgearbeitet · 32 weitere folgen)</a>
       <a href="index.html#sponsoren" onclick="wpCloseMobileMenu()">Sponsoren (Alle 11 übernommen)</a>
-      <button type="button" class="mobile-nav-btn" onclick="wpCloseMobileMenu(); wpOpenBlueprintModal('Rohbau-Modul B &amp; C: Verein, Vorstand, Chronik &amp; Sportanlage Zelgli (7 Seiten offen)', 'Vereinsführung &amp; Infrastruktur (Noch nicht migriert · 0 %)', 'Roger Küng &amp; Jana Seifriz', 'allgemein')">
-        <span>Verein &amp; Zelgli (7 Seiten offen · Rohbau)</span>
+      <button type="button" class="mobile-nav-btn" onclick="wpCloseMobileMenu(); wpOpenBlueprintModal('Bereich B &amp; C: Verein, Vorstand, Chronik &amp; Sportanlage Zelgli (7 Seiten offen)', 'Vereinsführung &amp; Infrastruktur (Noch nicht migriert · 0 %)', 'Roger Küng &amp; Jana Seifriz', 'allgemein')">
+        <span>Verein &amp; Zelgli (7 weitere Seiten · folgt beim Ausbau)</span>
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
       </button>
       <a href="kontakt.html" onclick="wpCloseMobileMenu()">Smart-Anfrage (Live-Demo)</a>
@@ -647,11 +647,11 @@ def render_v2_shell(filename: str, page_title: str, active_nav: str, body_html: 
             <img src="images/logo-fcschlieren.webp" alt="FC Schlieren Wappen" width="44" height="52" loading="lazy" decoding="async" style="object-fit:contain;">
             <div>
               <div style="font-family:'Montserrat',sans-serif;font-weight:800;font-size:1.1rem;color:#FFFFFF;">FC SCHLIEREN</div>
-              <div style="font-size:0.76rem;color:#FDC500;font-weight:700;">ARCHITEKTUR-STUDIE V2 · 6 % PROTOTYP</div>
+              <div style="font-size:0.76rem;color:#FDC500;font-weight:700;">VORSCHAU-ENTWURF · 3 BEISPIEL-SEITEN LIVE</div>
             </div>
           </div>
           <p style="font-size:0.86rem;color:#CBD5E1;line-height:1.6;margin-bottom:14px;" data-slot="footer_about">
-            Architekten-Musterhaus &amp; Bauplan-Vorschau für den FC Schlieren: 3 von 48 Seiten (Startseite, 1 Muster-Team Herren 1, Smart-Anfrage) als Qualitätsbeweis ausgearbeitet — 45 Unterseiten &amp; 32 Teams folgen im Hauptauftrag.
+            Unverbindlicher Vorschau-Entwurf für den FC Schlieren: 3 von 48 Seiten (Startseite, 1 Beispiel-Team Herren 1, Smart-Anfrage) als Qualitätsbeweis ausgearbeitet — 45 Unterseiten &amp; 32 Teams folgen im Hauptauftrag.
           </p>
           <div style="font-size:0.84rem;color:#E2E8F0;font-weight:600;">
             Fussballanlage Zelgli («im Rohr») · Postfach · 8952 Schlieren
@@ -661,20 +661,20 @@ def render_v2_shell(filename: str, page_title: str, active_nav: str, body_html: 
         <div>
           <div class="footer-title">Prototyp (6 % ausgearbeitet)</div>
           <ul class="footer-list">
-            <li><a href="index.html">Startseite: Hero &amp; Sponsoren (Muster)</a></li>
-            <li><a href="herren-1.html">Muster-Team: Herren 1 (1 von 33 fertig)</a></li>
+            <li><a href="index.html">Startseite: Hero &amp; Sponsoren (Beispiel)</a></li>
+            <li><a href="herren-1.html">Beispiel-Team: Herren 1 (1 von 33 fertig)</a></li>
             <li><a href="index.html#sponsoren">Alle 11 Sponsoren (Übernommen)</a></li>
             <li><a href="kontakt.html">Smart-Anfrage-Zentrale (Live-Demo)</a></li>
           </ul>
         </div>
 
         <div>
-          <div class="footer-title">Rohbau-Bauplan (94 % offen)</div>
+          <div class="footer-title">Weitere Bereiche (folgen beim Ausbau)</div>
           <ul class="footer-list">
-            <li><a href="herren-1.html#alle-teams-matrix">32 weitere Mannschaften (Rohbau)</a></li>
-            <li><button type="button" onclick="wpOpenBlueprintModal('Rohbau-Modul B: Verein, Vorstand (6), Funktionäre &amp; Chronik (7 Unterseiten)', 'Vereinsführung FC Schlieren (0 % übertragen)', 'Roger Küng &amp; Jana Seifriz')">Verein, Vorstand &amp; Chronik (0/7)</button></li>
-            <li><button type="button" onclick="wpOpenBlueprintModal('Rohbau-Modul C: Sportanlage Zelgli, Platzbelegung &amp; Club-Beizli (3 Unterseiten)', 'Infrastruktur &amp; Gastronomie (0 % übertragen)', 'Müslüm Bozan &amp; Geschäftsstelle')">Sportanlage Zelgli &amp; Beizli (0/3)</button></li>
-            <li><button type="button" onclick="wpOpenBlueprintModal('Rohbau-Modul D: Spielbetrieb, Trainingspläne, Fussballschule &amp; Camps (5 Unterseiten)', 'Spielbetrieb &amp; Nachwuchs (0 % übertragen)', 'Luigi Schiavano &amp; Roger Mehr')">Trainingspläne &amp; Camps (0/5)</button></li>
+            <li><a href="herren-1.html#alle-teams-matrix">32 weitere Mannschaften (Übersicht)</a></li>
+            <li><button type="button" onclick="wpOpenBlueprintModal('Bereich B: Verein, Vorstand (6), Funktionäre &amp; Chronik (7 Unterseiten)', 'Vereinsführung FC Schlieren (0 % übertragen)', 'Roger Küng &amp; Jana Seifriz')">Verein, Vorstand &amp; Chronik (0/7)</button></li>
+            <li><button type="button" onclick="wpOpenBlueprintModal('Bereich C: Sportanlage Zelgli, Platzbelegung &amp; Club-Beizli (3 Unterseiten)', 'Infrastruktur &amp; Gastronomie (0 % übertragen)', 'Müslüm Bozan &amp; Geschäftsstelle')">Sportanlage Zelgli &amp; Beizli (0/3)</button></li>
+            <li><button type="button" onclick="wpOpenBlueprintModal('Bereich D: Spielbetrieb, Trainingspläne, Fussballschule &amp; Camps (5 Unterseiten)', 'Spielbetrieb &amp; Nachwuchs (0 % übertragen)', 'Luigi Schiavano &amp; Roger Mehr')">Trainingspläne &amp; Camps (0/5)</button></li>
           </ul>
         </div>
 
@@ -682,41 +682,41 @@ def render_v2_shell(filename: str, page_title: str, active_nav: str, body_html: 
           <div class="footer-title">Ansichten-Vergleich &amp; Rechtliches</div>
           <ul class="footer-list">
             <li><a href="{v1_href}" style="color:#FDC500;font-weight:700;">Zu Variante 1 (Voll-Ansicht) wechseln</a></li>
-            <li><a href="index.html#bauplan-schnitt">Architektur-Bauplan-Schnitt ansehen</a></li>
+            <li><a href="index.html#seiten-uebersicht">Übersicht der weiteren Seiten ansehen</a></li>
             <li><button type="button" onclick="wpOpenImpressumModal()">Impressum &amp; Datenschutz</button></li>
           </ul>
         </div>
       </div>
 
       <div class="footer-bottom">
-        <div>&copy; 2026 Fussballclub Schlieren (8952 Schlieren) · Konzept- &amp; Bauplan-Studie V2 (Ausbaustufe 6 %).</div>
+        <div>&copy; 2026 Fussballclub Schlieren (8952 Schlieren) · Unverbindlicher Vorschau-Entwurf (3 Beispiel-Seiten live).</div>
         <div style="display:flex;gap:16px;flex-wrap:wrap;">
           <a href="{v1_href}" style="color:#FDC500;font-weight:700;">Variante 1 (Voll-Ansicht) öffnen</a>
-          <a href="herren-1.html" style="color:#E2E8F0;">Muster-Team Herren 1 (1/33)</a>
+          <a href="herren-1.html" style="color:#E2E8F0;">Beispiel-Team Herren 1 (1/33)</a>
         </div>
       </div>
     </div>
   </footer>
 
-  <!-- ARCHITEKTUR-BLAUPAUSEN-MODAL (V2 BAUPLAN-MODUS) -->
+  <!-- SEITEN-VORSCHAU-MODAL -->
   <div class="wp-modal-backdrop" id="wpBlueprintModal" role="dialog" aria-modal="true" aria-labelledby="wpBpTitle">
     <div class="wp-modal-dialog">
       <button type="button" class="wp-modal-close" aria-label="Dialog schliessen" onclick="wpCloseBlueprintModal()">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
       </button>
-      <div class="section-kicker">BAUPLAN-STATUS: ROHBAU (NOCH NICHT MIGRIERT · TEIL DES HAUPTAUFTRAGS)</div>
-      <h3 id="wpBpTitle" style="font-size:1.35rem;font-weight:800;margin-bottom:8px;">Rohbau-Modul: Noch nicht übertragen</h3>
+      <div class="section-kicker">SEITEN-VORSCHAU · VORBEREITET FÜR DEN KOMPLETTEN AUSBAU</div>
+      <h3 id="wpBpTitle" style="font-size:1.35rem;font-weight:800;margin-bottom:8px;">Weitere Vereins-Seite: Folgt beim Ausbau</h3>
       <p id="wpBpSub" style="font-size:0.9rem;color:var(--text-body);margin-bottom:12px;">
-        In dieser <strong>Architektur-Studie (Ausbaustufe 6 % · 3 von 48 Seiten)</strong> sind oben das Design, die 11 Sponsoren und exakt <strong>1 Muster-Team (Herren 1)</strong> ausgearbeitet. Dieses Modul befindet sich bewusst noch im <strong>unbefüllten Rohbau (0 % übertragen)</strong> und wird nach Auftragserteilung komplett mit allen Originaldaten, Fotos und Kadern eingerichtet.
+        In diesem <strong>Vorschau-Entwurf (3 von 48 Seiten als Beispiel live)</strong> sind oben das Design, die 11 Sponsoren und exakt <strong>1 Beispiel-Team (Herren 1)</strong> ausgearbeitet. Dieses Modul befindet sich bewusst noch im <strong>vorbereiteten Platzhalter (folgt beim Ausbau)</strong> und wird nach Auftragserteilung komplett mit allen Originaldaten, Fotos und Kadern eingerichtet.
       </p>
       <div style="background-color:#FEF3C7;border-left:4px solid #D97706;padding:12px 14px;border-radius:var(--radius-sm);font-size:0.86rem;margin-bottom:14px;">
-        <div style="font-weight:800;color:#92400E;" id="wpBpCategory">Bereich / Abteilung: Rohbau-Modul</div>
+        <div style="font-weight:800;color:#92400E;" id="wpBpCategory">Bereich / Abteilung: Vorbereitet für den Ausbau</div>
         <div style="color:#78350F;margin-top:2px;" id="wpBpContact">Zuständige Ansprechperson im Verein: Geschäftsstelle FC Schlieren</div>
       </div>
 
       <div class="wp-modal-checklist">
         <div style="font-family:'Montserrat',sans-serif;font-size:0.78rem;font-weight:800;text-transform:uppercase;color:var(--fcs-navy);">
-          Wird nach Auftragserteilung (analog Muster-Team Herren 1) schlüsselfertig übertragen:
+          Wird nach Auftragserteilung (analog Beispiel-Team Herren 1) schlüsselfertig übertragen:
         </div>
         <div class="wp-modal-check-item">
           <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><polyline points="20 6 9 17 4 12"/></svg>
@@ -734,7 +734,7 @@ def render_v2_shell(filename: str, page_title: str, active_nav: str, body_html: 
 
       <div style="display:flex;flex-wrap:wrap;gap:10px;margin-top:18px;">
         <a href="herren-1.html" class="btn-cta btn-cta-primary btn-sm" onclick="wpCloseBlueprintModal()">
-          <span>Fertiges Muster-Team (Herren 1 · 1/33) ansehen</span>
+          <span>Ausgearbeitetes Beispiel-Team (Herren 1 · 1/33) ansehen</span>
         </a>
         <a href="kontakt.html?thema=probetraining" id="wpBpCtaLink" class="btn-cta btn-cta-gold btn-sm">
           <span>Smart-Anfrage (Live-Demo) testen</span>
@@ -779,8 +779,8 @@ def render_v2_shell(filename: str, page_title: str, active_nav: str, body_html: 
       var cEl = document.getElementById('wpBpCategory');
       var pEl = document.getElementById('wpBpContact');
       var linkEl = document.getElementById('wpBpCtaLink');
-      if (tEl) tEl.textContent = title || 'Rohbau-Modul';
-      if (cEl) cEl.textContent = 'Bereich / Ausbaustatus: ' + (category || 'Rohbau (0 % übertragen · Teil des Hauptauftrags)');
+      if (tEl) tEl.textContent = title || 'Vorbereiteter Bereich';
+      if (cEl) cEl.textContent = 'Bereich / Ausbaustatus: ' + (category || 'Vorbereitet (folgt beim Ausbau)');
       if (pEl) pEl.textContent = 'Zuständige Ansprechperson: ' + (contact || 'Geschäftsstelle FC Schlieren (j.seifriz@fcschlieren.ch)');
       if (linkEl) linkEl.href = 'kontakt.html?thema=' + (topicParam || 'probetraining');
       m.classList.add('open');
@@ -813,34 +813,34 @@ def render_v2_shell(filename: str, page_title: str, active_nav: str, body_html: 
 # Extract Hero and Sponsors sections from v1.INDEX_BODY
 hero_part = v1.INDEX_BODY.split("<!-- 2. AKTUELLES, FUSSBALLSCHULE & FUSSBALLCAMPS -->")[0]
 hero_part = hero_part.replace(
-    '<span>Muster-Team (Herren 1 / Frauen 1) &amp; 33 Teams</span>',
-    '<span>Muster-Team: Herren 1 (1/33 fertig) &amp; 32 Rohbau-Teams</span>'
+    '<span>Beispiel-Team (Herren 1 / Frauen 1) &amp; 33 Teams</span>',
+    '<span>Beispiel-Team: Herren 1 (1/33 ausgearbeitet) &amp; 32 weitere Teams</span>'
 )
 
 sponsors_part = "  <!-- 2. UNSERE SPONSOREN, GÖNNER & PARTNER (100% ORIGINAL-BESTAND DIREKT NACH DEM HERO) -->\n  <section id=\"sponsoren\"" + v1.INDEX_BODY.split('<section id="sponsoren"')[1].split("<script>")[0]
 
 BAUPLAN_SCHNITT_SECTION = """
-  <!-- 3. ARCHITEKTUR-BAUPLAN-SCHNITT (NOCH NICHT UEBERTRAGENE MODULE: 45 VON 48 SEITEN) -->
-  <section id="bauplan-schnitt" class="blueprint-zone-section" data-section="bauplan-schnitt">
+  <!-- 3. SEITEN-ÜBERSICHT (45 VON 48 SEITEN VORBEREITET) -->
+  <section id="seiten-uebersicht" class="blueprint-zone-section" data-section="seiten-uebersicht">
     <div class="container">
 
-      <!-- UNUEBERSEHBARES ARCHITEKTEN-SCHNITT-BANNER -->
+      <!-- SEITEN-ÜBERSICHT BANNER -->
       <div class="blueprint-cut-banner">
         <div class="blueprint-cut-top">
           <span class="blueprint-cut-pill">
             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-            <span>ARCHITEKTUR-BAUPLAN-ZONE · NOCH NICHT ÜBERTRAGENE MODULE (45 VON 48 SEITEN)</span>
+            <span>ÜBERSICHT DER WEITEREN SEITEN · 45 VON 48 SEITEN FOLGEN BEIM AUSBAU</span>
           </span>
           <span style="font-family:'Montserrat',sans-serif;font-size:0.78rem;font-weight:800;color:#FDE68A;">
-            PROTOTYP-STAND: 6 % FERTIG · 94 % ROHBAU-GERÜST
+            VORSCHAU-STAND: 3 BEISPIEL-SEITEN LIVE · 45 WEITERE VORBEREITET
           </span>
         </div>
 
         <h2 style="color:#FFFFFF;font-size:clamp(1.55rem,2.8vw,2.25rem);font-weight:800;margin-bottom:10px;" data-slot="bp_zone_title">
-          Sichtbarer Architektur-Schnitt: Was oben glänzt vs. was im Hauptauftrag folgt.
+          Transparente Übersicht: Welche Beispiel-Seiten bereits stehen — und was beim Ausbau folgt.
         </h2>
         <p style="font-size:0.95rem;color:#E2E8F0;line-height:1.65;max-width:920px;" data-slot="bp_zone_desc">
-          Oben siehst du am Hero-Auftritt, an den <strong>11 Original-Sponsoren</strong> und am <strong>Muster-Team Herren 1</strong>, wie hochwertig die neue Plattform des FC Schlieren wirkt. Direkt hier darunter siehst du im gestrichelten Architekten-Bauplan schwarz auf weiss, dass erst <strong>6 % (3 von 48 Seiten / 1 von 33 Teams)</strong> als Prototyp ausgearbeitet sind und die weiteren <strong>94 % (45 Unterseiten &amp; 32 Mannschaften)</strong> erst nach Auftragserteilung übertragen werden.
+          Oben siehst du am Hero-Auftritt, an den <strong>11 Original-Sponsoren</strong> und am <strong>Beispiel-Team Herren 1</strong>, wie hochwertig die neue Plattform des FC Schlieren wirkt. Direkt hier darunter siehst du in der folgenden Seiten-Übersicht klar und transparent, dass <strong>3 von 48 Seiten (inkl. 1 von 33 Teams)</strong> als Beispiel ausgearbeitet sind und die weiteren <strong>94 % (45 Unterseiten &amp; 32 Mannschaften)</strong> erst nach Auftragserteilung übertragen werden.
         </p>
 
         <div class="blueprint-kpi-row">
@@ -849,12 +849,12 @@ BAUPLAN_SCHNITT_SECTION = """
               BEREITS AUSGEARBEITET IM PROTOTYP (6 % · 3 VON 48 SEITEN)
             </div>
             <div style="font-size:0.86rem;color:#F8FAFC;font-weight:600;">
-              1. Startseite (Hero &amp; alle 11 Sponsoren) · 2. Muster-Team <strong>Herren 1 (1/33)</strong> · 3. Smart-Anfrage-Zentrale (Live-Demo inkl. 1-Seiten-PDF)
+              1. Startseite (Hero &amp; alle 11 Sponsoren) · 2. Beispiel-Team <strong>Herren 1 (1/33)</strong> · 3. Smart-Anfrage-Zentrale (Live-Demo inkl. 1-Seiten-PDF)
             </div>
           </div>
           <div class="blueprint-kpi-box is-open-scope">
             <div style="font-family:'Montserrat',sans-serif;font-size:0.72rem;font-weight:800;color:#FBBF24;text-transform:uppercase;margin-bottom:4px;">
-              OFFEN FÜR HAUPTAUFTRAG (94 % · 45 VON 48 UNTERSEITEN IM ROHBAU)
+              FOLGT BEIM KOMPLETTEN AUSBAU (45 WEITERE SEITEN VORBEREITET)
             </div>
             <div style="font-size:0.86rem;color:#F8FAFC;font-weight:600;">
               32 weitere Mannschafts-Seiten (~480 Porträts) · 7 Vereins-, Vorstands- &amp; Chronik-Seiten · 3 Zelgli- &amp; Beizli-Seiten · 5 Spielbetriebs- &amp; Camp-Seiten
@@ -863,24 +863,24 @@ BAUPLAN_SCHNITT_SECTION = """
         </div>
       </div>
 
-      <!-- 4 GESTRICHELTE ARCHITEKTEN-BAUPLAN-KARTEN MIT DRAHTGITTER-SKELETONS -->
+      <!-- 4 WEITERE BEREICHE MIT PLATZHALTERN -->
       <div class="blueprint-modules-grid">
 
-        <!-- ROHBAU-MODUL A -->
+        <!-- BEREICH A -->
         <article class="blueprint-module-card">
           <div>
             <div class="blueprint-module-top">
-              <span class="blueprint-mod-tag">ROHBAU-MODUL A · MANNSCHAFTEN</span>
+              <span class="blueprint-mod-tag">BEREICH A · MANNSCHAFTEN</span>
               <span class="blueprint-lock-badge">
                 <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-                <span>STATUS: ROHBAU / 3 % ÜBERTRAGEN</span>
+                <span>STATUS: 1 TEAM LIVE · 32 VORBEREITET</span>
               </span>
             </div>
             <h3 class="blueprint-module-title" data-slot="bp_mod_a_title">
               32 weitere Mannschafts-Seiten (~480 Spieler- &amp; Trainerporträts)
             </h3>
             <p class="blueprint-module-desc" data-slot="bp_mod_a_desc">
-              <strong>Status: 1 von 33 Teams (3 %)</strong> als Muster ausgearbeitet (<strong>Herren 1</strong>). Offen für Hauptauftrag: Herren 2, Senioren 30+/40+/50+, Frauen 1–3, 17&times; Junioren A–G, 8&times; Juniorinnen inkl. Kaderlisten, Einzelfotos und Trainingszeiten.
+              <strong>Status: 1 von 33 Teams (3 %)</strong> als Beispiel ausgearbeitet (<strong>Herren 1</strong>). Offen für Hauptauftrag: Herren 2, Senioren 30+/40+/50+, Frauen 1–3, 17&times; Junioren A–G, 8&times; Juniorinnen inkl. Kaderlisten, Einzelfotos und Trainingszeiten.
             </p>
             <div class="blueprint-mod-progress">
               <div class="blueprint-mod-progress-head">
@@ -895,7 +895,7 @@ BAUPLAN_SCHNITT_SECTION = """
 
           <div class="wireframe-skeleton-stage">
             <div class="wireframe-stage-header">
-              <span>DRAHTGITTER-PLATZHALTER (32 OFFENE TEAM-SEITEN)</span>
+              <span>VORSCHAU-PLATZHALTER (32 OFFENE TEAM-SEITEN)</span>
               <span>BEFÜLLUNG BEI AUFTRAG</span>
             </div>
             <div class="wireframe-grid-3">
@@ -908,19 +908,19 @@ BAUPLAN_SCHNITT_SECTION = """
               <div class="wireframe-line w-60"></div>
             </div>
             <a href="herren-1.html#alle-teams-matrix" class="btn-cta btn-cta-navy btn-sm" style="width:100%;">
-              <span>1 Muster-Team (Herren 1) &amp; 32 Rohbau-Kacheln ansehen</span>
+              <span>Beispiel-Team (Herren 1) &amp; 32 weitere Teams ansehen</span>
             </a>
           </div>
         </article>
 
-        <!-- ROHBAU-MODUL B -->
+        <!-- BEREICH B -->
         <article class="blueprint-module-card">
           <div>
             <div class="blueprint-module-top">
-              <span class="blueprint-mod-tag">ROHBAU-MODUL B · VEREIN &amp; CHRONIK</span>
+              <span class="blueprint-mod-tag">BEREICH B · VEREIN &amp; CHRONIK</span>
               <span class="blueprint-lock-badge">
                 <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-                <span>STATUS: ROHBAU / 0 % ÜBERTRAGEN</span>
+                <span>STATUS: VORBEREITET · FOLGT BEIM AUSBAU</span>
               </span>
             </div>
             <h3 class="blueprint-module-title" data-slot="bp_mod_b_title">
@@ -932,7 +932,7 @@ BAUPLAN_SCHNITT_SECTION = """
             <div class="blueprint-mod-progress">
               <div class="blueprint-mod-progress-head">
                 <span>Ausbaustatus Vereins- &amp; Chronik-Seiten</span>
-                <span>0 von 7 Seiten (0 %) · Komplett im Rohbau</span>
+                <span>0 von 7 Seiten · Folgt beim Ausbau</span>
               </div>
               <div class="blueprint-mod-bar">
                 <div class="blueprint-mod-bar-fill" style="width: 0%;"></div>
@@ -942,7 +942,7 @@ BAUPLAN_SCHNITT_SECTION = """
 
           <div class="wireframe-skeleton-stage">
             <div class="wireframe-stage-header">
-              <span>DRAHTGITTER-PLATZHALTER (VORSTAND &amp; CHRONIK 1921)</span>
+              <span>VORSCHAU-PLATZHALTER (VORSTAND &amp; CHRONIK 1921)</span>
               <span>BEFÜLLUNG BEI AUFTRAG</span>
             </div>
             <div class="wireframe-grid-3">
@@ -954,21 +954,21 @@ BAUPLAN_SCHNITT_SECTION = """
               <div class="wireframe-line w-80"></div>
               <div class="wireframe-line w-60"></div>
             </div>
-            <button type="button" class="btn-cta btn-cta-outline btn-sm" style="width:100%;" onclick="wpOpenBlueprintModal('Rohbau-Modul B: Verein, Vorstand (6), Funktionäre &amp; 100-Jahr-Chronik (7 Unterseiten)', '0 von 7 Seiten übertragen (Teil des Hauptauftrags)', 'Roger Küng (Präsident) &amp; Jana Seifriz (Geschäftsstelle)', 'allgemein')">
+            <button type="button" class="btn-cta btn-cta-outline btn-sm" style="width:100%;" onclick="wpOpenBlueprintModal('Bereich B: Verein, Vorstand (6), Funktionäre &amp; 100-Jahr-Chronik (7 Unterseiten)', '0 von 7 Seiten übertragen (Teil des Hauptauftrags)', 'Roger Küng (Präsident) &amp; Jana Seifriz (Geschäftsstelle)', 'allgemein')">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-              <span>Bauplan-Umfang für Modul B (7 Seiten) prüfen</span>
+              <span>Seiten-Übersicht für Bereich B (7 Seiten) öffnen</span>
             </button>
           </div>
         </article>
 
-        <!-- ROHBAU-MODUL C -->
+        <!-- BEREICH C -->
         <article class="blueprint-module-card">
           <div>
             <div class="blueprint-module-top">
-              <span class="blueprint-mod-tag">ROHBAU-MODUL C · SPORTANLAGE ZELGLI</span>
+              <span class="blueprint-mod-tag">BEREICH C · SPORTANLAGE ZELGLI</span>
               <span class="blueprint-lock-badge">
                 <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-                <span>STATUS: ROHBAU / 0 % ÜBERTRAGEN</span>
+                <span>STATUS: VORBEREITET · FOLGT BEIM AUSBAU</span>
               </span>
             </div>
             <h3 class="blueprint-module-title" data-slot="bp_mod_c_title">
@@ -980,7 +980,7 @@ BAUPLAN_SCHNITT_SECTION = """
             <div class="blueprint-mod-progress">
               <div class="blueprint-mod-progress-head">
                 <span>Ausbaustatus Zelgli &amp; Club-Beizli</span>
-                <span>0 von 3 Seiten (0 %) · Komplett im Rohbau</span>
+                <span>0 von 3 Seiten · Folgt beim Ausbau</span>
               </div>
               <div class="blueprint-mod-bar">
                 <div class="blueprint-mod-bar-fill" style="width: 0%;"></div>
@@ -990,7 +990,7 @@ BAUPLAN_SCHNITT_SECTION = """
 
           <div class="wireframe-skeleton-stage">
             <div class="wireframe-stage-header">
-              <span>DRAHTGITTER-PLATZHALTER (ZELGLI &amp; CLUB-BEIZLI)</span>
+              <span>VORSCHAU-PLATZHALTER (ZELGLI &amp; CLUB-BEIZLI)</span>
               <span>BEFÜLLUNG BEI AUFTRAG</span>
             </div>
             <div class="wireframe-grid-3">
@@ -1002,21 +1002,21 @@ BAUPLAN_SCHNITT_SECTION = """
               <div class="wireframe-line w-80"></div>
               <div class="wireframe-line w-60"></div>
             </div>
-            <button type="button" class="btn-cta btn-cta-outline btn-sm" style="width:100%;" onclick="wpOpenBlueprintModal('Rohbau-Modul C: Sportanlage Zelgli, Platzbelegung &amp; Club-Beizli (3 Unterseiten)', '0 von 3 Seiten übertragen (Teil des Hauptauftrags)', 'Müslüm Bozan (Wirt Club-Beizli) &amp; Geschäftsstelle FC Schlieren', 'allgemein')">
+            <button type="button" class="btn-cta btn-cta-outline btn-sm" style="width:100%;" onclick="wpOpenBlueprintModal('Bereich C: Sportanlage Zelgli, Platzbelegung &amp; Club-Beizli (3 Unterseiten)', '0 von 3 Seiten übertragen (Teil des Hauptauftrags)', 'Müslüm Bozan (Wirt Club-Beizli) &amp; Geschäftsstelle FC Schlieren', 'allgemein')">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-              <span>Bauplan-Umfang für Modul C (3 Seiten) prüfen</span>
+              <span>Seiten-Übersicht für Bereich C (3 Seiten) öffnen</span>
             </button>
           </div>
         </article>
 
-        <!-- ROHBAU-MODUL D -->
+        <!-- BEREICH D -->
         <article class="blueprint-module-card">
           <div>
             <div class="blueprint-module-top">
-              <span class="blueprint-mod-tag">ROHBAU-MODUL D · SPIELBETRIEB &amp; CAMPS</span>
+              <span class="blueprint-mod-tag">BEREICH D · SPIELBETRIEB &amp; CAMPS</span>
               <span class="blueprint-lock-badge">
                 <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-                <span>STATUS: ROHBAU / 0 % ÜBERTRAGEN</span>
+                <span>STATUS: VORBEREITET · FOLGT BEIM AUSBAU</span>
               </span>
             </div>
             <h3 class="blueprint-module-title" data-slot="bp_mod_d_title">
@@ -1028,7 +1028,7 @@ BAUPLAN_SCHNITT_SECTION = """
             <div class="blueprint-mod-progress">
               <div class="blueprint-mod-progress-head">
                 <span>Ausbaustatus Spielbetrieb &amp; Nachwuchs</span>
-                <span>0 von 5 Seiten (0 %) · Komplett im Rohbau</span>
+                <span>0 von 5 Seiten · Folgt beim Ausbau</span>
               </div>
               <div class="blueprint-mod-bar">
                 <div class="blueprint-mod-bar-fill" style="width: 0%;"></div>
@@ -1038,7 +1038,7 @@ BAUPLAN_SCHNITT_SECTION = """
 
           <div class="wireframe-skeleton-stage">
             <div class="wireframe-stage-header">
-              <span>DRAHTGITTER-PLATZHALTER (TRAININGSPLÄNE &amp; CAMPS)</span>
+              <span>VORSCHAU-PLATZHALTER (TRAININGSPLÄNE &amp; CAMPS)</span>
               <span>BEFÜLLUNG BEI AUFTRAG</span>
             </div>
             <div class="wireframe-grid-3">
@@ -1050,9 +1050,9 @@ BAUPLAN_SCHNITT_SECTION = """
               <div class="wireframe-line w-80"></div>
               <div class="wireframe-line w-60"></div>
             </div>
-            <button type="button" class="btn-cta btn-cta-outline btn-sm" style="width:100%;" onclick="wpOpenBlueprintModal('Rohbau-Modul D: Spielbetrieb, Trainingspläne, Fussballschule &amp; Camps (5 Unterseiten)', '0 von 5 Seiten übertragen (Teil des Hauptauftrags)', 'Luigi Schiavano (Leiter Junioren) &amp; Roger Mehr (Spielbetrieb)', 'spielbetrieb')">
+            <button type="button" class="btn-cta btn-cta-outline btn-sm" style="width:100%;" onclick="wpOpenBlueprintModal('Bereich D: Spielbetrieb, Trainingspläne, Fussballschule &amp; Camps (5 Unterseiten)', '0 von 5 Seiten übertragen (Teil des Hauptauftrags)', 'Luigi Schiavano (Leiter Junioren) &amp; Roger Mehr (Spielbetrieb)', 'spielbetrieb')">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-              <span>Bauplan-Umfang für Modul D (5 Seiten) prüfen</span>
+              <span>Seiten-Übersicht für Bereich D (5 Seiten) öffnen</span>
             </button>
           </div>
         </article>
@@ -1070,12 +1070,12 @@ herren1_pane_only = v1.HERREN_1_BODY.split("<!-- ================= TAB 1: HERREN
 
 
 def make_locked_team_tile(team_name: str, modal_title: str, dept_label: str, contact_label: str, subtitle: str) -> str:
-    return f"""          <button type="button" class="matrix-team-btn wireframe-locked" onclick="wpOpenBlueprintModal('{modal_title}', '{dept_label} (Status: Rohbau · Noch nicht migriert)', '{contact_label}', 'probetraining')">
+    return f"""          <button type="button" class="matrix-team-btn wireframe-locked" onclick="wpOpenBlueprintModal('{modal_title}', '{dept_label} (Status: Vorbereitet · Folgt beim Ausbau)', '{contact_label}', 'probetraining')">
             <div class="matrix-team-top">
               <span class="matrix-team-name">{team_name}</span>
               <span class="pill-wireframe-lock">
                 <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-                <span>ROHBAU</span>
+                <span>VORBEREITET</span>
               </span>
             </div>
             <div class="wireframe-mini-skeleton" aria-hidden="true">
@@ -1091,47 +1091,47 @@ def make_locked_team_tile(team_name: str, modal_title: str, dept_label: str, con
 
 V2_HERREN_1_BODY = f"""
   <!-- FORTSCHRITTS-BANNER: NUR 1 VON 33 TEAMS (3 %) ALS MUSTER FERTIG — 32 TEAMS OFFEN -->
-  <section class="architect-banner" data-section="musterhaus-hinweis">
+  <section class="architect-banner" data-section="vorschau-hinweis">
     <div class="container">
       <div class="architect-box">
         <div style="max-width:780px;">
-          <div class="section-kicker kicker-light" style="margin-bottom:6px;" data-slot="arch_kicker">MANNSCHAFTS-AUSBAU: 1 VON 33 TEAMS (3 %) ALS MUSTER-VORLAGE FERTIGGESTELLT — 32 TEAMS NOCH OFFEN</div>
+          <div class="section-kicker kicker-light" style="margin-bottom:6px;" data-slot="arch_kicker">MANNSCHAFTS-ÜBERSICHT: 1 BEISPIEL-TEAM AUSGEARBEITET — 32 WEITERE TEAMS VORBEREITET</div>
           <h1 style="color:#FFFFFF;font-size:clamp(1.45rem,2.5vw,2rem);font-weight:800;margin-bottom:8px;" data-slot="arch_title">
-            1 Muster-Team ausgearbeitet (Herren 1) — 32 Mannschaften im Drahtgitter-Rohbau
+            1 Beispiel-Team ausgearbeitet (Herren 1) — 32 Mannschaften als Vorschau-Übersicht vorbereitet
           </h1>
           <p style="font-size:0.9rem;color:#E2E8F0;line-height:1.55;margin-bottom:14px;" data-slot="arch_desc">
-            Um die künftige Qualität am echten Beispiel zu demonstrieren, ist in dieser Vorschau exakt <strong>1 von 33 Mannschaften (Herren 1 · 3 %)</strong> komplett mit Original-Mannschaftsfoto, den 3 Trainern und allen 19 Spielern ausgearbeitet. Alle weiteren <strong>32 Mannschaften (97 %)</strong> — inklusive <em>Frauen 1–3</em>, <em>Herren 2</em>, <em>Senioren</em> und <em>25 Nachwuchs-Teams</em> — stehen unten als <strong>gestrichelte Drahtgitter-Rohbau-Kacheln</strong> bereit und werden erst nach Auftragserteilung migriert.
+            Um die künftige Qualität am echten Beispiel zu demonstrieren, ist in dieser Vorschau exakt <strong>1 von 33 Mannschaften (Herren 1 · 3 %)</strong> komplett mit Original-Mannschaftsfoto, den 3 Trainern und allen 19 Spielern ausgearbeitet. Alle weiteren <strong>32 Mannschaften (97 %)</strong> — inklusive <em>Frauen 1–3</em>, <em>Herren 2</em>, <em>Senioren</em> und <em>25 Nachwuchs-Teams</em> — stehen unten als <strong>vorbereitete Team-Platzhalter</strong> bereit und werden erst nach Auftragserteilung migriert.
           </p>
           <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap;background:rgba(15,23,42,0.75);border:1px dashed #F59E0B;padding:8px 12px;border-radius:var(--radius-sm);">
             <div class="wp-v2-progress-track" style="width:140px;">
               <div class="wp-v2-progress-fill" style="width:6%;"></div>
             </div>
             <span style="font-family:'Montserrat',sans-serif;font-size:0.75rem;font-weight:800;color:#FDE68A;">
-              1 / 33 Teams fertig (3 %) · 32 Teams im Rohbau (~480 Spielerporträts offen)
+              1 von 33 Teams ausgearbeitet · 32 weitere Teams vorbereitet
             </span>
           </div>
         </div>
         <div style="display:flex;flex-direction:column;gap:8px;flex-shrink:0;">
-          <a href="#alle-teams-matrix" class="btn-cta btn-cta-gold btn-sm">Zu den 32 offenen Rohbau-Teams</a>
+          <a href="#alle-teams-matrix" class="btn-cta btn-cta-gold btn-sm">Zu den 32 weiteren Teams</a>
           <a href="/fcschlieren/herren-1.html" class="btn-cta btn-cta-ghost-light btn-sm">Variante 1 (inkl. Frauen 1) vergleichen</a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- MUSTER-TEAM SEKTION (NUR HERREN 1 AUSGEARBEITET · 1 VON 33) -->
-  <section id="muster-team-detail" data-section="muster-team-detail">
+  <!-- BEISPIEL-TEAM SEKTION (NUR HERREN 1 AUSGEARBEITET · 1 VON 33) -->
+  <section id="beispiel-team-detail" data-section="beispiel-team-detail">
     <div class="container">
       <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;margin-bottom:20px;">
         <div class="team-switcher-bar" style="margin-bottom:0;">
           <span class="team-switch-btn active" style="cursor:default;">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><polyline points="20 6 9 17 4 12"/></svg>
-            <span>Muster-Team 1/33: Herren 1 (Fertig ausgearbeitet)</span>
-            <span class="team-switch-badge">19 Spieler · Muster</span>
+            <span>Beispiel-Team 1/33: Herren 1 (Fertig ausgearbeitet)</span>
+            <span class="team-switch-badge">19 Spieler · Beispiel</span>
           </span>
           <a href="#alle-teams-matrix" class="team-switch-btn" style="border:1px dashed #94A3B8;background-color:#E2E8F0;color:#334155;">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-            <span>Teams 2–33: Frauen 1, Herren 2 &amp; 30 weitere (Im Rohbau · Noch offen)</span>
+            <span>Teams 2–33: Frauen 1, Herren 2 &amp; 30 weitere (folgen beim Ausbau)</span>
           </a>
         </div>
 
@@ -1140,98 +1140,98 @@ V2_HERREN_1_BODY = f"""
         </div>
       </div>
 
-      <!-- EINZIGES AUSGEARBEITETES MUSTER-TEAM IN V2: HERREN 1 -->
+      <!-- EINZIGES AUSGEARBEITETES BEISPIEL-TEAM IN V2: HERREN 1 -->
       <div class="team-pane active" id="paneHerren1">
 {herren1_pane_only}
   </section>
 
-  <!-- ALLE 33 MANNSCHAFTEN: 1 MUSTER FERTIG + 32 GESTRICHELTE DRAHTGITTER-ROHBAU-KACHELN -->
+  <!-- ALLE 33 MANNSCHAFTEN IM ÜBERBLICK -->
   <section id="alle-teams-matrix" data-section="alle-teams-matrix" style="background-color:#FFFFFF;border-top:2px dashed #64748B;">
     <div class="container">
       <div class="section-head">
-        <div class="section-kicker" data-slot="matrix_kicker">BAUPLAN-RASTER · 1 MUSTER-TEAM FERTIG (3 %) vs. 32 TEAMS IM ROHBAU (97 %)</div>
-        <h2 class="section-title" data-slot="matrix_title">1 ausgearbeitetes Muster-Team &amp; 32 unbefüllte Rohbau-Kacheln.</h2>
+        <div class="section-kicker" data-slot="matrix_kicker">MANNSCHAFTS-ÜBERSICHT · 1 BEISPIEL-TEAM LIVE · 32 WEITERE VORBEREITET</div>
+        <h2 class="section-title" data-slot="matrix_title">Alle 33 Mannschaften im Überblick (1 Beispiel-Team ausgearbeitet · 32 weitere vorbereitet).</h2>
         <p class="section-desc" data-slot="matrix_desc">
-          Ausschliesslich <strong>Herren 1 (1 von 33 Teams)</strong> ist oben als Prototyp-Musterhaus ausgearbeitet. Alle weiteren <strong>32 Mannschaften</strong> (inklusive <strong>Frauen 1–3</strong>, <strong>Herren 2</strong>, <strong>Senioren</strong> und allen <strong>25 Nachwuchs-Teams</strong>) stehen hier als gestrichelte Drahtgitter-Rohbauten und werden erst im Hauptauftrag migriert.
+          Stellvertretend ist oben <strong>Herren 1 (1 von 33 Teams)</strong> als konkretes Beispiel ausgearbeitet. Alle weiteren <strong>32 Mannschaften</strong> (inklusive <strong>Frauen 1–3</strong>, <strong>Herren 2</strong>, <strong>Senioren</strong> und allen <strong>25 Nachwuchs-Teams</strong>) stehen hier als vorbereitete Team-Platzhalter und werden erst im Hauptauftrag migriert.
         </p>
       </div>
 
-      <!-- Gruppe 1: Aktive Herren & Senioren (1 Muster fertig + 4 Rohbau) -->
+      <!-- Gruppe 1: Aktive Herren & Senioren (1 Muster fertig + 4 vorbereitet) -->
       <div class="matrix-group-block">
         <div class="matrix-group-header">
-          <h3 style="font-size:1.18rem;font-weight:800;">1. Aktive Herren &amp; Senioren (1 Muster fertig · 4 Teams im Rohbau)</h3>
+          <h3 style="font-size:1.18rem;font-weight:800;">1. Aktive Herren &amp; Senioren (1 Beispiel-Team ausgearbeitet · 4 weitere vorbereitet)</h3>
           <span style="font-size:0.82rem;color:var(--text-muted);font-weight:600;">Leitung: Zoran Perak (z.perak@fcschlieren.ch · 076 264 20 22)</span>
         </div>
         <div class="matrix-grid">
           <button type="button" class="matrix-team-btn live-built" onclick="window.scrollTo({{top: 220, behavior: 'smooth'}});">
             <div class="matrix-team-top">
               <span class="matrix-team-name">Herren 1</span>
-              <span class="matrix-status-pill pill-live">1/33 Muster fertig</span>
+              <span class="matrix-status-pill pill-live">1/33 · Ausgearbeitet</span>
             </div>
-            <span style="font-size:0.78rem;color:var(--text-body);font-weight:600;">Als einziges Muster-Team ausgearbeitet (3 Trainer &amp; 19 Spieler oben sichtbar)</span>
+            <span style="font-size:0.78rem;color:var(--text-body);font-weight:600;">Als Beispiel-Team komplett ausgearbeitet (3 Trainer &amp; 19 Spieler oben sichtbar)</span>
           </button>
-{make_locked_team_tile("Herren 2", "Rohbau-Team: Herren 2", "Aktive Herren (2. Mannschaft)", "Zoran Perak (z.perak@fcschlieren.ch · 076 264 20 22)", "2. Mannschaft")}
-{make_locked_team_tile("Senioren 30+", "Rohbau-Team: Senioren 30+", "Senioren-Abteilung FC Schlieren", "Zoran Perak &amp; Roger Mehr (r.mehr@fcschlieren.ch)", "Senioren 30+")}
-{make_locked_team_tile("Senioren 40+", "Rohbau-Team: Senioren 40+", "Senioren-Abteilung FC Schlieren", "Zoran Perak &amp; Roger Mehr (r.mehr@fcschlieren.ch)", "Senioren 40+")}
-{make_locked_team_tile("Senioren 50+", "Rohbau-Team: Senioren 50+", "Senioren-Abteilung FC Schlieren", "Zoran Perak &amp; Roger Mehr (r.mehr@fcschlieren.ch)", "Senioren 50+")}
+{make_locked_team_tile("Herren 2", "Team (vorbereitet): Herren 2", "Aktive Herren (2. Mannschaft)", "Zoran Perak (z.perak@fcschlieren.ch · 076 264 20 22)", "2. Mannschaft")}
+{make_locked_team_tile("Senioren 30+", "Team (vorbereitet): Senioren 30+", "Senioren-Abteilung FC Schlieren", "Zoran Perak &amp; Roger Mehr (r.mehr@fcschlieren.ch)", "Senioren 30+")}
+{make_locked_team_tile("Senioren 40+", "Team (vorbereitet): Senioren 40+", "Senioren-Abteilung FC Schlieren", "Zoran Perak &amp; Roger Mehr (r.mehr@fcschlieren.ch)", "Senioren 40+")}
+{make_locked_team_tile("Senioren 50+", "Team (vorbereitet): Senioren 50+", "Senioren-Abteilung FC Schlieren", "Zoran Perak &amp; Roger Mehr (r.mehr@fcschlieren.ch)", "Senioren 50+")}
         </div>
       </div>
 
-      <!-- Gruppe 2: Aktive Frauen (Alle 3 Teams im Rohbau in V2!) -->
+      <!-- Gruppe 2: Aktive Frauen (Alle 3 Teams vorbereitet in V2!) -->
       <div class="matrix-group-block">
         <div class="matrix-group-header">
-          <h3 style="font-size:1.18rem;font-weight:800;">2. Aktive Frauen (0 von 3 Teams migriert · Alle 3 im Rohbau)</h3>
+          <h3 style="font-size:1.18rem;font-weight:800;">2. Aktive Frauen (3 Teams vorbereitet · Folgen beim Ausbau)</h3>
           <span style="font-size:0.82rem;color:var(--text-muted);font-weight:600;">Leitung: Zoran Perak &amp; Konstantinos Vettas (costa.vettas@bluewin.ch)</span>
         </div>
         <div class="matrix-grid">
-{make_locked_team_tile("Frauen 1", "Rohbau-Team: Frauen 1", "Aktive Frauen (1. Mannschaft)", "Konstantinos Vettas &amp; Sergio Zamora (costa.vettas@bluewin.ch)", "1. Mannschaft Frauen")}
-{make_locked_team_tile("Frauen 2", "Rohbau-Team: Frauen 2", "Aktive Frauen (2. Mannschaft)", "Zoran Perak (z.perak@fcschlieren.ch · 076 264 20 22)", "2. Mannschaft Frauen")}
-{make_locked_team_tile("Frauen 3", "Rohbau-Team: Frauen 3", "Aktive Frauen (3. Mannschaft)", "Zoran Perak (z.perak@fcschlieren.ch · 076 264 20 22)", "3. Mannschaft Frauen")}
+{make_locked_team_tile("Frauen 1", "Team (vorbereitet): Frauen 1", "Aktive Frauen (1. Mannschaft)", "Konstantinos Vettas &amp; Sergio Zamora (costa.vettas@bluewin.ch)", "1. Mannschaft Frauen")}
+{make_locked_team_tile("Frauen 2", "Team (vorbereitet): Frauen 2", "Aktive Frauen (2. Mannschaft)", "Zoran Perak (z.perak@fcschlieren.ch · 076 264 20 22)", "2. Mannschaft Frauen")}
+{make_locked_team_tile("Frauen 3", "Team (vorbereitet): Frauen 3", "Aktive Frauen (3. Mannschaft)", "Zoran Perak (z.perak@fcschlieren.ch · 076 264 20 22)", "3. Mannschaft Frauen")}
         </div>
       </div>
 
-      <!-- Gruppe 3: Junioren A bis G (Alle 17 Teams im Rohbau) -->
+      <!-- Gruppe 3: Junioren A bis G (Alle 17 Teams vorbereitet) -->
       <div class="matrix-group-block">
         <div class="matrix-group-header">
-          <h3 style="font-size:1.18rem;font-weight:800;">3. Junioren A bis G (0 von 17 Teams migriert · Alle 17 im Rohbau)</h3>
+          <h3 style="font-size:1.18rem;font-weight:800;">3. Junioren A bis G (17 Teams vorbereitet · Folgen beim Ausbau)</h3>
           <span style="font-size:0.82rem;color:var(--text-muted);font-weight:600;">Leiter Junioren: Luigi Schiavano (l.schiavano@fcschlieren.ch · 079 109 52 88)</span>
         </div>
         <div class="matrix-grid">
-{make_locked_team_tile("Junioren A", "Rohbau-Team: Junioren A", "Junioren-Abteilung (U19/U20)", "Luigi Schiavano (l.schiavano@fcschlieren.ch)", "A-Junioren 11er")}
-{make_locked_team_tile("B1 Junioren", "Rohbau-Team: B1 Junioren", "Junioren-Abteilung B", "Luigi Schiavano (l.schiavano@fcschlieren.ch)", "B-Junioren 11er")}
-{make_locked_team_tile("B2 Junioren", "Rohbau-Team: B2 Junioren", "Junioren-Abteilung B", "Luigi Schiavano (l.schiavano@fcschlieren.ch)", "B-Junioren 11er")}
-{make_locked_team_tile("C1 Junioren", "Rohbau-Team: C1 Junioren", "Junioren-Abteilung C", "Luigi Schiavano (l.schiavano@fcschlieren.ch)", "C-Junioren 11er")}
-{make_locked_team_tile("C2 Junioren", "Rohbau-Team: C2 Junioren", "Junioren-Abteilung C", "Luigi Schiavano (l.schiavano@fcschlieren.ch)", "C-Junioren 11er")}
-{make_locked_team_tile("C3 Junioren", "Rohbau-Team: C3 Junioren", "Junioren-Abteilung C", "Luigi Schiavano (l.schiavano@fcschlieren.ch)", "C-Junioren 11er")}
-{make_locked_team_tile("D1 Junioren", "Rohbau-Team: D1 Junioren (9er)", "Koordination D &amp; E Junioren", "Oscar Otero &amp; Luigi Schiavano", "D-Junioren 9er")}
-{make_locked_team_tile("D2 Junioren", "Rohbau-Team: D2 Junioren (9er)", "Koordination D &amp; E Junioren", "Oscar Otero &amp; Luigi Schiavano", "D-Junioren 9er")}
-{make_locked_team_tile("D1 (7er) Junioren", "Rohbau-Team: D1 (7er) Junioren", "Koordination D &amp; E Junioren", "Oscar Otero &amp; Luigi Schiavano", "D-Junioren 7er")}
-{make_locked_team_tile("D2 (7er) Junioren", "Rohbau-Team: D2 (7er) Junioren", "Koordination D &amp; E Junioren", "Oscar Otero &amp; Luigi Schiavano", "D-Junioren 7er")}
-{make_locked_team_tile("E1 Junioren", "Rohbau-Team: E1 Junioren", "Koordination D &amp; E Junioren", "Oscar Otero &amp; Luigi Schiavano", "E-Junioren")}
-{make_locked_team_tile("E2 Junioren", "Rohbau-Team: E2 Junioren", "Koordination D &amp; E Junioren", "Oscar Otero &amp; Luigi Schiavano", "E-Junioren")}
-{make_locked_team_tile("E3 Junioren", "Rohbau-Team: E3 Junioren", "Koordination D &amp; E Junioren", "Oscar Otero &amp; Luigi Schiavano", "E-Junioren")}
-{make_locked_team_tile("F1 Junioren", "Rohbau-Team: F1 Junioren", "Koordination F &amp; G Junioren", "Gianfranco Gennaro &amp; Luigi Schiavano", "F-Junioren")}
-{make_locked_team_tile("F2 Junioren", "Rohbau-Team: F2 Junioren", "Koordination F &amp; G Junioren", "Gianfranco Gennaro &amp; Luigi Schiavano", "F-Junioren")}
-{make_locked_team_tile("F3 Junioren", "Rohbau-Team: F3 Junioren", "Koordination F &amp; G Junioren", "Gianfranco Gennaro &amp; Luigi Schiavano", "F-Junioren")}
-{make_locked_team_tile("Junioren G", "Rohbau-Team: Junioren G &amp; Fussballschule", "Koordination F &amp; G Junioren", "Gianfranco Gennaro &amp; Luigi Schiavano", "Jg. 2020–2022")}
+{make_locked_team_tile("Junioren A", "Team (vorbereitet): Junioren A", "Junioren-Abteilung (U19/U20)", "Luigi Schiavano (l.schiavano@fcschlieren.ch)", "A-Junioren 11er")}
+{make_locked_team_tile("B1 Junioren", "Team (vorbereitet): B1 Junioren", "Junioren-Abteilung B", "Luigi Schiavano (l.schiavano@fcschlieren.ch)", "B-Junioren 11er")}
+{make_locked_team_tile("B2 Junioren", "Team (vorbereitet): B2 Junioren", "Junioren-Abteilung B", "Luigi Schiavano (l.schiavano@fcschlieren.ch)", "B-Junioren 11er")}
+{make_locked_team_tile("C1 Junioren", "Team (vorbereitet): C1 Junioren", "Junioren-Abteilung C", "Luigi Schiavano (l.schiavano@fcschlieren.ch)", "C-Junioren 11er")}
+{make_locked_team_tile("C2 Junioren", "Team (vorbereitet): C2 Junioren", "Junioren-Abteilung C", "Luigi Schiavano (l.schiavano@fcschlieren.ch)", "C-Junioren 11er")}
+{make_locked_team_tile("C3 Junioren", "Team (vorbereitet): C3 Junioren", "Junioren-Abteilung C", "Luigi Schiavano (l.schiavano@fcschlieren.ch)", "C-Junioren 11er")}
+{make_locked_team_tile("D1 Junioren", "Team (vorbereitet): D1 Junioren (9er)", "Koordination D &amp; E Junioren", "Oscar Otero &amp; Luigi Schiavano", "D-Junioren 9er")}
+{make_locked_team_tile("D2 Junioren", "Team (vorbereitet): D2 Junioren (9er)", "Koordination D &amp; E Junioren", "Oscar Otero &amp; Luigi Schiavano", "D-Junioren 9er")}
+{make_locked_team_tile("D1 (7er) Junioren", "Team (vorbereitet): D1 (7er) Junioren", "Koordination D &amp; E Junioren", "Oscar Otero &amp; Luigi Schiavano", "D-Junioren 7er")}
+{make_locked_team_tile("D2 (7er) Junioren", "Team (vorbereitet): D2 (7er) Junioren", "Koordination D &amp; E Junioren", "Oscar Otero &amp; Luigi Schiavano", "D-Junioren 7er")}
+{make_locked_team_tile("E1 Junioren", "Team (vorbereitet): E1 Junioren", "Koordination D &amp; E Junioren", "Oscar Otero &amp; Luigi Schiavano", "E-Junioren")}
+{make_locked_team_tile("E2 Junioren", "Team (vorbereitet): E2 Junioren", "Koordination D &amp; E Junioren", "Oscar Otero &amp; Luigi Schiavano", "E-Junioren")}
+{make_locked_team_tile("E3 Junioren", "Team (vorbereitet): E3 Junioren", "Koordination D &amp; E Junioren", "Oscar Otero &amp; Luigi Schiavano", "E-Junioren")}
+{make_locked_team_tile("F1 Junioren", "Team (vorbereitet): F1 Junioren", "Koordination F &amp; G Junioren", "Gianfranco Gennaro &amp; Luigi Schiavano", "F-Junioren")}
+{make_locked_team_tile("F2 Junioren", "Team (vorbereitet): F2 Junioren", "Koordination F &amp; G Junioren", "Gianfranco Gennaro &amp; Luigi Schiavano", "F-Junioren")}
+{make_locked_team_tile("F3 Junioren", "Team (vorbereitet): F3 Junioren", "Koordination F &amp; G Junioren", "Gianfranco Gennaro &amp; Luigi Schiavano", "F-Junioren")}
+{make_locked_team_tile("Junioren G", "Team (vorbereitet): Junioren G &amp; Fussballschule", "Koordination F &amp; G Junioren", "Gianfranco Gennaro &amp; Luigi Schiavano", "Jg. 2020–2022")}
         </div>
       </div>
 
-      <!-- Gruppe 4: Juniorinnen U16 bis F (Alle 8 Teams im Rohbau) -->
+      <!-- Gruppe 4: Juniorinnen U16 bis F (Alle 8 Teams vorbereitet) -->
       <div class="matrix-group-block" style="margin-bottom:0;">
         <div class="matrix-group-header">
-          <h3 style="font-size:1.18rem;font-weight:800;">4. Juniorinnen U16 bis F (0 von 8 Teams migriert · Alle 8 im Rohbau)</h3>
+          <h3 style="font-size:1.18rem;font-weight:800;">4. Juniorinnen U16 bis F (8 Teams vorbereitet · Folgen beim Ausbau)</h3>
           <span style="font-size:0.82rem;color:var(--text-muted);font-weight:600;">Leiter Juniorinnen: Mario De Meo (m.demeo@fcschlieren.ch · 079 354 37 23)</span>
         </div>
         <div class="matrix-grid">
-{make_locked_team_tile("Frauen U16", "Rohbau-Team: Frauen U16", "Juniorinnen-Abteilung (Leistungsstufe)", "Mario De Meo &amp; Luca Mussolin", "Juniorinnen U16")}
-{make_locked_team_tile("B Juniorinnen", "Rohbau-Team: B Juniorinnen", "Juniorinnen-Abteilung B", "Mario De Meo (m.demeo@fcschlieren.ch)", "B-Juniorinnen")}
-{make_locked_team_tile("C Juniorinnen", "Rohbau-Team: C Juniorinnen", "Juniorinnen-Abteilung C", "Mario De Meo (m.demeo@fcschlieren.ch)", "C-Juniorinnen")}
-{make_locked_team_tile("U14 Mädchen", "Rohbau-Team: U14 Mädchen", "Juniorinnen-Abteilung U14", "Mario De Meo &amp; Luca Mussolin", "U14 Mädchen")}
-{make_locked_team_tile("D9er Juniorinnen", "Rohbau-Team: D9er Juniorinnen", "Juniorinnen-Abteilung D", "Mario De Meo (m.demeo@fcschlieren.ch)", "D-Juniorinnen 9er")}
-{make_locked_team_tile("D7er Juniorinnen", "Rohbau-Team: D7er Juniorinnen", "Juniorinnen-Abteilung D", "Mario De Meo (m.demeo@fcschlieren.ch)", "D-Juniorinnen 7er")}
-{make_locked_team_tile("E Juniorinnen", "Rohbau-Team: E Juniorinnen", "Koordination E &amp; F Juniorinnen", "Angela Paradiso &amp; Mario De Meo", "E-Juniorinnen")}
-{make_locked_team_tile("F Juniorinnen", "Rohbau-Team: F Juniorinnen", "Koordination E &amp; F Juniorinnen", "Angela Paradiso &amp; Mario De Meo", "F-Juniorinnen")}
+{make_locked_team_tile("Frauen U16", "Team (vorbereitet): Frauen U16", "Juniorinnen-Abteilung (Leistungsstufe)", "Mario De Meo &amp; Luca Mussolin", "Juniorinnen U16")}
+{make_locked_team_tile("B Juniorinnen", "Team (vorbereitet): B Juniorinnen", "Juniorinnen-Abteilung B", "Mario De Meo (m.demeo@fcschlieren.ch)", "B-Juniorinnen")}
+{make_locked_team_tile("C Juniorinnen", "Team (vorbereitet): C Juniorinnen", "Juniorinnen-Abteilung C", "Mario De Meo (m.demeo@fcschlieren.ch)", "C-Juniorinnen")}
+{make_locked_team_tile("U14 Mädchen", "Team (vorbereitet): U14 Mädchen", "Juniorinnen-Abteilung U14", "Mario De Meo &amp; Luca Mussolin", "U14 Mädchen")}
+{make_locked_team_tile("D9er Juniorinnen", "Team (vorbereitet): D9er Juniorinnen", "Juniorinnen-Abteilung D", "Mario De Meo (m.demeo@fcschlieren.ch)", "D-Juniorinnen 9er")}
+{make_locked_team_tile("D7er Juniorinnen", "Team (vorbereitet): D7er Juniorinnen", "Juniorinnen-Abteilung D", "Mario De Meo (m.demeo@fcschlieren.ch)", "D-Juniorinnen 7er")}
+{make_locked_team_tile("E Juniorinnen", "Team (vorbereitet): E Juniorinnen", "Koordination E &amp; F Juniorinnen", "Angela Paradiso &amp; Mario De Meo", "E-Juniorinnen")}
+{make_locked_team_tile("F Juniorinnen", "Team (vorbereitet): F Juniorinnen", "Koordination E &amp; F Juniorinnen", "Angela Paradiso &amp; Mario De Meo", "F-Juniorinnen")}
         </div>
       </div>
     </div>
@@ -1245,7 +1245,7 @@ V2_KONTAKT_BODY = v1.KONTAKT_BODY.replace(
 
 pages_to_write = [
     ("index.html", "FC Schlieren (V2 Bauplan-Modus: 6 % Prototyp / 94 % Rohbau) | Architektur-Studie", "startseite", V2_INDEX_BODY, ""),
-    ("herren-1.html", "Muster-Team Herren 1 (1/33 fertig) & 32 Rohbau-Teams | FC Schlieren V2", "teams", V2_HERREN_1_BODY, v1.HERREN_1_CSS),
+    ("herren-1.html", "Beispiel-Team Herren 1 (1/33 fertig) & 32 Rohbau-Teams | FC Schlieren V2", "teams", V2_HERREN_1_BODY, v1.HERREN_1_CSS),
     ("kontakt.html", "Smart-Anfrage Live-Demo (Ausbaustufe 6 % Prototyp) | FC Schlieren V2", "kontakt", V2_KONTAKT_BODY, v1.KONTAKT_CSS),
 ]
 

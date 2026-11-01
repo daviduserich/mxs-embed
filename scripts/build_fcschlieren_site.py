@@ -2,7 +2,7 @@
 """
 Builds the complete 3-page WebPilot showcase for FC Schlieren (preview-fcschlieren):
   - index.html (Das Vereins-Flaggschiff mit 100% Original-Daten & allen 11 Sponsoren)
-  - herren-1.html (Die Muster-Team-Seite Herren 1 & Frauen 1 + 33-Teams-Matrix + Blaupausen-Modal)
+  - herren-1.html (Die Beispiel-Team-Seite Herren 1 & Frauen 1 + 33-Teams-Matrix + Blaupausen-Modal)
   - kontakt.html (Die zentrale Vereins-, Probetraining-, Spielbetriebs- & Sponsoring-Zentrale)
 Plus company.json, config.json, and site.json.
 Strict adherence to #UI-01..#UI-14, #LANG-01..#LANG-02 (100% ss, zero emojis in DOM, 2-Radius 0/4/8px).
@@ -1244,10 +1244,10 @@ def render_shell(filename: str, page_title: str, active_nav: str, body_html: str
           <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/></svg>
           <span>VORSCHAU V1</span>
         </span>
-        <span>Ansicht: Variante 1 (Umfangreiche Vorschau mit ausgebauten Sektionen &amp; 2 Muster-Teams)</span>
+        <span>Ansicht: Variante 1 (Umfangreiche Vorschau mit ausgebauten Sektionen &amp; 2 Beispiel-Teams)</span>
       </div>
       <a href="{v2_href}" class="wp-v1-switch-btn">
-        <span>Zu Variante 2 (6-%-Bauplan-Modus) wechseln</span>
+        <span>Zu Variante 2 (Kompakte Vorschau mit Seiten-Übersicht) wechseln</span>
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
       </a>
     </div>
@@ -1301,7 +1301,7 @@ def render_shell(filename: str, page_title: str, active_nav: str, body_html: str
 
     <div class="mobile-drawer" id="mobileDrawer">
       <a href="index.html" onclick="wpCloseMobileMenu()">Startseite</a>
-      <a href="herren-1.html" onclick="wpCloseMobileMenu()">Muster-Team (Herren 1 / Frauen 1) &amp; 33 Teams</a>
+      <a href="herren-1.html" onclick="wpCloseMobileMenu()">Beispiel-Team (Herren 1 / Frauen 1) &amp; 33 Teams</a>
       <a href="index.html#aktuelles-camps" onclick="wpCloseMobileMenu()">Fussballschule &amp; Fussballcamps</a>
       <a href="index.html#zelgli-verein" onclick="wpCloseMobileMenu()">Sportplatz Zelgli, Beizli &amp; Vorstand</a>
       <a href="index.html#sponsoren" onclick="wpCloseMobileMenu()">Sponsoren, Supporter &amp; Business-Club</a>
@@ -1336,8 +1336,8 @@ def render_shell(filename: str, page_title: str, active_nav: str, body_html: str
         <div>
           <div class="footer-title">Mannschaften &amp; Sport</div>
           <ul class="footer-list">
-            <li><a href="herren-1.html?team=herren1">Herren 1 (Muster-Team-Seite)</a></li>
-            <li><a href="herren-1.html?team=frauen1">Frauen 1 (Muster-Team-Seite)</a></li>
+            <li><a href="herren-1.html?team=herren1">Herren 1 (Beispiel-Team-Seite)</a></li>
+            <li><a href="herren-1.html?team=frauen1">Frauen 1 (Beispiel-Team-Seite)</a></li>
             <li><a href="herren-1.html#alle-teams-matrix">Alle 33 Teams in der Matrix</a></li>
             <li><a href="index.html#aktuelles-camps">Fussballschule (Mittwoch 16:15 Uhr)</a></li>
             <li><a href="index.html#aktuelles-camps">Kohler Fussballcamps &amp; Trailer</a></li>
@@ -1373,23 +1373,23 @@ def render_shell(filename: str, page_title: str, active_nav: str, body_html: str
       <div class="footer-bottom">
         <div>&copy; 2026 Fussballclub Schlieren (8952 Schlieren) · Alle Rechte vorbehalten.</div>
         <div style="display:flex;gap:16px;flex-wrap:wrap;">
-          <a href="herren-1.html" style="color:#FDC500;font-weight:700;">Architekten-Musterhaus (Herren 1 &amp; 33 Teams)</a>
+          <a href="herren-1.html" style="color:#FDC500;font-weight:700;">Beispiel-Teams (Herren 1 / Frauen 1 &amp; 33 Teams)</a>
           <a href="kontakt.html" style="color:#E2E8F0;">Vereins-Zentrale</a>
         </div>
       </div>
     </div>
   </footer>
 
-  <!-- ARCHITEKTUR-BLAUPAUSEN-MODAL -->
+  <!-- SEITEN-VORSCHAU-MODAL -->
   <div class="wp-modal-backdrop" id="wpBlueprintModal" role="dialog" aria-modal="true" aria-labelledby="wpBpTitle">
     <div class="wp-modal-dialog">
       <button type="button" class="wp-modal-close" aria-label="Dialog schliessen" onclick="wpCloseBlueprintModal()">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
       </button>
-      <div class="section-kicker">ARCHITEKTEN-MUSTERHAUS-PRINZIP · FC SCHLIEREN</div>
-      <h3 id="wpBpTitle" style="font-size:1.35rem;font-weight:800;margin-bottom:8px;">Team-Blaupause: Mannschaft</h3>
+      <div class="section-kicker">SEITEN-VORSCHAU · FC SCHLIEREN</div>
+      <h3 id="wpBpTitle" style="font-size:1.35rem;font-weight:800;margin-bottom:8px;">Team-Vorschau: Mannschaft</h3>
       <p id="wpBpSub" style="font-size:0.9rem;color:var(--text-body);margin-bottom:12px;">
-        Stellvertretend für alle 33 Mannschaften und Unterseiten des FC Schlieren sind in dieser Vorschau die Startseite, die Muster-Teams <strong>Herren 1</strong> und <strong>Frauen 1</strong> sowie die zentrale <strong>Vereins- &amp; Probetraining-Zentrale</strong> komplett mit Originaldaten ausgebaut.
+        Stellvertretend für alle 33 Mannschaften und Unterseiten des FC Schlieren sind in dieser Vorschau die Startseite, die Beispiel-Teams <strong>Herren 1</strong> und <strong>Frauen 1</strong> sowie die zentrale <strong>Vereins- &amp; Probetraining-Zentrale</strong> komplett mit Originaldaten ausgebaut.
       </p>
       <div style="background-color:var(--fcs-blue-soft);border-left:4px solid var(--fcs-blue);padding:12px 14px;border-radius:var(--radius-sm);font-size:0.86rem;margin-bottom:14px;">
         <div style="font-weight:700;color:var(--fcs-navy);" id="wpBpCategory">Abteilung: Nachwuchs / Aktive</div>
@@ -1398,7 +1398,7 @@ def render_shell(filename: str, page_title: str, active_nav: str, body_html: str
 
       <div class="wp-modal-checklist">
         <div style="font-family:'Montserrat',sans-serif;font-size:0.78rem;font-weight:800;text-transform:uppercase;color:var(--fcs-navy);">
-          In der fertigen Team-Blaupause (analog Herren 1 &amp; Frauen 1) enthalten:
+          Beim kompletten Ausbau (analog Herren 1 &amp; Frauen 1) enthalten:
         </div>
         <div class="wp-modal-check-item">
           <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><polyline points="20 6 9 17 4 12"/></svg>
@@ -1420,7 +1420,7 @@ def render_shell(filename: str, page_title: str, active_nav: str, body_html: str
 
       <div style="display:flex;flex-wrap:wrap;gap:10px;margin-top:18px;">
         <a href="herren-1.html" class="btn-cta btn-cta-primary btn-sm" onclick="wpCloseBlueprintModal()">
-          <span>Ausgebaute Muster-Seite (Herren 1 / Frauen 1) ansehen</span>
+          <span>Ausgearbeitete Beispiel-Teams (Herren 1 / Frauen 1) ansehen</span>
         </a>
         <a href="kontakt.html?thema=probetraining" id="wpBpCtaLink" class="btn-cta btn-cta-gold btn-sm">
           <span>Anfrage / Probetraining für diesen Bereich starten</span>
@@ -1465,7 +1465,7 @@ def render_shell(filename: str, page_title: str, active_nav: str, body_html: str
       var cEl = document.getElementById('wpBpCategory');
       var pEl = document.getElementById('wpBpContact');
       var linkEl = document.getElementById('wpBpCtaLink');
-      if (tEl) tEl.textContent = title || 'Team-Blaupause';
+      if (tEl) tEl.textContent = title || 'Team-Vorschau';
       if (cEl) cEl.textContent = 'Bereich / Abteilung: ' + (category || 'FC Schlieren');
       if (pEl) pEl.textContent = 'Zuständige Ansprechperson: ' + (contact || 'Geschäftsstelle FC Schlieren (j.seifriz@fcschlieren.ch)');
       if (linkEl) linkEl.href = 'kontakt.html?thema=' + (topicParam || 'probetraining');
@@ -1517,7 +1517,7 @@ INDEX_BODY = """
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="9 18 15 12 9 6"/></svg>
           </a>
           <a href="herren-1.html" class="btn-cta btn-cta-ghost-light" data-slot="hero_cta_secondary">
-            <span>Muster-Team (Herren 1 / Frauen 1) &amp; 33 Teams</span>
+            <span>Beispiel-Team (Herren 1 / Frauen 1) &amp; 33 Teams</span>
           </a>
         </div>
 
@@ -1687,7 +1687,7 @@ INDEX_BODY = """
         <div class="section-kicker" data-slot="dept_kicker">SPORTLICHE HEIMAT FÜR JEDES ALTER</div>
         <h2 class="section-title" data-slot="dept_title">33 Mannschaften in 4 starken Abteilungen.</h2>
         <p class="section-desc" data-slot="dept_desc">
-          Als einer der grössten Ausbildungs- und Breitensportvereine im Bezirk Dietikon bietet der FC Schlieren durchgängige Teams von den G-Junioren bis zu den Senioren 50+. Klicke auf unsere Muster-Team-Seite für den vollen Kader-Einblick.
+          Als einer der grössten Ausbildungs- und Breitensportvereine im Bezirk Dietikon bietet der FC Schlieren durchgängige Teams von den G-Junioren bis zu den Senioren 50+. Klicke auf unsere Beispiel-Team-Seite für den vollen Kader-Einblick.
         </p>
       </div>
 
@@ -1701,7 +1701,7 @@ INDEX_BODY = """
               Unser sportliches Aushängeschild <strong>Herren 1</strong> (Trainer: Diego Bürger &amp; Livio Sanseverino), die 2. Mannschaft sowie drei traditionsreiche Senioren-Teams (30+, 40+, 50+).
             </p>
             <div class="pillar-tags">
-              <span class="pillar-tag">Herren 1 (Muster-Team)</span>
+              <span class="pillar-tag">Herren 1 (Beispiel-Team)</span>
               <span class="pillar-tag">Herren 2</span>
               <span class="pillar-tag">Senioren 30+</span>
               <span class="pillar-tag">Senioren 40+</span>
@@ -1712,7 +1712,7 @@ INDEX_BODY = """
             <strong>Leiter Aktive:</strong> Zoran Perak (z.perak@fcschlieren.ch)
           </div>
           <a href="herren-1.html?team=herren1" class="btn-cta btn-cta-primary btn-sm" style="width:100%;">
-            <span>Muster-Team Herren 1 öffnen</span>
+            <span>Beispiel-Team Herren 1 öffnen</span>
           </a>
         </div>
 
@@ -1725,7 +1725,7 @@ INDEX_BODY = """
               Bereits 1979 gegründet: Mit drei aktiven Frauenteams gehört der FC Schlieren zu den führenden Adressen für Frauenfussball in der Region Zürich und im Limmattal.
             </p>
             <div class="pillar-tags">
-              <span class="pillar-tag">Frauen 1 (Muster-Team)</span>
+              <span class="pillar-tag">Frauen 1 (Beispiel-Team)</span>
               <span class="pillar-tag">Frauen 2</span>
               <span class="pillar-tag">Frauen 3</span>
             </div>
@@ -1734,7 +1734,7 @@ INDEX_BODY = """
             <strong>Trainer Frauen 1:</strong> Konstantinos Vettas &amp; Sergio Zamora
           </div>
           <a href="herren-1.html?team=frauen1" class="btn-cta btn-cta-gold btn-sm" style="width:100%;">
-            <span>Muster-Team Frauen 1 öffnen</span>
+            <span>Beispiel-Team Frauen 1 öffnen</span>
           </a>
         </div>
 
@@ -2573,14 +2573,14 @@ HERREN_1_CSS = """
 """
 
 HERREN_1_BODY = """
-  <!-- ORIENTIERUNGS-BANNER: ARCHITEKTEN-MUSTERHAUS-PRINZIP -->
-  <section class="architect-banner" data-section="musterhaus-hinweis">
+  <!-- ORIENTIERUNGS-BANNER: BEISPIEL-TEAMS -->
+  <section class="architect-banner" data-section="vorschau-hinweis">
     <div class="container">
       <div class="architect-box">
         <div style="max-width:780px;">
-          <div class="section-kicker kicker-light" style="margin-bottom:6px;" data-slot="arch_kicker">ARCHITEKTEN-MUSTERHAUS-PRINZIP · EXEMPLARISCHER VOLLAUSBAU</div>
+          <div class="section-kicker kicker-light" style="margin-bottom:6px;" data-slot="arch_kicker">BEISPIEL-ANSICHT · STELLVERTRETEND FÜR ALLE 33 MANNSCHAFTEN</div>
           <h1 style="color:#FFFFFF;font-size:clamp(1.45rem,2.5vw,2rem);font-weight:800;margin-bottom:8px;" data-slot="arch_title">
-            Muster-Team-Seite: Herren 1 &amp; Frauen 1 (stellvertretend für alle 33 Teams)
+            Beispiel-Team-Seite: Herren 1 &amp; Frauen 1 (stellvertretend für alle 33 Teams)
           </h1>
           <p style="font-size:0.9rem;color:#E2E8F0;line-height:1.55;" data-slot="arch_desc">
             Der FC Schlieren stellt <strong>33 Mannschaften</strong>. Damit du als Vorstand oder Mitglied sofort erlebst, wie jede einzelne Mannschaftsseite künftig aussieht, haben wir hier die <strong>1. Mannschaft (Herren 1)</strong> und die <strong>Frauen 1</strong> komplett mit Original-Mannschaftsfoto, Spielerkader, Trainerstab und Sponsoren ausgebaut. Unten findest du zudem die interaktive <strong>33-Teams-Matrix</strong>.
@@ -2594,11 +2594,11 @@ HERREN_1_BODY = """
     </div>
   </section>
 
-  <!-- MUSTER-TEAM SEKTION (HERREN 1 & FRAUEN 1 UMSCHALTBAR) -->
-  <section id="muster-team-detail" data-section="muster-team-detail">
+  <!-- BEISPIEL-TEAM SEKTION (HERREN 1 & FRAUEN 1 UMSCHALTBAR) -->
+  <section id="beispiel-team-detail" data-section="beispiel-team-detail">
     <div class="container">
       <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;margin-bottom:12px;">
-        <div class="team-switcher-bar" role="tablist" aria-label="Muster-Team auswählen">
+        <div class="team-switcher-bar" role="tablist" aria-label="Beispiel-Team auswählen">
           <button type="button" class="team-switch-btn active" id="tabBtnHerren1" onclick="wpSwitchTeam('herren1')">
             <span>Herren 1 — 1. Mannschaft</span>
             <span class="team-switch-badge">19 Spieler · Live</span>
@@ -2940,14 +2940,14 @@ HERREN_1_BODY = """
     </div>
   </section>
 
-  <!-- ALLE 33 MANNSCHAFTEN IM ÜBERBLICK (TEAM-ARCHITEKTUR-MATRIX) -->
+  <!-- ALLE 33 MANNSCHAFTEN IM ÜBERBLICK (MANNSCHAFTS-ÜBERSICHT) -->
   <section id="alle-teams-matrix" data-section="alle-teams-matrix" style="background-color:#FFFFFF;border-top:1px solid var(--border-light);">
     <div class="container">
       <div class="section-head">
-        <div class="section-kicker" data-slot="matrix_kicker">TEAM-ARCHITEKTUR-MATRIX · ALLE 33 MANNSCHAFTEN</div>
+        <div class="section-kicker" data-slot="matrix_kicker">MANNSCHAFTS-ÜBERSICHT · ALLE 33 MANNSCHAFTEN</div>
         <h2 class="section-title" data-slot="matrix_title">Alle 33 Mannschaften des FC Schlieren.</h2>
         <p class="section-desc" data-slot="matrix_desc">
-          <strong>Herren 1</strong> und <strong>Frauen 1</strong> sind oben als vollständige Muster-Teams live ausgebaut. Klicke auf eines der weiteren 31 Teams, um die Architektur-Blaupause mit zuständiger Abteilungsleitung und direkter Probetraining-Anmeldung zu öffnen.
+          <strong>Herren 1</strong> und <strong>Frauen 1</strong> sind oben als vollständige Beispiel-Teams live ausgebaut. Klicke auf eines der weiteren 31 Teams, um die Team-Vorschau mit zuständiger Abteilungsleitung und direkter Probetraining-Anmeldung zu öffnen.
         </p>
       </div>
 
@@ -2969,7 +2969,7 @@ HERREN_1_BODY = """
           <button type="button" class="matrix-team-btn" onclick="wpOpenBlueprintModal('Team-Seite: Herren 2', 'Aktive Herren (2. Mannschaft)', 'Zoran Perak (z.perak@fcschlieren.ch · 076 264 20 22)', 'probetraining')">
             <div class="matrix-team-top">
               <span class="matrix-team-name">Herren 2</span>
-              <span class="matrix-status-pill pill-blueprint">Muster-Blaupause</span>
+              <span class="matrix-status-pill pill-blueprint">Vorschau</span>
             </div>
             <span style="font-size:0.78rem;color:var(--text-muted);">2. Mannschaft · Sportplatz Zelgli</span>
           </button>
@@ -2977,7 +2977,7 @@ HERREN_1_BODY = """
           <button type="button" class="matrix-team-btn" onclick="wpOpenBlueprintModal('Team-Seite: Senioren 30+', 'Senioren-Abteilung FC Schlieren', 'Zoran Perak &amp; Roger Mehr (r.mehr@fcschlieren.ch)', 'probetraining')">
             <div class="matrix-team-top">
               <span class="matrix-team-name">Senioren 30+</span>
-              <span class="matrix-status-pill pill-blueprint">Muster-Blaupause</span>
+              <span class="matrix-status-pill pill-blueprint">Vorschau</span>
             </div>
             <span style="font-size:0.78rem;color:var(--text-muted);">Meisterschaft &amp; Cup · Sportplatz Zelgli</span>
           </button>
@@ -2985,7 +2985,7 @@ HERREN_1_BODY = """
           <button type="button" class="matrix-team-btn" onclick="wpOpenBlueprintModal('Team-Seite: Senioren 40+', 'Senioren-Abteilung FC Schlieren', 'Zoran Perak &amp; Roger Mehr (r.mehr@fcschlieren.ch)', 'probetraining')">
             <div class="matrix-team-top">
               <span class="matrix-team-name">Senioren 40+</span>
-              <span class="matrix-status-pill pill-blueprint">Muster-Blaupause</span>
+              <span class="matrix-status-pill pill-blueprint">Vorschau</span>
             </div>
             <span style="font-size:0.78rem;color:var(--text-muted);">Senioren 40+ · Sportplatz Zelgli</span>
           </button>
@@ -2993,7 +2993,7 @@ HERREN_1_BODY = """
           <button type="button" class="matrix-team-btn" onclick="wpOpenBlueprintModal('Team-Seite: Senioren 50+', 'Senioren-Abteilung FC Schlieren', 'Zoran Perak &amp; Roger Mehr (r.mehr@fcschlieren.ch)', 'probetraining')">
             <div class="matrix-team-top">
               <span class="matrix-team-name">Senioren 50+</span>
-              <span class="matrix-status-pill pill-blueprint">Muster-Blaupause</span>
+              <span class="matrix-status-pill pill-blueprint">Vorschau</span>
             </div>
             <span style="font-size:0.78rem;color:var(--text-muted);">Senioren 50+ · Sportplatz Zelgli</span>
           </button>
@@ -3018,7 +3018,7 @@ HERREN_1_BODY = """
           <button type="button" class="matrix-team-btn" onclick="wpOpenBlueprintModal('Team-Seite: Frauen 2', 'Aktive Frauen (2. Mannschaft)', 'Zoran Perak (z.perak@fcschlieren.ch · 076 264 20 22)', 'probetraining')">
             <div class="matrix-team-top">
               <span class="matrix-team-name">Frauen 2</span>
-              <span class="matrix-status-pill pill-blueprint">Muster-Blaupause</span>
+              <span class="matrix-status-pill pill-blueprint">Vorschau</span>
             </div>
             <span style="font-size:0.78rem;color:var(--text-muted);">2. Mannschaft Frauen · Sportplatz Zelgli</span>
           </button>
@@ -3026,7 +3026,7 @@ HERREN_1_BODY = """
           <button type="button" class="matrix-team-btn" onclick="wpOpenBlueprintModal('Team-Seite: Frauen 3', 'Aktive Frauen (3. Mannschaft)', 'Zoran Perak (z.perak@fcschlieren.ch · 076 264 20 22)', 'probetraining')">
             <div class="matrix-team-top">
               <span class="matrix-team-name">Frauen 3</span>
-              <span class="matrix-status-pill pill-blueprint">Muster-Blaupause</span>
+              <span class="matrix-status-pill pill-blueprint">Vorschau</span>
             </div>
             <span style="font-size:0.78rem;color:var(--text-muted);">3. Mannschaft Frauen · Sportplatz Zelgli</span>
           </button>
@@ -3041,71 +3041,71 @@ HERREN_1_BODY = """
         </div>
         <div class="matrix-grid">
           <button type="button" class="matrix-team-btn" onclick="wpOpenBlueprintModal('Team-Seite: Junioren A', 'Junioren-Abteilung (U19/U20)', 'Luigi Schiavano (l.schiavano@fcschlieren.ch · 079 109 52 88)', 'probetraining')">
-            <div class="matrix-team-top"><span class="matrix-team-name">Junioren A</span><span class="matrix-status-pill pill-blueprint">Blaupause</span></div>
+            <div class="matrix-team-top"><span class="matrix-team-name">Junioren A</span><span class="matrix-status-pill pill-blueprint">Vorschau</span></div>
             <span style="font-size:0.76rem;color:var(--text-muted);">A-Junioren · 11er-Fussball</span>
           </button>
           <button type="button" class="matrix-team-btn" onclick="wpOpenBlueprintModal('Team-Seite: B1 Junioren', 'Junioren-Abteilung B', 'Luigi Schiavano (l.schiavano@fcschlieren.ch)', 'probetraining')">
-            <div class="matrix-team-top"><span class="matrix-team-name">B1 Junioren</span><span class="matrix-status-pill pill-blueprint">Blaupause</span></div>
+            <div class="matrix-team-top"><span class="matrix-team-name">B1 Junioren</span><span class="matrix-status-pill pill-blueprint">Vorschau</span></div>
             <span style="font-size:0.76rem;color:var(--text-muted);">B-Junioren · 11er-Fussball</span>
           </button>
           <button type="button" class="matrix-team-btn" onclick="wpOpenBlueprintModal('Team-Seite: B2 Junioren', 'Junioren-Abteilung B', 'Luigi Schiavano (l.schiavano@fcschlieren.ch)', 'probetraining')">
-            <div class="matrix-team-top"><span class="matrix-team-name">B2 Junioren</span><span class="matrix-status-pill pill-blueprint">Blaupause</span></div>
+            <div class="matrix-team-top"><span class="matrix-team-name">B2 Junioren</span><span class="matrix-status-pill pill-blueprint">Vorschau</span></div>
             <span style="font-size:0.76rem;color:var(--text-muted);">B-Junioren · 11er-Fussball</span>
           </button>
           <button type="button" class="matrix-team-btn" onclick="wpOpenBlueprintModal('Team-Seite: C1 Junioren', 'Junioren-Abteilung C', 'Luigi Schiavano (l.schiavano@fcschlieren.ch)', 'probetraining')">
-            <div class="matrix-team-top"><span class="matrix-team-name">C1 Junioren</span><span class="matrix-status-pill pill-blueprint">Blaupause</span></div>
+            <div class="matrix-team-top"><span class="matrix-team-name">C1 Junioren</span><span class="matrix-status-pill pill-blueprint">Vorschau</span></div>
             <span style="font-size:0.76rem;color:var(--text-muted);">C-Junioren · 11er-Fussball</span>
           </button>
           <button type="button" class="matrix-team-btn" onclick="wpOpenBlueprintModal('Team-Seite: C2 Junioren', 'Junioren-Abteilung C', 'Luigi Schiavano (l.schiavano@fcschlieren.ch)', 'probetraining')">
-            <div class="matrix-team-top"><span class="matrix-team-name">C2 Junioren</span><span class="matrix-status-pill pill-blueprint">Blaupause</span></div>
+            <div class="matrix-team-top"><span class="matrix-team-name">C2 Junioren</span><span class="matrix-status-pill pill-blueprint">Vorschau</span></div>
             <span style="font-size:0.76rem;color:var(--text-muted);">C-Junioren · 11er-Fussball</span>
           </button>
           <button type="button" class="matrix-team-btn" onclick="wpOpenBlueprintModal('Team-Seite: C3 Junioren', 'Junioren-Abteilung C', 'Luigi Schiavano (l.schiavano@fcschlieren.ch)', 'probetraining')">
-            <div class="matrix-team-top"><span class="matrix-team-name">C3 Junioren</span><span class="matrix-status-pill pill-blueprint">Blaupause</span></div>
+            <div class="matrix-team-top"><span class="matrix-team-name">C3 Junioren</span><span class="matrix-status-pill pill-blueprint">Vorschau</span></div>
             <span style="font-size:0.76rem;color:var(--text-muted);">C-Junioren · 11er-Fussball</span>
           </button>
           <button type="button" class="matrix-team-btn" onclick="wpOpenBlueprintModal('Team-Seite: D1 Junioren (9er)', 'Koordination D &amp; E Junioren', 'Oscar Otero &amp; Luigi Schiavano (l.schiavano@fcschlieren.ch)', 'probetraining')">
-            <div class="matrix-team-top"><span class="matrix-team-name">D1 Junioren</span><span class="matrix-status-pill pill-blueprint">Blaupause</span></div>
+            <div class="matrix-team-top"><span class="matrix-team-name">D1 Junioren</span><span class="matrix-status-pill pill-blueprint">Vorschau</span></div>
             <span style="font-size:0.76rem;color:var(--text-muted);">D-Junioren 9er · Koord. O. Otero</span>
           </button>
           <button type="button" class="matrix-team-btn" onclick="wpOpenBlueprintModal('Team-Seite: D2 Junioren (9er)', 'Koordination D &amp; E Junioren', 'Oscar Otero &amp; Luigi Schiavano (l.schiavano@fcschlieren.ch)', 'probetraining')">
-            <div class="matrix-team-top"><span class="matrix-team-name">D2 Junioren</span><span class="matrix-status-pill pill-blueprint">Blaupause</span></div>
+            <div class="matrix-team-top"><span class="matrix-team-name">D2 Junioren</span><span class="matrix-status-pill pill-blueprint">Vorschau</span></div>
             <span style="font-size:0.76rem;color:var(--text-muted);">D-Junioren 9er · Koord. O. Otero</span>
           </button>
           <button type="button" class="matrix-team-btn" onclick="wpOpenBlueprintModal('Team-Seite: D1 (7er) Junioren', 'Koordination D &amp; E Junioren', 'Oscar Otero &amp; Luigi Schiavano (l.schiavano@fcschlieren.ch)', 'probetraining')">
-            <div class="matrix-team-top"><span class="matrix-team-name">D1 (7er) Junioren</span><span class="matrix-status-pill pill-blueprint">Blaupause</span></div>
+            <div class="matrix-team-top"><span class="matrix-team-name">D1 (7er) Junioren</span><span class="matrix-status-pill pill-blueprint">Vorschau</span></div>
             <span style="font-size:0.76rem;color:var(--text-muted);">D-Junioren 7er · Koord. O. Otero</span>
           </button>
           <button type="button" class="matrix-team-btn" onclick="wpOpenBlueprintModal('Team-Seite: D2 (7er) Junioren', 'Koordination D &amp; E Junioren', 'Oscar Otero &amp; Luigi Schiavano (l.schiavano@fcschlieren.ch)', 'probetraining')">
-            <div class="matrix-team-top"><span class="matrix-team-name">D2 (7er) Junioren</span><span class="matrix-status-pill pill-blueprint">Blaupause</span></div>
+            <div class="matrix-team-top"><span class="matrix-team-name">D2 (7er) Junioren</span><span class="matrix-status-pill pill-blueprint">Vorschau</span></div>
             <span style="font-size:0.76rem;color:var(--text-muted);">D-Junioren 7er · Koord. O. Otero</span>
           </button>
           <button type="button" class="matrix-team-btn" onclick="wpOpenBlueprintModal('Team-Seite: E1 Junioren', 'Koordination D &amp; E Junioren', 'Oscar Otero &amp; Luigi Schiavano (l.schiavano@fcschlieren.ch)', 'probetraining')">
-            <div class="matrix-team-top"><span class="matrix-team-name">E1 Junioren</span><span class="matrix-status-pill pill-blueprint">Blaupause</span></div>
+            <div class="matrix-team-top"><span class="matrix-team-name">E1 Junioren</span><span class="matrix-status-pill pill-blueprint">Vorschau</span></div>
             <span style="font-size:0.76rem;color:var(--text-muted);">Kinderfussball E · Play More Football</span>
           </button>
           <button type="button" class="matrix-team-btn" onclick="wpOpenBlueprintModal('Team-Seite: E2 Junioren', 'Koordination D &amp; E Junioren', 'Oscar Otero &amp; Luigi Schiavano (l.schiavano@fcschlieren.ch)', 'probetraining')">
-            <div class="matrix-team-top"><span class="matrix-team-name">E2 Junioren</span><span class="matrix-status-pill pill-blueprint">Blaupause</span></div>
+            <div class="matrix-team-top"><span class="matrix-team-name">E2 Junioren</span><span class="matrix-status-pill pill-blueprint">Vorschau</span></div>
             <span style="font-size:0.76rem;color:var(--text-muted);">Kinderfussball E · Play More Football</span>
           </button>
           <button type="button" class="matrix-team-btn" onclick="wpOpenBlueprintModal('Team-Seite: E3 Junioren', 'Koordination D &amp; E Junioren', 'Oscar Otero &amp; Luigi Schiavano (l.schiavano@fcschlieren.ch)', 'probetraining')">
-            <div class="matrix-team-top"><span class="matrix-team-name">E3 Junioren</span><span class="matrix-status-pill pill-blueprint">Blaupause</span></div>
+            <div class="matrix-team-top"><span class="matrix-team-name">E3 Junioren</span><span class="matrix-status-pill pill-blueprint">Vorschau</span></div>
             <span style="font-size:0.76rem;color:var(--text-muted);">Kinderfussball E · Play More Football</span>
           </button>
           <button type="button" class="matrix-team-btn" onclick="wpOpenBlueprintModal('Team-Seite: E4 Junioren', 'Koordination D &amp; E Junioren', 'Oscar Otero &amp; Luigi Schiavano (l.schiavano@fcschlieren.ch)', 'probetraining')">
-            <div class="matrix-team-top"><span class="matrix-team-name">E4 Junioren</span><span class="matrix-status-pill pill-blueprint">Blaupause</span></div>
+            <div class="matrix-team-top"><span class="matrix-team-name">E4 Junioren</span><span class="matrix-status-pill pill-blueprint">Vorschau</span></div>
             <span style="font-size:0.76rem;color:var(--text-muted);">Kinderfussball E · Play More Football</span>
           </button>
           <button type="button" class="matrix-team-btn" onclick="wpOpenBlueprintModal('Team-Seite: F1 &amp; F2 Junioren', 'Koordination F &amp; G Junioren', 'Gianfranco Gennaro &amp; Luigi Schiavano (l.schiavano@fcschlieren.ch)', 'probetraining')">
-            <div class="matrix-team-top"><span class="matrix-team-name">F1–F2 Junioren</span><span class="matrix-status-pill pill-blueprint">Blaupause</span></div>
+            <div class="matrix-team-top"><span class="matrix-team-name">F1–F2 Junioren</span><span class="matrix-status-pill pill-blueprint">Vorschau</span></div>
             <span style="font-size:0.76rem;color:var(--text-muted);">F-Junioren · Koord. G. Gennaro</span>
           </button>
           <button type="button" class="matrix-team-btn" onclick="wpOpenBlueprintModal('Team-Seite: F3 &amp; F4 Junioren', 'Koordination F &amp; G Junioren', 'Gianfranco Gennaro &amp; Luigi Schiavano (l.schiavano@fcschlieren.ch)', 'probetraining')">
-            <div class="matrix-team-top"><span class="matrix-team-name">F3–F4 Junioren</span><span class="matrix-status-pill pill-blueprint">Blaupause</span></div>
+            <div class="matrix-team-top"><span class="matrix-team-name">F3–F4 Junioren</span><span class="matrix-status-pill pill-blueprint">Vorschau</span></div>
             <span style="font-size:0.76rem;color:var(--text-muted);">F-Junioren · Koord. G. Gennaro</span>
           </button>
           <button type="button" class="matrix-team-btn" onclick="wpOpenBlueprintModal('Team-Seite: Junioren G &amp; Fussballschule', 'Koordination F &amp; G Junioren', 'Gianfranco Gennaro &amp; Luigi Schiavano (Mittwoch 16:15–17:45 Uhr)', 'probetraining')">
-            <div class="matrix-team-top"><span class="matrix-team-name">Junioren G</span><span class="matrix-status-pill pill-blueprint">Blaupause</span></div>
+            <div class="matrix-team-top"><span class="matrix-team-name">Junioren G</span><span class="matrix-status-pill pill-blueprint">Vorschau</span></div>
             <span style="font-size:0.76rem;color:var(--text-muted);">Jg. 2020–2022 · Mi 16:15–17:45 Uhr</span>
           </button>
         </div>
@@ -3119,35 +3119,35 @@ HERREN_1_BODY = """
         </div>
         <div class="matrix-grid">
           <button type="button" class="matrix-team-btn" onclick="wpOpenBlueprintModal('Team-Seite: Frauen U16', 'Juniorinnen-Abteilung (Leistungsstufe)', 'Mario De Meo (m.demeo@fcschlieren.ch) &amp; Luca Mussolin', 'probetraining')">
-            <div class="matrix-team-top"><span class="matrix-team-name">Frauen U16</span><span class="matrix-status-pill pill-blueprint">Blaupause</span></div>
+            <div class="matrix-team-top"><span class="matrix-team-name">Frauen U16</span><span class="matrix-status-pill pill-blueprint">Vorschau</span></div>
             <span style="font-size:0.76rem;color:var(--text-muted);">Juniorinnen U16 · Koord. L. Mussolin</span>
           </button>
           <button type="button" class="matrix-team-btn" onclick="wpOpenBlueprintModal('Team-Seite: B Juniorinnen', 'Juniorinnen-Abteilung B', 'Mario De Meo (m.demeo@fcschlieren.ch · 079 354 37 23)', 'probetraining')">
-            <div class="matrix-team-top"><span class="matrix-team-name">B Juniorinnen</span><span class="matrix-status-pill pill-blueprint">Blaupause</span></div>
+            <div class="matrix-team-top"><span class="matrix-team-name">B Juniorinnen</span><span class="matrix-status-pill pill-blueprint">Vorschau</span></div>
             <span style="font-size:0.76rem;color:var(--text-muted);">B-Juniorinnen · Sportplatz Zelgli</span>
           </button>
           <button type="button" class="matrix-team-btn" onclick="wpOpenBlueprintModal('Team-Seite: C Juniorinnen', 'Juniorinnen-Abteilung C', 'Mario De Meo (m.demeo@fcschlieren.ch · 079 354 37 23)', 'probetraining')">
-            <div class="matrix-team-top"><span class="matrix-team-name">C Juniorinnen</span><span class="matrix-status-pill pill-blueprint">Blaupause</span></div>
+            <div class="matrix-team-top"><span class="matrix-team-name">C Juniorinnen</span><span class="matrix-status-pill pill-blueprint">Vorschau</span></div>
             <span style="font-size:0.76rem;color:var(--text-muted);">C-Juniorinnen · Sportplatz Zelgli</span>
           </button>
           <button type="button" class="matrix-team-btn" onclick="wpOpenBlueprintModal('Team-Seite: U14 Mädchen', 'Juniorinnen-Abteilung U14', 'Mario De Meo &amp; Luca Mussolin (m.demeo@fcschlieren.ch)', 'probetraining')">
-            <div class="matrix-team-top"><span class="matrix-team-name">U14 Mädchen</span><span class="matrix-status-pill pill-blueprint">Blaupause</span></div>
+            <div class="matrix-team-top"><span class="matrix-team-name">U14 Mädchen</span><span class="matrix-status-pill pill-blueprint">Vorschau</span></div>
             <span style="font-size:0.76rem;color:var(--text-muted);">U14 Mädchen · Koord. L. Mussolin</span>
           </button>
           <button type="button" class="matrix-team-btn" onclick="wpOpenBlueprintModal('Team-Seite: D9er Juniorinnen', 'Juniorinnen-Abteilung D', 'Mario De Meo (m.demeo@fcschlieren.ch)', 'probetraining')">
-            <div class="matrix-team-top"><span class="matrix-team-name">D9er Juniorinnen</span><span class="matrix-status-pill pill-blueprint">Blaupause</span></div>
+            <div class="matrix-team-top"><span class="matrix-team-name">D9er Juniorinnen</span><span class="matrix-status-pill pill-blueprint">Vorschau</span></div>
             <span style="font-size:0.76rem;color:var(--text-muted);">D-Juniorinnen (9er) · Zelgli</span>
           </button>
           <button type="button" class="matrix-team-btn" onclick="wpOpenBlueprintModal('Team-Seite: D7er Juniorinnen', 'Juniorinnen-Abteilung D', 'Mario De Meo (m.demeo@fcschlieren.ch)', 'probetraining')">
-            <div class="matrix-team-top"><span class="matrix-team-name">D7er Juniorinnen</span><span class="matrix-status-pill pill-blueprint">Blaupause</span></div>
+            <div class="matrix-team-top"><span class="matrix-team-name">D7er Juniorinnen</span><span class="matrix-status-pill pill-blueprint">Vorschau</span></div>
             <span style="font-size:0.76rem;color:var(--text-muted);">D-Juniorinnen (7er) · Zelgli</span>
           </button>
           <button type="button" class="matrix-team-btn" onclick="wpOpenBlueprintModal('Team-Seite: E Juniorinnen', 'Koordination E &amp; F Juniorinnen', 'Angela Paradiso &amp; Mario De Meo (m.demeo@fcschlieren.ch)', 'probetraining')">
-            <div class="matrix-team-top"><span class="matrix-team-name">E Juniorinnen</span><span class="matrix-status-pill pill-blueprint">Blaupause</span></div>
+            <div class="matrix-team-top"><span class="matrix-team-name">E Juniorinnen</span><span class="matrix-status-pill pill-blueprint">Vorschau</span></div>
             <span style="font-size:0.76rem;color:var(--text-muted);">E-Juniorinnen · Koord. A. Paradiso</span>
           </button>
           <button type="button" class="matrix-team-btn" onclick="wpOpenBlueprintModal('Team-Seite: F Juniorinnen', 'Koordination E &amp; F Juniorinnen', 'Angela Paradiso &amp; Mario De Meo (m.demeo@fcschlieren.ch)', 'probetraining')">
-            <div class="matrix-team-top"><span class="matrix-team-name">F Juniorinnen</span><span class="matrix-status-pill pill-blueprint">Blaupause</span></div>
+            <div class="matrix-team-top"><span class="matrix-team-name">F Juniorinnen</span><span class="matrix-status-pill pill-blueprint">Vorschau</span></div>
             <span style="font-size:0.76rem;color:var(--text-muted);">F-Juniorinnen · Koord. A. Paradiso</span>
           </button>
         </div>
