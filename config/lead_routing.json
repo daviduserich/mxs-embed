@@ -306,5 +306,72 @@
       "email": "info@fcattiswil.ch",
       "whatsapp": "+41796616612"
     }
+  },
+  "scfulenbach": {
+    "company_name": "SC Fulenbach",
+    "brand_color": "#0F8A4B",
+    "primary_color": [
+      15,
+      138,
+      75
+    ],
+    "dark_color": [
+      11,
+      21,
+      40
+    ],
+    "logo_path": "/home/brainuser/workspaces/mxs-embed/preview-scfulenbach/images/logo-scfulenbach.png",
+    "address": "Sportplatz Bad, Ewigkeitstrasse 5, 4629 Fulenbach",
+    "phone_display": "+41 79 397 87 73",
+    "email_display": "vorstand@scfulenbach.ch",
+    "website": "https://www.scfulenbach.ch",
+    "default_email": "vorstand@scfulenbach.ch",
+    "default_whatsapp": "+41793978773",
+    "service_area_plz_prefixes": [
+      "46",
+      "47",
+      "48",
+      "50",
+      "45"
+    ],
+    "service_area_label": "Fulenbach, Gäu, Untergäu, Olten & Oberaargau",
+    "routes": {
+      "Probetraining / Neumitglied": {
+        "assigned_to": "Mirko Ferrari (Sportchef · 079 397 87 73) & Michael «Mike» Frieder (Juniorenobmann · 079 647 13 33)",
+        "email": "mirko.ferrari@scfulenbach.ch",
+        "whatsapp": "+41793978773",
+        "sla": "Rückmeldung durch Trainerstab innert 24–48 Stunden"
+      },
+      "Sponsoring / Gönner 100er-Club": {
+        "assigned_to": "Andreas Guldimann (Sponsoring / Marketing · 079 413 76 51) & Willi von Arx (Präsident)",
+        "email": "andreas.guldimann@scfulenbach.ch",
+        "whatsapp": "+41794137651",
+        "sla": "Persönliche Kontaktaufnahme durch das Sponsoring-Ressort"
+      },
+      "Clubhaus mieten (100 Plätze)": {
+        "assigned_to": "René Hofstetter (Clubhaus-Vermietung · Tel. 079 302 62 47) & Alfred Ammann (Infrastruktur)",
+        "email": "vorstand@scfulenbach.ch",
+        "whatsapp": "+41793026247",
+        "sla": "Terminprüfung & Rückmeldung durch René Hofstetter"
+      },
+      "Spielbetrieb / Schiedsrichter / Turniere": {
+        "assigned_to": "Mirko Ferrari (Sportchef & SR-Verantwortlicher · 079 397 87 73) & Rahel Napoli (Aktuarin)",
+        "email": "mirko.ferrari@scfulenbach.ch",
+        "whatsapp": "+41793978773",
+        "sla": "Prioritäre Bearbeitung durch Sportchef & Spielbetrieb"
+      },
+      "Fanshop / Sponsorenlauf / Juniorenlager": {
+        "assigned_to": "David Ackermann (Medien/Support) & Michael «Mike» Frieder (Juniorenobmann)",
+        "email": "david.ackermann@scfulenbach.ch",
+        "whatsapp": "+41796471333",
+        "sla": "Bearbeitung durch Medien-/Fanshop-Team & Juniorenobmann"
+      },
+      "Mitgliedschaft / Mutation / Allgemein": {
+        "assigned_to": "Willi von Arx (Präsident), Roland Wiss (Finanzen a.i.) & Rahel Napoli (Aktuarin)",
+        "email": "vorstand@scfulenbach.ch",
+        "whatsapp": "+41793978773",
+        "sla": "Bearbeitung durch Vorstand & Verwaltung innert 48 Stunden"
+      }
+    }
   }
 }

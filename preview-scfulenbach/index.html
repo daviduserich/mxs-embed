@@ -1,0 +1,2599 @@
+<!DOCTYPE html>
+<html lang="de-CH">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self' https: data: blob:; script-src 'self' 'unsafe-inline' https:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' https: data: blob:; connect-src 'self' https:;">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=()">
+  <title>SC Fulenbach — Gegründet 1944 | Architektur-Studie V2 (7 % Musterhaus, 14 Teams & 88 Sponsoren)</title>
+  <meta name="description" content="Sportclub Fulenbach (gegründet Sommer 1944, SOFV-Verein Nr. 1826) — 14 Mannschaften, 1. Mannschaft (2. Liga regional), Juniorengruppierung rot/blau, Sportplatz Bad &amp; Clubhaus in 4629 Fulenbach.">
+  <link rel="icon" type="image/png" href="images/favicon-32x32.png">
+  <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Montserrat:wght@600;700;800&amp;display=swap" rel="stylesheet">
+  <style>
+
+    :root {
+      --scf-green: #0F8A4B;
+      --scf-green-bright: #10B060;
+      --scf-green-soft: #ECFDF5;
+      --scf-blue: #0284C7;
+      --scf-blue-bright: #0EA5E9;
+      --scf-blue-soft: #F0F9FF;
+      --scf-navy: #0F172A;
+      --scf-navy-deep: #0B1528;
+      --scf-gold: #F59E0B;
+      --scf-gold-bright: #FBBF24;
+      --scf-gold-soft: #FEF3C7;
+      --bg-page: #F8FAFC;
+      --bg-card: #FFFFFF;
+      --bg-muted: #F1F5F9;
+      --text-main: #0F172A;
+      --text-body: #334155;
+      --text-muted: #475569;
+      --border-light: #E2E8F0;
+      --border-strong: #CBD5E1;
+      --radius-sm: 4px;
+      --radius-md: 8px;
+      --shadow-sm: 0 2px 8px rgba(15, 23, 42, 0.05);
+      --shadow-md: 0 10px 28px rgba(15, 23, 42, 0.08);
+      --shadow-lg: 0 18px 42px rgba(15, 23, 42, 0.14);
+      --container: 1240px;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+      overflow-x: hidden;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      color: var(--text-main);
+      background-color: var(--bg-page);
+      line-height: 1.6;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+      transition: color 0.2s ease, background-color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+    }
+
+    ul {
+      list-style: none;
+    }
+
+    .container {
+      width: 100%;
+      max-width: var(--container);
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* Section Kickers (#UI-06: No JetBrains Mono, No double slashes) */
+    .section-kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.76rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--scf-green);
+      margin-bottom: 12px;
+    }
+    .section-kicker::before {
+      content: "";
+      display: inline-block;
+      width: 16px;
+      height: 2px;
+      background-color: var(--scf-gold);
+      border-radius: 0px;
+      flex-shrink: 0;
+    }
+    .section-kicker.kicker-light {
+      color: var(--scf-gold-bright);
+    }
+    .section-kicker.kicker-light::before {
+      background-color: #FFFFFF;
+    }
+
+    h1, h2, h3, h4 {
+      font-family: 'Montserrat', sans-serif;
+      color: var(--scf-navy);
+      line-height: 1.18;
+      letter-spacing: -0.02em;
+    }
+
+    .section-head {
+      max-width: 800px;
+      margin-bottom: 44px;
+    }
+    .section-title {
+      font-size: clamp(1.85rem, 3.2vw, 2.65rem);
+      font-weight: 800;
+      margin-bottom: 14px;
+    }
+    .section-desc {
+      font-size: 1.04rem;
+      color: var(--text-body);
+      line-height: 1.65;
+    }
+
+    section {
+      padding: 84px 0;
+      position: relative;
+    }
+
+    /* Permanente Architektur-Top-Bar (#0B1528 mit #F59E0B Amber-Akzent) */
+    .wp-arch-topbar {
+      background-color: #0B1528;
+      color: #F8FAFC;
+      border-bottom: 2px solid #F59E0B;
+      font-size: 0.79rem;
+      position: relative;
+      z-index: 1002;
+      padding: 8px 0;
+    }
+    .wp-arch-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+    .wp-arch-left {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .wp-arch-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background-color: rgba(245, 158, 11, 0.2);
+      border: 1px solid rgba(245, 158, 11, 0.55);
+      color: #FBBF24;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 800;
+      font-size: 0.7rem;
+      padding: 3px 9px;
+      border-radius: var(--radius-sm);
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+    .wp-arch-progress-wrap {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background-color: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(148, 163, 184, 0.3);
+      padding: 4px 12px;
+      border-radius: var(--radius-sm);
+    }
+    .wp-arch-bar-track {
+      width: 96px;
+      height: 7px;
+      background-color: rgba(255, 255, 255, 0.14);
+      border-radius: var(--radius-sm);
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+    .wp-arch-bar-fill {
+      width: 14%;
+      height: 100%;
+      background: linear-gradient(90deg, #10B981 0%, #F59E0B 100%);
+      border-radius: var(--radius-sm);
+    }
+    .wp-arch-progress-label {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: #E2E8F0;
+    }
+    .wp-arch-right {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .wp-arch-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: #CBD5E1;
+      font-size: 0.76rem;
+      font-weight: 600;
+    }
+    .wp-arch-cta {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      background-color: #F59E0B;
+      color: #0B1528;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.74rem;
+      font-weight: 800;
+      padding: 5px 11px;
+      min-height: 32px;
+      border-radius: var(--radius-sm);
+      border: 1px solid #FBBF24;
+    }
+    .wp-arch-cta:hover {
+      background-color: #FBBF24;
+      color: #0B1528;
+    }
+
+    /* Sticky Header */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background-color: rgba(255, 255, 255, 0.97);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border-light);
+      box-shadow: 0 4px 20px rgba(15, 23, 42, 0.05);
+    }
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 82px;
+      gap: 16px;
+    }
+    .brand-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      flex-shrink: 0;
+    }
+    .brand-logo {
+      width: 50px;
+      height: 50px;
+      object-fit: contain;
+      flex-shrink: 0;
+    }
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+    }
+    .brand-name {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.2rem;
+      font-weight: 800;
+      color: var(--scf-navy);
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+    }
+    .brand-sub {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.67rem;
+      font-weight: 700;
+      color: var(--scf-green);
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      margin-top: 3px;
+    }
+
+    .main-nav {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .nav-link {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.69rem;
+      font-weight: 700;
+      color: var(--text-body);
+      padding: 6px 7px;
+      min-height: 34px;
+      border-radius: var(--radius-sm);
+      transition: all 0.2s ease;
+      white-space: nowrap;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      background: none;
+      border: 1px solid transparent;
+      cursor: pointer;
+    }
+    .header-actions .btn-cta {
+      display: none;
+    }
+    .nav-link:hover, .nav-link.active {
+      color: var(--scf-green);
+      background-color: var(--scf-green-soft);
+    }
+    .nav-link.nav-blueprint-trigger {
+      border: 1px dashed #94A3B8;
+      background-color: #F8FAFC;
+      color: #334155;
+    }
+    .nav-link.nav-blueprint-trigger:hover {
+      border-color: var(--scf-gold);
+      background-color: var(--scf-gold-soft);
+      color: #92400E;
+    }
+    .wp-status-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 4px;
+      display: inline-block;
+      flex-shrink: 0;
+    }
+    .wp-dot-green {
+      background-color: #10B981;
+      box-shadow: 0 0 0 2px rgba(16, 185, 129, 0.2);
+    }
+    .wp-dot-amber {
+      background-color: #F59E0B;
+      box-shadow: 0 0 0 2px rgba(245, 158, 11, 0.22);
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-shrink: 0;
+    }
+
+    /* Buttons */
+    .btn-cta {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.86rem;
+      font-weight: 700;
+      padding: 12px 20px;
+      min-height: 44px;
+      border-radius: var(--radius-sm);
+      border: 1px solid transparent;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      text-align: center;
+      line-height: 1.25;
+    }
+    .btn-cta-primary {
+      background-color: var(--scf-green);
+      color: #FFFFFF;
+      box-shadow: 0 4px 12px rgba(15, 138, 75, 0.24);
+    }
+    .btn-cta-primary:hover {
+      background-color: #0B6E3B;
+      transform: translateY(-1px);
+    }
+    .btn-cta-gold {
+      background-color: var(--scf-gold);
+      color: var(--scf-navy-deep);
+      font-weight: 800;
+      box-shadow: 0 4px 14px rgba(245, 158, 11, 0.28);
+    }
+    .btn-cta-gold:hover {
+      background-color: var(--scf-gold-bright);
+      transform: translateY(-1px);
+    }
+    .btn-cta-navy {
+      background-color: var(--scf-navy);
+      color: #FFFFFF;
+    }
+    .btn-cta-navy:hover {
+      background-color: #1E293B;
+    }
+    .btn-cta-outline {
+      background-color: #FFFFFF;
+      color: var(--scf-navy);
+      border-color: var(--border-strong);
+    }
+    .btn-cta-outline:hover {
+      border-color: var(--scf-green);
+      color: var(--scf-green);
+      background-color: var(--scf-green-soft);
+    }
+    .btn-cta-ghost-light {
+      background-color: rgba(255, 255, 255, 0.1);
+      color: #FFFFFF;
+      border-color: rgba(255, 255, 255, 0.28);
+    }
+    .btn-cta-ghost-light:hover {
+      background-color: rgba(255, 255, 255, 0.18);
+      border-color: #FFFFFF;
+    }
+    .btn-sm {
+      padding: 9px 14px;
+      font-size: 0.8rem;
+      min-height: 38px;
+    }
+
+    /* Mobile Menu Button & Drawer */
+    .mobile-toggle {
+      display: none;
+      width: 44px;
+      height: 44px;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border-light);
+      background: #FFFFFF;
+      color: var(--scf-navy);
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+    }
+    .mobile-drawer {
+      display: none;
+      position: fixed;
+      top: 82px;
+      left: 0;
+      right: 0;
+      background-color: var(--scf-navy-deep);
+      border-bottom: 2px solid var(--scf-gold);
+      padding: 20px 24px 28px;
+      z-index: 999;
+      flex-direction: column;
+      gap: 10px;
+      box-shadow: var(--shadow-lg);
+    }
+    .mobile-drawer.open {
+      display: flex;
+    }
+    .mobile-drawer a, .mobile-drawer button {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      width: 100%;
+      text-align: left;
+      padding: 12px 14px;
+      min-height: 44px;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: 0.92rem;
+      color: #FFFFFF;
+      border: none;
+      border-radius: var(--radius-sm);
+      background-color: rgba(255, 255, 255, 0.06);
+      cursor: pointer;
+    }
+    .mobile-drawer a:hover, .mobile-drawer button:hover {
+      background-color: var(--scf-green);
+    }
+
+    /* Hero Section */
+    .hero-section {
+      background: radial-gradient(circle at 82% 20%, rgba(15, 138, 75, 0.34) 0%, rgba(2, 132, 199, 0.18) 38%, rgba(11, 21, 40, 0.98) 78%), linear-gradient(135deg, #0B1528 0%, #0F2942 100%);
+      color: #FFFFFF;
+      padding: 72px 0 84px;
+      border-bottom: 4px solid var(--scf-green);
+      overflow: hidden;
+    }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.08fr 0.92fr;
+      gap: 44px;
+      align-items: center;
+    }
+    .hero-title {
+      color: #FFFFFF;
+      font-size: clamp(2.1rem, 3.8vw, 3.3rem);
+      font-weight: 800;
+      margin-bottom: 18px;
+      line-height: 1.12;
+    }
+    .hero-title span {
+      color: #34D399;
+    }
+    .hero-lead {
+      font-size: 1.05rem;
+      color: #E2E8F0;
+      margin-bottom: 26px;
+      line-height: 1.65;
+    }
+    .hero-cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 32px;
+    }
+    .hero-kpi-strip {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      padding-top: 24px;
+      border-top: 1px solid rgba(255, 255, 255, 0.16);
+    }
+    .hero-kpi-box {
+      background-color: rgba(15, 23, 42, 0.72);
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      border-radius: var(--radius-sm);
+      padding: 12px 14px;
+    }
+    .hero-kpi-num {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.3rem;
+      font-weight: 800;
+      color: #FBBF24;
+      line-height: 1.15;
+    }
+    .hero-kpi-label {
+      font-size: 0.75rem;
+      color: #E2E8F0;
+      margin-top: 4px;
+      font-weight: 600;
+    }
+
+    .hero-visual-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .hero-main-photo-card {
+      position: relative;
+      background-color: var(--scf-navy);
+      border: 2px solid rgba(52, 211, 153, 0.45);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      box-shadow: var(--shadow-lg);
+    }
+    .hero-main-photo-card img {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+    }
+    .hero-photo-caption {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 12px 16px;
+      background-color: rgba(11, 21, 40, 0.96);
+      border-top: 1px solid rgba(255, 255, 255, 0.12);
+      flex-wrap: wrap;
+    }
+    .hero-photo-caption strong {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.84rem;
+      color: #FFFFFF;
+    }
+    .hero-photo-caption span {
+      font-size: 0.76rem;
+      color: #FBBF24;
+      font-weight: 700;
+    }
+    .hero-secondary-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    .hero-mini-card {
+      background-color: rgba(15, 23, 42, 0.88);
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .hero-mini-card img {
+      width: 100%;
+      height: 136px;
+      object-fit: cover;
+    }
+    .hero-mini-body {
+      padding: 10px 14px;
+      font-size: 0.78rem;
+      color: #E2E8F0;
+    }
+
+    /* Grids & Cards */
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .grid-4 {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 28px;
+    }
+
+    .card {
+      background-color: var(--bg-card);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-sm);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+    }
+    .card:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
+      border-color: var(--border-strong);
+    }
+
+    /* Wireframe / Bauplan Section Styles */
+    .wp-bauplan-section {
+      background-color: #E2E8F0;
+      background-image: radial-gradient(#94A3B8 1px, transparent 1px);
+      background-size: 20px 20px;
+      border-top: 3px dashed #64748B;
+      border-bottom: 3px dashed #64748B;
+    }
+    .wp-bauplan-banner {
+      background-color: #0B1528;
+      color: #FFFFFF;
+      border: 2px solid #F59E0B;
+      border-radius: var(--radius-md);
+      padding: 24px 28px;
+      margin-bottom: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      flex-wrap: wrap;
+      box-shadow: var(--shadow-md);
+    }
+    .wp-wireframe-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+    }
+    .wp-wireframe-card {
+      background-color: #F8FAFC;
+      border: 2px dashed #64748B;
+      border-radius: var(--radius-md);
+      padding: 26px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 16px;
+      box-shadow: 0 4px 14px rgba(15, 23, 42, 0.05);
+    }
+    .wp-wireframe-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .wp-wireframe-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background-color: #FEF3C7;
+      color: #92400E;
+      border: 1px solid #F59E0B;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 800;
+      padding: 4px 10px;
+      border-radius: var(--radius-sm);
+      text-transform: uppercase;
+    }
+    .wp-wireframe-count {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 800;
+      color: #334155;
+      background-color: #E2E8F0;
+      padding: 4px 10px;
+      border-radius: var(--radius-sm);
+    }
+    .wp-wireframe-thumb-row {
+      display: grid;
+      grid-template-columns: 120px 1fr;
+      gap: 14px;
+      align-items: center;
+      background-color: #FFFFFF;
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-sm);
+      padding: 10px;
+    }
+    .wp-wireframe-thumb-row img {
+      width: 120px;
+      height: 76px;
+      object-fit: cover;
+      border-radius: var(--radius-sm);
+    }
+    .wp-wireframe-list {
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+      padding: 12px 14px;
+      background-color: #FFFFFF;
+      border: 1px dashed #CBD5E1;
+      border-radius: var(--radius-sm);
+      font-size: 0.84rem;
+      color: var(--text-body);
+    }
+    .wp-wireframe-list-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+    }
+    .wp-wireframe-list-item svg {
+      color: #D97706;
+      flex-shrink: 0;
+      margin-top: 3px;
+    }
+
+    /* Sponsors Showcase */
+    .sponsor-tier-block {
+      margin-bottom: 36px;
+    }
+    .sponsor-tier-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 16px;
+      padding-bottom: 10px;
+      border-bottom: 2px solid var(--border-light);
+    }
+    .sponsor-tier-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+      padding: 5px 12px;
+      border-radius: var(--radius-sm);
+    }
+    .tier-gold {
+      background-color: var(--scf-gold-soft);
+      color: #92400E;
+      border: 1px solid #F59E0B;
+    }
+    .tier-silver {
+      background-color: #F1F5F9;
+      color: #1E293B;
+      border: 1px solid #CBD5E1;
+    }
+    .tier-green {
+      background-color: var(--scf-green-soft);
+      color: #065F46;
+      border: 1px solid #6EE7B7;
+    }
+
+    .sponsors-gold-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+    .sponsors-silver-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+    .sponsors-banden-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+    }
+    .sponsor-card {
+      background-color: #FFFFFF;
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-md);
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      text-align: center;
+      gap: 12px;
+      box-shadow: var(--shadow-sm);
+      transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+    .sponsor-card:hover {
+      transform: translateY(-2px);
+      border-color: var(--scf-green);
+      box-shadow: var(--shadow-md);
+    }
+    .sponsor-card.gold-card {
+      border: 2px solid #F59E0B;
+      padding: 24px;
+    }
+    .sponsor-logo-wrap {
+      width: 100%;
+      height: 104px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #FFFFFF;
+      padding: 6px;
+    }
+    .sponsor-card.gold-card .sponsor-logo-wrap {
+      height: 124px;
+    }
+    .sponsor-logo-wrap img {
+      max-height: 100%;
+      max-width: 100%;
+      width: auto;
+      height: auto;
+      object-fit: contain;
+    }
+    .sponsor-name {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.96rem;
+      font-weight: 800;
+      color: var(--scf-navy);
+      line-height: 1.25;
+    }
+    .sponsor-role-tag {
+      font-size: 0.77rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      margin-top: 3px;
+    }
+
+    .pillar-count {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 800;
+      color: #065F46;
+      background-color: var(--scf-green-soft);
+      padding: 4px 10px;
+      border-radius: var(--radius-sm);
+      align-self: flex-start;
+      text-transform: uppercase;
+    }
+
+    .card-meta-list {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      padding: 12px 14px;
+      background-color: var(--bg-muted);
+      border-radius: var(--radius-sm);
+      font-size: 0.85rem;
+      color: var(--text-main);
+    }
+    .card-meta-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+    }
+    .card-meta-item svg {
+      color: var(--scf-green);
+      flex-shrink: 0;
+      margin-top: 3px;
+    }
+    .card-badge {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      background-color: var(--scf-navy-deep);
+      color: var(--scf-gold-bright);
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 800;
+      padding: 4px 10px;
+      border-radius: var(--radius-sm);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .board-role {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--scf-green);
+    }
+    .board-name {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.02rem;
+      font-weight: 800;
+      color: var(--scf-navy);
+    }
+
+    /* Footer */
+    .site-footer {
+      background-color: var(--scf-navy-deep);
+      color: #E2E8F0;
+      padding: 68px 0 36px;
+      border-top: 4px solid var(--scf-green);
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.3fr 1fr 1fr 1.1fr;
+      gap: 36px;
+      padding-bottom: 44px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+    }
+    .footer-title {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.92rem;
+      font-weight: 800;
+      color: #FFFFFF;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: 16px;
+    }
+    .footer-list {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .footer-list a, .footer-list button {
+      color: #CBD5E1;
+      font-size: 0.87rem;
+      background: none;
+      border: none;
+      text-align: left;
+      cursor: pointer;
+      font-family: inherit;
+      padding: 5px 0;
+      min-height: 32px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .footer-bottom a,
+    .staff-card a,
+    .team-sponsor-strip a {
+      display: inline-flex;
+      align-items: center;
+      min-height: 32px;
+      padding: 4px 0;
+    }
+    .footer-list a:hover, .footer-list button:hover {
+      color: var(--scf-gold-bright);
+    }
+    .footer-bottom {
+      padding-top: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+      font-size: 0.82rem;
+      color: #CBD5E1;
+    }
+
+    /* Blueprint Modal (#wpBlueprintModal) */
+    .wp-modal-backdrop {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background-color: rgba(11, 21, 40, 0.8);
+      backdrop-filter: blur(6px);
+      z-index: 2000;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+    .wp-modal-backdrop.open {
+      display: flex;
+    }
+    .wp-modal-dialog {
+      background-color: #FFFFFF;
+      border: 2px solid var(--scf-gold);
+      border-radius: var(--radius-md);
+      max-width: 640px;
+      width: 100%;
+      padding: 28px;
+      box-shadow: var(--shadow-lg);
+      position: relative;
+      max-height: 90vh;
+      overflow-y: auto;
+    }
+    .wp-modal-close {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      width: 36px;
+      height: 36px;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border-light);
+      background-color: var(--bg-muted);
+      color: var(--scf-navy);
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .wp-modal-checklist {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin: 18px 0;
+      padding: 16px;
+      background-color: var(--bg-muted);
+      border-radius: var(--radius-sm);
+    }
+    .wp-modal-check-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 0.88rem;
+      color: var(--text-main);
+    }
+    .wp-modal-check-item svg {
+      color: var(--scf-green);
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    /* Responsive Breakpoints */
+    @media (max-width: 1120px) {
+      .hero-grid {
+        grid-template-columns: 1fr;
+      }
+      .grid-4, .sponsors-banden-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .grid-3, .sponsors-gold-grid, .sponsors-silver-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .footer-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .main-nav, .header-actions .btn-cta {
+        display: none;
+      }
+      .mobile-toggle {
+        display: inline-flex;
+      }
+    }
+
+    @media (max-width: 720px) {
+      section {
+        padding: 56px 0;
+      }
+      .wp-arch-inner {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 8px;
+      }
+      .wp-arch-cta {
+        width: 100%;
+      }
+      .hero-kpi-strip {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .hero-secondary-row,
+      .grid-2,
+      .grid-3,
+      .grid-4,
+      .wp-wireframe-grid,
+      .wp-wireframe-thumb-row,
+      .sponsors-gold-grid,
+      .sponsors-silver-grid,
+      .sponsors-banden-grid,
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+      .wp-wireframe-thumb-row img {
+        width: 100%;
+        height: 150px;
+      }
+    }
+
+
+  </style>
+</head>
+<body>
+
+  <!-- PERMANENTE ARCHITEKTUR-TOP-BAR (V2 BAUPLAN- & MUSTERHAUS-MODUS) -->
+  <div class="wp-arch-topbar">
+    <div class="container wp-arch-inner">
+      <div class="wp-arch-left">
+        <span class="wp-arch-badge" data-slot="topbar_badge">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
+          <span>ARCHITEKTUR-STUDIE · ENTWURF V2</span>
+        </span>
+        <span style="font-weight:600;color:#E2E8F0;" data-slot="topbar_info">Ausbaustufe Prototyp: 7 % (3 von 43 Seiten exemplarisch ausgearbeitet)</span>
+      </div>
+
+      <div class="wp-arch-progress-wrap" aria-label="Projekt-Ausbaustufe 7 Prozent">
+        <div class="wp-arch-bar-track"><div class="wp-arch-bar-fill"></div></div>
+        <span class="wp-arch-progress-label">7 % fertig · 40 Unterseiten &amp; 13 Teams im Rohbau</span>
+      </div>
+
+      <div class="wp-arch-right">
+        <span class="wp-arch-pill">Musterhaus-Ansicht für SC Fulenbach</span>
+        <a href="kontakt.html?thema=probetraining" class="wp-arch-cta">
+          <span>Smart-Anfrage testen</span>
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- STICKY HEADER MIT STATUS-DOTS -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="brand-link" aria-label="SC Fulenbach Startseite">
+        <img src="images/logo-scfulenbach.webp" alt="Wappen SC Fulenbach" class="brand-logo" width="50" height="50" data-slot="brand_logo">
+        <div class="brand-text">
+          <span class="brand-name" data-slot="brand_name">SC FULENBACH</span>
+          <span class="brand-sub" data-slot="brand_sub">SEIT 1944 · SPORTPLATZ BAD</span>
+        </div>
+      </a>
+
+      <nav class="main-nav" aria-label="Hauptnavigation">
+        <a href="index.html" class="nav-link active">
+          <span class="wp-status-dot wp-dot-green" aria-hidden="true"></span>
+          <span>Startseite (Muster)</span>
+        </a>
+        <a href="herren-1.html" class="nav-link ">
+          <span class="wp-status-dot wp-dot-amber" aria-hidden="true"></span>
+          <span>Muster-Team: 1. Mannschaft (1/14)</span>
+        </a>
+        <a href="index.html#sponsoren" class="nav-link">
+          <span class="wp-status-dot wp-dot-green" aria-hidden="true"></span>
+          <span>Sponsoren (Übernommen)</span>
+        </a>
+        <button type="button" class="nav-link nav-blueprint-trigger" onclick="wpOpenBlueprintModal('Verein, Vorstand, Clubhaus &amp; Events (40 Unterseiten im Rohbau)', 'Rohbau-Module B, C &amp; D (40 von 43 Seiten)', 'Präsident Willi von Arx (vorstand@scfulenbach.ch) · Clubhaus: René Hofstetter (079 302 62 47)', 'clubhaus')">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#D97706" stroke-width="2.3"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+          <span>Verein &amp; Sportanlage (40 Seiten offen)</span>
+        </button>
+        <a href="kontakt.html" class="nav-link ">
+          <span class="wp-status-dot wp-dot-green" aria-hidden="true"></span>
+          <span>Smart-Anfrage (Live-Demo)</span>
+        </a>
+      </nav>
+
+      <div class="header-actions">
+        <a href="kontakt.html?thema=probetraining" class="btn-cta btn-cta-primary btn-sm" data-slot="header_cta">
+          <span>Probetraining &amp; Anfrage</span>
+        </a>
+        <button type="button" class="mobile-toggle" id="mobileMenuBtn" aria-label="Menü öffnen" onclick="wpToggleMobileMenu()">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <div class="mobile-drawer" id="mobileDrawer">
+      <a href="index.html" onclick="wpCloseMobileMenu()">
+        <span class="wp-status-dot wp-dot-green"></span>
+        <span>Startseite (Muster-Ansicht)</span>
+      </a>
+      <a href="herren-1.html" onclick="wpCloseMobileMenu()">
+        <span class="wp-status-dot wp-dot-amber"></span>
+        <span>Muster-Team: 1. Mannschaft (1/14 fertig · 13 im Rohbau)</span>
+      </a>
+      <a href="index.html#sponsoren" onclick="wpCloseMobileMenu()">
+        <span class="wp-status-dot wp-dot-green"></span>
+        <span>Sponsoren &amp; 100er-Club (100 % übernommen)</span>
+      </a>
+      <a href="index.html#bauplan-schnitt" onclick="wpCloseMobileMenu()">
+        <span class="wp-status-dot wp-dot-amber"></span>
+        <span>Verein, Sportplatz Bad &amp; Anlässe (40 Seiten im Rohbau)</span>
+      </a>
+      <a href="kontakt.html" onclick="wpCloseMobileMenu()">
+        <span class="wp-status-dot wp-dot-green"></span>
+        <span>Smart-Anfrage &amp; 1-Seiten-PDF-Dossier (Live-Demo)</span>
+      </a>
+    </div>
+  </header>
+
+  <main>
+
+  <!-- 1. HERO (VOLL AUSGEBAUTE MUSTER-SEKTION 1) -->
+  <section class="hero-section" data-section="hero">
+    <div class="container">
+      <div class="hero-grid">
+        <div>
+          <div class="section-kicker kicker-light" data-slot="hero_kicker">GEGRÜNDET SOMMER 1944 · SOFV-VEREIN NR. 1826 · SPORTPLATZ BAD</div>
+          <h1 class="hero-title" data-slot="hero_title">
+            Herzblut, Nachwuchs &amp; <span>Fussballtradition in 4629 Fulenbach.</span>
+          </h1>
+          <p class="hero-lead" data-slot="hero_lead">
+            Vom historischen Aufstieg unserer <strong>1. Mannschaft in die 2. Liga regional</strong> über die 2. Mannschaft («Zwöi» · 4. Liga) und die Senioren 30+ bis zur starken <strong>Juniorengruppierung rot/blau</strong> (mit FC Wolfwil &amp; FC Kestenholz) und den Junioren D bis G: Auf dem Sportplatz Bad lebt der SC Fulenbach seit 1944 echten Vereinsgeist.
+          </p>
+
+          <div class="hero-cta-row">
+            <a href="herren-1.html" class="btn-cta btn-cta-gold" data-slot="hero_cta_primary">
+              <span>Muster-Team: 1. Mannschaft (1/14)</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </a>
+            <a href="kontakt.html?thema=probetraining" class="btn-cta btn-cta-primary" data-slot="hero_cta_secondary">
+              <span>Smart-Anfrage &amp; PDF-Dossier testen</span>
+            </a>
+            <a href="#bauplan-schnitt" class="btn-cta btn-cta-ghost-light">
+              <span>Bauplan (40 offene Seiten) ansehen</span>
+            </a>
+          </div>
+
+          <div class="hero-kpi-strip">
+            <div class="hero-kpi-box">
+              <div class="hero-kpi-num" data-slot="kpi_1_num">1944</div>
+              <div class="hero-kpi-label" data-slot="kpi_1_label">Gegründet in Fulenbach</div>
+            </div>
+            <div class="hero-kpi-box">
+              <div class="hero-kpi-num" data-slot="kpi_2_num">14 Teams</div>
+              <div class="hero-kpi-label" data-slot="kpi_2_label">Aktive, Senioren &amp; Junioren</div>
+            </div>
+            <div class="hero-kpi-box">
+              <div class="hero-kpi-num" data-slot="kpi_3_num">Sportplatz Bad</div>
+              <div class="hero-kpi-label" data-slot="kpi_3_label">Clubhaus mit 100 Plätzen</div>
+            </div>
+            <div class="hero-kpi-box">
+              <div class="hero-kpi-num" data-slot="kpi_4_num">88 Partner</div>
+              <div class="hero-kpi-label" data-slot="kpi_4_label">Sponsoren &amp; 100er-Club</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-visual-stack">
+          <div class="hero-main-photo-card">
+            <img src="images/team-herren-1.webp" alt="SC Fulenbach 1. Mannschaft 2. Liga regional" width="760" height="300" data-slot="hero_img_main">
+            <div class="hero-photo-caption">
+              <strong>1. Mannschaft — 2. Liga regional (Muster-Team 1/14 fertig)</strong>
+              <span>Trainer: Kay Ackermann &amp; Roland Wiss · 20 Kaderspieler</span>
+            </div>
+          </div>
+
+          <div class="hero-secondary-row">
+            <div class="hero-mini-card">
+              <img src="images/sportplatz-bad-1.webp" alt="Sportplatz Bad und Clubhaus SC Fulenbach" width="380" height="136" data-slot="hero_img_secondary">
+              <div class="hero-mini-body">
+                <strong style="color:#FBBF24;font-family:'Montserrat',sans-serif;">Sportplatz Bad &amp; Clubhaus (100 Plätze)</strong><br>
+                <span>Ewigkeitstrasse 5 · Vermietung: René Hofstetter (079 302 62 47)</span>
+              </div>
+            </div>
+            <div class="hero-mini-card">
+              <img src="images/vorstand-gruppe.webp" alt="Vorstand SC Fulenbach um Präsident Willi von Arx" width="380" height="136" data-slot="hero_img_board">
+              <div class="hero-mini-body">
+                <strong style="color:#34D399;font-family:'Montserrat',sans-serif;">Vorstand &amp; Tradition seit 1944</strong><br>
+                <span>Präsident Willi von Arx · Ehrenpräsident Urs Lehmann · 11 Vorstandsmitglieder</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. DER BEWUSSTE BAUPLAN-SCHNITT (40 VON 43 SEITEN IM ROHBAU) -->
+  <section id="bauplan-schnitt" class="wp-bauplan-section" data-section="bauplan-schnitt">
+    <div class="container">
+      <div class="wp-bauplan-banner">
+        <div style="max-width:780px;">
+          <div class="section-kicker kicker-light" style="margin-bottom:6px;">ARCHITEKTUR-BAUPLAN-ZONE (NOCH NICHT ÜBERTRAGENE MODULE: 40 VON 43 SEITEN)</div>
+          <h2 style="color:#FFFFFF;font-size:clamp(1.45rem,2.4vw,2rem);font-weight:800;margin-bottom:8px;">
+            Architekten-Musterhaus: 3 Seiten (7 %) fertig gebaut — 40 Unterseiten im Rohbau.
+          </h2>
+          <p style="font-size:0.92rem;color:#E2E8F0;line-height:1.58;">
+            Die bestehende ClubDesk-Website <strong>scfulenbach.ch</strong> umfasst exakt <strong>43 Seiten</strong> und <strong>14 Mannschaften</strong>. In diesem Entwurf V2 siehst du die Startseite, die <strong>1. Mannschaft (1/14)</strong>, alle <strong>88 Sponsoren-Einträge</strong> sowie die <strong>Smart-Anfrage-Zentrale</strong> im fertigen Vollausbau. Die folgenden <strong>4 Rohbau-Module (40 Unterseiten)</strong> sind als Architektur-Grundriss vorbereitet und werden bei Auftragserteilung 1:1 mit allen Originaldaten übertragen.
+          </p>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:8px;flex-shrink:0;">
+          <a href="herren-1.html" class="btn-cta btn-cta-gold btn-sm">Muster-Team (1/14) öffnen</a>
+          <a href="kontakt.html" class="btn-cta btn-cta-ghost-light btn-sm">Smart-Anfrage live testen</a>
+        </div>
+      </div>
+
+      <div class="wp-wireframe-grid">
+        <!-- ROHBAU-MODUL A -->
+        <article class="wp-wireframe-card">
+          <div>
+            <div class="wp-wireframe-top">
+              <span class="wp-wireframe-tag">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/></svg>
+                <span>ROHBAU-MODUL A · MANNSCHAFTEN</span>
+              </span>
+              <span class="wp-wireframe-count">Ausbaustufe: 1 / 14 Teams = 7 % (11 Seiten offen)</span>
+            </div>
+            <h3 style="font-size:1.22rem;font-weight:800;margin:14px 0 8px;">13 weitere Mannschafts-Seiten &amp; Trainer-Übersicht</h3>
+            <p style="font-size:0.89rem;color:var(--text-body);margin-bottom:14px;">
+              Neben der fertig ausgebauten <strong>1. Mannschaft (2. Liga regional)</strong> führt der SC Fulenbach 13 weitere Teams im aktiven Spielbetrieb. Jedes Team erhält im Hauptauftrag dieselbe Kader-, Trainer- und Sponsoren-Darstellung wie das Muster-Team.
+            </p>
+            <div class="wp-wireframe-thumb-row" style="margin-bottom:14px;">
+              <img src="images/team-herren-2.webp" alt="SC Fulenbach 2. Mannschaft 4. Liga und Senioren 30+" width="120" height="76" loading="lazy" decoding="async">
+              <div style="font-size:0.8rem;color:var(--text-body);">
+                <strong style="color:var(--scf-navy);">Original-Teamfotos bereits gesichert:</strong><br>
+                2. Mannschaft («Zwöi» · 4. Liga, Marc Haldemann &amp; Emanuel Wyss, 29 Spieler) &amp; Senioren 30+ (Walter Müller &amp; Christian Napoli, 26 Spieler).
+              </div>
+            </div>
+            <div class="wp-wireframe-list">
+              <div class="wp-wireframe-list-item">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+                <span><strong>Aktive &amp; Senioren:</strong> 2. Mannschaft (4. Liga SOFV) &amp; Senioren 30+ (Meisterschaft &amp; Cup)</span>
+              </div>
+              <div class="wp-wireframe-list-item">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+                <span><strong>Juniorengruppierung rot/blau (5 Teams):</strong> Junioren B, Ca, Cb, D (9er) &amp; D (7er) mit FC Wolfwil &amp; FC Kestenholz</span>
+              </div>
+              <div class="wp-wireframe-list-item">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+                <span><strong>Junioren SC Fulenbach (6 Teams):</strong> Junioren D (9er/7er), Ea, Eb, F &amp; G (Obmann: Michael «Mike» Frieder)</span>
+              </div>
+            </div>
+          </div>
+          <div style="display:flex;gap:10px;flex-wrap:wrap;">
+            <a href="herren-1.html#alle-teams-matrix" class="btn-cta btn-cta-navy btn-sm" style="flex:1;">
+              <span>Zur 14-Teams-Rohbau-Matrix</span>
+            </a>
+            <button type="button" class="btn-cta btn-cta-outline btn-sm" style="flex:1;" onclick="wpOpenBlueprintModal('Rohbau-Modul A: 13 weitere Mannschaften &amp; Trainer-Übersicht', '11 Mannschafts-Unterseiten auf scfulenbach.ch (1/14 fertig)', 'Sportchef Mirko Ferrari (079 397 87 73) &amp; Juniorenobmann Michael «Mike» Frieder (079 647 13 33)', 'probetraining')">
+              <span>Modul-Details öffnen</span>
+            </button>
+          </div>
+        </article>
+
+        <!-- ROHBAU-MODUL B -->
+        <article class="wp-wireframe-card">
+          <div>
+            <div class="wp-wireframe-top">
+              <span class="wp-wireframe-tag">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                <span>ROHBAU-MODUL B · VEREIN &amp; VORSTAND</span>
+              </span>
+              <span class="wp-wireframe-count">11 Seiten offen (Ausbaustufe: 0 %)</span>
+            </div>
+            <h3 style="font-size:1.22rem;font-weight:800;margin:14px 0 8px;">Verein, Vorstand (11), Schiedsrichter, 100er-Club &amp; Chronik 1944</h3>
+            <p style="font-size:0.89rem;color:var(--text-body);margin-bottom:14px;">
+              Alle Vereinsorgane, die 82-jährige Vereinsgeschichte seit Sommer 1944 (Gründung durch 7 Fulenbacher Spieler aus dem SC Wynau; erster Präsident Hans Buchmann) sowie das Schiedsrichterwesen werden hier gebündelt.
+            </p>
+            <div class="wp-wireframe-thumb-row" style="margin-bottom:14px;">
+              <img src="images/vorstand-gruppe.webp" alt="Vorstand SC Fulenbach Gruppenfoto" width="120" height="76" loading="lazy" decoding="async">
+              <div style="font-size:0.8rem;color:var(--text-body);">
+                <strong style="color:var(--scf-navy);">11 Vorstandsmitglieder &amp; 4 aktive Schiedsrichter:</strong><br>
+                Willi von Arx (Präsident), Elias Sidler (Vize), Urs Lehmann (Ehrenpräsident), Rahel Napoli, Andreas Guldimann, Alfred Ammann, Mirko Ferrari, Mike Frieder, David Ackermann, Roland Wiss &amp; Robin Müller.
+              </div>
+            </div>
+            <div class="wp-wireframe-list">
+              <div class="wp-wireframe-list-item">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+                <span><strong>Schiedsrichter-wesen (4 SR):</strong> Fisnik Kadriu, Musanje Beka, Patrik Hugentobler &amp; Serdar Sönmez (CHF 500/Jahr + Ausrüstung &amp; SFV-Ausweis)</span>
+              </div>
+              <div class="wp-wireframe-list-item">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+                <span><strong>Gönner &amp; Freunde (100er-Club):</strong> Gezielte Förderung von Junioren &amp; Gesamtverein (c/o Schaad Treuhand AG)</span>
+              </div>
+              <div class="wp-wireframe-list-item">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+                <span><strong>Dokumente &amp; Chronik:</strong> Vereinsstatuten, Datenschutz, 82. Generalversammlung &amp; Chronik seit 1944</span>
+              </div>
+            </div>
+          </div>
+          <div style="display:flex;gap:10px;flex-wrap:wrap;">
+            <button type="button" class="btn-cta btn-cta-navy btn-sm" style="flex:1;" onclick="wpOpenBlueprintModal('Rohbau-Modul B: Verein, Vorstand (11), Schiedsrichter &amp; Chronik 1944', '11 Vereins-Unterseiten (Vorstand, Statuten, Geschichte, Datenschutz, SR-Ausbildung, G&amp;F 100er-Club, GV)', 'Präsident Willi von Arx (vorstand@scfulenbach.ch) · SR-Verantwortlicher Mirko Ferrari (079 397 87 73)', 'mitgliedschaft')">
+              <span>Rohbau-Details (11 Seiten) ansehen</span>
+            </button>
+            <a href="kontakt.html?thema=mitgliedschaft" class="btn-cta btn-cta-outline btn-sm" style="flex:1;">
+              <span>Vorstand kontaktieren</span>
+            </a>
+          </div>
+        </article>
+
+        <!-- ROHBAU-MODUL C -->
+        <article class="wp-wireframe-card">
+          <div>
+            <div class="wp-wireframe-top">
+              <span class="wp-wireframe-tag">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                <span>ROHBAU-MODUL C · SPORTPLATZ BAD &amp; EVENTS</span>
+              </span>
+              <span class="wp-wireframe-count">11 Seiten offen (Ausbaustufe: 0 %)</span>
+            </div>
+            <h3 style="font-size:1.22rem;font-weight:800;margin:14px 0 8px;">Sportplatz Bad, Clubhaus-Vermietung (100 Plätze) &amp; Anlässe</h3>
+            <p style="font-size:0.89rem;color:var(--text-body);margin-bottom:14px;">
+              Das gemütliche Clubhaus auf dem Sportplatz Bad (Ewigkeitstrasse 5, 4629 Fulenbach) bietet Platz für bis zu <strong>100 Personen</strong> und kann für Familienfeste, Firmenanlässe und Vereinsversammlungen gemietet werden.
+            </p>
+            <div class="wp-wireframe-thumb-row" style="margin-bottom:14px;">
+              <img src="images/clubhaus-aussen.webp" alt="Clubhaus SC Fulenbach Sportplatz Bad" width="120" height="76" loading="lazy" decoding="async">
+              <div style="font-size:0.8rem;color:var(--text-body);">
+                <strong style="color:var(--scf-navy);">Clubhaus-Vermietung &amp; Belegungsplan:</strong><br>
+                Direkte Reservationsanfrage bei <strong>René Hofstetter</strong> (Tel. 079 302 62 47) inkl. Innen- &amp; Aussenansichten und Live-Belegungskalender.
+              </div>
+            </div>
+            <div class="wp-wireframe-list">
+              <div class="wp-wireframe-list-item">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+                <span><strong>Sportanlage &amp; Clubhaus:</strong> Standortkarte Ewigkeitstrasse 5, Clubhaus-Miete (100 Plätze) &amp; Belegungsplan</span>
+              </div>
+              <div class="wp-wireframe-list-item">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+                <span><strong>Traditions-Anlässe:</strong> Badfest mit Dorfturnier &amp; KUBB-Turnier, Whisky Night, Raclette-Abend vom Zwöii, Cordon-bleu-Festival &amp; SCF-Tag</span>
+              </div>
+              <div class="wp-wireframe-list-item">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+                <span><strong>Fotogalerie (33 Alben):</strong> Anlässe, Aufstiegsspiele, Gönner-Events &amp; Juniorenturniere seit 2018</span>
+              </div>
+            </div>
+          </div>
+          <div style="display:flex;gap:10px;flex-wrap:wrap;">
+            <button type="button" class="btn-cta btn-cta-navy btn-sm" style="flex:1;" onclick="wpOpenBlueprintModal('Rohbau-Modul C: Sportplatz Bad, Clubhaus (100 Plätze) &amp; Vereinsanlässe', '11 Unterseiten (Standort, Clubhaus mieten, Belegungsplan, Badfest/Dorfturnier, Whisky Night, Raclette-Abend, Cordon-bleu-Festival, 33 Fotoalben)', 'Clubhaus-Vermietung: René Hofstetter (Tel. 079 302 62 47) · Vize-Präsident / Anlässe: Elias Sidler', 'clubhaus')">
+              <span>Rohbau-Details (11 Seiten) ansehen</span>
+            </button>
+            <a href="kontakt.html?thema=clubhaus" class="btn-cta btn-cta-outline btn-sm" style="flex:1;">
+              <span>Clubhaus-Miete anfragen</span>
+            </a>
+          </div>
+        </article>
+
+        <!-- ROHBAU-MODUL D -->
+        <article class="wp-wireframe-card">
+          <div>
+            <div class="wp-wireframe-top">
+              <span class="wp-wireframe-tag">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                <span>ROHBAU-MODUL D · SPIELBETRIEB, LAGER &amp; SHOP</span>
+              </span>
+              <span class="wp-wireframe-count">7 Seiten offen (Ausbaustufe: 0 %)</span>
+            </div>
+            <h3 style="font-size:1.22rem;font-weight:800;margin:14px 0 8px;">Spielbetrieb, Matchberichte, Juniorenlager &amp; SCF-Fanshop</h3>
+            <p style="font-size:0.89rem;color:var(--text-body);margin-bottom:14px;">
+              Von den laufenden Matchberichten der Aktiv- und Seniorenteams über die legendäre Juniorenlager-Woche auf dem Sportplatz Bad bis zum offiziellen SCF-Onlineshop.
+            </p>
+            <div class="wp-wireframe-thumb-row" style="margin-bottom:14px;">
+              <img src="images/junioren-lager.webp" alt="Juniorenlager-Woche SC Fulenbach auf dem Sportplatz Bad" width="120" height="76" loading="lazy" decoding="async">
+              <div style="font-size:0.8rem;color:var(--text-body);">
+                <strong style="color:var(--scf-navy);">Juniorenlager-Woche &amp; Sponsorenlauf:</strong><br>
+                Über 50 begeisterte Kinder, 20 Helferinnen und Helfer sowie unvergessliche Highlights auf dem Sportplatz Bad.
+              </div>
+            </div>
+            <div class="wp-wireframe-list">
+              <div class="wp-wireframe-list-item">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+                <span><strong>News &amp; Matchberichte:</strong> Aktuelle Spielberichte der 1. Mannschaft (2. Liga), 2. Mannschaft &amp; Senioren 30+</span>
+              </div>
+              <div class="wp-wireframe-list-item">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+                <span><strong>Nachwuchs-Highlights:</strong> Juniorenlager-Woche &amp; Sponsorenlauf (Formulare &amp; Impressionen)</span>
+              </div>
+              <div class="wp-wireframe-list-item">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+                <span><strong>Fanartikel &amp; Onlineshop:</strong> Offizielle SCF-Cap (CHF 25.–) &amp; SCF-Wimpel (CHF 15.–) direkt bestellbar</span>
+              </div>
+            </div>
+          </div>
+          <div style="display:flex;gap:10px;flex-wrap:wrap;">
+            <button type="button" class="btn-cta btn-cta-navy btn-sm" style="flex:1;" onclick="wpOpenBlueprintModal('Rohbau-Modul D: Spielbetrieb, Matchberichte, Lagerwoche &amp; SCF-Fanshop', '7 Unterseiten (News, Matchberichte 1./2. Mannschaft &amp; Senioren, Juniorenlager, Sponsorenlauf, Fanshop)', 'Medien &amp; Support: David Ackermann (david.ackermann@scfulenbach.ch) · Sportchef: Mirko Ferrari', 'fanshop')">
+              <span>Rohbau-Details (7 Seiten) ansehen</span>
+            </button>
+            <a href="kontakt.html?thema=fanshop" class="btn-cta btn-cta-outline btn-sm" style="flex:1;">
+              <span>Fanartikel / Lager anfragen</span>
+            </a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. UNSERE SPONSOREN, GÖNNER & PARTNER (VOLL AUSGEBAUTE MUSTER-SEKTION 2: 100% ORIGINAL-BESTAND) -->
+  <section id="sponsoren" data-section="sponsoren" style="background-color:#FFFFFF;">
+    <div class="container">
+      <div class="section-head">
+        <div class="section-kicker" data-slot="sponsors_kicker">VOLLSTÄNDIG ÜBERNOMMEN · ALLE 88 SPONSOREN-EINTRÄGE VON SCFULENBACH.CH</div>
+        <h2 class="section-title" data-slot="sponsors_title">Unsere Hauptsponsoren, Co-Sponsoren, Silbersponsoren &amp; Bandenpartner.</h2>
+        <p class="section-desc" data-slot="sponsors_desc">
+          Ein herzliches Dankeschön an unsere Haupt- und Co-Sponsoren, die 6 Silbersponsoren, die 3 Mannschaftssponsoren der 1. Mannschaft, alle 79 Banden- und Vereinssponsoren sowie die <strong>Gönner und Freunde des Sportclub Fulenbach (100er-Club)</strong>. Sämtliche Partner wurden eins zu eins mit Original-Logo und Verlinkung übernommen.
+        </p>
+      </div>
+
+      <!-- TIER 1: HAUPTSPONSOREN (2) & CO-SPONSOR (1) -->
+      <div class="sponsor-tier-block">
+        <div class="sponsor-tier-header">
+          <span class="sponsor-tier-badge tier-gold">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <span>HAUPTSPONSOREN &amp; OFFIZIELLER CO-SPONSOR</span>
+          </span>
+          <span style="font-size:0.82rem;color:var(--text-muted);font-weight:600;">2 Hauptsponsoren &amp; 1 Co-Sponsor des SC Fulenbach</span>
+        </div>
+
+        <div class="sponsors-gold-grid">
+          <div class="sponsor-card gold-card">
+            <div class="sponsor-logo-wrap">
+              <img src="images/sponsors/sponsor-1000837-goenner-und-freunde-des-sportclub-fulenb.webp" alt="Gönner und Freunde des Sportclub Fulenbach 100er-Club" width="280" height="110" loading="lazy" decoding="async" data-slot="sponsor_main_1_img">
+            </div>
+            <div>
+              <div class="sponsor-name" data-slot="sponsor_main_1_name">Gönner und Freunde des Sportclub Fulenbach</div>
+              <div class="sponsor-role-tag">Offizieller Hauptsponsor (100er-Club) · c/o Schaad Treuhand AG · Dorfstrasse 10 · 4629 Fulenbach</div>
+            </div>
+          </div>
+
+          <a href="http://www.lemp.ch" target="_blank" rel="noopener noreferrer" class="sponsor-card gold-card">
+            <div class="sponsor-logo-wrap">
+              <img src="images/sponsors/sponsor-1000839-lemp-haustechnik-ag.webp" alt="Lemp Haustechnik AG Murgenthal — Hauptsponsor SC Fulenbach" width="280" height="110" loading="lazy" decoding="async" data-slot="sponsor_main_2_img">
+            </div>
+            <div>
+              <div class="sponsor-name" data-slot="sponsor_main_2_name">Lemp Haustechnik AG</div>
+              <div class="sponsor-role-tag">Offizieller Hauptsponsor · Brückenstrasse 15 · 4853 Murgenthal · www.lemp.ch</div>
+            </div>
+          </a>
+
+          <a href="http://www.raiffeisen.ch/aare-langete/de.html" target="_blank" rel="noopener noreferrer" class="sponsor-card gold-card">
+            <div class="sponsor-logo-wrap">
+              <img src="images/sponsors/sponsor-1000838-raiffeisenbank-aare-langete.webp" alt="Raiffeisenbank Aare-Langete — Co-Sponsor SC Fulenbach" width="280" height="110" loading="lazy" decoding="async" data-slot="sponsor_co_1_img">
+            </div>
+            <div>
+              <div class="sponsor-name" data-slot="sponsor_co_1_name">Raiffeisenbank Aare-Langete</div>
+              <div class="sponsor-role-tag">Offizieller Co-Sponsor · Breitenstrasse 2 · 4629 Fulenbach · raiffeisen.ch/aare-langete</div>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <!-- TIER 2: SILBERSPONSOREN (6) -->
+      <div class="sponsor-tier-block">
+        <div class="sponsor-tier-header">
+          <span class="sponsor-tier-badge tier-silver">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg>
+            <span>SILBERSPONSOREN (6 PARTNER)</span>
+          </span>
+          <span style="font-size:0.82rem;color:var(--text-muted);font-weight:600;">Offizielle Silbersponsoren des SC Fulenbach</span>
+        </div>
+
+        <div class="sponsors-silver-grid">
+          <a href="http://www.gaertnerei-buehler.ch" target="_blank" rel="noopener noreferrer" class="sponsor-card">
+            <div class="sponsor-logo-wrap">
+              <img src="images/sponsors/sponsor-1004133-gaertnerei-buehler-gmbh.webp" alt="Gärtnerei Bühler GmbH — Silbersponsor SC Fulenbach" width="240" height="96" loading="lazy" decoding="async" data-slot="sponsor_silver_1_img">
+            </div>
+            <div>
+              <div class="sponsor-name" data-slot="sponsor_silver_1_name">Gärtnerei Bühler GmbH</div>
+              <div class="sponsor-role-tag">Silbersponsor · Weidweg 1 · 4852 Rothrist</div>
+            </div>
+          </a>
+          <a href="http://www.jaeggi-berchtold.ch" target="_blank" rel="noopener noreferrer" class="sponsor-card">
+            <div class="sponsor-logo-wrap">
+              <img src="images/sponsors/sponsor-1000015-jaeggi-berchtold-gmbh.webp" alt="Jäggi Berchtold GmbH — Silbersponsor SC Fulenbach" width="240" height="96" loading="lazy" decoding="async" data-slot="sponsor_silver_2_img">
+            </div>
+            <div>
+              <div class="sponsor-name" data-slot="sponsor_silver_2_name">Jäggi Berchtold GmbH</div>
+              <div class="sponsor-role-tag">Silbersponsor · Härkingerstrasse 6 · 4629 Fulenbach</div>
+            </div>
+          </a>
+          <a href="http://www.merkurmedien.ch" target="_blank" rel="noopener noreferrer" class="sponsor-card">
+            <div class="sponsor-logo-wrap">
+              <img src="images/sponsors/sponsor-1002512-merkur-medien-ag.webp" alt="Merkur Medien AG — Silbersponsor SC Fulenbach" width="240" height="96" loading="lazy" decoding="async" data-slot="sponsor_silver_3_img">
+            </div>
+            <div>
+              <div class="sponsor-name" data-slot="sponsor_silver_3_name">Merkur Medien AG</div>
+              <div class="sponsor-role-tag">Silbersponsor · Gaswerkstrasse 56 · 4900 Langenthal</div>
+            </div>
+          </a>
+          <a href="http://pumag.ch" target="_blank" rel="noopener noreferrer" class="sponsor-card">
+            <div class="sponsor-logo-wrap">
+              <img src="images/sponsors/sponsor-1001026-pumag-consulting-ag.webp" alt="Pumag Consulting AG — Silbersponsor SC Fulenbach" width="240" height="96" loading="lazy" decoding="async" data-slot="sponsor_silver_4_img">
+            </div>
+            <div>
+              <div class="sponsor-name" data-slot="sponsor_silver_4_name">Pumag Consulting AG</div>
+              <div class="sponsor-role-tag">Silbersponsor · Bollwerk 15 · Postfach 7613</div>
+            </div>
+          </a>
+          <a href="http://www.sabag.ch" target="_blank" rel="noopener noreferrer" class="sponsor-card">
+            <div class="sponsor-logo-wrap">
+              <img src="images/sponsors/sponsor-1001260-sabag-haegendorf-ag.webp" alt="SABAG Hägendorf AG — Silbersponsor SC Fulenbach" width="240" height="96" loading="lazy" decoding="async" data-slot="sponsor_silver_5_img">
+            </div>
+            <div>
+              <div class="sponsor-name" data-slot="sponsor_silver_5_name">SABAG Hägendorf AG</div>
+              <div class="sponsor-role-tag">Silbersponsor · Industriestrasse Ost 7 · 4614 Hägendorf</div>
+            </div>
+          </a>
+          <a href="http://www.u-f.ch" target="_blank" rel="noopener noreferrer" class="sponsor-card">
+            <div class="sponsor-logo-wrap">
+              <img src="images/sponsors/sponsor-1001261-universal-feuerloeschgeraete-ag.webp" alt="UNIVERSAL Feuerlöschgeräte AG — Silbersponsor SC Fulenbach" width="240" height="96" loading="lazy" decoding="async" data-slot="sponsor_silver_6_img">
+            </div>
+            <div>
+              <div class="sponsor-name" data-slot="sponsor_silver_6_name">UNIVERSAL Feuerlöschgeräte AG</div>
+              <div class="sponsor-role-tag">Silbersponsor · Zentweg 17a · 3006 Bern</div>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <!-- TIER 3: MANNSCHAFTSSPONSOREN 1. MANNSCHAFT (3) -->
+      <div class="sponsor-tier-block">
+        <div class="sponsor-tier-header">
+          <span class="sponsor-tier-badge tier-green">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            <span>MANNSCHAFTSSPONSOREN 1. MANNSCHAFT (2. LIGA REGIONAL)</span>
+          </span>
+          <span style="font-size:0.82rem;color:var(--text-muted);font-weight:600;">Offizielle Partner unseres Fanionteams</span>
+        </div>
+
+        <div class="sponsors-silver-grid">
+          <a href="http://www.ehrenbolger-suter.ch" target="_blank" rel="noopener noreferrer" class="sponsor-card">
+            <div class="sponsor-logo-wrap">
+              <img src="images/sponsors/sponsor-1004354-ehrenbolger-suter-ag.webp" alt="Ehrenbolger und Suter AG — Mannschaftssponsor 1. Mannschaft" width="240" height="96" loading="lazy" decoding="async">
+            </div>
+            <div>
+              <div class="sponsor-name">Ehrenbolger &amp; Suter AG</div>
+              <div class="sponsor-role-tag">Mannschaftssponsor 1. Mannschaft · ehrenbolger-suter.ch</div>
+            </div>
+          </a>
+
+          <a href="http://www.roth-dach.ch" target="_blank" rel="noopener noreferrer" class="sponsor-card">
+            <div class="sponsor-logo-wrap">
+              <img src="images/sponsors/sponsor-1004347-roth-dach-gmbh.webp" alt="Roth Dach GmbH — Mannschaftssponsor 1. Mannschaft" width="240" height="96" loading="lazy" decoding="async">
+            </div>
+            <div>
+              <div class="sponsor-name">Roth Dach GmbH</div>
+              <div class="sponsor-role-tag">Mannschaftssponsor 1. Mannschaft · roth-dach.ch</div>
+            </div>
+          </a>
+
+          <a href="http://www.fischerschreinerei.ch" target="_blank" rel="noopener noreferrer" class="sponsor-card">
+            <div class="sponsor-logo-wrap">
+              <img src="images/sponsors/sponsor-1000961-fischer-schreinerei-gmbh.webp" alt="Fischer Schreinerei GmbH — Mannschaftssponsor 1. Mannschaft" width="240" height="96" loading="lazy" decoding="async">
+            </div>
+            <div>
+              <div class="sponsor-name">Fischer Schreinerei GmbH</div>
+              <div class="sponsor-role-tag">Mannschaftssponsor 1. Mannschaft · fischerschreinerei.ch</div>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <!-- TIER 4: ALLE 79 BANDENSPONSOREN & VEREINSSPONSOREN -->
+      <div class="sponsor-tier-block">
+        <div class="sponsor-tier-header">
+          <span class="sponsor-tier-badge tier-silver">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+            <span>BANDENSPONSOREN &amp; SPONSOREN (79 PARTNER)</span>
+          </span>
+          <span style="font-size:0.82rem;color:var(--text-muted);font-weight:600;">Kompletter Original-Bestand von scfulenbach.ch</span>
+        </div>
+
+        <div class="sponsors-banden-grid">
+          <a href="http://www.24security.ch" target="_blank" rel="noopener noreferrer" class="sponsor-card" style="padding:16px;">
+            <div class="sponsor-logo-wrap" style="height:78px;">
+              <img src="images/sponsors/sponsor-1001268-24-security-gmbh.webp" alt="24 security GmbH — Sponsor SC Fulenbach" width="180" height="70" loading="lazy" decoding="async" data-slot="sponsor_bande_1_img">
+            </div>
+            <div>
+              <div class="sponsor-name" style="font-size:0.88rem;">24 security GmbH</div>
+              <div class="sponsor-role-tag" style="font-size:0.74rem;">4622 Egerkingen</div>
+            </div>
+          </a>
+          <a href="http://www.af-u.ch" target="_blank" rel="noopener noreferrer" class="sponsor-card" style="padding:16px;">
+            <div class="sponsor-logo-wrap" style="height:78px;">
+              <img src="images/sponsors/sponsor-1002603-afu-amt-fuer-unterhaltung.webp" alt="afu Amt für Unterhaltung — Sponsor SC Fulenbach" width="180" height="70" loading="lazy" decoding="async" data-slot="sponsor_bande_2_img">
+            </div>
+            <div>
+              <div class="sponsor-name" style="font-size:0.88rem;">afu Amt für Unterhaltung</div>
+              <div class="sponsor-role-tag" style="font-size:0.74rem;">4712 Laupersdorf</div>
+            </div>
+          </a>
+          <a href="http://www.albanisport.ch" target="_blank" rel="noopener noreferrer" class="sponsor-card" style="padding:16px;">
+            <div class="sponsor-logo-wrap" style="height:78px;">
+              <img src="images/sponsors/sponsor-1000866-albani-sport.webp" alt="Albani Sport — Sponsor SC Fulenbach" width="180" height="70" loading="lazy" decoding="async" data-slot="sponsor_bande_3_img">
+            </div>
+            <div>
+              <div class="sponsor-name" style="font-size:0.88rem;">Albani Sport</div>
+              <div class="sponsor-role-tag" style="font-size:0.74rem;">4710 Balsthal</div>
+            </div>
+          </a>
+          <a href="https://www.allianz.ch" target="_blank" rel="noopener noreferrer" class="sponsor-card" style="padding:16px;">
+            <div class="sponsor-logo-wrap" style="height:78px;">
+              <img src="images/sponsors/sponsor-1004132-allianz-versicherung.webp" alt="Allianz Versicherung — Sponsor SC Fulenbach" width="180" height="70" loading="lazy" decoding="async" data-slot="sponsor_bande_4_img">
+            </div>
+            <div>
+              <div class="sponsor-name" style="font-size:0.88rem;">Allianz Versicherung</div>
+              <div class="sponsor-role-tag" style="font-size:0.74rem;">5033 Buchs</div>
+            </div>
+          </a>
+          <a href="http://www.mueller-umgebungen.ch" target="_blank" rel="noopener noreferrer" class="sponsor-card" style="padding:16px;">
+            <div class="sponsor-logo-wrap" style="height:78px;">
+              <img src="images/sponsors/sponsor-1000036-andreas-mueller-umgebungen.webp" alt="Andreas Müller Umgebungen — Sponsor SC Fulenbach" width="180" height="70" loading="lazy" decoding="async" data-slot="sponsor_bande_5_img">
+            </div>
+            <div>
+              <div class="sponsor-name" style="font-size:0.88rem;">Andreas Müller Umgebungen</div>
+              <div class="sponsor-role-tag" style="font-size:0.74rem;">4612 Wangen bei Olten</div>
+            </div>
+          </a>
+          <a href="http://www.auto-lindemann.ch" target="_blank" rel="noopener noreferrer" class="sponsor-card" style="padding:16px;">
+            <div class="sponsor-logo-wrap" style="height:78px;">
+              <img src="images/sponsors/sponsor-1000022-auto-lindemann-ag.webp" alt="Auto Lindemann AG — Sponsor SC Fulenbach" width="180" height="70" loading="lazy" decoding="async" data-slot="sponsor_bande_6_img">
+            </div>
+            <div>
+              <div class="sponsor-name" style="font-size:0.88rem;">Auto Lindemann AG</div>
+              <div class="sponsor-role-tag" style="font-size:0.74rem;">4628 Wolfwil</div>
+            </div>
+          </a>
+          <a href="http://www.auto-studer.ch" target="_blank" rel="noopener noreferrer" class="sponsor-card" style="padding:16px;">
+            <div class="sponsor-logo-wrap" style="height:78px;">
+              <img src="images/sponsors/sponsor-1001273-auto-studer-ag.webp" alt="Auto Studer AG — Sponsor SC Fulenbach" width="180" height="70" loading="lazy" decoding="async" data-slot="sponsor_bande_7_img">
+            </div>
+            <div>
+              <div class="sponsor-name" style="font-size:0.88rem;">Auto Studer AG</div>
+              <div class="sponsor-role-tag" style="font-size:0.74rem;">4900 Langenthal</div>
+            </div>
+          </a>
+          <a href="http://www.baloise.ch" target="_blank" rel="noopener noreferrer" class="sponsor-card" style="padding:16px;">
+            <div class="sponsor-logo-wrap" style="height:78px;">
+              <img src="images/sponsors/sponsor-1002048-baloise-bank-soba.webp" alt="Baloise Bank SoBa — Sponsor SC Fulenbach" width="180" height="70" loading="lazy" decoding="async" data-slot="sponsor_bande_8_img">
+            </div>
+            <div>
+              <div class="sponsor-name" style="font-size:0.88rem;">Baloise Bank SoBa</div>
+              <div class="sponsor-role-tag" style="font-size:0.74rem;">4601 Olten</div>
+            </div>
+          </a>
+          <a href="http://www.bernasconi.ch" target="_blank" rel="noopener noreferrer" class="sponsor-card" style="padding:16px;">
+            <div class="sponsor-logo-wrap" style="height:78px;">
+              <img src="images/sponsors/sponsor-1001274-bernasconi-boden-decken-waende.webp" alt="Bernasconi Boden Decken Wände — Sponsor SC Fulenbach" width="180" height="70" loading="lazy" decoding="async" data-slot="sponsor_bande_9_img">
+            </div>
+            <div>
+              <div class="sponsor-name" style="font-size:0.88rem;">Bernasconi Boden Decken Wände</div>
+              <div class="sponsor-role-tag" style="font-size:0.74rem;">4663 Aarburg</div>
+            </div>
+          </a>
+          <a href="https://bero-heizsysteme.ch/" target="_blank" rel="noopener noreferrer" class="sponsor-card" style="padding:16px;">
+            <div class="sponsor-logo-wrap" style="height:78px;">
+              <img src="images/sponsors/sponsor-1001656-bero-ag-heizsysteme.webp" alt="Bero AG, Heizsysteme — Sponsor SC Fulenbach" width="180" height="70" loading="lazy" decoding="async" data-slot="sponsor_bande_10_img">
+            </div>
+            <div>
+              <div class="sponsor-name" style="font-size:0.88rem;">Bero AG, Heizsysteme</div>
+              <div class="sponsor-role-tag" style="font-size:0.74rem;">4704 Niederbipp</div>
+            </div>
+          </a>
+          <a href="http://www.onyx.ch" target="_blank" rel="noopener noreferrer" class="sponsor-card" style="padding:16px;">
+            <div class="sponsor-logo-wrap" style="height:78px;">
+              <img src="images/sponsors/sponsor-1001253-bkw-management-ag.webp" alt="BKW Management AG — Sponsor SC Fulenbach" width="180" height="70" loading="lazy" decoding="async" data-slot="sponsor_bande_11_img">
+            </div>
+            <div>
+              <div class="sponsor-name" style="font-size:0.88rem;">BKW Management AG</div>
+              <div class="sponsor-role-tag" style="font-size:0.74rem;">3013 Bern</div>
+            </div>
+          </a>
+          <a href="http://www.bozpizza.ch" target="_blank" rel="noopener noreferrer" class="sponsor-card" style="padding:16px;">
+            <div class="sponsor-logo-wrap" style="height:78px;">
+              <img src="images/sponsors/sponsor-1001328-boz-pizza-kurier.webp" alt="Boz Pizza Kurier — Sponsor SC Fulenbach" width="180" height="70" loading="lazy" decoding="async" data-slot="sponsor_bande_12_img">
+            </div>
+            <div>
+              <div class="sponsor-name" style="font-size:0.88rem;">Boz Pizza Kurier</div>
+              <div class="sponsor-role-tag" style="font-size:0.74rem;">4852 Rothrist</div>
+            </div>
+          </a>
+          <div class="sponsor-card" style="padding:16px;">
+            <div class="sponsor-logo-wrap" style="height:78px;">
+              <img src="images/sponsors/sponsor-1000670-carrosserie-spritzwerk.webp" alt="Carrosserie/Spritzwerk — Sponsor SC Fulenbach" width="180" height="70" loading="lazy" decoding="async" data-slot="sponsor_bande_13_img">
+            </div>
+            <div>
+              <div class="sponsor-name" style="font-size:0.88rem;">Carrosserie/Spritzwerk</div>
+              <div class="sponsor-role-tag" style="font-size:0.74rem;">4629 Fulenbach</div>
+            </div>
+          </div>
+          <div class="sponsor-card" style="padding:16px;">
+            <div class="sponsor-logo-wrap" style="height:78px;">
+              <img src="images/sponsors/sponsor-1001814-chopf-hoor.webp" alt="chopf&amp;hoor — Sponsor SC Fulenbach" width="180" height="70" loading="lazy" decoding="async" data-slot="sponsor_bande_14_img">
+            </div>
+            <div>
+              <div class="sponsor-name" style="font-size:0.88rem;">chopf&amp;hoor</div>
+              <div class="sponsor-role-tag" style="font-size:0.74rem;">4853 Murgenthal</div>
+            </div>
+          </div>
+          <a href="http://" target="_blank" rel="noopener noreferrer" class="sponsor-card" style="padding:16px;">
+            <div class="sponsor-logo-wrap" style="height:78px;">
+              <img src="images/sponsors/sponsor-1000271-coop-genossenschaft.webp" alt="Coop Genossenschaft — Sponsor SC Fulenbach" width="180" height="70" loading="lazy" decoding="async" data-slot="sponsor_bande_15_img">
+            </div>
+            <div>
+              <div class="sponsor-name" style="font-size:0.88rem;">Coop Genossenschaft</div>
+              <div class="sponsor-role-tag" style="font-size:0.74rem;">4002 Basel</div>
+            </div>
+          </a>
+          <a href="http://www.mobiliar.ch/olten" target="_blank" rel="noopener noreferrer" class="sponsor-card" style="padding:16px;">
+            <div class="sponsor-logo-wrap" style="height:78px;">
+              <img src="images/sponsors/sponsor-1000856-die-mobiliar.webp" alt="Die Mobiliar — Sponsor SC Fulenbach" width="180" height="70" loading="lazy" decoding="async" data-slot="sponsor_bande_16_img">
+            </div>
+            <div>
+              <div class="sponsor-name" style="font-size:0.88rem;">Die Mobiliar</div>
+              <div class="sponsor-role-tag" style="font-size:0.74rem;">4601 Olten</div>
+            </div>
+          </a>
+          <div class="sponsor-card" style="padding:16px;">
+            <div class="sponsor-logo-wrap" style="height:78px;">
+              <img src="images/sponsors/sponsor-1002068-dorfmetzgerei-kreienbuehl-gmbh.webp" alt="Dorfmetzgerei Kreienbühl GmbH — Sponsor SC Fulenbach" width="180" height="70" loading="lazy" decoding="async" data-slot="sponsor_bande_17_img">
+            </div>
+            <div>
+              <div class="sponsor-name" style="font-size:0.88rem;">Dorfmetzgerei Kreienbühl GmbH</div>
+              <div class="sponsor-role-tag" style="font-size:0.74rem;">4614 Hägendorf</div>
+            </div>
+          </div>
+          <a href="http://www.ehrenbolger-suter.ch" target="_blank" rel="noopener noreferrer" class="sponsor-card" style="padding:16px;">
+            <div class="sponsor-logo-wrap" style="height:78px;">
+              <img src="images/sponsors/sponsor-1004354-ehrenbolger-suter-ag.webp" alt="Ehrenbolger &amp; Suter AG — Sponsor SC Fulenbach" width="180" height="70" loading="lazy" decoding="async" data-slot="sponsor_bande_18_img">
+            </div>
+            <div>
+              <div class="sponsor-name" style="font-size:0.88rem;">Ehrenbolger &amp; Suter AG</div>
+              <div class="sponsor-role-tag" style="font-size:0.74rem;">4629 Fulenbach</div>
+            </div>
+          </a>
+          <a href="http://www.ekautomobile.ch" target="_blank" rel="noopener noreferrer" class="sponsor-card" style="padding:16px;">
+            <div class="sponsor-logo-wrap" style="height:78px;">
+              <img src="images/sponsors/sponsor-1002782-ek-automobile-ag.webp" alt="EK Automobile AG — Sponsor SC Fulenbach" width="180" height="70" loading="lazy" decoding="async" data-slot="sponsor_bande_19_img">
+            </div>
+            <div>
+              <div class="sponsor-name" style="font-size:0.88rem;">EK Automobile AG</div>
+              <div class="sponsor-role-tag" style="font-size:0.74rem;">4703 Kestenholz</div>
+            </div>
+          </a>
+          <a href="http://www.ramseier-werkzeubau.ch" target="_blank" rel="noopener noreferrer" class="sponsor-card" style="padding:16px;">
+            <div class="sponsor-logo-wrap" style="height:78px;">
+              <img src="images/sponsors/sponsor-1003799-ernst-ramseier-werkzeugnormalien-ag.webp" alt="Ernst Ramseier Werkzeugnormalien AG — Sponsor SC Fulenbach" width="180" height="70" loading="lazy" decoding="async" data-slot="sponsor_bande_20_img">
+            </div>
+            <div>
+              <div class="sponsor-name" style="font-size:0.88rem;">Ernst Ramseier Werkzeugnormalien AG</div>
+              <div class="sponsor-role-tag" style="font-size:0.74rem;">4629 Fulenbach</div>
+            </div>
+          </a>
+          <a href="http://www.fahrschulebruno.ch" target="_blank" rel="noopener noreferrer" class="sponsor-card" style="padding:16px;">
+            <div class="sponsor-logo-wrap" style="height:78px;">
+              <img src="images/sponsors/sponsor-1000830-fahrschule-bruno.webp" alt="Fahrschule Bruno — Sponsor SC Fulenbach" width="180" height="70" loading="lazy" decoding="async" data-slot="sponsor_bande_21_img">
+            </div>
+            <div>
+              <div class="sponsor-name" style="font-size:0.88rem;">Fahrschule Bruno</div>
+              <div class="sponsor-role-tag" style="font-size:0.74rem;">4629 Fulenbach</div>
+            </div>
+          </a>
+          <a href="http://www.fischerschreinerei.ch" target="_blank" rel="noopener noreferrer" class="sponsor-card" style="padding:16px;">
+            <div class="sponsor-logo-wrap" style="height:78px;">
+              <img src="images/sponsors/sponsor-1000961-fischer-schreinerei-gmbh.webp" alt="Fischer Schreinerei GmbH — Sponsor SC Fulenbach" width="180" height="70" loading="lazy" decoding="async" data-slot="sponsor_bande_22_img">
+            </div>
+            <div>
+              <div class="sponsor-name" style="font-size:0.88rem;">Fischer Schreinerei GmbH</div>
+              <div class="sponsor-role-tag" style="font-size:0.74rem;">4622 Egerkingen</div>
+            </div>
+          </a>
+          <a href="http://www.fischerschriften.ch" target="_blank" rel="noopener noreferrer" class="sponsor-card" style="padding:16px;">
+            <div class="sponsor-logo-wrap" style="height:78px;">
+              <img src="images/sponsors/sponsor-1001257-fischer-schriften-ag.webp" alt="Fischer Schriften AG — Sponsor SC Fulenbach" width="180" height="70" loading="lazy" decoding="async" data-slot="sponsor_bande_23_img">
+            </div>
+            <div>
+              <div class="sponsor-name" style="font-size:0.88rem;">Fischer Schriften AG</div>
+              <div class="sponsor-role-tag" style="font-size:0.74rem;">4622 Egerkingen</div>
+            </div>
+          </a>
+          <a href="http://www.foliowerbung.ch" target="_blank" rel="noopener noreferrer" class="sponsor-card" style="padding:16px;">
+            <div class="sponsor-logo-wrap" style="height:78px;">
+              <img src="images/sponsors/sponsor-1000874-folio-werbung-gasser-ag.webp" alt="Folio-Werbung Gasser AG — Sponsor SC Fulenbach" width="180" height="70" loading="lazy" decoding="async" data-slot="sponsor_bande_24_img">
+            </div>
+            <div>
+              <div class="sponsor-name" style="font-size:0.88rem;">Folio-Werbung Gasser AG</div>
+              <div class="sponsor-role-tag" style="font-size:0.74rem;">4629 Fulenbach</div>
+            </div>
+          </a>
+          <a href="http://www.frieder-immobilien.ch" target="_blank" rel="noopener noreferrer" class="sponsor-card" style="padding:16px;">
+            <div class="sponsor-logo-wrap" style="height:78px;">
+              <img src="images/sponsors/sponsor-1000858-frieder-immobilien.webp" alt="Frieder Immobilien — Sponsor SC Fulenbach" width="180" height="70" loading="lazy" decoding="async" data-slot="sponsor_bande_25_img">
+            </div>
+            <div>
+              <div class="sponsor-name" style="font-size:0.88rem;">Frieder Immobilien</div>
+              <div class="sponsor-role-tag" style="font-size:0.74rem;">4600 Olten</div>
+            </div>
+          </a>
+          <a href="http://www.gleclerc.ch" target="_blank" rel="noopener noreferrer" class="sponsor-card" style="padding:16px;">
+            <div class="sponsor-logo-wrap" style="height:78px;">
+              <img src="images/sponsors/sponsor-1000035-g-leclerc-transport-ag.webp" alt="G. Leclerc Transport AG — Sponsor SC Fulenbach" width="180" height="70" loading="lazy" decoding="async" data-slot="sponsor_bande_26_img">
+            </div>
+            <div>
+              <div class="sponsor-name" style="font-size:0.88rem;">G. Leclerc Transport AG</div>
+              <div class="sponsor-role-tag" style="font-size:0.74rem;">4702 Oensingen</div>
+            </div>
+          </a>
+          <a href="http://www.garageluethi.ch" target="_blank" rel="noopener noreferrer" class="sponsor-card" style="padding:16px;">
+            <div class="sponsor-logo-wrap" style="height:78px;">
+              <img src="images/sponsors/sponsor-1000476-garage-luethi-ag.webp" alt="Garage Lüthi AG — Sponsor SC Fulenbach" width="180" height="70" loading="lazy" decoding="async" data-slot="sponsor_bande_27_img">
+            </div>
+            <div>
+              <div class="sponsor-name" style="font-size:0.88rem;">Garage Lüthi AG</div>
+              <div class="sponsor-role-tag" style="font-size:0.74rem;">3475 Hermiswil</div>
+            </div>
+          </a>
+          <a href="http://www.garage-marbet.ch" target="_blank" rel="noopener noreferrer" class="sponsor-card" style="padding:16px;">
+            <div class="sponsor-logo-wrap" style="height:78px;">
+              <img src="images/sponsors/sponsor-1000023-garage-marbet.webp" alt="Garage Marbet — Sponsor SC Fulenbach" width="180" height="70" loading="lazy" decoding="async" data-slot="sponsor_bande_28_img">
+            </div>
+            <div>
+              <div class="sponsor-name" style="font-size:0.88rem;">Garage Marbet</div>
+              <div class="sponsor-role-tag" style="font-size:0.74rem;">4623 Neuendorf</div>
+            </div>
+          </a>
+          <a href="http://www.garitec.ch" target="_blank" rel="noopener noreferrer" class="sponsor-card" style="padding:16px;">
+            <div class="sponsor-logo-wrap" style="height:78px;">
+              <img src="images/sponsors/sponsor-1001278-garitec-ag.webp" alt="Garitec AG — Sponsor SC Fulenbach" width="180" height="70" loading="lazy" decoding="async" data-slot="sponsor_bande_29_img">
+            </div>
+            <div>
+              <div class="sponsor-name" style="font-size:0.88rem;">Garitec AG</div>
+              <div class="sponsor-role-tag" style="font-size:0.74rem;">4665 Oftringen</div>
+            </div>
+          </a>
+          <a href="http://www.gaertnerei-buehler.ch" target="_blank" rel="noopener noreferrer" class="sponsor-card" style="padding:16px;">
+            <div class="sponsor-logo-wrap" style="height:78px;">
+              <img src="images/sponsors/sponsor-1004133-gaertnerei-buehler-gmbh.webp" alt="Gärtnerei Bühler GmbH — Sponsor SC Fulenbach" width="180" height="70" loading="lazy" decoding="async" data-slot="sponsor_bande_30_img">
+            </div>
+            <div>
+              <div class="sponsor-name" style="font-size:0.88rem;">Gärtnerei Bühler GmbH</div>
+              <div class="sponsor-role-tag" style="font-size:0.74rem;">4852 Rothrist</div>
+            </div>
+          </a>
+          <div class="sponsor-card" style="padding:16px;">
+            <div class="sponsor-logo-wrap" style="height:78px;">
+              <img src="images/sponsors/sponsor-1000063-gaertnerei-sutter.webp" alt="Gärtnerei Sutter — Sponsor SC Fulenbach" width="180" height="70" loading="lazy" decoding="async" data-slot="sponsor_bande_31_img">
+            </div>
+            <div>
+              <div class="sponsor-name" style="font-size:0.88rem;">Gärtnerei Sutter</div>
+              <div class="sponsor-role-tag" style="font-size:0.74rem;">4629 Fulenbach</div>
+            </div>
+          </div>
+          <a href="http://www.hallwyler.ch" target="_blank" rel="noopener noreferrer" class="sponsor-card" style="padding:16px;">
+            <div class="sponsor-logo-wrap" style="height:78px;">
+              <img src="images/sponsors/sponsor-1000065-gebr-hallwyler-ag.webp" alt="gebr. hallwyler ag — Sponsor SC Fulenbach" width="180" height="70" loading="lazy" decoding="async" data-slot="sponsor_bande_32_img">
+            </div>
+            <div>
+              <div class="sponsor-name" style="font-size:0.88rem;">gebr. hallwyler ag</div>
+              <div class="sponsor-role-tag" style="font-size:0.74rem;">4852 Rothrist</div>
+            </div>
+          </a>
+          <div class="sponsor-card" style="padding:16px;">
+            <div class="sponsor-logo-wrap" style="height:78px;">
+              <img src="images/sponsors/sponsor-1000837-goenner-und-freunde-des-sportclub-fulenb.webp" alt="Gönner und Freunde des Sportclub Fulenbach — Sponsor SC Fulenbach" width="180" height="70" loading="lazy" decoding="async" data-slot="sponsor_bande_33_img">
+            </div>
+            <div>
+              <div class="sponsor-name" style="font-size:0.88rem;">Gönner und Freunde des Sportclub Fulenbach</div>
+              <div class="sponsor-role-tag" style="font-size:0.74rem;">4629 Fulenbach</div>
+            </div>
+          </div>
+          <a href="http://www.hoermann.ch" target="_blank" rel="noopener noreferrer" class="sponsor-card" style="padding:16px;">
+            <div class="sponsor-logo-wrap" style="height:78px;">
+              <img src="images/sponsors/sponsor-1001254-hoermann-schweiz-ag.webp" alt="Hörmann Schweiz AG — Sponsor SC Fulenbach" width="180" height="70" loading="lazy" decoding="async" data-slot="sponsor_bande_34_img">
+            </div>
+            <div>
+              <div class="sponsor-name" style="font-size:0.88rem;">Hörmann Schweiz AG</div>
+              <div class="sponsor-role-tag" style="font-size:0.74rem;">4702 Oensingen</div>
+            </div>
+          </a>
+          <a href="http://www.huerzelerraumdesign.ch" target="_blank" rel="noopener noreferrer" class="sponsor-card" style="padding:16px;">
+            <div class="sponsor-logo-wrap" style="height:78px;">
+              <img src="images/sponsors/sponsor-1000283-huerzeler-raumdesign.webp" alt="Hürzeler Raumdesign — Sponsor SC Fulenbach" width="180" height="70" loading="lazy" decoding="async" data-slot="sponsor_bande_35_img">
+            </div>
+            <div>
+              <div class="sponsor-name" style="font-size:0.88rem;">Hürzeler Raumdesign</div>
+              <div class="sponsor-role-tag" style="font-size:0.74rem;">4628 Wolfwil</div>
+            </div>
+          </a>
+          <a href="http://www.jaeggi-ag.ch" target="_blank" rel="noopener noreferrer" class="sponsor-card" style="padding:16px;">
+            <div class="sponsor-logo-wrap" style="height:78px;">
+              <img src="images/sponsors/sponsor-1003104-jaeggi-ag-maschinenbau.webp" alt="Jäggi AG Maschinenbau — Sponsor SC Fulenbach" width="180" height="70" loading="lazy" decoding="async" data-slot="sponsor_bande_36_img">
+            </div>
+            <div>
+              <div class="sponsor-name" style="font-size:0.88rem;">Jäggi AG Maschinenbau</div>
+              <div class="sponsor-role-tag" style="font-size:0.74rem;">4629 Fulenbach</div>
+            </div>
+          </a>
+          <a href="http://www.jaeggi-berchtold.ch" target="_blank" rel="noopener noreferrer" class="sponsor-card" style="padding:16px;">
+            <div class="sponsor-logo-wrap" style="height:78px;">
+              <img src="images/sponsors/sponsor-1000015-jaeggi-berchtold-gmbh.webp" alt="Jäggi Berchtold GmbH — Sponsor SC Fulenbach" width="180" height="70" loading="lazy" decoding="async" data-slot="sponsor_bande_37_img">
+            </div>
+            <div>
+              <div class="sponsor-name" style="font-size:0.88rem;">Jäggi Berchtold GmbH</div>
+              <div class="sponsor-role-tag" style="font-size:0.74rem;">4629 Fulenbach</div>
+            </div>
+          </a>
+          <div class="sponsor-card" style="padding:16px;">
+            <div class="sponsor-logo-wrap" style="height:78px;">
+              <img src="images/sponsors/sponsor-1001329-jaeggi-keramik-gmbh.webp" alt="Jäggi Keramik GmbH — Sponsor SC Fulenbach" width="180" height="70" loading="lazy" decoding="async" data-slot="sponsor_bande_38_img">
+            </div>
+            <div>
+              <div class="sponsor-name" style="font-size:0.88rem;">Jäggi Keramik GmbH</div>
+              <div class="sponsor-role-tag" style="font-size:0.74rem;">4629 Fulenbach</div>
+            </div>
+          </div>
+          <a href="https://www.jaeggis-gmbh.ch/" target="_blank" rel="noopener noreferrer" class="sponsor-card" style="padding:16px;">
+            <div class="sponsor-logo-wrap" style="height:78px;">
+              <img src="images/sponsors/sponsor-1001421-jaeggi-s-service-und-handel-gmbh.webp" alt="Jäggi&#x27;s Service und Handel GmbH — Sponsor SC Fulenbach" width="180" height="70" loading="lazy" decoding="async" data-slot="sponsor_bande_39_img">
+            </div>
+            <div>
+              <div class="sponsor-name" style="font-size:0.88rem;">Jäggi&#x27;s Service und Handel GmbH</div>
+              <div class="sponsor-role-tag" style="font-size:0.74rem;">4629 Fulenbach</div>
+            </div>
+          </a>
+          <a href="http://www.jaeggi-pfluger.ch" target="_blank" rel="noopener noreferrer" class="sponsor-card" style="padding:16px;">
+            <div class="sponsor-logo-wrap" style="height:78px;">
+              <img src="images/sponsors/sponsor-1000012-jaeggi-pfluger-ag.webp" alt="Jäggi-Pfluger AG — Sponsor SC Fulenbach" width="180" height="70" loading="lazy" decoding="async" data-slot="sponsor_bande_40_img">
+            </div>
+            <div>
+              <div class="sponsor-name" style="font-size:0.88rem;">Jäggi-Pfluger AG</div>
+              <div class="sponsor-role-tag" style="font-size:0.74rem;">4629 Fulenbach</div>
+            </div>
+          </a>
+          <a href="http://www.baustoffzentrum.ch" target="_blank" rel="noopener noreferrer" class="sponsor-card" style="padding:16px;">
+            <div class="sponsor-logo-wrap" style="height:78px;">
+              <img src="images/sponsors/sponsor-1003105-kieswerk-boningen-ag.webp" alt="Kieswerk Boningen AG — Sponsor SC Fulenbach" width="180" height="70" loading="lazy" decoding="async" data-slot="sponsor_bande_41_img">
+            </div>
+            <div>
+              <div class="sponsor-name" style="font-size:0.88rem;">Kieswerk Boningen AG</div>
+              <div class="sponsor-role-tag" style="font-size:0.74rem;">4617 Gunzgen</div>
+            </div>
+          </a>
+          <a href="https://www.knubel-bauspenglerei.ch/" target="_blank" rel="noopener noreferrer" class="sponsor-card" style="padding:16px;">
+            <div class="sponsor-logo-wrap" style="height:78px;">
+              <img src="images/sponsors/sponsor-1002049-knubel-bauspenglerei-ag.webp" alt="Knubel Bauspenglerei AG — Sponsor SC Fulenbach" width="180" height="70" loading="lazy" decoding="async" data-slot="sponsor_bande_42_img">
+            </div>
+            <div>
+              <div class="sponsor-name" style="font-size:0.88rem;">Knubel Bauspenglerei AG</div>
+              <div class="sponsor-role-tag" style="font-size:0.74rem;">4703 Kestenholz</div>
+            </div>
+          </a>
+          <a href="http://www.kurtibodendesign.ch" target="_blank" rel="noopener noreferrer" class="sponsor-card" style="padding:16px;">
+            <div class="sponsor-logo-wrap" style="height:78px;">
+              <img src="images/sponsors/sponsor-1001255-kurti-bodendesign-gmbh.webp" alt="Kurti Bodendesign GmbH — Sponsor SC Fulenbach" width="180" height="70" loading="lazy" decoding="async" data-slot="sponsor_bande_43_img">
+            </div>
+            <div>
+              <div class="sponsor-name" style="font-size:0.88rem;">Kurti Bodendesign GmbH</div>
+              <div class="sponsor-role-tag" style="font-size:0.74rem;">4628 Wolfwil</div>
+            </div>
+          </a>
+          <a href="http://www.leclercbau.ch/" target="_blank" rel="noopener noreferrer" class="sponsor-card" style="padding:16px;">
+            <div class="sponsor-logo-wrap" style="height:78px;">
+              <img src="images/sponsors/sponsor-1000270-leclerc-bau-ag.webp" alt="Leclerc Bau AG — Sponsor SC Fulenbach" width="180" height="70" loading="lazy" decoding="async" data-slot="sponsor_bande_44_img">
+            </div>
+            <div>
+              <div class="sponsor-name" style="font-size:0.88rem;">Leclerc Bau AG</div>
+              <div class="sponsor-role-tag" style="font-size:0.74rem;">4629 Fulenbach</div>
+            </div>
+          </a>
+          <a href="http://www.lemp.ch" target="_blank" rel="noopener noreferrer" class="sponsor-card" style="padding:16px;">
+            <div class="sponsor-logo-wrap" style="height:78px;">
+              <img src="images/sponsors/sponsor-1000839-lemp-haustechnik-ag.webp" alt="Lemp Haustechnik AG — Sponsor SC Fulenbach" width="180" height="70" loading="lazy" decoding="async" data-slot="sponsor_bande_45_img">
+            </div>
+            <div>
+              <div class="sponsor-name" style="font-size:0.88rem;">Lemp Haustechnik AG</div>
+              <div class="sponsor-role-tag" style="font-size:0.74rem;">4853 Murgenthal</div>
+            </div>
+          </a>
+          <a href="http://www.marti-ag.com" target="_blank" rel="noopener noreferrer" class="sponsor-card" style="padding:16px;">
+            <div class="sponsor-logo-wrap" style="height:78px;">
+              <img src="images/sponsors/sponsor-1000269-marti-ag.webp" alt="marti ag — Sponsor SC Fulenbach" width="180" height="70" loading="lazy" decoding="async" data-slot="sponsor_bande_46_img">
+            </div>
+            <div>
+              <div class="sponsor-name" style="font-size:0.88rem;">marti ag</div>
+              <div class="sponsor-role-tag" style="font-size:0.74rem;">4616 Kappel</div>
+            </div>
+          </a>
+          <a href="http://www.merkurmedien.ch" target="_blank" rel="noopener noreferrer" class="sponsor-card" style="padding:16px;">
+            <div class="sponsor-logo-wrap" style="height:78px;">
+              <img src="images/sponsors/sponsor-1002512-merkur-medien-ag.webp" alt="Merkur Medien AG — Sponsor SC Fulenbach" width="180" height="70" loading="lazy" decoding="async" data-slot="sponsor_bande_47_img">
+            </div>
+            <div>
+              <div class="sponsor-name" style="font-size:0.88rem;">Merkur Medien AG</div>
+              <div class="sponsor-role-tag" style="font-size:0.74rem;">4900 Langenthal</div>
+            </div>
+          </a>
+          <a href="http://www.metallbaumann.com" target="_blank" rel="noopener noreferrer" class="sponsor-card" style="padding:16px;">
+            <div class="sponsor-logo-wrap" style="height:78px;">
+              <img src="images/sponsors/sponsor-1001819-metallbaumann-gmbh.webp" alt="metallBAUmann GmbH — Sponsor SC Fulenbach" width="180" height="70" loading="lazy" decoding="async" data-slot="sponsor_bande_48_img">
+            </div>
+            <div>
+              <div class="sponsor-name" style="font-size:0.88rem;">metallBAUmann GmbH</div>
+              <div class="sponsor-role-tag" style="font-size:0.74rem;">4629 Fulenbach</div>
+            </div>
+          </a>
+          <a href="http://www.mobador.ch" target="_blank" rel="noopener noreferrer" class="sponsor-card" style="padding:16px;">
+            <div class="sponsor-logo-wrap" style="height:78px;">
+              <img src="images/sponsors/sponsor-1000017-mobador.webp" alt="Mobador — Sponsor SC Fulenbach" width="180" height="70" loading="lazy" decoding="async" data-slot="sponsor_bande_49_img">
+            </div>
+            <div>
+              <div class="sponsor-name" style="font-size:0.88rem;">Mobador</div>
+              <div class="sponsor-role-tag" style="font-size:0.74rem;">4629 Fulenbach</div>
+            </div>
+          </a>
+          <a href="http://www.mundartstempel.ch/de/" target="_blank" rel="noopener noreferrer" class="sponsor-card" style="padding:16px;">
+            <div class="sponsor-logo-wrap" style="height:78px;">
+              <img src="images/sponsors/sponsor-1003045-mundart-stempel-gmbh.webp" alt="Mundart Stempel GmbH — Sponsor SC Fulenbach" width="180" height="70" loading="lazy" decoding="async" data-slot="sponsor_bande_50_img">
+            </div>
+            <div>
+              <div class="sponsor-name" style="font-size:0.88rem;">Mundart Stempel GmbH</div>
+              <div class="sponsor-role-tag" style="font-size:0.74rem;">4629 Fulenbach</div>
+            </div>
+          </a>
+          <a href="https://www.na-gips.ch/" target="_blank" rel="noopener noreferrer" class="sponsor-card" style="padding:16px;">
+            <div class="sponsor-logo-wrap" style="height:78px;">
+              <img src="images/sponsors/sponsor-1003362-na-gipsergeschaeft-gmbh.webp" alt="NA Gipsergeschäft GmbH — Sponsor SC Fulenbach" width="180" height="70" loading="lazy" decoding="async" data-slot="sponsor_bande_51_img">
+            </div>
+            <div>
+              <div class="sponsor-name" style="font-size:0.88rem;">NA Gipsergeschäft GmbH</div>
+              <div class="sponsor-role-tag" style="font-size:0.74rem;">8050 Zürich</div>
+            </div>
+          </a>
+          <a href="http://www.nuenlist.ch" target="_blank" rel="noopener noreferrer" class="sponsor-card" style="padding:16px;">
+            <div class="sponsor-logo-wrap" style="height:78px;">
+              <img src="images/sponsors/sponsor-1000046-nuenlist-ag.webp" alt="Nünlist AG — Sponsor SC Fulenbach" width="180" height="70" loading="lazy" decoding="async" data-slot="sponsor_bande_52_img">
+            </div>
+            <div>
+              <div class="sponsor-name" style="font-size:0.88rem;">Nünlist AG</div>
+              <div class="sponsor-role-tag" style="font-size:0.74rem;">4622 Egerkingen</div>
+            </div>
+          </a>
+          <a href="https://perren-online.ch/" target="_blank" rel="noopener noreferrer" class="sponsor-card" style="padding:16px;">
+            <div class="sponsor-logo-wrap" style="height:78px;">
+              <img src="images/sponsors/sponsor-1002316-perren-malergeschaeft-gmbh.webp" alt="Perren Malergeschäft GmbH — Sponsor SC Fulenbach" width="180" height="70" loading="lazy" decoding="async" data-slot="sponsor_bande_53_img">
+            </div>
+            <div>
+              <div class="sponsor-name" style="font-size:0.88rem;">Perren Malergeschäft GmbH</div>
+              <div class="sponsor-role-tag" style="font-size:0.74rem;">4702 Oensingen</div>
+            </div>
+          </a>
+          <a href="http://www.pva-neuendorf.ch" target="_blank" rel="noopener noreferrer" class="sponsor-card" style="padding:16px;">
+            <div class="sponsor-logo-wrap" style="height:78px;">
+              <img src="images/sponsors/sponsor-1000061-perriard-von-arx.webp" alt="Perriard &amp; von Arx — Sponsor SC Fulenbach" width="180" height="70" loading="lazy" decoding="async" data-slot="sponsor_bande_54_img">
+            </div>
+            <div>
+              <div class="sponsor-name" style="font-size:0.88rem;">Perriard &amp; von Arx</div>
+              <div class="sponsor-role-tag" style="font-size:0.74rem;">4623 Neuendorf</div>
+            </div>
+          </a>
+          <a href="http://www.proconf.ch" target="_blank" rel="noopener noreferrer" class="sponsor-card" style="padding:16px;">
+            <div class="sponsor-logo-wrap" style="height:78px;">
+              <img src="images/sponsors/sponsor-1000033-proconf-ag.webp" alt="Proconf AG — Sponsor SC Fulenbach" width="180" height="70" loading="lazy" decoding="async" data-slot="sponsor_bande_55_img">
+            </div>
+            <div>
+              <div class="sponsor-name" style="font-size:0.88rem;">Proconf AG</div>
+              <div class="sponsor-role-tag" style="font-size:0.74rem;">4624 Härkingen</div>
+            </div>
+          </a>
+          <a href="http://pumag.ch" target="_blank" rel="noopener noreferrer" class="sponsor-card" style="padding:16px;">
+            <div class="sponsor-logo-wrap" style="height:78px;">
+              <img src="images/sponsors/sponsor-1001026-pumag-consulting-ag.webp" alt="Pumag Consulting AG — Sponsor SC Fulenbach" width="180" height="70" loading="lazy" decoding="async" data-slot="sponsor_bande_56_img">
+            </div>
+            <div>
+              <div class="sponsor-name" style="font-size:0.88rem;">Pumag Consulting AG</div>
+              <div class="sponsor-role-tag" style="font-size:0.74rem;">pumag.ch</div>
+            </div>
+          </a>
+          <a href="http://www.punktelf.ch" target="_blank" rel="noopener noreferrer" class="sponsor-card" style="padding:16px;">
+            <div class="sponsor-logo-wrap" style="height:78px;">
+              <img src="images/sponsors/sponsor-1002660-punkt-elf-bistro-bar-kultur.webp" alt="punkt.elf Bistro Bar Kultur — Sponsor SC Fulenbach" width="180" height="70" loading="lazy" decoding="async" data-slot="sponsor_bande_57_img">
+            </div>
+            <div>
+              <div class="sponsor-name" style="font-size:0.88rem;">punkt.elf Bistro Bar Kultur</div>
+              <div class="sponsor-role-tag" style="font-size:0.74rem;">4500 Solothurn</div>
+            </div>
+          </a>
+          <a href="http://www.raiffeisen.ch/aare-langete/de.html" target="_blank" rel="noopener noreferrer" class="sponsor-card" style="padding:16px;">
+            <div class="sponsor-logo-wrap" style="height:78px;">
+              <img src="images/sponsors/sponsor-1000838-raiffeisenbank-aare-langete.webp" alt="Raiffeisenbank Aare-Langete — Sponsor SC Fulenbach" width="180" height="70" loading="lazy" decoding="async" data-slot="sponsor_bande_58_img">
+            </div>
+            <div>
+              <div class="sponsor-name" style="font-size:0.88rem;">Raiffeisenbank Aare-Langete</div>
+              <div class="sponsor-role-tag" style="font-size:0.74rem;">4629 Fulenbach</div>
+            </div>
+          </a>
+          <a href="http://www.doerfliger.ch" target="_blank" rel="noopener noreferrer" class="sponsor-card" style="padding:16px;">
+            <div class="sponsor-logo-wrap" style="height:78px;">
+              <img src="images/sponsors/sponsor-1000056-reinhold-doerfliger-ag.webp" alt="Reinhold Dörfliger AG — Sponsor SC Fulenbach" width="180" height="70" loading="lazy" decoding="async" data-slot="sponsor_bande_59_img">
+            </div>
+            <div>
+              <div class="sponsor-name" style="font-size:0.88rem;">Reinhold Dörfliger AG</div>
+              <div class="sponsor-role-tag" style="font-size:0.74rem;">4622 Egerkingen</div>
+            </div>
+          </a>
+          <a href="http://www.roth-dach.ch" target="_blank" rel="noopener noreferrer" class="sponsor-card" style="padding:16px;">
+            <div class="sponsor-logo-wrap" style="height:78px;">
+              <img src="images/sponsors/sponsor-1004347-roth-dach-gmbh.webp" alt="Roth Dach GmbH — Sponsor SC Fulenbach" width="180" height="70" loading="lazy" decoding="async" data-slot="sponsor_bande_60_img">
+            </div>
+            <div>
+              <div class="sponsor-name" style="font-size:0.88rem;">Roth Dach GmbH</div>
+              <div class="sponsor-role-tag" style="font-size:0.74rem;">4617 Gunzgen</div>
+            </div>
+          </a>
+          <a href="http://www.rothpletz.ch" target="_blank" rel="noopener noreferrer" class="sponsor-card" style="padding:16px;">
+            <div class="sponsor-logo-wrap" style="height:78px;">
+              <img src="images/sponsors/sponsor-1000466-rothpletz-lienhard-cie-ag.webp" alt="Rothpletz, Lienhard + Cie AG — Sponsor SC Fulenbach" width="180" height="70" loading="lazy" decoding="async" data-slot="sponsor_bande_61_img">
+            </div>
+            <div>
+              <div class="sponsor-name" style="font-size:0.88rem;">Rothpletz, Lienhard + Cie AG</div>
+              <div class="sponsor-role-tag" style="font-size:0.74rem;">4600 Olten</div>
+            </div>
+          </a>
+          <a href="http://www.sabag.ch" target="_blank" rel="noopener noreferrer" class="sponsor-card" style="padding:16px;">
+            <div class="sponsor-logo-wrap" style="height:78px;">
+              <img src="images/sponsors/sponsor-1001260-sabag-haegendorf-ag.webp" alt="SABAG Hägendorf AG — Sponsor SC Fulenbach" width="180" height="70" loading="lazy" decoding="async" data-slot="sponsor_bande_62_img">
+            </div>
+            <div>
+              <div class="sponsor-name" style="font-size:0.88rem;">SABAG Hägendorf AG</div>
+              <div class="sponsor-role-tag" style="font-size:0.74rem;">4614 Hägendorf</div>
+            </div>
+          </a>
+          <a href="http://www.schlossereijaeggi.ch" target="_blank" rel="noopener noreferrer" class="sponsor-card" style="padding:16px;">
+            <div class="sponsor-logo-wrap" style="height:78px;">
+              <img src="images/sponsors/sponsor-1000052-schlosserei-jaeggi-gmbh.webp" alt="Schlosserei Jäggi GmbH — Sponsor SC Fulenbach" width="180" height="70" loading="lazy" decoding="async" data-slot="sponsor_bande_63_img">
+            </div>
+            <div>
+              <div class="sponsor-name" style="font-size:0.88rem;">Schlosserei Jäggi GmbH</div>
+              <div class="sponsor-role-tag" style="font-size:0.74rem;">4618 Boningen</div>
+            </div>
+          </a>
+          <a href="http://www.sidlerschreinerei.ch" target="_blank" rel="noopener noreferrer" class="sponsor-card" style="padding:16px;">
+            <div class="sponsor-logo-wrap" style="height:78px;">
+              <img src="images/sponsors/sponsor-1001816-schreinerei-sidler-gmbh.webp" alt="Schreinerei Sidler GmbH — Sponsor SC Fulenbach" width="180" height="70" loading="lazy" decoding="async" data-slot="sponsor_bande_64_img">
+            </div>
+            <div>
+              <div class="sponsor-name" style="font-size:0.88rem;">Schreinerei Sidler GmbH</div>
+              <div class="sponsor-role-tag" style="font-size:0.74rem;">4629 Fulenbach</div>
+            </div>
+          </a>
+          <a href="http://www.sommerhalder-rickli.ch" target="_blank" rel="noopener noreferrer" class="sponsor-card" style="padding:16px;">
+            <div class="sponsor-logo-wrap" style="height:78px;">
+              <img src="images/sponsors/sponsor-1000095-sommerhalder-rickli-ag.webp" alt="Sommerhalder-Rickli AG — Sponsor SC Fulenbach" width="180" height="70" loading="lazy" decoding="async" data-slot="sponsor_bande_65_img">
+            </div>
+            <div>
+              <div class="sponsor-name" style="font-size:0.88rem;">Sommerhalder-Rickli AG</div>
+              <div class="sponsor-role-tag" style="font-size:0.74rem;">4853 Murgenthal</div>
+            </div>
+          </a>
+          <a href="http://www.strub-glashuetten.ch" target="_blank" rel="noopener noreferrer" class="sponsor-card" style="padding:16px;">
+            <div class="sponsor-logo-wrap" style="height:78px;">
+              <img src="images/sponsors/sponsor-1000051-strub-holzbau-bedachungen-ag.webp" alt="Strub Holzbau + Bedachungen AG — Sponsor SC Fulenbach" width="180" height="70" loading="lazy" decoding="async" data-slot="sponsor_bande_66_img">
+            </div>
+            <div>
+              <div class="sponsor-name" style="font-size:0.88rem;">Strub Holzbau + Bedachungen AG</div>
+              <div class="sponsor-role-tag" style="font-size:0.74rem;">4856 Glashütten</div>
+            </div>
+          </a>
+          <a href="http://tiffany-olten.ch" target="_blank" rel="noopener noreferrer" class="sponsor-card" style="padding:16px;">
+            <div class="sponsor-logo-wrap" style="height:78px;">
+              <img src="images/sponsors/sponsor-1001275-tiffany-gmbh.webp" alt="Tiffany GmbH — Sponsor SC Fulenbach" width="180" height="70" loading="lazy" decoding="async" data-slot="sponsor_bande_67_img">
+            </div>
+            <div>
+              <div class="sponsor-name" style="font-size:0.88rem;">Tiffany GmbH</div>
+              <div class="sponsor-role-tag" style="font-size:0.74rem;">tiffany-olten.ch</div>
+            </div>
+          </a>
+          <div class="sponsor-card" style="padding:16px;">
+            <div class="sponsor-logo-wrap" style="height:78px;">
+              <img src="images/sponsors/sponsor-1000958-transport-und-getraenke.webp" alt="Transport und Getränke — Sponsor SC Fulenbach" width="180" height="70" loading="lazy" decoding="async" data-slot="sponsor_bande_68_img">
+            </div>
+            <div>
+              <div class="sponsor-name" style="font-size:0.88rem;">Transport und Getränke</div>
+              <div class="sponsor-role-tag" style="font-size:0.74rem;">4629 Fulenbach</div>
+            </div>
+          </div>
+          <a href="http://www.buettikerholzbau.ch" target="_blank" rel="noopener noreferrer" class="sponsor-card" style="padding:16px;">
+            <div class="sponsor-logo-wrap" style="height:78px;">
+              <img src="images/sponsors/sponsor-1000467-u-buettiker-holzbau-ag.webp" alt="U. Büttiker Holzbau AG — Sponsor SC Fulenbach" width="180" height="70" loading="lazy" decoding="async" data-slot="sponsor_bande_69_img">
+            </div>
+            <div>
+              <div class="sponsor-name" style="font-size:0.88rem;">U. Büttiker Holzbau AG</div>
+              <div class="sponsor-role-tag" style="font-size:0.74rem;">4628 Wolfwil</div>
+            </div>
+          </a>
+          <a href="http://www.u-f.ch" target="_blank" rel="noopener noreferrer" class="sponsor-card" style="padding:16px;">
+            <div class="sponsor-logo-wrap" style="height:78px;">
+              <img src="images/sponsors/sponsor-1001261-universal-feuerloeschgeraete-ag.webp" alt="UNIVERSAL Feuerlöschgeräte AG — Sponsor SC Fulenbach" width="180" height="70" loading="lazy" decoding="async" data-slot="sponsor_bande_70_img">
+            </div>
+            <div>
+              <div class="sponsor-name" style="font-size:0.88rem;">UNIVERSAL Feuerlöschgeräte AG</div>
+              <div class="sponsor-role-tag" style="font-size:0.74rem;">3006 Bern</div>
+            </div>
+          </a>
+          <a href="http://www.valiant.ch/-/gst-liestal" target="_blank" rel="noopener noreferrer" class="sponsor-card" style="padding:16px;">
+            <div class="sponsor-logo-wrap" style="height:78px;">
+              <img src="images/sponsors/sponsor-1001347-valiant-bank-ag.webp" alt="Valiant Bank AG — Sponsor SC Fulenbach" width="180" height="70" loading="lazy" decoding="async" data-slot="sponsor_bande_71_img">
+            </div>
+            <div>
+              <div class="sponsor-name" style="font-size:0.88rem;">Valiant Bank AG</div>
+              <div class="sponsor-role-tag" style="font-size:0.74rem;">4410 Liestal</div>
+            </div>
+          </a>
+          <a href="http://www.vebo-oensingen.ch/" target="_blank" rel="noopener noreferrer" class="sponsor-card" style="padding:16px;">
+            <div class="sponsor-logo-wrap" style="height:78px;">
+              <img src="images/sponsors/sponsor-1000038-vebo-genossenschaft.webp" alt="VEBO Genossenschaft — Sponsor SC Fulenbach" width="180" height="70" loading="lazy" decoding="async" data-slot="sponsor_bande_72_img">
+            </div>
+            <div>
+              <div class="sponsor-name" style="font-size:0.88rem;">VEBO Genossenschaft</div>
+              <div class="sponsor-role-tag" style="font-size:0.74rem;">4702 Oensingen</div>
+            </div>
+          </a>
+          <div class="sponsor-card" style="padding:16px;">
+            <div class="sponsor-logo-wrap" style="height:78px;">
+              <img src="images/sponsors/sponsor-1001818-volg-fulenbach.webp" alt="Volg Fulenbach — Sponsor SC Fulenbach" width="180" height="70" loading="lazy" decoding="async" data-slot="sponsor_bande_73_img">
+            </div>
+            <div>
+              <div class="sponsor-name" style="font-size:0.88rem;">Volg Fulenbach</div>
+              <div class="sponsor-role-tag" style="font-size:0.74rem;">4629 Fulenbach</div>
+            </div>
+          </div>
+          <a href="http://www.vonarxsystems.ch/" target="_blank" rel="noopener noreferrer" class="sponsor-card" style="padding:16px;">
+            <div class="sponsor-logo-wrap" style="height:78px;">
+              <img src="images/sponsors/sponsor-von-arx-systems-ag.webp" alt="von arx systems ag — Sponsor SC Fulenbach" width="180" height="70" loading="lazy" decoding="async" data-slot="sponsor_bande_74_img">
+            </div>
+            <div>
+              <div class="sponsor-name" style="font-size:0.88rem;">von arx systems ag</div>
+              <div class="sponsor-role-tag" style="font-size:0.74rem;">4622 Egerkingen</div>
+            </div>
+          </a>
+          <a href="http://www.vonrohr-holzbau.ch" target="_blank" rel="noopener noreferrer" class="sponsor-card" style="padding:16px;">
+            <div class="sponsor-logo-wrap" style="height:78px;">
+              <img src="images/sponsors/sponsor-1000885-von-rohr-holzbau-ag.webp" alt="von Rohr Holzbau AG — Sponsor SC Fulenbach" width="180" height="70" loading="lazy" decoding="async" data-slot="sponsor_bande_75_img">
+            </div>
+            <div>
+              <div class="sponsor-name" style="font-size:0.88rem;">von Rohr Holzbau AG</div>
+              <div class="sponsor-role-tag" style="font-size:0.74rem;">4622 Egerkingen</div>
+            </div>
+          </a>
+          <a href="http://www.jäggi-fürst.ch" target="_blank" rel="noopener noreferrer" class="sponsor-card" style="padding:16px;">
+            <div class="sponsor-logo-wrap" style="height:78px;">
+              <img src="images/sponsors/sponsor-1000070-w-jaeggi-fuerst-gmbh.webp" alt="W. Jäggi-Fürst GmbH — Sponsor SC Fulenbach" width="180" height="70" loading="lazy" decoding="async" data-slot="sponsor_bande_76_img">
+            </div>
+            <div>
+              <div class="sponsor-name" style="font-size:0.88rem;">W. Jäggi-Fürst GmbH</div>
+              <div class="sponsor-role-tag" style="font-size:0.74rem;">4618 Boningen</div>
+            </div>
+          </a>
+          <a href="http://www.wobmann-kuechen.ch" target="_blank" rel="noopener noreferrer" class="sponsor-card" style="padding:16px;">
+            <div class="sponsor-logo-wrap" style="height:78px;">
+              <img src="images/sponsors/sponsor-1002313-wobmann-kuechen-ag.webp" alt="Wobmann Küchen AG — Sponsor SC Fulenbach" width="180" height="70" loading="lazy" decoding="async" data-slot="sponsor_bande_77_img">
+            </div>
+            <div>
+              <div class="sponsor-name" style="font-size:0.88rem;">Wobmann Küchen AG</div>
+              <div class="sponsor-role-tag" style="font-size:0.74rem;">4629 Fulenbach</div>
+            </div>
+          </a>
+          <a href="http://www.wyhatec.ch" target="_blank" rel="noopener noreferrer" class="sponsor-card" style="padding:16px;">
+            <div class="sponsor-logo-wrap" style="height:78px;">
+              <img src="images/sponsors/sponsor-1000875-wyhatec-gmbh.webp" alt="WyHaTec GmbH — Sponsor SC Fulenbach" width="180" height="70" loading="lazy" decoding="async" data-slot="sponsor_bande_78_img">
+            </div>
+            <div>
+              <div class="sponsor-name" style="font-size:0.88rem;">WyHaTec GmbH</div>
+              <div class="sponsor-role-tag" style="font-size:0.74rem;">4629 Fulenbach</div>
+            </div>
+          </a>
+          <a href="http://www.wyss-reisen.ch" target="_blank" rel="noopener noreferrer" class="sponsor-card" style="padding:16px;">
+            <div class="sponsor-logo-wrap" style="height:78px;">
+              <img src="images/sponsors/sponsor-1000819-wyss-reisen-ag.webp" alt="Wyss Reisen AG — Sponsor SC Fulenbach" width="180" height="70" loading="lazy" decoding="async" data-slot="sponsor_bande_79_img">
+            </div>
+            <div>
+              <div class="sponsor-name" style="font-size:0.88rem;">Wyss Reisen AG</div>
+              <div class="sponsor-role-tag" style="font-size:0.74rem;">4618 Boningen</div>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <!-- SPONSORING- & GÖNNER-PLATTFORMEN -->
+      <div class="grid-3" style="margin-top:36px;">
+        <div class="card" style="padding:24px;background-color:var(--scf-navy-deep);color:#FFFFFF;border-color:var(--scf-navy-deep);">
+          <div>
+            <span class="wp-arch-badge" style="margin-bottom:14px;">100ER-CLUB · GÖNNER &amp; FREUNDE</span>
+            <h3 style="color:#FFFFFF;font-size:1.18rem;font-weight:800;margin-bottom:8px;">Gönner und Freunde des SC Fulenbach</h3>
+            <p style="font-size:0.88rem;color:#E2E8F0;margin-bottom:14px;">
+              Der 100er-Club unterstützt gezielt die Juniorenabteilung und den Gesamtverein des SC Fulenbach und pflegt das gesellschaftliche Netzwerk rund um den Sportplatz Bad (c/o Schaad Treuhand AG, Dorfstrasse 10, 4629 Fulenbach).
+            </p>
+          </div>
+          <a href="kontakt.html?thema=sponsoring" class="btn-cta btn-cta-gold btn-sm" style="width:100%;">Mitglied im 100er-Club werden</a>
+        </div>
+
+        <div class="card" style="padding:24px;background-color:var(--scf-navy-deep);color:#FFFFFF;border-color:var(--scf-navy-deep);">
+          <div>
+            <span class="wp-arch-badge" style="margin-bottom:14px;">SPORTPLATZ BAD · SICHTBARKEIT IM GÄU</span>
+            <h3 style="color:#FFFFFF;font-size:1.18rem;font-weight:800;margin-bottom:8px;">Banden-, Dress- &amp; Matchball-Sponsoring</h3>
+            <p style="font-size:0.88rem;color:#E2E8F0;margin-bottom:14px;">
+              Präsentiere dein Unternehmen auf dem Sportplatz Bad bei den Spielen der 2. Liga regional, den Juniorenturnieren und Traditions-Events wie dem Badfest. Kontakt: <strong>Andreas Guldimann</strong> (079 413 76 51).
+            </p>
+          </div>
+          <a href="kontakt.html?thema=sponsoring" class="btn-cta btn-cta-primary btn-sm" style="width:100%;">Sponsoring &amp; Bande anfragen</a>
+        </div>
+
+        <div class="card" style="padding:24px;background-color:var(--scf-green-soft);border-color:#6EE7B7;">
+          <div>
+            <span class="pillar-count" style="margin-bottom:14px;">CLUBHAUS BAD · 100 PLÄTZE</span>
+            <h3 style="font-size:1.18rem;font-weight:800;margin-bottom:8px;">Clubhaus für deinen Anlass mieten</h3>
+            <p style="font-size:0.88rem;color:var(--text-body);margin-bottom:14px;">
+              Unser Clubhaus an der Ewigkeitstrasse 5 bietet Platz für bis zu 100 Personen. Ideal für Geburtstage, Firmenessen und Vereinsanlässe. Zuständig: <strong>René Hofstetter</strong> (Tel. 079 302 62 47).
+            </p>
+          </div>
+          <a href="kontakt.html?thema=clubhaus" class="btn-cta btn-cta-navy btn-sm" style="width:100%;">Clubhaus-Termin anfragen</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer" data-section="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div style="display:flex;align-items:center;gap:12px;margin-bottom:14px;">
+            <img src="images/logo-scfulenbach.webp" alt="SC Fulenbach Wappen" width="46" height="46" loading="lazy" decoding="async" style="object-fit:contain;">
+            <div>
+              <div style="font-family:'Montserrat',sans-serif;font-weight:800;font-size:1.1rem;color:#FFFFFF;">SC FULENBACH</div>
+              <div style="font-size:0.75rem;color:#FBBF24;font-weight:700;">GEGRÜNDET SOMMER 1944 · SOFV NR. 1826</div>
+            </div>
+          </div>
+          <p style="font-size:0.86rem;color:#CBD5E1;line-height:1.6;margin-bottom:14px;" data-slot="footer_about">
+            Heimat für 14 Mannschaften im Gäu und Untergäu: 1. Mannschaft (2. Liga regional), 2. Mannschaft (4. Liga), Senioren 30+, 5 Teams der Juniorengruppierung rot/blau (mit FC Wolfwil &amp; FC Kestenholz) sowie 6 Junioren-Teams D bis G auf dem Sportplatz Bad.
+          </p>
+          <div style="font-size:0.84rem;color:#E2E8F0;font-weight:600;">
+            Sportplatz Bad · Ewigkeitstrasse 5 · 4629 Fulenbach
+          </div>
+        </div>
+
+        <div>
+          <div class="footer-title">Musterhaus-Seiten (3 / 43 fertig)</div>
+          <ul class="footer-list">
+            <li><a href="index.html"><span class="wp-status-dot wp-dot-green"></span><span>Startseite &amp; Bauplan-Übersicht</span></a></li>
+            <li><a href="herren-1.html"><span class="wp-status-dot wp-dot-amber"></span><span>Muster-Team: 1. Mannschaft (2. Liga)</span></a></li>
+            <li><a href="herren-1.html#alle-teams-matrix"><span class="wp-status-dot wp-dot-amber"></span><span>Alle 14 Teams in der Rohbau-Matrix</span></a></li>
+            <li><a href="index.html#sponsoren"><span class="wp-status-dot wp-dot-green"></span><span>Alle 88 Sponsoren-Einträge &amp; 100er-Club</span></a></li>
+            <li><a href="kontakt.html"><span class="wp-status-dot wp-dot-green"></span><span>Smart-Anfrage &amp; PDF-Dossier testen</span></a></li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="footer-title">Rohbau-Module (40 / 43 offen)</div>
+          <ul class="footer-list">
+            <li><button type="button" onclick="wpOpenBlueprintModal('Rohbau-Modul A: 13 weitere Mannschaften (11 Unterseiten)', '2. Mannschaft, Senioren 30+, Gruppierung rot/blau &amp; Junioren D–G', 'Sportchef Mirko Ferrari (079 397 87 73) &amp; Juniorenobmann Michael «Mike» Frieder (079 647 13 33)', 'probetraining')">13 weitere Teams (Rohbau-Modul A)</button></li>
+            <li><button type="button" onclick="wpOpenBlueprintModal('Rohbau-Modul B: Verein, Vorstand (11), Schiedsrichter &amp; Chronik 1944', '11 Vereins-Unterseiten für den Hauptauftrag vorgemerkt', 'Präsident Willi von Arx (vorstand@scfulenbach.ch) · Ehrenpräsident Urs Lehmann', 'mitgliedschaft')">Vorstand, SR &amp; Chronik 1944 (Modul B)</button></li>
+            <li><button type="button" onclick="wpOpenBlueprintModal('Rohbau-Modul C: Sportplatz Bad, Clubhaus (100 Plätze) &amp; Events', '11 Anlage- &amp; Anlass-Unterseiten im Rohbau', 'Clubhaus-Vermietung: René Hofstetter (Tel. 079 302 62 47) · Infrastruktur: Alfred Ammann', 'clubhaus')">Clubhaus mieten &amp; Badfest (Modul C)</button></li>
+            <li><button type="button" onclick="wpOpenBlueprintModal('Rohbau-Modul D: Spielbetrieb, Matchberichte, Lagerwoche &amp; Fanshop', '7 Spielbetriebs- &amp; Shop-Unterseiten im Rohbau', 'Medien &amp; Support: David Ackermann (david.ackermann@scfulenbach.ch)', 'fanshop')">Lagerwoche &amp; SCF-Fanshop (Modul D)</button></li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="footer-title">Direkt-Service &amp; Ressorts</div>
+          <ul class="footer-list">
+            <li><a href="kontakt.html?thema=probetraining">Probetraining / Junioren anmelden</a></li>
+            <li><a href="kontakt.html?thema=sponsoring">Sponsoring, Bande &amp; 100er-Club G&amp;F</a></li>
+            <li><a href="kontakt.html?thema=clubhaus">Clubhaus Bad mieten (100 Plätze)</a></li>
+            <li><a href="kontakt.html?thema=spielbetrieb">Schiedsrichter werden (CHF 500/Jahr)</a></li>
+            <li><a href="kontakt.html?thema=fanshop">SCF-Fanshop (Cap CHF 25 / Wimpel CHF 15)</a></li>
+            <li><button type="button" onclick="wpOpenImpressumModal()">Impressum &amp; Datenschutz (revDSG)</button></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>&copy; 2026 Sportclub Fulenbach (4629 Fulenbach) · Architektur-Entwurf V2 (Ausbaustufe: 7 % / 3 von 43 Seiten).</div>
+        <div style="display:flex;gap:16px;flex-wrap:wrap;">
+          <a href="herren-1.html" style="color:#FBBF24;font-weight:700;">Muster-Team 1. Mannschaft &amp; 14-Teams-Matrix</a>
+          <a href="kontakt.html" style="color:#E2E8F0;">Smart-Anfrage-Zentrale</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ARCHITEKTUR-BLAUPAUSEN-MODAL -->
+  <div class="wp-modal-backdrop" id="wpBlueprintModal" role="dialog" aria-modal="true" aria-labelledby="wpBpTitle">
+    <div class="wp-modal-dialog">
+      <button type="button" class="wp-modal-close" aria-label="Dialog schliessen" onclick="wpCloseBlueprintModal()">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+      <div class="section-kicker">BAUPLAN- &amp; MUSTERHAUS-PRINZIP · SC FULENBACH (7 % AUSBAUSTUFE)</div>
+      <h3 id="wpBpTitle" style="font-size:1.32rem;font-weight:800;margin-bottom:8px;">Rohbau-Modul: Vorgemerkt für den Hauptauftrag</h3>
+      <p id="wpBpSub" style="font-size:0.9rem;color:var(--text-body);margin-bottom:12px;">
+        Die aktuelle Website <strong>scfulenbach.ch</strong> umfasst <strong>43 Seiten</strong> und <strong>14 Mannschaften</strong>. Damit der Vorstand das neue Design, die Sponsoren-Integration und die digitale Anfrage-Zentrale vorab ohne Risiko prüfen kann, wurden in diesem Prototyp bewusst <strong>3 von 43 Seiten (7 %)</strong> exemplarisch bis ins Detail gebaut.
+      </p>
+      <div style="background-color:var(--scf-green-soft);border-left:4px solid var(--scf-green);padding:12px 14px;border-radius:var(--radius-sm);font-size:0.86rem;margin-bottom:14px;">
+        <div style="font-weight:700;color:var(--scf-navy);" id="wpBpCategory">Bereich: Verein / Mannschaften / Sportplatz Bad</div>
+        <div style="color:var(--text-body);margin-top:2px;" id="wpBpContact">Zuständige Ansprechperson im SC Fulenbach: Vorstand / Sportchef</div>
+      </div>
+
+      <div class="wp-modal-checklist">
+        <div style="font-family:'Montserrat',sans-serif;font-size:0.78rem;font-weight:800;text-transform:uppercase;color:var(--scf-navy);">
+          Was bei Freigabe des Hauptauftrags in diesem Modul eins zu eins ausgebaut wird:
+        </div>
+        <div class="wp-modal-check-item">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><polyline points="20 6 9 17 4 12"/></svg>
+          <span>Vollständige Übernahme aller Original-Fotos, Kaderlisten, Trainingszeiten und Berichte von scfulenbach.ch</span>
+        </div>
+        <div class="wp-modal-check-item">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><polyline points="20 6 9 17 4 12"/></svg>
+          <span>Direkte SOFV-Resultate- und Spielplan-Einbindung (Verein Nr. 1826) sowie Sponsoren-Zuordnung pro Team</span>
+        </div>
+        <div class="wp-modal-check-item">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><polyline points="20 6 9 17 4 12"/></svg>
+          <span>Direkt-Routing von Anfragen (Probetraining, Clubhaus-Miete, Sponsoring) mit 1-Seiten-PDF-Dossier ans Ressort</span>
+        </div>
+        <div class="wp-modal-check-item">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><polyline points="20 6 9 17 4 12"/></svg>
+          <span>Selbstständige Pflege von Texten, Bildern und Anlässen durch den Verein im passwortgeschützten Studio-Cockpit</span>
+        </div>
+      </div>
+
+      <div style="display:flex;flex-wrap:wrap;gap:10px;margin-top:18px;">
+        <a href="herren-1.html" class="btn-cta btn-cta-primary btn-sm" onclick="wpCloseBlueprintModal()">
+          <span>Fertige Muster-Seite (1. Mannschaft) ansehen</span>
+        </a>
+        <a href="kontakt.html?thema=probetraining" id="wpBpCtaLink" class="btn-cta btn-cta-gold btn-sm">
+          <span>Anfrage für dieses Ressort live testen</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- IMPRESSUM MODAL -->
+  <div class="wp-modal-backdrop" id="wpImpressumModal" role="dialog" aria-modal="true" aria-labelledby="wpImpTitle">
+    <div class="wp-modal-dialog">
+      <button type="button" class="wp-modal-close" aria-label="Impressum schliessen" onclick="wpCloseImpressumModal()">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+      <div class="section-kicker">RECHTLICHE ANGABEN · SCHWEIZER DSG</div>
+      <h3 id="wpImpTitle" style="font-size:1.3rem;font-weight:800;margin-bottom:10px;">Impressum &amp; Datenschutz — Sportclub Fulenbach</h3>
+      <div style="font-size:0.88rem;color:var(--text-body);display:flex;flex-direction:column;gap:10px;">
+        <p><strong>Vereinsadresse &amp; Sportanlage:</strong><br>Sportclub Fulenbach (SOFV-Verein Nr. 1826) · Sportplatz Bad · Ewigkeitstrasse 5 · 4629 Fulenbach</p>
+        <p><strong>Vertretungsberechtigter Vorstand:</strong><br>Willi von Arx (Präsident · vorstand@scfulenbach.ch) · Elias Sidler (Vize-Präsident / Anlässe) · Rahel Napoli (Aktuarin) · Roland Wiss (Finanzen &amp; Verwaltung a.i.) · Mirko Ferrari (Sportchef · mirko.ferrari@scfulenbach.ch) · Andreas Guldimann (Sponsoring / Marketing · andreas.guldimann@scfulenbach.ch) · Michael «Mike» Frieder (Juniorenobmann) · Alfred Ammann (Infrastruktur)</p>
+        <p><strong>Medien, Support &amp; Webmaster:</strong><br>David Ackermann (david.ackermann@scfulenbach.ch) · Robin Müller (Social Media / Anlässe)</p>
+        <p><strong>Datenschutz (Schweizer Datenschutzgesetz revDSG):</strong><br>Personendaten aus Kontakt-, Probetraining-, Clubhaus- und Sponsoring-Anfragen werden ausschliesslich zur Vereinsadministration innerhalb des Sportclub Fulenbach verwendet und niemals an unbefugte Dritte weitergegeben.</p>
+      </div>
+      <div style="margin-top:18px;text-align:right;">
+        <button type="button" class="btn-cta btn-cta-navy btn-sm" onclick="wpCloseImpressumModal()">Schliessen</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function wpToggleMobileMenu() {
+      var d = document.getElementById('mobileDrawer');
+      if (d) d.classList.toggle('open');
+    }
+    function wpCloseMobileMenu() {
+      var d = document.getElementById('mobileDrawer');
+      if (d) d.classList.remove('open');
+    }
+    function wpOpenBlueprintModal(title, category, contact, topicParam) {
+      var m = document.getElementById('wpBlueprintModal');
+      if (!m) return;
+      var tEl = document.getElementById('wpBpTitle');
+      var cEl = document.getElementById('wpBpCategory');
+      var pEl = document.getElementById('wpBpContact');
+      var lEl = document.getElementById('wpBpCtaLink');
+      if (tEl && title) tEl.textContent = title;
+      if (cEl && category) cEl.textContent = 'Bereich / Umfang: ' + category;
+      if (pEl && contact) pEl.textContent = 'Zuständig im SC Fulenbach: ' + contact;
+      if (lEl) {
+        var q = topicParam ? ('?thema=' + encodeURIComponent(topicParam)) : '?thema=probetraining';
+        lEl.href = 'kontakt.html' + q;
+      }
+      m.classList.add('open');
+    }
+    function wpCloseBlueprintModal() {
+      var m = document.getElementById('wpBlueprintModal');
+      if (m) m.classList.remove('open');
+    }
+    function wpOpenImpressumModal() {
+      var m = document.getElementById('wpImpressumModal');
+      if (m) m.classList.add('open');
+    }
+    function wpCloseImpressumModal() {
+      var m = document.getElementById('wpImpressumModal');
+      if (m) m.classList.remove('open');
+    }
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') {
+        wpCloseBlueprintModal();
+        wpCloseImpressumModal();
+      }
+    });
+  </script>
+</body>
+</html>
