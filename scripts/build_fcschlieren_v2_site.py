@@ -69,9 +69,9 @@ V2_BLUEPRINT_CSS = """
     }
     .wp-v2-bar-left {
       display: flex;
-      align-items: center;
-      gap: 8px;
-      flex-wrap: wrap;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 3px;
     }
     .wp-v2-study-badge {
       display: inline-flex;
