@@ -6,7 +6,7 @@
   <meta http-equiv="Content-Security-Policy" content="default-src 'self' https: data: blob:; script-src 'self' 'unsafe-inline' https:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' https: data: blob:; connect-src 'self' https:;">
   <meta name="referrer" content="strict-origin-when-cross-origin">
   <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=()">
-  <title>FC Schlieren — Kompakte Vorschau mit Seiten-Übersicht (Variante 2)</title>
+  <title>FC Schlieren (V2 Bauplan-Modus: 6 % Prototyp / 94 % Rohbau) | Architektur-Studie</title>
   <meta name="description" content="Unverbindlicher Vorschau-Entwurf (Variante 2) für den Fussballclub Schlieren: 3 von 48 Seiten als Beispiel ausgearbeitet, 45 weitere Unterseiten &amp; 32 Teams in der Übersicht.">
   <link rel="icon" type="image/png" href="images/favicon-32x32.png">
   <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
@@ -2757,10 +2757,13 @@
       </div>
 
       <div style="display:flex;flex-wrap:wrap;gap:10px;margin-top:18px;">
+        <a href="team-update.html?team=1-mannschaft" id="wpBpTeamUpdateLink" class="btn-cta btn-cta-gold btn-sm">
+          <span>Mannschafts-Daten &amp; Kader einreichen (Trainer-Formular)</span>
+        </a>
         <a href="herren-1.html" class="btn-cta btn-cta-primary btn-sm" onclick="wpCloseBlueprintModal()">
           <span>Ausgearbeitetes Beispiel-Team (Herren 1 · 1/33) ansehen</span>
         </a>
-        <a href="kontakt.html?thema=probetraining" id="wpBpCtaLink" class="btn-cta btn-cta-gold btn-sm">
+        <a href="kontakt.html?thema=probetraining" id="wpBpCtaLink" class="btn-cta btn-cta-outline btn-sm">
           <span>Smart-Anfrage (Live-Demo) testen</span>
         </a>
       </div>
@@ -2807,6 +2810,13 @@
       if (cEl) cEl.textContent = 'Bereich / Ausbaustatus: ' + (category || 'Vorbereitet (folgt beim Ausbau)');
       if (pEl) pEl.textContent = 'Zuständige Ansprechperson: ' + (contact || 'Geschäftsstelle FC Schlieren (j.seifriz@fcschlieren.ch)');
       if (linkEl) linkEl.href = 'kontakt.html?thema=' + (topicParam || 'probetraining');
+      var uEl = document.getElementById('wpBpTeamUpdateLink');
+      if (uEl) {
+        var rawT = (title || '').split(':').pop().trim().toLowerCase()
+          .replace(/ä/g, 'ae').replace(/ö/g, 'oe').replace(/ü/g, 'ue')
+          .replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
+        uEl.href = 'team-update.html?team=' + encodeURIComponent(rawT || '1-mannschaft');
+      }
       m.classList.add('open');
     }
     function wpCloseBlueprintModal() {

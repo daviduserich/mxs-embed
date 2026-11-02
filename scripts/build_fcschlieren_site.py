@@ -1419,10 +1419,13 @@ def render_shell(filename: str, page_title: str, active_nav: str, body_html: str
       </div>
 
       <div style="display:flex;flex-wrap:wrap;gap:10px;margin-top:18px;">
+        <a href="team-update.html?team=1-mannschaft" id="wpBpTeamUpdateLink" class="btn-cta btn-cta-gold btn-sm">
+          <span>Mannschafts-Daten &amp; Kader einreichen (Trainer-Formular)</span>
+        </a>
         <a href="herren-1.html" class="btn-cta btn-cta-primary btn-sm" onclick="wpCloseBlueprintModal()">
           <span>Ausgearbeitete Beispiel-Teams (Herren 1 / Frauen 1) ansehen</span>
         </a>
-        <a href="kontakt.html?thema=probetraining" id="wpBpCtaLink" class="btn-cta btn-cta-gold btn-sm">
+        <a href="kontakt.html?thema=probetraining" id="wpBpCtaLink" class="btn-cta btn-cta-outline btn-sm">
           <span>Anfrage / Probetraining für diesen Bereich starten</span>
         </a>
       </div>
@@ -1469,6 +1472,13 @@ def render_shell(filename: str, page_title: str, active_nav: str, body_html: str
       if (cEl) cEl.textContent = 'Bereich / Abteilung: ' + (category || 'FC Schlieren');
       if (pEl) pEl.textContent = 'Zuständige Ansprechperson: ' + (contact || 'Geschäftsstelle FC Schlieren (j.seifriz@fcschlieren.ch)');
       if (linkEl) linkEl.href = 'kontakt.html?thema=' + (topicParam || 'probetraining');
+      var uEl = document.getElementById('wpBpTeamUpdateLink');
+      if (uEl) {{
+        var rawT = (title || '').split(':').pop().trim().toLowerCase()
+          .replace(/ä/g, 'ae').replace(/ö/g, 'oe').replace(/ü/g, 'ue')
+          .replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
+        uEl.href = 'team-update.html?team=' + encodeURIComponent(rawT || '1-mannschaft');
+      }}
       m.classList.add('open');
     }}
     function wpCloseBlueprintModal() {{
@@ -2586,8 +2596,9 @@ HERREN_1_BODY = """
             Der FC Schlieren stellt <strong>33 Mannschaften</strong>. Damit du als Vorstand oder Mitglied sofort erlebst, wie jede einzelne Mannschaftsseite künftig aussieht, haben wir hier die <strong>1. Mannschaft (Herren 1)</strong> und die <strong>Frauen 1</strong> komplett mit Original-Mannschaftsfoto, Spielerkader, Trainerstab und Sponsoren ausgebaut. Unten findest du zudem die interaktive <strong>33-Teams-Matrix</strong>.
           </p>
         </div>
-        <div style="display:flex;flex-direction:column;gap:8px;flex-shrink:0;">
-          <a href="#alle-teams-matrix" class="btn-cta btn-cta-gold btn-sm">Zur 33-Teams-Matrix springen</a>
+        <div style="display:flex;flex-direction:column;gap:8px;max-width:100%;">
+          <a href="team-update.html?team=1-mannschaft" class="btn-cta btn-cta-gold btn-sm" style="white-space:normal;text-align:center;">Mannschafts-Daten &amp; Kader einreichen (Trainer-Formular)</a>
+          <a href="#alle-teams-matrix" class="btn-cta btn-cta-ghost-light btn-sm">Zur 33-Teams-Matrix springen</a>
           <a href="kontakt.html?thema=probetraining" class="btn-cta btn-cta-ghost-light btn-sm">Probetraining anmelden</a>
         </div>
       </div>

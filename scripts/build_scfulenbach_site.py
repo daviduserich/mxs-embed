@@ -1443,10 +1443,13 @@ def render_shell(filename: str, page_title: str, active_nav: str, body_html: str
       </div>
 
       <div style="display:flex;flex-wrap:wrap;gap:10px;margin-top:18px;">
+        <a href="team-update.html?team=1-mannschaft" id="wpBpTeamUpdateLink" class="btn-cta btn-cta-gold btn-sm">
+          <span>Mannschafts-Daten &amp; Kader einreichen (Trainer-Formular)</span>
+        </a>
         <a href="herren-1.html" class="btn-cta btn-cta-primary btn-sm" onclick="wpCloseBlueprintModal()">
           <span>Ausgearbeitetes Beispiel-Team (1. Mannschaft) ansehen</span>
         </a>
-        <a href="kontakt.html?thema=probetraining" id="wpBpCtaLink" class="btn-cta btn-cta-gold btn-sm">
+        <a href="kontakt.html?thema=probetraining" id="wpBpCtaLink" class="btn-cta btn-cta-outline btn-sm">
           <span>Anfrage für dieses Ressort live testen</span>
         </a>
       </div>
@@ -1495,6 +1498,13 @@ def render_shell(filename: str, page_title: str, active_nav: str, body_html: str
       if (lEl) {{
         var q = topicParam ? ('?thema=' + encodeURIComponent(topicParam)) : '?thema=probetraining';
         lEl.href = 'kontakt.html' + q;
+      }}
+      var uEl = document.getElementById('wpBpTeamUpdateLink');
+      if (uEl) {{
+        var rawT = (title || '').split(':').pop().trim().toLowerCase()
+          .replace(/ä/g, 'ae').replace(/ö/g, 'oe').replace(/ü/g, 'ue')
+          .replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
+        uEl.href = 'team-update.html?team=' + encodeURIComponent(rawT || '1-mannschaft');
       }}
       m.classList.add('open');
     }}
@@ -2247,8 +2257,9 @@ HERREN_1_BODY = """
             Der SC Fulenbach stellt insgesamt <strong>14 Mannschaften</strong> (3 Aktiv-/Senioren-Teams, 5 Teams der Juniorengruppierung rot/blau und 6 Nachwuchs-Teams D bis G). In diesem Prototyp ist die <strong>1. Mannschaft (1/14 = 7 %)</strong> komplett mit Original-Mannschaftsfoto, Trainer- &amp; Betreuerstab, allen 20 Kaderspielern und den 3 Mannschaftssponsoren ausgebaut. Unten in der <strong>14-Teams-Übersicht</strong> sind alle 13 weiteren Teams als Platzhalter vorbereitet.
           </p>
         </div>
-        <div style="display:flex;flex-direction:column;gap:8px;flex-shrink:0;">
-          <a href="#alle-teams-matrix" class="btn-cta btn-cta-gold btn-sm">Zur 14-Teams-Übersicht</a>
+        <div style="display:flex;flex-direction:column;gap:8px;max-width:100%;">
+          <a href="team-update.html?team=1-mannschaft" class="btn-cta btn-cta-gold btn-sm" style="white-space:normal;text-align:center;">Mannschafts-Daten &amp; Kader einreichen (Trainer-Formular)</a>
+          <a href="#alle-teams-matrix" class="btn-cta btn-cta-ghost-light btn-sm">Zur 14-Teams-Übersicht</a>
           <a href="kontakt.html?thema=probetraining" class="btn-cta btn-cta-ghost-light btn-sm">Probetraining anmelden</a>
         </div>
       </div>

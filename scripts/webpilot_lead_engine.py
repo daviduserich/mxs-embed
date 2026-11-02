@@ -677,3 +677,186 @@ def process_lead_submission(data: dict, client_ip: str, referer: str, resolve_cl
         "whatsapp_status": whatsapp_status,
         "whatsapp_preview_text": whatsapp_preview_text,
     }, 200
+
+
+TEAM_SUBMISSIONS_DIR = EMBED_DIR / "team_submissions"
+
+
+def _slugify_filename_part(val: str) -> str:
+    s = str(val or "").strip().lower()
+    for k, v in [("ä", "ae"), ("ö", "oe"), ("ü", "ue"), ("é", "e"), ("è", "e"), ("ê", "e"), ("à", "a"), ("á", "a"), ("ç", "c")]:
+        s = s.replace(k, v)
+    s = re.sub(r"[^a-z0-9]+", "-", s).strip("-")
+    return s or "unbekannt"
+
+
+def process_team_submission(
+    data: dict,
+    client_ip: str = "unknown",
+    referer: str = "",
+    log_fn=None,
+) -> tuple[dict, int]:
+    """
+    Verarbeitet eine Mannschafts-Daten & Kader-Einreichung (POST /api/team-submit).
+    Speichert zeitgestempelte JSON-Datei + latest_<site_id>_<team_slug>.json unter team_submissions/.
+    """
+    if not isinstance(data, dict):
+        return {"ok": False, "error": "Ungueltiges JSON-Payload."}, 400
+
+    rights_confirmed = bool(data.get("rights_confirmed"))
+    if not rights_confirmed:
+        return {
+            "ok": False,
+            "error": "Bitte bestaetigen Sie die Nutzungsrechte und das Einverstaendnis der abgebildeten Personen.",
+        }, 400
+
+    raw_site = str(data.get("site_id") or data.get("client_slug") or "scfulenbach").strip().lower()
+    site_id = re.sub(r"^preview-", "", raw_site)
+    site_id = re.sub(r"[^a-z0-9_-]", "", site_id) or "scfulenbach"
+
+    club_name = str(data.get("club_name") or site_id.upper()).strip()
+    raw_team_slug = str(data.get("team_slug") or data.get("team_name") or "1-mannschaft").strip()
+    team_slug = _slugify_filename_part(raw_team_slug)
+    team_name = str(data.get("team_name") or team_slug).strip()
+    league = str(data.get("league") or "").strip()
+    sfv_link = str(data.get("sfv_link") or "").strip()
+    team_motto = str(data.get("team_motto") or "").strip()
+    training_times = str(data.get("training_times") or "").strip()
+    pitch_location = str(data.get("pitch_location") or "").strip()
+    winter_note = str(data.get("winter_note") or "").strip()
+    team_sponsor = str(data.get("team_sponsor") or "").strip()
+    submitter_name = str(data.get("submitter_name") or "").strip()
+    submitter_contact = str(data.get("submitter_email_or_phone") or data.get("submitter_contact") or "").strip()
+
+    team_photo_meta = data.get("team_photo_meta") if isinstance(data.get("team_photo_meta"), dict) else {}
+    target_team_photo = str(
+        team_photo_meta.get("target_filename")
+        or f"{site_id}_{team_slug}_teamfoto.webp"
+    ).strip()
+    team_photo_meta["target_filename"] = target_team_photo
+
+    raw_staff = data.get("staff") if isinstance(data.get("staff"), list) else []
+    clean_staff = []
+    auto_renamed_files = []
+
+    if team_photo_meta.get("has_new_upload") or team_photo_meta.get("original_filename") or team_photo_meta.get("preview_src"):
+        auto_renamed_files.append(target_team_photo)
+
+    for idx, st in enumerate(raw_staff[:12]):
+        if not isinstance(st, dict):
+            continue
+        role = str(st.get("role") or "Trainer").strip()
+        name = str(st.get("name") or "").strip()
+        if not name:
+            continue
+        phone = str(st.get("phone") or "").strip()
+        email = str(st.get("email") or "").strip()
+        orig_fn = str(st.get("original_filename") or "").strip()
+        role_slug = _slugify_filename_part(role)
+        name_slug = _slugify_filename_part(name)
+        target_fn = str(st.get("target_filename") or f"{site_id}_{team_slug}_{role_slug}_{name_slug}.webp").strip()
+        has_photo = bool(st.get("has_photo") or orig_fn or st.get("photo"))
+        if has_photo and target_fn not in auto_renamed_files:
+            auto_renamed_files.append(target_fn)
+        clean_staff.append({
+            "role": role,
+            "name": name,
+            "phone": phone,
+            "email": email,
+            "has_photo": has_photo,
+            "original_filename": orig_fn,
+            "target_filename": target_fn,
+        })
+
+    raw_players = data.get("players") if isinstance(data.get("players"), list) else []
+    clean_players = []
+    for idx, pl in enumerate(raw_players[:60]):
+        if not isinstance(pl, dict):
+            continue
+        num_raw = str(pl.get("number") or "").strip()
+        name = str(pl.get("name") or "").strip()
+        if not name and not num_raw:
+            continue
+        pos = str(pl.get("position") or "").strip()
+        orig_fn = str(pl.get("original_filename") or "").strip()
+        num_slug = num_raw.zfill(2) if num_raw.isdigit() else (_slugify_filename_part(num_raw) if num_raw else f"{idx+1:02d}")
+        name_slug = _slugify_filename_part(name or f"spieler-{num_slug}")
+        target_fn = str(pl.get("target_filename") or f"{site_id}_{team_slug}_{num_slug}_{name_slug}.webp").strip()
+        has_photo = bool(pl.get("has_photo") or orig_fn)
+        if (has_photo or idx < 5) and target_fn not in auto_renamed_files:
+            auto_renamed_files.append(target_fn)
+        clean_players.append({
+            "number": num_raw,
+            "name": name,
+            "position": pos,
+            "has_photo": has_photo,
+            "parsed_from_filename": bool(pl.get("parsed_from_filename")),
+            "original_filename": orig_fn,
+            "target_filename": target_fn,
+        })
+
+    now_ch = datetime.now(ZoneInfo("Europe/Zurich"))
+    ts_str = now_ch.strftime("%Y%m%d_%H%M%S")
+    submission_id = f"TEAM-{ts_str}-{secrets.token_hex(2).upper()}"
+
+    TEAM_SUBMISSIONS_DIR.mkdir(parents=True, exist_ok=True)
+    ts_filename = f"{site_id}_{team_slug}_{ts_str}.json"
+    latest_filename = f"latest_{site_id}_{team_slug}.json"
+    ts_path = TEAM_SUBMISSIONS_DIR / ts_filename
+    latest_path = TEAM_SUBMISSIONS_DIR / latest_filename
+
+    record = {
+        "submission_id": submission_id,
+        "timestamp": now_ch.isoformat(),
+        "site_id": site_id,
+        "club_name": club_name,
+        "team_slug": team_slug,
+        "team_name": team_name,
+        "league": league,
+        "sfv_link": sfv_link,
+        "team_motto": team_motto,
+        "training_times": training_times,
+        "pitch_location": pitch_location,
+        "winter_note": winter_note,
+        "team_photo_meta": team_photo_meta,
+        "staff": clean_staff,
+        "staff_count": len(clean_staff),
+        "players": clean_players,
+        "player_count": len(clean_players),
+        "team_sponsor": team_sponsor,
+        "submitter_name": submitter_name,
+        "submitter_email_or_phone": submitter_contact,
+        "rights_confirmed": True,
+        "auto_renamed_files": auto_renamed_files,
+        "partner_name": "Jenny Ettle (JE-MI)",
+        "client_ip": client_ip,
+        "referer": referer,
+    }
+
+    payload_json = json.dumps(record, indent=2, ensure_ascii=False)
+    ts_path.write_text(payload_json, encoding="utf-8")
+    latest_path.write_text(payload_json, encoding="utf-8")
+
+    if log_fn:
+        log_fn(
+            site_id,
+            "TEAM_SUBMIT",
+            "OK",
+            f"id={submission_id} team={team_slug} staff={len(clean_staff)} players={len(clean_players)}",
+        )
+
+    return {
+        "ok": True,
+        "submission_id": submission_id,
+        "site_id": site_id,
+        "club_name": club_name,
+        "team_slug": team_slug,
+        "team_name": team_name,
+        "staff_count": len(clean_staff),
+        "player_count": len(clean_players),
+        "auto_renamed_files": auto_renamed_files,
+        "saved_file": f"team_submissions/{ts_filename}",
+        "latest_file": f"team_submissions/{latest_filename}",
+        "partner_name": "Jenny Ettle (JE-MI)",
+        "timestamp": now_ch.isoformat(),
+    }, 200

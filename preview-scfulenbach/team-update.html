@@ -1,0 +1,3444 @@
+<!DOCTYPE html>
+<html lang="de-CH">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <meta http-equiv="X-Frame-Options" content="DENY">
+  <meta http-equiv="X-XSS-Protection" content="1; mode=block">
+  <meta name="referrer" content="no-referrer">
+  <title>Mannschafts-Daten &amp; Kader-Assistent — SC Fulenbach</title>
+  <meta name="description" content="WebPilot Mannschafts-Daten &amp; Kader-Einreichungs-Formular für SC Fulenbach. Trainingszeiten, Mannschaftsfoto, Trainerstab und Spielerkader einfach ohne Login einreichen.">
+  <link rel="icon" type="image/png" href="images/favicon-32x32.png">
+  <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Montserrat:wght@600;700;800&amp;display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --brand-primary: #0F8A4B;
+      --brand-primary-dark: #065F46;
+      --brand-primary-soft: #ECFDF5;
+      --brand-navy: #0B1528;
+      --brand-gold: #D97706;
+      --brand-gold-soft: #FEF3C7;
+      --bg-page: #F8FAFC;
+      --bg-card: #FFFFFF;
+      --text-main: #0F172A;
+      --text-body: #334155;
+      --text-muted: #475569;
+      --border-color: #CBD5E1;
+      --border-light: #E2E8F0;
+      --radius-sm: 4px;
+      --radius-md: 8px;
+      --shadow-sm: 0 1px 3px rgba(15, 23, 42, 0.06);
+      --shadow-md: 0 8px 24px rgba(15, 23, 42, 0.08);
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html, body {
+      width: 100%;
+      max-width: 100%;
+      overflow-x: hidden;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: var(--bg-page);
+      color: var(--text-main);
+      line-height: 1.55;
+      -webkit-font-smoothing: antialiased;
+      font-variant-numeric: tabular-nums;
+    }
+
+    ::selection {
+      background-color: var(--brand-primary);
+      color: #FFFFFF;
+    }
+
+    h1, h2, h3, h4 {
+      font-family: 'Montserrat', sans-serif;
+      color: var(--brand-navy);
+      line-height: 1.22;
+      letter-spacing: -0.01em;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+      text-underline-offset: 3px;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* Freistehender Kicker nach #UI-01 Pt 4 */
+    .section-kicker {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.74rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--brand-primary);
+      background: transparent !important;
+      border: none !important;
+      padding: 0 !important;
+      box-shadow: none !important;
+      margin-bottom: 6px;
+      display: block;
+    }
+
+    .section-kicker.kicker-light {
+      color: #FBBF24;
+    }
+
+    /* Top Vorschau-Leiste */
+    .wp-arch-topbar {
+      background-color: var(--brand-navy);
+      color: #F8FAFC;
+      font-size: 0.78rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+      padding: 8px 0;
+    }
+
+    .wp-arch-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .wp-arch-left {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .wp-arch-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background-color: rgba(251, 191, 36, 0.16);
+      color: #FBBF24;
+      border: 1px solid rgba(251, 191, 36, 0.4);
+      padding: 3px 8px;
+      border-radius: var(--radius-sm);
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: 0.7rem;
+      letter-spacing: 0.04em;
+    }
+
+    .wp-arch-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background-color: var(--brand-primary);
+      color: #FFFFFF;
+      padding: 6px 12px;
+      min-height: 36px;
+      border-radius: var(--radius-sm);
+      font-weight: 700;
+      font-size: 0.76rem;
+    }
+
+    /* Sticky Header */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 90;
+      background-color: rgba(255, 255, 255, 0.97);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border-light);
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      min-height: 70px;
+      gap: 16px;
+    }
+
+    .brand-link {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-height: 44px;
+    }
+
+    .brand-logo {
+      width: 46px;
+      height: 46px;
+      object-fit: contain;
+      flex-shrink: 0;
+    }
+
+    .brand-name {
+      display: block;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 800;
+      font-size: 1.05rem;
+      color: var(--brand-navy);
+      line-height: 1.15;
+    }
+
+    .brand-sub {
+      display: block;
+      font-size: 0.7rem;
+      font-weight: 700;
+      color: var(--text-muted);
+      letter-spacing: 0.04em;
+    }
+
+    .main-nav {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .nav-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 8px 12px;
+      min-height: 44px;
+      border-radius: var(--radius-md);
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--text-body);
+      transition: background-color 0.15s ease, color 0.15s ease;
+    }
+
+    .nav-link:hover, .nav-link.active {
+      background-color: var(--brand-primary-soft);
+      color: var(--brand-primary-dark);
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .mobile-toggle {
+      display: none;
+      align-items: center;
+      justify-content: center;
+      width: 44px;
+      height: 44px;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border-color);
+      background-color: #FFFFFF;
+      color: var(--brand-navy);
+      cursor: pointer;
+    }
+
+    .mobile-drawer {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      z-index: 999;
+      flex-direction: column;
+      gap: 6px;
+      padding: 14px 20px 18px;
+      background-color: #FFFFFF;
+      border-top: 1px solid var(--border-light);
+      border-bottom: 2px solid var(--brand-primary);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .mobile-drawer.open {
+      display: flex;
+    }
+
+    .mobile-drawer a {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 12px;
+      min-height: 44px;
+      border-radius: var(--radius-md);
+      font-weight: 600;
+      font-size: 0.9rem;
+      color: var(--brand-navy);
+      background-color: #F8FAFC;
+    }
+
+    /* Buttons */
+    .btn-cta {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      min-height: 44px;
+      padding: 10px 16px;
+      border-radius: var(--radius-md);
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.84rem;
+      font-weight: 700;
+      border: 1px solid transparent;
+      cursor: pointer;
+      transition: all 0.15s ease;
+      text-align: center;
+      line-height: 1.25;
+    }
+
+    .btn-cta-primary {
+      background-color: var(--brand-primary);
+      color: #FFFFFF;
+      border-color: var(--brand-primary);
+    }
+
+    .btn-cta-primary:hover {
+      background-color: var(--brand-primary-dark);
+      border-color: var(--brand-primary-dark);
+    }
+
+    .btn-cta-navy {
+      background-color: var(--brand-navy);
+      color: #FFFFFF;
+      border-color: var(--brand-navy);
+    }
+
+    .btn-cta-gold {
+      background-color: #F59E0B;
+      color: #0F172A;
+      border-color: #F59E0B;
+    }
+
+    .btn-cta-outline {
+      background-color: #FFFFFF;
+      color: var(--brand-navy);
+      border-color: var(--border-color);
+    }
+
+    .btn-cta-outline:hover {
+      border-color: var(--brand-primary);
+      color: var(--brand-primary-dark);
+      background-color: var(--brand-primary-soft);
+    }
+
+    .btn-cta-ghost-light {
+      background-color: rgba(255, 255, 255, 0.1);
+      color: #FFFFFF;
+      border-color: rgba(255, 255, 255, 0.28);
+    }
+
+    .btn-cta-ghost-light:hover {
+      background-color: rgba(255, 255, 255, 0.18);
+    }
+
+    .btn-sm {
+      padding: 8px 14px;
+      font-size: 0.8rem;
+      min-height: 44px;
+    }
+
+    /* Hero Banner */
+    .assistant-hero {
+      background: linear-gradient(135deg, var(--brand-navy) 0%, #1E293B 100%);
+      color: #FFFFFF;
+      padding: 32px 0;
+      border-bottom: 4px solid var(--brand-primary);
+    }
+
+    .assistant-hero-box {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+
+    .assistant-hero-left {
+      display: flex;
+      align-items: flex-start;
+      gap: 18px;
+      max-width: 680px;
+    }
+
+    .assistant-hero-crest {
+      width: 64px;
+      height: 64px;
+      object-fit: contain;
+      background-color: #FFFFFF;
+      padding: 6px;
+      border-radius: var(--radius-md);
+      flex-shrink: 0;
+    }
+
+    .assistant-share-box {
+      background-color: rgba(255, 255, 255, 0.07);
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      border-radius: var(--radius-md);
+      padding: 14px 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      min-width: 280px;
+      flex: 1 1 280px;
+      max-width: 360px;
+    }
+
+    .share-btn-row {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    /* Main 2-Column Workspace */
+    .workspace-section {
+      padding: 32px 0 56px;
+    }
+
+    .workspace-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.35fr) minmax(0, 0.95fr);
+      gap: 28px;
+      align-items: start;
+    }
+
+    .form-column {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .preview-column {
+      position: sticky;
+      top: 86px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    /* Form Block Cards */
+    .form-block-card {
+      background-color: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 22px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .block-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 12px;
+      padding-bottom: 14px;
+      margin-bottom: 18px;
+      border-bottom: 1px solid var(--border-light);
+      flex-wrap: wrap;
+    }
+
+    .block-step-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background-color: var(--brand-primary-soft);
+      color: var(--brand-primary-dark);
+      border: 1px solid var(--brand-primary);
+      padding: 3px 8px;
+      border-radius: var(--radius-sm);
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.7rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 6px;
+    }
+
+    .block-title {
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: var(--brand-navy);
+    }
+
+    .block-subtitle {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-top: 3px;
+    }
+
+    /* Form Controls */
+    .form-grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      margin-bottom: 14px;
+    }
+
+    .form-group:last-child {
+      margin-bottom: 0;
+    }
+
+    .form-label {
+      font-size: 0.81rem;
+      font-weight: 700;
+      color: var(--brand-navy);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: block;
+    }
+
+    .form-input, .form-select, .form-textarea {
+      width: 100%;
+      min-height: 44px;
+      padding: 10px 12px;
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      background-color: #FFFFFF;
+      color: var(--text-main);
+      font-family: 'Inter', sans-serif;
+      font-size: 0.9rem;
+      transition: border-color 0.15s ease, box-shadow 0.15s ease;
+    }
+
+    .form-textarea {
+      min-height: 110px;
+      resize: vertical;
+      line-height: 1.5;
+    }
+
+    .form-input:focus, .form-select:focus, .form-textarea:focus {
+      outline: none;
+      border-color: var(--brand-primary);
+      box-shadow: 0 0 0 3px var(--brand-primary-soft);
+    }
+
+    /* Status Pill Banner in Block 1 */
+    .team-status-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 12px 14px;
+      border-radius: var(--radius-md);
+      margin-bottom: 16px;
+      flex-wrap: wrap;
+    }
+
+    .team-status-bar.status-live {
+      background-color: #ECFDF5;
+      border: 1px solid #6EE7B7;
+      color: #065F46;
+    }
+
+    .team-status-bar.status-draft {
+      background-color: #FFFBEB;
+      border: 1px solid #FCD34D;
+      color: #92400E;
+    }
+
+    /* Block 3: Team Photo Dropzone */
+    .team-dropzone {
+      border: 2px dashed var(--border-color);
+      border-radius: var(--radius-md);
+      background-color: #F8FAFC;
+      padding: 18px;
+      text-align: center;
+      transition: all 0.15s ease;
+      cursor: pointer;
+    }
+
+    .team-dropzone:hover, .team-dropzone.drag-over {
+      border-color: var(--brand-primary);
+      background-color: var(--brand-primary-soft);
+    }
+
+    .team-photo-preview-wrap {
+      position: relative;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      border: 1px solid var(--border-light);
+      background-color: var(--brand-navy);
+      margin-bottom: 14px;
+    }
+
+    .team-photo-preview-wrap img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+    }
+
+    .rename-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      background-color: #ECFDF5;
+      color: #065F46;
+      border: 1px solid #6EE7B7;
+      padding: 6px 10px;
+      border-radius: var(--radius-sm);
+      font-size: 0.78rem;
+      font-weight: 700;
+      margin-top: 10px;
+      word-break: break-all;
+      text-align: left;
+    }
+
+    /* Block 4: Staff Cards */
+    .staff-editor-list {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      margin-bottom: 14px;
+    }
+
+    .staff-editor-card {
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-md);
+      padding: 14px;
+      background-color: #F8FAFC;
+      display: grid;
+      grid-template-columns: 76px minmax(0, 1fr);
+      gap: 14px;
+      align-items: start;
+    }
+
+    .staff-mini-drop {
+      width: 72px;
+      height: 72px;
+      border-radius: var(--radius-md);
+      border: 2px dashed var(--border-color);
+      background-color: var(--brand-navy);
+      color: #FFFFFF;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      overflow: hidden;
+      position: relative;
+      flex-shrink: 0;
+    }
+
+    .staff-mini-drop img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .staff-initials-crest {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 800;
+      font-size: 1.15rem;
+      color: #FFFFFF;
+      letter-spacing: 0.03em;
+    }
+
+    .staff-mini-hint {
+      font-size: 0.62rem;
+      color: #CBD5E1;
+      text-transform: uppercase;
+      font-weight: 700;
+      margin-top: 2px;
+    }
+
+    /* Block 5: Dual Mode Tabs & Player Roster */
+    .mode-switch-tabs {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+      margin-bottom: 16px;
+    }
+
+    .mode-tab-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 10px 12px;
+      min-height: 46px;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border-color);
+      background-color: #F8FAFC;
+      color: var(--text-body);
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 700;
+      cursor: pointer;
+      text-align: left;
+    }
+
+    .mode-tab-btn.active {
+      background-color: var(--brand-primary-soft);
+      border-color: var(--brand-primary);
+      color: var(--brand-primary-dark);
+    }
+
+    .multi-photo-dropzone {
+      border: 2px dashed var(--brand-primary);
+      border-radius: var(--radius-md);
+      background-color: var(--brand-primary-soft);
+      padding: 18px;
+      text-align: center;
+      margin-bottom: 16px;
+    }
+
+    .parsed-uploads-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-top: 14px;
+      text-align: left;
+    }
+
+    .parsed-upload-card {
+      background-color: #FFFFFF;
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 12px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .parsed-upload-thumb {
+      width: 52px;
+      height: 52px;
+      border-radius: var(--radius-sm);
+      object-fit: cover;
+      background-color: var(--brand-navy);
+      flex-shrink: 0;
+    }
+
+    .player-editor-list {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-top: 14px;
+    }
+
+    .player-editor-row {
+      display: grid;
+      grid-template-columns: 44px 68px minmax(0, 1fr) 136px 44px;
+      gap: 8px;
+      align-items: center;
+      padding: 8px 10px;
+      background-color: #F8FAFC;
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-md);
+    }
+
+    .player-avatar-mini {
+      width: 44px;
+      height: 44px;
+      border-radius: var(--radius-sm);
+      background-color: var(--brand-navy);
+      color: #FFFFFF;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      cursor: pointer;
+      border: 1px solid var(--border-color);
+    }
+
+    .player-avatar-mini img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* Live Preview Card (Right Column) */
+    .live-preview-shell {
+      background-color: #FFFFFF;
+      border: 2px solid var(--brand-navy);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      box-shadow: var(--shadow-md);
+    }
+
+    .live-preview-topbar {
+      background-color: var(--brand-navy);
+      color: #FFFFFF;
+      padding: 12px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .live-preview-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background-color: rgba(16, 185, 129, 0.2);
+      color: #6EE7B7;
+      border: 1px solid rgba(16, 185, 129, 0.45);
+      padding: 3px 8px;
+      border-radius: var(--radius-sm);
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.68rem;
+      font-weight: 800;
+      text-transform: uppercase;
+    }
+
+    .live-preview-body {
+      padding: 18px;
+    }
+
+    .preview-photo-box {
+      position: relative;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      background-color: var(--brand-navy);
+      margin-bottom: 14px;
+      border: 1px solid var(--border-light);
+    }
+
+    .preview-photo-box img {
+      width: 100%;
+      height: 185px;
+      object-fit: cover;
+    }
+
+    .preview-photo-tag {
+      position: absolute;
+      bottom: 10px;
+      left: 10px;
+      background-color: rgba(15, 23, 42, 0.88);
+      color: #FFFFFF;
+      padding: 4px 10px;
+      border-radius: var(--radius-sm);
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 700;
+    }
+
+    .preview-meta-box {
+      background-color: #F8FAFC;
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-md);
+      padding: 12px;
+      margin-bottom: 14px;
+      font-size: 0.82rem;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .preview-staff-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 8px;
+      margin-bottom: 14px;
+    }
+
+    .preview-staff-pill {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border-light);
+      background-color: #FFFFFF;
+    }
+
+    .preview-staff-avatar {
+      width: 38px;
+      height: 38px;
+      border-radius: var(--radius-sm);
+      background-color: var(--brand-primary);
+      color: #FFFFFF;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.76rem;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+
+    .preview-staff-avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .preview-players-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 6px;
+    }
+
+    .preview-player-pill {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      padding: 6px 8px;
+      background-color: #F8FAFC;
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-sm);
+      font-size: 0.78rem;
+      font-weight: 600;
+    }
+
+    .preview-player-num {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 24px;
+      height: 22px;
+      padding: 0 5px;
+      background-color: var(--brand-navy);
+      color: #FFFFFF;
+      border-radius: var(--radius-sm);
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.7rem;
+      font-weight: 800;
+      flex-shrink: 0;
+    }
+
+    /* Rights & Submit Box */
+    .submit-box-card {
+      background-color: #FFFFFF;
+      border: 2px solid var(--brand-primary);
+      border-radius: var(--radius-md);
+      padding: 20px;
+      box-shadow: var(--shadow-md);
+    }
+
+    .rights-checkbox-label {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      padding: 12px;
+      background-color: #F8FAFC;
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      font-size: 0.82rem;
+      color: var(--text-body);
+      cursor: pointer;
+      margin: 14px 0;
+    }
+
+    .rights-checkbox-label input[type="checkbox"] {
+      width: 34px;
+      height: 30px;
+      min-width: 34px;
+      min-height: 30px;
+      margin-top: 0;
+      accent-color: var(--brand-primary);
+      flex-shrink: 0;
+      cursor: pointer;
+    }
+
+    /* Confirmation View */
+    .success-modal-card {
+      display: none;
+      background-color: #ECFDF5;
+      border: 2px solid #10B981;
+      border-radius: var(--radius-md);
+      padding: 24px;
+      margin-top: 20px;
+    }
+
+    .success-modal-card.visible {
+      display: block;
+    }
+
+    /* Footer */
+    .site-footer {
+      background-color: var(--brand-navy);
+      color: #CBD5E1;
+      padding: 36px 0 28px;
+      border-top: 4px solid var(--brand-primary);
+      font-size: 0.85rem;
+    }
+
+    .footer-bottom {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+      padding-top: 16px;
+      border-top: 1px solid rgba(255, 255, 255, 0.12);
+    }
+    .footer-bottom a {
+      display: inline-flex;
+      align-items: center;
+      min-height: 32px;
+      padding: 6px 8px;
+    }
+    .form-column,
+    .preview-column,
+    .form-block-card,
+    .form-group,
+    .staff-editor-card,
+    .player-editor-row {
+      min-width: 0;
+      max-width: 100%;
+    }
+    .form-input,
+    .form-select,
+    .form-textarea {
+      max-width: 100%;
+      min-width: 0;
+      text-overflow: ellipsis;
+    }
+
+    @media (max-width: 980px) {
+      .workspace-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+      .preview-column {
+        position: static;
+      }
+      .main-nav {
+        display: none;
+      }
+      .mobile-toggle {
+        display: inline-flex;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .form-grid-2 {
+        grid-template-columns: minmax(0, 1fr);
+      }
+      .mode-switch-tabs {
+        grid-template-columns: minmax(0, 1fr);
+      }
+      .staff-editor-card {
+        grid-template-columns: minmax(0, 1fr);
+      }
+      .btn-cta,
+      .mode-tab-btn {
+        white-space: normal;
+        text-align: center;
+        max-width: 100%;
+      }
+      .player-editor-row {
+        grid-template-columns: 44px 64px minmax(0, 1fr) 44px;
+      }
+      .player-editor-row .player-pos-select {
+        grid-column: 1 / -1;
+      }
+      .preview-staff-grid, .preview-players-grid {
+        grid-template-columns: 1fr;
+      }
+      .assistant-hero-left {
+        flex-direction: column;
+      }
+    }
+  
+/* === WEBPILOT-PARTNER-ATTRIBUTION-CSS-START === */
+    .wp-partner-attr-bar {
+      margin-top: 20px;
+      padding: 16px 18px;
+      background: linear-gradient(135deg, #F8FAFC 0%, #F1F5F9 100%);
+      border: 1px solid #CBD5E1;
+      border-left: 4px solid #0F8A4B;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 14px;
+      box-sizing: border-box;
+      width: 100%;
+      overflow: hidden;
+    }
+    .wp-partner-attr-left {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      flex: 1 1 260px;
+      min-width: 0;
+    }
+    .wp-partner-attr-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 4px;
+      background-color: #0B1528;
+      color: #FBBF24;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    .wp-partner-attr-text {
+      min-width: 0;
+      flex: 1;
+    }
+    .wp-partner-attr-title {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.86rem;
+      font-weight: 800;
+      color: #0B1528;
+      line-height: 1.35;
+      margin: 0 0 3px 0;
+    }
+    .wp-partner-attr-sub {
+      font-size: 0.79rem;
+      color: #475569;
+      line-height: 1.4;
+      margin: 0;
+    }
+    .wp-partner-cta-btn {
+      appearance: none;
+      background-color: #0B1528;
+      color: #FFFFFF !important;
+      border: 1px solid #0B1528;
+      border-radius: 8px;
+      padding: 10px 15px;
+      min-height: 42px;
+      min-width: 44px;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.79rem;
+      font-weight: 700;
+      line-height: 1.3;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      text-align: left;
+      transition: background-color 0.18s ease, border-color 0.18s ease;
+      box-sizing: border-box;
+      overflow: hidden;
+      max-width: 100%;
+    }
+    .wp-partner-cta-btn:hover {
+      background-color: #0F8A4B;
+      border-color: #0F8A4B;
+      color: #FFFFFF !important;
+    }
+    .wp-partner-cta-btn svg {
+      flex-shrink: 0;
+    }
+    .wp-partner-footer-btn {
+      appearance: none;
+      background-color: rgba(255, 255, 255, 0.08);
+      color: #F8FAFC !important;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 8px;
+      padding: 7px 13px;
+      min-height: 36px;
+      min-width: 44px;
+      font-family: inherit;
+      font-size: 0.78rem;
+      font-weight: 700;
+      line-height: 1.3;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      text-align: left;
+      transition: background-color 0.18s ease, border-color 0.18s ease;
+      box-sizing: border-box;
+      overflow: hidden;
+      max-width: 100%;
+    }
+    .wp-partner-footer-btn:hover {
+      background-color: rgba(255, 255, 255, 0.16);
+      border-color: #FBBF24;
+      color: #FFFFFF !important;
+    }
+    .wp-partner-footer-btn svg {
+      color: #FBBF24;
+      flex-shrink: 0;
+    }
+    /* Partner Modal (#wpPartnerModal) */
+    .wp-partner-modal-backdrop {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background-color: rgba(11, 19, 36, 0.82);
+      backdrop-filter: blur(6px);
+      z-index: 2200;
+      align-items: center;
+      justify-content: center;
+      padding: 14px;
+      box-sizing: border-box;
+    }
+    .wp-partner-modal-backdrop.open {
+      display: flex;
+    }
+    .wp-partner-modal-dialog {
+      background-color: #FFFFFF;
+      color: #0F172A;
+      border: 2px solid #0F8A4B;
+      border-radius: 8px;
+      max-width: 640px;
+      width: 100%;
+      padding: 22px 22px 20px 22px;
+      box-shadow: 0 20px 45px rgba(15, 23, 42, 0.35);
+      position: relative;
+      max-height: calc(100dvh - 28px);
+      overflow-y: auto;
+      box-sizing: border-box;
+    }
+    .wp-partner-modal-head {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 10px;
+    }
+    .wp-partner-modal-kicker {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.7rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+      color: #0F8A4B;
+      display: block;
+      margin-bottom: 4px;
+    }
+    .wp-partner-modal-title {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: #0B1528;
+      line-height: 1.25;
+      margin: 0;
+    }
+    .wp-partner-modal-close {
+      appearance: none;
+      width: 38px;
+      height: 38px;
+      min-width: 38px;
+      min-height: 38px;
+      border-radius: 8px;
+      border: 1px solid #CBD5E1;
+      background-color: #F8FAFC;
+      color: #0F172A;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      padding: 0;
+    }
+    .wp-partner-modal-close:hover {
+      background-color: #E2E8F0;
+    }
+    .wp-partner-notice {
+      background-color: #F8FAFC;
+      border: 1px solid #E2E8F0;
+      border-left: 4px solid #0B1528;
+      border-radius: 4px;
+      padding: 9px 12px;
+      font-size: 0.78rem;
+      color: #334155;
+      line-height: 1.42;
+      margin-bottom: 14px;
+    }
+    .wp-partner-vcard {
+      background-color: #F8FAFC;
+      border: 1px solid #CBD5E1;
+      border-radius: 8px;
+      padding: 13px 14px;
+      margin-bottom: 14px;
+    }
+    .wp-partner-vcard-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+    .wp-partner-vcard-name {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.96rem;
+      font-weight: 800;
+      color: #0B1528;
+      line-height: 1.25;
+    }
+    .wp-partner-vcard-role {
+      font-size: 0.77rem;
+      color: #475569;
+      margin-top: 2px;
+    }
+    .wp-partner-vcard-badge {
+      background-color: #0B1528;
+      color: #FFFFFF;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.68rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      padding: 4px 8px;
+      border-radius: 4px;
+      overflow: hidden;
+    }
+    .wp-partner-direct-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 8px;
+    }
+    .wp-partner-direct-btn {
+      text-decoration: none;
+      border-radius: 8px;
+      padding: 8px 10px;
+      min-height: 40px;
+      min-width: 44px;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.76rem;
+      font-weight: 700;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      text-align: center;
+      box-sizing: border-box;
+      overflow: hidden;
+      transition: opacity 0.16s ease, transform 0.16s ease;
+    }
+    .wp-partner-direct-btn svg {
+      flex-shrink: 0;
+    }
+    .wp-partner-direct-wa {
+      background-color: #059669;
+      color: #FFFFFF !important;
+      border: 1px solid #059669;
+    }
+    .wp-partner-direct-tel {
+      background-color: #0B1528;
+      color: #FFFFFF !important;
+      border: 1px solid #0B1528;
+    }
+    .wp-partner-direct-mail {
+      background-color: #FFFFFF;
+      color: #0B1528 !important;
+      border: 1px solid #94A3B8;
+    }
+    .wp-partner-form-box {
+      background-color: #FFFFFF;
+      border: 1px solid #CBD5E1;
+      border-radius: 8px;
+      padding: 14px;
+    }
+    .wp-partner-form-title {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.88rem;
+      font-weight: 800;
+      color: #0B1528;
+      margin: 0 0 4px 0;
+    }
+    .wp-partner-form-sub {
+      font-size: 0.76rem;
+      color: #475569;
+      margin: 0 0 12px 0;
+      line-height: 1.4;
+    }
+    .wp-partner-form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+    .wp-partner-field {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      margin-bottom: 10px;
+    }
+    .wp-partner-form-grid .wp-partner-field {
+      margin-bottom: 0;
+    }
+    .wp-partner-label {
+      font-size: 0.74rem;
+      font-weight: 700;
+      color: #1E293B;
+      line-height: 1.25;
+    }
+    .wp-partner-input {
+      width: 100%;
+      min-height: 40px;
+      padding: 8px 11px;
+      border: 1px solid #CBD5E1;
+      border-radius: 8px;
+      font-family: inherit;
+      font-size: 0.84rem;
+      color: #0F172A;
+      background-color: #FFFFFF;
+      box-sizing: border-box;
+    }
+    .wp-partner-input:focus {
+      outline: none;
+      border-color: #0F8A4B;
+    }
+    .wp-partner-submit-btn {
+      appearance: none;
+      width: 100%;
+      min-height: 44px;
+      padding: 11px 16px;
+      background-color: #0F8A4B;
+      color: #FFFFFF !important;
+      border: 1px solid #0F8A4B;
+      border-radius: 8px;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.84rem;
+      font-weight: 800;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      box-sizing: border-box;
+      overflow: hidden;
+    }
+    .wp-partner-submit-btn:hover {
+      opacity: 0.94;
+    }
+    .wp-partner-error {
+      display: none;
+      background-color: #FEE2E2;
+      border: 1px solid #FCA5A5;
+      color: #991B1B;
+      padding: 8px 11px;
+      border-radius: 4px;
+      font-size: 0.78rem;
+      margin-bottom: 10px;
+    }
+    .wp-partner-success {
+      display: none;
+      background-color: #ECFDF5;
+      border: 1px solid #6EE7B7;
+      border-radius: 8px;
+      padding: 14px;
+      margin-top: 4px;
+    }
+    @media (max-width: 768px) {
+      body {
+        padding-bottom: 92px !important;
+      }
+      .wp-partner-attr-bar {
+        padding: 14px;
+      }
+      .wp-partner-cta-btn {
+        width: 100%;
+        justify-content: space-between;
+      }
+      .wp-partner-direct-grid {
+        grid-template-columns: 1fr;
+      }
+      .wp-partner-form-grid {
+        grid-template-columns: 1fr;
+      }
+      .wp-partner-modal-dialog {
+        padding: 16px 14px;
+      }
+    }
+/* === WEBPILOT-PARTNER-ATTRIBUTION-CSS-END === */
+  </style>
+</head>
+<body>
+
+  <!-- PERMANENTE VORSCHAU-TOP-BAR -->
+  <div class="wp-arch-topbar">
+    <div class="container wp-arch-inner">
+      <div class="wp-arch-left">
+        <span class="wp-arch-badge">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          <span>TRAINER- &amp; SPORTCHEF-SELF-SERVICE</span>
+        </span>
+        <span>Direkt-Einreichung ohne Login · Automatische Bild-Umbenennung für Partnerin Jenny Ettle (JE-MI)</span>
+      </div>
+      <div>
+        <a href="herren-1.html" class="wp-arch-cta">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+          <span>Zur Mannschafts-Seite</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- STICKY HEADER -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="brand-link" aria-label="SC Fulenbach Startseite">
+        <img src="images/logo-scfulenbach.webp" alt="Wappen SC Fulenbach" class="brand-logo" width="46" height="46">
+        <div>
+          <span class="brand-name">SC Fulenbach</span>
+          <span class="brand-sub">SEIT 1944 · SPORTPLATZ BAD · SOFV NR. 1826</span>
+        </div>
+      </a>
+
+      <nav class="main-nav" aria-label="Hauptnavigation">
+        <a href="index.html" class="nav-link">
+          <span>Startseite</span>
+        </a>
+        <a href="herren-1.html" class="nav-link">
+          <span>Mannschaften &amp; Beispiel-Team</span>
+        </a>
+        <a href="team-update.html" class="nav-link active">
+          <span>Mannschafts-Daten einreichen</span>
+        </a>
+        <a href="kontakt.html" class="nav-link">
+          <span>Smart-Anfrage</span>
+        </a>
+      </nav>
+
+      <div class="header-actions">
+        <a href="herren-1.html" class="btn-cta btn-cta-outline btn-sm">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+          <span>Alle Teams</span>
+        </a>
+        <button type="button" class="mobile-toggle" id="mobileMenuBtn" aria-label="Menü öffnen" onclick="wpToggleMobileMenu()">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <div class="mobile-drawer" id="mobileDrawer">
+      <a href="index.html" onclick="wpCloseMobileMenu()">Startseite (SC Fulenbach)</a>
+      <a href="herren-1.html" onclick="wpCloseMobileMenu()">Mannschafts-Übersicht &amp; Beispiel-Team</a>
+      <a href="team-update.html" onclick="wpCloseMobileMenu()">Mannschafts-Daten &amp; Kader einreichen</a>
+      <a href="kontakt.html" onclick="wpCloseMobileMenu()">Smart-Anfrage &amp; PDF-Dossier</a>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO HEADER IM VEREINS-LOOK -->
+    <section class="assistant-hero">
+      <div class="container">
+        <div class="assistant-hero-box">
+          <div class="assistant-hero-left">
+            <img src="images/logo-scfulenbach.webp" alt="Vereinswappen SC Fulenbach" class="assistant-hero-crest" width="64" height="64">
+            <div>
+              <span class="section-kicker kicker-light">WEBPILOT MANNSCHAFTS- &amp; KADER-ASSISTENT · SC Fulenbach</span>
+              <h1 style="color:#FFFFFF;font-size:clamp(1.45rem,2.5vw,2.05rem);font-weight:800;margin-bottom:8px;">
+                Mannschafts-Daten &amp; Kader-Assistent — SC Fulenbach
+              </h1>
+              <p style="font-size:0.92rem;color:#E2E8F0;line-height:1.58;">
+                Wählen Sie Ihre Mannschaft aus. Bereits bekannte Angaben sind vorausgefüllt — ergänzen Sie einfach Änderungen, das aktuelle Mannschaftsfoto oder die Spielerliste. Kein Login nötig.
+              </p>
+            </div>
+          </div>
+
+          <!-- DIREKT-TEILEN-LEISTE FÜR SPORTCHEF / JENNY -->
+          <div class="assistant-share-box">
+            <div style="font-family:'Montserrat',sans-serif;font-size:0.74rem;font-weight:800;text-transform:uppercase;color:#FBBF24;letter-spacing:0.05em;">
+              Direkt-Link für Trainer dieses Teams teilen
+            </div>
+            <div class="share-btn-row">
+              <button type="button" class="btn-cta btn-cta-ghost-light btn-sm" id="btnCopyTrainerLink" onclick="copyTrainerLink()" style="width:100%;justify-content:flex-start;">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+                <span id="copyLinkBtnText">Link für Trainer kopieren</span>
+              </button>
+              <button type="button" class="btn-cta btn-cta-primary btn-sm" onclick="shareTrainerWhatsApp()" style="width:100%;justify-content:flex-start;">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+                <span>Per WhatsApp an Trainer senden</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2-SPALTEN WORKSPACE: LINKS 5 BLÖCKE, RECHTS LIVE-VORSCHAU & ABSENDEN -->
+    <section class="workspace-section">
+      <div class="container">
+        <div class="workspace-grid">
+
+          <!-- LINKE SPALTE: DIE 5 FORMULAR-BLÖCKE -->
+          <div class="form-column">
+
+            <!-- BLOCK 1: MANNSCHAFT & LIGA WÄHLEN -->
+            <div class="form-block-card" id="block1">
+              <div class="block-header">
+                <div>
+                  <span class="block-step-badge">
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                    <span>BLOCK 1 VON 5</span>
+                  </span>
+                  <h2 class="block-title">Mannschaft &amp; Spielklasse wählen</h2>
+                  <p class="block-subtitle">Beim Wechsel der Mannschaft werden alle bereits bekannten Vereinsdaten sofort vorausgefüllt.</p>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="teamSelect">Mannschaft auswählen (14 Teams im SC Fulenbach)</label>
+                <select id="teamSelect" class="form-select" onchange="onTeamSelectChange(this.value)"></select>
+              </div>
+
+              <div id="teamStatusBanner" class="team-status-bar status-live">
+                <div style="display:flex;align-items:center;gap:8px;font-size:0.82rem;font-weight:700;">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                  <span id="teamStatusText">Bereits ausgearbeitet — Bekannte Vereinsdaten wurden geladen</span>
+                </div>
+                <span style="font-size:0.75rem;font-weight:600;" id="teamSlugBadge">System-Kürzel: scfulenbach_1-mannschaft</span>
+              </div>
+
+              <div class="form-grid-2">
+                <div class="form-group">
+                  <label class="form-label" for="inpTeamName">Offizieller Mannschaftsname</label>
+                  <input type="text" id="inpTeamName" class="form-input" placeholder="z. B. 1. Mannschaft" oninput="syncLivePreview()">
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="inpLeague">Liga / Spielklasse</label>
+                  <input type="text" id="inpLeague" class="form-input" placeholder="z. B. 2. Liga regional" oninput="syncLivePreview()">
+                </div>
+              </div>
+
+              <div class="form-grid-2">
+                <div class="form-group">
+                  <label class="form-label" for="inpSfvLink">SFV-Matchcenter-Link (optional)</label>
+                  <input type="url" id="inpSfvLink" class="form-input" placeholder="https://www.football.ch/..." oninput="syncLivePreview()">
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="inpTeamMotto">Kurz-Beschrieb / Team-Motto (optional)</label>
+                  <input type="text" id="inpTeamMotto" class="form-input" placeholder="z. B. Leidenschaft &amp; Teamgeist" oninput="syncLivePreview()">
+                </div>
+              </div>
+            </div>
+
+            <!-- BLOCK 2: TRAININGSZEITEN & SPORTPLATZ -->
+            <div class="form-block-card" id="block2">
+              <div class="block-header">
+                <div>
+                  <span class="block-step-badge">
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                    <span>BLOCK 2 VON 5</span>
+                  </span>
+                  <h2 class="block-title">Trainingszeiten &amp; Sportplatz</h2>
+                  <p class="block-subtitle">Wann und auf welchem Platz trainiert die Mannschaft im Sommer und Winter?</p>
+                </div>
+              </div>
+
+              <div class="form-grid-2">
+                <div class="form-group">
+                  <label class="form-label" for="inpTrainingTimes">Trainingstage &amp; Uhrzeit</label>
+                  <input type="text" id="inpTrainingTimes" class="form-input" placeholder="z. B. Dienstag &amp; Donnerstag, 19:30 – 21:00 Uhr" oninput="syncLivePreview()">
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="inpPitchLocation">Sportplatz / Platznummer</label>
+                  <input type="text" id="inpPitchLocation" class="form-input" placeholder="z. B. Hauptfeld Platz 1" oninput="syncLivePreview()">
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="inpWinterNote">Hinweis Wintertraining / Hallentraining (optional)</label>
+                <input type="text" id="inpWinterNote" class="form-input" placeholder="z. B. Ab November jeweils Mittwochs in der Mehrzweckhalle" oninput="syncLivePreview()">
+              </div>
+            </div>
+
+            <!-- BLOCK 3: MANNSCHAFTSFOTO (QUERFORMAT DRAG & DROP) -->
+            <div class="form-block-card" id="block3">
+              <div class="block-header">
+                <div>
+                  <span class="block-step-badge">
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+                    <span>BLOCK 3 VON 5</span>
+                  </span>
+                  <h2 class="block-title">Mannschaftsfoto (Querformat Drag-&amp;-Drop / Handy-Upload)</h2>
+                  <p class="block-subtitle">Egal wie Ihre Datei auf dem Handy heisst (z. B. IMG_4812.JPG) — das System benennt sie automatisch sauber nach Vereinsstandard.</p>
+                </div>
+              </div>
+
+              <div class="team-photo-preview-wrap">
+                <img id="teamPhotoPreviewImg" src="images/team-herren-1.webp" alt="Mannschaftsfoto Vorschau" width="760" height="420">
+              </div>
+
+              <div class="team-dropzone" id="teamPhotoDropzone" onclick="document.getElementById('teamPhotoInput').click()" ondragover="handleDragOver(event, this)" ondragleave="handleDragLeave(event, this)" ondrop="handleTeamPhotoDrop(event)">
+                <input type="file" id="teamPhotoInput" accept="image/*" style="display:none;" onchange="handleTeamPhotoFiles(this.files)">
+                <div style="display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:var(--radius-md);background-color:var(--brand-primary-soft);color:var(--brand-primary-dark);margin-bottom:8px;">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+                </div>
+                <div style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:0.9rem;color:var(--brand-navy);">
+                  Neues Mannschaftsfoto hier hineinziehen oder antippen (Handy / PC)
+                </div>
+                <div style="font-size:0.8rem;color:var(--text-muted);margin-top:4px;">
+                  Unterstützt JPG, PNG, HEIC &amp; WhatsApp-Bilder · Automatische WebP-Optimierung
+                </div>
+                <div class="rename-badge" id="teamPhotoRenameBadge">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><polyline points="9 15 11 17 15 13"/></svg>
+                  <span id="teamPhotoRenameText">Automatische System-Benennung: scfulenbach_1-mannschaft_teamfoto.webp</span>
+                </div>
+              </div>
+
+              <div class="form-group" style="margin-top:14px;">
+                <label class="form-label" for="inpTeamPhotoCaption">Bildunterschrift / Namen v.l.n.r. (optional)</label>
+                <input type="text" id="inpTeamPhotoCaption" class="form-input" placeholder="z. B. Hinten v.l.: ... Vorne v.l.: ..." oninput="syncLivePreview()">
+              </div>
+            </div>
+
+            <!-- BLOCK 4: TRAINER- & BETREUERSTAB -->
+            <div class="form-block-card" id="block4">
+              <div class="block-header">
+                <div>
+                  <span class="block-step-badge">
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="8.5" cy="7" r="4"/><line x1="20" y1="8" x2="20" y2="14"/><line x1="23" y1="11" x2="17" y2="11"/></svg>
+                    <span>BLOCK 4 VON 5</span>
+                  </span>
+                  <h2 class="block-title">Trainer- &amp; Betreuerstab (Staff-Karten)</h2>
+                  <p class="block-subtitle">Kein Portraitfoto vorhanden? Kein Problem — wir zeigen automatisch das edle Vereins-Initialen-Abzeichen.</p>
+                </div>
+              </div>
+
+              <div class="staff-editor-list" id="staffListContainer"></div>
+
+              <input type="file" id="staffPhotoHiddenInput" accept="image/*" style="display:none;" onchange="handleStaffFileSelected(this.files)">
+
+              <button type="button" class="btn-cta btn-cta-outline btn-sm" onclick="addStaffMember()" style="width:100%;">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="8.5" cy="7" r="4"/><line x1="20" y1="8" x2="20" y2="14"/><line x1="23" y1="11" x2="17" y2="11"/></svg>
+                <span>+ Weitere Person zum Staff hinzufügen</span>
+              </button>
+            </div>
+
+            <!-- BLOCK 5: SPIELERKADER & MANNSCHAFTSSPONSOREN (DUAL-MODE) -->
+            <div class="form-block-card" id="block5">
+              <div class="block-header">
+                <div>
+                  <span class="block-step-badge">
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                    <span>BLOCK 5 VON 5 · DUAL-TURBO</span>
+                  </span>
+                  <h2 class="block-title">Spielerkader &amp; Mannschaftssponsoren</h2>
+                  <p class="block-subtitle">Kombinieren Sie den 1-Klick-Listen-Import (Excel / ClubDesk / WhatsApp) mit der Multi-Foto-Dropzone samt automatischer Dateinamen-Erkennung.</p>
+                </div>
+              </div>
+
+              <!-- MODUS-UMSCHALTER -->
+              <div class="mode-switch-tabs" role="tablist">
+                <button type="button" class="mode-tab-btn active" id="tabModePaste" onclick="switchRosterMode('paste')">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="8" y="2" width="8" height="4" rx="1" ry="1"/></svg>
+                  <span>Modus A: 1-Klick-Listen-Import (Copy &amp; Paste)</span>
+                </button>
+                <button type="button" class="mode-tab-btn" id="tabModePhotos" onclick="switchRosterMode('photos')">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+                  <span>Modus B: Multi-Foto-Dropzone (Auto-Parser)</span>
+                </button>
+              </div>
+
+              <!-- MODUS A: COPY & PASTE TURBO -->
+              <div id="rosterModePastePane" style="margin-bottom:18px;">
+                <div class="form-group">
+                  <label class="form-label" for="rosterPasteTextarea">Spielerliste zeilenweise einfügen (z. B. «01 Sandro Albuquerque — Torhüter» oder «07 Marco Wyss»)</label>
+                  <textarea id="rosterPasteTextarea" class="form-textarea" placeholder="01 Sandro Albuquerque Sampaio — Torhüter&#10;04 Janik Bieli — Verteidigung&#10;07 Marco Wyss — Mittelfeld"></textarea>
+                </div>
+                <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-top:10px;">
+                  <button type="button" class="btn-cta btn-cta-primary btn-sm" onclick="parsePasteListToPlayers()">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span>Liste in Spieler-Kacheln übernehmen</span>
+                  </button>
+                  <span style="font-size:0.78rem;color:var(--text-muted);font-weight:600;" id="rosterCountLabel">20 Spieler in der Kaderliste aktiv</span>
+                </div>
+              </div>
+
+              <!-- MODUS B: MULTI-FOTO-DROPZONE MIT AUTO-DATEINAMEN-PARSER -->
+              <div id="rosterModePhotosPane" class="multi-photo-dropzone" ondragover="handleDragOver(event, this)" ondragleave="handleDragLeave(event, this)" ondrop="handleMultiPlayerDrop(event)">
+                <input type="file" id="multiPlayerPhotoInput" accept="image/*" multiple style="display:none;" onchange="handleMultiPlayerFiles(this.files)">
+                <div style="cursor:pointer;" onclick="document.getElementById('multiPlayerPhotoInput').click()">
+                  <div style="display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:var(--radius-md);background-color:#FFFFFF;color:var(--brand-primary-dark);margin-bottom:8px;">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+                  </div>
+                  <div style="font-family:'Montserrat',sans-serif;font-weight:800;font-size:0.92rem;color:var(--brand-navy);">
+                    1 bis 30 Spieler- &amp; Trainerfotos gleichzeitig hier hineinziehen oder auswählen
+                  </div>
+                  <div style="font-size:0.8rem;color:var(--text-body);margin-top:4px;">
+                    <strong>Fall 1 (Vorbeschriftet, z. B. 07_Marco_Wyss.jpg):</strong> Erkennt Nr. &amp; Name vollautomatisch!<br>
+                    <strong>Fall 2 (Handy-Foto, z. B. IMG_4812.JPG):</strong> Zeigt sofort ein Schnell-Zuordnungs-Feld für Nr. &amp; Name!
+                  </div>
+                </div>
+
+                <!-- 1-KLICK DEMO BUTTON FÜR DAVID & JENNY -->
+                <div style="margin-top:12px;padding-top:12px;border-top:1px solid rgba(15, 23, 42, 0.12);display:flex;justify-content:center;">
+                  <button type="button" class="btn-cta btn-cta-navy btn-sm" id="btnDemoParser" onclick="runFilenameParserDemo()">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M15 4V2"/><path d="M15 16v-2"/><path d="M8 9h2"/><path d="M20 9h2"/><path d="M17.8 11.8 19 13"/><path d="M15 9h0"/><path d="M17.8 6.2 19 5"/><path d="m3 21 9-9"/><path d="M12.2 6.2 11 5"/></svg>
+                    <span>Demo: 3 Beispiel-Dateien testen (1x benannt, 1x Handy-Foto IMG_4812.jpg, 1x Trainer)</span>
+                  </button>
+                </div>
+
+                <!-- ERGEBNISSE DES AUTO-FILENAME-PARSERS -->
+                <div class="parsed-uploads-list" id="parsedUploadsContainer"></div>
+              </div>
+
+              <!-- INTERAKTIVE SPIELER-KACHELN -->
+              <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:8px;flex-wrap:wrap;">
+                <span style="font-family:'Montserrat',sans-serif;font-size:0.82rem;font-weight:800;color:var(--brand-navy);">
+                  Interaktive Spieler-Kaderliste (Nummer, Name, Position &amp; Ziel-Dateiname)
+                </span>
+                <button type="button" class="btn-cta btn-cta-outline btn-sm" onclick="addEmptyPlayerRow()">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                  <span>+ Spieler hinzufügen</span>
+                </button>
+              </div>
+
+              <div class="player-editor-list" id="playerTilesContainer"></div>
+
+              <input type="file" id="singlePlayerPhotoInput" accept="image/*" style="display:none;" onchange="handleSinglePlayerPhotoSelected(this.files)">
+
+              <!-- OPTIONALER ZUSATZ: MANNSCHAFTSSPONSOR -->
+              <div class="form-group" style="margin-top:18px;padding-top:16px;border-top:1px solid var(--border-light);">
+                <label class="form-label" for="inpTeamSponsor">Mannschafts- / Dress-Sponsor (optional)</label>
+                <input type="text" id="inpTeamSponsor" class="form-input" placeholder="z. B. Hauptsponsor 1. Mannschaft: Garage Müller AG" oninput="syncLivePreview()">
+              </div>
+            </div>
+
+          </div>
+
+          <!-- RECHTE SPALTE: LIVE-VORSCHAU + PFLICHT-RECHTE-CHECKBOX + ABSENDEN -->
+          <div class="preview-column">
+
+            <!-- LIVE-VORSCHAU KARTE -->
+            <div class="live-preview-shell">
+              <div class="live-preview-topbar">
+                <div>
+                  <div style="font-family:'Montserrat',sans-serif;font-size:0.86rem;font-weight:800;">
+                    Live-Vorschau: So sieht Ihre Mannschafts-Seite aus
+                  </div>
+                  <div style="font-size:0.74rem;color:#CBD5E1;">
+                    Aktualisiert sich in Echtzeit bei jeder Eingabe
+                  </div>
+                </div>
+                <span class="live-preview-badge">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                  <span>LIVE</span>
+                </span>
+              </div>
+
+              <div class="live-preview-body">
+                <div class="preview-photo-box">
+                  <img id="pvTeamPhoto" src="images/team-herren-1.webp" alt="Live-Vorschau Mannschaftsfoto" width="520" height="240">
+                  <span class="preview-photo-tag" id="pvBadgeText">1. Mannschaft · 2. Liga regional</span>
+                </div>
+
+                <div class="section-kicker" id="pvKickerText">SC Fulenbach · OFFIZIELLE MANNSCHAFTS-SEITE</div>
+                <h3 style="font-size:1.28rem;font-weight:800;margin-bottom:6px;" id="pvTeamTitle">SC Fulenbach — 1. Mannschaft</h3>
+                <p style="font-size:0.83rem;color:var(--text-body);margin-bottom:12px;" id="pvTeamMotto"></p>
+
+                <div class="preview-meta-box">
+                  <div style="display:flex;align-items:center;gap:8px;">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--brand-primary)" stroke-width="2.2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                    <span><strong>Training:</strong> <span id="pvTraining">Dienstag &amp; Donnerstag, 19:30 – 21:00 Uhr</span></span>
+                  </div>
+                  <div style="display:flex;align-items:center;gap:8px;">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--brand-primary)" stroke-width="2.2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                    <span><strong>Heimstätte:</strong> <span id="pvPitch">Sportplatz</span></span>
+                  </div>
+                  <div id="pvSponsorRow" style="display:flex;align-items:center;gap:8px;">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--brand-primary)" stroke-width="2.2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                    <span><strong>Sponsor:</strong> <span id="pvSponsor"></span></span>
+                  </div>
+                </div>
+
+                <div style="font-family:'Montserrat',sans-serif;font-size:0.76rem;font-weight:800;text-transform:uppercase;color:var(--brand-navy);margin-bottom:8px;">
+                  Trainer- &amp; Betreuerstab (<span id="pvStaffCount">0</span>)
+                </div>
+                <div class="preview-staff-grid" id="pvStaffGrid"></div>
+
+                <div style="font-family:'Montserrat',sans-serif;font-size:0.76rem;font-weight:800;text-transform:uppercase;color:var(--brand-navy);margin-bottom:8px;">
+                  Spielerkader (<span id="pvPlayerCount">0</span> Kaderspieler)
+                </div>
+                <div class="preview-players-grid" id="pvPlayersGrid"></div>
+              </div>
+            </div>
+
+            <!-- ABSENDE- & RECHTE-KARTE -->
+            <div class="submit-box-card">
+              <span class="section-kicker">DIREKT-ÜBERMITTLUNG AN REDAKTION &amp; SPORTCHEF</span>
+              <h3 style="font-size:1.12rem;font-weight:800;margin-bottom:6px;">Mannschafts-Daten jetzt absenden</h3>
+              <p style="font-size:0.82rem;color:var(--text-muted);margin-bottom:14px;">
+                Alle Angaben und automatisch benannten Bilddateien werden strukturiert für <strong>SC Fulenbach</strong> und Umsetzungspartnerin <strong>Jenny Ettle (JE-MI)</strong> gespeichert.
+              </p>
+
+              <div class="form-grid-2">
+                <div class="form-group">
+                  <label class="form-label" for="inpSubmitterName">Ihr Name (Trainer / Sportchef)</label>
+                  <input type="text" id="inpSubmitterName" class="form-input" placeholder="Vorname Nachname">
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="inpSubmitterContact">E-Mail oder Mobilnummer</label>
+                  <input type="text" id="inpSubmitterContact" class="form-input" placeholder="fuer Rueckfragen">
+                </div>
+              </div>
+
+              <label class="rights-checkbox-label" for="chkRightsConfirmed">
+                <input type="checkbox" id="chkRightsConfirmed" checked>
+                <span>
+                  <strong>Rechte- &amp; Datenschutz-Bestätigung (Schweizer DSG):</strong> Ich bestätige im Namen des Vereins, dass die Nutzungsrechte an den hochgeladenen Bildern vorliegen und die abgebildeten Personen mit der Veröffentlichung auf der Vereinswebseite einverstanden sind.
+                </span>
+              </label>
+
+              <div id="submitErrorBox" style="display:none;background-color:#FEE2E2;border:1px solid #FCA5A5;color:#991B1B;padding:10px 12px;border-radius:var(--radius-sm);font-size:0.82rem;font-weight:600;margin-bottom:12px;"></div>
+
+              <button type="button" class="btn-cta btn-cta-primary" id="btnSubmitTeamForm" onclick="submitTeamForm()" style="width:100%;font-size:0.92rem;">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                <span id="btnSubmitTeamText">Mannschafts-Daten &amp; Kader verbindlich einreichen</span>
+              </button>
+
+              <!-- BESTÄTIGUNGS-ANSICHT NACH ABSENDEN -->
+              <div class="success-modal-card" id="submissionSuccessCard">
+                <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px;color:#065F46;">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                  <h4 style="font-size:1.05rem;font-weight:800;color:#065F46;">Mannschafts-Daten erfolgreich gespeichert!</h4>
+                </div>
+                <p style="font-size:0.84rem;color:#065F46;margin-bottom:12px;" id="successSummaryText"></p>
+                <div style="background-color:#FFFFFF;border:1px solid #6EE7B7;border-radius:var(--radius-sm);padding:10px 12px;margin-bottom:14px;">
+                  <div style="font-family:'Montserrat',sans-serif;font-size:0.72rem;font-weight:800;color:#065F46;text-transform:uppercase;margin-bottom:6px;">
+                    Automatisch nach Vereinsstandard benannte Bilddateien (0 Min. Aufwand für Jenny Ettle):
+                  </div>
+                  <ul id="successFilesList" style="list-style:none;font-size:0.78rem;color:var(--text-main);display:flex;flex-direction:column;gap:4px;"></ul>
+                </div>
+                <div style="display:flex;gap:10px;flex-wrap:wrap;">
+                  <button type="button" class="btn-cta btn-cta-primary btn-sm" onclick="selectNextTeamInList()" style="flex:1;">
+                    <span>Nächste Mannschaft bearbeiten</span>
+                  </button>
+                  <a href="herren-1.html" class="btn-cta btn-cta-outline btn-sm" style="flex:1;">
+                    <span>Zur Mannschafts-Übersicht</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-bottom">
+        <div>&copy; 2026 SC Fulenbach · WebPilot Mannschafts-Daten &amp; Kader-Assistent (Self-Service ohne Login).</div>
+        <div style="display:flex;gap:16px;flex-wrap:wrap;">
+          <a href="herren-1.html" style="color:#FBBF24;font-weight:700;">Zurück zur Mannschafts-Übersicht</a>
+          <a href="index.html" style="color:#E2E8F0;">Startseite</a>
+          <a href="kontakt.html" style="color:#E2E8F0;">Smart-Anfrage</a>
+        </div>
+        <!-- === WEBPILOT-PARTNER-FOOTER-START === -->
+        <button type="button" class="wp-partner-footer-btn" data-studio-ignore="true" onclick="wpOpenPartnerModal('footer')">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+          <span>Powered by WebPilot · Partner: Jenny Ettle (JE-MI) — Kontakt &amp; Infos</span>
+        </button>
+        <!-- === WEBPILOT-PARTNER-FOOTER-END === -->
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const CLUB_CONFIG = {"target_dir": "preview-scfulenbach", "site_id": "scfulenbach", "club_name": "SC Fulenbach", "club_sub": "SEIT 1944 · SPORTPLATZ BAD · SOFV NR. 1826", "logo_path": "images/logo-scfulenbach.webp", "default_team_photo": "images/team-herren-1.webp", "default_team_slug": "1-mannschaft", "default_submitter_name": "Kay Ackermann", "default_submitter_contact": "mirko.ferrari@scfulenbach.ch", "brand_primary": "#0F8A4B", "brand_primary_dark": "#065F46", "brand_primary_soft": "#ECFDF5", "brand_navy": "#0B1528", "brand_gold": "#D97706", "brand_gold_soft": "#FEF3C7", "teams": [{"slug": "1-mannschaft", "name": "1. Mannschaft (2. Liga regional)", "group": "Aktive", "status": "live", "league": "2. Liga regional (SOFV)", "sfv_link": "https://www.sofv.ch/de/verein.aspx?v=1826&a=trr", "motto": "Fanionteam SC Fulenbach — Aufsteiger 2. Liga regional auf dem Sportplatz Bad", "training_times": "Dienstag & Donnerstag, 19:30 – 21:00 Uhr", "pitch_location": "Sportplatz Bad, Platz 1 (Hauptfeld), 4629 Fulenbach", "winter_note": "Wintervorbereitung ab Januar auf Kunstrasen / Turnhalle Fulenbach gemäss Aufgebot", "team_photo": "images/team-herren-1.webp", "team_photo_caption": "SC Fulenbach 1. Mannschaft (2. Liga regional) auf dem Sportplatz Bad", "team_sponsor": "Ehrenbolger & Suter AG · Roth Dach GmbH · Fischer Schreinerei GmbH", "staff": [{"role": "Trainer", "name": "Kay Ackermann", "phone": "079 397 87 73", "email": "vorstand@scfulenbach.ch", "photo": "images/staff-kay-ackermann.webp"}, {"role": "Co-Trainer", "name": "Reto Wyss", "phone": "", "email": "vorstand@scfulenbach.ch", "photo": ""}, {"role": "Co-Trainer", "name": "Roland Wiss", "phone": "", "email": "vorstand@scfulenbach.ch", "photo": "images/staff-roland-wiss.webp"}, {"role": "Torwarttrainer", "name": "Marcel Künzli", "phone": "", "email": "", "photo": ""}, {"role": "Betreuer", "name": "Roland Mäder", "phone": "", "email": "", "photo": ""}], "players": [{"number": "01", "name": "Sandro Albuquerque Sampaio", "position": "Torhüter"}, {"number": "02", "name": "Nik Berger", "position": "Verteidigung"}, {"number": "03", "name": "Yanick Boss", "position": "Verteidigung"}, {"number": "04", "name": "Janik Bieli", "position": "Verteidigung"}, {"number": "05", "name": "Florian Fischer", "position": "Verteidigung"}, {"number": "06", "name": "André Grob", "position": "Mittelfeld"}, {"number": "07", "name": "Marco Wyss", "position": "Mittelfeld"}, {"number": "08", "name": "Glen Jäggi", "position": "Mittelfeld"}, {"number": "09", "name": "Loris Jäggi", "position": "Mittelfeld"}, {"number": "10", "name": "Ron Jäggi", "position": "Sturm"}, {"number": "11", "name": "Enrik Kqiraj", "position": "Sturm"}, {"number": "12", "name": "Fabian Kuster", "position": "Torhüter"}, {"number": "13", "name": "Dzenis Poljak", "position": "Mittelfeld"}, {"number": "14", "name": "Flavio Premori", "position": "Verteidigung"}, {"number": "15", "name": "Joel Roth", "position": "Mittelfeld"}, {"number": "16", "name": "Jonas Ruf", "position": "Verteidigung"}, {"number": "17", "name": "Yves Rütimann", "position": "Sturm"}, {"number": "18", "name": "Levin Wiss", "position": "Mittelfeld"}, {"number": "19", "name": "Daren Wyss", "position": "Sturm"}, {"number": "20", "name": "Jonas Wyss", "position": "Mittelfeld"}]}, {"slug": "2-mannschaft", "name": "2. Mannschaft (4. Liga)", "group": "Aktive", "status": "draft", "league": "4. Liga (SOFV)", "sfv_link": "https://www.sofv.ch/de/verein.aspx?v=1826&a=trr", "motto": "«Zwöi» des SC Fulenbach — Teamgeist, Kameradschaft und starker Rückhalt", "training_times": "Dienstag & Donnerstag, 19:30 – 21:00 Uhr", "pitch_location": "Sportplatz Bad, Platz 2, 4629 Fulenbach", "winter_note": "Hallentraining / Kunstrasen nach Ansage Trainerstab", "team_photo": "images/team-herren-2.webp", "team_sponsor": "100er-Club Gönnervereinigung SC Fulenbach", "staff": [{"role": "Trainer", "name": "Marc Haldemann", "phone": "", "email": "mirko.ferrari@scfulenbach.ch", "photo": ""}, {"role": "Co-Trainer", "name": "Emanuel Wyss", "phone": "", "email": "", "photo": ""}], "players": [{"number": "01", "name": "Lukas von Arx", "position": "Torhüter"}, {"number": "04", "name": "Sandro Wyss", "position": "Verteidigung"}, {"number": "06", "name": "Patrick Studer", "position": "Mittelfeld"}, {"number": "08", "name": "Robin Müller", "position": "Mittelfeld"}, {"number": "10", "name": "Emanuel Wyss", "position": "Sturm"}]}, {"slug": "senioren-30", "name": "Senioren 30+", "group": "Frauen / Senioren", "status": "draft", "league": "Senioren 30+ Meisterschaft & Cup (SOFV)", "sfv_link": "https://www.sofv.ch/de/verein.aspx?v=1826&a=trr", "motto": "Erfahrung, Spielwitz und gelebte Vereinskultur am Freitagabend", "training_times": "Mittwoch, 19:30 – 21:00 Uhr (Spiele jeweils Freitagabend)", "pitch_location": "Sportplatz Bad, 4629 Fulenbach", "winter_note": "Hallentraining Mittwochabend in Fulenbach", "team_photo": "images/team-senioren-30.webp", "team_sponsor": "Clubhaus Bad & Supporter SC Fulenbach", "staff": [{"role": "Trainer", "name": "Walter Müller", "phone": "", "email": "vorstand@scfulenbach.ch", "photo": ""}, {"role": "Co-Trainer", "name": "Christian Napoli", "phone": "", "email": "", "photo": ""}], "players": [{"number": "01", "name": "Thomas Jäggi", "position": "Torhüter"}, {"number": "05", "name": "Christian Napoli", "position": "Verteidigung"}, {"number": "08", "name": "Andreas Guldimann", "position": "Mittelfeld"}, {"number": "10", "name": "Mirko Ferrari", "position": "Sturm"}]}, {"slug": "junioren-b-rot", "name": "Junioren B rot", "group": "Juniorinnen & Junioren", "status": "draft", "league": "Junioren B 11er-Fussball (Gruppierung rot/blau)", "sfv_link": "https://www.sofv.ch/de/verein.aspx?v=1826&a=trr", "motto": "Juniorengruppierung SC Fulenbach / FC Wolfwil / FC Kestenholz", "training_times": "Montag & Mittwoch, 18:30 – 20:00 Uhr", "pitch_location": "Sportplatz Bad, 4629 Fulenbach", "winter_note": "Hallentraining gemäss Winterplan Juniorenobmann", "team_photo": "images/junioren-lager.webp", "team_sponsor": "Nachwuchsförderung SC Fulenbach", "staff": [{"role": "Trainer", "name": "Luca Albuquerque Sampaio", "phone": "079 647 13 33", "email": "vorstand@scfulenbach.ch", "photo": ""}, {"role": "Co-Trainer", "name": "Nico Leber", "phone": "", "email": "", "photo": ""}], "players": [{"number": "01", "name": "Noel Jäggi", "position": "Torhüter"}, {"number": "04", "name": "Levin Berger", "position": "Verteidigung"}, {"number": "07", "name": "Loris Wyss", "position": "Mittelfeld"}, {"number": "09", "name": "Janis Studer", "position": "Sturm"}]}, {"slug": "junioren-b-blau", "name": "Junioren B blau", "group": "Juniorinnen & Junioren", "status": "draft", "league": "Junioren B (Gruppierung rot/blau)", "sfv_link": "https://www.sofv.ch/de/verein.aspx?v=1826&a=trr", "motto": "Juniorengruppierung SC Fulenbach / FC Wolfwil / FC Kestenholz", "training_times": "Dienstag & Donnerstag, 18:30 – 20:00 Uhr", "pitch_location": "Sportplatz Bad Fulenbach / Wolfwil", "winter_note": "", "team_photo": "images/junioren-lager.webp", "team_sponsor": "", "staff": [{"role": "Trainer", "name": "Jagvir Singh Nagra", "phone": "079 647 13 33", "email": "", "photo": ""}, {"role": "Teammanager", "name": "Michael Frieder", "phone": "079 647 13 33", "email": "", "photo": ""}], "players": []}, {"slug": "junioren-c", "name": "Junioren C", "group": "Juniorinnen & Junioren", "status": "draft", "league": "Junioren C (Gruppierung rot/blau)", "sfv_link": "https://www.sofv.ch/de/verein.aspx?v=1826&a=trr", "motto": "Ausbildung & Übergang auf das grosse 11er-Spielfeld", "training_times": "Montag & Mittwoch, 18:00 – 19:30 Uhr", "pitch_location": "Sportplatz Bad, 4629 Fulenbach", "winter_note": "", "team_photo": "images/junioren-lager.webp", "team_sponsor": "", "staff": [{"role": "Trainer", "name": "Marco Wagner", "phone": "", "email": "", "photo": ""}, {"role": "Co-Trainer", "name": "Remo Wagner", "phone": "", "email": "", "photo": ""}, {"role": "Co-Trainer", "name": "Raphael Kronenberg", "phone": "", "email": "", "photo": ""}], "players": []}, {"slug": "junioren-da", "name": "Junioren Da", "group": "Juniorinnen & Junioren", "status": "draft", "league": "Junioren D/9 (SOFV)", "sfv_link": "https://www.sofv.ch/de/verein.aspx?v=1826&a=trr", "motto": "Nachwuchs 9er-Fussball auf dem Sportplatz Bad", "training_times": "Dienstag & Donnerstag, 18:00 – 19:30 Uhr", "pitch_location": "Sportplatz Bad, 4629 Fulenbach", "winter_note": "", "team_photo": "images/junioren-lager.webp", "team_sponsor": "", "staff": [{"role": "Trainer", "name": "Hanspeter Ehrenbolger", "phone": "", "email": "", "photo": ""}, {"role": "Co-Trainer", "name": "Fabian Wyss", "phone": "", "email": "", "photo": ""}], "players": []}, {"slug": "junioren-db", "name": "Junioren Db", "group": "Juniorinnen & Junioren", "status": "draft", "league": "Junioren D/7 (SOFV)", "sfv_link": "https://www.sofv.ch/de/verein.aspx?v=1826&a=trr", "motto": "Nachwuchs 7er-Fussball auf dem Sportplatz Bad", "training_times": "Dienstag & Donnerstag, 18:00 – 19:30 Uhr", "pitch_location": "Sportplatz Bad, 4629 Fulenbach", "winter_note": "", "team_photo": "images/junioren-lager.webp", "team_sponsor": "", "staff": [{"role": "Trainer", "name": "Roman Wyss", "phone": "", "email": "", "photo": ""}, {"role": "Co-Trainer", "name": "Hanspeter Ehrenbolger", "phone": "", "email": "", "photo": ""}], "players": []}, {"slug": "junioren-ea", "name": "Junioren Ea", "group": "Juniorinnen & Junioren", "status": "draft", "league": "Kinderfussball Junioren E (Play More Football)", "sfv_link": "https://www.sofv.ch/de/verein.aspx?v=1826&a=trr", "motto": "Spielfreude, Technik & viele Ballkontakte", "training_times": "Montag & Mittwoch, 17:45 – 19:00 Uhr", "pitch_location": "Sportplatz Bad, 4629 Fulenbach", "winter_note": "", "team_photo": "images/junioren-lager.webp", "team_sponsor": "", "staff": [{"role": "Trainer", "name": "Michael Frieder", "phone": "079 647 13 33", "email": "", "photo": ""}], "players": []}, {"slug": "junioren-eb", "name": "Junioren Eb", "group": "Juniorinnen & Junioren", "status": "draft", "league": "Kinderfussball Junioren E (Play More Football)", "sfv_link": "https://www.sofv.ch/de/verein.aspx?v=1826&a=trr", "motto": "Kinderfussball auf dem Sportplatz Bad", "training_times": "Montag & Mittwoch, 17:45 – 19:00 Uhr", "pitch_location": "Sportplatz Bad, 4629 Fulenbach", "winter_note": "", "team_photo": "images/junioren-lager.webp", "team_sponsor": "", "staff": [{"role": "Trainer", "name": "Michael Frieder", "phone": "079 647 13 33", "email": "", "photo": ""}], "players": []}, {"slug": "junioren-ec", "name": "Junioren Ec", "group": "Juniorinnen & Junioren", "status": "draft", "league": "Kinderfussball Junioren E (Play More Football)", "sfv_link": "https://www.sofv.ch/de/verein.aspx?v=1826&a=trr", "motto": "Kinderfussball auf dem Sportplatz Bad", "training_times": "Montag & Mittwoch, 17:45 – 19:00 Uhr", "pitch_location": "Sportplatz Bad, 4629 Fulenbach", "winter_note": "", "team_photo": "images/junioren-lager.webp", "team_sponsor": "", "staff": [{"role": "Trainer", "name": "Michael Frieder", "phone": "079 647 13 33", "email": "", "photo": ""}], "players": []}, {"slug": "junioren-f-rot", "name": "Junioren F rot", "group": "Juniorinnen & Junioren", "status": "draft", "league": "Kinderfussball Junioren F (Play More Football)", "sfv_link": "https://www.sofv.ch/de/verein.aspx?v=1826&a=trr", "motto": "Spielerischer Einstieg in den Vereinsfussball", "training_times": "Mittwoch, 17:30 – 18:45 Uhr", "pitch_location": "Sportplatz Bad, 4629 Fulenbach", "winter_note": "", "team_photo": "images/junioren-lager.webp", "team_sponsor": "", "staff": [{"role": "Trainer", "name": "Michael Frieder", "phone": "079 647 13 33", "email": "", "photo": ""}], "players": []}, {"slug": "junioren-f-blau", "name": "Junioren F blau", "group": "Juniorinnen & Junioren", "status": "draft", "league": "Kinderfussball Junioren F (Play More Football)", "sfv_link": "https://www.sofv.ch/de/verein.aspx?v=1826&a=trr", "motto": "Spielerischer Einstieg in den Vereinsfussball", "training_times": "Mittwoch, 17:30 – 18:45 Uhr", "pitch_location": "Sportplatz Bad, 4629 Fulenbach", "winter_note": "", "team_photo": "images/junioren-lager.webp", "team_sponsor": "", "staff": [{"role": "Trainer", "name": "Michael Frieder", "phone": "079 647 13 33", "email": "", "photo": ""}], "players": []}, {"slug": "junioren-g", "name": "Junioren G", "group": "Juniorinnen & Junioren", "status": "draft", "league": "Bambini / Junioren G Kinderfussball", "sfv_link": "https://www.sofv.ch/de/verein.aspx?v=1826&a=trr", "motto": "Die jüngsten Fussballerinnen und Fussballer des SC Fulenbach", "training_times": "Mittwoch, 17:15 – 18:15 Uhr", "pitch_location": "Sportplatz Bad, 4629 Fulenbach", "winter_note": "", "team_photo": "images/junioren-lager.webp", "team_sponsor": "", "staff": [{"role": "Trainer", "name": "Michael Frieder", "phone": "079 647 13 33", "email": "", "photo": ""}], "players": []}]};
+
+    let currentTeamSlug = CLUB_CONFIG.default_team_slug;
+    let currentTeamPhotoMeta = {
+      preview_src: CLUB_CONFIG.default_team_photo,
+      original_filename: "",
+      target_filename: CLUB_CONFIG.site_id + "_" + CLUB_CONFIG.default_team_slug + "_teamfoto.webp",
+      has_new_upload: false
+    };
+    let currentStaff = [];
+    let currentPlayers = [];
+    let parsedPhotoUploads = [];
+    let activeStaffUploadIdx = -1;
+    let activePlayerUploadIdx = -1;
+
+    function wpToggleMobileMenu() {
+      const d = document.getElementById('mobileDrawer');
+      if (d) d.classList.toggle('open');
+    }
+
+    function wpCloseMobileMenu() {
+      const d = document.getElementById('mobileDrawer');
+      if (d) d.classList.remove('open');
+    }
+
+    function slugifyPart(str) {
+      return String(str || '')
+        .trim()
+        .toLowerCase()
+        .replace(/ä/g, 'ae')
+        .replace(/ö/g, 'oe')
+        .replace(/ü/g, 'ue')
+        .replace(/[éèê]/g, 'e')
+        .replace(/[àáâ]/g, 'a')
+        .replace(/ç/g, 'c')
+        .replace(/[^a-z0-9]+/g, '-')
+        .replace(/^-+|-+$/g, '') || 'unbekannt';
+    }
+
+    function getInitials(name) {
+      const parts = String(name || '').trim().split(/\s+/).filter(Boolean);
+      if (parts.length === 0) return 'ST';
+      if (parts.length === 1) return parts[0].slice(0, 2).toUpperCase();
+      return (parts[0][0] + parts[parts.length - 1][0]).toUpperCase();
+    }
+
+    function buildTargetFilename(kind, roleOrNum, nameStr) {
+      const siteId = CLUB_CONFIG.site_id;
+      const tSlug = slugifyPart(currentTeamSlug);
+      if (kind === 'team') {
+        return siteId + '_' + tSlug + '_teamfoto.webp';
+      }
+      if (kind === 'staff') {
+        return siteId + '_' + tSlug + '_' + slugifyPart(roleOrNum || 'trainer') + '_' + slugifyPart(nameStr || 'staff') + '.webp';
+      }
+      const numRaw = String(roleOrNum || '').trim();
+      const numClean = /^\d+$/.test(numRaw) ? numRaw.padStart(2, '0') : slugifyPart(numRaw || '00');
+      return siteId + '_' + tSlug + '_' + numClean + '_' + slugifyPart(nameStr || 'spieler') + '.webp';
+    }
+
+    function resolveTeamSlugFromQuery(rawParam) {
+      if (!rawParam) return CLUB_CONFIG.default_team_slug;
+      const clean = slugifyPart(rawParam);
+      const exact = CLUB_CONFIG.teams.find(t => t.slug === clean || slugifyPart(t.name) === clean);
+      if (exact) return exact.slug;
+
+      const aliases = {
+        'herren1': '1-mannschaft',
+        'herren-1': '1-mannschaft',
+        '1-mannschaft': '1-mannschaft',
+        'zwoei': '2-mannschaft',
+        'herren2': '2-mannschaft',
+        'herren-2': '2-mannschaft',
+        'frauen1': (CLUB_CONFIG.teams.find(t => t.slug.startsWith('frauen')) || {}).slug || '1-mannschaft',
+        'frauen': (CLUB_CONFIG.teams.find(t => t.slug.startsWith('frauen')) || {}).slug || '1-mannschaft',
+        'junioren-b': (CLUB_CONFIG.teams.find(t => t.slug.startsWith('junioren-b')) || {}).slug || '1-mannschaft',
+        'junioren-c': (CLUB_CONFIG.teams.find(t => t.slug.startsWith('junioren-c')) || {}).slug || '1-mannschaft',
+        'junioren-d': (CLUB_CONFIG.teams.find(t => t.slug.startsWith('junioren-d')) || {}).slug || '1-mannschaft',
+        'junioren-e': (CLUB_CONFIG.teams.find(t => t.slug.startsWith('junioren-e')) || {}).slug || '1-mannschaft',
+        'junioren-f': (CLUB_CONFIG.teams.find(t => t.slug.startsWith('junioren-f')) || {}).slug || '1-mannschaft',
+        'junioren-g': (CLUB_CONFIG.teams.find(t => t.slug.startsWith('junioren-g')) || {}).slug || '1-mannschaft'
+      };
+      if (aliases[clean]) return aliases[clean];
+
+      const partial = CLUB_CONFIG.teams.find(t => clean.includes(t.slug) || t.slug.includes(clean));
+      return partial ? partial.slug : CLUB_CONFIG.default_team_slug;
+    }
+
+    function populateTeamDropdown() {
+      const sel = document.getElementById('teamSelect');
+      sel.textContent = '';
+      const groups = {};
+      CLUB_CONFIG.teams.forEach(t => {
+        const g = t.group || 'Mannschaften';
+        if (!groups[g]) groups[g] = [];
+        groups[g].push(t);
+      });
+
+      Object.keys(groups).forEach(gName => {
+        const og = document.createElement('optgroup');
+        og.label = gName;
+        groups[gName].forEach(t => {
+          const opt = document.createElement('option');
+          opt.value = t.slug;
+          const statusSuffix = t.status === 'live'
+            ? ' — [Bereits ausgearbeitet — Daten geladen]'
+            : ' — [Vorschau-Entwurf — Bereit für Ihre Angaben]';
+          opt.textContent = t.name + statusSuffix;
+          og.appendChild(opt);
+        });
+        sel.appendChild(og);
+      });
+    }
+
+    function loadTeamIntoForm(teamSlug) {
+      const team = CLUB_CONFIG.teams.find(t => t.slug === teamSlug) || CLUB_CONFIG.teams[0];
+      currentTeamSlug = team.slug;
+
+      const sel = document.getElementById('teamSelect');
+      if (sel && sel.value !== team.slug) sel.value = team.slug;
+
+      try {
+        const url = new URL(window.location.href);
+        url.searchParams.set('team', team.slug);
+        window.history.replaceState({}, '', url.toString());
+      } catch (e) {}
+
+      const statusBanner = document.getElementById('teamStatusBanner');
+      const statusText = document.getElementById('teamStatusText');
+      const slugBadge = document.getElementById('teamSlugBadge');
+      if (team.status === 'live') {
+        statusBanner.className = 'team-status-bar status-live';
+        statusText.textContent = 'Bereits ausgearbeitet — Bekannte Vereinsdaten für ' + team.name + ' geladen';
+      } else {
+        statusBanner.className = 'team-status-bar status-draft';
+        statusText.textContent = 'Vorschau-Entwurf — Bekannte Eckdaten geladen, bereit für Ihre Ergänzungen';
+      }
+      slugBadge.textContent = 'System-Kürzel: ' + CLUB_CONFIG.site_id + '_' + team.slug;
+
+      document.getElementById('inpTeamName').value = team.name || '';
+      document.getElementById('inpLeague').value = team.league || '';
+      document.getElementById('inpSfvLink').value = team.sfv_link || '';
+      document.getElementById('inpTeamMotto').value = team.motto || '';
+      document.getElementById('inpTrainingTimes').value = team.training_times || '';
+      document.getElementById('inpPitchLocation').value = team.pitch_location || '';
+      document.getElementById('inpWinterNote').value = team.winter_note || '';
+      document.getElementById('inpTeamPhotoCaption').value = team.team_photo_caption || (CLUB_CONFIG.club_name + ' — ' + team.name);
+      document.getElementById('inpTeamSponsor').value = team.team_sponsor || '';
+
+      const firstTrainer = (team.staff && team.staff[0] && team.staff[0].name) ? team.staff[0].name : CLUB_CONFIG.default_submitter_name;
+      const firstContact = (team.staff && team.staff[0] && (team.staff[0].email || team.staff[0].phone)) ? (team.staff[0].email || team.staff[0].phone) : CLUB_CONFIG.default_submitter_contact;
+      document.getElementById('inpSubmitterName').value = firstTrainer || '';
+      document.getElementById('inpSubmitterContact').value = firstContact || '';
+
+      currentTeamPhotoMeta = {
+        preview_src: team.team_photo || CLUB_CONFIG.default_team_photo,
+        original_filename: '',
+        target_filename: buildTargetFilename('team'),
+        has_new_upload: false
+      };
+      document.getElementById('teamPhotoPreviewImg').src = currentTeamPhotoMeta.preview_src;
+      document.getElementById('teamPhotoRenameText').textContent = 'Automatische System-Benennung: ' + currentTeamPhotoMeta.target_filename;
+
+      currentStaff = (team.staff || []).map(st => ({
+        role: st.role || 'Trainer',
+        name: st.name || '',
+        phone: st.phone || '',
+        email: st.email || '',
+        photo: st.photo || '',
+        original_filename: '',
+        target_filename: buildTargetFilename('staff', st.role || 'Trainer', st.name || 'trainer')
+      }));
+      if (currentStaff.length === 0) {
+        currentStaff.push({ role: 'Trainer', name: '', phone: '', email: '', photo: '', original_filename: '', target_filename: '' });
+      }
+
+      currentPlayers = (team.players || []).map(pl => ({
+        number: String(pl.number || ''),
+        name: pl.name || '',
+        position: pl.position || 'Feldspieler',
+        photo: pl.photo || '',
+        original_filename: '',
+        parsed_from_filename: false,
+        target_filename: buildTargetFilename('player', pl.number, pl.name)
+      }));
+
+      parsedPhotoUploads = [];
+      renderParsedUploads();
+      renderStaffList();
+      syncPlayersToPasteTextarea();
+      renderPlayerTiles();
+      syncLivePreview();
+
+      const succ = document.getElementById('submissionSuccessCard');
+      if (succ) succ.classList.remove('visible');
+    }
+
+    function onTeamSelectChange(newSlug) {
+      loadTeamIntoForm(newSlug);
+    }
+
+    function selectNextTeamInList() {
+      const idx = CLUB_CONFIG.teams.findIndex(t => t.slug === currentTeamSlug);
+      const nextIdx = (idx + 1) % CLUB_CONFIG.teams.length;
+      loadTeamIntoForm(CLUB_CONFIG.teams[nextIdx].slug);
+      window.scrollTo({ top: 180, behavior: 'smooth' });
+    }
+
+    /* === BLOCK 3: MANNSCHAFTSFOTO UPLOAD & RENAME === */
+    function handleDragOver(evt, el) {
+      evt.preventDefault();
+      evt.stopPropagation();
+      el.classList.add('drag-over');
+    }
+
+    function handleDragLeave(evt, el) {
+      evt.preventDefault();
+      evt.stopPropagation();
+      el.classList.remove('drag-over');
+    }
+
+    function handleTeamPhotoDrop(evt) {
+      evt.preventDefault();
+      evt.stopPropagation();
+      const dz = document.getElementById('teamPhotoDropzone');
+      if (dz) dz.classList.remove('drag-over');
+      if (evt.dataTransfer && evt.dataTransfer.files && evt.dataTransfer.files.length > 0) {
+        handleTeamPhotoFiles(evt.dataTransfer.files);
+      }
+    }
+
+    function handleTeamPhotoFiles(files) {
+      if (!files || files.length === 0) return;
+      const file = files[0];
+      const targetFn = buildTargetFilename('team');
+      const reader = new FileReader();
+      reader.onload = function(e) {
+        currentTeamPhotoMeta = {
+          preview_src: e.target.result,
+          original_filename: file.name,
+          target_filename: targetFn,
+          has_new_upload: true
+        };
+        document.getElementById('teamPhotoPreviewImg').src = e.target.result;
+        document.getElementById('teamPhotoRenameText').textContent =
+          'Original «' + file.name + '» -> Automatische System-Benennung: ' + targetFn;
+        syncLivePreview();
+      };
+      reader.readAsDataURL(file);
+    }
+
+    /* === BLOCK 4: STAFF EDITOR === */
+    function renderStaffList() {
+      const container = document.getElementById('staffListContainer');
+      container.textContent = '';
+
+      currentStaff.forEach((st, idx) => {
+        st.target_filename = buildTargetFilename('staff', st.role, st.name || ('person-' + (idx + 1)));
+
+        const card = document.createElement('div');
+        card.className = 'staff-editor-card';
+
+        const drop = document.createElement('div');
+        drop.className = 'staff-mini-drop';
+        drop.title = 'Klicken oder Foto hineinziehen (Auto-Erkennung aus Dateiname)';
+        drop.onclick = function() {
+          activeStaffUploadIdx = idx;
+          document.getElementById('staffPhotoHiddenInput').click();
+        };
+        drop.ondragover = function(e) { e.preventDefault(); };
+        drop.ondrop = function(e) {
+          e.preventDefault();
+          if (e.dataTransfer && e.dataTransfer.files && e.dataTransfer.files[0]) {
+            applyStaffPhotoFile(idx, e.dataTransfer.files[0]);
+          }
+        };
+
+        if (st.photo) {
+          const img = document.createElement('img');
+          img.src = st.photo;
+          img.alt = st.name || 'Staff Portrait';
+          drop.appendChild(img);
+        } else {
+          const ini = document.createElement('span');
+          ini.className = 'staff-initials-crest';
+          ini.textContent = getInitials(st.name);
+          const hint = document.createElement('span');
+          hint.className = 'staff-mini-hint';
+          hint.textContent = 'Wappen';
+          drop.appendChild(ini);
+          drop.appendChild(hint);
+        }
+
+        const right = document.createElement('div');
+        const gridTop = document.createElement('div');
+        gridTop.className = 'form-grid-2';
+
+        const grpRole = document.createElement('div');
+        grpRole.className = 'form-group';
+        const lblRole = document.createElement('label');
+        lblRole.className = 'form-label';
+        lblRole.textContent = 'Funktion im Staff';
+        const selRole = document.createElement('select');
+        selRole.className = 'form-select';
+        ['Trainer', 'Co-Trainer', 'Torwarttrainer', 'Betreuer', 'Teammanager'].forEach(rOpt => {
+          const o = document.createElement('option');
+          o.value = rOpt;
+          o.textContent = rOpt;
+          if (st.role === rOpt) o.selected = true;
+          selRole.appendChild(o);
+        });
+        selRole.onchange = function() {
+          currentStaff[idx].role = this.value;
+          renderStaffList();
+          syncLivePreview();
+        };
+        grpRole.appendChild(lblRole);
+        grpRole.appendChild(selRole);
+
+        const grpName = document.createElement('div');
+        grpName.className = 'form-group';
+        const lblName = document.createElement('label');
+        lblName.className = 'form-label';
+        lblName.textContent = 'Vorname & Nachname';
+        const inpName = document.createElement('input');
+        inpName.type = 'text';
+        inpName.className = 'form-input';
+        inpName.placeholder = 'z. B. Kay Ackermann';
+        inpName.value = st.name || '';
+        inpName.oninput = function() {
+          currentStaff[idx].name = this.value;
+          currentStaff[idx].target_filename = buildTargetFilename('staff', currentStaff[idx].role, this.value);
+          const fnSpan = card.querySelector('.staff-target-fn');
+          if (fnSpan) fnSpan.textContent = 'Ziel-Datei: ' + currentStaff[idx].target_filename;
+          const iniSpan = drop.querySelector('.staff-initials-crest');
+          if (iniSpan) iniSpan.textContent = getInitials(this.value);
+          syncLivePreview();
+        };
+        grpName.appendChild(lblName);
+        grpName.appendChild(inpName);
+
+        gridTop.appendChild(grpRole);
+        gridTop.appendChild(grpName);
+
+        const gridBot = document.createElement('div');
+        gridBot.className = 'form-grid-2';
+        gridBot.style.marginTop = '8px';
+
+        const grpPhone = document.createElement('div');
+        grpPhone.className = 'form-group';
+        const lblPhone = document.createElement('label');
+        lblPhone.className = 'form-label';
+        lblPhone.textContent = 'Telefon / Mobil (optional)';
+        const inpPhone = document.createElement('input');
+        inpPhone.type = 'text';
+        inpPhone.className = 'form-input';
+        inpPhone.placeholder = '079 ...';
+        inpPhone.value = st.phone || '';
+        inpPhone.oninput = function() {
+          currentStaff[idx].phone = this.value;
+          syncLivePreview();
+        };
+        grpPhone.appendChild(lblPhone);
+        grpPhone.appendChild(inpPhone);
+
+        const grpMail = document.createElement('div');
+        grpMail.className = 'form-group';
+        const lblMail = document.createElement('label');
+        lblMail.className = 'form-label';
+        lblMail.textContent = 'E-Mail (optional)';
+        const inpMail = document.createElement('input');
+        inpMail.type = 'email';
+        inpMail.className = 'form-input';
+        inpMail.placeholder = 'trainer@verein.ch';
+        inpMail.value = st.email || '';
+        inpMail.oninput = function() {
+          currentStaff[idx].email = this.value;
+          syncLivePreview();
+        };
+        grpMail.appendChild(lblMail);
+        grpMail.appendChild(inpMail);
+
+        gridBot.appendChild(grpPhone);
+        gridBot.appendChild(grpMail);
+
+        const metaFoot = document.createElement('div');
+        metaFoot.style.cssText = 'display:flex;align-items:center;justify-content:space-between;gap:8px;margin-top:8px;flex-wrap:wrap;';
+        const fnBadge = document.createElement('span');
+        fnBadge.className = 'staff-target-fn';
+        fnBadge.style.cssText = 'font-size:0.74rem;color:#065F46;font-weight:700;background-color:#ECFDF5;padding:3px 8px;border-radius:4px;border:1px solid #6EE7B7;';
+        fnBadge.textContent = st.photo
+          ? ('Foto aktiv -> ' + st.target_filename)
+          : ('Kein Foto -> Vereins-Initialen-Wappen (' + getInitials(st.name) + ') · ' + st.target_filename);
+
+        const delBtn = document.createElement('button');
+        delBtn.type = 'button';
+        delBtn.className = 'btn-cta btn-cta-outline btn-sm';
+        delBtn.style.cssText = 'min-height:36px;padding:4px 10px;font-size:0.74rem;';
+        delBtn.textContent = 'Entfernen';
+        delBtn.onclick = function() {
+          currentStaff.splice(idx, 1);
+          renderStaffList();
+          syncLivePreview();
+        };
+
+        metaFoot.appendChild(fnBadge);
+        if (currentStaff.length > 1) metaFoot.appendChild(delBtn);
+
+        right.appendChild(gridTop);
+        right.appendChild(gridBot);
+        right.appendChild(metaFoot);
+
+        card.appendChild(drop);
+        card.appendChild(right);
+        container.appendChild(card);
+      });
+    }
+
+    function addStaffMember() {
+      currentStaff.push({
+        role: 'Co-Trainer',
+        name: '',
+        phone: '',
+        email: '',
+        photo: '',
+        original_filename: '',
+        target_filename: buildTargetFilename('staff', 'Co-Trainer', 'neu')
+      });
+      renderStaffList();
+      syncLivePreview();
+    }
+
+    function handleStaffFileSelected(files) {
+      if (!files || files.length === 0 || activeStaffUploadIdx < 0) return;
+      applyStaffPhotoFile(activeStaffUploadIdx, files[0]);
+    }
+
+    function applyStaffPhotoFile(idx, file) {
+      const parsed = parseUploadedFilename(file.name);
+      if (parsed.type === 'staff') {
+        currentStaff[idx].role = parsed.role;
+        if (parsed.name) currentStaff[idx].name = parsed.name;
+      } else if (parsed.isNamed && parsed.name && !currentStaff[idx].name) {
+        currentStaff[idx].name = parsed.name;
+      }
+      currentStaff[idx].original_filename = file.name;
+      const reader = new FileReader();
+      reader.onload = function(e) {
+        currentStaff[idx].photo = e.target.result;
+        renderStaffList();
+        syncLivePreview();
+      };
+      reader.readAsDataURL(file);
+    }
+
+    /* === BLOCK 5: DUAL-MODE SPIELERKADER (PASTE + MULTI-PHOTO AUTO-PARSER) === */
+    function switchRosterMode(mode) {
+      const btnPaste = document.getElementById('tabModePaste');
+      const btnPhotos = document.getElementById('tabModePhotos');
+      if (mode === 'photos') {
+        btnPhotos.classList.add('active');
+        btnPaste.classList.remove('active');
+        document.getElementById('rosterModePhotosPane').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      } else {
+        btnPaste.classList.add('active');
+        btnPhotos.classList.remove('active');
+      }
+    }
+
+    function syncPlayersToPasteTextarea() {
+      const lines = currentPlayers.map(pl => {
+        const num = pl.number ? (String(pl.number).padStart(2, '0') + ' ') : '';
+        const pos = (pl.position && pl.position !== 'Feldspieler') ? (' — ' + pl.position) : '';
+        return num + (pl.name || '') + pos;
+      });
+      const ta = document.getElementById('rosterPasteTextarea');
+      if (ta) ta.value = lines.join('\n');
+      const lbl = document.getElementById('rosterCountLabel');
+      if (lbl) lbl.textContent = currentPlayers.length + ' Spieler in der Kaderliste aktiv';
+    }
+
+    function inferPositionFromToken(str) {
+      const s = String(str || '').toLowerCase();
+      if (/\b(tor|torhüter|torhueter|goalie|tw|gk)\b/.test(s)) return 'Torhüter';
+      if (/\b(vert|verteidigung|abwehr|def|iv|av|rv|lv)\b/.test(s)) return 'Verteidigung';
+      if (/\b(mitte|mittelfeld|mf|zm|dm|om)\b/.test(s)) return 'Mittelfeld';
+      if (/\b(sturm|stürmer|stuermer|angriff|st|fw)\b/.test(s)) return 'Sturm';
+      return 'Feldspieler';
+    }
+
+    function parsePasteListToPlayers() {
+      const raw = document.getElementById('rosterPasteTextarea').value || '';
+      const lines = raw.split(/\r?\n/).map(l => l.trim()).filter(Boolean);
+      const existingPhotosByName = {};
+      currentPlayers.forEach(p => {
+        if (p.photo) existingPhotosByName[slugifyPart(p.name)] = p;
+      });
+
+      const nextPlayers = [];
+      lines.forEach((line, idx) => {
+        let work = line.replace(/^[•\-\*\#]+/, '').trim();
+        let pos = 'Feldspieler';
+        const dashParts = work.split(/\s+[\—\–\-]\s+|\s*\t\s*|\s*;\s*/);
+        if (dashParts.length > 1) {
+          const maybePos = inferPositionFromToken(dashParts[dashParts.length - 1]);
+          if (maybePos !== 'Feldspieler') {
+            pos = maybePos;
+            dashParts.pop();
+            work = dashParts.join(' ').trim();
+          }
+        }
+        const m = work.match(/^(\d{1,2}|ZM|ST|TW|IV)\b[\.\)\s\-]*(.+)$/i);
+        let num = String(idx + 1).padStart(2, '0');
+        let name = work;
+        if (m) {
+          num = /^\d+$/.test(m[1]) ? m[1].padStart(2, '0') : m[1].toUpperCase();
+          name = m[2].trim();
+        }
+        const prev = existingPhotosByName[slugifyPart(name)];
+        nextPlayers.push({
+          number: num,
+          name: name,
+          position: pos,
+          photo: prev ? prev.photo : '',
+          original_filename: prev ? prev.original_filename : '',
+          parsed_from_filename: prev ? prev.parsed_from_filename : false,
+          target_filename: buildTargetFilename('player', num, name)
+        });
+      });
+
+      if (nextPlayers.length > 0) {
+        currentPlayers = nextPlayers;
+        renderPlayerTiles();
+        syncPlayersToPasteTextarea();
+        syncLivePreview();
+      }
+    }
+
+    function toTitleCaseWords(words) {
+      return words
+        .filter(Boolean)
+        .map(w => w.charAt(0).toUpperCase() + w.slice(1).toLowerCase())
+        .join(' ');
+    }
+
+    function parseUploadedFilename(rawFilename) {
+      const base = String(rawFilename || '').replace(/\.[a-zA-Z0-9]+$/, '').trim();
+      const cameraRegex = /^(IMG|DSC|DCIM|PXL|PHOTO|IMAGE|WHATSAPP|SCREENSHOT|SAM|GOPR|DJI|MVI)[_\-\s0-9()]*$/i;
+      if (cameraRegex.test(base) || /^[\d_\-\s()]+$/.test(base)) {
+        return {
+          type: 'camera_raw',
+          isNamed: false,
+          rawName: rawFilename
+        };
+      }
+
+      const tokens = base.split(/[_\-\s\.]+/).filter(Boolean);
+      const lowerTokens = tokens.map(t => t.toLowerCase());
+
+      // Check for Staff Role in Filename (e.g. Trainer_Kay_Ackermann.jpg or Co-Trainer_Reto_Wyss.png)
+      if (lowerTokens[0] === 'co' && lowerTokens[1] === 'trainer') {
+        const nameWords = tokens.slice(2);
+        return {
+          type: 'staff',
+          isNamed: true,
+          role: 'Co-Trainer',
+          name: toTitleCaseWords(nameWords),
+          rawName: rawFilename
+        };
+      }
+
+      const staffRoleMap = {
+        'trainer': 'Trainer',
+        'cheftrainer': 'Trainer',
+        'cotrainer': 'Co-Trainer',
+        'assistenztrainer': 'Co-Trainer',
+        'torwarttrainer': 'Torwarttrainer',
+        'goalietrainer': 'Torwarttrainer',
+        'betreuer': 'Betreuer',
+        'masseur': 'Betreuer',
+        'teammanager': 'Teammanager',
+        'sportchef': 'Teammanager'
+      };
+      if (staffRoleMap[lowerTokens[0]]) {
+        return {
+          type: 'staff',
+          isNamed: true,
+          role: staffRoleMap[lowerTokens[0]],
+          name: toTitleCaseWords(tokens.slice(1)),
+          rawName: rawFilename
+        };
+      }
+
+      // Check for Player Number + Name + optional Position (e.g. 07_Marco_Wyss.jpg or 1_Sandro_Albuquerque_Tor.jpg)
+      let number = '';
+      let nameTokens = tokens.slice();
+      if (/^\d{1,2}$/.test(nameTokens[0])) {
+        number = nameTokens.shift().padStart(2, '0');
+      } else if (nameTokens.length > 1 && /^\d{1,2}$/.test(nameTokens[nameTokens.length - 1])) {
+        number = nameTokens.pop().padStart(2, '0');
+      }
+
+      let position = 'Feldspieler';
+      if (nameTokens.length > 1) {
+        const lastPos = inferPositionFromToken(nameTokens[nameTokens.length - 1]);
+        if (lastPos !== 'Feldspieler') {
+          position = lastPos;
+          nameTokens.pop();
+        }
+      }
+
+      const cleanName = toTitleCaseWords(nameTokens);
+      if (!cleanName) {
+        return { type: 'camera_raw', isNamed: false, rawName: rawFilename };
+      }
+
+      return {
+        type: 'player',
+        isNamed: true,
+        number: number || '00',
+        name: cleanName,
+        position: position,
+        rawName: rawFilename
+      };
+    }
+
+    function createDemoSvgDataUrl(bgHex, initials, subtitle) {
+      const svg =
+        '<svg xmlns="http://www.w3.org/2000/svg" width="160" height="160" viewBox="0 0 160 160">' +
+        '<rect width="160" height="160" rx="8" fill="' + bgHex + '"/>' +
+        '<circle cx="80" cy="62" r="28" fill="rgba(255,255,255,0.18)"/>' +
+        '<text x="80" y="71" text-anchor="middle" fill="#FFFFFF" font-family="Montserrat, sans-serif" font-weight="800" font-size="24">' + initials + '</text>' +
+        '<rect x="16" y="110" width="128" height="28" rx="4" fill="rgba(15,23,42,0.55)"/>' +
+        '<text x="80" y="129" text-anchor="middle" fill="#FBBF24" font-family="Inter, sans-serif" font-weight="700" font-size="12">' + subtitle + '</text>' +
+        '</svg>';
+      return 'data:image/svg+xml;utf8,' + encodeURIComponent(svg);
+    }
+
+    function processIncomingPhotoItem(rawFilename, dataUrl) {
+      const parsed = parseUploadedFilename(rawFilename);
+
+      if (parsed.type === 'staff') {
+        let stObj = currentStaff.find(s => slugifyPart(s.name) === slugifyPart(parsed.name)) ||
+                    currentStaff.find(s => s.role === parsed.role);
+        if (!stObj) {
+          stObj = {
+            role: parsed.role,
+            name: parsed.name,
+            phone: '',
+            email: '',
+            photo: dataUrl,
+            original_filename: rawFilename,
+            target_filename: buildTargetFilename('staff', parsed.role, parsed.name)
+          };
+          currentStaff.push(stObj);
+        } else {
+          stObj.role = parsed.role;
+          if (parsed.name) stObj.name = parsed.name;
+          stObj.photo = dataUrl;
+          stObj.original_filename = rawFilename;
+          stObj.target_filename = buildTargetFilename('staff', stObj.role, stObj.name);
+        }
+
+        parsedPhotoUploads.unshift({
+          id: 'up-' + Date.now() + '-' + Math.random().toString(36).slice(2, 6),
+          kind: 'staff_auto',
+          rawFilename: rawFilename,
+          preview: dataUrl,
+          role: stObj.role,
+          name: stObj.name,
+          targetFilename: stObj.target_filename
+        });
+        renderStaffList();
+        renderParsedUploads();
+        syncLivePreview();
+        return;
+      }
+
+      if (parsed.type === 'player' && parsed.isNamed) {
+        let pObj = currentPlayers.find(
+          p => (parsed.number !== '00' && String(p.number).padStart(2, '0') === parsed.number) ||
+               slugifyPart(p.name) === slugifyPart(parsed.name)
+        );
+        if (!pObj) {
+          pObj = {
+            number: parsed.number === '00' ? String(currentPlayers.length + 1).padStart(2, '0') : parsed.number,
+            name: parsed.name,
+            position: parsed.position || 'Feldspieler',
+            photo: dataUrl,
+            original_filename: rawFilename,
+            parsed_from_filename: true,
+            target_filename: buildTargetFilename('player', parsed.number, parsed.name)
+          };
+          currentPlayers.push(pObj);
+        } else {
+          if (parsed.number !== '00') pObj.number = parsed.number;
+          if (parsed.name) pObj.name = parsed.name;
+          if (parsed.position && parsed.position !== 'Feldspieler') pObj.position = parsed.position;
+          pObj.photo = dataUrl;
+          pObj.original_filename = rawFilename;
+          pObj.parsed_from_filename = true;
+          pObj.target_filename = buildTargetFilename('player', pObj.number, pObj.name);
+        }
+
+        parsedPhotoUploads.unshift({
+          id: 'up-' + Date.now() + '-' + Math.random().toString(36).slice(2, 6),
+          kind: 'player_auto',
+          rawFilename: rawFilename,
+          preview: dataUrl,
+          number: pObj.number,
+          name: pObj.name,
+          targetFilename: pObj.target_filename
+        });
+        syncPlayersToPasteTextarea();
+        renderPlayerTiles();
+        renderParsedUploads();
+        syncLivePreview();
+        return;
+      }
+
+      // Fall 2: Handy-Foto ohne Namen (z. B. IMG_4812.JPG) -> Interaktive Zuordnungs-Karte!
+      parsedPhotoUploads.unshift({
+        id: 'up-' + Date.now() + '-' + Math.random().toString(36).slice(2, 6),
+        kind: 'camera_manual',
+        rawFilename: rawFilename,
+        preview: dataUrl,
+        number: '',
+        name: '',
+        targetFilename: buildTargetFilename('player', '00', 'bitte-name-eingeben')
+      });
+      renderParsedUploads();
+    }
+
+    function handleMultiPlayerDrop(evt) {
+      evt.preventDefault();
+      evt.stopPropagation();
+      if (evt.dataTransfer && evt.dataTransfer.files && evt.dataTransfer.files.length > 0) {
+        handleMultiPlayerFiles(evt.dataTransfer.files);
+      }
+    }
+
+    function handleMultiPlayerFiles(files) {
+      if (!files || files.length === 0) return;
+      Array.from(files).slice(0, 30).forEach(file => {
+        const reader = new FileReader();
+        reader.onload = function(e) {
+          processIncomingPhotoItem(file.name, e.target.result);
+        };
+        reader.readAsDataURL(file);
+      });
+    }
+
+    function runFilenameParserDemo() {
+      switchRosterMode('photos');
+      const samplePlayer = currentPlayers.find(p => String(p.number).padStart(2, '0') === '07') || currentPlayers[0] || { number: '07', name: 'Marco Wyss' };
+      const sampleTrainer = currentStaff[0] || { role: 'Trainer', name: 'Kay Ackermann' };
+
+      const fnPlayer = String(samplePlayer.number || '07').padStart(2, '0') + '_' + String(samplePlayer.name || 'Marco Wyss').replace(/\s+/g, '_') + '.jpg';
+      const fnTrainer = 'Trainer_' + String(sampleTrainer.name || 'Kay Ackermann').replace(/\s+/g, '_') + '.jpg';
+
+      parsedPhotoUploads = [];
+      processIncomingPhotoItem(
+        fnTrainer,
+        createDemoSvgDataUrl(CLUB_CONFIG.brand_primary, getInitials(sampleTrainer.name), 'TRAINER PORTRAIT')
+      );
+      processIncomingPhotoItem(
+        'IMG_4812.JPG',
+        createDemoSvgDataUrl('#334155', 'FOTO', 'IMG_4812.JPG')
+      );
+      processIncomingPhotoItem(
+        fnPlayer,
+        createDemoSvgDataUrl(CLUB_CONFIG.brand_navy, '#' + String(samplePlayer.number || '07').padStart(2, '0'), samplePlayer.name)
+      );
+    }
+
+    function renderParsedUploads() {
+      const container = document.getElementById('parsedUploadsContainer');
+      container.textContent = '';
+      if (parsedPhotoUploads.length === 0) return;
+
+      parsedPhotoUploads.forEach((item, idx) => {
+        const card = document.createElement('div');
+        card.className = 'parsed-upload-card';
+
+        const img = document.createElement('img');
+        img.className = 'parsed-upload-thumb';
+        img.src = item.preview;
+        img.alt = item.rawFilename;
+        card.appendChild(img);
+
+        const body = document.createElement('div');
+        body.style.cssText = 'flex:1;min-width:210px;';
+
+        if (item.kind === 'player_auto' || item.kind === 'staff_auto') {
+          const badge = document.createElement('div');
+          badge.style.cssText = 'display:inline-flex;align-items:center;gap:6px;background-color:#ECFDF5;color:#065F46;border:1px solid #6EE7B7;padding:3px 8px;border-radius:4px;font-size:0.75rem;font-weight:700;margin-bottom:4px;';
+          badge.textContent = item.kind === 'staff_auto'
+            ? ('Erkannt aus Dateiname (Staff): ' + item.role + ' ' + item.name)
+            : ('Erkannt aus Dateiname: #' + String(item.number).padStart(2, '0') + ' ' + item.name);
+
+          const sub = document.createElement('div');
+          sub.style.cssText = 'font-size:0.76rem;color:var(--text-muted);word-break:break-all;';
+          sub.textContent = 'Original «' + item.rawFilename + '» -> System-Name: ' + item.targetFilename;
+
+          body.appendChild(badge);
+          body.appendChild(sub);
+        } else {
+          const badge = document.createElement('div');
+          badge.style.cssText = 'display:inline-flex;align-items:center;gap:6px;background-color:#FFFBEB;color:#92400E;border:1px solid #FCD34D;padding:3px 8px;border-radius:4px;font-size:0.75rem;font-weight:700;margin-bottom:6px;';
+          badge.textContent = 'Handy-Foto «' + item.rawFilename + '» — Bitte kurz Nr. & Name zuordnen:';
+
+          const controls = document.createElement('div');
+          controls.style.cssText = 'display:flex;gap:8px;flex-wrap:wrap;align-items:center;';
+
+          const inpNum = document.createElement('input');
+          inpNum.type = 'text';
+          inpNum.className = 'form-input';
+          inpNum.style.cssText = 'width:70px;min-height:40px;padding:6px 8px;';
+          inpNum.placeholder = 'Nr.';
+          inpNum.value = item.number || '';
+
+          const inpName = document.createElement('input');
+          inpName.type = 'text';
+          inpName.className = 'form-input';
+          inpName.style.cssText = 'flex:1;min-width:150px;min-height:40px;padding:6px 10px;';
+          inpName.placeholder = 'Vorname Nachname eintippen...';
+          inpName.value = item.name || '';
+
+          const quickSel = document.createElement('select');
+          quickSel.className = 'form-select';
+          quickSel.style.cssText = 'flex:1;min-width:165px;min-height:40px;padding:6px 8px;font-size:0.8rem;';
+          const defOpt = document.createElement('option');
+          defOpt.value = '';
+          defOpt.textContent = 'Oder Spieler aus Liste wählen...';
+          quickSel.appendChild(defOpt);
+          currentPlayers.forEach((pl, pIdx) => {
+            const o = document.createElement('option');
+            o.value = String(pIdx);
+            o.textContent = '#' + String(pl.number).padStart(2, '0') + ' ' + pl.name;
+            quickSel.appendChild(o);
+          });
+
+          const liveFn = document.createElement('div');
+          liveFn.style.cssText = 'font-size:0.76rem;color:#065F46;font-weight:700;margin-top:6px;word-break:break-all;';
+          liveFn.textContent = 'Automatische System-Benennung: ' + item.targetFilename;
+
+          function assignManualPhoto(numVal, nameVal) {
+            item.number = numVal;
+            item.name = nameVal;
+            item.targetFilename = buildTargetFilename('player', numVal || '00', nameVal || 'spieler');
+            liveFn.textContent = 'Automatische System-Benennung: ' + item.targetFilename;
+            if (nameVal && nameVal.trim().length >= 2) {
+              let targetPl = currentPlayers.find(
+                p => (numVal && String(p.number).padStart(2, '0') === String(numVal).padStart(2, '0')) ||
+                     slugifyPart(p.name) === slugifyPart(nameVal)
+              );
+              if (!targetPl) {
+                targetPl = {
+                  number: numVal || String(currentPlayers.length + 1).padStart(2, '0'),
+                  name: nameVal.trim(),
+                  position: 'Feldspieler',
+                  photo: item.preview,
+                  original_filename: item.rawFilename,
+                  parsed_from_filename: false,
+                  target_filename: item.targetFilename
+                };
+                currentPlayers.push(targetPl);
+              } else {
+                if (numVal) targetPl.number = String(numVal).padStart(2, '0');
+                targetPl.name = nameVal.trim();
+                targetPl.photo = item.preview;
+                targetPl.original_filename = item.rawFilename;
+                targetPl.target_filename = item.targetFilename;
+              }
+              syncPlayersToPasteTextarea();
+              renderPlayerTiles();
+              syncLivePreview();
+            }
+          }
+
+          inpNum.oninput = function() { assignManualPhoto(this.value, inpName.value); };
+          inpName.oninput = function() { assignManualPhoto(inpNum.value, this.value); };
+          quickSel.onchange = function() {
+            if (this.value === '') return;
+            const chosen = currentPlayers[Number(this.value)];
+            if (chosen) {
+              inpNum.value = chosen.number;
+              inpName.value = chosen.name;
+              assignManualPhoto(chosen.number, chosen.name);
+            }
+          };
+
+          controls.appendChild(inpNum);
+          controls.appendChild(inpName);
+          controls.appendChild(quickSel);
+          body.appendChild(badge);
+          body.appendChild(controls);
+          body.appendChild(liveFn);
+        }
+
+        card.appendChild(body);
+        container.appendChild(card);
+      });
+    }
+
+    function renderPlayerTiles() {
+      const container = document.getElementById('playerTilesContainer');
+      container.textContent = '';
+
+      currentPlayers.forEach((pl, idx) => {
+        pl.target_filename = buildTargetFilename('player', pl.number || (idx + 1), pl.name || ('spieler-' + (idx + 1)));
+
+        const row = document.createElement('div');
+        row.className = 'player-editor-row';
+
+        const av = document.createElement('div');
+        av.className = 'player-avatar-mini';
+        av.title = 'Spielerfoto hochladen oder ändern';
+        av.onclick = function() {
+          activePlayerUploadIdx = idx;
+          document.getElementById('singlePlayerPhotoInput').click();
+        };
+        if (pl.photo) {
+          const im = document.createElement('img');
+          im.src = pl.photo;
+          im.alt = pl.name || 'Spieler';
+          av.appendChild(im);
+        } else {
+          av.textContent = getInitials(pl.name);
+        }
+
+        const inpNum = document.createElement('input');
+        inpNum.type = 'text';
+        inpNum.className = 'form-input';
+        inpNum.setAttribute('aria-label', 'Rückennummer Spieler ' + (idx + 1));
+        inpNum.placeholder = 'Nr.';
+        inpNum.value = pl.number || '';
+        inpNum.oninput = function() {
+          currentPlayers[idx].number = this.value;
+          currentPlayers[idx].target_filename = buildTargetFilename('player', this.value, currentPlayers[idx].name);
+          syncPlayersToPasteTextarea();
+          syncLivePreview();
+        };
+
+        const nameWrap = document.createElement('div');
+        const inpName = document.createElement('input');
+        inpName.type = 'text';
+        inpName.className = 'form-input';
+        inpName.setAttribute('aria-label', 'Vorname und Nachname Spieler ' + (idx + 1));
+        inpName.placeholder = 'Vorname Nachname';
+        inpName.value = pl.name || '';
+
+        const fnSub = document.createElement('div');
+        fnSub.style.cssText = 'font-size:0.68rem;color:var(--text-muted);margin-top:2px;word-break:break-all;';
+        fnSub.textContent = (pl.parsed_from_filename ? 'Erkannt aus Dateiname -> ' : 'Ziel-Datei: ') + pl.target_filename;
+        if (pl.parsed_from_filename) {
+          fnSub.style.color = '#065F46';
+          fnSub.style.fontWeight = '700';
+        }
+
+        inpName.oninput = function() {
+          currentPlayers[idx].name = this.value;
+          currentPlayers[idx].target_filename = buildTargetFilename('player', currentPlayers[idx].number, this.value);
+          fnSub.textContent = 'Ziel-Datei: ' + currentPlayers[idx].target_filename;
+          if (!currentPlayers[idx].photo) av.textContent = getInitials(this.value);
+          syncPlayersToPasteTextarea();
+          syncLivePreview();
+        };
+
+        nameWrap.appendChild(inpName);
+        nameWrap.appendChild(fnSub);
+
+        const selPos = document.createElement('select');
+        selPos.className = 'form-select player-pos-select';
+        selPos.setAttribute('aria-label', 'Position Spieler ' + (idx + 1));
+        ['Feldspieler', 'Torhüter', 'Verteidigung', 'Mittelfeld', 'Sturm'].forEach(posOpt => {
+          const o = document.createElement('option');
+          o.value = posOpt;
+          o.textContent = posOpt;
+          if (pl.position === posOpt) o.selected = true;
+          selPos.appendChild(o);
+        });
+        selPos.onchange = function() {
+          currentPlayers[idx].position = this.value;
+          syncPlayersToPasteTextarea();
+          syncLivePreview();
+        };
+
+        const delBtn = document.createElement('button');
+        delBtn.type = 'button';
+        delBtn.className = 'btn-cta btn-cta-outline btn-sm';
+        delBtn.setAttribute('aria-label', 'Spieler entfernen');
+        delBtn.style.cssText = 'width:44px;height:44px;padding:0;';
+        delBtn.innerHTML = '<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>';
+        delBtn.onclick = function() {
+          currentPlayers.splice(idx, 1);
+          renderPlayerTiles();
+          syncPlayersToPasteTextarea();
+          syncLivePreview();
+        };
+
+        row.appendChild(av);
+        row.appendChild(inpNum);
+        row.appendChild(nameWrap);
+        row.appendChild(selPos);
+        row.appendChild(delBtn);
+        container.appendChild(row);
+      });
+    }
+
+    function addEmptyPlayerRow() {
+      const nextNum = String(currentPlayers.length + 1).padStart(2, '0');
+      currentPlayers.push({
+        number: nextNum,
+        name: '',
+        position: 'Feldspieler',
+        photo: '',
+        original_filename: '',
+        parsed_from_filename: false,
+        target_filename: buildTargetFilename('player', nextNum, 'neuer-spieler')
+      });
+      renderPlayerTiles();
+      syncPlayersToPasteTextarea();
+      syncLivePreview();
+    }
+
+    function handleSinglePlayerPhotoSelected(files) {
+      if (!files || files.length === 0 || activePlayerUploadIdx < 0) return;
+      const file = files[0];
+      const idx = activePlayerUploadIdx;
+      const reader = new FileReader();
+      reader.onload = function(e) {
+        currentPlayers[idx].photo = e.target.result;
+        currentPlayers[idx].original_filename = file.name;
+        renderPlayerTiles();
+        syncLivePreview();
+      };
+      reader.readAsDataURL(file);
+    }
+
+    /* === LIVE PREVIEW SYNC === */
+    function syncLivePreview() {
+      const tName = document.getElementById('inpTeamName').value || '1. Mannschaft';
+      const league = document.getElementById('inpLeague').value || '';
+      const motto = document.getElementById('inpTeamMotto').value || '';
+      const training = document.getElementById('inpTrainingTimes').value || 'Nach Vereinbarung';
+      const pitch = document.getElementById('inpPitchLocation').value || CLUB_CONFIG.club_name;
+      const sponsor = document.getElementById('inpTeamSponsor').value || '';
+
+      document.getElementById('pvTeamPhoto').src = currentTeamPhotoMeta.preview_src || CLUB_CONFIG.default_team_photo;
+      document.getElementById('pvBadgeText').textContent = league ? (tName + ' · ' + league) : tName;
+      document.getElementById('pvKickerText').textContent = (CLUB_CONFIG.club_name + ' · ' + (league || 'OFFIZIELLE MANNSCHAFTS-SEITE')).toUpperCase();
+      document.getElementById('pvTeamTitle').textContent = CLUB_CONFIG.club_name + ' — ' + tName;
+      document.getElementById('pvTeamMotto').textContent = motto;
+      document.getElementById('pvTraining').textContent = training;
+      document.getElementById('pvPitch').textContent = pitch;
+
+      const sponsorRow = document.getElementById('pvSponsorRow');
+      if (sponsor.trim()) {
+        sponsorRow.style.display = 'flex';
+        document.getElementById('pvSponsor').textContent = sponsor;
+      } else {
+        sponsorRow.style.display = 'none';
+      }
+
+      // Render Staff Preview
+      const pvStaffGrid = document.getElementById('pvStaffGrid');
+      pvStaffGrid.textContent = '';
+      const validStaff = currentStaff.filter(s => s.name && s.name.trim());
+      document.getElementById('pvStaffCount').textContent = String(validStaff.length);
+
+      validStaff.slice(0, 6).forEach(st => {
+        const pill = document.createElement('div');
+        pill.className = 'preview-staff-pill';
+
+        const av = document.createElement('div');
+        av.className = 'preview-staff-avatar';
+        if (st.photo) {
+          const im = document.createElement('img');
+          im.src = st.photo;
+          im.alt = st.name;
+          av.appendChild(im);
+        } else {
+          av.textContent = getInitials(st.name);
+        }
+
+        const txt = document.createElement('div');
+        txt.style.cssText = 'min-width:0;';
+        const rDiv = document.createElement('div');
+        rDiv.style.cssText = 'font-size:0.68rem;font-weight:700;color:var(--brand-primary);text-transform:uppercase;';
+        rDiv.textContent = st.role;
+        const nDiv = document.createElement('div');
+        nDiv.style.cssText = 'font-size:0.8rem;font-weight:700;color:var(--brand-navy);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;';
+        nDiv.textContent = st.name;
+
+        txt.appendChild(rDiv);
+        txt.appendChild(nDiv);
+        pill.appendChild(av);
+        pill.appendChild(txt);
+        pvStaffGrid.appendChild(pill);
+      });
+
+      // Render Players Preview (max 14 pills so zero mid-screen scrollbar on desktop!)
+      const pvPlayersGrid = document.getElementById('pvPlayersGrid');
+      pvPlayersGrid.textContent = '';
+      const validPlayers = currentPlayers.filter(p => p.name && p.name.trim());
+      document.getElementById('pvPlayerCount').textContent = String(validPlayers.length);
+
+      const maxShow = 13;
+      validPlayers.slice(0, maxShow).forEach(pl => {
+        const pill = document.createElement('div');
+        pill.className = 'preview-player-pill';
+
+        const num = document.createElement('span');
+        num.className = 'preview-player-num';
+        num.textContent = pl.number ? String(pl.number).padStart(2, '0') : '--';
+
+        const nm = document.createElement('span');
+        nm.style.cssText = 'white-space:nowrap;overflow:hidden;text-overflow:ellipsis;';
+        nm.textContent = pl.name;
+
+        pill.appendChild(num);
+        pill.appendChild(nm);
+        pvPlayersGrid.appendChild(pill);
+      });
+
+      if (validPlayers.length > maxShow) {
+        const more = document.createElement('div');
+        more.className = 'preview-player-pill';
+        more.style.cssText = 'background-color:var(--brand-primary-soft);color:var(--brand-primary-dark);border-color:var(--brand-primary);justify-content:center;font-weight:700;';
+        more.textContent = '+ ' + (validPlayers.length - maxShow) + ' weitere Kaderspieler';
+        pvPlayersGrid.appendChild(more);
+      }
+    }
+
+    /* === SHARE HELPERS === */
+    function getShareUrlForCurrentTeam() {
+      const base = window.location.origin + window.location.pathname;
+      return base + '?team=' + encodeURIComponent(currentTeamSlug);
+    }
+
+    function copyTrainerLink() {
+      const shareUrl = getShareUrlForCurrentTeam();
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(shareUrl).catch(() => {});
+      }
+      const span = document.getElementById('copyLinkBtnText');
+      if (span) {
+        span.textContent = 'Direkt-Link kopiert!';
+        setTimeout(() => {
+          span.textContent = 'Link für Trainer kopieren';
+        }, 2500);
+      }
+    }
+
+    function shareTrainerWhatsApp() {
+      const teamName = document.getElementById('inpTeamName').value || currentTeamSlug;
+      const shareUrl = getShareUrlForCurrentTeam();
+      const text =
+        'Hoi! Hier ist der direkte WebPilot-Link für die Mannschafts-Daten & das Kader von «' +
+        teamName + '» (' + CLUB_CONFIG.club_name + '). Bereits bekannte Daten sind schon vorausgefüllt — ' +
+        'du kannst Änderungen, Trainingszeiten oder Fotos direkt ohne Login eintragen: ' + shareUrl;
+      window.open('https://wa.me/?text=' + encodeURIComponent(text), '_blank', 'noopener,noreferrer');
+    }
+
+    /* === SUBMIT TO POST /api/team-submit === */
+    async function submitTeamForm() {
+      const errBox = document.getElementById('submitErrorBox');
+      errBox.style.display = 'none';
+
+      const rightsChecked = document.getElementById('chkRightsConfirmed').checked;
+      if (!rightsChecked) {
+        errBox.textContent = 'Bitte bestätigen Sie die Nutzungsrechte und das Einverständnis der abgebildeten Personen.';
+        errBox.style.display = 'block';
+        return;
+      }
+
+      const btn = document.getElementById('btnSubmitTeamForm');
+      const btnText = document.getElementById('btnSubmitTeamText');
+      btn.disabled = true;
+      btnText.textContent = 'Wird gespeichert & Dateien werden benannt...';
+
+      const payload = {
+        site_id: CLUB_CONFIG.site_id,
+        club_name: CLUB_CONFIG.club_name,
+        team_slug: currentTeamSlug,
+        team_name: document.getElementById('inpTeamName').value || currentTeamSlug,
+        league: document.getElementById('inpLeague').value || '',
+        sfv_link: document.getElementById('inpSfvLink').value || '',
+        team_motto: document.getElementById('inpTeamMotto').value || '',
+        training_times: document.getElementById('inpTrainingTimes').value || '',
+        pitch_location: document.getElementById('inpPitchLocation').value || '',
+        winter_note: document.getElementById('inpWinterNote').value || '',
+        team_photo_meta: {
+          original_filename: currentTeamPhotoMeta.original_filename || '',
+          target_filename: buildTargetFilename('team'),
+          caption: document.getElementById('inpTeamPhotoCaption').value || '',
+          has_new_upload: Boolean(currentTeamPhotoMeta.has_new_upload)
+        },
+        staff: currentStaff.filter(s => s.name && s.name.trim()).map(s => ({
+          role: s.role,
+          name: s.name.trim(),
+          phone: s.phone || '',
+          email: s.email || '',
+          has_photo: Boolean(s.photo),
+          original_filename: s.original_filename || '',
+          target_filename: buildTargetFilename('staff', s.role, s.name)
+        })),
+        players: currentPlayers.filter(p => p.name && p.name.trim()).map(p => ({
+          number: p.number || '',
+          name: p.name.trim(),
+          position: p.position || 'Feldspieler',
+          has_photo: Boolean(p.photo),
+          parsed_from_filename: Boolean(p.parsed_from_filename),
+          original_filename: p.original_filename || '',
+          target_filename: buildTargetFilename('player', p.number, p.name)
+        })),
+        team_sponsor: document.getElementById('inpTeamSponsor').value || '',
+        submitter_name: document.getElementById('inpSubmitterName').value || '',
+        submitter_email_or_phone: document.getElementById('inpSubmitterContact').value || '',
+        rights_confirmed: true
+      };
+
+      try {
+        let res = await fetch('/api/team-submit', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload)
+        });
+        if (!res.ok && res.status === 404) {
+          res = await fetch('/api/webpilot/team-submit', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(payload)
+          });
+        }
+        const data = await res.json();
+        if (!res.ok || !data.ok) {
+          throw new Error(data.error || 'Speichern fehlgeschlagen');
+        }
+
+        const succCard = document.getElementById('submissionSuccessCard');
+        const succSummary = document.getElementById('successSummaryText');
+        const succList = document.getElementById('successFilesList');
+
+        succSummary.textContent =
+          'Referenz ' + data.submission_id + ' · ' + data.team_name + ' (' +
+          data.staff_count + ' Staff-Personen, ' + data.player_count +
+          ' Kaderspieler) wurde für ' + (data.partner_name || 'Jenny Ettle (JE-MI)') + ' bereitgestellt.';
+
+        succList.textContent = '';
+        (data.auto_renamed_files || []).slice(0, 8).forEach(fn => {
+          const li = document.createElement('li');
+          li.textContent = '• ' + fn;
+          succList.appendChild(li);
+        });
+
+        succCard.classList.add('visible');
+        succCard.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      } catch (err) {
+        errBox.textContent = 'Hinweis: ' + err.message;
+        errBox.style.display = 'block';
+      } finally {
+        btn.disabled = false;
+        btnText.textContent = 'Mannschafts-Daten & Kader verbindlich einreichen';
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+      populateTeamDropdown();
+      const params = new URLSearchParams(window.location.search);
+      const requestedTeam = params.get('team');
+      const initialSlug = resolveTeamSlugFromQuery(requestedTeam);
+      loadTeamIntoForm(initialSlug);
+    });
+  </script>
+
+  <!-- === WEBPILOT-PARTNER-MODAL-START === -->
+  <div class="wp-partner-modal-backdrop" id="wpPartnerModal" role="dialog" aria-modal="true" aria-labelledby="wpPartnerModalTitle" data-studio-ignore="true" data-allow-scroll="true">
+    <div class="wp-partner-modal-dialog" data-studio-ignore="true" data-allow-scroll="true">
+      <div class="wp-partner-modal-head">
+        <div>
+          <span class="wp-partner-modal-kicker">WEBPILOT PARTNER-KONTAKT · JE-MI · JENNY ETTLE</span>
+          <h3 class="wp-partner-modal-title" id="wpPartnerModalTitle">WebPilot Partner-Kontakt — Eigene Webseite oder Smart-Anfrage modernisieren</h3>
+        </div>
+        <button type="button" class="wp-partner-modal-close" aria-label="Partner-Dialog schliessen" onclick="wpClosePartnerModal()">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+      </div>
+
+      <div class="wp-partner-notice">
+        <strong>Hinweis zur Zuständigkeit:</strong> Direktkontakt zur ausführenden Partner-Agentur (<strong>JE-MI · Jenny Ettle</strong>). Für Anfragen an den SC Fulenbach nutzen Sie bitte das reguläre Formular auf der Seite.
+      </div>
+
+      <!-- TEIL 1: DIREKTE PARTNER-VISITENKARTE -->
+      <div class="wp-partner-vcard">
+        <div class="wp-partner-vcard-top">
+          <div>
+            <div class="wp-partner-vcard-name">JE-MI · Jenny Ettle</div>
+            <div class="wp-partner-vcard-role">Offizielle WebPilot-Partneragentur (Beratung & Umsetzung)</div>
+          </div>
+          <span class="wp-partner-vcard-badge">Direktkontakt</span>
+        </div>
+        <div class="wp-partner-direct-grid">
+          <a href="https://wa.me/41782232180?text=Guten%20Tag%20Jenny%20Ettle%2C%20ich%20habe%20den%20WebPilot-Auftritt%20von%20SC%20Fulenbach%20gesehen%20und%20interessiere%20mich%20f%C3%BCr%20einen%20unverbindlichen%20Vorschau-Entwurf%20/%20eine%20Smart-Anfrage-Zentrale." target="_blank" rel="noopener noreferrer" class="wp-partner-direct-btn wp-partner-direct-wa">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+            <span>WhatsApp direkt senden</span>
+          </a>
+          <a href="tel:+41782232180" class="wp-partner-direct-btn wp-partner-direct-tel">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            <span>Anrufen (+41 78 223 21 80)</span>
+          </a>
+          <a href="mailto:jenny@je-mi.ch?subject=Anfrage%20WebPilot%20Vorschau-Entwurf%20%28gesehen%20auf%20SC%20Fulenbach%29" class="wp-partner-direct-btn wp-partner-direct-mail">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+            <span>jenny@je-mi.ch</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- TEIL 2: 15-SEKUNDEN-SCHNELLANFRAGE FUER VORSCHAU-ENTWURF -->
+      <div class="wp-partner-form-box">
+        <div class="wp-partner-form-title">15-Sekunden-Schnellanfrage: Unverbindlicher Vorschau-Entwurf</div>
+        <p class="wp-partner-form-sub">
+          Geben Sie Ihre bestehende Webseiten-URL oder den Namen Ihres Vereins / Betriebs an — Jenny Ettle (JE-MI) zeigt Ihnen unverbindlich, wie Ihr moderner WebPilot-Auftritt aussieht.
+        </p>
+
+        <form id="wpPartnerLeadForm" onsubmit="return wpSubmitPartnerLead(event)" novalidate>
+          <div style="display:none;" aria-hidden="true">
+            <label for="wpPartnerHp">Website</label>
+            <input type="text" id="wpPartnerHp" name="website_url" tabindex="-1" autocomplete="off">
+          </div>
+
+          <div class="wp-partner-field">
+            <label for="wpPartnerTargetUrl" class="wp-partner-label">1. Bestehende Webseiten-URL oder Name Ihres Vereins / Betriebs *</label>
+            <input type="text" id="wpPartnerTargetUrl" class="wp-partner-input" placeholder="z. B. www.mein-verein.ch oder Muster AG" required>
+          </div>
+
+          <div class="wp-partner-form-grid">
+            <div class="wp-partner-field">
+              <label for="wpPartnerVisitorName" class="wp-partner-label">2. Ihr Vor- und Nachname *</label>
+              <input type="text" id="wpPartnerVisitorName" class="wp-partner-input" placeholder="Vorname Nachname" required>
+            </div>
+            <div class="wp-partner-field">
+              <label for="wpPartnerVisitorContact" class="wp-partner-label">3. Ihre Telefonnummer oder E-Mail *</label>
+              <input type="text" id="wpPartnerVisitorContact" class="wp-partner-input" placeholder="079 123 45 67 oder name@firma.ch" required>
+            </div>
+          </div>
+
+          <div class="wp-partner-field">
+            <label for="wpPartnerVisitorMsg" class="wp-partner-label">4. Kurze Nachricht (optional)</label>
+            <input type="text" id="wpPartnerVisitorMsg" class="wp-partner-input" placeholder="z. B. Fokus Vereins-Zentrale, Sponsoren oder Smart-Anfrage...">
+          </div>
+
+          <div class="wp-partner-error" id="wpPartnerFormError"></div>
+
+          <button type="submit" class="wp-partner-submit-btn" id="wpPartnerSubmitBtn">
+            <span id="wpPartnerSubmitBtnTxt">Unverbindlichen Vorschau-Entwurf bei Jenny Ettle anfordern</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </button>
+        </form>
+
+        <div class="wp-partner-success" id="wpPartnerSuccessBox" aria-live="polite">
+          <div style="display:flex;align-items:center;gap:8px;font-weight:800;color:#065F46;font-size:0.94rem;margin-bottom:6px;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2.4"><polyline points="20 6 9 17 4 12"/></svg>
+            <span>Anfrage an Jenny Ettle (JE-MI) übermittelt!</span>
+          </div>
+          <p style="font-size:0.8rem;color:#1E293B;line-height:1.45;margin:0 0 10px 0;">
+            Ihr 1-Seiten-Anfrage-Dossier (<strong id="wpPartnerResRef">#WP-2026</strong>) wurde erstellt und direkt an <strong>JE-MI · Jenny Ettle</strong> übermittelt.
+          </p>
+          <div style="display:flex;flex-wrap:wrap;gap:8px;">
+            <a href="#" id="wpPartnerResPdfBtn" target="_blank" rel="noopener noreferrer" class="wp-partner-direct-btn wp-partner-direct-tel" style="flex:1 1 200px;">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              <span>1-Seiten-PDF-Dossier öffnen</span>
+            </a>
+            <button type="button" class="wp-partner-direct-btn wp-partner-direct-mail" style="flex:1 1 140px;cursor:pointer;" onclick="wpResetPartnerModal()">
+              <span>Weitere Anfrage</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    var wpPartnerSourceTrigger = 'footer';
+    function wpOpenPartnerModal(triggerSource) {
+      wpPartnerSourceTrigger = triggerSource || 'footer';
+      var m = document.getElementById('wpPartnerModal');
+      if (m) {
+        m.classList.add('open');
+      }
+    }
+    function wpClosePartnerModal() {
+      var m = document.getElementById('wpPartnerModal');
+      if (m) {
+        m.classList.remove('open');
+      }
+    }
+    function wpResetPartnerModal() {
+      var f = document.getElementById('wpPartnerLeadForm');
+      var s = document.getElementById('wpPartnerSuccessBox');
+      var err = document.getElementById('wpPartnerFormError');
+      if (f) { f.reset(); f.style.display = 'block'; }
+      if (s) { s.style.display = 'none'; }
+      if (err) { err.style.display = 'none'; }
+    }
+    function wpSubmitPartnerLead(ev) {
+      if (ev) ev.preventDefault();
+      var hp = (document.getElementById('wpPartnerHp') || {}).value || '';
+      var targetUrl = ((document.getElementById('wpPartnerTargetUrl') || {}).value || '').trim();
+      var visitorName = ((document.getElementById('wpPartnerVisitorName') || {}).value || '').trim();
+      var rawContact = ((document.getElementById('wpPartnerVisitorContact') || {}).value || '').trim();
+      var msg = ((document.getElementById('wpPartnerVisitorMsg') || {}).value || '').trim();
+      var errBox = document.getElementById('wpPartnerFormError');
+      var btn = document.getElementById('wpPartnerSubmitBtn');
+      var btnTxt = document.getElementById('wpPartnerSubmitBtnTxt');
+
+      if (errBox) errBox.style.display = 'none';
+      if (!targetUrl || !visitorName || !rawContact) {
+        if (errBox) {
+          errBox.textContent = 'Bitte geben Sie die gewünschte Webseiten-URL (oder Verein/Betrieb), Ihren Namen sowie Ihre Telefonnummer oder E-Mail-Adresse an.';
+          errBox.style.display = 'block';
+        }
+        return false;
+      }
+
+      var isEmail = rawContact.indexOf('@') !== -1;
+      var emailVal = isEmail ? rawContact : '';
+      var phoneVal = isEmail ? '' : rawContact;
+
+      if (btn) btn.disabled = true;
+      if (btnTxt) btnTxt.textContent = 'Anfrage wird übermittelt...';
+
+      var payload = {
+        client_slug: 'webpilot_partner',
+        website_url: hp,
+        category: 'Vorschau-Entwurf & Web-Modernisierung',
+        sparte: 'Partner: Jenny Ettle (JE-MI)',
+        topic: 'Partner: Jenny Ettle (JE-MI)',
+        urgency: 'Vorschau-Entwurf angefordert',
+        name: visitorName,
+        company: targetUrl,
+        phone: phoneVal,
+        email: emailVal,
+        source_page: window.location.pathname || 'SC Fulenbach',
+        message: (msg ? msg + ' — ' : '') + 'Empfehlung über Showcase: SC Fulenbach (' + wpPartnerSourceTrigger + ') · Gewünschte Webseite / Verein / Betrieb: ' + targetUrl,
+        extra_fields: {
+          'Gewünschte Ziel-URL / Verein': targetUrl,
+          'Empfehlung über': 'SC Fulenbach',
+          'Partner-Agentur': 'JE-MI · Jenny Ettle'
+        }
+      };
+
+      fetch('/api/lead-submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      })
+      .then(function(r) { return r.json(); })
+      .then(function(res) {
+        if (btn) btn.disabled = false;
+        if (btnTxt) btnTxt.textContent = 'Unverbindlichen Vorschau-Entwurf bei Jenny Ettle anfordern';
+        if (!res || !res.ok) {
+          if (errBox) {
+            errBox.textContent = (res && res.error) ? res.error : 'Übermittlung fehlgeschlagen. Bitte versuchen Sie es erneut.';
+            errBox.style.display = 'block';
+          }
+          return;
+        }
+        var formEl = document.getElementById('wpPartnerLeadForm');
+        var succEl = document.getElementById('wpPartnerSuccessBox');
+        var refEl = document.getElementById('wpPartnerResRef');
+        var pdfBtn = document.getElementById('wpPartnerResPdfBtn');
+        if (refEl && res.ref_code) refEl.textContent = res.ref_code;
+        if (pdfBtn && res.pdf_url) pdfBtn.href = res.pdf_url;
+        if (formEl) formEl.style.display = 'none';
+        if (succEl) succEl.style.display = 'block';
+      })
+      .catch(function() {
+        if (btn) btn.disabled = false;
+        if (btnTxt) btnTxt.textContent = 'Unverbindlichen Vorschau-Entwurf bei Jenny Ettle anfordern';
+        if (errBox) {
+          errBox.textContent = 'Netzwerkfehler. Bitte kontaktieren Sie Jenny Ettle direkt per WhatsApp oder Telefon.';
+          errBox.style.display = 'block';
+        }
+      });
+      return false;
+    }
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') wpClosePartnerModal();
+    });
+  </script>
+  <!-- === WEBPILOT-PARTNER-MODAL-END === -->
+</body>
+</html>
