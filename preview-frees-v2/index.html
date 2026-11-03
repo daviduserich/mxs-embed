@@ -1,0 +1,3190 @@
+<!DOCTYPE html>
+<html lang="de-CH">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <meta http-equiv="X-XSS-Protection" content="1; mode=block">
+  <meta name="referrer" content="no-referrer">
+  <title>Free's Teamsport-Promowear & Print | Zeigeversion (Vorschau-Entwurf)</title>
+  <meta name="description" content="Unverbindlicher Vorschau-Entwurf (Zeigeversion) für Free's Niederrohrdorf: 2 Beispiel-Seiten sind bereits ausgearbeitet — 3 weitere Themenbereiche folgen beim Ausbau.">
+  <link rel="icon" type="image/png" href="images/favicon-32x32.png">
+  <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@600;700;800&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+  <style>
+
+    :root {
+      --charcoal: #222221;
+      --charcoal-deep: #151514;
+      --charcoal-mid: #3A3A39;
+      --gold: #F9B231;
+      --gold-hover: #FBBF24;
+      --gold-dark: #9A5800;
+      --gold-soft: #FEF7E6;
+      --gold-border: #F5C451;
+      --crimson: #D6201E;
+      --crimson-bright: #E12321;
+      --crimson-dark: #991B1B;
+      --crimson-soft: #FEF2F2;
+      --crimson-border: #FCA5A5;
+      --green: #15803D;
+      --green-soft: #DCFCE7;
+      --bg-page: #F9FAFB;
+      --bg-card: #FFFFFF;
+      --bg-Warm: #F4F3EF;
+      --text-main: #181817;
+      --text-body: #374151;
+      --text-muted: #4B5563;
+      --border-light: #E5E7EB;
+      --border-strong: #D1D5DB;
+      --radius-sm: 4px;
+      --radius-md: 8px;
+      --shadow-sm: 0 2px 10px rgba(24, 24, 23, 0.05);
+      --shadow-md: 0 12px 30px rgba(24, 24, 23, 0.09);
+      --shadow-lg: 0 20px 44px rgba(24, 24, 23, 0.16);
+      --container: 1180px;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    ::selection {
+      background-color: rgba(225, 35, 33, 0.22);
+      color: #181817;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+      overflow-x: hidden;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      color: var(--text-main);
+      background-color: var(--bg-page);
+      line-height: 1.62;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+      font-variant-numeric: tabular-nums;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+      transition: color 0.18s ease, background-color 0.18s ease, border-color 0.18s ease, transform 0.18s ease;
+    }
+
+    ul {
+      list-style: none;
+    }
+
+    .container {
+      width: 100%;
+      max-width: var(--container);
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* Freistehende Marken-Kicker (#UI-01: Barlow Bold, Barlow Display Standard) */
+    .section-kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-family: 'Barlow', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--crimson-dark);
+      background: transparent !important;
+      border: none !important;
+      padding: 0 !important;
+      box-shadow: none !important;
+      margin-bottom: 12px;
+    }
+    .section-kicker::before {
+      content: "";
+      display: inline-block;
+      width: 16px;
+      height: 2px;
+      background-color: var(--crimson-bright);
+      border-radius: 0px;
+      flex-shrink: 0;
+    }
+    .section-kicker.kicker-light {
+      color: var(--gold);
+    }
+    .section-kicker.kicker-light::before {
+      background-color: var(--crimson-bright);
+    }
+
+    h1, h2, h3, h4 {
+      font-family: 'Barlow', sans-serif;
+      color: var(--text-main);
+      line-height: 1.18;
+      letter-spacing: -0.015em;
+    }
+
+    .section-head {
+      max-width: 780px;
+      margin-bottom: 44px;
+    }
+    .section-title {
+      font-size: clamp(1.85rem, 3.1vw, 2.55rem);
+      font-weight: 800;
+      margin-bottom: 14px;
+    }
+    .section-desc {
+      font-size: 1.03rem;
+      color: var(--text-body);
+      line-height: 1.65;
+    }
+
+    section {
+      padding: 80px 0;
+      position: relative;
+    }
+
+    /* 1-Klick-Versions-Umschalter oben (V1 <-> V2 + Cockpit) */
+    .wp-version-bar {
+      background-color: var(--charcoal-deep);
+      color: #F9FAFB;
+      border-bottom: 2px solid var(--crimson-bright);
+      font-size: 0.8rem;
+      position: relative;
+      z-index: 1003;
+      padding: 9px 0;
+    }
+    .wp-version-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+    .wp-version-info {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: #E5E7EB;
+    }
+    .wp-version-pill-group {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .wp-ver-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      font-family: 'Barlow', sans-serif;
+      font-size: 0.76rem;
+      font-weight: 700;
+      padding: 6px 12px;
+      min-height: 36px;
+      border-radius: var(--radius-sm);
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      background-color: rgba(255, 255, 255, 0.07);
+      color: #F3F4F6;
+      line-height: 1.25;
+    }
+    .wp-ver-btn.is-active {
+      background-color: var(--gold);
+      color: #161615;
+      border-color: var(--gold);
+      font-weight: 800;
+    }
+    .wp-ver-btn.is-switch {
+      border-color: var(--gold);
+      color: var(--gold);
+      background-color: rgba(249, 178, 49, 0.12);
+    }
+    .wp-ver-btn.is-switch:hover {
+      background-color: var(--gold);
+      color: #161615;
+    }
+    .wp-ver-btn.is-cockpit {
+      background-color: rgba(255, 255, 255, 0.12);
+      border-color: rgba(255, 255, 255, 0.32);
+      color: #FFFFFF;
+    }
+    .wp-ver-btn.is-cockpit:hover {
+      background-color: #FFFFFF;
+      color: #161615;
+    }
+
+    /* Sub-Topbar (Standort Niederrohrdorf & Direktkontakt) */
+    .top-bar {
+      background-color: var(--charcoal);
+      color: #E5E7EB;
+      font-size: 0.78rem;
+      padding: 8px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    .top-bar-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .top-bar-left {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .top-bar-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      background-color: rgba(249, 178, 49, 0.18);
+      color: var(--gold);
+      border: 1px solid rgba(249, 178, 49, 0.45);
+      font-family: 'Barlow', sans-serif;
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      padding: 3px 8px;
+      border-radius: var(--radius-sm);
+    }
+    .top-bar-links {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .top-bar-links a {
+      color: #E5E7EB;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      min-height: 34px;
+      padding: 5px 8px;
+    }
+    .top-bar-links a:hover {
+      color: var(--gold);
+    }
+
+    /* Sticky Main Header */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background-color: rgba(255, 255, 255, 0.97);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border-light);
+      box-shadow: 0 2px 12px rgba(24, 24, 23, 0.04);
+    }
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      min-height: 76px;
+      padding: 8px 0;
+    }
+    .brand-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      flex-shrink: 0;
+    }
+    .brand-logo {
+      width: 118px;
+      height: 44px;
+      object-fit: contain;
+      border-radius: var(--radius-sm);
+      flex-shrink: 0;
+    }
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+    }
+    .brand-name {
+      font-family: 'Barlow', sans-serif;
+      font-size: 1.12rem;
+      font-weight: 800;
+      color: var(--charcoal);
+      letter-spacing: -0.01em;
+      line-height: 1.15;
+    }
+    .brand-sub {
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--crimson-dark);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-top: 2px;
+    }
+
+    .main-nav {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+    .nav-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-family: 'Barlow', sans-serif;
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: var(--text-body);
+      padding: 8px 12px;
+      min-height: 38px;
+      border-radius: var(--radius-sm);
+      border: 1px solid transparent;
+      background: transparent;
+      cursor: pointer;
+    }
+    .nav-link:hover,
+    .nav-link.active {
+      color: var(--charcoal-deep);
+      background-color: var(--crimson-soft);
+      border-color: var(--crimson-border);
+    }
+    .nav-link-preview {
+      color: var(--text-muted);
+      background-color: #F3F4F6;
+      border: 1px dashed #9CA3AF;
+      font-size: 0.82rem;
+    }
+    .nav-link-preview:hover {
+      color: var(--charcoal-deep);
+      background-color: var(--gold-soft);
+      border-color: var(--gold-dark);
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-shrink: 0;
+    }
+
+    /* Buttons (#UI-01: 8px radius, high contrast) */
+    .btn-cta {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      font-family: 'Barlow', sans-serif;
+      font-size: 0.92rem;
+      font-weight: 700;
+      padding: 12px 20px;
+      min-height: 44px;
+      border-radius: var(--radius-md);
+      border: 1px solid transparent;
+      cursor: pointer;
+      text-align: center;
+      line-height: 1.25;
+      transition: all 0.18s ease;
+    }
+    .btn-cta svg {
+      flex-shrink: 0;
+    }
+    .btn-cta-gold {
+      background-color: var(--gold);
+      color: #161615;
+      border-color: var(--gold);
+      font-weight: 800;
+    }
+    .btn-cta-gold:hover {
+      background-color: var(--gold-hover);
+      color: #161615;
+      transform: translateY(-1px);
+    }
+    .btn-cta-primary {
+      background-color: var(--charcoal);
+      color: #FFFFFF;
+      border-color: var(--charcoal);
+    }
+    .btn-cta-primary:hover {
+      background-color: var(--charcoal-deep);
+      color: var(--gold);
+      border-color: var(--charcoal-deep);
+    }
+    .btn-cta-outline {
+      background-color: #FFFFFF;
+      color: var(--charcoal);
+      border-color: var(--border-strong);
+    }
+    .btn-cta-outline:hover {
+      border-color: var(--charcoal);
+      background-color: var(--bg-Warm);
+    }
+    .btn-cta-outline-light {
+      background-color: rgba(255, 255, 255, 0.08);
+      color: #FFFFFF;
+      border-color: rgba(255, 255, 255, 0.28);
+    }
+    .btn-cta-outline-light:hover {
+      background-color: rgba(255, 255, 255, 0.16);
+      border-color: var(--gold);
+    }
+    .btn-sm {
+      font-size: 0.84rem;
+      padding: 9px 15px;
+      min-height: 40px;
+    }
+
+    /* Mobile Burger & Drawer */
+    .mobile-toggle {
+      display: none;
+      width: 44px;
+      height: 44px;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border-strong);
+      background-color: #FFFFFF;
+      color: var(--charcoal);
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+    }
+    .mobile-drawer {
+      display: none;
+      flex-direction: column;
+      gap: 8px;
+      padding: 16px 24px 22px;
+      background-color: var(--charcoal-deep);
+      border-top: 1px solid rgba(255, 255, 255, 0.12);
+    }
+    .mobile-drawer.open {
+      display: flex;
+    }
+    .mobile-drawer a,
+    .mobile-drawer button.mobile-nav-btn {
+      font-family: 'Barlow', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: #F9FAFB;
+      padding: 12px 14px;
+      min-height: 44px;
+      border-radius: var(--radius-sm);
+      background-color: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      text-align: left;
+      width: 100%;
+      cursor: pointer;
+    }
+    .mobile-drawer button.mobile-nav-btn {
+      color: var(--gold);
+      border-style: dashed;
+      border-color: rgba(249, 178, 49, 0.55);
+    }
+
+    /* Hero Section */
+    .hero-section {
+      background-color: var(--charcoal-deep);
+      color: #FFFFFF;
+      padding: 72px 0 84px;
+      border-bottom: 4px solid var(--crimson-bright);
+      overflow: hidden;
+    }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.12fr 0.88fr;
+      gap: 44px;
+      align-items: center;
+    }
+    .hero-title {
+      font-size: clamp(2.15rem, 3.8vw, 3.2rem);
+      font-weight: 800;
+      color: #FFFFFF;
+      line-height: 1.12;
+      margin-bottom: 18px;
+    }
+    .hero-title span {
+      color: var(--gold);
+    }
+    .hero-lead {
+      font-size: 1.06rem;
+      color: #E5E7EB;
+      line-height: 1.68;
+      margin-bottom: 26px;
+    }
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 28px;
+    }
+    .hero-badges {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+    .hero-badge-card {
+      background-color: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      border-left: 3px solid var(--gold);
+      border-radius: var(--radius-sm);
+      padding: 10px 14px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 2px;
+    }
+    .hero-badge-val {
+      font-family: 'Barlow', sans-serif;
+      font-size: 0.92rem;
+      font-weight: 800;
+      color: var(--gold);
+    }
+    .hero-badge-lbl {
+      font-size: 0.78rem;
+      color: #D1D5DB;
+      line-height: 1.35;
+    }
+
+    .hero-media-card {
+      background-color: var(--charcoal);
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      box-shadow: var(--shadow-lg);
+    }
+    .hero-media-card img {
+      width: 100%;
+      height: 360px;
+      object-fit: contain;
+      object-position: center;
+      background-color: #FFFFFF;
+      padding: 14px;
+    }
+    .hero-media-card img.cover-img {
+      object-fit: cover;
+      padding: 0;
+      background-color: var(--charcoal);
+    }
+    .hero-media-caption {
+      padding: 16px 20px;
+      background-color: #1E1E1D;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    /* Universal Symmetric Grids (#UI-14: Zero Ragged Edges & Equal Height) */
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 28px;
+      align-items: stretch;
+    }
+    .grid-2 > :last-child:nth-child(odd) {
+      grid-column: 1 / -1;
+    }
+
+    /* Cards */
+    .content-card {
+      background-color: var(--bg-card);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-md);
+      padding: 28px;
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 18px;
+      height: 100%;
+    }
+    .content-card.card-accent-top {
+      border-top: 4px solid var(--crimson-bright);
+    }
+    .content-card.card-dark {
+      background-color: var(--charcoal-deep);
+      color: #F9FAFB;
+      border-color: rgba(255, 255, 255, 0.14);
+    }
+    .content-card.card-dark h3 {
+      color: #FFFFFF;
+    }
+
+    .card-badge-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-bottom: 10px;
+    }
+    .meta-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-family: 'Barlow', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      padding: 4px 10px;
+      border-radius: var(--radius-sm);
+      background-color: var(--gold-soft);
+      color: var(--gold-dark);
+      border: 1px solid var(--gold-border);
+    }
+    .icon-box {
+      width: 40px;
+      height: 40px;
+      border-radius: var(--radius-sm);
+      background-color: var(--charcoal);
+      color: var(--gold);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .check-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-top: 8px;
+    }
+    .check-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 0.92rem;
+      color: var(--text-body);
+      line-height: 1.5;
+    }
+    .check-item svg {
+      color: var(--crimson-dark);
+      flex-shrink: 0;
+      margin-top: 3px;
+    }
+    .card-dark .check-item {
+      color: #E5E7EB;
+    }
+    .card-dark .check-item svg {
+      color: var(--gold);
+    }
+
+    /* Pillar & Catalog Media Cards */
+    .pillar-card {
+      background-color: #FFFFFF;
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      height: 100%;
+    }
+    .pillar-img-wrap {
+      width: 100%;
+      height: 210px;
+      overflow: hidden;
+      background-color: var(--charcoal);
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .pillar-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+    .pillar-img-wrap.logo-stage {
+      background-color: #FFFFFF;
+      border-bottom: 1px solid var(--border-light);
+      padding: 20px;
+      height: 170px;
+    }
+    .pillar-img-wrap.logo-stage img {
+      object-fit: contain;
+    }
+    .pillar-body {
+      padding: 24px 26px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      flex: 1;
+      gap: 16px;
+    }
+
+    /* V2 Vorschau-Entwurf (Zeigeversion) Spezifische Styles (#UI-03 Kunden-Sprache) */
+    .preview-scope-section {
+      background-color: #EFECE6;
+      border-top: 2px dashed var(--charcoal-mid);
+      border-bottom: 2px dashed var(--charcoal-mid);
+      padding: 76px 0 88px;
+    }
+    .preview-scope-banner {
+      background-color: var(--charcoal-deep);
+      color: #F9FAFB;
+      border: 2px dashed var(--gold);
+      border-radius: var(--radius-md);
+      padding: 28px 30px;
+      margin-bottom: 36px;
+      box-shadow: var(--shadow-md);
+    }
+    .preview-module-card {
+      background-color: #FFFFFF;
+      border: 2px dashed #6B7280;
+      border-radius: var(--radius-md);
+      padding: 26px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 18px;
+      box-shadow: var(--shadow-sm);
+      height: 100%;
+    }
+    .preview-status-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background-color: var(--gold-soft);
+      border: 1px solid var(--gold-border);
+      color: var(--gold-dark);
+      font-family: 'Barlow', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 800;
+      padding: 4px 10px;
+      border-radius: var(--radius-sm);
+      text-transform: uppercase;
+    }
+
+    /* Footer */
+    .site-footer {
+      background-color: var(--charcoal-deep);
+      color: #E5E7EB;
+      padding: 68px 0 36px;
+      border-top: 4px solid var(--crimson-bright);
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.3fr 1fr 1fr 1.1fr;
+      gap: 36px;
+      padding-bottom: 42px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+    }
+    .footer-title {
+      font-family: 'Barlow', sans-serif;
+      font-size: 0.94rem;
+      font-weight: 800;
+      color: #FFFFFF;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: 16px;
+    }
+    .footer-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .footer-list a,
+    .footer-list button {
+      color: #D1D5DB;
+      font-size: 0.88rem;
+      background: none;
+      border: none;
+      text-align: left;
+      cursor: pointer;
+      font-family: inherit;
+      padding: 5px 0;
+      min-height: 34px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .footer-list a:hover,
+    .footer-list button:hover {
+      color: var(--gold);
+    }
+    .footer-bottom {
+      padding-top: 26px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+      font-size: 0.82rem;
+      color: #9CA3AF;
+    }
+    .footer-bottom a {
+      display: inline-flex;
+      align-items: center;
+      min-height: 34px;
+      padding: 4px 0;
+    }
+
+    /* Modals (#wpBlueprintModal & #wpImpressumModal) */
+    .wp-modal-backdrop {
+      position: fixed;
+      inset: 0;
+      background-color: rgba(15, 15, 14, 0.76);
+      backdrop-filter: blur(4px);
+      z-index: 9998;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      overflow-y: auto;
+    }
+    .wp-modal-backdrop.open {
+      display: flex;
+    }
+    .wp-modal-dialog {
+      background-color: #FFFFFF;
+      color: var(--text-main);
+      border: 2px solid var(--gold);
+      border-radius: var(--radius-md);
+      max-width: 650px;
+      width: 100%;
+      padding: 28px;
+      position: relative;
+      box-shadow: var(--shadow-lg);
+      max-height: 90vh;
+      overflow-y: auto;
+    }
+    .wp-modal-close {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      width: 38px;
+      height: 38px;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border-strong);
+      background-color: var(--bg-page);
+      color: var(--charcoal);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+    }
+    .wp-modal-checklist {
+      background-color: var(--bg-page);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-md);
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .wp-modal-check-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 0.86rem;
+      color: var(--text-body);
+    }
+    .wp-modal-check-item svg {
+      color: var(--crimson-dark);
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    /* 3-Schritte Smart-Anfrage Assistent (kontakt.html) */
+    .contact-layout {
+      display: grid;
+      grid-template-columns: 0.88fr 1.12fr;
+      gap: 38px;
+      align-items: start;
+    }
+    .contact-info-panel {
+      background-color: #FFFFFF;
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-md);
+      padding: 28px;
+      box-shadow: var(--shadow-sm);
+    }
+    .contact-direct-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-top: 20px;
+    }
+    .contact-direct-item {
+      padding: 12px 14px;
+      background-color: var(--bg-page);
+      border: 1px solid var(--border-light);
+      border-left: 3px solid var(--crimson-bright);
+      border-radius: var(--radius-sm);
+      font-size: 0.85rem;
+    }
+    .contact-direct-role {
+      font-family: 'Barlow', sans-serif;
+      font-size: 0.74rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      color: var(--crimson-dark);
+      letter-spacing: 0.04em;
+    }
+    .contact-direct-person {
+      font-weight: 700;
+      color: var(--charcoal);
+      margin-top: 2px;
+    }
+    .contact-direct-links {
+      color: var(--text-body);
+      font-size: 0.82rem;
+      margin-top: 2px;
+    }
+
+    .wizard-card {
+      background-color: #FFFFFF;
+      border: 2px solid var(--charcoal);
+      border-radius: var(--radius-md);
+      padding: 30px;
+      box-shadow: var(--shadow-md);
+    }
+    .wp-stepper {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+      margin-bottom: 22px;
+      padding: 6px;
+      background-color: var(--bg-Warm);
+      border-radius: var(--radius-md);
+    }
+    .wp-step-pill {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 10px 8px;
+      border-radius: var(--radius-sm);
+      font-family: 'Barlow', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: var(--text-muted);
+      text-align: center;
+    }
+    .wp-step-pill.active {
+      background-color: var(--charcoal);
+      color: var(--gold);
+    }
+    .wp-step-pill.done {
+      background-color: var(--green-soft);
+      color: #166534;
+    }
+    .wp-step-num {
+      width: 22px;
+      height: 22px;
+      border-radius: var(--radius-sm);
+      background-color: rgba(255, 255, 255, 0.16);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.74rem;
+      font-weight: 800;
+      flex-shrink: 0;
+    }
+
+    .wp-step-pane {
+      display: none;
+    }
+    .wp-step-pane.active {
+      display: block;
+    }
+
+    .wp-role-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+      margin-bottom: 20px;
+      align-items: stretch;
+    }
+    .wp-role-tile {
+      background-color: var(--bg-page);
+      border: 1px solid var(--border-strong);
+      border-radius: var(--radius-md);
+      padding: 14px;
+      text-align: left;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 8px;
+      transition: all 0.18s ease;
+      font-family: inherit;
+      min-height: 92px;
+    }
+    .wp-role-tile:hover {
+      border-color: var(--charcoal);
+      background-color: #FFFFFF;
+    }
+    .wp-role-tile.selected {
+      border: 2px solid var(--charcoal);
+      background-color: var(--gold-soft);
+    }
+    .wp-role-head {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .wp-role-icon {
+      width: 28px;
+      height: 28px;
+      border-radius: var(--radius-sm);
+      background-color: var(--charcoal);
+      color: var(--gold);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .wp-role-title {
+      font-family: 'Barlow', sans-serif;
+      font-size: 0.88rem;
+      font-weight: 800;
+      color: var(--charcoal);
+      line-height: 1.25;
+    }
+    .wp-role-desc {
+      font-size: 0.77rem;
+      color: var(--text-body);
+      line-height: 1.42;
+    }
+
+    .form-grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+      align-items: stretch;
+    }
+    .form-field {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 6px;
+    }
+    .form-label {
+      font-family: 'Barlow', sans-serif;
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--charcoal);
+      line-height: 1.3;
+    }
+    .form-input,
+    .form-textarea {
+      width: 100%;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.9rem;
+      color: var(--text-main);
+      background-color: #FFFFFF;
+      border: 1px solid var(--border-strong);
+      border-radius: var(--radius-sm);
+      padding: 11px 14px;
+      min-height: 44px;
+    }
+    .form-input:focus,
+    .form-textarea:focus {
+      outline: none;
+      border-color: var(--charcoal);
+      box-shadow: 0 0 0 3px rgba(249, 178, 49, 0.25);
+    }
+    .form-textarea {
+      min-height: 100px;
+      resize: vertical;
+    }
+
+    .wp-upload-zone {
+      border: 1px dashed var(--border-strong);
+      background-color: var(--bg-page);
+      border-radius: var(--radius-md);
+      padding: 14px;
+    }
+    .wp-upload-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 14px;
+      min-height: 42px;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border-strong);
+      background-color: #FFFFFF;
+      font-family: 'Barlow', sans-serif;
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--charcoal);
+      cursor: pointer;
+    }
+    .wp-photo-thumbs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 10px;
+    }
+    .wp-thumb-item {
+      position: relative;
+      width: 72px;
+      height: 72px;
+      border-radius: var(--radius-sm);
+      overflow: hidden;
+      border: 1px solid var(--border-strong);
+    }
+    .wp-thumb-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .wp-thumb-remove {
+      position: absolute;
+      top: 2px;
+      right: 2px;
+      width: 22px;
+      height: 22px;
+      background-color: var(--charcoal);
+      color: #FFFFFF;
+      border: none;
+      border-radius: var(--radius-sm);
+      font-size: 0.72rem;
+      cursor: pointer;
+    }
+
+    .wp-plz-badge {
+      display: none;
+      align-items: center;
+      gap: 8px;
+      margin-top: 6px;
+      padding: 8px 12px;
+      border-radius: var(--radius-sm);
+      font-size: 0.78rem;
+      font-weight: 600;
+    }
+    .wp-plz-badge.in-area {
+      display: flex;
+      background-color: var(--green-soft);
+      color: #166534;
+      border: 1px solid #86EFAC;
+    }
+
+    .wp-selftest-banner {
+      background-color: var(--gold-soft);
+      border: 1px solid var(--gold-border);
+      border-left: 4px solid var(--gold-dark);
+      border-radius: var(--radius-sm);
+      padding: 12px 14px;
+      font-size: 0.8rem;
+      color: #78350F;
+      margin-bottom: 16px;
+    }
+
+    .wp-success-box {
+      display: none;
+      flex-direction: column;
+      gap: 16px;
+      padding: 24px;
+      background-color: var(--bg-page);
+      border: 2px solid var(--green);
+      border-radius: var(--radius-md);
+    }
+    .wp-success-box.visible {
+      display: flex;
+    }
+    .wp-wa-preview {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.82rem;
+      background-color: #FFFFFF;
+      border: 1px solid var(--border-light);
+      border-left: 4px solid var(--green);
+      padding: 12px 14px;
+      border-radius: var(--radius-sm);
+      white-space: pre-wrap;
+      color: var(--text-main);
+    }
+
+
+    /* Supplemental Component Styles (#UI-01..#UI-14) */
+    :root {
+      --brand-primary: #991B1B;
+      --text-primary: #181817;
+      --text-secondary: #374151;
+      --bg-muted: #F3F4F6;
+      --border-subtle: #E5E7EB;
+      --radius-card: 8px;
+      --radius-btn: 8px;
+      --font-display: 'Barlow', sans-serif;
+    }
+    .btn-cta-white {
+      background-color: #FFFFFF;
+      color: #181817;
+      border-color: #FFFFFF;
+      font-weight: 800;
+    }
+    .btn-cta-white:hover {
+      background-color: var(--gold);
+      color: #161615;
+      border-color: var(--gold);
+    }
+    .hero-eyebrow,
+    .section-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: 'Barlow', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--gold);
+      margin-bottom: 12px;
+    }
+    .section-eyebrow {
+      color: var(--crimson-dark);
+    }
+    .hero-cta-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+    .hero-trust-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+    .hero-trust-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.86rem;
+      font-weight: 600;
+      color: #F3F4F6;
+    }
+    .hero-trust-item svg {
+      color: var(--gold);
+      flex-shrink: 0;
+    }
+    .hero-visual-card {
+      background-color: var(--charcoal);
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      box-shadow: var(--shadow-lg);
+    }
+    .hero-image-frame {
+      position: relative;
+      background-color: #FFFFFF;
+      padding: 14px;
+    }
+    .hero-image-frame img {
+      width: 100%;
+      height: 310px;
+      object-fit: contain;
+      object-position: center;
+      border-radius: var(--radius-sm);
+    }
+    .hero-floating-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background-color: var(--charcoal-deep);
+      color: var(--gold);
+      font-family: 'Barlow', sans-serif;
+      font-size: 0.74rem;
+      font-weight: 700;
+      padding: 6px 10px;
+      border-radius: var(--radius-sm);
+      margin-bottom: 10px;
+    }
+    .hero-quickbar {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      padding: 14px 16px;
+      background-color: #181817;
+      border-top: 1px solid rgba(255, 255, 255, 0.12);
+    }
+    .hero-quickbar-item {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+    .hero-quickbar-label {
+      font-size: 0.7rem;
+      color: #D1D5DB;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      font-weight: 600;
+    }
+    .hero-quickbar-val a {
+      font-family: 'Barlow', sans-serif;
+      font-size: 0.86rem;
+      font-weight: 700;
+      color: var(--gold);
+      display: inline-flex;
+      align-items: center;
+      min-height: 32px;
+    }
+    .trust-strip {
+      background-color: #FFFFFF;
+      border-bottom: 1px solid var(--border-light);
+      padding: 28px 0;
+    }
+    .trust-strip-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      align-items: stretch;
+    }
+    .trust-metric {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 14px;
+      background-color: var(--bg-page);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-md);
+    }
+    .trust-metric-icon {
+      width: 38px;
+      height: 38px;
+      border-radius: var(--radius-sm);
+      background-color: var(--charcoal);
+      color: var(--gold);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .trust-metric-num {
+      font-family: 'Barlow', sans-serif;
+      font-size: 1.05rem;
+      font-weight: 800;
+      color: var(--charcoal);
+      line-height: 1.2;
+    }
+    .trust-metric-label {
+      font-size: 0.8rem;
+      color: var(--text-body);
+      line-height: 1.4;
+      margin-top: 3px;
+    }
+    .section-header {
+      max-width: 780px;
+      margin-bottom: 38px;
+    }
+    .section-lead {
+      font-size: 1.02rem;
+      color: var(--text-body);
+      line-height: 1.65;
+    }
+    .section-alt {
+      background-color: var(--bg-Warm);
+      border-top: 1px solid var(--border-light);
+      border-bottom: 1px solid var(--border-light);
+    }
+    .section-dark {
+      background-color: var(--charcoal-deep);
+      color: #FFFFFF;
+    }
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      align-items: stretch;
+    }
+    .service-card {
+      background-color: #FFFFFF;
+      border: 1px solid var(--border-light);
+      border-top: 4px solid var(--crimson-bright);
+      border-radius: var(--radius-md);
+      padding: 26px;
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 14px;
+      height: 100%;
+    }
+    .service-card h3 {
+      font-size: 1.28rem;
+      font-weight: 800;
+      color: var(--charcoal);
+    }
+    .service-card p {
+      font-size: 0.94rem;
+      color: var(--text-body);
+      line-height: 1.6;
+    }
+    .service-card-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+    }
+    .service-icon-box {
+      width: 42px;
+      height: 42px;
+      border-radius: var(--radius-sm);
+      background-color: var(--charcoal);
+      color: var(--gold);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .service-tag {
+      font-family: 'Barlow', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      padding: 4px 10px;
+      border-radius: var(--radius-sm);
+      background-color: var(--crimson-soft);
+      color: var(--crimson-dark);
+      border: 1px solid var(--crimson-border);
+    }
+    .service-list {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin: 4px 0;
+    }
+    .service-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      font-size: 0.88rem;
+      color: var(--text-body);
+      line-height: 1.48;
+    }
+    .service-list li svg {
+      color: var(--crimson-dark);
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    .service-card-footer {
+      margin-top: auto;
+      padding-top: 8px;
+    }
+    .studio-showcase {
+      display: grid;
+      grid-template-columns: 1.08fr 0.92fr;
+      gap: 36px;
+      align-items: start;
+    }
+    .team-card {
+      background-color: #FFFFFF;
+      border: 1px solid var(--border-light);
+      border-left: 4px solid var(--crimson-bright);
+      border-radius: var(--radius-md);
+      padding: 18px 20px;
+      box-shadow: var(--shadow-sm);
+    }
+    .team-role {
+      font-family: 'Barlow', sans-serif;
+      font-size: 0.74rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--crimson-dark);
+      margin-bottom: 4px;
+    }
+    .team-name {
+      font-size: 1.18rem;
+      font-weight: 800;
+      color: var(--charcoal);
+      margin-bottom: 6px;
+    }
+    .team-bio {
+      font-size: 0.88rem;
+      color: var(--text-body);
+      line-height: 1.55;
+      margin-bottom: 12px;
+    }
+    .team-contact-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .team-contact-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 12px;
+      min-height: 38px;
+      border-radius: var(--radius-sm);
+      background-color: var(--bg-page);
+      border: 1px solid var(--border-strong);
+      font-family: 'Barlow', sans-serif;
+      font-size: 0.84rem;
+      font-weight: 700;
+      color: var(--charcoal);
+    }
+    .team-contact-pill:hover {
+      background-color: var(--gold-soft);
+      border-color: var(--gold-dark);
+    }
+    .studio-photo-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .studio-photo-main img {
+      width: 100%;
+      height: 290px;
+      object-fit: cover;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border-light);
+    }
+    .studio-photo-sub {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      align-items: stretch;
+    }
+    .studio-photo-sub img {
+      width: 100%;
+      height: 100%;
+      min-height: 190px;
+      object-fit: cover;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border-light);
+    }
+    .studio-fact-box {
+      background-color: var(--charcoal-deep);
+      color: #F9FAFB;
+      border-radius: var(--radius-md);
+      padding: 20px;
+      border-top: 4px solid var(--gold);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .studio-fact-box h4 {
+      color: #FFFFFF;
+      font-size: 1.05rem;
+      margin-bottom: 8px;
+    }
+    .studio-fact-box p {
+      font-size: 0.86rem;
+      color: #E5E7EB;
+      line-height: 1.5;
+    }
+    .cta-banner {
+      background-color: var(--charcoal-deep);
+      color: #FFFFFF;
+      border-radius: var(--radius-md);
+      border-left: 6px solid var(--crimson-bright);
+      padding: 36px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 28px;
+      flex-wrap: wrap;
+      box-shadow: var(--shadow-md);
+    }
+    .cta-banner h2 {
+      color: #FFFFFF;
+      font-size: clamp(1.55rem, 2.6vw, 2.1rem);
+      margin-bottom: 8px;
+    }
+    .cta-banner p {
+      color: #E5E7EB;
+      font-size: 0.96rem;
+      max-width: 640px;
+    }
+    .cta-banner-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      flex-shrink: 0;
+    }
+    .page-hero {
+      background-color: var(--charcoal-deep);
+      color: #FFFFFF;
+      padding: 54px 0 60px;
+      border-bottom: 4px solid var(--crimson-bright);
+    }
+    .page-hero h1 {
+      color: #FFFFFF;
+      font-size: clamp(1.95rem, 3.3vw, 2.75rem);
+      font-weight: 800;
+      margin-bottom: 14px;
+      max-width: 820px;
+    }
+    .page-hero p {
+      color: #E5E7EB;
+      font-size: 1.02rem;
+      max-width: 760px;
+      line-height: 1.65;
+    }
+    .breadcrumb {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.8rem;
+      color: #D1D5DB;
+      margin-bottom: 14px;
+    }
+    .breadcrumb a {
+      color: var(--gold);
+      font-weight: 700;
+      display: inline-flex;
+      align-items: center;
+      min-height: 34px;
+      min-width: 44px;
+      padding: 4px 8px;
+    }
+    .studio-fact-box a {
+      display: inline-flex;
+      align-items: center;
+      min-height: 34px;
+      padding: 4px 6px;
+    }
+    .preview-card-dashed {
+      background-color: #FFFFFF;
+      border: 2px dashed #6B7280;
+      border-radius: var(--radius-md);
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 14px;
+      cursor: pointer;
+      height: 100%;
+      transition: border-color 0.18s ease, background-color 0.18s ease;
+    }
+    .preview-card-dashed:hover {
+      border-color: var(--charcoal);
+      background-color: var(--gold-soft);
+    }
+    .preview-card-dashed h3 {
+      font-size: 1.2rem;
+      font-weight: 800;
+      color: var(--charcoal);
+    }
+    .preview-card-dashed p {
+      font-size: 0.9rem;
+      color: var(--text-body);
+      line-height: 1.55;
+    }
+    .preview-badge-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      align-self: flex-start;
+      background-color: var(--gold-soft);
+      color: var(--gold-dark);
+      border: 1px solid var(--gold-border);
+      font-family: 'Barlow', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      border-radius: var(--radius-sm);
+    }
+    .wizard-shell {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 32px;
+      align-items: start;
+    }
+    .wizard-progress {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+      margin-bottom: 22px;
+      background-color: var(--bg-page);
+      padding: 6px;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border-light);
+    }
+    .wizard-step-pill {
+      padding: 10px 8px;
+      border-radius: var(--radius-sm);
+      font-family: 'Barlow', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-align: center;
+      color: var(--text-muted);
+    }
+    .wizard-step-pill.active {
+      background-color: var(--charcoal);
+      color: var(--gold);
+    }
+    .wizard-pane {
+      display: none;
+    }
+    .wizard-pane.active {
+      display: block;
+    }
+    .option-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+      align-items: stretch;
+    }
+    .option-tile {
+      background-color: var(--bg-page);
+      border: 1px solid var(--border-strong);
+      border-radius: var(--radius-md);
+      padding: 16px;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 6px;
+      min-height: 96px;
+    }
+    .option-tile.selected {
+      background-color: var(--gold-soft);
+      border: 2px solid var(--charcoal);
+    }
+    .option-tile-title {
+      font-family: 'Barlow', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 800;
+      color: var(--charcoal);
+    }
+    .option-tile-sub {
+      font-size: 0.8rem;
+      color: var(--text-body);
+      line-height: 1.45;
+    }
+    .form-row-2 {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+      margin-bottom: 14px;
+    }
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      margin-bottom: 12px;
+    }
+    .form-select {
+      width: 100%;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.9rem;
+      color: var(--text-main);
+      background-color: #FFFFFF;
+      border: 1px solid var(--border-strong);
+      border-radius: var(--radius-sm);
+      padding: 11px 14px;
+      min-height: 44px;
+    }
+    @media (max-width: 1080px) {
+      .trust-strip-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .studio-showcase,
+      .wizard-shell,
+      .grid-3 {
+        grid-template-columns: 1fr;
+      }
+    }
+    @media (max-width: 768px) {
+      .trust-strip-grid,
+      .hero-quickbar,
+      .studio-photo-sub,
+      .option-grid,
+      .form-row-2,
+      .wizard-progress {
+        grid-template-columns: 1fr;
+      }
+      .container {
+        padding: 0 16px;
+      }
+      .header-inner {
+        gap: 10px;
+      }
+      .brand-link {
+        flex-shrink: 1;
+        min-width: 0;
+        gap: 8px;
+      }
+      .brand-logo {
+        width: 76px;
+        height: 32px;
+      }
+      .brand-name {
+        font-size: 0.92rem;
+      }
+      .brand-sub {
+        font-size: 0.62rem;
+        letter-spacing: 0.03em;
+      }
+      .cta-banner {
+        padding: 24px 20px;
+      }
+      .cta-banner-actions {
+        width: 100%;
+        flex-direction: column;
+        align-items: stretch;
+      }
+      .cta-banner-actions .btn-cta {
+        width: 100%;
+      }
+    }
+
+    @media (max-width: 1080px) {
+      .hero-grid,
+      .contact-layout,
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+      .main-nav {
+        display: none;
+      }
+      .mobile-toggle {
+        display: inline-flex;
+      }
+    }
+
+    @media (max-width: 768px) {
+      section {
+        padding: 56px 0;
+      }
+      .grid-2,
+      .hero-badges,
+      .wp-role-grid,
+      .form-grid-2,
+      .wp-stepper {
+        grid-template-columns: 1fr;
+      }
+      .header-actions .btn-cta {
+        display: none;
+      }
+      .hero-media-card img {
+        height: 250px;
+      }
+      .wizard-card,
+      .content-card {
+        padding: 20px;
+      }
+      .wp-version-inner {
+        flex-direction: column;
+        align-items: stretch;
+      }
+      .wp-version-pill-group {
+        width: 100%;
+      }
+      .wp-ver-btn {
+        flex: 1 1 auto;
+      }
+    }
+
+  
+/* === WEBPILOT-PARTNER-ATTRIBUTION-CSS-START === */
+    .wp-partner-attr-bar {
+      margin-top: 20px;
+      padding: 16px 18px;
+      background: linear-gradient(135deg, #F8FAFC 0%, #F1F5F9 100%);
+      border: 1px solid #CBD5E1;
+      border-left: 4px solid #E12321;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 14px;
+      box-sizing: border-box;
+      width: 100%;
+      overflow: hidden;
+    }
+    .wp-partner-attr-left {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      flex: 1 1 260px;
+      min-width: 0;
+    }
+    .wp-partner-attr-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 4px;
+      background-color: #181818;
+      color: #FBBF24;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    .wp-partner-attr-text {
+      min-width: 0;
+      flex: 1;
+    }
+    .wp-partner-attr-title {
+      font-family: 'Barlow', sans-serif;
+      font-size: 0.86rem;
+      font-weight: 800;
+      color: #181818;
+      line-height: 1.35;
+      margin: 0 0 3px 0;
+    }
+    .wp-partner-attr-sub {
+      font-size: 0.79rem;
+      color: #475569;
+      line-height: 1.4;
+      margin: 0;
+    }
+    .wp-partner-cta-btn {
+      appearance: none;
+      background-color: #181818;
+      color: #FFFFFF !important;
+      border: 1px solid #181818;
+      border-radius: 8px;
+      padding: 10px 15px;
+      min-height: 42px;
+      min-width: 44px;
+      font-family: 'Barlow', sans-serif;
+      font-size: 0.79rem;
+      font-weight: 700;
+      line-height: 1.3;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      text-align: left;
+      transition: background-color 0.18s ease, border-color 0.18s ease;
+      box-sizing: border-box;
+      overflow: hidden;
+      max-width: 100%;
+    }
+    .wp-partner-cta-btn:hover {
+      background-color: #E12321;
+      border-color: #E12321;
+      color: #FFFFFF !important;
+    }
+    .wp-partner-cta-btn svg {
+      flex-shrink: 0;
+    }
+    .wp-partner-footer-btn {
+      appearance: none;
+      background-color: rgba(255, 255, 255, 0.08);
+      color: #F8FAFC !important;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 8px;
+      padding: 7px 13px;
+      min-height: 36px;
+      min-width: 44px;
+      font-family: inherit;
+      font-size: 0.78rem;
+      font-weight: 700;
+      line-height: 1.3;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      text-align: left;
+      transition: background-color 0.18s ease, border-color 0.18s ease;
+      box-sizing: border-box;
+      overflow: hidden;
+      max-width: 100%;
+    }
+    .wp-partner-footer-btn:hover {
+      background-color: rgba(255, 255, 255, 0.16);
+      border-color: #FBBF24;
+      color: #FFFFFF !important;
+    }
+    .wp-partner-footer-btn svg {
+      color: #FBBF24;
+      flex-shrink: 0;
+    }
+    /* Partner Modal (#wpPartnerModal) */
+    .wp-partner-modal-backdrop {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background-color: rgba(11, 19, 36, 0.82);
+      backdrop-filter: blur(6px);
+      z-index: 2200;
+      align-items: center;
+      justify-content: center;
+      padding: 14px;
+      box-sizing: border-box;
+    }
+    .wp-partner-modal-backdrop.open {
+      display: flex;
+    }
+    .wp-partner-modal-dialog {
+      background-color: #FFFFFF;
+      color: #0F172A;
+      border: 2px solid #E12321;
+      border-radius: 8px;
+      max-width: 640px;
+      width: 100%;
+      padding: 22px 22px 20px 22px;
+      box-shadow: 0 20px 45px rgba(15, 23, 42, 0.35);
+      position: relative;
+      max-height: calc(100dvh - 28px);
+      overflow-y: auto;
+      box-sizing: border-box;
+    }
+    .wp-partner-modal-head {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 10px;
+    }
+    .wp-partner-modal-kicker {
+      font-family: 'Barlow', sans-serif;
+      font-size: 0.7rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+      color: #E12321;
+      display: block;
+      margin-bottom: 4px;
+    }
+    .wp-partner-modal-title {
+      font-family: 'Barlow', sans-serif;
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: #181818;
+      line-height: 1.25;
+      margin: 0;
+    }
+    .wp-partner-modal-close {
+      appearance: none;
+      width: 38px;
+      height: 38px;
+      min-width: 38px;
+      min-height: 38px;
+      border-radius: 8px;
+      border: 1px solid #CBD5E1;
+      background-color: #F8FAFC;
+      color: #0F172A;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      padding: 0;
+    }
+    .wp-partner-modal-close:hover {
+      background-color: #E2E8F0;
+    }
+    .wp-partner-notice {
+      background-color: #F8FAFC;
+      border: 1px solid #E2E8F0;
+      border-left: 4px solid #181818;
+      border-radius: 4px;
+      padding: 9px 12px;
+      font-size: 0.78rem;
+      color: #334155;
+      line-height: 1.42;
+      margin-bottom: 14px;
+    }
+    .wp-partner-vcard {
+      background-color: #F8FAFC;
+      border: 1px solid #CBD5E1;
+      border-radius: 8px;
+      padding: 13px 14px;
+      margin-bottom: 14px;
+    }
+    .wp-partner-vcard-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+    .wp-partner-vcard-name {
+      font-family: 'Barlow', sans-serif;
+      font-size: 0.96rem;
+      font-weight: 800;
+      color: #181818;
+      line-height: 1.25;
+    }
+    .wp-partner-vcard-role {
+      font-size: 0.77rem;
+      color: #475569;
+      margin-top: 2px;
+    }
+    .wp-partner-vcard-badge {
+      background-color: #181818;
+      color: #FFFFFF;
+      font-family: 'Barlow', sans-serif;
+      font-size: 0.68rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      padding: 4px 8px;
+      border-radius: 4px;
+      overflow: hidden;
+    }
+    .wp-partner-direct-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 8px;
+    }
+    .wp-partner-direct-btn {
+      text-decoration: none;
+      border-radius: 8px;
+      padding: 8px 10px;
+      min-height: 40px;
+      min-width: 44px;
+      font-family: 'Barlow', sans-serif;
+      font-size: 0.76rem;
+      font-weight: 700;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      text-align: center;
+      box-sizing: border-box;
+      overflow: hidden;
+      transition: opacity 0.16s ease, transform 0.16s ease;
+    }
+    .wp-partner-direct-btn svg {
+      flex-shrink: 0;
+    }
+    .wp-partner-direct-wa {
+      background-color: #059669;
+      color: #FFFFFF !important;
+      border: 1px solid #059669;
+    }
+    .wp-partner-direct-tel {
+      background-color: #181818;
+      color: #FFFFFF !important;
+      border: 1px solid #181818;
+    }
+    .wp-partner-direct-mail {
+      background-color: #FFFFFF;
+      color: #181818 !important;
+      border: 1px solid #94A3B8;
+    }
+    .wp-partner-form-box {
+      background-color: #FFFFFF;
+      border: 1px solid #CBD5E1;
+      border-radius: 8px;
+      padding: 14px;
+    }
+    .wp-partner-form-title {
+      font-family: 'Barlow', sans-serif;
+      font-size: 0.88rem;
+      font-weight: 800;
+      color: #181818;
+      margin: 0 0 4px 0;
+    }
+    .wp-partner-form-sub {
+      font-size: 0.76rem;
+      color: #475569;
+      margin: 0 0 12px 0;
+      line-height: 1.4;
+    }
+    .wp-partner-form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+    .wp-partner-field {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      margin-bottom: 10px;
+    }
+    .wp-partner-form-grid .wp-partner-field {
+      margin-bottom: 0;
+    }
+    .wp-partner-label {
+      font-size: 0.74rem;
+      font-weight: 700;
+      color: #1E293B;
+      line-height: 1.25;
+    }
+    .wp-partner-input {
+      width: 100%;
+      min-height: 40px;
+      padding: 8px 11px;
+      border: 1px solid #CBD5E1;
+      border-radius: 8px;
+      font-family: inherit;
+      font-size: 0.84rem;
+      color: #0F172A;
+      background-color: #FFFFFF;
+      box-sizing: border-box;
+    }
+    .wp-partner-input:focus {
+      outline: none;
+      border-color: #E12321;
+    }
+    .wp-partner-submit-btn {
+      appearance: none;
+      width: 100%;
+      min-height: 44px;
+      padding: 11px 16px;
+      background-color: #E12321;
+      color: #FFFFFF !important;
+      border: 1px solid #E12321;
+      border-radius: 8px;
+      font-family: 'Barlow', sans-serif;
+      font-size: 0.84rem;
+      font-weight: 800;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      box-sizing: border-box;
+      overflow: hidden;
+    }
+    .wp-partner-submit-btn:hover {
+      opacity: 0.94;
+    }
+    .wp-partner-error {
+      display: none;
+      background-color: #FEE2E2;
+      border: 1px solid #FCA5A5;
+      color: #991B1B;
+      padding: 8px 11px;
+      border-radius: 4px;
+      font-size: 0.78rem;
+      margin-bottom: 10px;
+    }
+    .wp-partner-success {
+      display: none;
+      background-color: #ECFDF5;
+      border: 1px solid #6EE7B7;
+      border-radius: 8px;
+      padding: 14px;
+      margin-top: 4px;
+    }
+    @media (max-width: 768px) {
+      body {
+        padding-bottom: 92px !important;
+      }
+      .wp-partner-attr-bar {
+        padding: 14px;
+      }
+      .wp-partner-cta-btn {
+        width: 100%;
+        justify-content: space-between;
+      }
+      .wp-partner-direct-grid {
+        grid-template-columns: 1fr;
+      }
+      .wp-partner-form-grid {
+        grid-template-columns: 1fr;
+      }
+      .wp-partner-modal-dialog {
+        padding: 16px 14px;
+      }
+    }
+/* === WEBPILOT-PARTNER-ATTRIBUTION-CSS-END === */
+  </style>
+</head>
+<body>
+
+  <!-- TOP-BANNER ZEIGEVERSION (#UI-03 KUNDEN-SPRACHE + STUDIO COCKPIT V4.0) -->
+  <div class="wp-version-bar" data-studio-ignore="true">
+    <div class="container wp-version-inner">
+      <div class="wp-version-info">
+        <span class="top-bar-badge">VORSCHAU-ENTWURF · ZEIGEVERSION</span>
+        <span>Zeigeversion (Vorschau-Entwurf für das Erstgespräch): 2 Beispiel-Seiten sind bereits ausgearbeitet — 3 weitere Themenbereiche folgen beim Ausbau.</span>
+      </div>
+      <div class="wp-version-pill-group" role="group" aria-label="Versions-Umschalter">
+        <span class="wp-ver-btn is-active">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><polyline points="20 6 9 17 4 12"/></svg>
+          <span>Zeigeversion (Vorschau-Entwurf für das Erstgespräch)</span>
+        </span>
+        <a href="/frees/" class="wp-ver-btn is-switch">
+          <span>Zur Komplett-Version (alle Seiten) wechseln</span>
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
+        <a href="cockpit.html?token=frees2026" class="wp-ver-btn is-cockpit">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1"><line x1="4" y1="21" x2="4" y2="14"/><line x1="4" y1="10" x2="4" y2="3"/><line x1="12" y1="21" x2="12" y2="12"/><line x1="12" y1="8" x2="12" y2="3"/><line x1="20" y1="21" x2="20" y2="16"/><line x1="20" y1="12" x2="20" y2="3"/><line x1="1" y1="14" x2="7" y2="14"/><line x1="9" y1="8" x2="15" y2="8"/><line x1="17" y1="16" x2="23" y2="16"/></svg>
+          <span>Studio Cockpit v4.0</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- TOP INFO BAR -->
+  <div class="top-bar">
+    <div class="container top-bar-inner">
+      <div class="top-bar-left">
+        <span class="top-bar-badge" data-slot="topbar_badge" data-wp-slot="topbar_badge">2 BEISPIEL-SEITEN AUSGEARBEITET · 3 WEITERE BEREICHE VORBEREITET</span>
+        <span data-slot="topbar_sub" data-wp-slot="topbar_sub">Mellingerstrasse 12 · CH-5443 Niederrohrdorf · +41 79 709 12 24</span>
+      </div>
+      <div class="top-bar-links">
+        <a href="index.html#weitere-themenbereiche">Weitere Themenbereiche (Ausbaustufe)</a>
+        <a href="kontakt.html">Smart-Anfrage (Live-Demo)</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- STICKY HEADER (ZEIGEVERSION MIT KUNDENFREUNDLICHEN VORSCHAU-HINWEISEN) -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="brand-link" aria-label="Free's Startseite">
+        <img src="images/logo.svg" alt="Free's — Studio für Textildesign, Textildruck &amp; Stickerei" class="brand-logo" width="118" height="44" data-slot="brand_logo" data-wp-slot="brand_logo">
+        <div class="brand-text">
+          <span class="brand-name" data-slot="brand_name" data-wp-slot="brand_name">FREE'S TEXTILDESIGN</span>
+          <span class="brand-sub" data-slot="brand_sub" data-wp-slot="brand_sub">VORSCHAU-ENTWURF · NIEDERROHRDORF</span>
+        </div>
+      </a>
+
+      <nav class="main-nav" aria-label="Hauptnavigation">
+        <a href="index.html" class="nav-link active">
+          <svg width="8" height="8" viewBox="0 0 8 8" aria-hidden="true"><circle cx="4" cy="4" r="4" fill="#15803D"/></svg>
+          <span>Startseite (Beispiel-Seite)</span>
+        </a>
+        <button type="button" class="nav-link nav-link-preview" onclick="wpOpenBlueprintModal('Dienstleistungen: Textildruck, Stickerei &amp; Labels', 'Alle Drucktechniken, Direktstickerei, gewobene Labels &amp; Veredelung eigener Textilien', 'Stefan Fritschi &amp; Raimondo')">
+          <span>Dienstleistungen (Folgt beim Ausbau)</span>
+        </button>
+        <button type="button" class="nav-link nav-link-preview" onclick="wpOpenBlueprintModal('Komplettes Textilsortiment &amp; Alle 14 Marken-Kataloge', 'Online-Shop frees.alltextiles.ch sowie JAKO, ERIMA, F. ENGEL, CLIQUE, CRAFT, HAKRO, PROJOB &amp; WIKLAND', 'Stefan Fritschi &amp; Raimondo')">
+          <span>Textilsortiment (Folgt beim Ausbau)</span>
+        </button>
+        <button type="button" class="nav-link nav-link-preview" onclick="wpOpenBlueprintModal('Profil, Studio-Geschichte &amp; Showroom Niederrohrdorf', 'Werdegang von Stefan Fritschi, Atelier-Einblicke &amp; persönliche Muster-Beratung', 'Stefan Fritschi &amp; Raimondo')">
+          <span>Profil (Folgt beim Ausbau)</span>
+        </button>
+        <a href="kontakt.html" class="nav-link ">
+          <svg width="8" height="8" viewBox="0 0 8 8" aria-hidden="true"><circle cx="4" cy="4" r="4" fill="#15803D"/></svg>
+          <span>Smart-Anfrage (Live-Demo)</span>
+        </a>
+      </nav>
+
+      <div class="header-actions">
+        <a href="kontakt.html" class="btn-cta btn-cta-gold btn-sm" data-slot="header_cta" data-wp-slot="header_cta">
+          <span>Smart-Anfrage testen</span>
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
+        <button type="button" class="mobile-toggle" id="mobileMenuBtn" aria-label="Menü öffnen" onclick="wpToggleMobileMenu()">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <div class="mobile-drawer" id="mobileDrawer">
+    <a href="index.html" onclick="wpCloseMobileMenu()">Startseite (Beispiel-Seite ausgearbeitet)</a>
+    <button type="button" class="mobile-nav-btn" onclick="wpCloseMobileMenu(); wpOpenBlueprintModal('Dienstleistungen: Textildruck, Stickerei &amp; Labels', 'Alle Drucktechniken, Direktstickerei, gewobene Labels &amp; Veredelung eigener Textilien', 'Stefan Fritschi &amp; Raimondo')">
+      <span>Dienstleistungen (Folgt beim Ausbau)</span>
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+    </button>
+    <button type="button" class="mobile-nav-btn" onclick="wpCloseMobileMenu(); wpOpenBlueprintModal('Komplettes Textilsortiment &amp; Alle 14 Marken-Kataloge', 'Online-Shop frees.alltextiles.ch sowie alle 14 Marken-Blätterkataloge', 'Stefan Fritschi &amp; Raimondo')">
+      <span>Textilsortiment &amp; 14 Kataloge (Folgt beim Ausbau)</span>
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+    </button>
+    <button type="button" class="mobile-nav-btn" onclick="wpCloseMobileMenu(); wpOpenBlueprintModal('Profil, Studio-Geschichte &amp; Showroom Niederrohrdorf', 'Werdegang von Stefan Fritschi, Atelier-Einblicke &amp; persönliche Beratung', 'Stefan Fritschi &amp; Raimondo')">
+      <span>Profil &amp; Showroom (Folgt beim Ausbau)</span>
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+    </button>
+    <a href="kontakt.html" onclick="wpCloseMobileMenu()">3-Schritte Smart-Anfrage (Live-Demo)</a>
+    <a href="/frees/" onclick="wpCloseMobileMenu()" style="background-color:var(--gold);color:#161615;">Zur Komplett-Version (alle Seiten) wechseln</a>
+  </div>
+
+  <main>
+
+
+  <section class="hero-section">
+    <div class="container">
+      <div class="hero-grid">
+        <div>
+          <div class="hero-eyebrow">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg>
+            <span data-slot="hero_badge" data-wp-slot="hero_badge">Seit 1998 in der Branche · Eigenes Druckatelier in Niederrohrdorf</span>
+          </div>
+          <h1 class="hero-title" data-slot="hero_headline" data-wp-slot="hero_headline">
+            Teamsport, Promowear &amp; <span>Inhouse Textildruck</span> mit Handschlagqualität.
+          </h1>
+          <p class="hero-lead" data-slot="hero_subheadline" data-wp-slot="hero_subheadline">
+            Ob Vereinsausrüstung, robuste Arbeitskleidung oder Event-Shirts: Im eigenen Druckatelier an der Mellingerstrasse 12 in Niederrohrdorf veredeln Stefan Fritschi und Raimondo Ihre Textilien schnell, flexibel und in höchster Waschbeständigkeit — auch für angelieferte Fremdtextilien.
+          </p>
+          <div class="hero-cta-group">
+            <a href="kontakt.html" class="btn-cta btn-cta-primary" data-slot="hero_cta_primary" data-wp-slot="hero_cta_primary">
+              <span>Offerte in 60 Sek. anfragen</span>
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </a>
+            <a href="#weitere-themenbereiche" class="btn-cta btn-cta-white" data-slot="hero_cta_secondary" data-wp-slot="hero_cta_secondary">
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+              <span>Textilsortiment &amp; 14 Kataloge</span>
+            </a>
+          </div>
+          <div class="hero-trust-row">
+            <div class="hero-trust-item">
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><polyline points="20 6 9 17 4 12"/></svg>
+              <span>Einzelstücke bis Grossserien</span>
+            </div>
+            <div class="hero-trust-item">
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><polyline points="20 6 9 17 4 12"/></svg>
+              <span>Veredelung auch für Fremdtextilien</span>
+            </div>
+            <div class="hero-trust-item">
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><polyline points="20 6 9 17 4 12"/></svg>
+              <span>Persönliche Beratung im Showroom</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-visual-card">
+          <div class="hero-image-frame">
+            <div class="hero-floating-badge">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m12 3-1.9 5.8a2 2 0 0 1-1.3 1.3L3 12l5.8 1.9a2 2 0 0 1 1.3 1.3L12 21l1.9-5.8a2 2 0 0 1 1.3-1.3L21 12l-5.8-1.9a2 2 0 0 1-1.3-1.3Z"/></svg>
+              <span>Eigenes Druckatelier · CH-5443 Niederrohrdorf</span>
+            </div>
+            <img src="images/hero-collage-frees.png" alt="Free's Teamsport, Promowear und Textildruck Collage" width="640" height="440" data-slot="hero_image" data-wp-slot="hero_image">
+          </div>
+          <div class="hero-quickbar">
+            <div class="hero-quickbar-item">
+              <div class="hero-quickbar-label">Direktkontakt Stefan Fritschi</div>
+              <div class="hero-quickbar-val"><a href="tel:+41797091224">+41 79 709 12 24</a></div>
+            </div>
+            <div class="hero-quickbar-item">
+              <div class="hero-quickbar-label">Direktkontakt Raimondo</div>
+              <div class="hero-quickbar-val"><a href="tel:+41799665978">+41 79 966 59 78</a></div>
+            </div>
+            <div class="hero-quickbar-item">
+              <div class="hero-quickbar-label">Haupt-Onlineshop</div>
+              <div class="hero-quickbar-val"><a href="https://frees.alltextiles.ch" target="_blank" rel="noopener">frees.alltextiles.ch</a></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="trust-strip">
+    <div class="container">
+      <div class="trust-strip-grid">
+        <div class="trust-metric">
+          <div class="trust-metric-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg></div>
+          <div>
+            <div class="trust-metric-num" data-slot="metric_1_val" data-wp-slot="metric_1_val">Seit 1998</div>
+            <div class="trust-metric-label" data-slot="metric_1_label" data-wp-slot="metric_1_label">Über 25 Jahre Erfahrung in Teamsport &amp; Textildruck</div>
+          </div>
+        </div>
+        <div class="trust-metric">
+          <div class="trust-metric-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg></div>
+          <div>
+            <div class="trust-metric-num" data-slot="metric_2_val" data-wp-slot="metric_2_val">100 % Inhouse</div>
+            <div class="trust-metric-label" data-slot="metric_2_label" data-wp-slot="metric_2_label">Eigenes Druckatelier für kurze Lieferzeiten &amp; Top-Qualität</div>
+          </div>
+        </div>
+        <div class="trust-metric">
+          <div class="trust-metric-icon"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></div>
+          <div>
+            <div class="trust-metric-num" data-slot="metric_3_val" data-wp-slot="metric_3_val">14 Markenwelten</div>
+            <div class="trust-metric-label" data-slot="metric_3_label" data-wp-slot="metric_3_label">JAKO, ERIMA, F. ENGEL, HAKRO, CRAFT, CLIQUE, PROJOB u.v.m.</div>
+          </div>
+        </div>
+        <div class="trust-metric">
+          <div class="trust-metric-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+          <div>
+            <div class="trust-metric-num" data-slot="metric_4_val" data-wp-slot="metric_4_val">Ab 1 Stück</div>
+            <div class="trust-metric-label" data-slot="metric_4_label" data-wp-slot="metric_4_label">Nachbestellungen für neue Vereins- oder Teammitglieder jederzeit</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <section class="section" id="leistungen">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-eyebrow">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
+          <span>Alles aus einer Hand in Niederrohrdorf</span>
+        </div>
+        <h2 class="section-title" data-slot="services_headline" data-wp-slot="services_headline">
+          Vier Kernbereiche für Ihren starken Auftritt
+        </h2>
+        <p class="section-lead" data-slot="services_subheadline" data-wp-slot="services_subheadline">
+          Von der persönlichen Textilberatung mit Anprobe-Mustern bis zur fertigen Veredelung in unserem eigenen Druckatelier begleiten wir Vereine, KMU und Events in der ganzen Region Baden, Aargau und Zürich.
+        </p>
+      </div>
+
+      <div class="grid-2">
+        <article class="service-card">
+          <div class="service-card-head">
+            <div class="service-icon-box"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.38 3.46 16 2a4 4 0 0 1-8 0L3.62 3.46a2 2 0 0 0-1.34 2.23l.58 3.47a1 1 0 0 0 .99.84H6v10c0 1.1.9 2 2 2h8a2 2 0 0 0 2-2V10h2.15a1 1 0 0 0 .99-.84l.58-3.47a2 2 0 0 0-1.34-2.23z"/></svg></div>
+            <span class="service-tag">Vereine &amp; Firmen</span>
+          </div>
+          <h3 data-slot="service_1_title" data-wp-slot="service_1_title">Teamsport, Workwear &amp; Promowear</h3>
+          <p data-slot="service_1_desc" data-wp-slot="service_1_desc">
+            Komplette Vereinsausrüstungen (JAKO, ERIMA, CRAFT), strapazierfähige Berufsbekleidung (F. ENGEL, PROJOB, WIKLAND) sowie Polos, Shirts und Hoodies (HAKRO, CLIQUE, James Harvest) für Ihren Firmenauftritt.
+          </p>
+          <ul class="service-list">
+            <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><polyline points="20 6 9 17 4 12"/></svg><span>Langfristige Nachliefergarantie für Vereins- und Firmenkollektionen</span></li>
+            <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><polyline points="20 6 9 17 4 12"/></svg><span>Grössen-Sätze &amp; Musterteile zur Anprobe vor der Veredelung</span></li>
+            <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><polyline points="20 6 9 17 4 12"/></svg><span>Attraktive Vereins- und Mengenrabatte bereits ab kleinen Serien</span></li>
+          </ul>
+          <div class="service-card-footer">
+            <button type="button" class="btn-cta btn-cta-outline btn-sm" onclick="wpOpenBlueprintModal('Textilsortiment &amp; 14 Blätterkataloge', 'In der fertigen Webseite öffnen Ihre Kunden hier direkt Ihren Alltextiles-Onlineshop sowie alle 14 Blätterkataloge führender Sport- und Workwear-Marken.')"><span>Katalog-Ausbau ansehen</span><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></button>
+          </div>
+        </article>
+
+        <article class="service-card">
+          <div class="service-card-head">
+            <div class="service-icon-box"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg></div>
+            <span class="service-tag">Eigenes Druckatelier</span>
+          </div>
+          <h3 data-slot="service_2_title" data-wp-slot="service_2_title">Inhouse Textildruck &amp; Beflockung</h3>
+          <p data-slot="service_2_desc" data-wp-slot="service_2_desc">
+            Dank unserem eigenen Druckatelier in Niederrohrdorf bedrucken wir Sporttrikots, Arbeitsjacken, T-Shirts und Taschen mit höchster Deckkraft, Elastizität und Waschbeständigkeit — ohne lange Umwege.
+          </p>
+          <ul class="service-list">
+            <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><polyline points="20 6 9 17 4 12"/></svg><span>Nummern, Spielernamen, Sponsorenlogos &amp; mehrfarbige Brust-/Rückendrucke</span></li>
+            <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><polyline points="20 6 9 17 4 12"/></svg><span>Moderne Transfer-, Flex-, Flock- und Siebdruck-Lösungen je nach Einsatz</span></li>
+            <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><polyline points="20 6 9 17 4 12"/></svg><span>Express-Umsetzung bei kurzfristigen Turnieren, Messen oder Firmenevents</span></li>
+          </ul>
+          <div class="service-card-footer">
+            <button type="button" class="btn-cta btn-cta-outline btn-sm" onclick="wpOpenBlueprintModal('Dienstleistungen &amp; Inhouse Druckservice', 'In der fertigen Webseite präsentieren wir hier alle Druck- und Stickverfahren im Detail: Flex- und Digitaltransferdruck, Siebdruck, Direkteinstickung, gewobene Labels sowie den Veredelungs-Service für angelieferte Fremdtextilien.')"><span>Vorschau-Details ansehen</span><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></button>
+          </div>
+        </article>
+
+        <article class="service-card">
+          <div class="service-card-head">
+            <div class="service-icon-box"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m12 3-1.9 5.8a2 2 0 0 1-1.3 1.3L3 12l5.8 1.9a2 2 0 0 1 1.3 1.3L12 21l1.9-5.8a2 2 0 0 1 1.3-1.3L21 12l-5.8-1.9a2 2 0 0 1-1.3-1.3Z"/></svg></div>
+            <span class="service-tag">Edle Veredelung</span>
+          </div>
+          <h3 data-slot="service_3_title" data-wp-slot="service_3_title">Stickereien, Aufnäher &amp; eigene Labels</h3>
+          <p data-slot="service_3_desc" data-wp-slot="service_3_desc">
+            Für Poloshirts, Hemden, Fleecejacken, Caps und hochwertige Workwear bieten wir präzise Direkteinstickungen, gestickte Abzeichen sowie individuell gewobene oder gestickte Textil-Labels.
+          </p>
+          <ul class="service-list">
+            <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><polyline points="20 6 9 17 4 12"/></svg><span>Koch- und Industriewäsche-taugliche Stickgarne mit edlem Glanz</span></li>
+            <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><polyline points="20 6 9 17 4 12"/></svg><span>Gewobene Saum- und Nackenlabels für Ihr eigenes Marken-Branding</span></li>
+            <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><polyline points="20 6 9 17 4 12"/></svg><span>Einmalige Stickprogramm-Erstellung — jederzeit für Nachbestellungen abrufbar</span></li>
+          </ul>
+          <div class="service-card-footer">
+            <button type="button" class="btn-cta btn-cta-outline btn-sm" onclick="wpOpenBlueprintModal('Dienstleistungen &amp; Inhouse Druckservice', 'In der fertigen Webseite präsentieren wir hier alle Druck- und Stickverfahren im Detail: Flex- und Digitaltransferdruck, Siebdruck, Direkteinstickung, gewobene Labels sowie den Veredelungs-Service für angelieferte Fremdtextilien.')"><span>Vorschau-Details ansehen</span><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></button>
+          </div>
+        </article>
+
+        <article class="service-card">
+          <div class="service-card-head">
+            <div class="service-icon-box"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></div>
+            <span class="service-tag">Maximal flexibel</span>
+          </div>
+          <h3 data-slot="service_4_title" data-wp-slot="service_4_title">Druckservice für angelieferte Fremdtextilien</h3>
+          <p data-slot="service_4_desc" data-wp-slot="service_4_desc">
+            Sie haben Ihre Trikots, Arbeitskleider oder Spezialtextilien bereits eingekauft? Kein Problem: Wir bedrucken und besticken im hauseigenen Druckatelier auch Ihre angelieferten Textilien fachgerecht.
+          </p>
+          <ul class="service-list">
+            <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><polyline points="20 6 9 17 4 12"/></svg><span>Prüfung Ihres Materials auf optimale Hitze- und Druckverträglichkeit</span></li>
+            <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><polyline points="20 6 9 17 4 12"/></svg><span>Grafik-Aufbereitung &amp; Vektorisierung Ihrer bestehenden Logos inklusive</span></li>
+            <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><polyline points="20 6 9 17 4 12"/></svg><span>Unkomplizierte Anlieferung direkt an der Mellingerstrasse 12 (Eingang C)</span></li>
+          </ul>
+          <div class="service-card-footer">
+            <a href="kontakt.html" class="btn-cta btn-cta-primary btn-sm">
+              <span>Projekt direkt anfragen</span>
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="section section-alt" id="weitere-themenbereiche">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-eyebrow">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
+          <span>Vorschau-Entwurf · Ausbaustufe für das Erstgespräch</span>
+        </div>
+        <h2 class="section-title" data-slot="v2_scope_headline" data-wp-slot="v2_scope_headline">
+          Weitere Themenbereiche beim gemeinsamen Ausbau
+        </h2>
+        <p class="section-lead" data-slot="v2_scope_subheadline" data-wp-slot="v2_scope_subheadline">
+          In dieser Zeigeversion sind die <strong>Startseite</strong> und die <strong>interaktive 3-Schritte Smart-Anfrage (Kontakt)</strong> bereits komplett als Beispiel-Seiten ausgearbeitet. Klicken Sie auf eine der folgenden Karten, um zu sehen, wie wir die weiteren Unterseiten gemeinsam ausbauen.
+        </p>
+      </div>
+
+      <div class="grid-3">
+        <div class="preview-card-dashed" onclick="wpOpenBlueprintModal('Dienstleistungen &amp; Inhouse Druckservice', 'In der fertigen Webseite präsentieren wir hier Ihr gesamtes Veredelungs-Portfolio im eigenen Druckatelier: Textildruck, Beflockung, Stickereien, gewobene und gestickte Labels, Grafikdesign sowie den Druckservice für angelieferte Fremdtextilien.')">
+          <div class="preview-badge-pill">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m12 3-1.9 5.8a2 2 0 0 1-1.3 1.3L3 12l5.8 1.9a2 2 0 0 1 1.3 1.3L12 21l1.9-5.8a2 2 0 0 1 1.3-1.3L21 12l-5.8-1.9a2 2 0 0 1-1.3-1.3Z"/></svg>
+            <span>Folgt beim Ausbau · Unterseite 1</span>
+          </div>
+          <h3>Dienstleistungen &amp; Inhouse Druckservice</h3>
+          <p>
+            Detaillierte Vorstellung Ihrer Veredelungsverfahren im eigenen Druckatelier in Niederrohrdorf: Flex-/Transferdruck, Stickerei, eigene Textil-Labels sowie Veredelung angelieferter Fremdtextilien.
+          </p>
+          <span class="btn-cta btn-cta-outline btn-sm" style="align-self:flex-start;">
+            <span>Geplanten Seiteninhalt ansehen</span>
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </span>
+        </div>
+
+        <div class="preview-card-dashed" onclick="wpOpenBlueprintModal('Textilsortiment &amp; 14 Blätterkataloge', 'In der fertigen Webseite binden wir hier Ihren Haupt-Onlineshop (frees.alltextiles.ch) sowie alle 14 Original-Blätterkataloge (JAKO, ERIMA, F. ENGEL, CLIQUE, CRAFT, HAKRO, PROJOB, WIKLAND, James Harvest u.v.m.) interaktiv mit Direkt-Anfrage ein.')">
+          <div class="preview-badge-pill">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+            <span>Folgt beim Ausbau · Unterseite 2</span>
+          </div>
+          <h3>Textilsortiment &amp; 14 Blätterkataloge</h3>
+          <p>
+            Übersichtliche Markenwelt mit Direktzugang zu <strong>frees.alltextiles.ch</strong> sowie allen 13 Online-Blätterkatalogen für Teamsport, Workwear, Corporate Fashion und Promowear.
+          </p>
+          <span class="btn-cta btn-cta-outline btn-sm" style="align-self:flex-start;">
+            <span>Geplanten Seiteninhalt ansehen</span>
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </span>
+        </div>
+
+        <div class="preview-card-dashed" onclick="wpOpenBlueprintModal('Profil, Atelier Niederrohrdorf &amp; Team', 'In der fertigen Webseite stellen wir Ihre Geschichte seit 1998, Ihr eigenes Druckatelier an der Mellingerstrasse 12 in Niederrohrdorf sowie Stefan Fritschi und Raimondo persönlich mit Direktkontakt vor.')">
+          <div class="preview-badge-pill">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            <span>Folgt beim Ausbau · Unterseite 3</span>
+          </div>
+          <h3>Profil, Atelier &amp; Ansprechpartner</h3>
+          <p>
+            Persönliche Vorstellung von Stefan Fritschi und Raimondo, Einblicke in den Showroom an der Mellingerstrasse 12 (Eingang C, 1. Stock) sowie Ihre Qualitätswerte seit 1998.
+          </p>
+          <span class="btn-cta btn-cta-outline btn-sm" style="align-self:flex-start;">
+            <span>Geplanten Seiteninhalt ansehen</span>
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="section section-alt" id="atelier">
+    <div class="container">
+      <div class="studio-showcase">
+        <div>
+          <div class="section-eyebrow">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            <span>Persönlich in CH-5443 Niederrohrdorf</span>
+          </div>
+          <h2 class="section-title" data-slot="studio_headline" data-wp-slot="studio_headline">
+            Herzblut, Erfahrung &amp; direkte Ansprechpartner
+          </h2>
+          <p class="section-lead" style="margin-bottom:20px;" data-slot="studio_subheadline" data-wp-slot="studio_subheadline">
+            Hinter Free's steht Stefan Fritschi gemeinsam mit Raimondo. Seit 1998 leben wir Teamsport, Workwear und Textilveredelung. Bei uns sprechen Sie nicht mit einem anonymen Callcenter, sondern direkt mit den Machern an der Druckmaschine.
+          </p>
+
+          <div class="team-card" style="margin-bottom:14px;">
+            <div class="team-role">Inhaber · Beratung, Einkauf &amp; Textildruck</div>
+            <h3 class="team-name" data-slot="team_stefan_name" data-wp-slot="team_stefan_name">Stefan Fritschi</h3>
+            <p class="team-bio" data-slot="team_stefan_bio" data-wp-slot="team_stefan_bio">
+              Seit 1998 in der Textil- und Sportbranche verwurzelt. Berät Vereine, Firmen und Organisationen persönlich bei der Kollektionswahl und sorgt im eigenen Druckatelier für makellose Resultate.
+            </p>
+            <div class="team-contact-links">
+              <a href="tel:+41797091224" class="team-contact-pill"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg><span>+41 79 709 12 24</span></a>
+              <a href="mailto:info@frees.ch" class="team-contact-pill"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg><span>info@frees.ch</span></a>
+            </div>
+          </div>
+
+          <div class="team-card" style="margin-bottom:20px;">
+            <div class="team-role">Beratung, Textilveredelung &amp; Produktion</div>
+            <h3 class="team-name" data-slot="team_raimondo_name" data-wp-slot="team_raimondo_name">Raimondo</h3>
+            <p class="team-bio" data-slot="team_raimondo_bio" data-wp-slot="team_raimondo_bio">
+              Ihr direkter Ansprechpartner für Produktion, Bemusterung, Textildruck und termingerechte Auftragsabwicklung im Atelier Niederrohrdorf.
+            </p>
+            <div class="team-contact-links">
+              <a href="tel:+41799665978" class="team-contact-pill"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg><span>+41 79 966 59 78</span></a>
+              <a href="mailto:info@frees.ch" class="team-contact-pill"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg><span>info@frees.ch</span></a>
+            </div>
+          </div>
+
+          <div style="display:flex;flex-wrap:wrap;gap:12px;align-items:center;">
+            <a href="kontakt.html" class="btn-cta btn-cta-primary btn-sm">
+              <span>Termin im Showroom vereinbaren</span>
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </a>
+            <button type="button" class="btn-cta btn-cta-outline btn-sm" onclick="wpOpenBlueprintModal('Profil, Atelier &amp; Team', 'In der fertigen Webseite stellen wir Ihr Atelier in Niederrohrdorf, Ihre Geschichte seit 1998 sowie Stefan Fritschi und Raimondo auf einer eigenen Profil-Seite ausführlich vor.')"><span>Ausbau-Details zur Profil-Seite</span><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></button>
+          </div>
+        </div>
+
+        <div class="studio-photo-stack">
+          <div class="studio-photo-main">
+            <img src="images/atelier-inside.jpg" alt="Free's Showroom und Atelier in Niederrohrdorf" width="600" height="340" loading="lazy" data-slot="studio_image_main" data-wp-slot="studio_image_main">
+          </div>
+          <div class="studio-photo-sub">
+            <img src="images/druckservice-maschine.jpg" alt="Inhouse Textildruck-Maschine bei Free's" width="320" height="220" loading="lazy" data-slot="studio_image_sub" data-wp-slot="studio_image_sub">
+            <div class="studio-fact-box">
+              <h4>Standort &amp; Öffnungszeiten</h4>
+              <p style="margin-bottom:10px;">
+                <strong>Mellingerstrasse 12</strong><br>
+                Eingang C · 1. Stock<br>
+                CH-5443 Niederrohrdorf
+              </p>
+              <p style="color:#FBBF24;font-weight:700;">
+                Öffnungszeiten: Nach Vereinbarung via Mail oder Telefon.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="section">
+    <div class="container">
+      <div class="cta-banner">
+        <div>
+          <div class="hero-eyebrow" style="margin-bottom:12px;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m12 3-1.9 5.8a2 2 0 0 1-1.3 1.3L3 12l5.8 1.9a2 2 0 0 1 1.3 1.3L12 21l1.9-5.8a2 2 0 0 1 1.3-1.3L21 12l-5.8-1.9a2 2 0 0 1-1.3-1.3Z"/></svg>
+            <span>Unverbindliche Offerte &amp; Musterberatung</span>
+          </div>
+          <h2 data-slot="cta_banner_title" data-wp-slot="cta_banner_title">
+            Bereit für Ihren neuen Team- oder Firmenauftritt?
+          </h2>
+          <p data-slot="cta_banner_desc" data-wp-slot="cta_banner_desc">
+            Starten Sie unsere interaktive 3-Schritte-Anfrage oder rufen Sie Stefan Fritschi (+41 79 709 12 24) und Raimondo (+41 79 966 59 78) direkt an.
+          </p>
+        </div>
+        <div class="cta-banner-actions">
+          <a href="kontakt.html" class="btn-cta btn-cta-primary">
+            <span>Jetzt 3-Schritte-Anfrage starten</span>
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </a>
+          <a href="tel:+41797091224" class="btn-cta btn-cta-white">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            <span>+41 79 709 12 24</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  </main>
+
+  <!-- FOOTER (ZEIGEVERSION) -->
+  <footer class="site-footer" data-section="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div style="display:flex;align-items:center;gap:12px;margin-bottom:14px;">
+            <img src="images/logo.svg" alt="Free's Logo" width="110" height="40" loading="lazy" decoding="async" style="border-radius:4px;background:#FFFFFF;padding:3px 6px;">
+            <div>
+              <div style="font-family:'Barlow',sans-serif;font-weight:800;font-size:1.05rem;color:#FFFFFF;" data-wp-slot="footer_brand_title">FREE'S · NIEDERROHRDORF</div>
+              <div style="font-size:0.74rem;color:var(--gold);font-weight:700;" data-wp-slot="footer_brand_sub">VORSCHAU-ENTWURF · 2 BEISPIEL-SEITEN LIVE</div>
+            </div>
+          </div>
+          <p style="font-size:0.86rem;color:#D1D5DB;line-height:1.6;margin-bottom:14px;" data-slot="footer_about" data-wp-slot="footer_about">
+            Unverbindlicher Vorschau-Entwurf (Zeigeversion) für Free's Stefan Fritschi: 2 Beispiel-Seiten (Startseite &amp; 3-Schritte Smart-Anfrage) sind bereits ausgearbeitet — 3 weitere Themenbereiche folgen in der nächsten Ausbaustufe.
+          </p>
+          <div style="font-size:0.84rem;color:#F3F4F6;font-weight:600;" data-wp-slot="footer_addr">
+            Mellingerstrasse 12 · Eingang C, 1. Stock · CH-5443 Niederrohrdorf
+          </div>
+        </div>
+
+        <div>
+          <div class="footer-title">Bereits ausgearbeitet (Live)</div>
+          <ul class="footer-list">
+            <li><a href="index.html">Startseite: Hero &amp; 4 Leistungs-Säulen</a></li>
+            <li><a href="index.html#studio-profil">Studio-Vorstellung: Stefan Fritschi &amp; Raimondo</a></li>
+            <li><a href="index.html#katalog-auszug">Auszug aus den Marken-Katalogen</a></li>
+            <li><a href="kontakt.html">3-Schritte Smart-Anfrage (Live-Demo)</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="footer-title">Folgen beim gemeinsamen Ausbau</div>
+          <ul class="footer-list">
+            <li><button type="button" onclick="wpOpenBlueprintModal('Dienstleistungen: Textildruck, Stickerei &amp; Labels', 'Alle Drucktechniken, Direktstickerei, gewobene Labels &amp; Veredelung eigener Textilien', 'Stefan Fritschi &amp; Raimondo')">Dienstleistungen &amp; Drucktechniken</button></li>
+            <li><button type="button" onclick="wpOpenBlueprintModal('Komplettes Textilsortiment &amp; Alle 14 Marken-Kataloge', 'Online-Shop frees.alltextiles.ch sowie JAKO, ERIMA, F. ENGEL, CLIQUE, CRAFT, HAKRO, PROJOB &amp; WIKLAND', 'Stefan Fritschi &amp; Raimondo')">Textilsortiment &amp; 14 Marken-Kataloge</button></li>
+            <li><button type="button" onclick="wpOpenBlueprintModal('Profil, Studio-Geschichte &amp; Showroom Niederrohrdorf', 'Werdegang von Stefan Fritschi seit 2016 in Niederrohrdorf &amp; Muster-Anprobe', 'Stefan Fritschi &amp; Raimondo')">Profil, Geschichte &amp; Showroom</button></li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="footer-title">Versions-Vergleich &amp; Kontakt</div>
+          <ul class="footer-list">
+            <li><a href="/frees/" style="color:var(--gold);font-weight:700;">Komplett-Version ansehen (Alle 5 Seiten)</a></li>
+            <li><a href="index.html#weitere-themenbereiche">Übersicht der Ausbaustufe (3 Bereiche)</a></li>
+            <li><a href="cockpit.html?token=frees2026">Studio Cockpit v4.0 öffnen</a></li>
+            <li><button type="button" onclick="wpOpenImpressumModal()">Impressum &amp; Datenschutz</button></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>&copy; 2026 Free's Stefan Fritschi (CH-5443 Niederrohrdorf) · Unverbindlicher Vorschau-Entwurf (Zeigeversion).</div>
+        <div style="display:flex;gap:16px;flex-wrap:wrap;align-items:center;">
+          <a href="/frees/" style="color:var(--gold);font-weight:700;">Komplett-Version öffnen</a>
+          <a href="kontakt.html" style="color:#E5E7EB;">Smart-Anfrage testen</a>
+        </div>
+        <!-- === WEBPILOT-PARTNER-FOOTER-START === -->
+        <button type="button" class="wp-partner-footer-btn" data-studio-ignore="true" onclick="wpOpenPartnerModal('footer')">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+          <span>Powered by WebPilot · Partner: Jenny Ettle (JE-MI) — Kontakt &amp; Infos</span>
+        </button>
+        <!-- === WEBPILOT-PARTNER-FOOTER-END === -->
+      </div>
+    </div>
+  </footer>
+
+  <!-- KUNDENFREUNDLICHES VORSCHAU-MODAL (#wpBlueprintModal) -->
+  <div class="wp-modal-backdrop" id="wpBlueprintModal" role="dialog" aria-modal="true" aria-labelledby="wpBpTitle" data-allow-scroll="true">
+    <div class="wp-modal-dialog" data-allow-scroll="true">
+      <button type="button" class="wp-modal-close" aria-label="Dialog schliessen" onclick="wpCloseBlueprintModal()">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+      <div class="section-kicker">UNVERBINDLICHER VORSCHAU-ENTWURF FÜR FREE'S NIEDERROHRDORF</div>
+      <h3 id="wpBpTitle" style="font-size:1.36rem;font-weight:800;margin-bottom:8px;">Unverbindlicher Vorschau-Entwurf für Free's</h3>
+      <p id="wpBpSub" style="font-size:0.9rem;color:var(--text-body);margin-bottom:12px;">
+        In dieser <strong>Zeigeversion (2 Beispiel-Seiten ausgearbeitet)</strong> sehen Sie oben den Hero-Bereich, Ihre 4 Leistungs-Säulen (Textildruck, Stickerei, Arbeitskleidung &amp; Vereinsbekleidung), Ihre Studio-Vorstellung sowie den live funktionierenden 3-Schritte Smart-Anfrage-Assistenten. Dieser vertiefte Themenbereich folgt beim gemeinsamen Ausbau mit allen Originaltexten, Bildern und Katalogen.
+      </p>
+      <div style="background-color:var(--gold-soft);border-left:4px solid var(--gold-dark);padding:12px 14px;border-radius:var(--radius-sm);font-size:0.86rem;margin-bottom:14px;">
+        <div style="font-weight:800;color:var(--charcoal);" id="wpBpCategory">Themenbereich: Vorbereitet für die nächste Ausbaustufe</div>
+        <div style="color:var(--text-body);margin-top:2px;" id="wpBpContact">Beratung &amp; Umsetzung: Stefan Fritschi &amp; Raimondo</div>
+      </div>
+
+      <div class="wp-modal-checklist">
+        <div style="font-family:'Barlow',sans-serif;font-size:0.8rem;font-weight:800;text-transform:uppercase;color:var(--charcoal);">
+          Was beim gemeinsamen Ausbau in diesem Themenbereich enthalten ist:
+        </div>
+        <div class="wp-modal-check-item">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><polyline points="20 6 9 17 4 12"/></svg>
+          <span>Vollständige Ausarbeitung aller Dienstleistungen (Textildruck, Stickereien, gewobene &amp; gestickte Labels, Veredelung angelieferter Textilien)</span>
+        </div>
+        <div class="wp-modal-check-item">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><polyline points="20 6 9 17 4 12"/></svg>
+          <span>Direkte Einbindung aller 14 Original-Markenkataloge (JAKO, ERIMA, F. ENGEL, CLIQUE, CRAFT, HAKRO, PROJOB, WIKLAND) &amp; Online-Shop frees.alltextiles.ch</span>
+        </div>
+        <div class="wp-modal-check-item">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><polyline points="20 6 9 17 4 12"/></svg>
+          <span>Direkte Anbindung an das WebPilot Studio Cockpit v4.0 für sekundenschnelle Text-, Katalog- und Bildanpassungen</span>
+        </div>
+      </div>
+
+      <div style="display:flex;flex-wrap:wrap;gap:10px;margin-top:18px;">
+        <a href="/frees/" class="btn-cta btn-cta-gold btn-sm">
+          <span>Direkt in der Komplett-Version ansehen</span>
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
+        <a href="kontakt.html" class="btn-cta btn-cta-primary btn-sm">
+          <span>3-Schritte Smart-Anfrage testen</span>
+        </a>
+        <button type="button" class="btn-cta btn-cta-outline btn-sm" onclick="wpCloseBlueprintModal()">
+          <span>Schliessen</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- IMPRESSUM & DATENSCHUTZ MODAL (#wpImpressumModal) -->
+  <div class="wp-modal-backdrop" id="wpImpressumModal" role="dialog" aria-modal="true" aria-labelledby="wpImpTitle" data-allow-scroll="true">
+    <div class="wp-modal-dialog" data-allow-scroll="true">
+      <button type="button" class="wp-modal-close" aria-label="Dialog schliessen" onclick="wpCloseImpressumModal()">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+      <div class="section-kicker">RECHTLICHE ANGABEN · FREE'S NIEDERROHRDORF</div>
+      <h3 id="wpImpTitle" style="font-size:1.38rem;font-weight:800;margin-bottom:10px;">Impressum &amp; Datenschutz (Free's · frees.ch)</h3>
+      <div style="font-size:0.88rem;color:var(--text-body);line-height:1.62;display:flex;flex-direction:column;gap:12px;">
+        <div style="background-color:var(--bg-page);border:1px solid var(--border-light);border-left:4px solid var(--crimson-bright);padding:12px 14px;border-radius:var(--radius-sm);">
+          <strong>Free's Stefan Fritschi, Teamsport-Promowear &amp; Print</strong><br>
+          Mellingerstrasse 12 · Eingang C, 1. Stock · CH-5443 Niederrohrdorf · Schweiz<br>
+          Telefon Stefan Fritschi: +41 79 709 12 24 · Telefon Raimondo: +41 79 966 59 78 · E-Mail: info@frees.ch
+        </div>
+        <p>
+          <strong>Inhaber &amp; Verantwortlicher:</strong><br>
+          <strong>Stefan Fritschi</strong> (Einzelunternehmen Free's Stefan Fritschi, Teamsport-Promowear &amp; Print, CH-5443 Niederrohrdorf, Kanton Aargau).<br>
+          Öffnungszeiten Showroom &amp; Atelier: Nach Vereinbarung via E-Mail oder Telefon.
+        </p>
+        <p>
+          <strong>Urheberrecht &amp; Markenhinweise:</strong><br>
+          Alle auf dieser Website dargestellten Inhalte, Fotos aus dem Atelier sowie Marken- und Katalogverweise (JAKO, ERIMA, F. ENGEL, CLIQUE, CRAFT, New Wave, PRINTER, James Harvest, HAKRO, PROJOB, J. Harvest &amp; Frost, WIKLAND, alltextiles.ch) stehen im Eigentum von Free's Stefan Fritschi respektive der jeweiligen Markeninhaber.
+        </p>
+        <p>
+          <strong>Datenschutz (CH-DSG / DSGVO):</strong><br>
+          Personenbezogene Angaben und hochgeladene Druck-/Stickmotive aus dem 3-Schritte Smart-Anfrage-Assistenten werden ausschliesslich zur Ausarbeitung Ihrer Offerte, zur Beantwortung Ihrer Anfrage und zur Erstellung Ihres persönlichen 1-Seiten-Anfrage-Dossiers verwendet und niemals an unbefugte Dritte weitergegeben.
+        </p>
+      </div>
+      <div style="margin-top:18px;display:flex;justify-content:flex-end;">
+        <button type="button" class="btn-cta btn-cta-primary btn-sm" onclick="wpCloseImpressumModal()">
+          <span>Schliessen</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function wpToggleMobileMenu() {
+      var d = document.getElementById('mobileDrawer');
+      if (d) d.classList.toggle('open');
+    }
+    function wpCloseMobileMenu() {
+      var d = document.getElementById('mobileDrawer');
+      if (d) d.classList.remove('open');
+    }
+    function wpOpenImpressumModal() {
+      var m = document.getElementById('wpImpressumModal');
+      if (m) m.classList.add('open');
+    }
+    function wpCloseImpressumModal() {
+      var m = document.getElementById('wpImpressumModal');
+      if (m) m.classList.remove('open');
+    }
+    function wpOpenBlueprintModal(title, category, focus) {
+      var m = document.getElementById('wpBlueprintModal');
+      if (!m) return;
+      var tEl = document.getElementById('wpBpTitle');
+      var cEl = document.getElementById('wpBpCategory');
+      var fEl = document.getElementById('wpBpContact');
+      if (tEl && title) tEl.textContent = title;
+      if (cEl && category) cEl.textContent = 'Themenbereich: ' + category;
+      if (fEl && focus) fEl.textContent = 'Beratung & Umsetzung: ' + focus;
+      m.classList.add('open');
+    }
+    function wpCloseBlueprintModal() {
+      var m = document.getElementById('wpBlueprintModal');
+      if (m) m.classList.remove('open');
+    }
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') {
+        wpCloseImpressumModal();
+        wpCloseBlueprintModal();
+        wpCloseMobileMenu();
+      }
+    });
+  </script>
+
+
+  <!-- === WEBPILOT-PARTNER-MODAL-START === -->
+  <div class="wp-partner-modal-backdrop" id="wpPartnerModal" role="dialog" aria-modal="true" aria-labelledby="wpPartnerModalTitle" data-studio-ignore="true" data-allow-scroll="true">
+    <div class="wp-partner-modal-dialog" data-studio-ignore="true" data-allow-scroll="true">
+      <div class="wp-partner-modal-head">
+        <div>
+          <span class="wp-partner-modal-kicker">WEBPILOT PARTNER-KONTAKT · JE-MI · JENNY ETTLE</span>
+          <h3 class="wp-partner-modal-title" id="wpPartnerModalTitle">WebPilot Partner-Kontakt — Eigene Webseite oder Smart-Anfrage modernisieren</h3>
+        </div>
+        <button type="button" class="wp-partner-modal-close" aria-label="Partner-Dialog schliessen" onclick="wpClosePartnerModal()">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+      </div>
+
+      <div class="wp-partner-notice">
+        <strong>Hinweis zur Zuständigkeit:</strong> Direktkontakt zur ausführenden Partner-Agentur (<strong>JE-MI · Jenny Ettle</strong>). Für Anfragen an Free's Stefan Fritschi (Niederrohrdorf) nutzen Sie bitte das reguläre Formular auf der Seite.
+      </div>
+
+      <!-- TEIL 1: DIREKTE PARTNER-VISITENKARTE -->
+      <div class="wp-partner-vcard">
+        <div class="wp-partner-vcard-top">
+          <div>
+            <div class="wp-partner-vcard-name">JE-MI · Jenny Ettle</div>
+            <div class="wp-partner-vcard-role">Offizielle WebPilot-Partneragentur (Beratung & Umsetzung)</div>
+          </div>
+          <span class="wp-partner-vcard-badge">Direktkontakt</span>
+        </div>
+        <div class="wp-partner-direct-grid">
+          <a href="https://wa.me/41782232180?text=Guten%20Tag%20Jenny%20Ettle%2C%20ich%20habe%20den%20WebPilot-Auftritt%20von%20Free%27s%20%28Zeigeversion%20/%20Vorschau-Entwurf%29%20gesehen%20und%20interessiere%20mich%20f%C3%BCr%20einen%20unverbindlichen%20Vorschau-Entwurf%20/%20eine%20Smart-Anfrage-Zentrale." target="_blank" rel="noopener noreferrer" class="wp-partner-direct-btn wp-partner-direct-wa">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+            <span>WhatsApp direkt senden</span>
+          </a>
+          <a href="tel:+41782232180" class="wp-partner-direct-btn wp-partner-direct-tel">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            <span>Anrufen (+41 78 223 21 80)</span>
+          </a>
+          <a href="mailto:jenny@je-mi.ch?subject=Anfrage%20WebPilot%20Vorschau-Entwurf%20%28gesehen%20auf%20Free%27s%20%28Zeigeversion%20/%20Vorschau-Entwurf%29%29" class="wp-partner-direct-btn wp-partner-direct-mail">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+            <span>jenny@je-mi.ch</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- TEIL 2: 15-SEKUNDEN-SCHNELLANFRAGE FUER VORSCHAU-ENTWURF -->
+      <div class="wp-partner-form-box">
+        <div class="wp-partner-form-title">15-Sekunden-Schnellanfrage: Unverbindlicher Vorschau-Entwurf</div>
+        <p class="wp-partner-form-sub">
+          Geben Sie Ihre bestehende Webseiten-URL oder den Namen Ihres Vereins / Betriebs an — Jenny Ettle (JE-MI) zeigt Ihnen unverbindlich, wie Ihr moderner WebPilot-Auftritt aussieht.
+        </p>
+
+        <form id="wpPartnerLeadForm" onsubmit="return wpSubmitPartnerLead(event)" novalidate>
+          <div style="display:none;" aria-hidden="true">
+            <label for="wpPartnerHp">Website</label>
+            <input type="text" id="wpPartnerHp" name="website_url" tabindex="-1" autocomplete="off">
+          </div>
+
+          <div class="wp-partner-field">
+            <label for="wpPartnerTargetUrl" class="wp-partner-label">1. Bestehende Webseiten-URL oder Name Ihres Vereins / Betriebs *</label>
+            <input type="text" id="wpPartnerTargetUrl" class="wp-partner-input" placeholder="z. B. www.mein-verein.ch oder Muster AG" required>
+          </div>
+
+          <div class="wp-partner-form-grid">
+            <div class="wp-partner-field">
+              <label for="wpPartnerVisitorName" class="wp-partner-label">2. Ihr Vor- und Nachname *</label>
+              <input type="text" id="wpPartnerVisitorName" class="wp-partner-input" placeholder="Vorname Nachname" required>
+            </div>
+            <div class="wp-partner-field">
+              <label for="wpPartnerVisitorContact" class="wp-partner-label">3. Ihre Telefonnummer oder E-Mail *</label>
+              <input type="text" id="wpPartnerVisitorContact" class="wp-partner-input" placeholder="079 123 45 67 oder name@firma.ch" required>
+            </div>
+          </div>
+
+          <div class="wp-partner-field">
+            <label for="wpPartnerVisitorMsg" class="wp-partner-label">4. Kurze Nachricht (optional)</label>
+            <input type="text" id="wpPartnerVisitorMsg" class="wp-partner-input" placeholder="z. B. Fokus Vereins-Zentrale, Sponsoren oder Smart-Anfrage...">
+          </div>
+
+          <div class="wp-partner-error" id="wpPartnerFormError"></div>
+
+          <button type="submit" class="wp-partner-submit-btn" id="wpPartnerSubmitBtn">
+            <span id="wpPartnerSubmitBtnTxt">Unverbindlichen Vorschau-Entwurf bei Jenny Ettle anfordern</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </button>
+        </form>
+
+        <div class="wp-partner-success" id="wpPartnerSuccessBox" aria-live="polite">
+          <div style="display:flex;align-items:center;gap:8px;font-weight:800;color:#065F46;font-size:0.94rem;margin-bottom:6px;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2.4"><polyline points="20 6 9 17 4 12"/></svg>
+            <span>Anfrage an Jenny Ettle (JE-MI) übermittelt!</span>
+          </div>
+          <p style="font-size:0.8rem;color:#1E293B;line-height:1.45;margin:0 0 10px 0;">
+            Ihr 1-Seiten-Anfrage-Dossier (<strong id="wpPartnerResRef">#WP-2026</strong>) wurde erstellt und direkt an <strong>JE-MI · Jenny Ettle</strong> übermittelt.
+          </p>
+          <div style="display:flex;flex-wrap:wrap;gap:8px;">
+            <a href="#" id="wpPartnerResPdfBtn" target="_blank" rel="noopener noreferrer" class="wp-partner-direct-btn wp-partner-direct-tel" style="flex:1 1 200px;">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              <span>1-Seiten-PDF-Dossier öffnen</span>
+            </a>
+            <button type="button" class="wp-partner-direct-btn wp-partner-direct-mail" style="flex:1 1 140px;cursor:pointer;" onclick="wpResetPartnerModal()">
+              <span>Weitere Anfrage</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    var wpPartnerSourceTrigger = 'footer';
+    function wpOpenPartnerModal(triggerSource) {
+      wpPartnerSourceTrigger = triggerSource || 'footer';
+      var m = document.getElementById('wpPartnerModal');
+      if (m) {
+        m.classList.add('open');
+      }
+    }
+    function wpClosePartnerModal() {
+      var m = document.getElementById('wpPartnerModal');
+      if (m) {
+        m.classList.remove('open');
+      }
+    }
+    function wpResetPartnerModal() {
+      var f = document.getElementById('wpPartnerLeadForm');
+      var s = document.getElementById('wpPartnerSuccessBox');
+      var err = document.getElementById('wpPartnerFormError');
+      if (f) { f.reset(); f.style.display = 'block'; }
+      if (s) { s.style.display = 'none'; }
+      if (err) { err.style.display = 'none'; }
+    }
+    function wpSubmitPartnerLead(ev) {
+      if (ev) ev.preventDefault();
+      var hp = (document.getElementById('wpPartnerHp') || {}).value || '';
+      var targetUrl = ((document.getElementById('wpPartnerTargetUrl') || {}).value || '').trim();
+      var visitorName = ((document.getElementById('wpPartnerVisitorName') || {}).value || '').trim();
+      var rawContact = ((document.getElementById('wpPartnerVisitorContact') || {}).value || '').trim();
+      var msg = ((document.getElementById('wpPartnerVisitorMsg') || {}).value || '').trim();
+      var errBox = document.getElementById('wpPartnerFormError');
+      var btn = document.getElementById('wpPartnerSubmitBtn');
+      var btnTxt = document.getElementById('wpPartnerSubmitBtnTxt');
+
+      if (errBox) errBox.style.display = 'none';
+      if (!targetUrl || !visitorName || !rawContact) {
+        if (errBox) {
+          errBox.textContent = 'Bitte geben Sie die gewünschte Webseiten-URL (oder Verein/Betrieb), Ihren Namen sowie Ihre Telefonnummer oder E-Mail-Adresse an.';
+          errBox.style.display = 'block';
+        }
+        return false;
+      }
+
+      var isEmail = rawContact.indexOf('@') !== -1;
+      var emailVal = isEmail ? rawContact : '';
+      var phoneVal = isEmail ? '' : rawContact;
+
+      if (btn) btn.disabled = true;
+      if (btnTxt) btnTxt.textContent = 'Anfrage wird übermittelt...';
+
+      var payload = {
+        client_slug: 'webpilot_partner',
+        website_url: hp,
+        category: 'Vorschau-Entwurf & Web-Modernisierung',
+        sparte: 'Partner: Jenny Ettle (JE-MI)',
+        topic: 'Partner: Jenny Ettle (JE-MI)',
+        urgency: 'Vorschau-Entwurf angefordert',
+        name: visitorName,
+        company: targetUrl,
+        phone: phoneVal,
+        email: emailVal,
+        source_page: window.location.pathname || 'Free's (Zeigeversion / Vorschau-Entwurf)',
+        message: (msg ? msg + ' — ' : '') + 'Empfehlung über Showcase: Free's (Zeigeversion / Vorschau-Entwurf) (' + wpPartnerSourceTrigger + ') · Gewünschte Webseite / Verein / Betrieb: ' + targetUrl,
+        extra_fields: {
+          'Gewünschte Ziel-URL / Verein': targetUrl,
+          'Empfehlung über': 'Free's (Zeigeversion / Vorschau-Entwurf)',
+          'Partner-Agentur': 'JE-MI · Jenny Ettle'
+        }
+      };
+
+      fetch('/api/lead-submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      })
+      .then(function(r) { return r.json(); })
+      .then(function(res) {
+        if (btn) btn.disabled = false;
+        if (btnTxt) btnTxt.textContent = 'Unverbindlichen Vorschau-Entwurf bei Jenny Ettle anfordern';
+        if (!res || !res.ok) {
+          if (errBox) {
+            errBox.textContent = (res && res.error) ? res.error : 'Übermittlung fehlgeschlagen. Bitte versuchen Sie es erneut.';
+            errBox.style.display = 'block';
+          }
+          return;
+        }
+        var formEl = document.getElementById('wpPartnerLeadForm');
+        var succEl = document.getElementById('wpPartnerSuccessBox');
+        var refEl = document.getElementById('wpPartnerResRef');
+        var pdfBtn = document.getElementById('wpPartnerResPdfBtn');
+        if (refEl && res.ref_code) refEl.textContent = res.ref_code;
+        if (pdfBtn && res.pdf_url) pdfBtn.href = res.pdf_url;
+        if (formEl) formEl.style.display = 'none';
+        if (succEl) succEl.style.display = 'block';
+      })
+      .catch(function() {
+        if (btn) btn.disabled = false;
+        if (btnTxt) btnTxt.textContent = 'Unverbindlichen Vorschau-Entwurf bei Jenny Ettle anfordern';
+        if (errBox) {
+          errBox.textContent = 'Netzwerkfehler. Bitte kontaktieren Sie Jenny Ettle direkt per WhatsApp oder Telefon.';
+          errBox.style.display = 'block';
+        }
+      });
+      return false;
+    }
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') wpClosePartnerModal();
+    });
+  </script>
+  <!-- === WEBPILOT-PARTNER-MODAL-END === -->
+</body>
+</html>

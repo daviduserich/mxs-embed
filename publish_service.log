@@ -98,3 +98,39 @@
 [2026-10-30 07:33:16] [hiltbrand] [SWAP_CONTEXT_MATCH] [PRECISION] Tausch präzise im Kontext 'hero' ausgeführt.
 [2026-10-30 07:33:20] [hiltbrand] [SWAP_SUCCESS] [DEPLOYED] hero.jpg -> team_alt.jpg in Hiltbrand_Dachdecker.html
 [2026-10-30 07:33:31] [hiltbrand] [SWAP_REQUEST] [START] file=Hiltbrand_Dachdecker.html, old=images/hero.jpg, new=images/vorstellung.jpg, slot=hero.hintergrund.bild
+[2026-10-30 07:33:34] [hiltbrand] [SWAP_SUCCESS] [DEPLOYED] hero.jpg -> vorstellung.jpg in Hiltbrand_Dachdecker.html
+[2026-10-30 19:48:53] [webpilot-lead] [EMAIL_OK] [SENT] to=['test@magnet-xs.ch'] pdf=Auftrag_WP-2026-2962_HOCHULI.pdf
+[2026-10-30 19:48:53] [hochuli] [LEAD_SUBMIT] [OK] ref=#WP-2026-2962 to=24h-Pikett-Dienst (062 726 11 46) & Thomas Bertschi email=True wa=False
+[2026-10-30 19:49:37] [webpilot-lead] [EMAIL_OK] [SENT] to=['test@magnet-xs.ch'] pdf=Auftrag_WP-2026-6752_HER11.pdf
+[2026-10-30 19:49:37] [her11] [LEAD_SUBMIT] [OK] ref=#WP-2026-6752 to=Jenny Ettle & Ramona Bachmann email=True wa=False
+[2026-10-30 20:03:30] [webpilot-lead] [EMAIL_OK] [SENT] to=['test@magnet-xs.ch'] pdf=Auftrag_WP-2026-9454_HOCHULI.pdf
+[2026-10-30 20:03:31] [hochuli] [LEAD_SUBMIT] [OK] ref=#WP-2026-9454 to=Thomas Bertschi email=True wa=False
+[2026-10-30 20:03:32] [webpilot-lead] [EMAIL_OK] [SENT] to=['test@magnet-xs.ch'] pdf=Auftrag_WP-2026-3069_HER11.pdf
+[2026-10-30 20:03:32] [her11] [LEAD_SUBMIT] [OK] ref=#WP-2026-3069 to=Jenny Ettle & Ramona Bachmann email=True wa=False
+[2026-10-31 19:54:10] [webpilot-lead] [EMAIL_OK] [SENT] via=w01b7af4.kasserver.com:587 from=FC Schlieren to=['david.huegli@magnet-xs.com'] pdf=Auftrag_WP-2026-1997_FCSCHLIEREN.pdf
+[2026-10-31 19:54:41] [partner] [WHATSAPP_ERR] [FAIL] to=['+41 79 444 55 66'] err=HTTP 502: {"ok":false,"whatsapp_delivered":false,"message_id":null,"target":"41794445566","results":[{"target":"41794445566","jid":"41794445566@s.whatsapp.net","delivered":false,"message_id":null,"error":"[Evol
+[2026-10-31 19:54:41] [fcschlieren] [LEAD_SUBMIT] [OK] ref=#WP-2026-1997 to=Zoran Perak (Aktive), Luigi Schiavano (Junioren) & Mario De Meo (Juniorinnen) email=True wa=False
+[2026-11-01 09:28:01] [webpilot-lead] [EMAIL_OK] [SENT] via=w01b7af4.kasserver.com:587 from=FC Attiswil to=['test@fcattiswil.ch'] pdf=Auftrag_WP-2026-7239_FCATTISWIL.pdf
+[2026-11-01 09:28:01] [fcattiswil] [LEAD_SUBMIT] [OK] ref=#WP-2026-7239 to=Florian Bohner (Sportchef), Levi Meyer (Junioren) & Celine Lemp (Frauen/Juniorinnen) email=True wa=False
+[2026-11-01 09:29:18] [webpilot-lead] [EMAIL_OK] [SENT] via=w01b7af4.kasserver.com:587 from=FC Attiswil to=['david.huegli@magnet-xs.com'] pdf=Auftrag_WP-2026-2850_FCATTISWIL.pdf
+[2026-11-01 09:29:18] [fcattiswil] [LEAD_SUBMIT] [OK] ref=#WP-2026-2850 to=Raphaela Lüscher (Marketing & Sponsoring) & Konrad Schütz (Präsident) email=True wa=False
+[2026-11-01 09:37:42] [webpilot-lead] [EMAIL_OK] [SENT] via=w01b7af4.kasserver.com:587 from=SC Fulenbach to=['vorstand@scfulenbach.ch'] pdf=Auftrag_WP-2026-4916_SCFULENBACH.pdf
+[2026-11-01 09:37:46] [partner] [WHATSAPP_OK] [SENT] to=['+41 79 397 87 73'] msg_id=3EB07CB5A65048C682260C
+[2026-11-01 09:37:46] [scfulenbach] [LEAD_SUBMIT] [OK] ref=#WP-2026-4916 to=Zentrale Disposition email=True wa=True
+[2026-11-01 09:38:34] [webpilot-lead] [EMAIL_OK] [SENT] via=w01b7af4.kasserver.com:587 from=SC Fulenbach to=['test@magnet-xs.ch'] pdf=Auftrag_WP-2026-9401_SCFULENBACH.pdf
+[2026-11-01 09:38:34] [scfulenbach] [LEAD_SUBMIT] [OK] ref=#WP-2026-9401 to=Mirko Ferrari (Sportchef) & Michael «Mike» Frieder (Juniorenobmann) email=True wa=False
+[2026-11-01 14:03:52] [webpilot-lead] [EMAIL_OK] [SENT] via=w01b7af4.kasserver.com:587 from=WebPilot Partner-Netzwerk · Musterhaus-Anfrage to=['david.huegli@magnet-xs.ch', 'david.huegli@magnet-xs.com'] cc=['david.huegli@magnet-xs.ch'] pdf=Auftrag_WP-2026-5701_WEBPILOT_PARTNER.pdf
+[2026-11-01 14:03:52] [webpilot_partner] [LEAD_SUBMIT] [OK] ref=#WP-2026-5701 to=Jenny Ettle (JE-MI) email=True wa=False
+[2026-11-02 18:26:01] [scfulenbach] [TEAM_SUBMIT] [OK] id=TEAM-20261102_192601-4B42 team=2-mannschaft staff=1 players=2
+[2026-11-02 18:28:04] [scfulenbach] [TEAM_SUBMIT] [OK] id=TEAM-20261102_192804-B6A2 team=2-mannschaft staff=1 players=1
+[2026-11-03 19:04:43] [webpilot-lead] [EMAIL_OK] [SENT] via=w01b7af4.kasserver.com:587 from=Wüest + Paneduro — Innere Stärke entwickeln (Nino Paneduro GmbH) to=['david.huegli@magnet-xs.com'] cc=[] pdf=Auftrag_WP-2026-8972_INNERE-STAERKE.pdf
+[2026-11-03 19:04:43] [innere-staerke] [LEAD_SUBMIT] [OK] ref=#WP-2026-8972 to=Christine Wüest & Nino Paneduro email=True wa=False
+[2026-11-03 19:04:44] [webpilot-lead] [EMAIL_OK] [SENT] via=w01b7af4.kasserver.com:587 from=Wüest + Paneduro — Innere Stärke entwickeln (Zeigeversion) to=['david.huegli@magnet-xs.com'] cc=[] pdf=Auftrag_WP-2026-4958_INNERE-STAERKE-V2.pdf
+[2026-11-03 19:05:14] [partner] [WHATSAPP_ERR] [FAIL] to=['+41 79 987 65 43'] err=HTTP 502: {"ok":false,"whatsapp_delivered":false,"message_id":null,"target":"41799876543","results":[{"target":"41799876543","jid":"41799876543@s.whatsapp.net","delivered":false,"message_id":null,"error":"[Evol
+[2026-11-03 19:05:15] [innere-staerke-v2] [LEAD_SUBMIT] [OK] ref=#WP-2026-4958 to=Christine Wüest & Nino Paneduro email=True wa=False
+[2026-11-03 22:22:10] [webpilot-lead] [EMAIL_ERR] [FAIL] to=['info@frees.ch'] err=One or more source or delivery addresses require internationalized email support, but the server does not advertise the required SMTPUTF8 capability
+[2026-11-03 22:22:13] [partner] [WHATSAPP_OK] [SENT] to=['+41 79 709 12 24'] msg_id=3EB071EBD74163D97F0EB8
+[2026-11-03 22:22:13] [frees] [LEAD_SUBMIT] [OK] ref=#WP-2026-3839 to=Stefan Fritschi & Raimondo email=False wa=True
+[2026-11-03 22:22:17] [webpilot-lead] [EMAIL_ERR] [FAIL] to=['info@frees.ch'] err=One or more source or delivery addresses require internationalized email support, but the server does not advertise the required SMTPUTF8 capability
+[2026-11-03 22:22:19] [partner] [WHATSAPP_OK] [SENT] to=['+41 79 709 12 24'] msg_id=3EB0C5971DDFB69F7CA945
+[2026-11-03 22:22:19] [frees-v2] [LEAD_SUBMIT] [OK] ref=#WP-2026-6029 to=Stefan Fritschi & Raimondo email=False wa=True

@@ -94,6 +94,22 @@ SHOWCASE_CONFIGS = {
         "navy_hex": "#232322",
         "font_heading": "'Barlow', sans-serif",
     },
+    "preview-frees": {
+        "routing_slug": "frees",
+        "site_label": "Free's — Studio für Textildesign, Textildruck & Stickerei",
+        "entity_hint": "Free's Stefan Fritschi (Niederrohrdorf)",
+        "accent_hex": "#E12321",
+        "navy_hex": "#181818",
+        "font_heading": "'Barlow', sans-serif",
+    },
+    "preview-frees-v2": {
+        "routing_slug": "frees-v2",
+        "site_label": "Free's (Zeigeversion / Vorschau-Entwurf)",
+        "entity_hint": "Free's Stefan Fritschi (Niederrohrdorf)",
+        "accent_hex": "#E12321",
+        "navy_hex": "#181818",
+        "font_heading": "'Barlow', sans-serif",
+    },
 }
 
 CSS_START = "/* === WEBPILOT-PARTNER-ATTRIBUTION-CSS-START === */"

@@ -1,0 +1,186 @@
+{
+  "source_url": "https://www.frees.ch/",
+  "crawled_at": "2026-11-03",
+  "company": {
+    "brand_name": "Free's — Studio für Textildesign, Textildruck & Stickerei",
+    "legal_name": "Free's Stefan Fritschi, Teamsport-Promowear & Print",
+    "claim": "Kreative Lösungen für Ihre Designwünsche",
+    "motto": "Wir organisieren Wünsche",
+    "owners_and_contacts": [
+      {
+        "name": "Stefan Fritschi",
+        "role": "Inhaber · Textildesign, Beratung, Druck & Stickerei",
+        "phone": "+41 79 709 12 24"
+      },
+      {
+        "name": "Raimondo",
+        "role": "Beratung, Produktion & Textilveredelung",
+        "phone": "+41 79 966 59 78"
+      }
+    ],
+    "address": {
+      "street": "Mellingerstrasse 12",
+      "addition": "Eingang C, 1. Stock",
+      "zip": "5443",
+      "city": "Niederrohrdorf",
+      "canton": "Aargau",
+      "country": "Schweiz"
+    },
+    "contact": {
+      "phone_primary": "+41 79 709 12 24",
+      "phone_secondary": "+41 79 966 59 78",
+      "email": "info@frees.ch",
+      "opening_hours": "Nach Vereinbarung via Mail oder Telefon.",
+      "online_shop": "https://frees.alltextiles.ch"
+    },
+    "design_tokens_original": {
+      "fonts": [
+        "Barlow",
+        "Plus Jakarta Sans"
+      ],
+      "colors": {
+        "charcoal_dark": "#181818",
+        "crimson_red": "#E12321",
+        "crimson_dark": "#981614",
+        "white": "#FFFFFF"
+      }
+    }
+  },
+  "story_original": "Seit meiner Ausbildung arbeite ich mit Textilien zusammen. Viele Jahre in der Welt der Sportartikel, zuerst im Detailhandel danach im Vertrieb und Grosshandel. In dieser Zeit durfte ich meine erste Erfahrung im Textildruck erschaffen. Als eine Anfrage eines lokalen Sportvereins kam kaufte ich mir meine ersten Druckmaschinen. Zuerst in einem Hobbyraum, später im eigenen Ladenlokal wurden die Textilien bedruckt. Das Textilsortiment wurde stetig erweitert. Im März 2016 durfte ich mein Wunschlokal beziehen und konnte dank mehr Platz auch das Sortiment um Arbeitsbekleidung erweitern. — Stefan Fritschi",
+  "services_original": [
+    {
+      "id": "textildruck",
+      "title": "Textildruck in allen Auflagen & Farben",
+      "summary": "Free's bietet dem Kunden verschiedene Produkte und Dienstleistungen an, welche Ihnen erlauben, sich individuell zu präsentieren. Wir bedrucken T-Shirts, Sweatshirts, Hemden, Schürzen, Sporttaschen, Jacken und vieles mehr in allen Auflagen und Farben. Gemeinsam mit Ihnen bestimmen wir die optimale Drucktechnik für Ihre Auflage und den gewünschten Druckumfang. Getreu dem Original und Ihren Vorstellungen setzen wir dann Ihren Druck um."
+    },
+    {
+      "id": "stickerei-labels",
+      "title": "Stickereien, gewobene & gestickte Labels",
+      "summary": "Ob edle Direktstickerei auf Winterjacken, Polos und Hemden oder hochwertige gewobene und gestickte Labels und Abzeichen: Wir veredeln Ihre Textilien langlebig, waschbeständig und repräsentativ zu günstigen Konditionen."
+    },
+    {
+      "id": "arbeitskleidung-corporate",
+      "title": "Arbeitskleidung, Corporate Fashion & Vereinsbekleidung",
+      "summary": "Unser Sortiment reicht von robuster Arbeitskleidung und Corporate Fashion über T-Shirts und Polo-Shirts bis hin zu Business-Hemden, Vereins-Trikots und Trainingsanzügen. Unser Angebot richtet sich an Firmen, Vereine und Privatpersonen."
+    },
+    {
+      "id": "kundenservice-angeliefert",
+      "title": "Veredelung angelieferter Textilien & Beratung («Wir organisieren Wünsche»)",
+      "summary": "Seit über 12 Jahren bedrucken wir Textilien aller Art mit bester Druckqualität zum bestmöglichen Preis. Bei uns erwarten Sie umfassende Dienstleistungen aus einer Hand — auch angelieferte Textilien veredeln wir gerne für Sie. Wir begleiten Sie von der ersten Beratung bis zum fertigen Produkt."
+    }
+  ],
+  "catalogs": [
+    {
+      "id": "katalog-01",
+      "name": "Free's Online-Textilshop (alltextiles.ch)",
+      "category": "Hauptkatalog · Online-Shop",
+      "url": "https://frees.alltextiles.ch",
+      "image": "images/katalog-01-alltextiles.jpg",
+      "desc": "Direkter Zugriff auf tausende Textilien: T-Shirts, Polos, Hoodies, Caps, Taschen und Basics in allen Farben und Grössen."
+    },
+    {
+      "id": "katalog-02",
+      "name": "JAKO Teamsport Katalog 2026 (CH-DE)",
+      "category": "Teamsport & Vereine",
+      "url": "https://cdn.jako.de/userdata/files/blaetterkatalog/TS_2026_CHD/",
+      "image": "images/katalog-02-jako.png",
+      "desc": "Komplette Vereinsausrüstung, Trikotsätze, Trainingsanzüge, Regenjacken und Sporttaschen mit langfristiger Nachliefergarantie."
+    },
+    {
+      "id": "katalog-03",
+      "name": "ERIMA Teamsport Katalog 2026 (CH-DE)",
+      "category": "Teamsport & Vereine",
+      "url": "https://katalog.erima.de/erima-teamsport-2026-chd/70859746",
+      "image": "images/katalog-03-erima.png",
+      "desc": "Hochwertige Teamsport-Kollektionen für Fussball, Handball, Turnvereine und Einzelsportler in Vereinsfarben."
+    },
+    {
+      "id": "katalog-04",
+      "name": "F. ENGEL Workwear Katalog",
+      "category": "Arbeitskleidung & Handwerk",
+      "url": "https://ipaper.f-engel.com/engel-workwear/catalogue/de/",
+      "image": "images/katalog-04-engel.jpg",
+      "desc": "Professionelle Arbeitskleidung, Bundhosen, Stretch-Workwear und zertifizierte Warnschutzbekleidung für Bau und Gewerbe."
+    },
+    {
+      "id": "katalog-05",
+      "name": "CLIQUE Basic & Corporate 2025 (Swiss DE)",
+      "category": "Corporate Fashion & Promotion",
+      "url": "https://viewer.joomag.com/clique-2025-swiss-de/0670840001736783204?short&",
+      "image": "images/katalog-05-clique.png",
+      "desc": "Bewährte Promotion- und Firmentextilien: Polos, Sweatshirts, Softshelljacken und Basics in riesiger Farbpalette."
+    },
+    {
+      "id": "katalog-06",
+      "name": "CRAFT Teamwear SS26",
+      "category": "Teamsport & Performance",
+      "url": "https://viewer.joomag.com/craft-teamwear-ss26/0865151001768297519?short&",
+      "image": "images/katalog-06-craft.jpg",
+      "desc": "Skandinavische Funktionsbekleidung für Vereine, Laufgruppen, Radsport und sportliche Firmen-Events."
+    },
+    {
+      "id": "katalog-07",
+      "name": "New Wave Corporate Catalogue SS26 (CH)",
+      "category": "Corporate Fashion 2026",
+      "url": "https://viewer.joomag.com/corporate-catalogue-ss26-ch-web/0883053001768387748?short&",
+      "image": "images/katalog-07-newwave-corporate.png",
+      "desc": "Die neueste Schweizer Frühjahr-/Sommer-Kollektion 2026 für einheitliche Mitarbeiter- und Eventbekleidung."
+    },
+    {
+      "id": "katalog-08",
+      "name": "PRINTER Prime & Red 2025 (CH-DE)",
+      "category": "Arbeitskleidung & Teamwear",
+      "url": "https://viewer.joomag.com/printer2025-ch-de/0370164001737063540?short&",
+      "image": "images/katalog-08-printer.jpg",
+      "desc": "Waschbeständige Arbeits- und Teamtextilien (bis 60 Grad waschbar) mit starkem Preis-Leistungs-Verhältnis."
+    },
+    {
+      "id": "katalog-09",
+      "name": "James Harvest Sportswear 2025 (CH-DE)",
+      "category": "Premium Corporate Sportswear",
+      "url": "https://viewer.joomag.com/harvest2025-ch-de-final/0939210001736415669?short&",
+      "image": "images/katalog-09-james-harvest.png",
+      "desc": "Exklusive Polos, Chinos, Strickwaren und Jacken für einen erstklassigen Auftritt auf Messen und im Kundenkontakt."
+    },
+    {
+      "id": "katalog-10",
+      "name": "HAKRO Activewear Katalog",
+      "category": "Qualitäts-Textilien für KMU",
+      "url": "https://www.yumpu.com/s/hVY9MNCvzADs8r6m",
+      "image": "images/katalog-10-hakro.jpg",
+      "desc": "Langlebige Premium-Textilien für Handwerk, Industrie, Praxis, Gastronomie und Dienstleistung."
+    },
+    {
+      "id": "katalog-11",
+      "name": "Corporate Catalogue SS25",
+      "category": "Corporate & Event Wear",
+      "url": "https://viewer.joomag.com/corporate-catalogue-ss25-web/0904387001733295937?short&",
+      "image": "images/katalog-11-corporate-ss25.jpg",
+      "desc": "Vielseitige Kollektionen für Firmenauftritte, Vereinsjubiläen und Promotion-Aktionen."
+    },
+    {
+      "id": "katalog-12",
+      "name": "PROJOB Workwear 2025 (Swiss DE)",
+      "category": "Schwedische Berufsbekleidung",
+      "url": "https://viewer.joomag.com/2025-projob-workwear-swissde/0012870001740134567?short&",
+      "image": "images/katalog-12-projob.jpg",
+      "desc": "Ergonomische Workwear für Bau, Montage, Transport, Logistik, Service und Küche."
+    },
+    {
+      "id": "katalog-13",
+      "name": "J. Harvest & Frost 2025 (CH-DE)",
+      "category": "Business-Hemden & Blusen",
+      "url": "https://viewer.joomag.com/jharvestfrost2025-ch-de-final/0352901001736415642?short&",
+      "image": "images/katalog-13-jharvest-frost.png",
+      "desc": "Feinste Business-Hemden, Blusen und Corporate Tailoring — ideal für dezente Kragen- oder Bruststickerei."
+    },
+    {
+      "id": "katalog-14",
+      "name": "WIKLAND Schweizer Berufsbekleidung",
+      "category": "Schweizer Workwear-Tradition",
+      "url": "http://www.wikland.ch",
+      "image": "images/katalog-14-wikland.png",
+      "desc": "Bewährte Schweizer Arbeits-, Wetterschutz- und Zunftbekleidung für höchste Beanspruchung."
+    }
+  ]
+}

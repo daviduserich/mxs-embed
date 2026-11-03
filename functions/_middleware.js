@@ -159,6 +159,10 @@ export async function onRequest(context) {
       'preview-innere-staerke': ['innerestaerke_sec_master', 'innerestaerke2026', 'innere-staerke2026'],
       'innere-staerke-v2': ['innerestaerke_sec_master', 'innerestaerke2026', 'innere-staerke2026'],
       'preview-innere-staerke-v2': ['innerestaerke_sec_master', 'innerestaerke2026', 'innere-staerke2026'],
+      'frees': ['frees_sec_master', 'frees2026', 'frees-v22026'],
+      'preview-frees': ['frees_sec_master', 'frees2026', 'frees-v22026'],
+      'frees-v2': ['frees_sec_master', 'frees2026', 'frees-v22026'],
+      'preview-frees-v2': ['frees_sec_master', 'frees2026', 'frees-v22026'],
       'default': [clientSlug + '_sec_master', clientSlug + '2026']
     };
     const validTokens = clientTokens[rootSegment] || clientTokens[clientSlug] || clientTokens['default'];
@@ -294,6 +298,10 @@ export async function onRequest(context) {
       'preview-innere-staerke': ['innerestaerke_sec_master', 'innerestaerke2026', 'innere-staerke2026'],
       'innere-staerke-v2': ['innerestaerke_sec_master', 'innerestaerke2026', 'innere-staerke2026'],
       'preview-innere-staerke-v2': ['innerestaerke_sec_master', 'innerestaerke2026', 'innere-staerke2026'],
+      'frees': ['frees_sec_master', 'frees2026', 'frees-v22026'],
+      'preview-frees': ['frees_sec_master', 'frees2026', 'frees-v22026'],
+      'frees-v2': ['frees_sec_master', 'frees2026', 'frees-v22026'],
+      'preview-frees-v2': ['frees_sec_master', 'frees2026', 'frees-v22026'],
         'default': [clientSlug + '_sec_master', clientSlug + '2026']
       };
       const validTokens = clientTokens[rootSegment] || clientTokens[clientSlug] || clientTokens['default'];
