@@ -78,6 +78,22 @@ SHOWCASE_CONFIGS = {
         "navy_hex": "#0F172A",
         "font_heading": "'Plus Jakarta Sans', 'Inter', sans-serif",
     },
+    "preview-innere-staerke": {
+        "routing_slug": "innere-staerke",
+        "site_label": "Wüest + Paneduro — Innere Stärke entwickeln",
+        "entity_hint": "Wüest + Paneduro (Nino Paneduro GmbH)",
+        "accent_hex": "#AE031D",
+        "navy_hex": "#232322",
+        "font_heading": "'Barlow', sans-serif",
+    },
+    "preview-innere-staerke-v2": {
+        "routing_slug": "innere-staerke-v2",
+        "site_label": "Wüest + Paneduro (Zeigeversion / Vorschau-Entwurf)",
+        "entity_hint": "Wüest + Paneduro (Nino Paneduro GmbH)",
+        "accent_hex": "#AE031D",
+        "navy_hex": "#232322",
+        "font_heading": "'Barlow', sans-serif",
+    },
 }
 
 CSS_START = "/* === WEBPILOT-PARTNER-ATTRIBUTION-CSS-START === */"

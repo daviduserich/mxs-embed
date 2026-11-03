@@ -155,6 +155,10 @@ export async function onRequest(context) {
       'preview-fcschlieren-v2': ['fcschlieren_sec_master', 'fcschlieren2026'],
       'fcattiswil': ['fcattiswil_sec_master', 'fcattiswil2026'],
       'preview-fcattiswil': ['fcattiswil_sec_master', 'fcattiswil2026'],
+      'innere-staerke': ['innerestaerke_sec_master', 'innerestaerke2026', 'innere-staerke2026'],
+      'preview-innere-staerke': ['innerestaerke_sec_master', 'innerestaerke2026', 'innere-staerke2026'],
+      'innere-staerke-v2': ['innerestaerke_sec_master', 'innerestaerke2026', 'innere-staerke2026'],
+      'preview-innere-staerke-v2': ['innerestaerke_sec_master', 'innerestaerke2026', 'innere-staerke2026'],
       'default': [clientSlug + '_sec_master', clientSlug + '2026']
     };
     const validTokens = clientTokens[rootSegment] || clientTokens[clientSlug] || clientTokens['default'];
@@ -284,6 +288,12 @@ export async function onRequest(context) {
       'preview-fcschlieren': ['fcschlieren_sec_master', 'fcschlieren2026'],
       'fcschlieren-v2': ['fcschlieren_sec_master', 'fcschlieren2026'],
       'preview-fcschlieren-v2': ['fcschlieren_sec_master', 'fcschlieren2026'],
+      'fcattiswil': ['fcattiswil_sec_master', 'fcattiswil2026'],
+      'preview-fcattiswil': ['fcattiswil_sec_master', 'fcattiswil2026'],
+      'innere-staerke': ['innerestaerke_sec_master', 'innerestaerke2026', 'innere-staerke2026'],
+      'preview-innere-staerke': ['innerestaerke_sec_master', 'innerestaerke2026', 'innere-staerke2026'],
+      'innere-staerke-v2': ['innerestaerke_sec_master', 'innerestaerke2026', 'innere-staerke2026'],
+      'preview-innere-staerke-v2': ['innerestaerke_sec_master', 'innerestaerke2026', 'innere-staerke2026'],
         'default': [clientSlug + '_sec_master', clientSlug + '2026']
       };
       const validTokens = clientTokens[rootSegment] || clientTokens[clientSlug] || clientTokens['default'];

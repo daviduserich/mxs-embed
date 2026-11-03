@@ -69,6 +69,15 @@ const ALL_PAGES = [
   'preview-hochuli/karriere.html',
   'preview-hochuli/kontakt.html',
   'preview-hochuli/cockpit.html',
+  'preview-innere-staerke/index.html',
+  'preview-innere-staerke/angebot.html',
+  'preview-innere-staerke/ueber-uns.html',
+  'preview-innere-staerke/referenzen.html',
+  'preview-innere-staerke/kontakt.html',
+  'preview-innere-staerke/cockpit.html',
+  'preview-innere-staerke-v2/index.html',
+  'preview-innere-staerke-v2/kontakt.html',
+  'preview-innere-staerke-v2/cockpit.html',
   'webpilot/index.html',
   'webpilot/angebot.html',
   'webpilot/ueber-uns.html',
@@ -353,6 +362,36 @@ async function main() {
       const f = await auditPageZone(page, relPage, zone, screenshotDir);
       allFindings.push(...f);
       totalViewsAudited++;
+
+      // 2a. Blueprint Preview Modal (#wpBlueprintModal) on V2 / Zeigeversion pages across all 3 Zones
+      const openedBlueprint = await page.evaluate(() => {
+        if (typeof window.wpOpenBlueprintModal === 'function') {
+          window.wpOpenBlueprintModal('Angebots-Vertiefung & Seminar-Programme', '1:1 Executive-Coaching, 9 Levels Workshops & MentalFitnessCenter', 'Christine Wüest & Nino Paneduro');
+          const m = document.getElementById('wpBlueprintModal');
+          return (m && m.classList.contains('open')) ? '#wpBlueprintModal' : null;
+        }
+        if (typeof window.wpOpenBlueprint === 'function') {
+          window.wpOpenBlueprint('angebot');
+          const m = document.getElementById('wpBlueprintModal');
+          return (m && m.classList.contains('open')) ? '#wpBlueprintModal' : null;
+        }
+        return null;
+      });
+      if (openedBlueprint) {
+        await page.waitForTimeout(80);
+        const bpf = await page.evaluate(evaluateSystemEyesInPage, {
+          relPage: `${relPage}#blueprint-modal`,
+          zone,
+          options: { activeScopeSelector: openedBlueprint }
+        });
+        allFindings.push(...bpf);
+        totalViewsAudited++;
+        await page.evaluate(() => {
+          if (typeof window.wpCloseBlueprintModal === 'function') window.wpCloseBlueprintModal();
+          if (typeof window.wpCloseBlueprint === 'function') window.wpCloseBlueprint();
+        });
+        await page.waitForTimeout(50);
+      }
 
       // 2b. Partner Attribution Modal (#wpPartnerModal) on kontakt.html across all 3 Zones
       if (relPage.endsWith('/kontakt.html')) {

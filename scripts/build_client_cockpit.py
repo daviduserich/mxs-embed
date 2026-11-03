@@ -263,6 +263,7 @@ def scan_stellen(client_dir: Path, slug: str, name: str, profile: dict = None):
             "team.html": 2,
             "begleitung.html": 3,
             "karriere.html": 3,
+            "referenzen.html": 3,
             "mach-mit.html": 4,
             "technologie.html": 4,
             "kontakt.html": 5,
