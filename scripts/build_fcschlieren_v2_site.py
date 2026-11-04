@@ -535,38 +535,12 @@ def render_v2_shell(filename: str, page_title: str, active_nav: str, body_html: 
   </style>
 </head>
 <body>
-
-  <!-- 1. KONZEPT- & VORSCHAU-LEISTE (VARIANTE 2) -->
-  <div class="wp-v2-blueprint-bar">
-    <div class="container wp-v2-bar-inner">
-      <div class="wp-v2-bar-left">
-        <span class="wp-v2-study-badge">
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
-          <span>KOMPAKTE VORSCHAU · VARIANTE 2</span>
-        </span>
-        <span class="wp-v2-bar-status-text">Ausbaustufe Prototyp: 6 % (3 von 48 Seiten exemplarisch ausgearbeitet)</span>
-      </div>
-
-      <div class="wp-v2-bar-middle" aria-label="Vorschau-Umfang 3 Beispiel-Seiten">
-        <div class="wp-v2-progress-track">
-          <div class="wp-v2-progress-fill"></div>
-        </div>
-        <span class="wp-v2-progress-label">Vorschau-Umfang: 3 Beispiel-Seiten live · 45 weitere Seiten &amp; 32 Teams vorbereitet</span>
-      </div>
-
-      <a href="{v1_href}" class="wp-v2-switch-btn">
-        <span>Zu Variante 1 (Voll-Ansicht) wechseln</span>
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-      </a>
-    </div>
-  </div>
-
   <!-- TOP BAR -->
   <div class="top-bar">
     <div class="container top-bar-inner">
       <div class="top-bar-left">
-        <span class="top-bar-badge" data-slot="topbar_badge">PROTOTYP-AUSBAU: 3 / 48 SEITEN</span>
-        <span data-slot="topbar_info">Beispiel-Ausbau: Herren 1 &amp; 11 Sponsoren live · 45 weitere Seiten folgen beim Ausbau</span>
+        <span class="top-bar-badge" data-slot="topbar_badge">SEIT 21. MÄRZ 1921</span>
+        <span data-slot="topbar_info">Fussballanlage Zelgli · 8952 Schlieren · 33 Mannschaften im SFV</span>
       </div>
       <div class="top-bar-links">
         <a href="index.html#sponsoren">11 Sponsoren (Übernommen)</a>
@@ -584,7 +558,7 @@ def render_v2_shell(filename: str, page_title: str, active_nav: str, body_html: 
         <img src="images/logo-fcschlieren.webp" alt="Wappen FC Schlieren" class="brand-logo" width="48" height="56" data-slot="brand_logo">
         <div class="brand-text">
           <span class="brand-name" data-slot="brand_name">FC SCHLIEREN</span>
-          <span class="brand-sub" data-slot="brand_sub">SEIT 1921 · VORSCHAU V2</span>
+          <span class="brand-sub" data-slot="brand_sub">GEGRÜNDET 1921 · ZELGLI</span>
         </div>
       </a>
 
@@ -630,7 +604,6 @@ def render_v2_shell(filename: str, page_title: str, active_nav: str, body_html: 
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
       </button>
       <a href="kontakt.html" onclick="wpCloseMobileMenu()">Smart-Anfrage (Live-Demo)</a>
-      <a href="{v1_href}" onclick="wpCloseMobileMenu()" style="background-color:#F59E0B;color:#0B1528;">Zu Variante 1 (Voll-Ansicht) wechseln</a>
     </div>
   </header>
 
@@ -681,7 +654,7 @@ def render_v2_shell(filename: str, page_title: str, active_nav: str, body_html: 
         <div>
           <div class="footer-title">Ansichten-Vergleich &amp; Rechtliches</div>
           <ul class="footer-list">
-            <li><a href="{v1_href}" style="color:#FDC500;font-weight:700;">Zu Variante 1 (Voll-Ansicht) wechseln</a></li>
+            <li><a href="kontakt.html?thema=probetraining" style="color:#FDC500;font-weight:700;">Probetraining &amp; Anfrage starten</a></li>
             <li><a href="index.html#seiten-uebersicht">Übersicht der weiteren Seiten ansehen</a></li>
             <li><button type="button" onclick="wpOpenImpressumModal()">Impressum &amp; Datenschutz</button></li>
           </ul>
@@ -691,7 +664,7 @@ def render_v2_shell(filename: str, page_title: str, active_nav: str, body_html: 
       <div class="footer-bottom">
         <div>&copy; 2026 Fussballclub Schlieren (8952 Schlieren) · Unverbindlicher Vorschau-Entwurf (3 Beispiel-Seiten live).</div>
         <div style="display:flex;gap:16px;flex-wrap:wrap;">
-          <a href="{v1_href}" style="color:#FDC500;font-weight:700;">Variante 1 (Voll-Ansicht) öffnen</a>
+          <a href="kontakt.html" style="color:#FDC500;font-weight:700;">Smart-Anfrage-Zentrale</a>
           <a href="herren-1.html" style="color:#E2E8F0;">Beispiel-Team Herren 1 (1/33)</a>
         </div>
       </div>
@@ -699,8 +672,8 @@ def render_v2_shell(filename: str, page_title: str, active_nav: str, body_html: 
   </footer>
 
   <!-- SEITEN-VORSCHAU-MODAL -->
-  <div class="wp-modal-backdrop" id="wpBlueprintModal" role="dialog" aria-modal="true" aria-labelledby="wpBpTitle">
-    <div class="wp-modal-dialog">
+  <div class="wp-modal-backdrop" id="wpBlueprintModal" role="dialog" aria-modal="true" aria-labelledby="wpBpTitle" data-allow-scroll="true">
+    <div class="wp-modal-dialog" data-allow-scroll="true">
       <button type="button" class="wp-modal-close" aria-label="Dialog schliessen" onclick="wpCloseBlueprintModal()">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
       </button>
@@ -728,7 +701,7 @@ def render_v2_shell(filename: str, page_title: str, active_nav: str, body_html: 
         </div>
         <div class="wp-modal-check-item">
           <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><polyline points="20 6 9 17 4 12"/></svg>
-          <span>Direkte Anbindung an das WebPilot Studio-Cockpit für Sekundenschnelle Änderungen per KI oder 1-Klick</span>
+          <span>Direkte 1-Klick-Anbindung an Probetraining, Spielverschiebung und Kleiderbestellung</span>
         </div>
       </div>
 
@@ -748,7 +721,7 @@ def render_v2_shell(filename: str, page_title: str, active_nav: str, body_html: 
 
   <!-- IMPRESSUM MODAL -->
   <div class="wp-modal-backdrop" id="wpImpressumModal" role="dialog" aria-modal="true" aria-labelledby="wpImpTitle">
-    <div class="wp-modal-dialog">
+    <div class="wp-modal-dialog" data-allow-scroll="true">
       <button type="button" class="wp-modal-close" aria-label="Impressum schliessen" onclick="wpCloseImpressumModal()">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
       </button>
@@ -1124,7 +1097,6 @@ V2_HERREN_1_BODY = f"""
         <div style="display:flex;flex-direction:column;gap:8px;max-width:100%;">
           <a href="team-update.html?team=1-mannschaft" class="btn-cta btn-cta-gold btn-sm" style="white-space:normal;text-align:center;">Mannschafts-Daten &amp; Kader einreichen (Trainer-Formular)</a>
           <a href="#alle-teams-matrix" class="btn-cta btn-cta-ghost-light btn-sm">Zu den 32 weiteren Teams</a>
-          <a href="/fcschlieren/herren-1.html" class="btn-cta btn-cta-ghost-light btn-sm">Variante 1 (inkl. Frauen 1) vergleichen</a>
         </div>
       </div>
     </div>

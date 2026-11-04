@@ -26,6 +26,11 @@
         "datei": "index.html",
         "slot": "image",
         "is_hero": false
+      },
+      {
+        "datei": "team-update.html",
+        "slot": "image",
+        "is_hero": false
       }
     ]
   },
@@ -90,6 +95,11 @@
         "datei": "index.html",
         "slot": "image",
         "is_hero": false
+      },
+      {
+        "datei": "team-update.html",
+        "slot": "image",
+        "is_hero": false
       }
     ]
   },
@@ -122,6 +132,11 @@
     "used_in": [
       {
         "datei": "index.html",
+        "slot": "image",
+        "is_hero": false
+      },
+      {
+        "datei": "team-update.html",
         "slot": "image",
         "is_hero": false
       }
@@ -166,6 +181,11 @@
       },
       {
         "datei": "index.html",
+        "slot": "image",
+        "is_hero": false
+      },
+      {
+        "datei": "team-update.html",
         "slot": "image",
         "is_hero": false
       }
@@ -222,6 +242,11 @@
         "datei": "herren-1.html",
         "slot": "image",
         "is_hero": false
+      },
+      {
+        "datei": "team-update.html",
+        "slot": "image",
+        "is_hero": false
       }
     ]
   },
@@ -240,6 +265,11 @@
     "used_in": [
       {
         "datei": "herren-1.html",
+        "slot": "image",
+        "is_hero": false
+      },
+      {
+        "datei": "team-update.html",
         "slot": "image",
         "is_hero": false
       }
@@ -267,6 +297,11 @@
         "datei": "index.html",
         "slot": "image",
         "is_hero": false
+      },
+      {
+        "datei": "team-update.html",
+        "slot": "image",
+        "is_hero": false
       }
     ]
   },
@@ -287,6 +322,11 @@
         "datei": "index.html",
         "slot": "image",
         "is_hero": false
+      },
+      {
+        "datei": "team-update.html",
+        "slot": "image",
+        "is_hero": false
       }
     ]
   },
@@ -301,8 +341,14 @@
     "mtime": 1793523476,
     "mtime_str": "01.11.2026 08:57",
     "cdn_url": "https://embed.magnet-xs.ch/preview-scfulenbach/images/team-senioren-30.webp",
-    "is_used": false,
-    "used_in": []
+    "is_used": true,
+    "used_in": [
+      {
+        "datei": "team-update.html",
+        "slot": "image",
+        "is_hero": false
+      }
+    ]
   },
   {
     "id": "images_vorstand_gruppe_webp",

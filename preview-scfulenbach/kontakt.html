@@ -1826,33 +1826,6 @@
   </style>
 </head>
 <body>
-
-  <!-- PERMANENTE VORSCHAU-TOP-BAR -->
-  <div class="wp-arch-topbar">
-    <div class="container wp-arch-inner">
-      <div class="wp-arch-left">
-        <span class="wp-arch-badge" data-slot="topbar_badge">
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
-          <span>UNVERBINDLICHER VORSCHAU-ENTWURF</span>
-        </span>
-        <span style="font-weight:600;color:#E2E8F0;" data-slot="topbar_info">Ausbaustufe Prototyp: 7 % (3 von 43 Seiten exemplarisch ausgearbeitet)</span>
-      </div>
-
-      <div class="wp-arch-progress-wrap" aria-label="Projekt-Ausbaustufe 7 Prozent">
-        <div class="wp-arch-bar-track"><div class="wp-arch-bar-fill"></div></div>
-        <span class="wp-arch-progress-label">Vorschau-Umfang: 3 Beispiel-Seiten live · 40 weitere Seiten &amp; 13 Teams vorbereitet</span>
-      </div>
-
-      <div class="wp-arch-right">
-        <span class="wp-arch-pill">Unverbindlicher Vorschau-Entwurf für SC Fulenbach</span>
-        <a href="kontakt.html?thema=probetraining" class="wp-arch-cta">
-          <span>Smart-Anfrage testen</span>
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-        </a>
-      </div>
-    </div>
-  </div>
-
   <!-- STICKY HEADER MIT STATUS-DOTS -->
   <header class="site-header">
     <div class="container header-inner">
@@ -2685,8 +2658,8 @@
   </footer>
 
   <!-- SEITEN-VORSCHAU-MODAL -->
-  <div class="wp-modal-backdrop" id="wpBlueprintModal" role="dialog" aria-modal="true" aria-labelledby="wpBpTitle">
-    <div class="wp-modal-dialog">
+  <div class="wp-modal-backdrop" id="wpBlueprintModal" role="dialog" aria-modal="true" aria-labelledby="wpBpTitle" data-allow-scroll="true">
+    <div class="wp-modal-dialog" data-allow-scroll="true">
       <button type="button" class="wp-modal-close" aria-label="Dialog schliessen" onclick="wpCloseBlueprintModal()">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
       </button>
@@ -2718,7 +2691,7 @@
         </div>
         <div class="wp-modal-check-item">
           <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><polyline points="20 6 9 17 4 12"/></svg>
-          <span>Selbstständige Pflege von Texten, Bildern und Anlässen durch den Verein im passwortgeschützten Studio-Cockpit</span>
+          <span>Einfache Einreichung von Mannschaftsfotos, Kaderlisten und Trainerangaben über das Online-Trainerformular</span>
         </div>
       </div>
 
@@ -2738,7 +2711,7 @@
 
   <!-- IMPRESSUM MODAL -->
   <div class="wp-modal-backdrop" id="wpImpressumModal" role="dialog" aria-modal="true" aria-labelledby="wpImpTitle">
-    <div class="wp-modal-dialog">
+    <div class="wp-modal-dialog" data-allow-scroll="true">
       <button type="button" class="wp-modal-close" aria-label="Impressum schliessen" onclick="wpCloseImpressumModal()">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
       </button>

@@ -1,3 +1,94 @@
+const VORSCHAU_SLUG_TO_FOLDER = {
+  // Free's: Zeigeversion (-v2, -v1, ohne Suffix) -> preview-frees-v2 | Vollversion (-vollversion, -vv) -> preview-frees
+  'frees': 'preview-frees-v2',
+  'frees-v1': 'preview-frees-v2',
+  'frees-v2': 'preview-frees-v2',
+  'frees-vollversion': 'preview-frees',
+  'frees-vv': 'preview-frees',
+
+  // Innere Stärke (Wüest + Paneduro): Zeigeversion (-v2, -v1, ohne Suffix) -> preview-innere-staerke-v2 | Vollversion (-vollversion, -vv) -> preview-innere-staerke
+  'innere-staerke': 'preview-innere-staerke-v2',
+  'innere-staerke-v1': 'preview-innere-staerke-v2',
+  'innere-staerke-v2': 'preview-innere-staerke-v2',
+  'innere-staerke-vollversion': 'preview-innere-staerke',
+  'innere-staerke-vv': 'preview-innere-staerke',
+
+  // FC Schlieren: Zeigeversion (-v2, -v1, ohne Suffix) -> preview-fcschlieren-v2 | Vollversion (-vollversion, -vv) -> preview-fcschlieren
+  'fcschlieren': 'preview-fcschlieren-v2',
+  'fcschlieren-v1': 'preview-fcschlieren-v2',
+  'fcschlieren-v2': 'preview-fcschlieren-v2',
+  'fcschlieren-vollversion': 'preview-fcschlieren',
+  'fcschlieren-vv': 'preview-fcschlieren',
+
+  // SC Fulenbach: Zeigeversion (-v2, -v1, ohne Suffix) -> preview-scfulenbach
+  'scfulenbach': 'preview-scfulenbach',
+  'scfulenbach-v1': 'preview-scfulenbach',
+  'scfulenbach-v2': 'preview-scfulenbach',
+  'scfulenbach-vollversion': 'preview-scfulenbach',
+  'scfulenbach-vv': 'preview-scfulenbach',
+
+  // FC Attiswil: Zeigeversion (-v2, -v1, ohne Suffix) -> preview-fcattiswil
+  'fcattiswil': 'preview-fcattiswil',
+  'fcattiswil-v1': 'preview-fcattiswil',
+  'fcattiswil-v2': 'preview-fcattiswil',
+  'fcattiswil-vollversion': 'preview-fcattiswil',
+  'fcattiswil-vv': 'preview-fcattiswil',
+
+  // Weitere Mandanten-Aliase
+  'hochuli-v2': 'preview-hochuli',
+  'hochuli-vollversion': 'preview-hochuli',
+  'hochuli-vv': 'preview-hochuli',
+  'her11-v2': 'preview-her11',
+  'her11-vollversion': 'preview-her11',
+  'her11-vv': 'preview-her11'
+};
+
+const CLIENT_TOKENS = {
+  'hiltbrand': ['hb_sec_9e2f48b7c0d3a5a81e9', 'hb2026'],
+  'preview-hiltbrand': ['hb_sec_9e2f48b7c0d3a5a81e9', 'hb2026'],
+  'birchmeier': ['bm_sec_7a1c8f3e2d9b4a5f', 'bi_live_ea3776_a1ef'],
+  'preview-birchmeier': ['bm_sec_7a1c8f3e2d9b4a5f', 'bi_live_ea3776_a1ef'],
+  'mxs-talent': ['mxs-talent_sec_master', 'mxs-talent2026'],
+  'cotra': ['cotra_sec_master', 'cotra2026'],
+  'preview-cotra': ['cotra_sec_master', 'cotra2026'],
+  'hochuli': ['hochuli_sec_master', 'hochuli2026'],
+  'preview-hochuli': ['hochuli_sec_master', 'hochuli2026'],
+  'her11': ['her11_sec_master', 'her112026'],
+  'preview-her11': ['her11_sec_master', 'her112026'],
+  'fcschlieren': ['fcschlieren_sec_master', 'fcschlieren2026'],
+  'preview-fcschlieren': ['fcschlieren_sec_master', 'fcschlieren2026'],
+  'fcschlieren-v2': ['fcschlieren_sec_master', 'fcschlieren2026'],
+  'preview-fcschlieren-v2': ['fcschlieren_sec_master', 'fcschlieren2026'],
+  'fcschlieren-vollversion': ['fcschlieren_sec_master', 'fcschlieren2026'],
+  'fcschlieren-vv': ['fcschlieren_sec_master', 'fcschlieren2026'],
+  'fcattiswil': ['fcattiswil_sec_master', 'fcattiswil2026'],
+  'preview-fcattiswil': ['fcattiswil_sec_master', 'fcattiswil2026'],
+  'fcattiswil-v2': ['fcattiswil_sec_master', 'fcattiswil2026'],
+  'scfulenbach': ['scfulenbach_sec_master', 'scfulenbach2026'],
+  'preview-scfulenbach': ['scfulenbach_sec_master', 'scfulenbach2026'],
+  'scfulenbach-v2': ['scfulenbach_sec_master', 'scfulenbach2026'],
+  'innere-staerke': ['innerestaerke_sec_master', 'innerestaerke2026', 'innere-staerke2026'],
+  'preview-innere-staerke': ['innerestaerke_sec_master', 'innerestaerke2026', 'innere-staerke2026'],
+  'innere-staerke-v2': ['innerestaerke_sec_master', 'innerestaerke2026', 'innere-staerke2026'],
+  'preview-innere-staerke-v2': ['innerestaerke_sec_master', 'innerestaerke2026', 'innere-staerke2026'],
+  'innere-staerke-vollversion': ['innerestaerke_sec_master', 'innerestaerke2026', 'innere-staerke2026'],
+  'innere-staerke-vv': ['innerestaerke_sec_master', 'innerestaerke2026', 'innere-staerke2026'],
+  'frees': ['frees_sec_master', 'frees2026', 'frees-v22026'],
+  'preview-frees': ['frees_sec_master', 'frees2026', 'frees-v22026'],
+  'frees-v2': ['frees_sec_master', 'frees2026', 'frees-v22026'],
+  'preview-frees-v2': ['frees_sec_master', 'frees2026', 'frees-v22026'],
+  'frees-vollversion': ['frees_sec_master', 'frees2026', 'frees-v22026'],
+  'frees-vv': ['frees_sec_master', 'frees2026', 'frees-v22026']
+};
+
+function getValidTokens(rootSegment, clientSlug) {
+  const baseSlug = clientSlug.replace(/-(?:vollversion|vv|v1|v2)$/, '');
+  return CLIENT_TOKENS[rootSegment] ||
+         CLIENT_TOKENS[clientSlug] ||
+         CLIENT_TOKENS[baseSlug] ||
+         [baseSlug + '_sec_master', baseSlug + '2026', clientSlug + '2026'];
+}
+
 export async function onRequest(context) {
   const url = new URL(context.request.url);
   const hostname = url.hostname.toLowerCase();
@@ -119,72 +210,25 @@ export async function onRequest(context) {
   // 2. Token-Guard & Multi-Tenant Isolation für Mandanten-Pfade
   if (rootSegment && !isReservedRoot) {
     const clientSlug = rootSegment.replace(/^preview-/, '');
+    const baseClientSlug = clientSlug.replace(/-(?:vollversion|vv|v1|v2)$/, '');
     const isCockpit = url.pathname.includes('/cockpit') || url.pathname.endsWith('/cockpit.html');
-    const isOnboarding = url.pathname.includes('/onboarding') || url.pathname.endsWith('/onboarding.html');
-    const isPublicMxsBrand = (clientSlug === 'mxs-talent') && !isCockpit;
-
-    // Statische Medien und Styles dürfen frei passieren
-    const isAsset = url.pathname.includes('/images/') ||
-                    url.pathname.endsWith('.pdf') ||
-                    url.pathname.endsWith('.png') ||
-                    url.pathname.endsWith('.jpg') ||
-                    url.pathname.endsWith('.jpeg') ||
-                    url.pathname.endsWith('.webp') ||
-                    url.pathname.endsWith('.mp4') ||
-                    url.pathname.endsWith('.svg') ||
-                    url.pathname.endsWith('.css') ||
-                    url.pathname.endsWith('.js') ||
-                    url.pathname.endsWith('.ico');
-
-    // Mandanten-spezifische Tokens (Krypto-Secrets)
-    const clientTokens = {
-      'hiltbrand': ['hb_sec_9e2f48b7c0d3a5a81e9', 'hb2026'],
-      'preview-hiltbrand': ['hb_sec_9e2f48b7c0d3a5a81e9', 'hb2026'],
-      'birchmeier': ['bm_sec_7a1c8f3e2d9b4a5f', 'bi_live_ea3776_a1ef'],
-      'preview-birchmeier': ['bm_sec_7a1c8f3e2d9b4a5f', 'bi_live_ea3776_a1ef'],
-      'mxs-talent': ['mxs-talent_sec_master', 'mxs-talent2026'],
-      'cotra': ['cotra_sec_master', 'cotra2026'],
-      'preview-cotra': ['cotra_sec_master', 'cotra2026'],
-      'hochuli': ['hochuli_sec_master', 'hochuli2026'],
-      'preview-hochuli': ['hochuli_sec_master', 'hochuli2026'],
-      'her11': ['her11_sec_master', 'her112026'],
-      'preview-her11': ['her11_sec_master', 'her112026'],
-      'fcschlieren': ['fcschlieren_sec_master', 'fcschlieren2026'],
-      'preview-fcschlieren': ['fcschlieren_sec_master', 'fcschlieren2026'],
-      'fcschlieren-v2': ['fcschlieren_sec_master', 'fcschlieren2026'],
-      'preview-fcschlieren-v2': ['fcschlieren_sec_master', 'fcschlieren2026'],
-      'fcattiswil': ['fcattiswil_sec_master', 'fcattiswil2026'],
-      'preview-fcattiswil': ['fcattiswil_sec_master', 'fcattiswil2026'],
-      'innere-staerke': ['innerestaerke_sec_master', 'innerestaerke2026', 'innere-staerke2026'],
-      'preview-innere-staerke': ['innerestaerke_sec_master', 'innerestaerke2026', 'innere-staerke2026'],
-      'innere-staerke-v2': ['innerestaerke_sec_master', 'innerestaerke2026', 'innere-staerke2026'],
-      'preview-innere-staerke-v2': ['innerestaerke_sec_master', 'innerestaerke2026', 'innere-staerke2026'],
-      'frees': ['frees_sec_master', 'frees2026', 'frees-v22026'],
-      'preview-frees': ['frees_sec_master', 'frees2026', 'frees-v22026'],
-      'frees-v2': ['frees_sec_master', 'frees2026', 'frees-v22026'],
-      'preview-frees-v2': ['frees_sec_master', 'frees2026', 'frees-v22026'],
-      'default': [clientSlug + '_sec_master', clientSlug + '2026']
-    };
-    const validTokens = clientTokens[rootSegment] || clientTokens[clientSlug] || clientTokens['default'];
+    const validTokens = getValidTokens(rootSegment, clientSlug);
 
     const tokenParam = url.searchParams.get('token');
     const cookieHeader = context.request.headers.get('Cookie') || '';
 
-    // Mandanten-isoliertes Cookie prüfen: mxs_auth_[slug]= + Legacy-Support für Hiltbrand
     const tenantCookieKey = 'mxs_auth_' + clientSlug + '=';
+    const baseCookieKey = 'mxs_auth_' + baseClientSlug + '=';
     const legacyCockpitKey = 'hb_cockpit_token=';
     const legacyPreviewKey = 'hb_preview_token=';
 
     const hasValidCookie = validTokens.some(t =>
       cookieHeader.includes(tenantCookieKey + t) ||
+      cookieHeader.includes(baseCookieKey + t) ||
       (clientSlug === 'hiltbrand' && (cookieHeader.includes(legacyCockpitKey + t) || cookieHeader.includes(legacyPreviewKey + t)))
     );
 
     const hasValidToken = tokenParam && validTokens.includes(tokenParam);
-
-    const isPreview = rootSegment.startsWith('preview-');
-    const isEmbed = url.searchParams.get('embed') === 'true';
-    const isVorschauHost = hostname.startsWith('vorschau.');
 
     // Schutzwall:
     // A) COCKPITS (/cockpit): Verlangen zwingend einen gültigen Token oder Cookie!
@@ -199,12 +243,9 @@ export async function onRequest(context) {
         });
       }
     }
-    // B) VORSCHAU-SEITEN (vorschau.magnet-xs.ch/[slug]/):
-    // Normale Webseiten-Vorschauen (ohne /cockpit) sind frei aufrufbar, damit Links direkt geteilt werden koennen.
-    // Nur das Cockpit (/cockpit) bleibt oben unter A) zwingend durch Token/Cookie geschuetzt.
   }
 
-  // 3. Hostname: vorschau.magnet-xs.ch (Dynamisches Mandanten-Routing)
+  // 3. Hostname: vorschau.magnet-xs.ch (Dynamisches & Rate-sicheres Mandanten-Routing)
   if (hostname.startsWith('vorschau.')) {
     if (url.pathname === '/' || url.pathname === '') {
       return Response.redirect('https://magnet-xs.com', 302);
@@ -221,49 +262,59 @@ export async function onRequest(context) {
     let targetPath = url.pathname;
     let isClientPath = false;
     let activeClientSlug = '';
+    let targetFolder = '';
 
     const match = url.pathname.match(/^\/([a-zA-Z0-9_-]+)(\/.*)?$/);
     if (match && !['api', 'webpilot', 'boardroom', 'partner', 'mxs-talent', 'images', 'css', 'js', 'fonts'].includes(match[1])) {
       isClientPath = true;
-      activeClientSlug = match[1];
-      const rest = match[2] || '';
+      activeClientSlug = match[1].toLowerCase();
+      const rest = match[2];
+
+      // Erzwinge Trailing Slash auf dem Root-Pfad eines Mandanten, damit relative Links (images/..., kontakt.html) immer stimmen
+      if (!rest) {
+        const slashUrl = new URL(`/${match[1]}/${url.search}`, url.origin);
+        return Response.redirect(slashUrl.toString(), 302);
+      }
+
+      targetFolder = VORSCHAU_SLUG_TO_FOLDER[activeClientSlug] || `preview-${activeClientSlug}`;
+
       if (rest === '/onboarding' || rest === '/onboarding.html') {
-        targetPath = `/preview-${activeClientSlug}/onboarding`;
+        targetPath = `/${targetFolder}/onboarding`;
+      } else if (rest === '/cockpit' || rest === '/cockpit/') {
+        targetPath = `/${targetFolder}/cockpit.html`;
       } else {
-        targetPath = `/preview-${activeClientSlug}${rest === '' ? '/' : rest}`;
+        targetPath = `/${targetFolder}${rest}`;
       }
     }
 
     const rewriteUrl = new URL(targetPath, url.origin);
     rewriteUrl.search = url.search;
-    const response = await context.env.ASSETS.fetch(new Request(rewriteUrl, context.request));
+    let response = await context.env.ASSETS.fetch(new Request(rewriteUrl, context.request));
+
+    // Falls Cloudflare Pages intern (z.B. wegen Pretty-URLs .html -> ohne .html) einen Redirect auslöst,
+    // folgen wir ihm intern auf dem targetFolder, damit die äussere URL (z.B. /frees-vollversion/...) stabil bleibt.
+    if (isClientPath && [301, 302, 307, 308].includes(response.status)) {
+      const loc = response.headers.get('location');
+      if (loc) {
+        const directUrl = new URL(loc, url.origin);
+        directUrl.search = url.search;
+        response = await context.env.ASSETS.fetch(new Request(directUrl, context.request));
+      }
+    }
 
     let newHeaders = new Headers(response.headers);
     if (isClientPath) {
       const tokenParam = url.searchParams.get('token');
       if (tokenParam) {
+        const baseClientSlug = activeClientSlug.replace(/-(?:vollversion|vv|v1|v2)$/, '');
         newHeaders.append('Set-Cookie', `mxs_auth_${activeClientSlug}=${tokenParam}; Path=/${activeClientSlug}/; Max-Age=86400; SameSite=Lax`);
+        newHeaders.append('Set-Cookie', `mxs_auth_${baseClientSlug}=${tokenParam}; Path=/; Max-Age=86400; SameSite=Lax`);
         if (activeClientSlug === 'hiltbrand') {
           newHeaders.append('Set-Cookie', `hb_preview_token=${tokenParam}; Path=/hiltbrand/; Max-Age=86400; SameSite=Lax`);
         }
       }
     }
 
-    if ([301, 302, 307, 308].includes(response.status)) {
-      const loc = response.headers.get('location');
-      if (loc) {
-        let cleanLoc = loc.replace(/^\/preview-([a-zA-Z0-9_-]+)/, '/$1');
-        if (cleanLoc === url.pathname) {
-          const directUrl = new URL(loc, url.origin);
-          return await context.env.ASSETS.fetch(new Request(directUrl, context.request));
-        }
-        newHeaders.set('location', cleanLoc);
-        return new Response(response.body, {
-          status: response.status,
-          headers: newHeaders
-        });
-      }
-    }
     return new Response(response.body, {
       status: response.status,
       headers: newHeaders
@@ -273,42 +324,16 @@ export async function onRequest(context) {
   // 4. Default: embed.magnet-xs.ch (Tenant-Scoped Cookie setzen)
   if (rootSegment && !isReservedRoot) {
     const clientSlug = rootSegment.replace(/^preview-/, '');
+    const baseClientSlug = clientSlug.replace(/-(?:vollversion|vv|v1|v2)$/, '');
     const tokenParam = url.searchParams.get('token');
     const response = await context.next();
     if (tokenParam) {
-      const clientTokens = {
-        'hiltbrand': ['hb_sec_9e2f48b7c0d3a5a81e9', 'hb2026'],
-        'preview-hiltbrand': ['hb_sec_9e2f48b7c0d3a5a81e9', 'hb2026'],
-        'birchmeier': ['bm_sec_7a1c8f3e2d9b4a5f', 'bi_live_ea3776_a1ef'],
-        'preview-birchmeier': ['bm_sec_7a1c8f3e2d9b4a5f', 'bi_live_ea3776_a1ef'],
-        'mxs-talent': ['mxs-talent_sec_master', 'mxs-talent2026'],
-      'cotra': ['cotra_sec_master', 'cotra2026'],
-      'preview-cotra': ['cotra_sec_master', 'cotra2026'],
-      'hochuli': ['hochuli_sec_master', 'hochuli2026'],
-      'preview-hochuli': ['hochuli_sec_master', 'hochuli2026'],
-      'her11': ['her11_sec_master', 'her112026'],
-      'preview-her11': ['her11_sec_master', 'her112026'],
-      'fcschlieren': ['fcschlieren_sec_master', 'fcschlieren2026'],
-      'preview-fcschlieren': ['fcschlieren_sec_master', 'fcschlieren2026'],
-      'fcschlieren-v2': ['fcschlieren_sec_master', 'fcschlieren2026'],
-      'preview-fcschlieren-v2': ['fcschlieren_sec_master', 'fcschlieren2026'],
-      'fcattiswil': ['fcattiswil_sec_master', 'fcattiswil2026'],
-      'preview-fcattiswil': ['fcattiswil_sec_master', 'fcattiswil2026'],
-      'innere-staerke': ['innerestaerke_sec_master', 'innerestaerke2026', 'innere-staerke2026'],
-      'preview-innere-staerke': ['innerestaerke_sec_master', 'innerestaerke2026', 'innere-staerke2026'],
-      'innere-staerke-v2': ['innerestaerke_sec_master', 'innerestaerke2026', 'innere-staerke2026'],
-      'preview-innere-staerke-v2': ['innerestaerke_sec_master', 'innerestaerke2026', 'innere-staerke2026'],
-      'frees': ['frees_sec_master', 'frees2026', 'frees-v22026'],
-      'preview-frees': ['frees_sec_master', 'frees2026', 'frees-v22026'],
-      'frees-v2': ['frees_sec_master', 'frees2026', 'frees-v22026'],
-      'preview-frees-v2': ['frees_sec_master', 'frees2026', 'frees-v22026'],
-        'default': [clientSlug + '_sec_master', clientSlug + '2026']
-      };
-      const validTokens = clientTokens[rootSegment] || clientTokens[clientSlug] || clientTokens['default'];
+      const validTokens = getValidTokens(rootSegment, clientSlug);
       if (validTokens.includes(tokenParam)) {
         const newHeaders = new Headers(response.headers);
         const cookiePath = '/' + rootSegment + '/';
         newHeaders.append('Set-Cookie', 'mxs_auth_' + clientSlug + '=' + tokenParam + '; Path=' + cookiePath + '; Max-Age=2592000; SameSite=Lax');
+        newHeaders.append('Set-Cookie', 'mxs_auth_' + baseClientSlug + '=' + tokenParam + '; Path=/; Max-Age=2592000; SameSite=Lax');
         if (clientSlug === 'hiltbrand') {
           newHeaders.append('Set-Cookie', 'hb_cockpit_token=' + tokenParam + '; Path=' + cookiePath + '; Max-Age=2592000; SameSite=Lax');
           newHeaders.append('Set-Cookie', 'hb_preview_token=' + tokenParam + '; Path=' + cookiePath + '; Max-Age=2592000; SameSite=Lax');

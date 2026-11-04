@@ -288,8 +288,8 @@ base_company_data = {
     "work_category_label": "Coaching, Workshops & Referenzen",
     "studio_title": "WEBPILOT STUDIO",
     "is_website_studio": True,
-    "host_url": "https://vorschau.magnet-xs.ch/innere-staerke/cockpit?token=innerestaerke2026",
-    "host_jobs_url": "https://vorschau.magnet-xs.ch/innere-staerke/",
+    "host_url": "https://vorschau.magnet-xs.ch/innere-staerke-vollversion/cockpit?token=innerestaerke2026",
+    "host_jobs_url": "https://vorschau.magnet-xs.ch/innere-staerke-vollversion/",
     "copyright": "© 2026 Nino Paneduro GmbH (Wüest + Paneduro · Businesspark Sursee). Alle Rechte vorbehalten.",
     "hosting_status": "Live-Betrieb & Hosting: Schweizer Edge · WebPilot Studio v4.0",
     "linkedin_profile": "https://www.linkedin.com/company/mentalfitnesscenter/",
@@ -299,7 +299,7 @@ base_company_data = {
 (V1_DIR / "company.json").write_text(json.dumps(base_company_data, indent=2, ensure_ascii=False), encoding="utf-8")
 v1_config = dict(base_company_data)
 v1_config.update({
-    "preview_url": "https://vorschau.magnet-xs.ch/innere-staerke/",
+    "preview_url": "https://vorschau.magnet-xs.ch/innere-staerke-vollversion/",
     "cockpit_token": "innerestaerke2026",
     "template": "executive-coaching-flagship-v1",
     "pages": ["index.html", "angebot.html", "ueber-uns.html", "referenzen.html", "kontakt.html"]
@@ -1881,26 +1881,6 @@ def render_v1_shell(filename: str, page_title: str, active_nav: str, body_html: 
 </head>
 <body>
 
-  <!-- 1-KLICK-VERSIONS-UMSCHALTER OBEN (KOMPLETTVERSION <-> ZEIGEVERSION) -->
-  <div class="wp-version-bar" data-studio-ignore="true">
-    <div class="container wp-version-inner">
-      <div class="wp-version-info">
-        <span class="top-bar-badge">WÜEST + PANEDURO · KOMPLETTVERSION</span>
-        <span>Alle 5 Seiten, 4 Methoden-Säulen, 9 Referenz-Unternehmen &amp; 10 Kundenstimmen vollständig ausgearbeitet.</span>
-      </div>
-      <div class="wp-version-pill-group" role="group" aria-label="Versions-Umschalter">
-        <span class="wp-ver-btn is-active">
-          {SVG_CHECK}
-          <span>Komplett-Version (Alle Seiten ausgearbeitet)</span>
-        </span>
-        <a href="{v2_href}" class="wp-ver-btn is-switch">
-          <span>Zeigeversion (Vorschau-Entwurf)</span>
-          {SVG_ARROW}
-        </a>
-      </div>
-    </div>
-  </div>
-
   <!-- TOP INFO BAR -->
   <div class="top-bar">
     <div class="container top-bar-inner">
@@ -1953,7 +1933,6 @@ def render_v1_shell(filename: str, page_title: str, active_nav: str, body_html: 
     <a href="ueber-uns.html" onclick="wpCloseMobileMenu()">Über uns: Christine Wüest &amp; Nino Paneduro</a>
     <a href="referenzen.html" onclick="wpCloseMobileMenu()">Referenzen &amp; Alle 10 Kundenstimmen</a>
     <a href="kontakt.html" onclick="wpCloseMobileMenu()">3-Schritte Smart-Anfrage &amp; Kontakt</a>
-    <a href="{v2_href}" onclick="wpCloseMobileMenu()" style="background-color:var(--gold);color:#161615;">Zur Zeigeversion (Vorschau-Entwurf) wechseln</a>
   </div>
 
   <main>
@@ -2014,7 +1993,7 @@ def render_v1_shell(filename: str, page_title: str, active_nav: str, body_html: 
       <div class="footer-bottom">
         <div>&copy; 2026 Nino Paneduro GmbH (Wüest + Paneduro · Businesspark Sursee, Allee 1b, CH-6210 Sursee).</div>
         <div style="display:flex;gap:16px;flex-wrap:wrap;align-items:center;">
-          <a href="{v2_href}" style="color:var(--gold);font-weight:700;">Zeigeversion (Vorschau-Entwurf) ansehen</a>
+          <a href="kontakt.html" style="color:var(--gold);font-weight:700;">Kennenlerntermin &amp; Smart-Anfrage</a>
           <a href="referenzen.html" style="color:#E5E7EB;">Alle 10 Kundenstimmen</a>
         </div>
       </div>
@@ -2053,36 +2032,17 @@ def render_v2_shell(filename: str, page_title: str, active_nav: str, body_html: 
 </head>
 <body>
 
-  <!-- TOP-BANNER ZEIGEVERSION (#UI-03 KUNDEN-SPRACHE) -->
-  <div class="wp-version-bar" data-studio-ignore="true">
-    <div class="container wp-version-inner">
-      <div class="wp-version-info">
-        <span class="top-bar-badge">VORSCHAU-ENTWURF · ZEIGEVERSION</span>
-        <span>Vorschau-Entwurf (Zeigeversion): 2 Beispiel-Seiten sind bereits ausgearbeitet — 3 weitere Themenbereiche folgen beim Ausbau.</span>
-      </div>
-      <div class="wp-version-pill-group" role="group" aria-label="Versions-Umschalter">
-        <span class="wp-ver-btn is-active">
-          {SVG_CHECK}
-          <span>Zeigeversion (Aktiv)</span>
-        </span>
-        <a href="{v1_href}" class="wp-ver-btn is-switch">
-          <span>Komplett-Version ansehen</span>
-          {SVG_ARROW}
-        </a>
-      </div>
-    </div>
-  </div>
-
   <!-- TOP INFO BAR -->
   <div class="top-bar">
     <div class="container top-bar-inner">
       <div class="top-bar-left">
-        <span class="top-bar-badge" data-slot="topbar_badge">2 BEISPIEL-SEITEN AUSGEARBEITET · 3 WEITERE BEREICHE VORBEREITET</span>
-        <span data-slot="topbar_sub">Businesspark Sursee · Allee 1b · CH-6210 Sursee · +41 78 606 20 56</span>
+        <span class="top-bar-badge" data-slot="topbar_badge">BUSINESSPARK SURSEE · ALLEE 1B · CH-6210 SURSEE</span>
+        <span data-slot="topbar_sub">Mentoren, Coaches &amp; Ratgeber für Führungskräfte, Unternehmen &amp; Spitzensport</span>
       </div>
       <div class="top-bar-links">
-        <a href="index.html#weitere-themenbereiche">Weitere Themenbereiche (3 Module)</a>
-        <a href="kontakt.html">Smart-Anfrage (Live-Demo)</a>
+        <a href="tel:+41786062056">{SVG_PHONE} <span>+41 78 606 20 56</span></a>
+        <a href="mailto:mail@innere-staerke.business">{SVG_MAIL} <span>mail@innere-staerke.business</span></a>
+        <a href="https://www.linkedin.com/company/mentalfitnesscenter/" target="_blank" rel="noopener noreferrer">LinkedIn MentalFitnessCenter</a>
       </div>
     </div>
   </div>
@@ -2094,7 +2054,7 @@ def render_v2_shell(filename: str, page_title: str, active_nav: str, body_html: 
         <img src="images/logo.svg" alt="Wüest + Paneduro — Innere Stärke entwickeln" class="brand-logo" width="52" height="52" data-slot="brand_logo">
         <div class="brand-text">
           <span class="brand-name" data-slot="brand_name">WÜEST + PANEDURO</span>
-          <span class="brand-sub" data-slot="brand_sub">VORSCHAU-ENTWURF · SURSEE</span>
+          <span class="brand-sub" data-slot="brand_sub">INNERE STÄRKE ENTWICKELN</span>
         </div>
       </a>
 
@@ -2145,7 +2105,6 @@ def render_v2_shell(filename: str, page_title: str, active_nav: str, body_html: 
       {SVG_ARROW}
     </button>
     <a href="kontakt.html" onclick="wpCloseMobileMenu()">3-Schritte Smart-Anfrage (Live-Demo)</a>
-    <a href="{v1_href}" onclick="wpCloseMobileMenu()" style="background-color:var(--gold);color:#161615;">Komplett-Version ansehen</a>
   </div>
 
   <main>
@@ -2192,10 +2151,11 @@ def render_v2_shell(filename: str, page_title: str, active_nav: str, body_html: 
         </div>
 
         <div>
-          <div class="footer-title">Versions-Vergleich &amp; Kontakt</div>
+          <div class="footer-title">Direktkontakt &amp; Rechtliches</div>
           <ul class="footer-list">
-            <li><a href="{v1_href}" style="color:var(--gold);font-weight:700;">Komplett-Version ansehen (Alle 5 Seiten)</a></li>
-            <li><a href="index.html#weitere-themenbereiche">Übersicht der 3 Ausbau-Bereiche</a></li>
+            <li><a href="tel:+41786062056">+41 78 606 20 56 (Direktwahl)</a></li>
+            <li><a href="mailto:mail@innere-staerke.business">mail@innere-staerke.business</a></li>
+            <li><a href="kontakt.html" style="color:var(--gold);font-weight:700;">3-Schritte Smart-Anfrage starten</a></li>
             <li><button type="button" onclick="wpOpenImpressumModal()">Impressum &amp; Datenschutz</button></li>
           </ul>
         </div>
@@ -2204,8 +2164,8 @@ def render_v2_shell(filename: str, page_title: str, active_nav: str, body_html: 
       <div class="footer-bottom">
         <div>&copy; 2026 Nino Paneduro GmbH (Wüest + Paneduro · Sursee) · Unverbindlicher Vorschau-Entwurf (Zeigeversion).</div>
         <div style="display:flex;gap:16px;flex-wrap:wrap;align-items:center;">
-          <a href="{v1_href}" style="color:var(--gold);font-weight:700;">Komplett-Version öffnen</a>
-          <a href="kontakt.html" style="color:#E5E7EB;">Smart-Anfrage testen</a>
+          <a href="kontakt.html" style="color:var(--gold);font-weight:700;">Smart-Anfrage testen</a>
+          <a href="index.html#weitere-themenbereiche" style="color:#E5E7EB;">Weitere Themenbereiche</a>
         </div>
       </div>
     </div>
@@ -2241,21 +2201,17 @@ def render_v2_shell(filename: str, page_title: str, active_nav: str, body_html: 
         </div>
         <div class="wp-modal-check-item">
           {SVG_CHECK}
-          <span>Direkte Anbindung an das WebPilot Studio Cockpit v4.0 für sekundenschnelle Text- und Bildanpassungen</span>
+          <span>Persönliche Vorstellung von Christine Wüest &amp; Nino Paneduro sowie Ihrem Standort im Businesspark Sursee</span>
         </div>
       </div>
 
       <div style="display:flex;flex-wrap:wrap;gap:10px;margin-top:18px;">
-        <a href="/innere-staerke/" class="btn-cta btn-cta-gold btn-sm">
-          <span>Direkt in der Komplett-Version ansehen</span>
-          {SVG_ARROW}
-        </a>
+        <button type="button" class="btn-cta btn-cta-gold btn-sm" onclick="wpCloseBlueprintModal()">
+          <span>Verstanden — Vorschau weiter ansehen</span>
+        </button>
         <a href="kontakt.html" class="btn-cta btn-cta-primary btn-sm">
           <span>3-Schritte Smart-Anfrage testen</span>
         </a>
-        <button type="button" class="btn-cta btn-cta-outline btn-sm" onclick="wpCloseBlueprintModal()">
-          <span>Schliessen</span>
-        </button>
       </div>
     </div>
   </div>
@@ -3370,10 +3326,6 @@ V2_INDEX_BODY = f"""
       <div class="preview-scope-banner">
         <div style="display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:14px;padding-bottom:14px;border-bottom:1px dashed rgba(249,178,49,0.45);">
           <span class="top-bar-badge">VORSCHAU-ENTWURF · AUSBAU-ÜBERSICHT FÜR WÜEST + PANEDURO</span>
-          <a href="/innere-staerke/" class="btn-cta btn-cta-gold btn-sm">
-            <span>Komplett-Version (Alle 5 Seiten fertig) ansehen</span>
-            {SVG_ARROW}
-          </a>
         </div>
         <h2 style="font-size:clamp(1.6rem,2.6vw,2.2rem);font-weight:800;color:#FFFFFF;margin-bottom:10px;">
           Weitere Themenbereiche (folgen beim gemeinsamen Ausbau)

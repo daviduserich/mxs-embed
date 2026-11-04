@@ -45,7 +45,7 @@ config_data = {
     "name": "FC Schlieren",
     "company_name": "FC Schlieren",
     "domain": "fcschlieren.ch",
-    "preview_url": "https://vorschau.magnet-xs.ch/fcschlieren/",
+    "preview_url": "https://vorschau.magnet-xs.ch/fcschlieren-vollversion/",
     "cockpit_token": "fcschlieren2026",
     "template": "sports-club-flagship-v1",
     "pages": ["index.html", "herren-1.html", "kontakt.html"]
@@ -1235,24 +1235,6 @@ def render_shell(filename: str, page_title: str, active_nav: str, body_html: str
   </style>
 </head>
 <body>
-
-  <!-- VERGLEICHS-UMSCHALTER V1 -> V2 -->
-  <div class="wp-v1-switch-bar">
-    <div class="container wp-v1-switch-inner">
-      <div class="wp-v1-switch-left">
-        <span class="wp-v1-badge">
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/></svg>
-          <span>VORSCHAU V1</span>
-        </span>
-        <span>Ansicht: Variante 1 (Umfangreiche Vorschau mit ausgebauten Sektionen &amp; 2 Beispiel-Teams)</span>
-      </div>
-      <a href="{v2_href}" class="wp-v1-switch-btn">
-        <span>Zu Variante 2 (Kompakte Vorschau mit Seiten-Übersicht) wechseln</span>
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-      </a>
-    </div>
-  </div>
-
   <!-- TOP BAR -->
   <div class="top-bar">
     <div class="container top-bar-inner">
@@ -1381,8 +1363,8 @@ def render_shell(filename: str, page_title: str, active_nav: str, body_html: str
   </footer>
 
   <!-- SEITEN-VORSCHAU-MODAL -->
-  <div class="wp-modal-backdrop" id="wpBlueprintModal" role="dialog" aria-modal="true" aria-labelledby="wpBpTitle">
-    <div class="wp-modal-dialog">
+  <div class="wp-modal-backdrop" id="wpBlueprintModal" role="dialog" aria-modal="true" aria-labelledby="wpBpTitle" data-allow-scroll="true">
+    <div class="wp-modal-dialog" data-allow-scroll="true">
       <button type="button" class="wp-modal-close" aria-label="Dialog schliessen" onclick="wpCloseBlueprintModal()">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
       </button>
@@ -1434,7 +1416,7 @@ def render_shell(filename: str, page_title: str, active_nav: str, body_html: str
 
   <!-- IMPRESSUM MODAL -->
   <div class="wp-modal-backdrop" id="wpImpressumModal" role="dialog" aria-modal="true" aria-labelledby="wpImpTitle">
-    <div class="wp-modal-dialog">
+    <div class="wp-modal-dialog" data-allow-scroll="true">
       <button type="button" class="wp-modal-close" aria-label="Impressum schliessen" onclick="wpCloseImpressumModal()">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
       </button>

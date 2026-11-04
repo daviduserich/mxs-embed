@@ -134,3 +134,6 @@
 [2026-11-03 22:22:17] [webpilot-lead] [EMAIL_ERR] [FAIL] to=['info@frees.ch'] err=One or more source or delivery addresses require internationalized email support, but the server does not advertise the required SMTPUTF8 capability
 [2026-11-03 22:22:19] [partner] [WHATSAPP_OK] [SENT] to=['+41 79 709 12 24'] msg_id=3EB0C5971DDFB69F7CA945
 [2026-11-03 22:22:19] [frees-v2] [LEAD_SUBMIT] [OK] ref=#WP-2026-6029 to=Stefan Fritschi & Raimondo email=False wa=True
+[2026-11-03 22:23:55] [webpilot-lead] [EMAIL_ERR] [FAIL] to=['info@frees.ch'] err=One or more source or delivery addresses require internationalized email support, but the server does not advertise the required SMTPUTF8 capability
+[2026-11-03 22:23:58] [partner] [WHATSAPP_OK] [SENT] to=['+41 79 709 12 24'] msg_id=3EB027CEE83DDFF0CB5AFE
+[2026-11-03 22:23:58] [frees] [LEAD_SUBMIT] [OK] ref=#WP-2026-4457 to=Stefan Fritschi & Raimondo email=False wa=True

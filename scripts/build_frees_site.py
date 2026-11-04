@@ -159,8 +159,8 @@ COMMON_COMPANY = {
     "hosting_status": "Live-Betrieb & Hosting: Schweizer Edge · WebPilot Studio v4.0",
 }
 
-v1_comp = dict(COMMON_COMPANY, slug="frees", host_url="https://vorschau.magnet-xs.ch/frees/cockpit?token=frees2026", host_jobs_url="https://vorschau.magnet-xs.ch/frees/")
-v1_cfg = dict(v1_comp, preview_url="https://vorschau.magnet-xs.ch/frees/", cockpit_token="frees2026", template="textil-design-flagship-v1", pages=["index.html", "dienstleistungen.html", "textilsortiment.html", "profil.html", "kontakt.html"])
+v1_comp = dict(COMMON_COMPANY, slug="frees", host_url="https://vorschau.magnet-xs.ch/frees-vollversion/cockpit?token=frees2026", host_jobs_url="https://vorschau.magnet-xs.ch/frees-vollversion/")
+v1_cfg = dict(v1_comp, preview_url="https://vorschau.magnet-xs.ch/frees-vollversion/", cockpit_token="frees2026", template="textil-design-flagship-v1", pages=["index.html", "dienstleistungen.html", "textilsortiment.html", "profil.html", "kontakt.html"])
 v1_site = {"slug": "preview-frees", "public_slug": "frees", "token": "frees2026", "name": "Free's — Studio für Textildesign, Textildruck & Stickerei", "Updated": "2026-11-03", "PagesCount": 5, "CatalogsCount": 14}
 
 v2_comp = dict(COMMON_COMPANY, slug="frees-v2", name="Free's (Zeigeversion)", host_url="https://vorschau.magnet-xs.ch/frees-v2/cockpit?token=frees2026", host_jobs_url="https://vorschau.magnet-xs.ch/frees-v2/")
@@ -2214,30 +2214,6 @@ def render_v1_shell(filename: str, page_title: str, active_nav: str, body_html: 
 </head>
 <body>
 
-  <!-- 1-KLICK-VERSIONS-UMSCHALTER OBEN (KOMPLETTVERSION <-> ZEIGEVERSION + STUDIO COCKPIT V4.0) -->
-  <div class="wp-version-bar" data-studio-ignore="true">
-    <div class="container wp-version-inner">
-      <div class="wp-version-info">
-        <span class="top-bar-badge">FREE'S · KOMPLETT-VERSION</span>
-        <span>Komplett-Version (alle Seiten ausgebaut): Alle 5 Seiten, Druck- &amp; Stick-Services sowie alle 14 Marken-Kataloge vollständig ausgearbeitet.</span>
-      </div>
-      <div class="wp-version-pill-group" role="group" aria-label="Versions-Umschalter">
-        <span class="wp-ver-btn is-active">
-          {SVG_CHECK}
-          <span>Komplett-Version (alle Seiten ausgebaut)</span>
-        </span>
-        <a href="{v2_href}" class="wp-ver-btn is-switch">
-          <span>Zur Zeigeversion (Vorschau-Entwurf) wechseln</span>
-          {SVG_ARROW}
-        </a>
-        <a href="cockpit.html?token=frees2026" class="wp-ver-btn is-cockpit">
-          {SVG_SLIDERS}
-          <span>Studio Cockpit v4.0</span>
-        </a>
-      </div>
-    </div>
-  </div>
-
   <!-- TOP INFO BAR -->
   <div class="top-bar">
     <div class="container top-bar-inner">
@@ -2290,7 +2266,6 @@ def render_v1_shell(filename: str, page_title: str, active_nav: str, body_html: 
     <a href="textilsortiment.html" onclick="wpCloseMobileMenu()">Textilsortiment: Alle 14 Marken-Kataloge &amp; Shop</a>
     <a href="profil.html" onclick="wpCloseMobileMenu()">Profil: Stefan Fritschi, Raimondo &amp; Showroom</a>
     <a href="kontakt.html" onclick="wpCloseMobileMenu()">3-Schritte Smart-Anfrage &amp; Kontakt</a>
-    <a href="{v2_href}" onclick="wpCloseMobileMenu()" style="background-color:var(--gold);color:#161615;">Zur Zeigeversion (Vorschau-Entwurf) wechseln</a>
   </div>
 
   <main>
@@ -2345,7 +2320,6 @@ def render_v1_shell(filename: str, page_title: str, active_nav: str, body_html: 
             <li><a href="tel:+41797091224">Stefan Fritschi: +41 79 709 12 24</a></li>
             <li><a href="tel:+41799665978">Raimondo: +41 79 966 59 78</a></li>
             <li><a href="mailto:info@frees.ch">E-Mail: info@frees.ch</a></li>
-            <li><a href="{v2_href}" style="color:var(--gold);font-weight:700;">Zur Zeigeversion wechseln</a></li>
             <li><button type="button" onclick="wpOpenImpressumModal()">Impressum &amp; Datenschutz</button></li>
           </ul>
         </div>
@@ -2354,8 +2328,8 @@ def render_v1_shell(filename: str, page_title: str, active_nav: str, body_html: 
       <div class="footer-bottom">
         <div>&copy; 2026 Free's Stefan Fritschi (CH-5443 Niederrohrdorf) · Öffnungszeiten nach Vereinbarung via Mail oder Telefon.</div>
         <div style="display:flex;gap:16px;flex-wrap:wrap;align-items:center;">
-          <a href="{v2_href}" style="color:var(--gold);font-weight:700;">Zeigeversion öffnen</a>
-          <a href="cockpit.html?token=frees2026" style="color:#E5E7EB;">Studio Cockpit v4.0</a>
+          <a href="kontakt.html" style="color:var(--gold);font-weight:700;">Smart-Anfrage &amp; Offerte</a>
+          <a href="textilsortiment.html" style="color:#E5E7EB;">14 Marken-Kataloge</a>
         </div>
       </div>
     </div>
@@ -2393,40 +2367,17 @@ def render_v2_shell(filename: str, page_title: str, active_nav: str, body_html: 
 </head>
 <body>
 
-  <!-- TOP-BANNER ZEIGEVERSION (#UI-03 KUNDEN-SPRACHE + STUDIO COCKPIT V4.0) -->
-  <div class="wp-version-bar" data-studio-ignore="true">
-    <div class="container wp-version-inner">
-      <div class="wp-version-info">
-        <span class="top-bar-badge">VORSCHAU-ENTWURF · ZEIGEVERSION</span>
-        <span>Zeigeversion (Vorschau-Entwurf für das Erstgespräch): 2 Beispiel-Seiten sind bereits ausgearbeitet — 3 weitere Themenbereiche folgen beim Ausbau.</span>
-      </div>
-      <div class="wp-version-pill-group" role="group" aria-label="Versions-Umschalter">
-        <span class="wp-ver-btn is-active">
-          {SVG_CHECK}
-          <span>Zeigeversion (Vorschau-Entwurf für das Erstgespräch)</span>
-        </span>
-        <a href="{v1_href}" class="wp-ver-btn is-switch">
-          <span>Zur Komplett-Version (alle Seiten) wechseln</span>
-          {SVG_ARROW}
-        </a>
-        <a href="cockpit.html?token=frees2026" class="wp-ver-btn is-cockpit">
-          {SVG_SLIDERS}
-          <span>Studio Cockpit v4.0</span>
-        </a>
-      </div>
-    </div>
-  </div>
-
   <!-- TOP INFO BAR -->
   <div class="top-bar">
     <div class="container top-bar-inner">
       <div class="top-bar-left">
-        <span class="top-bar-badge" data-slot="topbar_badge" data-wp-slot="topbar_badge">2 BEISPIEL-SEITEN AUSGEARBEITET · 3 WEITERE BEREICHE VORBEREITET</span>
-        <span data-slot="topbar_sub" data-wp-slot="topbar_sub">Mellingerstrasse 12 · CH-5443 Niederrohrdorf · +41 79 709 12 24</span>
+        <span class="top-bar-badge" data-slot="topbar_badge" data-wp-slot="topbar_badge">SHOWROOM NIEDERROHRDORF · MELLINGERSTRASSE 12</span>
+        <span data-slot="topbar_sub" data-wp-slot="topbar_sub">Textildruck, Stickerei, Arbeitskleidung &amp; Vereinsausrüstung · «Wir organisieren Wünsche»</span>
       </div>
       <div class="top-bar-links">
-        <a href="index.html#weitere-themenbereiche">Weitere Themenbereiche (Ausbaustufe)</a>
-        <a href="kontakt.html">Smart-Anfrage (Live-Demo)</a>
+        <a href="tel:+41797091224">{SVG_PHONE} <span>+41 79 709 12 24 (Stefan)</span></a>
+        <a href="tel:+41799665978">{SVG_PHONE} <span>+41 79 966 59 78 (Raimondo)</span></a>
+        <a href="mailto:info@frees.ch">{SVG_MAIL} <span>info@frees.ch</span></a>
       </div>
     </div>
   </div>
@@ -2438,7 +2389,7 @@ def render_v2_shell(filename: str, page_title: str, active_nav: str, body_html: 
         <img src="images/logo.svg" alt="Free's — Studio für Textildesign, Textildruck &amp; Stickerei" class="brand-logo" width="118" height="44" data-slot="brand_logo" data-wp-slot="brand_logo">
         <div class="brand-text">
           <span class="brand-name" data-slot="brand_name" data-wp-slot="brand_name">FREE'S TEXTILDESIGN</span>
-          <span class="brand-sub" data-slot="brand_sub" data-wp-slot="brand_sub">VORSCHAU-ENTWURF · NIEDERROHRDORF</span>
+          <span class="brand-sub" data-slot="brand_sub" data-wp-slot="brand_sub">DRUCK · STICKEREI · WORKWEAR</span>
         </div>
       </a>
 
@@ -2489,7 +2440,6 @@ def render_v2_shell(filename: str, page_title: str, active_nav: str, body_html: 
       {SVG_ARROW}
     </button>
     <a href="kontakt.html" onclick="wpCloseMobileMenu()">3-Schritte Smart-Anfrage (Live-Demo)</a>
-    <a href="{v1_href}" onclick="wpCloseMobileMenu()" style="background-color:var(--gold);color:#161615;">Zur Komplett-Version (alle Seiten) wechseln</a>
   </div>
 
   <main>
@@ -2536,11 +2486,11 @@ def render_v2_shell(filename: str, page_title: str, active_nav: str, body_html: 
         </div>
 
         <div>
-          <div class="footer-title">Versions-Vergleich &amp; Kontakt</div>
+          <div class="footer-title">Direktkontakt &amp; Showroom</div>
           <ul class="footer-list">
-            <li><a href="{v1_href}" style="color:var(--gold);font-weight:700;">Komplett-Version ansehen (Alle 5 Seiten)</a></li>
-            <li><a href="index.html#weitere-themenbereiche">Übersicht der Ausbaustufe (3 Bereiche)</a></li>
-            <li><a href="cockpit.html?token=frees2026">Studio Cockpit v4.0 öffnen</a></li>
+            <li><a href="tel:+41797091224">Stefan Fritschi: +41 79 709 12 24</a></li>
+            <li><a href="tel:+41799665978">Raimondo: +41 79 966 59 78</a></li>
+            <li><a href="mailto:info@frees.ch">E-Mail: info@frees.ch</a></li>
             <li><button type="button" onclick="wpOpenImpressumModal()">Impressum &amp; Datenschutz</button></li>
           </ul>
         </div>
@@ -2549,8 +2499,8 @@ def render_v2_shell(filename: str, page_title: str, active_nav: str, body_html: 
       <div class="footer-bottom">
         <div>&copy; 2026 Free's Stefan Fritschi (CH-5443 Niederrohrdorf) · Unverbindlicher Vorschau-Entwurf (Zeigeversion).</div>
         <div style="display:flex;gap:16px;flex-wrap:wrap;align-items:center;">
-          <a href="{v1_href}" style="color:var(--gold);font-weight:700;">Komplett-Version öffnen</a>
-          <a href="kontakt.html" style="color:#E5E7EB;">Smart-Anfrage testen</a>
+          <a href="kontakt.html" style="color:var(--gold);font-weight:700;">Smart-Anfrage testen</a>
+          <a href="index.html#weitere-themenbereiche" style="color:#E5E7EB;">Weitere Themenbereiche</a>
         </div>
       </div>
     </div>
@@ -2586,21 +2536,17 @@ def render_v2_shell(filename: str, page_title: str, active_nav: str, body_html: 
         </div>
         <div class="wp-modal-check-item">
           {SVG_CHECK}
-          <span>Direkte Anbindung an das WebPilot Studio Cockpit v4.0 für sekundenschnelle Text-, Katalog- und Bildanpassungen</span>
+          <span>Persönliche Vorstellung des Showrooms in Niederrohrdorf (Mellingerstrasse 12, Eingang C) mit Stefan Fritschi &amp; Raimondo</span>
         </div>
       </div>
 
       <div style="display:flex;flex-wrap:wrap;gap:10px;margin-top:18px;">
-        <a href="/frees/" class="btn-cta btn-cta-gold btn-sm">
-          <span>Direkt in der Komplett-Version ansehen</span>
-          {SVG_ARROW}
-        </a>
+        <button type="button" class="btn-cta btn-cta-gold btn-sm" onclick="wpCloseBlueprintModal()">
+          <span>Verstanden — Vorschau weiter ansehen</span>
+        </button>
         <a href="kontakt.html" class="btn-cta btn-cta-primary btn-sm">
           <span>3-Schritte Smart-Anfrage testen</span>
         </a>
-        <button type="button" class="btn-cta btn-cta-outline btn-sm" onclick="wpCloseBlueprintModal()">
-          <span>Schliessen</span>
-        </button>
       </div>
     </div>
   </div>
