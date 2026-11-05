@@ -16,7 +16,7 @@
  *     Mobile-Menues und Cockpit-Modals zur verpflichtenden Sichtabnahme per read_file.
  */
 
-export const SYSTEM_EYES_VERSION = '2.3.0';
+export const SYSTEM_EYES_VERSION = '2.4.0';
 
 export const SYSTEM_EYES_ZONES = [
   { name: 'mobile_375x667', width: 375, height: 667, label: 'Zone 1 Smartphone (375×667)' },
@@ -49,7 +49,8 @@ export const SYSTEM_EYES_SENSORS = [
   { id: 'S-22', code: 'P1_NAV_MULTILINE_WRAP', severity: 'P1', rule: '#UI-02', desc: 'Hauptnavigation im Header darf auf Desktop/Laptop (>= 1024px) niemals zweizeilig umbrechen (maxTop - minTop <= 10px, linkHeight <= 46px)' },
   { id: 'S-23', code: 'P2_SPLIT_BOTTOM_STEP', severity: 'P2', rule: '#UI-02', desc: 'In 2-Spalten-Sektionen (.hero-grid, .split-grid, .two-col-grid) auf Desktop (>= 1024px) muessen linke und rechte Spalte unten buendig abschliessen (kein Treppen-Versatz 8..110px)' },
   { id: 'S-24', code: 'P2_HERO_CTA_STACKED_ON_DESKTOP', severity: 'P2', rule: '#UI-02', desc: 'Benachbarte Hero-Action-Buttons duerfen in breiten Desktop-Spalten (>= 480px) nicht unnoetig vertikal untereinander stapeln, wenn sie nebeneinander passen' },
-  { id: 'S-25', code: 'P2_CARD_EXCESSIVE_DEAD_SPACE', severity: 'P2', rule: '#UI-02', desc: 'Gerahmte Karten (.card, .content-card, .hero-card, .hero-media-card) duerfen auf Desktop nicht > 90px leeren Totraum unter ihrem Inhalt aufweisen' }
+  { id: 'S-25', code: 'P2_CARD_EXCESSIVE_DEAD_SPACE', severity: 'P2', rule: '#UI-02', desc: 'Gerahmte Karten (.card, .content-card, .hero-card, .hero-media-card) duerfen auf Desktop nicht > 90px leeren Totraum unter ihrem Inhalt aufweisen' },
+  { id: 'S-26', code: 'P1_LOW_CONTRAST_GHOST', severity: 'P1', rule: '#UI-01', desc: 'Sichtbarer Text muss gegenueber seinem effektiven Hintergrund (inkl. RGBA-Alpha-Blending & CSS linear-/radial-gradient Farb-Stops) ein Kontrastverhaeltnis >= 2.2:1 aufweisen (kein Dunkel-auf-Dunkel oder Weiss-auf-Weiss)' }
 ];
 
 /**
@@ -653,6 +654,105 @@ export function evaluateSystemEyesInPage({ relPage, zone, options = {} }) {
           getLabel(card),
           getCssPath(card),
           `Karte hat auf Desktop ${Math.round(deadSpace)}px leeren Totraum am unteren Rand (cardBottom=${Math.round(cRect.bottom)}px vs contentBottom=${Math.round(lastKidBottom)}px)`
+        );
+      }
+    }
+  }
+
+  // S-26: P1_LOW_CONTRAST_GHOST (Alpha-blended backgroundColor + CSS linear/radial-gradient stop contrast)
+  if (!isCockpit) {
+    function parseRgbaStops(str) {
+      if (!str) return [];
+      const out = [];
+      const re = /rgba?\(\s*(\d+)\s*,\s*(\d+)\s*,\s*(\d+)(?:\s*,\s*([\d.]+))?\s*\)/g;
+      let m;
+      while ((m = re.exec(str)) !== null) {
+        const a = m[4] !== undefined ? parseFloat(m[4]) : 1;
+        if (a > 0.01) out.push([+m[1], +m[2], +m[3], a]);
+      }
+      return out;
+    }
+    function blendRgba(fgRgba, bgRgb) {
+      const a = fgRgba[3];
+      return [
+        Math.round(fgRgba[0] * a + bgRgb[0] * (1 - a)),
+        Math.round(fgRgba[1] * a + bgRgb[1] * (1 - a)),
+        Math.round(fgRgba[2] * a + bgRgb[2] * (1 - a))
+      ];
+    }
+    function getEffectiveBgRgb(el) {
+      const layers = [];
+      let cur = el;
+      while (cur && cur !== document.documentElement) {
+        const cs = window.getComputedStyle(cur);
+        if (cs.webkitBackgroundClip === 'text' || cs.backgroundClip === 'text') {
+          cur = cur.parentElement;
+          continue;
+        }
+        if (cs.backgroundImage && cs.backgroundImage.includes('gradient')) {
+          const gcols = parseRgbaStops(cs.backgroundImage);
+          const opaqueStops = gcols.filter(c => c[3] >= 0.85);
+          const stops = opaqueStops.length > 0 ? opaqueStops : gcols;
+          if (stops.length >= 1) {
+            const avg = [0, 0, 0, 0];
+            stops.forEach(c => { avg[0] += c[0]; avg[1] += c[1]; avg[2] += c[2]; avg[3] += c[3]; });
+            const layer = [avg[0] / stops.length, avg[1] / stops.length, avg[2] / stops.length, avg[3] / stops.length];
+            layers.push(layer);
+            if (layer[3] >= 0.95) break;
+          }
+        }
+        const bgc = parseRgbaStops(cs.backgroundColor);
+        if (bgc.length > 0) {
+          layers.push(bgc[0]);
+          if (bgc[0][3] >= 0.95) break;
+        }
+        cur = cur.parentElement;
+      }
+      let base = [255, 255, 255];
+      const bodyBg = parseRgbaStops(window.getComputedStyle(document.body).backgroundColor);
+      if (bodyBg.length > 0 && bodyBg[0][3] > 0.5) base = [bodyBg[0][0], bodyBg[0][1], bodyBg[0][2]];
+      for (let i = layers.length - 1; i >= 0; i--) {
+        base = blendRgba(layers[i], base);
+      }
+      return base;
+    }
+    function relLum(rgb) {
+      const a = rgb.map(v => {
+        const s = v / 255;
+        return s <= 0.03928 ? s / 12.92 : Math.pow((s + 0.055) / 1.055, 2.4);
+      });
+      return 0.2126 * a[0] + 0.7152 * a[1] + 0.0722 * a[2];
+    }
+    function contrastRatio(c1, c2) {
+      const l1 = relLum(c1), l2 = relLum(c2);
+      return (Math.max(l1, l2) + 0.05) / (Math.min(l1, l2) + 0.05);
+    }
+    for (const el of allDom) {
+      if (['SCRIPT', 'STYLE', 'SVG', 'PATH', 'HTML', 'BODY', 'INPUT', 'SELECT', 'TEXTAREA'].includes(el.tagName) || el.closest('svg')) continue;
+      const r = el.getBoundingClientRect();
+      if (r.width < 10 || r.height < 10) continue;
+      const cs = window.getComputedStyle(el);
+      if (parseFloat(cs.opacity || '1') < 0.25 || cs.webkitTextFillColor === 'transparent') continue;
+      let directText = '';
+      for (const n of el.childNodes) {
+        if (n.nodeType === 3) directText += n.textContent;
+      }
+      directText = directText.trim();
+      if (!directText) continue;
+      const fgRgba = parseRgbaStops(cs.color)[0];
+      if (!fgRgba) continue;
+      const bg = getEffectiveBgRgb(el);
+      const fg = blendRgba(fgRgba, bg);
+      // Exclude official WhatsApp brand green #25D366 (rgb 37,211,102) with white text (ratio 1.98)
+      if ((bg[0] === 37 && bg[1] === 211 && bg[2] === 102) || (fg[0] === 37 && fg[1] === 211 && fg[2] === 102)) continue;
+      const ratio = contrastRatio(fg, bg);
+      if (ratio < 2.2) {
+        addFinding(
+          'P1',
+          'P1_LOW_CONTRAST_GHOST',
+          getLabel(el),
+          getCssPath(el),
+          `Unlesbarer Text-Kontrast ${ratio.toFixed(2)}:1 (fg=rgb(${fg.join(',')}) auf bg=rgb(${bg.join(',')}), Pflicht >= 2.2:1)`
         );
       }
     }

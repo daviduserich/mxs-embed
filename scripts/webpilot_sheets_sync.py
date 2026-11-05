@@ -137,6 +137,23 @@ def split_source_and_context(raw_source_or_context: str, explicit_context: str =
 # danach IMP GmbH — Matthias Iseli unter David Hügli (Magnet XS) ganz unten (Zeile 9).
 SEED_PROJECTS = [
     {
+        "slug": "joma",
+        "active": True,
+        "company": "JOMA Solar GmbH (Wettingen AG)",
+        "pricing_recommended_chf": "CHF 2'200.—",
+        "complexity_score": "4.8 / 10.0",
+        "pricing_formula_chf": "CHF 2'150.—",
+        "pricing_rationale": "Umfangreiche Solar- & Speicher-Plattform (Privatkunden, Gewerbekunden, Batteriespeicher, Grossanlagen, Contracting, 7 Referenzprojekte inkl. Video-Fallstudie & 5er-Team) inkl. interaktivem Solar-Rechner.",
+        "v2_url": "https://vorschau.magnet-xs.ch/joma-v2/",
+        "vollversion_url": "https://vorschau.magnet-xs.ch/joma-vollversion/",
+        "cockpit_url": "https://vorschau.magnet-xs.ch/joma-vollversion/cockpit.html?token=joma2026",
+        "cockpit_light_url": "https://vorschau.magnet-xs.ch/joma-vollversion/cockpit.html?token=joma2026&mode=light",
+        "source_url": "https://www.joma-solar.ch/",
+        "branch_context": "Photovoltaik, Batteriespeicher, Solar Manager, ZEV & Contracting in Wettingen AG",
+        "partner": "Jenny Ettle (JE-MI)",
+        "status": "🟢 Bereit zum Zeigen (05.11.2026)",
+    },
+    {
         "slug": "herzensarbeit",
         "active": True,
         "company": "Herzensarbeit — Anne-Katrin Koch (Härkingen SO)",

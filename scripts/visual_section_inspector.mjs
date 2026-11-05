@@ -63,6 +63,8 @@ export const SHOWCASE_DIRS = [
   "preview-frees-v2",
   "preview-imp-marketing",
   "preview-imp-marketing-v2",
+  "preview-joma",
+  "preview-joma-v2",
   "preview-fcschlieren",
   "preview-fcschlieren-v2",
   "preview-scfulenbach",

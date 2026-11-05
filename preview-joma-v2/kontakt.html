@@ -1,0 +1,2953 @@
+<!DOCTYPE html>
+<html lang="de-CH">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <meta http-equiv="X-XSS-Protection" content="1; mode=block">
+  <meta name="referrer" content="no-referrer">
+  <title>Kontakt & 3-Schritte Smart-Anfrage (Zeigeversion) | JOMA Solar GmbH Wettingen</title>
+  <meta name="description" content="Unverbindlicher Vorschau-Entwurf (Zeigeversion) für JOMA Solar GmbH Wettingen: 2 Beispiel-Seiten sind bereits ausgearbeitet — 3 weitere Detailseiten folgen beim Ausbau.">
+  <link rel="icon" type="image/png" href="images/favicon-32x32.png">
+  <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@500;600;700&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+  <style>
+
+    :root {
+      --charcoal: #1E2532;
+      --charcoal-deep: #12161F;
+      --charcoal-mid: #333F54;
+      --gold: #D64B13;
+      --gold-hover: #B83A09;
+      --gold-dark: #B83A09;
+      --gold-soft: #FFF4ED;
+      --gold-border: #F7D4C1;
+      --crimson: #D64B13;
+      --crimson-soft: #FFF4ED;
+      --green: #15803D;
+      --green-soft: #DCFCE7;
+      --bg-page: #FAFBFD;
+      --bg-card: #FFFFFF;
+      --bg-Warm: #F3F5FA;
+      --text-main: #12161F;
+      --text-body: #2C3545;
+      --text-muted: #4E5B70;
+      --border-light: #E2E8F0;
+      --border-strong: #CBD5E1;
+      --radius-sm: 4px;
+      --radius-md: 8px;
+      --shadow-sm: 0 2px 10px rgba(18, 22, 31, 0.05);
+      --shadow-md: 0 12px 30px rgba(18, 22, 31, 0.08);
+      --shadow-lg: 0 20px 44px rgba(18, 22, 31, 0.12);
+      --container: 1180px;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    ::selection {
+      background-color: rgba(214, 75, 19, 0.18);
+      color: #12161F;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+      overflow-x: hidden;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      color: var(--text-main);
+      background-color: var(--bg-page);
+      line-height: 1.62;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+      font-variant-numeric: tabular-nums;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+      transition: color 0.18s ease, background-color 0.18s ease, border-color 0.18s ease, transform 0.18s ease;
+    }
+
+    ul {
+      list-style: none;
+    }
+
+    .container {
+      width: 100%;
+      max-width: var(--container);
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* Freistehende Marken-Kicker (#UI-01: Lexend Bold, 0 JetBrains Mono, 0 //) */
+    .section-kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-family: 'Lexend', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--gold-dark);
+      background: transparent !important;
+      border: none !important;
+      padding: 0 !important;
+      box-shadow: none !important;
+      margin-bottom: 12px;
+    }
+    .section-kicker::before {
+      content: "";
+      display: inline-block;
+      width: 16px;
+      height: 2px;
+      background-color: var(--gold-dark);
+      border-radius: 0px;
+      flex-shrink: 0;
+    }
+    .section-kicker.kicker-light {
+      color: var(--gold-dark);
+    }
+    .section-kicker.kicker-light::before {
+      background-color: var(--gold-dark);
+    }
+
+    h1, h2, h3, h4 {
+      font-family: 'Lexend', sans-serif;
+      color: var(--text-main);
+      line-height: 1.18;
+      letter-spacing: -0.015em;
+    }
+
+    .section-head {
+      max-width: 780px;
+      margin-bottom: 44px;
+    }
+    .section-title {
+      font-size: clamp(1.85rem, 3.1vw, 2.55rem);
+      font-weight: 700;
+      margin-bottom: 14px;
+    }
+    .section-desc {
+      font-size: 1.03rem;
+      color: var(--text-body);
+      line-height: 1.65;
+    }
+
+    section {
+      padding: 80px 0;
+      position: relative;
+    }
+
+    /* Sub-Topbar (Wettingen AG & Direktkontakt Geschäftsführer) */
+    .top-bar {
+      background-color: #F3F5FA;
+      color: #2C3545;
+      font-size: 0.78rem;
+      padding: 8px 0;
+      border-bottom: 1px solid var(--border-light);
+    }
+    .top-bar-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .top-bar-left {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .top-bar-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      background-color: #FFF4ED;
+      color: #B83A09;
+      border: 1px solid #F7D4C1;
+      font-family: 'Lexend', sans-serif;
+      font-size: 0.71rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      padding: 3px 8px;
+      border-radius: var(--radius-sm);
+    }
+    .top-bar-links {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .top-bar-links a {
+      color: #12161F;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      min-height: 32px;
+      padding: 5px 8px;
+    }
+    .top-bar-links a:hover {
+      color: #D64B13;
+    }
+
+    /* Sticky Main Header (#UI-02: 1-Zeilen-Navigations-Gesetz) */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background-color: rgba(255, 255, 255, 0.97);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border-light);
+      box-shadow: 0 2px 12px rgba(18, 22, 31, 0.05);
+    }
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      min-height: 76px;
+      padding: 8px 0;
+    }
+    .brand-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      flex-shrink: 0;
+      min-height: 40px;
+      padding: 4px 0;
+    }
+    .brand-logo {
+      width: 138px;
+      height: 26px;
+      object-fit: contain;
+      flex-shrink: 0;
+    }
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+      border-left: 1px solid var(--border-strong);
+      padding-left: 10px;
+    }
+    .brand-name {
+      font-family: 'Lexend', sans-serif;
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--charcoal-deep);
+      line-height: 1.15;
+      white-space: nowrap;
+    }
+    .brand-sub {
+      font-size: 0.68rem;
+      font-weight: 700;
+      color: var(--gold-dark);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      margin-top: 2px;
+      white-space: nowrap;
+    }
+
+    .main-nav {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      flex-wrap: nowrap;
+      white-space: nowrap;
+    }
+    .nav-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-family: 'Lexend', sans-serif;
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--text-body);
+      padding: 6px 2px;
+      min-height: 36px;
+      border-radius: 0;
+      border: none;
+      border-bottom: 2px solid transparent;
+      background: transparent;
+      white-space: nowrap;
+      cursor: pointer;
+    }
+    .nav-link:hover,
+    .nav-link.active {
+      color: #B83A09;
+      background: transparent;
+      border-bottom-color: #D64B13;
+    }
+    .nav-link-preview {
+      color: var(--text-muted);
+      background: transparent;
+      border: none;
+      border-bottom: 2px dashed rgba(214, 75, 19, 0.38);
+      font-size: 0.86rem;
+    }
+    .nav-link-preview:hover {
+      color: #B83A09;
+      background: transparent;
+      border-bottom-color: #D64B13;
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-shrink: 0;
+    }
+
+    /* Buttons (#UI-01: 8px radius, high contrast) */
+    .btn-cta {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      font-family: 'Lexend', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 600;
+      padding: 12px 20px;
+      min-height: 44px;
+      border-radius: var(--radius-md);
+      border: 1px solid transparent;
+      cursor: pointer;
+      text-align: center;
+      line-height: 1.25;
+      transition: all 0.18s ease;
+    }
+    .btn-cta svg {
+      flex-shrink: 0;
+    }
+    .btn-cta-gold {
+      background-color: #D64B13;
+      color: #FFFFFF;
+      border-color: #D64B13;
+      font-weight: 600;
+    }
+    .btn-cta-gold:hover {
+      background-color: #B83A09;
+      color: #FFFFFF;
+      border-color: #B83A09;
+      transform: translateY(-1px);
+    }
+    .btn-cta-primary {
+      background-color: #D64B13;
+      color: #FFFFFF;
+      border-color: #D64B13;
+    }
+    .btn-cta-primary:hover {
+      background-color: #B83A09;
+      color: #FFFFFF;
+      border-color: #B83A09;
+    }
+    .btn-cta-outline {
+      background-color: #FFFFFF;
+      color: #12161F;
+      border-color: var(--border-strong);
+    }
+    .btn-cta-outline:hover {
+      border-color: #D64B13;
+      color: #B83A09;
+      background-color: var(--gold-soft);
+    }
+    .btn-cta-outline-light {
+      background-color: #FFFFFF;
+      color: #12161F;
+      border-color: rgba(214, 75, 19, 0.35);
+    }
+    .btn-cta-outline-light:hover {
+      background-color: #FFF4ED;
+      color: #B83A09;
+      border-color: #D64B13;
+    }
+    .btn-sm {
+      font-size: 0.84rem;
+      padding: 9px 15px;
+      min-height: 40px;
+    }
+
+    /* Mobile Burger & Drawer */
+    .mobile-toggle {
+      display: none;
+      width: 44px;
+      height: 44px;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border-strong);
+      background-color: #FFFFFF;
+      color: #12161F;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+    }
+    .mobile-drawer {
+      display: none;
+      flex-direction: column;
+      gap: 8px;
+      padding: 16px 24px 22px;
+      background-color: #FAFBFD;
+      border-top: 1px solid var(--border-light);
+    }
+    .mobile-drawer.open {
+      display: flex;
+    }
+    .mobile-drawer a,
+    .mobile-drawer button.mobile-nav-btn {
+      font-family: 'Lexend', sans-serif;
+      font-size: 0.92rem;
+      font-weight: 600;
+      color: #12161F;
+      padding: 12px 14px;
+      min-height: 44px;
+      border-radius: var(--radius-sm);
+      background-color: #FFFFFF;
+      border: 1px solid var(--border-light);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      text-align: left;
+      width: 100%;
+      cursor: pointer;
+    }
+    .mobile-drawer button.mobile-nav-btn {
+      color: #B83A09;
+      border-style: dashed;
+      border-color: rgba(214, 75, 19, 0.45);
+    }
+
+    /* Hero Section — Hell, freundlich & architektonisch klar (#UI-16 Evolution & #UI-02 Bottom-Edge Baseline Lock) */
+    .hero-section {
+      background: linear-gradient(135deg, #FFFFFF 0%, #F5F7FB 58%, #FFF4ED 100%);
+      background-color: #FAFBFD;
+      color: #12161F;
+      padding: 72px 0 84px;
+      border-bottom: 1px solid var(--border-light);
+      overflow: hidden;
+    }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.12fr 0.88fr;
+      gap: 44px;
+      align-items: stretch;
+    }
+    .hero-grid > div:first-child {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .hero-title {
+      font-size: clamp(2.1rem, 3.6vw, 3.1rem);
+      font-weight: 700;
+      color: #12161F;
+      line-height: 1.14;
+      margin-bottom: 18px;
+    }
+    .hero-title span {
+      color: #D64B13;
+    }
+    .hero-lead {
+      font-size: 1.04rem;
+      color: #2C3545;
+      line-height: 1.66;
+      margin-bottom: 26px;
+    }
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: center;
+      margin-bottom: 28px;
+    }
+    .hero-actions:last-child,
+    .hero-badges:last-child {
+      margin-top: auto;
+      margin-bottom: 0;
+    }
+    .hero-actions .btn-cta {
+      padding: 11px 16px;
+      font-size: 0.86rem;
+      white-space: nowrap;
+    }
+    .hero-badges {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+    .hero-badge-card {
+      background-color: #FFFFFF;
+      border: 1px solid var(--border-light);
+      border-left: 3px solid #D64B13;
+      border-radius: var(--radius-sm);
+      padding: 10px 14px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 2px;
+      box-shadow: var(--shadow-sm);
+    }
+    .hero-badge-val {
+      font-family: 'Lexend', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: #B83A09;
+    }
+    .hero-badge-lbl {
+      font-size: 0.78rem;
+      color: #2C3545;
+      line-height: 1.35;
+    }
+
+    .hero-media-card {
+      background-color: #FFFFFF;
+      border: 1px solid var(--border-strong);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      box-shadow: var(--shadow-lg);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      height: 100%;
+    }
+    .hero-media-card img {
+      width: 100%;
+      height: 260px;
+      min-height: 260px;
+      flex: 1 1 auto;
+      object-fit: cover;
+      object-position: center top;
+    }
+    .hero-media-caption {
+      padding: 16px 20px;
+      background-color: #F3F5FA;
+      border-top: 1px solid var(--border-light);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    /* Universal Symmetric Grids (#UI-14: Zero Ragged Edges & Equal Height) */
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 28px;
+      align-items: stretch;
+    }
+    .grid-2 > :last-child:nth-child(odd) {
+      grid-column: 1 / -1;
+    }
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      align-items: stretch;
+    }
+    .grid-4 {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      align-items: stretch;
+    }
+
+    /* Cards */
+    .content-card {
+      background-color: var(--bg-card);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-md);
+      padding: 28px;
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 18px;
+      height: 100%;
+    }
+    .content-card.card-accent-top {
+      border-top: 4px solid var(--gold);
+    }
+    .content-card.card-dark {
+      background: linear-gradient(135deg, #FFFFFF 0%, #FFF4ED 100%);
+      background-color: #FFF4ED;
+      color: #12161F;
+      border-color: #F7D4C1;
+      border-top: 4px solid #D64B13;
+    }
+    .content-card.card-dark h3 {
+      color: #12161F;
+    }
+
+    .card-badge-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-bottom: 10px;
+    }
+    .meta-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-family: 'Lexend', sans-serif;
+      font-size: 0.71rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      padding: 4px 10px;
+      border-radius: var(--radius-sm);
+      background-color: var(--gold-soft);
+      color: var(--gold-dark);
+      border: 1px solid var(--gold-border);
+    }
+    .icon-box {
+      width: 40px;
+      height: 40px;
+      border-radius: var(--radius-sm);
+      background-color: #FFF4ED;
+      color: #D64B13;
+      border: 1px solid #F7D4C1;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .check-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-top: 8px;
+    }
+    .check-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 0.92rem;
+      color: var(--text-body);
+      line-height: 1.5;
+    }
+    .check-item svg {
+      color: var(--gold);
+      flex-shrink: 0;
+      margin-top: 3px;
+    }
+
+    /* Pillar Media Cards */
+    .pillar-card {
+      background-color: #FFFFFF;
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      height: 100%;
+    }
+    .pillar-img-wrap {
+      width: 100%;
+      height: 215px;
+      overflow: hidden;
+      background-color: var(--charcoal);
+      position: relative;
+    }
+    .pillar-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+    .pillar-body {
+      padding: 24px 26px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      flex: 1;
+      gap: 16px;
+    }
+
+    /* Founder / Team Cards */
+    .founder-card {
+      background-color: #FFFFFF;
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      box-shadow: var(--shadow-md);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      height: 100%;
+    }
+    .founder-top {
+      display: grid;
+      grid-template-columns: 180px 1fr;
+      gap: 22px;
+      padding: 26px 26px 0;
+      align-items: start;
+    }
+    .founder-portrait {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      object-position: center top;
+      border-radius: var(--radius-md);
+      border: 2px solid var(--gold);
+    }
+    .founder-body {
+      padding: 20px 26px 26px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      flex: 1;
+      gap: 16px;
+    }
+
+    /* Interactive Solar Calculator Styles */
+    .calc-option-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      margin-bottom: 18px;
+      align-items: stretch;
+    }
+    .calc-option-btn {
+      background-color: var(--bg-page);
+      border: 1px solid var(--border-strong);
+      border-radius: var(--radius-sm);
+      padding: 12px;
+      text-align: left;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 4px;
+      font-family: inherit;
+      min-height: 74px;
+      transition: all 0.16s ease;
+    }
+    .calc-option-btn:hover {
+      border-color: var(--gold);
+      background-color: #FFFFFF;
+    }
+    .calc-option-btn.active {
+      border: 2px solid var(--gold);
+      background-color: var(--gold-soft);
+    }
+    .calc-opt-title {
+      font-family: 'Lexend', sans-serif;
+      font-size: 0.84rem;
+      font-weight: 700;
+      color: var(--charcoal-deep);
+    }
+    .calc-opt-sub {
+      font-size: 0.75rem;
+      color: var(--text-body);
+      line-height: 1.35;
+    }
+    .calc-kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+      margin: 16px 0;
+    }
+    .calc-kpi-box {
+      background-color: #FFFFFF;
+      border: 1px solid var(--border-light);
+      border-left: 3px solid var(--gold);
+      border-radius: var(--radius-sm);
+      padding: 12px 14px;
+    }
+    .calc-kpi-val {
+      font-family: 'Lexend', sans-serif;
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--gold-dark);
+    }
+    .calc-kpi-lbl {
+      font-size: 0.78rem;
+      color: var(--text-body);
+      margin-top: 2px;
+    }
+
+    /* V2 Vorschau-Entwurf (Zeigeversion) Spezifische Styles (#UI-03 Kunden-Sprache) */
+    .preview-scope-section {
+      background-color: #F3F5FA;
+      border-top: 2px dashed rgba(214, 75, 19, 0.35);
+      border-bottom: 2px dashed rgba(214, 75, 19, 0.35);
+      padding: 76px 0 88px;
+    }
+    .preview-scope-banner {
+      background-color: #FFFFFF;
+      color: #12161F;
+      border: 2px dashed #D64B13;
+      border-radius: var(--radius-md);
+      padding: 28px 30px;
+      margin-bottom: 36px;
+      box-shadow: var(--shadow-md);
+    }
+    .preview-module-card {
+      background-color: #FFFFFF;
+      border: 2px dashed #D64B13;
+      border-radius: var(--radius-md);
+      padding: 26px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 18px;
+      box-shadow: var(--shadow-sm);
+      height: 100%;
+    }
+    .preview-status-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background-color: var(--gold-soft);
+      border: 1px solid var(--gold-border);
+      color: var(--gold-dark);
+      font-family: 'Lexend', sans-serif;
+      font-size: 0.71rem;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: var(--radius-sm);
+      text-transform: uppercase;
+    }
+
+    /* Footer */
+    .site-footer {
+      background-color: #F3F5FA;
+      color: #12161F;
+      padding: 68px 0 36px;
+      border-top: 3px solid #D64B13;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.3fr 1fr 1fr 1.1fr;
+      gap: 36px;
+      padding-bottom: 42px;
+      border-bottom: 1px solid var(--border-strong);
+    }
+    .footer-title {
+      font-family: 'Lexend', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: #12161F;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 16px;
+    }
+    .footer-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .footer-list a,
+    .footer-list button {
+      color: #2C3545;
+      font-size: 0.88rem;
+      background: none;
+      border: none;
+      text-align: left;
+      cursor: pointer;
+      font-family: inherit;
+      padding: 5px 0;
+      min-height: 34px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .footer-list a:hover,
+    .footer-list button:hover {
+      color: #D64B13;
+    }
+    .footer-bottom {
+      padding-top: 26px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+      font-size: 0.82rem;
+      color: #2C3545;
+    }
+    .footer-bottom a {
+      display: inline-flex;
+      align-items: center;
+      min-height: 34px;
+      padding: 4px 0;
+    }
+
+    /* Modals (#wpBlueprintModal & #wpImpressumModal) */
+    .wp-modal-backdrop {
+      position: fixed;
+      inset: 0;
+      background-color: rgba(15, 23, 30, 0.76);
+      backdrop-filter: blur(4px);
+      z-index: 9998;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      overflow-y: auto;
+    }
+    .wp-modal-backdrop.open {
+      display: flex;
+    }
+    .wp-modal-dialog {
+      background-color: #FFFFFF;
+      color: var(--text-main);
+      border: 2px solid var(--gold);
+      border-radius: var(--radius-md);
+      max-width: 650px;
+      width: 100%;
+      padding: 28px;
+      position: relative;
+      box-shadow: var(--shadow-lg);
+      max-height: 90vh;
+      overflow-y: auto;
+    }
+    .wp-modal-close {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      width: 38px;
+      height: 38px;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border-strong);
+      background-color: var(--bg-page);
+      color: var(--charcoal-deep);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+    }
+    .wp-modal-checklist {
+      background-color: var(--bg-page);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-md);
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .wp-modal-check-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 0.86rem;
+      color: var(--text-body);
+    }
+    .wp-modal-check-item svg {
+      color: var(--gold);
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    /* 3-Schritte Smart-Anfrage Assistent (kontakt.html) */
+    .contact-layout {
+      display: grid;
+      grid-template-columns: 0.88fr 1.12fr;
+      gap: 38px;
+      align-items: stretch;
+    }
+    .contact-info-panel {
+      background-color: #FFFFFF;
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-md);
+      padding: 28px;
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      height: 100%;
+    }
+    .contact-direct-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-top: 20px;
+    }
+    .contact-direct-item {
+      padding: 12px 14px;
+      background-color: var(--bg-page);
+      border: 1px solid var(--border-light);
+      border-left: 3px solid var(--gold);
+      border-radius: var(--radius-sm);
+      font-size: 0.85rem;
+    }
+    .contact-direct-role {
+      font-family: 'Lexend', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: var(--gold-dark);
+      letter-spacing: 0.04em;
+    }
+    .contact-direct-person {
+      font-weight: 700;
+      color: var(--charcoal-deep);
+      margin-top: 2px;
+    }
+    .contact-direct-links {
+      color: var(--text-body);
+      font-size: 0.82rem;
+      margin-top: 2px;
+    }
+
+    .wizard-card {
+      background-color: #FFFFFF;
+      border: 2px solid var(--charcoal-deep);
+      border-radius: var(--radius-md);
+      padding: 30px;
+      box-shadow: var(--shadow-md);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      height: 100%;
+    }
+    .wp-stepper {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+      margin-bottom: 22px;
+      padding: 6px;
+      background-color: var(--bg-Warm);
+      border-radius: var(--radius-md);
+    }
+    .wp-step-pill {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 10px 8px;
+      border-radius: var(--radius-sm);
+      font-family: 'Lexend', sans-serif;
+      font-size: 0.76rem;
+      font-weight: 700;
+      color: var(--text-muted);
+      text-align: center;
+    }
+    .wp-step-pill.active {
+      background-color: #D64B13;
+      color: #FFFFFF;
+    }
+    .wp-step-pill.done {
+      background-color: var(--green-soft);
+      color: #166534;
+    }
+    .wp-step-num {
+      width: 22px;
+      height: 22px;
+      border-radius: var(--radius-sm);
+      background-color: rgba(255, 255, 255, 0.22);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.74rem;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    .wp-step-pane {
+      display: none;
+    }
+    .wp-step-pane.active {
+      display: block;
+    }
+
+    .wp-role-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+      margin-bottom: 20px;
+      align-items: stretch;
+    }
+    .wp-role-tile {
+      background-color: var(--bg-page);
+      border: 1px solid var(--border-strong);
+      border-radius: var(--radius-md);
+      padding: 14px;
+      text-align: left;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 8px;
+      transition: all 0.18s ease;
+      font-family: inherit;
+      min-height: 92px;
+    }
+    .wp-role-tile:hover {
+      border-color: var(--gold);
+      background-color: #FFFFFF;
+    }
+    .wp-role-tile.selected {
+      border: 2px solid var(--gold);
+      background-color: var(--gold-soft);
+    }
+    .wp-role-head {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .wp-role-icon {
+      width: 28px;
+      height: 28px;
+      border-radius: var(--radius-sm);
+      background-color: #FFF4ED;
+      color: #D64B13;
+      border: 1px solid #F7D4C1;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .wp-role-title {
+      font-family: 'Lexend', sans-serif;
+      font-size: 0.86rem;
+      font-weight: 700;
+      color: var(--charcoal-deep);
+      line-height: 1.25;
+    }
+    .wp-role-desc {
+      font-size: 0.77rem;
+      color: var(--text-body);
+      line-height: 1.42;
+    }
+
+    .form-grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+      align-items: stretch;
+    }
+    .form-field {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 6px;
+    }
+    .form-label {
+      font-family: 'Lexend', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--charcoal-deep);
+      line-height: 1.3;
+    }
+    .form-input,
+    .form-textarea {
+      width: 100%;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 1rem;
+      color: var(--text-main);
+      background-color: #FFFFFF;
+      border: 1px solid var(--border-strong);
+      border-radius: var(--radius-sm);
+      padding: 11px 14px;
+      min-height: 44px;
+    }
+    .form-input:focus,
+    .form-textarea:focus {
+      outline: none;
+      border-color: var(--gold);
+      box-shadow: 0 0 0 3px rgba(214, 75, 19, 0.16);
+    }
+    .form-textarea {
+      min-height: 100px;
+      resize: vertical;
+    }
+
+    .wp-upload-zone {
+      border: 1px dashed var(--border-strong);
+      background-color: var(--bg-page);
+      border-radius: var(--radius-md);
+      padding: 14px;
+    }
+    .wp-upload-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 14px;
+      min-height: 42px;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border-strong);
+      background-color: #FFFFFF;
+      font-family: 'Lexend', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--charcoal-deep);
+      cursor: pointer;
+    }
+    .wp-photo-thumbs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 10px;
+    }
+    .wp-thumb-item {
+      position: relative;
+      width: 72px;
+      height: 72px;
+      border-radius: var(--radius-sm);
+      overflow: hidden;
+      border: 1px solid var(--border-strong);
+    }
+    .wp-thumb-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .wp-thumb-remove {
+      position: absolute;
+      top: 2px;
+      right: 2px;
+      width: 22px;
+      height: 22px;
+      background-color: var(--charcoal-deep);
+      color: #FFFFFF;
+      border: none;
+      border-radius: var(--radius-sm);
+      font-size: 0.72rem;
+      cursor: pointer;
+    }
+
+    .wp-plz-badge {
+      display: none;
+      align-items: center;
+      gap: 8px;
+      margin-top: 6px;
+      padding: 8px 12px;
+      border-radius: var(--radius-sm);
+      font-size: 0.78rem;
+      font-weight: 600;
+    }
+    .wp-plz-badge.in-area {
+      display: flex;
+      background-color: var(--green-soft);
+      color: #166534;
+      border: 1px solid #86EFAC;
+    }
+
+    .wp-selftest-banner {
+      background-color: var(--gold-soft);
+      border: 1px solid var(--gold-border);
+      border-left: 4px solid var(--gold);
+      border-radius: var(--radius-sm);
+      padding: 12px 14px;
+      font-size: 0.8rem;
+      color: #7C2304;
+      margin-bottom: 16px;
+    }
+
+    .wp-success-box {
+      display: none;
+      flex-direction: column;
+      gap: 16px;
+      padding: 24px;
+      background-color: var(--bg-page);
+      border: 2px solid var(--green);
+      border-radius: var(--radius-md);
+    }
+    .wp-success-box.visible {
+      display: flex;
+    }
+    .wp-wa-preview {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.82rem;
+      background-color: #FFFFFF;
+      border: 1px solid var(--border-light);
+      border-left: 4px solid var(--green);
+      padding: 12px 14px;
+      border-radius: var(--radius-sm);
+      white-space: pre-wrap;
+      color: var(--text-main);
+    }
+
+    @media (max-width: 1080px) {
+      .hero-grid,
+      .contact-layout,
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+      .grid-4 {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .main-nav {
+        display: none;
+      }
+      .mobile-toggle {
+        display: inline-flex;
+      }
+    }
+
+    @media (max-width: 768px) {
+      section {
+        padding: 56px 0;
+      }
+      .grid-2,
+      .grid-3,
+      .grid-4,
+      .hero-badges,
+      .wp-role-grid,
+      .form-grid-2,
+      .wp-stepper,
+      .founder-top,
+      .calc-option-grid,
+      .calc-kpi-grid {
+        grid-template-columns: 1fr;
+      }
+      .header-actions .btn-cta {
+        display: none;
+      }
+      .hero-actions .btn-cta {
+        white-space: normal;
+        width: 100%;
+      }
+      .brand-link {
+        flex-shrink: 1;
+        min-width: 0;
+        min-height: 40px;
+        gap: 8px;
+      }
+      .brand-logo {
+        width: 98px;
+        height: 19px;
+      }
+      .brand-text {
+        min-width: 0;
+      }
+      .brand-name {
+        font-size: 0.76rem;
+      }
+      .brand-sub {
+        font-size: 0.62rem;
+        line-height: 1.2;
+      }
+      .hero-media-card img {
+        height: 250px;
+      }
+      .founder-portrait {
+        height: 230px;
+      }
+      .wizard-card,
+      .content-card {
+        padding: 20px;
+      }
+    }
+
+  
+/* === WEBPILOT-PARTNER-ATTRIBUTION-CSS-START === */
+    .wp-partner-attr-bar {
+      margin-top: 20px;
+      padding: 16px 18px;
+      background: linear-gradient(135deg, #F8FAFC 0%, #F1F5F9 100%);
+      border: 1px solid #CBD5E1;
+      border-left: 4px solid #D64B13;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 14px;
+      box-sizing: border-box;
+      width: 100%;
+      overflow: hidden;
+    }
+    .wp-partner-attr-left {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      flex: 1 1 260px;
+      min-width: 0;
+    }
+    .wp-partner-attr-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 4px;
+      background-color: #12161F;
+      color: #FBBF24;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    .wp-partner-attr-text {
+      min-width: 0;
+      flex: 1;
+    }
+    .wp-partner-attr-title {
+      font-family: 'Lexend', sans-serif;
+      font-size: 0.86rem;
+      font-weight: 800;
+      color: #12161F;
+      line-height: 1.35;
+      margin: 0 0 3px 0;
+    }
+    .wp-partner-attr-sub {
+      font-size: 0.79rem;
+      color: #475569;
+      line-height: 1.4;
+      margin: 0;
+    }
+    .wp-partner-cta-btn {
+      appearance: none;
+      background-color: #12161F;
+      color: #FFFFFF !important;
+      border: 1px solid #12161F;
+      border-radius: 8px;
+      padding: 10px 15px;
+      min-height: 42px;
+      min-width: 44px;
+      font-family: 'Lexend', sans-serif;
+      font-size: 0.79rem;
+      font-weight: 700;
+      line-height: 1.3;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      text-align: left;
+      transition: background-color 0.18s ease, border-color 0.18s ease;
+      box-sizing: border-box;
+      overflow: hidden;
+      max-width: 100%;
+    }
+    .wp-partner-cta-btn:hover {
+      background-color: #D64B13;
+      border-color: #D64B13;
+      color: #FFFFFF !important;
+    }
+    .wp-partner-cta-btn svg {
+      flex-shrink: 0;
+    }
+    .wp-partner-footer-btn {
+      appearance: none;
+      background-color: #1e293b;
+      color: #F8FAFC !important;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 8px;
+      padding: 7px 13px;
+      min-height: 36px;
+      min-width: 44px;
+      font-family: inherit;
+      font-size: 0.78rem;
+      font-weight: 700;
+      line-height: 1.3;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      text-align: left;
+      transition: background-color 0.18s ease, border-color 0.18s ease;
+      box-sizing: border-box;
+      overflow: hidden;
+      max-width: 100%;
+    }
+    .wp-partner-footer-btn:hover {
+      background-color: #0f172a;
+      border-color: #FBBF24;
+      color: #FFFFFF !important;
+    }
+    .wp-partner-footer-btn svg {
+      color: #FBBF24;
+      flex-shrink: 0;
+    }
+    /* Partner Modal (#wpPartnerModal) */
+    .wp-partner-modal-backdrop {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background-color: rgba(11, 19, 36, 0.82);
+      backdrop-filter: blur(6px);
+      z-index: 2200;
+      align-items: center;
+      justify-content: center;
+      padding: 14px;
+      box-sizing: border-box;
+    }
+    .wp-partner-modal-backdrop.open {
+      display: flex;
+    }
+    .wp-partner-modal-dialog {
+      background-color: #FFFFFF;
+      color: #0F172A;
+      border: 2px solid #D64B13;
+      border-radius: 8px;
+      max-width: 640px;
+      width: 100%;
+      padding: 22px 22px 20px 22px;
+      box-shadow: 0 20px 45px rgba(15, 23, 42, 0.35);
+      position: relative;
+      max-height: calc(100dvh - 28px);
+      overflow-y: auto;
+      box-sizing: border-box;
+    }
+    .wp-partner-modal-head {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 10px;
+    }
+    .wp-partner-modal-kicker {
+      font-family: 'Lexend', sans-serif;
+      font-size: 0.7rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+      color: #D64B13;
+      display: block;
+      margin-bottom: 4px;
+    }
+    .wp-partner-modal-title {
+      font-family: 'Lexend', sans-serif;
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: #12161F;
+      line-height: 1.25;
+      margin: 0;
+    }
+    .wp-partner-modal-close {
+      appearance: none;
+      width: 38px;
+      height: 38px;
+      min-width: 38px;
+      min-height: 38px;
+      border-radius: 8px;
+      border: 1px solid #CBD5E1;
+      background-color: #F8FAFC;
+      color: #0F172A;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      padding: 0;
+    }
+    .wp-partner-modal-close:hover {
+      background-color: #E2E8F0;
+    }
+    .wp-partner-notice {
+      background-color: #F8FAFC;
+      border: 1px solid #E2E8F0;
+      border-left: 4px solid #12161F;
+      border-radius: 4px;
+      padding: 9px 12px;
+      font-size: 0.78rem;
+      color: #334155;
+      line-height: 1.42;
+      margin-bottom: 14px;
+    }
+    .wp-partner-vcard {
+      background-color: #F8FAFC;
+      border: 1px solid #CBD5E1;
+      border-radius: 8px;
+      padding: 13px 14px;
+      margin-bottom: 14px;
+    }
+    .wp-partner-vcard-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+    .wp-partner-vcard-name {
+      font-family: 'Lexend', sans-serif;
+      font-size: 0.96rem;
+      font-weight: 800;
+      color: #12161F;
+      line-height: 1.25;
+    }
+    .wp-partner-vcard-role {
+      font-size: 0.77rem;
+      color: #475569;
+      margin-top: 2px;
+    }
+    .wp-partner-vcard-badge {
+      background-color: #12161F;
+      color: #FFFFFF;
+      font-family: 'Lexend', sans-serif;
+      font-size: 0.68rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      padding: 4px 8px;
+      border-radius: 4px;
+      overflow: hidden;
+    }
+    .wp-partner-direct-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 8px;
+    }
+    .wp-partner-direct-btn {
+      text-decoration: none;
+      border-radius: 8px;
+      padding: 8px 10px;
+      min-height: 40px;
+      min-width: 44px;
+      font-family: 'Lexend', sans-serif;
+      font-size: 0.76rem;
+      font-weight: 700;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      text-align: center;
+      box-sizing: border-box;
+      overflow: hidden;
+      transition: opacity 0.16s ease, transform 0.16s ease;
+    }
+    .wp-partner-direct-btn svg {
+      flex-shrink: 0;
+    }
+    .wp-partner-direct-wa {
+      background-color: #059669;
+      color: #FFFFFF !important;
+      border: 1px solid #059669;
+    }
+    .wp-partner-direct-tel {
+      background-color: #12161F;
+      color: #FFFFFF !important;
+      border: 1px solid #12161F;
+    }
+    .wp-partner-direct-mail {
+      background-color: #FFFFFF;
+      color: #12161F !important;
+      border: 1px solid #94A3B8;
+    }
+    .wp-partner-form-box {
+      background-color: #FFFFFF;
+      border: 1px solid #CBD5E1;
+      border-radius: 8px;
+      padding: 14px;
+    }
+    .wp-partner-form-title {
+      font-family: 'Lexend', sans-serif;
+      font-size: 0.88rem;
+      font-weight: 800;
+      color: #12161F;
+      margin: 0 0 4px 0;
+    }
+    .wp-partner-form-sub {
+      font-size: 0.76rem;
+      color: #475569;
+      margin: 0 0 12px 0;
+      line-height: 1.4;
+    }
+    .wp-partner-form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+    .wp-partner-field {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      margin-bottom: 10px;
+    }
+    .wp-partner-form-grid .wp-partner-field {
+      margin-bottom: 0;
+    }
+    .wp-partner-label {
+      font-size: 0.74rem;
+      font-weight: 700;
+      color: #1E293B;
+      line-height: 1.25;
+    }
+    .wp-partner-input {
+      width: 100%;
+      min-height: 40px;
+      padding: 8px 11px;
+      border: 1px solid #CBD5E1;
+      border-radius: 8px;
+      font-family: inherit;
+      font-size: 0.84rem;
+      color: #0F172A;
+      background-color: #FFFFFF;
+      box-sizing: border-box;
+    }
+    .wp-partner-input:focus {
+      outline: none;
+      border-color: #D64B13;
+    }
+    .wp-partner-submit-btn {
+      appearance: none;
+      width: 100%;
+      min-height: 44px;
+      padding: 11px 16px;
+      background-color: #D64B13;
+      color: #FFFFFF !important;
+      border: 1px solid #D64B13;
+      border-radius: 8px;
+      font-family: 'Lexend', sans-serif;
+      font-size: 0.84rem;
+      font-weight: 800;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      box-sizing: border-box;
+      overflow: hidden;
+    }
+    .wp-partner-submit-btn:hover {
+      opacity: 0.94;
+    }
+    .wp-partner-error {
+      display: none;
+      background-color: #FEE2E2;
+      border: 1px solid #FCA5A5;
+      color: #991B1B;
+      padding: 8px 11px;
+      border-radius: 4px;
+      font-size: 0.78rem;
+      margin-bottom: 10px;
+    }
+    .wp-partner-success {
+      display: none;
+      background-color: #ECFDF5;
+      border: 1px solid #6EE7B7;
+      border-radius: 8px;
+      padding: 14px;
+      margin-top: 4px;
+    }
+    @media (max-width: 768px) {
+      body {
+        padding-bottom: 92px !important;
+      }
+      .wp-partner-attr-bar {
+        padding: 14px;
+      }
+      .wp-partner-cta-btn {
+        width: 100%;
+        justify-content: space-between;
+      }
+      .wp-partner-direct-grid {
+        grid-template-columns: 1fr;
+      }
+      .wp-partner-form-grid {
+        grid-template-columns: 1fr;
+      }
+      .wp-partner-modal-dialog {
+        padding: 16px 14px;
+      }
+    }
+/* === WEBPILOT-PARTNER-ATTRIBUTION-CSS-END === */
+  </style>
+</head>
+<body>
+
+  <!-- TOP INFO BAR -->
+  <div class="top-bar">
+    <div class="container top-bar-inner">
+      <div class="top-bar-left">
+        <span class="top-bar-badge" data-slot="topbar_badge">JOMA SOLAR GMBH · 5430 WETTINGEN (AG)</span>
+        <span data-slot="topbar_sub">Photovoltaik, Batteriespeicher, ZEV &amp; Contracting für Privat &amp; Gewerbe</span>
+      </div>
+      <div class="top-bar-links">
+        <a href="tel:+41565584882"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg> <span>J. Muggli: 056 558 48 82</span></a>
+        <a href="tel:+41565589867"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg> <span>M. Keller: 056 558 98 67</span></a>
+        <a href="mailto:info@joma-solar.ch"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg> <span>info@joma-solar.ch</span></a>
+      </div>
+    </div>
+  </div>
+
+  <!-- STICKY HEADER (ZEIGEVERSION MIT KUNDENFREUNDLICHEN VORSCHAU-HINWEISEN) -->
+  <header class="site-header" data-section="header">
+    <div class="container header-inner">
+      <a href="index.html" class="brand-link" aria-label="JOMA Solar GmbH Wettingen Startseite">
+        <img src="images/logo.svg" alt="JOMA Solar GmbH Logo" class="brand-logo" width="138" height="26" data-slot="brand_logo">
+        <div class="brand-text">
+          <span class="brand-name" data-slot="brand_name">JOMA Solar GmbH</span>
+          <span class="brand-sub" data-slot="brand_sub">Wettingen · Kanton Aargau</span>
+        </div>
+      </a>
+
+      <nav class="main-nav" aria-label="Hauptnavigation">
+        <a href="index.html" class="nav-link " data-nav-href="index.html">
+          <svg width="8" height="8" viewBox="0 0 8 8" aria-hidden="true"><circle cx="4" cy="4" r="4" fill="#15803D"/></svg>
+          <span>Startseite</span>
+        </a>
+        <button type="button" class="nav-link nav-link-preview" data-nav-href="leistungen.html" onclick="wpOpenBlueprintModal('Leistungen für Privat- &amp; Geschäftskunden im Detail', 'Solaranlagen EFH/MFH, Batteriespeicher, Solar Manager, Grossanlagen &amp; Contracting ohne Investition', 'Jonathan Muggli &amp; Marco Keller')">
+          <span>Leistungen</span>
+        </button>
+        <button type="button" class="nav-link nav-link-preview" data-nav-href="referenzen.html" onclick="wpOpenBlueprintModal('Alle Referenzprojekte, Drohnenbilder &amp; Kundenstimmen', 'Wettingen (3S Indach), Riniken (18.8 kWp), 2× Rütihof (30.6 &amp; 55.5 kWp), Fislisbach, Schöfflisdorf &amp; Umbricht-Video', 'Jonathan Muggli &amp; Marco Keller')">
+          <span>Referenzen</span>
+        </button>
+        <button type="button" class="nav-link nav-link-preview" data-nav-href="ueber-uns.html" onclick="wpOpenBlueprintModal('Über JOMA Solar, 5er-Team &amp; Karriere (Montageleiter)', 'Jonathan Muggli, Marco Keller, Tino Seiler, Mario Grab &amp; Sascha Tsap sowie Stelle Montageleiter Solar', 'Jonathan Muggli &amp; Marco Keller')">
+          <span>Über uns</span>
+        </button>
+        <a href="kontakt.html" class="nav-link active" data-nav-href="kontakt.html">
+          <svg width="8" height="8" viewBox="0 0 8 8" aria-hidden="true"><circle cx="4" cy="4" r="4" fill="#15803D"/></svg>
+          <span>Kontakt</span>
+        </a>
+      </nav>
+
+      <div class="header-actions">
+        <a href="kontakt.html" class="btn-cta btn-cta-primary btn-sm" data-slot="header_cta">
+          <span>Offerte anfordern</span>
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
+        <button type="button" class="mobile-toggle" id="mobileMenuBtn" aria-label="Menü öffnen" onclick="wpToggleMobileMenu()">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <div class="mobile-drawer" id="mobileDrawer">
+    <a href="index.html" onclick="wpCloseMobileMenu()">Startseite (Beispiel-Seite ausgearbeitet)</a>
+    <button type="button" class="mobile-nav-btn" onclick="wpCloseMobileMenu(); wpOpenBlueprintModal('Leistungen für Privat- &amp; Geschäftskunden im Detail', 'EFH/MFH, Batteriespeicher, Solar Manager, Grossanlagen &amp; Contracting', 'Jonathan Muggli &amp; Marco Keller')">
+      <span>Leistungen Privat &amp; Gewerbe (Folgt beim Ausbau)</span>
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+    </button>
+    <button type="button" class="mobile-nav-btn" onclick="wpCloseMobileMenu(); wpOpenBlueprintModal('Alle Referenzprojekte, Drohnenbilder &amp; Kundenstimmen', 'Wettingen, Riniken, 2× Rütihof, Fislisbach, Schöfflisdorf &amp; Umbricht-Video', 'Jonathan Muggli &amp; Marco Keller')">
+      <span>Referenzen &amp; FAQs (Folgt beim Ausbau)</span>
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+    </button>
+    <button type="button" class="mobile-nav-btn" onclick="wpCloseMobileMenu(); wpOpenBlueprintModal('Über JOMA Solar, 5er-Team &amp; Karriere (Montageleiter)', 'Alle 5 Teammitglieder mit Porträt, Partnernetzwerk &amp; Stelle Montageleiter Solar', 'Jonathan Muggli &amp; Marco Keller')">
+      <span>Über uns, Team &amp; Jobs (Folgt beim Ausbau)</span>
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+    </button>
+    <a href="kontakt.html" onclick="wpCloseMobileMenu()">3-Schritte Smart-Anfrage (Live-Demo)</a>
+  </div>
+
+  <main>
+
+  <section data-section="kontakt-zentrale" style="padding: 56px 0 84px;">
+    <div class="container">
+      <div class="contact-layout">
+        <!-- LEFT COLUMN: DIREKTKONTAKT WETTINGEN -->
+        <div class="contact-info-panel">
+          <div class="section-kicker" data-slot="contact_kicker">KONTAKT &amp; UNVERBINDLICHE OFFERTE · 5430 WETTINGEN (AG)</div>
+          <h1 style="font-size:clamp(1.65rem,2.5vw,2.15rem);font-weight:700;margin-bottom:12px;" data-slot="contact_title">
+            Ihr direkter Draht zu Jonathan Muggli &amp; Marco Keller.
+          </h1>
+          <p style="font-size:0.93rem;color:var(--text-body);margin-bottom:18px;" data-slot="contact_lead">
+            Ob Einfamilienhaus, Mehrfamilienhaus mit ZEV, Batteriespeicher-Nachrüstung oder gewerbliche Grossanlage: Starten Sie rechts die 3-Schritte Smart-Anfrage oder rufen Sie uns direkt in Wettingen an.
+          </p>
+
+          <img src="images/team-gruppe-hero.jpg" alt="Das Team der JOMA Solar GmbH in Wettingen" style="width:100%;height:200px;object-fit:cover;object-position:center top;border-radius:var(--radius-sm);margin-bottom:16px;" loading="lazy" decoding="async">
+
+          <div class="contact-direct-list">
+            <div class="contact-direct-item">
+              <div class="contact-direct-role">Standort &amp; Projektleitung</div>
+              <div class="contact-direct-person">JOMA Solar GmbH · CHE-334.571.911</div>
+              <div class="contact-direct-links">Tägerhardstrasse 90 · CH-5430 Wettingen (Kanton Aargau)</div>
+            </div>
+
+            <div class="contact-direct-item">
+              <div class="contact-direct-role">Gründer &amp; Geschäftsführer (Elektrotechnik &amp; Planung)</div>
+              <div class="contact-direct-person">Jonathan Muggli (Elektroinstallateur EFZ · Energietechniker HF · Wirtschaftsingenieur FH)</div>
+              <div class="contact-direct-links">Direktwahl: 056 558 48 82 · E-Mail: info@joma-solar.ch</div>
+            </div>
+
+            <div class="contact-direct-item">
+              <div class="contact-direct-role">Gründer &amp; Geschäftsführer (Beratung, ZEV &amp; Gewerbe)</div>
+              <div class="contact-direct-person">Marco Keller (Wirtschaftsingenieur · &gt;10 Jahre PV-Erfahrung)</div>
+              <div class="contact-direct-links">Direktwahl: 056 558 98 67 · E-Mail: info@joma-solar.ch</div>
+            </div>
+
+            <div class="contact-direct-item">
+              <div class="contact-direct-role">Einsatzgebiet ab Wettingen</div>
+              <div class="contact-direct-person">Kanton Aargau &amp; angrenzender Kanton Zürich</div>
+              <div class="contact-direct-links">Wettingen, Baden, Rütihof, Untersiggenthal, Fislisbach, Brugg, Riniken, Limmattal &amp; Wehntal</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- RIGHT COLUMN: GEFÜHRTER 3-SCHRITTE SMART-ANFRAGE-ASSISTENT -->
+        <div class="wizard-card">
+          <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;margin-bottom:14px;">
+            <div>
+              <div class="section-kicker" style="margin-bottom:4px;">3-SCHRITTE SMART-ANFRAGE · JOMA-SOLAR.CH</div>
+              <h2 style="font-size:1.35rem;font-weight:700;" id="wpWizardTitle">1. Für welches Objekt planen Sie eine Solaranlage?</h2>
+            </div>
+            <span class="meta-badge" id="wpActiveAssigneeBadge">Ansprechpartner: Jonathan Muggli &amp; Marco Keller</span>
+          </div>
+
+          <div class="wp-stepper" aria-label="Fortschritt">
+            <div class="wp-step-pill active" id="wpStepPill1">
+              <span class="wp-step-num">1</span>
+              <span>Objekt &amp; System</span>
+            </div>
+            <div class="wp-step-pill" id="wpStepPill2">
+              <span class="wp-step-num">2</span>
+              <span>Dach &amp; Zeitplan</span>
+            </div>
+            <div class="wp-step-pill" id="wpStepPill3">
+              <span class="wp-step-num">3</span>
+              <span>Kontakt &amp; Dossier</span>
+            </div>
+          </div>
+
+          <form id="isContactForm" onsubmit="return wpSubmitIsLead(event)" novalidate>
+            <div style="display:none;" aria-hidden="true">
+              <label for="wpHoneypot">Website URL</label>
+              <input type="text" id="wpHoneypot" name="website_url" tabindex="-1" autocomplete="off">
+            </div>
+
+            <!-- SCHRITT 1: OBJEKT & SYSTEM -->
+            <div class="wp-step-pane active" id="wpStep1">
+              <div class="wp-role-grid" id="wpTopicGrid">
+                <button type="button" class="wp-role-tile selected" data-topic="Einfamilienhaus: Photovoltaik, Speicher & Solar Manager" onclick="wpSelectIsTopic('Einfamilienhaus: Photovoltaik, Speicher & Solar Manager')">
+                  <div class="wp-role-head">
+                    <span class="wp-role-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg></span>
+                    <span class="wp-role-title" data-slot="topic_opt_1">1. Einfamilienhaus (PV &amp; Speicher)</span>
+                  </div>
+                  <span class="wp-role-desc">Aufdach oder 3S Indach, Batteriespeicher, Solar Manager, Wärmepumpe &amp; Wallbox</span>
+                </button>
+
+                <button type="button" class="wp-role-tile" data-topic="Mehrfamilienhaus & ZEV (Eigenverbrauchsgemeinschaft)" onclick="wpSelectIsTopic('Mehrfamilienhaus & ZEV (Eigenverbrauchsgemeinschaft)')">
+                  <div class="wp-role-head">
+                    <span class="wp-role-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="2" width="16" height="20" rx="2" ry="2"/><line x1="9" y1="22" x2="9" y2="18"/><line x1="15" y1="22" x2="15" y2="18"/><line x1="8" y1="6" x2="10" y2="6"/><line x1="14" y1="6" x2="16" y2="6"/><line x1="8" y1="10" x2="10" y2="10"/><line x1="14" y1="10" x2="16" y2="10"/><line x1="8" y1="14" x2="10" y2="14"/><line x1="14" y1="14" x2="16" y2="14"/></svg></span>
+                    <span class="wp-role-title" data-slot="topic_opt_2">2. Mehrfamilienhaus &amp; ZEV</span>
+                  </div>
+                  <span class="wp-role-desc">Solarstrom für Mieter &amp; Stockwerkeigentümer inkl. Smart-Me Abrechnung &amp; ETV-Begleitung</span>
+                </button>
+
+                <button type="button" class="wp-role-tile" data-topic="Gewerbeanlage, Grossanlage oder Solar-Contracting" onclick="wpSelectIsTopic('Gewerbeanlage, Grossanlage oder Solar-Contracting')">
+                  <div class="wp-role-head">
+                    <span class="wp-role-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></span>
+                    <span class="wp-role-title" data-slot="topic_opt_3">3. Gewerbe, Grossanlage &amp; Contracting</span>
+                  </div>
+                  <span class="wp-role-desc">Gewerbedächer ab 30 kWp, Lastspitzen-Speicher oder Contracting ohne eigene Investition</span>
+                </button>
+
+                <button type="button" class="wp-role-tile" data-topic="Batteriespeicher-Nachrüstung, Service oder E-Ladestation" onclick="wpSelectIsTopic('Batteriespeicher-Nachrüstung, Service oder E-Ladestation')">
+                  <div class="wp-role-head">
+                    <span class="wp-role-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="6" width="18" height="12" rx="2" ry="2"/><line x1="23" y1="13" x2="23" y2="11"/><polyline points="11 10 8 12 11 12 8 14"/></svg></span>
+                    <span class="wp-role-title" data-slot="topic_opt_4">4. Speicher-Nachrüstung &amp; Service</span>
+                  </div>
+                  <span class="wp-role-desc">Bestehende Anlage um Speicher, Notstrom, Solar Manager oder E-Mobilität erweitern</span>
+                </button>
+              </div>
+
+              <button type="button" class="btn-cta btn-cta-primary" style="width:100%;" onclick="wpNextStep(2)">
+                <span>Weiter zu Schritt 2: Dach &amp; Zeitplan</span>
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+              </button>
+            </div>
+
+            <!-- SCHRITT 2: DACH & ZEITPLAN -->
+            <div class="wp-step-pane" id="wpStep2">
+              <div class="form-grid-2" style="margin-bottom:14px;">
+                <div class="form-field">
+                  <label for="wpDetail1" class="form-label" id="wpDetail1Label">Dachtyp &amp; ungefähre Grösse / Stromverbrauch</label>
+                  <input type="text" id="wpDetail1" class="form-input" placeholder="z. B. Steildach Ziegel / Flachdach · ca. 7'500 kWh/Jahr">
+                </div>
+                <div class="form-field">
+                  <label for="wpDetail2" class="form-label" id="wpDetail2Label">Wunsch-Komponenten (Speicher / Wallbox / WP)</label>
+                  <input type="text" id="wpDetail2" class="form-input" placeholder="z. B. Mit Batteriespeicher (10 kWh), Solar Manager &amp; Wallbox">
+                </div>
+              </div>
+
+              <div class="form-field" style="margin-bottom:14px;">
+                <label class="form-label">Gewünschter Realisierungs-Zeitraum</label>
+                <div class="wp-role-grid" id="wpUrgencyGrid" style="margin-bottom:0;">
+                  <button type="button" class="wp-role-tile selected" data-urg="Zeitnah (Beratung & Offerte in den nächsten 1–2 Wochen)" onclick="wpSelectIsUrgency('Zeitnah (Beratung & Offerte in den nächsten 1–2 Wochen)')">
+                    <span class="wp-role-title">1. Zeitnahe Beratung &amp; Offerte</span>
+                    <span class="wp-role-desc">Vor-Ort-Besichtigung oder Dachprüfung in den nächsten 1–2 Wochen</span>
+                  </button>
+                  <button type="button" class="wp-role-tile" data-urg="In Planung (Neubau, Dachsanierung oder Heizungsersatz)" onclick="wpSelectIsUrgency('In Planung (Neubau, Dachsanierung oder Heizungsersatz)')">
+                    <span class="wp-role-title">2. Neubau oder Sanierung in Planung</span>
+                    <span class="wp-role-desc">Frühzeitige Abstimmung mit Architektur, Dachdecker oder Heizungsplanung</span>
+                  </button>
+                </div>
+              </div>
+
+              <div class="form-field" style="margin-bottom:14px;">
+                <label for="contactMessage" class="form-label">Ergänzende Angaben zum Gebäude oder Fragen (optional)</label>
+                <textarea id="contactMessage" class="form-textarea" placeholder="Gerne können Sie hier die Objektadresse für die Luftbild-Vorabprüfung oder Fragen notieren..."></textarea>
+              </div>
+
+              <div class="wp-upload-zone" style="margin-bottom:16px;">
+                <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;">
+                  <div>
+                    <div style="font-family:'Lexend',sans-serif;font-size:0.8rem;font-weight:700;color:var(--charcoal-deep);">Optional: Foto von Dach, Zählerkasten oder Plänen beifügen</div>
+                    <div style="font-size:0.75rem;color:var(--text-muted);" id="wpPhotoCounter">0 / 3 Beilagen ausgewählt · Automatisch für das 1-Seiten-PDF-Dossier aufbereitet</div>
+                  </div>
+                  <button type="button" class="wp-upload-btn" onclick="wpTriggerPhotoUpload()">
+                    <span>Foto / Plan auswählen</span>
+                  </button>
+                  <input type="file" id="wpPhotoInput" accept="image/*" multiple style="display:none;" onchange="wpHandlePhotoFiles(this.files)">
+                </div>
+                <div class="wp-photo-thumbs" id="wpPhotoThumbs"></div>
+              </div>
+
+              <div class="form-grid-2">
+                <button type="button" class="btn-cta btn-cta-outline" style="width:100%;" onclick="wpPrevStep()">
+                  <span>Zurück zu Schritt 1</span>
+                </button>
+                <button type="button" class="btn-cta btn-cta-primary" style="width:100%;" onclick="wpNextStep(3)">
+                  <span>Weiter zu Schritt 3: Kontaktdaten</span>
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                </button>
+              </div>
+            </div>
+
+            <!-- SCHRITT 3: KONTAKTDATEN & DOSSIER -->
+            <div class="wp-step-pane" id="wpStep3">
+              <div class="wp-selftest-banner">
+                <strong>Live-Vorschau-Modus (Selbsttest aktiv):</strong> Beim Absenden erstellt das System sofort ein echtes <strong>1-Seiten-A4-PDF-Dossier</strong> im Erscheinungsbild der <strong>JOMA Solar GmbH (Wettingen)</strong> zum direkten Öffnen und Prüfen.
+              </div>
+
+              <div class="form-grid-2" style="margin-bottom:14px;">
+                <div class="form-field">
+                  <label for="contactName" class="form-label" data-slot="lbl_name">Vor- und Nachname *</label>
+                  <input type="text" id="contactName" name="name" class="form-input" placeholder="z. B. Thomas Meier" required>
+                </div>
+                <div class="form-field">
+                  <label for="contactCompany" class="form-label">Firma / Eigentümergemeinschaft (optional)</label>
+                  <input type="text" id="contactCompany" name="company" class="form-input" placeholder="z. B. Privatperson oder Muster AG">
+                </div>
+              </div>
+
+              <div class="form-grid-2" style="margin-bottom:14px;">
+                <div class="form-field">
+                  <label for="contactLoc" class="form-label">PLZ &amp; Objekt-Standort *</label>
+                  <input type="text" id="contactLoc" name="plz" class="form-input" placeholder="z. B. 5430 Wettingen / 5400 Baden" oninput="wpCheckIsPlz(this.value)" required>
+                </div>
+                <div class="form-field">
+                  <label for="contactStreet" class="form-label">Strasse &amp; Nr. des Gebäudes (für Luftbild-Check)</label>
+                  <input type="text" id="contactStreet" name="street" class="form-input" placeholder="z. B. Tägerhardstrasse 90">
+                </div>
+              </div>
+
+              <div class="wp-plz-badge" id="wpPlzBadge" style="margin-bottom:14px;">
+                <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><polyline points="20 6 9 17 4 12"/></svg>
+                <span id="wpPlzBadgeText">PLZ 5430: Direktes Kerngebiet JOMA Solar GmbH (Wettingen / Aargau)</span>
+              </div>
+
+              <div class="form-grid-2" style="margin-bottom:18px;">
+                <div class="form-field">
+                  <label for="contactEmail" class="form-label" data-slot="lbl_email">E-Mail-Adresse *</label>
+                  <input type="email" id="contactEmail" name="email" class="form-input" placeholder="ihre.email@beispiel.ch" required>
+                </div>
+                <div class="form-field">
+                  <label for="contactPhone" class="form-label" data-slot="lbl_phone">Telefon / Mobile (für Rückfragen) *</label>
+                  <input type="tel" id="contactPhone" name="phone" class="form-input" placeholder="+41 79 123 45 67" required>
+                </div>
+              </div>
+
+              <div id="wpFormError" style="display:none;background-color:#FEE2E2;border:1px solid #FCA5A5;color:#991B1B;padding:10px 14px;border-radius:4px;font-size:0.84rem;margin-bottom:14px;"></div>
+
+              <div class="form-grid-2">
+                <button type="button" class="btn-cta btn-cta-outline" style="width:100%;" onclick="wpPrevStep()">
+                  <span>Zurück zu Schritt 2</span>
+                </button>
+                <button type="submit" class="btn-cta btn-cta-primary" id="wpSubmitBtn" style="width:100%;" data-slot="btn_submit">
+                  <span id="wpSubmitBtnText">1-Seiten-Dossier &amp; Anfrage senden</span>
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                </button>
+              </div>
+            </div>
+          </form>
+
+          <!-- SUCCESS BOX -->
+          <div class="wp-success-box" id="wpSuccessBox" aria-live="polite">
+            <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;">
+              <div style="display:flex;align-items:center;gap:10px;">
+                <span style="width:36px;height:36px;border-radius:4px;background-color:var(--green);color:#FFFFFF;display:inline-flex;align-items:center;justify-content:center;">
+                  <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><polyline points="20 6 9 17 4 12"/></svg>
+                </span>
+                <div>
+                  <div style="font-family:'Lexend',sans-serif;font-weight:700;font-size:1.08rem;color:var(--charcoal-deep);">Solar-Anfrage &amp; 1-Seiten-PDF-Dossier erfolgreich erstellt</div>
+                  <div style="font-size:0.78rem;color:var(--text-muted);" id="wpResChannels">1-Seiten-PDF-Dossier bereit zum Download</div>
+                </div>
+              </div>
+              <span class="top-bar-badge" style="background-color:#D64B13;color:#FFFFFF;" id="wpResRef">#WP-2026</span>
+            </div>
+
+            <div class="form-grid-2" style="background-color:#F3F5FA;padding:12px 14px;border-radius:4px;border:1px solid var(--border-light);font-size:0.84rem;">
+              <div>
+                <div style="color:var(--text-muted);font-size:0.75rem;">Zuständige Projektleitung (Wettingen):</div>
+                <strong style="color:var(--charcoal-deep);" id="wpResAssigned">Jonathan Muggli &amp; Marco Keller</strong>
+              </div>
+              <div>
+                <div style="color:var(--text-muted);font-size:0.75rem;">Verbindliches Rückmelde-Fenster:</div>
+                <strong style="color:var(--gold-dark);" id="wpResCallback">Innert 24–48 Stunden (Werktags)</strong>
+              </div>
+            </div>
+
+            <div>
+              <div style="font-family:'Lexend',sans-serif;font-size:0.76rem;font-weight:700;text-transform:uppercase;color:var(--text-muted);margin-bottom:6px;">
+                Generierte WhatsApp- &amp; E-Mail-Zusammenfassung:
+              </div>
+              <div class="wp-wa-preview" id="wpResWaPreview">Anfrage-Zusammenfassung wird geladen...</div>
+            </div>
+
+            <div class="form-grid-2">
+              <a href="kontakt.html" target="_blank" rel="noopener noreferrer" class="btn-cta btn-cta-primary btn-sm" id="wpResPdfBtn" style="width:100%;">
+                <span>1-Seiten-PDF-Dossier öffnen (A4)</span>
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+              </a>
+              <button type="button" class="btn-cta btn-cta-outline btn-sm" style="width:100%;" onclick="wpResetWizard()">
+                <span>Weitere Anfrage testen</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- === WEBPILOT-PARTNER-BAR-START === -->
+          <div class="wp-partner-attr-bar" id="wpPartnerAttrBar" data-studio-ignore="true">
+            <div class="wp-partner-attr-left">
+              <span class="wp-partner-attr-icon" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+              </span>
+              <div class="wp-partner-attr-text">
+                <div class="wp-partner-attr-title">Powered by WebPilot · Beratung & Umsetzung: Jenny Ettle (JE-MI)</div>
+                <p class="wp-partner-attr-sub">Gefällt Ihnen dieser moderne Webauftritt oder der 3-Schritte Smart-Anfrage-Assistent?</p>
+              </div>
+            </div>
+            <button type="button" class="wp-partner-cta-btn" data-studio-ignore="true" onclick="wpOpenPartnerModal('form_bar')">
+              <span>Auch so eine Webseite oder Smart-Anfrage für Ihren Verein / Betrieb? · Kontakt &amp; Entwurf</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </button>
+          </div>
+          <!-- === WEBPILOT-PARTNER-BAR-END === -->
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    var wpIsState = {
+      step: 1,
+      topic: 'Einfamilienhaus: Photovoltaik, Speicher & Solar Manager',
+      urgency: 'Zeitnah (Beratung & Offerte in den nächsten 1–2 Wochen)',
+      photos: []
+    };
+
+    var wpIsRoleConfig = {
+      'Einfamilienhaus: Photovoltaik, Speicher & Solar Manager': {
+        assignee: 'Jonathan Muggli & Marco Keller (EFH & Speicher)',
+        l1: 'Dachtyp & ungefähre Grösse / Jahresverbrauch',
+        p1: 'z. B. Steildach Ziegel oder Flachdach · ca. 7500 kWh/Jahr',
+        l2: 'Wunsch-Komponenten (Speicher / Wallbox / Wärmepumpe)',
+        p2: 'z. B. Mit Batteriespeicher, Solar Manager & E-Ladestation'
+      },
+      'Mehrfamilienhaus & ZEV (Eigenverbrauchsgemeinschaft)': {
+        assignee: 'Marco Keller (MFH & ZEV-Lösungen)',
+        l1: 'Anzahl Wohnungen / Parteien & Dachform',
+        p1: 'z. B. 8 Parteien · Flachdach begrünt oder Steildach',
+        l2: 'Gewünschte Leistung (ZEV / Smart-Me / ETV-Begleitung)',
+        p2: 'z. B. ZEV-Gründung inkl. Smart-Me Zähler & Eigentümerversammlung'
+      },
+      'Gewerbeanlage, Grossanlage oder Solar-Contracting': {
+        assignee: 'Marco Keller & Jonathan Muggli (Gewerbe & Contracting)',
+        l1: 'Art des Betriebs & ungefähre Dachfläche / Jahresstrombedarf',
+        p1: 'z. B. Produktions-/Kühlbetrieb · ca. 800 m² Dachfläche',
+        l2: 'Bevorzugtes Modell (Kauf / Lastspitzen-Speicher / Contracting)',
+        p2: 'z. B. Vergleich Eigeninvestition vs. Solar-Contracting'
+      },
+      'Batteriespeicher-Nachrüstung, Service oder E-Ladestation': {
+        assignee: 'Jonathan Muggli (Speicher, Elektrotechnik & Service)',
+        l1: 'Bestehende Solaranlage (Leistung kWp & Wechselrichter)',
+        p1: 'z. B. Bestehende 14 kWp Anlage aus 2021',
+        l2: 'Gewünschte Erweiterung (Speicher / Notstrom / Solar Manager)',
+        p2: 'z. B. Nachrüstung 10 kWh Batteriespeicher & Solar Manager'
+      }
+    };
+
+    function wpUpdateIsHeader() {
+      var titles = {
+        1: '1. Für welches Objekt planen Sie eine Solaranlage?',
+        2: '2. Eckdaten zu Dach, Speicher & Zeitplan',
+        3: '3. Kontaktdaten & Sofort-PDF-Dossier'
+      };
+      var tEl = document.getElementById('wpWizardTitle');
+      if (tEl) tEl.textContent = titles[wpIsState.step] || titles[1];
+
+      for (var i = 1; i <= 3; i++) {
+        var pane = document.getElementById('wpStep' + i);
+        var pill = document.getElementById('wpStepPill' + i);
+        if (pane) pane.classList.toggle('active', i === wpIsState.step);
+        if (pill) {
+          pill.classList.remove('active', 'done');
+          if (i === wpIsState.step) pill.classList.add('active');
+          else if (i < wpIsState.step) pill.classList.add('done');
+        }
+      }
+    }
+
+    function wpSelectIsTopic(topic) {
+      wpIsState.topic = topic;
+      var tiles = document.querySelectorAll('#wpTopicGrid .wp-role-tile');
+      for (var i = 0; i < tiles.length; i++) {
+        tiles[i].classList.toggle('selected', tiles[i].getAttribute('data-topic') === topic);
+      }
+      var cfg = wpIsRoleConfig[topic] || wpIsRoleConfig['Einfamilienhaus: Photovoltaik, Speicher & Solar Manager'];
+      var b = document.getElementById('wpActiveAssigneeBadge');
+      if (b) b.textContent = cfg.assignee;
+      var l1 = document.getElementById('wpDetail1Label');
+      var i1 = document.getElementById('wpDetail1');
+      var l2 = document.getElementById('wpDetail2Label');
+      var i2 = document.getElementById('wpDetail2');
+      if (l1) l1.textContent = cfg.l1;
+      if (i1) i1.placeholder = cfg.p1;
+      if (l2) l2.textContent = cfg.l2;
+      if (i2) i2.placeholder = cfg.p2;
+    }
+
+    function wpSelectIsUrgency(urg) {
+      wpIsState.urgency = urg;
+      var tiles = document.querySelectorAll('#wpUrgencyGrid .wp-role-tile');
+      for (var i = 0; i < tiles.length; i++) {
+        tiles[i].classList.toggle('selected', tiles[i].getAttribute('data-urg') === urg);
+      }
+    }
+
+    function wpNextStep(target) {
+      wpIsState.step = target;
+      wpUpdateIsHeader();
+    }
+
+    function wpPrevStep() {
+      if (wpIsState.step > 1) {
+        wpIsState.step -= 1;
+        wpUpdateIsHeader();
+      }
+    }
+
+    function wpTriggerPhotoUpload() {
+      var inp = document.getElementById('wpPhotoInput');
+      if (inp) inp.click();
+    }
+
+    function wpCompressImageFile(file, cb) {
+      var reader = new FileReader();
+      reader.onload = function(e) {
+        var img = new Image();
+        img.onload = function() {
+          var maxSide = 1200;
+          var w = img.width;
+          var h = img.height;
+          if (w > maxSide || h > maxSide) {
+            if (w >= h) { h = Math.round(h * (maxSide / w)); w = maxSide; }
+            else { w = Math.round(w * (maxSide / h)); h = maxSide; }
+          }
+          var canvas = document.createElement('canvas');
+          canvas.width = w;
+          canvas.height = h;
+          var ctx = canvas.getContext('2d');
+          ctx.drawImage(img, 0, 0, w, h);
+          cb(canvas.toDataURL('image/jpeg', 0.78));
+        };
+        img.src = e.target.result;
+      };
+      reader.readAsDataURL(file);
+    }
+
+    function wpRenderPhotos() {
+      var box = document.getElementById('wpPhotoThumbs');
+      var cnt = document.getElementById('wpPhotoCounter');
+      if (cnt) cnt.textContent = wpIsState.photos.length + ' / 3 Beilagen ausgewählt · Automatisch für das 1-Seiten-PDF-Dossier aufbereitet';
+      if (!box) return;
+      box.innerHTML = '';
+      for (var i = 0; i < wpIsState.photos.length; i++) {
+        (function(idx) {
+          var wrap = document.createElement('div');
+          wrap.className = 'wp-thumb-item';
+          var im = document.createElement('img');
+          im.src = wpIsState.photos[idx];
+          im.alt = 'Beilage ' + (idx + 1);
+          var btn = document.createElement('button');
+          btn.type = 'button';
+          btn.className = 'wp-thumb-remove';
+          btn.textContent = 'x';
+          btn.onclick = function() { wpRemovePhoto(idx); };
+          wrap.appendChild(im);
+          wrap.appendChild(btn);
+          box.appendChild(wrap);
+        })(i);
+      }
+    }
+
+    function wpHandlePhotoFiles(files) {
+      if (!files || !files.length) return;
+      for (var i = 0; i < files.length; i++) {
+        if (wpIsState.photos.length >= 3) break;
+        wpCompressImageFile(files[i], function(b64) {
+          if (wpIsState.photos.length < 3) {
+            wpIsState.photos.push(b64);
+            wpRenderPhotos();
+          }
+        });
+      }
+    }
+
+    function wpRemovePhoto(idx) {
+      wpIsState.photos.splice(idx, 1);
+      wpRenderPhotos();
+    }
+
+    function wpCheckIsPlz(val) {
+      var badge = document.getElementById('wpPlzBadge');
+      var txt = document.getElementById('wpPlzBadgeText');
+      if (!badge || !txt) return;
+      var m = String(val || '').match(/\b(\d{4})\b/);
+      if (!m) {
+        badge.className = 'wp-plz-badge';
+        return;
+      }
+      var plz = parseInt(m[1], 10);
+      badge.className = 'wp-plz-badge in-area';
+      if (plz >= 5000 && plz <= 5999) {
+        txt.textContent = 'PLZ ' + m[1] + ': Direktes Einsatzgebiet JOMA Solar GmbH (Wettingen / Kanton Aargau)';
+      } else if (plz >= 8000 && plz <= 8999) {
+        txt.textContent = 'PLZ ' + m[1] + ': Direktes Einsatzgebiet Region Zürich / Limmattal / Wehntal';
+      } else {
+        txt.textContent = 'PLZ ' + m[1] + ': Persönliche Projektprüfung durch JOMA Solar Wettingen';
+      }
+    }
+
+    function wpStripEmojisForDom(str) {
+      return String(str || '').replace(/[\u{1F300}-\u{1FAFF}\u{2600}-\u{27BF}]/gu, '').replace(/\s+\n/g, '\n').trim();
+    }
+
+    function wpResetWizard() {
+      wpIsState.step = 1;
+      wpIsState.photos = [];
+      wpRenderPhotos();
+      var form = document.getElementById('isContactForm');
+      if (form) {
+        form.reset();
+        form.style.display = 'block';
+      }
+      var sBox = document.getElementById('wpSuccessBox');
+      if (sBox) sBox.classList.remove('visible');
+      var err = document.getElementById('wpFormError');
+      if (err) err.style.display = 'none';
+      var badge = document.getElementById('wpPlzBadge');
+      if (badge) badge.className = 'wp-plz-badge';
+      wpSelectIsTopic('Einfamilienhaus: Photovoltaik, Speicher & Solar Manager');
+      wpSelectIsUrgency('Zeitnah (Beratung & Offerte in den nächsten 1–2 Wochen)');
+      wpUpdateIsHeader();
+    }
+
+    function wpSubmitIsLead(e) {
+      if (e) e.preventDefault();
+      var errBox = document.getElementById('wpFormError');
+      if (errBox) errBox.style.display = 'none';
+
+      var name = (document.getElementById('contactName').value || '').trim();
+      var company = (document.getElementById('contactCompany').value || '').trim();
+      var loc = (document.getElementById('contactLoc').value || '').trim();
+      var street = (document.getElementById('contactStreet').value || '').trim();
+      var email = (document.getElementById('contactEmail').value || '').trim();
+      var phone = (document.getElementById('contactPhone').value || '').trim();
+      var msg = (document.getElementById('contactMessage').value || '').trim();
+      var d1 = (document.getElementById('wpDetail1').value || '').trim();
+      var d2 = (document.getElementById('wpDetail2').value || '').trim();
+      var hp = (document.getElementById('wpHoneypot').value || '').trim();
+
+      if (!name || (!phone && !email)) {
+        if (errBox) {
+          errBox.textContent = 'Bitte geben Sie Ihren Namen sowie Ihre E-Mail-Adresse oder Telefonnummer an.';
+          errBox.style.display = 'block';
+        }
+        return false;
+      }
+
+      var cfg = wpIsRoleConfig[wpIsState.topic] || wpIsRoleConfig['Einfamilienhaus: Photovoltaik, Speicher & Solar Manager'];
+      var extra = {};
+      extra[cfg.l1] = d1 || 'Vor-Ort-Besichtigung / Luftbild-Prüfung';
+      extra[cfg.l2] = d2 || 'Persönliche Abstimmung mit JOMA Solar';
+
+      var btn = document.getElementById('wpSubmitBtn');
+      var btnTxt = document.getElementById('wpSubmitBtnText');
+      if (btn) btn.disabled = true;
+      if (btnTxt) btnTxt.textContent = '1-Seiten-PDF-Dossier wird erstellt...';
+
+      var payload = {
+        client_slug: 'joma',
+        source_page: 'preview-joma-v2/kontakt.html',
+        website_url: hp,
+        category: wpIsState.topic,
+        sparte: wpIsState.topic,
+        urgency: wpIsState.urgency,
+        name: name,
+        company: company,
+        street: street,
+        plz: loc,
+        phone: phone,
+        email: email,
+        message: msg || ('Solar-Anfrage zu ' + wpIsState.topic),
+        extra_fields: extra,
+        photos: wpIsState.photos,
+        self_test_mode: true
+      };
+
+      fetch('/api/lead-submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      })
+      .then(function(r) { return r.json(); })
+      .then(function(res) {
+        if (btn) btn.disabled = false;
+        if (btnTxt) btnTxt.textContent = '1-Seiten-Dossier & Anfrage senden';
+        if (!res || !res.ok) {
+          if (errBox) {
+            errBox.textContent = (res && res.error) ? res.error : 'Übermittlung fehlgeschlagen. Bitte versuchen Sie es erneut.';
+            errBox.style.display = 'block';
+          }
+          return;
+        }
+        document.getElementById('isContactForm').style.display = 'none';
+        document.getElementById('wpResRef').textContent = res.ref_code || '#WP-2026';
+        document.getElementById('wpResAssigned').textContent = res.assigned_to || 'Jonathan Muggli & Marco Keller';
+        document.getElementById('wpResCallback').textContent = res.callback_window || 'Innert 24–48 Stunden';
+        var chTxt = '1-Seiten-PDF-Dossier erstellt';
+        if (res.email_sent) chTxt += ' · E-Mail mit PDF-Anhang zugestellt';
+        if (res.whatsapp_sent) chTxt += ' · WhatsApp-Sofortmeldung zugestellt';
+        document.getElementById('wpResChannels').textContent = chTxt;
+        var pdfBtn = document.getElementById('wpResPdfBtn');
+        if (pdfBtn && res.pdf_url) pdfBtn.href = res.pdf_url;
+        var waBox = document.getElementById('wpResWaPreview');
+        if (waBox) waBox.textContent = wpStripEmojisForDom(res.whatsapp_preview_text || '');
+        document.getElementById('wpSuccessBox').classList.add('visible');
+      })
+      .catch(function() {
+        if (btn) btn.disabled = false;
+        if (btnTxt) btnTxt.textContent = '1-Seiten-Dossier & Anfrage senden';
+        if (errBox) {
+          errBox.textContent = 'Netzwerkfehler bei der Übermittlung. Bitte schreiben Sie direkt an info@joma-solar.ch oder rufen Sie 056 558 48 82 an.';
+          errBox.style.display = 'block';
+        }
+      });
+      return false;
+    }
+
+    (function() {
+      try {
+        var params = new URLSearchParams(window.location.search);
+        var t = (params.get('thema') || '').toLowerCase();
+        var map = {
+          'efh': 'Einfamilienhaus: Photovoltaik, Speicher & Solar Manager',
+          'mfh': 'Mehrfamilienhaus & ZEV (Eigenverbrauchsgemeinschaft)',
+          'zev': 'Mehrfamilienhaus & ZEV (Eigenverbrauchsgemeinschaft)',
+          'gewerbe': 'Gewerbeanlage, Grossanlage oder Solar-Contracting',
+          'contracting': 'Gewerbeanlage, Grossanlage oder Solar-Contracting',
+          'speicher': 'Batteriespeicher-Nachrüstung, Service oder E-Ladestation'
+        };
+        if (map[t]) {
+          wpSelectIsTopic(map[t]);
+        }
+        var kwp = params.get('kwp');
+        var speicher = params.get('speicher');
+        if (kwp) {
+          var d1 = document.getElementById('wpDetail1');
+          if (d1) d1.value = 'Vorab-Rechner: ca. ' + kwp + ' kWp Solaranlage';
+        }
+        if (speicher) {
+          var d2 = document.getElementById('wpDetail2');
+          if (d2) d2.value = 'Speicher-Wunsch: ' + speicher;
+        }
+      } catch(err) {}
+    })();
+  </script>
+
+  </main>
+
+  <!-- FOOTER (ZEIGEVERSION) -->
+  <footer class="site-footer" data-section="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div style="display:flex;align-items:center;gap:12px;margin-bottom:14px;">
+            <img src="images/logo.svg" alt="JOMA Solar GmbH Logo" width="138" height="26" loading="lazy" decoding="async">
+          </div>
+          <p style="font-size:0.86rem;color:#2C3545;line-height:1.6;margin-bottom:14px;" data-slot="footer_about">
+            Unverbindlicher Vorschau-Entwurf für die JOMA Solar GmbH (Wettingen): 2 Beispiel-Seiten (Startseite inkl. Solar-Rechner &amp; 3-Schritte Smart-Anfrage) sind bereits ausgearbeitet — 3 weitere Detailseiten folgen beim gemeinsamen Ausbau.
+          </p>
+          <div style="font-size:0.84rem;color:#12161F;font-weight:600;">
+            Tägerhardstrasse 90 · CH-5430 Wettingen · Tel. 056 558 98 67
+          </div>
+        </div>
+
+        <div>
+          <div class="footer-title">Bereits ausgearbeitet (Live)</div>
+          <ul class="footer-list">
+            <li><a href="index.html">Startseite: Team-Hero &amp; 6 Kernlösungen</a></li>
+            <li><a href="index.html#solarrechner">Interaktiver Solar- &amp; Speicher-Rechner</a></li>
+            <li><a href="index.html#referenzen-vorschau">Referenz-Einblicke (Wettingen &amp; Region)</a></li>
+            <li><a href="kontakt.html">3-Schritte Smart-Anfrage (Live-Demo)</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="footer-title">Folgen beim gemeinsamen Ausbau</div>
+          <ul class="footer-list">
+            <li><button type="button" onclick="wpOpenBlueprintModal('Leistungen für Privat- &amp; Geschäftskunden im Detail', 'Solaranlagen EFH/MFH, Batteriespeicher, Solar Manager, Grossanlagen &amp; Contracting ohne Investition', 'Jonathan Muggli &amp; Marco Keller')">Leistungen (Privat, Gewerbe &amp; Contracting)</button></li>
+            <li><button type="button" onclick="wpOpenBlueprintModal('Alle Referenzprojekte, Drohnenbilder &amp; Kundenstimmen', 'Alle 6 Referenzanlagen (Wettingen, Riniken, 2× Rütihof, Fislisbach, Schöfflisdorf), Fallstudie Umbricht &amp; FAQs', 'Jonathan Muggli &amp; Marco Keller')">Referenzen, Fallstudie &amp; FAQs</button></li>
+            <li><button type="button" onclick="wpOpenBlueprintModal('Über JOMA Solar, 5er-Team &amp; Karriere (Montageleiter)', 'Alle 5 Teammitglieder mit Porträt, Systempartner &amp; Stelle Montageleiter Solar', 'Jonathan Muggli &amp; Marco Keller')">Über uns, 5er-Team &amp; Jobs</button></li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="footer-title">Direktkontakt &amp; Rechtliches</div>
+          <ul class="footer-list">
+            <li><a href="tel:+41565584882">Jonathan Muggli: 056 558 48 82</a></li>
+            <li><a href="tel:+41565589867">Marco Keller: 056 558 98 67</a></li>
+            <li><a href="mailto:info@joma-solar.ch">info@joma-solar.ch</a></li>
+            <li><a href="kontakt.html" style="color:var(--gold-dark);font-weight:700;">3-Schritte Smart-Anfrage starten</a></li>
+            <li><button type="button" onclick="wpOpenImpressumModal()">Impressum &amp; Datenschutz</button></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>&copy; 2026 JOMA Solar GmbH (Wettingen AG) · Unverbindlicher Vorschau-Entwurf (Zeigeversion).</div>
+        <div style="display:flex;gap:16px;flex-wrap:wrap;align-items:center;">
+          <a href="kontakt.html" style="color:var(--gold-dark);font-weight:700;">Smart-Anfrage testen</a>
+          <a href="index.html#weitere-themenbereiche" style="color:#2C3545;">Weitere Detailseiten</a>
+        </div>
+        <!-- === WEBPILOT-PARTNER-FOOTER-START === -->
+        <button type="button" class="wp-partner-footer-btn" data-studio-ignore="true" onclick="wpOpenPartnerModal('footer')">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+          <span>Powered by WebPilot · Partner: Jenny Ettle (JE-MI) — Kontakt &amp; Infos</span>
+        </button>
+        <!-- === WEBPILOT-PARTNER-FOOTER-END === -->
+      </div>
+    </div>
+  </footer>
+
+  <!-- KUNDENFREUNDLICHES VORSCHAU-MODAL (#wpBlueprintModal) -->
+  <div class="wp-modal-backdrop" id="wpBlueprintModal" role="dialog" aria-modal="true" aria-labelledby="wpBpTitle" data-allow-scroll="true">
+    <div class="wp-modal-dialog" data-allow-scroll="true">
+      <button type="button" class="wp-modal-close" aria-label="Dialog schliessen" onclick="wpCloseBlueprintModal()">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+      <div class="section-kicker">UNVERBINDLICHER VORSCHAU-ENTWURF FÜR JOMA-SOLAR.CH</div>
+      <h3 id="wpBpTitle" style="font-size:1.36rem;font-weight:700;margin-bottom:8px;">Unverbindlicher Vorschau-Entwurf für die JOMA Solar GmbH</h3>
+      <p id="wpBpSub" style="font-size:0.9rem;color:var(--text-body);margin-bottom:12px;">
+        In dieser <strong>Zeigeversion (2 Beispiel-Seiten ausgearbeitet)</strong> sehen Sie Ihre neue Startseite mit allen 6 Leistungsbereichen, dem interaktiven Solar- &amp; Batterie-Potenzial-Rechner, den Referenz-Highlights sowie den live funktionierenden 3-Schritte Smart-Anfrage-Assistenten. Dieser vertiefte Themenbereich wird beim gemeinsamen Ausbau schlüsselfertig mit allen Originaltexten und Bildern freigeschaltet.
+      </p>
+      <div style="background-color:var(--gold-soft);border-left:4px solid var(--gold);padding:12px 14px;border-radius:var(--radius-sm);font-size:0.86rem;margin-bottom:14px;">
+        <div style="font-weight:700;color:var(--charcoal-deep);" id="wpBpCategory">Leistungs- &amp; Projektbereich: Vorbereitet für den gemeinsamen Ausbau</div>
+        <div style="color:var(--text-body);margin-top:2px;" id="wpBpContact">Ansprechpartner JOMA Solar: Jonathan Muggli &amp; Marco Keller</div>
+      </div>
+
+      <div class="wp-modal-checklist">
+        <div style="font-family:'Lexend',sans-serif;font-size:0.8rem;font-weight:700;text-transform:uppercase;color:var(--charcoal-deep);">
+          Was beim gemeinsamen Ausbau in diesem Themenbereich enthalten ist:
+        </div>
+        <div class="wp-modal-check-item">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><polyline points="20 6 9 17 4 12"/></svg>
+          <span>Vollständige Leistungsseite für Privat- &amp; Geschäftskunden (EFH/MFH, Batteriespeicher, Solar Manager, Grossanlagen &amp; Solar-Contracting ohne Anfangsinvestition)</span>
+        </div>
+        <div class="wp-modal-check-item">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><polyline points="20 6 9 17 4 12"/></svg>
+          <span>Referenz- &amp; Fallstudienseite mit allen 6 Aargauer/Zürcher Referenzanlagen (Wettingen, Riniken, 2× Rütihof, Fislisbach, Schöfflisdorf), dem Video-Projekt Wein &amp; Gemüse Umbricht sowie allen FAQs</span>
+        </div>
+        <div class="wp-modal-check-item">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><polyline points="20 6 9 17 4 12"/></svg>
+          <span>Team- &amp; Karriereseite mit allen 5 Teammitgliedern (Jonathan Muggli, Marco Keller, Tino Seiler, Mario Grab, Sascha Tsap), Partnernetzwerk und der Stelle «Montageleiter Solar»</span>
+        </div>
+      </div>
+
+      <div style="display:flex;flex-wrap:wrap;gap:10px;margin-top:18px;">
+        <button type="button" class="btn-cta btn-cta-primary btn-sm" onclick="wpCloseBlueprintModal()">
+          <span>Verstanden — Vorschau weiter ansehen</span>
+        </button>
+        <a href="kontakt.html" class="btn-cta btn-cta-outline btn-sm">
+          <span>3-Schritte Smart-Anfrage testen</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- IMPRESSUM & DATENSCHUTZ MODAL -->
+  <div class="wp-modal-backdrop" id="wpImpressumModal" role="dialog" aria-modal="true" aria-labelledby="wpImpTitle" data-allow-scroll="true">
+    <div class="wp-modal-dialog" data-allow-scroll="true">
+      <button type="button" class="wp-modal-close" aria-label="Dialog schliessen" onclick="wpCloseImpressumModal()">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+      <div class="section-kicker">RECHTLICHE ANGABEN · HANDELSREGISTER KANTON AARGAU</div>
+      <h3 id="wpImpTitle" style="font-size:1.36rem;font-weight:700;margin-bottom:10px;">Impressum &amp; Datenschutz (JOMA Solar GmbH)</h3>
+      <div style="font-size:0.88rem;color:var(--text-body);line-height:1.62;display:flex;flex-direction:column;gap:12px;">
+        <div style="background-color:var(--bg-page);border:1px solid var(--border-light);border-left:4px solid var(--gold);padding:12px 14px;border-radius:var(--radius-sm);">
+          <strong>JOMA Solar GmbH</strong><br>
+          Tägerhardstrasse 90 · CH-5430 Wettingen (Kanton Aargau)<br>
+          Telefon Marco Keller: +41 56 558 98 67 · Telefon Jonathan Muggli: +41 56 558 48 82<br>
+          E-Mail: info@joma-solar.ch · Web: www.joma-solar.ch
+        </div>
+        <p>
+          <strong>Handelsregister &amp; Vertretungsberechtigte Personen:</strong><br>
+          Eingetragen im Handelsregister des Kantons Aargau · UID: <strong>CHE-334.571.911</strong> (CH-ID: CH-400-4454055-9).<br>
+          Geschäftsführer: Jonathan Muggli &amp; Marco Keller.
+        </p>
+        <p>
+          <strong>Urheber- &amp; Bildrechte:</strong><br>
+          Die auf dieser Website verwendeten Projektbilder, Drohnenaufnahmen, Grafiken und Inhalte sind Eigentum der JOMA Solar GmbH oder werden mit entsprechenden Nutzungsrechten verwendet.
+        </p>
+        <p>
+          <strong>Datenschutz (Schweizer DSG):</strong><br>
+          Alle Angaben aus dem 3-Schritte Smart-Anfrage-Assistenten werden streng vertraulich behandelt, ausschliesslich zur Projektprüfung, Beratung und Offertstellung durch die JOMA Solar GmbH verwendet und niemals an unbefugte Dritte weitergegeben.
+        </p>
+      </div>
+      <div style="margin-top:18px;display:flex;justify-content:flex-end;">
+        <button type="button" class="btn-cta btn-cta-primary btn-sm" onclick="wpCloseImpressumModal()">
+          <span>Schliessen</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function wpToggleMobileMenu() {
+      var d = document.getElementById('mobileDrawer');
+      if (d) d.classList.toggle('open');
+    }
+    function wpCloseMobileMenu() {
+      var d = document.getElementById('mobileDrawer');
+      if (d) d.classList.remove('open');
+    }
+    function wpOpenImpressumModal() {
+      var m = document.getElementById('wpImpressumModal');
+      if (m) m.classList.add('open');
+    }
+    function wpCloseImpressumModal() {
+      var m = document.getElementById('wpImpressumModal');
+      if (m) m.classList.remove('open');
+    }
+    function wpOpenBlueprintModal(title, category, focus) {
+      var m = document.getElementById('wpBlueprintModal');
+      if (!m) return;
+      var tEl = document.getElementById('wpBpTitle');
+      var cEl = document.getElementById('wpBpCategory');
+      var fEl = document.getElementById('wpBpContact');
+      if (tEl && title) tEl.textContent = title;
+      if (cEl && category) cEl.textContent = 'Leistungs- & Projektbereich: ' + category;
+      if (fEl && focus) fEl.textContent = 'Ansprechpartner JOMA Solar: ' + focus;
+      m.classList.add('open');
+    }
+    function wpCloseBlueprintModal() {
+      var m = document.getElementById('wpBlueprintModal');
+      if (m) m.classList.remove('open');
+    }
+
+    var jomaCalcState = { type: 'efh', size: 'medium', storage: 'speicher_sm' };
+    function jomaSetCalc(group, val) {
+      jomaCalcState[group] = val;
+      var gridId = group === 'type' ? 'jomaCalcTypeGrid' : (group === 'size' ? 'jomaCalcSizeGrid' : 'jomaCalcStorageGrid');
+      var attr = 'data-' + group;
+      var btns = document.querySelectorAll('#' + gridId + ' .calc-option-btn');
+      for (var i = 0; i < btns.length; i++) {
+        btns[i].classList.toggle('active', btns[i].getAttribute(attr) === val);
+      }
+      jomaUpdateCalcView();
+    }
+    function jomaUpdateCalcView() {
+      var badge = document.getElementById('jomaCalcRefBadge');
+      var head = document.getElementById('jomaCalcHeadline');
+      var desc = document.getElementById('jomaCalcDesc');
+      var yEl = document.getElementById('jomaCalcYield');
+      var aEl = document.getElementById('jomaCalcAutarky');
+      var mEl = document.getElementById('jomaCalcModules');
+      var iEl = document.getElementById('jomaCalcInstall');
+      var cta = document.getElementById('jomaCalcCta');
+      if (!head) return;
+
+      if (jomaCalcState.type === 'mfh') {
+        badge.textContent = 'VERGLEICHS-REFERENZ: BADEN-RÜTIHOF (30.6 – 55.5 KWP)';
+        head.textContent = 'Mehrfamilienhaus & ZEV-Lösung (30 bis 55 kWp)';
+        desc.textContent = 'Optimale Stromverteilung direkt an die Miet- oder Stockwerkeigentumsparteien via Zusammenschluss zum Eigenverbrauch (ZEV) und Smart-Me Zähler.';
+        yEl.textContent = '31\'000 – 55\'000 kWh';
+        aEl.textContent = 'ZEV + Smart-Me Abrechnung';
+        mEl.textContent = 'JA Solar / Megasol Full Black';
+        iEl.textContent = 'Inkl. Eigentümerversammlung';
+        if (cta) cta.href = 'kontakt.html?thema=mfh';
+      } else if (jomaCalcState.type === 'gewerbe') {
+        badge.textContent = 'VERGLEICHS-REFERENZ: WEIN & GEMÜSE UMBRICHT / GROSSANLAGEN';
+        head.textContent = 'Gewerbeanlage, Lastspitzen-Speicher oder Contracting';
+        desc.textContent = 'Senken Sie Ihre gewerblichen Energiekosten dauerhaft oder nutzen Sie unser Solar-Contracting ohne eigene Anfangsinvestition.';
+        yEl.textContent = '45\'000 – 180\'000+ kWh';
+        aEl.textContent = 'Peak-Shaving & Tageslast';
+        mEl.textContent = 'Gewerbe-Hochleistungsmodule';
+        iEl.textContent = 'Kauf oder 0.- CHF Contracting';
+        if (cta) cta.href = 'kontakt.html?thema=gewerbe';
+      } else {
+        if (jomaCalcState.size === 'small') {
+          badge.textContent = 'VERGLEICHS-REFERENZ: WETTINGEN (11.54 KWP) & SCHÖFFLISDORF (13.95 KWP)';
+          head.textContent = 'Einfamilienhaus Kompakt: 11.5 bis 14.0 kWp';
+          desc.textContent = 'Perfekt für Einfamilienhäuser und Dachsanierungen — auf Wunsch als elegantes 3S-Indachsystem oder leistungsstarkes AIKO-Aufdachsystem.';
+          yEl.textContent = '11\'000 – 16\'000 kWh';
+          aEl.textContent = jomaCalcState.storage === 'notstrom' ? 'bis 80 % + Notstrom-Schutz' : 'bis 70 – 78 % mit Speicher';
+          mEl.textContent = '3S Indach / AIKO Neostar';
+          iEl.textContent = '3 – 4 Arbeitstage Montage';
+        } else if (jomaCalcState.size === 'large') {
+          badge.textContent = 'VERGLEICHS-REFERENZ: FISLISBACH (24.03 KWP) & RÜTIHOF (30.6 KWP)';
+          head.textContent = 'Grosszügiges Eigenheim / Doppel-EFH: 24 bis 30 kWp';
+          desc.textContent = 'Maximale Leistungsreserven für Wärmepumpe, Elektroauto-Wallbox und hohen Eigenverbrauch auch im Winterhalbjahr.';
+          yEl.textContent = '24\'000 – 31\'000 kWh';
+          aEl.textContent = 'bis 80 – 85 % Autarkiegrad';
+          mEl.textContent = 'Trina Vertex S+ / AIKO';
+          iEl.textContent = '4 – 5 Arbeitstage Montage';
+        } else {
+          badge.textContent = 'VERGLEICHS-REFERENZ: RINIKEN (18.8 KWP) & FISLISBACH (24.0 KWP)';
+          head.textContent = 'Empfohlene EFH-Auslegung: 18.8 bis 24.0 kWp';
+          desc.textContent = 'Ideale Dimensionierung für ein Einfamilienhaus mit Batteriespeicher und Solar Manager — bereit für Wärmepumpe und E-Mobilität.';
+          yEl.textContent = '19\'700 – 24\'000 kWh';
+          aEl.textContent = jomaCalcState.storage === 'notstrom' ? 'bis 82 % + Notstrom-Reserve' : 'bis 75 – 82 % Eigenverbrauch';
+          mEl.textContent = 'AIKO / 3S / Trina Solar';
+          iEl.textContent = '3 – 5 Arbeitstage Montage';
+        }
+        if (cta) cta.href = 'kontakt.html?thema=efh';
+      }
+    }
+
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') {
+        wpCloseImpressumModal();
+        wpCloseBlueprintModal();
+        wpCloseMobileMenu();
+      }
+    });
+  </script>
+
+
+  <!-- === WEBPILOT-PARTNER-MODAL-START === -->
+  <div class="wp-partner-modal-backdrop" id="wpPartnerModal" role="dialog" aria-modal="true" aria-labelledby="wpPartnerModalTitle" data-studio-ignore="true" data-allow-scroll="true">
+    <div class="wp-partner-modal-dialog" data-studio-ignore="true" data-allow-scroll="true">
+      <div class="wp-partner-modal-head">
+        <div>
+          <span class="wp-partner-modal-kicker">WEBPILOT PARTNER-KONTAKT · JE-MI · JENNY ETTLE</span>
+          <h3 class="wp-partner-modal-title" id="wpPartnerModalTitle">WebPilot Partner-Kontakt — Eigene Webseite oder Smart-Anfrage modernisieren</h3>
+        </div>
+        <button type="button" class="wp-partner-modal-close" aria-label="Partner-Dialog schliessen" onclick="wpClosePartnerModal()">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+      </div>
+
+      <div class="wp-partner-notice">
+        <strong>Hinweis zur Zuständigkeit:</strong> Direktkontakt zur ausführenden Partner-Agentur (<strong>JE-MI · Jenny Ettle</strong>). Für Anfragen an die JOMA Solar GmbH (Wettingen) nutzen Sie bitte das reguläre Formular auf der Seite.
+      </div>
+
+      <!-- TEIL 1: DIREKTE PARTNER-VISITENKARTE -->
+      <div class="wp-partner-vcard">
+        <div class="wp-partner-vcard-top">
+          <div>
+            <div class="wp-partner-vcard-name">JE-MI · Jenny Ettle</div>
+            <div class="wp-partner-vcard-role">Offizielle WebPilot-Partneragentur (Beratung & Umsetzung)</div>
+          </div>
+          <span class="wp-partner-vcard-badge">Direktkontakt</span>
+        </div>
+        <div class="wp-partner-direct-grid">
+          <a href="https://wa.me/41782232180?text=Guten%20Tag%20Jenny%20Ettle%2C%20ich%20habe%20den%20WebPilot-Auftritt%20von%20JOMA%20Solar%20GmbH%20%28Zeigeversion%20/%20Vorschau-Entwurf%29%20gesehen%20und%20interessiere%20mich%20f%C3%BCr%20einen%20unverbindlichen%20Vorschau-Entwurf%20/%20eine%20Smart-Anfrage-Zentrale." target="_blank" rel="noopener noreferrer" class="wp-partner-direct-btn wp-partner-direct-wa">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+            <span>WhatsApp direkt senden</span>
+          </a>
+          <a href="tel:+41782232180" class="wp-partner-direct-btn wp-partner-direct-tel">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            <span>Anrufen (+41 78 223 21 80)</span>
+          </a>
+          <a href="mailto:jenny@je-mi.ch?subject=Anfrage%20WebPilot%20Vorschau-Entwurf%20%28gesehen%20auf%20JOMA%20Solar%20GmbH%20%28Zeigeversion%20/%20Vorschau-Entwurf%29%29" class="wp-partner-direct-btn wp-partner-direct-mail">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+            <span>jenny@je-mi.ch</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- TEIL 2: 15-SEKUNDEN-SCHNELLANFRAGE FUER VORSCHAU-ENTWURF -->
+      <div class="wp-partner-form-box">
+        <div class="wp-partner-form-title">15-Sekunden-Schnellanfrage: Unverbindlicher Vorschau-Entwurf</div>
+        <p class="wp-partner-form-sub">
+          Geben Sie Ihre bestehende Webseiten-URL oder den Namen Ihres Vereins / Betriebs an — Jenny Ettle (JE-MI) zeigt Ihnen unverbindlich, wie Ihr moderner WebPilot-Auftritt aussieht.
+        </p>
+
+        <form id="wpPartnerLeadForm" onsubmit="return wpSubmitPartnerLead(event)" novalidate>
+          <div style="display:none;" aria-hidden="true">
+            <label for="wpPartnerHp">Website</label>
+            <input type="text" id="wpPartnerHp" name="website_url" tabindex="-1" autocomplete="off">
+          </div>
+
+          <div class="wp-partner-field">
+            <label for="wpPartnerTargetUrl" class="wp-partner-label">1. Bestehende Webseiten-URL oder Name Ihres Vereins / Betriebs *</label>
+            <input type="text" id="wpPartnerTargetUrl" class="wp-partner-input" placeholder="z. B. www.mein-verein.ch oder Muster AG" required>
+          </div>
+
+          <div class="wp-partner-form-grid">
+            <div class="wp-partner-field">
+              <label for="wpPartnerVisitorName" class="wp-partner-label">2. Ihr Vor- und Nachname *</label>
+              <input type="text" id="wpPartnerVisitorName" class="wp-partner-input" placeholder="Vorname Nachname" required>
+            </div>
+            <div class="wp-partner-field">
+              <label for="wpPartnerVisitorContact" class="wp-partner-label">3. Ihre Telefonnummer oder E-Mail *</label>
+              <input type="text" id="wpPartnerVisitorContact" class="wp-partner-input" placeholder="079 123 45 67 oder name@firma.ch" required>
+            </div>
+          </div>
+
+          <div class="wp-partner-field">
+            <label for="wpPartnerVisitorMsg" class="wp-partner-label">4. Kurze Nachricht (optional)</label>
+            <input type="text" id="wpPartnerVisitorMsg" class="wp-partner-input" placeholder="z. B. Fokus Vereins-Zentrale, Sponsoren oder Smart-Anfrage...">
+          </div>
+
+          <div class="wp-partner-error" id="wpPartnerFormError"></div>
+
+          <button type="submit" class="wp-partner-submit-btn" id="wpPartnerSubmitBtn">
+            <span id="wpPartnerSubmitBtnTxt">Unverbindlichen Vorschau-Entwurf bei Jenny Ettle anfordern</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </button>
+        </form>
+
+        <div class="wp-partner-success" id="wpPartnerSuccessBox" aria-live="polite">
+          <div style="display:flex;align-items:center;gap:8px;font-weight:800;color:#065F46;font-size:0.94rem;margin-bottom:6px;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2.4"><polyline points="20 6 9 17 4 12"/></svg>
+            <span>Anfrage an Jenny Ettle (JE-MI) übermittelt!</span>
+          </div>
+          <p style="font-size:0.8rem;color:#1E293B;line-height:1.45;margin:0 0 10px 0;">
+            Ihr 1-Seiten-Anfrage-Dossier (<strong id="wpPartnerResRef">#WP-2026</strong>) wurde erstellt und direkt an <strong>JE-MI · Jenny Ettle</strong> übermittelt.
+          </p>
+          <div style="display:flex;flex-wrap:wrap;gap:8px;">
+            <a href="#" id="wpPartnerResPdfBtn" target="_blank" rel="noopener noreferrer" class="wp-partner-direct-btn wp-partner-direct-tel" style="flex:1 1 200px;">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              <span>1-Seiten-PDF-Dossier öffnen</span>
+            </a>
+            <button type="button" class="wp-partner-direct-btn wp-partner-direct-mail" style="flex:1 1 140px;cursor:pointer;" onclick="wpResetPartnerModal()">
+              <span>Weitere Anfrage</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    var wpPartnerSourceTrigger = 'footer';
+    function wpOpenPartnerModal(triggerSource) {
+      wpPartnerSourceTrigger = triggerSource || 'footer';
+      var m = document.getElementById('wpPartnerModal');
+      if (m) {
+        m.classList.add('open');
+      }
+    }
+    function wpClosePartnerModal() {
+      var m = document.getElementById('wpPartnerModal');
+      if (m) {
+        m.classList.remove('open');
+      }
+    }
+    function wpResetPartnerModal() {
+      var f = document.getElementById('wpPartnerLeadForm');
+      var s = document.getElementById('wpPartnerSuccessBox');
+      var err = document.getElementById('wpPartnerFormError');
+      if (f) { f.reset(); f.style.display = 'block'; }
+      if (s) { s.style.display = 'none'; }
+      if (err) { err.style.display = 'none'; }
+    }
+    function wpSubmitPartnerLead(ev) {
+      if (ev) ev.preventDefault();
+      var hp = (document.getElementById('wpPartnerHp') || {}).value || '';
+      var targetUrl = ((document.getElementById('wpPartnerTargetUrl') || {}).value || '').trim();
+      var visitorName = ((document.getElementById('wpPartnerVisitorName') || {}).value || '').trim();
+      var rawContact = ((document.getElementById('wpPartnerVisitorContact') || {}).value || '').trim();
+      var msg = ((document.getElementById('wpPartnerVisitorMsg') || {}).value || '').trim();
+      var errBox = document.getElementById('wpPartnerFormError');
+      var btn = document.getElementById('wpPartnerSubmitBtn');
+      var btnTxt = document.getElementById('wpPartnerSubmitBtnTxt');
+
+      if (errBox) errBox.style.display = 'none';
+      if (!targetUrl || !visitorName || !rawContact) {
+        if (errBox) {
+          errBox.textContent = 'Bitte geben Sie die gewünschte Webseiten-URL (oder Verein/Betrieb), Ihren Namen sowie Ihre Telefonnummer oder E-Mail-Adresse an.';
+          errBox.style.display = 'block';
+        }
+        return false;
+      }
+
+      var isEmail = rawContact.indexOf('@') !== -1;
+      var emailVal = isEmail ? rawContact : '';
+      var phoneVal = isEmail ? '' : rawContact;
+
+      if (btn) btn.disabled = true;
+      if (btnTxt) btnTxt.textContent = 'Anfrage wird übermittelt...';
+
+      var payload = {
+        client_slug: 'webpilot_partner',
+        website_url: hp,
+        category: 'Vorschau-Entwurf & Web-Modernisierung',
+        sparte: 'Partner: Jenny Ettle (JE-MI)',
+        topic: 'Partner: Jenny Ettle (JE-MI)',
+        urgency: 'Vorschau-Entwurf angefordert',
+        name: visitorName,
+        company: targetUrl,
+        phone: phoneVal,
+        email: emailVal,
+        source_page: window.location.pathname || 'JOMA Solar GmbH (Zeigeversion / Vorschau-Entwurf)',
+        message: (msg ? msg + ' — ' : '') + 'Empfehlung über Showcase: JOMA Solar GmbH (Zeigeversion / Vorschau-Entwurf) (' + wpPartnerSourceTrigger + ') · Gewünschte Webseite / Verein / Betrieb: ' + targetUrl,
+        extra_fields: {
+          'Gewünschte Ziel-URL / Verein': targetUrl,
+          'Empfehlung über': 'JOMA Solar GmbH (Zeigeversion / Vorschau-Entwurf)',
+          'Partner-Agentur': 'JE-MI · Jenny Ettle'
+        }
+      };
+
+      fetch('/api/lead-submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      })
+      .then(function(r) { return r.json(); })
+      .then(function(res) {
+        if (btn) btn.disabled = false;
+        if (btnTxt) btnTxt.textContent = 'Unverbindlichen Vorschau-Entwurf bei Jenny Ettle anfordern';
+        if (!res || !res.ok) {
+          if (errBox) {
+            errBox.textContent = (res && res.error) ? res.error : 'Übermittlung fehlgeschlagen. Bitte versuchen Sie es erneut.';
+            errBox.style.display = 'block';
+          }
+          return;
+        }
+        var formEl = document.getElementById('wpPartnerLeadForm');
+        var succEl = document.getElementById('wpPartnerSuccessBox');
+        var refEl = document.getElementById('wpPartnerResRef');
+        var pdfBtn = document.getElementById('wpPartnerResPdfBtn');
+        if (refEl && res.ref_code) refEl.textContent = res.ref_code;
+        if (pdfBtn && res.pdf_url) pdfBtn.href = res.pdf_url;
+        if (formEl) formEl.style.display = 'none';
+        if (succEl) succEl.style.display = 'block';
+      })
+      .catch(function() {
+        if (btn) btn.disabled = false;
+        if (btnTxt) btnTxt.textContent = 'Unverbindlichen Vorschau-Entwurf bei Jenny Ettle anfordern';
+        if (errBox) {
+          errBox.textContent = 'Netzwerkfehler. Bitte kontaktieren Sie Jenny Ettle direkt per WhatsApp oder Telefon.';
+          errBox.style.display = 'block';
+        }
+      });
+      return false;
+    }
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') wpClosePartnerModal();
+    });
+  </script>
+  <!-- === WEBPILOT-PARTNER-MODAL-END === -->
+</body>
+</html>

@@ -134,6 +134,22 @@ SHOWCASE_CONFIGS = {
         "navy_hex": "#14181D",
         "font_heading": "'Plus Jakarta Sans', sans-serif",
     },
+    "preview-joma": {
+        "routing_slug": "joma",
+        "site_label": "JOMA Solar GmbH — Solaranlagen & Batteriesysteme (Wettingen)",
+        "entity_hint": "die JOMA Solar GmbH (Wettingen)",
+        "accent_hex": "#D64B13",
+        "navy_hex": "#12161F",
+        "font_heading": "'Lexend', sans-serif",
+    },
+    "preview-joma-v2": {
+        "routing_slug": "joma-v2",
+        "site_label": "JOMA Solar GmbH (Zeigeversion / Vorschau-Entwurf)",
+        "entity_hint": "die JOMA Solar GmbH (Wettingen)",
+        "accent_hex": "#D64B13",
+        "navy_hex": "#12161F",
+        "font_heading": "'Lexend', sans-serif",
+    },
     "preview-imp-marketing-v2": {
         "routing_slug": "imp-marketing-v2",
         "site_label": "IMP GmbH — Matthias Iseli (Zeigeversion / Vorschau-Entwurf)",
@@ -257,7 +273,7 @@ def build_partner_css(cfg: dict) -> str:
     }}
     .wp-partner-footer-btn {{
       appearance: none;
-      background-color: rgba(255, 255, 255, 0.08);
+      background-color: #1e293b;
       color: #F8FAFC !important;
       border: 1px solid rgba(255, 255, 255, 0.2);
       border-radius: 8px;
@@ -279,7 +295,7 @@ def build_partner_css(cfg: dict) -> str:
       max-width: 100%;
     }}
     .wp-partner-footer-btn:hover {{
-      background-color: rgba(255, 255, 255, 0.16);
+      background-color: #0f172a;
       border-color: #FBBF24;
       color: #FFFFFF !important;
     }}

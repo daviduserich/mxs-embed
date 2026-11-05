@@ -314,7 +314,9 @@ a {
   margin-bottom: 1rem;
 }
 
-.section-dark .section-kicker {
+.section-dark .section-kicker,
+.hero-section .section-kicker,
+.ausbau-banner .section-kicker {
   color: #f3c37a;
   background: rgba(200, 138, 54, 0.16);
   border-color: rgba(200, 138, 54, 0.4);
@@ -330,8 +332,39 @@ h1, h2, h3, h4 {
 .section-dark h1,
 .section-dark h2,
 .section-dark h3,
-.section-dark h4 {
+.section-dark h4,
+.hero-section h1,
+.hero-section h2,
+.hero-section h3,
+.hero-section h4,
+.ausbau-banner h1,
+.ausbau-banner h2,
+.ausbau-banner h3,
+.ausbau-banner h4,
+.calc-result-panel h1,
+.calc-result-panel h2,
+.calc-result-panel h3,
+.calc-result-panel h4,
+.site-footer h1,
+.site-footer h2,
+.site-footer h3,
+.site-footer h4 {
   color: var(--text-light);
+}
+
+.anfrage-card h1,
+.anfrage-card h2,
+.anfrage-card h3,
+.anfrage-card h4,
+.calc-wrapper h1,
+.calc-wrapper h2,
+.calc-wrapper h3,
+.calc-wrapper h4,
+.ausbau-drawer h1,
+.ausbau-drawer h2,
+.ausbau-drawer h3,
+.ausbau-drawer h4 {
+  color: var(--text-main);
 }
 
 .h1-hero {
@@ -354,7 +387,9 @@ h1, h2, h3, h4 {
   max-width: 68ch;
 }
 
-.section-dark .lead-text {
+.section-dark .lead-text,
+.hero-section .lead-text,
+.ausbau-banner .lead-text {
   color: var(--text-light-muted);
 }
 
@@ -549,13 +584,22 @@ h1, h2, h3, h4 {
   background-color: var(--oak-gold-pale);
 }
 
-.section-dark .btn-outline {
+.section-dark .btn-outline,
+.hero-section .btn-outline,
+.ausbau-banner .btn-outline,
+.calc-result-panel .btn-outline,
+.site-footer .btn-outline {
   color: var(--text-light);
-  border-color: rgba(255, 255, 255, 0.28);
+  border-color: rgba(255, 255, 255, 0.38);
+  background-color: rgba(255, 255, 255, 0.05);
 }
 
-.section-dark .btn-outline:hover {
-  background-color: rgba(200, 138, 54, 0.18);
+.section-dark .btn-outline:hover,
+.hero-section .btn-outline:hover,
+.ausbau-banner .btn-outline:hover,
+.calc-result-panel .btn-outline:hover,
+.site-footer .btn-outline:hover {
+  background-color: rgba(200, 138, 54, 0.22);
   border-color: var(--oak-gold);
   color: #ffffff;
 }
@@ -840,7 +884,9 @@ section {
   color: var(--text-main);
 }
 
-.section-dark .check-list li {
+.section-dark .check-list li,
+.hero-section .check-list li,
+.ausbau-banner .check-list li {
   color: var(--text-light);
 }
 
@@ -852,7 +898,9 @@ section {
   margin-top: 0.2rem;
 }
 
-.section-dark .check-list li svg {
+.section-dark .check-list li svg,
+.hero-section .check-list li svg,
+.ausbau-banner .check-list li svg {
   color: #f5ca86;
 }
 
