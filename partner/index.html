@@ -670,9 +670,39 @@
 
     .project-row-main {
       display: grid;
-      grid-template-columns: 98px minmax(185px, 1.3fr) minmax(195px, 1.15fr) minmax(230px, 1.45fr) minmax(180px, 1.1fr);
-      gap: 12px;
+      grid-template-columns: 98px minmax(220px, 1.2fr) minmax(320px, 1.8fr);
+      gap: 14px;
+      align-items: stretch;
+    }
+
+    .project-primary-links {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 8px;
+      padding-top: 2px;
+    }
+
+    .price-monthly-badge {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 12.5px;
+      font-weight: 700;
+      color: #ffffff;
+      background: rgba(240, 133, 45, 0.16);
+      border: 1px solid rgba(240, 133, 45, 0.38);
+      border-radius: 4px;
+      padding: 4px 8px;
+      display: inline-flex;
       align-items: center;
+      gap: 6px;
+      width: fit-content;
+      max-width: 100%;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .price-monthly-sub {
+      font-size: 11.5px;
+      color: var(--text-secondary);
+      line-height: 1.35;
     }
 
     .col-active-toggle {
@@ -742,6 +772,7 @@
       border-radius: 8px;
       background: rgba(240, 133, 45, 0.07);
       border: 1px solid rgba(240, 133, 45, 0.25);
+      min-width: 0;
     }
 
     .price-main-val {
@@ -749,7 +780,8 @@
       font-size: 15px;
       font-weight: 800;
       color: var(--accent-text);
-      white-space: nowrap;
+      line-height: 1.3;
+      overflow-wrap: break-word;
       font-variant-numeric: tabular-nums;
     }
 
@@ -1063,15 +1095,20 @@
         grid-template-columns: 1fr;
       }
       .col-links-pair,
-      .col-utility-pair {
+      .col-utility-pair,
+      .project-primary-links {
         grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+      .project-primary-links > :last-child:nth-child(odd) {
+        grid-column: 1 / -1;
       }
       .filter-pills-grid {
         display: grid;
         grid-template-columns: repeat(2, minmax(0, 1fr));
         width: 100%;
       }
-      .filter-pills-grid .filter-pill:last-child:nth-child(odd) {
+      .filter-pills-grid.is-partner-view .filter-pill[data-filter="inactive"],
+      .filter-pills-grid.is-admin-view .filter-pill[data-filter="david"] {
         grid-column: 1 / -1;
       }
       .view-mode-group {
@@ -1214,7 +1251,7 @@
             <line x1="3" y1="18" x2="3.01" y2="18"></line>
           </svg>
           <span>Vorhandene Projekte &amp; URL-Liste</span>
-          <span id="tabBadgeCount" class="badge-4">9 Projekte</span>
+          <span id="tabBadgeCount" class="badge-4">8 Projekte</span>
         </button>
 
         <button type="button" id="tabBtnIntake" class="studio-tab-btn" data-tab="intake">
@@ -1323,7 +1360,7 @@
               <button type="button" class="filter-pill" data-filter="jenny">Jenny Ettle</button>
               <button type="button" class="filter-pill" data-filter="david">David Hügli</button>
             </div>
-            <div id="resultsCounterDisplay" class="results-counter">9 von 9 Projekten</div>
+            <div id="resultsCounterDisplay" class="results-counter">8 von 8 Projekten</div>
           </div>
         </div>
 
@@ -1370,7 +1407,7 @@
               <label class="field-label" for="jobCompanyName">
                 <span>1. Firmenname oder Verein (Pflicht)</span>
               </label>
-              <input type="text" id="jobCompanyName" placeholder="z. B. Hochuli Schlossrued AG" required>
+              <input type="text" id="jobCompanyName" placeholder="z. B. Muster Schreinerei AG" required>
             </div>
 
             <div class="form-group">
@@ -1378,7 +1415,7 @@
                 <span>Ort / Region</span>
                 <span class="field-hint">Optional</span>
               </label>
-              <input type="text" id="jobCity" placeholder="z. B. Schlossrued AG">
+              <input type="text" id="jobCity" placeholder="z. B. Aarau AG">
             </div>
 
             <div class="form-group">
@@ -1695,249 +1732,342 @@
 
       const FALLBACK_SEED_JOBS = [
         {
-          "job_id": "job_impmarketing_20261105",
-          "company_name": "IMP GmbH — Matthias Iseli (Schreinerei-Marketing)",
-          "city": "Obersteckholz BE",
-          "slug": "imp-marketing",
-          "source_url": "https://imp-marketing.ch/",
-          "status": "completed",
-          "is_active": true,
-          "created_by": "david",
-          "created_by_name": "David Hügli",
-          "created_at": "2026-11-05 12:35:00",
-          "v2_url": "https://vorschau.magnet-xs.ch/imp-marketing-v2/",
-          "vollversion_url": "https://vorschau.magnet-xs.ch/imp-marketing-vollversion/",
-          "cockpit_url": "https://vorschau.magnet-xs.ch/imp-marketing-vollversion/cockpit.html?token=impmarketing2026",
-          "audit_report_url": "https://vorschau.magnet-xs.ch/reports/imp-marketing-vorher-nachher-report.pdf",
-          "access_token": "impmarketing2026",
-          "complexity_score": "4.8 / 10.0",
-          "pricing_formula_chf": "CHF 2'150.—",
-          "pricing_recommended_chf": "CHF 2'400.—",
-          "pricing_rationale": "Spezialisierter 5-Seiten-B2B-Auftritt für Schreinerei- & Holzbau-Marketing inkl. 16 Prozess-Visuals, interaktivem Schreinerei-Potenzial-Rechner, 6 Fach-FAQs und 3-Schritte Smart-Anfrage. Durch ein einziges gewonnenes Schreinerei-Mandat mehrfach refinanziert.",
-          "summary": "Zeigeversion (-v2 mit voll ausgebauter Startseite & 4 Unterseiten als Ausbaustufe) und 5-Seiten Vollversion (-vollversion inkl. Leistungen, Methode, Über uns, Kontakt & Studio Cockpit v4.0) auf Swiss Edge live.",
-          "aha_points": [
-            "100 % Bereinigung aller englischen GoHighLevel-Template-Reste (Jane Doe, 25+ Years Experience, englische FAQs) zugunsten echter Schweizer Schreiner-EFZ-Substanz",
-            "Interaktiver «Sichtbarkeits- & Anfrage-Potenzial-Rechner für Schreinereien & Holzbau» nach Betriebsgrösse (1–15 Mitarbeitende) und Schwerpunkt",
-            "4 klar strukturierte Leistungs-Säulen (Webseiten, Google-Geschäftsprofil, Anfrage-Systeme, Datenautomation) plus 3-Schritte Smart-Anfrage mit PDF-Dossier"
-          ]
+                "job_id": "job_herzensarbeit_20261105",
+                "company_name": "Herzensarbeit — Anne-Katrin Koch",
+                "city": "Härkingen & Oensingen SO",
+                "slug": "herzensarbeit",
+                "source_url": "https://herzensarbeit.ch/",
+                "has_chatgpt_html": false,
+                "chatgpt_filename": "",
+                "chatgpt_html_length": 0,
+                "context_notes": "Paartherapie, Trennungsberatung, Trauerbegleitung, Achtsamkeit & Frauen-Workshops in Härkingen SO und Online. Warme, vertrauensvolle Gestaltung mit klaren Kontaktwegen.",
+                "assets_count": 12,
+                "status": "completed",
+                "created_by": "jenny",
+                "created_by_name": "Jenny Ettle (JE-MI)",
+                "created_at": "2026-11-05 11:00:00",
+                "completed_at": "2026-11-05 11:25:00",
+                "v2_url": "https://vorschau.magnet-xs.ch/herzensarbeit-v2/",
+                "vollversion_url": "https://vorschau.magnet-xs.ch/herzensarbeit-vollversion/",
+                "preview_url": "https://vorschau.magnet-xs.ch/herzensarbeit-v2/",
+                "cockpit_url": "https://vorschau.magnet-xs.ch/herzensarbeit-vollversion/cockpit?token=herzensarbeit2026",
+                "access_token": "herzensarbeit2026",
+                "summary": "Zeigeversion (-v2 mit 2 Seiten + Themen-Ausblick) und 5-Seiten Vollversion (-vollversion inkl. Angebot, Workshops, Über mich & Studio Cockpit v4.0) auf Swiss Edge live.",
+                "aha_points": [
+                        "Klare Trennung der 4 Begleitungsfelder (Paartherapie, Trennungsberatung, Trauerbegleitung, Achtsamkeit & Frauen-Workshops)",
+                        "3-Schritte Smart-Anfrage für Erstgespräche in Härkingen (SO) oder Online ohne Hemmschwelle",
+                        "Zweistufige Präsentation: Schlanke Zeigeversion (-v2) für den Erstkontakt und ausgebaute 5-Seiten Vollversion (-vollversion)"
+                ],
+                "is_active": true,
+                "complexity_score": "3.5 / 10.0",
+                "pricing_formula_chf": "CHF 1'650.—",
+                "pricing_recommended_chf": "CHF 1'500.—",
+                "pricing_rationale": "Kompakte 5-Seiten-Praxiswebseite (Coaching & Kinesiologie) mit ca. 15 Bildern und Workshop-Sektion. Durch einen einzigen ausgebuchten Workshop (8 Teilnehmende) bereits zu 100 % amortisiert.",
+                "audit_report_url": "https://vorschau.magnet-xs.ch/reports/herzensarbeit-vorher-nachher-report.pdf",
+                "audit_report_html_url": "https://vorschau.magnet-xs.ch/reports/herzensarbeit-vorher-nachher-report.html",
+                "monthly_year1_chf": 160,
+                "monthly_year2_chf": 35,
+                "monthly_plan_label": "Hosting, Studio-Cockpit & fortlaufende SEO-/Mobile-Entwicklung",
+                "monthly_display": "1. Jahr: CHF 160.—/Mt. · ab 2. Jahr: CHF 35.—/Mt.",
+                "partner_id": "jenny",
+                "submitted_by": "jenny",
+                "partner_name": "Jenny Ettle (JE-MI)"
         },
         {
-          "job_id": "job_herzensarbeit_20261105",
-          "company_name": "Herzensarbeit — Anne-Katrin Koch",
-          "city": "Härkingen & Oensingen SO",
-          "slug": "herzensarbeit",
-          "source_url": "https://herzensarbeit.ch/",
-          "status": "completed",
-          "is_active": true,
-          "created_by": "jenny",
-          "created_by_name": "Jenny Ettle (JE-MI)",
-          "created_at": "2026-11-05 11:00:00",
-          "v2_url": "https://vorschau.magnet-xs.ch/herzensarbeit-v2/",
-          "vollversion_url": "https://vorschau.magnet-xs.ch/herzensarbeit-vollversion/",
-          "cockpit_url": "https://vorschau.magnet-xs.ch/herzensarbeit-vollversion/cockpit?token=herzensarbeit2026",
-          "audit_report_url": "https://vorschau.magnet-xs.ch/reports/herzensarbeit-vorher-nachher-report.pdf",
-          "access_token": "herzensarbeit2026",
-          "complexity_score": "3.5 / 10.0",
-          "pricing_formula_chf": "CHF 1'650.—",
-          "pricing_recommended_chf": "CHF 1'500.—",
-          "pricing_rationale": "Kompakte 5-Seiten-Praxiswebseite (Coaching & Kinesiologie) mit ca. 15 Bildern und Workshop-Sektion. Durch einen einzigen ausgebuchten Workshop (8 Teilnehmende) bereits zu 100 % amortisiert.",
-          "summary": "Zeigeversion (-v2 mit 2 Seiten + Themen-Ausblick) und 5-Seiten Vollversion (-vollversion inkl. Angebot, Workshops, Über mich & Studio Cockpit v4.0) auf Swiss Edge live.",
-          "aha_points": [
-            "Klare Trennung der 4 Begleitungsfelder (Paartherapie, Trennungsberatung, Trauerbegleitung, Achtsamkeit & Frauen-Workshops)",
-            "3-Schritte Smart-Anfrage für Erstgespräche in Härkingen (SO) oder Online ohne Hemmschwelle",
-            "Zweistufige Präsentation: Schlanke Zeigeversion (-v2) für den Erstkontakt und ausgebaute 5-Seiten Vollversion (-vollversion)"
-          ]
+                "job_id": "job_frees_20261104",
+                "company_name": "Free's Stefan Fritschi",
+                "city": "Niederrohrdorf AG",
+                "slug": "frees",
+                "source_url": "https://www.frees.ch/",
+                "has_chatgpt_html": false,
+                "chatgpt_filename": "",
+                "chatgpt_html_length": 0,
+                "context_notes": "Studio für Textildesign, Textildruck, Stickerei, Teamsport & Promowear in Niederrohrdorf AG.",
+                "assets_count": 16,
+                "status": "completed",
+                "created_by": "jenny",
+                "created_by_name": "Jenny Ettle (JE-MI)",
+                "created_at": "2026-11-03 21:30:00",
+                "completed_at": "2026-11-04 07:10:00",
+                "v2_url": "https://vorschau.magnet-xs.ch/frees-v2/",
+                "vollversion_url": "https://vorschau.magnet-xs.ch/frees-vollversion/",
+                "preview_url": "https://vorschau.magnet-xs.ch/frees-v2/",
+                "cockpit_url": "https://vorschau.magnet-xs.ch/frees-vollversion/cockpit?token=frees2026",
+                "access_token": "frees2026",
+                "summary": "Zeigeversion (-v2) und 5-Seiten Vollversion (-vollversion: Startseite, Dienstleistungen, Textilsortiment, Profil, Kontakt & Studio Cockpit v4.0) live.",
+                "aha_points": [
+                        "Strukturierte Produkt- & Veredelungs-Übersicht (Textildruck, Stickerei, Teamsport, Workwear & Promowear)",
+                        "Direkter Offerten-Konfigurator für Vereine und KMU ab 1 Stück bis Grossserie",
+                        "Zweistufiges Vorführ-Modell: Zeigeversion (-v2) für Kunden und 100-%-Vollversion (-vollversion) mit Cockpit"
+                ],
+                "is_active": true,
+                "complexity_score": "3.2 / 10.0",
+                "pricing_formula_chf": "CHF 1'550.—",
+                "pricing_recommended_chf": "CHF 1'500.—",
+                "pricing_rationale": "Schlanke 5-Seiten-Gewerbeseite (Teamsport & Textildruck) mit 14 extern verlinkten Marken-Katalogen ohne komplexes Daten-Backend. Perfekter Einstiegs-Sweet-Spot für sofortige Zusage.",
+                "audit_report_url": "https://vorschau.magnet-xs.ch/reports/frees-vorher-nachher-report.pdf",
+                "audit_report_html_url": "https://vorschau.magnet-xs.ch/reports/frees-vorher-nachher-report.html",
+                "monthly_year1_chf": 160,
+                "monthly_year2_chf": 35,
+                "monthly_plan_label": "Hosting, Studio-Cockpit & fortlaufende SEO-/Mobile-Entwicklung",
+                "monthly_display": "1. Jahr: CHF 160.—/Mt. · ab 2. Jahr: CHF 35.—/Mt.",
+                "partner_id": "jenny",
+                "submitted_by": "jenny",
+                "partner_name": "Jenny Ettle (JE-MI)"
         },
         {
-          "job_id": "job_frees_20261104",
-          "company_name": "Free's Stefan Fritschi",
-          "city": "Niederrohrdorf AG",
-          "slug": "frees",
-          "source_url": "https://www.frees.ch/",
-          "status": "completed",
-          "is_active": true,
-          "created_by": "jenny",
-          "created_by_name": "Jenny Ettle (JE-MI)",
-          "created_at": "2026-11-03 21:30:00",
-          "v2_url": "https://vorschau.magnet-xs.ch/frees-v2/",
-          "vollversion_url": "https://vorschau.magnet-xs.ch/frees-vollversion/",
-          "cockpit_url": "https://vorschau.magnet-xs.ch/frees-vollversion/cockpit?token=frees2026",
-          "audit_report_url": "https://vorschau.magnet-xs.ch/reports/frees-vorher-nachher-report.pdf",
-          "access_token": "frees2026",
-          "complexity_score": "3.2 / 10.0",
-          "pricing_formula_chf": "CHF 1'550.—",
-          "pricing_recommended_chf": "CHF 1'500.—",
-          "pricing_rationale": "Schlanke 5-Seiten-Gewerbeseite (Teamsport & Textildruck) mit 14 extern verlinkten Marken-Katalogen ohne komplexes Daten-Backend. Perfekter Einstiegs-Sweet-Spot für sofortige Zusage.",
-          "summary": "Zeigeversion (-v2) und 5-Seiten Vollversion (-vollversion: Startseite, Dienstleistungen, Textilsortiment, Profil, Kontakt & Studio Cockpit v4.0) live.",
-          "aha_points": [
-            "Strukturierte Produkt- & Veredelungs-Übersicht (Textildruck, Stickerei, Teamsport, Workwear & Promowear)",
-            "Direkter Offerten-Konfigurator für Vereine und KMU ab 1 Stück bis Grossserie",
-            "Zweistufiges Vorführ-Modell: Zeigeversion (-v2) für Kunden und 100-%-Vollversion (-vollversion) mit Cockpit"
-          ]
+                "job_id": "job_innere_staerke_20261104",
+                "company_name": "Wüest + Paneduro — Innere Stärke",
+                "city": "Sursee LU",
+                "slug": "innere-staerke",
+                "source_url": "https://www.innere-staerke.business/",
+                "has_chatgpt_html": false,
+                "chatgpt_filename": "",
+                "chatgpt_html_length": 0,
+                "context_notes": "Führungskräfte-Training, Resilienz & Persönlichkeitsentwicklung in Sursee LU (Wüest + Paneduro).",
+                "assets_count": 14,
+                "status": "completed",
+                "created_by": "jenny",
+                "created_by_name": "Jenny Ettle (JE-MI)",
+                "created_at": "2026-11-03 18:30:00",
+                "completed_at": "2026-11-04 07:08:00",
+                "v2_url": "https://vorschau.magnet-xs.ch/innere-staerke-v2/",
+                "vollversion_url": "https://vorschau.magnet-xs.ch/innere-staerke-vollversion/",
+                "preview_url": "https://vorschau.magnet-xs.ch/innere-staerke-v2/",
+                "cockpit_url": "https://vorschau.magnet-xs.ch/innere-staerke-vollversion/cockpit?token=innerestaerke2026",
+                "access_token": "innerestaerke2026",
+                "summary": "Zeigeversion (-v2) und 5-Seiten Vollversion (-vollversion: Startseite, Angebot, Über uns, Referenzen, Kontakt & Studio Cockpit v4.0) live.",
+                "aha_points": [
+                        "Souveräne Positionierung für Führungskräfte-Sparring, Team-Resilienz und KMU-Begleitung",
+                        "Echte Kundenstimmen & messbare Praxis-Ergebnisse klar strukturiert aufbereitet",
+                        "3-Schritte Standortbestimmungs-Anfrage direkt mit Kalender- & WhatsApp-Anbindung"
+                ],
+                "is_active": true,
+                "complexity_score": "4.2 / 10.0",
+                "pricing_formula_chf": "CHF 1'900.—",
+                "pricing_recommended_chf": "CHF 2'200.—",
+                "pricing_rationale": "5-Seiten-Auftritt für 2 Partnerinnen im B2B-Führungskräfte-Coaching inkl. Buch-Integration. Hoher Kundenwert pro B2B-Mandat rechtfertigt CHF 2'200.— mühelos.",
+                "audit_report_url": "https://vorschau.magnet-xs.ch/reports/innere-staerke-vorher-nachher-report.pdf",
+                "audit_report_html_url": "https://vorschau.magnet-xs.ch/reports/innere-staerke-vorher-nachher-report.html",
+                "monthly_year1_chf": 220,
+                "monthly_year2_chf": 35,
+                "monthly_plan_label": "Hosting, Studio-Cockpit & fortlaufende SEO-/Mobile-Entwicklung",
+                "monthly_display": "1. Jahr: CHF 220.—/Mt. · ab 2. Jahr: CHF 35.—/Mt.",
+                "partner_id": "jenny",
+                "submitted_by": "jenny",
+                "partner_name": "Jenny Ettle (JE-MI)"
         },
         {
-          "job_id": "job_innere_staerke_20261104",
-          "company_name": "Wüest + Paneduro — Innere Stärke",
-          "city": "Sursee LU",
-          "slug": "innere-staerke",
-          "source_url": "https://www.innere-staerke.business/",
-          "status": "completed",
-          "is_active": true,
-          "created_by": "jenny",
-          "created_by_name": "Jenny Ettle (JE-MI)",
-          "created_at": "2026-11-03 18:30:00",
-          "v2_url": "https://vorschau.magnet-xs.ch/innere-staerke-v2/",
-          "vollversion_url": "https://vorschau.magnet-xs.ch/innere-staerke-vollversion/",
-          "cockpit_url": "https://vorschau.magnet-xs.ch/innere-staerke-vollversion/cockpit?token=innerestaerke2026",
-          "audit_report_url": "https://vorschau.magnet-xs.ch/reports/innere-staerke-vorher-nachher-report.pdf",
-          "access_token": "innerestaerke2026",
-          "complexity_score": "4.2 / 10.0",
-          "pricing_formula_chf": "CHF 1'900.—",
-          "pricing_recommended_chf": "CHF 2'200.—",
-          "pricing_rationale": "5-Seiten-Auftritt für 2 Partnerinnen im B2B-Führungskräfte-Coaching inkl. Buch-Integration. Hoher Kundenwert pro B2B-Mandat rechtfertigt CHF 2'200.— mühelos.",
-          "summary": "Zeigeversion (-v2) und 5-Seiten Vollversion (-vollversion: Startseite, Angebot, Über uns, Referenzen, Kontakt & Studio Cockpit v4.0) live.",
-          "aha_points": [
-            "Souveräne Positionierung für Führungskräfte-Sparring, Team-Resilienz und KMU-Begleitung",
-            "Echte Kundenstimmen & messbare Praxis-Ergebnisse klar strukturiert aufbereitet",
-            "3-Schritte Standortbestimmungs-Anfrage direkt mit Kalender- & WhatsApp-Anbindung"
-          ]
+                "job_id": "job_fcschlieren_20261104",
+                "company_name": "FC Schlieren (33 Teams)",
+                "city": "Schlieren ZH",
+                "slug": "fcschlieren",
+                "source_url": "https://www.fcschlieren.ch/",
+                "has_chatgpt_html": false,
+                "chatgpt_filename": "",
+                "chatgpt_html_length": 0,
+                "context_notes": "Fussballclub Schlieren ZH mit 33 Teams, Sponsoren-Matrix, Team-Update-Formular & Studio Cockpit v4.0.",
+                "assets_count": 28,
+                "status": "completed",
+                "created_by": "jenny",
+                "created_by_name": "Jenny Ettle (JE-MI)",
+                "created_at": "2026-11-02 17:00:00",
+                "completed_at": "2026-11-04 07:12:00",
+                "v2_url": "https://vorschau.magnet-xs.ch/fcschlieren-v2/",
+                "vollversion_url": "https://vorschau.magnet-xs.ch/fcschlieren-vollversion/",
+                "preview_url": "https://vorschau.magnet-xs.ch/fcschlieren-v2/",
+                "cockpit_url": "https://vorschau.magnet-xs.ch/fcschlieren-vollversion/cockpit?token=fcschlieren2026",
+                "access_token": "fcschlieren2026",
+                "summary": "Vereins-Plattform für 33 Teams inkl. Zeigeversion (-v2), Vollversion (-vollversion), Team-Self-Service-Formular und Sponsoren-Präsentation.",
+                "aha_points": [
+                        "Alle 33 Teams (Aktive, Frauen, Junioren A–G, Senioren) übersichtlich nach Kategorien filterbar",
+                        "Eigenes Trainer- & Team-Update-Formular für Kaderfotos, Trainingszeiten und Sponsoren ohne Webmaster-Aufwand",
+                        "Hochwertige Sponsoren-Bühne für Hauptsponsoren und lokale Gewerbe-Partner"
+                ],
+                "is_active": true,
+                "complexity_score": "9.4 / 10.0",
+                "pricing_formula_chf": "CHF 4'300.—",
+                "pricing_recommended_chf": "CHF 4'500.—",
+                "pricing_rationale": "Grossverein im Raum Zürich (über 20 Teams, hunderte Spieler-/Kaderdaten, Sponsoren-Architektur & Team-Onboarding-Engine). Gegenüber einer klassischen 12'000-Franken-Agenturofferte extrem attraktiv.",
+                "audit_report_url": "https://vorschau.magnet-xs.ch/reports/fcschlieren-vorher-nachher-report.pdf",
+                "audit_report_html_url": "https://vorschau.magnet-xs.ch/reports/fcschlieren-vorher-nachher-report.html",
+                "monthly_year1_chf": 410,
+                "monthly_year2_chf": 35,
+                "monthly_plan_label": "Hosting, Studio-Cockpit & fortlaufende SEO-/Mobile-Entwicklung",
+                "monthly_display": "1. Jahr: CHF 410.—/Mt. · ab 2. Jahr: CHF 35.—/Mt.",
+                "partner_id": "jenny",
+                "submitted_by": "jenny",
+                "partner_name": "Jenny Ettle (JE-MI)"
         },
         {
-          "job_id": "job_fcattiswil_20261104",
-          "company_name": "FC Attiswil (14 Teams)",
-          "city": "Attiswil BE",
-          "slug": "fcattiswil",
-          "source_url": "https://www.fcattiswil.ch/",
-          "status": "completed",
-          "is_active": true,
-          "created_by": "jenny",
-          "created_by_name": "Jenny Ettle (JE-MI)",
-          "created_at": "2026-11-02 17:40:00",
-          "v2_url": "https://vorschau.magnet-xs.ch/fcattiswil-v2/",
-          "vollversion_url": "https://vorschau.magnet-xs.ch/fcattiswil-vollversion/",
-          "cockpit_url": "https://vorschau.magnet-xs.ch/fcattiswil-vollversion/cockpit?token=fcattiswil2026",
-          "audit_report_url": "https://vorschau.magnet-xs.ch/reports/fcattiswil-vorher-nachher-report.pdf",
-          "access_token": "fcattiswil2026",
-          "complexity_score": "8.2 / 10.0",
-          "pricing_formula_chf": "CHF 3'700.—",
-          "pricing_recommended_chf": "CHF 3'900.—",
-          "pricing_rationale": "Fussballverein mit vielen Mannschaften, Junioren, Sponsoren-Präsenz & 5-Blöcke Team-Einreichungs-Engine. Ein einziger neuer Hauptsponsor refinanziert bereits die halbe Webseite.",
-          "summary": "Vereins-Auftritt für 14 Teams inkl. Herren 1 Muster-Teamseite, Team-Update-Onboarding und Studio Cockpit v4.0.",
-          "aha_points": [
-            "Moderne Vereins-Präsenz für alle 14 Teams mit klarer Junioren- und Aktiv-Gliederung",
-            "Smartphone-taugliches Team-Update-Formular für Kaderdaten und Matchberichte",
-            "Attraktive Sponsoren-Sichtbarkeit für das lokale Gewerbe im Oberaargau / Leberberg"
-          ]
+                "job_id": "job_scfulenbach_20261104",
+                "company_name": "SC Fulenbach (14 Teams)",
+                "city": "Fulenbach SO",
+                "slug": "scfulenbach",
+                "source_url": "https://www.scfulenbach.ch/",
+                "has_chatgpt_html": false,
+                "chatgpt_filename": "",
+                "chatgpt_html_length": 0,
+                "context_notes": "Sportclub Fulenbach SO (14 Teams, Vereinsleben, Sponsoren & Team-Update).",
+                "assets_count": 18,
+                "status": "completed",
+                "created_by": "jenny",
+                "created_by_name": "Jenny Ettle (JE-MI)",
+                "created_at": "2026-11-02 17:20:00",
+                "completed_at": "2026-11-04 07:12:00",
+                "v2_url": "https://vorschau.magnet-xs.ch/scfulenbach-v2/",
+                "vollversion_url": "https://vorschau.magnet-xs.ch/scfulenbach-vollversion/",
+                "preview_url": "https://vorschau.magnet-xs.ch/scfulenbach-v2/",
+                "cockpit_url": "https://vorschau.magnet-xs.ch/scfulenbach-vollversion/cockpit?token=scfulenbach2026",
+                "access_token": "scfulenbach2026",
+                "summary": "Vereins-Auftritt für 14 Teams inkl. Herren 1 Muster-Teamseite, Team-Update-Onboarding und Studio Cockpit v4.0.",
+                "aha_points": [
+                        "14 Mannschaften strukturiert mit direktem Einstieg für Spieler, Eltern und Sponsoren",
+                        "Integriertes Team-Update-Formular für Trainer und Funktionäre per Smartphone",
+                        "Sponsoren-Präsentation und Vereins-Newsroom über das Studio Cockpit steuerbar"
+                ],
+                "is_active": true,
+                "complexity_score": "8.5 / 10.0",
+                "pricing_formula_chf": "CHF 3'850.—",
+                "pricing_recommended_chf": "CHF 4'200.—",
+                "pricing_rationale": "Traditionsverein mit breiter Aktiv-/Junioren-Struktur, Sponsoren-Matrix, Vereinschronik und dezentralem Team-Onboarding-Formular.",
+                "audit_report_url": "https://vorschau.magnet-xs.ch/reports/scfulenbach-vorher-nachher-report.pdf",
+                "audit_report_html_url": "https://vorschau.magnet-xs.ch/reports/scfulenbach-vorher-nachher-report.html",
+                "monthly_year1_chf": 385,
+                "monthly_year2_chf": 35,
+                "monthly_plan_label": "Hosting, Studio-Cockpit & fortlaufende SEO-/Mobile-Entwicklung",
+                "monthly_display": "1. Jahr: CHF 385.—/Mt. · ab 2. Jahr: CHF 35.—/Mt.",
+                "partner_id": "jenny",
+                "submitted_by": "jenny",
+                "partner_name": "Jenny Ettle (JE-MI)"
         },
         {
-          "job_id": "job_scfulenbach_20261104",
-          "company_name": "SC Fulenbach (14 Teams)",
-          "city": "Fulenbach SO",
-          "slug": "scfulenbach",
-          "source_url": "https://www.scfulenbach.ch/",
-          "status": "completed",
-          "is_active": true,
-          "created_by": "jenny",
-          "created_by_name": "Jenny Ettle (JE-MI)",
-          "created_at": "2026-11-02 17:20:00",
-          "v2_url": "https://vorschau.magnet-xs.ch/scfulenbach-v2/",
-          "vollversion_url": "https://vorschau.magnet-xs.ch/scfulenbach-vollversion/",
-          "cockpit_url": "https://vorschau.magnet-xs.ch/scfulenbach-vollversion/cockpit?token=scfulenbach2026",
-          "audit_report_url": "https://vorschau.magnet-xs.ch/reports/scfulenbach-vorher-nachher-report.pdf",
-          "access_token": "scfulenbach2026",
-          "complexity_score": "8.5 / 10.0",
-          "pricing_formula_chf": "CHF 3'850.—",
-          "pricing_recommended_chf": "CHF 4'200.—",
-          "pricing_rationale": "Traditionsverein mit breiter Aktiv-/Junioren-Struktur, Sponsoren-Matrix, Vereinschronik und dezentralem Team-Onboarding-Formular.",
-          "summary": "Vereins-Auftritt für 14 Teams inkl. Herren 1 Muster-Teamseite, Team-Update-Onboarding und Studio Cockpit v4.0.",
-          "aha_points": [
-            "14 Mannschaften strukturiert mit direktem Einstieg für Spieler, Eltern und Sponsoren",
-            "Integriertes Team-Update-Formular für Trainer und Funktionäre per Smartphone",
-            "Sponsoren-Präsentation und Vereins-Newsroom über das Studio Cockpit steuerbar"
-          ]
+                "job_id": "job_fcattiswil_20261104",
+                "company_name": "FC Attiswil (14 Teams)",
+                "city": "Attiswil BE",
+                "slug": "fcattiswil",
+                "source_url": "https://www.fcattiswil.ch/",
+                "has_chatgpt_html": false,
+                "chatgpt_filename": "",
+                "chatgpt_html_length": 0,
+                "context_notes": "Fussballclub Attiswil BE (14 Teams, Junioren, Sponsoren & Team-Update).",
+                "assets_count": 18,
+                "status": "completed",
+                "created_by": "jenny",
+                "created_by_name": "Jenny Ettle (JE-MI)",
+                "created_at": "2026-11-02 17:40:00",
+                "completed_at": "2026-11-04 07:12:00",
+                "v2_url": "https://vorschau.magnet-xs.ch/fcattiswil-v2/",
+                "vollversion_url": "https://vorschau.magnet-xs.ch/fcattiswil-vollversion/",
+                "preview_url": "https://vorschau.magnet-xs.ch/fcattiswil-v2/",
+                "cockpit_url": "https://vorschau.magnet-xs.ch/fcattiswil-vollversion/cockpit?token=fcattiswil2026",
+                "access_token": "fcattiswil2026",
+                "summary": "Vereins-Auftritt für 14 Teams inkl. Herren 1 Muster-Teamseite, Team-Update-Onboarding und Studio Cockpit v4.0.",
+                "aha_points": [
+                        "Moderne Vereins-Präsenz für alle 14 Teams mit klarer Junioren- und Aktiv-Gliederung",
+                        "Smartphone-taugliches Team-Update-Formular für Kaderdaten und Matchberichte",
+                        "Attraktive Sponsoren-Sichtbarkeit für das lokale Gewerbe im Oberaargau / Leberberg"
+                ],
+                "is_active": true,
+                "complexity_score": "8.2 / 10.0",
+                "pricing_formula_chf": "CHF 3'700.—",
+                "pricing_recommended_chf": "CHF 3'900.—",
+                "pricing_rationale": "Fussballverein mit vielen Mannschaften, Junioren, Sponsoren-Präsenz & 5-Blöcke Team-Einreichungs-Engine. Ein einziger neuer Hauptsponsor refinanziert bereits die halbe Webseite.",
+                "audit_report_url": "https://vorschau.magnet-xs.ch/reports/fcattiswil-vorher-nachher-report.pdf",
+                "audit_report_html_url": "https://vorschau.magnet-xs.ch/reports/fcattiswil-vorher-nachher-report.html",
+                "monthly_year1_chf": 360,
+                "monthly_year2_chf": 35,
+                "monthly_plan_label": "Hosting, Studio-Cockpit & fortlaufende SEO-/Mobile-Entwicklung",
+                "monthly_display": "1. Jahr: CHF 360.—/Mt. · ab 2. Jahr: CHF 35.—/Mt.",
+                "partner_id": "jenny",
+                "submitted_by": "jenny",
+                "partner_name": "Jenny Ettle (JE-MI)"
         },
         {
-          "job_id": "job_fcschlieren_20261104",
-          "company_name": "FC Schlieren (33 Teams)",
-          "city": "Schlieren ZH",
-          "slug": "fcschlieren",
-          "source_url": "https://www.fcschlieren.ch/",
-          "status": "completed",
-          "is_active": true,
-          "created_by": "jenny",
-          "created_by_name": "Jenny Ettle (JE-MI)",
-          "created_at": "2026-11-02 17:00:00",
-          "v2_url": "https://vorschau.magnet-xs.ch/fcschlieren-v2/",
-          "vollversion_url": "https://vorschau.magnet-xs.ch/fcschlieren-vollversion/",
-          "cockpit_url": "https://vorschau.magnet-xs.ch/fcschlieren-vollversion/cockpit?token=fcschlieren2026",
-          "audit_report_url": "https://vorschau.magnet-xs.ch/reports/fcschlieren-vorher-nachher-report.pdf",
-          "access_token": "fcschlieren2026",
-          "complexity_score": "9.4 / 10.0",
-          "pricing_formula_chf": "CHF 4'300.—",
-          "pricing_recommended_chf": "CHF 4'500.—",
-          "pricing_rationale": "Grossverein im Raum Zürich (über 20 Teams, hunderte Spieler-/Kaderdaten, Sponsoren-Architektur & Team-Onboarding-Engine). Gegenüber einer klassischen 12'000-Franken-Agenturofferte extrem attraktiv.",
-          "summary": "Vereins-Plattform für 33 Teams inkl. Zeigeversion (-v2), Vollversion (-vollversion), Team-Self-Service-Formular und Sponsoren-Präsentation.",
-          "aha_points": [
-            "Alle 33 Teams (Aktive, Frauen, Junioren A–G, Senioren) übersichtlich nach Kategorien filterbar",
-            "Eigenes Trainer- & Team-Update-Formular für Kaderfotos, Trainingszeiten und Sponsoren ohne Webmaster-Aufwand",
-            "Hochwertige Sponsoren-Bühne für Hauptsponsoren und lokale Gewerbe-Partner"
-          ]
+                "job_id": "job_her11_20261030",
+                "company_name": "HER11 (Jenny Ettle)",
+                "city": "Schweiz",
+                "slug": "her11",
+                "source_url": "https://www.her11.ch/",
+                "has_chatgpt_html": false,
+                "chatgpt_filename": "",
+                "chatgpt_html_length": 0,
+                "context_notes": "HER11 Frauenfussball & Sport-Marketing (Ausbildung, Begleitung, Mach mit, Über uns & Studio Cockpit v4.0).",
+                "assets_count": 22,
+                "status": "completed",
+                "created_by": "jenny",
+                "created_by_name": "Jenny Ettle (JE-MI)",
+                "created_at": "2026-10-30 16:00:00",
+                "completed_at": "2026-10-30 19:58:00",
+                "v2_url": "https://vorschau.magnet-xs.ch/her11-v2/",
+                "vollversion_url": "https://vorschau.magnet-xs.ch/her11-vollversion/",
+                "preview_url": "https://vorschau.magnet-xs.ch/her11-v2/",
+                "cockpit_url": "https://vorschau.magnet-xs.ch/her11-vollversion/cockpit?token=her112026",
+                "access_token": "her112026",
+                "summary": "6-Seiten Marken-Auftritt (Startseite, Über uns, Ausbildung, Begleitung, Mach mit, Kontakt) inkl. Studio Cockpit v4.0 auf Swiss Edge.",
+                "aha_points": [
+                        "Starke Marken-Identität mit klarer Führung durch Ausbildung, Begleitung und Partner-Programm",
+                        "Interaktive 3-Schritte Anfrage-Weiche für Spielerinnen, Vereine und Sponsoren",
+                        "Volle Eigenregie über Texte, Bilder und Sektionen im WebPilot Studio Cockpit v4.0"
+                ],
+                "is_active": true,
+                "complexity_score": "5.8 / 10.0",
+                "pricing_formula_chf": "CHF 2'600.—",
+                "pricing_recommended_chf": "CHF 2'800.—",
+                "pricing_rationale": "Gehobene Marken- & Lookbook-Inszenierung mit hoher Bilddichte und laufendem Kollektions-Wechsel über das Studio Cockpit v4.0.",
+                "audit_report_url": "https://vorschau.magnet-xs.ch/reports/her11-vorher-nachher-report.pdf",
+                "audit_report_html_url": "https://vorschau.magnet-xs.ch/reports/her11-vorher-nachher-report.html",
+                "monthly_year1_chf": 270,
+                "monthly_year2_chf": 35,
+                "monthly_plan_label": "Hosting, Studio-Cockpit & fortlaufende SEO-/Mobile-Entwicklung",
+                "monthly_display": "1. Jahr: CHF 270.—/Mt. · ab 2. Jahr: CHF 35.—/Mt.",
+                "partner_id": "jenny",
+                "submitted_by": "jenny",
+                "partner_name": "Jenny Ettle (JE-MI)"
         },
         {
-          "job_id": "job_her11_20261030",
-          "company_name": "HER11 (Jenny Ettle)",
-          "city": "Schweiz",
-          "slug": "her11",
-          "source_url": "https://www.her11.ch/",
-          "status": "completed",
-          "is_active": true,
-          "created_by": "jenny",
-          "created_by_name": "Jenny Ettle (JE-MI)",
-          "created_at": "2026-10-30 16:00:00",
-          "v2_url": "https://vorschau.magnet-xs.ch/her11-v2/",
-          "vollversion_url": "https://vorschau.magnet-xs.ch/her11-vollversion/",
-          "cockpit_url": "https://vorschau.magnet-xs.ch/her11-vollversion/cockpit?token=her112026",
-          "audit_report_url": "https://vorschau.magnet-xs.ch/reports/her11-vorher-nachher-report.pdf",
-          "access_token": "her112026",
-          "complexity_score": "5.8 / 10.0",
-          "pricing_formula_chf": "CHF 2'600.—",
-          "pricing_recommended_chf": "CHF 2'800.—",
-          "pricing_rationale": "Gehobene Marken- & Lookbook-Inszenierung mit hoher Bilddichte und laufendem Kollektions-Wechsel über das Studio Cockpit v4.0.",
-          "summary": "6-Seiten Marken-Auftritt (Startseite, Über uns, Ausbildung, Begleitung, Mach mit, Kontakt) inkl. Studio Cockpit v4.0 auf Swiss Edge.",
-          "aha_points": [
-            "Starke Marken-Identität mit klarer Führung durch Ausbildung, Begleitung und Partner-Programm",
-            "Interaktive 3-Schritte Anfrage-Weiche für Spielerinnen, Vereine und Sponsoren",
-            "Volle Eigenregie über Texte, Bilder und Sektionen im WebPilot Studio Cockpit v4.0"
-          ]
-        },
-        {
-          "job_id": "job_hochuli_20261029",
-          "company_name": "Hochuli Schlossrued AG (5 Sparten)",
-          "city": "Schlossrued AG",
-          "slug": "hochuli",
-          "source_url": "https://www.hochuli-gruppe.ch/",
-          "status": "completed",
-          "is_active": true,
-          "created_by": "david",
-          "created_by_name": "David Hügli",
-          "created_at": "2026-10-29 14:30:00",
-          "v2_url": "https://vorschau.magnet-xs.ch/hochuli-v2/",
-          "vollversion_url": "https://vorschau.magnet-xs.ch/hochuli-vollversion/",
-          "cockpit_url": "https://vorschau.magnet-xs.ch/hochuli-vollversion/cockpit?token=hochuli2026",
-          "audit_report_url": "https://vorschau.magnet-xs.ch/reports/hochuli-vorher-nachher-report.pdf",
-          "access_token": "hochuli2026",
-          "complexity_score": "7.8 / 10.0",
-          "pricing_formula_chf": "CHF 3'500.—",
-          "pricing_recommended_chf": "CHF 3'800.—",
-          "pricing_rationale": "Grosses Bau- & Gewerbe-KMU mit 5 eigenen Sparten (eigenes Farbleitsystem), 19 Projektfotos, Luftaufnahme-Video und interaktivem Mulden-Bestellrechner.",
-          "summary": "5-Seiten WebPilot-Auftritt inkl. interaktivem Mulden-Bestellrechner, 19 echten Projektfotos & 13s Luftaufnahme-Video auf Swiss Edge live.",
-          "aha_points": [
-            "5 Sparten (Hoch- & Tiefbau, Holzbau, Bedachungen/Fassaden, Immobilien, Baumulden) mit eigenem Farbleitsystem klar getrennt",
-            "19 echte Projektfotos & 13 Sekunden Luftaufnahme-Video lokal optimiert und blitzschnell auf Swiss Edge eingebunden",
-            "Sektionen für aktuelle Einblicke (#social-media) und Fachwissen aus dem Ruedertal (#blog) inklusive Mulden-Bestellrechner"
-          ]
+                "job_id": "job_impmarketing_20261105",
+                "company_name": "IMP GmbH — Matthias Iseli (Schreinerei-Marketing)",
+                "city": "Obersteckholz BE",
+                "slug": "imp-marketing",
+                "source_url": "https://imp-marketing.ch/",
+                "has_chatgpt_html": false,
+                "chatgpt_filename": "",
+                "chatgpt_html_length": 0,
+                "context_notes": "Spezialisiertes Digital- & Sichtbarkeits-System für Schreinereien und Holzbau-Betriebe (1–15 Mitarbeitende) in der Deutschschweiz. Inhaber Matthias Iseli (Schreiner EFZ, 15+ Jahre Erfahrung, Erfinder des «IMP Sichtbarkeits-Tragwerks»).",
+                "assets_count": 28,
+                "status": "completed",
+                "created_by": "david",
+                "created_by_name": "David Hügli (Magnet XS)",
+                "submitted_by": "david",
+                "partner_name": "David Hügli (Magnet XS)",
+                "created_at": "2026-11-05 12:35:00",
+                "completed_at": "2026-11-05 13:55:00",
+                "v2_url": "https://vorschau.magnet-xs.ch/imp-marketing-v2/",
+                "vollversion_url": "https://vorschau.magnet-xs.ch/imp-marketing-vollversion/",
+                "preview_url": "https://vorschau.magnet-xs.ch/imp-marketing-v2/",
+                "cockpit_url": "https://vorschau.magnet-xs.ch/imp-marketing-vollversion/cockpit.html?token=impmarketing2026",
+                "access_token": "impmarketing2026",
+                "summary": "Zeigeversion (-v2 mit voll ausgebauter Startseite & 4 Unterseiten als Ausbaustufe) und 5-Seiten Vollversion (-vollversion inkl. Leistungen, Methode, Über uns, Kontakt & Studio Cockpit v4.0) auf Swiss Edge live.",
+                "aha_points": [
+                        "100 % Bereinigung aller englischen GoHighLevel-Template-Reste (Jane Doe, 25+ Years Experience, englische FAQs) zugunsten echter Schweizer Schreiner-EFZ-Substanz",
+                        "Interaktiver «Sichtbarkeits- & Anfrage-Potenzial-Rechner für Schreinereien & Holzbau» nach Betriebsgrösse (1–15 Mitarbeitende) und Schwerpunkt",
+                        "4 klar strukturierte Leistungs-Säulen (Webseiten, Google-Geschäftsprofil, Anfrage-Systeme, Datenautomation) plus 3-Schritte Smart-Anfrage mit PDF-Dossier"
+                ],
+                "is_active": true,
+                "complexity_score": "4.8 / 10.0",
+                "pricing_formula_chf": "CHF 2'150.—",
+                "pricing_recommended_chf": "CHF 2'400.—",
+                "pricing_rationale": "Spezialisierter 5-Seiten-B2B-Auftritt für Schreinerei- & Holzbau-Marketing inkl. 16 Prozess-Visuals, interaktivem Schreinerei-Potenzial-Rechner, 6 Fach-FAQs und 3-Schritte Smart-Anfrage. Durch ein einziges gewonnenes Schreinerei-Mandat mehrfach refinanziert.",
+                "audit_report_url": "https://vorschau.magnet-xs.ch/reports/imp-marketing-vorher-nachher-report.pdf",
+                "audit_report_html_url": "https://vorschau.magnet-xs.ch/reports/imp-marketing-vorher-nachher-report.html",
+                "monthly_year1_chf": 235,
+                "monthly_year2_chf": 35,
+                "monthly_plan_label": "Hosting, Studio-Cockpit & fortlaufende SEO-/Mobile-Entwicklung",
+                "monthly_display": "1. Jahr: CHF 235.—/Mt. · ab 2. Jahr: CHF 35.—/Mt.",
+                "partner_id": "david"
         }
-      ];
+];
 
       let allJobsData = FALLBACK_SEED_JOBS.slice();
 
@@ -1972,6 +2102,50 @@
         }
       }
 
+      function getJobPricingInfo(job) {
+        const recPrice = job.pricing_recommended_chf || "CHF 1'800.—";
+        const scoreVal = job.complexity_score || "5.0 / 10.0";
+        const formPrice = job.pricing_formula_chf || recPrice;
+        const rawDigits = parseInt(String(recPrice).replace(/[^0-9]/g, ""), 10) || 1800;
+        const year1Chf = job.monthly_year1_chf || (Math.round(((rawDigits / 12) + 35) / 5) * 5);
+        const year2Chf = job.monthly_year2_chf || 35;
+        const planLabel = job.monthly_plan_label || "Hosting, Studio-Cockpit & fortlaufende SEO-/Mobile-Entwicklung";
+        const rationale = job.pricing_rationale || "Marktgerechte WebPilot-Einstufung inklusive Zeigeversion, Vollversion und Studio Cockpit v4.0.";
+        return {
+          recPrice: recPrice,
+          scoreVal: scoreVal,
+          formPrice: formPrice,
+          year1Chf: year1Chf,
+          year2Chf: year2Chf,
+          planLabel: planLabel,
+          rationale: rationale,
+          monthlyBadgeText: "Oder: 1. Jahr CHF " + year1Chf + ".—/Mt. · ab 2. Jahr CHF " + year2Chf + ".—/Mt.",
+          monthlySubText: "Inkl. Hosting, Cockpit & SEO-/Mobile-Weiterentwicklung"
+        };
+      }
+
+      function buildOfferClipboardText(job) {
+        const p = getJobPricingInfo(job);
+        const comp = job.company_name || job.slug || "Kunde";
+        return [
+          "OFFERTEN-AUSWAHL — " + comp,
+          "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━",
+          "Variante A (Einmal-Investition):",
+          "• Aufbau & schlüsselfertige Webseite: " + p.recPrice + " einmalig",
+          "• Laufend: CHF " + p.year2Chf + ".— / Mt. («" + p.planLabel + "»)",
+          "",
+          "Variante B (Monats-Modell ohne Start-Hürde):",
+          "• 1. Jahr: CHF " + p.year1Chf + ".— / Mt. (inkl. komplettem Aufbau & Systembetrieb)",
+          "• Ab 2. Jahr: nur noch CHF " + p.year2Chf + ".— / Mt. («" + p.planLabel + "»)",
+          "",
+          "Was in «" + p.planLabel + " (CHF " + p.year2Chf + ".— / Mt.)» enthalten ist:",
+          "1. Fortlaufende Google-SEO & KI-Auffindbarkeit: Laufende Weiterentwicklung für Top-Sichtbarkeit bei Google und KI-Suchen.",
+          "2. Mobile-Perfektion & High-Speed-Ladezeiten: Permanente Optimierung für alle aktuellen Smartphones, Tablets und Browser.",
+          "3. Schweizer High-Speed-Hosting & Sicherheit: Blitzschnelle Auslieferung auf Swiss Edge inkl. SSL-Schutz.",
+          "4. WebPilot Studio-Cockpit v4.0: Eigener Direkt-Zugang für Text-, Bild- und Angebots-Anpassungen in Echtzeit."
+        ].join("\n");
+      }
+
       function switchStudioTab(tabName) {
         activeTab = tabName;
         const isAdminUser = currentUser && (currentUser.role === "admin" || currentUser.username === "david");
@@ -1986,11 +2160,10 @@
         panelIntake.classList.toggle("hidden", activeTab !== "intake");
         panelAdmin.classList.toggle("hidden", activeTab !== "admin");
 
-        if (activeTab === "admin" && isAdminUser) {
+        if (activeTab === "admin") {
           loadAdminPartners();
         }
       }
-
       window.wpSwitchStudioTab = switchStudioTab;
 
       tabBtnProjects.addEventListener("click", function () { switchStudioTab("projects"); });
@@ -2131,9 +2304,20 @@
         studioView.classList.remove("hidden");
         topbarUserArea.classList.remove("hidden");
 
-        const isAdmin = Boolean(user && (user.role === "admin" || user.username === "david"));
+        const uname = String((user && user.username) || "").toLowerCase();
+        const isAdmin = Boolean(user && (user.role === "admin" || uname === "david"));
         tabBtnAdmin.classList.toggle("hidden", !isAdmin);
         studioTabsBar.classList.toggle("has-admin", isAdmin);
+
+        if (!isAdmin && (currentFilter === "david" || currentFilter === "jenny")) {
+          currentFilter = "all";
+        }
+
+        const hasSheetAccess = isAdmin || uname === "jenny" || Boolean(user && user.google_sheet_url);
+        const b1 = document.getElementById("btnTopGoogleSheet");
+        const b2 = document.getElementById("btnSectionGoogleSheet");
+        if (b1) b1.classList.toggle("hidden", !hasSheetAccess);
+        if (b2) b2.classList.toggle("hidden", !hasSheetAccess);
 
         userMetaDisplay.textContent = "";
         const strong = document.createElement("strong");
@@ -2285,8 +2469,32 @@
         if (!job) return true;
         const s = String(job.slug || "").toLowerCase();
         const jid = String(job.job_id || "").toLowerCase();
-        return s === "hiltbrand" || s === "birchmeier" || s === "preview-birchmeier" || s === "preview-hiltbrand" || jid.indexOf("hiltbrand") !== -1 || jid.indexOf("birchmeier") !== -1;
+        return (
+          s === "hiltbrand" ||
+          s === "birchmeier" ||
+          s === "hochuli" ||
+          s === "preview-birchmeier" ||
+          s === "preview-hiltbrand" ||
+          s === "preview-hochuli" ||
+          jid.indexOf("hiltbrand") !== -1 ||
+          jid.indexOf("birchmeier") !== -1 ||
+          jid.indexOf("hochuli") !== -1
+        );
       }
+
+      function getVisibleJobs() {
+        const baseList = allJobsData.filter(function (j) { return !isExcludedInternalJob(j); });
+        const isAdmin = Boolean(currentUser && (currentUser.role === "admin" || currentUser.username === "david"));
+        if (isAdmin) {
+          return baseList;
+        }
+        const uname = String((currentUser && currentUser.username) || "jenny").toLowerCase();
+        return baseList.filter(function (j) {
+          const owner = String(j.partner_id || j.created_by || "").toLowerCase();
+          return owner === uname;
+        });
+      }
+      const getScopedJobsForCurrentUser = getVisibleJobs;
 
       async function loadJobs() {
         if (!currentToken) {
@@ -2339,7 +2547,7 @@
 
       function matchesJobFilter(job) {
         const isAct = job.is_active !== false;
-        const creator = String((job.created_by || "") + " " + (job.created_by_name || "")).toLowerCase();
+        const creator = String((job.created_by || "") + " " + (job.partner_id || "") + " " + (job.created_by_name || "")).toLowerCase();
         if (currentFilter === "active" && !isAct) return false;
         if (currentFilter === "inactive" && isAct) return false;
         if (currentFilter === "jenny" && creator.indexOf("jenny") === -1) return false;
@@ -2355,6 +2563,7 @@
             job.source_url || "",
             job.summary || "",
             job.pricing_recommended_chf || "",
+            job.monthly_display || "",
             job.pricing_formula_chf || "",
             job.complexity_score || "",
             job.pricing_rationale || "",
@@ -2365,10 +2574,50 @@
         return true;
       }
 
+      function updateFilterPillCounts(scopedJobs) {
+        const isAdmin = Boolean(currentUser && (currentUser.role === "admin" || currentUser.username === "david"));
+        filterPillsBar.classList.toggle("is-admin-view", isAdmin);
+        filterPillsBar.classList.toggle("is-partner-view", !isAdmin);
+
+        const total = scopedJobs.length;
+        const actCount = scopedJobs.filter(function (j) { return j.is_active !== false; }).length;
+        const inactCount = total - actCount;
+        const jennyCount = scopedJobs.filter(function (j) {
+          return String(j.partner_id || j.created_by || "").toLowerCase() === "jenny";
+        }).length;
+        const davidCount = scopedJobs.filter(function (j) {
+          return String(j.partner_id || j.created_by || "").toLowerCase() === "david";
+        }).length;
+
+        const pills = Array.from(filterPillsBar.querySelectorAll(".filter-pill"));
+        pills.forEach(function (pill) {
+          const f = pill.getAttribute("data-filter");
+          if (f === "all") {
+            pill.textContent = isAdmin ? ("Alle (" + total + ")") : ("Alle meine Projekte (" + total + ")");
+            pill.classList.remove("hidden");
+          } else if (f === "active") {
+            pill.textContent = "Aktiv (" + actCount + ")";
+            pill.classList.remove("hidden");
+          } else if (f === "inactive") {
+            pill.textContent = "Inaktiv / Archiv (" + inactCount + ")";
+            pill.classList.remove("hidden");
+          } else if (f === "jenny") {
+            pill.textContent = "Jenny Ettle (" + jennyCount + ")";
+            pill.classList.toggle("hidden", !isAdmin);
+          } else if (f === "david") {
+            pill.textContent = "David Hügli (" + davidCount + ")";
+            pill.classList.toggle("hidden", !isAdmin);
+          }
+          pill.classList.toggle("active", f === currentFilter);
+        });
+      }
+
       function renderFilteredJobs() {
-        const total = allJobsData.length;
+        const scoped = getScopedJobsForCurrentUser();
+        const total = scoped.length;
         tabBadgeCount.textContent = total + " Projekte";
-        const filtered = allJobsData.filter(matchesJobFilter);
+        updateFilterPillCounts(scoped);
+        const filtered = scoped.filter(matchesJobFilter);
         resultsCounterDisplay.textContent = filtered.length + " von " + total + " Projekten";
 
         jobsContainer.textContent = "";
@@ -2398,11 +2647,7 @@
           const cockpitHref = job.cockpit_url || ("https://vorschau.magnet-xs.ch/" + baseSlug + "-vollversion/cockpit?token=" + tokenStr);
           const auditPdfHref = job.audit_report_url || ("https://vorschau.magnet-xs.ch/reports/" + baseSlug + "-vorher-nachher-report.pdf");
           const origHref = job.source_url || v2Href;
-
-          const recPrice = job.pricing_recommended_chf || "CHF 1'800.—";
-          const scoreVal = job.complexity_score || "5.0 / 10.0";
-          const formPrice = job.pricing_formula_chf || recPrice;
-          const rationale = job.pricing_rationale || "Marktgerechte WebPilot-Einstufung inklusive Zeigeversion, Vollversion und Studio Cockpit v4.0.";
+          const pInfo = getJobPricingInfo(job);
 
           const rowCard = document.createElement("article");
           rowCard.className = "project-row-card" + (isAct ? "" : " is-inactive");
@@ -2427,7 +2672,7 @@
           btnToggle.addEventListener("click", function () { toggleJobActive(job); });
           colToggle.appendChild(btnToggle);
 
-          // 2. Firma / Verein & Ort
+          // 2. Firma / Verein, Ort & Partner
           const colComp = document.createElement("div");
           colComp.className = "col-company";
           const compTitle = document.createElement("div");
@@ -2435,26 +2680,38 @@
           compTitle.textContent = job.company_name || job.slug;
           const compSub = document.createElement("div");
           compSub.className = "company-sub-line";
-          const partnerShort = String(job.created_by_name || "Jenny Ettle").indexOf("David") !== -1 ? "David Hügli" : "Jenny Ettle";
-          compSub.textContent = (job.city ? job.city + " · " : "") + "Slug: " + baseSlug + " · " + partnerShort;
+          const partnerDisplay = String(job.created_by || "").toLowerCase() === "david" ? "David Hügli (Magnet XS)" : "Jenny Ettle (JE-MI)";
+          compSub.textContent = (job.city ? job.city + " · " : "") + "Slug: " + baseSlug + " · " + partnerDisplay;
           colComp.appendChild(compTitle);
           colComp.appendChild(compSub);
 
-          // 3. Preisempfehlung & Score (#UI-07 Punkt 3: / 10.0 immer dabei)
+          // 3. 2-Wege-Preismodell (Einmalig vs. Monats-Offerte 1. Jahr / ab 2. Jahr)
           const colPrice = document.createElement("div");
           colPrice.className = "col-pricing";
           const priceTop = document.createElement("div");
           priceTop.className = "price-main-val";
-          priceTop.textContent = "Empf.: " + recPrice;
-          const priceSub = document.createElement("div");
-          priceSub.className = "price-score-sub";
-          priceSub.textContent = "Score " + scoreVal + " · Formel " + formPrice;
-          colPrice.appendChild(priceTop);
-          colPrice.appendChild(priceSub);
+          priceTop.textContent = "Einmalig: " + pInfo.recPrice + " (+ CHF " + pInfo.year2Chf + ".—/Mt.)";
 
-          // 4. Zeigeversion (-v2) & Vollversion (-vollversion)
-          const colLinks = document.createElement("div");
-          colLinks.className = "col-links-pair";
+          const monthlyBadge = document.createElement("div");
+          monthlyBadge.className = "price-monthly-badge";
+          monthlyBadge.textContent = pInfo.monthlyBadgeText;
+
+          const monthlySub = document.createElement("div");
+          monthlySub.className = "price-monthly-sub";
+          monthlySub.textContent = pInfo.monthlySubText + " · Score " + pInfo.scoreVal + " (Formel " + pInfo.formPrice + ")";
+
+          colPrice.appendChild(priceTop);
+          colPrice.appendChild(monthlyBadge);
+          colPrice.appendChild(monthlySub);
+
+          mainGrid.appendChild(colToggle);
+          mainGrid.appendChild(colComp);
+          mainGrid.appendChild(colPrice);
+          rowCard.appendChild(mainGrid);
+
+          // 4. Primäre 5 Direkt-Links nebeneinander: Zeigeversion, Vollversion, Cockpit, Beweis-PDF, Ursprungs-Seite
+          const primaryLinks = document.createElement("div");
+          primaryLinks.className = "project-primary-links";
 
           const btnV2 = document.createElement("a");
           btnV2.className = "btn btn-primary btn-sm";
@@ -2476,13 +2733,6 @@
           sVoll.textContent = "Vollversion";
           btnVoll.appendChild(sVoll);
 
-          colLinks.appendChild(btnV2);
-          colLinks.appendChild(btnVoll);
-
-          // 5. Cockpit & Vorher/Nachher-PDF
-          const colUtil = document.createElement("div");
-          colUtil.className = "col-utility-pair";
-
           const btnCockpit = document.createElement("a");
           btnCockpit.className = "btn btn-secondary btn-sm";
           btnCockpit.href = cockpitHref;
@@ -2494,7 +2744,7 @@
           btnCockpit.appendChild(sCockpit);
 
           const btnAuditPdf = document.createElement("a");
-          btnAuditPdf.className = "btn btn-ghost btn-sm";
+          btnAuditPdf.className = "btn btn-secondary btn-sm";
           btnAuditPdf.href = auditPdfHref;
           btnAuditPdf.target = "_blank";
           btnAuditPdf.rel = "noopener noreferrer";
@@ -2503,15 +2753,22 @@
           sPdf.textContent = "Beweis-PDF";
           btnAuditPdf.appendChild(sPdf);
 
-          colUtil.appendChild(btnCockpit);
-          colUtil.appendChild(btnAuditPdf);
+          const btnOrig = document.createElement("a");
+          btnOrig.className = "btn btn-secondary btn-sm";
+          btnOrig.href = origHref;
+          btnOrig.target = "_blank";
+          btnOrig.rel = "noopener noreferrer";
+          btnOrig.appendChild(createSvgIcon('<circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>'));
+          const sOrig = document.createElement("span");
+          sOrig.textContent = "Ursprungs-Seite";
+          btnOrig.appendChild(sOrig);
 
-          mainGrid.appendChild(colToggle);
-          mainGrid.appendChild(colComp);
-          mainGrid.appendChild(colPrice);
-          mainGrid.appendChild(colLinks);
-          mainGrid.appendChild(colUtil);
-          rowCard.appendChild(mainGrid);
+          primaryLinks.appendChild(btnV2);
+          primaryLinks.appendChild(btnVoll);
+          primaryLinks.appendChild(btnCockpit);
+          primaryLinks.appendChild(btnAuditPdf);
+          primaryLinks.appendChild(btnOrig);
+          rowCard.appendChild(primaryLinks);
 
           // Footer Zeile: 4 Buttons (gerade Anzahl fuer 2x2 Mobile-Grid ohne Waisenkinder)
           const footer = document.createElement("div");
@@ -2521,14 +2778,45 @@
           drawerEl.className = "project-drawer" + (expandedJobDrawers[job.job_id] ? "" : " hidden");
 
           const ratBox = document.createElement("div");
+          const ratHead = document.createElement("div");
+          ratHead.style.display = "flex";
+          ratHead.style.alignItems = "center";
+          ratHead.style.justifyContent = "space-between";
+          ratHead.style.gap = "10px";
+          ratHead.style.flexWrap = "wrap";
+          ratHead.style.marginBottom = "6px";
+
           const ratKicker = document.createElement("span");
           ratKicker.className = "aha-title";
-          ratKicker.textContent = "VERKAUFS-BEGRÜNDUNG FÜR PREISEMPFEHLUNG (" + recPrice + " · SCORE " + scoreVal + ")";
+          ratKicker.style.marginBottom = "0";
+          ratKicker.textContent = "2-WEGE-OFFERTEN-PREISMODELL & BEGRÜNDUNG (" + pInfo.recPrice + " · SCORE " + pInfo.scoreVal + ")";
+
+          const btnCopyOfferDrawer = document.createElement("button");
+          btnCopyOfferDrawer.type = "button";
+          btnCopyOfferDrawer.className = "btn btn-secondary btn-sm";
+          btnCopyOfferDrawer.appendChild(createSvgIcon('<rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>'));
+          const sCopyOfferDrawer = document.createElement("span");
+          sCopyOfferDrawer.textContent = "Offerten-Text kopieren";
+          btnCopyOfferDrawer.appendChild(sCopyOfferDrawer);
+          btnCopyOfferDrawer.addEventListener("click", function () {
+            copyTextToClipboard(buildOfferClipboardText(job), btnCopyOfferDrawer, "Offerten-Text kopieren");
+          });
+
+          ratHead.appendChild(ratKicker);
+          ratHead.appendChild(btnCopyOfferDrawer);
+          ratBox.appendChild(ratHead);
+
+          const offerDetails = document.createElement("p");
+          offerDetails.style.fontSize = "13px";
+          offerDetails.style.color = "var(--accent-text)";
+          offerDetails.style.marginBottom = "6px";
+          offerDetails.textContent = "Variante A: " + pInfo.recPrice + " einmalig + CHF " + pInfo.year2Chf + ".—/Mt. | Variante B: 1. Jahr CHF " + pInfo.year1Chf + ".—/Mt., ab 2. Jahr CHF " + pInfo.year2Chf + ".—/Mt. («" + pInfo.planLabel + "»)";
+          ratBox.appendChild(offerDetails);
+
           const ratText = document.createElement("p");
           ratText.style.fontSize = "13.5px";
           ratText.style.color = "var(--text-primary)";
-          ratText.textContent = rationale;
-          ratBox.appendChild(ratKicker);
+          ratText.textContent = pInfo.rationale;
           ratBox.appendChild(ratText);
           drawerEl.appendChild(ratBox);
 
@@ -2572,15 +2860,16 @@
             sDrawer.textContent = expandedJobDrawers[job.job_id] ? "Preis-Begründung & Aha ausblenden" : "Preis-Begründung & 3 Aha-Punkte";
           });
 
-          const btnOrig = document.createElement("a");
-          btnOrig.className = "btn btn-ghost btn-sm";
-          btnOrig.href = origHref;
-          btnOrig.target = "_blank";
-          btnOrig.rel = "noopener noreferrer";
-          btnOrig.appendChild(createSvgIcon('<circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>'));
-          const sOrig = document.createElement("span");
-          sOrig.textContent = "Original-Webseite";
-          btnOrig.appendChild(sOrig);
+          const btnCopyOffer = document.createElement("button");
+          btnCopyOffer.type = "button";
+          btnCopyOffer.className = "btn btn-ghost btn-sm";
+          btnCopyOffer.appendChild(createSvgIcon('<rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>'));
+          const sCopyOffer = document.createElement("span");
+          sCopyOffer.textContent = "Offerten-Text kopieren";
+          btnCopyOffer.appendChild(sCopyOffer);
+          btnCopyOffer.addEventListener("click", function () {
+            copyTextToClipboard(buildOfferClipboardText(job), btnCopyOffer, "Offerten-Text kopieren");
+          });
 
           const btnCopyV2 = document.createElement("button");
           btnCopyV2.type = "button";
@@ -2617,7 +2906,7 @@
           });
 
           footerBtns.appendChild(btnDrawer);
-          footerBtns.appendChild(btnOrig);
+          footerBtns.appendChild(btnCopyOffer);
           footerBtns.appendChild(btnCopyV2);
           footerBtns.appendChild(btnWhatsapp);
 
@@ -2631,6 +2920,7 @@
       function renderCardsView(jobs) {
         jobs.forEach(function (job) {
           const isAct = job.is_active !== false;
+          const pInfo = getJobPricingInfo(job);
           const card = document.createElement("article");
           card.className = "job-card";
 
@@ -2651,10 +2941,11 @@
             title.appendChild(citySpan);
           }
 
+          const partnerDisplay = String(job.created_by || "").toLowerCase() === "david" ? "David Hügli (Magnet XS)" : "Jenny Ettle (JE-MI)";
           const metaRow = document.createElement("div");
           metaRow.className = "job-meta-row";
           metaRow.style.marginTop = "4px";
-          metaRow.textContent = "Slug: " + (job.slug || "-") + " · Token: " + (job.access_token || "-") + " · Partner: " + (job.created_by_name || "Jenny Ettle");
+          metaRow.textContent = "Slug: " + (job.slug || "-") + " · Token: " + (job.access_token || "-") + " · Partner: " + partnerDisplay;
 
           titleWrap.appendChild(title);
           titleWrap.appendChild(metaRow);
@@ -2675,37 +2966,75 @@
           top.appendChild(rightBadges);
           card.appendChild(top);
 
-          // 2-Stufen Preisempfehlung Box
+          // 2-Wege-Offerten-Preisempfehlung Box
           const priceBox = document.createElement("div");
           priceBox.className = "pricing-card-box";
           const priceTop = document.createElement("div");
           priceTop.className = "pricing-card-top";
 
           const priceLeft = document.createElement("div");
+          priceLeft.style.display = "flex";
+          priceLeft.style.flexDirection = "column";
+          priceLeft.style.gap = "5px";
+          priceLeft.style.minWidth = "0";
+
           const priceKicker = document.createElement("span");
           priceKicker.className = "aha-title";
-          priceKicker.style.marginBottom = "2px";
-          priceKicker.textContent = "STRATEGISCHE MARKTPREIS-EMPFEHLUNG";
+          priceKicker.style.marginBottom = "0";
+          priceKicker.textContent = "2-WEGE-OFFERTEN-PREISMODELL & SYSTEM-SCORE";
+
           const priceVal = document.createElement("div");
           priceVal.className = "price-main-val";
-          priceVal.style.fontSize = "20px";
-          priceVal.textContent = job.pricing_recommended_chf || "CHF 1'800.—";
+          priceVal.style.fontSize = "16px";
+          priceVal.textContent = "Einmalig: " + pInfo.recPrice + " (+ CHF " + pInfo.year2Chf + ".—/Mt.)";
+
+          const monthlyBadge = document.createElement("div");
+          monthlyBadge.className = "price-monthly-badge";
+          monthlyBadge.textContent = pInfo.monthlyBadgeText;
+
+          const monthlySub = document.createElement("div");
+          monthlySub.className = "price-monthly-sub";
+          monthlySub.textContent = pInfo.monthlySubText + " («" + pInfo.planLabel + "»)";
+
           priceLeft.appendChild(priceKicker);
           priceLeft.appendChild(priceVal);
+          priceLeft.appendChild(monthlyBadge);
+          priceLeft.appendChild(monthlySub);
+
+          const priceRight = document.createElement("div");
+          priceRight.style.display = "flex";
+          priceRight.style.flexDirection = "column";
+          priceRight.style.alignItems = "flex-end";
+          priceRight.style.gap = "8px";
+          priceRight.style.minWidth = "0";
 
           const scoreBadge = document.createElement("span");
           scoreBadge.className = "badge-4";
-          scoreBadge.textContent = "System-Score: " + (job.complexity_score || "5.0 / 10.0") + " · Formel: " + (job.pricing_formula_chf || "CHF 1'800.—");
+          scoreBadge.textContent = "System-Score: " + pInfo.scoreVal + " · Formel: " + pInfo.formPrice;
+
+          const btnCopyOfferCard = document.createElement("button");
+          btnCopyOfferCard.type = "button";
+          btnCopyOfferCard.className = "btn btn-secondary btn-sm";
+          btnCopyOfferCard.appendChild(createSvgIcon('<rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>'));
+          const sCopyOfferCard = document.createElement("span");
+          sCopyOfferCard.textContent = "Offerten-Text kopieren";
+          btnCopyOfferCard.appendChild(sCopyOfferCard);
+          btnCopyOfferCard.addEventListener("click", function () {
+            copyTextToClipboard(buildOfferClipboardText(job), btnCopyOfferCard, "Offerten-Text kopieren");
+          });
+
+          priceRight.appendChild(scoreBadge);
+          priceRight.appendChild(btnCopyOfferCard);
 
           priceTop.appendChild(priceLeft);
-          priceTop.appendChild(scoreBadge);
+          priceTop.appendChild(priceRight);
           priceBox.appendChild(priceTop);
 
-          if (job.pricing_rationale) {
+          if (pInfo.rationale) {
             const ratP = document.createElement("p");
             ratP.style.fontSize = "13.5px";
             ratP.style.color = "var(--text-secondary)";
-            ratP.textContent = job.pricing_rationale;
+            ratP.textContent = pInfo.rationale;
             priceBox.appendChild(ratP);
           }
           card.appendChild(priceBox);
@@ -2795,13 +3124,13 @@
           btnAuditPdf.appendChild(pdfLabel);
 
           const btnOrig = document.createElement("a");
-          btnOrig.className = "btn btn-ghost btn-sm";
+          btnOrig.className = "btn btn-secondary btn-sm";
           btnOrig.href = origHref;
           btnOrig.target = "_blank";
           btnOrig.rel = "noopener noreferrer";
           btnOrig.appendChild(createSvgIcon('<circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>'));
           const origLabel = document.createElement("span");
-          origLabel.textContent = "Original-Webseite öffnen";
+          origLabel.textContent = "Ursprungs-Seite öffnen";
           btnOrig.appendChild(origLabel);
 
           const btnWhatsapp = document.createElement("button");
@@ -2859,13 +3188,13 @@
         },
         {
           username: "david",
-          display_name: "David Hügli",
+          display_name: "David Hügli (Magnet XS)",
           phone: "+41796326505",
           role: "admin",
           active: true,
           daily_limit: 5,
           jobs_last_24h: 1,
-          total_jobs: 2,
+          total_jobs: 1,
           quick_link: "https://vorschau.magnet-xs.ch/partner/?token=david2026"
         }
       ];
