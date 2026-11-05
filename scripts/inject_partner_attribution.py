@@ -126,6 +126,22 @@ SHOWCASE_CONFIGS = {
         "navy_hex": "#1E2B34",
         "font_heading": "'Josefin Sans', sans-serif",
     },
+    "preview-imp-marketing": {
+        "routing_slug": "imp-marketing",
+        "site_label": "IMP GmbH — Matthias Iseli (Schreinerei- & Holzbau-Marketing)",
+        "entity_hint": "die IMP GmbH (Matthias Iseli, Obersteckholz)",
+        "accent_hex": "#C88A36",
+        "navy_hex": "#14181D",
+        "font_heading": "'Plus Jakarta Sans', sans-serif",
+    },
+    "preview-imp-marketing-v2": {
+        "routing_slug": "imp-marketing-v2",
+        "site_label": "IMP GmbH — Matthias Iseli (Zeigeversion / Vorschau-Entwurf)",
+        "entity_hint": "die IMP GmbH (Matthias Iseli, Obersteckholz)",
+        "accent_hex": "#C88A36",
+        "navy_hex": "#14181D",
+        "font_heading": "'Plus Jakarta Sans', sans-serif",
+    },
 }
 
 CSS_START = "/* === WEBPILOT-PARTNER-ATTRIBUTION-CSS-START === */"

@@ -254,7 +254,9 @@ def scan_stellen(client_dir: Path, slug: str, name: str, profile: dict = None):
         n = p.name.lower()
         order_map = {
             "index.html": 0,
-            "ueber-uns.html": 1,
+            "leistungen.html": 1,
+            "methode.html": 2,
+            "ueber-uns.html": 3 if (client_dir / "leistungen.html").exists() else 1,
         "herren-1.html": 1,
             "angebot.html": 1,
             "dienstleistungen.html": 1,

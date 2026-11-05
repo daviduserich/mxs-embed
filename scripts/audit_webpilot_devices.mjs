@@ -96,6 +96,18 @@ const ALL_PAGES = [
   'preview-herzensarbeit-v2/index.html',
   'preview-herzensarbeit-v2/kontakt.html',
   'preview-herzensarbeit-v2/cockpit.html',
+  'preview-imp-marketing/index.html',
+  'preview-imp-marketing/leistungen.html',
+  'preview-imp-marketing/methode.html',
+  'preview-imp-marketing/ueber-uns.html',
+  'preview-imp-marketing/kontakt.html',
+  'preview-imp-marketing/cockpit.html',
+  'preview-imp-marketing-v2/index.html',
+  'preview-imp-marketing-v2/leistungen.html',
+  'preview-imp-marketing-v2/methode.html',
+  'preview-imp-marketing-v2/ueber-uns.html',
+  'preview-imp-marketing-v2/kontakt.html',
+  'preview-imp-marketing-v2/cockpit.html',
   'webpilot/index.html',
   'webpilot/angebot.html',
   'webpilot/ueber-uns.html',
@@ -474,22 +486,55 @@ async function main() {
       }
     }
 
-    // 2c. Partner Studio Unlocked State (#studioView with all 10 project cards + Google Sheet buttons)
+    // 2c. Partner Studio Interactive States (Tab 1 List, Tab 1 Cards, Tab 2 Intake, Tab 3 Admin 2FA)
     if (relPage === 'partner/index.html') {
       const unlocked = await page.evaluate(() => {
         if (typeof window.wpUnlockStudioForAudit === 'function') {
-          window.wpUnlockStudioForAudit();
+          window.wpUnlockStudioForAudit(true);
           const sv = document.getElementById('studioView');
           return (sv && !sv.classList.contains('hidden')) ? '#studioView' : null;
         }
         return null;
       });
       if (unlocked) {
-        await page.waitForTimeout(150);
-        for (const zone of SYSTEM_EYES_ZONES) {
-          const sf = await auditPageZone(page, `${relPage}#studio-unlocked`, zone, screenshotDir);
-          allFindings.push(...sf);
-          totalViewsAudited++;
+        const partnerStates = [
+          {
+            suffix: '#tab1-list',
+            setup: () => {
+              if (typeof window.wpSwitchStudioTab === 'function') window.wpSwitchStudioTab('projects');
+              const bList = document.getElementById('btnViewList');
+              if (bList) bList.click();
+            }
+          },
+          {
+            suffix: '#tab1-cards',
+            setup: () => {
+              if (typeof window.wpSwitchStudioTab === 'function') window.wpSwitchStudioTab('projects');
+              const bCards = document.getElementById('btnViewCards');
+              if (bCards) bCards.click();
+            }
+          },
+          {
+            suffix: '#tab2-intake',
+            setup: () => {
+              if (typeof window.wpSwitchStudioTab === 'function') window.wpSwitchStudioTab('intake');
+            }
+          },
+          {
+            suffix: '#tab3-admin-2fa',
+            setup: () => {
+              if (typeof window.wpSwitchStudioTab === 'function') window.wpSwitchStudioTab('admin');
+            }
+          }
+        ];
+        for (const pState of partnerStates) {
+          await page.evaluate(pState.setup);
+          await page.waitForTimeout(120);
+          for (const zone of SYSTEM_EYES_ZONES) {
+            const sf = await auditPageZone(page, `${relPage}${pState.suffix}`, zone, screenshotDir);
+            allFindings.push(...sf);
+            totalViewsAudited++;
+          }
         }
       }
     }
