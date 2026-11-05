@@ -677,9 +677,18 @@
 
     .project-primary-links {
       display: grid;
-      grid-template-columns: repeat(5, minmax(0, 1fr));
+      grid-template-columns: repeat(6, minmax(0, 1fr));
       gap: 8px;
       padding-top: 2px;
+    }
+
+    @media (min-width: 1100px) {
+      .project-primary-links .btn {
+        white-space: nowrap;
+        padding: 8px 8px;
+        font-size: 11.5px;
+        gap: 6px;
+      }
     }
 
     .price-monthly-badge {
@@ -2645,6 +2654,7 @@
           const v2Href = job.v2_url || ("https://vorschau.magnet-xs.ch/" + baseSlug + "-v2/");
           const vollHref = job.vollversion_url || ("https://vorschau.magnet-xs.ch/" + baseSlug + "-vollversion/");
           const cockpitHref = job.cockpit_url || ("https://vorschau.magnet-xs.ch/" + baseSlug + "-vollversion/cockpit?token=" + tokenStr);
+          const cockpitLightHref = job.cockpit_light_url || ("https://vorschau.magnet-xs.ch/" + baseSlug + "-vollversion/cockpit.html?token=" + baseSlug + "2026&mode=light");
           const auditPdfHref = job.audit_report_url || ("https://vorschau.magnet-xs.ch/reports/" + baseSlug + "-vorher-nachher-report.pdf");
           const origHref = job.source_url || v2Href;
           const pInfo = getJobPricingInfo(job);
@@ -2743,6 +2753,17 @@
           sCockpit.textContent = "Cockpit v4.0";
           btnCockpit.appendChild(sCockpit);
 
+          const btnCockpitLight = document.createElement("a");
+          btnCockpitLight.className = "btn btn-secondary btn-sm";
+          btnCockpitLight.href = cockpitLightHref;
+          btnCockpitLight.target = "_blank";
+          btnCockpitLight.rel = "noopener noreferrer";
+          btnCockpitLight.title = "Kunden-Cockpit Light (Nur Texte redigieren) öffnen";
+          btnCockpitLight.appendChild(createSvgIcon('<path d="M12 20h9"></path><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path>'));
+          const sCockpitLight = document.createElement("span");
+          sCockpitLight.textContent = "Cockpit Light (Texte)";
+          btnCockpitLight.appendChild(sCockpitLight);
+
           const btnAuditPdf = document.createElement("a");
           btnAuditPdf.className = "btn btn-secondary btn-sm";
           btnAuditPdf.href = auditPdfHref;
@@ -2766,6 +2787,7 @@
           primaryLinks.appendChild(btnV2);
           primaryLinks.appendChild(btnVoll);
           primaryLinks.appendChild(btnCockpit);
+          primaryLinks.appendChild(btnCockpitLight);
           primaryLinks.appendChild(btnAuditPdf);
           primaryLinks.appendChild(btnOrig);
           rowCard.appendChild(primaryLinks);
@@ -2880,6 +2902,15 @@
           btnCopyV2.appendChild(sCopyV2);
           btnCopyV2.addEventListener("click", function () { copyTextToClipboard(v2Href, btnCopyV2, "-v2 Link kopieren"); });
 
+          const btnCopyCockpitLight = document.createElement("button");
+          btnCopyCockpitLight.type = "button";
+          btnCopyCockpitLight.className = "btn btn-ghost btn-sm";
+          btnCopyCockpitLight.appendChild(createSvgIcon('<rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>'));
+          const sCopyCockpitLight = document.createElement("span");
+          sCopyCockpitLight.textContent = "Cockpit-Light Link kopieren";
+          btnCopyCockpitLight.appendChild(sCopyCockpitLight);
+          btnCopyCockpitLight.addEventListener("click", function () { copyTextToClipboard(cockpitLightHref, btnCopyCockpitLight, "Cockpit-Light Link kopieren"); });
+
           const btnWhatsapp = document.createElement("button");
           btnWhatsapp.type = "button";
           btnWhatsapp.className = "btn btn-secondary btn-sm";
@@ -2908,6 +2939,7 @@
           footerBtns.appendChild(btnDrawer);
           footerBtns.appendChild(btnCopyOffer);
           footerBtns.appendChild(btnCopyV2);
+          footerBtns.appendChild(btnCopyCockpitLight);
           footerBtns.appendChild(btnWhatsapp);
 
           footer.appendChild(footerBtns);
@@ -3077,6 +3109,7 @@
           const v2Href = job.v2_url || ("https://vorschau.magnet-xs.ch/" + baseSlug + "-v2/");
           const vollHref = job.vollversion_url || ("https://vorschau.magnet-xs.ch/" + baseSlug + "-vollversion/");
           const cockpitHref = job.cockpit_url || ("https://vorschau.magnet-xs.ch/" + baseSlug + "-vollversion/cockpit?token=" + tokenStr);
+          const cockpitLightHref = job.cockpit_light_url || ("https://vorschau.magnet-xs.ch/" + baseSlug + "-vollversion/cockpit.html?token=" + baseSlug + "2026&mode=light");
           const auditPdfHref = job.audit_report_url || ("https://vorschau.magnet-xs.ch/reports/" + baseSlug + "-vorher-nachher-report.pdf");
           const origHref = job.source_url || v2Href;
 
@@ -3112,6 +3145,28 @@
           const cockLabel = document.createElement("span");
           cockLabel.textContent = "Studio Cockpit v4.0 öffnen";
           btnCockpit.appendChild(cockLabel);
+
+          const btnCockpitLight = document.createElement("a");
+          btnCockpitLight.className = "btn btn-secondary btn-sm";
+          btnCockpitLight.href = cockpitLightHref;
+          btnCockpitLight.target = "_blank";
+          btnCockpitLight.rel = "noopener noreferrer";
+          btnCockpitLight.title = "Kunden-Cockpit Light (Nur Texte redigieren) öffnen";
+          btnCockpitLight.appendChild(createSvgIcon('<path d="M12 20h9"></path><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path>'));
+          const cockLightLabel = document.createElement("span");
+          cockLightLabel.textContent = "Cockpit Light (Texte)";
+          btnCockpitLight.appendChild(cockLightLabel);
+
+          const btnCopyCockpitLightCard = document.createElement("button");
+          btnCopyCockpitLightCard.type = "button";
+          btnCopyCockpitLightCard.className = "btn btn-secondary btn-sm";
+          btnCopyCockpitLightCard.appendChild(createSvgIcon('<rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>'));
+          const sCopyLightCard = document.createElement("span");
+          sCopyLightCard.textContent = "Cockpit-Light Link kopieren";
+          btnCopyCockpitLightCard.appendChild(sCopyLightCard);
+          btnCopyCockpitLightCard.addEventListener("click", function () {
+            copyTextToClipboard(cockpitLightHref, btnCopyCockpitLightCard, "Cockpit-Light Link kopieren");
+          });
 
           const btnAuditPdf = document.createElement("a");
           btnAuditPdf.className = "btn btn-secondary btn-sm";
@@ -3162,8 +3217,10 @@
           actions.appendChild(btnV2);
           actions.appendChild(btnVoll);
           actions.appendChild(btnCockpit);
+          actions.appendChild(btnCockpitLight);
           actions.appendChild(btnAuditPdf);
           actions.appendChild(btnOrig);
+          actions.appendChild(btnCopyCockpitLightCard);
           actions.appendChild(btnWhatsapp);
           card.appendChild(actions);
 

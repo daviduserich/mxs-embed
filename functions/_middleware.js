@@ -1,4 +1,11 @@
 const VORSCHAU_SLUG_TO_FOLDER = {
+  // JOMA Solar GmbH (Wettingen): Zeigeversion (-v2, -v1, ohne Suffix) -> preview-joma-v2 | Vollversion (-vollversion, -vv) -> preview-joma
+  'joma': 'preview-joma-v2',
+  'joma-v1': 'preview-joma-v2',
+  'joma-v2': 'preview-joma-v2',
+  'joma-vollversion': 'preview-joma',
+  'joma-vv': 'preview-joma',
+
   // IMP GmbH — Matthias Iseli (Schreinerei- & Holzbau-Marketing): Zeigeversion (-v2, -v1, ohne Suffix) -> preview-imp-marketing-v2 | Vollversion (-vollversion, -vv) -> preview-imp-marketing
   'imp-marketing': 'preview-imp-marketing-v2',
   'imp-marketing-v1': 'preview-imp-marketing-v2',
@@ -110,15 +117,42 @@ const CLIENT_TOKENS = {
   'imp-marketing-v2': ['impmarketing_sec_master', 'impmarketing2026', 'imp-marketing2026', 'imp-marketing-v22026'],
   'preview-imp-marketing-v2': ['impmarketing_sec_master', 'impmarketing2026', 'imp-marketing2026', 'imp-marketing-v22026'],
   'imp-marketing-vollversion': ['impmarketing_sec_master', 'impmarketing2026', 'imp-marketing2026', 'imp-marketing-v22026'],
-  'imp-marketing-vv': ['impmarketing_sec_master', 'impmarketing2026', 'imp-marketing2026', 'imp-marketing-v22026']
+  'imp-marketing-vv': ['impmarketing_sec_master', 'impmarketing2026', 'imp-marketing2026', 'imp-marketing-v22026'],
+  'joma': ['joma_sec_master', 'joma2026', 'jomalight2026', 'joma-v22026'],
+  'preview-joma': ['joma_sec_master', 'joma2026', 'jomalight2026', 'joma-v22026'],
+  'joma-v1': ['joma_sec_master', 'joma2026', 'jomalight2026', 'joma-v22026'],
+  'joma-v2': ['joma_sec_master', 'joma2026', 'jomalight2026', 'joma-v22026'],
+  'preview-joma-v2': ['joma_sec_master', 'joma2026', 'jomalight2026', 'joma-v22026'],
+  'joma-vollversion': ['joma_sec_master', 'joma2026', 'jomalight2026', 'joma-v22026'],
+  'joma-vv': ['joma_sec_master', 'joma2026', 'jomalight2026', 'joma-v22026']
 };
 
 function getValidTokens(rootSegment, clientSlug) {
   const baseSlug = clientSlug.replace(/-(?:vollversion|vv|v1|v2)$/, '');
-  return CLIENT_TOKENS[rootSegment] ||
+  const baseList = CLIENT_TOKENS[rootSegment] ||
          CLIENT_TOKENS[clientSlug] ||
          CLIENT_TOKENS[baseSlug] ||
          [baseSlug + '_sec_master', baseSlug + '2026', clientSlug + '2026'];
+  const compactBase = baseSlug.replace(/-/g, '');
+  const extended = new Set(baseList);
+  extended.add(baseSlug + '2026');
+  extended.add(baseSlug + 'light2026');
+  extended.add(baseSlug + '-light2026');
+  extended.add(compactBase + '2026');
+  extended.add(compactBase + 'light2026');
+  extended.add(compactBase + '-light2026');
+  extended.add(clientSlug + '2026');
+  extended.add(clientSlug + 'light2026');
+  extended.add(clientSlug + '-light2026');
+  for (const tok of baseList) {
+    extended.add(tok + '-light');
+    if (tok.endsWith('2026')) {
+      const stem = tok.slice(0, -4);
+      extended.add(stem + 'light2026');
+      extended.add(stem + '-light2026');
+    }
+  }
+  return Array.from(extended);
 }
 
 export async function onRequest(context) {

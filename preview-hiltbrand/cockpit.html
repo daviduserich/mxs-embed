@@ -2,24 +2,54 @@
 <html lang="de-CH">
 <head>
 <script>
-// Visual Shield & Clean Omnibox Sweep (Anti-Screen-Recording Leak & Tenant-Scoped Cookies)
+// Visual Shield, Light-Mode Persistence & Clean Omnibox Sweep (Anti-Screen-Recording Leak & Tenant-Scoped Cookies)
 (function() {
   try {
     var p = new URLSearchParams(window.location.search);
-    var t = p.get('token');
+    var t = p.get('token') || '';
+    var modeParam = (p.get('mode') || '').toLowerCase();
+    var lightParam = (p.get('light') || '').toLowerCase();
+    var isTokenLight = /(?:-light|light2026)$/i.test(t);
+    var storageKey = 'wp_cockpit_mode_' + window.location.pathname;
+    var isExplicitLight = (modeParam === 'light' || lightParam === '1' || lightParam === 'true' || isTokenLight);
+    var isExplicitFull = (modeParam === 'full') || (Boolean(t) && !isExplicitLight);
+
+    if (isExplicitLight) {
+      try { sessionStorage.setItem(storageKey, 'light'); } catch(e) {}
+      window.ACP_COCKPIT_LIGHT_MODE = true;
+    } else if (isExplicitFull) {
+      try { sessionStorage.setItem(storageKey, 'full'); } catch(e) {}
+      window.ACP_COCKPIT_LIGHT_MODE = false;
+    } else {
+      var savedMode = '';
+      try { savedMode = sessionStorage.getItem(storageKey) || ''; } catch(e) {}
+      window.ACP_COCKPIT_LIGHT_MODE = (savedMode === 'light');
+    }
+
+    if (window.ACP_COCKPIT_LIGHT_MODE) {
+      document.documentElement.classList.add('acp-cockpit-light-mode');
+    } else {
+      document.documentElement.classList.remove('acp-cockpit-light-mode');
+    }
+
     if (t) {
       var segs = window.location.pathname.split('/').filter(Boolean);
       var rootSeg = segs[0] || 'preview-hiltbrand';
       var clientSlug = rootSeg.replace(/^preview-/, '');
+      var baseClientSlug = clientSlug.replace(/-(?:vollversion|vv|v1|v2)$/, '');
       var cookiePath = '/' + rootSeg + '/';
       document.cookie = "mxs_auth_" + clientSlug + "=" + encodeURIComponent(t) + "; Path=" + cookiePath + "; Max-Age=2592000; SameSite=Lax";
+      document.cookie = "mxs_auth_" + baseClientSlug + "=" + encodeURIComponent(t) + "; Path=/; Max-Age=2592000; SameSite=Lax";
       if (clientSlug === 'hiltbrand') {
         document.cookie = "hb_cockpit_token=" + encodeURIComponent(t) + "; Path=" + cookiePath + "; Max-Age=2592000; SameSite=Lax";
         document.cookie = "hb_preview_token=" + encodeURIComponent(t) + "; Path=" + cookiePath + "; Max-Age=2592000; SameSite=Lax";
       }
       if (window.history && window.history.replaceState) {
-        window.history.replaceState({}, document.title, window.location.pathname);
+        var cleanUrl = window.location.pathname + (window.ACP_COCKPIT_LIGHT_MODE ? '?mode=light' : '');
+        window.history.replaceState({}, document.title, cleanUrl);
       }
+    } else if (window.ACP_COCKPIT_LIGHT_MODE && modeParam !== 'light' && window.history && window.history.replaceState) {
+      window.history.replaceState({}, document.title, window.location.pathname + '?mode=light');
     }
   } catch(e) {}
 })();
@@ -4318,9 +4348,189 @@ body.acp-dock-open #acp-draft-widget {
   }
 }
 
+
+/* ======================================================= */
+/* KUNDEN-COCKPIT LIGHT (NUR TEXT-REDAKTION) & DEVICE-BAR  */
+/* ======================================================= */
+.acp-light-mode-hint-badge {
+  display: none;
+  align-items: center;
+  gap: 7px;
+  padding: 6px 12px;
+  border-radius: 4px;
+  background: rgba(16, 185, 129, 0.14);
+  border: 1px solid rgba(16, 185, 129, 0.45);
+  color: #6ee7b7;
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.3;
+  white-space: nowrap;
+}
+html.acp-cockpit-light-mode .acp-light-mode-hint-badge,
+body.acp-cockpit-light-mode .acp-light-mode-hint-badge {
+  display: inline-flex !important;
+}
+@media (max-width: 1260px) {
+  html.acp-cockpit-light-mode .acp-light-mode-hint-badge,
+  body.acp-cockpit-light-mode .acp-light-mode-hint-badge {
+    display: none !important;
+  }
+}
+html.acp-cockpit-light-mode .acp-brand-badge,
+body.acp-cockpit-light-mode .acp-brand-badge {
+  border-color: rgba(16, 185, 129, 0.45) !important;
+  background: rgba(16, 185, 129, 0.12) !important;
+  white-space: nowrap !important;
+  flex-shrink: 0 !important;
+}
+html.acp-cockpit-light-mode #acp-brand-label,
+body.acp-cockpit-light-mode #acp-brand-label {
+  color: #ecfdf5 !important;
+  letter-spacing: 0.04em !important;
+}
+
+.acp-device-switcher {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 8px;
+  padding: 3px;
+}
+.acp-device-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 5px 10px;
+  min-height: 32px;
+  border-radius: 4px;
+  border: 1px solid transparent;
+  background: transparent;
+  color: #cbd5e1;
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+.acp-device-btn:hover {
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.06);
+}
+.acp-device-btn.is-active {
+  background: rgba(16, 185, 129, 0.2);
+  border-color: rgba(16, 185, 129, 0.55);
+  color: #ffffff;
+}
+@media (max-width: 768px) {
+  .acp-device-switcher {
+    display: none !important;
+  }
+}
+.acp-studio-stage.is-mobile-device {
+  max-width: 395px !important;
+  width: 395px !important;
+  margin: 0 auto !important;
+  border: 2px solid rgba(16, 185, 129, 0.45) !important;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.85) !important;
+}
+
+/* Strikte Ausblendung aller Vollversions-Werkzeuge im Light-Modus */
+html.acp-cockpit-light-mode #acp-version-badge,
+body.acp-cockpit-light-mode #acp-version-badge,
+html.acp-cockpit-light-mode .acp-version-badge,
+body.acp-cockpit-light-mode .acp-version-badge,
+html.acp-cockpit-light-mode #acp-live-badge-wrap,
+body.acp-cockpit-light-mode #acp-live-badge-wrap,
+html.acp-cockpit-light-mode .acp-live-badge-wrap,
+body.acp-cockpit-light-mode .acp-live-badge-wrap,
+html.acp-cockpit-light-mode .acp-topbar-divider,
+body.acp-cockpit-light-mode .acp-topbar-divider,
+html.acp-cockpit-light-mode #acp-btn-toggle-inline-edit,
+body.acp-cockpit-light-mode #acp-btn-toggle-inline-edit,
+html.acp-cockpit-light-mode .acp-nav-btn-sections,
+body.acp-cockpit-light-mode .acp-nav-btn-sections,
+html.acp-cockpit-light-mode .acp-nav-btn-vibe,
+body.acp-cockpit-light-mode .acp-nav-btn-vibe,
+html.acp-cockpit-light-mode #acp-btn-open-design-vibe,
+body.acp-cockpit-light-mode #acp-btn-open-design-vibe,
+html.acp-cockpit-light-mode .acp-nav-btn-images,
+body.acp-cockpit-light-mode .acp-nav-btn-images,
+html.acp-cockpit-light-mode [onclick*="acpToggleImagesModal"],
+body.acp-cockpit-light-mode [onclick*="acpToggleImagesModal"],
+html.acp-cockpit-light-mode .acp-nav-btn-directory,
+body.acp-cockpit-light-mode .acp-nav-btn-directory,
+html.acp-cockpit-light-mode [onclick*="acpCopyActiveCode"],
+body.acp-cockpit-light-mode [onclick*="acpCopyActiveCode"],
+html.acp-cockpit-light-mode #acp-btn-live-log,
+body.acp-cockpit-light-mode #acp-btn-live-log,
+html.acp-cockpit-light-mode [onclick*="acpToggleHelpModal"],
+body.acp-cockpit-light-mode [onclick*="acpToggleHelpModal"],
+html.acp-cockpit-light-mode #acp-online-btn,
+body.acp-cockpit-light-mode #acp-online-btn,
+html.acp-cockpit-light-mode #designVibeModal,
+body.acp-cockpit-light-mode #designVibeModal,
+html.acp-cockpit-light-mode #acp-sections-modal,
+body.acp-cockpit-light-mode #acp-sections-modal,
+html.acp-cockpit-light-mode #sectionsModal,
+body.acp-cockpit-light-mode #sectionsModal,
+html.acp-cockpit-light-mode #acp-replace-section-modal,
+body.acp-cockpit-light-mode #acp-replace-section-modal,
+html.acp-cockpit-light-mode #acp-new-section-modal,
+body.acp-cockpit-light-mode #acp-new-section-modal,
+html.acp-cockpit-light-mode #acp-images-modal,
+body.acp-cockpit-light-mode #acp-images-modal,
+html.acp-cockpit-light-mode #mediaPoolModal,
+body.acp-cockpit-light-mode #mediaPoolModal,
+html.acp-cockpit-light-mode #acp-directory-modal,
+body.acp-cockpit-light-mode #acp-directory-modal,
+html.acp-cockpit-light-mode #acp-help-modal,
+body.acp-cockpit-light-mode #acp-help-modal,
+html.acp-cockpit-light-mode #acp-log-modal,
+body.acp-cockpit-light-mode #acp-log-modal,
+html.acp-cockpit-light-mode #acp-swap-dock,
+body.acp-cockpit-light-mode #acp-swap-dock,
+html.acp-cockpit-light-mode #swapDock,
+body.acp-cockpit-light-mode #swapDock,
+html.acp-cockpit-light-mode #acp-draft-widget,
+body.acp-cockpit-light-mode #acp-draft-widget,
+html.acp-cockpit-light-mode #acp-inline-edit-dock .btn-inline-cancel,
+body.acp-cockpit-light-mode #acp-inline-edit-dock .btn-inline-cancel {
+  display: none !important;
+}
+html.acp-cockpit-light-mode #acp-inline-edit-dock,
+body.acp-cockpit-light-mode #acp-inline-edit-dock {
+  display: block !important;
+}
+@media (min-width: 1100px) {
+  html.acp-cockpit-light-mode .acp-cockpit-inner,
+  body.acp-cockpit-light-mode .acp-cockpit-inner {
+    max-width: 1420px !important;
+    flex-wrap: nowrap !important;
+    justify-content: space-between !important;
+    gap: 10px !important;
+  }
+  html.acp-cockpit-light-mode .acp-cockpit-left,
+  body.acp-cockpit-light-mode .acp-cockpit-left,
+  html.acp-cockpit-light-mode .acp-cockpit-right,
+  body.acp-cockpit-light-mode .acp-cockpit-right {
+    flex-wrap: nowrap !important;
+    width: auto !important;
+    gap: 8px !important;
+    flex-shrink: 0 !important;
+  }
+  html.acp-cockpit-light-mode .acp-light-mode-hint-badge,
+  body.acp-cockpit-light-mode .acp-light-mode-hint-badge {
+    font-size: 11.5px !important;
+    padding: 5px 10px !important;
+  }
+}
 </style>
 </head>
 <body>
+<script>if(window.ACP_COCKPIT_LIGHT_MODE){document.body.classList.add('acp-cockpit-light-mode');}</script>
 
 <!-- Hidden anchor so audit_page.py sees valid whatsapp link & cta -->
 <div class="acp-hidden-audit">
@@ -4363,6 +4573,10 @@ body.acp-dock-open #acp-draft-widget {
       </div>
 
       <div class="acp-live-badge-wrap" id="acp-live-badge-wrap"></div>
+      <div class="acp-light-mode-hint-badge" id="acp-light-mode-hint-badge">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+        <span>Direkt-Redaktion aktiv: Klicke auf einen Text in der Vorschau, um ihn zu ändern</span>
+      </div>
     </div>
 
     <div class="acp-cockpit-right">
@@ -4399,9 +4613,19 @@ body.acp-dock-open #acp-draft-widget {
         <span class="nav-icon" style="display:inline-flex;align-items:center;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></span>
         <span class="nav-label">Hilfe</span>
       </button>
-      <a href="#" target="_blank" class="acp-nav-btn acp-nav-btn-preview-ext" id="acp-btn-open-preview-tab" onclick="acpOpenPreviewInNewTab(event)" title="Vorschau-Seite im neuen Browser-Tab öffnen (Vollbild ohne Cockpit)">
+      <div class="acp-device-switcher" id="acp-device-switcher" role="group" aria-label="Geräte-Vorschau umschalten">
+        <button type="button" class="acp-device-btn is-active" id="acp-btn-device-desktop" onclick="acpSetSimulatorDevice('desktop')" title="Desktop-Ansicht prüfen">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+          <span>Desktop</span>
+        </button>
+        <button type="button" class="acp-device-btn" id="acp-btn-device-mobile" onclick="acpSetSimulatorDevice('mobile')" title="Smartphone-Ansicht (375px) prüfen">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
+          <span>Mobile</span>
+        </button>
+      </div>
+      <a href="#" target="_blank" class="acp-nav-btn acp-nav-btn-preview-ext" id="acp-btn-open-preview-tab" onclick="acpOpenPreviewInNewTab(event)" title="Live-Seite im neuen Browser-Tab öffnen (Vollbild ohne Cockpit)">
         <span class="nav-icon" style="display:inline-flex;align-items:center;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></span>
-        <span class="nav-label">Vorschau</span>
+        <span class="nav-label" id="acp-preview-ext-label">Live-Seite öffnen</span>
       </a>
       <a href="https://embed.magnet-xs.ch/preview-hiltbrand/cockpit" target="_blank" class="acp-nav-btn acp-nav-btn-online" id="acp-online-btn" title="Online-Cockpit aufrufen">
         <span class="nav-icon" style="display:inline-flex;align-items:center;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/></svg></span>
@@ -5378,6 +5602,37 @@ body.acp-dock-open #acp-draft-widget {
 <!-- ======================================================= -->
 <script id="acp-studio-main-engine">
 
+function acpIsLightMode() {
+  if (window.ACP_COCKPIT_LIGHT_MODE === true) return true;
+  try {
+    var sp = new URLSearchParams(window.location.search);
+    var m = (sp.get("mode") || "").toLowerCase();
+    var l = sp.get("light");
+    var tok = (sp.get("token") || "").toLowerCase();
+    if (m === "light" || l === "1" || l === "true" || tok.slice(-6) === "-light" || tok.slice(-9) === "light2026") {
+      window.ACP_COCKPIT_LIGHT_MODE = true;
+      return true;
+    }
+    var sk = "wp_cockpit_mode_" + window.location.pathname;
+    if (sessionStorage.getItem(sk) === "light") {
+      window.ACP_COCKPIT_LIGHT_MODE = true;
+      return true;
+    }
+  } catch (_) {}
+  return !!(document.body && document.body.classList.contains("acp-cockpit-light-mode"));
+}
+
+function acpSetSimulatorDevice(mode) {
+  var stage = document.getElementById("acp-studio-stage");
+  var btnDesk = document.getElementById("acp-btn-device-desktop") || document.getElementById("acp-device-btn-desktop");
+  var btnMob = document.getElementById("acp-btn-device-mobile") || document.getElementById("acp-device-btn-mobile");
+  var isMob = (mode === "mobile");
+  if (stage) stage.classList.toggle("is-mobile-device", isMob);
+  if (btnDesk) btnDesk.classList.toggle("is-active", !isMob);
+  if (btnMob) btnMob.classList.toggle("is-active", isMob);
+}
+
+
 function acpGetActivePreviewUrl() {
   var iframe = document.getElementById("acp-widget-viewport");
   var curToken = new URLSearchParams(window.location.search).get("token");
@@ -5527,7 +5782,7 @@ function acpFetchServerLog() {
 // Build: 2026-10-03 15:30 CEST
 // =======================================================
 var ACP_COCKPIT_VERSION = "v4.0.0";
-var ACP_COCKPIT_BUILD = "2026-11-05 20:31";
+var ACP_COCKPIT_BUILD = "2026-11-05 22:39";
 
 function sanitizeStellen(list) {
   if (!Array.isArray(list)) return [];
@@ -5914,9 +6169,22 @@ function acpSwitchJob(jobId, forceReload) {
         if (acpInspectorActive) {
           frame.contentWindow.postMessage({ type: "acp-toggle-inspector", active: true }, "*");
         }
-        if (acpSelectedSwapImage) {
+        if (acpSelectedSwapImage && !acpIsLightMode()) {
           acpDispatchSwapMode(true);
           acpRenderSwapDockTargets();
+        }
+        if (acpInlineEditActive || acpIsLightMode()) {
+          acpInlineEditActive = true;
+          try {
+            var doc = frame.contentDocument || (frame.contentWindow && frame.contentWindow.document);
+            if (doc) acpApplyInlineEditToIframe(doc);
+            setTimeout(function() {
+              try {
+                var doc2 = frame.contentDocument || (frame.contentWindow && frame.contentWindow.document);
+                if (doc2) acpApplyInlineEditToIframe(doc2);
+              } catch (_) {}
+            }, 350);
+          } catch (_) {}
         }
       };
     } else {
@@ -5924,9 +6192,16 @@ function acpSwitchJob(jobId, forceReload) {
       if (acpInspectorActive && frame.contentWindow) {
         frame.contentWindow.postMessage({ type: "acp-toggle-inspector", active: true }, "*");
       }
-      if (acpSelectedSwapImage && frame.contentWindow) {
+      if (acpSelectedSwapImage && frame.contentWindow && !acpIsLightMode()) {
         acpDispatchSwapMode(true);
         acpRenderSwapDockTargets();
+      }
+      if (acpInlineEditActive || acpIsLightMode()) {
+        acpInlineEditActive = true;
+        try {
+          var docSame = frame.contentDocument || (frame.contentWindow && frame.contentWindow.document);
+          if (docSame) acpApplyInlineEditToIframe(docSame);
+        } catch (_) {}
       }
     }
   }
@@ -6013,6 +6288,7 @@ function acpToggleHelpModal() {
 // [2] BILDER-VERZEICHNIS & ASSET-GALERIE
 // -------------------------------------------------------
 function acpToggleImagesModal() {
+  if (acpIsLightMode()) return;
   acpImagesModalOpen = !acpImagesModalOpen;
   var modal = document.getElementById("acp-images-modal");
   if (modal) modal.classList.toggle("is-open", acpImagesModalOpen);
@@ -6602,6 +6878,7 @@ function acpRenderSwapDockTargets() {
 }
 
 function acpSelectSwapImage(relPath, filename) {
+  if (acpIsLightMode()) return;
   acpSelectedSwapImage = { rel_path: relPath, filename: filename };
   acpLog("info", "Tausch-Bild ausgewählt: " + filename, "Pfad: " + relPath);
   if (acpImagesModalOpen) {
@@ -6686,6 +6963,7 @@ function acpCancelSwap(silent) {
 }
 
 function acpHandleSlotClick(data) {
+  if (acpIsLightMode()) return;
   if (!acpSelectedSwapImage) {
     acpShowToast('<strong>Klick-Inspektor:</strong> Öffne zuerst oben <strong>[ Bilder ]</strong> und wähle ein Tausch-Foto aus!', 4000);
     return;
@@ -6892,6 +7170,7 @@ function acpReloadViewportWithTransition(cleanBaseUrl) {
 }
 
 function acpExecuteDirectSwap() {
+  if (acpIsLightMode()) return;
   if (!acpSelectedSwapImage || !acpTargetSwapSlot) return;
   if (acpIsSwapping) {
     acpShowToast('<strong>Bildtausch läuft bereits...</strong> Einen kurzen Moment bitte.', 3000);
@@ -7031,6 +7310,7 @@ function acpCopyCombinedPrompt() {
 // [3] STELLEN-ZENTRALE & INSERATE-MANAGER
 // -------------------------------------------------------
 function acpToggleDirectoryModal() {
+  if (acpIsLightMode()) return;
   var modal = document.getElementById("acp-directory-modal");
   if (!modal) return;
   var isOpen = modal.classList.contains("is-open");
@@ -7366,6 +7646,14 @@ function checkEnvironmentAndRender() {
 
   if (badgeLabel) badgeLabel.textContent = studioTitle;
   if (brandBadge) brandBadge.title = studioTitle + (isOnline ? " (Online auf Cloudflare Pages)" : " (Lokal)");
+  if (acpIsLightMode()) {
+    document.documentElement.classList.add("acp-cockpit-light-mode");
+    if (document.body) document.body.classList.add("acp-cockpit-light-mode");
+    if (badgeLabel) badgeLabel.textContent = "KUNDEN-COCKPIT LIGHT · TEXT-REDAKTION";
+    if (brandBadge) brandBadge.title = "Kunden-Cockpit Light · Reine Text-Redaktion";
+    var previewTabLbl = document.querySelector("#acp-btn-open-preview-tab .nav-label");
+    if (previewTabLbl) previewTabLbl.textContent = "Live-Seite öffnen";
+  }
 
   if (isWebsiteStudio) {
     var pickerHeader = document.querySelector(".acp-dropdown-header span:first-child");
@@ -7424,6 +7712,16 @@ function setupActiveJobAndRender() {
   if (activeJobId) {
     acpSwitchJob(activeJobId);
   }
+  if (acpIsLightMode()) {
+    acpToggleInlineEdit(true);
+    acpUpdateInlineEditStatus();
+    setTimeout(function() {
+      if (acpIsLightMode()) {
+        acpToggleInlineEdit(true);
+        acpUpdateInlineEditStatus();
+      }
+    }, 450);
+  }
 }
 
 function acpInit() {
@@ -7481,6 +7779,7 @@ var acpScannedSections = [];
 var acpActiveEditSectionId = null;
 
 function acpToggleSectionsModal() {
+  if (acpIsLightMode()) return;
   acpSectionsModalOpen = !acpSectionsModalOpen;
   var modal = document.getElementById("acp-sections-modal");
   if (modal) modal.classList.toggle("is-open", acpSectionsModalOpen);
@@ -7968,6 +8267,7 @@ promptRules + "\n" +
 }
 
 function acpOpenReplaceSectionModal(secId) {
+  if (acpIsLightMode()) return;
   acpActiveEditSectionId = secId;
   var modal = document.getElementById("acp-replace-section-modal");
   var title = document.getElementById("acp-replace-modal-title");
@@ -8304,7 +8604,10 @@ var acpInlineEditActive = false;
 var acpDirtySections = new Set();
 
 function acpToggleInlineEdit(forceState) {
-  if (typeof forceState === "boolean") {
+  if (acpIsLightMode()) {
+    if (forceState === false) return;
+    acpInlineEditActive = true;
+  } else if (typeof forceState === "boolean") {
     acpInlineEditActive = forceState;
   } else {
     acpInlineEditActive = !acpInlineEditActive;
@@ -8534,11 +8837,13 @@ function acpApplyInlineEditToIframe(doc) {
     el.setAttribute("data-acp-editable", "true");
   }
 
-  // 3. Select image elements
-  var imgs = doc.querySelectorAll("img");
-  for (var j = 0; j < imgs.length; j++) {
-    var imgEl = imgs[j];
-    imgEl.setAttribute("data-acp-image", "true");
+  // 3. Select image elements (deactivated in Light Mode: text-only editing)
+  if (!acpIsLightMode()) {
+    var imgs = doc.querySelectorAll("img");
+    for (var j = 0; j < imgs.length; j++) {
+      var imgEl = imgs[j];
+      imgEl.setAttribute("data-acp-image", "true");
+    }
   }
 
   // 4. Image selection & resize helper functions
@@ -8776,6 +9081,11 @@ function acpApplyInlineEditToIframe(doc) {
         return;
       }
       var img = e.target.closest("img");
+      if (acpIsLightMode() && img) {
+        e.preventDefault();
+        e.stopPropagation();
+        return;
+      }
       if (img && img.getAttribute("data-acp-image") === "true") {
         e.preventDefault();
         e.stopPropagation();
@@ -8832,7 +9142,13 @@ function acpApplyInlineEditToIframe(doc) {
         }
       } else if (e.key === "Escape") {
         acpDeselectImage();
-        acpToggleInlineEdit(false);
+        if (acpIsLightMode()) {
+          if (doc.activeElement && typeof doc.activeElement.blur === "function") {
+            doc.activeElement.blur();
+          }
+        } else {
+          acpToggleInlineEdit(false);
+        }
       }
     }, true);
   }
@@ -8890,7 +9206,11 @@ function acpUpdateInlineEditStatus() {
   } else {
     if (badge) badge.style.display = "none";
     if (statusText) {
-      statusText.textContent = " Klicke auf einen Text zum Umschreiben – oder klicke auf ein Bild, um Grösse & Fokus direkt anzupassen!";
+      if (acpIsLightMode()) {
+        statusText.textContent = "Klicke direkt auf eine Überschrift, einen Absatz, Preis oder Button-Text in der Vorschau, um ihn umzuschreiben.";
+      } else {
+        statusText.textContent = " Klicke auf einen Text zum Umschreiben – oder klicke auf ein Bild, um Grösse & Fokus direkt anzupassen!";
+      }
     }
     if (saveBtn) {
       saveBtn.disabled = true;
@@ -9030,6 +9350,7 @@ function acpSaveInlineEdits() {
 }
 
 function acpOpenNewSectionModal() {
+  if (acpIsLightMode()) return;
   var modal = document.getElementById("acp-new-section-modal");
   var select = document.getElementById("acp-new-sec-position");
   var status = document.getElementById("acp-new-airbag-status");
@@ -9493,6 +9814,7 @@ function acpSelectNavStyle(styleKey) {
 }
 
 function acpOpenDesignVibeModal() {
+  if (acpIsLightMode()) return;
   var modal = document.getElementById("designVibeModal");
   if (!modal) return;
   acpReadCurrentColorsFromIframe();

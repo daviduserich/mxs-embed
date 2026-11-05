@@ -1,4 +1,35 @@
 
+function acpIsLightMode() {
+  if (window.ACP_COCKPIT_LIGHT_MODE === true) return true;
+  try {
+    var sp = new URLSearchParams(window.location.search);
+    var m = (sp.get("mode") || "").toLowerCase();
+    var l = sp.get("light");
+    var tok = (sp.get("token") || "").toLowerCase();
+    if (m === "light" || l === "1" || l === "true" || tok.slice(-6) === "-light" || tok.slice(-9) === "light2026") {
+      window.ACP_COCKPIT_LIGHT_MODE = true;
+      return true;
+    }
+    var sk = "wp_cockpit_mode_" + window.location.pathname;
+    if (sessionStorage.getItem(sk) === "light") {
+      window.ACP_COCKPIT_LIGHT_MODE = true;
+      return true;
+    }
+  } catch (_) {}
+  return !!(document.body && document.body.classList.contains("acp-cockpit-light-mode"));
+}
+
+function acpSetSimulatorDevice(mode) {
+  var stage = document.getElementById("acp-studio-stage");
+  var btnDesk = document.getElementById("acp-btn-device-desktop") || document.getElementById("acp-device-btn-desktop");
+  var btnMob = document.getElementById("acp-btn-device-mobile") || document.getElementById("acp-device-btn-mobile");
+  var isMob = (mode === "mobile");
+  if (stage) stage.classList.toggle("is-mobile-device", isMob);
+  if (btnDesk) btnDesk.classList.toggle("is-active", !isMob);
+  if (btnMob) btnMob.classList.toggle("is-active", isMob);
+}
+
+
 function acpGetActivePreviewUrl() {
   var iframe = document.getElementById("acp-widget-viewport");
   var curToken = new URLSearchParams(window.location.search).get("token");
@@ -508,9 +539,22 @@ function acpSwitchJob(jobId, forceReload) {
         if (acpInspectorActive) {
           frame.contentWindow.postMessage({ type: "acp-toggle-inspector", active: true }, "*");
         }
-        if (acpSelectedSwapImage) {
+        if (acpSelectedSwapImage && !acpIsLightMode()) {
           acpDispatchSwapMode(true);
           acpRenderSwapDockTargets();
+        }
+        if (acpInlineEditActive || acpIsLightMode()) {
+          acpInlineEditActive = true;
+          try {
+            var doc = frame.contentDocument || (frame.contentWindow && frame.contentWindow.document);
+            if (doc) acpApplyInlineEditToIframe(doc);
+            setTimeout(function() {
+              try {
+                var doc2 = frame.contentDocument || (frame.contentWindow && frame.contentWindow.document);
+                if (doc2) acpApplyInlineEditToIframe(doc2);
+              } catch (_) {}
+            }, 350);
+          } catch (_) {}
         }
       };
     } else {
@@ -518,9 +562,16 @@ function acpSwitchJob(jobId, forceReload) {
       if (acpInspectorActive && frame.contentWindow) {
         frame.contentWindow.postMessage({ type: "acp-toggle-inspector", active: true }, "*");
       }
-      if (acpSelectedSwapImage && frame.contentWindow) {
+      if (acpSelectedSwapImage && frame.contentWindow && !acpIsLightMode()) {
         acpDispatchSwapMode(true);
         acpRenderSwapDockTargets();
+      }
+      if (acpInlineEditActive || acpIsLightMode()) {
+        acpInlineEditActive = true;
+        try {
+          var docSame = frame.contentDocument || (frame.contentWindow && frame.contentWindow.document);
+          if (docSame) acpApplyInlineEditToIframe(docSame);
+        } catch (_) {}
       }
     }
   }
@@ -607,6 +658,7 @@ function acpToggleHelpModal() {
 // [2] BILDER-VERZEICHNIS & ASSET-GALERIE
 // -------------------------------------------------------
 function acpToggleImagesModal() {
+  if (acpIsLightMode()) return;
   acpImagesModalOpen = !acpImagesModalOpen;
   var modal = document.getElementById("acp-images-modal");
   if (modal) modal.classList.toggle("is-open", acpImagesModalOpen);
@@ -1196,6 +1248,7 @@ function acpRenderSwapDockTargets() {
 }
 
 function acpSelectSwapImage(relPath, filename) {
+  if (acpIsLightMode()) return;
   acpSelectedSwapImage = { rel_path: relPath, filename: filename };
   acpLog("info", "Tausch-Bild ausgewählt: " + filename, "Pfad: " + relPath);
   if (acpImagesModalOpen) {
@@ -1280,6 +1333,7 @@ function acpCancelSwap(silent) {
 }
 
 function acpHandleSlotClick(data) {
+  if (acpIsLightMode()) return;
   if (!acpSelectedSwapImage) {
     acpShowToast('<strong>Klick-Inspektor:</strong> Öffne zuerst oben <strong>[ Bilder ]</strong> und wähle ein Tausch-Foto aus!', 4000);
     return;
@@ -1486,6 +1540,7 @@ function acpReloadViewportWithTransition(cleanBaseUrl) {
 }
 
 function acpExecuteDirectSwap() {
+  if (acpIsLightMode()) return;
   if (!acpSelectedSwapImage || !acpTargetSwapSlot) return;
   if (acpIsSwapping) {
     acpShowToast('<strong>Bildtausch läuft bereits...</strong> Einen kurzen Moment bitte.', 3000);
@@ -1625,6 +1680,7 @@ function acpCopyCombinedPrompt() {
 // [3] STELLEN-ZENTRALE & INSERATE-MANAGER
 // -------------------------------------------------------
 function acpToggleDirectoryModal() {
+  if (acpIsLightMode()) return;
   var modal = document.getElementById("acp-directory-modal");
   if (!modal) return;
   var isOpen = modal.classList.contains("is-open");
@@ -1960,6 +2016,14 @@ function checkEnvironmentAndRender() {
 
   if (badgeLabel) badgeLabel.textContent = studioTitle;
   if (brandBadge) brandBadge.title = studioTitle + (isOnline ? " (Online auf Cloudflare Pages)" : " (Lokal)");
+  if (acpIsLightMode()) {
+    document.documentElement.classList.add("acp-cockpit-light-mode");
+    if (document.body) document.body.classList.add("acp-cockpit-light-mode");
+    if (badgeLabel) badgeLabel.textContent = "KUNDEN-COCKPIT LIGHT · TEXT-REDAKTION";
+    if (brandBadge) brandBadge.title = "Kunden-Cockpit Light · Reine Text-Redaktion";
+    var previewTabLbl = document.querySelector("#acp-btn-open-preview-tab .nav-label");
+    if (previewTabLbl) previewTabLbl.textContent = "Live-Seite öffnen";
+  }
 
   if (isWebsiteStudio) {
     var pickerHeader = document.querySelector(".acp-dropdown-header span:first-child");
@@ -2018,6 +2082,16 @@ function setupActiveJobAndRender() {
   if (activeJobId) {
     acpSwitchJob(activeJobId);
   }
+  if (acpIsLightMode()) {
+    acpToggleInlineEdit(true);
+    acpUpdateInlineEditStatus();
+    setTimeout(function() {
+      if (acpIsLightMode()) {
+        acpToggleInlineEdit(true);
+        acpUpdateInlineEditStatus();
+      }
+    }, 450);
+  }
 }
 
 function acpInit() {
@@ -2075,6 +2149,7 @@ var acpScannedSections = [];
 var acpActiveEditSectionId = null;
 
 function acpToggleSectionsModal() {
+  if (acpIsLightMode()) return;
   acpSectionsModalOpen = !acpSectionsModalOpen;
   var modal = document.getElementById("acp-sections-modal");
   if (modal) modal.classList.toggle("is-open", acpSectionsModalOpen);
@@ -2562,6 +2637,7 @@ promptRules + "\n" +
 }
 
 function acpOpenReplaceSectionModal(secId) {
+  if (acpIsLightMode()) return;
   acpActiveEditSectionId = secId;
   var modal = document.getElementById("acp-replace-section-modal");
   var title = document.getElementById("acp-replace-modal-title");
@@ -2898,7 +2974,10 @@ var acpInlineEditActive = false;
 var acpDirtySections = new Set();
 
 function acpToggleInlineEdit(forceState) {
-  if (typeof forceState === "boolean") {
+  if (acpIsLightMode()) {
+    if (forceState === false) return;
+    acpInlineEditActive = true;
+  } else if (typeof forceState === "boolean") {
     acpInlineEditActive = forceState;
   } else {
     acpInlineEditActive = !acpInlineEditActive;
@@ -3128,11 +3207,13 @@ function acpApplyInlineEditToIframe(doc) {
     el.setAttribute("data-acp-editable", "true");
   }
 
-  // 3. Select image elements
-  var imgs = doc.querySelectorAll("img");
-  for (var j = 0; j < imgs.length; j++) {
-    var imgEl = imgs[j];
-    imgEl.setAttribute("data-acp-image", "true");
+  // 3. Select image elements (deactivated in Light Mode: text-only editing)
+  if (!acpIsLightMode()) {
+    var imgs = doc.querySelectorAll("img");
+    for (var j = 0; j < imgs.length; j++) {
+      var imgEl = imgs[j];
+      imgEl.setAttribute("data-acp-image", "true");
+    }
   }
 
   // 4. Image selection & resize helper functions
@@ -3370,6 +3451,11 @@ function acpApplyInlineEditToIframe(doc) {
         return;
       }
       var img = e.target.closest("img");
+      if (acpIsLightMode() && img) {
+        e.preventDefault();
+        e.stopPropagation();
+        return;
+      }
       if (img && img.getAttribute("data-acp-image") === "true") {
         e.preventDefault();
         e.stopPropagation();
@@ -3426,7 +3512,13 @@ function acpApplyInlineEditToIframe(doc) {
         }
       } else if (e.key === "Escape") {
         acpDeselectImage();
-        acpToggleInlineEdit(false);
+        if (acpIsLightMode()) {
+          if (doc.activeElement && typeof doc.activeElement.blur === "function") {
+            doc.activeElement.blur();
+          }
+        } else {
+          acpToggleInlineEdit(false);
+        }
       }
     }, true);
   }
@@ -3484,7 +3576,11 @@ function acpUpdateInlineEditStatus() {
   } else {
     if (badge) badge.style.display = "none";
     if (statusText) {
-      statusText.textContent = " Klicke auf einen Text zum Umschreiben – oder klicke auf ein Bild, um Grösse & Fokus direkt anzupassen!";
+      if (acpIsLightMode()) {
+        statusText.textContent = "Klicke direkt auf eine Überschrift, einen Absatz, Preis oder Button-Text in der Vorschau, um ihn umzuschreiben.";
+      } else {
+        statusText.textContent = " Klicke auf einen Text zum Umschreiben – oder klicke auf ein Bild, um Grösse & Fokus direkt anzupassen!";
+      }
     }
     if (saveBtn) {
       saveBtn.disabled = true;
@@ -3624,6 +3720,7 @@ function acpSaveInlineEdits() {
 }
 
 function acpOpenNewSectionModal() {
+  if (acpIsLightMode()) return;
   var modal = document.getElementById("acp-new-section-modal");
   var select = document.getElementById("acp-new-sec-position");
   var status = document.getElementById("acp-new-airbag-status");
@@ -4087,6 +4184,7 @@ function acpSelectNavStyle(styleKey) {
 }
 
 function acpOpenDesignVibeModal() {
+  if (acpIsLightMode()) return;
   var modal = document.getElementById("designVibeModal");
   if (!modal) return;
   acpReadCurrentColorsFromIframe();

@@ -69,6 +69,7 @@ HEADERS = [
     "Zeigeversion (-v2 für Kunden)",
     "Vollversion (-vollversion für uns)",
     "Studio Cockpit v4.0",
+    "Kunden-Cockpit Light (Nur Texte)",
     "Vorher/Nachher-Report (PDF)",
     "Ursprungs-Webseite (Original)",
     "Branche & Kontext",
@@ -146,6 +147,7 @@ SEED_PROJECTS = [
         "v2_url": "https://vorschau.magnet-xs.ch/herzensarbeit-v2/",
         "vollversion_url": "https://vorschau.magnet-xs.ch/herzensarbeit-vollversion/",
         "cockpit_url": "https://vorschau.magnet-xs.ch/herzensarbeit-vollversion/cockpit?token=herzensarbeit2026",
+        "cockpit_light_url": "https://vorschau.magnet-xs.ch/herzensarbeit-vollversion/cockpit.html?token=herzensarbeit2026&mode=light",
         "source_url": "https://herzensarbeit.ch/",
         "branch_context": "Paartherapie, Trennungsberatung, Trauerbegleitung & Frauen-Workshops in Härkingen SO",
         "partner": "Jenny Ettle (JE-MI)",
@@ -162,6 +164,7 @@ SEED_PROJECTS = [
         "v2_url": "https://vorschau.magnet-xs.ch/frees-v2/",
         "vollversion_url": "https://vorschau.magnet-xs.ch/frees-vollversion/",
         "cockpit_url": "https://vorschau.magnet-xs.ch/frees-vollversion/cockpit?token=frees2026",
+        "cockpit_light_url": "https://vorschau.magnet-xs.ch/frees-vollversion/cockpit.html?token=frees2026&mode=light",
         "source_url": "https://www.frees.ch/",
         "branch_context": "Studio für Textildesign, Textildruck, Stickerei, Teamsport & Promowear in Niederrohrdorf AG",
         "partner": "Jenny Ettle (JE-MI)",
@@ -178,6 +181,7 @@ SEED_PROJECTS = [
         "v2_url": "https://vorschau.magnet-xs.ch/innere-staerke-v2/",
         "vollversion_url": "https://vorschau.magnet-xs.ch/innere-staerke-vollversion/",
         "cockpit_url": "https://vorschau.magnet-xs.ch/innere-staerke-vollversion/cockpit?token=innerestaerke2026",
+        "cockpit_light_url": "https://vorschau.magnet-xs.ch/innere-staerke-vollversion/cockpit.html?token=innere-staerke2026&mode=light",
         "source_url": "https://www.innere-staerke.business/",
         "branch_context": "Führungskräfte-Training, Resilienz & Persönlichkeitsentwicklung in Sursee LU",
         "partner": "Jenny Ettle (JE-MI)",
@@ -194,6 +198,7 @@ SEED_PROJECTS = [
         "v2_url": "https://vorschau.magnet-xs.ch/fcschlieren-v2/",
         "vollversion_url": "https://vorschau.magnet-xs.ch/fcschlieren-vollversion/",
         "cockpit_url": "https://vorschau.magnet-xs.ch/fcschlieren-vollversion/cockpit?token=fcschlieren2026",
+        "cockpit_light_url": "https://vorschau.magnet-xs.ch/fcschlieren-vollversion/cockpit.html?token=fcschlieren2026&mode=light",
         "source_url": "https://www.fcschlieren.ch/",
         "branch_context": "Fussballclub Schlieren ZH (33 Teams, Sponsoren-Matrix & Team-Hub)",
         "partner": "Jenny Ettle (JE-MI)",
@@ -210,6 +215,7 @@ SEED_PROJECTS = [
         "v2_url": "https://vorschau.magnet-xs.ch/scfulenbach-v2/",
         "vollversion_url": "https://vorschau.magnet-xs.ch/scfulenbach-vollversion/",
         "cockpit_url": "https://vorschau.magnet-xs.ch/scfulenbach-vollversion/cockpit?token=scfulenbach2026",
+        "cockpit_light_url": "https://vorschau.magnet-xs.ch/scfulenbach-vollversion/cockpit.html?token=scfulenbach2026&mode=light",
         "source_url": "https://www.scfulenbach.ch/",
         "branch_context": "Sportclub Fulenbach SO (14 Teams, Vereinsleben & Sponsoren)",
         "partner": "Jenny Ettle (JE-MI)",
@@ -226,6 +232,7 @@ SEED_PROJECTS = [
         "v2_url": "https://vorschau.magnet-xs.ch/fcattiswil-v2/",
         "vollversion_url": "https://vorschau.magnet-xs.ch/fcattiswil-vollversion/",
         "cockpit_url": "https://vorschau.magnet-xs.ch/fcattiswil-vollversion/cockpit?token=fcattiswil2026",
+        "cockpit_light_url": "https://vorschau.magnet-xs.ch/fcattiswil-vollversion/cockpit.html?token=fcattiswil2026&mode=light",
         "source_url": "https://www.fcattiswil.ch/",
         "branch_context": "Fussballclub Attiswil BE (14 Teams, Junioren & Sponsoren)",
         "partner": "Jenny Ettle (JE-MI)",
@@ -242,6 +249,7 @@ SEED_PROJECTS = [
         "v2_url": "https://vorschau.magnet-xs.ch/her11-v2/",
         "vollversion_url": "https://vorschau.magnet-xs.ch/her11-vollversion/",
         "cockpit_url": "https://vorschau.magnet-xs.ch/her11-vollversion/cockpit?token=her112026",
+        "cockpit_light_url": "https://vorschau.magnet-xs.ch/her11-vollversion/cockpit.html?token=her112026&mode=light",
         "source_url": "https://www.her11.ch/",
         "branch_context": "HER11 Frauenfussball & Sport-Marketing (Jenny Ettle / JE-MI)",
         "partner": "Jenny Ettle (JE-MI)",
@@ -511,7 +519,7 @@ def apply_sheet_formatting(spreadsheet_id: str, sheet_id: int, current_title: st
         }
     })
 
-    # 5b. URL-Spalten F bis J (Index 5..10: v2, Vollversion, Cockpit, PDF, Ursprungs-Webseite) explizit blau & unterstrichen (#1d4ed8)
+    # 5b. URL-Spalten F bis K (Index 5..11: v2, Vollversion, Cockpit, Cockpit Light, PDF, Ursprungs-Webseite) explizit blau & unterstrichen (#1d4ed8)
     requests_list.append({
         "repeatCell": {
             "range": {
@@ -519,7 +527,7 @@ def apply_sheet_formatting(spreadsheet_id: str, sheet_id: int, current_title: st
                 "startRowIndex": 1,
                 "endRowIndex": max(total_rows, 100),
                 "startColumnIndex": 5,
-                "endColumnIndex": 10,
+                "endColumnIndex": 11,
             },
             "cell": {
                 "userEnteredFormat": {
@@ -550,7 +558,7 @@ def apply_sheet_formatting(spreadsheet_id: str, sheet_id: int, current_title: st
         }
     })
 
-    # 7. Optimale Spaltenbreiten (A bis M)
+    # 7. Optimale Spaltenbreiten (A bis N)
     col_widths = [
         (0, 1, 75),     # A: Aktiv
         (1, 2, 260),    # B: Firma / Verein
@@ -560,11 +568,12 @@ def apply_sheet_formatting(spreadsheet_id: str, sheet_id: int, current_title: st
         (5, 6, 300),    # F: Zeigeversion (-v2)
         (6, 7, 320),    # G: Vollversion (-vollversion)
         (7, 8, 380),    # H: Studio Cockpit v4.0
-        (8, 9, 380),    # I: Vorher/Nachher-Report (PDF)
-        (9, 10, 260),   # J: Ursprungs-Webseite (Original)
-        (10, 11, 320),  # K: Branche & Kontext
-        (11, 12, 185),  # L: Partner
-        (12, 13, 225),  # M: Status & Datum
+        (8, 9, 410),    # I: Kunden-Cockpit Light (Nur Texte)
+        (9, 10, 380),   # J: Vorher/Nachher-Report (PDF)
+        (10, 11, 260),  # K: Ursprungs-Webseite (Original)
+        (11, 12, 320),  # L: Branche & Kontext
+        (12, 13, 185),  # M: Partner
+        (13, 14, 225),  # N: Status & Datum
     ]
     for start_col, end_col, px in col_widths:
         requests_list.append({
@@ -630,7 +639,7 @@ def apply_sheet_formatting(spreadsheet_id: str, sheet_id: int, current_title: st
 
 
 def get_all_rows(spreadsheet_id: str, tab_title: str) -> List[List[str]]:
-    safe_range = urllib.parse.quote(f"'{tab_title}'!A1:M200")
+    safe_range = urllib.parse.quote(f"'{tab_title}'!A1:N200")
     url = f"https://sheets.googleapis.com/v4/spreadsheets/{spreadsheet_id}/values/{safe_range}"
     r = _request_with_retry("GET", url)
     r.raise_for_status()
@@ -691,6 +700,7 @@ def init_and_seed_sheet() -> Dict[str, Any]:
             continue
         is_active = active_by_slug.get(slug, item.get("active", True))
         audit_pdf_url = item.get("audit_report_url") or f"https://vorschau.magnet-xs.ch/reports/{slug}-vorher-nachher-report.pdf"
+        cockpit_light_url = item.get("cockpit_light_url") or f"https://vorschau.magnet-xs.ch/{slug}-vollversion/cockpit.html?token={slug}2026&mode=light"
         einmal_cell = format_einmal_price_sheet_cell(
             item["pricing_recommended_chf"],
             item["complexity_score"],
@@ -706,6 +716,7 @@ def init_and_seed_sheet() -> Dict[str, Any]:
             item["v2_url"],
             item["vollversion_url"],
             item["cockpit_url"],
+            cockpit_light_url,
             audit_pdf_url,
             item["source_url"],
             item["branch_context"],
@@ -718,7 +729,7 @@ def init_and_seed_sheet() -> Dict[str, Any]:
     clear_url = f"https://sheets.googleapis.com/v4/spreadsheets/{spreadsheet_id}/values/{clear_range}:clear"
     _request_with_retry("POST", clear_url, json={})
 
-    safe_range = urllib.parse.quote(f"'{tab_title}'!A1:M{len(values_matrix)}")
+    safe_range = urllib.parse.quote(f"'{tab_title}'!A1:N{len(values_matrix)}")
     put_url = f"https://sheets.googleapis.com/v4/spreadsheets/{spreadsheet_id}/values/{safe_range}"
     r_put = _request_with_retry(
         "PUT",
@@ -746,6 +757,7 @@ def upsert_webpilot_sheet_row(
     v2_url: str = "",
     vollversion_url: str = "",
     cockpit_url: str = "",
+    cockpit_light_url: str = "",
     source_context: str = "",
     source_url: str = "",
     branch_context: str = "",
@@ -817,6 +829,9 @@ def upsert_webpilot_sheet_row(
     default_audit_url = f"https://vorschau.magnet-xs.ch/reports/{clean_slug}-vorher-nachher-report.pdf" if clean_slug else ""
     if not audit_report_url:
         audit_report_url = default_audit_url
+    default_cockpit_light_url = f"https://vorschau.magnet-xs.ch/{clean_slug}-vollversion/cockpit.html?token={clean_slug}2026&mode=light" if clean_slug else ""
+    if not cockpit_light_url:
+        cockpit_light_url = default_cockpit_light_url
 
     if target_row_idx is not None:
         prev_active = False if (len(existing_row) > 0 and str(existing_row[0]).strip().upper() == "FALSE") else True
@@ -828,11 +843,12 @@ def upsert_webpilot_sheet_row(
         final_v2 = v2_url.strip() if v2_url else (existing_row[5] if len(existing_row) > 5 else "")
         final_voll = vollversion_url.strip() if vollversion_url else (existing_row[6] if len(existing_row) > 6 else "")
         final_cockpit = cockpit_url.strip() if cockpit_url else (existing_row[7] if len(existing_row) > 7 else "")
-        final_audit = audit_report_url.strip() if audit_report_url else (existing_row[8] if len(existing_row) > 8 else default_audit_url)
-        final_source_url = parsed_url if parsed_url else (existing_row[9] if len(existing_row) > 9 else "")
-        final_branch_ctx = parsed_ctx if parsed_ctx else (existing_row[10] if len(existing_row) > 10 else "")
-        final_partner = partner_norm if partner else (existing_row[11] if len(existing_row) > 11 else "Jenny Ettle (JE-MI)")
-        final_status = status_text.strip() if status_text else (existing_row[12] if len(existing_row) > 12 else "")
+        final_cockpit_light = cockpit_light_url.strip() if cockpit_light_url else (existing_row[8] if len(existing_row) > 8 else default_cockpit_light_url)
+        final_audit = audit_report_url.strip() if audit_report_url else (existing_row[9] if len(existing_row) > 9 else default_audit_url)
+        final_source_url = parsed_url if parsed_url else (existing_row[10] if len(existing_row) > 10 else "")
+        final_branch_ctx = parsed_ctx if parsed_ctx else (existing_row[11] if len(existing_row) > 11 else "")
+        final_partner = partner_norm if partner else (existing_row[12] if len(existing_row) > 12 else "Jenny Ettle (JE-MI)")
+        final_status = status_text.strip() if status_text else (existing_row[13] if len(existing_row) > 13 else "")
 
         row_values = [
             row_active,
@@ -843,13 +859,14 @@ def upsert_webpilot_sheet_row(
             final_v2,
             final_voll,
             final_cockpit,
+            final_cockpit_light,
             final_audit,
             final_source_url,
             final_branch_ctx,
             final_partner,
             final_status,
         ]
-        safe_range = urllib.parse.quote(f"'{tab_title}'!A{target_row_idx}:M{target_row_idx}")
+        safe_range = urllib.parse.quote(f"'{tab_title}'!A{target_row_idx}:N{target_row_idx}")
         url = f"https://sheets.googleapis.com/v4/spreadsheets/{spreadsheet_id}/values/{safe_range}"
         r_put = _request_with_retry(
             "PUT",
@@ -876,6 +893,7 @@ def upsert_webpilot_sheet_row(
             v2_url.strip(),
             vollversion_url.strip(),
             cockpit_url.strip(),
+            cockpit_light_url.strip(),
             audit_report_url.strip(),
             parsed_url,
             parsed_ctx,
@@ -883,7 +901,7 @@ def upsert_webpilot_sheet_row(
             status_text.strip(),
         ]
         new_row_idx = len(rows) + 1
-        safe_range = urllib.parse.quote(f"'{tab_title}'!A{new_row_idx}:M{new_row_idx}")
+        safe_range = urllib.parse.quote(f"'{tab_title}'!A{new_row_idx}:N{new_row_idx}")
         url = f"https://sheets.googleapis.com/v4/spreadsheets/{spreadsheet_id}/values/{safe_range}"
         r_put = _request_with_retry(
             "PUT",
@@ -911,7 +929,7 @@ def verify_sheet() -> Dict[str, Any]:
         url,
         params={
             "includeGridData": "true",
-            "ranges": f"'{DEFAULT_TAB_TITLE}'!A1:M20",
+            "ranges": f"'{DEFAULT_TAB_TITLE}'!A1:N20",
             "fields": "properties.title,sheets(properties(sheetId,title,gridProperties.frozenRowCount),basicFilter,conditionalFormats,data.rowData.values(userEnteredValue,dataValidation,hyperlink,effectiveFormat.textFormat))",
         },
     )
@@ -921,6 +939,7 @@ def verify_sheet() -> Dict[str, Any]:
     row_data = ((sh.get("data") or [{}])[0]).get("rowData") or []
     checkbox_count = 0
     clickable_source_links = 0
+    clickable_cockpit_light_links = 0
     rows_summary = []
     for r_idx, r_obj in enumerate(row_data[1:], start=2):
         vals = r_obj.get("values") or []
@@ -931,17 +950,24 @@ def verify_sheet() -> Dict[str, Any]:
             continue
         if (vals[0].get("dataValidation") or {}).get("condition", {}).get("type") == "BOOLEAN":
             checkbox_count += 1
-        src_cell = vals[9] if len(vals) > 9 else {}
+        light_cell = vals[8] if len(vals) > 8 else {}
+        light_url = (light_cell.get("userEnteredValue") or {}).get("stringValue", "")
+        light_hl = light_cell.get("hyperlink") or ((light_cell.get("effectiveFormat") or {}).get("textFormat") or {}).get("link", {}).get("uri", "")
+        if light_url.startswith("http") and light_hl:
+            clickable_cockpit_light_links += 1
+        src_cell = vals[10] if len(vals) > 10 else {}
         src_url = (src_cell.get("userEnteredValue") or {}).get("stringValue", "")
         src_hyperlink = src_cell.get("hyperlink") or ((src_cell.get("effectiveFormat") or {}).get("textFormat") or {}).get("link", {}).get("uri", "")
         if src_url.startswith("http") and src_hyperlink:
             clickable_source_links += 1
-        partner_val = (vals[11].get("userEnteredValue") or {}).get("stringValue", "") if len(vals) > 11 else ""
+        partner_val = (vals[12].get("userEnteredValue") or {}).get("stringValue", "") if len(vals) > 12 else ""
         rows_summary.append({
             "row": r_idx,
             "company": comp_val,
             "einmal_price": (vals[2].get("userEnteredValue") or {}).get("stringValue", "").splitlines()[0] if len(vals) > 2 else "",
             "monthly_offer": (vals[3].get("userEnteredValue") or {}).get("stringValue", "").splitlines()[0] if len(vals) > 3 else "",
+            "cockpit_light_url": light_url,
+            "is_clickable_cockpit_light": bool(light_hl),
             "source_url": src_url,
             "is_clickable_hyperlink": bool(src_hyperlink),
             "partner": partner_val,
@@ -958,6 +984,7 @@ def verify_sheet() -> Dict[str, Any]:
         "conditional_format_rules": len(sh.get("conditionalFormats") or []),
         "total_rows": len(rows_summary),
         "verified_boolean_checkboxes": checkbox_count,
+        "verified_clickable_cockpit_light_links": clickable_cockpit_light_links,
         "verified_clickable_source_links": clickable_source_links,
         "public_http_status": pub_r.status_code,
         "spreadsheet_url": cfg["spreadsheet_url"],
