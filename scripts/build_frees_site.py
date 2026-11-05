@@ -659,12 +659,13 @@ SHARED_CSS = """
       border-color: rgba(249, 178, 49, 0.55);
     }
 
-    /* Hero Section */
+    /* Hero Section — Hell, klar & freundlich wie frees.ch */
     .hero-section {
-      background-color: var(--charcoal-deep);
-      color: #FFFFFF;
+      background: linear-gradient(135deg, #ffffff 0%, #f8fafc 55%, #f1f5f9 100%);
+      background-color: #f8fafc;
+      color: #181817;
       padding: 72px 0 84px;
-      border-bottom: 4px solid var(--crimson-bright);
+      border-bottom: 3px solid var(--crimson-bright);
       overflow: hidden;
     }
     .hero-grid {
@@ -676,16 +677,16 @@ SHARED_CSS = """
     .hero-title {
       font-size: clamp(2.15rem, 3.8vw, 3.2rem);
       font-weight: 800;
-      color: #FFFFFF;
+      color: #181817;
       line-height: 1.12;
       margin-bottom: 18px;
     }
     .hero-title span {
-      color: var(--gold);
+      color: var(--crimson-dark);
     }
     .hero-lead {
       font-size: 1.06rem;
-      color: #E5E7EB;
+      color: #374151;
       line-height: 1.68;
       margin-bottom: 26px;
     }
@@ -1396,7 +1397,7 @@ SHARED_CSS = """
     .btn-cta-white {
       background-color: #FFFFFF;
       color: #181817;
-      border-color: #FFFFFF;
+      border-color: #CBD5E1;
       font-weight: 800;
     }
     .btn-cta-white:hover {
@@ -1414,7 +1415,7 @@ SHARED_CSS = """
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 0.06em;
-      color: var(--gold);
+      color: var(--crimson-dark);
       margin-bottom: 12px;
     }
     .section-eyebrow {
@@ -1437,15 +1438,15 @@ SHARED_CSS = """
       gap: 8px;
       font-size: 0.86rem;
       font-weight: 600;
-      color: #F3F4F6;
+      color: #181817;
     }
     .hero-trust-item svg {
-      color: var(--gold);
+      color: var(--crimson-dark);
       flex-shrink: 0;
     }
     .hero-visual-card {
-      background-color: var(--charcoal);
-      border: 1px solid rgba(255, 255, 255, 0.16);
+      background-color: #FFFFFF;
+      border: 1px solid #E2E8F0;
       border-radius: var(--radius-md);
       overflow: hidden;
       box-shadow: var(--shadow-lg);
@@ -1466,8 +1467,9 @@ SHARED_CSS = """
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      background-color: var(--charcoal-deep);
-      color: var(--gold);
+      background-color: var(--crimson-soft);
+      color: var(--crimson-dark);
+      border: 1px solid var(--crimson-border);
       font-family: 'Barlow', sans-serif;
       font-size: 0.74rem;
       font-weight: 700;
@@ -1480,8 +1482,8 @@ SHARED_CSS = """
       grid-template-columns: repeat(3, 1fr);
       gap: 10px;
       padding: 14px 16px;
-      background-color: #181817;
-      border-top: 1px solid rgba(255, 255, 255, 0.12);
+      background-color: #F8FAFC;
+      border-top: 1px solid #E2E8F0;
     }
     .hero-quickbar-item {
       display: flex;
@@ -1490,7 +1492,7 @@ SHARED_CSS = """
     }
     .hero-quickbar-label {
       font-size: 0.7rem;
-      color: #D1D5DB;
+      color: #4B5563;
       text-transform: uppercase;
       letter-spacing: 0.04em;
       font-weight: 600;
@@ -1499,7 +1501,7 @@ SHARED_CSS = """
       font-family: 'Barlow', sans-serif;
       font-size: 0.86rem;
       font-weight: 700;
-      color: var(--gold);
+      color: var(--crimson-dark);
       display: inline-flex;
       align-items: center;
       min-height: 32px;
@@ -1781,20 +1783,21 @@ SHARED_CSS = """
       flex-shrink: 0;
     }
     .page-hero {
-      background-color: var(--charcoal-deep);
-      color: #FFFFFF;
+      background: linear-gradient(135deg, #ffffff 0%, #f8fafc 55%, #f1f5f9 100%);
+      background-color: #f8fafc;
+      color: #181817;
       padding: 54px 0 60px;
-      border-bottom: 4px solid var(--crimson-bright);
+      border-bottom: 3px solid var(--crimson-bright);
     }
     .page-hero h1 {
-      color: #FFFFFF;
+      color: #181817;
       font-size: clamp(1.95rem, 3.3vw, 2.75rem);
       font-weight: 800;
       margin-bottom: 14px;
       max-width: 820px;
     }
     .page-hero p {
-      color: #E5E7EB;
+      color: #374151;
       font-size: 1.02rem;
       max-width: 760px;
       line-height: 1.65;
@@ -1804,11 +1807,11 @@ SHARED_CSS = """
       align-items: center;
       gap: 8px;
       font-size: 0.8rem;
-      color: #D1D5DB;
+      color: #4B5563;
       margin-bottom: 14px;
     }
     .breadcrumb a {
-      color: var(--gold);
+      color: var(--crimson-dark);
       font-weight: 700;
       display: inline-flex;
       align-items: center;

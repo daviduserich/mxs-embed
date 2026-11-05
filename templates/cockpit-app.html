@@ -4009,6 +4009,248 @@ body.acp-dock-open #acp-draft-widget {
   }
 }
 
+
+/* ======================================================= */
+/* DESIGN-TABELLE, FARBWELTEN & KI VIBE-CODING MODAL       */
+/* ======================================================= */
+.acp-nav-btn-vibe {
+  background: rgba(240, 133, 45, 0.14) !important;
+  border-color: rgba(240, 133, 45, 0.45) !important;
+  color: #ffb870 !important;
+}
+.acp-nav-btn-vibe:hover {
+  background: rgba(240, 133, 45, 0.26) !important;
+  border-color: #f0852d !important;
+  color: #ffffff !important;
+}
+#designVibeModal.is-open {
+  display: flex !important;
+}
+.acp-vibe-section-box {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+.acp-vibe-section-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 16px;
+}
+.acp-vibe-section-title {
+  font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.acp-vibe-section-sub {
+  font-size: 13px;
+  color: #94a3b8;
+  margin-top: 3px;
+}
+.acp-color-table-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  align-items: stretch;
+}
+.acp-color-row-card {
+  background: #0b0f17;
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  border-radius: 8px;
+  padding: 14px 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 10px;
+}
+.acp-color-row-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 10px;
+}
+.acp-color-row-label {
+  font-size: 13.5px;
+  font-weight: 700;
+  color: #f1f5f9;
+  line-height: 1.3;
+}
+.acp-color-row-desc {
+  font-size: 11.5px;
+  color: #94a3b8;
+  margin-top: 2px;
+}
+.acp-color-controls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.acp-color-picker-input {
+  width: 42px;
+  height: 38px;
+  padding: 2px;
+  border-radius: 4px;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  background: #131b2e;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+.acp-color-hex-input {
+  width: 116px;
+  height: 38px;
+  padding: 6px 10px;
+  border-radius: 4px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: #07090e;
+  color: #f8fafc;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: lowercase;
+}
+.acp-color-hex-input:focus {
+  outline: none;
+  border-color: #f0852d;
+}
+.acp-hero-mode-switch {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+.acp-hero-mode-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 10px;
+  min-height: 36px;
+  border-radius: 4px;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  background: rgba(255, 255, 255, 0.05);
+  color: #cbd5e1;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.18s ease;
+}
+.acp-hero-mode-btn:hover,
+.acp-hero-mode-btn.is-active {
+  background: rgba(240, 133, 45, 0.18);
+  border-color: #f0852d;
+  color: #ffffff;
+}
+.acp-vibe-presets-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+  align-items: stretch;
+}
+.acp-vibe-preset-card {
+  background: #0b0f17;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 8px;
+  padding: 14px 16px;
+  text-align: left;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 10px;
+  transition: all 0.18s ease;
+  color: #f8fafc;
+  font-family: inherit;
+}
+.acp-vibe-preset-card:hover,
+.acp-vibe-preset-card.is-active {
+  border-color: #f0852d;
+  background: rgba(240, 133, 45, 0.09);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
+}
+.acp-vibe-preset-swatches {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.acp-vibe-swatch {
+  width: 24px;
+  height: 24px;
+  border-radius: 4px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  flex-shrink: 0;
+}
+.acp-vibe-chips-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 14px;
+}
+.acp-vibe-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 12px;
+  min-height: 36px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: rgba(255, 255, 255, 0.05);
+  color: #e2e8f0;
+  font-size: 12.5px;
+  font-weight: 600;
+  cursor: pointer;
+  text-align: left;
+  transition: all 0.18s ease;
+}
+.acp-vibe-chip:hover {
+  background: rgba(240, 133, 45, 0.16);
+  border-color: #f0852d;
+  color: #ffffff;
+}
+.acp-vibe-dictate-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 12px;
+  min-height: 38px;
+  border-radius: 8px;
+  border: 1px solid rgba(240, 133, 45, 0.45);
+  background: rgba(240, 133, 45, 0.12);
+  color: #ffb870;
+  font-size: 12.5px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.18s ease;
+}
+.acp-vibe-dictate-btn.is-recording {
+  background: rgba(239, 68, 68, 0.22);
+  border-color: #ef4444;
+  color: #fca5a5;
+}
+@media (max-width: 980px) {
+  .acp-color-table-grid {
+    grid-template-columns: 1fr;
+  }
+  .acp-vibe-presets-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@media (max-width: 640px) {
+  .acp-vibe-presets-grid {
+    grid-template-columns: 1fr;
+  }
+  .acp-vibe-section-box {
+    padding: 14px;
+  }
+}
+
 </style>
 </head>
 <body>
@@ -4064,6 +4306,10 @@ body.acp-dock-open #acp-draft-widget {
       <button type="button" class="acp-nav-btn acp-nav-btn-sections" onclick="acpToggleSectionsModal()" title="Seiten-Abschnitte &amp; KI-Assistent mit vollem Seiten-Kontext">
         <span class="nav-icon" style="display:inline-flex;align-items:center;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg></span>
         <span class="nav-label">Sektionen &amp; KI</span>
+      </button>
+      <button type="button" class="acp-nav-btn acp-nav-btn-vibe" id="acp-btn-open-design-vibe" onclick="acpOpenDesignVibeModal()" title="Farben (Hex-Code / Farbtabelle), Stil-Welten &amp; KI Vibe-Coding to CSS">
+        <span class="nav-icon" style="display:inline-flex;align-items:center;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="13.5" cy="6.5" r=".5"/><circle cx="17.5" cy="10.5" r=".5"/><circle cx="8.5" cy="7.5" r=".5"/><circle cx="6.5" cy="12.5" r=".5"/><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2z"/></svg></span>
+        <span class="nav-label">Farben &amp; KI-Design («Vibe-Coding»)</span>
       </button>
       <button type="button" class="acp-nav-btn" onclick="acpToggleImagesModal()" title="Bilder-Pool durchsuchen &amp; tauschen">
         <span class="nav-icon" style="display:inline-flex;align-items:center;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg></span>
@@ -4202,6 +4448,10 @@ body.acp-dock-open #acp-draft-widget {
         <button type="button" class="acp-btn-secondary" onclick="acpCopyFullPagePrompt()" title="Kopiert den gesamten Seiten-Quellcode inklusive Master-Prompt für ChatGPT oder Claude">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
           <span>Ganze Seite kopieren</span>
+        </button>
+        <button type="button" class="acp-btn-secondary" onclick="acpOpenDesignVibeModal()" style="border-color:rgba(240,133,45,0.45); color:#ffb870;">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="13.5" cy="6.5" r=".5"/><circle cx="17.5" cy="10.5" r=".5"/><circle cx="8.5" cy="7.5" r=".5"/><circle cx="6.5" cy="12.5" r=".5"/><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2z"/></svg>
+          <span>Farben &amp; KI-Design («Vibe-Coding»)</span>
         </button>
         <button type="button" class="acp-btn-primary" onclick="acpOpenNewSectionModal()">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
@@ -4705,6 +4955,311 @@ body.acp-dock-open #acp-draft-widget {
           <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg>
           <span>Server-Protokoll laden</span>
         </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ======================================================= -->
+<!-- MODAL: FARBEN, DESIGN-TABELLE & KI VIBE-CODING TO CSS   -->
+<!-- ======================================================= -->
+<div id="designVibeModal" class="acp-modal-backdrop" onclick="if(event.target===this)acpCloseDesignVibeModal()">
+  <div class="acp-modal acp-modal-fullscreen">
+    <div class="acp-modal-head">
+      <div>
+        <div class="acp-modal-kicker">WEBPILOT STUDIO · FARBWELTEN, HEX-TABELLE &amp; VIBE-CODING TO CSS</div>
+        <h3 class="acp-modal-heading">Farben, Design-Tabelle &amp; KI Vibe-Coding</h3>
+        <p class="acp-modal-subline">Passe alle 6 Hauptfarben per Farbwähler oder Hex-Code in Echtzeit an, wähle eine fertige Stil-Vorlage oder beschreibe deinen Design-Wunsch in normaler Sprache.</p>
+      </div>
+      <div class="acp-modal-actions">
+        <button type="button" class="acp-btn-secondary" onclick="acpResetDesignVibe()" title="Alle Farb- und CSS-Anpassungen zurücksetzen">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"/></svg>
+          <span>Änderungen zurücksetzen</span>
+        </button>
+        <button type="button" class="acp-btn-primary" id="acp-btn-save-design-top" onclick="acpSaveDesignVibe()">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="20 6 9 17 4 12"/></svg>
+          <span>Design &amp; Farben dauerhaft speichern</span>
+        </button>
+        <button type="button" class="acp-btn-close" onclick="acpCloseDesignVibeModal()" title="Schliessen (ESC)">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+          <span>Schliessen</span>
+        </button>
+      </div>
+    </div>
+
+    <div class="acp-modal-body">
+      <div id="acp-vibe-status-banner" style="display:none; margin-bottom:16px; padding:12px 16px; border-radius:8px; border:1px solid rgba(34,197,94,0.35); background:rgba(34,197,94,0.12); color:#bbf7d0; font-size:13.5px; font-weight:600; align-items:center; justify-content:space-between; gap:12px;"></div>
+
+      <!-- BEREICH A: INTERAKTIVE FARBTABELLE (6 FARBEN IN ECHTZEIT) -->
+      <div class="acp-vibe-section-box">
+        <div class="acp-vibe-section-head">
+          <div>
+            <div class="acp-vibe-section-title">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#ffa858" stroke-width="2"><circle cx="13.5" cy="6.5" r=".5"/><circle cx="17.5" cy="10.5" r=".5"/><circle cx="8.5" cy="7.5" r=".5"/><circle cx="6.5" cy="12.5" r=".5"/><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2z"/></svg>
+              <span>Bereich A · Interaktive Farbtabelle (Hex-Code &amp; Farbwähler in Echtzeit)</span>
+            </div>
+            <div class="acp-vibe-section-sub">Wird automatisch aus der geladenen Vorschau ausgelesen. Jede Änderung aktualisiert sofort live den Simulator im Hintergrund.</div>
+          </div>
+          <div class="acp-hero-mode-switch">
+            <button type="button" class="acp-hero-mode-btn" id="acp-btn-hero-light" onclick="acpSwitchHeroBrightness('light')">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/></svg>
+              <span>Hell &amp; Freundlich</span>
+            </button>
+            <button type="button" class="acp-hero-mode-btn" id="acp-btn-hero-dark" onclick="acpSwitchHeroBrightness('dark')">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+              <span>Dunkel &amp; Kontrast</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="acp-color-table-grid">
+          <!-- 1. Primär- & Akzentfarbe -->
+          <div class="acp-color-row-card">
+            <div class="acp-color-row-top">
+              <div>
+                <div class="acp-color-row-label">1. Primär- &amp; Akzentfarbe (Buttons, Kicker, Links)</div>
+                <div class="acp-color-row-desc">Steuert Haupt-Buttons, Marken-Kicker, Badges und Akzente (<code>--primary</code> / <code>--gold</code>)</div>
+              </div>
+            </div>
+            <div class="acp-color-controls">
+              <input type="color" id="acp-col-picker-primary" class="acp-color-picker-input" value="#9b2c47" oninput="acpOnColorInput('primary', this.value)" aria-label="Primärfarbe wählen">
+              <input type="text" id="acp-col-hex-primary" class="acp-color-hex-input" value="#9b2c47" maxlength="7" oninput="acpOnHexInput('primary', this.value)" aria-label="Primärfarbe Hex-Code">
+            </div>
+          </div>
+
+          <!-- 2. Startbühne (Hero) Hintergrundfarbe -->
+          <div class="acp-color-row-card">
+            <div class="acp-color-row-top">
+              <div>
+                <div class="acp-color-row-label">2. Startbühne (Hero) Hintergrundfarbe</div>
+                <div class="acp-color-row-desc">Hintergrund von Abschnitt 02 (Startbühne) und Unterseiten-Headern (<code>.hero-section</code>)</div>
+              </div>
+            </div>
+            <div class="acp-color-controls">
+              <input type="color" id="acp-col-picker-heroBg" class="acp-color-picker-input" value="#fdf8f5" oninput="acpOnColorInput('heroBg', this.value)" aria-label="Startbühne Hintergrundfarbe wählen">
+              <input type="text" id="acp-col-hex-heroBg" class="acp-color-hex-input" value="#fdf8f5" maxlength="7" oninput="acpOnHexInput('heroBg', this.value)" aria-label="Startbühne Hintergrund Hex-Code">
+              <button type="button" class="acp-hero-mode-btn" onclick="acpSwitchHeroBrightness('light')" title="Startbühne hell &amp; freundlich mit dunkler Schrift">Hell</button>
+              <button type="button" class="acp-hero-mode-btn" onclick="acpSwitchHeroBrightness('dark')" title="Startbühne dunkel mit heller Schrift">Dunkel</button>
+            </div>
+          </div>
+
+          <!-- 3. Startbühne (Hero) Text- & Überschriftenfarbe -->
+          <div class="acp-color-row-card">
+            <div class="acp-color-row-top">
+              <div>
+                <div class="acp-color-row-label">3. Startbühne (Hero) Text- &amp; Überschriftenfarbe</div>
+                <div class="acp-color-row-desc">Hauptüberschrift und Einleitungstext auf der Startbühne (<code>.hero-title</code> / <code>.hero-lead</code>)</div>
+              </div>
+            </div>
+            <div class="acp-color-controls">
+              <input type="color" id="acp-col-picker-heroText" class="acp-color-picker-input" value="#2b161e" oninput="acpOnColorInput('heroText', this.value)" aria-label="Startbühne Textfarbe wählen">
+              <input type="text" id="acp-col-hex-heroText" class="acp-color-hex-input" value="#2b161e" maxlength="7" oninput="acpOnHexInput('heroText', this.value)" aria-label="Startbühne Textfarbe Hex-Code">
+            </div>
+          </div>
+
+          <!-- 4. Haupt-Seitenhintergrund (body) -->
+          <div class="acp-color-row-card">
+            <div class="acp-color-row-top">
+              <div>
+                <div class="acp-color-row-label">4. Haupt-Seitenhintergrund (<code>body</code>)</div>
+                <div class="acp-color-row-desc">Grundton der gesamten Webseite (z. B. Reinweiss <code>#ffffff</code> oder Creme <code>#fdf8f5</code>)</div>
+              </div>
+            </div>
+            <div class="acp-color-controls">
+              <input type="color" id="acp-col-picker-bodyBg" class="acp-color-picker-input" value="#fdf8f5" oninput="acpOnColorInput('bodyBg', this.value)" aria-label="Haupt-Seitenhintergrund wählen">
+              <input type="text" id="acp-col-hex-bodyBg" class="acp-color-hex-input" value="#fdf8f5" maxlength="7" oninput="acpOnHexInput('bodyBg', this.value)" aria-label="Haupt-Seitenhintergrund Hex-Code">
+            </div>
+          </div>
+
+          <!-- 5. Abwechselnde Sektions- & Karten-Flächen -->
+          <div class="acp-color-row-card">
+            <div class="acp-color-row-top">
+              <div>
+                <div class="acp-color-row-label">5. Abwechselnde Sektions- &amp; Karten-Flächen</div>
+                <div class="acp-color-row-desc">Karten-Hintergründe und abwechselnde Abschnitte (<code>--bg-alt</code> / <code>.content-card</code>)</div>
+              </div>
+            </div>
+            <div class="acp-color-controls">
+              <input type="color" id="acp-col-picker-cardBg" class="acp-color-picker-input" value="#ffffff" oninput="acpOnColorInput('cardBg', this.value)" aria-label="Karten-Flächenfarbe wählen">
+              <input type="text" id="acp-col-hex-cardBg" class="acp-color-hex-input" value="#ffffff" maxlength="7" oninput="acpOnHexInput('cardBg', this.value)" aria-label="Karten-Flächenfarbe Hex-Code">
+            </div>
+          </div>
+
+          <!-- 6. Fusszeile (Footer) Hintergrund & Text -->
+          <div class="acp-color-row-card">
+            <div class="acp-color-row-top">
+              <div>
+                <div class="acp-color-row-label">6. Fusszeile (Footer) Hintergrund &amp; Text</div>
+                <div class="acp-color-row-desc">Hintergrundfarbe und passende Textfarbe des Seiten-Abschlusses (<code>.site-footer</code>)</div>
+              </div>
+            </div>
+            <div class="acp-color-controls">
+              <input type="color" id="acp-col-picker-footerBg" class="acp-color-picker-input" value="#f3e2dd" oninput="acpOnColorInput('footerBg', this.value)" aria-label="Footer Hintergrundfarbe wählen">
+              <input type="text" id="acp-col-hex-footerBg" class="acp-color-hex-input" value="#f3e2dd" maxlength="7" oninput="acpOnHexInput('footerBg', this.value)" aria-label="Footer Hintergrund Hex-Code">
+              <input type="color" id="acp-col-picker-footerText" class="acp-color-picker-input" value="#2b161e" oninput="acpOnColorInput('footerText', this.value)" title="Footer Textfarbe" aria-label="Footer Textfarbe wählen">
+              <input type="text" id="acp-col-hex-footerText" class="acp-color-hex-input" value="#2b161e" maxlength="7" oninput="acpOnHexInput('footerText', this.value)" aria-label="Footer Textfarbe Hex-Code" style="width:98px;">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- BEREICH B: 6 KURATIERTE 1-KLICK FARB- & STIMMUNGS-VORLAGEN -->
+      <div class="acp-vibe-section-box">
+        <div class="acp-vibe-section-head">
+          <div>
+            <div class="acp-vibe-section-title">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#ffa858" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              <span>Bereich B · 1-Klick Farb- &amp; Stimmungs-Vorlagen (6 kuratierte Presets)</span>
+            </div>
+            <div class="acp-vibe-section-sub">Klicke auf eine Stil-Welt, um alle 6 Farben der Farbtabelle harmonisch und mit geprüfter Lesbarkeit einzustellen.</div>
+          </div>
+        </div>
+
+        <div class="acp-vibe-presets-grid" id="acp-vibe-presets-grid">
+          <button type="button" class="acp-vibe-preset-card" data-preset="rose_creme" onclick="acpApplyDesignPreset('rose_creme')">
+            <div>
+              <div style="font-size:13.5px; font-weight:700; color:#fff; margin-bottom:4px;">1. Warmes Rosé &amp; Creme (Praxis, Herzensarbeit &amp; Coaching — Hell)</div>
+              <div style="font-size:12px; color:#94a3b8; line-height:1.4;">Sanfter Creme-Rosé-Verlauf, Beerenrot-Akzente (#9b2c47) &amp; warme Lesbarkeit</div>
+            </div>
+            <div class="acp-vibe-preset-swatches">
+              <span class="acp-vibe-swatch" style="background:#9b2c47;"></span>
+              <span class="acp-vibe-swatch" style="background:#fdf8f5;"></span>
+              <span class="acp-vibe-swatch" style="background:#f7ebe8;"></span>
+              <span class="acp-vibe-swatch" style="background:#2b161e;"></span>
+            </div>
+          </button>
+
+          <button type="button" class="acp-vibe-preset-card" data-preset="swiss_arch" onclick="acpApplyDesignPreset('swiss_arch')">
+            <div>
+              <div style="font-size:13.5px; font-weight:700; color:#fff; margin-bottom:4px;">2. Schweizer Architektur-Hell (Reinweiss, Warmgrau &amp; Terracotta)</div>
+              <div style="font-size:12px; color:#94a3b8; line-height:1.4;">Klare Schweizer Sachlichkeit mit hellem Hero, Warmgrau &amp; Terracotta-Akzent (#c2410c)</div>
+            </div>
+            <div class="acp-vibe-preset-swatches">
+              <span class="acp-vibe-swatch" style="background:#c2410c;"></span>
+              <span class="acp-vibe-swatch" style="background:#ffffff;"></span>
+              <span class="acp-vibe-swatch" style="background:#f5f5f4;"></span>
+              <span class="acp-vibe-swatch" style="background:#1c1917;"></span>
+            </div>
+          </button>
+
+          <button type="button" class="acp-vibe-preset-card" data-preset="natur_holz" onclick="acpApplyDesignPreset('natur_holz')">
+            <div>
+              <div style="font-size:13.5px; font-weight:700; color:#fff; margin-bottom:4px;">3. Natur, Holz &amp; Handwerk (Elfenbein, Eiche-Gold &amp; Anthrazit)</div>
+              <div style="font-size:12px; color:#94a3b8; line-height:1.4;">Bodenständige Handwerks-Wärme mit hellem Elfenbein, Eiche-Gold (#b45309) &amp; Schiefer</div>
+            </div>
+            <div class="acp-vibe-preset-swatches">
+              <span class="acp-vibe-swatch" style="background:#b45309;"></span>
+              <span class="acp-vibe-swatch" style="background:#fdfaf6;"></span>
+              <span class="acp-vibe-swatch" style="background:#f4efe6;"></span>
+              <span class="acp-vibe-swatch" style="background:#1e293b;"></span>
+            </div>
+          </button>
+
+          <button type="button" class="acp-vibe-preset-card" data-preset="klar_vertrauen" onclick="acpApplyDesignPreset('klar_vertrauen')">
+            <div>
+              <div style="font-size:13.5px; font-weight:700; color:#fff; margin-bottom:4px;">4. Klar &amp; Vertrauensvoll (Helles Eisblau, Weiss &amp; Marineblau)</div>
+              <div style="font-size:12px; color:#94a3b8; line-height:1.4;">Souveräne Beratungs- &amp; Dienstleistungs-Optik mit hellem Eisblau &amp; Marine (#1e3a8a)</div>
+            </div>
+            <div class="acp-vibe-preset-swatches">
+              <span class="acp-vibe-swatch" style="background:#1e3a8a;"></span>
+              <span class="acp-vibe-swatch" style="background:#f8fafc;"></span>
+              <span class="acp-vibe-swatch" style="background:#eff6ff;"></span>
+              <span class="acp-vibe-swatch" style="background:#0f172a;"></span>
+            </div>
+          </button>
+
+          <button type="button" class="acp-vibe-preset-card" data-preset="sport_verein" onclick="acpApplyDesignPreset('sport_verein')">
+            <div>
+              <div style="font-size:13.5px; font-weight:700; color:#fff; margin-bottom:4px;">5. Sport &amp; Vereins-Frische (Klares Weiss, Vereins-Rot &amp; Tiefblau)</div>
+              <div style="font-size:12px; color:#94a3b8; line-height:1.4;">Dynamischer, heller Auftritt mit kräftigem Rot (#d6201e) und klarem Kontrast</div>
+            </div>
+            <div class="acp-vibe-preset-swatches">
+              <span class="acp-vibe-swatch" style="background:#d6201e;"></span>
+              <span class="acp-vibe-swatch" style="background:#ffffff;"></span>
+              <span class="acp-vibe-swatch" style="background:#f8fafc;"></span>
+              <span class="acp-vibe-swatch" style="background:#111827;"></span>
+            </div>
+          </button>
+
+          <button type="button" class="acp-vibe-preset-card" data-preset="abend_kontrast" onclick="acpApplyDesignPreset('abend_kontrast')">
+            <div>
+              <div style="font-size:13.5px; font-weight:700; color:#fff; margin-bottom:4px;">6. Edler Abend-Kontrast (Dunkle Startbühne &amp; Warme Gold-Akzente)</div>
+              <div style="font-size:12px; color:#94a3b8; line-height:1.4;">Markante dunkle Startbühne (#18232c) mit warmen Gold-Akzenten (#d97706)</div>
+            </div>
+            <div class="acp-vibe-preset-swatches">
+              <span class="acp-vibe-swatch" style="background:#d97706;"></span>
+              <span class="acp-vibe-swatch" style="background:#18232c;"></span>
+              <span class="acp-vibe-swatch" style="background:#ffffff;"></span>
+              <span class="acp-vibe-swatch" style="background:#0f172a;"></span>
+            </div>
+          </button>
+        </div>
+      </div>
+
+      <!-- BEREICH C: VIBE-CODING TO CSS (FREITEXT & SPRACH-DIKTAT -> KI CSS) -->
+      <div class="acp-vibe-section-box" style="margin-bottom:0;">
+        <div class="acp-vibe-section-head">
+          <div>
+            <div class="acp-vibe-section-title">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#ffa858" stroke-width="2"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg>
+              <span>Bereich C · «Vibe-Coding to CSS» (Freitext &amp; Sprach-Diktat in CSS übersetzen)</span>
+            </div>
+            <div class="acp-vibe-section-sub">Beschreibe deinen Design-Wunsch einfach in eigenen Worten oder klicke auf einen Schnell-Befehl. Unsere KI übersetzt ihn sofort in valides CSS für deine Seite.</div>
+          </div>
+          <button type="button" class="acp-vibe-dictate-btn" id="acp-btn-vibe-dictate" onclick="acpToggleVibeDictation()">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg>
+            <span id="acp-btn-vibe-dictate-lbl">Wunsch per Mikrofon einsprechen</span>
+          </button>
+        </div>
+
+        <div style="font-size:12px; font-weight:700; color:#cbd5e1; text-transform:uppercase; letter-spacing:0.04em; margin-bottom:8px;">Schnell-Befehle (1 Klick zum Einfügen):</div>
+        <div class="acp-vibe-chips-wrap">
+          <button type="button" class="acp-vibe-chip" onclick="acpInsertVibeChip('Startbühne (Hero) hell, warm und freundlich statt dunkel gestalten')">
+            <span>«Startbühne (Hero) hell, warm und freundlich statt dunkel gestalten»</span>
+          </button>
+          <button type="button" class="acp-vibe-chip" onclick="acpInsertVibeChip('Alle Buttons und Akzente in einem warmen Beerenrot (#9b2c47) färben')">
+            <span>«Alle Buttons und Akzente in einem warmen Beerenrot (#9b2c47) färben»</span>
+          </button>
+          <button type="button" class="acp-vibe-chip" onclick="acpInsertVibeChip('Schriften etwas grösser, luftiger und weicher abrunden')">
+            <span>«Schriften etwas grösser, luftiger und weicher abrunden»</span>
+          </button>
+          <button type="button" class="acp-vibe-chip" onclick="acpInsertVibeChip('Hintergrund der gesamten Seite in sanftem Elfenbein (#fdf9f5) halten')">
+            <span>«Hintergrund der gesamten Seite in sanftem Elfenbein (#fdf9f5) halten»</span>
+          </button>
+          <button type="button" class="acp-vibe-chip" onclick="acpInsertVibeChip('Mehr Weissraum zwischen den einzelnen Abschnitten schaffen')">
+            <span>«Mehr Weissraum zwischen den einzelnen Abschnitten schaffen»</span>
+          </button>
+        </div>
+
+        <div style="margin-bottom:14px;">
+          <label for="acp-vibe-prompt-input" style="display:block; font-size:12.5px; font-weight:700; color:#e2e8f0; margin-bottom:6px;">Dein natürlichsprachlicher Design-Wunsch:</label>
+          <textarea id="acp-vibe-prompt-input" rows="3" style="width:100%; background:#07090e; border:1px solid rgba(255,255,255,0.16); border-radius:8px; color:#f8fafc; font-family:'Inter',sans-serif; font-size:14px; padding:12px 14px; line-height:1.5; resize:vertical;" placeholder="z. B. Startbühne hell, warm und freundlich gestalten, alle Buttons in warmem Beerenrot (#9b2c47) und etwas mehr Luft zwischen den Abschnitten..."></textarea>
+        </div>
+
+        <div style="display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:12px; margin-bottom:14px;">
+          <button type="button" class="acp-btn-primary" id="acp-btn-test-vibe-css" onclick="acpRunVibeCssTest()" style="padding:11px 18px; font-size:14px;">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+            <span id="acp-btn-test-vibe-css-lbl">KI-Design-Wunsch jetzt live testen</span>
+          </button>
+
+          <div style="display:flex; align-items:center; gap:10px; flex-wrap:wrap;">
+            <button type="button" class="acp-btn-secondary" onclick="acpResetDesignVibe()">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"/></svg>
+              <span>Änderungen zurücksetzen</span>
+            </button>
+            <button type="button" class="acp-btn-primary" id="acp-btn-save-design-bottom" onclick="acpSaveDesignVibe()" style="background:#10b981; border-color:#10b981; color:#ffffff;">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="20 6 9 17 4 12"/></svg>
+              <span id="acp-btn-save-design-bottom-lbl">Design &amp; Farben dauerhaft speichern</span>
+            </button>
+          </div>
+        </div>
+
+        <details id="acp-vibe-css-details" style="background:#07090e; border:1px solid rgba(255,255,255,0.12); border-radius:8px; padding:12px 14px;">
+          <summary style="cursor:pointer; font-size:13px; font-weight:700; color:#cbd5e1; user-select:none;">Generiertes CSS einsehen / manuell feinjustieren</summary>
+          <div style="margin-top:10px;">
+            <textarea id="acp-vibe-css-editor" rows="8" oninput="acpOnManualCssEdit(this.value)" style="width:100%; background:#040609; border:1px solid rgba(255,255,255,0.14); border-radius:8px; color:#a7f3d0; font-family:'JetBrains Mono',monospace; font-size:12px; padding:12px; line-height:1.5; resize:vertical;" placeholder="/* Hier erscheint das live generierte CSS aus der Farbtabelle und dem KI Vibe-Coding... */"></textarea>
+          </div>
+        </details>
       </div>
     </div>
   </div>

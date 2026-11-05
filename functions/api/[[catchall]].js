@@ -2,7 +2,7 @@ export async function onRequest(context) {
   const url = new URL(context.request.url);
   const backendOrigin = "https://acp-plausible-tracking.acp-authentic-content-pilot.com";
   let forwardPath = url.pathname;
-  if (forwardPath.startsWith("/api/lead-") || forwardPath.startsWith("/api/webpilot/") || forwardPath.startsWith("/api/team-")) {
+  if (forwardPath.startsWith("/api/lead-") || forwardPath.startsWith("/api/webpilot/") || forwardPath.startsWith("/api/team-") || forwardPath.startsWith("/api/cockpit/")) {
     forwardPath = forwardPath.replace(/^\/api\//, "/api/publish-career/");
   }
   const targetUrl = backendOrigin + forwardPath + url.search;

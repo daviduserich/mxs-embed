@@ -486,13 +486,30 @@
       border-color: rgba(249, 178, 49, 0.55);
     }
 
-    /* Hero Section */
+    /* Hero Section — Hell, klar & freundlich wie innere-staerke.business */
     .hero-section {
-      background-color: var(--charcoal-deep);
-      color: #FFFFFF;
+      background: linear-gradient(135deg, #ffffff 0%, #f8f6f2 55%, #f1ede6 100%);
+      background-color: #f8f6f2;
+      color: #181817;
       padding: 72px 0 84px;
-      border-bottom: 4px solid var(--gold);
+      border-bottom: 3px solid var(--gold);
       overflow: hidden;
+    }
+    .hero-section .section-kicker.kicker-light {
+      color: var(--crimson);
+    }
+    .hero-section .section-kicker.kicker-light::before {
+      background-color: var(--crimson);
+    }
+    .hero-section .btn-cta-outline-light {
+      background-color: #FFFFFF;
+      color: #181817;
+      border-color: #CBD5E1;
+    }
+    .hero-section .btn-cta-outline-light:hover {
+      background-color: var(--gold-soft);
+      color: #181817;
+      border-color: var(--gold-dark);
     }
     .hero-grid {
       display: grid;
@@ -503,16 +520,16 @@
     .hero-title {
       font-size: clamp(2.15rem, 3.8vw, 3.25rem);
       font-weight: 800;
-      color: #FFFFFF;
+      color: #181817;
       line-height: 1.12;
       margin-bottom: 18px;
     }
     .hero-title span {
-      color: var(--gold);
+      color: var(--crimson);
     }
     .hero-lead {
       font-size: 1.06rem;
-      color: #E5E7EB;
+      color: #374151;
       line-height: 1.68;
       margin-bottom: 26px;
     }
@@ -528,31 +545,32 @@
       gap: 12px;
     }
     .hero-badge-card {
-      background-color: rgba(255, 255, 255, 0.06);
-      border: 1px solid rgba(255, 255, 255, 0.14);
-      border-left: 3px solid var(--gold);
+      background-color: #FFFFFF;
+      border: 1px solid #E5E7EB;
+      border-left: 3px solid var(--crimson);
       border-radius: var(--radius-sm);
       padding: 10px 14px;
       display: flex;
       flex-direction: column;
       justify-content: center;
       gap: 2px;
+      box-shadow: var(--shadow-sm);
     }
     .hero-badge-val {
       font-family: 'Barlow', sans-serif;
       font-size: 0.92rem;
       font-weight: 800;
-      color: var(--gold);
+      color: #181817;
     }
     .hero-badge-lbl {
       font-size: 0.78rem;
-      color: #D1D5DB;
+      color: #4B5563;
       line-height: 1.35;
     }
 
     .hero-media-card {
-      background-color: var(--charcoal);
-      border: 1px solid rgba(255, 255, 255, 0.16);
+      background-color: #FFFFFF;
+      border: 1px solid #E5E7EB;
       border-radius: var(--radius-md);
       overflow: hidden;
       box-shadow: var(--shadow-lg);
@@ -565,13 +583,18 @@
     }
     .hero-media-caption {
       padding: 16px 20px;
-      background-color: #1E1E1D;
-      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      background-color: #F8F6F2;
+      border-top: 1px solid #E5E7EB;
       display: flex;
       align-items: center;
       justify-content: space-between;
       gap: 12px;
       flex-wrap: wrap;
+    }
+    .hero-media-caption .top-bar-badge {
+      background-color: var(--gold-soft);
+      color: var(--gold-dark);
+      border-color: var(--gold-border);
     }
 
     /* Universal Symmetric Grids (#UI-14: Zero Ragged Edges & Equal Height) */
@@ -1913,8 +1936,8 @@
           <img src="images/hero-wueest-paneduro.jpg" alt="Christine Wüest und Nino Paneduro — Innere Stärke entwickeln" data-slot="hero_image">
           <div class="hero-media-caption">
             <div>
-              <div style="font-family:'Barlow',sans-serif;font-weight:800;font-size:1rem;color:#FFFFFF;">Christine Wüest &amp; Nino Paneduro</div>
-              <div style="font-size:0.8rem;color:var(--gold);">Mentoren, Coaches &amp; Ratgeber · Businesspark Sursee</div>
+              <div style="font-family:'Barlow',sans-serif;font-weight:800;font-size:1rem;color:#181817;">Christine Wüest &amp; Nino Paneduro</div>
+              <div style="font-size:0.8rem;color:var(--crimson);font-weight:700;">Mentoren, Coaches &amp; Ratgeber · Businesspark Sursee</div>
             </div>
             <a href="kontakt.html" class="btn-cta btn-cta-outline-light btn-sm">
               <span>Smart-Anfrage testen</span>

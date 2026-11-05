@@ -237,31 +237,31 @@ print("Wrote before.json, company.json, config.json, site.json for V1 and V2.")
 
 SHARED_CSS = """
     :root {
-      --charcoal: #243440;
-      --charcoal-deep: #18232C;
-      --charcoal-mid: #3A4E5D;
-      --gold: #F5B841;
-      --gold-hover: #FBBF24;
-      --gold-dark: #9A1536;
-      --gold-soft: #FDF2F6;
-      --gold-border: #F3B6C8;
-      --crimson: #9A1536;
-      --crimson-soft: #FDF2F6;
+      --charcoal: #3d212b;
+      --charcoal-deep: #2b161e;
+      --charcoal-mid: #5a3744;
+      --gold: #9b2c47;
+      --gold-hover: #b43757;
+      --gold-dark: #9b2c47;
+      --gold-soft: #fdf2f5;
+      --gold-border: #ebcad3;
+      --crimson: #9b2c47;
+      --crimson-soft: #fdf2f5;
       --green: #15803D;
       --green-soft: #DCFCE7;
-      --bg-page: #FAF8F6;
+      --bg-page: #fdf8f5;
       --bg-card: #FFFFFF;
-      --bg-Warm: #F3EFEA;
-      --text-main: #18232C;
-      --text-body: #334155;
-      --text-muted: #475569;
-      --border-light: #E2E8F0;
-      --border-strong: #CBD5E1;
+      --bg-Warm: #f7ebe8;
+      --text-main: #2b161e;
+      --text-body: #4a2c36;
+      --text-muted: #684551;
+      --border-light: #ead8d3;
+      --border-strong: #d5b8b0;
       --radius-sm: 4px;
       --radius-md: 8px;
-      --shadow-sm: 0 2px 10px rgba(24, 35, 44, 0.05);
-      --shadow-md: 0 12px 30px rgba(24, 35, 44, 0.09);
-      --shadow-lg: 0 20px 44px rgba(24, 35, 44, 0.16);
+      --shadow-sm: 0 2px 10px rgba(155, 44, 71, 0.06);
+      --shadow-md: 0 12px 30px rgba(155, 44, 71, 0.10);
+      --shadow-lg: 0 20px 44px rgba(155, 44, 71, 0.14);
       --container: 1180px;
     }
 
@@ -377,11 +377,11 @@ SHARED_CSS = """
 
     /* Sub-Topbar (Praxis Härkingen SO & Direktkontakt) */
     .top-bar {
-      background-color: var(--charcoal);
-      color: #E5E7EB;
+      background-color: #f7ebe8;
+      color: #4a2c36;
       font-size: 0.78rem;
       padding: 8px 0;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      border-bottom: 1px solid rgba(155, 44, 71, 0.14);
     }
     .top-bar-inner {
       display: flex;
@@ -400,9 +400,9 @@ SHARED_CSS = """
       display: inline-flex;
       align-items: center;
       gap: 5px;
-      background-color: rgba(245, 184, 65, 0.16);
-      color: var(--gold);
-      border: 1px solid rgba(245, 184, 65, 0.45);
+      background-color: #fdf2f5;
+      color: #9b2c47;
+      border: 1px solid rgba(155, 44, 71, 0.28);
       font-family: 'Josefin Sans', sans-serif;
       font-size: 0.72rem;
       font-weight: 700;
@@ -418,7 +418,7 @@ SHARED_CSS = """
       flex-wrap: wrap;
     }
     .top-bar-links a {
-      color: #E5E7EB;
+      color: #2b161e;
       font-weight: 600;
       display: inline-flex;
       align-items: center;
@@ -427,7 +427,7 @@ SHARED_CSS = """
       padding: 5px 8px;
     }
     .top-bar-links a:hover {
-      color: var(--gold);
+      color: #9b2c47;
     }
 
     /* Sticky Main Header */
@@ -550,44 +550,46 @@ SHARED_CSS = """
       flex-shrink: 0;
     }
     .btn-cta-gold {
-      background-color: var(--gold);
-      color: #18232C;
-      border-color: var(--gold);
+      background-color: #9b2c47;
+      color: #FFFFFF;
+      border-color: #9b2c47;
       font-weight: 700;
     }
     .btn-cta-gold:hover {
-      background-color: var(--gold-hover);
-      color: #18232C;
+      background-color: #b43757;
+      color: #FFFFFF;
+      border-color: #b43757;
       transform: translateY(-1px);
     }
     .btn-cta-primary {
-      background-color: var(--gold-dark);
+      background-color: #9b2c47;
       color: #FFFFFF;
-      border-color: var(--gold-dark);
+      border-color: #9b2c47;
     }
     .btn-cta-primary:hover {
-      background-color: var(--charcoal-deep);
+      background-color: #b43757;
       color: #FFFFFF;
-      border-color: var(--charcoal-deep);
+      border-color: #b43757;
     }
     .btn-cta-outline {
       background-color: #FFFFFF;
-      color: var(--charcoal-deep);
+      color: #2b161e;
       border-color: var(--border-strong);
     }
     .btn-cta-outline:hover {
-      border-color: var(--gold-dark);
-      color: var(--gold-dark);
+      border-color: #9b2c47;
+      color: #9b2c47;
       background-color: var(--gold-soft);
     }
     .btn-cta-outline-light {
-      background-color: rgba(255, 255, 255, 0.08);
-      color: #FFFFFF;
-      border-color: rgba(255, 255, 255, 0.28);
+      background-color: #FFFFFF;
+      color: #2b161e;
+      border-color: rgba(155, 44, 71, 0.32);
     }
     .btn-cta-outline-light:hover {
-      background-color: rgba(255, 255, 255, 0.16);
-      border-color: var(--gold);
+      background-color: #fdf2f5;
+      color: #9b2c47;
+      border-color: #9b2c47;
     }
     .btn-sm {
       font-size: 0.84rem;
@@ -603,7 +605,7 @@ SHARED_CSS = """
       border-radius: var(--radius-md);
       border: 1px solid var(--border-strong);
       background-color: #FFFFFF;
-      color: var(--charcoal-deep);
+      color: #2b161e;
       align-items: center;
       justify-content: center;
       cursor: pointer;
@@ -613,8 +615,8 @@ SHARED_CSS = """
       flex-direction: column;
       gap: 8px;
       padding: 16px 24px 22px;
-      background-color: var(--charcoal-deep);
-      border-top: 1px solid rgba(255, 255, 255, 0.12);
+      background-color: #fdf8f5;
+      border-top: 1px solid rgba(155, 44, 71, 0.18);
     }
     .mobile-drawer.open {
       display: flex;
@@ -624,12 +626,12 @@ SHARED_CSS = """
       font-family: 'Josefin Sans', sans-serif;
       font-size: 0.95rem;
       font-weight: 700;
-      color: #F9FAFB;
+      color: #2b161e;
       padding: 12px 14px;
       min-height: 44px;
       border-radius: var(--radius-sm);
-      background-color: rgba(255, 255, 255, 0.06);
-      border: 1px solid rgba(255, 255, 255, 0.12);
+      background-color: #FFFFFF;
+      border: 1px solid rgba(155, 44, 71, 0.18);
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -639,17 +641,18 @@ SHARED_CSS = """
       cursor: pointer;
     }
     .mobile-drawer button.mobile-nav-btn {
-      color: var(--gold);
+      color: #9b2c47;
       border-style: dashed;
-      border-color: rgba(245, 184, 65, 0.55);
+      border-color: rgba(155, 44, 71, 0.45);
     }
 
-    /* Hero Section */
+    /* Hero Section — Hell, warm & herzlich wie herzensarbeit.ch */
     .hero-section {
-      background-color: var(--charcoal-deep);
-      color: #FFFFFF;
+      background: linear-gradient(135deg, #fdf8f5 0%, #f7ebe8 55%, #f3e2dd 100%);
+      background-color: #fdf8f5;
+      color: #2b161e;
       padding: 72px 0 84px;
-      border-bottom: 4px solid var(--gold-dark);
+      border-bottom: 1px solid rgba(155, 44, 71, 0.14);
       overflow: hidden;
     }
     .hero-grid {
@@ -661,16 +664,16 @@ SHARED_CSS = """
     .hero-title {
       font-size: clamp(2.15rem, 3.8vw, 3.2rem);
       font-weight: 700;
-      color: #FFFFFF;
+      color: #2b161e;
       line-height: 1.14;
       margin-bottom: 18px;
     }
     .hero-title span {
-      color: var(--gold);
+      color: #9b2c47;
     }
     .hero-lead {
       font-size: 1.05rem;
-      color: #E5E7EB;
+      color: #4a2c36;
       line-height: 1.68;
       margin-bottom: 26px;
     }
@@ -686,31 +689,32 @@ SHARED_CSS = """
       gap: 12px;
     }
     .hero-badge-card {
-      background-color: rgba(255, 255, 255, 0.06);
-      border: 1px solid rgba(255, 255, 255, 0.14);
-      border-left: 3px solid var(--gold);
+      background-color: rgba(255, 255, 255, 0.88);
+      border: 1px solid rgba(155, 44, 71, 0.16);
+      border-left: 3px solid #9b2c47;
       border-radius: var(--radius-sm);
       padding: 10px 14px;
       display: flex;
       flex-direction: column;
       justify-content: center;
       gap: 2px;
+      box-shadow: var(--shadow-sm);
     }
     .hero-badge-val {
       font-family: 'Josefin Sans', sans-serif;
       font-size: 0.92rem;
       font-weight: 700;
-      color: var(--gold);
+      color: #9b2c47;
     }
     .hero-badge-lbl {
       font-size: 0.78rem;
-      color: #D1D5DB;
+      color: #4a2c36;
       line-height: 1.35;
     }
 
     .hero-media-card {
-      background-color: var(--charcoal);
-      border: 1px solid rgba(255, 255, 255, 0.16);
+      background-color: #FFFFFF;
+      border: 1px solid rgba(155, 44, 71, 0.18);
       border-radius: var(--radius-md);
       overflow: hidden;
       box-shadow: var(--shadow-lg);
@@ -723,8 +727,8 @@ SHARED_CSS = """
     }
     .hero-media-caption {
       padding: 16px 20px;
-      background-color: #141E26;
-      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      background-color: #fdf8f5;
+      border-top: 1px solid rgba(155, 44, 71, 0.14);
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -772,12 +776,14 @@ SHARED_CSS = """
       border-top: 4px solid var(--gold-dark);
     }
     .content-card.card-dark {
-      background-color: var(--charcoal-deep);
-      color: #F9FAFB;
-      border-color: rgba(255, 255, 255, 0.14);
+      background: linear-gradient(135deg, #fdf8f5 0%, #f7ebe8 100%);
+      background-color: #f7ebe8;
+      color: #2b161e;
+      border-color: rgba(155, 44, 71, 0.24);
+      border-top: 4px solid #9b2c47;
     }
     .content-card.card-dark h3 {
-      color: #FFFFFF;
+      color: #2b161e;
     }
 
     .card-badge-row {
@@ -807,8 +813,9 @@ SHARED_CSS = """
       width: 40px;
       height: 40px;
       border-radius: var(--radius-sm);
-      background-color: var(--charcoal-deep);
-      color: var(--gold);
+      background-color: #fdf2f5;
+      color: #9b2c47;
+      border: 1px solid rgba(155, 44, 71, 0.22);
       display: inline-flex;
       align-items: center;
       justify-content: center;
@@ -835,10 +842,10 @@ SHARED_CSS = """
       margin-top: 3px;
     }
     .card-dark .check-item {
-      color: #E5E7EB;
+      color: #4a2c36;
     }
     .card-dark .check-item svg {
-      color: var(--gold);
+      color: #9b2c47;
     }
 
     /* Pillar Media Cards */
@@ -953,15 +960,15 @@ SHARED_CSS = """
 
     /* V2 Vorschau-Entwurf (Zeigeversion) Spezifische Styles (#UI-03 Kunden-Sprache) */
     .preview-scope-section {
-      background-color: #EFECE6;
-      border-top: 2px dashed var(--charcoal-mid);
-      border-bottom: 2px dashed var(--charcoal-mid);
+      background-color: #f7ebe8;
+      border-top: 2px dashed rgba(155, 44, 71, 0.32);
+      border-bottom: 2px dashed rgba(155, 44, 71, 0.32);
       padding: 76px 0 88px;
     }
     .preview-scope-banner {
-      background-color: var(--charcoal-deep);
-      color: #F9FAFB;
-      border: 2px dashed var(--gold);
+      background-color: #FFFFFF;
+      color: #2b161e;
+      border: 2px dashed #9b2c47;
       border-radius: var(--radius-md);
       padding: 28px 30px;
       margin-bottom: 36px;
@@ -969,7 +976,7 @@ SHARED_CSS = """
     }
     .preview-module-card {
       background-color: #FFFFFF;
-      border: 2px dashed #64748B;
+      border: 2px dashed #9b2c47;
       border-radius: var(--radius-md);
       padding: 26px;
       display: flex;
@@ -996,23 +1003,23 @@ SHARED_CSS = """
 
     /* Footer */
     .site-footer {
-      background-color: var(--charcoal-deep);
-      color: #E5E7EB;
+      background-color: #f3e2dd;
+      color: #2b161e;
       padding: 68px 0 36px;
-      border-top: 4px solid var(--gold-dark);
+      border-top: 3px solid #9b2c47;
     }
     .footer-grid {
       display: grid;
       grid-template-columns: 1.3fr 1fr 1fr 1.1fr;
       gap: 36px;
       padding-bottom: 42px;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+      border-bottom: 1px solid rgba(155, 44, 71, 0.16);
     }
     .footer-title {
       font-family: 'Josefin Sans', sans-serif;
       font-size: 0.94rem;
       font-weight: 700;
-      color: #FFFFFF;
+      color: #2b161e;
       text-transform: uppercase;
       letter-spacing: 0.06em;
       margin-bottom: 16px;
@@ -1024,7 +1031,7 @@ SHARED_CSS = """
     }
     .footer-list a,
     .footer-list button {
-      color: #D1D5DB;
+      color: #4a2c36;
       font-size: 0.88rem;
       background: none;
       border: none;
@@ -1039,7 +1046,7 @@ SHARED_CSS = """
     }
     .footer-list a:hover,
     .footer-list button:hover {
-      color: var(--gold);
+      color: #9b2c47;
     }
     .footer-bottom {
       padding-top: 26px;
@@ -1049,7 +1056,7 @@ SHARED_CSS = """
       gap: 16px;
       flex-wrap: wrap;
       font-size: 0.82rem;
-      color: #9CA3AF;
+      color: #4a2c36;
     }
     .footer-bottom a {
       display: inline-flex;
@@ -1201,8 +1208,8 @@ SHARED_CSS = """
       text-align: center;
     }
     .wp-step-pill.active {
-      background-color: var(--charcoal-deep);
-      color: var(--gold);
+      background-color: #9b2c47;
+      color: #FFFFFF;
     }
     .wp-step-pill.done {
       background-color: var(--green-soft);
@@ -1267,8 +1274,9 @@ SHARED_CSS = """
       width: 28px;
       height: 28px;
       border-radius: var(--radius-sm);
-      background-color: var(--charcoal-deep);
-      color: var(--gold);
+      background-color: #fdf2f5;
+      color: #9b2c47;
+      border: 1px solid rgba(155, 44, 71, 0.22);
       display: inline-flex;
       align-items: center;
       justify-content: center;
@@ -1712,14 +1720,14 @@ def render_v1_shell(filename: str, page_title: str, active_nav: str, body_html: 
           <div style="display:flex;align-items:center;gap:12px;margin-bottom:14px;">
             <img src="images/logo.png" alt="Herzensarbeit Logo" width="48" height="48" loading="lazy" decoding="async" style="border-radius:4px;background:#FFFFFF;padding:2px;">
             <div>
-              <div style="font-family:'Josefin Sans',sans-serif;font-weight:700;font-size:1.1rem;color:#FFFFFF;">HERZENSARBEIT</div>
+              <div style="font-family:'Josefin Sans',sans-serif;font-weight:700;font-size:1.1rem;color:#2b161e;">HERZENSARBEIT</div>
               <div style="font-size:0.76rem;color:var(--gold);font-weight:700;">ANNE-KATRIN KOCH · SEIT 2009</div>
             </div>
           </div>
-          <p style="font-size:0.86rem;color:#D1D5DB;line-height:1.6;margin-bottom:14px;" data-slot="footer_about">
+          <p style="font-size:0.86rem;color:#4a2c36;line-height:1.6;margin-bottom:14px;" data-slot="footer_about">
             Mit offenem Herzen lieben und leben: Seit 2009 begleite ich Paare und Einzelpersonen in Härkingen (SO), Oensingen und Online mit Körperzentrierter Herzensarbeit nach Safi Nidiaye.
           </p>
-          <div style="font-size:0.84rem;color:#F3F4F6;font-weight:600;">
+          <div style="font-size:0.84rem;color:#2b161e;font-weight:600;">
             Praxis Herzensarbeit · Usserdorf 24 · CH-4624 Härkingen (SO)
           </div>
         </div>
@@ -1759,7 +1767,7 @@ def render_v1_shell(filename: str, page_title: str, active_nav: str, body_html: 
         <div>&copy; 2026 Herzensarbeit · Anne-Katrin Koch (Usserdorf 24, CH-4624 Härkingen SO).</div>
         <div style="display:flex;gap:16px;flex-wrap:wrap;align-items:center;">
           <a href="kontakt.html" style="color:var(--gold);font-weight:700;">Kennenlerngespräch &amp; Smart-Anfrage</a>
-          <a href="ueber-mich.html#stimmen" style="color:#E5E7EB;">Klienten-Stimmen</a>
+          <a href="ueber-mich.html#stimmen" style="color:#4a2c36;">Klienten-Stimmen</a>
         </div>
       </div>
     </div>
@@ -1883,14 +1891,14 @@ def render_v2_shell(filename: str, page_title: str, active_nav: str, body_html: 
           <div style="display:flex;align-items:center;gap:12px;margin-bottom:14px;">
             <img src="images/logo.png" alt="Herzensarbeit Logo" width="48" height="48" loading="lazy" decoding="async" style="border-radius:4px;background:#FFFFFF;padding:2px;">
             <div>
-              <div style="font-family:'Josefin Sans',sans-serif;font-weight:700;font-size:1.1rem;color:#FFFFFF;">HERZENSARBEIT</div>
+              <div style="font-family:'Josefin Sans',sans-serif;font-weight:700;font-size:1.1rem;color:#2b161e;">HERZENSARBEIT</div>
               <div style="font-size:0.76rem;color:var(--gold);font-weight:700;">VORSCHAU-ENTWURF · 2 BEISPIEL-SEITEN LIVE</div>
             </div>
           </div>
-          <p style="font-size:0.86rem;color:#D1D5DB;line-height:1.6;margin-bottom:14px;" data-slot="footer_about">
+          <p style="font-size:0.86rem;color:#4a2c36;line-height:1.6;margin-bottom:14px;" data-slot="footer_about">
             Unverbindlicher Vorschau-Entwurf für Herzensarbeit — Anne-Katrin Koch: 2 Beispiel-Seiten (Startseite &amp; 3-Schritte Smart-Anfrage) sind bereits ausgearbeitet — 3 weitere Themenbereiche folgen beim gemeinsamen Ausbau.
           </p>
-          <div style="font-size:0.84rem;color:#F3F4F6;font-weight:600;">
+          <div style="font-size:0.84rem;color:#2b161e;font-weight:600;">
             Usserdorf 24 · CH-4624 Härkingen (SO) · Tel. 079 103 63 31
           </div>
         </div>
@@ -1929,7 +1937,7 @@ def render_v2_shell(filename: str, page_title: str, active_nav: str, body_html: 
         <div>&copy; 2026 Herzensarbeit · Anne-Katrin Koch (Härkingen SO) · Unverbindlicher Vorschau-Entwurf (Zeigeversion).</div>
         <div style="display:flex;gap:16px;flex-wrap:wrap;align-items:center;">
           <a href="kontakt.html" style="color:var(--gold);font-weight:700;">Smart-Anfrage testen</a>
-          <a href="index.html#weitere-themenbereiche" style="color:#E5E7EB;">Weitere Themenbereiche</a>
+          <a href="index.html#weitere-themenbereiche" style="color:#4a2c36;">Weitere Themenbereiche</a>
         </div>
       </div>
     </div>
@@ -2035,8 +2043,8 @@ V1_INDEX_BODY = f"""
         <img src="images/portrait-anne-katrin-hero.jpg" alt="Anne-Katrin Koch — Praxis Herzensarbeit Härkingen SO" width="600" height="390" data-slot="hero_image">
         <div class="hero-media-caption">
           <div>
-            <div style="font-family:'Josefin Sans',sans-serif;font-weight:700;font-size:1.02rem;color:#FFFFFF;">Anne-Katrin Koch</div>
-            <div style="font-size:0.8rem;color:#D1D5DB;">Paartherapie, Trennungs- &amp; Trauerbegleitung · Praxis Härkingen (SO)</div>
+            <div style="font-family:'Josefin Sans',sans-serif;font-weight:700;font-size:1.02rem;color:#2b161e;">Anne-Katrin Koch</div>
+            <div style="font-size:0.8rem;color:#4a2c36;">Paartherapie, Trennungs- &amp; Trauerbegleitung · Praxis Härkingen (SO)</div>
           </div>
           <span class="top-bar-badge">SEIT 2009 IN EIGENER PRAXIS</span>
         </div>
@@ -2264,7 +2272,7 @@ V1_INDEX_BODY = f"""
               <span class="icon-box">{SVG_COMPASS}</span>
             </div>
             <h3 style="font-size:1.35rem;font-weight:700;margin-bottom:12px;">So läuft die Paarbegleitung bei mir ab</h3>
-            <p style="font-size:0.92rem;color:#D1D5DB;margin-bottom:16px;">
+            <p style="font-size:0.92rem;color:#4a2c36;margin-bottom:16px;">
               Statt endloser Sitzungen ohne roten Faden begleite ich Sie über 3 bis 5 Monate in einer klaren Kombination aus Einzel- und Paargesprächen:
             </p>
             <div class="check-list">
@@ -2450,15 +2458,15 @@ V1_INDEX_BODY = f"""
   </section>
 
   <!-- ABSCHLUSS-CTA -->
-  <section data-section="cta-banner" style="background-color:var(--charcoal-deep);color:#FFFFFF;padding:72px 0;">
+  <section data-section="cta-banner" style="background:linear-gradient(135deg, #fdf8f5 0%, #f7ebe8 55%, #f3e2dd 100%);background-color:#f7ebe8;color:#2b161e;border-top:1px solid rgba(155, 44, 71, 0.14);border-bottom:1px solid rgba(155, 44, 71, 0.14);padding:72px 0;">
     <div class="container">
       <div class="grid-2" style="align-items:center;">
         <div>
           <div class="section-kicker kicker-light">ERSTER SCHRITT · UNVERBINDLICH &amp; VERTRAULICH</div>
-          <h2 style="font-size:clamp(1.8rem,3vw,2.4rem);font-weight:700;color:#FFFFFF;margin-bottom:12px;">
+          <h2 style="font-size:clamp(1.8rem,3vw,2.4rem);font-weight:700;color:#2b161e;margin-bottom:12px;">
             Bereit für ein ehrliches Gespräch von Herz zu Herz?
           </h2>
-          <p style="font-size:0.98rem;color:#D1D5DB;line-height:1.65;">
+          <p style="font-size:0.98rem;color:#4a2c36;line-height:1.65;">
             Nutzen Sie unseren geführten 3-Schritte Smart-Anfrage-Assistenten für eine rasche Standortbestimmung oder melden Sie sich direkt per Telefon, WhatsApp oder E-Mail bei mir.
           </p>
         </div>
@@ -2507,8 +2515,8 @@ V1_ANGEBOT_BODY = f"""
         <img src="images/paarcoaching-hero.jpg" alt="Paartherapie und Eheberatung bei Anne-Katrin Koch in Härkingen" width="600" height="360">
         <div class="hero-media-caption">
           <div>
-            <div style="font-family:'Josefin Sans',sans-serif;font-weight:700;font-size:1.02rem;color:#FFFFFF;">Praxis Härkingen &amp; Online</div>
-            <div style="font-size:0.8rem;color:#D1D5DB;">Einzelsitzungen (60 Min.) · Paarsitzungen (90 Min.) · WhatsApp-Support</div>
+            <div style="font-family:'Josefin Sans',sans-serif;font-weight:700;font-size:1.02rem;color:#2b161e;">Praxis Härkingen &amp; Online</div>
+            <div style="font-size:0.8rem;color:#4a2c36;">Einzelsitzungen (60 Min.) · Paarsitzungen (90 Min.) · WhatsApp-Support</div>
           </div>
           <span class="top-bar-badge">DEUTSCH &amp; ENGLISCH</span>
         </div>
@@ -2597,7 +2605,7 @@ V1_ANGEBOT_BODY = f"""
           <div>
             <span class="top-bar-badge" style="margin-bottom:10px;">DAS KOMPLETTE PAAR-BEGLEITUNGSPAKET (3–5 MONATE)</span>
             <h3 style="font-size:1.4rem;font-weight:700;margin-bottom:10px;">Was im 3–5 Monate Paket für Paare alles enthalten ist</h3>
-            <p style="font-size:0.92rem;color:#D1D5DB;">
+            <p style="font-size:0.92rem;color:#4a2c36;">
               Nachhaltige Veränderung in einer Beziehung braucht Verlässlichkeit und Begleitung auch zwischen den Terminen — damit Sie im Alltag nicht wieder in alte Muster zurückfallen:
             </p>
           </div>
@@ -2861,8 +2869,8 @@ V1_WORKSHOPS_BODY = f"""
         <img src="images/workshop-gruppe.jpg" alt="Frauen-Workshop Kraftvoll Frau sein in Oensingen SO" width="600" height="390">
         <div class="hero-media-caption">
           <div>
-            <div style="font-family:'Josefin Sans',sans-serif;font-weight:700;font-size:1.02rem;color:#FFFFFF;">Gemeinschaftspraxis Oensingen (SO)</div>
-            <div style="font-size:0.8rem;color:#D1D5DB;">Einzeln buchbar oder als 4-teilige Gesamtreise</div>
+            <div style="font-family:'Josefin Sans',sans-serif;font-weight:700;font-size:1.02rem;color:#2b161e;">Gemeinschaftspraxis Oensingen (SO)</div>
+            <div style="font-size:0.8rem;color:#4a2c36;">Einzeln buchbar oder als 4-teilige Gesamtreise</div>
           </div>
           <span class="top-bar-badge">KLEINGRUPPE 4–12 FRAUEN</span>
         </div>
@@ -3048,8 +3056,8 @@ V1_WORKSHOPS_BODY = f"""
         <div class="content-card card-dark">
           <div>
             <span class="top-bar-badge" style="margin-bottom:10px;">EMPFEHLUNG · ALLE 4 MODULE (CHF 261.– SPAREN)</span>
-            <h3 style="font-size:1.5rem;font-weight:700;color:#FFFFFF;margin-bottom:6px;">CHF 927.– <span style="font-size:0.9rem;font-weight:500;color:var(--gold);">/ Ganze Reise (4 Tage)</span></h3>
-            <p style="font-size:0.88rem;color:#D1D5DB;margin-bottom:14px;">
+            <h3 style="font-size:1.5rem;font-weight:700;color:#2b161e;margin-bottom:6px;">CHF 927.– <span style="font-size:0.9rem;font-weight:500;color:var(--gold);">/ Ganze Reise (4 Tage)</span></h3>
+            <p style="font-size:0.88rem;color:#4a2c36;margin-bottom:14px;">
               Buchen Sie alle 4 Tages-Module als zusammenhängende Jahresreise (statt CHF 1'188.– im Einzelkauf).
             </p>
             <div class="check-list">
@@ -3097,8 +3105,8 @@ V1_UEBER_MICH_BODY = f"""
         <img src="images/portrait-anne-katrin-praxis.jpg" alt="Anne-Katrin Koch in ihrer Praxis in Härkingen SO" width="600" height="390">
         <div class="hero-media-caption">
           <div>
-            <div style="font-family:'Josefin Sans',sans-serif;font-weight:700;font-size:1.02rem;color:#FFFFFF;">Anne-Katrin Koch Künzle</div>
-            <div style="font-size:0.8rem;color:#D1D5DB;">Geb. 1967 in Bern · Über 5'000 Beratungsstunden</div>
+            <div style="font-family:'Josefin Sans',sans-serif;font-weight:700;font-size:1.02rem;color:#2b161e;">Anne-Katrin Koch Künzle</div>
+            <div style="font-size:0.8rem;color:#4a2c36;">Geb. 1967 in Bern · Über 5'000 Beratungsstunden</div>
           </div>
           <span class="top-bar-badge">HÄRKINGEN (SO) &amp; ONLINE</span>
         </div>
@@ -3234,8 +3242,8 @@ V2_INDEX_BODY = f"""
         <img src="images/portrait-anne-katrin-hero.jpg" alt="Anne-Katrin Koch — Praxis Herzensarbeit Härkingen SO" width="600" height="390" data-slot="hero_image">
         <div class="hero-media-caption">
           <div>
-            <div style="font-family:'Josefin Sans',sans-serif;font-weight:700;font-size:1.02rem;color:#FFFFFF;">Anne-Katrin Koch</div>
-            <div style="font-size:0.8rem;color:#D1D5DB;">Paartherapie, Trennungs- &amp; Trauerbegleitung · Praxis Härkingen (SO)</div>
+            <div style="font-family:'Josefin Sans',sans-serif;font-weight:700;font-size:1.02rem;color:#2b161e;">Anne-Katrin Koch</div>
+            <div style="font-size:0.8rem;color:#4a2c36;">Paartherapie, Trennungs- &amp; Trauerbegleitung · Praxis Härkingen (SO)</div>
           </div>
           <span class="top-bar-badge">SEIT 2009 IN EIGENER PRAXIS</span>
         </div>
@@ -3493,12 +3501,12 @@ V2_INDEX_BODY = f"""
       <div class="preview-scope-banner">
         <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;margin-bottom:10px;">
           <span class="top-bar-badge">UNVERBINDLICHER VORSCHAU-ENTWURF · 2 BEISPIEL-SEITEN LIVE AUSGEARBEITET</span>
-          <span style="font-size:0.82rem;color:#D1D5DB;font-weight:600;">Herzensarbeit — Anne-Katrin Koch · Härkingen (SO)</span>
+          <span style="font-size:0.82rem;color:#4a2c36;font-weight:600;">Herzensarbeit — Anne-Katrin Koch · Härkingen (SO)</span>
         </div>
-        <h2 style="font-size:clamp(1.55rem,2.6vw,2.1rem);font-weight:700;color:#FFFFFF;margin-bottom:10px;">
+        <h2 style="font-size:clamp(1.55rem,2.6vw,2.1rem);font-weight:700;color:#2b161e;margin-bottom:10px;">
           3 weitere Themenbereiche sind für den gemeinsamen Ausbau vorbereitet
         </h2>
-        <p style="font-size:0.95rem;color:#E5E7EB;line-height:1.65;">
+        <p style="font-size:0.95rem;color:#4a2c36;line-height:1.65;">
           In dieser <strong>Zeigeversion</strong> haben wir die <strong>Startseite</strong> und den interaktiven <strong>3-Schritte Smart-Anfrage-Assistenten</strong> bereits live für Sie aufgebaut. Die folgenden drei vertieften Unterseiten mit allen Originaltexten, Workshop-Modulen und Klienten-Stimmen werden beim gemeinsamen Ausbau schlüsselfertig freigeschaltet:
         </p>
       </div>
@@ -3822,7 +3830,7 @@ def build_kontakt_body(client_slug: str, source_page: str) -> str:
           <div class="wp-success-box" id="wpSuccessBox" aria-live="polite">
             <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;">
               <div style="display:flex;align-items:center;gap:10px;">
-                <span style="width:36px;height:36px;border-radius:4px;background-color:var(--green);color:#FFFFFF;display:inline-flex;align-items:center;justify-content:center;">
+                <span style="width:36px;height:36px;border-radius:4px;background-color:var(--green);color:#2b161e;display:inline-flex;align-items:center;justify-content:center;">
                   {SVG_CHECK}
                 </span>
                 <div>
@@ -3830,10 +3838,10 @@ def build_kontakt_body(client_slug: str, source_page: str) -> str:
                   <div style="font-size:0.78rem;color:var(--text-muted);" id="wpResChannels">1-Seiten-PDF-Dossier bereit zum Download</div>
                 </div>
               </div>
-              <span class="top-bar-badge" style="background-color:var(--charcoal-deep);color:var(--gold);" id="wpResRef">#WP-2026</span>
+              <span class="top-bar-badge" style="background-color:#9b2c47;color:#FFFFFF;" id="wpResRef">#WP-2026</span>
             </div>
 
-            <div class="form-grid-2" style="background-color:#FFFFFF;padding:12px 14px;border-radius:4px;border:1px solid var(--border-light);font-size:0.84rem;">
+            <div class="form-grid-2" style="background-color:#2b161e;padding:12px 14px;border-radius:4px;border:1px solid var(--border-light);font-size:0.84rem;">
               <div>
                 <div style="color:var(--text-muted);font-size:0.75rem;">Zuständige Ansprechpartnerin (Praxis Härkingen):</div>
                 <strong style="color:var(--charcoal-deep);" id="wpResAssigned">Anne-Katrin Koch</strong>

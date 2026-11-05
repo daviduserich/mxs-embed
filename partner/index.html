@@ -244,6 +244,64 @@
       grid-column: 1 / -1;
     }
 
+    .design-mode-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+      align-items: stretch;
+    }
+    @media (max-width: 768px) {
+      .design-mode-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    .design-mode-card {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 8px;
+      padding: 16px 18px;
+      border-radius: 8px;
+      border: 1px solid var(--border-strong);
+      background: var(--bg-input);
+      cursor: pointer;
+      transition: border-color 0.18s ease, background 0.18s ease, box-shadow 0.18s ease;
+    }
+    .design-mode-card:hover {
+      border-color: var(--accent-primary);
+    }
+    .design-mode-card.is-selected {
+      border: 2px solid var(--accent-primary);
+      background: rgba(245, 184, 65, 0.08);
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.22);
+    }
+    .design-mode-card input[type="radio"] {
+      position: absolute;
+      opacity: 0;
+      pointer-events: none;
+    }
+    .design-mode-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+    }
+    .design-mode-title {
+      font-family: 'Barlow', sans-serif;
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--text-primary);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .design-mode-desc {
+      font-size: 13px;
+      color: var(--text-secondary);
+      line-height: 1.5;
+    }
+
     label.field-label {
       font-size: 13px;
       font-weight: 600;
@@ -1340,6 +1398,53 @@
             </div>
 
             <div class="form-group full-width">
+              <label class="field-label">
+                <span>Design- &amp; Farbwelt-Modus (Grundsatz-Regel für Antigravity)</span>
+                <span class="field-hint">Standardmässig wird die Helligkeit &amp; Stimmung der Ursprungsseite übernommen</span>
+              </label>
+              <div class="design-mode-grid" id="designModeGroup" role="radiogroup" aria-label="Design- und Farbwelt-Modus">
+                <label class="design-mode-card is-selected" id="lblDesignModeEvolution">
+                  <input type="radio" name="design_mode" id="radioDesignEvolution" value="evolution" checked>
+                  <div>
+                    <div class="design-mode-head">
+                      <span class="design-mode-title">
+                        <svg class="lucide" viewBox="0 0 24 24" style="color: var(--accent-text);">
+                          <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"></path>
+                        </svg>
+                        <span>Ursprungs-Wirkung &amp; Farbwelt beibehalten (Evolution — Empfohlen)</span>
+                      </span>
+                      <span class="badge-4">Standard</span>
+                    </div>
+                    <p class="design-mode-desc" style="margin-top: 6px;">
+                      Übernimmt Helligkeit, Farben und Grundstimmung der bestehenden Webseite und veredelt sie modern &amp; mobil-perfekt.
+                    </p>
+                  </div>
+                </label>
+
+                <label class="design-mode-card" id="lblDesignModeRedesign">
+                  <input type="radio" name="design_mode" id="radioDesignRedesign" value="redesign">
+                  <div>
+                    <div class="design-mode-head">
+                      <span class="design-mode-title">
+                        <svg class="lucide" viewBox="0 0 24 24" style="color: var(--accent-text);">
+                          <circle cx="13.5" cy="6.5" r=".5"></circle>
+                          <circle cx="17.5" cy="10.5" r=".5"></circle>
+                          <circle cx="8.5" cy="7.5" r=".5"></circle>
+                          <circle cx="6.5" cy="12.5" r=".5"></circle>
+                          <path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2z"></path>
+                        </svg>
+                        <span>Neues Layout / Neue Farbwelt entwerfen (Redesign)</span>
+                      </span>
+                    </div>
+                    <p class="design-mode-desc" style="margin-top: 6px;">
+                      Nur wählen, wenn der Kunde ausdrücklich einen komplett neuen Look wünscht (Details bitte unten ins Kontext-Feld schreiben).
+                    </p>
+                  </div>
+                </label>
+              </div>
+            </div>
+
+            <div class="form-group full-width">
               <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px;">
                 <label class="field-label" for="jobChatgptHtml">
                   <span>3. Eigener HTML-Entwurf aus ChatGPT (Optional)</span>
@@ -2107,17 +2212,27 @@
         }
       });
 
+      document.querySelectorAll('input[name="design_mode"]').forEach(function (radio) {
+        radio.addEventListener("change", function () {
+          document.getElementById("lblDesignModeEvolution").classList.toggle("is-selected", document.getElementById("radioDesignEvolution").checked);
+          document.getElementById("lblDesignModeRedesign").classList.toggle("is-selected", document.getElementById("radioDesignRedesign").checked);
+        });
+      });
+
       jobForm.addEventListener("submit", async function (e) {
         e.preventDefault();
         hideBanner(jobSubmitBanner);
         const btn = document.getElementById("btnSubmitJob");
         btn.disabled = true;
         try {
+          const selectedDesignRadio = document.querySelector('input[name="design_mode"]:checked');
+          const designModeVal = selectedDesignRadio ? selectedDesignRadio.value : "evolution";
           const payload = {
             company_name: jobCompanyName.value.trim(),
             city: jobCity.value.trim(),
             source_url: jobSourceUrl.value.trim(),
             slug: jobSlug.value.trim(),
+            design_mode: designModeVal,
             chatgpt_html: jobChatgptHtml.value,
             chatgpt_filename: loadedChatgptFilename,
             context_notes: jobContextNotes.value.trim(),
@@ -2133,6 +2248,12 @@
             jobCity.value = "";
             jobSourceUrl.value = "";
             jobSlug.value = "";
+            const evoRadio = document.getElementById("radioDesignEvolution");
+            if (evoRadio) {
+              evoRadio.checked = true;
+              document.getElementById("lblDesignModeEvolution").classList.add("is-selected");
+              document.getElementById("lblDesignModeRedesign").classList.remove("is-selected");
+            }
             jobChatgptHtml.value = "";
             jobContextNotes.value = "";
             jobAssetsInput.value = "";

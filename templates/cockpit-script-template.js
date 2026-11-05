@@ -3721,3 +3721,513 @@ function acpRemoveSection(secId) {
       }
     });
   }
+
+
+/* ============================================================================
+ * WEBPILOT STUDIO v4.0 — FARBTABELLE, STIL-WELTEN & KI VIBE-CODING TO CSS
+ * ============================================================================ */
+var acpCurrentDesignState = {
+  preset: "",
+  heroGradient: "",
+  vibeCssBlock: "",
+  colors: {
+    primary: "#9b2c47",
+    heroBg: "#fdf8f5",
+    heroText: "#2b161e",
+    bodyBg: "#fdf8f5",
+    cardBg: "#ffffff",
+    footerBg: "#f3e2dd",
+    footerText: "#2b161e"
+  }
+};
+
+var ACP_DESIGN_PRESETS = {
+  rose_creme: {
+    label: "1. Warmes Rosé & Creme (Praxis, Herzensarbeit & Coaching — Hell)",
+    heroGradient: "linear-gradient(135deg, #fdf8f5 0%, #f7ebe8 55%, #f3e2dd 100%)",
+    colors: {
+      primary: "#9b2c47",
+      heroBg: "#fdf8f5",
+      heroText: "#2b161e",
+      bodyBg: "#fdf8f5",
+      cardBg: "#ffffff",
+      footerBg: "#f3e2dd",
+      footerText: "#2b161e"
+    }
+  },
+  swiss_arch: {
+    label: "2. Schweizer Architektur-Hell (Reinweiss, Warmgrau & Terracotta)",
+    heroGradient: "linear-gradient(135deg, #ffffff 0%, #f5f5f4 55%, #e7e5e4 100%)",
+    colors: {
+      primary: "#c2410c",
+      heroBg: "#f5f5f4",
+      heroText: "#1c1917",
+      bodyBg: "#ffffff",
+      cardBg: "#fafaf9",
+      footerBg: "#1c1917",
+      footerText: "#f5f5f4"
+    }
+  },
+  natur_holz: {
+    label: "3. Natur, Holz & Handwerk (Elfenbein, Eiche-Gold & Anthrazit)",
+    heroGradient: "linear-gradient(135deg, #fdfaf6 0%, #f4efe6 55%, #ebe3d5 100%)",
+    colors: {
+      primary: "#b45309",
+      heroBg: "#fdfaf6",
+      heroText: "#1e293b",
+      bodyBg: "#fdfaf6",
+      cardBg: "#ffffff",
+      footerBg: "#1e293b",
+      footerText: "#f8fafc"
+    }
+  },
+  klar_vertrauen: {
+    label: "4. Klar & Vertrauensvoll (Helles Eisblau, Weiss & Marineblau)",
+    heroGradient: "linear-gradient(135deg, #ffffff 0%, #f0f7ff 55%, #e0effe 100%)",
+    colors: {
+      primary: "#1e3a8a",
+      heroBg: "#f0f7ff",
+      heroText: "#0f172a",
+      bodyBg: "#f8fafc",
+      cardBg: "#ffffff",
+      footerBg: "#0f172a",
+      footerText: "#f1f5f9"
+    }
+  },
+  sport_verein: {
+    label: "5. Sport & Vereins-Frische (Klares Weiss, Vereins-Rot & Tiefblau)",
+    heroGradient: "linear-gradient(135deg, #ffffff 0%, #f8fafc 55%, #f1f5f9 100%)",
+    colors: {
+      primary: "#d6201e",
+      heroBg: "#f8fafc",
+      heroText: "#111827",
+      bodyBg: "#ffffff",
+      cardBg: "#f8fafc",
+      footerBg: "#111827",
+      footerText: "#f9fafb"
+    }
+  },
+  abend_kontrast: {
+    label: "6. Edler Abend-Kontrast (Dunkle Startbühne & Warme Gold-Akzente)",
+    heroGradient: "linear-gradient(135deg, #18232c 0%, #0f172a 100%)",
+    colors: {
+      primary: "#d97706",
+      heroBg: "#18232c",
+      heroText: "#ffffff",
+      bodyBg: "#f8fafc",
+      cardBg: "#ffffff",
+      footerBg: "#0f172a",
+      footerText: "#f1f5f9"
+    }
+  }
+};
+
+function acpRgbToHex(rgbStr) {
+  if (!rgbStr || typeof rgbStr !== "string") return "";
+  var s = rgbStr.trim();
+  if (/^#[0-9a-fA-F]{6}$/.test(s)) return s.toLowerCase();
+  if (/^#[0-9a-fA-F]{3}$/.test(s)) {
+    return ("#" + s[1] + s[1] + s[2] + s[2] + s[3] + s[3]).toLowerCase();
+  }
+  var m = s.match(/rgba?\((\d+),\s*(\d+),\s*(\d+)/i);
+  if (!m) return "";
+  var r = Math.max(0, Math.min(255, parseInt(m[1], 10)));
+  var g = Math.max(0, Math.min(255, parseInt(m[2], 10)));
+  var b = Math.max(0, Math.min(255, parseInt(m[3], 10)));
+  return "#" + ((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1).toLowerCase();
+}
+
+function acpShowVibeBanner(msg, isError) {
+  var banner = document.getElementById("acp-vibe-status-banner");
+  if (!banner) return;
+  banner.style.display = "flex";
+  banner.style.borderColor = isError ? "rgba(239,68,68,0.45)" : "rgba(16,185,129,0.45)";
+  banner.style.background = isError ? "rgba(239,68,68,0.14)" : "rgba(16,185,129,0.14)";
+  banner.style.color = isError ? "#fecaca" : "#bbf7d0";
+  banner.innerHTML = '<span>' + msg + '</span>';
+}
+
+function acpSyncColorInputsFromState() {
+  var keys = ["primary", "heroBg", "heroText", "bodyBg", "cardBg", "footerBg", "footerText"];
+  for (var i = 0; i < keys.length; i++) {
+    var k = keys[i];
+    var val = acpCurrentDesignState.colors[k] || "#ffffff";
+    var picker = document.getElementById("acp-col-picker-" + k);
+    var hexInp = document.getElementById("acp-col-hex-" + k);
+    if (picker && /^#[0-9a-fA-F]{6}$/.test(val)) picker.value = val;
+    if (hexInp) hexInp.value = val;
+  }
+}
+
+function acpReadCurrentColorsFromIframe() {
+  var iframe = document.getElementById("acp-widget-viewport");
+  var doc = iframe ? (iframe.contentDocument || (iframe.contentWindow && iframe.contentWindow.document)) : null;
+  var win = iframe ? iframe.contentWindow : null;
+  if (!doc || !win) return;
+
+  try {
+    var rootStyle = win.getComputedStyle(doc.documentElement);
+    var bodyEl = doc.body;
+    var heroEl = doc.querySelector(".hero-section, .hero, .page-hero, [data-section='hero']");
+    var heroTitleEl = doc.querySelector(".hero-title, .hero-section h1, .page-hero h1");
+    var btnEl = doc.querySelector(".btn-cta-gold, .btn-cta-primary, .btn-primary");
+    var cardEl = doc.querySelector(".content-card, .pillar-card, .card");
+    var footerEl = doc.querySelector(".site-footer, footer");
+    var footerTitleEl = doc.querySelector(".site-footer .footer-title, .site-footer a, footer");
+
+    var pVar = acpRgbToHex(rootStyle.getPropertyValue("--gold-dark") || rootStyle.getPropertyValue("--crimson") || rootStyle.getPropertyValue("--primary"));
+    if (!pVar && btnEl) pVar = acpRgbToHex(win.getComputedStyle(btnEl).backgroundColor);
+    if (pVar) acpCurrentDesignState.colors.primary = pVar;
+
+    if (heroEl) {
+      var hBg = acpRgbToHex(win.getComputedStyle(heroEl).backgroundColor);
+      if (hBg && hBg !== "#000000") acpCurrentDesignState.colors.heroBg = hBg;
+    }
+    if (heroTitleEl) {
+      var hTxt = acpRgbToHex(win.getComputedStyle(heroTitleEl).color);
+      if (hTxt) acpCurrentDesignState.colors.heroText = hTxt;
+    }
+    if (bodyEl) {
+      var bBg = acpRgbToHex(win.getComputedStyle(bodyEl).backgroundColor);
+      if (bBg) acpCurrentDesignState.colors.bodyBg = bBg;
+    }
+    if (cardEl) {
+      var cBg = acpRgbToHex(win.getComputedStyle(cardEl).backgroundColor);
+      if (cBg) acpCurrentDesignState.colors.cardBg = cBg;
+    }
+    if (footerEl) {
+      var fBg = acpRgbToHex(win.getComputedStyle(footerEl).backgroundColor);
+      if (fBg) acpCurrentDesignState.colors.footerBg = fBg;
+    }
+    if (footerTitleEl) {
+      var fTxt = acpRgbToHex(win.getComputedStyle(footerTitleEl).color);
+      if (fTxt) acpCurrentDesignState.colors.footerText = fTxt;
+    }
+
+    var existingStyle = doc.getElementById("wp-custom-design-vibe");
+    var cssEditor = document.getElementById("acp-vibe-css-editor");
+    if (existingStyle && cssEditor && !cssEditor.value.trim()) {
+      cssEditor.value = existingStyle.textContent.trim();
+    }
+  } catch (e) {
+    console.warn("[WebPilot Studio] Konnte Farben nicht aus Iframe lesen:", e);
+  }
+  acpSyncColorInputsFromState();
+}
+
+function acpOpenDesignVibeModal() {
+  var modal = document.getElementById("designVibeModal");
+  if (!modal) return;
+  acpReadCurrentColorsFromIframe();
+  modal.classList.add("is-open");
+  modal.style.display = "flex";
+}
+
+function acpCloseDesignVibeModal() {
+  var modal = document.getElementById("designVibeModal");
+  if (!modal) return;
+  modal.classList.remove("is-open");
+  modal.style.display = "none";
+}
+
+function acpBuildClientSideColorCss() {
+  var c = acpCurrentDesignState.colors;
+  var heroBgRule = acpCurrentDesignState.heroGradient
+    ? "background: " + acpCurrentDesignState.heroGradient + " !important; background-color: " + c.heroBg + " !important;"
+    : "background: " + c.heroBg + " !important; background-color: " + c.heroBg + " !important;";
+
+  var lines = [
+    "/* === 1. FARBTABELLE (HEX & COLOR-PICKER) === */",
+    ":root {",
+    "  --primary: " + c.primary + " !important;",
+    "  --accent: " + c.primary + " !important;",
+    "  --brand: " + c.primary + " !important;",
+    "  --gold: " + c.primary + " !important;",
+    "  --gold-dark: " + c.primary + " !important;",
+    "  --crimson: " + c.primary + " !important;",
+    "  --crimson-bright: " + c.primary + " !important;",
+    "  --bg-page: " + c.bodyBg + " !important;",
+    "  --bg-Warm: " + c.cardBg + " !important;",
+    "  --bg-alt: " + c.cardBg + " !important;",
+    "}",
+    "body { background-color: " + c.bodyBg + " !important; }",
+    ".btn-cta-gold, .btn-cta-primary, .btn-primary { background-color: " + c.primary + " !important; border-color: " + c.primary + " !important; color: #ffffff !important; }",
+    ".section-kicker, .section-eyebrow, .hero-eyebrow, .kicker, .hero-title span, .hero-badge-val { color: " + c.primary + " !important; }",
+    ".section-kicker::before { background-color: " + c.primary + " !important; }",
+    ".hero-badge-card, .contact-direct-item { border-left-color: " + c.primary + " !important; }",
+    ".hero-section, .hero, .page-hero, [data-section='hero'] { " + heroBgRule + " color: " + c.heroText + " !important; }",
+    ".hero-section h1, .hero-section .hero-title, .hero-section .hero-lead, .page-hero h1, .page-hero p, .hero-trust-item, .hero-badge-lbl { color: " + c.heroText + " !important; }",
+    ".hero-media-caption, .hero-quickbar { background-color: " + c.heroBg + " !important; color: " + c.heroText + " !important; }",
+    ".hero-media-caption * { color: " + c.heroText + " !important; }",
+    ".content-card, .pillar-card, .testimonial-card, .card { background-color: " + c.cardBg + " !important; }",
+    ".site-footer, footer { background-color: " + c.footerBg + " !important; color: " + c.footerText + " !important; }",
+    ".site-footer .footer-title, .site-footer a, .site-footer p, .site-footer .footer-bottom, .site-footer div { color: " + c.footerText + " !important; }"
+  ];
+  if (acpCurrentDesignState.vibeCssBlock) {
+    lines.push("");
+    lines.push(acpCurrentDesignState.vibeCssBlock);
+  }
+  return lines.join("\n");
+}
+
+function acpInjectLiveDesignCss(cssString) {
+  var iframe = document.getElementById("acp-widget-viewport");
+  var doc = iframe ? (iframe.contentDocument || (iframe.contentWindow && iframe.contentWindow.document)) : null;
+  if (doc && doc.head) {
+    var styleEl = doc.getElementById("wp-custom-design-vibe");
+    if (!styleEl) {
+      styleEl = doc.createElement("style");
+      styleEl.id = "wp-custom-design-vibe";
+      doc.head.appendChild(styleEl);
+    }
+    styleEl.textContent = cssString || "";
+  }
+  var editor = document.getElementById("acp-vibe-css-editor");
+  if (editor) editor.value = cssString || "";
+  if (typeof acpScanAndRenderSections === "function") {
+    var secModal = document.getElementById("acp-sections-modal");
+    if (secModal && secModal.classList.contains("is-open")) {
+      acpScanAndRenderSections();
+    }
+  }
+}
+
+function acpOnColorInput(key, val) {
+  if (!val) return;
+  acpCurrentDesignState.colors[key] = val.toLowerCase();
+  if (key === "heroBg") acpCurrentDesignState.heroGradient = "";
+  var hexInp = document.getElementById("acp-col-hex-" + key);
+  if (hexInp) hexInp.value = val.toLowerCase();
+  var css = acpBuildClientSideColorCss();
+  acpInjectLiveDesignCss(css);
+}
+
+function acpOnHexInput(key, val) {
+  if (!val) return;
+  var clean = val.trim().toLowerCase();
+  if (clean && clean[0] !== "#") clean = "#" + clean;
+  if (/^#[0-9a-f]{6}$/.test(clean)) {
+    acpCurrentDesignState.colors[key] = clean;
+    if (key === "heroBg") acpCurrentDesignState.heroGradient = "";
+    var picker = document.getElementById("acp-col-picker-" + key);
+    if (picker) picker.value = clean;
+    var css = acpBuildClientSideColorCss();
+    acpInjectLiveDesignCss(css);
+  }
+}
+
+function acpSwitchHeroBrightness(mode) {
+  var btnLight = document.getElementById("acp-btn-hero-light");
+  var btnDark = document.getElementById("acp-btn-hero-dark");
+  if (mode === "light") {
+    acpCurrentDesignState.colors.heroBg = "#fdf8f5";
+    acpCurrentDesignState.colors.heroText = "#2b161e";
+    acpCurrentDesignState.heroGradient = "linear-gradient(135deg, #fdf8f5 0%, #f7ebe8 55%, #f3e2dd 100%)";
+    if (btnLight) btnLight.classList.add("is-active");
+    if (btnDark) btnDark.classList.remove("is-active");
+    acpShowVibeBanner("Startbühne (Hero) auf «Hell & Freundlich» mit dunkler Kontrast-Schrift (#2b161e) umgestellt.", false);
+  } else {
+    acpCurrentDesignState.colors.heroBg = "#18232c";
+    acpCurrentDesignState.colors.heroText = "#ffffff";
+    acpCurrentDesignState.heroGradient = "linear-gradient(135deg, #18232c 0%, #0f172a 100%)";
+    if (btnDark) btnDark.classList.add("is-active");
+    if (btnLight) btnLight.classList.remove("is-active");
+    acpShowVibeBanner("Startbühne (Hero) auf «Dunkel & Kontrast» mit weisser Schrift (#ffffff) umgestellt.", false);
+  }
+  acpSyncColorInputsFromState();
+  var css = acpBuildClientSideColorCss();
+  acpInjectLiveDesignCss(css);
+}
+
+function acpApplyDesignPreset(presetKey) {
+  var preset = ACP_DESIGN_PRESETS[presetKey];
+  if (!preset) return;
+  acpCurrentDesignState.preset = preset.label;
+  acpCurrentDesignState.heroGradient = preset.heroGradient || "";
+  var keys = ["primary", "heroBg", "heroText", "bodyBg", "cardBg", "footerBg", "footerText"];
+  for (var i = 0; i < keys.length; i++) {
+    var k = keys[i];
+    if (preset.colors[k]) acpCurrentDesignState.colors[k] = preset.colors[k];
+  }
+  acpSyncColorInputsFromState();
+
+  var cards = document.querySelectorAll(".acp-vibe-preset-card");
+  for (var j = 0; j < cards.length; j++) {
+    cards[j].classList.toggle("is-active", cards[j].getAttribute("data-preset") === presetKey);
+  }
+
+  var css = acpBuildClientSideColorCss();
+  acpInjectLiveDesignCss(css);
+  acpShowVibeBanner("Stil-Vorlage «" + preset.label + "» live im Simulator aktiviert!", false);
+}
+
+function acpInsertVibeChip(text) {
+  var inp = document.getElementById("acp-vibe-prompt-input");
+  if (!inp) return;
+  inp.value = text;
+  acpRunVibeCssTest();
+}
+
+function acpOnManualCssEdit(cssVal) {
+  acpInjectLiveDesignCss(cssVal);
+}
+
+function acpRunVibeCssTest() {
+  var inp = document.getElementById("acp-vibe-prompt-input");
+  var promptText = inp ? inp.value.trim() : "";
+  if (!promptText) {
+    acpShowVibeBanner("Bitte gib zuerst einen Design-Wunsch ein oder klicke auf einen der 5 Schnell-Befehle.", true);
+    return;
+  }
+
+  var btn = document.getElementById("acp-btn-test-vibe-css");
+  var lbl = document.getElementById("acp-btn-test-vibe-css-lbl");
+  if (btn) btn.disabled = true;
+  if (lbl) lbl.textContent = "KI übersetzt Wunsch in CSS...";
+
+  var currentJob = (typeof getActiveJob === "function") ? getActiveJob() : null;
+  var clientSlug = (currentJob && currentJob.folder) || (window.ACP_CLIENT_PROFILE && window.ACP_CLIENT_PROFILE.slug) || "__CLIENT_SLUG__";
+
+  fetch("/api/publish-career/cockpit/vibe-css", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      client: clientSlug,
+      prompt: promptText,
+      colors: acpCurrentDesignState.colors
+    })
+  })
+    .then(function(res) { return res.json(); })
+    .then(function(data) {
+      if (data && data.ok && data.css) {
+        acpInjectLiveDesignCss(data.css);
+        var detailsEl = document.getElementById("acp-vibe-css-details");
+        if (detailsEl) detailsEl.open = true;
+        acpShowVibeBanner("Live-Vorschau aktualisiert: " + (data.explanation || "CSS erfolgreich im Simulator angewendet!"), false);
+      } else {
+        throw new Error((data && data.error) || "Unbekannter Fehler");
+      }
+    })
+    .catch(function(err) {
+      var fallbackCss = acpBuildClientSideColorCss();
+      acpInjectLiveDesignCss(fallbackCss);
+      acpShowVibeBanner("Lokale CSS-Engine im Simulator angewendet (" + err.message + ").", false);
+    })
+    .finally(function() {
+      if (btn) btn.disabled = false;
+      if (lbl) lbl.textContent = "KI-Design-Wunsch jetzt live testen";
+    });
+}
+
+function acpResetDesignVibe() {
+  acpCurrentDesignState.vibeCssBlock = "";
+  acpCurrentDesignState.heroGradient = "";
+  acpCurrentDesignState.preset = "";
+  var inp = document.getElementById("acp-vibe-prompt-input");
+  if (inp) inp.value = "";
+  var editor = document.getElementById("acp-vibe-css-editor");
+  if (editor) editor.value = "";
+
+  var iframe = document.getElementById("acp-widget-viewport");
+  var doc = iframe ? (iframe.contentDocument || (iframe.contentWindow && iframe.contentWindow.document)) : null;
+  if (doc) {
+    var existing = doc.getElementById("wp-custom-design-vibe");
+    if (existing) existing.remove();
+  }
+  acpReadCurrentColorsFromIframe();
+  acpShowVibeBanner("Alle temporären Design- & Farb-Änderungen im Simulator zurückgesetzt.", false);
+}
+
+function acpSaveDesignVibe() {
+  var editor = document.getElementById("acp-vibe-css-editor");
+  var cssToSave = (editor && editor.value.trim()) ? editor.value.trim() : acpBuildClientSideColorCss();
+  var promptInp = document.getElementById("acp-vibe-prompt-input");
+  var vibePrompt = promptInp ? promptInp.value.trim() : "";
+
+  var currentJob = (typeof getActiveJob === "function") ? getActiveJob() : null;
+  var clientSlug = (currentJob && currentJob.folder) || (window.ACP_CLIENT_PROFILE && window.ACP_CLIENT_PROFILE.slug) || "__CLIENT_SLUG__";
+
+  var btnTop = document.getElementById("acp-btn-save-design-top");
+  var btnBot = document.getElementById("acp-btn-save-design-bottom");
+  var lblBot = document.getElementById("acp-btn-save-design-bottom-lbl");
+  if (btnTop) btnTop.disabled = true;
+  if (btnBot) btnBot.disabled = true;
+  if (lblBot) lblBot.textContent = "Speichere auf allen Seiten...";
+
+  fetch("/api/publish-career/cockpit/save-design", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      client: clientSlug,
+      css: cssToSave,
+      colors: acpCurrentDesignState.colors,
+      preset: acpCurrentDesignState.preset,
+      vibe_prompt: vibePrompt
+    })
+  })
+    .then(function(res) { return res.json(); })
+    .then(function(data) {
+      if (data && data.ok) {
+        acpShowVibeBanner(data.message || "Design & Farben dauerhaft auf allen Seiten gespeichert!", false);
+        if (typeof acpLog === "function") {
+          acpLog("success", "Design & Farben dauerhaft gespeichert", "Aktualisierte Seiten: " + (data.updated_count || 0));
+        }
+      } else {
+        throw new Error((data && data.error) || "Speichern fehlgeschlagen");
+      }
+    })
+    .catch(function(err) {
+      acpShowVibeBanner("Fehler beim dauerhaften Speichern: " + err.message, true);
+    })
+    .finally(function() {
+      if (btnTop) btnTop.disabled = false;
+      if (btnBot) btnBot.disabled = false;
+      if (lblBot) lblBot.textContent = "Design & Farben dauerhaft speichern";
+    });
+}
+
+var acpVibeSpeechRec = null;
+function acpToggleVibeDictation() {
+  var btn = document.getElementById("acp-btn-vibe-dictate");
+  var lbl = document.getElementById("acp-btn-vibe-dictate-lbl");
+  var inp = document.getElementById("acp-vibe-prompt-input");
+  var SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+  if (!SpeechRecognition) {
+    acpShowVibeBanner("Spracherkennung wird in diesem Browser nicht direkt unterstützt. Bitte tippe deinen Wunsch ins Textfeld ein.", true);
+    return;
+  }
+  if (acpVibeSpeechRec) {
+    try { acpVibeSpeechRec.stop(); } catch (e) {}
+    acpVibeSpeechRec = null;
+    if (btn) btn.classList.remove("is-recording");
+    if (lbl) lbl.textContent = "Wunsch per Mikrofon einsprechen";
+    return;
+  }
+  acpVibeSpeechRec = new SpeechRecognition();
+  acpVibeSpeechRec.lang = "de-CH";
+  acpVibeSpeechRec.continuous = false;
+  acpVibeSpeechRec.interimResults = false;
+  if (btn) btn.classList.add("is-recording");
+  if (lbl) lbl.textContent = "Höre zu... (Jetzt sprechen)";
+
+  acpVibeSpeechRec.onresult = function(event) {
+    var transcript = "";
+    for (var i = event.resultIndex; i < event.results.length; i++) {
+      transcript += event.results[i][0].transcript;
+    }
+    if (inp && transcript) {
+      inp.value = (inp.value ? inp.value + " " : "") + transcript.replace(/\u00df/g, "ss").trim();
+    }
+  };
+  acpVibeSpeechRec.onend = function() {
+    acpVibeSpeechRec = null;
+    if (btn) btn.classList.remove("is-recording");
+    if (lbl) lbl.textContent = "Wunsch per Mikrofon einsprechen";
+  };
+  acpVibeSpeechRec.onerror = function() {
+    acpVibeSpeechRec = null;
+    if (btn) btn.classList.remove("is-recording");
+    if (lbl) lbl.textContent = "Wunsch per Mikrofon einsprechen";
+  };
+  acpVibeSpeechRec.start();
+}

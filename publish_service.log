@@ -137,3 +137,24 @@
 [2026-11-03 22:23:55] [webpilot-lead] [EMAIL_ERR] [FAIL] to=['info@frees.ch'] err=One or more source or delivery addresses require internationalized email support, but the server does not advertise the required SMTPUTF8 capability
 [2026-11-03 22:23:58] [partner] [WHATSAPP_OK] [SENT] to=['+41 79 709 12 24'] msg_id=3EB027CEE83DDFF0CB5AFE
 [2026-11-03 22:23:58] [frees] [LEAD_SUBMIT] [OK] ref=#WP-2026-4457 to=Stefan Fritschi & Raimondo email=False wa=True
+[2026-11-05 11:27:21] [webpilot-lead] [EMAIL_OK] [SENT] via=w01b7af4.kasserver.com:587 from=Herzensarbeit — Anne-Katrin Koch to=['test@herzensarbeit.ch'] cc=[] pdf=Auftrag_WP-2026-6558_HERZENSARBEIT.pdf
+[2026-11-05 11:27:24] [partner] [WHATSAPP_OK] [SENT] to=['+41 79 103 63 31'] msg_id=3EB02AB126E88641D5CB37
+[2026-11-05 11:27:24] [herzensarbeit] [LEAD_SUBMIT] [OK] ref=#WP-2026-6558 to=Anne-Katrin Koch email=True wa=True
+[2026-11-05 11:27:25] [webpilot-lead] [EMAIL_OK] [SENT] via=w01b7af4.kasserver.com:587 from=Herzensarbeit — Anne-Katrin Koch to=['test@herzensarbeit.ch'] cc=[] pdf=Auftrag_WP-2026-2857_HERZENSARBEIT-V2.pdf
+[2026-11-05 11:27:27] [partner] [WHATSAPP_OK] [SENT] to=['+41 79 103 63 31'] msg_id=3EB036F5C3C1157A65CFA0
+[2026-11-05 11:27:27] [herzensarbeit-v2] [LEAD_SUBMIT] [OK] ref=#WP-2026-2857 to=Anne-Katrin Koch email=True wa=True
+[2026-11-05 12:03:45] [partner] [LOGIN_REJECTED] [401] user=ohne benutzername
+[2026-11-05 12:14:14] [partner] [LOGIN_REJECTED] [401] user=ohne benutzername
+[2026-11-05 12:14:40] [partner] [LOGIN_OK] [200] user=david wa=False
+[2026-11-05 12:14:54] [partner] [LOGIN_REJECTED] [401] user=jenny
+[2026-11-05 12:14:56] [partner] [LOGIN_REJECTED] [401] user=jenny
+[2026-11-05 12:14:58] [partner] [LOGIN_REJECTED] [401] user=jenny
+[2026-11-05 12:15:15] [partner] [WHATSAPP_OK] [SENT] to=['+41782232180'] msg_id=3EB095BFFA62EDF6100249
+[2026-11-05 12:15:15] [partner] [LOGIN_OK] [200] user=jenny wa=True
+[2026-11-05 12:28:26] [partner] [JOB_TOGGLE_ACTIVE] [OK] job_id=job_herzensarbeit_20261105 is_active=True by=antigravity_bridge
+[2026-11-05 12:28:27] [partner] [SHEET_ACTIVE_SYNC] [OK] slug=herzensarbeit active=True row=2
+[2026-11-05 14:19:19] [partner] [LOGIN_OK] [200] user=jenny ip=2a02:1210:3629:ac00:7571:f61a:758a:5e7c
+[2026-11-05 17:49:49] [preview-herzensarbeit] [VIBE_CSS_AI_FALLBACK] [WARN] name 'urllib' is not defined
+[2026-11-05 17:49:49] [preview-herzensarbeit] [VIBE_CSS_GEN] [OK] engine=deterministic-fallback prompt=Alle Buttons und Akzente in einem warmen Beerenrot (#9b2c47) färben und mehr Wei
+[2026-11-05 17:51:27] [preview-herzensarbeit] [VIBE_CSS_GEN] [OK] engine=gemini-2.5-flash prompt=Alle Buttons und Akzente in einem warmen Beerenrot (#9b2c47) färben und mehr Wei
+[2026-11-05 17:51:39] [preview-herzensarbeit] [SAVE_DESIGN_OK] [SUCCESS] files=7
