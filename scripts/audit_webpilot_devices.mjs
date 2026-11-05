@@ -292,6 +292,23 @@ const COCKPIT_STATES = [
         window.acpToggleHelpModal();
       }
     }
+  },
+  {
+    id: 'state_design_vibe_modal',
+    label: 'design-vibe-modal',
+    activeScopeSelector: '#designVibeModal',
+    open: () => {
+      const m = document.getElementById('designVibeModal');
+      if (m && !m.classList.contains('is-open') && typeof window.acpOpenDesignVibeModal === 'function') {
+        window.acpOpenDesignVibeModal();
+      }
+    },
+    close: () => {
+      const m = document.getElementById('designVibeModal');
+      if (m && m.classList.contains('is-open') && typeof window.acpCloseDesignVibeModal === 'function') {
+        window.acpCloseDesignVibeModal();
+      }
+    }
   }
 ];
 

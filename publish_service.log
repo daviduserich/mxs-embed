@@ -159,3 +159,7 @@
 [2026-11-05 17:51:27] [preview-herzensarbeit] [VIBE_CSS_GEN] [OK] engine=gemini-2.5-flash prompt=Alle Buttons und Akzente in einem warmen Beerenrot (#9b2c47) färben und mehr Wei
 [2026-11-05 17:51:39] [preview-herzensarbeit] [SAVE_DESIGN_OK] [SUCCESS] files=7
 [2026-11-05 17:51:40] [preview-herzensarbeit] [SAVE_DESIGN_OK] [SUCCESS] files=7
+[2026-11-05 17:51:43] [preview-herzensarbeit] [SAVE_DESIGN_DEPLOY_ERR] [WARN] Git-Push zu Cloudflare fehlgeschlagen: To github.com:daviduserich/mxs-embed.git
+ ! [remote rejected] main -> main (cannot lock ref 'refs/heads/main': is at 1479c5d1fea6a646812d780b9e4d33bbe5a82ff7 but expected e71c476610ddc01b2e0754571430570ce278f3ea)
+error: failed to push some refs to 'github.com:daviduserich/mxs-embed.git'
+

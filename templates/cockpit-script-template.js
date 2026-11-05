@@ -260,6 +260,8 @@ document.addEventListener("keydown", function(e) {
     if (hm && hm.classList.contains("is-open")) acpToggleHelpModal();
     var lm = document.getElementById("acp-log-modal");
     if (lm && lm.classList.contains("is-open")) acpToggleLogModal();
+    var dvm = document.getElementById("designVibeModal");
+    if (dvm && dvm.classList.contains("is-open")) acpCloseDesignVibeModal();
   }
 });
 
@@ -3921,6 +3923,7 @@ function acpOpenDesignVibeModal() {
   acpReadCurrentColorsFromIframe();
   modal.classList.add("is-open");
   modal.style.display = "flex";
+  acpUpdateBodyModalClass();
 }
 
 function acpCloseDesignVibeModal() {
@@ -3928,6 +3931,7 @@ function acpCloseDesignVibeModal() {
   if (!modal) return;
   modal.classList.remove("is-open");
   modal.style.display = "none";
+  acpUpdateBodyModalClass();
 }
 
 function acpBuildClientSideColorCss() {
