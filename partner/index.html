@@ -1565,8 +1565,28 @@
 
       renderJobs(FALLBACK_SEED_JOBS);
       window.wpUnlockStudioForAudit = function () { enterStudio({ username: "jenny", display_name: "Jenny Ettle (JE-MI)", phone: "+41782232180", role: "partner" }); };
-      // Falls Session vorhanden, beim Laden direkt prüfen
-      if (currentToken && currentUser) {
+      // 1-Klick-Direkt-Login per URL (?token=david2026 oder ?token=jenny2026), bereinigt URL sofort nach #UI-10
+      const urlParams = new URLSearchParams(window.location.search);
+      const quickToken = (urlParams.get("token") || "").trim().toLowerCase();
+      if (quickToken === "david2026" || quickToken === "jenny2026") {
+        const qUser = quickToken === "david2026" ? "david" : "jenny";
+        const qPass = quickToken === "david2026" ? "David-WebPilot-2026!" : "Jenny-WebPilot-2026!";
+        if (window.history && window.history.replaceState) {
+          window.history.replaceState({}, document.title, window.location.pathname);
+        }
+        apiCall("/api/partner/login", {
+          method: "POST",
+          body: JSON.stringify({ username: qUser, password: qPass, send_whatsapp: false })
+        }).then(function (resp) {
+          if (resp.status === 200 && resp.data && resp.data.ok) {
+            currentToken = resp.data.token;
+            currentUser = resp.data.user;
+            sessionStorage.setItem(STORAGE_TOKEN_KEY, currentToken);
+            sessionStorage.setItem(STORAGE_USER_KEY, JSON.stringify(currentUser));
+            enterStudio(currentUser);
+          }
+        });
+      } else if (currentToken && currentUser) {
         apiCall("/api/partner/me", { method: "GET" }).then(function (resp) {
           if (resp.status === 200 && resp.data.ok) {
             enterStudio(resp.data.user);
