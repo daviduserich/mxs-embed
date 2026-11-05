@@ -375,7 +375,10 @@ function getChromium() {
 function resolvePagesFromArgs() {
   const siteIdx = process.argv.indexOf('--site');
   if (siteIdx !== -1 && process.argv[siteIdx + 1]) {
-    const siteSlug = path.basename(process.argv[siteIdx + 1].replace(/\/+$/, ''));
+    let siteSlug = path.basename(process.argv[siteIdx + 1].replace(/\/+$/, ''));
+    if (!fs.existsSync(path.join(ROOT_DIR, siteSlug)) && fs.existsSync(path.join(ROOT_DIR, 'preview-' + siteSlug))) {
+      siteSlug = 'preview-' + siteSlug;
+    }
     const siteDir = path.join(ROOT_DIR, siteSlug);
     if (fs.existsSync(siteDir) && fs.statSync(siteDir).isDirectory()) {
       const htmlFiles = fs.readdirSync(siteDir)
