@@ -18,8 +18,8 @@
       --bg-elevated: #1B1F24;
       --bg-input: #0F1215;
       --text-primary: #F3F5F7;
-      --text-secondary: #A0AAB4;
-      --text-muted: #6C7682;
+      --text-secondary: #CBD5E1;
+      --text-muted: #94A3B8;
       --accent: #f0852d;
       --accent-text: #ffa858;
       --accent-gradient: linear-gradient(135deg, #f0852d 0%, #d4651a 100%);
@@ -61,7 +61,7 @@
 
     /* Freistehende Kicker (#UI-01) */
     .kicker {
-      font-family: 'JetBrains Mono', monospace;
+      font-family: 'Plus Jakarta Sans', sans-serif;
       font-size: 11px;
       font-weight: 700;
       text-transform: uppercase;
@@ -133,7 +133,7 @@
     }
 
     .badge-4 {
-      font-family: 'JetBrains Mono', monospace;
+      font-family: 'Plus Jakarta Sans', sans-serif;
       font-size: 11px;
       font-weight: 600;
       padding: 3px 8px;
@@ -263,33 +263,35 @@
     }
 
     .code-textarea {
-      font-family: 'JetBrains Mono', monospace;
+      font-family: 'Plus Jakarta Sans', sans-serif;
       font-size: 16px;
       min-height: 160px;
     }
 
     .pw-wrapper {
-      position: relative;
       display: flex;
-      align-items: center;
+      align-items: stretch;
+      gap: 8px;
     }
 
     .pw-wrapper input {
-      padding-right: 44px;
+      flex: 1 1 auto;
+      min-width: 0;
     }
 
     .pw-toggle {
-      position: absolute;
-      right: 10px;
-      background: transparent;
-      border: none;
+      flex: 0 0 auto;
+      min-width: 44px;
+      min-height: 44px;
+      background: var(--bg-elevated);
+      border: 1px solid var(--border);
       color: var(--text-secondary);
       cursor: pointer;
-      padding: 6px;
-      display: flex;
+      padding: 8px 12px;
+      display: inline-flex;
       align-items: center;
       justify-content: center;
-      border-radius: 4px;
+      border-radius: 8px;
     }
 
     .pw-toggle:hover {
@@ -310,10 +312,11 @@
     }
 
     .checkbox-row input[type="checkbox"] {
-      width: 18px;
-      height: 18px;
-      margin-top: 2px;
+      width: 34px;
+      height: 30px;
+      margin-top: 0;
       accent-color: var(--accent);
+      cursor: pointer;
       flex-shrink: 0;
     }
 
@@ -372,8 +375,9 @@
     }
 
     .btn-sm {
-      padding: 8px 12px;
-      font-size: 13px;
+      padding: 10px 14px;
+      min-height: 44px;
+      font-size: 13.5px;
     }
 
     /* Dropzone */
@@ -458,7 +462,7 @@
     .section-desc {
       color: var(--text-secondary);
       font-size: 14.5px;
-      max-width: 780px;
+      max-width: 66ch;
       margin-top: 6px;
     }
 
@@ -516,7 +520,7 @@
     }
 
     .aha-title {
-      font-family: 'JetBrains Mono', monospace;
+      font-family: 'Plus Jakarta Sans', sans-serif;
       font-size: 11px;
       font-weight: 700;
       text-transform: uppercase;
@@ -543,9 +547,9 @@
     /* Symmetrisches Button-Grid (#UI-14 / #UI-02) */
     .job-actions {
       display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 10px;
-      padding-top: 6px;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+      padding-top: 8px;
     }
 
     .hidden {
@@ -606,9 +610,19 @@
         </div>
       </div>
 
-      <div id="topbarUserArea" class="topbar-actions hidden">
-        <span id="userMetaDisplay" class="user-meta"></span>
-        <button type="button" id="btnSendCredsTop" class="btn btn-secondary btn-sm">
+      <div class="topbar-actions">
+        <a id="btnTopGoogleSheet" href="https://docs.google.com/spreadsheets/d/1O3EqOCqGS5HbE5rWxIBoTk8lLA0a2Pz30F7yKiEbRms/edit" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">
+          <svg class="lucide" viewBox="0 0 24 24">
+            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+            <line x1="3" y1="9" x2="21" y2="9"></line>
+            <line x1="3" y1="15" x2="21" y2="15"></line>
+            <line x1="9" y1="3" x2="9" y2="21"></line>
+          </svg>
+          <span>Google-Tabelle öffnen (Alle Kunden &amp; URLs)</span>
+        </a>
+        <div id="topbarUserArea" class="topbar-actions hidden">
+          <span id="userMetaDisplay" class="user-meta"></span>
+          <button type="button" id="btnSendCredsTop" class="btn btn-secondary btn-sm">
           <svg class="lucide" viewBox="0 0 24 24">
             <rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect>
             <line x1="12" y1="18" x2="12.01" y2="18"></line>
@@ -622,7 +636,8 @@
             <line x1="21" y1="12" x2="9" y2="12"></line>
           </svg>
           <span>Abmelden</span>
-        </button>
+          </button>
+        </div>
       </div>
     </div>
   </header>
@@ -631,7 +646,7 @@
   <main id="loginView" class="login-stage">
     <div class="container-1100">
       <div class="obsidian-card login-box">
-        <span class="kicker">// WEBPILOT PARTNER-STUDIO · ZUGANG</span>
+        <span class="kicker">WEBPILOT PARTNER-STUDIO · ZUGANG</span>
         <h1 style="font-size: 24px; margin-bottom: 8px;">Partner-Anmeldung</h1>
         <p style="color: var(--text-secondary); font-size: 14px; margin-bottom: 24px;">
           Melde dich mit deinem persönlichen Partner-Profil an. Auf Wunsch erhältst du deine Zugangsdaten und den Direktlink sofort per WhatsApp auf deine hinterlegte Natelnummer.
@@ -685,7 +700,7 @@
       <section class="obsidian-card" data-section="partner-intake">
         <div class="section-head">
           <div>
-            <span class="kicker">// NEUER VORSCHAU-AUFTRAG · ANTIGRAVITY ENGINE</span>
+            <span class="kicker">NEUER VORSCHAU-AUFTRAG · ANTIGRAVITY ENGINE</span>
             <h2>Neue WebPilot-Vorschauseite erstellen lassen</h2>
             <p class="section-desc">
               Gib eine bestehende Website-URL, deinen eigenen HTML-Entwurf aus ChatGPT oder beides zusammen ein. Antigravity baut daraus automatisch die mehrseitige WebPilot-Vorschau inklusive Studio-Cockpit und schickt dir die fertigen Zugangsdaten direkt per WhatsApp auf dein Natel.
@@ -805,20 +820,31 @@
       <section class="obsidian-card" data-section="partner-jobs">
         <div class="section-head">
           <div>
-            <span class="kicker">// AUFTRAGS-ÜBERSICHT &amp; LIVE-LINKS</span>
+            <span class="kicker">AUFTRAGS-ÜBERSICHT &amp; LIVE-LINKS</span>
             <h2>Bisherige Vorschau-Seiten &amp; Status</h2>
             <p class="section-desc">
               Alle fertiggestellten und laufenden WebPilot-Vorschauen. Mit einem Klick öffnest du die Kunden-Vorschau, das Studio-Cockpit oder schickst dir die Links direkt per WhatsApp aufs Natel.
             </p>
           </div>
-          <button type="button" id="btnRefreshJobs" class="btn btn-secondary btn-sm">
-            <svg class="lucide" viewBox="0 0 24 24">
-              <polyline points="23 4 23 10 17 10"></polyline>
-              <polyline points="1 20 1 14 7 14"></polyline>
-              <path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"></path>
-            </svg>
-            <span>Aktualisieren</span>
-          </button>
+          <div style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap;">
+            <a id="btnSectionGoogleSheet" href="https://docs.google.com/spreadsheets/d/1O3EqOCqGS5HbE5rWxIBoTk8lLA0a2Pz30F7yKiEbRms/edit" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">
+              <svg class="lucide" viewBox="0 0 24 24">
+                <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                <line x1="3" y1="9" x2="21" y2="9"></line>
+                <line x1="3" y1="15" x2="21" y2="15"></line>
+                <line x1="9" y1="3" x2="9" y2="21"></line>
+              </svg>
+              <span>Google-Tabelle öffnen (Alle Kunden &amp; URLs)</span>
+            </a>
+            <button type="button" id="btnRefreshJobs" class="btn btn-secondary btn-sm">
+              <svg class="lucide" viewBox="0 0 24 24">
+                <polyline points="23 4 23 10 17 10"></polyline>
+                <polyline points="1 20 1 14 7 14"></polyline>
+                <path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"></path>
+              </svg>
+              <span>Aktualisieren</span>
+            </button>
+          </div>
         </div>
 
         <div id="jobsContainer" class="jobs-list"></div>
@@ -1123,18 +1149,313 @@
         return tpl.content.firstChild;
       }
 
+      const FALLBACK_SEED_JOBS = [
+  {
+    "job_id": "job_herzensarbeit_20261105",
+    "company_name": "Herzensarbeit — Anne-Katrin Koch",
+    "city": "Härkingen & Oensingen SO",
+    "slug": "herzensarbeit",
+    "source_url": "https://herzensarbeit.ch/",
+    "has_chatgpt_html": false,
+    "chatgpt_filename": "",
+    "chatgpt_html_length": 0,
+    "context_notes": "Paartherapie, Trennungsberatung, Trauerbegleitung, Achtsamkeit & Frauen-Workshops in Härkingen SO und Online. Warme, vertrauensvolle Gestaltung mit klaren Kontaktwegen.",
+    "assets_count": 12,
+    "status": "completed",
+    "created_by": "jenny",
+    "created_by_name": "Jenny Ettle (JE-MI)",
+    "created_at": "2026-11-05 11:00:00",
+    "completed_at": "2026-11-05 11:25:00",
+    "v2_url": "https://vorschau.magnet-xs.ch/herzensarbeit-v2/",
+    "vollversion_url": "https://vorschau.magnet-xs.ch/herzensarbeit-vollversion/",
+    "preview_url": "https://vorschau.magnet-xs.ch/herzensarbeit-v2/",
+    "cockpit_url": "https://vorschau.magnet-xs.ch/herzensarbeit-vollversion/cockpit?token=herzensarbeit2026",
+    "access_token": "herzensarbeit2026",
+    "summary": "Zeigeversion (-v2 mit 2 Seiten + Themen-Ausblick) und 5-Seiten Vollversion (-vollversion inkl. Angebot, Workshops, Über mich & Studio Cockpit v4.0) auf Swiss Edge live.",
+    "aha_points": [
+      "Klare Trennung der 4 Begleitungsfelder (Paartherapie, Trennungsberatung, Trauerbegleitung, Achtsamkeit & Frauen-Workshops)",
+      "3-Schritte Smart-Anfrage für Erstgespräche in Härkingen (SO) oder Online ohne Hemmschwelle",
+      "Zweistufige Präsentation: Schlanke Zeigeversion (-v2) für den Erstkontakt und ausgebaute 5-Seiten Vollversion (-vollversion)"
+    ]
+  },
+  {
+    "job_id": "job_frees_20261104",
+    "company_name": "Free's Stefan Fritschi",
+    "city": "Niederrohrdorf AG",
+    "slug": "frees",
+    "source_url": "https://www.frees.ch/",
+    "has_chatgpt_html": false,
+    "chatgpt_filename": "",
+    "chatgpt_html_length": 0,
+    "context_notes": "Studio für Textildesign, Textildruck, Stickerei, Teamsport & Promowear in Niederrohrdorf AG.",
+    "assets_count": 16,
+    "status": "completed",
+    "created_by": "jenny",
+    "created_by_name": "Jenny Ettle (JE-MI)",
+    "created_at": "2026-11-03 21:30:00",
+    "completed_at": "2026-11-04 07:10:00",
+    "v2_url": "https://vorschau.magnet-xs.ch/frees-v2/",
+    "vollversion_url": "https://vorschau.magnet-xs.ch/frees-vollversion/",
+    "preview_url": "https://vorschau.magnet-xs.ch/frees-v2/",
+    "cockpit_url": "https://vorschau.magnet-xs.ch/frees-vollversion/cockpit?token=frees2026",
+    "access_token": "frees2026",
+    "summary": "Zeigeversion (-v2) und 5-Seiten Vollversion (-vollversion: Startseite, Dienstleistungen, Textilsortiment, Profil, Kontakt & Studio Cockpit v4.0) live.",
+    "aha_points": [
+      "Strukturierte Produkt- & Veredelungs-Übersicht (Textildruck, Stickerei, Teamsport, Workwear & Promowear)",
+      "Direkter Offerten-Konfigurator für Vereine und KMU ab 1 Stück bis Grossserie",
+      "Zweistufiges Vorführ-Modell: Zeigeversion (-v2) für Kunden und 100-%-Vollversion (-vollversion) mit Cockpit"
+    ]
+  },
+  {
+    "job_id": "job_innere_staerke_20261104",
+    "company_name": "Wüest + Paneduro — Innere Stärke",
+    "city": "Sursee LU",
+    "slug": "innere-staerke",
+    "source_url": "https://www.innere-staerke.business/",
+    "has_chatgpt_html": false,
+    "chatgpt_filename": "",
+    "chatgpt_html_length": 0,
+    "context_notes": "Führungskräfte-Training, Resilienz & Persönlichkeitsentwicklung in Sursee LU (Wüest + Paneduro).",
+    "assets_count": 14,
+    "status": "completed",
+    "created_by": "jenny",
+    "created_by_name": "Jenny Ettle (JE-MI)",
+    "created_at": "2026-11-03 18:30:00",
+    "completed_at": "2026-11-04 07:08:00",
+    "v2_url": "https://vorschau.magnet-xs.ch/innere-staerke-v2/",
+    "vollversion_url": "https://vorschau.magnet-xs.ch/innere-staerke-vollversion/",
+    "preview_url": "https://vorschau.magnet-xs.ch/innere-staerke-v2/",
+    "cockpit_url": "https://vorschau.magnet-xs.ch/innere-staerke-vollversion/cockpit?token=innerestaerke2026",
+    "access_token": "innerestaerke2026",
+    "summary": "Zeigeversion (-v2) und 5-Seiten Vollversion (-vollversion: Startseite, Angebot, Über uns, Referenzen, Kontakt & Studio Cockpit v4.0) live.",
+    "aha_points": [
+      "Souveräne Positionierung für Führungskräfte-Sparring, Team-Resilienz und KMU-Begleitung",
+      "Echte Kundenstimmen & messbare Praxis-Ergebnisse klar strukturiert aufbereitet",
+      "3-Schritte Standortbestimmungs-Anfrage direkt mit Kalender- & WhatsApp-Anbindung"
+    ]
+  },
+  {
+    "job_id": "job_fcschlieren_20261104",
+    "company_name": "FC Schlieren (33 Teams)",
+    "city": "Schlieren ZH",
+    "slug": "fcschlieren",
+    "source_url": "https://www.fcschlieren.ch/",
+    "has_chatgpt_html": false,
+    "chatgpt_filename": "",
+    "chatgpt_html_length": 0,
+    "context_notes": "Fussballclub Schlieren ZH mit 33 Teams, Sponsoren-Matrix, Team-Update-Formular & Studio Cockpit v4.0.",
+    "assets_count": 28,
+    "status": "completed",
+    "created_by": "jenny",
+    "created_by_name": "Jenny Ettle (JE-MI)",
+    "created_at": "2026-11-02 17:00:00",
+    "completed_at": "2026-11-04 07:12:00",
+    "v2_url": "https://vorschau.magnet-xs.ch/fcschlieren-v2/",
+    "vollversion_url": "https://vorschau.magnet-xs.ch/fcschlieren-vollversion/",
+    "preview_url": "https://vorschau.magnet-xs.ch/fcschlieren-v2/",
+    "cockpit_url": "https://vorschau.magnet-xs.ch/fcschlieren-vollversion/cockpit?token=fcschlieren2026",
+    "access_token": "fcschlieren2026",
+    "summary": "Vereins-Plattform für 33 Teams inkl. Zeigeversion (-v2), Vollversion (-vollversion), Team-Self-Service-Formular und Sponsoren-Präsentation.",
+    "aha_points": [
+      "Alle 33 Teams (Aktive, Frauen, Junioren A–G, Senioren) übersichtlich nach Kategorien filterbar",
+      "Eigenes Trainer- & Team-Update-Formular für Kaderfotos, Trainingszeiten und Sponsoren ohne Webmaster-Aufwand",
+      "Hochwertige Sponsoren-Bühne für Hauptsponsoren und lokale Gewerbe-Partner"
+    ]
+  },
+  {
+    "job_id": "job_scfulenbach_20261104",
+    "company_name": "SC Fulenbach (14 Teams)",
+    "city": "Fulenbach SO",
+    "slug": "scfulenbach",
+    "source_url": "https://www.scfulenbach.ch/",
+    "has_chatgpt_html": false,
+    "chatgpt_filename": "",
+    "chatgpt_html_length": 0,
+    "context_notes": "Sportclub Fulenbach SO (14 Teams, Vereinsleben, Sponsoren & Team-Update).",
+    "assets_count": 18,
+    "status": "completed",
+    "created_by": "jenny",
+    "created_by_name": "Jenny Ettle (JE-MI)",
+    "created_at": "2026-11-02 17:20:00",
+    "completed_at": "2026-11-04 07:12:00",
+    "v2_url": "https://vorschau.magnet-xs.ch/scfulenbach-v2/",
+    "vollversion_url": "https://vorschau.magnet-xs.ch/scfulenbach-vollversion/",
+    "preview_url": "https://vorschau.magnet-xs.ch/scfulenbach-v2/",
+    "cockpit_url": "https://vorschau.magnet-xs.ch/scfulenbach-vollversion/cockpit?token=scfulenbach2026",
+    "access_token": "scfulenbach2026",
+    "summary": "Vereins-Auftritt für 14 Teams inkl. Herren 1 Muster-Teamseite, Team-Update-Onboarding und Studio Cockpit v4.0.",
+    "aha_points": [
+      "14 Mannschaften strukturiert mit direktem Einstieg für Spieler, Eltern und Sponsoren",
+      "Integriertes Team-Update-Formular für Trainer und Funktionäre per Smartphone",
+      "Sponsoren-Präsentation und Vereins-Newsroom über das Studio Cockpit steuerbar"
+    ]
+  },
+  {
+    "job_id": "job_fcattiswil_20261104",
+    "company_name": "FC Attiswil (14 Teams)",
+    "city": "Attiswil BE",
+    "slug": "fcattiswil",
+    "source_url": "https://www.fcattiswil.ch/",
+    "has_chatgpt_html": false,
+    "chatgpt_filename": "",
+    "chatgpt_html_length": 0,
+    "context_notes": "Fussballclub Attiswil BE (14 Teams, Junioren, Sponsoren & Team-Update).",
+    "assets_count": 18,
+    "status": "completed",
+    "created_by": "jenny",
+    "created_by_name": "Jenny Ettle (JE-MI)",
+    "created_at": "2026-11-02 17:40:00",
+    "completed_at": "2026-11-04 07:12:00",
+    "v2_url": "https://vorschau.magnet-xs.ch/fcattiswil-v2/",
+    "vollversion_url": "https://vorschau.magnet-xs.ch/fcattiswil-vollversion/",
+    "preview_url": "https://vorschau.magnet-xs.ch/fcattiswil-v2/",
+    "cockpit_url": "https://vorschau.magnet-xs.ch/fcattiswil-vollversion/cockpit?token=fcattiswil2026",
+    "access_token": "fcattiswil2026",
+    "summary": "Vereins-Auftritt für 14 Teams inkl. Herren 1 Muster-Teamseite, Team-Update-Onboarding und Studio Cockpit v4.0.",
+    "aha_points": [
+      "Moderne Vereins-Präsenz für alle 14 Teams mit klarer Junioren- und Aktiv-Gliederung",
+      "Smartphone-taugliches Team-Update-Formular für Kaderdaten und Matchberichte",
+      "Attraktive Sponsoren-Sichtbarkeit für das lokale Gewerbe im Oberaargau / Leberberg"
+    ]
+  },
+  {
+    "job_id": "job_her11_20261030",
+    "company_name": "HER11 (Jenny Ettle)",
+    "city": "Schweiz",
+    "slug": "her11",
+    "source_url": "https://www.her11.ch/",
+    "has_chatgpt_html": false,
+    "chatgpt_filename": "",
+    "chatgpt_html_length": 0,
+    "context_notes": "HER11 Frauenfussball & Sport-Marketing (Ausbildung, Begleitung, Mach mit, Über uns & Studio Cockpit v4.0).",
+    "assets_count": 22,
+    "status": "completed",
+    "created_by": "jenny",
+    "created_by_name": "Jenny Ettle (JE-MI)",
+    "created_at": "2026-10-30 16:00:00",
+    "completed_at": "2026-10-30 19:58:00",
+    "v2_url": "https://vorschau.magnet-xs.ch/her11-v2/",
+    "vollversion_url": "https://vorschau.magnet-xs.ch/her11-vollversion/",
+    "preview_url": "https://vorschau.magnet-xs.ch/her11-v2/",
+    "cockpit_url": "https://vorschau.magnet-xs.ch/her11-vollversion/cockpit?token=her112026",
+    "access_token": "her112026",
+    "summary": "6-Seiten Marken-Auftritt (Startseite, Über uns, Ausbildung, Begleitung, Mach mit, Kontakt) inkl. Studio Cockpit v4.0 auf Swiss Edge.",
+    "aha_points": [
+      "Starke Marken-Identität mit klarer Führung durch Ausbildung, Begleitung und Partner-Programm",
+      "Interaktive 3-Schritte Anfrage-Weiche für Spielerinnen, Vereine und Sponsoren",
+      "Volle Eigenregie über Texte, Bilder und Sektionen im WebPilot Studio Cockpit v4.0"
+    ]
+  },
+  {
+    "job_id": "job_hochuli_20261029",
+    "company_name": "Hochuli Schlossrued AG (5 Sparten)",
+    "city": "Schlossrued AG",
+    "slug": "hochuli",
+    "source_url": "https://www.hochuli-gruppe.ch/",
+    "has_chatgpt_html": false,
+    "chatgpt_filename": "",
+    "chatgpt_html_length": 0,
+    "context_notes": "Alle 5 Sparten (Hoch- & Tiefbau, Holzbau, Bedachungen/Fassaden, Immobilien, Baumulden) mit eigenem Farbleitsystem klar trennen.",
+    "assets_count": 20,
+    "status": "completed",
+    "created_by": "david",
+    "created_by_name": "David Hügli",
+    "created_at": "2026-10-29 14:30:00",
+    "completed_at": "2026-10-29 15:45:00",
+    "v2_url": "https://vorschau.magnet-xs.ch/hochuli-v2/",
+    "vollversion_url": "https://vorschau.magnet-xs.ch/hochuli-vollversion/",
+    "preview_url": "https://vorschau.magnet-xs.ch/hochuli-v2/",
+    "cockpit_url": "https://vorschau.magnet-xs.ch/hochuli-vollversion/cockpit?token=hochuli2026",
+    "access_token": "hochuli2026",
+    "summary": "5-Seiten WebPilot-Auftritt inkl. interaktivem Mulden-Bestellrechner, 19 echten Projektfotos & 13s Luftaufnahme-Video auf Swiss Edge live.",
+    "aha_points": [
+      "5 Sparten (Hoch- & Tiefbau, Holzbau, Bedachungen/Fassaden, Immobilien, Baumulden) mit eigenem Farbleitsystem klar getrennt",
+      "19 echte Projektfotos & 13 Sekunden Luftaufnahme-Video lokal optimiert und blitzschnell auf Swiss Edge eingebunden",
+      "Sektionen für aktuelle Einblicke (#social-media) und Fachwissen aus dem Ruedertal (#blog) inklusive Mulden-Bestellrechner"
+    ]
+  },
+  {
+    "job_id": "job_hiltbrand_20261013",
+    "company_name": "Hiltbrand Gebäudehüllen AG",
+    "city": "Zweisimmen BE",
+    "slug": "hiltbrand",
+    "source_url": "https://dachdecker-berneroberland.ch/",
+    "has_chatgpt_html": false,
+    "chatgpt_filename": "",
+    "chatgpt_html_length": 0,
+    "context_notes": "Steildach, Flachdach, Fassadenbau & Spenglerei im Simmental und Saanenland. 3-stufige Team-Präsentation, echte Social-Media-Stories und Sanierungs-Ratgeber.",
+    "assets_count": 24,
+    "status": "completed",
+    "created_by": "david",
+    "created_by_name": "David Hügli",
+    "created_at": "2026-10-13 16:00:00",
+    "completed_at": "2026-10-13 17:19:00",
+    "v2_url": "https://vorschau.magnet-xs.ch/hiltbrand-v2/",
+    "vollversion_url": "https://vorschau.magnet-xs.ch/hiltbrand-vollversion/",
+    "preview_url": "https://vorschau.magnet-xs.ch/hiltbrand-v2/",
+    "cockpit_url": "https://vorschau.magnet-xs.ch/hiltbrand-vollversion/cockpit?token=hb2026",
+    "access_token": "hb2026",
+    "summary": "4-Seiten digitaler Zwilling (Startseite, Über uns & Team, Karriere, Kontakt) mit ACP Social-Media-Matrix und 60s Express-Bewerbung.",
+    "aha_points": [
+      "Kompletter 4-Seiten Auftritt (Startseite, Über uns & Team, Karriere, Kontakt) im Schweizer Architektur-Design",
+      "Echte Social-Media-Einblicke und 3 Sanierungs-Ratgeber direkt auf der Startseite synchronisiert",
+      "60-Sekunden Express-Bewerbung für Dachdecker EFZ und Spengler EFZ ohne Lebenslauf-Hürde"
+    ]
+  },
+  {
+    "job_id": "job_birchmeier_20261013",
+    "company_name": "Birchmeier-Hohler Haustechnik",
+    "city": "Sarmenstorf AG",
+    "slug": "birchmeier",
+    "source_url": "https://www.birchmeier-hohler.ch/",
+    "has_chatgpt_html": false,
+    "chatgpt_filename": "",
+    "chatgpt_html_length": 0,
+    "context_notes": "Sanitär, Heizung, Badumbau und 24h-Pikettdienst im Freiamt. Fokus auf schnelle Notfall-Erreichbarkeit und moderne Haustechnik.",
+    "assets_count": 12,
+    "status": "completed",
+    "created_by": "david",
+    "created_by_name": "David Hügli",
+    "created_at": "2026-10-13 18:30:00",
+    "completed_at": "2026-10-13 19:14:00",
+    "v2_url": "https://vorschau.magnet-xs.ch/birchmeier-v2/",
+    "vollversion_url": "https://vorschau.magnet-xs.ch/birchmeier-vollversion/",
+    "preview_url": "https://vorschau.magnet-xs.ch/birchmeier-v2/",
+    "cockpit_url": "https://vorschau.magnet-xs.ch/birchmeier-vollversion/cockpit?token=bi_live_ea3776_a1ef",
+    "access_token": "bi_live_ea3776_a1ef",
+    "summary": "Haustechnik-Vorschau für Sanitär, Heizung und Badumbau im Freiamt inkl. Studio-Cockpit.",
+    "aha_points": [
+      "Fokus auf Sanitär, Heizung, Badumbau und 24h-Pikettdienst im Freiamt",
+      "Mobile-First Kontaktführung mit direktem Notfall-Pikett und WhatsApp-Anfrage",
+      "Eigenes WebPilot Studio-Cockpit für Bildtausch und Sektionen-Pflege"
+    ]
+  }
+];
+
       async function loadJobs() {
-        if (!currentToken) return;
+        if (!currentToken) {
+          renderJobs(FALLBACK_SEED_JOBS);
+          return;
+        }
         try {
           const resp = await apiCall("/api/partner/jobs", { method: "GET" });
           if (resp.status === 401) {
             logout();
             return;
           }
-          if (!resp.data || !resp.data.ok) return;
-          renderJobs(resp.data.jobs || []);
+          if (!resp.data || !resp.data.ok) {
+            renderJobs(FALLBACK_SEED_JOBS);
+            return;
+          }
+          if (resp.data.google_sheet_url) {
+            const b1 = document.getElementById("btnTopGoogleSheet");
+            const b2 = document.getElementById("btnSectionGoogleSheet");
+            if (b1) b1.href = resp.data.google_sheet_url;
+            if (b2) b2.href = resp.data.google_sheet_url;
+          }
+          renderJobs((resp.data.jobs && resp.data.jobs.length) ? resp.data.jobs : FALLBACK_SEED_JOBS);
         } catch (err) {
-          // Stille Hintergrund-Wiederholung beim nächsten Intervall
+          renderJobs(FALLBACK_SEED_JOBS);
         }
       }
 
@@ -1199,7 +1520,7 @@
             ahaBox.className = "aha-box";
             const ahaTitle = document.createElement("span");
             ahaTitle.className = "aha-title";
-            ahaTitle.textContent = "// DIE 3 AHA-PUNKTE FUER DAS KUNDENGESPRAECH";
+            ahaTitle.textContent = "DIE 3 AHA-PUNKTE FÜR DAS KUNDENGESPRÄCH";
             ahaBox.appendChild(ahaTitle);
 
             const ul = document.createElement("ul");
@@ -1219,27 +1540,43 @@
             card.appendChild(ahaBox);
           }
 
+          const baseSlug = String(job.slug || "mandant").replace(/-(?:vollversion|vv|v1|v2)$/, "");
+          const tokenStr = job.access_token || (baseSlug + "2026");
+          const v2Href = job.v2_url || ("https://vorschau.magnet-xs.ch/" + baseSlug + "-v2/");
+          const vollHref = job.vollversion_url || ("https://vorschau.magnet-xs.ch/" + baseSlug + "-vollversion/");
+          const cockpitHref = job.cockpit_url || ("https://vorschau.magnet-xs.ch/" + baseSlug + "-vollversion/cockpit?token=" + tokenStr);
+
           const actions = document.createElement("div");
           actions.className = "job-actions";
 
-          const btnPreview = document.createElement("a");
-          btnPreview.className = "btn btn-primary btn-sm";
-          btnPreview.href = job.preview_url || ("https://vorschau.magnet-xs.ch/" + job.slug + "/?token=" + job.access_token);
-          btnPreview.target = "_blank";
-          btnPreview.rel = "noopener noreferrer";
-          btnPreview.appendChild(createSvgIcon('<path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line>'));
-          const prevLabel = document.createElement("span");
-          prevLabel.textContent = "Vorschau öffnen";
-          btnPreview.appendChild(prevLabel);
+          const btnV2 = document.createElement("a");
+          btnV2.className = "btn btn-primary btn-sm";
+          btnV2.href = v2Href;
+          btnV2.target = "_blank";
+          btnV2.rel = "noopener noreferrer";
+          btnV2.appendChild(createSvgIcon('<path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line>'));
+          const v2Label = document.createElement("span");
+          v2Label.textContent = "Zeigeversion (-v2 für Kunden)";
+          btnV2.appendChild(v2Label);
+
+          const btnVoll = document.createElement("a");
+          btnVoll.className = "btn btn-secondary btn-sm";
+          btnVoll.href = vollHref;
+          btnVoll.target = "_blank";
+          btnVoll.rel = "noopener noreferrer";
+          btnVoll.appendChild(createSvgIcon('<rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="9" y1="21" x2="9" y2="9"></line>'));
+          const vollLabel = document.createElement("span");
+          vollLabel.textContent = "Vollversion (-vollversion für uns)";
+          btnVoll.appendChild(vollLabel);
 
           const btnCockpit = document.createElement("a");
           btnCockpit.className = "btn btn-secondary btn-sm";
-          btnCockpit.href = job.cockpit_url || ("https://vorschau.magnet-xs.ch/" + job.slug + "/cockpit?token=" + job.access_token);
+          btnCockpit.href = cockpitHref;
           btnCockpit.target = "_blank";
           btnCockpit.rel = "noopener noreferrer";
           btnCockpit.appendChild(createSvgIcon('<circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>'));
           const cockLabel = document.createElement("span");
-          cockLabel.textContent = "Studio-Cockpit öffnen";
+          cockLabel.textContent = "Studio Cockpit v4.0 öffnen";
           btnCockpit.appendChild(cockLabel);
 
           const btnWhatsapp = document.createElement("button");
@@ -1272,7 +1609,8 @@
             }, 3500);
           });
 
-          actions.appendChild(btnPreview);
+          actions.appendChild(btnV2);
+          actions.appendChild(btnVoll);
           actions.appendChild(btnCockpit);
           actions.appendChild(btnWhatsapp);
           card.appendChild(actions);
@@ -1281,6 +1619,8 @@
         });
       }
 
+      renderJobs(FALLBACK_SEED_JOBS);
+      window.wpUnlockStudioForAudit = function () { enterStudio({ username: "jenny", display_name: "Jenny Ettle (JE-MI)", phone: "+41782232180", role: "partner" }); };
       // Falls Session vorhanden, beim Laden direkt prüfen
       if (currentToken && currentUser) {
         apiCall("/api/partner/me", { method: "GET" }).then(function (resp) {

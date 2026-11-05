@@ -100,7 +100,8 @@ const ALL_PAGES = [
   'webpilot/angebot.html',
   'webpilot/ueber-uns.html',
   'webpilot/technologie.html',
-  'webpilot/kontakt.html'
+  'webpilot/kontakt.html',
+  'partner/index.html'
 ];
 
 const COCKPIT_STATES = [
@@ -469,6 +470,26 @@ async function main() {
             if (btn) btn.click();
           });
           await page.waitForTimeout(60);
+        }
+      }
+    }
+
+    // 2c. Partner Studio Unlocked State (#studioView with all 10 project cards + Google Sheet buttons)
+    if (relPage === 'partner/index.html') {
+      const unlocked = await page.evaluate(() => {
+        if (typeof window.wpUnlockStudioForAudit === 'function') {
+          window.wpUnlockStudioForAudit();
+          const sv = document.getElementById('studioView');
+          return (sv && !sv.classList.contains('hidden')) ? '#studioView' : null;
+        }
+        return null;
+      });
+      if (unlocked) {
+        await page.waitForTimeout(150);
+        for (const zone of SYSTEM_EYES_ZONES) {
+          const sf = await auditPageZone(page, `${relPage}#studio-unlocked`, zone, screenshotDir);
+          allFindings.push(...sf);
+          totalViewsAudited++;
         }
       }
     }

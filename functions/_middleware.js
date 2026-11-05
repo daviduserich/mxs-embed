@@ -47,7 +47,13 @@ const VORSCHAU_SLUG_TO_FOLDER = {
   'hochuli-vv': 'preview-hochuli',
   'her11-v2': 'preview-her11',
   'her11-vollversion': 'preview-her11',
-  'her11-vv': 'preview-her11'
+  'her11-vv': 'preview-her11',
+  'hiltbrand-v2': 'preview-hiltbrand',
+  'hiltbrand-vollversion': 'preview-hiltbrand',
+  'hiltbrand-vv': 'preview-hiltbrand',
+  'birchmeier-v2': 'preview-birchmeier',
+  'birchmeier-vollversion': 'preview-birchmeier',
+  'birchmeier-vv': 'preview-birchmeier'
 };
 
 const CLIENT_TOKENS = {
@@ -289,7 +295,8 @@ export async function onRequest(context) {
         return Response.redirect(slashUrl.toString(), 302);
       }
 
-      targetFolder = VORSCHAU_SLUG_TO_FOLDER[activeClientSlug] || `preview-${activeClientSlug}`;
+      const baseSlugFolder = activeClientSlug.replace(/-(?:vollversion|vv|v1|v2)$/, '');
+      targetFolder = VORSCHAU_SLUG_TO_FOLDER[activeClientSlug] || ((activeClientSlug.endsWith('-vollversion') || activeClientSlug.endsWith('-vv')) ? `preview-${baseSlugFolder}` : `preview-${activeClientSlug}`);
 
       if (rest === '/onboarding' || rest === '/onboarding.html') {
         targetPath = `/${targetFolder}/onboarding`;
