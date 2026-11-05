@@ -2,22 +2,39 @@
 <html lang="de">
 <head>
   <meta charset="utf-8">
-  <title>Magnet XS Embed Edge</title>
+  <title>WebPilot Swiss Edge</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="robots" content="noindex, nofollow">
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <meta http-equiv="X-Frame-Options" content="DENY">
+  <meta http-equiv="X-XSS-Protection" content="1; mode=block">
+  <meta name="referrer" content="no-referrer">
+  <script>
+    (function() {
+      var path = window.location.pathname || "/";
+      var seg = path.split("/").filter(Boolean)[0] || "";
+      if (seg && seg !== "index.html") {
+        var url = new URL(window.location.href);
+        if (!url.searchParams.has("_r")) {
+          url.searchParams.set("_r", Date.now().toString(36));
+          window.location.replace(url.toString());
+        }
+      }
+    })();
+  </script>
   <style>
     body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; display: flex; justify-content: center; align-items: center; min-height: 100vh; margin: 0; background: #0f172a; color: #f8fafc; }
-    .card { background: #1e293b; padding: 2.5rem; border-radius: 12px; border: 1px solid #334155; text-align: center; max-width: 480px; box-shadow: 0 20px 25px -5px rgba(0,0,0,0.5); }
-    h1 { font-size: 1.5rem; margin-bottom: 0.5rem; color: #38bdf8; }
+    .card { background: #1e293b; padding: 2.5rem; border-radius: 8px; border: 1px solid rgba(255,255,255,0.08); text-align: center; max-width: 480px; box-shadow: 0 20px 25px -5px rgba(0,0,0,0.5); }
+    h1 { font-size: 1.35rem; margin-bottom: 0.5rem; color: #f0852d; }
     p { color: #94a3b8; font-size: 0.95rem; line-height: 1.5; }
-    .badge { display: inline-block; background: #0369a1; color: #e0f2fe; padding: 4px 10px; border-radius: 9999px; font-size: 0.75rem; font-weight: 600; margin-top: 1rem; }
+    .badge { display: inline-block; background: rgba(240,133,45,0.16); color: #ffa858; padding: 4px 10px; border-radius: 4px; font-size: 0.75rem; font-weight: 600; margin-top: 1rem; }
   </style>
 </head>
 <body>
   <div class="card">
-    <h1>⚡ Magnet XS Embed Edge</h1>
-    <p>High-Performance Client Widget Delivery Network powered by Cloudflare Edge.</p>
-    <span class="badge">Operational</span>
+    <h1>WebPilot Swiss Edge</h1>
+    <p>Vorschau wird geladen...</p>
+    <span class="badge">Swiss Edge Active</span>
   </div>
 </body>
 </html>

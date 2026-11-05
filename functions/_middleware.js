@@ -278,7 +278,7 @@ export async function onRequest(context) {
   }
 
   // 3. Hostname: vorschau.magnet-xs.ch (Dynamisches & Rate-sicheres Mandanten-Routing)
-  if (hostname.startsWith('vorschau.')) {
+  if (hostname.startsWith('vorschau.') || hostname.startsWith('embed.') || hostname.endsWith('.pages.dev')) {
     if (url.pathname === '/' || url.pathname === '') {
       return Response.redirect('https://magnet-xs.com', 302);
     }
@@ -322,7 +322,15 @@ export async function onRequest(context) {
 
     const rewriteUrl = new URL(targetPath, url.origin);
     rewriteUrl.search = url.search;
-    let response = await context.env.ASSETS.fetch(new Request(rewriteUrl, context.request));
+    const cleanReqHeaders = new Headers(context.request.headers);
+    if (isClientPath) {
+      cleanReqHeaders.delete('if-none-match');
+      cleanReqHeaders.delete('if-modified-since');
+    }
+    let response = await context.env.ASSETS.fetch(new Request(rewriteUrl, {
+      method: context.request.method,
+      headers: cleanReqHeaders
+    }));
 
     // Falls Cloudflare Pages intern (z.B. wegen Pretty-URLs .html -> ohne .html) einen Redirect auslöst,
     // folgen wir ihm intern auf dem targetFolder, damit die äussere URL (z.B. /frees-vollversion/...) stabil bleibt.
@@ -331,12 +339,20 @@ export async function onRequest(context) {
       if (loc) {
         const directUrl = new URL(loc, url.origin);
         directUrl.search = url.search;
-        response = await context.env.ASSETS.fetch(new Request(directUrl, context.request));
+        response = await context.env.ASSETS.fetch(new Request(directUrl, {
+          method: context.request.method,
+          headers: cleanReqHeaders
+        }));
       }
     }
 
     let newHeaders = new Headers(response.headers);
     if (isClientPath) {
+      const ct = (newHeaders.get('content-type') || '').toLowerCase();
+      if (ct.includes('text/html')) {
+        newHeaders.set('Cache-Control', 'no-store, no-cache, must-revalidate, max-age=0');
+        newHeaders.delete('ETag');
+      }
       const tokenParam = url.searchParams.get('token');
       if (tokenParam) {
         const baseClientSlug = activeClientSlug.replace(/-(?:vollversion|vv|v1|v2)$/, '');
