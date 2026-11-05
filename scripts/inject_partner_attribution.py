@@ -110,6 +110,22 @@ SHOWCASE_CONFIGS = {
         "navy_hex": "#181818",
         "font_heading": "'Barlow', sans-serif",
     },
+    "preview-herzensarbeit": {
+        "routing_slug": "herzensarbeit",
+        "site_label": "Herzensarbeit — Anne-Katrin Koch (Härkingen & Oensingen)",
+        "entity_hint": "Praxis Herzensarbeit Anne-Katrin Koch",
+        "accent_hex": "#9A1536",
+        "navy_hex": "#1E2B34",
+        "font_heading": "'Josefin Sans', sans-serif",
+    },
+    "preview-herzensarbeit-v2": {
+        "routing_slug": "herzensarbeit-v2",
+        "site_label": "Herzensarbeit (Zeigeversion / Vorschau-Entwurf)",
+        "entity_hint": "Praxis Herzensarbeit Anne-Katrin Koch",
+        "accent_hex": "#9A1536",
+        "navy_hex": "#1E2B34",
+        "font_heading": "'Josefin Sans', sans-serif",
+    },
 }
 
 CSS_START = "/* === WEBPILOT-PARTNER-ATTRIBUTION-CSS-START === */"

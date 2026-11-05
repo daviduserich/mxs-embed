@@ -1,4 +1,11 @@
 const VORSCHAU_SLUG_TO_FOLDER = {
+  // Herzensarbeit (Anne-Katrin Koch): Zeigeversion (-v2, -v1, ohne Suffix) -> preview-herzensarbeit-v2 | Vollversion (-vollversion, -vv) -> preview-herzensarbeit
+  'herzensarbeit': 'preview-herzensarbeit-v2',
+  'herzensarbeit-v1': 'preview-herzensarbeit-v2',
+  'herzensarbeit-v2': 'preview-herzensarbeit-v2',
+  'herzensarbeit-vollversion': 'preview-herzensarbeit',
+  'herzensarbeit-vv': 'preview-herzensarbeit',
+
   // Free's: Zeigeversion (-v2, -v1, ohne Suffix) -> preview-frees-v2 | Vollversion (-vollversion, -vv) -> preview-frees
   'frees': 'preview-frees-v2',
   'frees-v1': 'preview-frees-v2',
@@ -78,7 +85,13 @@ const CLIENT_TOKENS = {
   'frees-v2': ['frees_sec_master', 'frees2026', 'frees-v22026'],
   'preview-frees-v2': ['frees_sec_master', 'frees2026', 'frees-v22026'],
   'frees-vollversion': ['frees_sec_master', 'frees2026', 'frees-v22026'],
-  'frees-vv': ['frees_sec_master', 'frees2026', 'frees-v22026']
+  'frees-vv': ['frees_sec_master', 'frees2026', 'frees-v22026'],
+  'herzensarbeit': ['herzensarbeit_sec_master', 'herzensarbeit2026', 'herzensarbeit-v22026'],
+  'preview-herzensarbeit': ['herzensarbeit_sec_master', 'herzensarbeit2026', 'herzensarbeit-v22026'],
+  'herzensarbeit-v2': ['herzensarbeit_sec_master', 'herzensarbeit2026', 'herzensarbeit-v22026'],
+  'preview-herzensarbeit-v2': ['herzensarbeit_sec_master', 'herzensarbeit2026', 'herzensarbeit-v22026'],
+  'herzensarbeit-vollversion': ['herzensarbeit_sec_master', 'herzensarbeit2026', 'herzensarbeit-v22026'],
+  'herzensarbeit-vv': ['herzensarbeit_sec_master', 'herzensarbeit2026', 'herzensarbeit-v22026']
 };
 
 function getValidTokens(rootSegment, clientSlug) {
