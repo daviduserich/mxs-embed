@@ -1,4 +1,11 @@
 const VORSCHAU_SLUG_TO_FOLDER = {
+  // IMP GmbH — Matthias Iseli (Schreinerei- & Holzbau-Marketing): Zeigeversion (-v2, -v1, ohne Suffix) -> preview-imp-marketing-v2 | Vollversion (-vollversion, -vv) -> preview-imp-marketing
+  'imp-marketing': 'preview-imp-marketing-v2',
+  'imp-marketing-v1': 'preview-imp-marketing-v2',
+  'imp-marketing-v2': 'preview-imp-marketing-v2',
+  'imp-marketing-vollversion': 'preview-imp-marketing',
+  'imp-marketing-vv': 'preview-imp-marketing',
+
   // Herzensarbeit (Anne-Katrin Koch): Zeigeversion (-v2, -v1, ohne Suffix) -> preview-herzensarbeit-v2 | Vollversion (-vollversion, -vv) -> preview-herzensarbeit
   'herzensarbeit': 'preview-herzensarbeit-v2',
   'herzensarbeit-v1': 'preview-herzensarbeit-v2',
@@ -97,7 +104,13 @@ const CLIENT_TOKENS = {
   'herzensarbeit-v2': ['herzensarbeit_sec_master', 'herzensarbeit2026', 'herzensarbeit-v22026'],
   'preview-herzensarbeit-v2': ['herzensarbeit_sec_master', 'herzensarbeit2026', 'herzensarbeit-v22026'],
   'herzensarbeit-vollversion': ['herzensarbeit_sec_master', 'herzensarbeit2026', 'herzensarbeit-v22026'],
-  'herzensarbeit-vv': ['herzensarbeit_sec_master', 'herzensarbeit2026', 'herzensarbeit-v22026']
+  'herzensarbeit-vv': ['herzensarbeit_sec_master', 'herzensarbeit2026', 'herzensarbeit-v22026'],
+  'imp-marketing': ['impmarketing_sec_master', 'impmarketing2026', 'imp-marketing2026', 'imp-marketing-v22026'],
+  'preview-imp-marketing': ['impmarketing_sec_master', 'impmarketing2026', 'imp-marketing2026', 'imp-marketing-v22026'],
+  'imp-marketing-v2': ['impmarketing_sec_master', 'impmarketing2026', 'imp-marketing2026', 'imp-marketing-v22026'],
+  'preview-imp-marketing-v2': ['impmarketing_sec_master', 'impmarketing2026', 'imp-marketing2026', 'imp-marketing-v22026'],
+  'imp-marketing-vollversion': ['impmarketing_sec_master', 'impmarketing2026', 'imp-marketing2026', 'imp-marketing-v22026'],
+  'imp-marketing-vv': ['impmarketing_sec_master', 'impmarketing2026', 'imp-marketing2026', 'imp-marketing-v22026']
 };
 
 function getValidTokens(rootSegment, clientSlug) {
@@ -224,7 +237,7 @@ export async function onRequest(context) {
     return context.next();
   }
 
-  const isReservedRoot = ['api', 'webpilot', 'boardroom', 'partner', 'images', 'css', 'js', 'fonts', 'favicon.ico', 'robots.txt'].includes(rootSegment);
+  const isReservedRoot = ['api', 'webpilot', 'boardroom', 'partner', 'reports', 'images', 'css', 'js', 'fonts', 'favicon.ico', 'robots.txt'].includes(rootSegment);
 
   // 2. Token-Guard & Multi-Tenant Isolation für Mandanten-Pfade
   if (rootSegment && !isReservedRoot) {
@@ -284,7 +297,7 @@ export async function onRequest(context) {
     let targetFolder = '';
 
     const match = url.pathname.match(/^\/([a-zA-Z0-9_-]+)(\/.*)?$/);
-    if (match && !['api', 'webpilot', 'boardroom', 'partner', 'mxs-talent', 'images', 'css', 'js', 'fonts'].includes(match[1])) {
+    if (match && !['api', 'webpilot', 'boardroom', 'partner', 'reports', 'mxs-talent', 'images', 'css', 'js', 'fonts'].includes(match[1])) {
       isClientPath = true;
       activeClientSlug = match[1].toLowerCase();
       const rest = match[2];

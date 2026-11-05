@@ -552,6 +552,91 @@
       padding-top: 8px;
     }
 
+    .job-actions .btn-span-full {
+      grid-column: 1 / -1;
+    }
+
+    .btn-audit-pdf {
+      background: rgba(240, 133, 45, 0.14);
+      border-color: rgba(240, 133, 45, 0.45);
+      color: var(--accent-text);
+    }
+
+    .btn-audit-pdf:hover:not(:disabled) {
+      background: rgba(240, 133, 45, 0.22);
+    }
+
+    .jobs-toolbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 18px;
+      padding: 12px 14px;
+      background: var(--bg-elevated);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+    }
+
+    .jobs-search-wrap {
+      flex: 1 1 260px;
+      min-width: 0;
+    }
+
+    .jobs-view-toggle {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .btn-view-mode.is-active {
+      background: rgba(240, 133, 45, 0.18);
+      border-color: var(--accent);
+      color: var(--accent-text);
+    }
+
+    .pricing-strip {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+      padding: 10px 14px;
+      background: rgba(240, 133, 45, 0.07);
+      border: 1px solid rgba(240, 133, 45, 0.25);
+      border-radius: 8px;
+      font-size: 13px;
+    }
+
+    .job-list-row {
+      background: var(--bg-elevated);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 14px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .job-list-main {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      flex: 1 1 280px;
+      min-width: 0;
+    }
+
+    .job-list-actions {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
     .hidden {
       display: none !important;
     }
@@ -843,6 +928,34 @@
                 <path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"></path>
               </svg>
               <span>Aktualisieren</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="jobs-toolbar">
+          <div class="jobs-search-wrap">
+            <input type="text" id="jobSearchInput" placeholder="Suche nach Firma, Verein, Ort, Slug oder Partner..." aria-label="Projekte durchsuchen">
+          </div>
+          <div class="jobs-view-toggle" role="group" aria-label="Ansicht wählen">
+            <button type="button" id="btnViewCards" class="btn btn-secondary btn-sm btn-view-mode is-active">
+              <svg class="lucide" viewBox="0 0 24 24">
+                <rect x="3" y="3" width="7" height="7"></rect>
+                <rect x="14" y="3" width="7" height="7"></rect>
+                <rect x="14" y="14" width="7" height="7"></rect>
+                <rect x="3" y="14" width="7" height="7"></rect>
+              </svg>
+              <span>Kachel-Ansicht</span>
+            </button>
+            <button type="button" id="btnViewList" class="btn btn-secondary btn-sm btn-view-mode">
+              <svg class="lucide" viewBox="0 0 24 24">
+                <line x1="8" y1="6" x2="21" y2="6"></line>
+                <line x1="8" y1="12" x2="21" y2="12"></line>
+                <line x1="8" y1="18" x2="21" y2="18"></line>
+                <line x1="3" y1="6" x2="3.01" y2="6"></line>
+                <line x1="3" y1="12" x2="3.01" y2="12"></line>
+                <line x1="3" y1="18" x2="3.01" y2="18"></line>
+              </svg>
+              <span>Listen-Ansicht</span>
             </button>
           </div>
         </div>
@@ -1151,6 +1264,43 @@
 
       const FALLBACK_SEED_JOBS = [
   {
+    "job_id": "job_impmarketing_20261105",
+    "company_name": "IMP GmbH — Matthias Iseli (Schreinerei-Marketing)",
+    "city": "Obersteckholz BE",
+    "slug": "imp-marketing",
+    "source_url": "https://imp-marketing.ch/",
+    "has_chatgpt_html": false,
+    "chatgpt_filename": "",
+    "chatgpt_html_length": 0,
+    "context_notes": "Spezialisiertes Digital- & Sichtbarkeits-System für Schreinereien und Holzbau-Betriebe (1–15 Mitarbeitende) in der Deutschschweiz. Inhaber Matthias Iseli (Schreiner EFZ, 15+ Jahre Erfahrung, Erfinder des «IMP Sichtbarkeits-Tragwerks»).",
+    "assets_count": 28,
+    "status": "completed",
+    "created_by": "david",
+    "created_by_name": "David Hügli",
+    "submitted_by": "david",
+    "partner_name": "David Hügli",
+    "created_at": "2026-11-05 12:35:00",
+    "completed_at": "2026-11-05 13:55:00",
+    "v2_url": "https://vorschau.magnet-xs.ch/imp-marketing-v2/",
+    "vollversion_url": "https://vorschau.magnet-xs.ch/imp-marketing-vollversion/",
+    "preview_url": "https://vorschau.magnet-xs.ch/imp-marketing-v2/",
+    "cockpit_url": "https://vorschau.magnet-xs.ch/imp-marketing-vollversion/cockpit.html?token=impmarketing2026",
+    "access_token": "impmarketing2026",
+    "summary": "Zeigeversion (-v2 mit voll ausgebauter Startseite & 4 Unterseiten als Ausbaustufe) und 5-Seiten Vollversion (-vollversion inkl. Leistungen, Methode, Über uns, Kontakt & Studio Cockpit v4.0) auf Swiss Edge live.",
+    "aha_points": [
+      "100 % Bereinigung aller englischen GoHighLevel-Template-Reste (Jane Doe, 25+ Years Experience, englische FAQs) zugunsten echter Schweizer Schreiner-EFZ-Substanz",
+      "Interaktiver «Sichtbarkeits- & Anfrage-Potenzial-Rechner für Schreinereien & Holzbau» nach Betriebsgrösse (1–15 Mitarbeitende) und Schwerpunkt",
+      "4 klar strukturierte Leistungs-Säulen (Webseiten, Google-Geschäftsprofil, Anfrage-Systeme, Datenautomation) plus 3-Schritte Smart-Anfrage mit PDF-Dossier"
+    ],
+    "is_active": true,
+    "complexity_score": "4.8 / 10.0",
+    "pricing_formula_chf": "CHF 2'150.—",
+    "pricing_recommended_chf": "CHF 2'400.—",
+    "pricing_rationale": "Spezialisierter 5-Seiten-B2B-Auftritt für Schreinerei- & Holzbau-Marketing inkl. 16 Prozess-Visuals, interaktivem Schreinerei-Potenzial-Rechner, 6 Fach-FAQs und 3-Schritte Smart-Anfrage. Durch ein einziges gewonnenes Schreinerei-Mandat mehrfach refinanziert.",
+    "audit_report_url": "https://vorschau.magnet-xs.ch/reports/imp-marketing-vorher-nachher-report.pdf",
+    "audit_report_html_url": "https://vorschau.magnet-xs.ch/reports/imp-marketing-vorher-nachher-report.html"
+  },
+  {
     "job_id": "job_herzensarbeit_20261105",
     "company_name": "Herzensarbeit — Anne-Katrin Koch",
     "city": "Härkingen & Oensingen SO",
@@ -1176,7 +1326,14 @@
       "Klare Trennung der 4 Begleitungsfelder (Paartherapie, Trennungsberatung, Trauerbegleitung, Achtsamkeit & Frauen-Workshops)",
       "3-Schritte Smart-Anfrage für Erstgespräche in Härkingen (SO) oder Online ohne Hemmschwelle",
       "Zweistufige Präsentation: Schlanke Zeigeversion (-v2) für den Erstkontakt und ausgebaute 5-Seiten Vollversion (-vollversion)"
-    ]
+    ],
+    "is_active": true,
+    "complexity_score": "3.5 / 10.0",
+    "pricing_formula_chf": "CHF 1'650.—",
+    "pricing_recommended_chf": "CHF 1'500.—",
+    "pricing_rationale": "Kompakte 5-Seiten-Praxiswebseite (Coaching & Kinesiologie) mit ca. 15 Bildern und Workshop-Sektion. Durch einen einzigen ausgebuchten Workshop (8 Teilnehmende) bereits zu 100 % amortisiert.",
+    "audit_report_url": "https://vorschau.magnet-xs.ch/reports/herzensarbeit-vorher-nachher-report.pdf",
+    "audit_report_html_url": "https://vorschau.magnet-xs.ch/reports/herzensarbeit-vorher-nachher-report.html"
   },
   {
     "job_id": "job_frees_20261104",
@@ -1204,7 +1361,14 @@
       "Strukturierte Produkt- & Veredelungs-Übersicht (Textildruck, Stickerei, Teamsport, Workwear & Promowear)",
       "Direkter Offerten-Konfigurator für Vereine und KMU ab 1 Stück bis Grossserie",
       "Zweistufiges Vorführ-Modell: Zeigeversion (-v2) für Kunden und 100-%-Vollversion (-vollversion) mit Cockpit"
-    ]
+    ],
+    "is_active": true,
+    "complexity_score": "3.2 / 10.0",
+    "pricing_formula_chf": "CHF 1'550.—",
+    "pricing_recommended_chf": "CHF 1'500.—",
+    "pricing_rationale": "Schlanke 5-Seiten-Gewerbeseite (Teamsport & Textildruck) mit 14 extern verlinkten Marken-Katalogen ohne komplexes Daten-Backend. Perfekter Einstiegs-Sweet-Spot für sofortige Zusage.",
+    "audit_report_url": "https://vorschau.magnet-xs.ch/reports/frees-vorher-nachher-report.pdf",
+    "audit_report_html_url": "https://vorschau.magnet-xs.ch/reports/frees-vorher-nachher-report.html"
   },
   {
     "job_id": "job_innere_staerke_20261104",
@@ -1232,63 +1396,14 @@
       "Souveräne Positionierung für Führungskräfte-Sparring, Team-Resilienz und KMU-Begleitung",
       "Echte Kundenstimmen & messbare Praxis-Ergebnisse klar strukturiert aufbereitet",
       "3-Schritte Standortbestimmungs-Anfrage direkt mit Kalender- & WhatsApp-Anbindung"
-    ]
-  },
-  {
-    "job_id": "job_fcschlieren_20261104",
-    "company_name": "FC Schlieren (33 Teams)",
-    "city": "Schlieren ZH",
-    "slug": "fcschlieren",
-    "source_url": "https://www.fcschlieren.ch/",
-    "has_chatgpt_html": false,
-    "chatgpt_filename": "",
-    "chatgpt_html_length": 0,
-    "context_notes": "Fussballclub Schlieren ZH mit 33 Teams, Sponsoren-Matrix, Team-Update-Formular & Studio Cockpit v4.0.",
-    "assets_count": 28,
-    "status": "completed",
-    "created_by": "jenny",
-    "created_by_name": "Jenny Ettle (JE-MI)",
-    "created_at": "2026-11-02 17:00:00",
-    "completed_at": "2026-11-04 07:12:00",
-    "v2_url": "https://vorschau.magnet-xs.ch/fcschlieren-v2/",
-    "vollversion_url": "https://vorschau.magnet-xs.ch/fcschlieren-vollversion/",
-    "preview_url": "https://vorschau.magnet-xs.ch/fcschlieren-v2/",
-    "cockpit_url": "https://vorschau.magnet-xs.ch/fcschlieren-vollversion/cockpit?token=fcschlieren2026",
-    "access_token": "fcschlieren2026",
-    "summary": "Vereins-Plattform für 33 Teams inkl. Zeigeversion (-v2), Vollversion (-vollversion), Team-Self-Service-Formular und Sponsoren-Präsentation.",
-    "aha_points": [
-      "Alle 33 Teams (Aktive, Frauen, Junioren A–G, Senioren) übersichtlich nach Kategorien filterbar",
-      "Eigenes Trainer- & Team-Update-Formular für Kaderfotos, Trainingszeiten und Sponsoren ohne Webmaster-Aufwand",
-      "Hochwertige Sponsoren-Bühne für Hauptsponsoren und lokale Gewerbe-Partner"
-    ]
-  },
-  {
-    "job_id": "job_scfulenbach_20261104",
-    "company_name": "SC Fulenbach (14 Teams)",
-    "city": "Fulenbach SO",
-    "slug": "scfulenbach",
-    "source_url": "https://www.scfulenbach.ch/",
-    "has_chatgpt_html": false,
-    "chatgpt_filename": "",
-    "chatgpt_html_length": 0,
-    "context_notes": "Sportclub Fulenbach SO (14 Teams, Vereinsleben, Sponsoren & Team-Update).",
-    "assets_count": 18,
-    "status": "completed",
-    "created_by": "jenny",
-    "created_by_name": "Jenny Ettle (JE-MI)",
-    "created_at": "2026-11-02 17:20:00",
-    "completed_at": "2026-11-04 07:12:00",
-    "v2_url": "https://vorschau.magnet-xs.ch/scfulenbach-v2/",
-    "vollversion_url": "https://vorschau.magnet-xs.ch/scfulenbach-vollversion/",
-    "preview_url": "https://vorschau.magnet-xs.ch/scfulenbach-v2/",
-    "cockpit_url": "https://vorschau.magnet-xs.ch/scfulenbach-vollversion/cockpit?token=scfulenbach2026",
-    "access_token": "scfulenbach2026",
-    "summary": "Vereins-Auftritt für 14 Teams inkl. Herren 1 Muster-Teamseite, Team-Update-Onboarding und Studio Cockpit v4.0.",
-    "aha_points": [
-      "14 Mannschaften strukturiert mit direktem Einstieg für Spieler, Eltern und Sponsoren",
-      "Integriertes Team-Update-Formular für Trainer und Funktionäre per Smartphone",
-      "Sponsoren-Präsentation und Vereins-Newsroom über das Studio Cockpit steuerbar"
-    ]
+    ],
+    "is_active": true,
+    "complexity_score": "4.2 / 10.0",
+    "pricing_formula_chf": "CHF 1'900.—",
+    "pricing_recommended_chf": "CHF 2'200.—",
+    "pricing_rationale": "5-Seiten-Auftritt für 2 Partnerinnen im B2B-Führungskräfte-Coaching inkl. Buch-Integration. Hoher Kundenwert pro B2B-Mandat rechtfertigt CHF 2'200.— mühelos.",
+    "audit_report_url": "https://vorschau.magnet-xs.ch/reports/innere-staerke-vorher-nachher-report.pdf",
+    "audit_report_html_url": "https://vorschau.magnet-xs.ch/reports/innere-staerke-vorher-nachher-report.html"
   },
   {
     "job_id": "job_fcattiswil_20261104",
@@ -1316,7 +1431,84 @@
       "Moderne Vereins-Präsenz für alle 14 Teams mit klarer Junioren- und Aktiv-Gliederung",
       "Smartphone-taugliches Team-Update-Formular für Kaderdaten und Matchberichte",
       "Attraktive Sponsoren-Sichtbarkeit für das lokale Gewerbe im Oberaargau / Leberberg"
-    ]
+    ],
+    "is_active": true,
+    "complexity_score": "8.2 / 10.0",
+    "pricing_formula_chf": "CHF 3'700.—",
+    "pricing_recommended_chf": "CHF 3'900.—",
+    "pricing_rationale": "Fussballverein mit vielen Mannschaften, Junioren, Sponsoren-Präsenz & 5-Blöcke Team-Einreichungs-Engine. Ein einziger neuer Hauptsponsor refinanziert bereits die halbe Webseite.",
+    "audit_report_url": "https://vorschau.magnet-xs.ch/reports/fcattiswil-vorher-nachher-report.pdf",
+    "audit_report_html_url": "https://vorschau.magnet-xs.ch/reports/fcattiswil-vorher-nachher-report.html"
+  },
+  {
+    "job_id": "job_scfulenbach_20261104",
+    "company_name": "SC Fulenbach (14 Teams)",
+    "city": "Fulenbach SO",
+    "slug": "scfulenbach",
+    "source_url": "https://www.scfulenbach.ch/",
+    "has_chatgpt_html": false,
+    "chatgpt_filename": "",
+    "chatgpt_html_length": 0,
+    "context_notes": "Sportclub Fulenbach SO (14 Teams, Vereinsleben, Sponsoren & Team-Update).",
+    "assets_count": 18,
+    "status": "completed",
+    "created_by": "jenny",
+    "created_by_name": "Jenny Ettle (JE-MI)",
+    "created_at": "2026-11-02 17:20:00",
+    "completed_at": "2026-11-04 07:12:00",
+    "v2_url": "https://vorschau.magnet-xs.ch/scfulenbach-v2/",
+    "vollversion_url": "https://vorschau.magnet-xs.ch/scfulenbach-vollversion/",
+    "preview_url": "https://vorschau.magnet-xs.ch/scfulenbach-v2/",
+    "cockpit_url": "https://vorschau.magnet-xs.ch/scfulenbach-vollversion/cockpit?token=scfulenbach2026",
+    "access_token": "scfulenbach2026",
+    "summary": "Vereins-Auftritt für 14 Teams inkl. Herren 1 Muster-Teamseite, Team-Update-Onboarding und Studio Cockpit v4.0.",
+    "aha_points": [
+      "14 Mannschaften strukturiert mit direktem Einstieg für Spieler, Eltern und Sponsoren",
+      "Integriertes Team-Update-Formular für Trainer und Funktionäre per Smartphone",
+      "Sponsoren-Präsentation und Vereins-Newsroom über das Studio Cockpit steuerbar"
+    ],
+    "is_active": true,
+    "complexity_score": "8.5 / 10.0",
+    "pricing_formula_chf": "CHF 3'850.—",
+    "pricing_recommended_chf": "CHF 4'200.—",
+    "pricing_rationale": "Traditionsverein mit breiter Aktiv-/Junioren-Struktur, Sponsoren-Matrix, Vereinschronik und dezentralem Team-Onboarding-Formular.",
+    "audit_report_url": "https://vorschau.magnet-xs.ch/reports/scfulenbach-vorher-nachher-report.pdf",
+    "audit_report_html_url": "https://vorschau.magnet-xs.ch/reports/scfulenbach-vorher-nachher-report.html"
+  },
+  {
+    "job_id": "job_fcschlieren_20261104",
+    "company_name": "FC Schlieren (33 Teams)",
+    "city": "Schlieren ZH",
+    "slug": "fcschlieren",
+    "source_url": "https://www.fcschlieren.ch/",
+    "has_chatgpt_html": false,
+    "chatgpt_filename": "",
+    "chatgpt_html_length": 0,
+    "context_notes": "Fussballclub Schlieren ZH mit 33 Teams, Sponsoren-Matrix, Team-Update-Formular & Studio Cockpit v4.0.",
+    "assets_count": 28,
+    "status": "completed",
+    "created_by": "jenny",
+    "created_by_name": "Jenny Ettle (JE-MI)",
+    "created_at": "2026-11-02 17:00:00",
+    "completed_at": "2026-11-04 07:12:00",
+    "v2_url": "https://vorschau.magnet-xs.ch/fcschlieren-v2/",
+    "vollversion_url": "https://vorschau.magnet-xs.ch/fcschlieren-vollversion/",
+    "preview_url": "https://vorschau.magnet-xs.ch/fcschlieren-v2/",
+    "cockpit_url": "https://vorschau.magnet-xs.ch/fcschlieren-vollversion/cockpit?token=fcschlieren2026",
+    "access_token": "fcschlieren2026",
+    "summary": "Vereins-Plattform für 33 Teams inkl. Zeigeversion (-v2), Vollversion (-vollversion), Team-Self-Service-Formular und Sponsoren-Präsentation.",
+    "aha_points": [
+      "Alle 33 Teams (Aktive, Frauen, Junioren A–G, Senioren) übersichtlich nach Kategorien filterbar",
+      "Eigenes Trainer- & Team-Update-Formular für Kaderfotos, Trainingszeiten und Sponsoren ohne Webmaster-Aufwand",
+      "Hochwertige Sponsoren-Bühne für Hauptsponsoren und lokale Gewerbe-Partner"
+    ],
+    "is_active": true,
+    "complexity_score": "9.4 / 10.0",
+    "pricing_formula_chf": "CHF 4'300.—",
+    "pricing_recommended_chf": "CHF 4'500.—",
+    "pricing_rationale": "Grossverein im Raum Zürich (über 20 Teams, hunderte Spieler-/Kaderdaten, Sponsoren-Architektur & Team-Onboarding-Engine). Gegenüber einer klassischen 12'000-Franken-Agenturofferte extrem attraktiv.",
+    "audit_report_url": "https://vorschau.magnet-xs.ch/reports/fcschlieren-vorher-nachher-report.pdf",
+    "audit_report_html_url": "https://vorschau.magnet-xs.ch/reports/fcschlieren-vorher-nachher-report.html"
   },
   {
     "job_id": "job_her11_20261030",
@@ -1344,7 +1536,14 @@
       "Starke Marken-Identität mit klarer Führung durch Ausbildung, Begleitung und Partner-Programm",
       "Interaktive 3-Schritte Anfrage-Weiche für Spielerinnen, Vereine und Sponsoren",
       "Volle Eigenregie über Texte, Bilder und Sektionen im WebPilot Studio Cockpit v4.0"
-    ]
+    ],
+    "is_active": true,
+    "complexity_score": "5.8 / 10.0",
+    "pricing_formula_chf": "CHF 2'600.—",
+    "pricing_recommended_chf": "CHF 2'800.—",
+    "pricing_rationale": "Gehobene Marken- & Lookbook-Inszenierung mit hoher Bilddichte und laufendem Kollektions-Wechsel über das Studio Cockpit v4.0.",
+    "audit_report_url": "https://vorschau.magnet-xs.ch/reports/her11-vorher-nachher-report.pdf",
+    "audit_report_html_url": "https://vorschau.magnet-xs.ch/reports/her11-vorher-nachher-report.html"
   },
   {
     "job_id": "job_hochuli_20261029",
@@ -1372,13 +1571,48 @@
       "5 Sparten (Hoch- & Tiefbau, Holzbau, Bedachungen/Fassaden, Immobilien, Baumulden) mit eigenem Farbleitsystem klar getrennt",
       "19 echte Projektfotos & 13 Sekunden Luftaufnahme-Video lokal optimiert und blitzschnell auf Swiss Edge eingebunden",
       "Sektionen für aktuelle Einblicke (#social-media) und Fachwissen aus dem Ruedertal (#blog) inklusive Mulden-Bestellrechner"
-    ]
-  },
+    ],
+    "is_active": true,
+    "complexity_score": "7.8 / 10.0",
+    "pricing_formula_chf": "CHF 3'500.—",
+    "pricing_recommended_chf": "CHF 3'800.—",
+    "pricing_rationale": "Grosses Bau- & Gewerbe-KMU mit 5 eigenen Sparten (eigenes Farbleitsystem), 19 Projektfotos, Luftaufnahme-Video und interaktivem Mulden-Bestellrechner.",
+    "audit_report_url": "https://vorschau.magnet-xs.ch/reports/hochuli-vorher-nachher-report.pdf",
+    "audit_report_html_url": "https://vorschau.magnet-xs.ch/reports/hochuli-vorher-nachher-report.html"
+  }
 ];
+
+      let currentJobsData = FALLBACK_SEED_JOBS.slice();
+      let currentViewMode = "cards";
+      const jobSearchInput = document.getElementById("jobSearchInput");
+      const btnViewCards = document.getElementById("btnViewCards");
+      const btnViewList = document.getElementById("btnViewList");
+
+      if (btnViewCards && btnViewList) {
+        btnViewCards.addEventListener("click", function () {
+          currentViewMode = "cards";
+          btnViewCards.classList.add("is-active");
+          btnViewList.classList.remove("is-active");
+          renderJobs(currentJobsData);
+        });
+        btnViewList.addEventListener("click", function () {
+          currentViewMode = "list";
+          btnViewList.classList.add("is-active");
+          btnViewCards.classList.remove("is-active");
+          renderJobs(currentJobsData);
+        });
+      }
+
+      if (jobSearchInput) {
+        jobSearchInput.addEventListener("input", function () {
+          renderJobs(currentJobsData);
+        });
+      }
 
       async function loadJobs() {
         if (!currentToken) {
-          renderJobs(FALLBACK_SEED_JOBS);
+          currentJobsData = FALLBACK_SEED_JOBS.slice();
+          renderJobs(currentJobsData);
           return;
         }
         try {
@@ -1388,7 +1622,8 @@
             return;
           }
           if (!resp.data || !resp.data.ok) {
-            renderJobs(FALLBACK_SEED_JOBS);
+            currentJobsData = FALLBACK_SEED_JOBS.slice();
+            renderJobs(currentJobsData);
             return;
           }
           if (resp.data.google_sheet_url) {
@@ -1397,23 +1632,129 @@
             if (b1) b1.href = resp.data.google_sheet_url;
             if (b2) b2.href = resp.data.google_sheet_url;
           }
-          renderJobs((resp.data.jobs && resp.data.jobs.length) ? resp.data.jobs : FALLBACK_SEED_JOBS);
+          currentJobsData = (resp.data.jobs && resp.data.jobs.length) ? resp.data.jobs : FALLBACK_SEED_JOBS.slice();
+          renderJobs(currentJobsData);
         } catch (err) {
-          renderJobs(FALLBACK_SEED_JOBS);
+          currentJobsData = FALLBACK_SEED_JOBS.slice();
+          renderJobs(currentJobsData);
         }
       }
 
       function renderJobs(jobs) {
         jobsContainer.textContent = "";
-        if (!jobs.length) {
+        const q = jobSearchInput ? (jobSearchInput.value || "").trim().toLowerCase() : "";
+        const filtered = (jobs || []).filter(function (j) {
+          if (!q) return true;
+          const hay = [
+            j.company_name || "",
+            j.city || "",
+            j.slug || "",
+            j.created_by_name || "",
+            j.summary || "",
+            j.pricing_recommended_chf || ""
+          ].join(" ").toLowerCase();
+          return hay.indexOf(q) !== -1;
+        });
+
+        if (!filtered.length) {
           const empty = document.createElement("div");
           empty.style.color = "var(--text-secondary)";
-          empty.textContent = "Noch keine Vorschau-Aufträge vorhanden.";
+          empty.textContent = "Keine passenden Vorschau-Aufträge gefunden.";
           jobsContainer.appendChild(empty);
           return;
         }
 
-        jobs.forEach(function (job) {
+        filtered.forEach(function (job) {
+          const baseSlug = String(job.slug || "mandant").replace(/-(?:vollversion|vv|v1|v2)$/, "");
+          const tokenStr = job.access_token || (baseSlug + "2026");
+          const v2Href = job.v2_url || ("https://vorschau.magnet-xs.ch/" + baseSlug + "-v2/");
+          const vollHref = job.vollversion_url || ("https://vorschau.magnet-xs.ch/" + baseSlug + "-vollversion/");
+          const cockpitHref = job.cockpit_url || ("https://vorschau.magnet-xs.ch/" + baseSlug + "-vollversion/cockpit?token=" + tokenStr);
+          const auditPdfHref = job.audit_report_url || ("https://vorschau.magnet-xs.ch/reports/" + baseSlug + "-vorher-nachher-report.pdf");
+          const isCompleted = job.status === "completed";
+
+          if (currentViewMode === "list") {
+            const row = document.createElement("article");
+            row.className = "job-list-row";
+
+            const mainCol = document.createElement("div");
+            mainCol.className = "job-list-main";
+
+            const titleLine = document.createElement("div");
+            titleLine.className = "job-title";
+            titleLine.style.fontSize = "16px";
+            titleLine.appendChild(document.createTextNode(job.company_name || job.slug));
+            if (job.city) {
+              const cSpan = document.createElement("span");
+              cSpan.style.fontSize = "13px";
+              cSpan.style.fontWeight = "500";
+              cSpan.style.color = "var(--text-secondary)";
+              cSpan.textContent = "· " + job.city;
+              titleLine.appendChild(cSpan);
+            }
+
+            const subLine = document.createElement("div");
+            subLine.className = "job-meta-row";
+            const priceTxt = job.pricing_recommended_chf ? ("Empfehlung: " + job.pricing_recommended_chf + (job.complexity_score ? " (Score " + job.complexity_score + ")" : "") + " · ") : "";
+            subLine.textContent = priceTxt + "Slug: " + baseSlug + " · Partner: " + (job.created_by_name || "Jenny Ettle (JE-MI)");
+
+            mainCol.appendChild(titleLine);
+            mainCol.appendChild(subLine);
+
+            const actCol = document.createElement("div");
+            actCol.className = "job-list-actions";
+
+            const bV2 = document.createElement("a");
+            bV2.className = "btn btn-primary btn-sm";
+            bV2.href = v2Href;
+            bV2.target = "_blank";
+            bV2.rel = "noopener noreferrer";
+            bV2.appendChild(createSvgIcon('<path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line>'));
+            const sV2 = document.createElement("span");
+            sV2.textContent = "Zeigeversion (-v2)";
+            bV2.appendChild(sV2);
+
+            const bVoll = document.createElement("a");
+            bVoll.className = "btn btn-secondary btn-sm";
+            bVoll.href = vollHref;
+            bVoll.target = "_blank";
+            bVoll.rel = "noopener noreferrer";
+            bVoll.appendChild(createSvgIcon('<rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="9" y1="21" x2="9" y2="9"></line>'));
+            const sVoll = document.createElement("span");
+            sVoll.textContent = "Vollversion";
+            bVoll.appendChild(sVoll);
+
+            const bCock = document.createElement("a");
+            bCock.className = "btn btn-secondary btn-sm";
+            bCock.href = cockpitHref;
+            bCock.target = "_blank";
+            bCock.rel = "noopener noreferrer";
+            bCock.appendChild(createSvgIcon('<circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>'));
+            const sCock = document.createElement("span");
+            sCock.textContent = "Cockpit v4.0";
+            bCock.appendChild(sCock);
+
+            const bPdf = document.createElement("a");
+            bPdf.className = "btn btn-audit-pdf btn-sm";
+            bPdf.href = auditPdfHref;
+            bPdf.target = "_blank";
+            bPdf.rel = "noopener noreferrer";
+            bPdf.appendChild(createSvgIcon('<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line>'));
+            const sPdf = document.createElement("span");
+            sPdf.textContent = "Vorher/Nachher-PDF ↗";
+            bPdf.appendChild(sPdf);
+
+            actCol.appendChild(bV2);
+            actCol.appendChild(bVoll);
+            actCol.appendChild(bCock);
+            actCol.appendChild(bPdf);
+
+            row.appendChild(mainCol);
+            row.appendChild(actCol);
+            jobsContainer.appendChild(row);
+            return;
+          }
+
           const card = document.createElement("article");
           card.className = "job-card";
 
@@ -1443,13 +1784,31 @@
           titleWrap.appendChild(metaRow);
 
           const statusBadge = document.createElement("span");
-          const isCompleted = job.status === "completed";
           statusBadge.className = "badge-4 " + (isCompleted ? "badge-live" : "badge-queue");
           statusBadge.textContent = isCompleted ? "LIVE AUF SWISS EDGE" : (job.status === "in_progress" ? "IN ARBEIT DURCH ANTIGRAVITY" : "IN QUEUE EINGEREIHT");
 
           top.appendChild(titleWrap);
           top.appendChild(statusBadge);
           card.appendChild(top);
+
+          if (job.pricing_recommended_chf) {
+            const pStrip = document.createElement("div");
+            pStrip.className = "pricing-strip";
+            const pLeft = document.createElement("div");
+            const pStrong = document.createElement("strong");
+            pStrong.style.color = "var(--accent-text)";
+            pStrong.textContent = "Empfohlener Verkaufspreis: " + job.pricing_recommended_chf;
+            pLeft.appendChild(pStrong);
+            if (job.complexity_score || job.pricing_formula_chf) {
+              const pSub = document.createElement("span");
+              pSub.style.color = "var(--text-secondary)";
+              pSub.style.marginLeft = "10px";
+              pSub.textContent = "Komplexitäts-Score: " + (job.complexity_score || "5.0 / 10.0") + " · Formel-Richtwert: " + (job.pricing_formula_chf || job.pricing_recommended_chf);
+              pLeft.appendChild(pSub);
+            }
+            pStrip.appendChild(pLeft);
+            card.appendChild(pStrip);
+          }
 
           if (job.summary) {
             const sumP = document.createElement("p");
@@ -1484,12 +1843,6 @@
             card.appendChild(ahaBox);
           }
 
-          const baseSlug = String(job.slug || "mandant").replace(/-(?:vollversion|vv|v1|v2)$/, "");
-          const tokenStr = job.access_token || (baseSlug + "2026");
-          const v2Href = job.v2_url || ("https://vorschau.magnet-xs.ch/" + baseSlug + "-v2/");
-          const vollHref = job.vollversion_url || ("https://vorschau.magnet-xs.ch/" + baseSlug + "-vollversion/");
-          const cockpitHref = job.cockpit_url || ("https://vorschau.magnet-xs.ch/" + baseSlug + "-vollversion/cockpit?token=" + tokenStr);
-
           const actions = document.createElement("div");
           actions.className = "job-actions";
 
@@ -1523,9 +1876,19 @@
           cockLabel.textContent = "Studio Cockpit v4.0 öffnen";
           btnCockpit.appendChild(cockLabel);
 
+          const btnAuditPdf = document.createElement("a");
+          btnAuditPdf.className = "btn btn-audit-pdf btn-sm";
+          btnAuditPdf.href = auditPdfHref;
+          btnAuditPdf.target = "_blank";
+          btnAuditPdf.rel = "noopener noreferrer";
+          btnAuditPdf.appendChild(createSvgIcon('<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line>'));
+          const auditLabel = document.createElement("span");
+          auditLabel.textContent = "Vorher/Nachher-PDF ↗";
+          btnAuditPdf.appendChild(auditLabel);
+
           const btnWhatsapp = document.createElement("button");
           btnWhatsapp.type = "button";
-          btnWhatsapp.className = "btn btn-secondary btn-sm";
+          btnWhatsapp.className = "btn btn-secondary btn-sm btn-span-full";
           btnWhatsapp.appendChild(createSvgIcon('<rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect><line x1="12" y1="18" x2="12.01" y2="18"></line>'));
           const waLabel = document.createElement("span");
           waLabel.textContent = "Links per WhatsApp ans Natel senden";
@@ -1556,6 +1919,7 @@
           actions.appendChild(btnV2);
           actions.appendChild(btnVoll);
           actions.appendChild(btnCockpit);
+          actions.appendChild(btnAuditPdf);
           actions.appendChild(btnWhatsapp);
           card.appendChild(actions);
 

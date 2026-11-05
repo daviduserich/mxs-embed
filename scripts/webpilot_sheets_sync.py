@@ -1,14 +1,16 @@
 #!/usr/bin/env python3
 """
-WebPilot — Kunden- & URL-Zentrale (Google Sheets Live-Sync)
-===========================================================
-Synchronisiert alle WebPilot-Vorschauen (Zeigeversion -v2, Vollversion -vollversion,
+WebPilot — Kunden- & URL-Zentrale (Google Sheets Live-Sync inkl. 2-Stufen Preis-Engine)
+=======================================================================================
+Synchronisiert alle WebPilot-Vorschauen (Aktiv, Firma/Verein, Preisempfehlung & Score,
+Preis-Begruendung & Aha-Punkte, Zeigeversion -v2, Vollversion -vollversion,
 Studio Cockpit v4.0, Original-Webseite & Kontext, Partner, Status & Datum) mit der
 zentralen Google-Tabelle fuer Jenny Ettle (JE-MI) & David Huegli (Magnet XS).
 
 Regel-Konformitaet:
 - BACKEND-DB-RULES.md (Canary: BACKEND-DB-2026-V1, #BE-07 Retry & Zero-Silent-Failure)
 - LANG-KODEX-CH.md (Canary: LANG-CH-2026-V1, 100 % ss statt Eszett)
+- UI-LAYOUT-RULES.md (Canary: UI-LAYOUT-2026-V1, #UI-07 Punkt 3 Maximalwert / 10.0)
 """
 
 from __future__ import annotations
@@ -16,6 +18,7 @@ from __future__ import annotations
 import argparse
 import json
 import os
+import re
 import time
 import urllib.parse
 from datetime import datetime
@@ -30,6 +33,8 @@ DEFAULT_SPREADSHEET_ID = "1O3EqOCqGS5HbE5rWxIBoTk8lLA0a2Pz30F7yKiEbRms"
 DEFAULT_SPREADSHEET_URL = f"https://docs.google.com/spreadsheets/d/{DEFAULT_SPREADSHEET_ID}/edit"
 DEFAULT_TAB_TITLE = "Kunden & URL-Zentrale"
 
+EXCLUDED_PARTNER_SLUGS = {"hiltbrand", "birchmeier", "preview-birchmeier", "preview-hiltbrand"}
+
 SA_PATHS = [
     "/home/brainuser/.config/gcloud/legacy_credentials/pro-0396-acp-authen-cont-pilot@appspot.gserviceaccount.com/adc.json",
     r"C:\Users\Daviduserich\AppData\Roaming\gcloud\legacy_credentials\pro-0396-acp-authen-cont-pilot@appspot.gserviceaccount.com\adc.json",
@@ -43,9 +48,12 @@ PARTNER_CONFIG_PATHS = [
 HEADERS = [
     "Aktiv",
     "Firma / Verein",
+    "Preisempfehlung (Markt & Score)",
+    "Preis-Begründung & Aha-Punkte",
     "Zeigeversion (-v2 für Kunden)",
     "Vollversion (-vollversion für uns)",
     "Studio Cockpit v4.0",
+    "Vorher/Nachher-Report (PDF)",
     "Original-Webseite & Kontext",
     "Partner",
     "Status & Datum",
@@ -53,9 +61,24 @@ HEADERS = [
 
 SEED_PROJECTS = [
     {
+        "slug": "imp-marketing",
+        "active": True,
+        "company": "IMP GmbH — Matthias Iseli (Schreinerei-Marketing)",
+        "pricing_display": "CHF 2'400.—\nScore: 4.8 / 10.0 · Formel: CHF 2'150.—",
+        "pricing_rationale": "Spezialisierter 5-Seiten-B2B-Auftritt für Schreinerei- & Holzbau-Marketing inkl. 16 Prozess-Visuals, interaktivem Schreinerei-Potenzial-Rechner, 6 Fach-FAQs und 3-Schritte Smart-Anfrage. Durch ein einziges gewonnenes Schreinerei-Mandat mehrfach refinanziert.",
+        "v2_url": "https://vorschau.magnet-xs.ch/imp-marketing-v2/",
+        "vollversion_url": "https://vorschau.magnet-xs.ch/imp-marketing-vollversion/",
+        "cockpit_url": "https://vorschau.magnet-xs.ch/imp-marketing-vollversion/cockpit.html?token=impmarketing2026",
+        "source_context": "https://imp-marketing.ch/ — Sichtbarkeits- & Anfrage-System für Schreinereien & Holzbau (Matthias Iseli, Schreiner EFZ, 4924 Obersteckholz)",
+        "partner": "David Hügli",
+        "status": "🟢 Bereit zum Zeigen (05.11.2026)",
+    },
+    {
         "slug": "herzensarbeit",
         "active": True,
         "company": "Herzensarbeit — Anne-Katrin Koch (Härkingen SO)",
+        "pricing_display": "CHF 1'500.—\nScore: 3.5 / 10.0 · Formel: CHF 1'650.—",
+        "pricing_rationale": "Kompakte 5-Seiten-Praxiswebseite (Coaching & Kinesiologie) mit ca. 15 Bildern und Workshop-Sektion. Durch einen einzigen ausgebuchten Workshop (8 Teilnehmende) bereits zu 100 % amortisiert.",
         "v2_url": "https://vorschau.magnet-xs.ch/herzensarbeit-v2/",
         "vollversion_url": "https://vorschau.magnet-xs.ch/herzensarbeit-vollversion/",
         "cockpit_url": "https://vorschau.magnet-xs.ch/herzensarbeit-vollversion/cockpit?token=herzensarbeit2026",
@@ -67,6 +90,8 @@ SEED_PROJECTS = [
         "slug": "frees",
         "active": True,
         "company": "Free's Stefan Fritschi (Niederrohrdorf)",
+        "pricing_display": "CHF 1'500.—\nScore: 3.2 / 10.0 · Formel: CHF 1'550.—",
+        "pricing_rationale": "Schlanke 5-Seiten-Gewerbeseite (Teamsport & Textildruck) mit 14 extern verlinkten Marken-Katalogen ohne komplexes Daten-Backend. Perfekter Einstiegs-Sweet-Spot für sofortige Zusage.",
         "v2_url": "https://vorschau.magnet-xs.ch/frees-v2/",
         "vollversion_url": "https://vorschau.magnet-xs.ch/frees-vollversion/",
         "cockpit_url": "https://vorschau.magnet-xs.ch/frees-vollversion/cockpit?token=frees2026",
@@ -78,6 +103,8 @@ SEED_PROJECTS = [
         "slug": "innere-staerke",
         "active": True,
         "company": "Wüest + Paneduro — Innere Stärke (Sursee)",
+        "pricing_display": "CHF 2'200.—\nScore: 4.2 / 10.0 · Formel: CHF 1'900.—",
+        "pricing_rationale": "5-Seiten-Auftritt für 2 Partnerinnen im B2B-Führungskräfte-Coaching inkl. Buch-Integration. Hoher Kundenwert pro B2B-Mandat rechtfertigt CHF 2'200.— mühelos.",
         "v2_url": "https://vorschau.magnet-xs.ch/innere-staerke-v2/",
         "vollversion_url": "https://vorschau.magnet-xs.ch/innere-staerke-vollversion/",
         "cockpit_url": "https://vorschau.magnet-xs.ch/innere-staerke-vollversion/cockpit?token=innerestaerke2026",
@@ -89,6 +116,8 @@ SEED_PROJECTS = [
         "slug": "fcschlieren",
         "active": True,
         "company": "FC Schlieren (33 Teams)",
+        "pricing_display": "CHF 4'500.—\nScore: 9.4 / 10.0 · Formel: CHF 4'300.—",
+        "pricing_rationale": "Grossverein im Raum Zürich (über 20 Teams, hunderte Spieler-/Kaderdaten, Sponsoren-Architektur & Team-Onboarding-Engine). Gegenüber einer klassischen 12'000-Franken-Agenturofferte extrem attraktiv.",
         "v2_url": "https://vorschau.magnet-xs.ch/fcschlieren-v2/",
         "vollversion_url": "https://vorschau.magnet-xs.ch/fcschlieren-vollversion/",
         "cockpit_url": "https://vorschau.magnet-xs.ch/fcschlieren-vollversion/cockpit?token=fcschlieren2026",
@@ -100,6 +129,8 @@ SEED_PROJECTS = [
         "slug": "scfulenbach",
         "active": True,
         "company": "SC Fulenbach (14 Teams)",
+        "pricing_display": "CHF 4'200.—\nScore: 8.5 / 10.0 · Formel: CHF 3'850.—",
+        "pricing_rationale": "Traditionsverein mit breiter Aktiv-/Junioren-Struktur, Sponsoren-Matrix, Vereinschronik und dezentralem Team-Onboarding-Formular.",
         "v2_url": "https://vorschau.magnet-xs.ch/scfulenbach-v2/",
         "vollversion_url": "https://vorschau.magnet-xs.ch/scfulenbach-vollversion/",
         "cockpit_url": "https://vorschau.magnet-xs.ch/scfulenbach-vollversion/cockpit?token=scfulenbach2026",
@@ -111,6 +142,8 @@ SEED_PROJECTS = [
         "slug": "fcattiswil",
         "active": True,
         "company": "FC Attiswil (14 Teams)",
+        "pricing_display": "CHF 3'900.—\nScore: 8.2 / 10.0 · Formel: CHF 3'700.—",
+        "pricing_rationale": "Fussballverein mit vielen Mannschaften, Junioren, Sponsoren-Präsenz & 5-Blöcke Team-Einreichungs-Engine. Ein einziger neuer Hauptsponsor refinanziert bereits die halbe Webseite.",
         "v2_url": "https://vorschau.magnet-xs.ch/fcattiswil-v2/",
         "vollversion_url": "https://vorschau.magnet-xs.ch/fcattiswil-vollversion/",
         "cockpit_url": "https://vorschau.magnet-xs.ch/fcattiswil-vollversion/cockpit?token=fcattiswil2026",
@@ -122,6 +155,8 @@ SEED_PROJECTS = [
         "slug": "her11",
         "active": True,
         "company": "HER11 (Jenny Ettle)",
+        "pricing_display": "CHF 2'800.—\nScore: 5.8 / 10.0 · Formel: CHF 2'600.—",
+        "pricing_rationale": "Gehobene Marken- & Lookbook-Inszenierung mit hoher Bilddichte und laufendem Kollektions-Wechsel über das Studio Cockpit v4.0.",
         "v2_url": "https://vorschau.magnet-xs.ch/her11-v2/",
         "vollversion_url": "https://vorschau.magnet-xs.ch/her11-vollversion/",
         "cockpit_url": "https://vorschau.magnet-xs.ch/her11-vollversion/cockpit?token=her112026",
@@ -133,6 +168,8 @@ SEED_PROJECTS = [
         "slug": "hochuli",
         "active": True,
         "company": "Hochuli Schlossrued AG (5 Sparten)",
+        "pricing_display": "CHF 3'800.—\nScore: 7.8 / 10.0 · Formel: CHF 3'500.—",
+        "pricing_rationale": "Grosses Bau- & Gewerbe-KMU mit 5 eigenen Sparten (eigenes Farbleitsystem), 19 Projektfotos, Luftaufnahme-Video und interaktivem Mulden-Bestellrechner.",
         "v2_url": "https://vorschau.magnet-xs.ch/hochuli-v2/",
         "vollversion_url": "https://vorschau.magnet-xs.ch/hochuli-vollversion/",
         "cockpit_url": "https://vorschau.magnet-xs.ch/hochuli-vollversion/cockpit?token=hochuli2026",
@@ -141,6 +178,61 @@ SEED_PROJECTS = [
         "status": "🟢 Bereit zum Zeigen (29.10.2026)",
     },
 ]
+
+
+def estimate_project_pricing(slug: str, company_name: str = "", summary: str = "") -> Dict[str, str]:
+    """Berechnet 2-stufige Preisempfehlung (Technischer Score X.X / 10.0 + Formel-Preis + Markt-Empfehlung)."""
+    clean_slug = re.sub(r"-(?:vollversion|vv|v1|v2)$", "", (slug or "").strip().lower().replace("preview-", ""))
+    for item in SEED_PROJECTS:
+        if item["slug"] == clean_slug:
+            lines = item["pricing_display"].splitlines()
+            rec = lines[0].strip() if lines else "CHF 1'800.—"
+            score_part = "5.0 / 10.0"
+            form_part = rec
+            if len(lines) > 1 and "·" in lines[1]:
+                s0, s1 = lines[1].split("·", 1)
+                score_part = s0.replace("Score:", "").strip()
+                form_part = s1.replace("Formel:", "").strip()
+            return {
+                "complexity_score": score_part,
+                "pricing_formula_chf": form_part,
+                "pricing_recommended_chf": rec,
+                "pricing_rationale": item["pricing_rationale"],
+                "pricing_display": item["pricing_display"],
+            }
+
+    text_blob = f"{clean_slug} {company_name} {summary}".lower()
+    if any(k in text_blob for k in ("fc ", "sc ", "fussball", "verein", "club", "teams", "junioren")):
+        return {
+            "complexity_score": "8.4 / 10.0",
+            "pricing_formula_chf": "CHF 3'800.—",
+            "pricing_recommended_chf": "CHF 3'900.—",
+            "pricing_rationale": "Vereins-Plattform mit Mannschafts-Struktur, Sponsoren-Bühne und dezentralem Team-Onboarding-Formular. Ein neuer Hauptsponsor refinanziert bereits rund 50 %.",
+            "pricing_display": "CHF 3'900.—\nScore: 8.4 / 10.0 · Formel: CHF 3'800.—",
+        }
+    if any(k in text_blob for k in ("sparten", "bau", "gruppe", "holding", "industrie", "architektur", "immobilien", "rechner")):
+        return {
+            "complexity_score": "7.4 / 10.0",
+            "pricing_formula_chf": "CHF 3'300.—",
+            "pricing_recommended_chf": "CHF 3'500.—",
+            "pricing_rationale": "Mehrsparten- oder Industrie-Webauftritt mit hoher Leistungs- und Projektdichte, interaktiven Anfrage-Modulen und Studio Cockpit v4.0.",
+            "pricing_display": "CHF 3'500.—\nScore: 7.4 / 10.0 · Formel: CHF 3'300.—",
+        }
+    if any(k in text_blob for k in ("praxis", "therapie", "coaching", "beratung", "studio", "kmu", "textil", "coiffeur", "gewerbe")):
+        return {
+            "complexity_score": "3.6 / 10.0",
+            "pricing_formula_chf": "CHF 1'650.—",
+            "pricing_recommended_chf": "CHF 1'500.—",
+            "pricing_rationale": "Kompakte 5-Seiten-KMU-/Praxis-Webseite inkl. Smart-Anfrage und Studio Cockpit v4.0. Schneller Entscheidungsweg und rasche Amortisation durch 1–2 Neukunden.",
+            "pricing_display": "CHF 1'500.—\nScore: 3.6 / 10.0 · Formel: CHF 1'650.—",
+        }
+    return {
+        "complexity_score": "4.8 / 10.0",
+        "pricing_formula_chf": "CHF 2'150.—",
+        "pricing_recommended_chf": "CHF 2'200.—",
+        "pricing_rationale": "Mehrseitiger Schweizer KMU-Auftritt (5 Seiten) inkl. Smart-Anfrage-Assistent, Zeige- & Vollversion sowie Studio Cockpit v4.0 auf Swiss Edge.",
+        "pricing_display": "CHF 2'200.—\nScore: 4.8 / 10.0 · Formel: CHF 2'150.—",
+    }
 
 
 def get_sheet_config() -> Dict[str, str]:
@@ -201,8 +293,9 @@ def _get_first_sheet_meta(spreadsheet_id: str) -> Dict[str, Any]:
 
 
 def apply_sheet_formatting(spreadsheet_id: str, sheet_id: int, current_title: str, total_rows: int = 100) -> None:
-    """Wendet Header-Fixierung, Auto-Filter, echte BOOLEAN-Checkboxen, bedingte Formatierung & Spaltenbreiten an."""
+    """Wendet Header-Fixierung, Auto-Filter, echte BOOLEAN-Checkboxen, bedingte Formatierung & Spaltenbreiten (A-J) an."""
     requests_list: List[Dict[str, Any]] = []
+    num_cols = len(HEADERS)  # 10 Spalten (A bis J)
 
     # 1. Tab-Name auf 'Kunden & URL-Zentrale' setzen + Zeile 1 fixieren
     requests_list.append({
@@ -226,7 +319,7 @@ def apply_sheet_formatting(spreadsheet_id: str, sheet_id: int, current_title: st
                 "startRowIndex": 0,
                 "endRowIndex": 1,
                 "startColumnIndex": 0,
-                "endColumnIndex": 8,
+                "endColumnIndex": num_cols,
             },
             "cell": {
                 "userEnteredFormat": {
@@ -245,7 +338,6 @@ def apply_sheet_formatting(spreadsheet_id: str, sheet_id: int, current_title: st
         }
     })
 
-    # Header-Zeilenhoehe 38px
     requests_list.append({
         "updateDimensionProperties": {
             "range": {
@@ -259,7 +351,7 @@ def apply_sheet_formatting(spreadsheet_id: str, sheet_id: int, current_title: st
         }
     })
 
-    # 3. Daten-Zeilen (A2:H100): Sauberer Textumbruch & vertikale Zentrierung
+    # 3. Daten-Zeilen (A2:J100): Sauberer Textumbruch & vertikale Zentrierung
     requests_list.append({
         "repeatCell": {
             "range": {
@@ -267,7 +359,7 @@ def apply_sheet_formatting(spreadsheet_id: str, sheet_id: int, current_title: st
                 "startRowIndex": 1,
                 "endRowIndex": max(total_rows, 100),
                 "startColumnIndex": 0,
-                "endColumnIndex": 8,
+                "endColumnIndex": num_cols,
             },
             "cell": {
                 "userEnteredFormat": {
@@ -321,7 +413,7 @@ def apply_sheet_formatting(spreadsheet_id: str, sheet_id: int, current_title: st
         }
     })
 
-    # 5. Spalte B (Firma / Verein) fett formatieren
+    # 5. Spalte B (Firma / Verein) & Spalte C (Preisempfehlung) fett formatieren
     requests_list.append({
         "repeatCell": {
             "range": {
@@ -329,7 +421,7 @@ def apply_sheet_formatting(spreadsheet_id: str, sheet_id: int, current_title: st
                 "startRowIndex": 1,
                 "endRowIndex": max(total_rows, 100),
                 "startColumnIndex": 1,
-                "endColumnIndex": 2,
+                "endColumnIndex": 3,
             },
             "cell": {
                 "userEnteredFormat": {
@@ -340,7 +432,7 @@ def apply_sheet_formatting(spreadsheet_id: str, sheet_id: int, current_title: st
         }
     })
 
-    # 6. Auto-Filter (BasicFilter) ueber A1:H100 aktivieren
+    # 6. Auto-Filter (BasicFilter) ueber A1:J100 aktivieren
     requests_list.append({
         "setBasicFilter": {
             "filter": {
@@ -349,22 +441,25 @@ def apply_sheet_formatting(spreadsheet_id: str, sheet_id: int, current_title: st
                     "startRowIndex": 0,
                     "endRowIndex": max(total_rows, 100),
                     "startColumnIndex": 0,
-                    "endColumnIndex": 8,
+                    "endColumnIndex": num_cols,
                 }
             }
         }
     })
 
-    # 7. Optimale Spaltenbreiten (A bis H)
+    # 7. Optimale Spaltenbreiten (A bis K)
     col_widths = [
         (0, 1, 75),    # A: Aktiv
-        (1, 2, 285),   # B: Firma / Verein
-        (2, 3, 330),   # C: Zeigeversion (-v2)
-        (3, 4, 350),   # D: Vollversion (-vollversion)
-        (4, 5, 420),   # E: Studio Cockpit v4.0
-        (5, 6, 390),   # F: Original-Webseite & Kontext
-        (6, 7, 185),   # G: Partner
-        (7, 8, 235),   # H: Status & Datum
+        (1, 2, 260),   # B: Firma / Verein
+        (2, 3, 250),   # C: Preisempfehlung (Markt & Score)
+        (3, 4, 380),   # D: Preis-Begruendung & Aha-Punkte
+        (4, 5, 310),   # E: Zeigeversion (-v2)
+        (5, 6, 330),   # F: Vollversion (-vollversion)
+        (6, 7, 390),   # G: Studio Cockpit v4.0
+        (7, 8, 390),   # H: Vorher/Nachher-Report (PDF)
+        (8, 9, 340),   # I: Original-Webseite & Kontext
+        (9, 10, 175),  # J: Partner
+        (10, 11, 225), # K: Status & Datum
     ]
     for start_col, end_col, px in col_widths:
         requests_list.append({
@@ -381,7 +476,6 @@ def apply_sheet_formatting(spreadsheet_id: str, sheet_id: int, current_title: st
         })
 
     # 8. Bedingte Formatierung: Wenn Spalte A (Aktiv) = FALSE -> Zeile dezent ausgrauen
-    # Zuerst bestehende ConditionalFormatRules abfragen, um Duplikate zu vermeiden
     meta_url = f"https://sheets.googleapis.com/v4/spreadsheets/{spreadsheet_id}"
     r_cf = _request_with_retry("GET", meta_url, params={"fields": "sheets(properties.sheetId,conditionalFormats)"})
     if r_cf.status_code == 200:
@@ -405,7 +499,7 @@ def apply_sheet_formatting(spreadsheet_id: str, sheet_id: int, current_title: st
                         "startRowIndex": 1,
                         "endRowIndex": max(total_rows, 100),
                         "startColumnIndex": 0,
-                        "endColumnIndex": 8,
+                        "endColumnIndex": num_cols,
                     }
                 ],
                 "booleanRule": {
@@ -431,7 +525,7 @@ def apply_sheet_formatting(spreadsheet_id: str, sheet_id: int, current_title: st
 
 
 def get_all_rows(spreadsheet_id: str, tab_title: str) -> List[List[str]]:
-    safe_range = urllib.parse.quote(f"'{tab_title}'!A1:H200")
+    safe_range = urllib.parse.quote(f"'{tab_title}'!A1:K200")
     url = f"https://sheets.googleapis.com/v4/spreadsheets/{spreadsheet_id}/values/{safe_range}"
     r = _request_with_retry("GET", url)
     r.raise_for_status()
@@ -455,12 +549,10 @@ def init_and_seed_sheet() -> Dict[str, Any]:
     sheet_id = props["sheetId"]
     current_title = props["title"]
 
-    # Formatierung & Umbenennung auf DEFAULT_TAB_TITLE
     apply_sheet_formatting(spreadsheet_id, sheet_id, current_title, total_rows=100)
     tab_title = DEFAULT_TAB_TITLE
 
     existing_rows = get_all_rows(spreadsheet_id, tab_title)
-    # Map bestehender Aktiv-Werte anhand Slug oder Firmenname
     active_by_slug: Dict[str, bool] = {}
     for row in existing_rows[1:]:
         if len(row) >= 3:
@@ -471,32 +563,42 @@ def init_and_seed_sheet() -> Dict[str, Any]:
                 if item["slug"] in row_text or item["company"].lower() in row_text:
                     active_by_slug[item["slug"]] = is_act
 
+    # Auch mit lokalem partner-jobs/index.json abgleichen falls vorhanden
+    idx_path = Path("/home/brainuser/workspaces/mxs-embed/partner-jobs/index.json")
+    if idx_path.exists():
+        try:
+            for j in json.loads(idx_path.read_text(encoding="utf-8")):
+                jslug = str(j.get("slug") or "").strip().lower()
+                if jslug and "is_active" in j:
+                    active_by_slug[jslug] = bool(j["is_active"])
+        except Exception:
+            pass
+
     values_matrix: List[List[Any]] = [HEADERS]
     for item in SEED_PROJECTS:
         slug = item["slug"]
         is_active = active_by_slug.get(slug, item.get("active", True))
+        audit_pdf_url = item.get("audit_report_url") or f"https://vorschau.magnet-xs.ch/reports/{slug}-vorher-nachher-report.pdf"
         values_matrix.append([
             is_active,
             item["company"],
+            item["pricing_display"],
+            item["pricing_rationale"],
             item["v2_url"],
             item["vollversion_url"],
             item["cockpit_url"],
+            audit_pdf_url,
             item["source_context"],
             item["partner"],
             item["status"],
         ])
 
-    # Behalte zusaetzliche dynamische Zeilen, die nicht in SEED_PROJECTS sind
-    seed_slugs = {item["slug"] for item in SEED_PROJECTS}
-    for row in existing_rows[1:]:
-        if len(row) >= 2 and str(row[1]).strip():
-            row_joined = " ".join(row).lower()
-            if not any(s in row_joined for s in seed_slugs):
-                padded = list(row) + [""] * (8 - len(row))
-                padded[0] = False if str(padded[0]).strip().upper() == "FALSE" else True
-                values_matrix.append(padded[:8])
+    # Clear A1:K100 first to avoid stale columns
+    clear_range = urllib.parse.quote(f"'{tab_title}'!A1:K100")
+    clear_url = f"https://sheets.googleapis.com/v4/spreadsheets/{spreadsheet_id}/values/{clear_range}:clear"
+    _request_with_retry("POST", clear_url, json={})
 
-    safe_range = urllib.parse.quote(f"'{tab_title}'!A1:H{len(values_matrix)}")
+    safe_range = urllib.parse.quote(f"'{tab_title}'!A1:K{len(values_matrix)}")
     put_url = f"https://sheets.googleapis.com/v4/spreadsheets/{spreadsheet_id}/values/{safe_range}"
     r_put = _request_with_retry(
         "PUT",
@@ -506,7 +608,6 @@ def init_and_seed_sheet() -> Dict[str, Any]:
     )
     r_put.raise_for_status()
 
-    # Formatierung & Checkboxen nochmals exakt ueber alle Zeilen legen
     apply_sheet_formatting(spreadsheet_id, sheet_id, tab_title, total_rows=len(values_matrix))
 
     return {
@@ -515,6 +616,7 @@ def init_and_seed_sheet() -> Dict[str, Any]:
         "spreadsheet_url": cfg["spreadsheet_url"],
         "tab_title": tab_title,
         "rows_written": len(values_matrix) - 1,
+        "columns": len(HEADERS),
     }
 
 
@@ -528,11 +630,22 @@ def upsert_webpilot_sheet_row(
     partner: str = "Jenny Ettle (JE-MI)",
     status_text: str = "",
     active: Optional[bool] = None,
+    pricing_display: str = "",
+    pricing_rationale: str = "",
+    audit_report_url: str = "",
 ) -> Dict[str, Any]:
     """
     Aktualisiert eine bestehende Zeile im Google Sheet (anhand Slug oder Firmenname)
-    oder fuegt eine neue Zeile hinzu. Bewahrt bestehende Checkbox-Zustaende (Aktiv).
+    oder fuegt eine neue Zeile hinzu (10 Spalten A-J inkl. Preisempfehlung & Score).
     """
+    clean_slug = (slug or "").strip().lower().replace("preview-", "")
+    for suffix in ("-vollversion", "-vv", "-v2", "-v1"):
+        if clean_slug.endswith(suffix):
+            clean_slug = clean_slug[: -len(suffix)]
+
+    if clean_slug in EXCLUDED_PARTNER_SLUGS:
+        return {"ok": False, "skipped_excluded": clean_slug}
+
     cfg = get_sheet_config()
     spreadsheet_id = cfg["spreadsheet_id"]
     props = _get_first_sheet_meta(spreadsheet_id)
@@ -545,10 +658,11 @@ def upsert_webpilot_sheet_row(
         tab_title = DEFAULT_TAB_TITLE
         rows = get_all_rows(spreadsheet_id, tab_title)
 
-    clean_slug = (slug or "").strip().lower().replace("preview-", "")
-    for suffix in ("-vollversion", "-vv", "-v2", "-v1"):
-        if clean_slug.endswith(suffix):
-            clean_slug = clean_slug[: -len(suffix)]
+    est = estimate_project_pricing(clean_slug, company_name, source_context)
+    if not pricing_display:
+        pricing_display = est["pricing_display"]
+    if not pricing_rationale:
+        pricing_rationale = est["pricing_rationale"]
 
     today_str = datetime.now().strftime("%d.%m.%Y")
     if not status_text:
@@ -567,32 +681,42 @@ def upsert_webpilot_sheet_row(
         if (clean_slug and f"/{clean_slug}" in row_str) or (
             company_name and company_name.strip().lower() in comp_cell
         ) or (comp_cell and comp_cell in company_name.strip().lower()):
-            target_row_idx = idx + 1  # 1-basiert
+            target_row_idx = idx + 1
             existing_row = r
             break
+
+    default_audit_url = f"https://vorschau.magnet-xs.ch/reports/{clean_slug}-vorher-nachher-report.pdf" if clean_slug else ""
+    if not audit_report_url:
+        audit_report_url = default_audit_url
 
     if target_row_idx is not None:
         prev_active = False if (len(existing_row) > 0 and str(existing_row[0]).strip().upper() == "FALSE") else True
         row_active = prev_active if active is None else bool(active)
         final_company = company_name.strip() or (existing_row[1] if len(existing_row) > 1 else clean_slug)
-        final_v2 = v2_url.strip() if v2_url is not None and v2_url != "" else (existing_row[2] if len(existing_row) > 2 else "")
-        final_voll = vollversion_url.strip() if vollversion_url is not None and vollversion_url != "" else (existing_row[3] if len(existing_row) > 3 else "")
-        final_cockpit = cockpit_url.strip() if cockpit_url is not None and cockpit_url != "" else (existing_row[4] if len(existing_row) > 4 else "")
-        final_source = source_context.strip() if source_context else (existing_row[5] if len(existing_row) > 5 else "")
-        final_partner = partner_norm if partner else (existing_row[6] if len(existing_row) > 6 else "Jenny Ettle (JE-MI)")
-        final_status = status_text.strip() if status_text else (existing_row[7] if len(existing_row) > 7 else "")
+        final_price = (existing_row[2] if len(existing_row) > 2 and existing_row[2].strip() else pricing_display)
+        final_rationale = (existing_row[3] if len(existing_row) > 3 and existing_row[3].strip() else pricing_rationale)
+        final_v2 = v2_url.strip() if v2_url else (existing_row[4] if len(existing_row) > 4 else "")
+        final_voll = vollversion_url.strip() if vollversion_url else (existing_row[5] if len(existing_row) > 5 else "")
+        final_cockpit = cockpit_url.strip() if cockpit_url else (existing_row[6] if len(existing_row) > 6 else "")
+        final_audit = audit_report_url.strip() if audit_report_url else (existing_row[7] if len(existing_row) > 7 else default_audit_url)
+        final_source = source_context.strip() if source_context else (existing_row[8] if len(existing_row) > 8 else "")
+        final_partner = partner_norm if partner else (existing_row[9] if len(existing_row) > 9 else "Jenny Ettle (JE-MI)")
+        final_status = status_text.strip() if status_text else (existing_row[10] if len(existing_row) > 10 else "")
 
         row_values = [
             row_active,
             final_company,
+            final_price,
+            final_rationale,
             final_v2,
             final_voll,
             final_cockpit,
+            final_audit,
             final_source,
             final_partner,
             final_status,
         ]
-        safe_range = urllib.parse.quote(f"'{tab_title}'!A{target_row_idx}:H{target_row_idx}")
+        safe_range = urllib.parse.quote(f"'{tab_title}'!A{target_row_idx}:K{target_row_idx}")
         url = f"https://sheets.googleapis.com/v4/spreadsheets/{spreadsheet_id}/values/{safe_range}"
         r_put = _request_with_retry(
             "PUT",
@@ -613,15 +737,18 @@ def upsert_webpilot_sheet_row(
         row_values = [
             row_active,
             company_name.strip() or clean_slug,
+            pricing_display.strip(),
+            pricing_rationale.strip(),
             v2_url.strip(),
             vollversion_url.strip(),
             cockpit_url.strip(),
+            audit_report_url.strip(),
             source_context.strip(),
             partner_norm,
             status_text.strip(),
         ]
         new_row_idx = len(rows) + 1
-        safe_range = urllib.parse.quote(f"'{tab_title}'!A{new_row_idx}:H{new_row_idx}")
+        safe_range = urllib.parse.quote(f"'{tab_title}'!A{new_row_idx}:K{new_row_idx}")
         url = f"https://sheets.googleapis.com/v4/spreadsheets/{spreadsheet_id}/values/{safe_range}"
         r_put = _request_with_retry(
             "PUT",
@@ -649,7 +776,7 @@ def verify_sheet() -> Dict[str, Any]:
         url,
         params={
             "includeGridData": "true",
-            "ranges": f"'{DEFAULT_TAB_TITLE}'!A1:H20",
+            "ranges": f"'{DEFAULT_TAB_TITLE}'!A1:K20",
             "fields": "properties.title,sheets(properties(sheetId,title,gridProperties.frozenRowCount),basicFilter,conditionalFormats,data.rowData.values(userEnteredValue,dataValidation))",
         },
     )
@@ -663,7 +790,6 @@ def verify_sheet() -> Dict[str, Any]:
         if vals and (vals[0].get("dataValidation") or {}).get("condition", {}).get("type") == "BOOLEAN":
             checkbox_count += 1
 
-    # Public HTTP check
     pub_r = requests.get(cfg["spreadsheet_url"], timeout=15)
     return {
         "ok": True,
@@ -699,7 +825,7 @@ if __name__ == "__main__":
     elif args.verify:
         print(json.dumps(verify_sheet(), indent=2, ensure_ascii=False))
     elif args.upsert:
-        res = upsert_webpilot_sheet_row(
+        print(json.dumps(upsert_webpilot_sheet_row(
             slug=args.slug,
             company_name=args.company,
             v2_url=args.v2_url,
@@ -708,7 +834,6 @@ if __name__ == "__main__":
             source_context=args.source,
             partner=args.partner,
             status_text=args.status,
-        )
-        print(json.dumps(res, indent=2, ensure_ascii=False))
+        ), indent=2, ensure_ascii=False))
     else:
-        print(json.dumps(verify_sheet(), indent=2, ensure_ascii=False))
+        print(json.dumps(init_and_seed_sheet(), indent=2, ensure_ascii=False))
