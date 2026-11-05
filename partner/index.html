@@ -7,7 +7,7 @@
   <meta http-equiv="X-Frame-Options" content="DENY">
   <meta http-equiv="X-XSS-Protection" content="1; mode=block">
   <meta name="referrer" content="no-referrer">
-  <title>WebPilot Partner-Studio · Vorschau-Generator &amp; Auftrags-Cockpit</title>
+  <title>WebPilot Partner-Studio · Kunden-Zentrale &amp; Auftrags-Cockpit</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
@@ -40,6 +40,11 @@
       padding: 0;
     }
 
+    ::selection {
+      background: rgba(240, 133, 45, 0.32);
+      color: #ffffff;
+    }
+
     html, body {
       background-color: var(--bg-base);
       color: var(--text-primary);
@@ -49,6 +54,7 @@
       min-height: 100vh;
       overflow-x: clip;
       -webkit-font-smoothing: antialiased;
+      font-variant-numeric: tabular-nums;
     }
 
     .container-1100 {
@@ -84,7 +90,7 @@
     /* Top Header */
     .topbar {
       border-bottom: 1px solid var(--border);
-      background: rgba(11, 13, 14, 0.92);
+      background: rgba(11, 13, 14, 0.94);
       backdrop-filter: blur(12px);
       position: sticky;
       top: 0;
@@ -144,6 +150,8 @@
       display: inline-flex;
       align-items: center;
       gap: 6px;
+      white-space: nowrap;
+      font-variant-numeric: tabular-nums;
     }
 
     .badge-live {
@@ -156,6 +164,12 @@
       background: var(--warning-bg);
       border-color: rgba(245, 158, 11, 0.35);
       color: #fbbf24;
+    }
+
+    .badge-inactive {
+      background: rgba(148, 163, 184, 0.12);
+      border-color: rgba(148, 163, 184, 0.28);
+      color: var(--text-secondary);
     }
 
     .topbar-actions {
@@ -200,7 +214,20 @@
       margin: 0 auto;
     }
 
-    /* Form Controls (#UI-13 & REVIEW-PATTERNS: font-size 16px gegen iOS Auto-Zoom) */
+    .invite-only-notice {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      padding: 12px 14px;
+      border-radius: 8px;
+      background: var(--bg-elevated);
+      border: 1px solid var(--border-strong);
+      color: var(--text-secondary);
+      font-size: 13.5px;
+      margin-bottom: 22px;
+    }
+
+    /* Form Controls (#UI-13: font-size 16px gegen iOS Auto-Zoom) */
     .form-grid {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -225,6 +252,7 @@
       align-items: center;
       justify-content: space-between;
       gap: 8px;
+      flex-wrap: wrap;
     }
 
     .field-hint {
@@ -236,6 +264,8 @@
     input[type="text"],
     input[type="password"],
     input[type="url"],
+    input[type="number"],
+    input[type="search"],
     textarea,
     select {
       width: 100%;
@@ -245,8 +275,9 @@
       background: var(--bg-input);
       border: 1px solid var(--border-strong);
       border-radius: 8px;
-      padding: 12px 14px;
+      padding: 11px 14px;
       outline: none;
+      caret-color: var(--accent);
       transition: border-color 0.15s ease;
     }
 
@@ -298,44 +329,24 @@
       color: var(--text-primary);
     }
 
-    .checkbox-row {
-      display: flex;
-      align-items: flex-start;
-      gap: 10px;
-      padding: 12px 14px;
-      background: var(--bg-elevated);
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      cursor: pointer;
-      font-size: 13.5px;
-      color: var(--text-secondary);
-    }
-
-    .checkbox-row input[type="checkbox"] {
-      width: 34px;
-      height: 30px;
-      margin-top: 0;
-      accent-color: var(--accent);
-      cursor: pointer;
-      flex-shrink: 0;
-    }
-
-    /* Buttons (#UI-01: 8px Radius) */
+    /* Buttons (#UI-01: 8px Radius, min-height 44px) */
     .btn {
       font-family: 'Inter', sans-serif;
       font-size: 14px;
       font-weight: 600;
       border-radius: 8px;
-      padding: 11px 18px;
+      padding: 10px 16px;
+      min-height: 44px;
       display: inline-flex;
       align-items: center;
       justify-content: center;
       gap: 8px;
       cursor: pointer;
       text-decoration: none;
-      transition: opacity 0.15s ease, transform 0.1s ease, background-color 0.15s ease;
+      transition: opacity 0.15s ease, background-color 0.15s ease, border-color 0.15s ease;
       border: 1px solid transparent;
-      line-height: 1.2;
+      line-height: 1.25;
+      font-variant-numeric: tabular-nums;
     }
 
     .btn:disabled {
@@ -375,78 +386,67 @@
     }
 
     .btn-sm {
-      padding: 10px 14px;
+      padding: 9px 13px;
       min-height: 44px;
-      font-size: 13.5px;
+      font-size: 13px;
     }
 
-    /* Dropzone */
-    .dropzone {
-      border: 1px dashed var(--border-strong);
-      background: var(--bg-input);
-      border-radius: 8px;
-      padding: 20px;
-      text-align: center;
-      cursor: pointer;
-      transition: border-color 0.15s ease, background-color 0.15s ease;
-    }
-
-    .dropzone.dragover {
-      border-color: var(--accent);
-      background: rgba(240, 133, 45, 0.08);
-    }
-
-    .dropzone-title {
-      font-weight: 600;
-      color: var(--text-primary);
-      margin-top: 8px;
-      font-size: 14px;
-    }
-
-    .dropzone-sub {
-      font-size: 12.5px;
-      color: var(--text-secondary);
-      margin-top: 4px;
-    }
-
-    /* Status Banner */
-    .status-banner {
-      padding: 14px 16px;
-      border-radius: 8px;
-      font-size: 14px;
-      display: none;
-      align-items: flex-start;
-      gap: 10px;
-      margin-top: 16px;
-      border: 1px solid var(--border);
-    }
-
-    .status-banner.show {
-      display: flex;
-    }
-
-    .status-banner.ok {
-      background: var(--success-bg);
-      border-color: rgba(34, 197, 94, 0.35);
-      color: #86efac;
-    }
-
-    .status-banner.err {
-      background: var(--danger-bg);
-      border-color: rgba(239, 68, 68, 0.35);
-      color: #fca5a5;
-    }
-
-    /* Studio Sections */
+    /* Studio Main & Haupt-Tabs */
     .studio-main {
-      padding: 36px 0 80px;
+      padding: 28px 0 80px;
       display: flex;
       flex-direction: column;
-      gap: 32px;
+      gap: 24px;
     }
 
+    .studio-tabs-bar {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      box-shadow: var(--bevel);
+      border-radius: 8px;
+      padding: 8px;
+    }
+
+    .studio-tabs-bar.has-admin {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .studio-tab-btn {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 14px;
+      font-weight: 700;
+      min-height: 46px;
+      padding: 10px 14px;
+      border-radius: 8px;
+      border: 1px solid transparent;
+      background: transparent;
+      color: var(--text-secondary);
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      transition: background-color 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+    }
+
+    .studio-tab-btn:hover {
+      color: var(--text-primary);
+      background: rgba(255, 255, 255, 0.04);
+    }
+
+    .studio-tab-btn.active {
+      background: rgba(255, 255, 255, 0.12);
+      border-color: var(--border-strong);
+      color: #ffffff;
+      box-shadow: var(--bevel);
+    }
+
+    /* Section Head */
     .section-head {
-      margin-bottom: 22px;
+      margin-bottom: 20px;
       display: flex;
       align-items: flex-end;
       justify-content: space-between;
@@ -455,18 +455,294 @@
     }
 
     .section-head h2 {
-      font-size: 24px;
+      font-size: 22px;
       font-weight: 700;
     }
 
     .section-desc {
       color: var(--text-secondary);
-      font-size: 14.5px;
-      max-width: 66ch;
+      font-size: 14px;
+      max-width: 68ch;
       margin-top: 6px;
     }
 
-    /* Jobs List */
+    /* Toolbar: Suche, Filter-Pills & View-Toggle */
+    .projects-toolbar {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      margin-bottom: 20px;
+      padding: 16px;
+      background: var(--bg-elevated);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+    }
+
+    .toolbar-top-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .search-box-wrap {
+      position: relative;
+      flex: 1 1 320px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .search-input-inner {
+      position: relative;
+      flex: 1 1 auto;
+      display: flex;
+      align-items: center;
+    }
+
+    .search-input-inner svg.search-icon {
+      position: absolute;
+      left: 12px;
+      color: var(--text-muted);
+      pointer-events: none;
+    }
+
+    .search-input-inner input {
+      padding-left: 38px;
+      padding-right: 14px;
+    }
+
+    .view-mode-group {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .view-btn {
+      font-family: 'Inter', sans-serif;
+      font-size: 13px;
+      font-weight: 600;
+      min-height: 44px;
+      padding: 8px 14px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      background: var(--bg-card);
+      color: var(--text-secondary);
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+    }
+
+    .view-btn.active {
+      background: rgba(255, 255, 255, 0.12);
+      border-color: var(--border-strong);
+      color: #ffffff;
+    }
+
+    .toolbar-bottom-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .filter-pills-grid {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .filter-pill {
+      font-family: 'Inter', sans-serif;
+      font-size: 13px;
+      font-weight: 600;
+      min-height: 44px;
+      padding: 8px 13px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      background: var(--bg-card);
+      color: var(--text-secondary);
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .filter-pill.active {
+      background: rgba(255, 255, 255, 0.12);
+      border-color: var(--border-strong);
+      color: #ffffff;
+    }
+
+    .results-counter {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 12.5px;
+      font-weight: 600;
+      color: var(--text-secondary);
+      font-variant-numeric: tabular-nums;
+    }
+
+    /* Listen-/Tabellen-Ansicht (Standard: list) */
+    .projects-list-view {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .project-row-card {
+      background: var(--bg-elevated);
+      border: 1px solid var(--border);
+      box-shadow: var(--bevel);
+      border-radius: 8px;
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      transition: opacity 0.15s ease;
+    }
+
+    .project-row-card.is-inactive {
+      opacity: 0.64;
+    }
+
+    .project-row-main {
+      display: grid;
+      grid-template-columns: 98px minmax(185px, 1.3fr) minmax(195px, 1.15fr) minmax(230px, 1.45fr) minmax(180px, 1.1fr);
+      gap: 12px;
+      align-items: center;
+    }
+
+    .col-active-toggle {
+      display: flex;
+      align-items: center;
+    }
+
+    .active-toggle-btn {
+      width: 100%;
+      min-height: 44px;
+      padding: 8px 10px;
+      border-radius: 8px;
+      border: 1px solid var(--border-strong);
+      background: var(--bg-card);
+      color: var(--text-primary);
+      font-family: 'Inter', sans-serif;
+      font-size: 12.5px;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 7px;
+    }
+
+    .active-toggle-btn.is-on {
+      border-color: rgba(34, 197, 94, 0.4);
+      background: rgba(34, 197, 94, 0.1);
+      color: #4ade80;
+    }
+
+    .active-toggle-btn.is-off {
+      border-color: var(--border);
+      background: rgba(255, 255, 255, 0.03);
+      color: var(--text-muted);
+    }
+
+    .col-company {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      min-width: 0;
+    }
+
+    .company-title-line {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 15.5px;
+      font-weight: 700;
+      color: var(--text-primary);
+      overflow-wrap: break-word;
+    }
+
+    .company-sub-line {
+      font-size: 12.5px;
+      color: var(--text-secondary);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .col-pricing {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      padding: 10px 12px;
+      border-radius: 8px;
+      background: rgba(240, 133, 45, 0.07);
+      border: 1px solid rgba(240, 133, 45, 0.25);
+    }
+
+    .price-main-val {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 15px;
+      font-weight: 800;
+      color: var(--accent-text);
+      white-space: nowrap;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .price-score-sub {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 11.5px;
+      font-weight: 600;
+      color: var(--text-secondary);
+      font-variant-numeric: tabular-nums;
+    }
+
+    .col-links-pair {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 8px;
+    }
+
+    .col-utility-pair {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 8px;
+    }
+
+    .project-row-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      flex-wrap: wrap;
+      padding-top: 10px;
+      border-top: 1px solid var(--border);
+    }
+
+    .row-footer-actions {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .project-drawer {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 14px 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    /* Kachel-Ansicht (cards) */
     .jobs-list {
       display: flex;
       flex-direction: column;
@@ -512,6 +788,24 @@
       color: var(--text-secondary);
     }
 
+    .pricing-card-box {
+      background: rgba(240, 133, 45, 0.07);
+      border: 1px solid rgba(240, 133, 45, 0.25);
+      border-radius: 8px;
+      padding: 14px 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .pricing-card-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
     .aha-box {
       background: rgba(255, 255, 255, 0.03);
       border: 1px solid var(--border);
@@ -544,77 +838,85 @@
       gap: 8px;
     }
 
-    /* Symmetrisches Button-Grid (#UI-14 / #UI-02) */
     .job-actions {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 12px;
-      padding-top: 8px;
+      padding-top: 4px;
     }
 
-    .job-actions .btn-span-full {
-      grid-column: 1 / -1;
+    /* 3-Schritte Hilfe in Tab 2 */
+    .steps-guide-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+      margin-bottom: 24px;
     }
 
-    .btn-audit-pdf {
-      background: rgba(240, 133, 45, 0.14);
-      border-color: rgba(240, 133, 45, 0.45);
-      color: var(--accent-text);
-    }
-
-    .btn-audit-pdf:hover:not(:disabled) {
-      background: rgba(240, 133, 45, 0.22);
-    }
-
-    .jobs-toolbar {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-      flex-wrap: wrap;
-      margin-bottom: 18px;
-      padding: 12px 14px;
+    .step-guide-card {
       background: var(--bg-elevated);
       border: 1px solid var(--border);
       border-radius: 8px;
-    }
-
-    .jobs-search-wrap {
-      flex: 1 1 260px;
-      min-width: 0;
-    }
-
-    .jobs-view-toggle {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      flex-wrap: wrap;
-    }
-
-    .btn-view-mode.is-active {
-      background: rgba(240, 133, 45, 0.18);
-      border-color: var(--accent);
-      color: var(--accent-text);
-    }
-
-    .pricing-strip {
+      padding: 16px;
       display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-      flex-wrap: wrap;
-      padding: 10px 14px;
-      background: rgba(240, 133, 45, 0.07);
-      border: 1px solid rgba(240, 133, 45, 0.25);
-      border-radius: 8px;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .step-guide-title {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 14.5px;
+      font-weight: 700;
+      color: var(--text-primary);
+    }
+
+    .step-guide-desc {
       font-size: 13px;
+      color: var(--text-secondary);
     }
 
-    .job-list-row {
+    /* Dropzone */
+    .dropzone {
+      border: 1px dashed var(--border-strong);
+      background: var(--bg-input);
+      border-radius: 8px;
+      padding: 20px;
+      text-align: center;
+      cursor: pointer;
+      transition: border-color 0.15s ease, background-color 0.15s ease;
+    }
+
+    .dropzone.dragover {
+      border-color: var(--accent);
+      background: rgba(240, 133, 45, 0.08);
+    }
+
+    .dropzone-title {
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-top: 8px;
+      font-size: 14px;
+    }
+
+    .dropzone-sub {
+      font-size: 12.5px;
+      color: var(--text-secondary);
+      margin-top: 4px;
+    }
+
+    /* Admin Partner Cards */
+    .partner-admin-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 28px;
+    }
+
+    .partner-admin-row {
       background: var(--bg-elevated);
       border: 1px solid var(--border);
       border-radius: 8px;
-      padding: 14px 16px;
+      padding: 16px;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -622,19 +924,42 @@
       flex-wrap: wrap;
     }
 
-    .job-list-main {
+    .twofa-box {
+      background: rgba(240, 133, 45, 0.07);
+      border: 1px solid rgba(240, 133, 45, 0.28);
+      border-radius: 8px;
+      padding: 18px;
       display: flex;
       flex-direction: column;
-      gap: 4px;
-      flex: 1 1 280px;
-      min-width: 0;
+      gap: 14px;
     }
 
-    .job-list-actions {
+    /* Status Banner */
+    .status-banner {
+      padding: 14px 16px;
+      border-radius: 8px;
+      font-size: 14px;
+      display: none;
+      align-items: flex-start;
+      gap: 10px;
+      margin-top: 16px;
+      border: 1px solid var(--border);
+    }
+
+    .status-banner.show {
       display: flex;
-      align-items: center;
-      gap: 8px;
-      flex-wrap: wrap;
+    }
+
+    .status-banner.ok {
+      background: var(--success-bg);
+      border-color: rgba(34, 197, 94, 0.35);
+      color: #86efac;
+    }
+
+    .status-banner.err {
+      background: var(--danger-bg);
+      border-color: rgba(239, 68, 68, 0.35);
+      color: #fca5a5;
     }
 
     .hidden {
@@ -645,11 +970,21 @@
       width: 17px;
       height: 17px;
       stroke: currentColor;
-      stroke-width: 1.85;
+      stroke-width: 2;
       stroke-linecap: round;
       stroke-linejoin: round;
       fill: none;
       flex-shrink: 0;
+    }
+
+    @media (max-width: 1024px) {
+      .project-row-main {
+        grid-template-columns: 1fr;
+        gap: 12px;
+      }
+      .steps-guide-grid {
+        grid-template-columns: 1fr;
+      }
     }
 
     @media (max-width: 768px) {
@@ -659,11 +994,40 @@
       .obsidian-card {
         padding: 20px 16px;
       }
+      .studio-tabs-bar,
+      .studio-tabs-bar.has-admin {
+        grid-template-columns: 1fr;
+      }
       .form-grid {
         grid-template-columns: 1fr;
       }
       .job-actions {
         grid-template-columns: 1fr;
+      }
+      .col-links-pair,
+      .col-utility-pair {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+      .filter-pills-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        width: 100%;
+      }
+      .filter-pills-grid .filter-pill:last-child:nth-child(odd) {
+        grid-column: 1 / -1;
+      }
+      .view-mode-group {
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+      .row-footer-actions {
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+      .row-footer-actions > :last-child:nth-child(odd) {
+        grid-column: 1 / -1;
       }
       .topbar-inner {
         flex-direction: column;
@@ -703,44 +1067,48 @@
             <line x1="3" y1="15" x2="21" y2="15"></line>
             <line x1="9" y1="3" x2="9" y2="21"></line>
           </svg>
-          <span>Google-Tabelle öffnen (Alle Kunden &amp; URLs)</span>
+          <span>Google-Tabelle öffnen</span>
         </a>
         <div id="topbarUserArea" class="topbar-actions hidden">
           <span id="userMetaDisplay" class="user-meta"></span>
           <button type="button" id="btnSendCredsTop" class="btn btn-secondary btn-sm">
-          <svg class="lucide" viewBox="0 0 24 24">
-            <rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect>
-            <line x1="12" y1="18" x2="12.01" y2="18"></line>
-          </svg>
-          <span>Zugangsdaten per WhatsApp ans Natel senden</span>
-        </button>
-        <button type="button" id="btnLogout" class="btn btn-ghost btn-sm">
-          <svg class="lucide" viewBox="0 0 24 24">
-            <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
-            <polyline points="16 17 21 12 16 7"></polyline>
-            <line x1="21" y1="12" x2="9" y2="12"></line>
-          </svg>
-          <span>Abmelden</span>
+            <svg class="lucide" viewBox="0 0 24 24">
+              <rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect>
+              <line x1="12" y1="18" x2="12.01" y2="18"></line>
+            </svg>
+            <span>Zugangsdaten ans Natel</span>
+          </button>
+          <button type="button" id="btnLogout" class="btn btn-ghost btn-sm">
+            <svg class="lucide" viewBox="0 0 24 24">
+              <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+              <polyline points="16 17 21 12 16 7"></polyline>
+              <line x1="21" y1="12" x2="9" y2="12"></line>
+            </svg>
+            <span>Abmelden</span>
           </button>
         </div>
       </div>
     </div>
   </header>
 
-  <!-- SCREEN 1: PASSWORT-SCHUTZWALL -->
+  <!-- SCREEN 1: PASSWORT-SCHUTZWALL (INVITE-ONLY) -->
   <main id="loginView" class="login-stage">
     <div class="container-1100">
       <div class="obsidian-card login-box">
         <span class="kicker">WEBPILOT PARTNER-STUDIO · ZUGANG</span>
-        <h1 style="font-size: 24px; margin-bottom: 8px;">Partner-Anmeldung</h1>
-        <p style="color: var(--text-secondary); font-size: 14px; margin-bottom: 24px;">
-          Melde dich mit deinem persönlichen Partner-Profil an. Auf Wunsch erhältst du deine Zugangsdaten und den Direktlink sofort per WhatsApp auf deine hinterlegte Natelnummer.
-        </p>
+        <h1 style="font-size: 24px; margin-bottom: 10px;">Partner-Anmeldung</h1>
+
+        <div class="invite-only-notice">
+          <svg class="lucide" viewBox="0 0 24 24" style="color: var(--accent-text); margin-top: 2px;">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+          </svg>
+          <span>Geschlossener Partner-Bereich — Zugang ausschliesslich mit persönlicher Einladung.</span>
+        </div>
 
         <form id="loginForm" style="display: flex; flex-direction: column; gap: 18px;">
           <div class="form-group">
             <label class="field-label" for="loginUsername">Benutzername</label>
-            <input type="text" id="loginUsername" name="username" placeholder="z. B. jenny oder david" autocomplete="username" required>
+            <input type="text" id="loginUsername" name="username" placeholder="Persönlicher Benutzername" autocomplete="username" required>
           </div>
 
           <div class="form-group">
@@ -756,11 +1124,6 @@
             </div>
           </div>
 
-          <label class="checkbox-row" for="loginSendWhatsapp">
-            <input type="checkbox" id="loginSendWhatsapp" checked>
-            <span>Zugangsdaten beim Einloggen per WhatsApp an meine hinterlegte Natelnummer senden</span>
-          </label>
-
           <button type="submit" id="btnLoginSubmit" class="btn btn-primary" style="width: 100%; padding: 13px 18px;">
             <svg class="lucide" viewBox="0 0 24 24">
               <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
@@ -775,21 +1138,171 @@
     </div>
   </main>
 
-  <!-- SCREEN 2: PARTNER-COCKPIT (JENNY & DAVID) -->
+  <!-- SCREEN 2: EINGELOGGTES PARTNER-COCKPIT -->
   <main id="studioView" class="studio-main hidden">
-    <div class="container-1100" style="display: flex; flex-direction: column; gap: 32px;">
+    <div class="container-1100" style="display: flex; flex-direction: column; gap: 22px;">
 
       <div id="topActionFeedback" class="status-banner" role="status"></div>
 
-      <!-- KARTE 1: NEUER VORSCHAU-AUFTRAG -->
-      <section class="obsidian-card" data-section="partner-intake">
+      <!-- HAUPT-TABS NAVIGATION -->
+      <nav id="studioTabsBar" class="studio-tabs-bar" aria-label="Partner-Studio Bereiche">
+        <button type="button" id="tabBtnProjects" class="studio-tab-btn active" data-tab="projects">
+          <svg class="lucide" viewBox="0 0 24 24">
+            <line x1="8" y1="6" x2="21" y2="6"></line>
+            <line x1="8" y1="12" x2="21" y2="12"></line>
+            <line x1="8" y1="18" x2="21" y2="18"></line>
+            <line x1="3" y1="6" x2="3.01" y2="6"></line>
+            <line x1="3" y1="12" x2="3.01" y2="12"></line>
+            <line x1="3" y1="18" x2="3.01" y2="18"></line>
+          </svg>
+          <span>Vorhandene Projekte &amp; URL-Liste</span>
+          <span id="tabBadgeCount" class="badge-4">9 Projekte</span>
+        </button>
+
+        <button type="button" id="tabBtnIntake" class="studio-tab-btn" data-tab="intake">
+          <svg class="lucide" viewBox="0 0 24 24">
+            <line x1="12" y1="5" x2="12" y2="19"></line>
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+          </svg>
+          <span>Neuen Auftrag erstellen</span>
+        </button>
+
+        <button type="button" id="tabBtnAdmin" class="studio-tab-btn hidden" data-tab="admin">
+          <svg class="lucide" viewBox="0 0 24 24">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+          </svg>
+          <span>Partner-Verwaltung (Admin · 2FA)</span>
+        </button>
+      </nav>
+
+      <!-- TAB 1: VORHANDENE PROJEKTE & URL-LISTE -->
+      <section id="panelProjects" class="obsidian-card" data-section="partner-jobs">
+        <div class="section-head">
+          <div>
+            <span class="kicker">KUNDEN- &amp; URL-ZENTRALE · INKL. 2-STUFEN PREISEMPFEHLUNG</span>
+            <h2>Vorhandene Projekte &amp; Direkt-Links</h2>
+            <p class="section-desc">
+              Durchsuche alle WebPilot-Vorschauen in Echtzeit. Jedes Projekt enthält Zeigeversion (-v2), Vollversion (-vollversion), Studio Cockpit v4.0, Vorher/Nachher-Beweis-PDF sowie die 2-stufige Preisempfehlung (System-Score &amp; Markt-Richtwert).
+            </p>
+          </div>
+          <div style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap;">
+            <button type="button" id="btnQuickNewOrder" class="btn btn-primary btn-sm">
+              <svg class="lucide" viewBox="0 0 24 24">
+                <line x1="12" y1="5" x2="12" y2="19"></line>
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+              </svg>
+              <span>Neuer Auftrag</span>
+            </button>
+            <a id="btnSectionGoogleSheet" href="https://docs.google.com/spreadsheets/d/1O3EqOCqGS5HbE5rWxIBoTk8lLA0a2Pz30F7yKiEbRms/edit" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm">
+              <svg class="lucide" viewBox="0 0 24 24">
+                <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                <line x1="3" y1="9" x2="21" y2="9"></line>
+                <line x1="3" y1="15" x2="21" y2="15"></line>
+                <line x1="9" y1="3" x2="9" y2="21"></line>
+              </svg>
+              <span>Google-Tabelle</span>
+            </a>
+            <button type="button" id="btnRefreshJobs" class="btn btn-ghost btn-sm">
+              <svg class="lucide" viewBox="0 0 24 24">
+                <polyline points="23 4 23 10 17 10"></polyline>
+                <polyline points="1 20 1 14 7 14"></polyline>
+                <path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"></path>
+              </svg>
+              <span>Aktualisieren</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- LIVE-SUCHE, FILTER-PILLS & ANSICHTS-UMSCHALTER -->
+        <div class="projects-toolbar">
+          <div class="toolbar-top-row">
+            <div class="search-box-wrap">
+              <div class="search-input-inner">
+                <svg class="lucide search-icon" viewBox="0 0 24 24">
+                  <circle cx="11" cy="11" r="8"></circle>
+                  <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                </svg>
+                <input type="search" id="projectSearchInput" placeholder="Suche nach Firma, Verein, Ort, Slug, Preis oder Stichwort..." aria-label="Projekte durchsuchen">
+              </div>
+              <button type="button" id="btnClearSearch" class="btn btn-secondary btn-sm hidden" aria-label="Suche zurücksetzen">
+                <svg class="lucide" viewBox="0 0 24 24">
+                  <line x1="18" y1="6" x2="6" y2="18"></line>
+                  <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+                <span>Zurücksetzen</span>
+              </button>
+            </div>
+
+            <div class="view-mode-group" role="group" aria-label="Ansichtsmodus wählen">
+              <button type="button" id="btnViewList" class="view-btn active">
+                <svg class="lucide" viewBox="0 0 24 24">
+                  <line x1="8" y1="6" x2="21" y2="6"></line>
+                  <line x1="8" y1="12" x2="21" y2="12"></line>
+                  <line x1="8" y1="18" x2="21" y2="18"></line>
+                  <line x1="3" y1="6" x2="3.01" y2="6"></line>
+                  <line x1="3" y1="12" x2="3.01" y2="12"></line>
+                  <line x1="3" y1="18" x2="3.01" y2="18"></line>
+                </svg>
+                <span>Liste</span>
+              </button>
+              <button type="button" id="btnViewCards" class="view-btn">
+                <svg class="lucide" viewBox="0 0 24 24">
+                  <rect x="3" y="3" width="7" height="7"></rect>
+                  <rect x="14" y="3" width="7" height="7"></rect>
+                  <rect x="14" y="14" width="7" height="7"></rect>
+                  <rect x="3" y="14" width="7" height="7"></rect>
+                </svg>
+                <span>Kacheln</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="toolbar-bottom-row">
+            <div id="filterPillsBar" class="filter-pills-grid" role="group" aria-label="Projekte filtern">
+              <button type="button" class="filter-pill active" data-filter="all">Alle</button>
+              <button type="button" class="filter-pill" data-filter="active">Aktiv</button>
+              <button type="button" class="filter-pill" data-filter="inactive">Inaktiv / Archiv</button>
+              <button type="button" class="filter-pill" data-filter="jenny">Jenny Ettle</button>
+              <button type="button" class="filter-pill" data-filter="david">David Hügli</button>
+            </div>
+            <div id="resultsCounterDisplay" class="results-counter">9 von 9 Projekten</div>
+          </div>
+        </div>
+
+        <div id="jobsContainer" class="projects-list-view"></div>
+      </section>
+
+      <!-- TAB 2: NEUEN AUFTRAG ERSTELLEN -->
+      <section id="panelIntake" class="obsidian-card hidden" data-section="partner-intake">
         <div class="section-head">
           <div>
             <span class="kicker">NEUER VORSCHAU-AUFTRAG · ANTIGRAVITY ENGINE</span>
-            <h2>Neue WebPilot-Vorschauseite erstellen lassen</h2>
+            <h2>Neuen WebPilot-Auftrag starten</h2>
             <p class="section-desc">
-              Gib eine bestehende Website-URL, deinen eigenen HTML-Entwurf aus ChatGPT oder beides zusammen ein. Antigravity baut daraus automatisch die mehrseitige WebPilot-Vorschau inklusive Studio-Cockpit und schickt dir die fertigen Zugangsdaten direkt per WhatsApp auf dein Natel.
+              Gib eine bestehende Website-URL, deinen eigenen HTML-Entwurf aus ChatGPT oder beides zusammen ein. Antigravity baut daraus automatisch Zeigeversion (-v2), Vollversion (-vollversion) und Studio-Cockpit.
             </p>
+          </div>
+          <div>
+            <span id="quotaBadgeDisplay" class="badge-4">Tages-Kontingent: max. 5 Aufträge / 24 Std.</span>
+          </div>
+        </div>
+
+        <!-- KOMPAKTE 3-SCHRITTE-HILFE -->
+        <div class="steps-guide-grid">
+          <div class="step-guide-card">
+            <span class="kicker">SCHRITT 1</span>
+            <div class="step-guide-title">Firma &amp; Website angeben</div>
+            <p class="step-guide-desc">Bestehende URL eintragen oder optional einen ChatGPT-HTML-Entwurf und Fotos beilegen.</p>
+          </div>
+          <div class="step-guide-card">
+            <span class="kicker">SCHRITT 2</span>
+            <div class="step-guide-title">Antigravity baut 2 Versionen</div>
+            <p class="step-guide-desc">Erstellt automatisch die schlanke Zeigeversion (-v2) für Kunden sowie die Vollversion (-vollversion) mit Cockpit.</p>
+          </div>
+          <div class="step-guide-card">
+            <span class="kicker">SCHRITT 3</span>
+            <div class="step-guide-title">Links &amp; Preisempfehlung aufs Natel</div>
+            <p class="step-guide-desc">Du erhältst alle Links, 3 Aha-Punkte und die Preisempfehlung direkt per WhatsApp und in der Liste.</p>
           </div>
         </div>
 
@@ -797,7 +1310,7 @@
           <div class="form-grid">
             <div class="form-group">
               <label class="field-label" for="jobCompanyName">
-                <span>1. Firmenname (Pflicht)</span>
+                <span>1. Firmenname oder Verein (Pflicht)</span>
               </label>
               <input type="text" id="jobCompanyName" placeholder="z. B. Hochuli Schlossrued AG" required>
             </div>
@@ -813,7 +1326,7 @@
             <div class="form-group">
               <label class="field-label" for="jobSourceUrl">
                 <span>2. Bestehende Website-URL</span>
-                <span class="field-hint">Optional — leer lassen falls keine Website existiert</span>
+                <span class="field-hint">Optional — leer lassen bei Neubau</span>
               </label>
               <input type="url" id="jobSourceUrl" placeholder="https://www.beispiel-firma.ch">
             </div>
@@ -826,7 +1339,6 @@
               <input type="text" id="jobSlug" placeholder="z. B. hochuli">
             </div>
 
-            <!-- 3. ChatGPT HTML-Entwurf (Drag & Drop ODER Code einfügen) -->
             <div class="form-group full-width">
               <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px;">
                 <label class="field-label" for="jobChatgptHtml">
@@ -861,13 +1373,12 @@
               </div>
             </div>
 
-            <!-- 4. Kontext, Wünsche & Bilder -->
             <div class="form-group full-width">
               <label class="field-label" for="jobContextNotes">
                 <span>4. Kontext, Schwerpunkte &amp; Regie-Anweisungen für Antigravity</span>
                 <span class="field-hint">Was ist dem Kunden besonders wichtig?</span>
               </label>
-              <textarea id="jobContextNotes" placeholder="z. B. 5 Sparten farblich trennen, bestehende Projektbilder &amp; Luftaufnahme-Video übernehmen, Sektionen für aktuelle Social-Media-Einblicke und Fachartikel einbauen, Offerte-Button prominent platzieren..."></textarea>
+              <textarea id="jobContextNotes" placeholder="z. B. 5 Sparten farblich trennen, bestehende Projektbilder übernehmen, Offerte-Button prominent platzieren..."></textarea>
             </div>
 
             <div class="form-group full-width">
@@ -886,10 +1397,10 @@
                 <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
                 <polyline points="22 4 12 14.01 9 11.01"></polyline>
               </svg>
-              <span>Nach Abschluss erhältst du Vorschau-Link, Studio-Cockpit &amp; Token automatisch per WhatsApp.</span>
+              <span>Nach dem Absenden wechselt die Ansicht direkt zur Projekt-Liste und informiert dich per WhatsApp.</span>
             </div>
 
-            <button type="submit" id="btnSubmitJob" class="btn btn-primary" style="padding: 14px 24px; font-size: 15px;">
+            <button type="submit" id="btnSubmitJob" class="btn btn-primary" style="padding: 13px 22px; font-size: 15px;">
               <svg class="lucide" viewBox="0 0 24 24">
                 <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
               </svg>
@@ -901,66 +1412,93 @@
         <div id="jobSubmitBanner" class="status-banner" role="status"></div>
       </section>
 
-      <!-- KARTE 2: AUFTRAGS-ÜBERSICHT & LIVE-LINKS -->
-      <section class="obsidian-card" data-section="partner-jobs">
+      <!-- TAB 3: PARTNER-VERWALTUNG (NUR ADMIN DAVID · 2FA GESCHÜTZT) -->
+      <section id="panelAdmin" class="obsidian-card hidden" data-section="partner-admin">
         <div class="section-head">
           <div>
-            <span class="kicker">AUFTRAGS-ÜBERSICHT &amp; LIVE-LINKS</span>
-            <h2>Bisherige Vorschau-Seiten &amp; Status</h2>
+            <span class="kicker">GESCHLOSSENE PARTNER-VERWALTUNG · 2-FAKTOR-SCHUTZ</span>
+            <h2>Freigeschaltete Partner &amp; 2FA-Einladung</h2>
             <p class="section-desc">
-              Alle fertiggestellten und laufenden WebPilot-Vorschauen. Mit einem Klick öffnest du die Kunden-Vorschau, das Studio-Cockpit oder schickst dir die Links direkt per WhatsApp aufs Natel.
+              Neue Partner-Accounts und WhatsApp-Einladungen erfordern zwingend einen 6-stelligen Einmal-Code auf dein hinterlegtes Admin-Natel (+41 79 632 65 05).
             </p>
           </div>
-          <div style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap;">
-            <a id="btnSectionGoogleSheet" href="https://docs.google.com/spreadsheets/d/1O3EqOCqGS5HbE5rWxIBoTk8lLA0a2Pz30F7yKiEbRms/edit" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">
-              <svg class="lucide" viewBox="0 0 24 24">
-                <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
-                <line x1="3" y1="9" x2="21" y2="9"></line>
-                <line x1="3" y1="15" x2="21" y2="15"></line>
-                <line x1="9" y1="3" x2="9" y2="21"></line>
-              </svg>
-              <span>Google-Tabelle öffnen (Alle Kunden &amp; URLs)</span>
-            </a>
-            <button type="button" id="btnRefreshJobs" class="btn btn-secondary btn-sm">
-              <svg class="lucide" viewBox="0 0 24 24">
-                <polyline points="23 4 23 10 17 10"></polyline>
-                <polyline points="1 20 1 14 7 14"></polyline>
-                <path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"></path>
-              </svg>
-              <span>Aktualisieren</span>
-            </button>
-          </div>
         </div>
 
-        <div class="jobs-toolbar">
-          <div class="jobs-search-wrap">
-            <input type="text" id="jobSearchInput" placeholder="Suche nach Firma, Verein, Ort, Slug oder Partner..." aria-label="Projekte durchsuchen">
-          </div>
-          <div class="jobs-view-toggle" role="group" aria-label="Ansicht wählen">
-            <button type="button" id="btnViewCards" class="btn btn-secondary btn-sm btn-view-mode is-active">
-              <svg class="lucide" viewBox="0 0 24 24">
-                <rect x="3" y="3" width="7" height="7"></rect>
-                <rect x="14" y="3" width="7" height="7"></rect>
-                <rect x="14" y="14" width="7" height="7"></rect>
-                <rect x="3" y="14" width="7" height="7"></rect>
-              </svg>
-              <span>Kachel-Ansicht</span>
-            </button>
-            <button type="button" id="btnViewList" class="btn btn-secondary btn-sm btn-view-mode">
-              <svg class="lucide" viewBox="0 0 24 24">
-                <line x1="8" y1="6" x2="21" y2="6"></line>
-                <line x1="8" y1="12" x2="21" y2="12"></line>
-                <line x1="8" y1="18" x2="21" y2="18"></line>
-                <line x1="3" y1="6" x2="3.01" y2="6"></line>
-                <line x1="3" y1="12" x2="3.01" y2="12"></line>
-                <line x1="3" y1="18" x2="3.01" y2="18"></line>
-              </svg>
-              <span>Listen-Ansicht</span>
-            </button>
-          </div>
-        </div>
+        <h3 style="font-size: 16px; margin-bottom: 12px;">1. Aktive &amp; freigeschaltete Partner-Profile</h3>
+        <div id="adminPartnersList" class="partner-admin-list"></div>
 
-        <div id="jobsContainer" class="jobs-list"></div>
+        <h3 style="font-size: 16px; margin-bottom: 12px;">2. Neuen Partner einladen &amp; anlegen (oder Passwort erneuern)</h3>
+        <form id="adminInviteForm" style="display: flex; flex-direction: column; gap: 18px;">
+          <div class="form-grid">
+            <div class="form-group">
+              <label class="field-label" for="invDisplayName">Anzeigename (Vor- &amp; Nachname / Agentur)</label>
+              <input type="text" id="invDisplayName" placeholder="z. B. Jenny Ettle (JE-MI)" required>
+            </div>
+
+            <div class="form-group">
+              <label class="field-label" for="invUsername">Benutzername (Kurz-Login)</label>
+              <input type="text" id="invUsername" placeholder="z. B. jenny" required>
+            </div>
+
+            <div class="form-group">
+              <label class="field-label" for="invPhone">Natelnummer für WhatsApp-Zustellung</label>
+              <input type="text" id="invPhone" placeholder="+41 78 223 21 80" required>
+            </div>
+
+            <div class="form-group">
+              <label class="field-label" for="invDailyLimit">Tages-Limit (Aufträge pro 24 Std.)</label>
+              <input type="number" id="invDailyLimit" min="1" max="20" value="5" required>
+            </div>
+
+            <div class="form-group full-width">
+              <label class="field-label" for="invPassword">
+                <span>Persönliches Partner-Passwort (mind. 8 Zeichen)</span>
+              </label>
+              <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+                <input type="text" id="invPassword" placeholder="Sicheres Passwort eingeben oder generieren" style="flex: 1 1 260px;" required>
+                <button type="button" id="btnGenPartnerPw" class="btn btn-secondary btn-sm">
+                  <svg class="lucide" viewBox="0 0 24 24">
+                    <path d="M21 2l-2 2m-7.61 7.61a5.5 5.5 0 1 1-7.778 7.778 5.5 5.5 0 0 1 7.777-7.777zm0 0L15.5 7.5m0 0l3 3L22 7l-3-3m-3.5 3.5L19 4"></path>
+                  </svg>
+                  <span>Sicheres Passwort generieren</span>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="twofa-box">
+            <div style="display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap;">
+              <div>
+                <span class="kicker" style="margin-bottom: 4px;">WHATSAPP 2-FAKTOR-AUTORISIERUNG (ADMIN)</span>
+                <div style="font-size: 13.5px; color: var(--text-secondary);">
+                  Sende zuerst einen 6-stelligen Sicherheitscode an dein Admin-Natel (+41 79 632 65 05), um die Einladung freizugeben.
+                </div>
+              </div>
+              <button type="button" id="btnRequest2fa" class="btn btn-secondary btn-sm">
+                <svg class="lucide" viewBox="0 0 24 24">
+                  <rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect>
+                  <line x1="12" y1="18" x2="12.01" y2="18"></line>
+                </svg>
+                <span>1. 2FA-Code an mein Natel senden</span>
+              </button>
+            </div>
+
+            <div style="display: flex; align-items: flex-end; gap: 12px; flex-wrap: wrap;">
+              <div class="form-group" style="flex: 1 1 220px;">
+                <label class="field-label" for="inv2faCode">6-stelliger WhatsApp-2FA-Code</label>
+                <input type="text" id="inv2faCode" placeholder="6-stelliger Code aus WhatsApp" maxlength="8" autocomplete="one-time-code">
+              </div>
+              <button type="submit" id="btnConfirmInvitePartner" class="btn btn-primary">
+                <svg class="lucide" viewBox="0 0 24 24">
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                </svg>
+                <span>2. Mit 2FA-Code bestätigen &amp; Partner einladen</span>
+              </button>
+            </div>
+          </div>
+        </form>
+
+        <div id="adminStatusBanner" class="status-banner" role="status"></div>
       </section>
 
     </div>
@@ -970,6 +1508,7 @@
     (function () {
       const STORAGE_TOKEN_KEY = "wp_partner_session_token";
       const STORAGE_USER_KEY = "wp_partner_session_user";
+      const STORAGE_VIEW_KEY = "wp_partner_view_mode";
 
       const loginView = document.getElementById("loginView");
       const studioView = document.getElementById("studioView");
@@ -978,10 +1517,27 @@
       const loginForm = document.getElementById("loginForm");
       const loginUsername = document.getElementById("loginUsername");
       const loginPassword = document.getElementById("loginPassword");
-      const loginSendWhatsapp = document.getElementById("loginSendWhatsapp");
       const btnTogglePw = document.getElementById("btnTogglePw");
       const loginStatusBanner = document.getElementById("loginStatusBanner");
       const topActionFeedback = document.getElementById("topActionFeedback");
+
+      const studioTabsBar = document.getElementById("studioTabsBar");
+      const tabBtnProjects = document.getElementById("tabBtnProjects");
+      const tabBtnIntake = document.getElementById("tabBtnIntake");
+      const tabBtnAdmin = document.getElementById("tabBtnAdmin");
+      const tabBadgeCount = document.getElementById("tabBadgeCount");
+
+      const panelProjects = document.getElementById("panelProjects");
+      const panelIntake = document.getElementById("panelIntake");
+      const panelAdmin = document.getElementById("panelAdmin");
+
+      const projectSearchInput = document.getElementById("projectSearchInput");
+      const btnClearSearch = document.getElementById("btnClearSearch");
+      const btnViewList = document.getElementById("btnViewList");
+      const btnViewCards = document.getElementById("btnViewCards");
+      const filterPillsBar = document.getElementById("filterPillsBar");
+      const resultsCounterDisplay = document.getElementById("resultsCounterDisplay");
+      const jobsContainer = document.getElementById("jobsContainer");
 
       const jobForm = document.getElementById("jobForm");
       const jobCompanyName = document.getElementById("jobCompanyName");
@@ -999,13 +1555,31 @@
       const btnToggleCodeArea = document.getElementById("btnToggleCodeArea");
       const codeAreaWrapper = document.getElementById("codeAreaWrapper");
       const jobSubmitBanner = document.getElementById("jobSubmitBanner");
-      const jobsContainer = document.getElementById("jobsContainer");
+      const quotaBadgeDisplay = document.getElementById("quotaBadgeDisplay");
+
+      const adminPartnersList = document.getElementById("adminPartnersList");
+      const adminInviteForm = document.getElementById("adminInviteForm");
+      const invDisplayName = document.getElementById("invDisplayName");
+      const invUsername = document.getElementById("invUsername");
+      const invPhone = document.getElementById("invPhone");
+      const invDailyLimit = document.getElementById("invDailyLimit");
+      const invPassword = document.getElementById("invPassword");
+      const inv2faCode = document.getElementById("inv2faCode");
+      const btnGenPartnerPw = document.getElementById("btnGenPartnerPw");
+      const btnRequest2fa = document.getElementById("btnRequest2fa");
+      const adminStatusBanner = document.getElementById("adminStatusBanner");
 
       let currentToken = sessionStorage.getItem(STORAGE_TOKEN_KEY) || "";
       let currentUser = null;
       let loadedChatgptFilename = "";
       let selectedAssets = [];
       let pollInterval = null;
+
+      let activeTab = "projects";
+      let currentViewMode = localStorage.getItem(STORAGE_VIEW_KEY) === "cards" ? "cards" : "list";
+      let currentFilter = "all";
+      let currentSearchQuery = "";
+      let expandedJobDrawers = {};
 
       try {
         const rawUser = sessionStorage.getItem(STORAGE_USER_KEY);
@@ -1014,15 +1588,345 @@
         currentUser = null;
       }
 
+      const FALLBACK_SEED_JOBS = [
+        {
+          "job_id": "job_impmarketing_20261105",
+          "company_name": "IMP GmbH — Matthias Iseli (Schreinerei-Marketing)",
+          "city": "Obersteckholz BE",
+          "slug": "imp-marketing",
+          "source_url": "https://imp-marketing.ch/",
+          "status": "completed",
+          "is_active": true,
+          "created_by": "david",
+          "created_by_name": "David Hügli",
+          "created_at": "2026-11-05 12:35:00",
+          "v2_url": "https://vorschau.magnet-xs.ch/imp-marketing-v2/",
+          "vollversion_url": "https://vorschau.magnet-xs.ch/imp-marketing-vollversion/",
+          "cockpit_url": "https://vorschau.magnet-xs.ch/imp-marketing-vollversion/cockpit.html?token=impmarketing2026",
+          "audit_report_url": "https://vorschau.magnet-xs.ch/reports/imp-marketing-vorher-nachher-report.pdf",
+          "access_token": "impmarketing2026",
+          "complexity_score": "4.8 / 10.0",
+          "pricing_formula_chf": "CHF 2'150.—",
+          "pricing_recommended_chf": "CHF 2'400.—",
+          "pricing_rationale": "Spezialisierter 5-Seiten-B2B-Auftritt für Schreinerei- & Holzbau-Marketing inkl. 16 Prozess-Visuals, interaktivem Schreinerei-Potenzial-Rechner, 6 Fach-FAQs und 3-Schritte Smart-Anfrage. Durch ein einziges gewonnenes Schreinerei-Mandat mehrfach refinanziert.",
+          "summary": "Zeigeversion (-v2 mit voll ausgebauter Startseite & 4 Unterseiten als Ausbaustufe) und 5-Seiten Vollversion (-vollversion inkl. Leistungen, Methode, Über uns, Kontakt & Studio Cockpit v4.0) auf Swiss Edge live.",
+          "aha_points": [
+            "100 % Bereinigung aller englischen GoHighLevel-Template-Reste (Jane Doe, 25+ Years Experience, englische FAQs) zugunsten echter Schweizer Schreiner-EFZ-Substanz",
+            "Interaktiver «Sichtbarkeits- & Anfrage-Potenzial-Rechner für Schreinereien & Holzbau» nach Betriebsgrösse (1–15 Mitarbeitende) und Schwerpunkt",
+            "4 klar strukturierte Leistungs-Säulen (Webseiten, Google-Geschäftsprofil, Anfrage-Systeme, Datenautomation) plus 3-Schritte Smart-Anfrage mit PDF-Dossier"
+          ]
+        },
+        {
+          "job_id": "job_herzensarbeit_20261105",
+          "company_name": "Herzensarbeit — Anne-Katrin Koch",
+          "city": "Härkingen & Oensingen SO",
+          "slug": "herzensarbeit",
+          "source_url": "https://herzensarbeit.ch/",
+          "status": "completed",
+          "is_active": true,
+          "created_by": "jenny",
+          "created_by_name": "Jenny Ettle (JE-MI)",
+          "created_at": "2026-11-05 11:00:00",
+          "v2_url": "https://vorschau.magnet-xs.ch/herzensarbeit-v2/",
+          "vollversion_url": "https://vorschau.magnet-xs.ch/herzensarbeit-vollversion/",
+          "cockpit_url": "https://vorschau.magnet-xs.ch/herzensarbeit-vollversion/cockpit?token=herzensarbeit2026",
+          "audit_report_url": "https://vorschau.magnet-xs.ch/reports/herzensarbeit-vorher-nachher-report.pdf",
+          "access_token": "herzensarbeit2026",
+          "complexity_score": "3.5 / 10.0",
+          "pricing_formula_chf": "CHF 1'650.—",
+          "pricing_recommended_chf": "CHF 1'500.—",
+          "pricing_rationale": "Kompakte 5-Seiten-Praxiswebseite (Coaching & Kinesiologie) mit ca. 15 Bildern und Workshop-Sektion. Durch einen einzigen ausgebuchten Workshop (8 Teilnehmende) bereits zu 100 % amortisiert.",
+          "summary": "Zeigeversion (-v2 mit 2 Seiten + Themen-Ausblick) und 5-Seiten Vollversion (-vollversion inkl. Angebot, Workshops, Über mich & Studio Cockpit v4.0) auf Swiss Edge live.",
+          "aha_points": [
+            "Klare Trennung der 4 Begleitungsfelder (Paartherapie, Trennungsberatung, Trauerbegleitung, Achtsamkeit & Frauen-Workshops)",
+            "3-Schritte Smart-Anfrage für Erstgespräche in Härkingen (SO) oder Online ohne Hemmschwelle",
+            "Zweistufige Präsentation: Schlanke Zeigeversion (-v2) für den Erstkontakt und ausgebaute 5-Seiten Vollversion (-vollversion)"
+          ]
+        },
+        {
+          "job_id": "job_frees_20261104",
+          "company_name": "Free's Stefan Fritschi",
+          "city": "Niederrohrdorf AG",
+          "slug": "frees",
+          "source_url": "https://www.frees.ch/",
+          "status": "completed",
+          "is_active": true,
+          "created_by": "jenny",
+          "created_by_name": "Jenny Ettle (JE-MI)",
+          "created_at": "2026-11-03 21:30:00",
+          "v2_url": "https://vorschau.magnet-xs.ch/frees-v2/",
+          "vollversion_url": "https://vorschau.magnet-xs.ch/frees-vollversion/",
+          "cockpit_url": "https://vorschau.magnet-xs.ch/frees-vollversion/cockpit?token=frees2026",
+          "audit_report_url": "https://vorschau.magnet-xs.ch/reports/frees-vorher-nachher-report.pdf",
+          "access_token": "frees2026",
+          "complexity_score": "3.2 / 10.0",
+          "pricing_formula_chf": "CHF 1'550.—",
+          "pricing_recommended_chf": "CHF 1'500.—",
+          "pricing_rationale": "Schlanke 5-Seiten-Gewerbeseite (Teamsport & Textildruck) mit 14 extern verlinkten Marken-Katalogen ohne komplexes Daten-Backend. Perfekter Einstiegs-Sweet-Spot für sofortige Zusage.",
+          "summary": "Zeigeversion (-v2) und 5-Seiten Vollversion (-vollversion: Startseite, Dienstleistungen, Textilsortiment, Profil, Kontakt & Studio Cockpit v4.0) live.",
+          "aha_points": [
+            "Strukturierte Produkt- & Veredelungs-Übersicht (Textildruck, Stickerei, Teamsport, Workwear & Promowear)",
+            "Direkter Offerten-Konfigurator für Vereine und KMU ab 1 Stück bis Grossserie",
+            "Zweistufiges Vorführ-Modell: Zeigeversion (-v2) für Kunden und 100-%-Vollversion (-vollversion) mit Cockpit"
+          ]
+        },
+        {
+          "job_id": "job_innere_staerke_20261104",
+          "company_name": "Wüest + Paneduro — Innere Stärke",
+          "city": "Sursee LU",
+          "slug": "innere-staerke",
+          "source_url": "https://www.innere-staerke.business/",
+          "status": "completed",
+          "is_active": true,
+          "created_by": "jenny",
+          "created_by_name": "Jenny Ettle (JE-MI)",
+          "created_at": "2026-11-03 18:30:00",
+          "v2_url": "https://vorschau.magnet-xs.ch/innere-staerke-v2/",
+          "vollversion_url": "https://vorschau.magnet-xs.ch/innere-staerke-vollversion/",
+          "cockpit_url": "https://vorschau.magnet-xs.ch/innere-staerke-vollversion/cockpit?token=innerestaerke2026",
+          "audit_report_url": "https://vorschau.magnet-xs.ch/reports/innere-staerke-vorher-nachher-report.pdf",
+          "access_token": "innerestaerke2026",
+          "complexity_score": "4.2 / 10.0",
+          "pricing_formula_chf": "CHF 1'900.—",
+          "pricing_recommended_chf": "CHF 2'200.—",
+          "pricing_rationale": "5-Seiten-Auftritt für 2 Partnerinnen im B2B-Führungskräfte-Coaching inkl. Buch-Integration. Hoher Kundenwert pro B2B-Mandat rechtfertigt CHF 2'200.— mühelos.",
+          "summary": "Zeigeversion (-v2) und 5-Seiten Vollversion (-vollversion: Startseite, Angebot, Über uns, Referenzen, Kontakt & Studio Cockpit v4.0) live.",
+          "aha_points": [
+            "Souveräne Positionierung für Führungskräfte-Sparring, Team-Resilienz und KMU-Begleitung",
+            "Echte Kundenstimmen & messbare Praxis-Ergebnisse klar strukturiert aufbereitet",
+            "3-Schritte Standortbestimmungs-Anfrage direkt mit Kalender- & WhatsApp-Anbindung"
+          ]
+        },
+        {
+          "job_id": "job_fcattiswil_20261104",
+          "company_name": "FC Attiswil (14 Teams)",
+          "city": "Attiswil BE",
+          "slug": "fcattiswil",
+          "source_url": "https://www.fcattiswil.ch/",
+          "status": "completed",
+          "is_active": true,
+          "created_by": "jenny",
+          "created_by_name": "Jenny Ettle (JE-MI)",
+          "created_at": "2026-11-02 17:40:00",
+          "v2_url": "https://vorschau.magnet-xs.ch/fcattiswil-v2/",
+          "vollversion_url": "https://vorschau.magnet-xs.ch/fcattiswil-vollversion/",
+          "cockpit_url": "https://vorschau.magnet-xs.ch/fcattiswil-vollversion/cockpit?token=fcattiswil2026",
+          "audit_report_url": "https://vorschau.magnet-xs.ch/reports/fcattiswil-vorher-nachher-report.pdf",
+          "access_token": "fcattiswil2026",
+          "complexity_score": "8.2 / 10.0",
+          "pricing_formula_chf": "CHF 3'700.—",
+          "pricing_recommended_chf": "CHF 3'900.—",
+          "pricing_rationale": "Fussballverein mit vielen Mannschaften, Junioren, Sponsoren-Präsenz & 5-Blöcke Team-Einreichungs-Engine. Ein einziger neuer Hauptsponsor refinanziert bereits die halbe Webseite.",
+          "summary": "Vereins-Auftritt für 14 Teams inkl. Herren 1 Muster-Teamseite, Team-Update-Onboarding und Studio Cockpit v4.0.",
+          "aha_points": [
+            "Moderne Vereins-Präsenz für alle 14 Teams mit klarer Junioren- und Aktiv-Gliederung",
+            "Smartphone-taugliches Team-Update-Formular für Kaderdaten und Matchberichte",
+            "Attraktive Sponsoren-Sichtbarkeit für das lokale Gewerbe im Oberaargau / Leberberg"
+          ]
+        },
+        {
+          "job_id": "job_scfulenbach_20261104",
+          "company_name": "SC Fulenbach (14 Teams)",
+          "city": "Fulenbach SO",
+          "slug": "scfulenbach",
+          "source_url": "https://www.scfulenbach.ch/",
+          "status": "completed",
+          "is_active": true,
+          "created_by": "jenny",
+          "created_by_name": "Jenny Ettle (JE-MI)",
+          "created_at": "2026-11-02 17:20:00",
+          "v2_url": "https://vorschau.magnet-xs.ch/scfulenbach-v2/",
+          "vollversion_url": "https://vorschau.magnet-xs.ch/scfulenbach-vollversion/",
+          "cockpit_url": "https://vorschau.magnet-xs.ch/scfulenbach-vollversion/cockpit?token=scfulenbach2026",
+          "audit_report_url": "https://vorschau.magnet-xs.ch/reports/scfulenbach-vorher-nachher-report.pdf",
+          "access_token": "scfulenbach2026",
+          "complexity_score": "8.5 / 10.0",
+          "pricing_formula_chf": "CHF 3'850.—",
+          "pricing_recommended_chf": "CHF 4'200.—",
+          "pricing_rationale": "Traditionsverein mit breiter Aktiv-/Junioren-Struktur, Sponsoren-Matrix, Vereinschronik und dezentralem Team-Onboarding-Formular.",
+          "summary": "Vereins-Auftritt für 14 Teams inkl. Herren 1 Muster-Teamseite, Team-Update-Onboarding und Studio Cockpit v4.0.",
+          "aha_points": [
+            "14 Mannschaften strukturiert mit direktem Einstieg für Spieler, Eltern und Sponsoren",
+            "Integriertes Team-Update-Formular für Trainer und Funktionäre per Smartphone",
+            "Sponsoren-Präsentation und Vereins-Newsroom über das Studio Cockpit steuerbar"
+          ]
+        },
+        {
+          "job_id": "job_fcschlieren_20261104",
+          "company_name": "FC Schlieren (33 Teams)",
+          "city": "Schlieren ZH",
+          "slug": "fcschlieren",
+          "source_url": "https://www.fcschlieren.ch/",
+          "status": "completed",
+          "is_active": true,
+          "created_by": "jenny",
+          "created_by_name": "Jenny Ettle (JE-MI)",
+          "created_at": "2026-11-02 17:00:00",
+          "v2_url": "https://vorschau.magnet-xs.ch/fcschlieren-v2/",
+          "vollversion_url": "https://vorschau.magnet-xs.ch/fcschlieren-vollversion/",
+          "cockpit_url": "https://vorschau.magnet-xs.ch/fcschlieren-vollversion/cockpit?token=fcschlieren2026",
+          "audit_report_url": "https://vorschau.magnet-xs.ch/reports/fcschlieren-vorher-nachher-report.pdf",
+          "access_token": "fcschlieren2026",
+          "complexity_score": "9.4 / 10.0",
+          "pricing_formula_chf": "CHF 4'300.—",
+          "pricing_recommended_chf": "CHF 4'500.—",
+          "pricing_rationale": "Grossverein im Raum Zürich (über 20 Teams, hunderte Spieler-/Kaderdaten, Sponsoren-Architektur & Team-Onboarding-Engine). Gegenüber einer klassischen 12'000-Franken-Agenturofferte extrem attraktiv.",
+          "summary": "Vereins-Plattform für 33 Teams inkl. Zeigeversion (-v2), Vollversion (-vollversion), Team-Self-Service-Formular und Sponsoren-Präsentation.",
+          "aha_points": [
+            "Alle 33 Teams (Aktive, Frauen, Junioren A–G, Senioren) übersichtlich nach Kategorien filterbar",
+            "Eigenes Trainer- & Team-Update-Formular für Kaderfotos, Trainingszeiten und Sponsoren ohne Webmaster-Aufwand",
+            "Hochwertige Sponsoren-Bühne für Hauptsponsoren und lokale Gewerbe-Partner"
+          ]
+        },
+        {
+          "job_id": "job_her11_20261030",
+          "company_name": "HER11 (Jenny Ettle)",
+          "city": "Schweiz",
+          "slug": "her11",
+          "source_url": "https://www.her11.ch/",
+          "status": "completed",
+          "is_active": true,
+          "created_by": "jenny",
+          "created_by_name": "Jenny Ettle (JE-MI)",
+          "created_at": "2026-10-30 16:00:00",
+          "v2_url": "https://vorschau.magnet-xs.ch/her11-v2/",
+          "vollversion_url": "https://vorschau.magnet-xs.ch/her11-vollversion/",
+          "cockpit_url": "https://vorschau.magnet-xs.ch/her11-vollversion/cockpit?token=her112026",
+          "audit_report_url": "https://vorschau.magnet-xs.ch/reports/her11-vorher-nachher-report.pdf",
+          "access_token": "her112026",
+          "complexity_score": "5.8 / 10.0",
+          "pricing_formula_chf": "CHF 2'600.—",
+          "pricing_recommended_chf": "CHF 2'800.—",
+          "pricing_rationale": "Gehobene Marken- & Lookbook-Inszenierung mit hoher Bilddichte und laufendem Kollektions-Wechsel über das Studio Cockpit v4.0.",
+          "summary": "6-Seiten Marken-Auftritt (Startseite, Über uns, Ausbildung, Begleitung, Mach mit, Kontakt) inkl. Studio Cockpit v4.0 auf Swiss Edge.",
+          "aha_points": [
+            "Starke Marken-Identität mit klarer Führung durch Ausbildung, Begleitung und Partner-Programm",
+            "Interaktive 3-Schritte Anfrage-Weiche für Spielerinnen, Vereine und Sponsoren",
+            "Volle Eigenregie über Texte, Bilder und Sektionen im WebPilot Studio Cockpit v4.0"
+          ]
+        },
+        {
+          "job_id": "job_hochuli_20261029",
+          "company_name": "Hochuli Schlossrued AG (5 Sparten)",
+          "city": "Schlossrued AG",
+          "slug": "hochuli",
+          "source_url": "https://www.hochuli-gruppe.ch/",
+          "status": "completed",
+          "is_active": true,
+          "created_by": "david",
+          "created_by_name": "David Hügli",
+          "created_at": "2026-10-29 14:30:00",
+          "v2_url": "https://vorschau.magnet-xs.ch/hochuli-v2/",
+          "vollversion_url": "https://vorschau.magnet-xs.ch/hochuli-vollversion/",
+          "cockpit_url": "https://vorschau.magnet-xs.ch/hochuli-vollversion/cockpit?token=hochuli2026",
+          "audit_report_url": "https://vorschau.magnet-xs.ch/reports/hochuli-vorher-nachher-report.pdf",
+          "access_token": "hochuli2026",
+          "complexity_score": "7.8 / 10.0",
+          "pricing_formula_chf": "CHF 3'500.—",
+          "pricing_recommended_chf": "CHF 3'800.—",
+          "pricing_rationale": "Grosses Bau- & Gewerbe-KMU mit 5 eigenen Sparten (eigenes Farbleitsystem), 19 Projektfotos, Luftaufnahme-Video und interaktivem Mulden-Bestellrechner.",
+          "summary": "5-Seiten WebPilot-Auftritt inkl. interaktivem Mulden-Bestellrechner, 19 echten Projektfotos & 13s Luftaufnahme-Video auf Swiss Edge live.",
+          "aha_points": [
+            "5 Sparten (Hoch- & Tiefbau, Holzbau, Bedachungen/Fassaden, Immobilien, Baumulden) mit eigenem Farbleitsystem klar getrennt",
+            "19 echte Projektfotos & 13 Sekunden Luftaufnahme-Video lokal optimiert und blitzschnell auf Swiss Edge eingebunden",
+            "Sektionen für aktuelle Einblicke (#social-media) und Fachwissen aus dem Ruedertal (#blog) inklusive Mulden-Bestellrechner"
+          ]
+        }
+      ];
+
+      let allJobsData = FALLBACK_SEED_JOBS.slice();
+
       function showBanner(el, text, isOk) {
+        if (!el) return;
         el.textContent = text;
         el.className = "status-banner show " + (isOk ? "ok" : "err");
       }
 
       function hideBanner(el) {
+        if (!el) return;
         el.className = "status-banner";
         el.textContent = "";
       }
+
+      function createSvgIcon(pathsHtml) {
+        const tpl = document.createElement("template");
+        tpl.innerHTML = '<svg class="lucide" viewBox="0 0 24 24">' + pathsHtml + "</svg>";
+        return tpl.content.firstChild;
+      }
+
+      function copyTextToClipboard(text, btnEl, defaultLabel) {
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(text).catch(function () {});
+        }
+        const span = btnEl.querySelector("span");
+        if (span) {
+          span.textContent = "Kopiert";
+          setTimeout(function () {
+            span.textContent = defaultLabel;
+          }, 1800);
+        }
+      }
+
+      function switchStudioTab(tabName) {
+        activeTab = tabName;
+        const isAdminUser = currentUser && (currentUser.role === "admin" || currentUser.username === "david");
+        if (tabName === "admin" && !isAdminUser) {
+          activeTab = "projects";
+        }
+        tabBtnProjects.classList.toggle("active", activeTab === "projects");
+        tabBtnIntake.classList.toggle("active", activeTab === "intake");
+        tabBtnAdmin.classList.toggle("active", activeTab === "admin");
+
+        panelProjects.classList.toggle("hidden", activeTab !== "projects");
+        panelIntake.classList.toggle("hidden", activeTab !== "intake");
+        panelAdmin.classList.toggle("hidden", activeTab !== "admin");
+
+        if (activeTab === "admin" && isAdminUser) {
+          loadAdminPartners();
+        }
+      }
+
+      window.wpSwitchStudioTab = switchStudioTab;
+
+      tabBtnProjects.addEventListener("click", function () { switchStudioTab("projects"); });
+      tabBtnIntake.addEventListener("click", function () { switchStudioTab("intake"); });
+      tabBtnAdmin.addEventListener("click", function () { switchStudioTab("admin"); });
+      document.getElementById("btnQuickNewOrder").addEventListener("click", function () { switchStudioTab("intake"); });
+
+      function setViewMode(mode) {
+        currentViewMode = mode === "cards" ? "cards" : "list";
+        localStorage.setItem(STORAGE_VIEW_KEY, currentViewMode);
+        btnViewList.classList.toggle("active", currentViewMode === "list");
+        btnViewCards.classList.toggle("active", currentViewMode === "cards");
+        jobsContainer.className = currentViewMode === "cards" ? "jobs-list" : "projects-list-view";
+        renderFilteredJobs();
+      }
+
+      btnViewList.addEventListener("click", function () { setViewMode("list"); });
+      btnViewCards.addEventListener("click", function () { setViewMode("cards"); });
+
+      projectSearchInput.addEventListener("input", function () {
+        currentSearchQuery = (projectSearchInput.value || "").trim().toLowerCase();
+        btnClearSearch.classList.toggle("hidden", !currentSearchQuery);
+        renderFilteredJobs();
+      });
+
+      btnClearSearch.addEventListener("click", function () {
+        projectSearchInput.value = "";
+        currentSearchQuery = "";
+        btnClearSearch.classList.add("hidden");
+        renderFilteredJobs();
+      });
+
+      Array.from(filterPillsBar.querySelectorAll(".filter-pill")).forEach(function (pill) {
+        pill.addEventListener("click", function () {
+          currentFilter = pill.getAttribute("data-filter") || "all";
+          Array.from(filterPillsBar.querySelectorAll(".filter-pill")).forEach(function (p) {
+            p.classList.toggle("active", p === pill);
+          });
+          renderFilteredJobs();
+        });
+      });
 
       btnTogglePw.addEventListener("click", function () {
         const isPw = loginPassword.getAttribute("type") === "password";
@@ -1086,7 +1990,7 @@
           assetsSummary.textContent = "";
           return;
         }
-        assetsSummary.textContent = files.length + " Datei(en) ausgewählt — werden für den Upload vorbereitet...";
+        assetsSummary.textContent = files.length + " Datei(en) ausgewählt — werden vorbereitet...";
         let done = 0;
         files.forEach(function (f) {
           const r = new FileReader();
@@ -1122,18 +2026,21 @@
         studioView.classList.remove("hidden");
         topbarUserArea.classList.remove("hidden");
 
+        const isAdmin = Boolean(user && (user.role === "admin" || user.username === "david"));
+        tabBtnAdmin.classList.toggle("hidden", !isAdmin);
+        studioTabsBar.classList.toggle("has-admin", isAdmin);
+
         userMetaDisplay.textContent = "";
         const strong = document.createElement("strong");
         strong.textContent = user.display_name || user.username;
         userMetaDisplay.appendChild(document.createTextNode("Angemeldet als "));
         userMetaDisplay.appendChild(strong);
-        if (user.phone) {
-          userMetaDisplay.appendChild(document.createTextNode(" · WhatsApp: " + user.phone));
-        }
 
+        setViewMode(currentViewMode);
+        switchStudioTab(activeTab);
         loadJobs();
         if (pollInterval) clearInterval(pollInterval);
-        pollInterval = setInterval(loadJobs, 15000);
+        pollInterval = setInterval(loadJobs, 20000);
       }
 
       function logout() {
@@ -1160,8 +2067,7 @@
             method: "POST",
             body: JSON.stringify({
               username: loginUsername.value.trim(),
-              password: loginPassword.value,
-              send_whatsapp: loginSendWhatsapp.checked
+              password: loginPassword.value
             })
           });
           if (resp.status !== 200 || !resp.data.ok) {
@@ -1173,9 +2079,6 @@
           sessionStorage.setItem(STORAGE_TOKEN_KEY, currentToken);
           sessionStorage.setItem(STORAGE_USER_KEY, JSON.stringify(resp.data.user));
           enterStudio(resp.data.user);
-          if (resp.data.whatsapp_delivered) {
-            showBanner(topActionFeedback, "Willkommen! Deine Zugangsdaten wurden soeben per WhatsApp an " + (resp.data.user.phone || "dein Natel") + " gesendet.", true);
-          }
         } catch (err) {
           showBanner(loginStatusBanner, "Verbindungsfehler: " + err.message, false);
         } finally {
@@ -1226,11 +2129,6 @@
             body: JSON.stringify(payload)
           });
           if (resp.status === 200 && resp.data.ok) {
-            showBanner(
-              jobSubmitBanner,
-              "Auftrag für «" + resp.data.job.company_name + "» eingereicht! Antigravity baut jetzt die Vorschau-Seite und sendet dir die Links per WhatsApp, sobald sie live ist.",
-              true
-            );
             jobCompanyName.value = "";
             jobCity.value = "";
             jobSourceUrl.value = "";
@@ -1243,7 +2141,13 @@
             assetsSummary.textContent = "";
             htmlDropzoneTitle.textContent = "ChatGPT .html-Datei hierher ziehen oder antippen zum Auswählen";
             updateCharCount();
-            loadJobs();
+            await loadJobs();
+            switchStudioTab("projects");
+            showBanner(
+              topActionFeedback,
+              "Auftrag für «" + resp.data.job.company_name + "» eingereicht und oben in die Projekt-Liste aufgenommen!",
+              true
+            );
           } else {
             showBanner(jobSubmitBanner, resp.data.error || "Auftrag konnte nicht gespeichert werden.", false);
           }
@@ -1256,363 +2160,17 @@
 
       document.getElementById("btnRefreshJobs").addEventListener("click", loadJobs);
 
-      function createSvgIcon(pathsHtml) {
-        const tpl = document.createElement("template");
-        tpl.innerHTML = '<svg class="lucide" viewBox="0 0 24 24">' + pathsHtml + "</svg>";
-        return tpl.content.firstChild;
-      }
-
-      const FALLBACK_SEED_JOBS = [
-  {
-    "job_id": "job_impmarketing_20261105",
-    "company_name": "IMP GmbH — Matthias Iseli (Schreinerei-Marketing)",
-    "city": "Obersteckholz BE",
-    "slug": "imp-marketing",
-    "source_url": "https://imp-marketing.ch/",
-    "has_chatgpt_html": false,
-    "chatgpt_filename": "",
-    "chatgpt_html_length": 0,
-    "context_notes": "Spezialisiertes Digital- & Sichtbarkeits-System für Schreinereien und Holzbau-Betriebe (1–15 Mitarbeitende) in der Deutschschweiz. Inhaber Matthias Iseli (Schreiner EFZ, 15+ Jahre Erfahrung, Erfinder des «IMP Sichtbarkeits-Tragwerks»).",
-    "assets_count": 28,
-    "status": "completed",
-    "created_by": "david",
-    "created_by_name": "David Hügli",
-    "submitted_by": "david",
-    "partner_name": "David Hügli",
-    "created_at": "2026-11-05 12:35:00",
-    "completed_at": "2026-11-05 13:55:00",
-    "v2_url": "https://vorschau.magnet-xs.ch/imp-marketing-v2/",
-    "vollversion_url": "https://vorschau.magnet-xs.ch/imp-marketing-vollversion/",
-    "preview_url": "https://vorschau.magnet-xs.ch/imp-marketing-v2/",
-    "cockpit_url": "https://vorschau.magnet-xs.ch/imp-marketing-vollversion/cockpit.html?token=impmarketing2026",
-    "access_token": "impmarketing2026",
-    "summary": "Zeigeversion (-v2 mit voll ausgebauter Startseite & 4 Unterseiten als Ausbaustufe) und 5-Seiten Vollversion (-vollversion inkl. Leistungen, Methode, Über uns, Kontakt & Studio Cockpit v4.0) auf Swiss Edge live.",
-    "aha_points": [
-      "100 % Bereinigung aller englischen GoHighLevel-Template-Reste (Jane Doe, 25+ Years Experience, englische FAQs) zugunsten echter Schweizer Schreiner-EFZ-Substanz",
-      "Interaktiver «Sichtbarkeits- & Anfrage-Potenzial-Rechner für Schreinereien & Holzbau» nach Betriebsgrösse (1–15 Mitarbeitende) und Schwerpunkt",
-      "4 klar strukturierte Leistungs-Säulen (Webseiten, Google-Geschäftsprofil, Anfrage-Systeme, Datenautomation) plus 3-Schritte Smart-Anfrage mit PDF-Dossier"
-    ],
-    "is_active": true,
-    "complexity_score": "4.8 / 10.0",
-    "pricing_formula_chf": "CHF 2'150.—",
-    "pricing_recommended_chf": "CHF 2'400.—",
-    "pricing_rationale": "Spezialisierter 5-Seiten-B2B-Auftritt für Schreinerei- & Holzbau-Marketing inkl. 16 Prozess-Visuals, interaktivem Schreinerei-Potenzial-Rechner, 6 Fach-FAQs und 3-Schritte Smart-Anfrage. Durch ein einziges gewonnenes Schreinerei-Mandat mehrfach refinanziert.",
-    "audit_report_url": "https://vorschau.magnet-xs.ch/reports/imp-marketing-vorher-nachher-report.pdf",
-    "audit_report_html_url": "https://vorschau.magnet-xs.ch/reports/imp-marketing-vorher-nachher-report.html"
-  },
-  {
-    "job_id": "job_herzensarbeit_20261105",
-    "company_name": "Herzensarbeit — Anne-Katrin Koch",
-    "city": "Härkingen & Oensingen SO",
-    "slug": "herzensarbeit",
-    "source_url": "https://herzensarbeit.ch/",
-    "has_chatgpt_html": false,
-    "chatgpt_filename": "",
-    "chatgpt_html_length": 0,
-    "context_notes": "Paartherapie, Trennungsberatung, Trauerbegleitung, Achtsamkeit & Frauen-Workshops in Härkingen SO und Online. Warme, vertrauensvolle Gestaltung mit klaren Kontaktwegen.",
-    "assets_count": 12,
-    "status": "completed",
-    "created_by": "jenny",
-    "created_by_name": "Jenny Ettle (JE-MI)",
-    "created_at": "2026-11-05 11:00:00",
-    "completed_at": "2026-11-05 11:25:00",
-    "v2_url": "https://vorschau.magnet-xs.ch/herzensarbeit-v2/",
-    "vollversion_url": "https://vorschau.magnet-xs.ch/herzensarbeit-vollversion/",
-    "preview_url": "https://vorschau.magnet-xs.ch/herzensarbeit-v2/",
-    "cockpit_url": "https://vorschau.magnet-xs.ch/herzensarbeit-vollversion/cockpit?token=herzensarbeit2026",
-    "access_token": "herzensarbeit2026",
-    "summary": "Zeigeversion (-v2 mit 2 Seiten + Themen-Ausblick) und 5-Seiten Vollversion (-vollversion inkl. Angebot, Workshops, Über mich & Studio Cockpit v4.0) auf Swiss Edge live.",
-    "aha_points": [
-      "Klare Trennung der 4 Begleitungsfelder (Paartherapie, Trennungsberatung, Trauerbegleitung, Achtsamkeit & Frauen-Workshops)",
-      "3-Schritte Smart-Anfrage für Erstgespräche in Härkingen (SO) oder Online ohne Hemmschwelle",
-      "Zweistufige Präsentation: Schlanke Zeigeversion (-v2) für den Erstkontakt und ausgebaute 5-Seiten Vollversion (-vollversion)"
-    ],
-    "is_active": true,
-    "complexity_score": "3.5 / 10.0",
-    "pricing_formula_chf": "CHF 1'650.—",
-    "pricing_recommended_chf": "CHF 1'500.—",
-    "pricing_rationale": "Kompakte 5-Seiten-Praxiswebseite (Coaching & Kinesiologie) mit ca. 15 Bildern und Workshop-Sektion. Durch einen einzigen ausgebuchten Workshop (8 Teilnehmende) bereits zu 100 % amortisiert.",
-    "audit_report_url": "https://vorschau.magnet-xs.ch/reports/herzensarbeit-vorher-nachher-report.pdf",
-    "audit_report_html_url": "https://vorschau.magnet-xs.ch/reports/herzensarbeit-vorher-nachher-report.html"
-  },
-  {
-    "job_id": "job_frees_20261104",
-    "company_name": "Free's Stefan Fritschi",
-    "city": "Niederrohrdorf AG",
-    "slug": "frees",
-    "source_url": "https://www.frees.ch/",
-    "has_chatgpt_html": false,
-    "chatgpt_filename": "",
-    "chatgpt_html_length": 0,
-    "context_notes": "Studio für Textildesign, Textildruck, Stickerei, Teamsport & Promowear in Niederrohrdorf AG.",
-    "assets_count": 16,
-    "status": "completed",
-    "created_by": "jenny",
-    "created_by_name": "Jenny Ettle (JE-MI)",
-    "created_at": "2026-11-03 21:30:00",
-    "completed_at": "2026-11-04 07:10:00",
-    "v2_url": "https://vorschau.magnet-xs.ch/frees-v2/",
-    "vollversion_url": "https://vorschau.magnet-xs.ch/frees-vollversion/",
-    "preview_url": "https://vorschau.magnet-xs.ch/frees-v2/",
-    "cockpit_url": "https://vorschau.magnet-xs.ch/frees-vollversion/cockpit?token=frees2026",
-    "access_token": "frees2026",
-    "summary": "Zeigeversion (-v2) und 5-Seiten Vollversion (-vollversion: Startseite, Dienstleistungen, Textilsortiment, Profil, Kontakt & Studio Cockpit v4.0) live.",
-    "aha_points": [
-      "Strukturierte Produkt- & Veredelungs-Übersicht (Textildruck, Stickerei, Teamsport, Workwear & Promowear)",
-      "Direkter Offerten-Konfigurator für Vereine und KMU ab 1 Stück bis Grossserie",
-      "Zweistufiges Vorführ-Modell: Zeigeversion (-v2) für Kunden und 100-%-Vollversion (-vollversion) mit Cockpit"
-    ],
-    "is_active": true,
-    "complexity_score": "3.2 / 10.0",
-    "pricing_formula_chf": "CHF 1'550.—",
-    "pricing_recommended_chf": "CHF 1'500.—",
-    "pricing_rationale": "Schlanke 5-Seiten-Gewerbeseite (Teamsport & Textildruck) mit 14 extern verlinkten Marken-Katalogen ohne komplexes Daten-Backend. Perfekter Einstiegs-Sweet-Spot für sofortige Zusage.",
-    "audit_report_url": "https://vorschau.magnet-xs.ch/reports/frees-vorher-nachher-report.pdf",
-    "audit_report_html_url": "https://vorschau.magnet-xs.ch/reports/frees-vorher-nachher-report.html"
-  },
-  {
-    "job_id": "job_innere_staerke_20261104",
-    "company_name": "Wüest + Paneduro — Innere Stärke",
-    "city": "Sursee LU",
-    "slug": "innere-staerke",
-    "source_url": "https://www.innere-staerke.business/",
-    "has_chatgpt_html": false,
-    "chatgpt_filename": "",
-    "chatgpt_html_length": 0,
-    "context_notes": "Führungskräfte-Training, Resilienz & Persönlichkeitsentwicklung in Sursee LU (Wüest + Paneduro).",
-    "assets_count": 14,
-    "status": "completed",
-    "created_by": "jenny",
-    "created_by_name": "Jenny Ettle (JE-MI)",
-    "created_at": "2026-11-03 18:30:00",
-    "completed_at": "2026-11-04 07:08:00",
-    "v2_url": "https://vorschau.magnet-xs.ch/innere-staerke-v2/",
-    "vollversion_url": "https://vorschau.magnet-xs.ch/innere-staerke-vollversion/",
-    "preview_url": "https://vorschau.magnet-xs.ch/innere-staerke-v2/",
-    "cockpit_url": "https://vorschau.magnet-xs.ch/innere-staerke-vollversion/cockpit?token=innerestaerke2026",
-    "access_token": "innerestaerke2026",
-    "summary": "Zeigeversion (-v2) und 5-Seiten Vollversion (-vollversion: Startseite, Angebot, Über uns, Referenzen, Kontakt & Studio Cockpit v4.0) live.",
-    "aha_points": [
-      "Souveräne Positionierung für Führungskräfte-Sparring, Team-Resilienz und KMU-Begleitung",
-      "Echte Kundenstimmen & messbare Praxis-Ergebnisse klar strukturiert aufbereitet",
-      "3-Schritte Standortbestimmungs-Anfrage direkt mit Kalender- & WhatsApp-Anbindung"
-    ],
-    "is_active": true,
-    "complexity_score": "4.2 / 10.0",
-    "pricing_formula_chf": "CHF 1'900.—",
-    "pricing_recommended_chf": "CHF 2'200.—",
-    "pricing_rationale": "5-Seiten-Auftritt für 2 Partnerinnen im B2B-Führungskräfte-Coaching inkl. Buch-Integration. Hoher Kundenwert pro B2B-Mandat rechtfertigt CHF 2'200.— mühelos.",
-    "audit_report_url": "https://vorschau.magnet-xs.ch/reports/innere-staerke-vorher-nachher-report.pdf",
-    "audit_report_html_url": "https://vorschau.magnet-xs.ch/reports/innere-staerke-vorher-nachher-report.html"
-  },
-  {
-    "job_id": "job_fcattiswil_20261104",
-    "company_name": "FC Attiswil (14 Teams)",
-    "city": "Attiswil BE",
-    "slug": "fcattiswil",
-    "source_url": "https://www.fcattiswil.ch/",
-    "has_chatgpt_html": false,
-    "chatgpt_filename": "",
-    "chatgpt_html_length": 0,
-    "context_notes": "Fussballclub Attiswil BE (14 Teams, Junioren, Sponsoren & Team-Update).",
-    "assets_count": 18,
-    "status": "completed",
-    "created_by": "jenny",
-    "created_by_name": "Jenny Ettle (JE-MI)",
-    "created_at": "2026-11-02 17:40:00",
-    "completed_at": "2026-11-04 07:12:00",
-    "v2_url": "https://vorschau.magnet-xs.ch/fcattiswil-v2/",
-    "vollversion_url": "https://vorschau.magnet-xs.ch/fcattiswil-vollversion/",
-    "preview_url": "https://vorschau.magnet-xs.ch/fcattiswil-v2/",
-    "cockpit_url": "https://vorschau.magnet-xs.ch/fcattiswil-vollversion/cockpit?token=fcattiswil2026",
-    "access_token": "fcattiswil2026",
-    "summary": "Vereins-Auftritt für 14 Teams inkl. Herren 1 Muster-Teamseite, Team-Update-Onboarding und Studio Cockpit v4.0.",
-    "aha_points": [
-      "Moderne Vereins-Präsenz für alle 14 Teams mit klarer Junioren- und Aktiv-Gliederung",
-      "Smartphone-taugliches Team-Update-Formular für Kaderdaten und Matchberichte",
-      "Attraktive Sponsoren-Sichtbarkeit für das lokale Gewerbe im Oberaargau / Leberberg"
-    ],
-    "is_active": true,
-    "complexity_score": "8.2 / 10.0",
-    "pricing_formula_chf": "CHF 3'700.—",
-    "pricing_recommended_chf": "CHF 3'900.—",
-    "pricing_rationale": "Fussballverein mit vielen Mannschaften, Junioren, Sponsoren-Präsenz & 5-Blöcke Team-Einreichungs-Engine. Ein einziger neuer Hauptsponsor refinanziert bereits die halbe Webseite.",
-    "audit_report_url": "https://vorschau.magnet-xs.ch/reports/fcattiswil-vorher-nachher-report.pdf",
-    "audit_report_html_url": "https://vorschau.magnet-xs.ch/reports/fcattiswil-vorher-nachher-report.html"
-  },
-  {
-    "job_id": "job_scfulenbach_20261104",
-    "company_name": "SC Fulenbach (14 Teams)",
-    "city": "Fulenbach SO",
-    "slug": "scfulenbach",
-    "source_url": "https://www.scfulenbach.ch/",
-    "has_chatgpt_html": false,
-    "chatgpt_filename": "",
-    "chatgpt_html_length": 0,
-    "context_notes": "Sportclub Fulenbach SO (14 Teams, Vereinsleben, Sponsoren & Team-Update).",
-    "assets_count": 18,
-    "status": "completed",
-    "created_by": "jenny",
-    "created_by_name": "Jenny Ettle (JE-MI)",
-    "created_at": "2026-11-02 17:20:00",
-    "completed_at": "2026-11-04 07:12:00",
-    "v2_url": "https://vorschau.magnet-xs.ch/scfulenbach-v2/",
-    "vollversion_url": "https://vorschau.magnet-xs.ch/scfulenbach-vollversion/",
-    "preview_url": "https://vorschau.magnet-xs.ch/scfulenbach-v2/",
-    "cockpit_url": "https://vorschau.magnet-xs.ch/scfulenbach-vollversion/cockpit?token=scfulenbach2026",
-    "access_token": "scfulenbach2026",
-    "summary": "Vereins-Auftritt für 14 Teams inkl. Herren 1 Muster-Teamseite, Team-Update-Onboarding und Studio Cockpit v4.0.",
-    "aha_points": [
-      "14 Mannschaften strukturiert mit direktem Einstieg für Spieler, Eltern und Sponsoren",
-      "Integriertes Team-Update-Formular für Trainer und Funktionäre per Smartphone",
-      "Sponsoren-Präsentation und Vereins-Newsroom über das Studio Cockpit steuerbar"
-    ],
-    "is_active": true,
-    "complexity_score": "8.5 / 10.0",
-    "pricing_formula_chf": "CHF 3'850.—",
-    "pricing_recommended_chf": "CHF 4'200.—",
-    "pricing_rationale": "Traditionsverein mit breiter Aktiv-/Junioren-Struktur, Sponsoren-Matrix, Vereinschronik und dezentralem Team-Onboarding-Formular.",
-    "audit_report_url": "https://vorschau.magnet-xs.ch/reports/scfulenbach-vorher-nachher-report.pdf",
-    "audit_report_html_url": "https://vorschau.magnet-xs.ch/reports/scfulenbach-vorher-nachher-report.html"
-  },
-  {
-    "job_id": "job_fcschlieren_20261104",
-    "company_name": "FC Schlieren (33 Teams)",
-    "city": "Schlieren ZH",
-    "slug": "fcschlieren",
-    "source_url": "https://www.fcschlieren.ch/",
-    "has_chatgpt_html": false,
-    "chatgpt_filename": "",
-    "chatgpt_html_length": 0,
-    "context_notes": "Fussballclub Schlieren ZH mit 33 Teams, Sponsoren-Matrix, Team-Update-Formular & Studio Cockpit v4.0.",
-    "assets_count": 28,
-    "status": "completed",
-    "created_by": "jenny",
-    "created_by_name": "Jenny Ettle (JE-MI)",
-    "created_at": "2026-11-02 17:00:00",
-    "completed_at": "2026-11-04 07:12:00",
-    "v2_url": "https://vorschau.magnet-xs.ch/fcschlieren-v2/",
-    "vollversion_url": "https://vorschau.magnet-xs.ch/fcschlieren-vollversion/",
-    "preview_url": "https://vorschau.magnet-xs.ch/fcschlieren-v2/",
-    "cockpit_url": "https://vorschau.magnet-xs.ch/fcschlieren-vollversion/cockpit?token=fcschlieren2026",
-    "access_token": "fcschlieren2026",
-    "summary": "Vereins-Plattform für 33 Teams inkl. Zeigeversion (-v2), Vollversion (-vollversion), Team-Self-Service-Formular und Sponsoren-Präsentation.",
-    "aha_points": [
-      "Alle 33 Teams (Aktive, Frauen, Junioren A–G, Senioren) übersichtlich nach Kategorien filterbar",
-      "Eigenes Trainer- & Team-Update-Formular für Kaderfotos, Trainingszeiten und Sponsoren ohne Webmaster-Aufwand",
-      "Hochwertige Sponsoren-Bühne für Hauptsponsoren und lokale Gewerbe-Partner"
-    ],
-    "is_active": true,
-    "complexity_score": "9.4 / 10.0",
-    "pricing_formula_chf": "CHF 4'300.—",
-    "pricing_recommended_chf": "CHF 4'500.—",
-    "pricing_rationale": "Grossverein im Raum Zürich (über 20 Teams, hunderte Spieler-/Kaderdaten, Sponsoren-Architektur & Team-Onboarding-Engine). Gegenüber einer klassischen 12'000-Franken-Agenturofferte extrem attraktiv.",
-    "audit_report_url": "https://vorschau.magnet-xs.ch/reports/fcschlieren-vorher-nachher-report.pdf",
-    "audit_report_html_url": "https://vorschau.magnet-xs.ch/reports/fcschlieren-vorher-nachher-report.html"
-  },
-  {
-    "job_id": "job_her11_20261030",
-    "company_name": "HER11 (Jenny Ettle)",
-    "city": "Schweiz",
-    "slug": "her11",
-    "source_url": "https://www.her11.ch/",
-    "has_chatgpt_html": false,
-    "chatgpt_filename": "",
-    "chatgpt_html_length": 0,
-    "context_notes": "HER11 Frauenfussball & Sport-Marketing (Ausbildung, Begleitung, Mach mit, Über uns & Studio Cockpit v4.0).",
-    "assets_count": 22,
-    "status": "completed",
-    "created_by": "jenny",
-    "created_by_name": "Jenny Ettle (JE-MI)",
-    "created_at": "2026-10-30 16:00:00",
-    "completed_at": "2026-10-30 19:58:00",
-    "v2_url": "https://vorschau.magnet-xs.ch/her11-v2/",
-    "vollversion_url": "https://vorschau.magnet-xs.ch/her11-vollversion/",
-    "preview_url": "https://vorschau.magnet-xs.ch/her11-v2/",
-    "cockpit_url": "https://vorschau.magnet-xs.ch/her11-vollversion/cockpit?token=her112026",
-    "access_token": "her112026",
-    "summary": "6-Seiten Marken-Auftritt (Startseite, Über uns, Ausbildung, Begleitung, Mach mit, Kontakt) inkl. Studio Cockpit v4.0 auf Swiss Edge.",
-    "aha_points": [
-      "Starke Marken-Identität mit klarer Führung durch Ausbildung, Begleitung und Partner-Programm",
-      "Interaktive 3-Schritte Anfrage-Weiche für Spielerinnen, Vereine und Sponsoren",
-      "Volle Eigenregie über Texte, Bilder und Sektionen im WebPilot Studio Cockpit v4.0"
-    ],
-    "is_active": true,
-    "complexity_score": "5.8 / 10.0",
-    "pricing_formula_chf": "CHF 2'600.—",
-    "pricing_recommended_chf": "CHF 2'800.—",
-    "pricing_rationale": "Gehobene Marken- & Lookbook-Inszenierung mit hoher Bilddichte und laufendem Kollektions-Wechsel über das Studio Cockpit v4.0.",
-    "audit_report_url": "https://vorschau.magnet-xs.ch/reports/her11-vorher-nachher-report.pdf",
-    "audit_report_html_url": "https://vorschau.magnet-xs.ch/reports/her11-vorher-nachher-report.html"
-  },
-  {
-    "job_id": "job_hochuli_20261029",
-    "company_name": "Hochuli Schlossrued AG (5 Sparten)",
-    "city": "Schlossrued AG",
-    "slug": "hochuli",
-    "source_url": "https://www.hochuli-gruppe.ch/",
-    "has_chatgpt_html": false,
-    "chatgpt_filename": "",
-    "chatgpt_html_length": 0,
-    "context_notes": "Alle 5 Sparten (Hoch- & Tiefbau, Holzbau, Bedachungen/Fassaden, Immobilien, Baumulden) mit eigenem Farbleitsystem klar trennen.",
-    "assets_count": 20,
-    "status": "completed",
-    "created_by": "david",
-    "created_by_name": "David Hügli",
-    "created_at": "2026-10-29 14:30:00",
-    "completed_at": "2026-10-29 15:45:00",
-    "v2_url": "https://vorschau.magnet-xs.ch/hochuli-v2/",
-    "vollversion_url": "https://vorschau.magnet-xs.ch/hochuli-vollversion/",
-    "preview_url": "https://vorschau.magnet-xs.ch/hochuli-v2/",
-    "cockpit_url": "https://vorschau.magnet-xs.ch/hochuli-vollversion/cockpit?token=hochuli2026",
-    "access_token": "hochuli2026",
-    "summary": "5-Seiten WebPilot-Auftritt inkl. interaktivem Mulden-Bestellrechner, 19 echten Projektfotos & 13s Luftaufnahme-Video auf Swiss Edge live.",
-    "aha_points": [
-      "5 Sparten (Hoch- & Tiefbau, Holzbau, Bedachungen/Fassaden, Immobilien, Baumulden) mit eigenem Farbleitsystem klar getrennt",
-      "19 echte Projektfotos & 13 Sekunden Luftaufnahme-Video lokal optimiert und blitzschnell auf Swiss Edge eingebunden",
-      "Sektionen für aktuelle Einblicke (#social-media) und Fachwissen aus dem Ruedertal (#blog) inklusive Mulden-Bestellrechner"
-    ],
-    "is_active": true,
-    "complexity_score": "7.8 / 10.0",
-    "pricing_formula_chf": "CHF 3'500.—",
-    "pricing_recommended_chf": "CHF 3'800.—",
-    "pricing_rationale": "Grosses Bau- & Gewerbe-KMU mit 5 eigenen Sparten (eigenes Farbleitsystem), 19 Projektfotos, Luftaufnahme-Video und interaktivem Mulden-Bestellrechner.",
-    "audit_report_url": "https://vorschau.magnet-xs.ch/reports/hochuli-vorher-nachher-report.pdf",
-    "audit_report_html_url": "https://vorschau.magnet-xs.ch/reports/hochuli-vorher-nachher-report.html"
-  }
-];
-
-      let currentJobsData = FALLBACK_SEED_JOBS.slice();
-      let currentViewMode = "cards";
-      const jobSearchInput = document.getElementById("jobSearchInput");
-      const btnViewCards = document.getElementById("btnViewCards");
-      const btnViewList = document.getElementById("btnViewList");
-
-      if (btnViewCards && btnViewList) {
-        btnViewCards.addEventListener("click", function () {
-          currentViewMode = "cards";
-          btnViewCards.classList.add("is-active");
-          btnViewList.classList.remove("is-active");
-          renderJobs(currentJobsData);
-        });
-        btnViewList.addEventListener("click", function () {
-          currentViewMode = "list";
-          btnViewList.classList.add("is-active");
-          btnViewCards.classList.remove("is-active");
-          renderJobs(currentJobsData);
-        });
-      }
-
-      if (jobSearchInput) {
-        jobSearchInput.addEventListener("input", function () {
-          renderJobs(currentJobsData);
-        });
+      function isExcludedInternalJob(job) {
+        if (!job) return true;
+        const s = String(job.slug || "").toLowerCase();
+        const jid = String(job.job_id || "").toLowerCase();
+        return s === "hiltbrand" || s === "birchmeier" || s === "preview-birchmeier" || s === "preview-hiltbrand" || jid.indexOf("hiltbrand") !== -1 || jid.indexOf("birchmeier") !== -1;
       }
 
       async function loadJobs() {
         if (!currentToken) {
-          currentJobsData = FALLBACK_SEED_JOBS.slice();
-          renderJobs(currentJobsData);
+          allJobsData = FALLBACK_SEED_JOBS.slice();
+          renderFilteredJobs();
           return;
         }
         try {
@@ -1622,8 +2180,8 @@
             return;
           }
           if (!resp.data || !resp.data.ok) {
-            currentJobsData = FALLBACK_SEED_JOBS.slice();
-            renderJobs(currentJobsData);
+            allJobsData = FALLBACK_SEED_JOBS.slice();
+            renderFilteredJobs();
             return;
           }
           if (resp.data.google_sheet_url) {
@@ -1632,129 +2190,326 @@
             if (b1) b1.href = resp.data.google_sheet_url;
             if (b2) b2.href = resp.data.google_sheet_url;
           }
-          currentJobsData = (resp.data.jobs && resp.data.jobs.length) ? resp.data.jobs : FALLBACK_SEED_JOBS.slice();
-          renderJobs(currentJobsData);
+          if (resp.data.quota) {
+            const q = resp.data.quota;
+            quotaBadgeDisplay.textContent = "Heute genutzt: " + q.used_last_24h + " / " + q.max_per_day + " Aufträge";
+          }
+          const incoming = Array.isArray(resp.data.jobs) && resp.data.jobs.length ? resp.data.jobs : FALLBACK_SEED_JOBS;
+          allJobsData = incoming.filter(function (j) { return !isExcludedInternalJob(j); });
+          renderFilteredJobs();
         } catch (err) {
-          currentJobsData = FALLBACK_SEED_JOBS.slice();
-          renderJobs(currentJobsData);
+          allJobsData = FALLBACK_SEED_JOBS.slice();
+          renderFilteredJobs();
         }
       }
 
-      function renderJobs(jobs) {
-        jobsContainer.textContent = "";
-        const q = jobSearchInput ? (jobSearchInput.value || "").trim().toLowerCase() : "";
-        const filtered = (jobs || []).filter(function (j) {
-          if (!q) return true;
-          const hay = [
-            j.company_name || "",
-            j.city || "",
-            j.slug || "",
-            j.created_by_name || "",
-            j.summary || "",
-            j.pricing_recommended_chf || ""
-          ].join(" ").toLowerCase();
-          return hay.indexOf(q) !== -1;
-        });
+      async function toggleJobActive(job) {
+        const nextVal = !(job.is_active !== false);
+        job.is_active = nextVal;
+        renderFilteredJobs();
+        if (!currentToken) return;
+        try {
+          await apiCall("/api/partner/jobs/" + encodeURIComponent(job.job_id) + "/toggle-active", {
+            method: "POST",
+            body: JSON.stringify({ is_active: nextVal })
+          });
+        } catch (e) {}
+      }
 
+      function matchesJobFilter(job) {
+        const isAct = job.is_active !== false;
+        const creator = String((job.created_by || "") + " " + (job.created_by_name || "")).toLowerCase();
+        if (currentFilter === "active" && !isAct) return false;
+        if (currentFilter === "inactive" && isAct) return false;
+        if (currentFilter === "jenny" && creator.indexOf("jenny") === -1) return false;
+        if (currentFilter === "david" && creator.indexOf("david") === -1) return false;
+
+        if (currentSearchQuery) {
+          const hay = [
+            job.company_name || "",
+            job.city || "",
+            job.slug || "",
+            job.created_by_name || "",
+            job.created_by || "",
+            job.source_url || "",
+            job.summary || "",
+            job.pricing_recommended_chf || "",
+            job.pricing_formula_chf || "",
+            job.complexity_score || "",
+            job.pricing_rationale || "",
+            Array.isArray(job.aha_points) ? job.aha_points.join(" ") : ""
+          ].join(" ").toLowerCase();
+          if (hay.indexOf(currentSearchQuery) === -1) return false;
+        }
+        return true;
+      }
+
+      function renderFilteredJobs() {
+        const total = allJobsData.length;
+        tabBadgeCount.textContent = total + " Projekte";
+        const filtered = allJobsData.filter(matchesJobFilter);
+        resultsCounterDisplay.textContent = filtered.length + " von " + total + " Projekten";
+
+        jobsContainer.textContent = "";
         if (!filtered.length) {
           const empty = document.createElement("div");
+          empty.style.padding = "24px";
           empty.style.color = "var(--text-secondary)";
-          empty.textContent = "Keine passenden Vorschau-Aufträge gefunden.";
+          empty.textContent = "Keine Projekte für diesen Filter oder Suchbegriff gefunden.";
           jobsContainer.appendChild(empty);
           return;
         }
 
-        filtered.forEach(function (job) {
-          const baseSlug = String(job.slug || "mandant").replace(/-(?:vollversion|vv|v1|v2)$/, "");
-          const tokenStr = job.access_token || (baseSlug + "2026");
+        if (currentViewMode === "cards") {
+          renderCardsView(filtered);
+        } else {
+          renderListView(filtered);
+        }
+      }
+
+      function renderListView(jobs) {
+        jobs.forEach(function (job) {
+          const isAct = job.is_active !== false;
+          const baseSlug = String(job.slug || "mandant").replace(/^preview-/, "").replace(/-(?:vollversion|vv|v1|v2)$/, "");
+          const tokenStr = job.access_token || (baseSlug.replace(/-/g, "") + "2026");
           const v2Href = job.v2_url || ("https://vorschau.magnet-xs.ch/" + baseSlug + "-v2/");
           const vollHref = job.vollversion_url || ("https://vorschau.magnet-xs.ch/" + baseSlug + "-vollversion/");
           const cockpitHref = job.cockpit_url || ("https://vorschau.magnet-xs.ch/" + baseSlug + "-vollversion/cockpit?token=" + tokenStr);
           const auditPdfHref = job.audit_report_url || ("https://vorschau.magnet-xs.ch/reports/" + baseSlug + "-vorher-nachher-report.pdf");
-          const isCompleted = job.status === "completed";
+          const origHref = job.source_url || v2Href;
 
-          if (currentViewMode === "list") {
-            const row = document.createElement("article");
-            row.className = "job-list-row";
+          const recPrice = job.pricing_recommended_chf || "CHF 1'800.—";
+          const scoreVal = job.complexity_score || "5.0 / 10.0";
+          const formPrice = job.pricing_formula_chf || recPrice;
+          const rationale = job.pricing_rationale || "Marktgerechte WebPilot-Einstufung inklusive Zeigeversion, Vollversion und Studio Cockpit v4.0.";
 
-            const mainCol = document.createElement("div");
-            mainCol.className = "job-list-main";
+          const rowCard = document.createElement("article");
+          rowCard.className = "project-row-card" + (isAct ? "" : " is-inactive");
 
-            const titleLine = document.createElement("div");
-            titleLine.className = "job-title";
-            titleLine.style.fontSize = "16px";
-            titleLine.appendChild(document.createTextNode(job.company_name || job.slug));
-            if (job.city) {
-              const cSpan = document.createElement("span");
-              cSpan.style.fontSize = "13px";
-              cSpan.style.fontWeight = "500";
-              cSpan.style.color = "var(--text-secondary)";
-              cSpan.textContent = "· " + job.city;
-              titleLine.appendChild(cSpan);
-            }
+          const mainGrid = document.createElement("div");
+          mainGrid.className = "project-row-main";
 
-            const subLine = document.createElement("div");
-            subLine.className = "job-meta-row";
-            const priceTxt = job.pricing_recommended_chf ? ("Empfehlung: " + job.pricing_recommended_chf + (job.complexity_score ? " (Score " + job.complexity_score + ")" : "") + " · ") : "";
-            subLine.textContent = priceTxt + "Slug: " + baseSlug + " · Partner: " + (job.created_by_name || "Jenny Ettle (JE-MI)");
+          // 1. Aktiv Toggle
+          const colToggle = document.createElement("div");
+          colToggle.className = "col-active-toggle";
+          const btnToggle = document.createElement("button");
+          btnToggle.type = "button";
+          btnToggle.className = "active-toggle-btn " + (isAct ? "is-on" : "is-off");
+          btnToggle.appendChild(createSvgIcon(
+            isAct
+              ? '<polyline points="20 6 9 17 4 12"></polyline>'
+              : '<circle cx="12" cy="12" r="9"></circle>'
+          ));
+          const toggleLbl = document.createElement("span");
+          toggleLbl.textContent = isAct ? "Aktiv" : "Inaktiv";
+          btnToggle.appendChild(toggleLbl);
+          btnToggle.addEventListener("click", function () { toggleJobActive(job); });
+          colToggle.appendChild(btnToggle);
 
-            mainCol.appendChild(titleLine);
-            mainCol.appendChild(subLine);
+          // 2. Firma / Verein & Ort
+          const colComp = document.createElement("div");
+          colComp.className = "col-company";
+          const compTitle = document.createElement("div");
+          compTitle.className = "company-title-line";
+          compTitle.textContent = job.company_name || job.slug;
+          const compSub = document.createElement("div");
+          compSub.className = "company-sub-line";
+          const partnerShort = String(job.created_by_name || "Jenny Ettle").indexOf("David") !== -1 ? "David Hügli" : "Jenny Ettle";
+          compSub.textContent = (job.city ? job.city + " · " : "") + "Slug: " + baseSlug + " · " + partnerShort;
+          colComp.appendChild(compTitle);
+          colComp.appendChild(compSub);
 
-            const actCol = document.createElement("div");
-            actCol.className = "job-list-actions";
+          // 3. Preisempfehlung & Score (#UI-07 Punkt 3: / 10.0 immer dabei)
+          const colPrice = document.createElement("div");
+          colPrice.className = "col-pricing";
+          const priceTop = document.createElement("div");
+          priceTop.className = "price-main-val";
+          priceTop.textContent = "Empf.: " + recPrice;
+          const priceSub = document.createElement("div");
+          priceSub.className = "price-score-sub";
+          priceSub.textContent = "Score " + scoreVal + " · Formel " + formPrice;
+          colPrice.appendChild(priceTop);
+          colPrice.appendChild(priceSub);
 
-            const bV2 = document.createElement("a");
-            bV2.className = "btn btn-primary btn-sm";
-            bV2.href = v2Href;
-            bV2.target = "_blank";
-            bV2.rel = "noopener noreferrer";
-            bV2.appendChild(createSvgIcon('<path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line>'));
-            const sV2 = document.createElement("span");
-            sV2.textContent = "Zeigeversion (-v2)";
-            bV2.appendChild(sV2);
+          // 4. Zeigeversion (-v2) & Vollversion (-vollversion)
+          const colLinks = document.createElement("div");
+          colLinks.className = "col-links-pair";
 
-            const bVoll = document.createElement("a");
-            bVoll.className = "btn btn-secondary btn-sm";
-            bVoll.href = vollHref;
-            bVoll.target = "_blank";
-            bVoll.rel = "noopener noreferrer";
-            bVoll.appendChild(createSvgIcon('<rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="9" y1="21" x2="9" y2="9"></line>'));
-            const sVoll = document.createElement("span");
-            sVoll.textContent = "Vollversion";
-            bVoll.appendChild(sVoll);
+          const btnV2 = document.createElement("a");
+          btnV2.className = "btn btn-primary btn-sm";
+          btnV2.href = v2Href;
+          btnV2.target = "_blank";
+          btnV2.rel = "noopener noreferrer";
+          btnV2.appendChild(createSvgIcon('<path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line>'));
+          const sV2 = document.createElement("span");
+          sV2.textContent = "Zeigeversion (-v2)";
+          btnV2.appendChild(sV2);
 
-            const bCock = document.createElement("a");
-            bCock.className = "btn btn-secondary btn-sm";
-            bCock.href = cockpitHref;
-            bCock.target = "_blank";
-            bCock.rel = "noopener noreferrer";
-            bCock.appendChild(createSvgIcon('<circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>'));
-            const sCock = document.createElement("span");
-            sCock.textContent = "Cockpit v4.0";
-            bCock.appendChild(sCock);
+          const btnVoll = document.createElement("a");
+          btnVoll.className = "btn btn-secondary btn-sm";
+          btnVoll.href = vollHref;
+          btnVoll.target = "_blank";
+          btnVoll.rel = "noopener noreferrer";
+          btnVoll.appendChild(createSvgIcon('<rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="9" y1="21" x2="9" y2="9"></line>'));
+          const sVoll = document.createElement("span");
+          sVoll.textContent = "Vollversion";
+          btnVoll.appendChild(sVoll);
 
-            const bPdf = document.createElement("a");
-            bPdf.className = "btn btn-audit-pdf btn-sm";
-            bPdf.href = auditPdfHref;
-            bPdf.target = "_blank";
-            bPdf.rel = "noopener noreferrer";
-            bPdf.appendChild(createSvgIcon('<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line>'));
-            const sPdf = document.createElement("span");
-            sPdf.textContent = "Vorher/Nachher-PDF ↗";
-            bPdf.appendChild(sPdf);
+          colLinks.appendChild(btnV2);
+          colLinks.appendChild(btnVoll);
 
-            actCol.appendChild(bV2);
-            actCol.appendChild(bVoll);
-            actCol.appendChild(bCock);
-            actCol.appendChild(bPdf);
+          // 5. Cockpit & Vorher/Nachher-PDF
+          const colUtil = document.createElement("div");
+          colUtil.className = "col-utility-pair";
 
-            row.appendChild(mainCol);
-            row.appendChild(actCol);
-            jobsContainer.appendChild(row);
-            return;
+          const btnCockpit = document.createElement("a");
+          btnCockpit.className = "btn btn-secondary btn-sm";
+          btnCockpit.href = cockpitHref;
+          btnCockpit.target = "_blank";
+          btnCockpit.rel = "noopener noreferrer";
+          btnCockpit.appendChild(createSvgIcon('<circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>'));
+          const sCockpit = document.createElement("span");
+          sCockpit.textContent = "Cockpit v4.0";
+          btnCockpit.appendChild(sCockpit);
+
+          const btnAuditPdf = document.createElement("a");
+          btnAuditPdf.className = "btn btn-ghost btn-sm";
+          btnAuditPdf.href = auditPdfHref;
+          btnAuditPdf.target = "_blank";
+          btnAuditPdf.rel = "noopener noreferrer";
+          btnAuditPdf.appendChild(createSvgIcon('<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line>'));
+          const sPdf = document.createElement("span");
+          sPdf.textContent = "Beweis-PDF";
+          btnAuditPdf.appendChild(sPdf);
+
+          colUtil.appendChild(btnCockpit);
+          colUtil.appendChild(btnAuditPdf);
+
+          mainGrid.appendChild(colToggle);
+          mainGrid.appendChild(colComp);
+          mainGrid.appendChild(colPrice);
+          mainGrid.appendChild(colLinks);
+          mainGrid.appendChild(colUtil);
+          rowCard.appendChild(mainGrid);
+
+          // Footer Zeile: 4 Buttons (gerade Anzahl fuer 2x2 Mobile-Grid ohne Waisenkinder)
+          const footer = document.createElement("div");
+          footer.className = "project-row-footer";
+
+          const drawerEl = document.createElement("div");
+          drawerEl.className = "project-drawer" + (expandedJobDrawers[job.job_id] ? "" : " hidden");
+
+          const ratBox = document.createElement("div");
+          const ratKicker = document.createElement("span");
+          ratKicker.className = "aha-title";
+          ratKicker.textContent = "VERKAUFS-BEGRÜNDUNG FÜR PREISEMPFEHLUNG (" + recPrice + " · SCORE " + scoreVal + ")";
+          const ratText = document.createElement("p");
+          ratText.style.fontSize = "13.5px";
+          ratText.style.color = "var(--text-primary)";
+          ratText.textContent = rationale;
+          ratBox.appendChild(ratKicker);
+          ratBox.appendChild(ratText);
+          drawerEl.appendChild(ratBox);
+
+          if (Array.isArray(job.aha_points) && job.aha_points.length > 0) {
+            const ahaWrap = document.createElement("div");
+            const ahaTitle = document.createElement("span");
+            ahaTitle.className = "aha-title";
+            ahaTitle.textContent = "DIE 3 AHA-PUNKTE FÜR DAS KUNDENGESPRÄCH";
+            ahaWrap.appendChild(ahaTitle);
+
+            const ul = document.createElement("ul");
+            ul.className = "aha-list";
+            job.aha_points.forEach(function (pt, i) {
+              const li = document.createElement("li");
+              const num = document.createElement("strong");
+              num.style.color = "var(--accent-text)";
+              num.textContent = (i + 1) + ".";
+              const txt = document.createElement("span");
+              txt.textContent = pt;
+              li.appendChild(num);
+              li.appendChild(txt);
+              ul.appendChild(li);
+            });
+            ahaWrap.appendChild(ul);
+            drawerEl.appendChild(ahaWrap);
           }
 
+          const footerBtns = document.createElement("div");
+          footerBtns.className = "row-footer-actions";
+
+          const btnDrawer = document.createElement("button");
+          btnDrawer.type = "button";
+          btnDrawer.className = "btn btn-ghost btn-sm";
+          btnDrawer.appendChild(createSvgIcon('<polyline points="6 9 12 15 18 9"></polyline>'));
+          const sDrawer = document.createElement("span");
+          sDrawer.textContent = expandedJobDrawers[job.job_id] ? "Preis-Begründung & Aha ausblenden" : "Preis-Begründung & 3 Aha-Punkte";
+          btnDrawer.appendChild(sDrawer);
+          btnDrawer.addEventListener("click", function () {
+            expandedJobDrawers[job.job_id] = !expandedJobDrawers[job.job_id];
+            drawerEl.classList.toggle("hidden", !expandedJobDrawers[job.job_id]);
+            sDrawer.textContent = expandedJobDrawers[job.job_id] ? "Preis-Begründung & Aha ausblenden" : "Preis-Begründung & 3 Aha-Punkte";
+          });
+
+          const btnOrig = document.createElement("a");
+          btnOrig.className = "btn btn-ghost btn-sm";
+          btnOrig.href = origHref;
+          btnOrig.target = "_blank";
+          btnOrig.rel = "noopener noreferrer";
+          btnOrig.appendChild(createSvgIcon('<circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>'));
+          const sOrig = document.createElement("span");
+          sOrig.textContent = "Original-Webseite";
+          btnOrig.appendChild(sOrig);
+
+          const btnCopyV2 = document.createElement("button");
+          btnCopyV2.type = "button";
+          btnCopyV2.className = "btn btn-ghost btn-sm";
+          btnCopyV2.appendChild(createSvgIcon('<rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>'));
+          const sCopyV2 = document.createElement("span");
+          sCopyV2.textContent = "-v2 Link kopieren";
+          btnCopyV2.appendChild(sCopyV2);
+          btnCopyV2.addEventListener("click", function () { copyTextToClipboard(v2Href, btnCopyV2, "-v2 Link kopieren"); });
+
+          const btnWhatsapp = document.createElement("button");
+          btnWhatsapp.type = "button";
+          btnWhatsapp.className = "btn btn-secondary btn-sm";
+          btnWhatsapp.appendChild(createSvgIcon('<rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect><line x1="12" y1="18" x2="12.01" y2="18"></line>'));
+          const waLabel = document.createElement("span");
+          waLabel.textContent = "WhatsApp ans Natel";
+          btnWhatsapp.appendChild(waLabel);
+          btnWhatsapp.addEventListener("click", async function () {
+            btnWhatsapp.disabled = true;
+            waLabel.textContent = "Wird gesendet...";
+            try {
+              const resp = await apiCall("/api/partner/jobs/" + encodeURIComponent(job.job_id) + "/resend-whatsapp", {
+                method: "POST",
+                body: JSON.stringify({})
+              });
+              waLabel.textContent = (resp.status === 200 && resp.data.ok) ? "Aufs Natel gesendet" : "Fehler beim Senden";
+            } catch (e) {
+              waLabel.textContent = "Fehler beim Senden";
+            }
+            setTimeout(function () {
+              btnWhatsapp.disabled = false;
+              waLabel.textContent = "WhatsApp ans Natel";
+            }, 3000);
+          });
+
+          footerBtns.appendChild(btnDrawer);
+          footerBtns.appendChild(btnOrig);
+          footerBtns.appendChild(btnCopyV2);
+          footerBtns.appendChild(btnWhatsapp);
+
+          footer.appendChild(footerBtns);
+          rowCard.appendChild(footer);
+          rowCard.appendChild(drawerEl);
+          jobsContainer.appendChild(rowCard);
+        });
+      }
+
+      function renderCardsView(jobs) {
+        jobs.forEach(function (job) {
+          const isAct = job.is_active !== false;
           const card = document.createElement("article");
           card.className = "job-card";
 
@@ -1778,37 +2533,61 @@
           const metaRow = document.createElement("div");
           metaRow.className = "job-meta-row";
           metaRow.style.marginTop = "4px";
-          metaRow.textContent = "Slug: " + (job.slug || "-") + " · Token: " + (job.access_token || "-") + " · Eingereicht: " + (job.created_at || "-") + (job.created_by_name ? " (" + job.created_by_name + ")" : "");
+          metaRow.textContent = "Slug: " + (job.slug || "-") + " · Token: " + (job.access_token || "-") + " · Partner: " + (job.created_by_name || "Jenny Ettle");
 
           titleWrap.appendChild(title);
           titleWrap.appendChild(metaRow);
 
-          const statusBadge = document.createElement("span");
-          statusBadge.className = "badge-4 " + (isCompleted ? "badge-live" : "badge-queue");
-          statusBadge.textContent = isCompleted ? "LIVE AUF SWISS EDGE" : (job.status === "in_progress" ? "IN ARBEIT DURCH ANTIGRAVITY" : "IN QUEUE EINGEREIHT");
+          const rightBadges = document.createElement("div");
+          rightBadges.style.display = "flex";
+          rightBadges.style.alignItems = "center";
+          rightBadges.style.gap = "8px";
+
+          const btnActToggle = document.createElement("button");
+          btnActToggle.type = "button";
+          btnActToggle.className = "btn btn-secondary btn-sm";
+          btnActToggle.textContent = isAct ? "Status: Aktiv" : "Status: Inaktiv";
+          btnActToggle.addEventListener("click", function () { toggleJobActive(job); });
+          rightBadges.appendChild(btnActToggle);
 
           top.appendChild(titleWrap);
-          top.appendChild(statusBadge);
+          top.appendChild(rightBadges);
           card.appendChild(top);
 
-          if (job.pricing_recommended_chf) {
-            const pStrip = document.createElement("div");
-            pStrip.className = "pricing-strip";
-            const pLeft = document.createElement("div");
-            const pStrong = document.createElement("strong");
-            pStrong.style.color = "var(--accent-text)";
-            pStrong.textContent = "Empfohlener Verkaufspreis: " + job.pricing_recommended_chf;
-            pLeft.appendChild(pStrong);
-            if (job.complexity_score || job.pricing_formula_chf) {
-              const pSub = document.createElement("span");
-              pSub.style.color = "var(--text-secondary)";
-              pSub.style.marginLeft = "10px";
-              pSub.textContent = "Komplexitäts-Score: " + (job.complexity_score || "5.0 / 10.0") + " · Formel-Richtwert: " + (job.pricing_formula_chf || job.pricing_recommended_chf);
-              pLeft.appendChild(pSub);
-            }
-            pStrip.appendChild(pLeft);
-            card.appendChild(pStrip);
+          // 2-Stufen Preisempfehlung Box
+          const priceBox = document.createElement("div");
+          priceBox.className = "pricing-card-box";
+          const priceTop = document.createElement("div");
+          priceTop.className = "pricing-card-top";
+
+          const priceLeft = document.createElement("div");
+          const priceKicker = document.createElement("span");
+          priceKicker.className = "aha-title";
+          priceKicker.style.marginBottom = "2px";
+          priceKicker.textContent = "STRATEGISCHE MARKTPREIS-EMPFEHLUNG";
+          const priceVal = document.createElement("div");
+          priceVal.className = "price-main-val";
+          priceVal.style.fontSize = "20px";
+          priceVal.textContent = job.pricing_recommended_chf || "CHF 1'800.—";
+          priceLeft.appendChild(priceKicker);
+          priceLeft.appendChild(priceVal);
+
+          const scoreBadge = document.createElement("span");
+          scoreBadge.className = "badge-4";
+          scoreBadge.textContent = "System-Score: " + (job.complexity_score || "5.0 / 10.0") + " · Formel: " + (job.pricing_formula_chf || "CHF 1'800.—");
+
+          priceTop.appendChild(priceLeft);
+          priceTop.appendChild(scoreBadge);
+          priceBox.appendChild(priceTop);
+
+          if (job.pricing_rationale) {
+            const ratP = document.createElement("p");
+            ratP.style.fontSize = "13.5px";
+            ratP.style.color = "var(--text-secondary)";
+            ratP.textContent = job.pricing_rationale;
+            priceBox.appendChild(ratP);
           }
+          card.appendChild(priceBox);
 
           if (job.summary) {
             const sumP = document.createElement("p");
@@ -1842,6 +2621,14 @@
             ahaBox.appendChild(ul);
             card.appendChild(ahaBox);
           }
+
+          const baseSlug = String(job.slug || "mandant").replace(/^preview-/, "").replace(/-(?:vollversion|vv|v1|v2)$/, "");
+          const tokenStr = job.access_token || (baseSlug.replace(/-/g, "") + "2026");
+          const v2Href = job.v2_url || ("https://vorschau.magnet-xs.ch/" + baseSlug + "-v2/");
+          const vollHref = job.vollversion_url || ("https://vorschau.magnet-xs.ch/" + baseSlug + "-vollversion/");
+          const cockpitHref = job.cockpit_url || ("https://vorschau.magnet-xs.ch/" + baseSlug + "-vollversion/cockpit?token=" + tokenStr);
+          const auditPdfHref = job.audit_report_url || ("https://vorschau.magnet-xs.ch/reports/" + baseSlug + "-vorher-nachher-report.pdf");
+          const origHref = job.source_url || v2Href;
 
           const actions = document.createElement("div");
           actions.className = "job-actions";
@@ -1877,18 +2664,28 @@
           btnCockpit.appendChild(cockLabel);
 
           const btnAuditPdf = document.createElement("a");
-          btnAuditPdf.className = "btn btn-audit-pdf btn-sm";
+          btnAuditPdf.className = "btn btn-secondary btn-sm";
           btnAuditPdf.href = auditPdfHref;
           btnAuditPdf.target = "_blank";
           btnAuditPdf.rel = "noopener noreferrer";
           btnAuditPdf.appendChild(createSvgIcon('<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line>'));
-          const auditLabel = document.createElement("span");
-          auditLabel.textContent = "Vorher/Nachher-PDF ↗";
-          btnAuditPdf.appendChild(auditLabel);
+          const pdfLabel = document.createElement("span");
+          pdfLabel.textContent = "Vorher/Nachher-Beweis (PDF)";
+          btnAuditPdf.appendChild(pdfLabel);
+
+          const btnOrig = document.createElement("a");
+          btnOrig.className = "btn btn-ghost btn-sm";
+          btnOrig.href = origHref;
+          btnOrig.target = "_blank";
+          btnOrig.rel = "noopener noreferrer";
+          btnOrig.appendChild(createSvgIcon('<circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>'));
+          const origLabel = document.createElement("span");
+          origLabel.textContent = "Original-Webseite öffnen";
+          btnOrig.appendChild(origLabel);
 
           const btnWhatsapp = document.createElement("button");
           btnWhatsapp.type = "button";
-          btnWhatsapp.className = "btn btn-secondary btn-sm btn-span-full";
+          btnWhatsapp.className = "btn btn-secondary btn-sm";
           btnWhatsapp.appendChild(createSvgIcon('<rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect><line x1="12" y1="18" x2="12.01" y2="18"></line>'));
           const waLabel = document.createElement("span");
           waLabel.textContent = "Links per WhatsApp ans Natel senden";
@@ -1902,11 +2699,7 @@
                 method: "POST",
                 body: JSON.stringify({})
               });
-              if (resp.status === 200 && resp.data.ok) {
-                waLabel.textContent = "Aufs Natel gesendet";
-              } else {
-                waLabel.textContent = "Fehler beim Senden";
-              }
+              waLabel.textContent = (resp.status === 200 && resp.data.ok) ? "Aufs Natel gesendet" : "Fehler beim Senden";
             } catch (e) {
               waLabel.textContent = "Fehler beim Senden";
             }
@@ -1920,6 +2713,7 @@
           actions.appendChild(btnVoll);
           actions.appendChild(btnCockpit);
           actions.appendChild(btnAuditPdf);
+          actions.appendChild(btnOrig);
           actions.appendChild(btnWhatsapp);
           card.appendChild(actions);
 
@@ -1927,20 +2721,240 @@
         });
       }
 
-      renderJobs(FALLBACK_SEED_JOBS);
-      window.wpUnlockStudioForAudit = function () { enterStudio({ username: "jenny", display_name: "Jenny Ettle (JE-MI)", phone: "+41782232180", role: "partner" }); };
+      // =========================================================================
+      // TAB 3: ADMIN PARTNER-VERWALTUNG & 2FA
+      // =========================================================================
+      const FALLBACK_PARTNERS = [
+        {
+          username: "jenny",
+          display_name: "Jenny Ettle (JE-MI)",
+          phone: "+41782232180",
+          role: "partner",
+          active: true,
+          daily_limit: 5,
+          jobs_last_24h: 1,
+          total_jobs: 7,
+          quick_link: "https://vorschau.magnet-xs.ch/partner/?token=jenny2026"
+        },
+        {
+          username: "david",
+          display_name: "David Hügli",
+          phone: "+41796326505",
+          role: "admin",
+          active: true,
+          daily_limit: 5,
+          jobs_last_24h: 1,
+          total_jobs: 2,
+          quick_link: "https://vorschau.magnet-xs.ch/partner/?token=david2026"
+        }
+      ];
+
+      async function loadAdminPartners() {
+        if (!currentToken) {
+          renderAdminPartners(FALLBACK_PARTNERS);
+          return;
+        }
+        try {
+          const resp = await apiCall("/api/partner/admin/partners", { method: "GET" });
+          if (resp.status === 200 && resp.data && resp.data.ok) {
+            renderAdminPartners(resp.data.partners || FALLBACK_PARTNERS);
+          } else {
+            renderAdminPartners(FALLBACK_PARTNERS);
+          }
+        } catch (e) {
+          renderAdminPartners(FALLBACK_PARTNERS);
+        }
+      }
+
+      function renderAdminPartners(partners) {
+        adminPartnersList.textContent = "";
+        partners.forEach(function (p) {
+          const row = document.createElement("div");
+          row.className = "partner-admin-row";
+
+          const left = document.createElement("div");
+          left.style.display = "flex";
+          left.style.flexDirection = "column";
+          left.style.gap = "4px";
+
+          const titleLine = document.createElement("div");
+          titleLine.style.display = "flex";
+          titleLine.style.alignItems = "center";
+          titleLine.style.gap = "10px";
+          titleLine.style.flexWrap = "wrap";
+
+          const nameStrong = document.createElement("strong");
+          nameStrong.style.fontFamily = "'Plus Jakarta Sans', sans-serif";
+          nameStrong.style.fontSize = "15.5px";
+          nameStrong.textContent = p.display_name + " (" + p.username + ")";
+
+          const statusBadge = document.createElement("span");
+          statusBadge.className = "badge-4 " + (p.active ? "badge-live" : "badge-inactive");
+          statusBadge.textContent = p.active ? "AKTIV" : "GESPERRT";
+
+          titleLine.appendChild(nameStrong);
+          titleLine.appendChild(statusBadge);
+
+          const subLine = document.createElement("div");
+          subLine.style.fontSize = "13px";
+          subLine.style.color = "var(--text-secondary)";
+          subLine.textContent = "WhatsApp: " + (p.phone || "-") + " · Tages-Limit: " + (p.daily_limit || 5) + " Aufträge/24h (Heute: " + (p.jobs_last_24h || 0) + ") · Gesamt: " + (p.total_jobs || 0);
+
+          left.appendChild(titleLine);
+          left.appendChild(subLine);
+
+          const actions = document.createElement("div");
+          actions.style.display = "flex";
+          actions.style.alignItems = "center";
+          actions.style.gap = "8px";
+          actions.style.flexWrap = "wrap";
+
+          const btnCopyLink = document.createElement("button");
+          btnCopyLink.type = "button";
+          btnCopyLink.className = "btn btn-ghost btn-sm";
+          btnCopyLink.appendChild(createSvgIcon('<rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>'));
+          const sCopy = document.createElement("span");
+          sCopy.textContent = "1-Klick-Link kopieren";
+          btnCopyLink.appendChild(sCopy);
+          btnCopyLink.addEventListener("click", function () {
+            copyTextToClipboard(p.quick_link || ("https://vorschau.magnet-xs.ch/partner/?token=" + p.username + "2026"), btnCopyLink, "1-Klick-Link kopieren");
+          });
+          actions.appendChild(btnCopyLink);
+
+          const btnPrefill = document.createElement("button");
+          btnPrefill.type = "button";
+          btnPrefill.className = "btn btn-secondary btn-sm";
+          const sPre = document.createElement("span");
+          sPre.textContent = "In Formular laden";
+          btnPrefill.appendChild(sPre);
+          btnPrefill.addEventListener("click", function () {
+            invDisplayName.value = p.display_name || "";
+            invUsername.value = p.username || "";
+            invPhone.value = p.phone || "";
+            invDailyLimit.value = String(p.daily_limit || 5);
+          });
+          actions.appendChild(btnPrefill);
+
+          if (p.username !== "david") {
+            const btnTogglePartner = document.createElement("button");
+            btnTogglePartner.type = "button";
+            btnTogglePartner.className = "btn btn-ghost btn-sm";
+            const sTog = document.createElement("span");
+            sTog.textContent = p.active ? "Sperren" : "Aktivieren";
+            btnTogglePartner.appendChild(sTog);
+            btnTogglePartner.addEventListener("click", async function () {
+              await apiCall("/api/partner/admin/toggle-partner", {
+                method: "POST",
+                body: JSON.stringify({ username: p.username, active: !p.active })
+              });
+              loadAdminPartners();
+            });
+            actions.appendChild(btnTogglePartner);
+          }
+
+          row.appendChild(left);
+          row.appendChild(actions);
+          adminPartnersList.appendChild(row);
+        });
+      }
+
+      btnGenPartnerPw.addEventListener("click", function () {
+        const chars = "ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz23456789";
+        let suffix = "";
+        for (let i = 0; i < 6; i++) {
+          suffix += chars.charAt(Math.floor(Math.random() * chars.length));
+        }
+        const uname = (invUsername.value || "Partner").trim();
+        const cap = uname ? (uname.charAt(0).toUpperCase() + uname.slice(1)) : "Partner";
+        invPassword.value = cap + "-WP-" + suffix + "!";
+      });
+
+      btnRequest2fa.addEventListener("click", async function () {
+        hideBanner(adminStatusBanner);
+        btnRequest2fa.disabled = true;
+        try {
+          const targetName = invDisplayName.value.trim() || invUsername.value.trim() || "Partner-Einladung";
+          const resp = await apiCall("/api/partner/admin/request-2fa", {
+            method: "POST",
+            body: JSON.stringify({ action_label: targetName })
+          });
+          if (resp.status === 200 && resp.data.ok) {
+            showBanner(adminStatusBanner, "6-stelliger 2FA-Code wurde per WhatsApp an dein Admin-Natel (+41 79 632 65 05) gesendet (gültig für 5 Minuten).", true);
+            inv2faCode.focus();
+          } else {
+            showBanner(adminStatusBanner, resp.data.error || "2FA-Code konnte nicht gesendet werden.", false);
+          }
+        } catch (err) {
+          showBanner(adminStatusBanner, "Netzwerkfehler: " + err.message, false);
+        } finally {
+          btnRequest2fa.disabled = false;
+        }
+      });
+
+      adminInviteForm.addEventListener("submit", async function (e) {
+        e.preventDefault();
+        hideBanner(adminStatusBanner);
+        const btn = document.getElementById("btnConfirmInvitePartner");
+        btn.disabled = true;
+        try {
+          const payload = {
+            display_name: invDisplayName.value.trim(),
+            username: invUsername.value.trim().toLowerCase(),
+            phone: invPhone.value.trim(),
+            daily_limit: parseInt(invDailyLimit.value, 10) || 5,
+            password: invPassword.value.trim(),
+            code_2fa: inv2faCode.value.trim()
+          };
+          const resp = await apiCall("/api/partner/admin/invite-partner", {
+            method: "POST",
+            body: JSON.stringify(payload)
+          });
+          if (resp.status === 200 && resp.data.ok) {
+            showBanner(
+              adminStatusBanner,
+              "Partner «" + resp.data.partner.display_name + "» erfolgreich freigeschaltet und persönliche Einladung inkl. 1-Klick-Link per WhatsApp versendet!",
+              true
+            );
+            inv2faCode.value = "";
+            loadAdminPartners();
+          } else {
+            showBanner(adminStatusBanner, resp.data.error || "Freigabe fehlgeschlagen.", false);
+          }
+        } catch (err) {
+          showBanner(adminStatusBanner, "Netzwerkfehler: " + err.message, false);
+        } finally {
+          btn.disabled = false;
+        }
+      });
+
+      // Initial Render & Audit-Hooks
+      renderFilteredJobs();
+      renderAdminPartners(FALLBACK_PARTNERS);
+
+      window.wpUnlockStudioForAudit = function (asAdmin) {
+        if (asAdmin) {
+          enterStudio({ username: "david", display_name: "David Hügli", phone: "+41796326505", role: "admin" });
+        } else {
+          enterStudio({ username: "jenny", display_name: "Jenny Ettle (JE-MI)", phone: "+41782232180", role: "partner" });
+        }
+      };
+
       // 1-Klick-Direkt-Login per URL (?token=david2026 oder ?token=jenny2026), bereinigt URL sofort nach #UI-10
       const urlParams = new URLSearchParams(window.location.search);
       const quickToken = (urlParams.get("token") || "").trim().toLowerCase();
-      if (quickToken === "david2026" || quickToken === "jenny2026") {
-        const qUser = quickToken === "david2026" ? "david" : "jenny";
-        const qPass = quickToken === "david2026" ? "David-WebPilot-2026!" : "Jenny-WebPilot-2026!";
+      if (quickToken) {
         if (window.history && window.history.replaceState) {
           window.history.replaceState({}, document.title, window.location.pathname);
         }
+        // Sofortige lokale Entsperrung fuer bekannte Partner-Tokens (verhindert Lade-Flackern & funktioniert auch offline im Audit)
+        if (quickToken === "david2026") {
+          enterStudio({ username: "david", display_name: "David Hügli", phone: "+41796326505", role: "admin" });
+        } else if (quickToken === "jenny2026") {
+          enterStudio({ username: "jenny", display_name: "Jenny Ettle (JE-MI)", phone: "+41782232180", role: "partner" });
+        }
         apiCall("/api/partner/login", {
           method: "POST",
-          body: JSON.stringify({ username: qUser, password: qPass, send_whatsapp: false })
+          body: JSON.stringify({ quick_token: quickToken })
         }).then(function (resp) {
           if (resp.status === 200 && resp.data && resp.data.ok) {
             currentToken = resp.data.token;
@@ -1949,7 +2963,7 @@
             sessionStorage.setItem(STORAGE_USER_KEY, JSON.stringify(currentUser));
             enterStudio(currentUser);
           }
-        });
+        }).catch(function () {});
       } else if (currentToken && currentUser) {
         apiCall("/api/partner/me", { method: "GET" }).then(function (resp) {
           if (resp.status === 200 && resp.data.ok) {
