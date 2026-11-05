@@ -450,16 +450,19 @@ h1, h2, h3, h4 {
 .main-nav {
   display: flex;
   align-items: center;
-  gap: 1.65rem;
+  gap: 1.4rem;
+  flex-wrap: nowrap;
+  white-space: nowrap;
 }
 
 .nav-link {
   font-family: var(--font-display);
-  font-size: 0.94rem;
+  font-size: 0.9rem;
   font-weight: 600;
   color: var(--text-main);
-  padding: 0.4rem 0;
+  padding: 0.4rem 0.1rem;
   border-bottom: 2px solid transparent;
+  white-space: nowrap;
 }
 
 .nav-link:hover,
@@ -602,7 +605,15 @@ section {
   display: grid;
   grid-template-columns: 1.15fr 0.85fr;
   gap: 3.25rem;
-  align-items: center;
+  align-items: stretch;
+}
+.hero-grid > div:first-child {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.hero-trust-row {
+  margin-top: auto;
 }
 
 .hero-badges {
@@ -671,11 +682,17 @@ section {
   border-radius: var(--radius-md);
   padding: 1rem;
   box-shadow: var(--shadow-elevated);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
 }
 
 .hero-visual-card img.hero-main-img {
   width: 100%;
-  height: 440px;
+  height: 360px;
+  min-height: 320px;
+  flex: 1 1 auto;
   object-fit: cover;
   border-radius: var(--radius-sm);
 }
@@ -1923,9 +1940,9 @@ def render_page_shell(title: str, description: str, active_page: str, body_html:
     nav_items = [
         ("index.html", "Startseite"),
         ("leistungen.html", "Leistungen"),
-        ("methode.html", "Sichtbarkeits-Tragwerk"),
-        ("ueber-uns.html", "Über Matthias Iseli"),
-        ("kontakt.html", "Kontakt & Impressum"),
+        ("methode.html", "Methode"),
+        ("ueber-uns.html", "Über uns"),
+        ("kontakt.html", "Kontakt"),
     ]
     nav_html = []
     for href, label in nav_items:
@@ -1962,7 +1979,7 @@ def render_page_shell(title: str, description: str, active_page: str, body_html:
     </div>
   </div>
 
-  <header class="site-header">
+  <header class="site-header" data-section="header">
     <div class="container header-inner">
       <a href="index.html" class="brand-logo" aria-label="IMP GmbH Startseite">
         <img src="images/logo.png" alt="IMP-Marketing Logo">

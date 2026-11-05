@@ -16,7 +16,7 @@
  *     Mobile-Menues und Cockpit-Modals zur verpflichtenden Sichtabnahme per read_file.
  */
 
-export const SYSTEM_EYES_VERSION = '2.1.0';
+export const SYSTEM_EYES_VERSION = '2.3.0';
 
 export const SYSTEM_EYES_ZONES = [
   { name: 'mobile_375x667', width: 375, height: 667, label: 'Zone 1 Smartphone (375×667)' },
@@ -44,7 +44,12 @@ export const SYSTEM_EYES_SENSORS = [
   { id: 'S-17', code: 'P2_CLIENT_CODE_FONT_OR_SLASH', severity: 'P2', rule: '#UI-01', desc: 'Auf Kunden-Webseiten sind JetBrains Mono und //-Code-Striche in Kickern/Badges strikt verboten' },
   { id: 'S-18', code: 'P2_MODAL_OVERLAP_LEAK', severity: 'P2', rule: '#UI-06', desc: 'Bei geoeffnetem Modal darf kein Hintergrund-Widget (#acp-draft-widget) ueber das Modal ragen' },
   { id: 'S-19', code: 'P1_TEXT_BLEEDS_CONTAINER', severity: 'P1', rule: '#UI-14', desc: 'Kein Wort/Textknoten darf horizontal ueber den rechten/linken Rand seines Buttons, Badges oder seiner Karte hinausragen' },
-  { id: 'S-20', code: 'P2_FORM_INPUT_MISALIGNMENT', severity: 'P2', rule: '#UI-02', desc: 'Nebeneinanderliegende Formular-Inputs in derselben Zeile muessen auf exakt gleicher vertikaler Hoehe (top) sitzen' }
+  { id: 'S-20', code: 'P2_FORM_INPUT_MISALIGNMENT', severity: 'P2', rule: '#UI-02', desc: 'Nebeneinanderliegende Formular-Inputs in derselben Zeile muessen auf exakt gleicher vertikaler Hoehe (top) sitzen' },
+  { id: 'S-21', code: 'P2_UGLY_MID_WORD_BREAK', severity: 'P2', rule: '#UI-14', desc: 'Einzelne Woerter (>= 4 Buchstaben ohne Bindestrich) duerfen in Buttons, Pillen oder schmalen Containern (< 180px) nicht mitten im Wort auf 2 Zeilen umbrechen' },
+  { id: 'S-22', code: 'P1_NAV_MULTILINE_WRAP', severity: 'P1', rule: '#UI-02', desc: 'Hauptnavigation im Header darf auf Desktop/Laptop (>= 1024px) niemals zweizeilig umbrechen (maxTop - minTop <= 10px, linkHeight <= 46px)' },
+  { id: 'S-23', code: 'P2_SPLIT_BOTTOM_STEP', severity: 'P2', rule: '#UI-02', desc: 'In 2-Spalten-Sektionen (.hero-grid, .split-grid, .two-col-grid) auf Desktop (>= 1024px) muessen linke und rechte Spalte unten buendig abschliessen (kein Treppen-Versatz 8..110px)' },
+  { id: 'S-24', code: 'P2_HERO_CTA_STACKED_ON_DESKTOP', severity: 'P2', rule: '#UI-02', desc: 'Benachbarte Hero-Action-Buttons duerfen in breiten Desktop-Spalten (>= 480px) nicht unnoetig vertikal untereinander stapeln, wenn sie nebeneinander passen' },
+  { id: 'S-25', code: 'P2_CARD_EXCESSIVE_DEAD_SPACE', severity: 'P2', rule: '#UI-02', desc: 'Gerahmte Karten (.card, .content-card, .hero-card, .hero-media-card) duerfen auf Desktop nicht > 90px leeren Totraum unter ihrem Inhalt aufweisen' }
 ];
 
 /**
@@ -57,7 +62,17 @@ export function evaluateSystemEyesInPage({ relPage, zone, options = {} }) {
   const seen = new Set();
   const isCockpit = relPage.includes('cockpit.html') || Boolean(document.querySelector('.acp-cockpit-bar'));
   const activeScopeSelector = options.activeScopeSelector || null;
-  const scopeRoot = activeScopeSelector ? document.querySelector(activeScopeSelector) : document.body;
+  const rawModals = Array.from(
+    document.querySelectorAll(
+      '[data-acp-modal-title], .modal-overlay.active, #formatSelectModal[style*="flex"], #historyModal[style*="flex"], #erfassungZenSidebar.open, #erfassungOnboardingIntroModal, [id$="Modal"][style*="flex"], [id*="Modal"][style*="fixed"][style*="flex"]'
+    )
+  ).filter(m => isVisible(m));
+  const openModals = rawModals.filter(m => !rawModals.some(other => other !== m && other.contains(m)));
+  const scopeRoot = activeScopeSelector
+    ? document.querySelector(activeScopeSelector)
+    : openModals.length > 0
+      ? openModals[openModals.length - 1]
+      : document.body;
 
   function addFinding(severity, code, element, selector, details) {
     const k = `${code}::${selector}::${element}`;
@@ -212,12 +227,47 @@ export function evaluateSystemEyesInPage({ relPage, zone, options = {} }) {
     }
   }
 
-  // S-04: P1_ELEMENT_COLLISION
-  const collisionItems = interactiveEls.map(el => ({
-    el,
-    rect: el.getBoundingClientRect(),
-    layerAnc: getLayerContext(el)
-  }));
+  // S-04: P1_ELEMENT_COLLISION (Union Bounding-Box aus Element-Rect + unbeschnittener direkter Text-Range)
+  const collisionItems = interactiveEls.map(el => {
+    const r = el.getBoundingClientRect();
+    let unionLeft = r.left;
+    let unionRight = r.right;
+    let unionTop = r.top;
+    let unionBottom = r.bottom;
+    const nCs = window.getComputedStyle(el);
+    const parentEl = el.parentElement;
+    const pCs = parentEl ? window.getComputedStyle(parentEl) : null;
+    const isClippedX =
+      nCs.overflowX === 'hidden' || nCs.overflowX === 'clip' || nCs.textOverflow === 'ellipsis' ||
+      (pCs && (pCs.overflowX === 'hidden' || pCs.overflowX === 'clip'));
+    if (!isClippedX) {
+      for (let ch = el.firstChild; ch; ch = ch.nextSibling) {
+        if (ch.nodeType === 3 && ch.nodeValue && ch.nodeValue.trim().length > 0) {
+          const rng = document.createRange();
+          rng.selectNodeContents(ch);
+          const tr = rng.getBoundingClientRect();
+          if (tr.width > 0 && tr.height > 0) {
+            unionLeft = Math.min(unionLeft, tr.left);
+            unionRight = Math.max(unionRight, tr.right);
+            unionTop = Math.min(unionTop, tr.top);
+            unionBottom = Math.max(unionBottom, tr.bottom);
+          }
+        }
+      }
+    }
+    return {
+      el,
+      rect: {
+        left: unionLeft,
+        right: unionRight,
+        top: unionTop,
+        bottom: unionBottom,
+        width: unionRight - unionLeft,
+        height: unionBottom - unionTop
+      },
+      layerAnc: getLayerContext(el)
+    };
+  });
   for (let i = 0; i < collisionItems.length; i++) {
     const A = collisionItems[i];
     for (let j = i + 1; j < collisionItems.length; j++) {
@@ -415,24 +465,56 @@ export function evaluateSystemEyesInPage({ relPage, zone, options = {} }) {
   }
 
 
-  // S-19: P1_TEXT_BLEEDS_CONTAINER (Text node bleeds outside button/badge/pill/card border)
+  // S-19: P1_TEXT_BLEEDS_CONTAINER & S-21: P2_UGLY_MID_WORD_BREAK (Text node bleeds outside border or breaks mid-word)
   for (const el of allDom) {
-    if (['SCRIPT', 'STYLE', 'SVG', 'PATH', 'HTML', 'BODY'].includes(el.tagName) || el.closest('svg')) continue;
+    if (['SCRIPT', 'STYLE', 'SVG', 'PATH', 'HTML', 'BODY', 'TEXTAREA', 'INPUT', 'SELECT'].includes(el.tagName) || el.closest('svg')) continue;
     const textNodes = Array.from(el.childNodes).filter(n => n.nodeType === 3 && n.nodeValue.trim().length > 0);
     if (textNodes.length === 0) continue;
-    const boxEl = el.closest('button, a, .role-pill, .topic-chip-btn, [class*="badge"], [class*="pill"], [class*="btn"], [class*="card"], td, th, label') || el;
+    const boxEl = el.closest('button, a, .role-pill, .topic-chip-btn, .zen-sb-mode-pill, [class*="badge"], [class*="pill"], [class*="btn"], [class*="card"], td, th, label') || el;
     const elCs = window.getComputedStyle(el);
     const boxCs = window.getComputedStyle(boxEl);
-    if (elCs.overflowX === 'hidden' || elCs.overflowX === 'clip' || boxCs.overflowX === 'hidden' || boxCs.overflowX === 'clip') continue;
+    const hasClip =
+      elCs.overflowX === 'hidden' || elCs.overflowX === 'clip' || elCs.textOverflow === 'ellipsis' ||
+      boxCs.overflowX === 'hidden' || boxCs.overflowX === 'clip' || boxCs.textOverflow === 'ellipsis';
     const bRect = boxEl.getBoundingClientRect();
-    if (bRect.width < 10) continue;
+    if (bRect.width < 16 || bRect.height < 12) continue;
+    const isFramedPillOrBtn = boxEl.matches('button, .role-pill, .zen-sb-mode-pill, [class*="badge"], [class*="pill"], [class*="btn"]') &&
+      (parseFloat(boxCs.borderLeftWidth) > 0 || parseFloat(boxCs.borderRightWidth) > 0 || (boxCs.backgroundColor && boxCs.backgroundColor !== 'rgba(0, 0, 0, 0)' && boxCs.backgroundColor !== 'transparent'));
+    const fontSize = parseFloat(elCs.fontSize) || 13;
+    const lineHeight = parseFloat(elCs.lineHeight) || (fontSize * 1.35);
     for (const tn of textNodes) {
       const range = document.createRange();
       range.selectNodeContents(tn);
       const rRect = range.getBoundingClientRect();
-      if (rRect.width === 0) continue;
-      if (rRect.right > bRect.right + 1.5 || rRect.left < bRect.left - 1.5) {
-        addFinding('P1', 'P1_TEXT_BLEEDS_CONTAINER', getLabel(boxEl), getCssPath(boxEl), `Text ragt ueber Element-Rahmen hinaus: textRight=${Math.round(rRect.right)}px > boxRight=${Math.round(bRect.right)}px`);
+      if (rRect.width === 0 || rRect.height === 0) continue;
+      if (!hasClip) {
+        if (rRect.right > bRect.right + 1.5 || rRect.left < bRect.left - 1.5) {
+          addFinding('P1', 'P1_TEXT_BLEEDS_CONTAINER', getLabel(boxEl), getCssPath(boxEl), `Text ragt ueber Element-Rahmen hinaus: textRight=${Math.round(rRect.right)}px > boxRight=${Math.round(bRect.right)}px`);
+        } else if (isFramedPillOrBtn && tn.nodeValue.trim().length >= 4 && bRect.width >= 36 && bRect.width <= 180 && (bRect.right - rRect.right < 1.5 || rRect.left - bRect.left < 1.5)) {
+          addFinding('P1', 'P1_TEXT_BLEEDS_CONTAINER', getLabel(boxEl), getCssPath(boxEl), `Text klebt ohne Innenabstand (< 1.5px) am Pillen-/Button-Rand: insetL=${(rRect.left - bRect.left).toFixed(1)}px, insetR=${(bRect.right - rRect.right).toFixed(1)}px`);
+        }
+      }
+      if (rRect.height > lineHeight * 1.55 && bRect.width < 180) {
+        const rawText = tn.nodeValue || '';
+        const wordRegex = /[A-Za-zÄÖÜäöü]{4,}/g;
+        let match;
+        while ((match = wordRegex.exec(rawText)) !== null) {
+          const startIdx = match.index;
+          const endIdx = match.index + match[0].length;
+          const firstRange = document.createRange();
+          firstRange.setStart(tn, startIdx);
+          firstRange.setEnd(tn, startIdx + 1);
+          const lastRange = document.createRange();
+          lastRange.setStart(tn, endIdx - 1);
+          lastRange.setEnd(tn, endIdx);
+          const fRect = firstRange.getBoundingClientRect();
+          const lRect = lastRange.getBoundingClientRect();
+          if (fRect.width > 0.5 && lRect.width > 0.5 && Math.abs(lRect.top - fRect.top) > lineHeight * 0.55) {
+          const wRects = [fRect, lRect];
+            addFinding('P2', 'P2_UGLY_MID_WORD_BREAK', getLabel(boxEl), getCssPath(boxEl), `Wort "${match[0]}" bricht mitten im Wort ohne Bindestrich auf ${wRects.length} Zeilen um (Container-Breite ${Math.round(bRect.width)}px)`);
+            break;
+          }
+        }
       }
     }
   }
@@ -450,6 +532,128 @@ export function evaluateSystemEyesInPage({ relPage, zone, options = {} }) {
         if (Math.abs(rA.top - rB.top) > 2) {
           addFinding('P2', 'P2_FORM_INPUT_MISALIGNMENT', `${getLabel(A)} vs ${getLabel(B)}`, getCssPath(A), `Formular-Inputs in derselben Zeile vertikal versetzt: topA=${Math.round(rA.top)}px vs topB=${Math.round(rB.top)}px`);
         }
+      }
+    }
+  }
+
+
+  // S-22..S-25: Grafik- & Proportions-Harmonie-Sensoren auf Desktop/Laptop (VW >= 1024)
+  if (VW >= 1024 && !isCockpit && !activeScopeSelector && !relPage.startsWith('partner/')) {
+    // S-22: P1_NAV_MULTILINE_WRAP
+    const navContainers = Array.from(queryRoot.querySelectorAll('header nav, .site-header nav, .main-header nav, .main-nav, .nav-links')).filter(
+      el => isVisible(el) && !el.closest('.mobile-drawer, #mobileDrawer, #navDrawer, #mobileNavDrawer, footer, .site-footer')
+    );
+    for (const navEl of navContainers) {
+      const navItems = Array.from(navEl.querySelectorAll('a, button')).filter(
+        el => isVisible(el) && !el.closest('.dropdown-menu, .sub-menu, .mobile-drawer, #mobileDrawer, #navDrawer, #mobileNavDrawer')
+      );
+      if (navItems.length >= 2) {
+        const rects = navItems.map(el => el.getBoundingClientRect());
+        const tops = rects.map(r => r.top);
+        const minTop = Math.min(...tops);
+        const maxTop = Math.max(...tops);
+        if (maxTop - minTop > 10) {
+          addFinding(
+            'P1',
+            'P1_NAV_MULTILINE_WRAP',
+            getLabel(navEl),
+            getCssPath(navEl),
+            `Hauptnavigation bricht auf Desktop (${VW}px) mehrzeilig um: maxTop-minTop=${Math.round(maxTop - minTop)}px (Pflicht <= 10px)`
+          );
+        }
+        for (let idx = 0; idx < navItems.length; idx++) {
+          const item = navItems[idx];
+          const r = rects[idx];
+          const itemCs = window.getComputedStyle(item);
+          if (r.height > 46 && itemCs.flexDirection !== 'column') {
+            addFinding(
+              'P1',
+              'P1_NAV_MULTILINE_WRAP',
+              getLabel(item),
+              getCssPath(item),
+              `Hauptmenue-Link bricht auf Desktop (${VW}px) zweizeilig um: height=${Math.round(r.height)}px (Pflicht <= 46px)`
+            );
+          }
+        }
+      }
+    }
+
+    // S-23: P2_SPLIT_BOTTOM_STEP
+    function getVisualColumnBottom(col) {
+      const cRect = col.getBoundingClientRect();
+      const cs = window.getComputedStyle(col);
+      const hasFrame =
+        parseFloat(cs.borderBottomWidth || '0') > 0 ||
+        (cs.backgroundColor && cs.backgroundColor !== 'rgba(0, 0, 0, 0)' && cs.backgroundColor !== 'transparent');
+      const kids = Array.from(col.children).filter(isVisible);
+      if (hasFrame || kids.length === 0) {
+        return cRect.bottom;
+      }
+      return Math.max(...kids.map(k => getVisualColumnBottom(k)));
+    }
+
+    const splitGrids = Array.from(queryRoot.querySelectorAll('.hero-grid, .split-grid, .two-col-grid')).filter(isVisible);
+    for (const sg of splitGrids) {
+      const cols = Array.from(sg.children).filter(isVisible);
+      if (cols.length !== 2) continue;
+      const r0 = cols[0].getBoundingClientRect();
+      const r1 = cols[1].getBoundingClientRect();
+      const vOverlap = Math.min(r0.bottom, r1.bottom) - Math.max(r0.top, r1.top);
+      if (r1.left < r0.right - 16 || vOverlap < 40) continue;
+      const leftBottom = getVisualColumnBottom(cols[0]);
+      const rightBottom = getVisualColumnBottom(cols[1]);
+      const diff = Math.abs(leftBottom - rightBottom);
+      if (diff > 8 && diff <= 110) {
+        addFinding(
+          'P2',
+          'P2_SPLIT_BOTTOM_STEP',
+          getCssPath(sg),
+          getCssPath(sg),
+          `Untere Grundlinien-Treppenstufe in 2-Spalten-Sektion: leftBottom=${Math.round(leftBottom)}px vs rightBottom=${Math.round(rightBottom)}px (Versatz=${Math.round(diff)}px, Pflicht <= 8px)`
+        );
+      }
+    }
+
+    // S-24: P2_HERO_CTA_STACKED_ON_DESKTOP
+    const ctaContainers = Array.from(queryRoot.querySelectorAll('.hero-actions, .hero-cta, .hero-btns, .cta-actions')).filter(isVisible);
+    for (const actEl of ctaContainers) {
+      const pRect = actEl.getBoundingClientRect();
+      if (pRect.width < 480) continue;
+      const btns = Array.from(actEl.children).filter(c => isVisible(c) && c.matches('a, button, .btn, .btn-cta, [class*="btn"]'));
+      if (btns.length >= 2) {
+        const rA = btns[0].getBoundingClientRect();
+        const rB = btns[1].getBoundingClientRect();
+        if (rB.top > rA.top + 20 && (rA.width + rB.width <= pRect.width + 24)) {
+          addFinding(
+            'P2',
+            'P2_HERO_CTA_STACKED_ON_DESKTOP',
+            `${getLabel(btns[0])} + ${getLabel(btns[1])}`,
+            getCssPath(actEl),
+            `Action-Buttons in breiter Desktop-Spalte (${Math.round(pRect.width)}px) unnoetig vertikal gestapelt: topA=${Math.round(rA.top)}px, topB=${Math.round(rB.top)}px`
+          );
+        }
+      }
+    }
+
+    // S-25: P2_CARD_EXCESSIVE_DEAD_SPACE
+    const framedCards = Array.from(queryRoot.querySelectorAll('.card, .content-card, .hero-card, .hero-media-card')).filter(isVisible);
+    for (const card of framedCards) {
+      const cCs = window.getComputedStyle(card);
+      if (cCs.justifyContent === 'space-between' || cCs.justifyContent === 'space-around' || cCs.justifyContent === 'center') continue;
+      const kids = Array.from(card.children).filter(isVisible);
+      if (kids.length === 0) continue;
+      const cRect = card.getBoundingClientRect();
+      const lastKidBottom = Math.max(...kids.map(k => k.getBoundingClientRect().bottom));
+      const padB = parseFloat(cCs.paddingBottom || '0') || 0;
+      const deadSpace = cRect.bottom - padB - lastKidBottom;
+      if (deadSpace > 90) {
+        addFinding(
+          'P2',
+          'P2_CARD_EXCESSIVE_DEAD_SPACE',
+          getLabel(card),
+          getCssPath(card),
+          `Karte hat auf Desktop ${Math.round(deadSpace)}px leeren Totraum am unteren Rand (cardBottom=${Math.round(cRect.bottom)}px vs contentBottom=${Math.round(lastKidBottom)}px)`
+        );
       }
     }
   }

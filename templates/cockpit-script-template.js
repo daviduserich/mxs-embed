@@ -3397,7 +3397,8 @@ function acpApplyInlineEditToIframe(doc) {
       if (!acpInlineEditActive) return;
       var sec = e.target.closest("[data-section]") || e.target.closest("section") || e.target.closest("header") || e.target.closest("footer");
       if (sec) {
-        var secId = sec.getAttribute("data-section") || sec.id || "section";
+        var secTag = (sec.tagName || "").toLowerCase();
+        var secId = sec.getAttribute("data-section") || sec.id || (secTag === "header" ? "header" : (secTag === "footer" ? "footer" : "section"));
         acpDirtySections.add(secId);
         sec.classList.add("acp-inline-dirty-section");
         acpUpdateInlineEditStatus();
@@ -3521,7 +3522,7 @@ function acpSaveInlineEdits() {
 
   var sectionsToSave = Array.from(acpDirtySections);
   var savePromises = sectionsToSave.map(function(secId) {
-    var secEl = doc.querySelector('[data-section="' + secId + '"]') || doc.getElementById(secId);
+    var secEl = doc.querySelector('[data-section="' + secId + '"]') || doc.getElementById(secId) || (secId === "header" ? (doc.querySelector("header.site-header") || doc.querySelector("header")) : null) || (secId === "footer" ? (doc.querySelector("footer.site-footer") || doc.querySelector("footer")) : null);
     if (!secEl) {
       console.warn("[WebPilot Studio] Sektion nicht im DOM gefunden:", secId);
       return Promise.resolve({ ok: false, error: "Sektion nicht gefunden" });
@@ -3732,6 +3733,8 @@ var acpCurrentDesignState = {
   preset: "",
   heroGradient: "",
   vibeCssBlock: "",
+  navStyle: "underline",
+  navItems: [],
   colors: {
     primary: "#9b2c47",
     heroBg: "#fdf8f5",
@@ -3917,10 +3920,177 @@ function acpReadCurrentColorsFromIframe() {
   acpSyncColorInputsFromState();
 }
 
+function acpGetIframePrimaryNavElements(doc) {
+  if (!doc) return [];
+  var navContainer = doc.querySelector("header .main-nav, header .nav-links, .site-header nav, header nav, .top-bar nav");
+  if (!navContainer) return [];
+  var items = Array.prototype.slice.call(navContainer.querySelectorAll("a, button"));
+  return items.filter(function(el) {
+    if (el.classList && (el.classList.contains("mobile-toggle") || el.classList.contains("mobile-menu-btn") || el.classList.contains("btn-cta") || el.classList.contains("btn-header-cta"))) return false;
+    return true;
+  });
+}
+
+function acpReadCurrentNavFromIframe() {
+  var doc = null;
+  try {
+    var iframe = document.getElementById("acp-widget-viewport");
+    doc = iframe ? (iframe.contentDocument || (iframe.contentWindow && iframe.contentWindow.document)) : null;
+  } catch (e) {
+    doc = null;
+  }
+  if (!doc) {
+    acpRenderNavEditorList();
+    return;
+  }
+  var els = acpGetIframePrimaryNavElements(doc);
+  var items = [];
+  for (var i = 0; i < els.length; i++) {
+    var el = els[i];
+    var spans = el.querySelectorAll("span");
+    var labelEl = spans.length > 0 ? spans[spans.length - 1] : el;
+    var label = (labelEl.textContent || "").replace(/\s+/g, " ").trim();
+    var href = el.getAttribute("data-nav-href") || el.getAttribute("href") || ("punkt-" + (i + 1));
+    items.push({
+      index: i,
+      href: href,
+      label: label
+    });
+  }
+  acpCurrentDesignState.navItems = items;
+  acpRenderNavEditorList();
+}
+
+function acpRenderNavEditorList() {
+  var listEl = document.getElementById("acp-nav-editor-list");
+  if (!listEl) return;
+  var items = acpCurrentDesignState.navItems || [];
+  if (items.length === 0) {
+    listEl.innerHTML = '<div style="grid-column:1/-1;font-size:13px;color:#94a3b8;padding:8px 0;">Keine Hauptmenü-Punkte im aktuellen Dokument erkannt.</div>';
+    return;
+  }
+  var html = [];
+  for (var i = 0; i < items.length; i++) {
+    var it = items[i];
+    var numStr = (i + 1) < 10 ? ("0" + (i + 1)) : ("" + (i + 1));
+    var safeVal = (it.label || "").replace(/"/g, "&quot;");
+    var safeHref = (it.href || "").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+    html.push(
+      '<div class="acp-nav-item-card">' +
+        '<div class="acp-nav-item-head">' +
+          '<span class="acp-nav-item-num">Menü ' + numStr + '</span>' +
+          '<span class="acp-nav-item-href" title="' + safeHref + '">' + safeHref + '</span>' +
+        '</div>' +
+        '<input type="text" class="acp-nav-item-input" data-nav-index="' + i + '" value="' + safeVal + '" oninput="acpOnNavItemInput(' + i + ', this.value)" aria-label="Menüpunkt ' + numStr + ' umbenennen">' +
+      '</div>'
+    );
+  }
+  listEl.innerHTML = html.join("");
+}
+
+function acpOnNavItemInput(idx, newVal) {
+  var clean = (newVal || "").replace(/\u00df/g, "ss");
+  if (acpCurrentDesignState.navItems && acpCurrentDesignState.navItems[idx]) {
+    acpCurrentDesignState.navItems[idx].label = clean.trim();
+  }
+  var doc = null;
+  try {
+    var iframe = document.getElementById("acp-widget-viewport");
+    doc = iframe ? (iframe.contentDocument || (iframe.contentWindow && iframe.contentWindow.document)) : null;
+  } catch (e) {
+    doc = null;
+  }
+  if (!doc) return;
+  var els = acpGetIframePrimaryNavElements(doc);
+  if (els[idx]) {
+    var spans = els[idx].querySelectorAll("span");
+    var targetNode = spans.length > 0 ? spans[spans.length - 1] : els[idx];
+    targetNode.textContent = clean;
+  }
+}
+
+function acpBuildNavStyleCss(styleKey, primaryColor) {
+  var pCol = primaryColor || "#9b2c47";
+  var base = [
+    "/* === HAUPTMENUE & NAVIGATION (GLOBAL EINZEILIG AUF DESKTOP) === */",
+    "@media (min-width: 1024px) {",
+    "  header .main-nav, header .nav-links, .site-header nav {",
+    "    display: flex !important;",
+    "    flex-wrap: nowrap !important;",
+    "    white-space: nowrap !important;",
+    "    align-items: center !important;"
+  ];
+  if (styleKey === "pill") {
+    base.push("    gap: 10px !important;");
+    base.push("  }");
+    base.push("  header .nav-link, header .nav-links a {");
+    base.push("    white-space: nowrap !important;");
+    base.push("    padding: 6px 12px !important;");
+    base.push("    border: 1px solid transparent !important;");
+    base.push("    border-radius: 4px !important;");
+    base.push("    background: transparent !important;");
+    base.push("  }");
+    base.push("  header .nav-link:hover, header .nav-link.active, header .nav-links a:hover, header .nav-links a.active {");
+    base.push("    color: " + pCol + " !important;");
+    base.push("    background-color: rgba(155, 44, 71, 0.08) !important;");
+    base.push("    border-color: " + pCol + " !important;");
+    base.push("  }");
+  } else if (styleKey === "minimal") {
+    base.push("    gap: 26px !important;");
+    base.push("  }");
+    base.push("  header .nav-link, header .nav-links a {");
+    base.push("    white-space: nowrap !important;");
+    base.push("    padding: 6px 0 !important;");
+    base.push("    border: none !important;");
+    base.push("    border-radius: 0 !important;");
+    base.push("    background: transparent !important;");
+    base.push("  }");
+    base.push("  header .nav-link:hover, header .nav-link.active, header .nav-links a:hover, header .nav-links a.active {");
+    base.push("    color: " + pCol + " !important;");
+    base.push("    background: transparent !important;");
+    base.push("  }");
+  } else {
+    base.push("    gap: 24px !important;");
+    base.push("  }");
+    base.push("  header .nav-link, header .nav-links a {");
+    base.push("    white-space: nowrap !important;");
+    base.push("    padding: 6px 2px !important;");
+    base.push("    border: none !important;");
+    base.push("    border-bottom: 2px solid transparent !important;");
+    base.push("    border-radius: 0 !important;");
+    base.push("    background: transparent !important;");
+    base.push("  }");
+    base.push("  header .nav-link:hover, header .nav-link.active, header .nav-links a:hover, header .nav-links a.active {");
+    base.push("    color: " + pCol + " !important;");
+    base.push("    background: transparent !important;");
+    base.push("    border-bottom-color: " + pCol + " !important;");
+    base.push("  }");
+  }
+  base.push("}");
+  return base.join("\n");
+}
+
+function acpSelectNavStyle(styleKey) {
+  acpCurrentDesignState.navStyle = styleKey || "underline";
+  var btns = document.querySelectorAll("[data-nav-style]");
+  for (var i = 0; i < btns.length; i++) {
+    btns[i].classList.toggle("is-active", btns[i].getAttribute("data-nav-style") === acpCurrentDesignState.navStyle);
+  }
+  var css = acpBuildClientSideColorCss();
+  acpInjectLiveDesignCss(css);
+  var styleNames = {
+    underline: "Einzeilig · Feine Unterstreichung",
+    pill: "Einzeilig · Dezenter Pill-Akzent",
+    minimal: "Einzeilig · Schlicht & Minimal"
+  };
+  acpShowVibeBanner("Menü-Stil «" + (styleNames[acpCurrentDesignState.navStyle] || styleKey) + "» live im Simulator aktiviert!", false);
+}
+
 function acpOpenDesignVibeModal() {
   var modal = document.getElementById("designVibeModal");
   if (!modal) return;
   acpReadCurrentColorsFromIframe();
+  acpReadCurrentNavFromIframe();
   modal.classList.add("is-open");
   modal.style.display = "flex";
   acpUpdateBodyModalClass();
@@ -3967,6 +4137,8 @@ function acpBuildClientSideColorCss() {
     ".site-footer, footer { background-color: " + c.footerBg + " !important; color: " + c.footerText + " !important; }",
     ".site-footer .footer-title, .site-footer a, .site-footer p, .site-footer .footer-bottom, .site-footer div { color: " + c.footerText + " !important; }"
   ];
+  lines.push("");
+  lines.push(acpBuildNavStyleCss(acpCurrentDesignState.navStyle || "underline", c.primary));
   if (acpCurrentDesignState.vibeCssBlock) {
     lines.push("");
     lines.push(acpCurrentDesignState.vibeCssBlock);
@@ -4166,7 +4338,9 @@ function acpSaveDesignVibe() {
       css: cssToSave,
       colors: acpCurrentDesignState.colors,
       preset: acpCurrentDesignState.preset,
-      vibe_prompt: vibePrompt
+      vibe_prompt: vibePrompt,
+      nav_style: acpCurrentDesignState.navStyle || "underline",
+      nav_items: acpCurrentDesignState.navItems || []
     })
   })
     .then(function(res) { return res.json(); })

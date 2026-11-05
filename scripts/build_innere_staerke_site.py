@@ -659,35 +659,39 @@ SHARED_CSS = """
     .main-nav {
       display: flex;
       align-items: center;
-      gap: 6px;
-      flex-wrap: wrap;
+      gap: 22px;
+      flex-wrap: nowrap;
+      white-space: nowrap;
     }
     .nav-link {
       display: inline-flex;
       align-items: center;
       gap: 6px;
       font-family: 'Barlow', sans-serif;
-      font-size: 0.88rem;
+      font-size: 0.9rem;
       font-weight: 700;
       color: var(--text-body);
-      padding: 8px 12px;
-      min-height: 38px;
-      border-radius: var(--radius-sm);
-      border: 1px solid transparent;
+      padding: 6px 2px;
+      min-height: 36px;
+      border-radius: 0;
+      border: none;
+      border-bottom: 2px solid transparent;
       background: transparent;
+      white-space: nowrap;
       cursor: pointer;
     }
     .nav-link:hover,
     .nav-link.active {
       color: var(--charcoal-deep);
-      background-color: var(--gold-soft);
-      border-color: var(--gold-border);
+      background: transparent;
+      border-bottom-color: var(--gold-dark);
     }
     .nav-link-preview {
       color: var(--text-muted);
-      background-color: #F3F4F6;
-      border: 1px dashed #9CA3AF;
-      font-size: 0.82rem;
+      background: transparent;
+      border: none;
+      border-bottom: 2px dashed #9CA3AF;
+      font-size: 0.88rem;
     }
     .nav-link-preview:hover {
       color: var(--charcoal-deep);
@@ -846,7 +850,12 @@ SHARED_CSS = """
       display: grid;
       grid-template-columns: 1.12fr 0.88fr;
       gap: 44px;
-      align-items: center;
+      align-items: stretch;
+    }
+    .hero-grid > div:first-child {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
     }
     .hero-title {
       font-size: clamp(2.15rem, 3.8vw, 3.25rem);
@@ -868,7 +877,18 @@ SHARED_CSS = """
       display: flex;
       flex-wrap: wrap;
       gap: 12px;
+      align-items: center;
       margin-bottom: 28px;
+    }
+    .hero-actions:last-child,
+    .hero-badges:last-child {
+      margin-top: auto;
+      margin-bottom: 0;
+    }
+    .hero-actions .btn-cta {
+      padding: 11px 16px;
+      font-size: 0.86rem;
+      white-space: nowrap;
     }
     .hero-badges {
       display: grid;
@@ -905,10 +925,16 @@ SHARED_CSS = """
       border-radius: var(--radius-md);
       overflow: hidden;
       box-shadow: var(--shadow-lg);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      height: 100%;
     }
     .hero-media-card img {
       width: 100%;
-      height: 390px;
+      height: 260px;
+      min-height: 260px;
+      flex: 1 1 auto;
       object-fit: cover;
       object-position: center top;
     }
@@ -1714,6 +1740,10 @@ SHARED_CSS = """
       .header-actions .btn-cta {
         display: none;
       }
+      .hero-actions .btn-cta {
+        white-space: normal;
+        width: 100%;
+      }
       .hero-media-card img {
         height: 270px;
       }
@@ -1920,7 +1950,7 @@ def render_v1_shell(filename: str, page_title: str, active_nav: str, body_html: 
   </div>
 
   <!-- STICKY HEADER -->
-  <header class="site-header">
+  <header class="site-header" data-section="header">
     <div class="container header-inner">
       <a href="index.html" class="brand-link" aria-label="Wüest + Paneduro Startseite">
         <img src="images/logo.svg" alt="Wüest + Paneduro — Innere Stärke entwickeln" class="brand-logo" width="52" height="52" data-slot="brand_logo">
@@ -1931,11 +1961,11 @@ def render_v1_shell(filename: str, page_title: str, active_nav: str, body_html: 
       </a>
 
       <nav class="main-nav" aria-label="Hauptnavigation">
-        <a href="index.html" class="nav-link {nav_start}">Startseite</a>
-        <a href="angebot.html" class="nav-link {nav_angebot}">Angebot &amp; Methode</a>
-        <a href="ueber-uns.html" class="nav-link {nav_ueber}">Über uns</a>
-        <a href="referenzen.html" class="nav-link {nav_ref}">Referenzen &amp; Stimmen</a>
-        <a href="kontakt.html" class="nav-link {nav_kontakt}">Smart-Anfrage</a>
+        <a href="index.html" class="nav-link {nav_start}" data-nav-href="index.html">Startseite</a>
+        <a href="angebot.html" class="nav-link {nav_angebot}" data-nav-href="angebot.html">Angebot</a>
+        <a href="ueber-uns.html" class="nav-link {nav_ueber}" data-nav-href="ueber-uns.html">Über uns</a>
+        <a href="referenzen.html" class="nav-link {nav_ref}" data-nav-href="referenzen.html">Referenzen</a>
+        <a href="kontakt.html" class="nav-link {nav_kontakt}" data-nav-href="kontakt.html">Kontakt</a>
       </nav>
 
       <div class="header-actions">
@@ -2071,7 +2101,7 @@ def render_v2_shell(filename: str, page_title: str, active_nav: str, body_html: 
   </div>
 
   <!-- STICKY HEADER (ZEIGEVERSION MIT KUNDENFREUNDLICHEN VORSCHAU-HINWEISEN) -->
-  <header class="site-header">
+  <header class="site-header" data-section="header">
     <div class="container header-inner">
       <a href="index.html" class="brand-link" aria-label="Wüest + Paneduro Startseite">
         <img src="images/logo.svg" alt="Wüest + Paneduro — Innere Stärke entwickeln" class="brand-logo" width="52" height="52" data-slot="brand_logo">
@@ -2084,20 +2114,20 @@ def render_v2_shell(filename: str, page_title: str, active_nav: str, body_html: 
       <nav class="main-nav" aria-label="Hauptnavigation">
         <a href="index.html" class="nav-link {nav_start}">
           <svg width="8" height="8" viewBox="0 0 8 8" aria-hidden="true"><circle cx="4" cy="4" r="4" fill="#15803D"/></svg>
-          <span>Startseite (Ausgearbeitet)</span>
+          <span>Startseite</span>
         </a>
         <button type="button" class="nav-link nav-link-preview" onclick="wpOpenBlueprintModal('Angebots-Vertiefung &amp; Seminar-Programme', '1:1 Executive-Coaching, 9 Levels Workshops, Hypnose &amp; MentalFitnessCenter', 'Christine Wüest &amp; Nino Paneduro')">
-          <span>Angebot &amp; Programme (Folgt beim Ausbau)</span>
+          <span>Angebot</span>
         </button>
         <button type="button" class="nav-link nav-link-preview" onclick="wpOpenBlueprintModal('Über uns, Werdegang &amp; 11 Zertifizierungen', 'Ausführliche Porträts von Christine Wüest &amp; Nino Paneduro sowie Businesspark Sursee', 'Christine Wüest &amp; Nino Paneduro')">
-          <span>Über uns (Folgt beim Ausbau)</span>
+          <span>Über uns</span>
         </button>
         <button type="button" class="nav-link nav-link-preview" onclick="wpOpenBlueprintModal('Detaillierte Fallstudien &amp; Alle 10 Teilnehmerstimmen', 'Referenz-Berichte aus Verwaltung, Wirtschaft &amp; Spitzensport', 'Christine Wüest &amp; Nino Paneduro')">
-          <span>Referenzen (Folgt beim Ausbau)</span>
+          <span>Referenzen</span>
         </button>
         <a href="kontakt.html" class="nav-link {nav_kontakt}">
           <svg width="8" height="8" viewBox="0 0 8 8" aria-hidden="true"><circle cx="4" cy="4" r="4" fill="#15803D"/></svg>
-          <span>Smart-Anfrage (Live-Demo)</span>
+          <span>Kontakt</span>
         </a>
       </nav>
 
@@ -2116,7 +2146,7 @@ def render_v2_shell(filename: str, page_title: str, active_nav: str, body_html: 
   <div class="mobile-drawer" id="mobileDrawer">
     <a href="index.html" onclick="wpCloseMobileMenu()">Startseite (Beispiel-Seite ausgearbeitet)</a>
     <button type="button" class="mobile-nav-btn" onclick="wpCloseMobileMenu(); wpOpenBlueprintModal('Angebots-Vertiefung &amp; Seminar-Programme', '1:1 Executive-Coaching, 9 Levels Workshops &amp; MentalFitnessCenter', 'Christine Wüest &amp; Nino Paneduro')">
-      <span>Angebot &amp; Programme (Folgt beim Ausbau)</span>
+      <span>Angebot</span>
       {SVG_ARROW}
     </button>
     <button type="button" class="mobile-nav-btn" onclick="wpCloseMobileMenu(); wpOpenBlueprintModal('Über uns, Werdegang &amp; 11 Zertifizierungen', 'Ausführliche Porträts von Christine Wüest &amp; Nino Paneduro', 'Christine Wüest &amp; Nino Paneduro')">

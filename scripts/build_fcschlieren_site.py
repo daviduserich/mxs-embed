@@ -527,7 +527,12 @@ SHARED_CSS = """
       display: grid;
       grid-template-columns: 1.12fr 0.88fr;
       gap: 44px;
-      align-items: center;
+      align-items: stretch;
+    }
+    .hero-grid > div:first-child {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
     }
     .hero-title {
       color: #FFFFFF;
@@ -593,7 +598,18 @@ SHARED_CSS = """
     .hero-visual-stack {
       display: flex;
       flex-direction: column;
+      justify-content: space-between;
+      height: 100%;
       gap: 16px;
+    }
+    .hero-photo-card {
+      flex: 1 1 auto;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .hero-photo-card img {
+      flex: 1 1 auto;
     }
     .hero-photo-card {
       background-color: #1E293B;

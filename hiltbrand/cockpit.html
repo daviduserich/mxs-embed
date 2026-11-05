@@ -4009,6 +4009,315 @@ body.acp-dock-open #acp-draft-widget {
   }
 }
 
+
+/* ======================================================= */
+/* DESIGN-TABELLE, FARBWELTEN & KI VIBE-CODING MODAL       */
+/* ======================================================= */
+.acp-nav-btn-vibe {
+  background: rgba(240, 133, 45, 0.14) !important;
+  border-color: rgba(240, 133, 45, 0.45) !important;
+  color: #ffb870 !important;
+}
+.acp-nav-btn-vibe:hover {
+  background: rgba(240, 133, 45, 0.26) !important;
+  border-color: #f0852d !important;
+  color: #ffffff !important;
+}
+#designVibeModal.is-open {
+  display: flex !important;
+}
+.acp-vibe-section-box {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+.acp-vibe-section-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 16px;
+}
+.acp-vibe-section-title {
+  font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.acp-vibe-section-sub {
+  font-size: 13px;
+  color: #94a3b8;
+  margin-top: 3px;
+}
+.acp-nav-editor-grid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 12px;
+  align-items: stretch;
+}
+.acp-nav-item-card {
+  background: #0b0f17;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 8px;
+  padding: 12px 14px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 8px;
+}
+.acp-nav-item-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 6px;
+}
+.acp-nav-item-num {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  font-weight: 700;
+  color: #ffa858;
+  background: rgba(240, 133, 45, 0.14);
+  border: 1px solid rgba(240, 133, 45, 0.32);
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+.acp-nav-item-href {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  color: #94a3b8;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.acp-nav-item-input {
+  width: 100%;
+  height: 38px;
+  padding: 6px 10px;
+  border-radius: 4px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: #07090e;
+  color: #ffffff;
+  font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
+  font-size: 13.5px;
+  font-weight: 700;
+}
+.acp-nav-item-input:focus {
+  outline: none;
+  border-color: #f0852d;
+  box-shadow: 0 0 0 2px rgba(240, 133, 45, 0.2);
+}
+@media (max-width: 1100px) {
+  .acp-nav-editor-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+@media (max-width: 680px) {
+  .acp-nav-editor-grid {
+    grid-template-columns: 1fr;
+  }
+}
+.acp-color-table-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  align-items: stretch;
+}
+.acp-color-row-card {
+  background: #0b0f17;
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  border-radius: 8px;
+  padding: 14px 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 10px;
+}
+.acp-color-row-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 10px;
+}
+.acp-color-row-label {
+  font-size: 13.5px;
+  font-weight: 700;
+  color: #f1f5f9;
+  line-height: 1.3;
+}
+.acp-color-row-desc {
+  font-size: 11.5px;
+  color: #94a3b8;
+  margin-top: 2px;
+}
+.acp-color-controls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.acp-color-picker-input {
+  width: 42px;
+  height: 38px;
+  padding: 2px;
+  border-radius: 4px;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  background: #131b2e;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+.acp-color-hex-input {
+  width: 116px;
+  height: 38px;
+  padding: 6px 10px;
+  border-radius: 4px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: #07090e;
+  color: #f8fafc;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: lowercase;
+}
+.acp-color-hex-input:focus {
+  outline: none;
+  border-color: #f0852d;
+}
+.acp-hero-mode-switch {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+.acp-hero-mode-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 10px;
+  min-height: 36px;
+  border-radius: 4px;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  background: rgba(255, 255, 255, 0.05);
+  color: #cbd5e1;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.18s ease;
+}
+.acp-hero-mode-btn:hover,
+.acp-hero-mode-btn.is-active {
+  background: rgba(240, 133, 45, 0.18);
+  border-color: #f0852d;
+  color: #ffffff;
+}
+.acp-vibe-presets-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+  align-items: stretch;
+}
+.acp-vibe-preset-card {
+  background: #0b0f17;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 8px;
+  padding: 14px 16px;
+  text-align: left;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 10px;
+  transition: all 0.18s ease;
+  color: #f8fafc;
+  font-family: inherit;
+}
+.acp-vibe-preset-card:hover,
+.acp-vibe-preset-card.is-active {
+  border-color: #f0852d;
+  background: rgba(240, 133, 45, 0.09);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
+}
+.acp-vibe-preset-swatches {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.acp-vibe-swatch {
+  width: 24px;
+  height: 24px;
+  border-radius: 4px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  flex-shrink: 0;
+}
+.acp-vibe-chips-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 14px;
+}
+.acp-vibe-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 12px;
+  min-height: 36px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: rgba(255, 255, 255, 0.05);
+  color: #e2e8f0;
+  font-size: 12.5px;
+  font-weight: 600;
+  cursor: pointer;
+  text-align: left;
+  transition: all 0.18s ease;
+}
+.acp-vibe-chip:hover {
+  background: rgba(240, 133, 45, 0.16);
+  border-color: #f0852d;
+  color: #ffffff;
+}
+.acp-vibe-dictate-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 12px;
+  min-height: 38px;
+  border-radius: 8px;
+  border: 1px solid rgba(240, 133, 45, 0.45);
+  background: rgba(240, 133, 45, 0.12);
+  color: #ffb870;
+  font-size: 12.5px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.18s ease;
+}
+.acp-vibe-dictate-btn.is-recording {
+  background: rgba(239, 68, 68, 0.22);
+  border-color: #ef4444;
+  color: #fca5a5;
+}
+@media (max-width: 980px) {
+  .acp-color-table-grid {
+    grid-template-columns: 1fr;
+  }
+  .acp-vibe-presets-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@media (max-width: 640px) {
+  .acp-vibe-presets-grid {
+    grid-template-columns: 1fr;
+  }
+  .acp-vibe-section-box {
+    padding: 14px;
+  }
+}
+
 </style>
 </head>
 <body>
@@ -4064,6 +4373,10 @@ body.acp-dock-open #acp-draft-widget {
       <button type="button" class="acp-nav-btn acp-nav-btn-sections" onclick="acpToggleSectionsModal()" title="Seiten-Abschnitte &amp; KI-Assistent mit vollem Seiten-Kontext">
         <span class="nav-icon" style="display:inline-flex;align-items:center;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg></span>
         <span class="nav-label">Sektionen &amp; KI</span>
+      </button>
+      <button type="button" class="acp-nav-btn acp-nav-btn-vibe" id="acp-btn-open-design-vibe" onclick="acpOpenDesignVibeModal()" title="Farben (Hex-Code / Farbtabelle), Stil-Welten &amp; KI Vibe-Coding to CSS">
+        <span class="nav-icon" style="display:inline-flex;align-items:center;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="13.5" cy="6.5" r=".5"/><circle cx="17.5" cy="10.5" r=".5"/><circle cx="8.5" cy="7.5" r=".5"/><circle cx="6.5" cy="12.5" r=".5"/><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2z"/></svg></span>
+        <span class="nav-label">Farben &amp; KI-Design («Vibe-Coding»)</span>
       </button>
       <button type="button" class="acp-nav-btn" onclick="acpToggleImagesModal()" title="Bilder-Pool durchsuchen &amp; tauschen">
         <span class="nav-icon" style="display:inline-flex;align-items:center;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg></span>
@@ -4202,6 +4515,10 @@ body.acp-dock-open #acp-draft-widget {
         <button type="button" class="acp-btn-secondary" onclick="acpCopyFullPagePrompt()" title="Kopiert den gesamten Seiten-Quellcode inklusive Master-Prompt für ChatGPT oder Claude">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
           <span>Ganze Seite kopieren</span>
+        </button>
+        <button type="button" class="acp-btn-secondary" onclick="acpOpenDesignVibeModal()" style="border-color:rgba(240,133,45,0.45); color:#ffb870;">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="13.5" cy="6.5" r=".5"/><circle cx="17.5" cy="10.5" r=".5"/><circle cx="8.5" cy="7.5" r=".5"/><circle cx="6.5" cy="12.5" r=".5"/><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2z"/></svg>
+          <span>Farben &amp; KI-Design («Vibe-Coding»)</span>
         </button>
         <button type="button" class="acp-btn-primary" onclick="acpOpenNewSectionModal()">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
@@ -4710,6 +5027,350 @@ body.acp-dock-open #acp-draft-widget {
   </div>
 </div>
 
+<!-- ======================================================= -->
+<!-- MODAL: FARBEN, DESIGN-TABELLE & KI VIBE-CODING TO CSS   -->
+<!-- ======================================================= -->
+<div id="designVibeModal" class="acp-modal-backdrop" onclick="if(event.target===this)acpCloseDesignVibeModal()">
+  <div class="acp-modal acp-modal-fullscreen">
+    <div class="acp-modal-head">
+      <div>
+        <div class="acp-modal-kicker">WEBPILOT STUDIO · FARBWELTEN, HEX-TABELLE &amp; VIBE-CODING TO CSS</div>
+        <h3 class="acp-modal-heading">Farben, Design-Tabelle &amp; KI Vibe-Coding</h3>
+        <p class="acp-modal-subline">Passe alle 6 Hauptfarben per Farbwähler oder Hex-Code in Echtzeit an, wähle eine fertige Stil-Vorlage oder beschreibe deinen Design-Wunsch in normaler Sprache.</p>
+      </div>
+      <div class="acp-modal-actions">
+        <button type="button" class="acp-btn-secondary" onclick="acpResetDesignVibe()" title="Alle Farb- und CSS-Anpassungen zurücksetzen">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"/></svg>
+          <span>Änderungen zurücksetzen</span>
+        </button>
+        <button type="button" class="acp-btn-primary" id="acp-btn-save-design-top" onclick="acpSaveDesignVibe()">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="20 6 9 17 4 12"/></svg>
+          <span>Design &amp; Farben dauerhaft speichern</span>
+        </button>
+        <button type="button" class="acp-btn-close" onclick="acpCloseDesignVibeModal()" title="Schliessen (ESC)">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+          <span>Schliessen</span>
+        </button>
+      </div>
+    </div>
+
+    <div class="acp-modal-body">
+      <div id="acp-vibe-status-banner" style="display:none; margin-bottom:16px; padding:12px 16px; border-radius:8px; border:1px solid rgba(34,197,94,0.35); background:rgba(34,197,94,0.12); color:#bbf7d0; font-size:13.5px; font-weight:600; align-items:center; justify-content:space-between; gap:12px;"></div>
+
+      <!-- HAUPTMENÜ & NAVIGATION (GLOBAL AUF ALLEN SEITEN) -->
+      <div class="acp-vibe-section-box" id="acp-nav-global-editor-box">
+        <div class="acp-vibe-section-head">
+          <div>
+            <div class="acp-vibe-section-title">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#ffa858" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+              <span>Hauptmenü &amp; Navigation (Global auf allen Seiten)</span>
+            </div>
+            <div class="acp-vibe-section-sub">Benenne jeden Menüpunkt direkt um und wähle den einzeiligen Desktop-Stil. Beim Speichern werden automatisch alle Unterseiten (Vollversion &amp; Zeigeversion) synchronisiert.</div>
+          </div>
+          <div class="acp-hero-mode-switch" role="group" aria-label="Menü-Stil wählen">
+            <button type="button" class="acp-hero-mode-btn is-active" id="acp-nav-style-underline" data-nav-style="underline" onclick="acpSelectNavStyle('underline')">
+              <span>Einzeilig · Feine Unterstreichung (Empfohlen)</span>
+            </button>
+            <button type="button" class="acp-hero-mode-btn" id="acp-nav-style-pill" data-nav-style="pill" onclick="acpSelectNavStyle('pill')">
+              <span>Einzeilig · Dezenter Pill-Akzent</span>
+            </button>
+            <button type="button" class="acp-hero-mode-btn" id="acp-nav-style-minimal" data-nav-style="minimal" onclick="acpSelectNavStyle('minimal')">
+              <span>Einzeilig · Schlicht &amp; Minimal</span>
+            </button>
+          </div>
+        </div>
+
+        <div id="acp-nav-editor-list" class="acp-nav-editor-grid">
+          <!-- Wird beim Öffnen automatisch aus der Hauptnavigation der Seite befüllt -->
+        </div>
+
+        <div style="display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:10px; margin-top:14px; padding-top:12px; border-top:1px solid rgba(255,255,255,0.08);">
+          <div style="font-size:12px; color:#94a3b8;">Tipp: Kurze, prägnante Begriffe (z. B. <code>Startseite</code>, <code>Angebot</code>, <code>Workshops</code>, <code>Über mich</code>, <code>Kontakt</code>) garantieren eine edle, einzeilige Darstellung auf allen Bildschirmen.</div>
+          <button type="button" class="acp-btn-primary" id="acp-btn-save-nav-inline" onclick="acpSaveDesignVibe()" style="padding:8px 14px; font-size:12.5px;">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="20 6 9 17 4 12"/></svg>
+            <span>Menü &amp; Design dauerhaft speichern</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- BEREICH A: INTERAKTIVE FARBTABELLE (6 FARBEN IN ECHTZEIT) -->
+      <div class="acp-vibe-section-box">
+        <div class="acp-vibe-section-head">
+          <div>
+            <div class="acp-vibe-section-title">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#ffa858" stroke-width="2"><circle cx="13.5" cy="6.5" r=".5"/><circle cx="17.5" cy="10.5" r=".5"/><circle cx="8.5" cy="7.5" r=".5"/><circle cx="6.5" cy="12.5" r=".5"/><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2z"/></svg>
+              <span>Bereich A · Interaktive Farbtabelle (Hex-Code &amp; Farbwähler in Echtzeit)</span>
+            </div>
+            <div class="acp-vibe-section-sub">Wird automatisch aus der geladenen Vorschau ausgelesen. Jede Änderung aktualisiert sofort live den Simulator im Hintergrund.</div>
+          </div>
+          <div class="acp-hero-mode-switch">
+            <button type="button" class="acp-hero-mode-btn" id="acp-btn-hero-light" onclick="acpSwitchHeroBrightness('light')">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/></svg>
+              <span>Hell &amp; Freundlich</span>
+            </button>
+            <button type="button" class="acp-hero-mode-btn" id="acp-btn-hero-dark" onclick="acpSwitchHeroBrightness('dark')">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+              <span>Dunkel &amp; Kontrast</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="acp-color-table-grid">
+          <!-- 1. Primär- & Akzentfarbe -->
+          <div class="acp-color-row-card">
+            <div class="acp-color-row-top">
+              <div>
+                <div class="acp-color-row-label">1. Primär- &amp; Akzentfarbe (Buttons, Kicker, Links)</div>
+                <div class="acp-color-row-desc">Steuert Haupt-Buttons, Marken-Kicker, Badges und Akzente (<code>--primary</code> / <code>--gold</code>)</div>
+              </div>
+            </div>
+            <div class="acp-color-controls">
+              <input type="color" id="acp-col-picker-primary" class="acp-color-picker-input" value="#9b2c47" oninput="acpOnColorInput('primary', this.value)" aria-label="Primärfarbe wählen">
+              <input type="text" id="acp-col-hex-primary" class="acp-color-hex-input" value="#9b2c47" maxlength="7" oninput="acpOnHexInput('primary', this.value)" aria-label="Primärfarbe Hex-Code">
+            </div>
+          </div>
+
+          <!-- 2. Startbühne (Hero) Hintergrundfarbe -->
+          <div class="acp-color-row-card">
+            <div class="acp-color-row-top">
+              <div>
+                <div class="acp-color-row-label">2. Startbühne (Hero) Hintergrundfarbe</div>
+                <div class="acp-color-row-desc">Hintergrund von Abschnitt 02 (Startbühne) und Unterseiten-Headern (<code>.hero-section</code>)</div>
+              </div>
+            </div>
+            <div class="acp-color-controls">
+              <input type="color" id="acp-col-picker-heroBg" class="acp-color-picker-input" value="#fdf8f5" oninput="acpOnColorInput('heroBg', this.value)" aria-label="Startbühne Hintergrundfarbe wählen">
+              <input type="text" id="acp-col-hex-heroBg" class="acp-color-hex-input" value="#fdf8f5" maxlength="7" oninput="acpOnHexInput('heroBg', this.value)" aria-label="Startbühne Hintergrund Hex-Code">
+              <button type="button" class="acp-hero-mode-btn" onclick="acpSwitchHeroBrightness('light')" title="Startbühne hell &amp; freundlich mit dunkler Schrift">Hell</button>
+              <button type="button" class="acp-hero-mode-btn" onclick="acpSwitchHeroBrightness('dark')" title="Startbühne dunkel mit heller Schrift">Dunkel</button>
+            </div>
+          </div>
+
+          <!-- 3. Startbühne (Hero) Text- & Überschriftenfarbe -->
+          <div class="acp-color-row-card">
+            <div class="acp-color-row-top">
+              <div>
+                <div class="acp-color-row-label">3. Startbühne (Hero) Text- &amp; Überschriftenfarbe</div>
+                <div class="acp-color-row-desc">Hauptüberschrift und Einleitungstext auf der Startbühne (<code>.hero-title</code> / <code>.hero-lead</code>)</div>
+              </div>
+            </div>
+            <div class="acp-color-controls">
+              <input type="color" id="acp-col-picker-heroText" class="acp-color-picker-input" value="#2b161e" oninput="acpOnColorInput('heroText', this.value)" aria-label="Startbühne Textfarbe wählen">
+              <input type="text" id="acp-col-hex-heroText" class="acp-color-hex-input" value="#2b161e" maxlength="7" oninput="acpOnHexInput('heroText', this.value)" aria-label="Startbühne Textfarbe Hex-Code">
+            </div>
+          </div>
+
+          <!-- 4. Haupt-Seitenhintergrund (body) -->
+          <div class="acp-color-row-card">
+            <div class="acp-color-row-top">
+              <div>
+                <div class="acp-color-row-label">4. Haupt-Seitenhintergrund (<code>body</code>)</div>
+                <div class="acp-color-row-desc">Grundton der gesamten Webseite (z. B. Reinweiss <code>#ffffff</code> oder Creme <code>#fdf8f5</code>)</div>
+              </div>
+            </div>
+            <div class="acp-color-controls">
+              <input type="color" id="acp-col-picker-bodyBg" class="acp-color-picker-input" value="#fdf8f5" oninput="acpOnColorInput('bodyBg', this.value)" aria-label="Haupt-Seitenhintergrund wählen">
+              <input type="text" id="acp-col-hex-bodyBg" class="acp-color-hex-input" value="#fdf8f5" maxlength="7" oninput="acpOnHexInput('bodyBg', this.value)" aria-label="Haupt-Seitenhintergrund Hex-Code">
+            </div>
+          </div>
+
+          <!-- 5. Abwechselnde Sektions- & Karten-Flächen -->
+          <div class="acp-color-row-card">
+            <div class="acp-color-row-top">
+              <div>
+                <div class="acp-color-row-label">5. Abwechselnde Sektions- &amp; Karten-Flächen</div>
+                <div class="acp-color-row-desc">Karten-Hintergründe und abwechselnde Abschnitte (<code>--bg-alt</code> / <code>.content-card</code>)</div>
+              </div>
+            </div>
+            <div class="acp-color-controls">
+              <input type="color" id="acp-col-picker-cardBg" class="acp-color-picker-input" value="#ffffff" oninput="acpOnColorInput('cardBg', this.value)" aria-label="Karten-Flächenfarbe wählen">
+              <input type="text" id="acp-col-hex-cardBg" class="acp-color-hex-input" value="#ffffff" maxlength="7" oninput="acpOnHexInput('cardBg', this.value)" aria-label="Karten-Flächenfarbe Hex-Code">
+            </div>
+          </div>
+
+          <!-- 6. Fusszeile (Footer) Hintergrund & Text -->
+          <div class="acp-color-row-card">
+            <div class="acp-color-row-top">
+              <div>
+                <div class="acp-color-row-label">6. Fusszeile (Footer) Hintergrund &amp; Text</div>
+                <div class="acp-color-row-desc">Hintergrundfarbe und passende Textfarbe des Seiten-Abschlusses (<code>.site-footer</code>)</div>
+              </div>
+            </div>
+            <div class="acp-color-controls">
+              <input type="color" id="acp-col-picker-footerBg" class="acp-color-picker-input" value="#f3e2dd" oninput="acpOnColorInput('footerBg', this.value)" aria-label="Footer Hintergrundfarbe wählen">
+              <input type="text" id="acp-col-hex-footerBg" class="acp-color-hex-input" value="#f3e2dd" maxlength="7" oninput="acpOnHexInput('footerBg', this.value)" aria-label="Footer Hintergrund Hex-Code">
+              <input type="color" id="acp-col-picker-footerText" class="acp-color-picker-input" value="#2b161e" oninput="acpOnColorInput('footerText', this.value)" title="Footer Textfarbe" aria-label="Footer Textfarbe wählen">
+              <input type="text" id="acp-col-hex-footerText" class="acp-color-hex-input" value="#2b161e" maxlength="7" oninput="acpOnHexInput('footerText', this.value)" aria-label="Footer Textfarbe Hex-Code" style="width:98px;">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- BEREICH B: 6 KURATIERTE 1-KLICK FARB- & STIMMUNGS-VORLAGEN -->
+      <div class="acp-vibe-section-box">
+        <div class="acp-vibe-section-head">
+          <div>
+            <div class="acp-vibe-section-title">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#ffa858" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              <span>Bereich B · 1-Klick Farb- &amp; Stimmungs-Vorlagen (6 kuratierte Presets)</span>
+            </div>
+            <div class="acp-vibe-section-sub">Klicke auf eine Stil-Welt, um alle 6 Farben der Farbtabelle harmonisch und mit geprüfter Lesbarkeit einzustellen.</div>
+          </div>
+        </div>
+
+        <div class="acp-vibe-presets-grid" id="acp-vibe-presets-grid">
+          <button type="button" class="acp-vibe-preset-card" data-preset="rose_creme" onclick="acpApplyDesignPreset('rose_creme')">
+            <div>
+              <div style="font-size:13.5px; font-weight:700; color:#fff; margin-bottom:4px;">1. Warmes Rosé &amp; Creme (Praxis, Herzensarbeit &amp; Coaching — Hell)</div>
+              <div style="font-size:12px; color:#94a3b8; line-height:1.4;">Sanfter Creme-Rosé-Verlauf, Beerenrot-Akzente (#9b2c47) &amp; warme Lesbarkeit</div>
+            </div>
+            <div class="acp-vibe-preset-swatches">
+              <span class="acp-vibe-swatch" style="background:#9b2c47;"></span>
+              <span class="acp-vibe-swatch" style="background:#fdf8f5;"></span>
+              <span class="acp-vibe-swatch" style="background:#f7ebe8;"></span>
+              <span class="acp-vibe-swatch" style="background:#2b161e;"></span>
+            </div>
+          </button>
+
+          <button type="button" class="acp-vibe-preset-card" data-preset="swiss_arch" onclick="acpApplyDesignPreset('swiss_arch')">
+            <div>
+              <div style="font-size:13.5px; font-weight:700; color:#fff; margin-bottom:4px;">2. Schweizer Architektur-Hell (Reinweiss, Warmgrau &amp; Terracotta)</div>
+              <div style="font-size:12px; color:#94a3b8; line-height:1.4;">Klare Schweizer Sachlichkeit mit hellem Hero, Warmgrau &amp; Terracotta-Akzent (#c2410c)</div>
+            </div>
+            <div class="acp-vibe-preset-swatches">
+              <span class="acp-vibe-swatch" style="background:#c2410c;"></span>
+              <span class="acp-vibe-swatch" style="background:#ffffff;"></span>
+              <span class="acp-vibe-swatch" style="background:#f5f5f4;"></span>
+              <span class="acp-vibe-swatch" style="background:#1c1917;"></span>
+            </div>
+          </button>
+
+          <button type="button" class="acp-vibe-preset-card" data-preset="natur_holz" onclick="acpApplyDesignPreset('natur_holz')">
+            <div>
+              <div style="font-size:13.5px; font-weight:700; color:#fff; margin-bottom:4px;">3. Natur, Holz &amp; Handwerk (Elfenbein, Eiche-Gold &amp; Anthrazit)</div>
+              <div style="font-size:12px; color:#94a3b8; line-height:1.4;">Bodenständige Handwerks-Wärme mit hellem Elfenbein, Eiche-Gold (#b45309) &amp; Schiefer</div>
+            </div>
+            <div class="acp-vibe-preset-swatches">
+              <span class="acp-vibe-swatch" style="background:#b45309;"></span>
+              <span class="acp-vibe-swatch" style="background:#fdfaf6;"></span>
+              <span class="acp-vibe-swatch" style="background:#f4efe6;"></span>
+              <span class="acp-vibe-swatch" style="background:#1e293b;"></span>
+            </div>
+          </button>
+
+          <button type="button" class="acp-vibe-preset-card" data-preset="klar_vertrauen" onclick="acpApplyDesignPreset('klar_vertrauen')">
+            <div>
+              <div style="font-size:13.5px; font-weight:700; color:#fff; margin-bottom:4px;">4. Klar &amp; Vertrauensvoll (Helles Eisblau, Weiss &amp; Marineblau)</div>
+              <div style="font-size:12px; color:#94a3b8; line-height:1.4;">Souveräne Beratungs- &amp; Dienstleistungs-Optik mit hellem Eisblau &amp; Marine (#1e3a8a)</div>
+            </div>
+            <div class="acp-vibe-preset-swatches">
+              <span class="acp-vibe-swatch" style="background:#1e3a8a;"></span>
+              <span class="acp-vibe-swatch" style="background:#f8fafc;"></span>
+              <span class="acp-vibe-swatch" style="background:#eff6ff;"></span>
+              <span class="acp-vibe-swatch" style="background:#0f172a;"></span>
+            </div>
+          </button>
+
+          <button type="button" class="acp-vibe-preset-card" data-preset="sport_verein" onclick="acpApplyDesignPreset('sport_verein')">
+            <div>
+              <div style="font-size:13.5px; font-weight:700; color:#fff; margin-bottom:4px;">5. Sport &amp; Vereins-Frische (Klares Weiss, Vereins-Rot &amp; Tiefblau)</div>
+              <div style="font-size:12px; color:#94a3b8; line-height:1.4;">Dynamischer, heller Auftritt mit kräftigem Rot (#d6201e) und klarem Kontrast</div>
+            </div>
+            <div class="acp-vibe-preset-swatches">
+              <span class="acp-vibe-swatch" style="background:#d6201e;"></span>
+              <span class="acp-vibe-swatch" style="background:#ffffff;"></span>
+              <span class="acp-vibe-swatch" style="background:#f8fafc;"></span>
+              <span class="acp-vibe-swatch" style="background:#111827;"></span>
+            </div>
+          </button>
+
+          <button type="button" class="acp-vibe-preset-card" data-preset="abend_kontrast" onclick="acpApplyDesignPreset('abend_kontrast')">
+            <div>
+              <div style="font-size:13.5px; font-weight:700; color:#fff; margin-bottom:4px;">6. Edler Abend-Kontrast (Dunkle Startbühne &amp; Warme Gold-Akzente)</div>
+              <div style="font-size:12px; color:#94a3b8; line-height:1.4;">Markante dunkle Startbühne (#18232c) mit warmen Gold-Akzenten (#d97706)</div>
+            </div>
+            <div class="acp-vibe-preset-swatches">
+              <span class="acp-vibe-swatch" style="background:#d97706;"></span>
+              <span class="acp-vibe-swatch" style="background:#18232c;"></span>
+              <span class="acp-vibe-swatch" style="background:#ffffff;"></span>
+              <span class="acp-vibe-swatch" style="background:#0f172a;"></span>
+            </div>
+          </button>
+        </div>
+      </div>
+
+      <!-- BEREICH C: VIBE-CODING TO CSS (FREITEXT & SPRACH-DIKTAT -> KI CSS) -->
+      <div class="acp-vibe-section-box" style="margin-bottom:0;">
+        <div class="acp-vibe-section-head">
+          <div>
+            <div class="acp-vibe-section-title">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#ffa858" stroke-width="2"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg>
+              <span>Bereich C · «Vibe-Coding to CSS» (Freitext &amp; Sprach-Diktat in CSS übersetzen)</span>
+            </div>
+            <div class="acp-vibe-section-sub">Beschreibe deinen Design-Wunsch einfach in eigenen Worten oder klicke auf einen Schnell-Befehl. Unsere KI übersetzt ihn sofort in valides CSS für deine Seite.</div>
+          </div>
+          <button type="button" class="acp-vibe-dictate-btn" id="acp-btn-vibe-dictate" onclick="acpToggleVibeDictation()">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg>
+            <span id="acp-btn-vibe-dictate-lbl">Wunsch per Mikrofon einsprechen</span>
+          </button>
+        </div>
+
+        <div style="font-size:12px; font-weight:700; color:#cbd5e1; text-transform:uppercase; letter-spacing:0.04em; margin-bottom:8px;">Schnell-Befehle (1 Klick zum Einfügen):</div>
+        <div class="acp-vibe-chips-wrap">
+          <button type="button" class="acp-vibe-chip" onclick="acpInsertVibeChip('Startbühne (Hero) hell, warm und freundlich statt dunkel gestalten')">
+            <span>«Startbühne (Hero) hell, warm und freundlich statt dunkel gestalten»</span>
+          </button>
+          <button type="button" class="acp-vibe-chip" onclick="acpInsertVibeChip('Rechte Karte und linke Kacheln auf der Startbühne unten exakt bündig auf gleiche Höhe ziehen')">
+            <span>«Rechte Karte und linke Kacheln auf der Startbühne unten exakt bündig auf gleiche Höhe ziehen»</span>
+          </button>
+          <button type="button" class="acp-vibe-chip" onclick="acpInsertVibeChip('Alle Buttons und Akzente in einem warmen Beerenrot (#9b2c47) färben')">
+            <span>«Alle Buttons und Akzente in einem warmen Beerenrot (#9b2c47) färben»</span>
+          </button>
+          <button type="button" class="acp-vibe-chip" onclick="acpInsertVibeChip('Schriften etwas grösser, luftiger und weicher abrunden')">
+            <span>«Schriften etwas grösser, luftiger und weicher abrunden»</span>
+          </button>
+          <button type="button" class="acp-vibe-chip" onclick="acpInsertVibeChip('Hintergrund der gesamten Seite in sanftem Elfenbein (#fdf9f5) halten')">
+            <span>«Hintergrund der gesamten Seite in sanftem Elfenbein (#fdf9f5) halten»</span>
+          </button>
+          <button type="button" class="acp-vibe-chip" onclick="acpInsertVibeChip('Mehr Weissraum zwischen den einzelnen Abschnitten schaffen')">
+            <span>«Mehr Weissraum zwischen den einzelnen Abschnitten schaffen»</span>
+          </button>
+        </div>
+
+        <div style="margin-bottom:14px;">
+          <label for="acp-vibe-prompt-input" style="display:block; font-size:12.5px; font-weight:700; color:#e2e8f0; margin-bottom:6px;">Dein natürlichsprachlicher Design-Wunsch:</label>
+          <textarea id="acp-vibe-prompt-input" rows="3" style="width:100%; background:#07090e; border:1px solid rgba(255,255,255,0.16); border-radius:8px; color:#f8fafc; font-family:'Inter',sans-serif; font-size:14px; padding:12px 14px; line-height:1.5; resize:vertical;" placeholder="z. B. Startbühne hell, warm und freundlich gestalten, alle Buttons in warmem Beerenrot (#9b2c47) und etwas mehr Luft zwischen den Abschnitten..."></textarea>
+        </div>
+
+        <div style="display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:12px; margin-bottom:14px;">
+          <button type="button" class="acp-btn-primary" id="acp-btn-test-vibe-css" onclick="acpRunVibeCssTest()" style="padding:11px 18px; font-size:14px;">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+            <span id="acp-btn-test-vibe-css-lbl">KI-Design-Wunsch jetzt live testen</span>
+          </button>
+
+          <div style="display:flex; align-items:center; gap:10px; flex-wrap:wrap;">
+            <button type="button" class="acp-btn-secondary" onclick="acpResetDesignVibe()">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"/></svg>
+              <span>Änderungen zurücksetzen</span>
+            </button>
+            <button type="button" class="acp-btn-primary" id="acp-btn-save-design-bottom" onclick="acpSaveDesignVibe()" style="background:#10b981; border-color:#10b981; color:#ffffff;">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="20 6 9 17 4 12"/></svg>
+              <span id="acp-btn-save-design-bottom-lbl">Design &amp; Farben dauerhaft speichern</span>
+            </button>
+          </div>
+        </div>
+
+        <details id="acp-vibe-css-details" style="background:#07090e; border:1px solid rgba(255,255,255,0.12); border-radius:8px; padding:12px 14px;">
+          <summary style="cursor:pointer; font-size:13px; font-weight:700; color:#cbd5e1; user-select:none;">Generiertes CSS einsehen / manuell feinjustieren</summary>
+          <div style="margin-top:10px;">
+            <textarea id="acp-vibe-css-editor" rows="8" oninput="acpOnManualCssEdit(this.value)" style="width:100%; background:#040609; border:1px solid rgba(255,255,255,0.14); border-radius:8px; color:#a7f3d0; font-family:'JetBrains Mono',monospace; font-size:12px; padding:12px; line-height:1.5; resize:vertical;" placeholder="/* Hier erscheint das live generierte CSS aus der Farbtabelle und dem KI Vibe-Coding... */"></textarea>
+          </div>
+        </details>
+      </div>
+    </div>
+  </div>
+</div>
+
 <div id="acp-toast"></div>
 
 <!-- ======================================================= -->
@@ -4866,7 +5527,7 @@ function acpFetchServerLog() {
 // Build: 2026-10-03 15:30 CEST
 // =======================================================
 var ACP_COCKPIT_VERSION = "v4.0.0";
-var ACP_COCKPIT_BUILD = "2026-10-30 19:55";
+var ACP_COCKPIT_BUILD = "2026-11-05 20:31";
 
 function sanitizeStellen(list) {
   if (!Array.isArray(list)) return [];
@@ -5005,6 +5666,8 @@ document.addEventListener("keydown", function(e) {
     if (hm && hm.classList.contains("is-open")) acpToggleHelpModal();
     var lm = document.getElementById("acp-log-modal");
     if (lm && lm.classList.contains("is-open")) acpToggleLogModal();
+    var dvm = document.getElementById("designVibeModal");
+    if (dvm && dvm.classList.contains("is-open")) acpCloseDesignVibeModal();
   }
 });
 
@@ -7435,7 +8098,7 @@ function acpNormalizeAndValidateSection(rawInput, secId) {
   }
 
   // Whitelist für legitime WebPilot-System-Handler (Navigation, Formulare, Stellen-Auswahl)
-  var allowedHandlers = /^(?:toggleDrawer\(\)|toggleMobileMenu\(\)|closeMobileMenu\(\)|document\.getElementById\(\x27mobileDrawer\x27\)\.classList\.(?:toggle|remove)\(\x27open\x27\)|filterSparten\([\s\S]*\)|selectQuizOpt\([\s\S]*\)|selectQuizOption\([\s\S]*\)|selectJobForApply\([\s\S]*\)|setJobChoice\([\s\S]*\)|toggleJobs\(\)|handleApplySubmit\(event\)|handleJobSubmit\(event\)|handleContactSubmit\(event\)|handleExpressApply\(event\)|sendeBewerbung\(event\)|submitCotraApplication\([\s\S]*\)|playInterviewVideo\(this\)|openLightbox\([\s\S]*\)|closeLightbox\(\)|toggleLightboxZoom\(event\)|event\.preventDefault\(\).*?|history\.back\(\))$/i;
+  var allowedHandlers = /^(?:toggleDrawer\(\)|toggleMobileMenu\(\)|closeMobileMenu\(\)|document\.getElementById\(\x27mobileDrawer\x27\)\.classList\.(?:toggle|remove)\(\x27open\x27\)|filterSparten\([\s\S]*\)|selectQuizOpt\([\s\S]*\)|selectQuizOption\([\s\S]*\)|selectJobForApply\([\s\S]*\)|setJobChoice\([\s\S]*\)|toggleJobs\(\)|handleApplySubmit\(event\)|handleJobSubmit\(event\)|handleContactSubmit\(event\)|handleHer11Submit\(event\)|handleHer11ContactSubmit\(event\)|selectContactTopic\([\s\S]*\)|syncTopicChips\([\s\S]*\)|selectRolePill\([\s\S]*\)|wp[a-zA-Z0-9_]+\([\s\S]*\)|return\s+wp[a-zA-Z0-9_]+\([\s\S]*\)|handleExpressApply\(event\)|sendeBewerbung\(event\)|submitCotraApplication\([\s\S]*\)|playInterviewVideo\(this\)|openLightbox\([\s\S]*\)|closeLightbox\(\)|toggleLightboxZoom\(event\)|event\.preventDefault\(\).*?|history\.back\(\))$/i;
   var evRegex = /\s(on[a-zA-Z]+)\s*=\s*(?:"([^"]*)"|'([^']*)'|([^\s>]+))/gi;
   var evMatch;
   while ((evMatch = evRegex.exec(clean)) !== null) {
@@ -7849,7 +8512,7 @@ function acpApplyInlineEditToIframe(doc) {
     var el = nodes[i];
     var tag = (el.tagName || "").toLowerCase();
     if (skipTags[tag]) continue;
-    if (el.closest("#acp-active-image-toolbar, #acp-active-image-handle")) continue;
+    if (el.closest("#acp-active-image-toolbar, #acp-active-image-handle, [data-studio-ignore=\"true\"]")) continue;
     if (el.classList.contains("btn-swap-exec")) continue;
     if (!el.textContent || !el.textContent.trim()) continue;
     if (el.querySelector("div, p, ul, ol, li, h1, h2, h3, h4, h5, h6, section, article, header, footer, nav, table, form, button, figure, blockquote")) {
@@ -8140,7 +8803,8 @@ function acpApplyInlineEditToIframe(doc) {
       if (!acpInlineEditActive) return;
       var sec = e.target.closest("[data-section]") || e.target.closest("section") || e.target.closest("header") || e.target.closest("footer");
       if (sec) {
-        var secId = sec.getAttribute("data-section") || sec.id || "section";
+        var secTag = (sec.tagName || "").toLowerCase();
+        var secId = sec.getAttribute("data-section") || sec.id || (secTag === "header" ? "header" : (secTag === "footer" ? "footer" : "section"));
         acpDirtySections.add(secId);
         sec.classList.add("acp-inline-dirty-section");
         acpUpdateInlineEditStatus();
@@ -8264,7 +8928,7 @@ function acpSaveInlineEdits() {
 
   var sectionsToSave = Array.from(acpDirtySections);
   var savePromises = sectionsToSave.map(function(secId) {
-    var secEl = doc.querySelector('[data-section="' + secId + '"]') || doc.getElementById(secId);
+    var secEl = doc.querySelector('[data-section="' + secId + '"]') || doc.getElementById(secId) || (secId === "header" ? (doc.querySelector("header.site-header") || doc.querySelector("header")) : null) || (secId === "footer" ? (doc.querySelector("footer.site-footer") || doc.querySelector("footer")) : null);
     if (!secEl) {
       console.warn("[WebPilot Studio] Sektion nicht im DOM gefunden:", secId);
       return Promise.resolve({ ok: false, error: "Sektion nicht gefunden" });
@@ -8466,6 +9130,691 @@ function acpRemoveSection(secId) {
       }
     });
   }
+
+
+/* ============================================================================
+ * WEBPILOT STUDIO v4.0 — FARBTABELLE, STIL-WELTEN & KI VIBE-CODING TO CSS
+ * ============================================================================ */
+var acpCurrentDesignState = {
+  preset: "",
+  heroGradient: "",
+  vibeCssBlock: "",
+  navStyle: "underline",
+  navItems: [],
+  colors: {
+    primary: "#9b2c47",
+    heroBg: "#fdf8f5",
+    heroText: "#2b161e",
+    bodyBg: "#fdf8f5",
+    cardBg: "#ffffff",
+    footerBg: "#f3e2dd",
+    footerText: "#2b161e"
+  }
+};
+
+var ACP_DESIGN_PRESETS = {
+  rose_creme: {
+    label: "1. Warmes Rosé & Creme (Praxis, Herzensarbeit & Coaching — Hell)",
+    heroGradient: "linear-gradient(135deg, #fdf8f5 0%, #f7ebe8 55%, #f3e2dd 100%)",
+    colors: {
+      primary: "#9b2c47",
+      heroBg: "#fdf8f5",
+      heroText: "#2b161e",
+      bodyBg: "#fdf8f5",
+      cardBg: "#ffffff",
+      footerBg: "#f3e2dd",
+      footerText: "#2b161e"
+    }
+  },
+  swiss_arch: {
+    label: "2. Schweizer Architektur-Hell (Reinweiss, Warmgrau & Terracotta)",
+    heroGradient: "linear-gradient(135deg, #ffffff 0%, #f5f5f4 55%, #e7e5e4 100%)",
+    colors: {
+      primary: "#c2410c",
+      heroBg: "#f5f5f4",
+      heroText: "#1c1917",
+      bodyBg: "#ffffff",
+      cardBg: "#fafaf9",
+      footerBg: "#1c1917",
+      footerText: "#f5f5f4"
+    }
+  },
+  natur_holz: {
+    label: "3. Natur, Holz & Handwerk (Elfenbein, Eiche-Gold & Anthrazit)",
+    heroGradient: "linear-gradient(135deg, #fdfaf6 0%, #f4efe6 55%, #ebe3d5 100%)",
+    colors: {
+      primary: "#b45309",
+      heroBg: "#fdfaf6",
+      heroText: "#1e293b",
+      bodyBg: "#fdfaf6",
+      cardBg: "#ffffff",
+      footerBg: "#1e293b",
+      footerText: "#f8fafc"
+    }
+  },
+  klar_vertrauen: {
+    label: "4. Klar & Vertrauensvoll (Helles Eisblau, Weiss & Marineblau)",
+    heroGradient: "linear-gradient(135deg, #ffffff 0%, #f0f7ff 55%, #e0effe 100%)",
+    colors: {
+      primary: "#1e3a8a",
+      heroBg: "#f0f7ff",
+      heroText: "#0f172a",
+      bodyBg: "#f8fafc",
+      cardBg: "#ffffff",
+      footerBg: "#0f172a",
+      footerText: "#f1f5f9"
+    }
+  },
+  sport_verein: {
+    label: "5. Sport & Vereins-Frische (Klares Weiss, Vereins-Rot & Tiefblau)",
+    heroGradient: "linear-gradient(135deg, #ffffff 0%, #f8fafc 55%, #f1f5f9 100%)",
+    colors: {
+      primary: "#d6201e",
+      heroBg: "#f8fafc",
+      heroText: "#111827",
+      bodyBg: "#ffffff",
+      cardBg: "#f8fafc",
+      footerBg: "#111827",
+      footerText: "#f9fafb"
+    }
+  },
+  abend_kontrast: {
+    label: "6. Edler Abend-Kontrast (Dunkle Startbühne & Warme Gold-Akzente)",
+    heroGradient: "linear-gradient(135deg, #18232c 0%, #0f172a 100%)",
+    colors: {
+      primary: "#d97706",
+      heroBg: "#18232c",
+      heroText: "#ffffff",
+      bodyBg: "#f8fafc",
+      cardBg: "#ffffff",
+      footerBg: "#0f172a",
+      footerText: "#f1f5f9"
+    }
+  }
+};
+
+function acpRgbToHex(rgbStr) {
+  if (!rgbStr || typeof rgbStr !== "string") return "";
+  var s = rgbStr.trim();
+  if (/^#[0-9a-fA-F]{6}$/.test(s)) return s.toLowerCase();
+  if (/^#[0-9a-fA-F]{3}$/.test(s)) {
+    return ("#" + s[1] + s[1] + s[2] + s[2] + s[3] + s[3]).toLowerCase();
+  }
+  var m = s.match(/rgba?\((\d+),\s*(\d+),\s*(\d+)/i);
+  if (!m) return "";
+  var r = Math.max(0, Math.min(255, parseInt(m[1], 10)));
+  var g = Math.max(0, Math.min(255, parseInt(m[2], 10)));
+  var b = Math.max(0, Math.min(255, parseInt(m[3], 10)));
+  return "#" + ((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1).toLowerCase();
+}
+
+function acpShowVibeBanner(msg, isError) {
+  var banner = document.getElementById("acp-vibe-status-banner");
+  if (!banner) return;
+  banner.style.display = "flex";
+  banner.style.borderColor = isError ? "rgba(239,68,68,0.45)" : "rgba(16,185,129,0.45)";
+  banner.style.background = isError ? "rgba(239,68,68,0.14)" : "rgba(16,185,129,0.14)";
+  banner.style.color = isError ? "#fecaca" : "#bbf7d0";
+  banner.innerHTML = '<span>' + msg + '</span>';
+}
+
+function acpSyncColorInputsFromState() {
+  var keys = ["primary", "heroBg", "heroText", "bodyBg", "cardBg", "footerBg", "footerText"];
+  for (var i = 0; i < keys.length; i++) {
+    var k = keys[i];
+    var val = acpCurrentDesignState.colors[k] || "#ffffff";
+    var picker = document.getElementById("acp-col-picker-" + k);
+    var hexInp = document.getElementById("acp-col-hex-" + k);
+    if (picker && /^#[0-9a-fA-F]{6}$/.test(val)) picker.value = val;
+    if (hexInp) hexInp.value = val;
+  }
+}
+
+function acpReadCurrentColorsFromIframe() {
+  var iframe = document.getElementById("acp-widget-viewport");
+  var doc = iframe ? (iframe.contentDocument || (iframe.contentWindow && iframe.contentWindow.document)) : null;
+  var win = iframe ? iframe.contentWindow : null;
+  if (!doc || !win) return;
+
+  try {
+    var rootStyle = win.getComputedStyle(doc.documentElement);
+    var bodyEl = doc.body;
+    var heroEl = doc.querySelector(".hero-section, .hero, .page-hero, [data-section='hero']");
+    var heroTitleEl = doc.querySelector(".hero-title, .hero-section h1, .page-hero h1");
+    var btnEl = doc.querySelector(".btn-cta-gold, .btn-cta-primary, .btn-primary");
+    var cardEl = doc.querySelector(".content-card, .pillar-card, .card");
+    var footerEl = doc.querySelector(".site-footer, footer");
+    var footerTitleEl = doc.querySelector(".site-footer .footer-title, .site-footer a, footer");
+
+    var pVar = acpRgbToHex(rootStyle.getPropertyValue("--gold-dark") || rootStyle.getPropertyValue("--crimson") || rootStyle.getPropertyValue("--primary"));
+    if (!pVar && btnEl) pVar = acpRgbToHex(win.getComputedStyle(btnEl).backgroundColor);
+    if (pVar) acpCurrentDesignState.colors.primary = pVar;
+
+    if (heroEl) {
+      var hBg = acpRgbToHex(win.getComputedStyle(heroEl).backgroundColor);
+      if (hBg && hBg !== "#000000") acpCurrentDesignState.colors.heroBg = hBg;
+    }
+    if (heroTitleEl) {
+      var hTxt = acpRgbToHex(win.getComputedStyle(heroTitleEl).color);
+      if (hTxt) acpCurrentDesignState.colors.heroText = hTxt;
+    }
+    if (bodyEl) {
+      var bBg = acpRgbToHex(win.getComputedStyle(bodyEl).backgroundColor);
+      if (bBg) acpCurrentDesignState.colors.bodyBg = bBg;
+    }
+    if (cardEl) {
+      var cBg = acpRgbToHex(win.getComputedStyle(cardEl).backgroundColor);
+      if (cBg) acpCurrentDesignState.colors.cardBg = cBg;
+    }
+    if (footerEl) {
+      var fBg = acpRgbToHex(win.getComputedStyle(footerEl).backgroundColor);
+      if (fBg) acpCurrentDesignState.colors.footerBg = fBg;
+    }
+    if (footerTitleEl) {
+      var fTxt = acpRgbToHex(win.getComputedStyle(footerTitleEl).color);
+      if (fTxt) acpCurrentDesignState.colors.footerText = fTxt;
+    }
+
+    var existingStyle = doc.getElementById("wp-custom-design-vibe");
+    var cssEditor = document.getElementById("acp-vibe-css-editor");
+    if (existingStyle && cssEditor && !cssEditor.value.trim()) {
+      cssEditor.value = existingStyle.textContent.trim();
+    }
+  } catch (e) {
+    console.warn("[WebPilot Studio] Konnte Farben nicht aus Iframe lesen:", e);
+  }
+  acpSyncColorInputsFromState();
+}
+
+function acpGetIframePrimaryNavElements(doc) {
+  if (!doc) return [];
+  var navContainer = doc.querySelector("header .main-nav, header .nav-links, .site-header nav, header nav, .top-bar nav");
+  if (!navContainer) return [];
+  var items = Array.prototype.slice.call(navContainer.querySelectorAll("a, button"));
+  return items.filter(function(el) {
+    if (el.classList && (el.classList.contains("mobile-toggle") || el.classList.contains("mobile-menu-btn") || el.classList.contains("btn-cta") || el.classList.contains("btn-header-cta"))) return false;
+    return true;
+  });
+}
+
+function acpReadCurrentNavFromIframe() {
+  var doc = null;
+  try {
+    var iframe = document.getElementById("acp-widget-viewport");
+    doc = iframe ? (iframe.contentDocument || (iframe.contentWindow && iframe.contentWindow.document)) : null;
+  } catch (e) {
+    doc = null;
+  }
+  if (!doc) {
+    acpRenderNavEditorList();
+    return;
+  }
+  var els = acpGetIframePrimaryNavElements(doc);
+  var items = [];
+  for (var i = 0; i < els.length; i++) {
+    var el = els[i];
+    var spans = el.querySelectorAll("span");
+    var labelEl = spans.length > 0 ? spans[spans.length - 1] : el;
+    var label = (labelEl.textContent || "").replace(/\s+/g, " ").trim();
+    var href = el.getAttribute("data-nav-href") || el.getAttribute("href") || ("punkt-" + (i + 1));
+    items.push({
+      index: i,
+      href: href,
+      label: label
+    });
+  }
+  acpCurrentDesignState.navItems = items;
+  acpRenderNavEditorList();
+}
+
+function acpRenderNavEditorList() {
+  var listEl = document.getElementById("acp-nav-editor-list");
+  if (!listEl) return;
+  var items = acpCurrentDesignState.navItems || [];
+  if (items.length === 0) {
+    listEl.innerHTML = '<div style="grid-column:1/-1;font-size:13px;color:#94a3b8;padding:8px 0;">Keine Hauptmenü-Punkte im aktuellen Dokument erkannt.</div>';
+    return;
+  }
+  var html = [];
+  for (var i = 0; i < items.length; i++) {
+    var it = items[i];
+    var numStr = (i + 1) < 10 ? ("0" + (i + 1)) : ("" + (i + 1));
+    var safeVal = (it.label || "").replace(/"/g, "&quot;");
+    var safeHref = (it.href || "").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+    html.push(
+      '<div class="acp-nav-item-card">' +
+        '<div class="acp-nav-item-head">' +
+          '<span class="acp-nav-item-num">Menü ' + numStr + '</span>' +
+          '<span class="acp-nav-item-href" title="' + safeHref + '">' + safeHref + '</span>' +
+        '</div>' +
+        '<input type="text" class="acp-nav-item-input" data-nav-index="' + i + '" value="' + safeVal + '" oninput="acpOnNavItemInput(' + i + ', this.value)" aria-label="Menüpunkt ' + numStr + ' umbenennen">' +
+      '</div>'
+    );
+  }
+  listEl.innerHTML = html.join("");
+}
+
+function acpOnNavItemInput(idx, newVal) {
+  var clean = (newVal || "").replace(/\u00df/g, "ss");
+  if (acpCurrentDesignState.navItems && acpCurrentDesignState.navItems[idx]) {
+    acpCurrentDesignState.navItems[idx].label = clean.trim();
+  }
+  var doc = null;
+  try {
+    var iframe = document.getElementById("acp-widget-viewport");
+    doc = iframe ? (iframe.contentDocument || (iframe.contentWindow && iframe.contentWindow.document)) : null;
+  } catch (e) {
+    doc = null;
+  }
+  if (!doc) return;
+  var els = acpGetIframePrimaryNavElements(doc);
+  if (els[idx]) {
+    var spans = els[idx].querySelectorAll("span");
+    var targetNode = spans.length > 0 ? spans[spans.length - 1] : els[idx];
+    targetNode.textContent = clean;
+  }
+}
+
+function acpBuildNavStyleCss(styleKey, primaryColor) {
+  var pCol = primaryColor || "#9b2c47";
+  var base = [
+    "/* === HAUPTMENUE & NAVIGATION (GLOBAL EINZEILIG AUF DESKTOP) === */",
+    "@media (min-width: 1024px) {",
+    "  header .main-nav, header .nav-links, .site-header nav {",
+    "    display: flex !important;",
+    "    flex-wrap: nowrap !important;",
+    "    white-space: nowrap !important;",
+    "    align-items: center !important;"
+  ];
+  if (styleKey === "pill") {
+    base.push("    gap: 10px !important;");
+    base.push("  }");
+    base.push("  header .nav-link, header .nav-links a {");
+    base.push("    white-space: nowrap !important;");
+    base.push("    padding: 6px 12px !important;");
+    base.push("    border: 1px solid transparent !important;");
+    base.push("    border-radius: 4px !important;");
+    base.push("    background: transparent !important;");
+    base.push("  }");
+    base.push("  header .nav-link:hover, header .nav-link.active, header .nav-links a:hover, header .nav-links a.active {");
+    base.push("    color: " + pCol + " !important;");
+    base.push("    background-color: rgba(155, 44, 71, 0.08) !important;");
+    base.push("    border-color: " + pCol + " !important;");
+    base.push("  }");
+  } else if (styleKey === "minimal") {
+    base.push("    gap: 26px !important;");
+    base.push("  }");
+    base.push("  header .nav-link, header .nav-links a {");
+    base.push("    white-space: nowrap !important;");
+    base.push("    padding: 6px 0 !important;");
+    base.push("    border: none !important;");
+    base.push("    border-radius: 0 !important;");
+    base.push("    background: transparent !important;");
+    base.push("  }");
+    base.push("  header .nav-link:hover, header .nav-link.active, header .nav-links a:hover, header .nav-links a.active {");
+    base.push("    color: " + pCol + " !important;");
+    base.push("    background: transparent !important;");
+    base.push("  }");
+  } else {
+    base.push("    gap: 24px !important;");
+    base.push("  }");
+    base.push("  header .nav-link, header .nav-links a {");
+    base.push("    white-space: nowrap !important;");
+    base.push("    padding: 6px 2px !important;");
+    base.push("    border: none !important;");
+    base.push("    border-bottom: 2px solid transparent !important;");
+    base.push("    border-radius: 0 !important;");
+    base.push("    background: transparent !important;");
+    base.push("  }");
+    base.push("  header .nav-link:hover, header .nav-link.active, header .nav-links a:hover, header .nav-links a.active {");
+    base.push("    color: " + pCol + " !important;");
+    base.push("    background: transparent !important;");
+    base.push("    border-bottom-color: " + pCol + " !important;");
+    base.push("  }");
+  }
+  base.push("}");
+  return base.join("\n");
+}
+
+function acpSelectNavStyle(styleKey) {
+  acpCurrentDesignState.navStyle = styleKey || "underline";
+  var btns = document.querySelectorAll("[data-nav-style]");
+  for (var i = 0; i < btns.length; i++) {
+    btns[i].classList.toggle("is-active", btns[i].getAttribute("data-nav-style") === acpCurrentDesignState.navStyle);
+  }
+  var css = acpBuildClientSideColorCss();
+  acpInjectLiveDesignCss(css);
+  var styleNames = {
+    underline: "Einzeilig · Feine Unterstreichung",
+    pill: "Einzeilig · Dezenter Pill-Akzent",
+    minimal: "Einzeilig · Schlicht & Minimal"
+  };
+  acpShowVibeBanner("Menü-Stil «" + (styleNames[acpCurrentDesignState.navStyle] || styleKey) + "» live im Simulator aktiviert!", false);
+}
+
+function acpOpenDesignVibeModal() {
+  var modal = document.getElementById("designVibeModal");
+  if (!modal) return;
+  acpReadCurrentColorsFromIframe();
+  acpReadCurrentNavFromIframe();
+  modal.classList.add("is-open");
+  modal.style.display = "flex";
+  acpUpdateBodyModalClass();
+}
+
+function acpCloseDesignVibeModal() {
+  var modal = document.getElementById("designVibeModal");
+  if (!modal) return;
+  modal.classList.remove("is-open");
+  modal.style.display = "none";
+  acpUpdateBodyModalClass();
+}
+
+function acpBuildClientSideColorCss() {
+  var c = acpCurrentDesignState.colors;
+  var heroBgRule = acpCurrentDesignState.heroGradient
+    ? "background: " + acpCurrentDesignState.heroGradient + " !important; background-color: " + c.heroBg + " !important;"
+    : "background: " + c.heroBg + " !important; background-color: " + c.heroBg + " !important;";
+
+  var lines = [
+    "/* === 1. FARBTABELLE (HEX & COLOR-PICKER) === */",
+    ":root {",
+    "  --primary: " + c.primary + " !important;",
+    "  --accent: " + c.primary + " !important;",
+    "  --brand: " + c.primary + " !important;",
+    "  --gold: " + c.primary + " !important;",
+    "  --gold-dark: " + c.primary + " !important;",
+    "  --crimson: " + c.primary + " !important;",
+    "  --crimson-bright: " + c.primary + " !important;",
+    "  --bg-page: " + c.bodyBg + " !important;",
+    "  --bg-Warm: " + c.cardBg + " !important;",
+    "  --bg-alt: " + c.cardBg + " !important;",
+    "}",
+    "body { background-color: " + c.bodyBg + " !important; }",
+    ".btn-cta-gold, .btn-cta-primary, .btn-primary { background-color: " + c.primary + " !important; border-color: " + c.primary + " !important; color: #ffffff !important; }",
+    ".section-kicker, .section-eyebrow, .hero-eyebrow, .kicker, .hero-title span, .hero-badge-val { color: " + c.primary + " !important; }",
+    ".section-kicker::before { background-color: " + c.primary + " !important; }",
+    ".hero-badge-card, .contact-direct-item { border-left-color: " + c.primary + " !important; }",
+    ".hero-section, .hero, .page-hero, [data-section='hero'] { " + heroBgRule + " color: " + c.heroText + " !important; }",
+    ".hero-section h1, .hero-section .hero-title, .hero-section .hero-lead, .page-hero h1, .page-hero p, .hero-trust-item, .hero-badge-lbl { color: " + c.heroText + " !important; }",
+    ".hero-media-caption, .hero-quickbar { background-color: " + c.heroBg + " !important; color: " + c.heroText + " !important; }",
+    ".hero-media-caption * { color: " + c.heroText + " !important; }",
+    ".content-card, .pillar-card, .testimonial-card, .card { background-color: " + c.cardBg + " !important; }",
+    ".site-footer, footer { background-color: " + c.footerBg + " !important; color: " + c.footerText + " !important; }",
+    ".site-footer .footer-title, .site-footer a, .site-footer p, .site-footer .footer-bottom, .site-footer div { color: " + c.footerText + " !important; }"
+  ];
+  lines.push("");
+  lines.push(acpBuildNavStyleCss(acpCurrentDesignState.navStyle || "underline", c.primary));
+  if (acpCurrentDesignState.vibeCssBlock) {
+    lines.push("");
+    lines.push(acpCurrentDesignState.vibeCssBlock);
+  }
+  return lines.join("\n");
+}
+
+function acpInjectLiveDesignCss(cssString) {
+  var iframe = document.getElementById("acp-widget-viewport");
+  var doc = iframe ? (iframe.contentDocument || (iframe.contentWindow && iframe.contentWindow.document)) : null;
+  if (doc && doc.head) {
+    var styleEl = doc.getElementById("wp-custom-design-vibe");
+    if (!styleEl) {
+      styleEl = doc.createElement("style");
+      styleEl.id = "wp-custom-design-vibe";
+      doc.head.appendChild(styleEl);
+    }
+    styleEl.textContent = cssString || "";
+  }
+  var editor = document.getElementById("acp-vibe-css-editor");
+  if (editor) editor.value = cssString || "";
+  if (typeof acpScanAndRenderSections === "function") {
+    var secModal = document.getElementById("acp-sections-modal");
+    if (secModal && secModal.classList.contains("is-open")) {
+      acpScanAndRenderSections();
+    }
+  }
+}
+
+function acpOnColorInput(key, val) {
+  if (!val) return;
+  acpCurrentDesignState.colors[key] = val.toLowerCase();
+  if (key === "heroBg") acpCurrentDesignState.heroGradient = "";
+  var hexInp = document.getElementById("acp-col-hex-" + key);
+  if (hexInp) hexInp.value = val.toLowerCase();
+  var css = acpBuildClientSideColorCss();
+  acpInjectLiveDesignCss(css);
+}
+
+function acpOnHexInput(key, val) {
+  if (!val) return;
+  var clean = val.trim().toLowerCase();
+  if (clean && clean[0] !== "#") clean = "#" + clean;
+  if (/^#[0-9a-f]{6}$/.test(clean)) {
+    acpCurrentDesignState.colors[key] = clean;
+    if (key === "heroBg") acpCurrentDesignState.heroGradient = "";
+    var picker = document.getElementById("acp-col-picker-" + key);
+    if (picker) picker.value = clean;
+    var css = acpBuildClientSideColorCss();
+    acpInjectLiveDesignCss(css);
+  }
+}
+
+function acpSwitchHeroBrightness(mode) {
+  var btnLight = document.getElementById("acp-btn-hero-light");
+  var btnDark = document.getElementById("acp-btn-hero-dark");
+  if (mode === "light") {
+    acpCurrentDesignState.colors.heroBg = "#fdf8f5";
+    acpCurrentDesignState.colors.heroText = "#2b161e";
+    acpCurrentDesignState.heroGradient = "linear-gradient(135deg, #fdf8f5 0%, #f7ebe8 55%, #f3e2dd 100%)";
+    if (btnLight) btnLight.classList.add("is-active");
+    if (btnDark) btnDark.classList.remove("is-active");
+    acpShowVibeBanner("Startbühne (Hero) auf «Hell & Freundlich» mit dunkler Kontrast-Schrift (#2b161e) umgestellt.", false);
+  } else {
+    acpCurrentDesignState.colors.heroBg = "#18232c";
+    acpCurrentDesignState.colors.heroText = "#ffffff";
+    acpCurrentDesignState.heroGradient = "linear-gradient(135deg, #18232c 0%, #0f172a 100%)";
+    if (btnDark) btnDark.classList.add("is-active");
+    if (btnLight) btnLight.classList.remove("is-active");
+    acpShowVibeBanner("Startbühne (Hero) auf «Dunkel & Kontrast» mit weisser Schrift (#ffffff) umgestellt.", false);
+  }
+  acpSyncColorInputsFromState();
+  var css = acpBuildClientSideColorCss();
+  acpInjectLiveDesignCss(css);
+}
+
+function acpApplyDesignPreset(presetKey) {
+  var preset = ACP_DESIGN_PRESETS[presetKey];
+  if (!preset) return;
+  acpCurrentDesignState.preset = preset.label;
+  acpCurrentDesignState.heroGradient = preset.heroGradient || "";
+  var keys = ["primary", "heroBg", "heroText", "bodyBg", "cardBg", "footerBg", "footerText"];
+  for (var i = 0; i < keys.length; i++) {
+    var k = keys[i];
+    if (preset.colors[k]) acpCurrentDesignState.colors[k] = preset.colors[k];
+  }
+  acpSyncColorInputsFromState();
+
+  var cards = document.querySelectorAll(".acp-vibe-preset-card");
+  for (var j = 0; j < cards.length; j++) {
+    cards[j].classList.toggle("is-active", cards[j].getAttribute("data-preset") === presetKey);
+  }
+
+  var css = acpBuildClientSideColorCss();
+  acpInjectLiveDesignCss(css);
+  acpShowVibeBanner("Stil-Vorlage «" + preset.label + "» live im Simulator aktiviert!", false);
+}
+
+function acpInsertVibeChip(text) {
+  var inp = document.getElementById("acp-vibe-prompt-input");
+  if (!inp) return;
+  inp.value = text;
+  acpRunVibeCssTest();
+}
+
+function acpOnManualCssEdit(cssVal) {
+  acpInjectLiveDesignCss(cssVal);
+}
+
+function acpRunVibeCssTest() {
+  var inp = document.getElementById("acp-vibe-prompt-input");
+  var promptText = inp ? inp.value.trim() : "";
+  if (!promptText) {
+    acpShowVibeBanner("Bitte gib zuerst einen Design-Wunsch ein oder klicke auf einen der 5 Schnell-Befehle.", true);
+    return;
+  }
+
+  var btn = document.getElementById("acp-btn-test-vibe-css");
+  var lbl = document.getElementById("acp-btn-test-vibe-css-lbl");
+  if (btn) btn.disabled = true;
+  if (lbl) lbl.textContent = "KI übersetzt Wunsch in CSS...";
+
+  var currentJob = (typeof getActiveJob === "function") ? getActiveJob() : null;
+  var clientSlug = (currentJob && currentJob.folder) || (window.ACP_CLIENT_PROFILE && window.ACP_CLIENT_PROFILE.slug) || "__CLIENT_SLUG__";
+
+  fetch("/api/publish-career/cockpit/vibe-css", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      client: clientSlug,
+      prompt: promptText,
+      colors: acpCurrentDesignState.colors
+    })
+  })
+    .then(function(res) { return res.json(); })
+    .then(function(data) {
+      if (data && data.ok && data.css) {
+        acpInjectLiveDesignCss(data.css);
+        var detailsEl = document.getElementById("acp-vibe-css-details");
+        if (detailsEl) detailsEl.open = true;
+        acpShowVibeBanner("Live-Vorschau aktualisiert: " + (data.explanation || "CSS erfolgreich im Simulator angewendet!"), false);
+      } else {
+        throw new Error((data && data.error) || "Unbekannter Fehler");
+      }
+    })
+    .catch(function(err) {
+      var fallbackCss = acpBuildClientSideColorCss();
+      acpInjectLiveDesignCss(fallbackCss);
+      acpShowVibeBanner("Lokale CSS-Engine im Simulator angewendet (" + err.message + ").", false);
+    })
+    .finally(function() {
+      if (btn) btn.disabled = false;
+      if (lbl) lbl.textContent = "KI-Design-Wunsch jetzt live testen";
+    });
+}
+
+function acpResetDesignVibe() {
+  acpCurrentDesignState.vibeCssBlock = "";
+  acpCurrentDesignState.heroGradient = "";
+  acpCurrentDesignState.preset = "";
+  var inp = document.getElementById("acp-vibe-prompt-input");
+  if (inp) inp.value = "";
+  var editor = document.getElementById("acp-vibe-css-editor");
+  if (editor) editor.value = "";
+
+  var iframe = document.getElementById("acp-widget-viewport");
+  var doc = iframe ? (iframe.contentDocument || (iframe.contentWindow && iframe.contentWindow.document)) : null;
+  if (doc) {
+    var existing = doc.getElementById("wp-custom-design-vibe");
+    if (existing) existing.remove();
+  }
+  acpReadCurrentColorsFromIframe();
+  acpShowVibeBanner("Alle temporären Design- & Farb-Änderungen im Simulator zurückgesetzt.", false);
+}
+
+function acpSaveDesignVibe() {
+  var editor = document.getElementById("acp-vibe-css-editor");
+  var cssToSave = (editor && editor.value.trim()) ? editor.value.trim() : acpBuildClientSideColorCss();
+  var promptInp = document.getElementById("acp-vibe-prompt-input");
+  var vibePrompt = promptInp ? promptInp.value.trim() : "";
+
+  var currentJob = (typeof getActiveJob === "function") ? getActiveJob() : null;
+  var clientSlug = (currentJob && currentJob.folder) || (window.ACP_CLIENT_PROFILE && window.ACP_CLIENT_PROFILE.slug) || "__CLIENT_SLUG__";
+
+  var btnTop = document.getElementById("acp-btn-save-design-top");
+  var btnBot = document.getElementById("acp-btn-save-design-bottom");
+  var lblBot = document.getElementById("acp-btn-save-design-bottom-lbl");
+  if (btnTop) btnTop.disabled = true;
+  if (btnBot) btnBot.disabled = true;
+  if (lblBot) lblBot.textContent = "Speichere auf allen Seiten...";
+
+  fetch("/api/publish-career/cockpit/save-design", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      client: clientSlug,
+      css: cssToSave,
+      colors: acpCurrentDesignState.colors,
+      preset: acpCurrentDesignState.preset,
+      vibe_prompt: vibePrompt,
+      nav_style: acpCurrentDesignState.navStyle || "underline",
+      nav_items: acpCurrentDesignState.navItems || []
+    })
+  })
+    .then(function(res) { return res.json(); })
+    .then(function(data) {
+      if (data && data.ok) {
+        acpShowVibeBanner(data.message || "Design & Farben dauerhaft auf allen Seiten gespeichert!", false);
+        if (typeof acpLog === "function") {
+          acpLog("success", "Design & Farben dauerhaft gespeichert", "Aktualisierte Seiten: " + (data.updated_count || 0));
+        }
+      } else {
+        throw new Error((data && data.error) || "Speichern fehlgeschlagen");
+      }
+    })
+    .catch(function(err) {
+      acpShowVibeBanner("Fehler beim dauerhaften Speichern: " + err.message, true);
+    })
+    .finally(function() {
+      if (btnTop) btnTop.disabled = false;
+      if (btnBot) btnBot.disabled = false;
+      if (lblBot) lblBot.textContent = "Design & Farben dauerhaft speichern";
+    });
+}
+
+var acpVibeSpeechRec = null;
+function acpToggleVibeDictation() {
+  var btn = document.getElementById("acp-btn-vibe-dictate");
+  var lbl = document.getElementById("acp-btn-vibe-dictate-lbl");
+  var inp = document.getElementById("acp-vibe-prompt-input");
+  var SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+  if (!SpeechRecognition) {
+    acpShowVibeBanner("Spracherkennung wird in diesem Browser nicht direkt unterstützt. Bitte tippe deinen Wunsch ins Textfeld ein.", true);
+    return;
+  }
+  if (acpVibeSpeechRec) {
+    try { acpVibeSpeechRec.stop(); } catch (e) {}
+    acpVibeSpeechRec = null;
+    if (btn) btn.classList.remove("is-recording");
+    if (lbl) lbl.textContent = "Wunsch per Mikrofon einsprechen";
+    return;
+  }
+  acpVibeSpeechRec = new SpeechRecognition();
+  acpVibeSpeechRec.lang = "de-CH";
+  acpVibeSpeechRec.continuous = false;
+  acpVibeSpeechRec.interimResults = false;
+  if (btn) btn.classList.add("is-recording");
+  if (lbl) lbl.textContent = "Höre zu... (Jetzt sprechen)";
+
+  acpVibeSpeechRec.onresult = function(event) {
+    var transcript = "";
+    for (var i = event.resultIndex; i < event.results.length; i++) {
+      transcript += event.results[i][0].transcript;
+    }
+    if (inp && transcript) {
+      inp.value = (inp.value ? inp.value + " " : "") + transcript.replace(/\u00df/g, "ss").trim();
+    }
+  };
+  acpVibeSpeechRec.onend = function() {
+    acpVibeSpeechRec = null;
+    if (btn) btn.classList.remove("is-recording");
+    if (lbl) lbl.textContent = "Wunsch per Mikrofon einsprechen";
+  };
+  acpVibeSpeechRec.onerror = function() {
+    acpVibeSpeechRec = null;
+    if (btn) btn.classList.remove("is-recording");
+    if (lbl) lbl.textContent = "Wunsch per Mikrofon einsprechen";
+  };
+  acpVibeSpeechRec.start();
+}
 
 </script>
 

@@ -489,7 +489,12 @@
       display: grid;
       grid-template-columns: 1.08fr 0.92fr;
       gap: 44px;
-      align-items: center;
+      align-items: stretch;
+    }
+    .hero-grid > div:first-child {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
     }
     .hero-title {
       color: #FFFFFF;
@@ -543,7 +548,18 @@
     .hero-visual-stack {
       display: flex;
       flex-direction: column;
+      justify-content: space-between;
+      height: 100%;
       gap: 16px;
+    }
+    .hero-main-photo-card {
+      flex: 1 1 auto;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .hero-main-photo-card img {
+      flex: 1 1 auto;
     }
     .hero-main-photo-card {
       position: relative;

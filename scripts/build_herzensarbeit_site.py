@@ -453,10 +453,11 @@ SHARED_CSS = """
       align-items: center;
       gap: 12px;
       flex-shrink: 0;
+      max-width: 260px;
     }
     .brand-logo {
-      width: 52px;
-      height: 52px;
+      width: 48px;
+      height: 48px;
       object-fit: contain;
       border-radius: var(--radius-sm);
       flex-shrink: 0;
@@ -467,58 +468,63 @@ SHARED_CSS = """
     }
     .brand-name {
       font-family: 'Josefin Sans', sans-serif;
-      font-size: 1.15rem;
+      font-size: 1.12rem;
       font-weight: 700;
       color: var(--charcoal-deep);
       letter-spacing: 0.01em;
       line-height: 1.15;
     }
     .brand-sub {
-      font-size: 0.72rem;
+      font-size: 11px;
       font-weight: 700;
       color: var(--gold-dark);
       text-transform: uppercase;
-      letter-spacing: 0.05em;
+      letter-spacing: 0.04em;
       margin-top: 2px;
+      white-space: nowrap;
     }
 
     .main-nav {
       display: flex;
       align-items: center;
-      gap: 6px;
-      flex-wrap: wrap;
+      gap: 24px;
+      flex-wrap: nowrap;
+      white-space: nowrap;
     }
     .nav-link {
       display: inline-flex;
       align-items: center;
       gap: 6px;
       font-family: 'Josefin Sans', sans-serif;
-      font-size: 0.88rem;
+      font-size: 0.9rem;
       font-weight: 700;
       color: var(--text-body);
-      padding: 8px 12px;
-      min-height: 38px;
-      border-radius: var(--radius-sm);
-      border: 1px solid transparent;
+      padding: 6px 2px;
+      min-height: 36px;
+      border-radius: 0;
+      border: none;
+      border-bottom: 2px solid transparent;
       background: transparent;
+      white-space: nowrap;
       cursor: pointer;
     }
     .nav-link:hover,
     .nav-link.active {
-      color: var(--gold-dark);
-      background-color: var(--gold-soft);
-      border-color: var(--gold-border);
+      color: #9b2c47;
+      background: transparent;
+      border-bottom-color: #9b2c47;
     }
     .nav-link-preview {
       color: var(--text-muted);
-      background-color: #F1F5F9;
-      border: 1px dashed #94A3B8;
-      font-size: 0.82rem;
+      background: transparent;
+      border: none;
+      border-bottom: 2px dashed rgba(155, 44, 71, 0.35);
+      font-size: 0.88rem;
     }
     .nav-link-preview:hover {
-      color: var(--gold-dark);
-      background-color: var(--gold-soft);
-      border-color: var(--gold-dark);
+      color: #9b2c47;
+      background: transparent;
+      border-bottom-color: #9b2c47;
     }
 
     .header-actions {
@@ -659,7 +665,12 @@ SHARED_CSS = """
       display: grid;
       grid-template-columns: 1.12fr 0.88fr;
       gap: 44px;
-      align-items: center;
+      align-items: stretch;
+    }
+    .hero-grid > div:first-child {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
     }
     .hero-title {
       font-size: clamp(2.15rem, 3.8vw, 3.2rem);
@@ -681,7 +692,18 @@ SHARED_CSS = """
       display: flex;
       flex-wrap: wrap;
       gap: 12px;
+      align-items: center;
       margin-bottom: 28px;
+    }
+    .hero-actions:last-child,
+    .hero-badges:last-child {
+      margin-top: auto;
+      margin-bottom: 0;
+    }
+    .hero-actions .btn-cta {
+      padding: 11px 16px;
+      font-size: 0.86rem;
+      white-space: nowrap;
     }
     .hero-badges {
       display: grid;
@@ -718,10 +740,16 @@ SHARED_CSS = """
       border-radius: var(--radius-md);
       overflow: hidden;
       box-shadow: var(--shadow-lg);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      height: 100%;
     }
     .hero-media-card img {
       width: 100%;
-      height: 390px;
+      height: 260px;
+      min-height: 260px;
+      flex: 1 1 auto;
       object-fit: cover;
       object-position: center top;
     }
@@ -1477,6 +1505,10 @@ SHARED_CSS = """
       .header-actions .btn-cta {
         display: none;
       }
+      .hero-actions .btn-cta {
+        white-space: normal;
+        width: 100%;
+      }
       .brand-link {
         flex-shrink: 1;
         min-width: 0;
@@ -1658,34 +1690,34 @@ def render_v1_shell(filename: str, page_title: str, active_nav: str, body_html: 
   <div class="top-bar">
     <div class="container top-bar-inner">
       <div class="top-bar-left">
-        <span class="top-bar-badge" data-slot="topbar_badge">PRAXIS HÄRKINGEN (SO) · USSERDORF 24 · &amp; ONLINE (DE / EN)</span>
-        <span data-slot="topbar_sub">Seit 2009 · Über 5'000 Stunden Paartherapie &amp; Körperzentrierte Herzensarbeit</span>
+        <span class="top-bar-badge" data-slot="topbar_badge">PRAXIS HÄRKINGEN (SO) &amp; ONLINE (DE / EN)</span>
+        <span data-slot="topbar_sub">Seit 2009 · Über 5'000 Std. Paartherapie &amp; Begleitung</span>
       </div>
       <div class="top-bar-links">
         <a href="tel:+41791036331">{SVG_PHONE} <span>079 103 63 31</span></a>
         <a href="mailto:a.koch@herzensarbeit.ch">{SVG_MAIL} <span>a.koch@herzensarbeit.ch</span></a>
-        <a href="https://www.provenexpert.com/herzensarbeit-anne-katrin-koch/" target="_blank" rel="noopener noreferrer">ProvenExpert Empfehlungen</a>
+        <a href="https://www.provenexpert.com/herzensarbeit-anne-katrin-koch/" target="_blank" rel="noopener noreferrer">ProvenExpert</a>
       </div>
     </div>
   </div>
 
   <!-- STICKY HEADER -->
-  <header class="site-header">
+  <header class="site-header" data-section="header">
     <div class="container header-inner">
       <a href="index.html" class="brand-link" aria-label="Herzensarbeit Anne-Katrin Koch Startseite">
-        <img src="images/logo.png" alt="Herzensarbeit — Anne-Katrin Koch" class="brand-logo" width="52" height="52" data-slot="brand_logo">
+        <img src="images/logo.png" alt="Herzensarbeit — Anne-Katrin Koch" class="brand-logo" width="48" height="48" data-slot="brand_logo">
         <div class="brand-text">
           <span class="brand-name" data-slot="brand_name">HERZENSARBEIT</span>
-          <span class="brand-sub" data-slot="brand_sub">ANNE-KATRIN KOCH · HÄRKINGEN &amp; ONLINE</span>
+          <span class="brand-sub" data-slot="brand_sub">Anne-Katrin Koch · Härkingen</span>
         </div>
       </a>
 
       <nav class="main-nav" aria-label="Hauptnavigation">
-        <a href="index.html" class="nav-link {nav_start}">Startseite</a>
-        <a href="angebot.html" class="nav-link {nav_angebot}">Paartherapie &amp; Angebot</a>
-        <a href="workshops.html" class="nav-link {nav_workshops}">Frauen-Workshops</a>
-        <a href="ueber-mich.html" class="nav-link {nav_ueber}">Über mich &amp; Stimmen</a>
-        <a href="kontakt.html" class="nav-link {nav_kontakt}">Smart-Anfrage</a>
+        <a href="index.html" class="nav-link {nav_start}" data-nav-href="index.html">Startseite</a>
+        <a href="angebot.html" class="nav-link {nav_angebot}" data-nav-href="angebot.html">Angebot</a>
+        <a href="workshops.html" class="nav-link {nav_workshops}" data-nav-href="workshops.html">Workshops</a>
+        <a href="ueber-mich.html" class="nav-link {nav_ueber}" data-nav-href="ueber-mich.html">Über mich</a>
+        <a href="kontakt.html" class="nav-link {nav_kontakt}" data-nav-href="kontakt.html">Kontakt</a>
       </nav>
 
       <div class="header-actions">
@@ -1808,51 +1840,51 @@ def render_v2_shell(filename: str, page_title: str, active_nav: str, body_html: 
   <div class="top-bar">
     <div class="container top-bar-inner">
       <div class="top-bar-left">
-        <span class="top-bar-badge" data-slot="topbar_badge">PRAXIS HÄRKINGEN (SO) · USSERDORF 24 · &amp; ONLINE (DE / EN)</span>
-        <span data-slot="topbar_sub">Seit 2009 · Über 5'000 Stunden Paartherapie &amp; Körperzentrierte Herzensarbeit</span>
+        <span class="top-bar-badge" data-slot="topbar_badge">PRAXIS HÄRKINGEN (SO) &amp; ONLINE (DE / EN)</span>
+        <span data-slot="topbar_sub">Seit 2009 · Über 5'000 Std. Paartherapie &amp; Begleitung</span>
       </div>
       <div class="top-bar-links">
         <a href="tel:+41791036331">{SVG_PHONE} <span>079 103 63 31</span></a>
         <a href="mailto:a.koch@herzensarbeit.ch">{SVG_MAIL} <span>a.koch@herzensarbeit.ch</span></a>
-        <a href="https://www.provenexpert.com/herzensarbeit-anne-katrin-koch/" target="_blank" rel="noopener noreferrer">ProvenExpert Empfehlungen</a>
+        <a href="https://www.provenexpert.com/herzensarbeit-anne-katrin-koch/" target="_blank" rel="noopener noreferrer">ProvenExpert</a>
       </div>
     </div>
   </div>
 
   <!-- STICKY HEADER (ZEIGEVERSION MIT KUNDENFREUNDLICHEN VORSCHAU-HINWEISEN) -->
-  <header class="site-header">
+  <header class="site-header" data-section="header">
     <div class="container header-inner">
       <a href="index.html" class="brand-link" aria-label="Herzensarbeit Anne-Katrin Koch Startseite">
-        <img src="images/logo.png" alt="Herzensarbeit — Anne-Katrin Koch" class="brand-logo" width="52" height="52" data-slot="brand_logo">
+        <img src="images/logo.png" alt="Herzensarbeit — Anne-Katrin Koch" class="brand-logo" width="48" height="48" data-slot="brand_logo">
         <div class="brand-text">
           <span class="brand-name" data-slot="brand_name">HERZENSARBEIT</span>
-          <span class="brand-sub" data-slot="brand_sub">ANNE-KATRIN KOCH · HÄRKINGEN &amp; ONLINE</span>
+          <span class="brand-sub" data-slot="brand_sub">Anne-Katrin Koch · Härkingen</span>
         </div>
       </a>
 
       <nav class="main-nav" aria-label="Hauptnavigation">
-        <a href="index.html" class="nav-link {nav_start}">
+        <a href="index.html" class="nav-link {nav_start}" data-nav-href="index.html">
           <svg width="8" height="8" viewBox="0 0 8 8" aria-hidden="true"><circle cx="4" cy="4" r="4" fill="#15803D"/></svg>
-          <span>Startseite (Ausgearbeitet)</span>
+          <span>Startseite</span>
         </a>
-        <button type="button" class="nav-link nav-link-preview" onclick="wpOpenBlueprintModal('Paartherapie, Trennungs- &amp; Trauerbegleitung im Detail', 'Alle 3-Etappen-Wege, Sitzungs-Pakete, Achtsamkeit, Selbstheilung &amp; Methode Safi Nidiaye', 'Anne-Katrin Koch')">
-          <span>Paartherapie &amp; Angebot (Folgt beim Ausbau)</span>
+        <button type="button" class="nav-link nav-link-preview" data-nav-href="angebot.html" onclick="wpOpenBlueprintModal('Paartherapie, Trennungs- &amp; Trauerbegleitung im Detail', 'Alle 3-Etappen-Wege, Sitzungs-Pakete, Achtsamkeit, Selbstheilung &amp; Methode Safi Nidiaye', 'Anne-Katrin Koch')">
+          <span>Angebot</span>
         </button>
-        <button type="button" class="nav-link nav-link-preview" onclick="wpOpenBlueprintModal('Frauen-Workshop-Reihe «Kraftvoll Frau sein»', 'Alle 4 Tages-Module in Oensingen (Mutter, Vater, Sinnlichkeit, Weitsicht), Termine &amp; Early-Bird-Preise', 'Anne-Katrin Koch')">
-          <span>Frauen-Workshops (Folgt beim Ausbau)</span>
+        <button type="button" class="nav-link nav-link-preview" data-nav-href="workshops.html" onclick="wpOpenBlueprintModal('Frauen-Workshop-Reihe «Kraftvoll Frau sein»', 'Alle 4 Tages-Module in Oensingen (Mutter, Vater, Sinnlichkeit, Weitsicht), Termine &amp; Early-Bird-Preise', 'Anne-Katrin Koch')">
+          <span>Workshops</span>
         </button>
-        <button type="button" class="nav-link nav-link-preview" onclick="wpOpenBlueprintModal('Über Anne-Katrin Koch &amp; Alle Klienten-Stimmen', 'Persönlicher Heilungsweg, Ausbildungen seit 2006, Praxis Härkingen &amp; alle verifizierten Erfahrungsberichte', 'Anne-Katrin Koch')">
-          <span>Über mich &amp; Stimmen (Folgt beim Ausbau)</span>
+        <button type="button" class="nav-link nav-link-preview" data-nav-href="ueber-mich.html" onclick="wpOpenBlueprintModal('Über Anne-Katrin Koch &amp; Alle Klienten-Stimmen', 'Persönlicher Heilungsweg, Ausbildungen seit 2006, Praxis Härkingen &amp; alle verifizierten Erfahrungsberichte', 'Anne-Katrin Koch')">
+          <span>Über mich</span>
         </button>
-        <a href="kontakt.html" class="nav-link {nav_kontakt}">
+        <a href="kontakt.html" class="nav-link {nav_kontakt}" data-nav-href="kontakt.html">
           <svg width="8" height="8" viewBox="0 0 8 8" aria-hidden="true"><circle cx="4" cy="4" r="4" fill="#15803D"/></svg>
-          <span>Smart-Anfrage (Live-Demo)</span>
+          <span>Kontakt</span>
         </a>
       </nav>
 
       <div class="header-actions">
         <a href="kontakt.html" class="btn-cta btn-cta-primary btn-sm" data-slot="header_cta">
-          <span>Smart-Anfrage testen</span>
+          <span>Gespräch vereinbaren</span>
           {SVG_ARROW}
         </a>
         <button type="button" class="mobile-toggle" id="mobileMenuBtn" aria-label="Menü öffnen" onclick="wpToggleMobileMenu()">
