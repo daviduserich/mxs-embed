@@ -140,28 +140,6 @@ SEED_PROJECTS = [
         "partner": "David Hügli (Magnet XS)",
         "status": "🟢 Bereit zum Zeigen (29.10.2026)",
     },
-    {
-        "slug": "hiltbrand",
-        "active": True,
-        "company": "Hiltbrand Gebäudehüllen AG (Zweisimmen)",
-        "v2_url": "https://vorschau.magnet-xs.ch/hiltbrand-v2/",
-        "vollversion_url": "https://vorschau.magnet-xs.ch/hiltbrand-vollversion/",
-        "cockpit_url": "https://vorschau.magnet-xs.ch/hiltbrand-vollversion/cockpit?token=hb2026",
-        "source_context": "https://dachdecker-berneroberland.ch/ — Steildach, Flachdach, Fassadenbau & Spenglerei in Zweisimmen BE",
-        "partner": "David Hügli (Magnet XS)",
-        "status": "🟢 Bereit zum Zeigen (29.10.2026)",
-    },
-    {
-        "slug": "birchmeier",
-        "active": True,
-        "company": "Birchmeier Haustechnik (Sarmenstorf)",
-        "v2_url": "https://vorschau.magnet-xs.ch/birchmeier-v2/",
-        "vollversion_url": "https://vorschau.magnet-xs.ch/birchmeier-vollversion/",
-        "cockpit_url": "https://vorschau.magnet-xs.ch/birchmeier-vollversion/cockpit?token=bi_live_ea3776_a1ef",
-        "source_context": "https://www.birchmeier-hohler.ch/ — Sanitär, Heizung, Badumbau & 24h-Pikettdienst in Sarmenstorf AG",
-        "partner": "David Hügli (Magnet XS)",
-        "status": "🟢 Bereit zum Zeigen (29.10.2026)",
-    },
 ]
 
 
