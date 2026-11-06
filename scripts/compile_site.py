@@ -10,6 +10,7 @@ Doktrin:
 1. UI-Texte, Navigation, Buttons & Formulare: 'data-i18n="section.key"' -> aus 'templates/i18n/{lang}.json'
 2. Mandanten-Stammdaten & Inhalts-Slots: 'data-slot="key"' -> aus '{site}/company.json'
 3. Übersetzungs- & Slot-Integrität: 100% verifizierbar vor dem Git-Push.
+4. Auto-SEO & GEO Hintergrund-Autopilot: Schema.org JSON-LD, OpenGraph, Local-SEO Alt-Tags, llms.txt & sitemap.xml.
 """
 
 import os
@@ -103,7 +104,6 @@ def compile_html(html: str, i18n_data: dict, slot_data: dict) -> tuple[str, dict
             return match.group(0)
 
         val_str = str(val)
-        # Ersetze placeholder="..." oder füge hinzu
         full = match.group(0)
         if 'placeholder="' in full or "placeholder='" in full:
             new_full = re.sub(r'placeholder=["\'][^"\']*["\']', f'placeholder="{val_str}"', full)
@@ -133,7 +133,6 @@ def compile_html(html: str, i18n_data: dict, slot_data: dict) -> tuple[str, dict
         val_str = str(slot_data[slot])
         new_attrs = attrs
 
-        # Automatische Link-Attribute
         if tag.lower() == "a":
             if slot in ("email", "email_link"):
                 new_attrs = re.sub(r'href=["\']mailto:[^"\']*["\']', f'href="mailto:{val_str}"', new_attrs)
@@ -171,7 +170,6 @@ def compile_site_dir(site_dir: Path, lang: str = "de", dry_run: bool = False) ->
     i18n_dict = load_i18n(lang)
     company_dict = load_company(site_dir)
 
-    # Abgeleitete Slots berechnen
     from sync_company_slots import compute_derived_fields
     slot_data = compute_derived_fields(company_dict)
 
@@ -233,6 +231,17 @@ def compile_site_dir(site_dir: Path, lang: str = "de", dry_run: bool = False) ->
         total_stats["css_fixed"] = []
         total_stats["css_brace_errors"] = []
 
+    # 6. Auto-SEO & GEO Hintergrund-Autopilot (Schema.org JSON-LD, OpenGraph, Local-SEO Alt-Tags, llms.txt, sitemap.xml & robots.txt)
+    if not dry_run and site_dir.name.startswith("preview-"):
+        try:
+            from webpilot_seo_geo_autopilot import run_seo_geo_autopilot_for_site
+            seo_rep = run_seo_geo_autopilot_for_site(site_dir, context_action="compile_site")
+            total_stats["seo_geo_autopilot"] = seo_rep
+            if seo_rep.get("html_files_modified", 0) > 0:
+                total_stats["files_modified"] += seo_rep["html_files_modified"]
+        except Exception as seo_ex:
+            total_stats["seo_geo_error"] = str(seo_ex)
+
     total_stats["missing_keys"] = list(total_stats["missing_keys"])
     return total_stats
 
@@ -282,6 +291,9 @@ def main():
             print(f"  CSS-Parität synchronisiert: {', '.join(res['css_fixed'])}")
         if res.get("css_brace_errors"):
             print(f"  🚨 CSS-Klammer-Fehler: {', '.join(res['css_brace_errors'])}")
+        if res.get("seo_geo_autopilot"):
+            sg = res["seo_geo_autopilot"]
+            print(f"  🔍 Auto-SEO & GEO Autopilot: Schema.org ({sg.get('schema_type')}), OG, Alt-Tags (+{sg.get('imgs_alt_upgraded')}), llms.txt & sitemap.xml ({sg.get('elapsed_ms')} ms)")
         if res["missing_keys"]:
             print(f"  WARNUNG: Fehlende Keys im Wörterbuch: {', '.join(res['missing_keys'])}")
         if res["files_modified"] > 0:

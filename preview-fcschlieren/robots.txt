@@ -1,0 +1,58 @@
+# WebPilot Auto-SEO & GEO robots.txt — FC Schlieren (Schlieren)
+User-agent: *
+Allow: /
+Disallow: /cockpit.html
+Disallow: /cockpit
+
+User-agent: Googlebot
+Allow: /
+Disallow: /cockpit.html
+Disallow: /cockpit
+
+User-agent: Bingbot
+Allow: /
+Disallow: /cockpit.html
+Disallow: /cockpit
+
+User-agent: GPTBot
+Allow: /
+Disallow: /cockpit.html
+Disallow: /cockpit
+
+User-agent: OAI-SearchBot
+Allow: /
+Disallow: /cockpit.html
+Disallow: /cockpit
+
+User-agent: ChatGPT-User
+Allow: /
+Disallow: /cockpit.html
+Disallow: /cockpit
+
+User-agent: PerplexityBot
+Allow: /
+Disallow: /cockpit.html
+Disallow: /cockpit
+
+User-agent: ClaudeBot
+Allow: /
+Disallow: /cockpit.html
+Disallow: /cockpit
+
+User-agent: Claude-Web
+Allow: /
+Disallow: /cockpit.html
+Disallow: /cockpit
+
+User-agent: Google-Extended
+Allow: /
+Disallow: /cockpit.html
+Disallow: /cockpit
+
+User-agent: Applebot-Extended
+Allow: /
+Disallow: /cockpit.html
+Disallow: /cockpit
+
+Sitemap: https://vorschau.magnet-xs.ch/fcschlieren-vollversion/sitemap.xml
+# LLMs: https://vorschau.magnet-xs.ch/fcschlieren-vollversion/llms.txt

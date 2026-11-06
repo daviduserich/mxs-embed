@@ -22,7 +22,8 @@
         "slot": "image",
         "is_hero": false
       }
-    ]
+    ],
+    "alt": "JOMA Solar GmbH Wettingen (AG) – Offizielles Logo (Photovoltaikanlagen für Einfamilienhäuser und)"
   },
   {
     "id": "images_batteriespeicher_heim_jpg",
@@ -42,7 +43,8 @@
         "slot": "image",
         "is_hero": false
       }
-    ]
+    ],
+    "alt": "Batteriespeicher für Eigenverbrauch und Notstrom"
   },
   {
     "id": "images_beratung_kundengespraech_jpg",
@@ -62,7 +64,8 @@
         "slot": "image",
         "is_hero": false
       }
-    ]
+    ],
+    "alt": "Persönliches Beratungsgespräch bei JOMA Solar in Wettingen"
   },
   {
     "id": "images_dachmontage_handwerk_jpg",
@@ -82,7 +85,8 @@
         "slot": "image",
         "is_hero": false
       }
-    ]
+    ],
+    "alt": "Präzise Dachmontage und Schweizer Qualitätsversprechen"
   },
   {
     "id": "images_efh_luftbild_quartier_jpg",
@@ -95,8 +99,20 @@
     "mtime": 1793914134,
     "mtime_str": "05.11.2026 21:28",
     "cdn_url": "https://embed.magnet-xs.ch/preview-joma-v2/images/efh-luftbild-quartier.jpg",
-    "is_used": false,
-    "used_in": []
+    "is_used": true,
+    "used_in": [
+      {
+        "datei": "kontakt.html",
+        "slot": "image",
+        "is_hero": false
+      },
+      {
+        "datei": "index.html",
+        "slot": "image",
+        "is_hero": false
+      }
+    ],
+    "alt": "EFH Luftbild Quartier: Baustelle & Projekte – JOMA Solar GmbH in Wettingen (AG)"
   },
   {
     "id": "images_elektrotechnik_planung_jpg",
@@ -116,7 +132,8 @@
         "slot": "image",
         "is_hero": false
       }
-    ]
+    ],
+    "alt": "Saubere Elektrotechnik und Speicher-Integration durch JOMA Solar"
   },
   {
     "id": "images_favicon_32x32_png",
@@ -141,7 +158,8 @@
         "slot": "image",
         "is_hero": false
       }
-    ]
+    ],
+    "alt": "JOMA Solar GmbH Wettingen (AG) – Offizielles Logo (Photovoltaikanlagen für Einfamilienhäuser und)"
   },
   {
     "id": "images_gewerbe_solar_abend_jpg",
@@ -161,7 +179,8 @@
         "slot": "image",
         "is_hero": false
       }
-    ]
+    ],
+    "alt": "Solar-Contracting für Unternehmen ohne eigene Investition"
   },
   {
     "id": "images_gewerbe_speicher_technik_jpg",
@@ -175,7 +194,8 @@
     "mtime_str": "05.11.2026 21:28",
     "cdn_url": "https://embed.magnet-xs.ch/preview-joma-v2/images/gewerbe-speicher-technik.jpg",
     "is_used": false,
-    "used_in": []
+    "used_in": [],
+    "alt": "Gewerbe Speicher Technik: Baustelle & Projekte – JOMA Solar GmbH in Wettingen (AG)"
   },
   {
     "id": "images_grossanlage_gewerbe_jpg",
@@ -195,7 +215,8 @@
         "slot": "image",
         "is_hero": false
       }
-    ]
+    ],
+    "alt": "Photovoltaik Grossanlagen für Gewerbe und Industrie"
   },
   {
     "id": "images_logo_png",
@@ -209,7 +230,8 @@
     "mtime_str": "05.11.2026 21:28",
     "cdn_url": "https://embed.magnet-xs.ch/preview-joma-v2/images/logo.png",
     "is_used": false,
-    "used_in": []
+    "used_in": [],
+    "alt": "JOMA Solar GmbH Wettingen (AG) – Offizielles Logo (Photovoltaikanlagen für Einfamilienhäuser und)"
   },
   {
     "id": "images_logo_svg",
@@ -234,7 +256,8 @@
         "slot": "image",
         "is_hero": false
       }
-    ]
+    ],
+    "alt": "JOMA Solar GmbH Wettingen (AG) – Offizielles Logo (Photovoltaikanlagen für Einfamilienhäuser und)"
   },
   {
     "id": "images_portrait_jonathan_muggli_jpg",
@@ -254,7 +277,8 @@
         "slot": "image",
         "is_hero": false
       }
-    ]
+    ],
+    "alt": "Jonathan Muggli — Gründer und Geschäftsführer JOMA Solar GmbH Wettingen"
   },
   {
     "id": "images_portrait_marco_keller_jpg",
@@ -274,7 +298,8 @@
         "slot": "image",
         "is_hero": false
       }
-    ]
+    ],
+    "alt": "Marco Keller — Gründer und Geschäftsführer JOMA Solar GmbH Wettingen"
   },
   {
     "id": "images_portrait_mario_grab_jpg",
@@ -288,7 +313,8 @@
     "mtime_str": "05.11.2026 21:28",
     "cdn_url": "https://embed.magnet-xs.ch/preview-joma-v2/images/portrait-mario-grab.jpg",
     "is_used": false,
-    "used_in": []
+    "used_in": [],
+    "alt": "Portrait Mario Grab – Persönlicher Ansprechpartner und Fachteam bei JOMA Solar GmbH in Wettingen (AG)"
   },
   {
     "id": "images_portrait_sascha_tsap_jpg",
@@ -302,7 +328,8 @@
     "mtime_str": "05.11.2026 21:28",
     "cdn_url": "https://embed.magnet-xs.ch/preview-joma-v2/images/portrait-sascha-tsap.jpg",
     "is_used": false,
-    "used_in": []
+    "used_in": [],
+    "alt": "Portrait Sascha Tsap – Persönlicher Ansprechpartner und Fachteam bei JOMA Solar GmbH in Wettingen (AG)"
   },
   {
     "id": "images_portrait_tino_seiler_jpg",
@@ -316,7 +343,8 @@
     "mtime_str": "05.11.2026 21:28",
     "cdn_url": "https://embed.magnet-xs.ch/preview-joma-v2/images/portrait-tino-seiler.jpg",
     "is_used": false,
-    "used_in": []
+    "used_in": [],
+    "alt": "Portrait Tino Seiler – Persönlicher Ansprechpartner und Fachteam bei JOMA Solar GmbH in Wettingen (AG)"
   },
   {
     "id": "images_ref_fislisbach_24kwp_jpg",
@@ -330,7 +358,8 @@
     "mtime_str": "05.11.2026 21:28",
     "cdn_url": "https://embed.magnet-xs.ch/preview-joma-v2/images/ref-fislisbach-24kwp.jpg",
     "is_used": false,
-    "used_in": []
+    "used_in": [],
+    "alt": "Referenzunternehmen Fislisbach 24kwp – Erfolgsprojekt mit JOMA Solar GmbH (Wettingen (AG))"
   },
   {
     "id": "images_ref_riniken_18kwp_jpg",
@@ -350,7 +379,8 @@
         "slot": "image",
         "is_hero": false
       }
-    ]
+    ],
+    "alt": "Drohnenaufnahme der 18.8 kWp Solaranlage in Riniken"
   },
   {
     "id": "images_ref_ruetihof_55kwp_jpg",
@@ -364,7 +394,8 @@
     "mtime_str": "05.11.2026 21:28",
     "cdn_url": "https://embed.magnet-xs.ch/preview-joma-v2/images/ref-ruetihof-55kwp.jpg",
     "is_used": false,
-    "used_in": []
+    "used_in": [],
+    "alt": "Referenzunternehmen Ruetihof 55kwp – Erfolgsprojekt mit JOMA Solar GmbH (Wettingen (AG))"
   },
   {
     "id": "images_ref_ruetihof_zev_30kwp_jpg",
@@ -384,7 +415,8 @@
         "slot": "image",
         "is_hero": false
       }
-    ]
+    ],
+    "alt": "JOMA Solar Referenzprojekt Baden-Rütihof (MFH ZEV) (30.60 kWp)"
   },
   {
     "id": "images_ref_schoefflisdorf_14kwp_jpg",
@@ -398,7 +430,8 @@
     "mtime_str": "05.11.2026 21:28",
     "cdn_url": "https://embed.magnet-xs.ch/preview-joma-v2/images/ref-schoefflisdorf-14kwp.jpg",
     "is_used": false,
-    "used_in": []
+    "used_in": [],
+    "alt": "Referenzunternehmen Schoefflisdorf 14kwp – Erfolgsprojekt mit JOMA Solar GmbH (Wettingen (AG))"
   },
   {
     "id": "images_ref_umbricht_untersiggenthal_jpg",
@@ -418,7 +451,8 @@
         "slot": "image",
         "is_hero": false
       }
-    ]
+    ],
+    "alt": "Referenzprojekt Wein und Gemüse Umbricht in Untersiggenthal"
   },
   {
     "id": "images_ref_wettingen_indach_jpg",
@@ -438,7 +472,8 @@
         "slot": "image",
         "is_hero": false
       }
-    ]
+    ],
+    "alt": "JOMA Solar Referenzprojekt Wettingen (Attenhoferstrasse) (11.54 kWp)"
   },
   {
     "id": "images_solarmanager_app_jpg",
@@ -458,7 +493,8 @@
         "slot": "image",
         "is_hero": false
       }
-    ]
+    ],
+    "alt": "Solar Manager App und Smart-Me ZEV Abrechnung"
   },
   {
     "id": "images_team_gruppe_hero_jpg",
@@ -483,7 +519,8 @@
         "slot": "image",
         "is_hero": true
       }
-    ]
+    ],
+    "alt": "Das Team der JOMA Solar GmbH in Wettingen"
   },
   {
     "id": "images_team_jonathan_marco_pv_jpg",
@@ -497,6 +534,7 @@
     "mtime_str": "05.11.2026 21:28",
     "cdn_url": "https://embed.magnet-xs.ch/preview-joma-v2/images/team-jonathan-marco-pv.jpg",
     "is_used": false,
-    "used_in": []
+    "used_in": [],
+    "alt": "Team Jonathan Marco Pv – Persönlicher Ansprechpartner und Fachteam bei JOMA Solar GmbH in Wettingen (AG)"
   }
 ]
