@@ -50,7 +50,8 @@ DEFAULT_SPREADSHEET_URL = JENNY_SPREADSHEET_URL
 DEFAULT_TAB_TITLE = "Kunden & URL-Zentrale"
 
 MONTHLY_YEAR2_CHF = 35
-MONTHLY_PLAN_LABEL = "Hosting, Studio-Cockpit & laufender SEO-/KI-Such-Autopilot (Google & ChatGPT/GEO)"
+MONTHLY_SMART_PRO_YEAR2_CHF = 45
+MONTHLY_PLAN_LABEL = "CHF 35.— / Mt. (Basis: Hosting, Cockpit & SEO-/KI-Such-Autopilot) bzw. CHF 45.— / Mt. (Smart-Pro: inkl. aktivem Formular-, E-Mail-, 1-Seiten-A4-PDF- & WhatsApp-Service — statt CHF 295.—/Mt. bei separaten Formular-Anbietern)"
 
 PARTNER_SHEET_OWNER = "jenny"
 
@@ -115,16 +116,20 @@ def format_chf(amount: int) -> str:
 def compute_monthly_pricing(recommended_chf: Any) -> Dict[str, Any]:
     einmalig = parse_chf_amount(recommended_chf, fallback=1800)
     year1 = int(round((einmalig / 12.0 + MONTHLY_YEAR2_CHF) / 5.0) * 5)
+    year1_pro = year1 + 10
     year2 = MONTHLY_YEAR2_CHF
+    year2_pro = MONTHLY_SMART_PRO_YEAR2_CHF
     return {
         "monthly_year1_chf": year1,
+        "monthly_year1_pro_chf": year1_pro,
         "monthly_year2_chf": year2,
+        "monthly_year2_pro_chf": year2_pro,
         "monthly_plan_label": MONTHLY_PLAN_LABEL,
-        "monthly_display": f"1. Jahr: CHF {year1}.—/Mt. · ab 2. Jahr: CHF {year2}.—/Mt.",
+        "monthly_display": f"1. Jahr: CHF {year1}.—/Mt. (Smart-Pro: CHF {year1_pro}.—/Mt.) · ab 2. Jahr: CHF 35.— / 45.— Mt.",
         "monthly_sheet_display": (
-            f"1. Jahr: CHF {year1}.— / Mt.\n"
-            f"Ab 2. Jahr: CHF {year2}.— / Mt.\n"
-            f"(Inkl. Aufbau, Hosting, Studio-Cockpit & laufender SEO-/KI-Such-Autopilot)"
+            f"1. Jahr: CHF {year1}.— / Mt. Basis (CHF {year1_pro}.— / Mt. Smart-Pro)\n"
+            f"Ab 2. Jahr: CHF 35.— / Mt. (Basis: Hosting, Cockpit & SEO-/KI-Such-Autopilot) bzw. CHF 45.— / Mt. (Smart-Pro: inkl. aktivem Formular-, E-Mail-, 1-Seiten-A4-PDF- & WhatsApp-Service — statt CHF 295.—/Mt. bei separaten Formular-Anbietern)\n"
+            f"Individuelle Formular-Anpassungen (massgeschneiderte Fragen, zusätzliche Formulare oder Empfänger-Weichen) richten wir auf Wunsch gerne im Rahmen der Offerte passgenau für Sie ein."
         ),
     }
 
@@ -135,7 +140,7 @@ def format_einmal_price_sheet_cell(recommended_chf: str, complexity_score: str, 
     form = (formula_chf or rec).strip()
     return (
         f"{rec} einmalig\n"
-        f"+ CHF {MONTHLY_YEAR2_CHF}.—/Mt. (Hosting, Studio-Cockpit & SEO-/KI-Such-Autopilot)\n"
+        f"+ CHF 35.— / Mt. (Basis) bzw. CHF 45.— / Mt. (Smart-Pro inkl. Formular/PDF/E-Mail statt CHF 295.—/Mt.)\n"
         f"Score: {score} · Formel: {form}"
     )
 
