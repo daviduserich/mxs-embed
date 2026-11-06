@@ -271,7 +271,7 @@ export async function onRequest(context) {
     return context.next();
   }
 
-  const isReservedRoot = ['api', 'webpilot', 'boardroom', 'partner', 'reports', 'images', 'css', 'js', 'fonts', 'favicon.ico', 'robots.txt'].includes(rootSegment);
+  const isReservedRoot = ['api', 'webpilot', 'boardroom', 'partner', 'partner-jobs', 'reports', 'images', 'css', 'js', 'fonts', 'favicon.ico', 'robots.txt'].includes(rootSegment);
 
   // 2. Token-Guard & Multi-Tenant Isolation für Mandanten-Pfade
   if (rootSegment && !isReservedRoot) {
@@ -330,8 +330,9 @@ export async function onRequest(context) {
     let activeClientSlug = '';
     let targetFolder = '';
 
+    const DIRECT_EMBED_FOLDERS = ['hiltbrand', 'zurbuchen', 'cotra', 'muster-holzbau'];
     const match = url.pathname.match(/^\/([a-zA-Z0-9_-]+)(\/.*)?$/);
-    if (match && !['api', 'webpilot', 'boardroom', 'partner', 'reports', 'mxs-talent', 'images', 'css', 'js', 'fonts'].includes(match[1])) {
+    if (match && !['api', 'webpilot', 'boardroom', 'partner', 'partner-jobs', 'reports', 'mxs-talent', 'images', 'css', 'js', 'fonts'].includes(match[1])) {
       isClientPath = true;
       activeClientSlug = match[1].toLowerCase();
       const rest = match[2];
@@ -342,8 +343,13 @@ export async function onRequest(context) {
         return Response.redirect(slashUrl.toString(), 302);
       }
 
+      const isDirectEmbedHost = hostname.startsWith('embed.') || hostname.endsWith('.pages.dev');
       const baseSlugFolder = activeClientSlug.replace(/-(?:vollversion|vv|v1|v2)$/, '');
-      targetFolder = VORSCHAU_SLUG_TO_FOLDER[activeClientSlug] || ((activeClientSlug.endsWith('-vollversion') || activeClientSlug.endsWith('-vv')) ? `preview-${baseSlugFolder}` : `preview-${activeClientSlug}`);
+      if (activeClientSlug === 'zurbuchen' || (isDirectEmbedHost && DIRECT_EMBED_FOLDERS.includes(activeClientSlug))) {
+        targetFolder = activeClientSlug;
+      } else {
+        targetFolder = VORSCHAU_SLUG_TO_FOLDER[activeClientSlug] || ((activeClientSlug.endsWith('-vollversion') || activeClientSlug.endsWith('-vv')) ? `preview-${baseSlugFolder}` : `preview-${activeClientSlug}`);
+      }
 
       if (rest === '/onboarding' || rest === '/onboarding.html') {
         targetPath = `/${targetFolder}/onboarding`;
