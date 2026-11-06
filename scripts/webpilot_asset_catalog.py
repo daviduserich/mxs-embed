@@ -113,6 +113,55 @@ CURATED_COMPANY_NAMES = {
     "webpilot": ("WebPilot Plattform · magnet-Xs gmbh", "Zofingen AG"),
 }
 
+FALLBACK_JOB_META = {
+    "hiltbrand": ("David Hügli (Magnet XS · Referenz)", "29.09.2026 · 15:31 Uhr"),
+    "preview-hiltbrand": ("David Hügli (Magnet XS · Referenz)", "04.10.2026 · 11:02 Uhr"),
+    "preview-birchmeier": ("David Hügli (Magnet XS · Referenz)", "04.10.2026 · 11:02 Uhr"),
+    "preview-hochuli": ("David Hügli (Magnet XS · Referenz)", "29.10.2026 · 13:08 Uhr"),
+    "webpilot": ("David Hügli (Magnet XS · Produktseite)", "02.10.2026 · 20:14 Uhr"),
+    "preview-her11": ("Jenny Ettle (JE-MI)", "30.10.2026 · 16:00 Uhr"),
+    "preview-fcschlieren": ("Jenny Ettle (JE-MI)", "02.11.2026 · 17:00 Uhr"),
+    "preview-fcschlieren-v2": ("Jenny Ettle (JE-MI)", "02.11.2026 · 17:00 Uhr"),
+    "preview-scfulenbach": ("Jenny Ettle (JE-MI)", "02.11.2026 · 17:20 Uhr"),
+    "preview-fcattiswil": ("Jenny Ettle (JE-MI)", "02.11.2026 · 17:40 Uhr"),
+    "preview-innere-staerke": ("Jenny Ettle (JE-MI)", "03.11.2026 · 18:30 Uhr"),
+    "preview-innere-staerke-v2": ("Jenny Ettle (JE-MI)", "03.11.2026 · 18:30 Uhr"),
+    "preview-frees": ("Jenny Ettle (JE-MI)", "03.11.2026 · 21:30 Uhr"),
+    "preview-frees-v2": ("Jenny Ettle (JE-MI)", "03.11.2026 · 21:30 Uhr"),
+    "preview-herzensarbeit": ("Jenny Ettle (JE-MI)", "05.11.2026 · 11:00 Uhr"),
+    "preview-herzensarbeit-v2": ("Jenny Ettle (JE-MI)", "05.11.2026 · 11:00 Uhr"),
+    "preview-imp-marketing": ("David Hügli (Magnet XS)", "05.11.2026 · 12:35 Uhr"),
+    "preview-imp-marketing-v2": ("David Hügli (Magnet XS)", "05.11.2026 · 12:35 Uhr"),
+    "preview-joma": ("Jenny Ettle (JE-MI)", "05.11.2026 · 20:54 Uhr"),
+    "preview-joma-v2": ("Jenny Ettle (JE-MI)", "05.11.2026 · 20:54 Uhr"),
+}
+
+
+def _resolve_partner_and_submitted(folder: str) -> tuple[str, str]:
+    base_slug = re.sub(r"-(?:vollversion|vv|v1|v2)$", "", folder.replace("preview-", ""))
+    idx_file = BASE_DIR / "partner-jobs" / "index.json"
+    if idx_file.exists():
+        try:
+            for j in json.loads(idx_file.read_text(encoding="utf-8")):
+                jslug = str(j.get("slug") or "").strip().lower()
+                if jslug == base_slug:
+                    partner = str(j.get("created_by_name") or j.get("partner_name") or "").strip()
+                    if base_slug == "imp-marketing" or str(j.get("created_by") or "").lower() == "david":
+                        partner = "David Hügli (Magnet XS)"
+                    elif not partner or "jenny" in partner.lower():
+                        partner = "Jenny Ettle (JE-MI)"
+                    raw_ts = str(j.get("created_at") or "").strip()
+                    m = re.match(r"^(\d{4})-(\d{2})-(\d{2})[T\s](\d{2}):(\d{2})", raw_ts)
+                    if m:
+                        yyyy, mm, dd, hh, mi = m.groups()
+                        sub_str = f"{dd}.{mm}.{yyyy} · {hh}:{mi} Uhr"
+                    else:
+                        sub_str = raw_ts or FALLBACK_JOB_META.get(folder, ("Jenny Ettle (JE-MI)", "-"))[1]
+                    return partner, sub_str
+        except Exception:
+            pass
+    return FALLBACK_JOB_META.get(folder, ("Jenny Ettle (JE-MI)", "-"))
+
 
 def _ss(text: str) -> str:
     """Erzwingt 100 % Schweizer Rechtschreibung (ss statt Eszett)."""
@@ -606,10 +655,12 @@ def scan_site_assets(site_dir: Path) -> dict:
     # 2. BILDER_VERZEICHNIS.md schreiben
     total_mb = round(total_kb / 1024.0, 2)
     now_human = datetime.now().strftime("%d.%m.%Y %H:%M")
+    partner_name, submitted_at_str = _resolve_partner_and_submitted(folder)
     md_lines = [
         f"# Bilder-Verzeichnis & Cloudflare-Asset-Katalog — {company_name}",
         "",
         f"> **Mandant / Webseite:** {company_name} ({city})  ",
+        f"> **Angefordert von (Partner):** {partner_name} · **Eingereicht am:** {submitted_at_str}  ",
         f"> **Lokaler Ordner (VPS & Git):** `{folder}/`  ",
         f"> **Cloudflare-Basis-URL:** [{cf_short_base}/]({cf_base_url})  ",
         f"> **Bestand:** **{len(bilder)} Assets** ({total_mb:.2f} MB gesamt) · **🟢 {active_count} aktiv im HTML** · **⚪ {pool_count} frei im Bild-Pool** · **Externe Hotlinks: {len(external_hotlinks)}**  ",
@@ -677,6 +728,8 @@ def scan_site_assets(site_dir: Path) -> dict:
         "folder": folder,
         "company_name": company_name,
         "city": city,
+        "partner": partner_name,
+        "submitted_at": submitted_at_str,
         "cloudflare_base_url": cf_base_url,
         "cloudflare_short_base": cf_short_base,
         "total_assets": len(bilder),
@@ -724,18 +777,18 @@ def build_master_catalog_markdown(site_reports: list[dict]) -> str:
         "",
         "## Teil 1 — Gesamt-Übersichtstabelle aller 20 Webseiten",
         "",
-        "| Webseite / Kunde | Ordner (VPS & Git) | Cloudflare-Basis-URL | Bilder total | Aktiv im HTML | Frei im Pool | Externe Hotlinks | Gesamtgrösse |",
-        "|---|---|---|---:|---:|---:|---:|---:|",
+        "| Webseite / Kunde | Partner | Eingereicht am (Datum & Uhrzeit) | Ordner (VPS & Git) | Cloudflare-Basis-URL | Bilder total | Aktiv im HTML | Frei im Pool | Externe Hotlinks | Gesamtgrösse |",
+        "|---|---|---|---|---|---:|---:|---:|---:|---:|",
     ]
 
     for r in site_reports:
         cf_link = f"[{r['cloudflare_short_base']}/]({r['cloudflare_base_url']})"
         lines.append(
-            f"| **{r['company_name']}** ({r['city']}) | `{r['folder']}/` | {cf_link} | {r['total_assets']} | 🟢 {r['active_assets']} | ⚪ {r['pool_assets']} | {r['external_hotlinks']} | {r['total_mb']:.2f} MB |"
+            f"| **{r['company_name']}** ({r['city']}) | {r.get('partner', '-')} | {r.get('submitted_at', '-')} | `{r['folder']}/` | {cf_link} | {r['total_assets']} | 🟢 {r['active_assets']} | ⚪ {r['pool_assets']} | {r['external_hotlinks']} | {r['total_mb']:.2f} MB |"
         )
 
     lines.append(
-        f"| **TOTAL ({total_sites} Webseiten)** | `mxs-embed/*` | **Cloudflare Swiss Edge** | **{total_assets}** | **🟢 {total_active}** | **⚪ {total_pool}** | **{total_hotlinks}** | **{total_mb:.2f} MB** |"
+        f"| **TOTAL ({total_sites} Webseiten)** | **Alle Partner** | **—** | `mxs-embed/*` | **Cloudflare Swiss Edge** | **{total_assets}** | **🟢 {total_active}** | **⚪ {total_pool}** | **{total_hotlinks}** | **{total_mb:.2f} MB** |"
     )
 
     lines.extend(
@@ -782,6 +835,7 @@ def build_master_catalog_markdown(site_reports: list[dict]) -> str:
             [
                 f"### 3.{idx_site} {r['company_name']} (`{r['folder']}/`)",
                 "",
+                f"- **Angefordert von (Partner):** {r.get('partner', '-')} · **Eingereicht am:** {r.get('submitted_at', '-')}",
                 f"- **Cloudflare-Basis-URL:** [{r['cloudflare_short_base']}/]({r['cloudflare_base_url']})",
                 f"- **HTML-Seiten ({r['html_pages_count']}):** " + ", ".join(f"`{p}`" for p in r["html_pages"]),
                 f"- **Bilanz:** **{r['total_assets']} Dateien** ({r['total_mb']:.2f} MB) — **🟢 {r['active_assets']} aktiv im HTML** | **⚪ {r['pool_assets']} frei im Pool** | **Externe Hotlinks: {r['external_hotlinks']}**",

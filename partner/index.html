@@ -2710,6 +2710,14 @@
         }
       }
 
+      function formatSubmittedAt(rawTs) {
+        const s = String(rawTs || "").trim();
+        if (!s) return "";
+        const m = s.match(/^(\d{4})-(\d{2})-(\d{2})[T\s](\d{2}):(\d{2})/);
+        if (m) return m[3] + "." + m[2] + "." + m[1] + " · " + m[4] + ":" + m[5] + " Uhr";
+        return s;
+      }
+
       function renderListView(jobs) {
         jobs.forEach(function (job) {
           const isAct = job.is_active !== false;
@@ -2755,7 +2763,8 @@
           const compSub = document.createElement("div");
           compSub.className = "company-sub-line";
           const partnerDisplay = String(job.created_by || "").toLowerCase() === "david" ? "David Hügli (Magnet XS)" : "Jenny Ettle (JE-MI)";
-          compSub.textContent = (job.city ? job.city + " · " : "") + "Slug: " + baseSlug + " · " + partnerDisplay;
+          const subTimeStr = formatSubmittedAt(job.created_at);
+          compSub.textContent = (job.city ? job.city + " · " : "") + "Slug: " + baseSlug + " · " + partnerDisplay + (subTimeStr ? (" · Eingereicht: " + subTimeStr) : "");
           colComp.appendChild(compTitle);
           colComp.appendChild(compSub);
 
@@ -3041,7 +3050,8 @@
           const metaRow = document.createElement("div");
           metaRow.className = "job-meta-row";
           metaRow.style.marginTop = "4px";
-          metaRow.textContent = "Slug: " + (job.slug || "-") + " · Token: " + (job.access_token || "-") + " · Partner: " + partnerDisplay;
+          const cardSubTime = formatSubmittedAt(job.created_at);
+          metaRow.textContent = "Slug: " + (job.slug || "-") + " · Token: " + (job.access_token || "-") + " · Partner: " + partnerDisplay + (cardSubTime ? (" · Eingereicht: " + cardSubTime) : "");
 
           titleWrap.appendChild(title);
           titleWrap.appendChild(metaRow);

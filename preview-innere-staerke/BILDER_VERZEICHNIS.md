@@ -1,10 +1,11 @@
 # Bilder-Verzeichnis & Cloudflare-Asset-Katalog — Wüest + Paneduro — Innere Stärke (Vollversion)
 
 > **Mandant / Webseite:** Wüest + Paneduro — Innere Stärke (Vollversion) (Sursee LU)  
+> **Angefordert von (Partner):** Jenny Ettle (JE-MI) · **Eingereicht am:** 03.11.2026 · 18:30 Uhr  
 > **Lokaler Ordner (VPS & Git):** `preview-innere-staerke/`  
 > **Cloudflare-Basis-URL:** [vorschau.magnet-xs.ch/innere-staerke-vollversion/](https://vorschau.magnet-xs.ch/innere-staerke-vollversion/)  
 > **Bestand:** **41 Assets** (3.24 MB gesamt) · **🟢 33 aktiv im HTML** · **⚪ 8 frei im Bild-Pool** · **Externe Hotlinks: 0**  
-> **Letzte Aktualisierung:** 06.11.2026 13:30 Uhr (automatisch generiert via `webpilot_asset_catalog.py`)
+> **Letzte Aktualisierung:** 06.11.2026 13:58 Uhr (automatisch generiert via `webpilot_asset_catalog.py`)
 
 ---
 

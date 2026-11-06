@@ -7,7 +7,7 @@ status: aktiv
 
 # WebPilot Bilder- und Cloudflare-Asset-Katalog (Master-Verzeichnis)
 
-> **Stand:** 06.11.2026 13:30 Uhr | **Umfang:** **20 Webseiten-Ordner** mit insgesamt **653 lokalen Medien-Assets** (**71.62 MB**)  
+> **Stand:** 06.11.2026 13:58 Uhr | **Umfang:** **20 Webseiten-Ordner** mit insgesamt **653 lokalen Medien-Assets** (**71.62 MB**)  
 > **Verwendung:** **🟢 467 aktiv im HTML eingebunden** · **⚪ 186 frei im Bild-Pool verfügbar** · **Externe Hotlinks: 0 (100 % lokal auf Cloudflare Edge)**  
 > **Single Source of Truth:** Automatisch generiert und nach jedem Bild-Upload, Bild-Tausch, Bild-Löschen oder Job-Abschluss live aktualisiert durch `scripts/webpilot_asset_catalog.py`.
 
@@ -15,29 +15,29 @@ status: aktiv
 
 ## Teil 1 — Gesamt-Übersichtstabelle aller 20 Webseiten
 
-| Webseite / Kunde | Ordner (VPS & Git) | Cloudflare-Basis-URL | Bilder total | Aktiv im HTML | Frei im Pool | Externe Hotlinks | Gesamtgrösse |
-|---|---|---|---:|---:|---:|---:|---:|
-| **Hiltbrand Gebäudehüllen AG (Karriere-Cockpit)** (Krattigen BE) | `hiltbrand/` | [embed.magnet-xs.ch/hiltbrand/](https://embed.magnet-xs.ch/hiltbrand/) | 40 | 🟢 17 | ⚪ 23 | 0 | 7.82 MB |
-| **Birchmeier-Hohler GmbH** (Bremgarten AG) | `preview-birchmeier/` | [vorschau.magnet-xs.ch/birchmeier/](https://vorschau.magnet-xs.ch/birchmeier/) | 13 | 🟢 5 | ⚪ 8 | 0 | 2.72 MB |
-| **FC Attiswil** (Attiswil BE) | `preview-fcattiswil/` | [vorschau.magnet-xs.ch/fcattiswil/](https://vorschau.magnet-xs.ch/fcattiswil/) | 36 | 🟢 34 | ⚪ 2 | 0 | 1.00 MB |
-| **FC Schlieren (Vollversion)** (Schlieren ZH) | `preview-fcschlieren/` | [vorschau.magnet-xs.ch/fcschlieren-vollversion/](https://vorschau.magnet-xs.ch/fcschlieren-vollversion/) | 39 | 🟢 34 | ⚪ 5 | 0 | 1.99 MB |
-| **FC Schlieren (Zeigeversion v2)** (Schlieren ZH) | `preview-fcschlieren-v2/` | [vorschau.magnet-xs.ch/fcschlieren-v2/](https://vorschau.magnet-xs.ch/fcschlieren-v2/) | 39 | 🟢 30 | ⚪ 9 | 0 | 1.99 MB |
-| **Free's — Studio für Textildesign & Stickerei (Vollversion)** (Niederrohrdorf AG) | `preview-frees/` | [vorschau.magnet-xs.ch/frees-vollversion/](https://vorschau.magnet-xs.ch/frees-vollversion/) | 23 | 🟢 20 | ⚪ 3 | 0 | 1.66 MB |
-| **Free's — Studio für Textildesign & Stickerei (Zeigeversion v2)** (Niederrohrdorf AG) | `preview-frees-v2/` | [vorschau.magnet-xs.ch/frees-v2/](https://vorschau.magnet-xs.ch/frees-v2/) | 23 | 🟢 6 | ⚪ 17 | 0 | 1.66 MB |
-| **HER11 — Frauenfussball-Förderung** (Zürich ZH) | `preview-her11/` | [vorschau.magnet-xs.ch/her11/](https://vorschau.magnet-xs.ch/her11/) | 22 | 🟢 10 | ⚪ 12 | 0 | 2.97 MB |
-| **Herzensarbeit — Anne-Katrin Koch (Vollversion)** (Härkingen SO) | `preview-herzensarbeit/` | [vorschau.magnet-xs.ch/herzensarbeit-vollversion/](https://vorschau.magnet-xs.ch/herzensarbeit-vollversion/) | 27 | 🟢 19 | ⚪ 8 | 0 | 4.65 MB |
-| **Herzensarbeit — Anne-Katrin Koch (Zeigeversion v2)** (Härkingen SO) | `preview-herzensarbeit-v2/` | [vorschau.magnet-xs.ch/herzensarbeit-v2/](https://vorschau.magnet-xs.ch/herzensarbeit-v2/) | 27 | 🟢 11 | ⚪ 16 | 0 | 4.65 MB |
-| **Hiltbrand Gebäudehüllen AG (WebPilot)** (Krattigen BE) | `preview-hiltbrand/` | [vorschau.magnet-xs.ch/hiltbrand/](https://vorschau.magnet-xs.ch/hiltbrand/) | 28 | 🟢 10 | ⚪ 18 | 0 | 8.15 MB |
-| **Hochuli Schlossrued AG** (Schlossrued AG) | `preview-hochuli/` | [vorschau.magnet-xs.ch/hochuli/](https://vorschau.magnet-xs.ch/hochuli/) | 41 | 🟢 39 | ⚪ 2 | 0 | 3.95 MB |
-| **IMP GmbH — Matthias Iseli (Vollversion)** (Obersteckholz BE) | `preview-imp-marketing/` | [vorschau.magnet-xs.ch/imp-marketing-vollversion/](https://vorschau.magnet-xs.ch/imp-marketing-vollversion/) | 30 | 🟢 26 | ⚪ 4 | 0 | 5.39 MB |
-| **IMP GmbH — Matthias Iseli (Zeigeversion v2)** (Obersteckholz BE) | `preview-imp-marketing-v2/` | [vorschau.magnet-xs.ch/imp-marketing-v2/](https://vorschau.magnet-xs.ch/imp-marketing-v2/) | 30 | 🟢 10 | ⚪ 20 | 0 | 5.39 MB |
-| **Wüest + Paneduro — Innere Stärke (Vollversion)** (Sursee LU) | `preview-innere-staerke/` | [vorschau.magnet-xs.ch/innere-staerke-vollversion/](https://vorschau.magnet-xs.ch/innere-staerke-vollversion/) | 41 | 🟢 33 | ⚪ 8 | 0 | 3.24 MB |
-| **Wüest + Paneduro — Innere Stärke (Zeigeversion v2)** (Sursee LU) | `preview-innere-staerke-v2/` | [vorschau.magnet-xs.ch/innere-staerke-v2/](https://vorschau.magnet-xs.ch/innere-staerke-v2/) | 41 | 🟢 27 | ⚪ 14 | 0 | 3.24 MB |
-| **JOMA Solar GmbH (Vollversion)** (Wettingen AG) | `preview-joma/` | [vorschau.magnet-xs.ch/joma-vollversion/](https://vorschau.magnet-xs.ch/joma-vollversion/) | 27 | 🟢 26 | ⚪ 1 | 0 | 3.50 MB |
-| **JOMA Solar GmbH (Zeigeversion v2)** (Wettingen AG) | `preview-joma-v2/` | [vorschau.magnet-xs.ch/joma-v2/](https://vorschau.magnet-xs.ch/joma-v2/) | 27 | 🟢 18 | ⚪ 9 | 0 | 3.50 MB |
-| **SC Fulenbach** (Fulenbach SO) | `preview-scfulenbach/` | [vorschau.magnet-xs.ch/scfulenbach/](https://vorschau.magnet-xs.ch/scfulenbach/) | 95 | 🟢 91 | ⚪ 4 | 0 | 3.14 MB |
-| **WebPilot Plattform · magnet-Xs gmbh** (Zofingen AG) | `webpilot/` | [vorschau.magnet-xs.ch/webpilot/](https://vorschau.magnet-xs.ch/webpilot/) | 4 | 🟢 1 | ⚪ 3 | 0 | 1.01 MB |
-| **TOTAL (20 Webseiten)** | `mxs-embed/*` | **Cloudflare Swiss Edge** | **653** | **🟢 467** | **⚪ 186** | **0** | **71.62 MB** |
+| Webseite / Kunde | Partner | Eingereicht am (Datum & Uhrzeit) | Ordner (VPS & Git) | Cloudflare-Basis-URL | Bilder total | Aktiv im HTML | Frei im Pool | Externe Hotlinks | Gesamtgrösse |
+|---|---|---|---|---|---:|---:|---:|---:|---:|
+| **Hiltbrand Gebäudehüllen AG (Karriere-Cockpit)** (Krattigen BE) | David Hügli (Magnet XS · Referenz) | 29.09.2026 · 15:31 Uhr | `hiltbrand/` | [embed.magnet-xs.ch/hiltbrand/](https://embed.magnet-xs.ch/hiltbrand/) | 40 | 🟢 17 | ⚪ 23 | 0 | 7.82 MB |
+| **Birchmeier-Hohler GmbH** (Bremgarten AG) | David Hügli (Magnet XS · Referenz) | 04.10.2026 · 11:02 Uhr | `preview-birchmeier/` | [vorschau.magnet-xs.ch/birchmeier/](https://vorschau.magnet-xs.ch/birchmeier/) | 13 | 🟢 5 | ⚪ 8 | 0 | 2.72 MB |
+| **FC Attiswil** (Attiswil BE) | Jenny Ettle (JE-MI) | 02.11.2026 · 17:40 Uhr | `preview-fcattiswil/` | [vorschau.magnet-xs.ch/fcattiswil/](https://vorschau.magnet-xs.ch/fcattiswil/) | 36 | 🟢 34 | ⚪ 2 | 0 | 1.00 MB |
+| **FC Schlieren (Vollversion)** (Schlieren ZH) | Jenny Ettle (JE-MI) | 02.11.2026 · 17:00 Uhr | `preview-fcschlieren/` | [vorschau.magnet-xs.ch/fcschlieren-vollversion/](https://vorschau.magnet-xs.ch/fcschlieren-vollversion/) | 39 | 🟢 34 | ⚪ 5 | 0 | 1.99 MB |
+| **FC Schlieren (Zeigeversion v2)** (Schlieren ZH) | Jenny Ettle (JE-MI) | 02.11.2026 · 17:00 Uhr | `preview-fcschlieren-v2/` | [vorschau.magnet-xs.ch/fcschlieren-v2/](https://vorschau.magnet-xs.ch/fcschlieren-v2/) | 39 | 🟢 30 | ⚪ 9 | 0 | 1.99 MB |
+| **Free's — Studio für Textildesign & Stickerei (Vollversion)** (Niederrohrdorf AG) | Jenny Ettle (JE-MI) | 03.11.2026 · 21:30 Uhr | `preview-frees/` | [vorschau.magnet-xs.ch/frees-vollversion/](https://vorschau.magnet-xs.ch/frees-vollversion/) | 23 | 🟢 20 | ⚪ 3 | 0 | 1.66 MB |
+| **Free's — Studio für Textildesign & Stickerei (Zeigeversion v2)** (Niederrohrdorf AG) | Jenny Ettle (JE-MI) | 03.11.2026 · 21:30 Uhr | `preview-frees-v2/` | [vorschau.magnet-xs.ch/frees-v2/](https://vorschau.magnet-xs.ch/frees-v2/) | 23 | 🟢 6 | ⚪ 17 | 0 | 1.66 MB |
+| **HER11 — Frauenfussball-Förderung** (Zürich ZH) | Jenny Ettle (JE-MI) | 30.10.2026 · 16:00 Uhr | `preview-her11/` | [vorschau.magnet-xs.ch/her11/](https://vorschau.magnet-xs.ch/her11/) | 22 | 🟢 10 | ⚪ 12 | 0 | 2.97 MB |
+| **Herzensarbeit — Anne-Katrin Koch (Vollversion)** (Härkingen SO) | Jenny Ettle (JE-MI) | 05.11.2026 · 11:00 Uhr | `preview-herzensarbeit/` | [vorschau.magnet-xs.ch/herzensarbeit-vollversion/](https://vorschau.magnet-xs.ch/herzensarbeit-vollversion/) | 27 | 🟢 19 | ⚪ 8 | 0 | 4.65 MB |
+| **Herzensarbeit — Anne-Katrin Koch (Zeigeversion v2)** (Härkingen SO) | Jenny Ettle (JE-MI) | 05.11.2026 · 11:00 Uhr | `preview-herzensarbeit-v2/` | [vorschau.magnet-xs.ch/herzensarbeit-v2/](https://vorschau.magnet-xs.ch/herzensarbeit-v2/) | 27 | 🟢 11 | ⚪ 16 | 0 | 4.65 MB |
+| **Hiltbrand Gebäudehüllen AG (WebPilot)** (Krattigen BE) | David Hügli (Magnet XS · Referenz) | 04.10.2026 · 11:02 Uhr | `preview-hiltbrand/` | [vorschau.magnet-xs.ch/hiltbrand/](https://vorschau.magnet-xs.ch/hiltbrand/) | 28 | 🟢 10 | ⚪ 18 | 0 | 8.15 MB |
+| **Hochuli Schlossrued AG** (Schlossrued AG) | David Hügli (Magnet XS · Referenz) | 29.10.2026 · 13:08 Uhr | `preview-hochuli/` | [vorschau.magnet-xs.ch/hochuli/](https://vorschau.magnet-xs.ch/hochuli/) | 41 | 🟢 39 | ⚪ 2 | 0 | 3.95 MB |
+| **IMP GmbH — Matthias Iseli (Vollversion)** (Obersteckholz BE) | David Hügli (Magnet XS) | 05.11.2026 · 12:35 Uhr | `preview-imp-marketing/` | [vorschau.magnet-xs.ch/imp-marketing-vollversion/](https://vorschau.magnet-xs.ch/imp-marketing-vollversion/) | 30 | 🟢 26 | ⚪ 4 | 0 | 5.39 MB |
+| **IMP GmbH — Matthias Iseli (Zeigeversion v2)** (Obersteckholz BE) | David Hügli (Magnet XS) | 05.11.2026 · 12:35 Uhr | `preview-imp-marketing-v2/` | [vorschau.magnet-xs.ch/imp-marketing-v2/](https://vorschau.magnet-xs.ch/imp-marketing-v2/) | 30 | 🟢 10 | ⚪ 20 | 0 | 5.39 MB |
+| **Wüest + Paneduro — Innere Stärke (Vollversion)** (Sursee LU) | Jenny Ettle (JE-MI) | 03.11.2026 · 18:30 Uhr | `preview-innere-staerke/` | [vorschau.magnet-xs.ch/innere-staerke-vollversion/](https://vorschau.magnet-xs.ch/innere-staerke-vollversion/) | 41 | 🟢 33 | ⚪ 8 | 0 | 3.24 MB |
+| **Wüest + Paneduro — Innere Stärke (Zeigeversion v2)** (Sursee LU) | Jenny Ettle (JE-MI) | 03.11.2026 · 18:30 Uhr | `preview-innere-staerke-v2/` | [vorschau.magnet-xs.ch/innere-staerke-v2/](https://vorschau.magnet-xs.ch/innere-staerke-v2/) | 41 | 🟢 27 | ⚪ 14 | 0 | 3.24 MB |
+| **JOMA Solar GmbH (Vollversion)** (Wettingen AG) | Jenny Ettle (JE-MI) | 05.11.2026 · 20:54 Uhr | `preview-joma/` | [vorschau.magnet-xs.ch/joma-vollversion/](https://vorschau.magnet-xs.ch/joma-vollversion/) | 27 | 🟢 26 | ⚪ 1 | 0 | 3.50 MB |
+| **JOMA Solar GmbH (Zeigeversion v2)** (Wettingen AG) | Jenny Ettle (JE-MI) | 05.11.2026 · 20:54 Uhr | `preview-joma-v2/` | [vorschau.magnet-xs.ch/joma-v2/](https://vorschau.magnet-xs.ch/joma-v2/) | 27 | 🟢 18 | ⚪ 9 | 0 | 3.50 MB |
+| **SC Fulenbach** (Fulenbach SO) | Jenny Ettle (JE-MI) | 02.11.2026 · 17:20 Uhr | `preview-scfulenbach/` | [vorschau.magnet-xs.ch/scfulenbach/](https://vorschau.magnet-xs.ch/scfulenbach/) | 95 | 🟢 91 | ⚪ 4 | 0 | 3.14 MB |
+| **WebPilot Plattform · magnet-Xs gmbh** (Zofingen AG) | David Hügli (Magnet XS · Produktseite) | 02.10.2026 · 20:14 Uhr | `webpilot/` | [vorschau.magnet-xs.ch/webpilot/](https://vorschau.magnet-xs.ch/webpilot/) | 4 | 🟢 1 | ⚪ 3 | 0 | 1.01 MB |
+| **TOTAL (20 Webseiten)** | **Alle Partner** | **—** | `mxs-embed/*` | **Cloudflare Swiss Edge** | **653** | **🟢 467** | **⚪ 186** | **0** | **71.62 MB** |
 
 ---
 
@@ -74,6 +74,7 @@ Alle neu hochgeladenen oder importierten Bilder und Videos werden durch `publish
 
 ### 3.1 Hiltbrand Gebäudehüllen AG (Karriere-Cockpit) (`hiltbrand/`)
 
+- **Angefordert von (Partner):** David Hügli (Magnet XS · Referenz) · **Eingereicht am:** 29.09.2026 · 15:31 Uhr
 - **Cloudflare-Basis-URL:** [embed.magnet-xs.ch/hiltbrand/](https://embed.magnet-xs.ch/hiltbrand/)
 - **HTML-Seiten (5):** `Hiltbrand_Dachdecker.html`, `Hiltbrand_Dachdecker_Pragmatisch.html`, `Zurbuchen_Holzbauer_November.html`, `index.html`, `zurbuchen_Holzbauer.html`
 - **Bilanz:** **40 Dateien** (7.82 MB) — **🟢 17 aktiv im HTML** | **⚪ 23 frei im Pool** | **Externe Hotlinks: 0**
@@ -123,6 +124,7 @@ Alle neu hochgeladenen oder importierten Bilder und Videos werden durch `publish
 
 ### 3.2 Birchmeier-Hohler GmbH (`preview-birchmeier/`)
 
+- **Angefordert von (Partner):** David Hügli (Magnet XS · Referenz) · **Eingereicht am:** 04.10.2026 · 11:02 Uhr
 - **Cloudflare-Basis-URL:** [vorschau.magnet-xs.ch/birchmeier/](https://vorschau.magnet-xs.ch/birchmeier/)
 - **HTML-Seiten (4):** `index.html`, `karriere.html`, `kontakt.html`, `team.html`
 - **Bilanz:** **13 Dateien** (2.72 MB) — **🟢 5 aktiv im HTML** | **⚪ 8 frei im Pool** | **Externe Hotlinks: 0**
@@ -145,6 +147,7 @@ Alle neu hochgeladenen oder importierten Bilder und Videos werden durch `publish
 
 ### 3.3 FC Attiswil (`preview-fcattiswil/`)
 
+- **Angefordert von (Partner):** Jenny Ettle (JE-MI) · **Eingereicht am:** 02.11.2026 · 17:40 Uhr
 - **Cloudflare-Basis-URL:** [vorschau.magnet-xs.ch/fcattiswil/](https://vorschau.magnet-xs.ch/fcattiswil/)
 - **HTML-Seiten (4):** `herren-1.html`, `index.html`, `kontakt.html`, `team-update.html`
 - **Bilanz:** **36 Dateien** (1.00 MB) — **🟢 34 aktiv im HTML** | **⚪ 2 frei im Pool** | **Externe Hotlinks: 0**
@@ -190,6 +193,7 @@ Alle neu hochgeladenen oder importierten Bilder und Videos werden durch `publish
 
 ### 3.4 FC Schlieren (Vollversion) (`preview-fcschlieren/`)
 
+- **Angefordert von (Partner):** Jenny Ettle (JE-MI) · **Eingereicht am:** 02.11.2026 · 17:00 Uhr
 - **Cloudflare-Basis-URL:** [vorschau.magnet-xs.ch/fcschlieren-vollversion/](https://vorschau.magnet-xs.ch/fcschlieren-vollversion/)
 - **HTML-Seiten (4):** `herren-1.html`, `index.html`, `kontakt.html`, `team-update.html`
 - **Bilanz:** **39 Dateien** (1.99 MB) — **🟢 34 aktiv im HTML** | **⚪ 5 frei im Pool** | **Externe Hotlinks: 0**
@@ -238,6 +242,7 @@ Alle neu hochgeladenen oder importierten Bilder und Videos werden durch `publish
 
 ### 3.5 FC Schlieren (Zeigeversion v2) (`preview-fcschlieren-v2/`)
 
+- **Angefordert von (Partner):** Jenny Ettle (JE-MI) · **Eingereicht am:** 02.11.2026 · 17:00 Uhr
 - **Cloudflare-Basis-URL:** [vorschau.magnet-xs.ch/fcschlieren-v2/](https://vorschau.magnet-xs.ch/fcschlieren-v2/)
 - **HTML-Seiten (4):** `herren-1.html`, `index.html`, `kontakt.html`, `team-update.html`
 - **Bilanz:** **39 Dateien** (1.99 MB) — **🟢 30 aktiv im HTML** | **⚪ 9 frei im Pool** | **Externe Hotlinks: 0**
@@ -286,6 +291,7 @@ Alle neu hochgeladenen oder importierten Bilder und Videos werden durch `publish
 
 ### 3.6 Free's — Studio für Textildesign & Stickerei (Vollversion) (`preview-frees/`)
 
+- **Angefordert von (Partner):** Jenny Ettle (JE-MI) · **Eingereicht am:** 03.11.2026 · 21:30 Uhr
 - **Cloudflare-Basis-URL:** [vorschau.magnet-xs.ch/frees-vollversion/](https://vorschau.magnet-xs.ch/frees-vollversion/)
 - **HTML-Seiten (5):** `dienstleistungen.html`, `index.html`, `kontakt.html`, `profil.html`, `textilsortiment.html`
 - **Bilanz:** **23 Dateien** (1.66 MB) — **🟢 20 aktiv im HTML** | **⚪ 3 frei im Pool** | **Externe Hotlinks: 0**
@@ -318,6 +324,7 @@ Alle neu hochgeladenen oder importierten Bilder und Videos werden durch `publish
 
 ### 3.7 Free's — Studio für Textildesign & Stickerei (Zeigeversion v2) (`preview-frees-v2/`)
 
+- **Angefordert von (Partner):** Jenny Ettle (JE-MI) · **Eingereicht am:** 03.11.2026 · 21:30 Uhr
 - **Cloudflare-Basis-URL:** [vorschau.magnet-xs.ch/frees-v2/](https://vorschau.magnet-xs.ch/frees-v2/)
 - **HTML-Seiten (2):** `index.html`, `kontakt.html`
 - **Bilanz:** **23 Dateien** (1.66 MB) — **🟢 6 aktiv im HTML** | **⚪ 17 frei im Pool** | **Externe Hotlinks: 0**
@@ -350,6 +357,7 @@ Alle neu hochgeladenen oder importierten Bilder und Videos werden durch `publish
 
 ### 3.8 HER11 — Frauenfussball-Förderung (`preview-her11/`)
 
+- **Angefordert von (Partner):** Jenny Ettle (JE-MI) · **Eingereicht am:** 30.10.2026 · 16:00 Uhr
 - **Cloudflare-Basis-URL:** [vorschau.magnet-xs.ch/her11/](https://vorschau.magnet-xs.ch/her11/)
 - **HTML-Seiten (6):** `ausbildung.html`, `begleitung.html`, `index.html`, `kontakt.html`, `mach-mit.html`, `ueber-uns.html`
 - **Bilanz:** **22 Dateien** (2.97 MB) — **🟢 10 aktiv im HTML** | **⚪ 12 frei im Pool** | **Externe Hotlinks: 0**
@@ -381,6 +389,7 @@ Alle neu hochgeladenen oder importierten Bilder und Videos werden durch `publish
 
 ### 3.9 Herzensarbeit — Anne-Katrin Koch (Vollversion) (`preview-herzensarbeit/`)
 
+- **Angefordert von (Partner):** Jenny Ettle (JE-MI) · **Eingereicht am:** 05.11.2026 · 11:00 Uhr
 - **Cloudflare-Basis-URL:** [vorschau.magnet-xs.ch/herzensarbeit-vollversion/](https://vorschau.magnet-xs.ch/herzensarbeit-vollversion/)
 - **HTML-Seiten (5):** `angebot.html`, `index.html`, `kontakt.html`, `ueber-mich.html`, `workshops.html`
 - **Bilanz:** **27 Dateien** (4.65 MB) — **🟢 19 aktiv im HTML** | **⚪ 8 frei im Pool** | **Externe Hotlinks: 0**
@@ -417,6 +426,7 @@ Alle neu hochgeladenen oder importierten Bilder und Videos werden durch `publish
 
 ### 3.10 Herzensarbeit — Anne-Katrin Koch (Zeigeversion v2) (`preview-herzensarbeit-v2/`)
 
+- **Angefordert von (Partner):** Jenny Ettle (JE-MI) · **Eingereicht am:** 05.11.2026 · 11:00 Uhr
 - **Cloudflare-Basis-URL:** [vorschau.magnet-xs.ch/herzensarbeit-v2/](https://vorschau.magnet-xs.ch/herzensarbeit-v2/)
 - **HTML-Seiten (2):** `index.html`, `kontakt.html`
 - **Bilanz:** **27 Dateien** (4.65 MB) — **🟢 11 aktiv im HTML** | **⚪ 16 frei im Pool** | **Externe Hotlinks: 0**
@@ -453,6 +463,7 @@ Alle neu hochgeladenen oder importierten Bilder und Videos werden durch `publish
 
 ### 3.11 Hiltbrand Gebäudehüllen AG (WebPilot) (`preview-hiltbrand/`)
 
+- **Angefordert von (Partner):** David Hügli (Magnet XS · Referenz) · **Eingereicht am:** 04.10.2026 · 11:02 Uhr
 - **Cloudflare-Basis-URL:** [vorschau.magnet-xs.ch/hiltbrand/](https://vorschau.magnet-xs.ch/hiltbrand/)
 - **HTML-Seiten (5):** `index.html`, `karriere.html`, `kontakt.html`, `onboarding.html`, `team.html`
 - **Bilanz:** **28 Dateien** (8.15 MB) — **🟢 10 aktiv im HTML** | **⚪ 18 frei im Pool** | **Externe Hotlinks: 0**
@@ -490,6 +501,7 @@ Alle neu hochgeladenen oder importierten Bilder und Videos werden durch `publish
 
 ### 3.12 Hochuli Schlossrued AG (`preview-hochuli/`)
 
+- **Angefordert von (Partner):** David Hügli (Magnet XS · Referenz) · **Eingereicht am:** 29.10.2026 · 13:08 Uhr
 - **Cloudflare-Basis-URL:** [vorschau.magnet-xs.ch/hochuli/](https://vorschau.magnet-xs.ch/hochuli/)
 - **HTML-Seiten (4):** `index.html`, `karriere.html`, `kontakt.html`, `team.html`
 - **Bilanz:** **41 Dateien** (3.95 MB) — **🟢 39 aktiv im HTML** | **⚪ 2 frei im Pool** | **Externe Hotlinks: 0**
@@ -540,6 +552,7 @@ Alle neu hochgeladenen oder importierten Bilder und Videos werden durch `publish
 
 ### 3.13 IMP GmbH — Matthias Iseli (Vollversion) (`preview-imp-marketing/`)
 
+- **Angefordert von (Partner):** David Hügli (Magnet XS) · **Eingereicht am:** 05.11.2026 · 12:35 Uhr
 - **Cloudflare-Basis-URL:** [vorschau.magnet-xs.ch/imp-marketing-vollversion/](https://vorschau.magnet-xs.ch/imp-marketing-vollversion/)
 - **HTML-Seiten (5):** `index.html`, `kontakt.html`, `leistungen.html`, `methode.html`, `ueber-uns.html`
 - **Bilanz:** **30 Dateien** (5.39 MB) — **🟢 26 aktiv im HTML** | **⚪ 4 frei im Pool** | **Externe Hotlinks: 0**
@@ -579,6 +592,7 @@ Alle neu hochgeladenen oder importierten Bilder und Videos werden durch `publish
 
 ### 3.14 IMP GmbH — Matthias Iseli (Zeigeversion v2) (`preview-imp-marketing-v2/`)
 
+- **Angefordert von (Partner):** David Hügli (Magnet XS) · **Eingereicht am:** 05.11.2026 · 12:35 Uhr
 - **Cloudflare-Basis-URL:** [vorschau.magnet-xs.ch/imp-marketing-v2/](https://vorschau.magnet-xs.ch/imp-marketing-v2/)
 - **HTML-Seiten (5):** `index.html`, `kontakt.html`, `leistungen.html`, `methode.html`, `ueber-uns.html`
 - **Bilanz:** **30 Dateien** (5.39 MB) — **🟢 10 aktiv im HTML** | **⚪ 20 frei im Pool** | **Externe Hotlinks: 0**
@@ -618,6 +632,7 @@ Alle neu hochgeladenen oder importierten Bilder und Videos werden durch `publish
 
 ### 3.15 Wüest + Paneduro — Innere Stärke (Vollversion) (`preview-innere-staerke/`)
 
+- **Angefordert von (Partner):** Jenny Ettle (JE-MI) · **Eingereicht am:** 03.11.2026 · 18:30 Uhr
 - **Cloudflare-Basis-URL:** [vorschau.magnet-xs.ch/innere-staerke-vollversion/](https://vorschau.magnet-xs.ch/innere-staerke-vollversion/)
 - **HTML-Seiten (5):** `angebot.html`, `index.html`, `kontakt.html`, `referenzen.html`, `ueber-uns.html`
 - **Bilanz:** **41 Dateien** (3.24 MB) — **🟢 33 aktiv im HTML** | **⚪ 8 frei im Pool** | **Externe Hotlinks: 0**
@@ -668,6 +683,7 @@ Alle neu hochgeladenen oder importierten Bilder und Videos werden durch `publish
 
 ### 3.16 Wüest + Paneduro — Innere Stärke (Zeigeversion v2) (`preview-innere-staerke-v2/`)
 
+- **Angefordert von (Partner):** Jenny Ettle (JE-MI) · **Eingereicht am:** 03.11.2026 · 18:30 Uhr
 - **Cloudflare-Basis-URL:** [vorschau.magnet-xs.ch/innere-staerke-v2/](https://vorschau.magnet-xs.ch/innere-staerke-v2/)
 - **HTML-Seiten (2):** `index.html`, `kontakt.html`
 - **Bilanz:** **41 Dateien** (3.24 MB) — **🟢 27 aktiv im HTML** | **⚪ 14 frei im Pool** | **Externe Hotlinks: 0**
@@ -718,6 +734,7 @@ Alle neu hochgeladenen oder importierten Bilder und Videos werden durch `publish
 
 ### 3.17 JOMA Solar GmbH (Vollversion) (`preview-joma/`)
 
+- **Angefordert von (Partner):** Jenny Ettle (JE-MI) · **Eingereicht am:** 05.11.2026 · 20:54 Uhr
 - **Cloudflare-Basis-URL:** [vorschau.magnet-xs.ch/joma-vollversion/](https://vorschau.magnet-xs.ch/joma-vollversion/)
 - **HTML-Seiten (5):** `index.html`, `kontakt.html`, `leistungen.html`, `referenzen.html`, `ueber-uns.html`
 - **Bilanz:** **27 Dateien** (3.50 MB) — **🟢 26 aktiv im HTML** | **⚪ 1 frei im Pool** | **Externe Hotlinks: 0**
@@ -754,6 +771,7 @@ Alle neu hochgeladenen oder importierten Bilder und Videos werden durch `publish
 
 ### 3.18 JOMA Solar GmbH (Zeigeversion v2) (`preview-joma-v2/`)
 
+- **Angefordert von (Partner):** Jenny Ettle (JE-MI) · **Eingereicht am:** 05.11.2026 · 20:54 Uhr
 - **Cloudflare-Basis-URL:** [vorschau.magnet-xs.ch/joma-v2/](https://vorschau.magnet-xs.ch/joma-v2/)
 - **HTML-Seiten (2):** `index.html`, `kontakt.html`
 - **Bilanz:** **27 Dateien** (3.50 MB) — **🟢 18 aktiv im HTML** | **⚪ 9 frei im Pool** | **Externe Hotlinks: 0**
@@ -790,6 +808,7 @@ Alle neu hochgeladenen oder importierten Bilder und Videos werden durch `publish
 
 ### 3.19 SC Fulenbach (`preview-scfulenbach/`)
 
+- **Angefordert von (Partner):** Jenny Ettle (JE-MI) · **Eingereicht am:** 02.11.2026 · 17:20 Uhr
 - **Cloudflare-Basis-URL:** [vorschau.magnet-xs.ch/scfulenbach/](https://vorschau.magnet-xs.ch/scfulenbach/)
 - **HTML-Seiten (4):** `herren-1.html`, `index.html`, `kontakt.html`, `team-update.html`
 - **Bilanz:** **95 Dateien** (3.14 MB) — **🟢 91 aktiv im HTML** | **⚪ 4 frei im Pool** | **Externe Hotlinks: 0**
@@ -894,6 +913,7 @@ Alle neu hochgeladenen oder importierten Bilder und Videos werden durch `publish
 
 ### 3.20 WebPilot Plattform · magnet-Xs gmbh (`webpilot/`)
 
+- **Angefordert von (Partner):** David Hügli (Magnet XS · Produktseite) · **Eingereicht am:** 02.10.2026 · 20:14 Uhr
 - **Cloudflare-Basis-URL:** [vorschau.magnet-xs.ch/webpilot/](https://vorschau.magnet-xs.ch/webpilot/)
 - **HTML-Seiten (5):** `angebot.html`, `index.html`, `kontakt.html`, `technologie.html`, `ueber-uns.html`
 - **Bilanz:** **4 Dateien** (1.01 MB) — **🟢 1 aktiv im HTML** | **⚪ 3 frei im Pool** | **Externe Hotlinks: 0**

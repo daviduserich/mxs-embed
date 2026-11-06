@@ -1,10 +1,11 @@
 # Bilder-Verzeichnis & Cloudflare-Asset-Katalog — IMP GmbH — Matthias Iseli (Zeigeversion v2)
 
 > **Mandant / Webseite:** IMP GmbH — Matthias Iseli (Zeigeversion v2) (Obersteckholz BE)  
+> **Angefordert von (Partner):** David Hügli (Magnet XS) · **Eingereicht am:** 05.11.2026 · 12:35 Uhr  
 > **Lokaler Ordner (VPS & Git):** `preview-imp-marketing-v2/`  
 > **Cloudflare-Basis-URL:** [vorschau.magnet-xs.ch/imp-marketing-v2/](https://vorschau.magnet-xs.ch/imp-marketing-v2/)  
 > **Bestand:** **30 Assets** (5.39 MB gesamt) · **🟢 10 aktiv im HTML** · **⚪ 20 frei im Bild-Pool** · **Externe Hotlinks: 0**  
-> **Letzte Aktualisierung:** 06.11.2026 13:30 Uhr (automatisch generiert via `webpilot_asset_catalog.py`)
+> **Letzte Aktualisierung:** 06.11.2026 13:58 Uhr (automatisch generiert via `webpilot_asset_catalog.py`)
 
 ---
 

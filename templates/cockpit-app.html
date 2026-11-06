@@ -5345,12 +5345,12 @@ body.acp-cockpit-light-mode #acp-inline-edit-dock {
             <div class="acp-color-row-top">
               <div>
                 <div class="acp-color-row-label">1. Primär- &amp; Akzentfarbe (Buttons, Kicker, Links)</div>
-                <div class="acp-color-row-desc">Steuert Haupt-Buttons, Marken-Kicker, Badges und Akzente (<code>--primary</code> / <code>--gold</code>)</div>
+                <div class="acp-color-row-desc">Steuert Haupt-Buttons, Marken-Kicker, Badges und Akzente (<code>--primary</code> / <code>--gold</code> / <code>--rot</code>)</div>
               </div>
             </div>
             <div class="acp-color-controls">
-              <input type="color" id="acp-col-picker-primary" class="acp-color-picker-input" value="#9b2c47" oninput="acpOnColorInput('primary', this.value)" aria-label="Primärfarbe wählen">
-              <input type="text" id="acp-col-hex-primary" class="acp-color-hex-input" value="#9b2c47" maxlength="7" oninput="acpOnHexInput('primary', this.value)" aria-label="Primärfarbe Hex-Code">
+              <input type="color" id="acp-col-picker-primary" class="acp-color-picker-input" value="#8c6747" oninput="acpOnColorInput('primary', this.value)" aria-label="Primärfarbe wählen">
+              <input type="text" id="acp-col-hex-primary" class="acp-color-hex-input" value="#8c6747" maxlength="7" oninput="acpOnHexInput('primary', this.value)" aria-label="Primärfarbe Hex-Code">
             </div>
           </div>
 
@@ -5359,12 +5359,12 @@ body.acp-cockpit-light-mode #acp-inline-edit-dock {
             <div class="acp-color-row-top">
               <div>
                 <div class="acp-color-row-label">2. Startbühne (Hero) Hintergrundfarbe</div>
-                <div class="acp-color-row-desc">Hintergrund von Abschnitt 02 (Startbühne) und Unterseiten-Headern (<code>.hero-section</code>)</div>
+                <div class="acp-color-row-desc">Hintergrund von Abschnitt 02 (Startbühne) und Unterseiten-Headern (<code>.hero-section</code> / <code>.hero</code>)</div>
               </div>
             </div>
             <div class="acp-color-controls">
-              <input type="color" id="acp-col-picker-heroBg" class="acp-color-picker-input" value="#fdf8f5" oninput="acpOnColorInput('heroBg', this.value)" aria-label="Startbühne Hintergrundfarbe wählen">
-              <input type="text" id="acp-col-hex-heroBg" class="acp-color-hex-input" value="#fdf8f5" maxlength="7" oninput="acpOnHexInput('heroBg', this.value)" aria-label="Startbühne Hintergrund Hex-Code">
+              <input type="color" id="acp-col-picker-heroBg" class="acp-color-picker-input" value="#2c3140" oninput="acpOnColorInput('heroBg', this.value)" aria-label="Startbühne Hintergrundfarbe wählen">
+              <input type="text" id="acp-col-hex-heroBg" class="acp-color-hex-input" value="#2c3140" maxlength="7" oninput="acpOnHexInput('heroBg', this.value)" aria-label="Startbühne Hintergrund Hex-Code">
               <button type="button" class="acp-hero-mode-btn" onclick="acpSwitchHeroBrightness('light')" title="Startbühne hell &amp; freundlich mit dunkler Schrift">Hell</button>
               <button type="button" class="acp-hero-mode-btn" onclick="acpSwitchHeroBrightness('dark')" title="Startbühne dunkel mit heller Schrift">Dunkel</button>
             </div>
@@ -5379,8 +5379,8 @@ body.acp-cockpit-light-mode #acp-inline-edit-dock {
               </div>
             </div>
             <div class="acp-color-controls">
-              <input type="color" id="acp-col-picker-heroText" class="acp-color-picker-input" value="#2b161e" oninput="acpOnColorInput('heroText', this.value)" aria-label="Startbühne Textfarbe wählen">
-              <input type="text" id="acp-col-hex-heroText" class="acp-color-hex-input" value="#2b161e" maxlength="7" oninput="acpOnHexInput('heroText', this.value)" aria-label="Startbühne Textfarbe Hex-Code">
+              <input type="color" id="acp-col-picker-heroText" class="acp-color-picker-input" value="#ffffff" oninput="acpOnColorInput('heroText', this.value)" aria-label="Startbühne Textfarbe wählen">
+              <input type="text" id="acp-col-hex-heroText" class="acp-color-hex-input" value="#ffffff" maxlength="7" oninput="acpOnHexInput('heroText', this.value)" aria-label="Startbühne Textfarbe Hex-Code">
             </div>
           </div>
 
@@ -5389,12 +5389,12 @@ body.acp-cockpit-light-mode #acp-inline-edit-dock {
             <div class="acp-color-row-top">
               <div>
                 <div class="acp-color-row-label">4. Haupt-Seitenhintergrund (<code>body</code>)</div>
-                <div class="acp-color-row-desc">Grundton der gesamten Webseite (z. B. Reinweiss <code>#ffffff</code> oder Creme <code>#fdf8f5</code>)</div>
+                <div class="acp-color-row-desc">Grundton der gesamten Webseite (z. B. Reinweiss <code>#ffffff</code> oder Elfenbein <code>#f8f4ef</code>)</div>
               </div>
             </div>
             <div class="acp-color-controls">
-              <input type="color" id="acp-col-picker-bodyBg" class="acp-color-picker-input" value="#fdf8f5" oninput="acpOnColorInput('bodyBg', this.value)" aria-label="Haupt-Seitenhintergrund wählen">
-              <input type="text" id="acp-col-hex-bodyBg" class="acp-color-hex-input" value="#fdf8f5" maxlength="7" oninput="acpOnHexInput('bodyBg', this.value)" aria-label="Haupt-Seitenhintergrund Hex-Code">
+              <input type="color" id="acp-col-picker-bodyBg" class="acp-color-picker-input" value="#f8f4ef" oninput="acpOnColorInput('bodyBg', this.value)" aria-label="Haupt-Seitenhintergrund wählen">
+              <input type="text" id="acp-col-hex-bodyBg" class="acp-color-hex-input" value="#f8f4ef" maxlength="7" oninput="acpOnHexInput('bodyBg', this.value)" aria-label="Haupt-Seitenhintergrund Hex-Code">
             </div>
           </div>
 
@@ -5403,7 +5403,7 @@ body.acp-cockpit-light-mode #acp-inline-edit-dock {
             <div class="acp-color-row-top">
               <div>
                 <div class="acp-color-row-label">5. Abwechselnde Sektions- &amp; Karten-Flächen</div>
-                <div class="acp-color-row-desc">Karten-Hintergründe und abwechselnde Abschnitte (<code>--bg-alt</code> / <code>.content-card</code>)</div>
+                <div class="acp-color-row-desc">Karten-Hintergründe und abwechselnde Abschnitte (<code>--bg-alt</code> / <code>.content-card</code> / <code>.grund</code>)</div>
               </div>
             </div>
             <div class="acp-color-controls">
@@ -5417,14 +5417,14 @@ body.acp-cockpit-light-mode #acp-inline-edit-dock {
             <div class="acp-color-row-top">
               <div>
                 <div class="acp-color-row-label">6. Fusszeile (Footer) Hintergrund &amp; Text</div>
-                <div class="acp-color-row-desc">Hintergrundfarbe und passende Textfarbe des Seiten-Abschlusses (<code>.site-footer</code>)</div>
+                <div class="acp-color-row-desc">Hintergrundfarbe und passende Textfarbe des Seiten-Abschlusses (<code>.site-footer</code> / <code>footer</code>)</div>
               </div>
             </div>
             <div class="acp-color-controls">
-              <input type="color" id="acp-col-picker-footerBg" class="acp-color-picker-input" value="#f3e2dd" oninput="acpOnColorInput('footerBg', this.value)" aria-label="Footer Hintergrundfarbe wählen">
-              <input type="text" id="acp-col-hex-footerBg" class="acp-color-hex-input" value="#f3e2dd" maxlength="7" oninput="acpOnHexInput('footerBg', this.value)" aria-label="Footer Hintergrund Hex-Code">
-              <input type="color" id="acp-col-picker-footerText" class="acp-color-picker-input" value="#2b161e" oninput="acpOnColorInput('footerText', this.value)" title="Footer Textfarbe" aria-label="Footer Textfarbe wählen">
-              <input type="text" id="acp-col-hex-footerText" class="acp-color-hex-input" value="#2b161e" maxlength="7" oninput="acpOnHexInput('footerText', this.value)" aria-label="Footer Textfarbe Hex-Code" style="width:98px;">
+              <input type="color" id="acp-col-picker-footerBg" class="acp-color-picker-input" value="#2c3140" oninput="acpOnColorInput('footerBg', this.value)" aria-label="Footer Hintergrundfarbe wählen">
+              <input type="text" id="acp-col-hex-footerBg" class="acp-color-hex-input" value="#2c3140" maxlength="7" oninput="acpOnHexInput('footerBg', this.value)" aria-label="Footer Hintergrund Hex-Code">
+              <input type="color" id="acp-col-picker-footerText" class="acp-color-picker-input" value="#d5dae2" oninput="acpOnColorInput('footerText', this.value)" title="Footer Textfarbe" aria-label="Footer Textfarbe wählen">
+              <input type="text" id="acp-col-hex-footerText" class="acp-color-hex-input" value="#d5dae2" maxlength="7" oninput="acpOnHexInput('footerText', this.value)" aria-label="Footer Textfarbe Hex-Code" style="width:98px;">
             </div>
           </div>
         </div>

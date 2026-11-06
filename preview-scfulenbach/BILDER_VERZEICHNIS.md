@@ -1,10 +1,11 @@
 # Bilder-Verzeichnis & Cloudflare-Asset-Katalog — SC Fulenbach
 
 > **Mandant / Webseite:** SC Fulenbach (Fulenbach SO)  
+> **Angefordert von (Partner):** Jenny Ettle (JE-MI) · **Eingereicht am:** 02.11.2026 · 17:20 Uhr  
 > **Lokaler Ordner (VPS & Git):** `preview-scfulenbach/`  
 > **Cloudflare-Basis-URL:** [vorschau.magnet-xs.ch/scfulenbach/](https://vorschau.magnet-xs.ch/scfulenbach/)  
 > **Bestand:** **95 Assets** (3.14 MB gesamt) · **🟢 91 aktiv im HTML** · **⚪ 4 frei im Bild-Pool** · **Externe Hotlinks: 0**  
-> **Letzte Aktualisierung:** 06.11.2026 13:30 Uhr (automatisch generiert via `webpilot_asset_catalog.py`)
+> **Letzte Aktualisierung:** 06.11.2026 13:58 Uhr (automatisch generiert via `webpilot_asset_catalog.py`)
 
 ---
 

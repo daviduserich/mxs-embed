@@ -1,10 +1,11 @@
 # Bilder-Verzeichnis & Cloudflare-Asset-Katalog — WebPilot Plattform · magnet-Xs gmbh
 
 > **Mandant / Webseite:** WebPilot Plattform · magnet-Xs gmbh (Zofingen AG)  
+> **Angefordert von (Partner):** David Hügli (Magnet XS · Produktseite) · **Eingereicht am:** 02.10.2026 · 20:14 Uhr  
 > **Lokaler Ordner (VPS & Git):** `webpilot/`  
 > **Cloudflare-Basis-URL:** [vorschau.magnet-xs.ch/webpilot/](https://vorschau.magnet-xs.ch/webpilot/)  
 > **Bestand:** **4 Assets** (1.01 MB gesamt) · **🟢 1 aktiv im HTML** · **⚪ 3 frei im Bild-Pool** · **Externe Hotlinks: 0**  
-> **Letzte Aktualisierung:** 06.11.2026 13:30 Uhr (automatisch generiert via `webpilot_asset_catalog.py`)
+> **Letzte Aktualisierung:** 06.11.2026 13:58 Uhr (automatisch generiert via `webpilot_asset_catalog.py`)
 
 ---
 

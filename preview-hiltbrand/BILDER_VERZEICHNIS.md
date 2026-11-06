@@ -1,10 +1,11 @@
 # Bilder-Verzeichnis & Cloudflare-Asset-Katalog — Hiltbrand Gebäudehüllen AG (WebPilot)
 
 > **Mandant / Webseite:** Hiltbrand Gebäudehüllen AG (WebPilot) (Krattigen BE)  
+> **Angefordert von (Partner):** David Hügli (Magnet XS · Referenz) · **Eingereicht am:** 04.10.2026 · 11:02 Uhr  
 > **Lokaler Ordner (VPS & Git):** `preview-hiltbrand/`  
 > **Cloudflare-Basis-URL:** [vorschau.magnet-xs.ch/hiltbrand/](https://vorschau.magnet-xs.ch/hiltbrand/)  
 > **Bestand:** **28 Assets** (8.15 MB gesamt) · **🟢 10 aktiv im HTML** · **⚪ 18 frei im Bild-Pool** · **Externe Hotlinks: 0**  
-> **Letzte Aktualisierung:** 06.11.2026 13:30 Uhr (automatisch generiert via `webpilot_asset_catalog.py`)
+> **Letzte Aktualisierung:** 06.11.2026 13:58 Uhr (automatisch generiert via `webpilot_asset_catalog.py`)
 
 ---
 

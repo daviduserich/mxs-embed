@@ -1,10 +1,11 @@
 # Bilder-Verzeichnis & Cloudflare-Asset-Katalog — JOMA Solar GmbH (Zeigeversion v2)
 
 > **Mandant / Webseite:** JOMA Solar GmbH (Zeigeversion v2) (Wettingen AG)  
+> **Angefordert von (Partner):** Jenny Ettle (JE-MI) · **Eingereicht am:** 05.11.2026 · 20:54 Uhr  
 > **Lokaler Ordner (VPS & Git):** `preview-joma-v2/`  
 > **Cloudflare-Basis-URL:** [vorschau.magnet-xs.ch/joma-v2/](https://vorschau.magnet-xs.ch/joma-v2/)  
 > **Bestand:** **27 Assets** (3.50 MB gesamt) · **🟢 18 aktiv im HTML** · **⚪ 9 frei im Bild-Pool** · **Externe Hotlinks: 0**  
-> **Letzte Aktualisierung:** 06.11.2026 13:30 Uhr (automatisch generiert via `webpilot_asset_catalog.py`)
+> **Letzte Aktualisierung:** 06.11.2026 13:58 Uhr (automatisch generiert via `webpilot_asset_catalog.py`)
 
 ---
 

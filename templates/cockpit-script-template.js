@@ -536,6 +536,13 @@ function acpSwitchJob(jobId, forceReload) {
       frame.src = targetSrc;
       frame.onload = function() {
         frame.style.opacity = "1";
+        if (typeof acpCurrentDesignState !== "undefined") {
+          acpCurrentDesignState.heroBgTouched = false;
+          acpCurrentDesignState.hasHeroBgImage = false;
+        }
+        if (typeof acpReadCurrentColorsFromIframe === "function") {
+          acpReadCurrentColorsFromIframe();
+        }
         if (acpInspectorActive) {
           frame.contentWindow.postMessage({ type: "acp-toggle-inspector", active: true }, "*");
         }
@@ -3832,14 +3839,16 @@ var acpCurrentDesignState = {
   vibeCssBlock: "",
   navStyle: "underline",
   navItems: [],
+  hasHeroBgImage: false,
+  heroBgTouched: false,
   colors: {
-    primary: "#9b2c47",
-    heroBg: "#fdf8f5",
-    heroText: "#2b161e",
-    bodyBg: "#fdf8f5",
+    primary: "#8c6747",
+    heroBg: "#2c3140",
+    heroText: "#ffffff",
+    bodyBg: "#f8f4ef",
     cardBg: "#ffffff",
-    footerBg: "#f3e2dd",
-    footerText: "#2b161e"
+    footerBg: "#2c3140",
+    footerText: "#d5dae2"
   }
 };
 
@@ -3927,12 +3936,14 @@ var ACP_DESIGN_PRESETS = {
 function acpRgbToHex(rgbStr) {
   if (!rgbStr || typeof rgbStr !== "string") return "";
   var s = rgbStr.trim();
+  if (s === "transparent") return "";
   if (/^#[0-9a-fA-F]{6}$/.test(s)) return s.toLowerCase();
   if (/^#[0-9a-fA-F]{3}$/.test(s)) {
     return ("#" + s[1] + s[1] + s[2] + s[2] + s[3] + s[3]).toLowerCase();
   }
-  var m = s.match(/rgba?\((\d+),\s*(\d+),\s*(\d+)/i);
+  var m = s.match(/rgba?\((\d+),\s*(\d+),\s*(\d+)(?:,\s*([0-9.]+))?/i);
   if (!m) return "";
+  if (m[4] !== undefined && parseFloat(m[4]) === 0) return "";
   var r = Math.max(0, Math.min(255, parseInt(m[1], 10)));
   var g = Math.max(0, Math.min(255, parseInt(m[2], 10)));
   var b = Math.max(0, Math.min(255, parseInt(m[3], 10)));
@@ -3970,37 +3981,114 @@ function acpReadCurrentColorsFromIframe() {
   try {
     var rootStyle = win.getComputedStyle(doc.documentElement);
     var bodyEl = doc.body;
-    var heroEl = doc.querySelector(".hero-section, .hero, .page-hero, [data-section='hero']");
-    var heroTitleEl = doc.querySelector(".hero-title, .hero-section h1, .page-hero h1");
-    var btnEl = doc.querySelector(".btn-cta-gold, .btn-cta-primary, .btn-primary");
-    var cardEl = doc.querySelector(".content-card, .pillar-card, .card");
+    var heroEl = doc.querySelector(".hero-section, .hero, .page-hero, .hero-wrap, [data-section='hero']");
+    var heroTitleEl = doc.querySelector(".hero-title, .hero-section h1, .hero h1, .page-hero h1, .hero-wrap h1");
+    var btnEl = doc.querySelector(".btn-cta-gold, .btn-cta-primary, .btn-primary, .btn-haupt, .btn-gold, .nav-cta, .btn:not(.wa):not(.hell)");
+    var cardEl = doc.querySelector(".content-card, .pillar-card, .card, .vorteil-karte, .stimme-karte, .bento-card, .grund");
     var footerEl = doc.querySelector(".site-footer, footer");
-    var footerTitleEl = doc.querySelector(".site-footer .footer-title, .site-footer a, footer");
+    var footerTitleEl = doc.querySelector(".site-footer .footer-title, .site-footer a, footer p, footer a, footer");
 
-    var pVar = acpRgbToHex(rootStyle.getPropertyValue("--gold-dark") || rootStyle.getPropertyValue("--crimson") || rootStyle.getPropertyValue("--primary"));
-    if (!pVar && btnEl) pVar = acpRgbToHex(win.getComputedStyle(btnEl).backgroundColor);
+    // 1. Primärfarbe
+    var primaryVars = ["--primary", "--rot", "--gold-dark", "--crimson", "--brand", "--brand-primary", "--pink", "--accent", "--fca-red", "--fcs-blue", "--scf-green", "--gold"];
+    var pVar = "";
+    for (var pi = 0; pi < primaryVars.length; pi++) {
+      var candidate = acpRgbToHex(rootStyle.getPropertyValue(primaryVars[pi]));
+      if (candidate) {
+        pVar = candidate;
+        break;
+      }
+    }
+    if (!pVar && btnEl) {
+      pVar = acpRgbToHex(win.getComputedStyle(btnEl).backgroundColor);
+    }
+    if (!pVar && typeof getActiveJob === "function" && getActiveJob() && getActiveJob().farb_akzent) {
+      pVar = acpRgbToHex(getActiveJob().farb_akzent);
+    }
+    if (!pVar && window.ACP_CLIENT_PROFILE && window.ACP_CLIENT_PROFILE.brand_color) {
+      pVar = acpRgbToHex(window.ACP_CLIENT_PROFILE.brand_color);
+    }
     if (pVar) acpCurrentDesignState.colors.primary = pVar;
 
+    // 2. Startbühne Hintergrund (heroBg) & Hintergrundbild-Schutz
     if (heroEl) {
-      var hBg = acpRgbToHex(win.getComputedStyle(heroEl).backgroundColor);
-      if (hBg && hBg !== "#000000") acpCurrentDesignState.colors.heroBg = hBg;
+      var heroStyle = win.getComputedStyle(heroEl);
+      var bgImg = heroStyle.backgroundImage || "none";
+      var rawBgCol = heroStyle.backgroundColor || "";
+      var hBg = acpRgbToHex(rawBgCol);
+      var hasUrlImg = (bgImg !== "none" && bgImg.toLowerCase().indexOf("url(") !== -1);
+      if (hBg && hBg !== "#000000") {
+        acpCurrentDesignState.colors.heroBg = hBg;
+        acpCurrentDesignState.hasHeroBgImage = hasUrlImg;
+      } else if (bgImg === "none" && hBg) {
+        acpCurrentDesignState.colors.heroBg = hBg;
+        acpCurrentDesignState.hasHeroBgImage = false;
+      } else if (bgImg !== "none") {
+        var stageFallback = acpRgbToHex(
+          rootStyle.getPropertyValue("--anthrazit") ||
+          rootStyle.getPropertyValue("--charcoal-deep") ||
+          rootStyle.getPropertyValue("--navy-deep") ||
+          rootStyle.getPropertyValue("--navy")
+        ) || "#2c3140";
+        acpCurrentDesignState.colors.heroBg = stageFallback;
+        acpCurrentDesignState.hasHeroBgImage = true;
+      }
     }
+
+    // 3. Startbühne Text (heroText)
     if (heroTitleEl) {
       var hTxt = acpRgbToHex(win.getComputedStyle(heroTitleEl).color);
       if (hTxt) acpCurrentDesignState.colors.heroText = hTxt;
+    } else if (heroEl) {
+      var hTxtFallback = acpRgbToHex(win.getComputedStyle(heroEl).color);
+      if (hTxtFallback) acpCurrentDesignState.colors.heroText = hTxtFallback;
     }
+
+    // 4. Seitenhintergrund (bodyBg)
+    var bBg = "";
     if (bodyEl) {
-      var bBg = acpRgbToHex(win.getComputedStyle(bodyEl).backgroundColor);
-      if (bBg) acpCurrentDesignState.colors.bodyBg = bBg;
+      bBg = acpRgbToHex(win.getComputedStyle(bodyEl).backgroundColor);
     }
+    if (!bBg) {
+      bBg = acpRgbToHex(
+        rootStyle.getPropertyValue("--holz-hell") ||
+        rootStyle.getPropertyValue("--bg-page") ||
+        rootStyle.getPropertyValue("--bg-ivory") ||
+        rootStyle.getPropertyValue("--bg-light") ||
+        rootStyle.getPropertyValue("--hell")
+      );
+    }
+    if (bBg) acpCurrentDesignState.colors.bodyBg = bBg;
+
+    // 5. Sektions- & Karten-Flächen (cardBg)
+    var cBg = "";
     if (cardEl) {
-      var cBg = acpRgbToHex(win.getComputedStyle(cardEl).backgroundColor);
-      if (cBg) acpCurrentDesignState.colors.cardBg = cBg;
+      cBg = acpRgbToHex(win.getComputedStyle(cardEl).backgroundColor);
     }
+    if (!cBg) {
+      cBg = acpRgbToHex(
+        rootStyle.getPropertyValue("--holz-hell") ||
+        rootStyle.getPropertyValue("--bg-alt") ||
+        rootStyle.getPropertyValue("--bg-Warm") ||
+        rootStyle.getPropertyValue("--bg-card") ||
+        rootStyle.getPropertyValue("--hell")
+      );
+    }
+    if (cBg) acpCurrentDesignState.colors.cardBg = cBg;
+
+    // 6. Footer (footerBg & footerText)
+    var fBg = "";
     if (footerEl) {
-      var fBg = acpRgbToHex(win.getComputedStyle(footerEl).backgroundColor);
-      if (fBg) acpCurrentDesignState.colors.footerBg = fBg;
+      fBg = acpRgbToHex(win.getComputedStyle(footerEl).backgroundColor);
     }
+    if (!fBg) {
+      fBg = acpRgbToHex(
+        rootStyle.getPropertyValue("--anthrazit") ||
+        rootStyle.getPropertyValue("--navy-deep") ||
+        rootStyle.getPropertyValue("--charcoal-deep")
+      );
+    }
+    if (fBg) acpCurrentDesignState.colors.footerBg = fBg;
+
     if (footerTitleEl) {
       var fTxt = acpRgbToHex(win.getComputedStyle(footerTitleEl).color);
       if (fTxt) acpCurrentDesignState.colors.footerText = fTxt;
@@ -4204,36 +4292,46 @@ function acpCloseDesignVibeModal() {
 
 function acpBuildClientSideColorCss() {
   var c = acpCurrentDesignState.colors;
-  var heroBgRule = acpCurrentDesignState.heroGradient
-    ? "background: " + acpCurrentDesignState.heroGradient + " !important; background-color: " + c.heroBg + " !important;"
-    : "background: " + c.heroBg + " !important; background-color: " + c.heroBg + " !important;";
+  var applyHeroBg = (!acpCurrentDesignState.hasHeroBgImage || acpCurrentDesignState.heroBgTouched);
+  var heroBgRule = "";
+  if (applyHeroBg) {
+    heroBgRule = acpCurrentDesignState.heroGradient
+      ? "background: " + acpCurrentDesignState.heroGradient + " !important; background-color: " + c.heroBg + " !important; "
+      : "background: " + c.heroBg + " !important; background-color: " + c.heroBg + " !important; ";
+  }
 
   var lines = [
     "/* === 1. FARBTABELLE (HEX & COLOR-PICKER) === */",
     ":root {",
     "  --primary: " + c.primary + " !important;",
+    "  --rot: " + c.primary + " !important;",
+    "  --rot-dunkel: " + c.primary + " !important;",
     "  --accent: " + c.primary + " !important;",
     "  --brand: " + c.primary + " !important;",
     "  --gold: " + c.primary + " !important;",
     "  --gold-dark: " + c.primary + " !important;",
     "  --crimson: " + c.primary + " !important;",
     "  --crimson-bright: " + c.primary + " !important;",
+    "  --pink: " + c.primary + " !important;",
+    "  --pink-hover: " + c.primary + " !important;",
     "  --bg-page: " + c.bodyBg + " !important;",
+    "  --holz-hell: " + c.bodyBg + " !important;",
     "  --bg-Warm: " + c.cardBg + " !important;",
     "  --bg-alt: " + c.cardBg + " !important;",
     "}",
     "body { background-color: " + c.bodyBg + " !important; }",
-    ".btn-cta-gold, .btn-cta-primary, .btn-primary { background-color: " + c.primary + " !important; border-color: " + c.primary + " !important; color: #ffffff !important; }",
-    ".section-kicker, .section-eyebrow, .hero-eyebrow, .kicker, .hero-title span, .hero-badge-val { color: " + c.primary + " !important; }",
+    ".btn-cta-gold, .btn-cta-primary, .btn-primary, .btn-haupt, .nav-cta, .sticky-cta a, .form-submit { background-color: " + c.primary + " !important; border-color: " + c.primary + " !important; color: #ffffff !important; }",
+    ".section-kicker, .section-eyebrow, .hero-eyebrow, .kicker, .hero-title span, .hero-badge-val, .sektion-label, .hero h1 em, .hero h1 span { color: " + c.primary + " !important; }",
+    ".hero-tag { background-color: " + c.primary + " !important; color: #ffffff !important; }",
     ".section-kicker::before { background-color: " + c.primary + " !important; }",
     ".hero-badge-card, .contact-direct-item { border-left-color: " + c.primary + " !important; }",
-    ".hero-section, .hero, .page-hero, [data-section='hero'] { " + heroBgRule + " color: " + c.heroText + " !important; }",
-    ".hero-section h1, .hero-section .hero-title, .hero-section .hero-lead, .page-hero h1, .page-hero p, .hero-trust-item, .hero-badge-lbl { color: " + c.heroText + " !important; }",
+    ".hero-section, .hero, .page-hero, .hero-wrap, [data-section='hero'] { " + heroBgRule + "color: " + c.heroText + " !important; }",
+    ".hero-section h1, .hero-section .hero-title, .hero-section .hero-lead, .page-hero h1, .page-hero p, .hero-trust-item, .hero-badge-lbl, .hero h1, .hero .hero-sub, .hero p, .hero-wrap h1 { color: " + c.heroText + " !important; }",
     ".hero-media-caption, .hero-quickbar { background-color: " + c.heroBg + " !important; color: " + c.heroText + " !important; }",
     ".hero-media-caption * { color: " + c.heroText + " !important; }",
-    ".content-card, .pillar-card, .testimonial-card, .card { background-color: " + c.cardBg + " !important; }",
+    ".content-card, .pillar-card, .testimonial-card, .card, .vorteil-karte, .stimme-karte, .bento-card, .grund { background-color: " + c.cardBg + " !important; }",
     ".site-footer, footer { background-color: " + c.footerBg + " !important; color: " + c.footerText + " !important; }",
-    ".site-footer .footer-title, .site-footer a, .site-footer p, .site-footer .footer-bottom, .site-footer div { color: " + c.footerText + " !important; }"
+    ".site-footer .footer-title, .site-footer a, .site-footer p, .site-footer .footer-bottom, .site-footer div, footer p, footer a { color: " + c.footerText + " !important; }"
   ];
   lines.push("");
   lines.push(acpBuildNavStyleCss(acpCurrentDesignState.navStyle || "underline", c.primary));
@@ -4269,7 +4367,10 @@ function acpInjectLiveDesignCss(cssString) {
 function acpOnColorInput(key, val) {
   if (!val) return;
   acpCurrentDesignState.colors[key] = val.toLowerCase();
-  if (key === "heroBg") acpCurrentDesignState.heroGradient = "";
+  if (key === "heroBg") {
+    acpCurrentDesignState.heroGradient = "";
+    acpCurrentDesignState.heroBgTouched = true;
+  }
   var hexInp = document.getElementById("acp-col-hex-" + key);
   if (hexInp) hexInp.value = val.toLowerCase();
   var css = acpBuildClientSideColorCss();
@@ -4282,7 +4383,10 @@ function acpOnHexInput(key, val) {
   if (clean && clean[0] !== "#") clean = "#" + clean;
   if (/^#[0-9a-f]{6}$/.test(clean)) {
     acpCurrentDesignState.colors[key] = clean;
-    if (key === "heroBg") acpCurrentDesignState.heroGradient = "";
+    if (key === "heroBg") {
+      acpCurrentDesignState.heroGradient = "";
+      acpCurrentDesignState.heroBgTouched = true;
+    }
     var picker = document.getElementById("acp-col-picker-" + key);
     if (picker) picker.value = clean;
     var css = acpBuildClientSideColorCss();
@@ -4291,6 +4395,7 @@ function acpOnHexInput(key, val) {
 }
 
 function acpSwitchHeroBrightness(mode) {
+  acpCurrentDesignState.heroBgTouched = true;
   var btnLight = document.getElementById("acp-btn-hero-light");
   var btnDark = document.getElementById("acp-btn-hero-dark");
   if (mode === "light") {
@@ -4316,6 +4421,7 @@ function acpSwitchHeroBrightness(mode) {
 function acpApplyDesignPreset(presetKey) {
   var preset = ACP_DESIGN_PRESETS[presetKey];
   if (!preset) return;
+  acpCurrentDesignState.heroBgTouched = true;
   acpCurrentDesignState.preset = preset.label;
   acpCurrentDesignState.heroGradient = preset.heroGradient || "";
   var keys = ["primary", "heroBg", "heroText", "bodyBg", "cardBg", "footerBg", "footerText"];
@@ -4397,6 +4503,7 @@ function acpResetDesignVibe() {
   acpCurrentDesignState.vibeCssBlock = "";
   acpCurrentDesignState.heroGradient = "";
   acpCurrentDesignState.preset = "";
+  acpCurrentDesignState.heroBgTouched = false;
   var inp = document.getElementById("acp-vibe-prompt-input");
   if (inp) inp.value = "";
   var editor = document.getElementById("acp-vibe-css-editor");

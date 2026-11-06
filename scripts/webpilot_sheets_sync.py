@@ -95,8 +95,22 @@ HEADERS = [
     "Ursprungs-Webseite (Original)",
     "Branche & Kontext",
     "Partner",
-    "Status & Datum",
+    "Eingereicht am (Datum & Uhrzeit)",
+    "Status & Fertigstellung",
 ]
+
+
+def format_ch_datetime(raw_ts: Any, fallback: str = "") -> str:
+    s = str(raw_ts or "").strip()
+    if not s:
+        return fallback
+    m = re.match(r"^(\d{4})-(\d{2})-(\d{2})[T\s](\d{2}):(\d{2})", s)
+    if m:
+        yyyy, mm, dd, hh, mi = m.groups()
+        return f"{dd}.{mm}.{yyyy} · {hh}:{mi} Uhr"
+    if "Uhr" in s:
+        return s
+    return s
 
 
 def parse_chf_amount(chf_str: Any, fallback: int = 1800) -> int:
@@ -686,7 +700,8 @@ def apply_sheet_formatting(
         (10, 11, 260),  # K: Ursprungs-Webseite (Original)
         (11, 12, 320),  # L: Branche & Kontext
         (12, 13, 195),  # M: Partner (Filterbar per 1 Klick!)
-        (13, 14, 225),  # N: Status & Datum
+        (13, 14, 210),  # N: Eingereicht am (Datum & Uhrzeit)
+        (14, 15, 290),  # O: Status & Fertigstellung
     ]
     for start_col, end_col, px in col_widths:
         requests_list.append({
@@ -752,7 +767,7 @@ def apply_sheet_formatting(
 
 
 def get_all_rows(spreadsheet_id: str, tab_title: str) -> List[List[str]]:
-    safe_range = urllib.parse.quote(f"'{tab_title}'!A1:N200")
+    safe_range = urllib.parse.quote(f"'{tab_title}'!A1:O200")
     url = f"https://sheets.googleapis.com/v4/spreadsheets/{spreadsheet_id}/values/{safe_range}"
     r = _request_with_retry("GET", url)
     r.raise_for_status()
@@ -807,13 +822,35 @@ def _seed_single_spreadsheet(
                 if item["slug"] in row_text or item["company"].lower() in row_text:
                     active_by_slug[item["slug"]] = is_act
 
+    DEFAULT_SUBMITTED_MAP = {
+        "imp-marketing": ("05.11.2026 · 12:35 Uhr", "🟢 Bereit zum Zeigen (Fertig: 05.11.2026 · 13:55 Uhr)"),
+        "joma": ("05.11.2026 · 20:54 Uhr", "🟢 Bereit zum Zeigen (Fertig: 05.11.2026 · 21:54 Uhr)"),
+        "herzensarbeit": ("05.11.2026 · 11:00 Uhr", "🟢 Bereit zum Zeigen (Fertig: 05.11.2026 · 11:25 Uhr)"),
+        "frees": ("03.11.2026 · 21:30 Uhr", "🟢 Bereit zum Zeigen (Fertig: 04.11.2026 · 07:10 Uhr)"),
+        "innere-staerke": ("03.11.2026 · 18:30 Uhr", "🟢 Bereit zum Zeigen (Fertig: 04.11.2026 · 07:08 Uhr)"),
+        "fcschlieren": ("02.11.2026 · 17:00 Uhr", "🟢 Bereit zum Zeigen (Fertig: 04.11.2026 · 07:12 Uhr)"),
+        "scfulenbach": ("02.11.2026 · 17:20 Uhr", "🟢 Bereit zum Zeigen (Fertig: 04.11.2026 · 07:12 Uhr)"),
+        "fcattiswil": ("02.11.2026 · 17:40 Uhr", "🟢 Bereit zum Zeigen (Fertig: 04.11.2026 · 07:12 Uhr)"),
+        "her11": ("30.10.2026 · 16:00 Uhr", "🟢 Bereit zum Zeigen (Fertig: 30.10.2026 · 19:58 Uhr)"),
+    }
+    submitted_by_slug: Dict[str, str] = {}
+    status_by_slug: Dict[str, str] = {}
     idx_path = Path("/home/brainuser/workspaces/mxs-embed/partner-jobs/index.json")
     if idx_path.exists():
         try:
             for j in json.loads(idx_path.read_text(encoding="utf-8")):
                 jslug = str(j.get("slug") or "").strip().lower()
-                if jslug and jslug not in EXCLUDED_INTERNAL_SLUGS and "is_active" in j:
-                    active_by_slug[jslug] = bool(j["is_active"])
+                if jslug and jslug not in EXCLUDED_INTERNAL_SLUGS:
+                    if "is_active" in j:
+                        active_by_slug[jslug] = bool(j["is_active"])
+                    c_at = format_ch_datetime(j.get("created_at"), "")
+                    comp_at = format_ch_datetime(j.get("completed_at"), "")
+                    if c_at:
+                        submitted_by_slug[jslug] = c_at
+                    if comp_at and str(j.get("status") or "").lower() == "completed":
+                        status_by_slug[jslug] = f"🟢 Bereit zum Zeigen (Fertig: {comp_at})"
+                    elif c_at and str(j.get("status") or "").lower() != "completed":
+                        status_by_slug[jslug] = f"⏳ In Arbeit (Eingereicht: {c_at})"
         except Exception:
             pass
 
@@ -827,6 +864,9 @@ def _seed_single_spreadsheet(
             continue
 
         is_active = active_by_slug.get(slug, item.get("active", True))
+        def_sub, def_stat = DEFAULT_SUBMITTED_MAP.get(slug, ("05.11.2026 · 12:00 Uhr", item["status"]))
+        submitted_str = submitted_by_slug.get(slug) or item.get("submitted_at") or def_sub
+        status_str = status_by_slug.get(slug) or def_stat
         audit_pdf_url = item.get("audit_report_url") or f"https://vorschau.magnet-xs.ch/reports/{slug}-vorher-nachher-report.pdf"
         cockpit_light_url = item.get("cockpit_light_url") or f"https://vorschau.magnet-xs.ch/{slug}-vollversion/cockpit.html?token={slug}2026&mode=light"
         einmal_cell = format_einmal_price_sheet_cell(
@@ -849,14 +889,15 @@ def _seed_single_spreadsheet(
             item["source_url"],
             item["branch_context"],
             partner_label,
-            item["status"],
+            submitted_str,
+            status_str,
         ])
 
     clear_range = urllib.parse.quote(f"'{tab_title}'!A1:Z100")
     clear_url = f"https://sheets.googleapis.com/v4/spreadsheets/{spreadsheet_id}/values/{clear_range}:clear"
     _request_with_retry("POST", clear_url, json={})
 
-    safe_range = urllib.parse.quote(f"'{tab_title}'!A1:N{len(values_matrix)}")
+    safe_range = urllib.parse.quote(f"'{tab_title}'!A1:O{len(values_matrix)}")
     put_url = f"https://sheets.googleapis.com/v4/spreadsheets/{spreadsheet_id}/values/{safe_range}"
     r_put = _request_with_retry(
         "PUT",
@@ -921,6 +962,7 @@ def _upsert_into_single_sheet(
     parsed_url: str,
     parsed_ctx: str,
     partner_norm: str,
+    submitted_at: str,
     status_text: str,
     active: Optional[bool],
     pricing_display: str,
@@ -976,7 +1018,8 @@ def _upsert_into_single_sheet(
         final_source_url = parsed_url if parsed_url else (existing_row[10] if len(existing_row) > 10 else "")
         final_branch_ctx = parsed_ctx if parsed_ctx else (existing_row[11] if len(existing_row) > 11 else "")
         final_partner = partner_norm if partner_norm else (existing_row[12] if len(existing_row) > 12 else "Jenny Ettle (JE-MI)")
-        final_status = status_text.strip() if status_text else (existing_row[13] if len(existing_row) > 13 else "")
+        final_submitted = submitted_at.strip() if submitted_at else (existing_row[13] if len(existing_row) > 13 else datetime.now().strftime("%d.%m.%Y · %H:%M Uhr"))
+        final_status = status_text.strip() if status_text else (existing_row[14] if len(existing_row) > 14 else "")
 
         row_values = [
             row_active,
@@ -992,9 +1035,10 @@ def _upsert_into_single_sheet(
             final_source_url,
             final_branch_ctx,
             final_partner,
+            final_submitted,
             final_status,
         ]
-        safe_range = urllib.parse.quote(f"'{tab_title}'!A{target_row_idx}:N{target_row_idx}")
+        safe_range = urllib.parse.quote(f"'{tab_title}'!A{target_row_idx}:O{target_row_idx}")
         url = f"https://sheets.googleapis.com/v4/spreadsheets/{spreadsheet_id}/values/{safe_range}"
         r_put = _request_with_retry(
             "PUT",
@@ -1026,10 +1070,11 @@ def _upsert_into_single_sheet(
             parsed_url,
             parsed_ctx,
             partner_norm,
+            submitted_at.strip() or datetime.now().strftime("%d.%m.%Y · %H:%M Uhr"),
             status_text.strip(),
         ]
         new_row_idx = len(rows) + 1
-        safe_range = urllib.parse.quote(f"'{tab_title}'!A{new_row_idx}:N{new_row_idx}")
+        safe_range = urllib.parse.quote(f"'{tab_title}'!A{new_row_idx}:O{new_row_idx}")
         url = f"https://sheets.googleapis.com/v4/spreadsheets/{spreadsheet_id}/values/{safe_range}"
         r_put = _request_with_retry(
             "PUT",
@@ -1059,6 +1104,7 @@ def upsert_webpilot_sheet_row(
     source_url: str = "",
     branch_context: str = "",
     partner: str = "Jenny Ettle (JE-MI)",
+    submitted_at: str = "",
     status_text: str = "",
     active: Optional[bool] = None,
     pricing_display: str = "",
@@ -1090,9 +1136,20 @@ def upsert_webpilot_sheet_row(
     if not pricing_rationale:
         pricing_rationale = est["pricing_rationale"]
 
-    today_str = datetime.now().strftime("%d.%m.%Y")
+    now_full_str = datetime.now().strftime("%d.%m.%Y · %H:%M Uhr")
+    submitted_fmt = format_ch_datetime(submitted_at, "")
+    if not submitted_fmt:
+        idx_path = Path("/home/brainuser/workspaces/mxs-embed/partner-jobs/index.json")
+        if idx_path.exists():
+            try:
+                for j in json.loads(idx_path.read_text(encoding="utf-8")):
+                    if str(j.get("slug") or "").strip().lower() == clean_slug:
+                        submitted_fmt = format_ch_datetime(j.get("created_at"), "")
+                        break
+            except Exception:
+                pass
     if not status_text:
-        status_text = f"🟢 Bereit zum Zeigen ({today_str})" if v2_url else f"⏳ In Arbeit ({today_str})"
+        status_text = f"🟢 Bereit zum Zeigen (Fertig: {now_full_str})" if v2_url else f"⏳ In Arbeit (Eingereicht: {submitted_fmt or now_full_str})"
 
     partner_norm = _normalize_partner_label(partner, slug=clean_slug)
     default_audit_url = f"https://vorschau.magnet-xs.ch/reports/{clean_slug}-vorher-nachher-report.pdf" if clean_slug else ""
@@ -1116,6 +1173,7 @@ def upsert_webpilot_sheet_row(
         parsed_url=parsed_url,
         parsed_ctx=parsed_ctx,
         partner_norm=partner_norm,
+        submitted_at=submitted_fmt,
         status_text=status_text,
         active=active,
         pricing_display=pricing_display,
@@ -1140,6 +1198,7 @@ def upsert_webpilot_sheet_row(
             parsed_url=parsed_url,
             parsed_ctx=parsed_ctx,
             partner_norm=partner_norm,
+            submitted_at=submitted_fmt,
             status_text=status_text,
             active=active,
             pricing_display=pricing_display,
@@ -1168,7 +1227,7 @@ def _verify_single_sheet(spreadsheet_id: str, spreadsheet_url: str) -> Dict[str,
         url,
         params={
             "includeGridData": "true",
-            "ranges": f"'{DEFAULT_TAB_TITLE}'!A1:N25",
+            "ranges": f"'{DEFAULT_TAB_TITLE}'!A1:O25",
             "fields": "properties.title,sheets(properties(sheetId,title,gridProperties.frozenRowCount),basicFilter,conditionalFormats,data.rowData.values(userEnteredValue,dataValidation,hyperlink,effectiveFormat.textFormat))",
         },
     )
@@ -1200,6 +1259,8 @@ def _verify_single_sheet(spreadsheet_id: str, spreadsheet_url: str) -> Dict[str,
         if src_url.startswith("http") and src_hyperlink:
             clickable_source_links += 1
         partner_val = (vals[12].get("userEnteredValue") or {}).get("stringValue", "") if len(vals) > 12 else ""
+        submitted_val = (vals[13].get("userEnteredValue") or {}).get("stringValue", "") if len(vals) > 13 else ""
+        status_val = (vals[14].get("userEnteredValue") or {}).get("stringValue", "") if len(vals) > 14 else ""
         rows_summary.append({
             "row": r_idx,
             "company": comp_val,
@@ -1210,6 +1271,8 @@ def _verify_single_sheet(spreadsheet_id: str, spreadsheet_url: str) -> Dict[str,
             "source_url": src_url,
             "is_clickable_hyperlink": bool(src_hyperlink),
             "partner": partner_val,
+            "submitted_at": submitted_val,
+            "status": status_val,
         })
 
     pub_r = requests.get(spreadsheet_url, timeout=15)

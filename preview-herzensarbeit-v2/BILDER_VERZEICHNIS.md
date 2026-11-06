@@ -1,10 +1,11 @@
 # Bilder-Verzeichnis & Cloudflare-Asset-Katalog — Herzensarbeit — Anne-Katrin Koch (Zeigeversion v2)
 
 > **Mandant / Webseite:** Herzensarbeit — Anne-Katrin Koch (Zeigeversion v2) (Härkingen SO)  
+> **Angefordert von (Partner):** Jenny Ettle (JE-MI) · **Eingereicht am:** 05.11.2026 · 11:00 Uhr  
 > **Lokaler Ordner (VPS & Git):** `preview-herzensarbeit-v2/`  
 > **Cloudflare-Basis-URL:** [vorschau.magnet-xs.ch/herzensarbeit-v2/](https://vorschau.magnet-xs.ch/herzensarbeit-v2/)  
 > **Bestand:** **27 Assets** (4.65 MB gesamt) · **🟢 11 aktiv im HTML** · **⚪ 16 frei im Bild-Pool** · **Externe Hotlinks: 0**  
-> **Letzte Aktualisierung:** 06.11.2026 13:30 Uhr (automatisch generiert via `webpilot_asset_catalog.py`)
+> **Letzte Aktualisierung:** 06.11.2026 13:58 Uhr (automatisch generiert via `webpilot_asset_catalog.py`)
 
 ---
 

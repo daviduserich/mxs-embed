@@ -1,10 +1,11 @@
 # Bilder-Verzeichnis & Cloudflare-Asset-Katalog — Birchmeier-Hohler GmbH
 
 > **Mandant / Webseite:** Birchmeier-Hohler GmbH (Bremgarten AG)  
+> **Angefordert von (Partner):** David Hügli (Magnet XS · Referenz) · **Eingereicht am:** 04.10.2026 · 11:02 Uhr  
 > **Lokaler Ordner (VPS & Git):** `preview-birchmeier/`  
 > **Cloudflare-Basis-URL:** [vorschau.magnet-xs.ch/birchmeier/](https://vorschau.magnet-xs.ch/birchmeier/)  
 > **Bestand:** **13 Assets** (2.72 MB gesamt) · **🟢 5 aktiv im HTML** · **⚪ 8 frei im Bild-Pool** · **Externe Hotlinks: 0**  
-> **Letzte Aktualisierung:** 06.11.2026 13:30 Uhr (automatisch generiert via `webpilot_asset_catalog.py`)
+> **Letzte Aktualisierung:** 06.11.2026 13:58 Uhr (automatisch generiert via `webpilot_asset_catalog.py`)
 
 ---
 

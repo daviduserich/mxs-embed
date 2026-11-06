@@ -1,10 +1,11 @@
 # Bilder-Verzeichnis & Cloudflare-Asset-Katalog — FC Schlieren (Zeigeversion v2)
 
 > **Mandant / Webseite:** FC Schlieren (Zeigeversion v2) (Schlieren ZH)  
+> **Angefordert von (Partner):** Jenny Ettle (JE-MI) · **Eingereicht am:** 02.11.2026 · 17:00 Uhr  
 > **Lokaler Ordner (VPS & Git):** `preview-fcschlieren-v2/`  
 > **Cloudflare-Basis-URL:** [vorschau.magnet-xs.ch/fcschlieren-v2/](https://vorschau.magnet-xs.ch/fcschlieren-v2/)  
 > **Bestand:** **39 Assets** (1.99 MB gesamt) · **🟢 30 aktiv im HTML** · **⚪ 9 frei im Bild-Pool** · **Externe Hotlinks: 0**  
-> **Letzte Aktualisierung:** 06.11.2026 13:30 Uhr (automatisch generiert via `webpilot_asset_catalog.py`)
+> **Letzte Aktualisierung:** 06.11.2026 13:58 Uhr (automatisch generiert via `webpilot_asset_catalog.py`)
 
 ---
 

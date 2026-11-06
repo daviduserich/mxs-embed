@@ -1,10 +1,11 @@
 # Bilder-Verzeichnis & Cloudflare-Asset-Katalog — FC Attiswil
 
 > **Mandant / Webseite:** FC Attiswil (Attiswil BE)  
+> **Angefordert von (Partner):** Jenny Ettle (JE-MI) · **Eingereicht am:** 02.11.2026 · 17:40 Uhr  
 > **Lokaler Ordner (VPS & Git):** `preview-fcattiswil/`  
 > **Cloudflare-Basis-URL:** [vorschau.magnet-xs.ch/fcattiswil/](https://vorschau.magnet-xs.ch/fcattiswil/)  
 > **Bestand:** **36 Assets** (1.00 MB gesamt) · **🟢 34 aktiv im HTML** · **⚪ 2 frei im Bild-Pool** · **Externe Hotlinks: 0**  
-> **Letzte Aktualisierung:** 06.11.2026 13:30 Uhr (automatisch generiert via `webpilot_asset_catalog.py`)
+> **Letzte Aktualisierung:** 06.11.2026 13:58 Uhr (automatisch generiert via `webpilot_asset_catalog.py`)
 
 ---
 
