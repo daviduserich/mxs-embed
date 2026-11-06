@@ -206,7 +206,7 @@ def scan_images(client_dir: Path, slug: str, default_category: str = "Baustelle 
             category = "Hero & Header"
         elif "logo" in p.name.lower():
             category = "Logo & Icon"
-        elif any(k in p.name.lower() for k in ["team", "michael", "stefan", "beat", "alain"]):
+        elif any(k in p.name.lower() for k in ["team", "michael", "stefan", "stephanie", "markus", "jonas", "samuel", "levin", "beat", "alain"]):
             category = "Team & Porträt"
 
         used_in = []

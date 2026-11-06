@@ -644,5 +644,30 @@
     "cdn_url": "https://embed.magnet-xs.ch/zurbuchen/images/zurbuchen/simon.jpg",
     "is_used": false,
     "used_in": []
+  },
+  {
+    "id": "images_zurbuchen_stephanie_jpg",
+    "filename": "stephanie.jpg",
+    "rel_path": "images/zurbuchen/stephanie.jpg",
+    "folder": "zurbuchen",
+    "category": "Team & Porträt",
+    "dimensions": "320x320",
+    "size_kb": 29.5,
+    "mtime": 1793970732,
+    "mtime_str": "06.11.2026 13:12",
+    "cdn_url": "https://embed.magnet-xs.ch/zurbuchen/images/zurbuchen/stephanie.jpg",
+    "is_used": true,
+    "used_in": [
+      {
+        "datei": "Zurbuchen_Holzbauer_November.html",
+        "slot": "team_foto_stephanie",
+        "is_hero": false
+      },
+      {
+        "datei": "zurbuchen_Holzbauer.html",
+        "slot": "team_foto_stephanie",
+        "is_hero": false
+      }
+    ]
   }
 ]

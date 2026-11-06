@@ -95,7 +95,8 @@ h2{font-size:clamp(26px,3.8vw,40px);font-weight:800;font-stretch:88%;line-height
 .durchgestrichen{text-decoration:line-through;opacity:.7;color:var(--grau)}
 
 /* Team */
-.team-strip{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:16px;margin-top:36px}
+.team-strip{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:16px;margin-top:36px}
+@media(min-width:960px){.team-strip{grid-template-columns:repeat(7,1fr);gap:14px}}
 .kollege{text-align:center;background:white;padding:16px 12px;border-radius:var(--radius);border:1px solid var(--linie)}
 .kollege img{width:100%;aspect-ratio:1/1;object-fit:cover;border-radius:6px;margin-bottom:10px}
 .kollege strong{display:block;font-size:15px;color:var(--anthrazit)}
@@ -400,9 +401,9 @@ body.acp-swap-mode-active .kollege span {
         <p data-slot="warum_card_chef_desc">Markus Zurbuchen führt den Betrieb in 3. Generation – und steht selber auf dem Dach. Entscheide fallen am gleichen Tag, ohne Konzern-Bürokratie.</p>
       </div>
       <div class="grund" data-slot="warum_card_region">
-        <div class="zahl" data-slot="warum_card_region_num">🏔</div>
-        <h3 data-slot="warum_card_region_title">Baustelle mit Niesenblick</h3>
-        <p data-slot="warum_card_region_desc">Spiez, Thunersee, Berner Oberland. Touristen zahlen für diesen Ausblick CHF 250 pro Nacht – du hast ihn jeden Tag auf dem First. Und abends bist du pünktlich daheim.</p>
+        <div class="zahl" data-slot="warum_card_region_num">100%</div>
+        <h3 data-slot="warum_card_region_title">Vom Abbund bis zum Aufrichten</h3>
+        <p data-slot="warum_card_region_desc">Kein Fliessband und keine Monotonie: Du arbeitest mit Schweizer Massivholz in der eigenen Werkstatt genauso wie draussen beim Aufrichten, bei energetischen Sanierungen, Fassaden und im Innenausbau – rund um Spiez, mit kurzen Wegen.</p>
       </div>
       <div class="grund" data-slot="warum_card1">
         <div class="zahl" data-slot="warum_card1_num">7</div>
@@ -460,6 +461,7 @@ body.acp-swap-mode-active .kollege span {
     <h2 data-slot="team_title">Die kennst du bald beim Vornamen.</h2>
     <div class="team-strip" data-slot="team_strip">
       <div class="kollege team-person" data-slot="team_markus"><img src="images/zurbuchen/markus.jpg" alt="Markus Zurbuchen" data-slot="team_foto_markus"><strong>Markus</strong><span>Geschäftsführer</span></div>
+      <div class="kollege team-person" data-slot="team_stephanie"><img src="images/zurbuchen/stephanie.jpg" alt="Stephanie Zurbuchen" data-slot="team_foto_stephanie"><strong>Stephanie</strong><span>Administration</span></div>
       <div class="kollege team-person" data-slot="team_alain"><img src="images/zurbuchen/alain.jpg" alt="Alain Gasser" data-slot="team_foto_alain"><strong>Alain</strong><span>Vorarbeiter</span></div>
       <div class="kollege team-person" data-slot="team_beat"><img src="images/zurbuchen/beat.jpg" alt="Beat Fuhrer" data-slot="team_foto_beat"><strong>Beat</strong><span>Vorarbeiter</span></div>
       <div class="kollege team-person" data-slot="team_jonas"><img src="images/zurbuchen/jonas.jpg" alt="Jonas Zurbrügg" data-slot="team_foto_jonas"><strong>Jonas</strong><span>Zimmermann</span></div>
@@ -634,7 +636,7 @@ body.acp-swap-mode-active .kollege span {
 <!-- ======================================================= -->
 <section class="cta-band" id="cta" data-section="cta">
   <div class="wrap-schmal">
-    <h2 data-slot="cta_title">Der Niesen wartet nicht. Wir auch nicht.</h2>
+    <h2 data-slot="cta_title">Echtes Holzbau-Handwerk braucht gute Leute.</h2>
     <p data-slot="cta_lead">2–3 Plätze, dann ist das Team komplett. Schreib jetzt «Hoi Markus» – dauert kürzer als deine Znüni-Pause.</p>
     <a class="btn gross hell" href="#blitz" data-slot="cta_btn">Jetzt in 30 Sekunden bewerben</a>
     <div class="kontakt-karte" data-slot="cta_kontakt">

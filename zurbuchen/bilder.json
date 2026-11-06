@@ -152,7 +152,7 @@
     "filename": "jonas.jpg",
     "rel_path": "images/jonas.jpg",
     "folder": "zurbuchen",
-    "category": "Projekte & Einblicke",
+    "category": "Team & Porträt",
     "dimensions": "320x320",
     "size_kb": 16.4,
     "mtime": 1790622487,
@@ -182,7 +182,7 @@
     "filename": "levin.jpg",
     "rel_path": "images/levin.jpg",
     "folder": "zurbuchen",
-    "category": "Projekte & Einblicke",
+    "category": "Team & Porträt",
     "dimensions": "320x320",
     "size_kb": 36.1,
     "mtime": 1790622487,
@@ -272,7 +272,7 @@
     "filename": "markus.jpg",
     "rel_path": "images/markus.jpg",
     "folder": "zurbuchen",
-    "category": "Projekte & Einblicke",
+    "category": "Team & Porträt",
     "dimensions": "320x320",
     "size_kb": 37.4,
     "mtime": 1790622487,
@@ -526,7 +526,7 @@
     "filename": "samuel.jpg",
     "rel_path": "images/samuel.jpg",
     "folder": "zurbuchen",
-    "category": "Projekte & Einblicke",
+    "category": "Team & Porträt",
     "dimensions": "320x320",
     "size_kb": 8.2,
     "mtime": 1790622487,
@@ -578,6 +578,36 @@
     "cdn_url": "https://embed.magnet-xs.ch/zurbuchen/images/stefan.jpg",
     "is_used": false,
     "used_in": []
+  },
+  {
+    "id": "images_stephanie_jpg",
+    "filename": "stephanie.jpg",
+    "rel_path": "images/stephanie.jpg",
+    "folder": "zurbuchen",
+    "category": "Team & Porträt",
+    "dimensions": "320x320",
+    "size_kb": 29.5,
+    "mtime": 1793970737,
+    "mtime_str": "06.11.2026 13:12",
+    "cdn_url": "https://embed.magnet-xs.ch/zurbuchen/images/stephanie.jpg",
+    "is_used": true,
+    "used_in": [
+      {
+        "datei": "zurbuchen_Holzbauer.html",
+        "slot": "image",
+        "is_hero": false
+      },
+      {
+        "datei": "index.html",
+        "slot": "image",
+        "is_hero": false
+      },
+      {
+        "datei": "Zurbuchen_Holzbauer_November.html",
+        "slot": "image",
+        "is_hero": false
+      }
+    ]
   },
   {
     "id": "images_team_alt_jpg",

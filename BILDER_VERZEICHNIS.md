@@ -43,6 +43,7 @@ Automatisch generierte Übersicht aller verfügbaren Bild-Assets im Ordner `imag
 | ![michael.jpg](images/zurbuchen/michael.jpg) | `michael.jpg` | Team & Porträt | 11.2 KB | 320x320 | 28.09.2026 19:08 | ⚪ Frei verfügbar |
 | ![samuel.jpg](images/zurbuchen/samuel.jpg) | `samuel.jpg` | Team & Porträt | 8.2 KB | 320x320 | 28.09.2026 19:08 | 🟢 Im Einsatz in `Zurbuchen_Holzbauer_November.html` |
 | ![simon.jpg](images/zurbuchen/simon.jpg) | `simon.jpg` | Team & Porträt | 6.8 KB | 320x321 | 28.09.2026 19:08 | ⚪ Frei verfügbar |
+| ![stephanie.jpg](images/zurbuchen/stephanie.jpg) | `stephanie.jpg` | Team & Porträt | 29.5 KB | 320x320 | 06.11.2026 13:12 | 🟢 Im Einsatz in `Zurbuchen_Holzbauer_November.html` |
 
 ---
 

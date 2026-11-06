@@ -79,7 +79,7 @@ SITE_SEO_PROFILES = {
             "Zwei-Wege-Freiheit: Kunden steuern ihre Webseite entweder selbst über das visuelle Studio Cockpit v4.0, "
             "das 10-Sekunden Kunden-Cockpit Light und eigenen ChatGPT-HTML-Code für CHF 0.— pro Änderung oder "
             "wählen die schlüsselfertige Sorglos-Betreuung über zertifizierte Schweizer Partner-Agenturen — "
-            "inklusive vollautomatischem SEO- & KI-Such-Autopiloten (Schema.org JSON-LD, FAQPage & /llms.txt) für CHF 35.— / Monat."
+            "mit 2-Stufen-Monatspauschale (CHF 35.— / Mt. Basis inkl. Hosting, Cockpit & SEO-/KI-Such-Autopilot bzw. CHF 45.— / Mt. Smart-Formular & PDF-Pro statt CHF 295.—/Mt. bei Drittanbietern)."
         ),
         "area_served": [
             "Zofingen", "Aarau", "Baden", "Wettingen", "Olten", "Solothurn",
@@ -89,10 +89,10 @@ SITE_SEO_PROFILES = {
         "services": [
             "Zwei-Wege-Webseiten: Eigensteuerung per Studio Cockpit v4.0, Cockpit Light & ChatGPT-HTML (CHF 0.— / Änderung) oder Sorglos-Betreuung durch Partner-Agenturen",
             "Vollautomatischer SEO- & KI-Such-Autopilot (Schema.org JSON-LD, FAQPage, Local-SEO Alt-Tags, /sitemap.xml & /llms.txt für Google, ChatGPT & Perplexity)",
-            "3-Schritte Smart-Anfrage Engine mit 1-Seiten-A4-PDF-Dossier, 2 Direkt-QR-Codes (Anruf & Google Maps) und WhatsApp-Sofortmeldung",
+            "3-Schritte Smart-Anfrage Engine mit E-Mail-Versand (SMTP), 1-Seiten-A4-PDF-Dossier, 2 Direkt-QR-Codes (Anruf & Google Maps) und WhatsApp-Sofortmeldung (+ CHF 10.—/Mt. im Tarif Smart-Pro für CHF 45.—/Mt. statt CHF 295.—/Mt.)",
             "3-Stufen Visual-DNA & Design-Sommelier (OKLCH-Farbharmonie, 60-30-10-Regel & 27-Sensoren Doppel-Systemaugen Layout-Airbag)",
             "Schweizer High-Speed Hosting (< 50 ms Edge Zürich & Genf) ohne WordPress-Ballast und ohne technische PHP-/Plugin-Update-Kosten",
-            "Transparentes 2-Wege-Preismodell (Einmal-Aufbau ab CHF 1'500.— + CHF 35.—/Mt. ODER All-in-Monatsmodell ab CHF 160.—/Mt. im 1. Jahr, ab 2. Jahr CHF 35.—/Mt.)"
+            "Transparentes 2-Wege-Preismodell & 2-Stufen-Monatspauschale (Einmal-Aufbau ab CHF 1'500.— ODER All-in-Monatsmodell ab CHF 160.—/Mt. im 1. Jahr; laufend CHF 35.—/Mt. Basis bzw. CHF 45.—/Mt. Smart-Formular & PDF-Pro)"
         ],
         "core_faqs": [
             (
@@ -101,11 +101,11 @@ SITE_SEO_PROFILES = {
             ),
             (
                 "Was kostet eine WebPilot-Webseite und wie funktioniert das 2-Wege-Preismodell?",
-                "Sie wählen zwischen zwei Zahlungswegen: Beim Einmal-Modell liegt der schlüsselfertige Aufbau für kompakte Seiten, Praxen und Vereine bei CHF 1'500.— bis 2'200.— einmalig (bzw. CHF 2'400.— bis 3'500.— für Mehrsparten-KMU und Grossvereine) plus CHF 35.— / Monat. Beim All-in-Monatsmodell ohne Start-Hürde zahlen Sie im 1. Jahr ab CHF 160.— bis 235.— / Monat (Aufbau bereits komplett eingerechnet), und ab dem 2. Jahr fällt der Preis automatisch auf nur noch CHF 35.— / Monat."
+                "Sie wählen zwischen zwei Zahlungswegen: Beim Einmal-Modell liegt der schlüsselfertige Aufbau für kompakte Seiten, Praxen und Vereine bei CHF 1'500.— bis 2'200.— einmalig (bzw. CHF 2'400.— bis 3'500.— für Mehrsparten-KMU und Grossvereine) plus CHF 35.— / Mt. (Basis) bzw. CHF 45.— / Mt. (Smart-Formular & PDF-Pro). Beim All-in-Monatsmodell ohne Start-Hürde zahlen Sie im 1. Jahr ab CHF 160.— bis 245.— / Monat (Aufbau bereits komplett eingerechnet), und ab dem 2. Jahr fällt der Preis automatisch auf nur noch CHF 35.— bzw. 45.— / Monat."
             ),
             (
-                "Was ist in den CHF 35.— / Monat alles enthalten?",
-                "Die Monatspauschale von CHF 35.— umfasst vier volle Leistungsblöcke: 1. Schweizer High-Speed Hosting in Zürich und Genf (< 50 ms) inklusive SSL und täglichem 1-Klick-Rollback ohne PHP-/Plugin-Update-Kosten, 2. den laufenden SEO- & KI-Such-Autopiloten (Schema.org JSON-LD, FAQPage, Local-SEO Alt-Tags, /sitemap.xml & /llms.txt), 3. den vollen Zugang zum Studio Cockpit v4.0 und Kunden-Cockpit Light für CHF 0.— Lizenzgebühr sowie 4. den Betrieb der 3-Schritte Smart-Anfrage PDF- & WhatsApp-Engine."
+                "Was ist in den beiden Monats-Stufen (CHF 35.— Basis vs. CHF 45.— Smart-Formular & PDF-Pro) enthalten?",
+                "In WebPilot Basis (CHF 35.— / Monat) sind Schweizer High-Speed Hosting in Zürich und Genf (< 50 ms) inklusive SSL ohne PHP-/Plugin-Update-Kosten, der volle Zugang zum Studio Cockpit v4.0 und Kunden-Cockpit Light (CHF 0.— Lizenz) sowie der laufende SEO- & KI-Such-Autopilot (Schema.org JSON-LD, FAQPage, Local-SEO Alt-Tags, /sitemap.xml & /llms.txt) enthalten. Im Tarif WebPilot Smart-Formular & PDF-Pro (CHF 45.— / Monat, nur + CHF 10.— / Mt. statt CHF 195.— bis 295.—/Mt. bei separaten Formular-Anbietern) ist zusätzlich der laufende Server-Betrieb für interaktive Anfrage-, Offerten-, Bewerbungs- oder Vereinsformulare mit Handy-Foto-Upload, E-Mail-Versand (SMTP), 1-Seiten-A4-PDF mit 2 QR-Codes und WhatsApp-Sofortmeldung integriert. Ein Standard-Formular ist im Aufbau vorbereitet; individuelle Frage-Strecken, Spezial-Formulare oder Abteilungs-Weichen richten wir im persönlichen Angebot (Richtwert ab CHF 250.— bis 600.— einmalig) passgenau ein."
             ),
             (
                 "Wie sorgt WebPilot dafür, dass meine Firma bei Google und in KI-Suchen wie ChatGPT empfohlen wird?",
