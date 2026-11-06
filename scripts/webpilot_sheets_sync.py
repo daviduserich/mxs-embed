@@ -1,12 +1,19 @@
 #!/usr/bin/env python3
 """
-WebPilot — Kunden- & URL-Zentrale (Google Sheets Live-Sync inkl. 2-Wege-Offerten-Preismodell)
-=============================================================================================
+WebPilot — Kunden- & URL-Zentrale (Dual Google Sheets Live-Sync: Partner-Isolation + David Master-Sheet)
+========================================================================================================
 Synchronisiert alle WebPilot-Vorschauen (Aktiv, Firma/Verein, Einmal-Preis & Score,
 Monats-Offerte 1. Jahr / ab 2. Jahr, Preis-Begruendung & Aha-Punkte, Zeigeversion -v2,
-Vollversion -vollversion, Studio Cockpit v4.0, Vorher/Nachher-Report PDF,
+Vollversion -vollversion, Studio Cockpit v4.0, Kunden-Cockpit Light, Vorher/Nachher-Report PDF,
 klickbare Ursprungs-Webseite Original, Branche & Kontext, Partner, Status & Datum)
-mit der zentralen Google-Tabelle fuer Jenny Ettle (JE-MI) & David Huegli (Magnet XS).
+parallel in zwei getrennte Google-Tabellen:
+
+1. Jenny Ettle (JE-MI) Partner-Sheet (1O3EqOCqGS5HbE5rWxIBoTk8lLA0a2Pz30F7yKiEbRms):
+   - Strikte Mandanten-Trennung: Enthaelt AUSSCHLIESSLICH die Projekte von Jenny Ettle (JE-MI).
+2. David Huegli (Magnet XS) Master-Sheet (1horD2vDfLDnVb9SEoBmXc-tjP8auMAMaqfdrb_g-Sho):
+   - Enthaelt ALLE aktiven WebPilot-Projekte ueber alle Partner hinweg (David Huegli / IMP GmbH
+     sowie alle Projekte von Jenny Ettle / JE-MI), identischer 14-Spalten-Aufbau (A-N) mit
+     aktiviertem 1-Klick-Filter auf Spalte M (Partner).
 
 Regel-Konformitaet:
 - BACKEND-DB-RULES.md (Canary: BACKEND-DB-2026-V1, #BE-07 Retry & Zero-Silent-Failure)
@@ -30,8 +37,16 @@ import requests
 from google.auth.transport.requests import Request
 from google.oauth2 import service_account
 
-DEFAULT_SPREADSHEET_ID = "1O3EqOCqGS5HbE5rWxIBoTk8lLA0a2Pz30F7yKiEbRms"
-DEFAULT_SPREADSHEET_URL = f"https://docs.google.com/spreadsheets/d/{DEFAULT_SPREADSHEET_ID}/edit"
+JENNY_SPREADSHEET_ID = "1O3EqOCqGS5HbE5rWxIBoTk8lLA0a2Pz30F7yKiEbRms"
+JENNY_SPREADSHEET_URL = f"https://docs.google.com/spreadsheets/d/{JENNY_SPREADSHEET_ID}/edit"
+JENNY_SPREADSHEET_TITLE = "WebPilot — Kunden- & URL-Zentrale (Jenny Ettle · JE-MI)"
+
+DAVID_SPREADSHEET_ID = "1horD2vDfLDnVb9SEoBmXc-tjP8auMAMaqfdrb_g-Sho"
+DAVID_SPREADSHEET_URL = f"https://docs.google.com/spreadsheets/d/{DAVID_SPREADSHEET_ID}/edit"
+DAVID_SPREADSHEET_TITLE = "WebPilot — Master-Kunden- & URL-Zentrale (David Hügli · Alle Partner)"
+
+DEFAULT_SPREADSHEET_ID = JENNY_SPREADSHEET_ID
+DEFAULT_SPREADSHEET_URL = JENNY_SPREADSHEET_URL
 DEFAULT_TAB_TITLE = "Kunden & URL-Zentrale"
 
 MONTHLY_YEAR2_CHF = 35
@@ -39,14 +54,19 @@ MONTHLY_PLAN_LABEL = "Hosting, Studio-Cockpit & fortlaufende SEO-/Mobile-Entwick
 
 PARTNER_SHEET_OWNER = "jenny"
 
-EXCLUDED_PARTNER_SLUGS = {
+# Interne Alt-/Referenz-Slugs aus frueheren ACP-Tests (weder in Jennys noch in Davids Agentur-Sheet)
+EXCLUDED_INTERNAL_SLUGS = {
     "hiltbrand",
     "birchmeier",
     "hochuli",
-    "imp-marketing",
     "preview-birchmeier",
     "preview-hiltbrand",
     "preview-hochuli",
+}
+
+# Fuer Jennys Partner-Sheet zusaetzlich alle Nicht-Jenny-Slugs ausschliessen
+EXCLUDED_PARTNER_SLUGS = EXCLUDED_INTERNAL_SLUGS | {
+    "imp-marketing",
     "preview-imp-marketing",
 }
 
@@ -132,10 +152,28 @@ def split_source_and_context(raw_source_or_context: str, explicit_context: str =
     return "", (ctx or raw)
 
 
-# Reihenfolge gemäss Vorgabe:
-# Zuerst alle 7 Projekte von Jenny Ettle (JE-MI) (Zeilen 2–8),
-# danach IMP GmbH — Matthias Iseli unter David Hügli (Magnet XS) ganz unten (Zeile 9).
+# Kanonische Projektliste fuer Dual-Sync:
+# - In Davids Master-Sheet erscheinen ALLE 9 Projekte (IMP GmbH an Position 1 + alle 8 Projekte von Jenny Ettle).
+# - In Jennys Partner-Sheet erscheinen ausschliesslich die 8 Projekte mit Partner "Jenny Ettle (JE-MI)".
 SEED_PROJECTS = [
+    {
+        "slug": "imp-marketing",
+        "active": True,
+        "company": "IMP GmbH — Matthias Iseli (Schreinerei-Marketing)",
+        "pricing_recommended_chf": "CHF 2'400.—",
+        "complexity_score": "4.8 / 10.0",
+        "pricing_formula_chf": "CHF 2'150.—",
+        "pricing_rationale": "Spezialisierter 5-Seiten-B2B-Auftritt für Schreinerei- & Holzbau-Marketing inkl. 16 Prozess-Visuals, interaktivem Schreinerei-Potenzial-Rechner, 6 Fach-FAQs und 3-Schritte Smart-Anfrage. Durch ein einziges gewonnenes Schreinerei-Mandat mehrfach refinanziert.",
+        "v2_url": "https://vorschau.magnet-xs.ch/imp-marketing-v2/",
+        "vollversion_url": "https://vorschau.magnet-xs.ch/imp-marketing-vollversion/",
+        "cockpit_url": "https://vorschau.magnet-xs.ch/imp-marketing-vollversion/cockpit.html?token=impmarketing2026",
+        "cockpit_light_url": "https://vorschau.magnet-xs.ch/imp-marketing-vollversion/cockpit.html?token=imp-marketing2026&mode=light",
+        "audit_report_url": "https://vorschau.magnet-xs.ch/reports/imp-marketing-vorher-nachher-report.pdf",
+        "source_url": "https://imp-marketing.ch/",
+        "branch_context": "Sichtbarkeits-Systeme & Anfrage-Vorqualifizierung für Schreinereien & Holzbau (1–15 Mitarbeitende) in Obersteckholz BE",
+        "partner": "David Hügli (Magnet XS)",
+        "status": "🟢 Bereit zum Zeigen (05.11.2026)",
+    },
     {
         "slug": "joma",
         "active": True,
@@ -148,6 +186,7 @@ SEED_PROJECTS = [
         "vollversion_url": "https://vorschau.magnet-xs.ch/joma-vollversion/",
         "cockpit_url": "https://vorschau.magnet-xs.ch/joma-vollversion/cockpit.html?token=joma2026",
         "cockpit_light_url": "https://vorschau.magnet-xs.ch/joma-vollversion/cockpit.html?token=joma2026&mode=light",
+        "audit_report_url": "https://vorschau.magnet-xs.ch/reports/joma-vorher-nachher-report.pdf",
         "source_url": "https://www.joma-solar.ch/",
         "branch_context": "Photovoltaik, Batteriespeicher, Solar Manager, ZEV & Contracting in Wettingen AG",
         "partner": "Jenny Ettle (JE-MI)",
@@ -333,12 +372,24 @@ def get_sheet_config() -> Dict[str, str]:
         if p.exists():
             try:
                 cfg = json.loads(p.read_text(encoding="utf-8"))
-                sid = str(cfg.get("google_sheet_id") or DEFAULT_SPREADSHEET_ID).strip()
+                sid = str(cfg.get("google_sheet_id") or JENNY_SPREADSHEET_ID).strip()
                 surl = str(cfg.get("google_sheet_url") or f"https://docs.google.com/spreadsheets/d/{sid}/edit").strip()
-                return {"spreadsheet_id": sid, "spreadsheet_url": surl}
+                did = str(cfg.get("david_google_sheet_id") or DAVID_SPREADSHEET_ID).strip()
+                durl = str(cfg.get("david_google_sheet_url") or f"https://docs.google.com/spreadsheets/d/{did}/edit").strip()
+                return {
+                    "spreadsheet_id": sid,
+                    "spreadsheet_url": surl,
+                    "david_spreadsheet_id": did,
+                    "david_spreadsheet_url": durl,
+                }
             except Exception:
                 pass
-    return {"spreadsheet_id": DEFAULT_SPREADSHEET_ID, "spreadsheet_url": DEFAULT_SPREADSHEET_URL}
+    return {
+        "spreadsheet_id": JENNY_SPREADSHEET_ID,
+        "spreadsheet_url": JENNY_SPREADSHEET_URL,
+        "david_spreadsheet_id": DAVID_SPREADSHEET_ID,
+        "david_spreadsheet_url": DAVID_SPREADSHEET_URL,
+    }
 
 
 def _get_auth_headers() -> Dict[str, str]:
@@ -385,10 +436,26 @@ def _get_first_sheet_meta(spreadsheet_id: str) -> Dict[str, Any]:
     return sheets[0]["properties"]
 
 
-def apply_sheet_formatting(spreadsheet_id: str, sheet_id: int, current_title: str, total_rows: int = 100) -> None:
-    """Wendet Header-Fixierung, Auto-Filter, echte BOOLEAN-Checkboxen, blaue Link-Spalten & Spaltenbreiten (A-M) an."""
+def apply_sheet_formatting(
+    spreadsheet_id: str,
+    sheet_id: int,
+    current_title: str,
+    total_rows: int = 100,
+    spreadsheet_doc_title: Optional[str] = None,
+) -> None:
+    """Wendet Header-Fixierung, Auto-Filter, echte BOOLEAN-Checkboxen, blaue Link-Spalten & Spaltenbreiten (A-N) an."""
     requests_list: List[Dict[str, Any]] = []
-    num_cols = len(HEADERS)  # 13 Spalten (A bis M)
+    num_cols = len(HEADERS)  # 14 Spalten (A bis N)
+
+    if spreadsheet_doc_title:
+        requests_list.append({
+            "updateSpreadsheetProperties": {
+                "properties": {
+                    "title": spreadsheet_doc_title,
+                },
+                "fields": "title",
+            }
+        })
 
     # 1. Tab-Name auf 'Kunden & URL-Zentrale' setzen + Zeile 1 fixieren
     requests_list.append({
@@ -445,7 +512,7 @@ def apply_sheet_formatting(spreadsheet_id: str, sheet_id: int, current_title: st
         }
     })
 
-    # 3. Daten-Zeilen (A2:M100): Grundformatierung (Textumbruch, vertikale Zentrierung, Reset alter Link-Stile)
+    # 3. Daten-Zeilen (A2:N100): Grundformatierung (Textumbruch, vertikale Zentrierung, Reset alter Link-Stile)
     requests_list.append({
         "repeatCell": {
             "range": {
@@ -560,7 +627,31 @@ def apply_sheet_formatting(spreadsheet_id: str, sheet_id: int, current_title: st
         }
     })
 
-    # 6. Auto-Filter (BasicFilter) ueber A1:M100 aktivieren
+    # 5c. Spalte M (Partner, Index 12) fett hervorheben fuer schnelle Filterung
+    requests_list.append({
+        "repeatCell": {
+            "range": {
+                "sheetId": sheet_id,
+                "startRowIndex": 1,
+                "endRowIndex": max(total_rows, 100),
+                "startColumnIndex": 12,
+                "endColumnIndex": 13,
+            },
+            "cell": {
+                "userEnteredFormat": {
+                    "textFormat": {
+                        "bold": True,
+                        "underline": False,
+                        "fontSize": 10,
+                        "foregroundColor": {"red": 0.059, "green": 0.090, "blue": 0.165},
+                    },
+                }
+            },
+            "fields": "userEnteredFormat.textFormat(bold,underline,fontSize,foregroundColor)",
+        }
+    })
+
+    # 6. Auto-Filter (BasicFilter) ueber A1:N100 aktivieren (inkl. Spalte M Partner)
     requests_list.append({
         "setBasicFilter": {
             "filter": {
@@ -589,7 +680,7 @@ def apply_sheet_formatting(spreadsheet_id: str, sheet_id: int, current_title: st
         (9, 10, 380),   # J: Vorher/Nachher-Report (PDF)
         (10, 11, 260),  # K: Ursprungs-Webseite (Original)
         (11, 12, 320),  # L: Branche & Kontext
-        (12, 13, 185),  # M: Partner
+        (12, 13, 195),  # M: Partner (Filterbar per 1 Klick!)
         (13, 14, 225),  # N: Status & Datum
     ]
     for start_col, end_col, px in col_widths:
@@ -676,14 +767,28 @@ def _normalize_partner_label(raw_partner: str, slug: str = "") -> str:
     return s or "Jenny Ettle (JE-MI)"
 
 
-def init_and_seed_sheet() -> Dict[str, Any]:
-    cfg = get_sheet_config()
-    spreadsheet_id = cfg["spreadsheet_id"]
+def _seed_single_spreadsheet(
+    spreadsheet_id: str,
+    spreadsheet_url: str,
+    doc_title: str,
+    owner_filter: Optional[str] = None,
+) -> Dict[str, Any]:
+    """
+    Initialisiert und befuellt ein einzelnes Google Sheet:
+    - owner_filter="jenny" -> Nur Jenny-Projekte (strikte Partner-Isolation)
+    - owner_filter=None -> Alle Projekte ueber alle Partner hinweg (Davids Master-Sheet)
+    """
     props = _get_first_sheet_meta(spreadsheet_id)
     sheet_id = props["sheetId"]
     current_title = props["title"]
 
-    apply_sheet_formatting(spreadsheet_id, sheet_id, current_title, total_rows=100)
+    apply_sheet_formatting(
+        spreadsheet_id,
+        sheet_id,
+        current_title,
+        total_rows=100,
+        spreadsheet_doc_title=doc_title,
+    )
     tab_title = DEFAULT_TAB_TITLE
 
     existing_rows = get_all_rows(spreadsheet_id, tab_title)
@@ -697,13 +802,12 @@ def init_and_seed_sheet() -> Dict[str, Any]:
                 if item["slug"] in row_text or item["company"].lower() in row_text:
                     active_by_slug[item["slug"]] = is_act
 
-    # Auch mit lokalem partner-jobs/index.json abgleichen falls vorhanden
     idx_path = Path("/home/brainuser/workspaces/mxs-embed/partner-jobs/index.json")
     if idx_path.exists():
         try:
             for j in json.loads(idx_path.read_text(encoding="utf-8")):
                 jslug = str(j.get("slug") or "").strip().lower()
-                if jslug and jslug not in EXCLUDED_PARTNER_SLUGS and "is_active" in j:
+                if jslug and jslug not in EXCLUDED_INTERNAL_SLUGS and "is_active" in j:
                     active_by_slug[jslug] = bool(j["is_active"])
         except Exception:
             pass
@@ -711,10 +815,12 @@ def init_and_seed_sheet() -> Dict[str, Any]:
     values_matrix: List[List[Any]] = [HEADERS]
     for item in SEED_PROJECTS:
         slug = item["slug"]
-        if slug in EXCLUDED_PARTNER_SLUGS:
+        if slug in EXCLUDED_INTERNAL_SLUGS:
             continue
-        if PARTNER_SHEET_OWNER not in str(item.get("partner") or "").lower():
+        partner_label = _normalize_partner_label(item.get("partner", ""), slug=slug)
+        if owner_filter and owner_filter.lower() not in partner_label.lower():
             continue
+
         is_active = active_by_slug.get(slug, item.get("active", True))
         audit_pdf_url = item.get("audit_report_url") or f"https://vorschau.magnet-xs.ch/reports/{slug}-vorher-nachher-report.pdf"
         cockpit_light_url = item.get("cockpit_light_url") or f"https://vorschau.magnet-xs.ch/{slug}-vollversion/cockpit.html?token={slug}2026&mode=light"
@@ -737,11 +843,10 @@ def init_and_seed_sheet() -> Dict[str, Any]:
             audit_pdf_url,
             item["source_url"],
             item["branch_context"],
-            _normalize_partner_label(item["partner"], slug=slug),
+            partner_label,
             item["status"],
         ])
 
-    # Clear A1:Z100 first to avoid stale columns/rows (e.g. removed Hochuli row)
     clear_range = urllib.parse.quote(f"'{tab_title}'!A1:Z100")
     clear_url = f"https://sheets.googleapis.com/v4/spreadsheets/{spreadsheet_id}/values/{clear_range}:clear"
     _request_with_retry("POST", clear_url, json={})
@@ -756,77 +861,82 @@ def init_and_seed_sheet() -> Dict[str, Any]:
     )
     r_put.raise_for_status()
 
-    apply_sheet_formatting(spreadsheet_id, sheet_id, tab_title, total_rows=len(values_matrix))
+    apply_sheet_formatting(
+        spreadsheet_id,
+        sheet_id,
+        tab_title,
+        total_rows=len(values_matrix),
+        spreadsheet_doc_title=doc_title,
+    )
 
     return {
         "ok": True,
         "spreadsheet_id": spreadsheet_id,
-        "spreadsheet_url": cfg["spreadsheet_url"],
+        "spreadsheet_url": spreadsheet_url,
+        "doc_title": doc_title,
         "tab_title": tab_title,
+        "owner_filter": owner_filter or "all_partners",
         "rows_written": len(values_matrix) - 1,
         "columns": len(HEADERS),
     }
 
 
-def upsert_webpilot_sheet_row(
-    slug: str,
-    company_name: str,
-    v2_url: str = "",
-    vollversion_url: str = "",
-    cockpit_url: str = "",
-    cockpit_light_url: str = "",
-    source_context: str = "",
-    source_url: str = "",
-    branch_context: str = "",
-    partner: str = "Jenny Ettle (JE-MI)",
-    status_text: str = "",
-    active: Optional[bool] = None,
-    pricing_display: str = "",
-    monthly_sheet_display: str = "",
-    pricing_rationale: str = "",
-    audit_report_url: str = "",
-) -> Dict[str, Any]:
-    """
-    Aktualisiert eine bestehende Zeile im Google Sheet (anhand Slug oder Firmenname)
-    oder fuegt eine neue Zeile hinzu (13 Spalten A-M inkl. 2-Wege-Preismodell & klickbarer Ursprungs-URL).
-    """
-    clean_slug = (slug or "").strip().lower().replace("preview-", "")
-    for suffix in ("-vollversion", "-vv", "-v2", "-v1"):
-        if clean_slug.endswith(suffix):
-            clean_slug = clean_slug[: -len(suffix)]
-
-    if clean_slug in EXCLUDED_PARTNER_SLUGS:
-        return {"ok": False, "skipped_excluded": clean_slug}
-    if PARTNER_SHEET_OWNER not in str(partner or "").lower():
-        return {"ok": False, "skipped_non_owner": clean_slug, "partner": partner}
-
+def init_and_seed_sheet() -> Dict[str, Any]:
+    """Synchronisiert sowohl Jennys isoliertes Partner-Sheet als auch Davids Master-Sheet."""
     cfg = get_sheet_config()
-    spreadsheet_id = cfg["spreadsheet_id"]
+    jenny_res = _seed_single_spreadsheet(
+        spreadsheet_id=cfg["spreadsheet_id"],
+        spreadsheet_url=cfg["spreadsheet_url"],
+        doc_title=JENNY_SPREADSHEET_TITLE,
+        owner_filter="jenny",
+    )
+    david_res = _seed_single_spreadsheet(
+        spreadsheet_id=cfg["david_spreadsheet_id"],
+        spreadsheet_url=cfg["david_spreadsheet_url"],
+        doc_title=DAVID_SPREADSHEET_TITLE,
+        owner_filter=None,
+    )
+    return {
+        "ok": True,
+        "jenny_partner_sheet": jenny_res,
+        "david_master_sheet": david_res,
+    }
+
+
+def _upsert_into_single_sheet(
+    spreadsheet_id: str,
+    spreadsheet_url: str,
+    clean_slug: str,
+    company_name: str,
+    v2_url: str,
+    vollversion_url: str,
+    cockpit_url: str,
+    cockpit_light_url: str,
+    audit_report_url: str,
+    parsed_url: str,
+    parsed_ctx: str,
+    partner_norm: str,
+    status_text: str,
+    active: Optional[bool],
+    pricing_display: str,
+    monthly_sheet_display: str,
+    pricing_rationale: str,
+    owner_filter: Optional[str] = None,
+) -> Dict[str, Any]:
     props = _get_first_sheet_meta(spreadsheet_id)
     sheet_id = props["sheetId"]
     tab_title = props["title"]
 
     rows = get_all_rows(spreadsheet_id, tab_title)
     if not rows or rows[0] != HEADERS:
-        init_and_seed_sheet()
+        _seed_single_spreadsheet(
+            spreadsheet_id=spreadsheet_id,
+            spreadsheet_url=spreadsheet_url,
+            doc_title=JENNY_SPREADSHEET_TITLE if owner_filter == "jenny" else DAVID_SPREADSHEET_TITLE,
+            owner_filter=owner_filter,
+        )
         tab_title = DEFAULT_TAB_TITLE
         rows = get_all_rows(spreadsheet_id, tab_title)
-
-    parsed_url, parsed_ctx = split_source_and_context(source_url or source_context, branch_context)
-
-    est = estimate_project_pricing(clean_slug, company_name, parsed_ctx or source_context)
-    if not pricing_display:
-        pricing_display = est["pricing_display"]
-    if not monthly_sheet_display:
-        monthly_sheet_display = est["monthly_sheet_display"]
-    if not pricing_rationale:
-        pricing_rationale = est["pricing_rationale"]
-
-    today_str = datetime.now().strftime("%d.%m.%Y")
-    if not status_text:
-        status_text = f"🟢 Bereit zum Zeigen ({today_str})" if v2_url else f"⏳ In Arbeit ({today_str})"
-
-    partner_norm = _normalize_partner_label(partner, slug=clean_slug)
 
     target_row_idx: Optional[int] = None
     existing_row: List[str] = []
@@ -844,11 +954,7 @@ def upsert_webpilot_sheet_row(
             break
 
     default_audit_url = f"https://vorschau.magnet-xs.ch/reports/{clean_slug}-vorher-nachher-report.pdf" if clean_slug else ""
-    if not audit_report_url:
-        audit_report_url = default_audit_url
     default_cockpit_light_url = f"https://vorschau.magnet-xs.ch/{clean_slug}-vollversion/cockpit.html?token={clean_slug}2026&mode=light" if clean_slug else ""
-    if not cockpit_light_url:
-        cockpit_light_url = default_cockpit_light_url
 
     if target_row_idx is not None:
         prev_active = False if (len(existing_row) > 0 and str(existing_row[0]).strip().upper() == "FALSE") else True
@@ -864,7 +970,7 @@ def upsert_webpilot_sheet_row(
         final_audit = audit_report_url.strip() if audit_report_url else (existing_row[9] if len(existing_row) > 9 else default_audit_url)
         final_source_url = parsed_url if parsed_url else (existing_row[10] if len(existing_row) > 10 else "")
         final_branch_ctx = parsed_ctx if parsed_ctx else (existing_row[11] if len(existing_row) > 11 else "")
-        final_partner = partner_norm if partner else (existing_row[12] if len(existing_row) > 12 else "Jenny Ettle (JE-MI)")
+        final_partner = partner_norm if partner_norm else (existing_row[12] if len(existing_row) > 12 else "Jenny Ettle (JE-MI)")
         final_status = status_text.strip() if status_text else (existing_row[13] if len(existing_row) > 13 else "")
 
         row_values = [
@@ -896,7 +1002,7 @@ def upsert_webpilot_sheet_row(
             "ok": True,
             "action": "updated",
             "row": target_row_idx,
-            "spreadsheet_url": cfg["spreadsheet_url"],
+            "spreadsheet_url": spreadsheet_url,
             "values": row_values,
         }
     else:
@@ -932,21 +1038,132 @@ def upsert_webpilot_sheet_row(
             "ok": True,
             "action": "inserted",
             "row": new_row_idx,
-            "spreadsheet_url": cfg["spreadsheet_url"],
+            "spreadsheet_url": spreadsheet_url,
             "values": row_values,
         }
 
 
-def verify_sheet() -> Dict[str, Any]:
+def upsert_webpilot_sheet_row(
+    slug: str,
+    company_name: str,
+    v2_url: str = "",
+    vollversion_url: str = "",
+    cockpit_url: str = "",
+    cockpit_light_url: str = "",
+    source_context: str = "",
+    source_url: str = "",
+    branch_context: str = "",
+    partner: str = "Jenny Ettle (JE-MI)",
+    status_text: str = "",
+    active: Optional[bool] = None,
+    pricing_display: str = "",
+    monthly_sheet_display: str = "",
+    pricing_rationale: str = "",
+    audit_report_url: str = "",
+) -> Dict[str, Any]:
+    """
+    Synchronisiert eine Zeile automatisch:
+    1. IMMER in Davids Master-Sheet (alle Partner).
+    2. Wenn Partner == Jenny Ettle (JE-MI), zusaetzlich in Jennys Partner-Sheet.
+    """
+    clean_slug = (slug or "").strip().lower().replace("preview-", "")
+    for suffix in ("-vollversion", "-vv", "-v2", "-v1"):
+        if clean_slug.endswith(suffix):
+            clean_slug = clean_slug[: -len(suffix)]
+
+    if clean_slug in EXCLUDED_INTERNAL_SLUGS:
+        return {"ok": False, "skipped_excluded": clean_slug}
+
     cfg = get_sheet_config()
-    spreadsheet_id = cfg["spreadsheet_id"]
+    parsed_url, parsed_ctx = split_source_and_context(source_url or source_context, branch_context)
+
+    est = estimate_project_pricing(clean_slug, company_name, parsed_ctx or source_context)
+    if not pricing_display:
+        pricing_display = est["pricing_display"]
+    if not monthly_sheet_display:
+        monthly_sheet_display = est["monthly_sheet_display"]
+    if not pricing_rationale:
+        pricing_rationale = est["pricing_rationale"]
+
+    today_str = datetime.now().strftime("%d.%m.%Y")
+    if not status_text:
+        status_text = f"🟢 Bereit zum Zeigen ({today_str})" if v2_url else f"⏳ In Arbeit ({today_str})"
+
+    partner_norm = _normalize_partner_label(partner, slug=clean_slug)
+    default_audit_url = f"https://vorschau.magnet-xs.ch/reports/{clean_slug}-vorher-nachher-report.pdf" if clean_slug else ""
+    if not audit_report_url:
+        audit_report_url = default_audit_url
+    default_cockpit_light_url = f"https://vorschau.magnet-xs.ch/{clean_slug}-vollversion/cockpit.html?token={clean_slug}2026&mode=light" if clean_slug else ""
+    if not cockpit_light_url:
+        cockpit_light_url = default_cockpit_light_url
+
+    # 1. Immer in Davids Master-Sheet upserten
+    david_res = _upsert_into_single_sheet(
+        spreadsheet_id=cfg["david_spreadsheet_id"],
+        spreadsheet_url=cfg["david_spreadsheet_url"],
+        clean_slug=clean_slug,
+        company_name=company_name,
+        v2_url=v2_url,
+        vollversion_url=vollversion_url,
+        cockpit_url=cockpit_url,
+        cockpit_light_url=cockpit_light_url,
+        audit_report_url=audit_report_url,
+        parsed_url=parsed_url,
+        parsed_ctx=parsed_ctx,
+        partner_norm=partner_norm,
+        status_text=status_text,
+        active=active,
+        pricing_display=pricing_display,
+        monthly_sheet_display=monthly_sheet_display,
+        pricing_rationale=pricing_rationale,
+        owner_filter=None,
+    )
+
+    # 2. Falls Jenny der Partner ist, auch in Jennys Partner-Sheet upserten
+    jenny_res = None
+    if PARTNER_SHEET_OWNER in partner_norm.lower() and clean_slug not in EXCLUDED_PARTNER_SLUGS:
+        jenny_res = _upsert_into_single_sheet(
+            spreadsheet_id=cfg["spreadsheet_id"],
+            spreadsheet_url=cfg["spreadsheet_url"],
+            clean_slug=clean_slug,
+            company_name=company_name,
+            v2_url=v2_url,
+            vollversion_url=vollversion_url,
+            cockpit_url=cockpit_url,
+            cockpit_light_url=cockpit_light_url,
+            audit_report_url=audit_report_url,
+            parsed_url=parsed_url,
+            parsed_ctx=parsed_ctx,
+            partner_norm=partner_norm,
+            status_text=status_text,
+            active=active,
+            pricing_display=pricing_display,
+            monthly_sheet_display=monthly_sheet_display,
+            pricing_rationale=pricing_rationale,
+            owner_filter="jenny",
+        )
+
+    primary_res = jenny_res if jenny_res is not None else david_res
+    return {
+        "ok": True,
+        "action": primary_res["action"],
+        "row": primary_res["row"],
+        "spreadsheet_url": primary_res["spreadsheet_url"],
+        "david_master_spreadsheet_url": cfg["david_spreadsheet_url"],
+        "synced_to_jenny_sheet": bool(jenny_res is not None),
+        "synced_to_david_master_sheet": True,
+        "values": primary_res["values"],
+    }
+
+
+def _verify_single_sheet(spreadsheet_id: str, spreadsheet_url: str) -> Dict[str, Any]:
     url = f"https://sheets.googleapis.com/v4/spreadsheets/{spreadsheet_id}"
     r = _request_with_retry(
         "GET",
         url,
         params={
             "includeGridData": "true",
-            "ranges": f"'{DEFAULT_TAB_TITLE}'!A1:N20",
+            "ranges": f"'{DEFAULT_TAB_TITLE}'!A1:N25",
             "fields": "properties.title,sheets(properties(sheetId,title,gridProperties.frozenRowCount),basicFilter,conditionalFormats,data.rowData.values(userEnteredValue,dataValidation,hyperlink,effectiveFormat.textFormat))",
         },
     )
@@ -990,7 +1207,7 @@ def verify_sheet() -> Dict[str, Any]:
             "partner": partner_val,
         })
 
-    pub_r = requests.get(cfg["spreadsheet_url"], timeout=15)
+    pub_r = requests.get(spreadsheet_url, timeout=15)
     return {
         "ok": True,
         "title": meta.get("properties", {}).get("title"),
@@ -1004,15 +1221,24 @@ def verify_sheet() -> Dict[str, Any]:
         "verified_clickable_cockpit_light_links": clickable_cockpit_light_links,
         "verified_clickable_source_links": clickable_source_links,
         "public_http_status": pub_r.status_code,
-        "spreadsheet_url": cfg["spreadsheet_url"],
+        "spreadsheet_url": spreadsheet_url,
         "rows_summary": rows_summary,
+    }
+
+
+def verify_sheet() -> Dict[str, Any]:
+    cfg = get_sheet_config()
+    return {
+        "ok": True,
+        "jenny_partner_sheet": _verify_single_sheet(cfg["spreadsheet_id"], cfg["spreadsheet_url"]),
+        "david_master_sheet": _verify_single_sheet(cfg["david_spreadsheet_id"], cfg["david_spreadsheet_url"]),
     }
 
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="WebPilot Google Sheets Sync")
-    parser.add_argument("--init", action="store_true", help="Initialisiert & befuellt das Google Sheet")
-    parser.add_argument("--verify", action="store_true", help="Prueft Checkboxen, Klick-Links, Filter & Public Access")
+    parser.add_argument("--init", action="store_true", help="Initialisiert & befuellt beide Google Sheets (Jenny + David Master)")
+    parser.add_argument("--verify", action="store_true", help="Prueft Checkboxen, Klick-Links, Filter & Public Access auf beiden Sheets")
     parser.add_argument("--upsert", action="store_true", help="Fuegt eine Zeile ein oder aktualisiert sie")
     parser.add_argument("--slug", type=str, default="", help="Mandanten-Slug")
     parser.add_argument("--company", type=str, default="", help="Firma / Verein")
@@ -1040,4 +1266,4 @@ if __name__ == "__main__":
             status_text=args.status,
         ), indent=2, ensure_ascii=False))
     else:
-        print(json.dumps(init_and_seed_sheet(), indent=2, ensure_ascii=False))
+        print(json.dumps(verify_sheet(), indent=2, ensure_ascii=False))

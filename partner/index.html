@@ -2365,11 +2365,20 @@
           currentFilter = "all";
         }
 
+        const JENNY_SHEET_URL = "https://docs.google.com/spreadsheets/d/1O3EqOCqGS5HbE5rWxIBoTk8lLA0a2Pz30F7yKiEbRms/edit";
+        const DAVID_MASTER_SHEET_URL = "https://docs.google.com/spreadsheets/d/1horD2vDfLDnVb9SEoBmXc-tjP8auMAMaqfdrb_g-Sho/edit";
         const hasSheetAccess = isAdmin || uname === "jenny" || Boolean(user && user.google_sheet_url);
+        const targetSheetUrl = (user && user.google_sheet_url) ? user.google_sheet_url : (isAdmin ? DAVID_MASTER_SHEET_URL : JENNY_SHEET_URL);
         const b1 = document.getElementById("btnTopGoogleSheet");
         const b2 = document.getElementById("btnSectionGoogleSheet");
-        if (b1) b1.classList.toggle("hidden", !hasSheetAccess);
-        if (b2) b2.classList.toggle("hidden", !hasSheetAccess);
+        if (b1) {
+          b1.classList.toggle("hidden", !hasSheetAccess);
+          b1.href = targetSheetUrl;
+        }
+        if (b2) {
+          b2.classList.toggle("hidden", !hasSheetAccess);
+          b2.href = targetSheetUrl;
+        }
 
         userMetaDisplay.textContent = "";
         const strong = document.createElement("strong");
