@@ -5,7 +5,7 @@
 > **Lokaler Ordner (VPS & Git):** `preview-hochuli/`  
 > **Cloudflare-Basis-URL:** [vorschau.magnet-xs.ch/hochuli/](https://vorschau.magnet-xs.ch/hochuli/)  
 > **Bestand:** **41 Assets** (3.95 MB gesamt) · **🟢 39 aktiv im HTML** · **⚪ 2 frei im Bild-Pool** · **Externe Hotlinks: 0**  
-> **Letzte Aktualisierung:** 06.11.2026 13:58 Uhr (automatisch generiert via `webpilot_asset_catalog.py`)
+> **Letzte Aktualisierung:** 06.11.2026 13:59 Uhr (automatisch generiert via `webpilot_asset_catalog.py`)
 
 ---
 

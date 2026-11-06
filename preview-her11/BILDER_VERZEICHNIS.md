@@ -5,7 +5,7 @@
 > **Lokaler Ordner (VPS & Git):** `preview-her11/`  
 > **Cloudflare-Basis-URL:** [vorschau.magnet-xs.ch/her11/](https://vorschau.magnet-xs.ch/her11/)  
 > **Bestand:** **22 Assets** (2.97 MB gesamt) · **🟢 10 aktiv im HTML** · **⚪ 12 frei im Bild-Pool** · **Externe Hotlinks: 0**  
-> **Letzte Aktualisierung:** 06.11.2026 13:58 Uhr (automatisch generiert via `webpilot_asset_catalog.py`)
+> **Letzte Aktualisierung:** 06.11.2026 13:59 Uhr (automatisch generiert via `webpilot_asset_catalog.py`)
 
 ---
 

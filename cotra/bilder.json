@@ -1,19 +1,24 @@
 [
   {
+    "nr": 1,
     "id": "images_hero_jpg",
     "filename": "hero.jpg",
     "rel_path": "images/hero.jpg",
     "folder": "cotra",
-    "category": "Hero & Header",
+    "category": "Startbühne & Header",
+    "category_code": "hero",
     "dimensions": "953x768",
     "size_kb": 132.7,
+    "format": "JPG",
     "mtime": 1792790053,
     "mtime_str": "23.10.2026 21:14",
-    "cdn_url": "https://embed.magnet-xs.ch/cotra/images/hero.jpg",
+    "cdn_url": "https://vorschau.magnet-xs.ch/cotra/images/hero.jpg",
+    "cloudflare_url": "https://vorschau.magnet-xs.ch/cotra/images/hero.jpg",
+    "cloudflare_short": "vorschau.magnet-xs.ch/cotra/images/hero.jpg",
     "is_used": true,
     "used_in": [
       {
-        "datei": "index.html",
+        "datei": "Cotra_Autotransport_Fahrer.html",
         "slot": "image",
         "is_hero": true
       },
@@ -21,24 +26,40 @@
         "datei": "cotra_Chauffeur_CE.html",
         "slot": "image",
         "is_hero": true
+      },
+      {
+        "datei": "index.html",
+        "slot": "image",
+        "is_hero": true
       }
-    ]
+    ],
+    "used_in_pages": [
+      "Cotra_Autotransport_Fahrer.html",
+      "cotra_Chauffeur_CE.html",
+      "index.html"
+    ],
+    "alt": "COTRA Autotransport Chauffeur Kat. CE"
   },
   {
+    "nr": 2,
     "id": "images_jeanmarc_jpg",
     "filename": "jeanmarc.jpg",
     "rel_path": "images/jeanmarc.jpg",
     "folder": "cotra",
-    "category": "Fuhrpark & Tour",
+    "category": "Referenz, Projekt & Angebot",
+    "category_code": "ref",
     "dimensions": "768x768",
     "size_kb": 70.9,
+    "format": "JPG",
     "mtime": 1792790056,
     "mtime_str": "23.10.2026 21:14",
-    "cdn_url": "https://embed.magnet-xs.ch/cotra/images/jeanmarc.jpg",
+    "cdn_url": "https://vorschau.magnet-xs.ch/cotra/images/jeanmarc.jpg",
+    "cloudflare_url": "https://vorschau.magnet-xs.ch/cotra/images/jeanmarc.jpg",
+    "cloudflare_short": "vorschau.magnet-xs.ch/cotra/images/jeanmarc.jpg",
     "is_used": true,
     "used_in": [
       {
-        "datei": "index.html",
+        "datei": "Cotra_Autotransport_Fahrer.html",
         "slot": "image",
         "is_hero": false
       },
@@ -46,24 +67,40 @@
         "datei": "cotra_Chauffeur_CE.html",
         "slot": "image",
         "is_hero": false
+      },
+      {
+        "datei": "index.html",
+        "slot": "image",
+        "is_hero": false
       }
-    ]
+    ],
+    "used_in_pages": [
+      "Cotra_Autotransport_Fahrer.html",
+      "cotra_Chauffeur_CE.html",
+      "index.html"
+    ],
+    "alt": "Jean Marc Padrun — Leiter Transportabteilung"
   },
   {
+    "nr": 3,
     "id": "images_logo_png",
     "filename": "logo.png",
     "rel_path": "images/logo.png",
     "folder": "cotra",
-    "category": "Logo & Icon",
+    "category": "Logo & Marken-Icon",
+    "category_code": "logo",
     "dimensions": "600x192",
     "size_kb": 21.8,
+    "format": "PNG",
     "mtime": 1793088383,
     "mtime_str": "27.10.2026 08:06",
-    "cdn_url": "https://embed.magnet-xs.ch/cotra/images/logo.png",
+    "cdn_url": "https://vorschau.magnet-xs.ch/cotra/images/logo.png",
+    "cloudflare_url": "https://vorschau.magnet-xs.ch/cotra/images/logo.png",
+    "cloudflare_short": "vorschau.magnet-xs.ch/cotra/images/logo.png",
     "is_used": true,
     "used_in": [
       {
-        "datei": "index.html",
+        "datei": "Cotra_Autotransport_Fahrer.html",
         "slot": "image",
         "is_hero": false
       },
@@ -71,24 +108,40 @@
         "datei": "cotra_Chauffeur_CE.html",
         "slot": "image",
         "is_hero": false
+      },
+      {
+        "datei": "index.html",
+        "slot": "image",
+        "is_hero": false
       }
-    ]
+    ],
+    "used_in_pages": [
+      "Cotra_Autotransport_Fahrer.html",
+      "cotra_Chauffeur_CE.html",
+      "index.html"
+    ],
+    "alt": "COTRA Autotransport AG (Lupfig · Strengelbach · Härkingen · Studen · Courgenay) – Offizielles Marken-Logo (Logo)"
   },
   {
+    "nr": 4,
     "id": "images_logo_svg",
     "filename": "logo.svg",
     "rel_path": "images/logo.svg",
     "folder": "cotra",
-    "category": "Logo & Icon",
-    "dimensions": "Unbekannt",
+    "category": "Logo & Marken-Icon",
+    "category_code": "logo",
+    "dimensions": "138x44",
     "size_kb": 4.0,
+    "format": "SVG",
     "mtime": 1793088279,
     "mtime_str": "27.10.2026 08:04",
-    "cdn_url": "https://embed.magnet-xs.ch/cotra/images/logo.svg",
+    "cdn_url": "https://vorschau.magnet-xs.ch/cotra/images/logo.svg",
+    "cloudflare_url": "https://vorschau.magnet-xs.ch/cotra/images/logo.svg",
+    "cloudflare_short": "vorschau.magnet-xs.ch/cotra/images/logo.svg",
     "is_used": true,
     "used_in": [
       {
-        "datei": "index.html",
+        "datei": "Cotra_Autotransport_Fahrer.html",
         "slot": "image",
         "is_hero": false
       },
@@ -96,24 +149,40 @@
         "datei": "cotra_Chauffeur_CE.html",
         "slot": "image",
         "is_hero": false
+      },
+      {
+        "datei": "index.html",
+        "slot": "image",
+        "is_hero": false
       }
-    ]
+    ],
+    "used_in_pages": [
+      "Cotra_Autotransport_Fahrer.html",
+      "cotra_Chauffeur_CE.html",
+      "index.html"
+    ],
+    "alt": "COTRA Autotransport AG Logo"
   },
   {
+    "nr": 5,
     "id": "images_q1_1_jpg",
     "filename": "q1_1.jpg",
     "rel_path": "images/q1_1.jpg",
     "folder": "cotra",
-    "category": "Fuhrpark & Tour",
+    "category": "Referenz, Projekt & Angebot",
+    "category_code": "ref",
     "dimensions": "400x400",
     "size_kb": 239.4,
+    "format": "JPG",
     "mtime": 1792790058,
     "mtime_str": "23.10.2026 21:14",
-    "cdn_url": "https://embed.magnet-xs.ch/cotra/images/q1_1.jpg",
+    "cdn_url": "https://vorschau.magnet-xs.ch/cotra/images/q1_1.jpg",
+    "cloudflare_url": "https://vorschau.magnet-xs.ch/cotra/images/q1_1.jpg",
+    "cloudflare_short": "vorschau.magnet-xs.ch/cotra/images/q1_1.jpg",
     "is_used": true,
     "used_in": [
       {
-        "datei": "index.html",
+        "datei": "Cotra_Autotransport_Fahrer.html",
         "slot": "image",
         "is_hero": false
       },
@@ -121,24 +190,40 @@
         "datei": "cotra_Chauffeur_CE.html",
         "slot": "image",
         "is_hero": false
+      },
+      {
+        "datei": "index.html",
+        "slot": "image",
+        "is_hero": false
       }
-    ]
+    ],
+    "used_in_pages": [
+      "Cotra_Autotransport_Fahrer.html",
+      "cotra_Chauffeur_CE.html",
+      "index.html"
+    ],
+    "alt": "Eigene Planung"
   },
   {
+    "nr": 6,
     "id": "images_q1_2_jpg",
     "filename": "q1_2.jpg",
     "rel_path": "images/q1_2.jpg",
     "folder": "cotra",
-    "category": "Fuhrpark & Tour",
+    "category": "Referenz, Projekt & Angebot",
+    "category_code": "ref",
     "dimensions": "400x400",
     "size_kb": 238.1,
+    "format": "JPG",
     "mtime": 1792790059,
     "mtime_str": "23.10.2026 21:14",
-    "cdn_url": "https://embed.magnet-xs.ch/cotra/images/q1_2.jpg",
+    "cdn_url": "https://vorschau.magnet-xs.ch/cotra/images/q1_2.jpg",
+    "cloudflare_url": "https://vorschau.magnet-xs.ch/cotra/images/q1_2.jpg",
+    "cloudflare_short": "vorschau.magnet-xs.ch/cotra/images/q1_2.jpg",
     "is_used": true,
     "used_in": [
       {
-        "datei": "index.html",
+        "datei": "Cotra_Autotransport_Fahrer.html",
         "slot": "image",
         "is_hero": false
       },
@@ -146,24 +231,40 @@
         "datei": "cotra_Chauffeur_CE.html",
         "slot": "image",
         "is_hero": false
+      },
+      {
+        "datei": "index.html",
+        "slot": "image",
+        "is_hero": false
       }
-    ]
+    ],
+    "used_in_pages": [
+      "Cotra_Autotransport_Fahrer.html",
+      "cotra_Chauffeur_CE.html",
+      "index.html"
+    ],
+    "alt": "Keine fixen Routen"
   },
   {
+    "nr": 7,
     "id": "images_q1_3_jpg",
     "filename": "q1_3.jpg",
     "rel_path": "images/q1_3.jpg",
     "folder": "cotra",
-    "category": "Fuhrpark & Tour",
+    "category": "Referenz, Projekt & Angebot",
+    "category_code": "ref",
     "dimensions": "400x400",
     "size_kb": 239.9,
+    "format": "JPG",
     "mtime": 1792790060,
     "mtime_str": "23.10.2026 21:14",
-    "cdn_url": "https://embed.magnet-xs.ch/cotra/images/q1_3.jpg",
+    "cdn_url": "https://vorschau.magnet-xs.ch/cotra/images/q1_3.jpg",
+    "cloudflare_url": "https://vorschau.magnet-xs.ch/cotra/images/q1_3.jpg",
+    "cloudflare_short": "vorschau.magnet-xs.ch/cotra/images/q1_3.jpg",
     "is_used": true,
     "used_in": [
       {
-        "datei": "index.html",
+        "datei": "Cotra_Autotransport_Fahrer.html",
         "slot": "image",
         "is_hero": false
       },
@@ -171,24 +272,40 @@
         "datei": "cotra_Chauffeur_CE.html",
         "slot": "image",
         "is_hero": false
+      },
+      {
+        "datei": "index.html",
+        "slot": "image",
+        "is_hero": false
       }
-    ]
+    ],
+    "used_in_pages": [
+      "Cotra_Autotransport_Fahrer.html",
+      "cotra_Chauffeur_CE.html",
+      "index.html"
+    ],
+    "alt": "Mitdenken gefragt"
   },
   {
+    "nr": 8,
     "id": "images_q1_4_jpg",
     "filename": "q1_4.jpg",
     "rel_path": "images/q1_4.jpg",
     "folder": "cotra",
-    "category": "Fuhrpark & Tour",
+    "category": "Referenz, Projekt & Angebot",
+    "category_code": "ref",
     "dimensions": "400x400",
     "size_kb": 238.2,
+    "format": "JPG",
     "mtime": 1792790060,
     "mtime_str": "23.10.2026 21:14",
-    "cdn_url": "https://embed.magnet-xs.ch/cotra/images/q1_4.jpg",
+    "cdn_url": "https://vorschau.magnet-xs.ch/cotra/images/q1_4.jpg",
+    "cloudflare_url": "https://vorschau.magnet-xs.ch/cotra/images/q1_4.jpg",
+    "cloudflare_short": "vorschau.magnet-xs.ch/cotra/images/q1_4.jpg",
     "is_used": true,
     "used_in": [
       {
-        "datei": "index.html",
+        "datei": "Cotra_Autotransport_Fahrer.html",
         "slot": "image",
         "is_hero": false
       },
@@ -196,24 +313,40 @@
         "datei": "cotra_Chauffeur_CE.html",
         "slot": "image",
         "is_hero": false
+      },
+      {
+        "datei": "index.html",
+        "slot": "image",
+        "is_hero": false
       }
-    ]
+    ],
+    "used_in_pages": [
+      "Cotra_Autotransport_Fahrer.html",
+      "cotra_Chauffeur_CE.html",
+      "index.html"
+    ],
+    "alt": "Wertvolle Fracht"
   },
   {
+    "nr": 9,
     "id": "images_q2_1_jpg",
     "filename": "q2_1.jpg",
     "rel_path": "images/q2_1.jpg",
     "folder": "cotra",
-    "category": "Fuhrpark & Tour",
+    "category": "Referenz, Projekt & Angebot",
+    "category_code": "ref",
     "dimensions": "400x400",
     "size_kb": 239.7,
+    "format": "JPG",
     "mtime": 1792790061,
     "mtime_str": "23.10.2026 21:14",
-    "cdn_url": "https://embed.magnet-xs.ch/cotra/images/q2_1.jpg",
+    "cdn_url": "https://vorschau.magnet-xs.ch/cotra/images/q2_1.jpg",
+    "cloudflare_url": "https://vorschau.magnet-xs.ch/cotra/images/q2_1.jpg",
+    "cloudflare_short": "vorschau.magnet-xs.ch/cotra/images/q2_1.jpg",
     "is_used": true,
     "used_in": [
       {
-        "datei": "index.html",
+        "datei": "Cotra_Autotransport_Fahrer.html",
         "slot": "image",
         "is_hero": false
       },
@@ -221,24 +354,40 @@
         "datei": "cotra_Chauffeur_CE.html",
         "slot": "image",
         "is_hero": false
+      },
+      {
+        "datei": "index.html",
+        "slot": "image",
+        "is_hero": false
       }
-    ]
+    ],
+    "used_in_pages": [
+      "Cotra_Autotransport_Fahrer.html",
+      "cotra_Chauffeur_CE.html",
+      "index.html"
+    ],
+    "alt": "Jeden Abend daheim"
   },
   {
+    "nr": 10,
     "id": "images_q2_2_jpg",
     "filename": "q2_2.jpg",
     "rel_path": "images/q2_2.jpg",
     "folder": "cotra",
-    "category": "Fuhrpark & Tour",
+    "category": "Referenz, Projekt & Angebot",
+    "category_code": "ref",
     "dimensions": "400x400",
     "size_kb": 238.5,
+    "format": "JPG",
     "mtime": 1792790062,
     "mtime_str": "23.10.2026 21:14",
-    "cdn_url": "https://embed.magnet-xs.ch/cotra/images/q2_2.jpg",
+    "cdn_url": "https://vorschau.magnet-xs.ch/cotra/images/q2_2.jpg",
+    "cloudflare_url": "https://vorschau.magnet-xs.ch/cotra/images/q2_2.jpg",
+    "cloudflare_short": "vorschau.magnet-xs.ch/cotra/images/q2_2.jpg",
     "is_used": true,
     "used_in": [
       {
-        "datei": "index.html",
+        "datei": "Cotra_Autotransport_Fahrer.html",
         "slot": "image",
         "is_hero": false
       },
@@ -246,24 +395,40 @@
         "datei": "cotra_Chauffeur_CE.html",
         "slot": "image",
         "is_hero": false
+      },
+      {
+        "datei": "index.html",
+        "slot": "image",
+        "is_hero": false
       }
-    ]
+    ],
+    "used_in_pages": [
+      "Cotra_Autotransport_Fahrer.html",
+      "cotra_Chauffeur_CE.html",
+      "index.html"
+    ],
+    "alt": "Faire Bezahlung"
   },
   {
+    "nr": 11,
     "id": "images_q2_3_jpg",
     "filename": "q2_3.jpg",
     "rel_path": "images/q2_3.jpg",
     "folder": "cotra",
-    "category": "Fuhrpark & Tour",
+    "category": "Referenz, Projekt & Angebot",
+    "category_code": "ref",
     "dimensions": "400x400",
     "size_kb": 239.9,
+    "format": "JPG",
     "mtime": 1792790062,
     "mtime_str": "23.10.2026 21:14",
-    "cdn_url": "https://embed.magnet-xs.ch/cotra/images/q2_3.jpg",
+    "cdn_url": "https://vorschau.magnet-xs.ch/cotra/images/q2_3.jpg",
+    "cloudflare_url": "https://vorschau.magnet-xs.ch/cotra/images/q2_3.jpg",
+    "cloudflare_short": "vorschau.magnet-xs.ch/cotra/images/q2_3.jpg",
     "is_used": true,
     "used_in": [
       {
-        "datei": "index.html",
+        "datei": "Cotra_Autotransport_Fahrer.html",
         "slot": "image",
         "is_hero": false
       },
@@ -271,24 +436,40 @@
         "datei": "cotra_Chauffeur_CE.html",
         "slot": "image",
         "is_hero": false
+      },
+      {
+        "datei": "index.html",
+        "slot": "image",
+        "is_hero": false
       }
-    ]
+    ],
+    "used_in_pages": [
+      "Cotra_Autotransport_Fahrer.html",
+      "cotra_Chauffeur_CE.html",
+      "index.html"
+    ],
+    "alt": "Sichere Stelle"
   },
   {
+    "nr": 12,
     "id": "images_q2_4_jpg",
     "filename": "q2_4.jpg",
     "rel_path": "images/q2_4.jpg",
     "folder": "cotra",
-    "category": "Fuhrpark & Tour",
+    "category": "Referenz, Projekt & Angebot",
+    "category_code": "ref",
     "dimensions": "400x400",
     "size_kb": 238.8,
+    "format": "JPG",
     "mtime": 1792790063,
     "mtime_str": "23.10.2026 21:14",
-    "cdn_url": "https://embed.magnet-xs.ch/cotra/images/q2_4.jpg",
+    "cdn_url": "https://vorschau.magnet-xs.ch/cotra/images/q2_4.jpg",
+    "cloudflare_url": "https://vorschau.magnet-xs.ch/cotra/images/q2_4.jpg",
+    "cloudflare_short": "vorschau.magnet-xs.ch/cotra/images/q2_4.jpg",
     "is_used": true,
     "used_in": [
       {
-        "datei": "index.html",
+        "datei": "Cotra_Autotransport_Fahrer.html",
         "slot": "image",
         "is_hero": false
       },
@@ -296,24 +477,40 @@
         "datei": "cotra_Chauffeur_CE.html",
         "slot": "image",
         "is_hero": false
+      },
+      {
+        "datei": "index.html",
+        "slot": "image",
+        "is_hero": false
       }
-    ]
+    ],
+    "used_in_pages": [
+      "Cotra_Autotransport_Fahrer.html",
+      "cotra_Chauffeur_CE.html",
+      "index.html"
+    ],
+    "alt": "Flexible Ferien"
   },
   {
+    "nr": 13,
     "id": "images_q3_1_jpg",
     "filename": "q3_1.jpg",
     "rel_path": "images/q3_1.jpg",
     "folder": "cotra",
-    "category": "Fuhrpark & Tour",
+    "category": "Referenz, Projekt & Angebot",
+    "category_code": "ref",
     "dimensions": "400x400",
     "size_kb": 240.2,
+    "format": "JPG",
     "mtime": 1792790063,
     "mtime_str": "23.10.2026 21:14",
-    "cdn_url": "https://embed.magnet-xs.ch/cotra/images/q3_1.jpg",
+    "cdn_url": "https://vorschau.magnet-xs.ch/cotra/images/q3_1.jpg",
+    "cloudflare_url": "https://vorschau.magnet-xs.ch/cotra/images/q3_1.jpg",
+    "cloudflare_short": "vorschau.magnet-xs.ch/cotra/images/q3_1.jpg",
     "is_used": true,
     "used_in": [
       {
-        "datei": "index.html",
+        "datei": "Cotra_Autotransport_Fahrer.html",
         "slot": "image",
         "is_hero": false
       },
@@ -321,24 +518,40 @@
         "datei": "cotra_Chauffeur_CE.html",
         "slot": "image",
         "is_hero": false
+      },
+      {
+        "datei": "index.html",
+        "slot": "image",
+        "is_hero": false
       }
-    ]
+    ],
+    "used_in_pages": [
+      "Cotra_Autotransport_Fahrer.html",
+      "cotra_Chauffeur_CE.html",
+      "index.html"
+    ],
+    "alt": "Sehr wichtig"
   },
   {
+    "nr": 14,
     "id": "images_q3_2_jpg",
     "filename": "q3_2.jpg",
     "rel_path": "images/q3_2.jpg",
     "folder": "cotra",
-    "category": "Fuhrpark & Tour",
+    "category": "Referenz, Projekt & Angebot",
+    "category_code": "ref",
     "dimensions": "400x400",
     "size_kb": 239.3,
+    "format": "JPG",
     "mtime": 1792790064,
     "mtime_str": "23.10.2026 21:14",
-    "cdn_url": "https://embed.magnet-xs.ch/cotra/images/q3_2.jpg",
+    "cdn_url": "https://vorschau.magnet-xs.ch/cotra/images/q3_2.jpg",
+    "cloudflare_url": "https://vorschau.magnet-xs.ch/cotra/images/q3_2.jpg",
+    "cloudflare_short": "vorschau.magnet-xs.ch/cotra/images/q3_2.jpg",
     "is_used": true,
     "used_in": [
       {
-        "datei": "index.html",
+        "datei": "Cotra_Autotransport_Fahrer.html",
         "slot": "image",
         "is_hero": false
       },
@@ -346,24 +559,40 @@
         "datei": "cotra_Chauffeur_CE.html",
         "slot": "image",
         "is_hero": false
+      },
+      {
+        "datei": "index.html",
+        "slot": "image",
+        "is_hero": false
       }
-    ]
+    ],
+    "used_in_pages": [
+      "Cotra_Autotransport_Fahrer.html",
+      "cotra_Chauffeur_CE.html",
+      "index.html"
+    ],
+    "alt": "Augenhöhe zählt"
   },
   {
+    "nr": 15,
     "id": "images_q3_3_jpg",
     "filename": "q3_3.jpg",
     "rel_path": "images/q3_3.jpg",
     "folder": "cotra",
-    "category": "Fuhrpark & Tour",
+    "category": "Referenz, Projekt & Angebot",
+    "category_code": "ref",
     "dimensions": "400x400",
     "size_kb": 240.6,
+    "format": "JPG",
     "mtime": 1792790064,
     "mtime_str": "23.10.2026 21:14",
-    "cdn_url": "https://embed.magnet-xs.ch/cotra/images/q3_3.jpg",
+    "cdn_url": "https://vorschau.magnet-xs.ch/cotra/images/q3_3.jpg",
+    "cloudflare_url": "https://vorschau.magnet-xs.ch/cotra/images/q3_3.jpg",
+    "cloudflare_short": "vorschau.magnet-xs.ch/cotra/images/q3_3.jpg",
     "is_used": true,
     "used_in": [
       {
-        "datei": "index.html",
+        "datei": "Cotra_Autotransport_Fahrer.html",
         "slot": "image",
         "is_hero": false
       },
@@ -371,24 +600,40 @@
         "datei": "cotra_Chauffeur_CE.html",
         "slot": "image",
         "is_hero": false
+      },
+      {
+        "datei": "index.html",
+        "slot": "image",
+        "is_hero": false
       }
-    ]
+    ],
+    "used_in_pages": [
+      "Cotra_Autotransport_Fahrer.html",
+      "cotra_Chauffeur_CE.html",
+      "index.html"
+    ],
+    "alt": "Hauptsache Respekt"
   },
   {
+    "nr": 16,
     "id": "images_q3_4_jpg",
     "filename": "q3_4.jpg",
     "rel_path": "images/q3_4.jpg",
     "folder": "cotra",
-    "category": "Fuhrpark & Tour",
+    "category": "Referenz, Projekt & Angebot",
+    "category_code": "ref",
     "dimensions": "400x400",
     "size_kb": 239.3,
+    "format": "JPG",
     "mtime": 1792790065,
     "mtime_str": "23.10.2026 21:14",
-    "cdn_url": "https://embed.magnet-xs.ch/cotra/images/q3_4.jpg",
+    "cdn_url": "https://vorschau.magnet-xs.ch/cotra/images/q3_4.jpg",
+    "cloudflare_url": "https://vorschau.magnet-xs.ch/cotra/images/q3_4.jpg",
+    "cloudflare_short": "vorschau.magnet-xs.ch/cotra/images/q3_4.jpg",
     "is_used": true,
     "used_in": [
       {
-        "datei": "index.html",
+        "datei": "Cotra_Autotransport_Fahrer.html",
         "slot": "image",
         "is_hero": false
       },
@@ -396,24 +641,40 @@
         "datei": "cotra_Chauffeur_CE.html",
         "slot": "image",
         "is_hero": false
+      },
+      {
+        "datei": "index.html",
+        "slot": "image",
+        "is_hero": false
       }
-    ]
+    ],
+    "used_in_pages": [
+      "Cotra_Autotransport_Fahrer.html",
+      "cotra_Chauffeur_CE.html",
+      "index.html"
+    ],
+    "alt": "Einzelkämpfer"
   },
   {
+    "nr": 17,
     "id": "images_sabrina_jpg",
     "filename": "sabrina.jpg",
     "rel_path": "images/sabrina.jpg",
     "folder": "cotra",
-    "category": "Fuhrpark & Tour",
+    "category": "Referenz, Projekt & Angebot",
+    "category_code": "ref",
     "dimensions": "768x768",
     "size_kb": 73.1,
+    "format": "JPG",
     "mtime": 1792790055,
     "mtime_str": "23.10.2026 21:14",
-    "cdn_url": "https://embed.magnet-xs.ch/cotra/images/sabrina.jpg",
+    "cdn_url": "https://vorschau.magnet-xs.ch/cotra/images/sabrina.jpg",
+    "cloudflare_url": "https://vorschau.magnet-xs.ch/cotra/images/sabrina.jpg",
+    "cloudflare_short": "vorschau.magnet-xs.ch/cotra/images/sabrina.jpg",
     "is_used": true,
     "used_in": [
       {
-        "datei": "index.html",
+        "datei": "Cotra_Autotransport_Fahrer.html",
         "slot": "image",
         "is_hero": false
       },
@@ -421,24 +682,40 @@
         "datei": "cotra_Chauffeur_CE.html",
         "slot": "image",
         "is_hero": false
+      },
+      {
+        "datei": "index.html",
+        "slot": "image",
+        "is_hero": false
       }
-    ]
+    ],
+    "used_in_pages": [
+      "Cotra_Autotransport_Fahrer.html",
+      "cotra_Chauffeur_CE.html",
+      "index.html"
+    ],
+    "alt": "Sabrina Giorgi — Leiterin Fahrpersonal"
   },
   {
+    "nr": 18,
     "id": "images_sabrina_danke_jpg",
     "filename": "sabrina_danke.jpg",
     "rel_path": "images/sabrina_danke.jpg",
     "folder": "cotra",
-    "category": "Fuhrpark & Tour",
+    "category": "Referenz, Projekt & Angebot",
+    "category_code": "ref",
     "dimensions": "1366x767",
     "size_kb": 142.1,
+    "format": "JPG",
     "mtime": 1792843135,
     "mtime_str": "24.10.2026 11:58",
-    "cdn_url": "https://embed.magnet-xs.ch/cotra/images/sabrina_danke.jpg",
+    "cdn_url": "https://vorschau.magnet-xs.ch/cotra/images/sabrina_danke.jpg",
+    "cloudflare_url": "https://vorschau.magnet-xs.ch/cotra/images/sabrina_danke.jpg",
+    "cloudflare_short": "vorschau.magnet-xs.ch/cotra/images/sabrina_danke.jpg",
     "is_used": true,
     "used_in": [
       {
-        "datei": "index.html",
+        "datei": "Cotra_Autotransport_Fahrer.html",
         "slot": "image",
         "is_hero": false
       },
@@ -446,24 +723,40 @@
         "datei": "cotra_Chauffeur_CE.html",
         "slot": "image",
         "is_hero": false
+      },
+      {
+        "datei": "index.html",
+        "slot": "image",
+        "is_hero": false
       }
-    ]
+    ],
+    "used_in_pages": [
+      "Cotra_Autotransport_Fahrer.html",
+      "cotra_Chauffeur_CE.html",
+      "index.html"
+    ],
+    "alt": "Sabrina Giorgi vor COTRA LKWs"
   },
   {
+    "nr": 19,
     "id": "images_sabrina_lkw_jpg",
     "filename": "sabrina_lkw.jpg",
     "rel_path": "images/sabrina_lkw.jpg",
     "folder": "cotra",
-    "category": "Fuhrpark & Tour",
-    "dimensions": "160x96",
+    "category": "Referenz, Projekt & Angebot",
+    "category_code": "ref",
+    "dimensions": "3000x1686",
     "size_kb": 409.2,
+    "format": "JPG",
     "mtime": 1792843030,
     "mtime_str": "24.10.2026 11:57",
-    "cdn_url": "https://embed.magnet-xs.ch/cotra/images/sabrina_lkw.jpg",
+    "cdn_url": "https://vorschau.magnet-xs.ch/cotra/images/sabrina_lkw.jpg",
+    "cloudflare_url": "https://vorschau.magnet-xs.ch/cotra/images/sabrina_lkw.jpg",
+    "cloudflare_short": "vorschau.magnet-xs.ch/cotra/images/sabrina_lkw.jpg",
     "is_used": true,
     "used_in": [
       {
-        "datei": "index.html",
+        "datei": "Cotra_Autotransport_Fahrer.html",
         "slot": "image",
         "is_hero": false
       },
@@ -471,24 +764,40 @@
         "datei": "cotra_Chauffeur_CE.html",
         "slot": "image",
         "is_hero": false
+      },
+      {
+        "datei": "index.html",
+        "slot": "image",
+        "is_hero": false
       }
-    ]
+    ],
+    "used_in_pages": [
+      "Cotra_Autotransport_Fahrer.html",
+      "cotra_Chauffeur_CE.html",
+      "index.html"
+    ],
+    "alt": "COTRA Autotransport AG (Lupfig · Strengelbach · Härkingen · Studen · Courgenay) – Einblick & Referenz: Sabrina Lkw"
   },
   {
+    "nr": 20,
     "id": "images_team_jpg",
     "filename": "team.jpg",
     "rel_path": "images/team.jpg",
     "folder": "cotra",
-    "category": "Team & Porträt",
+    "category": "Team, Porträt & Kader",
+    "category_code": "team",
     "dimensions": "1366x762",
     "size_kb": 183.2,
+    "format": "JPG",
     "mtime": 1792790054,
     "mtime_str": "23.10.2026 21:14",
-    "cdn_url": "https://embed.magnet-xs.ch/cotra/images/team.jpg",
+    "cdn_url": "https://vorschau.magnet-xs.ch/cotra/images/team.jpg",
+    "cloudflare_url": "https://vorschau.magnet-xs.ch/cotra/images/team.jpg",
+    "cloudflare_short": "vorschau.magnet-xs.ch/cotra/images/team.jpg",
     "is_used": true,
     "used_in": [
       {
-        "datei": "index.html",
+        "datei": "Cotra_Autotransport_Fahrer.html",
         "slot": "image",
         "is_hero": false
       },
@@ -496,24 +805,40 @@
         "datei": "cotra_Chauffeur_CE.html",
         "slot": "image",
         "is_hero": false
+      },
+      {
+        "datei": "index.html",
+        "slot": "image",
+        "is_hero": false
       }
-    ]
+    ],
+    "used_in_pages": [
+      "Cotra_Autotransport_Fahrer.html",
+      "cotra_Chauffeur_CE.html",
+      "index.html"
+    ],
+    "alt": "Das COTRA Team"
   },
   {
+    "nr": 21,
     "id": "images_vorstellung_jpg",
     "filename": "vorstellung.jpg",
     "rel_path": "images/vorstellung.jpg",
     "folder": "cotra",
-    "category": "Fuhrpark & Tour",
+    "category": "Referenz, Projekt & Angebot",
+    "category_code": "ref",
     "dimensions": "1366x762",
     "size_kb": 210.2,
+    "format": "JPG",
     "mtime": 1792790057,
     "mtime_str": "23.10.2026 21:14",
-    "cdn_url": "https://embed.magnet-xs.ch/cotra/images/vorstellung.jpg",
+    "cdn_url": "https://vorschau.magnet-xs.ch/cotra/images/vorstellung.jpg",
+    "cloudflare_url": "https://vorschau.magnet-xs.ch/cotra/images/vorstellung.jpg",
+    "cloudflare_short": "vorschau.magnet-xs.ch/cotra/images/vorstellung.jpg",
     "is_used": true,
     "used_in": [
       {
-        "datei": "index.html",
+        "datei": "Cotra_Autotransport_Fahrer.html",
         "slot": "image",
         "is_hero": false
       },
@@ -521,24 +846,40 @@
         "datei": "cotra_Chauffeur_CE.html",
         "slot": "image",
         "is_hero": false
+      },
+      {
+        "datei": "index.html",
+        "slot": "image",
+        "is_hero": false
       }
-    ]
+    ],
+    "used_in_pages": [
+      "Cotra_Autotransport_Fahrer.html",
+      "cotra_Chauffeur_CE.html",
+      "index.html"
+    ],
+    "alt": "COTRA Autotransporter Flotte"
   },
   {
+    "nr": 22,
     "id": "images_vorteile_jpg",
     "filename": "vorteile.jpg",
     "rel_path": "images/vorteile.jpg",
     "folder": "cotra",
-    "category": "Fuhrpark & Tour",
+    "category": "Referenz, Projekt & Angebot",
+    "category_code": "ref",
     "dimensions": "1028x768",
     "size_kb": 134.7,
+    "format": "JPG",
     "mtime": 1792790058,
     "mtime_str": "23.10.2026 21:14",
-    "cdn_url": "https://embed.magnet-xs.ch/cotra/images/vorteile.jpg",
+    "cdn_url": "https://vorschau.magnet-xs.ch/cotra/images/vorteile.jpg",
+    "cloudflare_url": "https://vorschau.magnet-xs.ch/cotra/images/vorteile.jpg",
+    "cloudflare_short": "vorschau.magnet-xs.ch/cotra/images/vorteile.jpg",
     "is_used": true,
     "used_in": [
       {
-        "datei": "index.html",
+        "datei": "Cotra_Autotransport_Fahrer.html",
         "slot": "image",
         "is_hero": false
       },
@@ -546,7 +887,18 @@
         "datei": "cotra_Chauffeur_CE.html",
         "slot": "image",
         "is_hero": false
+      },
+      {
+        "datei": "index.html",
+        "slot": "image",
+        "is_hero": false
       }
-    ]
+    ],
+    "used_in_pages": [
+      "Cotra_Autotransport_Fahrer.html",
+      "cotra_Chauffeur_CE.html",
+      "index.html"
+    ],
+    "alt": "COTRA Vorteile im Arbeitsalltag"
   }
 ]

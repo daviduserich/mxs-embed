@@ -1,112 +1,177 @@
 [
   {
+    "nr": 1,
     "id": "images_benefits_drohne_jpg",
     "filename": "benefits_drohne.jpg",
     "rel_path": "images/benefits_drohne.jpg",
     "folder": "muster-holzbau",
-    "category": "Baustelle & Projekte",
+    "category": "Referenz, Projekt & Angebot",
+    "category_code": "ref",
     "dimensions": "1400x1050",
     "size_kb": 482.5,
+    "format": "JPG",
     "mtime": 1791096955,
     "mtime_str": "04.10.2026 06:55",
-    "cdn_url": "https://embed.magnet-xs.ch/muster-holzbau/images/benefits_drohne.jpg",
+    "cdn_url": "https://vorschau.magnet-xs.ch/muster-holzbau/images/benefits_drohne.jpg",
+    "cloudflare_url": "https://vorschau.magnet-xs.ch/muster-holzbau/images/benefits_drohne.jpg",
+    "cloudflare_short": "vorschau.magnet-xs.ch/muster-holzbau/images/benefits_drohne.jpg",
     "is_used": true,
     "used_in": [
+      {
+        "datei": "Muster_Holzbau_Zimmermann.html",
+        "slot": "image",
+        "is_hero": false
+      },
       {
         "datei": "index.html",
         "slot": "image",
         "is_hero": false
       }
-    ]
+    ],
+    "used_in_pages": [
+      "Muster_Holzbau_Zimmermann.html",
+      "index.html"
+    ],
+    "alt": "Team Muster Holzbau AG"
   },
   {
+    "nr": 2,
     "id": "images_hero_jpg",
     "filename": "hero.jpg",
     "rel_path": "images/hero.jpg",
     "folder": "muster-holzbau",
-    "category": "Hero & Header",
+    "category": "Startbühne & Header",
+    "category_code": "hero",
     "dimensions": "1400x933",
     "size_kb": 160.7,
+    "format": "JPG",
     "mtime": 1791096955,
     "mtime_str": "04.10.2026 06:55",
-    "cdn_url": "https://embed.magnet-xs.ch/muster-holzbau/images/hero.jpg",
+    "cdn_url": "https://vorschau.magnet-xs.ch/muster-holzbau/images/hero.jpg",
+    "cloudflare_url": "https://vorschau.magnet-xs.ch/muster-holzbau/images/hero.jpg",
+    "cloudflare_short": "vorschau.magnet-xs.ch/muster-holzbau/images/hero.jpg",
     "is_used": false,
-    "used_in": []
+    "used_in": [],
+    "used_in_pages": [],
+    "alt": "muster-holzbau (Schweiz) – Startbühne & Hauptansicht: Hero"
   },
   {
+    "nr": 3,
     "id": "images_hero_svg",
     "filename": "hero.svg",
     "rel_path": "images/hero.svg",
     "folder": "muster-holzbau",
-    "category": "Hero & Header",
-    "dimensions": "Unbekannt",
+    "category": "Startbühne & Header",
+    "category_code": "hero",
+    "dimensions": "1200x675",
     "size_kb": 0.8,
+    "format": "SVG",
     "mtime": 1791095801,
     "mtime_str": "04.10.2026 06:36",
-    "cdn_url": "https://embed.magnet-xs.ch/muster-holzbau/images/hero.svg",
+    "cdn_url": "https://vorschau.magnet-xs.ch/muster-holzbau/images/hero.svg",
+    "cloudflare_url": "https://vorschau.magnet-xs.ch/muster-holzbau/images/hero.svg",
+    "cloudflare_short": "vorschau.magnet-xs.ch/muster-holzbau/images/hero.svg",
     "is_used": false,
-    "used_in": []
+    "used_in": [],
+    "used_in_pages": [],
+    "alt": "muster-holzbau (Schweiz) – Startbühne & Hauptansicht: Hero"
   },
   {
+    "nr": 4,
     "id": "images_logo_png",
     "filename": "logo.png",
     "rel_path": "images/logo.png",
     "folder": "muster-holzbau",
-    "category": "Logo & Icon",
+    "category": "Logo & Marken-Icon",
+    "category_code": "logo",
     "dimensions": "260x150",
     "size_kb": 8.2,
+    "format": "PNG",
     "mtime": 1791096955,
     "mtime_str": "04.10.2026 06:55",
-    "cdn_url": "https://embed.magnet-xs.ch/muster-holzbau/images/logo.png",
+    "cdn_url": "https://vorschau.magnet-xs.ch/muster-holzbau/images/logo.png",
+    "cloudflare_url": "https://vorschau.magnet-xs.ch/muster-holzbau/images/logo.png",
+    "cloudflare_short": "vorschau.magnet-xs.ch/muster-holzbau/images/logo.png",
     "is_used": false,
-    "used_in": []
+    "used_in": [],
+    "used_in_pages": [],
+    "alt": "muster-holzbau (Schweiz) – Offizielles Marken-Logo (Logo)"
   },
   {
+    "nr": 5,
     "id": "images_michael_jpg",
     "filename": "michael.jpg",
     "rel_path": "images/michael.jpg",
     "folder": "muster-holzbau",
-    "category": "Team & Porträt",
+    "category": "Team, Porträt & Kader",
+    "category_code": "team",
     "dimensions": "834x788",
     "size_kb": 186.7,
+    "format": "JPG",
     "mtime": 1791096955,
     "mtime_str": "04.10.2026 06:55",
-    "cdn_url": "https://embed.magnet-xs.ch/muster-holzbau/images/michael.jpg",
+    "cdn_url": "https://vorschau.magnet-xs.ch/muster-holzbau/images/michael.jpg",
+    "cloudflare_url": "https://vorschau.magnet-xs.ch/muster-holzbau/images/michael.jpg",
+    "cloudflare_short": "vorschau.magnet-xs.ch/muster-holzbau/images/michael.jpg",
     "is_used": false,
-    "used_in": []
+    "used_in": [],
+    "used_in_pages": [],
+    "alt": "muster-holzbau (Schweiz) – Team & Ansprechpartner: Michael"
   },
   {
+    "nr": 6,
     "id": "images_stefan_jpg",
     "filename": "stefan.jpg",
     "rel_path": "images/stefan.jpg",
     "folder": "muster-holzbau",
-    "category": "Team & Porträt",
+    "category": "Team, Porträt & Kader",
+    "category_code": "team",
     "dimensions": "1400x1337",
     "size_kb": 204.2,
+    "format": "JPG",
     "mtime": 1791096955,
     "mtime_str": "04.10.2026 06:55",
-    "cdn_url": "https://embed.magnet-xs.ch/muster-holzbau/images/stefan.jpg",
+    "cdn_url": "https://vorschau.magnet-xs.ch/muster-holzbau/images/stefan.jpg",
+    "cloudflare_url": "https://vorschau.magnet-xs.ch/muster-holzbau/images/stefan.jpg",
+    "cloudflare_short": "vorschau.magnet-xs.ch/muster-holzbau/images/stefan.jpg",
     "is_used": true,
     "used_in": [
+      {
+        "datei": "Muster_Holzbau_Zimmermann.html",
+        "slot": "image",
+        "is_hero": false
+      },
       {
         "datei": "index.html",
         "slot": "image",
         "is_hero": false
       }
-    ]
+    ],
+    "used_in_pages": [
+      "Muster_Holzbau_Zimmermann.html",
+      "index.html"
+    ],
+    "alt": "Stefan · Fachhandwerker"
   },
   {
+    "nr": 7,
     "id": "images_team_alt_jpg",
     "filename": "team_alt.jpg",
     "rel_path": "images/team_alt.jpg",
     "folder": "muster-holzbau",
-    "category": "Team & Porträt",
+    "category": "Team, Porträt & Kader",
+    "category_code": "team",
     "dimensions": "1400x933",
     "size_kb": 259.8,
+    "format": "JPG",
     "mtime": 1791096955,
     "mtime_str": "04.10.2026 06:55",
-    "cdn_url": "https://embed.magnet-xs.ch/muster-holzbau/images/team_alt.jpg",
+    "cdn_url": "https://vorschau.magnet-xs.ch/muster-holzbau/images/team_alt.jpg",
+    "cloudflare_url": "https://vorschau.magnet-xs.ch/muster-holzbau/images/team_alt.jpg",
+    "cloudflare_short": "vorschau.magnet-xs.ch/muster-holzbau/images/team_alt.jpg",
     "is_used": false,
-    "used_in": []
+    "used_in": [],
+    "used_in_pages": [],
+    "alt": "muster-holzbau (Schweiz) – Team & Ansprechpartner: Alt"
   }
 ]

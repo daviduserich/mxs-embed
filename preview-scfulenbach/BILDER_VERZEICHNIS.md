@@ -5,7 +5,7 @@
 > **Lokaler Ordner (VPS & Git):** `preview-scfulenbach/`  
 > **Cloudflare-Basis-URL:** [vorschau.magnet-xs.ch/scfulenbach/](https://vorschau.magnet-xs.ch/scfulenbach/)  
 > **Bestand:** **95 Assets** (3.14 MB gesamt) · **🟢 91 aktiv im HTML** · **⚪ 4 frei im Bild-Pool** · **Externe Hotlinks: 0**  
-> **Letzte Aktualisierung:** 06.11.2026 13:58 Uhr (automatisch generiert via `webpilot_asset_catalog.py`)
+> **Letzte Aktualisierung:** 06.11.2026 13:59 Uhr (automatisch generiert via `webpilot_asset_catalog.py`)
 
 ---
 

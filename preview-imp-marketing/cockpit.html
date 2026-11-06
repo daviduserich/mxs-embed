@@ -5345,12 +5345,12 @@ body.acp-cockpit-light-mode #acp-inline-edit-dock {
             <div class="acp-color-row-top">
               <div>
                 <div class="acp-color-row-label">1. Primär- &amp; Akzentfarbe (Buttons, Kicker, Links)</div>
-                <div class="acp-color-row-desc">Steuert Haupt-Buttons, Marken-Kicker, Badges und Akzente (<code>--primary</code> / <code>--gold</code>)</div>
+                <div class="acp-color-row-desc">Steuert Haupt-Buttons, Marken-Kicker, Badges und Akzente (<code>--primary</code> / <code>--gold</code> / <code>--rot</code>)</div>
               </div>
             </div>
             <div class="acp-color-controls">
-              <input type="color" id="acp-col-picker-primary" class="acp-color-picker-input" value="#9b2c47" oninput="acpOnColorInput('primary', this.value)" aria-label="Primärfarbe wählen">
-              <input type="text" id="acp-col-hex-primary" class="acp-color-hex-input" value="#9b2c47" maxlength="7" oninput="acpOnHexInput('primary', this.value)" aria-label="Primärfarbe Hex-Code">
+              <input type="color" id="acp-col-picker-primary" class="acp-color-picker-input" value="#8c6747" oninput="acpOnColorInput('primary', this.value)" aria-label="Primärfarbe wählen">
+              <input type="text" id="acp-col-hex-primary" class="acp-color-hex-input" value="#8c6747" maxlength="7" oninput="acpOnHexInput('primary', this.value)" aria-label="Primärfarbe Hex-Code">
             </div>
           </div>
 
@@ -5359,12 +5359,12 @@ body.acp-cockpit-light-mode #acp-inline-edit-dock {
             <div class="acp-color-row-top">
               <div>
                 <div class="acp-color-row-label">2. Startbühne (Hero) Hintergrundfarbe</div>
-                <div class="acp-color-row-desc">Hintergrund von Abschnitt 02 (Startbühne) und Unterseiten-Headern (<code>.hero-section</code>)</div>
+                <div class="acp-color-row-desc">Hintergrund von Abschnitt 02 (Startbühne) und Unterseiten-Headern (<code>.hero-section</code> / <code>.hero</code>)</div>
               </div>
             </div>
             <div class="acp-color-controls">
-              <input type="color" id="acp-col-picker-heroBg" class="acp-color-picker-input" value="#fdf8f5" oninput="acpOnColorInput('heroBg', this.value)" aria-label="Startbühne Hintergrundfarbe wählen">
-              <input type="text" id="acp-col-hex-heroBg" class="acp-color-hex-input" value="#fdf8f5" maxlength="7" oninput="acpOnHexInput('heroBg', this.value)" aria-label="Startbühne Hintergrund Hex-Code">
+              <input type="color" id="acp-col-picker-heroBg" class="acp-color-picker-input" value="#2c3140" oninput="acpOnColorInput('heroBg', this.value)" aria-label="Startbühne Hintergrundfarbe wählen">
+              <input type="text" id="acp-col-hex-heroBg" class="acp-color-hex-input" value="#2c3140" maxlength="7" oninput="acpOnHexInput('heroBg', this.value)" aria-label="Startbühne Hintergrund Hex-Code">
               <button type="button" class="acp-hero-mode-btn" onclick="acpSwitchHeroBrightness('light')" title="Startbühne hell &amp; freundlich mit dunkler Schrift">Hell</button>
               <button type="button" class="acp-hero-mode-btn" onclick="acpSwitchHeroBrightness('dark')" title="Startbühne dunkel mit heller Schrift">Dunkel</button>
             </div>
@@ -5379,8 +5379,8 @@ body.acp-cockpit-light-mode #acp-inline-edit-dock {
               </div>
             </div>
             <div class="acp-color-controls">
-              <input type="color" id="acp-col-picker-heroText" class="acp-color-picker-input" value="#2b161e" oninput="acpOnColorInput('heroText', this.value)" aria-label="Startbühne Textfarbe wählen">
-              <input type="text" id="acp-col-hex-heroText" class="acp-color-hex-input" value="#2b161e" maxlength="7" oninput="acpOnHexInput('heroText', this.value)" aria-label="Startbühne Textfarbe Hex-Code">
+              <input type="color" id="acp-col-picker-heroText" class="acp-color-picker-input" value="#ffffff" oninput="acpOnColorInput('heroText', this.value)" aria-label="Startbühne Textfarbe wählen">
+              <input type="text" id="acp-col-hex-heroText" class="acp-color-hex-input" value="#ffffff" maxlength="7" oninput="acpOnHexInput('heroText', this.value)" aria-label="Startbühne Textfarbe Hex-Code">
             </div>
           </div>
 
@@ -5389,12 +5389,12 @@ body.acp-cockpit-light-mode #acp-inline-edit-dock {
             <div class="acp-color-row-top">
               <div>
                 <div class="acp-color-row-label">4. Haupt-Seitenhintergrund (<code>body</code>)</div>
-                <div class="acp-color-row-desc">Grundton der gesamten Webseite (z. B. Reinweiss <code>#ffffff</code> oder Creme <code>#fdf8f5</code>)</div>
+                <div class="acp-color-row-desc">Grundton der gesamten Webseite (z. B. Reinweiss <code>#ffffff</code> oder Elfenbein <code>#f8f4ef</code>)</div>
               </div>
             </div>
             <div class="acp-color-controls">
-              <input type="color" id="acp-col-picker-bodyBg" class="acp-color-picker-input" value="#fdf8f5" oninput="acpOnColorInput('bodyBg', this.value)" aria-label="Haupt-Seitenhintergrund wählen">
-              <input type="text" id="acp-col-hex-bodyBg" class="acp-color-hex-input" value="#fdf8f5" maxlength="7" oninput="acpOnHexInput('bodyBg', this.value)" aria-label="Haupt-Seitenhintergrund Hex-Code">
+              <input type="color" id="acp-col-picker-bodyBg" class="acp-color-picker-input" value="#f8f4ef" oninput="acpOnColorInput('bodyBg', this.value)" aria-label="Haupt-Seitenhintergrund wählen">
+              <input type="text" id="acp-col-hex-bodyBg" class="acp-color-hex-input" value="#f8f4ef" maxlength="7" oninput="acpOnHexInput('bodyBg', this.value)" aria-label="Haupt-Seitenhintergrund Hex-Code">
             </div>
           </div>
 
@@ -5403,7 +5403,7 @@ body.acp-cockpit-light-mode #acp-inline-edit-dock {
             <div class="acp-color-row-top">
               <div>
                 <div class="acp-color-row-label">5. Abwechselnde Sektions- &amp; Karten-Flächen</div>
-                <div class="acp-color-row-desc">Karten-Hintergründe und abwechselnde Abschnitte (<code>--bg-alt</code> / <code>.content-card</code>)</div>
+                <div class="acp-color-row-desc">Karten-Hintergründe und abwechselnde Abschnitte (<code>--bg-alt</code> / <code>.content-card</code> / <code>.grund</code>)</div>
               </div>
             </div>
             <div class="acp-color-controls">
@@ -5417,14 +5417,14 @@ body.acp-cockpit-light-mode #acp-inline-edit-dock {
             <div class="acp-color-row-top">
               <div>
                 <div class="acp-color-row-label">6. Fusszeile (Footer) Hintergrund &amp; Text</div>
-                <div class="acp-color-row-desc">Hintergrundfarbe und passende Textfarbe des Seiten-Abschlusses (<code>.site-footer</code>)</div>
+                <div class="acp-color-row-desc">Hintergrundfarbe und passende Textfarbe des Seiten-Abschlusses (<code>.site-footer</code> / <code>footer</code>)</div>
               </div>
             </div>
             <div class="acp-color-controls">
-              <input type="color" id="acp-col-picker-footerBg" class="acp-color-picker-input" value="#f3e2dd" oninput="acpOnColorInput('footerBg', this.value)" aria-label="Footer Hintergrundfarbe wählen">
-              <input type="text" id="acp-col-hex-footerBg" class="acp-color-hex-input" value="#f3e2dd" maxlength="7" oninput="acpOnHexInput('footerBg', this.value)" aria-label="Footer Hintergrund Hex-Code">
-              <input type="color" id="acp-col-picker-footerText" class="acp-color-picker-input" value="#2b161e" oninput="acpOnColorInput('footerText', this.value)" title="Footer Textfarbe" aria-label="Footer Textfarbe wählen">
-              <input type="text" id="acp-col-hex-footerText" class="acp-color-hex-input" value="#2b161e" maxlength="7" oninput="acpOnHexInput('footerText', this.value)" aria-label="Footer Textfarbe Hex-Code" style="width:98px;">
+              <input type="color" id="acp-col-picker-footerBg" class="acp-color-picker-input" value="#2c3140" oninput="acpOnColorInput('footerBg', this.value)" aria-label="Footer Hintergrundfarbe wählen">
+              <input type="text" id="acp-col-hex-footerBg" class="acp-color-hex-input" value="#2c3140" maxlength="7" oninput="acpOnHexInput('footerBg', this.value)" aria-label="Footer Hintergrund Hex-Code">
+              <input type="color" id="acp-col-picker-footerText" class="acp-color-picker-input" value="#d5dae2" oninput="acpOnColorInput('footerText', this.value)" title="Footer Textfarbe" aria-label="Footer Textfarbe wählen">
+              <input type="text" id="acp-col-hex-footerText" class="acp-color-hex-input" value="#d5dae2" maxlength="7" oninput="acpOnHexInput('footerText', this.value)" aria-label="Footer Textfarbe Hex-Code" style="width:98px;">
             </div>
           </div>
         </div>
@@ -5782,7 +5782,7 @@ function acpFetchServerLog() {
 // Build: 2026-10-03 15:30 CEST
 // =======================================================
 var ACP_COCKPIT_VERSION = "v4.0.0";
-var ACP_COCKPIT_BUILD = "2026-11-05 22:39";
+var ACP_COCKPIT_BUILD = "2026-11-06 14:59";
 
 function sanitizeStellen(list) {
   if (!Array.isArray(list)) return [];
@@ -5821,7 +5821,7 @@ var ACP_CLIENT_PROFILE = {
 };
 
 // Manifest-Daten mit robusten Fallbacks
-var ACP_BILDER = [{"id": "images_auto_step_1_ablaeufe_png", "filename": "auto-step-1-ablaeufe.png", "rel_path": "images/auto-step-1-ablaeufe.png", "folder": "preview-imp-marketing", "category": "Werkstatt, Systeme & Prozesse", "dimensions": "860x860", "size_kb": 281.9, "mtime": 1793882916, "mtime_str": "05.11.2026 12:48", "cdn_url": "https://embed.magnet-xs.ch/preview-imp-marketing/images/auto-step-1-ablaeufe.png", "is_used": true, "used_in": [{"datei": "leistungen.html", "slot": "image", "is_hero": false}]}, {"id": "images_auto_step_2_planung_png", "filename": "auto-step-2-planung.png", "rel_path": "images/auto-step-2-planung.png", "folder": "preview-imp-marketing", "category": "Werkstatt, Systeme & Prozesse", "dimensions": "865x863", "size_kb": 247.5, "mtime": 1793882916, "mtime_str": "05.11.2026 12:48", "cdn_url": "https://embed.magnet-xs.ch/preview-imp-marketing/images/auto-step-2-planung.png", "is_used": true, "used_in": [{"datei": "leistungen.html", "slot": "image", "is_hero": false}]}, {"id": "images_auto_step_3_umsetzung_png", "filename": "auto-step-3-umsetzung.png", "rel_path": "images/auto-step-3-umsetzung.png", "folder": "preview-imp-marketing", "category": "Werkstatt, Systeme & Prozesse", "dimensions": "779x777", "size_kb": 221.0, "mtime": 1793882917, "mtime_str": "05.11.2026 12:48", "cdn_url": "https://embed.magnet-xs.ch/preview-imp-marketing/images/auto-step-3-umsetzung.png", "is_used": true, "used_in": [{"datei": "leistungen.html", "slot": "image", "is_hero": false}]}, {"id": "images_auto_step_4_einfuehrung_png", "filename": "auto-step-4-einfuehrung.png", "rel_path": "images/auto-step-4-einfuehrung.png", "folder": "preview-imp-marketing", "category": "Werkstatt, Systeme & Prozesse", "dimensions": "887x886", "size_kb": 248.0, "mtime": 1793882917, "mtime_str": "05.11.2026 12:48", "cdn_url": "https://embed.magnet-xs.ch/preview-imp-marketing/images/auto-step-4-einfuehrung.png", "is_used": true, "used_in": [{"datei": "leistungen.html", "slot": "image", "is_hero": false}]}, {"id": "images_chat_step_1_analyse_png", "filename": "chat-step-1-analyse.png", "rel_path": "images/chat-step-1-analyse.png", "folder": "preview-imp-marketing", "category": "Werkstatt, Systeme & Prozesse", "dimensions": "849x847", "size_kb": 247.7, "mtime": 1793882914, "mtime_str": "05.11.2026 12:48", "cdn_url": "https://embed.magnet-xs.ch/preview-imp-marketing/images/chat-step-1-analyse.png", "is_used": true, "used_in": [{"datei": "leistungen.html", "slot": "image", "is_hero": false}]}, {"id": "images_chat_step_2_planung_png", "filename": "chat-step-2-planung.png", "rel_path": "images/chat-step-2-planung.png", "folder": "preview-imp-marketing", "category": "Werkstatt, Systeme & Prozesse", "dimensions": "831x830", "size_kb": 231.5, "mtime": 1793882915, "mtime_str": "05.11.2026 12:48", "cdn_url": "https://embed.magnet-xs.ch/preview-imp-marketing/images/chat-step-2-planung.png", "is_used": true, "used_in": [{"datei": "leistungen.html", "slot": "image", "is_hero": false}]}, {"id": "images_chat_step_3_integration_png", "filename": "chat-step-3-integration.png", "rel_path": "images/chat-step-3-integration.png", "folder": "preview-imp-marketing", "category": "Werkstatt, Systeme & Prozesse", "dimensions": "784x780", "size_kb": 195.8, "mtime": 1793882915, "mtime_str": "05.11.2026 12:48", "cdn_url": "https://embed.magnet-xs.ch/preview-imp-marketing/images/chat-step-3-integration.png", "is_used": true, "used_in": [{"datei": "leistungen.html", "slot": "image", "is_hero": false}]}, {"id": "images_chat_step_4_optimierung_png", "filename": "chat-step-4-optimierung.png", "rel_path": "images/chat-step-4-optimierung.png", "folder": "preview-imp-marketing", "category": "Werkstatt, Systeme & Prozesse", "dimensions": "747x743", "size_kb": 182.4, "mtime": 1793882915, "mtime_str": "05.11.2026 12:48", "cdn_url": "https://embed.magnet-xs.ch/preview-imp-marketing/images/chat-step-4-optimierung.png", "is_used": true, "used_in": [{"datei": "leistungen.html", "slot": "image", "is_hero": false}]}, {"id": "images_hero_schreinerei_webp", "filename": "hero-schreinerei.webp", "rel_path": "images/hero-schreinerei.webp", "folder": "preview-imp-marketing", "category": "Hero & Header", "dimensions": "1024x1536", "size_kb": 385.7, "mtime": 1793882908, "mtime_str": "05.11.2026 12:48", "cdn_url": "https://embed.magnet-xs.ch/preview-imp-marketing/images/hero-schreinerei.webp", "is_used": true, "used_in": [{"datei": "index.html", "slot": "image", "is_hero": true}]}, {"id": "images_icon_schreiner_efz_png", "filename": "icon-schreiner-efz.png", "rel_path": "images/icon-schreiner-efz.png", "folder": "preview-imp-marketing", "category": "Werkstatt, Systeme & Prozesse", "dimensions": "2000x2000", "size_kb": 72.4, "mtime": 1793882909, "mtime_str": "05.11.2026 12:48", "cdn_url": "https://embed.magnet-xs.ch/preview-imp-marketing/images/icon-schreiner-efz.png", "is_used": true, "used_in": [{"datei": "index.html", "slot": "image", "is_hero": false}, {"datei": "ueber-uns.html", "slot": "image", "is_hero": false}]}, {"id": "images_logo_imp_footer_png", "filename": "logo-imp-footer.png", "rel_path": "images/logo-imp-footer.png", "folder": "preview-imp-marketing", "category": "Logo & Icon", "dimensions": "1500x300", "size_kb": 22.7, "mtime": 1793882907, "mtime_str": "05.11.2026 12:48", "cdn_url": "https://embed.magnet-xs.ch/preview-imp-marketing/images/logo-imp-footer.png", "is_used": false, "used_in": []}, {"id": "images_logo_imp_svg", "filename": "logo-imp.svg", "rel_path": "images/logo-imp.svg", "folder": "preview-imp-marketing", "category": "Logo & Icon", "dimensions": "Unbekannt", "size_kb": 60.1, "mtime": 1793882907, "mtime_str": "05.11.2026 12:48", "cdn_url": "https://embed.magnet-xs.ch/preview-imp-marketing/images/logo-imp.svg", "is_used": false, "used_in": []}, {"id": "images_logo_png", "filename": "logo.png", "rel_path": "images/logo.png", "folder": "preview-imp-marketing", "category": "Logo & Icon", "dimensions": "1500x300", "size_kb": 22.7, "mtime": 1793882907, "mtime_str": "05.11.2026 12:48", "cdn_url": "https://embed.magnet-xs.ch/preview-imp-marketing/images/logo.png", "is_used": true, "used_in": [{"datei": "methode.html", "slot": "image", "is_hero": false}, {"datei": "kontakt.html", "slot": "image", "is_hero": false}, {"datei": "index.html", "slot": "image", "is_hero": false}, {"datei": "ueber-uns.html", "slot": "image", "is_hero": false}, {"datei": "leistungen.html", "slot": "image", "is_hero": false}]}, {"id": "images_matthias_bg_jpg", "filename": "matthias-bg.jpg", "rel_path": "images/matthias-bg.jpg", "folder": "preview-imp-marketing", "category": "Werkstatt, Systeme & Prozesse", "dimensions": "181x256", "size_kb": 343.8, "mtime": 1793882909, "mtime_str": "05.11.2026 12:48", "cdn_url": "https://embed.magnet-xs.ch/preview-imp-marketing/images/matthias-bg.jpg", "is_used": false, "used_in": []}, {"id": "images_matthias_iseli_portrait_png", "filename": "matthias-iseli-portrait.png", "rel_path": "images/matthias-iseli-portrait.png", "folder": "preview-imp-marketing", "category": "Werkstatt, Systeme & Prozesse", "dimensions": "2000x2000", "size_kb": 72.4, "mtime": 1793882909, "mtime_str": "05.11.2026 12:48", "cdn_url": "https://embed.magnet-xs.ch/preview-imp-marketing/images/matthias-iseli-portrait.png", "is_used": false, "used_in": []}, {"id": "images_portrait_matthias_iseli_jpg", "filename": "portrait-matthias-iseli.jpg", "rel_path": "images/portrait-matthias-iseli.jpg", "folder": "preview-imp-marketing", "category": "Werkstatt, Systeme & Prozesse", "dimensions": "181x256", "size_kb": 343.8, "mtime": 1793882909, "mtime_str": "05.11.2026 12:48", "cdn_url": "https://embed.magnet-xs.ch/preview-imp-marketing/images/portrait-matthias-iseli.jpg", "is_used": true, "used_in": [{"datei": "methode.html", "slot": "image", "is_hero": false}, {"datei": "kontakt.html", "slot": "image", "is_hero": false}, {"datei": "index.html", "slot": "image", "is_hero": false}, {"datei": "ueber-uns.html", "slot": "image", "is_hero": false}, {"datei": "leistungen.html", "slot": "image", "is_hero": false}]}, {"id": "images_seo_step_1_analyse_png", "filename": "seo-step-1-analyse.png", "rel_path": "images/seo-step-1-analyse.png", "folder": "preview-imp-marketing", "category": "Werkstatt, Systeme & Prozesse", "dimensions": "835x834", "size_kb": 226.0, "mtime": 1793882913, "mtime_str": "05.11.2026 12:48", "cdn_url": "https://embed.magnet-xs.ch/preview-imp-marketing/images/seo-step-1-analyse.png", "is_used": true, "used_in": [{"datei": "leistungen.html", "slot": "image", "is_hero": false}]}, {"id": "images_seo_step_2_struktur_png", "filename": "seo-step-2-struktur.png", "rel_path": "images/seo-step-2-struktur.png", "folder": "preview-imp-marketing", "category": "Werkstatt, Systeme & Prozesse", "dimensions": "760x754", "size_kb": 162.4, "mtime": 1793882913, "mtime_str": "05.11.2026 12:48", "cdn_url": "https://embed.magnet-xs.ch/preview-imp-marketing/images/seo-step-2-struktur.png", "is_used": true, "used_in": [{"datei": "leistungen.html", "slot": "image", "is_hero": false}]}, {"id": "images_seo_step_3_bewertungen_png", "filename": "seo-step-3-bewertungen.png", "rel_path": "images/seo-step-3-bewertungen.png", "folder": "preview-imp-marketing", "category": "Werkstatt, Systeme & Prozesse", "dimensions": "839x838", "size_kb": 242.6, "mtime": 1793882913, "mtime_str": "05.11.2026 12:48", "cdn_url": "https://embed.magnet-xs.ch/preview-imp-marketing/images/seo-step-3-bewertungen.png", "is_used": true, "used_in": [{"datei": "leistungen.html", "slot": "image", "is_hero": false}]}, {"id": "images_seo_step_4_pflege_png", "filename": "seo-step-4-pflege.png", "rel_path": "images/seo-step-4-pflege.png", "folder": "preview-imp-marketing", "category": "Werkstatt, Systeme & Prozesse", "dimensions": "778x776", "size_kb": 190.4, "mtime": 1793882914, "mtime_str": "05.11.2026 12:48", "cdn_url": "https://embed.magnet-xs.ch/preview-imp-marketing/images/seo-step-4-pflege.png", "is_used": true, "used_in": [{"datei": "leistungen.html", "slot": "image", "is_hero": false}]}, {"id": "images_service_anfrage_systeme_png", "filename": "service-anfrage-systeme.png", "rel_path": "images/service-anfrage-systeme.png", "folder": "preview-imp-marketing", "category": "Werkstatt, Systeme & Prozesse", "dimensions": "1120x1120", "size_kb": 51.8, "mtime": 1793882910, "mtime_str": "05.11.2026 12:48", "cdn_url": "https://embed.magnet-xs.ch/preview-imp-marketing/images/service-anfrage-systeme.png", "is_used": true, "used_in": [{"datei": "index.html", "slot": "image", "is_hero": false}, {"datei": "leistungen.html", "slot": "image", "is_hero": false}]}, {"id": "images_service_datenautomation_png", "filename": "service-datenautomation.png", "rel_path": "images/service-datenautomation.png", "folder": "preview-imp-marketing", "category": "Werkstatt, Systeme & Prozesse", "dimensions": "119x119", "size_kb": 6.2, "mtime": 1793882911, "mtime_str": "05.11.2026 12:48", "cdn_url": "https://embed.magnet-xs.ch/preview-imp-marketing/images/service-datenautomation.png", "is_used": true, "used_in": [{"datei": "index.html", "slot": "image", "is_hero": false}, {"datei": "leistungen.html", "slot": "image", "is_hero": false}]}, {"id": "images_service_google_seo_png", "filename": "service-google-seo.png", "rel_path": "images/service-google-seo.png", "folder": "preview-imp-marketing", "category": "Werkstatt, Systeme & Prozesse", "dimensions": "119x119", "size_kb": 8.6, "mtime": 1793882910, "mtime_str": "05.11.2026 12:48", "cdn_url": "https://embed.magnet-xs.ch/preview-imp-marketing/images/service-google-seo.png", "is_used": true, "used_in": [{"datei": "index.html", "slot": "image", "is_hero": false}, {"datei": "leistungen.html", "slot": "image", "is_hero": false}]}, {"id": "images_service_webseiten_png", "filename": "service-webseiten.png", "rel_path": "images/service-webseiten.png", "folder": "preview-imp-marketing", "category": "Werkstatt, Systeme & Prozesse", "dimensions": "119x119", "size_kb": 6.8, "mtime": 1793882910, "mtime_str": "05.11.2026 12:48", "cdn_url": "https://embed.magnet-xs.ch/preview-imp-marketing/images/service-webseiten.png", "is_used": true, "used_in": [{"datei": "index.html", "slot": "image", "is_hero": false}, {"datei": "leistungen.html", "slot": "image", "is_hero": false}]}, {"id": "images_sichtbarkeits_tragwerk_png", "filename": "sichtbarkeits-tragwerk.png", "rel_path": "images/sichtbarkeits-tragwerk.png", "folder": "preview-imp-marketing", "category": "Werkstatt, Systeme & Prozesse", "dimensions": "2000x2000", "size_kb": 76.5, "mtime": 1793882909, "mtime_str": "05.11.2026 12:48", "cdn_url": "https://embed.magnet-xs.ch/preview-imp-marketing/images/sichtbarkeits-tragwerk.png", "is_used": true, "used_in": [{"datei": "methode.html", "slot": "image", "is_hero": false}, {"datei": "index.html", "slot": "image", "is_hero": false}]}, {"id": "images_web_step_1_analyse_png", "filename": "web-step-1-analyse.png", "rel_path": "images/web-step-1-analyse.png", "folder": "preview-imp-marketing", "category": "Werkstatt, Systeme & Prozesse", "dimensions": "866x864", "size_kb": 321.7, "mtime": 1793882911, "mtime_str": "05.11.2026 12:48", "cdn_url": "https://embed.magnet-xs.ch/preview-imp-marketing/images/web-step-1-analyse.png", "is_used": true, "used_in": [{"datei": "leistungen.html", "slot": "image", "is_hero": false}]}, {"id": "images_web_step_2_konzept_png", "filename": "web-step-2-konzept.png", "rel_path": "images/web-step-2-konzept.png", "folder": "preview-imp-marketing", "category": "Werkstatt, Systeme & Prozesse", "dimensions": "803x798", "size_kb": 241.5, "mtime": 1793882911, "mtime_str": "05.11.2026 12:48", "cdn_url": "https://embed.magnet-xs.ch/preview-imp-marketing/images/web-step-2-konzept.png", "is_used": true, "used_in": [{"datei": "leistungen.html", "slot": "image", "is_hero": false}]}, {"id": "images_web_step_3_umsetzung_jpg", "filename": "web-step-3-umsetzung.jpg", "rel_path": "images/web-step-3-umsetzung.jpg", "folder": "preview-imp-marketing", "category": "Werkstatt, Systeme & Prozesse", "dimensions": "858x855", "size_kb": 350.1, "mtime": 1793882911, "mtime_str": "05.11.2026 12:48", "cdn_url": "https://embed.magnet-xs.ch/preview-imp-marketing/images/web-step-3-umsetzung.jpg", "is_used": true, "used_in": [{"datei": "leistungen.html", "slot": "image", "is_hero": false}]}, {"id": "images_web_step_4_betreuung_png", "filename": "web-step-4-betreuung.png", "rel_path": "images/web-step-4-betreuung.png", "folder": "preview-imp-marketing", "category": "Werkstatt, Systeme & Prozesse", "dimensions": "852x849", "size_kb": 248.5, "mtime": 1793882912, "mtime_str": "05.11.2026 12:48", "cdn_url": "https://embed.magnet-xs.ch/preview-imp-marketing/images/web-step-4-betreuung.png", "is_used": true, "used_in": [{"datei": "leistungen.html", "slot": "image", "is_hero": false}]}, {"id": "images_werkstatt_handwerk_webp", "filename": "werkstatt-handwerk.webp", "rel_path": "images/werkstatt-handwerk.webp", "folder": "preview-imp-marketing", "category": "Werkstatt, Systeme & Prozesse", "dimensions": "Unbekannt", "size_kb": 206.8, "mtime": 1793882909, "mtime_str": "05.11.2026 12:48", "cdn_url": "https://embed.magnet-xs.ch/preview-imp-marketing/images/werkstatt-handwerk.webp", "is_used": true, "used_in": [{"datei": "ueber-uns.html", "slot": "image", "is_hero": false}]}];
+var ACP_BILDER = [{"nr": 1, "id": "images_auto_step_1_ablaeufe_png", "filename": "auto-step-1-ablaeufe.png", "rel_path": "images/auto-step-1-ablaeufe.png", "folder": "preview-imp-marketing", "category": "Referenz, Projekt & Angebot", "category_code": "ref", "dimensions": "860x860", "size_kb": 281.9, "format": "PNG", "mtime": 1793882916, "mtime_str": "05.11.2026 12:48", "cdn_url": "https://vorschau.magnet-xs.ch/imp-marketing-vollversion/images/auto-step-1-ablaeufe.png", "cloudflare_url": "https://vorschau.magnet-xs.ch/imp-marketing-vollversion/images/auto-step-1-ablaeufe.png", "cloudflare_short": "vorschau.magnet-xs.ch/imp-marketing-vollversion/images/auto-step-1-ablaeufe.png", "is_used": true, "used_in": [{"datei": "leistungen.html", "slot": "image", "is_hero": false}], "used_in_pages": ["leistungen.html"], "alt": "Schritt 1: Abläufe aufnehmen"}, {"nr": 2, "id": "images_auto_step_2_planung_png", "filename": "auto-step-2-planung.png", "rel_path": "images/auto-step-2-planung.png", "folder": "preview-imp-marketing", "category": "Referenz, Projekt & Angebot", "category_code": "ref", "dimensions": "865x863", "size_kb": 247.5, "format": "PNG", "mtime": 1793882916, "mtime_str": "05.11.2026 12:48", "cdn_url": "https://vorschau.magnet-xs.ch/imp-marketing-vollversion/images/auto-step-2-planung.png", "cloudflare_url": "https://vorschau.magnet-xs.ch/imp-marketing-vollversion/images/auto-step-2-planung.png", "cloudflare_short": "vorschau.magnet-xs.ch/imp-marketing-vollversion/images/auto-step-2-planung.png", "is_used": true, "used_in": [{"datei": "leistungen.html", "slot": "image", "is_hero": false}], "used_in_pages": ["leistungen.html"], "alt": "Schritt 2: Prozess-Struktur planen"}, {"nr": 3, "id": "images_auto_step_3_umsetzung_png", "filename": "auto-step-3-umsetzung.png", "rel_path": "images/auto-step-3-umsetzung.png", "folder": "preview-imp-marketing", "category": "Referenz, Projekt & Angebot", "category_code": "ref", "dimensions": "779x777", "size_kb": 221.0, "format": "PNG", "mtime": 1793882917, "mtime_str": "05.11.2026 12:48", "cdn_url": "https://vorschau.magnet-xs.ch/imp-marketing-vollversion/images/auto-step-3-umsetzung.png", "cloudflare_url": "https://vorschau.magnet-xs.ch/imp-marketing-vollversion/images/auto-step-3-umsetzung.png", "cloudflare_short": "vorschau.magnet-xs.ch/imp-marketing-vollversion/images/auto-step-3-umsetzung.png", "is_used": true, "used_in": [{"datei": "leistungen.html", "slot": "image", "is_hero": false}], "used_in_pages": ["leistungen.html"], "alt": "Schritt 3: Saubere Einrichtung"}, {"nr": 4, "id": "images_auto_step_4_einfuehrung_png", "filename": "auto-step-4-einfuehrung.png", "rel_path": "images/auto-step-4-einfuehrung.png", "folder": "preview-imp-marketing", "category": "Referenz, Projekt & Angebot", "category_code": "ref", "dimensions": "887x886", "size_kb": 248.0, "format": "PNG", "mtime": 1793882917, "mtime_str": "05.11.2026 12:48", "cdn_url": "https://vorschau.magnet-xs.ch/imp-marketing-vollversion/images/auto-step-4-einfuehrung.png", "cloudflare_url": "https://vorschau.magnet-xs.ch/imp-marketing-vollversion/images/auto-step-4-einfuehrung.png", "cloudflare_short": "vorschau.magnet-xs.ch/imp-marketing-vollversion/images/auto-step-4-einfuehrung.png", "is_used": true, "used_in": [{"datei": "leistungen.html", "slot": "image", "is_hero": false}], "used_in_pages": ["leistungen.html"], "alt": "Schritt 4: Einführung im Betrieb"}, {"nr": 5, "id": "images_chat_step_1_analyse_png", "filename": "chat-step-1-analyse.png", "rel_path": "images/chat-step-1-analyse.png", "folder": "preview-imp-marketing", "category": "Referenz, Projekt & Angebot", "category_code": "ref", "dimensions": "849x847", "size_kb": 247.7, "format": "PNG", "mtime": 1793882914, "mtime_str": "05.11.2026 12:48", "cdn_url": "https://vorschau.magnet-xs.ch/imp-marketing-vollversion/images/chat-step-1-analyse.png", "cloudflare_url": "https://vorschau.magnet-xs.ch/imp-marketing-vollversion/images/chat-step-1-analyse.png", "cloudflare_short": "vorschau.magnet-xs.ch/imp-marketing-vollversion/images/chat-step-1-analyse.png", "is_used": true, "used_in": [{"datei": "leistungen.html", "slot": "image", "is_hero": false}], "used_in_pages": ["leistungen.html"], "alt": "Schritt 1: Anfrage-Analyse"}, {"nr": 6, "id": "images_chat_step_2_planung_png", "filename": "chat-step-2-planung.png", "rel_path": "images/chat-step-2-planung.png", "folder": "preview-imp-marketing", "category": "Referenz, Projekt & Angebot", "category_code": "ref", "dimensions": "831x830", "size_kb": 231.5, "format": "PNG", "mtime": 1793882915, "mtime_str": "05.11.2026 12:48", "cdn_url": "https://vorschau.magnet-xs.ch/imp-marketing-vollversion/images/chat-step-2-planung.png", "cloudflare_url": "https://vorschau.magnet-xs.ch/imp-marketing-vollversion/images/chat-step-2-planung.png", "cloudflare_short": "vorschau.magnet-xs.ch/imp-marketing-vollversion/images/chat-step-2-planung.png", "is_used": true, "used_in": [{"datei": "leistungen.html", "slot": "image", "is_hero": false}], "used_in_pages": ["leistungen.html"], "alt": "Schritt 2: Fragen- & Dialogplanung"}, {"nr": 7, "id": "images_chat_step_3_integration_png", "filename": "chat-step-3-integration.png", "rel_path": "images/chat-step-3-integration.png", "folder": "preview-imp-marketing", "category": "Referenz, Projekt & Angebot", "category_code": "ref", "dimensions": "784x780", "size_kb": 195.8, "format": "PNG", "mtime": 1793882915, "mtime_str": "05.11.2026 12:48", "cdn_url": "https://vorschau.magnet-xs.ch/imp-marketing-vollversion/images/chat-step-3-integration.png", "cloudflare_url": "https://vorschau.magnet-xs.ch/imp-marketing-vollversion/images/chat-step-3-integration.png", "cloudflare_short": "vorschau.magnet-xs.ch/imp-marketing-vollversion/images/chat-step-3-integration.png", "is_used": true, "used_in": [{"datei": "leistungen.html", "slot": "image", "is_hero": false}], "used_in_pages": ["leistungen.html"], "alt": "Schritt 3: Nahtlose Integration"}, {"nr": 8, "id": "images_chat_step_4_optimierung_png", "filename": "chat-step-4-optimierung.png", "rel_path": "images/chat-step-4-optimierung.png", "folder": "preview-imp-marketing", "category": "Referenz, Projekt & Angebot", "category_code": "ref", "dimensions": "747x743", "size_kb": 182.4, "format": "PNG", "mtime": 1793882915, "mtime_str": "05.11.2026 12:48", "cdn_url": "https://vorschau.magnet-xs.ch/imp-marketing-vollversion/images/chat-step-4-optimierung.png", "cloudflare_url": "https://vorschau.magnet-xs.ch/imp-marketing-vollversion/images/chat-step-4-optimierung.png", "cloudflare_short": "vorschau.magnet-xs.ch/imp-marketing-vollversion/images/chat-step-4-optimierung.png", "is_used": true, "used_in": [{"datei": "leistungen.html", "slot": "image", "is_hero": false}], "used_in_pages": ["leistungen.html"], "alt": "Schritt 4: Feinabstimmung"}, {"nr": 9, "id": "images_hero_schreinerei_webp", "filename": "hero-schreinerei.webp", "rel_path": "images/hero-schreinerei.webp", "folder": "preview-imp-marketing", "category": "Startbühne & Header", "category_code": "hero", "dimensions": "1024x1536", "size_kb": 385.7, "format": "WEBP", "mtime": 1793882908, "mtime_str": "05.11.2026 12:48", "cdn_url": "https://vorschau.magnet-xs.ch/imp-marketing-vollversion/images/hero-schreinerei.webp", "cloudflare_url": "https://vorschau.magnet-xs.ch/imp-marketing-vollversion/images/hero-schreinerei.webp", "cloudflare_short": "vorschau.magnet-xs.ch/imp-marketing-vollversion/images/hero-schreinerei.webp", "is_used": true, "used_in": [{"datei": "index.html", "slot": "image", "is_hero": true}, {"datei": "kontakt.html", "slot": "image", "is_hero": true}, {"datei": "leistungen.html", "slot": "image", "is_hero": true}, {"datei": "methode.html", "slot": "image", "is_hero": true}, {"datei": "ueber-uns.html", "slot": "image", "is_hero": true}], "used_in_pages": ["index.html", "kontakt.html", "leistungen.html", "methode.html", "ueber-uns.html"], "alt": "Schweizer Schreinerei und Holzhandwerk — IMP GmbH"}, {"nr": 10, "id": "images_icon_schreiner_efz_png", "filename": "icon-schreiner-efz.png", "rel_path": "images/icon-schreiner-efz.png", "folder": "preview-imp-marketing", "category": "Favicon & App-Icon", "category_code": "icon", "dimensions": "2000x2000", "size_kb": 72.4, "format": "PNG", "mtime": 1793882909, "mtime_str": "05.11.2026 12:48", "cdn_url": "https://vorschau.magnet-xs.ch/imp-marketing-vollversion/images/icon-schreiner-efz.png", "cloudflare_url": "https://vorschau.magnet-xs.ch/imp-marketing-vollversion/images/icon-schreiner-efz.png", "cloudflare_short": "vorschau.magnet-xs.ch/imp-marketing-vollversion/images/icon-schreiner-efz.png", "is_used": true, "used_in": [{"datei": "index.html", "slot": "image", "is_hero": false}, {"datei": "ueber-uns.html", "slot": "image", "is_hero": false}], "used_in_pages": ["index.html", "ueber-uns.html"], "alt": "Schreiner EFZ Icon: Sichtbarkeits- &amp; Anfrage-Potenzial für Ihren Betrieb berechnen – IMP GmbH in Obersteckholz (BE)"}, {"nr": 11, "id": "images_logo_imp_footer_png", "filename": "logo-imp-footer.png", "rel_path": "images/logo-imp-footer.png", "folder": "preview-imp-marketing", "category": "Logo & Marken-Icon", "category_code": "logo", "dimensions": "1500x300", "size_kb": 22.7, "format": "PNG", "mtime": 1793882907, "mtime_str": "05.11.2026 12:48", "cdn_url": "https://vorschau.magnet-xs.ch/imp-marketing-vollversion/images/logo-imp-footer.png", "cloudflare_url": "https://vorschau.magnet-xs.ch/imp-marketing-vollversion/images/logo-imp-footer.png", "cloudflare_short": "vorschau.magnet-xs.ch/imp-marketing-vollversion/images/logo-imp-footer.png", "is_used": false, "used_in": [], "used_in_pages": [], "alt": "IMP GmbH Obersteckholz (BE) – Offizielles Logo (Verkaufsstarke Webseiten für Schreinereien, Küchenbau und)"}, {"nr": 12, "id": "images_logo_imp_svg", "filename": "logo-imp.svg", "rel_path": "images/logo-imp.svg", "folder": "preview-imp-marketing", "category": "Logo & Marken-Icon", "category_code": "logo", "dimensions": "1500x300", "size_kb": 60.1, "format": "SVG", "mtime": 1793882907, "mtime_str": "05.11.2026 12:48", "cdn_url": "https://vorschau.magnet-xs.ch/imp-marketing-vollversion/images/logo-imp.svg", "cloudflare_url": "https://vorschau.magnet-xs.ch/imp-marketing-vollversion/images/logo-imp.svg", "cloudflare_short": "vorschau.magnet-xs.ch/imp-marketing-vollversion/images/logo-imp.svg", "is_used": false, "used_in": [], "used_in_pages": [], "alt": "IMP GmbH Obersteckholz (BE) – Offizielles Logo (Verkaufsstarke Webseiten für Schreinereien, Küchenbau und)"}, {"nr": 13, "id": "images_logo_png", "filename": "logo.png", "rel_path": "images/logo.png", "folder": "preview-imp-marketing", "category": "Logo & Marken-Icon", "category_code": "logo", "dimensions": "1500x300", "size_kb": 22.7, "format": "PNG", "mtime": 1793882907, "mtime_str": "05.11.2026 12:48", "cdn_url": "https://vorschau.magnet-xs.ch/imp-marketing-vollversion/images/logo.png", "cloudflare_url": "https://vorschau.magnet-xs.ch/imp-marketing-vollversion/images/logo.png", "cloudflare_short": "vorschau.magnet-xs.ch/imp-marketing-vollversion/images/logo.png", "is_used": true, "used_in": [{"datei": "index.html", "slot": "image", "is_hero": false}, {"datei": "kontakt.html", "slot": "image", "is_hero": false}, {"datei": "leistungen.html", "slot": "image", "is_hero": false}, {"datei": "methode.html", "slot": "image", "is_hero": false}, {"datei": "ueber-uns.html", "slot": "image", "is_hero": false}], "used_in_pages": ["index.html", "kontakt.html", "leistungen.html", "methode.html", "ueber-uns.html"], "alt": "IMP GmbH Obersteckholz (BE) – Offizielles Logo (Verkaufsstarke Webseiten für Schreinereien, Küchenbau und)"}, {"nr": 14, "id": "images_matthias_bg_jpg", "filename": "matthias-bg.jpg", "rel_path": "images/matthias-bg.jpg", "folder": "preview-imp-marketing", "category": "Team, Porträt & Kader", "category_code": "team", "dimensions": "1133x1600", "size_kb": 343.8, "format": "JPG", "mtime": 1793882909, "mtime_str": "05.11.2026 12:48", "cdn_url": "https://vorschau.magnet-xs.ch/imp-marketing-vollversion/images/matthias-bg.jpg", "cloudflare_url": "https://vorschau.magnet-xs.ch/imp-marketing-vollversion/images/matthias-bg.jpg", "cloudflare_short": "vorschau.magnet-xs.ch/imp-marketing-vollversion/images/matthias-bg.jpg", "is_used": false, "used_in": [], "used_in_pages": [], "alt": "Matthias Bg: Werkstatt, Systeme & Prozesse – IMP GmbH in Obersteckholz (BE)"}, {"nr": 15, "id": "images_matthias_iseli_portrait_png", "filename": "matthias-iseli-portrait.png", "rel_path": "images/matthias-iseli-portrait.png", "folder": "preview-imp-marketing", "category": "Team, Porträt & Kader", "category_code": "team", "dimensions": "2000x2000", "size_kb": 72.4, "format": "PNG", "mtime": 1793882909, "mtime_str": "05.11.2026 12:48", "cdn_url": "https://vorschau.magnet-xs.ch/imp-marketing-vollversion/images/matthias-iseli-portrait.png", "cloudflare_url": "https://vorschau.magnet-xs.ch/imp-marketing-vollversion/images/matthias-iseli-portrait.png", "cloudflare_short": "vorschau.magnet-xs.ch/imp-marketing-vollversion/images/matthias-iseli-portrait.png", "is_used": false, "used_in": [], "used_in_pages": [], "alt": "Matthias Iseli Portrait – Persönlicher Ansprechpartner und Fachteam bei IMP GmbH in Obersteckholz (BE)"}, {"nr": 16, "id": "images_portrait_matthias_iseli_jpg", "filename": "portrait-matthias-iseli.jpg", "rel_path": "images/portrait-matthias-iseli.jpg", "folder": "preview-imp-marketing", "category": "Team, Porträt & Kader", "category_code": "team", "dimensions": "1133x1600", "size_kb": 343.8, "format": "JPG", "mtime": 1793882909, "mtime_str": "05.11.2026 12:48", "cdn_url": "https://vorschau.magnet-xs.ch/imp-marketing-vollversion/images/portrait-matthias-iseli.jpg", "cloudflare_url": "https://vorschau.magnet-xs.ch/imp-marketing-vollversion/images/portrait-matthias-iseli.jpg", "cloudflare_short": "vorschau.magnet-xs.ch/imp-marketing-vollversion/images/portrait-matthias-iseli.jpg", "is_used": true, "used_in": [{"datei": "index.html", "slot": "image", "is_hero": false}, {"datei": "kontakt.html", "slot": "image", "is_hero": false}, {"datei": "leistungen.html", "slot": "image", "is_hero": false}, {"datei": "methode.html", "slot": "image", "is_hero": false}, {"datei": "ueber-uns.html", "slot": "image", "is_hero": false}], "used_in_pages": ["index.html", "kontakt.html", "leistungen.html", "methode.html", "ueber-uns.html"], "alt": "Matthias Iseli — Inhaber IMP GmbH"}, {"nr": 17, "id": "images_seo_step_1_analyse_png", "filename": "seo-step-1-analyse.png", "rel_path": "images/seo-step-1-analyse.png", "folder": "preview-imp-marketing", "category": "Referenz, Projekt & Angebot", "category_code": "ref", "dimensions": "835x834", "size_kb": 226.0, "format": "PNG", "mtime": 1793882913, "mtime_str": "05.11.2026 12:48", "cdn_url": "https://vorschau.magnet-xs.ch/imp-marketing-vollversion/images/seo-step-1-analyse.png", "cloudflare_url": "https://vorschau.magnet-xs.ch/imp-marketing-vollversion/images/seo-step-1-analyse.png", "cloudflare_short": "vorschau.magnet-xs.ch/imp-marketing-vollversion/images/seo-step-1-analyse.png", "is_used": true, "used_in": [{"datei": "leistungen.html", "slot": "image", "is_hero": false}], "used_in_pages": ["leistungen.html"], "alt": "Schritt 1: Profil- & Standortanalyse"}, {"nr": 18, "id": "images_seo_step_2_struktur_png", "filename": "seo-step-2-struktur.png", "rel_path": "images/seo-step-2-struktur.png", "folder": "preview-imp-marketing", "category": "Referenz, Projekt & Angebot", "category_code": "ref", "dimensions": "760x754", "size_kb": 162.4, "format": "PNG", "mtime": 1793882913, "mtime_str": "05.11.2026 12:48", "cdn_url": "https://vorschau.magnet-xs.ch/imp-marketing-vollversion/images/seo-step-2-struktur.png", "cloudflare_url": "https://vorschau.magnet-xs.ch/imp-marketing-vollversion/images/seo-step-2-struktur.png", "cloudflare_short": "vorschau.magnet-xs.ch/imp-marketing-vollversion/images/seo-step-2-struktur.png", "is_used": true, "used_in": [{"datei": "leistungen.html", "slot": "image", "is_hero": false}], "used_in_pages": ["leistungen.html"], "alt": "Schritt 2: Struktur & lokale Keywords"}, {"nr": 19, "id": "images_seo_step_3_bewertungen_png", "filename": "seo-step-3-bewertungen.png", "rel_path": "images/seo-step-3-bewertungen.png", "folder": "preview-imp-marketing", "category": "Referenz, Projekt & Angebot", "category_code": "ref", "dimensions": "839x838", "size_kb": 242.6, "format": "PNG", "mtime": 1793882913, "mtime_str": "05.11.2026 12:48", "cdn_url": "https://vorschau.magnet-xs.ch/imp-marketing-vollversion/images/seo-step-3-bewertungen.png", "cloudflare_url": "https://vorschau.magnet-xs.ch/imp-marketing-vollversion/images/seo-step-3-bewertungen.png", "cloudflare_short": "vorschau.magnet-xs.ch/imp-marketing-vollversion/images/seo-step-3-bewertungen.png", "is_used": true, "used_in": [{"datei": "leistungen.html", "slot": "image", "is_hero": false}], "used_in_pages": ["leistungen.html"], "alt": "Schritt 3: Aktiver Bewertungsaufbau"}, {"nr": 20, "id": "images_seo_step_4_pflege_png", "filename": "seo-step-4-pflege.png", "rel_path": "images/seo-step-4-pflege.png", "folder": "preview-imp-marketing", "category": "Referenz, Projekt & Angebot", "category_code": "ref", "dimensions": "778x776", "size_kb": 190.4, "format": "PNG", "mtime": 1793882914, "mtime_str": "05.11.2026 12:48", "cdn_url": "https://vorschau.magnet-xs.ch/imp-marketing-vollversion/images/seo-step-4-pflege.png", "cloudflare_url": "https://vorschau.magnet-xs.ch/imp-marketing-vollversion/images/seo-step-4-pflege.png", "cloudflare_short": "vorschau.magnet-xs.ch/imp-marketing-vollversion/images/seo-step-4-pflege.png", "is_used": true, "used_in": [{"datei": "leistungen.html", "slot": "image", "is_hero": false}], "used_in_pages": ["leistungen.html"], "alt": "Schritt 4: Laufende Pflege"}, {"nr": 21, "id": "images_service_anfrage_systeme_png", "filename": "service-anfrage-systeme.png", "rel_path": "images/service-anfrage-systeme.png", "folder": "preview-imp-marketing", "category": "Referenz, Projekt & Angebot", "category_code": "ref", "dimensions": "1120x1120", "size_kb": 51.8, "format": "PNG", "mtime": 1793882910, "mtime_str": "05.11.2026 12:48", "cdn_url": "https://vorschau.magnet-xs.ch/imp-marketing-vollversion/images/service-anfrage-systeme.png", "cloudflare_url": "https://vorschau.magnet-xs.ch/imp-marketing-vollversion/images/service-anfrage-systeme.png", "cloudflare_short": "vorschau.magnet-xs.ch/imp-marketing-vollversion/images/service-anfrage-systeme.png", "is_used": true, "used_in": [{"datei": "index.html", "slot": "image", "is_hero": false}, {"datei": "leistungen.html", "slot": "image", "is_hero": false}], "used_in_pages": ["index.html", "leistungen.html"], "alt": "Chat-Widgets und Anfrage-Systeme für Schreinereien"}, {"nr": 22, "id": "images_service_datenautomation_png", "filename": "service-datenautomation.png", "rel_path": "images/service-datenautomation.png", "folder": "preview-imp-marketing", "category": "Referenz, Projekt & Angebot", "category_code": "ref", "dimensions": "119x119", "size_kb": 6.2, "format": "PNG", "mtime": 1793882911, "mtime_str": "05.11.2026 12:48", "cdn_url": "https://vorschau.magnet-xs.ch/imp-marketing-vollversion/images/service-datenautomation.png", "cloudflare_url": "https://vorschau.magnet-xs.ch/imp-marketing-vollversion/images/service-datenautomation.png", "cloudflare_short": "vorschau.magnet-xs.ch/imp-marketing-vollversion/images/service-datenautomation.png", "is_used": true, "used_in": [{"datei": "index.html", "slot": "image", "is_hero": false}, {"datei": "leistungen.html", "slot": "image", "is_hero": false}], "used_in_pages": ["index.html", "leistungen.html"], "alt": "Datenautomation und Handwerks-Prozesse"}, {"nr": 23, "id": "images_service_google_seo_png", "filename": "service-google-seo.png", "rel_path": "images/service-google-seo.png", "folder": "preview-imp-marketing", "category": "Referenz, Projekt & Angebot", "category_code": "ref", "dimensions": "119x119", "size_kb": 8.6, "format": "PNG", "mtime": 1793882910, "mtime_str": "05.11.2026 12:48", "cdn_url": "https://vorschau.magnet-xs.ch/imp-marketing-vollversion/images/service-google-seo.png", "cloudflare_url": "https://vorschau.magnet-xs.ch/imp-marketing-vollversion/images/service-google-seo.png", "cloudflare_short": "vorschau.magnet-xs.ch/imp-marketing-vollversion/images/service-google-seo.png", "is_used": true, "used_in": [{"datei": "index.html", "slot": "image", "is_hero": false}, {"datei": "leistungen.html", "slot": "image", "is_hero": false}], "used_in_pages": ["index.html", "leistungen.html"], "alt": "Google-Geschäftsprofil und Regionale SEO für Schreinereien"}, {"nr": 24, "id": "images_service_webseiten_png", "filename": "service-webseiten.png", "rel_path": "images/service-webseiten.png", "folder": "preview-imp-marketing", "category": "Referenz, Projekt & Angebot", "category_code": "ref", "dimensions": "119x119", "size_kb": 6.8, "format": "PNG", "mtime": 1793882910, "mtime_str": "05.11.2026 12:48", "cdn_url": "https://vorschau.magnet-xs.ch/imp-marketing-vollversion/images/service-webseiten.png", "cloudflare_url": "https://vorschau.magnet-xs.ch/imp-marketing-vollversion/images/service-webseiten.png", "cloudflare_short": "vorschau.magnet-xs.ch/imp-marketing-vollversion/images/service-webseiten.png", "is_used": true, "used_in": [{"datei": "index.html", "slot": "image", "is_hero": false}, {"datei": "leistungen.html", "slot": "image", "is_hero": false}], "used_in_pages": ["index.html", "leistungen.html"], "alt": "Webseiten für Schreinereien und Holzbau"}, {"nr": 25, "id": "images_sichtbarkeits_tragwerk_png", "filename": "sichtbarkeits-tragwerk.png", "rel_path": "images/sichtbarkeits-tragwerk.png", "folder": "preview-imp-marketing", "category": "Referenz, Projekt & Angebot", "category_code": "ref", "dimensions": "2000x2000", "size_kb": 76.5, "format": "PNG", "mtime": 1793882909, "mtime_str": "05.11.2026 12:48", "cdn_url": "https://vorschau.magnet-xs.ch/imp-marketing-vollversion/images/sichtbarkeits-tragwerk.png", "cloudflare_url": "https://vorschau.magnet-xs.ch/imp-marketing-vollversion/images/sichtbarkeits-tragwerk.png", "cloudflare_short": "vorschau.magnet-xs.ch/imp-marketing-vollversion/images/sichtbarkeits-tragwerk.png", "is_used": true, "used_in": [{"datei": "index.html", "slot": "image", "is_hero": false}, {"datei": "methode.html", "slot": "image", "is_hero": false}], "used_in_pages": ["index.html", "methode.html"], "alt": "Das IMP Sichtbarkeits-Tragwerk für Schreinereien und Holzbau"}, {"nr": 26, "id": "images_web_step_1_analyse_png", "filename": "web-step-1-analyse.png", "rel_path": "images/web-step-1-analyse.png", "folder": "preview-imp-marketing", "category": "Referenz, Projekt & Angebot", "category_code": "ref", "dimensions": "866x864", "size_kb": 321.7, "format": "PNG", "mtime": 1793882911, "mtime_str": "05.11.2026 12:48", "cdn_url": "https://vorschau.magnet-xs.ch/imp-marketing-vollversion/images/web-step-1-analyse.png", "cloudflare_url": "https://vorschau.magnet-xs.ch/imp-marketing-vollversion/images/web-step-1-analyse.png", "cloudflare_short": "vorschau.magnet-xs.ch/imp-marketing-vollversion/images/web-step-1-analyse.png", "is_used": true, "used_in": [{"datei": "leistungen.html", "slot": "image", "is_hero": false}], "used_in_pages": ["leistungen.html"], "alt": "Schritt 1: Kennenlernen & Analyse"}, {"nr": 27, "id": "images_web_step_2_konzept_png", "filename": "web-step-2-konzept.png", "rel_path": "images/web-step-2-konzept.png", "folder": "preview-imp-marketing", "category": "Referenz, Projekt & Angebot", "category_code": "ref", "dimensions": "803x798", "size_kb": 241.5, "format": "PNG", "mtime": 1793882911, "mtime_str": "05.11.2026 12:48", "cdn_url": "https://vorschau.magnet-xs.ch/imp-marketing-vollversion/images/web-step-2-konzept.png", "cloudflare_url": "https://vorschau.magnet-xs.ch/imp-marketing-vollversion/images/web-step-2-konzept.png", "cloudflare_short": "vorschau.magnet-xs.ch/imp-marketing-vollversion/images/web-step-2-konzept.png", "is_used": true, "used_in": [{"datei": "leistungen.html", "slot": "image", "is_hero": false}], "used_in_pages": ["leistungen.html"], "alt": "Schritt 2: Konzept & Design"}, {"nr": 28, "id": "images_web_step_3_umsetzung_jpg", "filename": "web-step-3-umsetzung.jpg", "rel_path": "images/web-step-3-umsetzung.jpg", "folder": "preview-imp-marketing", "category": "Referenz, Projekt & Angebot", "category_code": "ref", "dimensions": "858x855", "size_kb": 350.1, "format": "JPG", "mtime": 1793882911, "mtime_str": "05.11.2026 12:48", "cdn_url": "https://vorschau.magnet-xs.ch/imp-marketing-vollversion/images/web-step-3-umsetzung.jpg", "cloudflare_url": "https://vorschau.magnet-xs.ch/imp-marketing-vollversion/images/web-step-3-umsetzung.jpg", "cloudflare_short": "vorschau.magnet-xs.ch/imp-marketing-vollversion/images/web-step-3-umsetzung.jpg", "is_used": true, "used_in": [{"datei": "leistungen.html", "slot": "image", "is_hero": false}], "used_in_pages": ["leistungen.html"], "alt": "Schritt 3: Technische Umsetzung"}, {"nr": 29, "id": "images_web_step_4_betreuung_png", "filename": "web-step-4-betreuung.png", "rel_path": "images/web-step-4-betreuung.png", "folder": "preview-imp-marketing", "category": "Referenz, Projekt & Angebot", "category_code": "ref", "dimensions": "852x849", "size_kb": 248.5, "format": "PNG", "mtime": 1793882912, "mtime_str": "05.11.2026 12:48", "cdn_url": "https://vorschau.magnet-xs.ch/imp-marketing-vollversion/images/web-step-4-betreuung.png", "cloudflare_url": "https://vorschau.magnet-xs.ch/imp-marketing-vollversion/images/web-step-4-betreuung.png", "cloudflare_short": "vorschau.magnet-xs.ch/imp-marketing-vollversion/images/web-step-4-betreuung.png", "is_used": true, "used_in": [{"datei": "leistungen.html", "slot": "image", "is_hero": false}], "used_in_pages": ["leistungen.html"], "alt": "Schritt 4: Veröffentlichung & Betreuung"}, {"nr": 30, "id": "images_werkstatt_handwerk_webp", "filename": "werkstatt-handwerk.webp", "rel_path": "images/werkstatt-handwerk.webp", "folder": "preview-imp-marketing", "category": "Referenz, Projekt & Angebot", "category_code": "ref", "dimensions": "1500x1500", "size_kb": 206.8, "format": "WEBP", "mtime": 1793882909, "mtime_str": "05.11.2026 12:48", "cdn_url": "https://vorschau.magnet-xs.ch/imp-marketing-vollversion/images/werkstatt-handwerk.webp", "cloudflare_url": "https://vorschau.magnet-xs.ch/imp-marketing-vollversion/images/werkstatt-handwerk.webp", "cloudflare_short": "vorschau.magnet-xs.ch/imp-marketing-vollversion/images/werkstatt-handwerk.webp", "is_used": true, "used_in": [{"datei": "ueber-uns.html", "slot": "image", "is_hero": false}], "used_in_pages": ["ueber-uns.html"], "alt": "Schweizer Schreinerei-Handwerk und Präzision"}];
 var ACP_STELLEN = sanitizeStellen([{"id": "index", "titel": "IMP GmbH", "firma": "IMP GmbH — Matthias Iseli", "icon": "", "datei": "index.html", "folder": "preview-imp-marketing", "edge_url": "https://embed.magnet-xs.ch/preview-imp-marketing/index.html", "host_webseite": "https://vorschau.magnet-xs.ch/imp-marketing-vollversion/", "host_label": "Nicht eingebaut", "farb_akzent": "#d97706", "widget_code": "<iframe src=\"https://embed.magnet-xs.ch/preview-imp-marketing/index.html?embed=true\" style=\"width:100%; border:none; min-height:850px;\" scrolling=\"no\" id=\"acp-job-widget\"></iframe>\n<script>window.addEventListener(\"message\",function(e){if(e.data&&e.data.type===\"acp-embed-resize\"){var el=document.getElementById(\"acp-job-widget\");if(el)el.style.height=e.data.height+\"px\";}});<\\/script>", "is_live": false, "is_live_embedded": false, "live_url": "https://embed.magnet-xs.ch/preview-imp-marketing/index.html", "embedded_page_url": null, "embedded_page_label": "Nicht eingebaut", "status": "Entwurf im Studio", "status_badge": "ENTWURF"}, {"id": "leistungen", "titel": "Leistungen: Schreiner-Webseiten, Google-SEO, Anfrage-Systeme & Automation", "firma": "IMP GmbH — Matthias Iseli", "icon": "", "datei": "leistungen.html", "folder": "preview-imp-marketing", "edge_url": "https://embed.magnet-xs.ch/preview-imp-marketing/leistungen.html", "host_webseite": "https://vorschau.magnet-xs.ch/imp-marketing-vollversion/", "host_label": "Nicht eingebaut", "farb_akzent": "#d97706", "widget_code": "<iframe src=\"https://embed.magnet-xs.ch/preview-imp-marketing/leistungen.html?embed=true\" style=\"width:100%; border:none; min-height:850px;\" scrolling=\"no\" id=\"acp-job-widget\"></iframe>\n<script>window.addEventListener(\"message\",function(e){if(e.data&&e.data.type===\"acp-embed-resize\"){var el=document.getElementById(\"acp-job-widget\");if(el)el.style.height=e.data.height+\"px\";}});<\\/script>", "is_live": false, "is_live_embedded": false, "live_url": "https://embed.magnet-xs.ch/preview-imp-marketing/leistungen.html", "embedded_page_url": null, "embedded_page_label": "Nicht eingebaut", "status": "Entwurf im Studio", "status_badge": "ENTWURF"}, {"id": "methode", "titel": "Das IMP Sichtbarkeits-Tragwerk", "firma": "IMP GmbH — Matthias Iseli", "icon": "", "datei": "methode.html", "folder": "preview-imp-marketing", "edge_url": "https://embed.magnet-xs.ch/preview-imp-marketing/methode.html", "host_webseite": "https://vorschau.magnet-xs.ch/imp-marketing-vollversion/", "host_label": "Nicht eingebaut", "farb_akzent": "#d97706", "widget_code": "<iframe src=\"https://embed.magnet-xs.ch/preview-imp-marketing/methode.html?embed=true\" style=\"width:100%; border:none; min-height:850px;\" scrolling=\"no\" id=\"acp-job-widget\"></iframe>\n<script>window.addEventListener(\"message\",function(e){if(e.data&&e.data.type===\"acp-embed-resize\"){var el=document.getElementById(\"acp-job-widget\");if(el)el.style.height=e.data.height+\"px\";}});<\\/script>", "is_live": false, "is_live_embedded": false, "live_url": "https://embed.magnet-xs.ch/preview-imp-marketing/methode.html", "embedded_page_url": null, "embedded_page_label": "Nicht eingebaut", "status": "Entwurf im Studio", "status_badge": "ENTWURF"}, {"id": "ueber-uns", "titel": "Über Matthias Iseli", "firma": "IMP GmbH — Matthias Iseli", "icon": "", "datei": "ueber-uns.html", "folder": "preview-imp-marketing", "edge_url": "https://embed.magnet-xs.ch/preview-imp-marketing/ueber-uns.html", "host_webseite": "https://vorschau.magnet-xs.ch/imp-marketing-vollversion/", "host_label": "Nicht eingebaut", "farb_akzent": "#d97706", "widget_code": "<iframe src=\"https://embed.magnet-xs.ch/preview-imp-marketing/ueber-uns.html?embed=true\" style=\"width:100%; border:none; min-height:850px;\" scrolling=\"no\" id=\"acp-job-widget\"></iframe>\n<script>window.addEventListener(\"message\",function(e){if(e.data&&e.data.type===\"acp-embed-resize\"){var el=document.getElementById(\"acp-job-widget\");if(el)el.style.height=e.data.height+\"px\";}});<\\/script>", "is_live": false, "is_live_embedded": false, "live_url": "https://embed.magnet-xs.ch/preview-imp-marketing/ueber-uns.html", "embedded_page_url": null, "embedded_page_label": "Nicht eingebaut", "status": "Entwurf im Studio", "status_badge": "ENTWURF"}, {"id": "kontakt", "titel": "Kontakt, Erstgespräch & Impressum (CHE-446.080.483)", "firma": "IMP GmbH — Matthias Iseli", "icon": "", "datei": "kontakt.html", "folder": "preview-imp-marketing", "edge_url": "https://embed.magnet-xs.ch/preview-imp-marketing/kontakt.html", "host_webseite": "https://vorschau.magnet-xs.ch/imp-marketing-vollversion/", "host_label": "Nicht eingebaut", "farb_akzent": "#d97706", "widget_code": "<iframe src=\"https://embed.magnet-xs.ch/preview-imp-marketing/kontakt.html?embed=true\" style=\"width:100%; border:none; min-height:850px;\" scrolling=\"no\" id=\"acp-job-widget\"></iframe>\n<script>window.addEventListener(\"message\",function(e){if(e.data&&e.data.type===\"acp-embed-resize\"){var el=document.getElementById(\"acp-job-widget\");if(el)el.style.height=e.data.height+\"px\";}});<\\/script>", "is_live": false, "is_live_embedded": false, "live_url": "https://embed.magnet-xs.ch/preview-imp-marketing/kontakt.html", "embedded_page_url": null, "embedded_page_label": "Nicht eingebaut", "status": "Entwurf im Studio", "status_badge": "ENTWURF"}]);
 
 // Globaler State
@@ -6161,6 +6161,13 @@ function acpSwitchJob(jobId, forceReload) {
       frame.src = targetSrc;
       frame.onload = function() {
         frame.style.opacity = "1";
+        if (typeof acpCurrentDesignState !== "undefined") {
+          acpCurrentDesignState.heroBgTouched = false;
+          acpCurrentDesignState.hasHeroBgImage = false;
+        }
+        if (typeof acpReadCurrentColorsFromIframe === "function") {
+          acpReadCurrentColorsFromIframe();
+        }
         if (acpInspectorActive) {
           frame.contentWindow.postMessage({ type: "acp-toggle-inspector", active: true }, "*");
         }
@@ -9457,14 +9464,16 @@ var acpCurrentDesignState = {
   vibeCssBlock: "",
   navStyle: "underline",
   navItems: [],
+  hasHeroBgImage: false,
+  heroBgTouched: false,
   colors: {
-    primary: "#9b2c47",
-    heroBg: "#fdf8f5",
-    heroText: "#2b161e",
-    bodyBg: "#fdf8f5",
+    primary: "#8c6747",
+    heroBg: "#2c3140",
+    heroText: "#ffffff",
+    bodyBg: "#f8f4ef",
     cardBg: "#ffffff",
-    footerBg: "#f3e2dd",
-    footerText: "#2b161e"
+    footerBg: "#2c3140",
+    footerText: "#d5dae2"
   }
 };
 
@@ -9552,12 +9561,14 @@ var ACP_DESIGN_PRESETS = {
 function acpRgbToHex(rgbStr) {
   if (!rgbStr || typeof rgbStr !== "string") return "";
   var s = rgbStr.trim();
+  if (s === "transparent") return "";
   if (/^#[0-9a-fA-F]{6}$/.test(s)) return s.toLowerCase();
   if (/^#[0-9a-fA-F]{3}$/.test(s)) {
     return ("#" + s[1] + s[1] + s[2] + s[2] + s[3] + s[3]).toLowerCase();
   }
-  var m = s.match(/rgba?\((\d+),\s*(\d+),\s*(\d+)/i);
+  var m = s.match(/rgba?\((\d+),\s*(\d+),\s*(\d+)(?:,\s*([0-9.]+))?/i);
   if (!m) return "";
+  if (m[4] !== undefined && parseFloat(m[4]) === 0) return "";
   var r = Math.max(0, Math.min(255, parseInt(m[1], 10)));
   var g = Math.max(0, Math.min(255, parseInt(m[2], 10)));
   var b = Math.max(0, Math.min(255, parseInt(m[3], 10)));
@@ -9595,37 +9606,114 @@ function acpReadCurrentColorsFromIframe() {
   try {
     var rootStyle = win.getComputedStyle(doc.documentElement);
     var bodyEl = doc.body;
-    var heroEl = doc.querySelector(".hero-section, .hero, .page-hero, [data-section='hero']");
-    var heroTitleEl = doc.querySelector(".hero-title, .hero-section h1, .page-hero h1");
-    var btnEl = doc.querySelector(".btn-cta-gold, .btn-cta-primary, .btn-primary");
-    var cardEl = doc.querySelector(".content-card, .pillar-card, .card");
+    var heroEl = doc.querySelector(".hero-section, .hero, .page-hero, .hero-wrap, [data-section='hero']");
+    var heroTitleEl = doc.querySelector(".hero-title, .hero-section h1, .hero h1, .page-hero h1, .hero-wrap h1");
+    var btnEl = doc.querySelector(".btn-cta-gold, .btn-cta-primary, .btn-primary, .btn-haupt, .btn-gold, .nav-cta, .btn:not(.wa):not(.hell)");
+    var cardEl = doc.querySelector(".content-card, .pillar-card, .card, .vorteil-karte, .stimme-karte, .bento-card, .grund");
     var footerEl = doc.querySelector(".site-footer, footer");
-    var footerTitleEl = doc.querySelector(".site-footer .footer-title, .site-footer a, footer");
+    var footerTitleEl = doc.querySelector(".site-footer .footer-title, .site-footer a, footer p, footer a, footer");
 
-    var pVar = acpRgbToHex(rootStyle.getPropertyValue("--gold-dark") || rootStyle.getPropertyValue("--crimson") || rootStyle.getPropertyValue("--primary"));
-    if (!pVar && btnEl) pVar = acpRgbToHex(win.getComputedStyle(btnEl).backgroundColor);
+    // 1. Primärfarbe
+    var primaryVars = ["--primary", "--rot", "--gold-dark", "--crimson", "--brand", "--brand-primary", "--pink", "--accent", "--fca-red", "--fcs-blue", "--scf-green", "--gold"];
+    var pVar = "";
+    for (var pi = 0; pi < primaryVars.length; pi++) {
+      var candidate = acpRgbToHex(rootStyle.getPropertyValue(primaryVars[pi]));
+      if (candidate) {
+        pVar = candidate;
+        break;
+      }
+    }
+    if (!pVar && btnEl) {
+      pVar = acpRgbToHex(win.getComputedStyle(btnEl).backgroundColor);
+    }
+    if (!pVar && typeof getActiveJob === "function" && getActiveJob() && getActiveJob().farb_akzent) {
+      pVar = acpRgbToHex(getActiveJob().farb_akzent);
+    }
+    if (!pVar && window.ACP_CLIENT_PROFILE && window.ACP_CLIENT_PROFILE.brand_color) {
+      pVar = acpRgbToHex(window.ACP_CLIENT_PROFILE.brand_color);
+    }
     if (pVar) acpCurrentDesignState.colors.primary = pVar;
 
+    // 2. Startbühne Hintergrund (heroBg) & Hintergrundbild-Schutz
     if (heroEl) {
-      var hBg = acpRgbToHex(win.getComputedStyle(heroEl).backgroundColor);
-      if (hBg && hBg !== "#000000") acpCurrentDesignState.colors.heroBg = hBg;
+      var heroStyle = win.getComputedStyle(heroEl);
+      var bgImg = heroStyle.backgroundImage || "none";
+      var rawBgCol = heroStyle.backgroundColor || "";
+      var hBg = acpRgbToHex(rawBgCol);
+      var hasUrlImg = (bgImg !== "none" && bgImg.toLowerCase().indexOf("url(") !== -1);
+      if (hBg && hBg !== "#000000") {
+        acpCurrentDesignState.colors.heroBg = hBg;
+        acpCurrentDesignState.hasHeroBgImage = hasUrlImg;
+      } else if (bgImg === "none" && hBg) {
+        acpCurrentDesignState.colors.heroBg = hBg;
+        acpCurrentDesignState.hasHeroBgImage = false;
+      } else if (bgImg !== "none") {
+        var stageFallback = acpRgbToHex(
+          rootStyle.getPropertyValue("--anthrazit") ||
+          rootStyle.getPropertyValue("--charcoal-deep") ||
+          rootStyle.getPropertyValue("--navy-deep") ||
+          rootStyle.getPropertyValue("--navy")
+        ) || "#2c3140";
+        acpCurrentDesignState.colors.heroBg = stageFallback;
+        acpCurrentDesignState.hasHeroBgImage = true;
+      }
     }
+
+    // 3. Startbühne Text (heroText)
     if (heroTitleEl) {
       var hTxt = acpRgbToHex(win.getComputedStyle(heroTitleEl).color);
       if (hTxt) acpCurrentDesignState.colors.heroText = hTxt;
+    } else if (heroEl) {
+      var hTxtFallback = acpRgbToHex(win.getComputedStyle(heroEl).color);
+      if (hTxtFallback) acpCurrentDesignState.colors.heroText = hTxtFallback;
     }
+
+    // 4. Seitenhintergrund (bodyBg)
+    var bBg = "";
     if (bodyEl) {
-      var bBg = acpRgbToHex(win.getComputedStyle(bodyEl).backgroundColor);
-      if (bBg) acpCurrentDesignState.colors.bodyBg = bBg;
+      bBg = acpRgbToHex(win.getComputedStyle(bodyEl).backgroundColor);
     }
+    if (!bBg) {
+      bBg = acpRgbToHex(
+        rootStyle.getPropertyValue("--holz-hell") ||
+        rootStyle.getPropertyValue("--bg-page") ||
+        rootStyle.getPropertyValue("--bg-ivory") ||
+        rootStyle.getPropertyValue("--bg-light") ||
+        rootStyle.getPropertyValue("--hell")
+      );
+    }
+    if (bBg) acpCurrentDesignState.colors.bodyBg = bBg;
+
+    // 5. Sektions- & Karten-Flächen (cardBg)
+    var cBg = "";
     if (cardEl) {
-      var cBg = acpRgbToHex(win.getComputedStyle(cardEl).backgroundColor);
-      if (cBg) acpCurrentDesignState.colors.cardBg = cBg;
+      cBg = acpRgbToHex(win.getComputedStyle(cardEl).backgroundColor);
     }
+    if (!cBg) {
+      cBg = acpRgbToHex(
+        rootStyle.getPropertyValue("--holz-hell") ||
+        rootStyle.getPropertyValue("--bg-alt") ||
+        rootStyle.getPropertyValue("--bg-Warm") ||
+        rootStyle.getPropertyValue("--bg-card") ||
+        rootStyle.getPropertyValue("--hell")
+      );
+    }
+    if (cBg) acpCurrentDesignState.colors.cardBg = cBg;
+
+    // 6. Footer (footerBg & footerText)
+    var fBg = "";
     if (footerEl) {
-      var fBg = acpRgbToHex(win.getComputedStyle(footerEl).backgroundColor);
-      if (fBg) acpCurrentDesignState.colors.footerBg = fBg;
+      fBg = acpRgbToHex(win.getComputedStyle(footerEl).backgroundColor);
     }
+    if (!fBg) {
+      fBg = acpRgbToHex(
+        rootStyle.getPropertyValue("--anthrazit") ||
+        rootStyle.getPropertyValue("--navy-deep") ||
+        rootStyle.getPropertyValue("--charcoal-deep")
+      );
+    }
+    if (fBg) acpCurrentDesignState.colors.footerBg = fBg;
+
     if (footerTitleEl) {
       var fTxt = acpRgbToHex(win.getComputedStyle(footerTitleEl).color);
       if (fTxt) acpCurrentDesignState.colors.footerText = fTxt;
@@ -9829,36 +9917,46 @@ function acpCloseDesignVibeModal() {
 
 function acpBuildClientSideColorCss() {
   var c = acpCurrentDesignState.colors;
-  var heroBgRule = acpCurrentDesignState.heroGradient
-    ? "background: " + acpCurrentDesignState.heroGradient + " !important; background-color: " + c.heroBg + " !important;"
-    : "background: " + c.heroBg + " !important; background-color: " + c.heroBg + " !important;";
+  var applyHeroBg = (!acpCurrentDesignState.hasHeroBgImage || acpCurrentDesignState.heroBgTouched);
+  var heroBgRule = "";
+  if (applyHeroBg) {
+    heroBgRule = acpCurrentDesignState.heroGradient
+      ? "background: " + acpCurrentDesignState.heroGradient + " !important; background-color: " + c.heroBg + " !important; "
+      : "background: " + c.heroBg + " !important; background-color: " + c.heroBg + " !important; ";
+  }
 
   var lines = [
     "/* === 1. FARBTABELLE (HEX & COLOR-PICKER) === */",
     ":root {",
     "  --primary: " + c.primary + " !important;",
+    "  --rot: " + c.primary + " !important;",
+    "  --rot-dunkel: " + c.primary + " !important;",
     "  --accent: " + c.primary + " !important;",
     "  --brand: " + c.primary + " !important;",
     "  --gold: " + c.primary + " !important;",
     "  --gold-dark: " + c.primary + " !important;",
     "  --crimson: " + c.primary + " !important;",
     "  --crimson-bright: " + c.primary + " !important;",
+    "  --pink: " + c.primary + " !important;",
+    "  --pink-hover: " + c.primary + " !important;",
     "  --bg-page: " + c.bodyBg + " !important;",
+    "  --holz-hell: " + c.bodyBg + " !important;",
     "  --bg-Warm: " + c.cardBg + " !important;",
     "  --bg-alt: " + c.cardBg + " !important;",
     "}",
     "body { background-color: " + c.bodyBg + " !important; }",
-    ".btn-cta-gold, .btn-cta-primary, .btn-primary { background-color: " + c.primary + " !important; border-color: " + c.primary + " !important; color: #ffffff !important; }",
-    ".section-kicker, .section-eyebrow, .hero-eyebrow, .kicker, .hero-title span, .hero-badge-val { color: " + c.primary + " !important; }",
+    ".btn-cta-gold, .btn-cta-primary, .btn-primary, .btn-haupt, .nav-cta, .sticky-cta a, .form-submit { background-color: " + c.primary + " !important; border-color: " + c.primary + " !important; color: #ffffff !important; }",
+    ".section-kicker, .section-eyebrow, .hero-eyebrow, .kicker, .hero-title span, .hero-badge-val, .sektion-label, .hero h1 em, .hero h1 span { color: " + c.primary + " !important; }",
+    ".hero-tag { background-color: " + c.primary + " !important; color: #ffffff !important; }",
     ".section-kicker::before { background-color: " + c.primary + " !important; }",
     ".hero-badge-card, .contact-direct-item { border-left-color: " + c.primary + " !important; }",
-    ".hero-section, .hero, .page-hero, [data-section='hero'] { " + heroBgRule + " color: " + c.heroText + " !important; }",
-    ".hero-section h1, .hero-section .hero-title, .hero-section .hero-lead, .page-hero h1, .page-hero p, .hero-trust-item, .hero-badge-lbl { color: " + c.heroText + " !important; }",
+    ".hero-section, .hero, .page-hero, .hero-wrap, [data-section='hero'] { " + heroBgRule + "color: " + c.heroText + " !important; }",
+    ".hero-section h1, .hero-section .hero-title, .hero-section .hero-lead, .page-hero h1, .page-hero p, .hero-trust-item, .hero-badge-lbl, .hero h1, .hero .hero-sub, .hero p, .hero-wrap h1 { color: " + c.heroText + " !important; }",
     ".hero-media-caption, .hero-quickbar { background-color: " + c.heroBg + " !important; color: " + c.heroText + " !important; }",
     ".hero-media-caption * { color: " + c.heroText + " !important; }",
-    ".content-card, .pillar-card, .testimonial-card, .card { background-color: " + c.cardBg + " !important; }",
+    ".content-card, .pillar-card, .testimonial-card, .card, .vorteil-karte, .stimme-karte, .bento-card, .grund { background-color: " + c.cardBg + " !important; }",
     ".site-footer, footer { background-color: " + c.footerBg + " !important; color: " + c.footerText + " !important; }",
-    ".site-footer .footer-title, .site-footer a, .site-footer p, .site-footer .footer-bottom, .site-footer div { color: " + c.footerText + " !important; }"
+    ".site-footer .footer-title, .site-footer a, .site-footer p, .site-footer .footer-bottom, .site-footer div, footer p, footer a { color: " + c.footerText + " !important; }"
   ];
   lines.push("");
   lines.push(acpBuildNavStyleCss(acpCurrentDesignState.navStyle || "underline", c.primary));
@@ -9894,7 +9992,10 @@ function acpInjectLiveDesignCss(cssString) {
 function acpOnColorInput(key, val) {
   if (!val) return;
   acpCurrentDesignState.colors[key] = val.toLowerCase();
-  if (key === "heroBg") acpCurrentDesignState.heroGradient = "";
+  if (key === "heroBg") {
+    acpCurrentDesignState.heroGradient = "";
+    acpCurrentDesignState.heroBgTouched = true;
+  }
   var hexInp = document.getElementById("acp-col-hex-" + key);
   if (hexInp) hexInp.value = val.toLowerCase();
   var css = acpBuildClientSideColorCss();
@@ -9907,7 +10008,10 @@ function acpOnHexInput(key, val) {
   if (clean && clean[0] !== "#") clean = "#" + clean;
   if (/^#[0-9a-f]{6}$/.test(clean)) {
     acpCurrentDesignState.colors[key] = clean;
-    if (key === "heroBg") acpCurrentDesignState.heroGradient = "";
+    if (key === "heroBg") {
+      acpCurrentDesignState.heroGradient = "";
+      acpCurrentDesignState.heroBgTouched = true;
+    }
     var picker = document.getElementById("acp-col-picker-" + key);
     if (picker) picker.value = clean;
     var css = acpBuildClientSideColorCss();
@@ -9916,6 +10020,7 @@ function acpOnHexInput(key, val) {
 }
 
 function acpSwitchHeroBrightness(mode) {
+  acpCurrentDesignState.heroBgTouched = true;
   var btnLight = document.getElementById("acp-btn-hero-light");
   var btnDark = document.getElementById("acp-btn-hero-dark");
   if (mode === "light") {
@@ -9941,6 +10046,7 @@ function acpSwitchHeroBrightness(mode) {
 function acpApplyDesignPreset(presetKey) {
   var preset = ACP_DESIGN_PRESETS[presetKey];
   if (!preset) return;
+  acpCurrentDesignState.heroBgTouched = true;
   acpCurrentDesignState.preset = preset.label;
   acpCurrentDesignState.heroGradient = preset.heroGradient || "";
   var keys = ["primary", "heroBg", "heroText", "bodyBg", "cardBg", "footerBg", "footerText"];
@@ -10022,6 +10128,7 @@ function acpResetDesignVibe() {
   acpCurrentDesignState.vibeCssBlock = "";
   acpCurrentDesignState.heroGradient = "";
   acpCurrentDesignState.preset = "";
+  acpCurrentDesignState.heroBgTouched = false;
   var inp = document.getElementById("acp-vibe-prompt-input");
   if (inp) inp.value = "";
   var editor = document.getElementById("acp-vibe-css-editor");
