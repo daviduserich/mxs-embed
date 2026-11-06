@@ -1,0 +1,294 @@
+{
+  "schema_version": "1.0.0",
+  "generated_at": "2026-11-06T08:55:59.626Z",
+  "slug": "scfulenbach",
+  "source_url": "https://www.scfulenbach.ch",
+  "design_mode": "redesign",
+  "industry": "Fussballclub, Sportverein & Juniorenfoerderung",
+  "stage_1_measured_facts": {
+    "luminance": {
+      "body_luminance": 0.797,
+      "hero_luminance": 0.531,
+      "header_px_luminance": 0.575,
+      "hero_px_luminance": 0.495,
+      "lower_px_luminance": 0.783,
+      "dom_body_luminance": 1,
+      "dom_hero_luminance": 1,
+      "body_bg_hex": "#FFFFFF",
+      "header_bg_hex": "#FFFFFF",
+      "hero_bg_hex": "#FFFFFF"
+    },
+    "colors": {
+      "distinct_accent_hues_count": 4,
+      "primary_detected_hex": "#33B8F4",
+      "primary_detected_oklch": {
+        "L": 0.739,
+        "C": 0.139,
+        "H": 233.4
+      },
+      "distinct_hue_clusters": [
+        {
+          "representative_hex": "#33B8F4",
+          "rgb": [
+            51,
+            184,
+            244
+          ],
+          "oklch": {
+            "L": 0.739,
+            "C": 0.139,
+            "H": 233.4
+          },
+          "total_weight": 469,
+          "roles": [
+            "accent_or_text",
+            "surface_or_badge_bg",
+            "cta_button_bg",
+            "cta_text_or_border",
+            "camera_pixel_cluster"
+          ]
+        },
+        {
+          "representative_hex": "#2EAB66",
+          "rgb": [
+            46,
+            171,
+            102
+          ],
+          "oklch": {
+            "L": 0.657,
+            "C": 0.149,
+            "H": 154.1
+          },
+          "total_weight": 351,
+          "roles": [
+            "surface_or_badge_bg",
+            "accent_or_text",
+            "cta_button_bg",
+            "cta_text_or_border",
+            "camera_pixel_cluster"
+          ]
+        },
+        {
+          "representative_hex": "#FF0000",
+          "rgb": [
+            255,
+            0,
+            0
+          ],
+          "oklch": {
+            "L": 0.628,
+            "C": 0.258,
+            "H": 29.2
+          },
+          "total_weight": 118,
+          "roles": [
+            "heading_color",
+            "accent_or_text"
+          ]
+        },
+        {
+          "representative_hex": "#0000FF",
+          "rgb": [
+            0,
+            0,
+            255
+          ],
+          "oklch": {
+            "L": 0.452,
+            "C": 0.313,
+            "H": 264.1
+          },
+          "total_weight": 12,
+          "roles": [
+            "accent_or_text"
+          ]
+        }
+      ]
+    },
+    "typography": {
+      "heading_font_family": "Oswald, sans-serif",
+      "body_font_family": "Roboto, sans-serif",
+      "h1_font_size": "20px",
+      "h1_line_height": "28px",
+      "body_font_size": "14px",
+      "body_line_height": "19.6px",
+      "detected_border_radii_px": [
+        0,
+        20
+      ],
+      "detected_container_max_widths_px": [
+        1100
+      ]
+    },
+    "images": {
+      "total_visible_images": 18,
+      "content_images_count": 18,
+      "max_image_width_px": 2437,
+      "hi_res_images_count": 10,
+      "low_res_images_count": 2,
+      "portrait_images_count": 0,
+      "landscape_images_count": 18,
+      "portrait_ratio_share": 0
+    },
+    "section_sequence": []
+  },
+  "sommelier_decisions": {
+    "polarity_decision": {
+      "design_mode": "redesign",
+      "target_hero_polarity": "dark",
+      "target_page_polarity": "light",
+      "light_lock_active": false,
+      "s27_min_hero_luminance_threshold": 0,
+      "reason": "Redesign-Modus gewaehlt: Startbuehne darf gezielt neu inszeniert werden (target_hero_polarity=\"dark\")."
+    },
+    "tinted_neutrals": {
+      "brand_hue_deg": 233.4,
+      "bg_page": {
+        "oklch": "oklch(0.985 0.008 233.4)",
+        "hex": "#F5FBFF",
+        "role": "60 % Haupt-Hintergrundflaeche mit feinem Marken-Hauch (Chroma 0.008)"
+      },
+      "bg_soft": {
+        "oklch": "oklch(0.955 0.016 233.4)",
+        "hex": "#E6F2F9",
+        "role": "30 % Sekundaer-Sektionen & Karten-Flaechen (Chroma 0.016)"
+      },
+      "bg_elevated": {
+        "oklch": "oklch(1.000 0.000 0.0)",
+        "hex": "#FFFFFF",
+        "role": "Erhabene Inhalts-Karten auf getoentem Canvas"
+      },
+      "border_subtle": {
+        "oklch": "oklch(0.890 0.014 233.4)",
+        "hex": "#D2DDE3",
+        "role": "Harmonische 1px Haarlinien-Rahmen im Marken-Farbton"
+      },
+      "text_main": {
+        "oklch": "oklch(0.200 0.025 233.4)",
+        "hex": "#0A1820",
+        "contrast_vs_bg_page": "17.29:1",
+        "role": "Tiefdunkle, mit Marken-Hue abgetoente Textfarbe (Kontrast >= 10:1)"
+      },
+      "text_muted": {
+        "oklch": "oklch(0.420 0.020 233.4)",
+        "hex": "#434F56",
+        "role": "Ruhige Sekundaer-Textfarbe fuer Metadaten und Bildlegenden"
+      }
+    },
+    "color_harmony_60_30_10": {
+      "distinct_accent_hues_count": 4,
+      "is_multicolor_chaos": true,
+      "sommelier_verdict": "Marken-Seele = farbenfroh/vielseitig (4 verschiedene Farbtoene erkannt -> behalten!), aber Saettigungs-Chaos auf 60-30-10 reduzieren! 1 Primaer-CTA-Chef (10 %) + 3 OKLCH-normalisierte Pastell-/Akzent-Toene gleicher optischer Ruhe.",
+      "primary_10_percent_cta": {
+        "original_brand_hex": "#33B8F4",
+        "original_oklch": {
+          "L": 0.739,
+          "C": 0.139,
+          "H": 233.4
+        },
+        "harmonized_oklch": "oklch(0.580 0.160 233.4)",
+        "harmonized_hex": "#0085B6",
+        "hover_hex": "#006C95"
+      },
+      "secondary_accent_palette": [
+        {
+          "slot": 1,
+          "token_prefix": "--accent-palette-1",
+          "source_hex": "#2EAB66",
+          "source_hue_deg": 154.1,
+          "pastel_surface": {
+            "oklch": "oklch(0.950 0.035 154.1)",
+            "hex": "#DDF6E4",
+            "spec": "L=0.95, C=0.035"
+          },
+          "icon_accent": {
+            "oklch": "oklch(0.480 0.130 154.1)",
+            "hex": "#00713C",
+            "spec": "L=0.48, C=0.13"
+          }
+        },
+        {
+          "slot": 2,
+          "token_prefix": "--accent-palette-2",
+          "source_hex": "#FF0000",
+          "source_hue_deg": 29.2,
+          "pastel_surface": {
+            "oklch": "oklch(0.950 0.035 29.2)",
+            "hex": "#FFE9E5",
+            "spec": "L=0.95, C=0.035"
+          },
+          "icon_accent": {
+            "oklch": "oklch(0.480 0.130 29.2)",
+            "hex": "#993A2F",
+            "spec": "L=0.48, C=0.13"
+          }
+        },
+        {
+          "slot": 3,
+          "token_prefix": "--accent-palette-3",
+          "source_hex": "#0000FF",
+          "source_hue_deg": 264.1,
+          "pastel_surface": {
+            "oklch": "oklch(0.950 0.035 264.1)",
+            "hex": "#E6EFFF",
+            "spec": "L=0.95, C=0.035"
+          },
+          "icon_accent": {
+            "oklch": "oklch(0.480 0.130 264.1)",
+            "hex": "#3759A6",
+            "spec": "L=0.48, C=0.13"
+          }
+        },
+        {
+          "slot": 4,
+          "token_prefix": "--accent-palette-4",
+          "source_hex": "#B95F7B",
+          "source_hue_deg": 1.4,
+          "pastel_surface": {
+            "oklch": "oklch(0.950 0.035 1.4)",
+            "hex": "#FFE7ED",
+            "spec": "L=0.95, C=0.035"
+          },
+          "icon_accent": {
+            "oklch": "oklch(0.480 0.130 1.4)",
+            "hex": "#953859",
+            "spec": "L=0.48, C=0.13"
+          }
+        }
+      ]
+    },
+    "typography_and_archetype": {
+      "measured_heading_font": "Oswald",
+      "measured_body_font": "Roboto",
+      "heal_legacy_flaw": false,
+      "legacy_flaw_diagnosis": "Bestehende Schrift-Gattung (Oswald / Roboto) wird typografisch im Schweizer Meister-Archetyp veredelt.",
+      "selected_archetype": {
+        "id": "dynamic_club_spirit",
+        "label": "4. Dynamic Club & Community Spirit (Vereine, Verbaende, Teamsport, Sportfoerderung)",
+        "font_display": "'Montserrat', 'Plus Jakarta Sans', sans-serif",
+        "font_sans": "'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif",
+        "google_fonts_import": "https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap",
+        "radius_card": "8px",
+        "radius_badge": "4px",
+        "grid_max_width": "1100px",
+        "default_polarity": "dark",
+        "character_note": "Stolze Vereinsfarben im 60-30-10-Raster, emotionale Vereins-Identitaet kombiniert mit aufgeraeumter Kader-, Spielplan- und Sponsoren-Struktur."
+      }
+    },
+    "image_layout_decision": {
+      "max_source_image_width_px": 2437,
+      "portrait_ratio_share": 0,
+      "forbid_fullscreen_bg_image": false,
+      "recommended_hero_layout": "split_framed_card_or_architectural_stage",
+      "sommelier_verdict": "Hochaufloesendes Bildmaterial vorhanden (max. 2437px Breite). Sowohl \"split_framed_card\" (#UI-02) als auch architektonische Buehne ohne Verpixelung moeglich."
+    }
+  },
+  "stage_3_blueprint": {
+    "css_root_tokens": ":root {\n  /* === 1. Polaritaet & Schweizer Raster (#UI-02, #UI-16, Sensor S-27) === */\n  --wp-expected-hero-polarity: \"dark\";\n  --wp-archetype: \"dynamic_club_spirit\";\n  --container-max: 1100px;\n  --radius-card: 8px;\n  --radius-badge: 4px;\n\n  /* === 2. Typografie (dynamic_club_spirit) === */\n  --font-display: 'Montserrat', 'Plus Jakarta Sans', sans-serif;\n  --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;\n\n  /* === 3. 60 % & 30 % Tinted Neutrals (impeccable / Refactoring UI, Hue=233.4deg) === */\n  --bg-page: #F5FBFF;\n  --bg-page-oklch: oklch(0.985 0.008 233.4);\n  --bg-soft: #E6F2F9;\n  --bg-soft-oklch: oklch(0.955 0.016 233.4);\n  --bg-elevated: #FFFFFF;\n  --border-subtle: #D2DDE3;\n  --border-subtle-oklch: oklch(0.890 0.014 233.4);\n  --text-main: #0A1820;\n  --text-main-oklch: oklch(0.200 0.025 233.4);\n  --text-muted: #434F56;\n  --text-muted-oklch: oklch(0.420 0.020 233.4);\n\n  /* === 4. 10 % Primaer-CTA-Chef (Marken-Hauptfarbe) === */\n  --primary: #0085B6;\n  --primary-brand-raw: #33B8F4;\n  --primary-oklch: oklch(0.580 0.160 233.4);\n  --primary-hover: #006C95;\n\n  /* === 5. OKLCH-Harmonisierte Sekundaer-Palette (Bunter-Kuchen-Zaehmung: L=0.95/C=0.035 & L=0.48/C=0.13) === */\n  --accent-palette-1-soft: #DDF6E4; /* oklch(0.950 0.035 154.1) */\n  --accent-palette-1-strong: #00713C; /* oklch(0.480 0.130 154.1) */\n  --accent-palette-2-soft: #FFE9E5; /* oklch(0.950 0.035 29.2) */\n  --accent-palette-2-strong: #993A2F; /* oklch(0.480 0.130 29.2) */\n  --accent-palette-3-soft: #E6EFFF; /* oklch(0.950 0.035 264.1) */\n  --accent-palette-3-strong: #3759A6; /* oklch(0.480 0.130 264.1) */\n  --accent-palette-4-soft: #FFE7ED; /* oklch(0.950 0.035 1.4) */\n  --accent-palette-4-strong: #953859; /* oklch(0.480 0.130 1.4) */\n}",
+    "recommended_hero_layout": "split_framed_card_or_architectural_stage",
+    "target_hero_polarity": "dark",
+    "selected_archetype_id": "dynamic_club_spirit",
+    "google_fonts_import": "https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
+  }
+}

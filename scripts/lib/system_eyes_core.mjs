@@ -16,7 +16,7 @@
  *     Mobile-Menues und Cockpit-Modals zur verpflichtenden Sichtabnahme per read_file.
  */
 
-export const SYSTEM_EYES_VERSION = '2.4.0';
+export const SYSTEM_EYES_VERSION = '2.5.0';
 
 export const SYSTEM_EYES_ZONES = [
   { name: 'mobile_375x667', width: 375, height: 667, label: 'Zone 1 Smartphone (375×667)' },
@@ -50,7 +50,8 @@ export const SYSTEM_EYES_SENSORS = [
   { id: 'S-23', code: 'P2_SPLIT_BOTTOM_STEP', severity: 'P2', rule: '#UI-02', desc: 'In 2-Spalten-Sektionen (.hero-grid, .split-grid, .two-col-grid) auf Desktop (>= 1024px) muessen linke und rechte Spalte unten buendig abschliessen (kein Treppen-Versatz 8..110px)' },
   { id: 'S-24', code: 'P2_HERO_CTA_STACKED_ON_DESKTOP', severity: 'P2', rule: '#UI-02', desc: 'Benachbarte Hero-Action-Buttons duerfen in breiten Desktop-Spalten (>= 480px) nicht unnoetig vertikal untereinander stapeln, wenn sie nebeneinander passen' },
   { id: 'S-25', code: 'P2_CARD_EXCESSIVE_DEAD_SPACE', severity: 'P2', rule: '#UI-02', desc: 'Gerahmte Karten (.card, .content-card, .hero-card, .hero-media-card) duerfen auf Desktop nicht > 90px leeren Totraum unter ihrem Inhalt aufweisen' },
-  { id: 'S-26', code: 'P1_LOW_CONTRAST_GHOST', severity: 'P1', rule: '#UI-01', desc: 'Sichtbarer Text muss gegenueber seinem effektiven Hintergrund (inkl. RGBA-Alpha-Blending & CSS linear-/radial-gradient Farb-Stops) ein Kontrastverhaeltnis >= 2.2:1 aufweisen (kein Dunkel-auf-Dunkel oder Weiss-auf-Weiss)' }
+  { id: 'S-26', code: 'P1_LOW_CONTRAST_GHOST', severity: 'P1', rule: '#UI-01', desc: 'Sichtbarer Text muss gegenueber seinem effektiven Hintergrund (inkl. RGBA-Alpha-Blending & CSS linear-/radial-gradient Farb-Stops) ein Kontrastverhaeltnis >= 2.2:1 aufweisen (kein Dunkel-auf-Dunkel oder Weiss-auf-Weiss)' },
+  { id: 'S-27', code: 'P1_EVOLUTION_POLARITY_MISMATCH', severity: 'P1', rule: '#UI-16', desc: 'Im Evolution-Modus mit heller Ursprungsseite (target_hero_polarity === "light") darf die Startbuehne (.hero-section, .hero, main > section:first-of-type) niemals dunkel (< 0.45 Luminanz) gebaut werden' }
 ];
 
 /**
@@ -754,6 +755,44 @@ export function evaluateSystemEyesInPage({ relPage, zone, options = {} }) {
           getCssPath(el),
           `Unlesbarer Text-Kontrast ${ratio.toFixed(2)}:1 (fg=rgb(${fg.join(',')}) auf bg=rgb(${bg.join(',')}), Pflicht >= 2.2:1)`
         );
+      }
+    }
+
+    // S-27: P1_EVOLUTION_POLARITY_MISMATCH (#UI-16 Evolution-Licht-Sperre fuer Startbuehne/Hero)
+    if (!activeScopeSelector && !relPage.endsWith('onboarding.html')) {
+      const expectedHeroPolarity =
+        (options &&
+          options.sourceVisualDna &&
+          options.sourceVisualDna.sommelier_decisions &&
+          options.sourceVisualDna.sommelier_decisions.polarity_decision &&
+          options.sourceVisualDna.sommelier_decisions.polarity_decision.target_hero_polarity) ||
+        (options && options.sourceVisualDna && options.sourceVisualDna.target_hero_polarity) ||
+        (options && options.expectedHeroPolarity) ||
+        window.__WP_EXPECTED_HERO_POLARITY ||
+        document.documentElement.getAttribute('data-expected-hero-polarity') ||
+        (document.body && document.body.getAttribute('data-expected-hero-polarity')) ||
+        null;
+      const designMode =
+        (options && options.sourceVisualDna && options.sourceVisualDna.design_mode) ||
+        document.documentElement.getAttribute('data-design-mode') ||
+        'evolution';
+      if (expectedHeroPolarity === 'light' && designMode !== 'redesign') {
+        const heroCandidate = document.querySelector(
+          '.hero-section, section.hero, .hero, .hero-wrap, [data-section="hero"], main > section:first-of-type, body > section:first-of-type'
+        );
+        if (heroCandidate && isVisible(heroCandidate)) {
+          const heroBg = getEffectiveBgRgb(heroCandidate);
+          const heroLum = relLum(heroBg);
+          if (heroLum < 0.45) {
+            addFinding(
+              'P1',
+              'P1_EVOLUTION_POLARITY_MISMATCH',
+              getLabel(heroCandidate),
+              getCssPath(heroCandidate),
+              `Evolution-Licht-Sperre (#UI-16) verletzt: Ursprungsseite verlangt target_hero_polarity="light", aber gerenderte Startbuehne ist dunkel (Luminanz=${heroLum.toFixed(2)} < 0.45, bg=rgb(${heroBg.join(',')}), Pflicht >= 0.45)`
+            );
+          }
+        }
       }
     }
   }

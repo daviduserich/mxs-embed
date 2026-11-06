@@ -1,0 +1,325 @@
+{
+  "schema_version": "1.0.0",
+  "generated_at": "2026-11-06T08:55:19.683Z",
+  "slug": "bunter-kuchen-test",
+  "source_url": "synthetic://raw-html",
+  "design_mode": "evolution",
+  "industry": "Praxis, Coaching & Begleitung",
+  "stage_1_measured_facts": {
+    "luminance": {
+      "body_luminance": 0.972,
+      "hero_luminance": 0.912,
+      "header_px_luminance": 0.943,
+      "hero_px_luminance": 0.887,
+      "lower_px_luminance": 0.925,
+      "dom_body_luminance": 1,
+      "dom_hero_luminance": 0.956,
+      "body_bg_hex": "#FFFFFF",
+      "header_bg_hex": "#FFFDF9",
+      "hero_bg_hex": "#FFF9F5"
+    },
+    "colors": {
+      "distinct_accent_hues_count": 5,
+      "primary_detected_hex": "#E11D48",
+      "primary_detected_oklch": {
+        "L": 0.586,
+        "C": 0.222,
+        "H": 17.6
+      },
+      "distinct_hue_clusters": [
+        {
+          "representative_hex": "#E11D48",
+          "rgb": [
+            225,
+            29,
+            72
+          ],
+          "oklch": {
+            "L": 0.586,
+            "C": 0.222,
+            "H": 17.6
+          },
+          "total_weight": 95,
+          "roles": [
+            "heading_color",
+            "cta_button_bg",
+            "camera_pixel_cluster"
+          ]
+        },
+        {
+          "representative_hex": "#16A34A",
+          "rgb": [
+            22,
+            163,
+            74
+          ],
+          "oklch": {
+            "L": 0.627,
+            "C": 0.17,
+            "H": 149.2
+          },
+          "total_weight": 80,
+          "roles": [
+            "cta_button_bg",
+            "surface_or_badge_bg",
+            "camera_pixel_cluster"
+          ]
+        },
+        {
+          "representative_hex": "#2563EB",
+          "rgb": [
+            37,
+            99,
+            235
+          ],
+          "oklch": {
+            "L": 0.546,
+            "C": 0.215,
+            "H": 262.9
+          },
+          "total_weight": 80,
+          "roles": [
+            "cta_button_bg",
+            "surface_or_badge_bg",
+            "camera_pixel_cluster"
+          ]
+        },
+        {
+          "representative_hex": "#D97706",
+          "rgb": [
+            217,
+            119,
+            6
+          ],
+          "oklch": {
+            "L": 0.666,
+            "C": 0.157,
+            "H": 58.3
+          },
+          "total_weight": 80,
+          "roles": [
+            "cta_button_bg",
+            "surface_or_badge_bg",
+            "camera_pixel_cluster"
+          ]
+        },
+        {
+          "representative_hex": "#9333EA",
+          "rgb": [
+            147,
+            51,
+            234
+          ],
+          "oklch": {
+            "L": 0.558,
+            "C": 0.252,
+            "H": 302.3
+          },
+          "total_weight": 80,
+          "roles": [
+            "cta_button_bg",
+            "surface_or_badge_bg",
+            "camera_pixel_cluster"
+          ]
+        }
+      ]
+    },
+    "typography": {
+      "heading_font_family": "\"Times New Roman\", serif",
+      "body_font_family": "Arial, \"Times New Roman\", sans-serif",
+      "h1_font_size": "38px",
+      "h1_line_height": "normal",
+      "body_font_size": "16px",
+      "body_line_height": "normal",
+      "detected_border_radii_px": [
+        0,
+        4,
+        6,
+        12,
+        18,
+        24
+      ],
+      "detected_container_max_widths_px": []
+    },
+    "images": {
+      "total_visible_images": 1,
+      "content_images_count": 1,
+      "max_image_width_px": 420,
+      "hi_res_images_count": 0,
+      "low_res_images_count": 1,
+      "portrait_images_count": 1,
+      "landscape_images_count": 0,
+      "portrait_ratio_share": 1
+    },
+    "section_sequence": [
+      {
+        "index": 1,
+        "type": "hero_stage",
+        "heading": "Willkommen in unserer bunten Praxis fuer Coaching & Begleitu"
+      },
+      {
+        "index": 2,
+        "type": "content_section",
+        "heading": "content_section"
+      }
+    ]
+  },
+  "sommelier_decisions": {
+    "polarity_decision": {
+      "design_mode": "evolution",
+      "target_hero_polarity": "light",
+      "target_page_polarity": "light",
+      "light_lock_active": true,
+      "s27_min_hero_luminance_threshold": 0.45,
+      "reason": "LICHT-SPERRE AKTIV (#UI-16): Ursprungsseite ist im Gesamteindruck (body_luminance=0.972) und Hero (hero_luminance=0.912) hell/freundlich. Dunkle Startbuehnen sind strikt verboten (Sensor S-27 ueberwacht >= 0.45)!"
+    },
+    "tinted_neutrals": {
+      "brand_hue_deg": 17.6,
+      "bg_page": {
+        "oklch": "oklch(0.985 0.008 17.6)",
+        "hex": "#FFF8F8",
+        "role": "60 % Haupt-Hintergrundflaeche mit feinem Marken-Hauch (Chroma 0.008)"
+      },
+      "bg_soft": {
+        "oklch": "oklch(0.955 0.016 17.6)",
+        "hex": "#FBECEC",
+        "role": "30 % Sekundaer-Sektionen & Karten-Flaechen (Chroma 0.016)"
+      },
+      "bg_elevated": {
+        "oklch": "oklch(1.000 0.000 0.0)",
+        "hex": "#FFFFFF",
+        "role": "Erhabene Inhalts-Karten auf getoentem Canvas"
+      },
+      "border_subtle": {
+        "oklch": "oklch(0.890 0.014 17.6)",
+        "hex": "#E4D7D7",
+        "role": "Harmonische 1px Haarlinien-Rahmen im Marken-Farbton"
+      },
+      "text_main": {
+        "oklch": "oklch(0.200 0.025 17.6)",
+        "hex": "#201112",
+        "contrast_vs_bg_page": "17.42:1",
+        "role": "Tiefdunkle, mit Marken-Hue abgetoente Textfarbe (Kontrast >= 10:1)"
+      },
+      "text_muted": {
+        "oklch": "oklch(0.420 0.020 17.6)",
+        "hex": "#584949",
+        "role": "Ruhige Sekundaer-Textfarbe fuer Metadaten und Bildlegenden"
+      }
+    },
+    "color_harmony_60_30_10": {
+      "distinct_accent_hues_count": 5,
+      "is_multicolor_chaos": true,
+      "sommelier_verdict": "Marken-Seele = farbenfroh/vielseitig (5 verschiedene Farbtoene erkannt -> behalten!), aber Saettigungs-Chaos auf 60-30-10 reduzieren! 1 Primaer-CTA-Chef (10 %) + 4 OKLCH-normalisierte Pastell-/Akzent-Toene gleicher optischer Ruhe.",
+      "primary_10_percent_cta": {
+        "original_brand_hex": "#E11D48",
+        "original_oklch": {
+          "L": 0.586,
+          "C": 0.222,
+          "H": 17.6
+        },
+        "harmonized_oklch": "oklch(0.580 0.200 17.6)",
+        "harmonized_hex": "#D7314C",
+        "hover_hex": "#BA0136"
+      },
+      "secondary_accent_palette": [
+        {
+          "slot": 1,
+          "token_prefix": "--accent-palette-1",
+          "source_hex": "#16A34A",
+          "source_hue_deg": 149.2,
+          "pastel_surface": {
+            "oklch": "oklch(0.950 0.035 149.2)",
+            "hex": "#DFF6E2",
+            "spec": "L=0.95, C=0.035"
+          },
+          "icon_accent": {
+            "oklch": "oklch(0.480 0.130 149.2)",
+            "hex": "#0C7131",
+            "spec": "L=0.48, C=0.13"
+          }
+        },
+        {
+          "slot": 2,
+          "token_prefix": "--accent-palette-2",
+          "source_hex": "#2563EB",
+          "source_hue_deg": 262.9,
+          "pastel_surface": {
+            "oklch": "oklch(0.950 0.035 262.9)",
+            "hex": "#E6EFFF",
+            "spec": "L=0.95, C=0.035"
+          },
+          "icon_accent": {
+            "oklch": "oklch(0.480 0.130 262.9)",
+            "hex": "#355AA6",
+            "spec": "L=0.48, C=0.13"
+          }
+        },
+        {
+          "slot": 3,
+          "token_prefix": "--accent-palette-3",
+          "source_hex": "#D97706",
+          "source_hue_deg": 58.3,
+          "pastel_surface": {
+            "oklch": "oklch(0.950 0.035 58.3)",
+            "hex": "#FFEADB",
+            "spec": "L=0.95, C=0.035"
+          },
+          "icon_accent": {
+            "oklch": "oklch(0.480 0.130 58.3)",
+            "hex": "#8C4A00",
+            "spec": "L=0.48, C=0.13"
+          }
+        },
+        {
+          "slot": 4,
+          "token_prefix": "--accent-palette-4",
+          "source_hex": "#9333EA",
+          "source_hue_deg": 302.3,
+          "pastel_surface": {
+            "oklch": "oklch(0.950 0.035 302.3)",
+            "hex": "#F2EAFF",
+            "spec": "L=0.95, C=0.035"
+          },
+          "icon_accent": {
+            "oklch": "oklch(0.480 0.130 302.3)",
+            "hex": "#6C4899",
+            "spec": "L=0.48, C=0.13"
+          }
+        }
+      ]
+    },
+    "typography_and_archetype": {
+      "measured_heading_font": "Times New Roman",
+      "measured_body_font": "Arial",
+      "heal_legacy_flaw": true,
+      "legacy_flaw_diagnosis": "Alte System-/Fallback-Schrift erkannt (Times New Roman / Arial) -> wird als handwerklicher Alt-Baufehler geheilt.",
+      "selected_archetype": {
+        "id": "warm_humanist_editorial",
+        "label": "1. Warm Humanist Editorial (Praxis, Coaching, Therapie, Gesundheit, Paedagogik)",
+        "font_display": "'Lora', Georgia, serif",
+        "font_sans": "'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif",
+        "google_fonts_import": "https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap",
+        "radius_card": "8px",
+        "radius_badge": "4px",
+        "grid_max_width": "1100px",
+        "default_polarity": "light",
+        "character_note": "Helle, warme Tinted Neutrals, entschleunigte Lesbarkeit, hohe menschliche Naehe und Vertrauenswuerdigkeit ohne sterile Spital-Kaelte."
+      }
+    },
+    "image_layout_decision": {
+      "max_source_image_width_px": 420,
+      "portrait_ratio_share": 1,
+      "forbid_fullscreen_bg_image": true,
+      "recommended_hero_layout": "split_framed_card",
+      "sommelier_verdict": "BILD-SCHUTZ-SPERRE AKTIV: Maximale Originalbild-Breite (420px < 1000px) bzw. Hochformat-Anteil (100 %). Unscharfe Fullscreen-Hintergrundbilder sind verboten -> zwingend \"split_framed_card\" (links Typografie + Kennzahlen, rechts eingerahmte Bild-Karte mit Unterkanten-Buendigkeit #UI-02) bauen!"
+    }
+  },
+  "stage_3_blueprint": {
+    "css_root_tokens": ":root {\n  /* === 1. Polaritaet & Schweizer Raster (#UI-02, #UI-16, Sensor S-27) === */\n  --wp-expected-hero-polarity: \"light\";\n  --wp-archetype: \"warm_humanist_editorial\";\n  --container-max: 1100px;\n  --radius-card: 8px;\n  --radius-badge: 4px;\n\n  /* === 2. Typografie (warm_humanist_editorial) === */\n  --font-display: 'Lora', Georgia, serif;\n  --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;\n\n  /* === 3. 60 % & 30 % Tinted Neutrals (impeccable / Refactoring UI, Hue=17.6deg) === */\n  --bg-page: #FFF8F8;\n  --bg-page-oklch: oklch(0.985 0.008 17.6);\n  --bg-soft: #FBECEC;\n  --bg-soft-oklch: oklch(0.955 0.016 17.6);\n  --bg-elevated: #FFFFFF;\n  --border-subtle: #E4D7D7;\n  --border-subtle-oklch: oklch(0.890 0.014 17.6);\n  --text-main: #201112;\n  --text-main-oklch: oklch(0.200 0.025 17.6);\n  --text-muted: #584949;\n  --text-muted-oklch: oklch(0.420 0.020 17.6);\n\n  /* === 4. 10 % Primaer-CTA-Chef (Marken-Hauptfarbe) === */\n  --primary: #D7314C;\n  --primary-brand-raw: #E11D48;\n  --primary-oklch: oklch(0.580 0.200 17.6);\n  --primary-hover: #BA0136;\n\n  /* === 5. OKLCH-Harmonisierte Sekundaer-Palette (Bunter-Kuchen-Zaehmung: L=0.95/C=0.035 & L=0.48/C=0.13) === */\n  --accent-palette-1-soft: #DFF6E2; /* oklch(0.950 0.035 149.2) */\n  --accent-palette-1-strong: #0C7131; /* oklch(0.480 0.130 149.2) */\n  --accent-palette-2-soft: #E6EFFF; /* oklch(0.950 0.035 262.9) */\n  --accent-palette-2-strong: #355AA6; /* oklch(0.480 0.130 262.9) */\n  --accent-palette-3-soft: #FFEADB; /* oklch(0.950 0.035 58.3) */\n  --accent-palette-3-strong: #8C4A00; /* oklch(0.480 0.130 58.3) */\n  --accent-palette-4-soft: #F2EAFF; /* oklch(0.950 0.035 302.3) */\n  --accent-palette-4-strong: #6C4899; /* oklch(0.480 0.130 302.3) */\n}",
+    "recommended_hero_layout": "split_framed_card",
+    "target_hero_polarity": "light",
+    "selected_archetype_id": "warm_humanist_editorial",
+    "google_fonts_import": "https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
+  }
+}

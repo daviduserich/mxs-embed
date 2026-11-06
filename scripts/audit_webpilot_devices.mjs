@@ -372,21 +372,63 @@ function getChromium() {
   throw new Error('Chromium binary not found');
 }
 
+const VISUAL_DNA_CACHE = new Map();
+
+function loadSourceVisualDnaForPage(relPage) {
+  const clientPrefix = (relPage || '').split('/')[0];
+  if (!clientPrefix || !clientPrefix.startsWith('preview-')) return null;
+  if (VISUAL_DNA_CACHE.has(clientPrefix)) return VISUAL_DNA_CACHE.get(clientPrefix);
+
+  const baseSlug = clientPrefix.replace(/^preview-/, '').replace(/-(?:vollversion|vv|v1|v2)$/, '');
+  const candidates = [
+    path.join(ROOT_DIR, clientPrefix, 'source_visual_dna.json'),
+    path.join(ROOT_DIR, 'visual-dna', baseSlug, 'source_visual_dna.json'),
+    path.join(ROOT_DIR, 'visual-dna', clientPrefix.replace(/^preview-/, ''), 'source_visual_dna.json')
+  ];
+  for (const cand of candidates) {
+    if (fs.existsSync(cand)) {
+      try {
+        const parsed = JSON.parse(fs.readFileSync(cand, 'utf-8'));
+        VISUAL_DNA_CACHE.set(clientPrefix, parsed);
+        return parsed;
+      } catch (_) {
+        // ignore parse error
+      }
+    }
+  }
+  VISUAL_DNA_CACHE.set(clientPrefix, null);
+  return null;
+}
+
 function resolvePagesFromArgs() {
-  const siteIdx = process.argv.indexOf('--site');
-  if (siteIdx !== -1 && process.argv[siteIdx + 1]) {
-    let siteSlug = path.basename(process.argv[siteIdx + 1].replace(/\/+$/, ''));
-    if (!fs.existsSync(path.join(ROOT_DIR, siteSlug)) && fs.existsSync(path.join(ROOT_DIR, 'preview-' + siteSlug))) {
-      siteSlug = 'preview-' + siteSlug;
+  const requestedTargets = [];
+  for (let i = 2; i < process.argv.length; i++) {
+    const arg = process.argv[i];
+    if (arg === '--site' && process.argv[i + 1]) {
+      requestedTargets.push(process.argv[i + 1]);
+      i++;
+    } else if (!arg.startsWith('--')) {
+      requestedTargets.push(arg);
     }
-    const siteDir = path.join(ROOT_DIR, siteSlug);
-    if (fs.existsSync(siteDir) && fs.statSync(siteDir).isDirectory()) {
-      const htmlFiles = fs.readdirSync(siteDir)
-        .filter(f => f.endsWith('.html'))
-        .sort()
-        .map(f => `${siteSlug}/${f}`);
-      if (htmlFiles.length > 0) return htmlFiles;
+  }
+
+  if (requestedTargets.length > 0) {
+    const collected = [];
+    for (const rawTarget of requestedTargets) {
+      let siteSlug = path.basename(rawTarget.replace(/\/+$/, ''));
+      if (!fs.existsSync(path.join(ROOT_DIR, siteSlug)) && fs.existsSync(path.join(ROOT_DIR, 'preview-' + siteSlug))) {
+        siteSlug = 'preview-' + siteSlug;
+      }
+      const siteDir = path.join(ROOT_DIR, siteSlug);
+      if (fs.existsSync(siteDir) && fs.statSync(siteDir).isDirectory()) {
+        const htmlFiles = fs.readdirSync(siteDir)
+          .filter(f => f.endsWith('.html'))
+          .sort()
+          .map(f => `${siteSlug}/${f}`);
+        collected.push(...htmlFiles);
+      }
     }
+    if (collected.length > 0) return Array.from(new Set(collected));
   }
   return ALL_PAGES.filter(p => fs.existsSync(path.join(ROOT_DIR, p)));
 }
@@ -396,16 +438,61 @@ async function auditPageZone(page, relPage, zone, screenshotDir, options = {}) {
   await page.evaluate(() => window.scrollTo(0, 0));
   await page.waitForTimeout(60);
 
-  if (screenshotDir && !options.activeScopeSelector && (zone.width === 375 || zone.width === 1440)) {
+  const sourceVisualDna = options.sourceVisualDna !== undefined ? options.sourceVisualDna : loadSourceVisualDnaForPage(relPage);
+  const mergedOptions = { ...options, sourceVisualDna };
+
+  if (screenshotDir && !mergedOptions.activeScopeSelector && (zone.width === 375 || zone.width === 1440)) {
     fs.mkdirSync(screenshotDir, { recursive: true });
     const slug = relPage.replace(/\//g, '_').replace('.html', '') + '_' + zone.name + '.png';
     await page.screenshot({ path: path.join(screenshotDir, slug), fullPage: false });
   }
 
-  return await page.evaluate(evaluateSystemEyesInPage, { relPage, zone, options });
+  return await page.evaluate(evaluateSystemEyesInPage, { relPage, zone, options: mergedOptions });
+}
+
+async function runS27CanarySelfTest() {
+  const browser = await chromium.launch({ executablePath: getChromium() });
+  const page = await browser.newPage({ viewport: { width: 1440, height: 900 } });
+  try {
+    await page.setContent(`<!DOCTYPE html>
+<html lang="de" data-expected-hero-polarity="light" data-design-mode="evolution">
+<head><meta charset="UTF-8"><title>S-27 Canary Dark Hero</title></head>
+<body style="margin:0;background:#ffffff;color:#1e293b;font-family:sans-serif;">
+  <section class="hero-section" style="background:#18232C;color:#ffffff;padding:80px 40px;">
+    <h1>Versehentlich dunkler Hero bei heller Ursprungsseite</h1>
+  </section>
+</body>
+</html>`);
+    const findings = await page.evaluate(evaluateSystemEyesInPage, {
+      relPage: 'canary-s27/index.html',
+      zone: SYSTEM_EYES_ZONES[2],
+      options: {
+        sourceVisualDna: {
+          design_mode: 'evolution',
+          sommelier_decisions: {
+            polarity_decision: { target_hero_polarity: 'light' }
+          }
+        }
+      }
+    });
+    const s27Hit = findings.find(f => f.code === 'P1_EVOLUTION_POLARITY_MISMATCH');
+    console.log(JSON.stringify({
+      ok: Boolean(s27Hit),
+      sensor: 'S-27',
+      system_eyes_version: SYSTEM_EYES_VERSION,
+      triggered_finding: s27Hit || null
+    }, null, 2));
+    if (!s27Hit) process.exit(1);
+  } finally {
+    await browser.close();
+  }
 }
 
 async function main() {
+  if (process.argv.includes('--self-test') || process.argv.includes('--self-test-s27')) {
+    await runS27CanarySelfTest();
+    return;
+  }
   const pagesToAudit = resolvePagesFromArgs();
   const { server, baseUrl } = await startServer();
   const browser = await chromium.launch({ executablePath: getChromium() });

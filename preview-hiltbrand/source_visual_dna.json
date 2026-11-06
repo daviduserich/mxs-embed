@@ -1,0 +1,250 @@
+{
+  "schema_version": "1.0.0",
+  "generated_at": "2026-11-06T08:56:26.129Z",
+  "slug": "hiltbrand",
+  "source_url": "https://hiltbrand.swiss",
+  "design_mode": "evolution",
+  "industry": "Gebaeudehuellen, Dachdecker, Fassadenbau & Solar",
+  "stage_1_measured_facts": {
+    "luminance": {
+      "body_luminance": 0.995,
+      "hero_luminance": 0.638,
+      "header_px_luminance": 0.99,
+      "hero_px_luminance": 0.35,
+      "lower_px_luminance": 0.71,
+      "dom_body_luminance": 1,
+      "dom_hero_luminance": 1,
+      "body_bg_hex": "#FFFFFF",
+      "header_bg_hex": "#FFFFFF",
+      "hero_bg_hex": "#FFFFFF"
+    },
+    "colors": {
+      "distinct_accent_hues_count": 2,
+      "primary_detected_hex": "#205070",
+      "primary_detected_oklch": {
+        "L": 0.414,
+        "C": 0.074,
+        "H": 241.1
+      },
+      "distinct_hue_clusters": [
+        {
+          "representative_hex": "#205070",
+          "rgb": [
+            32,
+            80,
+            112
+          ],
+          "oklch": {
+            "L": 0.414,
+            "C": 0.074,
+            "H": 241.1
+          },
+          "total_weight": 120,
+          "roles": [
+            "camera_pixel_cluster"
+          ]
+        },
+        {
+          "representative_hex": "#EF4035",
+          "rgb": [
+            239,
+            64,
+            53
+          ],
+          "oklch": {
+            "L": 0.631,
+            "C": 0.213,
+            "H": 28.4
+          },
+          "total_weight": 45,
+          "roles": [
+            "accent_or_text"
+          ]
+        }
+      ]
+    },
+    "typography": {
+      "heading_font_family": "Exo, Helvetica, Roboto, Arial, sans-serif",
+      "body_font_family": "Exo, Helvetica, Roboto, Arial, sans-serif",
+      "h1_font_size": "36px",
+      "h1_line_height": "50.4px",
+      "body_font_size": "16px",
+      "body_line_height": "24px",
+      "detected_border_radii_px": [
+        0
+      ],
+      "detected_container_max_widths_px": [
+        1150
+      ]
+    },
+    "images": {
+      "total_visible_images": 21,
+      "content_images_count": 12,
+      "max_image_width_px": 1920,
+      "hi_res_images_count": 1,
+      "low_res_images_count": 11,
+      "portrait_images_count": 0,
+      "landscape_images_count": 12,
+      "portrait_ratio_share": 0
+    },
+    "section_sequence": []
+  },
+  "sommelier_decisions": {
+    "polarity_decision": {
+      "design_mode": "evolution",
+      "target_hero_polarity": "light",
+      "target_page_polarity": "light",
+      "light_lock_active": true,
+      "s27_min_hero_luminance_threshold": 0.45,
+      "reason": "LICHT-SPERRE AKTIV (#UI-16): Ursprungsseite ist im Gesamteindruck (body_luminance=0.995) und Hero (hero_luminance=0.638) hell/freundlich. Dunkle Startbuehnen sind strikt verboten (Sensor S-27 ueberwacht >= 0.45)!"
+    },
+    "tinted_neutrals": {
+      "brand_hue_deg": 241.1,
+      "bg_page": {
+        "oklch": "oklch(0.985 0.008 241.1)",
+        "hex": "#F6FBFF",
+        "role": "60 % Haupt-Hintergrundflaeche mit feinem Marken-Hauch (Chroma 0.008)"
+      },
+      "bg_soft": {
+        "oklch": "oklch(0.955 0.016 241.1)",
+        "hex": "#E7F2FA",
+        "role": "30 % Sekundaer-Sektionen & Karten-Flaechen (Chroma 0.016)"
+      },
+      "bg_elevated": {
+        "oklch": "oklch(1.000 0.000 0.0)",
+        "hex": "#FFFFFF",
+        "role": "Erhabene Inhalts-Karten auf getoentem Canvas"
+      },
+      "border_subtle": {
+        "oklch": "oklch(0.890 0.014 241.1)",
+        "hex": "#D3DCE3",
+        "role": "Harmonische 1px Haarlinien-Rahmen im Marken-Farbton"
+      },
+      "text_main": {
+        "oklch": "oklch(0.200 0.025 241.1)",
+        "hex": "#0B1720",
+        "contrast_vs_bg_page": "17.41:1",
+        "role": "Tiefdunkle, mit Marken-Hue abgetoente Textfarbe (Kontrast >= 10:1)"
+      },
+      "text_muted": {
+        "oklch": "oklch(0.420 0.020 241.1)",
+        "hex": "#444F57",
+        "role": "Ruhige Sekundaer-Textfarbe fuer Metadaten und Bildlegenden"
+      }
+    },
+    "color_harmony_60_30_10": {
+      "distinct_accent_hues_count": 2,
+      "is_multicolor_chaos": false,
+      "sommelier_verdict": "Klare, fokussierte Marken-Farbwelt (2 Haupt-Akzentton erkannt). Wird im 60-30-10-Verhaeltnis mit Tinted Neutrals veredelt.",
+      "primary_10_percent_cta": {
+        "original_brand_hex": "#205070",
+        "original_oklch": {
+          "L": 0.414,
+          "C": 0.074,
+          "H": 241.1
+        },
+        "harmonized_oklch": "oklch(0.520 0.160 241.1)",
+        "harmonized_hex": "#0070A8",
+        "hover_hex": "#005B8A"
+      },
+      "secondary_accent_palette": [
+        {
+          "slot": 1,
+          "token_prefix": "--accent-palette-1",
+          "source_hex": "#EF4035",
+          "source_hue_deg": 28.4,
+          "pastel_surface": {
+            "oklch": "oklch(0.950 0.035 28.4)",
+            "hex": "#FFE9E5",
+            "spec": "L=0.95, C=0.035"
+          },
+          "icon_accent": {
+            "oklch": "oklch(0.480 0.130 28.4)",
+            "hex": "#993A31",
+            "spec": "L=0.48, C=0.13"
+          }
+        },
+        {
+          "slot": 2,
+          "token_prefix": "--accent-palette-2",
+          "source_hex": "#916CB9",
+          "source_hue_deg": 305.1,
+          "pastel_surface": {
+            "oklch": "oklch(0.950 0.035 305.1)",
+            "hex": "#F3EAFF",
+            "spec": "L=0.95, C=0.035"
+          },
+          "icon_accent": {
+            "oklch": "oklch(0.480 0.130 305.1)",
+            "hex": "#6F4797",
+            "spec": "L=0.48, C=0.13"
+          }
+        },
+        {
+          "slot": 3,
+          "token_prefix": "--accent-palette-3",
+          "source_hex": "#AD629A",
+          "source_hue_deg": 337.1,
+          "pastel_surface": {
+            "oklch": "oklch(0.950 0.035 337.1)",
+            "hex": "#FFE6F7",
+            "spec": "L=0.95, C=0.035"
+          },
+          "icon_accent": {
+            "oklch": "oklch(0.480 0.130 337.1)",
+            "hex": "#8A3C78",
+            "spec": "L=0.48, C=0.13"
+          }
+        },
+        {
+          "slot": 4,
+          "token_prefix": "--accent-palette-4",
+          "source_hex": "#BC5F71",
+          "source_hue_deg": 9.1,
+          "pastel_surface": {
+            "oklch": "oklch(0.950 0.035 9.1)",
+            "hex": "#FFE8EB",
+            "spec": "L=0.95, C=0.035"
+          },
+          "icon_accent": {
+            "oklch": "oklch(0.480 0.130 9.1)",
+            "hex": "#98374E",
+            "spec": "L=0.48, C=0.13"
+          }
+        }
+      ]
+    },
+    "typography_and_archetype": {
+      "measured_heading_font": "Exo",
+      "measured_body_font": "Exo",
+      "heal_legacy_flaw": false,
+      "legacy_flaw_diagnosis": "Bestehende Schrift-Gattung (Exo / Exo) wird typografisch im Schweizer Meister-Archetyp veredelt.",
+      "selected_archetype": {
+        "id": "swiss_architectural_craft",
+        "label": "2. Swiss Architectural Craft (Handwerk, Solar, Schreinerei, Holzbau, Bau, Technik, Produktion)",
+        "font_display": "'Lexend', 'Plus Jakarta Sans', sans-serif",
+        "font_sans": "'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif",
+        "google_fonts_import": "https://fonts.googleapis.com/css2?family=Lexend:wght@500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap",
+        "radius_card": "8px",
+        "radius_badge": "4px",
+        "grid_max_width": "1100px",
+        "default_polarity": "light",
+        "character_note": "Praezise 1100px Schweizer Fluchtlinien-Rasterung (#UI-02), messerscharfe 4px/8px Kanten, handwerkliche Substanz und klare Leistungs-Metriken."
+      }
+    },
+    "image_layout_decision": {
+      "max_source_image_width_px": 1920,
+      "portrait_ratio_share": 0,
+      "forbid_fullscreen_bg_image": false,
+      "recommended_hero_layout": "split_framed_card_or_architectural_stage",
+      "sommelier_verdict": "Hochaufloesendes Bildmaterial vorhanden (max. 1920px Breite). Sowohl \"split_framed_card\" (#UI-02) als auch architektonische Buehne ohne Verpixelung moeglich."
+    }
+  },
+  "stage_3_blueprint": {
+    "css_root_tokens": ":root {\n  /* === 1. Polaritaet & Schweizer Raster (#UI-02, #UI-16, Sensor S-27) === */\n  --wp-expected-hero-polarity: \"light\";\n  --wp-archetype: \"swiss_architectural_craft\";\n  --container-max: 1100px;\n  --radius-card: 8px;\n  --radius-badge: 4px;\n\n  /* === 2. Typografie (swiss_architectural_craft) === */\n  --font-display: 'Lexend', 'Plus Jakarta Sans', sans-serif;\n  --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;\n\n  /* === 3. 60 % & 30 % Tinted Neutrals (impeccable / Refactoring UI, Hue=241.1deg) === */\n  --bg-page: #F6FBFF;\n  --bg-page-oklch: oklch(0.985 0.008 241.1);\n  --bg-soft: #E7F2FA;\n  --bg-soft-oklch: oklch(0.955 0.016 241.1);\n  --bg-elevated: #FFFFFF;\n  --border-subtle: #D3DCE3;\n  --border-subtle-oklch: oklch(0.890 0.014 241.1);\n  --text-main: #0B1720;\n  --text-main-oklch: oklch(0.200 0.025 241.1);\n  --text-muted: #444F57;\n  --text-muted-oklch: oklch(0.420 0.020 241.1);\n\n  /* === 4. 10 % Primaer-CTA-Chef (Marken-Hauptfarbe) === */\n  --primary: #0070A8;\n  --primary-brand-raw: #205070;\n  --primary-oklch: oklch(0.520 0.160 241.1);\n  --primary-hover: #005B8A;\n\n  /* === 5. OKLCH-Harmonisierte Sekundaer-Palette (Bunter-Kuchen-Zaehmung: L=0.95/C=0.035 & L=0.48/C=0.13) === */\n  --accent-palette-1-soft: #FFE9E5; /* oklch(0.950 0.035 28.4) */\n  --accent-palette-1-strong: #993A31; /* oklch(0.480 0.130 28.4) */\n  --accent-palette-2-soft: #F3EAFF; /* oklch(0.950 0.035 305.1) */\n  --accent-palette-2-strong: #6F4797; /* oklch(0.480 0.130 305.1) */\n  --accent-palette-3-soft: #FFE6F7; /* oklch(0.950 0.035 337.1) */\n  --accent-palette-3-strong: #8A3C78; /* oklch(0.480 0.130 337.1) */\n  --accent-palette-4-soft: #FFE8EB; /* oklch(0.950 0.035 9.1) */\n  --accent-palette-4-strong: #98374E; /* oklch(0.480 0.130 9.1) */\n}",
+    "recommended_hero_layout": "split_framed_card_or_architectural_stage",
+    "target_hero_polarity": "light",
+    "selected_archetype_id": "swiss_architectural_craft",
+    "google_fonts_import": "https://fonts.googleapis.com/css2?family=Lexend:wght@500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
+  }
+}

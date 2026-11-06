@@ -1,0 +1,269 @@
+{
+  "schema_version": "1.0.0",
+  "generated_at": "2026-11-06T08:55:53.498Z",
+  "slug": "fcschlieren",
+  "source_url": "https://fcschlieren.ch",
+  "design_mode": "evolution",
+  "industry": "Fussballclub, Teamsport & Nachwuchsfoerderung",
+  "stage_1_measured_facts": {
+    "luminance": {
+      "body_luminance": 0.189,
+      "hero_luminance": 0.191,
+      "header_px_luminance": 0.194,
+      "hero_px_luminance": 0.188,
+      "lower_px_luminance": 0.108,
+      "dom_body_luminance": 0.184,
+      "dom_hero_luminance": 0.184,
+      "body_bg_hex": "#3B76CF",
+      "header_bg_hex": "#3B76CF",
+      "hero_bg_hex": "#3B76CF"
+    },
+    "colors": {
+      "distinct_accent_hues_count": 3,
+      "primary_detected_hex": "#FFDA21",
+      "primary_detected_oklch": {
+        "L": 0.893,
+        "C": 0.178,
+        "H": 96.1
+      },
+      "distinct_hue_clusters": [
+        {
+          "representative_hex": "#FFDA21",
+          "rgb": [
+            255,
+            218,
+            33
+          ],
+          "oklch": {
+            "L": 0.893,
+            "C": 0.178,
+            "H": 96.1
+          },
+          "total_weight": 634,
+          "roles": [
+            "accent_or_text",
+            "camera_pixel_cluster"
+          ]
+        },
+        {
+          "representative_hex": "#4070D0",
+          "rgb": [
+            64,
+            112,
+            208
+          ],
+          "oklch": {
+            "L": 0.562,
+            "C": 0.157,
+            "H": 262.5
+          },
+          "total_weight": 200,
+          "roles": [
+            "camera_pixel_cluster"
+          ]
+        },
+        {
+          "representative_hex": "#F7931E",
+          "rgb": [
+            247,
+            147,
+            30
+          ],
+          "oklch": {
+            "L": 0.752,
+            "C": 0.165,
+            "H": 62.2
+          },
+          "total_weight": 90,
+          "roles": [
+            "accent_or_text"
+          ]
+        }
+      ]
+    },
+    "typography": {
+      "heading_font_family": "Montserrat",
+      "body_font_family": "Roboto, sans-serif",
+      "h1_font_size": "24px",
+      "h1_line_height": "26.4px",
+      "body_font_size": "14px",
+      "body_line_height": "21px",
+      "detected_border_radii_px": [
+        0
+      ],
+      "detected_container_max_widths_px": [
+        900,
+        1170
+      ]
+    },
+    "images": {
+      "total_visible_images": 17,
+      "content_images_count": 16,
+      "max_image_width_px": 1920,
+      "hi_res_images_count": 4,
+      "low_res_images_count": 12,
+      "portrait_images_count": 1,
+      "landscape_images_count": 15,
+      "portrait_ratio_share": 0.06
+    },
+    "section_sequence": []
+  },
+  "sommelier_decisions": {
+    "polarity_decision": {
+      "design_mode": "evolution",
+      "target_hero_polarity": "dark",
+      "target_page_polarity": "dark",
+      "light_lock_active": false,
+      "s27_min_hero_luminance_threshold": 0,
+      "reason": "Ursprungs-Startbuehne war nachweislich dunkel gestaltet (hero_luminance=0.191 < 0.42). Dunkler/kontrastreicher Hero ist im Evolution-Modus erlaubt."
+    },
+    "tinted_neutrals": {
+      "brand_hue_deg": 96.1,
+      "bg_page": {
+        "oklch": "oklch(0.985 0.008 96.1)",
+        "hex": "#FCFAF4",
+        "role": "60 % Haupt-Hintergrundflaeche mit feinem Marken-Hauch (Chroma 0.008)"
+      },
+      "bg_soft": {
+        "oklch": "oklch(0.955 0.016 96.1)",
+        "hex": "#F3F0E4",
+        "role": "30 % Sekundaer-Sektionen & Karten-Flaechen (Chroma 0.016)"
+      },
+      "bg_elevated": {
+        "oklch": "oklch(1.000 0.000 0.0)",
+        "hex": "#FFFFFF",
+        "role": "Erhabene Inhalts-Karten auf getoentem Canvas"
+      },
+      "border_subtle": {
+        "oklch": "oklch(0.890 0.014 96.1)",
+        "hex": "#DDDBD1",
+        "role": "Harmonische 1px Haarlinien-Rahmen im Marken-Farbton"
+      },
+      "text_main": {
+        "oklch": "oklch(0.200 0.025 96.1)",
+        "hex": "#191608",
+        "contrast_vs_bg_page": "17.34:1",
+        "role": "Tiefdunkle, mit Marken-Hue abgetoente Textfarbe (Kontrast >= 10:1)"
+      },
+      "text_muted": {
+        "oklch": "oklch(0.420 0.020 96.1)",
+        "hex": "#504D41",
+        "role": "Ruhige Sekundaer-Textfarbe fuer Metadaten und Bildlegenden"
+      }
+    },
+    "color_harmony_60_30_10": {
+      "distinct_accent_hues_count": 3,
+      "is_multicolor_chaos": true,
+      "sommelier_verdict": "Marken-Seele = farbenfroh/vielseitig (3 verschiedene Farbtoene erkannt -> behalten!), aber Saettigungs-Chaos auf 60-30-10 reduzieren! 1 Primaer-CTA-Chef (10 %) + 2 OKLCH-normalisierte Pastell-/Akzent-Toene gleicher optischer Ruhe.",
+      "primary_10_percent_cta": {
+        "original_brand_hex": "#FFDA21",
+        "original_oklch": {
+          "L": 0.893,
+          "C": 0.178,
+          "H": 96.1
+        },
+        "harmonized_oklch": "oklch(0.580 0.178 96.1)",
+        "harmonized_hex": "#907900",
+        "hover_hex": "#756200"
+      },
+      "secondary_accent_palette": [
+        {
+          "slot": 1,
+          "token_prefix": "--accent-palette-1",
+          "source_hex": "#4070D0",
+          "source_hue_deg": 262.5,
+          "pastel_surface": {
+            "oklch": "oklch(0.950 0.035 262.5)",
+            "hex": "#E6EFFF",
+            "spec": "L=0.95, C=0.035"
+          },
+          "icon_accent": {
+            "oklch": "oklch(0.480 0.130 262.5)",
+            "hex": "#345AA6",
+            "spec": "L=0.48, C=0.13"
+          }
+        },
+        {
+          "slot": 2,
+          "token_prefix": "--accent-palette-2",
+          "source_hex": "#F7931E",
+          "source_hue_deg": 62.2,
+          "pastel_surface": {
+            "oklch": "oklch(0.950 0.035 62.2)",
+            "hex": "#FFEAD9",
+            "spec": "L=0.95, C=0.035"
+          },
+          "icon_accent": {
+            "oklch": "oklch(0.480 0.130 62.2)",
+            "hex": "#894D00",
+            "spec": "L=0.48, C=0.13"
+          }
+        },
+        {
+          "slot": 3,
+          "token_prefix": "--accent-palette-3",
+          "source_hex": "#009390",
+          "source_hue_deg": 192.1,
+          "pastel_surface": {
+            "oklch": "oklch(0.950 0.035 192.1)",
+            "hex": "#D5F6F4",
+            "spec": "L=0.95, C=0.035"
+          },
+          "icon_accent": {
+            "oklch": "oklch(0.480 0.130 192.1)",
+            "hex": "#006C6A",
+            "spec": "L=0.48, C=0.13"
+          }
+        },
+        {
+          "slot": 4,
+          "token_prefix": "--accent-palette-4",
+          "source_hex": "#008EB2",
+          "source_hue_deg": 224.1,
+          "pastel_surface": {
+            "oklch": "oklch(0.950 0.035 224.1)",
+            "hex": "#D8F4FF",
+            "spec": "L=0.95, C=0.035"
+          },
+          "icon_accent": {
+            "oklch": "oklch(0.480 0.130 224.1)",
+            "hex": "#006883",
+            "spec": "L=0.48, C=0.13"
+          }
+        }
+      ]
+    },
+    "typography_and_archetype": {
+      "measured_heading_font": "Montserrat",
+      "measured_body_font": "Roboto",
+      "heal_legacy_flaw": false,
+      "legacy_flaw_diagnosis": "Bestehende Schrift-Gattung (Montserrat / Roboto) wird typografisch im Schweizer Meister-Archetyp veredelt.",
+      "selected_archetype": {
+        "id": "dynamic_club_spirit",
+        "label": "4. Dynamic Club & Community Spirit (Vereine, Verbaende, Teamsport, Sportfoerderung)",
+        "font_display": "'Montserrat', 'Plus Jakarta Sans', sans-serif",
+        "font_sans": "'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif",
+        "google_fonts_import": "https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap",
+        "radius_card": "8px",
+        "radius_badge": "4px",
+        "grid_max_width": "1100px",
+        "default_polarity": "dark",
+        "character_note": "Stolze Vereinsfarben im 60-30-10-Raster, emotionale Vereins-Identitaet kombiniert mit aufgeraeumter Kader-, Spielplan- und Sponsoren-Struktur."
+      }
+    },
+    "image_layout_decision": {
+      "max_source_image_width_px": 1920,
+      "portrait_ratio_share": 0.06,
+      "forbid_fullscreen_bg_image": false,
+      "recommended_hero_layout": "split_framed_card_or_architectural_stage",
+      "sommelier_verdict": "Hochaufloesendes Bildmaterial vorhanden (max. 1920px Breite). Sowohl \"split_framed_card\" (#UI-02) als auch architektonische Buehne ohne Verpixelung moeglich."
+    }
+  },
+  "stage_3_blueprint": {
+    "css_root_tokens": ":root {\n  /* === 1. Polaritaet & Schweizer Raster (#UI-02, #UI-16, Sensor S-27) === */\n  --wp-expected-hero-polarity: \"dark\";\n  --wp-archetype: \"dynamic_club_spirit\";\n  --container-max: 1100px;\n  --radius-card: 8px;\n  --radius-badge: 4px;\n\n  /* === 2. Typografie (dynamic_club_spirit) === */\n  --font-display: 'Montserrat', 'Plus Jakarta Sans', sans-serif;\n  --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;\n\n  /* === 3. 60 % & 30 % Tinted Neutrals (impeccable / Refactoring UI, Hue=96.1deg) === */\n  --bg-page: #FCFAF4;\n  --bg-page-oklch: oklch(0.985 0.008 96.1);\n  --bg-soft: #F3F0E4;\n  --bg-soft-oklch: oklch(0.955 0.016 96.1);\n  --bg-elevated: #FFFFFF;\n  --border-subtle: #DDDBD1;\n  --border-subtle-oklch: oklch(0.890 0.014 96.1);\n  --text-main: #191608;\n  --text-main-oklch: oklch(0.200 0.025 96.1);\n  --text-muted: #504D41;\n  --text-muted-oklch: oklch(0.420 0.020 96.1);\n\n  /* === 4. 10 % Primaer-CTA-Chef (Marken-Hauptfarbe) === */\n  --primary: #907900;\n  --primary-brand-raw: #FFDA21;\n  --primary-oklch: oklch(0.580 0.178 96.1);\n  --primary-hover: #756200;\n\n  /* === 5. OKLCH-Harmonisierte Sekundaer-Palette (Bunter-Kuchen-Zaehmung: L=0.95/C=0.035 & L=0.48/C=0.13) === */\n  --accent-palette-1-soft: #E6EFFF; /* oklch(0.950 0.035 262.5) */\n  --accent-palette-1-strong: #345AA6; /* oklch(0.480 0.130 262.5) */\n  --accent-palette-2-soft: #FFEAD9; /* oklch(0.950 0.035 62.2) */\n  --accent-palette-2-strong: #894D00; /* oklch(0.480 0.130 62.2) */\n  --accent-palette-3-soft: #D5F6F4; /* oklch(0.950 0.035 192.1) */\n  --accent-palette-3-strong: #006C6A; /* oklch(0.480 0.130 192.1) */\n  --accent-palette-4-soft: #D8F4FF; /* oklch(0.950 0.035 224.1) */\n  --accent-palette-4-strong: #006883; /* oklch(0.480 0.130 224.1) */\n}",
+    "recommended_hero_layout": "split_framed_card_or_architectural_stage",
+    "target_hero_polarity": "dark",
+    "selected_archetype_id": "dynamic_club_spirit",
+    "google_fonts_import": "https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
+  }
+}

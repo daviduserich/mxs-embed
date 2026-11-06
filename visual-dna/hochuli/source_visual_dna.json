@@ -1,0 +1,240 @@
+{
+  "schema_version": "1.0.0",
+  "generated_at": "2026-11-06T08:56:22.207Z",
+  "slug": "hochuli",
+  "source_url": "https://www.hochuli-gruppe.ch",
+  "design_mode": "evolution",
+  "industry": "Holzbau, Zimmerei, Elementbau & Bedachungen",
+  "stage_1_measured_facts": {
+    "luminance": {
+      "body_luminance": 0.579,
+      "hero_luminance": 0.619,
+      "header_px_luminance": 0.831,
+      "hero_px_luminance": 0.446,
+      "lower_px_luminance": 0.593,
+      "dom_body_luminance": 0.327,
+      "dom_hero_luminance": 1,
+      "body_bg_hex": "#9C9C8C",
+      "header_bg_hex": "#9C9C8C",
+      "hero_bg_hex": "#FFFFFF"
+    },
+    "colors": {
+      "distinct_accent_hues_count": 1,
+      "primary_detected_hex": "#B85D19",
+      "primary_detected_oklch": {
+        "L": 0.578,
+        "C": 0.139,
+        "H": 51.3
+      },
+      "distinct_hue_clusters": [
+        {
+          "representative_hex": "#B85D19",
+          "rgb": [
+            184,
+            93,
+            25
+          ],
+          "oklch": {
+            "L": 0.578,
+            "C": 0.139,
+            "H": 51.3
+          },
+          "total_weight": 100,
+          "roles": [
+            "fallback_brand_color"
+          ]
+        }
+      ]
+    },
+    "typography": {
+      "heading_font_family": "Hind, sans-serif",
+      "body_font_family": "\"Open Sans\", sans-serif",
+      "h1_font_size": "25.5px",
+      "h1_line_height": "28.05px",
+      "body_font_size": "17px",
+      "body_line_height": "22.95px",
+      "detected_border_radii_px": [
+        0,
+        3
+      ],
+      "detected_container_max_widths_px": [
+        950
+      ]
+    },
+    "images": {
+      "total_visible_images": 21,
+      "content_images_count": 7,
+      "max_image_width_px": 3745,
+      "hi_res_images_count": 1,
+      "low_res_images_count": 2,
+      "portrait_images_count": 4,
+      "landscape_images_count": 3,
+      "portrait_ratio_share": 0.57
+    },
+    "section_sequence": [
+      {
+        "index": 1,
+        "type": "hero_stage",
+        "heading": "hero_stage"
+      }
+    ]
+  },
+  "sommelier_decisions": {
+    "polarity_decision": {
+      "design_mode": "evolution",
+      "target_hero_polarity": "light",
+      "target_page_polarity": "light",
+      "light_lock_active": true,
+      "s27_min_hero_luminance_threshold": 0.45,
+      "reason": "Evolution-Schutzregel (#UI-16): Mittlere Hero-Helligkeit (0.619) bei hellem Grundkoerper (0.579) -> Licht-Sperre target_hero_polarity=\"light\" aktiv."
+    },
+    "tinted_neutrals": {
+      "brand_hue_deg": 51.3,
+      "bg_page": {
+        "oklch": "oklch(0.985 0.008 51.3)",
+        "hex": "#FFF9F5",
+        "role": "60 % Haupt-Hintergrundflaeche mit feinem Marken-Hauch (Chroma 0.008)"
+      },
+      "bg_soft": {
+        "oklch": "oklch(0.955 0.016 51.3)",
+        "hex": "#FAEDE7",
+        "role": "30 % Sekundaer-Sektionen & Karten-Flaechen (Chroma 0.016)"
+      },
+      "bg_elevated": {
+        "oklch": "oklch(1.000 0.000 0.0)",
+        "hex": "#FFFFFF",
+        "role": "Erhabene Inhalts-Karten auf getoentem Canvas"
+      },
+      "border_subtle": {
+        "oklch": "oklch(0.890 0.014 51.3)",
+        "hex": "#E3D8D3",
+        "role": "Harmonische 1px Haarlinien-Rahmen im Marken-Farbton"
+      },
+      "text_main": {
+        "oklch": "oklch(0.200 0.025 51.3)",
+        "hex": "#1F130B",
+        "contrast_vs_bg_page": "17.4:1",
+        "role": "Tiefdunkle, mit Marken-Hue abgetoente Textfarbe (Kontrast >= 10:1)"
+      },
+      "text_muted": {
+        "oklch": "oklch(0.420 0.020 51.3)",
+        "hex": "#564A43",
+        "role": "Ruhige Sekundaer-Textfarbe fuer Metadaten und Bildlegenden"
+      }
+    },
+    "color_harmony_60_30_10": {
+      "distinct_accent_hues_count": 1,
+      "is_multicolor_chaos": false,
+      "sommelier_verdict": "Klare, fokussierte Marken-Farbwelt (1 Haupt-Akzentton erkannt). Wird im 60-30-10-Verhaeltnis mit Tinted Neutrals veredelt.",
+      "primary_10_percent_cta": {
+        "original_brand_hex": "#B85D19",
+        "original_oklch": {
+          "L": 0.578,
+          "C": 0.139,
+          "H": 51.3
+        },
+        "harmonized_oklch": "oklch(0.578 0.160 51.3)",
+        "harmonized_hex": "#BD5A00",
+        "hover_hex": "#9B4800"
+      },
+      "secondary_accent_palette": [
+        {
+          "slot": 1,
+          "token_prefix": "--accent-palette-1",
+          "source_hex": "#A2780D",
+          "source_hue_deg": 83.3,
+          "pastel_surface": {
+            "oklch": "oklch(0.950 0.035 83.3)",
+            "hex": "#FAEDD5",
+            "spec": "L=0.95, C=0.035"
+          },
+          "icon_accent": {
+            "oklch": "oklch(0.480 0.130 83.3)",
+            "hex": "#785700",
+            "spec": "L=0.48, C=0.13"
+          }
+        },
+        {
+          "slot": 2,
+          "token_prefix": "--accent-palette-2",
+          "source_hex": "#7E8826",
+          "source_hue_deg": 115.3,
+          "pastel_surface": {
+            "oklch": "oklch(0.950 0.035 115.3)",
+            "hex": "#EDF2D7",
+            "spec": "L=0.95, C=0.035"
+          },
+          "icon_accent": {
+            "oklch": "oklch(0.480 0.130 115.3)",
+            "hex": "#5C6400",
+            "spec": "L=0.48, C=0.13"
+          }
+        },
+        {
+          "slot": 3,
+          "token_prefix": "--accent-palette-3",
+          "source_hex": "#499355",
+          "source_hue_deg": 147.3,
+          "pastel_surface": {
+            "oklch": "oklch(0.950 0.035 147.3)",
+            "hex": "#E0F5E1",
+            "spec": "L=0.95, C=0.035"
+          },
+          "icon_accent": {
+            "oklch": "oklch(0.480 0.130 147.3)",
+            "hex": "#17702E",
+            "spec": "L=0.48, C=0.13"
+          }
+        },
+        {
+          "slot": 4,
+          "token_prefix": "--accent-palette-4",
+          "source_hex": "#009582",
+          "source_hue_deg": 179.3,
+          "pastel_surface": {
+            "oklch": "oklch(0.950 0.035 179.3)",
+            "hex": "#D7F7EF",
+            "spec": "L=0.95, C=0.035"
+          },
+          "icon_accent": {
+            "oklch": "oklch(0.480 0.130 179.3)",
+            "hex": "#006D5F",
+            "spec": "L=0.48, C=0.13"
+          }
+        }
+      ]
+    },
+    "typography_and_archetype": {
+      "measured_heading_font": "Hind",
+      "measured_body_font": "Open Sans",
+      "heal_legacy_flaw": false,
+      "legacy_flaw_diagnosis": "Bestehende Schrift-Gattung (Hind / Open Sans) wird typografisch im Schweizer Meister-Archetyp veredelt.",
+      "selected_archetype": {
+        "id": "swiss_architectural_craft",
+        "label": "2. Swiss Architectural Craft (Handwerk, Solar, Schreinerei, Holzbau, Bau, Technik, Produktion)",
+        "font_display": "'Lexend', 'Plus Jakarta Sans', sans-serif",
+        "font_sans": "'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif",
+        "google_fonts_import": "https://fonts.googleapis.com/css2?family=Lexend:wght@500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap",
+        "radius_card": "8px",
+        "radius_badge": "4px",
+        "grid_max_width": "1100px",
+        "default_polarity": "light",
+        "character_note": "Praezise 1100px Schweizer Fluchtlinien-Rasterung (#UI-02), messerscharfe 4px/8px Kanten, handwerkliche Substanz und klare Leistungs-Metriken."
+      }
+    },
+    "image_layout_decision": {
+      "max_source_image_width_px": 3745,
+      "portrait_ratio_share": 0.57,
+      "forbid_fullscreen_bg_image": true,
+      "recommended_hero_layout": "split_framed_card",
+      "sommelier_verdict": "BILD-SCHUTZ-SPERRE AKTIV: Maximale Originalbild-Breite (3745px < 1000px) bzw. Hochformat-Anteil (57 %). Unscharfe Fullscreen-Hintergrundbilder sind verboten -> zwingend \"split_framed_card\" (links Typografie + Kennzahlen, rechts eingerahmte Bild-Karte mit Unterkanten-Buendigkeit #UI-02) bauen!"
+    }
+  },
+  "stage_3_blueprint": {
+    "css_root_tokens": ":root {\n  /* === 1. Polaritaet & Schweizer Raster (#UI-02, #UI-16, Sensor S-27) === */\n  --wp-expected-hero-polarity: \"light\";\n  --wp-archetype: \"swiss_architectural_craft\";\n  --container-max: 1100px;\n  --radius-card: 8px;\n  --radius-badge: 4px;\n\n  /* === 2. Typografie (swiss_architectural_craft) === */\n  --font-display: 'Lexend', 'Plus Jakarta Sans', sans-serif;\n  --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;\n\n  /* === 3. 60 % & 30 % Tinted Neutrals (impeccable / Refactoring UI, Hue=51.3deg) === */\n  --bg-page: #FFF9F5;\n  --bg-page-oklch: oklch(0.985 0.008 51.3);\n  --bg-soft: #FAEDE7;\n  --bg-soft-oklch: oklch(0.955 0.016 51.3);\n  --bg-elevated: #FFFFFF;\n  --border-subtle: #E3D8D3;\n  --border-subtle-oklch: oklch(0.890 0.014 51.3);\n  --text-main: #1F130B;\n  --text-main-oklch: oklch(0.200 0.025 51.3);\n  --text-muted: #564A43;\n  --text-muted-oklch: oklch(0.420 0.020 51.3);\n\n  /* === 4. 10 % Primaer-CTA-Chef (Marken-Hauptfarbe) === */\n  --primary: #BD5A00;\n  --primary-brand-raw: #B85D19;\n  --primary-oklch: oklch(0.578 0.160 51.3);\n  --primary-hover: #9B4800;\n\n  /* === 5. OKLCH-Harmonisierte Sekundaer-Palette (Bunter-Kuchen-Zaehmung: L=0.95/C=0.035 & L=0.48/C=0.13) === */\n  --accent-palette-1-soft: #FAEDD5; /* oklch(0.950 0.035 83.3) */\n  --accent-palette-1-strong: #785700; /* oklch(0.480 0.130 83.3) */\n  --accent-palette-2-soft: #EDF2D7; /* oklch(0.950 0.035 115.3) */\n  --accent-palette-2-strong: #5C6400; /* oklch(0.480 0.130 115.3) */\n  --accent-palette-3-soft: #E0F5E1; /* oklch(0.950 0.035 147.3) */\n  --accent-palette-3-strong: #17702E; /* oklch(0.480 0.130 147.3) */\n  --accent-palette-4-soft: #D7F7EF; /* oklch(0.950 0.035 179.3) */\n  --accent-palette-4-strong: #006D5F; /* oklch(0.480 0.130 179.3) */\n}",
+    "recommended_hero_layout": "split_framed_card",
+    "target_hero_polarity": "light",
+    "selected_archetype_id": "swiss_architectural_craft",
+    "google_fonts_import": "https://fonts.googleapis.com/css2?family=Lexend:wght@500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
+  }
+}
