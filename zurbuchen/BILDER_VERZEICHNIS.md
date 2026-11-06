@@ -9,7 +9,7 @@ Automatisch generierte Übersicht aller verfügbaren Bild-Assets im Ordner `imag
 | Miniatur | Dateiname | Kategorie | Grösse | Dimension | Datum | Status |
 |---|---|---|---|---|---|---|
 | ![benefits_drohne.jpg](images/benefits_drohne.jpg) | `benefits_drohne.jpg` | Baustelle & Benefit | 482.5 KB | 1400x1050 | 28.09.2026 17:35 | ⚪ Frei verfügbar |
-| ![danke.png](images/danke.png) | `danke.png` | Baustelle & Benefit | 1490.5 KB | 1456x816 | 28.09.2026 17:35 | 🟢 Im Einsatz in `zurbuchen_Holzbauer.html` |
+| ![danke.png](images/danke.png) | `danke.png` | Baustelle & Benefit | 1490.5 KB | 1456x816 | 28.09.2026 17:35 | ⚪ Frei verfügbar |
 | ![hero.jpg](images/hero.jpg) | `hero.jpg` | Hero & Header | 160.7 KB | 1400x933 | 28.09.2026 17:35 | 🟢 Im Einsatz in `Hiltbrand_Dachdecker.html` |
 | ![logo.png](images/logo.png) | `logo.png` | Logo & Icon | 8.2 KB | 260x150 | 28.09.2026 17:35 | 🟢 Im Einsatz in `Hiltbrand_Dachdecker.html` |
 | ![michael.jpg](images/michael.jpg) | `michael.jpg` | Team & Porträt | 186.7 KB | 834x788 | 28.09.2026 17:35 | 🟢 Im Einsatz in `Hiltbrand_Dachdecker.html` |
@@ -31,18 +31,18 @@ Automatisch generierte Übersicht aller verfügbaren Bild-Assets im Ordner `imag
 | ![stefan.jpg](images/stefan.jpg) | `stefan.jpg` | Team & Porträt | 204.2 KB | 1400x1337 | 28.09.2026 17:35 | 🟢 Im Einsatz in `Hiltbrand_Dachdecker.html` |
 | ![team_alt.jpg](images/team_alt.jpg) | `team_alt.jpg` | Team & Porträt | 259.8 KB | 1400x933 | 28.09.2026 17:35 | 🟢 Im Einsatz in `Hiltbrand_Dachdecker.html` |
 | ![vorstellung.jpg](images/vorstellung.jpg) | `vorstellung.jpg` | Baustelle & Benefit | 160.7 KB | 1400x933 | 28.09.2026 17:35 | 🟢 Im Einsatz in `Hiltbrand_Dachdecker.html` |
-| ![alain.jpg](images/zurbuchen/alain.jpg) | `alain.jpg` | Team & Porträt | 10.5 KB | 320x320 | 28.09.2026 19:08 | 🟢 Im Einsatz in `zurbuchen_Holzbauer.html` |
-| ![beat.jpg](images/zurbuchen/beat.jpg) | `beat.jpg` | Team & Porträt | 10.2 KB | 320x320 | 28.09.2026 19:08 | 🟢 Im Einsatz in `zurbuchen_Holzbauer.html` |
-| ![cta_bg.jpg](images/zurbuchen/cta_bg.jpg) | `cta_bg.jpg` | Baustelle & Benefit | 14.5 KB | 300x300 | 28.09.2026 19:08 | ⚪ Frei verfügbar |
-| ![hero.jpg](images/zurbuchen/hero.jpg) | `hero.jpg` | Hero & Header | 23.8 KB | 300x300 | 28.09.2026 19:08 | ⚪ Frei verfügbar |
-| ![jonas.jpg](images/zurbuchen/jonas.jpg) | `jonas.jpg` | Team & Porträt | 16.4 KB | 320x320 | 28.09.2026 19:08 | 🟢 Im Einsatz in `zurbuchen_Holzbauer.html` |
-| ![levin.jpg](images/zurbuchen/levin.jpg) | `levin.jpg` | Team & Porträt | 36.1 KB | 320x320 | 28.09.2026 19:08 | 🟢 Im Einsatz in `zurbuchen_Holzbauer.html` |
-| ![logo-negativ.png](images/zurbuchen/logo-negativ.png) | `logo-negativ.png` | Logo & Icon | 3.7 KB | 240x113 | 28.09.2026 19:08 | 🟢 Im Einsatz in `zurbuchen_Holzbauer.html` |
-| ![logo.png](images/zurbuchen/logo.png) | `logo.png` | Logo & Icon | 4.1 KB | 240x113 | 28.09.2026 19:08 | 🟢 Im Einsatz in `zurbuchen_Holzbauer.html` |
-| ![markus.jpg](images/zurbuchen/markus.jpg) | `markus.jpg` | Team & Porträt | 37.4 KB | 320x320 | 28.09.2026 19:08 | 🟢 Im Einsatz in `zurbuchen_Holzbauer.html` |
-| ![michael.jpg](images/zurbuchen/michael.jpg) | `michael.jpg` | Team & Porträt | 11.2 KB | 320x320 | 28.09.2026 19:08 | 🟢 Im Einsatz in `zurbuchen_Holzbauer.html` |
-| ![samuel.jpg](images/zurbuchen/samuel.jpg) | `samuel.jpg` | Team & Porträt | 8.2 KB | 320x320 | 28.09.2026 19:08 | 🟢 Im Einsatz in `zurbuchen_Holzbauer.html` |
-| ![simon.jpg](images/zurbuchen/simon.jpg) | `simon.jpg` | Team & Porträt | 6.8 KB | 320x321 | 28.09.2026 19:08 | 🟢 Im Einsatz in `zurbuchen_Holzbauer.html` |
+| ![alain.jpg](images/zurbuchen/alain.jpg) | `alain.jpg` | Team & Porträt | 10.5 KB | 320x320 | 28.09.2026 19:08 | 🟢 Im Einsatz in `Zurbuchen_Holzbauer_November.html` |
+| ![beat.jpg](images/zurbuchen/beat.jpg) | `beat.jpg` | Team & Porträt | 10.2 KB | 320x320 | 28.09.2026 19:08 | 🟢 Im Einsatz in `Zurbuchen_Holzbauer_November.html` |
+| ![cta_bg.jpg](images/zurbuchen/cta_bg.jpg) | `cta_bg.jpg` | Baustelle & Benefit | 14.5 KB | 300x300 | 28.09.2026 19:08 | 🟢 Im Einsatz in `Zurbuchen_Holzbauer_November.html` |
+| ![hero.jpg](images/zurbuchen/hero.jpg) | `hero.jpg` | Hero & Header | 23.8 KB | 300x300 | 28.09.2026 19:08 | 🟢 Im Einsatz in `Zurbuchen_Holzbauer_November.html` |
+| ![jonas.jpg](images/zurbuchen/jonas.jpg) | `jonas.jpg` | Team & Porträt | 16.4 KB | 320x320 | 28.09.2026 19:08 | 🟢 Im Einsatz in `Zurbuchen_Holzbauer_November.html` |
+| ![levin.jpg](images/zurbuchen/levin.jpg) | `levin.jpg` | Team & Porträt | 36.1 KB | 320x320 | 28.09.2026 19:08 | 🟢 Im Einsatz in `Zurbuchen_Holzbauer_November.html` |
+| ![logo-negativ.png](images/zurbuchen/logo-negativ.png) | `logo-negativ.png` | Logo & Icon | 3.7 KB | 240x113 | 28.09.2026 19:08 | 🟢 Im Einsatz in `Zurbuchen_Holzbauer_November.html` |
+| ![logo.png](images/zurbuchen/logo.png) | `logo.png` | Logo & Icon | 4.1 KB | 240x113 | 28.09.2026 19:08 | 🟢 Im Einsatz in `Zurbuchen_Holzbauer_November.html` |
+| ![markus.jpg](images/zurbuchen/markus.jpg) | `markus.jpg` | Team & Porträt | 37.4 KB | 320x320 | 28.09.2026 19:08 | 🟢 Im Einsatz in `Zurbuchen_Holzbauer_November.html` |
+| ![michael.jpg](images/zurbuchen/michael.jpg) | `michael.jpg` | Team & Porträt | 11.2 KB | 320x320 | 28.09.2026 19:08 | ⚪ Frei verfügbar |
+| ![samuel.jpg](images/zurbuchen/samuel.jpg) | `samuel.jpg` | Team & Porträt | 8.2 KB | 320x320 | 28.09.2026 19:08 | 🟢 Im Einsatz in `Zurbuchen_Holzbauer_November.html` |
+| ![simon.jpg](images/zurbuchen/simon.jpg) | `simon.jpg` | Team & Porträt | 6.8 KB | 320x321 | 28.09.2026 19:08 | ⚪ Frei verfügbar |
 
 ---
 

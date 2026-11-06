@@ -285,10 +285,24 @@ def scan_stellen(client_dir: Path, slug: str, name: str, profile: dict = None):
         content = f.read_text(encoding="utf-8", errors="ignore")
         title_m = re.search(r'<title>(.*?)</title>', content, re.IGNORECASE)
         raw_title = _html.unescape(title_m.group(1)) if title_m else f.stem
-        title = raw_title.split("·")[0].split("|")[0].split("—")[0].strip() if title_m else f.stem
+        meta_titel_m = re.search(r'<meta\s+name=["\']acp-titel["\']\s+content=["\']([^"\']+)["\']', content, re.IGNORECASE)
+        meta_firma_m = re.search(r'<meta\s+name=["\'](?:acp-firma|firma)["\']\s+content=["\']([^"\']+)["\']', content, re.IGNORECASE)
+        meta_icon_m = re.search(r'<meta\s+name=["\']acp-icon["\']\s+content=["\']([^"\']+)["\']', content, re.IGNORECASE)
+        meta_host_m = re.search(r'<meta\s+name=["\'](?:acp-host|host-website)["\']\s+content=["\']([^"\']+)["\']', content, re.IGNORECASE)
+        meta_akzent_m = re.search(r'<meta\s+name=["\'](?:acp-akzent|brand-color)["\']\s+content=["\']([^"\']+)["\']', content, re.IGNORECASE)
+
+        if meta_titel_m:
+            title = _html.unescape(meta_titel_m.group(1)).strip()
+        else:
+            title = raw_title.split("·")[0].split("|")[0].split("—")[0].strip() if title_m else f.stem
         if f.name == "index.html" and title == name:
             title = f"{name} (Hauptseite)" 
         
+        job_firma = _html.unescape(meta_firma_m.group(1)).strip() if meta_firma_m else ("Zurbuchen Holzbau AG" if "zurbuchen" in f.name.lower() else name)
+        job_icon = _html.unescape(meta_icon_m.group(1)).strip() if meta_icon_m else ("🌲" if "zurbuchen" in f.name.lower() else "")
+        job_akzent = _html.unescape(meta_akzent_m.group(1)).strip() if meta_akzent_m else "#d97706"
+        job_host = _html.unescape(meta_host_m.group(1)).strip() if meta_host_m else ""
+
         edge_url = f"https://embed.magnet-xs.ch/{slug}/{f.name}"
         widget_code = (
             f'<iframe src="{edge_url}?embed=true" '
@@ -318,14 +332,14 @@ def scan_stellen(client_dir: Path, slug: str, name: str, profile: dict = None):
         stellen.append({
             "id": f.stem.lower(),
             "titel": title,
-            "firma": name,
-            "icon": "",
+            "firma": job_firma,
+            "icon": job_icon,
             "datei": f.name,
             "folder": slug,
             "edge_url": edge_url,
-            "host_webseite": embedded_url or (profile.get("host_jobs_url") if profile else f"https://embed.magnet-xs.ch/{slug}/"),
+            "host_webseite": embedded_url or job_host or (profile.get("host_jobs_url") if profile else f"https://embed.magnet-xs.ch/{slug}/"),
             "host_label": embedded_label,
-            "farb_akzent": "#d97706",
+            "farb_akzent": job_akzent,
             "widget_code": widget_code,
             "is_live": is_live,
             "is_live_embedded": is_live,

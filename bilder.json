@@ -24,14 +24,8 @@
     "mtime": 1790616901,
     "mtime_str": "28.09.2026 17:35",
     "cdn_url": "https://embed.magnet-xs.ch/hiltbrand/images/danke.png",
-    "is_used": true,
-    "used_in": [
-      {
-        "datei": "zurbuchen_Holzbauer.html",
-        "slot": "",
-        "is_hero": false
-      }
-    ]
+    "is_used": false,
+    "used_in": []
   },
   {
     "id": "images_hero_jpg",
@@ -387,8 +381,13 @@
     "is_used": true,
     "used_in": [
       {
+        "datei": "Zurbuchen_Holzbauer_November.html",
+        "slot": "team_foto_alain",
+        "is_hero": false
+      },
+      {
         "datei": "zurbuchen_Holzbauer.html",
-        "slot": "",
+        "slot": "team_foto_alain",
         "is_hero": false
       }
     ]
@@ -407,8 +406,13 @@
     "is_used": true,
     "used_in": [
       {
+        "datei": "Zurbuchen_Holzbauer_November.html",
+        "slot": "team_foto_beat",
+        "is_hero": false
+      },
+      {
         "datei": "zurbuchen_Holzbauer.html",
-        "slot": "",
+        "slot": "team_foto_beat",
         "is_hero": false
       }
     ]
@@ -424,8 +428,19 @@
     "mtime": 1790622487,
     "mtime_str": "28.09.2026 19:08",
     "cdn_url": "https://embed.magnet-xs.ch/zurbuchen/images/zurbuchen/cta_bg.jpg",
-    "is_used": false,
-    "used_in": []
+    "is_used": true,
+    "used_in": [
+      {
+        "datei": "Zurbuchen_Holzbauer_November.html",
+        "slot": "",
+        "is_hero": false
+      },
+      {
+        "datei": "zurbuchen_Holzbauer.html",
+        "slot": "",
+        "is_hero": false
+      }
+    ]
   },
   {
     "id": "images_zurbuchen_hero_jpg",
@@ -438,8 +453,19 @@
     "mtime": 1790622487,
     "mtime_str": "28.09.2026 19:08",
     "cdn_url": "https://embed.magnet-xs.ch/zurbuchen/images/zurbuchen/hero.jpg",
-    "is_used": false,
-    "used_in": []
+    "is_used": true,
+    "used_in": [
+      {
+        "datei": "Zurbuchen_Holzbauer_November.html",
+        "slot": "",
+        "is_hero": true
+      },
+      {
+        "datei": "zurbuchen_Holzbauer.html",
+        "slot": "",
+        "is_hero": true
+      }
+    ]
   },
   {
     "id": "images_zurbuchen_jonas_jpg",
@@ -455,8 +481,13 @@
     "is_used": true,
     "used_in": [
       {
+        "datei": "Zurbuchen_Holzbauer_November.html",
+        "slot": "team_foto_jonas",
+        "is_hero": false
+      },
+      {
         "datei": "zurbuchen_Holzbauer.html",
-        "slot": "",
+        "slot": "team_foto_jonas",
         "is_hero": false
       }
     ]
@@ -475,8 +506,13 @@
     "is_used": true,
     "used_in": [
       {
+        "datei": "Zurbuchen_Holzbauer_November.html",
+        "slot": "team_foto_levin",
+        "is_hero": false
+      },
+      {
         "datei": "zurbuchen_Holzbauer.html",
-        "slot": "",
+        "slot": "team_foto_levin",
         "is_hero": false
       }
     ]
@@ -495,8 +531,13 @@
     "is_used": true,
     "used_in": [
       {
+        "datei": "Zurbuchen_Holzbauer_November.html",
+        "slot": "footer_logo",
+        "is_hero": false
+      },
+      {
         "datei": "zurbuchen_Holzbauer.html",
-        "slot": "",
+        "slot": "footer_logo",
         "is_hero": false
       }
     ]
@@ -515,8 +556,13 @@
     "is_used": true,
     "used_in": [
       {
+        "datei": "Zurbuchen_Holzbauer_November.html",
+        "slot": "header_logo",
+        "is_hero": false
+      },
+      {
         "datei": "zurbuchen_Holzbauer.html",
-        "slot": "",
+        "slot": "header_logo",
         "is_hero": false
       }
     ]
@@ -535,8 +581,13 @@
     "is_used": true,
     "used_in": [
       {
+        "datei": "Zurbuchen_Holzbauer_November.html",
+        "slot": "team_foto_markus",
+        "is_hero": false
+      },
+      {
         "datei": "zurbuchen_Holzbauer.html",
-        "slot": "",
+        "slot": "team_foto_markus",
         "is_hero": false
       }
     ]
@@ -552,14 +603,8 @@
     "mtime": 1790622487,
     "mtime_str": "28.09.2026 19:08",
     "cdn_url": "https://embed.magnet-xs.ch/zurbuchen/images/zurbuchen/michael.jpg",
-    "is_used": true,
-    "used_in": [
-      {
-        "datei": "zurbuchen_Holzbauer.html",
-        "slot": "",
-        "is_hero": false
-      }
-    ]
+    "is_used": false,
+    "used_in": []
   },
   {
     "id": "images_zurbuchen_samuel_jpg",
@@ -575,8 +620,13 @@
     "is_used": true,
     "used_in": [
       {
+        "datei": "Zurbuchen_Holzbauer_November.html",
+        "slot": "team_foto_samuel",
+        "is_hero": false
+      },
+      {
         "datei": "zurbuchen_Holzbauer.html",
-        "slot": "",
+        "slot": "team_foto_samuel",
         "is_hero": false
       }
     ]
@@ -592,13 +642,7 @@
     "mtime": 1790622487,
     "mtime_str": "28.09.2026 19:08",
     "cdn_url": "https://embed.magnet-xs.ch/zurbuchen/images/zurbuchen/simon.jpg",
-    "is_used": true,
-    "used_in": [
-      {
-        "datei": "zurbuchen_Holzbauer.html",
-        "slot": "",
-        "is_hero": false
-      }
-    ]
+    "is_used": false,
+    "used_in": []
   }
 ]

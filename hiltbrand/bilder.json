@@ -24,14 +24,8 @@
     "mtime": 1790616901,
     "mtime_str": "28.09.2026 17:35",
     "cdn_url": "https://embed.magnet-xs.ch/hiltbrand/images/danke.png",
-    "is_used": true,
-    "used_in": [
-      {
-        "datei": "zurbuchen_Holzbauer.html",
-        "slot": "image",
-        "is_hero": false
-      }
-    ]
+    "is_used": false,
+    "used_in": []
   },
   {
     "id": "images_hero_jpg",
@@ -47,12 +41,22 @@
     "is_used": true,
     "used_in": [
       {
+        "datei": "zurbuchen_Holzbauer.html",
+        "slot": "image",
+        "is_hero": true
+      },
+      {
         "datei": "index.html",
         "slot": "image",
         "is_hero": true
       },
       {
         "datei": "Hiltbrand_Dachdecker_Pragmatisch.html",
+        "slot": "image",
+        "is_hero": true
+      },
+      {
+        "datei": "Zurbuchen_Holzbauer_November.html",
         "slot": "image",
         "is_hero": true
       },
@@ -92,6 +96,11 @@
         "is_hero": false
       },
       {
+        "datei": "Zurbuchen_Holzbauer_November.html",
+        "slot": "image",
+        "is_hero": false
+      },
+      {
         "datei": "Hiltbrand_Dachdecker.html",
         "slot": "image",
         "is_hero": false
@@ -111,11 +120,6 @@
     "cdn_url": "https://embed.magnet-xs.ch/hiltbrand/images/michael.jpg",
     "is_used": true,
     "used_in": [
-      {
-        "datei": "zurbuchen_Holzbauer.html",
-        "slot": "image",
-        "is_hero": false
-      },
       {
         "datei": "Hiltbrand_Dachdecker.html",
         "slot": "image",
