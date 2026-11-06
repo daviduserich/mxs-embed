@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="de-CH">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Muster Holzbau AG · Holzbau & Bedachungen Thun</title>
+  <meta name="description" content="Offene Stellen und Karriere bei Muster Holzbau AG in Thun. Bewirb dich unkompliziert per WhatsApp oder Telefon.">
+  <meta name="firma" content="Muster Holzbau AG">
+  <meta name="host-website" content="https://muster-holzbau.ch">
+  <meta name="brand-color" content="#d97706">
+  
+  <!-- Zero-Cookie Analytics via Plausible Proxy -->
+  <!-- <script defer data-domain="muster-holzbau.embed.magnet-xs.ch" data-api="/api/event" src="/js/script.js"></script> -->
+
+  <style>
+    :root {
+      --primary: #d97706;
+      --primary-hover: #b45309;
+      --bg: #0B0D0E;
+      --card-bg: #14171A;
+      --card-border: rgba(255, 255, 255, 0.08);
+      --text: #F3F4F6;
+      --text-muted: #9CA3AF;
+      --radius: 8px;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.5;
+      padding-bottom: 80px;
+    }
+    /* KICKER-GESETZ (§ 5.6d): 100% freistehend, kein Container, kein Badge */
+    .kicker {
+      font-family: ui-monospace, SFMono-Regular, "JetBrains Mono", Menlo, Consolas, monospace;
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--primary);
+      background: transparent !important;
+      border: none !important;
+      padding: 0 !important;
+      box-shadow: none !important;
+      margin-bottom: 12px;
+      display: inline-block;
+    }
+    /* FLUCHTLINIEN-GESETZ (§ 5.6e): Einheitlich 1100px */
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 24px;
+      width: 100%;
+    }
+    /* Bimodale Weiche (§ 1.1 WebPilot): Widget-Modus vs. Standalone-Modus */
+    body.is-embedded header,
+    body.is-embedded footer {
+      display: none !important;
+    }
+    body.is-embedded {
+      padding-bottom: 24px !important;
+    }
+    body.is-embedded .hero {
+      padding-top: 16px !important;
+    }
+    header {
+      padding: 24px 0;
+      border-bottom: 1px solid var(--card-border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .brand-name {
+      font-size: 20px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: #fff;
+    }
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--card-border);
+      border-radius: 4px;
+      padding: 4px 10px;
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+    /* Instant Announcement Banner */
+    #announcement-banner {
+      display: none;
+      background: rgba(217, 119, 6, 0.15);
+      border-bottom: 1px solid rgba(217, 119, 6, 0.3);
+      color: #FCD34D;
+      padding: 12px 0;
+      font-size: 14px;
+      text-align: center;
+    }
+    #announcement-banner.is-active {
+      display: block;
+    }
+    .hero {
+      padding: 64px 0 48px;
+    }
+    .hero h1 {
+      font-size: clamp(32px, 5vw, 54px);
+      font-weight: 800;
+      line-height: 1.15;
+      letter-spacing: -0.03em;
+      margin-bottom: 20px;
+      max-width: 800px;
+    }
+    .hero-lead {
+      font-size: 18px;
+      color: var(--text-muted);
+      max-width: 680px;
+      margin-bottom: 36px;
+    }
+    .hero-image-wrap {
+      border-radius: var(--radius);
+      overflow: hidden;
+      border: 1px solid var(--card-border);
+      margin-bottom: 48px;
+      background: #111;
+      aspect-ratio: 16/9;
+      position: relative;
+    }
+    .hero-image-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 24px;
+      margin-top: 32px;
+    }
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius);
+      padding: 28px;
+    }
+    .card h3 {
+      font-size: 20px;
+      margin-bottom: 12px;
+    }
+    .card p {
+      color: var(--text-muted);
+      font-size: 15px;
+      margin-bottom: 20px;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 12px 20px;
+      border-radius: var(--radius);
+      font-size: 14px;
+      font-weight: 600;
+      text-decoration: none;
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+    .btn-primary {
+      background: var(--primary);
+      color: #fff;
+      border: none;
+    }
+    .btn-primary:hover {
+      filter: brightness(1.1);
+    }
+    .btn-secondary {
+      background: rgba(255,255,255,0.06);
+      color: #fff;
+      border: 1px solid var(--card-border);
+    }
+
+    /* Team Grid */
+    .team-section {
+      margin-top: 64px;
+    }
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 24px;
+      margin-top: 24px;
+    }
+    .team-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius);
+      overflow: hidden;
+    }
+    .team-card-img {
+      width: 100%;
+      aspect-ratio: 4/3;
+      object-fit: cover;
+      display: block;
+      background: #1a1a1a;
+    }
+    .team-card-body {
+      padding: 20px;
+    }
+    .team-card-name {
+      font-size: 17px;
+      font-weight: 700;
+    }
+    .team-card-role {
+      font-size: 13px;
+      color: var(--primary);
+      margin-top: 4px;
+    }
+
+    .cta-banner {
+      margin-top: 64px;
+      background: linear-gradient(180deg, #181B1F 0%, #111316 100%);
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius);
+      padding: 40px;
+      text-align: center;
+    }
+    footer {
+      margin-top: 80px;
+      border-top: 1px solid var(--card-border);
+      padding-top: 32px;
+      font-size: 13px;
+      color: var(--text-muted);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    /* 1-KLICK BILDTAUSCH & SPOTLIGHT STYLES */
+    body.acp-swap-mode-active .hero h1,
+    body.acp-swap-mode-active .hero p,
+    body.acp-swap-mode-active .card-grid,
+    body.acp-swap-mode-active .cta-banner,
+    body.acp-swap-mode-active footer,
+    body.acp-swap-mode-active header {
+      opacity: 0.25 !important;
+      pointer-events: none !important;
+      transition: opacity 0.3s ease !important;
+    }
+    body.acp-swap-mode-active img,
+    body.acp-swap-mode-active [data-slot*="image"],
+    body.acp-swap-mode-active [data-slot*="foto"],
+    body.acp-swap-mode-active [data-slot*="bild"] {
+      opacity: 1 !important;
+      outline: 4px solid #f59e0b !important;
+      outline-offset: 4px !important;
+      box-shadow: 0 0 35px rgba(245, 158, 11, 0.95), 0 0 15px rgba(245, 158, 11, 0.8) !important;
+      cursor: pointer !important;
+      pointer-events: auto !important;
+      position: relative !important;
+      z-index: 200 !important;
+      transition: transform 0.2s ease, box-shadow 0.2s ease !important;
+    }
+    body.acp-swap-mode-active img:hover {
+      transform: scale(1.03) !important;
+      outline-color: #ffffff !important;
+      box-shadow: 0 0 50px rgba(245, 158, 11, 1), 0 0 25px #ffffff !important;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Instant Announcement Banner -->
+  <div id="announcement-banner">
+    <div class="container">
+      <span id="announcement-text"></span>
+    </div>
+  </div>
+
+  <div class="container">
+    <header>
+      <div style="display:flex; align-items:center; gap:16px;">
+        <div class="brand-name">Muster Holzbau AG</div>
+        <div class="badge">📍 Thun · Holzbau & Bedachungen</div>
+      </div>
+      <div style="display:flex; align-items:center; gap:12px;">
+        <a href="tel:+41331234567" class="btn btn-secondary" style="padding: 7px 14px; font-size: 13px; text-decoration:none;">📞 +41 33 123 45 67</a>
+      </div>
+    </header>
+
+    <main class="hero">
+      <div class="kicker" data-slot="kicker">Karriere & Team</div>
+      <h1 data-slot="hero-title">Werde Teil unseres Teams bei Muster Holzbau AG.</h1>
+      <p class="hero-lead" data-slot="hero-lead">
+        Wir packen an, schätzen echtes Handwerk und bieten moderne Arbeitsbedingungen 
+        mit 5 Wochen Ferien und fairem Lohn in Thun.
+      </p>
+
+      <div class="hero-image-wrap">
+        <img id="slot-hero-img" src="images/benefits_drohne.jpg" alt="Team Muster Holzbau AG" data-slot="hero-image">
+      </div>
+
+      <div class="card-grid">
+        <div class="card" data-slot="job-card-1">
+          <div class="badge" style="margin-bottom: 12px;">Festanstellung 80–100%</div>
+          <h3 data-slot="job-1-title">Fachhandwerker / Vorarbeiter (m/w/d)</h3>
+          <p data-slot="job-1-desc">
+            Selbstständiges Arbeiten auf Baustellen in der Region Thun, modernes Werkzeug und ein kollegiales Team.
+          </p>
+          <a href="https://wa.me/41791234567?text=Hallo%20Muster Holzbau AG%2C%20ich%20interessiere%20mich%20f%C3%BCr%20die%20offene%20Stelle!" class="btn btn-primary" target="_blank" rel="noopener">
+            💬 In 30 Sek. per WhatsApp bewerben
+          </a>
+        </div>
+
+        <div class="card" data-slot="job-card-2">
+          <div class="badge" style="margin-bottom: 12px;">Initiativbewerbung</div>
+          <h3 data-slot="job-2-title">Quereinsteiger oder Profi?</h3>
+          <p data-slot="job-2-desc">
+            Deine Position ist nicht aufgeführt? Schreib uns kurz oder ruf an. Gute Leute mit Motivation finden bei uns immer einen Platz.
+          </p>
+          <a href="tel:+41331234567" class="btn btn-secondary">
+            📞 Unverbindlich anrufen (+41 33 123 45 67)
+          </a>
+        </div>
+      </div>
+
+      <!-- Team Showcase -->
+      <section class="team-section">
+        <div class="kicker">Dein Zukünftiges Team</div>
+        <h2>Echte Kollegen auf der Baustelle</h2>
+        <div class="team-grid">
+          <div class="team-card">
+            <img src="images/benefits_drohne.jpg" alt="Michael · Vorarbeiter" class="team-card-img" data-slot="team-michael">
+            <div class="team-card-body">
+              <div class="team-card-name">Michael</div>
+              <div class="team-card-role">Vorarbeiter Holzbau</div>
+            </div>
+          </div>
+          <div class="team-card">
+            <img src="images/stefan.jpg" alt="Stefan · Fachhandwerker" class="team-card-img" data-slot="team-stefan">
+            <div class="team-card-body">
+              <div class="team-card-name">Stefan</div>
+              <div class="team-card-role">Fachhandwerker EFZ</div>
+            </div>
+          </div>
+          <div class="team-card">
+            <img src="images/benefits_drohne.jpg" alt="Moderne Projekte in Thun" class="team-card-img" data-slot="team-drohne">
+            <div class="team-card-body">
+              <div class="team-card-name">Projekt Drohnenblick</div>
+              <div class="team-card-role">Baustelle Thun</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="cta-banner">
+        <h2>Unkompliziert kennenlernen</h2>
+        <p style="color: var(--text-muted); margin: 12px auto 24px; max-width: 500px;">
+          Kein Lebenslauf nötig. Sag uns einfach kurz, wer du bist und was du bisher gemacht hast.
+        </p>
+        <a href="https://wa.me/41791234567?text=Hallo%20Muster Holzbau AG%2C%20ich%20m%C3%B6chte%20euch%20gerne%20kennenlernen." class="btn btn-primary" style="font-size: 16px; padding: 14px 28px;" target="_blank" rel="noopener">
+          💬 Direktnachricht per WhatsApp starten
+        </a>
+      </div>
+    </main>
+
+    <footer>
+      <div>
+        <strong>&copy; 2026 Muster Holzbau AG</strong> · Thun<br>
+        <span style="font-size: 11px; color: var(--text-muted);">🇨🇭 100% gehostet in Zürich (ZRH) · Zero-Cookie · revDSG-konform</span>
+      </div>
+      <div style="display: flex; gap: 16px; align-items: center;">
+        <span>🔒 Zero-Cookie WebPilot</span>
+        <span>⚡ &lt; 50ms Swiss Edge</span>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    // Bimodale Weiche: Standalone (mit Header/Footer) vs. Widget (?embed=true)
+    (function() {
+      var isEmbed = window.location.search.indexOf('embed=true') !== -1 || window.self !== window.top;
+      if (isEmbed) {
+        document.body.classList.add('is-embedded');
+      }
+    })();
+
+    // Auto-Resizer fuer iFrame
+    function notifyParentHeight() {
+      if (window.parent !== window) {
+        var h = Math.max(document.documentElement.scrollHeight, document.body.scrollHeight);
+        window.parent.postMessage({ type: 'acp-embed-resize', height: h }, '*');
+      }
+    }
+    window.addEventListener('load', notifyParentHeight);
+    window.addEventListener('resize', notifyParentHeight);
+    if (window.ResizeObserver) {
+      new ResizeObserver(notifyParentHeight).observe(document.body);
+    }
+    setInterval(notifyParentHeight, 1500);
+
+    // WebPilot PostMessage Bridge für Cockpit
+    window.addEventListener("message", function(e) {
+      if (!e.data) return;
+      if (e.data.type === "acp-set-swap-mode" || e.data.type === "acp-toggle-swap-mode") {
+        document.body.classList.toggle("acp-swap-mode-active", !!e.data.active);
+      }
+      if (e.data.type === "acp-apply-swap-preview") {
+        var targetEl = null;
+        if (e.data.slot) {
+          targetEl = document.querySelector('[data-slot="' + e.data.slot + '"]');
+        }
+        if (!targetEl && e.data.isHero) {
+          targetEl = document.getElementById('slot-hero-img') || document.querySelector('.hero img');
+        }
+        if (!targetEl && e.data.oldSrc) {
+          var oldName = e.data.oldSrc.split('/').pop().split('?')[0];
+          targetEl = document.querySelector('img[src*="' + oldName + '"]');
+        }
+        if (targetEl) {
+          targetEl.src = e.data.newSrc;
+          notifyParentHeight();
+        }
+      }
+    });
+
+    // Klick auf ein Bild oder Hero im Swap-Modus
+    document.addEventListener("click", function(e) {
+      if (!document.body.classList.contains("acp-swap-mode-active")) return;
+      var img = e.target.closest('img');
+      var hero = e.target.closest('.hero');
+      var card = e.target.closest('.team-card') || e.target.closest('.card');
+
+      if (img) {
+        e.preventDefault();
+        e.stopPropagation();
+        var slot = img.getAttribute('data-slot') || img.id || 'hero-image';
+        var src = img.getAttribute('src') || '';
+        var isHero = (slot === 'hero-image' || img.id === 'slot-hero-img' || !!img.closest('.hero'));
+        window.parent.postMessage({
+          type: 'acp-slot-click',
+          slot: slot,
+          isImg: true,
+          isHero: isHero,
+          currentSrc: src,
+          datei: 'index.html'
+        }, '*');
+      } else if (hero) {
+        e.preventDefault();
+        e.stopPropagation();
+        var heroImg = hero.querySelector('img') || document.getElementById('slot-hero-img');
+        var src = heroImg ? (heroImg.getAttribute('src') || 'images/benefits_drohne.jpg') : 'images/benefits_drohne.jpg';
+        var slot = heroImg ? (heroImg.getAttribute('data-slot') || 'hero-image') : 'hero-image';
+        window.parent.postMessage({
+          type: 'acp-slot-click',
+          slot: slot,
+          isImg: true,
+          isHero: true,
+          currentSrc: src,
+          datei: 'index.html'
+        }, '*');
+      } else if (card && card.querySelector('img')) {
+        e.preventDefault();
+        e.stopPropagation();
+        var cImg = card.querySelector('img');
+        var slot = cImg.getAttribute('data-slot') || cImg.id || 'team-image';
+        var src = cImg.getAttribute('src') || '';
+        window.parent.postMessage({
+          type: 'acp-slot-click',
+          slot: slot,
+          isImg: true,
+          isHero: false,
+          currentSrc: src,
+          datei: 'index.html'
+        }, '*');
+      }
+    });
+
+    // Universelle ESC Taste
+    window.addEventListener("keydown", function(e) {
+      if (e.key === "Escape" && document.body.classList.contains("acp-swap-mode-active")) {
+        window.parent.postMessage({ type: 'acp-cancel-swap' }, '*');
+      }
+    });
+  </script>
+</body>
+</html>
