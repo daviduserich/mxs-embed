@@ -4,8 +4,8 @@
 > **Angefordert von (Partner):** David Hügli (Magnet XS · Referenz) · **Eingereicht am:** 29.09.2026 · 15:31 Uhr  
 > **Lokaler Ordner (VPS & Git):** `hiltbrand/`  
 > **Cloudflare-Basis-URL:** [embed.magnet-xs.ch/hiltbrand/](https://embed.magnet-xs.ch/hiltbrand/)  
-> **Bestand:** **40 Assets** (7.82 MB gesamt) · **🟢 17 aktiv im HTML** · **⚪ 23 frei im Bild-Pool** · **Externe Hotlinks: 0**  
-> **Letzte Aktualisierung:** 06.11.2026 13:59 Uhr (automatisch generiert via `webpilot_asset_catalog.py`)
+> **Bestand:** **40 Assets** (7.82 MB gesamt) · **🟢 16 aktiv im HTML** · **⚪ 24 frei im Bild-Pool** · **Externe Hotlinks: 0**  
+> **Letzte Aktualisierung:** 06.11.2026 14:08 Uhr (automatisch generiert via `webpilot_asset_catalog.py`)
 
 ---
 
@@ -46,7 +46,7 @@
 | 31 | `images/zurbuchen/hero.jpg` | Startbühne & Header (`hero`) | 300×300 px · 23.8 KB (JPG) | 🟢 Aktiv in `Zurbuchen_Holzbauer_November.html`, `zurbuchen_Holzbauer.html` | Hiltbrand Gebäudehüllen AG (Krattigen BE) – Startbühne & Hauptansicht: Hero | [embed.magnet-xs.ch/hiltbrand/images/zurbuchen/hero.jpg](https://embed.magnet-xs.ch/hiltbrand/images/zurbuchen/hero.jpg) |
 | 32 | `images/zurbuchen/jonas.jpg` | Team, Porträt & Kader (`team`) | 320×320 px · 16.4 KB (JPG) | 🟢 Aktiv in `Zurbuchen_Holzbauer_November.html`, `zurbuchen_Holzbauer.html` | Jonas Zurbrügg | [embed.magnet-xs.ch/hiltbrand/images/zurbuchen/jonas.jpg](https://embed.magnet-xs.ch/hiltbrand/images/zurbuchen/jonas.jpg) |
 | 33 | `images/zurbuchen/levin.jpg` | Team, Porträt & Kader (`team`) | 320×320 px · 36.1 KB (JPG) | 🟢 Aktiv in `Zurbuchen_Holzbauer_November.html`, `zurbuchen_Holzbauer.html` | Levin Gadient | [embed.magnet-xs.ch/hiltbrand/images/zurbuchen/levin.jpg](https://embed.magnet-xs.ch/hiltbrand/images/zurbuchen/levin.jpg) |
-| 34 | `images/zurbuchen/logo-negativ.png` | Logo & Marken-Icon (`logo`) | 240×113 px · 3.7 KB (PNG) | 🟢 Aktiv in `Zurbuchen_Holzbauer_November.html`, `zurbuchen_Holzbauer.html` | Zurbuchen Holzbau AG | [embed.magnet-xs.ch/hiltbrand/images/zurbuchen/logo-negativ.png](https://embed.magnet-xs.ch/hiltbrand/images/zurbuchen/logo-negativ.png) |
+| 34 | `images/zurbuchen/logo-negativ.png` | Logo & Marken-Icon (`logo`) | 240×113 px · 3.7 KB (PNG) | ⚪ Frei im Pool | Zurbuchen Holzbau AG | [embed.magnet-xs.ch/hiltbrand/images/zurbuchen/logo-negativ.png](https://embed.magnet-xs.ch/hiltbrand/images/zurbuchen/logo-negativ.png) |
 | 35 | `images/zurbuchen/logo.png` | Logo & Marken-Icon (`logo`) | 240×113 px · 4.1 KB (PNG) | 🟢 Aktiv in `Zurbuchen_Holzbauer_November.html`, `zurbuchen_Holzbauer.html` | Zurbuchen Holzbau AG | [embed.magnet-xs.ch/hiltbrand/images/zurbuchen/logo.png](https://embed.magnet-xs.ch/hiltbrand/images/zurbuchen/logo.png) |
 | 36 | `images/zurbuchen/markus.jpg` | Team, Porträt & Kader (`team`) | 320×320 px · 37.4 KB (JPG) | 🟢 Aktiv in `Zurbuchen_Holzbauer_November.html`, `zurbuchen_Holzbauer.html` | Markus Zurbuchen | [embed.magnet-xs.ch/hiltbrand/images/zurbuchen/markus.jpg](https://embed.magnet-xs.ch/hiltbrand/images/zurbuchen/markus.jpg) |
 | 37 | `images/zurbuchen/michael.jpg` | Team, Porträt & Kader (`team`) | 320×320 px · 11.2 KB (JPG) | ⚪ Frei im Pool | Hiltbrand Gebäudehüllen AG (Krattigen BE) – Team & Ansprechpartner: Michael | [embed.magnet-xs.ch/hiltbrand/images/zurbuchen/michael.jpg](https://embed.magnet-xs.ch/hiltbrand/images/zurbuchen/michael.jpg) |
