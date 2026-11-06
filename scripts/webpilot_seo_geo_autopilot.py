@@ -60,6 +60,63 @@ def _strip_tags(raw_html: str) -> str:
 # KURATIERTES SCHWEIZER STAMMDATEN- & ORTS-/BRANCHEN-PROFIL-LEXIKON
 # ============================================================================
 SITE_SEO_PROFILES = {
+    "webpilot": {
+        "schema_type": "ProfessionalService",
+        "company_name": "WebPilot · magnet-Xs gmbh",
+        "legal_name": "magnet-Xs gmbh",
+        "city": "Zofingen",
+        "canton": "AG",
+        "postal_code": "4800",
+        "street_address": "Vordere Hauptgasse 104",
+        "phone": "+41 62 752 00 00",
+        "email": "info@magnet-xs.ch",
+        "uid": "",
+        "source_url": "https://embed.magnet-xs.ch/webpilot/",
+        "hero_image": "images/hero.jpg",
+        "summary_2s": (
+            "WebPilot (ein Produkt der magnet-Xs gmbh in 4800 Zofingen AG) ist die pfeilschnelle Schweizer Web- "
+            "und KI-Plattform für KMU, Handwerksbetriebe, Praxen, Sportvereine und Partner-Agenturen mit "
+            "Zwei-Wege-Freiheit: Kunden steuern ihre Webseite entweder selbst über das visuelle Studio Cockpit v4.0, "
+            "das 10-Sekunden Kunden-Cockpit Light und eigenen ChatGPT-HTML-Code für CHF 0.— pro Änderung oder "
+            "wählen die schlüsselfertige Sorglos-Betreuung über zertifizierte Schweizer Partner-Agenturen — "
+            "inklusive vollautomatischem SEO- & KI-Such-Autopiloten (Schema.org JSON-LD, FAQPage & /llms.txt) für CHF 35.— / Monat."
+        ),
+        "area_served": [
+            "Zofingen", "Aarau", "Baden", "Wettingen", "Olten", "Solothurn",
+            "Zürich", "Bern", "Basel", "Luzern", "St. Gallen", "Genf",
+            "Kanton Aargau", "Deutschschweiz", "Schweiz"
+        ],
+        "services": [
+            "Zwei-Wege-Webseiten: Eigensteuerung per Studio Cockpit v4.0, Cockpit Light & ChatGPT-HTML (CHF 0.— / Änderung) oder Sorglos-Betreuung durch Partner-Agenturen",
+            "Vollautomatischer SEO- & KI-Such-Autopilot (Schema.org JSON-LD, FAQPage, Local-SEO Alt-Tags, /sitemap.xml & /llms.txt für Google, ChatGPT & Perplexity)",
+            "3-Schritte Smart-Anfrage Engine mit 1-Seiten-A4-PDF-Dossier, 2 Direkt-QR-Codes (Anruf & Google Maps) und WhatsApp-Sofortmeldung",
+            "3-Stufen Visual-DNA & Design-Sommelier (OKLCH-Farbharmonie, 60-30-10-Regel & 27-Sensoren Doppel-Systemaugen Layout-Airbag)",
+            "Schweizer High-Speed Hosting (< 50 ms Edge Zürich & Genf) ohne WordPress-Ballast und ohne technische PHP-/Plugin-Update-Kosten",
+            "Transparentes 2-Wege-Preismodell (Einmal-Aufbau ab CHF 1'500.— + CHF 35.—/Mt. ODER All-in-Monatsmodell ab CHF 160.—/Mt. im 1. Jahr, ab 2. Jahr CHF 35.—/Mt.)"
+        ],
+        "core_faqs": [
+            (
+                "Was bedeutet die Zwei-Wege-Freiheit bei WebPilot?",
+                "Bei WebPilot entscheiden Sie frei, wer am Steuer sitzt: Im Weg A bewirtschaften Macher, Teams und Vereine ihre Webseite selbst über das Kunden-Cockpit Light (Texte in 10 Sek. ändern) oder das Studio Cockpit v4.0 inklusive Direkt-Import eigener ChatGPT-HTML-Sektionen für CHF 0.— pro Änderung. Im Weg B übernehmen unsere zertifizierten Schweizer Partner-Agenturen Aufbau und laufende Änderungen auf Zuruf per WhatsApp im Sorglos-Paket. Beide Wege sind jederzeit frei kombinierbar."
+            ),
+            (
+                "Was kostet eine WebPilot-Webseite und wie funktioniert das 2-Wege-Preismodell?",
+                "Sie wählen zwischen zwei Zahlungswegen: Beim Einmal-Modell liegt der schlüsselfertige Aufbau für kompakte Seiten, Praxen und Vereine bei CHF 1'500.— bis 2'200.— einmalig (bzw. CHF 2'400.— bis 3'500.— für Mehrsparten-KMU und Grossvereine) plus CHF 35.— / Monat. Beim All-in-Monatsmodell ohne Start-Hürde zahlen Sie im 1. Jahr ab CHF 160.— bis 235.— / Monat (Aufbau bereits komplett eingerechnet), und ab dem 2. Jahr fällt der Preis automatisch auf nur noch CHF 35.— / Monat."
+            ),
+            (
+                "Was ist in den CHF 35.— / Monat alles enthalten?",
+                "Die Monatspauschale von CHF 35.— umfasst vier volle Leistungsblöcke: 1. Schweizer High-Speed Hosting in Zürich und Genf (< 50 ms) inklusive SSL und täglichem 1-Klick-Rollback ohne PHP-/Plugin-Update-Kosten, 2. den laufenden SEO- & KI-Such-Autopiloten (Schema.org JSON-LD, FAQPage, Local-SEO Alt-Tags, /sitemap.xml & /llms.txt), 3. den vollen Zugang zum Studio Cockpit v4.0 und Kunden-Cockpit Light für CHF 0.— Lizenzgebühr sowie 4. den Betrieb der 3-Schritte Smart-Anfrage PDF- & WhatsApp-Engine."
+            ),
+            (
+                "Wie sorgt WebPilot dafür, dass meine Firma bei Google und in KI-Suchen wie ChatGPT empfohlen wird?",
+                "Bei jedem Speichervorgang aktualisiert der eingebaute SEO- & GEO-Autopilot vollautomatisch die strukturierten Schema.org JSON-LD-Daten, das FAQPage-Schema, lokale Schweizer Bild-Alt-Tags, die XML-Sitemap sowie die Datei /llms.txt. Dadurch können sowohl Google als auch KI-Antwortmaschinen (ChatGPT Search, Perplexity, Claude, Google AI) Leistungen, Einzugsgebiet und Kontaktdaten Ihres Betriebs sekundenschnell auslesen und zitieren."
+            ),
+            (
+                "Wie funktioniert das WebPilot Partner-Programm für Agenturen, Marketing-Berater und Webdesigner?",
+                "Zertifizierte Partner reichen im Partner-Studio einfach die bestehende Kunden-URL ein und erhalten innerhalb von 24 Stunden eine interaktive -v2-Zeigeversion samt Vorher/Nachher-Beweis-PDF. Das Studio Cockpit v4.0 steht Partnern für alle Kundenprojekte kostenlos (CHF 0.— Lizenzgebühr) zur Verfügung, und 100 % der laufenden Kundenbetreuung und Änderungspakete verbleiben auf der eigenen Rechnung des Partners."
+            )
+        ]
+    },
     "joma": {
         "schema_type": "Electrician",
         "company_name": "JOMA Solar GmbH",
@@ -740,6 +797,8 @@ def _resolve_base_slug(folder_name: str) -> str:
 def _resolve_public_base_url(site_dir: Path) -> str:
     """Gibt die kanonische Vorschau-Basis-URL mit abschliessendem Slash zurück."""
     folder = site_dir.name
+    if folder == "webpilot":
+        return "https://embed.magnet-xs.ch/webpilot/"
     pub_slug = PUBLIC_SLUG_MAP.get(folder)
     if not pub_slug:
         clean = folder[len("preview-"):] if folder.startswith("preview-") else folder

@@ -3,10 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-  <title>Kontakt & Website-Check — WebPilot Schweizer KMU-Websites</title>
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <meta http-equiv="X-Frame-Options" content="DENY">
+  <meta http-equiv="X-XSS-Protection" content="1; mode=block">
+  <meta name="referrer" content="no-referrer">
+  <title>Kontakt, Vorschau & Partner-Anfrage — WebPilot · magnet-Xs gmbh</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
   <style>
     :root {
       --bg: #090a0f;
@@ -15,7 +19,8 @@
       --border: #232a42;
       --border-bright: #384266;
       --text: #f8fafc;
-      --muted: #94a3b8;
+      --muted: #cbd5e1;
+      --muted-soft: #94a3b8;
       --amber: #f59e0b;
       --amber-glow: rgba(245, 158, 11, 0.18);
       --cyan: #38bdf8;
@@ -25,94 +30,764 @@
       --radius-lg: 8px;
     }
     * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
-    html { overflow-x: clip; }
-    body { width: 100%; min-height: 100vh; overflow-x: clip; background: var(--bg); color: var(--text); font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; line-height: 1.5; font-size: 15px; padding-bottom: calc(96px + env(safe-area-inset-bottom, 24px)) !important; }
+    ::selection { background: rgba(245, 158, 11, 0.3); color: #ffffff; }
+    html { margin: 0; padding: 0; }
+    body {
+      width: 100%;
+      min-height: 100vh;
+      overflow-x: clip;
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      line-height: 1.55;
+      font-size: 15px;
+      font-variant-numeric: tabular-nums;
+      padding-bottom: 0;
+    }
+    h1, h2, h3, h4, .brand-title, .hero-kicker, .section-kicker, .brand-tag, .price-badge, .tech-pill, .mode-badge {
+      font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
+    }
 
     /* HEADER (STICKY) */
-    .top-bar { padding: 12px 16px; border-bottom: 1px solid var(--border); background: rgba(9, 10, 15, 0.95); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); position: -webkit-sticky; position: sticky; top: 0; z-index: 1000; width: 100%; }
-    .top-bar-inner { max-width: 1100px; margin: 0 auto; width: 100%; display: flex; justify-content: space-between; align-items: center; gap: 16px; }
-    .brand-logo-wrap { display: flex; align-items: center; gap: 10px; text-decoration: none; color: inherit; }
-    .brand-icon { width: 36px; height: 36px; display: flex; align-items: center; justify-content: center; }
-    .brand-title { font-size: 1.15rem; font-weight: 800; letter-spacing: -0.03em; color: #fff; }
-    .brand-tag { font-family: 'JetBrains Mono', monospace; font-size: 0.65rem; color: var(--amber); letter-spacing: 0.08em; text-transform: uppercase; }
+    .top-bar {
+      padding: 12px 16px;
+      border-bottom: 1px solid var(--border);
+      background: rgba(9, 10, 15, 0.95);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      position: -webkit-sticky;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      width: 100%;
+    }
+    .top-bar-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+    }
+    .brand-logo-wrap { display: flex; align-items: center; gap: 10px; text-decoration: none; color: inherit; min-height: 38px; }
+    .brand-icon { width: 36px; height: 36px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .brand-title { font-size: 1.15rem; font-weight: 800; letter-spacing: -0.03em; color: #fff; line-height: 1.15; }
+    .brand-tag { font-size: 0.68rem; font-weight: 700; color: var(--amber); letter-spacing: 0.06em; text-transform: uppercase; }
 
-    .desktop-nav { display: none; align-items: center; gap: 24px; }
-    .desk-nav-link { font-size: 0.88rem; font-weight: 600; color: var(--muted); text-decoration: none; transition: color 0.15s ease; }
-    .desk-nav-link:hover, .desk-nav-link.active { color: #fff; }
-    .btn-desk-cta { font-size: 0.85rem; font-weight: 700; color: #000 !important; background: var(--amber); padding: 8px 16px; border-radius: var(--radius-sm); text-decoration: none; }
+    .desktop-nav { display: none; align-items: center; gap: 20px; flex-wrap: nowrap; white-space: nowrap; }
+    .desk-nav-link {
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--muted);
+      text-decoration: none;
+      transition: color 0.15s ease;
+      padding: 6px 2px;
+      white-space: nowrap;
+      border-bottom: 2px solid transparent;
+    }
+    .desk-nav-link:hover, .desk-nav-link.active { color: #fff; border-bottom-color: var(--amber); }
+    .btn-desk-cta {
+      font-size: 0.84rem;
+      font-weight: 700;
+      color: #000 !important;
+      background: var(--amber);
+      padding: 8px 14px;
+      border-radius: var(--radius-sm);
+      text-decoration: none;
+      white-space: nowrap;
+      display: inline-flex;
+      align-items: center;
+      min-height: 36px;
+    }
 
-    .nav-burger { width: 44px; height: 44px; border: 1px solid var(--border); background: var(--surface); border-radius: var(--radius-sm); display: flex; align-items: center; justify-content: center; cursor: pointer; }
+    .nav-burger {
+      width: 44px;
+      height: 44px;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      border-radius: var(--radius-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+    }
     .nav-burger svg { width: 22px; height: 22px; stroke: var(--text); }
 
     /* MOBILE DRAWER */
-    .nav-drawer { display: none; position: fixed; inset: 64px 0 0 0; background: rgba(9, 10, 15, 0.98); backdrop-filter: blur(16px); z-index: 850; padding: 24px 20px; flex-direction: column; gap: 16px; }
+    .nav-drawer {
+      display: none;
+      position: fixed;
+      inset: 64px 0 0 0;
+      background: rgba(9, 10, 15, 0.98);
+      backdrop-filter: blur(16px);
+      z-index: 950;
+      padding: 24px 20px;
+      flex-direction: column;
+      gap: 12px;
+    }
     .nav-drawer.open { display: flex; }
-    .nav-link { font-size: 1.15rem; font-weight: 700; color: #fff; text-decoration: none; padding: 12px 0; border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; }
+    .nav-link {
+      font-size: 1.08rem;
+      font-weight: 700;
+      color: #fff;
+      text-decoration: none;
+      padding: 12px 0;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      min-height: 44px;
+    }
+
+    /* FREISTEHENDE KICKER (#UI-01: 100% transparent, kein //, Plus Jakarta Sans) */
+    .hero-kicker, .section-kicker {
+      font-size: 0.74rem;
+      color: var(--amber);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      background: transparent !important;
+      border: none !important;
+      padding: 0 !important;
+      box-shadow: none !important;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 6px;
+    }
+    .kicker-line {
+      width: 16px;
+      height: 2px;
+      background: var(--amber);
+      display: inline-block;
+      flex-shrink: 0;
+    }
 
     /* HERO */
-    .page-hero { width: 100%; border-bottom: 1px solid var(--border); padding: 36px 16px; background: radial-gradient(circle at 50% 0%, #171d2f 0%, #090a0f 70%); }
-    .page-hero-inner { max-width: 1100px; margin: 0 auto; width: 100%; }
-    .section-kicker { font-family: 'JetBrains Mono', monospace; font-size: 0.72rem; color: var(--amber); font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 6px; display: block; }
-    .page-title { font-size: 1.9rem; font-weight: 800; line-height: 1.2; letter-spacing: -0.03em; margin-bottom: 10px; }
-    .page-desc { font-size: 0.95rem; color: var(--muted); line-height: 1.6; max-width: 680px; }
+    .hero-wrap, .page-hero {
+      width: 100%;
+      border-bottom: 1px solid var(--border);
+      padding: 32px 16px 40px 16px;
+      background: radial-gradient(circle at 50% 0%, #171d2f 0%, #090a0f 72%);
+    }
+    .hero-inner, .page-hero-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      width: 100%;
+    }
+    .hero-inner {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+    .hero-content {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .hero-title, .page-title {
+      font-size: 1.85rem;
+      font-weight: 800;
+      line-height: 1.18;
+      letter-spacing: -0.025em;
+      color: #fff;
+      margin-top: 4px;
+    }
+    .hero-title span, .page-title span { color: var(--amber); }
+    .hero-subtitle, .page-desc {
+      font-size: 0.96rem;
+      color: var(--muted);
+      line-height: 1.6;
+      margin-top: 12px;
+      max-width: 680px;
+    }
 
-    /* SECTIONS */
+    .hero-metrics {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 16px;
+    }
+    .metric-badge {
+      font-size: 0.78rem;
+      font-weight: 600;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      padding: 6px 12px;
+      border-radius: var(--radius-sm);
+      color: var(--text);
+    }
+    .metric-badge strong { color: var(--green); font-weight: 700; }
+
+    .hero-actions {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-top: 20px;
+    }
+    .btn-cta {
+      width: 100%;
+      min-height: 48px;
+      padding: 12px 18px;
+      border-radius: var(--radius-md);
+      font-size: 0.92rem;
+      font-weight: 700;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      text-decoration: none;
+      cursor: pointer;
+      border: none;
+    }
+    .btn-cta-amber { background: var(--amber); color: #000; box-shadow: 0 4px 20px var(--amber-glow); }
+    .btn-cta-ghost { background: var(--surface); color: #fff; border: 1px solid var(--border-bright); }
+
+    .hero-stage-card {
+      background: var(--surface);
+      border: 1px solid var(--border-bright);
+      border-radius: var(--radius-lg);
+      padding: 22px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 12px;
+      height: 100%;
+    }
+    .stage-box-item {
+      background: var(--surface-2);
+      padding: 12px 14px;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border);
+      font-size: 0.84rem;
+      line-height: 1.45;
+    }
+    .stage-box-item.highlight {
+      background: rgba(16, 185, 129, 0.08);
+      border-color: rgba(16, 185, 129, 0.32);
+    }
+
+    /* SECTIONS (#UI-02: Einheitliche 1100px Fluchtlinie) */
     .section-wrap { width: 100%; border-bottom: 1px solid var(--border); }
-    .section-inner { max-width: 1100px; margin: 0 auto; padding: 40px 16px; width: 100%; }
+    .section-inner { max-width: 1100px; margin: 0 auto; padding: 44px 16px; width: 100%; }
+    .section-title { font-size: 1.5rem; font-weight: 800; letter-spacing: -0.02em; line-height: 1.25; margin-bottom: 8px; color: #fff; }
+    .section-desc, .section-subtitle { font-size: 0.94rem; color: var(--muted); line-height: 1.6; margin-bottom: 28px; max-width: 760px; }
 
-    /* CONTACT GRID */
-    .contact-grid { display: grid; grid-template-columns: 1fr; gap: 24px; }
-    .contact-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-md); padding: 24px; display: flex; flex-direction: column; gap: 16px; }
-    .contact-row { display: flex; gap: 14px; align-items: flex-start; }
-    .contact-icon { width: 40px; height: 40px; border-radius: var(--radius-sm); background: var(--amber-glow); color: var(--amber); display: flex; align-items: center; justify-content: center; font-size: 1.2rem; flex-shrink: 0; }
-    .contact-label { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--muted); font-weight: 700; margin-bottom: 2px; }
-    .contact-value { font-size: 1.05rem; font-weight: 700; color: #fff; text-decoration: none; }
-    .contact-sub { font-size: 0.82rem; color: var(--muted); margin-top: 2px; }
+    /* GRIDS (2-Col & 3-Col Symmetrie #UI-02 & S-14/S-15) */
+    .grid-2 { display: grid; grid-template-columns: 1fr; gap: 22px; align-items: stretch; }
+    .grid-3 { display: grid; grid-template-columns: 1fr; gap: 20px; align-items: stretch; }
 
-    /* FORM */
-    .form-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-md); padding: 24px; }
+    .card-box {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 14px;
+      height: 100%;
+    }
+    .card-box.featured-amber {
+      border-color: var(--amber);
+      box-shadow: 0 4px 28px rgba(245, 158, 11, 0.1);
+    }
+    .card-box.featured-cyan {
+      border-color: var(--cyan);
+      box-shadow: 0 4px 28px rgba(56, 189, 248, 0.08);
+    }
+    .card-top { display: flex; flex-direction: column; gap: 10px; }
+
+    .mode-badge, .tech-pill {
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: var(--radius-sm);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      width: fit-content;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+    .badge-amber { background: rgba(245, 158, 11, 0.15); color: #fbbf24; border: 1px solid rgba(245, 158, 11, 0.35); }
+    .badge-cyan { background: rgba(56, 189, 248, 0.14); color: #38bdf8; border: 1px solid rgba(56, 189, 248, 0.35); }
+    .badge-green { background: rgba(16, 185, 129, 0.14); color: #34d399; border: 1px solid rgba(16, 185, 129, 0.35); }
+
+    .card-title { font-size: 1.22rem; font-weight: 800; color: #fff; line-height: 1.3; }
+    .card-text { font-size: 0.9rem; color: var(--muted); line-height: 1.55; }
+
+    .check-list { list-style: none; display: flex; flex-direction: column; gap: 10px; font-size: 0.88rem; color: var(--muted); margin: 4px 0; }
+    .check-list li { display: flex; align-items: flex-start; gap: 10px; line-height: 1.5; }
+    .check-list li strong { color: #fff; }
+
+    .card-link-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: auto;
+      padding-top: 8px;
+    }
+    .btn-card {
+      min-height: 42px;
+      padding: 9px 14px;
+      border-radius: var(--radius-sm);
+      font-size: 0.85rem;
+      font-weight: 700;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+    }
+    .btn-card-amber { background: var(--amber); color: #000; }
+    .btn-card-secondary { background: var(--surface-2); color: #fff; border: 1px solid var(--border-bright); }
+
+    .teaser-link {
+      color: var(--amber);
+      font-weight: 700;
+      text-decoration: none;
+      font-size: 0.88rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      min-height: 36px;
+      padding: 6px 0;
+      margin-top: auto;
+    }
+
+    /* COMPARISON */
+    .vs-box { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 24px; }
+    .vs-grid { display: grid; grid-template-columns: 1fr; gap: 20px; align-items: stretch; }
+    .vs-col { padding: 20px; border-radius: var(--radius-md); display: flex; flex-direction: column; gap: 10px; }
+    .vs-old { background: rgba(239, 68, 68, 0.06); border: 1px solid rgba(239, 68, 68, 0.25); }
+    .vs-new { background: rgba(16, 185, 129, 0.07); border: 1px solid rgba(16, 185, 129, 0.32); }
+    .vs-title { font-size: 1.05rem; font-weight: 800; display: flex; align-items: center; gap: 8px; }
+    .vs-list { list-style: none; display: flex; flex-direction: column; gap: 8px; font-size: 0.88rem; color: var(--muted); }
+    .vs-list li { display: flex; align-items: flex-start; gap: 8px; }
+
+    /* PRICING SPECIFIC */
+    .price-amount { font-size: 1.9rem; font-weight: 800; letter-spacing: -0.03em; color: #fff; line-height: 1.2; }
+    .price-amount span { font-size: 0.92rem; font-weight: 500; color: var(--muted); }
+    .price-tier-box {
+      background: var(--surface-2);
+      border: 1px solid var(--border-bright);
+      border-radius: var(--radius-sm);
+      padding: 12px 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .price-tier-label { font-size: 0.8rem; color: var(--muted); font-weight: 600; }
+    .price-tier-val { font-size: 1.05rem; color: #fff; font-weight: 800; }
+    .price-tier-val em { font-style: normal; color: var(--amber); }
+
+    /* FAQ */
+    .faq-list { display: flex; flex-direction: column; gap: 14px; }
+    .faq-item { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-md); padding: 20px; }
+    .faq-q { font-size: 1.04rem; font-weight: 700; margin-bottom: 6px; color: #fff; }
+    .faq-a { font-size: 0.9rem; color: var(--muted); line-height: 1.55; }
+
+    /* CODE / PIPELINE BOX */
+    .code-box {
+      background: #050608;
+      border: 1px solid var(--border-bright);
+      border-radius: var(--radius-md);
+      padding: 20px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.82rem;
+      color: #cbd5e1;
+      overflow-x: auto;
+      margin-top: 24px;
+      line-height: 1.65;
+    }
+    .code-box .kw { color: var(--amber); font-weight: 700; }
+    .code-box .fn { color: var(--cyan); }
+    .code-box .ok { color: var(--green); font-weight: 700; }
+
+    /* FOUNDER BOX */
+    .founder-box {
+      background: linear-gradient(135deg, var(--surface) 0%, var(--surface-2) 100%);
+      border: 1px solid var(--border-bright);
+      border-radius: var(--radius-lg);
+      padding: 28px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      margin-top: 24px;
+    }
+    .founder-meta { display: flex; align-items: center; gap: 16px; }
+    .founder-avatar {
+      width: 60px;
+      height: 60px;
+      border-radius: var(--radius-sm);
+      background: var(--amber);
+      color: #000;
+      font-weight: 800;
+      font-size: 1.4rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .founder-name { font-size: 1.25rem; font-weight: 800; color: #fff; }
+    .founder-role { font-size: 0.78rem; font-weight: 700; color: var(--amber); text-transform: uppercase; letter-spacing: 0.05em; }
+    .founder-quote {
+      font-style: italic;
+      font-size: 0.95rem;
+      color: #e2e8f0;
+      line-height: 1.6;
+      border-left: 3px solid var(--amber);
+      padding-left: 16px;
+    }
+
+    /* CONTACT & FORM */
+    .contact-row { display: flex; align-items: flex-start; gap: 12px; padding: 10px 0; border-bottom: 1px solid var(--border); }
+    .contact-icon {
+      width: 38px;
+      height: 38px;
+      border-radius: var(--radius-sm);
+      background: var(--surface-2);
+      border: 1px solid var(--border-bright);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--amber);
+      flex-shrink: 0;
+    }
+    .contact-label { font-size: 0.76rem; color: var(--muted-soft); text-transform: uppercase; font-weight: 700; letter-spacing: 0.04em; }
+    .contact-value { font-size: 0.98rem; font-weight: 700; color: #fff; text-decoration: none; display: inline-flex; align-items: center; min-height: 34px; }
+    .contact-sub { font-size: 0.82rem; color: var(--muted); }
     .form-group { display: flex; flex-direction: column; gap: 6px; margin-bottom: 14px; }
-    .form-label { font-size: 0.85rem; font-weight: 700; color: #fff; }
-    .form-input, .form-textarea { width: 100%; border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 12px 14px; font-size: 0.95rem; background: var(--surface-2); color: #fff; font-family: inherit; }
-    .form-input:focus, .form-textarea:focus { outline: none; border-color: var(--amber); box-shadow: 0 0 0 3px var(--amber-glow); }
-    .form-textarea { min-height: 110px; resize: vertical; }
-    .btn-submit { width: 100%; height: 50px; background: var(--amber); color: #000; font-size: 1rem; font-weight: 700; border-radius: var(--radius-md); border: none; cursor: pointer; display: inline-flex; align-items: center; justify-content: center; gap: 8px; }
+    .form-label { font-size: 0.84rem; font-weight: 600; color: var(--text); }
+    .form-input, .form-select {
+      width: 100%;
+      min-height: 44px;
+      padding: 10px 12px;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border-bright);
+      background: var(--bg);
+      color: var(--text);
+      font-family: inherit;
+      font-size: 0.92rem;
+    }
+    .form-input:focus, .form-select:focus { outline: 2px solid var(--amber); border-color: var(--amber); }
 
     /* STICKY THUMB BAR */
-    .thumb-bar { position: fixed; bottom: 0; left: 0; right: 0; background: rgba(9, 10, 15, 0.96); backdrop-filter: blur(12px); border-top: 1px solid var(--border); padding: 10px 14px; padding-bottom: calc(10px + env(safe-area-inset-bottom, 0px)); display: flex; gap: 10px; z-index: 950; }
-    .btn-thumb { flex: 1 1 0; min-width: 0; max-width: 100%; box-sizing: border-box; height: 46px; padding: 0 10px; border-radius: var(--radius-md); font-size: 0.8rem; font-weight: 700; white-space: nowrap; display: inline-flex; align-items: center; justify-content: center; gap: 6px; text-decoration: none; }
+    .thumb-bar {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: rgba(9, 10, 15, 0.96);
+      backdrop-filter: blur(12px);
+      border-top: 1px solid var(--border);
+      padding: 10px 14px;
+      padding-bottom: calc(10px + env(safe-area-inset-bottom, 0px));
+      display: flex;
+      gap: 10px;
+      z-index: 940;
+    }
+    .btn-thumb {
+      flex: 1 1 0;
+      min-width: 0;
+      max-width: 100%;
+      box-sizing: border-box;
+      height: 46px;
+      padding: 0 10px;
+      border-radius: var(--radius-md);
+      font-size: 0.82rem;
+      font-weight: 700;
+      white-space: nowrap;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      text-decoration: none;
+    }
     .btn-thumb-cta { background: var(--amber); color: #000; }
-    .btn-thumb-wa { background: #25D366; color: #fff; }
-    .bottom-buffer { height: 74px; }
+    .btn-thumb-wa { background: #25D366; color: #000; font-weight: 800; }
+    .bottom-buffer { height: 96px; background: #050608; }
 
     /* FOOTER */
-    .footer-wrap { width: 100%; background: #050608; color: #64748b; border-top: 1px solid var(--border); box-shadow: 0 120px 0 #050608; }
-    .footer-inner { max-width: 1100px; margin: 0 auto; padding: 40px 16px; font-size: 0.82rem; display: flex; flex-direction: column; gap: 12px; }
+    .footer-wrap { width: 100%; background: #050608; color: var(--muted-soft); border-top: 1px solid var(--border); box-shadow: 0 120px 0 #050608; }
+    .footer-inner { max-width: 1100px; margin: 0 auto; padding: 40px 16px; font-size: 0.84rem; display: flex; flex-direction: column; gap: 10px; }
+    .footer-links { display: flex; flex-wrap: wrap; gap: 16px; margin-top: 6px; }
+    .footer-links a { color: var(--muted); text-decoration: none; font-weight: 600; min-height: 34px; display: inline-flex; align-items: center; }
+    .footer-links a:hover { color: var(--amber); }
 
     /* DESKTOP RESPONSIVE */
     @media (min-width: 768px) {
       .top-bar { padding: 14px 24px; }
       .desktop-nav { display: flex; }
       .nav-burger { display: none !important; }
-      .page-hero { padding: 56px 24px 44px 24px; }
-      .page-title { font-size: 2.3rem; }
+      .hero-wrap { padding: 56px 24px 64px 24px; }
+      .page-hero { padding: 52px 24px 44px 24px; }
+      .hero-inner {
+        flex-direction: row;
+        align-items: stretch;
+        justify-content: space-between;
+        gap: 40px;
+      }
+      .hero-content { flex: 1 1 58%; }
+      .hero-stage-box { flex: 0 0 410px; max-width: 410px; display: flex; flex-direction: column; }
+      .hero-title { font-size: 2.35rem; }
+      .page-title { font-size: 2.25rem; }
+      .hero-actions { flex-direction: row; flex-wrap: nowrap; gap: 12px; }
+      .btn-cta { width: auto; padding: 12px 18px; white-space: nowrap; }
       .section-inner { padding: 56px 24px; }
-      .contact-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
+      .grid-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
+      .grid-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
+      .vs-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
       body { padding-bottom: 0 !important; }
       .thumb-bar, .bottom-buffer { display: none !important; }
       .footer-inner { padding: 48px 24px; }
     }
-    @media (max-width: 768px) {
-      .teaser-link,
-      a.contact-value {
-        display: inline-flex !important;
-        align-items: center;
-        min-height: 34px;
-        min-width: 34px;
-        padding: 6px 0;
-      }
-    }
   </style>
+  <!-- WP-SEO-GEO-AUTOPILOT-START -->
+  <meta name="description" content="WebPilot · magnet-Xs gmbh (Zofingen AG): Fordern Sie Ihren Vorher/Nachher-Beweis oder Ihren -v2-Vorschau-Entwurf an. – Ob Sie Ihre Webseite künftig selbst...">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+  <meta name="geo.region" content="CH-AG">
+  <meta name="geo.placename" content="Zofingen">
+  <link rel="canonical" href="https://embed.magnet-xs.ch/webpilot/kontakt.html">
+  <meta property="og:locale" content="de_CH">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="WebPilot · magnet-Xs gmbh">
+  <meta property="og:title" content="Kontakt, Vorschau &amp; Partner-Anfrage — WebPilot · magnet-Xs gmbh">
+  <meta property="og:description" content="WebPilot · magnet-Xs gmbh (Zofingen AG): Fordern Sie Ihren Vorher/Nachher-Beweis oder Ihren -v2-Vorschau-Entwurf an. – Ob Sie Ihre Webseite künftig selbst...">
+  <meta property="og:url" content="https://embed.magnet-xs.ch/webpilot/kontakt.html">
+  <meta property="og:image" content="https://embed.magnet-xs.ch/webpilot/images/hero.jpg">
+  <meta property="og:image:alt" content="WebPilot · magnet-Xs gmbh – Zofingen (AG)">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Kontakt, Vorschau &amp; Partner-Anfrage — WebPilot · magnet-Xs gmbh">
+  <meta name="twitter:description" content="WebPilot · magnet-Xs gmbh (Zofingen AG): Fordern Sie Ihren Vorher/Nachher-Beweis oder Ihren -v2-Vorschau-Entwurf an. – Ob Sie Ihre Webseite künftig selbst...">
+  <meta name="twitter:image" content="https://embed.magnet-xs.ch/webpilot/images/hero.jpg">
+  <script type="application/ld+json" id="wp-seo-geo-schema">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": [
+        "ProfessionalService",
+        "LocalBusiness"
+      ],
+      "@id": "https://embed.magnet-xs.ch/webpilot/#organization",
+      "name": "WebPilot · magnet-Xs gmbh",
+      "legalName": "magnet-Xs gmbh",
+      "description": "WebPilot (ein Produkt der magnet-Xs gmbh in 4800 Zofingen AG) ist die pfeilschnelle Schweizer Web- und KI-Plattform für KMU, Handwerksbetriebe, Praxen, Sportvereine und Partner-Agenturen mit Zwei-Wege-Freiheit: Kunden steuern ihre Webseite entweder selbst über das visuelle Studio Cockpit v4.0, das 10-Sekunden Kunden-Cockpit Light und eigenen ChatGPT-HTML-Code für CHF 0.— pro Änderung oder wählen die schlüsselfertige Sorglos-Betreuung über zertifizierte Schweizer Partner-Agenturen — inklusive vollautomatischem SEO- & KI-Such-Autopiloten (Schema.org JSON-LD, FAQPage & /llms.txt) für CHF 35.— / Monat.",
+      "url": "https://embed.magnet-xs.ch/webpilot/",
+      "image": "https://embed.magnet-xs.ch/webpilot/images/hero.jpg",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Vordere Hauptgasse 104",
+        "postalCode": "4800",
+        "addressLocality": "Zofingen",
+        "addressRegion": "AG",
+        "addressCountry": "CH"
+      },
+      "areaServed": [
+        {
+          "@type": "City",
+          "name": "Zofingen"
+        },
+        {
+          "@type": "City",
+          "name": "Aarau"
+        },
+        {
+          "@type": "City",
+          "name": "Baden"
+        },
+        {
+          "@type": "City",
+          "name": "Wettingen"
+        },
+        {
+          "@type": "City",
+          "name": "Olten"
+        },
+        {
+          "@type": "City",
+          "name": "Solothurn"
+        },
+        {
+          "@type": "City",
+          "name": "Zürich"
+        },
+        {
+          "@type": "City",
+          "name": "Bern"
+        },
+        {
+          "@type": "City",
+          "name": "Basel"
+        },
+        {
+          "@type": "City",
+          "name": "Luzern"
+        },
+        {
+          "@type": "City",
+          "name": "St. Gallen"
+        },
+        {
+          "@type": "City",
+          "name": "Genf"
+        },
+        {
+          "@type": "AdministrativeArea",
+          "name": "Kanton Aargau"
+        },
+        {
+          "@type": "AdministrativeArea",
+          "name": "Deutschschweiz"
+        },
+        {
+          "@type": "AdministrativeArea",
+          "name": "Schweiz"
+        }
+      ],
+      "knowsAbout": [
+        "Zwei-Wege-Webseiten: Eigensteuerung per Studio Cockpit v4.0, Cockpit Light & ChatGPT-HTML (CHF 0.— / Änderung) oder Sorglos-Betreuung durch Partner-Agenturen",
+        "Vollautomatischer SEO- & KI-Such-Autopilot (Schema.org JSON-LD, FAQPage, Local-SEO Alt-Tags, /sitemap.xml & /llms.txt für Google, ChatGPT & Perplexity)",
+        "3-Schritte Smart-Anfrage Engine mit 1-Seiten-A4-PDF-Dossier, 2 Direkt-QR-Codes (Anruf & Google Maps) und WhatsApp-Sofortmeldung",
+        "3-Stufen Visual-DNA & Design-Sommelier (OKLCH-Farbharmonie, 60-30-10-Regel & 27-Sensoren Doppel-Systemaugen Layout-Airbag)",
+        "Schweizer High-Speed Hosting (< 50 ms Edge Zürich & Genf) ohne WordPress-Ballast und ohne technische PHP-/Plugin-Update-Kosten",
+        "Transparentes 2-Wege-Preismodell (Einmal-Aufbau ab CHF 1'500.— + CHF 35.—/Mt. ODER All-in-Monatsmodell ab CHF 160.—/Mt. im 1. Jahr, ab 2. Jahr CHF 35.—/Mt.)",
+        "magnet-Xs gmbh · WebPilot Zentrale",
+        "Jetzt Website-URL prüfen lassen"
+      ],
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Leistungen und Schwerpunkte – WebPilot · magnet-Xs gmbh",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Zwei-Wege-Webseiten: Eigensteuerung per Studio Cockpit v4.0, Cockpit Light & ChatGPT-HTML (CHF 0.— / Änderung) oder Sorglos-Betreuung durch Partner-Agenturen"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Vollautomatischer SEO- & KI-Such-Autopilot (Schema.org JSON-LD, FAQPage, Local-SEO Alt-Tags, /sitemap.xml & /llms.txt für Google, ChatGPT & Perplexity)"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "3-Schritte Smart-Anfrage Engine mit 1-Seiten-A4-PDF-Dossier, 2 Direkt-QR-Codes (Anruf & Google Maps) und WhatsApp-Sofortmeldung"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "3-Stufen Visual-DNA & Design-Sommelier (OKLCH-Farbharmonie, 60-30-10-Regel & 27-Sensoren Doppel-Systemaugen Layout-Airbag)"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Schweizer High-Speed Hosting (< 50 ms Edge Zürich & Genf) ohne WordPress-Ballast und ohne technische PHP-/Plugin-Update-Kosten"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Transparentes 2-Wege-Preismodell (Einmal-Aufbau ab CHF 1'500.— + CHF 35.—/Mt. ODER All-in-Monatsmodell ab CHF 160.—/Mt. im 1. Jahr, ab 2. Jahr CHF 35.—/Mt.)"
+            }
+          }
+        ]
+      },
+      "telephone": "+41 62 752 00 00",
+      "email": "info@magnet-xs.ch",
+      "sameAs": [
+        "https://embed.magnet-xs.ch/webpilot/"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://embed.magnet-xs.ch/webpilot/#website",
+      "url": "https://embed.magnet-xs.ch/webpilot/",
+      "name": "WebPilot · magnet-Xs gmbh",
+      "inLanguage": "de-CH",
+      "publisher": {
+        "@id": "https://embed.magnet-xs.ch/webpilot/#organization"
+      }
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://embed.magnet-xs.ch/webpilot/kontakt.html#webpage",
+      "url": "https://embed.magnet-xs.ch/webpilot/kontakt.html",
+      "name": "Kontakt, Vorschau & Partner-Anfrage — WebPilot · magnet-Xs gmbh",
+      "description": "WebPilot · magnet-Xs gmbh (Zofingen AG): Fordern Sie Ihren Vorher/Nachher-Beweis oder Ihren -v2-Vorschau-Entwurf an. – Ob Sie Ihre Webseite künftig selbst...",
+      "inLanguage": "de-CH",
+      "dateModified": "2026-11-06T09:43:54+00:00",
+      "isPartOf": {
+        "@id": "https://embed.magnet-xs.ch/webpilot/#website"
+      },
+      "about": {
+        "@id": "https://embed.magnet-xs.ch/webpilot/#organization"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://embed.magnet-xs.ch/webpilot/kontakt.html#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Was bedeutet die Zwei-Wege-Freiheit bei WebPilot?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Bei WebPilot entscheiden Sie frei, wer am Steuer sitzt: Im Weg A bewirtschaften Macher, Teams und Vereine ihre Webseite selbst über das Kunden-Cockpit Light (Texte in 10 Sek. ändern) oder das Studio Cockpit v4.0 inklusive Direkt-Import eigener ChatGPT-HTML-Sektionen für CHF 0.— pro Änderung. Im Weg B übernehmen unsere zertifizierten Schweizer Partner-Agenturen Aufbau und laufende Änderungen auf Zuruf per WhatsApp im Sorglos-Paket. Beide Wege sind jederzeit frei kombinierbar."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Was kostet eine WebPilot-Webseite und wie funktioniert das 2-Wege-Preismodell?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sie wählen zwischen zwei Zahlungswegen: Beim Einmal-Modell liegt der schlüsselfertige Aufbau für kompakte Seiten, Praxen und Vereine bei CHF 1'500.— bis 2'200.— einmalig (bzw. CHF 2'400.— bis 3'500.— für Mehrsparten-KMU und Grossvereine) plus CHF 35.— / Monat. Beim All-in-Monatsmodell ohne Start-Hürde zahlen Sie im 1. Jahr ab CHF 160.— bis 235.— / Monat (Aufbau bereits komplett eingerechnet), und ab dem 2. Jahr fällt der Preis automatisch auf nur noch CHF 35.— / Monat."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Was ist in den CHF 35.— / Monat alles enthalten?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Die Monatspauschale von CHF 35.— umfasst vier volle Leistungsblöcke: 1. Schweizer High-Speed Hosting in Zürich und Genf (< 50 ms) inklusive SSL und täglichem 1-Klick-Rollback ohne PHP-/Plugin-Update-Kosten, 2. den laufenden SEO- & KI-Such-Autopiloten (Schema.org JSON-LD, FAQPage, Local-SEO Alt-Tags, /sitemap.xml & /llms.txt), 3. den vollen Zugang zum Studio Cockpit v4.0 und Kunden-Cockpit Light für CHF 0.— Lizenzgebühr sowie 4. den Betrieb der 3-Schritte Smart-Anfrage PDF- & WhatsApp-Engine."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Wie sorgt WebPilot dafür, dass meine Firma bei Google und in KI-Suchen wie ChatGPT empfohlen wird?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Bei jedem Speichervorgang aktualisiert der eingebaute SEO- & GEO-Autopilot vollautomatisch die strukturierten Schema.org JSON-LD-Daten, das FAQPage-Schema, lokale Schweizer Bild-Alt-Tags, die XML-Sitemap sowie die Datei /llms.txt. Dadurch können sowohl Google als auch KI-Antwortmaschinen (ChatGPT Search, Perplexity, Claude, Google AI) Leistungen, Einzugsgebiet und Kontaktdaten Ihres Betriebs sekundenschnell auslesen und zitieren."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Wie funktioniert das WebPilot Partner-Programm für Agenturen, Marketing-Berater und Webdesigner?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Zertifizierte Partner reichen im Partner-Studio einfach die bestehende Kunden-URL ein und erhalten innerhalb von 24 Stunden eine interaktive -v2-Zeigeversion samt Vorher/Nachher-Beweis-PDF. Das Studio Cockpit v4.0 steht Partnern für alle Kundenprojekte kostenlos (CHF 0.— Lizenzgebühr) zur Verfügung, und 100 % der laufenden Kundenbetreuung und Änderungspakete verbleiben auf der eigenen Rechnung des Partners."
+          }
+        }
+      ]
+    }
+  ]
+}
+  </script>
+  <!-- WP-SEO-GEO-AUTOPILOT-END -->
 </head>
 <body>
 
@@ -135,16 +810,16 @@
         </div>
         <div>
           <div class="brand-title">WebPilot</div>
-          <div class="brand-tag">Schweizer Web-Infrastruktur</div>
+          <div class="brand-tag">Schweizer Web- &amp; KI-Plattform</div>
         </div>
       </a>
       <nav class="desktop-nav">
         <a href="index.html" class="desk-nav-link">Übersicht</a>
-        <a href="ueber-uns.html" class="desk-nav-link">Über uns</a>
-        <a href="angebot.html" class="desk-nav-link">Angebot & Preise</a>
+        <a href="angebot.html" class="desk-nav-link">Angebot &amp; Preise</a>
         <a href="technologie.html" class="desk-nav-link">Technologie</a>
-        <a href="kontakt.html" class="desk-nav-link active">Kontakt & Analyse</a>
-        <a href="angebot.html" class="btn-desk-cta">Ab CHF 2'950.– starten</a>
+        <a href="ueber-uns.html" class="desk-nav-link">Über uns</a>
+        <a href="kontakt.html" class="desk-nav-link active">Kontakt</a>
+        <a href="angebot.html" class="btn-desk-cta">Ab CHF 1'500.— starten</a>
       </nav>
       <button class="nav-burger" onclick="toggleDrawer()" aria-label="Menü öffnen">
         <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
@@ -155,19 +830,19 @@
   <!-- MOBILE NAV DRAWER -->
   <nav class="nav-drawer" id="navDrawer">
     <a href="index.html" class="nav-link">Übersicht <span>→</span></a>
-    <a href="ueber-uns.html" class="nav-link">Über uns <span>→</span></a>
-    <a href="angebot.html" class="nav-link">Angebot & Preise <span>→</span></a>
-    <a href="technologie.html" class="nav-link">Technologie & Sicherheit <span>→</span></a>
-    <a href="kontakt.html" class="nav-link" style="color:var(--amber);">Kontakt & Speed-Analyse <span>→</span></a>
+    <a href="angebot.html" class="nav-link">Angebot &amp; 2-Wege-Preise <span>→</span></a>
+    <a href="technologie.html" class="nav-link">Technologie &amp; SEO/KI-Autopilot <span>→</span></a>
+    <a href="ueber-uns.html" class="nav-link">Über uns &amp; Entstehung <span>→</span></a>
+    <a href="kontakt.html" class="nav-link" style="color:var(--amber);">Kontakt &amp; Vorschau-Anfrage <span>→</span></a>
   </nav>
 
   <!-- HERO -->
   <section class="page-hero">
     <div class="page-hero-inner">
-      <span class="section-kicker">Direkter Draht</span>
-      <h1 class="page-title">Sprechen wir über Ihre nächste Website.</h1>
+      <span class="section-kicker"><span class="kicker-line"></span> Direkter Draht nach Zofingen &amp; ins Partner-Netzwerk</span>
+      <h1 class="page-title">Fordern Sie Ihren <span>Vorher/Nachher-Beweis</span> oder Ihren <span>-v2-Vorschau-Entwurf</span> an.</h1>
       <p class="page-desc">
-        Fordern Sie eine kostenlose 15-Minuten-Analyse Ihrer aktuellen Website an oder sprechen Sie direkt mit uns über die Ablösung Ihres alten Systems.
+        Ob Sie Ihre Webseite künftig selbst per Studio-Cockpit &amp; ChatGPT steuern möchten, das schlüsselfertige Sorglos-Paket über eine Partner-Agentur suchen oder selbst als Agentur-Partner starten wollen: Wir melden uns innerhalb von 24 Stunden.
       </p>
     </div>
   </section>
@@ -175,73 +850,94 @@
   <!-- CONTENT -->
   <div class="section-wrap">
     <div class="section-inner">
-      <div class="contact-grid">
+      <div class="grid-2">
         <!-- DETAILS -->
-        <div class="contact-card">
-          <span class="section-kicker">Ansprechpartner</span>
-          <h2 style="font-size: 1.3rem; font-weight: 800; color: #fff;">magnet-Xs gmbh</h2>
-          
-          <div class="contact-row">
-            <div class="contact-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg></div>
-            <div>
-              <div class="contact-label">Standort</div>
-              <div class="contact-value">Zofingen</div>
-              <div class="contact-sub">Vordere Hauptgasse 104 • 4800 Zofingen</div>
-            </div>
-          </div>
+        <div class="card-box">
+          <div class="card-top">
+            <span class="section-kicker"><span class="kicker-line"></span> Persönlicher Kontakt</span>
+            <h2 style="font-size: 1.35rem; font-weight: 800; color: #fff; margin-bottom: 6px;">magnet-Xs gmbh · WebPilot Zentrale</h2>
 
-          <div class="contact-row">
-            <div class="contact-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0;"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg></div>
-            <div>
-              <div class="contact-label">E-Mail</div>
-              <a href="mailto:info@magnet-xs.ch" class="contact-value">info@magnet-xs.ch</a>
-              <div class="contact-sub">Antwort innerhalb von 24 Stunden</div>
+            <div class="contact-row">
+              <div class="contact-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+              </div>
+              <div>
+                <div class="contact-label">Standort &amp; Entwicklung</div>
+                <div class="contact-value">4800 Zofingen AG</div>
+                <div class="contact-sub">Vordere Hauptgasse 104 · Schweiz</div>
+              </div>
             </div>
-          </div>
 
-          <div class="contact-row">
-            <div class="contact-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0;"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg></div>
-            <div>
-              <div class="contact-label">WhatsApp Direktkontakt</div>
-              <a href="https://wa.me/41790000000" class="contact-value" style="color: #25D366;">WhatsApp Chat starten</a>
-              <div class="contact-sub">Unkomplizierter Austausch ohne Formalitäten</div>
+            <div class="contact-row">
+              <div class="contact-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+              </div>
+              <div>
+                <div class="contact-label">E-Mail Direktkontakt</div>
+                <a href="mailto:info@magnet-xs.ch" class="contact-value">info@magnet-xs.ch</a>
+                <div class="contact-sub">Persönliche Rückmeldung innerhalb von 24 Stunden</div>
+              </div>
             </div>
-          </div>
 
-          <div style="background: var(--surface-2); border-radius: var(--radius-sm); padding: 16px; margin-top: 10px; font-size: 0.85rem; color: var(--muted); border: 1px solid var(--border);">
-            <strong style="color: #fff; display:inline-flex; align-items:center; gap:6px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0;"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg> Was Sie in der 15-Minuten Speed-Analyse erhalten:</strong><br>
-            • Messung Ihrer echten Ladezeit auf dem Smartphone und Ihrer Sichtbarkeit bei Google<br>
-            • Sicherheits-Check auf veraltete CMS-Komponenten und Plugins<br>
-            • Konkreter Fahrplan für den 48h-Umzug auf moderne Schweizer Infrastruktur
+            <div class="contact-row">
+              <div class="contact-icon">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0;"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+              </div>
+              <div>
+                <div class="contact-label">WhatsApp Direktkanal</div>
+                <a href="https://wa.me/41790000000" class="contact-value" style="color: #25D366;">WhatsApp Chat starten</a>
+                <div class="contact-sub">Unkompliziert URL durchgeben &amp; Ersteinschätzung erhalten</div>
+              </div>
+            </div>
+
+            <div style="background: var(--surface-2); border-radius: var(--radius-sm); padding: 16px; margin-top: 10px; font-size: 0.86rem; color: var(--muted); border: 1px solid var(--border-bright);">
+              <strong style="color: #fff; display:inline-flex; align-items:center; gap:6px; margin-bottom:6px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0;"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg> Was Sie bei einer Anfrage erhalten:</strong>
+              <ul class="check-list" style="margin-top:6px;">
+                <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="var(--amber)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0; margin-top:3px;"><polyline points="20 6 9 17 4 12"/></svg><span><strong>Vorher/Nachher-Beweis-Report (PDF):</strong> Messung von Ladezeit, Mobile-Darstellung sowie Google-SEO &amp; ChatGPT-Auffindbarkeit Ihrer aktuellen Seite.</span></li>
+                <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="var(--amber)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0; margin-top:3px;"><polyline points="20 6 9 17 4 12"/></svg><span><strong>Transparente 2-Wege-Offerte:</strong> Einmal-Aufbau (ab CHF 1'500.— + CHF 35.—/Mt.) vs. All-in-Monatsmodell (ab CHF 160.—/Mt. im 1. Jahr, ab 2. Jahr CHF 35.—/Mt.).</span></li>
+                <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="var(--amber)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0; margin-top:3px;"><polyline points="20 6 9 17 4 12"/></svg><span><strong>Wahl Ihres Betriebs-Modus:</strong> Selbst steuern per Cockpit &amp; ChatGPT-HTML oder schlüsselfertige Betreuung durch unsere Partner-Agenturen.</span></li>
+              </ul>
+            </div>
           </div>
         </div>
 
         <!-- FORM -->
-        <div class="form-card">
-          <span class="section-kicker">Kostenlose Speed-Analyse</span>
-          <h3 style="font-size: 1.25rem; font-weight: 800; color: #fff; margin-bottom: 14px;">Aktuelle Website prüfen lassen</h3>
-          
-          <form onsubmit="event.preventDefault(); alert('Vielen Dank! Wir analysieren Ihre Website und senden Ihnen den Speed-Report.');">
-            <div class="form-group">
-              <label class="form-label">Ihre aktuelle Website-URL *</label>
-              <input type="url" class="form-input" placeholder="https://ihre-firma.ch" required>
-            </div>
-            <div class="form-group">
-              <label class="form-label">Vor- und Nachname *</label>
-              <input type="text" class="form-input" placeholder="Hans Muster" required>
-            </div>
-            <div class="form-group">
-              <label class="form-label">E-Mail Adresse *</label>
-              <input type="email" class="form-input" placeholder="hans@muster.ch" required>
-            </div>
-            <div class="form-group">
-              <label class="form-label">Telefonnummer (optional)</label>
-              <input type="tel" class="form-input" placeholder="079 123 45 67">
-            </div>
-            <button type="submit" class="btn-submit">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0;"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"/><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/></svg> Analyse jetzt anfordern
-            </button>
-          </form>
+        <div class="card-box featured-amber">
+          <div class="card-top">
+            <span class="section-kicker"><span class="kicker-line"></span> Kostenlose Ersteinschätzung &amp; Offerte</span>
+            <h3 style="font-size: 1.3rem; font-weight: 800; color: #fff; margin-bottom: 12px;">Jetzt Website-URL prüfen lassen</h3>
+
+            <form onsubmit="event.preventDefault(); alert('Vielen Dank! Wir haben Ihre Angaben erhalten und erstellen Ihren Speed- & KI-Such-Report samt 2-Wege-Offerte.');">
+              <div class="form-group">
+                <label class="form-label" for="wpUrl">Ihre aktuelle Website-URL *</label>
+                <input id="wpUrl" type="url" class="form-input" placeholder="https://ihre-firma.ch" required>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="wpMode">Wie möchten Sie Ihre Webseite betreiben? *</label>
+                <select id="wpMode" class="form-select">
+                  <option value="sorglos">Weg B: Schlüsselfertig betreuen lassen (Sorglos-Paket über Partner-Agentur)</option>
+                  <option value="selbst">Weg A: Selbst per Studio-Cockpit &amp; ChatGPT-HTML steuern (CHF 0.— / Änderung)</option>
+                  <option value="hybrid">Hybrid: Schlüsselfertig starten + eigener Cockpit-Light-Zugang für Texte</option>
+                  <option value="partner">Ich bin Agentur / Berater und möchte WebPilot-Partner werden</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="wpName">Vor- und Nachname / Firma *</label>
+                <input id="wpName" type="text" class="form-input" placeholder="Hans Muster · Muster AG" required>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="wpEmail">E-Mail-Adresse *</label>
+                <input id="wpEmail" type="email" class="form-input" placeholder="hans@muster.ch" required>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="wpPhone">Telefon / Natel für Rückfragen (optional)</label>
+                <input id="wpPhone" type="tel" class="form-input" placeholder="079 123 45 67">
+              </div>
+              <button type="submit" class="btn-cta btn-cta-amber" style="width:100%; margin-top:6px;">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0;"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"/><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/></svg> Analyse &amp; 2-Wege-Offerte anfordern
+              </button>
+            </form>
+          </div>
         </div>
       </div>
     </div>
@@ -250,7 +946,7 @@
   <!-- STICKY THUMB BAR -->
   <div class="thumb-bar">
     <a href="mailto:info@magnet-xs.ch" class="btn-thumb btn-thumb-cta">
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0;"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg> E-Mail schreiben
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0;"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"/><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/></svg> E-Mail schreiben
     </a>
     <a href="https://wa.me/41790000000" class="btn-thumb btn-thumb-wa">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0;"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg> WhatsApp
@@ -261,10 +957,19 @@
   <footer class="footer-wrap">
     <div class="footer-inner">
       <div style="font-weight: 800; font-size: 1.05rem; color: #fff;" data-slot="footer_brand">WebPilot · Ein Produkt der magnet-Xs gmbh</div>
-      <div data-slot="footer_address">Vordere Hauptgasse 104 • 4800 Zofingen • info@magnet-xs.ch</div>
-      <div style="font-family:'JetBrains Mono',monospace; font-size:0.7rem; color:#475569; margin-top:8px;" data-slot="hosting_badge">Gehostet in der Schweiz (Zürich & Genf) • Blitzschnelle Ladezeiten • Version 2026</div>
+      <div data-slot="footer_address">Vordere Hauptgasse 104 · 4800 Zofingen AG · info@magnet-xs.ch</div>
+      <div class="footer-links">
+        <a href="index.html">Startseite</a>
+        <a href="angebot.html">2-Wege-Preismodell &amp; CHF 35.—/Mt.</a>
+        <a href="technologie.html">Cockpit, ChatGPT-HTML &amp; SEO-Autopilot</a>
+        <a href="ueber-uns.html">Über uns &amp; Partner</a>
+        <a href="kontakt.html">Vorschau &amp; Offerte anfordern</a>
+        <a href="https://vorschau.magnet-xs.ch/partner/" target="_blank" rel="noopener">Partner-Studio Login</a>
+      </div>
+      <div style="font-size:0.78rem; color:var(--muted-soft); margin-top:6px;" data-slot="hosting_badge">Gehostet in der Schweiz (Zürich &amp; Genf) · Zwei-Wege-Cockpit &amp; SEO/KI-Such-Autopilot · Version 2026</div>
     </div>
   </footer>
+  <div class="bottom-buffer" aria-hidden="true"></div>
 
   <script>
     function toggleDrawer() {

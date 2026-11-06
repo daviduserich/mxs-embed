@@ -50,7 +50,7 @@ DEFAULT_SPREADSHEET_URL = JENNY_SPREADSHEET_URL
 DEFAULT_TAB_TITLE = "Kunden & URL-Zentrale"
 
 MONTHLY_YEAR2_CHF = 35
-MONTHLY_PLAN_LABEL = "Hosting, Studio-Cockpit & fortlaufende SEO-/Mobile-Entwicklung"
+MONTHLY_PLAN_LABEL = "Hosting, Studio-Cockpit & laufender SEO-/KI-Such-Autopilot (Google & ChatGPT/GEO)"
 
 PARTNER_SHEET_OWNER = "jenny"
 
@@ -124,7 +124,7 @@ def compute_monthly_pricing(recommended_chf: Any) -> Dict[str, Any]:
         "monthly_sheet_display": (
             f"1. Jahr: CHF {year1}.— / Mt.\n"
             f"Ab 2. Jahr: CHF {year2}.— / Mt.\n"
-            f"(Inkl. Aufbau, Hosting, Cockpit & fortlaufende SEO-/Mobile-Entwicklung)"
+            f"(Inkl. Aufbau, Hosting, Studio-Cockpit & laufender SEO-/KI-Such-Autopilot)"
         ),
     }
 
@@ -135,7 +135,7 @@ def format_einmal_price_sheet_cell(recommended_chf: str, complexity_score: str, 
     form = (formula_chf or rec).strip()
     return (
         f"{rec} einmalig\n"
-        f"+ CHF {MONTHLY_YEAR2_CHF}.—/Mt. (Hosting, Cockpit & SEO/Mobile)\n"
+        f"+ CHF {MONTHLY_YEAR2_CHF}.—/Mt. (Hosting, Studio-Cockpit & SEO-/KI-Such-Autopilot)\n"
         f"Score: {score} · Formel: {form}"
     )
 
