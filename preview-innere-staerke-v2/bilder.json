@@ -1,116 +1,174 @@
 [
   {
+    "nr": 1,
     "id": "images_angebot_45min_mittag_jpg",
     "filename": "angebot-45min-mittag.jpg",
     "rel_path": "images/angebot-45min-mittag.jpg",
     "folder": "preview-innere-staerke-v2",
-    "category": "Coaching, Workshops & Referenzen",
+    "category": "Referenz, Projekt & Angebot",
+    "category_code": "ref",
     "dimensions": "1032x600",
     "size_kb": 98.1,
+    "format": "JPG",
     "mtime": 1793731445,
     "mtime_str": "03.11.2026 18:44",
-    "cdn_url": "https://embed.magnet-xs.ch/preview-innere-staerke-v2/images/angebot-45min-mittag.jpg",
+    "cdn_url": "https://vorschau.magnet-xs.ch/innere-staerke-v2/images/angebot-45min-mittag.jpg",
+    "cloudflare_url": "https://vorschau.magnet-xs.ch/innere-staerke-v2/images/angebot-45min-mittag.jpg",
+    "cloudflare_short": "vorschau.magnet-xs.ch/innere-staerke-v2/images/angebot-45min-mittag.jpg",
     "is_used": false,
     "used_in": [],
+    "used_in_pages": [],
     "alt": "Angebot 45min Mittag: Coaching, Workshops & Referenzen – Wüest + Paneduro in Sursee (LU)"
   },
   {
+    "nr": 2,
     "id": "images_angebot_daily_lunch_bites_jpg",
     "filename": "angebot-daily-lunch-bites.jpg",
     "rel_path": "images/angebot-daily-lunch-bites.jpg",
     "folder": "preview-innere-staerke-v2",
-    "category": "Coaching, Workshops & Referenzen",
+    "category": "Referenz, Projekt & Angebot",
+    "category_code": "ref",
     "dimensions": "1032x600",
     "size_kb": 63.5,
+    "format": "JPG",
     "mtime": 1793731445,
     "mtime_str": "03.11.2026 18:44",
-    "cdn_url": "https://embed.magnet-xs.ch/preview-innere-staerke-v2/images/angebot-daily-lunch-bites.jpg",
+    "cdn_url": "https://vorschau.magnet-xs.ch/innere-staerke-v2/images/angebot-daily-lunch-bites.jpg",
+    "cloudflare_url": "https://vorschau.magnet-xs.ch/innere-staerke-v2/images/angebot-daily-lunch-bites.jpg",
+    "cloudflare_short": "vorschau.magnet-xs.ch/innere-staerke-v2/images/angebot-daily-lunch-bites.jpg",
     "is_used": false,
     "used_in": [],
+    "used_in_pages": [],
     "alt": "Angebot Daily Lunch Bites: Coaching, Workshops & Referenzen – Wüest + Paneduro in Sursee (LU)"
   },
   {
+    "nr": 3,
     "id": "images_angebot_inner_strength_circle_jpg",
     "filename": "angebot-inner-strength-circle.jpg",
     "rel_path": "images/angebot-inner-strength-circle.jpg",
     "folder": "preview-innere-staerke-v2",
-    "category": "Coaching, Workshops & Referenzen",
+    "category": "Referenz, Projekt & Angebot",
+    "category_code": "ref",
     "dimensions": "1032x600",
     "size_kb": 100.1,
+    "format": "JPG",
     "mtime": 1793731445,
     "mtime_str": "03.11.2026 18:44",
-    "cdn_url": "https://embed.magnet-xs.ch/preview-innere-staerke-v2/images/angebot-inner-strength-circle.jpg",
-    "is_used": false,
-    "used_in": [],
+    "cdn_url": "https://vorschau.magnet-xs.ch/innere-staerke-v2/images/angebot-inner-strength-circle.jpg",
+    "cloudflare_url": "https://vorschau.magnet-xs.ch/innere-staerke-v2/images/angebot-inner-strength-circle.jpg",
+    "cloudflare_short": "vorschau.magnet-xs.ch/innere-staerke-v2/images/angebot-inner-strength-circle.jpg",
+    "is_used": true,
+    "used_in": [
+      {
+        "datei": "index.html",
+        "slot": "image",
+        "is_hero": false
+      },
+      {
+        "datei": "kontakt.html",
+        "slot": "image",
+        "is_hero": false
+      }
+    ],
+    "used_in_pages": [
+      "index.html",
+      "kontakt.html"
+    ],
     "alt": "Angebot Inner Strength Circle: Coaching, Workshops & Referenzen – Wüest + Paneduro in Sursee (LU)"
   },
   {
+    "nr": 4,
     "id": "images_apple_touch_icon_png",
     "filename": "apple-touch-icon.png",
     "rel_path": "images/apple-touch-icon.png",
     "folder": "preview-innere-staerke-v2",
-    "category": "Coaching, Workshops & Referenzen",
+    "category": "Favicon & App-Icon",
+    "category_code": "icon",
     "dimensions": "128x128",
     "size_kb": 1.6,
+    "format": "PNG",
     "mtime": 1793731440,
     "mtime_str": "03.11.2026 18:44",
-    "cdn_url": "https://embed.magnet-xs.ch/preview-innere-staerke-v2/images/apple-touch-icon.png",
+    "cdn_url": "https://vorschau.magnet-xs.ch/innere-staerke-v2/images/apple-touch-icon.png",
+    "cloudflare_url": "https://vorschau.magnet-xs.ch/innere-staerke-v2/images/apple-touch-icon.png",
+    "cloudflare_short": "vorschau.magnet-xs.ch/innere-staerke-v2/images/apple-touch-icon.png",
     "is_used": true,
     "used_in": [
-      {
-        "datei": "kontakt.html",
-        "slot": "image",
-        "is_hero": false
-      },
       {
         "datei": "index.html",
         "slot": "image",
         "is_hero": false
+      },
+      {
+        "datei": "kontakt.html",
+        "slot": "image",
+        "is_hero": false
       }
+    ],
+    "used_in_pages": [
+      "index.html",
+      "kontakt.html"
     ],
     "alt": "Wüest + Paneduro Sursee (LU) – Offizielles Logo (1:1 Executive Coaching und Sparring für)"
   },
   {
+    "nr": 5,
     "id": "images_award_top100_2024_jpg",
     "filename": "award-top100-2024.jpg",
     "rel_path": "images/award-top100-2024.jpg",
     "folder": "preview-innere-staerke-v2",
-    "category": "Coaching, Workshops & Referenzen",
+    "category": "Referenz, Projekt & Angebot",
+    "category_code": "ref",
     "dimensions": "1032x600",
     "size_kb": 105.0,
+    "format": "JPG",
     "mtime": 1793731444,
     "mtime_str": "03.11.2026 18:44",
-    "cdn_url": "https://embed.magnet-xs.ch/preview-innere-staerke-v2/images/award-top100-2024.jpg",
+    "cdn_url": "https://vorschau.magnet-xs.ch/innere-staerke-v2/images/award-top100-2024.jpg",
+    "cloudflare_url": "https://vorschau.magnet-xs.ch/innere-staerke-v2/images/award-top100-2024.jpg",
+    "cloudflare_short": "vorschau.magnet-xs.ch/innere-staerke-v2/images/award-top100-2024.jpg",
     "is_used": false,
     "used_in": [],
+    "used_in_pages": [],
     "alt": "Award Top100 2024: Coaching, Workshops & Referenzen – Wüest + Paneduro in Sursee (LU)"
   },
   {
+    "nr": 6,
     "id": "images_award_top100_trainer_jpg",
     "filename": "award-top100-trainer.jpg",
     "rel_path": "images/award-top100-trainer.jpg",
     "folder": "preview-innere-staerke-v2",
-    "category": "Coaching, Workshops & Referenzen",
+    "category": "Team, Porträt & Kader",
+    "category_code": "team",
     "dimensions": "1032x600",
     "size_kb": 172.6,
+    "format": "JPG",
     "mtime": 1793731444,
     "mtime_str": "03.11.2026 18:44",
-    "cdn_url": "https://embed.magnet-xs.ch/preview-innere-staerke-v2/images/award-top100-trainer.jpg",
+    "cdn_url": "https://vorschau.magnet-xs.ch/innere-staerke-v2/images/award-top100-trainer.jpg",
+    "cloudflare_url": "https://vorschau.magnet-xs.ch/innere-staerke-v2/images/award-top100-trainer.jpg",
+    "cloudflare_short": "vorschau.magnet-xs.ch/innere-staerke-v2/images/award-top100-trainer.jpg",
     "is_used": false,
     "used_in": [],
+    "used_in_pages": [],
     "alt": "Award Top100 Trainer: Coaching, Workshops & Referenzen – Wüest + Paneduro in Sursee (LU)"
   },
   {
+    "nr": 7,
     "id": "images_bioanalytica_jpg",
     "filename": "bioanalytica.jpg",
     "rel_path": "images/bioanalytica.jpg",
     "folder": "preview-innere-staerke-v2",
-    "category": "Coaching, Workshops & Referenzen",
+    "category": "Referenz, Projekt & Angebot",
+    "category_code": "ref",
     "dimensions": "500x500",
     "size_kb": 13.7,
+    "format": "JPG",
     "mtime": 1793731447,
     "mtime_str": "03.11.2026 18:44",
-    "cdn_url": "https://embed.magnet-xs.ch/preview-innere-staerke-v2/images/bioanalytica.jpg",
+    "cdn_url": "https://vorschau.magnet-xs.ch/innere-staerke-v2/images/bioanalytica.jpg",
+    "cloudflare_url": "https://vorschau.magnet-xs.ch/innere-staerke-v2/images/bioanalytica.jpg",
+    "cloudflare_short": "vorschau.magnet-xs.ch/innere-staerke-v2/images/bioanalytica.jpg",
     "is_used": true,
     "used_in": [
       {
@@ -118,91 +176,126 @@
         "slot": "image",
         "is_hero": false
       }
+    ],
+    "used_in_pages": [
+      "index.html"
     ],
     "alt": "Bioanalytica: Coaching, Workshops & Referenzen – Wüest + Paneduro in Sursee (LU)"
   },
   {
+    "nr": 8,
     "id": "images_buch_der_handball_code_jpg",
     "filename": "buch-der-handball-code.jpg",
     "rel_path": "images/buch-der-handball-code.jpg",
     "folder": "preview-innere-staerke-v2",
-    "category": "Coaching, Workshops & Referenzen",
+    "category": "Referenz, Projekt & Angebot",
+    "category_code": "ref",
     "dimensions": "1032x600",
     "size_kb": 80.0,
+    "format": "JPG",
     "mtime": 1793731444,
     "mtime_str": "03.11.2026 18:44",
-    "cdn_url": "https://embed.magnet-xs.ch/preview-innere-staerke-v2/images/buch-der-handball-code.jpg",
+    "cdn_url": "https://vorschau.magnet-xs.ch/innere-staerke-v2/images/buch-der-handball-code.jpg",
+    "cloudflare_url": "https://vorschau.magnet-xs.ch/innere-staerke-v2/images/buch-der-handball-code.jpg",
+    "cloudflare_short": "vorschau.magnet-xs.ch/innere-staerke-v2/images/buch-der-handball-code.jpg",
     "is_used": false,
     "used_in": [],
+    "used_in_pages": [],
     "alt": "Buch Der Handball Code: Coaching, Workshops & Referenzen – Wüest + Paneduro in Sursee (LU)"
   },
   {
+    "nr": 9,
     "id": "images_cyclingLounge_jpg",
     "filename": "cyclingLounge.jpg",
     "rel_path": "images/cyclingLounge.jpg",
     "folder": "preview-innere-staerke-v2",
-    "category": "Coaching, Workshops & Referenzen",
+    "category": "Referenz, Projekt & Angebot",
+    "category_code": "ref",
     "dimensions": "500x500",
     "size_kb": 7.3,
+    "format": "JPG",
     "mtime": 1793731447,
     "mtime_str": "03.11.2026 18:44",
-    "cdn_url": "https://embed.magnet-xs.ch/preview-innere-staerke-v2/images/cyclingLounge.jpg",
+    "cdn_url": "https://vorschau.magnet-xs.ch/innere-staerke-v2/images/cyclingLounge.jpg",
+    "cloudflare_url": "https://vorschau.magnet-xs.ch/innere-staerke-v2/images/cyclingLounge.jpg",
+    "cloudflare_short": "vorschau.magnet-xs.ch/innere-staerke-v2/images/cyclingLounge.jpg",
     "is_used": false,
     "used_in": [],
+    "used_in_pages": [],
     "alt": "Cyclinglounge: Coaching, Workshops & Referenzen – Wüest + Paneduro in Sursee (LU)"
   },
   {
+    "nr": 10,
     "id": "images_favicon_32x32_png",
     "filename": "favicon-32x32.png",
     "rel_path": "images/favicon-32x32.png",
     "folder": "preview-innere-staerke-v2",
-    "category": "Coaching, Workshops & Referenzen",
+    "category": "Favicon & App-Icon",
+    "category_code": "icon",
     "dimensions": "32x32",
     "size_kb": 0.5,
+    "format": "PNG",
     "mtime": 1793731440,
     "mtime_str": "03.11.2026 18:44",
-    "cdn_url": "https://embed.magnet-xs.ch/preview-innere-staerke-v2/images/favicon-32x32.png",
+    "cdn_url": "https://vorschau.magnet-xs.ch/innere-staerke-v2/images/favicon-32x32.png",
+    "cloudflare_url": "https://vorschau.magnet-xs.ch/innere-staerke-v2/images/favicon-32x32.png",
+    "cloudflare_short": "vorschau.magnet-xs.ch/innere-staerke-v2/images/favicon-32x32.png",
     "is_used": true,
     "used_in": [
       {
-        "datei": "kontakt.html",
+        "datei": "index.html",
         "slot": "image",
         "is_hero": false
       },
       {
-        "datei": "index.html",
+        "datei": "kontakt.html",
         "slot": "image",
         "is_hero": false
       }
     ],
+    "used_in_pages": [
+      "index.html",
+      "kontakt.html"
+    ],
     "alt": "Wüest + Paneduro Sursee (LU) – Offizielles Logo (1:1 Executive Coaching und Sparring für)"
   },
   {
+    "nr": 11,
     "id": "images_favicon_96x96_png",
     "filename": "favicon-96x96.png",
     "rel_path": "images/favicon-96x96.png",
     "folder": "preview-innere-staerke-v2",
-    "category": "Coaching, Workshops & Referenzen",
+    "category": "Favicon & App-Icon",
+    "category_code": "icon",
     "dimensions": "96x96",
     "size_kb": 1.2,
+    "format": "PNG",
     "mtime": 1793731440,
     "mtime_str": "03.11.2026 18:44",
-    "cdn_url": "https://embed.magnet-xs.ch/preview-innere-staerke-v2/images/favicon-96x96.png",
+    "cdn_url": "https://vorschau.magnet-xs.ch/innere-staerke-v2/images/favicon-96x96.png",
+    "cloudflare_url": "https://vorschau.magnet-xs.ch/innere-staerke-v2/images/favicon-96x96.png",
+    "cloudflare_short": "vorschau.magnet-xs.ch/innere-staerke-v2/images/favicon-96x96.png",
     "is_used": false,
     "used_in": [],
+    "used_in_pages": [],
     "alt": "Wüest + Paneduro Sursee (LU) – Offizielles Logo (1:1 Executive Coaching und Sparring für)"
   },
   {
+    "nr": 12,
     "id": "images_generali_jpg",
     "filename": "generali.jpg",
     "rel_path": "images/generali.jpg",
     "folder": "preview-innere-staerke-v2",
-    "category": "Coaching, Workshops & Referenzen",
+    "category": "Referenz, Projekt & Angebot",
+    "category_code": "ref",
     "dimensions": "500x500",
     "size_kb": 21.9,
+    "format": "JPG",
     "mtime": 1793731447,
     "mtime_str": "03.11.2026 18:44",
-    "cdn_url": "https://embed.magnet-xs.ch/preview-innere-staerke-v2/images/generali.jpg",
+    "cdn_url": "https://vorschau.magnet-xs.ch/innere-staerke-v2/images/generali.jpg",
+    "cloudflare_url": "https://vorschau.magnet-xs.ch/innere-staerke-v2/images/generali.jpg",
+    "cloudflare_short": "vorschau.magnet-xs.ch/innere-staerke-v2/images/generali.jpg",
     "is_used": true,
     "used_in": [
       {
@@ -211,34 +304,48 @@
         "is_hero": false
       }
     ],
+    "used_in_pages": [
+      "index.html"
+    ],
     "alt": "Generali: Coaching, Workshops & Referenzen – Wüest + Paneduro in Sursee (LU)"
   },
   {
+    "nr": 13,
     "id": "images_header_christine_wueest_jpg",
     "filename": "header-christine-wueest.jpg",
     "rel_path": "images/header-christine-wueest.jpg",
     "folder": "preview-innere-staerke-v2",
-    "category": "Coaching, Workshops & Referenzen",
+    "category": "Team, Porträt & Kader",
+    "category_code": "team",
     "dimensions": "2560x960",
     "size_kb": 168.7,
+    "format": "JPG",
     "mtime": 1793731442,
     "mtime_str": "03.11.2026 18:44",
-    "cdn_url": "https://embed.magnet-xs.ch/preview-innere-staerke-v2/images/header-christine-wueest.jpg",
+    "cdn_url": "https://vorschau.magnet-xs.ch/innere-staerke-v2/images/header-christine-wueest.jpg",
+    "cloudflare_url": "https://vorschau.magnet-xs.ch/innere-staerke-v2/images/header-christine-wueest.jpg",
+    "cloudflare_short": "vorschau.magnet-xs.ch/innere-staerke-v2/images/header-christine-wueest.jpg",
     "is_used": false,
     "used_in": [],
+    "used_in_pages": [],
     "alt": "Header Christine Wueest: Coaching, Workshops & Referenzen – Wüest + Paneduro in Sursee (LU)"
   },
   {
+    "nr": 14,
     "id": "images_header_kontakt_jpg",
     "filename": "header-kontakt.jpg",
     "rel_path": "images/header-kontakt.jpg",
     "folder": "preview-innere-staerke-v2",
-    "category": "Coaching, Workshops & Referenzen",
+    "category": "Referenz, Projekt & Angebot",
+    "category_code": "ref",
     "dimensions": "2560x960",
     "size_kb": 724.7,
+    "format": "JPG",
     "mtime": 1793731444,
     "mtime_str": "03.11.2026 18:44",
-    "cdn_url": "https://embed.magnet-xs.ch/preview-innere-staerke-v2/images/header-kontakt.jpg",
+    "cdn_url": "https://vorschau.magnet-xs.ch/innere-staerke-v2/images/header-kontakt.jpg",
+    "cloudflare_url": "https://vorschau.magnet-xs.ch/innere-staerke-v2/images/header-kontakt.jpg",
+    "cloudflare_short": "vorschau.magnet-xs.ch/innere-staerke-v2/images/header-kontakt.jpg",
     "is_used": true,
     "used_in": [
       {
@@ -247,64 +354,90 @@
         "is_hero": false
       }
     ],
+    "used_in_pages": [
+      "kontakt.html"
+    ],
     "alt": "Christine Wüest und Nino Paneduro Kontakt Businesspark Sursee"
   },
   {
+    "nr": 15,
     "id": "images_header_kundenstimmen_jpg",
     "filename": "header-kundenstimmen.jpg",
     "rel_path": "images/header-kundenstimmen.jpg",
     "folder": "preview-innere-staerke-v2",
-    "category": "Coaching, Workshops & Referenzen",
+    "category": "Referenz, Projekt & Angebot",
+    "category_code": "ref",
     "dimensions": "2560x960",
     "size_kb": 209.2,
+    "format": "JPG",
     "mtime": 1793731443,
     "mtime_str": "03.11.2026 18:44",
-    "cdn_url": "https://embed.magnet-xs.ch/preview-innere-staerke-v2/images/header-kundenstimmen.jpg",
+    "cdn_url": "https://vorschau.magnet-xs.ch/innere-staerke-v2/images/header-kundenstimmen.jpg",
+    "cloudflare_url": "https://vorschau.magnet-xs.ch/innere-staerke-v2/images/header-kundenstimmen.jpg",
+    "cloudflare_short": "vorschau.magnet-xs.ch/innere-staerke-v2/images/header-kundenstimmen.jpg",
     "is_used": false,
     "used_in": [],
+    "used_in_pages": [],
     "alt": "Header Kundenstimmen: Coaching, Workshops & Referenzen – Wüest + Paneduro in Sursee (LU)"
   },
   {
+    "nr": 16,
     "id": "images_header_mentoren_duo_jpg",
     "filename": "header-mentoren-duo.jpg",
     "rel_path": "images/header-mentoren-duo.jpg",
     "folder": "preview-innere-staerke-v2",
-    "category": "Coaching, Workshops & Referenzen",
+    "category": "Referenz, Projekt & Angebot",
+    "category_code": "ref",
     "dimensions": "2560x960",
     "size_kb": 110.2,
+    "format": "JPG",
     "mtime": 1793731442,
     "mtime_str": "03.11.2026 18:44",
-    "cdn_url": "https://embed.magnet-xs.ch/preview-innere-staerke-v2/images/header-mentoren-duo.jpg",
+    "cdn_url": "https://vorschau.magnet-xs.ch/innere-staerke-v2/images/header-mentoren-duo.jpg",
+    "cloudflare_url": "https://vorschau.magnet-xs.ch/innere-staerke-v2/images/header-mentoren-duo.jpg",
+    "cloudflare_short": "vorschau.magnet-xs.ch/innere-staerke-v2/images/header-mentoren-duo.jpg",
     "is_used": false,
     "used_in": [],
+    "used_in_pages": [],
     "alt": "Header Mentoren Duo: Coaching, Workshops & Referenzen – Wüest + Paneduro in Sursee (LU)"
   },
   {
+    "nr": 17,
     "id": "images_header_nino_paneduro_jpg",
     "filename": "header-nino-paneduro.jpg",
     "rel_path": "images/header-nino-paneduro.jpg",
     "folder": "preview-innere-staerke-v2",
-    "category": "Coaching, Workshops & Referenzen",
+    "category": "Team, Porträt & Kader",
+    "category_code": "team",
     "dimensions": "2560x960",
     "size_kb": 104.8,
+    "format": "JPG",
     "mtime": 1793731442,
     "mtime_str": "03.11.2026 18:44",
-    "cdn_url": "https://embed.magnet-xs.ch/preview-innere-staerke-v2/images/header-nino-paneduro.jpg",
+    "cdn_url": "https://vorschau.magnet-xs.ch/innere-staerke-v2/images/header-nino-paneduro.jpg",
+    "cloudflare_url": "https://vorschau.magnet-xs.ch/innere-staerke-v2/images/header-nino-paneduro.jpg",
+    "cloudflare_short": "vorschau.magnet-xs.ch/innere-staerke-v2/images/header-nino-paneduro.jpg",
     "is_used": false,
     "used_in": [],
+    "used_in_pages": [],
     "alt": "Header Nino Paneduro: Coaching, Workshops & Referenzen – Wüest + Paneduro in Sursee (LU)"
   },
   {
+    "nr": 18,
     "id": "images_header_selbstfuehrung_jpg",
     "filename": "header-selbstfuehrung.jpg",
     "rel_path": "images/header-selbstfuehrung.jpg",
     "folder": "preview-innere-staerke-v2",
-    "category": "Coaching, Workshops & Referenzen",
+    "category": "Referenz, Projekt & Angebot",
+    "category_code": "ref",
     "dimensions": "2560x960",
     "size_kb": 110.7,
+    "format": "JPG",
     "mtime": 1793731442,
     "mtime_str": "03.11.2026 18:44",
-    "cdn_url": "https://embed.magnet-xs.ch/preview-innere-staerke-v2/images/header-selbstfuehrung.jpg",
+    "cdn_url": "https://vorschau.magnet-xs.ch/innere-staerke-v2/images/header-selbstfuehrung.jpg",
+    "cloudflare_url": "https://vorschau.magnet-xs.ch/innere-staerke-v2/images/header-selbstfuehrung.jpg",
+    "cloudflare_short": "vorschau.magnet-xs.ch/innere-staerke-v2/images/header-selbstfuehrung.jpg",
     "is_used": true,
     "used_in": [
       {
@@ -312,20 +445,28 @@
         "slot": "image",
         "is_hero": false
       }
+    ],
+    "used_in_pages": [
+      "index.html"
     ],
     "alt": "Innere Stärke entwickeln mit Selbstführung"
   },
   {
+    "nr": 19,
     "id": "images_header_selbstwirksamkeit_jpg",
     "filename": "header-selbstwirksamkeit.jpg",
     "rel_path": "images/header-selbstwirksamkeit.jpg",
     "folder": "preview-innere-staerke-v2",
-    "category": "Coaching, Workshops & Referenzen",
+    "category": "Referenz, Projekt & Angebot",
+    "category_code": "ref",
     "dimensions": "2560x960",
     "size_kb": 243.4,
+    "format": "JPG",
     "mtime": 1793731443,
     "mtime_str": "03.11.2026 18:44",
-    "cdn_url": "https://embed.magnet-xs.ch/preview-innere-staerke-v2/images/header-selbstwirksamkeit.jpg",
+    "cdn_url": "https://vorschau.magnet-xs.ch/innere-staerke-v2/images/header-selbstwirksamkeit.jpg",
+    "cloudflare_url": "https://vorschau.magnet-xs.ch/innere-staerke-v2/images/header-selbstwirksamkeit.jpg",
+    "cloudflare_short": "vorschau.magnet-xs.ch/innere-staerke-v2/images/header-selbstwirksamkeit.jpg",
     "is_used": true,
     "used_in": [
       {
@@ -333,20 +474,28 @@
         "slot": "image",
         "is_hero": false
       }
+    ],
+    "used_in_pages": [
+      "index.html"
     ],
     "alt": "Innere Stärke durch Selbstwirksamkeit"
   },
   {
+    "nr": 20,
     "id": "images_header_stressmanagement_jpg",
     "filename": "header-stressmanagement.jpg",
     "rel_path": "images/header-stressmanagement.jpg",
     "folder": "preview-innere-staerke-v2",
-    "category": "Coaching, Workshops & Referenzen",
+    "category": "Referenz, Projekt & Angebot",
+    "category_code": "ref",
     "dimensions": "2560x960",
     "size_kb": 151.7,
+    "format": "JPG",
     "mtime": 1793731443,
     "mtime_str": "03.11.2026 18:44",
-    "cdn_url": "https://embed.magnet-xs.ch/preview-innere-staerke-v2/images/header-stressmanagement.jpg",
+    "cdn_url": "https://vorschau.magnet-xs.ch/innere-staerke-v2/images/header-stressmanagement.jpg",
+    "cloudflare_url": "https://vorschau.magnet-xs.ch/innere-staerke-v2/images/header-stressmanagement.jpg",
+    "cloudflare_short": "vorschau.magnet-xs.ch/innere-staerke-v2/images/header-stressmanagement.jpg",
     "is_used": true,
     "used_in": [
       {
@@ -354,20 +503,28 @@
         "slot": "image",
         "is_hero": false
       }
+    ],
+    "used_in_pages": [
+      "index.html"
     ],
     "alt": "Innere Stärke mit dem richtigen Stressmanagement"
   },
   {
+    "nr": 21,
     "id": "images_header_zukunftsplanung_jpg",
     "filename": "header-zukunftsplanung.jpg",
     "rel_path": "images/header-zukunftsplanung.jpg",
     "folder": "preview-innere-staerke-v2",
-    "category": "Coaching, Workshops & Referenzen",
+    "category": "Referenz, Projekt & Angebot",
+    "category_code": "ref",
     "dimensions": "2560x960",
     "size_kb": 144.4,
+    "format": "JPG",
     "mtime": 1793731443,
     "mtime_str": "03.11.2026 18:44",
-    "cdn_url": "https://embed.magnet-xs.ch/preview-innere-staerke-v2/images/header-zukunftsplanung.jpg",
+    "cdn_url": "https://vorschau.magnet-xs.ch/innere-staerke-v2/images/header-zukunftsplanung.jpg",
+    "cloudflare_url": "https://vorschau.magnet-xs.ch/innere-staerke-v2/images/header-zukunftsplanung.jpg",
+    "cloudflare_short": "vorschau.magnet-xs.ch/innere-staerke-v2/images/header-zukunftsplanung.jpg",
     "is_used": true,
     "used_in": [
       {
@@ -376,19 +533,27 @@
         "is_hero": false
       }
     ],
+    "used_in_pages": [
+      "index.html"
+    ],
     "alt": "Innere Stärke wächst durch Zukunftsgestaltung"
   },
   {
+    "nr": 22,
     "id": "images_hero_wueest_paneduro_jpg",
     "filename": "hero-wueest-paneduro.jpg",
     "rel_path": "images/hero-wueest-paneduro.jpg",
     "folder": "preview-innere-staerke-v2",
-    "category": "Hero & Header",
+    "category": "Startbühne & Header",
+    "category_code": "hero",
     "dimensions": "2560x1000",
     "size_kb": 151.5,
+    "format": "JPG",
     "mtime": 1793731441,
     "mtime_str": "03.11.2026 18:44",
-    "cdn_url": "https://embed.magnet-xs.ch/preview-innere-staerke-v2/images/hero-wueest-paneduro.jpg",
+    "cdn_url": "https://vorschau.magnet-xs.ch/innere-staerke-v2/images/hero-wueest-paneduro.jpg",
+    "cloudflare_url": "https://vorschau.magnet-xs.ch/innere-staerke-v2/images/hero-wueest-paneduro.jpg",
+    "cloudflare_short": "vorschau.magnet-xs.ch/innere-staerke-v2/images/hero-wueest-paneduro.jpg",
     "is_used": true,
     "used_in": [
       {
@@ -397,90 +562,125 @@
         "is_hero": true
       }
     ],
+    "used_in_pages": [
+      "index.html"
+    ],
     "alt": "Christine Wüest und Nino Paneduro — Innere Stärke entwickeln"
   },
   {
+    "nr": 23,
     "id": "images_kanton_jpg",
     "filename": "kanton.jpg",
     "rel_path": "images/kanton.jpg",
     "folder": "preview-innere-staerke-v2",
-    "category": "Coaching, Workshops & Referenzen",
+    "category": "Referenz, Projekt & Angebot",
+    "category_code": "ref",
     "dimensions": "500x500",
     "size_kb": 13.1,
+    "format": "JPG",
     "mtime": 1793731447,
     "mtime_str": "03.11.2026 18:44",
-    "cdn_url": "https://embed.magnet-xs.ch/preview-innere-staerke-v2/images/kanton.jpg",
+    "cdn_url": "https://vorschau.magnet-xs.ch/innere-staerke-v2/images/kanton.jpg",
+    "cloudflare_url": "https://vorschau.magnet-xs.ch/innere-staerke-v2/images/kanton.jpg",
+    "cloudflare_short": "vorschau.magnet-xs.ch/innere-staerke-v2/images/kanton.jpg",
     "is_used": false,
     "used_in": [],
+    "used_in_pages": [],
     "alt": "Kanton: Coaching, Workshops & Referenzen – Wüest + Paneduro in Sursee (LU)"
   },
   {
+    "nr": 24,
     "id": "images_logo_192_png",
     "filename": "logo-192.png",
     "rel_path": "images/logo-192.png",
     "folder": "preview-innere-staerke-v2",
-    "category": "Logo & Icon",
+    "category": "Logo & Marken-Icon",
+    "category_code": "logo",
     "dimensions": "128x128",
     "size_kb": 1.6,
+    "format": "PNG",
     "mtime": 1793731440,
     "mtime_str": "03.11.2026 18:44",
-    "cdn_url": "https://embed.magnet-xs.ch/preview-innere-staerke-v2/images/logo-192.png",
+    "cdn_url": "https://vorschau.magnet-xs.ch/innere-staerke-v2/images/logo-192.png",
+    "cloudflare_url": "https://vorschau.magnet-xs.ch/innere-staerke-v2/images/logo-192.png",
+    "cloudflare_short": "vorschau.magnet-xs.ch/innere-staerke-v2/images/logo-192.png",
     "is_used": false,
     "used_in": [],
+    "used_in_pages": [],
     "alt": "Wüest + Paneduro Sursee (LU) – Offizielles Logo (1:1 Executive Coaching und Sparring für)"
   },
   {
+    "nr": 25,
     "id": "images_logo_innere_staerke_png",
     "filename": "logo-innere-staerke.png",
     "rel_path": "images/logo-innere-staerke.png",
     "folder": "preview-innere-staerke-v2",
-    "category": "Logo & Icon",
+    "category": "Logo & Marken-Icon",
+    "category_code": "logo",
     "dimensions": "400x400",
     "size_kb": 19.8,
+    "format": "PNG",
     "mtime": 1793731460,
     "mtime_str": "03.11.2026 18:44",
-    "cdn_url": "https://embed.magnet-xs.ch/preview-innere-staerke-v2/images/logo-innere-staerke.png",
+    "cdn_url": "https://vorschau.magnet-xs.ch/innere-staerke-v2/images/logo-innere-staerke.png",
+    "cloudflare_url": "https://vorschau.magnet-xs.ch/innere-staerke-v2/images/logo-innere-staerke.png",
+    "cloudflare_short": "vorschau.magnet-xs.ch/innere-staerke-v2/images/logo-innere-staerke.png",
     "is_used": false,
     "used_in": [],
+    "used_in_pages": [],
     "alt": "Wüest + Paneduro Sursee (LU) – Offizielles Logo (1:1 Executive Coaching und Sparring für)"
   },
   {
+    "nr": 26,
     "id": "images_logo_svg",
     "filename": "logo.svg",
     "rel_path": "images/logo.svg",
     "folder": "preview-innere-staerke-v2",
-    "category": "Logo & Icon",
-    "dimensions": "Unbekannt",
+    "category": "Logo & Marken-Icon",
+    "category_code": "logo",
+    "dimensions": "201x201",
     "size_kb": 18.4,
+    "format": "SVG",
     "mtime": 1793731440,
     "mtime_str": "03.11.2026 18:44",
-    "cdn_url": "https://embed.magnet-xs.ch/preview-innere-staerke-v2/images/logo.svg",
+    "cdn_url": "https://vorschau.magnet-xs.ch/innere-staerke-v2/images/logo.svg",
+    "cloudflare_url": "https://vorschau.magnet-xs.ch/innere-staerke-v2/images/logo.svg",
+    "cloudflare_short": "vorschau.magnet-xs.ch/innere-staerke-v2/images/logo.svg",
     "is_used": true,
     "used_in": [
       {
-        "datei": "kontakt.html",
+        "datei": "index.html",
         "slot": "image",
         "is_hero": false
       },
       {
-        "datei": "index.html",
+        "datei": "kontakt.html",
         "slot": "image",
         "is_hero": false
       }
     ],
-    "alt": "Wüest + Paneduro Sursee (LU) – Offizielles Logo (1:1 Executive Coaching und Sparring für)"
+    "used_in_pages": [
+      "index.html",
+      "kontakt.html"
+    ],
+    "alt": "Wüest + Paneduro — Innere Stärke entwickeln"
   },
   {
+    "nr": 27,
     "id": "images_mo_jpg",
     "filename": "mo.jpg",
     "rel_path": "images/mo.jpg",
     "folder": "preview-innere-staerke-v2",
-    "category": "Coaching, Workshops & Referenzen",
+    "category": "Referenz, Projekt & Angebot",
+    "category_code": "ref",
     "dimensions": "500x500",
     "size_kb": 8.4,
+    "format": "JPG",
     "mtime": 1793731447,
     "mtime_str": "03.11.2026 18:44",
-    "cdn_url": "https://embed.magnet-xs.ch/preview-innere-staerke-v2/images/mo.jpg",
+    "cdn_url": "https://vorschau.magnet-xs.ch/innere-staerke-v2/images/mo.jpg",
+    "cloudflare_url": "https://vorschau.magnet-xs.ch/innere-staerke-v2/images/mo.jpg",
+    "cloudflare_short": "vorschau.magnet-xs.ch/innere-staerke-v2/images/mo.jpg",
     "is_used": true,
     "used_in": [
       {
@@ -488,20 +688,28 @@
         "slot": "image",
         "is_hero": false
       }
+    ],
+    "used_in_pages": [
+      "index.html"
     ],
     "alt": "Mo: Coaching, Workshops & Referenzen – Wüest + Paneduro in Sursee (LU)"
   },
   {
+    "nr": 28,
     "id": "images_portrait_christine_wueest_jpg",
     "filename": "portrait-christine-wueest.jpg",
     "rel_path": "images/portrait-christine-wueest.jpg",
     "folder": "preview-innere-staerke-v2",
-    "category": "Coaching, Workshops & Referenzen",
+    "category": "Team, Porträt & Kader",
+    "category_code": "team",
     "dimensions": "1392x1392",
     "size_kb": 231.7,
+    "format": "JPG",
     "mtime": 1793731441,
     "mtime_str": "03.11.2026 18:44",
-    "cdn_url": "https://embed.magnet-xs.ch/preview-innere-staerke-v2/images/portrait-christine-wueest.jpg",
+    "cdn_url": "https://vorschau.magnet-xs.ch/innere-staerke-v2/images/portrait-christine-wueest.jpg",
+    "cloudflare_url": "https://vorschau.magnet-xs.ch/innere-staerke-v2/images/portrait-christine-wueest.jpg",
+    "cloudflare_short": "vorschau.magnet-xs.ch/innere-staerke-v2/images/portrait-christine-wueest.jpg",
     "is_used": true,
     "used_in": [
       {
@@ -509,20 +717,28 @@
         "slot": "image",
         "is_hero": false
       }
+    ],
+    "used_in_pages": [
+      "index.html"
     ],
     "alt": "Christine Wüest — Expertin für Resilienz und innere Stärke"
   },
   {
+    "nr": 29,
     "id": "images_portrait_nino_paneduro_jpg",
     "filename": "portrait-nino-paneduro.jpg",
     "rel_path": "images/portrait-nino-paneduro.jpg",
     "folder": "preview-innere-staerke-v2",
-    "category": "Coaching, Workshops & Referenzen",
+    "category": "Team, Porträt & Kader",
+    "category_code": "team",
     "dimensions": "1392x1392",
     "size_kb": 104.9,
+    "format": "JPG",
     "mtime": 1793731441,
     "mtime_str": "03.11.2026 18:44",
-    "cdn_url": "https://embed.magnet-xs.ch/preview-innere-staerke-v2/images/portrait-nino-paneduro.jpg",
+    "cdn_url": "https://vorschau.magnet-xs.ch/innere-staerke-v2/images/portrait-nino-paneduro.jpg",
+    "cloudflare_url": "https://vorschau.magnet-xs.ch/innere-staerke-v2/images/portrait-nino-paneduro.jpg",
+    "cloudflare_short": "vorschau.magnet-xs.ch/innere-staerke-v2/images/portrait-nino-paneduro.jpg",
     "is_used": true,
     "used_in": [
       {
@@ -530,20 +746,28 @@
         "slot": "image",
         "is_hero": false
       }
+    ],
+    "used_in_pages": [
+      "index.html"
     ],
     "alt": "Nino Paneduro — Mentor und Ratgeber für innere Stärke"
   },
   {
+    "nr": 30,
     "id": "images_ref_bioanalytica_jpg",
     "filename": "ref-bioanalytica.jpg",
     "rel_path": "images/ref-bioanalytica.jpg",
     "folder": "preview-innere-staerke-v2",
-    "category": "Coaching, Workshops & Referenzen",
+    "category": "Referenz, Projekt & Angebot",
+    "category_code": "ref",
     "dimensions": "500x500",
     "size_kb": 13.7,
+    "format": "JPG",
     "mtime": 1793731446,
     "mtime_str": "03.11.2026 18:44",
-    "cdn_url": "https://embed.magnet-xs.ch/preview-innere-staerke-v2/images/ref-bioanalytica.jpg",
+    "cdn_url": "https://vorschau.magnet-xs.ch/innere-staerke-v2/images/ref-bioanalytica.jpg",
+    "cloudflare_url": "https://vorschau.magnet-xs.ch/innere-staerke-v2/images/ref-bioanalytica.jpg",
+    "cloudflare_short": "vorschau.magnet-xs.ch/innere-staerke-v2/images/ref-bioanalytica.jpg",
     "is_used": true,
     "used_in": [
       {
@@ -551,20 +775,28 @@
         "slot": "image",
         "is_hero": false
       }
+    ],
+    "used_in_pages": [
+      "index.html"
     ],
     "alt": "Referenzunternehmen Bioanalytica AG – Erfolgsprojekt mit Wüest + Paneduro (Sursee (LU))"
   },
   {
+    "nr": 31,
     "id": "images_ref_cyclinglounge_jpg",
     "filename": "ref-cyclinglounge.jpg",
     "rel_path": "images/ref-cyclinglounge.jpg",
     "folder": "preview-innere-staerke-v2",
-    "category": "Coaching, Workshops & Referenzen",
+    "category": "Referenz, Projekt & Angebot",
+    "category_code": "ref",
     "dimensions": "500x500",
     "size_kb": 7.3,
+    "format": "JPG",
     "mtime": 1793731446,
     "mtime_str": "03.11.2026 18:44",
-    "cdn_url": "https://embed.magnet-xs.ch/preview-innere-staerke-v2/images/ref-cyclinglounge.jpg",
+    "cdn_url": "https://vorschau.magnet-xs.ch/innere-staerke-v2/images/ref-cyclinglounge.jpg",
+    "cloudflare_url": "https://vorschau.magnet-xs.ch/innere-staerke-v2/images/ref-cyclinglounge.jpg",
+    "cloudflare_short": "vorschau.magnet-xs.ch/innere-staerke-v2/images/ref-cyclinglounge.jpg",
     "is_used": true,
     "used_in": [
       {
@@ -572,20 +804,28 @@
         "slot": "image",
         "is_hero": false
       }
+    ],
+    "used_in_pages": [
+      "index.html"
     ],
     "alt": "Referenzunternehmen Cycling Lounge – Erfolgsprojekt mit Wüest + Paneduro (Sursee (LU))"
   },
   {
+    "nr": 32,
     "id": "images_ref_generali_jpg",
     "filename": "ref-generali.jpg",
     "rel_path": "images/ref-generali.jpg",
     "folder": "preview-innere-staerke-v2",
-    "category": "Coaching, Workshops & Referenzen",
+    "category": "Referenz, Projekt & Angebot",
+    "category_code": "ref",
     "dimensions": "500x500",
     "size_kb": 21.9,
+    "format": "JPG",
     "mtime": 1793731446,
     "mtime_str": "03.11.2026 18:44",
-    "cdn_url": "https://embed.magnet-xs.ch/preview-innere-staerke-v2/images/ref-generali.jpg",
+    "cdn_url": "https://vorschau.magnet-xs.ch/innere-staerke-v2/images/ref-generali.jpg",
+    "cloudflare_url": "https://vorschau.magnet-xs.ch/innere-staerke-v2/images/ref-generali.jpg",
+    "cloudflare_short": "vorschau.magnet-xs.ch/innere-staerke-v2/images/ref-generali.jpg",
     "is_used": true,
     "used_in": [
       {
@@ -593,20 +833,28 @@
         "slot": "image",
         "is_hero": false
       }
+    ],
+    "used_in_pages": [
+      "index.html"
     ],
     "alt": "Generali Versicherungen"
   },
   {
+    "nr": 33,
     "id": "images_ref_kanton_aargau_jpg",
     "filename": "ref-kanton-aargau.jpg",
     "rel_path": "images/ref-kanton-aargau.jpg",
     "folder": "preview-innere-staerke-v2",
-    "category": "Coaching, Workshops & Referenzen",
+    "category": "Referenz, Projekt & Angebot",
+    "category_code": "ref",
     "dimensions": "500x500",
     "size_kb": 13.1,
+    "format": "JPG",
     "mtime": 1793731446,
     "mtime_str": "03.11.2026 18:44",
-    "cdn_url": "https://embed.magnet-xs.ch/preview-innere-staerke-v2/images/ref-kanton-aargau.jpg",
+    "cdn_url": "https://vorschau.magnet-xs.ch/innere-staerke-v2/images/ref-kanton-aargau.jpg",
+    "cloudflare_url": "https://vorschau.magnet-xs.ch/innere-staerke-v2/images/ref-kanton-aargau.jpg",
+    "cloudflare_short": "vorschau.magnet-xs.ch/innere-staerke-v2/images/ref-kanton-aargau.jpg",
     "is_used": true,
     "used_in": [
       {
@@ -614,20 +862,28 @@
         "slot": "image",
         "is_hero": false
       }
+    ],
+    "used_in_pages": [
+      "index.html"
     ],
     "alt": "Kanton Aargau (AWA & Recht)"
   },
   {
+    "nr": 34,
     "id": "images_ref_logoparts_png",
     "filename": "ref-logoparts.png",
     "rel_path": "images/ref-logoparts.png",
     "folder": "preview-innere-staerke-v2",
-    "category": "Logo & Icon",
+    "category": "Logo & Marken-Icon",
+    "category_code": "logo",
     "dimensions": "191x130",
     "size_kb": 12.9,
+    "format": "PNG",
     "mtime": 1793731445,
     "mtime_str": "03.11.2026 18:44",
-    "cdn_url": "https://embed.magnet-xs.ch/preview-innere-staerke-v2/images/ref-logoparts.png",
+    "cdn_url": "https://vorschau.magnet-xs.ch/innere-staerke-v2/images/ref-logoparts.png",
+    "cloudflare_url": "https://vorschau.magnet-xs.ch/innere-staerke-v2/images/ref-logoparts.png",
+    "cloudflare_short": "vorschau.magnet-xs.ch/innere-staerke-v2/images/ref-logoparts.png",
     "is_used": true,
     "used_in": [
       {
@@ -635,20 +891,28 @@
         "slot": "image",
         "is_hero": false
       }
+    ],
+    "used_in_pages": [
+      "index.html"
     ],
     "alt": "Offizieller Vereins-Sponsor und Partner von Wüest + Paneduro (Sursee): Parts GmbH"
   },
   {
+    "nr": 35,
     "id": "images_ref_mo_jpg",
     "filename": "ref-mo.jpg",
     "rel_path": "images/ref-mo.jpg",
     "folder": "preview-innere-staerke-v2",
-    "category": "Coaching, Workshops & Referenzen",
+    "category": "Referenz, Projekt & Angebot",
+    "category_code": "ref",
     "dimensions": "500x500",
     "size_kb": 8.4,
+    "format": "JPG",
     "mtime": 1793731446,
     "mtime_str": "03.11.2026 18:44",
-    "cdn_url": "https://embed.magnet-xs.ch/preview-innere-staerke-v2/images/ref-mo.jpg",
+    "cdn_url": "https://vorschau.magnet-xs.ch/innere-staerke-v2/images/ref-mo.jpg",
+    "cloudflare_url": "https://vorschau.magnet-xs.ch/innere-staerke-v2/images/ref-mo.jpg",
+    "cloudflare_short": "vorschau.magnet-xs.ch/innere-staerke-v2/images/ref-mo.jpg",
     "is_used": true,
     "used_in": [
       {
@@ -656,20 +920,28 @@
         "slot": "image",
         "is_hero": false
       }
+    ],
+    "used_in_pages": [
+      "index.html"
     ],
     "alt": "Referenzunternehmen MO – Erfolgsprojekt mit Wüest + Paneduro (Sursee (LU))"
   },
   {
+    "nr": 36,
     "id": "images_ref_soleil_jpg",
     "filename": "ref-soleil.jpg",
     "rel_path": "images/ref-soleil.jpg",
     "folder": "preview-innere-staerke-v2",
-    "category": "Coaching, Workshops & Referenzen",
+    "category": "Referenz, Projekt & Angebot",
+    "category_code": "ref",
     "dimensions": "500x500",
     "size_kb": 11.4,
+    "format": "JPG",
     "mtime": 1793731446,
     "mtime_str": "03.11.2026 18:44",
-    "cdn_url": "https://embed.magnet-xs.ch/preview-innere-staerke-v2/images/ref-soleil.jpg",
+    "cdn_url": "https://vorschau.magnet-xs.ch/innere-staerke-v2/images/ref-soleil.jpg",
+    "cloudflare_url": "https://vorschau.magnet-xs.ch/innere-staerke-v2/images/ref-soleil.jpg",
+    "cloudflare_short": "vorschau.magnet-xs.ch/innere-staerke-v2/images/ref-soleil.jpg",
     "is_used": true,
     "used_in": [
       {
@@ -677,20 +949,28 @@
         "slot": "image",
         "is_hero": false
       }
+    ],
+    "used_in_pages": [
+      "index.html"
     ],
     "alt": "Soleil-Gesundheitspraxis"
   },
   {
+    "nr": 37,
     "id": "images_ref_stv_jpg",
     "filename": "ref-stv.jpg",
     "rel_path": "images/ref-stv.jpg",
     "folder": "preview-innere-staerke-v2",
-    "category": "Coaching, Workshops & Referenzen",
+    "category": "Referenz, Projekt & Angebot",
+    "category_code": "ref",
     "dimensions": "500x500",
     "size_kb": 8.8,
+    "format": "JPG",
     "mtime": 1793731446,
     "mtime_str": "03.11.2026 18:44",
-    "cdn_url": "https://embed.magnet-xs.ch/preview-innere-staerke-v2/images/ref-stv.jpg",
+    "cdn_url": "https://vorschau.magnet-xs.ch/innere-staerke-v2/images/ref-stv.jpg",
+    "cloudflare_url": "https://vorschau.magnet-xs.ch/innere-staerke-v2/images/ref-stv.jpg",
+    "cloudflare_short": "vorschau.magnet-xs.ch/innere-staerke-v2/images/ref-stv.jpg",
     "is_used": true,
     "used_in": [
       {
@@ -698,20 +978,28 @@
         "slot": "image",
         "is_hero": false
       }
+    ],
+    "used_in_pages": [
+      "index.html"
     ],
     "alt": "Schweizerischer Turnverband (STV)"
   },
   {
+    "nr": 38,
     "id": "images_ref_zeitlos_jpg",
     "filename": "ref-zeitlos.jpg",
     "rel_path": "images/ref-zeitlos.jpg",
     "folder": "preview-innere-staerke-v2",
-    "category": "Coaching, Workshops & Referenzen",
+    "category": "Referenz, Projekt & Angebot",
+    "category_code": "ref",
     "dimensions": "500x500",
     "size_kb": 8.2,
+    "format": "JPG",
     "mtime": 1793731447,
     "mtime_str": "03.11.2026 18:44",
-    "cdn_url": "https://embed.magnet-xs.ch/preview-innere-staerke-v2/images/ref-zeitlos.jpg",
+    "cdn_url": "https://vorschau.magnet-xs.ch/innere-staerke-v2/images/ref-zeitlos.jpg",
+    "cloudflare_url": "https://vorschau.magnet-xs.ch/innere-staerke-v2/images/ref-zeitlos.jpg",
+    "cloudflare_short": "vorschau.magnet-xs.ch/innere-staerke-v2/images/ref-zeitlos.jpg",
     "is_used": true,
     "used_in": [
       {
@@ -719,20 +1007,28 @@
         "slot": "image",
         "is_hero": false
       }
+    ],
+    "used_in_pages": [
+      "index.html"
     ],
     "alt": "Zeitlos Designermode Sursee"
   },
   {
+    "nr": 39,
     "id": "images_soleil_jpg",
     "filename": "soleil.jpg",
     "rel_path": "images/soleil.jpg",
     "folder": "preview-innere-staerke-v2",
-    "category": "Coaching, Workshops & Referenzen",
+    "category": "Referenz, Projekt & Angebot",
+    "category_code": "ref",
     "dimensions": "500x500",
     "size_kb": 11.4,
+    "format": "JPG",
     "mtime": 1793731447,
     "mtime_str": "03.11.2026 18:44",
-    "cdn_url": "https://embed.magnet-xs.ch/preview-innere-staerke-v2/images/soleil.jpg",
+    "cdn_url": "https://vorschau.magnet-xs.ch/innere-staerke-v2/images/soleil.jpg",
+    "cloudflare_url": "https://vorschau.magnet-xs.ch/innere-staerke-v2/images/soleil.jpg",
+    "cloudflare_short": "vorschau.magnet-xs.ch/innere-staerke-v2/images/soleil.jpg",
     "is_used": true,
     "used_in": [
       {
@@ -740,20 +1036,28 @@
         "slot": "image",
         "is_hero": false
       }
+    ],
+    "used_in_pages": [
+      "index.html"
     ],
     "alt": "Soleil: Coaching, Workshops & Referenzen – Wüest + Paneduro in Sursee (LU)"
   },
   {
+    "nr": 40,
     "id": "images_stv_jpg",
     "filename": "stv.jpg",
     "rel_path": "images/stv.jpg",
     "folder": "preview-innere-staerke-v2",
-    "category": "Coaching, Workshops & Referenzen",
+    "category": "Referenz, Projekt & Angebot",
+    "category_code": "ref",
     "dimensions": "500x500",
     "size_kb": 8.8,
+    "format": "JPG",
     "mtime": 1793731448,
     "mtime_str": "03.11.2026 18:44",
-    "cdn_url": "https://embed.magnet-xs.ch/preview-innere-staerke-v2/images/stv.jpg",
+    "cdn_url": "https://vorschau.magnet-xs.ch/innere-staerke-v2/images/stv.jpg",
+    "cloudflare_url": "https://vorschau.magnet-xs.ch/innere-staerke-v2/images/stv.jpg",
+    "cloudflare_short": "vorschau.magnet-xs.ch/innere-staerke-v2/images/stv.jpg",
     "is_used": true,
     "used_in": [
       {
@@ -762,19 +1066,27 @@
         "is_hero": false
       }
     ],
+    "used_in_pages": [
+      "index.html"
+    ],
     "alt": "Stv: Coaching, Workshops & Referenzen – Wüest + Paneduro in Sursee (LU)"
   },
   {
+    "nr": 41,
     "id": "images_zeitlos_jpg",
     "filename": "zeitlos.jpg",
     "rel_path": "images/zeitlos.jpg",
     "folder": "preview-innere-staerke-v2",
-    "category": "Coaching, Workshops & Referenzen",
+    "category": "Referenz, Projekt & Angebot",
+    "category_code": "ref",
     "dimensions": "500x500",
     "size_kb": 8.2,
+    "format": "JPG",
     "mtime": 1793731448,
     "mtime_str": "03.11.2026 18:44",
-    "cdn_url": "https://embed.magnet-xs.ch/preview-innere-staerke-v2/images/zeitlos.jpg",
+    "cdn_url": "https://vorschau.magnet-xs.ch/innere-staerke-v2/images/zeitlos.jpg",
+    "cloudflare_url": "https://vorschau.magnet-xs.ch/innere-staerke-v2/images/zeitlos.jpg",
+    "cloudflare_short": "vorschau.magnet-xs.ch/innere-staerke-v2/images/zeitlos.jpg",
     "is_used": true,
     "used_in": [
       {
@@ -782,6 +1094,9 @@
         "slot": "image",
         "is_hero": false
       }
+    ],
+    "used_in_pages": [
+      "index.html"
     ],
     "alt": "Zeitlos: Coaching, Workshops & Referenzen – Wüest + Paneduro in Sursee (LU)"
   }

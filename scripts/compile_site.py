@@ -242,6 +242,15 @@ def compile_site_dir(site_dir: Path, lang: str = "de", dry_run: bool = False) ->
         except Exception as seo_ex:
             total_stats["seo_geo_error"] = str(seo_ex)
 
+    # 7. WebPilot Bilder- & Cloudflare-Asset-Katalog (BILDER_VERZEICHNIS.md, bilder.json & Master-Katalog)
+    if not dry_run:
+        try:
+            from webpilot_asset_catalog import update_asset_catalog
+            cat_rep = update_asset_catalog(site_dir=site_dir, update_master=True)
+            total_stats["asset_catalog"] = cat_rep
+        except Exception as cat_ex:
+            total_stats["asset_catalog_error"] = str(cat_ex)
+
     total_stats["missing_keys"] = list(total_stats["missing_keys"])
     return total_stats
 

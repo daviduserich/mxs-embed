@@ -1,24 +1,29 @@
 [
   {
+    "nr": 1,
     "id": "images_alex_kirchhofer_jpg",
     "filename": "alex-kirchhofer.jpg",
     "rel_path": "images/alex-kirchhofer.jpg",
     "folder": "preview-hochuli",
-    "category": "Baustelle & Projekte",
+    "category": "Referenz, Projekt & Angebot",
+    "category_code": "ref",
     "dimensions": "333x333",
     "size_kb": 12.3,
+    "format": "JPG",
     "mtime": 1793278493,
     "mtime_str": "29.10.2026 12:54",
-    "cdn_url": "https://embed.magnet-xs.ch/preview-hochuli/images/alex-kirchhofer.jpg",
+    "cdn_url": "https://vorschau.magnet-xs.ch/hochuli/images/alex-kirchhofer.jpg",
+    "cloudflare_url": "https://vorschau.magnet-xs.ch/hochuli/images/alex-kirchhofer.jpg",
+    "cloudflare_short": "vorschau.magnet-xs.ch/hochuli/images/alex-kirchhofer.jpg",
     "is_used": true,
     "used_in": [
       {
-        "datei": "kontakt.html",
+        "datei": "index.html",
         "slot": "image",
         "is_hero": false
       },
       {
-        "datei": "index.html",
+        "datei": "kontakt.html",
         "slot": "image",
         "is_hero": false
       },
@@ -28,19 +33,29 @@
         "is_hero": false
       }
     ],
-    "alt": "Alex Kirchhofer – Persönlicher Ansprechpartner und Fachteam bei Hochuli Schlossrued AG in Schlossrued (AG)"
+    "used_in_pages": [
+      "index.html",
+      "kontakt.html",
+      "team.html"
+    ],
+    "alt": "Alex Kirchhofer — Leiter Spenglerei"
   },
   {
+    "nr": 2,
     "id": "images_christian_hunziker_jpg",
     "filename": "christian-hunziker.jpg",
     "rel_path": "images/christian-hunziker.jpg",
     "folder": "preview-hochuli",
-    "category": "Baustelle & Projekte",
+    "category": "Referenz, Projekt & Angebot",
+    "category_code": "ref",
     "dimensions": "200x200",
     "size_kb": 6.6,
+    "format": "JPG",
     "mtime": 1793278493,
     "mtime_str": "29.10.2026 12:54",
-    "cdn_url": "https://embed.magnet-xs.ch/preview-hochuli/images/christian-hunziker.jpg",
+    "cdn_url": "https://vorschau.magnet-xs.ch/hochuli/images/christian-hunziker.jpg",
+    "cloudflare_url": "https://vorschau.magnet-xs.ch/hochuli/images/christian-hunziker.jpg",
+    "cloudflare_short": "vorschau.magnet-xs.ch/hochuli/images/christian-hunziker.jpg",
     "is_used": true,
     "used_in": [
       {
@@ -49,50 +64,68 @@
         "is_hero": false
       }
     ],
+    "used_in_pages": [
+      "team.html"
+    ],
     "alt": "Christian Hunziker – Persönlicher Ansprechpartner und Fachteam bei Hochuli Schlossrued AG in Schlossrued (AG)"
   },
   {
+    "nr": 3,
     "id": "images_claudia_hauri_jpg",
     "filename": "claudia-hauri.jpg",
     "rel_path": "images/claudia-hauri.jpg",
     "folder": "preview-hochuli",
-    "category": "Baustelle & Projekte",
+    "category": "Referenz, Projekt & Angebot",
+    "category_code": "ref",
     "dimensions": "200x200",
     "size_kb": 6.5,
+    "format": "JPG",
     "mtime": 1793278495,
     "mtime_str": "29.10.2026 12:54",
-    "cdn_url": "https://embed.magnet-xs.ch/preview-hochuli/images/claudia-hauri.jpg",
+    "cdn_url": "https://vorschau.magnet-xs.ch/hochuli/images/claudia-hauri.jpg",
+    "cloudflare_url": "https://vorschau.magnet-xs.ch/hochuli/images/claudia-hauri.jpg",
+    "cloudflare_short": "vorschau.magnet-xs.ch/hochuli/images/claudia-hauri.jpg",
     "is_used": true,
     "used_in": [
+      {
+        "datei": "index.html",
+        "slot": "image",
+        "is_hero": false
+      },
       {
         "datei": "kontakt.html",
         "slot": "image",
         "is_hero": false
       },
       {
-        "datei": "index.html",
-        "slot": "image",
-        "is_hero": false
-      },
-      {
         "datei": "team.html",
         "slot": "image",
         "is_hero": false
       }
     ],
-    "alt": "Claudia Hauri – Persönlicher Ansprechpartner und Fachteam bei Hochuli Schlossrued AG in Schlossrued (AG)"
+    "used_in_pages": [
+      "index.html",
+      "kontakt.html",
+      "team.html"
+    ],
+    "alt": "Claudia Hauri — Leiterin Planung"
   },
   {
+    "nr": 4,
     "id": "images_dominik_felber_jpg",
     "filename": "dominik-felber.jpg",
     "rel_path": "images/dominik-felber.jpg",
     "folder": "preview-hochuli",
-    "category": "Baustelle & Projekte",
+    "category": "Referenz, Projekt & Angebot",
+    "category_code": "ref",
     "dimensions": "200x200",
     "size_kb": 6.5,
+    "format": "JPG",
     "mtime": 1793278495,
     "mtime_str": "29.10.2026 12:54",
-    "cdn_url": "https://embed.magnet-xs.ch/preview-hochuli/images/dominik-felber.jpg",
+    "cdn_url": "https://vorschau.magnet-xs.ch/hochuli/images/dominik-felber.jpg",
+    "cloudflare_url": "https://vorschau.magnet-xs.ch/hochuli/images/dominik-felber.jpg",
+    "cloudflare_short": "vorschau.magnet-xs.ch/hochuli/images/dominik-felber.jpg",
     "is_used": true,
     "used_in": [
       {
@@ -106,19 +139,28 @@
         "is_hero": false
       }
     ],
-    "alt": "Dominik Felber – Persönlicher Ansprechpartner und Fachteam bei Hochuli Schlossrued AG in Schlossrued (AG)"
+    "used_in_pages": [
+      "index.html",
+      "team.html"
+    ],
+    "alt": "Dominik Felber — Planung & Bauleitung"
   },
   {
-    "id": "images_hero_poster_jpg",
-    "filename": "hero-poster.jpg",
-    "rel_path": "images/hero-poster.jpg",
+    "nr": 5,
+    "id": "images_hero_intro_mp4",
+    "filename": "hero-intro.mp4",
+    "rel_path": "images/hero-intro.mp4",
     "folder": "preview-hochuli",
-    "category": "Hero & Header",
-    "dimensions": "1280x720",
-    "size_kb": 38.6,
-    "mtime": 1793278526,
-    "mtime_str": "29.10.2026 12:55",
-    "cdn_url": "https://embed.magnet-xs.ch/preview-hochuli/images/hero-poster.jpg",
+    "category": "Video & Bewegtbild",
+    "category_code": "video",
+    "dimensions": "960x540",
+    "size_kb": 1698.4,
+    "format": "MP4",
+    "mtime": 1793278567,
+    "mtime_str": "29.10.2026 12:56",
+    "cdn_url": "https://vorschau.magnet-xs.ch/hochuli/images/hero-intro.mp4",
+    "cloudflare_url": "https://vorschau.magnet-xs.ch/hochuli/images/hero-intro.mp4",
+    "cloudflare_short": "vorschau.magnet-xs.ch/hochuli/images/hero-intro.mp4",
     "is_used": true,
     "used_in": [
       {
@@ -127,34 +169,95 @@
         "is_hero": true
       }
     ],
+    "used_in_pages": [
+      "index.html"
+    ],
+    "alt": "Hochuli Schlossrued AG (Schlossrued AG) – Video-Einblick: Intro"
+  },
+  {
+    "nr": 6,
+    "id": "images_hero_poster_jpg",
+    "filename": "hero-poster.jpg",
+    "rel_path": "images/hero-poster.jpg",
+    "folder": "preview-hochuli",
+    "category": "Startbühne & Header",
+    "category_code": "hero",
+    "dimensions": "1280x720",
+    "size_kb": 38.6,
+    "format": "JPG",
+    "mtime": 1793278526,
+    "mtime_str": "29.10.2026 12:55",
+    "cdn_url": "https://vorschau.magnet-xs.ch/hochuli/images/hero-poster.jpg",
+    "cloudflare_url": "https://vorschau.magnet-xs.ch/hochuli/images/hero-poster.jpg",
+    "cloudflare_short": "vorschau.magnet-xs.ch/hochuli/images/hero-poster.jpg",
+    "is_used": true,
+    "used_in": [
+      {
+        "datei": "index.html",
+        "slot": "image",
+        "is_hero": true
+      },
+      {
+        "datei": "karriere.html",
+        "slot": "image",
+        "is_hero": true
+      },
+      {
+        "datei": "kontakt.html",
+        "slot": "image",
+        "is_hero": true
+      },
+      {
+        "datei": "team.html",
+        "slot": "image",
+        "is_hero": true
+      }
+    ],
+    "used_in_pages": [
+      "index.html",
+      "karriere.html",
+      "kontakt.html",
+      "team.html"
+    ],
     "alt": "Hero Poster: Hero & Header – Hochuli Schlossrued AG in Schlossrued (AG)"
   },
   {
+    "nr": 7,
     "id": "images_hochuli_gruppe_schlossrued_ag_svg",
     "filename": "hochuli-gruppe-schlossrued-ag.svg",
     "rel_path": "images/hochuli-gruppe-schlossrued-ag.svg",
     "folder": "preview-hochuli",
-    "category": "Baustelle & Projekte",
-    "dimensions": "Unbekannt",
+    "category": "Referenz, Projekt & Angebot",
+    "category_code": "ref",
+    "dimensions": "3745x816",
     "size_kb": 190.4,
+    "format": "SVG",
     "mtime": 1793278488,
     "mtime_str": "29.10.2026 12:54",
-    "cdn_url": "https://embed.magnet-xs.ch/preview-hochuli/images/hochuli-gruppe-schlossrued-ag.svg",
+    "cdn_url": "https://vorschau.magnet-xs.ch/hochuli/images/hochuli-gruppe-schlossrued-ag.svg",
+    "cloudflare_url": "https://vorschau.magnet-xs.ch/hochuli/images/hochuli-gruppe-schlossrued-ag.svg",
+    "cloudflare_short": "vorschau.magnet-xs.ch/hochuli/images/hochuli-gruppe-schlossrued-ag.svg",
     "is_used": false,
     "used_in": [],
+    "used_in_pages": [],
     "alt": "Hochuli Gruppe Schlossrued AG: Baustelle & Projekte – Hochuli Schlossrued AG in Schlossrued (AG)"
   },
   {
+    "nr": 8,
     "id": "images_jacqueline_kunz_jpg",
     "filename": "jacqueline-kunz.jpg",
     "rel_path": "images/jacqueline-kunz.jpg",
     "folder": "preview-hochuli",
-    "category": "Baustelle & Projekte",
+    "category": "Referenz, Projekt & Angebot",
+    "category_code": "ref",
     "dimensions": "200x200",
     "size_kb": 7.1,
+    "format": "JPG",
     "mtime": 1793278496,
     "mtime_str": "29.10.2026 12:54",
-    "cdn_url": "https://embed.magnet-xs.ch/preview-hochuli/images/jacqueline-kunz.jpg",
+    "cdn_url": "https://vorschau.magnet-xs.ch/hochuli/images/jacqueline-kunz.jpg",
+    "cloudflare_url": "https://vorschau.magnet-xs.ch/hochuli/images/jacqueline-kunz.jpg",
+    "cloudflare_short": "vorschau.magnet-xs.ch/hochuli/images/jacqueline-kunz.jpg",
     "is_used": true,
     "used_in": [
       {
@@ -168,19 +271,28 @@
         "is_hero": false
       }
     ],
-    "alt": "Jacqueline Kunz – Persönlicher Ansprechpartner und Fachteam bei Hochuli Schlossrued AG in Schlossrued (AG)"
+    "used_in_pages": [
+      "karriere.html",
+      "team.html"
+    ],
+    "alt": "Jacqueline Kunz: Lass uns unkompliziert bei einem Kaffee in Schlossrued sprechen – Hochuli Schlossrued AG in Schlossrued (AG)"
   },
   {
+    "nr": 9,
     "id": "images_jenny_ettle_jpg",
     "filename": "jenny-ettle.jpg",
     "rel_path": "images/jenny-ettle.jpg",
     "folder": "preview-hochuli",
-    "category": "Baustelle & Projekte",
+    "category": "Referenz, Projekt & Angebot",
+    "category_code": "ref",
     "dimensions": "200x200",
     "size_kb": 7.6,
+    "format": "JPG",
     "mtime": 1793278496,
     "mtime_str": "29.10.2026 12:54",
-    "cdn_url": "https://embed.magnet-xs.ch/preview-hochuli/images/jenny-ettle.jpg",
+    "cdn_url": "https://vorschau.magnet-xs.ch/hochuli/images/jenny-ettle.jpg",
+    "cloudflare_url": "https://vorschau.magnet-xs.ch/hochuli/images/jenny-ettle.jpg",
+    "cloudflare_short": "vorschau.magnet-xs.ch/hochuli/images/jenny-ettle.jpg",
     "is_used": true,
     "used_in": [
       {
@@ -188,20 +300,28 @@
         "slot": "image",
         "is_hero": false
       }
+    ],
+    "used_in_pages": [
+      "team.html"
     ],
     "alt": "Jenny Ettle – Persönlicher Ansprechpartner und Fachteam bei Hochuli Schlossrued AG in Schlossrued (AG)"
   },
   {
+    "nr": 10,
     "id": "images_karriere_header_jpg",
     "filename": "karriere-header.jpg",
     "rel_path": "images/karriere-header.jpg",
     "folder": "preview-hochuli",
-    "category": "Baustelle & Projekte",
+    "category": "Referenz, Projekt & Angebot",
+    "category_code": "ref",
     "dimensions": "1065x400",
     "size_kb": 41.2,
+    "format": "JPG",
     "mtime": 1793278492,
     "mtime_str": "29.10.2026 12:54",
-    "cdn_url": "https://embed.magnet-xs.ch/preview-hochuli/images/karriere-header.jpg",
+    "cdn_url": "https://vorschau.magnet-xs.ch/hochuli/images/karriere-header.jpg",
+    "cloudflare_url": "https://vorschau.magnet-xs.ch/hochuli/images/karriere-header.jpg",
+    "cloudflare_short": "vorschau.magnet-xs.ch/hochuli/images/karriere-header.jpg",
     "is_used": true,
     "used_in": [
       {
@@ -209,42 +329,51 @@
         "slot": "image",
         "is_hero": false
       }
+    ],
+    "used_in_pages": [
+      "karriere.html"
     ],
     "alt": "Wir suchen dich — Karriere bei Hochuli Schlossrued AG"
   },
   {
+    "nr": 11,
     "id": "images_logo_png",
     "filename": "logo.png",
     "rel_path": "images/logo.png",
     "folder": "preview-hochuli",
-    "category": "Logo & Icon",
+    "category": "Logo & Marken-Icon",
+    "category_code": "logo",
     "dimensions": "440x96",
     "size_kb": 23.0,
+    "format": "PNG",
     "mtime": 1793278568,
     "mtime_str": "29.10.2026 12:56",
-    "cdn_url": "https://embed.magnet-xs.ch/preview-hochuli/images/logo.png",
+    "cdn_url": "https://vorschau.magnet-xs.ch/hochuli/images/logo.png",
+    "cloudflare_url": "https://vorschau.magnet-xs.ch/hochuli/images/logo.png",
+    "cloudflare_short": "vorschau.magnet-xs.ch/hochuli/images/logo.png",
     "is_used": false,
     "used_in": [],
+    "used_in_pages": [],
     "alt": "Hochuli Schlossrued AG Schlossrued (AG) – Offizielles Logo (Holzbau, Zimmerei, Elementbau, Aufstockungen und)"
   },
   {
+    "nr": 12,
     "id": "images_logo_svg",
     "filename": "logo.svg",
     "rel_path": "images/logo.svg",
     "folder": "preview-hochuli",
-    "category": "Logo & Icon",
-    "dimensions": "Unbekannt",
+    "category": "Logo & Marken-Icon",
+    "category_code": "logo",
+    "dimensions": "3745x816",
     "size_kb": 190.4,
+    "format": "SVG",
     "mtime": 1793278488,
     "mtime_str": "29.10.2026 12:54",
-    "cdn_url": "https://embed.magnet-xs.ch/preview-hochuli/images/logo.svg",
+    "cdn_url": "https://vorschau.magnet-xs.ch/hochuli/images/logo.svg",
+    "cloudflare_url": "https://vorschau.magnet-xs.ch/hochuli/images/logo.svg",
+    "cloudflare_short": "vorschau.magnet-xs.ch/hochuli/images/logo.svg",
     "is_used": true,
     "used_in": [
-      {
-        "datei": "kontakt.html",
-        "slot": "image",
-        "is_hero": false
-      },
       {
         "datei": "index.html",
         "slot": "image",
@@ -256,24 +385,40 @@
         "is_hero": false
       },
       {
+        "datei": "kontakt.html",
+        "slot": "image",
+        "is_hero": false
+      },
+      {
         "datei": "team.html",
         "slot": "image",
         "is_hero": false
       }
+    ],
+    "used_in_pages": [
+      "index.html",
+      "karriere.html",
+      "kontakt.html",
+      "team.html"
     ],
     "alt": "Hochuli Schlossrued AG — Bauen im Vertrauen"
   },
   {
+    "nr": 13,
     "id": "images_martin_hochuli_jpg",
     "filename": "martin-hochuli.jpg",
     "rel_path": "images/martin-hochuli.jpg",
     "folder": "preview-hochuli",
-    "category": "Baustelle & Projekte",
+    "category": "Referenz, Projekt & Angebot",
+    "category_code": "ref",
     "dimensions": "200x200",
     "size_kb": 6.8,
+    "format": "JPG",
     "mtime": 1793278492,
     "mtime_str": "29.10.2026 12:54",
-    "cdn_url": "https://embed.magnet-xs.ch/preview-hochuli/images/martin-hochuli.jpg",
+    "cdn_url": "https://vorschau.magnet-xs.ch/hochuli/images/martin-hochuli.jpg",
+    "cloudflare_url": "https://vorschau.magnet-xs.ch/hochuli/images/martin-hochuli.jpg",
+    "cloudflare_short": "vorschau.magnet-xs.ch/hochuli/images/martin-hochuli.jpg",
     "is_used": true,
     "used_in": [
       {
@@ -287,19 +432,28 @@
         "is_hero": false
       }
     ],
+    "used_in_pages": [
+      "karriere.html",
+      "team.html"
+    ],
     "alt": "Martin Hochuli – Persönlicher Ansprechpartner und Fachteam bei Hochuli Schlossrued AG in Schlossrued (AG)"
   },
   {
+    "nr": 14,
     "id": "images_michael_zubler_jpg",
     "filename": "michael-zubler.jpg",
     "rel_path": "images/michael-zubler.jpg",
     "folder": "preview-hochuli",
-    "category": "Team & Porträt",
+    "category": "Team, Porträt & Kader",
+    "category_code": "team",
     "dimensions": "200x200",
     "size_kb": 6.2,
+    "format": "JPG",
     "mtime": 1793278495,
     "mtime_str": "29.10.2026 12:54",
-    "cdn_url": "https://embed.magnet-xs.ch/preview-hochuli/images/michael-zubler.jpg",
+    "cdn_url": "https://vorschau.magnet-xs.ch/hochuli/images/michael-zubler.jpg",
+    "cloudflare_url": "https://vorschau.magnet-xs.ch/hochuli/images/michael-zubler.jpg",
+    "cloudflare_short": "vorschau.magnet-xs.ch/hochuli/images/michael-zubler.jpg",
     "is_used": true,
     "used_in": [
       {
@@ -313,19 +467,28 @@
         "is_hero": false
       }
     ],
-    "alt": "Michael Zubler – Persönlicher Ansprechpartner und Fachteam bei Hochuli Schlossrued AG in Schlossrued (AG)"
+    "used_in_pages": [
+      "index.html",
+      "team.html"
+    ],
+    "alt": "Michael Zubler — Projektleiter Photovoltaik"
   },
   {
+    "nr": 15,
     "id": "images_monika_schaffner_jpg",
     "filename": "monika-schaffner.jpg",
     "rel_path": "images/monika-schaffner.jpg",
     "folder": "preview-hochuli",
-    "category": "Baustelle & Projekte",
+    "category": "Referenz, Projekt & Angebot",
+    "category_code": "ref",
     "dimensions": "200x200",
     "size_kb": 6.7,
+    "format": "JPG",
     "mtime": 1793278494,
     "mtime_str": "29.10.2026 12:54",
-    "cdn_url": "https://embed.magnet-xs.ch/preview-hochuli/images/monika-schaffner.jpg",
+    "cdn_url": "https://vorschau.magnet-xs.ch/hochuli/images/monika-schaffner.jpg",
+    "cloudflare_url": "https://vorschau.magnet-xs.ch/hochuli/images/monika-schaffner.jpg",
+    "cloudflare_short": "vorschau.magnet-xs.ch/hochuli/images/monika-schaffner.jpg",
     "is_used": true,
     "used_in": [
       {
@@ -339,19 +502,28 @@
         "is_hero": false
       }
     ],
-    "alt": "Monika Schaffner – Persönlicher Ansprechpartner und Fachteam bei Hochuli Schlossrued AG in Schlossrued (AG)"
+    "used_in_pages": [
+      "index.html",
+      "team.html"
+    ],
+    "alt": "Monika Schaffner — Technische Administration"
   },
   {
+    "nr": 16,
     "id": "images_moses_fricker_jpg",
     "filename": "moses-fricker.jpg",
     "rel_path": "images/moses-fricker.jpg",
     "folder": "preview-hochuli",
-    "category": "Baustelle & Projekte",
+    "category": "Referenz, Projekt & Angebot",
+    "category_code": "ref",
     "dimensions": "200x200",
     "size_kb": 6.1,
+    "format": "JPG",
     "mtime": 1793278493,
     "mtime_str": "29.10.2026 12:54",
-    "cdn_url": "https://embed.magnet-xs.ch/preview-hochuli/images/moses-fricker.jpg",
+    "cdn_url": "https://vorschau.magnet-xs.ch/hochuli/images/moses-fricker.jpg",
+    "cloudflare_url": "https://vorschau.magnet-xs.ch/hochuli/images/moses-fricker.jpg",
+    "cloudflare_short": "vorschau.magnet-xs.ch/hochuli/images/moses-fricker.jpg",
     "is_used": true,
     "used_in": [
       {
@@ -365,19 +537,28 @@
         "is_hero": false
       }
     ],
-    "alt": "Moses Fricker – Persönlicher Ansprechpartner und Fachteam bei Hochuli Schlossrued AG in Schlossrued (AG)"
+    "used_in_pages": [
+      "index.html",
+      "team.html"
+    ],
+    "alt": "Moses Fricker — Stv. Leiter Spenglerei"
   },
   {
+    "nr": 17,
     "id": "images_ref_heizung_waermepumpe_jpg",
     "filename": "ref-heizung-waermepumpe.jpg",
     "rel_path": "images/ref-heizung-waermepumpe.jpg",
     "folder": "preview-hochuli",
-    "category": "Baustelle & Projekte",
+    "category": "Referenz, Projekt & Angebot",
+    "category_code": "ref",
     "dimensions": "900x789",
     "size_kb": 109.8,
+    "format": "JPG",
     "mtime": 1793278498,
     "mtime_str": "29.10.2026 12:54",
-    "cdn_url": "https://embed.magnet-xs.ch/preview-hochuli/images/ref-heizung-waermepumpe.jpg",
+    "cdn_url": "https://vorschau.magnet-xs.ch/hochuli/images/ref-heizung-waermepumpe.jpg",
+    "cloudflare_url": "https://vorschau.magnet-xs.ch/hochuli/images/ref-heizung-waermepumpe.jpg",
+    "cloudflare_short": "vorschau.magnet-xs.ch/hochuli/images/ref-heizung-waermepumpe.jpg",
     "is_used": true,
     "used_in": [
       {
@@ -386,19 +567,27 @@
         "is_hero": false
       }
     ],
-    "alt": "Heizungs-Ersatz & Wärmepumpe: Worauf Eigenheimbesitzer achten sollten"
+    "used_in_pages": [
+      "index.html"
+    ],
+    "alt": "Referenz Heizungs-Ersatz und Wärmepumpe"
   },
   {
+    "nr": 18,
     "id": "images_ref_holzbau_hirschthal_jpg",
     "filename": "ref-holzbau-hirschthal.jpg",
     "rel_path": "images/ref-holzbau-hirschthal.jpg",
     "folder": "preview-hochuli",
-    "category": "Baustelle & Projekte",
+    "category": "Referenz, Projekt & Angebot",
+    "category_code": "ref",
     "dimensions": "900x506",
     "size_kb": 116.5,
+    "format": "JPG",
     "mtime": 1793278496,
     "mtime_str": "29.10.2026 12:54",
-    "cdn_url": "https://embed.magnet-xs.ch/preview-hochuli/images/ref-holzbau-hirschthal.jpg",
+    "cdn_url": "https://vorschau.magnet-xs.ch/hochuli/images/ref-holzbau-hirschthal.jpg",
+    "cloudflare_url": "https://vorschau.magnet-xs.ch/hochuli/images/ref-holzbau-hirschthal.jpg",
+    "cloudflare_short": "vorschau.magnet-xs.ch/hochuli/images/ref-holzbau-hirschthal.jpg",
     "is_used": true,
     "used_in": [
       {
@@ -406,20 +595,28 @@
         "slot": "image",
         "is_hero": false
       }
+    ],
+    "used_in_pages": [
+      "index.html"
     ],
     "alt": "Referenz Wiederaufbau Hochstudhaus Hirschthal"
   },
   {
+    "nr": 19,
     "id": "images_ref_holzbau_webhaeuschen_jpg",
     "filename": "ref-holzbau-webhaeuschen.jpg",
     "rel_path": "images/ref-holzbau-webhaeuschen.jpg",
     "folder": "preview-hochuli",
-    "category": "Baustelle & Projekte",
+    "category": "Referenz, Projekt & Angebot",
+    "category_code": "ref",
     "dimensions": "900x599",
     "size_kb": 101.3,
+    "format": "JPG",
     "mtime": 1793278497,
     "mtime_str": "29.10.2026 12:54",
-    "cdn_url": "https://embed.magnet-xs.ch/preview-hochuli/images/ref-holzbau-webhaeuschen.jpg",
+    "cdn_url": "https://vorschau.magnet-xs.ch/hochuli/images/ref-holzbau-webhaeuschen.jpg",
+    "cloudflare_url": "https://vorschau.magnet-xs.ch/hochuli/images/ref-holzbau-webhaeuschen.jpg",
+    "cloudflare_short": "vorschau.magnet-xs.ch/hochuli/images/ref-holzbau-webhaeuschen.jpg",
     "is_used": true,
     "used_in": [
       {
@@ -427,20 +624,28 @@
         "slot": "image",
         "is_hero": false
       }
+    ],
+    "used_in_pages": [
+      "index.html"
     ],
     "alt": "Referenz Modernisierung historisches Webhäuschen Schmiedrued"
   },
   {
+    "nr": 20,
     "id": "images_ref_planung_architektur_jpg",
     "filename": "ref-planung-architektur.jpg",
     "rel_path": "images/ref-planung-architektur.jpg",
     "folder": "preview-hochuli",
-    "category": "Baustelle & Projekte",
+    "category": "Referenz, Projekt & Angebot",
+    "category_code": "ref",
     "dimensions": "900x599",
     "size_kb": 75.4,
+    "format": "JPG",
     "mtime": 1793278499,
     "mtime_str": "29.10.2026 12:54",
-    "cdn_url": "https://embed.magnet-xs.ch/preview-hochuli/images/ref-planung-architektur.jpg",
+    "cdn_url": "https://vorschau.magnet-xs.ch/hochuli/images/ref-planung-architektur.jpg",
+    "cloudflare_url": "https://vorschau.magnet-xs.ch/hochuli/images/ref-planung-architektur.jpg",
+    "cloudflare_short": "vorschau.magnet-xs.ch/hochuli/images/ref-planung-architektur.jpg",
     "is_used": true,
     "used_in": [
       {
@@ -449,19 +654,27 @@
         "is_hero": false
       }
     ],
-    "alt": "Wohngebäude energieeffizient sanieren — aber richtig geplant"
+    "used_in_pages": [
+      "index.html"
+    ],
+    "alt": "Referenz Planung und Gesamtsanierung Reitnau"
   },
   {
+    "nr": 21,
     "id": "images_ref_planung_aufstockung_jpg",
     "filename": "ref-planung-aufstockung.jpg",
     "rel_path": "images/ref-planung-aufstockung.jpg",
     "folder": "preview-hochuli",
-    "category": "Baustelle & Projekte",
+    "category": "Referenz, Projekt & Angebot",
+    "category_code": "ref",
     "dimensions": "900x675",
     "size_kb": 116.1,
+    "format": "JPG",
     "mtime": 1793278499,
     "mtime_str": "29.10.2026 12:54",
-    "cdn_url": "https://embed.magnet-xs.ch/preview-hochuli/images/ref-planung-aufstockung.jpg",
+    "cdn_url": "https://vorschau.magnet-xs.ch/hochuli/images/ref-planung-aufstockung.jpg",
+    "cloudflare_url": "https://vorschau.magnet-xs.ch/hochuli/images/ref-planung-aufstockung.jpg",
+    "cloudflare_short": "vorschau.magnet-xs.ch/hochuli/images/ref-planung-aufstockung.jpg",
     "is_used": true,
     "used_in": [
       {
@@ -469,20 +682,28 @@
         "slot": "image",
         "is_hero": false
       }
+    ],
+    "used_in_pages": [
+      "index.html"
     ],
     "alt": "Referenz Wohnraumerweiterung und Umbau Gränichen"
   },
   {
+    "nr": 22,
     "id": "images_ref_pv_luftaufnahme_jpg",
     "filename": "ref-pv-luftaufnahme.jpg",
     "rel_path": "images/ref-pv-luftaufnahme.jpg",
     "folder": "preview-hochuli",
-    "category": "Baustelle & Projekte",
+    "category": "Referenz, Projekt & Angebot",
+    "category_code": "ref",
     "dimensions": "900x674",
     "size_kb": 117.6,
+    "format": "JPG",
     "mtime": 1793278500,
     "mtime_str": "29.10.2026 12:55",
-    "cdn_url": "https://embed.magnet-xs.ch/preview-hochuli/images/ref-pv-luftaufnahme.jpg",
+    "cdn_url": "https://vorschau.magnet-xs.ch/hochuli/images/ref-pv-luftaufnahme.jpg",
+    "cloudflare_url": "https://vorschau.magnet-xs.ch/hochuli/images/ref-pv-luftaufnahme.jpg",
+    "cloudflare_short": "vorschau.magnet-xs.ch/hochuli/images/ref-pv-luftaufnahme.jpg",
     "is_used": true,
     "used_in": [
       {
@@ -491,19 +712,27 @@
         "is_hero": false
       }
     ],
-    "alt": "Dachsanierung, Estrichdämmung & Photovoltaik sinnvoll kombinieren"
+    "used_in_pages": [
+      "index.html"
+    ],
+    "alt": "Referenz Indach-Photovoltaikanlage mit Dachsanierung"
   },
   {
+    "nr": 23,
     "id": "images_ref_pv_speicher_jpg",
     "filename": "ref-pv-speicher.jpg",
     "rel_path": "images/ref-pv-speicher.jpg",
     "folder": "preview-hochuli",
-    "category": "Baustelle & Projekte",
+    "category": "Referenz, Projekt & Angebot",
+    "category_code": "ref",
     "dimensions": "900x675",
     "size_kb": 114.7,
+    "format": "JPG",
     "mtime": 1793278500,
     "mtime_str": "29.10.2026 12:55",
-    "cdn_url": "https://embed.magnet-xs.ch/preview-hochuli/images/ref-pv-speicher.jpg",
+    "cdn_url": "https://vorschau.magnet-xs.ch/hochuli/images/ref-pv-speicher.jpg",
+    "cloudflare_url": "https://vorschau.magnet-xs.ch/hochuli/images/ref-pv-speicher.jpg",
+    "cloudflare_short": "vorschau.magnet-xs.ch/hochuli/images/ref-pv-speicher.jpg",
     "is_used": true,
     "used_in": [
       {
@@ -511,20 +740,28 @@
         "slot": "image",
         "is_hero": false
       }
+    ],
+    "used_in_pages": [
+      "index.html"
     ],
     "alt": "Referenz Photovoltaikanlage mit Batteriespeicher Aarau"
   },
   {
+    "nr": 24,
     "id": "images_ref_sanitaer_badumbau_jpg",
     "filename": "ref-sanitaer-badumbau.jpg",
     "rel_path": "images/ref-sanitaer-badumbau.jpg",
     "folder": "preview-hochuli",
-    "category": "Baustelle & Projekte",
+    "category": "Referenz, Projekt & Angebot",
+    "category_code": "ref",
     "dimensions": "900x599",
     "size_kb": 54.3,
+    "format": "JPG",
     "mtime": 1793278498,
     "mtime_str": "29.10.2026 12:54",
-    "cdn_url": "https://embed.magnet-xs.ch/preview-hochuli/images/ref-sanitaer-badumbau.jpg",
+    "cdn_url": "https://vorschau.magnet-xs.ch/hochuli/images/ref-sanitaer-badumbau.jpg",
+    "cloudflare_url": "https://vorschau.magnet-xs.ch/hochuli/images/ref-sanitaer-badumbau.jpg",
+    "cloudflare_short": "vorschau.magnet-xs.ch/hochuli/images/ref-sanitaer-badumbau.jpg",
     "is_used": true,
     "used_in": [
       {
@@ -533,19 +770,27 @@
         "is_hero": false
       }
     ],
-    "alt": "Badumbau aus einer Hand: Wie Sie Schnittstellen und Verzögerungen vermeiden"
+    "used_in_pages": [
+      "index.html"
+    ],
+    "alt": "Referenz Badumbau aus einer Hand Reitnau"
   },
   {
+    "nr": 25,
     "id": "images_ref_spengler_prefa_jpg",
     "filename": "ref-spengler-prefa.jpg",
     "rel_path": "images/ref-spengler-prefa.jpg",
     "folder": "preview-hochuli",
-    "category": "Baustelle & Projekte",
+    "category": "Referenz, Projekt & Angebot",
+    "category_code": "ref",
     "dimensions": "900x675",
     "size_kb": 102.9,
+    "format": "JPG",
     "mtime": 1793278497,
     "mtime_str": "29.10.2026 12:54",
-    "cdn_url": "https://embed.magnet-xs.ch/preview-hochuli/images/ref-spengler-prefa.jpg",
+    "cdn_url": "https://vorschau.magnet-xs.ch/hochuli/images/ref-spengler-prefa.jpg",
+    "cloudflare_url": "https://vorschau.magnet-xs.ch/hochuli/images/ref-spengler-prefa.jpg",
+    "cloudflare_short": "vorschau.magnet-xs.ch/hochuli/images/ref-spengler-prefa.jpg",
     "is_used": true,
     "used_in": [
       {
@@ -553,20 +798,28 @@
         "slot": "image",
         "is_hero": false
       }
+    ],
+    "used_in_pages": [
+      "index.html"
     ],
     "alt": "Referenz PREFA Blechfassade und Dachsanierung"
   },
   {
+    "nr": 26,
     "id": "images_ref_spengler_schoeftland_jpg",
     "filename": "ref-spengler-schoeftland.jpg",
     "rel_path": "images/ref-spengler-schoeftland.jpg",
     "folder": "preview-hochuli",
-    "category": "Baustelle & Projekte",
+    "category": "Referenz, Projekt & Angebot",
+    "category_code": "ref",
     "dimensions": "900x698",
     "size_kb": 115.8,
+    "format": "JPG",
     "mtime": 1793278497,
     "mtime_str": "29.10.2026 12:54",
-    "cdn_url": "https://embed.magnet-xs.ch/preview-hochuli/images/ref-spengler-schoeftland.jpg",
+    "cdn_url": "https://vorschau.magnet-xs.ch/hochuli/images/ref-spengler-schoeftland.jpg",
+    "cloudflare_url": "https://vorschau.magnet-xs.ch/hochuli/images/ref-spengler-schoeftland.jpg",
+    "cloudflare_short": "vorschau.magnet-xs.ch/hochuli/images/ref-spengler-schoeftland.jpg",
     "is_used": true,
     "used_in": [
       {
@@ -574,20 +827,28 @@
         "slot": "image",
         "is_hero": false
       }
+    ],
+    "used_in_pages": [
+      "index.html"
     ],
     "alt": "Referenz Pyramide Schöftland Spenglerarbeit"
   },
   {
+    "nr": 27,
     "id": "images_roger_hofmann_jpg",
     "filename": "roger-hofmann.jpg",
     "rel_path": "images/roger-hofmann.jpg",
     "folder": "preview-hochuli",
-    "category": "Baustelle & Projekte",
+    "category": "Referenz, Projekt & Angebot",
+    "category_code": "ref",
     "dimensions": "200x200",
     "size_kb": 6.9,
+    "format": "JPG",
     "mtime": 1793278492,
     "mtime_str": "29.10.2026 12:54",
-    "cdn_url": "https://embed.magnet-xs.ch/preview-hochuli/images/roger-hofmann.jpg",
+    "cdn_url": "https://vorschau.magnet-xs.ch/hochuli/images/roger-hofmann.jpg",
+    "cloudflare_url": "https://vorschau.magnet-xs.ch/hochuli/images/roger-hofmann.jpg",
+    "cloudflare_short": "vorschau.magnet-xs.ch/hochuli/images/roger-hofmann.jpg",
     "is_used": true,
     "used_in": [
       {
@@ -601,19 +862,28 @@
         "is_hero": false
       }
     ],
-    "alt": "Roger Hofmann – Persönlicher Ansprechpartner und Fachteam bei Hochuli Schlossrued AG in Schlossrued (AG)"
+    "used_in_pages": [
+      "index.html",
+      "team.html"
+    ],
+    "alt": "Roger Hofmann — Stv. Leiter Holzbau"
   },
   {
+    "nr": 28,
     "id": "images_roland_wuethrich_jpg",
     "filename": "roland-wuethrich.jpg",
     "rel_path": "images/roland-wuethrich.jpg",
     "folder": "preview-hochuli",
-    "category": "Baustelle & Projekte",
+    "category": "Referenz, Projekt & Angebot",
+    "category_code": "ref",
     "dimensions": "200x200",
     "size_kb": 6.9,
+    "format": "JPG",
     "mtime": 1793278494,
     "mtime_str": "29.10.2026 12:54",
-    "cdn_url": "https://embed.magnet-xs.ch/preview-hochuli/images/roland-wuethrich.jpg",
+    "cdn_url": "https://vorschau.magnet-xs.ch/hochuli/images/roland-wuethrich.jpg",
+    "cloudflare_url": "https://vorschau.magnet-xs.ch/hochuli/images/roland-wuethrich.jpg",
+    "cloudflare_short": "vorschau.magnet-xs.ch/hochuli/images/roland-wuethrich.jpg",
     "is_used": true,
     "used_in": [
       {
@@ -627,19 +897,28 @@
         "is_hero": false
       }
     ],
-    "alt": "Roland Wüthrich – Persönlicher Ansprechpartner und Fachteam bei Hochuli Schlossrued AG in Schlossrued (AG)"
+    "used_in_pages": [
+      "index.html",
+      "team.html"
+    ],
+    "alt": "Roland Wüthrich — Projektleiter Energie"
   },
   {
+    "nr": 29,
     "id": "images_samuel_buehler_jpg",
     "filename": "samuel-buehler.jpg",
     "rel_path": "images/samuel-buehler.jpg",
     "folder": "preview-hochuli",
-    "category": "Baustelle & Projekte",
+    "category": "Team, Porträt & Kader",
+    "category_code": "team",
     "dimensions": "200x200",
     "size_kb": 6.7,
+    "format": "JPG",
     "mtime": 1793278493,
     "mtime_str": "29.10.2026 12:54",
-    "cdn_url": "https://embed.magnet-xs.ch/preview-hochuli/images/samuel-buehler.jpg",
+    "cdn_url": "https://vorschau.magnet-xs.ch/hochuli/images/samuel-buehler.jpg",
+    "cloudflare_url": "https://vorschau.magnet-xs.ch/hochuli/images/samuel-buehler.jpg",
+    "cloudflare_short": "vorschau.magnet-xs.ch/hochuli/images/samuel-buehler.jpg",
     "is_used": true,
     "used_in": [
       {
@@ -647,20 +926,28 @@
         "slot": "image",
         "is_hero": false
       }
+    ],
+    "used_in_pages": [
+      "team.html"
     ],
     "alt": "Samuel Bühler – Persönlicher Ansprechpartner und Fachteam bei Hochuli Schlossrued AG in Schlossrued (AG)"
   },
   {
+    "nr": 30,
     "id": "images_severin_hug_jpg",
     "filename": "severin-hug.jpg",
     "rel_path": "images/severin-hug.jpg",
     "folder": "preview-hochuli",
-    "category": "Baustelle & Projekte",
+    "category": "Referenz, Projekt & Angebot",
+    "category_code": "ref",
     "dimensions": "200x200",
     "size_kb": 6.8,
+    "format": "JPG",
     "mtime": 1793278493,
     "mtime_str": "29.10.2026 12:54",
-    "cdn_url": "https://embed.magnet-xs.ch/preview-hochuli/images/severin-hug.jpg",
+    "cdn_url": "https://vorschau.magnet-xs.ch/hochuli/images/severin-hug.jpg",
+    "cloudflare_url": "https://vorschau.magnet-xs.ch/hochuli/images/severin-hug.jpg",
+    "cloudflare_short": "vorschau.magnet-xs.ch/hochuli/images/severin-hug.jpg",
     "is_used": true,
     "used_in": [
       {
@@ -668,20 +955,28 @@
         "slot": "image",
         "is_hero": false
       }
+    ],
+    "used_in_pages": [
+      "index.html"
     ],
     "alt": "Severin Hug — Holzbau-Polier"
   },
   {
+    "nr": 31,
     "id": "images_social_ausbildungstag_jpg",
     "filename": "social-ausbildungstag.jpg",
     "rel_path": "images/social-ausbildungstag.jpg",
     "folder": "preview-hochuli",
-    "category": "Baustelle & Projekte",
+    "category": "Referenz, Projekt & Angebot",
+    "category_code": "ref",
     "dimensions": "800x1000",
     "size_kb": 115.5,
+    "format": "JPG",
     "mtime": 1793278489,
     "mtime_str": "29.10.2026 12:54",
-    "cdn_url": "https://embed.magnet-xs.ch/preview-hochuli/images/social-ausbildungstag.jpg",
+    "cdn_url": "https://vorschau.magnet-xs.ch/hochuli/images/social-ausbildungstag.jpg",
+    "cloudflare_url": "https://vorschau.magnet-xs.ch/hochuli/images/social-ausbildungstag.jpg",
+    "cloudflare_short": "vorschau.magnet-xs.ch/hochuli/images/social-ausbildungstag.jpg",
     "is_used": true,
     "used_in": [
       {
@@ -689,20 +984,28 @@
         "slot": "image",
         "is_hero": false
       }
+    ],
+    "used_in_pages": [
+      "index.html"
     ],
     "alt": "Handwerk hautnah erleben — Ausbildungstag Schöftland"
   },
   {
+    "nr": 32,
     "id": "images_social_jubilaeum_mario_jpg",
     "filename": "social-jubilaeum-mario.jpg",
     "rel_path": "images/social-jubilaeum-mario.jpg",
     "folder": "preview-hochuli",
-    "category": "Baustelle & Projekte",
+    "category": "Referenz, Projekt & Angebot",
+    "category_code": "ref",
     "dimensions": "800x1000",
     "size_kb": 63.8,
+    "format": "JPG",
     "mtime": 1793278490,
     "mtime_str": "29.10.2026 12:54",
-    "cdn_url": "https://embed.magnet-xs.ch/preview-hochuli/images/social-jubilaeum-mario.jpg",
+    "cdn_url": "https://vorschau.magnet-xs.ch/hochuli/images/social-jubilaeum-mario.jpg",
+    "cloudflare_url": "https://vorschau.magnet-xs.ch/hochuli/images/social-jubilaeum-mario.jpg",
+    "cloudflare_short": "vorschau.magnet-xs.ch/hochuli/images/social-jubilaeum-mario.jpg",
     "is_used": true,
     "used_in": [
       {
@@ -710,20 +1013,28 @@
         "slot": "image",
         "is_hero": false
       }
+    ],
+    "used_in_pages": [
+      "index.html"
     ],
     "alt": "Herzlichen Glückwunsch zum 10-jährigen Firmenjubiläum Mario"
   },
   {
+    "nr": 33,
     "id": "images_social_lehrstellenparcours_jpg",
     "filename": "social-lehrstellenparcours.jpg",
     "rel_path": "images/social-lehrstellenparcours.jpg",
     "folder": "preview-hochuli",
-    "category": "Baustelle & Projekte",
+    "category": "Referenz, Projekt & Angebot",
+    "category_code": "ref",
     "dimensions": "800x1000",
     "size_kb": 113.3,
+    "format": "JPG",
     "mtime": 1793278490,
     "mtime_str": "29.10.2026 12:54",
-    "cdn_url": "https://embed.magnet-xs.ch/preview-hochuli/images/social-lehrstellenparcours.jpg",
+    "cdn_url": "https://vorschau.magnet-xs.ch/hochuli/images/social-lehrstellenparcours.jpg",
+    "cloudflare_url": "https://vorschau.magnet-xs.ch/hochuli/images/social-lehrstellenparcours.jpg",
+    "cloudflare_short": "vorschau.magnet-xs.ch/hochuli/images/social-lehrstellenparcours.jpg",
     "is_used": true,
     "used_in": [
       {
@@ -731,20 +1042,28 @@
         "slot": "image",
         "is_hero": false
       }
+    ],
+    "used_in_pages": [
+      "index.html"
     ],
     "alt": "Nachwuchs fürs Handwerk begeistern am Lehrstellenparcours"
   },
   {
+    "nr": 34,
     "id": "images_social_unsere_lernenden_jpg",
     "filename": "social-unsere-lernenden.jpg",
     "rel_path": "images/social-unsere-lernenden.jpg",
     "folder": "preview-hochuli",
-    "category": "Baustelle & Projekte",
+    "category": "Referenz, Projekt & Angebot",
+    "category_code": "ref",
     "dimensions": "800x1000",
     "size_kb": 107.7,
+    "format": "JPG",
     "mtime": 1793278490,
     "mtime_str": "29.10.2026 12:54",
-    "cdn_url": "https://embed.magnet-xs.ch/preview-hochuli/images/social-unsere-lernenden.jpg",
+    "cdn_url": "https://vorschau.magnet-xs.ch/hochuli/images/social-unsere-lernenden.jpg",
+    "cloudflare_url": "https://vorschau.magnet-xs.ch/hochuli/images/social-unsere-lernenden.jpg",
+    "cloudflare_short": "vorschau.magnet-xs.ch/hochuli/images/social-unsere-lernenden.jpg",
     "is_used": true,
     "used_in": [
       {
@@ -752,29 +1071,37 @@
         "slot": "image",
         "is_hero": false
       }
+    ],
+    "used_in_pages": [
+      "index.html"
     ],
     "alt": "Unsere 14 Lernenden im Porträt"
   },
   {
+    "nr": 35,
     "id": "images_stefan_hofmann_jpg",
     "filename": "stefan-hofmann.jpg",
     "rel_path": "images/stefan-hofmann.jpg",
     "folder": "preview-hochuli",
-    "category": "Team & Porträt",
+    "category": "Team, Porträt & Kader",
+    "category_code": "team",
     "dimensions": "200x200",
     "size_kb": 7.0,
+    "format": "JPG",
     "mtime": 1793278492,
     "mtime_str": "29.10.2026 12:54",
-    "cdn_url": "https://embed.magnet-xs.ch/preview-hochuli/images/stefan-hofmann.jpg",
+    "cdn_url": "https://vorschau.magnet-xs.ch/hochuli/images/stefan-hofmann.jpg",
+    "cloudflare_url": "https://vorschau.magnet-xs.ch/hochuli/images/stefan-hofmann.jpg",
+    "cloudflare_short": "vorschau.magnet-xs.ch/hochuli/images/stefan-hofmann.jpg",
     "is_used": true,
     "used_in": [
       {
-        "datei": "kontakt.html",
+        "datei": "index.html",
         "slot": "image",
         "is_hero": false
       },
       {
-        "datei": "index.html",
+        "datei": "kontakt.html",
         "slot": "image",
         "is_hero": false
       },
@@ -784,19 +1111,29 @@
         "is_hero": false
       }
     ],
-    "alt": "Stefan Hofmann – Persönlicher Ansprechpartner und Fachteam bei Hochuli Schlossrued AG in Schlossrued (AG)"
+    "used_in_pages": [
+      "index.html",
+      "kontakt.html",
+      "team.html"
+    ],
+    "alt": "Stefan Hofmann — Leiter Holzbau"
   },
   {
+    "nr": 36,
     "id": "images_team_hauptfoto_jpg",
     "filename": "team-hauptfoto.jpg",
     "rel_path": "images/team-hauptfoto.jpg",
     "folder": "preview-hochuli",
-    "category": "Team & Porträt",
+    "category": "Team, Porträt & Kader",
+    "category_code": "team",
     "dimensions": "1200x549",
     "size_kb": 116.0,
+    "format": "JPG",
     "mtime": 1793278491,
     "mtime_str": "29.10.2026 12:54",
-    "cdn_url": "https://embed.magnet-xs.ch/preview-hochuli/images/team-hauptfoto.jpg",
+    "cdn_url": "https://vorschau.magnet-xs.ch/hochuli/images/team-hauptfoto.jpg",
+    "cloudflare_url": "https://vorschau.magnet-xs.ch/hochuli/images/team-hauptfoto.jpg",
+    "cloudflare_short": "vorschau.magnet-xs.ch/hochuli/images/team-hauptfoto.jpg",
     "is_used": true,
     "used_in": [
       {
@@ -804,20 +1141,28 @@
         "slot": "image",
         "is_hero": false
       }
+    ],
+    "used_in_pages": [
+      "team.html"
     ],
     "alt": "Gesamtteam der Hochuli Schlossrued AG"
   },
   {
+    "nr": 37,
     "id": "images_team_lernende_jpg",
     "filename": "team-lernende.jpg",
     "rel_path": "images/team-lernende.jpg",
     "folder": "preview-hochuli",
-    "category": "Team & Porträt",
+    "category": "Team, Porträt & Kader",
+    "category_code": "team",
     "dimensions": "1100x489",
     "size_kb": 95.9,
+    "format": "JPG",
     "mtime": 1793278491,
     "mtime_str": "29.10.2026 12:54",
-    "cdn_url": "https://embed.magnet-xs.ch/preview-hochuli/images/team-lernende.jpg",
+    "cdn_url": "https://vorschau.magnet-xs.ch/hochuli/images/team-lernende.jpg",
+    "cloudflare_url": "https://vorschau.magnet-xs.ch/hochuli/images/team-lernende.jpg",
+    "cloudflare_short": "vorschau.magnet-xs.ch/hochuli/images/team-lernende.jpg",
     "is_used": true,
     "used_in": [
       {
@@ -825,20 +1170,28 @@
         "slot": "image",
         "is_hero": false
       }
+    ],
+    "used_in_pages": [
+      "team.html"
     ],
     "alt": "Unsere 14 Lernenden der Hochuli Schlossrued AG"
   },
   {
+    "nr": 38,
     "id": "images_team_werte_jpg",
     "filename": "team-werte.jpg",
     "rel_path": "images/team-werte.jpg",
     "folder": "preview-hochuli",
-    "category": "Team & Porträt",
+    "category": "Team, Porträt & Kader",
+    "category_code": "team",
     "dimensions": "1000x551",
     "size_kb": 88.4,
+    "format": "JPG",
     "mtime": 1793278491,
     "mtime_str": "29.10.2026 12:54",
-    "cdn_url": "https://embed.magnet-xs.ch/preview-hochuli/images/team-werte.jpg",
+    "cdn_url": "https://vorschau.magnet-xs.ch/hochuli/images/team-werte.jpg",
+    "cloudflare_url": "https://vorschau.magnet-xs.ch/hochuli/images/team-werte.jpg",
+    "cloudflare_short": "vorschau.magnet-xs.ch/hochuli/images/team-werte.jpg",
     "is_used": true,
     "used_in": [
       {
@@ -847,50 +1200,68 @@
         "is_hero": false
       }
     ],
+    "used_in_pages": [
+      "team.html"
+    ],
     "alt": "Unsere Leitplanken — Bauen im Vertrauen"
   },
   {
+    "nr": 39,
     "id": "images_thomas_bertschi_jpg",
     "filename": "thomas-bertschi.jpg",
     "rel_path": "images/thomas-bertschi.jpg",
     "folder": "preview-hochuli",
-    "category": "Baustelle & Projekte",
+    "category": "Referenz, Projekt & Angebot",
+    "category_code": "ref",
     "dimensions": "400x400",
     "size_kb": 12.6,
+    "format": "JPG",
     "mtime": 1793278494,
     "mtime_str": "29.10.2026 12:54",
-    "cdn_url": "https://embed.magnet-xs.ch/preview-hochuli/images/thomas-bertschi.jpg",
+    "cdn_url": "https://vorschau.magnet-xs.ch/hochuli/images/thomas-bertschi.jpg",
+    "cloudflare_url": "https://vorschau.magnet-xs.ch/hochuli/images/thomas-bertschi.jpg",
+    "cloudflare_short": "vorschau.magnet-xs.ch/hochuli/images/thomas-bertschi.jpg",
     "is_used": true,
     "used_in": [
+      {
+        "datei": "index.html",
+        "slot": "image",
+        "is_hero": false
+      },
       {
         "datei": "kontakt.html",
         "slot": "image",
         "is_hero": false
       },
       {
-        "datei": "index.html",
-        "slot": "image",
-        "is_hero": false
-      },
-      {
         "datei": "team.html",
         "slot": "image",
         "is_hero": false
       }
     ],
-    "alt": "Thomas Bertschi – Persönlicher Ansprechpartner und Fachteam bei Hochuli Schlossrued AG in Schlossrued (AG)"
+    "used_in_pages": [
+      "index.html",
+      "kontakt.html",
+      "team.html"
+    ],
+    "alt": "Thomas Bertschi — Leiter Sanitär+Heizung"
   },
   {
+    "nr": 40,
     "id": "images_thomas_ettle_jpg",
     "filename": "thomas-ettle.jpg",
     "rel_path": "images/thomas-ettle.jpg",
     "folder": "preview-hochuli",
-    "category": "Baustelle & Projekte",
+    "category": "Referenz, Projekt & Angebot",
+    "category_code": "ref",
     "dimensions": "333x333",
     "size_kb": 13.8,
+    "format": "JPG",
     "mtime": 1793278495,
     "mtime_str": "29.10.2026 12:54",
-    "cdn_url": "https://embed.magnet-xs.ch/preview-hochuli/images/thomas-ettle.jpg",
+    "cdn_url": "https://vorschau.magnet-xs.ch/hochuli/images/thomas-ettle.jpg",
+    "cloudflare_url": "https://vorschau.magnet-xs.ch/hochuli/images/thomas-ettle.jpg",
+    "cloudflare_short": "vorschau.magnet-xs.ch/hochuli/images/thomas-ettle.jpg",
     "is_used": true,
     "used_in": [
       {
@@ -899,19 +1270,27 @@
         "is_hero": false
       }
     ],
+    "used_in_pages": [
+      "team.html"
+    ],
     "alt": "Thomas Ettle – Persönlicher Ansprechpartner und Fachteam bei Hochuli Schlossrued AG in Schlossrued (AG)"
   },
   {
+    "nr": 41,
     "id": "images_thomas_perret_jpg",
     "filename": "thomas-perret.jpg",
     "rel_path": "images/thomas-perret.jpg",
     "folder": "preview-hochuli",
-    "category": "Baustelle & Projekte",
+    "category": "Referenz, Projekt & Angebot",
+    "category_code": "ref",
     "dimensions": "200x200",
     "size_kb": 7.5,
+    "format": "JPG",
     "mtime": 1793278495,
     "mtime_str": "29.10.2026 12:54",
-    "cdn_url": "https://embed.magnet-xs.ch/preview-hochuli/images/thomas-perret.jpg",
+    "cdn_url": "https://vorschau.magnet-xs.ch/hochuli/images/thomas-perret.jpg",
+    "cloudflare_url": "https://vorschau.magnet-xs.ch/hochuli/images/thomas-perret.jpg",
+    "cloudflare_short": "vorschau.magnet-xs.ch/hochuli/images/thomas-perret.jpg",
     "is_used": true,
     "used_in": [
       {
@@ -919,6 +1298,9 @@
         "slot": "image",
         "is_hero": false
       }
+    ],
+    "used_in_pages": [
+      "index.html"
     ],
     "alt": "Thomas Perret & Thomas Ettle — Architektur & Bauleitung"
   }

@@ -223,7 +223,27 @@ def fetch_acp_posts(client_id: str, limit: int = 4) -> list[dict]:
     return sorted_posts[:limit]
 
 
-def generate_stories_section_html(posts: list[dict], company_info: dict = None) -> str:
+def _localize_story_image(img_url: str, card_tag: str, idx: int, site_dir: Path = None) -> str:
+    if not site_dir or not img_url or not str(img_url).startswith(("http://", "https://")):
+        return img_url
+    slug_tag = re.sub(r"[^a-z0-9]+", "-", card_tag.lower().replace("ä", "ae").replace("ö", "oe").replace("ü", "ue").replace("\u00df", "ss")).strip("-") or f"story-{idx}"
+    ext = Path(urllib.parse.urlparse(img_url).path).suffix.lower()
+    if ext not in (".jpg", ".jpeg", ".png", ".webp"):
+        ext = ".jpg"
+    local_name = f"ref-{slug_tag}{ext}"
+    images_dir = site_dir / "images"
+    images_dir.mkdir(parents=True, exist_ok=True)
+    dest = images_dir / local_name
+    try:
+        urllib.request.urlretrieve(img_url, dest)
+        return f"images/{local_name}"
+    except Exception:
+        if dest.exists():
+            return f"images/{local_name}"
+        return img_url
+
+
+def generate_stories_section_html(posts: list[dict], company_info: dict = None, site_dir: Path = None) -> str:
     """Generiert die saubere, responsive Schweizer Sektion mit Karussell."""
     company_info = company_info or {}
     stories_cfg = company_info.get("stories_config") or {}
@@ -257,7 +277,7 @@ def generate_stories_section_html(posts: list[dict], company_info: dict = None) 
     cards_html = []
     for idx, p in enumerate(posts, 1):
         card_title, card_desc, card_tag = extract_hook_and_desc(p.get("post_text", ""))
-        img_url = p["resolved_img"]
+        img_url = _localize_story_image(p["resolved_img"], card_tag, idx, site_dir=site_dir)
         target_link = p.get("published_url") or instagram_profile
 
         card = f"""        <!-- PROJEKT {idx}: {card_tag.upper()} -->
@@ -345,7 +365,7 @@ def main():
         print(f"  {idx}. [{p.get('platform')}] ID: {p.get('id')[:8]} | Veröffentlicht: {p.get('published_at', '')[:10]}")
 
     # HTML generieren
-    new_section_html = generate_stories_section_html(posts, company_info=cdata)
+    new_section_html = generate_stories_section_html(posts, company_info=cdata, site_dir=site_dir)
 
     # Airbag prüfen
     sys.path.insert(0, str(BASE_DIR / "scripts"))

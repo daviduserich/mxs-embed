@@ -178,7 +178,13 @@ def get_client_profile(slug: str, client_dir: Path, name: str) -> dict:
     }
 
 def scan_images(client_dir: Path, slug: str, default_category: str = "Baustelle & Benefit"):
-    """Scannt images/ Ordner und erzeugt bilder.json."""
+    """Scannt images/ Ordner und erzeugt bilder.json sowie BILDER_VERZEICHNIS.md via webpilot_asset_catalog."""
+    try:
+        from webpilot_asset_catalog import scan_site_assets
+        rep = scan_site_assets(client_dir)
+        return rep.get("assets", [])
+    except Exception as _cat_err:
+        print(f"[WARN] webpilot_asset_catalog Fallback in scan_images ({slug}): {_cat_err}")
     images_dir = client_dir / "images"
     bilder = []
     if not images_dir.exists():

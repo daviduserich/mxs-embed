@@ -1,19 +1,24 @@
 [
   {
+    "nr": 1,
     "id": "images_apple_touch_icon_png",
     "filename": "apple-touch-icon.png",
     "rel_path": "images/apple-touch-icon.png",
     "folder": "preview-joma",
-    "category": "Baustelle & Projekte",
+    "category": "Favicon & App-Icon",
+    "category_code": "icon",
     "dimensions": "256x256",
     "size_kb": 4.6,
+    "format": "PNG",
     "mtime": 1793914130,
     "mtime_str": "05.11.2026 21:28",
-    "cdn_url": "https://embed.magnet-xs.ch/preview-joma/images/apple-touch-icon.png",
+    "cdn_url": "https://vorschau.magnet-xs.ch/joma-vollversion/images/apple-touch-icon.png",
+    "cloudflare_url": "https://vorschau.magnet-xs.ch/joma-vollversion/images/apple-touch-icon.png",
+    "cloudflare_short": "vorschau.magnet-xs.ch/joma-vollversion/images/apple-touch-icon.png",
     "is_used": true,
     "used_in": [
       {
-        "datei": "referenzen.html",
+        "datei": "index.html",
         "slot": "image",
         "is_hero": false
       },
@@ -23,7 +28,12 @@
         "is_hero": false
       },
       {
-        "datei": "index.html",
+        "datei": "leistungen.html",
+        "slot": "image",
+        "is_hero": false
+      },
+      {
+        "datei": "referenzen.html",
         "slot": "image",
         "is_hero": false
       },
@@ -31,26 +41,33 @@
         "datei": "ueber-uns.html",
         "slot": "image",
         "is_hero": false
-      },
-      {
-        "datei": "leistungen.html",
-        "slot": "image",
-        "is_hero": false
       }
+    ],
+    "used_in_pages": [
+      "index.html",
+      "kontakt.html",
+      "leistungen.html",
+      "referenzen.html",
+      "ueber-uns.html"
     ],
     "alt": "JOMA Solar GmbH Wettingen (AG) – Offizielles Logo (Photovoltaikanlagen für Einfamilienhäuser und)"
   },
   {
+    "nr": 2,
     "id": "images_batteriespeicher_heim_jpg",
     "filename": "batteriespeicher-heim.jpg",
     "rel_path": "images/batteriespeicher-heim.jpg",
     "folder": "preview-joma",
-    "category": "Baustelle & Projekte",
+    "category": "Referenz, Projekt & Angebot",
+    "category_code": "ref",
     "dimensions": "1400x788",
     "size_kb": 124.3,
+    "format": "JPG",
     "mtime": 1793914130,
     "mtime_str": "05.11.2026 21:28",
-    "cdn_url": "https://embed.magnet-xs.ch/preview-joma/images/batteriespeicher-heim.jpg",
+    "cdn_url": "https://vorschau.magnet-xs.ch/joma-vollversion/images/batteriespeicher-heim.jpg",
+    "cloudflare_url": "https://vorschau.magnet-xs.ch/joma-vollversion/images/batteriespeicher-heim.jpg",
+    "cloudflare_short": "vorschau.magnet-xs.ch/joma-vollversion/images/batteriespeicher-heim.jpg",
     "is_used": true,
     "used_in": [
       {
@@ -64,19 +81,28 @@
         "is_hero": false
       }
     ],
-    "alt": "Batteriespeicher für Eigenheime von JOMA Solar"
+    "used_in_pages": [
+      "index.html",
+      "leistungen.html"
+    ],
+    "alt": "Batteriespeicher für Eigenverbrauch und Notstrom"
   },
   {
+    "nr": 3,
     "id": "images_beratung_kundengespraech_jpg",
     "filename": "beratung-kundengespraech.jpg",
     "rel_path": "images/beratung-kundengespraech.jpg",
     "folder": "preview-joma",
-    "category": "Baustelle & Projekte",
+    "category": "Referenz, Projekt & Angebot",
+    "category_code": "ref",
     "dimensions": "500x625",
     "size_kb": 91.8,
+    "format": "JPG",
     "mtime": 1793914130,
     "mtime_str": "05.11.2026 21:28",
-    "cdn_url": "https://embed.magnet-xs.ch/preview-joma/images/beratung-kundengespraech.jpg",
+    "cdn_url": "https://vorschau.magnet-xs.ch/joma-vollversion/images/beratung-kundengespraech.jpg",
+    "cloudflare_url": "https://vorschau.magnet-xs.ch/joma-vollversion/images/beratung-kundengespraech.jpg",
+    "cloudflare_short": "vorschau.magnet-xs.ch/joma-vollversion/images/beratung-kundengespraech.jpg",
     "is_used": true,
     "used_in": [
       {
@@ -84,20 +110,28 @@
         "slot": "image",
         "is_hero": false
       }
+    ],
+    "used_in_pages": [
+      "index.html"
     ],
     "alt": "Persönliches Beratungsgespräch bei JOMA Solar in Wettingen"
   },
   {
+    "nr": 4,
     "id": "images_dachmontage_handwerk_jpg",
     "filename": "dachmontage-handwerk.jpg",
     "rel_path": "images/dachmontage-handwerk.jpg",
     "folder": "preview-joma",
-    "category": "Baustelle & Projekte",
+    "category": "Referenz, Projekt & Angebot",
+    "category_code": "ref",
     "dimensions": "800x533",
     "size_kb": 69.8,
+    "format": "JPG",
     "mtime": 1793914131,
     "mtime_str": "05.11.2026 21:28",
-    "cdn_url": "https://embed.magnet-xs.ch/preview-joma/images/dachmontage-handwerk.jpg",
+    "cdn_url": "https://vorschau.magnet-xs.ch/joma-vollversion/images/dachmontage-handwerk.jpg",
+    "cloudflare_url": "https://vorschau.magnet-xs.ch/joma-vollversion/images/dachmontage-handwerk.jpg",
+    "cloudflare_short": "vorschau.magnet-xs.ch/joma-vollversion/images/dachmontage-handwerk.jpg",
     "is_used": true,
     "used_in": [
       {
@@ -105,24 +139,32 @@
         "slot": "image",
         "is_hero": false
       }
+    ],
+    "used_in_pages": [
+      "index.html"
     ],
     "alt": "Präzise Dachmontage und Schweizer Qualitätsversprechen"
   },
   {
+    "nr": 5,
     "id": "images_efh_luftbild_quartier_jpg",
     "filename": "efh-luftbild-quartier.jpg",
     "rel_path": "images/efh-luftbild-quartier.jpg",
     "folder": "preview-joma",
-    "category": "Baustelle & Projekte",
+    "category": "Referenz, Projekt & Angebot",
+    "category_code": "ref",
     "dimensions": "1400x788",
     "size_kb": 379.2,
+    "format": "JPG",
     "mtime": 1793914134,
     "mtime_str": "05.11.2026 21:28",
-    "cdn_url": "https://embed.magnet-xs.ch/preview-joma/images/efh-luftbild-quartier.jpg",
+    "cdn_url": "https://vorschau.magnet-xs.ch/joma-vollversion/images/efh-luftbild-quartier.jpg",
+    "cloudflare_url": "https://vorschau.magnet-xs.ch/joma-vollversion/images/efh-luftbild-quartier.jpg",
+    "cloudflare_short": "vorschau.magnet-xs.ch/joma-vollversion/images/efh-luftbild-quartier.jpg",
     "is_used": true,
     "used_in": [
       {
-        "datei": "referenzen.html",
+        "datei": "index.html",
         "slot": "image",
         "is_hero": false
       },
@@ -132,7 +174,12 @@
         "is_hero": false
       },
       {
-        "datei": "index.html",
+        "datei": "leistungen.html",
+        "slot": "image",
+        "is_hero": false
+      },
+      {
+        "datei": "referenzen.html",
         "slot": "image",
         "is_hero": false
       },
@@ -140,26 +187,33 @@
         "datei": "ueber-uns.html",
         "slot": "image",
         "is_hero": false
-      },
-      {
-        "datei": "leistungen.html",
-        "slot": "image",
-        "is_hero": false
       }
+    ],
+    "used_in_pages": [
+      "index.html",
+      "kontakt.html",
+      "leistungen.html",
+      "referenzen.html",
+      "ueber-uns.html"
     ],
     "alt": "Photovoltaikanlagen für Privat- und Geschäftskunden im Kanton Aargau"
   },
   {
+    "nr": 6,
     "id": "images_elektrotechnik_planung_jpg",
     "filename": "elektrotechnik-planung.jpg",
     "rel_path": "images/elektrotechnik-planung.jpg",
     "folder": "preview-joma",
-    "category": "Baustelle & Projekte",
+    "category": "Referenz, Projekt & Angebot",
+    "category_code": "ref",
     "dimensions": "800x533",
     "size_kb": 67.0,
+    "format": "JPG",
     "mtime": 1793914132,
     "mtime_str": "05.11.2026 21:28",
-    "cdn_url": "https://embed.magnet-xs.ch/preview-joma/images/elektrotechnik-planung.jpg",
+    "cdn_url": "https://vorschau.magnet-xs.ch/joma-vollversion/images/elektrotechnik-planung.jpg",
+    "cloudflare_url": "https://vorschau.magnet-xs.ch/joma-vollversion/images/elektrotechnik-planung.jpg",
+    "cloudflare_short": "vorschau.magnet-xs.ch/joma-vollversion/images/elektrotechnik-planung.jpg",
     "is_used": true,
     "used_in": [
       {
@@ -167,24 +221,32 @@
         "slot": "image",
         "is_hero": false
       }
+    ],
+    "used_in_pages": [
+      "index.html"
     ],
     "alt": "Saubere Elektrotechnik und Speicher-Integration durch JOMA Solar"
   },
   {
+    "nr": 7,
     "id": "images_favicon_32x32_png",
     "filename": "favicon-32x32.png",
     "rel_path": "images/favicon-32x32.png",
     "folder": "preview-joma",
-    "category": "Baustelle & Projekte",
+    "category": "Favicon & App-Icon",
+    "category_code": "icon",
     "dimensions": "32x32",
     "size_kb": 1.7,
+    "format": "PNG",
     "mtime": 1793914130,
     "mtime_str": "05.11.2026 21:28",
-    "cdn_url": "https://embed.magnet-xs.ch/preview-joma/images/favicon-32x32.png",
+    "cdn_url": "https://vorschau.magnet-xs.ch/joma-vollversion/images/favicon-32x32.png",
+    "cloudflare_url": "https://vorschau.magnet-xs.ch/joma-vollversion/images/favicon-32x32.png",
+    "cloudflare_short": "vorschau.magnet-xs.ch/joma-vollversion/images/favicon-32x32.png",
     "is_used": true,
     "used_in": [
       {
-        "datei": "referenzen.html",
+        "datei": "index.html",
         "slot": "image",
         "is_hero": false
       },
@@ -194,7 +256,12 @@
         "is_hero": false
       },
       {
-        "datei": "index.html",
+        "datei": "leistungen.html",
+        "slot": "image",
+        "is_hero": false
+      },
+      {
+        "datei": "referenzen.html",
         "slot": "image",
         "is_hero": false
       },
@@ -202,26 +269,33 @@
         "datei": "ueber-uns.html",
         "slot": "image",
         "is_hero": false
-      },
-      {
-        "datei": "leistungen.html",
-        "slot": "image",
-        "is_hero": false
       }
+    ],
+    "used_in_pages": [
+      "index.html",
+      "kontakt.html",
+      "leistungen.html",
+      "referenzen.html",
+      "ueber-uns.html"
     ],
     "alt": "JOMA Solar GmbH Wettingen (AG) – Offizielles Logo (Photovoltaikanlagen für Einfamilienhäuser und)"
   },
   {
+    "nr": 8,
     "id": "images_gewerbe_solar_abend_jpg",
     "filename": "gewerbe-solar-abend.jpg",
     "rel_path": "images/gewerbe-solar-abend.jpg",
     "folder": "preview-joma",
-    "category": "Baustelle & Projekte",
+    "category": "Referenz, Projekt & Angebot",
+    "category_code": "ref",
     "dimensions": "1400x800",
     "size_kb": 107.0,
+    "format": "JPG",
     "mtime": 1793914133,
     "mtime_str": "05.11.2026 21:28",
-    "cdn_url": "https://embed.magnet-xs.ch/preview-joma/images/gewerbe-solar-abend.jpg",
+    "cdn_url": "https://vorschau.magnet-xs.ch/joma-vollversion/images/gewerbe-solar-abend.jpg",
+    "cloudflare_url": "https://vorschau.magnet-xs.ch/joma-vollversion/images/gewerbe-solar-abend.jpg",
+    "cloudflare_short": "vorschau.magnet-xs.ch/joma-vollversion/images/gewerbe-solar-abend.jpg",
     "is_used": true,
     "used_in": [
       {
@@ -229,20 +303,28 @@
         "slot": "image",
         "is_hero": false
       }
+    ],
+    "used_in_pages": [
+      "index.html"
     ],
     "alt": "Solar-Contracting für Unternehmen ohne eigene Investition"
   },
   {
+    "nr": 9,
     "id": "images_gewerbe_speicher_technik_jpg",
     "filename": "gewerbe-speicher-technik.jpg",
     "rel_path": "images/gewerbe-speicher-technik.jpg",
     "folder": "preview-joma",
-    "category": "Baustelle & Projekte",
+    "category": "Referenz, Projekt & Angebot",
+    "category_code": "ref",
     "dimensions": "800x533",
     "size_kb": 87.3,
+    "format": "JPG",
     "mtime": 1793914131,
     "mtime_str": "05.11.2026 21:28",
-    "cdn_url": "https://embed.magnet-xs.ch/preview-joma/images/gewerbe-speicher-technik.jpg",
+    "cdn_url": "https://vorschau.magnet-xs.ch/joma-vollversion/images/gewerbe-speicher-technik.jpg",
+    "cloudflare_url": "https://vorschau.magnet-xs.ch/joma-vollversion/images/gewerbe-speicher-technik.jpg",
+    "cloudflare_short": "vorschau.magnet-xs.ch/joma-vollversion/images/gewerbe-speicher-technik.jpg",
     "is_used": true,
     "used_in": [
       {
@@ -250,20 +332,28 @@
         "slot": "image",
         "is_hero": false
       }
+    ],
+    "used_in_pages": [
+      "leistungen.html"
     ],
     "alt": "Gewerbespeicher und Lastmanagement Technikraum"
   },
   {
+    "nr": 10,
     "id": "images_grossanlage_gewerbe_jpg",
     "filename": "grossanlage-gewerbe.jpg",
     "rel_path": "images/grossanlage-gewerbe.jpg",
     "folder": "preview-joma",
-    "category": "Baustelle & Projekte",
+    "category": "Referenz, Projekt & Angebot",
+    "category_code": "ref",
     "dimensions": "1200x800",
     "size_kb": 258.1,
+    "format": "JPG",
     "mtime": 1793914132,
     "mtime_str": "05.11.2026 21:28",
-    "cdn_url": "https://embed.magnet-xs.ch/preview-joma/images/grossanlage-gewerbe.jpg",
+    "cdn_url": "https://vorschau.magnet-xs.ch/joma-vollversion/images/grossanlage-gewerbe.jpg",
+    "cloudflare_url": "https://vorschau.magnet-xs.ch/joma-vollversion/images/grossanlage-gewerbe.jpg",
+    "cloudflare_short": "vorschau.magnet-xs.ch/joma-vollversion/images/grossanlage-gewerbe.jpg",
     "is_used": true,
     "used_in": [
       {
@@ -272,53 +362,57 @@
         "is_hero": false
       }
     ],
+    "used_in_pages": [
+      "index.html"
+    ],
     "alt": "Photovoltaik Grossanlagen für Gewerbe und Industrie"
   },
   {
+    "nr": 11,
     "id": "images_logo_png",
     "filename": "logo.png",
     "rel_path": "images/logo.png",
     "folder": "preview-joma",
-    "category": "Logo & Icon",
+    "category": "Logo & Marken-Icon",
+    "category_code": "logo",
     "dimensions": "256x256",
     "size_kb": 4.6,
+    "format": "PNG",
     "mtime": 1793914130,
     "mtime_str": "05.11.2026 21:28",
-    "cdn_url": "https://embed.magnet-xs.ch/preview-joma/images/logo.png",
+    "cdn_url": "https://vorschau.magnet-xs.ch/joma-vollversion/images/logo.png",
+    "cloudflare_url": "https://vorschau.magnet-xs.ch/joma-vollversion/images/logo.png",
+    "cloudflare_short": "vorschau.magnet-xs.ch/joma-vollversion/images/logo.png",
     "is_used": false,
     "used_in": [],
+    "used_in_pages": [],
     "alt": "JOMA Solar GmbH Wettingen (AG) – Offizielles Logo (Photovoltaikanlagen für Einfamilienhäuser und)"
   },
   {
+    "nr": 12,
     "id": "images_logo_svg",
     "filename": "logo.svg",
     "rel_path": "images/logo.svg",
     "folder": "preview-joma",
-    "category": "Logo & Icon",
-    "dimensions": "Unbekannt",
+    "category": "Logo & Marken-Icon",
+    "category_code": "logo",
+    "dimensions": "2249x424",
     "size_kb": 4.7,
+    "format": "SVG",
     "mtime": 1793914129,
     "mtime_str": "05.11.2026 21:28",
-    "cdn_url": "https://embed.magnet-xs.ch/preview-joma/images/logo.svg",
+    "cdn_url": "https://vorschau.magnet-xs.ch/joma-vollversion/images/logo.svg",
+    "cloudflare_url": "https://vorschau.magnet-xs.ch/joma-vollversion/images/logo.svg",
+    "cloudflare_short": "vorschau.magnet-xs.ch/joma-vollversion/images/logo.svg",
     "is_used": true,
     "used_in": [
-      {
-        "datei": "referenzen.html",
-        "slot": "image",
-        "is_hero": false
-      },
-      {
-        "datei": "kontakt.html",
-        "slot": "image",
-        "is_hero": false
-      },
       {
         "datei": "index.html",
         "slot": "image",
         "is_hero": false
       },
       {
-        "datei": "ueber-uns.html",
+        "datei": "kontakt.html",
         "slot": "image",
         "is_hero": false
       },
@@ -326,21 +420,43 @@
         "datei": "leistungen.html",
         "slot": "image",
         "is_hero": false
+      },
+      {
+        "datei": "referenzen.html",
+        "slot": "image",
+        "is_hero": false
+      },
+      {
+        "datei": "ueber-uns.html",
+        "slot": "image",
+        "is_hero": false
       }
     ],
-    "alt": "JOMA Solar GmbH"
+    "used_in_pages": [
+      "index.html",
+      "kontakt.html",
+      "leistungen.html",
+      "referenzen.html",
+      "ueber-uns.html"
+    ],
+    "alt": "JOMA Solar GmbH Wettingen (AG) – Offizielles Logo (Photovoltaikanlagen für Einfamilienhäuser und)"
   },
   {
+    "nr": 13,
     "id": "images_portrait_jonathan_muggli_jpg",
     "filename": "portrait-jonathan-muggli.jpg",
     "rel_path": "images/portrait-jonathan-muggli.jpg",
     "folder": "preview-joma",
-    "category": "Baustelle & Projekte",
+    "category": "Team, Porträt & Kader",
+    "category_code": "team",
     "dimensions": "450x450",
     "size_kb": 22.3,
+    "format": "JPG",
     "mtime": 1793914134,
     "mtime_str": "05.11.2026 21:28",
-    "cdn_url": "https://embed.magnet-xs.ch/preview-joma/images/portrait-jonathan-muggli.jpg",
+    "cdn_url": "https://vorschau.magnet-xs.ch/joma-vollversion/images/portrait-jonathan-muggli.jpg",
+    "cloudflare_url": "https://vorschau.magnet-xs.ch/joma-vollversion/images/portrait-jonathan-muggli.jpg",
+    "cloudflare_short": "vorschau.magnet-xs.ch/joma-vollversion/images/portrait-jonathan-muggli.jpg",
     "is_used": true,
     "used_in": [
       {
@@ -354,19 +470,28 @@
         "is_hero": false
       }
     ],
-    "alt": "Jonathan Muggli — Gründer und Geschäftsführer JOMA Solar GmbH"
+    "used_in_pages": [
+      "index.html",
+      "ueber-uns.html"
+    ],
+    "alt": "Jonathan Muggli — Gründer und Geschäftsführer JOMA Solar GmbH Wettingen"
   },
   {
+    "nr": 14,
     "id": "images_portrait_marco_keller_jpg",
     "filename": "portrait-marco-keller.jpg",
     "rel_path": "images/portrait-marco-keller.jpg",
     "folder": "preview-joma",
-    "category": "Baustelle & Projekte",
+    "category": "Team, Porträt & Kader",
+    "category_code": "team",
     "dimensions": "450x450",
     "size_kb": 23.1,
+    "format": "JPG",
     "mtime": 1793914134,
     "mtime_str": "05.11.2026 21:28",
-    "cdn_url": "https://embed.magnet-xs.ch/preview-joma/images/portrait-marco-keller.jpg",
+    "cdn_url": "https://vorschau.magnet-xs.ch/joma-vollversion/images/portrait-marco-keller.jpg",
+    "cloudflare_url": "https://vorschau.magnet-xs.ch/joma-vollversion/images/portrait-marco-keller.jpg",
+    "cloudflare_short": "vorschau.magnet-xs.ch/joma-vollversion/images/portrait-marco-keller.jpg",
     "is_used": true,
     "used_in": [
       {
@@ -380,19 +505,28 @@
         "is_hero": false
       }
     ],
-    "alt": "Marco Keller — Gründer und Geschäftsführer JOMA Solar GmbH"
+    "used_in_pages": [
+      "index.html",
+      "ueber-uns.html"
+    ],
+    "alt": "Marco Keller — Gründer und Geschäftsführer JOMA Solar GmbH Wettingen"
   },
   {
+    "nr": 15,
     "id": "images_portrait_mario_grab_jpg",
     "filename": "portrait-mario-grab.jpg",
     "rel_path": "images/portrait-mario-grab.jpg",
     "folder": "preview-joma",
-    "category": "Baustelle & Projekte",
+    "category": "Team, Porträt & Kader",
+    "category_code": "team",
     "dimensions": "450x450",
     "size_kb": 20.4,
+    "format": "JPG",
     "mtime": 1793914134,
     "mtime_str": "05.11.2026 21:28",
-    "cdn_url": "https://embed.magnet-xs.ch/preview-joma/images/portrait-mario-grab.jpg",
+    "cdn_url": "https://vorschau.magnet-xs.ch/joma-vollversion/images/portrait-mario-grab.jpg",
+    "cloudflare_url": "https://vorschau.magnet-xs.ch/joma-vollversion/images/portrait-mario-grab.jpg",
+    "cloudflare_short": "vorschau.magnet-xs.ch/joma-vollversion/images/portrait-mario-grab.jpg",
     "is_used": true,
     "used_in": [
       {
@@ -400,20 +534,28 @@
         "slot": "image",
         "is_hero": false
       }
+    ],
+    "used_in_pages": [
+      "ueber-uns.html"
     ],
     "alt": "Mario Grab — Solarmonteur und gelernter Dachdecker JOMA Solar"
   },
   {
+    "nr": 16,
     "id": "images_portrait_sascha_tsap_jpg",
     "filename": "portrait-sascha-tsap.jpg",
     "rel_path": "images/portrait-sascha-tsap.jpg",
     "folder": "preview-joma",
-    "category": "Baustelle & Projekte",
+    "category": "Team, Porträt & Kader",
+    "category_code": "team",
     "dimensions": "450x450",
     "size_kb": 20.4,
+    "format": "JPG",
     "mtime": 1793914134,
     "mtime_str": "05.11.2026 21:28",
-    "cdn_url": "https://embed.magnet-xs.ch/preview-joma/images/portrait-sascha-tsap.jpg",
+    "cdn_url": "https://vorschau.magnet-xs.ch/joma-vollversion/images/portrait-sascha-tsap.jpg",
+    "cloudflare_url": "https://vorschau.magnet-xs.ch/joma-vollversion/images/portrait-sascha-tsap.jpg",
+    "cloudflare_short": "vorschau.magnet-xs.ch/joma-vollversion/images/portrait-sascha-tsap.jpg",
     "is_used": true,
     "used_in": [
       {
@@ -421,20 +563,28 @@
         "slot": "image",
         "is_hero": false
       }
+    ],
+    "used_in_pages": [
+      "ueber-uns.html"
     ],
     "alt": "Sascha Tsap — Solarmonteur und Dachdecker JOMA Solar"
   },
   {
+    "nr": 17,
     "id": "images_portrait_tino_seiler_jpg",
     "filename": "portrait-tino-seiler.jpg",
     "rel_path": "images/portrait-tino-seiler.jpg",
     "folder": "preview-joma",
-    "category": "Baustelle & Projekte",
+    "category": "Team, Porträt & Kader",
+    "category_code": "team",
     "dimensions": "450x450",
     "size_kb": 20.9,
+    "format": "JPG",
     "mtime": 1793914134,
     "mtime_str": "05.11.2026 21:28",
-    "cdn_url": "https://embed.magnet-xs.ch/preview-joma/images/portrait-tino-seiler.jpg",
+    "cdn_url": "https://vorschau.magnet-xs.ch/joma-vollversion/images/portrait-tino-seiler.jpg",
+    "cloudflare_url": "https://vorschau.magnet-xs.ch/joma-vollversion/images/portrait-tino-seiler.jpg",
+    "cloudflare_short": "vorschau.magnet-xs.ch/joma-vollversion/images/portrait-tino-seiler.jpg",
     "is_used": true,
     "used_in": [
       {
@@ -443,19 +593,27 @@
         "is_hero": false
       }
     ],
+    "used_in_pages": [
+      "ueber-uns.html"
+    ],
     "alt": "Tino Seiler — Leiter Montage und Ausführung JOMA Solar"
   },
   {
+    "nr": 18,
     "id": "images_ref_fislisbach_24kwp_jpg",
     "filename": "ref-fislisbach-24kwp.jpg",
     "rel_path": "images/ref-fislisbach-24kwp.jpg",
     "folder": "preview-joma",
-    "category": "Baustelle & Projekte",
+    "category": "Referenz, Projekt & Angebot",
+    "category_code": "ref",
     "dimensions": "1400x788",
     "size_kb": 385.4,
+    "format": "JPG",
     "mtime": 1793914136,
     "mtime_str": "05.11.2026 21:28",
-    "cdn_url": "https://embed.magnet-xs.ch/preview-joma/images/ref-fislisbach-24kwp.jpg",
+    "cdn_url": "https://vorschau.magnet-xs.ch/joma-vollversion/images/ref-fislisbach-24kwp.jpg",
+    "cloudflare_url": "https://vorschau.magnet-xs.ch/joma-vollversion/images/ref-fislisbach-24kwp.jpg",
+    "cloudflare_short": "vorschau.magnet-xs.ch/joma-vollversion/images/ref-fislisbach-24kwp.jpg",
     "is_used": true,
     "used_in": [
       {
@@ -463,46 +621,63 @@
         "slot": "image",
         "is_hero": false
       }
+    ],
+    "used_in_pages": [
+      "referenzen.html"
     ],
     "alt": "JOMA Solar Referenzprojekt Fislisbach (AG) (24.03 kWp)"
   },
   {
+    "nr": 19,
     "id": "images_ref_riniken_18kwp_jpg",
     "filename": "ref-riniken-18kwp.jpg",
     "rel_path": "images/ref-riniken-18kwp.jpg",
     "folder": "preview-joma",
-    "category": "Baustelle & Projekte",
+    "category": "Referenz, Projekt & Angebot",
+    "category_code": "ref",
     "dimensions": "1400x788",
     "size_kb": 358.8,
+    "format": "JPG",
     "mtime": 1793914135,
     "mtime_str": "05.11.2026 21:28",
-    "cdn_url": "https://embed.magnet-xs.ch/preview-joma/images/ref-riniken-18kwp.jpg",
+    "cdn_url": "https://vorschau.magnet-xs.ch/joma-vollversion/images/ref-riniken-18kwp.jpg",
+    "cloudflare_url": "https://vorschau.magnet-xs.ch/joma-vollversion/images/ref-riniken-18kwp.jpg",
+    "cloudflare_short": "vorschau.magnet-xs.ch/joma-vollversion/images/ref-riniken-18kwp.jpg",
     "is_used": true,
     "used_in": [
-      {
-        "datei": "referenzen.html",
-        "slot": "image",
-        "is_hero": false
-      },
       {
         "datei": "index.html",
         "slot": "image",
         "is_hero": false
+      },
+      {
+        "datei": "referenzen.html",
+        "slot": "image",
+        "is_hero": false
       }
+    ],
+    "used_in_pages": [
+      "index.html",
+      "referenzen.html"
     ],
     "alt": "JOMA Solar Referenzprojekt Riniken (AG) (18.80 kWp)"
   },
   {
+    "nr": 20,
     "id": "images_ref_ruetihof_55kwp_jpg",
     "filename": "ref-ruetihof-55kwp.jpg",
     "rel_path": "images/ref-ruetihof-55kwp.jpg",
     "folder": "preview-joma",
-    "category": "Baustelle & Projekte",
+    "category": "Referenz, Projekt & Angebot",
+    "category_code": "ref",
     "dimensions": "1400x788",
     "size_kb": 348.8,
+    "format": "JPG",
     "mtime": 1793914135,
     "mtime_str": "05.11.2026 21:28",
-    "cdn_url": "https://embed.magnet-xs.ch/preview-joma/images/ref-ruetihof-55kwp.jpg",
+    "cdn_url": "https://vorschau.magnet-xs.ch/joma-vollversion/images/ref-ruetihof-55kwp.jpg",
+    "cloudflare_url": "https://vorschau.magnet-xs.ch/joma-vollversion/images/ref-ruetihof-55kwp.jpg",
+    "cloudflare_short": "vorschau.magnet-xs.ch/joma-vollversion/images/ref-ruetihof-55kwp.jpg",
     "is_used": true,
     "used_in": [
       {
@@ -511,45 +686,62 @@
         "is_hero": false
       }
     ],
-    "alt": "JOMA Solar Referenzprojekt Baden-Rütihof (Grossprojekt) (55.47 kWp)"
+    "used_in_pages": [
+      "referenzen.html"
+    ],
+    "alt": "Grossanlage 55.47 kWp in Baden-Rütihof mit Megasol Full Black Modulen"
   },
   {
+    "nr": 21,
     "id": "images_ref_ruetihof_zev_30kwp_jpg",
     "filename": "ref-ruetihof-zev-30kwp.jpg",
     "rel_path": "images/ref-ruetihof-zev-30kwp.jpg",
     "folder": "preview-joma",
-    "category": "Baustelle & Projekte",
+    "category": "Referenz, Projekt & Angebot",
+    "category_code": "ref",
     "dimensions": "1200x675",
     "size_kb": 264.5,
+    "format": "JPG",
     "mtime": 1793914135,
     "mtime_str": "05.11.2026 21:28",
-    "cdn_url": "https://embed.magnet-xs.ch/preview-joma/images/ref-ruetihof-zev-30kwp.jpg",
+    "cdn_url": "https://vorschau.magnet-xs.ch/joma-vollversion/images/ref-ruetihof-zev-30kwp.jpg",
+    "cloudflare_url": "https://vorschau.magnet-xs.ch/joma-vollversion/images/ref-ruetihof-zev-30kwp.jpg",
+    "cloudflare_short": "vorschau.magnet-xs.ch/joma-vollversion/images/ref-ruetihof-zev-30kwp.jpg",
     "is_used": true,
     "used_in": [
-      {
-        "datei": "referenzen.html",
-        "slot": "image",
-        "is_hero": false
-      },
       {
         "datei": "index.html",
         "slot": "image",
         "is_hero": false
+      },
+      {
+        "datei": "referenzen.html",
+        "slot": "image",
+        "is_hero": false
       }
+    ],
+    "used_in_pages": [
+      "index.html",
+      "referenzen.html"
     ],
     "alt": "JOMA Solar Referenzprojekt Baden-Rütihof (MFH ZEV) (30.60 kWp)"
   },
   {
+    "nr": 22,
     "id": "images_ref_schoefflisdorf_14kwp_jpg",
     "filename": "ref-schoefflisdorf-14kwp.jpg",
     "rel_path": "images/ref-schoefflisdorf-14kwp.jpg",
     "folder": "preview-joma",
-    "category": "Baustelle & Projekte",
+    "category": "Referenz, Projekt & Angebot",
+    "category_code": "ref",
     "dimensions": "1400x788",
     "size_kb": 216.5,
+    "format": "JPG",
     "mtime": 1793914137,
     "mtime_str": "05.11.2026 21:28",
-    "cdn_url": "https://embed.magnet-xs.ch/preview-joma/images/ref-schoefflisdorf-14kwp.jpg",
+    "cdn_url": "https://vorschau.magnet-xs.ch/joma-vollversion/images/ref-schoefflisdorf-14kwp.jpg",
+    "cloudflare_url": "https://vorschau.magnet-xs.ch/joma-vollversion/images/ref-schoefflisdorf-14kwp.jpg",
+    "cloudflare_short": "vorschau.magnet-xs.ch/joma-vollversion/images/ref-schoefflisdorf-14kwp.jpg",
     "is_used": true,
     "used_in": [
       {
@@ -557,72 +749,98 @@
         "slot": "image",
         "is_hero": false
       }
+    ],
+    "used_in_pages": [
+      "referenzen.html"
     ],
     "alt": "JOMA Solar Referenzprojekt Schöfflisdorf (ZH) (13.95 kWp)"
   },
   {
+    "nr": 23,
     "id": "images_ref_umbricht_untersiggenthal_jpg",
     "filename": "ref-umbricht-untersiggenthal.jpg",
     "rel_path": "images/ref-umbricht-untersiggenthal.jpg",
     "folder": "preview-joma",
-    "category": "Baustelle & Projekte",
+    "category": "Referenz, Projekt & Angebot",
+    "category_code": "ref",
     "dimensions": "1280x720",
     "size_kb": 73.2,
+    "format": "JPG",
     "mtime": 1793914196,
     "mtime_str": "05.11.2026 21:29",
-    "cdn_url": "https://embed.magnet-xs.ch/preview-joma/images/ref-umbricht-untersiggenthal.jpg",
+    "cdn_url": "https://vorschau.magnet-xs.ch/joma-vollversion/images/ref-umbricht-untersiggenthal.jpg",
+    "cloudflare_url": "https://vorschau.magnet-xs.ch/joma-vollversion/images/ref-umbricht-untersiggenthal.jpg",
+    "cloudflare_short": "vorschau.magnet-xs.ch/joma-vollversion/images/ref-umbricht-untersiggenthal.jpg",
     "is_used": true,
     "used_in": [
-      {
-        "datei": "referenzen.html",
-        "slot": "image",
-        "is_hero": false
-      },
       {
         "datei": "index.html",
         "slot": "image",
         "is_hero": false
+      },
+      {
+        "datei": "referenzen.html",
+        "slot": "image",
+        "is_hero": false
       }
     ],
-    "alt": "Solaranlage Wein und Gemüse Umbricht in Untersiggenthal"
+    "used_in_pages": [
+      "index.html",
+      "referenzen.html"
+    ],
+    "alt": "Referenzprojekt Wein und Gemüse Umbricht in Untersiggenthal"
   },
   {
+    "nr": 24,
     "id": "images_ref_wettingen_indach_jpg",
     "filename": "ref-wettingen-indach.jpg",
     "rel_path": "images/ref-wettingen-indach.jpg",
     "folder": "preview-joma",
-    "category": "Baustelle & Projekte",
+    "category": "Referenz, Projekt & Angebot",
+    "category_code": "ref",
     "dimensions": "1200x675",
     "size_kb": 247.9,
+    "format": "JPG",
     "mtime": 1793914135,
     "mtime_str": "05.11.2026 21:28",
-    "cdn_url": "https://embed.magnet-xs.ch/preview-joma/images/ref-wettingen-indach.jpg",
+    "cdn_url": "https://vorschau.magnet-xs.ch/joma-vollversion/images/ref-wettingen-indach.jpg",
+    "cloudflare_url": "https://vorschau.magnet-xs.ch/joma-vollversion/images/ref-wettingen-indach.jpg",
+    "cloudflare_short": "vorschau.magnet-xs.ch/joma-vollversion/images/ref-wettingen-indach.jpg",
     "is_used": true,
     "used_in": [
       {
-        "datei": "referenzen.html",
+        "datei": "index.html",
         "slot": "image",
         "is_hero": false
       },
       {
-        "datei": "index.html",
+        "datei": "referenzen.html",
         "slot": "image",
         "is_hero": false
       }
     ],
-    "alt": "JOMA Solar Referenzprojekt Wettingen (Attenhoferstrasse) (11.54 kWp)"
+    "used_in_pages": [
+      "index.html",
+      "referenzen.html"
+    ],
+    "alt": "Solaranlage für Einfamilienhaus und Mehrfamilienhaus in Wettingen"
   },
   {
+    "nr": 25,
     "id": "images_solarmanager_app_jpg",
     "filename": "solarmanager-app.jpg",
     "rel_path": "images/solarmanager-app.jpg",
     "folder": "preview-joma",
-    "category": "Baustelle & Projekte",
+    "category": "Referenz, Projekt & Angebot",
+    "category_code": "ref",
     "dimensions": "1216x832",
     "size_kb": 40.6,
+    "format": "JPG",
     "mtime": 1793914132,
     "mtime_str": "05.11.2026 21:28",
-    "cdn_url": "https://embed.magnet-xs.ch/preview-joma/images/solarmanager-app.jpg",
+    "cdn_url": "https://vorschau.magnet-xs.ch/joma-vollversion/images/solarmanager-app.jpg",
+    "cloudflare_url": "https://vorschau.magnet-xs.ch/joma-vollversion/images/solarmanager-app.jpg",
+    "cloudflare_short": "vorschau.magnet-xs.ch/joma-vollversion/images/solarmanager-app.jpg",
     "is_used": true,
     "used_in": [
       {
@@ -631,50 +849,68 @@
         "is_hero": false
       }
     ],
+    "used_in_pages": [
+      "index.html"
+    ],
     "alt": "Solar Manager App und Smart-Me ZEV Abrechnung"
   },
   {
+    "nr": 26,
     "id": "images_team_gruppe_hero_jpg",
     "filename": "team-gruppe-hero.jpg",
     "rel_path": "images/team-gruppe-hero.jpg",
     "folder": "preview-joma",
-    "category": "Hero & Header",
+    "category": "Startbühne & Header",
+    "category_code": "hero",
     "dimensions": "1400x933",
     "size_kb": 187.9,
+    "format": "JPG",
     "mtime": 1793914130,
     "mtime_str": "05.11.2026 21:28",
-    "cdn_url": "https://embed.magnet-xs.ch/preview-joma/images/team-gruppe-hero.jpg",
+    "cdn_url": "https://vorschau.magnet-xs.ch/joma-vollversion/images/team-gruppe-hero.jpg",
+    "cloudflare_url": "https://vorschau.magnet-xs.ch/joma-vollversion/images/team-gruppe-hero.jpg",
+    "cloudflare_short": "vorschau.magnet-xs.ch/joma-vollversion/images/team-gruppe-hero.jpg",
     "is_used": true,
     "used_in": [
+      {
+        "datei": "index.html",
+        "slot": "image",
+        "is_hero": true
+      },
       {
         "datei": "kontakt.html",
         "slot": "image",
         "is_hero": true
       },
       {
-        "datei": "index.html",
-        "slot": "image",
-        "is_hero": true
-      },
-      {
         "datei": "ueber-uns.html",
         "slot": "image",
         "is_hero": true
       }
     ],
-    "alt": "Das 5-köpfige Team der JOMA Solar GmbH in Wettingen"
+    "used_in_pages": [
+      "index.html",
+      "kontakt.html",
+      "ueber-uns.html"
+    ],
+    "alt": "Das Team der JOMA Solar GmbH aus Wettingen"
   },
   {
+    "nr": 27,
     "id": "images_team_jonathan_marco_pv_jpg",
     "filename": "team-jonathan-marco-pv.jpg",
     "rel_path": "images/team-jonathan-marco-pv.jpg",
     "folder": "preview-joma",
-    "category": "Team & Porträt",
+    "category": "Team, Porträt & Kader",
+    "category_code": "team",
     "dimensions": "533x800",
     "size_kb": 152.0,
+    "format": "JPG",
     "mtime": 1793914130,
     "mtime_str": "05.11.2026 21:28",
-    "cdn_url": "https://embed.magnet-xs.ch/preview-joma/images/team-jonathan-marco-pv.jpg",
+    "cdn_url": "https://vorschau.magnet-xs.ch/joma-vollversion/images/team-jonathan-marco-pv.jpg",
+    "cloudflare_url": "https://vorschau.magnet-xs.ch/joma-vollversion/images/team-jonathan-marco-pv.jpg",
+    "cloudflare_short": "vorschau.magnet-xs.ch/joma-vollversion/images/team-jonathan-marco-pv.jpg",
     "is_used": true,
     "used_in": [
       {
@@ -682,6 +918,9 @@
         "slot": "image",
         "is_hero": false
       }
+    ],
+    "used_in_pages": [
+      "ueber-uns.html"
     ],
     "alt": "Jonathan Muggli und Marco Keller auf dem Solardach"
   }

@@ -1,24 +1,24 @@
 [
   {
+    "nr": 1,
     "id": "images_apple_touch_icon_png",
     "filename": "apple-touch-icon.png",
     "rel_path": "images/apple-touch-icon.png",
     "folder": "preview-fcschlieren",
-    "category": "Projekte & Einblicke",
+    "category": "Favicon & App-Icon",
+    "category_code": "icon",
     "dimensions": "180x180",
     "size_kb": 19.5,
+    "format": "PNG",
     "mtime": 1793475188,
     "mtime_str": "31.10.2026 19:33",
-    "cdn_url": "https://embed.magnet-xs.ch/preview-fcschlieren/images/apple-touch-icon.png",
+    "cdn_url": "https://vorschau.magnet-xs.ch/fcschlieren-vollversion/images/apple-touch-icon.png",
+    "cloudflare_url": "https://vorschau.magnet-xs.ch/fcschlieren-vollversion/images/apple-touch-icon.png",
+    "cloudflare_short": "vorschau.magnet-xs.ch/fcschlieren-vollversion/images/apple-touch-icon.png",
     "is_used": true,
     "used_in": [
       {
         "datei": "herren-1.html",
-        "slot": "image",
-        "is_hero": false
-      },
-      {
-        "datei": "kontakt.html",
         "slot": "image",
         "is_hero": false
       },
@@ -28,24 +28,40 @@
         "is_hero": false
       },
       {
+        "datei": "kontakt.html",
+        "slot": "image",
+        "is_hero": false
+      },
+      {
         "datei": "team-update.html",
         "slot": "image",
         "is_hero": false
       }
     ],
+    "used_in_pages": [
+      "herren-1.html",
+      "index.html",
+      "kontakt.html",
+      "team-update.html"
+    ],
     "alt": "FC Schlieren Schlieren (ZH) – Offizielles Logo (Spielbetrieb für 33 Fussballmannschaften (Herren, Frauen,)"
   },
   {
+    "nr": 2,
     "id": "images_camp_trailer_thumb_webp",
     "filename": "camp-trailer-thumb.webp",
     "rel_path": "images/camp-trailer-thumb.webp",
     "folder": "preview-fcschlieren",
-    "category": "Projekte & Einblicke",
-    "dimensions": "Unbekannt",
+    "category": "Referenz, Projekt & Angebot",
+    "category_code": "ref",
+    "dimensions": "480x360",
     "size_kb": 20.8,
+    "format": "WEBP",
     "mtime": 1793475192,
     "mtime_str": "31.10.2026 19:33",
-    "cdn_url": "https://embed.magnet-xs.ch/preview-fcschlieren/images/camp-trailer-thumb.webp",
+    "cdn_url": "https://vorschau.magnet-xs.ch/fcschlieren-vollversion/images/camp-trailer-thumb.webp",
+    "cloudflare_url": "https://vorschau.magnet-xs.ch/fcschlieren-vollversion/images/camp-trailer-thumb.webp",
+    "cloudflare_short": "vorschau.magnet-xs.ch/fcschlieren-vollversion/images/camp-trailer-thumb.webp",
     "is_used": true,
     "used_in": [
       {
@@ -53,20 +69,28 @@
         "slot": "image",
         "is_hero": false
       }
+    ],
+    "used_in_pages": [
+      "index.html"
     ],
     "alt": "FC Schlieren Fussballcamp Trailer Video"
   },
   {
+    "nr": 3,
     "id": "images_clubhaus_beizli_1_webp",
     "filename": "clubhaus-beizli-1.webp",
     "rel_path": "images/clubhaus-beizli-1.webp",
     "folder": "preview-fcschlieren",
-    "category": "Projekte & Einblicke",
-    "dimensions": "Unbekannt",
+    "category": "Referenz, Projekt & Angebot",
+    "category_code": "ref",
+    "dimensions": "275x183",
     "size_kb": 16.7,
+    "format": "WEBP",
     "mtime": 1793475194,
     "mtime_str": "31.10.2026 19:33",
-    "cdn_url": "https://embed.magnet-xs.ch/preview-fcschlieren/images/clubhaus-beizli-1.webp",
+    "cdn_url": "https://vorschau.magnet-xs.ch/fcschlieren-vollversion/images/clubhaus-beizli-1.webp",
+    "cloudflare_url": "https://vorschau.magnet-xs.ch/fcschlieren-vollversion/images/clubhaus-beizli-1.webp",
+    "cloudflare_short": "vorschau.magnet-xs.ch/fcschlieren-vollversion/images/clubhaus-beizli-1.webp",
     "is_used": true,
     "used_in": [
       {
@@ -74,44 +98,53 @@
         "slot": "image",
         "is_hero": false
       }
+    ],
+    "used_in_pages": [
+      "index.html"
     ],
     "alt": "Clubhaus und Beizli FC Schlieren"
   },
   {
+    "nr": 4,
     "id": "images_clubhaus_beizli_2_webp",
     "filename": "clubhaus-beizli-2.webp",
     "rel_path": "images/clubhaus-beizli-2.webp",
     "folder": "preview-fcschlieren",
-    "category": "Projekte & Einblicke",
-    "dimensions": "Unbekannt",
+    "category": "Referenz, Projekt & Angebot",
+    "category_code": "ref",
+    "dimensions": "275x183",
     "size_kb": 11.6,
+    "format": "WEBP",
     "mtime": 1793475194,
     "mtime_str": "31.10.2026 19:33",
-    "cdn_url": "https://embed.magnet-xs.ch/preview-fcschlieren/images/clubhaus-beizli-2.webp",
+    "cdn_url": "https://vorschau.magnet-xs.ch/fcschlieren-vollversion/images/clubhaus-beizli-2.webp",
+    "cloudflare_url": "https://vorschau.magnet-xs.ch/fcschlieren-vollversion/images/clubhaus-beizli-2.webp",
+    "cloudflare_short": "vorschau.magnet-xs.ch/fcschlieren-vollversion/images/clubhaus-beizli-2.webp",
     "is_used": false,
     "used_in": [],
+    "used_in_pages": [],
     "alt": "Clubhaus Beizli 2: Projekte & Einblicke – FC Schlieren in Schlieren (ZH)"
   },
   {
+    "nr": 5,
     "id": "images_favicon_32x32_png",
     "filename": "favicon-32x32.png",
     "rel_path": "images/favicon-32x32.png",
     "folder": "preview-fcschlieren",
-    "category": "Projekte & Einblicke",
+    "category": "Favicon & App-Icon",
+    "category_code": "icon",
     "dimensions": "27x32",
     "size_kb": 2.2,
+    "format": "PNG",
     "mtime": 1793475188,
     "mtime_str": "31.10.2026 19:33",
-    "cdn_url": "https://embed.magnet-xs.ch/preview-fcschlieren/images/favicon-32x32.png",
+    "cdn_url": "https://vorschau.magnet-xs.ch/fcschlieren-vollversion/images/favicon-32x32.png",
+    "cloudflare_url": "https://vorschau.magnet-xs.ch/fcschlieren-vollversion/images/favicon-32x32.png",
+    "cloudflare_short": "vorschau.magnet-xs.ch/fcschlieren-vollversion/images/favicon-32x32.png",
     "is_used": true,
     "used_in": [
       {
         "datei": "herren-1.html",
-        "slot": "image",
-        "is_hero": false
-      },
-      {
-        "datei": "kontakt.html",
         "slot": "image",
         "is_hero": false
       },
@@ -121,189 +154,49 @@
         "is_hero": false
       },
       {
+        "datei": "kontakt.html",
+        "slot": "image",
+        "is_hero": false
+      },
+      {
         "datei": "team-update.html",
         "slot": "image",
         "is_hero": false
       }
     ],
+    "used_in_pages": [
+      "herren-1.html",
+      "index.html",
+      "kontakt.html",
+      "team-update.html"
+    ],
     "alt": "FC Schlieren Schlieren (ZH) – Offizielles Logo (Spielbetrieb für 33 Fussballmannschaften (Herren, Frauen,)"
   },
   {
+    "nr": 6,
     "id": "images_fcs_100_jahre_webp",
     "filename": "fcs-100-jahre.webp",
     "rel_path": "images/fcs-100-jahre.webp",
     "folder": "preview-fcschlieren",
-    "category": "Projekte & Einblicke",
-    "dimensions": "Unbekannt",
+    "category": "Referenz, Projekt & Angebot",
+    "category_code": "ref",
+    "dimensions": "900x1007",
     "size_kb": 59.2,
+    "format": "WEBP",
     "mtime": 1793475193,
     "mtime_str": "31.10.2026 19:33",
-    "cdn_url": "https://embed.magnet-xs.ch/preview-fcschlieren/images/fcs-100-jahre.webp",
-    "is_used": true,
-    "used_in": [
-      {
-        "datei": "index.html",
-        "slot": "image",
-        "is_hero": false
-      }
-    ],
-    "alt": "100 Jahre FC Schlieren Jubiläumslogo"
-  },
-  {
-    "id": "images_fussballcamp_kohler_webp",
-    "filename": "fussballcamp-kohler.webp",
-    "rel_path": "images/fussballcamp-kohler.webp",
-    "folder": "preview-fcschlieren",
-    "category": "Projekte & Einblicke",
-    "dimensions": "Unbekannt",
-    "size_kb": 112.1,
-    "mtime": 1793475192,
-    "mtime_str": "31.10.2026 19:33",
-    "cdn_url": "https://embed.magnet-xs.ch/preview-fcschlieren/images/fussballcamp-kohler.webp",
-    "is_used": true,
-    "used_in": [
-      {
-        "datei": "index.html",
-        "slot": "image",
-        "is_hero": false
-      },
-      {
-        "datei": "team-update.html",
-        "slot": "image",
-        "is_hero": false
-      }
-    ],
-    "alt": "Kohler Fussballcamps beim FC Schlieren"
-  },
-  {
-    "id": "images_geschichte_chronik_webp",
-    "filename": "geschichte-chronik.webp",
-    "rel_path": "images/geschichte-chronik.webp",
-    "folder": "preview-fcschlieren",
-    "category": "Projekte & Einblicke",
-    "dimensions": "Unbekannt",
-    "size_kb": 58.9,
-    "mtime": 1793475193,
-    "mtime_str": "31.10.2026 19:33",
-    "cdn_url": "https://embed.magnet-xs.ch/preview-fcschlieren/images/geschichte-chronik.webp",
-    "is_used": true,
-    "used_in": [
-      {
-        "datei": "index.html",
-        "slot": "image",
-        "is_hero": false
-      }
-    ],
-    "alt": "Historische Vereinschronik FC Schlieren"
-  },
-  {
-    "id": "images_hallenplan_webp",
-    "filename": "hallenplan.webp",
-    "rel_path": "images/hallenplan.webp",
-    "folder": "preview-fcschlieren",
-    "category": "Projekte & Einblicke",
-    "dimensions": "Unbekannt",
-    "size_kb": 131.9,
-    "mtime": 1793475195,
-    "mtime_str": "31.10.2026 19:33",
-    "cdn_url": "https://embed.magnet-xs.ch/preview-fcschlieren/images/hallenplan.webp",
-    "is_used": false,
-    "used_in": [],
-    "alt": "Hallenplan: Projekte & Einblicke – FC Schlieren in Schlieren (ZH)"
-  },
-  {
-    "id": "images_hero_frauen_1_webp",
-    "filename": "hero-frauen-1.webp",
-    "rel_path": "images/hero-frauen-1.webp",
-    "folder": "preview-fcschlieren",
-    "category": "Hero & Header",
-    "dimensions": "Unbekannt",
-    "size_kb": 187.8,
-    "mtime": 1793475190,
-    "mtime_str": "31.10.2026 19:33",
-    "cdn_url": "https://embed.magnet-xs.ch/preview-fcschlieren/images/hero-frauen-1.webp",
-    "is_used": true,
-    "used_in": [
-      {
-        "datei": "index.html",
-        "slot": "image",
-        "is_hero": true
-      }
-    ],
-    "alt": "FC Schlieren Frauen 1 Mannschaft"
-  },
-  {
-    "id": "images_hero_herren_1_webp",
-    "filename": "hero-herren-1.webp",
-    "rel_path": "images/hero-herren-1.webp",
-    "folder": "preview-fcschlieren",
-    "category": "Hero & Header",
-    "dimensions": "Unbekannt",
-    "size_kb": 223.5,
-    "mtime": 1793475191,
-    "mtime_str": "31.10.2026 19:33",
-    "cdn_url": "https://embed.magnet-xs.ch/preview-fcschlieren/images/hero-herren-1.webp",
-    "is_used": true,
-    "used_in": [
-      {
-        "datei": "index.html",
-        "slot": "image",
-        "is_hero": true
-      }
-    ],
-    "alt": "FC Schlieren 1. Mannschaft Herren 1 auf dem Sportplatz Zelgli"
-  },
-  {
-    "id": "images_logo_businessclub_webp",
-    "filename": "logo-businessclub.webp",
-    "rel_path": "images/logo-businessclub.webp",
-    "folder": "preview-fcschlieren",
-    "category": "Logo & Icon",
-    "dimensions": "Unbekannt",
-    "size_kb": 6.6,
-    "mtime": 1793475194,
-    "mtime_str": "31.10.2026 19:33",
-    "cdn_url": "https://embed.magnet-xs.ch/preview-fcschlieren/images/logo-businessclub.webp",
-    "is_used": true,
-    "used_in": [
-      {
-        "datei": "index.html",
-        "slot": "image",
-        "is_hero": false
-      }
-    ],
-    "alt": "Business-Club FC Schlieren"
-  },
-  {
-    "id": "images_logo_fcschlieren_png",
-    "filename": "logo-fcschlieren.png",
-    "rel_path": "images/logo-fcschlieren.png",
-    "folder": "preview-fcschlieren",
-    "category": "Logo & Icon",
-    "dimensions": "1196x1409",
-    "size_kb": 113.7,
-    "mtime": 1793475188,
-    "mtime_str": "31.10.2026 19:33",
-    "cdn_url": "https://embed.magnet-xs.ch/preview-fcschlieren/images/logo-fcschlieren.png",
-    "is_used": false,
-    "used_in": [],
-    "alt": "FC Schlieren Schlieren (ZH) – Offizielles Logo (Spielbetrieb für 33 Fussballmannschaften (Herren, Frauen,)"
-  },
-  {
-    "id": "images_logo_fcschlieren_webp",
-    "filename": "logo-fcschlieren.webp",
-    "rel_path": "images/logo-fcschlieren.webp",
-    "folder": "preview-fcschlieren",
-    "category": "Logo & Icon",
-    "dimensions": "1196x1409",
-    "size_kb": 80.1,
-    "mtime": 1793475189,
-    "mtime_str": "31.10.2026 19:33",
-    "cdn_url": "https://embed.magnet-xs.ch/preview-fcschlieren/images/logo-fcschlieren.webp",
+    "cdn_url": "https://vorschau.magnet-xs.ch/fcschlieren-vollversion/images/fcs-100-jahre.webp",
+    "cloudflare_url": "https://vorschau.magnet-xs.ch/fcschlieren-vollversion/images/fcs-100-jahre.webp",
+    "cloudflare_short": "vorschau.magnet-xs.ch/fcschlieren-vollversion/images/fcs-100-jahre.webp",
     "is_used": true,
     "used_in": [
       {
         "datei": "herren-1.html",
+        "slot": "image",
+        "is_hero": false
+      },
+      {
+        "datei": "index.html",
         "slot": "image",
         "is_hero": false
       },
@@ -313,6 +206,38 @@
         "is_hero": false
       },
       {
+        "datei": "team-update.html",
+        "slot": "image",
+        "is_hero": false
+      }
+    ],
+    "used_in_pages": [
+      "herren-1.html",
+      "index.html",
+      "kontakt.html",
+      "team-update.html"
+    ],
+    "alt": "100 Jahre FC Schlieren Jubiläumslogo"
+  },
+  {
+    "nr": 7,
+    "id": "images_fussballcamp_kohler_webp",
+    "filename": "fussballcamp-kohler.webp",
+    "rel_path": "images/fussballcamp-kohler.webp",
+    "folder": "preview-fcschlieren",
+    "category": "Referenz, Projekt & Angebot",
+    "category_code": "ref",
+    "dimensions": "1000x699",
+    "size_kb": 112.1,
+    "format": "WEBP",
+    "mtime": 1793475192,
+    "mtime_str": "31.10.2026 19:33",
+    "cdn_url": "https://vorschau.magnet-xs.ch/fcschlieren-vollversion/images/fussballcamp-kohler.webp",
+    "cloudflare_url": "https://vorschau.magnet-xs.ch/fcschlieren-vollversion/images/fussballcamp-kohler.webp",
+    "cloudflare_short": "vorschau.magnet-xs.ch/fcschlieren-vollversion/images/fussballcamp-kohler.webp",
+    "is_used": true,
+    "used_in": [
+      {
         "datei": "index.html",
         "slot": "image",
         "is_hero": false
@@ -323,19 +248,233 @@
         "is_hero": false
       }
     ],
-    "alt": "Vereinswappen FC Schlieren"
+    "used_in_pages": [
+      "index.html",
+      "team-update.html"
+    ],
+    "alt": "Kohler Fussballcamps beim FC Schlieren"
   },
   {
+    "nr": 8,
+    "id": "images_geschichte_chronik_webp",
+    "filename": "geschichte-chronik.webp",
+    "rel_path": "images/geschichte-chronik.webp",
+    "folder": "preview-fcschlieren",
+    "category": "Referenz, Projekt & Angebot",
+    "category_code": "ref",
+    "dimensions": "1000x280",
+    "size_kb": 58.9,
+    "format": "WEBP",
+    "mtime": 1793475193,
+    "mtime_str": "31.10.2026 19:33",
+    "cdn_url": "https://vorschau.magnet-xs.ch/fcschlieren-vollversion/images/geschichte-chronik.webp",
+    "cloudflare_url": "https://vorschau.magnet-xs.ch/fcschlieren-vollversion/images/geschichte-chronik.webp",
+    "cloudflare_short": "vorschau.magnet-xs.ch/fcschlieren-vollversion/images/geschichte-chronik.webp",
+    "is_used": true,
+    "used_in": [
+      {
+        "datei": "index.html",
+        "slot": "image",
+        "is_hero": false
+      }
+    ],
+    "used_in_pages": [
+      "index.html"
+    ],
+    "alt": "Historische Vereinschronik FC Schlieren"
+  },
+  {
+    "nr": 9,
+    "id": "images_hallenplan_webp",
+    "filename": "hallenplan.webp",
+    "rel_path": "images/hallenplan.webp",
+    "folder": "preview-fcschlieren",
+    "category": "Referenz, Projekt & Angebot",
+    "category_code": "ref",
+    "dimensions": "1200x1690",
+    "size_kb": 131.9,
+    "format": "WEBP",
+    "mtime": 1793475195,
+    "mtime_str": "31.10.2026 19:33",
+    "cdn_url": "https://vorschau.magnet-xs.ch/fcschlieren-vollversion/images/hallenplan.webp",
+    "cloudflare_url": "https://vorschau.magnet-xs.ch/fcschlieren-vollversion/images/hallenplan.webp",
+    "cloudflare_short": "vorschau.magnet-xs.ch/fcschlieren-vollversion/images/hallenplan.webp",
+    "is_used": false,
+    "used_in": [],
+    "used_in_pages": [],
+    "alt": "Hallenplan: Projekte & Einblicke – FC Schlieren in Schlieren (ZH)"
+  },
+  {
+    "nr": 10,
+    "id": "images_hero_frauen_1_webp",
+    "filename": "hero-frauen-1.webp",
+    "rel_path": "images/hero-frauen-1.webp",
+    "folder": "preview-fcschlieren",
+    "category": "Startbühne & Header",
+    "category_code": "hero",
+    "dimensions": "1400x787",
+    "size_kb": 187.8,
+    "format": "WEBP",
+    "mtime": 1793475190,
+    "mtime_str": "31.10.2026 19:33",
+    "cdn_url": "https://vorschau.magnet-xs.ch/fcschlieren-vollversion/images/hero-frauen-1.webp",
+    "cloudflare_url": "https://vorschau.magnet-xs.ch/fcschlieren-vollversion/images/hero-frauen-1.webp",
+    "cloudflare_short": "vorschau.magnet-xs.ch/fcschlieren-vollversion/images/hero-frauen-1.webp",
+    "is_used": true,
+    "used_in": [
+      {
+        "datei": "index.html",
+        "slot": "image",
+        "is_hero": true
+      }
+    ],
+    "used_in_pages": [
+      "index.html"
+    ],
+    "alt": "FC Schlieren Frauen 1 Mannschaft"
+  },
+  {
+    "nr": 11,
+    "id": "images_hero_herren_1_webp",
+    "filename": "hero-herren-1.webp",
+    "rel_path": "images/hero-herren-1.webp",
+    "folder": "preview-fcschlieren",
+    "category": "Startbühne & Header",
+    "category_code": "hero",
+    "dimensions": "1400x933",
+    "size_kb": 223.5,
+    "format": "WEBP",
+    "mtime": 1793475191,
+    "mtime_str": "31.10.2026 19:33",
+    "cdn_url": "https://vorschau.magnet-xs.ch/fcschlieren-vollversion/images/hero-herren-1.webp",
+    "cloudflare_url": "https://vorschau.magnet-xs.ch/fcschlieren-vollversion/images/hero-herren-1.webp",
+    "cloudflare_short": "vorschau.magnet-xs.ch/fcschlieren-vollversion/images/hero-herren-1.webp",
+    "is_used": true,
+    "used_in": [
+      {
+        "datei": "index.html",
+        "slot": "image",
+        "is_hero": true
+      }
+    ],
+    "used_in_pages": [
+      "index.html"
+    ],
+    "alt": "FC Schlieren 1. Mannschaft Herren 1 auf dem Sportplatz Zelgli"
+  },
+  {
+    "nr": 12,
+    "id": "images_logo_businessclub_webp",
+    "filename": "logo-businessclub.webp",
+    "rel_path": "images/logo-businessclub.webp",
+    "folder": "preview-fcschlieren",
+    "category": "Logo & Marken-Icon",
+    "category_code": "logo",
+    "dimensions": "438x282",
+    "size_kb": 6.6,
+    "format": "WEBP",
+    "mtime": 1793475194,
+    "mtime_str": "31.10.2026 19:33",
+    "cdn_url": "https://vorschau.magnet-xs.ch/fcschlieren-vollversion/images/logo-businessclub.webp",
+    "cloudflare_url": "https://vorschau.magnet-xs.ch/fcschlieren-vollversion/images/logo-businessclub.webp",
+    "cloudflare_short": "vorschau.magnet-xs.ch/fcschlieren-vollversion/images/logo-businessclub.webp",
+    "is_used": true,
+    "used_in": [
+      {
+        "datei": "index.html",
+        "slot": "image",
+        "is_hero": false
+      }
+    ],
+    "used_in_pages": [
+      "index.html"
+    ],
+    "alt": "Business-Club FC Schlieren"
+  },
+  {
+    "nr": 13,
+    "id": "images_logo_fcschlieren_png",
+    "filename": "logo-fcschlieren.png",
+    "rel_path": "images/logo-fcschlieren.png",
+    "folder": "preview-fcschlieren",
+    "category": "Logo & Marken-Icon",
+    "category_code": "logo",
+    "dimensions": "1196x1409",
+    "size_kb": 113.7,
+    "format": "PNG",
+    "mtime": 1793475188,
+    "mtime_str": "31.10.2026 19:33",
+    "cdn_url": "https://vorschau.magnet-xs.ch/fcschlieren-vollversion/images/logo-fcschlieren.png",
+    "cloudflare_url": "https://vorschau.magnet-xs.ch/fcschlieren-vollversion/images/logo-fcschlieren.png",
+    "cloudflare_short": "vorschau.magnet-xs.ch/fcschlieren-vollversion/images/logo-fcschlieren.png",
+    "is_used": false,
+    "used_in": [],
+    "used_in_pages": [],
+    "alt": "FC Schlieren Schlieren (ZH) – Offizielles Logo (Spielbetrieb für 33 Fussballmannschaften (Herren, Frauen,)"
+  },
+  {
+    "nr": 14,
+    "id": "images_logo_fcschlieren_webp",
+    "filename": "logo-fcschlieren.webp",
+    "rel_path": "images/logo-fcschlieren.webp",
+    "folder": "preview-fcschlieren",
+    "category": "Logo & Marken-Icon",
+    "category_code": "logo",
+    "dimensions": "1196x1409",
+    "size_kb": 80.1,
+    "format": "WEBP",
+    "mtime": 1793475189,
+    "mtime_str": "31.10.2026 19:33",
+    "cdn_url": "https://vorschau.magnet-xs.ch/fcschlieren-vollversion/images/logo-fcschlieren.webp",
+    "cloudflare_url": "https://vorschau.magnet-xs.ch/fcschlieren-vollversion/images/logo-fcschlieren.webp",
+    "cloudflare_short": "vorschau.magnet-xs.ch/fcschlieren-vollversion/images/logo-fcschlieren.webp",
+    "is_used": true,
+    "used_in": [
+      {
+        "datei": "herren-1.html",
+        "slot": "image",
+        "is_hero": false
+      },
+      {
+        "datei": "index.html",
+        "slot": "image",
+        "is_hero": false
+      },
+      {
+        "datei": "kontakt.html",
+        "slot": "image",
+        "is_hero": false
+      },
+      {
+        "datei": "team-update.html",
+        "slot": "image",
+        "is_hero": false
+      }
+    ],
+    "used_in_pages": [
+      "herren-1.html",
+      "index.html",
+      "kontakt.html",
+      "team-update.html"
+    ],
+    "alt": "Wappen FC Schlieren"
+  },
+  {
+    "nr": 15,
     "id": "images_logo_supporter_webp",
     "filename": "logo-supporter.webp",
     "rel_path": "images/logo-supporter.webp",
     "folder": "preview-fcschlieren",
-    "category": "Logo & Icon",
-    "dimensions": "Unbekannt",
+    "category": "Logo & Marken-Icon",
+    "category_code": "logo",
+    "dimensions": "447x559",
     "size_kb": 15.8,
+    "format": "WEBP",
     "mtime": 1793475194,
     "mtime_str": "31.10.2026 19:33",
-    "cdn_url": "https://embed.magnet-xs.ch/preview-fcschlieren/images/logo-supporter.webp",
+    "cdn_url": "https://vorschau.magnet-xs.ch/fcschlieren-vollversion/images/logo-supporter.webp",
+    "cloudflare_url": "https://vorschau.magnet-xs.ch/fcschlieren-vollversion/images/logo-supporter.webp",
+    "cloudflare_short": "vorschau.magnet-xs.ch/fcschlieren-vollversion/images/logo-supporter.webp",
     "is_used": true,
     "used_in": [
       {
@@ -343,20 +482,359 @@
         "slot": "image",
         "is_hero": false
       }
+    ],
+    "used_in_pages": [
+      "index.html"
     ],
     "alt": "Supporter-Vereinigung FC Schlieren"
   },
   {
+    "nr": 16,
+    "id": "images_sponsors_bronze_01_corona_gastro_ag_jpg",
+    "filename": "bronze-01-corona-gastro-ag.jpg",
+    "rel_path": "images/sponsors/bronze-01-corona-gastro-ag.jpg",
+    "folder": "preview-fcschlieren",
+    "category": "Sponsor & Partner",
+    "category_code": "sponsor",
+    "dimensions": "301x301",
+    "size_kb": 8.1,
+    "format": "JPG",
+    "mtime": 1793475189,
+    "mtime_str": "31.10.2026 19:33",
+    "cdn_url": "https://vorschau.magnet-xs.ch/fcschlieren-vollversion/images/sponsors/bronze-01-corona-gastro-ag.jpg",
+    "cloudflare_url": "https://vorschau.magnet-xs.ch/fcschlieren-vollversion/images/sponsors/bronze-01-corona-gastro-ag.jpg",
+    "cloudflare_short": "vorschau.magnet-xs.ch/fcschlieren-vollversion/images/sponsors/bronze-01-corona-gastro-ag.jpg",
+    "is_used": true,
+    "used_in": [
+      {
+        "datei": "index.html",
+        "slot": "image",
+        "is_hero": false
+      }
+    ],
+    "used_in_pages": [
+      "index.html"
+    ],
+    "alt": "Corona Gastro AG Pizzeria Corona Schlieren"
+  },
+  {
+    "nr": 17,
+    "id": "images_sponsors_bronze_02_physio_welt_png",
+    "filename": "bronze-02-physio-welt.png",
+    "rel_path": "images/sponsors/bronze-02-physio-welt.png",
+    "folder": "preview-fcschlieren",
+    "category": "Sponsor & Partner",
+    "category_code": "sponsor",
+    "dimensions": "291x173",
+    "size_kb": 5.1,
+    "format": "PNG",
+    "mtime": 1793475190,
+    "mtime_str": "31.10.2026 19:33",
+    "cdn_url": "https://vorschau.magnet-xs.ch/fcschlieren-vollversion/images/sponsors/bronze-02-physio-welt.png",
+    "cloudflare_url": "https://vorschau.magnet-xs.ch/fcschlieren-vollversion/images/sponsors/bronze-02-physio-welt.png",
+    "cloudflare_short": "vorschau.magnet-xs.ch/fcschlieren-vollversion/images/sponsors/bronze-02-physio-welt.png",
+    "is_used": true,
+    "used_in": [
+      {
+        "datei": "index.html",
+        "slot": "image",
+        "is_hero": false
+      }
+    ],
+    "used_in_pages": [
+      "index.html"
+    ],
+    "alt": "Physio Welt Schlieren"
+  },
+  {
+    "nr": 18,
+    "id": "images_sponsors_bronze_03_seifriz_ag_jpg",
+    "filename": "bronze-03-seifriz-ag.jpg",
+    "rel_path": "images/sponsors/bronze-03-seifriz-ag.jpg",
+    "folder": "preview-fcschlieren",
+    "category": "Sponsor & Partner",
+    "category_code": "sponsor",
+    "dimensions": "1601x640",
+    "size_kb": 98.0,
+    "format": "JPG",
+    "mtime": 1793475190,
+    "mtime_str": "31.10.2026 19:33",
+    "cdn_url": "https://vorschau.magnet-xs.ch/fcschlieren-vollversion/images/sponsors/bronze-03-seifriz-ag.jpg",
+    "cloudflare_url": "https://vorschau.magnet-xs.ch/fcschlieren-vollversion/images/sponsors/bronze-03-seifriz-ag.jpg",
+    "cloudflare_short": "vorschau.magnet-xs.ch/fcschlieren-vollversion/images/sponsors/bronze-03-seifriz-ag.jpg",
+    "is_used": true,
+    "used_in": [
+      {
+        "datei": "index.html",
+        "slot": "image",
+        "is_hero": false
+      }
+    ],
+    "used_in_pages": [
+      "index.html"
+    ],
+    "alt": "Seifriz AG Schlieren"
+  },
+  {
+    "nr": 19,
+    "id": "images_sponsors_bronze_04_stadt_schlieren_png",
+    "filename": "bronze-04-stadt-schlieren.png",
+    "rel_path": "images/sponsors/bronze-04-stadt-schlieren.png",
+    "folder": "preview-fcschlieren",
+    "category": "Sponsor & Partner",
+    "category_code": "sponsor",
+    "dimensions": "377x134",
+    "size_kb": 14.1,
+    "format": "PNG",
+    "mtime": 1793475190,
+    "mtime_str": "31.10.2026 19:33",
+    "cdn_url": "https://vorschau.magnet-xs.ch/fcschlieren-vollversion/images/sponsors/bronze-04-stadt-schlieren.png",
+    "cloudflare_url": "https://vorschau.magnet-xs.ch/fcschlieren-vollversion/images/sponsors/bronze-04-stadt-schlieren.png",
+    "cloudflare_short": "vorschau.magnet-xs.ch/fcschlieren-vollversion/images/sponsors/bronze-04-stadt-schlieren.png",
+    "is_used": true,
+    "used_in": [
+      {
+        "datei": "index.html",
+        "slot": "image",
+        "is_hero": false
+      }
+    ],
+    "used_in_pages": [
+      "index.html"
+    ],
+    "alt": "Stadt Schlieren"
+  },
+  {
+    "nr": 20,
+    "id": "images_sponsors_bronze_05_syna_die_gewerkschaft_jpg",
+    "filename": "bronze-05-syna-die-gewerkschaft.jpg",
+    "rel_path": "images/sponsors/bronze-05-syna-die-gewerkschaft.jpg",
+    "folder": "preview-fcschlieren",
+    "category": "Sponsor & Partner",
+    "category_code": "sponsor",
+    "dimensions": "330x191",
+    "size_kb": 4.9,
+    "format": "JPG",
+    "mtime": 1793475190,
+    "mtime_str": "31.10.2026 19:33",
+    "cdn_url": "https://vorschau.magnet-xs.ch/fcschlieren-vollversion/images/sponsors/bronze-05-syna-die-gewerkschaft.jpg",
+    "cloudflare_url": "https://vorschau.magnet-xs.ch/fcschlieren-vollversion/images/sponsors/bronze-05-syna-die-gewerkschaft.jpg",
+    "cloudflare_short": "vorschau.magnet-xs.ch/fcschlieren-vollversion/images/sponsors/bronze-05-syna-die-gewerkschaft.jpg",
+    "is_used": true,
+    "used_in": [
+      {
+        "datei": "index.html",
+        "slot": "image",
+        "is_hero": false
+      }
+    ],
+    "used_in_pages": [
+      "index.html"
+    ],
+    "alt": "Syna Die Gewerkschaft Zürich Schaffhausen"
+  },
+  {
+    "nr": 21,
+    "id": "images_sponsors_bronze_06_zuercher_kantonalbank_filiale_schlieren_jpg",
+    "filename": "bronze-06-zuercher-kantonalbank-filiale-schlieren.jpg",
+    "rel_path": "images/sponsors/bronze-06-zuercher-kantonalbank-filiale-schlieren.jpg",
+    "folder": "preview-fcschlieren",
+    "category": "Sponsor & Partner",
+    "category_code": "sponsor",
+    "dimensions": "580x280",
+    "size_kb": 12.6,
+    "format": "JPG",
+    "mtime": 1793475190,
+    "mtime_str": "31.10.2026 19:33",
+    "cdn_url": "https://vorschau.magnet-xs.ch/fcschlieren-vollversion/images/sponsors/bronze-06-zuercher-kantonalbank-filiale-schlieren.jpg",
+    "cloudflare_url": "https://vorschau.magnet-xs.ch/fcschlieren-vollversion/images/sponsors/bronze-06-zuercher-kantonalbank-filiale-schlieren.jpg",
+    "cloudflare_short": "vorschau.magnet-xs.ch/fcschlieren-vollversion/images/sponsors/bronze-06-zuercher-kantonalbank-filiale-schlieren.jpg",
+    "is_used": true,
+    "used_in": [
+      {
+        "datei": "index.html",
+        "slot": "image",
+        "is_hero": false
+      }
+    ],
+    "used_in_pages": [
+      "index.html"
+    ],
+    "alt": "Zürcher Kantonalbank Filiale Schlieren"
+  },
+  {
+    "nr": 22,
+    "id": "images_sponsors_gold_01_emil_frey_ag_jpg",
+    "filename": "gold-01-emil-frey-ag.jpg",
+    "rel_path": "images/sponsors/gold-01-emil-frey-ag.jpg",
+    "folder": "preview-fcschlieren",
+    "category": "Sponsor & Partner",
+    "category_code": "sponsor",
+    "dimensions": "580x280",
+    "size_kb": 31.7,
+    "format": "JPG",
+    "mtime": 1793475189,
+    "mtime_str": "31.10.2026 19:33",
+    "cdn_url": "https://vorschau.magnet-xs.ch/fcschlieren-vollversion/images/sponsors/gold-01-emil-frey-ag.jpg",
+    "cloudflare_url": "https://vorschau.magnet-xs.ch/fcschlieren-vollversion/images/sponsors/gold-01-emil-frey-ag.jpg",
+    "cloudflare_short": "vorschau.magnet-xs.ch/fcschlieren-vollversion/images/sponsors/gold-01-emil-frey-ag.jpg",
+    "is_used": true,
+    "used_in": [
+      {
+        "datei": "herren-1.html",
+        "slot": "image",
+        "is_hero": false
+      },
+      {
+        "datei": "index.html",
+        "slot": "image",
+        "is_hero": false
+      }
+    ],
+    "used_in_pages": [
+      "herren-1.html",
+      "index.html"
+    ],
+    "alt": "Emil Frey AG Schlieren Hauptsponsor Herren 1"
+  },
+  {
+    "nr": 23,
+    "id": "images_sponsors_gold_02_j_f_jost_co_jpg",
+    "filename": "gold-02-j-f-jost-co.jpg",
+    "rel_path": "images/sponsors/gold-02-j-f-jost-co.jpg",
+    "folder": "preview-fcschlieren",
+    "category": "Sponsor & Partner",
+    "category_code": "sponsor",
+    "dimensions": "111x110",
+    "size_kb": 2.6,
+    "format": "JPG",
+    "mtime": 1793475189,
+    "mtime_str": "31.10.2026 19:33",
+    "cdn_url": "https://vorschau.magnet-xs.ch/fcschlieren-vollversion/images/sponsors/gold-02-j-f-jost-co.jpg",
+    "cloudflare_url": "https://vorschau.magnet-xs.ch/fcschlieren-vollversion/images/sponsors/gold-02-j-f-jost-co.jpg",
+    "cloudflare_short": "vorschau.magnet-xs.ch/fcschlieren-vollversion/images/sponsors/gold-02-j-f-jost-co.jpg",
+    "is_used": true,
+    "used_in": [
+      {
+        "datei": "herren-1.html",
+        "slot": "image",
+        "is_hero": false
+      },
+      {
+        "datei": "index.html",
+        "slot": "image",
+        "is_hero": false
+      }
+    ],
+    "used_in_pages": [
+      "herren-1.html",
+      "index.html"
+    ],
+    "alt": "J.F. Jost und Co. Hauptsponsor Frauen 1"
+  },
+  {
+    "nr": 24,
+    "id": "images_sponsors_silver_01_sopex_jpg",
+    "filename": "silver-01-sopex.jpg",
+    "rel_path": "images/sponsors/silver-01-sopex.jpg",
+    "folder": "preview-fcschlieren",
+    "category": "Sponsor & Partner",
+    "category_code": "sponsor",
+    "dimensions": "528x246",
+    "size_kb": 13.2,
+    "format": "JPG",
+    "mtime": 1793475189,
+    "mtime_str": "31.10.2026 19:33",
+    "cdn_url": "https://vorschau.magnet-xs.ch/fcschlieren-vollversion/images/sponsors/silver-01-sopex.jpg",
+    "cloudflare_url": "https://vorschau.magnet-xs.ch/fcschlieren-vollversion/images/sponsors/silver-01-sopex.jpg",
+    "cloudflare_short": "vorschau.magnet-xs.ch/fcschlieren-vollversion/images/sponsors/silver-01-sopex.jpg",
+    "is_used": true,
+    "used_in": [
+      {
+        "datei": "index.html",
+        "slot": "image",
+        "is_hero": false
+      }
+    ],
+    "used_in_pages": [
+      "index.html"
+    ],
+    "alt": "SOPEX — Silber Sponsor FC Schlieren"
+  },
+  {
+    "nr": 25,
+    "id": "images_sponsors_silver_02_vr_ag_jpg",
+    "filename": "silver-02-vr-ag.jpg",
+    "rel_path": "images/sponsors/silver-02-vr-ag.jpg",
+    "folder": "preview-fcschlieren",
+    "category": "Sponsor & Partner",
+    "category_code": "sponsor",
+    "dimensions": "637x261",
+    "size_kb": 28.2,
+    "format": "JPG",
+    "mtime": 1793475189,
+    "mtime_str": "31.10.2026 19:33",
+    "cdn_url": "https://vorschau.magnet-xs.ch/fcschlieren-vollversion/images/sponsors/silver-02-vr-ag.jpg",
+    "cloudflare_url": "https://vorschau.magnet-xs.ch/fcschlieren-vollversion/images/sponsors/silver-02-vr-ag.jpg",
+    "cloudflare_short": "vorschau.magnet-xs.ch/fcschlieren-vollversion/images/sponsors/silver-02-vr-ag.jpg",
+    "is_used": true,
+    "used_in": [
+      {
+        "datei": "index.html",
+        "slot": "image",
+        "is_hero": false
+      }
+    ],
+    "used_in_pages": [
+      "index.html"
+    ],
+    "alt": "VR AG — Silber Sponsor FC Schlieren"
+  },
+  {
+    "nr": 26,
+    "id": "images_sponsors_silver_03_waser_facility_managment_png",
+    "filename": "silver-03-waser-facility-managment.png",
+    "rel_path": "images/sponsors/silver-03-waser-facility-managment.png",
+    "folder": "preview-fcschlieren",
+    "category": "Sponsor & Partner",
+    "category_code": "sponsor",
+    "dimensions": "225x225",
+    "size_kb": 2.3,
+    "format": "PNG",
+    "mtime": 1793475189,
+    "mtime_str": "31.10.2026 19:33",
+    "cdn_url": "https://vorschau.magnet-xs.ch/fcschlieren-vollversion/images/sponsors/silver-03-waser-facility-managment.png",
+    "cloudflare_url": "https://vorschau.magnet-xs.ch/fcschlieren-vollversion/images/sponsors/silver-03-waser-facility-managment.png",
+    "cloudflare_short": "vorschau.magnet-xs.ch/fcschlieren-vollversion/images/sponsors/silver-03-waser-facility-managment.png",
+    "is_used": true,
+    "used_in": [
+      {
+        "datei": "index.html",
+        "slot": "image",
+        "is_hero": false
+      }
+    ],
+    "used_in_pages": [
+      "index.html"
+    ],
+    "alt": "Waser Facility Management — Silber Sponsor FC Schlieren"
+  },
+  {
+    "nr": 27,
     "id": "images_staff_daniel_konrad_webp",
     "filename": "staff-daniel-konrad.webp",
     "rel_path": "images/staff-daniel-konrad.webp",
     "folder": "preview-fcschlieren",
-    "category": "Projekte & Einblicke",
-    "dimensions": "Unbekannt",
+    "category": "Team, Porträt & Kader",
+    "category_code": "team",
+    "dimensions": "150x150",
     "size_kb": 3.0,
+    "format": "WEBP",
     "mtime": 1793475195,
     "mtime_str": "31.10.2026 19:33",
-    "cdn_url": "https://embed.magnet-xs.ch/preview-fcschlieren/images/staff-daniel-konrad.webp",
+    "cdn_url": "https://vorschau.magnet-xs.ch/fcschlieren-vollversion/images/staff-daniel-konrad.webp",
+    "cloudflare_url": "https://vorschau.magnet-xs.ch/fcschlieren-vollversion/images/staff-daniel-konrad.webp",
+    "cloudflare_short": "vorschau.magnet-xs.ch/fcschlieren-vollversion/images/staff-daniel-konrad.webp",
     "is_used": true,
     "used_in": [
       {
@@ -369,20 +847,29 @@
         "slot": "image",
         "is_hero": false
       }
+    ],
+    "used_in_pages": [
+      "herren-1.html",
+      "team-update.html"
     ],
     "alt": "Daniel Konrad Torwarttrainer Frauen 1"
   },
   {
+    "nr": 28,
     "id": "images_staff_diego_buerger_webp",
     "filename": "staff-diego-buerger.webp",
     "rel_path": "images/staff-diego-buerger.webp",
     "folder": "preview-fcschlieren",
-    "category": "Projekte & Einblicke",
-    "dimensions": "Unbekannt",
+    "category": "Team, Porträt & Kader",
+    "category_code": "team",
+    "dimensions": "138x183",
     "size_kb": 4.1,
+    "format": "WEBP",
     "mtime": 1793475195,
     "mtime_str": "31.10.2026 19:33",
-    "cdn_url": "https://embed.magnet-xs.ch/preview-fcschlieren/images/staff-diego-buerger.webp",
+    "cdn_url": "https://vorschau.magnet-xs.ch/fcschlieren-vollversion/images/staff-diego-buerger.webp",
+    "cloudflare_url": "https://vorschau.magnet-xs.ch/fcschlieren-vollversion/images/staff-diego-buerger.webp",
+    "cloudflare_short": "vorschau.magnet-xs.ch/fcschlieren-vollversion/images/staff-diego-buerger.webp",
     "is_used": true,
     "used_in": [
       {
@@ -395,20 +882,29 @@
         "slot": "image",
         "is_hero": false
       }
+    ],
+    "used_in_pages": [
+      "herren-1.html",
+      "team-update.html"
     ],
     "alt": "Diego Bürger Trainer Herren 1 FC Schlieren"
   },
   {
+    "nr": 29,
     "id": "images_staff_konstantinos_vettas_webp",
     "filename": "staff-konstantinos-vettas.webp",
     "rel_path": "images/staff-konstantinos-vettas.webp",
     "folder": "preview-fcschlieren",
-    "category": "Projekte & Einblicke",
-    "dimensions": "Unbekannt",
+    "category": "Team, Porträt & Kader",
+    "category_code": "team",
+    "dimensions": "150x200",
     "size_kb": 3.3,
+    "format": "WEBP",
     "mtime": 1793475195,
     "mtime_str": "31.10.2026 19:33",
-    "cdn_url": "https://embed.magnet-xs.ch/preview-fcschlieren/images/staff-konstantinos-vettas.webp",
+    "cdn_url": "https://vorschau.magnet-xs.ch/fcschlieren-vollversion/images/staff-konstantinos-vettas.webp",
+    "cloudflare_url": "https://vorschau.magnet-xs.ch/fcschlieren-vollversion/images/staff-konstantinos-vettas.webp",
+    "cloudflare_short": "vorschau.magnet-xs.ch/fcschlieren-vollversion/images/staff-konstantinos-vettas.webp",
     "is_used": true,
     "used_in": [
       {
@@ -421,20 +917,29 @@
         "slot": "image",
         "is_hero": false
       }
+    ],
+    "used_in_pages": [
+      "herren-1.html",
+      "team-update.html"
     ],
     "alt": "Konstantinos Vettas Trainer Frauen 1"
   },
   {
+    "nr": 30,
     "id": "images_staff_livio_sanseverino_webp",
     "filename": "staff-livio-sanseverino.webp",
     "rel_path": "images/staff-livio-sanseverino.webp",
     "folder": "preview-fcschlieren",
-    "category": "Projekte & Einblicke",
-    "dimensions": "Unbekannt",
+    "category": "Team, Porträt & Kader",
+    "category_code": "team",
+    "dimensions": "140x187",
     "size_kb": 3.5,
+    "format": "WEBP",
     "mtime": 1793475195,
     "mtime_str": "31.10.2026 19:33",
-    "cdn_url": "https://embed.magnet-xs.ch/preview-fcschlieren/images/staff-livio-sanseverino.webp",
+    "cdn_url": "https://vorschau.magnet-xs.ch/fcschlieren-vollversion/images/staff-livio-sanseverino.webp",
+    "cloudflare_url": "https://vorschau.magnet-xs.ch/fcschlieren-vollversion/images/staff-livio-sanseverino.webp",
+    "cloudflare_short": "vorschau.magnet-xs.ch/fcschlieren-vollversion/images/staff-livio-sanseverino.webp",
     "is_used": true,
     "used_in": [
       {
@@ -447,20 +952,29 @@
         "slot": "image",
         "is_hero": false
       }
+    ],
+    "used_in_pages": [
+      "herren-1.html",
+      "team-update.html"
     ],
     "alt": "Livio Sanseverino Co-Trainer Herren 1 FC Schlieren"
   },
   {
+    "nr": 31,
     "id": "images_staff_rahel_gaechter_webp",
     "filename": "staff-rahel-gaechter.webp",
     "rel_path": "images/staff-rahel-gaechter.webp",
     "folder": "preview-fcschlieren",
-    "category": "Projekte & Einblicke",
-    "dimensions": "Unbekannt",
+    "category": "Team, Porträt & Kader",
+    "category_code": "team",
+    "dimensions": "150x200",
     "size_kb": 3.2,
+    "format": "WEBP",
     "mtime": 1793475196,
     "mtime_str": "31.10.2026 19:33",
-    "cdn_url": "https://embed.magnet-xs.ch/preview-fcschlieren/images/staff-rahel-gaechter.webp",
+    "cdn_url": "https://vorschau.magnet-xs.ch/fcschlieren-vollversion/images/staff-rahel-gaechter.webp",
+    "cloudflare_url": "https://vorschau.magnet-xs.ch/fcschlieren-vollversion/images/staff-rahel-gaechter.webp",
+    "cloudflare_short": "vorschau.magnet-xs.ch/fcschlieren-vollversion/images/staff-rahel-gaechter.webp",
     "is_used": true,
     "used_in": [
       {
@@ -473,20 +987,29 @@
         "slot": "image",
         "is_hero": false
       }
+    ],
+    "used_in_pages": [
+      "herren-1.html",
+      "team-update.html"
     ],
     "alt": "Rahel Gächter Masseurin Frauen 1"
   },
   {
+    "nr": 32,
     "id": "images_staff_zoran_perak_webp",
     "filename": "staff-zoran-perak.webp",
     "rel_path": "images/staff-zoran-perak.webp",
     "folder": "preview-fcschlieren",
-    "category": "Projekte & Einblicke",
-    "dimensions": "Unbekannt",
+    "category": "Team, Porträt & Kader",
+    "category_code": "team",
+    "dimensions": "150x200",
     "size_kb": 2.7,
+    "format": "WEBP",
     "mtime": 1793475195,
     "mtime_str": "31.10.2026 19:33",
-    "cdn_url": "https://embed.magnet-xs.ch/preview-fcschlieren/images/staff-zoran-perak.webp",
+    "cdn_url": "https://vorschau.magnet-xs.ch/fcschlieren-vollversion/images/staff-zoran-perak.webp",
+    "cloudflare_url": "https://vorschau.magnet-xs.ch/fcschlieren-vollversion/images/staff-zoran-perak.webp",
+    "cloudflare_short": "vorschau.magnet-xs.ch/fcschlieren-vollversion/images/staff-zoran-perak.webp",
     "is_used": true,
     "used_in": [
       {
@@ -500,19 +1023,28 @@
         "is_hero": false
       }
     ],
-    "alt": "Zoran Perak Sportchef Aktive"
+    "used_in_pages": [
+      "herren-1.html",
+      "team-update.html"
+    ],
+    "alt": "Zoran Perak Sportchef Aktive FC Schlieren"
   },
   {
+    "nr": 33,
     "id": "images_team_frauen_1_webp",
     "filename": "team-frauen-1.webp",
     "rel_path": "images/team-frauen-1.webp",
     "folder": "preview-fcschlieren",
-    "category": "Team & Porträt",
-    "dimensions": "Unbekannt",
+    "category": "Team, Porträt & Kader",
+    "category_code": "team",
+    "dimensions": "1400x787",
     "size_kb": 187.8,
+    "format": "WEBP",
     "mtime": 1793475192,
     "mtime_str": "31.10.2026 19:33",
-    "cdn_url": "https://embed.magnet-xs.ch/preview-fcschlieren/images/team-frauen-1.webp",
+    "cdn_url": "https://vorschau.magnet-xs.ch/fcschlieren-vollversion/images/team-frauen-1.webp",
+    "cloudflare_url": "https://vorschau.magnet-xs.ch/fcschlieren-vollversion/images/team-frauen-1.webp",
+    "cloudflare_short": "vorschau.magnet-xs.ch/fcschlieren-vollversion/images/team-frauen-1.webp",
     "is_used": true,
     "used_in": [
       {
@@ -531,19 +1063,29 @@
         "is_hero": false
       }
     ],
-    "alt": "FC Schlieren Frauen 1 Teamfoto"
+    "used_in_pages": [
+      "herren-1.html",
+      "index.html",
+      "team-update.html"
+    ],
+    "alt": "FC Schlieren Frauen 1 Mannschaftsfoto"
   },
   {
+    "nr": 34,
     "id": "images_team_herren_1_webp",
     "filename": "team-herren-1.webp",
     "rel_path": "images/team-herren-1.webp",
     "folder": "preview-fcschlieren",
-    "category": "Team & Porträt",
-    "dimensions": "Unbekannt",
+    "category": "Team, Porträt & Kader",
+    "category_code": "team",
+    "dimensions": "1400x933",
     "size_kb": 223.5,
+    "format": "WEBP",
     "mtime": 1793475191,
     "mtime_str": "31.10.2026 19:33",
-    "cdn_url": "https://embed.magnet-xs.ch/preview-fcschlieren/images/team-herren-1.webp",
+    "cdn_url": "https://vorschau.magnet-xs.ch/fcschlieren-vollversion/images/team-herren-1.webp",
+    "cloudflare_url": "https://vorschau.magnet-xs.ch/fcschlieren-vollversion/images/team-herren-1.webp",
+    "cloudflare_short": "vorschau.magnet-xs.ch/fcschlieren-vollversion/images/team-herren-1.webp",
     "is_used": true,
     "used_in": [
       {
@@ -562,34 +1104,50 @@
         "is_hero": false
       }
     ],
-    "alt": "Live-Vorschau Mannschaftsfoto"
+    "used_in_pages": [
+      "herren-1.html",
+      "index.html",
+      "team-update.html"
+    ],
+    "alt": "FC Schlieren Herren 1 Mannschaftsfoto"
   },
   {
+    "nr": 35,
     "id": "images_wintertrainingsplan_webp",
     "filename": "wintertrainingsplan.webp",
     "rel_path": "images/wintertrainingsplan.webp",
     "folder": "preview-fcschlieren",
-    "category": "Projekte & Einblicke",
-    "dimensions": "Unbekannt",
+    "category": "Referenz, Projekt & Angebot",
+    "category_code": "ref",
+    "dimensions": "1200x438",
     "size_kb": 23.2,
+    "format": "WEBP",
     "mtime": 1793475194,
     "mtime_str": "31.10.2026 19:33",
-    "cdn_url": "https://embed.magnet-xs.ch/preview-fcschlieren/images/wintertrainingsplan.webp",
+    "cdn_url": "https://vorschau.magnet-xs.ch/fcschlieren-vollversion/images/wintertrainingsplan.webp",
+    "cloudflare_url": "https://vorschau.magnet-xs.ch/fcschlieren-vollversion/images/wintertrainingsplan.webp",
+    "cloudflare_short": "vorschau.magnet-xs.ch/fcschlieren-vollversion/images/wintertrainingsplan.webp",
     "is_used": false,
     "used_in": [],
+    "used_in_pages": [],
     "alt": "Wintertrainingsplan: Projekte & Einblicke – FC Schlieren in Schlieren (ZH)"
   },
   {
+    "nr": 36,
     "id": "images_zelgli_anlage_1_webp",
     "filename": "zelgli-anlage-1.webp",
     "rel_path": "images/zelgli-anlage-1.webp",
     "folder": "preview-fcschlieren",
-    "category": "Projekte & Einblicke",
-    "dimensions": "Unbekannt",
+    "category": "Referenz, Projekt & Angebot",
+    "category_code": "ref",
+    "dimensions": "800x533",
     "size_kb": 88.1,
+    "format": "WEBP",
     "mtime": 1793475193,
     "mtime_str": "31.10.2026 19:33",
-    "cdn_url": "https://embed.magnet-xs.ch/preview-fcschlieren/images/zelgli-anlage-1.webp",
+    "cdn_url": "https://vorschau.magnet-xs.ch/fcschlieren-vollversion/images/zelgli-anlage-1.webp",
+    "cloudflare_url": "https://vorschau.magnet-xs.ch/fcschlieren-vollversion/images/zelgli-anlage-1.webp",
+    "cloudflare_short": "vorschau.magnet-xs.ch/fcschlieren-vollversion/images/zelgli-anlage-1.webp",
     "is_used": true,
     "used_in": [
       {
@@ -602,35 +1160,50 @@
         "slot": "image",
         "is_hero": false
       }
+    ],
+    "used_in_pages": [
+      "index.html",
+      "team-update.html"
     ],
     "alt": "Fussballschule auf dem Sportplatz Zelgli Schlieren"
   },
   {
+    "nr": 37,
     "id": "images_zelgli_anlage_2_webp",
     "filename": "zelgli-anlage-2.webp",
     "rel_path": "images/zelgli-anlage-2.webp",
     "folder": "preview-fcschlieren",
-    "category": "Projekte & Einblicke",
-    "dimensions": "Unbekannt",
+    "category": "Referenz, Projekt & Angebot",
+    "category_code": "ref",
+    "dimensions": "800x533",
     "size_kb": 65.1,
+    "format": "WEBP",
     "mtime": 1793475193,
     "mtime_str": "31.10.2026 19:33",
-    "cdn_url": "https://embed.magnet-xs.ch/preview-fcschlieren/images/zelgli-anlage-2.webp",
+    "cdn_url": "https://vorschau.magnet-xs.ch/fcschlieren-vollversion/images/zelgli-anlage-2.webp",
+    "cloudflare_url": "https://vorschau.magnet-xs.ch/fcschlieren-vollversion/images/zelgli-anlage-2.webp",
+    "cloudflare_short": "vorschau.magnet-xs.ch/fcschlieren-vollversion/images/zelgli-anlage-2.webp",
     "is_used": false,
     "used_in": [],
+    "used_in_pages": [],
     "alt": "Zelgli Anlage 2: Projekte & Einblicke – FC Schlieren in Schlieren (ZH)"
   },
   {
+    "nr": 38,
     "id": "images_zelgli_hauptplatz_webp",
     "filename": "zelgli-hauptplatz.webp",
     "rel_path": "images/zelgli-hauptplatz.webp",
     "folder": "preview-fcschlieren",
-    "category": "Projekte & Einblicke",
-    "dimensions": "Unbekannt",
+    "category": "Referenz, Projekt & Angebot",
+    "category_code": "ref",
+    "dimensions": "550x366",
     "size_kb": 52.1,
+    "format": "WEBP",
     "mtime": 1793475193,
     "mtime_str": "31.10.2026 19:33",
-    "cdn_url": "https://embed.magnet-xs.ch/preview-fcschlieren/images/zelgli-hauptplatz.webp",
+    "cdn_url": "https://vorschau.magnet-xs.ch/fcschlieren-vollversion/images/zelgli-hauptplatz.webp",
+    "cloudflare_url": "https://vorschau.magnet-xs.ch/fcschlieren-vollversion/images/zelgli-hauptplatz.webp",
+    "cloudflare_short": "vorschau.magnet-xs.ch/fcschlieren-vollversion/images/zelgli-hauptplatz.webp",
     "is_used": true,
     "used_in": [
       {
@@ -644,19 +1217,28 @@
         "is_hero": false
       }
     ],
+    "used_in_pages": [
+      "index.html",
+      "team-update.html"
+    ],
     "alt": "Sportplatz Zelgli Hauptplatz FC Schlieren"
   },
   {
+    "nr": 39,
     "id": "images_zelgli_luftbild_webp",
     "filename": "zelgli-luftbild.webp",
     "rel_path": "images/zelgli-luftbild.webp",
     "folder": "preview-fcschlieren",
-    "category": "Projekte & Einblicke",
-    "dimensions": "Unbekannt",
+    "category": "Referenz, Projekt & Angebot",
+    "category_code": "ref",
+    "dimensions": "800x533",
     "size_kb": 97.9,
+    "format": "WEBP",
     "mtime": 1793475194,
     "mtime_str": "31.10.2026 19:33",
-    "cdn_url": "https://embed.magnet-xs.ch/preview-fcschlieren/images/zelgli-luftbild.webp",
+    "cdn_url": "https://vorschau.magnet-xs.ch/fcschlieren-vollversion/images/zelgli-luftbild.webp",
+    "cloudflare_url": "https://vorschau.magnet-xs.ch/fcschlieren-vollversion/images/zelgli-luftbild.webp",
+    "cloudflare_short": "vorschau.magnet-xs.ch/fcschlieren-vollversion/images/zelgli-luftbild.webp",
     "is_used": true,
     "used_in": [
       {
@@ -664,6 +1246,9 @@
         "slot": "image",
         "is_hero": false
       }
+    ],
+    "used_in_pages": [
+      "index.html"
     ],
     "alt": "Luftbild Fussballanlage Zelgli 8952 Schlieren"
   }
