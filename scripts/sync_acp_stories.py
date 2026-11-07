@@ -159,6 +159,35 @@ def extract_hook_and_desc(post_text: str) -> tuple[str, str, str]:
     return title, desc, tag
 
 
+def fetch_widget_feed_posts(slug: str, limit: int = 3) -> list[dict]:
+    """Lädt die kuratierten Top-Kacheln direkt aus dem GCF Social-Widget-Feed (GCS CDN)."""
+    feed_url = f"https://storage.googleapis.com/pro-0396-video-uploads/widgets/social/{slug}/feed.json"
+    req = urllib.request.Request(feed_url, headers={"User-Agent": "ACP-WebPilot-Sync/1.0", "Cache-Control": "no-cache"})
+    try:
+        with urllib.request.urlopen(req, timeout=10) as resp:
+            payload = json.loads(resp.read().decode("utf-8"))
+        cards = payload.get("cards") or []
+        converted = []
+        for c in cards[:limit]:
+            converted.append({
+                "id": c.get("id") or c.get("family_key") or "card",
+                "platform": c.get("platform") or "instagram",
+                "submission_id": c.get("family_key"),
+                "published_url": c.get("permalink") or "",
+                "thumbnail_url": c.get("image_url") or "",
+                "resolved_img": c.get("image_url") or "",
+                "post_text": c.get("full_caption") or f"{c.get('hook_title', '')}\n{c.get('summary_text', '')}",
+                "hook_title_override": c.get("hook_title") or "",
+                "summary_text_override": c.get("summary_text") or "",
+                "format_badge": c.get("format_badge") or "",
+                "published_at": c.get("published_at") or "",
+            })
+        return converted
+    except Exception as e:
+        print(f"Hinweis: Widget-Feed unter {feed_url} nicht erreichbar ({e}), nutze Supabase-Fallback.")
+        return []
+
+
 def fetch_acp_posts(client_id: str, limit: int = 4) -> list[dict]:
     """Holt die neuesten veröffentlichten Posts für den Mandanten aus Supabase."""
     url = f"{DEFAULT_SUPABASE_URL}/rest/v1/generated_posts"
@@ -329,6 +358,7 @@ def main():
     parser = argparse.ArgumentParser(description="WebPilot ACP Live-Sync Engine")
     parser.add_argument("--site", default="preview-hiltbrand", help="Site-Ordner (z.B. preview-hiltbrand)")
     parser.add_argument("--client-id", help="Explizite ACP Client-ID (überschreibt company.json)")
+    parser.add_argument("--widget-slug", help="Optionaler ACP Social-Widget Slug (z.B. hiltbrand-gebaeudehuellen-ag) für GCF-Feed")
     parser.add_argument("--limit", type=int, default=4, help="Anzahl Stories im Karussell (Standard: 4)")
     parser.add_argument("--dry-run", action="store_true", help="Nur Vorschau anzeigen ohne Dateiänderung")
     parser.add_argument("--git-push", action="store_true", help="Automatischer Git Push nach Cloudflare Pages")
@@ -353,8 +383,14 @@ def main():
         print("Fehler: Keine acp_client_id in company.json gefunden und kein --client-id übergeben.")
         sys.exit(1)
 
-    print(f"Lade aktuelle ACP-Posts für Client {client_id} aus Supabase...")
-    posts = fetch_acp_posts(client_id, limit=args.limit)
+    widget_slug = getattr(args, "widget_slug", None) or cdata.get("acp_widget_slug")
+    posts = []
+    if widget_slug:
+        print(f"Lade kuratierte ACP Social-Widget Kacheln für Slug '{widget_slug}' aus GCS...")
+        posts = fetch_widget_feed_posts(widget_slug, limit=args.limit)
+    if not posts:
+        print(f"Lade aktuelle ACP-Posts für Client {client_id} aus Supabase...")
+        posts = fetch_acp_posts(client_id, limit=args.limit)
 
     if not posts:
         print("Keine veröffentlichten Posts mit Medien in Supabase gefunden.")
