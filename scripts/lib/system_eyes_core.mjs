@@ -16,7 +16,7 @@
  *     Mobile-Menues und Cockpit-Modals zur verpflichtenden Sichtabnahme per read_file.
  */
 
-export const SYSTEM_EYES_VERSION = '2.5.0';
+export const SYSTEM_EYES_VERSION = '2.6.0';
 
 export const SYSTEM_EYES_ZONES = [
   { name: 'mobile_375x667', width: 375, height: 667, label: 'Zone 1 Smartphone (375×667)' },
@@ -51,7 +51,11 @@ export const SYSTEM_EYES_SENSORS = [
   { id: 'S-24', code: 'P2_HERO_CTA_STACKED_ON_DESKTOP', severity: 'P2', rule: '#UI-02', desc: 'Benachbarte Hero-Action-Buttons duerfen in breiten Desktop-Spalten (>= 480px) nicht unnoetig vertikal untereinander stapeln, wenn sie nebeneinander passen' },
   { id: 'S-25', code: 'P2_CARD_EXCESSIVE_DEAD_SPACE', severity: 'P2', rule: '#UI-02', desc: 'Gerahmte Karten (.card, .content-card, .hero-card, .hero-media-card) duerfen auf Desktop nicht > 90px leeren Totraum unter ihrem Inhalt aufweisen' },
   { id: 'S-26', code: 'P1_LOW_CONTRAST_GHOST', severity: 'P1', rule: '#UI-01', desc: 'Sichtbarer Text muss gegenueber seinem effektiven Hintergrund (inkl. RGBA-Alpha-Blending & CSS linear-/radial-gradient Farb-Stops) ein Kontrastverhaeltnis >= 2.2:1 aufweisen (kein Dunkel-auf-Dunkel oder Weiss-auf-Weiss)' },
-  { id: 'S-27', code: 'P1_EVOLUTION_POLARITY_MISMATCH', severity: 'P1', rule: '#UI-16', desc: 'Im Evolution-Modus mit heller Ursprungsseite (target_hero_polarity === "light") darf die Startbuehne (.hero-section, .hero, main > section:first-of-type) niemals dunkel (< 0.45 Luminanz) gebaut werden' }
+  { id: 'S-27', code: 'P1_EVOLUTION_POLARITY_MISMATCH', severity: 'P1', rule: '#UI-16', desc: 'Im Evolution-Modus mit heller Ursprungsseite (target_hero_polarity === "light") darf die Startbuehne (.hero-section, .hero, main > section:first-of-type) niemals dunkel (< 0.45 Luminanz) gebaut werden' },
+  { id: 'S-28', code: 'P2_MULTILINE_CELL_INDENT_DRIFT', severity: 'P2', rule: '#UI-02', desc: 'In mehrzeiligen Tabellenzellen, Listen-Spalten oder Flex/Grid-Zellen muessen untereinanderliegende Zeilen exakt auf derselben linken/rechten Fluchtlinie starten (kein margin-left-Versatz auf Zeile 2, Toleranz <= 2.5px)' },
+  { id: 'S-29', code: 'P2_CROSS_ROW_RHYTHM_MISMATCH', severity: 'P2', rule: '#UI-02', desc: 'Aufeinanderfolgende Listen-Zeilen gleicher Signatur muessen in allen Spalten exakt fluchten (x-Abweichung <= 3px) und wiederkehrende Tags/Badges im selben Stockwerk (y-Rhythmus) fuehren' },
+  { id: 'S-30', code: 'P2_TYPOGRAPHIC_PLENK_OR_ASCII_ORT', severity: 'P2', rule: '#LANG-01', desc: 'Keine Leerzeichen vor Kommas (Plenk, z. B. "Bern , BERNEXPO") und keine unkorrigierten Schweizer ASCII-Umlaut-Ortsnamen (Zuerich, Graubuenden, Duebendorf, Buelach etc.) im sichtbaren UI-Text' },
+  { id: 'S-31', code: 'P2_SIBLING_CARD_ANATOMY_DRIFT', severity: 'P2', rule: '#UI-02', desc: 'Nebeneinanderliegende Kacheln in 2er-/3er-/4er-Grids muessen sowohl aussen (2D-Spaltenflucht) als auch innen (Kicker-, Ueberschrift- und Textstart-Horizont) miteinander fluchten' }
 ];
 
 /**
@@ -400,8 +404,40 @@ export function evaluateSystemEyesInPage({ relPage, zone, options = {} }) {
     }
   }
 
-  // S-14 & S-15: P2_ROW_HEIGHT_MISMATCH & P2_RAGGED_RIGHT_EDGE in Grids
-  const grids = Array.from(queryRoot.querySelectorAll('.pillar-cards, .vs-grid, .teaser-grid, .price-grid, .story-grid, .values-grid, .arch-grid, .sparten-filter-grid, .subservices-grid, .sparte-ref-row, .quiz-steps-grid, .social-grid, .blog-grid, .team-dept-grid, .timeline-list, .partner-grid, .foerder-grid, .check-grid, .begleitung-grid, .testimonials-grid')).filter(isVisible);
+  // S-14, S-15 & S-31: P2_ROW_HEIGHT_MISMATCH, P2_RAGGED_RIGHT_EDGE & P2_SIBLING_CARD_ANATOMY_DRIFT in Grids (inkl. Auto-Discovery)
+  const explicitGridSelector = '.pillar-cards, .vs-grid, .teaser-grid, .price-grid, .story-grid, .values-grid, .arch-grid, .sparten-filter-grid, .subservices-grid, .sparte-ref-row, .quiz-steps-grid, .social-grid, .blog-grid, .team-dept-grid, .timeline-list, .partner-grid, .foerder-grid, .check-grid, .begleitung-grid, .testimonials-grid, .about-grid, .about-trust-bar, [data-acp-bento-grid], [data-eyes-card-grid="true"]';
+  const explicitGrids = Array.from(queryRoot.querySelectorAll(explicitGridSelector)).filter(isVisible);
+  const gridSet = new Set(explicitGrids);
+  if (VW >= 769) {
+    for (const cand of allDom) {
+      if (gridSet.has(cand)) continue;
+      if (cand.closest('nav, header, footer, table, .agenda-toolbar, .toolbar-primary-row, #erfassungZenSidebar, #acpSidebarDrawer, [data-ignore-card-anatomy="true"]')) continue;
+      const cCs = window.getComputedStyle(cand);
+      if (cCs.display !== 'grid' && cCs.display !== 'flex') continue;
+      const visKids = Array.from(cand.children).filter(isVisible);
+      if (visKids.length < 2 || visKids.length > 12) continue;
+      const firstTag = visKids[0].tagName;
+      const firstCls = (typeof visKids[0].className === 'string' ? visKids[0].className.trim().split(/\s+/)[0] : '') || '';
+      const allSameType = visKids.every(k => {
+        if (k.tagName !== firstTag) return false;
+        const kCls = (typeof k.className === 'string' ? k.className.trim().split(/\s+/)[0] : '') || '';
+        if (firstCls && kCls !== firstCls) return false;
+        const kr = k.getBoundingClientRect();
+        if (kr.width < 140 || kr.height < 72) return false;
+        const kCs = window.getComputedStyle(k);
+        const hasSurface =
+          parseFloat(kCs.borderTopWidth || '0') > 0 ||
+          parseFloat(kCs.borderLeftWidth || '0') > 0 ||
+          (kCs.backgroundColor && kCs.backgroundColor !== 'rgba(0, 0, 0, 0)' && kCs.backgroundColor !== 'transparent') ||
+          /\b(card|tile|item|bento|pillar|trust-item)\b/i.test(k.className || '');
+        return hasSurface && Array.from(k.children).filter(isVisible).length >= 2;
+      });
+      if (allSameType) {
+        gridSet.add(cand);
+      }
+    }
+  }
+  const grids = Array.from(gridSet);
   for (const g of grids) {
     const children = Array.from(g.children).filter(isVisible);
     if (children.length < 2) continue;
@@ -415,13 +451,15 @@ export function evaluateSystemEyesInPage({ relPage, zone, options = {} }) {
       }
       row.items.push({ el: c, rect: r });
     }
+    rows.sort((a, b) => a.top - b.top);
     const gRect = g.getBoundingClientRect();
     const gPadR = parseFloat(window.getComputedStyle(g).paddingRight || '0') || 0;
     const expectedRight = gRect.right - gPadR;
+    const isExplicitGrid = g.matches(explicitGridSelector);
     for (const rw of rows) {
       rw.items.sort((a, b) => a.rect.left - b.rect.left);
       const lastItem = rw.items[rw.items.length - 1];
-      if (expectedRight - lastItem.rect.right > 14) {
+      if ((isExplicitGrid || rw.items.length >= 2) && rw.items.length === rows[0].items.length && expectedRight - lastItem.rect.right > 14) {
         addFinding('P2', 'P2_RAGGED_RIGHT_EDGE', getCssPath(g), getCssPath(g), `Rechte Kante ausgefranst: last.right=${Math.round(lastItem.rect.right)}px vs container.right=${Math.round(expectedRight)}px`);
       }
       if (rw.items.length >= 2) {
@@ -430,6 +468,102 @@ export function evaluateSystemEyesInPage({ relPage, zone, options = {} }) {
         const minH = Math.min(...heights);
         if (maxH - minH > 4) {
           addFinding('P2', 'P2_ROW_HEIGHT_MISMATCH', getCssPath(g), getCssPath(g), `Karten in derselben Zeile haben ungleiche Hoehe: min=${Math.round(minH)}px vs max=${Math.round(maxH)}px`);
+        }
+      }
+    }
+
+    // S-31a: 2D Multi-Row Column Alignment (z. B. 2x2 4-Kachel-Grid wie .about-grid oder gestapelte Kacheln)
+    if (rows.length >= 2) {
+      for (let ri = 1; ri < rows.length; ri++) {
+        if (rows[ri].items.length !== rows[0].items.length) continue;
+        for (let ci = 0; ci < rows[ri].items.length; ci++) {
+          const topCard = rows[0].items[ci];
+          const curCard = rows[ri].items[ci];
+          const leftDiff = Math.abs(curCard.rect.left - topCard.rect.left);
+          const widthDiff = Math.abs(curCard.rect.width - topCard.rect.width);
+          if (leftDiff > 3 || widthDiff > 3) {
+            addFinding(
+              'P2',
+              'P2_SIBLING_CARD_ANATOMY_DRIFT',
+              getLabel(curCard.el),
+              getCssPath(curCard.el),
+              `2D-Kachel-Spaltenflucht zwischen Reihe 1 und Reihe ${ri + 1} (Spalte ${ci + 1}) verschoben: leftDiff=${leftDiff.toFixed(1)}px, widthDiff=${widthDiff.toFixed(1)}px (Pflicht <= 3px)`
+            );
+          }
+        }
+      }
+    }
+
+    // S-31b: Innen-Anatomie-Horizont nebeneinanderliegender Kacheln derselben Reihe
+    for (let ri = 0; ri < rows.length; ri++) {
+      const rw = rows[ri];
+      if (rw.items.length < 2) continue;
+      const baseCard = rw.items[0];
+      const baseKids = Array.from(baseCard.el.children).filter(isVisible);
+      if (baseKids.length < 2) continue;
+      const getSig = kids =>
+        kids
+          .map(k => k.tagName + '.' + ((typeof k.className === 'string' ? k.className.trim().split(/\s+/)[0] : '') || ''))
+          .join('>');
+      const baseSig = getSig(baseKids);
+
+      for (let ci = 1; ci < rw.items.length; ci++) {
+        const curCard = rw.items[ci];
+        const curKids = Array.from(curCard.el.children).filter(isVisible);
+        if (curKids.length < 2 || getSig(curKids) !== baseSig) continue;
+
+        // 1. Erstes sichtbares Kind (Kicker / Nummer / Icon / Heading)
+        const r0A = baseKids[0].getBoundingClientRect();
+        const r0B = curKids[0].getBoundingClientRect();
+        const padLA = r0A.left - baseCard.rect.left;
+        const padLB = r0B.left - curCard.rect.left;
+        if (Math.abs(r0A.top - r0B.top) > 4 || Math.abs(padLA - padLB) > 3) {
+          addFinding(
+            'P2',
+            'P2_SIBLING_CARD_ANATOMY_DRIFT',
+            `${getLabel(baseCard.el)} vs ${getLabel(curCard.el)}`,
+            getCssPath(curCard.el),
+            `Kachel-Innen-Anatomie (1. Kind) in Reihe ${ri + 1} versetzt: topDiff=${Math.abs(r0A.top - r0B.top).toFixed(1)}px (Pflicht <= 4px), padLeftDiff=${Math.abs(padLA - padLB).toFixed(1)}px (Pflicht <= 3px)`
+          );
+        }
+
+        // 2. Hauptueberschrift (h2, h3, h4, .card-title, strong:first-child)
+        const headA = baseCard.el.querySelector('h2, h3, h4, .card-title, strong:first-child');
+        const headB = curCard.el.querySelector('h2, h3, h4, .card-title, strong:first-child');
+        if (headA && headB && isVisible(headA) && isVisible(headB)) {
+          const rhA = headA.getBoundingClientRect();
+          const rhB = headB.getBoundingClientRect();
+          if (Math.abs(rhA.top - rhB.top) > 4) {
+            addFinding(
+              'P2',
+              'P2_SIBLING_CARD_ANATOMY_DRIFT',
+              `${getLabel(headA)} vs ${getLabel(headB)}`,
+              getCssPath(curCard.el),
+              `Ueberschriften-Horizont in Nachbar-Kacheln (Reihe ${ri + 1}) versetzt: topA=${Math.round(rhA.top)}px vs topB=${Math.round(rhB.top)}px (Diff=${Math.abs(rhA.top - rhB.top).toFixed(1)}px > 4px)`
+            );
+          }
+        }
+
+        // 3. Erster Fliesstext-Absatz (p / .about-card-sub / span) nach der Ueberschrift
+        for (let ki = 1; ki < baseKids.length; ki++) {
+          const kA = baseKids[ki];
+          const kB = curKids[ki];
+          if (!kA.matches('p, .about-card-sub, span')) continue;
+          const rpA = kA.getBoundingClientRect();
+          const rpB = kB.getBoundingClientRect();
+          if (Math.abs(rpA.top - rpB.top) > 6) {
+            addFinding(
+              'P2',
+              'P2_SIBLING_CARD_ANATOMY_DRIFT',
+              `${getLabel(baseCard.el)} vs ${getLabel(curCard.el)}`,
+              getCssPath(kB),
+              `Textstart-Horizont in Nachbar-Kacheln (Reihe ${ri + 1}) versetzt: topA=${Math.round(rpA.top)}px vs topB=${Math.round(rpB.top)}px (Diff=${Math.abs(rpA.top - rpB.top).toFixed(1)}px > 6px)`
+            );
+            break;
+          }
+          if (kA.tagName === 'P' && !kA.classList.contains('about-card-sub')) {
+            break;
+          }
         }
       }
     }
@@ -796,6 +930,242 @@ export function evaluateSystemEyesInPage({ relPage, zone, options = {} }) {
             );
           }
         }
+      }
+    }
+  }
+
+  // S-28: P2_MULTILINE_CELL_INDENT_DRIFT (Intra-Zellen-Fluchtlinie bei mehrzeiligen Zellen)
+  const multilineCells = Array.from(
+    queryRoot.querySelectorAll('.agenda-date, .agenda-badges, [data-eyes-cell="true"], [data-acp-multiline-cell="true"], [data-acp-path*="row"] > div')
+  ).filter(isVisible);
+  for (const cell of multilineCells) {
+    if (cell.closest('[data-ignore-cell-indent="true"]')) continue;
+    const cellCs = window.getComputedStyle(cell);
+    const isRightAligned =
+      cellCs.alignItems === 'flex-end' ||
+      cellCs.alignItems === 'end' ||
+      cellCs.textAlign === 'right' ||
+      cellCs.textAlign === 'end';
+    const isLeftAligned =
+      !isRightAligned &&
+      cellCs.alignItems !== 'center' &&
+      cellCs.justifyContent !== 'center' &&
+      cellCs.justifyContent !== 'flex-end' &&
+      cellCs.justifyContent !== 'space-between' &&
+      cellCs.textAlign !== 'center';
+    if (!isLeftAligned && !isRightAligned) continue;
+
+    const cellItems = [];
+    for (const node of cell.childNodes) {
+      if (node.nodeType === 3 && node.nodeValue && node.nodeValue.trim().length > 0) {
+        const rng = document.createRange();
+        rng.selectNodeContents(node);
+        const rects = rng.getClientRects();
+        if (rects.length > 0 && rects[0].width > 1 && rects[0].height > 1) {
+          cellItems.push({ rect: rects[0], label: node.nodeValue.trim().slice(0, 30) });
+        }
+      } else if (node.nodeType === 1 && isVisible(node)) {
+        let targetEl = node;
+        const nCs = window.getComputedStyle(node);
+        const hasOwnBox =
+          parseFloat(nCs.borderLeftWidth || '0') > 0 ||
+          parseFloat(nCs.paddingLeft || '0') > 0 ||
+          (nCs.backgroundColor && nCs.backgroundColor !== 'rgba(0, 0, 0, 0)' && nCs.backgroundColor !== 'transparent');
+        if (!hasOwnBox && node.children.length > 0) {
+          const firstVisChild = Array.from(node.children).find(isVisible);
+          if (firstVisChild) targetEl = firstVisChild;
+        }
+        const r = targetEl.getBoundingClientRect();
+        const fullR = node.getBoundingClientRect();
+        cellItems.push({
+          rect: { left: r.left, right: fullR.right, top: fullR.top, bottom: fullR.bottom, width: fullR.width, height: fullR.height },
+          label: getLabel(node)
+        });
+      }
+    }
+    if (cellItems.length < 2) continue;
+    const cellLines = [];
+    for (const it of cellItems) {
+      let ln = cellLines.find(l => Math.abs(l.top - it.rect.top) <= 10);
+      if (!ln) {
+        ln = { top: it.rect.top, items: [] };
+        cellLines.push(ln);
+      }
+      ln.items.push(it);
+    }
+    if (cellLines.length < 2) continue;
+    cellLines.sort((a, b) => a.top - b.top);
+    for (const ln of cellLines) {
+      ln.items.sort((a, b) => a.rect.left - b.rect.left);
+    }
+    const row1First = cellLines[0].items[0];
+    const row1Last = cellLines[0].items[cellLines[0].items.length - 1];
+    for (let li = 1; li < cellLines.length; li++) {
+      const rowNFirst = cellLines[li].items[0];
+      const rowNLast = cellLines[li].items[cellLines[li].items.length - 1];
+      if (isLeftAligned) {
+        const driftL = Math.abs(rowNFirst.rect.left - row1First.rect.left);
+        if (driftL > 2.5) {
+          addFinding(
+            'P2',
+            'P2_MULTILINE_CELL_INDENT_DRIFT',
+            getLabel(cell),
+            getCssPath(cell),
+            `Mehrzeilige Zelle fluchtet links nicht: Zeile 1 ("${row1First.label}") bei x=${row1First.rect.left.toFixed(1)}px vs Zeile ${li + 1} ("${rowNFirst.label}") bei x=${rowNFirst.rect.left.toFixed(1)}px (Versatz=${driftL.toFixed(1)}px > 2.5px)`
+          );
+          break;
+        }
+      } else if (isRightAligned) {
+        const driftR = Math.abs(rowNLast.rect.right - row1Last.rect.right);
+        if (driftR > 2.5) {
+          addFinding(
+            'P2',
+            'P2_MULTILINE_CELL_INDENT_DRIFT',
+            getLabel(cell),
+            getCssPath(cell),
+            `Rechtsbuendige mehrzeilige Zelle fluchtet rechts nicht: Zeile 1 bei right=${row1Last.rect.right.toFixed(1)}px vs Zeile ${li + 1} bei right=${rowNLast.rect.right.toFixed(1)}px (Versatz=${driftR.toFixed(1)}px > 2.5px)`
+          );
+          break;
+        }
+      }
+    }
+  }
+
+  // S-29: P2_CROSS_ROW_RHYTHM_MISMATCH (Zeilenuebergreifender Mehrzeilen-Abgleich in Listen)
+  const rowCandidates = Array.from(
+    queryRoot.querySelectorAll('.agenda-row, [data-acp-path="1000-cockpit.zen.posts.row"], [data-acp-path="1000-cockpit.zen.stage.compact_row"], .list-row, [data-eyes-row="true"]')
+  ).filter(isVisible);
+  const rowsByParent = new Map();
+  for (const rEl of rowCandidates) {
+    const p = rEl.parentElement;
+    if (!p) continue;
+    const sig =
+      rEl.tagName +
+      '.' +
+      ((typeof rEl.className === 'string' ? rEl.className.trim().split(/\s+/).slice(0, 2).join('.') : '') || '') +
+      '|' +
+      (rEl.getAttribute('data-acp-path') || '');
+    if (!rowsByParent.has(p)) rowsByParent.set(p, new Map());
+    const sigMap = rowsByParent.get(p);
+    if (!sigMap.has(sig)) sigMap.set(sig, []);
+    sigMap.get(sig).push(rEl);
+  }
+  for (const [, sigMap] of rowsByParent.entries()) {
+    for (const [, rawRows] of sigMap.entries()) {
+      if (rawRows.length < 2) continue;
+      const stackedRows = rawRows
+        .map(el => ({ el, rect: el.getBoundingClientRect(), cols: Array.from(el.children).filter(isVisible) }))
+        .filter(r => r.rect.width >= 240 && r.cols.length >= 2);
+      if (stackedRows.length < 2) continue;
+      let isVerticallyStacked = true;
+      for (let i = 0; i < stackedRows.length - 1; i++) {
+        if (stackedRows[i + 1].rect.top < stackedRows[i].rect.bottom - 4) {
+          isVerticallyStacked = false;
+          break;
+        }
+      }
+      if (!isVerticallyStacked) continue;
+
+      const refRow = stackedRows[0];
+      const refColCount = refRow.cols.length;
+      const rowCs = window.getComputedStyle(refRow.el);
+      const isSpaceBetweenFlex = rowCs.display === 'flex' && rowCs.justifyContent === 'space-between';
+
+      // (a) Spalten-Fluchtlinie (x-Achse ueber alle Zeilen gleicher Spaltenanzahl)
+      for (let ri = 1; ri < stackedRows.length; ri++) {
+        const curRow = stackedRows[ri];
+        if (curRow.cols.length !== refColCount) continue;
+        for (let ci = 0; ci < refColCount; ci++) {
+          const rRef = refRow.cols[ci].getBoundingClientRect();
+          const rCur = curRow.cols[ci].getBoundingClientRect();
+          if (isSpaceBetweenFlex && ci === refColCount - 1 && ci > 0) {
+            const rightDiff = Math.abs(rCur.right - rRef.right);
+            if (rightDiff > 3) {
+              addFinding(
+                'P2',
+                'P2_CROSS_ROW_RHYTHM_MISMATCH',
+                getLabel(curRow.cols[ci]),
+                getCssPath(curRow.el),
+                `Spalten-Fluchtlinie (rechts) zwischen Zeile 1 und Zeile ${ri + 1} gebrochen: col[${ci}].right=${Math.round(rCur.right)}px vs ${Math.round(rRef.right)}px (Diff=${rightDiff.toFixed(1)}px > 3px)`
+              );
+            }
+          } else {
+            const leftDiff = Math.abs(rCur.left - rRef.left);
+            if (leftDiff > 3) {
+              addFinding(
+                'P2',
+                'P2_CROSS_ROW_RHYTHM_MISMATCH',
+                getLabel(curRow.cols[ci]),
+                getCssPath(curRow.el),
+                `Spalten-Fluchtlinie (links) zwischen Zeile 1 und Zeile ${ri + 1} gebrochen: col[${ci}].left=${Math.round(rCur.left)}px vs ${Math.round(rRef.left)}px (Diff=${leftDiff.toFixed(1)}px > 3px)`
+              );
+            }
+          }
+        }
+      }
+
+      // (b) Stockwerk-Paritaet wiederkehrender Tags/Badges (y-Rhythmus ueber alle Zeilen)
+      for (let ci = 0; ci < refColCount; ci++) {
+        let row1BesideRow = null;
+        let row2BelowRow = null;
+        for (let ri = 0; ri < stackedRows.length; ri++) {
+          const curRow = stackedRows[ri];
+          if (curRow.cols.length !== refColCount) continue;
+          const colEl = curRow.cols[ci];
+          const tagEl = colEl.querySelector('.agenda-kw-tag, .badge, [class*="kw-tag"], [data-eyes-rhythm-tag="true"]');
+          if (!tagEl || !isVisible(tagEl)) continue;
+          const colRect = colEl.getBoundingClientRect();
+          const tagRect = tagEl.getBoundingClientRect();
+          const relTop = tagRect.top - colRect.top;
+          const relLeft = tagRect.left - colRect.left;
+          if (relTop < 8 && relLeft > 25) {
+            if (!row1BesideRow) row1BesideRow = { idx: ri + 1, label: getLabel(colEl), el: curRow.el };
+          } else if (relTop >= 12) {
+            if (!row2BelowRow) row2BelowRow = { idx: ri + 1, label: getLabel(colEl), el: curRow.el };
+          }
+        }
+        if (row1BesideRow && row2BelowRow) {
+          addFinding(
+            'P2',
+            'P2_CROSS_ROW_RHYTHM_MISMATCH',
+            `${row1BesideRow.label} vs ${row2BelowRow.label}`,
+            getCssPath(row2BelowRow.el),
+            `Stockwerk-Zickzack in Spalte ${ci + 1}: Tag sitzt in Zeile ${row1BesideRow.idx} auf Zeile 1 neben dem Text ("${row1BesideRow.label}"), in Zeile ${row2BelowRow.idx} aber auf Zeile 2 unter dem Text ("${row2BelowRow.label}")!`
+          );
+        }
+      }
+    }
+  }
+
+  // S-30: P2_TYPOGRAPHIC_PLENK_OR_ASCII_ORT (Leerzeichen vor Komma & unkorrigierte Schweizer ASCII-Ortsnamen)
+  const plenkRe = /[A-Za-zÄÖÜäöü0-9)\]]\s+,/;
+  const asciiOrtRe = /\b(?:Zuerich|Zuercher|Graubuenden|Duebendorf|Buelach|Kuesnacht|Kuessnacht)\b/;
+  for (const el of allDom) {
+    if (['SCRIPT', 'STYLE', 'PRE', 'CODE', 'TEXTAREA', 'SVG', 'PATH', 'INPUT', 'SELECT'].includes(el.tagName)) continue;
+    if (el.closest('pre, code, textarea, svg, [data-user-content="true"], .post-preview-text, .acp-no-capture')) continue;
+    for (const n of el.childNodes) {
+      if (n.nodeType !== 3) continue;
+      const directText = (n.nodeValue || '').replace(/\s+/g, ' ').trim();
+      if (!directText) continue;
+      if (plenkRe.test(directText)) {
+        const m = directText.match(plenkRe);
+        addFinding(
+          'P2',
+          'P2_TYPOGRAPHIC_PLENK_OR_ASCII_ORT',
+          getLabel(el),
+          getCssPath(el),
+          `Typografischer Plenk (Leerzeichen vor Komma "${m[0]}") im sichtbaren Text gefunden`
+        );
+      }
+      if (asciiOrtRe.test(directText)) {
+        const m = directText.match(asciiOrtRe);
+        addFinding(
+          'P2',
+          'P2_TYPOGRAPHIC_PLENK_OR_ASCII_ORT',
+          getLabel(el),
+          getCssPath(el),
+          `Unkorrigierter Schweizer ASCII-Umlaut-Ortsname "${m[0]}" im sichtbaren UI-Text gefunden (#LANG-01)`
+        );
       }
     }
   }
