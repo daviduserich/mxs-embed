@@ -215,8 +215,11 @@ export function evaluateSystemEyesInPage({ relPage, zone, options = {} }) {
     }
 
     if (VW < 769) {
-      if (r.width < 34 || r.height < 30) {
-        addFinding('P2', 'P2_CRAMPED_MOBILE', lbl, sel, `Touch-Flaeche zu klein auf Mobile: ${Math.round(r.width)}x${Math.round(r.height)}px (Pflicht >= 34x30px)`);
+      const isCheckOrRadio = el.tagName === 'INPUT' && (el.type === 'checkbox' || el.type === 'radio');
+      const parentLabel = isCheckOrRadio ? el.closest('label') : null;
+      const touchR = parentLabel ? parentLabel.getBoundingClientRect() : r;
+      if (touchR.width < 34 || touchR.height < 30) {
+        addFinding('P2', 'P2_CRAMPED_MOBILE', lbl, sel, `Touch-Flaeche zu klein auf Mobile: ${Math.round(touchR.width)}x${Math.round(touchR.height)}px (Pflicht >= 34x30px)`);
       }
     }
 
