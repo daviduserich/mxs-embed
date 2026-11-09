@@ -1,0 +1,236 @@
+{
+  "schema_version": "1.0.0",
+  "generated_at": "2026-11-09T12:45:34.019Z",
+  "slug": "holz-susi",
+  "source_url": "https://holz-susi.ch/",
+  "design_mode": "evolution",
+  "industry": "",
+  "stage_1_measured_facts": {
+    "luminance": {
+      "body_luminance": 0.887,
+      "hero_luminance": 0.693,
+      "header_px_luminance": 0.617,
+      "hero_px_luminance": 0.756,
+      "lower_px_luminance": 0.871,
+      "dom_body_luminance": 1,
+      "dom_hero_luminance": 1,
+      "body_bg_hex": "#FFFFFF",
+      "header_bg_hex": "#FFFFFF",
+      "hero_bg_hex": "#FFFFFF"
+    },
+    "colors": {
+      "distinct_accent_hues_count": 1,
+      "primary_detected_hex": "#A67B52",
+      "primary_detected_oklch": {
+        "L": 0.616,
+        "C": 0.078,
+        "H": 64.2
+      },
+      "distinct_hue_clusters": [
+        {
+          "representative_hex": "#A67B52",
+          "rgb": [
+            166,
+            123,
+            82
+          ],
+          "oklch": {
+            "L": 0.616,
+            "C": 0.078,
+            "H": 64.2
+          },
+          "total_weight": 316,
+          "roles": [
+            "accent_or_text",
+            "surface_or_badge_bg",
+            "cta_button_bg",
+            "cta_text_or_border",
+            "camera_pixel_cluster"
+          ]
+        }
+      ]
+    },
+    "typography": {
+      "heading_font_family": "Comfortaa, sans-serif",
+      "body_font_family": "Comfortaa, sans-serif",
+      "h1_font_size": "14px",
+      "h1_line_height": "19.6px",
+      "body_font_size": "14px",
+      "body_line_height": "19.6px",
+      "detected_border_radii_px": [
+        0,
+        5
+      ],
+      "detected_container_max_widths_px": []
+    },
+    "images": {
+      "total_visible_images": 56,
+      "content_images_count": 56,
+      "max_image_width_px": 2000,
+      "hi_res_images_count": 15,
+      "low_res_images_count": 41,
+      "portrait_images_count": 8,
+      "landscape_images_count": 48,
+      "portrait_ratio_share": 0.14
+    },
+    "section_sequence": []
+  },
+  "sommelier_decisions": {
+    "polarity_decision": {
+      "design_mode": "evolution",
+      "target_hero_polarity": "light",
+      "target_page_polarity": "light",
+      "light_lock_active": true,
+      "s27_min_hero_luminance_threshold": 0.45,
+      "reason": "LICHT-SPERRE AKTIV (#UI-16): Ursprungsseite ist im Gesamteindruck (body_luminance=0.887) und Hero (hero_luminance=0.693) hell/freundlich. Dunkle Startbuehnen sind strikt verboten (Sensor S-27 ueberwacht >= 0.45)!"
+    },
+    "tinted_neutrals": {
+      "brand_hue_deg": 64.2,
+      "bg_page": {
+        "oklch": "oklch(0.985 0.008 64.2)",
+        "hex": "#FEF9F5",
+        "role": "60 % Haupt-Hintergrundflaeche mit feinem Marken-Hauch (Chroma 0.008)"
+      },
+      "bg_soft": {
+        "oklch": "oklch(0.955 0.016 64.2)",
+        "hex": "#F8EEE5",
+        "role": "30 % Sekundaer-Sektionen & Karten-Flaechen (Chroma 0.016)"
+      },
+      "bg_elevated": {
+        "oklch": "oklch(1.000 0.000 0.0)",
+        "hex": "#FFFFFF",
+        "role": "Erhabene Inhalts-Karten auf getoentem Canvas"
+      },
+      "border_subtle": {
+        "oklch": "oklch(0.890 0.014 64.2)",
+        "hex": "#E2D9D1",
+        "role": "Harmonische 1px Haarlinien-Rahmen im Marken-Farbton"
+      },
+      "text_main": {
+        "oklch": "oklch(0.200 0.025 64.2)",
+        "hex": "#1E140A",
+        "contrast_vs_bg_page": "17.31:1",
+        "role": "Tiefdunkle, mit Marken-Hue abgetoente Textfarbe (Kontrast >= 10:1)"
+      },
+      "text_muted": {
+        "oklch": "oklch(0.420 0.020 64.2)",
+        "hex": "#554B42",
+        "role": "Ruhige Sekundaer-Textfarbe fuer Metadaten und Bildlegenden"
+      }
+    },
+    "color_harmony_60_30_10": {
+      "distinct_accent_hues_count": 1,
+      "is_multicolor_chaos": false,
+      "sommelier_verdict": "Klare, fokussierte Marken-Farbwelt (1 Haupt-Akzentton erkannt). Wird im 60-30-10-Verhaeltnis mit Tinted Neutrals veredelt.",
+      "primary_10_percent_cta": {
+        "original_brand_hex": "#A67B52",
+        "original_oklch": {
+          "L": 0.616,
+          "C": 0.078,
+          "H": 64.2
+        },
+        "harmonized_oklch": "oklch(0.580 0.160 64.2)",
+        "harmonized_hex": "#AF6600",
+        "hover_hex": "#8F5300"
+      },
+      "secondary_accent_palette": [
+        {
+          "slot": 1,
+          "token_prefix": "--accent-palette-1",
+          "source_hex": "#957F0E",
+          "source_hue_deg": 96.2,
+          "pastel_surface": {
+            "oklch": "oklch(0.950 0.035 96.2)",
+            "hex": "#F5EFD5",
+            "spec": "L=0.95, C=0.035"
+          },
+          "icon_accent": {
+            "oklch": "oklch(0.480 0.130 96.2)",
+            "hex": "#6E5D00",
+            "spec": "L=0.48, C=0.13"
+          }
+        },
+        {
+          "slot": 2,
+          "token_prefix": "--accent-palette-2",
+          "source_hex": "#6B8D39",
+          "source_hue_deg": 128.2,
+          "pastel_surface": {
+            "oklch": "oklch(0.950 0.035 128.2)",
+            "hex": "#E8F3DB",
+            "spec": "L=0.95, C=0.035"
+          },
+          "icon_accent": {
+            "oklch": "oklch(0.480 0.130 128.2)",
+            "hex": "#486A00",
+            "spec": "L=0.48, C=0.13"
+          }
+        },
+        {
+          "slot": 3,
+          "token_prefix": "--accent-palette-3",
+          "source_hex": "#2A9667",
+          "source_hue_deg": 160.2,
+          "pastel_surface": {
+            "oklch": "oklch(0.950 0.035 160.2)",
+            "hex": "#DBF6E7",
+            "spec": "L=0.95, C=0.035"
+          },
+          "icon_accent": {
+            "oklch": "oklch(0.480 0.130 160.2)",
+            "hex": "#007048",
+            "spec": "L=0.48, C=0.13"
+          }
+        },
+        {
+          "slot": 4,
+          "token_prefix": "--accent-palette-4",
+          "source_hex": "#009390",
+          "source_hue_deg": 192.2,
+          "pastel_surface": {
+            "oklch": "oklch(0.950 0.035 192.2)",
+            "hex": "#D5F6F4",
+            "spec": "L=0.95, C=0.035"
+          },
+          "icon_accent": {
+            "oklch": "oklch(0.480 0.130 192.2)",
+            "hex": "#006C6A",
+            "spec": "L=0.48, C=0.13"
+          }
+        }
+      ]
+    },
+    "typography_and_archetype": {
+      "measured_heading_font": "Comfortaa",
+      "measured_body_font": "Comfortaa",
+      "heal_legacy_flaw": false,
+      "legacy_flaw_diagnosis": "Bestehende Schrift-Gattung (Comfortaa / Comfortaa) wird typografisch im Schweizer Meister-Archetyp veredelt.",
+      "selected_archetype": {
+        "id": "warm_humanist_editorial",
+        "label": "1. Warm Humanist Editorial (Praxis, Coaching, Therapie, Gesundheit, Paedagogik)",
+        "font_display": "'Lora', Georgia, serif",
+        "font_sans": "'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif",
+        "google_fonts_import": "https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap",
+        "radius_card": "8px",
+        "radius_badge": "4px",
+        "grid_max_width": "1100px",
+        "default_polarity": "light",
+        "character_note": "Helle, warme Tinted Neutrals, entschleunigte Lesbarkeit, hohe menschliche Naehe und Vertrauenswuerdigkeit ohne sterile Spital-Kaelte."
+      }
+    },
+    "image_layout_decision": {
+      "max_source_image_width_px": 2000,
+      "portrait_ratio_share": 0.14,
+      "forbid_fullscreen_bg_image": false,
+      "recommended_hero_layout": "split_framed_card_or_architectural_stage",
+      "sommelier_verdict": "Hochaufloesendes Bildmaterial vorhanden (max. 2000px Breite). Sowohl \"split_framed_card\" (#UI-02) als auch architektonische Buehne ohne Verpixelung moeglich."
+    }
+  },
+  "stage_3_blueprint": {
+    "css_root_tokens": ":root {\n  /* === 1. Polaritaet & Schweizer Raster (#UI-02, #UI-16, Sensor S-27) === */\n  --wp-expected-hero-polarity: \"light\";\n  --wp-archetype: \"warm_humanist_editorial\";\n  --container-max: 1100px;\n  --radius-card: 8px;\n  --radius-badge: 4px;\n\n  /* === 2. Typografie (warm_humanist_editorial) === */\n  --font-display: 'Lora', Georgia, serif;\n  --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;\n\n  /* === 3. 60 % & 30 % Tinted Neutrals (impeccable / Refactoring UI, Hue=64.2deg) === */\n  --bg-page: #FEF9F5;\n  --bg-page-oklch: oklch(0.985 0.008 64.2);\n  --bg-soft: #F8EEE5;\n  --bg-soft-oklch: oklch(0.955 0.016 64.2);\n  --bg-elevated: #FFFFFF;\n  --border-subtle: #E2D9D1;\n  --border-subtle-oklch: oklch(0.890 0.014 64.2);\n  --text-main: #1E140A;\n  --text-main-oklch: oklch(0.200 0.025 64.2);\n  --text-muted: #554B42;\n  --text-muted-oklch: oklch(0.420 0.020 64.2);\n\n  /* === 4. 10 % Primaer-CTA-Chef (Marken-Hauptfarbe) === */\n  --primary: #AF6600;\n  --primary-brand-raw: #A67B52;\n  --primary-oklch: oklch(0.580 0.160 64.2);\n  --primary-hover: #8F5300;\n\n  /* === 5. OKLCH-Harmonisierte Sekundaer-Palette (Bunter-Kuchen-Zaehmung: L=0.95/C=0.035 & L=0.48/C=0.13) === */\n  --accent-palette-1-soft: #F5EFD5; /* oklch(0.950 0.035 96.2) */\n  --accent-palette-1-strong: #6E5D00; /* oklch(0.480 0.130 96.2) */\n  --accent-palette-2-soft: #E8F3DB; /* oklch(0.950 0.035 128.2) */\n  --accent-palette-2-strong: #486A00; /* oklch(0.480 0.130 128.2) */\n  --accent-palette-3-soft: #DBF6E7; /* oklch(0.950 0.035 160.2) */\n  --accent-palette-3-strong: #007048; /* oklch(0.480 0.130 160.2) */\n  --accent-palette-4-soft: #D5F6F4; /* oklch(0.950 0.035 192.2) */\n  --accent-palette-4-strong: #006C6A; /* oklch(0.480 0.130 192.2) */\n}",
+    "recommended_hero_layout": "split_framed_card_or_architectural_stage",
+    "target_hero_polarity": "light",
+    "selected_archetype_id": "warm_humanist_editorial",
+    "google_fonts_import": "https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
+  }
+}

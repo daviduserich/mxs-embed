@@ -5,7 +5,7 @@
 > **Lokaler Ordner (VPS & Git):** `preview-joma/`  
 > **Cloudflare-Basis-URL:** [vorschau.magnet-xs.ch/joma-vollversion/](https://vorschau.magnet-xs.ch/joma-vollversion/)  
 > **Bestand:** **27 Assets** (3.50 MB gesamt) · **🟢 26 aktiv im HTML** · **⚪ 1 frei im Bild-Pool** · **Externe Hotlinks: 0**  
-> **Letzte Aktualisierung:** 06.11.2026 13:59 Uhr (automatisch generiert via `webpilot_asset_catalog.py`)
+> **Letzte Aktualisierung:** 09.11.2026 13:59 Uhr (automatisch generiert via `webpilot_asset_catalog.py`)
 
 ---
 

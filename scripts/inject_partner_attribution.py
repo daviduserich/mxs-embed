@@ -158,6 +158,22 @@ SHOWCASE_CONFIGS = {
         "navy_hex": "#14181D",
         "font_heading": "'Plus Jakarta Sans', sans-serif",
     },
+    "preview-holz-susi": {
+        "routing_slug": "holz-susi",
+        "site_label": "Holz-Susi GmbH — Susanne Schmid (Zimmerei & Holzbau Frick)",
+        "entity_hint": "die Holz-Susi GmbH (Susanne Schmid, Frick AG)",
+        "accent_hex": "#AF6600",
+        "navy_hex": "#1E140A",
+        "font_heading": "'Plus Jakarta Sans', sans-serif",
+    },
+    "preview-holz-susi-v2": {
+        "routing_slug": "holz-susi-v2",
+        "site_label": "Holz-Susi GmbH (Zeigeversion / Vorschau-Entwurf)",
+        "entity_hint": "die Holz-Susi GmbH (Susanne Schmid, Frick AG)",
+        "accent_hex": "#AF6600",
+        "navy_hex": "#1E140A",
+        "font_heading": "'Plus Jakarta Sans', sans-serif",
+    },
 }
 
 CSS_START = "/* === WEBPILOT-PARTNER-ATTRIBUTION-CSS-START === */"

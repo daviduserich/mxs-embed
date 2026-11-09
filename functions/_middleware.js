@@ -1,4 +1,11 @@
 const VORSCHAU_SLUG_TO_FOLDER = {
+  // Holz-Susi GmbH (Frick AG): Zeigeversion (-v2, -v1, ohne Suffix) -> preview-holz-susi-v2 | Vollversion (-vollversion, -vv) -> preview-holz-susi
+  'holz-susi': 'preview-holz-susi-v2',
+  'holz-susi-v1': 'preview-holz-susi-v2',
+  'holz-susi-v2': 'preview-holz-susi-v2',
+  'holz-susi-vollversion': 'preview-holz-susi',
+  'holz-susi-vv': 'preview-holz-susi',
+
   // JOMA Solar GmbH (Wettingen): Zeigeversion (-v2, -v1, ohne Suffix) -> preview-joma-v2 | Vollversion (-vollversion, -vv) -> preview-joma
   'joma': 'preview-joma-v2',
   'joma-v1': 'preview-joma-v2',
@@ -124,7 +131,14 @@ const CLIENT_TOKENS = {
   'joma-v2': ['joma_sec_master', 'joma2026', 'jomalight2026', 'joma-v22026'],
   'preview-joma-v2': ['joma_sec_master', 'joma2026', 'jomalight2026', 'joma-v22026'],
   'joma-vollversion': ['joma_sec_master', 'joma2026', 'jomalight2026', 'joma-v22026'],
-  'joma-vv': ['joma_sec_master', 'joma2026', 'jomalight2026', 'joma-v22026']
+  'joma-vv': ['joma_sec_master', 'joma2026', 'jomalight2026', 'joma-v22026'],
+  'holz-susi': ['holzsusi_sec_master', 'holzsusi2026', 'holz-susi2026', 'holzsusi-light2026', 'holz-susi-v22026'],
+  'preview-holz-susi': ['holzsusi_sec_master', 'holzsusi2026', 'holz-susi2026', 'holzsusi-light2026', 'holz-susi-v22026'],
+  'holz-susi-v1': ['holzsusi_sec_master', 'holzsusi2026', 'holz-susi2026', 'holzsusi-light2026', 'holz-susi-v22026'],
+  'holz-susi-v2': ['holzsusi_sec_master', 'holzsusi2026', 'holz-susi2026', 'holzsusi-light2026', 'holz-susi-v22026'],
+  'preview-holz-susi-v2': ['holzsusi_sec_master', 'holzsusi2026', 'holz-susi2026', 'holzsusi-light2026', 'holz-susi-v22026'],
+  'holz-susi-vollversion': ['holzsusi_sec_master', 'holzsusi2026', 'holz-susi2026', 'holzsusi-light2026', 'holz-susi-v22026'],
+  'holz-susi-vv': ['holzsusi_sec_master', 'holzsusi2026', 'holz-susi2026', 'holzsusi-light2026', 'holz-susi-v22026']
 };
 
 function getValidTokens(rootSegment, clientSlug) {

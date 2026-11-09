@@ -68,6 +68,8 @@ CATEGORY_DEFINITIONS = {
 
 # Kanonisches Cloudflare-Routing gemäss functions/_middleware.js
 PUBLIC_CLOUDFLARE_SLUG_MAP = {
+    "preview-holz-susi": ("vorschau.magnet-xs.ch", "holz-susi-vollversion"),
+    "preview-holz-susi-v2": ("vorschau.magnet-xs.ch", "holz-susi-v2"),
     "preview-joma": ("vorschau.magnet-xs.ch", "joma-vollversion"),
     "preview-joma-v2": ("vorschau.magnet-xs.ch", "joma-v2"),
     "preview-imp-marketing": ("vorschau.magnet-xs.ch", "imp-marketing-vollversion"),
@@ -103,6 +105,8 @@ CURATED_COMPANY_NAMES = {
     "preview-herzensarbeit-v2": ("Herzensarbeit — Anne-Katrin Koch (Zeigeversion v2)", "Härkingen SO"),
     "preview-hiltbrand": ("Hiltbrand Gebäudehüllen AG (WebPilot)", "Krattigen BE"),
     "preview-hochuli": ("Hochuli Schlossrued AG", "Schlossrued AG"),
+    "preview-holz-susi": ("Holz-Susi GmbH — Susanne Schmid (Vollversion)", "Frick AG"),
+    "preview-holz-susi-v2": ("Holz-Susi GmbH — Susanne Schmid (Zeigeversion v2)", "Frick AG"),
     "preview-imp-marketing": ("IMP GmbH — Matthias Iseli (Vollversion)", "Obersteckholz BE"),
     "preview-imp-marketing-v2": ("IMP GmbH — Matthias Iseli (Zeigeversion v2)", "Obersteckholz BE"),
     "preview-innere-staerke": ("Wüest + Paneduro — Innere Stärke (Vollversion)", "Sursee LU"),
@@ -134,6 +138,8 @@ FALLBACK_JOB_META = {
     "preview-imp-marketing-v2": ("David Hügli (Magnet XS)", "05.11.2026 · 12:35 Uhr"),
     "preview-joma": ("Jenny Ettle (JE-MI)", "05.11.2026 · 20:54 Uhr"),
     "preview-joma-v2": ("Jenny Ettle (JE-MI)", "05.11.2026 · 20:54 Uhr"),
+    "preview-holz-susi": ("David Hügli (Magnet XS)", "09.11.2026 · 13:44 Uhr"),
+    "preview-holz-susi-v2": ("David Hügli (Magnet XS)", "09.11.2026 · 13:44 Uhr"),
 }
 
 

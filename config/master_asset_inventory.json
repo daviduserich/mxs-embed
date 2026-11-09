@@ -1,11 +1,11 @@
 {
-  "generated_at": "2026-11-06T13:58:48",
-  "total_sites": 20,
-  "total_assets": 653,
-  "total_active": 467,
-  "total_pool": 186,
+  "generated_at": "2026-11-09T13:59:44",
+  "total_sites": 22,
+  "total_assets": 763,
+  "total_active": 513,
+  "total_pool": 250,
   "total_external_hotlinks": 0,
-  "total_mb": 71.62,
+  "total_mb": 99.19,
   "sites": [
     {
       "folder": "hiltbrand",
@@ -16,8 +16,8 @@
       "cloudflare_base_url": "https://embed.magnet-xs.ch/hiltbrand/",
       "cloudflare_short_base": "embed.magnet-xs.ch/hiltbrand",
       "total_assets": 40,
-      "active_assets": 17,
-      "pool_assets": 23,
+      "active_assets": 16,
+      "pool_assets": 24,
       "external_hotlinks": 0,
       "external_hotlink_details": [],
       "total_kb": 8011.9,
@@ -898,23 +898,9 @@
           "cdn_url": "https://embed.magnet-xs.ch/hiltbrand/images/zurbuchen/logo-negativ.png",
           "cloudflare_url": "https://embed.magnet-xs.ch/hiltbrand/images/zurbuchen/logo-negativ.png",
           "cloudflare_short": "embed.magnet-xs.ch/hiltbrand/images/zurbuchen/logo-negativ.png",
-          "is_used": true,
-          "used_in": [
-            {
-              "datei": "Zurbuchen_Holzbauer_November.html",
-              "slot": "image",
-              "is_hero": false
-            },
-            {
-              "datei": "zurbuchen_Holzbauer.html",
-              "slot": "image",
-              "is_hero": false
-            }
-          ],
-          "used_in_pages": [
-            "Zurbuchen_Holzbauer_November.html",
-            "zurbuchen_Holzbauer.html"
-          ],
+          "is_used": false,
+          "used_in": [],
+          "used_in_pages": [],
           "alt": "Zurbuchen Holzbau AG"
         },
         {
@@ -10904,6 +10890,2931 @@
             "index.html"
           ],
           "alt": "Thomas Perret & Thomas Ettle — Architektur & Bauleitung"
+        }
+      ]
+    },
+    {
+      "folder": "preview-holz-susi",
+      "company_name": "Holz-Susi GmbH — Susanne Schmid (Vollversion)",
+      "city": "Frick AG",
+      "partner": "David Hügli (Magnet XS)",
+      "submitted_at": "09.11.2026 · 13:44 Uhr",
+      "cloudflare_base_url": "https://vorschau.magnet-xs.ch/holz-susi-vollversion/",
+      "cloudflare_short_base": "vorschau.magnet-xs.ch/holz-susi-vollversion",
+      "total_assets": 55,
+      "active_assets": 30,
+      "pool_assets": 25,
+      "external_hotlinks": 0,
+      "external_hotlink_details": [],
+      "total_kb": 14120.0,
+      "total_mb": 13.79,
+      "html_pages_count": 5,
+      "html_pages": [
+        "index.html",
+        "kontakt.html",
+        "leistungen.html",
+        "referenzen.html",
+        "ueber-uns.html"
+      ],
+      "bilder_json_exists": true,
+      "bilder_verzeichnis_exists": true,
+      "assets": [
+        {
+          "nr": 1,
+          "id": "images_apple_touch_icon_png",
+          "filename": "apple-touch-icon.png",
+          "rel_path": "images/apple-touch-icon.png",
+          "folder": "preview-holz-susi",
+          "category": "Favicon & App-Icon",
+          "category_code": "icon",
+          "dimensions": "180x180",
+          "size_kb": 14.7,
+          "format": "PNG",
+          "mtime": 1794228913,
+          "mtime_str": "09.11.2026 12:55",
+          "cdn_url": "https://vorschau.magnet-xs.ch/holz-susi-vollversion/images/apple-touch-icon.png",
+          "cloudflare_url": "https://vorschau.magnet-xs.ch/holz-susi-vollversion/images/apple-touch-icon.png",
+          "cloudflare_short": "vorschau.magnet-xs.ch/holz-susi-vollversion/images/apple-touch-icon.png",
+          "is_used": true,
+          "used_in": [
+            {
+              "datei": "index.html",
+              "slot": "image",
+              "is_hero": false
+            },
+            {
+              "datei": "kontakt.html",
+              "slot": "image",
+              "is_hero": false
+            },
+            {
+              "datei": "leistungen.html",
+              "slot": "image",
+              "is_hero": false
+            },
+            {
+              "datei": "referenzen.html",
+              "slot": "image",
+              "is_hero": false
+            },
+            {
+              "datei": "ueber-uns.html",
+              "slot": "image",
+              "is_hero": false
+            }
+          ],
+          "used_in_pages": [
+            "index.html",
+            "kontakt.html",
+            "leistungen.html",
+            "referenzen.html",
+            "ueber-uns.html"
+          ],
+          "alt": "Holz-Susi GmbH Frick (AG) – Offizielles Logo (Fachbetrieb in der Schweiz)"
+        },
+        {
+          "nr": 2,
+          "id": "images_favicon_32x32_png",
+          "filename": "favicon-32x32.png",
+          "rel_path": "images/favicon-32x32.png",
+          "folder": "preview-holz-susi",
+          "category": "Favicon & App-Icon",
+          "category_code": "icon",
+          "dimensions": "32x32",
+          "size_kb": 1.4,
+          "format": "PNG",
+          "mtime": 1794228913,
+          "mtime_str": "09.11.2026 12:55",
+          "cdn_url": "https://vorschau.magnet-xs.ch/holz-susi-vollversion/images/favicon-32x32.png",
+          "cloudflare_url": "https://vorschau.magnet-xs.ch/holz-susi-vollversion/images/favicon-32x32.png",
+          "cloudflare_short": "vorschau.magnet-xs.ch/holz-susi-vollversion/images/favicon-32x32.png",
+          "is_used": true,
+          "used_in": [
+            {
+              "datei": "index.html",
+              "slot": "image",
+              "is_hero": false
+            },
+            {
+              "datei": "kontakt.html",
+              "slot": "image",
+              "is_hero": false
+            },
+            {
+              "datei": "leistungen.html",
+              "slot": "image",
+              "is_hero": false
+            },
+            {
+              "datei": "referenzen.html",
+              "slot": "image",
+              "is_hero": false
+            },
+            {
+              "datei": "ueber-uns.html",
+              "slot": "image",
+              "is_hero": false
+            }
+          ],
+          "used_in_pages": [
+            "index.html",
+            "kontakt.html",
+            "leistungen.html",
+            "referenzen.html",
+            "ueber-uns.html"
+          ],
+          "alt": "Holz-Susi GmbH Frick (AG) – Offizielles Logo (Fachbetrieb in der Schweiz)"
+        },
+        {
+          "nr": 3,
+          "id": "images_hero_holzstruktur_hintergrund_png",
+          "filename": "hero-holzstruktur-hintergrund.png",
+          "rel_path": "images/hero-holzstruktur-hintergrund.png",
+          "folder": "preview-holz-susi",
+          "category": "Startbühne & Header",
+          "category_code": "hero",
+          "dimensions": "1344x210",
+          "size_kb": 464.0,
+          "format": "PNG",
+          "mtime": 1794228906,
+          "mtime_str": "09.11.2026 12:55",
+          "cdn_url": "https://vorschau.magnet-xs.ch/holz-susi-vollversion/images/hero-holzstruktur-hintergrund.png",
+          "cloudflare_url": "https://vorschau.magnet-xs.ch/holz-susi-vollversion/images/hero-holzstruktur-hintergrund.png",
+          "cloudflare_short": "vorschau.magnet-xs.ch/holz-susi-vollversion/images/hero-holzstruktur-hintergrund.png",
+          "is_used": true,
+          "used_in": [
+            {
+              "datei": "index.html",
+              "slot": "image",
+              "is_hero": true
+            },
+            {
+              "datei": "kontakt.html",
+              "slot": "image",
+              "is_hero": true
+            },
+            {
+              "datei": "leistungen.html",
+              "slot": "image",
+              "is_hero": true
+            },
+            {
+              "datei": "referenzen.html",
+              "slot": "image",
+              "is_hero": true
+            },
+            {
+              "datei": "ueber-uns.html",
+              "slot": "image",
+              "is_hero": true
+            }
+          ],
+          "used_in_pages": [
+            "index.html",
+            "kontakt.html",
+            "leistungen.html",
+            "referenzen.html",
+            "ueber-uns.html"
+          ],
+          "alt": "Holz-Susi GmbH (Frick) – Startbühne & Hauptansicht: Holzstruktur Hintergrund: Startbühne & Header – Holz-Susi GmbH in Frick (AG) – Holz-Susi GmbH in Frick (AG) – Holz-Susi GmbH in Frick (AG) – Holz-Susi GmbH in Frick (AG) – Holz-Susi GmbH in Frick (AG)"
+        },
+        {
+          "nr": 4,
+          "id": "images_hero_susi_schmid_holzbau_png",
+          "filename": "hero-susi-schmid-holzbau.png",
+          "rel_path": "images/hero-susi-schmid-holzbau.png",
+          "folder": "preview-holz-susi",
+          "category": "Startbühne & Header",
+          "category_code": "hero",
+          "dimensions": "640x426",
+          "size_kb": 127.2,
+          "format": "PNG",
+          "mtime": 1794228906,
+          "mtime_str": "09.11.2026 12:55",
+          "cdn_url": "https://vorschau.magnet-xs.ch/holz-susi-vollversion/images/hero-susi-schmid-holzbau.png",
+          "cloudflare_url": "https://vorschau.magnet-xs.ch/holz-susi-vollversion/images/hero-susi-schmid-holzbau.png",
+          "cloudflare_short": "vorschau.magnet-xs.ch/holz-susi-vollversion/images/hero-susi-schmid-holzbau.png",
+          "is_used": true,
+          "used_in": [
+            {
+              "datei": "index.html",
+              "slot": "image",
+              "is_hero": true
+            },
+            {
+              "datei": "kontakt.html",
+              "slot": "image",
+              "is_hero": true
+            }
+          ],
+          "used_in_pages": [
+            "index.html",
+            "kontakt.html"
+          ],
+          "alt": "Susanne Susi Schmid — Inhaberin der Holz-Susi GmbH in 5070 Frick"
+        },
+        {
+          "nr": 5,
+          "id": "images_logo_png",
+          "filename": "logo.png",
+          "rel_path": "images/logo.png",
+          "folder": "preview-holz-susi",
+          "category": "Logo & Marken-Icon",
+          "category_code": "logo",
+          "dimensions": "1797x1093",
+          "size_kb": 77.1,
+          "format": "PNG",
+          "mtime": 1794228906,
+          "mtime_str": "09.11.2026 12:55",
+          "cdn_url": "https://vorschau.magnet-xs.ch/holz-susi-vollversion/images/logo.png",
+          "cloudflare_url": "https://vorschau.magnet-xs.ch/holz-susi-vollversion/images/logo.png",
+          "cloudflare_short": "vorschau.magnet-xs.ch/holz-susi-vollversion/images/logo.png",
+          "is_used": true,
+          "used_in": [
+            {
+              "datei": "index.html",
+              "slot": "image",
+              "is_hero": false
+            },
+            {
+              "datei": "kontakt.html",
+              "slot": "image",
+              "is_hero": false
+            },
+            {
+              "datei": "leistungen.html",
+              "slot": "image",
+              "is_hero": false
+            },
+            {
+              "datei": "referenzen.html",
+              "slot": "image",
+              "is_hero": false
+            },
+            {
+              "datei": "ueber-uns.html",
+              "slot": "image",
+              "is_hero": false
+            }
+          ],
+          "used_in_pages": [
+            "index.html",
+            "kontakt.html",
+            "leistungen.html",
+            "referenzen.html",
+            "ueber-uns.html"
+          ],
+          "alt": "Holz-Susi GmbH Frick (AG) – Offizielles Logo (Fachbetrieb in der Schweiz)"
+        },
+        {
+          "nr": 6,
+          "id": "images_ref_blindboden_umbau_nachher_png",
+          "filename": "ref-blindboden-umbau-nachher.png",
+          "rel_path": "images/ref-blindboden-umbau-nachher.png",
+          "folder": "preview-holz-susi",
+          "category": "Referenz, Projekt & Angebot",
+          "category_code": "ref",
+          "dimensions": "512x341",
+          "size_kb": 416.7,
+          "format": "PNG",
+          "mtime": 1794228910,
+          "mtime_str": "09.11.2026 12:55",
+          "cdn_url": "https://vorschau.magnet-xs.ch/holz-susi-vollversion/images/ref-blindboden-umbau-nachher.png",
+          "cloudflare_url": "https://vorschau.magnet-xs.ch/holz-susi-vollversion/images/ref-blindboden-umbau-nachher.png",
+          "cloudflare_short": "vorschau.magnet-xs.ch/holz-susi-vollversion/images/ref-blindboden-umbau-nachher.png",
+          "is_used": false,
+          "used_in": [],
+          "used_in_pages": [],
+          "alt": "Referenzunternehmen Referenzunternehmen Referenzunternehmen Referenzunternehmen Referenzunternehmen Holz-Susi GmbH (Frick) – Einblick & Referenz: Blindboden Umbau Nachher – Erfolgsprojekt mit Holz-Susi GmbH (Frick (AG)) – Erfolgsprojekt mit Holz-Susi GmbH (Frick (AG)) – Erfolgsprojekt mit Holz-Susi GmbH (Frick (AG)) – Erfolgsprojekt mit Holz-Susi GmbH (Frick (AG)) – Erfolgsprojekt mit Holz-Susi GmbH (Frick (AG))"
+        },
+        {
+          "nr": 7,
+          "id": "images_ref_blindboden_umbau_vorher_png",
+          "filename": "ref-blindboden-umbau-vorher.png",
+          "rel_path": "images/ref-blindboden-umbau-vorher.png",
+          "folder": "preview-holz-susi",
+          "category": "Referenz, Projekt & Angebot",
+          "category_code": "ref",
+          "dimensions": "512x341",
+          "size_kb": 398.0,
+          "format": "PNG",
+          "mtime": 1794228910,
+          "mtime_str": "09.11.2026 12:55",
+          "cdn_url": "https://vorschau.magnet-xs.ch/holz-susi-vollversion/images/ref-blindboden-umbau-vorher.png",
+          "cloudflare_url": "https://vorschau.magnet-xs.ch/holz-susi-vollversion/images/ref-blindboden-umbau-vorher.png",
+          "cloudflare_short": "vorschau.magnet-xs.ch/holz-susi-vollversion/images/ref-blindboden-umbau-vorher.png",
+          "is_used": true,
+          "used_in": [
+            {
+              "datei": "referenzen.html",
+              "slot": "image",
+              "is_hero": false
+            }
+          ],
+          "used_in_pages": [
+            "referenzen.html"
+          ],
+          "alt": "Vorher / Ausgangslage: Blindboden für Umbau & neuer Laminatboden"
+        },
+        {
+          "nr": 8,
+          "id": "images_ref_dach_erneuerung_nachher_png",
+          "filename": "ref-dach-erneuerung-nachher.png",
+          "rel_path": "images/ref-dach-erneuerung-nachher.png",
+          "folder": "preview-holz-susi",
+          "category": "Referenz, Projekt & Angebot",
+          "category_code": "ref",
+          "dimensions": "512x341",
+          "size_kb": 392.7,
+          "format": "PNG",
+          "mtime": 1794228910,
+          "mtime_str": "09.11.2026 12:55",
+          "cdn_url": "https://vorschau.magnet-xs.ch/holz-susi-vollversion/images/ref-dach-erneuerung-nachher.png",
+          "cloudflare_url": "https://vorschau.magnet-xs.ch/holz-susi-vollversion/images/ref-dach-erneuerung-nachher.png",
+          "cloudflare_short": "vorschau.magnet-xs.ch/holz-susi-vollversion/images/ref-dach-erneuerung-nachher.png",
+          "is_used": false,
+          "used_in": [],
+          "used_in_pages": [],
+          "alt": "Referenzunternehmen Referenzunternehmen Referenzunternehmen Referenzunternehmen Referenzunternehmen Holz-Susi GmbH (Frick) – Einblick & Referenz: Dach Erneuerung Nachher – Erfolgsprojekt mit Holz-Susi GmbH (Frick (AG)) – Erfolgsprojekt mit Holz-Susi GmbH (Frick (AG)) – Erfolgsprojekt mit Holz-Susi GmbH (Frick (AG)) – Erfolgsprojekt mit Holz-Susi GmbH (Frick (AG)) – Erfolgsprojekt mit Holz-Susi GmbH (Frick (AG))"
+        },
+        {
+          "nr": 9,
+          "id": "images_ref_dach_erneuerung_vorher_png",
+          "filename": "ref-dach-erneuerung-vorher.png",
+          "rel_path": "images/ref-dach-erneuerung-vorher.png",
+          "folder": "preview-holz-susi",
+          "category": "Referenz, Projekt & Angebot",
+          "category_code": "ref",
+          "dimensions": "512x341",
+          "size_kb": 338.7,
+          "format": "PNG",
+          "mtime": 1794228910,
+          "mtime_str": "09.11.2026 12:55",
+          "cdn_url": "https://vorschau.magnet-xs.ch/holz-susi-vollversion/images/ref-dach-erneuerung-vorher.png",
+          "cloudflare_url": "https://vorschau.magnet-xs.ch/holz-susi-vollversion/images/ref-dach-erneuerung-vorher.png",
+          "cloudflare_short": "vorschau.magnet-xs.ch/holz-susi-vollversion/images/ref-dach-erneuerung-vorher.png",
+          "is_used": false,
+          "used_in": [],
+          "used_in_pages": [],
+          "alt": "Referenzunternehmen Referenzunternehmen Referenzunternehmen Referenzunternehmen Referenzunternehmen Holz-Susi GmbH (Frick) – Einblick & Referenz: Dach Erneuerung Vorher – Erfolgsprojekt mit Holz-Susi GmbH (Frick (AG)) – Erfolgsprojekt mit Holz-Susi GmbH (Frick (AG)) – Erfolgsprojekt mit Holz-Susi GmbH (Frick (AG)) – Erfolgsprojekt mit Holz-Susi GmbH (Frick (AG)) – Erfolgsprojekt mit Holz-Susi GmbH (Frick (AG))"
+        },
+        {
+          "nr": 10,
+          "id": "images_ref_dachsanierung_komplett_nachher_png",
+          "filename": "ref-dachsanierung-komplett-nachher.png",
+          "rel_path": "images/ref-dachsanierung-komplett-nachher.png",
+          "folder": "preview-holz-susi",
+          "category": "Referenz, Projekt & Angebot",
+          "category_code": "ref",
+          "dimensions": "512x341",
+          "size_kb": 392.5,
+          "format": "PNG",
+          "mtime": 1794228910,
+          "mtime_str": "09.11.2026 12:55",
+          "cdn_url": "https://vorschau.magnet-xs.ch/holz-susi-vollversion/images/ref-dachsanierung-komplett-nachher.png",
+          "cloudflare_url": "https://vorschau.magnet-xs.ch/holz-susi-vollversion/images/ref-dachsanierung-komplett-nachher.png",
+          "cloudflare_short": "vorschau.magnet-xs.ch/holz-susi-vollversion/images/ref-dachsanierung-komplett-nachher.png",
+          "is_used": true,
+          "used_in": [
+            {
+              "datei": "index.html",
+              "slot": "image",
+              "is_hero": false
+            },
+            {
+              "datei": "referenzen.html",
+              "slot": "image",
+              "is_hero": false
+            }
+          ],
+          "used_in_pages": [
+            "index.html",
+            "referenzen.html"
+          ],
+          "alt": "Holz-Susi GmbH Frick Vorher/Nachher-Projekt: Dachsanierung Komplettprojekt"
+        },
+        {
+          "nr": 11,
+          "id": "images_ref_dachsanierung_komplett_vorher_png",
+          "filename": "ref-dachsanierung-komplett-vorher.png",
+          "rel_path": "images/ref-dachsanierung-komplett-vorher.png",
+          "folder": "preview-holz-susi",
+          "category": "Referenz, Projekt & Angebot",
+          "category_code": "ref",
+          "dimensions": "512x341",
+          "size_kb": 404.4,
+          "format": "PNG",
+          "mtime": 1794228909,
+          "mtime_str": "09.11.2026 12:55",
+          "cdn_url": "https://vorschau.magnet-xs.ch/holz-susi-vollversion/images/ref-dachsanierung-komplett-vorher.png",
+          "cloudflare_url": "https://vorschau.magnet-xs.ch/holz-susi-vollversion/images/ref-dachsanierung-komplett-vorher.png",
+          "cloudflare_short": "vorschau.magnet-xs.ch/holz-susi-vollversion/images/ref-dachsanierung-komplett-vorher.png",
+          "is_used": true,
+          "used_in": [
+            {
+              "datei": "referenzen.html",
+              "slot": "image",
+              "is_hero": false
+            }
+          ],
+          "used_in_pages": [
+            "referenzen.html"
+          ],
+          "alt": "Vorher / Ausgangslage: Dachsanierung Komplettprojekt"
+        },
+        {
+          "nr": 12,
+          "id": "images_ref_dachstock_ausbau_nachher_png",
+          "filename": "ref-dachstock-ausbau-nachher.png",
+          "rel_path": "images/ref-dachstock-ausbau-nachher.png",
+          "folder": "preview-holz-susi",
+          "category": "Referenz, Projekt & Angebot",
+          "category_code": "ref",
+          "dimensions": "512x341",
+          "size_kb": 380.9,
+          "format": "PNG",
+          "mtime": 1794228909,
+          "mtime_str": "09.11.2026 12:55",
+          "cdn_url": "https://vorschau.magnet-xs.ch/holz-susi-vollversion/images/ref-dachstock-ausbau-nachher.png",
+          "cloudflare_url": "https://vorschau.magnet-xs.ch/holz-susi-vollversion/images/ref-dachstock-ausbau-nachher.png",
+          "cloudflare_short": "vorschau.magnet-xs.ch/holz-susi-vollversion/images/ref-dachstock-ausbau-nachher.png",
+          "is_used": true,
+          "used_in": [
+            {
+              "datei": "index.html",
+              "slot": "image",
+              "is_hero": false
+            },
+            {
+              "datei": "referenzen.html",
+              "slot": "image",
+              "is_hero": false
+            }
+          ],
+          "used_in_pages": [
+            "index.html",
+            "referenzen.html"
+          ],
+          "alt": "Holz-Susi GmbH Frick Vorher/Nachher-Projekt: Ausbau Dachstock & Estrich"
+        },
+        {
+          "nr": 13,
+          "id": "images_ref_dachstock_ausbau_vorher_png",
+          "filename": "ref-dachstock-ausbau-vorher.png",
+          "rel_path": "images/ref-dachstock-ausbau-vorher.png",
+          "folder": "preview-holz-susi",
+          "category": "Referenz, Projekt & Angebot",
+          "category_code": "ref",
+          "dimensions": "512x341",
+          "size_kb": 359.9,
+          "format": "PNG",
+          "mtime": 1794228909,
+          "mtime_str": "09.11.2026 12:55",
+          "cdn_url": "https://vorschau.magnet-xs.ch/holz-susi-vollversion/images/ref-dachstock-ausbau-vorher.png",
+          "cloudflare_url": "https://vorschau.magnet-xs.ch/holz-susi-vollversion/images/ref-dachstock-ausbau-vorher.png",
+          "cloudflare_short": "vorschau.magnet-xs.ch/holz-susi-vollversion/images/ref-dachstock-ausbau-vorher.png",
+          "is_used": true,
+          "used_in": [
+            {
+              "datei": "referenzen.html",
+              "slot": "image",
+              "is_hero": false
+            }
+          ],
+          "used_in_pages": [
+            "referenzen.html"
+          ],
+          "alt": "Vorher / Ausgangslage: Ausbau Dachstock & Estrich"
+        },
+        {
+          "nr": 14,
+          "id": "images_ref_dachstuhl_montage_01_png",
+          "filename": "ref-dachstuhl-montage-01.png",
+          "rel_path": "images/ref-dachstuhl-montage-01.png",
+          "folder": "preview-holz-susi",
+          "category": "Referenz, Projekt & Angebot",
+          "category_code": "ref",
+          "dimensions": "512x168",
+          "size_kb": 172.7,
+          "format": "PNG",
+          "mtime": 1794228910,
+          "mtime_str": "09.11.2026 12:55",
+          "cdn_url": "https://vorschau.magnet-xs.ch/holz-susi-vollversion/images/ref-dachstuhl-montage-01.png",
+          "cloudflare_url": "https://vorschau.magnet-xs.ch/holz-susi-vollversion/images/ref-dachstuhl-montage-01.png",
+          "cloudflare_short": "vorschau.magnet-xs.ch/holz-susi-vollversion/images/ref-dachstuhl-montage-01.png",
+          "is_used": true,
+          "used_in": [
+            {
+              "datei": "referenzen.html",
+              "slot": "image",
+              "is_hero": false
+            }
+          ],
+          "used_in_pages": [
+            "referenzen.html"
+          ],
+          "alt": "Vorher / Ausgangslage: Dachstühle von der Planung bis zur Montage"
+        },
+        {
+          "nr": 15,
+          "id": "images_ref_dachstuhl_montage_02_png",
+          "filename": "ref-dachstuhl-montage-02.png",
+          "rel_path": "images/ref-dachstuhl-montage-02.png",
+          "folder": "preview-holz-susi",
+          "category": "Referenz, Projekt & Angebot",
+          "category_code": "ref",
+          "dimensions": "512x341",
+          "size_kb": 332.5,
+          "format": "PNG",
+          "mtime": 1794228910,
+          "mtime_str": "09.11.2026 12:55",
+          "cdn_url": "https://vorschau.magnet-xs.ch/holz-susi-vollversion/images/ref-dachstuhl-montage-02.png",
+          "cloudflare_url": "https://vorschau.magnet-xs.ch/holz-susi-vollversion/images/ref-dachstuhl-montage-02.png",
+          "cloudflare_short": "vorschau.magnet-xs.ch/holz-susi-vollversion/images/ref-dachstuhl-montage-02.png",
+          "is_used": true,
+          "used_in": [
+            {
+              "datei": "referenzen.html",
+              "slot": "image",
+              "is_hero": false
+            }
+          ],
+          "used_in_pages": [
+            "referenzen.html"
+          ],
+          "alt": "Nachher / Ergebnis: Dachstühle von der Planung bis zur Montage"
+        },
+        {
+          "nr": 16,
+          "id": "images_ref_estrich_erneuerung_nachher_png",
+          "filename": "ref-estrich-erneuerung-nachher.png",
+          "rel_path": "images/ref-estrich-erneuerung-nachher.png",
+          "folder": "preview-holz-susi",
+          "category": "Referenz, Projekt & Angebot",
+          "category_code": "ref",
+          "dimensions": "512x341",
+          "size_kb": 330.2,
+          "format": "PNG",
+          "mtime": 1794228911,
+          "mtime_str": "09.11.2026 12:55",
+          "cdn_url": "https://vorschau.magnet-xs.ch/holz-susi-vollversion/images/ref-estrich-erneuerung-nachher.png",
+          "cloudflare_url": "https://vorschau.magnet-xs.ch/holz-susi-vollversion/images/ref-estrich-erneuerung-nachher.png",
+          "cloudflare_short": "vorschau.magnet-xs.ch/holz-susi-vollversion/images/ref-estrich-erneuerung-nachher.png",
+          "is_used": false,
+          "used_in": [],
+          "used_in_pages": [],
+          "alt": "Referenzunternehmen Referenzunternehmen Referenzunternehmen Referenzunternehmen Referenzunternehmen Holz-Susi GmbH (Frick) – Einblick & Referenz: Estrich Erneuerung Nachher – Erfolgsprojekt mit Holz-Susi GmbH (Frick (AG)) – Erfolgsprojekt mit Holz-Susi GmbH (Frick (AG)) – Erfolgsprojekt mit Holz-Susi GmbH (Frick (AG)) – Erfolgsprojekt mit Holz-Susi GmbH (Frick (AG)) – Erfolgsprojekt mit Holz-Susi GmbH (Frick (AG))"
+        },
+        {
+          "nr": 17,
+          "id": "images_ref_estrich_erneuerung_vorher_png",
+          "filename": "ref-estrich-erneuerung-vorher.png",
+          "rel_path": "images/ref-estrich-erneuerung-vorher.png",
+          "folder": "preview-holz-susi",
+          "category": "Referenz, Projekt & Angebot",
+          "category_code": "ref",
+          "dimensions": "512x341",
+          "size_kb": 366.1,
+          "format": "PNG",
+          "mtime": 1794228911,
+          "mtime_str": "09.11.2026 12:55",
+          "cdn_url": "https://vorschau.magnet-xs.ch/holz-susi-vollversion/images/ref-estrich-erneuerung-vorher.png",
+          "cloudflare_url": "https://vorschau.magnet-xs.ch/holz-susi-vollversion/images/ref-estrich-erneuerung-vorher.png",
+          "cloudflare_short": "vorschau.magnet-xs.ch/holz-susi-vollversion/images/ref-estrich-erneuerung-vorher.png",
+          "is_used": false,
+          "used_in": [],
+          "used_in_pages": [],
+          "alt": "Referenzunternehmen Referenzunternehmen Referenzunternehmen Referenzunternehmen Referenzunternehmen Holz-Susi GmbH (Frick) – Einblick & Referenz: Estrich Erneuerung Vorher – Erfolgsprojekt mit Holz-Susi GmbH (Frick (AG)) – Erfolgsprojekt mit Holz-Susi GmbH (Frick (AG)) – Erfolgsprojekt mit Holz-Susi GmbH (Frick (AG)) – Erfolgsprojekt mit Holz-Susi GmbH (Frick (AG)) – Erfolgsprojekt mit Holz-Susi GmbH (Frick (AG))"
+        },
+        {
+          "nr": 18,
+          "id": "images_ref_fassade_holzschalung_nachher_png",
+          "filename": "ref-fassade-holzschalung-nachher.png",
+          "rel_path": "images/ref-fassade-holzschalung-nachher.png",
+          "folder": "preview-holz-susi",
+          "category": "Referenz, Projekt & Angebot",
+          "category_code": "ref",
+          "dimensions": "432x432",
+          "size_kb": 322.1,
+          "format": "PNG",
+          "mtime": 1794228911,
+          "mtime_str": "09.11.2026 12:55",
+          "cdn_url": "https://vorschau.magnet-xs.ch/holz-susi-vollversion/images/ref-fassade-holzschalung-nachher.png",
+          "cloudflare_url": "https://vorschau.magnet-xs.ch/holz-susi-vollversion/images/ref-fassade-holzschalung-nachher.png",
+          "cloudflare_short": "vorschau.magnet-xs.ch/holz-susi-vollversion/images/ref-fassade-holzschalung-nachher.png",
+          "is_used": true,
+          "used_in": [
+            {
+              "datei": "index.html",
+              "slot": "image",
+              "is_hero": false
+            },
+            {
+              "datei": "referenzen.html",
+              "slot": "image",
+              "is_hero": false
+            }
+          ],
+          "used_in_pages": [
+            "index.html",
+            "referenzen.html"
+          ],
+          "alt": "Holz-Susi GmbH Frick Vorher/Nachher-Projekt: Fassadenverschönerung mit Holzschalung"
+        },
+        {
+          "nr": 19,
+          "id": "images_ref_fassade_holzschalung_vorher_png",
+          "filename": "ref-fassade-holzschalung-vorher.png",
+          "rel_path": "images/ref-fassade-holzschalung-vorher.png",
+          "folder": "preview-holz-susi",
+          "category": "Referenz, Projekt & Angebot",
+          "category_code": "ref",
+          "dimensions": "432x432",
+          "size_kb": 369.1,
+          "format": "PNG",
+          "mtime": 1794228911,
+          "mtime_str": "09.11.2026 12:55",
+          "cdn_url": "https://vorschau.magnet-xs.ch/holz-susi-vollversion/images/ref-fassade-holzschalung-vorher.png",
+          "cloudflare_url": "https://vorschau.magnet-xs.ch/holz-susi-vollversion/images/ref-fassade-holzschalung-vorher.png",
+          "cloudflare_short": "vorschau.magnet-xs.ch/holz-susi-vollversion/images/ref-fassade-holzschalung-vorher.png",
+          "is_used": true,
+          "used_in": [
+            {
+              "datei": "referenzen.html",
+              "slot": "image",
+              "is_hero": false
+            }
+          ],
+          "used_in_pages": [
+            "referenzen.html"
+          ],
+          "alt": "Vorher / Ausgangslage: Fassadenverschönerung mit Holzschalung"
+        },
+        {
+          "nr": 20,
+          "id": "images_ref_firstfenster_dachfenster_nachher_png",
+          "filename": "ref-firstfenster-dachfenster-nachher.png",
+          "rel_path": "images/ref-firstfenster-dachfenster-nachher.png",
+          "folder": "preview-holz-susi",
+          "category": "Referenz, Projekt & Angebot",
+          "category_code": "ref",
+          "dimensions": "286x512",
+          "size_kb": 239.3,
+          "format": "PNG",
+          "mtime": 1794228912,
+          "mtime_str": "09.11.2026 12:55",
+          "cdn_url": "https://vorschau.magnet-xs.ch/holz-susi-vollversion/images/ref-firstfenster-dachfenster-nachher.png",
+          "cloudflare_url": "https://vorschau.magnet-xs.ch/holz-susi-vollversion/images/ref-firstfenster-dachfenster-nachher.png",
+          "cloudflare_short": "vorschau.magnet-xs.ch/holz-susi-vollversion/images/ref-firstfenster-dachfenster-nachher.png",
+          "is_used": true,
+          "used_in": [
+            {
+              "datei": "index.html",
+              "slot": "image",
+              "is_hero": false
+            },
+            {
+              "datei": "referenzen.html",
+              "slot": "image",
+              "is_hero": false
+            }
+          ],
+          "used_in_pages": [
+            "index.html",
+            "referenzen.html"
+          ],
+          "alt": "Holz-Susi GmbH Frick Vorher/Nachher-Projekt: Rückbau Firstfenster & neue Dachfenster"
+        },
+        {
+          "nr": 21,
+          "id": "images_ref_firstfenster_dachfenster_vorher_png",
+          "filename": "ref-firstfenster-dachfenster-vorher.png",
+          "rel_path": "images/ref-firstfenster-dachfenster-vorher.png",
+          "folder": "preview-holz-susi",
+          "category": "Referenz, Projekt & Angebot",
+          "category_code": "ref",
+          "dimensions": "286x512",
+          "size_kb": 237.2,
+          "format": "PNG",
+          "mtime": 1794228911,
+          "mtime_str": "09.11.2026 12:55",
+          "cdn_url": "https://vorschau.magnet-xs.ch/holz-susi-vollversion/images/ref-firstfenster-dachfenster-vorher.png",
+          "cloudflare_url": "https://vorschau.magnet-xs.ch/holz-susi-vollversion/images/ref-firstfenster-dachfenster-vorher.png",
+          "cloudflare_short": "vorschau.magnet-xs.ch/holz-susi-vollversion/images/ref-firstfenster-dachfenster-vorher.png",
+          "is_used": true,
+          "used_in": [
+            {
+              "datei": "referenzen.html",
+              "slot": "image",
+              "is_hero": false
+            }
+          ],
+          "used_in_pages": [
+            "referenzen.html"
+          ],
+          "alt": "Vorher / Ausgangslage: Rückbau Firstfenster & neue Dachfenster"
+        },
+        {
+          "nr": 22,
+          "id": "images_ref_kunden_architekten_jpg",
+          "filename": "ref-kunden-architekten.jpg",
+          "rel_path": "images/ref-kunden-architekten.jpg",
+          "folder": "preview-holz-susi",
+          "category": "Referenz, Projekt & Angebot",
+          "category_code": "ref",
+          "dimensions": "1280x852",
+          "size_kb": 114.8,
+          "format": "JPG",
+          "mtime": 1794228907,
+          "mtime_str": "09.11.2026 12:55",
+          "cdn_url": "https://vorschau.magnet-xs.ch/holz-susi-vollversion/images/ref-kunden-architekten.jpg",
+          "cloudflare_url": "https://vorschau.magnet-xs.ch/holz-susi-vollversion/images/ref-kunden-architekten.jpg",
+          "cloudflare_short": "vorschau.magnet-xs.ch/holz-susi-vollversion/images/ref-kunden-architekten.jpg",
+          "is_used": false,
+          "used_in": [],
+          "used_in_pages": [],
+          "alt": "Referenzunternehmen Referenzunternehmen Referenzunternehmen Referenzunternehmen Referenzunternehmen Holz-Susi GmbH (Frick) – Einblick & Referenz: Kunden Architekten – Erfolgsprojekt mit Holz-Susi GmbH (Frick (AG)) – Erfolgsprojekt mit Holz-Susi GmbH (Frick (AG)) – Erfolgsprojekt mit Holz-Susi GmbH (Frick (AG)) – Erfolgsprojekt mit Holz-Susi GmbH (Frick (AG)) – Erfolgsprojekt mit Holz-Susi GmbH (Frick (AG))"
+        },
+        {
+          "nr": 23,
+          "id": "images_ref_kunden_bauherren_jpg",
+          "filename": "ref-kunden-bauherren.jpg",
+          "rel_path": "images/ref-kunden-bauherren.jpg",
+          "folder": "preview-holz-susi",
+          "category": "Referenz, Projekt & Angebot",
+          "category_code": "ref",
+          "dimensions": "1280x852",
+          "size_kb": 168.8,
+          "format": "JPG",
+          "mtime": 1794228907,
+          "mtime_str": "09.11.2026 12:55",
+          "cdn_url": "https://vorschau.magnet-xs.ch/holz-susi-vollversion/images/ref-kunden-bauherren.jpg",
+          "cloudflare_url": "https://vorschau.magnet-xs.ch/holz-susi-vollversion/images/ref-kunden-bauherren.jpg",
+          "cloudflare_short": "vorschau.magnet-xs.ch/holz-susi-vollversion/images/ref-kunden-bauherren.jpg",
+          "is_used": false,
+          "used_in": [],
+          "used_in_pages": [],
+          "alt": "Referenzunternehmen Referenzunternehmen Referenzunternehmen Referenzunternehmen Referenzunternehmen Holz-Susi GmbH (Frick) – Einblick & Referenz: Kunden Bauherren – Erfolgsprojekt mit Holz-Susi GmbH (Frick (AG)) – Erfolgsprojekt mit Holz-Susi GmbH (Frick (AG)) – Erfolgsprojekt mit Holz-Susi GmbH (Frick (AG)) – Erfolgsprojekt mit Holz-Susi GmbH (Frick (AG)) – Erfolgsprojekt mit Holz-Susi GmbH (Frick (AG))"
+        },
+        {
+          "nr": 24,
+          "id": "images_ref_kunden_bauunternehmen_jpg",
+          "filename": "ref-kunden-bauunternehmen.jpg",
+          "rel_path": "images/ref-kunden-bauunternehmen.jpg",
+          "folder": "preview-holz-susi",
+          "category": "Referenz, Projekt & Angebot",
+          "category_code": "ref",
+          "dimensions": "1280x852",
+          "size_kb": 191.4,
+          "format": "JPG",
+          "mtime": 1794228908,
+          "mtime_str": "09.11.2026 12:55",
+          "cdn_url": "https://vorschau.magnet-xs.ch/holz-susi-vollversion/images/ref-kunden-bauunternehmen.jpg",
+          "cloudflare_url": "https://vorschau.magnet-xs.ch/holz-susi-vollversion/images/ref-kunden-bauunternehmen.jpg",
+          "cloudflare_short": "vorschau.magnet-xs.ch/holz-susi-vollversion/images/ref-kunden-bauunternehmen.jpg",
+          "is_used": false,
+          "used_in": [],
+          "used_in_pages": [],
+          "alt": "Referenzunternehmen Referenzunternehmen Referenzunternehmen Referenzunternehmen Referenzunternehmen Holz-Susi GmbH (Frick) – Einblick & Referenz: Kunden Bauunternehmen – Erfolgsprojekt mit Holz-Susi GmbH (Frick (AG)) – Erfolgsprojekt mit Holz-Susi GmbH (Frick (AG)) – Erfolgsprojekt mit Holz-Susi GmbH (Frick (AG)) – Erfolgsprojekt mit Holz-Susi GmbH (Frick (AG)) – Erfolgsprojekt mit Holz-Susi GmbH (Frick (AG))"
+        },
+        {
+          "nr": 25,
+          "id": "images_ref_laminat_boden_nachher_png",
+          "filename": "ref-laminat-boden-nachher.png",
+          "rel_path": "images/ref-laminat-boden-nachher.png",
+          "folder": "preview-holz-susi",
+          "category": "Referenz, Projekt & Angebot",
+          "category_code": "ref",
+          "dimensions": "512x341",
+          "size_kb": 321.5,
+          "format": "PNG",
+          "mtime": 1794228909,
+          "mtime_str": "09.11.2026 12:55",
+          "cdn_url": "https://vorschau.magnet-xs.ch/holz-susi-vollversion/images/ref-laminat-boden-nachher.png",
+          "cloudflare_url": "https://vorschau.magnet-xs.ch/holz-susi-vollversion/images/ref-laminat-boden-nachher.png",
+          "cloudflare_short": "vorschau.magnet-xs.ch/holz-susi-vollversion/images/ref-laminat-boden-nachher.png",
+          "is_used": true,
+          "used_in": [
+            {
+              "datei": "referenzen.html",
+              "slot": "image",
+              "is_hero": false
+            }
+          ],
+          "used_in_pages": [
+            "referenzen.html"
+          ],
+          "alt": "Nachher / Ergebnis: Blindboden für Umbau & neuer Laminatboden"
+        },
+        {
+          "nr": 26,
+          "id": "images_ref_laminat_boden_vorher_png",
+          "filename": "ref-laminat-boden-vorher.png",
+          "rel_path": "images/ref-laminat-boden-vorher.png",
+          "folder": "preview-holz-susi",
+          "category": "Referenz, Projekt & Angebot",
+          "category_code": "ref",
+          "dimensions": "512x341",
+          "size_kb": 264.1,
+          "format": "PNG",
+          "mtime": 1794228909,
+          "mtime_str": "09.11.2026 12:55",
+          "cdn_url": "https://vorschau.magnet-xs.ch/holz-susi-vollversion/images/ref-laminat-boden-vorher.png",
+          "cloudflare_url": "https://vorschau.magnet-xs.ch/holz-susi-vollversion/images/ref-laminat-boden-vorher.png",
+          "cloudflare_short": "vorschau.magnet-xs.ch/holz-susi-vollversion/images/ref-laminat-boden-vorher.png",
+          "is_used": false,
+          "used_in": [],
+          "used_in_pages": [],
+          "alt": "Referenzunternehmen Referenzunternehmen Referenzunternehmen Referenzunternehmen Referenzunternehmen Holz-Susi GmbH (Frick) – Einblick & Referenz: Laminat Boden Vorher – Erfolgsprojekt mit Holz-Susi GmbH (Frick (AG)) – Erfolgsprojekt mit Holz-Susi GmbH (Frick (AG)) – Erfolgsprojekt mit Holz-Susi GmbH (Frick (AG)) – Erfolgsprojekt mit Holz-Susi GmbH (Frick (AG)) – Erfolgsprojekt mit Holz-Susi GmbH (Frick (AG))"
+        },
+        {
+          "nr": 27,
+          "id": "images_ref_leistung_abbruch_png",
+          "filename": "ref-leistung-abbruch.png",
+          "rel_path": "images/ref-leistung-abbruch.png",
+          "folder": "preview-holz-susi",
+          "category": "Referenz, Projekt & Angebot",
+          "category_code": "ref",
+          "dimensions": "512x341",
+          "size_kb": 384.0,
+          "format": "PNG",
+          "mtime": 1794228908,
+          "mtime_str": "09.11.2026 12:55",
+          "cdn_url": "https://vorschau.magnet-xs.ch/holz-susi-vollversion/images/ref-leistung-abbruch.png",
+          "cloudflare_url": "https://vorschau.magnet-xs.ch/holz-susi-vollversion/images/ref-leistung-abbruch.png",
+          "cloudflare_short": "vorschau.magnet-xs.ch/holz-susi-vollversion/images/ref-leistung-abbruch.png",
+          "is_used": true,
+          "used_in": [
+            {
+              "datei": "index.html",
+              "slot": "image",
+              "is_hero": false
+            }
+          ],
+          "used_in_pages": [
+            "index.html"
+          ],
+          "alt": "Gezielte Abbrucharbeiten und Rückbau bei Umbauten"
+        },
+        {
+          "nr": 28,
+          "id": "images_ref_leistung_dachfenster_jpg",
+          "filename": "ref-leistung-dachfenster.jpg",
+          "rel_path": "images/ref-leistung-dachfenster.jpg",
+          "folder": "preview-holz-susi",
+          "category": "Referenz, Projekt & Angebot",
+          "category_code": "ref",
+          "dimensions": "1280x852",
+          "size_kb": 189.2,
+          "format": "JPG",
+          "mtime": 1794228908,
+          "mtime_str": "09.11.2026 12:55",
+          "cdn_url": "https://vorschau.magnet-xs.ch/holz-susi-vollversion/images/ref-leistung-dachfenster.jpg",
+          "cloudflare_url": "https://vorschau.magnet-xs.ch/holz-susi-vollversion/images/ref-leistung-dachfenster.jpg",
+          "cloudflare_short": "vorschau.magnet-xs.ch/holz-susi-vollversion/images/ref-leistung-dachfenster.jpg",
+          "is_used": true,
+          "used_in": [
+            {
+              "datei": "index.html",
+              "slot": "image",
+              "is_hero": false
+            }
+          ],
+          "used_in_pages": [
+            "index.html"
+          ],
+          "alt": "Einbau und Wechsel von Dachfenstern im Fricktal"
+        },
+        {
+          "nr": 29,
+          "id": "images_ref_leistung_dachsanierung_png",
+          "filename": "ref-leistung-dachsanierung.png",
+          "rel_path": "images/ref-leistung-dachsanierung.png",
+          "folder": "preview-holz-susi",
+          "category": "Referenz, Projekt & Angebot",
+          "category_code": "ref",
+          "dimensions": "640x426",
+          "size_kb": 203.3,
+          "format": "PNG",
+          "mtime": 1794228908,
+          "mtime_str": "09.11.2026 12:55",
+          "cdn_url": "https://vorschau.magnet-xs.ch/holz-susi-vollversion/images/ref-leistung-dachsanierung.png",
+          "cloudflare_url": "https://vorschau.magnet-xs.ch/holz-susi-vollversion/images/ref-leistung-dachsanierung.png",
+          "cloudflare_short": "vorschau.magnet-xs.ch/holz-susi-vollversion/images/ref-leistung-dachsanierung.png",
+          "is_used": true,
+          "used_in": [
+            {
+              "datei": "index.html",
+              "slot": "image",
+              "is_hero": false
+            },
+            {
+              "datei": "leistungen.html",
+              "slot": "image",
+              "is_hero": false
+            }
+          ],
+          "used_in_pages": [
+            "index.html",
+            "leistungen.html"
+          ],
+          "alt": "Dacherneuerung und energetische Dachsanierung durch Holz-Susi GmbH Frick"
+        },
+        {
+          "nr": 30,
+          "id": "images_ref_leistung_innenausbau_jpg",
+          "filename": "ref-leistung-innenausbau.jpg",
+          "rel_path": "images/ref-leistung-innenausbau.jpg",
+          "folder": "preview-holz-susi",
+          "category": "Referenz, Projekt & Angebot",
+          "category_code": "ref",
+          "dimensions": "1280x852",
+          "size_kb": 124.4,
+          "format": "JPG",
+          "mtime": 1794228908,
+          "mtime_str": "09.11.2026 12:55",
+          "cdn_url": "https://vorschau.magnet-xs.ch/holz-susi-vollversion/images/ref-leistung-innenausbau.jpg",
+          "cloudflare_url": "https://vorschau.magnet-xs.ch/holz-susi-vollversion/images/ref-leistung-innenausbau.jpg",
+          "cloudflare_short": "vorschau.magnet-xs.ch/holz-susi-vollversion/images/ref-leistung-innenausbau.jpg",
+          "is_used": true,
+          "used_in": [
+            {
+              "datei": "index.html",
+              "slot": "image",
+              "is_hero": false
+            }
+          ],
+          "used_in_pages": [
+            "index.html"
+          ],
+          "alt": "Innenausbau, Dachstock und Estrich durch Holz-Susi GmbH"
+        },
+        {
+          "nr": 31,
+          "id": "images_ref_leistung_projektleitung_jpg",
+          "filename": "ref-leistung-projektleitung.jpg",
+          "rel_path": "images/ref-leistung-projektleitung.jpg",
+          "folder": "preview-holz-susi",
+          "category": "Referenz, Projekt & Angebot",
+          "category_code": "ref",
+          "dimensions": "1280x852",
+          "size_kb": 110.9,
+          "format": "JPG",
+          "mtime": 1794228908,
+          "mtime_str": "09.11.2026 12:55",
+          "cdn_url": "https://vorschau.magnet-xs.ch/holz-susi-vollversion/images/ref-leistung-projektleitung.jpg",
+          "cloudflare_url": "https://vorschau.magnet-xs.ch/holz-susi-vollversion/images/ref-leistung-projektleitung.jpg",
+          "cloudflare_short": "vorschau.magnet-xs.ch/holz-susi-vollversion/images/ref-leistung-projektleitung.jpg",
+          "is_used": true,
+          "used_in": [
+            {
+              "datei": "index.html",
+              "slot": "image",
+              "is_hero": false
+            }
+          ],
+          "used_in_pages": [
+            "index.html"
+          ],
+          "alt": "Projektplanung, Projektleitung und Bauleitung im Holzbau"
+        },
+        {
+          "nr": 32,
+          "id": "images_ref_leistung_terrasse_fassade_jpg",
+          "filename": "ref-leistung-terrasse-fassade.jpg",
+          "rel_path": "images/ref-leistung-terrasse-fassade.jpg",
+          "folder": "preview-holz-susi",
+          "category": "Referenz, Projekt & Angebot",
+          "category_code": "ref",
+          "dimensions": "1280x852",
+          "size_kb": 159.6,
+          "format": "JPG",
+          "mtime": 1794228908,
+          "mtime_str": "09.11.2026 12:55",
+          "cdn_url": "https://vorschau.magnet-xs.ch/holz-susi-vollversion/images/ref-leistung-terrasse-fassade.jpg",
+          "cloudflare_url": "https://vorschau.magnet-xs.ch/holz-susi-vollversion/images/ref-leistung-terrasse-fassade.jpg",
+          "cloudflare_short": "vorschau.magnet-xs.ch/holz-susi-vollversion/images/ref-leistung-terrasse-fassade.jpg",
+          "is_used": true,
+          "used_in": [
+            {
+              "datei": "index.html",
+              "slot": "image",
+              "is_hero": false
+            },
+            {
+              "datei": "referenzen.html",
+              "slot": "image",
+              "is_hero": false
+            }
+          ],
+          "used_in_pages": [
+            "index.html",
+            "referenzen.html"
+          ],
+          "alt": "Terrassenrost, Pergola und Holzfassade von Holz-Susi GmbH"
+        },
+        {
+          "nr": 33,
+          "id": "images_ref_marderschaden_nachher_png",
+          "filename": "ref-marderschaden-nachher.png",
+          "rel_path": "images/ref-marderschaden-nachher.png",
+          "folder": "preview-holz-susi",
+          "category": "Referenz, Projekt & Angebot",
+          "category_code": "ref",
+          "dimensions": "512x341",
+          "size_kb": 419.4,
+          "format": "PNG",
+          "mtime": 1794228909,
+          "mtime_str": "09.11.2026 12:55",
+          "cdn_url": "https://vorschau.magnet-xs.ch/holz-susi-vollversion/images/ref-marderschaden-nachher.png",
+          "cloudflare_url": "https://vorschau.magnet-xs.ch/holz-susi-vollversion/images/ref-marderschaden-nachher.png",
+          "cloudflare_short": "vorschau.magnet-xs.ch/holz-susi-vollversion/images/ref-marderschaden-nachher.png",
+          "is_used": true,
+          "used_in": [
+            {
+              "datei": "index.html",
+              "slot": "image",
+              "is_hero": false
+            },
+            {
+              "datei": "referenzen.html",
+              "slot": "image",
+              "is_hero": false
+            }
+          ],
+          "used_in_pages": [
+            "index.html",
+            "referenzen.html"
+          ],
+          "alt": "Holz-Susi GmbH Frick Vorher/Nachher-Projekt: Sanierung Marderschaden am Dach"
+        },
+        {
+          "nr": 34,
+          "id": "images_ref_marderschaden_vorher_png",
+          "filename": "ref-marderschaden-vorher.png",
+          "rel_path": "images/ref-marderschaden-vorher.png",
+          "folder": "preview-holz-susi",
+          "category": "Referenz, Projekt & Angebot",
+          "category_code": "ref",
+          "dimensions": "512x341",
+          "size_kb": 437.5,
+          "format": "PNG",
+          "mtime": 1794228909,
+          "mtime_str": "09.11.2026 12:55",
+          "cdn_url": "https://vorschau.magnet-xs.ch/holz-susi-vollversion/images/ref-marderschaden-vorher.png",
+          "cloudflare_url": "https://vorschau.magnet-xs.ch/holz-susi-vollversion/images/ref-marderschaden-vorher.png",
+          "cloudflare_short": "vorschau.magnet-xs.ch/holz-susi-vollversion/images/ref-marderschaden-vorher.png",
+          "is_used": true,
+          "used_in": [
+            {
+              "datei": "referenzen.html",
+              "slot": "image",
+              "is_hero": false
+            }
+          ],
+          "used_in_pages": [
+            "referenzen.html"
+          ],
+          "alt": "Vorher / Ausgangslage: Sanierung Marderschaden am Dach"
+        },
+        {
+          "nr": 35,
+          "id": "images_ref_pergola_erneuerung_nachher_png",
+          "filename": "ref-pergola-erneuerung-nachher.png",
+          "rel_path": "images/ref-pergola-erneuerung-nachher.png",
+          "folder": "preview-holz-susi",
+          "category": "Referenz, Projekt & Angebot",
+          "category_code": "ref",
+          "dimensions": "576x384",
+          "size_kb": 474.5,
+          "format": "PNG",
+          "mtime": 1794228911,
+          "mtime_str": "09.11.2026 12:55",
+          "cdn_url": "https://vorschau.magnet-xs.ch/holz-susi-vollversion/images/ref-pergola-erneuerung-nachher.png",
+          "cloudflare_url": "https://vorschau.magnet-xs.ch/holz-susi-vollversion/images/ref-pergola-erneuerung-nachher.png",
+          "cloudflare_short": "vorschau.magnet-xs.ch/holz-susi-vollversion/images/ref-pergola-erneuerung-nachher.png",
+          "is_used": false,
+          "used_in": [],
+          "used_in_pages": [],
+          "alt": "Referenzunternehmen Referenzunternehmen Referenzunternehmen Referenzunternehmen Referenzunternehmen Holz-Susi GmbH (Frick) – Einblick & Referenz: Pergola Erneuerung Nachher – Erfolgsprojekt mit Holz-Susi GmbH (Frick (AG)) – Erfolgsprojekt mit Holz-Susi GmbH (Frick (AG)) – Erfolgsprojekt mit Holz-Susi GmbH (Frick (AG)) – Erfolgsprojekt mit Holz-Susi GmbH (Frick (AG)) – Erfolgsprojekt mit Holz-Susi GmbH (Frick (AG))"
+        },
+        {
+          "nr": 36,
+          "id": "images_ref_pergola_erneuerung_vorher_png",
+          "filename": "ref-pergola-erneuerung-vorher.png",
+          "rel_path": "images/ref-pergola-erneuerung-vorher.png",
+          "folder": "preview-holz-susi",
+          "category": "Referenz, Projekt & Angebot",
+          "category_code": "ref",
+          "dimensions": "576x384",
+          "size_kb": 459.8,
+          "format": "PNG",
+          "mtime": 1794228911,
+          "mtime_str": "09.11.2026 12:55",
+          "cdn_url": "https://vorschau.magnet-xs.ch/holz-susi-vollversion/images/ref-pergola-erneuerung-vorher.png",
+          "cloudflare_url": "https://vorschau.magnet-xs.ch/holz-susi-vollversion/images/ref-pergola-erneuerung-vorher.png",
+          "cloudflare_short": "vorschau.magnet-xs.ch/holz-susi-vollversion/images/ref-pergola-erneuerung-vorher.png",
+          "is_used": false,
+          "used_in": [],
+          "used_in_pages": [],
+          "alt": "Referenzunternehmen Referenzunternehmen Referenzunternehmen Referenzunternehmen Referenzunternehmen Holz-Susi GmbH (Frick) – Einblick & Referenz: Pergola Erneuerung Vorher – Erfolgsprojekt mit Holz-Susi GmbH (Frick (AG)) – Erfolgsprojekt mit Holz-Susi GmbH (Frick (AG)) – Erfolgsprojekt mit Holz-Susi GmbH (Frick (AG)) – Erfolgsprojekt mit Holz-Susi GmbH (Frick (AG)) – Erfolgsprojekt mit Holz-Susi GmbH (Frick (AG))"
+        },
+        {
+          "nr": 37,
+          "id": "images_ref_sitzbank_erneuerung_nachher_jpg",
+          "filename": "ref-sitzbank-erneuerung-nachher.jpg",
+          "rel_path": "images/ref-sitzbank-erneuerung-nachher.jpg",
+          "folder": "preview-holz-susi",
+          "category": "Referenz, Projekt & Angebot",
+          "category_code": "ref",
+          "dimensions": "358x640",
+          "size_kb": 130.4,
+          "format": "JPG",
+          "mtime": 1794228912,
+          "mtime_str": "09.11.2026 12:55",
+          "cdn_url": "https://vorschau.magnet-xs.ch/holz-susi-vollversion/images/ref-sitzbank-erneuerung-nachher.jpg",
+          "cloudflare_url": "https://vorschau.magnet-xs.ch/holz-susi-vollversion/images/ref-sitzbank-erneuerung-nachher.jpg",
+          "cloudflare_short": "vorschau.magnet-xs.ch/holz-susi-vollversion/images/ref-sitzbank-erneuerung-nachher.jpg",
+          "is_used": false,
+          "used_in": [],
+          "used_in_pages": [],
+          "alt": "Referenzunternehmen Referenzunternehmen Referenzunternehmen Referenzunternehmen Referenzunternehmen Holz-Susi GmbH (Frick) – Einblick & Referenz: Sitzbank Erneuerung Nachher – Erfolgsprojekt mit Holz-Susi GmbH (Frick (AG)) – Erfolgsprojekt mit Holz-Susi GmbH (Frick (AG)) – Erfolgsprojekt mit Holz-Susi GmbH (Frick (AG)) – Erfolgsprojekt mit Holz-Susi GmbH (Frick (AG)) – Erfolgsprojekt mit Holz-Susi GmbH (Frick (AG))"
+        },
+        {
+          "nr": 38,
+          "id": "images_ref_sitzbank_erneuerung_vorher_jpg",
+          "filename": "ref-sitzbank-erneuerung-vorher.jpg",
+          "rel_path": "images/ref-sitzbank-erneuerung-vorher.jpg",
+          "folder": "preview-holz-susi",
+          "category": "Referenz, Projekt & Angebot",
+          "category_code": "ref",
+          "dimensions": "899x1599",
+          "size_kb": 301.0,
+          "format": "JPG",
+          "mtime": 1794228912,
+          "mtime_str": "09.11.2026 12:55",
+          "cdn_url": "https://vorschau.magnet-xs.ch/holz-susi-vollversion/images/ref-sitzbank-erneuerung-vorher.jpg",
+          "cloudflare_url": "https://vorschau.magnet-xs.ch/holz-susi-vollversion/images/ref-sitzbank-erneuerung-vorher.jpg",
+          "cloudflare_short": "vorschau.magnet-xs.ch/holz-susi-vollversion/images/ref-sitzbank-erneuerung-vorher.jpg",
+          "is_used": false,
+          "used_in": [],
+          "used_in_pages": [],
+          "alt": "Referenzunternehmen Referenzunternehmen Referenzunternehmen Referenzunternehmen Referenzunternehmen Holz-Susi GmbH (Frick) – Einblick & Referenz: Sitzbank Erneuerung Vorher – Erfolgsprojekt mit Holz-Susi GmbH (Frick (AG)) – Erfolgsprojekt mit Holz-Susi GmbH (Frick (AG)) – Erfolgsprojekt mit Holz-Susi GmbH (Frick (AG)) – Erfolgsprojekt mit Holz-Susi GmbH (Frick (AG)) – Erfolgsprojekt mit Holz-Susi GmbH (Frick (AG))"
+        },
+        {
+          "nr": 39,
+          "id": "images_ref_terrassenrost_nachher_jpg",
+          "filename": "ref-terrassenrost-nachher.jpg",
+          "rel_path": "images/ref-terrassenrost-nachher.jpg",
+          "folder": "preview-holz-susi",
+          "category": "Referenz, Projekt & Angebot",
+          "category_code": "ref",
+          "dimensions": "1600x1200",
+          "size_kb": 359.7,
+          "format": "JPG",
+          "mtime": 1794228912,
+          "mtime_str": "09.11.2026 12:55",
+          "cdn_url": "https://vorschau.magnet-xs.ch/holz-susi-vollversion/images/ref-terrassenrost-nachher.jpg",
+          "cloudflare_url": "https://vorschau.magnet-xs.ch/holz-susi-vollversion/images/ref-terrassenrost-nachher.jpg",
+          "cloudflare_short": "vorschau.magnet-xs.ch/holz-susi-vollversion/images/ref-terrassenrost-nachher.jpg",
+          "is_used": true,
+          "used_in": [
+            {
+              "datei": "index.html",
+              "slot": "image",
+              "is_hero": false
+            },
+            {
+              "datei": "referenzen.html",
+              "slot": "image",
+              "is_hero": false
+            }
+          ],
+          "used_in_pages": [
+            "index.html",
+            "referenzen.html"
+          ],
+          "alt": "Holz-Susi GmbH Frick Vorher/Nachher-Projekt: Terrassenrost, Pergola & Sitzbank"
+        },
+        {
+          "nr": 40,
+          "id": "images_ref_terrassenrost_vorher_jpg",
+          "filename": "ref-terrassenrost-vorher.jpg",
+          "rel_path": "images/ref-terrassenrost-vorher.jpg",
+          "folder": "preview-holz-susi",
+          "category": "Referenz, Projekt & Angebot",
+          "category_code": "ref",
+          "dimensions": "1600x1200",
+          "size_kb": 217.5,
+          "format": "JPG",
+          "mtime": 1794228912,
+          "mtime_str": "09.11.2026 12:55",
+          "cdn_url": "https://vorschau.magnet-xs.ch/holz-susi-vollversion/images/ref-terrassenrost-vorher.jpg",
+          "cloudflare_url": "https://vorschau.magnet-xs.ch/holz-susi-vollversion/images/ref-terrassenrost-vorher.jpg",
+          "cloudflare_short": "vorschau.magnet-xs.ch/holz-susi-vollversion/images/ref-terrassenrost-vorher.jpg",
+          "is_used": true,
+          "used_in": [
+            {
+              "datei": "referenzen.html",
+              "slot": "image",
+              "is_hero": false
+            }
+          ],
+          "used_in_pages": [
+            "referenzen.html"
+          ],
+          "alt": "Vorher / Ausgangslage: Terrassenrost, Pergola & Sitzbank"
+        },
+        {
+          "nr": 41,
+          "id": "images_ref_wendelhof_ausblick_jpg",
+          "filename": "ref-wendelhof-ausblick.jpg",
+          "rel_path": "images/ref-wendelhof-ausblick.jpg",
+          "folder": "preview-holz-susi",
+          "category": "Referenz, Projekt & Angebot",
+          "category_code": "ref",
+          "dimensions": "1400x654",
+          "size_kb": 401.5,
+          "format": "JPG",
+          "mtime": 1794228913,
+          "mtime_str": "09.11.2026 12:55",
+          "cdn_url": "https://vorschau.magnet-xs.ch/holz-susi-vollversion/images/ref-wendelhof-ausblick.jpg",
+          "cloudflare_url": "https://vorschau.magnet-xs.ch/holz-susi-vollversion/images/ref-wendelhof-ausblick.jpg",
+          "cloudflare_short": "vorschau.magnet-xs.ch/holz-susi-vollversion/images/ref-wendelhof-ausblick.jpg",
+          "is_used": false,
+          "used_in": [],
+          "used_in_pages": [],
+          "alt": "Referenzunternehmen Referenzunternehmen Referenzunternehmen Referenzunternehmen Referenzunternehmen Holz-Susi GmbH (Frick) – Einblick & Referenz: Wendelhof Ausblick – Erfolgsprojekt mit Holz-Susi GmbH (Frick (AG)) – Erfolgsprojekt mit Holz-Susi GmbH (Frick (AG)) – Erfolgsprojekt mit Holz-Susi GmbH (Frick (AG)) – Erfolgsprojekt mit Holz-Susi GmbH (Frick (AG)) – Erfolgsprojekt mit Holz-Susi GmbH (Frick (AG))"
+        },
+        {
+          "nr": 42,
+          "id": "images_ref_wendelhof_bluescht_beiz_jpg",
+          "filename": "ref-wendelhof-bluescht-beiz.jpg",
+          "rel_path": "images/ref-wendelhof-bluescht-beiz.jpg",
+          "folder": "preview-holz-susi",
+          "category": "Referenz, Projekt & Angebot",
+          "category_code": "ref",
+          "dimensions": "640x360",
+          "size_kb": 122.8,
+          "format": "JPG",
+          "mtime": 1794228912,
+          "mtime_str": "09.11.2026 12:55",
+          "cdn_url": "https://vorschau.magnet-xs.ch/holz-susi-vollversion/images/ref-wendelhof-bluescht-beiz.jpg",
+          "cloudflare_url": "https://vorschau.magnet-xs.ch/holz-susi-vollversion/images/ref-wendelhof-bluescht-beiz.jpg",
+          "cloudflare_short": "vorschau.magnet-xs.ch/holz-susi-vollversion/images/ref-wendelhof-bluescht-beiz.jpg",
+          "is_used": true,
+          "used_in": [
+            {
+              "datei": "ueber-uns.html",
+              "slot": "image",
+              "is_hero": false
+            }
+          ],
+          "used_in_pages": [
+            "ueber-uns.html"
+          ],
+          "alt": "Bluescht-Beiz auf dem Wendelhof 424 in 5070 Frick während der Kirschblüte"
+        },
+        {
+          "nr": 43,
+          "id": "images_ref_wendelhof_kirschblueten_jpg",
+          "filename": "ref-wendelhof-kirschblueten.jpg",
+          "rel_path": "images/ref-wendelhof-kirschblueten.jpg",
+          "folder": "preview-holz-susi",
+          "category": "Referenz, Projekt & Angebot",
+          "category_code": "ref",
+          "dimensions": "1600x900",
+          "size_kb": 195.6,
+          "format": "JPG",
+          "mtime": 1794228912,
+          "mtime_str": "09.11.2026 12:55",
+          "cdn_url": "https://vorschau.magnet-xs.ch/holz-susi-vollversion/images/ref-wendelhof-kirschblueten.jpg",
+          "cloudflare_url": "https://vorschau.magnet-xs.ch/holz-susi-vollversion/images/ref-wendelhof-kirschblueten.jpg",
+          "cloudflare_short": "vorschau.magnet-xs.ch/holz-susi-vollversion/images/ref-wendelhof-kirschblueten.jpg",
+          "is_used": false,
+          "used_in": [],
+          "used_in_pages": [],
+          "alt": "Referenzunternehmen Referenzunternehmen Referenzunternehmen Referenzunternehmen Referenzunternehmen Holz-Susi GmbH (Frick) – Einblick & Referenz: Wendelhof Kirschblueten – Erfolgsprojekt mit Holz-Susi GmbH (Frick (AG)) – Erfolgsprojekt mit Holz-Susi GmbH (Frick (AG)) – Erfolgsprojekt mit Holz-Susi GmbH (Frick (AG)) – Erfolgsprojekt mit Holz-Susi GmbH (Frick (AG)) – Erfolgsprojekt mit Holz-Susi GmbH (Frick (AG))"
+        },
+        {
+          "nr": 44,
+          "id": "images_sponsor_fricktal_zimmerei_png",
+          "filename": "sponsor-fricktal-zimmerei.png",
+          "rel_path": "images/sponsor-fricktal-zimmerei.png",
+          "folder": "preview-holz-susi",
+          "category": "Sponsor & Partner",
+          "category_code": "sponsor",
+          "dimensions": "400x400",
+          "size_kb": 12.8,
+          "format": "PNG",
+          "mtime": 1794228907,
+          "mtime_str": "09.11.2026 12:55",
+          "cdn_url": "https://vorschau.magnet-xs.ch/holz-susi-vollversion/images/sponsor-fricktal-zimmerei.png",
+          "cloudflare_url": "https://vorschau.magnet-xs.ch/holz-susi-vollversion/images/sponsor-fricktal-zimmerei.png",
+          "cloudflare_short": "vorschau.magnet-xs.ch/holz-susi-vollversion/images/sponsor-fricktal-zimmerei.png",
+          "is_used": false,
+          "used_in": [],
+          "used_in_pages": [],
+          "alt": "Offizieller Vereins-Sponsor und Partner von Holz-Susi GmbH (Frick): Offizieller Vereins-Sponsor und Partner von Holz-Susi GmbH (Frick): Offizieller Vereins-Sponsor und Partner von Holz-Susi GmbH (Frick): Offizieller Vereins-Sponsor und Partner von Holz-Susi GmbH (Frick): Offizieller Vereins-Sponsor und Partner von Holz-Susi GmbH (Frick): Holz-Susi GmbH (Frick) – Offizieller Partner & Sponsor: Fricktal Zimmerei"
+        },
+        {
+          "nr": 45,
+          "id": "images_sponsor_gebr_schmid_png",
+          "filename": "sponsor-gebr-schmid.png",
+          "rel_path": "images/sponsor-gebr-schmid.png",
+          "folder": "preview-holz-susi",
+          "category": "Sponsor & Partner",
+          "category_code": "sponsor",
+          "dimensions": "400x400",
+          "size_kb": 58.9,
+          "format": "PNG",
+          "mtime": 1794228907,
+          "mtime_str": "09.11.2026 12:55",
+          "cdn_url": "https://vorschau.magnet-xs.ch/holz-susi-vollversion/images/sponsor-gebr-schmid.png",
+          "cloudflare_url": "https://vorschau.magnet-xs.ch/holz-susi-vollversion/images/sponsor-gebr-schmid.png",
+          "cloudflare_short": "vorschau.magnet-xs.ch/holz-susi-vollversion/images/sponsor-gebr-schmid.png",
+          "is_used": false,
+          "used_in": [],
+          "used_in_pages": [],
+          "alt": "Offizieller Vereins-Sponsor und Partner von Holz-Susi GmbH (Frick): Offizieller Vereins-Sponsor und Partner von Holz-Susi GmbH (Frick): Offizieller Vereins-Sponsor und Partner von Holz-Susi GmbH (Frick): Offizieller Vereins-Sponsor und Partner von Holz-Susi GmbH (Frick): Offizieller Vereins-Sponsor und Partner von Holz-Susi GmbH (Frick): Holz-Susi GmbH (Frick) – Offizieller Partner & Sponsor: Gebr Schmid"
+        },
+        {
+          "nr": 46,
+          "id": "images_sponsor_mangold_holzbau_png",
+          "filename": "sponsor-mangold-holzbau.png",
+          "rel_path": "images/sponsor-mangold-holzbau.png",
+          "folder": "preview-holz-susi",
+          "category": "Sponsor & Partner",
+          "category_code": "sponsor",
+          "dimensions": "400x400",
+          "size_kb": 29.2,
+          "format": "PNG",
+          "mtime": 1794228907,
+          "mtime_str": "09.11.2026 12:55",
+          "cdn_url": "https://vorschau.magnet-xs.ch/holz-susi-vollversion/images/sponsor-mangold-holzbau.png",
+          "cloudflare_url": "https://vorschau.magnet-xs.ch/holz-susi-vollversion/images/sponsor-mangold-holzbau.png",
+          "cloudflare_short": "vorschau.magnet-xs.ch/holz-susi-vollversion/images/sponsor-mangold-holzbau.png",
+          "is_used": false,
+          "used_in": [],
+          "used_in_pages": [],
+          "alt": "Offizieller Vereins-Sponsor und Partner von Holz-Susi GmbH (Frick): Offizieller Vereins-Sponsor und Partner von Holz-Susi GmbH (Frick): Offizieller Vereins-Sponsor und Partner von Holz-Susi GmbH (Frick): Offizieller Vereins-Sponsor und Partner von Holz-Susi GmbH (Frick): Offizieller Vereins-Sponsor und Partner von Holz-Susi GmbH (Frick): Holz-Susi GmbH (Frick) – Offizieller Partner & Sponsor: Mangold Holzbau"
+        },
+        {
+          "nr": 47,
+          "id": "images_sponsor_metatec_metallbau_png",
+          "filename": "sponsor-metatec-metallbau.png",
+          "rel_path": "images/sponsor-metatec-metallbau.png",
+          "folder": "preview-holz-susi",
+          "category": "Sponsor & Partner",
+          "category_code": "sponsor",
+          "dimensions": "400x400",
+          "size_kb": 39.2,
+          "format": "PNG",
+          "mtime": 1794228907,
+          "mtime_str": "09.11.2026 12:55",
+          "cdn_url": "https://vorschau.magnet-xs.ch/holz-susi-vollversion/images/sponsor-metatec-metallbau.png",
+          "cloudflare_url": "https://vorschau.magnet-xs.ch/holz-susi-vollversion/images/sponsor-metatec-metallbau.png",
+          "cloudflare_short": "vorschau.magnet-xs.ch/holz-susi-vollversion/images/sponsor-metatec-metallbau.png",
+          "is_used": false,
+          "used_in": [],
+          "used_in_pages": [],
+          "alt": "Offizieller Vereins-Sponsor und Partner von Holz-Susi GmbH (Frick): Offizieller Vereins-Sponsor und Partner von Holz-Susi GmbH (Frick): Offizieller Vereins-Sponsor und Partner von Holz-Susi GmbH (Frick): Offizieller Vereins-Sponsor und Partner von Holz-Susi GmbH (Frick): Offizieller Vereins-Sponsor und Partner von Holz-Susi GmbH (Frick): Holz-Susi GmbH (Frick) – Offizieller Partner & Sponsor: Metatec Metallbau"
+        },
+        {
+          "nr": 48,
+          "id": "images_sponsor_selina_burger_tsv_frick_jpg",
+          "filename": "sponsor-selina-burger-tsv-frick.jpg",
+          "rel_path": "images/sponsor-selina-burger-tsv-frick.jpg",
+          "folder": "preview-holz-susi",
+          "category": "Sponsor & Partner",
+          "category_code": "sponsor",
+          "dimensions": "2000x2000",
+          "size_kb": 118.8,
+          "format": "JPG",
+          "mtime": 1794228907,
+          "mtime_str": "09.11.2026 12:55",
+          "cdn_url": "https://vorschau.magnet-xs.ch/holz-susi-vollversion/images/sponsor-selina-burger-tsv-frick.jpg",
+          "cloudflare_url": "https://vorschau.magnet-xs.ch/holz-susi-vollversion/images/sponsor-selina-burger-tsv-frick.jpg",
+          "cloudflare_short": "vorschau.magnet-xs.ch/holz-susi-vollversion/images/sponsor-selina-burger-tsv-frick.jpg",
+          "is_used": true,
+          "used_in": [
+            {
+              "datei": "ueber-uns.html",
+              "slot": "image",
+              "is_hero": false
+            }
+          ],
+          "used_in_pages": [
+            "ueber-uns.html"
+          ],
+          "alt": "Nachwuchs-Sponsoring Leichtathletin Selina Burger TSV Frick durch Holz-Susi GmbH"
+        },
+        {
+          "nr": 49,
+          "id": "images_team_michael_huerbin_holzbautechniker_png",
+          "filename": "team-michael-huerbin-holzbautechniker.png",
+          "rel_path": "images/team-michael-huerbin-holzbautechniker.png",
+          "folder": "preview-holz-susi",
+          "category": "Team, Porträt & Kader",
+          "category_code": "team",
+          "dimensions": "400x400",
+          "size_kb": 274.9,
+          "format": "PNG",
+          "mtime": 1794228907,
+          "mtime_str": "09.11.2026 12:55",
+          "cdn_url": "https://vorschau.magnet-xs.ch/holz-susi-vollversion/images/team-michael-huerbin-holzbautechniker.png",
+          "cloudflare_url": "https://vorschau.magnet-xs.ch/holz-susi-vollversion/images/team-michael-huerbin-holzbautechniker.png",
+          "cloudflare_short": "vorschau.magnet-xs.ch/holz-susi-vollversion/images/team-michael-huerbin-holzbautechniker.png",
+          "is_used": false,
+          "used_in": [],
+          "used_in_pages": [],
+          "alt": "Holz-Susi GmbH (Frick) – Team & Ansprechpartner: Michael Huerbin Holzbautechniker – Persönlicher Ansprechpartner und Fachteam bei Holz-Susi GmbH in Frick (AG) – Persönlicher Ansprechpartner und Fachteam bei Holz-Susi GmbH in Frick (AG) – Persönlicher Ansprechpartner und Fachteam bei Holz-Susi GmbH in Frick (AG) – Persönlicher Ansprechpartner und Fachteam bei Holz-Susi GmbH in Frick (AG) – Persönlicher Ansprechpartner und Fachteam bei Holz-Susi GmbH in Frick (AG)"
+        },
+        {
+          "nr": 50,
+          "id": "images_team_reto_huber_dachdecker_png",
+          "filename": "team-reto-huber-dachdecker.png",
+          "rel_path": "images/team-reto-huber-dachdecker.png",
+          "folder": "preview-holz-susi",
+          "category": "Team, Porträt & Kader",
+          "category_code": "team",
+          "dimensions": "400x400",
+          "size_kb": 153.2,
+          "format": "PNG",
+          "mtime": 1794228907,
+          "mtime_str": "09.11.2026 12:55",
+          "cdn_url": "https://vorschau.magnet-xs.ch/holz-susi-vollversion/images/team-reto-huber-dachdecker.png",
+          "cloudflare_url": "https://vorschau.magnet-xs.ch/holz-susi-vollversion/images/team-reto-huber-dachdecker.png",
+          "cloudflare_short": "vorschau.magnet-xs.ch/holz-susi-vollversion/images/team-reto-huber-dachdecker.png",
+          "is_used": false,
+          "used_in": [],
+          "used_in_pages": [],
+          "alt": "Holz-Susi GmbH (Frick) – Team & Ansprechpartner: Reto Huber Dachdecker – Persönlicher Ansprechpartner und Fachteam bei Holz-Susi GmbH in Frick (AG) – Persönlicher Ansprechpartner und Fachteam bei Holz-Susi GmbH in Frick (AG) – Persönlicher Ansprechpartner und Fachteam bei Holz-Susi GmbH in Frick (AG) – Persönlicher Ansprechpartner und Fachteam bei Holz-Susi GmbH in Frick (AG) – Persönlicher Ansprechpartner und Fachteam bei Holz-Susi GmbH in Frick (AG)"
+        },
+        {
+          "nr": 51,
+          "id": "images_team_susi_at_work_01_png",
+          "filename": "team-susi-at-work-01.png",
+          "rel_path": "images/team-susi-at-work-01.png",
+          "folder": "preview-holz-susi",
+          "category": "Team, Porträt & Kader",
+          "category_code": "team",
+          "dimensions": "286x512",
+          "size_kb": 235.9,
+          "format": "PNG",
+          "mtime": 1794228906,
+          "mtime_str": "09.11.2026 12:55",
+          "cdn_url": "https://vorschau.magnet-xs.ch/holz-susi-vollversion/images/team-susi-at-work-01.png",
+          "cloudflare_url": "https://vorschau.magnet-xs.ch/holz-susi-vollversion/images/team-susi-at-work-01.png",
+          "cloudflare_short": "vorschau.magnet-xs.ch/holz-susi-vollversion/images/team-susi-at-work-01.png",
+          "is_used": false,
+          "used_in": [],
+          "used_in_pages": [],
+          "alt": "Holz-Susi GmbH (Frick) – Team & Ansprechpartner: Susi At Work 01 – Persönlicher Ansprechpartner und Fachteam bei Holz-Susi GmbH in Frick (AG) – Persönlicher Ansprechpartner und Fachteam bei Holz-Susi GmbH in Frick (AG) – Persönlicher Ansprechpartner und Fachteam bei Holz-Susi GmbH in Frick (AG) – Persönlicher Ansprechpartner und Fachteam bei Holz-Susi GmbH in Frick (AG) – Persönlicher Ansprechpartner und Fachteam bei Holz-Susi GmbH in Frick (AG)"
+        },
+        {
+          "nr": 52,
+          "id": "images_team_susi_at_work_02_png",
+          "filename": "team-susi-at-work-02.png",
+          "rel_path": "images/team-susi-at-work-02.png",
+          "folder": "preview-holz-susi",
+          "category": "Team, Porträt & Kader",
+          "category_code": "team",
+          "dimensions": "286x512",
+          "size_kb": 317.6,
+          "format": "PNG",
+          "mtime": 1794228906,
+          "mtime_str": "09.11.2026 12:55",
+          "cdn_url": "https://vorschau.magnet-xs.ch/holz-susi-vollversion/images/team-susi-at-work-02.png",
+          "cloudflare_url": "https://vorschau.magnet-xs.ch/holz-susi-vollversion/images/team-susi-at-work-02.png",
+          "cloudflare_short": "vorschau.magnet-xs.ch/holz-susi-vollversion/images/team-susi-at-work-02.png",
+          "is_used": false,
+          "used_in": [],
+          "used_in_pages": [],
+          "alt": "Holz-Susi GmbH (Frick) – Team & Ansprechpartner: Susi At Work 02 – Persönlicher Ansprechpartner und Fachteam bei Holz-Susi GmbH in Frick (AG) – Persönlicher Ansprechpartner und Fachteam bei Holz-Susi GmbH in Frick (AG) – Persönlicher Ansprechpartner und Fachteam bei Holz-Susi GmbH in Frick (AG) – Persönlicher Ansprechpartner und Fachteam bei Holz-Susi GmbH in Frick (AG) – Persönlicher Ansprechpartner und Fachteam bei Holz-Susi GmbH in Frick (AG)"
+        },
+        {
+          "nr": 53,
+          "id": "images_team_susi_at_work_03_png",
+          "filename": "team-susi-at-work-03.png",
+          "rel_path": "images/team-susi-at-work-03.png",
+          "folder": "preview-holz-susi",
+          "category": "Team, Porträt & Kader",
+          "category_code": "team",
+          "dimensions": "432x432",
+          "size_kb": 407.8,
+          "format": "PNG",
+          "mtime": 1794228906,
+          "mtime_str": "09.11.2026 12:55",
+          "cdn_url": "https://vorschau.magnet-xs.ch/holz-susi-vollversion/images/team-susi-at-work-03.png",
+          "cloudflare_url": "https://vorschau.magnet-xs.ch/holz-susi-vollversion/images/team-susi-at-work-03.png",
+          "cloudflare_short": "vorschau.magnet-xs.ch/holz-susi-vollversion/images/team-susi-at-work-03.png",
+          "is_used": false,
+          "used_in": [],
+          "used_in_pages": [],
+          "alt": "Holz-Susi GmbH (Frick) – Team & Ansprechpartner: Susi At Work 03 – Persönlicher Ansprechpartner und Fachteam bei Holz-Susi GmbH in Frick (AG) – Persönlicher Ansprechpartner und Fachteam bei Holz-Susi GmbH in Frick (AG) – Persönlicher Ansprechpartner und Fachteam bei Holz-Susi GmbH in Frick (AG) – Persönlicher Ansprechpartner und Fachteam bei Holz-Susi GmbH in Frick (AG) – Persönlicher Ansprechpartner und Fachteam bei Holz-Susi GmbH in Frick (AG)"
+        },
+        {
+          "nr": 54,
+          "id": "images_team_susi_schmid_fahrzeug_png",
+          "filename": "team-susi-schmid-fahrzeug.png",
+          "rel_path": "images/team-susi-schmid-fahrzeug.png",
+          "folder": "preview-holz-susi",
+          "category": "Team, Porträt & Kader",
+          "category_code": "team",
+          "dimensions": "640x426",
+          "size_kb": 141.4,
+          "format": "PNG",
+          "mtime": 1794228907,
+          "mtime_str": "09.11.2026 12:55",
+          "cdn_url": "https://vorschau.magnet-xs.ch/holz-susi-vollversion/images/team-susi-schmid-fahrzeug.png",
+          "cloudflare_url": "https://vorschau.magnet-xs.ch/holz-susi-vollversion/images/team-susi-schmid-fahrzeug.png",
+          "cloudflare_short": "vorschau.magnet-xs.ch/holz-susi-vollversion/images/team-susi-schmid-fahrzeug.png",
+          "is_used": false,
+          "used_in": [],
+          "used_in_pages": [],
+          "alt": "Holz-Susi GmbH (Frick) – Team & Ansprechpartner: Susi Schmid Fahrzeug – Persönlicher Ansprechpartner und Fachteam bei Holz-Susi GmbH in Frick (AG) – Persönlicher Ansprechpartner und Fachteam bei Holz-Susi GmbH in Frick (AG) – Persönlicher Ansprechpartner und Fachteam bei Holz-Susi GmbH in Frick (AG) – Persönlicher Ansprechpartner und Fachteam bei Holz-Susi GmbH in Frick (AG) – Persönlicher Ansprechpartner und Fachteam bei Holz-Susi GmbH in Frick (AG)"
+        },
+        {
+          "nr": 55,
+          "id": "images_team_susi_schmid_portrait_png",
+          "filename": "team-susi-schmid-portrait.png",
+          "rel_path": "images/team-susi-schmid-portrait.png",
+          "folder": "preview-holz-susi",
+          "category": "Team, Porträt & Kader",
+          "category_code": "team",
+          "dimensions": "358x640",
+          "size_kb": 441.2,
+          "format": "PNG",
+          "mtime": 1794228906,
+          "mtime_str": "09.11.2026 12:55",
+          "cdn_url": "https://vorschau.magnet-xs.ch/holz-susi-vollversion/images/team-susi-schmid-portrait.png",
+          "cloudflare_url": "https://vorschau.magnet-xs.ch/holz-susi-vollversion/images/team-susi-schmid-portrait.png",
+          "cloudflare_short": "vorschau.magnet-xs.ch/holz-susi-vollversion/images/team-susi-schmid-portrait.png",
+          "is_used": true,
+          "used_in": [
+            {
+              "datei": "index.html",
+              "slot": "image",
+              "is_hero": false
+            },
+            {
+              "datei": "ueber-uns.html",
+              "slot": "image",
+              "is_hero": false
+            }
+          ],
+          "used_in_pages": [
+            "index.html",
+            "ueber-uns.html"
+          ],
+          "alt": "Susanne Susi Schmid — Inhaberin Holz-Susi GmbH Frick"
+        }
+      ]
+    },
+    {
+      "folder": "preview-holz-susi-v2",
+      "company_name": "Holz-Susi GmbH — Susanne Schmid (Zeigeversion v2)",
+      "city": "Frick AG",
+      "partner": "David Hügli (Magnet XS)",
+      "submitted_at": "09.11.2026 · 13:44 Uhr",
+      "cloudflare_base_url": "https://vorschau.magnet-xs.ch/holz-susi-v2/",
+      "cloudflare_short_base": "vorschau.magnet-xs.ch/holz-susi-v2",
+      "total_assets": 55,
+      "active_assets": 17,
+      "pool_assets": 38,
+      "external_hotlinks": 0,
+      "external_hotlink_details": [],
+      "total_kb": 14120.0,
+      "total_mb": 13.79,
+      "html_pages_count": 2,
+      "html_pages": [
+        "index.html",
+        "kontakt.html"
+      ],
+      "bilder_json_exists": true,
+      "bilder_verzeichnis_exists": true,
+      "assets": [
+        {
+          "nr": 1,
+          "id": "images_apple_touch_icon_png",
+          "filename": "apple-touch-icon.png",
+          "rel_path": "images/apple-touch-icon.png",
+          "folder": "preview-holz-susi-v2",
+          "category": "Favicon & App-Icon",
+          "category_code": "icon",
+          "dimensions": "180x180",
+          "size_kb": 14.7,
+          "format": "PNG",
+          "mtime": 1794228913,
+          "mtime_str": "09.11.2026 12:55",
+          "cdn_url": "https://vorschau.magnet-xs.ch/holz-susi-v2/images/apple-touch-icon.png",
+          "cloudflare_url": "https://vorschau.magnet-xs.ch/holz-susi-v2/images/apple-touch-icon.png",
+          "cloudflare_short": "vorschau.magnet-xs.ch/holz-susi-v2/images/apple-touch-icon.png",
+          "is_used": true,
+          "used_in": [
+            {
+              "datei": "index.html",
+              "slot": "image",
+              "is_hero": false
+            },
+            {
+              "datei": "kontakt.html",
+              "slot": "image",
+              "is_hero": false
+            }
+          ],
+          "used_in_pages": [
+            "index.html",
+            "kontakt.html"
+          ],
+          "alt": "Holz-Susi GmbH Frick (AG) – Offizielles Logo (Fachbetrieb in der Schweiz)"
+        },
+        {
+          "nr": 2,
+          "id": "images_favicon_32x32_png",
+          "filename": "favicon-32x32.png",
+          "rel_path": "images/favicon-32x32.png",
+          "folder": "preview-holz-susi-v2",
+          "category": "Favicon & App-Icon",
+          "category_code": "icon",
+          "dimensions": "32x32",
+          "size_kb": 1.4,
+          "format": "PNG",
+          "mtime": 1794228913,
+          "mtime_str": "09.11.2026 12:55",
+          "cdn_url": "https://vorschau.magnet-xs.ch/holz-susi-v2/images/favicon-32x32.png",
+          "cloudflare_url": "https://vorschau.magnet-xs.ch/holz-susi-v2/images/favicon-32x32.png",
+          "cloudflare_short": "vorschau.magnet-xs.ch/holz-susi-v2/images/favicon-32x32.png",
+          "is_used": true,
+          "used_in": [
+            {
+              "datei": "index.html",
+              "slot": "image",
+              "is_hero": false
+            },
+            {
+              "datei": "kontakt.html",
+              "slot": "image",
+              "is_hero": false
+            }
+          ],
+          "used_in_pages": [
+            "index.html",
+            "kontakt.html"
+          ],
+          "alt": "Holz-Susi GmbH Frick (AG) – Offizielles Logo (Fachbetrieb in der Schweiz)"
+        },
+        {
+          "nr": 3,
+          "id": "images_hero_holzstruktur_hintergrund_png",
+          "filename": "hero-holzstruktur-hintergrund.png",
+          "rel_path": "images/hero-holzstruktur-hintergrund.png",
+          "folder": "preview-holz-susi-v2",
+          "category": "Startbühne & Header",
+          "category_code": "hero",
+          "dimensions": "1344x210",
+          "size_kb": 464.0,
+          "format": "PNG",
+          "mtime": 1794228906,
+          "mtime_str": "09.11.2026 12:55",
+          "cdn_url": "https://vorschau.magnet-xs.ch/holz-susi-v2/images/hero-holzstruktur-hintergrund.png",
+          "cloudflare_url": "https://vorschau.magnet-xs.ch/holz-susi-v2/images/hero-holzstruktur-hintergrund.png",
+          "cloudflare_short": "vorschau.magnet-xs.ch/holz-susi-v2/images/hero-holzstruktur-hintergrund.png",
+          "is_used": true,
+          "used_in": [
+            {
+              "datei": "index.html",
+              "slot": "image",
+              "is_hero": true
+            },
+            {
+              "datei": "kontakt.html",
+              "slot": "image",
+              "is_hero": true
+            }
+          ],
+          "used_in_pages": [
+            "index.html",
+            "kontakt.html"
+          ],
+          "alt": "Holz-Susi GmbH (Frick) – Startbühne & Hauptansicht: Holzstruktur Hintergrund: Startbühne & Header – Holz-Susi GmbH in Frick (AG) – Holz-Susi GmbH in Frick (AG) – Holz-Susi GmbH in Frick (AG) – Holz-Susi GmbH in Frick (AG) – Holz-Susi GmbH in Frick (AG)"
+        },
+        {
+          "nr": 4,
+          "id": "images_hero_susi_schmid_holzbau_png",
+          "filename": "hero-susi-schmid-holzbau.png",
+          "rel_path": "images/hero-susi-schmid-holzbau.png",
+          "folder": "preview-holz-susi-v2",
+          "category": "Startbühne & Header",
+          "category_code": "hero",
+          "dimensions": "640x426",
+          "size_kb": 127.2,
+          "format": "PNG",
+          "mtime": 1794228906,
+          "mtime_str": "09.11.2026 12:55",
+          "cdn_url": "https://vorschau.magnet-xs.ch/holz-susi-v2/images/hero-susi-schmid-holzbau.png",
+          "cloudflare_url": "https://vorschau.magnet-xs.ch/holz-susi-v2/images/hero-susi-schmid-holzbau.png",
+          "cloudflare_short": "vorschau.magnet-xs.ch/holz-susi-v2/images/hero-susi-schmid-holzbau.png",
+          "is_used": true,
+          "used_in": [
+            {
+              "datei": "index.html",
+              "slot": "image",
+              "is_hero": true
+            },
+            {
+              "datei": "kontakt.html",
+              "slot": "image",
+              "is_hero": true
+            }
+          ],
+          "used_in_pages": [
+            "index.html",
+            "kontakt.html"
+          ],
+          "alt": "Susanne Susi Schmid — Inhaberin der Holz-Susi GmbH in 5070 Frick"
+        },
+        {
+          "nr": 5,
+          "id": "images_logo_png",
+          "filename": "logo.png",
+          "rel_path": "images/logo.png",
+          "folder": "preview-holz-susi-v2",
+          "category": "Logo & Marken-Icon",
+          "category_code": "logo",
+          "dimensions": "1797x1093",
+          "size_kb": 77.1,
+          "format": "PNG",
+          "mtime": 1794228906,
+          "mtime_str": "09.11.2026 12:55",
+          "cdn_url": "https://vorschau.magnet-xs.ch/holz-susi-v2/images/logo.png",
+          "cloudflare_url": "https://vorschau.magnet-xs.ch/holz-susi-v2/images/logo.png",
+          "cloudflare_short": "vorschau.magnet-xs.ch/holz-susi-v2/images/logo.png",
+          "is_used": true,
+          "used_in": [
+            {
+              "datei": "index.html",
+              "slot": "image",
+              "is_hero": false
+            },
+            {
+              "datei": "kontakt.html",
+              "slot": "image",
+              "is_hero": false
+            }
+          ],
+          "used_in_pages": [
+            "index.html",
+            "kontakt.html"
+          ],
+          "alt": "Holz-Susi GmbH Frick (AG) – Offizielles Logo (Fachbetrieb in der Schweiz)"
+        },
+        {
+          "nr": 6,
+          "id": "images_ref_blindboden_umbau_nachher_png",
+          "filename": "ref-blindboden-umbau-nachher.png",
+          "rel_path": "images/ref-blindboden-umbau-nachher.png",
+          "folder": "preview-holz-susi-v2",
+          "category": "Referenz, Projekt & Angebot",
+          "category_code": "ref",
+          "dimensions": "512x341",
+          "size_kb": 416.7,
+          "format": "PNG",
+          "mtime": 1794228910,
+          "mtime_str": "09.11.2026 12:55",
+          "cdn_url": "https://vorschau.magnet-xs.ch/holz-susi-v2/images/ref-blindboden-umbau-nachher.png",
+          "cloudflare_url": "https://vorschau.magnet-xs.ch/holz-susi-v2/images/ref-blindboden-umbau-nachher.png",
+          "cloudflare_short": "vorschau.magnet-xs.ch/holz-susi-v2/images/ref-blindboden-umbau-nachher.png",
+          "is_used": false,
+          "used_in": [],
+          "used_in_pages": [],
+          "alt": "Referenzunternehmen Referenzunternehmen Referenzunternehmen Referenzunternehmen Referenzunternehmen Holz-Susi GmbH (Frick) – Einblick & Referenz: Blindboden Umbau Nachher – Erfolgsprojekt mit Holz-Susi GmbH (Frick (AG)) – Erfolgsprojekt mit Holz-Susi GmbH (Frick (AG)) – Erfolgsprojekt mit Holz-Susi GmbH (Frick (AG)) – Erfolgsprojekt mit Holz-Susi GmbH (Frick (AG)) – Erfolgsprojekt mit Holz-Susi GmbH (Frick (AG))"
+        },
+        {
+          "nr": 7,
+          "id": "images_ref_blindboden_umbau_vorher_png",
+          "filename": "ref-blindboden-umbau-vorher.png",
+          "rel_path": "images/ref-blindboden-umbau-vorher.png",
+          "folder": "preview-holz-susi-v2",
+          "category": "Referenz, Projekt & Angebot",
+          "category_code": "ref",
+          "dimensions": "512x341",
+          "size_kb": 398.0,
+          "format": "PNG",
+          "mtime": 1794228910,
+          "mtime_str": "09.11.2026 12:55",
+          "cdn_url": "https://vorschau.magnet-xs.ch/holz-susi-v2/images/ref-blindboden-umbau-vorher.png",
+          "cloudflare_url": "https://vorschau.magnet-xs.ch/holz-susi-v2/images/ref-blindboden-umbau-vorher.png",
+          "cloudflare_short": "vorschau.magnet-xs.ch/holz-susi-v2/images/ref-blindboden-umbau-vorher.png",
+          "is_used": false,
+          "used_in": [],
+          "used_in_pages": [],
+          "alt": "Referenzunternehmen Referenzunternehmen Referenzunternehmen Referenzunternehmen Referenzunternehmen Holz-Susi GmbH (Frick) – Einblick & Referenz: Blindboden Umbau Vorher – Erfolgsprojekt mit Holz-Susi GmbH (Frick (AG)) – Erfolgsprojekt mit Holz-Susi GmbH (Frick (AG)) – Erfolgsprojekt mit Holz-Susi GmbH (Frick (AG)) – Erfolgsprojekt mit Holz-Susi GmbH (Frick (AG)) – Erfolgsprojekt mit Holz-Susi GmbH (Frick (AG))"
+        },
+        {
+          "nr": 8,
+          "id": "images_ref_dach_erneuerung_nachher_png",
+          "filename": "ref-dach-erneuerung-nachher.png",
+          "rel_path": "images/ref-dach-erneuerung-nachher.png",
+          "folder": "preview-holz-susi-v2",
+          "category": "Referenz, Projekt & Angebot",
+          "category_code": "ref",
+          "dimensions": "512x341",
+          "size_kb": 392.7,
+          "format": "PNG",
+          "mtime": 1794228910,
+          "mtime_str": "09.11.2026 12:55",
+          "cdn_url": "https://vorschau.magnet-xs.ch/holz-susi-v2/images/ref-dach-erneuerung-nachher.png",
+          "cloudflare_url": "https://vorschau.magnet-xs.ch/holz-susi-v2/images/ref-dach-erneuerung-nachher.png",
+          "cloudflare_short": "vorschau.magnet-xs.ch/holz-susi-v2/images/ref-dach-erneuerung-nachher.png",
+          "is_used": false,
+          "used_in": [],
+          "used_in_pages": [],
+          "alt": "Referenzunternehmen Referenzunternehmen Referenzunternehmen Referenzunternehmen Referenzunternehmen Holz-Susi GmbH (Frick) – Einblick & Referenz: Dach Erneuerung Nachher – Erfolgsprojekt mit Holz-Susi GmbH (Frick (AG)) – Erfolgsprojekt mit Holz-Susi GmbH (Frick (AG)) – Erfolgsprojekt mit Holz-Susi GmbH (Frick (AG)) – Erfolgsprojekt mit Holz-Susi GmbH (Frick (AG)) – Erfolgsprojekt mit Holz-Susi GmbH (Frick (AG))"
+        },
+        {
+          "nr": 9,
+          "id": "images_ref_dach_erneuerung_vorher_png",
+          "filename": "ref-dach-erneuerung-vorher.png",
+          "rel_path": "images/ref-dach-erneuerung-vorher.png",
+          "folder": "preview-holz-susi-v2",
+          "category": "Referenz, Projekt & Angebot",
+          "category_code": "ref",
+          "dimensions": "512x341",
+          "size_kb": 338.7,
+          "format": "PNG",
+          "mtime": 1794228910,
+          "mtime_str": "09.11.2026 12:55",
+          "cdn_url": "https://vorschau.magnet-xs.ch/holz-susi-v2/images/ref-dach-erneuerung-vorher.png",
+          "cloudflare_url": "https://vorschau.magnet-xs.ch/holz-susi-v2/images/ref-dach-erneuerung-vorher.png",
+          "cloudflare_short": "vorschau.magnet-xs.ch/holz-susi-v2/images/ref-dach-erneuerung-vorher.png",
+          "is_used": false,
+          "used_in": [],
+          "used_in_pages": [],
+          "alt": "Referenzunternehmen Referenzunternehmen Referenzunternehmen Referenzunternehmen Referenzunternehmen Holz-Susi GmbH (Frick) – Einblick & Referenz: Dach Erneuerung Vorher – Erfolgsprojekt mit Holz-Susi GmbH (Frick (AG)) – Erfolgsprojekt mit Holz-Susi GmbH (Frick (AG)) – Erfolgsprojekt mit Holz-Susi GmbH (Frick (AG)) – Erfolgsprojekt mit Holz-Susi GmbH (Frick (AG)) – Erfolgsprojekt mit Holz-Susi GmbH (Frick (AG))"
+        },
+        {
+          "nr": 10,
+          "id": "images_ref_dachsanierung_komplett_nachher_png",
+          "filename": "ref-dachsanierung-komplett-nachher.png",
+          "rel_path": "images/ref-dachsanierung-komplett-nachher.png",
+          "folder": "preview-holz-susi-v2",
+          "category": "Referenz, Projekt & Angebot",
+          "category_code": "ref",
+          "dimensions": "512x341",
+          "size_kb": 392.5,
+          "format": "PNG",
+          "mtime": 1794228910,
+          "mtime_str": "09.11.2026 12:55",
+          "cdn_url": "https://vorschau.magnet-xs.ch/holz-susi-v2/images/ref-dachsanierung-komplett-nachher.png",
+          "cloudflare_url": "https://vorschau.magnet-xs.ch/holz-susi-v2/images/ref-dachsanierung-komplett-nachher.png",
+          "cloudflare_short": "vorschau.magnet-xs.ch/holz-susi-v2/images/ref-dachsanierung-komplett-nachher.png",
+          "is_used": true,
+          "used_in": [
+            {
+              "datei": "index.html",
+              "slot": "image",
+              "is_hero": false
+            }
+          ],
+          "used_in_pages": [
+            "index.html"
+          ],
+          "alt": "Holz-Susi GmbH Frick Vorher/Nachher-Projekt: Dachsanierung Komplettprojekt"
+        },
+        {
+          "nr": 11,
+          "id": "images_ref_dachsanierung_komplett_vorher_png",
+          "filename": "ref-dachsanierung-komplett-vorher.png",
+          "rel_path": "images/ref-dachsanierung-komplett-vorher.png",
+          "folder": "preview-holz-susi-v2",
+          "category": "Referenz, Projekt & Angebot",
+          "category_code": "ref",
+          "dimensions": "512x341",
+          "size_kb": 404.4,
+          "format": "PNG",
+          "mtime": 1794228909,
+          "mtime_str": "09.11.2026 12:55",
+          "cdn_url": "https://vorschau.magnet-xs.ch/holz-susi-v2/images/ref-dachsanierung-komplett-vorher.png",
+          "cloudflare_url": "https://vorschau.magnet-xs.ch/holz-susi-v2/images/ref-dachsanierung-komplett-vorher.png",
+          "cloudflare_short": "vorschau.magnet-xs.ch/holz-susi-v2/images/ref-dachsanierung-komplett-vorher.png",
+          "is_used": false,
+          "used_in": [],
+          "used_in_pages": [],
+          "alt": "Referenzunternehmen Referenzunternehmen Referenzunternehmen Referenzunternehmen Referenzunternehmen Holz-Susi GmbH (Frick) – Einblick & Referenz: Dachsanierung Komplett Vorher – Erfolgsprojekt mit Holz-Susi GmbH (Frick (AG)) – Erfolgsprojekt mit Holz-Susi GmbH (Frick (AG)) – Erfolgsprojekt mit Holz-Susi GmbH (Frick (AG)) – Erfolgsprojekt mit Holz-Susi GmbH (Frick (AG)) – Erfolgsprojekt mit Holz-Susi GmbH (Frick (AG))"
+        },
+        {
+          "nr": 12,
+          "id": "images_ref_dachstock_ausbau_nachher_png",
+          "filename": "ref-dachstock-ausbau-nachher.png",
+          "rel_path": "images/ref-dachstock-ausbau-nachher.png",
+          "folder": "preview-holz-susi-v2",
+          "category": "Referenz, Projekt & Angebot",
+          "category_code": "ref",
+          "dimensions": "512x341",
+          "size_kb": 380.9,
+          "format": "PNG",
+          "mtime": 1794228909,
+          "mtime_str": "09.11.2026 12:55",
+          "cdn_url": "https://vorschau.magnet-xs.ch/holz-susi-v2/images/ref-dachstock-ausbau-nachher.png",
+          "cloudflare_url": "https://vorschau.magnet-xs.ch/holz-susi-v2/images/ref-dachstock-ausbau-nachher.png",
+          "cloudflare_short": "vorschau.magnet-xs.ch/holz-susi-v2/images/ref-dachstock-ausbau-nachher.png",
+          "is_used": true,
+          "used_in": [
+            {
+              "datei": "index.html",
+              "slot": "image",
+              "is_hero": false
+            }
+          ],
+          "used_in_pages": [
+            "index.html"
+          ],
+          "alt": "Holz-Susi GmbH Frick Vorher/Nachher-Projekt: Ausbau Dachstock & Estrich"
+        },
+        {
+          "nr": 13,
+          "id": "images_ref_dachstock_ausbau_vorher_png",
+          "filename": "ref-dachstock-ausbau-vorher.png",
+          "rel_path": "images/ref-dachstock-ausbau-vorher.png",
+          "folder": "preview-holz-susi-v2",
+          "category": "Referenz, Projekt & Angebot",
+          "category_code": "ref",
+          "dimensions": "512x341",
+          "size_kb": 359.9,
+          "format": "PNG",
+          "mtime": 1794228909,
+          "mtime_str": "09.11.2026 12:55",
+          "cdn_url": "https://vorschau.magnet-xs.ch/holz-susi-v2/images/ref-dachstock-ausbau-vorher.png",
+          "cloudflare_url": "https://vorschau.magnet-xs.ch/holz-susi-v2/images/ref-dachstock-ausbau-vorher.png",
+          "cloudflare_short": "vorschau.magnet-xs.ch/holz-susi-v2/images/ref-dachstock-ausbau-vorher.png",
+          "is_used": false,
+          "used_in": [],
+          "used_in_pages": [],
+          "alt": "Referenzunternehmen Referenzunternehmen Referenzunternehmen Referenzunternehmen Referenzunternehmen Holz-Susi GmbH (Frick) – Einblick & Referenz: Dachstock Ausbau Vorher – Erfolgsprojekt mit Holz-Susi GmbH (Frick (AG)) – Erfolgsprojekt mit Holz-Susi GmbH (Frick (AG)) – Erfolgsprojekt mit Holz-Susi GmbH (Frick (AG)) – Erfolgsprojekt mit Holz-Susi GmbH (Frick (AG)) – Erfolgsprojekt mit Holz-Susi GmbH (Frick (AG))"
+        },
+        {
+          "nr": 14,
+          "id": "images_ref_dachstuhl_montage_01_png",
+          "filename": "ref-dachstuhl-montage-01.png",
+          "rel_path": "images/ref-dachstuhl-montage-01.png",
+          "folder": "preview-holz-susi-v2",
+          "category": "Referenz, Projekt & Angebot",
+          "category_code": "ref",
+          "dimensions": "512x168",
+          "size_kb": 172.7,
+          "format": "PNG",
+          "mtime": 1794228910,
+          "mtime_str": "09.11.2026 12:55",
+          "cdn_url": "https://vorschau.magnet-xs.ch/holz-susi-v2/images/ref-dachstuhl-montage-01.png",
+          "cloudflare_url": "https://vorschau.magnet-xs.ch/holz-susi-v2/images/ref-dachstuhl-montage-01.png",
+          "cloudflare_short": "vorschau.magnet-xs.ch/holz-susi-v2/images/ref-dachstuhl-montage-01.png",
+          "is_used": false,
+          "used_in": [],
+          "used_in_pages": [],
+          "alt": "Referenzunternehmen Referenzunternehmen Referenzunternehmen Referenzunternehmen Referenzunternehmen Holz-Susi GmbH (Frick) – Einblick & Referenz: Dachstuhl Montage 01 – Erfolgsprojekt mit Holz-Susi GmbH (Frick (AG)) – Erfolgsprojekt mit Holz-Susi GmbH (Frick (AG)) – Erfolgsprojekt mit Holz-Susi GmbH (Frick (AG)) – Erfolgsprojekt mit Holz-Susi GmbH (Frick (AG)) – Erfolgsprojekt mit Holz-Susi GmbH (Frick (AG))"
+        },
+        {
+          "nr": 15,
+          "id": "images_ref_dachstuhl_montage_02_png",
+          "filename": "ref-dachstuhl-montage-02.png",
+          "rel_path": "images/ref-dachstuhl-montage-02.png",
+          "folder": "preview-holz-susi-v2",
+          "category": "Referenz, Projekt & Angebot",
+          "category_code": "ref",
+          "dimensions": "512x341",
+          "size_kb": 332.5,
+          "format": "PNG",
+          "mtime": 1794228910,
+          "mtime_str": "09.11.2026 12:55",
+          "cdn_url": "https://vorschau.magnet-xs.ch/holz-susi-v2/images/ref-dachstuhl-montage-02.png",
+          "cloudflare_url": "https://vorschau.magnet-xs.ch/holz-susi-v2/images/ref-dachstuhl-montage-02.png",
+          "cloudflare_short": "vorschau.magnet-xs.ch/holz-susi-v2/images/ref-dachstuhl-montage-02.png",
+          "is_used": false,
+          "used_in": [],
+          "used_in_pages": [],
+          "alt": "Referenzunternehmen Referenzunternehmen Referenzunternehmen Referenzunternehmen Referenzunternehmen Holz-Susi GmbH (Frick) – Einblick & Referenz: Dachstuhl Montage 02 – Erfolgsprojekt mit Holz-Susi GmbH (Frick (AG)) – Erfolgsprojekt mit Holz-Susi GmbH (Frick (AG)) – Erfolgsprojekt mit Holz-Susi GmbH (Frick (AG)) – Erfolgsprojekt mit Holz-Susi GmbH (Frick (AG)) – Erfolgsprojekt mit Holz-Susi GmbH (Frick (AG))"
+        },
+        {
+          "nr": 16,
+          "id": "images_ref_estrich_erneuerung_nachher_png",
+          "filename": "ref-estrich-erneuerung-nachher.png",
+          "rel_path": "images/ref-estrich-erneuerung-nachher.png",
+          "folder": "preview-holz-susi-v2",
+          "category": "Referenz, Projekt & Angebot",
+          "category_code": "ref",
+          "dimensions": "512x341",
+          "size_kb": 330.2,
+          "format": "PNG",
+          "mtime": 1794228911,
+          "mtime_str": "09.11.2026 12:55",
+          "cdn_url": "https://vorschau.magnet-xs.ch/holz-susi-v2/images/ref-estrich-erneuerung-nachher.png",
+          "cloudflare_url": "https://vorschau.magnet-xs.ch/holz-susi-v2/images/ref-estrich-erneuerung-nachher.png",
+          "cloudflare_short": "vorschau.magnet-xs.ch/holz-susi-v2/images/ref-estrich-erneuerung-nachher.png",
+          "is_used": false,
+          "used_in": [],
+          "used_in_pages": [],
+          "alt": "Referenzunternehmen Referenzunternehmen Referenzunternehmen Referenzunternehmen Referenzunternehmen Holz-Susi GmbH (Frick) – Einblick & Referenz: Estrich Erneuerung Nachher – Erfolgsprojekt mit Holz-Susi GmbH (Frick (AG)) – Erfolgsprojekt mit Holz-Susi GmbH (Frick (AG)) – Erfolgsprojekt mit Holz-Susi GmbH (Frick (AG)) – Erfolgsprojekt mit Holz-Susi GmbH (Frick (AG)) – Erfolgsprojekt mit Holz-Susi GmbH (Frick (AG))"
+        },
+        {
+          "nr": 17,
+          "id": "images_ref_estrich_erneuerung_vorher_png",
+          "filename": "ref-estrich-erneuerung-vorher.png",
+          "rel_path": "images/ref-estrich-erneuerung-vorher.png",
+          "folder": "preview-holz-susi-v2",
+          "category": "Referenz, Projekt & Angebot",
+          "category_code": "ref",
+          "dimensions": "512x341",
+          "size_kb": 366.1,
+          "format": "PNG",
+          "mtime": 1794228911,
+          "mtime_str": "09.11.2026 12:55",
+          "cdn_url": "https://vorschau.magnet-xs.ch/holz-susi-v2/images/ref-estrich-erneuerung-vorher.png",
+          "cloudflare_url": "https://vorschau.magnet-xs.ch/holz-susi-v2/images/ref-estrich-erneuerung-vorher.png",
+          "cloudflare_short": "vorschau.magnet-xs.ch/holz-susi-v2/images/ref-estrich-erneuerung-vorher.png",
+          "is_used": false,
+          "used_in": [],
+          "used_in_pages": [],
+          "alt": "Referenzunternehmen Referenzunternehmen Referenzunternehmen Referenzunternehmen Referenzunternehmen Holz-Susi GmbH (Frick) – Einblick & Referenz: Estrich Erneuerung Vorher – Erfolgsprojekt mit Holz-Susi GmbH (Frick (AG)) – Erfolgsprojekt mit Holz-Susi GmbH (Frick (AG)) – Erfolgsprojekt mit Holz-Susi GmbH (Frick (AG)) – Erfolgsprojekt mit Holz-Susi GmbH (Frick (AG)) – Erfolgsprojekt mit Holz-Susi GmbH (Frick (AG))"
+        },
+        {
+          "nr": 18,
+          "id": "images_ref_fassade_holzschalung_nachher_png",
+          "filename": "ref-fassade-holzschalung-nachher.png",
+          "rel_path": "images/ref-fassade-holzschalung-nachher.png",
+          "folder": "preview-holz-susi-v2",
+          "category": "Referenz, Projekt & Angebot",
+          "category_code": "ref",
+          "dimensions": "432x432",
+          "size_kb": 322.1,
+          "format": "PNG",
+          "mtime": 1794228911,
+          "mtime_str": "09.11.2026 12:55",
+          "cdn_url": "https://vorschau.magnet-xs.ch/holz-susi-v2/images/ref-fassade-holzschalung-nachher.png",
+          "cloudflare_url": "https://vorschau.magnet-xs.ch/holz-susi-v2/images/ref-fassade-holzschalung-nachher.png",
+          "cloudflare_short": "vorschau.magnet-xs.ch/holz-susi-v2/images/ref-fassade-holzschalung-nachher.png",
+          "is_used": true,
+          "used_in": [
+            {
+              "datei": "index.html",
+              "slot": "image",
+              "is_hero": false
+            }
+          ],
+          "used_in_pages": [
+            "index.html"
+          ],
+          "alt": "Holz-Susi GmbH Frick Vorher/Nachher-Projekt: Fassadenverschönerung mit Holzschalung"
+        },
+        {
+          "nr": 19,
+          "id": "images_ref_fassade_holzschalung_vorher_png",
+          "filename": "ref-fassade-holzschalung-vorher.png",
+          "rel_path": "images/ref-fassade-holzschalung-vorher.png",
+          "folder": "preview-holz-susi-v2",
+          "category": "Referenz, Projekt & Angebot",
+          "category_code": "ref",
+          "dimensions": "432x432",
+          "size_kb": 369.1,
+          "format": "PNG",
+          "mtime": 1794228911,
+          "mtime_str": "09.11.2026 12:55",
+          "cdn_url": "https://vorschau.magnet-xs.ch/holz-susi-v2/images/ref-fassade-holzschalung-vorher.png",
+          "cloudflare_url": "https://vorschau.magnet-xs.ch/holz-susi-v2/images/ref-fassade-holzschalung-vorher.png",
+          "cloudflare_short": "vorschau.magnet-xs.ch/holz-susi-v2/images/ref-fassade-holzschalung-vorher.png",
+          "is_used": false,
+          "used_in": [],
+          "used_in_pages": [],
+          "alt": "Referenzunternehmen Referenzunternehmen Referenzunternehmen Referenzunternehmen Referenzunternehmen Holz-Susi GmbH (Frick) – Einblick & Referenz: Fassade Holzschalung Vorher – Erfolgsprojekt mit Holz-Susi GmbH (Frick (AG)) – Erfolgsprojekt mit Holz-Susi GmbH (Frick (AG)) – Erfolgsprojekt mit Holz-Susi GmbH (Frick (AG)) – Erfolgsprojekt mit Holz-Susi GmbH (Frick (AG)) – Erfolgsprojekt mit Holz-Susi GmbH (Frick (AG))"
+        },
+        {
+          "nr": 20,
+          "id": "images_ref_firstfenster_dachfenster_nachher_png",
+          "filename": "ref-firstfenster-dachfenster-nachher.png",
+          "rel_path": "images/ref-firstfenster-dachfenster-nachher.png",
+          "folder": "preview-holz-susi-v2",
+          "category": "Referenz, Projekt & Angebot",
+          "category_code": "ref",
+          "dimensions": "286x512",
+          "size_kb": 239.3,
+          "format": "PNG",
+          "mtime": 1794228912,
+          "mtime_str": "09.11.2026 12:55",
+          "cdn_url": "https://vorschau.magnet-xs.ch/holz-susi-v2/images/ref-firstfenster-dachfenster-nachher.png",
+          "cloudflare_url": "https://vorschau.magnet-xs.ch/holz-susi-v2/images/ref-firstfenster-dachfenster-nachher.png",
+          "cloudflare_short": "vorschau.magnet-xs.ch/holz-susi-v2/images/ref-firstfenster-dachfenster-nachher.png",
+          "is_used": true,
+          "used_in": [
+            {
+              "datei": "index.html",
+              "slot": "image",
+              "is_hero": false
+            }
+          ],
+          "used_in_pages": [
+            "index.html"
+          ],
+          "alt": "Holz-Susi GmbH Frick Vorher/Nachher-Projekt: Rückbau Firstfenster & neue Dachfenster"
+        },
+        {
+          "nr": 21,
+          "id": "images_ref_firstfenster_dachfenster_vorher_png",
+          "filename": "ref-firstfenster-dachfenster-vorher.png",
+          "rel_path": "images/ref-firstfenster-dachfenster-vorher.png",
+          "folder": "preview-holz-susi-v2",
+          "category": "Referenz, Projekt & Angebot",
+          "category_code": "ref",
+          "dimensions": "286x512",
+          "size_kb": 237.2,
+          "format": "PNG",
+          "mtime": 1794228911,
+          "mtime_str": "09.11.2026 12:55",
+          "cdn_url": "https://vorschau.magnet-xs.ch/holz-susi-v2/images/ref-firstfenster-dachfenster-vorher.png",
+          "cloudflare_url": "https://vorschau.magnet-xs.ch/holz-susi-v2/images/ref-firstfenster-dachfenster-vorher.png",
+          "cloudflare_short": "vorschau.magnet-xs.ch/holz-susi-v2/images/ref-firstfenster-dachfenster-vorher.png",
+          "is_used": false,
+          "used_in": [],
+          "used_in_pages": [],
+          "alt": "Referenzunternehmen Referenzunternehmen Referenzunternehmen Referenzunternehmen Referenzunternehmen Holz-Susi GmbH (Frick) – Einblick & Referenz: Firstfenster Dachfenster Vorher – Erfolgsprojekt mit Holz-Susi GmbH (Frick (AG)) – Erfolgsprojekt mit Holz-Susi GmbH (Frick (AG)) – Erfolgsprojekt mit Holz-Susi GmbH (Frick (AG)) – Erfolgsprojekt mit Holz-Susi GmbH (Frick (AG)) – Erfolgsprojekt mit Holz-Susi GmbH (Frick (AG))"
+        },
+        {
+          "nr": 22,
+          "id": "images_ref_kunden_architekten_jpg",
+          "filename": "ref-kunden-architekten.jpg",
+          "rel_path": "images/ref-kunden-architekten.jpg",
+          "folder": "preview-holz-susi-v2",
+          "category": "Referenz, Projekt & Angebot",
+          "category_code": "ref",
+          "dimensions": "1280x852",
+          "size_kb": 114.8,
+          "format": "JPG",
+          "mtime": 1794228907,
+          "mtime_str": "09.11.2026 12:55",
+          "cdn_url": "https://vorschau.magnet-xs.ch/holz-susi-v2/images/ref-kunden-architekten.jpg",
+          "cloudflare_url": "https://vorschau.magnet-xs.ch/holz-susi-v2/images/ref-kunden-architekten.jpg",
+          "cloudflare_short": "vorschau.magnet-xs.ch/holz-susi-v2/images/ref-kunden-architekten.jpg",
+          "is_used": false,
+          "used_in": [],
+          "used_in_pages": [],
+          "alt": "Referenzunternehmen Referenzunternehmen Referenzunternehmen Referenzunternehmen Referenzunternehmen Holz-Susi GmbH (Frick) – Einblick & Referenz: Kunden Architekten – Erfolgsprojekt mit Holz-Susi GmbH (Frick (AG)) – Erfolgsprojekt mit Holz-Susi GmbH (Frick (AG)) – Erfolgsprojekt mit Holz-Susi GmbH (Frick (AG)) – Erfolgsprojekt mit Holz-Susi GmbH (Frick (AG)) – Erfolgsprojekt mit Holz-Susi GmbH (Frick (AG))"
+        },
+        {
+          "nr": 23,
+          "id": "images_ref_kunden_bauherren_jpg",
+          "filename": "ref-kunden-bauherren.jpg",
+          "rel_path": "images/ref-kunden-bauherren.jpg",
+          "folder": "preview-holz-susi-v2",
+          "category": "Referenz, Projekt & Angebot",
+          "category_code": "ref",
+          "dimensions": "1280x852",
+          "size_kb": 168.8,
+          "format": "JPG",
+          "mtime": 1794228907,
+          "mtime_str": "09.11.2026 12:55",
+          "cdn_url": "https://vorschau.magnet-xs.ch/holz-susi-v2/images/ref-kunden-bauherren.jpg",
+          "cloudflare_url": "https://vorschau.magnet-xs.ch/holz-susi-v2/images/ref-kunden-bauherren.jpg",
+          "cloudflare_short": "vorschau.magnet-xs.ch/holz-susi-v2/images/ref-kunden-bauherren.jpg",
+          "is_used": false,
+          "used_in": [],
+          "used_in_pages": [],
+          "alt": "Referenzunternehmen Referenzunternehmen Referenzunternehmen Referenzunternehmen Referenzunternehmen Holz-Susi GmbH (Frick) – Einblick & Referenz: Kunden Bauherren – Erfolgsprojekt mit Holz-Susi GmbH (Frick (AG)) – Erfolgsprojekt mit Holz-Susi GmbH (Frick (AG)) – Erfolgsprojekt mit Holz-Susi GmbH (Frick (AG)) – Erfolgsprojekt mit Holz-Susi GmbH (Frick (AG)) – Erfolgsprojekt mit Holz-Susi GmbH (Frick (AG))"
+        },
+        {
+          "nr": 24,
+          "id": "images_ref_kunden_bauunternehmen_jpg",
+          "filename": "ref-kunden-bauunternehmen.jpg",
+          "rel_path": "images/ref-kunden-bauunternehmen.jpg",
+          "folder": "preview-holz-susi-v2",
+          "category": "Referenz, Projekt & Angebot",
+          "category_code": "ref",
+          "dimensions": "1280x852",
+          "size_kb": 191.4,
+          "format": "JPG",
+          "mtime": 1794228908,
+          "mtime_str": "09.11.2026 12:55",
+          "cdn_url": "https://vorschau.magnet-xs.ch/holz-susi-v2/images/ref-kunden-bauunternehmen.jpg",
+          "cloudflare_url": "https://vorschau.magnet-xs.ch/holz-susi-v2/images/ref-kunden-bauunternehmen.jpg",
+          "cloudflare_short": "vorschau.magnet-xs.ch/holz-susi-v2/images/ref-kunden-bauunternehmen.jpg",
+          "is_used": false,
+          "used_in": [],
+          "used_in_pages": [],
+          "alt": "Referenzunternehmen Referenzunternehmen Referenzunternehmen Referenzunternehmen Referenzunternehmen Holz-Susi GmbH (Frick) – Einblick & Referenz: Kunden Bauunternehmen – Erfolgsprojekt mit Holz-Susi GmbH (Frick (AG)) – Erfolgsprojekt mit Holz-Susi GmbH (Frick (AG)) – Erfolgsprojekt mit Holz-Susi GmbH (Frick (AG)) – Erfolgsprojekt mit Holz-Susi GmbH (Frick (AG)) – Erfolgsprojekt mit Holz-Susi GmbH (Frick (AG))"
+        },
+        {
+          "nr": 25,
+          "id": "images_ref_laminat_boden_nachher_png",
+          "filename": "ref-laminat-boden-nachher.png",
+          "rel_path": "images/ref-laminat-boden-nachher.png",
+          "folder": "preview-holz-susi-v2",
+          "category": "Referenz, Projekt & Angebot",
+          "category_code": "ref",
+          "dimensions": "512x341",
+          "size_kb": 321.5,
+          "format": "PNG",
+          "mtime": 1794228909,
+          "mtime_str": "09.11.2026 12:55",
+          "cdn_url": "https://vorschau.magnet-xs.ch/holz-susi-v2/images/ref-laminat-boden-nachher.png",
+          "cloudflare_url": "https://vorschau.magnet-xs.ch/holz-susi-v2/images/ref-laminat-boden-nachher.png",
+          "cloudflare_short": "vorschau.magnet-xs.ch/holz-susi-v2/images/ref-laminat-boden-nachher.png",
+          "is_used": false,
+          "used_in": [],
+          "used_in_pages": [],
+          "alt": "Referenzunternehmen Referenzunternehmen Referenzunternehmen Referenzunternehmen Referenzunternehmen Holz-Susi GmbH (Frick) – Einblick & Referenz: Laminat Boden Nachher – Erfolgsprojekt mit Holz-Susi GmbH (Frick (AG)) – Erfolgsprojekt mit Holz-Susi GmbH (Frick (AG)) – Erfolgsprojekt mit Holz-Susi GmbH (Frick (AG)) – Erfolgsprojekt mit Holz-Susi GmbH (Frick (AG)) – Erfolgsprojekt mit Holz-Susi GmbH (Frick (AG))"
+        },
+        {
+          "nr": 26,
+          "id": "images_ref_laminat_boden_vorher_png",
+          "filename": "ref-laminat-boden-vorher.png",
+          "rel_path": "images/ref-laminat-boden-vorher.png",
+          "folder": "preview-holz-susi-v2",
+          "category": "Referenz, Projekt & Angebot",
+          "category_code": "ref",
+          "dimensions": "512x341",
+          "size_kb": 264.1,
+          "format": "PNG",
+          "mtime": 1794228909,
+          "mtime_str": "09.11.2026 12:55",
+          "cdn_url": "https://vorschau.magnet-xs.ch/holz-susi-v2/images/ref-laminat-boden-vorher.png",
+          "cloudflare_url": "https://vorschau.magnet-xs.ch/holz-susi-v2/images/ref-laminat-boden-vorher.png",
+          "cloudflare_short": "vorschau.magnet-xs.ch/holz-susi-v2/images/ref-laminat-boden-vorher.png",
+          "is_used": false,
+          "used_in": [],
+          "used_in_pages": [],
+          "alt": "Referenzunternehmen Referenzunternehmen Referenzunternehmen Referenzunternehmen Referenzunternehmen Holz-Susi GmbH (Frick) – Einblick & Referenz: Laminat Boden Vorher – Erfolgsprojekt mit Holz-Susi GmbH (Frick (AG)) – Erfolgsprojekt mit Holz-Susi GmbH (Frick (AG)) – Erfolgsprojekt mit Holz-Susi GmbH (Frick (AG)) – Erfolgsprojekt mit Holz-Susi GmbH (Frick (AG)) – Erfolgsprojekt mit Holz-Susi GmbH (Frick (AG))"
+        },
+        {
+          "nr": 27,
+          "id": "images_ref_leistung_abbruch_png",
+          "filename": "ref-leistung-abbruch.png",
+          "rel_path": "images/ref-leistung-abbruch.png",
+          "folder": "preview-holz-susi-v2",
+          "category": "Referenz, Projekt & Angebot",
+          "category_code": "ref",
+          "dimensions": "512x341",
+          "size_kb": 384.0,
+          "format": "PNG",
+          "mtime": 1794228908,
+          "mtime_str": "09.11.2026 12:55",
+          "cdn_url": "https://vorschau.magnet-xs.ch/holz-susi-v2/images/ref-leistung-abbruch.png",
+          "cloudflare_url": "https://vorschau.magnet-xs.ch/holz-susi-v2/images/ref-leistung-abbruch.png",
+          "cloudflare_short": "vorschau.magnet-xs.ch/holz-susi-v2/images/ref-leistung-abbruch.png",
+          "is_used": true,
+          "used_in": [
+            {
+              "datei": "index.html",
+              "slot": "image",
+              "is_hero": false
+            }
+          ],
+          "used_in_pages": [
+            "index.html"
+          ],
+          "alt": "Gezielte Abbrucharbeiten und Rückbau bei Umbauten"
+        },
+        {
+          "nr": 28,
+          "id": "images_ref_leistung_dachfenster_jpg",
+          "filename": "ref-leistung-dachfenster.jpg",
+          "rel_path": "images/ref-leistung-dachfenster.jpg",
+          "folder": "preview-holz-susi-v2",
+          "category": "Referenz, Projekt & Angebot",
+          "category_code": "ref",
+          "dimensions": "1280x852",
+          "size_kb": 189.2,
+          "format": "JPG",
+          "mtime": 1794228908,
+          "mtime_str": "09.11.2026 12:55",
+          "cdn_url": "https://vorschau.magnet-xs.ch/holz-susi-v2/images/ref-leistung-dachfenster.jpg",
+          "cloudflare_url": "https://vorschau.magnet-xs.ch/holz-susi-v2/images/ref-leistung-dachfenster.jpg",
+          "cloudflare_short": "vorschau.magnet-xs.ch/holz-susi-v2/images/ref-leistung-dachfenster.jpg",
+          "is_used": true,
+          "used_in": [
+            {
+              "datei": "index.html",
+              "slot": "image",
+              "is_hero": false
+            }
+          ],
+          "used_in_pages": [
+            "index.html"
+          ],
+          "alt": "Einbau und Wechsel von Dachfenstern im Fricktal"
+        },
+        {
+          "nr": 29,
+          "id": "images_ref_leistung_dachsanierung_png",
+          "filename": "ref-leistung-dachsanierung.png",
+          "rel_path": "images/ref-leistung-dachsanierung.png",
+          "folder": "preview-holz-susi-v2",
+          "category": "Referenz, Projekt & Angebot",
+          "category_code": "ref",
+          "dimensions": "640x426",
+          "size_kb": 203.3,
+          "format": "PNG",
+          "mtime": 1794228908,
+          "mtime_str": "09.11.2026 12:55",
+          "cdn_url": "https://vorschau.magnet-xs.ch/holz-susi-v2/images/ref-leistung-dachsanierung.png",
+          "cloudflare_url": "https://vorschau.magnet-xs.ch/holz-susi-v2/images/ref-leistung-dachsanierung.png",
+          "cloudflare_short": "vorschau.magnet-xs.ch/holz-susi-v2/images/ref-leistung-dachsanierung.png",
+          "is_used": true,
+          "used_in": [
+            {
+              "datei": "index.html",
+              "slot": "image",
+              "is_hero": false
+            }
+          ],
+          "used_in_pages": [
+            "index.html"
+          ],
+          "alt": "Dacherneuerung und energetische Dachsanierung durch Holz-Susi GmbH Frick"
+        },
+        {
+          "nr": 30,
+          "id": "images_ref_leistung_innenausbau_jpg",
+          "filename": "ref-leistung-innenausbau.jpg",
+          "rel_path": "images/ref-leistung-innenausbau.jpg",
+          "folder": "preview-holz-susi-v2",
+          "category": "Referenz, Projekt & Angebot",
+          "category_code": "ref",
+          "dimensions": "1280x852",
+          "size_kb": 124.4,
+          "format": "JPG",
+          "mtime": 1794228908,
+          "mtime_str": "09.11.2026 12:55",
+          "cdn_url": "https://vorschau.magnet-xs.ch/holz-susi-v2/images/ref-leistung-innenausbau.jpg",
+          "cloudflare_url": "https://vorschau.magnet-xs.ch/holz-susi-v2/images/ref-leistung-innenausbau.jpg",
+          "cloudflare_short": "vorschau.magnet-xs.ch/holz-susi-v2/images/ref-leistung-innenausbau.jpg",
+          "is_used": true,
+          "used_in": [
+            {
+              "datei": "index.html",
+              "slot": "image",
+              "is_hero": false
+            }
+          ],
+          "used_in_pages": [
+            "index.html"
+          ],
+          "alt": "Innenausbau, Dachstock und Estrich durch Holz-Susi GmbH"
+        },
+        {
+          "nr": 31,
+          "id": "images_ref_leistung_projektleitung_jpg",
+          "filename": "ref-leistung-projektleitung.jpg",
+          "rel_path": "images/ref-leistung-projektleitung.jpg",
+          "folder": "preview-holz-susi-v2",
+          "category": "Referenz, Projekt & Angebot",
+          "category_code": "ref",
+          "dimensions": "1280x852",
+          "size_kb": 110.9,
+          "format": "JPG",
+          "mtime": 1794228908,
+          "mtime_str": "09.11.2026 12:55",
+          "cdn_url": "https://vorschau.magnet-xs.ch/holz-susi-v2/images/ref-leistung-projektleitung.jpg",
+          "cloudflare_url": "https://vorschau.magnet-xs.ch/holz-susi-v2/images/ref-leistung-projektleitung.jpg",
+          "cloudflare_short": "vorschau.magnet-xs.ch/holz-susi-v2/images/ref-leistung-projektleitung.jpg",
+          "is_used": true,
+          "used_in": [
+            {
+              "datei": "index.html",
+              "slot": "image",
+              "is_hero": false
+            }
+          ],
+          "used_in_pages": [
+            "index.html"
+          ],
+          "alt": "Projektplanung, Projektleitung und Bauleitung im Holzbau"
+        },
+        {
+          "nr": 32,
+          "id": "images_ref_leistung_terrasse_fassade_jpg",
+          "filename": "ref-leistung-terrasse-fassade.jpg",
+          "rel_path": "images/ref-leistung-terrasse-fassade.jpg",
+          "folder": "preview-holz-susi-v2",
+          "category": "Referenz, Projekt & Angebot",
+          "category_code": "ref",
+          "dimensions": "1280x852",
+          "size_kb": 159.6,
+          "format": "JPG",
+          "mtime": 1794228908,
+          "mtime_str": "09.11.2026 12:55",
+          "cdn_url": "https://vorschau.magnet-xs.ch/holz-susi-v2/images/ref-leistung-terrasse-fassade.jpg",
+          "cloudflare_url": "https://vorschau.magnet-xs.ch/holz-susi-v2/images/ref-leistung-terrasse-fassade.jpg",
+          "cloudflare_short": "vorschau.magnet-xs.ch/holz-susi-v2/images/ref-leistung-terrasse-fassade.jpg",
+          "is_used": true,
+          "used_in": [
+            {
+              "datei": "index.html",
+              "slot": "image",
+              "is_hero": false
+            }
+          ],
+          "used_in_pages": [
+            "index.html"
+          ],
+          "alt": "Terrassenrost, Pergola und Holzfassade von Holz-Susi GmbH"
+        },
+        {
+          "nr": 33,
+          "id": "images_ref_marderschaden_nachher_png",
+          "filename": "ref-marderschaden-nachher.png",
+          "rel_path": "images/ref-marderschaden-nachher.png",
+          "folder": "preview-holz-susi-v2",
+          "category": "Referenz, Projekt & Angebot",
+          "category_code": "ref",
+          "dimensions": "512x341",
+          "size_kb": 419.4,
+          "format": "PNG",
+          "mtime": 1794228909,
+          "mtime_str": "09.11.2026 12:55",
+          "cdn_url": "https://vorschau.magnet-xs.ch/holz-susi-v2/images/ref-marderschaden-nachher.png",
+          "cloudflare_url": "https://vorschau.magnet-xs.ch/holz-susi-v2/images/ref-marderschaden-nachher.png",
+          "cloudflare_short": "vorschau.magnet-xs.ch/holz-susi-v2/images/ref-marderschaden-nachher.png",
+          "is_used": true,
+          "used_in": [
+            {
+              "datei": "index.html",
+              "slot": "image",
+              "is_hero": false
+            }
+          ],
+          "used_in_pages": [
+            "index.html"
+          ],
+          "alt": "Holz-Susi GmbH Frick Vorher/Nachher-Projekt: Sanierung Marderschaden am Dach"
+        },
+        {
+          "nr": 34,
+          "id": "images_ref_marderschaden_vorher_png",
+          "filename": "ref-marderschaden-vorher.png",
+          "rel_path": "images/ref-marderschaden-vorher.png",
+          "folder": "preview-holz-susi-v2",
+          "category": "Referenz, Projekt & Angebot",
+          "category_code": "ref",
+          "dimensions": "512x341",
+          "size_kb": 437.5,
+          "format": "PNG",
+          "mtime": 1794228909,
+          "mtime_str": "09.11.2026 12:55",
+          "cdn_url": "https://vorschau.magnet-xs.ch/holz-susi-v2/images/ref-marderschaden-vorher.png",
+          "cloudflare_url": "https://vorschau.magnet-xs.ch/holz-susi-v2/images/ref-marderschaden-vorher.png",
+          "cloudflare_short": "vorschau.magnet-xs.ch/holz-susi-v2/images/ref-marderschaden-vorher.png",
+          "is_used": false,
+          "used_in": [],
+          "used_in_pages": [],
+          "alt": "Referenzunternehmen Referenzunternehmen Referenzunternehmen Referenzunternehmen Referenzunternehmen Holz-Susi GmbH (Frick) – Einblick & Referenz: Marderschaden Vorher – Erfolgsprojekt mit Holz-Susi GmbH (Frick (AG)) – Erfolgsprojekt mit Holz-Susi GmbH (Frick (AG)) – Erfolgsprojekt mit Holz-Susi GmbH (Frick (AG)) – Erfolgsprojekt mit Holz-Susi GmbH (Frick (AG)) – Erfolgsprojekt mit Holz-Susi GmbH (Frick (AG))"
+        },
+        {
+          "nr": 35,
+          "id": "images_ref_pergola_erneuerung_nachher_png",
+          "filename": "ref-pergola-erneuerung-nachher.png",
+          "rel_path": "images/ref-pergola-erneuerung-nachher.png",
+          "folder": "preview-holz-susi-v2",
+          "category": "Referenz, Projekt & Angebot",
+          "category_code": "ref",
+          "dimensions": "576x384",
+          "size_kb": 474.5,
+          "format": "PNG",
+          "mtime": 1794228911,
+          "mtime_str": "09.11.2026 12:55",
+          "cdn_url": "https://vorschau.magnet-xs.ch/holz-susi-v2/images/ref-pergola-erneuerung-nachher.png",
+          "cloudflare_url": "https://vorschau.magnet-xs.ch/holz-susi-v2/images/ref-pergola-erneuerung-nachher.png",
+          "cloudflare_short": "vorschau.magnet-xs.ch/holz-susi-v2/images/ref-pergola-erneuerung-nachher.png",
+          "is_used": false,
+          "used_in": [],
+          "used_in_pages": [],
+          "alt": "Referenzunternehmen Referenzunternehmen Referenzunternehmen Referenzunternehmen Referenzunternehmen Holz-Susi GmbH (Frick) – Einblick & Referenz: Pergola Erneuerung Nachher – Erfolgsprojekt mit Holz-Susi GmbH (Frick (AG)) – Erfolgsprojekt mit Holz-Susi GmbH (Frick (AG)) – Erfolgsprojekt mit Holz-Susi GmbH (Frick (AG)) – Erfolgsprojekt mit Holz-Susi GmbH (Frick (AG)) – Erfolgsprojekt mit Holz-Susi GmbH (Frick (AG))"
+        },
+        {
+          "nr": 36,
+          "id": "images_ref_pergola_erneuerung_vorher_png",
+          "filename": "ref-pergola-erneuerung-vorher.png",
+          "rel_path": "images/ref-pergola-erneuerung-vorher.png",
+          "folder": "preview-holz-susi-v2",
+          "category": "Referenz, Projekt & Angebot",
+          "category_code": "ref",
+          "dimensions": "576x384",
+          "size_kb": 459.8,
+          "format": "PNG",
+          "mtime": 1794228911,
+          "mtime_str": "09.11.2026 12:55",
+          "cdn_url": "https://vorschau.magnet-xs.ch/holz-susi-v2/images/ref-pergola-erneuerung-vorher.png",
+          "cloudflare_url": "https://vorschau.magnet-xs.ch/holz-susi-v2/images/ref-pergola-erneuerung-vorher.png",
+          "cloudflare_short": "vorschau.magnet-xs.ch/holz-susi-v2/images/ref-pergola-erneuerung-vorher.png",
+          "is_used": false,
+          "used_in": [],
+          "used_in_pages": [],
+          "alt": "Referenzunternehmen Referenzunternehmen Referenzunternehmen Referenzunternehmen Referenzunternehmen Holz-Susi GmbH (Frick) – Einblick & Referenz: Pergola Erneuerung Vorher – Erfolgsprojekt mit Holz-Susi GmbH (Frick (AG)) – Erfolgsprojekt mit Holz-Susi GmbH (Frick (AG)) – Erfolgsprojekt mit Holz-Susi GmbH (Frick (AG)) – Erfolgsprojekt mit Holz-Susi GmbH (Frick (AG)) – Erfolgsprojekt mit Holz-Susi GmbH (Frick (AG))"
+        },
+        {
+          "nr": 37,
+          "id": "images_ref_sitzbank_erneuerung_nachher_jpg",
+          "filename": "ref-sitzbank-erneuerung-nachher.jpg",
+          "rel_path": "images/ref-sitzbank-erneuerung-nachher.jpg",
+          "folder": "preview-holz-susi-v2",
+          "category": "Referenz, Projekt & Angebot",
+          "category_code": "ref",
+          "dimensions": "358x640",
+          "size_kb": 130.4,
+          "format": "JPG",
+          "mtime": 1794228912,
+          "mtime_str": "09.11.2026 12:55",
+          "cdn_url": "https://vorschau.magnet-xs.ch/holz-susi-v2/images/ref-sitzbank-erneuerung-nachher.jpg",
+          "cloudflare_url": "https://vorschau.magnet-xs.ch/holz-susi-v2/images/ref-sitzbank-erneuerung-nachher.jpg",
+          "cloudflare_short": "vorschau.magnet-xs.ch/holz-susi-v2/images/ref-sitzbank-erneuerung-nachher.jpg",
+          "is_used": false,
+          "used_in": [],
+          "used_in_pages": [],
+          "alt": "Referenzunternehmen Referenzunternehmen Referenzunternehmen Referenzunternehmen Referenzunternehmen Holz-Susi GmbH (Frick) – Einblick & Referenz: Sitzbank Erneuerung Nachher – Erfolgsprojekt mit Holz-Susi GmbH (Frick (AG)) – Erfolgsprojekt mit Holz-Susi GmbH (Frick (AG)) – Erfolgsprojekt mit Holz-Susi GmbH (Frick (AG)) – Erfolgsprojekt mit Holz-Susi GmbH (Frick (AG)) – Erfolgsprojekt mit Holz-Susi GmbH (Frick (AG))"
+        },
+        {
+          "nr": 38,
+          "id": "images_ref_sitzbank_erneuerung_vorher_jpg",
+          "filename": "ref-sitzbank-erneuerung-vorher.jpg",
+          "rel_path": "images/ref-sitzbank-erneuerung-vorher.jpg",
+          "folder": "preview-holz-susi-v2",
+          "category": "Referenz, Projekt & Angebot",
+          "category_code": "ref",
+          "dimensions": "899x1599",
+          "size_kb": 301.0,
+          "format": "JPG",
+          "mtime": 1794228912,
+          "mtime_str": "09.11.2026 12:55",
+          "cdn_url": "https://vorschau.magnet-xs.ch/holz-susi-v2/images/ref-sitzbank-erneuerung-vorher.jpg",
+          "cloudflare_url": "https://vorschau.magnet-xs.ch/holz-susi-v2/images/ref-sitzbank-erneuerung-vorher.jpg",
+          "cloudflare_short": "vorschau.magnet-xs.ch/holz-susi-v2/images/ref-sitzbank-erneuerung-vorher.jpg",
+          "is_used": false,
+          "used_in": [],
+          "used_in_pages": [],
+          "alt": "Referenzunternehmen Referenzunternehmen Referenzunternehmen Referenzunternehmen Referenzunternehmen Holz-Susi GmbH (Frick) – Einblick & Referenz: Sitzbank Erneuerung Vorher – Erfolgsprojekt mit Holz-Susi GmbH (Frick (AG)) – Erfolgsprojekt mit Holz-Susi GmbH (Frick (AG)) – Erfolgsprojekt mit Holz-Susi GmbH (Frick (AG)) – Erfolgsprojekt mit Holz-Susi GmbH (Frick (AG)) – Erfolgsprojekt mit Holz-Susi GmbH (Frick (AG))"
+        },
+        {
+          "nr": 39,
+          "id": "images_ref_terrassenrost_nachher_jpg",
+          "filename": "ref-terrassenrost-nachher.jpg",
+          "rel_path": "images/ref-terrassenrost-nachher.jpg",
+          "folder": "preview-holz-susi-v2",
+          "category": "Referenz, Projekt & Angebot",
+          "category_code": "ref",
+          "dimensions": "1600x1200",
+          "size_kb": 359.7,
+          "format": "JPG",
+          "mtime": 1794228912,
+          "mtime_str": "09.11.2026 12:55",
+          "cdn_url": "https://vorschau.magnet-xs.ch/holz-susi-v2/images/ref-terrassenrost-nachher.jpg",
+          "cloudflare_url": "https://vorschau.magnet-xs.ch/holz-susi-v2/images/ref-terrassenrost-nachher.jpg",
+          "cloudflare_short": "vorschau.magnet-xs.ch/holz-susi-v2/images/ref-terrassenrost-nachher.jpg",
+          "is_used": true,
+          "used_in": [
+            {
+              "datei": "index.html",
+              "slot": "image",
+              "is_hero": false
+            }
+          ],
+          "used_in_pages": [
+            "index.html"
+          ],
+          "alt": "Holz-Susi GmbH Frick Vorher/Nachher-Projekt: Terrassenrost, Pergola & Sitzbank"
+        },
+        {
+          "nr": 40,
+          "id": "images_ref_terrassenrost_vorher_jpg",
+          "filename": "ref-terrassenrost-vorher.jpg",
+          "rel_path": "images/ref-terrassenrost-vorher.jpg",
+          "folder": "preview-holz-susi-v2",
+          "category": "Referenz, Projekt & Angebot",
+          "category_code": "ref",
+          "dimensions": "1600x1200",
+          "size_kb": 217.5,
+          "format": "JPG",
+          "mtime": 1794228912,
+          "mtime_str": "09.11.2026 12:55",
+          "cdn_url": "https://vorschau.magnet-xs.ch/holz-susi-v2/images/ref-terrassenrost-vorher.jpg",
+          "cloudflare_url": "https://vorschau.magnet-xs.ch/holz-susi-v2/images/ref-terrassenrost-vorher.jpg",
+          "cloudflare_short": "vorschau.magnet-xs.ch/holz-susi-v2/images/ref-terrassenrost-vorher.jpg",
+          "is_used": false,
+          "used_in": [],
+          "used_in_pages": [],
+          "alt": "Referenzunternehmen Referenzunternehmen Referenzunternehmen Referenzunternehmen Referenzunternehmen Holz-Susi GmbH (Frick) – Einblick & Referenz: Terrassenrost Vorher – Erfolgsprojekt mit Holz-Susi GmbH (Frick (AG)) – Erfolgsprojekt mit Holz-Susi GmbH (Frick (AG)) – Erfolgsprojekt mit Holz-Susi GmbH (Frick (AG)) – Erfolgsprojekt mit Holz-Susi GmbH (Frick (AG)) – Erfolgsprojekt mit Holz-Susi GmbH (Frick (AG))"
+        },
+        {
+          "nr": 41,
+          "id": "images_ref_wendelhof_ausblick_jpg",
+          "filename": "ref-wendelhof-ausblick.jpg",
+          "rel_path": "images/ref-wendelhof-ausblick.jpg",
+          "folder": "preview-holz-susi-v2",
+          "category": "Referenz, Projekt & Angebot",
+          "category_code": "ref",
+          "dimensions": "1400x654",
+          "size_kb": 401.5,
+          "format": "JPG",
+          "mtime": 1794228913,
+          "mtime_str": "09.11.2026 12:55",
+          "cdn_url": "https://vorschau.magnet-xs.ch/holz-susi-v2/images/ref-wendelhof-ausblick.jpg",
+          "cloudflare_url": "https://vorschau.magnet-xs.ch/holz-susi-v2/images/ref-wendelhof-ausblick.jpg",
+          "cloudflare_short": "vorschau.magnet-xs.ch/holz-susi-v2/images/ref-wendelhof-ausblick.jpg",
+          "is_used": false,
+          "used_in": [],
+          "used_in_pages": [],
+          "alt": "Referenzunternehmen Referenzunternehmen Referenzunternehmen Referenzunternehmen Referenzunternehmen Holz-Susi GmbH (Frick) – Einblick & Referenz: Wendelhof Ausblick – Erfolgsprojekt mit Holz-Susi GmbH (Frick (AG)) – Erfolgsprojekt mit Holz-Susi GmbH (Frick (AG)) – Erfolgsprojekt mit Holz-Susi GmbH (Frick (AG)) – Erfolgsprojekt mit Holz-Susi GmbH (Frick (AG)) – Erfolgsprojekt mit Holz-Susi GmbH (Frick (AG))"
+        },
+        {
+          "nr": 42,
+          "id": "images_ref_wendelhof_bluescht_beiz_jpg",
+          "filename": "ref-wendelhof-bluescht-beiz.jpg",
+          "rel_path": "images/ref-wendelhof-bluescht-beiz.jpg",
+          "folder": "preview-holz-susi-v2",
+          "category": "Referenz, Projekt & Angebot",
+          "category_code": "ref",
+          "dimensions": "640x360",
+          "size_kb": 122.8,
+          "format": "JPG",
+          "mtime": 1794228912,
+          "mtime_str": "09.11.2026 12:55",
+          "cdn_url": "https://vorschau.magnet-xs.ch/holz-susi-v2/images/ref-wendelhof-bluescht-beiz.jpg",
+          "cloudflare_url": "https://vorschau.magnet-xs.ch/holz-susi-v2/images/ref-wendelhof-bluescht-beiz.jpg",
+          "cloudflare_short": "vorschau.magnet-xs.ch/holz-susi-v2/images/ref-wendelhof-bluescht-beiz.jpg",
+          "is_used": false,
+          "used_in": [],
+          "used_in_pages": [],
+          "alt": "Referenzunternehmen Referenzunternehmen Referenzunternehmen Referenzunternehmen Referenzunternehmen Holz-Susi GmbH (Frick) – Einblick & Referenz: Wendelhof Bluescht Beiz – Erfolgsprojekt mit Holz-Susi GmbH (Frick (AG)) – Erfolgsprojekt mit Holz-Susi GmbH (Frick (AG)) – Erfolgsprojekt mit Holz-Susi GmbH (Frick (AG)) – Erfolgsprojekt mit Holz-Susi GmbH (Frick (AG)) – Erfolgsprojekt mit Holz-Susi GmbH (Frick (AG))"
+        },
+        {
+          "nr": 43,
+          "id": "images_ref_wendelhof_kirschblueten_jpg",
+          "filename": "ref-wendelhof-kirschblueten.jpg",
+          "rel_path": "images/ref-wendelhof-kirschblueten.jpg",
+          "folder": "preview-holz-susi-v2",
+          "category": "Referenz, Projekt & Angebot",
+          "category_code": "ref",
+          "dimensions": "1600x900",
+          "size_kb": 195.6,
+          "format": "JPG",
+          "mtime": 1794228912,
+          "mtime_str": "09.11.2026 12:55",
+          "cdn_url": "https://vorschau.magnet-xs.ch/holz-susi-v2/images/ref-wendelhof-kirschblueten.jpg",
+          "cloudflare_url": "https://vorschau.magnet-xs.ch/holz-susi-v2/images/ref-wendelhof-kirschblueten.jpg",
+          "cloudflare_short": "vorschau.magnet-xs.ch/holz-susi-v2/images/ref-wendelhof-kirschblueten.jpg",
+          "is_used": false,
+          "used_in": [],
+          "used_in_pages": [],
+          "alt": "Referenzunternehmen Referenzunternehmen Referenzunternehmen Referenzunternehmen Referenzunternehmen Holz-Susi GmbH (Frick) – Einblick & Referenz: Wendelhof Kirschblueten – Erfolgsprojekt mit Holz-Susi GmbH (Frick (AG)) – Erfolgsprojekt mit Holz-Susi GmbH (Frick (AG)) – Erfolgsprojekt mit Holz-Susi GmbH (Frick (AG)) – Erfolgsprojekt mit Holz-Susi GmbH (Frick (AG)) – Erfolgsprojekt mit Holz-Susi GmbH (Frick (AG))"
+        },
+        {
+          "nr": 44,
+          "id": "images_sponsor_fricktal_zimmerei_png",
+          "filename": "sponsor-fricktal-zimmerei.png",
+          "rel_path": "images/sponsor-fricktal-zimmerei.png",
+          "folder": "preview-holz-susi-v2",
+          "category": "Sponsor & Partner",
+          "category_code": "sponsor",
+          "dimensions": "400x400",
+          "size_kb": 12.8,
+          "format": "PNG",
+          "mtime": 1794228907,
+          "mtime_str": "09.11.2026 12:55",
+          "cdn_url": "https://vorschau.magnet-xs.ch/holz-susi-v2/images/sponsor-fricktal-zimmerei.png",
+          "cloudflare_url": "https://vorschau.magnet-xs.ch/holz-susi-v2/images/sponsor-fricktal-zimmerei.png",
+          "cloudflare_short": "vorschau.magnet-xs.ch/holz-susi-v2/images/sponsor-fricktal-zimmerei.png",
+          "is_used": false,
+          "used_in": [],
+          "used_in_pages": [],
+          "alt": "Offizieller Vereins-Sponsor und Partner von Holz-Susi GmbH (Frick): Offizieller Vereins-Sponsor und Partner von Holz-Susi GmbH (Frick): Offizieller Vereins-Sponsor und Partner von Holz-Susi GmbH (Frick): Offizieller Vereins-Sponsor und Partner von Holz-Susi GmbH (Frick): Offizieller Vereins-Sponsor und Partner von Holz-Susi GmbH (Frick): Holz-Susi GmbH (Frick) – Offizieller Partner & Sponsor: Fricktal Zimmerei"
+        },
+        {
+          "nr": 45,
+          "id": "images_sponsor_gebr_schmid_png",
+          "filename": "sponsor-gebr-schmid.png",
+          "rel_path": "images/sponsor-gebr-schmid.png",
+          "folder": "preview-holz-susi-v2",
+          "category": "Sponsor & Partner",
+          "category_code": "sponsor",
+          "dimensions": "400x400",
+          "size_kb": 58.9,
+          "format": "PNG",
+          "mtime": 1794228907,
+          "mtime_str": "09.11.2026 12:55",
+          "cdn_url": "https://vorschau.magnet-xs.ch/holz-susi-v2/images/sponsor-gebr-schmid.png",
+          "cloudflare_url": "https://vorschau.magnet-xs.ch/holz-susi-v2/images/sponsor-gebr-schmid.png",
+          "cloudflare_short": "vorschau.magnet-xs.ch/holz-susi-v2/images/sponsor-gebr-schmid.png",
+          "is_used": false,
+          "used_in": [],
+          "used_in_pages": [],
+          "alt": "Offizieller Vereins-Sponsor und Partner von Holz-Susi GmbH (Frick): Offizieller Vereins-Sponsor und Partner von Holz-Susi GmbH (Frick): Offizieller Vereins-Sponsor und Partner von Holz-Susi GmbH (Frick): Offizieller Vereins-Sponsor und Partner von Holz-Susi GmbH (Frick): Offizieller Vereins-Sponsor und Partner von Holz-Susi GmbH (Frick): Holz-Susi GmbH (Frick) – Offizieller Partner & Sponsor: Gebr Schmid"
+        },
+        {
+          "nr": 46,
+          "id": "images_sponsor_mangold_holzbau_png",
+          "filename": "sponsor-mangold-holzbau.png",
+          "rel_path": "images/sponsor-mangold-holzbau.png",
+          "folder": "preview-holz-susi-v2",
+          "category": "Sponsor & Partner",
+          "category_code": "sponsor",
+          "dimensions": "400x400",
+          "size_kb": 29.2,
+          "format": "PNG",
+          "mtime": 1794228907,
+          "mtime_str": "09.11.2026 12:55",
+          "cdn_url": "https://vorschau.magnet-xs.ch/holz-susi-v2/images/sponsor-mangold-holzbau.png",
+          "cloudflare_url": "https://vorschau.magnet-xs.ch/holz-susi-v2/images/sponsor-mangold-holzbau.png",
+          "cloudflare_short": "vorschau.magnet-xs.ch/holz-susi-v2/images/sponsor-mangold-holzbau.png",
+          "is_used": false,
+          "used_in": [],
+          "used_in_pages": [],
+          "alt": "Offizieller Vereins-Sponsor und Partner von Holz-Susi GmbH (Frick): Offizieller Vereins-Sponsor und Partner von Holz-Susi GmbH (Frick): Offizieller Vereins-Sponsor und Partner von Holz-Susi GmbH (Frick): Offizieller Vereins-Sponsor und Partner von Holz-Susi GmbH (Frick): Offizieller Vereins-Sponsor und Partner von Holz-Susi GmbH (Frick): Holz-Susi GmbH (Frick) – Offizieller Partner & Sponsor: Mangold Holzbau"
+        },
+        {
+          "nr": 47,
+          "id": "images_sponsor_metatec_metallbau_png",
+          "filename": "sponsor-metatec-metallbau.png",
+          "rel_path": "images/sponsor-metatec-metallbau.png",
+          "folder": "preview-holz-susi-v2",
+          "category": "Sponsor & Partner",
+          "category_code": "sponsor",
+          "dimensions": "400x400",
+          "size_kb": 39.2,
+          "format": "PNG",
+          "mtime": 1794228907,
+          "mtime_str": "09.11.2026 12:55",
+          "cdn_url": "https://vorschau.magnet-xs.ch/holz-susi-v2/images/sponsor-metatec-metallbau.png",
+          "cloudflare_url": "https://vorschau.magnet-xs.ch/holz-susi-v2/images/sponsor-metatec-metallbau.png",
+          "cloudflare_short": "vorschau.magnet-xs.ch/holz-susi-v2/images/sponsor-metatec-metallbau.png",
+          "is_used": false,
+          "used_in": [],
+          "used_in_pages": [],
+          "alt": "Offizieller Vereins-Sponsor und Partner von Holz-Susi GmbH (Frick): Offizieller Vereins-Sponsor und Partner von Holz-Susi GmbH (Frick): Offizieller Vereins-Sponsor und Partner von Holz-Susi GmbH (Frick): Offizieller Vereins-Sponsor und Partner von Holz-Susi GmbH (Frick): Offizieller Vereins-Sponsor und Partner von Holz-Susi GmbH (Frick): Holz-Susi GmbH (Frick) – Offizieller Partner & Sponsor: Metatec Metallbau"
+        },
+        {
+          "nr": 48,
+          "id": "images_sponsor_selina_burger_tsv_frick_jpg",
+          "filename": "sponsor-selina-burger-tsv-frick.jpg",
+          "rel_path": "images/sponsor-selina-burger-tsv-frick.jpg",
+          "folder": "preview-holz-susi-v2",
+          "category": "Sponsor & Partner",
+          "category_code": "sponsor",
+          "dimensions": "2000x2000",
+          "size_kb": 118.8,
+          "format": "JPG",
+          "mtime": 1794228907,
+          "mtime_str": "09.11.2026 12:55",
+          "cdn_url": "https://vorschau.magnet-xs.ch/holz-susi-v2/images/sponsor-selina-burger-tsv-frick.jpg",
+          "cloudflare_url": "https://vorschau.magnet-xs.ch/holz-susi-v2/images/sponsor-selina-burger-tsv-frick.jpg",
+          "cloudflare_short": "vorschau.magnet-xs.ch/holz-susi-v2/images/sponsor-selina-burger-tsv-frick.jpg",
+          "is_used": false,
+          "used_in": [],
+          "used_in_pages": [],
+          "alt": "Offizieller Vereins-Sponsor und Partner von Holz-Susi GmbH (Frick): Offizieller Vereins-Sponsor und Partner von Holz-Susi GmbH (Frick): Offizieller Vereins-Sponsor und Partner von Holz-Susi GmbH (Frick): Offizieller Vereins-Sponsor und Partner von Holz-Susi GmbH (Frick): Offizieller Vereins-Sponsor und Partner von Holz-Susi GmbH (Frick): Holz-Susi GmbH (Frick) – Offizieller Partner & Sponsor: Selina Burger Tsv Frick"
+        },
+        {
+          "nr": 49,
+          "id": "images_team_michael_huerbin_holzbautechniker_png",
+          "filename": "team-michael-huerbin-holzbautechniker.png",
+          "rel_path": "images/team-michael-huerbin-holzbautechniker.png",
+          "folder": "preview-holz-susi-v2",
+          "category": "Team, Porträt & Kader",
+          "category_code": "team",
+          "dimensions": "400x400",
+          "size_kb": 274.9,
+          "format": "PNG",
+          "mtime": 1794228907,
+          "mtime_str": "09.11.2026 12:55",
+          "cdn_url": "https://vorschau.magnet-xs.ch/holz-susi-v2/images/team-michael-huerbin-holzbautechniker.png",
+          "cloudflare_url": "https://vorschau.magnet-xs.ch/holz-susi-v2/images/team-michael-huerbin-holzbautechniker.png",
+          "cloudflare_short": "vorschau.magnet-xs.ch/holz-susi-v2/images/team-michael-huerbin-holzbautechniker.png",
+          "is_used": false,
+          "used_in": [],
+          "used_in_pages": [],
+          "alt": "Holz-Susi GmbH (Frick) – Team & Ansprechpartner: Michael Huerbin Holzbautechniker – Persönlicher Ansprechpartner und Fachteam bei Holz-Susi GmbH in Frick (AG) – Persönlicher Ansprechpartner und Fachteam bei Holz-Susi GmbH in Frick (AG) – Persönlicher Ansprechpartner und Fachteam bei Holz-Susi GmbH in Frick (AG) – Persönlicher Ansprechpartner und Fachteam bei Holz-Susi GmbH in Frick (AG) – Persönlicher Ansprechpartner und Fachteam bei Holz-Susi GmbH in Frick (AG)"
+        },
+        {
+          "nr": 50,
+          "id": "images_team_reto_huber_dachdecker_png",
+          "filename": "team-reto-huber-dachdecker.png",
+          "rel_path": "images/team-reto-huber-dachdecker.png",
+          "folder": "preview-holz-susi-v2",
+          "category": "Team, Porträt & Kader",
+          "category_code": "team",
+          "dimensions": "400x400",
+          "size_kb": 153.2,
+          "format": "PNG",
+          "mtime": 1794228907,
+          "mtime_str": "09.11.2026 12:55",
+          "cdn_url": "https://vorschau.magnet-xs.ch/holz-susi-v2/images/team-reto-huber-dachdecker.png",
+          "cloudflare_url": "https://vorschau.magnet-xs.ch/holz-susi-v2/images/team-reto-huber-dachdecker.png",
+          "cloudflare_short": "vorschau.magnet-xs.ch/holz-susi-v2/images/team-reto-huber-dachdecker.png",
+          "is_used": false,
+          "used_in": [],
+          "used_in_pages": [],
+          "alt": "Holz-Susi GmbH (Frick) – Team & Ansprechpartner: Reto Huber Dachdecker – Persönlicher Ansprechpartner und Fachteam bei Holz-Susi GmbH in Frick (AG) – Persönlicher Ansprechpartner und Fachteam bei Holz-Susi GmbH in Frick (AG) – Persönlicher Ansprechpartner und Fachteam bei Holz-Susi GmbH in Frick (AG) – Persönlicher Ansprechpartner und Fachteam bei Holz-Susi GmbH in Frick (AG) – Persönlicher Ansprechpartner und Fachteam bei Holz-Susi GmbH in Frick (AG)"
+        },
+        {
+          "nr": 51,
+          "id": "images_team_susi_at_work_01_png",
+          "filename": "team-susi-at-work-01.png",
+          "rel_path": "images/team-susi-at-work-01.png",
+          "folder": "preview-holz-susi-v2",
+          "category": "Team, Porträt & Kader",
+          "category_code": "team",
+          "dimensions": "286x512",
+          "size_kb": 235.9,
+          "format": "PNG",
+          "mtime": 1794228906,
+          "mtime_str": "09.11.2026 12:55",
+          "cdn_url": "https://vorschau.magnet-xs.ch/holz-susi-v2/images/team-susi-at-work-01.png",
+          "cloudflare_url": "https://vorschau.magnet-xs.ch/holz-susi-v2/images/team-susi-at-work-01.png",
+          "cloudflare_short": "vorschau.magnet-xs.ch/holz-susi-v2/images/team-susi-at-work-01.png",
+          "is_used": false,
+          "used_in": [],
+          "used_in_pages": [],
+          "alt": "Holz-Susi GmbH (Frick) – Team & Ansprechpartner: Susi At Work 01 – Persönlicher Ansprechpartner und Fachteam bei Holz-Susi GmbH in Frick (AG) – Persönlicher Ansprechpartner und Fachteam bei Holz-Susi GmbH in Frick (AG) – Persönlicher Ansprechpartner und Fachteam bei Holz-Susi GmbH in Frick (AG) – Persönlicher Ansprechpartner und Fachteam bei Holz-Susi GmbH in Frick (AG) – Persönlicher Ansprechpartner und Fachteam bei Holz-Susi GmbH in Frick (AG)"
+        },
+        {
+          "nr": 52,
+          "id": "images_team_susi_at_work_02_png",
+          "filename": "team-susi-at-work-02.png",
+          "rel_path": "images/team-susi-at-work-02.png",
+          "folder": "preview-holz-susi-v2",
+          "category": "Team, Porträt & Kader",
+          "category_code": "team",
+          "dimensions": "286x512",
+          "size_kb": 317.6,
+          "format": "PNG",
+          "mtime": 1794228906,
+          "mtime_str": "09.11.2026 12:55",
+          "cdn_url": "https://vorschau.magnet-xs.ch/holz-susi-v2/images/team-susi-at-work-02.png",
+          "cloudflare_url": "https://vorschau.magnet-xs.ch/holz-susi-v2/images/team-susi-at-work-02.png",
+          "cloudflare_short": "vorschau.magnet-xs.ch/holz-susi-v2/images/team-susi-at-work-02.png",
+          "is_used": false,
+          "used_in": [],
+          "used_in_pages": [],
+          "alt": "Holz-Susi GmbH (Frick) – Team & Ansprechpartner: Susi At Work 02 – Persönlicher Ansprechpartner und Fachteam bei Holz-Susi GmbH in Frick (AG) – Persönlicher Ansprechpartner und Fachteam bei Holz-Susi GmbH in Frick (AG) – Persönlicher Ansprechpartner und Fachteam bei Holz-Susi GmbH in Frick (AG) – Persönlicher Ansprechpartner und Fachteam bei Holz-Susi GmbH in Frick (AG) – Persönlicher Ansprechpartner und Fachteam bei Holz-Susi GmbH in Frick (AG)"
+        },
+        {
+          "nr": 53,
+          "id": "images_team_susi_at_work_03_png",
+          "filename": "team-susi-at-work-03.png",
+          "rel_path": "images/team-susi-at-work-03.png",
+          "folder": "preview-holz-susi-v2",
+          "category": "Team, Porträt & Kader",
+          "category_code": "team",
+          "dimensions": "432x432",
+          "size_kb": 407.8,
+          "format": "PNG",
+          "mtime": 1794228906,
+          "mtime_str": "09.11.2026 12:55",
+          "cdn_url": "https://vorschau.magnet-xs.ch/holz-susi-v2/images/team-susi-at-work-03.png",
+          "cloudflare_url": "https://vorschau.magnet-xs.ch/holz-susi-v2/images/team-susi-at-work-03.png",
+          "cloudflare_short": "vorschau.magnet-xs.ch/holz-susi-v2/images/team-susi-at-work-03.png",
+          "is_used": false,
+          "used_in": [],
+          "used_in_pages": [],
+          "alt": "Holz-Susi GmbH (Frick) – Team & Ansprechpartner: Susi At Work 03 – Persönlicher Ansprechpartner und Fachteam bei Holz-Susi GmbH in Frick (AG) – Persönlicher Ansprechpartner und Fachteam bei Holz-Susi GmbH in Frick (AG) – Persönlicher Ansprechpartner und Fachteam bei Holz-Susi GmbH in Frick (AG) – Persönlicher Ansprechpartner und Fachteam bei Holz-Susi GmbH in Frick (AG) – Persönlicher Ansprechpartner und Fachteam bei Holz-Susi GmbH in Frick (AG)"
+        },
+        {
+          "nr": 54,
+          "id": "images_team_susi_schmid_fahrzeug_png",
+          "filename": "team-susi-schmid-fahrzeug.png",
+          "rel_path": "images/team-susi-schmid-fahrzeug.png",
+          "folder": "preview-holz-susi-v2",
+          "category": "Team, Porträt & Kader",
+          "category_code": "team",
+          "dimensions": "640x426",
+          "size_kb": 141.4,
+          "format": "PNG",
+          "mtime": 1794228907,
+          "mtime_str": "09.11.2026 12:55",
+          "cdn_url": "https://vorschau.magnet-xs.ch/holz-susi-v2/images/team-susi-schmid-fahrzeug.png",
+          "cloudflare_url": "https://vorschau.magnet-xs.ch/holz-susi-v2/images/team-susi-schmid-fahrzeug.png",
+          "cloudflare_short": "vorschau.magnet-xs.ch/holz-susi-v2/images/team-susi-schmid-fahrzeug.png",
+          "is_used": false,
+          "used_in": [],
+          "used_in_pages": [],
+          "alt": "Holz-Susi GmbH (Frick) – Team & Ansprechpartner: Susi Schmid Fahrzeug – Persönlicher Ansprechpartner und Fachteam bei Holz-Susi GmbH in Frick (AG) – Persönlicher Ansprechpartner und Fachteam bei Holz-Susi GmbH in Frick (AG) – Persönlicher Ansprechpartner und Fachteam bei Holz-Susi GmbH in Frick (AG) – Persönlicher Ansprechpartner und Fachteam bei Holz-Susi GmbH in Frick (AG) – Persönlicher Ansprechpartner und Fachteam bei Holz-Susi GmbH in Frick (AG)"
+        },
+        {
+          "nr": 55,
+          "id": "images_team_susi_schmid_portrait_png",
+          "filename": "team-susi-schmid-portrait.png",
+          "rel_path": "images/team-susi-schmid-portrait.png",
+          "folder": "preview-holz-susi-v2",
+          "category": "Team, Porträt & Kader",
+          "category_code": "team",
+          "dimensions": "358x640",
+          "size_kb": 441.2,
+          "format": "PNG",
+          "mtime": 1794228906,
+          "mtime_str": "09.11.2026 12:55",
+          "cdn_url": "https://vorschau.magnet-xs.ch/holz-susi-v2/images/team-susi-schmid-portrait.png",
+          "cloudflare_url": "https://vorschau.magnet-xs.ch/holz-susi-v2/images/team-susi-schmid-portrait.png",
+          "cloudflare_short": "vorschau.magnet-xs.ch/holz-susi-v2/images/team-susi-schmid-portrait.png",
+          "is_used": false,
+          "used_in": [],
+          "used_in_pages": [],
+          "alt": "Holz-Susi GmbH (Frick) – Team & Ansprechpartner: Susi Schmid Portrait – Persönlicher Ansprechpartner und Fachteam bei Holz-Susi GmbH in Frick (AG) – Persönlicher Ansprechpartner und Fachteam bei Holz-Susi GmbH in Frick (AG) – Persönlicher Ansprechpartner und Fachteam bei Holz-Susi GmbH in Frick (AG) – Persönlicher Ansprechpartner und Fachteam bei Holz-Susi GmbH in Frick (AG) – Persönlicher Ansprechpartner und Fachteam bei Holz-Susi GmbH in Frick (AG)"
         }
       ]
     },

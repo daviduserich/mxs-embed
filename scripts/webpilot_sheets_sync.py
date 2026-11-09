@@ -67,6 +67,8 @@ EXCLUDED_INTERNAL_SLUGS = {
 
 # Fuer Jennys Partner-Sheet zusaetzlich alle Nicht-Jenny-Slugs ausschliessen
 EXCLUDED_PARTNER_SLUGS = EXCLUDED_INTERNAL_SLUGS | {
+    "holz-susi",
+    "preview-holz-susi",
     "imp-marketing",
     "preview-imp-marketing",
 }
@@ -175,6 +177,24 @@ def split_source_and_context(raw_source_or_context: str, explicit_context: str =
 # - In Davids Master-Sheet erscheinen ALLE 9 Projekte (IMP GmbH an Position 1 + alle 8 Projekte von Jenny Ettle).
 # - In Jennys Partner-Sheet erscheinen ausschliesslich die 8 Projekte mit Partner "Jenny Ettle (JE-MI)".
 SEED_PROJECTS = [
+    {
+        "slug": "holz-susi",
+        "active": True,
+        "company": "Holz-Susi GmbH — Susanne «Susi» Schmid (Frick AG)",
+        "pricing_recommended_chf": "CHF 2'100.—",
+        "complexity_score": "4.6 / 10.0",
+        "pricing_formula_chf": "CHF 2'050.—",
+        "pricing_rationale": "Authentischer 5-Seiten-Holzbau- & Zimmerei-Auftritt (Startbühne, Leistungen, Referenzen mit 8 Vorher/Nachher-Projekten, Über uns & Kontakt) inkl. interaktivem Holzbau- & Dach-Berater, 3-Schritte Smart-Anfrage sowie Studio Cockpit v4.0 + Light.",
+        "v2_url": "https://vorschau.magnet-xs.ch/holz-susi-v2/",
+        "vollversion_url": "https://vorschau.magnet-xs.ch/holz-susi-vollversion/",
+        "cockpit_url": "https://vorschau.magnet-xs.ch/holz-susi-vollversion/cockpit.html?token=holzsusi2026",
+        "cockpit_light_url": "https://vorschau.magnet-xs.ch/holz-susi-vollversion/cockpit.html?token=holz-susi2026&mode=light",
+        "audit_report_url": "https://vorschau.magnet-xs.ch/reports/holz-susi-vorher-nachher-report.pdf",
+        "source_url": "https://holz-susi.ch/",
+        "branch_context": "Holzbau & Zimmerei im Fricktal (Dachsanierung, Dachfenster, Innenausbau, Terrassen, Bauleitung & Rückbau) in Frick AG",
+        "partner": "David Hügli (Magnet XS)",
+        "status": "🟢 Bereit zum Zeigen (09.11.2026)",
+    },
     {
         "slug": "imp-marketing",
         "active": True,
@@ -776,7 +796,7 @@ def get_all_rows(spreadsheet_id: str, tab_title: str) -> List[List[str]]:
 
 def _normalize_partner_label(raw_partner: str, slug: str = "") -> str:
     clean_slug = re.sub(r"-(?:vollversion|vv|v1|v2)$", "", (slug or "").strip().lower().replace("preview-", ""))
-    if clean_slug == "imp-marketing":
+    if clean_slug in ("imp-marketing", "holz-susi"):
         return "David Hügli (Magnet XS)"
     s = (raw_partner or "").strip()
     low = s.lower()
@@ -823,6 +843,7 @@ def _seed_single_spreadsheet(
                     active_by_slug[item["slug"]] = is_act
 
     DEFAULT_SUBMITTED_MAP = {
+        "holz-susi": ("09.11.2026 · 13:44 Uhr", "🟢 Bereit zum Zeigen (Fertig: 09.11.2026 · 15:03 Uhr)"),
         "imp-marketing": ("05.11.2026 · 12:35 Uhr", "🟢 Bereit zum Zeigen (Fertig: 05.11.2026 · 13:55 Uhr)"),
         "joma": ("05.11.2026 · 20:54 Uhr", "🟢 Bereit zum Zeigen (Fertig: 05.11.2026 · 21:54 Uhr)"),
         "herzensarbeit": ("05.11.2026 · 11:00 Uhr", "🟢 Bereit zum Zeigen (Fertig: 05.11.2026 · 11:25 Uhr)"),

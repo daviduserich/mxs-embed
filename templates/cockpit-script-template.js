@@ -2428,7 +2428,7 @@ function acpScanAndRenderSections() {
     var metaTagsHtml = metaParts.join('<span style="color:#475569;">·</span>');
 
     card.innerHTML = 
-      '<div>' +
+      '<div style="min-width:0;max-width:100%;">' +
         '<div class="acp-sec-head">' +
           '<span class="acp-sec-archetype-pill' + (archetype.isPrimary ? ' is-primary' : '') + '">' +
             archetype.icon +
@@ -2448,7 +2448,7 @@ function acpScanAndRenderSections() {
         '</div>' +
 
         '<div style="margin-top: 14px;">' +
-          (sec.kicker ? '<div class="acp-sec-kicker">' + sec.kicker + '</div>' : '') +
+          '<div class="acp-sec-kicker" style="display:block !important;white-space:nowrap !important;overflow:hidden !important;text-overflow:ellipsis !important;max-width:100% !important;height:18px !important;line-height:18px !important;">' + (sec.kicker || archetype.name || 'ABSCHNITT') + '</div>' +
           '<h4 class="acp-sec-title">' + sec.title + '</h4>' +
           '<div class="acp-sec-meta-row">' +
             metaTagsHtml +
