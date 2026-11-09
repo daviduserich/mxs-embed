@@ -1,11 +1,11 @@
-# Bilder-Verzeichnis & Cloudflare-Asset-Katalog — Hiltbrand Gebäudehüllen AG (Karriere-Cockpit)
+# Bilder-Verzeichnis & Cloudflare-Asset-Katalog – Hiltbrand Gebäudehüllen AG (Karriere-Cockpit)
 
 > **Mandant / Webseite:** Hiltbrand Gebäudehüllen AG (Karriere-Cockpit) (Krattigen BE)  
 > **Angefordert von (Partner):** David Hügli (Magnet XS · Referenz) · **Eingereicht am:** 29.09.2026 · 15:31 Uhr  
 > **Lokaler Ordner (VPS & Git):** `hiltbrand/`  
 > **Cloudflare-Basis-URL:** [embed.magnet-xs.ch/hiltbrand/](https://embed.magnet-xs.ch/hiltbrand/)  
 > **Bestand:** **40 Assets** (7.82 MB gesamt) · **🟢 16 aktiv im HTML** · **⚪ 24 frei im Bild-Pool** · **Externe Hotlinks: 0**  
-> **Letzte Aktualisierung:** 09.11.2026 14:07 Uhr (automatisch generiert via `webpilot_asset_catalog.py`)
+> **Letzte Aktualisierung:** 09.11.2026 16:10 Uhr (automatisch generiert via `webpilot_asset_catalog.py`)
 
 ---
 

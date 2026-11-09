@@ -1,11 +1,11 @@
-# Bilder-Verzeichnis & Cloudflare-Asset-Katalog — HER11 — Frauenfussball-Förderung
+# Bilder-Verzeichnis & Cloudflare-Asset-Katalog – HER11 · Frauenfussball-Förderung
 
-> **Mandant / Webseite:** HER11 — Frauenfussball-Förderung (Zürich ZH)  
+> **Mandant / Webseite:** HER11 · Frauenfussball-Förderung (Zürich ZH)  
 > **Angefordert von (Partner):** Jenny Ettle (JE-MI) · **Eingereicht am:** 30.10.2026 · 16:00 Uhr  
 > **Lokaler Ordner (VPS & Git):** `preview-her11/`  
 > **Cloudflare-Basis-URL:** [vorschau.magnet-xs.ch/her11/](https://vorschau.magnet-xs.ch/her11/)  
 > **Bestand:** **22 Assets** (2.97 MB gesamt) · **🟢 10 aktiv im HTML** · **⚪ 12 frei im Bild-Pool** · **Externe Hotlinks: 0**  
-> **Letzte Aktualisierung:** 09.11.2026 14:07 Uhr (automatisch generiert via `webpilot_asset_catalog.py`)
+> **Letzte Aktualisierung:** 09.11.2026 16:10 Uhr (automatisch generiert via `webpilot_asset_catalog.py`)
 
 ---
 
@@ -30,9 +30,9 @@
 | 15 | `images/perspektive-alpen-see.jpg` | Referenz, Projekt & Angebot (`ref`) | 1536×1024 px · 312.7 KB (JPG) | ⚪ Frei im Pool | Perspektive Alpen See: Spielerinnen, Ausbildung & Stadion – HER11 in Zürich (ZH) | [vorschau.magnet-xs.ch/her11/images/perspektive-alpen-see.jpg](https://vorschau.magnet-xs.ch/her11/images/perspektive-alpen-see.jpg) |
 | 16 | `images/perspektive-alpen-see.webp` | Referenz, Projekt & Angebot (`ref`) | 1536×1024 px · 213.8 KB (WEBP) | 🟢 Aktiv in `ausbildung.html`, `index.html`, `mach-mit.html`, `ueber-uns.html` | Spielerin mit HER11 Rucksack und Fussball mit Blick in die Zukunft | [vorschau.magnet-xs.ch/her11/images/perspektive-alpen-see.webp](https://vorschau.magnet-xs.ch/her11/images/perspektive-alpen-see.webp) |
 | 17 | `images/social-authentisch-stollen.jpg` | Referenz, Projekt & Angebot (`ref`) | 426×534 px · 37.9 KB (JPG) | ⚪ Frei im Pool | Social Authentisch Stollen: Spielerinnen, Ausbildung & Stadion – HER11 in Zürich (ZH) | [vorschau.magnet-xs.ch/her11/images/social-authentisch-stollen.jpg](https://vorschau.magnet-xs.ch/her11/images/social-authentisch-stollen.jpg) |
-| 18 | `images/social-authentisch-stollen.webp` | Referenz, Projekt & Angebot (`ref`) | 426×534 px · 26.1 KB (WEBP) | 🟢 Aktiv in `index.html` | Authentisch — Fussballschuh auf dem Rasen im Stadionlicht | [vorschau.magnet-xs.ch/her11/images/social-authentisch-stollen.webp](https://vorschau.magnet-xs.ch/her11/images/social-authentisch-stollen.webp) |
+| 18 | `images/social-authentisch-stollen.webp` | Referenz, Projekt & Angebot (`ref`) | 426×534 px · 26.1 KB (WEBP) | 🟢 Aktiv in `index.html` | Authentisch – Fussballschuh auf dem Rasen im Stadionlicht | [vorschau.magnet-xs.ch/her11/images/social-authentisch-stollen.webp](https://vorschau.magnet-xs.ch/her11/images/social-authentisch-stollen.webp) |
 | 19 | `images/social-gemeinsam-team11.jpg` | Team, Porträt & Kader (`team`) | 465×534 px · 37.5 KB (JPG) | ⚪ Frei im Pool | Social Gemeinsam Team11 – Persönlicher Ansprechpartner und Fachteam bei HER11 in Zürich (ZH) | [vorschau.magnet-xs.ch/her11/images/social-gemeinsam-team11.jpg](https://vorschau.magnet-xs.ch/her11/images/social-gemeinsam-team11.jpg) |
-| 20 | `images/social-gemeinsam-team11.webp` | Team, Porträt & Kader (`team`) | 465×534 px · 24.9 KB (WEBP) | 🟢 Aktiv in `index.html`, `mach-mit.html` | Gemeinsam — Vier Spielerinnen mit Rückennummer 11 Arm in Arm | [vorschau.magnet-xs.ch/her11/images/social-gemeinsam-team11.webp](https://vorschau.magnet-xs.ch/her11/images/social-gemeinsam-team11.webp) |
+| 20 | `images/social-gemeinsam-team11.webp` | Team, Porträt & Kader (`team`) | 465×534 px · 24.9 KB (WEBP) | 🟢 Aktiv in `index.html`, `mach-mit.html` | Gemeinsam – Vier Spielerinnen mit Rückennummer 11 Arm in Arm | [vorschau.magnet-xs.ch/her11/images/social-gemeinsam-team11.webp](https://vorschau.magnet-xs.ch/her11/images/social-gemeinsam-team11.webp) |
 | 21 | `images/social-zukunft-stadion.jpg` | Referenz, Projekt & Angebot (`ref`) | 438×534 px · 38.1 KB (JPG) | ⚪ Frei im Pool | Social Zukunft Stadion: Spielerinnen, Ausbildung & Stadion – HER11 in Zürich (ZH) | [vorschau.magnet-xs.ch/her11/images/social-zukunft-stadion.jpg](https://vorschau.magnet-xs.ch/her11/images/social-zukunft-stadion.jpg) |
 | 22 | `images/social-zukunft-stadion.webp` | Referenz, Projekt & Angebot (`ref`) | 438×534 px · 26.2 KB (WEBP) | 🟢 Aktiv in `index.html` | Stadiontor im pink-blauen Flutlicht | [vorschau.magnet-xs.ch/her11/images/social-zukunft-stadion.webp](https://vorschau.magnet-xs.ch/her11/images/social-zukunft-stadion.webp) |
 

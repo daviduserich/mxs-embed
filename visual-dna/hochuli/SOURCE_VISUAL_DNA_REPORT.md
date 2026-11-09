@@ -11,7 +11,7 @@
 
 ## 1. Die 3-Spalten-Entscheidungstabelle (Fakten messen -> Sommelier-Veredelung -> Bauplan)
 
-| 1. Gemessener Fakt auf der Ursprungsseite (Stufe 1) | 2. Urteil des Design-Sommeliers — Seele behalten vs. Baufehler heilen (Stufe 2) | 3. Konkrete WebPilot-Bau-Anweisung & Pruef-Schranke (Stufe 3) |
+| 1. Gemessener Fakt auf der Ursprungsseite (Stufe 1) | 2. Urteil des Design-Sommeliers – Seele behalten vs. Baufehler heilen (Stufe 2) | 3. Konkrete WebPilot-Bau-Anweisung & Pruef-Schranke (Stufe 3) |
 |---|---|---|
 | **Licht & Atmosphaere (Auge 2):**<br>• `body_luminance`: **`0.579`**<br>• `hero_luminance`: **`0.619`**<br>• Kamera-Pixel oben/Hero: `0.831` / `0.446`<br>• Gemessene Flaechen: Body `#9C9C8C`, Hero `#FFFFFF` | **Regel 1 (Polaritaets-Entscheid):**<br>Evolution-Schutzregel (#UI-16): Mittlere Hero-Helligkeit (0.619) bei hellem Grundkoerper (0.579) -> Licht-Sperre target_hero_polarity="light" aktiv. | • **`target_hero_polarity: "light"`**<br>• **`target_page_polarity: "light"`**<br>• Sensor **`S-27 (P1_EVOLUTION_POLARITY_MISMATCH)`** prueft bei jedem Build automatisch die Hero-Luminanz (`>= 0.45 Pflicht!`). |
 | **Hintergrund-Toenung:**<br>• Ursprungs-Hintergrund `#9C9C8C`<br>• Primaer-Farbton `H = 51.3deg` | **Regel 2 (Tinted Neutrals nach *impeccable* & *Refactoring UI*):**<br>Statt kaltem Spital-Weiss (`#FFFFFF`) oder totem Grau erhalten alle Hintergrund- und Textflaechen einen feinen Hauch des Marken-Farbtons (`Chroma 0.008–0.025`). | • `--bg-page: #FFF9F5` (`oklch(0.985 0.008 51.3)`)<br>• `--bg-soft: #FAEDE7` (`oklch(0.955 0.016 51.3)`)<br>• `--text-main: #1F130B` (Kontrast **`17.4:1`** >= 10:1) |

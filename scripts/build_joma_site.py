@@ -181,7 +181,7 @@ BEFORE_INVENTORY = {
         },
         {
             "q": "Wie funktioniert das JOMA Solar-Contracting für Unternehmen ohne eigene Investition?",
-            "a": "Beim Contracting übernimmt JOMA Solar die Planung, Finanzierung, Installation und den laufenden Betrieb der Photovoltaikanlage auf Ihrem Gewerbedach. Ihr Unternehmen bezieht den sauberen Solarstrom direkt vom eigenen Dach zu langfristig kalkulierbaren, günstigen Konditionen — ohne eigene Anfangsinvestition."
+            "a": "Beim Contracting übernimmt JOMA Solar die Planung, Finanzierung, Installation und den laufenden Betrieb der Photovoltaikanlage auf Ihrem Gewerbedach. Ihr Unternehmen bezieht den sauberen Solarstrom direkt vom eigenen Dach zu langfristig kalkulierbaren, günstigen Konditionen, ohne eigene Anfangsinvestition."
         }
     ]
 }
@@ -222,7 +222,7 @@ v1_config = {
     "slug": "preview-joma",
     "public_slug": "joma-vollversion",
     "token": "joma2026",
-    "name": "JOMA Solar GmbH — Solaranlagen & Batteriesysteme Wettingen (Vollversion)",
+    "name": "JOMA Solar GmbH · Solaranlagen & Batteriesysteme Wettingen (Vollversion)",
     "Updated": "2026-11-05",
     "PagesCount": 5,
     "ReferencesCount": 7,
@@ -349,20 +349,8 @@ SHARED_CSS = """
       box-shadow: none !important;
       margin-bottom: 12px;
     }
-    .section-kicker::before {
-      content: "";
-      display: inline-block;
-      width: 16px;
-      height: 2px;
-      background-color: var(--gold-dark);
-      border-radius: 0px;
-      flex-shrink: 0;
-    }
     .section-kicker.kicker-light {
       color: var(--gold-dark);
-    }
-    .section-kicker.kicker-light::before {
-      background-color: var(--gold-dark);
     }
 
     h1, h2, h3, h4 {
@@ -671,7 +659,7 @@ SHARED_CSS = """
       border-color: rgba(214, 75, 19, 0.45);
     }
 
-    /* Hero Section — Hell, freundlich & architektonisch klar (#UI-16 Evolution & #UI-02 Bottom-Edge Baseline Lock) */
+    /* Hero Section – Hell, freundlich & architektonisch klar (#UI-16 Evolution & #UI-02 Bottom-Edge Baseline Lock) */
     .hero-section {
       background: linear-gradient(135deg, #FFFFFF 0%, #F5F7FB 58%, #FFF4ED 100%);
       background-color: #FAFBFD;
@@ -1748,7 +1736,7 @@ def render_solar_calculator() -> str:
             </div>
             <h3 style="font-size:1.38rem;font-weight:700;margin-bottom:8px;" id="jomaCalcHeadline">Empfohlene Auslegung: 18.8 bis 24.0 kWp mit Speicher</h3>
             <p style="font-size:0.9rem;color:var(--text-body);margin-bottom:12px;" id="jomaCalcDesc">
-              Ideale Dimensionierung für ein Einfamilienhaus mit Batteriespeicher und Solar Manager — vergleichbar mit unseren Anlagen in Riniken (18.8 kWp) und Fislisbach (24.03 kWp).
+              Ideale Dimensionierung für ein Einfamilienhaus mit Batteriespeicher und Solar Manager, vergleichbar mit unseren Anlagen in Riniken (18.8 kWp) und Fislisbach (24.03 kWp).
             </p>
 
             <div class="calc-kpi-grid">
@@ -1904,7 +1892,7 @@ COMMON_UI_JS = """
         if (jomaCalcState.size === 'small') {
           badge.textContent = 'VERGLEICHS-REFERENZ: WETTINGEN (11.54 KWP) & SCHÖFFLISDORF (13.95 KWP)';
           head.textContent = 'Einfamilienhaus Kompakt: 11.5 bis 14.0 kWp';
-          desc.textContent = 'Perfekt für Einfamilienhäuser und Dachsanierungen — auf Wunsch als elegantes 3S-Indachsystem oder leistungsstarkes AIKO-Aufdachsystem.';
+          desc.textContent = 'Perfekt für Einfamilienhäuser und Dachsanierungen, auf Wunsch als elegantes 3S-Indachsystem oder leistungsstarkes AIKO-Aufdachsystem.';
           yEl.textContent = '11\\'000 – 16\\'000 kWh';
           aEl.textContent = jomaCalcState.storage === 'notstrom' ? 'bis 80 % + Notstrom-Schutz' : 'bis 70 – 78 % mit Speicher';
           mEl.textContent = '3S Indach / AIKO Neostar';
@@ -1920,7 +1908,7 @@ COMMON_UI_JS = """
         } else {
           badge.textContent = 'VERGLEICHS-REFERENZ: RINIKEN (18.8 KWP) & FISLISBACH (24.0 KWP)';
           head.textContent = 'Empfohlene EFH-Auslegung: 18.8 bis 24.0 kWp';
-          desc.textContent = 'Ideale Dimensionierung für ein Einfamilienhaus mit Batteriespeicher und Solar Manager — bereit für Wärmepumpe und E-Mobilität.';
+          desc.textContent = 'Ideale Dimensionierung für ein Einfamilienhaus mit Batteriespeicher und Solar Manager, bereit für Wärmepumpe und E-Mobilität.';
           yEl.textContent = '19\\'700 – 24\\'000 kWh';
           aEl.textContent = jomaCalcState.storage === 'notstrom' ? 'bis 82 % + Notstrom-Reserve' : 'bis 75 – 82 % Eigenverbrauch';
           mEl.textContent = 'AIKO / 3S / Trina Solar';
@@ -2123,7 +2111,7 @@ def render_v2_shell(filename: str, page_title: str, active_nav: str, body_html: 
   <meta http-equiv="X-XSS-Protection" content="1; mode=block">
   <meta name="referrer" content="no-referrer">
   <title>{page_title}</title>
-  <meta name="description" content="Unverbindlicher Vorschau-Entwurf (Zeigeversion) für JOMA Solar GmbH Wettingen: 2 Beispiel-Seiten sind bereits ausgearbeitet — 3 weitere Detailseiten folgen beim Ausbau.">
+  <meta name="description" content="Unverbindlicher Vorschau-Entwurf (Zeigeversion) für JOMA Solar GmbH Wettingen: 2 Beispiel-Seiten sind bereits ausgearbeitet – 3 weitere Detailseiten folgen beim Ausbau.">
   <link rel="icon" type="image/png" href="images/favicon-32x32.png">
   <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -2223,7 +2211,7 @@ def render_v2_shell(filename: str, page_title: str, active_nav: str, body_html: 
             <img src="images/logo.svg" alt="JOMA Solar GmbH Logo" width="138" height="26" loading="lazy" decoding="async">
           </div>
           <p style="font-size:0.86rem;color:#2C3545;line-height:1.6;margin-bottom:14px;" data-slot="footer_about">
-            Unverbindlicher Vorschau-Entwurf für die JOMA Solar GmbH (Wettingen): 2 Beispiel-Seiten (Startseite inkl. Solar-Rechner &amp; 3-Schritte Smart-Anfrage) sind bereits ausgearbeitet — 3 weitere Detailseiten folgen beim gemeinsamen Ausbau.
+            Unverbindlicher Vorschau-Entwurf für die JOMA Solar GmbH (Wettingen): 2 Beispiel-Seiten (Startseite inkl. Solar-Rechner &amp; 3-Schritte Smart-Anfrage) sind bereits ausgearbeitet – 3 weitere Detailseiten folgen beim gemeinsamen Ausbau.
           </p>
           <div style="font-size:0.84rem;color:#12161F;font-weight:600;">
             Tägerhardstrasse 90 · CH-5430 Wettingen · Tel. 056 558 98 67
@@ -2307,7 +2295,7 @@ def render_v2_shell(filename: str, page_title: str, active_nav: str, body_html: 
 
       <div style="display:flex;flex-wrap:wrap;gap:10px;margin-top:18px;">
         <button type="button" class="btn-cta btn-cta-primary btn-sm" onclick="wpCloseBlueprintModal()">
-          <span>Verstanden — Vorschau weiter ansehen</span>
+          <span>Verstanden · Vorschau weiter ansehen</span>
         </button>
         <a href="kontakt.html" class="btn-cta btn-cta-outline btn-sm">
           <span>3-Schritte Smart-Anfrage testen</span>
@@ -2405,7 +2393,7 @@ V1_INDEX_BODY = f"""
               </div>
               <h3 style="font-size:1.24rem;font-weight:700;margin-bottom:8px;">Solaranlagen für EFH &amp; MFH</h3>
               <p style="font-size:0.9rem;color:var(--text-body);margin-bottom:12px;">
-                Individuell auf Ihre Dacharchitektur und Ihre Zukunftspläne abgestimmte Photovoltaikanlagen — von der kompakten EFH-Anlage bis zur Dachsanierung.
+                Individuell auf Ihre Dacharchitektur und Ihre Zukunftspläne abgestimmte Photovoltaikanlagen, von der kompakten EFH-Anlage bis zur Dachsanierung.
               </p>
               <div class="check-list">
                 <div class="check-item">{SVG_CHECK} <span>Hochleistungsmodule (AIKO, 3S Swiss Solar Indach, Megasol, Trina)</span></div>
@@ -2432,7 +2420,7 @@ V1_INDEX_BODY = f"""
               </div>
               <h3 style="font-size:1.24rem;font-weight:700;margin-bottom:8px;">Batteriespeicher &amp; Notstrom</h3>
               <p style="font-size:0.9rem;color:var(--text-body);margin-bottom:12px;">
-                Nutzen Sie Ihren tagsüber produzierten Sonnenstrom auch am Abend und in der Nacht — exakt dimensioniert nach Ihrem Verbrauchsprofil.
+                Nutzen Sie Ihren tagsüber produzierten Sonnenstrom auch am Abend und in der Nacht, exakt dimensioniert nach Ihrem Verbrauchsprofil.
               </p>
               <div class="check-list">
                 <div class="check-item">{SVG_CHECK} <span>Maximale Eigenverbrauchsoptimierung &amp; schnelle Amortisation</span></div>
@@ -2564,7 +2552,7 @@ V1_INDEX_BODY = f"""
     <div class="container">
       <div class="section-head">
         <div class="section-kicker" data-slot="ref_kicker">REALISIERTE SOLARPROJEKTE · WETTINGEN, RINIKEN, RÜTIHOF &amp; UNTERSIGGENTHAL</div>
-        <h2 class="section-title" data-slot="ref_title">Echte Anlagen im Einsatz — dokumentiert mit Leistungsdaten</h2>
+        <h2 class="section-title" data-slot="ref_title">Echte Anlagen im Einsatz, dokumentiert mit Leistungsdaten</h2>
         <p class="section-desc" data-slot="ref_desc">
           Ob kombinierte 3S-Indach-/Aufdachsanierung in Wettingen, Ost-West-Süd-Flachdach in Riniken oder 30.6 kWp ZEV-Mehrfamilienhaus in Baden-Rütihof: Hier sehen Sie, wie wir Projekte in der Region umsetzen.
         </p>
@@ -2618,7 +2606,7 @@ V1_INDEX_BODY = f"""
       <div class="grid-2">
         <div class="founder-card">
           <div class="founder-top">
-            <img src="images/portrait-jonathan-muggli.jpg" alt="Jonathan Muggli — Gründer und Geschäftsführer JOMA Solar GmbH Wettingen" class="founder-portrait" loading="lazy" decoding="async">
+            <img src="images/portrait-jonathan-muggli.jpg" alt="Jonathan Muggli – Gründer und Geschäftsführer JOMA Solar GmbH Wettingen" class="founder-portrait" loading="lazy" decoding="async">
             <div>
               <span class="meta-badge" style="margin-bottom:8px;">Gründer &amp; Geschäftsführer</span>
               <h3 style="font-size:1.32rem;font-weight:700;margin-bottom:4px;">Jonathan Muggli</h3>
@@ -2644,7 +2632,7 @@ V1_INDEX_BODY = f"""
 
         <div class="founder-card">
           <div class="founder-top">
-            <img src="images/portrait-marco-keller.jpg" alt="Marco Keller — Gründer und Geschäftsführer JOMA Solar GmbH Wettingen" class="founder-portrait" loading="lazy" decoding="async">
+            <img src="images/portrait-marco-keller.jpg" alt="Marco Keller – Gründer und Geschäftsführer JOMA Solar GmbH Wettingen" class="founder-portrait" loading="lazy" decoding="async">
             <div>
               <span class="meta-badge" style="margin-bottom:8px;">Gründer &amp; Geschäftsführer</span>
               <h3 style="font-size:1.32rem;font-weight:700;margin-bottom:4px;">Marco Keller</h3>
@@ -2688,7 +2676,7 @@ V1_INDEX_BODY = f"""
         <div class="section-kicker">AKTUELLE PROJEKT-EINBLICKE · @JOMA_SOLAR AUF INSTAGRAM &amp; LINKEDIN</div>
         <h2 class="section-title">Frisch ab Dach und Technikraum im Kanton Aargau</h2>
         <p class="section-desc">
-          Wir zeigen echte Handwerks- und Ingenieursarbeit direkt aus unserem Alltag in Wettingen, Baden, Riniken und Fislisbach — transparent vom ersten Montageschritt bis zur Drohnen-Endabnahme.
+          Wir zeigen echte Handwerks- und Ingenieursarbeit direkt aus unserem Alltag in Wettingen, Baden, Riniken und Fislisbach, transparent vom ersten Montageschritt bis zur Drohnen-Endabnahme.
         </p>
       </div>
 
@@ -3204,7 +3192,7 @@ V1_REFERENZEN_BODY = f"""
         <div class="section-kicker">GEWERBE-FALLSTUDIE MIT VIDEO · UNTERSIGGENTHAL (AG)</div>
         <h2 class="section-title">Wein &amp; Gemüse Umbricht: Solarstrom für Kühlung in der Kernzone</h2>
         <p class="section-desc">
-          Wie ein traditionsreicher Familienbetrieb in Untersiggenthal seinen hohen Tages-Strombedarf für Kühlanlagen mit eigenem Solarstrom deckt — trotz anspruchsvoller Kernzonen-Auflagen.
+          Wie ein traditionsreicher Familienbetrieb in Untersiggenthal seinen hohen Tages-Strombedarf für Kühlanlagen mit eigenem Solarstrom deckt, trotz anspruchsvoller Kernzonen-Auflagen.
         </p>
       </div>
 
@@ -3364,7 +3352,7 @@ V1_UEBER_UNS_BODY = f"""
       <div class="grid-2" style="margin-bottom:28px;">
         <div class="founder-card">
           <div class="founder-top">
-            <img src="images/portrait-jonathan-muggli.jpg" alt="Jonathan Muggli — Gründer und Geschäftsführer JOMA Solar GmbH" class="founder-portrait" loading="lazy" decoding="async">
+            <img src="images/portrait-jonathan-muggli.jpg" alt="Jonathan Muggli – Gründer und Geschäftsführer JOMA Solar GmbH" class="founder-portrait" loading="lazy" decoding="async">
             <div>
               <span class="meta-badge" style="margin-bottom:8px;">Gründer &amp; Geschäftsführer</span>
               <h3 style="font-size:1.35rem;font-weight:700;margin-bottom:6px;">Jonathan Muggli</h3>
@@ -3390,7 +3378,7 @@ V1_UEBER_UNS_BODY = f"""
 
         <div class="founder-card">
           <div class="founder-top">
-            <img src="images/portrait-marco-keller.jpg" alt="Marco Keller — Gründer und Geschäftsführer JOMA Solar GmbH" class="founder-portrait" loading="lazy" decoding="async">
+            <img src="images/portrait-marco-keller.jpg" alt="Marco Keller – Gründer und Geschäftsführer JOMA Solar GmbH" class="founder-portrait" loading="lazy" decoding="async">
             <div>
               <span class="meta-badge" style="margin-bottom:8px;">Gründer &amp; Geschäftsführer</span>
               <h3 style="font-size:1.35rem;font-weight:700;margin-bottom:6px;">Marco Keller</h3>
@@ -3398,7 +3386,7 @@ V1_UEBER_UNS_BODY = f"""
                 Wirtschaftsingenieur · Über 10 Jahre Erfahrung in der Photovoltaik
               </p>
               <p style="font-size:0.88rem;color:var(--text-body);line-height:1.58;">
-                Begleitet seit über einem Jahrzehnt anspruchsvolle Solarprojekte in der Schweiz — vom Einfamilienhaus bis zur gewerblichen Grossanlage und Contracting-Lösung.
+                Begleitet seit über einem Jahrzehnt anspruchsvolle Solarprojekte in der Schweiz, vom Einfamilienhaus bis zur gewerblichen Grossanlage und Contracting-Lösung.
               </p>
             </div>
           </div>
@@ -3419,7 +3407,7 @@ V1_UEBER_UNS_BODY = f"""
       <div class="grid-3">
         <div class="pillar-card">
           <div class="pillar-img-wrap" style="height:250px;">
-            <img src="images/portrait-tino-seiler.jpg" alt="Tino Seiler — Leiter Montage und Ausführung JOMA Solar" style="object-position:center top;" loading="lazy" decoding="async">
+            <img src="images/portrait-tino-seiler.jpg" alt="Tino Seiler – Leiter Montage und Ausführung JOMA Solar" style="object-position:center top;" loading="lazy" decoding="async">
           </div>
           <div class="pillar-body">
             <div>
@@ -3440,7 +3428,7 @@ V1_UEBER_UNS_BODY = f"""
 
         <div class="pillar-card">
           <div class="pillar-img-wrap" style="height:250px;">
-            <img src="images/portrait-mario-grab.jpg" alt="Mario Grab — Solarmonteur und gelernter Dachdecker JOMA Solar" style="object-position:center top;" loading="lazy" decoding="async">
+            <img src="images/portrait-mario-grab.jpg" alt="Mario Grab – Solarmonteur und gelernter Dachdecker JOMA Solar" style="object-position:center top;" loading="lazy" decoding="async">
           </div>
           <div class="pillar-body">
             <div>
@@ -3461,7 +3449,7 @@ V1_UEBER_UNS_BODY = f"""
 
         <div class="pillar-card">
           <div class="pillar-img-wrap" style="height:250px;">
-            <img src="images/portrait-sascha-tsap.jpg" alt="Sascha Tsap — Solarmonteur und Dachdecker JOMA Solar" style="object-position:center top;" loading="lazy" decoding="async">
+            <img src="images/portrait-sascha-tsap.jpg" alt="Sascha Tsap – Solarmonteur und Dachdecker JOMA Solar" style="object-position:center top;" loading="lazy" decoding="async">
           </div>
           <div class="pillar-body">
             <div>
@@ -3527,7 +3515,7 @@ V1_UEBER_UNS_BODY = f"""
               <span class="meta-badge" style="margin-bottom:10px;">Spontanbewerbung willkommen</span>
               <h3 style="font-size:1.22rem;font-weight:700;margin-bottom:8px;">Solarmonteur, Dachdecker EFZ oder Elektroinstallateur EFZ?</h3>
               <p style="font-size:0.9rem;color:var(--text-body);">
-                Auch wenn du als Solarmonteur, Dachdecker oder Elektroinstallateur eine neue Herausforderung in einem familiären Wettinger Betrieb suchst, freuen wir uns auf deinen Anruf oder eine kurze Nachricht — ganz ohne kompliziertes Bewerbungsdossier.
+                Auch wenn du als Solarmonteur, Dachdecker oder Elektroinstallateur eine neue Herausforderung in einem familiären Wettinger Betrieb suchst, freuen wir uns auf deinen Anruf oder eine kurze Nachricht, ganz ohne kompliziertes Bewerbungsdossier.
               </p>
             </div>
             <a href="kontakt.html" class="btn-cta btn-cta-outline btn-sm" style="width:100%;">

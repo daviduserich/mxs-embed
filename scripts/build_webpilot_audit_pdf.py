@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-build_webpilot_audit_pdf.py — WebPilot Vorher/Nachher-Beweis-Report Generator (HTML & A4-PDF)
+build_webpilot_audit_pdf.py – WebPilot Vorher/Nachher-Beweis-Report Generator (HTML & A4-PDF)
 =============================================================================================
 Erzeugt fuer jedes WebPilot-Projekt (oder beliebige neue Slugs per Live-Probe)
 einen standardisierten Vorher/Nachher-Beweis-Report in 6 festen Pruef-Kategorien
@@ -102,7 +102,7 @@ PROJECTS_DATA: Dict[str, Dict[str, Any]] = {
             (
                 "HEBEL 03 · SMART-ANFRAGE",
                 "55 Originalbilder lokal + 1-Seiten-PDF-Dossier",
-                "Interessenten laden optional Fotos der bestehenden Bausubstanz hoch und erhalten sofort ein 1-Seiten-PDF-Dossier — direkt zugeordnet an Susanne («Susi») Schmid in 5070 Frick.",
+                "Interessenten laden optional Fotos der bestehenden Bausubstanz hoch und erhalten sofort ein 1-Seiten-PDF-Dossier, direkt zugeordnet an Susanne («Susi») Schmid in 5070 Frick.",
             ),
         ],
         "categories": [
@@ -213,7 +213,7 @@ PROJECTS_DATA: Dict[str, Dict[str, Any]] = {
             (
                 "HEBEL 03 · 3-SCHRITTE SMART-ANFRAGE & DOSSIER",
                 "Vorqualifizierte Anfragen für EFH, ZEV, Speicher & Contracting",
-                "Interessenten wählen Objektart, Dachgrösse und Wunsch-Komponenten und erhalten sofort ein 1-Seiten-A4-PDF-Dossier — direkt zugeordnet an Jonathan Muggli & Marco Keller.",
+                "Interessenten wählen Objektart, Dachgrösse und Wunsch-Komponenten und erhalten sofort ein 1-Seiten-A4-PDF-Dossier, direkt zugeordnet an Jonathan Muggli & Marco Keller.",
             ),
         ],
         "categories": [
@@ -281,13 +281,13 @@ PROJECTS_DATA: Dict[str, Dict[str, Any]] = {
                 "metric_before": "Komplexer Webflow-Designer mit englischen Klassen- und CMS-Strukturen",
                 "desc_before": "Änderungen an Texten oder neuen Referenzprojekten erfordern Einarbeitung in das verschachtelte Webflow-Backend.",
                 "metric_after": "WebPilot Studio Cockpit v4.0 + Kunden-Cockpit Light (Nur Texte)",
-                "desc_after": "Texte, Team-Angaben und neue Referenzanlagen jederzeit in 30 Sekunden im Browser anpassen — ohne Layout-Risiko.",
+                "desc_after": "Texte, Team-Angaben und neue Referenzanlagen jederzeit in 30 Sekunden im Browser anpassen, ohne Layout-Risiko.",
             },
         ],
     },
     "herzensarbeit": {
         "slug": "herzensarbeit",
-        "company_name": "Herzensarbeit — Anne-Katrin Koch",
+        "company_name": "Herzensarbeit · Anne-Katrin Koch",
         "city": "Härkingen & Oensingen SO",
         "source_url": "https://herzensarbeit.ch/",
         "source_url_display": "herzensarbeit.ch",
@@ -324,7 +324,7 @@ PROJECTS_DATA: Dict[str, Dict[str, Any]] = {
             (
                 "HEBEL 03 · ERSTGESPRÄCH",
                 "3-Schritte Smart-Anfrage ohne Hemmschwelle",
-                "Ratsuchende wählen Thema, Wunschort (Praxis Härkingen SO oder Online) und Kontaktweg in 60 Sekunden — ein einziger ausgebuchter Workshop amortisiert die Webseite.",
+                "Ratsuchende wählen Thema, Wunschort (Praxis Härkingen SO oder Online) und Kontaktweg in 60 Sekunden, ein einziger ausgebuchter Workshop amortisiert die Webseite.",
             ),
         ],
         "categories": [
@@ -398,7 +398,7 @@ PROJECTS_DATA: Dict[str, Dict[str, Any]] = {
     },
     "frees": {
         "slug": "frees",
-        "company_name": "Free's — Stefan Fritschi",
+        "company_name": "Free's · Stefan Fritschi",
         "city": "Niederrohrdorf AG",
         "source_url": "https://www.frees.ch/",
         "source_url_display": "frees.ch",
@@ -509,7 +509,7 @@ PROJECTS_DATA: Dict[str, Dict[str, Any]] = {
     },
     "innere-staerke": {
         "slug": "innere-staerke",
-        "company_name": "Wüest + Paneduro — Innere Stärke",
+        "company_name": "Wüest + Paneduro · Innere Stärke",
         "city": "Sursee LU",
         "source_url": "https://www.innere-staerke.business/",
         "source_url_display": "innere-staerke.business",
@@ -614,7 +614,7 @@ PROJECTS_DATA: Dict[str, Dict[str, Any]] = {
                 "metric_before": "Schwerfälliges TYPO3-Backend für Text- und Seminar-Updates",
                 "desc_before": "TYPO3 gehört zu den komplexesten Redaktionssystemen; kleine Anpassungen kosten im Alltag unnötig Zeit.",
                 "metric_after": "WebPilot Studio Cockpit v4.0 · Inhalte in 30 Sekunden selbst pflegen",
-                "desc_after": "Texte, Kundenstimmen und Bilder per Klick im Browser anpassen — geschützt durch den automatischen Sicherheits-Airbag.",
+                "desc_after": "Texte, Kundenstimmen und Bilder per Klick im Browser anpassen, geschützt durch den automatischen Sicherheits-Airbag.",
             },
         ],
     },
@@ -657,7 +657,7 @@ PROJECTS_DATA: Dict[str, Dict[str, Any]] = {
             (
                 "HEBEL 03 · VORSTANDS-ENTLASTUNG",
                 "Eigenes Smartphone-Update-Formular für alle 33 Trainer-Teams",
-                "Trainer reichen Kaderfotos, Trainingszeiten und Matchberichte direkt übers Handy ein — der Vorstand gibt sie im Studio Cockpit v4.0 mit 1 Klick frei.",
+                "Trainer reichen Kaderfotos, Trainingszeiten und Matchberichte direkt übers Handy ein, der Vorstand gibt sie im Studio Cockpit v4.0 mit 1 Klick frei.",
             ),
         ],
         "categories": [
@@ -953,7 +953,7 @@ PROJECTS_DATA: Dict[str, Dict[str, Any]] = {
     },
     "her11": {
         "slug": "her11",
-        "company_name": "HER11 — Frauenfussball & Sport-Marketing",
+        "company_name": "HER11 · Frauenfussball & Sport-Marketing",
         "city": "Schweiz",
         "source_url": "https://her11.ch/",
         "source_url_display": "her11.ch",
@@ -1175,7 +1175,7 @@ PROJECTS_DATA: Dict[str, Dict[str, Any]] = {
     },
     "imp-marketing": {
         "slug": "imp-marketing",
-        "company_name": "IMP GmbH — Matthias Iseli",
+        "company_name": "IMP GmbH · Matthias Iseli",
         "city": "Obersteckholz BE",
         "source_url": "https://imp-marketing.ch/",
         "source_url_display": "imp-marketing.ch",
@@ -1280,7 +1280,7 @@ PROJECTS_DATA: Dict[str, Dict[str, Any]] = {
                 "metric_before": "Fehleranfälliger GoHighLevel Funnel-Builder ohne Qualitäts-Airbag",
                 "desc_before": "Beim Kopieren von Funnel-Seiten blieben unbemerkt «Thank you»-Seitentitel, «Abschnitt folgt bald» und englische FAQ-Blöcke online stehen.",
                 "metric_after": "WebPilot Studio Cockpit v4.0 mit deterministischem Sicherheits-Airbag",
-                "desc_after": "Texte, Referenzen und Bilder in 30 Sekunden selbst anpassen — der integrierte Airbag blockiert Platzhalter und SEO-Fehler automatisch vor dem Publizieren.",
+                "desc_after": "Texte, Referenzen und Bilder in 30 Sekunden selbst anpassen, der integrierte Airbag blockiert Platzhalter und SEO-Fehler automatisch vor dem Publizieren.",
             },
         ],
     },

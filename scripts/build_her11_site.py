@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Generator fuer HER11 (preview-her11) — Ausbildung & Karrierebegleitung für junge Fussballerinnen
+Generator fuer HER11 (preview-her11) – Ausbildung & Karrierebegleitung für junge Fussballerinnen
 Setzt das 9-seitige Redaktionskonzept (HER11_Webseitenkonzept.pdf, Oktober 2026), das Brand-Board
 (#0B1A3B Deep Blue, #FF0066 Power Pink, #FFFFFF White, Montserrat Bold / SemiBold / Regular) sowie Jennys
 Wachstums-Sektionen (Ausbildungsbetriebe/Sponsoren, Stimmen, ACP Social Media & Ratgeber) 1:1 um.
@@ -17,8 +17,8 @@ SITE_DIR.mkdir(parents=True, exist_ok=True)
 # 1. company.json, config.json & site.json
 company_data = {
     "name": "HER11",
-    "company_name": "HER11 — Ihr Weg. Ihr Spiel. Ihre Zukunft.",
-    "legal_name": "HER11 — Initiative fuer Ausbildung & Karrierebegleitung im Frauenfussball",
+    "company_name": "HER11 · Ihr Weg. Ihr Spiel. Ihre Zukunft.",
+    "legal_name": "HER11 · Initiative fuer Ausbildung & Karrierebegleitung im Frauenfussball",
     "short_name": "HER11",
     "claim": "Ihr Weg. Ihr Spiel. Ihre Zukunft.",
     "subline": "Ausbildung & Karrierebegleitung für junge Fussballerinnen",
@@ -39,7 +39,7 @@ company_data = {
     "is_website_studio": True,
     "host_url": "https://vorschau.magnet-xs.ch/her11/cockpit.html",
     "host_jobs_url": "https://vorschau.magnet-xs.ch/her11/",
-    "copyright": "© 2026 HER11 — Ihr Weg. Ihr Spiel. Ihre Zukunft. Alle Rechte vorbehalten.",
+    "copyright": "© 2026 HER11 · Ihr Weg. Ihr Spiel. Ihre Zukunft. Alle Rechte vorbehalten.",
     "hosting_status": "Live-Betrieb & Hosting: Schweizer Edge · WebPilot Studio v3.4.1",
     "instagram_profile": "https://www.instagram.com/",
     "linkedin_profile": "https://www.linkedin.com/",
@@ -76,12 +76,12 @@ site_manifest = {
         }
     },
     "pages": [
-        {"file": "index.html", "nav": "Startseite", "title": "HER11 — Dein Talent. Dein Weg. Deine Zukunft."},
-        {"file": "ueber-uns.html", "nav": "Über uns", "title": "Über uns — Weil jede Spielerin ihren eigenen Weg hat | HER11"},
-        {"file": "ausbildung.html", "nav": "Ausbildung", "title": "Ausbildung — Zwei Karrieren. Eine Zukunft. | HER11"},
-        {"file": "begleitung.html", "nav": "Begleitung", "title": "Begleitung — Du stehst im Mittelpunkt | HER11"},
-        {"file": "mach-mit.html", "nav": "Mach mit", "title": "Mach mit — Gemeinsam schaffen wir Chancen | HER11"},
-        {"file": "kontakt.html", "nav": "Kontakt", "title": "Kontakt — Lass uns gemeinsam etwas bewegen | HER11"}
+        {"file": "index.html", "nav": "Startseite", "title": "HER11 · Dein Talent. Dein Weg. Deine Zukunft."},
+        {"file": "ueber-uns.html", "nav": "Über uns", "title": "Über uns, Weil jede Spielerin ihren eigenen Weg hat | HER11"},
+        {"file": "ausbildung.html", "nav": "Ausbildung", "title": "Ausbildung – Zwei Karrieren. Eine Zukunft. | HER11"},
+        {"file": "begleitung.html", "nav": "Begleitung", "title": "Begleitung – Du stehst im Mittelpunkt | HER11"},
+        {"file": "mach-mit.html", "nav": "Mach mit", "title": "Mach mit – Gemeinsam schaffen wir Chancen | HER11"},
+        {"file": "kontakt.html", "nav": "Kontakt", "title": "Kontakt – Lass uns gemeinsam etwas bewegen | HER11"}
     ]
 }
 (SITE_DIR / "site.json").write_text(json.dumps(site_manifest, indent=2, ensure_ascii=False), encoding="utf-8")
@@ -374,18 +374,6 @@ SHARED_CSS = """
       margin-bottom: 8px;
     }
     .section-kicker::before,
-    .hero-kicker::before {
-      content: "";
-      display: inline-block;
-      width: 16px;
-      height: 2px;
-      background: currentColor;
-      vertical-align: middle;
-      margin-right: 8px;
-      border-radius: 2px;
-      position: relative;
-      top: -1px;
-    }
 
     /* HERO SECTIONS (DARK STADIUM LOOK #0B1A3B) */
     .hero-wrap {
@@ -1300,7 +1288,7 @@ def render_shell(filename: str, page_title: str, active_nav: str, body_html: str
   <meta http-equiv="X-XSS-Protection" content="1; mode=block">
   <meta name="referrer" content="no-referrer">
   <title>{page_title}</title>
-  <meta name="description" content="HER11 — Ihr Weg. Ihr Spiel. Ihre Zukunft. Ausbildung und Karrierebegleitung für junge Fussballerinnen in der Schweiz.">
+  <meta name="description" content="HER11 · Ihr Weg. Ihr Spiel. Ihre Zukunft. Ausbildung und Karrierebegleitung für junge Fussballerinnen in der Schweiz.">
   <link rel="icon" href="images/favicon-h11.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -1318,7 +1306,7 @@ def render_shell(filename: str, page_title: str, active_nav: str, body_html: str
           <span class="trust-dot"></span>
           <span data-slot="strip_badge">HER11 · SCHWEIZ</span>
         </span>
-        <span class="trust-claim-text" data-slot="strip_claim" style="font-weight: 600;">Ihr Weg. Ihr Spiel. Ihre Zukunft. — Ausbildung &amp; Karrierebegleitung für junge Fussballerinnen</span>
+        <span class="trust-claim-text" data-slot="strip_claim" style="font-weight: 600;">Ihr Weg. Ihr Spiel. Ihre Zukunft. – Ausbildung &amp; Karrierebegleitung für junge Fussballerinnen</span>
       </div>
       <div class="trust-strip-group">
         <a href="mailto:info@her11.ch" class="trust-strip-link" aria-label="E-Mail an info@her11.ch">
@@ -1429,7 +1417,7 @@ def render_shell(filename: str, page_title: str, active_nav: str, body_html: str
     </div>
 
     <div class="footer-bottom">
-      <div data-slot="copyright">© 2026 HER11 — Ihr Weg. Ihr Spiel. Ihre Zukunft. Ausbildung &amp; Karrierebegleitung für junge Fussballerinnen.</div>
+      <div data-slot="copyright">© 2026 HER11 · Ihr Weg. Ihr Spiel. Ihre Zukunft. Ausbildung &amp; Karrierebegleitung für junge Fussballerinnen.</div>
       <div style="display: inline-flex; align-items: center; gap: 8px;">
         <span style="display: inline-block; width: 6px; height: 6px; border-radius: 4px; background: #FF0066;"></span>
         <span data-slot="hosting_status">info@her11.ch · www.her11.ch · Impressum · Datenschutz</span>
@@ -1471,7 +1459,7 @@ def render_shell(filename: str, page_title: str, active_nav: str, body_html: str
 """
 
 # Update company.json & config.json with proper umlauts (100% ss, no Eszett)
-company_data["legal_name"] = "HER11 — Initiative für Ausbildung & Karrierebegleitung im Frauenfussball"
+company_data["legal_name"] = "HER11 · Initiative für Ausbildung & Karrierebegleitung im Frauenfussball"
 company_data["subline"] = "Ausbildung & Karrierebegleitung für junge Fussballerinnen"
 company_data["city"] = "Zürich / Schweiz"
 company_data["industry"] = "Sportförderung, Berufsbildung & Karrierebegleitung"
@@ -1825,7 +1813,7 @@ INDEX_BODY = """
 
       <div class="social-grid">
         <div class="her-card-dark">
-          <img src="images/fokus-flutlicht-closeup.webp" alt="Stark — Mentale Stärke und Fokus im Flutlicht" class="media-card-img" data-slot="social_1_img">
+          <img src="images/fokus-flutlicht-closeup.webp" alt="Stark – Mentale Stärke und Fokus im Flutlicht" class="media-card-img" data-slot="social_1_img">
           <div class="card-top-row">
             <span class="card-tag-badge" data-slot="social_1_badge">STARK. · FOKUS</span>
           </div>
@@ -1840,7 +1828,7 @@ INDEX_BODY = """
         </div>
 
         <div class="her-card-dark">
-          <img src="images/social-authentisch-stollen.webp" alt="Authentisch — Fussballschuh auf dem Rasen im Stadionlicht" class="media-card-img" data-slot="social_2_img">
+          <img src="images/social-authentisch-stollen.webp" alt="Authentisch – Fussballschuh auf dem Rasen im Stadionlicht" class="media-card-img" data-slot="social_2_img">
           <div class="card-top-row">
             <span class="card-tag-badge" data-slot="social_2_badge">AUTHENTISCH. · DUALER WEG</span>
           </div>
@@ -1855,7 +1843,7 @@ INDEX_BODY = """
         </div>
 
         <div class="her-card-dark">
-          <img src="images/social-gemeinsam-team11.webp" alt="Gemeinsam — Vier Spielerinnen mit Rückennummer 11 Arm in Arm" class="media-card-img" data-slot="social_3_img">
+          <img src="images/social-gemeinsam-team11.webp" alt="Gemeinsam – Vier Spielerinnen mit Rückennummer 11 Arm in Arm" class="media-card-img" data-slot="social_3_img">
           <div class="card-top-row">
             <span class="card-tag-badge" data-slot="social_3_badge">GEMEINSAM. · #HER11</span>
           </div>
@@ -1934,7 +1922,7 @@ INDEX_BODY = """
 """
 
 # ==============================================================================
-# 02 | ÜBER UNS (ueber-uns.html — SEITE 3 REDAKTIONSKONZEPT)
+# 02 | ÜBER UNS (ueber-uns.html – SEITE 3 REDAKTIONSKONZEPT)
 # ==============================================================================
 UEBER_UNS_BODY = """
   <!-- HERO SECTION (02 | ÜBER UNS) -->
@@ -2124,7 +2112,7 @@ UEBER_UNS_BODY = """
 """
 
 # ==============================================================================
-# 03 | AUSBILDUNG (ausbildung.html — SEITE 4 & 5 REDAKTIONSKONZEPT)
+# 03 | AUSBILDUNG (ausbildung.html – SEITE 4 & 5 REDAKTIONSKONZEPT)
 # ==============================================================================
 AUSBILDUNG_BODY = """
   <!-- HERO SECTION (03 | AUSBILDUNG) -->
@@ -2375,7 +2363,7 @@ AUSBILDUNG_BODY = """
 """
 
 # ==============================================================================
-# 04 | BEGLEITUNG (begleitung.html — SEITE 6 REDAKTIONSKONZEPT)
+# 04 | BEGLEITUNG (begleitung.html – SEITE 6 REDAKTIONSKONZEPT)
 # ==============================================================================
 BEGLEITUNG_BODY = """
   <!-- HERO SECTION (04 | BEGLEITUNG) -->
@@ -2512,7 +2500,7 @@ BEGLEITUNG_BODY = """
 """
 
 # ==============================================================================
-# 05 | MACH MIT (mach-mit.html — SEITE 7 & 8 REDAKTIONSKONZEPT)
+# 05 | MACH MIT (mach-mit.html – SEITE 7 & 8 REDAKTIONSKONZEPT)
 # ==============================================================================
 MACH_MIT_BODY = """
   <!-- HERO SECTION (05 | MACH MIT) -->
@@ -2785,7 +2773,7 @@ MACH_MIT_BODY = """
 """
 
 # ==============================================================================
-# 06 | KONTAKT (kontakt.html — SEITE 9 REDAKTIONSKONZEPT)
+# 06 | KONTAKT (kontakt.html – SEITE 9 REDAKTIONSKONZEPT)
 # ==============================================================================
 KONTAKT_BODY = r"""
   <!-- HERO SECTION (06 | KONTAKT) -->
@@ -2814,7 +2802,7 @@ KONTAKT_BODY = r"""
     </div>
   </section>
 
-  <!-- KONTAKTFORMULAR & DIREKTER KONTAKT (SEITE 9 — 3-SCHRITTE SMART-ANFRAGE) -->
+  <!-- KONTAKTFORMULAR & DIREKTER KONTAKT (SEITE 9 – 3-SCHRITTE SMART-ANFRAGE) -->
   <section class="section-wrap" id="kontaktformular" data-section-id="kontaktformular" data-section="kontaktformular" data-section-label="Kontaktformular &amp; Direkter Kontakt">
     <div class="section-inner">
       <div class="split-grid">
@@ -2844,7 +2832,7 @@ KONTAKT_BODY = r"""
 
           <h2 class="section-title" style="font-size: 1.38rem;" data-slot="form_title">WIE KÖNNEN WIR HELFEN?</h2>
           <p class="section-desc" style="margin-bottom: 16px;" data-slot="form_desc">
-            Wähle deine Rolle — wir erstellen in Echtzeit dein persönliches 1-Seiten-Anfrage-Dossier für Jenny Ettle &amp; Ramona Bachmann:
+            Wähle deine Rolle, wir erstellen in Echtzeit dein persönliches 1-Seiten-Anfrage-Dossier für Jenny Ettle &amp; Ramona Bachmann:
           </p>
 
           <form id="her11ContactForm" class="form-grid" onsubmit="return wpSubmitHer11Lead(event)" novalidate>
@@ -3040,7 +3028,7 @@ KONTAKT_BODY = r"""
                   <span>Live-Demo aktiv (Selbsttest-Modus):</span>
                 </div>
                 <div>
-                  Gib deine eigene E-Mail und Handynummer ein — du erhältst nach dem Absenden sofort das echte <strong>1-Seiten-PDF-Dossier im HER11-Design</strong> inklusive QR-Codes sowie den WhatsApp-Ping direkt auf dein Handy!
+                  Gib deine eigene E-Mail und Handynummer ein, du erhältst nach dem Absenden sofort das echte <strong>1-Seiten-PDF-Dossier im HER11-Design</strong> inklusive QR-Codes sowie den WhatsApp-Ping direkt auf dein Handy!
                 </div>
               </div>
 
@@ -3133,7 +3121,7 @@ KONTAKT_BODY = r"""
           <span class="section-kicker" data-slot="imp_kicker">RECHTLICHES</span>
           <h3 class="card-title" data-slot="imp_title">IMPRESSUM</h3>
           <p class="card-text" data-slot="imp_text">
-            <strong>HER11 — Ihr Weg. Ihr Spiel. Ihre Zukunft.</strong><br>
+            <strong>HER11 · Ihr Weg. Ihr Spiel. Ihre Zukunft.</strong><br>
             Ausbildung &amp; Karrierebegleitung für junge Fussballerinnen<br>
             Schweiz<br>
             E-Mail: info@her11.ch<br>
@@ -3491,12 +3479,12 @@ KONTAKT_BODY = r"""
 """
 
 pages_to_write = [
-    ("index.html", "HER11 — Dein Talent. Dein Weg. Deine Zukunft.", "startseite", INDEX_BODY),
-    ("ueber-uns.html", "Über uns — Weil jede Spielerin ihren eigenen Weg hat | HER11", "ueber-uns", UEBER_UNS_BODY),
-    ("ausbildung.html", "Ausbildung — Zwei Karrieren. Eine Zukunft. | HER11", "ausbildung", AUSBILDUNG_BODY),
-    ("begleitung.html", "Begleitung — Du stehst im Mittelpunkt | HER11", "begleitung", BEGLEITUNG_BODY),
-    ("mach-mit.html", "Mach mit — Gemeinsam schaffen wir Chancen | HER11", "mach-mit", MACH_MIT_BODY),
-    ("kontakt.html", "Kontakt — Lass uns gemeinsam etwas bewegen | HER11", "kontakt", KONTAKT_BODY),
+    ("index.html", "HER11 · Dein Talent. Dein Weg. Deine Zukunft.", "startseite", INDEX_BODY),
+    ("ueber-uns.html", "Über uns, Weil jede Spielerin ihren eigenen Weg hat | HER11", "ueber-uns", UEBER_UNS_BODY),
+    ("ausbildung.html", "Ausbildung – Zwei Karrieren. Eine Zukunft. | HER11", "ausbildung", AUSBILDUNG_BODY),
+    ("begleitung.html", "Begleitung – Du stehst im Mittelpunkt | HER11", "begleitung", BEGLEITUNG_BODY),
+    ("mach-mit.html", "Mach mit – Gemeinsam schaffen wir Chancen | HER11", "mach-mit", MACH_MIT_BODY),
+    ("kontakt.html", "Kontakt – Lass uns gemeinsam etwas bewegen | HER11", "kontakt", KONTAKT_BODY),
 ]
 
 for fname, title, nav_key, body in pages_to_write:

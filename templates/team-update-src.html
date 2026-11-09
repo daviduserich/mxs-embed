@@ -7,7 +7,7 @@
   <meta http-equiv="X-Frame-Options" content="DENY">
   <meta http-equiv="X-XSS-Protection" content="1; mode=block">
   <meta name="referrer" content="no-referrer">
-  <title>Mannschafts-Daten &amp; Kader-Assistent — {{CLUB_NAME}}</title>
+  <title>Mannschafts-Daten &amp; Kader-Assistent · {{CLUB_NAME}}</title>
   <meta name="description" content="WebPilot Mannschafts-Daten &amp; Kader-Einreichungs-Formular für {{CLUB_NAME}}. Trainingszeiten, Mannschaftsfoto, Trainerstab und Spielerkader einfach ohne Login einreichen.">
   <link rel="icon" type="image/png" href="images/favicon-32x32.png">
   <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
@@ -1111,10 +1111,10 @@
             <div>
               <span class="section-kicker kicker-light">WEBPILOT MANNSCHAFTS- &amp; KADER-ASSISTENT · {{CLUB_NAME}}</span>
               <h1 style="color:#FFFFFF;font-size:clamp(1.45rem,2.5vw,2.05rem);font-weight:800;margin-bottom:8px;">
-                Mannschafts-Daten &amp; Kader-Assistent — {{CLUB_NAME}}
+                Mannschafts-Daten &amp; Kader-Assistent – {{CLUB_NAME}}
               </h1>
               <p style="font-size:0.92rem;color:#E2E8F0;line-height:1.58;">
-                Wählen Sie Ihre Mannschaft aus. Bereits bekannte Angaben sind vorausgefüllt — ergänzen Sie einfach Änderungen, das aktuelle Mannschaftsfoto oder die Spielerliste. Kein Login nötig.
+                Wählen Sie Ihre Mannschaft aus. Bereits bekannte Angaben sind vorausgefüllt, ergänzen Sie einfach Änderungen, das aktuelle Mannschaftsfoto oder die Spielerliste. Kein Login nötig.
               </p>
             </div>
           </div>
@@ -1168,7 +1168,7 @@
               <div id="teamStatusBanner" class="team-status-bar status-live">
                 <div style="display:flex;align-items:center;gap:8px;font-size:0.82rem;font-weight:700;">
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-                  <span id="teamStatusText">Bereits ausgearbeitet — Bekannte Vereinsdaten wurden geladen</span>
+                  <span id="teamStatusText">Bereits ausgearbeitet – Bekannte Vereinsdaten wurden geladen</span>
                 </div>
                 <span style="font-size:0.75rem;font-weight:600;" id="teamSlugBadge">System-Kürzel: {{SITE_ID}}_1-mannschaft</span>
               </div>
@@ -1235,7 +1235,7 @@
                     <span>BLOCK 3 VON 5</span>
                   </span>
                   <h2 class="block-title">Mannschaftsfoto (Querformat Drag-&amp;-Drop / Handy-Upload)</h2>
-                  <p class="block-subtitle">Egal wie Ihre Datei auf dem Handy heisst (z. B. IMG_4812.JPG) — das System benennt sie automatisch sauber nach Vereinsstandard.</p>
+                  <p class="block-subtitle">Egal wie Ihre Datei auf dem Handy heisst (z. B. IMG_4812.JPG), das System benennt sie automatisch sauber nach Vereinsstandard.</p>
                 </div>
               </div>
 
@@ -1275,7 +1275,7 @@
                     <span>BLOCK 4 VON 5</span>
                   </span>
                   <h2 class="block-title">Trainer- &amp; Betreuerstab (Staff-Karten)</h2>
-                  <p class="block-subtitle">Kein Portraitfoto vorhanden? Kein Problem — wir zeigen automatisch das edle Vereins-Initialen-Abzeichen.</p>
+                  <p class="block-subtitle">Kein Portraitfoto vorhanden? Kein Problem, wir zeigen automatisch das edle Vereins-Initialen-Abzeichen.</p>
                 </div>
               </div>
 
@@ -1317,8 +1317,8 @@
               <!-- MODUS A: COPY & PASTE TURBO -->
               <div id="rosterModePastePane" style="margin-bottom:18px;">
                 <div class="form-group">
-                  <label class="form-label" for="rosterPasteTextarea">Spielerliste zeilenweise einfügen (z. B. «01 Sandro Albuquerque — Torhüter» oder «07 Marco Wyss»)</label>
-                  <textarea id="rosterPasteTextarea" class="form-textarea" placeholder="01 Sandro Albuquerque Sampaio — Torhüter&#10;04 Janik Bieli — Verteidigung&#10;07 Marco Wyss — Mittelfeld"></textarea>
+                  <label class="form-label" for="rosterPasteTextarea">Spielerliste zeilenweise einfügen (z. B. «01 Sandro Albuquerque – Torhüter» oder «07 Marco Wyss»)</label>
+                  <textarea id="rosterPasteTextarea" class="form-textarea" placeholder="01 Sandro Albuquerque Sampaio – Torhüter&#10;04 Janik Bieli – Verteidigung&#10;07 Marco Wyss – Mittelfeld"></textarea>
                 </div>
                 <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-top:10px;">
                   <button type="button" class="btn-cta btn-cta-primary btn-sm" onclick="parsePasteListToPlayers()">
@@ -1408,7 +1408,7 @@
                 </div>
 
                 <div class="section-kicker" id="pvKickerText">{{CLUB_NAME}} · OFFIZIELLE MANNSCHAFTS-SEITE</div>
-                <h3 style="font-size:1.28rem;font-weight:800;margin-bottom:6px;" id="pvTeamTitle">{{CLUB_NAME}} — 1. Mannschaft</h3>
+                <h3 style="font-size:1.28rem;font-weight:800;margin-bottom:6px;" id="pvTeamTitle">{{CLUB_NAME}} – 1. Mannschaft</h3>
                 <p style="font-size:0.83rem;color:var(--text-body);margin-bottom:12px;" id="pvTeamMotto"></p>
 
                 <div class="preview-meta-box">
@@ -1622,8 +1622,8 @@
           const opt = document.createElement('option');
           opt.value = t.slug;
           const statusSuffix = t.status === 'live'
-            ? ' — [Bereits ausgearbeitet — Daten geladen]'
-            : ' — [Vorschau-Entwurf — Bereit für Ihre Angaben]';
+            ? ' – [Bereits ausgearbeitet – Daten geladen]'
+            : ' – [Vorschau-Entwurf – Bereit für Ihre Angaben]';
           opt.textContent = t.name + statusSuffix;
           og.appendChild(opt);
         });
@@ -1649,10 +1649,10 @@
       const slugBadge = document.getElementById('teamSlugBadge');
       if (team.status === 'live') {
         statusBanner.className = 'team-status-bar status-live';
-        statusText.textContent = 'Bereits ausgearbeitet — Bekannte Vereinsdaten für ' + team.name + ' geladen';
+        statusText.textContent = 'Bereits ausgearbeitet – Bekannte Vereinsdaten für ' + team.name + ' geladen';
       } else {
         statusBanner.className = 'team-status-bar status-draft';
-        statusText.textContent = 'Vorschau-Entwurf — Bekannte Eckdaten geladen, bereit für Ihre Ergänzungen';
+        statusText.textContent = 'Vorschau-Entwurf – Bekannte Eckdaten geladen, bereit für Ihre Ergänzungen';
       }
       slugBadge.textContent = 'System-Kürzel: ' + CLUB_CONFIG.site_id + '_' + team.slug;
 
@@ -1663,7 +1663,7 @@
       document.getElementById('inpTrainingTimes').value = team.training_times || '';
       document.getElementById('inpPitchLocation').value = team.pitch_location || '';
       document.getElementById('inpWinterNote').value = team.winter_note || '';
-      document.getElementById('inpTeamPhotoCaption').value = team.team_photo_caption || (CLUB_CONFIG.club_name + ' — ' + team.name);
+      document.getElementById('inpTeamPhotoCaption').value = team.team_photo_caption || (CLUB_CONFIG.club_name + ' – ' + team.name);
       document.getElementById('inpTeamSponsor').value = team.team_sponsor || '';
 
       const firstTrainer = (team.staff && team.staff[0] && team.staff[0].name) ? team.staff[0].name : CLUB_CONFIG.default_submitter_name;
@@ -1989,7 +1989,7 @@
     function syncPlayersToPasteTextarea() {
       const lines = currentPlayers.map(pl => {
         const num = pl.number ? (String(pl.number).padStart(2, '0') + ' ') : '';
-        const pos = (pl.position && pl.position !== 'Feldspieler') ? (' — ' + pl.position) : '';
+        const pos = (pl.position && pl.position !== 'Feldspieler') ? (' – ' + pl.position) : '';
         return num + (pl.name || '') + pos;
       });
       const ta = document.getElementById('rosterPasteTextarea');
@@ -2019,7 +2019,7 @@
       lines.forEach((line, idx) => {
         let work = line.replace(/^[•\-\*\#]+/, '').trim();
         let pos = 'Feldspieler';
-        const dashParts = work.split(/\s+[\—\–\-]\s+|\s*\t\s*|\s*;\s*/);
+        const dashParts = work.split(/\s+[\–\–\-]\s+|\s*\t\s*|\s*;\s*/);
         if (dashParts.length > 1) {
           const maybePos = inferPositionFromToken(dashParts[dashParts.length - 1]);
           if (maybePos !== 'Feldspieler') {
@@ -2326,7 +2326,7 @@
         } else {
           const badge = document.createElement('div');
           badge.style.cssText = 'display:inline-flex;align-items:center;gap:6px;background-color:#FFFBEB;color:#92400E;border:1px solid #FCD34D;padding:3px 8px;border-radius:4px;font-size:0.75rem;font-weight:700;margin-bottom:6px;';
-          badge.textContent = 'Handy-Foto «' + item.rawFilename + '» — Bitte kurz Nr. & Name zuordnen:';
+          badge.textContent = 'Handy-Foto «' + item.rawFilename + '» – Bitte kurz Nr. & Name zuordnen:';
 
           const controls = document.createElement('div');
           controls.style.cssText = 'display:flex;gap:8px;flex-wrap:wrap;align-items:center;';
@@ -2569,7 +2569,7 @@
       document.getElementById('pvTeamPhoto').src = currentTeamPhotoMeta.preview_src || CLUB_CONFIG.default_team_photo;
       document.getElementById('pvBadgeText').textContent = league ? (tName + ' · ' + league) : tName;
       document.getElementById('pvKickerText').textContent = (CLUB_CONFIG.club_name + ' · ' + (league || 'OFFIZIELLE MANNSCHAFTS-SEITE')).toUpperCase();
-      document.getElementById('pvTeamTitle').textContent = CLUB_CONFIG.club_name + ' — ' + tName;
+      document.getElementById('pvTeamTitle').textContent = CLUB_CONFIG.club_name + ' – ' + tName;
       document.getElementById('pvTeamMotto').textContent = motto;
       document.getElementById('pvTraining').textContent = training;
       document.getElementById('pvPitch').textContent = pitch;
@@ -2677,7 +2677,7 @@
       const shareUrl = getShareUrlForCurrentTeam();
       const text =
         'Hoi! Hier ist der direkte WebPilot-Link für die Mannschafts-Daten & das Kader von «' +
-        teamName + '» (' + CLUB_CONFIG.club_name + '). Bereits bekannte Daten sind schon vorausgefüllt — ' +
+        teamName + '» (' + CLUB_CONFIG.club_name + '). Bereits bekannte Daten sind schon vorausgefüllt – ' +
         'du kannst Änderungen, Trainingszeiten oder Fotos direkt ohne Login eintragen: ' + shareUrl;
       window.open('https://wa.me/?text=' + encodeURIComponent(text), '_blank', 'noopener,noreferrer');
     }

@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * visual_section_inspector.mjs — Sektion-fuer-Sektion Grafik-, Fluchtlinien- & Proportions-Inspektor (#UI-02, #UI-14, #UI-16)
+ * visual_section_inspector.mjs – Sektion-fuer-Sektion Grafik-, Fluchtlinien- & Proportions-Inspektor (#UI-02, #UI-14, #UI-16)
  * ============================================================================================================================
  * Vermisst fuer eine gegebene Webseite (--site <slug>) oder alle Showcases (--all) jede Seite
  * auf Desktop (1440x900 & 1366x768) und Mobile (375x667) in Playwright Sektion fuer Sektion

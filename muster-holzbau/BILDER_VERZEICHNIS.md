@@ -1,4 +1,4 @@
-# Bilder-Verzeichnis & Cloudflare-Asset-Katalog — muster-holzbau
+# Bilder-Verzeichnis & Cloudflare-Asset-Katalog, muster-holzbau
 
 > **Mandant / Webseite:** muster-holzbau (Schweiz)  
 > **Angefordert von (Partner):** Jenny Ettle (JE-MI) · **Eingereicht am:** -  

@@ -300,7 +300,7 @@ def scan_stellen(client_dir: Path, slug: str, name: str, profile: dict = None):
         if meta_titel_m:
             title = _html.unescape(meta_titel_m.group(1)).strip()
         else:
-            title = raw_title.split("·")[0].split("|")[0].split("—")[0].strip() if title_m else f.stem
+            title = raw_title.split("·")[0].split("|")[0].split("\u2014")[0].strip() if title_m else f.stem
         if f.name == "index.html" and title == name:
             title = f"{name} (Hauptseite)" 
         

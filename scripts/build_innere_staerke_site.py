@@ -23,12 +23,12 @@ V2_DIR = BASE_DIR / "preview-innere-staerke-v2"
 V1_DIR.mkdir(parents=True, exist_ok=True)
 V2_DIR.mkdir(parents=True, exist_ok=True)
 
-# 1. Vollständige Redesign-Inventur (before.json — 0 Datenverlust)
+# 1. Vollständige Redesign-Inventur (before.json – 0 Datenverlust)
 BEFORE_INVENTORY = {
     "source_url": "https://www.innere-staerke.business/",
     "crawled_at": "2026-11-03",
     "company": {
-        "brand_name": "Wüest + Paneduro — Innere Stärke entwickeln",
+        "brand_name": "Wüest + Paneduro · Innere Stärke entwickeln",
         "legal_name": "Nino Paneduro GmbH",
         "uid_mwst": "CHE-279.321.936 MWST",
         "register": "Handelsregister des Kantons Luzern",
@@ -241,7 +241,7 @@ BEFORE_INVENTORY = {
             "author": "Maria Katramtzi",
             "role": "Unternehmensberaterin und Marketingstrategin",
             "topic": "Workshops & Mentales Personaltraining (Christine Wüest & Nino Paneduro)",
-            "quote": "«Ich schaffe DAS» — Durch meine mentale Stärke habe ich in meinem Leben viele Situationen gemeistert. Als dreifache Mutter, selbstständige Unternehmerin und Ersthelferin ist es wichtig, mental stark zu sein. Mentale Stärke kommt nicht über Nacht – durch tägliches Trainieren setzt sie genau dann ein, wenn man sie braucht. Christine und Nino kann ich als mentale Personaltrainer wärmstens empfehlen. Sie gehen individuell auf dich ein. Die Teilnahme an ihren Workshops ist eine Chance, von dieser langjährigen Expertise zu profitieren. Dankeschön ihr Lieben, dass ihr alle Tipps und Tricks weitergebt."
+            "quote": "«Ich schaffe DAS» – Durch meine mentale Stärke habe ich in meinem Leben viele Situationen gemeistert. Als dreifache Mutter, selbstständige Unternehmerin und Ersthelferin ist es wichtig, mental stark zu sein. Mentale Stärke kommt nicht über Nacht – durch tägliches Trainieren setzt sie genau dann ein, wenn man sie braucht. Christine und Nino kann ich als mentale Personaltrainer wärmstens empfehlen. Sie gehen individuell auf dich ein. Die Teilnahme an ihren Workshops ist eine Chance, von dieser langjährigen Expertise zu profitieren. Dankeschön ihr Lieben, dass ihr alle Tipps und Tricks weitergebt."
         },
         {
             "author": "Markus Arnold",
@@ -267,7 +267,7 @@ for target_dir in (V1_DIR, V2_DIR):
 base_company_data = {
     "slug": "innere-staerke",
     "name": "Wüest + Paneduro",
-    "company_name": "Wüest + Paneduro — Innere Stärke entwickeln",
+    "company_name": "Wüest + Paneduro · Innere Stärke entwickeln",
     "legal_name": "Nino Paneduro GmbH",
     "short_name": "Wüest + Paneduro",
     "claim": "Innere Stärke entwickeln",
@@ -309,7 +309,7 @@ v1_config.update({
     "slug": "preview-innere-staerke",
     "public_slug": "innere-staerke",
     "token": "innerestaerke2026",
-    "name": "Wüest + Paneduro — Innere Stärke entwickeln",
+    "name": "Wüest + Paneduro · Innere Stärke entwickeln",
     "Updated": "2026-11-03",
     "PagesCount": 5,
     "ReferencesCount": 9,
@@ -442,20 +442,8 @@ SHARED_CSS = """
       box-shadow: none !important;
       margin-bottom: 12px;
     }
-    .section-kicker::before {
-      content: "";
-      display: inline-block;
-      width: 16px;
-      height: 2px;
-      background-color: var(--gold);
-      border-radius: 0px;
-      flex-shrink: 0;
-    }
     .section-kicker.kicker-light {
       color: var(--gold);
-    }
-    .section-kicker.kicker-light::before {
-      background-color: #FFFFFF;
     }
 
     h1, h2, h3, h4 {
@@ -821,7 +809,7 @@ SHARED_CSS = """
       border-color: rgba(249, 178, 49, 0.55);
     }
 
-    /* Hero Section — Hell, klar & freundlich wie innere-staerke.business */
+    /* Hero Section – Hell, klar & freundlich wie innere-staerke.business */
     .hero-section {
       background: linear-gradient(135deg, #ffffff 0%, #f8f6f2 55%, #f1ede6 100%);
       background-color: #f8f6f2;
@@ -832,9 +820,6 @@ SHARED_CSS = """
     }
     .hero-section .section-kicker.kicker-light {
       color: var(--crimson);
-    }
-    .hero-section .section-kicker.kicker-light::before {
-      background-color: var(--crimson);
     }
     .hero-section .btn-cta-outline-light {
       background-color: #FFFFFF;
@@ -1834,7 +1819,7 @@ def render_impressum_modal() -> str:
       <h3 id="wpImpTitle" style="font-size:1.38rem;font-weight:800;margin-bottom:10px;">Impressum &amp; Datenschutz (Wüest + Paneduro)</h3>
       <div style="font-size:0.88rem;color:var(--text-body);line-height:1.62;display:flex;flex-direction:column;gap:12px;">
         <div style="background-color:var(--bg-page);border:1px solid var(--border-light);border-left:4px solid var(--gold);padding:12px 14px;border-radius:var(--radius-sm);">
-          <strong>Nino Paneduro GmbH (Wüest + Paneduro — Innere Stärke entwickeln)</strong><br>
+          <strong>Nino Paneduro GmbH (Wüest + Paneduro · Innere Stärke entwickeln)</strong><br>
           Businesspark Sursee · Allee 1b · CH-6210 Sursee<br>
           Telefon: +41 78 606 20 56 / +41 79 468 21 46 · E-Mail: mail@innere-staerke.business
         </div>
@@ -1922,7 +1907,7 @@ def render_v1_shell(filename: str, page_title: str, active_nav: str, body_html: 
   <meta http-equiv="X-XSS-Protection" content="1; mode=block">
   <meta name="referrer" content="no-referrer">
   <title>{page_title}</title>
-  <meta name="description" content="Wüest + Paneduro — Innere Stärke entwickeln. Mentoren, Coaches &amp; Ratgeber für Führungskräfte, Teams und Unternehmen im Businesspark Sursee &amp; schweizweit.">
+  <meta name="description" content="Wüest + Paneduro · Innere Stärke entwickeln. Mentoren, Coaches &amp; Ratgeber für Führungskräfte, Teams und Unternehmen im Businesspark Sursee &amp; schweizweit.">
   <link rel="icon" type="image/png" href="images/favicon-32x32.png">
   <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -1953,7 +1938,7 @@ def render_v1_shell(filename: str, page_title: str, active_nav: str, body_html: 
   <header class="site-header" data-section="header">
     <div class="container header-inner">
       <a href="index.html" class="brand-link" aria-label="Wüest + Paneduro Startseite">
-        <img src="images/logo.svg" alt="Wüest + Paneduro — Innere Stärke entwickeln" class="brand-logo" width="52" height="52" data-slot="brand_logo">
+        <img src="images/logo.svg" alt="Wüest + Paneduro · Innere Stärke entwickeln" class="brand-logo" width="52" height="52" data-slot="brand_logo">
         <div class="brand-text">
           <span class="brand-name" data-slot="brand_name">WÜEST + PANEDURO</span>
           <span class="brand-sub" data-slot="brand_sub">INNERE STÄRKE ENTWICKELN</span>
@@ -2073,7 +2058,7 @@ def render_v2_shell(filename: str, page_title: str, active_nav: str, body_html: 
   <meta http-equiv="X-XSS-Protection" content="1; mode=block">
   <meta name="referrer" content="no-referrer">
   <title>{page_title}</title>
-  <meta name="description" content="Unverbindlicher Vorschau-Entwurf (Zeigeversion) für Wüest + Paneduro: 2 Beispiel-Seiten sind bereits ausgearbeitet — 3 weitere Themenbereiche folgen beim Ausbau.">
+  <meta name="description" content="Unverbindlicher Vorschau-Entwurf (Zeigeversion) für Wüest + Paneduro: 2 Beispiel-Seiten sind bereits ausgearbeitet – 3 weitere Themenbereiche folgen beim Ausbau.">
   <link rel="icon" type="image/png" href="images/favicon-32x32.png">
   <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -2104,7 +2089,7 @@ def render_v2_shell(filename: str, page_title: str, active_nav: str, body_html: 
   <header class="site-header" data-section="header">
     <div class="container header-inner">
       <a href="index.html" class="brand-link" aria-label="Wüest + Paneduro Startseite">
-        <img src="images/logo.svg" alt="Wüest + Paneduro — Innere Stärke entwickeln" class="brand-logo" width="52" height="52" data-slot="brand_logo">
+        <img src="images/logo.svg" alt="Wüest + Paneduro · Innere Stärke entwickeln" class="brand-logo" width="52" height="52" data-slot="brand_logo">
         <div class="brand-text">
           <span class="brand-name" data-slot="brand_name">WÜEST + PANEDURO</span>
           <span class="brand-sub" data-slot="brand_sub">INNERE STÄRKE ENTWICKELN</span>
@@ -2177,7 +2162,7 @@ def render_v2_shell(filename: str, page_title: str, active_nav: str, body_html: 
             </div>
           </div>
           <p style="font-size:0.86rem;color:#D1D5DB;line-height:1.6;margin-bottom:14px;" data-slot="footer_about">
-            Unverbindlicher Vorschau-Entwurf für Wüest + Paneduro: 2 Beispiel-Seiten (Startseite &amp; 3-Schritte Smart-Anfrage) sind bereits ausgearbeitet — 3 weitere Themenbereiche folgen beim gemeinsamen Ausbau.
+            Unverbindlicher Vorschau-Entwurf für Wüest + Paneduro: 2 Beispiel-Seiten (Startseite &amp; 3-Schritte Smart-Anfrage) sind bereits ausgearbeitet – 3 weitere Themenbereiche folgen beim gemeinsamen Ausbau.
           </p>
           <div style="font-size:0.84rem;color:#F3F4F6;font-weight:600;">
             Businesspark Sursee · Allee 1b · CH-6210 Sursee · +41 78 606 20 56
@@ -2260,7 +2245,7 @@ def render_v2_shell(filename: str, page_title: str, active_nav: str, body_html: 
 
       <div style="display:flex;flex-wrap:wrap;gap:10px;margin-top:18px;">
         <button type="button" class="btn-cta btn-cta-gold btn-sm" onclick="wpCloseBlueprintModal()">
-          <span>Verstanden — Vorschau weiter ansehen</span>
+          <span>Verstanden · Vorschau weiter ansehen</span>
         </button>
         <a href="kontakt.html" class="btn-cta btn-cta-primary btn-sm">
           <span>3-Schritte Smart-Anfrage testen</span>
@@ -2283,7 +2268,7 @@ def render_core_pillars_section(is_v2: bool = False) -> str:
     <div class="container">
       <div class="section-head">
         <div class="section-kicker" data-slot="methode_kicker">DIE METHODE · 4 SÄULEN FÜR NACHHALTIGE WIRKSAMKEIT</div>
-        <h2 class="section-title" data-slot="methode_title">Innere Stärke entwickeln — systematisch auf vier Pfeilern aufgebaut.</h2>
+        <h2 class="section-title" data-slot="methode_title">Innere Stärke entwickeln, systematisch auf vier Pfeilern aufgebaut.</h2>
         <p class="section-desc" data-slot="methode_desc">
           Als Mentoren, Coaches und Ratgeber begleiten wir Führungskräfte auf dem Weg zu innerer Stärke und Resilienz. Zuhörend und empathisch, aber auch klar und direkt sorgen wir in 1:1 Coachings, Workshops und Seminaren dafür, dass Sie souverän und selbstbewusst Ihre Zukunft sowie die Ihres Unternehmens gestalten.
         </p>
@@ -2357,7 +2342,7 @@ def render_core_pillars_section(is_v2: bool = False) -> str:
               </div>
               <h3 style="font-size:1.35rem;font-weight:800;margin-bottom:8px;">Innere Stärke durch Selbstwirksamkeit</h3>
               <p style="font-size:0.93rem;color:var(--text-body);margin-bottom:12px;">
-                Sie bewahren in unklaren Situationen einen kühlen Kopf, bewältigen Veränderungen, nehmen aktiv Einfluss und sind in der Lage, sich selbst und andere souverän zu führen — statt nur auf äusseren Druck zu reagieren.
+                Sie bewahren in unklaren Situationen einen kühlen Kopf, bewältigen Veränderungen, nehmen aktiv Einfluss und sind in der Lage, sich selbst und andere souverän zu führen, statt nur auf äusseren Druck zu reagieren.
               </p>
               <div class="check-list">
                 <div class="check-item">{SVG_CHECK}<span>Selbstzweifel überwinden und Vertrauen in die eigene Führungskompetenz stärken</span></div>
@@ -2421,7 +2406,7 @@ def render_founders_section(is_v2: bool = False) -> str:
         <!-- Christine Wüest -->
         <div class="founder-card">
           <div class="founder-top">
-            <img src="images/portrait-christine-wueest.jpg" alt="Christine Wüest — Expertin für Resilienz und innere Stärke" class="founder-portrait" loading="lazy" decoding="async">
+            <img src="images/portrait-christine-wueest.jpg" alt="Christine Wüest – Expertin für Resilienz und innere Stärke" class="founder-portrait" loading="lazy" decoding="async">
             <div>
               <span class="meta-badge" style="margin-bottom:8px;">Geschäftsführerin · Dipl. Mental Coach</span>
               <h3 style="font-size:1.5rem;font-weight:800;margin-bottom:6px;">Christine Wüest</h3>
@@ -2450,7 +2435,7 @@ def render_founders_section(is_v2: bool = False) -> str:
         <!-- Nino Paneduro -->
         <div class="founder-card">
           <div class="founder-top">
-            <img src="images/portrait-nino-paneduro.jpg" alt="Nino Paneduro — Mentor und Ratgeber für innere Stärke" class="founder-portrait" loading="lazy" decoding="async">
+            <img src="images/portrait-nino-paneduro.jpg" alt="Nino Paneduro – Mentor und Ratgeber für innere Stärke" class="founder-portrait" loading="lazy" decoding="async">
             <div>
               <span class="meta-badge" style="margin-bottom:8px;">Vorsitzender der GL · 4× Top 100 Trainer DACH</span>
               <h3 style="font-size:1.5rem;font-weight:800;margin-bottom:6px;">Nino Paneduro</h3>
@@ -2488,7 +2473,7 @@ V1_INDEX_BODY = f"""
         <div>
           <div class="section-kicker kicker-light" data-slot="hero_kicker">WÜEST + PANEDURO · BUSINESSPARK SURSEE &amp; SCHWEIZWEIT</div>
           <h1 class="hero-title" data-slot="hero_title">
-            Innere Stärke entwickeln — <span>Mit mehr Resilienz und Energie Ziele erreichen.</span>
+            Innere Stärke entwickeln – <span>Mit mehr Resilienz und Energie Ziele erreichen.</span>
           </h1>
           <p class="hero-lead" data-slot="hero_lead">
             Die täglichen Anforderungen als Führungskraft fordern Menschen extrem. Als Mentoren, Coaches und Ratgeber begleiten Christine Wüest und Nino Paneduro Führungskräfte, Teams und Unternehmen in 1:1 Coachings, Workshops und Impulsreferaten dabei, einen kühlen Kopf zu bewahren und die Zukunft souverän zu gestalten.
@@ -2524,7 +2509,7 @@ V1_INDEX_BODY = f"""
         </div>
 
         <div class="hero-media-card">
-          <img src="images/hero-wueest-paneduro.jpg" alt="Christine Wüest und Nino Paneduro — Innere Stärke entwickeln" data-slot="hero_image">
+          <img src="images/hero-wueest-paneduro.jpg" alt="Christine Wüest und Nino Paneduro – Innere Stärke entwickeln" data-slot="hero_image">
           <div class="hero-media-caption">
             <div>
               <div style="font-family:'Barlow',sans-serif;font-weight:800;font-size:1rem;color:#181817;">Christine Wüest &amp; Nino Paneduro</div>
@@ -2547,7 +2532,7 @@ V1_INDEX_BODY = f"""
         <div class="section-kicker" data-slot="challenge_kicker">DIE HERAUSFORDERUNG IM FÜHRUNGSALLTAG</div>
         <h2 class="section-title" data-slot="challenge_title">Sind Sie Führungskraft? Dann kommen Ihnen die Geschichten von Daniel und Sabine wahrscheinlich bekannt vor.</h2>
         <p class="section-desc" data-slot="challenge_desc">
-          Daniel leitet die Abteilung eines mittelständischen Unternehmens und muss sich um gefühlt 1'000 Dinge gleichzeitig kümmern. Trotz der langen Arbeitstage reicht die Zeit nicht aus, um allen und allem gerecht zu werden — die Energie schwindet und der Druck wirkt sich bis ins Privatleben aus. Seine Kollegin Sabine möchte als Führungskraft weiterkommen und selbstsicherer auftreten, kämpft jedoch mit Selbstzweifeln und Dauerstress.
+          Daniel leitet die Abteilung eines mittelständischen Unternehmens und muss sich um gefühlt 1'000 Dinge gleichzeitig kümmern. Trotz der langen Arbeitstage reicht die Zeit nicht aus, um allen und allem gerecht zu werden, die Energie schwindet und der Druck wirkt sich bis ins Privatleben aus. Seine Kollegin Sabine möchte als Führungskraft weiterkommen und selbstsicherer auftreten, kämpft jedoch mit Selbstzweifeln und Dauerstress.
         </p>
       </div>
 
@@ -2564,7 +2549,7 @@ V1_INDEX_BODY = f"""
             </p>
             <div class="check-list">
               <div class="check-item">{SVG_CHECK}<span><strong>Dauerstress &amp; 70-Stunden-Wochen:</strong> Sie erleben mehr Stress und Erwartungsdruck von allen Seiten als je zuvor.</span></div>
-              <div class="check-item">{SVG_CHECK}<span><strong>Reagieren statt Agieren:</strong> Im Minutentakt treffen E-Mails und dringende Anfragen ein — für strategische Führung fehlt der Freiraum.</span></div>
+              <div class="check-item">{SVG_CHECK}<span><strong>Reagieren statt Agieren:</strong> Im Minutentakt treffen E-Mails und dringende Anfragen ein, für strategische Führung fehlt der Freiraum.</span></div>
               <div class="check-item">{SVG_CHECK}<span><strong>Gefühl der Fremdsteuerung:</strong> Sie fühlen sich als Getriebener im eigenen Hamsterrad und können abends kaum noch abschalten.</span></div>
               <div class="check-item">{SVG_CHECK}<span><strong>Fahren auf Sicht:</strong> Sie müssen in einer unsicheren Zukunft planen und Ihrem Team gleichzeitig Orientierung geben.</span></div>
             </div>
@@ -2623,7 +2608,7 @@ V1_INDEX_BODY = f"""
             </div>
             <h3 style="font-size:1.3rem;font-weight:800;margin-bottom:8px;">Führungskräfte- &amp; Einzel-Coaching</h3>
             <p style="font-size:0.9rem;color:#D1D5DB;margin-bottom:12px;">
-              Individuelle Standortbestimmung und Begleitung für Geschäftsführer, Führungskräfte, Selbstständige und Spitzensportler — im Businesspark Sursee oder Online.
+              Individuelle Standortbestimmung und Begleitung für Geschäftsführer, Führungskräfte, Selbstständige und Spitzensportler, im Businesspark Sursee oder Online.
             </p>
             <div class="check-list">
               <div class="check-item">{SVG_CHECK}<span>Persönliche Werte- &amp; Motiv-Analyse (9 Levels &amp; Reiss Motivation Profile)</span></div>
@@ -2665,7 +2650,7 @@ V1_INDEX_BODY = f"""
             </div>
             <h3 style="font-size:1.3rem;font-weight:800;margin-bottom:8px;">Impulsreferate, Keynotes &amp; «Der Handball-Code»</h3>
             <p style="font-size:0.9rem;color:#D1D5DB;margin-bottom:12px;">
-              Packende Keynotes über die Parallelen zwischen Spitzensport und Management sowie unser 2025 erschienenes Buch «Der Handball-Code — Was, wenn mentale Stärke der wahre Gamechanger ist?».
+              Packende Keynotes über die Parallelen zwischen Spitzensport und Management sowie unser 2025 erschienenes Buch «Der Handball-Code – Was, wenn mentale Stärke der wahre Gamechanger ist?».
             </p>
             <div class="check-list">
               <div class="check-item">{SVG_CHECK}<span>12 echte Geschichten aus Nati und Bundesliga übertragen auf Führung &amp; Business</span></div>
@@ -2771,7 +2756,7 @@ V1_ANGEBOT_BODY = f"""
             Massgeschneiderte Begleitung für <span>Führungskräfte, Teams und Unternehmen.</span>
           </h1>
           <p class="hero-lead">
-            Wir bedienen uns eines grossen Koffers an wissenschaftlich fundierten und praxiserprobten Methoden, die wir präzise auf den jeweiligen Menschen und die Situation anpassen — vom 1:1 Executive-Coaching über 9 Levels Team-Workshops bis zu Business-Hypnose und dem MentalFitnessCenter.
+            Wir bedienen uns eines grossen Koffers an wissenschaftlich fundierten und praxiserprobten Methoden, die wir präzise auf den jeweiligen Menschen und die Situation anpassen, vom 1:1 Executive-Coaching über 9 Levels Team-Workshops bis zu Business-Hypnose und dem MentalFitnessCenter.
           </p>
           <div class="hero-actions">
             <a href="kontakt.html?thema=coaching" class="btn-cta btn-cta-gold">
@@ -2804,7 +2789,7 @@ V1_ANGEBOT_BODY = f"""
         <div class="section-kicker">UNSERE 4 KERNFORMATE FÜR BUSINESS &amp; SPITZENSPORT</div>
         <h2 class="section-title">Vom individuellen 1:1 Sparring bis zur nachhaltigen Team-Entwicklung.</h2>
         <p class="section-desc">
-          Wählen Sie das Format, das optimal zu Ihrer aktuellen Herausforderung passt — oder kombinieren Sie Einzel-Coaching und Team-Workshop für maximale Umsetzungskraft im Führungsalltag.
+          Wählen Sie das Format, das optimal zu Ihrer aktuellen Herausforderung passt, oder kombinieren Sie Einzel-Coaching und Team-Workshop für maximale Umsetzungskraft im Führungsalltag.
         </p>
       </div>
 
@@ -2839,7 +2824,7 @@ V1_ANGEBOT_BODY = f"""
             </div>
             <h3 style="font-size:1.38rem;font-weight:800;margin-bottom:10px;">Unternehmens-Workshops &amp; Team-Trainings</h3>
             <p style="font-size:0.93rem;color:var(--text-body);margin-bottom:14px;">
-              Interaktive Halbtages-, Tages- und 2-Tages-Workshops für Führungsteams, Geschäftsleitungen und ganze Abteilungen — unter anderem bekannt durch unseren «TUNE IN» Workshop und unsere 9-Levels-Kaderseminare.
+              Interaktive Halbtages-, Tages- und 2-Tages-Workshops für Führungsteams, Geschäftsleitungen und ganze Abteilungen, unter anderem bekannt durch unseren «TUNE IN» Workshop und unsere 9-Levels-Kaderseminare.
             </p>
             <div class="check-list">
               <div class="check-item">{SVG_CHECK}<span><strong>9 Levels Team-Profil:</strong> Wie persönliche und organisationale Werte den Führungsstil und die Zusammenarbeit prägen.</span></div>
@@ -2918,7 +2903,7 @@ V1_ANGEBOT_BODY = f"""
             <span class="meta-badge" style="margin-bottom:10px;">Themenfeld 1 · Selbstführung</span>
             <h3 style="font-size:1.35rem;font-weight:800;margin-bottom:10px;">Innere Stärke erlangen mit Selbstführung</h3>
             <p style="font-size:0.91rem;color:var(--text-body);margin-bottom:12px;">
-              Die Arbeitswelt ist in ständigem Wandel, komplex und dynamisch — traditionelle Führungsmethoden sowie reines Zeitmanagement reichen oft nicht mehr aus. Auf dem Schreibtisch stapeln sich die Unterlagen, im Minutentakt kommen neue E-Mails an und ein Termin jagt den nächsten.
+              Die Arbeitswelt ist in ständigem Wandel, komplex und dynamisch, traditionelle Führungsmethoden sowie reines Zeitmanagement reichen oft nicht mehr aus. Auf dem Schreibtisch stapeln sich die Unterlagen, im Minutentakt kommen neue E-Mails an und ein Termin jagt den nächsten.
             </p>
             <p style="font-size:0.91rem;color:var(--text-body);margin-bottom:12px;">
               <strong>Erfolgreiche Führung braucht Selbstführung:</strong> Wer die Kompetenz hat, sich selbst zu führen, nutzt die zur Verfügung stehende Zeit besser, priorisiert klarer und beachtet die eigenen Bedürfnisse. In unserer Zusammenarbeit schärfen wir Ihre Selbstwahrnehmung und richten Ihre Selbstführung passend zu Ihrer Rolle neu aus.
@@ -2936,7 +2921,7 @@ V1_ANGEBOT_BODY = f"""
             <span class="meta-badge" style="margin-bottom:10px;">Themenfeld 2 · Stressmanagement</span>
             <h3 style="font-size:1.35rem;font-weight:800;margin-bottom:10px;">Balance statt Dauerstress im Führungsalltag</h3>
             <p style="font-size:0.91rem;color:var(--text-body);margin-bottom:12px;">
-              70-Stunden-Wochen sind für viele Führungskräfte keine Ausnahme: Grosse Projekte, wichtige Kunden, knappe Deadlines — und zuhause wartet die Familie. Hält der Stress über Monate oder Jahre an, führt die Daueranspannung zu Erschöpfung und übereilten Entscheidungen.
+              70-Stunden-Wochen sind für viele Führungskräfte keine Ausnahme: Grosse Projekte, wichtige Kunden, knappe Deadlines, und zuhause wartet die Familie. Hält der Stress über Monate oder Jahre an, führt die Daueranspannung zu Erschöpfung und übereilten Entscheidungen.
             </p>
             <p style="font-size:0.91rem;color:var(--text-body);margin-bottom:12px;">
               <strong>Persönlicher Umgang mit Stress:</strong> Gemeinsam im Coaching decken wir Ihre individuellen Stresstreiber auf und erarbeiten eine Strategie, wie Sie neue Energie gewinnen. Mit Achtsamkeit, Aktiv-Wach-Hypnose, Business-Hypnose und Entspannungsübungen reflektieren Sie sich besser und finden zurück in Ihre Kraft.
@@ -2952,7 +2937,7 @@ V1_ANGEBOT_BODY = f"""
         <div class="content-card" id="selbstwirksamkeit">
           <div>
             <span class="meta-badge" style="margin-bottom:10px;">Themenfeld 3 · Selbstwirksamkeit</span>
-            <h3 style="font-size:1.35rem;font-weight:800;margin-bottom:10px;">Selbstwirksamkeit — eine essenzielle Führungskompetenz</h3>
+            <h3 style="font-size:1.35rem;font-weight:800;margin-bottom:10px;">Selbstwirksamkeit, eine essenzielle Führungskompetenz</h3>
             <p style="font-size:0.91rem;color:var(--text-body);margin-bottom:12px;">
               Auf dem Markt und im Unternehmen herrscht grosser Veränderungsdruck, dazu kommt der Erwartungsdruck von «oben» sowie von den Mitarbeitenden. Fehlt es in herausfordernden Phasen an Selbstwirksamkeit, entstehen Selbstzweifel und das Gefühl, nur noch getrieben zu sein.
             </p>
@@ -2996,9 +2981,9 @@ V1_ANGEBOT_BODY = f"""
             <img src="images/buch-der-handball-code.jpg" alt="Buch Der Handball-Code von Nino Paneduro und Christine Wüest" style="width:100%;border-radius:4px;border:1px solid var(--border-light);" loading="lazy" decoding="async">
             <div>
               <span class="meta-badge" style="margin-bottom:8px;">Buch-Publikation 2025</span>
-              <h3 style="font-size:1.3rem;font-weight:800;margin-bottom:8px;">«Der Handball-Code» — Was, wenn mentale Stärke der wahre Gamechanger ist?</h3>
+              <h3 style="font-size:1.3rem;font-weight:800;margin-bottom:8px;">«Der Handball-Code» – Was, wenn mentale Stärke der wahre Gamechanger ist?</h3>
               <p style="font-size:0.9rem;color:var(--text-body);">
-                Basierend auf über 15 Jahren intensiver Arbeit im Spitzensport zeigen Christine Wüest und Nino Paneduro anhand von 12 echten Geschichten aus der Nationalmannschaft und Bundesliga, warum am Ende der Kopf über Sieg oder Niederlage entscheidet — im Spiel, im Business und im Leben.
+                Basierend auf über 15 Jahren intensiver Arbeit im Spitzensport zeigen Christine Wüest und Nino Paneduro anhand von 12 echten Geschichten aus der Nationalmannschaft und Bundesliga, warum am Ende der Kopf über Sieg oder Niederlage entscheidet, im Spiel, im Business und im Leben.
               </p>
             </div>
           </div>
@@ -3038,7 +3023,7 @@ V1_UEBER_UNS_BODY = f"""
         <div>
           <div class="section-kicker kicker-light">ÜBER UNS · MENTOREN, COACHES &amp; RATGEBER</div>
           <h1 class="hero-title">
-            Christine Wüest und Nino Paneduro — <span>Perspektiven und Wege für eine erfolgreiche Zukunft.</span>
+            Christine Wüest und Nino Paneduro – <span>Perspektiven und Wege für eine erfolgreiche Zukunft.</span>
           </h1>
           <p class="hero-lead">
             Als Mentoren, Coaches und Ratgeber ist es uns wichtig, dass das Thema innere Stärke im Business-Alltag fest etabliert wird. Mit Expertise, Kreativität und Offenheit begegnen wir Ihren Herausforderungen im Businesspark Sursee und schweizweit vor Ort.
@@ -3072,7 +3057,7 @@ V1_UEBER_UNS_BODY = f"""
     <div class="container">
       <div class="section-head">
         <div class="section-kicker">UNSERE GESCHICHTE &amp; KOMPETENZ</div>
-        <h2 class="section-title">Zwei Persönlichkeiten — ein gemeinsamer Anspruch an echte Wirksamkeit.</h2>
+        <h2 class="section-title">Zwei Persönlichkeiten, ein gemeinsamer Anspruch an echte Wirksamkeit.</h2>
         <p class="section-desc">
           Wir kennen den Führungsdruck nicht aus Lehrbüchern, sondern aus jahrzehntelanger eigener Führungsverantwortung in der Wirtschaft sowie aus der mentalen Begleitung im internationalen Spitzensport.
         </p>
@@ -3082,9 +3067,9 @@ V1_UEBER_UNS_BODY = f"""
         <!-- Christine Wüest Ausführlich -->
         <div class="content-card card-accent-top">
           <div>
-            <img src="images/header-christine-wueest.jpg" alt="Christine Wüest — Expertin für Resilienz und innere Stärke" style="width:100%;height:230px;object-fit:cover;border-radius:var(--radius-sm);margin-bottom:18px;" loading="lazy" decoding="async">
+            <img src="images/header-christine-wueest.jpg" alt="Christine Wüest – Expertin für Resilienz und innere Stärke" style="width:100%;height:230px;object-fit:cover;border-radius:var(--radius-sm);margin-bottom:18px;" loading="lazy" decoding="async">
             <span class="meta-badge" style="margin-bottom:8px;">Christine Wüest Paneduro · Geschäftsführerin</span>
-            <h3 style="font-size:1.45rem;font-weight:800;margin-bottom:10px;">Christine Wüest — Klar und zuverlässig zum Ziel</h3>
+            <h3 style="font-size:1.45rem;font-weight:800;margin-bottom:10px;">Christine Wüest, Klar und zuverlässig zum Ziel</h3>
             <p style="font-size:0.91rem;color:var(--text-body);margin-bottom:12px;">
               Christine Wüest verbindet Expertise mit Empathie und Klarheit mit Kompetenz. Ihre erste prägende Begegnung mit innerer Stärke hatte sie während ihrer Tätigkeit als Flight-Attendant bei der <strong>Swissair</strong>: «Dort war ich mit vielen unterschiedlichen Lebensrealitäten konfrontiert und fasziniert davon, wie Menschen mit innerer und mentaler Stärke teils enorme Herausforderungen meisterten.»
             </p>
@@ -3104,14 +3089,14 @@ V1_UEBER_UNS_BODY = f"""
         <!-- Nino Paneduro Ausführlich -->
         <div class="content-card card-accent-top">
           <div>
-            <img src="images/header-nino-paneduro.jpg" alt="Nino Paneduro — Mentor und Ratgeber für innere Stärke" style="width:100%;height:230px;object-fit:cover;border-radius:var(--radius-sm);margin-bottom:18px;" loading="lazy" decoding="async">
+            <img src="images/header-nino-paneduro.jpg" alt="Nino Paneduro – Mentor und Ratgeber für innere Stärke" style="width:100%;height:230px;object-fit:cover;border-radius:var(--radius-sm);margin-bottom:18px;" loading="lazy" decoding="async">
             <span class="meta-badge" style="margin-bottom:8px;">Antonino Paneduro · Vorsitzender der Geschäftsführung</span>
-            <h3 style="font-size:1.45rem;font-weight:800;margin-bottom:10px;">Nino Paneduro — Wertschätzend zu langfristiger Erfolgssicherung</h3>
+            <h3 style="font-size:1.45rem;font-weight:800;margin-bottom:10px;">Nino Paneduro – Wertschätzend zu langfristiger Erfolgssicherung</h3>
             <p style="font-size:0.91rem;color:var(--text-body);margin-bottom:12px;">
-              Nino Paneduro steht für Fokus, Konzentration, mentale Stärke und Klarheit. Seit <strong>mehr als 25 Jahren</strong> trainiert, coacht und berät er Spitzensportler und Mannschaften — darunter Handballnationalspieler, Champions-League-Handballer sowie EM- und WM-Teilnehmer aus verschiedenen Sportarten, auch beim mentalen und emotionalen Comeback nach schweren Verletzungen.
+              Nino Paneduro steht für Fokus, Konzentration, mentale Stärke und Klarheit. Seit <strong>mehr als 25 Jahren</strong> trainiert, coacht und berät er Spitzensportler und Mannschaften, darunter Handballnationalspieler, Champions-League-Handballer sowie EM- und WM-Teilnehmer aus verschiedenen Sportarten, auch beim mentalen und emotionalen Comeback nach schweren Verletzungen.
             </p>
             <p style="font-size:0.91rem;color:var(--text-body);margin-bottom:12px;">
-              Im Businessleben verfügt er über einen ebenso breiten Erfahrungsschatz: <strong>Mehr als zwei Jahrzehnte war er im Zürcher Bankwesen in verschiedenen Führungspositionen</strong> tätig. «Häufig weisen die Themen einer Führungsperson direkte Parallelen zu denen von Spitzensportlern auf — etwa beim Leistungsdruck, beim Visionen-Umsetzen oder beim Abrufen von Höchstleistung.»
+              Im Businessleben verfügt er über einen ebenso breiten Erfahrungsschatz: <strong>Mehr als zwei Jahrzehnte war er im Zürcher Bankwesen in verschiedenen Führungspositionen</strong> tätig. «Häufig weisen die Themen einer Führungsperson direkte Parallelen zu denen von Spitzensportlern auf, etwa beim Leistungsdruck, beim Visionen-Umsetzen oder beim Abrufen von Höchstleistung.»
             </p>
             <p style="font-size:0.91rem;color:var(--text-body);">
               Nino Paneduro wurde von 2021 bis 2024 <strong>viermal in Folge als «Top 100 Trainer &amp; Coaches in der DACH-Region»</strong> (Rubrik Performance, Seminar.Inside) ausgezeichnet.
@@ -3190,9 +3175,9 @@ V1_UEBER_UNS_BODY = f"""
         <div class="content-card">
           <div>
             <div class="section-kicker">STANDORT ZENTRALSCHWEIZ &amp; SCHWEIZWEIT</div>
-            <h3 style="font-size:1.45rem;font-weight:800;margin-bottom:10px;">Businesspark Sursee — Allee 1b, CH-6210 Sursee</h3>
+            <h3 style="font-size:1.45rem;font-weight:800;margin-bottom:10px;">Businesspark Sursee – Allee 1b, CH-6210 Sursee</h3>
             <p style="font-size:0.92rem;color:var(--text-body);margin-bottom:14px;">
-              Unsere Coaching- und Trainingsräumlichkeiten im modernen Businesspark Sursee bieten eine ruhige, diskrete und inspirierende Atmosphäre — ideal gelegen zwischen Luzern, Aarau, Zug, Basel und Zürich (unmittelbar beim Bahnhof Sursee und Autobahnausfahrt A2).
+              Unsere Coaching- und Trainingsräumlichkeiten im modernen Businesspark Sursee bieten eine ruhige, diskrete und inspirierende Atmosphäre, ideal gelegen zwischen Luzern, Aarau, Zug, Basel und Zürich (unmittelbar beim Bahnhof Sursee und Autobahnausfahrt A2).
             </p>
             <div class="check-list">
               <div class="check-item">{SVG_CHECK}<span><strong>Vor Ort in Sursee:</strong> 1:1 Executive-Coachings, Hypnose-Sitzungen und Kleingruppen-Sparrings an der Allee 1b.</span></div>
@@ -3302,7 +3287,7 @@ V2_INDEX_BODY = f"""
         <div>
           <div class="section-kicker kicker-light" data-slot="hero_kicker">WÜEST + PANEDURO · BUSINESSPARK SURSEE &amp; SCHWEIZWEIT</div>
           <h1 class="hero-title" data-slot="hero_title">
-            Innere Stärke entwickeln — <span>Mit mehr Resilienz und Energie Ziele erreichen.</span>
+            Innere Stärke entwickeln – <span>Mit mehr Resilienz und Energie Ziele erreichen.</span>
           </h1>
           <p class="hero-lead" data-slot="hero_lead">
             Die täglichen Anforderungen als Führungskraft fordern Menschen extrem. Als Mentoren, Coaches und Ratgeber begleiten Christine Wüest und Nino Paneduro Führungskräfte, Teams und Unternehmen in 1:1 Coachings, Workshops und Seminaren dafür, dass Sie souverän und selbstbewusst Ihre Zukunft sowie die Ihres Unternehmens gestalten.
@@ -3338,7 +3323,7 @@ V2_INDEX_BODY = f"""
         </div>
 
         <div class="hero-media-card">
-          <img src="images/hero-wueest-paneduro.jpg" alt="Christine Wüest und Nino Paneduro — Innere Stärke entwickeln" data-slot="hero_image">
+          <img src="images/hero-wueest-paneduro.jpg" alt="Christine Wüest und Nino Paneduro – Innere Stärke entwickeln" data-slot="hero_image">
           <div class="hero-media-caption">
             <div>
               <div style="font-family:'Barlow',sans-serif;font-weight:800;font-size:1rem;color:#181817;">Christine Wüest &amp; Nino Paneduro</div>
@@ -3935,7 +3920,7 @@ def build_kontakt_body(client_slug: str, source_page: str) -> str:
       if (plz >= 6000 && plz <= 6499) {{
         txt.textContent = 'PLZ ' + m[1] + ': Direktes Einzugsgebiet Zentralschweiz / Businesspark Sursee (Allee 1b)';
       }} else {{
-        txt.textContent = 'PLZ ' + m[1] + ': Schweizweite Begleitung — Vor Ort, im Businesspark Sursee oder Online';
+        txt.textContent = 'PLZ ' + m[1] + ': Schweizweite Begleitung – Vor Ort, im Businesspark Sursee oder Online';
       }}
     }}
 
@@ -4078,7 +4063,7 @@ def build_kontakt_body(client_slug: str, source_page: str) -> str:
 
 # 3. Alle Seiten für Variante 1 (Komplettversion) schreiben
 v1_pages = [
-    ("index.html", "Innere Stärke entwickeln | Wüest + Paneduro — Mentoren, Coaches & Ratgeber Sursee", "startseite", V1_INDEX_BODY),
+    ("index.html", "Innere Stärke entwickeln | Wüest + Paneduro – Mentoren, Coaches & Ratgeber Sursee", "startseite", V1_INDEX_BODY),
     ("angebot.html", "Angebot, Coaching, Workshops & 4 Säulen | Wüest + Paneduro Sursee", "angebot", V1_ANGEBOT_BODY),
     ("ueber-uns.html", "Über uns: Christine Wüest & Nino Paneduro | Mentoren, Coaches & Ratgeber", "ueber-uns", V1_UEBER_UNS_BODY),
     ("referenzen.html", "Referenzen & Alle 10 Kundenstimmen | Wüest + Paneduro Sursee", "referenzen", V1_REFERENZEN_BODY),

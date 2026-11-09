@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Deterministic Showcase Builder for FC Attiswil (preview-fcattiswil) — V2 Bauplan- & Musterhaus-Modus.
+Deterministic Showcase Builder for FC Attiswil (preview-fcattiswil) – V2 Bauplan- & Musterhaus-Modus.
 Generates:
   - preview-fcattiswil/company.json
   - preview-fcattiswil/config.json
@@ -1539,7 +1539,7 @@ def render_shell(filename: str, page_title: str, active_nav: str, body_html: str
   <meta name="referrer" content="strict-origin-when-cross-origin">
   <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=()">
   <title>{page_title}</title>
-  <meta name="description" content="Fussballclub Attiswil (gegründet am 16. Februar 1971) — SFV Quality Club, 14 Mannschaften, 23 Sponsoren &amp; Sportanlage Lindenrain in 4536 Attiswil.">
+  <meta name="description" content="Fussballclub Attiswil (gegründet am 16. Februar 1971) – SFV Quality Club, 14 Mannschaften, 23 Sponsoren &amp; Sportanlage Lindenrain in 4536 Attiswil.">
   <link rel="icon" type="image/png" href="images/favicon-32x32.png">
   <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -1634,7 +1634,7 @@ def render_shell(filename: str, page_title: str, active_nav: str, body_html: str
             </div>
           </div>
           <p style="font-size:0.86rem;color:#CBD5E1;line-height:1.6;margin-bottom:14px;" data-slot="footer_about">
-            Unverbindlicher Vorschau-Entwurf für den FC Attiswil (gegründet am 16.02.1971, SFV Quality Club): 3 von 53 Seiten (Startseite, 1 Beispiel-Team 1. Mannschaft, Smart-Anfrage) als Qualitätsbeweis ausgearbeitet — 50 Unterseiten &amp; 13 Teams folgen im Hauptauftrag.
+            Unverbindlicher Vorschau-Entwurf für den FC Attiswil (gegründet am 16.02.1971, SFV Quality Club): 3 von 53 Seiten (Startseite, 1 Beispiel-Team 1. Mannschaft, Smart-Anfrage) als Qualitätsbeweis ausgearbeitet – 50 Unterseiten &amp; 13 Teams folgen im Hauptauftrag.
           </p>
           <div style="font-size:0.84rem;color:#E2E8F0;font-weight:600;">
             Sportanlage Lindenrain · Sportplatzweg 1 · 4536 Attiswil
@@ -1729,7 +1729,7 @@ def render_shell(filename: str, page_title: str, active_nav: str, body_html: str
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
       </button>
       <div class="section-kicker">RECHTLICHE ANGABEN · SCHWEIZER DSG</div>
-      <h3 id="wpImpTitle" style="font-size:1.3rem;font-weight:800;margin-bottom:10px;">Impressum &amp; Datenschutz — FC Attiswil</h3>
+      <h3 id="wpImpTitle" style="font-size:1.3rem;font-weight:800;margin-bottom:10px;">Impressum &amp; Datenschutz – FC Attiswil</h3>
       <div style="font-size:0.88rem;color:var(--text-body);display:flex;flex-direction:column;gap:10px;">
         <p><strong>Vereinsadresse:</strong><br>Fussballclub Attiswil · Sportanlage Lindenrain · Sportplatzweg 1 · 4536 Attiswil (SOFV-Verein Nr. 1880)</p>
         <p><strong>Vertretungsberechtigter Vorstand:</strong><br>Konrad Schütz (Präsident, Tel. 079 661 66 12) · Philipp Singer (Vizepräsident / Anlässe &amp; Clubhaus, Tel. 079 304 44 56) · Michelle Kurth (Sekretärin &amp; Datenschutz) · Jörg Scheidegger (Kassier, Tel. 032 637 21 76)</p>
@@ -1794,7 +1794,7 @@ def render_shell(filename: str, page_title: str, active_nav: str, body_html: str
 </html>
 """
 # ---------------------------------------------------------------------------
-# 3. PAGE 1: INDEX.HTML (STARTSEITE — HERO + 23 SPONSOREN + BAUPLAN-SCHNITT)
+# 3. PAGE 1: INDEX.HTML (STARTSEITE – HERO + 23 SPONSOREN + BAUPLAN-SCHNITT)
 # ---------------------------------------------------------------------------
 def build_index_html() -> str:
     main_cards = []
@@ -1833,7 +1833,7 @@ def build_index_html() -> str:
             <span>GEGRÜNDET AM 16. FEBRUAR 1971 · SFV QUALITY CLUB · SOFV-VEREIN NR. 1880</span>
           </div>
           <h1 class="hero-title" data-slot="hero_title">
-            Fussballclub Attiswil — <span>Herzblut auf dem Lindenrain.</span>
+            Fussballclub Attiswil – <span>Herzblut auf dem Lindenrain.</span>
           </h1>
           <div class="hero-motto-box" data-slot="hero_motto">
             «Seit dem 16. Februar 1971 die sportliche Heimat im Oberaargau: 14 Mannschaften, zertifizierter SFV Quality Club (20. Juni 2026), eigenes Clubhaus &amp; gelebte Kameradschaft in 4536 Attiswil.»
@@ -1951,7 +1951,7 @@ def build_index_html() -> str:
             <span class="pillar-count" style="margin-bottom:10px;">HEIMSPIEL-PATRONAT · CHF 150.00</span>
             <h3 style="font-size:1.18rem;font-weight:800;margin-bottom:8px;">Matchballspende auf dem Lindenrain</h3>
             <p style="font-size:0.88rem;color:var(--text-body);line-height:1.55;">
-              Spende einen offiziellen Matchball (<strong>CHF 150.00</strong>) für ein Heimspiel der 1. Mannschaft oder unserer Frauenteams — inklusive namentlicher Verdankung im Clubhaus und auf der Website.
+              Spende einen offiziellen Matchball (<strong>CHF 150.00</strong>) für ein Heimspiel der 1. Mannschaft oder unserer Frauenteams, inklusive namentlicher Verdankung im Clubhaus und auf der Website.
             </p>
           </div>
           <a href="kontakt.html?thema=sponsoring" class="btn-cta btn-cta-primary btn-sm" style="width:100%;">
@@ -1988,10 +1988,10 @@ def build_index_html() -> str:
           </span>
         </div>
         <h2 style="color:#FFFFFF;font-size:clamp(1.45rem,2.5vw,2.05rem);font-weight:800;margin-bottom:10px;">
-          Transparenter Vorschau-Entwurf: Welche Beispiel-Seiten bereits stehen — und was beim Ausbau folgt.
+          Transparenter Vorschau-Entwurf: Welche Beispiel-Seiten bereits stehen, und was beim Ausbau folgt.
         </h2>
         <p style="font-size:0.95rem;color:#CBD5E1;line-height:1.65;">
-          Die aktuelle Website <strong>fcattiswil.ch</strong> umfasst <strong>53 Menü-Unterseiten</strong> und <strong>14 Mannschaften</strong>. Damit der Vorstand um Präsident <strong>Konrad Schütz</strong>, Vizepräsident <strong>Philipp Singer</strong>, Sportchef <strong>Florian Bohner</strong> und Marketingchefin <strong>Raphaela Lüscher</strong> das neue System vor einem Entscheid echt prüfen kann, haben wir oben <strong>3 Beispiel-Seiten</strong> komplett ausgearbeitet — inklusive aller 23 Sponsoren und der <strong>1. Mannschaft (Herren 4. Liga)</strong>. Die folgenden <strong>4 Vereins-Module (50 Seiten / 94 %)</strong> sind hier als <strong>übersichtliche Vorschau-Bereiche</strong> vorbereitet:
+          Die aktuelle Website <strong>fcattiswil.ch</strong> umfasst <strong>53 Menü-Unterseiten</strong> und <strong>14 Mannschaften</strong>. Damit der Vorstand um Präsident <strong>Konrad Schütz</strong>, Vizepräsident <strong>Philipp Singer</strong>, Sportchef <strong>Florian Bohner</strong> und Marketingchefin <strong>Raphaela Lüscher</strong> das neue System vor einem Entscheid echt prüfen kann, haben wir oben <strong>3 Beispiel-Seiten</strong> komplett ausgearbeitet, inklusive aller 23 Sponsoren und der <strong>1. Mannschaft (Herren 4. Liga)</strong>. Die folgenden <strong>4 Vereins-Module (50 Seiten / 94 %)</strong> sind hier als <strong>übersichtliche Vorschau-Bereiche</strong> vorbereitet:
         </p>
         <div class="blueprint-kpi-row">
           <div class="blueprint-kpi-box">
@@ -2249,7 +2249,7 @@ def build_index_html() -> str:
 """
     return render_shell(
         filename="index.html",
-        page_title="FC Attiswil — Architektur-Studie V2 (6-%-Prototyp & Bauplan)",
+        page_title="FC Attiswil · Architektur-Studie V2 (6-%-Prototyp & Bauplan)",
         active_nav="startseite",
         body_html=body,
     )
@@ -2562,7 +2562,7 @@ def build_herren1_html() -> str:
     staff_cards = []
     for st in HERREN_1_STAFF:
         if st["photo"]:
-            avatar_html = f'<img src="{st["photo"]}" alt="{st["name"]} — {st["role"]}" class="staff-avatar" width="68" height="86" loading="lazy" decoding="async">'
+            avatar_html = f'<img src="{st["photo"]}" alt="{st["name"]} – {st["role"]}" class="staff-avatar" width="68" height="86" loading="lazy" decoding="async">'
         else:
             avatar_html = f'<div class="staff-avatar-placeholder">{st["initials"]}</div>'
         staff_cards.append(f"""
@@ -2634,17 +2634,17 @@ def build_herren1_html() -> str:
         </div>
       </div>""")
     body = f"""
-  <!-- FORTSCHRITTS-BANNER: NUR 1 VON 14 TEAMS (7 %) ALS MUSTER FERTIG — 13 TEAMS OFFEN -->
+  <!-- FORTSCHRITTS-BANNER: NUR 1 VON 14 TEAMS (7 %) ALS MUSTER FERTIG – 13 TEAMS OFFEN -->
   <section class="architect-banner" data-section="vorschau-hinweis">
     <div class="container">
       <div class="architect-box">
         <div style="max-width:780px;">
-          <div class="section-kicker kicker-light" style="margin-bottom:6px;" data-slot="arch_kicker">MANNSCHAFTS-ÜBERSICHT: 1 BEISPIEL-TEAM AUSGEARBEITET — 13 WEITERE TEAMS VORBEREITET</div>
+          <div class="section-kicker kicker-light" style="margin-bottom:6px;" data-slot="arch_kicker">MANNSCHAFTS-ÜBERSICHT: 1 BEISPIEL-TEAM AUSGEARBEITET – 13 WEITERE TEAMS VORBEREITET</div>
           <h1 style="color:#FFFFFF;font-size:clamp(1.45rem,2.5vw,2rem);font-weight:800;margin-bottom:8px;" data-slot="arch_title">
-            1 Beispiel-Team ausgearbeitet (1. Mannschaft) — 13 weitere Mannschaften vorbereitet
+            1 Beispiel-Team ausgearbeitet (1. Mannschaft) – 13 weitere Mannschaften vorbereitet
           </h1>
           <p style="font-size:0.9rem;color:#E2E8F0;line-height:1.55;margin-bottom:14px;" data-slot="arch_desc">
-            Um die künftige Qualität am echten Beispiel zu zeigen, ist in dieser Vorschau exakt <strong>1 von 14 Mannschaften (1. Mannschaft · Herren 4. Liga · 7 %)</strong> komplett mit Original-Mannschaftsfoto, den 4 Staff-Mitgliedern, beiden Trikotsponsoren und allen 22 Kaderspielern ausgearbeitet. Alle weiteren <strong>13 Mannschaften (93 %)</strong> — inklusive <em>Frauen 2. Liga (Cupsiegerinnen 2025)</em>, <em>Frauen 3. Liga</em>, <em>Senioren 30+</em>, <em>Junioren B–G</em> und <em>Juniorinnen FF-17/14/11</em> — stehen unten als <strong>vorbereitete Team-Platzhalter</strong> bereit.
+            Um die künftige Qualität am echten Beispiel zu zeigen, ist in dieser Vorschau exakt <strong>1 von 14 Mannschaften (1. Mannschaft · Herren 4. Liga · 7 %)</strong> komplett mit Original-Mannschaftsfoto, den 4 Staff-Mitgliedern, beiden Trikotsponsoren und allen 22 Kaderspielern ausgearbeitet. Alle weiteren <strong>13 Mannschaften (93 %)</strong>, inklusive <em>Frauen 2. Liga (Cupsiegerinnen 2025)</em>, <em>Frauen 3. Liga</em>, <em>Senioren 30+</em>, <em>Junioren B–G</em> und <em>Juniorinnen FF-17/14/11</em> – stehen unten als <strong>vorbereitete Team-Platzhalter</strong> bereit.
           </p>
           <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap;background:rgba(15,23,42,0.75);border:1px dashed #F59E0B;padding:8px 12px;border-radius:var(--radius-sm);">
             <div class="wp-v2-progress-track" style="width:140px;">
@@ -2692,7 +2692,7 @@ def build_herren1_html() -> str:
           <div class="team-info-stage">
             <div>
               <div class="section-kicker" style="margin-bottom:8px;">FANIONTEAM AKTIVE HERREN · SOFV 4. LIGA</div>
-              <h2 style="font-size:1.72rem;font-weight:800;margin-bottom:10px;" data-slot="h1_title">FC Attiswil — 1. Mannschaft</h2>
+              <h2 style="font-size:1.72rem;font-weight:800;margin-bottom:10px;" data-slot="h1_title">FC Attiswil · 1. Mannschaft</h2>
               <p style="font-size:0.92rem;color:var(--text-body);line-height:1.6;margin-bottom:16px;" data-slot="h1_desc">
                 Unser Fanionteam in der 4. Liga des Solothurner Fussballverbands (SOFV) unter der Leitung von Cheftrainer <strong>Stephan Sperisen</strong>, Assistenztrainer <strong>Michael Marti</strong> und Goalie-Trainer <strong>Mirco Flüeli</strong>. Jüngste Highlights: 4:2-Auswärtssieg in Däniken (Hattrick von Mike Richard &amp; Tor von Joel) sowie Heimsieg gegen den FC Deitingen auf dem Lindenrain.
               </p>
@@ -2764,7 +2764,7 @@ def build_herren1_html() -> str:
 """
     return render_shell(
         filename="herren-1.html",
-        page_title="1. Mannschaft (Beispiel-Team 1/14) & 13 Rohbau-Teams — FC Attiswil",
+        page_title="1. Mannschaft (Beispiel-Team 1/14) & 13 Rohbau-Teams – FC Attiswil",
         active_nav="teams",
         body_html=body,
         extra_css=HERREN_EXTRA_CSS,
@@ -3576,7 +3576,7 @@ def build_kontakt_html() -> str:
       if ((plz >= 4500 && plz <= 4799) || (plz >= 3300 && plz <= 3399) || (plz >= 4900 && plz <= 4999)) {
         txt.textContent = 'PLZ ' + m[1] + ': Direktes Einzugsgebiet Attiswil, Oberaargau & Jurasüdfuss (Sportanlage Lindenrain)';
       } else {
-        txt.textContent = 'PLZ ' + m[1] + ': Region Solothurn / Bern / Schweiz — Herzlich willkommen beim FC Attiswil';
+        txt.textContent = 'PLZ ' + m[1] + ': Region Solothurn / Bern / Schweiz – Herzlich willkommen beim FC Attiswil';
       }
     }
     function wpStripEmojisForDom(str) {
@@ -3709,7 +3709,7 @@ def build_kontakt_html() -> str:
 """
     return render_shell(
         filename="kontakt.html",
-        page_title="Smart-Anfrage, Probetraining, Clubhaus & Sponsoring — FC Attiswil",
+        page_title="Smart-Anfrage, Probetraining, Clubhaus & Sponsoring – FC Attiswil",
         active_nav="kontakt",
         body_html=body,
         extra_css=KONTAKT_EXTRA_CSS,

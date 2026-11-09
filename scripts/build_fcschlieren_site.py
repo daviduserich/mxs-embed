@@ -19,7 +19,7 @@ company_data = {
     "slug": "fcschlieren",
     "company_name": "FC Schlieren",
     "legal_name": "Fussballclub Schlieren (SFV-Verein Nr. 530)",
-    "tagline": "Kämpfe mit Leidenschaft, siege mit Stolz — verliere mit Respekt — aber gib niemals auf!",
+    "tagline": "Kämpfe mit Leidenschaft, siege mit Stolz, verliere mit Respekt, aber gib niemals auf!",
     "founded": "21. März 1921",
     "president": "Roger Küng",
     "head_office": "Jana Seifriz",
@@ -147,20 +147,8 @@ SHARED_CSS = """
       color: var(--fcs-blue);
       margin-bottom: 12px;
     }
-    .section-kicker::before {
-      content: "";
-      display: inline-block;
-      width: 16px;
-      height: 2px;
-      background-color: var(--fcs-gold);
-      border-radius: 0px;
-      flex-shrink: 0;
-    }
     .section-kicker.kicker-light {
       color: var(--fcs-gold);
-    }
-    .section-kicker.kicker-light::before {
-      background-color: #FFFFFF;
     }
 
     h1, h2, h3, h4 {
@@ -1239,7 +1227,7 @@ def render_shell(filename: str, page_title: str, active_nav: str, body_html: str
   <meta name="referrer" content="strict-origin-when-cross-origin">
   <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=()">
   <title>{page_title}</title>
-  <meta name="description" content="Fussballclub Schlieren (gegründet 1921) — 33 Teams, Aktive Herren &amp; Frauen, Junioren A–G, Juniorinnen, Fussballschule &amp; Sportplatz Zelgli in 8952 Schlieren.">
+  <meta name="description" content="Fussballclub Schlieren (gegründet 1921) – 33 Teams, Aktive Herren &amp; Frauen, Junioren A–G, Juniorinnen, Fussballschule &amp; Sportplatz Zelgli in 8952 Schlieren.">
   <link rel="icon" type="image/png" href="images/favicon-32x32.png">
   <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -1437,7 +1425,7 @@ def render_shell(filename: str, page_title: str, active_nav: str, body_html: str
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
       </button>
       <div class="section-kicker">RECHTLICHE ANGABEN · SCHWEIZER DSG</div>
-      <h3 id="wpImpTitle" style="font-size:1.3rem;font-weight:800;margin-bottom:10px;">Impressum &amp; Datenschutz — FC Schlieren</h3>
+      <h3 id="wpImpTitle" style="font-size:1.3rem;font-weight:800;margin-bottom:10px;">Impressum &amp; Datenschutz – FC Schlieren</h3>
       <div style="font-size:0.88rem;color:var(--text-body);display:flex;flex-direction:column;gap:10px;">
         <p><strong>Vereinsadresse:</strong><br>Fussballclub Schlieren · Sportanlage Zelgli («im Rohr») · Postfach · 8952 Schlieren</p>
         <p><strong>Vertretungsberechtigter Vorstand:</strong><br>Roger Küng (Präsident, r.kueng@fcschlieren.ch) · Jana Seifriz (Leiterin Geschäftsstelle &amp; Spielbetrieb, j.seifriz@fcschlieren.ch) · Luigi Voci (Leiter Finanzen, l.voci@fcschlieren.ch)</p>
@@ -1513,7 +1501,7 @@ INDEX_BODY = """
           Leidenschaft, Stolz und <span>33 Teams</span> auf dem Zelgli.
         </h1>
         <div class="hero-motto-box" data-slot="hero_motto">
-          «KÄMPFE MIT LEIDENSCHAFT, SIEGE MIT STOLZ — VERLIERE MIT RESPEKT — ABER GIB NIEMALS AUF!»
+          «KÄMPFE MIT LEIDENSCHAFT, SIEGE MIT STOLZ – VERLIERE MIT RESPEKT, ABER GIB NIEMALS AUF!»
         </div>
         <p class="hero-sub" data-slot="hero_sub">
           Vom ersten Ballkontakt in der Fussballschule über 25 Nachwuchs-Mannschaften bis zu unseren Aktivteams Herren 1 und Frauen 1: Der FC Schlieren verbindet seit über 100 Jahren sportlichen Ehrgeiz, gelebte Integration und Vereinsfamilie im Herzen des Limmattals.
@@ -1553,7 +1541,7 @@ INDEX_BODY = """
         <div class="hero-photo-card">
           <img src="images/hero-herren-1.webp" alt="FC Schlieren 1. Mannschaft Herren 1 auf dem Sportplatz Zelgli" width="640" height="270" data-slot="hero_img_main">
           <div class="hero-photo-caption">
-            <strong>1. Mannschaft — Herren 1 (Sportplatz Zelgli)</strong>
+            <strong>1. Mannschaft – Herren 1 (Sportplatz Zelgli)</strong>
             <span>Hauptsponsor: Emil Frey AG, Schlieren</span>
           </div>
         </div>
@@ -1562,7 +1550,7 @@ INDEX_BODY = """
           <div class="hero-mini-card">
             <img src="images/hero-frauen-1.webp" alt="FC Schlieren Frauen 1 Mannschaft" width="400" height="148" data-slot="hero_img_secondary">
             <div class="hero-mini-body">
-              <strong style="color:#FDC500;font-family:'Montserrat',sans-serif;">Frauen 1 — Tradition seit 1979</strong><br>
+              <strong style="color:#FDC500;font-family:'Montserrat',sans-serif;">Frauen 1 – Tradition seit 1979</strong><br>
               <span>Partner: J.F. Jost &amp; Co. · Waser Facility Management</span>
             </div>
           </div>
@@ -1777,7 +1765,7 @@ INDEX_BODY = """
             <span class="pillar-count">8 Mannschaften</span>
             <h3 style="font-size:1.22rem;font-weight:800;margin:12px 0 8px;" data-slot="pillar_4_title">Juniorinnen U16 bis F</h3>
             <p style="font-size:0.88rem;color:var(--text-body);margin-bottom:14px;" data-slot="pillar_4_desc">
-              Eigene Mädchenteams von den F- und E-Juniorinnen über D7er, D9er und U14 Mädchen bis zu den C-, B-Juniorinnen und Frauen U16 — der direkte Weg in unsere Aktivteams.
+              Eigene Mädchenteams von den F- und E-Juniorinnen über D7er, D9er und U14 Mädchen bis zu den C-, B-Juniorinnen und Frauen U16, der direkte Weg in unsere Aktivteams.
             </p>
             <div class="pillar-tags">
               <span class="pillar-tag">Frauen U16</span>
@@ -1805,7 +1793,7 @@ INDEX_BODY = """
         <div class="section-kicker" data-slot="club_kicker">HEIMSTÄTTE · CLUB-BEIZLI · VORSTAND · CHRONIK</div>
         <h2 class="section-title" data-slot="club_title">Sportanlage Zelgli, Clubhaus &amp; Vereinsführung.</h2>
         <p class="section-desc" data-slot="club_desc">
-          Seit dem Einzug auf der neuerbauten Sportanlage Zelgli im Jahr 1982 schlägt unser Vereinsherz «im Rohr» in 8952 Schlieren — mit Hauptplatz, Kunstrasen, unserem gemütlichen Club-Beizli und einem engagierten Vorstand.
+          Seit dem Einzug auf der neuerbauten Sportanlage Zelgli im Jahr 1982 schlägt unser Vereinsherz «im Rohr» in 8952 Schlieren, mit Hauptplatz, Kunstrasen, unserem gemütlichen Club-Beizli und einem engagierten Vorstand.
         </p>
       </div>
 
@@ -1875,7 +1863,7 @@ INDEX_BODY = """
           </div>
           <div class="timeline-box">
             <div class="timeline-year">1968 &amp; 1970</div>
-            <p class="timeline-text">Saison 1968/69 Zürcher Regionalmeister der 2. Liga. 1970 legendäre dreiwöchige Asien-Reise nach Bangkok, Singapur, Hongkong und Ceylon — mit Freundschaftsspiel vor 11'000 Zuschauern.</p>
+            <p class="timeline-text">Saison 1968/69 Zürcher Regionalmeister der 2. Liga. 1970 legendäre dreiwöchige Asien-Reise nach Bangkok, Singapur, Hongkong und Ceylon, mit Freundschaftsspiel vor 11'000 Zuschauern.</p>
           </div>
           <div class="timeline-box">
             <div class="timeline-year">1973 &amp; 1979</div>
@@ -1883,7 +1871,7 @@ INDEX_BODY = """
           </div>
           <div class="timeline-box">
             <div class="timeline-year">1982 – 2026</div>
-            <p class="timeline-text">1982 Einzug auf der neuerbauten Sportanlage Zelgli. 1997 Gründung des Business-Clubs. 2021 grosses 100-Jahr-Jubiläum — heute Heimat für 33 Teams im Limmattal.</p>
+            <p class="timeline-text">1982 Einzug auf der neuerbauten Sportanlage Zelgli. 1997 Gründung des Business-Clubs. 2021 grosses 100-Jahr-Jubiläum, heute Heimat für 33 Teams im Limmattal.</p>
           </div>
         </div>
       </div>
@@ -2030,7 +2018,7 @@ INDEX_BODY = """
             <div style="font-size:0.76rem;font-weight:700;color:var(--fcs-blue);text-transform:uppercase;">Fussballschule &amp; Vereinsleben</div>
             <h3 class="card-title" style="font-size:1.08rem;" data-slot="social_3_title">Mittwochnachmittag auf dem Zelgli: Unsere Jüngsten (Jg. 2016–2022) am Ball</h3>
             <p class="card-text" data-slot="social_3_text">
-              Jeden Mittwoch von 16:15 bis 17:45 Uhr trainieren die Kinder der Fussballschule auf dem Zelgli — während im Club-Beizli bei Müslüm Bozan für Eltern gesorgt ist.
+              Jeden Mittwoch von 16:15 bis 17:45 Uhr trainieren die Kinder der Fussballschule auf dem Zelgli, während im Club-Beizli bei Müslüm Bozan für Eltern gesorgt ist.
             </p>
           </div>
           <div class="card-footer">
@@ -2065,7 +2053,7 @@ INDEX_BODY = """
         <div class="sponsors-gold-grid">
           <a href="http://www.emilfrey.ch/schlieren" target="_blank" rel="noopener noreferrer" class="sponsor-card gold-card">
             <div class="sponsor-logo-wrap">
-              <img src="images/sponsors/gold-01-emil-frey-ag.jpg" alt="Emil Frey AG Schlieren — Gold Sponsor FC Schlieren" width="320" height="120" loading="lazy" decoding="async" data-slot="sponsor_gold_1_img">
+              <img src="images/sponsors/gold-01-emil-frey-ag.jpg" alt="Emil Frey AG Schlieren – Gold Sponsor FC Schlieren" width="320" height="120" loading="lazy" decoding="async" data-slot="sponsor_gold_1_img">
             </div>
             <div>
               <div class="sponsor-name" data-slot="sponsor_gold_1_name">Emil Frey AG, Schlieren</div>
@@ -2075,7 +2063,7 @@ INDEX_BODY = """
 
           <a href="http://www.lilie-schlieren.ch" target="_blank" rel="noopener noreferrer" class="sponsor-card gold-card">
             <div class="sponsor-logo-wrap">
-              <img src="images/sponsors/gold-02-j-f-jost-co.jpg" alt="J.F. Jost und Co. — Gold Sponsor FC Schlieren" width="320" height="120" loading="lazy" decoding="async" data-slot="sponsor_gold_2_img">
+              <img src="images/sponsors/gold-02-j-f-jost-co.jpg" alt="J.F. Jost und Co. – Gold Sponsor FC Schlieren" width="320" height="120" loading="lazy" decoding="async" data-slot="sponsor_gold_2_img">
             </div>
             <div>
               <div class="sponsor-name" data-slot="sponsor_gold_2_name">J.F. Jost &amp; Co.</div>
@@ -2098,7 +2086,7 @@ INDEX_BODY = """
         <div class="sponsors-silver-grid">
           <a href="https://www.sopex.ch/" target="_blank" rel="noopener noreferrer" class="sponsor-card">
             <div class="sponsor-logo-wrap">
-              <img src="images/sponsors/silver-01-sopex.jpg" alt="SOPEX — Silber Sponsor FC Schlieren" width="240" height="96" loading="lazy" decoding="async" data-slot="sponsor_silver_1_img">
+              <img src="images/sponsors/silver-01-sopex.jpg" alt="SOPEX – Silber Sponsor FC Schlieren" width="240" height="96" loading="lazy" decoding="async" data-slot="sponsor_silver_1_img">
             </div>
             <div>
               <div class="sponsor-name" data-slot="sponsor_silver_1_name">SOPEX</div>
@@ -2108,7 +2096,7 @@ INDEX_BODY = """
 
           <div class="sponsor-card">
             <div class="sponsor-logo-wrap">
-              <img src="images/sponsors/silver-02-vr-ag.jpg" alt="VR AG — Silber Sponsor FC Schlieren" width="240" height="96" loading="lazy" decoding="async" data-slot="sponsor_silver_2_img">
+              <img src="images/sponsors/silver-02-vr-ag.jpg" alt="VR AG – Silber Sponsor FC Schlieren" width="240" height="96" loading="lazy" decoding="async" data-slot="sponsor_silver_2_img">
             </div>
             <div>
               <div class="sponsor-name" data-slot="sponsor_silver_2_name">VR AG</div>
@@ -2118,7 +2106,7 @@ INDEX_BODY = """
 
           <div class="sponsor-card">
             <div class="sponsor-logo-wrap">
-              <img src="images/sponsors/silver-03-waser-facility-managment.png" alt="Waser Facility Management — Silber Sponsor FC Schlieren" width="240" height="96" loading="lazy" decoding="async" data-slot="sponsor_silver_3_img">
+              <img src="images/sponsors/silver-03-waser-facility-managment.png" alt="Waser Facility Management – Silber Sponsor FC Schlieren" width="240" height="96" loading="lazy" decoding="async" data-slot="sponsor_silver_3_img">
             </div>
             <div>
               <div class="sponsor-name" data-slot="sponsor_silver_3_name">Waser Facility Management</div>
@@ -2609,11 +2597,11 @@ HERREN_1_BODY = """
       <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;margin-bottom:12px;">
         <div class="team-switcher-bar" role="tablist" aria-label="Beispiel-Team auswählen">
           <button type="button" class="team-switch-btn active" id="tabBtnHerren1" onclick="wpSwitchTeam('herren1')">
-            <span>Herren 1 — 1. Mannschaft</span>
+            <span>Herren 1 – 1. Mannschaft</span>
             <span class="team-switch-badge">19 Spieler · Live</span>
           </button>
           <button type="button" class="team-switch-btn" id="tabBtnFrauen1" onclick="wpSwitchTeam('frauen1')">
-            <span>Frauen 1 — 1. Mannschaft</span>
+            <span>Frauen 1 – 1. Mannschaft</span>
             <span class="team-switch-badge">17 Spielerinnen · Live</span>
           </button>
         </div>
@@ -2634,7 +2622,7 @@ HERREN_1_BODY = """
             <div class="team-info-stage">
               <div>
                 <div class="section-kicker" style="margin-bottom:8px;">FANIONTEAM AKTIVE HERREN</div>
-                <h2 style="font-size:1.75rem;font-weight:800;margin-bottom:10px;" data-slot="h1_title">FC Schlieren — Herren 1</h2>
+                <h2 style="font-size:1.75rem;font-weight:800;margin-bottom:10px;" data-slot="h1_title">FC Schlieren · Herren 1</h2>
                 <p style="font-size:0.92rem;color:var(--text-body);margin-bottom:16px;" data-slot="h1_desc">
                   Unsere 1. Mannschaft trägt die Farben Blau-Gelb auf dem Hauptplatz der Sportanlage Zelgli. Unter Cheftrainer Diego Bürger, Co-Trainer Livio Sanseverino und Sportchef Zoran Perak steht das Team für leidenschaftlichen Offensivfussball im Limmattal.
                 </p>
@@ -2677,7 +2665,7 @@ HERREN_1_BODY = """
         </div>
 
         <!-- Trainer & Staff Herren 1 -->
-        <h3 style="font-size:1.3rem;font-weight:800;margin-bottom:16px;">Trainer- &amp; Betreuerstab — Herren 1</h3>
+        <h3 style="font-size:1.3rem;font-weight:800;margin-bottom:16px;">Trainer- &amp; Betreuerstab – Herren 1</h3>
         <div class="staff-grid">
           <div class="staff-card">
             <img src="images/staff-diego-buerger.webp" alt="Diego Bürger Trainer Herren 1 FC Schlieren" class="staff-avatar" width="74" height="88" loading="lazy" decoding="async" data-slot="h1_staff_1_img">
@@ -2714,7 +2702,7 @@ HERREN_1_BODY = """
         </div>
 
         <!-- Spielerkader Herren 1 (19 Original-Spieler) -->
-        <h3 style="font-size:1.3rem;font-weight:800;margin-bottom:16px;">Offizielles Spielerkader — Herren 1 (19 Spieler)</h3>
+        <h3 style="font-size:1.3rem;font-weight:800;margin-bottom:16px;">Offizielles Spielerkader – Herren 1 (19 Spieler)</h3>
         <div class="roster-pos-grid">
           <!-- Torhüter -->
           <div class="roster-pos-box">
@@ -2788,7 +2776,7 @@ HERREN_1_BODY = """
             <div class="team-info-stage">
               <div>
                 <div class="section-kicker" style="margin-bottom:8px;">FANIONTEAM AKTIVE FRAUEN · SEIT 1979</div>
-                <h2 style="font-size:1.75rem;font-weight:800;margin-bottom:10px;" data-slot="f1_title">FC Schlieren — Frauen 1</h2>
+                <h2 style="font-size:1.75rem;font-weight:800;margin-bottom:10px;" data-slot="f1_title">FC Schlieren · Frauen 1</h2>
                 <p style="font-size:0.92rem;color:var(--text-body);margin-bottom:16px;" data-slot="f1_desc">
                   Seit der Gründung der Frauenabteilung im Jahr 1979 gehört der FC Schlieren zu den Pioniervereinen im Schweizer Frauenfussball. Unser Fanionteam Frauen 1 wird von Konstantinos Vettas, Sergio Zamora und einem engagierten Spezialisten-Staff betreut.
                 </p>
@@ -2831,7 +2819,7 @@ HERREN_1_BODY = """
         </div>
 
         <!-- Trainer & Staff Frauen 1 -->
-        <h3 style="font-size:1.3rem;font-weight:800;margin-bottom:16px;">Trainer- &amp; Betreuerstab — Frauen 1</h3>
+        <h3 style="font-size:1.3rem;font-weight:800;margin-bottom:16px;">Trainer- &amp; Betreuerstab – Frauen 1</h3>
         <div class="staff-grid">
           <div class="staff-card">
             <img src="images/staff-konstantinos-vettas.webp" alt="Konstantinos Vettas Trainer Frauen 1" class="staff-avatar" width="74" height="88" loading="lazy" decoding="async">
@@ -2890,7 +2878,7 @@ HERREN_1_BODY = """
         </div>
 
         <!-- Spielerkader Frauen 1 (17 Original-Spielerinnen) -->
-        <h3 style="font-size:1.3rem;font-weight:800;margin-bottom:16px;">Offizielles Spielerkader — Frauen 1 (17 Spielerinnen)</h3>
+        <h3 style="font-size:1.3rem;font-weight:800;margin-bottom:16px;">Offizielles Spielerkader – Frauen 1 (17 Spielerinnen)</h3>
         <div class="roster-pos-grid">
           <div class="roster-pos-box">
             <div class="roster-pos-head">
@@ -4054,7 +4042,7 @@ KONTAKT_BODY = """
       if (plz >= 8900 && plz <= 8967) {
         txt.textContent = 'PLZ ' + m[1] + ': Direktes Einzugsgebiet Schlieren & Limmattal (Sportanlage Zelgli)';
       } else {
-        txt.textContent = 'PLZ ' + m[1] + ': Region Zürich / Schweiz — Herzlich willkommen beim FC Schlieren';
+        txt.textContent = 'PLZ ' + m[1] + ': Region Zürich / Schweiz – Herzlich willkommen beim FC Schlieren';
       }
     }
 
@@ -4197,7 +4185,7 @@ KONTAKT_BODY = """
 """
 
 pages_to_write = [
-    ("index.html", "FC Schlieren — Gegründet 1921 | 33 Teams, Fussballschule & Sportplatz Zelgli", "startseite", INDEX_BODY, ""),
+    ("index.html", "FC Schlieren · Gegründet 1921 | 33 Teams, Fussballschule & Sportplatz Zelgli", "startseite", INDEX_BODY, ""),
     ("herren-1.html", "Herren 1, Frauen 1 & Alle 33 Teams (Architekten-Musterhaus) | FC Schlieren", "teams", HERREN_1_BODY, HERREN_1_CSS),
     ("kontakt.html", "Vereins-, Probetraining-, Spielbetriebs- & Sponsoring-Zentrale | FC Schlieren", "kontakt", KONTAKT_BODY, KONTAKT_CSS),
 ]

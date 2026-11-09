@@ -437,7 +437,7 @@ def provision_client(domain: str, name: str = "", slug: str = "", city: str = ""
 
     # 1. Webseiten-Crawl
     scrape_data = crawl_website(clean_domain)
-    extracted_name = scrape_data["title"].split("—")[0].split("-")[0].split("|")[0].strip()
+    extracted_name = scrape_data["title"].split("\u2014")[0].split("-")[0].split("|")[0].strip()
     if extracted_name and len(extracted_name) > 3 and not name:
         name = extracted_name
 

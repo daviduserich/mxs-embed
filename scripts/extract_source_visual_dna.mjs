@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * extract_source_visual_dna.mjs — 3-Stufen «Source Visual DNA & Design-Sommelier» Engine v1.0
+ * extract_source_visual_dna.mjs – 3-Stufen «Source Visual DNA & Design-Sommelier» Engine v1.0
  * ===========================================================================================
  * Verbindliches Vorab-Analyse- & Veredelungs-Werkzeug fuer WebPilot (#UI-01, #UI-02, #UI-14, #UI-16, #LANG-01).
  *
@@ -1154,7 +1154,7 @@ export function renderVisualDnaReportMarkdown(dna) {
 
 ## 1. Die 3-Spalten-Entscheidungstabelle (Fakten messen -> Sommelier-Veredelung -> Bauplan)
 
-| 1. Gemessener Fakt auf der Ursprungsseite (Stufe 1) | 2. Urteil des Design-Sommeliers — Seele behalten vs. Baufehler heilen (Stufe 2) | 3. Konkrete WebPilot-Bau-Anweisung & Pruef-Schranke (Stufe 3) |
+| 1. Gemessener Fakt auf der Ursprungsseite (Stufe 1) | 2. Urteil des Design-Sommeliers – Seele behalten vs. Baufehler heilen (Stufe 2) | 3. Konkrete WebPilot-Bau-Anweisung & Pruef-Schranke (Stufe 3) |
 |---|---|---|
 | **Licht & Atmosphaere (Auge 2):**<br>• \`body_luminance\`: **\`${f.luminance.body_luminance}\`**<br>• \`hero_luminance\`: **\`${f.luminance.hero_luminance}\`**<br>• Kamera-Pixel oben/Hero: \`${f.luminance.header_px_luminance}\` / \`${f.luminance.hero_px_luminance}\`<br>• Gemessene Flaechen: Body \`${f.luminance.body_bg_hex}\`, Hero \`${f.luminance.hero_bg_hex}\` | **Regel 1 (Polaritaets-Entscheid):**<br>${pol.reason} | • **\`target_hero_polarity: "${pol.target_hero_polarity}"\`**<br>• **\`target_page_polarity: "${pol.target_page_polarity}"\`**<br>• Sensor **\`S-27 (P1_EVOLUTION_POLARITY_MISMATCH)\`** prueft bei jedem Build automatisch die Hero-Luminanz (\`${pol.target_hero_polarity === 'light' ? '>= 0.45 Pflicht!' : 'Dunkle Buehne erlaubt'}\`). |
 | **Hintergrund-Toenung:**<br>• Ursprungs-Hintergrund \`${f.luminance.body_bg_hex}\`<br>• Primaer-Farbton \`H = ${tn.brand_hue_deg}deg\` | **Regel 2 (Tinted Neutrals nach *impeccable* & *Refactoring UI*):**<br>Statt kaltem Spital-Weiss (\`#FFFFFF\`) oder totem Grau erhalten alle Hintergrund- und Textflaechen einen feinen Hauch des Marken-Farbtons (\`Chroma 0.008–0.025\`). | • \`--bg-page: ${tn.bg_page.hex}\` (\`${tn.bg_page.oklch}\`)<br>• \`--bg-soft: ${tn.bg_soft.hex}\` (\`${tn.bg_soft.oklch}\`)<br>• \`--text-main: ${tn.text_main.hex}\` (Kontrast **\`${tn.text_main.contrast_vs_bg_page}\`** >= 10:1) |

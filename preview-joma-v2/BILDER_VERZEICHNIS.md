@@ -1,11 +1,11 @@
-# Bilder-Verzeichnis & Cloudflare-Asset-Katalog — JOMA Solar GmbH (Zeigeversion v2)
+# Bilder-Verzeichnis & Cloudflare-Asset-Katalog – JOMA Solar GmbH (Zeigeversion v2)
 
 > **Mandant / Webseite:** JOMA Solar GmbH (Zeigeversion v2) (Wettingen AG)  
 > **Angefordert von (Partner):** Jenny Ettle (JE-MI) · **Eingereicht am:** 05.11.2026 · 20:54 Uhr  
 > **Lokaler Ordner (VPS & Git):** `preview-joma-v2/`  
 > **Cloudflare-Basis-URL:** [vorschau.magnet-xs.ch/joma-v2/](https://vorschau.magnet-xs.ch/joma-v2/)  
 > **Bestand:** **27 Assets** (3.50 MB gesamt) · **🟢 18 aktiv im HTML** · **⚪ 9 frei im Bild-Pool** · **Externe Hotlinks: 0**  
-> **Letzte Aktualisierung:** 09.11.2026 14:07 Uhr (automatisch generiert via `webpilot_asset_catalog.py`)
+> **Letzte Aktualisierung:** 09.11.2026 16:10 Uhr (automatisch generiert via `webpilot_asset_catalog.py`)
 
 ---
 
@@ -25,8 +25,8 @@
 | 10 | `images/grossanlage-gewerbe.jpg` | Referenz, Projekt & Angebot (`ref`) | 1200×800 px · 258.1 KB (JPG) | 🟢 Aktiv in `index.html` | Photovoltaik Grossanlagen für Gewerbe und Industrie | [vorschau.magnet-xs.ch/joma-v2/images/grossanlage-gewerbe.jpg](https://vorschau.magnet-xs.ch/joma-v2/images/grossanlage-gewerbe.jpg) |
 | 11 | `images/logo.png` | Logo & Marken-Icon (`logo`) | 256×256 px · 4.6 KB (PNG) | ⚪ Frei im Pool | JOMA Solar GmbH Wettingen (AG) – Offizielles Logo (Photovoltaikanlagen für Einfamilienhäuser und) | [vorschau.magnet-xs.ch/joma-v2/images/logo.png](https://vorschau.magnet-xs.ch/joma-v2/images/logo.png) |
 | 12 | `images/logo.svg` | Logo & Marken-Icon (`logo`) | 2249×424 px · 4.7 KB (SVG) | 🟢 Aktiv in `index.html`, `kontakt.html` | JOMA Solar GmbH Wettingen (AG) – Offizielles Logo (Photovoltaikanlagen für Einfamilienhäuser und) | [vorschau.magnet-xs.ch/joma-v2/images/logo.svg](https://vorschau.magnet-xs.ch/joma-v2/images/logo.svg) |
-| 13 | `images/portrait-jonathan-muggli.jpg` | Team, Porträt & Kader (`team`) | 450×450 px · 22.3 KB (JPG) | 🟢 Aktiv in `index.html` | Jonathan Muggli — Gründer und Geschäftsführer JOMA Solar GmbH Wettingen | [vorschau.magnet-xs.ch/joma-v2/images/portrait-jonathan-muggli.jpg](https://vorschau.magnet-xs.ch/joma-v2/images/portrait-jonathan-muggli.jpg) |
-| 14 | `images/portrait-marco-keller.jpg` | Team, Porträt & Kader (`team`) | 450×450 px · 23.1 KB (JPG) | 🟢 Aktiv in `index.html` | Marco Keller — Gründer und Geschäftsführer JOMA Solar GmbH Wettingen | [vorschau.magnet-xs.ch/joma-v2/images/portrait-marco-keller.jpg](https://vorschau.magnet-xs.ch/joma-v2/images/portrait-marco-keller.jpg) |
+| 13 | `images/portrait-jonathan-muggli.jpg` | Team, Porträt & Kader (`team`) | 450×450 px · 22.3 KB (JPG) | 🟢 Aktiv in `index.html` | Jonathan Muggli – Gründer und Geschäftsführer JOMA Solar GmbH Wettingen | [vorschau.magnet-xs.ch/joma-v2/images/portrait-jonathan-muggli.jpg](https://vorschau.magnet-xs.ch/joma-v2/images/portrait-jonathan-muggli.jpg) |
+| 14 | `images/portrait-marco-keller.jpg` | Team, Porträt & Kader (`team`) | 450×450 px · 23.1 KB (JPG) | 🟢 Aktiv in `index.html` | Marco Keller – Gründer und Geschäftsführer JOMA Solar GmbH Wettingen | [vorschau.magnet-xs.ch/joma-v2/images/portrait-marco-keller.jpg](https://vorschau.magnet-xs.ch/joma-v2/images/portrait-marco-keller.jpg) |
 | 15 | `images/portrait-mario-grab.jpg` | Team, Porträt & Kader (`team`) | 450×450 px · 20.4 KB (JPG) | ⚪ Frei im Pool | Portrait Mario Grab – Persönlicher Ansprechpartner und Fachteam bei JOMA Solar GmbH in Wettingen (AG) | [vorschau.magnet-xs.ch/joma-v2/images/portrait-mario-grab.jpg](https://vorschau.magnet-xs.ch/joma-v2/images/portrait-mario-grab.jpg) |
 | 16 | `images/portrait-sascha-tsap.jpg` | Team, Porträt & Kader (`team`) | 450×450 px · 20.4 KB (JPG) | ⚪ Frei im Pool | Portrait Sascha Tsap – Persönlicher Ansprechpartner und Fachteam bei JOMA Solar GmbH in Wettingen (AG) | [vorschau.magnet-xs.ch/joma-v2/images/portrait-sascha-tsap.jpg](https://vorschau.magnet-xs.ch/joma-v2/images/portrait-sascha-tsap.jpg) |
 | 17 | `images/portrait-tino-seiler.jpg` | Team, Porträt & Kader (`team`) | 450×450 px · 20.9 KB (JPG) | ⚪ Frei im Pool | Portrait Tino Seiler – Persönlicher Ansprechpartner und Fachteam bei JOMA Solar GmbH in Wettingen (AG) | [vorschau.magnet-xs.ch/joma-v2/images/portrait-tino-seiler.jpg](https://vorschau.magnet-xs.ch/joma-v2/images/portrait-tino-seiler.jpg) |

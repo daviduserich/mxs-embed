@@ -1,4 +1,4 @@
-# Bilder-Verzeichnis & Cloudflare-Asset-Katalog — mXs Talent Solutions
+# Bilder-Verzeichnis & Cloudflare-Asset-Katalog, mXs Talent Solutions
 
 > **Mandant / Webseite:** mXs Talent Solutions (Zofingen)  
 > **Angefordert von (Partner):** Jenny Ettle (JE-MI) · **Eingereicht am:** -  

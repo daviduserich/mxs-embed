@@ -13,7 +13,7 @@ const VORSCHAU_SLUG_TO_FOLDER = {
   'joma-vollversion': 'preview-joma',
   'joma-vv': 'preview-joma',
 
-  // IMP GmbH — Matthias Iseli (Schreinerei- & Holzbau-Marketing): Zeigeversion (-v2, -v1, ohne Suffix) -> preview-imp-marketing-v2 | Vollversion (-vollversion, -vv) -> preview-imp-marketing
+  // IMP GmbH · Matthias Iseli (Schreinerei- & Holzbau-Marketing): Zeigeversion (-v2, -v1, ohne Suffix) -> preview-imp-marketing-v2 | Vollversion (-vollversion, -vv) -> preview-imp-marketing
   'imp-marketing': 'preview-imp-marketing-v2',
   'imp-marketing-v1': 'preview-imp-marketing-v2',
   'imp-marketing-v2': 'preview-imp-marketing-v2',

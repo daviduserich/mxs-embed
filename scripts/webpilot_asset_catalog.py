@@ -98,19 +98,19 @@ CURATED_COMPANY_NAMES = {
     "preview-fcattiswil": ("FC Attiswil", "Attiswil BE"),
     "preview-fcschlieren": ("FC Schlieren (Vollversion)", "Schlieren ZH"),
     "preview-fcschlieren-v2": ("FC Schlieren (Zeigeversion v2)", "Schlieren ZH"),
-    "preview-frees": ("Free's — Studio für Textildesign & Stickerei (Vollversion)", "Niederrohrdorf AG"),
-    "preview-frees-v2": ("Free's — Studio für Textildesign & Stickerei (Zeigeversion v2)", "Niederrohrdorf AG"),
-    "preview-her11": ("HER11 — Frauenfussball-Förderung", "Zürich ZH"),
-    "preview-herzensarbeit": ("Herzensarbeit — Anne-Katrin Koch (Vollversion)", "Härkingen SO"),
-    "preview-herzensarbeit-v2": ("Herzensarbeit — Anne-Katrin Koch (Zeigeversion v2)", "Härkingen SO"),
+    "preview-frees": ("Free's · Studio für Textildesign & Stickerei (Vollversion)", "Niederrohrdorf AG"),
+    "preview-frees-v2": ("Free's · Studio für Textildesign & Stickerei (Zeigeversion v2)", "Niederrohrdorf AG"),
+    "preview-her11": ("HER11 · Frauenfussball-Förderung", "Zürich ZH"),
+    "preview-herzensarbeit": ("Herzensarbeit · Anne-Katrin Koch (Vollversion)", "Härkingen SO"),
+    "preview-herzensarbeit-v2": ("Herzensarbeit · Anne-Katrin Koch (Zeigeversion v2)", "Härkingen SO"),
     "preview-hiltbrand": ("Hiltbrand Gebäudehüllen AG (WebPilot)", "Krattigen BE"),
     "preview-hochuli": ("Hochuli Schlossrued AG", "Schlossrued AG"),
-    "preview-holz-susi": ("Holz-Susi GmbH — Susanne Schmid (Vollversion)", "Frick AG"),
-    "preview-holz-susi-v2": ("Holz-Susi GmbH — Susanne Schmid (Zeigeversion v2)", "Frick AG"),
-    "preview-imp-marketing": ("IMP GmbH — Matthias Iseli (Vollversion)", "Obersteckholz BE"),
-    "preview-imp-marketing-v2": ("IMP GmbH — Matthias Iseli (Zeigeversion v2)", "Obersteckholz BE"),
-    "preview-innere-staerke": ("Wüest + Paneduro — Innere Stärke (Vollversion)", "Sursee LU"),
-    "preview-innere-staerke-v2": ("Wüest + Paneduro — Innere Stärke (Zeigeversion v2)", "Sursee LU"),
+    "preview-holz-susi": ("Holz-Susi GmbH · Susanne Schmid (Vollversion)", "Frick AG"),
+    "preview-holz-susi-v2": ("Holz-Susi GmbH · Susanne Schmid (Zeigeversion v2)", "Frick AG"),
+    "preview-imp-marketing": ("IMP GmbH · Matthias Iseli (Vollversion)", "Obersteckholz BE"),
+    "preview-imp-marketing-v2": ("IMP GmbH · Matthias Iseli (Zeigeversion v2)", "Obersteckholz BE"),
+    "preview-innere-staerke": ("Wüest + Paneduro · Innere Stärke (Vollversion)", "Sursee LU"),
+    "preview-innere-staerke-v2": ("Wüest + Paneduro · Innere Stärke (Zeigeversion v2)", "Sursee LU"),
     "preview-joma": ("JOMA Solar GmbH (Vollversion)", "Wettingen AG"),
     "preview-joma-v2": ("JOMA Solar GmbH (Zeigeversion v2)", "Wettingen AG"),
     "preview-scfulenbach": ("SC Fulenbach", "Fulenbach SO"),
@@ -173,7 +173,7 @@ def _ss(text: str) -> str:
     """Erzwingt 100 % Schweizer Rechtschreibung (ss statt Eszett)."""
     if not text:
         return ""
-    return str(text).replace("\u00df", "ss").replace("ß", "ss")
+    return str(text).replace("\u00df", "ss").replace("\u00df", "ss")
 
 
 def normalize_upload_filename(raw_name: str, category_hint: str = "", slug: str = "") -> str:
@@ -198,7 +198,7 @@ def normalize_upload_filename(raw_name: str, category_hint: str = "", slug: str 
         "ö": "oe",
         "ü": "ue",
         "\u00df": "ss",
-        "ß": "ss",
+        "\u00df": "ss",
         "é": "e",
         "è": "e",
         "ê": "e",
@@ -663,7 +663,7 @@ def scan_site_assets(site_dir: Path) -> dict:
     now_human = datetime.now().strftime("%d.%m.%Y %H:%M")
     partner_name, submitted_at_str = _resolve_partner_and_submitted(folder)
     md_lines = [
-        f"# Bilder-Verzeichnis & Cloudflare-Asset-Katalog — {company_name}",
+        f"# Bilder-Verzeichnis & Cloudflare-Asset-Katalog – {company_name}",
         "",
         f"> **Mandant / Webseite:** {company_name} ({city})  ",
         f"> **Angefordert von (Partner):** {partner_name} · **Eingereicht am:** {submitted_at_str}  ",
@@ -781,7 +781,7 @@ def build_master_catalog_markdown(site_reports: list[dict]) -> str:
         "",
         "---",
         "",
-        f"## Teil 1 — Gesamt-Übersichtstabelle aller 22 Webseiten",
+        f"## Teil 1 – Gesamt-Übersichtstabelle aller 22 Webseiten",
         "",
         "| Webseite / Kunde | Partner | Eingereicht am (Datum & Uhrzeit) | Ordner (VPS & Git) | Cloudflare-Basis-URL | Bilder total | Aktiv im HTML | Frei im Pool | Externe Hotlinks | Gesamtgrösse |",
         "|---|---|---|---|---|---:|---:|---:|---:|---:|",
@@ -794,7 +794,7 @@ def build_master_catalog_markdown(site_reports: list[dict]) -> str:
         )
 
     lines.append(
-        f"| **TOTAL ({total_sites} Webseiten)** | **Alle Partner** | **—** | `mxs-embed/*` | **Cloudflare Swiss Edge** | **{total_assets}** | **🟢 {total_active}** | **⚪ {total_pool}** | **{total_hotlinks}** | **{total_mb:.2f} MB** |"
+        f"| **TOTAL ({total_sites} Webseiten)** | **Alle Partner** | **–** | `mxs-embed/*` | **Cloudflare Swiss Edge** | **{total_assets}** | **🟢 {total_active}** | **⚪ {total_pool}** | **{total_hotlinks}** | **{total_mb:.2f} MB** |"
     )
 
     lines.extend(
@@ -802,7 +802,7 @@ def build_master_catalog_markdown(site_reports: list[dict]) -> str:
             "",
             "---",
             "",
-            "## Teil 2 — Verbindliche Benennungs-Konvention & Speicher-Architektur (VPS ↔ GitHub ↔ Cloudflare Edge)",
+            "## Teil 2 – Verbindliche Benennungs-Konvention & Speicher-Architektur (VPS ↔ GitHub ↔ Cloudflare Edge)",
             "",
             "### 2.1 Verbindlicher Schweizer `kebab-case` Namens-Standard (`normalize_upload_filename`)",
             "",
@@ -831,7 +831,7 @@ def build_master_catalog_markdown(site_reports: list[dict]) -> str:
             "",
             "---",
             "",
-            "## Teil 3 — Vollständiges Einzel-Verzeichnis pro Webseite (Alle 22 Ordner)",
+            "## Teil 3 – Vollständiges Einzel-Verzeichnis pro Webseite (Alle 22 Ordner)",
             "",
         ]
     )
@@ -844,7 +844,7 @@ def build_master_catalog_markdown(site_reports: list[dict]) -> str:
                 f"- **Angefordert von (Partner):** {r.get('partner', '-')} · **Eingereicht am:** {r.get('submitted_at', '-')}",
                 f"- **Cloudflare-Basis-URL:** [{r['cloudflare_short_base']}/]({r['cloudflare_base_url']})",
                 f"- **HTML-Seiten ({r['html_pages_count']}):** " + ", ".join(f"`{p}`" for p in r["html_pages"]),
-                f"- **Bilanz:** **{r['total_assets']} Dateien** ({r['total_mb']:.2f} MB) — **🟢 {r['active_assets']} aktiv im HTML** | **⚪ {r['pool_assets']} frei im Pool** | **Externe Hotlinks: {r['external_hotlinks']}**",
+                f"- **Bilanz:** **{r['total_assets']} Dateien** ({r['total_mb']:.2f} MB) – **🟢 {r['active_assets']} aktiv im HTML** | **⚪ {r['pool_assets']} frei im Pool** | **Externe Hotlinks: {r['external_hotlinks']}**",
                 "",
                 "| Nr. | Dateiname (Lokal) | Kategorie | Auflösung & Grösse | Verwendet auf Seite(n) | SEO/GEO Alt-Text | Direkt-Link auf Cloudflare |",
                 "|---:|---|---|---|---|---|---|",

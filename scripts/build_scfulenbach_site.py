@@ -87,7 +87,7 @@ def build_sponsors_html() -> str:
         href = sp.get("href", "").strip()
         logo = html.escape(sp.get("local_logo", ""))
         inner = f"""            <div class="sponsor-logo-wrap">
-              <img src="{logo}" alt="{name_esc} — Silbersponsor SC Fulenbach" width="240" height="96" loading="lazy" decoding="async" data-slot="sponsor_silver_{idx}_img">
+              <img src="{logo}" alt="{name_esc} – Silbersponsor SC Fulenbach" width="240" height="96" loading="lazy" decoding="async" data-slot="sponsor_silver_{idx}_img">
             </div>
             <div>
               <div class="sponsor-name" data-slot="sponsor_silver_{idx}_name">{name_esc}</div>
@@ -106,7 +106,7 @@ def build_sponsors_html() -> str:
         href = sp.get("href", "").strip()
         logo = html.escape(sp.get("local_logo", ""))
         inner = f"""            <div class="sponsor-logo-wrap" style="height:78px;">
-              <img src="{logo}" alt="{name_esc} — Sponsor SC Fulenbach" width="180" height="70" loading="lazy" decoding="async" data-slot="sponsor_bande_{idx}_img">
+              <img src="{logo}" alt="{name_esc} – Sponsor SC Fulenbach" width="180" height="70" loading="lazy" decoding="async" data-slot="sponsor_bande_{idx}_img">
             </div>
             <div>
               <div class="sponsor-name" style="font-size:0.88rem;">{name_esc}</div>
@@ -209,20 +209,8 @@ SHARED_CSS = """
       color: var(--scf-green);
       margin-bottom: 12px;
     }
-    .section-kicker::before {
-      content: "";
-      display: inline-block;
-      width: 16px;
-      height: 2px;
-      background-color: var(--scf-gold);
-      border-radius: 0px;
-      flex-shrink: 0;
-    }
     .section-kicker.kicker-light {
       color: var(--scf-gold-bright);
-    }
-    .section-kicker.kicker-light::before {
-      background-color: #FFFFFF;
     }
 
     h1, h2, h3, h4 {
@@ -1245,7 +1233,7 @@ def render_shell(filename: str, page_title: str, active_nav: str, body_html: str
   <meta name="referrer" content="strict-origin-when-cross-origin">
   <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=()">
   <title>{page_title}</title>
-  <meta name="description" content="Sportclub Fulenbach (gegründet Sommer 1944, SOFV-Verein Nr. 1826) — 14 Mannschaften, 1. Mannschaft (2. Liga regional), Juniorengruppierung rot/blau, Sportplatz Bad &amp; Clubhaus in 4629 Fulenbach.">
+  <meta name="description" content="Sportclub Fulenbach (gegründet Sommer 1944, SOFV-Verein Nr. 1826) – 14 Mannschaften, 1. Mannschaft (2. Liga regional), Juniorengruppierung rot/blau, Sportplatz Bad &amp; Clubhaus in 4629 Fulenbach.">
   <link rel="icon" type="image/png" href="images/favicon-32x32.png">
   <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -1452,7 +1440,7 @@ def render_shell(filename: str, page_title: str, active_nav: str, body_html: str
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
       </button>
       <div class="section-kicker">RECHTLICHE ANGABEN · SCHWEIZER DSG</div>
-      <h3 id="wpImpTitle" style="font-size:1.3rem;font-weight:800;margin-bottom:10px;">Impressum &amp; Datenschutz — Sportclub Fulenbach</h3>
+      <h3 id="wpImpTitle" style="font-size:1.3rem;font-weight:800;margin-bottom:10px;">Impressum &amp; Datenschutz – Sportclub Fulenbach</h3>
       <div style="font-size:0.88rem;color:var(--text-body);display:flex;flex-direction:column;gap:10px;">
         <p><strong>Vereinsadresse &amp; Sportanlage:</strong><br>Sportclub Fulenbach (SOFV-Verein Nr. 1826) · Sportplatz Bad · Ewigkeitstrasse 5 · 4629 Fulenbach</p>
         <p><strong>Vertretungsberechtigter Vorstand:</strong><br>Willi von Arx (Präsident · vorstand@scfulenbach.ch) · Elias Sidler (Vize-Präsident / Anlässe) · Rahel Napoli (Aktuarin) · Roland Wiss (Finanzen &amp; Verwaltung a.i.) · Mirko Ferrari (Sportchef · mirko.ferrari@scfulenbach.ch) · Andreas Guldimann (Sponsoring / Marketing · andreas.guldimann@scfulenbach.ch) · Michael «Mike» Frieder (Juniorenobmann) · Alfred Ammann (Infrastruktur)</p>
@@ -1571,7 +1559,7 @@ INDEX_BODY = f"""
           <div class="hero-main-photo-card">
             <img src="images/team-herren-1.webp" alt="SC Fulenbach 1. Mannschaft 2. Liga regional" width="760" height="300" data-slot="hero_img_main">
             <div class="hero-photo-caption">
-              <strong>1. Mannschaft — 2. Liga regional (Beispiel-Team 1/14 fertig)</strong>
+              <strong>1. Mannschaft – 2. Liga regional (Beispiel-Team 1/14 fertig)</strong>
               <span>Trainer: Kay Ackermann &amp; Roland Wiss · 20 Kaderspieler</span>
             </div>
           </div>
@@ -1604,7 +1592,7 @@ INDEX_BODY = f"""
         <div style="max-width:780px;">
           <div class="section-kicker kicker-light" style="margin-bottom:6px;">ÜBERSICHT DER WEITEREN SEITEN (40 VON 43 SEITEN FOLGEN BEIM AUSBAU)</div>
           <h2 style="color:#FFFFFF;font-size:clamp(1.45rem,2.4vw,2rem);font-weight:800;margin-bottom:8px;">
-            Vorschau-Entwurf: 3 Beispiel-Seiten sind bereits ausgearbeitet — 40 weitere Unterseiten folgen beim Ausbau.
+            Vorschau-Entwurf: 3 Beispiel-Seiten sind bereits ausgearbeitet – 40 weitere Unterseiten folgen beim Ausbau.
           </h2>
           <p style="font-size:0.92rem;color:#E2E8F0;line-height:1.58;">
             Die bestehende ClubDesk-Website <strong>scfulenbach.ch</strong> umfasst exakt <strong>43 Seiten</strong> und <strong>14 Mannschaften</strong>. In diesem Entwurf V2 siehst du die Startseite, die <strong>1. Mannschaft (1/14)</strong>, alle <strong>88 Sponsoren-Einträge</strong> sowie die <strong>Smart-Anfrage-Zentrale</strong> im fertigen Vollausbau. Die folgenden <strong>4 weitere Bereiche (40 Unterseiten)</strong> sind als übersichtliche Platzhalter vorbereitet und werden bei Auftragserteilung 1:1 mit allen Originaldaten übertragen.
@@ -1838,7 +1826,7 @@ INDEX_BODY = f"""
 
           <a href="http://www.lemp.ch" target="_blank" rel="noopener noreferrer" class="sponsor-card gold-card">
             <div class="sponsor-logo-wrap">
-              <img src="images/sponsors/sponsor-1000839-lemp-haustechnik-ag.webp" alt="Lemp Haustechnik AG Murgenthal — Hauptsponsor SC Fulenbach" width="280" height="110" loading="lazy" decoding="async" data-slot="sponsor_main_2_img">
+              <img src="images/sponsors/sponsor-1000839-lemp-haustechnik-ag.webp" alt="Lemp Haustechnik AG Murgenthal – Hauptsponsor SC Fulenbach" width="280" height="110" loading="lazy" decoding="async" data-slot="sponsor_main_2_img">
             </div>
             <div>
               <div class="sponsor-name" data-slot="sponsor_main_2_name">Lemp Haustechnik AG</div>
@@ -1848,7 +1836,7 @@ INDEX_BODY = f"""
 
           <a href="http://www.raiffeisen.ch/aare-langete/de.html" target="_blank" rel="noopener noreferrer" class="sponsor-card gold-card">
             <div class="sponsor-logo-wrap">
-              <img src="images/sponsors/sponsor-1000838-raiffeisenbank-aare-langete.webp" alt="Raiffeisenbank Aare-Langete — Co-Sponsor SC Fulenbach" width="280" height="110" loading="lazy" decoding="async" data-slot="sponsor_co_1_img">
+              <img src="images/sponsors/sponsor-1000838-raiffeisenbank-aare-langete.webp" alt="Raiffeisenbank Aare-Langete – Co-Sponsor SC Fulenbach" width="280" height="110" loading="lazy" decoding="async" data-slot="sponsor_co_1_img">
             </div>
             <div>
               <div class="sponsor-name" data-slot="sponsor_co_1_name">Raiffeisenbank Aare-Langete</div>
@@ -1886,7 +1874,7 @@ INDEX_BODY = f"""
         <div class="sponsors-silver-grid">
           <a href="http://www.ehrenbolger-suter.ch" target="_blank" rel="noopener noreferrer" class="sponsor-card">
             <div class="sponsor-logo-wrap">
-              <img src="images/sponsors/sponsor-1004354-ehrenbolger-suter-ag.webp" alt="Ehrenbolger und Suter AG — Mannschaftssponsor 1. Mannschaft" width="240" height="96" loading="lazy" decoding="async">
+              <img src="images/sponsors/sponsor-1004354-ehrenbolger-suter-ag.webp" alt="Ehrenbolger und Suter AG – Mannschaftssponsor 1. Mannschaft" width="240" height="96" loading="lazy" decoding="async">
             </div>
             <div>
               <div class="sponsor-name">Ehrenbolger &amp; Suter AG</div>
@@ -1896,7 +1884,7 @@ INDEX_BODY = f"""
 
           <a href="http://www.roth-dach.ch" target="_blank" rel="noopener noreferrer" class="sponsor-card">
             <div class="sponsor-logo-wrap">
-              <img src="images/sponsors/sponsor-1004347-roth-dach-gmbh.webp" alt="Roth Dach GmbH — Mannschaftssponsor 1. Mannschaft" width="240" height="96" loading="lazy" decoding="async">
+              <img src="images/sponsors/sponsor-1004347-roth-dach-gmbh.webp" alt="Roth Dach GmbH – Mannschaftssponsor 1. Mannschaft" width="240" height="96" loading="lazy" decoding="async">
             </div>
             <div>
               <div class="sponsor-name">Roth Dach GmbH</div>
@@ -1906,7 +1894,7 @@ INDEX_BODY = f"""
 
           <a href="http://www.fischerschreinerei.ch" target="_blank" rel="noopener noreferrer" class="sponsor-card">
             <div class="sponsor-logo-wrap">
-              <img src="images/sponsors/sponsor-1000961-fischer-schreinerei-gmbh.webp" alt="Fischer Schreinerei GmbH — Mannschaftssponsor 1. Mannschaft" width="240" height="96" loading="lazy" decoding="async">
+              <img src="images/sponsors/sponsor-1000961-fischer-schreinerei-gmbh.webp" alt="Fischer Schreinerei GmbH – Mannschaftssponsor 1. Mannschaft" width="240" height="96" loading="lazy" decoding="async">
             </div>
             <div>
               <div class="sponsor-name">Fischer Schreinerei GmbH</div>
@@ -2238,9 +2226,9 @@ HERREN_1_BODY = """
     <div class="container">
       <div class="architect-box">
         <div style="max-width:780px;">
-          <div class="section-kicker kicker-light" style="margin-bottom:6px;" data-slot="arch_kicker">MANNSCHAFTS-ÜBERSICHT: 1 BEISPIEL-TEAM AUSGEARBEITET — 13 WEITERE TEAMS VORBEREITET</div>
+          <div class="section-kicker kicker-light" style="margin-bottom:6px;" data-slot="arch_kicker">MANNSCHAFTS-ÜBERSICHT: 1 BEISPIEL-TEAM AUSGEARBEITET – 13 WEITERE TEAMS VORBEREITET</div>
           <h1 style="color:#FFFFFF;font-size:clamp(1.45rem,2.5vw,2.05rem);font-weight:800;margin-bottom:8px;" data-slot="arch_title">
-            Beispiel-Team: 1. Mannschaft (2. Liga regional) — Vorlage für alle 14 Teams
+            Beispiel-Team: 1. Mannschaft (2. Liga regional) – Vorlage für alle 14 Teams
           </h1>
           <p style="font-size:0.9rem;color:#E2E8F0;line-height:1.58;" data-slot="arch_desc">
             Der SC Fulenbach stellt insgesamt <strong>14 Mannschaften</strong> (3 Aktiv-/Senioren-Teams, 5 Teams der Juniorengruppierung rot/blau und 6 Nachwuchs-Teams D bis G). In diesem Prototyp ist die <strong>1. Mannschaft (1/14 = 7 %)</strong> komplett mit Original-Mannschaftsfoto, Trainer- &amp; Betreuerstab, allen 20 Kaderspielern und den 3 Mannschaftssponsoren ausgebaut. Unten in der <strong>14-Teams-Übersicht</strong> sind alle 13 weiteren Teams als Platzhalter vorbereitet.
@@ -2278,7 +2266,7 @@ HERREN_1_BODY = """
           <div class="team-info-stage">
             <div>
               <div class="section-kicker" style="margin-bottom:8px;">FANIONTEAM SC FULENBACH · AUFSTEIGER 2. LIGA REGIONAL</div>
-              <h2 style="font-size:1.75rem;font-weight:800;margin-bottom:10px;" data-slot="h1_title">SC Fulenbach — 1. Mannschaft</h2>
+              <h2 style="font-size:1.75rem;font-weight:800;margin-bottom:10px;" data-slot="h1_title">SC Fulenbach · 1. Mannschaft</h2>
               <p style="font-size:0.92rem;color:var(--text-body);margin-bottom:16px;" data-slot="h1_desc">
                 Als gefeierter 3.-Liga-Meister (5:2-Heimsieg im Entscheidungsspiel gegen den Türkischen FC Solothurn) spielt unser Fanionteam in der <strong>2. Liga regional</strong> des Solothurner Fussballverbands (SOFV). Trainiert wird die Mannschaft von Cheftrainer <strong>Kay Ackermann</strong> und Co-Trainer <strong>Roland Wiss</strong>.
               </p>
@@ -2322,7 +2310,7 @@ HERREN_1_BODY = """
       </div>
 
       <!-- Trainer & Staff 1. Mannschaft -->
-      <h3 style="font-size:1.3rem;font-weight:800;margin-bottom:16px;">Trainer- &amp; Betreuerstab — 1. Mannschaft (2. Liga regional)</h3>
+      <h3 style="font-size:1.3rem;font-weight:800;margin-bottom:16px;">Trainer- &amp; Betreuerstab – 1. Mannschaft (2. Liga regional)</h3>
       <div class="staff-grid">
         <div class="staff-card">
           <img src="images/staff-kay-ackermann.webp" alt="Kay Ackermann Trainer 1. Mannschaft SC Fulenbach" class="staff-avatar" width="74" height="92" loading="lazy" decoding="async">
@@ -2381,7 +2369,7 @@ HERREN_1_BODY = """
       </div>
 
       <!-- Spielerkader 1. Mannschaft (Alle 20 Original-Spieler von scfulenbach.ch) -->
-      <h3 style="font-size:1.3rem;font-weight:800;margin-bottom:16px;">Offizielles Spielerkader — 1. Mannschaft (20 Original-Kaderspieler)</h3>
+      <h3 style="font-size:1.3rem;font-weight:800;margin-bottom:16px;">Offizielles Spielerkader – 1. Mannschaft (20 Original-Kaderspieler)</h3>
       <div class="roster-pos-grid">
         <div class="roster-pos-box">
           <div class="roster-pos-head">
@@ -2438,7 +2426,7 @@ HERREN_1_BODY = """
       <!-- Gruppe 1: Aktive & Senioren (3 Teams) -->
       <div class="matrix-group-block">
         <div class="matrix-group-header">
-          <h3 style="font-size:1.18rem;font-weight:800;">1. Aktive &amp; Senioren (3 Mannschaften — 1 Beispiel-Team ausgearbeitet, 2 vorbereitet)</h3>
+          <h3 style="font-size:1.18rem;font-weight:800;">1. Aktive &amp; Senioren (3 Mannschaften – 1 Beispiel-Team ausgearbeitet, 2 vorbereitet)</h3>
           <span style="font-size:0.82rem;color:var(--text-muted);font-weight:600;">Sportchef: Mirko Ferrari (mirko.ferrari@scfulenbach.ch · 079 397 87 73)</span>
         </div>
         <div class="matrix-grid">
@@ -2471,7 +2459,7 @@ HERREN_1_BODY = """
       <!-- Gruppe 2: Juniorengruppierung rot/blau (5 Teams) -->
       <div class="matrix-group-block">
         <div class="matrix-group-header">
-          <h3 style="font-size:1.18rem;font-weight:800;">2. Juniorengruppierung rot/blau — SC Fulenbach / FC Wolfwil / FC Kestenholz (5 Teams vorbereitet)</h3>
+          <h3 style="font-size:1.18rem;font-weight:800;">2. Juniorengruppierung rot/blau – SC Fulenbach / FC Wolfwil / FC Kestenholz (5 Teams vorbereitet)</h3>
           <span style="font-size:0.82rem;color:var(--text-muted);font-weight:600;">Juniorenobmann: Michael «Mike» Frieder (Tel. 079 647 13 33)</span>
         </div>
         <div class="matrix-grid">
@@ -2520,7 +2508,7 @@ HERREN_1_BODY = """
       <!-- Gruppe 3: Junioren SC Fulenbach D bis G (6 Teams) -->
       <div class="matrix-group-block" style="margin-bottom:0;">
         <div class="matrix-group-header">
-          <h3 style="font-size:1.18rem;font-weight:800;">3. Nachwuchs SC Fulenbach — Junioren D bis G (6 Teams vorbereitet)</h3>
+          <h3 style="font-size:1.18rem;font-weight:800;">3. Nachwuchs SC Fulenbach · Junioren D bis G (6 Teams vorbereitet)</h3>
           <span style="font-size:0.82rem;color:var(--text-muted);font-weight:600;">Sportplatz Bad Fulenbach · Juniorenobmann: Michael «Mike» Frieder (079 647 13 33)</span>
         </div>
         <div class="matrix-grid">
@@ -3422,7 +3410,7 @@ KONTAKT_BODY = """
       if (plz >= 4600 && plz <= 4999) {
         txt.textContent = 'PLZ ' + m[1] + ': Direktes Einzugsgebiet Fulenbach, Gäu, Olten & Oberaargau (Sportplatz Bad)';
       } else {
-        txt.textContent = 'PLZ ' + m[1] + ': Region Solothurn / Mittelland — Herzlich willkommen beim SC Fulenbach';
+        txt.textContent = 'PLZ ' + m[1] + ': Region Solothurn / Mittelland – Herzlich willkommen beim SC Fulenbach';
       }
     }
 
@@ -3567,7 +3555,7 @@ KONTAKT_BODY = """
 """
 
 pages_to_write = [
-    ("index.html", "SC Fulenbach — Gegründet 1944 | Vorschau-Entwurf V2 (14 Teams & 88 Sponsoren)", "startseite", INDEX_BODY, ""),
+    ("index.html", "SC Fulenbach · Gegründet 1944 | Vorschau-Entwurf V2 (14 Teams & 88 Sponsoren)", "startseite", INDEX_BODY, ""),
     ("herren-1.html", "Beispiel-Team: 1. Mannschaft (2. Liga reg.) & 14-Teams-Übersicht | SC Fulenbach", "teams", HERREN_1_BODY, HERREN_1_CSS),
     ("kontakt.html", "Smart-Anfrage-Zentrale (Probetraining, Clubhaus, Sponsoring & 1-Seiten-PDF) | SC Fulenbach", "kontakt", KONTAKT_BODY, KONTAKT_CSS),
 ]

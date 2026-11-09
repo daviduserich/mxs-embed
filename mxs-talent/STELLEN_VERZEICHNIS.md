@@ -1,4 +1,4 @@
-# Seiten-Verzeichnis — mXs Talent Solutions
+# Seiten-Verzeichnis, mXs Talent Solutions
 
 - `index.html`
 - `strategie-kennen-lernen.html`

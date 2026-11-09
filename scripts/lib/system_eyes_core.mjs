@@ -1,5 +1,5 @@
 /**
- * system_eyes_core.mjs — Zentraler Doppel-Systemaugen-Baustein v2.0.0 (#UI-01, #UI-06, #UI-13, #UI-14)
+ * system_eyes_core.mjs – Zentraler Doppel-Systemaugen-Baustein v2.0.0 (#UI-01, #UI-06, #UI-13, #UI-14)
  * ====================================================================================================
  * Wiederverwendbares Kern-Modul fuer alle ACP- & WebPilot-Frontends:
  *   - mxs-embed (WebPilot Kunden-Webseiten & Studio-Cockpits v4.0)
@@ -41,7 +41,7 @@ export const SYSTEM_EYES_SENSORS = [
   { id: 'S-14', code: 'P2_RAGGED_RIGHT_EDGE', severity: 'P2', rule: '#UI-14', desc: 'Mehrspaltige Karten-Grids muessen rechts buendig abschliessen (Toleranz <= 14px)' },
   { id: 'S-15', code: 'P2_ROW_HEIGHT_MISMATCH', severity: 'P2', rule: '#UI-14', desc: 'Karten in derselben Grid-Zeile muessen exakt gleich hoch sein (Toleranz <= 4px)' },
   { id: 'S-16', code: 'P2_SEVERE_TEXT_TRUNCATION', severity: 'P2', rule: '#UI-14', desc: 'Text mit text-overflow:ellipsis darf nicht unter 115px Restbreite abgeschnitten werden' },
-  { id: 'S-17', code: 'P2_CLIENT_CODE_FONT_OR_SLASH', severity: 'P2', rule: '#UI-01', desc: 'Auf Kunden-Webseiten sind JetBrains Mono und //-Code-Striche in Kickern/Badges strikt verboten' },
+  { id: 'S-17', code: 'P2_CLIENT_CODE_FONT_OR_SLASH', severity: 'P2', rule: '#UI-01', desc: 'Auf Kunden-Webseiten sind JetBrains Mono, //-Code-Striche und vorangestellte ::before-Striche in Kickern/Badges strikt verboten' },
   { id: 'S-18', code: 'P2_MODAL_OVERLAP_LEAK', severity: 'P2', rule: '#UI-06', desc: 'Bei geoeffnetem Modal darf kein Hintergrund-Widget (#acp-draft-widget) ueber das Modal ragen' },
   { id: 'S-19', code: 'P1_TEXT_BLEEDS_CONTAINER', severity: 'P1', rule: '#UI-14', desc: 'Kein Wort/Textknoten darf horizontal ueber den rechten/linken Rand seines Buttons, Badges oder seiner Karte hinausragen' },
   { id: 'S-20', code: 'P2_FORM_INPUT_MISALIGNMENT', severity: 'P2', rule: '#UI-02', desc: 'Nebeneinanderliegende Formular-Inputs in derselben Zeile muessen auf exakt gleicher vertikaler Hoehe (top) sitzen' },
@@ -54,7 +54,7 @@ export const SYSTEM_EYES_SENSORS = [
   { id: 'S-27', code: 'P1_EVOLUTION_POLARITY_MISMATCH', severity: 'P1', rule: '#UI-16', desc: 'Im Evolution-Modus mit heller Ursprungsseite (target_hero_polarity === "light") darf die Startbuehne (.hero-section, .hero, main > section:first-of-type) niemals dunkel (< 0.45 Luminanz) gebaut werden' },
   { id: 'S-28', code: 'P2_MULTILINE_CELL_INDENT_DRIFT', severity: 'P2', rule: '#UI-02', desc: 'In mehrzeiligen Tabellenzellen, Listen-Spalten oder Flex/Grid-Zellen muessen untereinanderliegende Zeilen exakt auf derselben linken/rechten Fluchtlinie starten (kein margin-left-Versatz auf Zeile 2, Toleranz <= 2.5px)' },
   { id: 'S-29', code: 'P2_CROSS_ROW_RHYTHM_MISMATCH', severity: 'P2', rule: '#UI-02', desc: 'Aufeinanderfolgende Listen-Zeilen gleicher Signatur muessen in allen Spalten exakt fluchten (x-Abweichung <= 3px) und wiederkehrende Tags/Badges im selben Stockwerk (y-Rhythmus) fuehren' },
-  { id: 'S-30', code: 'P2_TYPOGRAPHIC_PLENK_OR_ASCII_ORT', severity: 'P2', rule: '#LANG-01', desc: 'Keine Leerzeichen vor Kommas (Plenk, z. B. "Bern , BERNEXPO") und keine unkorrigierten Schweizer ASCII-Umlaut-Ortsnamen (Zuerich, Graubuenden, Duebendorf, Buelach etc.) im sichtbaren UI-Text' },
+  { id: 'S-30', code: 'P2_TYPOGRAPHIC_PLENK_OR_ASCII_ORT', severity: 'P2', rule: '#LANG-01', desc: 'Keine Leerzeichen vor Kommas (Plenk), keine unkorrigierten Schweizer ASCII-Umlaut-Ortsnamen (Zuerich etc.) und kein englischer KI-Geviertstrich ((?<!\.)\u2014) im sichtbaren UI-Text' },
   { id: 'S-31', code: 'P2_SIBLING_CARD_ANATOMY_DRIFT', severity: 'P2', rule: '#UI-02', desc: 'Nebeneinanderliegende Kacheln in 2er-/3er-/4er-Grids muessen sowohl aussen (2D-Spaltenflucht) als auch innen (Kicker-, Ueberschrift- und Textstart-Horizont) miteinander fluchten' }
 ];
 
@@ -393,13 +393,26 @@ export function evaluateSystemEyesInPage({ relPage, zone, options = {} }) {
       }
     }
 
-    // S-17: Customer Website Typography Guard (#UI-01 Pt 4: No JetBrains Mono or // kickers on customer sites)
-    if (!isCockpit && !relPage.startsWith('webpilot/')) {
+    // S-17: Customer Website Typography Guard (#UI-01 Pt 4: No JetBrains Mono, // kickers, or ::before kicker lines on customer sites)
+    const isClientSite = !isCockpit && !relPage.startsWith('webpilot/');
+    if (isClientSite) {
       if (cs.fontFamily && cs.fontFamily.toLowerCase().includes('jetbrains mono')) {
         addFinding('P2', 'P2_CLIENT_CODE_FONT_OR_SLASH', getLabel(el), getCssPath(el), `Programmierer-Schriftart JetBrains Mono auf Kunden-Webseite verboten (#UI-01 Pt 4)`);
       }
       if (directText.startsWith('// ')) {
         addFinding('P2', 'P2_CLIENT_CODE_FONT_OR_SLASH', getLabel(el), getCssPath(el), `Code-Kommentar-Striche "// " in Kicker/Text auf Kunden-Webseite verboten (#UI-01 Pt 4)`);
+      }
+      if (el.matches('.section-kicker, .section-tag, .eyebrow, .kicker, .hero-kicker, .calc-kicker, .sub-kicker')) {
+        const beforeCs = window.getComputedStyle(el, '::before');
+        const bContent = (beforeCs.content || 'none').replace(/^["']|["']$/g, '').trim();
+        const bWidth = parseFloat(beforeCs.width || '0');
+        const bHeight = parseFloat(beforeCs.height || '0');
+        const hasBeforeLine = Boolean(beforeCs.content && beforeCs.content !== 'none' && beforeCs.display !== 'none' && bWidth >= 6 && bHeight > 0 && bHeight <= 4);
+        const hasBeforeDash = Boolean(beforeCs.content && beforeCs.content !== 'none' && beforeCs.display !== 'none' && (bContent === '\u2014' || bContent === '\u2013' || bContent === '-'));
+        const hasLeadingTextDash = /^[\u2014\u2013]\s*/.test(directText);
+        if (hasBeforeLine || hasBeforeDash || hasLeadingTextDash) {
+          addFinding('P2', 'P2_CLIENT_CODE_FONT_OR_SLASH', getLabel(el), getCssPath(el), `Kicker hat vorangestellten KI-Strich ::before`);
+        }
       }
     }
   }
@@ -1137,9 +1150,10 @@ export function evaluateSystemEyesInPage({ relPage, zone, options = {} }) {
     }
   }
 
-  // S-30: P2_TYPOGRAPHIC_PLENK_OR_ASCII_ORT (Leerzeichen vor Komma & unkorrigierte Schweizer ASCII-Ortsnamen)
+  // S-30: P2_TYPOGRAPHIC_PLENK_OR_ASCII_ORT (Leerzeichen vor Komma, Schweizer ASCII-Ortsnamen & englischer KI-Geviertstrich \u2014)
   const plenkRe = /[A-Za-zÄÖÜäöü0-9)\]]\s+,/;
   const asciiOrtRe = /\b(?:Zuerich|Zuercher|Graubuenden|Duebendorf|Buelach|Kuesnacht|Kuessnacht)\b/;
+  const emDashRe = /(?<!\.)\u2014/;
   for (const el of allDom) {
     if (['SCRIPT', 'STYLE', 'PRE', 'CODE', 'TEXTAREA', 'SVG', 'PATH', 'INPUT', 'SELECT'].includes(el.tagName)) continue;
     if (el.closest('pre, code, textarea, svg, [data-user-content="true"], .post-preview-text, .acp-no-capture')) continue;
@@ -1167,8 +1181,79 @@ export function evaluateSystemEyesInPage({ relPage, zone, options = {} }) {
           `Unkorrigierter Schweizer ASCII-Umlaut-Ortsname "${m[0]}" im sichtbaren UI-Text gefunden (#LANG-01)`
         );
       }
+      if (emDashRe.test(directText)) {
+        addFinding(
+          'P2',
+          'P2_TYPOGRAPHIC_PLENK_OR_ASCII_ORT',
+          getLabel(el),
+          getCssPath(el),
+          `Englischer KI-Geviertstrich (\u2014) gefunden \u2014 gem\u00e4ss #LANG-01 verboten, nur .\u2014 bei CHF erlaubt`
+        );
+      }
     }
   }
 
   return findings;
+}
+
+// Optional standalone CLI Self-Test (--self-test-only)
+if (
+  typeof process !== 'undefined' &&
+  Array.isArray(process.argv) &&
+  process.argv[1] &&
+  process.argv[1].endsWith('system_eyes_core.mjs') &&
+  process.argv.includes('--self-test-only')
+) {
+  (async () => {
+    const { createRequire } = await import('module');
+    const fs = await import('fs');
+    const req = createRequire('/home/brainuser/workspaces/ACP-Authentic-Content-Pilot-Pro0396/acp-app/package.json');
+    const { chromium } = req('playwright-core');
+    const candidates = [
+      '/home/brainuser/.cache/ms-playwright/chromium-1217/chrome-linux64/chrome',
+      '/home/brainuser/.cache/ms-playwright/chromium-1217/chrome-linux/chrome',
+      '/home/brainuser/.cache/ms-playwright/chromium_headless_shell-1217/chrome-headless-shell-linux64/chrome-headless-shell',
+      '/home/brainuser/.cache/ms-playwright/chromium-1208/chrome-linux64/chrome'
+    ];
+    const executablePath = candidates.find(p => fs.existsSync(p));
+    const browser = await chromium.launch({ executablePath });
+    const page = await browser.newPage({ viewport: { width: 1440, height: 900 } });
+    try {
+      await page.setContent(`<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <style>
+    .section-kicker { display: inline-flex; align-items: center; gap: 10px; }
+    .section-kicker::before { content: ""; display: inline-block; width: 16px; height: 2px; background: #A84B2B; }
+  </style>
+</head>
+<body>
+  <span class="section-kicker">TEST KICKER MIT VORSTRICH</span>
+  <p id="bad-em">Satz mit verbotenem KI-Gedankenstrich \u2014 mitten im Satz.</p>
+  <p id="good-chf">Erlaubter Schweizer Frankenbetrag: CHF 35.\u2014 pro Monat.</p>
+</body>
+</html>`);
+      const findings = await page.evaluate(evaluateSystemEyesInPage, {
+        relPage: 'preview-canary/index.html',
+        zone: SYSTEM_EYES_ZONES[2],
+        options: {}
+      });
+      const s17Hit = findings.find(f => f.code === 'P2_CLIENT_CODE_FONT_OR_SLASH' && f.details.includes('::before'));
+      const s30Hit = findings.find(f => f.code === 'P2_TYPOGRAPHIC_PLENK_OR_ASCII_ORT' && f.element.includes('verbotenem KI-Gedankenstrich'));
+      const s30FalsePositive = findings.find(f => f.code === 'P2_TYPOGRAPHIC_PLENK_OR_ASCII_ORT' && f.element.includes('CHF 35.'));
+      const ok = Boolean(s17Hit && s30Hit && !s30FalsePositive);
+      console.log(JSON.stringify({
+        ok,
+        system_eyes_version: SYSTEM_EYES_VERSION,
+        sensors_count: SYSTEM_EYES_SENSORS.length,
+        s17_kicker_before_caught: Boolean(s17Hit),
+        s30_em_dash_caught: Boolean(s30Hit),
+        s30_chf_price_allowed: !s30FalsePositive
+      }, null, 2));
+      if (!ok) process.exit(1);
+    } finally {
+      await browser.close();
+    }
+  })();
 }

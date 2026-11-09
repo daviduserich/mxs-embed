@@ -106,7 +106,7 @@ company_data = {
     "industry": "B2B Recruiting & Employer Branding",
     "branche": "B2B Recruiting & Employer Branding",
     "is_website_studio": True,
-    "studio_title": "WEBPILOT STUDIO — MXS TALENT SOLUTIONS",
+    "studio_title": "WEBPILOT STUDIO – MXS TALENT SOLUTIONS",
     "work_category_label": "Kampagnen & Methodik",
     "host_url": "https://embed.magnet-xs.ch/mxs-talent/cockpit",
     "host_jobs_url": "https://embed.magnet-xs.ch/mxs-talent/",

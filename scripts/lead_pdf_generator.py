@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-lead_pdf_generator.py — WebPilot 1-Seiten-A4-PDF-Generator («Das Monika-&-Monteur-Blatt»)
+lead_pdf_generator.py – WebPilot 1-Seiten-A4-PDF-Generator («Das Monika-&-Monteur-Blatt»)
 =========================================================================================
 Erzeugt in < 150 ms ein druckfertiges, exakt 1-seitiges A4-Auftrags- & Anfrage-Blatt
 im jeweiligen Mandanten-Markendesign (Hochuli / HER11 / WebPilot) mit:

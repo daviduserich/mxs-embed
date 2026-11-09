@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Generator für die WebPilot-Referenz-Aufbereitung von imp-marketing.ch (IMP GmbH — Matthias Iseli, Obersteckholz BE):
+Generator für die WebPilot-Referenz-Aufbereitung von imp-marketing.ch (IMP GmbH · Matthias Iseli, Obersteckholz BE):
 - Variante 1 (Vollversion): /home/brainuser/workspaces/mxs-embed/preview-imp-marketing
   Live-URL: https://vorschau.magnet-xs.ch/imp-marketing-vollversion/ (5 voll ausgebaute Seiten + Studio Cockpit v4.0)
 - Variante 2 (Zeigeversion / Vorschau-Entwurf): /home/brainuser/workspaces/mxs-embed/preview-imp-marketing-v2
@@ -28,11 +28,11 @@ V2_DIR.mkdir(parents=True, exist_ok=True)
 BEFORE_INVENTORY = {
     "source_url": "https://imp-marketing.ch/",
     "crawled_at": "2026-11-05",
-    "company_name": "IMP GmbH — Matthias Iseli",
+    "company_name": "IMP GmbH · Matthias Iseli",
     "brand_name": "IMP-Marketing",
     "legal_entity": "IMP GmbH",
     "uid": "CHE-446.080.483",
-    "claim": "Mehr Anfragen für Ihre Schreinerei — ohne Marketing-Chaos",
+    "claim": "Mehr Anfragen für Ihre Schreinerei, ohne Marketing-Chaos",
     "subline": "Struktur. Klarheit. Ergebnisse. Das spezialisierte Sichtbarkeits- & Anfrage-System für Schreinereien und Holzbau-Betriebe (1–15 Mitarbeitende) in der Deutschschweiz.",
     "address": {
         "street": "Herrengasse 81",
@@ -58,7 +58,7 @@ BEFORE_INVENTORY = {
         "photo_credit": "Suli Photography"
     },
     "replaced_template_remnants": [
-        "Removed English GoHighLevel hero quote: 'Digital Studio Solutions — absolutely fantastic! – John'",
+        "Removed English GoHighLevel hero quote: 'Digital Studio Solutions, absolutely fantastic! – John'",
         "Removed English fake counter bar: '25+ Years Experience / 5K+ Projects Completed / 98% Client Satisfaction'",
         "Removed 6 English Jane Doe / John Doe '[Your Agency Name]' dummy testimonials",
         "Removed 6 English digital studio FAQs ('What solutions does your digital studio provide?') and replaced with 6 authentic Swiss carpentry & timber construction FAQs",
@@ -79,7 +79,7 @@ BEFORE_INVENTORY = {
         {
             "id": "google-seo",
             "title": "Google-Geschäftsprofil & Regionale SEO",
-            "subtitle": "Regional sichtbar werden — genau dann, wenn Bauherren und Privatkunden suchen",
+            "subtitle": "Regional sichtbar werden, genau dann, wenn Bauherren und Privatkunden suchen",
             "steps": [
                 {"step": "Schritt 1", "title": "Analyse Ihres Google-Profils", "desc": "Wir prüfen Ihr bestehendes Google-Geschäftsprofil sowie Ihre regionale Auffindbarkeit im Umkreis Ihres Standorts.", "img": "images/seo-step-1-analyse.png"},
                 {"step": "Schritt 2", "title": "Optimierung & Struktur", "desc": "Wir optimieren Kategorien, Leistungsbereiche (Küchenbau, Innenausbau, Fenster, Holzbau), Werkstattfotos und lokale Suchbegriffe.", "img": "images/seo-step-2-struktur.png"},
@@ -105,7 +105,7 @@ BEFORE_INVENTORY = {
             "steps": [
                 {"step": "Schritt 1", "title": "Analyse Ihrer Büro-Abläufe", "desc": "Wir schauen gemeinsam an, welche administrativen Schritte zwischen Erstkontakt, Massaufnahme und Offerte unnötig Zeit fressen.", "img": "images/auto-step-1-ablaeufe.png"},
                 {"step": "Schritt 2", "title": "Planung der Automationen", "desc": "Wir entwerfen bodenständige, übersichtliche Abläufe für automatische Eingangsbestätigungen, Kundendaten-Erfassung und Terminbuchung.", "img": "images/auto-step-2-planung.png"},
-                {"step": "Schritt 3", "title": "Technische Umsetzung", "desc": "Wir verbinden Ihre Formulare, Kalender und Kontaktlisten zuverlässig im Hintergrund — ohne komplizierte Software-Experimente.", "img": "images/auto-step-3-umsetzung.png"},
+                {"step": "Schritt 3", "title": "Technische Umsetzung", "desc": "Wir verbinden Ihre Formulare, Kalender und Kontaktlisten zuverlässig im Hintergrund, ohne komplizierte Software-Experimente.", "img": "images/auto-step-3-umsetzung.png"},
                 {"step": "Schritt 4", "title": "Einführung & Begleitung", "desc": "Wir schulen Sie und Ihr Büro-Team kurz und praxisnah und passen die Abläufe bei Bedarf jederzeit an Ihren Werkstatt-Alltag an.", "img": "images/auto-step-4-einfuehrung.png"}
             ]
         }
@@ -133,7 +133,7 @@ BEFORE_INVENTORY = {
         },
         {
             "q": "Wie läuft der Start ab und gibt es versteckte Agentur-Knebelverträge?",
-            "a": "Nein. Jede Zusammenarbeit startet mit einer kostenlosen, unverbindlichen Potenzial-Analyse Ihres bestehenden Auftritts. Danach erhalten Sie eine glasklare Schweizer Offerte mit fest definiertem Leistungsumfang und fairen Konditionen — ob Sie zuerst mit einer modernen Webseite und dem Google-Profil starten oder direkt das gesamte 4-Säulen Sichtbarkeits-Tragwerk umsetzen möchten."
+            "a": "Nein. Jede Zusammenarbeit startet mit einer kostenlosen, unverbindlichen Potenzial-Analyse Ihres bestehenden Auftritts. Danach erhalten Sie eine glasklare Schweizer Offerte mit fest definiertem Leistungsumfang und fairen Konditionen, ob Sie zuerst mit einer modernen Webseite und dem Google-Profil starten oder direkt das gesamte 4-Säulen Sichtbarkeits-Tragwerk umsetzen möchten."
         }
     ]
 }
@@ -142,7 +142,7 @@ BEFORE_INVENTORY = {
 (V2_DIR / "before.json").write_text(json.dumps(BEFORE_INVENTORY, indent=2, ensure_ascii=False), encoding="utf-8")
 
 base_company_data = {
-    "name": "IMP GmbH — Matthias Iseli",
+    "name": "IMP GmbH · Matthias Iseli",
     "short_name": "IMP-Marketing",
     "legal_entity": "IMP GmbH",
     "uid": "CHE-446.080.483",
@@ -164,8 +164,8 @@ base_company_data = {
     "brand_sub": "MATTHIAS ISELI · SCHREINEREI & HOLZBAU SYSTEME",
     "header_cta": "Potenzial-Analyse anfragen",
     "hero_kicker": "VOM SCHREINER EFZ FÜR SCHREINEREIEN & HOLZBAU-BETRIEBE (1–15 MITARBEITENDE)",
-    "hero_h1": "Mehr Anfragen für Ihre Schreinerei — <span>ohne Marketing-Chaos.</span>",
-    "hero_lead": "Wir helfen Schreinereien und Holzbau-Betrieben in der Deutschschweiz, online regional sichtbar zu werden, echtes Bauherren-Vertrauen aufzubauen und planbar qualifizierte Offerten-Anfragen zu gewinnen — mit Struktur, Klarheit und Handwerks-Verstand.",
+    "hero_h1": "Mehr Anfragen für Ihre Schreinerei – <span>ohne Marketing-Chaos.</span>",
+    "hero_lead": "Wir helfen Schreinereien und Holzbau-Betrieben in der Deutschschweiz, online regional sichtbar zu werden, echtes Bauherren-Vertrauen aufzubauen und planbar qualifizierte Offerten-Anfragen zu gewinnen, mit Struktur, Klarheit und Handwerks-Verstand.",
     "footer_about": "IMP GmbH (Herrengasse 81, 4924 Obersteckholz BE, UID CHE-446.080.483): Spezialisiertes Digital- & Sichtbarkeits-System für Schreinereien und Holzbau-Betriebe in der Deutschschweiz. Gegründet von Matthias Iseli (Schreiner EFZ)."
 }
 
@@ -188,7 +188,7 @@ v1_config.update({
     "slug": "preview-imp-marketing",
     "public_slug": "imp-marketing",
     "token": "impmarketing2026",
-    "name": "IMP GmbH — Matthias Iseli (Schreinerei-Marketing)",
+    "name": "IMP GmbH · Matthias Iseli (Schreinerei-Marketing)",
     "Updated": "2026-11-05",
     "PagesCount": 5,
     "PillarsCount": 4,
@@ -198,7 +198,7 @@ v1_config.update({
 v2_company = dict(base_company_data)
 v2_company.update({
     "slug": "imp-marketing-v2",
-    "name": "IMP GmbH — Matthias Iseli (Zeigeversion)",
+    "name": "IMP GmbH · Matthias Iseli (Zeigeversion)",
     "host_url": "https://vorschau.magnet-xs.ch/imp-marketing-v2/cockpit.html?token=impmarketing2026",
     "host_jobs_url": "https://vorschau.magnet-xs.ch/imp-marketing-v2/"
 })
@@ -215,7 +215,7 @@ v2_config.update({
     "slug": "preview-imp-marketing-v2",
     "public_slug": "imp-marketing-v2",
     "token": "impmarketing2026",
-    "name": "IMP GmbH — Matthias Iseli (Zeigeversion / Vorschau-Entwurf)",
+    "name": "IMP GmbH · Matthias Iseli (Zeigeversion / Vorschau-Entwurf)",
     "Updated": "2026-11-05",
     "PagesCount": 5,
     "PillarsCount": 4,
@@ -225,12 +225,12 @@ v2_config.update({
 print("Wrote before.json, company.json, config.json, site.json for V1 and V2.")
 
 # ---------------------------------------------------------
-# 2. CSS STYLESHEET (style.css) — Eichen-Gold & Werkbank-Anthrazit
+# 2. CSS STYLESHEET (style.css) – Eichen-Gold & Werkbank-Anthrazit
 # ---------------------------------------------------------
-STYLE_CSS = """/* WebPilot Showcase — IMP GmbH (Matthias Iseli, Obersteckholz)
+STYLE_CSS = """/* WebPilot Showcase – IMP GmbH (Matthias Iseli, Obersteckholz)
    Design-System: Schweizer Handwerks- & Architektur-Ästhetik
    Farben: Werkbank-Anthrazit (#14181d), Eichen-/Nussbaum-Gold (#c88a36 / #8c5811), Werkplan-Elfenbein (#faf8f5)
-   Fonts: Plus Jakarta Sans (Display & UI), Inter (Body) — 0 JetBrains Mono, 0 // */
+   Fonts: Plus Jakarta Sans (Display & UI), Inter (Body) – 0 JetBrains Mono, 0 // */
 
 :root {
   --bg-ivory: #faf8f5;
@@ -1603,15 +1603,15 @@ def render_faq_section() -> str:
     faqs = [
         (
             "Warum braucht unsere Schreinerei ein System statt nur einer schönen Webseite?",
-            "Eine schön gestaltete Webseite allein bleibt im Alltag oft ein stummes Schaufenster. Erst wenn Ihre regionale Auffindbarkeit bei Google, eine klare Vertrauensführung auf der Webseite und ein geführtes Anfrage-System ineinandergreifen, entstehen daraus verlässliche, vorqualifizierte Kundenanfragen — ohne dass Sie sich täglich um Marketing kümmern müssen."
+            "Eine schön gestaltete Webseite allein bleibt im Alltag oft ein stummes Schaufenster. Erst wenn Ihre regionale Auffindbarkeit bei Google, eine klare Vertrauensführung auf der Webseite und ein geführtes Anfrage-System ineinandergreifen, entstehen daraus verlässliche, vorqualifizierte Kundenanfragen, ohne dass Sie sich täglich um Marketing kümmern müssen."
         ),
         (
-            "Wir haben volle Auftragsbücher — weshalb lohnt sich das IMP Sichtbarkeits-Tragwerk trotzdem?",
+            "Wir haben volle Auftragsbücher, weshalb lohnt sich das IMP Sichtbarkeits-Tragwerk trotzdem?",
             "Gerade wenn die Werkstatt ausgelastet ist, kostet jede unpassende Anfrage und jedes ständige Telefonklingeln an der CNC-Maschine oder auf der Montage wertvolle produktive Zeit. Das Sichtbarkeits-Tragwerk filtert Anfragen vorab nach Projektart (z. B. Küchenbau, Innenausbau oder Reparatur), sammelt Masse sowie Fotos strukturiert ein und sorgt dafür, dass Sie genau die Wunschprojekte mit den besten Margen gewinnen."
         ),
         (
             "Was unterscheidet Matthias Iseli (IMP GmbH) von klassischen Werbeagenturen?",
-            "Matthias Iseli ist selbst gelernter Schreiner EFZ mit über 15 Jahren praktischer Erfahrung von der Oberflächenbehandlung über die CNC-Bearbeitung bis zur Geschäftsleitung. Bei IMP müssen Sie niemandem erklären, was eine Schattenfuge, eine Massivholz-Bohle oder eine saubere AVOR ist — wir sprechen Ihre Sprache und bauen Systeme, die im echten Werkstatt-Alltag funktionieren."
+            "Matthias Iseli ist selbst gelernter Schreiner EFZ mit über 15 Jahren praktischer Erfahrung von der Oberflächenbehandlung über die CNC-Bearbeitung bis zur Geschäftsleitung. Bei IMP müssen Sie niemandem erklären, was eine Schattenfuge, eine Massivholz-Bohle oder eine saubere AVOR ist, wir sprechen Ihre Sprache und bauen Systeme, die im echten Werkstatt-Alltag funktionieren."
         ),
         (
             "Wie viel Zeit müssen wir als Betrieb für die Umsetzung investieren?",
@@ -1619,7 +1619,7 @@ def render_faq_section() -> str:
         ),
         (
             "Wie funktioniert ein digitales Anfrage-System oder Chat-Widget für eine Schreinerei?",
-            "Statt eines leeren Kontaktformulars («Schreiben Sie uns») führen wir Interessenten durch 3 bis 4 gezielte Fragen: Worum geht es (Küche, Schrank nach Mass, Haustüre, Reparatur)? Wo befindet sich das Objekt? Welcher Zeitrahmen ist gewünscht? Sie erhalten alle Angaben sauber gebündelt per E-Mail oder direkt in Ihre Kundenübersicht — ganz ohne Telefon-Unterbrechung während der Arbeit."
+            "Statt eines leeren Kontaktformulars («Schreiben Sie uns») führen wir Interessenten durch 3 bis 4 gezielte Fragen: Worum geht es (Küche, Schrank nach Mass, Haustüre, Reparatur)? Wo befindet sich das Objekt? Welcher Zeitrahmen ist gewünscht? Sie erhalten alle Angaben sauber gebündelt per E-Mail oder direkt in Ihre Kundenübersicht, ganz ohne Telefon-Unterbrechung während der Arbeit."
         ),
         (
             "Bleiben wir flexibel oder binden wir uns an teure Agentur-Verträge?",
@@ -1646,7 +1646,7 @@ def render_faq_section() -> str:
     <div class="section-header center">
       <div class="section-kicker">{ICONS["shield"]} Häufige Fragen aus dem Handwerk</div>
       <h2 class="h2-section">Klare Antworten für Schreinereien &amp; Holzbau-Betriebe</h2>
-      <p class="lead-text">Keine Agentur-Floskeln, sondern ehrliche Antworten aus der Praxis — von Schreiner EFZ zu Schreiner.</p>
+      <p class="lead-text">Keine Agentur-Floskeln, sondern ehrliche Antworten aus der Praxis, von Schreiner EFZ zu Schreiner.</p>
     </div>
     <div class="faq-list">
       {''.join(items_html)}
@@ -1674,7 +1674,7 @@ def render_smart_anfrage_section() -> str:
 
         <div class="card" style="padding:1.35rem;gap:0.75rem;">
           <div style="display:flex;align-items:center;gap:0.9rem;">
-            <img src="images/portrait-matthias-iseli.jpg" alt="Matthias Iseli — Inhaber IMP GmbH" style="width:62px;height:62px;object-fit:cover;object-position:top center;border-radius:var(--radius-sm);border:2px solid var(--oak-gold);">
+            <img src="images/portrait-matthias-iseli.jpg" alt="Matthias Iseli – Inhaber IMP GmbH" style="width:62px;height:62px;object-fit:cover;object-position:top center;border-radius:var(--radius-sm);border:2px solid var(--oak-gold);">
             <div>
               <strong style="display:block;font-family:var(--font-display);color:#ffffff;font-size:1rem;">Matthias Iseli</strong>
               <span style="font-size:0.84rem;color:var(--text-light-muted);">Inhaber IMP GmbH · Gelernter Schreiner EFZ</span>
@@ -1954,7 +1954,7 @@ window.submitImpAnfrage = function(ev) {
   ].join('\\n');
   var mailtoEl = document.getElementById('anf-mailto-link');
   if (mailtoEl) {
-    mailtoEl.href = 'mailto:kontakt@imp-marketing.ch?subject=' + encodeURIComponent('Anfrage Standortbestimmung — ' + company) + '&body=' + encodeURIComponent(bodyLines);
+    mailtoEl.href = 'mailto:kontakt@imp-marketing.ch?subject=' + encodeURIComponent('Anfrage Standortbestimmung – ' + company) + '&body=' + encodeURIComponent(bodyLines);
   }
   var waEl = document.getElementById('anf-wa-link');
   if (waEl) {
@@ -2024,7 +2024,7 @@ def render_page_shell(title: str, description: str, active_page: str, body_html:
   <div class="top-meta-bar">
     <div class="container top-meta-inner">
       <div class="top-meta-items">
-        <span class="top-meta-item">{ICONS["hammer"]} Von Schreiner EFZ Matthias Iseli — für Schreinereien &amp; Holzbau (1–15 Mitarbeitende)</span>
+        <span class="top-meta-item">{ICONS["hammer"]} Von Schreiner EFZ Matthias Iseli, für Schreinereien &amp; Holzbau (1–15 Mitarbeitende)</span>
         <span class="top-meta-item">{ICONS["map_pin"]} Herrengasse 81, 4924 Obersteckholz (BE)</span>
       </div>
       <div class="top-meta-items">
@@ -2074,7 +2074,7 @@ def render_page_shell(title: str, description: str, active_page: str, body_html:
               <span style="font-size:0.8rem;color:var(--text-light-muted);">Matthias Iseli · Schreiner EFZ</span>
             </div>
           </div>
-          <p style="font-size:0.9rem;margin-bottom:1rem;">Mehr qualifizierte Anfragen und weniger Büro-Aufwand für Schreinereien und Holzbau-Betriebe in der Deutschschweiz — mit klarer Struktur statt Marketing-Chaos.</p>
+          <p style="font-size:0.9rem;margin-bottom:1rem;">Mehr qualifizierte Anfragen und weniger Büro-Aufwand für Schreinereien und Holzbau-Betriebe in der Deutschschweiz, mit klarer Struktur statt Marketing-Chaos.</p>
           <p style="font-size:0.82rem;color:#f5ca86;font-weight:600;">UID: CHE-446.080.483</p>
         </div>
 
@@ -2138,9 +2138,9 @@ def build_index_body() -> str:
         <span class="hero-badge">{ICONS["hammer"]} Von Schreiner EFZ Matthias Iseli</span>
         <span class="hero-badge">{ICONS["shield"]} Für Betriebe mit 1–15 Mitarbeitenden</span>
       </div>
-      <h1 class="h1-hero">Mehr passende Anfragen für Ihre Schreinerei — ohne Marketing-Chaos.</h1>
+      <h1 class="h1-hero">Mehr passende Anfragen für Ihre Schreinerei, ohne Marketing-Chaos.</h1>
       <p class="lead-text" style="color:var(--text-light-muted);margin-bottom:0.5rem;">
-        Struktur. Klarheit. Ergebnisse. Wir verbinden moderne Schreiner-Webseiten, regionale Google-Sichtbarkeit, digitale Anfrage-Vorqualifizierung und schlanke Büro-Automation zu einem tragfähigen System — entwickelt aus über 15 Jahren echter Erfahrung in Schreinerei und Holzbau.
+        Struktur. Klarheit. Ergebnisse. Wir verbinden moderne Schreiner-Webseiten, regionale Google-Sichtbarkeit, digitale Anfrage-Vorqualifizierung und schlanke Büro-Automation zu einem tragfähigen System, entwickelt aus über 15 Jahren echter Erfahrung in Schreinerei und Holzbau.
       </p>
 
       <div class="hero-cta-group">
@@ -2165,12 +2165,12 @@ def build_index_body() -> str:
     </div>
 
     <div class="hero-visual-card">
-      <img src="images/hero-schreinerei.webp" alt="Schweizer Schreinerei und Holzhandwerk — IMP GmbH" class="hero-main-img">
+      <img src="images/hero-schreinerei.webp" alt="Schweizer Schreinerei und Holzhandwerk – IMP GmbH" class="hero-main-img">
       <div class="hero-founder-overlay">
-        <img src="images/portrait-matthias-iseli.jpg" alt="Matthias Iseli — Inhaber IMP GmbH">
+        <img src="images/portrait-matthias-iseli.jpg" alt="Matthias Iseli – Inhaber IMP GmbH">
         <div class="hero-founder-meta">
           <strong>Matthias Iseli · Inhaber IMP GmbH</strong>
-          <span>Gelernter Schreiner EFZ aus Obersteckholz (BE) — Ihr Partner auf Augenhöhe</span>
+          <span>Gelernter Schreiner EFZ aus Obersteckholz (BE) – Ihr Partner auf Augenhöhe</span>
         </div>
       </div>
     </div>
@@ -2182,7 +2182,7 @@ def build_index_body() -> str:
     <div class="section-header center">
       <div class="section-kicker">{ICONS["clock"]} Die Realität im Werkstatt-Alltag</div>
       <h2 class="h2-section">Warum klassisches Marketing für Schreinereien oft ins Leere läuft</h2>
-      <p class="lead-text">Sie liefern erstklassige Arbeit in der Werkstatt und auf der Montage — doch digital geht wertvolles Potenzial verloren, weil einzelne Massnahmen nicht ineinandergreifen.</p>
+      <p class="lead-text">Sie liefern erstklassige Arbeit in der Werkstatt und auf der Montage, doch digital geht wertvolles Potenzial verloren, weil einzelne Massnahmen nicht ineinandergreifen.</p>
     </div>
 
     <div class="grid-3">
@@ -2194,7 +2194,7 @@ def build_index_body() -> str:
       <div class="card">
         <div class="card-icon">{ICONS["phone"]}</div>
         <h3>Ständige Unterbrechungen im Betrieb</h3>
-        <p>Das Telefon klingelt mitten an der CNC-Fräse, beim Verleimen oder auf der Baustelle. Oft fehlen bei unstrukturierten Anrufen wichtige Angaben wie Masse, Fotos oder Budgetsvorstellungen — das kostet täglich wertvolle Zeit.</p>
+        <p>Das Telefon klingelt mitten an der CNC-Fräse, beim Verleimen oder auf der Baustelle. Oft fehlen bei unstrukturierten Anrufen wichtige Angaben wie Masse, Fotos oder Budgetsvorstellungen, das kostet täglich wertvolle Zeit.</p>
       </div>
       <div class="card">
         <div class="card-icon">{ICONS["layers"]}</div>
@@ -2237,7 +2237,7 @@ def build_index_body() -> str:
     <div class="section-header center">
       <div class="section-kicker">{ICONS["layout"]} Unsere 4 Kernleistungen</div>
       <h2 class="h2-section">Alle Bausteine für Ihren digitalen Vorsprung im Holzhandwerk</h2>
-      <p class="lead-text">Jeder Baustein funktioniert einzeln — seine volle Kraft entfaltet er im Zusammenspiel als durchdachtes Gesamtsystem.</p>
+      <p class="lead-text">Jeder Baustein funktioniert einzeln, seine volle Kraft entfaltet er im Zusammenspiel als durchdachtes Gesamtsystem.</p>
     </div>
 
     <div class="grid-2">
@@ -2248,7 +2248,7 @@ def build_index_body() -> str:
         <div class="pillar-body">
           <span class="pillar-num">Säule 01 · Digitale Werkbank</span>
           <h3>Webseiten für Schreinereien &amp; Holzbau</h3>
-          <p>Moderne, klare und vertrauensvolle Webseiten, die Ihre handwerkliche Qualität sichtbar machen — von der Massküche über den Innenausbau bis zum Elementbau. Mobil optimiert, schnell und auf konkrete Kontaktaufnahme ausgerichtet.</p>
+          <p>Moderne, klare und vertrauensvolle Webseiten, die Ihre handwerkliche Qualität sichtbar machen, von der Massküche über den Innenausbau bis zum Elementbau. Mobil optimiert, schnell und auf konkrete Kontaktaufnahme ausgerichtet.</p>
           <ul class="check-list" style="margin-bottom:1rem;">
             <li>{ICONS["check"]} <span>Klare Struktur für Privatkunden, Bauherren und Architekten</span></li>
             <li>{ICONS["check"]} <span>Authentische Darstellung Ihrer Referenzen, Werkstatt und Mitarbeitenden</span></li>
@@ -2280,7 +2280,7 @@ def build_index_body() -> str:
         <div class="pillar-body">
           <span class="pillar-num">Säule 03 · Digitale Vorqualifizierung</span>
           <h3>Chat-Widgets &amp; Anfrage-Systeme</h3>
-          <p>Qualifizierte Kundenanfragen rund um die Uhr — ohne dass das Telefon Sie an der Säge oder im Kundengespräch unterbricht. Unser geführtes System fragt Projektart, Masse und Wunschtermin vorab sauber ab.</p>
+          <p>Qualifizierte Kundenanfragen rund um die Uhr, ohne dass das Telefon Sie an der Säge oder im Kundengespräch unterbricht. Unser geführtes System fragt Projektart, Masse und Wunschtermin vorab sauber ab.</p>
           <ul class="check-list" style="margin-bottom:1rem;">
             <li>{ICONS["check"]} <span>Gezielte Vorqualifizierung nach Küche, Möbel, Innenausbau oder Service</span></li>
             <li>{ICONS["check"]} <span>Vollständige Angaben vor dem ersten Rückruf</span></li>
@@ -2313,7 +2313,7 @@ def build_index_body() -> str:
 <section class="section-dark">
   <div class="container founder-grid">
     <div class="founder-photo-card">
-      <img src="images/portrait-matthias-iseli.jpg" alt="Matthias Iseli — Schreiner EFZ und Inhaber der IMP GmbH">
+      <img src="images/portrait-matthias-iseli.jpg" alt="Matthias Iseli – Schreiner EFZ und Inhaber der IMP GmbH">
       <div class="founder-caption">
         <div>
           <strong style="display:block;font-family:var(--font-display);color:var(--text-main);font-size:1rem;">Matthias Iseli</strong>
@@ -2324,10 +2324,10 @@ def build_index_body() -> str:
     </div>
 
     <div>
-      <div class="section-kicker">{ICONS["award"]} Aus dem Handwerk — für das Handwerk</div>
+      <div class="section-kicker">{ICONS["award"]} Aus dem Handwerk, für das Handwerk</div>
       <h2 class="h2-section">«Ich weiss aus eigener Erfahrung, wie der Alltag in einer Schreinerei wirklich aussieht.»</h2>
       <p class="lead-text" style="margin-bottom:1.25rem;">
-        Als ausgebildeter <strong>Schreiner EFZ mit über 15 Jahren Berufserfahrung</strong> in Schreinerei und Holzbau — von der Oberflächenbehandlung über die CNC-Bearbeitung bis zur mehrjährigen Führungserfahrung in der Geschäftsleitung — kenne ich beide Seiten: den Stolz auf präzises Handwerk und den täglichen Spagat zwischen Werkstatt, Baustelle und Büro.
+        Als ausgebildeter <strong>Schreiner EFZ mit über 15 Jahren Berufserfahrung</strong> in Schreinerei und Holzbau, von der Oberflächenbehandlung über die CNC-Bearbeitung bis zur mehrjährigen Führungserfahrung in der Geschäftsleitung, kenne ich beide Seiten: den Stolz auf präzises Handwerk und den täglichen Spagat zwischen Werkstatt, Baustelle und Büro.
       </p>
       <p class="lead-text" style="margin-bottom:1.5rem;">
         Mit der <strong>IMP GmbH in Obersteckholz (Kanton Bern)</strong> habe ich genau den Partner geschaffen, den ich mir im Betrieb selbst immer gewünscht habe: Bodenständig, strukturiert und 100 % auf die Bedürfnisse von Schreinereien und Holzbau-Betrieben (1 bis 15 Mitarbeitende) ausgerichtet.
@@ -2356,7 +2356,7 @@ def build_leistungen_v1_body() -> str:
       <span class="hero-badge">{ICONS["hammer"]} Exklusiv für Schreinerei &amp; Holzbau</span>
     </div>
     <h1 class="h1-hero" style="max-width:22ch;">Unsere Leistungen für Schreinereien &amp; Holzbau-Betriebe</h1>
-    <p class="lead-text" style="color:var(--text-light-muted);">Jeder Baustein folgt einem klaren 4-Schritte-Ablauf — transparent geplant, sauber umgesetzt und ohne Fachchinesisch in Ihren Betriebsalltag integriert.</p>
+    <p class="lead-text" style="color:var(--text-light-muted);">Jeder Baustein folgt einem klaren 4-Schritte-Ablauf, transparent geplant, sauber umgesetzt und ohne Fachchinesisch in Ihren Betriebsalltag integriert.</p>
   </div>
 </section>
 
@@ -2370,7 +2370,7 @@ def build_leistungen_v1_body() -> str:
         <ul class="check-list">
           <li>{ICONS["check"]} <span>Klare Leistungsarchitektur (Innenausbau, Küchen, Möbel, Türen, Holzbau)</span></li>
           <li>{ICONS["check"]} <span>Perfekte Darstellung auf Smartphone, Tablet und Desktop</span></li>
-          <li>{ICONS["check"]} <span>Texte in authentischer Schweizer Handwerkssprache — Sie müssen nichts selbst schreiben</span></li>
+          <li>{ICONS["check"]} <span>Texte in authentischer Schweizer Handwerkssprache – Sie müssen nichts selbst schreiben</span></li>
         </ul>
       </div>
       <div class="tragwerk-visual-box">
@@ -2483,7 +2483,7 @@ def build_leistungen_v1_body() -> str:
         <img src="images/chat-step-2-planung.png" alt="Schritt 2: Fragen- & Dialogplanung">
         <span class="step-badge">Schritt 02</span>
         <h3>Dialog-Planung</h3>
-        <p>Aufbau eines kurzen, leicht verständlichen Fragenflusses für Ihre Kunden — ohne technisches Hindernis.</p>
+        <p>Aufbau eines kurzen, leicht verständlichen Fragenflusses für Ihre Kunden, ohne technisches Hindernis.</p>
       </div>
       <div class="step-card">
         <img src="images/chat-step-3-integration.png" alt="Schritt 3: Nahtlose Integration">
@@ -2574,23 +2574,23 @@ def build_methode_v1_body() -> str:
       <div>
         <div class="section-kicker">{ICONS["layers"]} Die 4 konstruktiven Ebenen</div>
         <h2 class="h2-section">Warum erst das Zusammenspiel zu planbaren Wunschprojekten führt</h2>
-        <p class="lead-text" style="margin-bottom:1.5rem;">Viele Schreinereien haben bereits eine Webseite — aber sie bringt kaum qualifizierte Anfragen. Oder das Telefon klingelt ständig, aber für Aufträge, die gar nicht zum Maschinenpark passen. Unser Tragwerk schliesst genau diese Lücken:</p>
+        <p class="lead-text" style="margin-bottom:1.5rem;">Viele Schreinereien haben bereits eine Webseite, aber sie bringt kaum qualifizierte Anfragen. Oder das Telefon klingelt ständig, aber für Aufträge, die gar nicht zum Maschinenpark passen. Unser Tragwerk schliesst genau diese Lücken:</p>
 
         <div style="display:flex;flex-direction:column;gap:1rem;">
           <div class="card" style="padding:1.25rem;">
-            <h3 style="font-size:1.1rem;">Ebene 1: Das Fundament — Vertrauen auf den ersten Blick</h3>
+            <h3 style="font-size:1.1rem;">Ebene 1: Das Fundament – Vertrauen auf den ersten Blick</h3>
             <p>Wenn ein Bauherr oder Architekt Ihre Webseite öffnet, erkennt er sofort Ihre Fachkompetenz, Ihre echten Referenzen und Ihre regionale Verankerung.</p>
           </div>
           <div class="card" style="padding:1.25rem;">
-            <h3 style="font-size:1.1rem;">Ebene 2: Die Stützen — Regionale Auffindbarkeit bei Google</h3>
+            <h3 style="font-size:1.1rem;">Ebene 2: Die Stützen – Regionale Auffindbarkeit bei Google</h3>
             <p>Über Ihr optimiertes Google-Geschäftsprofil und lokale Suchbegriffe stossen kaufbereite Kunden aus Ihrem Einzugsgebiet direkt auf Ihren Betrieb.</p>
           </div>
           <div class="card" style="padding:1.25rem;">
-            <h3 style="font-size:1.1rem;">Ebene 3: Die Verbindung — Vorqualifizierung statt Telefon-Chaos</h3>
+            <h3 style="font-size:1.1rem;">Ebene 3: Die Verbindung – Vorqualifizierung statt Telefon-Chaos</h3>
             <p>Das digitale Anfrage-System führt den Interessenten durch die wichtigsten Projektfragen. Sie rufen erst zurück, wenn Sie wissen, worum es geht.</p>
           </div>
           <div class="card" style="padding:1.25rem;">
-            <h3 style="font-size:1.1rem;">Ebene 4: Die Aussteifung — Saubere Daten bis zur Offerte</h3>
+            <h3 style="font-size:1.1rem;">Ebene 4: Die Aussteifung – Saubere Daten bis zur Offerte</h3>
             <p>Automatische Bestätigungen und strukturierte Kundenlisten sorgen dafür, dass kein Kontakt vergessen geht und Ihr Büro spürbar entlastet wird.</p>
           </div>
         </div>
@@ -2604,7 +2604,7 @@ def build_methode_v1_body() -> str:
     <div class="section-header center">
       <div class="section-kicker">{ICONS["hammer"]} Praxis-Beispiele aus dem Holzhandwerk</div>
       <h2 class="h2-section">Wie das System in drei typischen Betriebs-Situationen wirkt</h2>
-      <p class="lead-text">Ob spezialisierte Möbelschreinerei, Innenausbau-Spezialist oder Zimmerei/Holzbau — das Sichtbarkeits-Tragwerk passt sich Ihrer Werkstatt-Grösse an.</p>
+      <p class="lead-text">Ob spezialisierte Möbelschreinerei, Innenausbau-Spezialist oder Zimmerei/Holzbau, das Sichtbarkeits-Tragwerk passt sich Ihrer Werkstatt-Grösse an.</p>
     </div>
 
     <div class="grid-3">
@@ -2645,14 +2645,14 @@ def build_ueber_uns_v1_body() -> str:
       <span class="hero-badge">{ICONS["map_pin"]} Obersteckholz (Kanton Bern)</span>
     </div>
     <h1 class="h1-hero" style="max-width:22ch;">Vom Schreiner EFZ &amp; Geschäftsleiter zum Digital-Partner fürs Holzhandwerk</h1>
-    <p class="lead-text" style="color:var(--text-light-muted);">Warum ich die IMP GmbH gegründet habe — und weshalb Sie bei uns niemals Marketing-Floskeln, sondern ehrliche Schweizer Handwerks-Qualität erhalten.</p>
+    <p class="lead-text" style="color:var(--text-light-muted);">Warum ich die IMP GmbH gegründet habe, und weshalb Sie bei uns niemals Marketing-Floskeln, sondern ehrliche Schweizer Handwerks-Qualität erhalten.</p>
   </div>
 </section>
 
 <section>
   <div class="container founder-grid">
     <div class="founder-photo-card">
-      <img src="images/portrait-matthias-iseli.jpg" alt="Matthias Iseli — Inhaber IMP GmbH">
+      <img src="images/portrait-matthias-iseli.jpg" alt="Matthias Iseli – Inhaber IMP GmbH">
       <div class="founder-caption">
         <div>
           <strong style="display:block;font-family:var(--font-display);color:var(--text-main);font-size:1.05rem;">Matthias Iseli</strong>
@@ -2678,7 +2678,7 @@ def build_ueber_uns_v1_body() -> str:
       <div class="grid-2" style="gap:1rem;">
         <div class="card" style="padding:1.25rem;">
           <h3 style="font-size:1.05rem;">Wir sprechen Ihre Fachsprache</h3>
-          <p style="font-size:0.9rem;">Ob Massivholz, Elementbau, Haustür-Sanierung oder Küchen-AVOR: Ein kurzes Stichwort genügt — wir wissen sofort, worauf Ihre Kunden achten.</p>
+          <p style="font-size:0.9rem;">Ob Massivholz, Elementbau, Haustür-Sanierung oder Küchen-AVOR: Ein kurzes Stichwort genügt, wir wissen sofort, worauf Ihre Kunden achten.</p>
         </div>
         <div class="card" style="padding:1.25rem;">
           <h3 style="font-size:1.05rem;">Pragmatisch &amp; bodenständig</h3>
@@ -2699,7 +2699,7 @@ def build_ueber_uns_v1_body() -> str:
 
         <ul class="check-list">
           <li>{ICONS["check"]} <span><strong>Ehrliche Standortbestimmung:</strong> Wir empfehlen Ihnen nur Massnahmen, die für Ihre aktuelle Betriebsgrösse und Auslastung wirklich Sinn ergeben.</span></li>
-          <li>{ICONS["check"]} <span><strong>Schlüsselfertige Umsetzung:</strong> Sie liefern uns Ihre Einblicke im Gespräch — wir übernehmen Struktur, Text, Design und Technik komplett für Sie.</span></li>
+          <li>{ICONS["check"]} <span><strong>Schlüsselfertige Umsetzung:</strong> Sie liefern uns Ihre Einblicke im Gespräch, wir übernehmen Struktur, Text, Design und Technik komplett für Sie.</span></li>
           <li>{ICONS["check"]} <span><strong>Persönlicher Ansprechpartner:</strong> Bei der IMP GmbH sprechen Sie direkt mit Matthias Iseli und nicht mit wechselnden Projektmanagern.</span></li>
           <li>{ICONS["check"]} <span><strong>Langfristige Partnerschaft:</strong> Auch nach dem Go-Live lassen wir Sie nicht allein, sondern begleiten Ihr Wachstum Schritt für Schritt.</span></li>
         </ul>
@@ -2789,7 +2789,7 @@ def build_v2_subpage_preview_body(page_title: str, page_kicker: str, summary_tex
         impressum_block = """
         <div id="impressum" style="margin-top:2.5rem;" class="grid-2">
           <div class="card">
-            <h3>Impressum — IMP GmbH</h3>
+            <h3>Impressum – IMP GmbH</h3>
             <p>IMP GmbH · Matthias Iseli · Herrengasse 81, 4924 Obersteckholz, Schweiz</p>
             <p>UID: <strong>CHE-446.080.483</strong> · Tel. <a href="tel:+41762276720">+41 76 227 67 20</a> · E-Mail: <a href="mailto:kontakt@imp-marketing.ch">kontakt@imp-marketing.ch</a></p>
           </div>
@@ -2805,7 +2805,7 @@ def build_v2_subpage_preview_body(page_title: str, page_kicker: str, summary_tex
   <div class="container">
     <div class="hero-badges">
       <span class="hero-badge">{ICONS["layers"]} Vorschau-Entwurf (Ausbaustufe)</span>
-      <span class="hero-badge">{ICONS["hammer"]} IMP GmbH — Matthias Iseli</span>
+      <span class="hero-badge">{ICONS["hammer"]} IMP GmbH · Matthias Iseli</span>
     </div>
     <h1 class="h1-hero">{page_title}</h1>
     <p class="lead-text" style="color:var(--text-light-muted);">{summary_text}</p>
@@ -2833,7 +2833,7 @@ def build_v2_subpage_preview_body(page_title: str, page_kicker: str, summary_tex
           </div>
         </div>
         <div class="tragwerk-visual-box" style="background:#ffffff;">
-          <img src="{preview_img}" alt="{page_title} — Vorschau IMP GmbH">
+          <img src="{preview_img}" alt="{page_title} – Vorschau IMP GmbH">
         </div>
       </div>
     </div>
@@ -2851,7 +2851,7 @@ def build_v2_subpage_preview_body(page_title: str, page_kicker: str, summary_tex
 # ---------------------------------------------------------
 v1_pages = {
     "index.html": render_page_shell(
-        "IMP GmbH — Mehr Anfragen für Ihre Schreinerei ohne Marketing-Chaos | Matthias Iseli",
+        "IMP GmbH – Mehr Anfragen für Ihre Schreinerei ohne Marketing-Chaos | Matthias Iseli",
         "Spezialisiertes Digital- & Sichtbarkeits-System für Schreinereien und Holzbau-Betriebe (1–15 Mitarbeitende) in der Deutschschweiz. Von Schreiner EFZ Matthias Iseli, Obersteckholz.",
         "index.html",
         build_index_body(),
@@ -2865,14 +2865,14 @@ v1_pages = {
         is_v2=False
     ),
     "methode.html": render_page_shell(
-        "Das IMP Sichtbarkeits-Tragwerk — Systematische Kundengewinnung im Holzhandwerk | IMP GmbH",
+        "Das IMP Sichtbarkeits-Tragwerk – Systematische Kundengewinnung im Holzhandwerk | IMP GmbH",
         "Wie das 4-stufige IMP Sichtbarkeits-Tragwerk für Schreinereien und Holzbau-Betriebe (1–15 Mitarbeitende) zu planbaren Wunschprojekten und weniger Büro-Aufwand führt.",
         "methode.html",
         build_methode_v1_body(),
         is_v2=False
     ),
     "ueber-uns.html": render_page_shell(
-        "Über Matthias Iseli — Schreiner EFZ & Inhaber der IMP GmbH in Obersteckholz",
+        "Über Matthias Iseli – Schreiner EFZ & Inhaber der IMP GmbH in Obersteckholz",
         "Lernen Sie Matthias Iseli kennen: Gelernter Schreiner EFZ mit über 15 Jahren Berufserfahrung in Schreinerei, CNC, AVOR und Geschäftsleitung.",
         "ueber-uns.html",
         build_ueber_uns_v1_body(),
@@ -2892,14 +2892,14 @@ for fname, html_content in v1_pages.items():
 
 v2_pages = {
     "index.html": render_page_shell(
-        "IMP GmbH — Mehr Anfragen für Ihre Schreinerei ohne Marketing-Chaos | Matthias Iseli",
+        "IMP GmbH – Mehr Anfragen für Ihre Schreinerei ohne Marketing-Chaos | Matthias Iseli",
         "Spezialisiertes Digital- & Sichtbarkeits-System für Schreinereien und Holzbau-Betriebe (1–15 Mitarbeitende) in der Deutschschweiz. Von Schreiner EFZ Matthias Iseli, Obersteckholz.",
         "index.html",
         build_index_body(),
         is_v2=True
     ),
     "leistungen.html": render_page_shell(
-        "Leistungen (Vorschau-Entwurf) | IMP GmbH — Matthias Iseli",
+        "Leistungen (Vorschau-Entwurf) | IMP GmbH · Matthias Iseli",
         "Vorschau-Entwurf der 4 Leistungsbereiche der IMP GmbH: Schreiner-Webseiten, Google-Geschäftsprofil, Anfrage-Systeme und Datenautomation.",
         "leistungen.html",
         build_v2_subpage_preview_body(
@@ -2937,11 +2937,11 @@ v2_pages = {
         is_v2=True
     ),
     "ueber-uns.html": render_page_shell(
-        "Über Matthias Iseli — Schreiner EFZ (Vorschau-Entwurf) | IMP GmbH",
-        "Vorschau-Entwurf: Matthias Iseli — Gelernter Schreiner EFZ mit über 15 Jahren Berufserfahrung und Inhaber der IMP GmbH in Obersteckholz.",
+        "Über Matthias Iseli – Schreiner EFZ (Vorschau-Entwurf) | IMP GmbH",
+        "Vorschau-Entwurf: Matthias Iseli – Gelernter Schreiner EFZ mit über 15 Jahren Berufserfahrung und Inhaber der IMP GmbH in Obersteckholz.",
         "ueber-uns.html",
         build_v2_subpage_preview_body(
-            "Über Matthias Iseli — Schreiner EFZ",
+            "Über Matthias Iseli – Schreiner EFZ",
             "Aus dem Handwerk",
             "Vom Bankraum, der CNC-Fräse und der Geschäftsleitung zum spezialisierten Digital-Partner für Schreinereien und Holzbau.",
             [

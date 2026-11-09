@@ -624,7 +624,7 @@ def render_v2_shell(filename: str, page_title: str, active_nav: str, body_html: 
             </div>
           </div>
           <p style="font-size:0.86rem;color:#CBD5E1;line-height:1.6;margin-bottom:14px;" data-slot="footer_about">
-            Unverbindlicher Vorschau-Entwurf für den FC Schlieren: 3 von 48 Seiten (Startseite, 1 Beispiel-Team Herren 1, Smart-Anfrage) als Qualitätsbeweis ausgearbeitet — 45 Unterseiten &amp; 32 Teams folgen im Hauptauftrag.
+            Unverbindlicher Vorschau-Entwurf für den FC Schlieren: 3 von 48 Seiten (Startseite, 1 Beispiel-Team Herren 1, Smart-Anfrage) als Qualitätsbeweis ausgearbeitet – 45 Unterseiten &amp; 32 Teams folgen im Hauptauftrag.
           </p>
           <div style="font-size:0.84rem;color:#E2E8F0;font-weight:600;">
             Fussballanlage Zelgli («im Rohr») · Postfach · 8952 Schlieren
@@ -726,7 +726,7 @@ def render_v2_shell(filename: str, page_title: str, active_nav: str, body_html: 
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
       </button>
       <div class="section-kicker">RECHTLICHE ANGABEN · SCHWEIZER DSG</div>
-      <h3 id="wpImpTitle" style="font-size:1.3rem;font-weight:800;margin-bottom:10px;">Impressum &amp; Datenschutz — FC Schlieren</h3>
+      <h3 id="wpImpTitle" style="font-size:1.3rem;font-weight:800;margin-bottom:10px;">Impressum &amp; Datenschutz – FC Schlieren</h3>
       <div style="font-size:0.88rem;color:var(--text-body);display:flex;flex-direction:column;gap:10px;">
         <p><strong>Vereinsadresse:</strong><br>Fussballclub Schlieren · Sportanlage Zelgli («im Rohr») · Postfach · 8952 Schlieren</p>
         <p><strong>Vertretungsberechtigter Vorstand:</strong><br>Roger Küng (Präsident, r.kueng@fcschlieren.ch) · Jana Seifriz (Leiterin Geschäftsstelle &amp; Spielbetrieb, j.seifriz@fcschlieren.ch) · Luigi Voci (Leiter Finanzen, l.voci@fcschlieren.ch)</p>
@@ -820,7 +820,7 @@ BAUPLAN_SCHNITT_SECTION = """
         </div>
 
         <h2 style="color:#FFFFFF;font-size:clamp(1.55rem,2.8vw,2.25rem);font-weight:800;margin-bottom:10px;" data-slot="bp_zone_title">
-          Transparente Übersicht: Welche Beispiel-Seiten bereits stehen — und was beim Ausbau folgt.
+          Transparente Übersicht: Welche Beispiel-Seiten bereits stehen, und was beim Ausbau folgt.
         </h2>
         <p style="font-size:0.95rem;color:#E2E8F0;line-height:1.65;max-width:920px;" data-slot="bp_zone_desc">
           Oben siehst du am Hero-Auftritt, an den <strong>11 Original-Sponsoren</strong> und am <strong>Beispiel-Team Herren 1</strong>, wie hochwertig die neue Plattform des FC Schlieren wirkt. Direkt hier darunter siehst du in der folgenden Seiten-Übersicht klar und transparent, dass <strong>3 von 48 Seiten (inkl. 1 von 33 Teams)</strong> als Beispiel ausgearbeitet sind und die weiteren <strong>94 % (45 Unterseiten &amp; 32 Mannschaften)</strong> erst nach Auftragserteilung übertragen werden.
@@ -1073,17 +1073,17 @@ def make_locked_team_tile(team_name: str, modal_title: str, dept_label: str, con
 
 
 V2_HERREN_1_BODY = f"""
-  <!-- FORTSCHRITTS-BANNER: NUR 1 VON 33 TEAMS (3 %) ALS MUSTER FERTIG — 32 TEAMS OFFEN -->
+  <!-- FORTSCHRITTS-BANNER: NUR 1 VON 33 TEAMS (3 %) ALS MUSTER FERTIG – 32 TEAMS OFFEN -->
   <section class="architect-banner" data-section="vorschau-hinweis">
     <div class="container">
       <div class="architect-box">
         <div style="max-width:780px;">
-          <div class="section-kicker kicker-light" style="margin-bottom:6px;" data-slot="arch_kicker">MANNSCHAFTS-ÜBERSICHT: 1 BEISPIEL-TEAM AUSGEARBEITET — 32 WEITERE TEAMS VORBEREITET</div>
+          <div class="section-kicker kicker-light" style="margin-bottom:6px;" data-slot="arch_kicker">MANNSCHAFTS-ÜBERSICHT: 1 BEISPIEL-TEAM AUSGEARBEITET – 32 WEITERE TEAMS VORBEREITET</div>
           <h1 style="color:#FFFFFF;font-size:clamp(1.45rem,2.5vw,2rem);font-weight:800;margin-bottom:8px;" data-slot="arch_title">
-            1 Beispiel-Team ausgearbeitet (Herren 1) — 32 Mannschaften als Vorschau-Übersicht vorbereitet
+            1 Beispiel-Team ausgearbeitet (Herren 1) – 32 Mannschaften als Vorschau-Übersicht vorbereitet
           </h1>
           <p style="font-size:0.9rem;color:#E2E8F0;line-height:1.55;margin-bottom:14px;" data-slot="arch_desc">
-            Um die künftige Qualität am echten Beispiel zu demonstrieren, ist in dieser Vorschau exakt <strong>1 von 33 Mannschaften (Herren 1 · 3 %)</strong> komplett mit Original-Mannschaftsfoto, den 3 Trainern und allen 19 Spielern ausgearbeitet. Alle weiteren <strong>32 Mannschaften (97 %)</strong> — inklusive <em>Frauen 1–3</em>, <em>Herren 2</em>, <em>Senioren</em> und <em>25 Nachwuchs-Teams</em> — stehen unten als <strong>vorbereitete Team-Platzhalter</strong> bereit und werden erst nach Auftragserteilung migriert.
+            Um die künftige Qualität am echten Beispiel zu demonstrieren, ist in dieser Vorschau exakt <strong>1 von 33 Mannschaften (Herren 1 · 3 %)</strong> komplett mit Original-Mannschaftsfoto, den 3 Trainern und allen 19 Spielern ausgearbeitet. Alle weiteren <strong>32 Mannschaften (97 %)</strong>, inklusive <em>Frauen 1–3</em>, <em>Herren 2</em>, <em>Senioren</em> und <em>25 Nachwuchs-Teams</em> – stehen unten als <strong>vorbereitete Team-Platzhalter</strong> bereit und werden erst nach Auftragserteilung migriert.
           </p>
           <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap;background:rgba(15,23,42,0.75);border:1px dashed #F59E0B;padding:8px 12px;border-radius:var(--radius-sm);">
             <div class="wp-v2-progress-track" style="width:140px;">

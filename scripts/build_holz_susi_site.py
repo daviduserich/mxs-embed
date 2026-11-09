@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Generator für die WebPilot-Referenz-Aufbereitung von holz-susi.ch (Holz-Susi GmbH — Susanne Schmid, Frick AG):
+Generator für die WebPilot-Referenz-Aufbereitung von holz-susi.ch (Holz-Susi GmbH · Susanne Schmid, Frick AG):
 - Variante 1 (Vollversion): /home/brainuser/workspaces/mxs-embed/preview-holz-susi
   Live-URL: https://vorschau.magnet-xs.ch/holz-susi-vollversion/ (5 voll ausgebaute Seiten + Studio Cockpit v4.0)
 - Variante 2 (Zeigeversion / Vorschau-Entwurf): /home/brainuser/workspaces/mxs-embed/preview-holz-susi-v2
@@ -32,7 +32,7 @@ BEFORE_INVENTORY = {
     "legal_entity": "Holz-Susi GmbH",
     "uid": "CHE-187.492.373",
     "claim": "Ihr Holzbau-Vorhaben ist meine Passion!",
-    "subline": "Für private Bauherrinnen, Bauherren, Architektinnen, Architekten und Bauunternehmen im Fricktal und Kanton Aargau — persönliche Beratung, präzises Zimmerhandwerk EFZ und engagierte Bauleitung durch Susanne Schmid.",
+    "subline": "Für private Bauherrinnen, Bauherren, Architektinnen, Architekten und Bauunternehmen im Fricktal und Kanton Aargau, persönliche Beratung, präzises Zimmerhandwerk EFZ und engagierte Bauleitung durch Susanne Schmid.",
     "address": {
         "street": "Wendelhof 424",
         "zip": "5070",
@@ -112,7 +112,7 @@ BEFORE_INVENTORY = {
             "scope": "Witterungsbeständige Holzschalung & saubere Detailanschlüsse",
             "before_img": "images/ref-fassade-holzschalung-vorher.png",
             "after_img": "images/ref-fassade-holzschalung-nachher.png",
-            "desc": "Optische und konstruktive Aufwertung der Fassade mit einer natürlichen, langlebigen Holzschalung — präzise geplant und montiert für jahrzehntelangen Wetterschutz."
+            "desc": "Optische und konstruktive Aufwertung der Fassade mit einer natürlichen, langlebigen Holzschalung, präzise geplant und montiert für jahrzehntelangen Wetterschutz."
         },
         {
             "title": "Rückbau Firstfenster & neue Dachfenster",
@@ -173,7 +173,7 @@ BEFORE_INVENTORY = {
         },
         {
             "q": "Was hat es mit der «Bluescht-Beiz» auf dem Wendelhof in Frick auf sich?",
-            "a": "Jedes Jahr im April, wenn rund um den Wendelhof in Frick die Kirschbäume blühen, öffnen Susi Schmid und das Wendelhof-Team für einen Monat die gemütliche «Bluescht-Beiz» direkt am Fricktaler Chriesiwäg im Jurapark Aargau — ein beliebter Treffpunkt für Wanderfreunde, Familien und Geniesser."
+            "a": "Jedes Jahr im April, wenn rund um den Wendelhof in Frick die Kirschbäume blühen, öffnen Susi Schmid und das Wendelhof-Team für einen Monat die gemütliche «Bluescht-Beiz» direkt am Fricktaler Chriesiwäg im Jurapark Aargau. Sie ist ein beliebter Treffpunkt für Wanderfreunde, Familien und Geniesser."
         }
     ]
 }
@@ -212,7 +212,7 @@ v1_config = {
     "slug": "preview-holz-susi",
     "public_slug": "holz-susi-vollversion",
     "token": "holzsusi2026",
-    "name": "Holz-Susi GmbH — Zimmerei, Holzbau, Dachsanierung & Bauleitung Frick (Vollversion)",
+    "name": "Holz-Susi GmbH · Zimmerei, Holzbau, Dachsanierung & Bauleitung Frick (Vollversion)",
     "Updated": "2026-11-09",
     "PagesCount": 5,
     "ReferencesCount": 8,
@@ -339,20 +339,8 @@ SHARED_CSS = """
       box-shadow: none !important;
       margin-bottom: 12px;
     }
-    .section-kicker::before {
-      content: "";
-      display: inline-block;
-      width: 16px;
-      height: 2px;
-      background-color: var(--gold-dark);
-      border-radius: 0px;
-      flex-shrink: 0;
-    }
     .section-kicker.kicker-light {
       color: var(--gold-dark);
-    }
-    .section-kicker.kicker-light::before {
-      background-color: var(--gold-dark);
     }
 
     h1, h2, h3, h4 {
@@ -662,7 +650,7 @@ SHARED_CSS = """
       border-color: rgba(175, 102, 0, 0.45);
     }
 
-    /* Hero Section — Hell, warm & handwerklich klar (#UI-16 Evolution, S-27 Light Lock & #UI-02 Bottom-Edge Baseline Lock) */
+    /* Hero Section: Hell, warm & handwerklich klar (#UI-16 Evolution, S-27 Light Lock & #UI-02 Bottom-Edge Baseline Lock) */
     .hero-section {
       background: linear-gradient(135deg, #FFFFFF 0%, #FEF9F5 55%, #F8EEE5 100%);
       background-color: #FEF9F5;
@@ -1743,7 +1731,7 @@ def render_holz_advisor() -> str:
             </div>
             <h3 style="font-size:1.36rem;font-weight:700;margin-bottom:8px;" id="susiCalcHeadline">Dacherneuerung, Dachfenster &amp; energetische Sanierung</h3>
             <p style="font-size:0.9rem;color:var(--text-body);margin-bottom:12px;" id="susiCalcDesc">
-              Susanne («Susi») Schmid begleitet Sie von der Vor-Ort-Aufnahme über die Offerte bis zur sauberen Ausführung — bei grösseren Dachstühlen Hand in Hand mit unserem eingespielten Fricktaler Partnernetzwerk.
+              Susanne («Susi») Schmid begleitet Sie von der Vor-Ort-Aufnahme über die Offerte bis zur sauberen Ausführung. Bei grösseren Dachstühlen arbeiten wir Hand in Hand mit unserem eingespielten Fricktaler Partnernetzwerk.
             </p>
 
             <div class="calc-kpi-grid">
@@ -1766,7 +1754,7 @@ def render_holz_advisor() -> str:
             </div>
 
             <div class="check-list">
-              <div class="check-item">{SVG_CHECK} <span><strong>1 Ansprechpartnerin von A bis Z:</strong> Keine wechselnden Kontakte — Susi Schmid plant, koordiniert und packt auf der Baustelle persönlich mit an.</span></div>
+              <div class="check-item">{SVG_CHECK} <span><strong>1 Ansprechpartnerin von A bis Z:</strong> Keine wechselnden Kontakte: Susi Schmid plant, koordiniert und packt auf der Baustelle persönlich mit an.</span></div>
               <div class="check-item">{SVG_CHECK} <span><strong>Eigenleistung auf Wunsch willkommen:</strong> Beim Rückbau, Dämmen oder Täfern können Sie unter fachkundiger Anleitung selbst mithelfen.</span></div>
             </div>
           </div>
@@ -1902,7 +1890,7 @@ COMMON_UI_JS = """
         if (susiCalcState.scope === 'innen') {
           badge.textContent = 'REFERENZ-BEISPIEL: AUSBAU DACHSTOCK, ESTRICH & LAMINAT';
           head.textContent = 'Innenausbau, Dachstock, Blindboden & Raumverschönerung';
-          desc.textContent = 'Vom gedämmten Estrich über sichtbare Holztäferdecken und Raumtrennwände bis zum neuen Blindboden und Laminat — auf Wunsch mit Ihrer aktiven Mithilfe.';
+          desc.textContent = 'Vom gedämmten Estrich über sichtbare Holztäferdecken und Raumtrennwände bis zum neuen Blindboden und Laminat, auf Wunsch auch mit Ihrer aktiven Mithilfe.';
           lEl.textContent = 'Susanne Schmid (Zimmerin EFZ)';
           pEl.textContent = 'Holzbau & Innenausbau';
           sEl.textContent = 'Besichtigung & Offerte';
@@ -1954,7 +1942,7 @@ def render_v1_shell(filename: str, page_title: str, active_nav: str, body_html: 
   <meta http-equiv="X-XSS-Protection" content="1; mode=block">
   <meta name="referrer" content="no-referrer">
   <title>{page_title}</title>
-  <meta name="description" content="Holz-Susi GmbH in 5070 Frick (AG): Susanne («Susi») Schmid — Zimmerin EFZ, Projektleiterin und Bauleiterin für Dachsanierung, Dachfenster, Innenausbau, Terrassen, Fassaden und Bauleitung im Fricktal.">
+  <meta name="description" content="Holz-Susi GmbH in 5070 Frick (AG): Susanne («Susi») Schmid, Zimmerin EFZ, Projektleiterin und Bauleiterin für Dachsanierung, Dachfenster, Innenausbau, Terrassen, Fassaden und Bauleitung im Fricktal.">
   <link rel="icon" type="image/png" href="images/favicon-32x32.png">
   <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -2125,7 +2113,7 @@ def render_v2_shell(filename: str, page_title: str, active_nav: str, body_html: 
   <meta http-equiv="X-XSS-Protection" content="1; mode=block">
   <meta name="referrer" content="no-referrer">
   <title>{page_title}</title>
-  <meta name="description" content="Unverbindlicher Vorschau-Entwurf (Zeigeversion) für die Holz-Susi GmbH in 5070 Frick: 2 Beispiel-Seiten sind bereits ausgearbeitet — 3 weitere Detailseiten folgen beim gemeinsamen Ausbau.">
+  <meta name="description" content="Unverbindlicher Vorschau-Entwurf (Zeigeversion) für die Holz-Susi GmbH in 5070 Frick: 2 Beispiel-Seiten sind bereits ausgearbeitet, 3 weitere Detailseiten folgen beim gemeinsamen Ausbau.">
   <link rel="icon" type="image/png" href="images/favicon-32x32.png">
   <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -2310,7 +2298,7 @@ def render_v2_shell(filename: str, page_title: str, active_nav: str, body_html: 
 
       <div style="display:flex;flex-wrap:wrap;gap:10px;margin-top:18px;">
         <button type="button" class="btn-cta btn-cta-primary btn-sm" onclick="wpCloseBlueprintModal()">
-          <span>Verstanden — Vorschau weiter ansehen</span>
+          <span>Verstanden · Vorschau weiter ansehen</span>
         </button>
         <a href="kontakt.html" class="btn-cta btn-cta-outline btn-sm">
           <span>3-Schritte Smart-Anfrage testen</span>
@@ -2371,7 +2359,7 @@ V1_INDEX_BODY = f"""
       </div>
 
       <div class="hero-media-card">
-        <img src="images/hero-susi-schmid-holzbau.png" alt="Susanne Susi Schmid — Inhaberin der Holz-Susi GmbH in 5070 Frick" width="600" height="390" data-slot="hero_image">
+        <img src="images/hero-susi-schmid-holzbau.png" alt="Susanne Susi Schmid, Inhaberin der Holz-Susi GmbH in 5070 Frick" width="600" height="390" data-slot="hero_image">
         <div class="hero-media-caption">
           <div>
             <div style="font-family:'Lexend',sans-serif;font-weight:700;font-size:1.0rem;color:#1E140A;">Susanne («Susi») Schmid · Holz-Susi GmbH</div>
@@ -2403,7 +2391,7 @@ V1_INDEX_BODY = f"""
             </div>
             <h3 style="font-size:1.24rem;font-weight:700;margin-bottom:8px;">Ihre Idee ist Holz wert!</h3>
             <p style="font-size:0.9rem;color:var(--text-body);margin-bottom:12px;">
-              Möchten Sie Ihr Dach sanieren, den Estrich ausbauen oder eine neue Holzterrasse realisieren? Ich begleite Sie persönlich von der ersten Idee bis zur Umsetzung — bei grösseren Projekten im Verbund mit meinem regionalen Netzwerk.
+              Möchten Sie Ihr Dach sanieren, den Estrich ausbauen oder eine neue Holzterrasse realisieren? Ich begleite Sie persönlich von der ersten Idee bis zur Umsetzung, bei grösseren Projekten Hand in Hand mit meinem regionalen Netzwerk.
             </p>
             <div class="check-list">
               <div class="check-item">{SVG_CHECK} <span>Persönliche Beratung vor Ort &amp; transparente Kostenschätzung</span></div>
@@ -2486,7 +2474,7 @@ V1_INDEX_BODY = f"""
               </div>
               <h3 style="font-size:1.22rem;font-weight:700;margin-bottom:8px;">Dacherneuerung &amp; Dachsanierung</h3>
               <p style="font-size:0.9rem;color:var(--text-body);margin-bottom:12px;">
-                Fachgerechte Sanierung und Modernisierung bestehender Dächer — von der Behebung von Marderschäden am Unterdach bis zur kompletten thermischen Dacherneuerung.
+                Fachgerechte Sanierung und Modernisierung bestehender Dächer, von der Behebung von Marderschäden am Unterdach bis zur kompletten thermischen Dacherneuerung.
               </p>
               <div class="check-list">
                 <div class="check-item">{SVG_CHECK} <span>Wärmedämmung, Unterdach, Lattung &amp; neue Ziegeleindeckung</span></div>
@@ -2594,7 +2582,7 @@ V1_INDEX_BODY = f"""
               </div>
               <h3 style="font-size:1.22rem;font-weight:700;margin-bottom:8px;">Projektplanung &amp; Bauleitung</h3>
               <p style="font-size:0.9rem;color:var(--text-body);margin-bottom:12px;">
-                Strukturierte Planung, Terminsteuerung und Bauleitung bei Renovations- und Holzbauarbeiten — für Bauherrschaften, Architekturbüros und Bauunternehmen.
+                Strukturierte Planung, Terminsteuerung und Bauleitung bei Renovations- und Holzbauarbeiten für Bauherrschaften, Architekturbüros und Bauunternehmen.
               </p>
               <div class="check-list">
                 <div class="check-item">{SVG_CHECK} <span>Schnittstellen-Koordination zwischen allen beteiligten Gewerken</span></div>
@@ -2621,7 +2609,7 @@ V1_INDEX_BODY = f"""
               </div>
               <h3 style="font-size:1.22rem;font-weight:700;margin-bottom:8px;">Abbrucharbeiten &amp; Rückbau</h3>
               <p style="font-size:0.9rem;color:var(--text-body);margin-bottom:12px;">
-                Sorgfältiger Rückbau von Kaminen, alten Wand- und Bodenbelägen, Täferdecken oder Terrassen — als saubere Basis für Ihren Neuaufbau.
+                Sorgfältiger Rückbau von Kaminen, alten Wand- und Bodenbelägen, Täferdecken oder Terrassen als saubere Basis für Ihren Neuaufbau.
               </p>
               <div class="check-list">
                 <div class="check-item">{SVG_CHECK} <span>Staubarme Demontage unter Schutz der bestehenden Bausubstanz</span></div>
@@ -2676,7 +2664,7 @@ V1_INDEX_BODY = f"""
       <div class="grid-2">
         <div class="founder-card">
           <div class="founder-top">
-            <img src="images/team-susi-schmid-portrait.png" alt="Susanne Susi Schmid — Inhaberin Holz-Susi GmbH Frick" class="founder-portrait" loading="lazy" decoding="async">
+            <img src="images/team-susi-schmid-portrait.png" alt="Susanne Susi Schmid, Inhaberin der Holz-Susi GmbH in Frick" class="founder-portrait" loading="lazy" decoding="async">
             <div>
               <span class="meta-badge" style="margin-bottom:8px;">Inhaberin &amp; Geschäftsführerin</span>
               <h3 style="font-size:1.35rem;font-weight:700;margin-bottom:6px;">Susanne («Susi») Schmid</h3>
@@ -2708,7 +2696,7 @@ V1_INDEX_BODY = f"""
             </div>
             <h3 style="font-size:1.28rem;font-weight:700;margin-bottom:10px;">Partnernetzwerk, Nachwuchs-Sponsoring &amp; «Bluescht-Beiz»</h3>
             <p style="font-size:0.9rem;color:var(--text-body);margin-bottom:14px;">
-              Grössere Dachstühle und komplexe Sanierungen realisiert die Holz-Susi GmbH Hand in Hand mit ausgewählten Fachbetrieben aus der Region — darunter Reto Huber (Dachdecker), Michael Hürbin (Holzbautechniker), Gebr. Schmid AG, Fricktal Zimmerei, Mangold Holzbau GmbH, Dionys Soder Holzbau, Rebmann AG und metatec Metallbau.
+              Grössere Dachstühle und komplexe Sanierungen realisiert die Holz-Susi GmbH Hand in Hand mit ausgewählten Fachbetrieben aus der Region, darunter Reto Huber (Dachdecker), Michael Hürbin (Holzbautechniker), Gebr. Schmid AG, Fricktal Zimmerei, Mangold Holzbau GmbH, Dionys Soder Holzbau, Rebmann AG und metatec Metallbau.
             </p>
             <div class="check-list">
               <div class="check-item">{SVG_CHECK} <span><strong>Nachwuchs-Sponsoring:</strong> Stolze Unterstützerin der jungen Leichtathletin Selina Burger (TSV Frick) auf ihrem sportlichen Weg.</span></div>
@@ -2988,7 +2976,7 @@ V1_LEISTUNGEN_BODY = f"""
             <span class="meta-badge" style="margin-bottom:10px;">Schritt 3</span>
             <h3 style="font-size:1.12rem;font-weight:700;margin-bottom:8px;">Projektentscheid</h3>
             <p style="font-size:0.88rem;color:var(--text-body);">
-              Wir legen gemeinsam Materialien, Zeitplan und — falls gewünscht — den Umfang Ihrer eigenen Mithilfe fest.
+              Wir legen gemeinsam Materialien, Zeitplan und auf Wunsch auch den Umfang Ihrer eigenen Mithilfe fest.
             </p>
           </div>
           <div style="font-size:0.78rem;font-weight:700;color:var(--gold-dark);">Auf Ihre Wünsche abgestimmt</div>
@@ -3119,7 +3107,7 @@ V1_REFERENZEN_BODY = f"""
         <div class="section-kicker">GEMEINSAM STARK · UNSER REGIONALES PARTNERNETZWERK</div>
         <h2 class="section-title">Bewährte Fachpartner für grössere Holzbau- und Dachprojekte</h2>
         <p class="section-desc">
-          Für Dachstühle, Abbund, Eindeckungen und Metallbauarbeiten arbeitet die Holz-Susi GmbH mit eingespielten Partnerbetrieben aus dem Fricktal und der Region zusammen — Sie behalten dabei immer Susanne Schmid als zentrale Ansprechpartnerin:
+          Für Dachstühle, Abbund, Eindeckungen und Metallbauarbeiten arbeitet die Holz-Susi GmbH mit eingespielten Partnerbetrieben aus dem Fricktal und der Region zusammen. Sie behalten dabei immer Susanne Schmid als zentrale Ansprechpartnerin:
         </p>
       </div>
 
@@ -3206,7 +3194,7 @@ V1_UEBER_UNS_BODY = f"""
           Über 15 Jahre <span>Leidenschaft für Holz</span> auf und neben der Baustelle.
         </h1>
         <p class="hero-lead">
-          «Ich begleite Ihr Projekt vom ersten Gedanken bis zum letzten Handgriff — mit ehrlichem Handwerk, klaren Worten und einem offenen Ohr für Ihre Ideen.»
+          «Ich begleite Ihr Projekt vom ersten Gedanken bis zum letzten Handgriff: mit ehrlichem Handwerk, klaren Worten und einem offenen Ohr für Ihre Ideen.»
         </p>
         <div class="hero-actions">
           <a href="kontakt.html" class="btn-cta btn-cta-gold">
@@ -3238,7 +3226,7 @@ V1_UEBER_UNS_BODY = f"""
       </div>
 
       <div class="hero-media-card">
-        <img src="images/team-susi-schmid-portrait.png" alt="Susanne Susi Schmid — Inhaberin der Holz-Susi GmbH in Frick" width="600" height="390">
+        <img src="images/team-susi-schmid-portrait.png" alt="Susanne Susi Schmid, Inhaberin der Holz-Susi GmbH in Frick" width="600" height="390">
         <div class="hero-media-caption">
           <div>
             <div style="font-family:'Lexend',sans-serif;font-weight:700;font-size:1.0rem;color:#1E140A;">Susanne («Susi») Schmid</div>
@@ -3295,13 +3283,13 @@ V1_UEBER_UNS_BODY = f"""
             </div>
             <h3 style="font-size:1.26rem;font-weight:700;margin-bottom:10px;">Meine fünf Werte bei jedem Auftrag</h3>
             <p style="font-size:0.9rem;color:var(--text-body);margin-bottom:12px;">
-              Ob kleines Reparaturprojekt oder grosse Dachsanierung — auf diese fünf Grundsätze können Sie sich bei der Holz-Susi GmbH verlassen:
+              Ob kleines Reparaturprojekt oder grosse Dachsanierung: Auf diese fünf Grundsätze können Sie sich bei der Holz-Susi GmbH verlassen:
             </p>
             <div class="check-list">
               <div class="check-item">{SVG_CHECK} <span><strong>1. Qualität:</strong> Sorgfältige Materialwahl, saubere Details und langlebige Konstruktionen nach den Regeln der Baukunst.</span></div>
-              <div class="check-item">{SVG_CHECK} <span><strong>2. Zuverlässigkeit:</strong> Abmachungen, Termine und Zusagen gelten — auf der Baustelle wie im Büro.</span></div>
+              <div class="check-item">{SVG_CHECK} <span><strong>2. Zuverlässigkeit:</strong> Abmachungen, Termine und Zusagen gelten auf der Baustelle genauso wie im Büro.</span></div>
               <div class="check-item">{SVG_CHECK} <span><strong>3. Transparenz:</strong> Nachvollziehbare Offerten und offene Kommunikation ohne Überraschungen.</span></div>
-              <div class="check-item">{SVG_CHECK} <span><strong>4. Flexibilität:</strong> Individuelle Lösungen — auch dann, wenn Sie als Bauherrschaft selbst mitanpacken möchten.</span></div>
+              <div class="check-item">{SVG_CHECK} <span><strong>4. Flexibilität:</strong> Individuelle Lösungen, auch dann, wenn Sie als Bauherrschaft selbst mitanpacken möchten.</span></div>
               <div class="check-item">{SVG_CHECK} <span><strong>5. Leidenschaft:</strong> Echte Freude am Arbeiten mit Holz und am sichtbaren Vorher/Nachher-Ergebnis.</span></div>
             </div>
           </div>
@@ -3429,7 +3417,7 @@ V2_INDEX_BODY = f"""
       </div>
 
       <div class="hero-media-card">
-        <img src="images/hero-susi-schmid-holzbau.png" alt="Susanne Susi Schmid — Inhaberin der Holz-Susi GmbH in 5070 Frick" width="600" height="390" data-slot="hero_image">
+        <img src="images/hero-susi-schmid-holzbau.png" alt="Susanne Susi Schmid, Inhaberin der Holz-Susi GmbH in 5070 Frick" width="600" height="390" data-slot="hero_image">
         <div class="hero-media-caption">
           <div>
             <div style="font-family:'Lexend',sans-serif;font-weight:700;font-size:1.0rem;color:#1E140A;">Susanne («Susi») Schmid · Holz-Susi GmbH</div>
@@ -3461,7 +3449,7 @@ V2_INDEX_BODY = f"""
             </div>
             <h3 style="font-size:1.24rem;font-weight:700;margin-bottom:8px;">Ihre Idee ist Holz wert!</h3>
             <p style="font-size:0.9rem;color:var(--text-body);margin-bottom:12px;">
-              Möchten Sie Ihr Dach sanieren, den Estrich ausbauen oder eine neue Holzterrasse realisieren? Ich begleite Sie persönlich von der ersten Idee bis zur Umsetzung — bei grösseren Projekten im Verbund mit meinem regionalen Netzwerk.
+              Möchten Sie Ihr Dach sanieren, den Estrich ausbauen oder eine neue Holzterrasse realisieren? Ich begleite Sie persönlich von der ersten Idee bis zur Umsetzung, bei grösseren Projekten Hand in Hand mit meinem regionalen Netzwerk.
             </p>
             <div class="check-list">
               <div class="check-item">{SVG_CHECK} <span>Persönliche Beratung vor Ort &amp; transparente Kostenschätzung</span></div>
@@ -3543,7 +3531,7 @@ V2_INDEX_BODY = f"""
               </div>
               <h3 style="font-size:1.22rem;font-weight:700;margin-bottom:8px;">Dacherneuerung &amp; Dachsanierung</h3>
               <p style="font-size:0.9rem;color:var(--text-body);margin-bottom:12px;">
-                Fachgerechte Sanierung und Modernisierung bestehender Dächer — von der Behebung von Marderschäden am Unterdach bis zur kompletten thermischen Dacherneuerung.
+                Fachgerechte Sanierung und Modernisierung bestehender Dächer, von der Behebung von Marderschäden am Unterdach bis zur kompletten thermischen Dacherneuerung.
               </p>
               <div class="check-list">
                 <div class="check-item">{SVG_CHECK} <span>Wärmedämmung, Unterdach, Lattung &amp; neue Ziegeleindeckung</span></div>
@@ -3647,7 +3635,7 @@ V2_INDEX_BODY = f"""
               </div>
               <h3 style="font-size:1.22rem;font-weight:700;margin-bottom:8px;">Projektplanung &amp; Bauleitung</h3>
               <p style="font-size:0.9rem;color:var(--text-body);margin-bottom:12px;">
-                Strukturierte Planung, Terminsteuerung und Bauleitung bei Renovations- und Holzbauarbeiten — für Bauherrschaften, Architekturbüros und Bauunternehmen.
+                Strukturierte Planung, Terminsteuerung und Bauleitung bei Renovations- und Holzbauarbeiten für Bauherrschaften, Architekturbüros und Bauunternehmen.
               </p>
               <div class="check-list">
                 <div class="check-item">{SVG_CHECK} <span>Schnittstellen-Koordination zwischen allen beteiligten Gewerken</span></div>
@@ -3673,7 +3661,7 @@ V2_INDEX_BODY = f"""
               </div>
               <h3 style="font-size:1.22rem;font-weight:700;margin-bottom:8px;">Abbrucharbeiten &amp; Rückbau</h3>
               <p style="font-size:0.9rem;color:var(--text-body);margin-bottom:12px;">
-                Sorgfältiger Rückbau von Kaminen, alten Wand- und Bodenbelägen, Täferdecken oder Terrassen — als saubere Basis für Ihren Neuaufbau.
+                Sorgfältiger Rückbau von Kaminen, alten Wand- und Bodenbelägen, Täferdecken oder Terrassen als saubere Basis für Ihren Neuaufbau.
               </p>
               <div class="check-list">
                 <div class="check-item">{SVG_CHECK} <span>Staubarme Demontage unter Schutz der bestehenden Bausubstanz</span></div>
@@ -3810,7 +3798,7 @@ def build_kontakt_body(client_slug: str, source_page: str) -> str:
             Ob Dachsanierung, neue Dachfenster, Innenausbau im Dachstock, Holzterrasse oder Unterstützung in der Bauleitung: Starten Sie rechts die 3-Schritte Smart-Anfrage oder rufen Sie direkt in Frick an.
           </p>
 
-          <img src="images/hero-susi-schmid-holzbau.png" alt="Susanne Susi Schmid — Holz-Susi GmbH in 5070 Frick" style="width:100%;height:200px;object-fit:cover;object-position:center top;border-radius:var(--radius-sm);margin-bottom:16px;" loading="lazy" decoding="async">
+          <img src="images/hero-susi-schmid-holzbau.png" alt="Susanne Susi Schmid, Holz-Susi GmbH in 5070 Frick" style="width:100%;height:200px;object-fit:cover;object-position:center top;border-radius:var(--radius-sm);margin-bottom:16px;" loading="lazy" decoding="async">
 
           <div class="contact-direct-list">
             <div class="contact-direct-item">

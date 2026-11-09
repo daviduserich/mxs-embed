@@ -28,46 +28,46 @@
 
 | Lokaler Dateiname (`images/`) | Typ | Seiten-Verwendung (`ID_slug`) | Alt-Text / Beschreibung | Original-URL |
 |---|---|---|---|---|
-| `0b46cf0c-24cf-4c4d-aedf-64eaf15e38af-300x225.jpeg` | `img` | `8_main` | — | `https://mxs-talent-solutions.com/wp-content/uploads/2024/10/0b46cf0c-24cf-4c4d-aedf-64eaf15e38af-300x225.jpeg` |
-| `1.png` | `img` | `1505_strategie-kennen-lernen` | — | `https://mxs-talent-solutions.com/wp-content/uploads/2024/10/1.png` |
-| `2-2-1024x1024.jpg` | `img` | `8_main` | — | `https://mxs-talent-solutions.com/wp-content/uploads/2024/09/2-2-1024x1024.jpg` |
+| `0b46cf0c-24cf-4c4d-aedf-64eaf15e38af-300x225.jpeg` | `img` | `8_main` | – | `https://mxs-talent-solutions.com/wp-content/uploads/2024/10/0b46cf0c-24cf-4c4d-aedf-64eaf15e38af-300x225.jpeg` |
+| `1.png` | `img` | `1505_strategie-kennen-lernen` | – | `https://mxs-talent-solutions.com/wp-content/uploads/2024/10/1.png` |
+| `2-2-1024x1024.jpg` | `img` | `8_main` | – | `https://mxs-talent-solutions.com/wp-content/uploads/2024/09/2-2-1024x1024.jpg` |
 | `2-r5efd038kbg5ta4ikuva3hbfgaaw5ekyyjcz7qibha.jpg` | `img` | `1121_impressum, 1140_datenschutz, 1505_strategie-kennen-lernen, 2155_zhmcss4b4d7fcmfgcxet_referenzen, 2343_die-5-recruiting-bremskloetze, 2374_einstellen-statt-hoffen, 2389_bremsmodus-zu-schnellstrasse, 725_e99_expand_01, 8_main` | 2 | `https://mxs-talent-solutions.com/wp-content/uploads/elementor/thumbs/2-r5efd038kbg5ta4ikuva3hbfgaaw5ekyyjcz7qibha.jpg` |
-| `2.jpg` | `img` | `1505_strategie-kennen-lernen` | — | `https://mxs-talent-solutions.com/wp-content/uploads/2024/10/2.jpg` |
-| `2.png` | `img` | `1505_strategie-kennen-lernen` | — | `https://mxs-talent-solutions.com/wp-content/uploads/2024/10/2.png` |
-| `2da8cf40-b1a0-422e-8ece-1de98311a847_TR-300x225.png` | `img` | `8_main` | — | `https://mxs-talent-solutions.com/wp-content/uploads/2024/10/2da8cf40-b1a0-422e-8ece-1de98311a847_TR-300x225.png` |
-| `3-2-1024x1024.jpg` | `img` | `8_main` | — | `https://mxs-talent-solutions.com/wp-content/uploads/2024/09/3-2-1024x1024.jpg` |
-| `3.jpg` | `img` | `1121_impressum, 1140_datenschutz, 1505_strategie-kennen-lernen, 2155_zhmcss4b4d7fcmfgcxet_referenzen, 2343_die-5-recruiting-bremskloetze, 2374_einstellen-statt-hoffen, 2389_bremsmodus-zu-schnellstrasse, 725_e99_expand_01, 8_main` | — | `https://mxs-talent-solutions.com/wp-content/uploads/2024/10/3.jpg` |
-| `3.png` | `img` | `1505_strategie-kennen-lernen` | — | `https://mxs-talent-solutions.com/wp-content/uploads/2024/10/3.png` |
-| `39edea0c-f2f3-4be7-8140-501a27b2dc78.jpeg` | `img` | `8_main` | — | `https://mxs-talent-solutions.com/wp-content/uploads/2024/09/39edea0c-f2f3-4be7-8140-501a27b2dc78.jpeg` |
-| `4.png` | `img` | `1505_strategie-kennen-lernen` | — | `https://mxs-talent-solutions.com/wp-content/uploads/2024/10/4.png` |
-| `4eddbdd7-5646-4513-a925-24f804d5c991.jpg` | `img` | `1595_m` | — | `https://mxs-talent-solutions.com/wp-content/uploads/2024/10/4eddbdd7-5646-4513-a925-24f804d5c991.jpg` |
-| `5.png` | `img` | `1505_strategie-kennen-lernen` | — | `https://mxs-talent-solutions.com/wp-content/uploads/2024/10/5.png` |
-| `545cdbe7-b92b-4518-adce-5f243a3dfc14.jpeg` | `img` | `8_main` | — | `https://mxs-talent-solutions.com/wp-content/uploads/2024/09/545cdbe7-b92b-4518-adce-5f243a3dfc14.jpeg` |
-| `6.png` | `img` | `1505_strategie-kennen-lernen` | — | `https://mxs-talent-solutions.com/wp-content/uploads/2024/10/6.png` |
-| `67b5485a-ad6e-4460-9a43-1e0d2226854b.jpeg` | `img` | `725_e99_expand_01` | — | `https://mxs-talent-solutions.com/wp-content/uploads/2024/10/67b5485a-ad6e-4460-9a43-1e0d2226854b.jpeg` |
-| `6deca7dd-0188-4289-814c-e9821c2d63a4.jpeg` | `img` | `8_main` | — | `https://mxs-talent-solutions.com/wp-content/uploads/2024/09/6deca7dd-0188-4289-814c-e9821c2d63a4.jpeg` |
-| `742d73ee-7295-4210-9a89-cd7eb544cee4-300x225.jpeg` | `img` | `8_main` | — | `https://mxs-talent-solutions.com/wp-content/uploads/2024/10/742d73ee-7295-4210-9a89-cd7eb544cee4-300x225.jpeg` |
-| `76cbf091-6133-4a79-a7fe-5ea19a440a18-300x225.jpeg` | `img` | `8_main` | — | `https://mxs-talent-solutions.com/wp-content/uploads/2024/10/76cbf091-6133-4a79-a7fe-5ea19a440a18-300x225.jpeg` |
+| `2.jpg` | `img` | `1505_strategie-kennen-lernen` | – | `https://mxs-talent-solutions.com/wp-content/uploads/2024/10/2.jpg` |
+| `2.png` | `img` | `1505_strategie-kennen-lernen` | – | `https://mxs-talent-solutions.com/wp-content/uploads/2024/10/2.png` |
+| `2da8cf40-b1a0-422e-8ece-1de98311a847_TR-300x225.png` | `img` | `8_main` | – | `https://mxs-talent-solutions.com/wp-content/uploads/2024/10/2da8cf40-b1a0-422e-8ece-1de98311a847_TR-300x225.png` |
+| `3-2-1024x1024.jpg` | `img` | `8_main` | – | `https://mxs-talent-solutions.com/wp-content/uploads/2024/09/3-2-1024x1024.jpg` |
+| `3.jpg` | `img` | `1121_impressum, 1140_datenschutz, 1505_strategie-kennen-lernen, 2155_zhmcss4b4d7fcmfgcxet_referenzen, 2343_die-5-recruiting-bremskloetze, 2374_einstellen-statt-hoffen, 2389_bremsmodus-zu-schnellstrasse, 725_e99_expand_01, 8_main` | – | `https://mxs-talent-solutions.com/wp-content/uploads/2024/10/3.jpg` |
+| `3.png` | `img` | `1505_strategie-kennen-lernen` | – | `https://mxs-talent-solutions.com/wp-content/uploads/2024/10/3.png` |
+| `39edea0c-f2f3-4be7-8140-501a27b2dc78.jpeg` | `img` | `8_main` | – | `https://mxs-talent-solutions.com/wp-content/uploads/2024/09/39edea0c-f2f3-4be7-8140-501a27b2dc78.jpeg` |
+| `4.png` | `img` | `1505_strategie-kennen-lernen` | – | `https://mxs-talent-solutions.com/wp-content/uploads/2024/10/4.png` |
+| `4eddbdd7-5646-4513-a925-24f804d5c991.jpg` | `img` | `1595_m` | – | `https://mxs-talent-solutions.com/wp-content/uploads/2024/10/4eddbdd7-5646-4513-a925-24f804d5c991.jpg` |
+| `5.png` | `img` | `1505_strategie-kennen-lernen` | – | `https://mxs-talent-solutions.com/wp-content/uploads/2024/10/5.png` |
+| `545cdbe7-b92b-4518-adce-5f243a3dfc14.jpeg` | `img` | `8_main` | – | `https://mxs-talent-solutions.com/wp-content/uploads/2024/09/545cdbe7-b92b-4518-adce-5f243a3dfc14.jpeg` |
+| `6.png` | `img` | `1505_strategie-kennen-lernen` | – | `https://mxs-talent-solutions.com/wp-content/uploads/2024/10/6.png` |
+| `67b5485a-ad6e-4460-9a43-1e0d2226854b.jpeg` | `img` | `725_e99_expand_01` | – | `https://mxs-talent-solutions.com/wp-content/uploads/2024/10/67b5485a-ad6e-4460-9a43-1e0d2226854b.jpeg` |
+| `6deca7dd-0188-4289-814c-e9821c2d63a4.jpeg` | `img` | `8_main` | – | `https://mxs-talent-solutions.com/wp-content/uploads/2024/09/6deca7dd-0188-4289-814c-e9821c2d63a4.jpeg` |
+| `742d73ee-7295-4210-9a89-cd7eb544cee4-300x225.jpeg` | `img` | `8_main` | – | `https://mxs-talent-solutions.com/wp-content/uploads/2024/10/742d73ee-7295-4210-9a89-cd7eb544cee4-300x225.jpeg` |
+| `76cbf091-6133-4a79-a7fe-5ea19a440a18-300x225.jpeg` | `img` | `8_main` | – | `https://mxs-talent-solutions.com/wp-content/uploads/2024/10/76cbf091-6133-4a79-a7fe-5ea19a440a18-300x225.jpeg` |
 | `Hue-Unterschrift-quv4qdkvuqtdv0q9h903aa8yji8m2f56ga9x5uelag.png` | `img` | `8_main` | Hü Unterschrift | `https://mxs-talent-solutions.com/wp-content/uploads/elementor/thumbs/Hue-Unterschrift-quv4qdkvuqtdv0q9h903aa8yji8m2f56ga9x5uelag.png` |
-| `Hue_im_Anzug_mit_Beschriftung-1024x684.png` | `img` | `8_main` | — | `https://mxs-talent-solutions.com/wp-content/uploads/2024/10/Hue_im_Anzug_mit_Beschriftung-1024x684.png` |
-| `Logos_Grau_V02_Firma_International_V02.png` | `img` | `8_main` | — | `https://mxs-talent-solutions.com/wp-content/uploads/2024/10/Logos_Grau_V02_Firma_International_V02.png` |
-| `Logos_Grau_V02_Firma_lokal_V02.png` | `img` | `8_main` | — | `https://mxs-talent-solutions.com/wp-content/uploads/2024/10/Logos_Grau_V02_Firma_lokal_V02.png` |
-| `Logos_Grau_V02_Firma_national_V03.png` | `img` | `8_main` | — | `https://mxs-talent-solutions.com/wp-content/uploads/2024/10/Logos_Grau_V02_Firma_national_V03.png` |
-| `Social-Media-Teiler-I-StaubZbinden-I-Projektleiter-1-1000x1000-1.png` | `img` | `8_main` | — | `https://mxs-talent-solutions.com/wp-content/uploads/2024/09/Social-Media-Teiler-I-StaubZbinden-I-Projektleiter-1-1000x1000-1.png` |
-| `Unbenannt-2.png` | `img` | `8_main` | — | `https://mxs-talent-solutions.com/wp-content/uploads/2024/09/Unbenannt-2.png` |
-| `Unbenannt-2_10.png` | `img` | `8_main` | — | `https://mxs-talent-solutions.com/wp-content/uploads/2024/09/Unbenannt-2_10.png` |
-| `Unbenannt-2_11.png` | `img` | `8_main` | — | `https://mxs-talent-solutions.com/wp-content/uploads/2024/09/Unbenannt-2_11.png` |
-| `Unbenannt-2_12.png` | `img` | `8_main` | — | `https://mxs-talent-solutions.com/wp-content/uploads/2024/09/Unbenannt-2_12.png` |
-| `Unbenannt-2_2.png` | `img` | `8_main` | — | `https://mxs-talent-solutions.com/wp-content/uploads/2024/09/Unbenannt-2_2.png` |
-| `Unbenannt-2_3.png` | `img` | `8_main` | — | `https://mxs-talent-solutions.com/wp-content/uploads/2024/09/Unbenannt-2_3.png` |
-| `Unbenannt-2_7.png` | `img` | `8_main` | — | `https://mxs-talent-solutions.com/wp-content/uploads/2024/09/Unbenannt-2_7.png` |
-| `Unbenannt-2_8.png` | `img` | `8_main` | — | `https://mxs-talent-solutions.com/wp-content/uploads/2024/09/Unbenannt-2_8.png` |
-| `Unbenannt-2_9.png` | `img` | `8_main` | — | `https://mxs-talent-solutions.com/wp-content/uploads/2024/09/Unbenannt-2_9.png` |
-| `Zeit_Ball_V02-300x225.png` | `img` | `8_main` | — | `https://mxs-talent-solutions.com/wp-content/uploads/2024/10/Zeit_Ball_V02-300x225.png` |
+| `Hue_im_Anzug_mit_Beschriftung-1024x684.png` | `img` | `8_main` | – | `https://mxs-talent-solutions.com/wp-content/uploads/2024/10/Hue_im_Anzug_mit_Beschriftung-1024x684.png` |
+| `Logos_Grau_V02_Firma_International_V02.png` | `img` | `8_main` | – | `https://mxs-talent-solutions.com/wp-content/uploads/2024/10/Logos_Grau_V02_Firma_International_V02.png` |
+| `Logos_Grau_V02_Firma_lokal_V02.png` | `img` | `8_main` | – | `https://mxs-talent-solutions.com/wp-content/uploads/2024/10/Logos_Grau_V02_Firma_lokal_V02.png` |
+| `Logos_Grau_V02_Firma_national_V03.png` | `img` | `8_main` | – | `https://mxs-talent-solutions.com/wp-content/uploads/2024/10/Logos_Grau_V02_Firma_national_V03.png` |
+| `Social-Media-Teiler-I-StaubZbinden-I-Projektleiter-1-1000x1000-1.png` | `img` | `8_main` | – | `https://mxs-talent-solutions.com/wp-content/uploads/2024/09/Social-Media-Teiler-I-StaubZbinden-I-Projektleiter-1-1000x1000-1.png` |
+| `Unbenannt-2.png` | `img` | `8_main` | – | `https://mxs-talent-solutions.com/wp-content/uploads/2024/09/Unbenannt-2.png` |
+| `Unbenannt-2_10.png` | `img` | `8_main` | – | `https://mxs-talent-solutions.com/wp-content/uploads/2024/09/Unbenannt-2_10.png` |
+| `Unbenannt-2_11.png` | `img` | `8_main` | – | `https://mxs-talent-solutions.com/wp-content/uploads/2024/09/Unbenannt-2_11.png` |
+| `Unbenannt-2_12.png` | `img` | `8_main` | – | `https://mxs-talent-solutions.com/wp-content/uploads/2024/09/Unbenannt-2_12.png` |
+| `Unbenannt-2_2.png` | `img` | `8_main` | – | `https://mxs-talent-solutions.com/wp-content/uploads/2024/09/Unbenannt-2_2.png` |
+| `Unbenannt-2_3.png` | `img` | `8_main` | – | `https://mxs-talent-solutions.com/wp-content/uploads/2024/09/Unbenannt-2_3.png` |
+| `Unbenannt-2_7.png` | `img` | `8_main` | – | `https://mxs-talent-solutions.com/wp-content/uploads/2024/09/Unbenannt-2_7.png` |
+| `Unbenannt-2_8.png` | `img` | `8_main` | – | `https://mxs-talent-solutions.com/wp-content/uploads/2024/09/Unbenannt-2_8.png` |
+| `Unbenannt-2_9.png` | `img` | `8_main` | – | `https://mxs-talent-solutions.com/wp-content/uploads/2024/09/Unbenannt-2_9.png` |
+| `Zeit_Ball_V02-300x225.png` | `img` | `8_main` | – | `https://mxs-talent-solutions.com/wp-content/uploads/2024/10/Zeit_Ball_V02-300x225.png` |
 | `a4ce3d14-117b-400a-b0bb-a6461f2c909b.jpeg` | `bg` | `1505_strategie-kennen-lernen, 8_main` | bg-image | `https://mxs-talent-solutions.com/wp-content/uploads/2024/09/a4ce3d14-117b-400a-b0bb-a6461f2c909b.jpeg` |
-| `ae2c4681-9f17-4db3-8ea7-635c3dabedc8-300x225.jpeg` | `img` | `8_main` | — | `https://mxs-talent-solutions.com/wp-content/uploads/2024/10/ae2c4681-9f17-4db3-8ea7-635c3dabedc8-300x225.jpeg` |
-| `mobil_bild_01.png` | `img` | `1595_m` | — | `https://mxs-talent-solutions.com/wp-content/uploads/2024/10/mobil_bild_01.png` |
-| `mobil_bild_02.png` | `img` | `1595_m` | — | `https://mxs-talent-solutions.com/wp-content/uploads/2024/10/mobil_bild_02.png` |
+| `ae2c4681-9f17-4db3-8ea7-635c3dabedc8-300x225.jpeg` | `img` | `8_main` | – | `https://mxs-talent-solutions.com/wp-content/uploads/2024/10/ae2c4681-9f17-4db3-8ea7-635c3dabedc8-300x225.jpeg` |
+| `mobil_bild_01.png` | `img` | `1595_m` | – | `https://mxs-talent-solutions.com/wp-content/uploads/2024/10/mobil_bild_01.png` |
+| `mobil_bild_02.png` | `img` | `1595_m` | – | `https://mxs-talent-solutions.com/wp-content/uploads/2024/10/mobil_bild_02.png` |
 | `mxs_Talensolutions_Logo_new_2._HP-Header_ausgerichtet_Green_Talent_V04-quuuxjvrwkfsbltgotj42bz100dy3ju1yt5z3jke2g.png` | `img` | `1121_impressum, 1140_datenschutz, 1505_strategie-kennen-lernen, 2155_zhmcss4b4d7fcmfgcxet_referenzen, 2343_die-5-recruiting-bremskloetze, 2374_einstellen-statt-hoffen, 2389_bremsmodus-zu-schnellstrasse, 725_e99_expand_01, 8_main` | mxs_Talensolutions_Logo_new_2._HP-Header_ausgerichtet_Green_Talent_V04 | `https://mxs-talent-solutions.com/wp-content/uploads/elementor/thumbs/mxs_Talensolutions_Logo_new_2._HP-Header_ausgerichtet_Green_Talent_V04-quuuxjvrwkfsbltgotj42bz100dy3ju1yt5z3jke2g.png` |
 | `mxs_Talensolutions_Logo_new_2._HP-Header_ausgerichtet_Green_Talent_V04-quuuxjvsihtpwb86q8mguth7br9nshgblypn5rjioe.png` | `img` | `1595_m` | mxs_Talensolutions_Logo_new_2._HP-Header_ausgerichtet_Green_Talent_V04 | `https://mxs-talent-solutions.com/wp-content/uploads/elementor/thumbs/mxs_Talensolutions_Logo_new_2._HP-Header_ausgerichtet_Green_Talent_V04-quuuxjvsihtpwb86q8mguth7br9nshgblypn5rjioe.png` |
 
@@ -113,7 +113,7 @@
 | `1215` | `Favicon_mxs_64p.png` | `64x64` | `image/png` | `https://mxs-talent-solutions.com/wp-content/uploads/2024/10/Favicon_mxs_64p.png` |
 | `1213` | `cropped-mxs_Favicon_64px.png` | `512x512` | `image/png` | `https://mxs-talent-solutions.com/wp-content/uploads/2024/10/cropped-mxs_Favicon_64px.png` |
 | `1212` | `mxs_Favicon_64px.png` | `60x60` | `image/png` | `https://mxs-talent-solutions.com/wp-content/uploads/2024/10/mxs_Favicon_64px.png` |
-| `1201` | `AGB-Dauerstellenvermittlung-I-magnet-Xs-gmbh.pdf` | `—x—` | `application/pdf` | `https://mxs-talent-solutions.com/wp-content/uploads/2024/10/AGB-Dauerstellenvermittlung-I-magnet-Xs-gmbh.pdf` |
+| `1201` | `AGB-Dauerstellenvermittlung-I-magnet-Xs-gmbh.pdf` | `–x–` | `application/pdf` | `https://mxs-talent-solutions.com/wp-content/uploads/2024/10/AGB-Dauerstellenvermittlung-I-magnet-Xs-gmbh.pdf` |
 | `1199` | `David_am_denken_grau_heller_ohne_HG_V02.png` | `400x400` | `image/png` | `https://mxs-talent-solutions.com/wp-content/uploads/2024/10/David_am_denken_grau_heller_ohne_HG_V02.png` |
 | `1056` | `David_am_denken_grau_heller_ohne_HG.png` | `400x400` | `image/png` | `https://mxs-talent-solutions.com/wp-content/uploads/2024/10/David_am_denken_grau_heller_ohne_HG.png` |
 | `1054` | `David_am_denken_grau_heller.png` | `400x400` | `image/png` | `https://mxs-talent-solutions.com/wp-content/uploads/2024/10/David_am_denken_grau_heller.png` |

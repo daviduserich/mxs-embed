@@ -1,4 +1,4 @@
-# Bilder-Verzeichnis & Cloudflare-Asset-Katalog — zurbuchen
+# Bilder-Verzeichnis & Cloudflare-Asset-Katalog, zurbuchen
 
 > **Mandant / Webseite:** zurbuchen (Schweiz)  
 > **Angefordert von (Partner):** Jenny Ettle (JE-MI) · **Eingereicht am:** -  

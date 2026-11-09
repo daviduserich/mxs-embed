@@ -46,7 +46,7 @@ def compute_derived_fields(data: dict) -> dict:
     wa_raw = str(d.get("whatsapp", ""))
     d["whatsapp_clean"] = re.sub(r"[^\d]", "", wa_raw)
 
-    # Standard Footer-Zeile: Straße • PLZ Ort • E-Mail
+    # Standard Footer-Zeile: Strasse • PLZ Ort • E-Mail
     street = d.get("street", "")
     zip_code = d.get("zip", "")
     city = d.get("city", "")

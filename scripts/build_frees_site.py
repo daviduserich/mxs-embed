@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Generator-First WebPilot Showcase für Free's — Studio für Textildesign, Textildruck & Stickerei
+Generator-First WebPilot Showcase für Free's · Studio für Textildesign, Textildruck & Stickerei
 URL: https://www.frees.ch/
 Erzeugt deterministisch beide Varianten:
   1. Komplettversion: preview-frees/ (index.html, dienstleistungen.html, textilsortiment.html, profil.html, kontakt.html + before.json + cockpit.html)
@@ -24,12 +24,12 @@ V2_DIR = BASE_DIR / "preview-frees-v2"
 V1_DIR.mkdir(parents=True, exist_ok=True)
 V2_DIR.mkdir(parents=True, exist_ok=True)
 
-# 1. Vollständige Redesign-Inventur (before.json — 0 Datenverlust)
+# 1. Vollständige Redesign-Inventur (before.json – 0 Datenverlust)
 BEFORE_INVENTORY = {
     "source_url": "https://www.frees.ch/",
     "crawled_at": "2026-11-03",
     "company": {
-        "brand_name": "Free's — Studio für Textildesign, Textildruck & Stickerei",
+        "brand_name": "Free's · Studio für Textildesign, Textildruck & Stickerei",
         "legal_name": "Free's Stefan Fritschi, Teamsport-Promowear & Print",
         "claim": "Kreative Lösungen für Ihre Designwünsche",
         "motto": "Wir organisieren Wünsche",
@@ -68,7 +68,7 @@ BEFORE_INVENTORY = {
         "im Textildruck erschaffen. Als eine Anfrage eines lokalen Sportvereins kam kaufte ich mir meine ersten "
         "Druckmaschinen. Zuerst in einem Hobbyraum, später im eigenen Ladenlokal wurden die Textilien bedruckt. "
         "Das Textilsortiment wurde stetig erweitert. Im März 2016 durfte ich mein Wunschlokal beziehen und konnte "
-        "dank mehr Platz auch das Sortiment um Arbeitsbekleidung erweitern. — Stefan Fritschi"
+        "dank mehr Platz auch das Sortiment um Arbeitsbekleidung erweitern. – Stefan Fritschi"
     ),
     "services_original": [
         {
@@ -105,7 +105,7 @@ BEFORE_INVENTORY = {
             "title": "Veredelung angelieferter Textilien & Beratung («Wir organisieren Wünsche»)",
             "summary": (
                 "Seit über 12 Jahren bedrucken wir Textilien aller Art mit bester Druckqualität zum bestmöglichen Preis. "
-                "Bei uns erwarten Sie umfassende Dienstleistungen aus einer Hand — auch angelieferte Textilien veredeln wir "
+                "Bei uns erwarten Sie umfassende Dienstleistungen aus einer Hand, auch angelieferte Textilien veredeln wir "
                 "gerne für Sie. Wir begleiten Sie von der ersten Beratung bis zum fertigen Produkt."
             )
         }
@@ -123,7 +123,7 @@ BEFORE_INVENTORY = {
         {"id": "katalog-10", "name": "HAKRO Activewear Katalog", "category": "Qualitäts-Textilien für KMU", "url": "https://www.yumpu.com/s/hVY9MNCvzADs8r6m", "image": "images/katalog-10-hakro.jpg", "desc": "Langlebige Premium-Textilien für Handwerk, Industrie, Praxis, Gastronomie und Dienstleistung."},
         {"id": "katalog-11", "name": "Corporate Catalogue SS25", "category": "Corporate & Event Wear", "url": "https://viewer.joomag.com/corporate-catalogue-ss25-web/0904387001733295937?short&", "image": "images/katalog-11-corporate-ss25.jpg", "desc": "Vielseitige Kollektionen für Firmenauftritte, Vereinsjubiläen und Promotion-Aktionen."},
         {"id": "katalog-12", "name": "PROJOB Workwear 2025 (Swiss DE)", "category": "Schwedische Berufsbekleidung", "url": "https://viewer.joomag.com/2025-projob-workwear-swissde/0012870001740134567?short&", "image": "images/katalog-12-projob.jpg", "desc": "Ergonomische Workwear für Bau, Montage, Transport, Logistik, Service und Küche."},
-        {"id": "katalog-13", "name": "J. Harvest & Frost 2025 (CH-DE)", "category": "Business-Hemden & Blusen", "url": "https://viewer.joomag.com/jharvestfrost2025-ch-de-final/0352901001736415642?short&", "image": "images/katalog-13-jharvest-frost.png", "desc": "Feinste Business-Hemden, Blusen und Corporate Tailoring — ideal für dezente Kragen- oder Bruststickerei."},
+        {"id": "katalog-13", "name": "J. Harvest & Frost 2025 (CH-DE)", "category": "Business-Hemden & Blusen", "url": "https://viewer.joomag.com/jharvestfrost2025-ch-de-final/0352901001736415642?short&", "image": "images/katalog-13-jharvest-frost.png", "desc": "Feinste Business-Hemden, Blusen und Corporate Tailoring, ideal für dezente Kragen- oder Bruststickerei."},
         {"id": "katalog-14", "name": "WIKLAND Schweizer Berufsbekleidung", "category": "Schweizer Workwear-Tradition", "url": "http://www.wikland.ch", "image": "images/katalog-14-wikland.png", "desc": "Bewährte Schweizer Arbeits-, Wetterschutz- und Zunftbekleidung für höchste Beanspruchung."}
     ]
 }
@@ -134,7 +134,7 @@ for d in (V1_DIR, V2_DIR):
 # 2. Mandanten-Metadaten (company.json, config.json, site.json)
 COMMON_COMPANY = {
     "name": "Free's Textildesign & Textildruck",
-    "company_name": "Free's — Studio für Textildesign, Textildruck & Stickerei",
+    "company_name": "Free's · Studio für Textildesign, Textildruck & Stickerei",
     "legal_name": "Free's Stefan Fritschi, Teamsport-Promowear & Print",
     "short_name": "Free's",
     "claim": "Kreative Lösungen für Ihre Designwünsche",
@@ -161,7 +161,7 @@ COMMON_COMPANY = {
 
 v1_comp = dict(COMMON_COMPANY, slug="frees", host_url="https://vorschau.magnet-xs.ch/frees-vollversion/cockpit?token=frees2026", host_jobs_url="https://vorschau.magnet-xs.ch/frees-vollversion/")
 v1_cfg = dict(v1_comp, preview_url="https://vorschau.magnet-xs.ch/frees-vollversion/", cockpit_token="frees2026", template="textil-design-flagship-v1", pages=["index.html", "dienstleistungen.html", "textilsortiment.html", "profil.html", "kontakt.html"])
-v1_site = {"slug": "preview-frees", "public_slug": "frees", "token": "frees2026", "name": "Free's — Studio für Textildesign, Textildruck & Stickerei", "Updated": "2026-11-03", "PagesCount": 5, "CatalogsCount": 14}
+v1_site = {"slug": "preview-frees", "public_slug": "frees", "token": "frees2026", "name": "Free's · Studio für Textildesign, Textildruck & Stickerei", "Updated": "2026-11-03", "PagesCount": 5, "CatalogsCount": 14}
 
 v2_comp = dict(COMMON_COMPANY, slug="frees-v2", name="Free's (Zeigeversion)", host_url="https://vorschau.magnet-xs.ch/frees-v2/cockpit?token=frees2026", host_jobs_url="https://vorschau.magnet-xs.ch/frees-v2/")
 v2_cfg = dict(v2_comp, preview_url="https://vorschau.magnet-xs.ch/frees-v2/", cockpit_token="frees2026", template="textil-design-preview-v2", pages=["index.html", "kontakt.html"])
@@ -275,20 +275,8 @@ SHARED_CSS = """
       box-shadow: none !important;
       margin-bottom: 12px;
     }
-    .section-kicker::before {
-      content: "";
-      display: inline-block;
-      width: 16px;
-      height: 2px;
-      background-color: var(--crimson-bright);
-      border-radius: 0px;
-      flex-shrink: 0;
-    }
     .section-kicker.kicker-light {
       color: var(--gold);
-    }
-    .section-kicker.kicker-light::before {
-      background-color: var(--crimson-bright);
     }
 
     h1, h2, h3, h4 {
@@ -663,7 +651,7 @@ SHARED_CSS = """
       border-color: rgba(249, 178, 49, 0.55);
     }
 
-    /* Hero Section — Hell, klar & freundlich wie frees.ch */
+    /* Hero Section – Hell, klar & freundlich wie frees.ch */
     .hero-section {
       background: linear-gradient(135deg, #ffffff 0%, #f8fafc 55%, #f1f5f9 100%);
       background-color: #f8fafc;
@@ -2229,7 +2217,7 @@ def render_v1_shell(filename: str, page_title: str, active_nav: str, body_html: 
   <meta http-equiv="X-XSS-Protection" content="1; mode=block">
   <meta name="referrer" content="no-referrer">
   <title>{page_title}</title>
-  <meta name="description" content="Free's — Studio für Textildesign, Textildruck &amp; Stickerei in 5443 Niederrohrdorf. Arbeitskleidung, Corporate Fashion, Vereinsbekleidung &amp; 14 Marken-Kataloge.">
+  <meta name="description" content="Free's · Studio für Textildesign, Textildruck &amp; Stickerei in 5443 Niederrohrdorf. Arbeitskleidung, Corporate Fashion, Vereinsbekleidung &amp; 14 Marken-Kataloge.">
   <link rel="icon" type="image/png" href="images/favicon-32x32.png">
   <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -2260,7 +2248,7 @@ def render_v1_shell(filename: str, page_title: str, active_nav: str, body_html: 
   <header class="site-header" data-section="header">
     <div class="container header-inner">
       <a href="index.html" class="brand-link" aria-label="Free's Startseite">
-        <img src="images/logo.svg" alt="Free's — Studio für Textildesign, Textildruck &amp; Stickerei" class="brand-logo" width="118" height="44" data-slot="brand_logo" data-wp-slot="brand_logo">
+        <img src="images/logo.svg" alt="Free's · Studio für Textildesign, Textildruck &amp; Stickerei" class="brand-logo" width="118" height="44" data-slot="brand_logo" data-wp-slot="brand_logo">
         <div class="brand-text">
           <span class="brand-name" data-slot="brand_name" data-wp-slot="brand_name">FREE'S TEXTILDESIGN</span>
           <span class="brand-sub" data-slot="brand_sub" data-wp-slot="brand_sub">DRUCK · STICKEREI · WORKWEAR</span>
@@ -2382,7 +2370,7 @@ def render_v2_shell(filename: str, page_title: str, active_nav: str, body_html: 
   <meta http-equiv="X-XSS-Protection" content="1; mode=block">
   <meta name="referrer" content="no-referrer">
   <title>{page_title}</title>
-  <meta name="description" content="Unverbindlicher Vorschau-Entwurf (Zeigeversion) für Free's Niederrohrdorf: 2 Beispiel-Seiten sind bereits ausgearbeitet — 3 weitere Themenbereiche folgen beim Ausbau.">
+  <meta name="description" content="Unverbindlicher Vorschau-Entwurf (Zeigeversion) für Free's Niederrohrdorf: 2 Beispiel-Seiten sind bereits ausgearbeitet – 3 weitere Themenbereiche folgen beim Ausbau.">
   <link rel="icon" type="image/png" href="images/favicon-32x32.png">
   <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -2413,7 +2401,7 @@ def render_v2_shell(filename: str, page_title: str, active_nav: str, body_html: 
   <header class="site-header" data-section="header">
     <div class="container header-inner">
       <a href="index.html" class="brand-link" aria-label="Free's Startseite">
-        <img src="images/logo.svg" alt="Free's — Studio für Textildesign, Textildruck &amp; Stickerei" class="brand-logo" width="118" height="44" data-slot="brand_logo" data-wp-slot="brand_logo">
+        <img src="images/logo.svg" alt="Free's · Studio für Textildesign, Textildruck &amp; Stickerei" class="brand-logo" width="118" height="44" data-slot="brand_logo" data-wp-slot="brand_logo">
         <div class="brand-text">
           <span class="brand-name" data-slot="brand_name" data-wp-slot="brand_name">FREE'S TEXTILDESIGN</span>
           <span class="brand-sub" data-slot="brand_sub" data-wp-slot="brand_sub">DRUCK · STICKEREI · WORKWEAR</span>
@@ -2486,7 +2474,7 @@ def render_v2_shell(filename: str, page_title: str, active_nav: str, body_html: 
             </div>
           </div>
           <p style="font-size:0.86rem;color:#D1D5DB;line-height:1.6;margin-bottom:14px;" data-slot="footer_about" data-wp-slot="footer_about">
-            Unverbindlicher Vorschau-Entwurf (Zeigeversion) für Free's Stefan Fritschi: 2 Beispiel-Seiten (Startseite &amp; 3-Schritte Smart-Anfrage) sind bereits ausgearbeitet — 3 weitere Themenbereiche folgen in der nächsten Ausbaustufe.
+            Unverbindlicher Vorschau-Entwurf (Zeigeversion) für Free's Stefan Fritschi: 2 Beispiel-Seiten (Startseite &amp; 3-Schritte Smart-Anfrage) sind bereits ausgearbeitet – 3 weitere Themenbereiche folgen in der nächsten Ausbaustufe.
           </p>
           <div style="font-size:0.84rem;color:#F3F4F6;font-weight:600;" data-wp-slot="footer_addr">
             Mellingerstrasse 12 · Eingang C, 1. Stock · CH-5443 Niederrohrdorf
@@ -2569,7 +2557,7 @@ def render_v2_shell(filename: str, page_title: str, active_nav: str, body_html: 
 
       <div style="display:flex;flex-wrap:wrap;gap:10px;margin-top:18px;">
         <button type="button" class="btn-cta btn-cta-gold btn-sm" onclick="wpCloseBlueprintModal()">
-          <span>Verstanden — Vorschau weiter ansehen</span>
+          <span>Verstanden · Vorschau weiter ansehen</span>
         </button>
         <a href="kontakt.html" class="btn-cta btn-cta-primary btn-sm">
           <span>3-Schritte Smart-Anfrage testen</span>
@@ -2607,7 +2595,7 @@ def render_hero_section(is_v2=False):
             Teamsport, Promowear &amp; <span>Inhouse Textildruck</span> mit Handschlagqualität.
           </h1>
           <p class="hero-lead" data-slot="hero_subheadline" data-wp-slot="hero_subheadline">
-            Ob Vereinsausrüstung, robuste Arbeitskleidung oder Event-Shirts: Im eigenen Druckatelier an der Mellingerstrasse 12 in Niederrohrdorf veredeln Stefan Fritschi und Raimondo Ihre Textilien schnell, flexibel und in höchster Waschbeständigkeit — auch für angelieferte Fremdtextilien.
+            Ob Vereinsausrüstung, robuste Arbeitskleidung oder Event-Shirts: Im eigenen Druckatelier an der Mellingerstrasse 12 in Niederrohrdorf veredeln Stefan Fritschi und Raimondo Ihre Textilien schnell, flexibel und in höchster Waschbeständigkeit, auch für angelieferte Fremdtextilien.
           </p>
           <div class="hero-cta-group">
             <a href="kontakt.html" class="btn-cta btn-cta-primary" data-slot="hero_cta_primary" data-wp-slot="hero_cta_primary">
@@ -2750,7 +2738,7 @@ def render_services_pillars_section(is_v2=False):
           </div>
           <h3 data-slot="service_2_title" data-wp-slot="service_2_title">Inhouse Textildruck &amp; Beflockung</h3>
           <p data-slot="service_2_desc" data-wp-slot="service_2_desc">
-            Dank unserem eigenen Druckatelier in Niederrohrdorf bedrucken wir Sporttrikots, Arbeitsjacken, T-Shirts und Taschen mit höchster Deckkraft, Elastizität und Waschbeständigkeit — ohne lange Umwege.
+            Dank unserem eigenen Druckatelier in Niederrohrdorf bedrucken wir Sporttrikots, Arbeitsjacken, T-Shirts und Taschen mit höchster Deckkraft, Elastizität und Waschbeständigkeit, ohne lange Umwege.
           </p>
           <ul class="service-list">
             <li>{SVG_CHECK}<span>Nummern, Spielernamen, Sponsorenlogos &amp; mehrfarbige Brust-/Rückendrucke</span></li>
@@ -2774,7 +2762,7 @@ def render_services_pillars_section(is_v2=False):
           <ul class="service-list">
             <li>{SVG_CHECK}<span>Koch- und Industriewäsche-taugliche Stickgarne mit edlem Glanz</span></li>
             <li>{SVG_CHECK}<span>Gewobene Saum- und Nackenlabels für Ihr eigenes Marken-Branding</span></li>
-            <li>{SVG_CHECK}<span>Einmalige Stickprogramm-Erstellung — jederzeit für Nachbestellungen abrufbar</span></li>
+            <li>{SVG_CHECK}<span>Einmalige Stickprogramm-Erstellung, jederzeit für Nachbestellungen abrufbar</span></li>
           </ul>
           <div class="service-card-footer">
             {action_dl}
@@ -2977,7 +2965,7 @@ V1_DIENSTLEISTUNGEN_BODY = f"""
         Textildruck, Stickerei, Labels &amp; Fremdtextil-Service
       </h1>
       <p data-slot="dl_hero_sub" data-wp-slot="dl_hero_sub">
-        In unserem eigenen Druckatelier an der Mellingerstrasse 12 in Niederrohrdorf veredeln wir Vereinsbekleidung, Workwear und Promowear präzise nach Ihren Vorgaben — vom Einzelstück bis zur Grossserie.
+        In unserem eigenen Druckatelier an der Mellingerstrasse 12 in Niederrohrdorf veredeln wir Vereinsbekleidung, Workwear und Promowear präzise nach Ihren Vorgaben, vom Einzelstück bis zur Grossserie.
       </p>
     </div>
   </section>
@@ -3113,7 +3101,7 @@ V1_TEXTILSORTIMENT_BODY = f"""
         Unser gesamtes Textilsortiment auf einen Blick
       </h1>
       <p data-slot="sortiment_hero_sub" data-wp-slot="sortiment_hero_sub">
-        Wählen Sie Ihre Wunschartikel im grossen Online-Shop <strong>frees.alltextiles.ch</strong> oder blättern Sie direkt in den aktuellen Marken-Katalogen. Notieren Sie sich einfach Artikelnummer und Farbe — wir kümmern uns um Muster, Offerte und Veredelung.
+        Wählen Sie Ihre Wunschartikel im grossen Online-Shop <strong>frees.alltextiles.ch</strong> oder blättern Sie direkt in den aktuellen Marken-Katalogen. Notieren Sie sich einfach Artikelnummer und Farbe, wir kümmern uns um Muster, Offerte und Veredelung.
       </p>
       <div style="display:flex;flex-wrap:wrap;gap:12px;margin-top:24px;">
         <a href="https://frees.alltextiles.ch" target="_blank" rel="noopener" class="btn-cta btn-cta-primary">
@@ -3164,7 +3152,7 @@ V1_PROFIL_BODY = f"""
         <span>Seit 1998 in der Branche · Mellingerstrasse 12, CH-5443 Niederrohrdorf</span>
       </div>
       <h1 data-slot="profil_hero_headline" data-wp-slot="profil_hero_headline">
-        Über Free's — Persönlich, flexibel und mit eigenem Druckatelier
+        Über Free's, Persönlich, flexibel und mit eigenem Druckatelier
       </h1>
       <p data-slot="profil_hero_sub" data-wp-slot="profil_hero_sub">
         Seit 1998 begleitet Stefan Fritschi gemeinsam mit Raimondo Sportvereine, Handwerksbetriebe, KMU und Schulen bei der Beschaffung und Veredelung hochwertiger Textilien.
@@ -3188,7 +3176,7 @@ V1_PROFIL_BODY = f"""
           <div class="service-icon-box" style="margin-bottom:14px;">{SVG_PRINTER}</div>
           <h3 data-slot="profil_val2_title" data-wp-slot="profil_val2_title">Eigenes Druckatelier</h3>
           <p data-slot="profil_val2_desc" data-wp-slot="profil_val2_desc">
-            Weil wir direkt bei uns im Haus an der Mellingerstrasse 12 in Niederrohrdorf drucken, behalten wir die volle Kontrolle über Qualität, Positionierung und Liefertermine — auch bei Express-Wünschen.
+            Weil wir direkt bei uns im Haus an der Mellingerstrasse 12 in Niederrohrdorf drucken, behalten wir die volle Kontrolle über Qualität, Positionierung und Liefertermine, auch bei Express-Wünschen.
           </p>
         </div>
         <div class="service-card">
@@ -3317,7 +3305,7 @@ def build_kontakt_body(client_slug: str, source_page: str) -> str:
                 Wofür benötigen Sie Textilien oder Textilveredelung?
               </h2>
               <p style="color:var(--text-secondary);font-size:0.92rem;margin-bottom:18px;">
-                Wählen Sie Ihren Schwerpunkt — wir bereiten die passenden Marken- und Druckvorschläge vor.
+                Wählen Sie Ihren Schwerpunkt, wir bereiten die passenden Marken- und Druckvorschläge vor.
               </p>
 
               <div class="option-grid" id="categoryOptions">
@@ -3335,7 +3323,7 @@ def build_kontakt_body(client_slug: str, source_page: str) -> str:
                 </div>
                 <div class="option-tile" data-val="Druckservice / Stickerei für eigene angelieferte Fremdtextilien" onclick="selectOptionTile(this, 'categoryInput')">
                   <div class="option-tile-title">Veredelung eigener Fremdtextilien</div>
-                  <div class="option-tile-sub">Sie liefern Ihre vorhandenen Textilien an — wir übernehmen Druck oder Stickerei</div>
+                  <div class="option-tile-sub">Sie liefern Ihre vorhandenen Textilien an, wir übernehmen Druck oder Stickerei</div>
                 </div>
               </div>
               <input type="hidden" id="categoryInput" value="Teamsport &amp; Vereinsausrüstung (JAKO, ERIMA, CRAFT)">

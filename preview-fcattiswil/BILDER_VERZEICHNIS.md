@@ -1,11 +1,11 @@
-# Bilder-Verzeichnis & Cloudflare-Asset-Katalog — FC Attiswil
+# Bilder-Verzeichnis & Cloudflare-Asset-Katalog – FC Attiswil
 
 > **Mandant / Webseite:** FC Attiswil (Attiswil BE)  
 > **Angefordert von (Partner):** Jenny Ettle (JE-MI) · **Eingereicht am:** 02.11.2026 · 17:40 Uhr  
 > **Lokaler Ordner (VPS & Git):** `preview-fcattiswil/`  
 > **Cloudflare-Basis-URL:** [vorschau.magnet-xs.ch/fcattiswil/](https://vorschau.magnet-xs.ch/fcattiswil/)  
 > **Bestand:** **36 Assets** (1.00 MB gesamt) · **🟢 34 aktiv im HTML** · **⚪ 2 frei im Bild-Pool** · **Externe Hotlinks: 0**  
-> **Letzte Aktualisierung:** 09.11.2026 14:07 Uhr (automatisch generiert via `webpilot_asset_catalog.py`)
+> **Letzte Aktualisierung:** 09.11.2026 16:10 Uhr (automatisch generiert via `webpilot_asset_catalog.py`)
 
 ---
 
@@ -45,9 +45,9 @@
 | 30 | `images/sponsors/sponsor-21-visana.webp` | Sponsor & Partner (`sponsor`) | 116×88 px · 1.9 KB (WEBP) | 🟢 Aktiv in `index.html` | Offizieller Vereins-Sponsor und Partner von Fussballclub Attiswil (Attiswil): Visana | [vorschau.magnet-xs.ch/fcattiswil/images/sponsors/sponsor-21-visana.webp](https://vorschau.magnet-xs.ch/fcattiswil/images/sponsors/sponsor-21-visana.webp) |
 | 31 | `images/sponsors/sponsor-22-zurich-solothurn.webp` | Sponsor & Partner (`sponsor`) | 116×88 px · 2.4 KB (WEBP) | 🟢 Aktiv in `index.html` | Offizieller Vereins-Sponsor und Partner von Fussballclub Attiswil (Attiswil): Zurich Generalagentur Howald &amp; Scheidegger AG | [vorschau.magnet-xs.ch/fcattiswil/images/sponsors/sponsor-22-zurich-solothurn.webp](https://vorschau.magnet-xs.ch/fcattiswil/images/sponsors/sponsor-22-zurich-solothurn.webp) |
 | 32 | `images/sponsors/sponsor-23-hobako.webp` | Sponsor & Partner (`sponsor`) | 116×88 px · 1.4 KB (WEBP) | 🟢 Aktiv in `index.html` | Offizieller Vereins-Sponsor und Partner von Fussballclub Attiswil (Attiswil): Hobako AG | [vorschau.magnet-xs.ch/fcattiswil/images/sponsors/sponsor-23-hobako.webp](https://vorschau.magnet-xs.ch/fcattiswil/images/sponsors/sponsor-23-hobako.webp) |
-| 33 | `images/staff-florian-bohner.webp` | Team, Porträt & Kader (`team`) | 260×360 px · 11.3 KB (WEBP) | 🟢 Aktiv in `herren-1.html`, `team-update.html` | Florian Bohner — Sportchef & J+S Coach | [vorschau.magnet-xs.ch/fcattiswil/images/staff-florian-bohner.webp](https://vorschau.magnet-xs.ch/fcattiswil/images/staff-florian-bohner.webp) |
-| 34 | `images/staff-mirco-flueeli.webp` | Team, Porträt & Kader (`team`) | 270×360 px · 20.1 KB (WEBP) | 🟢 Aktiv in `herren-1.html`, `team-update.html` | Mirco Flüeli — Goalie-Trainer Aktive | [vorschau.magnet-xs.ch/fcattiswil/images/staff-mirco-flueeli.webp](https://vorschau.magnet-xs.ch/fcattiswil/images/staff-mirco-flueeli.webp) |
-| 35 | `images/staff-stephan-sperisen.webp` | Team, Porträt & Kader (`team`) | 270×360 px · 20.5 KB (WEBP) | 🟢 Aktiv in `herren-1.html`, `team-update.html` | Stephan Sperisen — Trainer 1. Mannschaft | [vorschau.magnet-xs.ch/fcattiswil/images/staff-stephan-sperisen.webp](https://vorschau.magnet-xs.ch/fcattiswil/images/staff-stephan-sperisen.webp) |
+| 33 | `images/staff-florian-bohner.webp` | Team, Porträt & Kader (`team`) | 260×360 px · 11.3 KB (WEBP) | 🟢 Aktiv in `herren-1.html`, `team-update.html` | Florian Bohner – Sportchef & J+S Coach | [vorschau.magnet-xs.ch/fcattiswil/images/staff-florian-bohner.webp](https://vorschau.magnet-xs.ch/fcattiswil/images/staff-florian-bohner.webp) |
+| 34 | `images/staff-mirco-flueeli.webp` | Team, Porträt & Kader (`team`) | 270×360 px · 20.1 KB (WEBP) | 🟢 Aktiv in `herren-1.html`, `team-update.html` | Mirco Flüeli – Goalie-Trainer Aktive | [vorschau.magnet-xs.ch/fcattiswil/images/staff-mirco-flueeli.webp](https://vorschau.magnet-xs.ch/fcattiswil/images/staff-mirco-flueeli.webp) |
+| 35 | `images/staff-stephan-sperisen.webp` | Team, Porträt & Kader (`team`) | 270×360 px · 20.5 KB (WEBP) | 🟢 Aktiv in `herren-1.html`, `team-update.html` | Stephan Sperisen – Trainer 1. Mannschaft | [vorschau.magnet-xs.ch/fcattiswil/images/staff-stephan-sperisen.webp](https://vorschau.magnet-xs.ch/fcattiswil/images/staff-stephan-sperisen.webp) |
 | 36 | `images/team-herren-1.webp` | Team, Porträt & Kader (`team`) | 1200×601 px · 230.8 KB (WEBP) | 🟢 Aktiv in `herren-1.html`, `team-update.html` | FC Attiswil 1. Mannschaft Herren 4. Liga Mannschaftsfoto | [vorschau.magnet-xs.ch/fcattiswil/images/team-herren-1.webp](https://vorschau.magnet-xs.ch/fcattiswil/images/team-herren-1.webp) |
 
 ---

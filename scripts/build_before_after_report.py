@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-build_before_after_report.py — Kanonischer CLI-Entrypoint fuer den WebPilot Vorher/Nachher-PDF-Report
+build_before_after_report.py – Kanonischer CLI-Entrypoint fuer den WebPilot Vorher/Nachher-PDF-Report
 Delegiert direkt an build_webpilot_audit_pdf.py (HTML + A4-PDF + 27-Sensoren Systemaugen-Pruefung).
 """
 import os

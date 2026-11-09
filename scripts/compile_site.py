@@ -162,6 +162,18 @@ def compile_html(html: str, i18n_data: dict, slot_data: dict) -> tuple[str, dict
         stats["swiss_fixes"] = 0
         stats["swiss_details"] = []
 
+    # 4b. Hard Anti-Em-Dash (#LANG-01) & Anti-Kicker-Before (#UI-01/#UI-02) Sanitizer
+    RE_FORBIDDEN_EM_DASH = re.compile(r"(?<!\.)\u2014")
+    RE_KICKER_BEFORE_RULE = re.compile(r"[ 	]*\.[a-zA-Z0-9_.\-\s]*?(?:kicker|eyebrow|section-tag)[a-zA-Z0-9_.\-]*::before\s*\{[^}]*\}\n?")
+    if RE_KICKER_BEFORE_RULE.search(html):
+        html = RE_KICKER_BEFORE_RULE.sub("", html)
+        stats["swiss_fixes"] = stats.get("swiss_fixes", 0) + 1
+    if RE_FORBIDDEN_EM_DASH.search(html):
+        html = re.sub(r"([a-zäöü0-9»)])\s+\u2014\s+([a-zäöü])", r", ", html)
+        html = re.sub(r"\s+\u2014\s+", " – ", html)
+        html = RE_FORBIDDEN_EM_DASH.sub("–", html)
+        stats["swiss_fixes"] = stats.get("swiss_fixes", 0) + 1
+
     return html, stats
 
 

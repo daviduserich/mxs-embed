@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * audit_webpilot_devices.mjs — Playwright 3-Zonen Device-Maschine & Doppel-Systemaugen v2.0 (#UI-01, #UI-06, #UI-13, #UI-14)
+ * audit_webpilot_devices.mjs – Playwright 3-Zonen Device-Maschine & Doppel-Systemaugen v2.0 (#UI-01, #UI-06, #UI-13, #UI-14)
  * Nutzt den zentralen Baustein ./lib/system_eyes_core.mjs (18 Mathematisch-Aesthetische Sensoren S-01..S-18)
  * und prueft JEDE anwaehlbare Ansicht, Unterseite, Mobile-Menue & Cockpit-Modal:
  *   - Alle Seiten & Unterseiten in preview-her11/*, preview-hochuli/*, webpilot/*

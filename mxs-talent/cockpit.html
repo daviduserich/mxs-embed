@@ -57,9 +57,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>mXs Talent Solutions · WebPilot Studio · v4.0.0</title>
-<meta name="description" content="mXs Talent Solutions · WebPilot Studio — Deine Website direkt im Browser bearbeiten. Texte, Bilder und Seitenabschnitte bequem mit 1 Klick oder mit deiner eigenen KI anpassen.">
+<meta name="description" content="mXs Talent Solutions · WebPilot Studio – Deine Website direkt im Browser bearbeiten. Texte, Bilder und Seitenabschnitte bequem mit 1 Klick oder mit deiner eigenen KI anpassen.">
 <meta property="og:title" content="mXs Talent Solutions · WebPilot Studio">
-<meta property="og:description" content="Deine Website direkt im Browser bearbeiten — Texte, Bilder und Seitenabschnitte bequem mit 1 Klick oder mit deiner eigenen KI anpassen.">
+<meta property="og:description" content="Deine Website direkt im Browser bearbeiten – Texte, Bilder und Seitenabschnitte bequem mit 1 Klick oder mit deiner eigenen KI anpassen.">
 <meta property="og:type" content="website">
 <link rel="icon" href="images/logo.png" type="image/png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -3343,7 +3343,7 @@ body {
   color: #34d399 !important;
 }
 
-/* 2. GLOBALES BUTTON-SYSTEM (ZEN MONOCHROMIE — NIE WIEDER BROWSER-BUTTONFACE!) */
+/* 2. GLOBALES BUTTON-SYSTEM (ZEN MONOCHROMIE – NIE WIEDER BROWSER-BUTTONFACE!) */
 .acp-btn-primary,
 .btn-inline-save:not([disabled]),
 .acp-publish-btn,
@@ -3549,14 +3549,6 @@ body {
   display: inline-flex !important;
   align-items: center !important;
   gap: 8px !important;
-}
-.acp-modal-kicker::before {
-  content: "" !important;
-  width: 14px !important;
-  height: 2px !important;
-  background: #f0852d !important;
-  display: inline-block !important;
-  flex-shrink: 0 !important;
 }
 
 .acp-modal-heading {
@@ -4546,7 +4538,7 @@ body.acp-cockpit-light-mode #acp-inline-edit-dock {
       <div class="acp-brand-cluster">
         <a href="https://embed.magnet-xs.ch/mxs-talent/cockpit" target="_blank" class="acp-brand-badge" id="acp-brand-badge" title="WebPilot Studio">
           <span class="acp-brand-signet"></span>
-          <span class="acp-brand-text" id="acp-brand-label">WEBPILOT STUDIO — MXS TALENT SOLUTIONS</span>
+          <span class="acp-brand-text" id="acp-brand-label">WEBPILOT STUDIO – MXS TALENT SOLUTIONS</span>
         </a>
         <span class="acp-version-badge" id="acp-version-badge" title="WebPilot Framework v4.0.0">v4.0.0</span>
       </div>
@@ -5445,7 +5437,7 @@ body.acp-cockpit-light-mode #acp-inline-edit-dock {
         <div class="acp-vibe-presets-grid" id="acp-vibe-presets-grid">
           <button type="button" class="acp-vibe-preset-card" data-preset="rose_creme" onclick="acpApplyDesignPreset('rose_creme')">
             <div>
-              <div style="font-size:13.5px; font-weight:700; color:#fff; margin-bottom:4px;">1. Warmes Rosé &amp; Creme (Praxis, Herzensarbeit &amp; Coaching — Hell)</div>
+              <div style="font-size:13.5px; font-weight:700; color:#fff; margin-bottom:4px;">1. Warmes Rosé &amp; Creme (Praxis, Herzensarbeit &amp; Coaching – Hell)</div>
               <div style="font-size:12px; color:#94a3b8; line-height:1.4;">Sanfter Creme-Rosé-Verlauf, Beerenrot-Akzente (#9b2c47) &amp; warme Lesbarkeit</div>
             </div>
             <div class="acp-vibe-preset-swatches">
@@ -5805,8 +5797,8 @@ var ACP_CLIENT_PROFILE = {
   "industry_name": "Schweizer KMU",
   "industry_label": "Schweizer Unternehmens-Website",
   "work_category_label": "Kampagnen & Methodik",
-  "brand_title": "WEBPILOT STUDIO — MXS TALENT SOLUTIONS",
-  "studio_title": "WEBPILOT STUDIO — MXS TALENT SOLUTIONS",
+  "brand_title": "WEBPILOT STUDIO – MXS TALENT SOLUTIONS",
+  "studio_title": "WEBPILOT STUDIO – MXS TALENT SOLUTIONS",
   "is_website_studio": true,
   "prompt_rules": [
     "- Sprache: Authentisches Schweizer Hochdeutsch (Verbot von scharfem S / Eszett, immer 'ss' verwenden).",
@@ -6438,7 +6430,7 @@ function acpRenderImagesGrid() {
         '<div class="acp-card-actions">' +
           '<button type="button" class="btn-card-swap" onclick="acpSelectSwapImage(\'' + img.rel_path + '\', \'' + img.filename + '\')" title="Als neues Foto für Bildtausch auswählen">Als Tausch-Bild wählen</button>' +
           '<button type="button" class="btn-card-copy" onclick="acpCopyImagePath(\'' + img.rel_path + '\')" title="Pfad in die Zwischenablage kopieren">Pfad</button>' +
-          '<button type="button" class="btn-card-delete ' + (img.is_used ? 'is-disabled' : '') + '" onclick="acpDeleteImage(\'' + img.rel_path + '\', \'' + img.filename.replace(/'/g, "\\'") + '\', ' + (img.is_used ? 'true' : 'false') + ')" title="' + (img.is_used ? 'Im Einsatz — kann nicht gelöscht werden' : 'Foto aus Pool & Cloudflare löschen') + '">×</button>' +
+          '<button type="button" class="btn-card-delete ' + (img.is_used ? 'is-disabled' : '') + '" onclick="acpDeleteImage(\'' + img.rel_path + '\', \'' + img.filename.replace(/'/g, "\\'") + '\', ' + (img.is_used ? 'true' : 'false') + ')" title="' + (img.is_used ? 'Im Einsatz, kann nicht gelöscht werden' : 'Foto aus Pool & Cloudflare löschen') + '">×</button>' +
         '</div>' +
       '</div>' +
     '</div>';
@@ -8299,7 +8291,7 @@ function acpOpenReplaceSectionModal(secId) {
   if (title) {
     var targetSec = (acpScannedSections || []).find(function(s) { return s.id === secId; });
     var secTitle = targetSec && targetSec.title ? (' «' + targetSec.title + '»') : '';
-    title.textContent = (targetSec && targetSec.title ? targetSec.title : ("Abschnitt " + secId)) + " — Inhalt oder Code einsetzen";
+    title.textContent = (targetSec && targetSec.title ? targetSec.title : ("Abschnitt " + secId)) + " – Inhalt oder Code einsetzen";
   }
   if (textarea) {
     textarea.value = "";
@@ -9213,7 +9205,7 @@ function acpUpdateInlineEditStatus() {
     }
     if (statusText) {
       var secList = Array.from(acpDirtySections).join(", ");
-      statusText.innerHTML = "<strong>Änderungen erkannt in:</strong> [" + secList + "] — Klicke auf Speichern, um sie dauerhaft bereitzustellen.";
+      statusText.innerHTML = "<strong>Änderungen erkannt in:</strong> [" + secList + "] – Klicke auf Speichern, um sie dauerhaft bereitzustellen.";
     }
     if (saveBtn) {
       saveBtn.disabled = false;
@@ -9474,7 +9466,7 @@ function acpRemoveSection(secId) {
 
 
 /* ============================================================================
- * WEBPILOT STUDIO v4.0 — FARBTABELLE, STIL-WELTEN & KI VIBE-CODING TO CSS
+ * WEBPILOT STUDIO v4.0 – FARBTABELLE, STIL-WELTEN & KI VIBE-CODING TO CSS
  * ============================================================================ */
 var acpCurrentDesignState = {
   preset: "",
@@ -9497,7 +9489,7 @@ var acpCurrentDesignState = {
 
 var ACP_DESIGN_PRESETS = {
   rose_creme: {
-    label: "1. Warmes Rosé & Creme (Praxis, Herzensarbeit & Coaching — Hell)",
+    label: "1. Warmes Rosé & Creme (Praxis, Herzensarbeit & Coaching – Hell)",
     heroGradient: "linear-gradient(135deg, #fdf8f5 0%, #f7ebe8 55%, #f3e2dd 100%)",
     colors: {
       primary: "#9b2c47",
@@ -9966,7 +9958,7 @@ function acpBuildClientSideColorCss() {
     ".btn-cta-gold, .btn-cta-primary, .btn-primary, .btn-haupt, .nav-cta, .sticky-cta a, .form-submit { background-color: " + c.primary + " !important; border-color: " + c.primary + " !important; color: #ffffff !important; }",
     ".section-kicker, .section-eyebrow, .hero-eyebrow, .kicker, .hero-title span, .hero-badge-val, .sektion-label, .hero h1 em, .hero h1 span { color: " + c.primary + " !important; }",
     ".hero-tag { background-color: " + c.primary + " !important; color: #ffffff !important; }",
-    ".section-kicker::before { background-color: " + c.primary + " !important; }",
+    "",
     ".hero-badge-card, .contact-direct-item { border-left-color: " + c.primary + " !important; }",
     ".hero-section, .hero, .page-hero, .hero-wrap, [data-section='hero'] { " + heroBgRule + "color: " + c.heroText + " !important; }",
     ".hero-section h1, .hero-section .hero-title, .hero-section .hero-lead, .page-hero h1, .page-hero p, .hero-trust-item, .hero-badge-lbl, .hero h1, .hero .hero-sub, .hero p, .hero-wrap h1 { color: " + c.heroText + " !important; }",

@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-build_system_eyes_filmstrips.py — Baut die 4 visuellen Doppel-Systemaugen Kontaktboegen (< 400 KB)
+build_system_eyes_filmstrips.py – Baut die 4 visuellen Doppel-Systemaugen Kontaktboegen (< 400 KB)
 aus den Einzel-Screenshots in /tmp/webpilot_device_screenshots/.
 """
 import os

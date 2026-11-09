@@ -75,7 +75,7 @@ if i1 != -1 and i2 != -1:
   if (title) {
     var targetSec = (acpScannedSections || []).find(function(s) { return s.id === secId; });
     var secTitle = targetSec && targetSec.title ? (' «' + targetSec.title + '»') : '';
-    title.textContent = "Sektion [" + secId + "]" + secTitle + " — Neuer Text / Code";
+    title.textContent = "Sektion [" + secId + "]" + secTitle + " – Neuer Text / Code";
   }
   if (textarea) {
     textarea.value = "";

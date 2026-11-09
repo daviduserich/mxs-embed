@@ -9,7 +9,7 @@ Doktrin:
 1. Reines Schweizer Hochdeutsch: 100% Verbot von bundesdeutschem Vokabular
    («Gewerke» -> «Leistungen», «Geselle» -> «Handwerker EFZ», «Notdienst» -> «24h-Pikett»,
     «Urlaub» -> «Ferien», «Kostenvoranschlag» -> «Offerte», etc.).
-2. Absolute 0-Toleranz für Eszett («ß» -> «ss»).
+2. Absolute 0-Toleranz für Eszett («ss» -> «ss»).
 3. Deterministischer Airbag: Wird automatisch in compile_site.py und
    create_client_site.py vor jedem Commit / Edge-Deploy ausgeführt.
 """
@@ -89,7 +89,10 @@ SWISS_REPLACEMENTS = [
 ]
 
 # Eszett-Normalisierung
-RE_ESZETT = re.compile(r"ß")
+RE_ESZETT = re.compile(r"\u00df")
+RE_EM_DASH = re.compile(r"(?<!\.)\u2014")
+RE_KICKER_BEFORE_CSS = re.compile(r"[ 	]*\.[a-zA-Z0-9_.\-\s]*?(?:kicker|eyebrow|section-tag)[a-zA-Z0-9_.\-]*::before\s*\{[^}]*\}\n?")
+RE_KICKER_LINE_HTML = re.compile(r'<span\s+class=["\']kicker-line["\']\s*>\s*</span>\s*')
 
 
 def enforce_swiss_standards(content: str) -> Tuple[str, List[Dict[str, Any]]]:
@@ -107,7 +110,29 @@ def enforce_swiss_standards(content: str) -> Tuple[str, List[Dict[str, Any]]]:
         fixes.append({
             "type": "eszett",
             "matches": eszett_matches,
-            "description": f"{eszett_matches}x Eszett ('ß') durch 'ss' ersetzt."
+            "description": f"{eszett_matches}x Eszett ('ss') ersetzt."
+        })
+
+    # 1b. Englischen KI-Geviertstrich (Em-Dash \u2014 ausser nach Punkt bei CHF .\u2014) und Kicker-Vorstrich (::before) tilgen (#LANG-01 & #UI-01)
+    em_matches = len(RE_EM_DASH.findall(new_content))
+    if em_matches > 0:
+        new_content = re.sub(r"([a-zäöü0-9»)])\s+\u2014\s+([a-zäöü])", r", ", new_content)
+        new_content = re.sub(r"\s+\u2014\s+", " – ", new_content)
+        new_content = RE_EM_DASH.sub("–", new_content)
+        fixes.append({
+            "type": "em_dash",
+            "matches": em_matches,
+            "description": f"{em_matches}x englischer KI-Geviertstrich (#LANG-01) bereinigt."
+        })
+
+    kicker_before_matches = len(RE_KICKER_BEFORE_CSS.findall(new_content)) + len(RE_KICKER_LINE_HTML.findall(new_content))
+    if kicker_before_matches > 0:
+        new_content = RE_KICKER_BEFORE_CSS.sub("", new_content)
+        new_content = RE_KICKER_LINE_HTML.sub("", new_content)
+        fixes.append({
+            "type": "kicker_before",
+            "matches": kicker_before_matches,
+            "description": f"{kicker_before_matches}x vorangestellter Kicker-Strich ::before / .kicker-line (#UI-01/#UI-02) entfernt."
         })
 
     # 2. Vokabular prüfen und ersetzen
@@ -150,7 +175,7 @@ def audit_swiss_standards(content: str) -> List[Dict[str, Any]]:
     eszett_matches = len(RE_ESZETT.findall(content))
     if eszett_matches > 0:
         violations.append({
-            "term": "ß (Eszett)",
+            "term": "ss (Eszett)",
             "count": eszett_matches,
             "recommendation": "Durch 'ss' ersetzen."
         })

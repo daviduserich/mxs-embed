@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-webpilot_lead_engine.py — WebPilot Smart-Anfrage & Dual-Delivery Engine
+webpilot_lead_engine.py – WebPilot Smart-Anfrage & Dual-Delivery Engine
 =======================================================================
 Verarbeitet eingehende 3-Schritte Smart-Anfragen (preview-hochuli, preview-her11, etc.),
 erzeugt das 1-seitige A4-Auftrags-PDF («Monika-&-Monteur-Blatt») via lead_pdf_generator.py
@@ -262,7 +262,7 @@ def send_lead_email_with_pdf(
 
     msg = EmailMessage()
     msg["Subject"] = subject.replace("\u00df", "ss")
-    msg["From"] = f"{clean_company} — Smart-Anfrage <{smtp_from}>"
+    msg["From"] = f"{clean_company} – Smart-Anfrage <{smtp_from}>"
     msg["To"] = ", ".join(real_recipients)
     if cc_recipients:
         msg["Cc"] = ", ".join(cc_recipients)
@@ -296,7 +296,7 @@ def send_lead_email_with_pdf(
     # Automatischer Fallback auf Kasserver-SMTP (w01b7af4.kasserver.com:587)
     if backup_host and backup_user and backup_pass and (backup_host != smtp_host or backup_port != smtp_port or backup_user != smtp_user):
         try:
-            msg.replace_header("From", f"{clean_company} — Smart-Anfrage <{backup_from}>")
+            msg.replace_header("From", f"{clean_company} – Smart-Anfrage <{backup_from}>")
             _smtp_deliver_message(backup_host, backup_port, backup_user, backup_pass, msg, to_addrs=envelope_recipients)
             if log_fn:
                 log_fn("webpilot-lead", "EMAIL_FALLBACK_OK", "WARN", f"primary_err={last_err} fallback={backup_host}:{backup_port} to={real_recipients} cc={cc_recipients}")
@@ -516,7 +516,7 @@ def process_lead_submission(data: dict, client_ip: str, referer: str, resolve_cl
     )
     assigned_person = route_target.get("name") or "Zentrale Disposition"
     assigned_role = route_target.get("role") or ""
-    assigned_full = f"{assigned_person} — {assigned_role}" if assigned_role else assigned_person
+    assigned_full = f"{assigned_person} – {assigned_role}" if assigned_role else assigned_person
     callback_window = compute_callback_window(urgency, callback_pref)
 
     now_ch = datetime.now(ZoneInfo("Europe/Zurich"))

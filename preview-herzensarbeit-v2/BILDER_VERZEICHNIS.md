@@ -1,11 +1,11 @@
-# Bilder-Verzeichnis & Cloudflare-Asset-Katalog — Herzensarbeit — Anne-Katrin Koch (Zeigeversion v2)
+# Bilder-Verzeichnis & Cloudflare-Asset-Katalog – Herzensarbeit · Anne-Katrin Koch (Zeigeversion v2)
 
-> **Mandant / Webseite:** Herzensarbeit — Anne-Katrin Koch (Zeigeversion v2) (Härkingen SO)  
+> **Mandant / Webseite:** Herzensarbeit · Anne-Katrin Koch (Zeigeversion v2) (Härkingen SO)  
 > **Angefordert von (Partner):** Jenny Ettle (JE-MI) · **Eingereicht am:** 05.11.2026 · 11:00 Uhr  
 > **Lokaler Ordner (VPS & Git):** `preview-herzensarbeit-v2/`  
 > **Cloudflare-Basis-URL:** [vorschau.magnet-xs.ch/herzensarbeit-v2/](https://vorschau.magnet-xs.ch/herzensarbeit-v2/)  
 > **Bestand:** **27 Assets** (4.65 MB gesamt) · **🟢 11 aktiv im HTML** · **⚪ 16 frei im Bild-Pool** · **Externe Hotlinks: 0**  
-> **Letzte Aktualisierung:** 09.11.2026 14:07 Uhr (automatisch generiert via `webpilot_asset_catalog.py`)
+> **Letzte Aktualisierung:** 09.11.2026 16:10 Uhr (automatisch generiert via `webpilot_asset_catalog.py`)
 
 ---
 
@@ -24,11 +24,11 @@
 | 9 | `images/gehen-am-strand.jpg` | Referenz, Projekt & Angebot (`ref`) | 1300×733 px · 222.1 KB (JPG) | ⚪ Frei im Pool | Gehen Am Strand: Begleitungs-Angebote, Workshops & Klienten-Stimmen – Herzensarbeit in Härkingen (SO) | [vorschau.magnet-xs.ch/herzensarbeit-v2/images/gehen-am-strand.jpg](https://vorschau.magnet-xs.ch/herzensarbeit-v2/images/gehen-am-strand.jpg) |
 | 10 | `images/haende-gelbe-blume.jpg` | Referenz, Projekt & Angebot (`ref`) | 667×1000 px · 378.0 KB (JPG) | ⚪ Frei im Pool | Haende Gelbe Blume: Begleitungs-Angebote, Workshops & Klienten-Stimmen – Herzensarbeit in Härkingen (SO) | [vorschau.magnet-xs.ch/herzensarbeit-v2/images/haende-gelbe-blume.jpg](https://vorschau.magnet-xs.ch/herzensarbeit-v2/images/haende-gelbe-blume.jpg) |
 | 11 | `images/logo-herzensarbeit.jpg` | Logo & Marken-Icon (`logo`) | 350×160 px · 13.1 KB (JPG) | ⚪ Frei im Pool | Herzensarbeit Härkingen (SO) – Offizielles Logo (Paartherapie und Eheberatung bei Kommunikationskrisen und) | [vorschau.magnet-xs.ch/herzensarbeit-v2/images/logo-herzensarbeit.jpg](https://vorschau.magnet-xs.ch/herzensarbeit-v2/images/logo-herzensarbeit.jpg) |
-| 12 | `images/logo.png` | Logo & Marken-Icon (`logo`) | 350×160 px · 47.2 KB (PNG) | 🟢 Aktiv in `index.html`, `kontakt.html` | Herzensarbeit — Anne-Katrin Koch | [vorschau.magnet-xs.ch/herzensarbeit-v2/images/logo.png](https://vorschau.magnet-xs.ch/herzensarbeit-v2/images/logo.png) |
+| 12 | `images/logo.png` | Logo & Marken-Icon (`logo`) | 350×160 px · 47.2 KB (PNG) | 🟢 Aktiv in `index.html`, `kontakt.html` | Herzensarbeit · Anne-Katrin Koch | [vorschau.magnet-xs.ch/herzensarbeit-v2/images/logo.png](https://vorschau.magnet-xs.ch/herzensarbeit-v2/images/logo.png) |
 | 13 | `images/paar-auf-dem-berg.jpg` | Referenz, Projekt & Angebot (`ref`) | 1000×783 px · 125.8 KB (JPG) | ⚪ Frei im Pool | Paar Auf Dem Berg: Begleitungs-Angebote, Workshops & Klienten-Stimmen – Herzensarbeit in Härkingen (SO) | [vorschau.magnet-xs.ch/herzensarbeit-v2/images/paar-auf-dem-berg.jpg](https://vorschau.magnet-xs.ch/herzensarbeit-v2/images/paar-auf-dem-berg.jpg) |
 | 14 | `images/paarcoaching-hero.jpg` | Startbühne & Header (`hero`) | 1280×720 px · 93.2 KB (JPG) | 🟢 Aktiv in `index.html`, `kontakt.html` | Paartherapie, Eheberatung und Paarcoaching in Härkingen | [vorschau.magnet-xs.ch/herzensarbeit-v2/images/paarcoaching-hero.jpg](https://vorschau.magnet-xs.ch/herzensarbeit-v2/images/paarcoaching-hero.jpg) |
 | 15 | `images/paarcoaching-hero.webp` | Startbühne & Header (`hero`) | 1280×720 px · 74.1 KB (WEBP) | ⚪ Frei im Pool | Paarcoaching Hero: Hero & Header – Herzensarbeit in Härkingen (SO) | [vorschau.magnet-xs.ch/herzensarbeit-v2/images/paarcoaching-hero.webp](https://vorschau.magnet-xs.ch/herzensarbeit-v2/images/paarcoaching-hero.webp) |
-| 16 | `images/portrait-anne-katrin-hero.jpg` | Startbühne & Header (`hero`) | 1759×2560 px · 444.0 KB (JPG) | 🟢 Aktiv in `index.html`, `kontakt.html` | Anne-Katrin Koch — Praxis Herzensarbeit Härkingen SO | [vorschau.magnet-xs.ch/herzensarbeit-v2/images/portrait-anne-katrin-hero.jpg](https://vorschau.magnet-xs.ch/herzensarbeit-v2/images/portrait-anne-katrin-hero.jpg) |
+| 16 | `images/portrait-anne-katrin-hero.jpg` | Startbühne & Header (`hero`) | 1759×2560 px · 444.0 KB (JPG) | 🟢 Aktiv in `index.html`, `kontakt.html` | Anne-Katrin Koch – Praxis Herzensarbeit Härkingen SO | [vorschau.magnet-xs.ch/herzensarbeit-v2/images/portrait-anne-katrin-hero.jpg](https://vorschau.magnet-xs.ch/herzensarbeit-v2/images/portrait-anne-katrin-hero.jpg) |
 | 17 | `images/portrait-anne-katrin-praxis.jpg` | Team, Porträt & Kader (`team`) | 1000×785 px · 132.7 KB (JPG) | 🟢 Aktiv in `index.html` | Anne-Katrin Koch Porträt Praxis Härkingen | [vorschau.magnet-xs.ch/herzensarbeit-v2/images/portrait-anne-katrin-praxis.jpg](https://vorschau.magnet-xs.ch/herzensarbeit-v2/images/portrait-anne-katrin-praxis.jpg) |
 | 18 | `images/praxis-sessel.jpg` | Referenz, Projekt & Angebot (`ref`) | 900×725 px · 50.5 KB (JPG) | ⚪ Frei im Pool | Praxis Sessel: Begleitungs-Angebote, Workshops & Klienten-Stimmen – Herzensarbeit in Härkingen (SO) | [vorschau.magnet-xs.ch/herzensarbeit-v2/images/praxis-sessel.jpg](https://vorschau.magnet-xs.ch/herzensarbeit-v2/images/praxis-sessel.jpg) |
 | 19 | `images/provenexpert-siegel.png` | Logo & Marken-Icon (`logo`) | 200×54 px · 4.8 KB (PNG) | ⚪ Frei im Pool | Provenexpert Siegel: Begleitungs-Angebote, Workshops & Klienten-Stimmen – Herzensarbeit in Härkingen (SO) | [vorschau.magnet-xs.ch/herzensarbeit-v2/images/provenexpert-siegel.png](https://vorschau.magnet-xs.ch/herzensarbeit-v2/images/provenexpert-siegel.png) |

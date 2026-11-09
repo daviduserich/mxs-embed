@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-build_team_onboarding_form.py — Generator für das WebPilot «Mannschafts-Daten & Kader-Einreichungs-Formular»
+build_team_onboarding_form.py – Generator für das WebPilot «Mannschafts-Daten & Kader-Einreichungs-Formular»
 =============================================================================================================
 Liest das Quell-Template `templates/team-update-src.html` (#UI-08) und erzeugt für unsere Fussball-Showcases
 jeweils die massgeschneiderte, in den echten Vereinsfarben & mit dem echten Vereinswappen gebrandete Seite
@@ -138,7 +138,7 @@ def build_scfulenbach_config() -> dict:
                 "status": "live",
                 "league": "2. Liga regional (SOFV)",
                 "sfv_link": "https://www.sofv.ch/de/verein.aspx?v=1826&a=trr",
-                "motto": "Fanionteam SC Fulenbach — Aufsteiger 2. Liga regional auf dem Sportplatz Bad",
+                "motto": "Fanionteam SC Fulenbach · Aufsteiger 2. Liga regional auf dem Sportplatz Bad",
                 "training_times": "Dienstag & Donnerstag, 19:30 – 21:00 Uhr",
                 "pitch_location": "Sportplatz Bad, Platz 1 (Hauptfeld), 4629 Fulenbach",
                 "winter_note": "Wintervorbereitung ab Januar auf Kunstrasen / Turnhalle Fulenbach gemäss Aufgebot",
@@ -161,7 +161,7 @@ def build_scfulenbach_config() -> dict:
                 "status": "draft",
                 "league": "4. Liga (SOFV)",
                 "sfv_link": "https://www.sofv.ch/de/verein.aspx?v=1826&a=trr",
-                "motto": "«Zwöi» des SC Fulenbach — Teamgeist, Kameradschaft und starker Rückhalt",
+                "motto": "«Zwöi» des SC Fulenbach · Teamgeist, Kameradschaft und starker Rückhalt",
                 "training_times": "Dienstag & Donnerstag, 19:30 – 21:00 Uhr",
                 "pitch_location": "Sportplatz Bad, Platz 2, 4629 Fulenbach",
                 "winter_note": "Hallentraining / Kunstrasen nach Ansage Trainerstab",
@@ -441,7 +441,7 @@ def build_fcattiswil_config() -> dict:
                 "status": "live",
                 "league": "3. Liga / Herren Aktive (SOFV)",
                 "sfv_link": "https://www.sofv.ch/de/verein.aspx?v=1880&a=trr",
-                "motto": "Fanionteam FC Attiswil — Herzblut und Teamgeist auf dem Sportplatz Wyssbach / Lindenrain",
+                "motto": "Fanionteam FC Attiswil · Herzblut und Teamgeist auf dem Sportplatz Wyssbach / Lindenrain",
                 "training_times": "Dienstag & Donnerstag, 19:30 – 21:00 Uhr",
                 "pitch_location": "Sportplatz Wyssbach / Sportanlage Lindenrain, 4536 Attiswil",
                 "winter_note": "Kunstrasen & Hallentraining gemäss Winterplan Sportchef Florian Bohner",
@@ -464,7 +464,7 @@ def build_fcattiswil_config() -> dict:
                 "status": "draft",
                 "league": "4. Liga (SOFV)",
                 "sfv_link": "https://www.sofv.ch/de/verein.aspx?v=1880&a=trr",
-                "motto": "Aktive Herren FC Attiswil — Leidenschaft & Kameradschaft",
+                "motto": "Aktive Herren FC Attiswil · Leidenschaft & Kameradschaft",
                 "training_times": "Dienstag & Donnerstag, 19:30 – 21:00 Uhr",
                 "pitch_location": "Sportplatz Wyssbach / Lindenrain, 4536 Attiswil",
                 "winter_note": "",
@@ -483,7 +483,7 @@ def build_fcattiswil_config() -> dict:
                 "status": "draft",
                 "league": "Frauen 2. / 3. Liga (SOFV)",
                 "sfv_link": "https://www.sofv.ch/de/verein.aspx?v=1880&a=trr",
-                "motto": "Damen-Abteilung FC Attiswil — Cupsiegerinnen & starker Frauenfussball am Jurasüdfuss",
+                "motto": "Damen-Abteilung FC Attiswil · Cupsiegerinnen & starker Frauenfussball am Jurasüdfuss",
                 "training_times": "Montag & Mittwoch, 19:15 – 20:45 Uhr",
                 "pitch_location": "Sportanlage Lindenrain / Wyssbach, 4536 Attiswil",
                 "winter_note": "",
@@ -687,7 +687,7 @@ def build_fcattiswil_config() -> dict:
                 "status": "draft",
                 "league": "Piccolos / Junioren G Kinderfussball",
                 "sfv_link": "https://www.sofv.ch/de/verein.aspx?v=1880&a=trr",
-                "motto": "Piccolos des FC Attiswil — Spielerischer Einstieg",
+                "motto": "Piccolos des FC Attiswil · Spielerischer Einstieg",
                 "training_times": "Dienstag, 18:00 – 19:00 Uhr",
                 "pitch_location": "Sportanlage Lindenrain, 4536 Attiswil",
                 "winter_note": "",
@@ -728,7 +728,7 @@ def build_fcschlieren_config(target_dir: str, site_id: str) -> dict:
                 "status": "live",
                 "league": "2. Liga interregional / Herren 1",
                 "sfv_link": "https://www.fvrz.ch/Fussballverband-Region-Zuerich/Vereine-FVRZ/Verein-FVRZ.aspx/v-530/",
-                "motto": "Kämpfe mit Leidenschaft, siege mit Stolz — verliere mit Respekt — aber gib niemals auf!",
+                "motto": "Kämpfe mit Leidenschaft, siege mit Stolz, verliere mit Respekt, aber gib niemals auf!",
                 "training_times": "Dienstag, Donnerstag & Freitag, 19:45 – 21:15 Uhr",
                 "pitch_location": "Sportanlage Zelgli, Platz 1 (Hauptfeld), 8952 Schlieren",
                 "winter_note": "Kunstrasen Zelgli & Hallenplan Schlieren gemäss Wintertrainingsplan",
@@ -749,7 +749,7 @@ def build_fcschlieren_config(target_dir: str, site_id: str) -> dict:
                 "status": "draft",
                 "league": "3. Liga (FVRZ)",
                 "sfv_link": "https://www.fvrz.ch/Fussballverband-Region-Zuerich/Vereine-FVRZ/Verein-FVRZ.aspx/v-530/",
-                "motto": "Herren 2 des FC Schlieren — Ambitionierter Aktivfussball auf dem Zelgli",
+                "motto": "Herren 2 des FC Schlieren · Ambitionierter Aktivfussball auf dem Zelgli",
                 "training_times": "Dienstag & Donnerstag, 20:00 – 21:30 Uhr",
                 "pitch_location": "Sportanlage Zelgli, Platz 2, 8952 Schlieren",
                 "winter_note": "",
@@ -767,7 +767,7 @@ def build_fcschlieren_config(target_dir: str, site_id: str) -> dict:
                 "status": "live",
                 "league": "Frauen 2. Liga (FVRZ)",
                 "sfv_link": "https://www.fvrz.ch/Fussballverband-Region-Zuerich/Vereine-FVRZ/Verein-FVRZ.aspx/v-530/",
-                "motto": "Pionierverein im Schweizer Frauenfussball seit 1979 — Fanionteam Frauen 1",
+                "motto": "Pionierverein im Schweizer Frauenfussball seit 1979 – Fanionteam Frauen 1",
                 "training_times": "Dienstag & Donnerstag, 19:30 – 21:00 Uhr",
                 "pitch_location": "Sportanlage Zelgli, 8952 Schlieren",
                 "winter_note": "",

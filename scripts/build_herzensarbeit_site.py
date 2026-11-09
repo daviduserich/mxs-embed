@@ -27,7 +27,7 @@ V2_DIR.mkdir(parents=True, exist_ok=True)
 BEFORE_INVENTORY = {
     "source_url": "https://herzensarbeit.ch/",
     "crawled_at": "2026-11-05",
-    "company_name": "Herzensarbeit — Anne-Katrin Koch",
+    "company_name": "Herzensarbeit · Anne-Katrin Koch",
     "legal_entity": "Herzensarbeit · Anne-Katrin Koch Künzle",
     "claim": "Mit offenem Herzen lieben und leben",
     "subline": "Paartherapie, Trennungsberatung, Trauerbegleitung, Achtsamkeit & Frauen-Workshops in Härkingen (SO) und Online",
@@ -157,8 +157,8 @@ for target_dir in (V1_DIR, V2_DIR):
 
 base_company_data = {
     "slug": "herzensarbeit",
-    "name": "Herzensarbeit — Anne-Katrin Koch",
-    "company_name": "Herzensarbeit — Anne-Katrin Koch · Paartherapie & Beratung",
+    "name": "Herzensarbeit · Anne-Katrin Koch",
+    "company_name": "Herzensarbeit · Anne-Katrin Koch · Paartherapie & Beratung",
     "legal_name": "Herzensarbeit · Anne-Katrin Koch Künzle",
     "short_name": "Herzensarbeit",
     "claim": "Mit offenem Herzen lieben und leben",
@@ -199,7 +199,7 @@ v1_config.update({
     "slug": "preview-herzensarbeit",
     "public_slug": "herzensarbeit",
     "token": "herzensarbeit2026",
-    "name": "Herzensarbeit — Anne-Katrin Koch",
+    "name": "Herzensarbeit · Anne-Katrin Koch",
     "Updated": "2026-11-05",
     "PagesCount": 5,
     "WorkshopsCount": 4,
@@ -209,7 +209,7 @@ v1_config.update({
 v2_company = dict(base_company_data)
 v2_company.update({
     "slug": "herzensarbeit-v2",
-    "name": "Herzensarbeit — Anne-Katrin Koch (Zeigeversion)",
+    "name": "Herzensarbeit · Anne-Katrin Koch (Zeigeversion)",
     "host_url": "https://vorschau.magnet-xs.ch/herzensarbeit-v2/cockpit?token=herzensarbeit2026",
     "host_jobs_url": "https://vorschau.magnet-xs.ch/herzensarbeit-v2/"
 })
@@ -226,7 +226,7 @@ v2_config.update({
     "slug": "preview-herzensarbeit-v2",
     "public_slug": "herzensarbeit-v2",
     "token": "herzensarbeit2026",
-    "name": "Herzensarbeit — Anne-Katrin Koch (Zeigeversion / Vorschau-Entwurf)",
+    "name": "Herzensarbeit · Anne-Katrin Koch (Zeigeversion / Vorschau-Entwurf)",
     "Updated": "2026-11-05",
     "PagesCount": 2,
     "WorkshopsCount": 4,
@@ -332,20 +332,8 @@ SHARED_CSS = """
       box-shadow: none !important;
       margin-bottom: 12px;
     }
-    .section-kicker::before {
-      content: "";
-      display: inline-block;
-      width: 16px;
-      height: 2px;
-      background-color: var(--gold-dark);
-      border-radius: 0px;
-      flex-shrink: 0;
-    }
     .section-kicker.kicker-light {
       color: var(--gold);
-    }
-    .section-kicker.kicker-light::before {
-      background-color: var(--gold);
     }
 
     h1, h2, h3, h4 {
@@ -652,7 +640,7 @@ SHARED_CSS = """
       border-color: rgba(155, 44, 71, 0.45);
     }
 
-    /* Hero Section — Hell, warm & herzlich wie herzensarbeit.ch */
+    /* Hero Section – Hell, warm & herzlich wie herzensarbeit.ch */
     .hero-section {
       background: linear-gradient(135deg, #fdf8f5 0%, #f7ebe8 55%, #f3e2dd 100%);
       background-color: #fdf8f5;
@@ -1585,7 +1573,7 @@ def render_impressum_modal() -> str:
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
       </button>
       <div class="section-kicker">RECHTLICHE ANGABEN · PRAXIS HERZENSARBEIT</div>
-      <h3 id="wpImpTitle" style="font-size:1.38rem;font-weight:700;margin-bottom:10px;">Impressum &amp; Datenschutz (Herzensarbeit — Anne-Katrin Koch)</h3>
+      <h3 id="wpImpTitle" style="font-size:1.38rem;font-weight:700;margin-bottom:10px;">Impressum &amp; Datenschutz (Herzensarbeit · Anne-Katrin Koch)</h3>
       <div style="font-size:0.88rem;color:var(--text-body);line-height:1.62;display:flex;flex-direction:column;gap:12px;">
         <div style="background-color:var(--bg-page);border:1px solid var(--border-light);border-left:4px solid var(--gold-dark);padding:12px 14px;border-radius:var(--radius-sm);">
           <strong>Herzensarbeit · Anne-Katrin Koch Künzle</strong><br>
@@ -1674,7 +1662,7 @@ def render_v1_shell(filename: str, page_title: str, active_nav: str, body_html: 
   <meta http-equiv="X-XSS-Protection" content="1; mode=block">
   <meta name="referrer" content="no-referrer">
   <title>{page_title}</title>
-  <meta name="description" content="Herzensarbeit — Anne-Katrin Koch. Praxis für Paartherapie, Eheberatung, Trennungsberatung, Trauerbegleitung, Achtsamkeit und Frauen-Workshops in Härkingen (SO) und Online.">
+  <meta name="description" content="Herzensarbeit · Anne-Katrin Koch. Praxis für Paartherapie, Eheberatung, Trennungsberatung, Trauerbegleitung, Achtsamkeit und Frauen-Workshops in Härkingen (SO) und Online.">
   <link rel="icon" type="image/png" href="images/favicon-32x32.png">
   <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -1705,7 +1693,7 @@ def render_v1_shell(filename: str, page_title: str, active_nav: str, body_html: 
   <header class="site-header" data-section="header">
     <div class="container header-inner">
       <a href="index.html" class="brand-link" aria-label="Herzensarbeit Anne-Katrin Koch Startseite">
-        <img src="images/logo.png" alt="Herzensarbeit — Anne-Katrin Koch" class="brand-logo" width="48" height="48" data-slot="brand_logo">
+        <img src="images/logo.png" alt="Herzensarbeit · Anne-Katrin Koch" class="brand-logo" width="48" height="48" data-slot="brand_logo">
         <div class="brand-text">
           <span class="brand-name" data-slot="brand_name">HERZENSARBEIT</span>
           <span class="brand-sub" data-slot="brand_sub">Anne-Katrin Koch · Härkingen</span>
@@ -1824,7 +1812,7 @@ def render_v2_shell(filename: str, page_title: str, active_nav: str, body_html: 
   <meta http-equiv="X-XSS-Protection" content="1; mode=block">
   <meta name="referrer" content="no-referrer">
   <title>{page_title}</title>
-  <meta name="description" content="Unverbindlicher Vorschau-Entwurf (Zeigeversion) für Herzensarbeit — Anne-Katrin Koch: 2 Beispiel-Seiten sind bereits ausgearbeitet — 3 weitere Themenbereiche folgen beim Ausbau.">
+  <meta name="description" content="Unverbindlicher Vorschau-Entwurf (Zeigeversion) für Herzensarbeit · Anne-Katrin Koch: 2 Beispiel-Seiten sind bereits ausgearbeitet – 3 weitere Themenbereiche folgen beim Ausbau.">
   <link rel="icon" type="image/png" href="images/favicon-32x32.png">
   <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -1855,7 +1843,7 @@ def render_v2_shell(filename: str, page_title: str, active_nav: str, body_html: 
   <header class="site-header" data-section="header">
     <div class="container header-inner">
       <a href="index.html" class="brand-link" aria-label="Herzensarbeit Anne-Katrin Koch Startseite">
-        <img src="images/logo.png" alt="Herzensarbeit — Anne-Katrin Koch" class="brand-logo" width="48" height="48" data-slot="brand_logo">
+        <img src="images/logo.png" alt="Herzensarbeit · Anne-Katrin Koch" class="brand-logo" width="48" height="48" data-slot="brand_logo">
         <div class="brand-text">
           <span class="brand-name" data-slot="brand_name">HERZENSARBEIT</span>
           <span class="brand-sub" data-slot="brand_sub">Anne-Katrin Koch · Härkingen</span>
@@ -1928,7 +1916,7 @@ def render_v2_shell(filename: str, page_title: str, active_nav: str, body_html: 
             </div>
           </div>
           <p style="font-size:0.86rem;color:#4a2c36;line-height:1.6;margin-bottom:14px;" data-slot="footer_about">
-            Unverbindlicher Vorschau-Entwurf für Herzensarbeit — Anne-Katrin Koch: 2 Beispiel-Seiten (Startseite &amp; 3-Schritte Smart-Anfrage) sind bereits ausgearbeitet — 3 weitere Themenbereiche folgen beim gemeinsamen Ausbau.
+            Unverbindlicher Vorschau-Entwurf für Herzensarbeit · Anne-Katrin Koch: 2 Beispiel-Seiten (Startseite &amp; 3-Schritte Smart-Anfrage) sind bereits ausgearbeitet – 3 weitere Themenbereiche folgen beim gemeinsamen Ausbau.
           </p>
           <div style="font-size:0.84rem;color:#2b161e;font-weight:600;">
             Usserdorf 24 · CH-4624 Härkingen (SO) · Tel. 079 103 63 31
@@ -2011,7 +1999,7 @@ def render_v2_shell(filename: str, page_title: str, active_nav: str, body_html: 
 
       <div style="display:flex;flex-wrap:wrap;gap:10px;margin-top:18px;">
         <button type="button" class="btn-cta btn-cta-primary btn-sm" onclick="wpCloseBlueprintModal()">
-          <span>Verstanden — Vorschau weiter ansehen</span>
+          <span>Verstanden · Vorschau weiter ansehen</span>
         </button>
         <a href="kontakt.html" class="btn-cta btn-cta-outline btn-sm">
           <span>3-Schritte Smart-Anfrage testen</span>
@@ -2066,13 +2054,13 @@ V1_INDEX_BODY = f"""
           </div>
           <div class="hero-badge-card">
             <span class="hero-badge-val">Safi Nidiaye Methode</span>
-            <span class="hero-badge-lbl">Herz öffnen statt Kopf zerbrechen — fühlen, klären &amp; lösen</span>
+            <span class="hero-badge-lbl">Herz öffnen statt Kopf zerbrechen, fühlen, klären &amp; lösen</span>
           </div>
         </div>
       </div>
 
       <div class="hero-media-card">
-        <img src="images/portrait-anne-katrin-hero.jpg" alt="Anne-Katrin Koch — Praxis Herzensarbeit Härkingen SO" width="600" height="390" data-slot="hero_image">
+        <img src="images/portrait-anne-katrin-hero.jpg" alt="Anne-Katrin Koch – Praxis Herzensarbeit Härkingen SO" width="600" height="390" data-slot="hero_image">
         <div class="hero-media-caption">
           <div>
             <div style="font-family:'Josefin Sans',sans-serif;font-weight:700;font-size:1.02rem;color:#2b161e;">Anne-Katrin Koch</div>
@@ -2091,7 +2079,7 @@ V1_INDEX_BODY = f"""
         <div class="section-kicker" data-slot="pillars_kicker">WIE ICH SIE BEGLEITE · PRAXIS HÄRKINGEN, OENSINGEN &amp; ONLINE</div>
         <h2 class="section-title" data-slot="pillars_title">Sechs Wege zurück in Ihre Herzkraft und Verbundenheit</h2>
         <p class="section-desc" data-slot="pillars_desc">
-          Wenn wir uns nur noch den Kopf zerbrechen, drehen wir uns im Kreis. In der Körperzentrierten Herzensarbeit verbinden wir klärende Gespräche mit dem bewussten Fühlen im Körper — damit echte Entlastung, Nähe und neue Perspektiven entstehen.
+          Wenn wir uns nur noch den Kopf zerbrechen, drehen wir uns im Kreis. In der Körperzentrierten Herzensarbeit verbinden wir klärende Gespräche mit dem bewussten Fühlen im Körper, damit echte Entlastung, Nähe und neue Perspektiven entstehen.
         </p>
       </div>
 
@@ -2217,7 +2205,7 @@ V1_INDEX_BODY = f"""
               </div>
               <h3 style="font-size:1.26rem;font-weight:700;margin-bottom:8px;">Selbstheilung &amp; Körper-Harmonie</h3>
               <p style="font-size:0.9rem;color:var(--text-body);margin-bottom:12px;">
-                Unser Körper spricht mit uns. Erfahren Sie, wie unterdrückte Gefühle und Stress den Körper belasten — und wie innere Klärung die Regeneration stärkt.
+                Unser Körper spricht mit uns. Erfahren Sie, wie unterdrückte Gefühle und Stress den Körper belasten, und wie innere Klärung die Regeneration stärkt.
               </p>
               <div class="check-list">
                 <div class="check-item">{SVG_CHECK} <span>Authentische Erfahrung (Weg aus Neurodermitis &amp; Hashimoto)</span></div>
@@ -2268,7 +2256,7 @@ V1_INDEX_BODY = f"""
         <div class="section-kicker">ORIENTIERUNG FÜR PAARE &amp; EINZELPERSONEN · BEZIEHUNGS-KURZANALYSE</div>
         <h2 class="section-title">Wo stehen Sie gerade in Ihrer Partnerschaft?</h2>
         <p class="section-desc">
-          Viele Paare warten lange, bis sie sich Unterstützung holen. Diese fünf ehrlichen Standort-Fragen aus meiner Praxis zeigen Ihnen sofort, wo der Schuh drückt — und wie wir gemeinsam Schritt für Schritt wieder Boden unter die Füsse bringen.
+          Viele Paare warten lange, bis sie sich Unterstützung holen. Diese fünf ehrlichen Standort-Fragen aus meiner Praxis zeigen Ihnen sofort, wo der Schuh drückt, und wie wir gemeinsam Schritt für Schritt wieder Boden unter die Füsse bringen.
         </p>
       </div>
 
@@ -2286,7 +2274,7 @@ V1_INDEX_BODY = f"""
             <div class="check-list">
               <div class="check-item">{SVG_CHECK} <span><strong>1. Gefühl der Verbundenheit:</strong> Fühlen Sie sich von Ihrer Partnerin / Ihrem Partner im Alltag wirklich gesehen, gehört und emotional verstanden?</span></div>
               <div class="check-item">{SVG_CHECK} <span><strong>2. Konflikte &amp; Gesprächskultur:</strong> Können Sie schwierige Themen ansprechen, ohne dass es sofort in Vorwürfe, Rechtfertigung oder eisiges Schweigen kippt?</span></div>
-              <div class="check-item">{SVG_CHECK} <span><strong>3. Nähe, Zärtlichkeit &amp; Sinnlichkeit:</strong> Erleben Sie körperliche Nähe und Sexualität als lebendig und nährend — oder eher als Pflicht, Druck oder Rückzug?</span></div>
+              <div class="check-item">{SVG_CHECK} <span><strong>3. Nähe, Zärtlichkeit &amp; Sinnlichkeit:</strong> Erleben Sie körperliche Nähe und Sexualität als lebendig und nährend, oder eher als Pflicht, Druck oder Rückzug?</span></div>
               <div class="check-item">{SVG_CHECK} <span><strong>4. Eigener Freiraum &amp; Grenzen:</strong> Bleiben Sie in der Beziehung sich selbst treu, oder passen Sie sich aus Angst vor Konflikten ständig an?</span></div>
               <div class="check-item">{SVG_CHECK} <span><strong>5. Gemeinsame Zukunftsperspektive:</strong> Spüren Sie trotz der aktuellen Krise noch den Wunsch, herauszufinden, was zwischen Ihnen wieder möglich ist?</span></div>
             </div>
@@ -2308,9 +2296,9 @@ V1_INDEX_BODY = f"""
               Statt endloser Sitzungen ohne roten Faden begleite ich Sie über 3 bis 5 Monate in einer klaren Kombination aus Einzel- und Paargesprächen:
             </p>
             <div class="check-list">
-              <div class="check-item">{SVG_CHECK} <span><strong>Etappe 1 — Klärung der Beziehungskrise:</strong> Wir schauen uns ehrlich an, wo Sie stehen, welche Verletzungen und Schutzmechanismen wirken und warum Gespräche bisher eskalieren.</span></div>
-              <div class="check-item">{SVG_CHECK} <span><strong>Etappe 2 — Wo will ich hin? (Einzelsitzungen):</strong> In je 4 geschützten Einzelsitzungen (à 60 Min.) klärt jede Person ihre eigenen Gefühle, Prägungen und Bedürfnisse.</span></div>
-              <div class="check-item">{SVG_CHECK} <span><strong>Etappe 3 — Aufbauende Schritte (Paarsitzungen):</strong> In 4 gemeinsamen Paarsitzungen (à 90 Min.) übersetzen wir das Erkannte in eine neue, ehrliche und herzensoffene Verbindung.</span></div>
+              <div class="check-item">{SVG_CHECK} <span><strong>Etappe 1 – Klärung der Beziehungskrise:</strong> Wir schauen uns ehrlich an, wo Sie stehen, welche Verletzungen und Schutzmechanismen wirken und warum Gespräche bisher eskalieren.</span></div>
+              <div class="check-item">{SVG_CHECK} <span><strong>Etappe 2 – Wo will ich hin? (Einzelsitzungen):</strong> In je 4 geschützten Einzelsitzungen (à 60 Min.) klärt jede Person ihre eigenen Gefühle, Prägungen und Bedürfnisse.</span></div>
+              <div class="check-item">{SVG_CHECK} <span><strong>Etappe 3 – Aufbauende Schritte (Paarsitzungen):</strong> In 4 gemeinsamen Paarsitzungen (à 90 Min.) übersetzen wir das Erkannte in eine neue, ehrliche und herzensoffene Verbindung.</span></div>
               <div class="check-item">{SVG_CHECK} <span><strong>Begleitung zwischen den Terminen:</strong> Kurze Rückfragen per WhatsApp sowie alltagstaugliche Audio- und Text-Übungen geben Ihnen Sicherheit im Alltag.</span></div>
             </div>
           </div>
@@ -2328,7 +2316,7 @@ V1_INDEX_BODY = f"""
     <div class="container">
       <div class="section-head">
         <div class="section-kicker">IHRE BEGLEITERIN · ANNE-KATRIN KOCH</div>
-        <h2 class="section-title">«Herz öffnen statt Kopf zerbrechen» — seit 2009 für Sie da</h2>
+        <h2 class="section-title">«Herz öffnen statt Kopf zerbrechen», seit 2009 für Sie da</h2>
         <p class="section-desc">
           Ich bin 1967 in Bern geboren, verheiratet mit Mathias und Mutter von zwei erwachsenen Kindern (Ramon *2003 und Sarah *2006). Was ich weitergebe, habe ich selbst durchlebt und in über 5'000 Beratungsstunden vertieft.
         </p>
@@ -2372,7 +2360,7 @@ V1_INDEX_BODY = f"""
                 <span class="meta-badge">Usserdorf 24 · CH-4624 Härkingen</span>
                 <span style="font-family:'Josefin Sans',sans-serif;font-size:0.78rem;font-weight:700;color:var(--gold-dark);">Zentral am A1/A2-Kreuz</span>
               </div>
-              <h3 style="font-size:1.3rem;font-weight:700;margin-bottom:8px;">Ein geschützter Ort zum Durchatmen — vor Ort oder Online</h3>
+              <h3 style="font-size:1.3rem;font-weight:700;margin-bottom:8px;">Ein geschützter Ort zum Durchatmen, vor Ort oder Online</h3>
               <p style="font-size:0.9rem;color:var(--text-body);margin-bottom:12px;">
                 Meine Praxis im Usserdorf 24 in Härkingen liegt nur wenige Minuten vom Autobahnkreuz A1/A2 entfernt und ist aus dem Raum Olten, Solothurn, Aarau, Basel, Bern, Luzern und Zürich rasch erreichbar.
               </p>
@@ -2474,7 +2462,7 @@ V1_INDEX_BODY = f"""
           <div class="pillar-body">
             <div>
               <span class="meta-badge" style="margin-bottom:10px;">Beziehungsimpuls #3</span>
-              <h3 style="font-size:1.2rem;font-weight:700;margin-bottom:8px;">Gesunde Grenzen setzen — aus Selbstliebe statt aus Härte</h3>
+              <h3 style="font-size:1.2rem;font-weight:700;margin-bottom:8px;">Gesunde Grenzen setzen, aus Selbstliebe statt aus Härte</h3>
               <p style="font-size:0.88rem;color:var(--text-body);">
                 Wer immer nur Harmonie wahrt und die eigenen Bedürfnisse zurückstellt, verliert irgendwann die Freude und Nähe. Ein klares «Nein» aus offenem Herzen ist gleichzeitig ein ehrliches «Ja» zu sich selbst.
               </p>
@@ -2530,7 +2518,7 @@ V1_ANGEBOT_BODY = f"""
           Begleitung, die in die <span>Tiefe geht und im Alltag trägt.</span>
         </h1>
         <p class="hero-lead">
-          Jede Lebenskrise und jede Beziehung hat ihre eigene Geschichte. Deshalb arbeite ich nicht mit starren Schablonen, sondern begleite Sie in überschaubaren, klar strukturierten Paketen über 3 bis 5 Monate — vor Ort in Härkingen (SO) oder Online auf Deutsch und Englisch.
+          Jede Lebenskrise und jede Beziehung hat ihre eigene Geschichte. Deshalb arbeite ich nicht mit starren Schablonen, sondern begleite Sie in überschaubaren, klar strukturierten Paketen über 3 bis 5 Monate, vor Ort in Härkingen (SO) oder Online auf Deutsch und Englisch.
         </p>
         <div class="hero-actions">
           <a href="kontakt.html?thema=paartherapie" class="btn-cta btn-cta-gold">
@@ -2638,7 +2626,7 @@ V1_ANGEBOT_BODY = f"""
             <span class="top-bar-badge" style="margin-bottom:10px;">DAS KOMPLETTE PAAR-BEGLEITUNGSPAKET (3–5 MONATE)</span>
             <h3 style="font-size:1.4rem;font-weight:700;margin-bottom:10px;">Was im 3–5 Monate Paket für Paare alles enthalten ist</h3>
             <p style="font-size:0.92rem;color:#4a2c36;">
-              Nachhaltige Veränderung in einer Beziehung braucht Verlässlichkeit und Begleitung auch zwischen den Terminen — damit Sie im Alltag nicht wieder in alte Muster zurückfallen:
+              Nachhaltige Veränderung in einer Beziehung braucht Verlässlichkeit und Begleitung auch zwischen den Terminen, damit Sie im Alltag nicht wieder in alte Muster zurückfallen:
             </p>
           </div>
           <div class="check-list">
@@ -2675,14 +2663,14 @@ V1_ANGEBOT_BODY = f"""
                 <span class="meta-badge">Trennungsberatung</span>
                 <span style="font-family:'Josefin Sans',sans-serif;font-size:0.78rem;font-weight:700;color:var(--gold-dark);">10 Sitzungen à 60 Min. / 4 Monate</span>
               </div>
-              <h3 style="font-size:1.35rem;font-weight:700;margin-bottom:10px;">Trennung verarbeiten — in 3 Phasen zurück ins Leben</h3>
+              <h3 style="font-size:1.35rem;font-weight:700;margin-bottom:10px;">Trennung verarbeiten, in 3 Phasen zurück ins Leben</h3>
               <p style="font-size:0.9rem;color:var(--text-body);margin-bottom:14px;">
                 Ob Sie verlassen wurden oder selbst gegangen sind: Eine Trennung wirbelt Emotionen, Selbstwert und Lebensplanung durcheinander.
               </p>
               <div class="check-list">
-                <div class="check-item">{SVG_CHECK} <span><strong>Phase 1 — Schock verarbeiten:</strong> Auffangen im akuten Schmerz, Gefühle von Ohnmacht, Wut oder Angst sicher durchfühlen und beruhigen.</span></div>
-                <div class="check-item">{SVG_CHECK} <span><strong>Phase 2 — Zu sich selber finden:</strong> Alte Verstrickungen lösen, die eigene Mitte wieder spüren und gestärkt bei sich ankommen.</span></div>
-                <div class="check-item">{SVG_CHECK} <span><strong>Phase 3 — Schritte ins neue Leben:</strong> Neue Lebensfreude, Vertrauen und klare Perspektiven für Ihre Zukunft aufbauen.</span></div>
+                <div class="check-item">{SVG_CHECK} <span><strong>Phase 1 – Schock verarbeiten:</strong> Auffangen im akuten Schmerz, Gefühle von Ohnmacht, Wut oder Angst sicher durchfühlen und beruhigen.</span></div>
+                <div class="check-item">{SVG_CHECK} <span><strong>Phase 2 – Zu sich selber finden:</strong> Alte Verstrickungen lösen, die eigene Mitte wieder spüren und gestärkt bei sich ankommen.</span></div>
+                <div class="check-item">{SVG_CHECK} <span><strong>Phase 3 – Schritte ins neue Leben:</strong> Neue Lebensfreude, Vertrauen und klare Perspektiven für Ihre Zukunft aufbauen.</span></div>
                 <div class="check-item">{SVG_CHECK} <span><strong>Paket-Umfang:</strong> 10 Sitzungen à 60 Min. verteilt auf 4 Monate inkl. WhatsApp-Support &amp; Audio-Übungen.</span></div>
               </div>
             </div>
@@ -2696,7 +2684,7 @@ V1_ANGEBOT_BODY = f"""
         <!-- Trauerbegleitung -->
         <div class="pillar-card" id="trauer">
           <div class="pillar-img-wrap">
-            <img src="images/trauerbegleitung-wasser.jpg" alt="Trauerbegleitung — Weil ich dich liebe, lebst du in meinem Herzen weiter" loading="lazy" decoding="async">
+            <img src="images/trauerbegleitung-wasser.jpg" alt="Trauerbegleitung, Weil ich dich liebe, lebst du in meinem Herzen weiter" loading="lazy" decoding="async">
           </div>
           <div class="pillar-body">
             <div>
@@ -2709,9 +2697,9 @@ V1_ANGEBOT_BODY = f"""
                 Nach dem Verlust eines geliebten Menschen braucht die Seele Zeit und einen Ort, an dem jede Träne und jedes Gefühl willkommen ist.
               </p>
               <div class="check-list">
-                <div class="check-item">{SVG_CHECK} <span><strong>Abschnitt 1 — Bewusst fühlen:</strong> Dem Schmerz, der Leere und der Sehnsucht in einem geschützten Rahmen Raum geben, ohne sie wegzudrücken.</span></div>
-                <div class="check-item">{SVG_CHECK} <span><strong>Abschnitt 2 — Morgenrot:</strong> Spüren, wie sich die schwere Trauer wandelt in eine stille, liebevolle Verbundenheit im Herzen.</span></div>
-                <div class="check-item">{SVG_CHECK} <span><strong>Abschnitt 3 — Neue Kraft:</strong> Schrittweise Rückkehr in den Alltag mit neuer innerer Tragkraft und Zuversicht.</span></div>
+                <div class="check-item">{SVG_CHECK} <span><strong>Abschnitt 1 – Bewusst fühlen:</strong> Dem Schmerz, der Leere und der Sehnsucht in einem geschützten Rahmen Raum geben, ohne sie wegzudrücken.</span></div>
+                <div class="check-item">{SVG_CHECK} <span><strong>Abschnitt 2 – Morgenrot:</strong> Spüren, wie sich die schwere Trauer wandelt in eine stille, liebevolle Verbundenheit im Herzen.</span></div>
+                <div class="check-item">{SVG_CHECK} <span><strong>Abschnitt 3 – Neue Kraft:</strong> Schrittweise Rückkehr in den Alltag mit neuer innerer Tragkraft und Zuversicht.</span></div>
                 <div class="check-item">{SVG_CHECK} <span><strong>Paket-Umfang:</strong> 8 bis 10 Sitzungen à 60 Min. über ca. 4 Monate inkl. WhatsApp-Begleitung.</span></div>
               </div>
             </div>
@@ -2732,7 +2720,7 @@ V1_ANGEBOT_BODY = f"""
         <div class="section-kicker">SCHWERPUNKT 4 &amp; 5 · INNERE ORDNUNG &amp; KÖRPER-HARMONIE</div>
         <h2 class="section-title">Achtsamkeit, Selbstliebe &amp; Aktivierung der Selbstheilung</h2>
         <p class="section-desc">
-          «Selbstliebe ist das Fundament für jede erfüllte Beziehung — zu anderen Menschen genauso wie zu unserem eigenen Körper.»
+          «Selbstliebe ist das Fundament für jede erfüllte Beziehung, zu anderen Menschen genauso wie zu unserem eigenen Körper.»
         </p>
       </div>
 
@@ -2776,7 +2764,7 @@ V1_ANGEBOT_BODY = f"""
               </div>
               <h3 style="font-size:1.32rem;font-weight:700;margin-bottom:8px;">Wenn der Körper ruft: Gedanken, Gefühle &amp; Regeneration</h3>
               <p style="font-size:0.9rem;color:var(--text-body);margin-bottom:12px;">
-                Aus eigener Erfahrung weiss ich, wie eng seelischer Druck und körperliche Symptome zusammenhängen: Über Jahre litt ich selbst unter schwerer Neurodermitis, Hashimoto und chronischen Entzündungen — bis ich lernte, auf die Botschaften meines Körpers zu hören.
+                Aus eigener Erfahrung weiss ich, wie eng seelischer Druck und körperliche Symptome zusammenhängen: Über Jahre litt ich selbst unter schwerer Neurodermitis, Hashimoto und chronischen Entzündungen, bis ich lernte, auf die Botschaften meines Körpers zu hören.
               </p>
               <div class="check-list">
                 <div class="check-item">{SVG_CHECK} <span><strong>Seelische Ursachen erforschen:</strong> Welche ungelebten Gefühle oder Daueranspannungen drücken sich über den Körper aus?</span></div>
@@ -2801,7 +2789,7 @@ V1_ANGEBOT_BODY = f"""
         <div class="section-kicker">FUNDAMENT SEIT 2006 · KÖRPERZENTRIERTE HERZENSARBEIT</div>
         <h2 class="section-title">Die Methode nach Safi Nidiaye &amp; 6 inspirierende Bücher</h2>
         <p class="section-desc">
-          Von 2006 bis 2008 absolvierte ich meine Ausbildung direkt bei Safi Nidiaye, der Begründerin der Körperzentrierten Herzensarbeit. Das Kernprinzip lautet: «Gefühle sind zum Fühlen da — nicht zum Wegdenken.»
+          Von 2006 bis 2008 absolvierte ich meine Ausbildung direkt bei Safi Nidiaye, der Begründerin der Körperzentrierten Herzensarbeit. Das Kernprinzip lautet: «Gefühle sind zum Fühlen da, nicht zum Wegdenken.»
         </p>
       </div>
 
@@ -2863,7 +2851,7 @@ V1_WORKSHOPS_BODY = f"""
       <div>
         <div class="section-kicker kicker-light">4-TEILIGE FRAUEN-WORKSHOP-REIHE · OENSINGEN (SO)</div>
         <h1 class="hero-title">
-          «Kraftvoll Frau sein» — <span>4 Samstage für Ihre weibliche Urkraft.</span>
+          «Kraftvoll Frau sein» – <span>4 Samstage für Ihre weibliche Urkraft.</span>
         </h1>
         <p class="hero-lead">
           In einer geschützten Kleingruppe von 4 bis 12 Frauen widmen wir uns in der Gemeinschaftspraxis Oensingen (Dünnernstrasse 2) den vier grossen Wurzeln weiblicher Lebenskraft: der Bindung zu Mutter und Vater, Ihrer Sinnlichkeit und der Kraft innerer Weitsicht.
@@ -2925,7 +2913,7 @@ V1_WORKSHOPS_BODY = f"""
         <!-- Modul 1 -->
         <div class="pillar-card">
           <div class="pillar-img-wrap">
-            <img src="images/workshop-modul-1.jpg" alt="Tag 1: Ich und meine Mutter — Die Urkraft der Mutter" loading="lazy" decoding="async">
+            <img src="images/workshop-modul-1.jpg" alt="Tag 1: Ich und meine Mutter – Die Urkraft der Mutter" loading="lazy" decoding="async">
           </div>
           <div class="pillar-body">
             <div>
@@ -2953,7 +2941,7 @@ V1_WORKSHOPS_BODY = f"""
         <!-- Modul 2 -->
         <div class="pillar-card">
           <div class="pillar-img-wrap">
-            <img src="images/workshop-modul-2.jpg" alt="Tag 2: Ich und mein Vater — Die Urkraft des Vaters" loading="lazy" decoding="async">
+            <img src="images/workshop-modul-2.jpg" alt="Tag 2: Ich und mein Vater – Die Urkraft des Vaters" loading="lazy" decoding="async">
           </div>
           <div class="pillar-body">
             <div>
@@ -2981,7 +2969,7 @@ V1_WORKSHOPS_BODY = f"""
         <!-- Modul 3 -->
         <div class="pillar-card">
           <div class="pillar-img-wrap">
-            <img src="images/workshop-modul-3.jpg" alt="Tag 3: Beziehungsfähigkeit und Sinnlichkeit — Die Kraft der Liebenden" loading="lazy" decoding="async">
+            <img src="images/workshop-modul-3.jpg" alt="Tag 3: Beziehungsfähigkeit und Sinnlichkeit – Die Kraft der Liebenden" loading="lazy" decoding="async">
           </div>
           <div class="pillar-body">
             <div>
@@ -2989,13 +2977,13 @@ V1_WORKSHOPS_BODY = f"""
                 <span class="meta-badge">Tag 3 · Kraft der Liebenden</span>
                 <span style="font-family:'Josefin Sans',sans-serif;font-size:0.8rem;font-weight:700;color:var(--gold-dark);">Sa, 04. September 2027</span>
               </div>
-              <h3 style="font-size:1.3rem;font-weight:700;margin-bottom:8px;">Beziehungsfähigkeit und Sinnlichkeit — die Kraft der Liebenden</h3>
+              <h3 style="font-size:1.3rem;font-weight:700;margin-bottom:8px;">Beziehungsfähigkeit und Sinnlichkeit, die Kraft der Liebenden</h3>
               <p style="font-size:0.9rem;color:var(--text-body);margin-bottom:12px;">
                 Wie gelingt Nähe, ohne sich selbst zu verlieren? Dieser Tag widmet sich Ihrer weiblichen Ausstrahlung, Ihrer Genussfähigkeit und der Kunst, mit offenem Herzen zu lieben.
               </p>
               <div class="check-list">
                 <div class="check-item">{SVG_CHECK} <span>Scham und alte Blockaden rund um Weiblichkeit &amp; Körpergefühl lösen</span></div>
-                <div class="check-item">{SVG_CHECK} <span>Verbindung von Herz und Sinnlichkeit — für Singles und Frauen in Partnerschaft</span></div>
+                <div class="check-item">{SVG_CHECK} <span>Verbindung von Herz und Sinnlichkeit, für Singles und Frauen in Partnerschaft</span></div>
                 <div class="check-item">{SVG_CHECK} <span><strong>Termin:</strong> Samstag, 04.09.2027 (Early Bird CHF 257.– bis 24.07.2027, danach CHF 297.–)</span></div>
               </div>
             </div>
@@ -3009,7 +2997,7 @@ V1_WORKSHOPS_BODY = f"""
         <!-- Modul 4 -->
         <div class="pillar-card">
           <div class="pillar-img-wrap">
-            <img src="images/workshop-modul-4.jpg" alt="Tag 4: Sorgenkarussell stoppen — Die Kraft der Weitsicht und Weisheit" loading="lazy" decoding="async">
+            <img src="images/workshop-modul-4.jpg" alt="Tag 4: Sorgenkarussell stoppen – Die Kraft der Weitsicht und Weisheit" loading="lazy" decoding="async">
           </div>
           <div class="pillar-body">
             <div>
@@ -3017,7 +3005,7 @@ V1_WORKSHOPS_BODY = f"""
                 <span class="meta-badge">Tag 4 · Weitsicht &amp; Weisheit</span>
                 <span style="font-family:'Josefin Sans',sans-serif;font-size:0.8rem;font-weight:700;color:var(--gold-dark);">Sa, 14. November 2026</span>
               </div>
-              <h3 style="font-size:1.3rem;font-weight:700;margin-bottom:8px;">Sorgenkarussell stoppen — die Kraft der Weitsicht und Weisheit</h3>
+              <h3 style="font-size:1.3rem;font-weight:700;margin-bottom:8px;">Sorgenkarussell stoppen, die Kraft der Weitsicht und Weisheit</h3>
               <p style="font-size:0.9rem;color:var(--text-body);margin-bottom:12px;">
                 Wenn du im Alltag funktionierst, für alle mitdenkst und vor lauter Grübeln nicht mehr klar weisst, was deine innere Stimme sagt: An diesem Tag findest du zurück in deine tiefe Ruhe und Intuition.
               </p>
@@ -3044,7 +3032,7 @@ V1_WORKSHOPS_BODY = f"""
         <div class="section-kicker">TRANSPARENTE KONDITIONEN · GEMEINSCHAFTSPRAXIS OENSINGEN</div>
         <h2 class="section-title">Preise, Early-Bird-Vorteil &amp; Gesamtreise</h2>
         <p class="section-desc">
-          Alle Workshops finden jeweils am Samstag von 10:00 bis 17:00 Uhr in der Gemeinschaftspraxis Oensingen (Dünnernstrasse 2, 4702 Oensingen) statt — inklusive ausführlichem Handout.
+          Alle Workshops finden jeweils am Samstag von 10:00 bis 17:00 Uhr in der Gemeinschaftspraxis Oensingen (Dünnernstrasse 2, 4702 Oensingen) statt, inklusive ausführlichem Handout.
         </p>
       </div>
 
@@ -3166,7 +3154,7 @@ V1_UEBER_MICH_BODY = f"""
             </div>
             <h3 style="font-size:1.32rem;font-weight:700;margin-bottom:10px;">Mein eigener Weg zurück ins Vertrauen</h3>
             <p style="font-size:0.9rem;color:var(--text-body);margin-bottom:14px;">
-              Nach meiner Ausbildung als Primarlehrerin im Kanton Bern und meiner Tätigkeit als Taketina-Rhythmuspädagogin erlebte ich über viele Jahre hinweg starke körperliche Herausforderungen — darunter schwere Neurodermitis, Hashimoto und chronische Entzündungen.
+              Nach meiner Ausbildung als Primarlehrerin im Kanton Bern und meiner Tätigkeit als Taketina-Rhythmuspädagogin erlebte ich über viele Jahre hinweg starke körperliche Herausforderungen, darunter schwere Neurodermitis, Hashimoto und chronische Entzündungen.
             </p>
             <div class="check-list">
               <div class="check-item">{SVG_CHECK} <span><strong>Der Wendepunkt (2006):</strong> In der Körperzentrierten Herzensarbeit bei Safi Nidiaye lernte ich, meine unterdrückten Gefühle bewusst im Körper wahrzunehmen und anzunehmen.</span></div>
@@ -3265,13 +3253,13 @@ V2_INDEX_BODY = f"""
           </div>
           <div class="hero-badge-card">
             <span class="hero-badge-val">Safi Nidiaye Methode</span>
-            <span class="hero-badge-lbl">Herz öffnen statt Kopf zerbrechen — fühlen, klären &amp; lösen</span>
+            <span class="hero-badge-lbl">Herz öffnen statt Kopf zerbrechen, fühlen, klären &amp; lösen</span>
           </div>
         </div>
       </div>
 
       <div class="hero-media-card">
-        <img src="images/portrait-anne-katrin-hero.jpg" alt="Anne-Katrin Koch — Praxis Herzensarbeit Härkingen SO" width="600" height="390" data-slot="hero_image">
+        <img src="images/portrait-anne-katrin-hero.jpg" alt="Anne-Katrin Koch – Praxis Herzensarbeit Härkingen SO" width="600" height="390" data-slot="hero_image">
         <div class="hero-media-caption">
           <div>
             <div style="font-family:'Josefin Sans',sans-serif;font-weight:700;font-size:1.02rem;color:#2b161e;">Anne-Katrin Koch</div>
@@ -3290,7 +3278,7 @@ V2_INDEX_BODY = f"""
         <div class="section-kicker" data-slot="pillars_kicker">WIE ICH SIE BEGLEITE · PRAXIS HÄRKINGEN, OENSINGEN &amp; ONLINE</div>
         <h2 class="section-title" data-slot="pillars_title">Sechs Wege zurück in Ihre Herzkraft und Verbundenheit</h2>
         <p class="section-desc" data-slot="pillars_desc">
-          Wenn wir uns nur noch den Kopf zerbrechen, drehen wir uns im Kreis. In der Körperzentrierten Herzensarbeit verbinden wir klärende Gespräche mit dem bewussten Fühlen im Körper — damit echte Entlastung, Nähe und neue Perspektiven entstehen.
+          Wenn wir uns nur noch den Kopf zerbrechen, drehen wir uns im Kreis. In der Körperzentrierten Herzensarbeit verbinden wir klärende Gespräche mit dem bewussten Fühlen im Körper, damit echte Entlastung, Nähe und neue Perspektiven entstehen.
         </p>
       </div>
 
@@ -3411,7 +3399,7 @@ V2_INDEX_BODY = f"""
               </div>
               <h3 style="font-size:1.26rem;font-weight:700;margin-bottom:8px;">Selbstheilung &amp; Körper-Harmonie</h3>
               <p style="font-size:0.9rem;color:var(--text-body);margin-bottom:12px;">
-                Unser Körper spricht mit uns. Erfahren Sie, wie unterdrückte Gefühle und Stress den Körper belasten — und wie innere Klärung die Regeneration stärkt.
+                Unser Körper spricht mit uns. Erfahren Sie, wie unterdrückte Gefühle und Stress den Körper belasten, und wie innere Klärung die Regeneration stärkt.
               </p>
               <div class="check-list">
                 <div class="check-item">{SVG_CHECK} <span>Authentische Erfahrung (Weg aus Neurodermitis &amp; Hashimoto)</span></div>
@@ -3519,7 +3507,7 @@ V2_INDEX_BODY = f"""
         <div class="section-kicker">AUSGEWÄHLTE KLIENTEN-STIMMEN · PRAXIS HERZENSARBEIT</div>
         <h2 class="section-title">Echte Erfahrungen von Paaren und Einzelpersonen</h2>
         <p class="section-desc">
-          Bereits in dieser Zeigeversion sehen Sie 4 verifizierte Stimmen aus der Praxis — alle 12 Erfahrungsberichte aus sämtlichen 6 Themenbereichen sind für den gemeinsamen Ausbau vorbereitet.
+          Bereits in dieser Zeigeversion sehen Sie 4 verifizierte Stimmen aus der Praxis, alle 12 Erfahrungsberichte aus sämtlichen 6 Themenbereichen sind für den gemeinsamen Ausbau vorbereitet.
         </p>
       </div>
 
@@ -3533,7 +3521,7 @@ V2_INDEX_BODY = f"""
       <div class="preview-scope-banner">
         <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;margin-bottom:10px;">
           <span class="top-bar-badge">UNVERBINDLICHER VORSCHAU-ENTWURF · 2 BEISPIEL-SEITEN LIVE AUSGEARBEITET</span>
-          <span style="font-size:0.82rem;color:#4a2c36;font-weight:600;">Herzensarbeit — Anne-Katrin Koch · Härkingen (SO)</span>
+          <span style="font-size:0.82rem;color:#4a2c36;font-weight:600;">Herzensarbeit · Anne-Katrin Koch · Härkingen (SO)</span>
         </div>
         <h2 style="font-size:clamp(1.55rem,2.6vw,2.1rem);font-weight:700;color:#2b161e;margin-bottom:10px;">
           3 weitere Themenbereiche sind für den gemeinsamen Ausbau vorbereitet
@@ -3803,7 +3791,7 @@ def build_kontakt_body(client_slug: str, source_page: str) -> str:
             <!-- SCHRITT 3: KONTAKTDATEN & DOSSIER -->
             <div class="wp-step-pane" id="wpStep3">
               <div class="wp-selftest-banner">
-                <strong>Live-Vorschau-Modus (Selbsttest aktiv):</strong> Beim Absenden erstellt das System sofort ein echtes <strong>1-Seiten-A4-PDF-Dossier</strong> im Erscheinungsbild von <strong>Herzensarbeit — Anne-Katrin Koch</strong> zum direkten Öffnen und Prüfen.
+                <strong>Live-Vorschau-Modus (Selbsttest aktiv):</strong> Beim Absenden erstellt das System sofort ein echtes <strong>1-Seiten-A4-PDF-Dossier</strong> im Erscheinungsbild von <strong>Herzensarbeit · Anne-Katrin Koch</strong> zum direkten Öffnen und Prüfen.
               </div>
 
               <div class="form-grid-2" style="margin-bottom:14px;">
@@ -4234,7 +4222,7 @@ def build_kontakt_body(client_slug: str, source_page: str) -> str:
 
 # 3. Alle Seiten für Variante 1 (Vollversion) schreiben
 v1_pages = [
-    ("index.html", "Herzensarbeit — Anne-Katrin Koch | Paartherapie, Trennungs- & Trauerbegleitung Härkingen SO", "startseite", V1_INDEX_BODY),
+    ("index.html", "Herzensarbeit · Anne-Katrin Koch | Paartherapie, Trennungs- & Trauerbegleitung Härkingen SO", "startseite", V1_INDEX_BODY),
     ("angebot.html", "Paartherapie, Trennung, Trauer, Achtsamkeit & Selbstheilung | Herzensarbeit Anne-Katrin Koch", "angebot", V1_ANGEBOT_BODY),
     ("workshops.html", "Frauen-Workshops «Kraftvoll Frau sein» in Oensingen SO | Herzensarbeit Anne-Katrin Koch", "workshops", V1_WORKSHOPS_BODY),
     ("ueber-mich.html", "Über Anne-Katrin Koch & Alle 12 Klienten-Stimmen | Praxis Herzensarbeit Härkingen", "ueber-mich", V1_UEBER_MICH_BODY),
@@ -4248,7 +4236,7 @@ for fname, title, nav_key, body in v1_pages:
 
 # 4. Alle Seiten für Variante 2 (Zeigeversion / Vorschau-Entwurf) schreiben
 v2_pages = [
-    ("index.html", "Herzensarbeit — Anne-Katrin Koch (Zeigeversion / Vorschau-Entwurf) | Mit offenem Herzen lieben und leben", "startseite", V2_INDEX_BODY),
+    ("index.html", "Herzensarbeit · Anne-Katrin Koch (Zeigeversion / Vorschau-Entwurf) | Mit offenem Herzen lieben und leben", "startseite", V2_INDEX_BODY),
     ("kontakt.html", "Kontakt & 3-Schritte Smart-Anfrage (Zeigeversion) | Herzensarbeit Anne-Katrin Koch", "kontakt", build_kontakt_body("herzensarbeit-v2", "preview-herzensarbeit-v2/kontakt.html")),
 ]
 

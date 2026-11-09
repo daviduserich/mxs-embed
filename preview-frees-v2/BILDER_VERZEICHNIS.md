@@ -1,11 +1,11 @@
-# Bilder-Verzeichnis & Cloudflare-Asset-Katalog — Free's — Studio für Textildesign & Stickerei (Zeigeversion v2)
+# Bilder-Verzeichnis & Cloudflare-Asset-Katalog – Free's · Studio für Textildesign & Stickerei (Zeigeversion v2)
 
-> **Mandant / Webseite:** Free's — Studio für Textildesign & Stickerei (Zeigeversion v2) (Niederrohrdorf AG)  
+> **Mandant / Webseite:** Free's · Studio für Textildesign & Stickerei (Zeigeversion v2) (Niederrohrdorf AG)  
 > **Angefordert von (Partner):** Jenny Ettle (JE-MI) · **Eingereicht am:** 03.11.2026 · 21:30 Uhr  
 > **Lokaler Ordner (VPS & Git):** `preview-frees-v2/`  
 > **Cloudflare-Basis-URL:** [vorschau.magnet-xs.ch/frees-v2/](https://vorschau.magnet-xs.ch/frees-v2/)  
 > **Bestand:** **23 Assets** (1.66 MB gesamt) · **🟢 6 aktiv im HTML** · **⚪ 17 frei im Bild-Pool** · **Externe Hotlinks: 0**  
-> **Letzte Aktualisierung:** 09.11.2026 14:07 Uhr (automatisch generiert via `webpilot_asset_catalog.py`)
+> **Letzte Aktualisierung:** 09.11.2026 16:10 Uhr (automatisch generiert via `webpilot_asset_catalog.py`)
 
 ---
 

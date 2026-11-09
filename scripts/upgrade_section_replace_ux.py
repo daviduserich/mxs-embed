@@ -6,9 +6,9 @@ WebPilot Studio Section Replace UX Upgrade (upgrade_section_replace_ux.py)
 Behebt das Problem der modalen Sichtbarkeit (opacity: 0 durch fehlende .is-open Klasse)
 und implementiert Davids gewünschte "Text ist drin -> Klicken absenden" Experience:
 1. Dialog-Modal CSS mit z-index 5000, flex-Zentrierung und bernsteinfarbenem Rand
-2. Großes, sofort fokussiertes Einfügefeld mit Live-Feedback:
+2. Grosses, sofort fokussiertes Einfügefeld mit Live-Feedback:
    "🟢 ✓ Text ist drin! X Zeilen • Y Wörter • Z Zeichen erkannt. Bereit zum Absenden!"
-3. Großer, unübersehbarer Absende-Button: "🚀 Änderung jetzt absenden & live speichern"
+3. Grosser, unübersehbarer Absende-Button: "🚀 Änderung jetzt absenden & live speichern"
 4. Toleranter Airbag: automatisches Entfernen von Markdown-Fences (```html)
    und automatisches Wrappen von reinem Text / innerem HTML in die Sektions-Hülle
 5. Shortcut-Button im Coach-Toast: "✏️ Antwort hier einfügen →"
@@ -181,7 +181,7 @@ function acpOpenReplaceSectionModal(secId) {
   if (title) {
     var targetSec = (acpScannedSections || []).find(function(s) { return s.id === secId; });
     var secTitle = targetSec && targetSec.title ? (' «' + targetSec.title + '»') : '';
-    title.textContent = "Sektion [" + secId + "]" + secTitle + " — Neuer Text / Code";
+    title.textContent = "Sektion [" + secId + "]" + secTitle + " – Neuer Text / Code";
   }
   if (textarea) {
     textarea.value = "";

@@ -1,14 +1,14 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-inject_partner_attribution.py — Zentraler Partner-Attributions- & Vorschau-Modal-Baustein
+inject_partner_attribution.py – Zentraler Partner-Attributions- & Vorschau-Modal-Baustein
 ===========================================================================================
 Stattet alle WebPilot-Showcases (preview-fcschlieren, preview-fcschlieren-v2,
 preview-scfulenbach, preview-fcattiswil, preview-her11, preview-hochuli) idempotent aus mit:
   1. Platzierung A (Direkt unterhalb des 3-Schritte Smart-Anfrage-Formulars auf kontakt.html):
      Edle Partner-Empfehlungs-Leiste ("Powered by WebPilot · Beratung & Umsetzung: ...")
   2. Platzierung B (Im Footer jeder Unterseite in .footer-bottom):
-     Klickbarer Partner-Button ("Powered by WebPilot · Partner: ... — Kontakt & Infos")
+     Klickbarer Partner-Button ("Powered by WebPilot · Partner: ... · Kontakt & Infos")
   3. Partner-Visitenkarten- & 15-Sekunden-Vorschau-Modal (#wpPartnerModal):
      - Teil 1: Direkte Partner-Visitenkarte mit 3 Direkt-Buttons (WhatsApp, Anruf, E-Mail)
      - Teil 2: 15-Sekunden-Schnellanfrage -> POST /api/lead-submit (client_slug: "webpilot_partner")
@@ -80,7 +80,7 @@ SHOWCASE_CONFIGS = {
     },
     "preview-innere-staerke": {
         "routing_slug": "innere-staerke",
-        "site_label": "Wüest + Paneduro — Innere Stärke entwickeln",
+        "site_label": "Wüest + Paneduro · Innere Stärke entwickeln",
         "entity_hint": "Wüest + Paneduro (Nino Paneduro GmbH)",
         "accent_hex": "#AE031D",
         "navy_hex": "#232322",
@@ -96,7 +96,7 @@ SHOWCASE_CONFIGS = {
     },
     "preview-frees": {
         "routing_slug": "frees",
-        "site_label": "Free's — Studio für Textildesign, Textildruck & Stickerei",
+        "site_label": "Free's · Studio für Textildesign, Textildruck & Stickerei",
         "entity_hint": "Free's Stefan Fritschi (Niederrohrdorf)",
         "accent_hex": "#E12321",
         "navy_hex": "#181818",
@@ -112,7 +112,7 @@ SHOWCASE_CONFIGS = {
     },
     "preview-herzensarbeit": {
         "routing_slug": "herzensarbeit",
-        "site_label": "Herzensarbeit — Anne-Katrin Koch (Härkingen & Oensingen)",
+        "site_label": "Herzensarbeit · Anne-Katrin Koch (Härkingen & Oensingen)",
         "entity_hint": "Praxis Herzensarbeit Anne-Katrin Koch",
         "accent_hex": "#9A1536",
         "navy_hex": "#1E2B34",
@@ -128,7 +128,7 @@ SHOWCASE_CONFIGS = {
     },
     "preview-imp-marketing": {
         "routing_slug": "imp-marketing",
-        "site_label": "IMP GmbH — Matthias Iseli (Schreinerei- & Holzbau-Marketing)",
+        "site_label": "IMP GmbH · Matthias Iseli (Schreinerei- & Holzbau-Marketing)",
         "entity_hint": "die IMP GmbH (Matthias Iseli, Obersteckholz)",
         "accent_hex": "#C88A36",
         "navy_hex": "#14181D",
@@ -136,7 +136,7 @@ SHOWCASE_CONFIGS = {
     },
     "preview-joma": {
         "routing_slug": "joma",
-        "site_label": "JOMA Solar GmbH — Solaranlagen & Batteriesysteme (Wettingen)",
+        "site_label": "JOMA Solar GmbH · Solaranlagen & Batteriesysteme (Wettingen)",
         "entity_hint": "die JOMA Solar GmbH (Wettingen)",
         "accent_hex": "#D64B13",
         "navy_hex": "#12161F",
@@ -152,7 +152,7 @@ SHOWCASE_CONFIGS = {
     },
     "preview-imp-marketing-v2": {
         "routing_slug": "imp-marketing-v2",
-        "site_label": "IMP GmbH — Matthias Iseli (Zeigeversion / Vorschau-Entwurf)",
+        "site_label": "IMP GmbH · Matthias Iseli (Zeigeversion / Vorschau-Entwurf)",
         "entity_hint": "die IMP GmbH (Matthias Iseli, Obersteckholz)",
         "accent_hex": "#C88A36",
         "navy_hex": "#14181D",
@@ -160,7 +160,7 @@ SHOWCASE_CONFIGS = {
     },
     "preview-holz-susi": {
         "routing_slug": "holz-susi",
-        "site_label": "Holz-Susi GmbH — Susanne Schmid (Zimmerei & Holzbau Frick)",
+        "site_label": "Holz-Susi GmbH · Susanne Schmid (Zimmerei & Holzbau Frick)",
         "entity_hint": "die Holz-Susi GmbH (Susanne Schmid, Frick AG)",
         "accent_hex": "#AF6600",
         "navy_hex": "#1E140A",
@@ -636,7 +636,7 @@ def build_partner_footer_html(partner: dict) -> str:
     return f"""{FOOTER_START}
         <button type="button" class="wp-partner-footer-btn" data-studio-ignore="true" onclick="wpOpenPartnerModal('footer')">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
-          <span>Powered by WebPilot · Partner: {p_name} ({p_short}) — Kontakt &amp; Infos</span>
+          <span>Powered by WebPilot · Partner: {p_name} ({p_short}) · Kontakt &amp; Infos</span>
         </button>
         {FOOTER_END}"""
 
@@ -667,7 +667,7 @@ def build_partner_modal_html(partner: dict, cfg: dict) -> str:
       <div class="wp-partner-modal-head">
         <div>
           <span class="wp-partner-modal-kicker">WEBPILOT PARTNER-KONTAKT · {p_agency.upper()}</span>
-          <h3 class="wp-partner-modal-title" id="wpPartnerModalTitle">WebPilot Partner-Kontakt — Eigene Webseite oder Smart-Anfrage modernisieren</h3>
+          <h3 class="wp-partner-modal-title" id="wpPartnerModalTitle">WebPilot Partner-Kontakt · Eigene Webseite oder Smart-Anfrage modernisieren</h3>
         </div>
         <button type="button" class="wp-partner-modal-close" aria-label="Partner-Dialog schliessen" onclick="wpClosePartnerModal()">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
@@ -707,7 +707,7 @@ def build_partner_modal_html(partner: dict, cfg: dict) -> str:
       <div class="wp-partner-form-box">
         <div class="wp-partner-form-title">15-Sekunden-Schnellanfrage: Unverbindlicher Vorschau-Entwurf</div>
         <p class="wp-partner-form-sub">
-          Geben Sie Ihre bestehende Webseiten-URL oder den Namen Ihres Vereins / Betriebs an — {p_name} ({p_short}) zeigt Ihnen unverbindlich, wie Ihr moderner WebPilot-Auftritt aussieht.
+          Geben Sie Ihre bestehende Webseiten-URL oder den Namen Ihres Vereins / Betriebs an. {p_name} ({p_short}) zeigt Ihnen unverbindlich, wie Ihr moderner WebPilot-Auftritt aussieht.
         </p>
 
         <form id="wpPartnerLeadForm" onsubmit="return wpSubmitPartnerLead(event)" novalidate>
@@ -829,7 +829,7 @@ def build_partner_modal_html(partner: dict, cfg: dict) -> str:
         phone: phoneVal,
         email: emailVal,
         source_page: window.location.pathname || '{site_label}',
-        message: (msg ? msg + ' — ' : '') + 'Empfehlung über Showcase: {site_label} (' + wpPartnerSourceTrigger + ') · Gewünschte Webseite / Verein / Betrieb: ' + targetUrl,
+        message: (msg ? msg + ' · ' : '') + 'Empfehlung über Showcase: {site_label} (' + wpPartnerSourceTrigger + ') · Gewünschte Webseite / Verein / Betrieb: ' + targetUrl,
         extra_fields: {{
           'Gewünschte Ziel-URL / Verein': targetUrl,
           'Empfehlung über': '{site_label}',

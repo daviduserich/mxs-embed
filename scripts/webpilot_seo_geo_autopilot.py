@@ -78,7 +78,7 @@ SITE_SEO_PROFILES = {
             "und KI-Plattform für KMU, Handwerksbetriebe, Praxen, Sportvereine und Partner-Agenturen mit "
             "Zwei-Wege-Freiheit: Kunden steuern ihre Webseite entweder selbst über das visuelle Studio Cockpit v4.0, "
             "das 10-Sekunden Kunden-Cockpit Light und eigenen ChatGPT-HTML-Code für CHF 0.— pro Änderung oder "
-            "wählen die schlüsselfertige Sorglos-Betreuung über zertifizierte Schweizer Partner-Agenturen — "
+            "wählen die schlüsselfertige Sorglos-Betreuung über zertifizierte Schweizer Partner-Agenturen – "
             "mit 2-Stufen-Monatspauschale (CHF 35.— / Mt. Basis inkl. Hosting, Cockpit & SEO-/KI-Such-Autopilot bzw. CHF 45.— / Mt. Smart-Formular & PDF-Pro statt CHF 295.—/Mt. bei Drittanbietern)."
         ),
         "area_served": [
@@ -176,7 +176,7 @@ SITE_SEO_PROFILES = {
     },
     "imp-marketing": {
         "schema_type": "ProfessionalService",
-        "company_name": "IMP GmbH — Matthias Iseli (Schreinerei-Marketing)",
+        "company_name": "IMP GmbH · Matthias Iseli (Schreinerei-Marketing)",
         "legal_name": "IMP GmbH",
         "city": "Obersteckholz",
         "canton": "BE",
@@ -232,7 +232,7 @@ SITE_SEO_PROFILES = {
     },
     "herzensarbeit": {
         "schema_type": "HealthAndBeautyBusiness",
-        "company_name": "Herzensarbeit — Anne-Katrin Koch",
+        "company_name": "Herzensarbeit · Anne-Katrin Koch",
         "legal_name": "Herzensarbeit · Anne-Katrin Koch Künzle",
         "city": "Härkingen",
         "canton": "SO",
@@ -287,7 +287,7 @@ SITE_SEO_PROFILES = {
     },
     "innere-staerke": {
         "schema_type": "ProfessionalService",
-        "company_name": "Wüest + Paneduro — Innere Stärke entwickeln",
+        "company_name": "Wüest + Paneduro · Innere Stärke entwickeln",
         "legal_name": "Nino Paneduro GmbH",
         "city": "Sursee",
         "canton": "LU",
@@ -342,7 +342,7 @@ SITE_SEO_PROFILES = {
     },
     "frees": {
         "schema_type": "ClothingStore",
-        "company_name": "Free's — Studio für Textildesign, Textildruck & Stickerei",
+        "company_name": "Free's · Studio für Textildesign, Textildruck & Stickerei",
         "legal_name": "Free's Stefan Fritschi, Teamsport-Promowear & Print",
         "city": "Niederrohrdorf",
         "canton": "AG",
@@ -398,8 +398,8 @@ SITE_SEO_PROFILES = {
     },
     "her11": {
         "schema_type": "ProfessionalService",
-        "company_name": "HER11 — Ihr Weg. Ihr Spiel. Ihre Zukunft.",
-        "legal_name": "HER11 — Initiative für Ausbildung & Karrierebegleitung im Frauenfussball",
+        "company_name": "HER11 · Ihr Weg. Ihr Spiel. Ihre Zukunft.",
+        "legal_name": "HER11 · Initiative für Ausbildung & Karrierebegleitung im Frauenfussball",
         "city": "Zürich",
         "canton": "ZH",
         "postal_code": "8000",
@@ -1166,7 +1166,7 @@ def _build_rich_alt(current_alt: str, src: str, context_heading: str, filename: 
     Konstruiert deterministisch einen sprechenden, natürlichen Schweizer Local-SEO & GEO alt-Text
     (100 % ss, immer >= 24 Zeichen, mit Firmen- und Orts-/Regionsbezug).
     """
-    comp = profile["company_name"].split("—")[0].split("·")[0].strip()
+    comp = profile["company_name"].split("\u2014")[0].split("·")[0].strip()
     city = profile["city"]
     canton = profile["canton"]
     loc_str = f"{city} ({canton})" if canton and canton != "CH" else city
@@ -1607,7 +1607,7 @@ def generate_llms_txt(profile: dict, pages_intel: list[dict], human_now: str) ->
         if fname in ("onboarding.html",):
             continue
         p_url = base_url if fname == "index.html" else f"{base_url}{fname}"
-        h1_str = f" — {pi['h1'][0]}" if pi.get("h1") else ""
+        h1_str = f" – {pi['h1'][0]}" if pi.get("h1") else ""
         lines.append(f"- [{pi['title']}]({p_url}){h1_str}: {pi['description']}")
 
     lines.append("")
@@ -1687,7 +1687,7 @@ def generate_robots_txt(profile: dict) -> str:
         "Applebot-Extended",
     ]
     lines = [
-        f"# WebPilot Auto-SEO & GEO robots.txt — {profile['company_name']} ({profile['city']})",
+        f"# WebPilot Auto-SEO & GEO robots.txt – {profile['company_name']} ({profile['city']})",
     ]
     for b in bots:
         lines.extend([

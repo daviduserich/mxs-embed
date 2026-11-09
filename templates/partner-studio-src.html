@@ -1206,7 +1206,7 @@
           <svg class="lucide" viewBox="0 0 24 24" style="color: var(--accent-text); margin-top: 2px;">
             <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
           </svg>
-          <span>Geschlossener Partner-Bereich — Zugang ausschliesslich mit persönlicher Einladung.</span>
+          <span>Geschlossener Partner-Bereich – Zugang ausschliesslich mit persönlicher Einladung.</span>
         </div>
 
         <form id="loginForm" style="display: flex; flex-direction: column; gap: 18px;">
@@ -1430,7 +1430,7 @@
             <div class="form-group">
               <label class="field-label" for="jobSourceUrl">
                 <span>2. Bestehende Website-URL</span>
-                <span class="field-hint">Optional — leer lassen bei Neubau</span>
+                <span class="field-hint">Optional, leer lassen bei Neubau</span>
               </label>
               <input type="url" id="jobSourceUrl" placeholder="https://www.beispiel-firma.ch">
             </div>
@@ -1438,7 +1438,7 @@
             <div class="form-group">
               <label class="field-label" for="jobSlug">
                 <span>Gewünschter Kurz-Slug</span>
-                <span class="field-hint">Optional — wird sonst automatisch generiert</span>
+                <span class="field-hint">Optional, wird sonst automatisch generiert</span>
               </label>
               <input type="text" id="jobSlug" placeholder="z. B. hochuli">
             </div>
@@ -1457,7 +1457,7 @@
                         <svg class="lucide" viewBox="0 0 24 24" style="color: var(--accent-text);">
                           <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"></path>
                         </svg>
-                        <span>Ursprungs-Wirkung &amp; Farbwelt beibehalten (Evolution — Empfohlen)</span>
+                        <span>Ursprungs-Wirkung &amp; Farbwelt beibehalten (Evolution – Empfohlen)</span>
                       </span>
                       <span class="badge-4">Standard</span>
                     </div>
@@ -1742,7 +1742,7 @@
       const FALLBACK_SEED_JOBS = [
         {
                 "job_id": "job_herzensarbeit_20261105",
-                "company_name": "Herzensarbeit — Anne-Katrin Koch",
+                "company_name": "Herzensarbeit · Anne-Katrin Koch",
                 "city": "Härkingen & Oensingen SO",
                 "slug": "herzensarbeit",
                 "source_url": "https://herzensarbeit.ch/",
@@ -1826,7 +1826,7 @@
         },
         {
                 "job_id": "job_innere_staerke_20261104",
-                "company_name": "Wüest + Paneduro — Innere Stärke",
+                "company_name": "Wüest + Paneduro · Innere Stärke",
                 "city": "Sursee LU",
                 "slug": "innere-staerke",
                 "source_url": "https://www.innere-staerke.business/",
@@ -2036,7 +2036,7 @@
         },
         {
                 "job_id": "job_impmarketing_20261105",
-                "company_name": "IMP GmbH — Matthias Iseli (Schreinerei-Marketing)",
+                "company_name": "IMP GmbH · Matthias Iseli (Schreinerei-Marketing)",
                 "city": "Obersteckholz BE",
                 "slug": "imp-marketing",
                 "source_url": "https://imp-marketing.ch/",
@@ -2137,7 +2137,7 @@
         const p = getJobPricingInfo(job);
         const comp = job.company_name || job.slug || "Kunde";
         return [
-          "OFFERTEN-AUSWAHL — " + comp,
+          "OFFERTEN-AUSWAHL – " + comp,
           "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━",
           "Variante A (Einmal-Investition):",
           "• Aufbau & schlüsselfertige Webseite: " + p.recPrice + " einmalig",
@@ -2277,7 +2277,7 @@
           assetsSummary.textContent = "";
           return;
         }
-        assetsSummary.textContent = files.length + " Datei(en) ausgewählt — werden vorbereitet...";
+        assetsSummary.textContent = files.length + " Datei(en) ausgewählt, werden vorbereitet...";
         let done = 0;
         files.forEach(function (f) {
           const r = new FileReader();

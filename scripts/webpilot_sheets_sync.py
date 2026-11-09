@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-WebPilot — Kunden- & URL-Zentrale (Dual Google Sheets Live-Sync: Partner-Isolation + David Master-Sheet)
+WebPilot – Kunden- & URL-Zentrale (Dual Google Sheets Live-Sync: Partner-Isolation + David Master-Sheet)
 ========================================================================================================
 Synchronisiert alle WebPilot-Vorschauen (Aktiv, Firma/Verein, Einmal-Preis & Score,
 Monats-Offerte 1. Jahr / ab 2. Jahr, Preis-Begruendung & Aha-Punkte, Zeigeversion -v2,
@@ -39,11 +39,11 @@ from google.oauth2 import service_account
 
 JENNY_SPREADSHEET_ID = "1O3EqOCqGS5HbE5rWxIBoTk8lLA0a2Pz30F7yKiEbRms"
 JENNY_SPREADSHEET_URL = f"https://docs.google.com/spreadsheets/d/{JENNY_SPREADSHEET_ID}/edit"
-JENNY_SPREADSHEET_TITLE = "WebPilot — Kunden- & URL-Zentrale (Jenny Ettle · JE-MI)"
+JENNY_SPREADSHEET_TITLE = "WebPilot – Kunden- & URL-Zentrale (Jenny Ettle · JE-MI)"
 
 DAVID_SPREADSHEET_ID = "1horD2vDfLDnVb9SEoBmXc-tjP8auMAMaqfdrb_g-Sho"
 DAVID_SPREADSHEET_URL = f"https://docs.google.com/spreadsheets/d/{DAVID_SPREADSHEET_ID}/edit"
-DAVID_SPREADSHEET_TITLE = "WebPilot — Master-Kunden- & URL-Zentrale (David Hügli · Alle Partner)"
+DAVID_SPREADSHEET_TITLE = "WebPilot – Master-Kunden- & URL-Zentrale (David Hügli · Alle Partner)"
 
 DEFAULT_SPREADSHEET_ID = JENNY_SPREADSHEET_ID
 DEFAULT_SPREADSHEET_URL = JENNY_SPREADSHEET_URL
@@ -51,7 +51,7 @@ DEFAULT_TAB_TITLE = "Kunden & URL-Zentrale"
 
 MONTHLY_YEAR2_CHF = 35
 MONTHLY_SMART_PRO_YEAR2_CHF = 45
-MONTHLY_PLAN_LABEL = "CHF 35.— / Mt. (Basis: Hosting, Cockpit & SEO-/KI-Such-Autopilot) bzw. CHF 45.— / Mt. (Smart-Pro: inkl. aktivem Formular-, E-Mail-, 1-Seiten-A4-PDF- & WhatsApp-Service — statt CHF 295.—/Mt. bei separaten Formular-Anbietern)"
+MONTHLY_PLAN_LABEL = "CHF 35.— / Mt. (Basis: Hosting, Cockpit & SEO-/KI-Such-Autopilot) bzw. CHF 45.— / Mt. (Smart-Pro: inkl. aktivem Formular-, E-Mail-, 1-Seiten-A4-PDF- & WhatsApp-Service, statt CHF 295.—/Mt. bei separaten Formular-Anbietern)"
 
 PARTNER_SHEET_OWNER = "jenny"
 
@@ -144,7 +144,7 @@ def compute_monthly_pricing(recommended_chf: Any) -> Dict[str, Any]:
         "monthly_display": f"1. Jahr: CHF {year1}.—/Mt. (Smart-Pro: CHF {year1_pro}.—/Mt.) · ab 2. Jahr: CHF 35.— / 45.— Mt.",
         "monthly_sheet_display": (
             f"1. Jahr: CHF {year1}.— / Mt. Basis (CHF {year1_pro}.— / Mt. Smart-Pro)\n"
-            f"Ab 2. Jahr: CHF 35.— / Mt. (Basis: Hosting, Cockpit & SEO-/KI-Such-Autopilot) bzw. CHF 45.— / Mt. (Smart-Pro: inkl. aktivem Formular-, E-Mail-, 1-Seiten-A4-PDF- & WhatsApp-Service — statt CHF 295.—/Mt. bei separaten Formular-Anbietern)\n"
+            f"Ab 2. Jahr: CHF 35.— / Mt. (Basis: Hosting, Cockpit & SEO-/KI-Such-Autopilot) bzw. CHF 45.— / Mt. (Smart-Pro: inkl. aktivem Formular-, E-Mail-, 1-Seiten-A4-PDF- & WhatsApp-Service, statt CHF 295.—/Mt. bei separaten Formular-Anbietern)\n"
             f"Individuelle Formular-Anpassungen (massgeschneiderte Fragen, zusätzliche Formulare oder Empfänger-Weichen) richten wir auf Wunsch gerne im Rahmen der Offerte passgenau für Sie ein."
         ),
     }
@@ -164,10 +164,10 @@ def format_einmal_price_sheet_cell(recommended_chf: str, complexity_score: str, 
 def split_source_and_context(raw_source_or_context: str, explicit_context: str = "") -> Tuple[str, str]:
     raw = (raw_source_or_context or "").strip()
     ctx = (explicit_context or "").strip()
-    url_match = re.search(r"https?://[^\s—]+", raw)
+    url_match = re.search(r"https?://[^\s–]+", raw)
     extracted_url = url_match.group(0).strip() if url_match else ""
     if extracted_url:
-        rest = raw.replace(extracted_url, "").strip(" —-·:")
+        rest = raw.replace(extracted_url, "").strip(" –-·:")
         final_ctx = ctx or rest
         return extracted_url, final_ctx
     return "", (ctx or raw)
@@ -180,7 +180,7 @@ SEED_PROJECTS = [
     {
         "slug": "holz-susi",
         "active": True,
-        "company": "Holz-Susi GmbH — Susanne «Susi» Schmid (Frick AG)",
+        "company": "Holz-Susi GmbH · Susanne «Susi» Schmid (Frick AG)",
         "pricing_recommended_chf": "CHF 2'100.—",
         "complexity_score": "4.6 / 10.0",
         "pricing_formula_chf": "CHF 2'050.—",
@@ -198,7 +198,7 @@ SEED_PROJECTS = [
     {
         "slug": "imp-marketing",
         "active": True,
-        "company": "IMP GmbH — Matthias Iseli (Schreinerei-Marketing)",
+        "company": "IMP GmbH · Matthias Iseli (Schreinerei-Marketing)",
         "pricing_recommended_chf": "CHF 2'400.—",
         "complexity_score": "4.8 / 10.0",
         "pricing_formula_chf": "CHF 2'150.—",
@@ -234,7 +234,7 @@ SEED_PROJECTS = [
     {
         "slug": "herzensarbeit",
         "active": True,
-        "company": "Herzensarbeit — Anne-Katrin Koch (Härkingen SO)",
+        "company": "Herzensarbeit · Anne-Katrin Koch (Härkingen SO)",
         "pricing_recommended_chf": "CHF 1'500.—",
         "complexity_score": "3.5 / 10.0",
         "pricing_formula_chf": "CHF 1'650.—",
@@ -268,7 +268,7 @@ SEED_PROJECTS = [
     {
         "slug": "innere-staerke",
         "active": True,
-        "company": "Wüest + Paneduro — Innere Stärke (Sursee)",
+        "company": "Wüest + Paneduro · Innere Stärke (Sursee)",
         "pricing_recommended_chf": "CHF 2'200.—",
         "complexity_score": "4.2 / 10.0",
         "pricing_formula_chf": "CHF 1'900.—",

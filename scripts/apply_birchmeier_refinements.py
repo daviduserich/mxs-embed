@@ -204,7 +204,7 @@ if index_path.exists():
     c = index_path.read_text(encoding="utf-8")
     
     # Title & Metadata
-    c = re.sub(r"<title>.*?</title>", "<title>Birchmeier-Hohler GmbH — Sanitär, Heizung & Badumbauten Bremgarten</title>", c)
+    c = re.sub(r"<title>.*?</title>", "<title>Birchmeier-Hohler GmbH · Sanitär, Heizung & Badumbauten Bremgarten</title>", c)
     c = c.replace("Haustechnik AG", "GmbH")
     c = c.replace("056 648 20 20", "056 633 33 75")
     c = c.replace("+41566482020", "+41566333375")
@@ -402,7 +402,7 @@ if index_path.exists():
 team_path = SITE_DIR / "team.html"
 if team_path.exists():
     c = team_path.read_text(encoding="utf-8")
-    c = re.sub(r"<title>.*?</title>", "<title>Über uns & Team — Birchmeier-Hohler GmbH Bremgarten</title>", c)
+    c = re.sub(r"<title>.*?</title>", "<title>Über uns & Team · Birchmeier-Hohler GmbH Bremgarten</title>", c)
     c = c.replace("Haustechnik AG", "GmbH")
     c = c.replace("056 648 20 20", "056 633 33 75")
     c = c.replace("056 648 20 22", "056 633 33 75")
@@ -455,7 +455,7 @@ if team_path.exists():
 kontakt_path = SITE_DIR / "kontakt.html"
 if kontakt_path.exists():
     c = kontakt_path.read_text(encoding="utf-8")
-    c = re.sub(r"<title>.*?</title>", "<title>Kontakt & 24h-Pikett — Birchmeier-Hohler GmbH Bremgarten</title>", c)
+    c = re.sub(r"<title>.*?</title>", "<title>Kontakt & 24h-Pikett · Birchmeier-Hohler GmbH Bremgarten</title>", c)
     c = c.replace("Haustechnik AG", "GmbH")
     c = c.replace("056 648 20 20", "056 633 33 75")
     c = c.replace("+41566482020", "+41566333375")

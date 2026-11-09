@@ -795,7 +795,7 @@ function acpRenderImagesGrid() {
         '<div class="acp-card-actions">' +
           '<button type="button" class="btn-card-swap" onclick="acpSelectSwapImage(\'' + img.rel_path + '\', \'' + img.filename + '\')" title="Als neues Foto für Bildtausch auswählen">Als Tausch-Bild wählen</button>' +
           '<button type="button" class="btn-card-copy" onclick="acpCopyImagePath(\'' + img.rel_path + '\')" title="Pfad in die Zwischenablage kopieren">Pfad</button>' +
-          '<button type="button" class="btn-card-delete ' + (img.is_used ? 'is-disabled' : '') + '" onclick="acpDeleteImage(\'' + img.rel_path + '\', \'' + img.filename.replace(/'/g, "\\'") + '\', ' + (img.is_used ? 'true' : 'false') + ')" title="' + (img.is_used ? 'Im Einsatz — kann nicht gelöscht werden' : 'Foto aus Pool & Cloudflare löschen') + '">×</button>' +
+          '<button type="button" class="btn-card-delete ' + (img.is_used ? 'is-disabled' : '') + '" onclick="acpDeleteImage(\'' + img.rel_path + '\', \'' + img.filename.replace(/'/g, "\\'") + '\', ' + (img.is_used ? 'true' : 'false') + ')" title="' + (img.is_used ? 'Im Einsatz, kann nicht gelöscht werden' : 'Foto aus Pool & Cloudflare löschen') + '">×</button>' +
         '</div>' +
       '</div>' +
     '</div>';
@@ -2656,7 +2656,7 @@ function acpOpenReplaceSectionModal(secId) {
   if (title) {
     var targetSec = (acpScannedSections || []).find(function(s) { return s.id === secId; });
     var secTitle = targetSec && targetSec.title ? (' «' + targetSec.title + '»') : '';
-    title.textContent = (targetSec && targetSec.title ? targetSec.title : ("Abschnitt " + secId)) + " — Inhalt oder Code einsetzen";
+    title.textContent = (targetSec && targetSec.title ? targetSec.title : ("Abschnitt " + secId)) + " – Inhalt oder Code einsetzen";
   }
   if (textarea) {
     textarea.value = "";
@@ -3570,7 +3570,7 @@ function acpUpdateInlineEditStatus() {
     }
     if (statusText) {
       var secList = Array.from(acpDirtySections).join(", ");
-      statusText.innerHTML = "<strong>Änderungen erkannt in:</strong> [" + secList + "] — Klicke auf Speichern, um sie dauerhaft bereitzustellen.";
+      statusText.innerHTML = "<strong>Änderungen erkannt in:</strong> [" + secList + "] – Klicke auf Speichern, um sie dauerhaft bereitzustellen.";
     }
     if (saveBtn) {
       saveBtn.disabled = false;
@@ -3831,7 +3831,7 @@ function acpRemoveSection(secId) {
 
 
 /* ============================================================================
- * WEBPILOT STUDIO v4.0 — FARBTABELLE, STIL-WELTEN & KI VIBE-CODING TO CSS
+ * WEBPILOT STUDIO v4.0 – FARBTABELLE, STIL-WELTEN & KI VIBE-CODING TO CSS
  * ============================================================================ */
 var acpCurrentDesignState = {
   preset: "",
@@ -3854,7 +3854,7 @@ var acpCurrentDesignState = {
 
 var ACP_DESIGN_PRESETS = {
   rose_creme: {
-    label: "1. Warmes Rosé & Creme (Praxis, Herzensarbeit & Coaching — Hell)",
+    label: "1. Warmes Rosé & Creme (Praxis, Herzensarbeit & Coaching – Hell)",
     heroGradient: "linear-gradient(135deg, #fdf8f5 0%, #f7ebe8 55%, #f3e2dd 100%)",
     colors: {
       primary: "#9b2c47",
@@ -4323,7 +4323,7 @@ function acpBuildClientSideColorCss() {
     ".btn-cta-gold, .btn-cta-primary, .btn-primary, .btn-haupt, .nav-cta, .sticky-cta a, .form-submit { background-color: " + c.primary + " !important; border-color: " + c.primary + " !important; color: #ffffff !important; }",
     ".section-kicker, .section-eyebrow, .hero-eyebrow, .kicker, .hero-title span, .hero-badge-val, .sektion-label, .hero h1 em, .hero h1 span { color: " + c.primary + " !important; }",
     ".hero-tag { background-color: " + c.primary + " !important; color: #ffffff !important; }",
-    ".section-kicker::before { background-color: " + c.primary + " !important; }",
+    "",
     ".hero-badge-card, .contact-direct-item { border-left-color: " + c.primary + " !important; }",
     ".hero-section, .hero, .page-hero, .hero-wrap, [data-section='hero'] { " + heroBgRule + "color: " + c.heroText + " !important; }",
     ".hero-section h1, .hero-section .hero-title, .hero-section .hero-lead, .page-hero h1, .page-hero p, .hero-trust-item, .hero-badge-lbl, .hero h1, .hero .hero-sub, .hero p, .hero-wrap h1 { color: " + c.heroText + " !important; }",

@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-verify_embed_routing_gate.py — Deterministisches Pre-Push Routing- & Embed-Gate fuer mxs-embed
+verify_embed_routing_gate.py – Deterministisches Pre-Push Routing- & Embed-Gate fuer mxs-embed
 ==============================================================================================
 Verhindert vor jedem Git-Push in < 1s, dass ein Direkt-Mandantenordner (Karriere-Widget / Cockpit)
 durch einen Fehl-Rewrite in functions/_middleware.js auf einen nicht existierenden preview-* Pfad
