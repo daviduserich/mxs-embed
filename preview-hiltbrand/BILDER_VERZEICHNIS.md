@@ -5,7 +5,7 @@
 > **Lokaler Ordner (VPS & Git):** `preview-hiltbrand/`  
 > **Cloudflare-Basis-URL:** [vorschau.magnet-xs.ch/hiltbrand/](https://vorschau.magnet-xs.ch/hiltbrand/)  
 > **Bestand:** **28 Assets** (8.15 MB gesamt) · **🟢 10 aktiv im HTML** · **⚪ 18 frei im Bild-Pool** · **Externe Hotlinks: 0**  
-> **Letzte Aktualisierung:** 09.11.2026 14:06 Uhr (automatisch generiert via `webpilot_asset_catalog.py`)
+> **Letzte Aktualisierung:** 09.11.2026 14:07 Uhr (automatisch generiert via `webpilot_asset_catalog.py`)
 
 ---
 

@@ -781,7 +781,7 @@ def build_master_catalog_markdown(site_reports: list[dict]) -> str:
         "",
         "---",
         "",
-        "## Teil 1 — Gesamt-Übersichtstabelle aller {len(inventories)} Webseiten",
+        f"## Teil 1 — Gesamt-Übersichtstabelle aller 22 Webseiten",
         "",
         "| Webseite / Kunde | Partner | Eingereicht am (Datum & Uhrzeit) | Ordner (VPS & Git) | Cloudflare-Basis-URL | Bilder total | Aktiv im HTML | Frei im Pool | Externe Hotlinks | Gesamtgrösse |",
         "|---|---|---|---|---|---:|---:|---:|---:|---:|",
@@ -822,16 +822,16 @@ def build_master_catalog_markdown(site_reports: list[dict]) -> str:
             "",
             "1. **Physischer Master-Speicher auf dem Hetzner VPS:**",
             "   - Jede Webseite besitzt ihren eigenen isolierten Asset-Ordner unter `/home/brainuser/workspaces/mxs-embed/<ordner>/images/`.",
-            "   - Es werden **keine externen Hotlinks** auf fremde Kundenseiten oder externe Buckets im HTML verwendet (`external_hotlinks = 0` über alle {len(inventories)} Ordner).",
+            "   - Es werden **keine externen Hotlinks** auf fremde Kundenseiten oder externe Buckets im HTML verwendet (`external_hotlinks = 0` über alle 22 Ordner).",
             "2. **Manifeste pro Webseite (`bilder.json` & `BILDER_VERZEICHNIS.md`):**",
-            "   - In jedem der {len(inventories)} Ordner liegen `bilder.json` (für das Studio-Cockpit `cockpit.html` und den 1-Klick-Bildtausch) sowie `BILDER_VERZEICHNIS.md` (menschenlesbare Markdown-Tabelle mit Direkt-Links).",
+            "   - In jedem der 22 Ordner liegen `bilder.json` (für das Studio-Cockpit `cockpit.html` und den 1-Klick-Bildtausch) sowie `BILDER_VERZEICHNIS.md` (menschenlesbare Markdown-Tabelle mit Direkt-Links).",
             "3. **Globale Auslieferung über Cloudflare Pages (`vorschau.magnet-xs.ch` & `embed.magnet-xs.ch`):**",
             "   - Jeder Git-Push in `mxs-embed` (`main`) repliziert sämtliche Bilder innert Sekunden auf das Schweizer Cloudflare Edge-CDN.",
             "   - Die Edge-Middleware (`functions/_middleware.js`) löst sprechende Vorschau-Links (wie `https://vorschau.magnet-xs.ch/joma-vollversion/images/...` oder `https://vorschau.magnet-xs.ch/joma-v2/images/...`) direkt auf den jeweiligen Mandanten-Ordner auf.",
             "",
             "---",
             "",
-            "## Teil 3 — Vollständiges Einzel-Verzeichnis pro Webseite (Alle {len(inventories)} Ordner)",
+            "## Teil 3 — Vollständiges Einzel-Verzeichnis pro Webseite (Alle 22 Ordner)",
             "",
         ]
     )
@@ -876,7 +876,7 @@ def update_asset_catalog(site_dir: Optional[Path] = None, update_master: bool = 
     """
     Öffentliche Hauptfunktion für publish_service.py, compile_site.py und CLI:
     - Wenn site_dir angegeben ist: aktualisiert diesen Ordner ( und falls update_master=True,
-      anschliessend auch den zentralen Master-Katalog über alle {len(inventories)} Ordner).
+      anschliessend auch den zentralen Master-Katalog über alle 22 Ordner).
     - Wenn site_dir None ist: scannt alle 20 Ordner und schreibt alle Einzel- & Master-Kataloge.
     """
     t0 = time.perf_counter()
