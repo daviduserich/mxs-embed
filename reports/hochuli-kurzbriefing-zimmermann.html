@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="de-CH">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <meta http-equiv="X-Frame-Options" content="SAMEORIGIN">
+  <meta http-equiv="X-XSS-Protection" content="1; mode=block">
+  <meta name="referrer" content="no-referrer">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Kurzbriefing: 2 Mitarbeiter-Kurzvideos + 2 geschriebene Chef-Zitate (Recruiting «Zimmermann EFZ»)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-page: #F8FAFC;
+      --bg-card: #FFFFFF;
+      --bg-subtle: #F1F5F9;
+      --text-main: #0F172A;
+      --text-secondary: #334155;
+      --text-muted: #475569;
+      --accent: #e30613;
+      --accent-dark: #b91c1c;
+      --accent-soft: #FEF2F2;
+      --accent-border: #FECACA;
+      --mxs-accent: #e8781e;
+      --mxs-soft: #FFF7ED;
+      --mxs-border: #FDBA74;
+      --border: #CBD5E1;
+      --border-strong: #94A3B8;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    ::selection {
+      background: rgba(227, 6, 19, 0.14);
+      color: var(--text-main);
+    }
+
+    html, body {
+      background-color: var(--bg-page);
+      color: var(--text-main);
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      font-size: 14.5px;
+      line-height: 1.58;
+      -webkit-font-smoothing: antialiased;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .top-bar {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(15, 23, 42, 0.96);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 12px 24px;
+    }
+
+    .top-bar-inner {
+      max-width: 960px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .top-bar-title {
+      color: #F8FAFC;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 700;
+      font-size: 14px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .top-bar-badge {
+      background: rgba(232, 120, 30, 0.2);
+      color: #FDBA74;
+      border: 1px solid rgba(253, 186, 116, 0.35);
+      border-radius: 4px;
+      padding: 2px 8px;
+      font-size: 11.5px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .top-bar-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .btn-download {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #e8781e;
+      color: #FFFFFF;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 13.5px;
+      padding: 8px 16px;
+      border-radius: 8px;
+      border: none;
+      cursor: pointer;
+      transition: background 0.15s ease;
+    }
+
+    .btn-download:hover {
+      background: #c2410c;
+    }
+
+    .btn-print {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(255, 255, 255, 0.1);
+      color: #E2E8F0;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 13px;
+      padding: 8px 14px;
+      border-radius: 8px;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      cursor: pointer;
+    }
+
+    .btn-print:hover {
+      background: rgba(255, 255, 255, 0.18);
+    }
+
+    .page-wrap {
+      max-width: 960px;
+      margin: 28px auto 56px;
+      padding: 0 24px;
+    }
+
+    .doc-sheet {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 40px 44px;
+      box-shadow: 0 8px 24px rgba(15, 23, 42, 0.05);
+    }
+
+    .doc-header {
+      border-bottom: 2px solid #0F172A;
+      padding-bottom: 22px;
+      margin-bottom: 26px;
+    }
+
+    .doc-kicker {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 11.5px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--mxs-accent);
+      margin-bottom: 6px;
+    }
+
+    h1 {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 25px;
+      font-weight: 800;
+      line-height: 1.25;
+      color: var(--text-main);
+      margin-bottom: 14px;
+    }
+
+    .meta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      font-size: 13px;
+      color: var(--text-muted);
+      background: var(--bg-subtle);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 10px 16px;
+    }
+
+    .meta-row strong {
+      color: var(--text-main);
+      font-weight: 600;
+    }
+
+    .goal-box {
+      background: var(--mxs-soft);
+      border: 1px solid var(--mxs-border);
+      border-radius: 8px;
+      padding: 16px 20px;
+      margin-bottom: 28px;
+    }
+
+    .goal-box-title {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 700;
+      font-size: 14.5px;
+      color: #9A3412;
+      margin-bottom: 8px;
+    }
+
+    .goal-box ol {
+      margin-left: 20px;
+      color: var(--text-main);
+    }
+
+    .goal-box li {
+      margin-bottom: 4px;
+    }
+
+    .goal-time {
+      margin-top: 10px;
+      padding-top: 8px;
+      border-top: 1px dashed var(--mxs-border);
+      font-size: 13.5px;
+      font-weight: 600;
+      color: #9A3412;
+    }
+
+    .section-block {
+      margin-bottom: 30px;
+    }
+
+    h2 {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 18px;
+      font-weight: 800;
+      color: var(--text-main);
+      background: #0F172A;
+      color: #FFFFFF;
+      padding: 9px 16px;
+      border-radius: 8px;
+      margin-bottom: 16px;
+      letter-spacing: -0.01em;
+    }
+
+    h3 {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 15.5px;
+      font-weight: 700;
+      color: var(--text-main);
+      margin: 18px 0 6px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .sub-hint {
+      font-size: 13px;
+      color: var(--text-muted);
+      font-style: italic;
+      margin-bottom: 12px;
+    }
+
+    .highlight-callout {
+      background: #F8FAFC;
+      border-left: 4px solid var(--mxs-accent);
+      border-top: 1px solid var(--border);
+      border-right: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      border-radius: 0 8px 8px 0;
+      padding: 12px 16px;
+      margin-bottom: 16px;
+      font-weight: 600;
+      color: var(--text-main);
+    }
+
+    ol.regie-list {
+      margin-left: 20px;
+    }
+
+    ol.regie-list > li {
+      margin-bottom: 10px;
+      padding-left: 4px;
+    }
+
+    ol.regie-list ul {
+      margin-top: 6px;
+      margin-left: 18px;
+    }
+
+    ol.regie-list ul li {
+      margin-bottom: 4px;
+    }
+
+    .question-card {
+      background: var(--bg-subtle);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 14px 18px;
+      margin-bottom: 12px;
+      page-break-inside: avoid;
+      break-inside: avoid;
+    }
+
+    .question-label {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      color: #0F172A;
+      margin-bottom: 6px;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+    }
+
+    .question-quote {
+      background: #FFFFFF;
+      border: 1px solid var(--border);
+      border-left: 4px solid #0F172A;
+      border-radius: 4px;
+      padding: 10px 14px;
+      font-size: 14px;
+      color: var(--text-main);
+      font-style: italic;
+    }
+
+    .quote-draft-card {
+      background: #FFFFFF;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      padding: 18px 20px;
+      margin-top: 12px;
+      margin-bottom: 16px;
+      page-break-inside: avoid;
+      break-inside: avoid;
+    }
+
+    .quote-draft-header {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 15px;
+      font-weight: 800;
+      color: #0F172A;
+      margin-bottom: 10px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .quote-option-label {
+      font-size: 12.5px;
+      font-weight: 700;
+      color: var(--text-secondary);
+      margin-top: 8px;
+      margin-bottom: 4px;
+    }
+
+    .slogan-box {
+      background: #FFFBEB;
+      border: 1px solid #FDE68A;
+      border-left: 4px solid var(--mxs-accent);
+      border-radius: 4px;
+      padding: 12px 16px;
+      font-weight: 600;
+      color: #0F172A;
+      margin-top: 4px;
+    }
+
+    .slogan-author {
+      margin-top: 6px;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--text-muted);
+      font-style: italic;
+    }
+
+    .doc-footer {
+      margin-top: 32px;
+      padding-top: 16px;
+      border-top: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    @media (max-width: 640px) {
+      .doc-sheet {
+        padding: 24px 18px;
+      }
+      h1 {
+        font-size: 20px;
+      }
+    }
+
+    @media print {
+      @page {
+        size: A4;
+        margin: 12mm 14mm;
+      }
+      html, body {
+        background: #FFFFFF;
+        font-size: 12.5px;
+        line-height: 1.48;
+      }
+      .top-bar {
+        display: none !important;
+      }
+      .page-wrap {
+        max-width: 100%;
+        margin: 0;
+        padding: 0;
+      }
+      .doc-sheet {
+        border: none;
+        box-shadow: none;
+        padding: 0;
+      }
+      h2 {
+        margin-top: 14px;
+        margin-bottom: 10px;
+        padding: 7px 12px;
+        font-size: 15px;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+      .goal-box, .highlight-callout, .question-card, .quote-draft-card, .slogan-box, .meta-row {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="top-bar">
+    <div class="top-bar-inner">
+      <div class="top-bar-title">
+        <span class="top-bar-badge">PDF-Dossier</span>
+        <span>Kurzbriefing: Recruiting «Zimmermann EFZ» — Hochuli Schlossrued AG</span>
+      </div>
+      <div class="top-bar-actions">
+        <a href="/reports/hochuli-kurzbriefing-zimmermann.pdf" download="Kurzbriefing_Hochuli_Zimmermann_Videos_Zitate.pdf" class="btn-download">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Als PDF herunterladen
+        </a>
+        <button type="button" onclick="window.print()" class="btn-print">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+          Drucken
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <main class="page-wrap">
+    <article class="doc-sheet">
+      <header class="doc-header">
+        <div class="doc-kicker">HOCHULI SCHLOSSRUED AG · RECRUITING-FUNNEL «ZIMMERMANN / ZIMMERIN EFZ»</div>
+        <h1>Kurzbriefing: 2 Mitarbeiter-Kurzvideos + 2 geschriebene Chef-Zitate (Recruiting «Zimmermann EFZ»)</h1>
+        <div class="meta-row">
+          <div><strong>Datum:</strong> 9. November 2026</div>
+          <div><strong>Ausgearbeitet von:</strong> David Hügli · magnet-Xs gmbh</div>
+          <div><strong>Projekt:</strong> Stellen-Landingpage &amp; Kampagne «Zimmermann EFZ»</div>
+        </div>
+      </header>
+
+      <section class="goal-box">
+        <div class="goal-box-title">Zielsetzung &amp; Umfang</div>
+        <ol>
+          <li><strong>2 authentische Mitarbeiter-Kurzvideos</strong> (je ca. 20–35 Sek., ungeskriptet) mit zwei Zimmerleuten aus dem Team.</li>
+          <li><strong>2 geschriebene Original-Zitate (Slogans) mit Porträtfoto</strong> von <strong>Martin Hochuli</strong> (Inhaber) und <strong>Stefan Hofmann</strong> (Leiter Holzbau) für die Team-Sektion auf der Seite <em>(nur als Text neben ihren bereits vorhandenen Porträtfotos — kein Video nötig!)</em>.</li>
+        </ol>
+        <div class="goal-time">Zeitaufwand vor Ort: Maximal 10–15 Minuten total.</div>
+      </section>
+
+      <section class="section-block">
+        <h2>TEIL 1: Regie &amp; Setting für die 2 Mitarbeiter-Kurzvideos</h2>
+        <div class="highlight-callout">
+          Empfohlenes Setting («Off-Camera Interview-Stil»):<br>
+          Jenny ist NICHT im Bild zu sehen, aber ihre Frage-Stimme bleibt im Video hörbar!
+        </div>
+        <ol class="regie-list">
+          <li>
+            <strong>Warum man Jennys Stimme am Anfang hören soll:</strong><br>
+            Wenn man in den ersten 2–3 Sekunden Jennys Stimme aus dem Off hört (<em>«Du, sag mal kurz: Bei uns in der Zimmerei...»</em>), versteht jeder Zuschauer auf der Webseite und in den Werbeanzeigen sofort: <em>Aha, das ist kein auswendig gelernter Werbespruch, sondern eine ehrliche, spontane Antwort auf eine echte Frage!</em>
+          </li>
+          <li>
+            <strong>Warum Jenny nicht im Bild sein muss (und wohin der Mitarbeiter schaut):</strong><br>
+            Jenny steht einfach direkt rechts oder links neben dem Smartphone. Der Zimmermann schaut beim Antworten ganz natürlich <strong>Jenny ins Gesicht</strong> (nicht starr in die Kameralinse!). Dadurch verschwindet jede Kamera-Scheu sofort, es wirkt wie ein Gespräch am Znüni-Tisch und man braucht keinen Schnitt zwischen zwei Personen.
+          </li>
+          <li>
+            <strong>Mikrofon-Setup (mit den externen Funk-Mikrofonen):</strong>
+            <ul>
+              <li>Das Ansteck-Mikrofon (Lavalier) kommt an den Kragen/Pullover des Zimmermanns.</li>
+              <li><em>Falls 2 Sender vorhanden sind:</em> Zweiten Sender bei Jenny anstecken.</li>
+              <li><em>Falls 1 Sender genutzt wird:</em> Jenny steht einfach ca. 1 bis 1.5 Meter neben dem Zimmermann — das Mikrofon des Zimmermanns nimmt Jennys Frage im selben Raum sauber mit auf.</li>
+            </ul>
+          </li>
+          <li>
+            <strong>Format &amp; Drehort (Echte Holzbau-Kulisse):</strong>
+            <ul>
+              <li><strong>Format:</strong> <strong>Hochformat (9:16)</strong> auf Augenhöhe (passt perfekt nebeneinander in die Testimonial-Sektion UND 1:1 als Reel/Story-Ad auf Instagram &amp; Facebook).</li>
+              <li><strong>Ort Video 1:</strong> In der <strong>Abbundhalle / Werkhalle in Schlossrued</strong> (vor gestapeltem Holz, an der Werkbank oder vor einem sauberen Hochuli-Bus — kurz wenn keine Maschine lärmt).</li>
+              <li><strong>Ort Video 2:</strong> Draussen auf einer <strong>Umbau-/Sanierungs-Baustelle</strong> oder beim <strong>Beladen/Magazin</strong> am Hof.</li>
+            </ul>
+          </li>
+          <li>
+            <strong>Sprache:</strong> Ganz normales <strong>Schweizerdeutsch (Mundart)</strong>. Nichts auswendig lernen!
+          </li>
+        </ol>
+      </section>
+
+      <section class="section-block">
+        <h2>TEIL 2: Die Fragen an die 2 Zimmerleute (je 2–3 Fragen zur Auswahl)</h2>
+        <p class="sub-hint">(Im Holzbau-Team bieten sich z. B. Samuel Bossard, Robin Julmi, Ramon Lüscher, Nico Buchschacher, Jürg Huber, Patrik Müller, Marc Schwendemann oder einer der Vorarbeiter an).</p>
+
+        <h3>Mitarbeiter 1 — Fokus: «Mir gefällt an der Arbeit und am Alltag...»</h3>
+        <p class="sub-hint">(Themen: Abwechslung statt Elementbau-Fliessband, eigenes Ökosystem auf der Baustelle, pünktlicher Feierabend)</p>
+
+        <div class="question-card">
+          <div class="question-label">Frage 1 (Abwechslung statt Fliessband &amp; Grossbaustelle)</div>
+          <div class="question-quote">«Hey [Name], sag mal: Viele Zimmerleute stehen ja monatelang auf riesigen Beton-Grossbaustellen oder machen nur Elementbau am Fliessband. Wir sind hier fast jede Woche oder alle 14 Tage auf einem neuen Umbau oder einer Sanierung bei Familien und Landwirten in der Region. Was gefällt dir an dieser Art von Arbeit am meisten?»</div>
+        </div>
+
+        <div class="question-card">
+          <div class="question-label">Frage 2 (Das eigene Ökosystem — man kennt die anderen Handwerker)</div>
+          <div class="question-quote">«Auf anderen Baustellen gibt es ja oft Reibereien mit fremden Handwerkern. Bei uns gehören Spengler, Dachdecker, Sanitär und die Planung zum eigenen Haus oder man kennt sich seit Jahren. Wie merkst du das draussen auf der Baustelle?»</div>
+        </div>
+
+        <div class="question-card">
+          <div class="question-label">Frage 3 (Saubere Planung = Freitag 16:30 Feierabend &amp; kein Stau)</div>
+          <div class="question-quote">«Wenn dich ein Zimmermann-Kollege am Feierabend-Bier fragt, wie es bei Hochuli mit Überstunden, Samstagsarbeit und Autobahn-Stau aussieht — was sagst du ihm ehrlich?»</div>
+        </div>
+
+        <h3 style="margin-top: 24px;">Mitarbeiter 2 — Fokus: «Ich bin froh, dass bei Hochuli...»</h3>
+        <p class="sub-hint">(Themen: Sofort neues Werkzeug statt warten bis November, 100 % Sicherheit, Transparenz &amp; Weiterkommen)</p>
+
+        <div class="question-card">
+          <div class="question-label">Frage 1 (Die «300-Franken-Maschinen-Regel» &amp; Top-Ausrüstung)</div>
+          <div class="question-quote">«Hey [Name], dem Martin ist es ja extrem wichtig, dass wir nicht bis zum Jahresgespräch im November warten, wenn uns draussen eine Maschine oder ein Werkzeug fehlt, sondern dass man es sofort sagt und unbürokratisch anschafft. Wie erlebst du das mit unserem Werkzeug und den Fahrzeugen im Alltag?»</div>
+        </div>
+
+        <div class="question-card">
+          <div class="question-label">Frage 2 (Keine Kompromisse bei der Sicherheit &amp; Monats-Rapport)</div>
+          <div class="question-quote">«Hochuli lehnt ja bewusst Baustellen ab, bei denen auf Kosten der Sicherheit gespart wird, und wir besprechen jeden Monat im Team-Rapport offen alle Engpässe und die Sicherheit. Warum bist du froh, dass da bei uns keine Kompromisse gemacht werden?»</div>
+        </div>
+
+        <div class="question-card">
+          <div class="question-label">Frage 3 (Offene Nachkalkulation, Teamgeist &amp; 50 % Weiterbildungs-Zeit)</div>
+          <div class="question-quote">«Wir sehen hier nach den Projekten ja sogar offen die Nachkalkulation, und wer sich weiterbilden will — z. B. Richtung Vorarbeiter —, kriegt 50 % der Ausbildungszeit bezahlt. Warum arbeitest du gerne im Hochuli-Team?»</div>
+        </div>
+      </section>
+
+      <section class="section-block">
+        <h2>TEIL 3: Geschriebene Slogans / Zitate von Martin Hochuli &amp; Stefan Hofmann (KEIN Video — nur Text!)</h2>
+        <p style="margin-bottom: 12px;">Auf der Recruiting-Seite haben wir zwei prominente <strong>Zitat-Karten mit Porträtfoto</strong>. Die Fotos von <strong>Martin Hochuli</strong> und <strong>Stefan Hofmann</strong> sind bereits fertig im System hinterlegt. Man kann den beiden entweder kurz <strong>diese eine Frage stellen</strong> (und 2–3 Sätze notieren) — oder ihnen direkt die <strong>Vorab-Entwürfe aus dem Gespräch vom 04.11.</strong> zum kurzen Abnicken vorlegen:</p>
+
+        <div class="quote-draft-card">
+          <div class="quote-draft-header">1. Zitat-Karte: Martin Hochuli (Inhaber &amp; Geschäftsführer)</div>
+          <div class="quote-option-label">Option A — Kurze Frage an Martin (falls er es selbst formulieren will):</div>
+          <div class="question-quote" style="margin-bottom: 12px;">«Martin, in 2–3 Sätzen für unsere neue Zimmermann-Seite: Warum lehnst du Baustellen ab, auf denen an der Sicherheit gespart wird, und warum ist es dir so wichtig, dass deine Leute sofort den Mund aufmachen, wenn eine Maschine fehlt oder sie weiterkommen wollen?»</div>
+          <div class="quote-option-label">Option B — Fertiger Entwurf (aus seinen Aussagen vom 04.11. gebaut — nur noch abnicken lassen):</div>
+          <div class="slogan-box">
+            «Bei uns verheizt sich niemand im Preisdumping auf ungesicherten Baustellen. Und wenn dir im Sommer eine Maschine für 300 Franken die Arbeit leichter macht, warten wir nicht bis zum November-Gespräch — dann kaufen wir sie sofort. Ich suche Berufsleute, die mitdenken und denen es bei uns wohl ist.»
+            <div class="slogan-author">— Martin Hochuli, Inhaber &amp; Geschäftsführer</div>
+          </div>
+        </div>
+
+        <div class="quote-draft-card">
+          <div class="quote-draft-header">2. Zitat-Karte: Stefan Hofmann (Dipl. Holzbau-Bauführer HF · Leiter Holzbau + Bedachung)</div>
+          <div class="quote-option-label">Option A — Kurze Frage an Stefan (für seinen echten Tonfall als direkter Vorgesetzter):</div>
+          <div class="question-quote" style="margin-bottom: 12px;">«Stefan, in 2–3 Sätzen von Zimmermann zu Zimmermann: Was macht für dich den Alltag in eurem Holzbau-Team aus — und wen wünschst du dir als Verstärkung in deiner Mannschaft?»</div>
+          <div class="quote-option-label">Option B — Fertiger Entwurf zum Abnicken / Anpassen durch Stefan:</div>
+          <div class="slogan-box">
+            «Kein monotones Elementbau-Fliessband und kein Schnittstellen-Theater auf dem Dach: Bei uns bist du jede Woche oder alle 14 Tage auf spannenden Umbauten und Sanierungen in der Region unterwegs, kennst den Spengler und Planer persönlich und hast am Freitag um 16:30 Uhr verdient Feierabend.»
+            <div class="slogan-author">— Stefan Hofmann, Leiter Holzbau + Bedachung</div>
+          </div>
+        </div>
+      </section>
+
+      <footer class="doc-footer">
+        <div>Hochuli Schlossrued AG · Hauptstrasse 106 · 5044 Schlossrued</div>
+        <div>Erstellt am 09.11.2026 · David Hügli (magnet-Xs gmbh)</div>
+      </footer>
+    </article>
+  </main>
+
+</body>
+</html>
