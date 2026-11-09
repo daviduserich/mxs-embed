@@ -5,7 +5,7 @@
 > **Lokaler Ordner (VPS & Git):** `preview-innere-staerke/`  
 > **Cloudflare-Basis-URL:** [vorschau.magnet-xs.ch/innere-staerke-vollversion/](https://vorschau.magnet-xs.ch/innere-staerke-vollversion/)  
 > **Bestand:** **41 Assets** (3.24 MB gesamt) · **🟢 33 aktiv im HTML** · **⚪ 8 frei im Bild-Pool** · **Externe Hotlinks: 0**  
-> **Letzte Aktualisierung:** 09.11.2026 13:59 Uhr (automatisch generiert via `webpilot_asset_catalog.py`)
+> **Letzte Aktualisierung:** 09.11.2026 14:06 Uhr (automatisch generiert via `webpilot_asset_catalog.py`)
 
 ---
 

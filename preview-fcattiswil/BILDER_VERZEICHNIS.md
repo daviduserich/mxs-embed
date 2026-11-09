@@ -5,7 +5,7 @@
 > **Lokaler Ordner (VPS & Git):** `preview-fcattiswil/`  
 > **Cloudflare-Basis-URL:** [vorschau.magnet-xs.ch/fcattiswil/](https://vorschau.magnet-xs.ch/fcattiswil/)  
 > **Bestand:** **36 Assets** (1.00 MB gesamt) · **🟢 34 aktiv im HTML** · **⚪ 2 frei im Bild-Pool** · **Externe Hotlinks: 0**  
-> **Letzte Aktualisierung:** 09.11.2026 13:59 Uhr (automatisch generiert via `webpilot_asset_catalog.py`)
+> **Letzte Aktualisierung:** 09.11.2026 14:06 Uhr (automatisch generiert via `webpilot_asset_catalog.py`)
 
 ---
 

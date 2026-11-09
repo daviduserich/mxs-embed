@@ -7,13 +7,13 @@ status: aktiv
 
 # WebPilot Bilder- und Cloudflare-Asset-Katalog (Master-Verzeichnis)
 
-> **Stand:** 09.11.2026 13:59 Uhr | **Umfang:** **22 Webseiten-Ordner** mit insgesamt **763 lokalen Medien-Assets** (**99.19 MB**)  
+> **Stand:** 09.11.2026 14:06 Uhr | **Umfang:** **22 Webseiten-Ordner** mit insgesamt **763 lokalen Medien-Assets** (**99.19 MB**)  
 > **Verwendung:** **🟢 513 aktiv im HTML eingebunden** · **⚪ 250 frei im Bild-Pool verfügbar** · **Externe Hotlinks: 0 (100 % lokal auf Cloudflare Edge)**  
 > **Single Source of Truth:** Automatisch generiert und nach jedem Bild-Upload, Bild-Tausch, Bild-Löschen oder Job-Abschluss live aktualisiert durch `scripts/webpilot_asset_catalog.py`.
 
 ---
 
-## Teil 1 — Gesamt-Übersichtstabelle aller 20 Webseiten
+## Teil 1 — Gesamt-Übersichtstabelle aller {len(inventories)} Webseiten
 
 | Webseite / Kunde | Partner | Eingereicht am (Datum & Uhrzeit) | Ordner (VPS & Git) | Cloudflare-Basis-URL | Bilder total | Aktiv im HTML | Frei im Pool | Externe Hotlinks | Gesamtgrösse |
 |---|---|---|---|---|---:|---:|---:|---:|---:|
@@ -63,16 +63,16 @@ Alle neu hochgeladenen oder importierten Bilder und Videos werden durch `publish
 
 1. **Physischer Master-Speicher auf dem Hetzner VPS:**
    - Jede Webseite besitzt ihren eigenen isolierten Asset-Ordner unter `/home/brainuser/workspaces/mxs-embed/<ordner>/images/`.
-   - Es werden **keine externen Hotlinks** auf fremde Kundenseiten oder externe Buckets im HTML verwendet (`external_hotlinks = 0` über alle 20 Ordner).
+   - Es werden **keine externen Hotlinks** auf fremde Kundenseiten oder externe Buckets im HTML verwendet (`external_hotlinks = 0` über alle {len(inventories)} Ordner).
 2. **Manifeste pro Webseite (`bilder.json` & `BILDER_VERZEICHNIS.md`):**
-   - In jedem der 20 Ordner liegen `bilder.json` (für das Studio-Cockpit `cockpit.html` und den 1-Klick-Bildtausch) sowie `BILDER_VERZEICHNIS.md` (menschenlesbare Markdown-Tabelle mit Direkt-Links).
+   - In jedem der {len(inventories)} Ordner liegen `bilder.json` (für das Studio-Cockpit `cockpit.html` und den 1-Klick-Bildtausch) sowie `BILDER_VERZEICHNIS.md` (menschenlesbare Markdown-Tabelle mit Direkt-Links).
 3. **Globale Auslieferung über Cloudflare Pages (`vorschau.magnet-xs.ch` & `embed.magnet-xs.ch`):**
    - Jeder Git-Push in `mxs-embed` (`main`) repliziert sämtliche Bilder innert Sekunden auf das Schweizer Cloudflare Edge-CDN.
    - Die Edge-Middleware (`functions/_middleware.js`) löst sprechende Vorschau-Links (wie `https://vorschau.magnet-xs.ch/joma-vollversion/images/...` oder `https://vorschau.magnet-xs.ch/joma-v2/images/...`) direkt auf den jeweiligen Mandanten-Ordner auf.
 
 ---
 
-## Teil 3 — Vollständiges Einzel-Verzeichnis pro Webseite (Alle 20 Ordner)
+## Teil 3 — Vollständiges Einzel-Verzeichnis pro Webseite (Alle {len(inventories)} Ordner)
 
 ### 3.1 Hiltbrand Gebäudehüllen AG (Karriere-Cockpit) (`hiltbrand/`)
 
