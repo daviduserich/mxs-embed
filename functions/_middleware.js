@@ -1,4 +1,11 @@
 const VORSCHAU_SLUG_TO_FOLDER = {
+  // MONDOCANI · Die mobile Hundeschule (Dorette Sieber, Solothurn): Zeigeversion (-v2, -v1, ohne Suffix) -> preview-mondocani-v2 | Vollversion (-vollversion, -vv) -> preview-mondocani
+  'mondocani': 'preview-mondocani-v2',
+  'mondocani-v1': 'preview-mondocani-v2',
+  'mondocani-v2': 'preview-mondocani-v2',
+  'mondocani-vollversion': 'preview-mondocani',
+  'mondocani-vv': 'preview-mondocani',
+
   // Holz-Susi GmbH (Frick AG): Zeigeversion (-v2, -v1, ohne Suffix) -> preview-holz-susi-v2 | Vollversion (-vollversion, -vv) -> preview-holz-susi
   'holz-susi': 'preview-holz-susi-v2',
   'holz-susi-v1': 'preview-holz-susi-v2',
@@ -138,7 +145,14 @@ const CLIENT_TOKENS = {
   'holz-susi-v2': ['holzsusi_sec_master', 'holzsusi2026', 'holz-susi2026', 'holzsusi-light2026', 'holz-susi-v22026'],
   'preview-holz-susi-v2': ['holzsusi_sec_master', 'holzsusi2026', 'holz-susi2026', 'holzsusi-light2026', 'holz-susi-v22026'],
   'holz-susi-vollversion': ['holzsusi_sec_master', 'holzsusi2026', 'holz-susi2026', 'holzsusi-light2026', 'holz-susi-v22026'],
-  'holz-susi-vv': ['holzsusi_sec_master', 'holzsusi2026', 'holz-susi2026', 'holzsusi-light2026', 'holz-susi-v22026']
+  'holz-susi-vv': ['holzsusi_sec_master', 'holzsusi2026', 'holz-susi2026', 'holzsusi-light2026', 'holz-susi-v22026'],
+  'mondocani': ['mondocani_sec_master', 'mondocani2026', 'mondocani-light2026', 'mondocani-v22026'],
+  'preview-mondocani': ['mondocani_sec_master', 'mondocani2026', 'mondocani-light2026', 'mondocani-v22026'],
+  'mondocani-v1': ['mondocani_sec_master', 'mondocani2026', 'mondocani-light2026', 'mondocani-v22026'],
+  'mondocani-v2': ['mondocani_sec_master', 'mondocani2026', 'mondocani-light2026', 'mondocani-v22026'],
+  'preview-mondocani-v2': ['mondocani_sec_master', 'mondocani2026', 'mondocani-light2026', 'mondocani-v22026'],
+  'mondocani-vollversion': ['mondocani_sec_master', 'mondocani2026', 'mondocani-light2026', 'mondocani-v22026'],
+  'mondocani-vv': ['mondocani_sec_master', 'mondocani2026', 'mondocani-light2026', 'mondocani-v22026']
 };
 
 function getValidTokens(rootSegment, clientSlug) {

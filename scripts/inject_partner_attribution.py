@@ -166,6 +166,22 @@ SHOWCASE_CONFIGS = {
         "navy_hex": "#1E140A",
         "font_heading": "'Plus Jakarta Sans', sans-serif",
     },
+    "preview-mondocani": {
+        "routing_slug": "mondocani",
+        "site_label": "MONDOCANI · Die mobile Hundeschule (Dorette Sieber, Solothurn)",
+        "entity_hint": "MONDOCANI (Dorette Sieber, Flumenthal / Solothurn)",
+        "accent_hex": "#AB6900",
+        "navy_hex": "#1E1409",
+        "font_heading": "'Lexend', sans-serif",
+    },
+    "preview-mondocani-v2": {
+        "routing_slug": "mondocani-v2",
+        "site_label": "MONDOCANI (Zeigeversion / Vorschau-Entwurf)",
+        "entity_hint": "MONDOCANI (Dorette Sieber, Flumenthal / Solothurn)",
+        "accent_hex": "#AB6900",
+        "navy_hex": "#1E1409",
+        "font_heading": "'Lexend', sans-serif",
+    },
     "preview-holz-susi-v2": {
         "routing_slug": "holz-susi-v2",
         "site_label": "Holz-Susi GmbH (Zeigeversion / Vorschau-Entwurf)",

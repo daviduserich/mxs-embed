@@ -231,6 +231,60 @@ SITE_SEO_PROFILES = {
             )
         ]
     },
+    "mondocani": {
+        "schema_type": "LocalBusiness",
+        "company_name": "MONDOCANI · Die mobile Hundeschule · Dorette Sieber",
+        "legal_name": "MONDOCANI · Dorette Sieber",
+        "city": "Flumenthal / Solothurn",
+        "canton": "SO",
+        "postal_code": "4552",
+        "street_address": "Sportstrasse (Trainingsplatz Derendingen) · Sitz Flumenthal",
+        "phone": "+41 79 446 70 43",
+        "email": "mail@mondocani.ch",
+        "uid": "",
+        "source_url": "https://mondocani.ch/",
+        "hero_image": "images/hero-mensch-hund-bindung.jpg",
+        "summary_2s": (
+            "MONDOCANI ist die mobile Hundeschule und Praxis für ganzheitliche Mensch-Hund-Begleitung "
+            "von Dorette Sieber in Flumenthal / Solothurn mit eingezäuntem Trainingsplatz an der Sportstrasse in 4552 Derendingen. "
+            "Seit 2018 begleitet sie Mensch-Hund-Teams in Solothurn, Derendingen, Bern, Basel und Münchenstein "
+            "im Einzelcoaching, bei wöchentlichen Rudeltreffen und im hundegestützten Coaching nach dem Grundsatz «Beziehung statt Erziehung»."
+        ),
+        "area_served": [
+            "Solothurn", "Flumenthal", "Derendingen", "Zuchwil", "Biberist",
+            "Subingen", "Luterbach", "Wangen an der Aare", "Bern", "Basel", "Münchenstein", "Kanton Solothurn"
+        ],
+        "services": [
+            "Individuelles Einzelcoaching und Hausbesuche für Mensch-Hund-Teams (CHF 80.— pro Stunde)",
+            "Wöchentliche Rudeltreffen und Gruppentreffen jeden Freitagnachmittag in 4552 Derendingen (CHF 40.— pro 1.5 Std.)",
+            "Hundegestütztes Coaching für persönliche Weiterentwicklung, Selbstwert und klare Führung",
+            "Workshops und Tagesseminare zur Rudelbeobachtung und Hundekommunikation (CHF 80.— pro Team)",
+            "Einfühlsame Begleitung für Welpen, Junghunde sowie Tierschutz- und Strassenhunde",
+            "Erlebnisvortrag auf dem Hundeplatz Derendingen und kostenloses 15-minütiges Erstgespräch"
+        ],
+        "core_faqs": [
+            (
+                "Was unterscheidet MONDOCANI von einer klassischen Hundeschule?",
+                "Bei MONDOCANI steht Beziehung statt blosser Dressur im Mittelpunkt. Statt mit Kommandos, Leckerli-Manipulation oder Druck zu arbeiten, fördert Dorette Sieber eine ruhige, feinsprachliche Führung und echtes gegenseitiges Vertrauen auf Augenhöhe."
+            ),
+            (
+                "Wie läuft das erste Einzelcoaching ab und was kostet es?",
+                "Für den ersten Termin kommt Dorette Sieber gerne direkt zu Ihnen nach Hause (ca. 1.5 bis 2 Stunden), um die Wohn- und Alltagssituation entspannt einzubeziehen. Danach finden Spaziergänge in Ihrer gewohnten Umgebung statt. Der Ansatz beträgt CHF 80.— pro Stunde."
+            ),
+            (
+                "Wann und wo finden die wöchentlichen Rudeltreffen und Gruppentreffen statt?",
+                "Die Rudeltreffen finden jeden Freitagnachmittag von 14:00 bis 15:30 Uhr sowie von 16:00 bis 17:30 Uhr statt. Nach einem gemeinsamen Spaziergang treffen sich die Teams auf dem grossen eingezäunten Platz des Clubs für Deutsche Doggen an der Sportstrasse in 4552 Derendingen (direkt neben dem Fussballplatz). Kosten: CHF 40.— pro 1.5 Stunden."
+            ),
+            (
+                "Für wen eignet sich das hundegestützte Coaching?",
+                "Das hundegestützte Coaching richtet sich an Menschen mit eigenem Hund oder ohne Hund (mit dem erfahrenen Co-Coach-Hund von Dorette Sieber), die ihre Körpersprache, Präsenz, Abgrenzung, emotionale Balance und natürliche Führungskraft in Alltag, Familie oder Beruf stärken möchten."
+            ),
+            (
+                "Kann ich die Arbeitsweise von Dorette Sieber vorab unverbindlich kennenlernen?",
+                "Ja. Sie können entweder ein kostenloses 15-minütiges Kennenlerngespräch per Telefon (+41 79 446 70 43) oder Zoom vereinbaren oder am Freitag ab 16:00 Uhr den Erlebnisvortrag auf dem eingezäunten Hundeplatz in Derendingen besuchen."
+            )
+        ]
+    },
     "herzensarbeit": {
         "schema_type": "HealthAndBeautyBusiness",
         "company_name": "Herzensarbeit · Anne-Katrin Koch",
@@ -765,6 +819,10 @@ SITE_SEO_PROFILES = {
 
 # Mapping von Ordnername auf die öffentliche Vorschau-URL auf vorschau.magnet-xs.ch
 PUBLIC_SLUG_MAP = {
+    "preview-mondocani": "mondocani-vollversion",
+    "preview-mondocani-v2": "mondocani-v2",
+    "preview-holz-susi": "holz-susi-vollversion",
+    "preview-holz-susi-v2": "holz-susi-v2",
     "preview-joma": "joma-vollversion",
     "preview-joma-v2": "joma-v2",
     "preview-imp-marketing": "imp-marketing-vollversion",

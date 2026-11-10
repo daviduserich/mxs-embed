@@ -5,7 +5,7 @@
 > **Lokaler Ordner (VPS & Git):** `preview-frees-v2/`  
 > **Cloudflare-Basis-URL:** [vorschau.magnet-xs.ch/frees-v2/](https://vorschau.magnet-xs.ch/frees-v2/)  
 > **Bestand:** **23 Assets** (1.66 MB gesamt) · **🟢 6 aktiv im HTML** · **⚪ 17 frei im Bild-Pool** · **Externe Hotlinks: 0**  
-> **Letzte Aktualisierung:** 09.11.2026 16:10 Uhr (automatisch generiert via `webpilot_asset_catalog.py`)
+> **Letzte Aktualisierung:** 10.11.2026 09:18 Uhr (automatisch generiert via `webpilot_asset_catalog.py`)
 
 ---
 

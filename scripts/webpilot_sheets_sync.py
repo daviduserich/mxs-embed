@@ -178,6 +178,24 @@ def split_source_and_context(raw_source_or_context: str, explicit_context: str =
 # - In Jennys Partner-Sheet erscheinen ausschliesslich die 8 Projekte mit Partner "Jenny Ettle (JE-MI)".
 SEED_PROJECTS = [
     {
+        "slug": "mondocani",
+        "active": True,
+        "company": "MONDOCANI · Die mobile Hundeschule · Dorette Sieber (Solothurn & Derendingen)",
+        "pricing_recommended_chf": "CHF 1'500.—",
+        "complexity_score": "3.8 / 10.0",
+        "pricing_formula_chf": "CHF 1'700.—",
+        "pricing_rationale": "Herzlicher, naturverbundener 5-Seiten-Auftritt für die mobile Hundeschule MONDOCANI (Startseite mit interaktivem Begleitungs-Finder, Angebot & Preise, Kundenstimmen & Blog-Impulse, Über Dorette Sieber & Philosophie sowie 3-Schritte Smart-Anfrage) inkl. Studio Cockpit v4.0 + Light.",
+        "v2_url": "https://vorschau.magnet-xs.ch/mondocani-v2/",
+        "vollversion_url": "https://vorschau.magnet-xs.ch/mondocani-vollversion/",
+        "cockpit_url": "https://vorschau.magnet-xs.ch/mondocani-vollversion/cockpit.html?token=mondocani2026",
+        "cockpit_light_url": "https://vorschau.magnet-xs.ch/mondocani-vollversion/cockpit.html?token=mondocani2026&mode=light",
+        "audit_report_url": "https://vorschau.magnet-xs.ch/reports/mondocani-vorher-nachher-report.pdf",
+        "source_url": "https://mondocani.ch/",
+        "branch_context": "Mobile Hundeschule, Freitags-Rudeltreffen (4552 Derendingen), Strassenhunde-Begleitung & Hundegestütztes Coaching in Solothurn, Bern & Basel",
+        "partner": "Jenny Ettle (JE-MI)",
+        "status": "🟢 Bereit zum Zeigen (Fertig: 10.11.2026 · 10:15 Uhr · 0 P1/P2)",
+    },
+    {
         "slug": "holz-susi",
         "active": True,
         "company": "Holz-Susi GmbH · Susanne «Susi» Schmid (Frick AG)",
@@ -843,6 +861,7 @@ def _seed_single_spreadsheet(
                     active_by_slug[item["slug"]] = is_act
 
     DEFAULT_SUBMITTED_MAP = {
+        "mondocani": ("10.11.2026 · 09:35 Uhr", "🟢 Bereit zum Zeigen (Fertig: 10.11.2026 · 10:15 Uhr · 0 P1/P2)"),
         "holz-susi": ("09.11.2026 · 13:44 Uhr", "🟢 Bereit zum Zeigen (Fertig: 09.11.2026 · 15:03 Uhr)"),
         "imp-marketing": ("05.11.2026 · 12:35 Uhr", "🟢 Bereit zum Zeigen (Fertig: 05.11.2026 · 13:55 Uhr)"),
         "joma": ("05.11.2026 · 20:54 Uhr", "🟢 Bereit zum Zeigen (Fertig: 05.11.2026 · 21:54 Uhr)"),
@@ -868,7 +887,9 @@ def _seed_single_spreadsheet(
                     comp_at = format_ch_datetime(j.get("completed_at"), "")
                     if c_at:
                         submitted_by_slug[jslug] = c_at
-                    if comp_at and str(j.get("status") or "").lower() == "completed":
+                    if j.get("status_label"):
+                        status_by_slug[jslug] = str(j["status_label"])
+                    elif comp_at and str(j.get("status") or "").lower() == "completed":
                         status_by_slug[jslug] = f"🟢 Bereit zum Zeigen (Fertig: {comp_at})"
                     elif c_at and str(j.get("status") or "").lower() != "completed":
                         status_by_slug[jslug] = f"⏳ In Arbeit (Eingereicht: {c_at})"

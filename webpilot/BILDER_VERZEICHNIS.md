@@ -5,7 +5,7 @@
 > **Lokaler Ordner (VPS & Git):** `webpilot/`  
 > **Cloudflare-Basis-URL:** [vorschau.magnet-xs.ch/webpilot/](https://vorschau.magnet-xs.ch/webpilot/)  
 > **Bestand:** **4 Assets** (1.01 MB gesamt) · **🟢 1 aktiv im HTML** · **⚪ 3 frei im Bild-Pool** · **Externe Hotlinks: 0**  
-> **Letzte Aktualisierung:** 10.11.2026 08:02 Uhr (automatisch generiert via `webpilot_asset_catalog.py`)
+> **Letzte Aktualisierung:** 10.11.2026 09:18 Uhr (automatisch generiert via `webpilot_asset_catalog.py`)
 
 ---
 
