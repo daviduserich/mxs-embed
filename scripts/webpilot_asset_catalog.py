@@ -68,6 +68,8 @@ CATEGORY_DEFINITIONS = {
 
 # Kanonisches Cloudflare-Routing gemäss functions/_middleware.js
 PUBLIC_CLOUDFLARE_SLUG_MAP = {
+    "preview-get-more-sales": ("vorschau.magnet-xs.ch", "get-more-sales-vollversion"),
+    "preview-get-more-sales-v2": ("vorschau.magnet-xs.ch", "get-more-sales-v2"),
     "preview-mondocani": ("vorschau.magnet-xs.ch", "mondocani-vollversion"),
     "preview-mondocani-v2": ("vorschau.magnet-xs.ch", "mondocani-v2"),
     "preview-holz-susi": ("vorschau.magnet-xs.ch", "holz-susi-vollversion"),
@@ -107,6 +109,8 @@ CURATED_COMPANY_NAMES = {
     "preview-herzensarbeit-v2": ("Herzensarbeit · Anne-Katrin Koch (Zeigeversion v2)", "Härkingen SO"),
     "preview-hiltbrand": ("Hiltbrand Gebäudehüllen AG (WebPilot)", "Krattigen BE"),
     "preview-hochuli": ("Hochuli Schlossrued AG", "Schlossrued AG"),
+    "preview-get-more-sales": ("get.more.sales · Carmen Caselli (Vollversion)", "Mühlethal / Zofingen AG"),
+    "preview-get-more-sales-v2": ("get.more.sales · Carmen Caselli (Zeigeversion v2)", "Mühlethal / Zofingen AG"),
     "preview-mondocani": ("MONDOCANI · Die mobile Hundeschule (Vollversion)", "Flumenthal / Solothurn SO"),
     "preview-mondocani-v2": ("MONDOCANI · Die mobile Hundeschule (Zeigeversion v2)", "Flumenthal / Solothurn SO"),
     "preview-holz-susi": ("Holz-Susi GmbH · Susanne Schmid (Vollversion)", "Frick AG"),
@@ -142,6 +146,8 @@ FALLBACK_JOB_META = {
     "preview-imp-marketing-v2": ("David Hügli (Magnet XS)", "05.11.2026 · 12:35 Uhr"),
     "preview-joma": ("Jenny Ettle (JE-MI)", "05.11.2026 · 20:54 Uhr"),
     "preview-joma-v2": ("Jenny Ettle (JE-MI)", "05.11.2026 · 20:54 Uhr"),
+    "preview-get-more-sales": ("David Hügli (Magnet XS)", "10.11.2026 · 20:24 Uhr"),
+    "preview-get-more-sales-v2": ("David Hügli (Magnet XS)", "10.11.2026 · 20:24 Uhr"),
     "preview-mondocani": ("Jenny Ettle (JE-MI)", "10.11.2026 · 09:35 Uhr"),
     "preview-mondocani-v2": ("Jenny Ettle (JE-MI)", "10.11.2026 · 09:35 Uhr"),
     "preview-holz-susi": ("David Hügli (Magnet XS)", "09.11.2026 · 13:44 Uhr"),

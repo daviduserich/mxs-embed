@@ -1,4 +1,11 @@
 const VORSCHAU_SLUG_TO_FOLDER = {
+  // get.more.sales · Carmen Caselli (4812 Mühlethal / Zofingen): Zeigeversion (-v2, -v1, ohne Suffix) -> preview-get-more-sales-v2 | Vollversion (-vollversion, -vv) -> preview-get-more-sales
+  'get-more-sales': 'preview-get-more-sales-v2',
+  'get-more-sales-v1': 'preview-get-more-sales-v2',
+  'get-more-sales-v2': 'preview-get-more-sales-v2',
+  'get-more-sales-vollversion': 'preview-get-more-sales',
+  'get-more-sales-vv': 'preview-get-more-sales',
+
   // MONDOCANI · Die mobile Hundeschule (Dorette Sieber, Solothurn): Zeigeversion (-v2, -v1, ohne Suffix) -> preview-mondocani-v2 | Vollversion (-vollversion, -vv) -> preview-mondocani
   'mondocani': 'preview-mondocani-v2',
   'mondocani-v1': 'preview-mondocani-v2',
@@ -152,7 +159,14 @@ const CLIENT_TOKENS = {
   'mondocani-v2': ['mondocani_sec_master', 'mondocani2026', 'mondocani-light2026', 'mondocani-v22026'],
   'preview-mondocani-v2': ['mondocani_sec_master', 'mondocani2026', 'mondocani-light2026', 'mondocani-v22026'],
   'mondocani-vollversion': ['mondocani_sec_master', 'mondocani2026', 'mondocani-light2026', 'mondocani-v22026'],
-  'mondocani-vv': ['mondocani_sec_master', 'mondocani2026', 'mondocani-light2026', 'mondocani-v22026']
+  'mondocani-vv': ['mondocani_sec_master', 'mondocani2026', 'mondocani-light2026', 'mondocani-v22026'],
+  'get-more-sales': ['getmoresales_sec_master', 'getmoresales2026', 'get-more-sales2026', 'getmoresales-light2026', 'get-more-sales-v22026'],
+  'preview-get-more-sales': ['getmoresales_sec_master', 'getmoresales2026', 'get-more-sales2026', 'getmoresales-light2026', 'get-more-sales-v22026'],
+  'get-more-sales-v1': ['getmoresales_sec_master', 'getmoresales2026', 'get-more-sales2026', 'getmoresales-light2026', 'get-more-sales-v22026'],
+  'get-more-sales-v2': ['getmoresales_sec_master', 'getmoresales2026', 'get-more-sales2026', 'getmoresales-light2026', 'get-more-sales-v22026'],
+  'preview-get-more-sales-v2': ['getmoresales_sec_master', 'getmoresales2026', 'get-more-sales2026', 'getmoresales-light2026', 'get-more-sales-v22026'],
+  'get-more-sales-vollversion': ['getmoresales_sec_master', 'getmoresales2026', 'get-more-sales2026', 'getmoresales-light2026', 'get-more-sales-v22026'],
+  'get-more-sales-vv': ['getmoresales_sec_master', 'getmoresales2026', 'get-more-sales2026', 'getmoresales-light2026', 'get-more-sales-v22026']
 };
 
 function getValidTokens(rootSegment, clientSlug) {

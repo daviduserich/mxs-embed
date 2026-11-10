@@ -1,0 +1,255 @@
+{
+  "schema_version": "1.0.0",
+  "generated_at": "2026-11-10T19:26:58.736Z",
+  "slug": "get-more-sales",
+  "source_url": "https://get-more-sales.org/",
+  "design_mode": "evolution",
+  "industry": "B2B Verkaufsberatung, Vertriebstraining & Akquise-Sparring",
+  "stage_1_measured_facts": {
+    "luminance": {
+      "body_luminance": 0.647,
+      "hero_luminance": 0.123,
+      "header_px_luminance": 0.034,
+      "hero_px_luminance": 0.196,
+      "lower_px_luminance": 0.57,
+      "dom_body_luminance": 1,
+      "dom_hero_luminance": 1,
+      "body_bg_hex": "#FFFFFF",
+      "header_bg_hex": "#FFFFFF",
+      "hero_bg_hex": "#FFFFFF"
+    },
+    "colors": {
+      "distinct_accent_hues_count": 2,
+      "primary_detected_hex": "#003366",
+      "primary_detected_oklch": {
+        "L": 0.323,
+        "C": 0.103,
+        "H": 253.9
+      },
+      "distinct_hue_clusters": [
+        {
+          "representative_hex": "#003366",
+          "rgb": [
+            0,
+            51,
+            102
+          ],
+          "oklch": {
+            "L": 0.323,
+            "C": 0.103,
+            "H": 253.9
+          },
+          "total_weight": 121,
+          "roles": [
+            "surface_or_badge_bg",
+            "cta_button_bg",
+            "camera_pixel_cluster"
+          ]
+        },
+        {
+          "representative_hex": "#F0D0B0",
+          "rgb": [
+            240,
+            208,
+            176
+          ],
+          "oklch": {
+            "L": 0.877,
+            "C": 0.056,
+            "H": 67
+          },
+          "total_weight": 69,
+          "roles": [
+            "camera_pixel_cluster"
+          ]
+        }
+      ]
+    },
+    "typography": {
+      "heading_font_family": "Roboto, sans-serif",
+      "body_font_family": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, \"Noto Sans\", sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+      "h1_font_size": "32px",
+      "h1_line_height": "32px",
+      "body_font_size": "16px",
+      "body_line_height": "24px",
+      "detected_border_radii_px": [
+        0,
+        5
+      ],
+      "detected_container_max_widths_px": [
+        1140
+      ]
+    },
+    "images": {
+      "total_visible_images": 5,
+      "content_images_count": 5,
+      "max_image_width_px": 1120,
+      "hi_res_images_count": 1,
+      "low_res_images_count": 4,
+      "portrait_images_count": 0,
+      "landscape_images_count": 5,
+      "portrait_ratio_share": 0
+    },
+    "section_sequence": []
+  },
+  "sommelier_decisions": {
+    "polarity_decision": {
+      "design_mode": "evolution",
+      "target_hero_polarity": "light",
+      "target_page_polarity": "light",
+      "light_lock_active": false,
+      "s27_min_hero_luminance_threshold": 0,
+      "reason": "Evolution-Schutzregel (#UI-16 & S-27): Grundkoerper der Ursprungsseite ist hell (#FFFFFF, body_luminance=0.647) -> Licht-Sperre target_hero_polarity=\"light\" aktiv.",
+      "Lock_S27_active": true
+    },
+    "tinted_neutrals": {
+      "brand_hue_deg": 253.9,
+      "bg_page": {
+        "oklch": "oklch(0.985 0.008 253.9)",
+        "hex": "#F7FAFF",
+        "role": "60 % Haupt-Hintergrundflaeche mit feinem Marken-Hauch (Chroma 0.008)"
+      },
+      "bg_soft": {
+        "oklch": "oklch(0.955 0.016 253.9)",
+        "hex": "#E9F1FB",
+        "role": "30 % Sekundaer-Sektionen & Karten-Flaechen (Chroma 0.016)"
+      },
+      "bg_elevated": {
+        "oklch": "oklch(1.000 0.000 0.0)",
+        "hex": "#FFFFFF",
+        "role": "Erhabene Inhalts-Karten auf getoentem Canvas"
+      },
+      "border_subtle": {
+        "oklch": "oklch(0.890 0.014 253.9)",
+        "hex": "#D5DBE4",
+        "role": "Harmonische 1px Haarlinien-Rahmen im Marken-Farbton"
+      },
+      "text_main": {
+        "oklch": "oklch(0.200 0.025 253.9)",
+        "hex": "#0E1721",
+        "contrast_vs_bg_page": "17.25:1",
+        "role": "Tiefdunkle, mit Marken-Hue abgetoente Textfarbe (Kontrast >= 10:1)"
+      },
+      "text_muted": {
+        "oklch": "oklch(0.420 0.020 253.9)",
+        "hex": "#464E58",
+        "role": "Ruhige Sekundaer-Textfarbe fuer Metadaten und Bildlegenden"
+      }
+    },
+    "color_harmony_60_30_10": {
+      "distinct_accent_hues_count": 2,
+      "is_multicolor_chaos": false,
+      "sommelier_verdict": "Klare, fokussierte Marken-Farbwelt (2 Haupt-Akzentton erkannt). Wird im 60-30-10-Verhaeltnis mit Tinted Neutrals veredelt.",
+      "primary_10_percent_cta": {
+        "original_brand_hex": "#003366",
+        "original_oklch": {
+          "L": 0.323,
+          "C": 0.103,
+          "H": 253.9
+        },
+        "harmonized_oklch": "oklch(0.520 0.160 253.9)",
+        "harmonized_hex": "#0B68C1",
+        "hover_hex": "#0054A2"
+      },
+      "secondary_accent_palette": [
+        {
+          "slot": 1,
+          "token_prefix": "--accent-palette-1",
+          "source_hex": "#F0D0B0",
+          "source_hue_deg": 67,
+          "pastel_surface": {
+            "oklch": "oklch(0.950 0.035 67.0)",
+            "hex": "#FFEBD6",
+            "spec": "L=0.95, C=0.035"
+          },
+          "icon_accent": {
+            "oklch": "oklch(0.480 0.130 67.0)",
+            "hex": "#854F00",
+            "spec": "L=0.48, C=0.13"
+          }
+        },
+        {
+          "slot": 2,
+          "token_prefix": "--accent-palette-2",
+          "source_hex": "#9E68AE",
+          "source_hue_deg": 317.9,
+          "pastel_surface": {
+            "oklch": "oklch(0.950 0.035 317.9)",
+            "hex": "#F9E8FE",
+            "spec": "L=0.95, C=0.035"
+          },
+          "icon_accent": {
+            "oklch": "oklch(0.480 0.130 317.9)",
+            "hex": "#7B428C",
+            "spec": "L=0.48, C=0.13"
+          }
+        },
+        {
+          "slot": 3,
+          "token_prefix": "--accent-palette-3",
+          "source_hex": "#B4608A",
+          "source_hue_deg": 349.9,
+          "pastel_surface": {
+            "oklch": "oklch(0.950 0.035 349.9)",
+            "hex": "#FFE7F1",
+            "spec": "L=0.95, C=0.035"
+          },
+          "icon_accent": {
+            "oklch": "oklch(0.480 0.130 349.9)",
+            "hex": "#913968",
+            "spec": "L=0.48, C=0.13"
+          }
+        },
+        {
+          "slot": 4,
+          "token_prefix": "--accent-palette-4",
+          "source_hex": "#BD605F",
+          "source_hue_deg": 21.9,
+          "pastel_surface": {
+            "oklch": "oklch(0.950 0.035 21.9)",
+            "hex": "#FFE8E7",
+            "spec": "L=0.95, C=0.035"
+          },
+          "icon_accent": {
+            "oklch": "oklch(0.480 0.130 21.9)",
+            "hex": "#99393B",
+            "spec": "L=0.48, C=0.13"
+          }
+        }
+      ]
+    },
+    "typography_and_archetype": {
+      "measured_heading_font": "Roboto",
+      "measured_body_font": "-apple-system",
+      "heal_legacy_flaw": false,
+      "legacy_flaw_diagnosis": "Bestehende Schrift-Gattung (Roboto / -apple-system) wird typografisch im Schweizer Meister-Archetyp veredelt.",
+      "selected_archetype": {
+        "id": "swiss_architectural_craft",
+        "label": "2. Swiss Architectural Craft (Handwerk, Solar, Schreinerei, Holzbau, Bau, Technik, Produktion)",
+        "font_display": "'Lexend', 'Plus Jakarta Sans', sans-serif",
+        "font_sans": "'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif",
+        "google_fonts_import": "https://fonts.googleapis.com/css2?family=Lexend:wght@500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap",
+        "radius_card": "8px",
+        "radius_badge": "4px",
+        "grid_max_width": "1100px",
+        "default_polarity": "light",
+        "character_note": "Praezise 1100px Schweizer Fluchtlinien-Rasterung (#UI-02), messerscharfe 4px/8px Kanten, handwerkliche Substanz und klare Leistungs-Metriken."
+      }
+    },
+    "image_layout_decision": {
+      "max_source_image_width_px": 1120,
+      "portrait_ratio_share": 0,
+      "forbid_fullscreen_bg_image": false,
+      "recommended_hero_layout": "split_framed_card_or_architectural_stage",
+      "sommelier_verdict": "Hochaufloesendes Bildmaterial vorhanden (max. 1120px Breite). Sowohl \"split_framed_card\" (#UI-02) als auch architektonische Buehne ohne Verpixelung moeglich."
+    }
+  },
+  "stage_3_blueprint": {
+    "css_root_tokens": ":root {\n  /* === 1. Polaritaet & Schweizer Raster (#UI-02, #UI-16, Sensor S-27) === */\n  --wp-expected-hero-polarity: \"dark\";\n  --wp-archetype: \"swiss_architectural_craft\";\n  --container-max: 1100px;\n  --radius-card: 8px;\n  --radius-badge: 4px;\n\n  /* === 2. Typografie (swiss_architectural_craft) === */\n  --font-display: 'Lexend', 'Plus Jakarta Sans', sans-serif;\n  --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;\n\n  /* === 3. 60 % & 30 % Tinted Neutrals (impeccable / Refactoring UI, Hue=253.9deg) === */\n  --bg-page: #F7FAFF;\n  --bg-page-oklch: oklch(0.985 0.008 253.9);\n  --bg-soft: #E9F1FB;\n  --bg-soft-oklch: oklch(0.955 0.016 253.9);\n  --bg-elevated: #FFFFFF;\n  --border-subtle: #D5DBE4;\n  --border-subtle-oklch: oklch(0.890 0.014 253.9);\n  --text-main: #0E1721;\n  --text-main-oklch: oklch(0.200 0.025 253.9);\n  --text-muted: #464E58;\n  --text-muted-oklch: oklch(0.420 0.020 253.9);\n\n  /* === 4. 10 % Primaer-CTA-Chef (Marken-Hauptfarbe) === */\n  --primary: #0B68C1;\n  --primary-brand-raw: #003366;\n  --primary-oklch: oklch(0.520 0.160 253.9);\n  --primary-hover: #0054A2;\n\n  /* === 5. OKLCH-Harmonisierte Sekundaer-Palette (Bunter-Kuchen-Zaehmung: L=0.95/C=0.035 & L=0.48/C=0.13) === */\n  --accent-palette-1-soft: #FFEBD6; /* oklch(0.950 0.035 67.0) */\n  --accent-palette-1-strong: #854F00; /* oklch(0.480 0.130 67.0) */\n  --accent-palette-2-soft: #F9E8FE; /* oklch(0.950 0.035 317.9) */\n  --accent-palette-2-strong: #7B428C; /* oklch(0.480 0.130 317.9) */\n  --accent-palette-3-soft: #FFE7F1; /* oklch(0.950 0.035 349.9) */\n  --accent-palette-3-strong: #913968; /* oklch(0.480 0.130 349.9) */\n  --accent-palette-4-soft: #FFE8E7; /* oklch(0.950 0.035 21.9) */\n  --accent-palette-4-strong: #99393B; /* oklch(0.480 0.130 21.9) */\n}",
+    "recommended_hero_layout": "split_framed_card_or_architectural_stage",
+    "target_hero_polarity": "dark",
+    "selected_archetype_id": "swiss_architectural_craft",
+    "google_fonts_import": "https://fonts.googleapis.com/css2?family=Lexend:wght@500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
+  },
+  "target_hero_polarity": "light"
+}

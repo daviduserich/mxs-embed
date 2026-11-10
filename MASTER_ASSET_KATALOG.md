@@ -7,8 +7,8 @@ status: aktiv
 
 # WebPilot Bilder- und Cloudflare-Asset-Katalog (Master-Verzeichnis)
 
-> **Stand:** 10.11.2026 09:18 Uhr | **Umfang:** **24 Webseiten-Ordner** mit insgesamt **811 lokalen Medien-Assets** (**113.84 MB**)  
-> **Verwendung:** **🟢 547 aktiv im HTML eingebunden** · **⚪ 264 frei im Bild-Pool verfügbar** · **Externe Hotlinks: 0 (100 % lokal auf Cloudflare Edge)**  
+> **Stand:** 10.11.2026 20:25 Uhr | **Umfang:** **26 Webseiten-Ordner** mit insgesamt **843 lokalen Medien-Assets** (**122.68 MB**)  
+> **Verwendung:** **🟢 571 aktiv im HTML eingebunden** · **⚪ 272 frei im Bild-Pool verfügbar** · **Externe Hotlinks: 0 (100 % lokal auf Cloudflare Edge)**  
 > **Single Source of Truth:** Automatisch generiert und nach jedem Bild-Upload, Bild-Tausch, Bild-Löschen oder Job-Abschluss live aktualisiert durch `scripts/webpilot_asset_catalog.py`.
 
 ---
@@ -24,6 +24,8 @@ status: aktiv
 | **FC Schlieren (Zeigeversion v2)** (Schlieren ZH) | Jenny Ettle (JE-MI) | 02.11.2026 · 17:00 Uhr | `preview-fcschlieren-v2/` | [vorschau.magnet-xs.ch/fcschlieren-v2/](https://vorschau.magnet-xs.ch/fcschlieren-v2/) | 39 | 🟢 30 | ⚪ 9 | 0 | 1.99 MB |
 | **Free's · Studio für Textildesign & Stickerei (Vollversion)** (Niederrohrdorf AG) | Jenny Ettle (JE-MI) | 03.11.2026 · 21:30 Uhr | `preview-frees/` | [vorschau.magnet-xs.ch/frees-vollversion/](https://vorschau.magnet-xs.ch/frees-vollversion/) | 23 | 🟢 20 | ⚪ 3 | 0 | 1.66 MB |
 | **Free's · Studio für Textildesign & Stickerei (Zeigeversion v2)** (Niederrohrdorf AG) | Jenny Ettle (JE-MI) | 03.11.2026 · 21:30 Uhr | `preview-frees-v2/` | [vorschau.magnet-xs.ch/frees-v2/](https://vorschau.magnet-xs.ch/frees-v2/) | 23 | 🟢 6 | ⚪ 17 | 0 | 1.66 MB |
+| **get.more.sales · Carmen Caselli (Vollversion)** (Mühlethal / Zofingen AG) | David Hügli (Magnet XS) | 10.11.2026 · 20:24 Uhr | `preview-get-more-sales/` | [vorschau.magnet-xs.ch/get-more-sales-vollversion/](https://vorschau.magnet-xs.ch/get-more-sales-vollversion/) | 16 | 🟢 12 | ⚪ 4 | 0 | 4.42 MB |
+| **get.more.sales · Carmen Caselli (Zeigeversion v2)** (Mühlethal / Zofingen AG) | David Hügli (Magnet XS) | 10.11.2026 · 20:24 Uhr | `preview-get-more-sales-v2/` | [vorschau.magnet-xs.ch/get-more-sales-v2/](https://vorschau.magnet-xs.ch/get-more-sales-v2/) | 16 | 🟢 12 | ⚪ 4 | 0 | 4.42 MB |
 | **HER11 · Frauenfussball-Förderung** (Zürich ZH) | Jenny Ettle (JE-MI) | 30.10.2026 · 16:00 Uhr | `preview-her11/` | [vorschau.magnet-xs.ch/her11/](https://vorschau.magnet-xs.ch/her11/) | 22 | 🟢 10 | ⚪ 12 | 0 | 2.97 MB |
 | **Herzensarbeit · Anne-Katrin Koch (Vollversion)** (Härkingen SO) | Jenny Ettle (JE-MI) | 05.11.2026 · 11:00 Uhr | `preview-herzensarbeit/` | [vorschau.magnet-xs.ch/herzensarbeit-vollversion/](https://vorschau.magnet-xs.ch/herzensarbeit-vollversion/) | 27 | 🟢 19 | ⚪ 8 | 0 | 4.65 MB |
 | **Herzensarbeit · Anne-Katrin Koch (Zeigeversion v2)** (Härkingen SO) | Jenny Ettle (JE-MI) | 05.11.2026 · 11:00 Uhr | `preview-herzensarbeit-v2/` | [vorschau.magnet-xs.ch/herzensarbeit-v2/](https://vorschau.magnet-xs.ch/herzensarbeit-v2/) | 27 | 🟢 11 | ⚪ 16 | 0 | 4.65 MB |
@@ -41,7 +43,7 @@ status: aktiv
 | **MONDOCANI · Die mobile Hundeschule (Zeigeversion v2)** (Flumenthal / Solothurn SO) | Jenny Ettle (JE-MI) | 10.11.2026 · 09:35 Uhr | `preview-mondocani-v2/` | [vorschau.magnet-xs.ch/mondocani-v2/](https://vorschau.magnet-xs.ch/mondocani-v2/) | 24 | 🟢 13 | ⚪ 11 | 0 | 7.32 MB |
 | **SC Fulenbach** (Fulenbach SO) | Jenny Ettle (JE-MI) | 02.11.2026 · 17:20 Uhr | `preview-scfulenbach/` | [vorschau.magnet-xs.ch/scfulenbach/](https://vorschau.magnet-xs.ch/scfulenbach/) | 95 | 🟢 91 | ⚪ 4 | 0 | 3.14 MB |
 | **WebPilot Plattform · magnet-Xs gmbh** (Zofingen AG) | David Hügli (Magnet XS · Produktseite) | 02.10.2026 · 20:14 Uhr | `webpilot/` | [vorschau.magnet-xs.ch/webpilot/](https://vorschau.magnet-xs.ch/webpilot/) | 4 | 🟢 1 | ⚪ 3 | 0 | 1.01 MB |
-| **TOTAL (24 Webseiten)** | **Alle Partner** | **–** | `mxs-embed/*` | **Cloudflare Swiss Edge** | **811** | **🟢 547** | **⚪ 264** | **0** | **113.84 MB** |
+| **TOTAL (26 Webseiten)** | **Alle Partner** | **–** | `mxs-embed/*` | **Cloudflare Swiss Edge** | **843** | **🟢 571** | **⚪ 272** | **0** | **122.68 MB** |
 
 ---
 
@@ -359,7 +361,59 @@ Alle neu hochgeladenen oder importierten Bilder und Videos werden durch `publish
 | 22 | `images/logo-frees.png` | Logo & Marken-Icon (`logo`) | 567×208 px · 104.5 KB (PNG) | ⚪ Frei im Pool | Free's Niederrohrdorf (AG) – Offizielles Logo (Inhouse Textildruck (Siebdruck, Transferdruck,) | [vorschau.magnet-xs.ch/frees-v2/images/logo-frees.png](https://vorschau.magnet-xs.ch/frees-v2/images/logo-frees.png) |
 | 23 | `images/logo.svg` | Logo & Marken-Icon (`logo`) | 567×208 px · 139.6 KB (SVG) | 🟢 Aktiv in `index.html`, `kontakt.html` | Free | [vorschau.magnet-xs.ch/frees-v2/images/logo.svg](https://vorschau.magnet-xs.ch/frees-v2/images/logo.svg) |
 
-### 3.8 HER11 · Frauenfussball-Förderung (`preview-her11/`)
+### 3.8 get.more.sales · Carmen Caselli (Vollversion) (`preview-get-more-sales/`)
+
+- **Angefordert von (Partner):** David Hügli (Magnet XS) · **Eingereicht am:** 10.11.2026 · 20:24 Uhr
+- **Cloudflare-Basis-URL:** [vorschau.magnet-xs.ch/get-more-sales-vollversion/](https://vorschau.magnet-xs.ch/get-more-sales-vollversion/)
+- **HTML-Seiten (5):** `index.html`, `kontakt.html`, `leistungen.html`, `referenzen.html`, `ueber-uns.html`
+- **Bilanz:** **16 Dateien** (4.42 MB) – **🟢 12 aktiv im HTML** | **⚪ 4 frei im Pool** | **Externe Hotlinks: 0**
+
+| Nr. | Dateiname (Lokal) | Kategorie | Auflösung & Grösse | Verwendet auf Seite(n) | SEO/GEO Alt-Text | Direkt-Link auf Cloudflare |
+|---:|---|---|---|---|---|---|
+| 1 | `images/apple-touch-icon.png` | Favicon & App-Icon (`icon`) | 180×180 px · 2.6 KB (PNG) | 🟢 Aktiv in `index.html`, `kontakt.html`, `leistungen.html`, `referenzen.html`, `ueber-uns.html` | get.more.sales Mühlethal / Zofingen (AG) – Offizielles Logo (Fachbetrieb in der Schweiz) | [vorschau.magnet-xs.ch/get-more-sales-vollversion/images/apple-touch-icon.png](https://vorschau.magnet-xs.ch/get-more-sales-vollversion/images/apple-touch-icon.png) |
+| 2 | `images/boost-your-sales-stage.png` | Referenz, Projekt & Angebot (`ref`) | 1892×474 px · 624.6 KB (PNG) | 🟢 Aktiv in `index.html`, `referenzen.html` | get.more.sales Carmen Caselli B2B Vertriebsberatung: 1:1 Executive Sales-Sparring für Entscheider | [vorschau.magnet-xs.ch/get-more-sales-vollversion/images/boost-your-sales-stage.png](https://vorschau.magnet-xs.ch/get-more-sales-vollversion/images/boost-your-sales-stage.png) |
+| 3 | `images/carmen-caselli-avatar.png` | Referenz, Projekt & Angebot (`ref`) | 1024×1024 px · 327.9 KB (PNG) | ⚪ Frei im Pool | get.more.sales · Carmen Caselli · Verkaufsberatung & Vertriebstraining (Mühlethal / Zofingen) – Einblick & Referenz: Carmen Caselli Avatar: Referenz, Projekt & Angebot – get.more.sales in Mühlethal / Zofingen (AG) – get.more.sales in Mühlethal / Zofingen (AG) – get.more.sales in Mühlethal / Zofingen (AG) | [vorschau.magnet-xs.ch/get-more-sales-vollversion/images/carmen-caselli-avatar.png](https://vorschau.magnet-xs.ch/get-more-sales-vollversion/images/carmen-caselli-avatar.png) |
+| 4 | `images/carmen-caselli-portrait-color.jpg` | Team, Porträt & Kader (`team`) | 960×540 px · 27.2 KB (JPG) | 🟢 Aktiv in `index.html`, `kontakt.html`, `referenzen.html` | Carmen Caselli, Geschäftsführerin get.more.sales Verkaufsberatung und Vertriebstraining | [vorschau.magnet-xs.ch/get-more-sales-vollversion/images/carmen-caselli-portrait-color.jpg](https://vorschau.magnet-xs.ch/get-more-sales-vollversion/images/carmen-caselli-portrait-color.jpg) |
+| 5 | `images/carmen-caselli-portrait-duplex-card.jpg` | Team, Porträt & Kader (`team`) | 640×480 px · 41.1 KB (JPG) | 🟢 Aktiv in `index.html`, `referenzen.html` | 1:1 Executive Sales-Sparring mit Carmen Caselli | [vorschau.magnet-xs.ch/get-more-sales-vollversion/images/carmen-caselli-portrait-duplex-card.jpg](https://vorschau.magnet-xs.ch/get-more-sales-vollversion/images/carmen-caselli-portrait-duplex-card.jpg) |
+| 6 | `images/carmen-caselli-portrait-duplex.png` | Team, Porträt & Kader (`team`) | 351×362 px · 238.5 KB (PNG) | ⚪ Frei im Pool | get.more.sales · Carmen Caselli · Verkaufsberatung & Vertriebstraining (Mühlethal / Zofingen) – Team & Ansprechpartner: Carmen Caselli Portrait Duplex – Persönlicher Ansprechpartner und Fachteam bei get.more.sales in Mühlethal / Zofingen (AG) – Persönlicher Ansprechpartner und Fachteam bei get.more.sales in Mühlethal / Zofingen (AG) – Persönlicher Ansprechpartner und Fachteam bei get.more.sales in Mühlethal / Zofingen (AG) | [vorschau.magnet-xs.ch/get-more-sales-vollversion/images/carmen-caselli-portrait-duplex.png](https://vorschau.magnet-xs.ch/get-more-sales-vollversion/images/carmen-caselli-portrait-duplex.png) |
+| 7 | `images/carmen-caselli-portrait-full-card.jpg` | Team, Porträt & Kader (`team`) | 640×480 px · 34.7 KB (JPG) | 🟢 Aktiv in `index.html`, `referenzen.html`, `ueber-uns.html` | Carmen Caselli, Inhaberin get.more.sales in 4812 Mühlethal / Zofingen | [vorschau.magnet-xs.ch/get-more-sales-vollversion/images/carmen-caselli-portrait-full-card.jpg](https://vorschau.magnet-xs.ch/get-more-sales-vollversion/images/carmen-caselli-portrait-full-card.jpg) |
+| 8 | `images/carmen-caselli-portrait-full.png` | Team, Porträt & Kader (`team`) | 351×362 px · 193.7 KB (PNG) | ⚪ Frei im Pool | get.more.sales · Carmen Caselli · Verkaufsberatung & Vertriebstraining (Mühlethal / Zofingen) – Team & Ansprechpartner: Carmen Caselli Portrait Full – Persönlicher Ansprechpartner und Fachteam bei get.more.sales in Mühlethal / Zofingen (AG) – Persönlicher Ansprechpartner und Fachteam bei get.more.sales in Mühlethal / Zofingen (AG) – Persönlicher Ansprechpartner und Fachteam bei get.more.sales in Mühlethal / Zofingen (AG) | [vorschau.magnet-xs.ch/get-more-sales-vollversion/images/carmen-caselli-portrait-full.png](https://vorschau.magnet-xs.ch/get-more-sales-vollversion/images/carmen-caselli-portrait-full.png) |
+| 9 | `images/carmen-caselli-portrait-studio.png` | Team, Porträt & Kader (`team`) | 1024×1024 px · 1235.1 KB (PNG) | ⚪ Frei im Pool | get.more.sales · Carmen Caselli · Verkaufsberatung & Vertriebstraining (Mühlethal / Zofingen) – Team & Ansprechpartner: Carmen Caselli Portrait Studio – Persönlicher Ansprechpartner und Fachteam bei get.more.sales in Mühlethal / Zofingen (AG) – Persönlicher Ansprechpartner und Fachteam bei get.more.sales in Mühlethal / Zofingen (AG) – Persönlicher Ansprechpartner und Fachteam bei get.more.sales in Mühlethal / Zofingen (AG) | [vorschau.magnet-xs.ch/get-more-sales-vollversion/images/carmen-caselli-portrait-studio.png](https://vorschau.magnet-xs.ch/get-more-sales-vollversion/images/carmen-caselli-portrait-studio.png) |
+| 10 | `images/favicon-32x32.png` | Favicon & App-Icon (`icon`) | 32×32 px · 1.1 KB (PNG) | 🟢 Aktiv in `index.html`, `kontakt.html`, `leistungen.html`, `referenzen.html`, `ueber-uns.html` | get.more.sales Mühlethal / Zofingen (AG) – Offizielles Logo (Fachbetrieb in der Schweiz) | [vorschau.magnet-xs.ch/get-more-sales-vollversion/images/favicon-32x32.png](https://vorschau.magnet-xs.ch/get-more-sales-vollversion/images/favicon-32x32.png) |
+| 11 | `images/hero-sales-dashboard-analytics.png` | Startbühne & Header (`hero`) | 1193×457 px · 720.7 KB (PNG) | 🟢 Aktiv in `index.html`, `kontakt.html`, `leistungen.html`, `referenzen.html`, `ueber-uns.html` | Verkaufsprozess-Audit und Standortbestimmung | [vorschau.magnet-xs.ch/get-more-sales-vollversion/images/hero-sales-dashboard-analytics.png](https://vorschau.magnet-xs.ch/get-more-sales-vollversion/images/hero-sales-dashboard-analytics.png) |
+| 12 | `images/leistung-marktforschung-analyse.png` | Referenz, Projekt & Angebot (`ref`) | 374×212 px · 84.3 KB (PNG) | 🟢 Aktiv in `index.html`, `referenzen.html` | Marktforschung und Potenzialanalyse bei get.more.sales | [vorschau.magnet-xs.ch/get-more-sales-vollversion/images/leistung-marktforschung-analyse.png](https://vorschau.magnet-xs.ch/get-more-sales-vollversion/images/leistung-marktforschung-analyse.png) |
+| 13 | `images/leistung-verkaufsstrategie-beratung.png` | Referenz, Projekt & Angebot (`ref`) | 374×212 px · 103.0 KB (PNG) | 🟢 Aktiv in `index.html`, `referenzen.html` | Verkaufsstrategie und Beratung bei get.more.sales Carmen Caselli | [vorschau.magnet-xs.ch/get-more-sales-vollversion/images/leistung-verkaufsstrategie-beratung.png](https://vorschau.magnet-xs.ch/get-more-sales-vollversion/images/leistung-verkaufsstrategie-beratung.png) |
+| 14 | `images/leistung-vertriebstraining-entwicklung.png` | Referenz, Projekt & Angebot (`ref`) | 374×212 px · 77.2 KB (PNG) | 🟢 Aktiv in `index.html`, `referenzen.html` | B2B Vertriebstraining und Entwicklung mit Carmen Caselli | [vorschau.magnet-xs.ch/get-more-sales-vollversion/images/leistung-vertriebstraining-entwicklung.png](https://vorschau.magnet-xs.ch/get-more-sales-vollversion/images/leistung-vertriebstraining-entwicklung.png) |
+| 15 | `images/logo-get-more-sales.png` | Logo & Marken-Icon (`logo`) | 200×200 px · 3.2 KB (PNG) | 🟢 Aktiv in `index.html`, `kontakt.html`, `leistungen.html`, `referenzen.html`, `ueber-uns.html` | get.more.sales Mühlethal / Zofingen (AG) – Offizielles Logo (Fachbetrieb in der Schweiz) | [vorschau.magnet-xs.ch/get-more-sales-vollversion/images/logo-get-more-sales.png](https://vorschau.magnet-xs.ch/get-more-sales-vollversion/images/logo-get-more-sales.png) |
+| 16 | `images/sales-gallery-meeting-sparring.png` | Referenz, Projekt & Angebot (`ref`) | 1226×488 px · 811.9 KB (PNG) | 🟢 Aktiv in `index.html`, `leistungen.html`, `referenzen.html` | Moderne B2B Akquise über Telefon und LinkedIn | [vorschau.magnet-xs.ch/get-more-sales-vollversion/images/sales-gallery-meeting-sparring.png](https://vorschau.magnet-xs.ch/get-more-sales-vollversion/images/sales-gallery-meeting-sparring.png) |
+
+### 3.9 get.more.sales · Carmen Caselli (Zeigeversion v2) (`preview-get-more-sales-v2/`)
+
+- **Angefordert von (Partner):** David Hügli (Magnet XS) · **Eingereicht am:** 10.11.2026 · 20:24 Uhr
+- **Cloudflare-Basis-URL:** [vorschau.magnet-xs.ch/get-more-sales-v2/](https://vorschau.magnet-xs.ch/get-more-sales-v2/)
+- **HTML-Seiten (2):** `index.html`, `kontakt.html`
+- **Bilanz:** **16 Dateien** (4.42 MB) – **🟢 12 aktiv im HTML** | **⚪ 4 frei im Pool** | **Externe Hotlinks: 0**
+
+| Nr. | Dateiname (Lokal) | Kategorie | Auflösung & Grösse | Verwendet auf Seite(n) | SEO/GEO Alt-Text | Direkt-Link auf Cloudflare |
+|---:|---|---|---|---|---|---|
+| 1 | `images/apple-touch-icon.png` | Favicon & App-Icon (`icon`) | 180×180 px · 2.6 KB (PNG) | 🟢 Aktiv in `index.html`, `kontakt.html` | get.more.sales Mühlethal / Zofingen (AG) – Offizielles Logo (Fachbetrieb in der Schweiz) | [vorschau.magnet-xs.ch/get-more-sales-v2/images/apple-touch-icon.png](https://vorschau.magnet-xs.ch/get-more-sales-v2/images/apple-touch-icon.png) |
+| 2 | `images/boost-your-sales-stage.png` | Referenz, Projekt & Angebot (`ref`) | 1892×474 px · 624.6 KB (PNG) | 🟢 Aktiv in `index.html` | get.more.sales Carmen Caselli B2B Vertriebsberatung: 1:1 Executive Sales-Sparring für Entscheider | [vorschau.magnet-xs.ch/get-more-sales-v2/images/boost-your-sales-stage.png](https://vorschau.magnet-xs.ch/get-more-sales-v2/images/boost-your-sales-stage.png) |
+| 3 | `images/carmen-caselli-avatar.png` | Referenz, Projekt & Angebot (`ref`) | 1024×1024 px · 327.9 KB (PNG) | ⚪ Frei im Pool | get.more.sales · Carmen Caselli (Mühlethal / Zofingen) – Einblick & Referenz: Carmen Caselli Avatar: Referenz, Projekt & Angebot – get.more.sales in Mühlethal / Zofingen (AG) – get.more.sales in Mühlethal / Zofingen (AG) – get.more.sales in Mühlethal / Zofingen (AG) | [vorschau.magnet-xs.ch/get-more-sales-v2/images/carmen-caselli-avatar.png](https://vorschau.magnet-xs.ch/get-more-sales-v2/images/carmen-caselli-avatar.png) |
+| 4 | `images/carmen-caselli-portrait-color.jpg` | Team, Porträt & Kader (`team`) | 960×540 px · 27.2 KB (JPG) | 🟢 Aktiv in `index.html`, `kontakt.html` | Carmen Caselli, Geschäftsführerin get.more.sales Verkaufsberatung und Vertriebstraining | [vorschau.magnet-xs.ch/get-more-sales-v2/images/carmen-caselli-portrait-color.jpg](https://vorschau.magnet-xs.ch/get-more-sales-v2/images/carmen-caselli-portrait-color.jpg) |
+| 5 | `images/carmen-caselli-portrait-duplex-card.jpg` | Team, Porträt & Kader (`team`) | 640×480 px · 41.1 KB (JPG) | 🟢 Aktiv in `index.html` | 1:1 Executive Sales-Sparring mit Carmen Caselli | [vorschau.magnet-xs.ch/get-more-sales-v2/images/carmen-caselli-portrait-duplex-card.jpg](https://vorschau.magnet-xs.ch/get-more-sales-v2/images/carmen-caselli-portrait-duplex-card.jpg) |
+| 6 | `images/carmen-caselli-portrait-duplex.png` | Team, Porträt & Kader (`team`) | 351×362 px · 238.5 KB (PNG) | ⚪ Frei im Pool | get.more.sales · Carmen Caselli (Mühlethal / Zofingen) – Team & Ansprechpartner: Carmen Caselli Portrait Duplex – Persönlicher Ansprechpartner und Fachteam bei get.more.sales in Mühlethal / Zofingen (AG) – Persönlicher Ansprechpartner und Fachteam bei get.more.sales in Mühlethal / Zofingen (AG) – Persönlicher Ansprechpartner und Fachteam bei get.more.sales in Mühlethal / Zofingen (AG) | [vorschau.magnet-xs.ch/get-more-sales-v2/images/carmen-caselli-portrait-duplex.png](https://vorschau.magnet-xs.ch/get-more-sales-v2/images/carmen-caselli-portrait-duplex.png) |
+| 7 | `images/carmen-caselli-portrait-full-card.jpg` | Team, Porträt & Kader (`team`) | 640×480 px · 34.7 KB (JPG) | 🟢 Aktiv in `index.html` | get.more.sales Carmen Caselli B2B Vertriebsberatung: Moderne B2B-Akquise: Telefon & LinkedIn | [vorschau.magnet-xs.ch/get-more-sales-v2/images/carmen-caselli-portrait-full-card.jpg](https://vorschau.magnet-xs.ch/get-more-sales-v2/images/carmen-caselli-portrait-full-card.jpg) |
+| 8 | `images/carmen-caselli-portrait-full.png` | Team, Porträt & Kader (`team`) | 351×362 px · 193.7 KB (PNG) | ⚪ Frei im Pool | get.more.sales · Carmen Caselli (Mühlethal / Zofingen) – Team & Ansprechpartner: Carmen Caselli Portrait Full – Persönlicher Ansprechpartner und Fachteam bei get.more.sales in Mühlethal / Zofingen (AG) – Persönlicher Ansprechpartner und Fachteam bei get.more.sales in Mühlethal / Zofingen (AG) – Persönlicher Ansprechpartner und Fachteam bei get.more.sales in Mühlethal / Zofingen (AG) | [vorschau.magnet-xs.ch/get-more-sales-v2/images/carmen-caselli-portrait-full.png](https://vorschau.magnet-xs.ch/get-more-sales-v2/images/carmen-caselli-portrait-full.png) |
+| 9 | `images/carmen-caselli-portrait-studio.png` | Team, Porträt & Kader (`team`) | 1024×1024 px · 1235.1 KB (PNG) | ⚪ Frei im Pool | get.more.sales · Carmen Caselli (Mühlethal / Zofingen) – Team & Ansprechpartner: Carmen Caselli Portrait Studio – Persönlicher Ansprechpartner und Fachteam bei get.more.sales in Mühlethal / Zofingen (AG) – Persönlicher Ansprechpartner und Fachteam bei get.more.sales in Mühlethal / Zofingen (AG) – Persönlicher Ansprechpartner und Fachteam bei get.more.sales in Mühlethal / Zofingen (AG) | [vorschau.magnet-xs.ch/get-more-sales-v2/images/carmen-caselli-portrait-studio.png](https://vorschau.magnet-xs.ch/get-more-sales-v2/images/carmen-caselli-portrait-studio.png) |
+| 10 | `images/favicon-32x32.png` | Favicon & App-Icon (`icon`) | 32×32 px · 1.1 KB (PNG) | 🟢 Aktiv in `index.html`, `kontakt.html` | get.more.sales Mühlethal / Zofingen (AG) – Offizielles Logo (Fachbetrieb in der Schweiz) | [vorschau.magnet-xs.ch/get-more-sales-v2/images/favicon-32x32.png](https://vorschau.magnet-xs.ch/get-more-sales-v2/images/favicon-32x32.png) |
+| 11 | `images/hero-sales-dashboard-analytics.png` | Startbühne & Header (`hero`) | 1193×457 px · 720.7 KB (PNG) | 🟢 Aktiv in `index.html`, `kontakt.html` | Verkaufsprozess-Audit und Standortbestimmung | [vorschau.magnet-xs.ch/get-more-sales-v2/images/hero-sales-dashboard-analytics.png](https://vorschau.magnet-xs.ch/get-more-sales-v2/images/hero-sales-dashboard-analytics.png) |
+| 12 | `images/leistung-marktforschung-analyse.png` | Referenz, Projekt & Angebot (`ref`) | 374×212 px · 84.3 KB (PNG) | 🟢 Aktiv in `index.html` | Marktforschung und Potenzialanalyse bei get.more.sales | [vorschau.magnet-xs.ch/get-more-sales-v2/images/leistung-marktforschung-analyse.png](https://vorschau.magnet-xs.ch/get-more-sales-v2/images/leistung-marktforschung-analyse.png) |
+| 13 | `images/leistung-verkaufsstrategie-beratung.png` | Referenz, Projekt & Angebot (`ref`) | 374×212 px · 103.0 KB (PNG) | 🟢 Aktiv in `index.html` | Verkaufsstrategie und Beratung bei get.more.sales | [vorschau.magnet-xs.ch/get-more-sales-v2/images/leistung-verkaufsstrategie-beratung.png](https://vorschau.magnet-xs.ch/get-more-sales-v2/images/leistung-verkaufsstrategie-beratung.png) |
+| 14 | `images/leistung-vertriebstraining-entwicklung.png` | Referenz, Projekt & Angebot (`ref`) | 374×212 px · 77.2 KB (PNG) | 🟢 Aktiv in `index.html` | B2B Vertriebstraining mit Carmen Caselli | [vorschau.magnet-xs.ch/get-more-sales-v2/images/leistung-vertriebstraining-entwicklung.png](https://vorschau.magnet-xs.ch/get-more-sales-v2/images/leistung-vertriebstraining-entwicklung.png) |
+| 15 | `images/logo-get-more-sales.png` | Logo & Marken-Icon (`logo`) | 200×200 px · 3.2 KB (PNG) | 🟢 Aktiv in `index.html`, `kontakt.html` | get.more.sales Mühlethal / Zofingen (AG) – Offizielles Logo (Fachbetrieb in der Schweiz) | [vorschau.magnet-xs.ch/get-more-sales-v2/images/logo-get-more-sales.png](https://vorschau.magnet-xs.ch/get-more-sales-v2/images/logo-get-more-sales.png) |
+| 16 | `images/sales-gallery-meeting-sparring.png` | Referenz, Projekt & Angebot (`ref`) | 1226×488 px · 811.9 KB (PNG) | 🟢 Aktiv in `index.html` | Moderne B2B Akquise über Telefon und LinkedIn | [vorschau.magnet-xs.ch/get-more-sales-v2/images/sales-gallery-meeting-sparring.png](https://vorschau.magnet-xs.ch/get-more-sales-v2/images/sales-gallery-meeting-sparring.png) |
+
+### 3.10 HER11 · Frauenfussball-Förderung (`preview-her11/`)
 
 - **Angefordert von (Partner):** Jenny Ettle (JE-MI) · **Eingereicht am:** 30.10.2026 · 16:00 Uhr
 - **Cloudflare-Basis-URL:** [vorschau.magnet-xs.ch/her11/](https://vorschau.magnet-xs.ch/her11/)
@@ -391,7 +445,7 @@ Alle neu hochgeladenen oder importierten Bilder und Videos werden durch `publish
 | 21 | `images/social-zukunft-stadion.jpg` | Referenz, Projekt & Angebot (`ref`) | 438×534 px · 38.1 KB (JPG) | ⚪ Frei im Pool | Social Zukunft Stadion: Spielerinnen, Ausbildung & Stadion – HER11 in Zürich (ZH) | [vorschau.magnet-xs.ch/her11/images/social-zukunft-stadion.jpg](https://vorschau.magnet-xs.ch/her11/images/social-zukunft-stadion.jpg) |
 | 22 | `images/social-zukunft-stadion.webp` | Referenz, Projekt & Angebot (`ref`) | 438×534 px · 26.2 KB (WEBP) | 🟢 Aktiv in `index.html` | Stadiontor im pink-blauen Flutlicht | [vorschau.magnet-xs.ch/her11/images/social-zukunft-stadion.webp](https://vorschau.magnet-xs.ch/her11/images/social-zukunft-stadion.webp) |
 
-### 3.9 Herzensarbeit · Anne-Katrin Koch (Vollversion) (`preview-herzensarbeit/`)
+### 3.11 Herzensarbeit · Anne-Katrin Koch (Vollversion) (`preview-herzensarbeit/`)
 
 - **Angefordert von (Partner):** Jenny Ettle (JE-MI) · **Eingereicht am:** 05.11.2026 · 11:00 Uhr
 - **Cloudflare-Basis-URL:** [vorschau.magnet-xs.ch/herzensarbeit-vollversion/](https://vorschau.magnet-xs.ch/herzensarbeit-vollversion/)
@@ -428,7 +482,7 @@ Alle neu hochgeladenen oder importierten Bilder und Videos werden durch `publish
 | 26 | `images/workshop-modul-3.jpg` | Referenz, Projekt & Angebot (`ref`) | 1024×1536 px · 386.4 KB (JPG) | 🟢 Aktiv in `workshops.html` | Tag 3: Beziehungsfähigkeit und Sinnlichkeit – Die Kraft der Liebenden | [vorschau.magnet-xs.ch/herzensarbeit-vollversion/images/workshop-modul-3.jpg](https://vorschau.magnet-xs.ch/herzensarbeit-vollversion/images/workshop-modul-3.jpg) |
 | 27 | `images/workshop-modul-4.jpg` | Referenz, Projekt & Angebot (`ref`) | 1024×1536 px · 309.4 KB (JPG) | 🟢 Aktiv in `workshops.html` | Tag 4: Sorgenkarussell stoppen – Die Kraft der Weitsicht und Weisheit | [vorschau.magnet-xs.ch/herzensarbeit-vollversion/images/workshop-modul-4.jpg](https://vorschau.magnet-xs.ch/herzensarbeit-vollversion/images/workshop-modul-4.jpg) |
 
-### 3.10 Herzensarbeit · Anne-Katrin Koch (Zeigeversion v2) (`preview-herzensarbeit-v2/`)
+### 3.12 Herzensarbeit · Anne-Katrin Koch (Zeigeversion v2) (`preview-herzensarbeit-v2/`)
 
 - **Angefordert von (Partner):** Jenny Ettle (JE-MI) · **Eingereicht am:** 05.11.2026 · 11:00 Uhr
 - **Cloudflare-Basis-URL:** [vorschau.magnet-xs.ch/herzensarbeit-v2/](https://vorschau.magnet-xs.ch/herzensarbeit-v2/)
@@ -465,7 +519,7 @@ Alle neu hochgeladenen oder importierten Bilder und Videos werden durch `publish
 | 26 | `images/workshop-modul-3.jpg` | Referenz, Projekt & Angebot (`ref`) | 1024×1536 px · 386.4 KB (JPG) | ⚪ Frei im Pool | Workshop Modul 3: Begleitungs-Angebote, Workshops & Klienten-Stimmen – Herzensarbeit in Härkingen (SO) | [vorschau.magnet-xs.ch/herzensarbeit-v2/images/workshop-modul-3.jpg](https://vorschau.magnet-xs.ch/herzensarbeit-v2/images/workshop-modul-3.jpg) |
 | 27 | `images/workshop-modul-4.jpg` | Referenz, Projekt & Angebot (`ref`) | 1024×1536 px · 309.4 KB (JPG) | ⚪ Frei im Pool | Workshop Modul 4: Begleitungs-Angebote, Workshops & Klienten-Stimmen – Herzensarbeit in Härkingen (SO) | [vorschau.magnet-xs.ch/herzensarbeit-v2/images/workshop-modul-4.jpg](https://vorschau.magnet-xs.ch/herzensarbeit-v2/images/workshop-modul-4.jpg) |
 
-### 3.11 Hiltbrand Gebäudehüllen AG (WebPilot) (`preview-hiltbrand/`)
+### 3.13 Hiltbrand Gebäudehüllen AG (WebPilot) (`preview-hiltbrand/`)
 
 - **Angefordert von (Partner):** David Hügli (Magnet XS · Referenz) · **Eingereicht am:** 04.10.2026 · 11:02 Uhr
 - **Cloudflare-Basis-URL:** [vorschau.magnet-xs.ch/hiltbrand/](https://vorschau.magnet-xs.ch/hiltbrand/)
@@ -503,7 +557,7 @@ Alle neu hochgeladenen oder importierten Bilder und Videos werden durch `publish
 | 27 | `images/team_alt.jpg` | Team, Porträt & Kader (`team`) | 1400×933 px · 259.8 KB (JPG) | 🟢 Aktiv in `onboarding.html`, `team.html` | Team Gruppenfoto – Persönlicher Ansprechpartner und Fachteam bei Hiltbrand Gebäudehüllen AG in Krattigen (BE) | [vorschau.magnet-xs.ch/hiltbrand/images/team_alt.jpg](https://vorschau.magnet-xs.ch/hiltbrand/images/team_alt.jpg) |
 | 28 | `images/vorstellung.jpg` | Referenz, Projekt & Angebot (`ref`) | 1400×933 px · 160.7 KB (JPG) | 🟢 Aktiv in `onboarding.html`, `team.html` | Michael Mäxu – Persönlicher Ansprechpartner und Fachteam bei Hiltbrand Gebäudehüllen AG in Krattigen (BE) | [vorschau.magnet-xs.ch/hiltbrand/images/vorstellung.jpg](https://vorschau.magnet-xs.ch/hiltbrand/images/vorstellung.jpg) |
 
-### 3.12 Hochuli Schlossrued AG (`preview-hochuli/`)
+### 3.14 Hochuli Schlossrued AG (`preview-hochuli/`)
 
 - **Angefordert von (Partner):** David Hügli (Magnet XS · Referenz) · **Eingereicht am:** 29.10.2026 · 13:08 Uhr
 - **Cloudflare-Basis-URL:** [vorschau.magnet-xs.ch/hochuli/](https://vorschau.magnet-xs.ch/hochuli/)
@@ -554,7 +608,7 @@ Alle neu hochgeladenen oder importierten Bilder und Videos werden durch `publish
 | 40 | `images/thomas-ettle.jpg` | Referenz, Projekt & Angebot (`ref`) | 333×333 px · 13.8 KB (JPG) | 🟢 Aktiv in `team.html` | Thomas Ettle – Persönlicher Ansprechpartner und Fachteam bei Hochuli Schlossrued AG in Schlossrued (AG) | [vorschau.magnet-xs.ch/hochuli/images/thomas-ettle.jpg](https://vorschau.magnet-xs.ch/hochuli/images/thomas-ettle.jpg) |
 | 41 | `images/thomas-perret.jpg` | Referenz, Projekt & Angebot (`ref`) | 200×200 px · 7.5 KB (JPG) | 🟢 Aktiv in `index.html` | Thomas Perret & Thomas Ettle – Architektur & Bauleitung | [vorschau.magnet-xs.ch/hochuli/images/thomas-perret.jpg](https://vorschau.magnet-xs.ch/hochuli/images/thomas-perret.jpg) |
 
-### 3.13 Holz-Susi GmbH · Susanne Schmid (Vollversion) (`preview-holz-susi/`)
+### 3.15 Holz-Susi GmbH · Susanne Schmid (Vollversion) (`preview-holz-susi/`)
 
 - **Angefordert von (Partner):** David Hügli (Magnet XS) · **Eingereicht am:** 09.11.2026 · 13:44 Uhr
 - **Cloudflare-Basis-URL:** [vorschau.magnet-xs.ch/holz-susi-vollversion/](https://vorschau.magnet-xs.ch/holz-susi-vollversion/)
@@ -619,7 +673,7 @@ Alle neu hochgeladenen oder importierten Bilder und Videos werden durch `publish
 | 54 | `images/team-susi-schmid-fahrzeug.png` | Team, Porträt & Kader (`team`) | 640×426 px · 141.4 KB (PNG) | ⚪ Frei im Pool | Holz-Susi GmbH (Frick) – Team & Ansprechpartner: Susi Schmid Fahrzeug – Persönlicher Ansprechpartner und Fachteam bei Holz-Susi GmbH in Frick (AG) – Persönlicher Ansprechpartner und Fachteam bei Holz-Susi GmbH in Frick (AG) – Persönlicher Ansprechpartner und Fachteam bei Holz-Susi GmbH in Frick (AG) – Persönlicher Ansprechpartner und Fachteam bei Holz-Susi GmbH in Frick (AG) – Persönlicher Ansprechpartner und Fachteam bei Holz-Susi GmbH in Frick (AG) – Persönlicher Ansprechpartner und Fachteam bei Holz-Susi GmbH in Frick (AG) | [vorschau.magnet-xs.ch/holz-susi-vollversion/images/team-susi-schmid-fahrzeug.png](https://vorschau.magnet-xs.ch/holz-susi-vollversion/images/team-susi-schmid-fahrzeug.png) |
 | 55 | `images/team-susi-schmid-portrait.png` | Team, Porträt & Kader (`team`) | 358×640 px · 441.2 KB (PNG) | 🟢 Aktiv in `index.html`, `ueber-uns.html` | Susanne Susi Schmid, Inhaberin der Holz-Susi GmbH in Frick | [vorschau.magnet-xs.ch/holz-susi-vollversion/images/team-susi-schmid-portrait.png](https://vorschau.magnet-xs.ch/holz-susi-vollversion/images/team-susi-schmid-portrait.png) |
 
-### 3.14 Holz-Susi GmbH · Susanne Schmid (Zeigeversion v2) (`preview-holz-susi-v2/`)
+### 3.16 Holz-Susi GmbH · Susanne Schmid (Zeigeversion v2) (`preview-holz-susi-v2/`)
 
 - **Angefordert von (Partner):** David Hügli (Magnet XS) · **Eingereicht am:** 09.11.2026 · 13:44 Uhr
 - **Cloudflare-Basis-URL:** [vorschau.magnet-xs.ch/holz-susi-v2/](https://vorschau.magnet-xs.ch/holz-susi-v2/)
@@ -684,7 +738,7 @@ Alle neu hochgeladenen oder importierten Bilder und Videos werden durch `publish
 | 54 | `images/team-susi-schmid-fahrzeug.png` | Team, Porträt & Kader (`team`) | 640×426 px · 141.4 KB (PNG) | ⚪ Frei im Pool | Holz-Susi GmbH (Frick) – Team & Ansprechpartner: Susi Schmid Fahrzeug – Persönlicher Ansprechpartner und Fachteam bei Holz-Susi GmbH in Frick (AG) – Persönlicher Ansprechpartner und Fachteam bei Holz-Susi GmbH in Frick (AG) – Persönlicher Ansprechpartner und Fachteam bei Holz-Susi GmbH in Frick (AG) – Persönlicher Ansprechpartner und Fachteam bei Holz-Susi GmbH in Frick (AG) – Persönlicher Ansprechpartner und Fachteam bei Holz-Susi GmbH in Frick (AG) – Persönlicher Ansprechpartner und Fachteam bei Holz-Susi GmbH in Frick (AG) | [vorschau.magnet-xs.ch/holz-susi-v2/images/team-susi-schmid-fahrzeug.png](https://vorschau.magnet-xs.ch/holz-susi-v2/images/team-susi-schmid-fahrzeug.png) |
 | 55 | `images/team-susi-schmid-portrait.png` | Team, Porträt & Kader (`team`) | 358×640 px · 441.2 KB (PNG) | ⚪ Frei im Pool | Holz-Susi GmbH (Frick) – Team & Ansprechpartner: Susi Schmid Portrait – Persönlicher Ansprechpartner und Fachteam bei Holz-Susi GmbH in Frick (AG) – Persönlicher Ansprechpartner und Fachteam bei Holz-Susi GmbH in Frick (AG) – Persönlicher Ansprechpartner und Fachteam bei Holz-Susi GmbH in Frick (AG) – Persönlicher Ansprechpartner und Fachteam bei Holz-Susi GmbH in Frick (AG) – Persönlicher Ansprechpartner und Fachteam bei Holz-Susi GmbH in Frick (AG) – Persönlicher Ansprechpartner und Fachteam bei Holz-Susi GmbH in Frick (AG) | [vorschau.magnet-xs.ch/holz-susi-v2/images/team-susi-schmid-portrait.png](https://vorschau.magnet-xs.ch/holz-susi-v2/images/team-susi-schmid-portrait.png) |
 
-### 3.15 IMP GmbH · Matthias Iseli (Vollversion) (`preview-imp-marketing/`)
+### 3.17 IMP GmbH · Matthias Iseli (Vollversion) (`preview-imp-marketing/`)
 
 - **Angefordert von (Partner):** David Hügli (Magnet XS) · **Eingereicht am:** 05.11.2026 · 12:35 Uhr
 - **Cloudflare-Basis-URL:** [vorschau.magnet-xs.ch/imp-marketing-vollversion/](https://vorschau.magnet-xs.ch/imp-marketing-vollversion/)
@@ -724,7 +778,7 @@ Alle neu hochgeladenen oder importierten Bilder und Videos werden durch `publish
 | 29 | `images/web-step-4-betreuung.png` | Referenz, Projekt & Angebot (`ref`) | 852×849 px · 248.5 KB (PNG) | 🟢 Aktiv in `leistungen.html` | Schritt 4: Veröffentlichung & Betreuung | [vorschau.magnet-xs.ch/imp-marketing-vollversion/images/web-step-4-betreuung.png](https://vorschau.magnet-xs.ch/imp-marketing-vollversion/images/web-step-4-betreuung.png) |
 | 30 | `images/werkstatt-handwerk.webp` | Referenz, Projekt & Angebot (`ref`) | 1500×1500 px · 206.8 KB (WEBP) | 🟢 Aktiv in `ueber-uns.html` | Schweizer Schreinerei-Handwerk und Präzision | [vorschau.magnet-xs.ch/imp-marketing-vollversion/images/werkstatt-handwerk.webp](https://vorschau.magnet-xs.ch/imp-marketing-vollversion/images/werkstatt-handwerk.webp) |
 
-### 3.16 IMP GmbH · Matthias Iseli (Zeigeversion v2) (`preview-imp-marketing-v2/`)
+### 3.18 IMP GmbH · Matthias Iseli (Zeigeversion v2) (`preview-imp-marketing-v2/`)
 
 - **Angefordert von (Partner):** David Hügli (Magnet XS) · **Eingereicht am:** 05.11.2026 · 12:35 Uhr
 - **Cloudflare-Basis-URL:** [vorschau.magnet-xs.ch/imp-marketing-v2/](https://vorschau.magnet-xs.ch/imp-marketing-v2/)
@@ -764,7 +818,7 @@ Alle neu hochgeladenen oder importierten Bilder und Videos werden durch `publish
 | 29 | `images/web-step-4-betreuung.png` | Referenz, Projekt & Angebot (`ref`) | 852×849 px · 248.5 KB (PNG) | ⚪ Frei im Pool | Web Step 4 Betreuung: Werkstatt, Systeme & Prozesse – IMP GmbH in Obersteckholz (BE) | [vorschau.magnet-xs.ch/imp-marketing-v2/images/web-step-4-betreuung.png](https://vorschau.magnet-xs.ch/imp-marketing-v2/images/web-step-4-betreuung.png) |
 | 30 | `images/werkstatt-handwerk.webp` | Referenz, Projekt & Angebot (`ref`) | 1500×1500 px · 206.8 KB (WEBP) | 🟢 Aktiv in `kontakt.html` | Kontakt, Erstgespräch & Impressum – Vorschau IMP GmbH | [vorschau.magnet-xs.ch/imp-marketing-v2/images/werkstatt-handwerk.webp](https://vorschau.magnet-xs.ch/imp-marketing-v2/images/werkstatt-handwerk.webp) |
 
-### 3.17 Wüest + Paneduro · Innere Stärke (Vollversion) (`preview-innere-staerke/`)
+### 3.19 Wüest + Paneduro · Innere Stärke (Vollversion) (`preview-innere-staerke/`)
 
 - **Angefordert von (Partner):** Jenny Ettle (JE-MI) · **Eingereicht am:** 03.11.2026 · 18:30 Uhr
 - **Cloudflare-Basis-URL:** [vorschau.magnet-xs.ch/innere-staerke-vollversion/](https://vorschau.magnet-xs.ch/innere-staerke-vollversion/)
@@ -815,7 +869,7 @@ Alle neu hochgeladenen oder importierten Bilder und Videos werden durch `publish
 | 40 | `images/stv.jpg` | Referenz, Projekt & Angebot (`ref`) | 500×500 px · 8.8 KB (JPG) | 🟢 Aktiv in `index.html`, `referenzen.html` | Stv: Coaching, Workshops & Referenzen – Wüest + Paneduro in Sursee (LU) | [vorschau.magnet-xs.ch/innere-staerke-vollversion/images/stv.jpg](https://vorschau.magnet-xs.ch/innere-staerke-vollversion/images/stv.jpg) |
 | 41 | `images/zeitlos.jpg` | Referenz, Projekt & Angebot (`ref`) | 500×500 px · 8.2 KB (JPG) | 🟢 Aktiv in `index.html`, `referenzen.html` | Zeitlos: Coaching, Workshops & Referenzen – Wüest + Paneduro in Sursee (LU) | [vorschau.magnet-xs.ch/innere-staerke-vollversion/images/zeitlos.jpg](https://vorschau.magnet-xs.ch/innere-staerke-vollversion/images/zeitlos.jpg) |
 
-### 3.18 Wüest + Paneduro · Innere Stärke (Zeigeversion v2) (`preview-innere-staerke-v2/`)
+### 3.20 Wüest + Paneduro · Innere Stärke (Zeigeversion v2) (`preview-innere-staerke-v2/`)
 
 - **Angefordert von (Partner):** Jenny Ettle (JE-MI) · **Eingereicht am:** 03.11.2026 · 18:30 Uhr
 - **Cloudflare-Basis-URL:** [vorschau.magnet-xs.ch/innere-staerke-v2/](https://vorschau.magnet-xs.ch/innere-staerke-v2/)
@@ -866,7 +920,7 @@ Alle neu hochgeladenen oder importierten Bilder und Videos werden durch `publish
 | 40 | `images/stv.jpg` | Referenz, Projekt & Angebot (`ref`) | 500×500 px · 8.8 KB (JPG) | 🟢 Aktiv in `index.html` | Stv: Coaching, Workshops & Referenzen – Wüest + Paneduro in Sursee (LU) | [vorschau.magnet-xs.ch/innere-staerke-v2/images/stv.jpg](https://vorschau.magnet-xs.ch/innere-staerke-v2/images/stv.jpg) |
 | 41 | `images/zeitlos.jpg` | Referenz, Projekt & Angebot (`ref`) | 500×500 px · 8.2 KB (JPG) | 🟢 Aktiv in `index.html` | Zeitlos: Coaching, Workshops & Referenzen – Wüest + Paneduro in Sursee (LU) | [vorschau.magnet-xs.ch/innere-staerke-v2/images/zeitlos.jpg](https://vorschau.magnet-xs.ch/innere-staerke-v2/images/zeitlos.jpg) |
 
-### 3.19 JOMA Solar GmbH (Vollversion) (`preview-joma/`)
+### 3.21 JOMA Solar GmbH (Vollversion) (`preview-joma/`)
 
 - **Angefordert von (Partner):** Jenny Ettle (JE-MI) · **Eingereicht am:** 05.11.2026 · 20:54 Uhr
 - **Cloudflare-Basis-URL:** [vorschau.magnet-xs.ch/joma-vollversion/](https://vorschau.magnet-xs.ch/joma-vollversion/)
@@ -903,7 +957,7 @@ Alle neu hochgeladenen oder importierten Bilder und Videos werden durch `publish
 | 26 | `images/team-gruppe-hero.jpg` | Startbühne & Header (`hero`) | 1400×933 px · 187.9 KB (JPG) | 🟢 Aktiv in `index.html`, `kontakt.html`, `ueber-uns.html` | Das Team der JOMA Solar GmbH aus Wettingen | [vorschau.magnet-xs.ch/joma-vollversion/images/team-gruppe-hero.jpg](https://vorschau.magnet-xs.ch/joma-vollversion/images/team-gruppe-hero.jpg) |
 | 27 | `images/team-jonathan-marco-pv.jpg` | Team, Porträt & Kader (`team`) | 533×800 px · 152.0 KB (JPG) | 🟢 Aktiv in `ueber-uns.html` | Jonathan Muggli und Marco Keller auf dem Solardach | [vorschau.magnet-xs.ch/joma-vollversion/images/team-jonathan-marco-pv.jpg](https://vorschau.magnet-xs.ch/joma-vollversion/images/team-jonathan-marco-pv.jpg) |
 
-### 3.20 JOMA Solar GmbH (Zeigeversion v2) (`preview-joma-v2/`)
+### 3.22 JOMA Solar GmbH (Zeigeversion v2) (`preview-joma-v2/`)
 
 - **Angefordert von (Partner):** Jenny Ettle (JE-MI) · **Eingereicht am:** 05.11.2026 · 20:54 Uhr
 - **Cloudflare-Basis-URL:** [vorschau.magnet-xs.ch/joma-v2/](https://vorschau.magnet-xs.ch/joma-v2/)
@@ -940,7 +994,7 @@ Alle neu hochgeladenen oder importierten Bilder und Videos werden durch `publish
 | 26 | `images/team-gruppe-hero.jpg` | Startbühne & Header (`hero`) | 1400×933 px · 187.9 KB (JPG) | 🟢 Aktiv in `index.html`, `kontakt.html` | Das Team der JOMA Solar GmbH aus Wettingen | [vorschau.magnet-xs.ch/joma-v2/images/team-gruppe-hero.jpg](https://vorschau.magnet-xs.ch/joma-v2/images/team-gruppe-hero.jpg) |
 | 27 | `images/team-jonathan-marco-pv.jpg` | Team, Porträt & Kader (`team`) | 533×800 px · 152.0 KB (JPG) | ⚪ Frei im Pool | Team Jonathan Marco Pv – Persönlicher Ansprechpartner und Fachteam bei JOMA Solar GmbH in Wettingen (AG) | [vorschau.magnet-xs.ch/joma-v2/images/team-jonathan-marco-pv.jpg](https://vorschau.magnet-xs.ch/joma-v2/images/team-jonathan-marco-pv.jpg) |
 
-### 3.21 MONDOCANI · Die mobile Hundeschule (Vollversion) (`preview-mondocani/`)
+### 3.23 MONDOCANI · Die mobile Hundeschule (Vollversion) (`preview-mondocani/`)
 
 - **Angefordert von (Partner):** Jenny Ettle (JE-MI) · **Eingereicht am:** 10.11.2026 · 09:35 Uhr
 - **Cloudflare-Basis-URL:** [vorschau.magnet-xs.ch/mondocani-vollversion/](https://vorschau.magnet-xs.ch/mondocani-vollversion/)
@@ -974,7 +1028,7 @@ Alle neu hochgeladenen oder importierten Bilder und Videos werden durch `publish
 | 23 | `images/team-dorette-sieber-begegnung.jpg` | Team, Porträt & Kader (`team`) | 2013×2248 px · 427.2 KB (JPG) | 🟢 Aktiv in `ueber-uns.html` | Dorette Sieber im vertrauensvollen Kontakt mit Hund | [vorschau.magnet-xs.ch/mondocani-vollversion/images/team-dorette-sieber-begegnung.jpg](https://vorschau.magnet-xs.ch/mondocani-vollversion/images/team-dorette-sieber-begegnung.jpg) |
 | 24 | `images/team-dorette-sieber-portrait.jpg` | Team, Porträt & Kader (`team`) | 1169×827 px · 67.3 KB (JPG) | 🟢 Aktiv in `index.html` | Dorette Sieber, Inhaberin von MONDOCANI Mobile Hundeschule | [vorschau.magnet-xs.ch/mondocani-vollversion/images/team-dorette-sieber-portrait.jpg](https://vorschau.magnet-xs.ch/mondocani-vollversion/images/team-dorette-sieber-portrait.jpg) |
 
-### 3.22 MONDOCANI · Die mobile Hundeschule (Zeigeversion v2) (`preview-mondocani-v2/`)
+### 3.24 MONDOCANI · Die mobile Hundeschule (Zeigeversion v2) (`preview-mondocani-v2/`)
 
 - **Angefordert von (Partner):** Jenny Ettle (JE-MI) · **Eingereicht am:** 10.11.2026 · 09:35 Uhr
 - **Cloudflare-Basis-URL:** [vorschau.magnet-xs.ch/mondocani-v2/](https://vorschau.magnet-xs.ch/mondocani-v2/)
@@ -1008,7 +1062,7 @@ Alle neu hochgeladenen oder importierten Bilder und Videos werden durch `publish
 | 23 | `images/team-dorette-sieber-begegnung.jpg` | Team, Porträt & Kader (`team`) | 2013×2248 px · 427.2 KB (JPG) | ⚪ Frei im Pool | MONDOCANI · Die mobile Hundeschule (Flumenthal / Solothurn SO) – Team & Ansprechpartner: Dorette Sieber Begegnung – Persönlicher Ansprechpartner und Fachteam bei MONDOCANI in Flumenthal / Solothurn (SO) – Persönlicher Ansprechpartner und Fachteam bei MONDOCANI in Flumenthal / Solothurn (SO) – Persönlicher Ansprechpartner und Fachteam bei MONDOCANI in Flumenthal / Solothurn (SO) – Persönlicher Ansprechpartner und Fachteam bei MONDOCANI in Flumenthal / Solothurn (SO) – Persönlicher Ansprechpartner und Fachteam bei MONDOCANI in Flumenthal / Solothurn (SO) – Persönlicher Ansprechpartner und Fachteam bei MONDOCANI in Flumenthal / Solothurn (SO) | [vorschau.magnet-xs.ch/mondocani-v2/images/team-dorette-sieber-begegnung.jpg](https://vorschau.magnet-xs.ch/mondocani-v2/images/team-dorette-sieber-begegnung.jpg) |
 | 24 | `images/team-dorette-sieber-portrait.jpg` | Team, Porträt & Kader (`team`) | 1169×827 px · 67.3 KB (JPG) | ⚪ Frei im Pool | MONDOCANI · Die mobile Hundeschule (Flumenthal / Solothurn SO) – Team & Ansprechpartner: Dorette Sieber Portrait – Persönlicher Ansprechpartner und Fachteam bei MONDOCANI in Flumenthal / Solothurn (SO) – Persönlicher Ansprechpartner und Fachteam bei MONDOCANI in Flumenthal / Solothurn (SO) – Persönlicher Ansprechpartner und Fachteam bei MONDOCANI in Flumenthal / Solothurn (SO) – Persönlicher Ansprechpartner und Fachteam bei MONDOCANI in Flumenthal / Solothurn (SO) – Persönlicher Ansprechpartner und Fachteam bei MONDOCANI in Flumenthal / Solothurn (SO) – Persönlicher Ansprechpartner und Fachteam bei MONDOCANI in Flumenthal / Solothurn (SO) | [vorschau.magnet-xs.ch/mondocani-v2/images/team-dorette-sieber-portrait.jpg](https://vorschau.magnet-xs.ch/mondocani-v2/images/team-dorette-sieber-portrait.jpg) |
 
-### 3.23 SC Fulenbach (`preview-scfulenbach/`)
+### 3.25 SC Fulenbach (`preview-scfulenbach/`)
 
 - **Angefordert von (Partner):** Jenny Ettle (JE-MI) · **Eingereicht am:** 02.11.2026 · 17:20 Uhr
 - **Cloudflare-Basis-URL:** [vorschau.magnet-xs.ch/scfulenbach/](https://vorschau.magnet-xs.ch/scfulenbach/)
@@ -1113,7 +1167,7 @@ Alle neu hochgeladenen oder importierten Bilder und Videos werden durch `publish
 | 94 | `images/team-senioren-30.webp` | Team, Porträt & Kader (`team`) | 1000×666 px · 180.9 KB (WEBP) | 🟢 Aktiv in `team-update.html` | Team Senioren 30 – Persönlicher Ansprechpartner und Fachteam bei SC Fulenbach in Fulenbach (SO) | [vorschau.magnet-xs.ch/scfulenbach/images/team-senioren-30.webp](https://vorschau.magnet-xs.ch/scfulenbach/images/team-senioren-30.webp) |
 | 95 | `images/vorstand-gruppe.webp` | Team, Porträt & Kader (`team`) | 1200×800 px · 277.1 KB (WEBP) | 🟢 Aktiv in `index.html` | Vorstand SC Fulenbach um Präsident Willi von Arx | [vorschau.magnet-xs.ch/scfulenbach/images/vorstand-gruppe.webp](https://vorschau.magnet-xs.ch/scfulenbach/images/vorstand-gruppe.webp) |
 
-### 3.24 WebPilot Plattform · magnet-Xs gmbh (`webpilot/`)
+### 3.26 WebPilot Plattform · magnet-Xs gmbh (`webpilot/`)
 
 - **Angefordert von (Partner):** David Hügli (Magnet XS · Produktseite) · **Eingereicht am:** 02.10.2026 · 20:14 Uhr
 - **Cloudflare-Basis-URL:** [vorschau.magnet-xs.ch/webpilot/](https://vorschau.magnet-xs.ch/webpilot/)
@@ -1122,7 +1176,7 @@ Alle neu hochgeladenen oder importierten Bilder und Videos werden durch `publish
 
 | Nr. | Dateiname (Lokal) | Kategorie | Auflösung & Grösse | Verwendet auf Seite(n) | SEO/GEO Alt-Text | Direkt-Link auf Cloudflare |
 |---:|---|---|---|---|---|---|
-| 1 | `images/benefits_drohne.jpg` | Referenz, Projekt & Angebot (`ref`) | 1400×1050 px · 482.5 KB (JPG) | ⚪ Frei im Pool | WebPilot Plattform · magnet-Xs gmbh (Zofingen AG) – Einblick & Referenz: Benefits Drohne: Referenz, Projekt & Angebot – WebPilot in Zofingen (AG) – WebPilot in Zofingen (AG) | [vorschau.magnet-xs.ch/webpilot/images/benefits_drohne.jpg](https://vorschau.magnet-xs.ch/webpilot/images/benefits_drohne.jpg) |
-| 2 | `images/hero.jpg` | Startbühne & Header (`hero`) | 1400×933 px · 160.7 KB (JPG) | 🟢 Aktiv in `angebot.html`, `index.html`, `kontakt.html`, `technologie.html`, `ueber-uns.html` | WebPilot Plattform · magnet-Xs gmbh (Zofingen AG) – Startbühne & Hauptansicht: Hero: Startbühne & Header – WebPilot in Zofingen (AG) – WebPilot in Zofingen (AG) | [vorschau.magnet-xs.ch/webpilot/images/hero.jpg](https://vorschau.magnet-xs.ch/webpilot/images/hero.jpg) |
-| 3 | `images/michael.jpg` | Team, Porträt & Kader (`team`) | 834×788 px · 186.7 KB (JPG) | ⚪ Frei im Pool | WebPilot Plattform · magnet-Xs gmbh (Zofingen AG) – Team & Ansprechpartner: Michael – Persönlicher Ansprechpartner und Fachteam bei WebPilot in Zofingen (AG) – Persönlicher Ansprechpartner und Fachteam bei WebPilot in Zofingen (AG) | [vorschau.magnet-xs.ch/webpilot/images/michael.jpg](https://vorschau.magnet-xs.ch/webpilot/images/michael.jpg) |
-| 4 | `images/stefan.jpg` | Team, Porträt & Kader (`team`) | 1400×1337 px · 204.2 KB (JPG) | ⚪ Frei im Pool | WebPilot Plattform · magnet-Xs gmbh (Zofingen AG) – Team & Ansprechpartner: Stefan – Persönlicher Ansprechpartner und Fachteam bei WebPilot in Zofingen (AG) – Persönlicher Ansprechpartner und Fachteam bei WebPilot in Zofingen (AG) | [vorschau.magnet-xs.ch/webpilot/images/stefan.jpg](https://vorschau.magnet-xs.ch/webpilot/images/stefan.jpg) |
+| 1 | `images/benefits_drohne.jpg` | Referenz, Projekt & Angebot (`ref`) | 1400×1050 px · 482.5 KB (JPG) | ⚪ Frei im Pool | WebPilot Plattform · magnet-Xs gmbh (Zofingen AG) – Einblick & Referenz: Benefits Drohne: Referenz, Projekt & Angebot – WebPilot in Zofingen (AG) – WebPilot in Zofingen (AG) – WebPilot in Zofingen (AG) – WebPilot in Zofingen (AG) | [vorschau.magnet-xs.ch/webpilot/images/benefits_drohne.jpg](https://vorschau.magnet-xs.ch/webpilot/images/benefits_drohne.jpg) |
+| 2 | `images/hero.jpg` | Startbühne & Header (`hero`) | 1400×933 px · 160.7 KB (JPG) | 🟢 Aktiv in `angebot.html`, `index.html`, `kontakt.html`, `technologie.html`, `ueber-uns.html` | WebPilot Plattform · magnet-Xs gmbh (Zofingen AG) – Startbühne & Hauptansicht: Hero: Startbühne & Header – WebPilot in Zofingen (AG) – WebPilot in Zofingen (AG) – WebPilot in Zofingen (AG) – WebPilot in Zofingen (AG) | [vorschau.magnet-xs.ch/webpilot/images/hero.jpg](https://vorschau.magnet-xs.ch/webpilot/images/hero.jpg) |
+| 3 | `images/michael.jpg` | Team, Porträt & Kader (`team`) | 834×788 px · 186.7 KB (JPG) | ⚪ Frei im Pool | WebPilot Plattform · magnet-Xs gmbh (Zofingen AG) – Team & Ansprechpartner: Michael – Persönlicher Ansprechpartner und Fachteam bei WebPilot in Zofingen (AG) – Persönlicher Ansprechpartner und Fachteam bei WebPilot in Zofingen (AG) – Persönlicher Ansprechpartner und Fachteam bei WebPilot in Zofingen (AG) – Persönlicher Ansprechpartner und Fachteam bei WebPilot in Zofingen (AG) | [vorschau.magnet-xs.ch/webpilot/images/michael.jpg](https://vorschau.magnet-xs.ch/webpilot/images/michael.jpg) |
+| 4 | `images/stefan.jpg` | Team, Porträt & Kader (`team`) | 1400×1337 px · 204.2 KB (JPG) | ⚪ Frei im Pool | WebPilot Plattform · magnet-Xs gmbh (Zofingen AG) – Team & Ansprechpartner: Stefan – Persönlicher Ansprechpartner und Fachteam bei WebPilot in Zofingen (AG) – Persönlicher Ansprechpartner und Fachteam bei WebPilot in Zofingen (AG) – Persönlicher Ansprechpartner und Fachteam bei WebPilot in Zofingen (AG) – Persönlicher Ansprechpartner und Fachteam bei WebPilot in Zofingen (AG) | [vorschau.magnet-xs.ch/webpilot/images/stefan.jpg](https://vorschau.magnet-xs.ch/webpilot/images/stefan.jpg) |

@@ -67,6 +67,8 @@ EXCLUDED_INTERNAL_SLUGS = {
 
 # Fuer Jennys Partner-Sheet zusaetzlich alle Nicht-Jenny-Slugs ausschliessen
 EXCLUDED_PARTNER_SLUGS = EXCLUDED_INTERNAL_SLUGS | {
+    "get-more-sales",
+    "preview-get-more-sales",
     "holz-susi",
     "preview-holz-susi",
     "imp-marketing",
@@ -177,6 +179,24 @@ def split_source_and_context(raw_source_or_context: str, explicit_context: str =
 # - In Davids Master-Sheet erscheinen ALLE 9 Projekte (IMP GmbH an Position 1 + alle 8 Projekte von Jenny Ettle).
 # - In Jennys Partner-Sheet erscheinen ausschliesslich die 8 Projekte mit Partner "Jenny Ettle (JE-MI)".
 SEED_PROJECTS = [
+    {
+        "slug": "get-more-sales",
+        "active": True,
+        "company": "get.more.sales · Carmen Caselli (4812 Mühlethal / Zofingen AG)",
+        "pricing_recommended_chf": "CHF 1'900.—",
+        "complexity_score": "4.4 / 10.0",
+        "pricing_formula_chf": "CHF 1'950.—",
+        "pricing_rationale": "Souveräner 5-Seiten-B2B-Auftritt für get.more.sales · Carmen Caselli (Startseite mit interaktivem B2B-Potenzial- & Sparring-Finder, 6 Leistungs-Modulen, Kundenstimmen & Praxis-Resultaten, Über Carmen Caselli inkl. 18 Jahren Finanzpraxis & LinkedIn-Brücke sowie 3-Schritte Smart-Anfrage) inkl. Studio Cockpit v4.0 + Light.",
+        "v2_url": "https://vorschau.magnet-xs.ch/get-more-sales-v2/",
+        "vollversion_url": "https://vorschau.magnet-xs.ch/get-more-sales-vollversion/",
+        "cockpit_url": "https://vorschau.magnet-xs.ch/get-more-sales-vollversion/cockpit.html?token=getmoresales2026",
+        "cockpit_light_url": "https://vorschau.magnet-xs.ch/get-more-sales-vollversion/cockpit.html?token=getmoresales2026&mode=light",
+        "audit_report_url": "https://vorschau.magnet-xs.ch/reports/get-more-sales-vorher-nachher-report.pdf",
+        "source_url": "https://get-more-sales.org/",
+        "branch_context": "B2B-Verkaufsberatung, Marktforschung, Vertriebstraining & 1:1 Executive Sales-Sparring in 4812 Mühlethal / Zofingen (AG) & DACH (CHE-471.125.841)",
+        "partner": "David Hügli (Magnet XS)",
+        "status": "🟢 Bereit zum Zeigen (Fertig: 10.11.2026 · 21:25 Uhr · 0 P1/P2)",
+    },
     {
         "slug": "mondocani",
         "active": True,
@@ -490,6 +510,9 @@ def _get_first_sheet_meta(spreadsheet_id: str) -> Dict[str, Any]:
     sheets = data.get("sheets") or []
     if not sheets:
         raise RuntimeError("Keine Tabellenblaetter im Spreadsheet gefunden.")
+    for sh in sheets:
+        if sh.get("properties", {}).get("title") == DEFAULT_TAB_TITLE:
+            return sh["properties"]
     return sheets[0]["properties"]
 
 
@@ -515,16 +538,15 @@ def apply_sheet_formatting(
         })
 
     # 1. Tab-Name auf 'Kunden & URL-Zentrale' setzen + Zeile 1 fixieren
+    upd_props = {"sheetId": sheet_id, "gridProperties": {"frozenRowCount": 1}}
+    upd_fields = "gridProperties.frozenRowCount"
+    if current_title != DEFAULT_TAB_TITLE:
+        upd_props["title"] = DEFAULT_TAB_TITLE
+        upd_fields = "title,gridProperties.frozenRowCount"
     requests_list.append({
         "updateSheetProperties": {
-            "properties": {
-                "sheetId": sheet_id,
-                "title": DEFAULT_TAB_TITLE,
-                "gridProperties": {
-                    "frozenRowCount": 1,
-                },
-            },
-            "fields": "title,gridProperties.frozenRowCount",
+            "properties": upd_props,
+            "fields": upd_fields,
         }
     })
 
@@ -861,7 +883,8 @@ def _seed_single_spreadsheet(
                     active_by_slug[item["slug"]] = is_act
 
     DEFAULT_SUBMITTED_MAP = {
-        "mondocani": ("10.11.2026 · 09:35 Uhr", "🟢 Bereit zum Zeigen (Fertig: 10.11.2026 · 10:15 Uhr · 0 P1/P2)"),
+        "get-more-sales": ("10.11.2026 · 20:24 Uhr", "🟢 Bereit zum Zeigen (Fertig: 10.11.2026 · 21:25 Uhr · 0 P1/P2)"),
+    "mondocani": ("10.11.2026 · 09:35 Uhr", "🟢 Bereit zum Zeigen (Fertig: 10.11.2026 · 10:15 Uhr · 0 P1/P2)"),
         "holz-susi": ("09.11.2026 · 13:44 Uhr", "🟢 Bereit zum Zeigen (Fertig: 09.11.2026 · 15:03 Uhr)"),
         "imp-marketing": ("05.11.2026 · 12:35 Uhr", "🟢 Bereit zum Zeigen (Fertig: 05.11.2026 · 13:55 Uhr)"),
         "joma": ("05.11.2026 · 20:54 Uhr", "🟢 Bereit zum Zeigen (Fertig: 05.11.2026 · 21:54 Uhr)"),

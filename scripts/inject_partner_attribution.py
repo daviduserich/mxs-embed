@@ -166,6 +166,22 @@ SHOWCASE_CONFIGS = {
         "navy_hex": "#1E140A",
         "font_heading": "'Plus Jakarta Sans', sans-serif",
     },
+    "preview-get-more-sales": {
+        "routing_slug": "get-more-sales",
+        "site_label": "get.more.sales · Carmen Caselli (Verkaufsstrategie & Vertriebstraining Zofingen)",
+        "entity_hint": "get.more.sales (Carmen Caselli, 4812 Mühlethal / Zofingen)",
+        "accent_hex": "#0B68C1",
+        "navy_hex": "#003366",
+        "font_heading": "'Lexend', sans-serif",
+    },
+    "preview-get-more-sales-v2": {
+        "routing_slug": "get-more-sales-v2",
+        "site_label": "get.more.sales · Carmen Caselli (Zeigeversion / Vorschau-Entwurf)",
+        "entity_hint": "get.more.sales (Carmen Caselli, 4812 Mühlethal / Zofingen)",
+        "accent_hex": "#0B68C1",
+        "navy_hex": "#003366",
+        "font_heading": "'Lexend', sans-serif",
+    },
     "preview-mondocani": {
         "routing_slug": "mondocani",
         "site_label": "MONDOCANI · Die mobile Hundeschule (Dorette Sieber, Solothurn)",
