@@ -183,7 +183,36 @@ function getValidTokens(rootSegment, clientSlug) {
   return Array.from(extended);
 }
 
+const ENTERPRISE_SECURITY_HEADERS = {
+  'Strict-Transport-Security': 'max-age=31536000; includeSubDomains; preload',
+  'X-Content-Type-Options': 'nosniff',
+  'Referrer-Policy': 'strict-origin-when-cross-origin',
+  'Permissions-Policy': 'camera=(self), microphone=(self), geolocation=(self)'
+};
+
+function applyEnterpriseSecurityHeaders(response) {
+  if (!response) return response;
+  const headers = new Headers(response.headers);
+  for (const [headerName, headerValue] of Object.entries(ENTERPRISE_SECURITY_HEADERS)) {
+    if (!headers.has(headerName)) {
+      headers.set(headerName, headerValue);
+    }
+  }
+  // WICHTIGE INVARIANZ: Niemals X-Frame-Options: DENY oder frame-ancestors 'none' setzen,
+  // da embed.magnet-xs.ch, Kunden-Previews und Studio-Cockpits in Iframes eingebettet werden!
+  return new Response(response.body, {
+    status: response.status,
+    statusText: response.statusText,
+    headers
+  });
+}
+
 export async function onRequest(context) {
+  const response = await handleRequestCore(context);
+  return applyEnterpriseSecurityHeaders(response);
+}
+
+async function handleRequestCore(context) {
   const url = new URL(context.request.url);
   const hostname = url.hostname.toLowerCase();
 

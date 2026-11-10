@@ -97,6 +97,20 @@ def run_routing_audit(
             "CRITICAL: Konnte DIRECT_ONLY_FOLDERS / DUAL_EMBED_AND_PREVIEW_FOLDERS in functions/_middleware.js nicht parsen!"
         )
 
+    # Pruefe Enterprise Security- & HSTS-Header in _middleware.js und _headers
+    headers_file = REPO_ROOT / "_headers"
+    if not headers_file.is_file():
+        errors.append("[SECURITY-HEADER-GATE] Statische _headers-Datei im Repo-Root fehlt!")
+    else:
+        hdr_text = headers_file.read_text(encoding="utf-8", errors="ignore")
+        for req_hdr in ("Strict-Transport-Security", "X-Content-Type-Options", "Referrer-Policy", "Permissions-Policy"):
+            if req_hdr not in mw_text:
+                errors.append(f"[SECURITY-HEADER-GATE] Header '{req_hdr}' fehlt in functions/_middleware.js!")
+            if req_hdr not in hdr_text:
+                errors.append(f"[SECURITY-HEADER-GATE] Header '{req_hdr}' fehlt in _headers!")
+        if "X-Frame-Options: DENY" in hdr_text or "frame-ancestors 'none'" in hdr_text:
+            errors.append("[SECURITY-HEADER-GATE] Verbotenes X-Frame-Options: DENY oder frame-ancestors 'none' in _headers gefunden!")
+
     # Scanne alle Top-Level-Ordner ohne preview-* Praefix
     for entry in sorted(REPO_ROOT.iterdir()):
         if not entry.is_dir():
