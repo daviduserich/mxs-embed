@@ -233,7 +233,7 @@ SPONSORS_PARTNER = [
 ]
 ALL_14_TEAMS_GROUPS = [
     {
-        "group_title": "1. Aktive Herren, Frauen & Senioren (1 Beispiel-Team ausgearbeitet · 3 weitere vorbereitet)",
+        "group_title": "1. Aktive Herren, Frauen & Senioren (ein Beispiel-Team ausgearbeitet · 3 weitere vorbereitet)",
         "group_lead": "Sportchef Aktive: Florian Bohner (079 677 93 52) · Frauenverantwortliche: Celine Lemp (079 137 82 38)",
         "teams": [
             ("1. Mannschaft (Herren 4. Liga)", "Beispiel-Team 1/14 (Oben komplett ausgearbeitet)", "herren1", "Trainer: Stephan Sperisen (079 705 76 06) & Michael Marti · Di & Do 19:30–21:00 Uhr"),
@@ -1634,7 +1634,7 @@ def render_shell(filename: str, page_title: str, active_nav: str, body_html: str
             </div>
           </div>
           <p style="font-size:0.86rem;color:#CBD5E1;line-height:1.6;margin-bottom:14px;" data-slot="footer_about">
-            Unverbindlicher Vorschau-Entwurf für den FC Attiswil (gegründet am 16.02.1971, SFV Quality Club): 3 von 53 Seiten (Startseite, 1 Beispiel-Team 1. Mannschaft, Smart-Anfrage) als Qualitätsbeweis ausgearbeitet – 50 Unterseiten &amp; 13 Teams folgen im Hauptauftrag.
+            Unverbindlicher Vorschau-Entwurf für den FC Attiswil (gegründet am 16.02.1971, SFV Quality Club): 3 von 53 Seiten (Startseite, ein Beispiel-Team 1. Mannschaft, Smart-Anfrage) als Qualitätsbeweis ausgearbeitet – 50 Unterseiten &amp; 13 Teams folgen im Hauptauftrag.
           </p>
           <div style="font-size:0.84rem;color:#E2E8F0;font-weight:600;">
             Sportanlage Lindenrain · Sportplatzweg 1 · 4536 Attiswil
@@ -1686,7 +1686,7 @@ def render_shell(filename: str, page_title: str, active_nav: str, body_html: str
       <div class="section-kicker">SEITEN-VORSCHAU · VORBEREITET FÜR DEN KOMPLETTEN AUSBAU</div>
       <h3 id="wpBpTitle" style="font-size:1.35rem;font-weight:800;margin-bottom:8px;">Weitere Vereins-Seite: Folgt beim Ausbau</h3>
       <p id="wpBpSub" style="font-size:0.9rem;color:var(--text-body);margin-bottom:12px;">
-        In diesem <strong>Vorschau-Entwurf (3 von 53 Seiten als Beispiel live)</strong> sind oben das Design, alle 23 Sponsoren und exakt <strong>1 Beispiel-Team (1. Mannschaft · Herren 4. Liga)</strong> ausgearbeitet. Dieses Modul befindet sich bewusst noch im <strong>vorbereiteten Platzhalter (folgt beim Ausbau)</strong> und wird nach Auftragserteilung komplett mit allen Originaldaten, Fotos und Kadern eingerichtet.
+        In diesem <strong>Vorschau-Entwurf (3 von 53 Seiten als Beispiel live)</strong> sind oben das Design, alle 23 Sponsoren und exakt <strong>ein Beispiel-Team (1. Mannschaft · Herren 4. Liga)</strong> ausgearbeitet. Dieses Modul befindet sich bewusst noch im <strong>vorbereiteten Platzhalter (folgt beim Ausbau)</strong> und wird nach Auftragserteilung komplett mit allen Originaldaten, Fotos und Kadern eingerichtet.
       </p>
       <div style="background-color:#FEF3C7;border-left:4px solid #D97706;padding:12px 14px;border-radius:var(--radius-sm);font-size:0.86rem;margin-bottom:14px;">
         <div style="font-weight:800;color:#92400E;" id="wpBpCategory">Bereich / Abteilung: Vorbereitet für den Ausbau</div>
@@ -1860,7 +1860,7 @@ def build_index_html() -> str:
             </div>
             <div class="hero-kpi-card">
               <div class="hero-kpi-num" data-slot="kpi_2_num">14 Teams</div>
-              <div class="hero-kpi-lbl" data-slot="kpi_2_lbl">1 Beispiel-Team live · 13 vorbereitet</div>
+              <div class="hero-kpi-lbl" data-slot="kpi_2_lbl">Ein Beispiel-Team live · 13 vorbereitet</div>
             </div>
             <div class="hero-kpi-card">
               <div class="hero-kpi-num" data-slot="kpi_3_num">SFV Quality</div>
@@ -2639,9 +2639,9 @@ def build_herren1_html() -> str:
     <div class="container">
       <div class="architect-box">
         <div style="max-width:780px;">
-          <div class="section-kicker kicker-light" style="margin-bottom:6px;" data-slot="arch_kicker">MANNSCHAFTS-ÜBERSICHT: 1 BEISPIEL-TEAM AUSGEARBEITET – 13 WEITERE TEAMS VORBEREITET</div>
+          <div class="section-kicker kicker-light" style="margin-bottom:6px;" data-slot="arch_kicker">MANNSCHAFTS-ÜBERSICHT: EIN BEISPIEL-TEAM AUSGEARBEITET – 13 WEITERE TEAMS VORBEREITET</div>
           <h1 style="color:#FFFFFF;font-size:clamp(1.45rem,2.5vw,2rem);font-weight:800;margin-bottom:8px;" data-slot="arch_title">
-            1 Beispiel-Team ausgearbeitet (1. Mannschaft) – 13 weitere Mannschaften vorbereitet
+            Ein Beispiel-Team ausgearbeitet (1. Mannschaft) – 13 weitere Mannschaften vorbereitet
           </h1>
           <p style="font-size:0.9rem;color:#E2E8F0;line-height:1.55;margin-bottom:14px;" data-slot="arch_desc">
             Um die künftige Qualität am echten Beispiel zu zeigen, ist in dieser Vorschau exakt <strong>1 von 14 Mannschaften (1. Mannschaft · Herren 4. Liga · 7 %)</strong> komplett mit Original-Mannschaftsfoto, den 4 Staff-Mitgliedern, beiden Trikotsponsoren und allen 22 Kaderspielern ausgearbeitet. Alle weiteren <strong>13 Mannschaften (93 %)</strong>, inklusive <em>Frauen 2. Liga (Cupsiegerinnen 2025)</em>, <em>Frauen 3. Liga</em>, <em>Senioren 30+</em>, <em>Junioren B–G</em> und <em>Juniorinnen FF-17/14/11</em> – stehen unten als <strong>vorbereitete Team-Platzhalter</strong> bereit.
@@ -2748,12 +2748,12 @@ def build_herren1_html() -> str:
       </div>
     </div>
   </section>
-  <!-- 14-MANNSCHAFTEN-ÜBERSICHT (1 BEISPIEL-TEAM + 13 VORBEREITET) -->
+  <!-- 14-MANNSCHAFTEN-ÜBERSICHT (EIN BEISPIEL-TEAM + 13 VORBEREITET) -->
   <section id="alle-teams-matrix" data-section="alle-teams-matrix" style="background-color:#E2E8F0;border-top:3px dashed #0F172A;">
     <div class="container">
       <div class="section-head">
-        <div class="section-kicker" data-slot="matrix_kicker">MANNSCHAFTS-ÜBERSICHT · 1 BEISPIEL-TEAM LIVE · 13 WEITERE VORBEREITET</div>
-        <h2 class="section-title" data-slot="matrix_title">Alle 14 Mannschaften des FC Attiswil im Überblick (1 Beispiel-Team ausgearbeitet · 13 weitere vorbereitet).</h2>
+        <div class="section-kicker" data-slot="matrix_kicker">MANNSCHAFTS-ÜBERSICHT · EIN BEISPIEL-TEAM LIVE · 13 WEITERE VORBEREITET</div>
+        <h2 class="section-title" data-slot="matrix_title">Alle 14 Mannschaften des FC Attiswil im Überblick (ein Beispiel-Team ausgearbeitet · 13 weitere vorbereitet).</h2>
         <p class="section-desc" data-slot="matrix_desc">
           Klicke auf eine der <strong>13 vorbereiteten Team-Kacheln</strong>, um die bereits hinterlegten Original-Trainer, Telefonnummern, Trainingszeiten und Sponsoren des jeweiligen Teams in der Seiten-Vorschau anzusehen:
         </p>

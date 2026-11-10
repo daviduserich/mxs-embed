@@ -1754,7 +1754,7 @@ def render_holz_advisor() -> str:
             </div>
 
             <div class="check-list">
-              <div class="check-item">{SVG_CHECK} <span><strong>1 Ansprechpartnerin von A bis Z:</strong> Keine wechselnden Kontakte: Susi Schmid plant, koordiniert und packt auf der Baustelle persönlich mit an.</span></div>
+              <div class="check-item">{SVG_CHECK} <span><strong>Eine Ansprechpartnerin von A bis Z:</strong> Keine wechselnden Kontakte: Susi Schmid plant, koordiniert und packt auf der Baustelle persönlich mit an.</span></div>
               <div class="check-item">{SVG_CHECK} <span><strong>Eigenleistung auf Wunsch willkommen:</strong> Beim Rückbau, Dämmen oder Täfern können Sie unter fachkundiger Anleitung selbst mithelfen.</span></div>
             </div>
           </div>
@@ -2344,7 +2344,7 @@ V1_INDEX_BODY = f"""
             <span class="hero-badge-lbl">Über 15 Jahre Praxis als Zimmerin, Vorarbeiterin, Kranführerin &amp; Projektleiterin</span>
           </div>
           <div class="hero-badge-card">
-            <span class="hero-badge-val">1 Ansprechpartnerin</span>
+            <span class="hero-badge-val">Eine Ansprechpartnerin</span>
             <span class="hero-badge-lbl">Von der Besichtigung und Offerte bis zur sauberen Ausführung</span>
           </div>
           <div class="hero-badge-card">
@@ -3402,7 +3402,7 @@ V2_INDEX_BODY = f"""
             <span class="hero-badge-lbl">Über 15 Jahre Praxis als Zimmerin, Vorarbeiterin, Kranführerin &amp; Projektleiterin</span>
           </div>
           <div class="hero-badge-card">
-            <span class="hero-badge-val">1 Ansprechpartnerin</span>
+            <span class="hero-badge-val">Eine Ansprechpartnerin</span>
             <span class="hero-badge-lbl">Von der Besichtigung und Offerte bis zur sauberen Ausführung</span>
           </div>
           <div class="hero-badge-card">

@@ -1810,7 +1810,7 @@ INDEX_BODY = f"""
             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
             <span>HAUPTSPONSOREN &amp; OFFIZIELLER CO-SPONSOR</span>
           </span>
-          <span style="font-size:0.82rem;color:var(--text-muted);font-weight:600;">2 Hauptsponsoren &amp; 1 Co-Sponsor des SC Fulenbach</span>
+          <span style="font-size:0.82rem;color:var(--text-muted);font-weight:600;">2 Hauptsponsoren &amp; ein Co-Sponsor des SC Fulenbach</span>
         </div>
 
         <div class="sponsors-gold-grid">
@@ -2226,7 +2226,7 @@ HERREN_1_BODY = """
     <div class="container">
       <div class="architect-box">
         <div style="max-width:780px;">
-          <div class="section-kicker kicker-light" style="margin-bottom:6px;" data-slot="arch_kicker">MANNSCHAFTS-ÜBERSICHT: 1 BEISPIEL-TEAM AUSGEARBEITET – 13 WEITERE TEAMS VORBEREITET</div>
+          <div class="section-kicker kicker-light" style="margin-bottom:6px;" data-slot="arch_kicker">MANNSCHAFTS-ÜBERSICHT: EIN BEISPIEL-TEAM AUSGEARBEITET – 13 WEITERE TEAMS VORBEREITET</div>
           <h1 style="color:#FFFFFF;font-size:clamp(1.45rem,2.5vw,2.05rem);font-weight:800;margin-bottom:8px;" data-slot="arch_title">
             Beispiel-Team: 1. Mannschaft (2. Liga regional) – Vorlage für alle 14 Teams
           </h1>
@@ -2412,12 +2412,12 @@ HERREN_1_BODY = """
     </div>
   </section>
 
-  <!-- 14-MANNSCHAFTEN-ÜBERSICHT (1 BEISPIEL-TEAM, 13 VORBEREITET) -->
+  <!-- 14-MANNSCHAFTEN-ÜBERSICHT (EIN BEISPIEL-TEAM, 13 VORBEREITET) -->
   <section id="alle-teams-matrix" data-section="alle-teams-matrix" style="background-color:#FFFFFF;border-top:1px solid var(--border-light);">
     <div class="container">
       <div class="section-head">
         <div class="section-kicker" data-slot="matrix_kicker">MANNSCHAFTS-ÜBERSICHT · ALLE 14 MANNSCHAFTEN DES SC FULENBACH</div>
-        <h2 class="section-title" data-slot="matrix_title">Alle 14 Mannschaften im Überblick (1 Beispiel-Team ausgearbeitet · 13 weitere vorbereitet).</h2>
+        <h2 class="section-title" data-slot="matrix_title">Alle 14 Mannschaften im Überblick (ein Beispiel-Team ausgearbeitet · 13 weitere vorbereitet).</h2>
         <p class="section-desc" data-slot="matrix_desc">
           Klicke auf eine der <strong>13 vorbereiteten Team-Kacheln</strong>, um die bereits hinterlegten Original-Trainer, Trainingszeiten und Kadergrössen von <strong>scfulenbach.ch</strong> zu prüfen. Bei Auftragserteilung erhält jedes Team seine voll ausgebaute Seite nach dem Vorbild der 1. Mannschaft.
         </p>
@@ -2426,7 +2426,7 @@ HERREN_1_BODY = """
       <!-- Gruppe 1: Aktive & Senioren (3 Teams) -->
       <div class="matrix-group-block">
         <div class="matrix-group-header">
-          <h3 style="font-size:1.18rem;font-weight:800;">1. Aktive &amp; Senioren (3 Mannschaften – 1 Beispiel-Team ausgearbeitet, 2 vorbereitet)</h3>
+          <h3 style="font-size:1.18rem;font-weight:800;">1. Aktive &amp; Senioren (3 Mannschaften – ein Beispiel-Team ausgearbeitet, 2 vorbereitet)</h3>
           <span style="font-size:0.82rem;color:var(--text-muted);font-weight:600;">Sportchef: Mirko Ferrari (mirko.ferrari@scfulenbach.ch · 079 397 87 73)</span>
         </div>
         <div class="matrix-grid">

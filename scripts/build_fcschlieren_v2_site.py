@@ -624,7 +624,7 @@ def render_v2_shell(filename: str, page_title: str, active_nav: str, body_html: 
             </div>
           </div>
           <p style="font-size:0.86rem;color:#CBD5E1;line-height:1.6;margin-bottom:14px;" data-slot="footer_about">
-            Unverbindlicher Vorschau-Entwurf für den FC Schlieren: 3 von 48 Seiten (Startseite, 1 Beispiel-Team Herren 1, Smart-Anfrage) als Qualitätsbeweis ausgearbeitet – 45 Unterseiten &amp; 32 Teams folgen im Hauptauftrag.
+            Unverbindlicher Vorschau-Entwurf für den FC Schlieren: 3 von 48 Seiten (Startseite, ein Beispiel-Team Herren 1, Smart-Anfrage) als Qualitätsbeweis ausgearbeitet – 45 Unterseiten &amp; 32 Teams folgen im Hauptauftrag.
           </p>
           <div style="font-size:0.84rem;color:#E2E8F0;font-weight:600;">
             Fussballanlage Zelgli («im Rohr») · Postfach · 8952 Schlieren
@@ -680,7 +680,7 @@ def render_v2_shell(filename: str, page_title: str, active_nav: str, body_html: 
       <div class="section-kicker">SEITEN-VORSCHAU · VORBEREITET FÜR DEN KOMPLETTEN AUSBAU</div>
       <h3 id="wpBpTitle" style="font-size:1.35rem;font-weight:800;margin-bottom:8px;">Weitere Vereins-Seite: Folgt beim Ausbau</h3>
       <p id="wpBpSub" style="font-size:0.9rem;color:var(--text-body);margin-bottom:12px;">
-        In diesem <strong>Vorschau-Entwurf (3 von 48 Seiten als Beispiel live)</strong> sind oben das Design, die 11 Sponsoren und exakt <strong>1 Beispiel-Team (Herren 1)</strong> ausgearbeitet. Dieses Modul befindet sich bewusst noch im <strong>vorbereiteten Platzhalter (folgt beim Ausbau)</strong> und wird nach Auftragserteilung komplett mit allen Originaldaten, Fotos und Kadern eingerichtet.
+        In diesem <strong>Vorschau-Entwurf (3 von 48 Seiten als Beispiel live)</strong> sind oben das Design, die 11 Sponsoren und exakt <strong>ein Beispiel-Team (Herren 1)</strong> ausgearbeitet. Dieses Modul befindet sich bewusst noch im <strong>vorbereiteten Platzhalter (folgt beim Ausbau)</strong> und wird nach Auftragserteilung komplett mit allen Originaldaten, Fotos und Kadern eingerichtet.
       </p>
       <div style="background-color:#FEF3C7;border-left:4px solid #D97706;padding:12px 14px;border-radius:var(--radius-sm);font-size:0.86rem;margin-bottom:14px;">
         <div style="font-weight:800;color:#92400E;" id="wpBpCategory">Bereich / Abteilung: Vorbereitet für den Ausbau</div>
@@ -856,7 +856,7 @@ BAUPLAN_SCHNITT_SECTION = """
               <span class="blueprint-mod-tag">BEREICH A · MANNSCHAFTEN</span>
               <span class="blueprint-lock-badge">
                 <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-                <span>STATUS: 1 TEAM LIVE · 32 VORBEREITET</span>
+                <span>STATUS: EIN TEAM LIVE · 32 VORBEREITET</span>
               </span>
             </div>
             <h3 class="blueprint-module-title" data-slot="bp_mod_a_title">
@@ -1078,9 +1078,9 @@ V2_HERREN_1_BODY = f"""
     <div class="container">
       <div class="architect-box">
         <div style="max-width:780px;">
-          <div class="section-kicker kicker-light" style="margin-bottom:6px;" data-slot="arch_kicker">MANNSCHAFTS-ÜBERSICHT: 1 BEISPIEL-TEAM AUSGEARBEITET – 32 WEITERE TEAMS VORBEREITET</div>
+          <div class="section-kicker kicker-light" style="margin-bottom:6px;" data-slot="arch_kicker">MANNSCHAFTS-ÜBERSICHT: EIN BEISPIEL-TEAM AUSGEARBEITET – 32 WEITERE TEAMS VORBEREITET</div>
           <h1 style="color:#FFFFFF;font-size:clamp(1.45rem,2.5vw,2rem);font-weight:800;margin-bottom:8px;" data-slot="arch_title">
-            1 Beispiel-Team ausgearbeitet (Herren 1) – 32 Mannschaften als Vorschau-Übersicht vorbereitet
+            Ein Beispiel-Team ausgearbeitet (Herren 1) – 32 Mannschaften als Vorschau-Übersicht vorbereitet
           </h1>
           <p style="font-size:0.9rem;color:#E2E8F0;line-height:1.55;margin-bottom:14px;" data-slot="arch_desc">
             Um die künftige Qualität am echten Beispiel zu demonstrieren, ist in dieser Vorschau exakt <strong>1 von 33 Mannschaften (Herren 1 · 3 %)</strong> komplett mit Original-Mannschaftsfoto, den 3 Trainern und allen 19 Spielern ausgearbeitet. Alle weiteren <strong>32 Mannschaften (97 %)</strong>, inklusive <em>Frauen 1–3</em>, <em>Herren 2</em>, <em>Senioren</em> und <em>25 Nachwuchs-Teams</em> – stehen unten als <strong>vorbereitete Team-Platzhalter</strong> bereit und werden erst nach Auftragserteilung migriert.
@@ -1132,8 +1132,8 @@ V2_HERREN_1_BODY = f"""
   <section id="alle-teams-matrix" data-section="alle-teams-matrix" style="background-color:#FFFFFF;border-top:2px dashed #64748B;">
     <div class="container">
       <div class="section-head">
-        <div class="section-kicker" data-slot="matrix_kicker">MANNSCHAFTS-ÜBERSICHT · 1 BEISPIEL-TEAM LIVE · 32 WEITERE VORBEREITET</div>
-        <h2 class="section-title" data-slot="matrix_title">Alle 33 Mannschaften im Überblick (1 Beispiel-Team ausgearbeitet · 32 weitere vorbereitet).</h2>
+        <div class="section-kicker" data-slot="matrix_kicker">MANNSCHAFTS-ÜBERSICHT · EIN BEISPIEL-TEAM LIVE · 32 WEITERE VORBEREITET</div>
+        <h2 class="section-title" data-slot="matrix_title">Alle 33 Mannschaften im Überblick (ein Beispiel-Team ausgearbeitet · 32 weitere vorbereitet).</h2>
         <p class="section-desc" data-slot="matrix_desc">
           Stellvertretend ist oben <strong>Herren 1 (1 von 33 Teams)</strong> als konkretes Beispiel ausgearbeitet. Alle weiteren <strong>32 Mannschaften</strong> (inklusive <strong>Frauen 1–3</strong>, <strong>Herren 2</strong>, <strong>Senioren</strong> und allen <strong>25 Nachwuchs-Teams</strong>) stehen hier als vorbereitete Team-Platzhalter und werden erst im Hauptauftrag migriert.
         </p>
@@ -1142,7 +1142,7 @@ V2_HERREN_1_BODY = f"""
       <!-- Gruppe 1: Aktive Herren & Senioren (1 Muster fertig + 4 vorbereitet) -->
       <div class="matrix-group-block">
         <div class="matrix-group-header">
-          <h3 style="font-size:1.18rem;font-weight:800;">1. Aktive Herren &amp; Senioren (1 Beispiel-Team ausgearbeitet · 4 weitere vorbereitet)</h3>
+          <h3 style="font-size:1.18rem;font-weight:800;">1. Aktive Herren &amp; Senioren (ein Beispiel-Team ausgearbeitet · 4 weitere vorbereitet)</h3>
           <span style="font-size:0.82rem;color:var(--text-muted);font-weight:600;">Leitung: Zoran Perak (z.perak@fcschlieren.ch · 076 264 20 22)</span>
         </div>
         <div class="matrix-grid">

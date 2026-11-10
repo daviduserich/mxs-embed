@@ -23,6 +23,17 @@ from typing import Tuple, List, Dict, Any
 # Wörterbuch mit strengen helvetischen Ersetzungsregeln
 # Format: (Regex-Muster, Ersatzbegriff, Beschreibung/Kontext)
 SWISS_REPLACEMENTS = [
+    ("1 Ansprechpartnerin", "Eine Ansprechpartnerin"),
+    ("1 Ansprechpartner", "Ein Ansprechpartner"),
+    ("AUF 1 SYSTEM", "AUF EINEM SYSTEM"),
+    ("auf 1 System", "auf einem System"),
+    ("an 1 Haupt-Empfängeradresse", "an eine Haupt-Empfängeradresse"),
+    ("5 BEREICHE · 1 ZIEL", "5 BEREICHE · EIN ZIEL"),
+    ("Ab 1 Stück", "Ab einem Stück"),
+    ("1 BEISPIEL-TEAM", "EIN BEISPIEL-TEAM"),
+    ("1 Beispiel-Team", "Ein Beispiel-Team"),
+    ("STATUS: 1 TEAM LIVE", "STATUS: EIN TEAM LIVE"),
+    ("& 1 Co-Sponsor", "& ein Co-Sponsor"),
     # 1. Bundesdeutsche Handwerks- & Branchenbegriffe
     (r"\bStartseite\s*&\s*Gewerke\b", "Startseite & Leistungen", "Navigation: Schweizer Handwerks-Standard"),
     (r"\bGewerke\b", "Leistungen", "Handwerk: Gewerke existiert in der Schweiz nicht"),

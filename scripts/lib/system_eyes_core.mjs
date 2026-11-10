@@ -1154,6 +1154,7 @@ export function evaluateSystemEyesInPage({ relPage, zone, options = {} }) {
   const plenkRe = /[A-Za-zÄÖÜäöü0-9)\]]\s+,/;
   const asciiOrtRe = /\b(?:Zuerich|Zuercher|Graubuenden|Duebendorf|Buelach|Kuesnacht|Kuessnacht)\b/;
   const emDashRe = /(?<!\.)\u2014/;
+  const einserRe = /(?<![0-9:\.\-/])\b1\s+(?:Ansprechpartner(?:in|innen)?|System|Ziel|Beispiel-Team|Co-Sponsor|Haupt-Empf[aä]ngeradresse|St[uü]ck)\b/i;
   for (const el of allDom) {
     if (['SCRIPT', 'STYLE', 'PRE', 'CODE', 'TEXTAREA', 'SVG', 'PATH', 'INPUT', 'SELECT'].includes(el.tagName)) continue;
     if (el.closest('pre, code, textarea, svg, [data-user-content="true"], .post-preview-text, .acp-no-capture')) continue;
@@ -1179,6 +1180,16 @@ export function evaluateSystemEyesInPage({ relPage, zone, options = {} }) {
           getLabel(el),
           getCssPath(el),
           `Unkorrigierter Schweizer ASCII-Umlaut-Ortsname "${m[0]}" im sichtbaren UI-Text gefunden (#LANG-01)`
+        );
+      }
+      if (einserRe.test(directText)) {
+        const m = directText.match(einserRe);
+        addFinding(
+          'P2',
+          'P2_TYPOGRAPHIC_PLENK_OR_ASCII_ORT',
+          getLabel(el),
+          getCssPath(el),
+          `Nackte Ziffer 1 vor gebeugtem Substantiv ("${m[0]}") gefunden — gemaess #LANG-01 Einser-Ausschreibungs-Regel als Wort (Ein/Eine/Einem) ausschreiben`
         );
       }
       if (emDashRe.test(directText)) {

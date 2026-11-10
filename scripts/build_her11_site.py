@@ -2390,7 +2390,7 @@ BEGLEITUNG_BODY = """
       <div class="hero-visual-card">
         <img src="images/fokus-flutlicht-closeup.webp" alt="Fokus und mentale Stärke einer jungen Fussballerin im Flutlicht" class="hero-visual-img" data-slot="begl_hero_img">
         <div class="hero-visual-caption">
-          <span style="font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif; font-variant-numeric: tabular-nums; font-weight: 700; color: #FF0066;" data-slot="begl_cap_tag">5 BEREICHE · 1 ZIEL</span>
+          <span style="font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif; font-variant-numeric: tabular-nums; font-weight: 700; color: #FF0066;" data-slot="begl_cap_tag">5 BEREICHE · EIN ZIEL</span>
           <span data-slot="begl_cap_text">Ganzheitliche Begleitung für Spielerin &amp; Familie.</span>
         </div>
       </div>

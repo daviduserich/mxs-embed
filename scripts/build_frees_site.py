@@ -2677,7 +2677,7 @@ def render_hero_section(is_v2=False):
         <div class="trust-metric">
           <div class="trust-metric-icon">{SVG_SHIELD}</div>
           <div>
-            <div class="trust-metric-num" data-slot="metric_4_val" data-wp-slot="metric_4_val">Ab 1 Stück</div>
+            <div class="trust-metric-num" data-slot="metric_4_val" data-wp-slot="metric_4_val">Ab einem Stück</div>
             <div class="trust-metric-label" data-slot="metric_4_label" data-wp-slot="metric_4_label">Nachbestellungen für neue Vereins- oder Teammitglieder jederzeit</div>
           </div>
         </div>
