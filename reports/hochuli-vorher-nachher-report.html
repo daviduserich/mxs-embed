@@ -7,8 +7,8 @@
   <meta http-equiv="X-Frame-Options" content="DENY">
   <meta http-equiv="X-XSS-Protection" content="1; mode=block">
   <meta name="referrer" content="no-referrer">
-  <title>Hochuli Schlossrued AG (5 Sparten) · WebPilot Vorher/Nachher-Beweis-Report</title>
-  <meta name="description" content="Technischer Vorher/Nachher-Beweis-Report in 6 Prüfkategorien für Hochuli Schlossrued AG (5 Sparten) (Schlossrued AG) – Original-Webseite im Vergleich zur WebPilot Swiss-Edge-Neuaufbereitung.">
+  <title>Hochuli Schlossrued AG (5 Sparten) · Sachlicher Vorher/Nachher-Vergleich (Zahlen, Daten &amp; Fakten)</title>
+  <meta name="description" content="Sachlicher Vorher/Nachher-Vergleich (Zahlen, Daten &amp; Fakten) in 6 Prüfbereichen für Hochuli Schlossrued AG (5 Sparten) (Schlossrued AG) – Bestehende Webseite im Vergleich zum vorbereiteten Ausbau.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
@@ -325,8 +325,8 @@
     }
 
     .score-panel.before {
-      background: #FEF2F2;
-      border: 1px solid var(--danger-border);
+      background: #F8FAFC;
+      border: 1px solid var(--border-strong);
     }
 
     .score-panel.after {
@@ -344,14 +344,14 @@
 
     .score-big {
       font-family: 'Plus Jakarta Sans', sans-serif;
-      font-size: 26px;
+      font-size: 21px;
       font-weight: 800;
-      line-height: 1.15;
+      line-height: 1.2;
       font-variant-numeric: tabular-nums;
     }
 
     .score-panel.before .score-big {
-      color: var(--danger);
+      color: var(--text-secondary);
     }
 
     .score-panel.after .score-big {
@@ -409,9 +409,18 @@
 
     .highlight-top {
       display: flex;
-      align-items: center;
+      align-items: flex-start;
       justify-content: space-between;
       gap: 8px;
+      min-height: 36px;
+    }
+    .highlight-top .badge-4 {
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    .highlight-card h3 {
+      min-height: 64px;
     }
 
     /* 6 Standardisierte Prüf-Kategorien */
@@ -486,8 +495,8 @@
     }
 
     .compare-col.col-before {
-      background: #FFFBFB;
-      border: 1px solid var(--danger-border);
+      background: #F8FAFC;
+      border: 1px solid var(--border);
     }
 
     .compare-col.col-after {
@@ -500,7 +509,12 @@
       align-items: center;
       justify-content: space-between;
       gap: 8px;
-      flex-wrap: wrap;
+      flex-wrap: nowrap;
+      min-height: 30px;
+    }
+    .compare-col-head .badge-4 {
+      white-space: nowrap;
+      flex-shrink: 0;
     }
 
     .compare-col-label {
@@ -512,7 +526,7 @@
     }
 
     .col-before .compare-col-label {
-      color: var(--danger);
+      color: var(--text-muted);
     }
 
     .col-after .compare-col-label {
@@ -524,6 +538,7 @@
       font-size: 13.5px;
       font-weight: 700;
       color: var(--text-main);
+      min-height: 46px;
     }
 
     .compare-desc {
@@ -574,6 +589,12 @@
     }
 
     @media (max-width: 768px) {
+      .compare-col-head {
+        flex-wrap: wrap;
+      }
+      .compare-col-head .badge-4 {
+        white-space: normal;
+      }
       .container-1100 {
         padding: 0 16px;
       }
@@ -719,6 +740,12 @@
         padding: 6px 8px !important;
         gap: 3px !important;
       }
+      .highlight-top,
+      .highlight-card h3,
+      .compare-col-head,
+      .compare-metric {
+        min-height: 0 !important;
+      }
       .compare-metric {
         font-size: 10.5px !important;
       }
@@ -757,7 +784,7 @@
             <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
           </svg>
         </span>
-        <span>WebPilot Technisches Vorher/Nachher-Beweis-Dossier · Hochuli Schlossrued AG (5 Sparten)</span>
+        <span>Sachlicher Vorher/Nachher-Vergleich (Zahlen, Daten &amp; Fakten) · Hochuli Schlossrued AG (5 Sparten)</span>
       </div>
       <div class="web-btn-group">
         <a href="https://vorschau.magnet-xs.ch/reports/hochuli-vorher-nachher-report.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
@@ -767,7 +794,7 @@
             <line x1="12" y1="18" x2="12" y2="12"></line>
             <polyline points="9 15 12 18 15 15"></polyline>
           </svg>
-          <span>PDF-Dossier öffnen / speichern</span>
+          <span>PDF-Übersicht öffnen / speichern</span>
         </a>
         <a href="https://vorschau.magnet-xs.ch/hochuli-v2/" target="_blank" rel="noopener noreferrer" class="btn btn-dark-sec">
           <svg class="lucide" viewBox="0 0 24 24">
@@ -783,7 +810,7 @@
             <line x1="2" y1="12" x2="22" y2="12"></line>
             <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
           </svg>
-          <span>Alte Webseite (Vorher)</span>
+          <span>Bestehende Webseite (Heute)</span>
         </a>
       </div>
     </div>
@@ -796,35 +823,35 @@
       <section class="report-card" data-section="executive-summary">
         <div class="dossier-top">
           <div>
-            <span class="kicker">WEBPILOT SWISS EDGE · TECHNISCHER VORHER/NACHHER-BEWEIS</span>
+            <span class="kicker">SACHLICHER VORHER / NACHHER-VERGLEICH · ZAHLEN, DATEN &amp; FAKTEN</span>
             <h1>Hochuli Schlossrued AG (5 Sparten) (Schlossrued AG)</h1>
             <p style="color: var(--text-secondary); margin-top: 6px; font-size: 14px;">
-              Gegenüberstellung des bestehenden Auftritts (hochuli-schlossrued.ch / hochuli-gruppe.ch) mit der 5-Sparten WebPilot-Plattform inkl. Mulden-Rechner auf Swiss Edge.
+              Gegenüberstellung des bestehenden Auftritts (hochuli-schlossrued.ch / hochuli-gruppe.ch) mit der 5-Sparten WebPilot-Plattform inkl. Mulden-Rechner ab Schweizer Servern.
             </p>
           </div>
           <div style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap;">
-            <span class="badge-4 badge-danger">Vorher: 3.5 / 10.0</span>
-            <span class="badge-4 badge-success">Nachher: 9.8 / 10.0</span>
-            <span class="badge-4 badge-amber">Qualitäts-Sprung: +6.3 / 10.0</span>
+            <span class="badge-4 badge-neutral">Heute: 3.5 / 10.0</span>
+            <span class="badge-4 badge-success">Ausbau: 9.8 / 10.0</span>
+            <span class="badge-4 badge-amber">Mehrwert: +6.3 / 10.0</span>
           </div>
         </div>
 
         <div class="dossier-meta-grid">
           <div class="meta-item">
-            <span class="meta-label">Geprüfte Alt-Webseite (Vorher)</span>
+            <span class="meta-label">Bestehende Webseite (Heute)</span>
             <span class="meta-val">hochuli-schlossrued.ch / hochuli-gruppe.ch (Klassisches Agentur-CMS)</span>
           </div>
           <div class="meta-item">
-            <span class="meta-label">Neue Swiss-Edge-Vorschau (Nachher)</span>
+            <span class="meta-label">Vorbereiteter Entwurf</span>
             <span class="meta-val">vorschau.magnet-xs.ch/hochuli-v2/</span>
           </div>
           <div class="meta-item">
-            <span class="meta-label">Prüf-Standard &amp; Viewport-Matrix</span>
-            <span class="meta-val">20-Sensoren Audit · 375px / 768px / 1440px</span>
+            <span class="meta-label">Geprüfte Ansichten</span>
+            <span class="meta-val">Mobiltelefon, Tablet &amp; Computer</span>
           </div>
           <div class="meta-item">
-            <span class="meta-label">Ansprechpartner &amp; Stand</span>
-            <span class="meta-val">David Hügli (Magnet XS) · 05.11.2026</span>
+            <span class="meta-label">Persönliche Begleitung</span>
+            <span class="meta-val">David Hügli (Magnet XS) · 10.11.2026</span>
           </div>
         </div>
 
@@ -833,12 +860,12 @@
           <div class="score-panel before">
             <div class="score-head">
               <div>
-                <span class="kicker" style="color: var(--danger);">BESTANDS-ANALYSE (VORHER)</span>
-                <h2>Bestehende Webseite</h2>
+                <span class="kicker" style="color: var(--text-muted);">HEUTIGER STAND · BESTEHENDE WEBSEITE</span>
+                <h2>Bisheriger Auftritt</h2>
               </div>
               <div style="text-align: right;">
                 <div class="score-big">3.5 / 10.0</div>
-                <span class="badge-4 badge-danger">Handlungsbedarf</span>
+                <span class="badge-4 badge-neutral">Bestehende Basis</span>
               </div>
             </div>
             <div class="kpi-mini-grid">
@@ -852,17 +879,17 @@
           <div class="score-panel after">
             <div class="score-head">
               <div>
-                <span class="kicker" style="color: var(--success);">WEBPILOT SWISS EDGE (NACHHER)</span>
-                <h2>Neuaufbereitung + Cockpit v4.0</h2>
+                <span class="kicker" style="color: var(--success);">VORBEREITETER AUSBAU · NEUER ENTWURF</span>
+                <h2>Vorbereiteter Ausbau</h2>
               </div>
               <div style="text-align: right;">
                 <div class="score-big">9.8 / 10.0</div>
-                <span class="badge-4 badge-success">Swiss Edge Verifiziert</span>
+                <span class="badge-4 badge-success">Zahlen &amp; Fakten im Entwurf</span>
               </div>
             </div>
             <div class="kpi-mini-grid">
-              <div class="kpi-box"><span class="kpi-label">Antwortzeit Swiss Edge</span><span class="kpi-val">&lt; 170 ms (100 % SSL/HTTPS)</span></div>
-<div class="kpi-box"><span class="kpi-label">Mobile-Systemaugen</span><span class="kpi-val">100 / 100 (0 P1 / 0 P2)</span></div>
+              <div class="kpi-box"><span class="kpi-label">Ladezeit (Neu)</span><span class="kpi-val">&lt; 170 ms (100 % SSL/HTTPS)</span></div>
+<div class="kpi-box"><span class="kpi-label">Darstellung Mobil &amp; PC</span><span class="kpi-val">Handy, Tablet &amp; PC geprüft</span></div>
 <div class="kpi-box"><span class="kpi-label">5-Sparten SEO &amp; Alt-Tags</span><span class="kpi-val">100 % H1–H3 + Bild-SEO</span></div>
 <div class="kpi-box"><span class="kpi-label">Interaktive Module</span><span class="kpi-val">Mulden-Bestellrechner + Cockpit</span></div>
             </div>
@@ -871,8 +898,8 @@
 
         <!-- 3 KERNAUSSAGEN -->
         <div style="margin-top: 22px;">
-          <span class="kicker">MANAGEMENT SUMMARY · DIE 3 ENTSCHEIDENDEN HEBEL FÜR IHR UNTERNEHMEN</span>
-          <h2>Was sich für Ihre Besucher und Anfragen sofort spürbar ändert</h2>
+          <span class="kicker">ZUSAMMENFASSUNG · DIE 3 WICHTIGSTEN PUNKTE AUF EINEN BLICK</span>
+          <h2>Was wie gewohnt erhalten bleibt – und was konkret hinzukommt</h2>
           <div class="highlights-grid">
             <article class="highlight-card"><div class="highlight-top"><span class="kicker" style="margin-bottom: 0;">HEBEL 01 · SSL-FEHLER &amp; 0× H1 BEHOBEN</span><span class="badge-4 badge-amber">01 / 03</span></div><h3>HTTPS-Verbindungsabbruch auf hochuli-schlossrued.ch &amp; fehlende H1 korrigiert</h3><p style="color: var(--text-secondary); font-size: 13.5px;">Auf https://www.hochuli-schlossrued.ch/ bricht die verschlüsselte Verbindung mit Connection Refused (Port 443) ab; auf hochuli-gruppe.ch fehlen die H1-Überschrift (0× H1) sowie bei 17 von 35 Bildern (49 %) die Alt-Texte.</p></article>
 <article class="highlight-card"><div class="highlight-top"><span class="kicker" style="margin-bottom: 0;">HEBEL 02 · 5 SPARTEN MIT FARBLEITSYSTEM</span><span class="badge-4 badge-amber">02 / 03</span></div><h3>Hoch-/Tiefbau, Holzbau, Bedachungen, Immobilien &amp; Baumulden klar getrennt</h3><p style="color: var(--text-secondary); font-size: 13.5px;">Bauherren und Gewerbekunden erkennen auf den ersten Blick alle 5 Kompetenzbereiche samt 19 echten Projektfotos und 13s Luftaufnahme-Video.</p></article>
@@ -884,33 +911,33 @@
       <!-- BLOCK 2: DIE 6 STANDARDISIERTEN PRÜF-KATEGORIEN -->
       <section class="report-card" data-section="six-categories">
         <div>
-          <span class="kicker">MESSBARER EINZELNACHWEIS IN 6 FESTEN PRÜF-KATEGORIEN</span>
-          <h2>Direkter Vergleich: Bestehende Webseite vs. WebPilot Swiss Edge</h2>
+          <span class="kicker">ZAHLEN, DATEN &amp; FAKTEN IM DETAIL · 6 PRÜFBEREICHE</span>
+          <h2>Direkter Vergleich: Heutiger Stand vs. Vorbereiteter Ausbau</h2>
           <p style="color: var(--text-secondary); margin-top: 4px; font-size: 13.5px;">
-            Jede Kategorie wird nach demselben 10-Punkte-Massstab bewertet (inkl. explizitem Maximalwert 10.0) und mit echten technischen Messwerten belegt.
+            Sachliche Gegenüberstellung anhand überprüfbarer Zahlen und Fakten – verständlich zusammengefasst ohne technische Fachbegriffe.
           </p>
         </div>
 
         <div class="categories-stack">
-          <article class="category-card"><div class="category-head"><div class="category-title-group"><span class="cat-icon-box" aria-hidden="true"><svg class="lucide" viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg></span><div><span class="kicker" style="margin-bottom: 2px;">PRÜF-KATEGORIE 01 VON 06</span><h3>Ladezeit &amp; Technische Performance (Speed &amp; Page Weight)</h3></div></div><div class="category-scores"><span class="badge-4 badge-danger">Vorher: 3.8 / 10.0</span><span class="badge-4 badge-success">Nachher: 9.9 / 10.0</span></div></div><div class="category-compare-grid"><div class="compare-col col-before"><div class="compare-col-head"><span class="compare-col-label">Vorher · Bestehende Webseite</span><span class="badge-4 badge-danger">3.8 / 10.0</span></div><div class="compare-metric">124.9 KB HTML · 42 Skript-Tags (28 extern) · 35 unoptimierte Einzelbilder</div><p class="compare-desc">42 geladene Skripte und 35 Einzelbilder auf der Startseite verlangsamen den mobilen Aufbau auf der Baustelle.</p></div><div class="compare-col col-after"><div class="compare-col-head"><span class="compare-col-label">Nachher · WebPilot Swiss Edge</span><span class="badge-4 badge-success">9.9 / 10.0</span></div><div class="compare-metric">&lt; 170 ms Antwortzeit auf Swiss Edge · 19 optimierte Projektfotos + 13s Drohnenvideo</div><p class="compare-desc">Verzögerungsfreie Auslieferung sämtlicher 5 Sparten-Seiten inklusive flüssigem Luftaufnahme-Video.</p></div></div></article>
-<article class="category-card"><div class="category-head"><div class="category-title-group"><span class="cat-icon-box" aria-hidden="true"><svg class="lucide" viewBox="0 0 24 24"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect><line x1="12" y1="18" x2="12.01" y2="18"></line></svg></span><div><span class="kicker" style="margin-bottom: 2px;">PRÜF-KATEGORIE 02 VON 06</span><h3>Mobile-Tauglichkeit &amp; Daumen-Ergonomie (375px Smartphone-Prüfung)</h3></div></div><div class="category-scores"><span class="badge-4 badge-danger">Vorher: 3.6 / 10.0</span><span class="badge-4 badge-success">Nachher: 10.0 / 10.0</span></div></div><div class="category-compare-grid"><div class="compare-col col-before"><div class="compare-col-head"><span class="compare-col-label">Vorher · Bestehende Webseite</span><span class="badge-4 badge-danger">3.6 / 10.0</span></div><div class="compare-metric">5 komplexe Bausparten ohne mobile Schnell-Weiche auf 375 px</div><p class="compare-desc">Auf dem Smartphone fehlt eine klare visuelle Trennung zwischen Umbau/Holzbau-Offerten und schnellen Mulden-Bestellungen.</p></div><div class="compare-col col-after"><div class="compare-col-head"><span class="compare-col-label">Nachher · WebPilot Swiss Edge</span><span class="badge-4 badge-success">10.0 / 10.0</span></div><div class="compare-metric">100 % (0 P1 / 0 P2 Fehler) im 20-Sensoren Doppel-Systemaugen-Audit</div><p class="compare-desc">Geprüfte Daumen-Ergonomie auf 375×667 px, 768×1024 px und 1440×900 px inkl. mobilem Mulden-Grössenwähler.</p></div></div></article>
-<article class="category-card"><div class="category-head"><div class="category-title-group"><span class="cat-icon-box" aria-hidden="true"><svg class="lucide" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg></span><div><span class="kicker" style="margin-bottom: 2px;">PRÜF-KATEGORIE 03 VON 06</span><h3>Google-SEO &amp; KI-Auffindbarkeit (GEO / Strukturierte Daten)</h3></div></div><div class="category-scores"><span class="badge-4 badge-danger">Vorher: 3.2 / 10.0</span><span class="badge-4 badge-success">Nachher: 9.8 / 10.0</span></div></div><div class="category-compare-grid"><div class="compare-col col-before"><div class="compare-col-head"><span class="compare-col-label">Vorher · Bestehende Webseite</span><span class="badge-4 badge-danger">3.2 / 10.0</span></div><div class="compare-metric">0× H1-Überschrift auf Startseite · 17 von 35 Bildern ohne Alt-Text (49 %)</div><p class="compare-desc">Der Titel «Home - Hochuli Schlossrued AG» und das Fehlen einer H1-Hauptüberschrift verschenken Top-Platzierungen für Holzbau, Bedachungen und Muldenservice im Aargau.</p></div><div class="compare-col col-after"><div class="compare-col-head"><span class="compare-col-label">Nachher · WebPilot Swiss Edge</span><span class="badge-4 badge-success">9.8 / 10.0</span></div><div class="compare-metric">Saubere H1–H3-Struktur für alle 5 Sparten · 100 % Bild-SEO · Schema.org</div><p class="compare-desc">Gezielte regionale Sichtbarkeit im Ruedertal / Suhrental / Kanton Aargau für jede einzelne Bausparte.</p></div></div></article>
-<article class="category-card"><div class="category-head"><div class="category-title-group"><span class="cat-icon-box" aria-hidden="true"><svg class="lucide" viewBox="0 0 24 24"><circle cx="12" cy="8" r="7"></circle><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline></svg></span><div><span class="kicker" style="margin-bottom: 2px;">PRÜF-KATEGORIE 04 VON 06</span><h3>Inhalts-Qualität, Vertrauen &amp; Konversions-Führung</h3></div></div><div class="category-scores"><span class="badge-4 badge-danger">Vorher: 4.0 / 10.0</span><span class="badge-4 badge-success">Nachher: 9.9 / 10.0</span></div></div><div class="category-compare-grid"><div class="compare-col col-before"><div class="compare-col-head"><span class="compare-col-label">Vorher · Bestehende Webseite</span><span class="badge-4 badge-danger">4.0 / 10.0</span></div><div class="compare-metric">Allgemeines Kontaktformular ohne Sparten-Vorqualifizierung oder Mulden-Wahl</div><p class="compare-desc">Anfragen kommen unstrukturiert herein, statt nach Sparte (Hochbau, Holzbau, Dach, Immobilien, Mulde) vorqualifiziert zu werden.</p></div><div class="compare-col col-after"><div class="compare-col-head"><span class="compare-col-label">Nachher · WebPilot Swiss Edge</span><span class="badge-4 badge-success">9.9 / 10.0</span></div><div class="compare-metric">Eigenes 5-Sparten-Farbleitsystem · Interaktiver Mulden-Bestellrechner · Smart-Anfrage</div><p class="compare-desc">100 % Schweizer Handwerks-Terminologie (EFZ, Offerte, Lukarne, Kamin) plus Sektionen für Baustellen-Einblicke und Fachwissen.</p></div></div></article>
-<article class="category-card"><div class="category-head"><div class="category-title-group"><span class="cat-icon-box" aria-hidden="true"><svg class="lucide" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg></span><div><span class="kicker" style="margin-bottom: 2px;">PRÜF-KATEGORIE 05 VON 06</span><h3>Datenschutz (CH-revDSG) &amp; Technische Sicherheit</h3></div></div><div class="category-scores"><span class="badge-4 badge-danger">Vorher: 2.8 / 10.0</span><span class="badge-4 badge-success">Nachher: 9.8 / 10.0</span></div></div><div class="category-compare-grid"><div class="compare-col col-before"><div class="compare-col-head"><span class="compare-col-label">Vorher · Bestehende Webseite</span><span class="badge-4 badge-danger">2.8 / 10.0</span></div><div class="compare-metric">HTTPS Port 443 Fehler auf hochuli-schlossrued.ch · 28 externe Skripte</div><p class="compare-desc">Der direkte HTTPS-Aufruf von www.hochuli-schlossrued.ch wird vom Server abgewiesen (Connection Refused).</p></div><div class="compare-col col-after"><div class="compare-col-head"><span class="compare-col-label">Nachher · WebPilot Swiss Edge</span><span class="badge-4 badge-success">9.8 / 10.0</span></div><div class="compare-metric">Durchgängiges SSL/HTTPS auf Swiss Edge · 4 / 4 WebPilot Security-Meta-Guards</div><p class="compare-desc">Sichere, verschlüsselte Auslieferung mit nosniff, X-Frame-Options, XSS-Protection und lokaler Asset-Haltung (CH-revDSG).</p></div></div></article>
-<article class="category-card"><div class="category-head"><div class="category-title-group"><span class="cat-icon-box" aria-hidden="true"><svg class="lucide" viewBox="0 0 24 24"><line x1="4" y1="21" x2="4" y2="14"></line><line x1="4" y1="10" x2="4" y2="3"></line><line x1="12" y1="21" x2="12" y2="12"></line><line x1="12" y1="8" x2="12" y2="3"></line><line x1="20" y1="21" x2="20" y2="16"></line><line x1="20" y1="12" x2="20" y2="3"></line><line x1="1" y1="14" x2="7" y2="14"></line><line x1="9" y1="8" x2="15" y2="8"></line><line x1="17" y1="16" x2="23" y2="16"></line></svg></span><div><span class="kicker" style="margin-bottom: 2px;">PRÜF-KATEGORIE 06 VON 06</span><h3>Eigenständige Pflege &amp; Unabhängigkeit</h3></div></div><div class="category-scores"><span class="badge-4 badge-danger">Vorher: 3.4 / 10.0</span><span class="badge-4 badge-success">Nachher: 9.8 / 10.0</span></div></div><div class="category-compare-grid"><div class="compare-col col-before"><div class="compare-col-head"><span class="compare-col-label">Vorher · Bestehende Webseite</span><span class="badge-4 badge-danger">3.4 / 10.0</span></div><div class="compare-metric">Abhängigkeit vom klassischen CMS bei neuen Referenzfotos &amp; Immobilien</div><p class="compare-desc">Neue Baustellenbilder oder Immobilien-Objekte bleiben im Tagesgeschäft oft liegen, weil das CMS zu umständlich ist.</p></div><div class="compare-col col-after"><div class="compare-col-head"><span class="compare-col-label">Nachher · WebPilot Swiss Edge</span><span class="badge-4 badge-success">9.8 / 10.0</span></div><div class="compare-metric">WebPilot Studio Cockpit v4.0 · Baustellenfotos in 30 Sekunden tauschen</div><p class="compare-desc">1-Klick-Bildertausch, Text-Editor und KI-Sektions-Assistent mit deterministischem Sicherheits-Airbag.</p></div></div></article>
+          <article class="category-card"><div class="category-head"><div class="category-title-group"><span class="cat-icon-box" aria-hidden="true"><svg class="lucide" viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg></span><div><span class="kicker" style="margin-bottom: 2px;">BEREICH 01 VON 06 · ZAHLEN, DATEN &amp; FAKTEN</span><h3>Ladezeit &amp; Technische Performance (Speed &amp; Page Weight)</h3></div></div><div class="category-scores"><span class="badge-4 badge-neutral">Heute: 3.8 / 10.0</span><span class="badge-4 badge-success">Ausbau: 9.9 / 10.0</span></div></div><div class="category-compare-grid"><div class="compare-col col-before"><div class="compare-col-head"><span class="compare-col-label">Heutiger Stand · Bestehende Webseite</span><span class="badge-4 badge-neutral">3.8 / 10.0</span></div><div class="compare-metric">124.9 KB HTML · 42 Skript-Tags (28 extern) · 35 unoptimierte Einzelbilder</div><p class="compare-desc">42 geladene Skripte und 35 Einzelbilder auf der Startseite verlangsamen den mobilen Aufbau auf der Baustelle.</p></div><div class="compare-col col-after"><div class="compare-col-head"><span class="compare-col-label">Vorbereiteter Ausbau · Neuer Entwurf</span><span class="badge-4 badge-success">9.9 / 10.0</span></div><div class="compare-metric">&lt; 170 ms Antwortzeit ab Schweizer Servern · 19 optimierte Projektfotos + 13s Drohnenvideo</div><p class="compare-desc">Verzögerungsfreie Auslieferung sämtlicher 5 Sparten-Seiten inklusive flüssigem Luftaufnahme-Video.</p></div></div></article>
+<article class="category-card"><div class="category-head"><div class="category-title-group"><span class="cat-icon-box" aria-hidden="true"><svg class="lucide" viewBox="0 0 24 24"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect><line x1="12" y1="18" x2="12.01" y2="18"></line></svg></span><div><span class="kicker" style="margin-bottom: 2px;">BEREICH 02 VON 06 · ZAHLEN, DATEN &amp; FAKTEN</span><h3>Mobile-Tauglichkeit &amp; Daumen-Ergonomie (375px Smartphone-Prüfung)</h3></div></div><div class="category-scores"><span class="badge-4 badge-neutral">Heute: 3.6 / 10.0</span><span class="badge-4 badge-success">Ausbau: 10.0 / 10.0</span></div></div><div class="category-compare-grid"><div class="compare-col col-before"><div class="compare-col-head"><span class="compare-col-label">Heutiger Stand · Bestehende Webseite</span><span class="badge-4 badge-neutral">3.6 / 10.0</span></div><div class="compare-metric">5 komplexe Bausparten ohne mobile Schnell-Weiche auf 375 px</div><p class="compare-desc">Auf dem Smartphone fehlt eine klare visuelle Trennung zwischen Umbau/Holzbau-Offerten und schnellen Mulden-Bestellungen.</p></div><div class="compare-col col-after"><div class="compare-col-head"><span class="compare-col-label">Vorbereiteter Ausbau · Neuer Entwurf</span><span class="badge-4 badge-success">10.0 / 10.0</span></div><div class="compare-metric">Geprüfte Darstellung auf Mobiltelefon, Tablet und Computer</div><p class="compare-desc">Geprüfte Daumen-Ergonomie auf 375×667 px, 768×1024 px und 1440×900 px inkl. mobilem Mulden-Grössenwähler.</p></div></div></article>
+<article class="category-card"><div class="category-head"><div class="category-title-group"><span class="cat-icon-box" aria-hidden="true"><svg class="lucide" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg></span><div><span class="kicker" style="margin-bottom: 2px;">BEREICH 03 VON 06 · ZAHLEN, DATEN &amp; FAKTEN</span><h3>Google-SEO &amp; KI-Auffindbarkeit (GEO / Strukturierte Daten)</h3></div></div><div class="category-scores"><span class="badge-4 badge-neutral">Heute: 3.2 / 10.0</span><span class="badge-4 badge-success">Ausbau: 9.8 / 10.0</span></div></div><div class="category-compare-grid"><div class="compare-col col-before"><div class="compare-col-head"><span class="compare-col-label">Heutiger Stand · Bestehende Webseite</span><span class="badge-4 badge-neutral">3.2 / 10.0</span></div><div class="compare-metric">0× H1-Überschrift auf Startseite · 17 von 35 Bildern ohne Alt-Text (49 %)</div><p class="compare-desc">Der Titel «Home - Hochuli Schlossrued AG» und das Fehlen einer H1-Hauptüberschrift verschenken Top-Platzierungen für Holzbau, Bedachungen und Muldenservice im Aargau.</p></div><div class="compare-col col-after"><div class="compare-col-head"><span class="compare-col-label">Vorbereiteter Ausbau · Neuer Entwurf</span><span class="badge-4 badge-success">9.8 / 10.0</span></div><div class="compare-metric">Saubere H1–H3-Struktur für alle 5 Sparten · 100 % Bild-SEO · Schema.org</div><p class="compare-desc">Gezielte regionale Sichtbarkeit im Ruedertal / Suhrental / Kanton Aargau für jede einzelne Bausparte.</p></div></div></article>
+<article class="category-card"><div class="category-head"><div class="category-title-group"><span class="cat-icon-box" aria-hidden="true"><svg class="lucide" viewBox="0 0 24 24"><circle cx="12" cy="8" r="7"></circle><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline></svg></span><div><span class="kicker" style="margin-bottom: 2px;">BEREICH 04 VON 06 · ZAHLEN, DATEN &amp; FAKTEN</span><h3>Inhalts-Qualität, Vertrauen &amp; Konversions-Führung</h3></div></div><div class="category-scores"><span class="badge-4 badge-neutral">Heute: 4.0 / 10.0</span><span class="badge-4 badge-success">Ausbau: 9.9 / 10.0</span></div></div><div class="category-compare-grid"><div class="compare-col col-before"><div class="compare-col-head"><span class="compare-col-label">Heutiger Stand · Bestehende Webseite</span><span class="badge-4 badge-neutral">4.0 / 10.0</span></div><div class="compare-metric">Allgemeines Kontaktformular ohne Sparten-Vorqualifizierung oder Mulden-Wahl</div><p class="compare-desc">Anfragen kommen unstrukturiert herein, statt nach Sparte (Hochbau, Holzbau, Dach, Immobilien, Mulde) vorqualifiziert zu werden.</p></div><div class="compare-col col-after"><div class="compare-col-head"><span class="compare-col-label">Vorbereiteter Ausbau · Neuer Entwurf</span><span class="badge-4 badge-success">9.9 / 10.0</span></div><div class="compare-metric">Eigenes 5-Sparten-Farbleitsystem · Interaktiver Mulden-Bestellrechner · Smart-Anfrage</div><p class="compare-desc">100 % Schweizer Handwerks-Terminologie (EFZ, Offerte, Lukarne, Kamin) plus Sektionen für Baustellen-Einblicke und Fachwissen.</p></div></div></article>
+<article class="category-card"><div class="category-head"><div class="category-title-group"><span class="cat-icon-box" aria-hidden="true"><svg class="lucide" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg></span><div><span class="kicker" style="margin-bottom: 2px;">BEREICH 05 VON 06 · ZAHLEN, DATEN &amp; FAKTEN</span><h3>Datenschutz (CH-revDSG) &amp; Technische Sicherheit</h3></div></div><div class="category-scores"><span class="badge-4 badge-neutral">Heute: 2.8 / 10.0</span><span class="badge-4 badge-success">Ausbau: 9.8 / 10.0</span></div></div><div class="category-compare-grid"><div class="compare-col col-before"><div class="compare-col-head"><span class="compare-col-label">Heutiger Stand · Bestehende Webseite</span><span class="badge-4 badge-neutral">2.8 / 10.0</span></div><div class="compare-metric">HTTPS Port 443 Fehler auf hochuli-schlossrued.ch · 28 externe Skripte</div><p class="compare-desc">Der direkte HTTPS-Aufruf von www.hochuli-schlossrued.ch wird vom Server abgewiesen (Connection Refused).</p></div><div class="compare-col col-after"><div class="compare-col-head"><span class="compare-col-label">Vorbereiteter Ausbau · Neuer Entwurf</span><span class="badge-4 badge-success">9.8 / 10.0</span></div><div class="compare-metric">Durchgängiges SSL/HTTPS ab Schweizer Servern · 4 / 4 WebPilot Sicherheits- &amp; Datenschutz-Schutz</div><p class="compare-desc">Sichere, verschlüsselte Auslieferung mit nosniff, X-Frame-Options, XSS-Protection und lokaler Asset-Haltung (CH-revDSG).</p></div></div></article>
+<article class="category-card"><div class="category-head"><div class="category-title-group"><span class="cat-icon-box" aria-hidden="true"><svg class="lucide" viewBox="0 0 24 24"><line x1="4" y1="21" x2="4" y2="14"></line><line x1="4" y1="10" x2="4" y2="3"></line><line x1="12" y1="21" x2="12" y2="12"></line><line x1="12" y1="8" x2="12" y2="3"></line><line x1="20" y1="21" x2="20" y2="16"></line><line x1="20" y1="12" x2="20" y2="3"></line><line x1="1" y1="14" x2="7" y2="14"></line><line x1="9" y1="8" x2="15" y2="8"></line><line x1="17" y1="16" x2="23" y2="16"></line></svg></span><div><span class="kicker" style="margin-bottom: 2px;">BEREICH 06 VON 06 · ZAHLEN, DATEN &amp; FAKTEN</span><h3>Eigenständige Pflege &amp; Unabhängigkeit</h3></div></div><div class="category-scores"><span class="badge-4 badge-neutral">Heute: 3.4 / 10.0</span><span class="badge-4 badge-success">Ausbau: 9.8 / 10.0</span></div></div><div class="category-compare-grid"><div class="compare-col col-before"><div class="compare-col-head"><span class="compare-col-label">Heutiger Stand · Bestehende Webseite</span><span class="badge-4 badge-neutral">3.4 / 10.0</span></div><div class="compare-metric">Abhängigkeit vom klassischen CMS bei neuen Referenzfotos &amp; Immobilien</div><p class="compare-desc">Neue Baustellenbilder oder Immobilien-Objekte bleiben im Tagesgeschäft oft liegen, weil das CMS zu umständlich ist.</p></div><div class="compare-col col-after"><div class="compare-col-head"><span class="compare-col-label">Vorbereiteter Ausbau · Neuer Entwurf</span><span class="badge-4 badge-success">9.8 / 10.0</span></div><div class="compare-metric">WebPilot Studio Cockpit v4.0 · Baustellenfotos in 30 Sekunden tauschen</div><p class="compare-desc">1-Klick-Bildertausch, Text-Editor und KI-Sektions-Assistent mit deterministischem Sicherheits-Airbag.</p></div></div></article>
         </div>
       </section>
 
       <!-- BLOCK 3: DIREKT-LINKS & ANSPRECHPARTNER -->
       <section class="report-card" data-section="next-steps">
-        <span class="kicker">LIVE AUSPROBIEREN · VORSCHAU &amp; STUDIO COCKPIT V4.0</span>
+        <span class="kicker">IN RUHE ANSEHEN · VORSCHAU &amp; FREIE TEXTWAHL</span>
         <h2>Direkt-Zugang zu Ihrer vorbereiteten Vorschau</h2>
         <div class="footer-grid">
           <div class="footer-box">
             <div>
-              <h3>Interaktive Vorschau-Links auf Swiss Edge</h3>
+              <h3>Vorschau-Links für Mobiltelefon &amp; Computer</h3>
               <p style="color: var(--text-secondary); font-size: 13px; margin-top: 4px;">
-                Testen Sie die neue Webseite live auf Ihrem Smartphone (375 px) oder am Computer. Im Studio Cockpit v4.0 können Sie Texte und Bilder jederzeit in 30 Sekunden selbst anpassen.
+                Schauen Sie sich den vorbereiteten Entwurf in Ruhe auf Ihrem Smartphone oder am Computer an. Alle Texte sind ein Vorschlag: Sie können jederzeit Ihre vertrauten Originaltexte behalten oder einzelne Formulierungen in wenigen Sekunden selbst anpassen.
               </p>
             </div>
             <div class="link-buttons-grid">

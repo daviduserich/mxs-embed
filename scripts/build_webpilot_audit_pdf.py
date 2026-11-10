@@ -125,7 +125,7 @@ PROJECTS_DATA: Dict[str, Dict[str, Any]] = {
                 "score_after": "10.0 / 10.0",
                 "metric_before": "Statischer One-Pager ohne interaktive Führung für Smartphone-Besucher",
                 "desc_before": "Entscheider, die von LinkedIn über das Smartphone auf get-more-sales.org wechselten, fanden keine geführte Terminbuchung.",
-                "metric_after": "100 % (0 P1 / 0 P2 Fehler) im 31-Sensoren Doppel-Systemaugen-Audit",
+                "metric_after": "Geprüfte Darstellung auf Mobiltelefon, Tablet und Computer",
                 "desc_after": "Perfekte Darstellung auf Smartphone, Tablet und Desktop mit direktem E-Mail-Kontakt, LinkedIn-Verlinkung und 3-Schritte-Anfrage.",
             },
             {
@@ -236,7 +236,7 @@ PROJECTS_DATA: Dict[str, Dict[str, Any]] = {
                 "score_after": "10.0 / 10.0",
                 "metric_before": "Lange Textblöcke auf dem Smartphone · Ein Menüpunkt führte auf eine 404-Fehlerseite",
                 "desc_before": "Unterwegs auf dem Handy mussten Hundehalter durch lange Absätze scrollen, um Zeiten und Treffpunkt für das Freitags-Rudeltreffen zu finden.",
-                "metric_after": "100 % (0 P1 / 0 P2 Fehler) im 31-Sensoren Doppel-Systemaugen-Audit",
+                "metric_after": "Geprüfte Darstellung auf Mobiltelefon, Tablet und Computer",
                 "desc_after": "Übersichtliche Karten für Handy, Tablet und Computer mit direkter Anruf- und WhatsApp-Wahl (079 446 70 43) zu Dorette Sieber.",
             },
             {
@@ -297,7 +297,7 @@ PROJECTS_DATA: Dict[str, Dict[str, Any]] = {
         "overall_before": "4.2 / 10.0",
         "overall_after": "9.9 / 10.0",
         "overall_delta": "+5.7 / 10.0",
-        "subtitle": "Gegenüberstellung des bestehenden FunnelCockpit-Auftritts (holz-susi.ch) mit der neuen WebPilot Holzbau- & Bauleitungs-Plattform inkl. interaktivem Projektberater auf Swiss Edge.",
+        "subtitle": "Gegenüberstellung des bestehenden FunnelCockpit-Auftritts (holz-susi.ch) mit der neuen WebPilot Holzbau- & Bauleitungs-Plattform inkl. interaktivem Projektberater ab Schweizer Servern.",
         "kpis_before": [
             ("Kundenstimmen / Texte", "3× «Lorem ipsum» Blindtexte live"),
             ("Footer & Rechtliches", "Englischer Facebook-TM-Disclaimer"),
@@ -305,8 +305,8 @@ PROJECTS_DATA: Dict[str, Dict[str, Any]] = {
             ("Schema.org / JSON-LD", "0 Strukturdaten"),
         ],
         "kpis_after": [
-            ("Antwortzeit Swiss Edge", "< 150 ms (Sofort-Aufbau)"),
-            ("Mobile-Systemaugen", "100 / 100 (0 P1 / 0 P2)"),
+            ("Ladezeit (Neu)", "< 150 ms (Sofort-Aufbau)"),
+            ("Darstellung Mobil & PC", "Handy, Tablet & PC geprüft"),
             ("Lokales Holzbau-SEO", "de-CH + JSON-LD + 55 lokale Bilder"),
             ("Interaktive Tools", "Holzbau-Berater + 3-Schritte-Anfrage"),
         ],
@@ -336,7 +336,7 @@ PROJECTS_DATA: Dict[str, Dict[str, Any]] = {
                 "score_after": "9.9 / 10.0",
                 "metric_before": "Doppelt gerenderte Desktop-/Mobile-Blöcke · Externe FunnelCockpit-CDN-Abhängigkeiten",
                 "desc_before": "FunnelCockpit lädt viele Sektionen und Bilder doppelt (einmal für Desktop, einmal für Mobile) über externe Server.",
-                "metric_after": "< 150 ms Antwortzeit auf Swiss Edge · Alle 55 Originalbilder lokal · 0 externe Hotlinks",
+                "metric_after": "< 150 ms Antwortzeit ab Schweizer Servern · Alle 55 Originalbilder lokal · 0 externe Hotlinks",
                 "desc_after": "Sofortiger Seitenaufbau für sämtliche Vorher/Nachher-Referenzserien im Mobilfunk- und WLAN-Netz.",
             },
             {
@@ -347,7 +347,7 @@ PROJECTS_DATA: Dict[str, Dict[str, Any]] = {
                 "score_after": "10.0 / 10.0",
                 "metric_before": "Endloser One-Pager-Scrollweg · Kleine H1-Schriftgrösse (14px Comfortaa)",
                 "desc_before": "Auf dem Smartphone müssen Besucher durch dutzende Einzelbilder scrollen, bevor sie zum Kontaktbereich gelangen.",
-                "metric_after": "100 % (0 P1 / 0 P2 Fehler) im 31-Sensoren Doppel-Systemaugen-Audit",
+                "metric_after": "Geprüfte Darstellung auf Mobiltelefon, Tablet und Computer",
                 "desc_after": "Klare 5-Seiten-Architektur (Vollversion) bzw. 2-Seiten-Zeigeversion mit Direktwahl 077 521 96 97 zu Susanne Schmid.",
             },
             {
@@ -381,7 +381,7 @@ PROJECTS_DATA: Dict[str, Dict[str, Any]] = {
                 "metric_before": "Externe page.funnelcockpit.com Links für Impressum & Datenschutz",
                 "desc_before": "Rechtliche Seiten führten auf externe FunnelCockpit-Subdomains mit teils blockierten Abrufen (HTTP 429).",
                 "metric_after": "Integriertes Schweizer Impressum (CHE-187.492.373) & CH-revDSG Datenschutz-Modal",
-                "desc_after": "Vollständiger Schutz durch Security-Meta-Guards, 0 externe Bild-Hotlinks und transparente Inhaberangaben.",
+                "desc_after": "Vollständiger Schutz durch Sicherheits- & Datenschutz-Schutz, 0 externe Bild-Hotlinks und transparente Inhaberangaben.",
             },
             {
                 "num": "06",
@@ -408,7 +408,7 @@ PROJECTS_DATA: Dict[str, Dict[str, Any]] = {
         "overall_before": "4.8 / 10.0",
         "overall_after": "9.9 / 10.0",
         "overall_delta": "+5.1 / 10.0",
-        "subtitle": "Gegenüberstellung des bestehenden Webflow-Auftritts (joma-solar.ch) mit der neuen WebPilot Solar- & Speicher-Plattform inkl. interaktivem Ertragsrechner auf Swiss Edge.",
+        "subtitle": "Gegenüberstellung des bestehenden Webflow-Auftritts (joma-solar.ch) mit der neuen WebPilot Solar- & Speicher-Plattform inkl. interaktivem Ertragsrechner ab Schweizer Servern.",
         "kpis_before": [
             ("HTML-Sprachcode", "lang=\"en\" (Englisch statt de-CH)"),
             ("Bild-Alt-Texte (SEO)", "Englische Template-Platzhalter"),
@@ -416,8 +416,8 @@ PROJECTS_DATA: Dict[str, Dict[str, Any]] = {
             ("HTTP Security-Header", "1 / 5 aktiv"),
         ],
         "kpis_after": [
-            ("Antwortzeit Swiss Edge", "< 150 ms (Sofort-Aufbau)"),
-            ("Mobile-Systemaugen", "100 / 100 (0 P1 / 0 P2)"),
+            ("Ladezeit (Neu)", "< 150 ms (Sofort-Aufbau)"),
+            ("Darstellung Mobil & PC", "Handy, Tablet & PC geprüft"),
             ("Lokales Solar-SEO (AG)", "de-CH + JSON-LD + echte Alt-Tags"),
             ("Interaktive Tools", "Solar-Rechner + 3-Schritte-Anfrage"),
         ],
@@ -447,7 +447,7 @@ PROJECTS_DATA: Dict[str, Dict[str, Any]] = {
                 "score_after": "9.9 / 10.0",
                 "metric_before": "49.8 KB HTML · 13 externe Skript-Blöcke · US-CDN-Abhängigkeiten",
                 "desc_before": "Mehrfach verschachtelte Webflow-Container und externe Animations-Skripte verzögern den First Contentful Paint auf Mobilgeräten.",
-                "metric_after": "< 150 ms Antwortzeit auf Swiss Edge · Optimierte lokale Bilder · 0 Baukasten-Ballast",
+                "metric_after": "< 150 ms Antwortzeit ab Schweizer Servern · Optimierte lokale Bilder · 0 Baukasten-Ballast",
                 "desc_after": "Sofortiger Seitenaufbau für alle 23 originalen Team- und Referenzbilder im Mobilfunk- und WLAN-Netz.",
             },
             {
@@ -491,7 +491,7 @@ PROJECTS_DATA: Dict[str, Dict[str, Any]] = {
                 "score_after": "9.8 / 10.0",
                 "metric_before": "1 / 5 HTTP Security-Headern aktiv · US-Font- & CDN-Einbindungen",
                 "desc_before": "Es fehlten X-Frame-Options, X-Content-Type-Options, Referrer-Policy und Permissions-Policy.",
-                "metric_after": "4 / 4 WebPilot Security-Meta-Guards aktiv · CH-revDSG-konforme Auslieferung",
+                "metric_after": "4 / 4 WebPilot Sicherheits- & Datenschutz-Schutz aktiv · CH-revDSG-konforme Auslieferung",
                 "desc_after": "Vollständiger Schutz durch nosniff, XSS-Guard und no-referrer sowie transparentes Impressum & Datenschutz-Modal.",
             },
             {
@@ -513,108 +513,108 @@ PROJECTS_DATA: Dict[str, Dict[str, Any]] = {
         "city": "Härkingen & Oensingen SO",
         "source_url": "https://herzensarbeit.ch/",
         "source_url_display": "herzensarbeit.ch",
-        "old_cms": "WordPress CMS",
+        "old_cms": "WordPress",
         "partner_name": "Jenny Ettle (JE-MI)",
         "price_recommended": "CHF 1'500.—",
-        "overall_before": "4.1 / 10.0",
-        "overall_after": "9.8 / 10.0",
-        "overall_delta": "+5.7 / 10.0",
-        "subtitle": "Gegenüberstellung der bestehenden WordPress-Praxisseite (herzensarbeit.ch) mit der mehrseitigen WebPilot-Neuaufbereitung auf Swiss Edge.",
+        "overall_before": "1 Hauptseite",
+        "overall_after": "5 Themenseiten",
+        "overall_delta": "5× schnellere Ladezeit",
+        "subtitle": "Sachliche Gegenüberstellung Ihrer bestehenden Webseite (herzensarbeit.ch) mit dem vorbereiteten Ausbau. Ihre persönliche Ausstrahlung, Ihre Bilder und Ihre Themen bleiben erhalten – ergänzt um gezielte Verbesserungen für die Findbarkeit bei Google und in KI-Suchen, die Darstellung auf dem Mobiltelefon sowie die freie Textwahl.",
         "kpis_before": [
-            ("Antwortzeit (TTFB)", "939 ms (WordPress)"),
-            ("HTML- & Skript-Last", "312.0 KB · 47 Skripte"),
-            ("H1-Überschriften", "2× H1 (davon 1× leer)"),
-            ("HTTP Security-Header", "2 / 5 aktiv"),
+            ("Seitenaufbau & Struktur", "1 Seite (alle Themen untereinander)"),
+            ("Google-Seitentitel heute", "Nur «Home | Herzensarbeit» (20 Zeichen)"),
+            ("Wartezeit beim Öffnen", "0.94 Sekunden (47 Hintergrund-Programme)"),
+            ("Auffindbarkeit in KI-Suchen", "Kein hinterlegtes Fragen- & Ortsverzeichnis"),
         ],
         "kpis_after": [
-            ("Antwortzeit Swiss Edge", "< 180 ms (-81 %)"),
-            ("Mobile-Systemaugen", "100 / 100 (0 P1 / 0 P2)"),
-            ("SEO- & H1-Struktur", "100 % sauber + Schema.org"),
-            ("Security-Meta-Guards", "4 / 4 aktiv + Cockpit v4.0"),
+            ("Seitenaufbau & Struktur", "5 klare Seiten (je Thema & Workshops)"),
+            ("Google-Seitentitel im Ausbau", "Alle Angebote & Orte (Härkingen / Oensingen)"),
+            ("Wartezeit beim Öffnen", "Unter 0.18 Sekunden (rund 5× schneller)"),
+            ("Ihre Texte & Anpassungen", "Originaltext behalten oder in 10 Sek. ändern"),
         ],
         "highlights": [
             (
-                "HEBEL 01 · GESCHWINDIGKEIT",
-                "Ladezeit um 81 % beschleunigt",
-                "Die bestehende WordPress-Seite lädt 312.0 KB HTML-Ballast und 47 Skripte (939 ms Antwortzeit). Auf Swiss Edge antwortet die Seite in unter 180 ms ohne externe Plugin-Blockaden.",
+                "PUNKT 01 · FINDBARKEIT BEI GOOGLE & KI",
+                "Von «Home | Herzensarbeit» zu 5 gezielten Themenseiten für Google & KI-Suchen",
+                "Heute lautet der hinterlegte Google-Titel der Startseite nur «Home | Herzensarbeit» (ohne Angebote und ohne Ortsangabe). Im Ausbau erhalten Paartherapie, Trennungs- & Trauerbegleitung, Kinesiologie und die Frauen-Workshops eigene Seiten samt Häufigen Fragen (FAQ), damit Ratsuchende in Härkingen, Oensingen und der Region Solothurn/Olten Sie über Google und KI-Suchen (wie ChatGPT) direkt finden.",
             ),
             (
-                "HEBEL 02 · ORIENTIERUNG",
-                "4 Begleitungsfelder klar getrennt",
-                "Paartherapie, Trennungsberatung, Trauerbegleitung und Frauen-Workshops sind auf dem Smartphone (375 px) sofort überblickbar statt in langen Textblöcken versteckt.",
+                "PUNKT 02 · IHRE PERSÖNLICHE STIMME & FOTOS",
+                "Volle Wahlfreiheit bei Ihren Texten & unbeschnittene Workshop-Fotos",
+                "Ihre bestehende Webseite kommt bei Ihren Klientinnen und Klienten sehr gut an. Der Entwurf nimmt Ihnen nichts davon weg: Sie entscheiden bei jedem Abschnitt frei, ob Sie Ihre vertrauten Originaltexte 1:1 beibehalten oder neue Formulierungen nutzen. Alle vier Workshop-Bilder («Kraftvoll Frau sein») werden im vollen Hochformat unbeschnitten dargestellt.",
             ),
             (
-                "HEBEL 03 · ERSTGESPRÄCH",
-                "3-Schritte Smart-Anfrage ohne Hemmschwelle",
-                "Ratsuchende wählen Thema, Wunschort (Praxis Härkingen SO oder Online) und Kontaktweg in 60 Sekunden, ein einziger ausgebuchter Workshop amortisiert die Webseite.",
+                "PUNKT 03 · TEMPO & EIGENSTÄNDIGE PFLEGE",
+                "5× schnellere Ladezeit auf dem Mobiltelefon & einfache Textpflege",
+                "Durch den Wegfall von 47 schweren Hintergrund-Programmen sinkt die Wartezeit beim Öffnen von 0.94 Sekunden auf unter 0.18 Sekunden. Künftige Änderungen an Workshop-Daten, Preisen oder Texten erledigen Sie jederzeit in wenigen Sekunden selbst im Browser – oder geben sie kurz Jenny Ettle durch.",
             ),
         ],
         "categories": [
             {
                 "num": "01",
-                "icon": "zap",
-                "title": "Ladezeit & Technische Performance (Speed & Page Weight)",
-                "score_before": "3.8 / 10.0",
-                "score_after": "9.9 / 10.0",
-                "metric_before": "939 ms Server-Antwortzeit · 312.0 KB HTML · 47 Skript-Tags (19 extern)",
-                "desc_before": "Schweres WordPress-Theme mit Page-Builder-Ballast verzögert den ersten Seitenaufbau auf dem Smartphone spürbar.",
-                "metric_after": "< 180 ms Antwortzeit auf Swiss Edge · 0 Render-Blocking-Bloat · Lokale WebP/JPG-Assets",
-                "desc_after": "Statische Auslieferung ab Schweizer Edge-Knoten ohne Datenbank-Wartezeit; 5× schnellere Reaktion beim Seitenwechsel.",
+                "icon": "search",
+                "title": "Findbarkeit bei Google & in modernen KI-Suchen (SEO & KI-Antworten)",
+                "score_before": "1 allgemeiner Titel",
+                "score_after": "5 Themenseiten + FAQ",
+                "metric_before": "Startseiten-Titel lautet «Home | Herzensarbeit» (20 Zeichen) · 2 Hauptüberschriften (davon 1 leer) · 0 hinterlegte KI-Fragen",
+                "desc_before": "Wer Ihren Praxisnamen bereits kennt, findet sich gut zurecht. Wer jedoch bei Google oder in einer KI-Suche nach «Paartherapie Härkingen», «Trauerbegleitung Oensingen» oder «Frauen-Workshop Solothurn» sucht, findet die Seite schwerer, weil diese Begriffe im Seitentitel und in den Grunddaten fehlen.",
+                "metric_after": "5 eigenständige Seiten mit Orts- & Fachbegriffen · Alle Bilder mit Bildbeschreibung · Hinterlegter Fragenkatalog (FAQ)",
+                "desc_after": "Jedes Begleitungsfeld und jeder Workshop ist für Google und moderne KI-Suchsysteme (ChatGPT, Google-KI, Perplexity) klar gegliedert hinterlegt – inklusive Praxisstandort Härkingen SO, Workshop-Ort Oensingen SO und Online-Begleitung.",
             },
             {
                 "num": "02",
-                "icon": "smartphone",
-                "title": "Mobile-Tauglichkeit & Daumen-Ergonomie (375px Smartphone-Prüfung)",
-                "score_before": "4.5 / 10.0",
-                "score_after": "10.0 / 10.0",
-                "metric_before": "Einspaltige Textwände auf 375 px · Keine schnelle Daumen-Kontaktweiche",
-                "desc_before": "Besucher auf dem Handy müssen weit scrollen, um zwischen Einzelberatung, Paartherapie und Workshops zu unterscheiden.",
-                "metric_after": "100 % (0 P1 / 0 P2 Fehler) im 20-Sensoren Doppel-Systemaugen-Audit",
-                "desc_after": "Geprüft auf 375×667 px (Smartphone), 768×1024 px (Tablet) und 1440×900 px (Desktop) mit mind. 44×44 px Touch-Zielen.",
+                "icon": "zap",
+                "title": "Ladezeit & Seitenaufbau (besonders unterwegs auf dem Mobiltelefon)",
+                "score_before": "0.94 Sek. Wartezeit",
+                "score_after": "< 0.18 Sek. (5× schneller)",
+                "metric_before": "0.94 Sekunden Server-Wartezeit · 312 KB Datenmenge beim Start · 47 geladene Hintergrund-Programme",
+                "desc_before": "Das bisherige WordPress-System lädt bei jedem Seitenaufruf 47 Zusatzprogramme im Hintergrund mit. Auf dem Mobiltelefon dauert es dadurch fast eine volle Sekunde, bis der sichtbare Seitenaufbau beginnt.",
+                "metric_after": "Unter 0.18 Sekunden Antwortzeit (-81 % Wartezeit) · Direktes Laden ab Schweizer Servern ohne Zusatzballast",
+                "desc_after": "Die Seite ist beim Antippen auf dem Smartphone praktisch sofort sichtbar. Auch Google bewertet eine schnelle Ladezeit positiv bei der Reihung der Suchergebnisse.",
             },
             {
                 "num": "03",
-                "icon": "search",
-                "title": "Google-SEO & KI-Auffindbarkeit (GEO / Strukturierte Daten)",
-                "score_before": "4.2 / 10.0",
-                "score_after": "9.8 / 10.0",
-                "metric_before": "Generischer Titel «Home | Herzensarbeit» (20 Zeichen) · 2× H1 (1× leer)",
-                "desc_before": "Wichtige regionale Suchbegriffe (Paartherapie Härkingen, Trauerbegleitung Oensingen / Solothurn) fehlen im Titel-Tag.",
-                "metric_after": "Präzise H1–H3-Hierarchie · Vollständige Meta-/OpenGraph-Tags · Lokale Keyword-Verankerung",
-                "desc_after": "Klare semantische Auszeichnung für Google und KI-Antwortsysteme (ChatGPT / Peroplexity) im Raum Härkingen & Oensingen SO.",
+                "icon": "smartphone",
+                "title": "Übersicht & Darstellung auf Mobiltelefon, Tablet & Computer",
+                "score_before": "1 lange Scroll-Seite",
+                "score_after": "5 übersichtliche Seiten",
+                "metric_before": "Alle Themen untereinander auf einer langen Seite · Kein direktes Auswahlmenü nach Anliegen auf dem Handy",
+                "desc_before": "Auf dem kleineren Handy-Bildschirm müssen Ratsuchende weit nach unten scrollen, um zwischen Einzelbegleitung, Paarcoaching, Kinesiologie und den Frauen-Workshops zu unterscheiden.",
+                "metric_after": "Geprüft auf Handy, Tablet & Computer · Alle 4 Workshop-Motive («Kraftvoll Frau sein») unbeschnitten im vollen Hochformat",
+                "desc_after": "Besucherinnen und Besucher sehen sofort eine ruhige Themen-Übersicht und gelangen mit einem Fingertipp zu genau dem Angebot, das sie gerade bewegt – mit vollständig sichtbaren, unbeschnittenen Workshop-Bildern.",
             },
             {
                 "num": "04",
                 "icon": "award",
-                "title": "Inhalts-Qualität, Vertrauen & Konversions-Führung",
-                "score_before": "4.5 / 10.0",
-                "score_after": "9.8 / 10.0",
-                "metric_before": "Hohe Kontakt-Hürde durch unstrukturiertes Standard-Formular",
-                "desc_before": "Gerade bei sensiblen Themen wie Trennung oder Trauer braucht es eine behutsame, geführte Auswahl statt eines leeren Textfelds.",
-                "metric_after": "100 % Schweizer Hochdeutsch (ss) · Geführte 3-Schritte Smart-Anfrage in 60 Sekunden",
-                "desc_after": "Warme, vertrauensvolle Gestaltung mit klarer Wahl zwischen Praxisraum in Härkingen SO, Online-Begleitung und Frauen-Workshops.",
+                "title": "Ihre persönlichen Texte, Ihre Wortwahl & Ihre Ausstrahlung",
+                "score_before": "Vertraute Originaltexte",
+                "score_after": "100 % frei wählbar",
+                "metric_before": "Persönliche, warmherzige Originaltexte auf herzensarbeit.ch · Hohe positive Resonanz bei bestehenden Klientinnen & Klienten",
+                "desc_before": "Ihre heutigen Texte und Bilder spiegeln Ihre Haltung authentisch wider und kommen bei Ihren Kundinnen und Kunden sehr gut an – diese Qualität darf auf keinen Fall verloren gehen.",
+                "metric_after": "Freie Wahl pro Textabschnitt: Vertrauten Originaltext 1:1 behalten oder Textvorschläge nach Wunsch anpassen",
+                "desc_after": "Die Texte in der Vorschau sind ein Arbeitsvorschlag. Wo eine Formulierung präziser nach Ihnen klingt, behalten Sie sie; wo Ihnen Ihr bisheriger Text näher ist, übernehmen wir genau Ihre eigenen Worte.",
             },
             {
                 "num": "05",
-                "icon": "shield",
-                "title": "Datenschutz (CH-revDSG) & Technische Sicherheit",
-                "score_before": "4.0 / 10.0",
-                "score_after": "9.8 / 10.0",
-                "metric_before": "19 externe Skript-Einbindungen · 2 / 5 HTTP-Security-Headern aktiv",
-                "desc_before": "WordPress-Plugins und fehlende Header (X-Content-Type-Options, Referrer-Policy) erhöhen den Wartungs- und Datenschutzaufwand.",
-                "metric_after": "4 / 4 WebPilot Security-Meta-Guards aktiv · Lokale Asset-Auslieferung auf Swiss Edge",
-                "desc_after": "Vollständig CH-revDSG-konform ohne fremde Drittanbieter-Tracker, mit nosniff, X-Frame-Options und strikter Referrer-Policy.",
+                "icon": "sliders",
+                "title": "Einfache & behutsame Kontaktaufnahme für Ratsuchende",
+                "score_before": "Offenes Standard-Formular",
+                "score_after": "Geführte Anfrage + Direktkontakt",
+                "metric_before": "Klassisches Kontaktformular mit freiem Nachrichtenfeld · Telefon & E-Mail im Fussbereich",
+                "desc_before": "Gerade bei sensiblen Themen wie Beziehungskrisen, Trennung oder Trauer fällt es Menschen oft schwer, in ein leeres Textfeld die ersten Worte zu formulieren.",
+                "metric_after": "Geführte 3-Schritte-Anfrage (Anliegen, Wunschort Härkingen / Oensingen / Online & Kontaktweg) + Telefon & E-Mail",
+                "desc_after": "Ratsuchende und Workshop-Teilnehmerinnen können ihr Thema in Ruhe antippen und unverbindlich ein Erstgespräch oder einen Workshop-Platz anfragen – eine einzige zusätzliche Workshop-Anmeldung trägt bereits den Jahresbetrieb.",
             },
             {
                 "num": "06",
-                "icon": "sliders",
-                "title": "Eigenständige Pflege & Unabhängigkeit",
-                "score_before": "3.5 / 10.0",
-                "score_after": "9.7 / 10.0",
-                "metric_before": "Komplexes WordPress-Backend mit laufendem Plugin-Update-Zwang",
-                "desc_before": "Jedes neue Workshop-Datum oder Text-Update erfordert das Einloggen in ein verschachteltes CMS-Backend.",
-                "metric_after": "WebPilot Studio Cockpit v4.0 · Änderungen in 30 Sekunden selbst erledigen",
-                "desc_after": "Workshop-Termine, Texte und Praxisbilder direkt im visuellen Cockpit mit integriertem Sicherheits-Airbag anpassen.",
+                "icon": "shield",
+                "title": "Eigenständige Anpassung, Schweizer Datenschutz & laufender Betrieb",
+                "score_before": "WordPress-Verwaltung",
+                "score_after": "Text-Cockpit & CH-Datenschutz",
+                "metric_before": "WordPress-System mit 19 externen Programm-Abrufen · Laufender Update-Bedarf für System & Zusatzmodule",
+                "desc_before": "Änderungen an Texten oder neuen Workshop-Daten erfordern die Anmeldung im technischen WordPress-Verwaltungsbereich sowie regelmässige System-Updates.",
+                "metric_after": "Einfaches Kunden-Cockpit Light (Texte & Daten in 10 Sek. selbst ändern) · 100 % Schweizer Datenschutz (CH-revDSG)",
+                "desc_after": "Sie können Workshop-Termine, Preise und Texte jederzeit ganz einfach selbst im Browser überschreiben – oder Ihre Wünsche kurz Jenny Ettle schicken. Technische Wartung und Schweizer Hosting laufen komplett im Hintergrund.",
             },
         ],
     },
@@ -630,7 +630,7 @@ PROJECTS_DATA: Dict[str, Dict[str, Any]] = {
         "overall_before": "3.2 / 10.0",
         "overall_after": "9.8 / 10.0",
         "overall_delta": "+6.6 / 10.0",
-        "subtitle": "Gegenüberstellung des bestehenden Wix-Baukastens (frees.ch) mit der 5-seitigen WebPilot-Neuaufbereitung auf Swiss Edge.",
+        "subtitle": "Gegenüberstellung des bestehenden Wix-Baukastens (frees.ch) mit der 5-seitigen WebPilot-Neuaufbereitung ab Schweizer Servern.",
         "kpis_before": [
             ("Antwortzeit (TTFB)", "1'158 ms (Wix-Baukasten)"),
             ("HTML- & Skript-Last", "408.9 KB · 63 Skripte"),
@@ -638,16 +638,16 @@ PROJECTS_DATA: Dict[str, Dict[str, Any]] = {
             ("Bild-Alt-Tags", "50 % fehlen (1 von 2)"),
         ],
         "kpis_after": [
-            ("Antwortzeit Swiss Edge", "< 180 ms (-84 %)"),
-            ("Mobile-Systemaugen", "100 / 100 (0 P1 / 0 P2)"),
+            ("Ladezeit (Neu)", "< 180 ms (-84 %)"),
+            ("Darstellung Mobil & PC", "Handy, Tablet & PC geprüft"),
             ("SEO- & H1–H3-Struktur", "100 % vollständig"),
-            ("Security-Meta-Guards", "4 / 4 aktiv + Cockpit v4.0"),
+            ("Sicherheits- & Datenschutz-Schutz", "4 / 4 aktiv + Cockpit v4.0"),
         ],
         "highlights": [
             (
                 "HEBEL 01 · WIX-BALLAST ABGELÖST",
                 "6× schnellere Ladezeit ohne 408.9 KB Code-Bloat",
-                "Die alte Wix-Seite lädt 408.9 KB HTML-Code und 63 Skripte (1'158 ms Antwortzeit). Auf Swiss Edge lädt die neue 5-Seiten-Plattform in unter 180 ms.",
+                "Die alte Wix-Seite lädt 408.9 KB HTML-Code und 63 Skripte (1'158 ms Antwortzeit). Auf Schweizer Hosting lädt die neue 5-Seiten-Plattform in unter 180 ms.",
             ),
             (
                 "HEBEL 02 · OFFERTEN-MASCHINE",
@@ -669,7 +669,7 @@ PROJECTS_DATA: Dict[str, Dict[str, Any]] = {
                 "score_after": "9.9 / 10.0",
                 "metric_before": "1'158 ms Server-Antwortzeit · 408.9 KB HTML · 63 Skript-Blöcke",
                 "desc_before": "Massiver JavaScript- und JSON-Ballast des Wix-Baukastens bremst den Seitenaufbau vor allem im Mobilfunknetz stark aus.",
-                "metric_after": "< 180 ms Antwortzeit auf Swiss Edge · Schlanker statischer Code · 0 Wix-Skripte",
+                "metric_after": "< 180 ms Antwortzeit ab Schweizer Servern · Schlanker statischer Code · 0 Wix-Skripte",
                 "desc_after": "Sofortiger Seitenaufbau auf Smartphone und Desktop; alle 14 Marken-Kataloge und Galeriebilder laden verzögerungsfrei.",
             },
             {
@@ -680,7 +680,7 @@ PROJECTS_DATA: Dict[str, Dict[str, Any]] = {
                 "score_after": "10.0 / 10.0",
                 "metric_before": "Starres Wix-Raster · Externe PDF-Katalog-Sprünge ohne mobile Anfrage-Führung",
                 "desc_before": "Auf 375 px breiten Smartphones müssen Vereinsverantwortliche mühsam zoomen und finden keinen geführten Offerten-Button.",
-                "metric_after": "100 % (0 P1 / 0 P2 Fehler) im 20-Sensoren Doppel-Systemaugen-Audit",
+                "metric_after": "Geprüfte Darstellung auf Mobiltelefon, Tablet und Computer",
                 "desc_after": "Mathematisch geprüfte Daumen-Ergonomie auf 375×667 px, 768×1024 px und 1440×900 px inkl. direkter WhatsApp- & Offerten-Weiche.",
             },
             {
@@ -713,7 +713,7 @@ PROJECTS_DATA: Dict[str, Dict[str, Any]] = {
                 "score_after": "9.8 / 10.0",
                 "metric_before": "US-Cloud-Abhängigkeit (wixstatic / parastorage) · 2 / 5 Security-Headern",
                 "desc_before": "63 eingebundene Baukasten-Skripte und fehlende Frame-/Referrer-Schutzheader.",
-                "metric_after": "4 / 4 WebPilot Security-Meta-Guards aktiv · Lokale Auslieferung auf Swiss Edge",
+                "metric_after": "4 / 4 WebPilot Sicherheits- & Datenschutz-Schutz aktiv · Lokale Auslieferung ab Schweizer Servern",
                 "desc_after": "Vollständiger Schutz durch nosniff, X-Frame-Options, XSS-Guard und no-referrer ohne fremde Werbe-Tracker.",
             },
             {
@@ -741,7 +741,7 @@ PROJECTS_DATA: Dict[str, Dict[str, Any]] = {
         "overall_before": "4.3 / 10.0",
         "overall_after": "9.8 / 10.0",
         "overall_delta": "+5.5 / 10.0",
-        "subtitle": "Gegenüberstellung des bestehenden TYPO3-Auftritts (innere-staerke.business) mit der 5-seitigen WebPilot Executive-Plattform auf Swiss Edge.",
+        "subtitle": "Gegenüberstellung des bestehenden TYPO3-Auftritts (innere-staerke.business) mit der 5-seitigen WebPilot Executive-Plattform ab Schweizer Servern.",
         "kpis_before": [
             ("Antwortzeit (TTFB)", "377 ms (TYPO3 CMS)"),
             ("Bilder ohne Alt-Text", "10 von 14 Bildern (71 %)"),
@@ -749,10 +749,10 @@ PROJECTS_DATA: Dict[str, Dict[str, Any]] = {
             ("HTTP Security-Header", "1 / 5 aktiv"),
         ],
         "kpis_after": [
-            ("Antwortzeit Swiss Edge", "< 160 ms (-58 %)"),
-            ("Mobile-Systemaugen", "100 / 100 (0 P1 / 0 P2)"),
+            ("Ladezeit (Neu)", "< 160 ms (-58 %)"),
+            ("Darstellung Mobil & PC", "Handy, Tablet & PC geprüft"),
             ("Bild-SEO & Schema.org", "100 % ausgezeichnet"),
-            ("Security-Meta-Guards", "4 / 4 aktiv + Cockpit v4.0"),
+            ("Sicherheits- & Datenschutz-Schutz", "4 / 4 aktiv + Cockpit v4.0"),
         ],
         "highlights": [
             (
@@ -780,7 +780,7 @@ PROJECTS_DATA: Dict[str, Dict[str, Any]] = {
                 "score_after": "9.9 / 10.0",
                 "metric_before": "377 ms Server-Antwortzeit · 62.6 KB TYPO3-HTML · Klassisches Server-Rendering",
                 "desc_before": "Solide Basis, aber abhängig von Datenbank-Abfragen des TYPO3-Servers und unoptimierten Bildeinbindungen.",
-                "metric_after": "< 160 ms Antwortzeit auf Swiss Edge · Statische Sofort-Auslieferung",
+                "metric_after": "< 160 ms Antwortzeit ab Schweizer Servern · Statische Sofort-Auslieferung",
                 "desc_after": "Verzögerungsfreier Wechsel zwischen Startseite, Angebot, Über uns, Referenzen und Kontakt auf allen Endgeräten.",
             },
             {
@@ -791,7 +791,7 @@ PROJECTS_DATA: Dict[str, Dict[str, Any]] = {
                 "score_after": "10.0 / 10.0",
                 "metric_before": "Klassisches TYPO3-Spaltenlayout ohne mobile Schnell-Weiche auf 375 px",
                 "desc_before": "Auf dem Smartphone entstehen lange Textpassagen ohne direkte Daumen-Interaktion für Termin- oder Sparring-Anfragen.",
-                "metric_after": "100 % (0 P1 / 0 P2 Fehler) im 20-Sensoren Doppel-Systemaugen-Audit",
+                "metric_after": "Geprüfte Darstellung auf Mobiltelefon, Tablet und Computer",
                 "desc_after": "Perfekte Lesbarkeit und Touch-Ergonomie auf 375×667 px, 768×1024 px und 1440×900 px.",
             },
             {
@@ -824,7 +824,7 @@ PROJECTS_DATA: Dict[str, Dict[str, Any]] = {
                 "score_after": "9.8 / 10.0",
                 "metric_before": "Nur 1 / 5 HTTP-Security-Headern aktiv (nur X-Content-Type-Options)",
                 "desc_before": "X-Frame-Options, Content-Security-Policy und Referrer-Policy fehlen auf dem bisherigen Webserver.",
-                "metric_after": "4 / 4 WebPilot Security-Meta-Guards aktiv · 100 % Swiss Edge Auslieferung",
+                "metric_after": "4 / 4 WebPilot Sicherheits- & Datenschutz-Schutz aktiv · 100 % Schweizer Hosting Auslieferung",
                 "desc_after": "Gehärtete Auslieferung ohne CMS-Angriffsfläche und ohne externe Dritt-Tracker (CH-revDSG-konform).",
             },
             {
@@ -852,7 +852,7 @@ PROJECTS_DATA: Dict[str, Dict[str, Any]] = {
         "overall_before": "3.1 / 10.0",
         "overall_after": "9.8 / 10.0",
         "overall_delta": "+6.7 / 10.0",
-        "subtitle": "Gegenüberstellung der bestehenden Vereinswebseite (fcschlieren.ch) mit der WebPilot Vereins-Plattform für 33 Teams inkl. Team-Self-Service auf Swiss Edge.",
+        "subtitle": "Gegenüberstellung der bestehenden Vereinswebseite (fcschlieren.ch) mit der WebPilot Vereins-Plattform für 33 Teams inkl. Team-Self-Service ab Schweizer Servern.",
         "kpis_before": [
             ("Skript-Ballast & TTFB", "75 Skripte (31 extern) · 524 ms"),
             ("Überschriften im HTML", "0× H1 · 0× H2 auf Startseite"),
@@ -860,8 +860,8 @@ PROJECTS_DATA: Dict[str, Dict[str, Any]] = {
             ("Team-Pflege (33 Teams)", "Manueller Webmaster-Engpass"),
         ],
         "kpis_after": [
-            ("Antwortzeit Swiss Edge", "< 170 ms (-68 %)"),
-            ("Mobile-Systemaugen", "100 / 100 (0 P1 / 0 P2)"),
+            ("Ladezeit (Neu)", "< 170 ms (-68 %)"),
+            ("Darstellung Mobil & PC", "Handy, Tablet & PC geprüft"),
             ("SEO- & H1–H3-Struktur", "100 % vollständig"),
             ("Trainer Self-Service", "Smartphone Team-Update + Cockpit"),
         ],
@@ -891,7 +891,7 @@ PROJECTS_DATA: Dict[str, Dict[str, Any]] = {
                 "score_after": "9.9 / 10.0",
                 "metric_before": "524 ms Antwortzeit · 139.0 KB HTML · 75 Skript-Tags (31 externe Skripte)",
                 "desc_before": "Hoher JavaScript-Overhead durch 75 eingebundene Skripte verlangsamt den Abruf am Fussballplatz über das Mobilfunknetz.",
-                "metric_after": "< 170 ms Antwortzeit auf Swiss Edge · 0 Render-Blocking-Skripte",
+                "metric_after": "< 170 ms Antwortzeit ab Schweizer Servern · 0 Render-Blocking-Skripte",
                 "desc_after": "Ultraschnelle statische Auslieferung für alle 33 Mannschaften, Spielpläne und Sponsoren-Übersichten.",
             },
             {
@@ -902,7 +902,7 @@ PROJECTS_DATA: Dict[str, Dict[str, Any]] = {
                 "score_after": "10.0 / 10.0",
                 "metric_before": "Komplexe Menü-Kaskaden bei 33 Teams auf 375 px Smartphone-Bildschirmen",
                 "desc_before": "Über 80 % der Vereinsbesucher (Spieler, Eltern, Junioren) greifen per Handy zu und verlieren sich in tiefen Untermenüs.",
-                "metric_after": "100 % (0 P1 / 0 P2 Fehler) im 20-Sensoren Doppel-Systemaugen-Audit",
+                "metric_after": "Geprüfte Darstellung auf Mobiltelefon, Tablet und Computer",
                 "desc_after": "Interaktiver Kategorie-Filter für alle 33 Teams, Muster-Teamseite (Herren 1) und perfekte Daumen-Bedienbarkeit auf 375×667 px.",
             },
             {
@@ -935,7 +935,7 @@ PROJECTS_DATA: Dict[str, Dict[str, Any]] = {
                 "score_after": "9.8 / 10.0",
                 "metric_before": "31 externe Skript-Einbindungen · X-Frame-Options fehlt (3 / 5 Header)",
                 "desc_before": "Viele Drittskripte erschweren die Einhaltung des Schweizer Datenschutzgesetzes (CH-revDSG) gerade bei Junioren-Seiten.",
-                "metric_after": "4 / 4 WebPilot Security-Meta-Guards aktiv · Lokale Assets auf Swiss Edge",
+                "metric_after": "4 / 4 WebPilot Sicherheits- & Datenschutz-Schutz aktiv · Lokale Assets ab Schweizer Servern",
                 "desc_after": "Saubere, trackerfreie Auslieferung ab Schweizer Edge-Infrastruktur mit vollem Header-Schutz.",
             },
             {
@@ -963,7 +963,7 @@ PROJECTS_DATA: Dict[str, Dict[str, Any]] = {
         "overall_before": "3.0 / 10.0",
         "overall_after": "9.8 / 10.0",
         "overall_delta": "+6.8 / 10.0",
-        "subtitle": "Gegenüberstellung der bestehenden ClubDesk-Webseite (scfulenbach.ch) mit der modernen WebPilot Vereins-Plattform für 14 Teams auf Swiss Edge.",
+        "subtitle": "Gegenüberstellung der bestehenden ClubDesk-Webseite (scfulenbach.ch) mit der modernen WebPilot Vereins-Plattform für 14 Teams ab Schweizer Servern.",
         "kpis_before": [
             ("ClubDesk Bilder-Flut", "100 Einzelbilder auf Startseite"),
             ("Hauptüberschrift (H1)", "0× H1 auf Startseite"),
@@ -971,8 +971,8 @@ PROJECTS_DATA: Dict[str, Dict[str, Any]] = {
             ("HTTP Security-Header", "0 / 5 aktiv (ungeschützt)"),
         ],
         "kpis_after": [
-            ("Antwortzeit Swiss Edge", "< 170 ms (-59 %)"),
-            ("Mobile-Systemaugen", "100 / 100 (0 P1 / 0 P2)"),
+            ("Ladezeit (Neu)", "< 170 ms (-59 %)"),
+            ("Darstellung Mobil & PC", "Handy, Tablet & PC geprüft"),
             ("SEO- & H1–H3-Struktur", "100 % vollständig"),
             ("Security & Self-Service", "4 / 4 Guards + Team-Onboarding"),
         ],
@@ -1002,7 +1002,7 @@ PROJECTS_DATA: Dict[str, Dict[str, Any]] = {
                 "score_after": "9.9 / 10.0",
                 "metric_before": "410 ms TTFB · 107.5 KB HTML · 100 Einzelbilder auf der Startseite · 17 Skripte",
                 "desc_before": "100 gleichzeitig geladene Bildelemente auf der Startseite erzeugen im Mobilfunknetz unnötig viele HTTP-Requests.",
-                "metric_after": "< 170 ms Antwortzeit auf Swiss Edge · Optimierte Bild-Architektur · 0 Bloat",
+                "metric_after": "< 170 ms Antwortzeit ab Schweizer Servern · Optimierte Bild-Architektur · 0 Bloat",
                 "desc_after": "Schnelle, fokussierte Auslieferung aller 14 Team-Übersichten und Vereins-News ohne Request-Stau.",
             },
             {
@@ -1013,7 +1013,7 @@ PROJECTS_DATA: Dict[str, Dict[str, Any]] = {
                 "score_after": "10.0 / 10.0",
                 "metric_before": "Starres ClubDesk-Raster · Auf 375 px unübersichtliche Team- und Tabellen-Navigation",
                 "desc_before": "Spieler und Junioren-Eltern müssen auf dem Smartphone durch lange Listen scrollen, um ihr Team oder den Ansprechpartner zu finden.",
-                "metric_after": "100 % (0 P1 / 0 P2 Fehler) im 20-Sensoren Doppel-Systemaugen-Audit",
+                "metric_after": "Geprüfte Darstellung auf Mobiltelefon, Tablet und Computer",
                 "desc_after": "Geprüfte Smartphone-Ergonomie auf 375×667 px, 768×1024 px und 1440×900 px mit direktem Team-Einstieg.",
             },
             {
@@ -1046,7 +1046,7 @@ PROJECTS_DATA: Dict[str, Dict[str, Any]] = {
                 "score_after": "9.8 / 10.0",
                 "metric_before": "0 von 5 HTTP-Security-Headern aktiv (keine X-Frame-Options, kein nosniff, kein HSTS)",
                 "desc_before": "Der bestehende Server liefert keinen einzigen der 5 geprüften Standard-Sicherheitsheader aus.",
-                "metric_after": "4 / 4 WebPilot Security-Meta-Guards aktiv · Sichere Swiss-Edge-Auslieferung",
+                "metric_after": "4 / 4 WebPilot Sicherheits- & Datenschutz-Schutz aktiv · Sichere Schweizer Auslieferung",
                 "desc_after": "Vollständiger Schutz gegen Clickjacking und MIME-Sniffing sowie 100 % CH-revDSG-konforme Datenhaltung.",
             },
             {
@@ -1074,7 +1074,7 @@ PROJECTS_DATA: Dict[str, Dict[str, Any]] = {
         "overall_before": "3.4 / 10.0",
         "overall_after": "9.8 / 10.0",
         "overall_delta": "+6.4 / 10.0",
-        "subtitle": "Gegenüberstellung der bestehenden Joomla-Webseite (fcattiswil.ch) mit der modernen WebPilot Vereins-Plattform für 14 Teams auf Swiss Edge.",
+        "subtitle": "Gegenüberstellung der bestehenden Joomla-Webseite (fcattiswil.ch) mit der modernen WebPilot Vereins-Plattform für 14 Teams ab Schweizer Servern.",
         "kpis_before": [
             ("Antwortzeit (TTFB)", "727 ms (Joomla CMS)"),
             ("Skript-Einbindungen", "26 Skripte (22 extern)"),
@@ -1082,8 +1082,8 @@ PROJECTS_DATA: Dict[str, Dict[str, Any]] = {
             ("Team-Pflege (14 Teams)", "Manuelles Joomla-Backend"),
         ],
         "kpis_after": [
-            ("Antwortzeit Swiss Edge", "< 170 ms (-77 %)"),
-            ("Mobile-Systemaugen", "100 / 100 (0 P1 / 0 P2)"),
+            ("Ladezeit (Neu)", "< 170 ms (-77 %)"),
+            ("Darstellung Mobil & PC", "Handy, Tablet & PC geprüft"),
             ("SEO- & H1–H3-Struktur", "100 % vollständig"),
             ("Trainer Self-Service", "Smartphone Team-Update + Cockpit"),
         ],
@@ -1091,7 +1091,7 @@ PROJECTS_DATA: Dict[str, Dict[str, Any]] = {
             (
                 "HEBEL 01 · JOOMLA-VERZÖGERUNG BESEITIGT",
                 "Server-Antwortzeit um 77 % gesenkt (von 727 ms auf < 170 ms)",
-                "Das ältere Joomla-CMS lädt 22 externe Skript-Dateien und benötigt 727 ms allein für die Server-Antwort. Auf Swiss Edge lädt der Auftritt verzögerungsfrei.",
+                "Das ältere Joomla-CMS lädt 22 externe Skript-Dateien und benötigt 727 ms allein für die Server-Antwort. Auf Schweizer Hosting lädt der Auftritt verzögerungsfrei.",
             ),
             (
                 "HEBEL 02 · GOOGLE-AUFFINDBARKEIT",
@@ -1113,7 +1113,7 @@ PROJECTS_DATA: Dict[str, Dict[str, Any]] = {
                 "score_after": "9.9 / 10.0",
                 "metric_before": "727 ms Server-Antwortzeit (TTFB) · 26 Skript-Tags (22 externe JS-Dateien)",
                 "desc_before": "Klassisches PHP/Joomla-Datenbank-Rendering mit 22 externen Skripten bremst den mobilen Seitenaufbau deutlich.",
-                "metric_after": "< 170 ms Antwortzeit auf Swiss Edge (-77 %) · 0 CMS-Datenbank-Abfragen",
+                "metric_after": "< 170 ms Antwortzeit ab Schweizer Servern (-77 %) · 0 CMS-Datenbank-Abfragen",
                 "desc_after": "Sofortiges Laden aller 14 Mannschaften, Kaderbilder und Sponsoren-Sektionen auf jedem Gerät.",
             },
             {
@@ -1124,7 +1124,7 @@ PROJECTS_DATA: Dict[str, Dict[str, Any]] = {
                 "score_after": "10.0 / 10.0",
                 "metric_before": "Älteres Joomla-Menü · Keine mobile Schnell-Weiche für 14 Teams auf 375 px",
                 "desc_before": "Auf Smartphones fehlen direkte Daumen-Einstiege zu den Junioren- und Aktiv-Mannschaften sowie zur Kontaktaufnahme.",
-                "metric_after": "100 % (0 P1 / 0 P2 Fehler) im 20-Sensoren Doppel-Systemaugen-Audit",
+                "metric_after": "Geprüfte Darstellung auf Mobiltelefon, Tablet und Computer",
                 "desc_after": "Geprüft auf 375×667 px, 768×1024 px und 1440×900 px inkl. klarer Team-Kategorien und Herren-1-Musterseite.",
             },
             {
@@ -1157,7 +1157,7 @@ PROJECTS_DATA: Dict[str, Dict[str, Any]] = {
                 "score_after": "9.8 / 10.0",
                 "metric_before": "Wartungsintensives Joomla/PHP-System · 22 externe Skripte · nosniff fehlt",
                 "desc_before": "Klassische Joomla-Installationen benötigen laufende Sicherheits-Patches gegen PHP- und Plugin-Schwachstellen.",
-                "metric_after": "Unangreifbare statische Swiss-Edge-Architektur · 4 / 4 Security-Meta-Guards",
+                "metric_after": "Unangreifbare statische Schweizer Architektur · 4 / 4 Sicherheits- & Datenschutz-Schutz",
                 "desc_after": "Kein angreifbares PHP/SQL-Backend auf dem Webserver; 100 % CH-revDSG-konforme Auslieferung.",
             },
             {
@@ -1185,7 +1185,7 @@ PROJECTS_DATA: Dict[str, Dict[str, Any]] = {
         "overall_before": "3.3 / 10.0",
         "overall_after": "9.8 / 10.0",
         "overall_delta": "+6.5 / 10.0",
-        "subtitle": "Gegenüberstellung der bisherigen WordPress-Seite (her11.ch) mit dem 6-seitigen WebPilot Marken-Auftritt inkl. Studio Cockpit v4.0 auf Swiss Edge.",
+        "subtitle": "Gegenüberstellung der bisherigen WordPress-Seite (her11.ch) mit dem 6-seitigen WebPilot Marken-Auftritt inkl. Studio Cockpit v4.0 ab Schweizer Servern.",
         "kpis_before": [
             ("Antwortzeit (TTFB)", "1'112 ms (WordPress)"),
             ("Seitentitel & H1", "Fremdtitel «JeMi...» · 0× H1"),
@@ -1193,15 +1193,15 @@ PROJECTS_DATA: Dict[str, Dict[str, Any]] = {
             ("Bilder ohne Alt-Text", "40 % fehlen (2 von 5)"),
         ],
         "kpis_after": [
-            ("Antwortzeit Swiss Edge", "< 170 ms (-85 %)"),
-            ("Mobile-Systemaugen", "100 / 100 (0 P1 / 0 P2)"),
+            ("Ladezeit (Neu)", "< 170 ms (-85 %)"),
+            ("Darstellung Mobil & PC", "Handy, Tablet & PC geprüft"),
             ("6-Seiten Marken-SEO", "100 % H1–H3 + Meta-Tags"),
             ("Security & Eigenregie", "4 / 4 Guards + Cockpit v4.0"),
         ],
         "highlights": [
             (
                 "HEBEL 01 · 85 % SCHNELLERE ANTWORTZEIT",
-                "Von 1'112 ms WordPress-Wartezeit auf < 170 ms Swiss Edge",
+                "Von 1'112 ms WordPress-Wartezeit auf < 170 ms Schweizer Hosting",
                 "Die bisherige WordPress-Installation benötigte über 1.1 Sekunden allein für die erste Server-Antwort (178.4 KB HTML, 21 Skripte).",
             ),
             (
@@ -1224,7 +1224,7 @@ PROJECTS_DATA: Dict[str, Dict[str, Any]] = {
                 "score_after": "9.9 / 10.0",
                 "metric_before": "1'112 ms Server-Antwortzeit (TTFB > 1.1 Sek.) · 178.4 KB HTML · 21 Skripte",
                 "desc_before": "Hohe Server-Latenz und 21 eingebundene WordPress-Skripte bremsen das Laden der Marken-Visuals spürbar aus.",
-                "metric_after": "< 170 ms Antwortzeit auf Swiss Edge (-85 %) · 0 Render-Blocking-Plugins",
+                "metric_after": "< 170 ms Antwortzeit ab Schweizer Servern (-85 %) · 0 Render-Blocking-Plugins",
                 "desc_after": "Sofortiger Seitenaufbau über alle 6 Marken-Seiten (Startseite, Über uns, Ausbildung, Begleitung, Mach mit, Kontakt).",
             },
             {
@@ -1235,7 +1235,7 @@ PROJECTS_DATA: Dict[str, Dict[str, Any]] = {
                 "score_after": "10.0 / 10.0",
                 "metric_before": "Fehlende mobile Zielgruppen-Weiche auf 375 px Smartphones",
                 "desc_before": "Junge Spielerinnen und Sponsoren nutzen fast ausschliesslich das Smartphone und benötigen eine klare mobile Navigation.",
-                "metric_after": "100 % (0 P1 / 0 P2 Fehler) im 20-Sensoren Doppel-Systemaugen-Audit",
+                "metric_after": "Geprüfte Darstellung auf Mobiltelefon, Tablet und Computer",
                 "desc_after": "Lückenlos geprüft auf 375×667 px (inkl. geöffnetem Mobile-Menü), 768×1024 px und 1440×900 px.",
             },
             {
@@ -1268,7 +1268,7 @@ PROJECTS_DATA: Dict[str, Dict[str, Any]] = {
                 "score_after": "9.8 / 10.0",
                 "metric_before": "11 externe Skripte · 3 von 5 Security-Headern fehlen (nosniff, X-Frame, Referrer)",
                 "desc_before": "Fehlende Schutzheader und externe WordPress-Abhängigkeiten.",
-                "metric_after": "4 / 4 WebPilot Security-Meta-Guards aktiv · Lokale Assets auf Swiss Edge",
+                "metric_after": "4 / 4 WebPilot Sicherheits- & Datenschutz-Schutz aktiv · Lokale Assets ab Schweizer Servern",
                 "desc_after": "Vollständig geschützte Auslieferung ohne Drittanbieter-Tracking (100 % CH-revDSG-konform).",
             },
             {
@@ -1296,7 +1296,7 @@ PROJECTS_DATA: Dict[str, Dict[str, Any]] = {
         "overall_before": "3.5 / 10.0",
         "overall_after": "9.8 / 10.0",
         "overall_delta": "+6.3 / 10.0",
-        "subtitle": "Gegenüberstellung des bestehenden Auftritts (hochuli-schlossrued.ch / hochuli-gruppe.ch) mit der 5-Sparten WebPilot-Plattform inkl. Mulden-Rechner auf Swiss Edge.",
+        "subtitle": "Gegenüberstellung des bestehenden Auftritts (hochuli-schlossrued.ch / hochuli-gruppe.ch) mit der 5-Sparten WebPilot-Plattform inkl. Mulden-Rechner ab Schweizer Servern.",
         "kpis_before": [
             ("SSL auf hochuli-schlossrued.ch", "Port 443 Connection Refused"),
             ("Hauptüberschrift (H1)", "0× H1 auf Startseite"),
@@ -1304,8 +1304,8 @@ PROJECTS_DATA: Dict[str, Dict[str, Any]] = {
             ("Skript-Einbindungen", "42 Skripte · 124.9 KB HTML"),
         ],
         "kpis_after": [
-            ("Antwortzeit Swiss Edge", "< 170 ms (100 % SSL/HTTPS)"),
-            ("Mobile-Systemaugen", "100 / 100 (0 P1 / 0 P2)"),
+            ("Ladezeit (Neu)", "< 170 ms (100 % SSL/HTTPS)"),
+            ("Darstellung Mobil & PC", "Handy, Tablet & PC geprüft"),
             ("5-Sparten SEO & Alt-Tags", "100 % H1–H3 + Bild-SEO"),
             ("Interaktive Module", "Mulden-Bestellrechner + Cockpit"),
         ],
@@ -1335,7 +1335,7 @@ PROJECTS_DATA: Dict[str, Dict[str, Any]] = {
                 "score_after": "9.9 / 10.0",
                 "metric_before": "124.9 KB HTML · 42 Skript-Tags (28 extern) · 35 unoptimierte Einzelbilder",
                 "desc_before": "42 geladene Skripte und 35 Einzelbilder auf der Startseite verlangsamen den mobilen Aufbau auf der Baustelle.",
-                "metric_after": "< 170 ms Antwortzeit auf Swiss Edge · 19 optimierte Projektfotos + 13s Drohnenvideo",
+                "metric_after": "< 170 ms Antwortzeit ab Schweizer Servern · 19 optimierte Projektfotos + 13s Drohnenvideo",
                 "desc_after": "Verzögerungsfreie Auslieferung sämtlicher 5 Sparten-Seiten inklusive flüssigem Luftaufnahme-Video.",
             },
             {
@@ -1346,7 +1346,7 @@ PROJECTS_DATA: Dict[str, Dict[str, Any]] = {
                 "score_after": "10.0 / 10.0",
                 "metric_before": "5 komplexe Bausparten ohne mobile Schnell-Weiche auf 375 px",
                 "desc_before": "Auf dem Smartphone fehlt eine klare visuelle Trennung zwischen Umbau/Holzbau-Offerten und schnellen Mulden-Bestellungen.",
-                "metric_after": "100 % (0 P1 / 0 P2 Fehler) im 20-Sensoren Doppel-Systemaugen-Audit",
+                "metric_after": "Geprüfte Darstellung auf Mobiltelefon, Tablet und Computer",
                 "desc_after": "Geprüfte Daumen-Ergonomie auf 375×667 px, 768×1024 px und 1440×900 px inkl. mobilem Mulden-Grössenwähler.",
             },
             {
@@ -1379,7 +1379,7 @@ PROJECTS_DATA: Dict[str, Dict[str, Any]] = {
                 "score_after": "9.8 / 10.0",
                 "metric_before": "HTTPS Port 443 Fehler auf hochuli-schlossrued.ch · 28 externe Skripte",
                 "desc_before": "Der direkte HTTPS-Aufruf von www.hochuli-schlossrued.ch wird vom Server abgewiesen (Connection Refused).",
-                "metric_after": "Durchgängiges SSL/HTTPS auf Swiss Edge · 4 / 4 WebPilot Security-Meta-Guards",
+                "metric_after": "Durchgängiges SSL/HTTPS ab Schweizer Servern · 4 / 4 WebPilot Sicherheits- & Datenschutz-Schutz",
                 "desc_after": "Sichere, verschlüsselte Auslieferung mit nosniff, X-Frame-Options, XSS-Protection und lokaler Asset-Haltung (CH-revDSG).",
             },
             {
@@ -1407,7 +1407,7 @@ PROJECTS_DATA: Dict[str, Dict[str, Any]] = {
         "overall_before": "1.9 / 10.0",
         "overall_after": "9.8 / 10.0",
         "overall_delta": "+7.9 / 10.0",
-        "subtitle": "Schonungslose Bestandsanalyse des aktuellen GoHighLevel-Funnels (imp-marketing.ch) im Vergleich zur authentischen Schweizer WebPilot-Neuaufbereitung auf Swiss Edge.",
+        "subtitle": "Schonungslose Bestandsanalyse des aktuellen GoHighLevel-Funnels (imp-marketing.ch) im Vergleich zur authentischen Schweizer WebPilot-Neuaufbereitung ab Schweizer Servern.",
         "kpis_before": [
             ("Startseiten-<title> & Meta", "FEHLT KOMPLETT (0 Zeichen)"),
             ("Englische Dummy-Leichen", "6× Jane/John Doe · [Your Agency Name]"),
@@ -1415,8 +1415,8 @@ PROJECTS_DATA: Dict[str, Dict[str, Any]] = {
             ("HTML-Ballast & Logo-Link", "561.1 KB HTML · Link auf test.imp..."),
         ],
         "kpis_after": [
-            ("Antwortzeit Swiss Edge", "< 160 ms (> 90 % schlanker)"),
-            ("Mobile-Systemaugen", "100 / 100 (0 P1 / 0 P2)"),
+            ("Ladezeit (Neu)", "< 160 ms (> 90 % schlanker)"),
+            ("Darstellung Mobil & PC", "Handy, Tablet & PC geprüft"),
             ("SEO, Titel & Bild-Alt-Tags", "100 % fehlerfrei + Schema.org"),
             ("Vertrauen & Konversion", "100 % CH-Holzbau + Potenzial-Rechner"),
         ],
@@ -1446,7 +1446,7 @@ PROJECTS_DATA: Dict[str, Dict[str, Any]] = {
                 "score_after": "9.9 / 10.0",
                 "metric_before": "561.1 KB reines HTML-Dokument auf der Startseite · US-Cloud-CDNs (leadconnectorhq)",
                 "desc_before": "Ein halbes Megabyte (561.1 KB) aufgeblähter GoHighLevel-Inline-Code allein für das Basis-HTML plus Bilder von US-Servern.",
-                "metric_after": "< 160 ms Antwortzeit auf Swiss Edge · > 90 % schlankeres HTML · Lokale WebP-Assets",
+                "metric_after": "< 160 ms Antwortzeit ab Schweizer Servern · > 90 % schlankeres HTML · Lokale WebP-Assets",
                 "desc_after": "Verzögerungsfreie Auslieferung ab Schweizer Edge-Infrastruktur ohne amerikanischen Funnel-Baukasten-Overhead.",
             },
             {
@@ -1457,7 +1457,7 @@ PROJECTS_DATA: Dict[str, Dict[str, Any]] = {
                 "score_after": "10.0 / 10.0",
                 "metric_before": "Kaputter Logo-Link (test.imp-marketing.ch) · Endlose englische Dummy-Blöcke auf 375 px",
                 "desc_before": "Klickt ein Schreinermeister auf dem Handy oben auf das IMP-Logo, landet er auf der Subdomain test.imp-marketing.ch; darunter folgen 6 englische Jane-Doe-Karten.",
-                "metric_after": "100 % (0 P1 / 0 P2 Fehler) im 20-Sensoren Doppel-Systemaugen-Audit",
+                "metric_after": "Geprüfte Darstellung auf Mobiltelefon, Tablet und Computer",
                 "desc_after": "Geprüft auf 375×667 px, 768×1024 px und 1440×900 px inkl. interaktivem Schreinerei-Potenzial-Rechner für den Daumen.",
             },
             {
@@ -1490,7 +1490,7 @@ PROJECTS_DATA: Dict[str, Dict[str, Any]] = {
                 "score_after": "9.8 / 10.0",
                 "metric_before": "0 von 5 HTTP-Security-Headern aktiv · US-Datentransfers (msgsndr.com / filesafe.space)",
                 "desc_before": "Weder X-Content-Type-Options noch X-Frame-Options oder HSTS sind gesetzt; sämtliche Medien laden direkt aus US-Clouds.",
-                "metric_after": "4 / 4 WebPilot Security-Meta-Guards aktiv · 100 % lokale Assets auf Swiss Edge",
+                "metric_after": "4 / 4 WebPilot Sicherheits- & Datenschutz-Schutz aktiv · 100 % lokale Assets ab Schweizer Servern",
                 "desc_after": "Volle Einhaltung des Schweizer Datenschutzgesetzes (CH-revDSG) ohne US-Funnel-Tracking.",
             },
             {
@@ -1561,7 +1561,7 @@ def build_dynamic_project_data(slug: str, source_url: str, company_name: str, ci
         "overall_before": "3.4 / 10.0",
         "overall_after": "9.8 / 10.0",
         "overall_delta": "+6.4 / 10.0",
-        "subtitle": f"Technischer Vorher/Nachher-Vergleich der bestehenden Webseite ({disp_url}) mit der WebPilot-Neuaufbereitung auf Swiss Edge.",
+        "subtitle": f"Technischer Vorher/Nachher-Vergleich der bestehenden Webseite ({disp_url}) mit der WebPilot-Neuaufbereitung ab Schweizer Servern.",
         "kpis_before": [
             ("Antwortzeit (TTFB)", f"{ttfb_ms} ms ({cms})"),
             ("HTML- & Skript-Last", f"{html_kb} KB · {script_total} Skripte"),
@@ -1569,13 +1569,13 @@ def build_dynamic_project_data(slug: str, source_url: str, company_name: str, ci
             ("HTTP Security-Header", f"{sec_count} / 5 aktiv"),
         ],
         "kpis_after": [
-            ("Antwortzeit Swiss Edge", "< 170 ms (Statisch)"),
-            ("Mobile-Systemaugen", "100 / 100 (0 P1 / 0 P2)"),
+            ("Ladezeit (Neu)", "< 170 ms (Statisch)"),
+            ("Darstellung Mobil & PC", "Handy, Tablet & PC geprüft"),
             ("SEO- & H1–H3-Struktur", "100 % vollständig + Schema.org"),
-            ("Security-Meta-Guards", "4 / 4 aktiv + Cockpit v4.0"),
+            ("Sicherheits- & Datenschutz-Schutz", "4 / 4 aktiv + Cockpit v4.0"),
         ],
         "highlights": [
-            ("HEBEL 01 · PERFORMANCE", f"Ladezeit von {ttfb_ms} ms auf < 170 ms beschleunigt", f"Ablösung von {html_kb} KB HTML-Ballast und {script_total} Skripten durch statische Swiss-Edge-Auslieferung."),
+            ("HEBEL 01 · PERFORMANCE", f"Ladezeit von {ttfb_ms} ms auf < 170 ms beschleunigt", f"Ablösung von {html_kb} KB HTML-Ballast und {script_total} Skripten durch statische Schweizer Auslieferung."),
             ("HEBEL 02 · MOBILE & SEO", "100 % Smartphone-Ergonomie & saubere Google-Indexierung", f"Behebung von {img_no_alt} fehlenden Bild-Alt-Tags und Aufbau einer klaren H1–H3-Hierarchie."),
             ("HEBEL 03 · KONVERSION & COCKPIT", "Geführte 60-Sekunden Smart-Anfrage & Studio Cockpit v4.0", "Interaktive Kundenführung kombiniert mit eigenständiger Pflege in 30 Sekunden."),
         ],
@@ -1629,27 +1629,27 @@ def render_report_html(data: Dict[str, Any]) -> str:
             f'<div class="category-title-group">'
             f'<span class="cat-icon-box" aria-hidden="true"><svg class="lucide" viewBox="0 0 24 24">{icon_svg}</svg></span>'
             f'<div>'
-            f'<span class="kicker" style="margin-bottom: 2px;">PRÜF-KATEGORIE { _esc(cat["num"]) } VON 06</span>'
+            f'<span class="kicker" style="margin-bottom: 2px;">BEREICH { _esc(cat["num"]) } VON 06 · ZAHLEN, DATEN &amp; FAKTEN</span>'
             f'<h3>{_esc(cat["title"])}</h3>'
             f'</div>'
             f'</div>'
             f'<div class="category-scores">'
-            f'<span class="badge-4 badge-danger">Vorher: {_esc(cat["score_before"])}</span>'
-            f'<span class="badge-4 badge-success">Nachher: {_esc(cat["score_after"])}</span>'
+            f'<span class="badge-4 badge-neutral">Heute: {_esc(cat["score_before"])}</span>'
+            f'<span class="badge-4 badge-success">Ausbau: {_esc(cat["score_after"])}</span>'
             f'</div>'
             f'</div>'
             f'<div class="category-compare-grid">'
             f'<div class="compare-col col-before">'
             f'<div class="compare-col-head">'
-            f'<span class="compare-col-label">Vorher · Bestehende Webseite</span>'
-            f'<span class="badge-4 badge-danger">{_esc(cat["score_before"])}</span>'
+            f'<span class="compare-col-label">Heutiger Stand · Bestehende Webseite</span>'
+            f'<span class="badge-4 badge-neutral">{_esc(cat["score_before"])}</span>'
             f'</div>'
             f'<div class="compare-metric">{_esc(cat["metric_before"])}</div>'
             f'<p class="compare-desc">{_esc(cat["desc_before"])}</p>'
             f'</div>'
             f'<div class="compare-col col-after">'
             f'<div class="compare-col-head">'
-            f'<span class="compare-col-label">Nachher · WebPilot Swiss Edge</span>'
+            f'<span class="compare-col-label">Vorbereiteter Ausbau · Neuer Entwurf</span>'
             f'<span class="badge-4 badge-success">{_esc(cat["score_after"])}</span>'
             f'</div>'
             f'<div class="compare-metric">{_esc(cat["metric_after"])}</div>'

@@ -514,10 +514,12 @@
     }
     .hero-media-card img {
       width: 100%;
-      height: 260px;
-      min-height: 260px;
+      height: 280px;
+      min-height: 280px;
       flex: 1 1 auto;
-      object-fit: cover;
+      object-fit: contain;
+      object-position: center bottom;
+      background: linear-gradient(90deg, #b3a896 0%, #ada290 100%);
       object-position: center top;
     }
     .hero-media-caption {
@@ -657,15 +659,16 @@
     }
     .pillar-img-wrap {
       width: 100%;
-      height: 210px;
+      height: 340px;
       overflow: hidden;
-      background-color: var(--charcoal);
+      background: linear-gradient(180deg, #FBF6F1 0%, #EFE5DC 100%);
+      border-bottom: 1px solid rgba(155, 44, 71, 0.12);
       position: relative;
     }
     .pillar-img-wrap img {
       width: 100%;
       height: 100%;
-      object-fit: cover;
+      object-fit: contain;
       object-position: center;
     }
     .pillar-body {
