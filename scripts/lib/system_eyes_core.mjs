@@ -54,7 +54,7 @@ export const SYSTEM_EYES_SENSORS = [
   { id: 'S-27', code: 'P1_EVOLUTION_POLARITY_MISMATCH', severity: 'P1', rule: '#UI-16', desc: 'Im Evolution-Modus mit heller Ursprungsseite (target_hero_polarity === "light") darf die Startbuehne (.hero-section, .hero, main > section:first-of-type) niemals dunkel (< 0.45 Luminanz) gebaut werden' },
   { id: 'S-28', code: 'P2_MULTILINE_CELL_INDENT_DRIFT', severity: 'P2', rule: '#UI-02', desc: 'In mehrzeiligen Tabellenzellen, Listen-Spalten oder Flex/Grid-Zellen muessen untereinanderliegende Zeilen exakt auf derselben linken/rechten Fluchtlinie starten (kein margin-left-Versatz auf Zeile 2, Toleranz <= 2.5px)' },
   { id: 'S-29', code: 'P2_CROSS_ROW_RHYTHM_MISMATCH', severity: 'P2', rule: '#UI-02', desc: 'Aufeinanderfolgende Listen-Zeilen gleicher Signatur muessen in allen Spalten exakt fluchten (x-Abweichung <= 3px) und wiederkehrende Tags/Badges im selben Stockwerk (y-Rhythmus) fuehren' },
-  { id: 'S-30', code: 'P2_TYPOGRAPHIC_PLENK_OR_ASCII_ORT', severity: 'P2', rule: '#LANG-01', desc: 'Keine Leerzeichen vor Kommas (Plenk), keine unkorrigierten Schweizer ASCII-Umlaut-Ortsnamen (Zuerich etc.) und kein englischer KI-Geviertstrich ((?<!\.)\u2014) im sichtbaren UI-Text' },
+  { id: 'S-30', code: 'P2_TYPOGRAPHIC_PLENK_OR_ASCII_ORT', severity: 'P2', rule: '#LANG-01/#LANG-06', desc: 'Keine Leerzeichen vor Kommas (Plenk), keine unkorrigierten Schweizer ASCII-Umlaut-Ortsnamen (Zuerich etc.), kein englischer KI-Geviertstrich ((?<!\.)\u2014) sowie 0 Kunden-Klarnamen/Geheimnis-Begriffe (#LANG-06) auf oeffentlichen Produktseiten' },
   { id: 'S-31', code: 'P2_SIBLING_CARD_ANATOMY_DRIFT', severity: 'P2', rule: '#UI-02', desc: 'Nebeneinanderliegende Kacheln in 2er-/3er-/4er-Grids muessen sowohl aussen (2D-Spaltenflucht) als auch innen (Kicker-, Ueberschrift- und Textstart-Horizont) miteinander fluchten' }
 ];
 
@@ -1150,18 +1150,38 @@ export function evaluateSystemEyesInPage({ relPage, zone, options = {} }) {
     }
   }
 
-  // S-30: P2_TYPOGRAPHIC_PLENK_OR_ASCII_ORT (Leerzeichen vor Komma, Schweizer ASCII-Ortsnamen & englischer KI-Geviertstrich \u2014)
+  // S-30: P2_TYPOGRAPHIC_PLENK_OR_ASCII_ORT (Leerzeichen vor Komma, Schweizer ASCII-Ortsnamen, englischer KI-Geviertstrich \u2014 & #LANG-06 Klarnamen-/Geheimnis-Sperre)
   const plenkRe = /[A-Za-zÄÖÜäöü0-9)\]]\s+,/;
   const asciiOrtRe = /\b(?:Zuerich|Zuercher|Graubuenden|Duebendorf|Buelach|Kuesnacht|Kuessnacht)\b/;
   const emDashRe = /(?<!\.)\u2014/;
   const einserRe = /(?<![0-9:\.\-/])\b1\s+(?:Ansprechpartner(?:in|innen)?|System|Ziel|Beispiel-Team|Co-Sponsor|Haupt-Empf[aä]ngeradresse|St[uü]ck)\b/i;
+  const isPublicProductPage =
+    relPage.includes('webpilot/') ||
+    relPage.includes('kmu-kalender') ||
+    location.pathname.includes('/webpilot') ||
+    location.hostname.includes('webpilot.') ||
+    location.hostname.includes('kmu-kalender');
+  const lang06LeakRe =
+    /\b(?:Elias\s+Hiltbrand|Hiltbrand\s+(?:Gebäudehüllen|Bau)|Hochuli\s+Schlossrued|JOMA\s+Solar|Anne-Katrin\s+Koch|Herzensarbeit|Innere\s+Stärke|IMP\s+Marketing|FC\s+Schlieren|SC\s+Fulenbach|FC\s+Attiswil|Holz-Susi|Jenny\s+Ettle|JE-MI|Doppel-Systemaugen|OKLCH|60-30-10|Design-Sommelier|JSON-LD|FAQPage|llms\.txt)\b/i;
   for (const el of allDom) {
-    if (['SCRIPT', 'STYLE', 'PRE', 'CODE', 'TEXTAREA', 'SVG', 'PATH', 'INPUT', 'SELECT'].includes(el.tagName)) continue;
-    if (el.closest('pre, code, textarea, svg, [data-user-content="true"], .post-preview-text, .acp-no-capture')) continue;
+    if (['SCRIPT', 'STYLE', 'TEXTAREA', 'SVG', 'PATH', 'INPUT', 'SELECT'].includes(el.tagName)) continue;
+    if (el.closest('textarea, svg, [data-user-content="true"], .post-preview-text, .acp-no-capture')) continue;
+    const isCodeOrPre = ['PRE', 'CODE'].includes(el.tagName) || Boolean(el.closest('pre, code'));
     for (const n of el.childNodes) {
       if (n.nodeType !== 3) continue;
       const directText = (n.nodeValue || '').replace(/\s+/g, ' ').trim();
       if (!directText) continue;
+      if (isPublicProductPage && lang06LeakRe.test(directText)) {
+        const m = directText.match(lang06LeakRe);
+        addFinding(
+          'P2',
+          'P2_TYPOGRAPHIC_PLENK_OR_ASCII_ORT',
+          getLabel(el),
+          getCssPath(el),
+          `Verstoss gegen #LANG-06 (Kunden-Klarname oder internes Betriebsgeheimnis auf öffentlicher Produktseite gefunden: "${m[0]}")`
+        );
+      }
+      if (isCodeOrPre) continue;
       if (plenkRe.test(directText)) {
         const m = directText.match(plenkRe);
         addFinding(
@@ -1253,14 +1273,22 @@ if (
       const s17Hit = findings.find(f => f.code === 'P2_CLIENT_CODE_FONT_OR_SLASH' && f.details.includes('::before'));
       const s30Hit = findings.find(f => f.code === 'P2_TYPOGRAPHIC_PLENK_OR_ASCII_ORT' && f.element.includes('verbotenem KI-Gedankenstrich'));
       const s30FalsePositive = findings.find(f => f.code === 'P2_TYPOGRAPHIC_PLENK_OR_ASCII_ORT' && f.element.includes('CHF 35.'));
-      const ok = Boolean(s17Hit && s30Hit && !s30FalsePositive);
+      await page.setContent(`<!DOCTYPE html><html lang="de"><body><p>Wie bei Elias Hiltbrand und unseren Doppel-Systemaugen mit OKLCH.</p></body></html>`);
+      const lang06Findings = await page.evaluate(evaluateSystemEyesInPage, {
+        relPage: 'webpilot/index.html',
+        zone: SYSTEM_EYES_ZONES[2],
+        options: {}
+      });
+      const s30Lang06Hit = lang06Findings.find(f => f.code === 'P2_TYPOGRAPHIC_PLENK_OR_ASCII_ORT' && f.details.includes('Verstoss gegen #LANG-06'));
+      const ok = Boolean(s17Hit && s30Hit && !s30FalsePositive && s30Lang06Hit);
       console.log(JSON.stringify({
         ok,
         system_eyes_version: SYSTEM_EYES_VERSION,
         sensors_count: SYSTEM_EYES_SENSORS.length,
         s17_kicker_before_caught: Boolean(s17Hit),
         s30_em_dash_caught: Boolean(s30Hit),
-        s30_chf_price_allowed: !s30FalsePositive
+        s30_chf_price_allowed: !s30FalsePositive,
+        s30_lang06_leak_caught: Boolean(s30Lang06Hit)
       }, null, 2));
       if (!ok) process.exit(1);
     } finally {

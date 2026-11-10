@@ -23,17 +23,17 @@ from typing import Tuple, List, Dict, Any
 # Wörterbuch mit strengen helvetischen Ersetzungsregeln
 # Format: (Regex-Muster, Ersatzbegriff, Beschreibung/Kontext)
 SWISS_REPLACEMENTS = [
-    ("1 Ansprechpartnerin", "Eine Ansprechpartnerin"),
-    ("1 Ansprechpartner", "Ein Ansprechpartner"),
-    ("AUF 1 SYSTEM", "AUF EINEM SYSTEM"),
-    ("auf 1 System", "auf einem System"),
-    ("an 1 Haupt-Empfängeradresse", "an eine Haupt-Empfängeradresse"),
-    ("5 BEREICHE · 1 ZIEL", "5 BEREICHE · EIN ZIEL"),
-    ("Ab 1 Stück", "Ab einem Stück"),
-    ("1 BEISPIEL-TEAM", "EIN BEISPIEL-TEAM"),
-    ("1 Beispiel-Team", "Ein Beispiel-Team"),
-    ("STATUS: 1 TEAM LIVE", "STATUS: EIN TEAM LIVE"),
-    ("& 1 Co-Sponsor", "& ein Co-Sponsor"),
+    (r"\b1 Ansprechpartnerin\b", "Eine Ansprechpartnerin", "#LANG-01 Einser-Ausschreibungs-Regel"),
+    (r"\b1 Ansprechpartner\b", "Ein Ansprechpartner", "#LANG-01 Einser-Ausschreibungs-Regel"),
+    (r"\bAUF 1 SYSTEM\b", "AUF EINEM SYSTEM", "#LANG-01 Einser-Ausschreibungs-Regel"),
+    (r"\bauf 1 System\b", "auf einem System", "#LANG-01 Einser-Ausschreibungs-Regel"),
+    (r"\ban 1 Haupt-Empfängeradresse\b", "an eine Haupt-Empfängeradresse", "#LANG-01 Einser-Ausschreibungs-Regel"),
+    (r"\b5 BEREICHE · 1 ZIEL\b", "5 BEREICHE · EIN ZIEL", "#LANG-01 Einser-Ausschreibungs-Regel"),
+    (r"\bAb 1 Stück\b", "Ab einem Stück", "#LANG-01 Einser-Ausschreibungs-Regel"),
+    (r"\b1 BEISPIEL-TEAM\b", "EIN BEISPIEL-TEAM", "#LANG-01 Einser-Ausschreibungs-Regel"),
+    (r"\b1 Beispiel-Team\b", "Ein Beispiel-Team", "#LANG-01 Einser-Ausschreibungs-Regel"),
+    (r"\bSTATUS: 1 TEAM LIVE\b", "STATUS: EIN TEAM LIVE", "#LANG-01 Einser-Ausschreibungs-Regel"),
+    (r"& 1 Co-Sponsor\b", "& ein Co-Sponsor", "#LANG-01 Einser-Ausschreibungs-Regel"),
     # 1. Bundesdeutsche Handwerks- & Branchenbegriffe
     (r"\bStartseite\s*&\s*Gewerke\b", "Startseite & Leistungen", "Navigation: Schweizer Handwerks-Standard"),
     (r"\bGewerke\b", "Leistungen", "Handwerk: Gewerke existiert in der Schweiz nicht"),

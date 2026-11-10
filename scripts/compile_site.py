@@ -244,7 +244,7 @@ def compile_site_dir(site_dir: Path, lang: str = "de", dry_run: bool = False) ->
         total_stats["css_brace_errors"] = []
 
     # 6. Auto-SEO & GEO Hintergrund-Autopilot (Schema.org JSON-LD, OpenGraph, Local-SEO Alt-Tags, llms.txt, sitemap.xml & robots.txt)
-    if not dry_run and site_dir.name.startswith("preview-"):
+    if not dry_run and (site_dir.name.startswith("preview-") or site_dir.name == "webpilot"):
         try:
             from webpilot_seo_geo_autopilot import run_seo_geo_autopilot_for_site
             seo_rep = run_seo_geo_autopilot_for_site(site_dir, context_action="compile_site")

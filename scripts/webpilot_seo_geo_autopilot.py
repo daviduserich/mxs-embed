@@ -11,7 +11,7 @@ Google AI Overviews).
 Funktionen pro Showcase-Ordner (preview-*):
 1. Stammdaten- & Entitaets-Extraktion aus SITE_SEO_PROFILES, company.json,
    config.json, partner-jobs/index.json und den aktuellen HTML-Seiten.
-2. Unsichtbarer Schema.org JSON-LD Graph (<script type="application/ld+json" id="wp-seo-geo-schema">)
+2. Unsichtbarer Schema.org JSON-LD Graph (<script type="application/ld+json" id="wp-seo-schema">)
    im <head> jeder Inhaltsseite (LocalBusiness/Branchen-Typ + WebSite/WebPage + FAQPage).
 3. Vollstaendige <meta>-, OpenGraph- (og:*), Twitter-Card-, Geo- & Canonical-Tags im <head>.
 4. Automatische Local-SEO & GEO Bildbeschriftung (<img alt="..."> >= 12 Zeichen, 100 % ss)
@@ -71,15 +71,16 @@ SITE_SEO_PROFILES = {
         "phone": "+41 62 752 00 00",
         "email": "info@magnet-xs.ch",
         "uid": "",
-        "source_url": "https://embed.magnet-xs.ch/webpilot/",
+        "source_url": "https://webpilot.magnet-xs.ch/",
         "hero_image": "images/hero.jpg",
         "summary_2s": (
             "WebPilot (ein Produkt der magnet-Xs gmbh in 4800 Zofingen AG) ist die pfeilschnelle Schweizer Web- "
             "und KI-Plattform für KMU, Handwerksbetriebe, Praxen, Sportvereine und Partner-Agenturen mit "
-            "Zwei-Wege-Freiheit: Kunden steuern ihre Webseite entweder selbst über das visuelle Studio Cockpit v4.0, "
-            "das 10-Sekunden Kunden-Cockpit Light und eigenen ChatGPT-HTML-Code für CHF 0.— pro Änderung oder "
-            "wählen die schlüsselfertige Sorglos-Betreuung über zertifizierte Schweizer Partner-Agenturen – "
-            "mit 2-Stufen-Monatspauschale (CHF 35.— / Mt. Basis inkl. Hosting, Cockpit & SEO-/KI-Such-Autopilot bzw. CHF 45.— / Mt. Smart-Formular & PDF-Pro statt CHF 295.—/Mt. bei Drittanbietern)."
+            "Zwei-Wege-Freiheit: Kunden passen ihre Webseite entweder selbst in 10 Sekunden im Browser über das "
+            "Studio Cockpit v4.0 und Kunden-Cockpit Light für CHF 0.— pro Änderung an oder wählen die "
+            "schlüsselfertige Sorglos-Betreuung über angeschlossene Schweizer Partner-Agenturen – "
+            "mit transparenter 2-Stufen-Monatspauschale (CHF 35.— / Mt. Basis inkl. Schweizer Hosting, Cockpit & "
+            "automatischer Google-/KI-Such-Aufbereitung bzw. CHF 45.— / Mt. Smart-Formular & PDF-Pro statt CHF 295.—/Mt. bei Drittanbietern)."
         ),
         "area_served": [
             "Zofingen", "Aarau", "Baden", "Wettingen", "Olten", "Solothurn",
@@ -87,17 +88,17 @@ SITE_SEO_PROFILES = {
             "Kanton Aargau", "Deutschschweiz", "Schweiz"
         ],
         "services": [
-            "Zwei-Wege-Webseiten: Eigensteuerung per Studio Cockpit v4.0, Cockpit Light & ChatGPT-HTML (CHF 0.— / Änderung) oder Sorglos-Betreuung durch Partner-Agenturen",
-            "Vollautomatischer SEO- & KI-Such-Autopilot (Schema.org JSON-LD, FAQPage, Local-SEO Alt-Tags, /sitemap.xml & /llms.txt für Google, ChatGPT & Perplexity)",
-            "3-Schritte Smart-Anfrage Engine mit E-Mail-Versand (SMTP), 1-Seiten-A4-PDF-Dossier, 2 Direkt-QR-Codes (Anruf & Google Maps) und WhatsApp-Sofortmeldung (+ CHF 10.—/Mt. im Tarif Smart-Pro für CHF 45.—/Mt. statt CHF 295.—/Mt.)",
-            "3-Stufen Visual-DNA & Design-Sommelier (OKLCH-Farbharmonie, 60-30-10-Regel & 27-Sensoren Doppel-Systemaugen Layout-Airbag)",
-            "Schweizer High-Speed Hosting (< 50 ms Edge Zürich & Genf) ohne WordPress-Ballast und ohne technische PHP-/Plugin-Update-Kosten",
+            "Zwei-Wege-Freiheit: Texte, Preise und Bilder in 10 Sekunden selbst im Browser ändern, eigene Text-/KI-Entwürfe einfügen (CHF 0.— / Änderung) oder schlüsselfertig von Ihrer persönlichen Partner-Agentur betreuen lassen",
+            "Automatisch bei Google & in modernen KI-Suchen gefunden werden: Laufende Hintergrund-Aufbereitung aller Leistungen, Fragen und regionalen Angaben ohne teure monatliche SEO-Zusatzpakete",
+            "Bewährtes Erscheinungsbild & automatischer Darstellungsschutz: Erhalt Ihrer vertrauten Firmenfarben («Evolution statt Kulturschock») und fehlerfreie Darstellung auf jedem Smartphone, Tablet und Computer",
+            "3-Schritte Smart-Anfrage: Geführte Kundenanfrage mit Handy-Foto-Upload, druckfertigem 1-Seiten-A4-PDF-Dossier, 2 Direkt-QR-Codes (Anruf & Google Maps), direkter E-Mail-Zustellung und WhatsApp-Sofortmeldung (+ CHF 10.—/Mt. im Tarif Smart-Pro für CHF 45.—/Mt. statt CHF 295.—/Mt.)",
+            "Schnelles Schweizer Hosting (Zürich & Genf) ohne Wartungsfallen: Sofortige Ladezeit unter 0.1 Sekunden, volle Sicherheit inklusive SSL und keine überraschenden Update- oder Wartungsrechnungen",
             "Transparentes 2-Wege-Preismodell & 2-Stufen-Monatspauschale (Einmal-Aufbau ab CHF 1'500.— ODER All-in-Monatsmodell ab CHF 160.—/Mt. im 1. Jahr; laufend CHF 35.—/Mt. Basis bzw. CHF 45.—/Mt. Smart-Formular & PDF-Pro)"
         ],
         "core_faqs": [
             (
                 "Was bedeutet die Zwei-Wege-Freiheit bei WebPilot?",
-                "Bei WebPilot entscheiden Sie frei, wer am Steuer sitzt: Im Weg A bewirtschaften Macher, Teams und Vereine ihre Webseite selbst über das Kunden-Cockpit Light (Texte in 10 Sek. ändern) oder das Studio Cockpit v4.0 inklusive Direkt-Import eigener ChatGPT-HTML-Sektionen für CHF 0.— pro Änderung. Im Weg B übernehmen unsere zertifizierten Schweizer Partner-Agenturen Aufbau und laufende Änderungen auf Zuruf per WhatsApp im Sorglos-Paket. Beide Wege sind jederzeit frei kombinierbar."
+                "Bei WebPilot entscheiden Sie frei, wer am Steuer sitzt: Im Weg A bewirtschaften Macher, Teams und Vereine ihre Webseite selbst über das Kunden-Cockpit Light (Texte und Preise in 10 Sek. im Browser ändern) oder das Studio Cockpit v4.0 inklusive Übernahme eigener Text- und KI-Entwürfe für CHF 0.— pro Änderung. Im Weg B übernehmen unsere angeschlossenen Schweizer Partner-Agenturen Aufbau und laufende Änderungen auf Zuruf per WhatsApp im Sorglos-Paket. Beide Wege sind jederzeit frei kombinierbar."
             ),
             (
                 "Was kostet eine WebPilot-Webseite und wie funktioniert das 2-Wege-Preismodell?",
@@ -105,15 +106,15 @@ SITE_SEO_PROFILES = {
             ),
             (
                 "Was ist in den beiden Monats-Stufen (CHF 35.— Basis vs. CHF 45.— Smart-Formular & PDF-Pro) enthalten?",
-                "In WebPilot Basis (CHF 35.— / Monat) sind Schweizer High-Speed Hosting in Zürich und Genf (< 50 ms) inklusive SSL ohne PHP-/Plugin-Update-Kosten, der volle Zugang zum Studio Cockpit v4.0 und Kunden-Cockpit Light (CHF 0.— Lizenz) sowie der laufende SEO- & KI-Such-Autopilot (Schema.org JSON-LD, FAQPage, Local-SEO Alt-Tags, /sitemap.xml & /llms.txt) enthalten. Im Tarif WebPilot Smart-Formular & PDF-Pro (CHF 45.— / Monat, nur + CHF 10.— / Mt. statt CHF 195.— bis 295.—/Mt. bei separaten Formular-Anbietern) ist zusätzlich der laufende Server-Betrieb für interaktive Anfrage-, Offerten-, Bewerbungs- oder Vereinsformulare mit Handy-Foto-Upload, E-Mail-Versand (SMTP), 1-Seiten-A4-PDF mit 2 QR-Codes und WhatsApp-Sofortmeldung integriert. Ein Standard-Formular ist im Aufbau vorbereitet; individuelle Frage-Strecken, Spezial-Formulare oder Abteilungs-Weichen richten wir im persönlichen Angebot (Richtwert ab CHF 250.— bis 600.— einmalig) passgenau ein."
+                "In WebPilot Basis (CHF 35.— / Monat) sind schnelles Schweizer Hosting in Zürich und Genf inklusive SSL ohne überraschende Update- oder Wartungsrechnungen, der volle Zugang zum Studio Cockpit v4.0 und Kunden-Cockpit Light (CHF 0.— Lizenz) sowie die automatische Aufbereitung für Google und moderne KI-Suchen enthalten. Im Tarif WebPilot Smart-Formular & PDF-Pro (CHF 45.— / Monat, nur + CHF 10.— / Mt. statt CHF 195.— bis 295.—/Mt. bei separaten Formular-Anbietern) ist zusätzlich der laufende Betrieb für interaktive Anfrage-, Offerten-, Bewerbungs- oder Vereinsformulare mit Handy-Foto-Upload, direkter E-Mail-Zustellung, 1-Seiten-A4-PDF mit 2 QR-Codes und WhatsApp-Sofortmeldung integriert. Ein Standard-Formular ist im Aufbau vorbereitet; individuelle Frage-Strecken, Spezial-Formulare oder Abteilungs-Weichen richten wir im persönlichen Angebot (Richtwert ab CHF 250.— bis 600.— einmalig) passgenau ein."
             ),
             (
-                "Wie sorgt WebPilot dafür, dass meine Firma bei Google und in KI-Suchen wie ChatGPT empfohlen wird?",
-                "Bei jedem Speichervorgang aktualisiert der eingebaute SEO- & GEO-Autopilot vollautomatisch die strukturierten Schema.org JSON-LD-Daten, das FAQPage-Schema, lokale Schweizer Bild-Alt-Tags, die XML-Sitemap sowie die Datei /llms.txt. Dadurch können sowohl Google als auch KI-Antwortmaschinen (ChatGPT Search, Perplexity, Claude, Google AI) Leistungen, Einzugsgebiet und Kontaktdaten Ihres Betriebs sekundenschnell auslesen und zitieren."
+                "Wie sorgt WebPilot dafür, dass meine Firma bei Google und in modernen KI-Suchen gefunden wird?",
+                "Ihre Webseite bereitet alle Leistungen, häufigen Kundenfragen, Bilder und regionalen Angaben bei jedem Speichervorgang im Hintergrund automatisch so auf, dass Kunden Ihren Betrieb sowohl bei Google als auch in modernen KI-Suchmaschinen sofort finden – ganz ohne teure monatliche SEO-Zusatzpakete."
             ),
             (
                 "Wie funktioniert das WebPilot Partner-Programm für Agenturen, Marketing-Berater und Webdesigner?",
-                "Zertifizierte Partner reichen im Partner-Studio einfach die bestehende Kunden-URL ein und erhalten innerhalb von 24 Stunden eine interaktive -v2-Zeigeversion samt Vorher/Nachher-Beweis-PDF. Das Studio Cockpit v4.0 steht Partnern für alle Kundenprojekte kostenlos (CHF 0.— Lizenzgebühr) zur Verfügung, und 100 % der laufenden Kundenbetreuung und Änderungspakete verbleiben auf der eigenen Rechnung des Partners."
+                "Angeschlossene Partner reichen im Partner-Studio einfach die bestehende Kunden-URL ein und erhalten innerhalb von 24 Stunden eine interaktive Zeigeversion samt Vorher/Nachher-Beweis-PDF. Das Studio Cockpit v4.0 steht Partnern für alle Kundenprojekte kostenlos (CHF 0.— Lizenzgebühr) zur Verfügung, und 100 % der laufenden Kundenbetreuung und Änderungspakete verbleiben auf der eigenen Rechnung des Partners."
             )
         ]
     },
@@ -798,7 +799,7 @@ def _resolve_public_base_url(site_dir: Path) -> str:
     """Gibt die kanonische Vorschau-Basis-URL mit abschliessendem Slash zurück."""
     folder = site_dir.name
     if folder == "webpilot":
-        return "https://embed.magnet-xs.ch/webpilot/"
+        return "https://webpilot.magnet-xs.ch/"
     pub_slug = PUBLIC_SLUG_MAP.get(folder)
     if not pub_slug:
         clean = folder[len("preview-"):] if folder.startswith("preview-") else folder
@@ -1399,20 +1400,29 @@ def build_json_ld_graph(profile: dict, page_info: dict, iso_now: str) -> dict:
             merged_faqs.append((_ss(q), _ss(a)))
     merged_faqs = merged_faqs[:8]
 
+    qa_items = [
+        {
+            "@type": "Question",
+            "name": q,
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": a,
+            },
+        }
+        for q, a in merged_faqs
+    ]
+
+    if profile.get("base_slug") == "webpilot":
+        webpage_entity["mainEntity"] = qa_items
+        return {
+            "@context": "https://schema.org",
+            "@graph": [org_entity, website_entity, webpage_entity],
+        }
+
     faq_entity = {
         "@type": "FAQPage",
         "@id": f"{page_url}#faq",
-        "mainEntity": [
-            {
-                "@type": "Question",
-                "name": q,
-                "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": a,
-                },
-            }
-            for q, a in merged_faqs
-        ],
+        "mainEntity": qa_items,
     }
 
     return {
@@ -1428,7 +1438,7 @@ def inject_head_seo_geo(html_text: str, profile: dict, page_info: dict, iso_now:
     2. <meta name="description"> (falls fehlend)
     3. <meta name="robots">, <meta name="geo.*">, <link rel="canonical">,
        OpenGraph (og:*) & Twitter-Card Tags
-    4. <script type="application/ld+json" id="wp-seo-geo-schema">
+    4. <script type="application/ld+json" id="wp-seo-schema">
     """
     # 1. Stelle sicher, dass <html lang="de-CH"> gesetzt ist
     if re.search(r"<html\b[^>]*\blang=", html_text, re.I):
@@ -1450,7 +1460,7 @@ def inject_head_seo_geo(html_text: str, profile: dict, page_info: dict, iso_now:
 
     # Entferne früheren Autopilot-Block sowie lose Duplikat-Tags (robots, geo.*, canonical, og:*, twitter:*, ld+json)
     head_inner = re.sub(
-        r"\s*<!-- WP-SEO-GEO-AUTOPILOT-START -->[\s\S]*?<!-- WP-SEO-GEO-AUTOPILOT-END -->\s*",
+        r"\s*<!-- WP-SEO-(?:GEO-)?AUTOPILOT-START -->[\s\S]*?<!-- WP-SEO-(?:GEO-)?AUTOPILOT-END -->\s*",
         "\n",
         head_inner,
         flags=re.I,
@@ -1503,7 +1513,7 @@ def inject_head_seo_geo(html_text: str, profile: dict, page_info: dict, iso_now:
     ld_graph = build_json_ld_graph(profile, page_info, iso_now)
     ld_json_str = _ss(json.dumps(ld_graph, ensure_ascii=False, indent=2))
 
-    meta_lines = ["  <!-- WP-SEO-GEO-AUTOPILOT-START -->"]
+    meta_lines = ["  <!-- WP-SEO-AUTOPILOT-START -->"]
     if not has_meta_desc:
         meta_lines.append(f'  <meta name="description" content="{safe_desc}">')
     meta_lines.extend([
@@ -1523,8 +1533,8 @@ def inject_head_seo_geo(html_text: str, profile: dict, page_info: dict, iso_now:
         f'  <meta name="twitter:title" content="{safe_title}">',
         f'  <meta name="twitter:description" content="{safe_desc}">',
         f'  <meta name="twitter:image" content="{og_img_url}">',
-        f'  <script type="application/ld+json" id="wp-seo-geo-schema">\n{ld_json_str}\n  </script>',
-        "  <!-- WP-SEO-GEO-AUTOPILOT-END -->",
+        f'  <script type="application/ld+json" id="wp-seo-schema">\n{ld_json_str}\n  </script>',
+        "  <!-- WP-SEO-AUTOPILOT-END -->",
     ])
 
     injected_block = "\n" + "\n".join(meta_lines) + "\n"
@@ -1861,7 +1871,7 @@ def verify_showcase_dir(site_dir: Path) -> dict:
                         types.add(t)
                 has_org = bool(types.intersection({"LocalBusiness", "SportsOrganization", "Electrician", "ProfessionalService", "HealthAndBeautyBusiness", "ClothingStore", "HomeAndConstructionBusiness"}))
                 has_web = "WebSite" in types and "WebPage" in types
-                has_faq = "FAQPage" in types
+                has_faq = "FAQPage" in types or site_dir.name == "webpilot"
                 if not (has_org and has_web and has_faq):
                     ld_ok_all = False
             except Exception:

@@ -1,13 +1,13 @@
 ---
 tags: [webpilot, bilder, assets, cloudflare, katalog, seo, geo]
 created: 2026-11-06
-updated: 2026-11-09
+updated: 2026-11-10
 status: aktiv
 ---
 
 # WebPilot Bilder- und Cloudflare-Asset-Katalog (Master-Verzeichnis)
 
-> **Stand:** 09.11.2026 16:10 Uhr | **Umfang:** **22 Webseiten-Ordner** mit insgesamt **763 lokalen Medien-Assets** (**99.19 MB**)  
+> **Stand:** 10.11.2026 08:02 Uhr | **Umfang:** **22 Webseiten-Ordner** mit insgesamt **763 lokalen Medien-Assets** (**99.19 MB**)  
 > **Verwendung:** **🟢 513 aktiv im HTML eingebunden** · **⚪ 250 frei im Bild-Pool verfügbar** · **Externe Hotlinks: 0 (100 % lokal auf Cloudflare Edge)**  
 > **Single Source of Truth:** Automatisch generiert und nach jedem Bild-Upload, Bild-Tausch, Bild-Löschen oder Job-Abschluss live aktualisiert durch `scripts/webpilot_asset_catalog.py`.
 
@@ -1052,7 +1052,7 @@ Alle neu hochgeladenen oder importierten Bilder und Videos werden durch `publish
 
 | Nr. | Dateiname (Lokal) | Kategorie | Auflösung & Grösse | Verwendet auf Seite(n) | SEO/GEO Alt-Text | Direkt-Link auf Cloudflare |
 |---:|---|---|---|---|---|---|
-| 1 | `images/benefits_drohne.jpg` | Referenz, Projekt & Angebot (`ref`) | 1400×1050 px · 482.5 KB (JPG) | ⚪ Frei im Pool | WebPilot Plattform · magnet-Xs gmbh (Zofingen AG) – Einblick & Referenz: Benefits Drohne | [vorschau.magnet-xs.ch/webpilot/images/benefits_drohne.jpg](https://vorschau.magnet-xs.ch/webpilot/images/benefits_drohne.jpg) |
-| 2 | `images/hero.jpg` | Startbühne & Header (`hero`) | 1400×933 px · 160.7 KB (JPG) | 🟢 Aktiv in `angebot.html`, `index.html`, `kontakt.html`, `technologie.html`, `ueber-uns.html` | WebPilot Plattform · magnet-Xs gmbh (Zofingen AG) – Startbühne & Hauptansicht: Hero | [vorschau.magnet-xs.ch/webpilot/images/hero.jpg](https://vorschau.magnet-xs.ch/webpilot/images/hero.jpg) |
-| 3 | `images/michael.jpg` | Team, Porträt & Kader (`team`) | 834×788 px · 186.7 KB (JPG) | ⚪ Frei im Pool | WebPilot Plattform · magnet-Xs gmbh (Zofingen AG) – Team & Ansprechpartner: Michael | [vorschau.magnet-xs.ch/webpilot/images/michael.jpg](https://vorschau.magnet-xs.ch/webpilot/images/michael.jpg) |
-| 4 | `images/stefan.jpg` | Team, Porträt & Kader (`team`) | 1400×1337 px · 204.2 KB (JPG) | ⚪ Frei im Pool | WebPilot Plattform · magnet-Xs gmbh (Zofingen AG) – Team & Ansprechpartner: Stefan | [vorschau.magnet-xs.ch/webpilot/images/stefan.jpg](https://vorschau.magnet-xs.ch/webpilot/images/stefan.jpg) |
+| 1 | `images/benefits_drohne.jpg` | Referenz, Projekt & Angebot (`ref`) | 1400×1050 px · 482.5 KB (JPG) | ⚪ Frei im Pool | WebPilot Plattform · magnet-Xs gmbh (Zofingen AG) – Einblick & Referenz: Benefits Drohne: Referenz, Projekt & Angebot – WebPilot in Zofingen (AG) – WebPilot in Zofingen (AG) | [vorschau.magnet-xs.ch/webpilot/images/benefits_drohne.jpg](https://vorschau.magnet-xs.ch/webpilot/images/benefits_drohne.jpg) |
+| 2 | `images/hero.jpg` | Startbühne & Header (`hero`) | 1400×933 px · 160.7 KB (JPG) | 🟢 Aktiv in `angebot.html`, `index.html`, `kontakt.html`, `technologie.html`, `ueber-uns.html` | WebPilot Plattform · magnet-Xs gmbh (Zofingen AG) – Startbühne & Hauptansicht: Hero: Startbühne & Header – WebPilot in Zofingen (AG) – WebPilot in Zofingen (AG) | [vorschau.magnet-xs.ch/webpilot/images/hero.jpg](https://vorschau.magnet-xs.ch/webpilot/images/hero.jpg) |
+| 3 | `images/michael.jpg` | Team, Porträt & Kader (`team`) | 834×788 px · 186.7 KB (JPG) | ⚪ Frei im Pool | WebPilot Plattform · magnet-Xs gmbh (Zofingen AG) – Team & Ansprechpartner: Michael – Persönlicher Ansprechpartner und Fachteam bei WebPilot in Zofingen (AG) – Persönlicher Ansprechpartner und Fachteam bei WebPilot in Zofingen (AG) | [vorschau.magnet-xs.ch/webpilot/images/michael.jpg](https://vorschau.magnet-xs.ch/webpilot/images/michael.jpg) |
+| 4 | `images/stefan.jpg` | Team, Porträt & Kader (`team`) | 1400×1337 px · 204.2 KB (JPG) | ⚪ Frei im Pool | WebPilot Plattform · magnet-Xs gmbh (Zofingen AG) – Team & Ansprechpartner: Stefan – Persönlicher Ansprechpartner und Fachteam bei WebPilot in Zofingen (AG) – Persönlicher Ansprechpartner und Fachteam bei WebPilot in Zofingen (AG) | [vorschau.magnet-xs.ch/webpilot/images/stefan.jpg](https://vorschau.magnet-xs.ch/webpilot/images/stefan.jpg) |
