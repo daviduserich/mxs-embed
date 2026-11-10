@@ -182,7 +182,7 @@ SEED_PROJECTS = [
     {
         "slug": "get-more-sales",
         "active": True,
-        "company": "get.more.sales · Carmen Caselli (4812 Mühlethal / Zofingen AG)",
+        "company": "get.more.sales · Carmen Caselli (Zofingen AG)",
         "pricing_recommended_chf": "CHF 1'900.—",
         "complexity_score": "4.4 / 10.0",
         "pricing_formula_chf": "CHF 1'950.—",
@@ -193,7 +193,7 @@ SEED_PROJECTS = [
         "cockpit_light_url": "https://vorschau.magnet-xs.ch/get-more-sales-vollversion/cockpit.html?token=getmoresales2026&mode=light",
         "audit_report_url": "https://vorschau.magnet-xs.ch/reports/get-more-sales-vorher-nachher-report.pdf",
         "source_url": "https://get-more-sales.org/",
-        "branch_context": "B2B-Verkaufsberatung, Marktforschung, Vertriebstraining & 1:1 Executive Sales-Sparring in 4812 Mühlethal / Zofingen (AG) & DACH (CHE-471.125.841)",
+        "branch_context": "B2B-Verkaufsberatung, Marktforschung, Vertriebstraining & 1:1 Executive Sales-Sparring in Zofingen (AG) & DACH (CHE-471.125.841)",
         "partner": "David Hügli (Magnet XS)",
         "status": "🟢 Bereit zum Zeigen (Fertig: 10.11.2026 · 21:25 Uhr · 0 P1/P2)",
     },

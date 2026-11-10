@@ -169,7 +169,7 @@ SHOWCASE_CONFIGS = {
     "preview-get-more-sales": {
         "routing_slug": "get-more-sales",
         "site_label": "get.more.sales · Carmen Caselli (Verkaufsstrategie & Vertriebstraining Zofingen)",
-        "entity_hint": "get.more.sales (Carmen Caselli, 4812 Mühlethal / Zofingen)",
+        "entity_hint": "get.more.sales (Carmen Caselli, Zofingen)",
         "accent_hex": "#0B68C1",
         "navy_hex": "#003366",
         "font_heading": "'Lexend', sans-serif",
@@ -177,7 +177,7 @@ SHOWCASE_CONFIGS = {
     "preview-get-more-sales-v2": {
         "routing_slug": "get-more-sales-v2",
         "site_label": "get.more.sales · Carmen Caselli (Zeigeversion / Vorschau-Entwurf)",
-        "entity_hint": "get.more.sales (Carmen Caselli, 4812 Mühlethal / Zofingen)",
+        "entity_hint": "get.more.sales (Carmen Caselli, Zofingen)",
         "accent_hex": "#0B68C1",
         "navy_hex": "#003366",
         "font_heading": "'Lexend', sans-serif",

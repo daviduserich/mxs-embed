@@ -1,5 +1,5 @@
 const VORSCHAU_SLUG_TO_FOLDER = {
-  // get.more.sales · Carmen Caselli (4812 Mühlethal / Zofingen): Zeigeversion (-v2, -v1, ohne Suffix) -> preview-get-more-sales-v2 | Vollversion (-vollversion, -vv) -> preview-get-more-sales
+  // get.more.sales · Carmen Caselli (Zofingen): Zeigeversion (-v2, -v1, ohne Suffix) -> preview-get-more-sales-v2 | Vollversion (-vollversion, -vv) -> preview-get-more-sales
   'get-more-sales': 'preview-get-more-sales-v2',
   'get-more-sales-v1': 'preview-get-more-sales-v2',
   'get-more-sales-v2': 'preview-get-more-sales-v2',

@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Generator für die WebPilot-Referenz-Aufbereitung von get-more-sales.org (get.more.sales · Carmen Caselli, 4812 Mühlethal / Zofingen, Kanton Aargau):
+Generator für die WebPilot-Referenz-Aufbereitung von get-more-sales.org (get.more.sales · Carmen Caselli, Zofingen, Kanton Aargau):
 - Variante 1 (Vollversion): /home/brainuser/workspaces/mxs-embed/preview-get-more-sales
   Live-URL: https://vorschau.magnet-xs.ch/get-more-sales-vollversion/ (5 voll ausgebaute Seiten + Studio Cockpit v4.0)
 - Variante 2 (Zeigeversion / Vorschau-Entwurf): /home/brainuser/workspaces/mxs-embed/preview-get-more-sales-v2
@@ -35,17 +35,17 @@ BEFORE_INVENTORY = {
     "claim": "Entfesseln Sie Ihr Verkaufspotenzial. Strukturiert, menschlich, messbar.",
     "subline": "B2B-Verkaufsberatung, praxisnahes Vertriebstraining und 1:1 Sales-Sparring für Geschäftsführer, Verkaufsleiter und Vertriebsteams im Raum Zofingen, Aargau und im gesamten DACH-Raum mit Carmen Caselli.",
     "address": {
-        "street": "Mühlethal / Zofingen",
-        "zip": "4812",
-        "city": "Mühlethal / Zofingen",
+        "street": "Zofingen",
+        "zip": "4800",
+        "city": "Zofingen",
         "canton": "AG",
         "country": "Schweiz"
     },
     "contact": {
         "email": "beratungs-termin@get-more-sales.org",
         "email_impressum": "impressum@get-more-sales.org",
-        "phone_primary": "+41 62 539 11 67",
-        "phone_display": "062 539 11 67",
+        "phone_primary": "",
+        "phone_display": "",
         "linkedin": "https://www.linkedin.com/in/carmen-caselli/",
         "hours": "Persönliche Rückmeldung in der Regel innerhalb von 5 bis 12 Arbeitsstunden | Termine vor Ort, telefonisch oder via Video-Call"
     },
@@ -53,8 +53,8 @@ BEFORE_INVENTORY = {
         {
             "name": "Carmen Caselli",
             "role": "Geschäftsführerin get.more.sales · Verkaufsberaterin & Business Mentorin",
-            "phone": "062 539 11 67",
-            "phone_href": "tel:+41625391167",
+            "phone": "",
+            "phone_href": "",
             "image": "images/carmen-caselli-portrait-color.jpg",
             "qualification": "18+ Jahre Finanz- & Bankenpraxis (Treasury & Portfolio Management CHF Bonds) · Vollzeit-Tauchlehrerin (Thailand) · Seit 2019 Geschäftsführerin get.more.sales & Business Mentorin",
             "bio": "Carmen Caselli verbindet die analytische Schärfe aus 18 Jahren Finanz- und Kapitalmarktpraxis mit der absoluten Klarheit einer erfahrenen Tauchlehrerin und über sieben Jahren B2B-Vertriebs- und Führungsexpertise. Seit 2019 begleitet sie mit get.more.sales Unternehmen, Verkaufsteams und Entscheider dabei, Verkaufsprozesse zu strukturieren, Abschlussquoten nachhaltig zu steigern und Kunden auf Augenhöhe zu gewinnen."
@@ -139,7 +139,7 @@ BEFORE_INVENTORY = {
         },
         {
             "q": "Wo hat get.more.sales seinen Sitz und wo finden Trainings statt?",
-            "a": "Sitz von Carmen Caselli get.more.sales (CHE-471.125.841) ist in 4812 Mühlethal bei Zofingen im Kanton Aargau. Beratungen, Workshops und Verkaufstrainings führen wir direkt bei Ihnen im Unternehmen in der ganzen Schweiz, im DACH-Raum oder flexibel online durch."
+            "a": "Sitz von Carmen Caselli get.more.sales (CHE-471.125.841) ist in Zofingen im Kanton Aargau. Beratungen, Workshops und Verkaufstrainings führen wir direkt bei Ihnen im Unternehmen in der ganzen Schweiz, im DACH-Raum oder flexibel online durch."
         }
     ]
 }
@@ -156,11 +156,11 @@ for target_dir, slug_val, pub_slug, is_v2 in [
         "slug": slug_val,
         "public_slug": pub_slug,
         "cockpit_token": "getmoresales2026",
-        "city": "Mühlethal / Zofingen",
+        "city": "Zofingen",
         "canton": "AG",
-        "postal_code": "4812",
-        "street_address": "4812 Mühlethal / Zofingen (Kanton Aargau)",
-        "phone": "+41 62 539 11 67",
+        "postal_code": "4800",
+        "street_address": "Zofingen (Kanton Aargau)",
+        "phone": "",
         "email": "beratungs-termin@get-more-sales.org",
         "uid": "CHE-471.125.841",
         "source_url": "https://get-more-sales.org/",
@@ -1756,13 +1756,13 @@ def render_impressum_modal() -> str:
       <div style="font-size:0.88rem;color:var(--text-body);line-height:1.62;display:flex;flex-direction:column;gap:12px;">
         <div style="background-color:var(--bg-page);border:1px solid var(--border-light);border-left:4px solid var(--gold);padding:12px 14px;border-radius:var(--radius-sm);">
           <strong>Carmen Caselli get.more.sales</strong><br>
-          Inhaberin &amp; Geschäftsführerin: Carmen Caselli · CH-4812 Mühlethal / Zofingen (Kanton Aargau, Schweiz)<br>
+          Inhaberin &amp; Geschäftsführerin: Carmen Caselli · CH-4800 Zofingen (Kanton Aargau, Schweiz)<br>
           Unternehmens-Identifikationsnummer (UID): <strong>CHE-471.125.841</strong><br>
-          Telefon: +41 62 539 11 67 · E-Mail: beratungs-termin@get-more-sales.org / impressum@get-more-sales.org
+          E-Mail: beratungs-termin@get-more-sales.org · Impressum: impressum@get-more-sales.org
         </div>
         <p>
           <strong>Verantwortliche Person &amp; Tätigkeit:</strong><br>
-          Carmen Caselli, 4812 Mühlethal / Zofingen. Verkaufsberatung, Marktforschung, Vertriebstraining und Business Mentoring für Unternehmen im Raum Schweiz und DACH.
+          Carmen Caselli, Zofingen. Verkaufsberatung, Marktforschung, Vertriebstraining und Business Mentoring für Unternehmen im Raum Schweiz und DACH.
         </p>
         <p>
           <strong>Urheber- &amp; Bildrechte:</strong><br>
@@ -1915,7 +1915,7 @@ def render_v1_shell(filename: str, page_title: str, active_nav: str, body_html: 
   <meta http-equiv="X-XSS-Protection" content="1; mode=block">
   <meta name="referrer" content="no-referrer">
   <title>{page_title}</title>
-  <meta name="description" content="get.more.sales · Carmen Caselli (4812 Mühlethal / Zofingen): Massgeschneiderte B2B-Verkaufsberatung, Marktforschung, praxisnahes Vertriebstraining und 1:1 Sales-Sparring in der Schweiz und im DACH-Raum.">
+  <meta name="description" content="get.more.sales · Carmen Caselli (Zofingen): Massgeschneiderte B2B-Verkaufsberatung, Marktforschung, praxisnahes Vertriebstraining und 1:1 Sales-Sparring in der Schweiz und im DACH-Raum.">
   <link rel="icon" type="image/png" href="images/favicon-32x32.png">
   <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -1929,7 +1929,6 @@ def render_v1_shell(filename: str, page_title: str, active_nav: str, body_html: 
     "legalName": "Carmen Caselli get.more.sales",
     "taxID": "CHE-471.125.841",
     "url": "https://get-more-sales.org",
-    "telephone": "+41 62 539 11 67",
     "email": "beratungs-termin@get-more-sales.org",
     "founder": {{
       "@type": "Person",
@@ -1939,9 +1938,9 @@ def render_v1_shell(filename: str, page_title: str, active_nav: str, body_html: 
     }},
     "address": {{
       "@type": "PostalAddress",
-      "streetAddress": "Mühlethal / Zofingen",
-      "postalCode": "4812",
-      "addressLocality": "Mühlethal",
+      "streetAddress": "Zofingen",
+      "postalCode": "4800",
+      "addressLocality": "Zofingen",
       "addressRegion": "AG",
       "addressCountry": "CH"
     }}
@@ -1958,10 +1957,10 @@ def render_v1_shell(filename: str, page_title: str, active_nav: str, body_html: 
     <div class="container top-bar-inner">
       <div class="top-bar-left">
         <span class="top-bar-badge" data-slot="topbar_badge">GET.MORE.SALES · CARMEN CASELLI</span>
-        <span data-slot="topbar_sub">4812 Mühlethal / Zofingen (AG) · Antwort in 5–12 Arbeitsstunden</span>
+        <span data-slot="topbar_sub">Zofingen (AG) · Antwort in 5–12 Arbeitsstunden</span>
       </div>
       <div class="top-bar-links">
-        <a href="tel:+41625391167">{SVG_PHONE} <span>+41 62 539 11 67</span></a>
+        <a href="https://www.linkedin.com/in/carmen-caselli/" target="_blank" rel="noopener noreferrer">{SVG_USERS} <span>LinkedIn · Carmen Caselli</span></a>
         <a href="mailto:beratungs-termin@get-more-sales.org">{SVG_MAIL} <span>beratungs-termin@get-more-sales.org</span></a>
       </div>
     </div>
@@ -2026,7 +2025,7 @@ def render_v1_shell(filename: str, page_title: str, active_nav: str, body_html: 
             Entfesseln Sie Ihr Verkaufspotenzial: Massgeschneiderte B2B-Verkaufsstrategie, Marktforschung, praxisnahes Vertriebstraining und 1:1 Sales-Sparring auf Augenhöhe.
           </p>
           <div style="font-size:0.84rem;color:#0E1721;font-weight:600;">
-            Carmen Caselli get.more.sales · 4812 Mühlethal / Zofingen · UID: CHE-471.125.841
+            Carmen Caselli get.more.sales · Zofingen · UID: CHE-471.125.841
           </div>
         </div>
 
@@ -2053,7 +2052,7 @@ def render_v1_shell(filename: str, page_title: str, active_nav: str, body_html: 
         <div>
           <div class="footer-title">Direktkontakt &amp; Rechtliches</div>
           <ul class="footer-list">
-            <li><a href="tel:+41625391167">Telefon: +41 62 539 11 67</a></li>
+            <li><a href="https://www.linkedin.com/in/carmen-caselli/" target="_blank" rel="noopener noreferrer">LinkedIn: Carmen Caselli</a></li>
             <li><a href="mailto:beratungs-termin@get-more-sales.org">beratungs-termin@get-more-sales.org</a></li>
             <li><a href="kontakt.html" style="color:var(--gold-dark);font-weight:700;">Kostenloser Beratungstermin &amp; Smart-Anfrage</a></li>
             <li><button type="button" onclick="wpOpenImpressumModal()">Impressum &amp; Datenschutz</button></li>
@@ -2062,7 +2061,7 @@ def render_v1_shell(filename: str, page_title: str, active_nav: str, body_html: 
       </div>
 
       <div class="footer-bottom">
-        <div>&copy; 2026 Carmen Caselli get.more.sales (4812 Mühlethal / Zofingen · CHE-471.125.841). Alle Rechte vorbehalten.</div>
+        <div>&copy; 2026 Carmen Caselli get.more.sales (Zofingen · CHE-471.125.841). Alle Rechte vorbehalten.</div>
         <div style="display:flex;gap:16px;flex-wrap:wrap;align-items:center;">
           <a href="kontakt.html" style="color:var(--gold-dark);font-weight:700;">Beratungstermin buchen</a>
           <a href="https://www.linkedin.com/in/carmen-caselli/" target="_blank" rel="noopener noreferrer" style="color:#243447;">LinkedIn</a>
@@ -2090,7 +2089,7 @@ def render_v2_shell(filename: str, page_title: str, active_nav: str, body_html: 
   <meta http-equiv="X-XSS-Protection" content="1; mode=block">
   <meta name="referrer" content="no-referrer">
   <title>{page_title}</title>
-  <meta name="description" content="get.more.sales · Carmen Caselli (Zeigeversion): B2B-Verkaufsberatung, Marktforschung, praxisnahes Vertriebstraining und 1:1 Sales-Sparring in 4812 Mühlethal / Zofingen und im DACH-Raum.">
+  <meta name="description" content="get.more.sales · Carmen Caselli (Zeigeversion): B2B-Verkaufsberatung, Marktforschung, praxisnahes Vertriebstraining und 1:1 Sales-Sparring in Zofingen und im DACH-Raum.">
   <link rel="icon" type="image/png" href="images/favicon-32x32.png">
   <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -2104,14 +2103,13 @@ def render_v2_shell(filename: str, page_title: str, active_nav: str, body_html: 
     "legalName": "Carmen Caselli get.more.sales",
     "taxID": "CHE-471.125.841",
     "url": "https://get-more-sales.org",
-    "telephone": "+41 62 539 11 67",
     "email": "beratungs-termin@get-more-sales.org",
     "founder": "Carmen Caselli",
     "address": {{
       "@type": "PostalAddress",
-      "streetAddress": "Mühlethal / Zofingen",
-      "postalCode": "4812",
-      "addressLocality": "Mühlethal",
+      "streetAddress": "Zofingen",
+      "postalCode": "4800",
+      "addressLocality": "Zofingen",
       "addressRegion": "AG",
       "addressCountry": "CH"
     }}
@@ -2203,7 +2201,7 @@ def render_v2_shell(filename: str, page_title: str, active_nav: str, body_html: 
             Entfesseln Sie Ihr Verkaufspotenzial: Massgeschneiderte B2B-Verkaufsstrategie, Marktforschung, praxisnahes Vertriebstraining und 1:1 Sales-Sparring mit Carmen Caselli.
           </p>
           <div style="font-size:0.84rem;color:#0E1721;font-weight:600;">
-            4812 Mühlethal / Zofingen (Kanton Aargau) · UID: CHE-471.125.841
+            Zofingen (Kanton Aargau) · UID: CHE-471.125.841
           </div>
         </div>
 
@@ -2230,7 +2228,7 @@ def render_v2_shell(filename: str, page_title: str, active_nav: str, body_html: 
         <div>
           <div class="footer-title">Direktkontakt &amp; Rechtliches</div>
           <ul class="footer-list">
-            <li><a href="tel:+41625391167">Telefon: +41 62 539 11 67</a></li>
+            <li><a href="https://www.linkedin.com/in/carmen-caselli/" target="_blank" rel="noopener noreferrer">LinkedIn: Carmen Caselli</a></li>
             <li><a href="mailto:beratungs-termin@get-more-sales.org">beratungs-termin@get-more-sales.org</a></li>
             <li><a href="kontakt.html" style="color:var(--gold-dark);font-weight:700;">Smart-Anfrage &amp; Beratungstermin</a></li>
             <li><button type="button" onclick="wpOpenImpressumModal()">Impressum &amp; Datenschutz</button></li>
@@ -2239,7 +2237,7 @@ def render_v2_shell(filename: str, page_title: str, active_nav: str, body_html: 
       </div>
 
       <div class="footer-bottom">
-        <div>&copy; 2026 Carmen Caselli get.more.sales (4812 Mühlethal / Zofingen · CHE-471.125.841). Alle Rechte vorbehalten.</div>
+        <div>&copy; 2026 Carmen Caselli get.more.sales (Zofingen · CHE-471.125.841). Alle Rechte vorbehalten.</div>
         <div style="display:flex;gap:16px;flex-wrap:wrap;align-items:center;">
           <a href="kontakt.html" style="color:var(--gold-dark);font-weight:700;">Beratungstermin buchen</a>
           <a href="https://www.linkedin.com/in/carmen-caselli/" target="_blank" rel="noopener noreferrer" style="color:#243447;">LinkedIn</a>
@@ -2319,7 +2317,7 @@ V1_INDEX_BODY = f"""
           </div>
           <div class="hero-badge-card">
             <span class="hero-badge-val">Antwort in 5–12 Arbeitsstunden</span>
-            <span class="hero-badge-lbl">Direkter Draht zu Carmen Caselli in 4812 Mühlethal / Zofingen · CHE-471.125.841</span>
+            <span class="hero-badge-lbl">Direkter Draht zu Carmen Caselli in Zofingen · CHE-471.125.841</span>
           </div>
         </div>
       </div>
@@ -2614,7 +2612,7 @@ V1_INDEX_BODY = f"""
             <div class="check-list">
               <div class="check-item">{SVG_CHECK} <span><strong>18 Jahre Finanz- &amp; Kapitalmarktpraxis:</strong> Zahlenfokus, Renditedenken und Verhandlungsstärke auf C-Level</span></div>
               <div class="check-item">{SVG_CHECK} <span><strong>Seit 2019 Geschäftsführerin get.more.sales:</strong> B2B-Verkaufsberatung &amp; Business Mentoring (CHE-471.125.841)</span></div>
-              <div class="check-item">{SVG_CHECK} <span><strong>Direkt vernetzen:</strong> Austausch auf Augenhöhe via LinkedIn, Telefon (+41 62 539 11 67) oder vor Ort</span></div>
+              <div class="check-item">{SVG_CHECK} <span><strong>Direkt vernetzen:</strong> Austausch auf Augenhöhe via LinkedIn, E-Mail oder direkt vor Ort</span></div>
             </div>
           </div>
           <div style="display:flex;gap:12px;flex-wrap:wrap;">
@@ -2630,12 +2628,12 @@ V1_INDEX_BODY = f"""
 
         <div class="pillar-card">
           <div class="pillar-img-wrap" style="height:290px;">
-            <img src="images/carmen-caselli-portrait-full-card.jpg" alt="Carmen Caselli, Inhaberin get.more.sales in 4812 Mühlethal / Zofingen" style="object-position:center top;" loading="lazy" decoding="async">
+            <img src="images/carmen-caselli-portrait-full-card.jpg" alt="Carmen Caselli, Inhaberin get.more.sales in Zofingen" style="object-position:center top;" loading="lazy" decoding="async">
           </div>
           <div class="pillar-body">
             <div>
               <div class="card-badge-row">
-                <span class="meta-badge">Standort 4812 Mühlethal / Zofingen</span>
+                <span class="meta-badge">Standort Zofingen</span>
                 <span style="font-family:'Lexend',sans-serif;font-size:0.78rem;font-weight:700;color:var(--gold-dark);">CHE-471.125.841</span>
               </div>
               <h3 style="font-size:1.22rem;font-weight:700;margin-bottom:8px;">Persönliche Begleitung statt anonymer Berater-Folien</h3>
@@ -2881,7 +2879,7 @@ V1_LEISTUNGEN_BODY = f"""
             <div class="check-list">
               <div class="check-item">{SVG_CHECK} <span>Persönliche Rückmeldung in der Regel innerhalb von 5 bis 12 Arbeitsstunden</span></div>
               <div class="check-item">{SVG_CHECK} <span>Konkrete Ersteinschätzung Ihrer dringendsten Vertriebs- und Akquise-Fragen</span></div>
-              <div class="check-item">{SVG_CHECK} <span>Direkt buchbar über unsere 3-Schritte Smart-Anfrage oder unter +41 62 539 11 67</span></div>
+              <div class="check-item">{SVG_CHECK} <span>Direkt buchbar über unsere 3-Schritte Smart-Anfrage oder per E-Mail an beratungs-termin@get-more-sales.org</span></div>
             </div>
           </div>
           <a href="kontakt.html?thema=kennenlernen" class="btn-cta btn-cta-primary btn-sm" style="width:100%;">
@@ -3017,7 +3015,7 @@ V1_UEBER_UNS_BODY = f"""
           18 Jahre Finanzwelt. Vollzeit-Tauchlehrerin. <span>Verkauf mit Haltung.</span>
         </h1>
         <p class="hero-lead">
-          Hinter get.more.sales steht Carmen Caselli: Eine Beraterin und Trainerin, die Zahlenverständnis aus dem Schweizer Kapitalmarkt mit der Ruhe und Klarheit einer erfahrenen Tauchlehrerin verbindet. Seit 2019 begleitet sie von 4812 Mühlethal / Zofingen aus Unternehmen im gesamten DACH-Raum.
+          Hinter get.more.sales steht Carmen Caselli: Eine Beraterin und Trainerin, die Zahlenverständnis aus dem Schweizer Kapitalmarkt mit der Ruhe und Klarheit einer erfahrenen Tauchlehrerin verbindet. Seit 2019 begleitet sie von Zofingen aus Unternehmen im gesamten DACH-Raum.
         </p>
         <div class="hero-actions">
           <a href="kontakt.html" class="btn-cta btn-cta-gold">
@@ -3053,7 +3051,7 @@ V1_UEBER_UNS_BODY = f"""
         <div class="hero-media-caption">
           <div>
             <div style="font-family:'Lexend',sans-serif;font-weight:700;font-size:1.0rem;color:#0E1721;">Carmen Caselli</div>
-            <div style="font-size:0.8rem;color:#243447;">Geschäftsführerin get.more.sales · 4812 Mühlethal / Zofingen (AG)</div>
+            <div style="font-size:0.8rem;color:#243447;">Geschäftsführerin get.more.sales · Zofingen (AG)</div>
           </div>
           <span class="top-bar-badge">SEIT 2019</span>
         </div>
@@ -3181,7 +3179,7 @@ V2_INDEX_BODY = f"""
           </div>
           <div class="hero-badge-card">
             <span class="hero-badge-val">Antwort in 5–12 Arbeitsstunden</span>
-            <span class="hero-badge-lbl">Direkter Draht zu Carmen Caselli in 4812 Mühlethal / Zofingen · CHE-471.125.841</span>
+            <span class="hero-badge-lbl">Direkter Draht zu Carmen Caselli in Zofingen · CHE-471.125.841</span>
           </div>
         </div>
       </div>
@@ -3492,7 +3490,7 @@ def build_kontakt_body(client_slug: str, source_page: str) -> str:
       <div class="contact-layout">
         <!-- LEFT COLUMN: DIREKTKONTAKT CARMEN CASELLI -->
         <div class="contact-info-panel">
-          <div class="section-kicker" data-slot="contact_kicker">KONTAKT &amp; BERATUNGSTERMIN · 4812 MÜHLETHAL / ZOFINGEN</div>
+          <div class="section-kicker" data-slot="contact_kicker">KONTAKT &amp; BERATUNGSTERMIN · ZOFINGEN & DACH-RAUM</div>
           <h1 style="font-size:clamp(1.65rem,2.5vw,2.15rem);font-weight:700;margin-bottom:12px;" data-slot="contact_title">
             Ihr direkter Draht zu Carmen Caselli.
           </h1>
@@ -3500,13 +3498,13 @@ def build_kontakt_body(client_slug: str, source_page: str) -> str:
             Ob massgeschneiderte Verkaufsstrategie, Marktforschung, praxisnahes Vertriebstraining für Ihr Verkaufsteam oder ein kostenloser erster Beratungstermin: Starten Sie rechts die 3-Schritte Smart-Anfrage oder kontaktieren Sie uns direkt.
           </p>
 
-          <img src="images/carmen-caselli-portrait-color.jpg" alt="Carmen Caselli, Geschäftsführerin get.more.sales in 4812 Mühlethal / Zofingen" style="width:100%;height:200px;object-fit:cover;object-position:center top;border-radius:var(--radius-sm);margin-bottom:16px;" loading="lazy" decoding="async">
+          <img src="images/carmen-caselli-portrait-color.jpg" alt="Carmen Caselli, Geschäftsführerin get.more.sales in Zofingen" style="width:100%;height:200px;object-fit:cover;object-position:center top;border-radius:var(--radius-sm);margin-bottom:16px;" loading="lazy" decoding="async">
 
           <div class="contact-direct-list">
             <div class="contact-direct-item">
               <div class="contact-direct-role">Inhaberin &amp; Geschäftsführerin</div>
               <div class="contact-direct-person">Carmen Caselli get.more.sales · CHE-471.125.841</div>
-              <div class="contact-direct-links">Telefon: +41 62 539 11 67 · E-Mail: beratungs-termin@get-more-sales.org</div>
+              <div class="contact-direct-links">E-Mail: beratungs-termin@get-more-sales.org · LinkedIn: carmen-caselli</div>
             </div>
 
             <div class="contact-direct-item">
@@ -3517,7 +3515,7 @@ def build_kontakt_body(client_slug: str, source_page: str) -> str:
 
             <div class="contact-direct-item">
               <div class="contact-direct-role">Unternehmenssitz &amp; Einzugsgebiet</div>
-              <div class="contact-direct-person">CH-4812 Mühlethal / Zofingen (Kanton Aargau)</div>
+              <div class="contact-direct-person">CH-4800 Zofingen (Kanton Aargau)</div>
               <div class="contact-direct-links">Inhouse-Trainings und Beratung in der gesamten Schweiz, im DACH-Raum &amp; via Video-Call</div>
             </div>
 
@@ -3906,7 +3904,7 @@ def build_kontakt_body(client_slug: str, source_page: str) -> str:
         if (btn) btn.disabled = false;
         if (btnTxt) btnTxt.textContent = '1-Seiten-Dossier & Anfrage senden';
         if (errBox) {{
-          errBox.textContent = 'Netzwerkfehler bei der Übermittlung. Bitte schreiben Sie direkt an beratungs-termin@get-more-sales.org oder rufen Sie +41 62 539 11 67 an.';
+          errBox.textContent = 'Netzwerkfehler bei der Übermittlung. Bitte schreiben Sie direkt an beratungs-termin@get-more-sales.org.';
           errBox.style.display = 'block';
         }}
       }});
@@ -3939,7 +3937,7 @@ v1_pages = [
     ("leistungen.html", "Leistungen & Trainings | Verkaufsstrategie, Marktforschung, Vertriebstraining & 1:1 Sparring – get.more.sales", "leistungen", V1_LEISTUNGEN_BODY),
     ("referenzen.html", "Kundenstimmen & B2B-Praxis-Resultate | get.more.sales Carmen Caselli Verkaufsberatung", "referenzen", V1_REFERENZEN_BODY),
     ("ueber-uns.html", "Über Carmen Caselli | 18 Jahre Finanzwelt, Tauchlehrerin & B2B-Vertriebsexpertin – get.more.sales", "ueber-uns", V1_UEBER_UNS_BODY),
-    ("kontakt.html", "Kontakt, Beratungstermin & 3-Schritte Smart-Anfrage | get.more.sales Carmen Caselli 4812 Mühlethal / Zofingen", "kontakt", build_kontakt_body("get-more-sales-vv", "preview-get-more-sales/kontakt.html")),
+    ("kontakt.html", "Kontakt, Beratungstermin & 3-Schritte Smart-Anfrage | get.more.sales Carmen Caselli Zofingen", "kontakt", build_kontakt_body("get-more-sales-vv", "preview-get-more-sales/kontakt.html")),
 ]
 
 for fname, title, nav_key, body in v1_pages:

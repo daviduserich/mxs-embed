@@ -5,7 +5,7 @@
 > **Lokaler Ordner (VPS & Git):** `preview-birchmeier/`  
 > **Cloudflare-Basis-URL:** [vorschau.magnet-xs.ch/birchmeier/](https://vorschau.magnet-xs.ch/birchmeier/)  
 > **Bestand:** **13 Assets** (2.72 MB gesamt) · **🟢 5 aktiv im HTML** · **⚪ 8 frei im Bild-Pool** · **Externe Hotlinks: 0**  
-> **Letzte Aktualisierung:** 10.11.2026 20:25 Uhr (automatisch generiert via `webpilot_asset_catalog.py`)
+> **Letzte Aktualisierung:** 10.11.2026 21:01 Uhr (automatisch generiert via `webpilot_asset_catalog.py`)
 
 ---
 

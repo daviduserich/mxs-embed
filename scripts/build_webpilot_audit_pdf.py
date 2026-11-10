@@ -66,7 +66,7 @@ PROJECTS_DATA: Dict[str, Dict[str, Any]] = {
     "get-more-sales": {
         "slug": "get-more-sales",
         "company_name": "get.more.sales · Carmen Caselli",
-        "city": "4812 Mühlethal / Zofingen AG",
+        "city": "Zofingen AG",
         "source_url": "https://get-more-sales.org/",
         "source_url_display": "get-more-sales.org",
         "old_cms": "WordPress / One-Pager",
@@ -126,7 +126,7 @@ PROJECTS_DATA: Dict[str, Dict[str, Any]] = {
                 "metric_before": "Statischer One-Pager ohne interaktive Führung für Smartphone-Besucher",
                 "desc_before": "Entscheider, die von LinkedIn über das Smartphone auf get-more-sales.org wechselten, fanden keine geführte Terminbuchung.",
                 "metric_after": "100 % (0 P1 / 0 P2 Fehler) im 31-Sensoren Doppel-Systemaugen-Audit",
-                "desc_after": "Perfekte Darstellung auf Smartphone, Tablet und Desktop mit direkter Anruf-Wahl (+41 62 539 11 67), LinkedIn-Verlinkung und 3-Schritte-Anfrage.",
+                "desc_after": "Perfekte Darstellung auf Smartphone, Tablet und Desktop mit direktem E-Mail-Kontakt, LinkedIn-Verlinkung und 3-Schritte-Anfrage.",
             },
             {
                 "num": "03",
@@ -158,7 +158,7 @@ PROJECTS_DATA: Dict[str, Dict[str, Any]] = {
                 "score_after": "9.9 / 10.0",
                 "metric_before": "Fremdsprachiger US-Facebook-Disclaimer im Footer · WordPress-Wartungsaufwand",
                 "desc_before": "Der englische Haftungsausschluss im Footer wirkte auf Schweizer B2B-Entscheider wie eine kopierte US-Marketingvorlage.",
-                "metric_after": "Sauberes Schweizer Impressum (CHE-471.125.841, 4812 Mühlethal) & CH-revDSG",
+                "metric_after": "Sauberes Schweizer Impressum (CHE-471.125.841, Zofingen) & CH-revDSG",
                 "desc_after": "Vollständige rechtliche Klarheit nach Schweizer Datenschutzgesetz, HSTS-Security-Header und 0 externe Bild-Hotlinks.",
             },
             {
@@ -169,7 +169,7 @@ PROJECTS_DATA: Dict[str, Dict[str, Any]] = {
                 "score_after": "9.9 / 10.0",
                 "metric_before": "Änderungen erforderten Eingriffe im WordPress-Backend",
                 "desc_before": "Neue Trainingsmodule, Kundenstimmen oder Texte mussten umständlich im CMS-Editor formatiert werden.",
-                "metric_after": "WebPilot Studio Cockpit v4.0 + Kunden-Cockpit Light (Token: getmoresales2026)",
+                "metric_after": "Studio Cockpit v4.0 + Kunden-Cockpit Light (im Browser)",
                 "desc_after": "Carmen Caselli kann sämtliche Texte, Kennzahlen, FAQs und Porträts jederzeit in 30 Sekunden direkt im Browser anpassen.",
             },
         ],

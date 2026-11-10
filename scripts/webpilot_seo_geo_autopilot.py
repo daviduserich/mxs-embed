@@ -819,6 +819,8 @@ SITE_SEO_PROFILES = {
 
 # Mapping von Ordnername auf die öffentliche Vorschau-URL auf vorschau.magnet-xs.ch
 PUBLIC_SLUG_MAP = {
+    "preview-get-more-sales": "get-more-sales-vollversion",
+    "preview-get-more-sales-v2": "get-more-sales-v2",
     "preview-mondocani": "mondocani-vollversion",
     "preview-mondocani-v2": "mondocani-v2",
     "preview-holz-susi": "holz-susi-vollversion",
@@ -1042,7 +1044,7 @@ def build_site_profile(site_dir: Path) -> dict:
             ),
             (
                 f"Wie erreiche ich {company_name} für eine Anfrage oder Offerte?",
-                f"Sie erreichen {company_name} telefonisch unter {phone or 'der angegebenen Nummer'}, per E-Mail an {email or 'die Kontaktadresse'} oder direkt über das Online-Anfrageformular auf der Website."
+                (f"Sie erreichen {company_name} telefonisch unter {phone}, per E-Mail an {email or 'die Kontaktadresse'} oder direkt über das Online-Anfrageformular auf der Website." if phone else f"Sie erreichen {company_name} per E-Mail an {email or 'die Kontaktadresse'} oder direkt über die geführte 3-Schritte Smart-Anfrage auf der Website.")
             ),
             (
                 f"In welchem Einzugsgebiet ist {company_name} tätig?",
