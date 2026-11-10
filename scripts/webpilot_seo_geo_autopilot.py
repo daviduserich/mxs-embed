@@ -93,7 +93,7 @@ SITE_SEO_PROFILES = {
             "Bewährtes Erscheinungsbild & automatischer Darstellungsschutz: Erhalt Ihrer vertrauten Firmenfarben («Evolution statt Kulturschock») und fehlerfreie Darstellung auf jedem Smartphone, Tablet und Computer",
             "3-Schritte Smart-Anfrage: Geführte Kundenanfrage mit Handy-Foto-Upload, druckfertigem 1-Seiten-A4-PDF-Dossier, 2 Direkt-QR-Codes (Anruf & Google Maps), direkter E-Mail-Zustellung und WhatsApp-Sofortmeldung (+ CHF 10.—/Mt. im Tarif Smart-Pro für CHF 45.—/Mt. statt CHF 295.—/Mt.)",
             "Schnelles Schweizer Hosting (Zürich & Genf) ohne Wartungsfallen: Sofortige Ladezeit unter 0.1 Sekunden, volle Sicherheit inklusive SSL und keine überraschenden Update- oder Wartungsrechnungen",
-            "Transparentes 2-Wege-Preismodell & 2-Stufen-Monatspauschale (Einmal-Aufbau ab CHF 1'500.— ODER All-in-Monatsmodell ab CHF 160.—/Mt. im 1. Jahr; laufend CHF 35.—/Mt. Basis bzw. CHF 45.—/Mt. Smart-Formular & PDF-Pro)"
+            "Transparentes 2-Wege-Preismodell & 2-Stufen-Monatspauschale (Einmal-Aufbau ab CHF 2'950.— ODER All-in-Monatsmodell ab CHF 280.—/Mt. im 1. Jahr; laufend CHF 35.—/Mt. Basis bzw. CHF 45.—/Mt. Smart-Formular & PDF-Pro)"
         ],
         "core_faqs": [
             (
@@ -102,7 +102,7 @@ SITE_SEO_PROFILES = {
             ),
             (
                 "Was kostet eine WebPilot-Webseite und wie funktioniert das 2-Wege-Preismodell?",
-                "Sie wählen zwischen zwei Zahlungswegen: Beim Einmal-Modell liegt der schlüsselfertige Aufbau für kompakte Seiten, Praxen und Vereine bei CHF 1'500.— bis 2'200.— einmalig (bzw. CHF 2'400.— bis 3'500.— für Mehrsparten-KMU und Grossvereine) plus CHF 35.— / Mt. (Basis) bzw. CHF 45.— / Mt. (Smart-Formular & PDF-Pro). Beim All-in-Monatsmodell ohne Start-Hürde zahlen Sie im 1. Jahr ab CHF 160.— bis 245.— / Monat (Aufbau bereits komplett eingerechnet), und ab dem 2. Jahr fällt der Preis automatisch auf nur noch CHF 35.— bzw. 45.— / Monat."
+                "Sie wählen zwischen zwei Zahlungswegen: Beim Einmal-Modell liegt der schlüsselfertige Aufbau für kompakte Seiten, Praxen und Vereine ab CHF 2'950.— einmalig (bzw. ab CHF 3'950.— für Mehrsparten-KMU und Grossvereine) plus CHF 35.— / Mt. (Basis) bzw. CHF 45.— / Mt. (Smart-Formular & PDF-Pro). Beim All-in-Monatsmodell ohne Start-Hürde zahlen Sie im 1. Jahr ab CHF 280.— / Monat (Aufbau bereits komplett eingerechnet), und ab dem 2. Jahr fällt der Preis automatisch auf nur noch CHF 35.— bzw. 45.— / Monat."
             ),
             (
                 "Was ist in den beiden Monats-Stufen (CHF 35.— Basis vs. CHF 45.— Smart-Formular & PDF-Pro) enthalten?",

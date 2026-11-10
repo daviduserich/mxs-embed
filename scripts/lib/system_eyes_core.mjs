@@ -1181,6 +1181,15 @@ export function evaluateSystemEyesInPage({ relPage, zone, options = {} }) {
           `Verstoss gegen #LANG-06 (Kunden-Klarname oder internes Betriebsgeheimnis auf öffentlicher Produktseite gefunden: "${m[0]}")`
         );
       }
+      if (isPublicProductPage && /CHF\s*1['’]?500|CHF\s*1['’]?490|ab\s+CHF\s*160/i.test(directText)) {
+        addFinding(
+          'P2',
+          'P2_TYPOGRAPHIC_PLENK_OR_ASCII_ORT',
+          getLabel(el),
+          getCssPath(el),
+          `Preis-Anker-Regression auf öffentlicher WebPilot-Seite (Einstiegspreis muss ab CHF 2'950.— / 280.— lauten, gefunden: "${directText.slice(0, 80)}")`
+        );
+      }
       if (isCodeOrPre) continue;
       if (plenkRe.test(directText)) {
         const m = directText.match(plenkRe);
