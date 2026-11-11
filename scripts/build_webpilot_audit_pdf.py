@@ -510,6 +510,8 @@ PROJECTS_DATA: Dict[str, Dict[str, Any]] = {
     "herzensarbeit": {
         "slug": "herzensarbeit",
         "company_name": "Herzensarbeit · Anne-Katrin Koch",
+        "closing_title": "Das Bewährte erhalten – und für die Suche von morgen bereit sein",
+        "closing_text": "Ihre heutige Webseite überzeugt bereits durch ihre persönliche Wärme und Authentizität – und genau dieses Gefühl bleibt im neuen Auftritt zu 100 % erhalten. Mit dem vorbereiteten Ausbau stellen wir sicher, dass Ihre Praxis und Ihre Workshops künftig auch dort sofort gefunden werden, wo Ratsuchende heute suchen: auf dem Mobiltelefon, bei Google und in modernen KI-Suchsystemen wie ChatGPT. Oft reicht bereits eine einzige zusätzliche Workshop-Anmeldung oder Begleitung über Google und KI-Suchen aus, damit sich der gesamte Ausbau für Sie mehrfach bezahlt macht. Gleichzeitig gehen Sie keinerlei Risiko ein, weil Sie bei jedem einzelnen Abschnitt frei entscheiden, ob Sie Ihre vertrauten Originalworte behalten oder neue Formulierungen übernehmen möchten. Wir begleiten die gesamte Umsetzung Schritt für Schritt im Hintergrund, sodass Sie sich ohne technischen Aufwand voll auf Ihre Klientinnen und Klienten konzentrieren können.",
         "city": "Härkingen & Oensingen SO",
         "source_url": "https://herzensarbeit.ch/",
         "source_url_display": "herzensarbeit.ch",
@@ -1666,7 +1668,15 @@ def render_report_html(data: Dict[str, Any]) -> str:
         "{{SOURCE_URL}}": _esc(data["source_url"]),
         "{{SOURCE_URL_DISPLAY}}": _esc(data["source_url_display"]),
         "{{OLD_CMS}}": _esc(data["old_cms"]),
-        "{{PARTNER_NAME}}": _esc(data["partner_name"]),
+        "{{PARTNER_NAME}}": _esc(re.sub(r"\s*\([^)]*\)", "", data["partner_name"]).strip()),
+        "{{CLOSING_TITLE}}": _esc(data.get("closing_title") or "Das Bewährte erhalten – und für die Suche von morgen bereit sein"),
+        "{{CLOSING_TEXT}}": _esc(data.get("closing_text") or (
+            f"Ihr bisheriger Auftritt bildet das gewachsene Fundament Ihres Betriebs – und genau Ihre Identität, Ihre Bilder und Ihre Stärken bleiben im neuen Entwurf zu 100 % erhalten. "
+            f"Mit dem vorbereiteten Ausbau stellen wir sicher, dass {data['company_name']} im Raum {data['city']} künftig auch dort sofort gefunden wird, wo Kunden heute suchen: unterwegs auf dem Mobiltelefon, bei Google und in modernen KI-Suchsystemen wie ChatGPT. "
+            f"Oft genügt bereits ein einziger zusätzlicher Auftrag oder Neukunde über Google und KI-Suchen, damit sich der gesamte Ausbau für Sie mehrfach bezahlt macht. "
+            f"Sie gehen dabei keinerlei Risiko ein, weil Sie bei jedem Abschnitt frei entscheiden, ob Sie Ihre vertrauten Originaltexte behalten oder neue Formulierungen übernehmen und jederzeit in wenigen Sekunden selbst anpassen möchten. "
+            f"Die gesamte technische Umsetzung wird Schritt für Schritt im Hintergrund für Sie begleitet, sodass Sie sich ohne IT-Aufwand voll auf Ihr Tagesgeschäft konzentrieren können."
+        )),
         "{{AUDIT_DATE}}": _esc(audit_date),
         "{{PRICE_RECOMMENDED}}": _esc(data["price_recommended"]),
         "{{OVERALL_BEFORE}}": _esc(data["overall_before"]),
