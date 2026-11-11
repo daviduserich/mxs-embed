@@ -4525,6 +4525,37 @@ body.acp-cockpit-light-mode #acp-inline-edit-dock {
 
 /* ======================================================= */
 /* AKTUELLES, SAISON-SEKTIONEN & AKTIONS-STOERER MODAL     */
+
+#acp-stoerer-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(5, 8, 15, 0.82);
+  backdrop-filter: blur(6px);
+  z-index: 99990;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 18px;
+}
+#acp-stoerer-modal.is-open {
+  display: flex !important;
+}
+#acp-stoerer-modal .acp-modal-dialog {
+  background: #0b101b;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 8px;
+  box-shadow: 0 25px 70px rgba(0, 0, 0, 0.75);
+  margin: auto;
+}
+#acp-stoerer-sections-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+#acp-stoerer-sections-list .acp-stoerer-sec-row.is-seasonal {
+  grid-column: 1 / -1;
+}
+
 /* ======================================================= */
 .acp-nav-btn-stoerer {
   background: rgba(245, 158, 11, 0.14) !important;

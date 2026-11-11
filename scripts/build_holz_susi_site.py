@@ -1815,7 +1815,7 @@ SHARED_CSS = """
       font-size: 0.80rem;
     }
     .bluescht-hours-table td {
-      padding: 4px 0;
+      padding: 2px 0;
       border-bottom: 1px dashed var(--border-light);
       color: var(--text-body);
       vertical-align: top;
@@ -1830,8 +1830,8 @@ SHARED_CSS = """
     .bluescht-gallery-grid {
       display: grid;
       grid-template-columns: repeat(5, 1fr);
-      gap: 14px;
-      margin-top: 22px;
+      gap: 12px;
+      margin-top: 16px;
     }
     .bluescht-gallery-card {
       background-color: #FFFFFF;
