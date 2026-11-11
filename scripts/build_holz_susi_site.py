@@ -1572,6 +1572,308 @@ SHARED_CSS = """
         padding: 20px;
       }
     }
+
+    /* WEBPILOT SAISON-SEKTIONEN & AKTIONS-STOERER (v1.0) */
+    section[data-wp-hidden="true"]:not(.wp-cockpit-peek),
+    .wp-seasonal-hidden-link,
+    [data-wp-stoerer][ data-wp-stoerer-active="false" ],
+    [data-wp-stoerer].wp-seasonal-hidden-stoerer {
+      display: none !important;
+    }
+    section.wp-cockpit-peek {
+      display: block !important;
+      outline: 2px dashed #D97706 !important;
+      outline-offset: -4px;
+      position: relative;
+    }
+    .wp-cockpit-peek-banner {
+      background-color: #78350F;
+      background-image: linear-gradient(135deg, #92400E 0%, #451A03 100%);
+      color: #FFFFFF;
+      padding: 10px 18px;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.84rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      border-bottom: 2px dashed #F59E0B;
+      text-align: center;
+    }
+    .wp-stoerer {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      text-decoration: none !important;
+      color: #FFFFFF !important;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      cursor: pointer;
+      box-sizing: border-box;
+    }
+    .wp-stoerer:hover {
+      transform: translateY(-2px);
+    }
+    .wp-stoerer[data-wp-stoerer-theme="brand"] {
+      background-color: #78350F;
+      background-image: linear-gradient(135deg, #92400E 0%, #451A03 100%);
+      border-color: #F59E0B;
+      color: #FFFFFF !important;
+    }
+    .wp-stoerer[data-wp-stoerer-theme="nature"] {
+      background-color: #14532D;
+      background-image: linear-gradient(135deg, #166534 0%, #052E16 100%);
+      border-color: #4ADE80;
+      color: #FFFFFF !important;
+    }
+    .wp-stoerer[data-wp-stoerer-theme="gold"] {
+      background-color: #713F12;
+      background-image: linear-gradient(135deg, #854D0E 0%, #422006 100%);
+      border-color: #FACC15;
+      color: #FFFFFF !important;
+    }
+    .wp-stoerer[data-wp-stoerer-theme="obsidian"] {
+      background-color: #1E293B;
+      background-image: linear-gradient(135deg, #1E293B 0%, #0F172A 100%);
+      border-color: #F59E0B;
+      color: #FFFFFF !important;
+    }
+    @media (min-width: 1024px) {
+      .wp-stoerer[data-wp-stoerer="seal"] {
+        position: absolute;
+        top: 14px;
+        right: 14px;
+        width: 144px;
+        height: 144px;
+        border-radius: 999px;
+        border: 2px solid #F59E0B;
+        box-shadow: 0 14px 30px rgba(20, 14, 8, 0.38), inset 0 0 0 3px rgba(255, 255, 255, 0.22);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 12px;
+        z-index: 12;
+      }
+      .wp-stoerer[data-wp-stoerer="seal"]:hover {
+        transform: scale(1.03);
+      }
+      .wp-stoerer[data-wp-stoerer="seal"] .wp-stoerer-seal-ring {
+        position: absolute;
+        inset: 5px;
+        width: calc(100% - 10px);
+        height: calc(100% - 10px);
+        pointer-events: none;
+        opacity: 0.55;
+      }
+      .wp-stoerer[data-wp-stoerer="seal"] .wp-stoerer-mobile-icon {
+        display: none;
+      }
+      .wp-stoerer[data-wp-stoerer="seal"] .wp-stoerer-seal-content {
+        transform: rotate(-8deg);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 2px;
+        z-index: 2;
+        max-width: 128px;
+      }
+    }
+    @media (max-width: 1023px) {
+      .wp-stoerer[data-wp-stoerer="seal"] {
+        position: relative;
+        width: 100%;
+        border-radius: 8px;
+        border: 1.5px solid #F59E0B;
+        padding: 10px 12px;
+        margin: 8px 0 4px 0;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 10px;
+        box-shadow: 0 6px 18px rgba(20, 14, 8, 0.16);
+      }
+      .wp-stoerer[data-wp-stoerer="seal"] .wp-stoerer-seal-ring {
+        display: none;
+      }
+      .wp-stoerer[data-wp-stoerer="seal"] .wp-stoerer-mobile-icon {
+        width: 38px;
+        height: 38px;
+        min-width: 38px;
+        border-radius: 999px;
+        background-color: rgba(255, 255, 255, 0.14);
+        border: 1.5px dashed rgba(254, 243, 199, 0.75);
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        transform: rotate(-8deg);
+        color: #FDE68A;
+      }
+      .wp-stoerer[data-wp-stoerer="seal"] .wp-stoerer-seal-content {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        text-align: left;
+        gap: 1px;
+      }
+    }
+    .wp-stoerer[data-wp-stoerer="ribbon"] {
+      position: relative;
+      width: 100%;
+      border-radius: 8px;
+      border: 1.5px solid #F59E0B;
+      padding: 10px 14px;
+      margin: 8px 0 4px 0;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      box-shadow: 0 8px 20px rgba(20, 14, 8, 0.2);
+    }
+    .wp-stoerer[data-wp-stoerer="ribbon"] .wp-stoerer-seal-ring {
+      display: none;
+    }
+    .wp-stoerer[data-wp-stoerer="ribbon"] .wp-stoerer-mobile-icon {
+      width: 34px;
+      height: 34px;
+      min-width: 34px;
+      border-radius: 4px;
+      background-color: rgba(255, 255, 255, 0.14);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transform: rotate(-6deg);
+      color: #FDE68A;
+    }
+    .wp-stoerer[data-wp-stoerer="ribbon"] .wp-stoerer-seal-content {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 1px;
+      flex: 1;
+    }
+    .wp-stoerer[data-wp-stoerer="bar"] {
+      position: relative;
+      width: 100%;
+      border-radius: 8px;
+      border: 1px solid #F59E0B;
+      padding: 8px 12px;
+      margin: 8px 0 4px 0;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+    }
+    .wp-stoerer[data-wp-stoerer="bar"] .wp-stoerer-seal-ring,
+    .wp-stoerer[data-wp-stoerer="bar"] .wp-stoerer-mobile-icon {
+      display: none;
+    }
+    .wp-stoerer[data-wp-stoerer="bar"] .wp-stoerer-seal-content {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      align-items: baseline;
+      gap: 8px;
+      width: 100%;
+      justify-content: space-between;
+    }
+    .wp-stoerer-line1 {
+      font-size: 0.52rem;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: #FDE68A !important;
+      line-height: 1.15;
+      white-space: nowrap;
+    }
+    .wp-stoerer-line2 {
+      font-family: 'Lexend', sans-serif;
+      font-size: 0.90rem;
+      font-weight: 800;
+      color: #FFFFFF !important;
+      line-height: 1.14;
+    }
+    .wp-stoerer-line3 {
+      font-size: 0.65rem;
+      font-weight: 700;
+      color: #FEF3C7 !important;
+      line-height: 1.15;
+    }
+    @media (max-width: 1023px) {
+      .wp-stoerer-line1 { font-size: 0.65rem; }
+      .wp-stoerer-line2 { font-size: 0.94rem; }
+      .wp-stoerer-line3 { font-size: 0.76rem; }
+    }
+    /* Bluescht-Beiz Öffnungszeiten & 5er-Galerie */
+    .bluescht-hours-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 6px 0 10px 0;
+      font-size: 0.80rem;
+    }
+    .bluescht-hours-table td {
+      padding: 4px 0;
+      border-bottom: 1px dashed var(--border-light);
+      color: var(--text-body);
+      vertical-align: top;
+    }
+    .bluescht-hours-table td:last-child {
+      text-align: right;
+      font-weight: 700;
+      color: var(--text-dark);
+      white-space: nowrap;
+      padding-left: 8px;
+    }
+    .bluescht-gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 14px;
+      margin-top: 22px;
+    }
+    .bluescht-gallery-card {
+      background-color: #FFFFFF;
+      border: 1px solid var(--border-light);
+      border-radius: 8px;
+      padding: 8px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      box-shadow: 0 4px 12px rgba(30, 20, 10, 0.04);
+    }
+    .bluescht-gallery-card img {
+      width: 100%;
+      height: 168px;
+      object-fit: cover;
+      object-position: center 35%;
+      border-radius: 4px;
+      display: block;
+    }
+    .bluescht-gallery-caption {
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: var(--text-dark);
+      text-align: center;
+      padding: 2px 4px 4px 4px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    @media (max-width: 1100px) {
+      .bluescht-gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    @media (max-width: 768px) {
+      .bluescht-gallery-grid {
+        grid-template-columns: 1fr;
+      }
+      .bluescht-hours-table td:last-child {
+        white-space: normal;
+      }
+    }
 """
 
 SVG_CHECK = '<svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><polyline points="20 6 9 17 4 12"/></svg>'
@@ -1586,6 +1888,159 @@ SVG_BUILDING = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stro
 SVG_MAP_PIN = '<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>'
 SVG_PHONE = '<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>'
 SVG_MAIL = '<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>'
+
+
+
+def render_hero_stoerer() -> str:
+    return """<a href="#bluescht-beiz" class="wp-stoerer" id="wpHeroStoerer" data-wp-stoerer="seal" data-wp-stoerer-active="true" data-wp-stoerer-theme="brand" data-wp-stoerer-target="#bluescht-beiz" aria-label="Saison-Highlight: Bluescht-Beiz auf dem Wendelhof">
+          <svg class="wp-stoerer-seal-ring" viewBox="0 0 120 120" fill="none" aria-hidden="true">
+            <circle cx="60" cy="60" r="56" stroke="#FDE68A" stroke-width="1.5" stroke-dasharray="4 3"/>
+            <circle cx="60" cy="60" r="50" stroke="#FEF3C7" stroke-width="0.9" stroke-opacity="0.6"/>
+          </svg>
+          <span class="wp-stoerer-mobile-icon" aria-hidden="true">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          </span>
+          <span class="wp-stoerer-seal-content">
+            <span class="wp-stoerer-line1" data-wp-stoerer-line="1">FRÜHLINGS-HIGHLIGHT</span>
+            <span class="wp-stoerer-line2" data-wp-stoerer-line="2">Bluescht-Beiz</span>
+            <span class="wp-stoerer-line3" data-wp-stoerer-line="3">Ostern bis 1. Mai &darr;</span>
+          </span>
+        </a>"""
+
+
+def render_bluescht_beiz_section() -> str:
+    return f"""
+  <!-- SAISON-SEKTION: BLUESCHT-BEIZ AUF DEM WENDELHOF (SCHLUMMERFÄHIG) -->
+  <section class="section" id="bluescht-beiz" data-section="bluescht-beiz" data-wp-seasonal="true" data-wp-title="Bluescht-Beiz auf dem Wendelhof" data-wp-hidden="false" data-wp-visible-from="2026-04-03" data-wp-visible-until="2026-05-01" style="background-color:var(--bg-Warm);border-top:1px solid var(--border-light);border-bottom:1px solid var(--border-light);">
+    <div class="container">
+      <div class="section-head">
+        <div class="section-kicker" data-slot="bluescht_kicker">SAISON-HIGHLIGHT IM APRIL · WENDELHOF 424 IN 5070 FRICK</div>
+        <h2 class="section-title" data-slot="bluescht_title">Bluescht-Beiz auf dem Wendelhof</h2>
+        <p class="section-desc" data-slot="bluescht_desc">
+          Wenn im April rund um den Wendelhof in Frick die Kirschbäume in voller Blüte stehen, öffnet unsere gemütliche Bluescht-Beiz ihre Tore. Geniessen Sie hausgemachte Spezialitäten mitten in der blühenden Natur des Fricktals.
+        </p>
+      </div>
+
+      <div class="grid-3">
+        <!-- KARTE 1: KULINARISCHE HIGHLIGHTS -->
+        <div class="content-card card-accent-top">
+          <div>
+            <div class="card-badge-row">
+              <span class="meta-badge">Hof-Kulinarik &amp; Beizli</span>
+              <span class="icon-box">{SVG_AWARD}</span>
+            </div>
+            <h3 style="font-size:1.18rem;font-weight:700;margin-bottom:8px;">Kulinarische Highlights vom Hof</h3>
+            <p style="font-size:0.88rem;color:var(--text-body);margin-bottom:12px;">
+              Frisch vom Grill und aus unserer Hofbackstube für Ihre Pause unter blühenden Kirschbäumen:
+            </p>
+            <div class="check-list">
+              <div class="check-item">{SVG_CHECK} <span><strong>Frisch vom Grill:</strong> Saftiger Bio-Rind-Burger, würzige Highland-Bratwurst oder feine vegane Gemüsespiesschen vom Grill.</span></div>
+              <div class="check-item">{SVG_CHECK} <span><strong>Süsses &amp; Kaffi:</strong> Hausgemachtes Kuchenbuffet, erfrischender «Dessertschmous» und unser beliebter Bluescht-Kaffi.</span></div>
+              <div class="check-item">{SVG_CHECK} <span><strong>Witterungs-Hinweis:</strong> Wir führen unser Beizli nur bei schönem Wetter durch (bei unsicherer Witterung geben wir hier auf der Webseite den aktuellen Stand bekannt).</span></div>
+            </div>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:8px;width:100%;">
+            <a href="https://drive.google.com/file/d/13vfyev0uWNqJ13TI1522gCFmeiQNZruL/view" target="_blank" rel="noopener" class="btn-cta btn-cta-primary btn-sm" style="width:100%;">
+              <span>Speise- &amp; Getränkekarte (PDF)</span>
+              {SVG_ARROW}
+            </a>
+          </div>
+        </div>
+
+        <!-- KARTE 2: ÖFFNUNGSZEITEN APRIL BIS 1. MAI -->
+        <div class="content-card card-accent-top">
+          <div>
+            <div class="card-badge-row">
+              <span class="meta-badge">Saison 3. April bis 1. Mai</span>
+              <span class="icon-box">{SVG_HOME}</span>
+            </div>
+            <h3 style="font-size:1.18rem;font-weight:700;margin-bottom:8px;">Öffnungszeiten April bis 1. Mai</h3>
+            <p style="font-size:0.88rem;color:var(--text-body);margin-bottom:12px;">
+              An den Festtagen und Wochenenden mit Bewirtung &amp; Service, unter der Woche mit Selbstbedienung:
+            </p>
+            <table class="bluescht-hours-table" aria-label="Öffnungszeiten Bluescht-Beiz">
+              <tbody>
+                <tr><td>Karfreitag, 3.4.2026 (Service)</td><td>11:00 - 20:00 Uhr</td></tr>
+                <tr><td>Karsamstag, 4.4.2026 (Service)</td><td>11:00 - 20:00 Uhr</td></tr>
+                <tr><td>Ostersonntag, 5.4.2026 (Service)</td><td>11:00 - 20:00 Uhr</td></tr>
+                <tr><td>Ostermontag, 6.4.2026 (Service)</td><td>11:00 - 17:00 Uhr</td></tr>
+                <tr><td>Sa, 11.4. &amp; So, 12.4.2026 (Service)</td><td>Sa 11-20 / So 11-17 Uhr</td></tr>
+                <tr><td>Sa, 18.4. &amp; So, 19.4.2026 (Service)</td><td>Sa 11-20 / So 11-17 Uhr</td></tr>
+                <tr><td>Sa, 25.4. &amp; So, 26.4.2026 (Service)</td><td>Sa 11-20 / So 11-17 Uhr</td></tr>
+                <tr><td>Freitag, 1.5.2026 (Tag der Arbeit)</td><td>11:00 - 20:00 Uhr</td></tr>
+              </tbody>
+            </table>
+            <div class="check-list" style="margin-bottom:10px;">
+              <div class="check-item">{SVG_CHECK} <span><strong>Di - Fr im April (bei schönem Wetter):</strong> Gemütliche <strong>Selbstbedienung (11:00 - 20:00 Uhr)</strong> für Wanderer und Ausflügler.</span></div>
+            </div>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:8px;width:100%;">
+            <a href="tel:+41775219697" class="btn-cta btn-cta-outline btn-sm" style="width:100%;">
+              <span>Fragen zur Witterung: 077 521 96 97</span>
+              {SVG_ARROW}
+            </a>
+          </div>
+        </div>
+
+        <!-- KARTE 3: WANDER-TIPP CHRIESIWÄG & ANFAHRT -->
+        <div class="content-card card-accent-top">
+          <div>
+            <div class="card-badge-row">
+              <span class="meta-badge">Wanderroute &amp; Anreise</span>
+              <span class="icon-box">{SVG_MAP_PIN}</span>
+            </div>
+            <h3 style="font-size:1.18rem;font-weight:700;margin-bottom:8px;">Chriesiwäg &amp; Anfahrt zum Hof</h3>
+            <p style="font-size:0.88rem;color:var(--text-body);margin-bottom:12px;">
+              Der Fricktaler Chriesiwäg führt direkt am Wendelhof vorbei. Zwei beschilderte Rundwege ab Bahnhof Frick:
+            </p>
+            <div class="check-list">
+              <div class="check-item">{SVG_CHECK} <span><strong>Zwei Rundwege ab Bahnhof Frick:</strong> <strong>5 km (ca. 2 Std., kinderwagenfreundlich)</strong> oder <strong>9 km (ca. 4 Std.)</strong> durch das blühende Fricktal.</span></div>
+              <div class="check-item">{SVG_CHECK} <span><strong>Wichtiger Hinweis für die Anreise mit dem Auto:</strong> Auf dem Wanderweg ab Frick gilt ein allgemeines Fahrverbot. Bitte fahren Sie über die <strong>Hauptstrasse und den Schützenweg</strong> zum Wendelhof (Parkplätze vor Ort vorhanden).</span></div>
+            </div>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:8px;width:100%;">
+            <a href="https://jurapark-aargau.ch/chriesiwaeg?file=files/jurapark/pdf/Gratis%20Broschueren%20Shop/Flyer%20Fricktaler%20Chriesiw%C3%A4g.pdf&amp;cid=8151" target="_blank" rel="noopener" class="btn-cta btn-cta-primary btn-sm" style="width:100%;">
+              <span>Flyer Fricktaler Chriesiwäg (PDF)</span>
+              {SVG_ARROW}
+            </a>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;width:100%;">
+              <a href="https://maps.app.goo.gl/h37zxUtheERgSe6W7" target="_blank" rel="noopener" class="btn-cta btn-cta-outline btn-sm" style="width:100%;padding:8px 10px;font-size:0.78rem;">
+                <span>Wanderroute (Maps)</span>
+              </a>
+              <a href="https://maps.app.goo.gl/hXK4ytneBr7QT321A" target="_blank" rel="noopener" class="btn-cta btn-cta-outline btn-sm" style="width:100%;padding:8px 10px;font-size:0.78rem;">
+                <span>Auto via Schützenweg</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 5 ORIGINAL-FOTOS IMPRESSIONEN-GALERIE -->
+      <div class="bluescht-gallery-grid" data-ignore-card-anatomy="true">
+        <div class="bluescht-gallery-card">
+          <img src="images/bluescht-1.jpg" alt="Bluescht-Beiz auf dem Wendelhof in Frick während der Kirschblüte" width="320" height="168" decoding="async" data-slot="bluescht_img_1">
+          <div class="bluescht-gallery-caption">Kirschblüte rund um den Wendelhof</div>
+        </div>
+        <div class="bluescht-gallery-card">
+          <img src="images/bluescht-2.jpg" alt="Gemütliche Festbänke und Bewirtung in der Bluescht-Beiz Frick" width="320" height="168" decoding="async" data-slot="bluescht_img_2">
+          <div class="bluescht-gallery-caption">Gemütliches Beizli auf dem Hof</div>
+        </div>
+        <div class="bluescht-gallery-card">
+          <img src="images/bluescht-3.jpg" alt="Hausgemachte Spezialitäten und Kuchenbuffet auf dem Wendelhof" width="320" height="168" decoding="async" data-slot="bluescht_img_3">
+          <div class="bluescht-gallery-caption">Feines vom Grill &amp; Hof-Kuchenbuffet</div>
+        </div>
+        <div class="bluescht-gallery-card">
+          <img src="images/bluescht-4.jpg" alt="Ausblick vom Fricktaler Chriesiwäg beim Wendelhof in Frick" width="320" height="168" decoding="async" data-slot="bluescht_img_4">
+          <div class="bluescht-gallery-caption">Direkt am Fricktaler Chriesiwäg</div>
+        </div>
+        <div class="bluescht-gallery-card">
+          <img src="images/bluescht-5.jpg" alt="Frühlingsstimmung bei der Bluescht-Beiz der Familie Schmid in Frick" width="320" height="168" decoding="async" data-slot="bluescht_img_5">
+          <div class="bluescht-gallery-caption">Treffpunkt für Wanderer &amp; Geniesser</div>
+        </div>
+      </div>
+    </div>
+  </section>
+"""
 
 
 def render_references_grid(limit: int = 6, is_v2: bool = False) -> str:
@@ -1915,6 +2370,79 @@ COMMON_UI_JS = """
       }
     }
 
+
+    function wpSyncSeasonalVisibility() {
+      var now = new Date();
+      var todayIso = now.toISOString().slice(0, 10);
+      var sections = document.querySelectorAll('section[id]');
+      var hiddenIds = {};
+      for (var i = 0; i < sections.length; i++) {
+        var sec = sections[i];
+        var secId = sec.getAttribute('id');
+        if (!secId) continue;
+        var explicitHidden = sec.getAttribute('data-wp-hidden');
+        var visFrom = sec.getAttribute('data-wp-visible-from') || '';
+        var visUntil = sec.getAttribute('data-wp-visible-until') || '';
+        var isHidden = false;
+        if (explicitHidden === 'true') {
+          isHidden = true;
+        } else if (explicitHidden === 'false') {
+          isHidden = false;
+        } else if (visFrom || visUntil) {
+          if (visFrom && todayIso < visFrom) isHidden = true;
+          if (visUntil && todayIso > visUntil) isHidden = true;
+        }
+        if (isHidden) {
+          hiddenIds['#' + secId] = true;
+        }
+        var existingBanner = sec.querySelector('.wp-cockpit-peek-banner');
+        if (sec.classList.contains('wp-cockpit-peek') && isHidden) {
+          if (!existingBanner) {
+            var b = document.createElement('div');
+            b.className = 'wp-cockpit-peek-banner';
+            b.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg><span>Schlummer-Modus: Für Besucher aktuell ausgeblendet (Hier im Cockpit frei bearbeitbar)</span>';
+            sec.insertBefore(b, sec.firstChild);
+          }
+        } else if (existingBanner) {
+          existingBanner.remove();
+        }
+      }
+      var allLinks = document.querySelectorAll('a[href*="#"]');
+      for (var j = 0; j < allLinks.length; j++) {
+        var a = allLinks[j];
+        if (a.hasAttribute('data-wp-stoerer')) continue;
+        var href = a.getAttribute('href') || '';
+        var hashIdx = href.indexOf('#');
+        if (hashIdx === -1) continue;
+        var hash = href.slice(hashIdx);
+        var li = a.closest('li');
+        if (hiddenIds[hash]) {
+          a.classList.add('wp-seasonal-hidden-link');
+          if (li) li.classList.add('wp-seasonal-hidden-link');
+        } else {
+          a.classList.remove('wp-seasonal-hidden-link');
+          if (li) li.classList.remove('wp-seasonal-hidden-link');
+        }
+      }
+      var stoerers = document.querySelectorAll('[data-wp-stoerer]');
+      for (var k = 0; k < stoerers.length; k++) {
+        var st = stoerers[k];
+        var target = st.getAttribute('data-wp-stoerer-target') || st.getAttribute('href') || '';
+        var stActive = st.getAttribute('data-wp-stoerer-active');
+        if (stActive === 'false' || (target && hiddenIds[target])) {
+          st.classList.add('wp-seasonal-hidden-stoerer');
+        } else {
+          st.classList.remove('wp-seasonal-hidden-stoerer');
+        }
+      }
+    }
+    window.wpSyncSeasonalVisibility = wpSyncSeasonalVisibility;
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', wpSyncSeasonalVisibility);
+    } else {
+      wpSyncSeasonalVisibility();
+    }
+
     document.addEventListener('keydown', function(e) {
       if (e.key === 'Escape') {
         wpCloseImpressumModal();
@@ -2069,6 +2597,7 @@ def render_v1_shell(filename: str, page_title: str, active_nav: str, body_html: 
             <li><a href="referenzen.html#dachstuehle">Dachstühle &amp; Partnernetzwerk</a></li>
             <li><a href="ueber-uns.html">Über Susanne («Susi») Schmid</a></li>
             <li><a href="ueber-uns.html#engagement">Sponsoring Selina Burger &amp; Bluescht-Beiz</a></li>
+            <li><a href="#bluescht-beiz">Bluescht-Beiz auf dem Wendelhof (April)</a></li>
           </ul>
         </div>
 
@@ -2228,6 +2757,7 @@ def render_v2_shell(filename: str, page_title: str, active_nav: str, body_html: 
           <ul class="footer-list">
             <li><a href="index.html">Startseite mit allen 6 Leistungen &amp; Vorher/Nachher</a></li>
             <li><a href="index.html#projektberater">Interaktiver Holzbau- &amp; Renovations-Berater</a></li>
+            <li><a href="#bluescht-beiz">Bluescht-Beiz auf dem Wendelhof (Saison-Highlight)</a></li>
             <li><a href="kontakt.html">3-Schritte Smart-Anfrage (inkl. PDF-Dossier)</a></li>
           </ul>
         </div>
@@ -2359,6 +2889,7 @@ V1_INDEX_BODY = f"""
       </div>
 
       <div class="hero-media-card">
+        {render_hero_stoerer()}
         <img src="images/hero-susi-schmid-holzbau.png" alt="Susanne Susi Schmid, Inhaberin der Holz-Susi GmbH in 5070 Frick" width="600" height="390" data-slot="hero_image">
         <div class="hero-media-caption">
           <div>
@@ -2726,6 +3257,7 @@ V1_INDEX_BODY = f"""
       {render_faqs_grid()}
     </div>
   </section>
+{render_bluescht_beiz_section()}
 """
 
 # ==============================================================================
@@ -3417,6 +3949,7 @@ V2_INDEX_BODY = f"""
       </div>
 
       <div class="hero-media-card">
+        {render_hero_stoerer()}
         <img src="images/hero-susi-schmid-holzbau.png" alt="Susanne Susi Schmid, Inhaberin der Holz-Susi GmbH in 5070 Frick" width="600" height="390" data-slot="hero_image">
         <div class="hero-media-caption">
           <div>
@@ -3694,6 +4227,8 @@ V2_INDEX_BODY = f"""
       {render_references_grid(limit=6, is_v2=True)}
     </div>
   </section>
+
+{render_bluescht_beiz_section()}
 
   <!-- V2 AUSBLICK AUF DIE 3 WEITEREN UNTERSEITEN (#UI-03 KUNDEN-SPRACHE) -->
   <section class="preview-scope-section" id="weitere-themenbereiche" data-section="vorschau-umfang">

@@ -520,6 +520,9 @@ function acpSwitchJob(jobId, forceReload) {
           var cleanClient = subfolder.replace(/^preview-/, "");
           var cleanPage = job.datei.replace(/\.html$/, "");
           base = window.location.origin + "/" + cleanClient + "/" + cleanPage;
+        } else if (window.location.hostname === "127.0.0.1" || window.location.hostname === "localhost" || window.location.hostname.indexOf("webpilot.") !== -1) {
+          var siteOverride = (new URLSearchParams(window.location.search).get("site") || subfolder || "preview-holz-susi-v2").replace(/^sites\//, "");
+          base = window.location.origin + "/" + siteOverride + "/" + job.datei;
         } else if (base.indexOf("embed.magnet-xs.ch") !== -1 && base.endsWith(".html")) {
           base = base.replace(/\.html$/, "");
         }
@@ -2467,6 +2470,9 @@ function acpScanAndRenderSections() {
         '</button>' +
         '<button type="button" class="acp-btn-icon" onclick="acpScrollToSectionInViewport(\'' + sec.id + '\')" title="Im Simulator direkt zu diesem Abschnitt springen">' +
           ACP_ICONS.eye +
+        '</button>' +
+        '<button type="button" class="acp-btn-icon" onclick="acpOpenStoererModal()" title="Sichtbarkeit / Schlummer-Modus &amp; Aktions-Störer verwalten">' +
+          '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="4"/></svg>' +
         '</button>' +
       '</div>';
 
@@ -4614,3 +4620,423 @@ function acpToggleVibeDictation() {
   };
   acpVibeSpeechRec.start();
 }
+
+/* WEBPILOT SAISON-SEKTIONEN & AKTIONS-STOERER ENGINE (v1.0) */
+var acpStoererState = {
+  active: true,
+  style: "seal",
+  theme: "brand",
+  line1: "FRÜHLINGS-HIGHLIGHT",
+  line2: "Bluescht-Beiz",
+  line3: "Ostern bis 1. Mai ↓",
+  target: "#bluescht-beiz",
+  sections: []
+};
+
+function acpGetIframeDoc() {
+  var iframe = document.getElementById("acp-widget-viewport");
+  if (!iframe) return null;
+  try {
+    return iframe.contentDocument || (iframe.contentWindow && iframe.contentWindow.document);
+  } catch (e) {
+    return null;
+  }
+}
+
+function acpScanSeasonalAndStoererState() {
+  var doc = acpGetIframeDoc();
+  if (!doc) return;
+
+  var secs = [];
+  var nodes = doc.querySelectorAll("section[id], section[data-section]");
+  var seen = [];
+  for (var i = 0; i < nodes.length; i++) {
+    var el = nodes[i];
+    if (seen.indexOf(el) !== -1) continue;
+    seen.push(el);
+    var secId = el.getAttribute("id") || el.getAttribute("data-section");
+    if (!secId) continue;
+    if (!el.getAttribute("id")) el.setAttribute("id", secId);
+    var isSeasonal = el.getAttribute("data-wp-seasonal") === "true";
+    var isHidden = el.getAttribute("data-wp-hidden") === "true";
+    var visFrom = el.getAttribute("data-wp-visible-from") || "";
+    var visUntil = el.getAttribute("data-wp-visible-until") || "";
+    var customTitle = el.getAttribute("data-wp-title") || "";
+    var hEl = el.querySelector("h1, h2, h3, .section-title");
+    var title = customTitle || (hEl ? hEl.textContent.trim() : ("Abschnitt " + secId));
+    secs.push({
+      id: secId,
+      title: title,
+      seasonal: isSeasonal,
+      hidden: isHidden,
+      visible_from: visFrom,
+      visible_until: visUntil
+    });
+  }
+
+  secs.sort(function(a, b) {
+    if (a.seasonal && !b.seasonal) return -1;
+    if (!a.seasonal && b.seasonal) return 1;
+    return 0;
+  });
+  acpStoererState.sections = secs;
+
+  var stEl = doc.querySelector("[data-wp-stoerer]");
+  if (stEl) {
+    acpStoererState.active = stEl.getAttribute("data-wp-stoerer-active") !== "false";
+    acpStoererState.style = stEl.getAttribute("data-wp-stoerer") || "seal";
+    acpStoererState.theme = stEl.getAttribute("data-wp-stoerer-theme") || "brand";
+    acpStoererState.target = stEl.getAttribute("data-wp-stoerer-target") || stEl.getAttribute("href") || "#bluescht-beiz";
+    var l1 = stEl.querySelector('[data-wp-stoerer-line="1"], .wp-stoerer-line1');
+    var l2 = stEl.querySelector('[data-wp-stoerer-line="2"], .wp-stoerer-line2');
+    var l3 = stEl.querySelector('[data-wp-stoerer-line="3"], .wp-stoerer-line3');
+    if (l1) acpStoererState.line1 = l1.textContent.trim();
+    if (l2) acpStoererState.line2 = l2.textContent.trim();
+    if (l3) acpStoererState.line3 = l3.textContent.trim();
+  }
+}
+
+function acpRenderStoererModal() {
+  acpScanSeasonalAndStoererState();
+
+  var listEl = document.getElementById("acp-stoerer-sections-list");
+  var targetSel = document.getElementById("acp-stoerer-target-select");
+  if (listEl) {
+    listEl.innerHTML = "";
+    acpStoererState.sections.forEach(function(sec) {
+      var row = document.createElement("div");
+      row.className = "acp-stoerer-sec-row" + (sec.seasonal ? " is-seasonal" : "");
+      var statusClass = sec.hidden ? "is-sleeping" : "is-live";
+      var statusLabel = sec.hidden ? "Schlummer-Modus (Ausgeblendet)" : "Sichtbar für Besucher";
+      var seasonalBadge = sec.seasonal ? '<span class="acp-stoerer-sec-tag">SAISON-SEKTION</span>' : '';
+
+      var datesHtml = "";
+      if (sec.seasonal || sec.visible_from || sec.visible_until) {
+        datesHtml =
+          '<div class="acp-stoerer-dates-row">' +
+            '<label class="acp-stoerer-date-field">' +
+              '<span>Automatisch sichtbar ab:</span>' +
+              '<input type="date" value="' + (sec.visible_from || '') + '" onchange="acpOnSecDateChange(\'' + sec.id + '\', \'visible_from\', this.value)">' +
+            '</label>' +
+            '<label class="acp-stoerer-date-field">' +
+              '<span>Automatisch sichtbar bis:</span>' +
+              '<input type="date" value="' + (sec.visible_until || '') + '" onchange="acpOnSecDateChange(\'' + sec.id + '\', \'visible_until\', this.value)">' +
+            '</label>' +
+          '</div>';
+      }
+
+      row.innerHTML =
+        '<div class="acp-stoerer-sec-top">' +
+          '<div class="acp-stoerer-sec-info">' +
+            '<span class="acp-status-dot ' + statusClass + '"></span>' +
+            '<span class="acp-stoerer-sec-title">' + sec.title + ' <span style="color:#64748b;font-weight:500;font-size:11.5px;">(#' + sec.id + ')</span></span>' +
+            seasonalBadge +
+          '</div>' +
+          '<div class="acp-stoerer-sec-controls">' +
+            '<button type="button" class="acp-stoerer-peek-btn" onclick="acpPeekSectionInCockpit(\'' + sec.id + '\')" title="Abschnitt im Cockpit einblenden, hinspringen und Text bearbeiten">' +
+              '<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>' +
+              '<span>Im Cockpit ansehen &amp; bearbeiten</span>' +
+            '</button>' +
+            '<button type="button" class="acp-stoerer-toggle-btn ' + statusClass + '" onclick="acpToggleSecHiddenInModal(\'' + sec.id + '\')">' +
+              '<span class="acp-status-dot ' + statusClass + '"></span>' +
+              '<span>' + statusLabel + '</span>' +
+            '</button>' +
+          '</div>' +
+        '</div>' +
+        datesHtml;
+
+      listEl.appendChild(row);
+    });
+  }
+
+  if (targetSel) {
+    targetSel.innerHTML = "";
+    acpStoererState.sections.forEach(function(sec) {
+      var opt = document.createElement("option");
+      opt.value = "#" + sec.id;
+      opt.textContent = "#" + sec.id + " · " + sec.title;
+      if (acpStoererState.target === "#" + sec.id) opt.selected = true;
+      targetSel.appendChild(opt);
+    });
+  }
+
+  var in1 = document.getElementById("acp-stoerer-line1");
+  var in2 = document.getElementById("acp-stoerer-line2");
+  var in3 = document.getElementById("acp-stoerer-line3");
+  var thSel = document.getElementById("acp-stoerer-theme-select");
+  if (in1) in1.value = acpStoererState.line1;
+  if (in2) in2.value = acpStoererState.line2;
+  if (in3) in3.value = acpStoererState.line3;
+  if (thSel) thSel.value = acpStoererState.theme;
+
+  acpSyncStoererControlsUI();
+  acpUpdateStoererLivePreview();
+}
+
+function acpSyncStoererControlsUI() {
+  var actBtn = document.getElementById("acp-stoerer-active-btn");
+  var actDot = document.getElementById("acp-stoerer-active-dot");
+  var actLbl = document.getElementById("acp-stoerer-active-lbl");
+  if (actBtn && actDot && actLbl) {
+    if (acpStoererState.active) {
+      actBtn.className = "acp-stoerer-toggle-btn is-live";
+      actDot.className = "acp-status-dot is-live";
+      actLbl.textContent = "Aktions-Störer aktiv (Sichtbar)";
+    } else {
+      actBtn.className = "acp-stoerer-toggle-btn is-sleeping";
+      actDot.className = "acp-status-dot is-sleeping";
+      actLbl.textContent = "Aktions-Störer pausiert (Ausgeblendet)";
+    }
+  }
+  var styleBtns = document.querySelectorAll("#acp-stoerer-style-group .acp-stoerer-style-btn");
+  for (var i = 0; i < styleBtns.length; i++) {
+    var b = styleBtns[i];
+    if (b.getAttribute("data-style") === acpStoererState.style) {
+      b.classList.add("is-active");
+    } else {
+      b.classList.remove("is-active");
+    }
+  }
+}
+
+function acpApplyStoererStateToIframe() {
+  var doc = acpGetIframeDoc();
+  if (!doc) return;
+
+  acpStoererState.sections.forEach(function(sec) {
+    var el = doc.getElementById(sec.id) || doc.querySelector('[data-section="' + sec.id + '"]');
+    if (!el) return;
+    el.setAttribute("data-wp-hidden", sec.hidden ? "true" : "false");
+    if (sec.visible_from) el.setAttribute("data-wp-visible-from", sec.visible_from);
+    else el.removeAttribute("data-wp-visible-from");
+    if (sec.visible_until) el.setAttribute("data-wp-visible-until", sec.visible_until);
+    else el.removeAttribute("data-wp-visible-until");
+  });
+
+  var stEl = doc.querySelector("[data-wp-stoerer]");
+  if (stEl) {
+    stEl.setAttribute("data-wp-stoerer", acpStoererState.style);
+    stEl.setAttribute("data-wp-stoerer-theme", acpStoererState.theme);
+    stEl.setAttribute("data-wp-stoerer-active", acpStoererState.active ? "true" : "false");
+    stEl.setAttribute("data-wp-stoerer-target", acpStoererState.target);
+    stEl.setAttribute("href", acpStoererState.target);
+    var l1 = stEl.querySelector('[data-wp-stoerer-line="1"], .wp-stoerer-line1');
+    var l2 = stEl.querySelector('[data-wp-stoerer-line="2"], .wp-stoerer-line2');
+    var l3 = stEl.querySelector('[data-wp-stoerer-line="3"], .wp-stoerer-line3');
+    if (l1) l1.textContent = acpStoererState.line1;
+    if (l2) l2.textContent = acpStoererState.line2;
+    if (l3) l3.textContent = acpStoererState.line3;
+  }
+
+  var iframe = document.getElementById("acp-widget-viewport");
+  if (iframe && iframe.contentWindow && typeof iframe.contentWindow.wpSyncSeasonalVisibility === "function") {
+    iframe.contentWindow.wpSyncSeasonalVisibility();
+  }
+}
+
+function acpToggleSecHiddenInModal(secId) {
+  for (var i = 0; i < acpStoererState.sections.length; i++) {
+    if (acpStoererState.sections[i].id === secId) {
+      acpStoererState.sections[i].hidden = !acpStoererState.sections[i].hidden;
+      break;
+    }
+  }
+  acpApplyStoererStateToIframe();
+  acpRenderStoererModal();
+}
+
+function acpQuickToggleSectionVisibility(secId) {
+  acpScanSeasonalAndStoererState();
+  acpToggleSecHiddenInModal(secId);
+  if (typeof acpScanAndRenderSections === "function") {
+    acpScanAndRenderSections();
+  }
+}
+
+function acpOnSecDateChange(secId, field, val) {
+  for (var i = 0; i < acpStoererState.sections.length; i++) {
+    if (acpStoererState.sections[i].id === secId) {
+      acpStoererState.sections[i][field] = val || "";
+      break;
+    }
+  }
+  acpApplyStoererStateToIframe();
+}
+
+function acpPeekSectionInCockpit(secId) {
+  var doc = acpGetIframeDoc();
+  if (!doc) return;
+  var el = doc.getElementById(secId) || doc.querySelector('[data-section="' + secId + '"]');
+  if (el) {
+    el.classList.add("wp-cockpit-peek");
+    var iframe = document.getElementById("acp-widget-viewport");
+    if (iframe && iframe.contentWindow && typeof iframe.contentWindow.wpSyncSeasonalVisibility === "function") {
+      iframe.contentWindow.wpSyncSeasonalVisibility();
+    }
+    acpCloseStoererModal();
+    setTimeout(function() {
+      el.scrollIntoView({ behavior: "smooth", block: "center" });
+      if (typeof acpInlineEditActive !== "undefined" && !acpInlineEditActive && typeof acpToggleInlineEdit === "function") {
+        acpToggleInlineEdit();
+      }
+    }, 180);
+  }
+}
+
+function acpToggleStoererActiveState() {
+  acpStoererState.active = !acpStoererState.active;
+  acpSyncStoererControlsUI();
+  acpUpdateStoererLivePreview();
+}
+
+function acpSelectStoererStyle(style) {
+  acpStoererState.style = style || "seal";
+  acpSyncStoererControlsUI();
+  acpUpdateStoererLivePreview();
+}
+
+function acpSelectStoererTheme(theme) {
+  acpStoererState.theme = theme || "brand";
+  acpUpdateStoererLivePreview();
+}
+
+function acpUpdateStoererLivePreview() {
+  var in1 = document.getElementById("acp-stoerer-line1");
+  var in2 = document.getElementById("acp-stoerer-line2");
+  var in3 = document.getElementById("acp-stoerer-line3");
+  var targetSel = document.getElementById("acp-stoerer-target-select");
+  if (in1) acpStoererState.line1 = in1.value.replace(/\u00df/g, "ss");
+  if (in2) acpStoererState.line2 = in2.value.replace(/\u00df/g, "ss");
+  if (in3) acpStoererState.line3 = in3.value.replace(/\u00df/g, "ss");
+  if (targetSel && targetSel.value) acpStoererState.target = targetSel.value;
+
+  var p1 = document.getElementById("acp-stoerer-prev-l1");
+  var p2 = document.getElementById("acp-stoerer-prev-l2");
+  var p3 = document.getElementById("acp-stoerer-prev-l3");
+  var badge = document.getElementById("acp-stoerer-live-preview-badge");
+  var inner = document.getElementById("acp-stoerer-live-preview-inner");
+  if (p1) p1.textContent = acpStoererState.line1;
+  if (p2) p2.textContent = acpStoererState.line2;
+  if (p3) p3.textContent = acpStoererState.line3;
+  if (badge) {
+    badge.setAttribute("data-preview-style", acpStoererState.style);
+    badge.setAttribute("data-preview-theme", acpStoererState.theme);
+    badge.style.opacity = acpStoererState.active ? "1" : "0.45";
+  }
+  if (inner) {
+    inner.style.transform = acpStoererState.style === "seal" ? "rotate(-8deg)" : "none";
+  }
+  acpApplyStoererStateToIframe();
+}
+
+function acpOpenStoererModal() {
+  var modal = document.getElementById("acp-stoerer-modal");
+  if (!modal) return;
+  acpRenderStoererModal();
+  if (acpStoererState.sections.length === 0) {
+    setTimeout(acpRenderStoererModal, 350);
+  }
+  modal.classList.add("is-open");
+  modal.style.display = "flex";
+  if (typeof acpUpdateBodyModalClass === "function") acpUpdateBodyModalClass();
+}
+
+function acpCloseStoererModal() {
+  var modal = document.getElementById("acp-stoerer-modal");
+  if (!modal) return;
+  modal.classList.remove("is-open");
+  modal.style.display = "none";
+  if (typeof acpUpdateBodyModalClass === "function") acpUpdateBodyModalClass();
+}
+
+function acpToggleStoererModal() {
+  var modal = document.getElementById("acp-stoerer-modal");
+  if (!modal) return;
+  if (modal.classList.contains("is-open")) {
+    acpCloseStoererModal();
+  } else {
+    acpOpenStoererModal();
+  }
+}
+
+function acpSaveSeasonalStoerer() {
+  acpUpdateStoererLivePreview();
+  var btn = document.getElementById("acp-btn-save-stoerer");
+  var lbl = document.getElementById("acp-btn-save-stoerer-lbl");
+  var statusEl = document.getElementById("acp-stoerer-save-status");
+  if (btn) btn.disabled = true;
+  if (lbl) lbl.textContent = "Speichere & schalte live...";
+
+  var urlParams = new URLSearchParams(window.location.search);
+  var siteParam = urlParams.get("site") || "";
+  var clientSlug = siteParam || window.ACP_CURRENT_CLIENT || (window.location.pathname.split("/")[1] || "preview-holz-susi-v2");
+
+  var payload = {
+    site: clientSlug,
+    client: clientSlug,
+    sections: acpStoererState.sections.map(function(s) {
+      return {
+        id: s.id,
+        hidden: Boolean(s.hidden),
+        visible_from: s.visible_from || "",
+        visible_until: s.visible_until || ""
+      };
+    }),
+    stoerer: {
+      active: Boolean(acpStoererState.active),
+      style: acpStoererState.style || "seal",
+      theme: acpStoererState.theme || "brand",
+      line1: acpStoererState.line1 || "",
+      line2: acpStoererState.line2 || "",
+      line3: acpStoererState.line3 || "",
+      target: acpStoererState.target || "#bluescht-beiz"
+    }
+  };
+
+  fetch("/api/publish-career/update-seasonal-stoerer", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(payload)
+  })
+  .then(function(res) { return res.json(); })
+  .then(function(data) {
+    if (btn) btn.disabled = false;
+    if (lbl) lbl.textContent = "Änderungen speichern & sofort live schalten";
+    if (statusEl) {
+      statusEl.style.color = "#a7f3d0";
+      statusEl.textContent = data.message || "Erfolgreich gespeichert & live geschaltet!";
+    }
+  })
+  .catch(function(err) {
+    if (btn) btn.disabled = false;
+    if (lbl) lbl.textContent = "Änderungen speichern & sofort live schalten";
+    if (statusEl) {
+      statusEl.style.color = "#fca5a5";
+      statusEl.textContent = "Lokal im Simulator aktualisiert (" + (err.message || "Offline") + ")";
+    }
+  });
+}
+
+window.acpOpenStoererModal = acpOpenStoererModal;
+window.acpCloseStoererModal = acpCloseStoererModal;
+window.acpToggleStoererModal = acpToggleStoererModal;
+
+window.addEventListener("message", function(ev) {
+  if (ev && ev.data && ev.data.type === "ACP_OPEN_STOERER_MODAL") {
+    acpOpenStoererModal();
+  }
+});
+
+document.addEventListener("DOMContentLoaded", function() {
+  var params = new URLSearchParams(window.location.search);
+  var siteParam = (params.get("site") || "").replace(/^sites\//, "");
+  if (siteParam && (window.location.pathname === "/cockpit-app.html" || window.location.pathname.endsWith("/cockpit-app.html"))) {
+    var iframe = document.getElementById("acp-widget-viewport");
+    if (iframe) {
+      iframe.setAttribute("src", "/" + siteParam + "/index.html");
+    }
+  }
+  if (params.get("open") === "stoerer") {
+    setTimeout(acpOpenStoererModal, 450);
+  }
+});

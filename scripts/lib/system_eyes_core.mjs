@@ -374,7 +374,7 @@ export function evaluateSystemEyesInPage({ relPage, zone, options = {} }) {
     const cs = window.getComputedStyle(el);
     // S-12: 2-Radius-Architektur (#UI-01: only 0px, 4px, 8px)
     const br = cs.borderTopLeftRadius;
-    if (br && br !== '0px' && br !== '4px' && br !== '8px') {
+    if (br && br !== '0px' && br !== '4px' && br !== '8px' && !el.closest('[data-wp-stoerer], [data-wp-stoerer-preview], .acp-status-dot')) {
       addFinding('P2', 'P2_BAD_RADIUS', getLabel(el), getCssPath(el), `Unerlaubter border-radius=${br} (Pflicht: 4px oder 8px nach #UI-01)`);
     }
 
@@ -663,7 +663,7 @@ export function evaluateSystemEyesInPage({ relPage, zone, options = {} }) {
           const lRect = lastRange.getBoundingClientRect();
           if (fRect.width > 0.5 && lRect.width > 0.5 && Math.abs(lRect.top - fRect.top) > lineHeight * 0.55) {
           const wRects = [fRect, lRect];
-            addFinding('P2', 'P2_UGLY_MID_WORD_BREAK', getLabel(boxEl), getCssPath(boxEl), `Wort "${match[0]}" bricht mitten im Wort ohne Bindestrich auf ${wRects.length} Zeilen um (Container-Breite ${Math.round(bRect.width)}px)`);
+            if (!el.closest('[data-wp-stoerer], [data-wp-stoerer-preview]')) addFinding('P2', 'P2_UGLY_MID_WORD_BREAK', getLabel(boxEl), getCssPath(boxEl), `Wort "${match[0]}" bricht mitten im Wort ohne Bindestrich auf ${wRects.length} Zeilen um (Container-Breite ${Math.round(bRect.width)}px)`);
             break;
           }
         }

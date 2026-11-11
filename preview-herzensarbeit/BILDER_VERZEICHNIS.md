@@ -5,7 +5,7 @@
 > **Lokaler Ordner (VPS & Git):** `preview-herzensarbeit/`  
 > **Cloudflare-Basis-URL:** [vorschau.magnet-xs.ch/herzensarbeit-vollversion/](https://vorschau.magnet-xs.ch/herzensarbeit-vollversion/)  
 > **Bestand:** **27 Assets** (4.65 MB gesamt) · **🟢 19 aktiv im HTML** · **⚪ 8 frei im Bild-Pool** · **Externe Hotlinks: 0**  
-> **Letzte Aktualisierung:** 10.11.2026 21:01 Uhr (automatisch generiert via `webpilot_asset_catalog.py`)
+> **Letzte Aktualisierung:** 11.11.2026 22:20 Uhr (automatisch generiert via `webpilot_asset_catalog.py`)
 
 ---
 

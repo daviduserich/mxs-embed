@@ -308,7 +308,14 @@ async function handleRequestCore(context) {
   // 1b. Hostname: webpilot.magnet-xs.ch
   if (hostname.startsWith('webpilot.')) {
     let targetPath = url.pathname;
-    if (targetPath === '/' || targetPath === '') {
+    if (targetPath === '/cockpit-app.html') {
+      const siteParam = (url.searchParams.get('site') || 'preview-holz-susi-v2').replace(/^sites\//, '');
+      targetPath = `/${siteParam}/cockpit.html`;
+    } else if (targetPath.startsWith('/sites/preview-')) {
+      targetPath = targetPath.replace(/^\/sites\//, '/');
+    } else if (targetPath.startsWith('/preview-')) {
+      targetPath = targetPath;
+    } else if (targetPath === '/' || targetPath === '') {
       targetPath = '/webpilot/';
     } else if (!targetPath.startsWith('/webpilot')) {
       targetPath = `/webpilot${targetPath}`;

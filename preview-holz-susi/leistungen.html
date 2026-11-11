@@ -1345,6 +1345,308 @@
       }
     }
 
+    /* WEBPILOT SAISON-SEKTIONEN & AKTIONS-STOERER (v1.0) */
+    section[data-wp-hidden="true"]:not(.wp-cockpit-peek),
+    .wp-seasonal-hidden-link,
+    [data-wp-stoerer][ data-wp-stoerer-active="false" ],
+    [data-wp-stoerer].wp-seasonal-hidden-stoerer {
+      display: none !important;
+    }
+    section.wp-cockpit-peek {
+      display: block !important;
+      outline: 2px dashed #D97706 !important;
+      outline-offset: -4px;
+      position: relative;
+    }
+    .wp-cockpit-peek-banner {
+      background-color: #78350F;
+      background-image: linear-gradient(135deg, #92400E 0%, #451A03 100%);
+      color: #FFFFFF;
+      padding: 10px 18px;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.84rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      border-bottom: 2px dashed #F59E0B;
+      text-align: center;
+    }
+    .wp-stoerer {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      text-decoration: none !important;
+      color: #FFFFFF !important;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      cursor: pointer;
+      box-sizing: border-box;
+    }
+    .wp-stoerer:hover {
+      transform: translateY(-2px);
+    }
+    .wp-stoerer[data-wp-stoerer-theme="brand"] {
+      background-color: #78350F;
+      background-image: linear-gradient(135deg, #92400E 0%, #451A03 100%);
+      border-color: #F59E0B;
+      color: #FFFFFF !important;
+    }
+    .wp-stoerer[data-wp-stoerer-theme="nature"] {
+      background-color: #14532D;
+      background-image: linear-gradient(135deg, #166534 0%, #052E16 100%);
+      border-color: #4ADE80;
+      color: #FFFFFF !important;
+    }
+    .wp-stoerer[data-wp-stoerer-theme="gold"] {
+      background-color: #713F12;
+      background-image: linear-gradient(135deg, #854D0E 0%, #422006 100%);
+      border-color: #FACC15;
+      color: #FFFFFF !important;
+    }
+    .wp-stoerer[data-wp-stoerer-theme="obsidian"] {
+      background-color: #1E293B;
+      background-image: linear-gradient(135deg, #1E293B 0%, #0F172A 100%);
+      border-color: #F59E0B;
+      color: #FFFFFF !important;
+    }
+    @media (min-width: 1024px) {
+      .wp-stoerer[data-wp-stoerer="seal"] {
+        position: absolute;
+        top: 14px;
+        right: 14px;
+        width: 144px;
+        height: 144px;
+        border-radius: 999px;
+        border: 2px solid #F59E0B;
+        box-shadow: 0 14px 30px rgba(20, 14, 8, 0.38), inset 0 0 0 3px rgba(255, 255, 255, 0.22);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 12px;
+        z-index: 12;
+      }
+      .wp-stoerer[data-wp-stoerer="seal"]:hover {
+        transform: scale(1.03);
+      }
+      .wp-stoerer[data-wp-stoerer="seal"] .wp-stoerer-seal-ring {
+        position: absolute;
+        inset: 5px;
+        width: calc(100% - 10px);
+        height: calc(100% - 10px);
+        pointer-events: none;
+        opacity: 0.55;
+      }
+      .wp-stoerer[data-wp-stoerer="seal"] .wp-stoerer-mobile-icon {
+        display: none;
+      }
+      .wp-stoerer[data-wp-stoerer="seal"] .wp-stoerer-seal-content {
+        transform: rotate(-8deg);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 2px;
+        z-index: 2;
+        max-width: 128px;
+      }
+    }
+    @media (max-width: 1023px) {
+      .wp-stoerer[data-wp-stoerer="seal"] {
+        position: relative;
+        width: 100%;
+        border-radius: 8px;
+        border: 1.5px solid #F59E0B;
+        padding: 10px 12px;
+        margin: 8px 0 4px 0;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 10px;
+        box-shadow: 0 6px 18px rgba(20, 14, 8, 0.16);
+      }
+      .wp-stoerer[data-wp-stoerer="seal"] .wp-stoerer-seal-ring {
+        display: none;
+      }
+      .wp-stoerer[data-wp-stoerer="seal"] .wp-stoerer-mobile-icon {
+        width: 38px;
+        height: 38px;
+        min-width: 38px;
+        border-radius: 999px;
+        background-color: rgba(255, 255, 255, 0.14);
+        border: 1.5px dashed rgba(254, 243, 199, 0.75);
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        transform: rotate(-8deg);
+        color: #FDE68A;
+      }
+      .wp-stoerer[data-wp-stoerer="seal"] .wp-stoerer-seal-content {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        text-align: left;
+        gap: 1px;
+      }
+    }
+    .wp-stoerer[data-wp-stoerer="ribbon"] {
+      position: relative;
+      width: 100%;
+      border-radius: 8px;
+      border: 1.5px solid #F59E0B;
+      padding: 10px 14px;
+      margin: 8px 0 4px 0;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      box-shadow: 0 8px 20px rgba(20, 14, 8, 0.2);
+    }
+    .wp-stoerer[data-wp-stoerer="ribbon"] .wp-stoerer-seal-ring {
+      display: none;
+    }
+    .wp-stoerer[data-wp-stoerer="ribbon"] .wp-stoerer-mobile-icon {
+      width: 34px;
+      height: 34px;
+      min-width: 34px;
+      border-radius: 4px;
+      background-color: rgba(255, 255, 255, 0.14);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transform: rotate(-6deg);
+      color: #FDE68A;
+    }
+    .wp-stoerer[data-wp-stoerer="ribbon"] .wp-stoerer-seal-content {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 1px;
+      flex: 1;
+    }
+    .wp-stoerer[data-wp-stoerer="bar"] {
+      position: relative;
+      width: 100%;
+      border-radius: 8px;
+      border: 1px solid #F59E0B;
+      padding: 8px 12px;
+      margin: 8px 0 4px 0;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+    }
+    .wp-stoerer[data-wp-stoerer="bar"] .wp-stoerer-seal-ring,
+    .wp-stoerer[data-wp-stoerer="bar"] .wp-stoerer-mobile-icon {
+      display: none;
+    }
+    .wp-stoerer[data-wp-stoerer="bar"] .wp-stoerer-seal-content {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      align-items: baseline;
+      gap: 8px;
+      width: 100%;
+      justify-content: space-between;
+    }
+    .wp-stoerer-line1 {
+      font-size: 0.52rem;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: #FDE68A !important;
+      line-height: 1.15;
+      white-space: nowrap;
+    }
+    .wp-stoerer-line2 {
+      font-family: 'Lexend', sans-serif;
+      font-size: 0.90rem;
+      font-weight: 800;
+      color: #FFFFFF !important;
+      line-height: 1.14;
+    }
+    .wp-stoerer-line3 {
+      font-size: 0.65rem;
+      font-weight: 700;
+      color: #FEF3C7 !important;
+      line-height: 1.15;
+    }
+    @media (max-width: 1023px) {
+      .wp-stoerer-line1 { font-size: 0.65rem; }
+      .wp-stoerer-line2 { font-size: 0.94rem; }
+      .wp-stoerer-line3 { font-size: 0.76rem; }
+    }
+    /* Bluescht-Beiz Öffnungszeiten & 5er-Galerie */
+    .bluescht-hours-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 6px 0 10px 0;
+      font-size: 0.80rem;
+    }
+    .bluescht-hours-table td {
+      padding: 4px 0;
+      border-bottom: 1px dashed var(--border-light);
+      color: var(--text-body);
+      vertical-align: top;
+    }
+    .bluescht-hours-table td:last-child {
+      text-align: right;
+      font-weight: 700;
+      color: var(--text-dark);
+      white-space: nowrap;
+      padding-left: 8px;
+    }
+    .bluescht-gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 14px;
+      margin-top: 22px;
+    }
+    .bluescht-gallery-card {
+      background-color: #FFFFFF;
+      border: 1px solid var(--border-light);
+      border-radius: 8px;
+      padding: 8px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      box-shadow: 0 4px 12px rgba(30, 20, 10, 0.04);
+    }
+    .bluescht-gallery-card img {
+      width: 100%;
+      height: 168px;
+      object-fit: cover;
+      object-position: center 35%;
+      border-radius: 4px;
+      display: block;
+    }
+    .bluescht-gallery-caption {
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: var(--text-dark);
+      text-align: center;
+      padding: 2px 4px 4px 4px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    @media (max-width: 1100px) {
+      .bluescht-gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    @media (max-width: 768px) {
+      .bluescht-gallery-grid {
+        grid-template-columns: 1fr;
+      }
+      .bluescht-hours-table td:last-child {
+        white-space: normal;
+      }
+    }
+
   
 /* === WEBPILOT-PARTNER-ATTRIBUTION-CSS-START === */
     .wp-partner-attr-bar {
@@ -1750,24 +2052,24 @@
     }
 /* === WEBPILOT-PARTNER-ATTRIBUTION-CSS-END === */
   </style>
-  <!-- WP-SEO-GEO-AUTOPILOT-START -->
+  <!-- WP-SEO-AUTOPILOT-START -->
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
   <meta name="geo.region" content="CH-AG">
   <meta name="geo.placename" content="Frick">
-  <link rel="canonical" href="https://vorschau.magnet-xs.ch/holz-susi/leistungen.html">
+  <link rel="canonical" href="https://vorschau.magnet-xs.ch/holz-susi-vollversion/leistungen.html">
   <meta property="og:locale" content="de_CH">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Holz-Susi GmbH">
   <meta property="og:title" content="Leistungen: Dachsanierung, Dachfenster, Innenausbau, Terrasse &amp; Bauleitung | Holz-Susi GmbH Frick">
   <meta property="og:description" content="Holz-Susi GmbH in 5070 Frick (AG): Susanne («Susi») Schmid, Zimmerin EFZ, Projektleiterin und Bauleiterin für Dachsanierung, Dachfenster, Innenausbau, Terrassen, Fassaden und Bauleitung im Fricktal.">
-  <meta property="og:url" content="https://vorschau.magnet-xs.ch/holz-susi/leistungen.html">
-  <meta property="og:image" content="https://vorschau.magnet-xs.ch/holz-susi/images/hero-holzstruktur-hintergrund.png">
+  <meta property="og:url" content="https://vorschau.magnet-xs.ch/holz-susi-vollversion/leistungen.html">
+  <meta property="og:image" content="https://vorschau.magnet-xs.ch/holz-susi-vollversion/images/hero-holzstruktur-hintergrund.png">
   <meta property="og:image:alt" content="Holz-Susi GmbH – Frick (AG)">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Leistungen: Dachsanierung, Dachfenster, Innenausbau, Terrasse &amp; Bauleitung | Holz-Susi GmbH Frick">
   <meta name="twitter:description" content="Holz-Susi GmbH in 5070 Frick (AG): Susanne («Susi») Schmid, Zimmerin EFZ, Projektleiterin und Bauleiterin für Dachsanierung, Dachfenster, Innenausbau, Terrassen, Fassaden und Bauleitung im Fricktal.">
-  <meta name="twitter:image" content="https://vorschau.magnet-xs.ch/holz-susi/images/hero-holzstruktur-hintergrund.png">
-  <script type="application/ld+json" id="wp-seo-geo-schema">
+  <meta name="twitter:image" content="https://vorschau.magnet-xs.ch/holz-susi-vollversion/images/hero-holzstruktur-hintergrund.png">
+  <script type="application/ld+json" id="wp-seo-schema">
 {
   "@context": "https://schema.org",
   "@graph": [
@@ -1775,12 +2077,12 @@
       "@type": [
         "LocalBusiness"
       ],
-      "@id": "https://vorschau.magnet-xs.ch/holz-susi/#organization",
+      "@id": "https://vorschau.magnet-xs.ch/holz-susi-vollversion/#organization",
       "name": "Holz-Susi GmbH",
       "legalName": "Holz-Susi GmbH",
       "description": "Holz-Susi GmbH mit Sitz in Frick (AG, Schweiz) ist Ihr regionaler Ansprechpartner für qualifizierte Fachleistungen. Der Betrieb betreut Kundinnen und Kunden in Frick und der gesamten Region mit Schweizer Qualität und persönlicher Beratung.",
-      "url": "https://vorschau.magnet-xs.ch/holz-susi/",
-      "image": "https://vorschau.magnet-xs.ch/holz-susi/images/hero-holzstruktur-hintergrund.png",
+      "url": "https://vorschau.magnet-xs.ch/holz-susi-vollversion/",
+      "image": "https://vorschau.magnet-xs.ch/holz-susi-vollversion/images/hero-holzstruktur-hintergrund.png",
       "address": {
         "@type": "PostalAddress",
         "streetAddress": "Wendelhof 424",
@@ -1877,32 +2179,32 @@
     },
     {
       "@type": "WebSite",
-      "@id": "https://vorschau.magnet-xs.ch/holz-susi/#website",
-      "url": "https://vorschau.magnet-xs.ch/holz-susi/",
+      "@id": "https://vorschau.magnet-xs.ch/holz-susi-vollversion/#website",
+      "url": "https://vorschau.magnet-xs.ch/holz-susi-vollversion/",
       "name": "Holz-Susi GmbH",
       "inLanguage": "de-CH",
       "publisher": {
-        "@id": "https://vorschau.magnet-xs.ch/holz-susi/#organization"
+        "@id": "https://vorschau.magnet-xs.ch/holz-susi-vollversion/#organization"
       }
     },
     {
       "@type": "WebPage",
-      "@id": "https://vorschau.magnet-xs.ch/holz-susi/leistungen.html#webpage",
-      "url": "https://vorschau.magnet-xs.ch/holz-susi/leistungen.html",
+      "@id": "https://vorschau.magnet-xs.ch/holz-susi-vollversion/leistungen.html#webpage",
+      "url": "https://vorschau.magnet-xs.ch/holz-susi-vollversion/leistungen.html",
       "name": "Leistungen: Dachsanierung, Dachfenster, Innenausbau, Terrasse & Bauleitung | Holz-Susi GmbH Frick",
       "description": "Holz-Susi GmbH in 5070 Frick (AG): Susanne («Susi») Schmid, Zimmerin EFZ, Projektleiterin und Bauleiterin für Dachsanierung, Dachfenster, Innenausbau, Terrassen, Fassaden und Bauleitung im Fricktal.",
       "inLanguage": "de-CH",
-      "dateModified": "2026-11-09T16:10:57+00:00",
+      "dateModified": "2026-11-11T22:20:54+00:00",
       "isPartOf": {
-        "@id": "https://vorschau.magnet-xs.ch/holz-susi/#website"
+        "@id": "https://vorschau.magnet-xs.ch/holz-susi-vollversion/#website"
       },
       "about": {
-        "@id": "https://vorschau.magnet-xs.ch/holz-susi/#organization"
+        "@id": "https://vorschau.magnet-xs.ch/holz-susi-vollversion/#organization"
       }
     },
     {
       "@type": "FAQPage",
-      "@id": "https://vorschau.magnet-xs.ch/holz-susi/leistungen.html#faq",
+      "@id": "https://vorschau.magnet-xs.ch/holz-susi-vollversion/leistungen.html#faq",
       "mainEntity": [
         {
           "@type": "Question",
@@ -1933,7 +2235,7 @@
   ]
 }
   </script>
-  <!-- WP-SEO-GEO-AUTOPILOT-END -->
+  <!-- WP-SEO-AUTOPILOT-END -->
 </head>
 <body>
 
@@ -2296,6 +2598,7 @@
             <li><a href="referenzen.html#dachstuehle">Dachstühle &amp; Partnernetzwerk</a></li>
             <li><a href="ueber-uns.html">Über Susanne («Susi») Schmid</a></li>
             <li><a href="ueber-uns.html#engagement">Sponsoring Selina Burger &amp; Bluescht-Beiz</a></li>
+            <li><a href="#bluescht-beiz">Bluescht-Beiz auf dem Wendelhof (April)</a></li>
           </ul>
         </div>
 
@@ -2468,6 +2771,79 @@
           if (cta) cta.href = 'kontakt.html?thema=dach';
         }
       }
+    }
+
+
+    function wpSyncSeasonalVisibility() {
+      var now = new Date();
+      var todayIso = now.toISOString().slice(0, 10);
+      var sections = document.querySelectorAll('section[id]');
+      var hiddenIds = {};
+      for (var i = 0; i < sections.length; i++) {
+        var sec = sections[i];
+        var secId = sec.getAttribute('id');
+        if (!secId) continue;
+        var explicitHidden = sec.getAttribute('data-wp-hidden');
+        var visFrom = sec.getAttribute('data-wp-visible-from') || '';
+        var visUntil = sec.getAttribute('data-wp-visible-until') || '';
+        var isHidden = false;
+        if (explicitHidden === 'true') {
+          isHidden = true;
+        } else if (explicitHidden === 'false') {
+          isHidden = false;
+        } else if (visFrom || visUntil) {
+          if (visFrom && todayIso < visFrom) isHidden = true;
+          if (visUntil && todayIso > visUntil) isHidden = true;
+        }
+        if (isHidden) {
+          hiddenIds['#' + secId] = true;
+        }
+        var existingBanner = sec.querySelector('.wp-cockpit-peek-banner');
+        if (sec.classList.contains('wp-cockpit-peek') && isHidden) {
+          if (!existingBanner) {
+            var b = document.createElement('div');
+            b.className = 'wp-cockpit-peek-banner';
+            b.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg><span>Schlummer-Modus: Für Besucher aktuell ausgeblendet (Hier im Cockpit frei bearbeitbar)</span>';
+            sec.insertBefore(b, sec.firstChild);
+          }
+        } else if (existingBanner) {
+          existingBanner.remove();
+        }
+      }
+      var allLinks = document.querySelectorAll('a[href*="#"]');
+      for (var j = 0; j < allLinks.length; j++) {
+        var a = allLinks[j];
+        if (a.hasAttribute('data-wp-stoerer')) continue;
+        var href = a.getAttribute('href') || '';
+        var hashIdx = href.indexOf('#');
+        if (hashIdx === -1) continue;
+        var hash = href.slice(hashIdx);
+        var li = a.closest('li');
+        if (hiddenIds[hash]) {
+          a.classList.add('wp-seasonal-hidden-link');
+          if (li) li.classList.add('wp-seasonal-hidden-link');
+        } else {
+          a.classList.remove('wp-seasonal-hidden-link');
+          if (li) li.classList.remove('wp-seasonal-hidden-link');
+        }
+      }
+      var stoerers = document.querySelectorAll('[data-wp-stoerer]');
+      for (var k = 0; k < stoerers.length; k++) {
+        var st = stoerers[k];
+        var target = st.getAttribute('data-wp-stoerer-target') || st.getAttribute('href') || '';
+        var stActive = st.getAttribute('data-wp-stoerer-active');
+        if (stActive === 'false' || (target && hiddenIds[target])) {
+          st.classList.add('wp-seasonal-hidden-stoerer');
+        } else {
+          st.classList.remove('wp-seasonal-hidden-stoerer');
+        }
+      }
+    }
+    window.wpSyncSeasonalVisibility = wpSyncSeasonalVisibility;
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', wpSyncSeasonalVisibility);
+    } else {
+      wpSyncSeasonalVisibility();
     }
 
     document.addEventListener('keydown', function(e) {
