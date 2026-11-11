@@ -135,7 +135,7 @@ async function main() {
 
         await pageD.evaluate(() => {
           const el = document.getElementById('bluescht-beiz');
-          if (el) { const r = el.getBoundingClientRect(); window.scrollBy(0, r.top + 48); }
+          if (el) el.scrollIntoView({ behavior: 'instant', block: 'end' });
         });
         await pageD.waitForTimeout(250);
         await pageD.screenshot({ path: '/tmp/holz_susi_bluescht_sektion_desktop.png', fullPage: false });

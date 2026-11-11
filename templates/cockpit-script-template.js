@@ -4703,6 +4703,26 @@ function acpRenderStoererModal() {
   var targetSel = document.getElementById("acp-stoerer-target-select");
   if (listEl) {
     listEl.innerHTML = "";
+    var otherDetails = document.createElement("details");
+    otherDetails.style.gridColumn = "1 / -1";
+    otherDetails.style.marginTop = "4px";
+    var otherSummary = document.createElement("summary");
+    otherSummary.style.cursor = "pointer";
+    otherSummary.style.fontSize = "12px";
+    otherSummary.style.fontWeight = "700";
+    otherSummary.style.color = "#94a3b8";
+    otherSummary.style.padding = "6px 2px";
+    otherSummary.textContent = "Weitere Standard-Sektionen der Seite ein-/ausblenden";
+    otherDetails.appendChild(otherSummary);
+    var otherGrid = document.createElement("div");
+    otherGrid.style.display = "none";
+    otherDetails.addEventListener("toggle", function() { otherGrid.style.display = otherDetails.open ? "grid" : "none"; });
+    otherGrid.style.gridTemplateColumns = "1fr 1fr";
+    otherGrid.style.gap = "8px";
+    otherGrid.style.marginTop = "8px";
+    otherDetails.appendChild(otherGrid);
+    var hasSeasonal = acpStoererState.sections.some(function(s) { return s.seasonal; });
+
     acpStoererState.sections.forEach(function(sec) {
       var row = document.createElement("div");
       row.className = "acp-stoerer-sec-row" + (sec.seasonal ? " is-seasonal" : "");
@@ -4745,8 +4765,15 @@ function acpRenderStoererModal() {
         '</div>' +
         datesHtml;
 
-      listEl.appendChild(row);
+      if (!hasSeasonal || sec.seasonal) {
+        listEl.appendChild(row);
+      } else {
+        otherGrid.appendChild(row);
+      }
     });
+    if (hasSeasonal && otherGrid.children.length > 0) {
+      listEl.appendChild(otherDetails);
+    }
   }
 
   if (targetSel) {
