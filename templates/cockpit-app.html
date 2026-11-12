@@ -1578,9 +1578,11 @@ a { color: var(--rot); text-decoration: none; }
   max-width: 90vw;
   text-align: center;
 }
-#acp-toast.show {
-  transform: translateX(-50%) translateY(0);
-  opacity: 1;
+#acp-toast.show,
+#acp-toast.is-visible {
+  transform: translateX(-50%) translateY(0) !important;
+  opacity: 1 !important;
+  pointer-events: auto !important;
 }
 
 
@@ -4431,6 +4433,48 @@ body.acp-cockpit-light-mode #acp-brand-label {
   border: 2px solid rgba(16, 185, 129, 0.45) !important;
   box-shadow: 0 25px 60px rgba(0, 0, 0, 0.85) !important;
 }
+.acp-studio-stage.is-mobile-device .widget-viewport-wrap,
+.acp-studio-stage.is-mobile-device #acp-widget-viewport {
+  max-width: 100% !important;
+  width: 100% !important;
+}
+.acp-version-mode-switch {
+  display: inline-flex;
+  align-items: center;
+  background: rgba(15, 23, 42, 0.92);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 6px;
+  padding: 2px;
+  gap: 2px;
+}
+.acp-version-mode-btn {
+  appearance: none;
+  border: 1px solid transparent;
+  background: transparent;
+  color: #94a3b8;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 3px 9px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  white-space: nowrap;
+  line-height: 1.25;
+}
+.acp-version-mode-btn:hover {
+  color: #f8fafc;
+  background: rgba(255, 255, 255, 0.07);
+}
+.acp-version-mode-btn.is-active {
+  background: rgba(16, 185, 129, 0.22);
+  border-color: rgba(16, 185, 129, 0.58);
+  color: #ffffff;
+}
+html.acp-cockpit-light-mode .acp-version-mode-switch,
+body.acp-cockpit-light-mode .acp-version-mode-switch {
+  display: none !important;
+}
 
 /* Strikte Ausblendung aller Vollversions-Werkzeuge im Light-Modus */
 html.acp-cockpit-light-mode #acp-version-badge,
@@ -4870,9 +4914,9 @@ body.acp-cockpit-light-mode #btn-seasonal-stoerer {
         <span class="nav-icon" style="display:inline-flex;align-items:center;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></span>
         <span class="nav-label">Seiten</span>
       </button>
-      <button type="button" class="acp-nav-btn" onclick="acpCopyActiveCode()" title="1-Klick Widget-Code für den Webmaster kopieren">
+      <button type="button" class="acp-nav-btn" id="acp-btn-copy-code" onclick="acpCopyActiveCode()" title="1-Klick Widget-Code für den Webmaster kopieren">
         <span class="nav-icon" style="display:inline-flex;align-items:center;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg></span>
-        <span class="nav-label">Code</span>
+        <span class="nav-label" id="acp-btn-copy-code-lbl">Code</span>
       </button>
       <button type="button" class="acp-nav-btn acp-nav-btn-log" id="acp-btn-live-log" onclick="acpToggleLogModal()" title="Live-Aktivitäts-Protokoll &amp; Verlauf">
         <span class="nav-icon" style="display:inline-flex;align-items:center;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></span>
@@ -4967,7 +5011,7 @@ body.acp-cockpit-light-mode #btn-seasonal-stoerer {
 <!-- HAUPTBÜHNE: STUDIO DEVICE STAGE                         -->
 <!-- ======================================================= -->
 <main class="acp-studio-canvas">
-  <div class="acp-studio-stage">
+  <div class="acp-studio-stage" id="acp-studio-stage">
     <div class="acp-stage-browser-bar">
       <div class="acp-browser-dots">
         <span class="b-dot red"></span>
@@ -4983,6 +5027,14 @@ body.acp-cockpit-light-mode #btn-seasonal-stoerer {
         </a>
       </div>
       <div class="acp-stage-meta-cluster">
+        <div class="acp-version-mode-switch" id="acp-version-mode-switch" style="display:none;" role="group" aria-label="Zwischen Vollversion und Zeigeversion umschalten">
+          <button type="button" class="acp-version-mode-btn is-active" id="acp-btn-variant-full" onclick="acpSwitchSiteVariant('full')" title="Vollversion mit allen Unterseiten im Cockpit bearbeiten">
+            <span>Vollversion</span>
+          </button>
+          <button type="button" class="acp-version-mode-btn" id="acp-btn-variant-v2" onclick="acpSwitchSiteVariant('v2')" title="Kompakte 2-Seiten-Zeigeversion (Kunden-Vorschau) bearbeiten">
+            <span>Zeigeversion (2 Seiten)</span>
+          </button>
+        </div>
         <span class="acp-stage-client-badge" id="acp-stage-client-pill">__CLIENT_NAME__</span>
         <span class="acp-stage-device-tag">Desktop · 100% Fluid</span>
       </div>

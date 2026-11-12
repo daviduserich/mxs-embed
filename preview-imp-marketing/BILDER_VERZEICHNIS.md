@@ -5,7 +5,7 @@
 > **Lokaler Ordner (VPS & Git):** `preview-imp-marketing/`  
 > **Cloudflare-Basis-URL:** [vorschau.magnet-xs.ch/imp-marketing-vollversion/](https://vorschau.magnet-xs.ch/imp-marketing-vollversion/)  
 > **Bestand:** **30 Assets** (5.39 MB gesamt) · **🟢 26 aktiv im HTML** · **⚪ 4 frei im Bild-Pool** · **Externe Hotlinks: 0**  
-> **Letzte Aktualisierung:** 11.11.2026 22:27 Uhr (automatisch generiert via `webpilot_asset_catalog.py`)
+> **Letzte Aktualisierung:** 12.11.2026 07:10 Uhr (automatisch generiert via `webpilot_asset_catalog.py`)
 
 ---
 

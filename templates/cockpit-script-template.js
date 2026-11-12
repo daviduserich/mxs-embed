@@ -19,14 +19,91 @@ function acpIsLightMode() {
   return !!(document.body && document.body.classList.contains("acp-cockpit-light-mode"));
 }
 
+var ACP_DUAL_VARIANT_BASES = [
+  "holz-susi", "herzensarbeit", "joma", "mondocani",
+  "get-more-sales", "imp-marketing", "frees", "innere-staerke", "fcschlieren"
+];
+
+function acpGetVorschauClientSlug(subfolder) {
+  var pathSeg = (window.location.pathname.split("/")[1] || "").toLowerCase();
+  if (pathSeg && pathSeg !== "cockpit-app.html" && pathSeg !== "webpilot") {
+    return pathSeg.replace(/^preview-/, "");
+  }
+  var raw = (subfolder || "").replace(/^preview-/, "");
+  if (ACP_DUAL_VARIANT_BASES.indexOf(raw) !== -1) {
+    return raw + "-vollversion";
+  }
+  return raw;
+}
+
+function acpGetDualVariantInfo() {
+  var profileSlug = (typeof ACP_CLIENT_PROFILE !== "undefined" && ACP_CLIENT_PROFILE.slug) ? ACP_CLIENT_PROFILE.slug : "";
+  var pathSeg = (window.location.pathname.split("/")[1] || "").toLowerCase();
+  var rawSlug = (profileSlug || pathSeg).replace(/^preview-/, "");
+  var baseSlug = rawSlug.replace(/-(?:vollversion|vv|v1|v2)$/, "");
+  var isDual = (ACP_DUAL_VARIANT_BASES.indexOf(baseSlug) !== -1);
+  var isV2 = (/-v2$/i.test(profileSlug) || /-v2$/i.test(pathSeg) || /-v1$/i.test(pathSeg));
+  return {
+    isDual: isDual,
+    baseSlug: baseSlug,
+    isV2: isV2
+  };
+}
+
+function acpInitVersionModeSwitch() {
+  var wrap = document.getElementById("acp-version-mode-switch");
+  if (!wrap || acpIsLightMode()) {
+    if (wrap) wrap.style.display = "none";
+    return;
+  }
+  var info = acpGetDualVariantInfo();
+  if (!info.isDual) {
+    wrap.style.display = "none";
+    return;
+  }
+  wrap.style.display = "inline-flex";
+  var btnFull = document.getElementById("acp-btn-variant-full");
+  var btnV2 = document.getElementById("acp-btn-variant-v2");
+  if (btnFull) {
+    btnFull.classList.toggle("is-active", !info.isV2);
+    if (!info.isV2 && typeof ACP_STELLEN !== "undefined" && ACP_STELLEN.length > 2) {
+      btnFull.innerHTML = "<span>Vollversion (" + ACP_STELLEN.length + " Seiten)</span>";
+    } else {
+      btnFull.innerHTML = "<span>Vollversion (5 Seiten)</span>";
+    }
+  }
+  if (btnV2) {
+    btnV2.classList.toggle("is-active", info.isV2);
+    btnV2.innerHTML = "<span>Zeigeversion (2 Seiten)</span>";
+  }
+}
+
+function acpSwitchSiteVariant(targetVariant) {
+  var info = acpGetDualVariantInfo();
+  if (!info.isDual) return;
+  var wantV2 = (targetVariant === "v2");
+  if (wantV2 === info.isV2) return;
+  var search = window.location.search || "";
+  var host = window.location.hostname || "";
+  if (host.indexOf("vorschau.") !== -1) {
+    var targetSlug = wantV2 ? (info.baseSlug + "-v2") : (info.baseSlug + "-vollversion");
+    window.location.href = "/" + targetSlug + "/cockpit" + search;
+  } else {
+    var targetFolder = wantV2 ? ("preview-" + info.baseSlug + "-v2") : ("preview-" + info.baseSlug);
+    window.location.href = "/" + targetFolder + "/cockpit.html" + search;
+  }
+}
+
 function acpSetSimulatorDevice(mode) {
-  var stage = document.getElementById("acp-studio-stage");
+  var stage = document.getElementById("acp-studio-stage") || document.querySelector(".acp-studio-stage");
   var btnDesk = document.getElementById("acp-btn-device-desktop") || document.getElementById("acp-device-btn-desktop");
   var btnMob = document.getElementById("acp-btn-device-mobile") || document.getElementById("acp-device-btn-mobile");
+  var tagEl = document.querySelector(".acp-stage-device-tag");
   var isMob = (mode === "mobile");
   if (stage) stage.classList.toggle("is-mobile-device", isMob);
   if (btnDesk) btnDesk.classList.toggle("is-active", !isMob);
   if (btnMob) btnMob.classList.toggle("is-active", isMob);
+  if (tagEl) tagEl.textContent = isMob ? "Mobile · 375px Smartphone" : "Desktop · 100% Fluid";
 }
 
 
@@ -35,7 +112,7 @@ function acpGetActivePreviewUrl() {
   var curToken = new URLSearchParams(window.location.search).get("token");
   var profileSlug = (typeof ACP_CLIENT_PROFILE !== "undefined" && ACP_CLIENT_PROFILE.slug) ? ACP_CLIENT_PROFILE.slug : "";
   var clientSlug = window.ACP_CURRENT_CLIENT || profileSlug || (window.location.pathname.split("/")[1] || "preview-birchmeier");
-  var cleanClient = clientSlug.replace("preview-", "");
+  var cleanClient = (window.location.origin.indexOf("vorschau.magnet-xs.ch") !== -1) ? acpGetVorschauClientSlug(clientSlug) : clientSlug.replace("preview-", "");
 
   var targetFile = "index.html";
   var job = (typeof getActiveJob === "function") ? getActiveJob() : null;
@@ -442,7 +519,7 @@ function acpSwitchJob(jobId, forceReload) {
   var stagePill = document.getElementById("acp-stage-client-pill");
   var profileSlug = (typeof ACP_CLIENT_PROFILE !== "undefined" && ACP_CLIENT_PROFILE.slug) ? ACP_CLIENT_PROFILE.slug : "";
   var subfolder = job.folder || profileSlug || ((job.firma && job.firma.indexOf("Zurbuchen") !== -1) ? "zurbuchen" : "hiltbrand");
-  var cleanClient = profileSlug.replace("preview-", "") || subfolder.replace("preview-", "");
+  var cleanClient = (window.location.origin.indexOf("vorschau.magnet-xs.ch") !== -1) ? acpGetVorschauClientSlug(subfolder) : (profileSlug.replace("preview-", "") || subfolder.replace("preview-", ""));
   var edgePreviewUrl = job.edge_url || ("https://embed.magnet-xs.ch/" + subfolder + "/" + job.datei);
 
   var curToken = new URLSearchParams(window.location.search).get("token");
@@ -517,7 +594,7 @@ function acpSwitchJob(jobId, forceReload) {
       } else {
         var base = edgePreviewUrl;
         if (window.location.hostname.indexOf("vorschau.") !== -1) {
-          var cleanClient = subfolder.replace(/^preview-/, "");
+          var cleanClient = acpGetVorschauClientSlug(subfolder);
           var cleanPage = job.datei.replace(/\.html$/, "");
           base = window.location.origin + "/" + cleanClient + "/" + cleanPage;
         } else if (window.location.hostname === "127.0.0.1" || window.location.hostname === "localhost" || window.location.hostname.indexOf("webpilot.") !== -1) {
@@ -601,12 +678,27 @@ function updateSnippetBox() {
 
 function acpCopyActiveCode() {
   var job = getActiveJob();
-  if (!job || !job.widget_code) return;
+  var fallbackSlug = (typeof ACP_CLIENT_PROFILE !== "undefined" && ACP_CLIENT_PROFILE.slug) ? ACP_CLIENT_PROFILE.slug : "preview-holz-susi";
+  var fallbackTitle = (job && job.titel) ? job.titel : ((typeof ACP_CLIENT_PROFILE !== "undefined" && ACP_CLIENT_PROFILE.name) ? ACP_CLIENT_PROFILE.name : "Website");
+  var fallbackFile = (job && job.datei) ? job.datei : "index.html";
+  var codeToCopy = (job && job.widget_code) ? job.widget_code : ('<iframe src="https://embed.magnet-xs.ch/' + fallbackSlug + '/' + fallbackFile + '?embed=true" style="width:100%;min-height:900px;border:0;" loading="lazy"></iframe>');
+
+  var btn = document.getElementById("acp-btn-copy-code");
+  var lbl = document.getElementById("acp-btn-copy-code-lbl") || (btn ? btn.querySelector(".nav-label") : null);
+  if (lbl) {
+    lbl.textContent = "✓ Kopiert!";
+    if (btn) btn.style.borderColor = "rgba(16, 185, 129, 0.65)";
+    setTimeout(function() {
+      lbl.textContent = "Code";
+      if (btn) btn.style.borderColor = "";
+    }, 2200);
+  }
+
   if (navigator.clipboard && navigator.clipboard.writeText) {
-    navigator.clipboard.writeText(job.widget_code);
-    acpShowToast("<strong>" + job.titel + "</strong> Widget-Code in die Zwischenablage kopiert!");
+    navigator.clipboard.writeText(codeToCopy).catch(function() {});
+    acpShowToast("✓ <strong>" + fallbackTitle + "</strong> · Einbettungs-Code in die Zwischenablage kopiert!", 3800);
   } else {
-    window.prompt("Kopiere diesen Einbettungs-Code für den Webmaster:", job.widget_code);
+    acpShowToast("✓ <strong>" + fallbackTitle + "</strong> · Einbettungs-Code bereit!", 3800);
   }
 }
 
@@ -1941,13 +2033,17 @@ function acpToggleInspector() {
   }
 }
 
+var acpToastHideTimer = null;
 function acpShowToast(text, duration) {
   var toast = document.getElementById("acp-toast");
   if (!toast) return;
   toast.innerHTML = text;
   toast.classList.add("is-visible");
-  setTimeout(function() {
+  toast.classList.add("show");
+  if (acpToastHideTimer) clearTimeout(acpToastHideTimer);
+  acpToastHideTimer = setTimeout(function() {
     toast.classList.remove("is-visible");
+    toast.classList.remove("show");
   }, duration || 3500);
 }
 
@@ -2087,6 +2183,7 @@ function setupActiveJobAndRender() {
     }
   }
   checkEnvironmentAndRender();
+  acpInitVersionModeSwitch();
   renderJobPicker();
   renderDirectoryTable();
   if (activeJobId) {
@@ -4996,7 +5093,7 @@ function acpSaveSeasonalStoerer() {
 
   var urlParams = new URLSearchParams(window.location.search);
   var siteParam = urlParams.get("site") || "";
-  var clientSlug = siteParam || window.ACP_CURRENT_CLIENT || (window.location.pathname.split("/")[1] || "preview-holz-susi-v2");
+  var clientSlug = siteParam || (typeof ACP_CLIENT_PROFILE !== "undefined" && ACP_CLIENT_PROFILE.slug) || window.ACP_CURRENT_CLIENT || (window.location.pathname.split("/")[1] || "preview-holz-susi");
 
   var payload = {
     site: clientSlug,

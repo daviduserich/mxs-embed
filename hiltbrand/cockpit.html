@@ -1578,9 +1578,11 @@ a { color: var(--rot); text-decoration: none; }
   max-width: 90vw;
   text-align: center;
 }
-#acp-toast.show {
-  transform: translateX(-50%) translateY(0);
-  opacity: 1;
+#acp-toast.show,
+#acp-toast.is-visible {
+  transform: translateX(-50%) translateY(0) !important;
+  opacity: 1 !important;
+  pointer-events: auto !important;
 }
 
 
@@ -3587,6 +3589,9 @@ body {
 }
 
 .acp-section-card {
+  min-width: 0 !important;
+  max-width: 100% !important;
+  overflow: hidden !important;
   padding: 20px !important;
   display: flex !important;
   flex-direction: column !important;
@@ -3656,7 +3661,7 @@ body {
   cursor: pointer !important;
 }
 .acp-sec-mini-stage.is-compact-stage {
-  height: 148px !important;
+  height: 168px !important;
 }
 .acp-sec-mini-iframe {
   width: 400% !important;
@@ -4428,6 +4433,48 @@ body.acp-cockpit-light-mode #acp-brand-label {
   border: 2px solid rgba(16, 185, 129, 0.45) !important;
   box-shadow: 0 25px 60px rgba(0, 0, 0, 0.85) !important;
 }
+.acp-studio-stage.is-mobile-device .widget-viewport-wrap,
+.acp-studio-stage.is-mobile-device #acp-widget-viewport {
+  max-width: 100% !important;
+  width: 100% !important;
+}
+.acp-version-mode-switch {
+  display: inline-flex;
+  align-items: center;
+  background: rgba(15, 23, 42, 0.92);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 6px;
+  padding: 2px;
+  gap: 2px;
+}
+.acp-version-mode-btn {
+  appearance: none;
+  border: 1px solid transparent;
+  background: transparent;
+  color: #94a3b8;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 3px 9px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  white-space: nowrap;
+  line-height: 1.25;
+}
+.acp-version-mode-btn:hover {
+  color: #f8fafc;
+  background: rgba(255, 255, 255, 0.07);
+}
+.acp-version-mode-btn.is-active {
+  background: rgba(16, 185, 129, 0.22);
+  border-color: rgba(16, 185, 129, 0.58);
+  color: #ffffff;
+}
+html.acp-cockpit-light-mode .acp-version-mode-switch,
+body.acp-cockpit-light-mode .acp-version-mode-switch {
+  display: none !important;
+}
 
 /* Strikte Ausblendung aller Vollversions-Werkzeuge im Light-Modus */
 html.acp-cockpit-light-mode #acp-version-badge,
@@ -4519,6 +4566,277 @@ body.acp-cockpit-light-mode #acp-inline-edit-dock {
     padding: 5px 10px !important;
   }
 }
+
+/* ======================================================= */
+/* AKTUELLES, SAISON-SEKTIONEN & AKTIONS-STOERER MODAL     */
+
+#acp-stoerer-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(5, 8, 15, 0.82);
+  backdrop-filter: blur(6px);
+  z-index: 99990;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 18px;
+}
+#acp-stoerer-modal.is-open {
+  display: flex !important;
+}
+#acp-stoerer-modal .acp-modal-dialog {
+  background: #0b101b;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 8px;
+  box-shadow: 0 25px 70px rgba(0, 0, 0, 0.75);
+  margin: auto;
+}
+#acp-stoerer-sections-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+#acp-stoerer-sections-list .acp-stoerer-sec-row.is-seasonal {
+  grid-column: 1 / -1;
+}
+
+/* ======================================================= */
+.acp-nav-btn-stoerer {
+  background: rgba(245, 158, 11, 0.14) !important;
+  border: 1px solid rgba(245, 158, 11, 0.45) !important;
+  color: #fde68a !important;
+}
+.acp-nav-btn-stoerer:hover {
+  background: rgba(245, 158, 11, 0.24) !important;
+  border-color: #f59e0b !important;
+  color: #ffffff !important;
+}
+html.acp-cockpit-light-mode #btn-seasonal-stoerer,
+body.acp-cockpit-light-mode #btn-seasonal-stoerer {
+  display: inline-flex !important;
+}
+.acp-status-dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  flex-shrink: 0;
+}
+.acp-status-dot.is-live {
+  background-color: #10b981;
+  box-shadow: 0 0 8px rgba(16, 185, 129, 0.65);
+}
+.acp-status-dot.is-sleeping {
+  background-color: #f59e0b;
+  box-shadow: 0 0 8px rgba(245, 158, 11, 0.55);
+}
+.acp-stoerer-sec-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.acp-stoerer-sec-row {
+  background: #0d121d;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  padding: 12px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.acp-stoerer-sec-row.is-seasonal {
+  border-color: rgba(245, 158, 11, 0.45);
+  background: linear-gradient(135deg, rgba(120, 53, 15, 0.22) 0%, rgba(13, 18, 29, 0.96) 100%);
+}
+.acp-stoerer-sec-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.acp-stoerer-sec-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  min-width: 0;
+}
+.acp-stoerer-sec-title {
+  font-size: 13.5px;
+  font-weight: 700;
+  color: #f8fafc;
+}
+.acp-stoerer-sec-tag {
+  font-size: 11px;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 4px;
+  background: rgba(245, 158, 11, 0.2);
+  color: #fde68a;
+  border: 1px solid rgba(245, 158, 11, 0.4);
+}
+.acp-stoerer-sec-controls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.acp-stoerer-toggle-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  background: #161f30;
+  color: #f8fafc;
+  transition: all 0.16s ease;
+}
+.acp-stoerer-toggle-btn.is-live {
+  background: rgba(16, 185, 129, 0.16);
+  border-color: rgba(16, 185, 129, 0.45);
+  color: #a7f3d0;
+}
+.acp-stoerer-toggle-btn.is-sleeping {
+  background: rgba(245, 158, 11, 0.16);
+  border-color: rgba(245, 158, 11, 0.45);
+  color: #fde68a;
+}
+.acp-stoerer-peek-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 11px;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: rgba(255, 255, 255, 0.05);
+  color: #cbd5e1;
+}
+.acp-stoerer-peek-btn:hover {
+  background: rgba(255, 255, 255, 0.12);
+  color: #ffffff;
+}
+.acp-stoerer-dates-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  padding-top: 8px;
+  border-top: 1px dashed rgba(255, 255, 255, 0.08);
+}
+.acp-stoerer-date-field {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  font-size: 11.5px;
+  color: #94a3b8;
+}
+.acp-stoerer-date-field input[type="date"] {
+  background: #070a10;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 4px;
+  color: #f8fafc;
+  padding: 4px 8px;
+  font-size: 11.5px;
+  height: 30px;
+}
+.acp-stoerer-config-grid {
+  display: grid;
+  grid-template-columns: 1.3fr 0.9fr;
+  gap: 18px;
+  align-items: stretch;
+}
+.acp-stoerer-style-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+}
+.acp-stoerer-style-btn {
+  background: #0b0f19;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 8px;
+  padding: 9px 10px;
+  color: #cbd5e1;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  text-align: center;
+}
+.acp-stoerer-style-btn.is-active {
+  background: rgba(245, 158, 11, 0.18);
+  border-color: #f59e0b;
+  color: #ffffff;
+}
+.acp-stoerer-preview-stage {
+  background: #141c2b;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 8px;
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 220px;
+  position: relative;
+}
+.acp-stoerer-preview-badge {
+  width: 138px;
+  height: 138px;
+  border-radius: 999px;
+  border: 2px solid #F59E0B;
+  background-color: #78350F;
+  background-image: linear-gradient(135deg, #92400E 0%, #451A03 100%);
+  color: #FFFFFF;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 12px;
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.45), inset 0 0 0 3px rgba(255, 255, 255, 0.22);
+  position: relative;
+}
+.acp-stoerer-preview-badge[data-preview-style="ribbon"],
+.acp-stoerer-preview-badge[data-preview-style="bar"] {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  padding: 12px 14px;
+}
+.acp-stoerer-preview-badge[data-preview-theme="nature"] {
+  background-color: #14532D;
+  background-image: linear-gradient(135deg, #166534 0%, #052E16 100%);
+  border-color: #4ADE80;
+}
+.acp-stoerer-preview-badge[data-preview-theme="gold"] {
+  background-color: #713F12;
+  background-image: linear-gradient(135deg, #854D0E 0%, #422006 100%);
+  border-color: #FACC15;
+}
+.acp-stoerer-preview-badge[data-preview-theme="obsidian"] {
+  background-color: #1E293B;
+  background-image: linear-gradient(135deg, #1E293B 0%, #0F172A 100%);
+  border-color: #F59E0B;
+}
+@media (max-width: 820px) {
+  .acp-stoerer-config-grid,
+  .acp-stoerer-style-grid,
+  .acp-stoerer-dates-row {
+    grid-template-columns: 1fr;
+  }
+}
+
 </style>
 </head>
 <body>
@@ -4576,6 +4894,10 @@ body.acp-cockpit-light-mode #acp-inline-edit-dock {
         <span class="nav-icon" style="display:inline-flex;align-items:center;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg></span>
         <span class="nav-label">Direkt bearbeiten</span>
       </button>
+      <button type="button" class="acp-nav-btn acp-nav-btn-stoerer" id="btn-seasonal-stoerer" onclick="acpToggleStoererModal()" title="Saison-Sektionen (Schlummer-Modus) &amp; Aktions-Störer verwalten">
+        <span class="nav-icon" style="display:inline-flex;align-items:center;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></span>
+        <span class="nav-label">Aktuelles &amp; Störer</span>
+      </button>
       <button type="button" class="acp-nav-btn acp-nav-btn-sections" onclick="acpToggleSectionsModal()" title="Seiten-Abschnitte &amp; KI-Assistent mit vollem Seiten-Kontext">
         <span class="nav-icon" style="display:inline-flex;align-items:center;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg></span>
         <span class="nav-label">Sektionen &amp; KI</span>
@@ -4592,9 +4914,9 @@ body.acp-cockpit-light-mode #acp-inline-edit-dock {
         <span class="nav-icon" style="display:inline-flex;align-items:center;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></span>
         <span class="nav-label">Seiten</span>
       </button>
-      <button type="button" class="acp-nav-btn" onclick="acpCopyActiveCode()" title="1-Klick Widget-Code für den Webmaster kopieren">
+      <button type="button" class="acp-nav-btn" id="acp-btn-copy-code" onclick="acpCopyActiveCode()" title="1-Klick Widget-Code für den Webmaster kopieren">
         <span class="nav-icon" style="display:inline-flex;align-items:center;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg></span>
-        <span class="nav-label">Code</span>
+        <span class="nav-label" id="acp-btn-copy-code-lbl">Code</span>
       </button>
       <button type="button" class="acp-nav-btn acp-nav-btn-log" id="acp-btn-live-log" onclick="acpToggleLogModal()" title="Live-Aktivitäts-Protokoll &amp; Verlauf">
         <span class="nav-icon" style="display:inline-flex;align-items:center;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></span>
@@ -4689,7 +5011,7 @@ body.acp-cockpit-light-mode #acp-inline-edit-dock {
 <!-- HAUPTBÜHNE: STUDIO DEVICE STAGE                         -->
 <!-- ======================================================= -->
 <main class="acp-studio-canvas">
-  <div class="acp-studio-stage">
+  <div class="acp-studio-stage" id="acp-studio-stage">
     <div class="acp-stage-browser-bar">
       <div class="acp-browser-dots">
         <span class="b-dot red"></span>
@@ -4705,6 +5027,14 @@ body.acp-cockpit-light-mode #acp-inline-edit-dock {
         </a>
       </div>
       <div class="acp-stage-meta-cluster">
+        <div class="acp-version-mode-switch" id="acp-version-mode-switch" style="display:none;" role="group" aria-label="Zwischen Vollversion und Zeigeversion umschalten">
+          <button type="button" class="acp-version-mode-btn is-active" id="acp-btn-variant-full" onclick="acpSwitchSiteVariant('full')" title="Vollversion mit allen Unterseiten im Cockpit bearbeiten">
+            <span>Vollversion</span>
+          </button>
+          <button type="button" class="acp-version-mode-btn" id="acp-btn-variant-v2" onclick="acpSwitchSiteVariant('v2')" title="Kompakte 2-Seiten-Zeigeversion (Kunden-Vorschau) bearbeiten">
+            <span>Zeigeversion (2 Seiten)</span>
+          </button>
+        </div>
         <span class="acp-stage-client-badge" id="acp-stage-client-pill">Hiltbrand Gebäudehüllen AG</span>
         <span class="acp-stage-device-tag">Desktop · 100% Fluid</span>
       </div>
@@ -5587,6 +5917,136 @@ body.acp-cockpit-light-mode #acp-inline-edit-dock {
   </div>
 </div>
 
+
+<!-- ======================================================= -->
+<!-- [MODAL]: AKTUELLES, SAISON-SEKTIONEN & AKTIONS-STOERER   -->
+<!-- ======================================================= -->
+<div class="acp-modal-backdrop" id="acp-stoerer-modal" onclick="if(event.target===this) acpCloseStoererModal()">
+  <div class="acp-modal-dialog" style="max-width:940px; width:95%; max-height:90vh; display:flex; flex-direction:column;">
+    <div class="acp-modal-header" style="display:flex; align-items:center; justify-content:space-between; padding:16px 22px; border-bottom:1px solid rgba(255,255,255,0.1);">
+      <div style="display:flex; align-items:center; gap:10px;">
+        <span style="display:inline-flex; align-items:center; justify-content:center; width:32px; height:32px; border-radius:8px; background:rgba(245,158,11,0.18); color:#fde68a; border:1px solid rgba(245,158,11,0.4);">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+        </span>
+        <div>
+          <h3 style="margin:0; font-size:16px; font-weight:800; color:#f8fafc;">Aktuelles, Saison-Sektionen &amp; Aktions-Störer</h3>
+          <div style="font-size:12px; color:#94a3b8;">Saisonale Abschnitte (z. B. Bluescht-Beiz) ein-/ausblenden und Hero-Siegel steuern</div>
+        </div>
+      </div>
+      <button type="button" class="acp-modal-close" onclick="acpCloseStoererModal()" aria-label="Schliessen" style="background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.12); color:#cbd5e1; width:32px; height:32px; border-radius:8px; cursor:pointer; display:inline-flex; align-items:center; justify-content:center;">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+
+    <div class="acp-modal-body" style="padding:18px 22px; overflow-y:auto; display:flex; flex-direction:column; gap:18px;">
+      <!-- TEIL A: SAISON- & AKTIONS-SEKTIONEN -->
+      <div style="background:#090d16; border:1px solid rgba(255,255,255,0.1); border-radius:8px; padding:14px 16px;">
+        <div style="display:flex; align-items:center; justify-content:space-between; gap:10px; margin-bottom:10px; flex-wrap:wrap;">
+          <div>
+            <div style="font-size:13.5px; font-weight:800; color:#f8fafc;">1. Saison- &amp; Seiten-Abschnitte (Schlummer-Modus)</div>
+            <div style="font-size:12px; color:#94a3b8;">Schlummernde Abschnitte sind für Besucher unsichtbar, bleiben aber samt Bildern und Texten für die nächste Saison erhalten.</div>
+          </div>
+          <span style="font-size:11px; font-weight:700; color:#fde68a; background:rgba(245,158,11,0.14); border:1px solid rgba(245,158,11,0.35); padding:3px 9px; border-radius:4px;">Inkl. Auto-Datumssteuerung</span>
+        </div>
+        <div id="acp-stoerer-sections-list" class="acp-stoerer-sec-list"></div>
+      </div>
+
+      <!-- TEIL B: ÜBERLAGERNDER AKTIONS-STÖRER -->
+      <div style="background:#090d16; border:1px solid rgba(255,255,255,0.1); border-radius:8px; padding:14px 16px;">
+        <div style="display:flex; align-items:center; justify-content:space-between; gap:12px; margin-bottom:12px; flex-wrap:wrap;">
+          <div>
+            <div style="font-size:13.5px; font-weight:800; color:#f8fafc;">2. Überlagernder Aktions-Störer (Hero-Siegel / Plakette)</div>
+            <div style="font-size:12px; color:#94a3b8;">Blickfang im Startbereich mit direktem Sprung zum gewünschten Saison-Abschnitt.</div>
+          </div>
+          <button type="button" id="acp-stoerer-active-btn" class="acp-stoerer-toggle-btn is-live" onclick="acpToggleStoererActiveState()">
+            <span class="acp-status-dot is-live" id="acp-stoerer-active-dot"></span>
+            <span id="acp-stoerer-active-lbl">Aktions-Störer aktiv</span>
+          </button>
+        </div>
+
+        <div class="acp-stoerer-config-grid">
+          <div style="display:flex; flex-direction:column; gap:10px;">
+            <div>
+              <label style="display:block; font-size:11.5px; font-weight:700; color:#cbd5e1; margin-bottom:5px;">Bauform wählen</label>
+              <div class="acp-stoerer-style-grid" id="acp-stoerer-style-group">
+                <button type="button" class="acp-stoerer-style-btn is-active" data-style="seal" onclick="acpSelectStoererStyle('seal')">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/></svg>
+                  <span>Siegel (-8°)</span>
+                </button>
+                <button type="button" class="acp-stoerer-style-btn" data-style="ribbon" onclick="acpSelectStoererStyle('ribbon')">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="6" width="18" height="12" rx="2"/></svg>
+                  <span>Plakette</span>
+                </button>
+                <button type="button" class="acp-stoerer-style-btn" data-style="bar" onclick="acpSelectStoererStyle('bar')">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"/></svg>
+                  <span>Top-Leiste</span>
+                </button>
+              </div>
+            </div>
+
+            <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px;">
+              <div>
+                <label for="acp-stoerer-line1" style="display:block; font-size:11.5px; font-weight:700; color:#cbd5e1; margin-bottom:4px;">Zeile 1 (Kicker oben)</label>
+                <input type="text" id="acp-stoerer-line1" value="FRÜHLINGS-HIGHLIGHT" oninput="acpUpdateStoererLivePreview()" style="width:100%; height:34px; background:#05080f; border:1px solid rgba(255,255,255,0.16); border-radius:4px; color:#f8fafc; padding:0 10px; font-size:12.5px;">
+              </div>
+              <div>
+                <label for="acp-stoerer-line2" style="display:block; font-size:11.5px; font-weight:700; color:#cbd5e1; margin-bottom:4px;">Zeile 2 (Haupttitel)</label>
+                <input type="text" id="acp-stoerer-line2" value="Bluescht-Beiz" oninput="acpUpdateStoererLivePreview()" style="width:100%; height:34px; background:#05080f; border:1px solid rgba(255,255,255,0.16); border-radius:4px; color:#f8fafc; padding:0 10px; font-size:12.5px; font-weight:700;">
+              </div>
+            </div>
+
+            <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:10px;">
+              <div>
+                <label for="acp-stoerer-line3" style="display:block; font-size:11.5px; font-weight:700; color:#cbd5e1; margin-bottom:4px;">Zeile 3 (Subline / Aktion)</label>
+                <input type="text" id="acp-stoerer-line3" value="Ostern bis 1. Mai ↓" oninput="acpUpdateStoererLivePreview()" style="width:100%; height:34px; background:#05080f; border:1px solid rgba(255,255,255,0.16); border-radius:4px; color:#f8fafc; padding:0 10px; font-size:12.5px;">
+              </div>
+              <div>
+                <label for="acp-stoerer-target-select" style="display:block; font-size:11.5px; font-weight:700; color:#cbd5e1; margin-bottom:4px;">Sprungziel beim Klick</label>
+                <select id="acp-stoerer-target-select" onchange="acpUpdateStoererLivePreview()" style="width:100%; height:34px; background:#05080f; border:1px solid rgba(255,255,255,0.16); border-radius:4px; color:#f8fafc; padding:0 8px; font-size:12px;"></select>
+              </div>
+              <div>
+                <label for="acp-stoerer-theme-select" style="display:block; font-size:11.5px; font-weight:700; color:#cbd5e1; margin-bottom:4px;">Farb-Akzent</label>
+                <select id="acp-stoerer-theme-select" onchange="acpSelectStoererTheme(this.value)" style="width:100%; height:34px; background:#05080f; border:1px solid rgba(255,255,255,0.16); border-radius:4px; color:#f8fafc; padding:0 8px; font-size:12px;">
+                  <option value="brand">Holz-Gold (Brand)</option>
+                  <option value="nature">Frühlings-Grün (Nature)</option>
+                  <option value="gold">Sonnen-Gold (Gold)</option>
+                  <option value="obsidian">Anthrazit (Obsidian)</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <!-- LIVE-VORSCHAU-BOX -->
+          <div class="acp-stoerer-preview-stage" data-wp-stoerer-preview="true">
+            <div style="font-size:11px; font-weight:700; color:#94a3b8; margin-bottom:10px; text-transform:uppercase; letter-spacing:0.06em;">Live-Vorschau (Siegel -8°)</div>
+            <div class="acp-stoerer-preview-badge" id="acp-stoerer-live-preview-badge" data-preview-style="seal" data-preview-theme="brand">
+              <div id="acp-stoerer-live-preview-inner" style="transform:rotate(-8deg); display:flex; flex-direction:column; align-items:center; justify-content:center; gap:2px;">
+                <span id="acp-stoerer-prev-l1" style="font-size:9px; font-weight:800; letter-spacing:0.06em; text-transform:uppercase; color:#FDE68A;">FRÜHLINGS-HIGHLIGHT</span>
+                <span id="acp-stoerer-prev-l2" style="font-size:15px; font-weight:800; color:#FFFFFF; line-height:1.15;">Bluescht-Beiz</span>
+                <span id="acp-stoerer-prev-l3" style="font-size:10.5px; font-weight:700; color:#FEF3C7;">Ostern bis 1. Mai ↓</span>
+              </div>
+            </div>
+            <div style="font-size:11px; color:#94a3b8; margin-top:10px; text-align:center;">Koppelt automatisch an den Status der Ziel-Sektion</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="acp-modal-footer" style="display:flex; align-items:center; justify-content:space-between; gap:12px; padding:14px 22px; border-top:1px solid rgba(255,255,255,0.1); background:#070a12; border-radius:0 0 8px 8px;">
+      <div style="font-size:12px; color:#94a3b8;" id="acp-stoerer-save-status">Änderungen werden synchron für Vorschau &amp; Vollversion gespeichert.</div>
+      <div style="display:flex; align-items:center; gap:10px;">
+        <button type="button" class="acp-btn-secondary" onclick="acpCloseStoererModal()" style="padding:8px 14px; border-radius:8px; background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.14); color:#cbd5e1; font-size:12.5px; font-weight:600; cursor:pointer;">
+          <span>Schliessen</span>
+        </button>
+        <button type="button" class="acp-btn-primary" id="acp-btn-save-stoerer" onclick="acpSaveSeasonalStoerer()" style="padding:9px 18px; border-radius:8px; background:#d97706; border:1px solid #f59e0b; color:#ffffff; font-size:13px; font-weight:800; cursor:pointer; display:inline-flex; align-items:center; gap:8px;">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><polyline points="20 6 9 17 4 12"/></svg>
+          <span id="acp-btn-save-stoerer-lbl">Änderungen speichern &amp; sofort live schalten</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
 <div id="acp-toast"></div>
 
 <!-- ======================================================= -->
@@ -5614,14 +6074,91 @@ function acpIsLightMode() {
   return !!(document.body && document.body.classList.contains("acp-cockpit-light-mode"));
 }
 
+var ACP_DUAL_VARIANT_BASES = [
+  "holz-susi", "herzensarbeit", "joma", "mondocani",
+  "get-more-sales", "imp-marketing", "frees", "innere-staerke", "fcschlieren"
+];
+
+function acpGetVorschauClientSlug(subfolder) {
+  var pathSeg = (window.location.pathname.split("/")[1] || "").toLowerCase();
+  if (pathSeg && pathSeg !== "cockpit-app.html" && pathSeg !== "webpilot") {
+    return pathSeg.replace(/^preview-/, "");
+  }
+  var raw = (subfolder || "").replace(/^preview-/, "");
+  if (ACP_DUAL_VARIANT_BASES.indexOf(raw) !== -1) {
+    return raw + "-vollversion";
+  }
+  return raw;
+}
+
+function acpGetDualVariantInfo() {
+  var profileSlug = (typeof ACP_CLIENT_PROFILE !== "undefined" && ACP_CLIENT_PROFILE.slug) ? ACP_CLIENT_PROFILE.slug : "";
+  var pathSeg = (window.location.pathname.split("/")[1] || "").toLowerCase();
+  var rawSlug = (profileSlug || pathSeg).replace(/^preview-/, "");
+  var baseSlug = rawSlug.replace(/-(?:vollversion|vv|v1|v2)$/, "");
+  var isDual = (ACP_DUAL_VARIANT_BASES.indexOf(baseSlug) !== -1);
+  var isV2 = (/-v2$/i.test(profileSlug) || /-v2$/i.test(pathSeg) || /-v1$/i.test(pathSeg));
+  return {
+    isDual: isDual,
+    baseSlug: baseSlug,
+    isV2: isV2
+  };
+}
+
+function acpInitVersionModeSwitch() {
+  var wrap = document.getElementById("acp-version-mode-switch");
+  if (!wrap || acpIsLightMode()) {
+    if (wrap) wrap.style.display = "none";
+    return;
+  }
+  var info = acpGetDualVariantInfo();
+  if (!info.isDual) {
+    wrap.style.display = "none";
+    return;
+  }
+  wrap.style.display = "inline-flex";
+  var btnFull = document.getElementById("acp-btn-variant-full");
+  var btnV2 = document.getElementById("acp-btn-variant-v2");
+  if (btnFull) {
+    btnFull.classList.toggle("is-active", !info.isV2);
+    if (!info.isV2 && typeof ACP_STELLEN !== "undefined" && ACP_STELLEN.length > 2) {
+      btnFull.innerHTML = "<span>Vollversion (" + ACP_STELLEN.length + " Seiten)</span>";
+    } else {
+      btnFull.innerHTML = "<span>Vollversion (5 Seiten)</span>";
+    }
+  }
+  if (btnV2) {
+    btnV2.classList.toggle("is-active", info.isV2);
+    btnV2.innerHTML = "<span>Zeigeversion (2 Seiten)</span>";
+  }
+}
+
+function acpSwitchSiteVariant(targetVariant) {
+  var info = acpGetDualVariantInfo();
+  if (!info.isDual) return;
+  var wantV2 = (targetVariant === "v2");
+  if (wantV2 === info.isV2) return;
+  var search = window.location.search || "";
+  var host = window.location.hostname || "";
+  if (host.indexOf("vorschau.") !== -1) {
+    var targetSlug = wantV2 ? (info.baseSlug + "-v2") : (info.baseSlug + "-vollversion");
+    window.location.href = "/" + targetSlug + "/cockpit" + search;
+  } else {
+    var targetFolder = wantV2 ? ("preview-" + info.baseSlug + "-v2") : ("preview-" + info.baseSlug);
+    window.location.href = "/" + targetFolder + "/cockpit.html" + search;
+  }
+}
+
 function acpSetSimulatorDevice(mode) {
-  var stage = document.getElementById("acp-studio-stage");
+  var stage = document.getElementById("acp-studio-stage") || document.querySelector(".acp-studio-stage");
   var btnDesk = document.getElementById("acp-btn-device-desktop") || document.getElementById("acp-device-btn-desktop");
   var btnMob = document.getElementById("acp-btn-device-mobile") || document.getElementById("acp-device-btn-mobile");
+  var tagEl = document.querySelector(".acp-stage-device-tag");
   var isMob = (mode === "mobile");
   if (stage) stage.classList.toggle("is-mobile-device", isMob);
   if (btnDesk) btnDesk.classList.toggle("is-active", !isMob);
   if (btnMob) btnMob.classList.toggle("is-active", isMob);
+  if (tagEl) tagEl.textContent = isMob ? "Mobile · 375px Smartphone" : "Desktop · 100% Fluid";
 }
 
 
@@ -5630,7 +6167,7 @@ function acpGetActivePreviewUrl() {
   var curToken = new URLSearchParams(window.location.search).get("token");
   var profileSlug = (typeof ACP_CLIENT_PROFILE !== "undefined" && ACP_CLIENT_PROFILE.slug) ? ACP_CLIENT_PROFILE.slug : "";
   var clientSlug = window.ACP_CURRENT_CLIENT || profileSlug || (window.location.pathname.split("/")[1] || "preview-birchmeier");
-  var cleanClient = clientSlug.replace("preview-", "");
+  var cleanClient = (window.location.origin.indexOf("vorschau.magnet-xs.ch") !== -1) ? acpGetVorschauClientSlug(clientSlug) : clientSlug.replace("preview-", "");
 
   var targetFile = "index.html";
   var job = (typeof getActiveJob === "function") ? getActiveJob() : null;
@@ -5774,7 +6311,7 @@ function acpFetchServerLog() {
 // Build: 2026-10-03 15:30 CEST
 // =======================================================
 var ACP_COCKPIT_VERSION = "v4.0.0";
-var ACP_COCKPIT_BUILD = "2026-11-06 15:08";
+var ACP_COCKPIT_BUILD = "2026-11-12 08:09";
 
 function sanitizeStellen(list) {
   if (!Array.isArray(list)) return [];
@@ -6064,7 +6601,7 @@ function acpSwitchJob(jobId, forceReload) {
   var stagePill = document.getElementById("acp-stage-client-pill");
   var profileSlug = (typeof ACP_CLIENT_PROFILE !== "undefined" && ACP_CLIENT_PROFILE.slug) ? ACP_CLIENT_PROFILE.slug : "";
   var subfolder = job.folder || profileSlug || ((job.firma && job.firma.indexOf("Zurbuchen") !== -1) ? "zurbuchen" : "hiltbrand");
-  var cleanClient = profileSlug.replace("preview-", "") || subfolder.replace("preview-", "");
+  var cleanClient = (window.location.origin.indexOf("vorschau.magnet-xs.ch") !== -1) ? acpGetVorschauClientSlug(subfolder) : (profileSlug.replace("preview-", "") || subfolder.replace("preview-", ""));
   var edgePreviewUrl = job.edge_url || ("https://embed.magnet-xs.ch/" + subfolder + "/" + job.datei);
 
   var curToken = new URLSearchParams(window.location.search).get("token");
@@ -6139,9 +6676,12 @@ function acpSwitchJob(jobId, forceReload) {
       } else {
         var base = edgePreviewUrl;
         if (window.location.hostname.indexOf("vorschau.") !== -1) {
-          var cleanClient = subfolder.replace(/^preview-/, "");
+          var cleanClient = acpGetVorschauClientSlug(subfolder);
           var cleanPage = job.datei.replace(/\.html$/, "");
           base = window.location.origin + "/" + cleanClient + "/" + cleanPage;
+        } else if (window.location.hostname === "127.0.0.1" || window.location.hostname === "localhost" || window.location.hostname.indexOf("webpilot.") !== -1) {
+          var siteOverride = (new URLSearchParams(window.location.search).get("site") || subfolder || "preview-holz-susi-v2").replace(/^sites\//, "");
+          base = window.location.origin + "/" + siteOverride + "/" + job.datei;
         } else if (base.indexOf("embed.magnet-xs.ch") !== -1 && base.endsWith(".html")) {
           base = base.replace(/\.html$/, "");
         }
@@ -6220,12 +6760,27 @@ function updateSnippetBox() {
 
 function acpCopyActiveCode() {
   var job = getActiveJob();
-  if (!job || !job.widget_code) return;
+  var fallbackSlug = (typeof ACP_CLIENT_PROFILE !== "undefined" && ACP_CLIENT_PROFILE.slug) ? ACP_CLIENT_PROFILE.slug : "preview-holz-susi";
+  var fallbackTitle = (job && job.titel) ? job.titel : ((typeof ACP_CLIENT_PROFILE !== "undefined" && ACP_CLIENT_PROFILE.name) ? ACP_CLIENT_PROFILE.name : "Website");
+  var fallbackFile = (job && job.datei) ? job.datei : "index.html";
+  var codeToCopy = (job && job.widget_code) ? job.widget_code : ('<iframe src="https://embed.magnet-xs.ch/' + fallbackSlug + '/' + fallbackFile + '?embed=true" style="width:100%;min-height:900px;border:0;" loading="lazy"></iframe>');
+
+  var btn = document.getElementById("acp-btn-copy-code");
+  var lbl = document.getElementById("acp-btn-copy-code-lbl") || (btn ? btn.querySelector(".nav-label") : null);
+  if (lbl) {
+    lbl.textContent = "✓ Kopiert!";
+    if (btn) btn.style.borderColor = "rgba(16, 185, 129, 0.65)";
+    setTimeout(function() {
+      lbl.textContent = "Code";
+      if (btn) btn.style.borderColor = "";
+    }, 2200);
+  }
+
   if (navigator.clipboard && navigator.clipboard.writeText) {
-    navigator.clipboard.writeText(job.widget_code);
-    acpShowToast("<strong>" + job.titel + "</strong> Widget-Code in die Zwischenablage kopiert!");
+    navigator.clipboard.writeText(codeToCopy).catch(function() {});
+    acpShowToast("✓ <strong>" + fallbackTitle + "</strong> · Einbettungs-Code in die Zwischenablage kopiert!", 3800);
   } else {
-    window.prompt("Kopiere diesen Einbettungs-Code für den Webmaster:", job.widget_code);
+    acpShowToast("✓ <strong>" + fallbackTitle + "</strong> · Einbettungs-Code bereit!", 3800);
   }
 }
 
@@ -7560,13 +8115,17 @@ function acpToggleInspector() {
   }
 }
 
+var acpToastHideTimer = null;
 function acpShowToast(text, duration) {
   var toast = document.getElementById("acp-toast");
   if (!toast) return;
   toast.innerHTML = text;
   toast.classList.add("is-visible");
-  setTimeout(function() {
+  toast.classList.add("show");
+  if (acpToastHideTimer) clearTimeout(acpToastHideTimer);
+  acpToastHideTimer = setTimeout(function() {
     toast.classList.remove("is-visible");
+    toast.classList.remove("show");
   }, duration || 3500);
 }
 
@@ -7706,6 +8265,7 @@ function setupActiveJobAndRender() {
     }
   }
   checkEnvironmentAndRender();
+  acpInitVersionModeSwitch();
   renderJobPicker();
   renderDirectoryTable();
   if (activeJobId) {
@@ -8050,7 +8610,7 @@ function acpScanAndRenderSections() {
     var metaTagsHtml = metaParts.join('<span style="color:#475569;">·</span>');
 
     card.innerHTML = 
-      '<div>' +
+      '<div style="min-width:0;max-width:100%;">' +
         '<div class="acp-sec-head">' +
           '<span class="acp-sec-archetype-pill' + (archetype.isPrimary ? ' is-primary' : '') + '">' +
             archetype.icon +
@@ -8070,7 +8630,7 @@ function acpScanAndRenderSections() {
         '</div>' +
 
         '<div style="margin-top: 14px;">' +
-          (sec.kicker ? '<div class="acp-sec-kicker">' + sec.kicker + '</div>' : '') +
+          '<div class="acp-sec-kicker" style="display:block !important;white-space:nowrap !important;overflow:hidden !important;text-overflow:ellipsis !important;max-width:100% !important;height:18px !important;line-height:18px !important;">' + (sec.kicker || archetype.name || 'ABSCHNITT') + '</div>' +
           '<h4 class="acp-sec-title">' + sec.title + '</h4>' +
           '<div class="acp-sec-meta-row">' +
             metaTagsHtml +
@@ -8089,6 +8649,9 @@ function acpScanAndRenderSections() {
         '</button>' +
         '<button type="button" class="acp-btn-icon" onclick="acpScrollToSectionInViewport(\'' + sec.id + '\')" title="Im Simulator direkt zu diesem Abschnitt springen">' +
           ACP_ICONS.eye +
+        '</button>' +
+        '<button type="button" class="acp-btn-icon" onclick="acpOpenStoererModal()" title="Sichtbarkeit / Schlummer-Modus &amp; Aktions-Störer verwalten">' +
+          '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="4"/></svg>' +
         '</button>' +
       '</div>';
 
@@ -10236,6 +10799,453 @@ function acpToggleVibeDictation() {
   };
   acpVibeSpeechRec.start();
 }
+
+/* WEBPILOT SAISON-SEKTIONEN & AKTIONS-STOERER ENGINE (v1.0) */
+var acpStoererState = {
+  active: true,
+  style: "seal",
+  theme: "brand",
+  line1: "FRÜHLINGS-HIGHLIGHT",
+  line2: "Bluescht-Beiz",
+  line3: "Ostern bis 1. Mai ↓",
+  target: "#bluescht-beiz",
+  sections: []
+};
+
+function acpGetIframeDoc() {
+  var iframe = document.getElementById("acp-widget-viewport");
+  if (!iframe) return null;
+  try {
+    return iframe.contentDocument || (iframe.contentWindow && iframe.contentWindow.document);
+  } catch (e) {
+    return null;
+  }
+}
+
+function acpScanSeasonalAndStoererState() {
+  var doc = acpGetIframeDoc();
+  if (!doc) return;
+
+  var secs = [];
+  var nodes = doc.querySelectorAll("section[id], section[data-section]");
+  var seen = [];
+  for (var i = 0; i < nodes.length; i++) {
+    var el = nodes[i];
+    if (seen.indexOf(el) !== -1) continue;
+    seen.push(el);
+    var secId = el.getAttribute("id") || el.getAttribute("data-section");
+    if (!secId) continue;
+    if (!el.getAttribute("id")) el.setAttribute("id", secId);
+    var isSeasonal = el.getAttribute("data-wp-seasonal") === "true";
+    var isHidden = el.getAttribute("data-wp-hidden") === "true";
+    var visFrom = el.getAttribute("data-wp-visible-from") || "";
+    var visUntil = el.getAttribute("data-wp-visible-until") || "";
+    var customTitle = el.getAttribute("data-wp-title") || "";
+    var hEl = el.querySelector("h1, h2, h3, .section-title");
+    var title = customTitle || (hEl ? hEl.textContent.trim() : ("Abschnitt " + secId));
+    secs.push({
+      id: secId,
+      title: title,
+      seasonal: isSeasonal,
+      hidden: isHidden,
+      visible_from: visFrom,
+      visible_until: visUntil
+    });
+  }
+
+  secs.sort(function(a, b) {
+    if (a.seasonal && !b.seasonal) return -1;
+    if (!a.seasonal && b.seasonal) return 1;
+    return 0;
+  });
+  acpStoererState.sections = secs;
+
+  var stEl = doc.querySelector("[data-wp-stoerer]");
+  if (stEl) {
+    acpStoererState.active = stEl.getAttribute("data-wp-stoerer-active") !== "false";
+    acpStoererState.style = stEl.getAttribute("data-wp-stoerer") || "seal";
+    acpStoererState.theme = stEl.getAttribute("data-wp-stoerer-theme") || "brand";
+    acpStoererState.target = stEl.getAttribute("data-wp-stoerer-target") || stEl.getAttribute("href") || "#bluescht-beiz";
+    var l1 = stEl.querySelector('[data-wp-stoerer-line="1"], .wp-stoerer-line1');
+    var l2 = stEl.querySelector('[data-wp-stoerer-line="2"], .wp-stoerer-line2');
+    var l3 = stEl.querySelector('[data-wp-stoerer-line="3"], .wp-stoerer-line3');
+    if (l1) acpStoererState.line1 = l1.textContent.trim();
+    if (l2) acpStoererState.line2 = l2.textContent.trim();
+    if (l3) acpStoererState.line3 = l3.textContent.trim();
+  }
+}
+
+function acpRenderStoererModal() {
+  acpScanSeasonalAndStoererState();
+
+  var listEl = document.getElementById("acp-stoerer-sections-list");
+  var targetSel = document.getElementById("acp-stoerer-target-select");
+  if (listEl) {
+    listEl.innerHTML = "";
+    var otherDetails = document.createElement("details");
+    otherDetails.style.gridColumn = "1 / -1";
+    otherDetails.style.marginTop = "4px";
+    var otherSummary = document.createElement("summary");
+    otherSummary.style.cursor = "pointer";
+    otherSummary.style.fontSize = "12px";
+    otherSummary.style.fontWeight = "700";
+    otherSummary.style.color = "#94a3b8";
+    otherSummary.style.padding = "6px 2px";
+    otherSummary.textContent = "Weitere Standard-Sektionen der Seite ein-/ausblenden";
+    otherDetails.appendChild(otherSummary);
+    var otherGrid = document.createElement("div");
+    otherGrid.style.display = "none";
+    otherDetails.addEventListener("toggle", function() { otherGrid.style.display = otherDetails.open ? "grid" : "none"; });
+    otherGrid.style.gridTemplateColumns = "1fr 1fr";
+    otherGrid.style.gap = "8px";
+    otherGrid.style.marginTop = "8px";
+    otherDetails.appendChild(otherGrid);
+    var hasSeasonal = acpStoererState.sections.some(function(s) { return s.seasonal; });
+
+    acpStoererState.sections.forEach(function(sec) {
+      var row = document.createElement("div");
+      row.className = "acp-stoerer-sec-row" + (sec.seasonal ? " is-seasonal" : "");
+      var statusClass = sec.hidden ? "is-sleeping" : "is-live";
+      var statusLabel = sec.hidden ? "Schlummer-Modus (Ausgeblendet)" : "Sichtbar für Besucher";
+      var seasonalBadge = sec.seasonal ? '<span class="acp-stoerer-sec-tag">SAISON-SEKTION</span>' : '';
+
+      var datesHtml = "";
+      if (sec.seasonal || sec.visible_from || sec.visible_until) {
+        datesHtml =
+          '<div class="acp-stoerer-dates-row">' +
+            '<label class="acp-stoerer-date-field">' +
+              '<span>Automatisch sichtbar ab:</span>' +
+              '<input type="date" value="' + (sec.visible_from || '') + '" onchange="acpOnSecDateChange(\'' + sec.id + '\', \'visible_from\', this.value)">' +
+            '</label>' +
+            '<label class="acp-stoerer-date-field">' +
+              '<span>Automatisch sichtbar bis:</span>' +
+              '<input type="date" value="' + (sec.visible_until || '') + '" onchange="acpOnSecDateChange(\'' + sec.id + '\', \'visible_until\', this.value)">' +
+            '</label>' +
+          '</div>';
+      }
+
+      row.innerHTML =
+        '<div class="acp-stoerer-sec-top">' +
+          '<div class="acp-stoerer-sec-info">' +
+            '<span class="acp-status-dot ' + statusClass + '"></span>' +
+            '<span class="acp-stoerer-sec-title">' + sec.title + ' <span style="color:#64748b;font-weight:500;font-size:11.5px;">(#' + sec.id + ')</span></span>' +
+            seasonalBadge +
+          '</div>' +
+          '<div class="acp-stoerer-sec-controls">' +
+            '<button type="button" class="acp-stoerer-peek-btn" onclick="acpPeekSectionInCockpit(\'' + sec.id + '\')" title="Abschnitt im Cockpit einblenden, hinspringen und Text bearbeiten">' +
+              '<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>' +
+              '<span>Im Cockpit ansehen &amp; bearbeiten</span>' +
+            '</button>' +
+            '<button type="button" class="acp-stoerer-toggle-btn ' + statusClass + '" onclick="acpToggleSecHiddenInModal(\'' + sec.id + '\')">' +
+              '<span class="acp-status-dot ' + statusClass + '"></span>' +
+              '<span>' + statusLabel + '</span>' +
+            '</button>' +
+          '</div>' +
+        '</div>' +
+        datesHtml;
+
+      if (!hasSeasonal || sec.seasonal) {
+        listEl.appendChild(row);
+      } else {
+        otherGrid.appendChild(row);
+      }
+    });
+    if (hasSeasonal && otherGrid.children.length > 0) {
+      listEl.appendChild(otherDetails);
+    }
+  }
+
+  if (targetSel) {
+    targetSel.innerHTML = "";
+    acpStoererState.sections.forEach(function(sec) {
+      var opt = document.createElement("option");
+      opt.value = "#" + sec.id;
+      opt.textContent = "#" + sec.id + " · " + sec.title;
+      if (acpStoererState.target === "#" + sec.id) opt.selected = true;
+      targetSel.appendChild(opt);
+    });
+  }
+
+  var in1 = document.getElementById("acp-stoerer-line1");
+  var in2 = document.getElementById("acp-stoerer-line2");
+  var in3 = document.getElementById("acp-stoerer-line3");
+  var thSel = document.getElementById("acp-stoerer-theme-select");
+  if (in1) in1.value = acpStoererState.line1;
+  if (in2) in2.value = acpStoererState.line2;
+  if (in3) in3.value = acpStoererState.line3;
+  if (thSel) thSel.value = acpStoererState.theme;
+
+  acpSyncStoererControlsUI();
+  acpUpdateStoererLivePreview();
+}
+
+function acpSyncStoererControlsUI() {
+  var actBtn = document.getElementById("acp-stoerer-active-btn");
+  var actDot = document.getElementById("acp-stoerer-active-dot");
+  var actLbl = document.getElementById("acp-stoerer-active-lbl");
+  if (actBtn && actDot && actLbl) {
+    if (acpStoererState.active) {
+      actBtn.className = "acp-stoerer-toggle-btn is-live";
+      actDot.className = "acp-status-dot is-live";
+      actLbl.textContent = "Aktions-Störer aktiv (Sichtbar)";
+    } else {
+      actBtn.className = "acp-stoerer-toggle-btn is-sleeping";
+      actDot.className = "acp-status-dot is-sleeping";
+      actLbl.textContent = "Aktions-Störer pausiert (Ausgeblendet)";
+    }
+  }
+  var styleBtns = document.querySelectorAll("#acp-stoerer-style-group .acp-stoerer-style-btn");
+  for (var i = 0; i < styleBtns.length; i++) {
+    var b = styleBtns[i];
+    if (b.getAttribute("data-style") === acpStoererState.style) {
+      b.classList.add("is-active");
+    } else {
+      b.classList.remove("is-active");
+    }
+  }
+}
+
+function acpApplyStoererStateToIframe() {
+  var doc = acpGetIframeDoc();
+  if (!doc) return;
+
+  acpStoererState.sections.forEach(function(sec) {
+    var el = doc.getElementById(sec.id) || doc.querySelector('[data-section="' + sec.id + '"]');
+    if (!el) return;
+    el.setAttribute("data-wp-hidden", sec.hidden ? "true" : "false");
+    if (sec.visible_from) el.setAttribute("data-wp-visible-from", sec.visible_from);
+    else el.removeAttribute("data-wp-visible-from");
+    if (sec.visible_until) el.setAttribute("data-wp-visible-until", sec.visible_until);
+    else el.removeAttribute("data-wp-visible-until");
+  });
+
+  var stEl = doc.querySelector("[data-wp-stoerer]");
+  if (stEl) {
+    stEl.setAttribute("data-wp-stoerer", acpStoererState.style);
+    stEl.setAttribute("data-wp-stoerer-theme", acpStoererState.theme);
+    stEl.setAttribute("data-wp-stoerer-active", acpStoererState.active ? "true" : "false");
+    stEl.setAttribute("data-wp-stoerer-target", acpStoererState.target);
+    stEl.setAttribute("href", acpStoererState.target);
+    var l1 = stEl.querySelector('[data-wp-stoerer-line="1"], .wp-stoerer-line1');
+    var l2 = stEl.querySelector('[data-wp-stoerer-line="2"], .wp-stoerer-line2');
+    var l3 = stEl.querySelector('[data-wp-stoerer-line="3"], .wp-stoerer-line3');
+    if (l1) l1.textContent = acpStoererState.line1;
+    if (l2) l2.textContent = acpStoererState.line2;
+    if (l3) l3.textContent = acpStoererState.line3;
+  }
+
+  var iframe = document.getElementById("acp-widget-viewport");
+  if (iframe && iframe.contentWindow && typeof iframe.contentWindow.wpSyncSeasonalVisibility === "function") {
+    iframe.contentWindow.wpSyncSeasonalVisibility();
+  }
+}
+
+function acpToggleSecHiddenInModal(secId) {
+  for (var i = 0; i < acpStoererState.sections.length; i++) {
+    if (acpStoererState.sections[i].id === secId) {
+      acpStoererState.sections[i].hidden = !acpStoererState.sections[i].hidden;
+      break;
+    }
+  }
+  acpApplyStoererStateToIframe();
+  acpRenderStoererModal();
+}
+
+function acpQuickToggleSectionVisibility(secId) {
+  acpScanSeasonalAndStoererState();
+  acpToggleSecHiddenInModal(secId);
+  if (typeof acpScanAndRenderSections === "function") {
+    acpScanAndRenderSections();
+  }
+}
+
+function acpOnSecDateChange(secId, field, val) {
+  for (var i = 0; i < acpStoererState.sections.length; i++) {
+    if (acpStoererState.sections[i].id === secId) {
+      acpStoererState.sections[i][field] = val || "";
+      break;
+    }
+  }
+  acpApplyStoererStateToIframe();
+}
+
+function acpPeekSectionInCockpit(secId) {
+  var doc = acpGetIframeDoc();
+  if (!doc) return;
+  var el = doc.getElementById(secId) || doc.querySelector('[data-section="' + secId + '"]');
+  if (el) {
+    el.classList.add("wp-cockpit-peek");
+    var iframe = document.getElementById("acp-widget-viewport");
+    if (iframe && iframe.contentWindow && typeof iframe.contentWindow.wpSyncSeasonalVisibility === "function") {
+      iframe.contentWindow.wpSyncSeasonalVisibility();
+    }
+    acpCloseStoererModal();
+    setTimeout(function() {
+      el.scrollIntoView({ behavior: "smooth", block: "center" });
+      if (typeof acpInlineEditActive !== "undefined" && !acpInlineEditActive && typeof acpToggleInlineEdit === "function") {
+        acpToggleInlineEdit();
+      }
+    }, 180);
+  }
+}
+
+function acpToggleStoererActiveState() {
+  acpStoererState.active = !acpStoererState.active;
+  acpSyncStoererControlsUI();
+  acpUpdateStoererLivePreview();
+}
+
+function acpSelectStoererStyle(style) {
+  acpStoererState.style = style || "seal";
+  acpSyncStoererControlsUI();
+  acpUpdateStoererLivePreview();
+}
+
+function acpSelectStoererTheme(theme) {
+  acpStoererState.theme = theme || "brand";
+  acpUpdateStoererLivePreview();
+}
+
+function acpUpdateStoererLivePreview() {
+  var in1 = document.getElementById("acp-stoerer-line1");
+  var in2 = document.getElementById("acp-stoerer-line2");
+  var in3 = document.getElementById("acp-stoerer-line3");
+  var targetSel = document.getElementById("acp-stoerer-target-select");
+  if (in1) acpStoererState.line1 = in1.value.replace(/\u00df/g, "ss");
+  if (in2) acpStoererState.line2 = in2.value.replace(/\u00df/g, "ss");
+  if (in3) acpStoererState.line3 = in3.value.replace(/\u00df/g, "ss");
+  if (targetSel && targetSel.value) acpStoererState.target = targetSel.value;
+
+  var p1 = document.getElementById("acp-stoerer-prev-l1");
+  var p2 = document.getElementById("acp-stoerer-prev-l2");
+  var p3 = document.getElementById("acp-stoerer-prev-l3");
+  var badge = document.getElementById("acp-stoerer-live-preview-badge");
+  var inner = document.getElementById("acp-stoerer-live-preview-inner");
+  if (p1) p1.textContent = acpStoererState.line1;
+  if (p2) p2.textContent = acpStoererState.line2;
+  if (p3) p3.textContent = acpStoererState.line3;
+  if (badge) {
+    badge.setAttribute("data-preview-style", acpStoererState.style);
+    badge.setAttribute("data-preview-theme", acpStoererState.theme);
+    badge.style.opacity = acpStoererState.active ? "1" : "0.45";
+  }
+  if (inner) {
+    inner.style.transform = acpStoererState.style === "seal" ? "rotate(-8deg)" : "none";
+  }
+  acpApplyStoererStateToIframe();
+}
+
+function acpOpenStoererModal() {
+  var modal = document.getElementById("acp-stoerer-modal");
+  if (!modal) return;
+  acpRenderStoererModal();
+  if (acpStoererState.sections.length === 0) {
+    setTimeout(acpRenderStoererModal, 350);
+  }
+  modal.classList.add("is-open");
+  modal.style.display = "flex";
+  if (typeof acpUpdateBodyModalClass === "function") acpUpdateBodyModalClass();
+}
+
+function acpCloseStoererModal() {
+  var modal = document.getElementById("acp-stoerer-modal");
+  if (!modal) return;
+  modal.classList.remove("is-open");
+  modal.style.display = "none";
+  if (typeof acpUpdateBodyModalClass === "function") acpUpdateBodyModalClass();
+}
+
+function acpToggleStoererModal() {
+  var modal = document.getElementById("acp-stoerer-modal");
+  if (!modal) return;
+  if (modal.classList.contains("is-open")) {
+    acpCloseStoererModal();
+  } else {
+    acpOpenStoererModal();
+  }
+}
+
+function acpSaveSeasonalStoerer() {
+  acpUpdateStoererLivePreview();
+  var btn = document.getElementById("acp-btn-save-stoerer");
+  var lbl = document.getElementById("acp-btn-save-stoerer-lbl");
+  var statusEl = document.getElementById("acp-stoerer-save-status");
+  if (btn) btn.disabled = true;
+  if (lbl) lbl.textContent = "Speichere & schalte live...";
+
+  var urlParams = new URLSearchParams(window.location.search);
+  var siteParam = urlParams.get("site") || "";
+  var clientSlug = siteParam || (typeof ACP_CLIENT_PROFILE !== "undefined" && ACP_CLIENT_PROFILE.slug) || window.ACP_CURRENT_CLIENT || (window.location.pathname.split("/")[1] || "preview-holz-susi");
+
+  var payload = {
+    site: clientSlug,
+    client: clientSlug,
+    sections: acpStoererState.sections.map(function(s) {
+      return {
+        id: s.id,
+        hidden: Boolean(s.hidden),
+        visible_from: s.visible_from || "",
+        visible_until: s.visible_until || ""
+      };
+    }),
+    stoerer: {
+      active: Boolean(acpStoererState.active),
+      style: acpStoererState.style || "seal",
+      theme: acpStoererState.theme || "brand",
+      line1: acpStoererState.line1 || "",
+      line2: acpStoererState.line2 || "",
+      line3: acpStoererState.line3 || "",
+      target: acpStoererState.target || "#bluescht-beiz"
+    }
+  };
+
+  fetch("/api/publish-career/update-seasonal-stoerer", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(payload)
+  })
+  .then(function(res) { return res.json(); })
+  .then(function(data) {
+    if (btn) btn.disabled = false;
+    if (lbl) lbl.textContent = "Änderungen speichern & sofort live schalten";
+    if (statusEl) {
+      statusEl.style.color = "#a7f3d0";
+      statusEl.textContent = data.message || "Erfolgreich gespeichert & live geschaltet!";
+    }
+  })
+  .catch(function(err) {
+    if (btn) btn.disabled = false;
+    if (lbl) lbl.textContent = "Änderungen speichern & sofort live schalten";
+    if (statusEl) {
+      statusEl.style.color = "#fca5a5";
+      statusEl.textContent = "Lokal im Simulator aktualisiert (" + (err.message || "Offline") + ")";
+    }
+  });
+}
+
+window.acpOpenStoererModal = acpOpenStoererModal;
+window.acpCloseStoererModal = acpCloseStoererModal;
+window.acpToggleStoererModal = acpToggleStoererModal;
+
+window.addEventListener("message", function(ev) {
+  if (ev && ev.data && ev.data.type === "ACP_OPEN_STOERER_MODAL") {
+    acpOpenStoererModal();
+  }
+});
+
+document.addEventListener("DOMContentLoaded", function() {
+  var params = new URLSearchParams(window.location.search);
+  var siteParam = (params.get("site") || "").replace(/^sites\//, "");
+  if (siteParam && (window.location.pathname === "/cockpit-app.html" || window.location.pathname.endsWith("/cockpit-app.html"))) {
+    var iframe = document.getElementById("acp-widget-viewport");
+    if (iframe) {
+      iframe.setAttribute("src", "/" + siteParam + "/index.html");
+    }
+  }
+  if (params.get("open") === "stoerer") {
+    setTimeout(acpOpenStoererModal, 450);
+  }
+});
 
 </script>
 

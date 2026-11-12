@@ -1,11 +1,11 @@
-# Bilder-Verzeichnis & Cloudflare-Asset-Katalog, zurbuchen
+# Bilder-Verzeichnis & Cloudflare-Asset-Katalog – zurbuchen
 
 > **Mandant / Webseite:** zurbuchen (Schweiz)  
 > **Angefordert von (Partner):** Jenny Ettle (JE-MI) · **Eingereicht am:** -  
 > **Lokaler Ordner (VPS & Git):** `zurbuchen/`  
 > **Cloudflare-Basis-URL:** [vorschau.magnet-xs.ch/zurbuchen/](https://vorschau.magnet-xs.ch/zurbuchen/)  
 > **Bestand:** **47 Assets** (5.62 MB gesamt) · **🟢 10 aktiv im HTML** · **⚪ 37 frei im Bild-Pool** · **Externe Hotlinks: 0**  
-> **Letzte Aktualisierung:** 06.11.2026 14:08 Uhr (automatisch generiert via `webpilot_asset_catalog.py`)
+> **Letzte Aktualisierung:** 12.11.2026 07:10 Uhr (automatisch generiert via `webpilot_asset_catalog.py`)
 
 ---
 

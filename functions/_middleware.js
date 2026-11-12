@@ -309,7 +309,7 @@ async function handleRequestCore(context) {
   if (hostname.startsWith('webpilot.')) {
     let targetPath = url.pathname;
     if (targetPath === '/cockpit-app.html') {
-      const siteParam = (url.searchParams.get('site') || 'preview-holz-susi-v2').replace(/^sites\//, '');
+      const siteParam = (url.searchParams.get('site') || 'preview-holz-susi').replace(/^sites\//, '');
       targetPath = `/${siteParam}/cockpit.html`;
     } else if (targetPath.startsWith('/sites/preview-')) {
       targetPath = targetPath.replace(/^\/sites\//, '/');
@@ -424,6 +424,27 @@ async function handleRequestCore(context) {
 
       const isDirectEmbedHost = hostname.startsWith('embed.') || hostname.endsWith('.pages.dev');
       const baseSlugFolder = activeClientSlug.replace(/-(?:vollversion|vv|v1|v2)$/, '');
+      const isCockpitRoute = (rest === '/cockpit' || rest === '/cockpit/' || rest === '/cockpit.html');
+      const fullVersionFolder = VORSCHAU_SLUG_TO_FOLDER[`${baseSlugFolder}-vollversion`];
+      const defaultSlugFolder = VORSCHAU_SLUG_TO_FOLDER[activeClientSlug];
+
+      // Standard-Routing für Cockpits: /<slug>/cockpit öffnet bei Dual-Varianten-Projekten
+      // automatisch die 5-Seiten-Vollversion (/<slug>-vollversion/cockpit), während Besucher auf
+      // /<slug>/ weiterhin die 2-Seiten-Zeigeversion sehen.
+      if (!isDirectEmbedHost && isCockpitRoute && activeClientSlug === baseSlugFolder && fullVersionFolder && fullVersionFolder !== defaultSlugFolder) {
+        const redirectUrl = new URL(`/${baseSlugFolder}-vollversion/cockpit${url.search}`, url.origin);
+        const redirectHeaders = new Headers({
+          'Location': redirectUrl.toString(),
+          'Cache-Control': 'no-store, no-cache, must-revalidate, max-age=0'
+        });
+        const tokenParam = url.searchParams.get('token');
+        if (tokenParam) {
+          redirectHeaders.append('Set-Cookie', `mxs_auth_${baseSlugFolder}-vollversion=${tokenParam}; Path=/${baseSlugFolder}-vollversion/; Max-Age=86400; SameSite=Lax`);
+          redirectHeaders.append('Set-Cookie', `mxs_auth_${baseSlugFolder}=${tokenParam}; Path=/; Max-Age=86400; SameSite=Lax`);
+        }
+        return new Response(null, { status: 302, headers: redirectHeaders });
+      }
+
       if (DIRECT_ONLY_FOLDERS.includes(activeClientSlug) || (isDirectEmbedHost && DUAL_EMBED_AND_PREVIEW_FOLDERS.includes(activeClientSlug))) {
         targetFolder = activeClientSlug;
       } else {
@@ -432,7 +453,10 @@ async function handleRequestCore(context) {
 
       if (rest === '/onboarding' || rest === '/onboarding.html') {
         targetPath = `/${targetFolder}/onboarding`;
-      } else if (rest === '/cockpit' || rest === '/cockpit/') {
+      } else if (rest === '/cockpit/') {
+        const cleanCockpitUrl = new URL(`/${activeClientSlug}/cockpit${url.search}`, url.origin);
+        return Response.redirect(cleanCockpitUrl.toString(), 302);
+      } else if (rest === '/cockpit' || rest === '/cockpit.html') {
         targetPath = `/${targetFolder}/cockpit.html`;
       } else {
         targetPath = `/${targetFolder}${rest}`;

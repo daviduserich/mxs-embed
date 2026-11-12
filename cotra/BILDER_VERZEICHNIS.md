@@ -5,7 +5,7 @@
 > **Lokaler Ordner (VPS & Git):** `cotra/`  
 > **Cloudflare-Basis-URL:** [vorschau.magnet-xs.ch/cotra/](https://vorschau.magnet-xs.ch/cotra/)  
 > **Bestand:** **22 Assets** (4.15 MB gesamt) · **🟢 22 aktiv im HTML** · **⚪ 0 frei im Bild-Pool** · **Externe Hotlinks: 3**  
-> **Letzte Aktualisierung:** 06.11.2026 13:59 Uhr (automatisch generiert via `webpilot_asset_catalog.py`)
+> **Letzte Aktualisierung:** 12.11.2026 07:09 Uhr (automatisch generiert via `webpilot_asset_catalog.py`)
 
 ---
 

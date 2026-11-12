@@ -5,7 +5,7 @@
 > **Lokaler Ordner (VPS & Git):** `preview-fcschlieren/`  
 > **Cloudflare-Basis-URL:** [vorschau.magnet-xs.ch/fcschlieren-vollversion/](https://vorschau.magnet-xs.ch/fcschlieren-vollversion/)  
 > **Bestand:** **39 Assets** (1.99 MB gesamt) · **🟢 34 aktiv im HTML** · **⚪ 5 frei im Bild-Pool** · **Externe Hotlinks: 0**  
-> **Letzte Aktualisierung:** 11.11.2026 22:27 Uhr (automatisch generiert via `webpilot_asset_catalog.py`)
+> **Letzte Aktualisierung:** 12.11.2026 07:09 Uhr (automatisch generiert via `webpilot_asset_catalog.py`)
 
 ---
 

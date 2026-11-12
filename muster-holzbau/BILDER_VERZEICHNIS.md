@@ -1,11 +1,11 @@
-# Bilder-Verzeichnis & Cloudflare-Asset-Katalog, muster-holzbau
+# Bilder-Verzeichnis & Cloudflare-Asset-Katalog – muster-holzbau
 
 > **Mandant / Webseite:** muster-holzbau (Schweiz)  
 > **Angefordert von (Partner):** Jenny Ettle (JE-MI) · **Eingereicht am:** -  
 > **Lokaler Ordner (VPS & Git):** `muster-holzbau/`  
 > **Cloudflare-Basis-URL:** [vorschau.magnet-xs.ch/muster-holzbau/](https://vorschau.magnet-xs.ch/muster-holzbau/)  
 > **Bestand:** **7 Assets** (1.27 MB gesamt) · **🟢 2 aktiv im HTML** · **⚪ 5 frei im Bild-Pool** · **Externe Hotlinks: 0**  
-> **Letzte Aktualisierung:** 06.11.2026 13:59 Uhr (automatisch generiert via `webpilot_asset_catalog.py`)
+> **Letzte Aktualisierung:** 12.11.2026 07:09 Uhr (automatisch generiert via `webpilot_asset_catalog.py`)
 
 ---
 
