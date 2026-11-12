@@ -4793,8 +4793,23 @@ function acpScanSeasonalAndStoererState() {
   }
 }
 
-function acpRenderStoererModal() {
-  acpScanSeasonalAndStoererState();
+var acpStoererModalSnapshot = null;
+
+function acpTakeStoererSnapshot() {
+  acpStoererModalSnapshot = JSON.parse(JSON.stringify(acpStoererState));
+}
+
+function acpRestoreStoererSnapshot() {
+  if (!acpStoererModalSnapshot) return;
+  acpStoererState = JSON.parse(JSON.stringify(acpStoererModalSnapshot));
+  acpApplyStoererStateToIframe();
+  acpRenderStoererModal(true);
+}
+
+function acpRenderStoererModal(skipScan) {
+  if (!skipScan) {
+    acpScanSeasonalAndStoererState();
+  }
 
   var listEl = document.getElementById("acp-stoerer-sections-list");
   var targetSel = document.getElementById("acp-stoerer-target-select");
@@ -4966,7 +4981,7 @@ function acpToggleSecHiddenInModal(secId) {
     }
   }
   acpApplyStoererStateToIframe();
-  acpRenderStoererModal();
+  acpRenderStoererModal(true);
 }
 
 function acpQuickToggleSectionVisibility(secId) {
@@ -4990,6 +5005,7 @@ function acpOnSecDateChange(secId, field, val) {
 function acpPeekSectionInCockpit(secId) {
   var doc = acpGetIframeDoc();
   if (!doc) return;
+  acpCloseStoererModal();
   var el = doc.getElementById(secId) || doc.querySelector('[data-section="' + secId + '"]');
   if (el) {
     el.classList.add("wp-cockpit-peek");
@@ -4997,7 +5013,6 @@ function acpPeekSectionInCockpit(secId) {
     if (iframe && iframe.contentWindow && typeof iframe.contentWindow.wpSyncSeasonalVisibility === "function") {
       iframe.contentWindow.wpSyncSeasonalVisibility();
     }
-    acpCloseStoererModal();
     setTimeout(function() {
       el.scrollIntoView({ behavior: "smooth", block: "center" });
       if (typeof acpInlineEditActive !== "undefined" && !acpInlineEditActive && typeof acpToggleInlineEdit === "function") {
@@ -5050,24 +5065,48 @@ function acpUpdateStoererLivePreview() {
   if (inner) {
     inner.style.transform = acpStoererState.style === "seal" ? "rotate(-8deg)" : "none";
   }
+  var kickerEl = document.getElementById("acp-stoerer-preview-kicker");
+  if (kickerEl) {
+    if (acpStoererState.style === "ribbon") {
+      kickerEl.textContent = "LIVE-VORSCHAU (PLAKETTE)";
+    } else if (acpStoererState.style === "bar") {
+      kickerEl.textContent = "LIVE-VORSCHAU (TOP-LEISTE)";
+    } else {
+      kickerEl.textContent = "LIVE-VORSCHAU (SIEGEL -8°)";
+    }
+  }
   acpApplyStoererStateToIframe();
 }
 
 function acpOpenStoererModal() {
   var modal = document.getElementById("acp-stoerer-modal");
   if (!modal) return;
-  acpRenderStoererModal();
+  var statusEl = document.getElementById("acp-stoerer-save-status");
+  if (statusEl) {
+    statusEl.style.color = "#94a3b8";
+    statusEl.textContent = "Änderungen werden synchron für Vorschau & Vollversion gespeichert.";
+  }
+  acpScanSeasonalAndStoererState();
+  acpTakeStoererSnapshot();
+  acpRenderStoererModal(true);
   if (acpStoererState.sections.length === 0) {
-    setTimeout(acpRenderStoererModal, 350);
+    setTimeout(function() {
+      acpScanSeasonalAndStoererState();
+      acpTakeStoererSnapshot();
+      acpRenderStoererModal(true);
+    }, 350);
   }
   modal.classList.add("is-open");
   modal.style.display = "flex";
   if (typeof acpUpdateBodyModalClass === "function") acpUpdateBodyModalClass();
 }
 
-function acpCloseStoererModal() {
+function acpCloseStoererModal(skipRollback) {
   var modal = document.getElementById("acp-stoerer-modal");
   if (!modal) return;
+  if (!skipRollback) {
+    acpRestoreStoererSnapshot();
+  }
   modal.classList.remove("is-open");
   modal.style.display = "none";
   if (typeof acpUpdateBodyModalClass === "function") acpUpdateBodyModalClass();
@@ -5085,6 +5124,7 @@ function acpToggleStoererModal() {
 
 function acpSaveSeasonalStoerer() {
   acpUpdateStoererLivePreview();
+  acpTakeStoererSnapshot();
   var btn = document.getElementById("acp-btn-save-stoerer");
   var lbl = document.getElementById("acp-btn-save-stoerer-lbl");
   var statusEl = document.getElementById("acp-stoerer-save-status");
@@ -5144,6 +5184,15 @@ function acpSaveSeasonalStoerer() {
 window.acpOpenStoererModal = acpOpenStoererModal;
 window.acpCloseStoererModal = acpCloseStoererModal;
 window.acpToggleStoererModal = acpToggleStoererModal;
+
+window.addEventListener("keydown", function(ev) {
+  if (ev && (ev.key === "Escape" || ev.keyCode === 27)) {
+    var modal = document.getElementById("acp-stoerer-modal");
+    if (modal && modal.classList.contains("is-open")) {
+      acpCloseStoererModal();
+    }
+  }
+});
 
 window.addEventListener("message", function(ev) {
   if (ev && ev.data && ev.data.type === "ACP_OPEN_STOERER_MODAL") {

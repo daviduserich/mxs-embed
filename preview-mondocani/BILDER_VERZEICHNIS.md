@@ -5,7 +5,7 @@
 > **Lokaler Ordner (VPS & Git):** `preview-mondocani/`  
 > **Cloudflare-Basis-URL:** [vorschau.magnet-xs.ch/mondocani-vollversion/](https://vorschau.magnet-xs.ch/mondocani-vollversion/)  
 > **Bestand:** **24 Assets** (7.32 MB gesamt) · **🟢 21 aktiv im HTML** · **⚪ 3 frei im Bild-Pool** · **Externe Hotlinks: 0**  
-> **Letzte Aktualisierung:** 12.11.2026 07:15 Uhr (automatisch generiert via `webpilot_asset_catalog.py`)
+> **Letzte Aktualisierung:** 12.11.2026 09:14 Uhr (automatisch generiert via `webpilot_asset_catalog.py`)
 
 ---
 
