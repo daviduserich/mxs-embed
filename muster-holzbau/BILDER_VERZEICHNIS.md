@@ -5,7 +5,7 @@
 > **Lokaler Ordner (VPS & Git):** `muster-holzbau/`  
 > **Cloudflare-Basis-URL:** [vorschau.magnet-xs.ch/muster-holzbau/](https://vorschau.magnet-xs.ch/muster-holzbau/)  
 > **Bestand:** **7 Assets** (1.27 MB gesamt) · **🟢 2 aktiv im HTML** · **⚪ 5 frei im Bild-Pool** · **Externe Hotlinks: 0**  
-> **Letzte Aktualisierung:** 12.11.2026 07:09 Uhr (automatisch generiert via `webpilot_asset_catalog.py`)
+> **Letzte Aktualisierung:** 12.11.2026 07:15 Uhr (automatisch generiert via `webpilot_asset_catalog.py`)
 
 ---
 

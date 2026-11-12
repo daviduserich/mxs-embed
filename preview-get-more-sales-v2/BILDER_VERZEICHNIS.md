@@ -5,7 +5,7 @@
 > **Lokaler Ordner (VPS & Git):** `preview-get-more-sales-v2/`  
 > **Cloudflare-Basis-URL:** [vorschau.magnet-xs.ch/get-more-sales-v2/](https://vorschau.magnet-xs.ch/get-more-sales-v2/)  
 > **Bestand:** **16 Assets** (4.42 MB gesamt) · **🟢 12 aktiv im HTML** · **⚪ 4 frei im Bild-Pool** · **Externe Hotlinks: 0**  
-> **Letzte Aktualisierung:** 12.11.2026 07:09 Uhr (automatisch generiert via `webpilot_asset_catalog.py`)
+> **Letzte Aktualisierung:** 12.11.2026 07:15 Uhr (automatisch generiert via `webpilot_asset_catalog.py`)
 
 ---
 

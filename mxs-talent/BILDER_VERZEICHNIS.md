@@ -5,7 +5,7 @@
 > **Lokaler Ordner (VPS & Git):** `mxs-talent/`  
 > **Cloudflare-Basis-URL:** [vorschau.magnet-xs.ch/mxs-talent/](https://vorschau.magnet-xs.ch/mxs-talent/)  
 > **Bestand:** **43 Assets** (12.63 MB gesamt) · **🟢 38 aktiv im HTML** · **⚪ 5 frei im Bild-Pool** · **Externe Hotlinks: 0**  
-> **Letzte Aktualisierung:** 12.11.2026 07:09 Uhr (automatisch generiert via `webpilot_asset_catalog.py`)
+> **Letzte Aktualisierung:** 12.11.2026 07:15 Uhr (automatisch generiert via `webpilot_asset_catalog.py`)
 
 ---
 
