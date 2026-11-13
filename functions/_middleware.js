@@ -1,4 +1,14 @@
 const VORSCHAU_SLUG_TO_FOLDER = {
+  // Good for Dogs · Martina Sidler (Baden & Birmenstorf): Zeigeversion (-v2, -v1, ohne Suffix) -> preview-die-schule-v2 | Vollversion (-vollversion, -vv) -> preview-die-schule
+  'die-schule': 'preview-die-schule-v2',
+  'die-schule-v1': 'preview-die-schule-v2',
+  'die-schule-v2': 'preview-die-schule-v2',
+  'die-schule-vollversion': 'preview-die-schule',
+  'die-schule-vv': 'preview-die-schule',
+  'good-for-dogs': 'preview-die-schule-v2',
+  'good-for-dogs-v2': 'preview-die-schule-v2',
+  'good-for-dogs-vollversion': 'preview-die-schule',
+
   // get.more.sales · Carmen Caselli (Zofingen): Zeigeversion (-v2, -v1, ohne Suffix) -> preview-get-more-sales-v2 | Vollversion (-vollversion, -vv) -> preview-get-more-sales
   'get-more-sales': 'preview-get-more-sales-v2',
   'get-more-sales-v1': 'preview-get-more-sales-v2',
@@ -166,7 +176,14 @@ const CLIENT_TOKENS = {
   'get-more-sales-v2': ['getmoresales_sec_master', 'getmoresales2026', 'get-more-sales2026', 'getmoresales-light2026', 'get-more-sales-v22026'],
   'preview-get-more-sales-v2': ['getmoresales_sec_master', 'getmoresales2026', 'get-more-sales2026', 'getmoresales-light2026', 'get-more-sales-v22026'],
   'get-more-sales-vollversion': ['getmoresales_sec_master', 'getmoresales2026', 'get-more-sales2026', 'getmoresales-light2026', 'get-more-sales-v22026'],
-  'get-more-sales-vv': ['getmoresales_sec_master', 'getmoresales2026', 'get-more-sales2026', 'getmoresales-light2026', 'get-more-sales-v22026']
+  'get-more-sales-vv': ['getmoresales_sec_master', 'getmoresales2026', 'get-more-sales2026', 'getmoresales-light2026', 'get-more-sales-v22026'],
+  'die-schule': ['dieschule_sec_master', 'die-schule2026', 'dieschule2026', 'die-schule-light2026', 'die-schule-v22026'],
+  'preview-die-schule': ['dieschule_sec_master', 'die-schule2026', 'dieschule2026', 'die-schule-light2026', 'die-schule-v22026'],
+  'die-schule-v1': ['dieschule_sec_master', 'die-schule2026', 'dieschule2026', 'die-schule-light2026', 'die-schule-v22026'],
+  'die-schule-v2': ['dieschule_sec_master', 'die-schule2026', 'dieschule2026', 'die-schule-light2026', 'die-schule-v22026'],
+  'preview-die-schule-v2': ['dieschule_sec_master', 'die-schule2026', 'dieschule2026', 'die-schule-light2026', 'die-schule-v22026'],
+  'die-schule-vollversion': ['dieschule_sec_master', 'die-schule2026', 'dieschule2026', 'die-schule-light2026', 'die-schule-v22026'],
+  'die-schule-vv': ['dieschule_sec_master', 'die-schule2026', 'dieschule2026', 'die-schule-light2026', 'die-schule-v22026']
 };
 
 function getValidTokens(rootSegment, clientSlug) {

@@ -180,6 +180,24 @@ def split_source_and_context(raw_source_or_context: str, explicit_context: str =
 # - In Jennys Partner-Sheet erscheinen ausschliesslich die 8 Projekte mit Partner "Jenny Ettle (JE-MI)".
 SEED_PROJECTS = [
     {
+        "slug": "die-schule",
+        "active": True,
+        "company": "Good for Dogs · Hundeschule Martina Sidler (5406 Baden & 5413 Birmenstorf)",
+        "pricing_recommended_chf": "CHF 2'200.—",
+        "complexity_score": "4.8 / 10.0",
+        "pricing_formula_chf": "CHF 2'150.—",
+        "pricing_rationale": "Freundlicher, heller 5-Seiten-Auftritt im Evolution-Modus für die Hundeschule Good for Dogs (Startseite mit allen 6 Kursen, interaktivem 15-Sekunden-Kursfinder, Social- & Ratgeber-Sektionen, Angebotsseite, Einblicke Birmenstorf, Über Martina Sidler inkl. Certodog®/FBA sowie 3-Schritte Smart-Kursanmeldung) inkl. Studio Cockpit v4.0 + Light.",
+        "v2_url": "https://vorschau.magnet-xs.ch/die-schule-v2/",
+        "vollversion_url": "https://vorschau.magnet-xs.ch/die-schule-vollversion/",
+        "cockpit_url": "https://vorschau.magnet-xs.ch/die-schule-vollversion/cockpit.html?token=die-schule2026",
+        "cockpit_light_url": "https://vorschau.magnet-xs.ch/die-schule-vollversion/cockpit.html?token=die-schule2026&mode=light",
+        "audit_report_url": "https://vorschau.magnet-xs.ch/reports/die-schule-vorher-nachher-report.pdf",
+        "source_url": "https://goodfordogs.ch/index.html",
+        "branch_context": "Gewaltfreie Hundeschule (Certodog® & Fairplay mit Hund): Einzeltraining, Welpen, Junghunde, Familienhunde & Schnüffelspass in Baden, Birmenstorf & Region Lenzburg",
+        "partner": "Jenny Ettle (JE-MI)",
+        "status": "🟢 Bereit zum Zeigen (Fertig: 13.11.2026 · 09:25 Uhr · 0 P1/P2)",
+    },
+    {
         "slug": "get-more-sales",
         "active": True,
         "company": "get.more.sales · Carmen Caselli (Zofingen AG)",
@@ -883,6 +901,7 @@ def _seed_single_spreadsheet(
                     active_by_slug[item["slug"]] = is_act
 
     DEFAULT_SUBMITTED_MAP = {
+        "die-schule": ("13.11.2026 · 07:36 Uhr", "🟢 Bereit zum Zeigen (Fertig: 13.11.2026 · 09:25 Uhr · 0 P1/P2)"),
         "get-more-sales": ("10.11.2026 · 20:24 Uhr", "🟢 Bereit zum Zeigen (Fertig: 10.11.2026 · 21:25 Uhr · 0 P1/P2)"),
     "mondocani": ("10.11.2026 · 09:35 Uhr", "🟢 Bereit zum Zeigen (Fertig: 10.11.2026 · 10:15 Uhr · 0 P1/P2)"),
         "holz-susi": ("09.11.2026 · 13:44 Uhr", "🟢 Bereit zum Zeigen (Fertig: 09.11.2026 · 15:03 Uhr)"),

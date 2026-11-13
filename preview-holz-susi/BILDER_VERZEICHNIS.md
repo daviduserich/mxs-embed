@@ -5,7 +5,7 @@
 > **Lokaler Ordner (VPS & Git):** `preview-holz-susi/`  
 > **Cloudflare-Basis-URL:** [vorschau.magnet-xs.ch/holz-susi-vollversion/](https://vorschau.magnet-xs.ch/holz-susi-vollversion/)  
 > **Bestand:** **60 Assets** (14.86 MB gesamt) · **🟢 35 aktiv im HTML** · **⚪ 25 frei im Bild-Pool** · **Externe Hotlinks: 0**  
-> **Letzte Aktualisierung:** 12.11.2026 09:14 Uhr (automatisch generiert via `webpilot_asset_catalog.py`)
+> **Letzte Aktualisierung:** 13.11.2026 08:22 Uhr (automatisch generiert via `webpilot_asset_catalog.py`)
 
 ---
 

@@ -1,11 +1,11 @@
 {
-  "generated_at": "2026-11-11T22:27:41",
-  "total_sites": 26,
-  "total_assets": 853,
-  "total_active": 581,
-  "total_pool": 272,
+  "generated_at": "2026-11-13T08:22:55",
+  "total_sites": 28,
+  "total_assets": 885,
+  "total_active": 607,
+  "total_pool": 278,
   "total_external_hotlinks": 0,
-  "total_mb": 124.83,
+  "total_mb": 128.56,
   "sites": [
     {
       "folder": "hiltbrand",
@@ -1460,6 +1460,1143 @@
           "used_in": [],
           "used_in_pages": [],
           "alt": "Waermepumpe: Baustelle & Projekte – Birchmeier-Hohler GmbH in Bremgarten (AG)"
+        }
+      ]
+    },
+    {
+      "folder": "preview-die-schule",
+      "company_name": "Good for Dogs · Hundeschule Martina Sidler (Vollversion)",
+      "city": "Baden & Birmenstorf AG",
+      "partner": "Jenny Ettle (JE-MI)",
+      "submitted_at": "13.11.2026 · 07:36 Uhr",
+      "cloudflare_base_url": "https://vorschau.magnet-xs.ch/die-schule-vollversion/",
+      "cloudflare_short_base": "vorschau.magnet-xs.ch/die-schule-vollversion",
+      "total_assets": 16,
+      "active_assets": 14,
+      "pool_assets": 2,
+      "external_hotlinks": 0,
+      "external_hotlink_details": [],
+      "total_kb": 1906.7,
+      "total_mb": 1.86,
+      "html_pages_count": 5,
+      "html_pages": [
+        "index.html",
+        "kontakt.html",
+        "leistungen.html",
+        "referenzen.html",
+        "ueber-uns.html"
+      ],
+      "bilder_json_exists": true,
+      "bilder_verzeichnis_exists": true,
+      "assets": [
+        {
+          "nr": 1,
+          "id": "images_apple_touch_icon_png",
+          "filename": "apple-touch-icon.png",
+          "rel_path": "images/apple-touch-icon.png",
+          "folder": "preview-die-schule",
+          "category": "Favicon & App-Icon",
+          "category_code": "icon",
+          "dimensions": "180x180",
+          "size_kb": 11.6,
+          "format": "PNG",
+          "mtime": 1794556142,
+          "mtime_str": "13.11.2026 07:49",
+          "cdn_url": "https://vorschau.magnet-xs.ch/die-schule-vollversion/images/apple-touch-icon.png",
+          "cloudflare_url": "https://vorschau.magnet-xs.ch/die-schule-vollversion/images/apple-touch-icon.png",
+          "cloudflare_short": "vorschau.magnet-xs.ch/die-schule-vollversion/images/apple-touch-icon.png",
+          "is_used": true,
+          "used_in": [
+            {
+              "datei": "index.html",
+              "slot": "image",
+              "is_hero": false
+            },
+            {
+              "datei": "kontakt.html",
+              "slot": "image",
+              "is_hero": false
+            },
+            {
+              "datei": "leistungen.html",
+              "slot": "image",
+              "is_hero": false
+            },
+            {
+              "datei": "referenzen.html",
+              "slot": "image",
+              "is_hero": false
+            },
+            {
+              "datei": "ueber-uns.html",
+              "slot": "image",
+              "is_hero": false
+            }
+          ],
+          "used_in_pages": [
+            "index.html",
+            "kontakt.html",
+            "leistungen.html",
+            "referenzen.html",
+            "ueber-uns.html"
+          ],
+          "alt": "Good for Dogs Baden (AG) – Offizielles Logo (Individuelles 1:1 Einzeltraining und Verhaltensberatung)"
+        },
+        {
+          "nr": 2,
+          "id": "images_favicon_32x32_png",
+          "filename": "favicon-32x32.png",
+          "rel_path": "images/favicon-32x32.png",
+          "folder": "preview-die-schule",
+          "category": "Favicon & App-Icon",
+          "category_code": "icon",
+          "dimensions": "32x32",
+          "size_kb": 1.0,
+          "format": "PNG",
+          "mtime": 1794556142,
+          "mtime_str": "13.11.2026 07:49",
+          "cdn_url": "https://vorschau.magnet-xs.ch/die-schule-vollversion/images/favicon-32x32.png",
+          "cloudflare_url": "https://vorschau.magnet-xs.ch/die-schule-vollversion/images/favicon-32x32.png",
+          "cloudflare_short": "vorschau.magnet-xs.ch/die-schule-vollversion/images/favicon-32x32.png",
+          "is_used": true,
+          "used_in": [
+            {
+              "datei": "index.html",
+              "slot": "image",
+              "is_hero": false
+            },
+            {
+              "datei": "kontakt.html",
+              "slot": "image",
+              "is_hero": false
+            },
+            {
+              "datei": "leistungen.html",
+              "slot": "image",
+              "is_hero": false
+            },
+            {
+              "datei": "referenzen.html",
+              "slot": "image",
+              "is_hero": false
+            },
+            {
+              "datei": "ueber-uns.html",
+              "slot": "image",
+              "is_hero": false
+            }
+          ],
+          "used_in_pages": [
+            "index.html",
+            "kontakt.html",
+            "leistungen.html",
+            "referenzen.html",
+            "ueber-uns.html"
+          ],
+          "alt": "Good for Dogs Baden (AG) – Offizielles Logo (Individuelles 1:1 Einzeltraining und Verhaltensberatung)"
+        },
+        {
+          "nr": 3,
+          "id": "images_hero_mensch_hund_alltag_jpg",
+          "filename": "hero-mensch-hund-alltag.jpg",
+          "rel_path": "images/hero-mensch-hund-alltag.jpg",
+          "folder": "preview-die-schule",
+          "category": "Startbühne & Header",
+          "category_code": "hero",
+          "dimensions": "1100x733",
+          "size_kb": 112.8,
+          "format": "JPG",
+          "mtime": 1794556142,
+          "mtime_str": "13.11.2026 07:49",
+          "cdn_url": "https://vorschau.magnet-xs.ch/die-schule-vollversion/images/hero-mensch-hund-alltag.jpg",
+          "cloudflare_url": "https://vorschau.magnet-xs.ch/die-schule-vollversion/images/hero-mensch-hund-alltag.jpg",
+          "cloudflare_short": "vorschau.magnet-xs.ch/die-schule-vollversion/images/hero-mensch-hund-alltag.jpg",
+          "is_used": true,
+          "used_in": [
+            {
+              "datei": "index.html",
+              "slot": "image",
+              "is_hero": true
+            },
+            {
+              "datei": "kontakt.html",
+              "slot": "image",
+              "is_hero": true
+            },
+            {
+              "datei": "leistungen.html",
+              "slot": "image",
+              "is_hero": true
+            },
+            {
+              "datei": "referenzen.html",
+              "slot": "image",
+              "is_hero": true
+            },
+            {
+              "datei": "ueber-uns.html",
+              "slot": "image",
+              "is_hero": true
+            }
+          ],
+          "used_in_pages": [
+            "index.html",
+            "kontakt.html",
+            "leistungen.html",
+            "referenzen.html",
+            "ueber-uns.html"
+          ],
+          "alt": "Martina Sidler beim Hundetraining mit aufmerksamem Hund im Freien"
+        },
+        {
+          "nr": 4,
+          "id": "images_hund_baumstamm_portraet_jpg",
+          "filename": "hund-baumstamm-portraet.jpg",
+          "rel_path": "images/hund-baumstamm-portraet.jpg",
+          "folder": "preview-die-schule",
+          "category": "Team, Porträt & Kader",
+          "category_code": "team",
+          "dimensions": "533x800",
+          "size_kb": 102.7,
+          "format": "JPG",
+          "mtime": 1794556142,
+          "mtime_str": "13.11.2026 07:49",
+          "cdn_url": "https://vorschau.magnet-xs.ch/die-schule-vollversion/images/hund-baumstamm-portraet.jpg",
+          "cloudflare_url": "https://vorschau.magnet-xs.ch/die-schule-vollversion/images/hund-baumstamm-portraet.jpg",
+          "cloudflare_short": "vorschau.magnet-xs.ch/die-schule-vollversion/images/hund-baumstamm-portraet.jpg",
+          "is_used": true,
+          "used_in": [
+            {
+              "datei": "index.html",
+              "slot": "image",
+              "is_hero": false
+            },
+            {
+              "datei": "referenzen.html",
+              "slot": "image",
+              "is_hero": false
+            }
+          ],
+          "used_in_pages": [
+            "index.html",
+            "referenzen.html"
+          ],
+          "alt": "Good for Dogs Hundeschule Baden: Geprüfte Fachqualität"
+        },
+        {
+          "nr": 5,
+          "id": "images_kurs_einzeltraining_fokus_jpg",
+          "filename": "kurs-einzeltraining-fokus.jpg",
+          "rel_path": "images/kurs-einzeltraining-fokus.jpg",
+          "folder": "preview-die-schule",
+          "category": "Referenz, Projekt & Angebot",
+          "category_code": "ref",
+          "dimensions": "1100x495",
+          "size_kb": 138.3,
+          "format": "JPG",
+          "mtime": 1794556142,
+          "mtime_str": "13.11.2026 07:49",
+          "cdn_url": "https://vorschau.magnet-xs.ch/die-schule-vollversion/images/kurs-einzeltraining-fokus.jpg",
+          "cloudflare_url": "https://vorschau.magnet-xs.ch/die-schule-vollversion/images/kurs-einzeltraining-fokus.jpg",
+          "cloudflare_short": "vorschau.magnet-xs.ch/die-schule-vollversion/images/kurs-einzeltraining-fokus.jpg",
+          "is_used": true,
+          "used_in": [
+            {
+              "datei": "index.html",
+              "slot": "image",
+              "is_hero": false
+            },
+            {
+              "datei": "leistungen.html",
+              "slot": "image",
+              "is_hero": false
+            },
+            {
+              "datei": "referenzen.html",
+              "slot": "image",
+              "is_hero": false
+            }
+          ],
+          "used_in_pages": [
+            "index.html",
+            "leistungen.html",
+            "referenzen.html"
+          ],
+          "alt": "Good for Dogs Baden &amp; Birmenstorf: Einzeltraining & Beratung"
+        },
+        {
+          "nr": 6,
+          "id": "images_kurs_familienhunde_wald_jpg",
+          "filename": "kurs-familienhunde-wald.jpg",
+          "rel_path": "images/kurs-familienhunde-wald.jpg",
+          "folder": "preview-die-schule",
+          "category": "Referenz, Projekt & Angebot",
+          "category_code": "ref",
+          "dimensions": "1100x495",
+          "size_kb": 198.5,
+          "format": "JPG",
+          "mtime": 1794556142,
+          "mtime_str": "13.11.2026 07:49",
+          "cdn_url": "https://vorschau.magnet-xs.ch/die-schule-vollversion/images/kurs-familienhunde-wald.jpg",
+          "cloudflare_url": "https://vorschau.magnet-xs.ch/die-schule-vollversion/images/kurs-familienhunde-wald.jpg",
+          "cloudflare_short": "vorschau.magnet-xs.ch/die-schule-vollversion/images/kurs-familienhunde-wald.jpg",
+          "is_used": true,
+          "used_in": [
+            {
+              "datei": "index.html",
+              "slot": "image",
+              "is_hero": false
+            },
+            {
+              "datei": "leistungen.html",
+              "slot": "image",
+              "is_hero": false
+            },
+            {
+              "datei": "referenzen.html",
+              "slot": "image",
+              "is_hero": false
+            }
+          ],
+          "used_in_pages": [
+            "index.html",
+            "leistungen.html",
+            "referenzen.html"
+          ],
+          "alt": "Good for Dogs Baden &amp; Birmenstorf: Familienhunde-Gruppe"
+        },
+        {
+          "nr": 7,
+          "id": "images_kurs_junghunde_erziehung_jpg",
+          "filename": "kurs-junghunde-erziehung.jpg",
+          "rel_path": "images/kurs-junghunde-erziehung.jpg",
+          "folder": "preview-die-schule",
+          "category": "Referenz, Projekt & Angebot",
+          "category_code": "ref",
+          "dimensions": "1100x734",
+          "size_kb": 179.4,
+          "format": "JPG",
+          "mtime": 1794556142,
+          "mtime_str": "13.11.2026 07:49",
+          "cdn_url": "https://vorschau.magnet-xs.ch/die-schule-vollversion/images/kurs-junghunde-erziehung.jpg",
+          "cloudflare_url": "https://vorschau.magnet-xs.ch/die-schule-vollversion/images/kurs-junghunde-erziehung.jpg",
+          "cloudflare_short": "vorschau.magnet-xs.ch/die-schule-vollversion/images/kurs-junghunde-erziehung.jpg",
+          "is_used": true,
+          "used_in": [
+            {
+              "datei": "index.html",
+              "slot": "image",
+              "is_hero": false
+            },
+            {
+              "datei": "leistungen.html",
+              "slot": "image",
+              "is_hero": false
+            },
+            {
+              "datei": "referenzen.html",
+              "slot": "image",
+              "is_hero": false
+            }
+          ],
+          "used_in_pages": [
+            "index.html",
+            "leistungen.html",
+            "referenzen.html"
+          ],
+          "alt": "Good for Dogs Baden &amp; Birmenstorf: Erziehungskurs 1"
+        },
+        {
+          "nr": 8,
+          "id": "images_kurs_schnueffelspass_zos_01_jpg",
+          "filename": "kurs-schnueffelspass-zos-01.jpg",
+          "rel_path": "images/kurs-schnueffelspass-zos-01.jpg",
+          "folder": "preview-die-schule",
+          "category": "Referenz, Projekt & Angebot",
+          "category_code": "ref",
+          "dimensions": "1100x495",
+          "size_kb": 229.7,
+          "format": "JPG",
+          "mtime": 1794556142,
+          "mtime_str": "13.11.2026 07:49",
+          "cdn_url": "https://vorschau.magnet-xs.ch/die-schule-vollversion/images/kurs-schnueffelspass-zos-01.jpg",
+          "cloudflare_url": "https://vorschau.magnet-xs.ch/die-schule-vollversion/images/kurs-schnueffelspass-zos-01.jpg",
+          "cloudflare_short": "vorschau.magnet-xs.ch/die-schule-vollversion/images/kurs-schnueffelspass-zos-01.jpg",
+          "is_used": true,
+          "used_in": [
+            {
+              "datei": "index.html",
+              "slot": "image",
+              "is_hero": false
+            },
+            {
+              "datei": "leistungen.html",
+              "slot": "image",
+              "is_hero": false
+            },
+            {
+              "datei": "referenzen.html",
+              "slot": "image",
+              "is_hero": false
+            }
+          ],
+          "used_in_pages": [
+            "index.html",
+            "leistungen.html",
+            "referenzen.html"
+          ],
+          "alt": "Good for Dogs Baden &amp; Birmenstorf: Schnüffelspass-Gruppe"
+        },
+        {
+          "nr": 9,
+          "id": "images_kurs_schnueffelspass_zos_02_jpg",
+          "filename": "kurs-schnueffelspass-zos-02.jpg",
+          "rel_path": "images/kurs-schnueffelspass-zos-02.jpg",
+          "folder": "preview-die-schule",
+          "category": "Referenz, Projekt & Angebot",
+          "category_code": "ref",
+          "dimensions": "1100x495",
+          "size_kb": 250.1,
+          "format": "JPG",
+          "mtime": 1794556142,
+          "mtime_str": "13.11.2026 07:49",
+          "cdn_url": "https://vorschau.magnet-xs.ch/die-schule-vollversion/images/kurs-schnueffelspass-zos-02.jpg",
+          "cloudflare_url": "https://vorschau.magnet-xs.ch/die-schule-vollversion/images/kurs-schnueffelspass-zos-02.jpg",
+          "cloudflare_short": "vorschau.magnet-xs.ch/die-schule-vollversion/images/kurs-schnueffelspass-zos-02.jpg",
+          "is_used": true,
+          "used_in": [
+            {
+              "datei": "index.html",
+              "slot": "image",
+              "is_hero": false
+            },
+            {
+              "datei": "referenzen.html",
+              "slot": "image",
+              "is_hero": false
+            }
+          ],
+          "used_in_pages": [
+            "index.html",
+            "referenzen.html"
+          ],
+          "alt": "Zielobjektsuche und Nasenarbeit auf dem Platz in Birmenstorf"
+        },
+        {
+          "nr": 10,
+          "id": "images_kurs_welpen_wiese_jpg",
+          "filename": "kurs-welpen-wiese.jpg",
+          "rel_path": "images/kurs-welpen-wiese.jpg",
+          "folder": "preview-die-schule",
+          "category": "Referenz, Projekt & Angebot",
+          "category_code": "ref",
+          "dimensions": "1280x720",
+          "size_kb": 108.0,
+          "format": "JPG",
+          "mtime": 1794556142,
+          "mtime_str": "13.11.2026 07:49",
+          "cdn_url": "https://vorschau.magnet-xs.ch/die-schule-vollversion/images/kurs-welpen-wiese.jpg",
+          "cloudflare_url": "https://vorschau.magnet-xs.ch/die-schule-vollversion/images/kurs-welpen-wiese.jpg",
+          "cloudflare_short": "vorschau.magnet-xs.ch/die-schule-vollversion/images/kurs-welpen-wiese.jpg",
+          "is_used": true,
+          "used_in": [
+            {
+              "datei": "index.html",
+              "slot": "image",
+              "is_hero": false
+            },
+            {
+              "datei": "leistungen.html",
+              "slot": "image",
+              "is_hero": false
+            },
+            {
+              "datei": "referenzen.html",
+              "slot": "image",
+              "is_hero": false
+            }
+          ],
+          "used_in_pages": [
+            "index.html",
+            "leistungen.html",
+            "referenzen.html"
+          ],
+          "alt": "Good for Dogs Baden &amp; Birmenstorf: Welpen-Gruppe (ab 8 Wo.)"
+        },
+        {
+          "nr": 11,
+          "id": "images_logo_good_for_dogs_white_png",
+          "filename": "logo-good-for-dogs-white.png",
+          "rel_path": "images/logo-good-for-dogs-white.png",
+          "folder": "preview-die-schule",
+          "category": "Logo & Marken-Icon",
+          "category_code": "logo",
+          "dimensions": "760x262",
+          "size_kb": 70.0,
+          "format": "PNG",
+          "mtime": 1794556142,
+          "mtime_str": "13.11.2026 07:49",
+          "cdn_url": "https://vorschau.magnet-xs.ch/die-schule-vollversion/images/logo-good-for-dogs-white.png",
+          "cloudflare_url": "https://vorschau.magnet-xs.ch/die-schule-vollversion/images/logo-good-for-dogs-white.png",
+          "cloudflare_short": "vorschau.magnet-xs.ch/die-schule-vollversion/images/logo-good-for-dogs-white.png",
+          "is_used": false,
+          "used_in": [],
+          "used_in_pages": [],
+          "alt": "Good for Dogs Baden (AG) – Offizielles Logo (Individuelles 1:1 Einzeltraining und Verhaltensberatung)"
+        },
+        {
+          "nr": 12,
+          "id": "images_logo_good_for_dogs_png",
+          "filename": "logo-good-for-dogs.png",
+          "rel_path": "images/logo-good-for-dogs.png",
+          "folder": "preview-die-schule",
+          "category": "Logo & Marken-Icon",
+          "category_code": "logo",
+          "dimensions": "760x262",
+          "size_kb": 61.6,
+          "format": "PNG",
+          "mtime": 1794556142,
+          "mtime_str": "13.11.2026 07:49",
+          "cdn_url": "https://vorschau.magnet-xs.ch/die-schule-vollversion/images/logo-good-for-dogs.png",
+          "cloudflare_url": "https://vorschau.magnet-xs.ch/die-schule-vollversion/images/logo-good-for-dogs.png",
+          "cloudflare_short": "vorschau.magnet-xs.ch/die-schule-vollversion/images/logo-good-for-dogs.png",
+          "is_used": true,
+          "used_in": [
+            {
+              "datei": "index.html",
+              "slot": "image",
+              "is_hero": false
+            },
+            {
+              "datei": "kontakt.html",
+              "slot": "image",
+              "is_hero": false
+            },
+            {
+              "datei": "leistungen.html",
+              "slot": "image",
+              "is_hero": false
+            },
+            {
+              "datei": "referenzen.html",
+              "slot": "image",
+              "is_hero": false
+            },
+            {
+              "datei": "ueber-uns.html",
+              "slot": "image",
+              "is_hero": false
+            }
+          ],
+          "used_in_pages": [
+            "index.html",
+            "kontakt.html",
+            "leistungen.html",
+            "referenzen.html",
+            "ueber-uns.html"
+          ],
+          "alt": "Good for Dogs Baden (AG) – Offizielles Logo (Individuelles 1:1 Einzeltraining und Verhaltensberatung)"
+        },
+        {
+          "nr": 13,
+          "id": "images_logo_png",
+          "filename": "logo.png",
+          "rel_path": "images/logo.png",
+          "folder": "preview-die-schule",
+          "category": "Logo & Marken-Icon",
+          "category_code": "logo",
+          "dimensions": "760x262",
+          "size_kb": 61.6,
+          "format": "PNG",
+          "mtime": 1794556142,
+          "mtime_str": "13.11.2026 07:49",
+          "cdn_url": "https://vorschau.magnet-xs.ch/die-schule-vollversion/images/logo.png",
+          "cloudflare_url": "https://vorschau.magnet-xs.ch/die-schule-vollversion/images/logo.png",
+          "cloudflare_short": "vorschau.magnet-xs.ch/die-schule-vollversion/images/logo.png",
+          "is_used": false,
+          "used_in": [],
+          "used_in_pages": [],
+          "alt": "Good for Dogs Baden (AG) – Offizielles Logo (Individuelles 1:1 Einzeltraining und Verhaltensberatung)"
+        },
+        {
+          "nr": 14,
+          "id": "images_siegel_fairplay_mit_hund_png",
+          "filename": "siegel-fairplay-mit-hund.png",
+          "rel_path": "images/siegel-fairplay-mit-hund.png",
+          "folder": "preview-die-schule",
+          "category": "Logo & Marken-Icon",
+          "category_code": "logo",
+          "dimensions": "420x420",
+          "size_kb": 97.8,
+          "format": "PNG",
+          "mtime": 1794556142,
+          "mtime_str": "13.11.2026 07:49",
+          "cdn_url": "https://vorschau.magnet-xs.ch/die-schule-vollversion/images/siegel-fairplay-mit-hund.png",
+          "cloudflare_url": "https://vorschau.magnet-xs.ch/die-schule-vollversion/images/siegel-fairplay-mit-hund.png",
+          "cloudflare_short": "vorschau.magnet-xs.ch/die-schule-vollversion/images/siegel-fairplay-mit-hund.png",
+          "is_used": true,
+          "used_in": [
+            {
+              "datei": "index.html",
+              "slot": "image",
+              "is_hero": false
+            }
+          ],
+          "used_in_pages": [
+            "index.html"
+          ],
+          "alt": "Qualitätssiegel Fairplay mit Hund"
+        },
+        {
+          "nr": 15,
+          "id": "images_siegel_initiative_gewaltfrei_jpg",
+          "filename": "siegel-initiative-gewaltfrei.jpg",
+          "rel_path": "images/siegel-initiative-gewaltfrei.jpg",
+          "folder": "preview-die-schule",
+          "category": "Logo & Marken-Icon",
+          "category_code": "logo",
+          "dimensions": "420x420",
+          "size_kb": 37.0,
+          "format": "JPG",
+          "mtime": 1794556142,
+          "mtime_str": "13.11.2026 07:49",
+          "cdn_url": "https://vorschau.magnet-xs.ch/die-schule-vollversion/images/siegel-initiative-gewaltfrei.jpg",
+          "cloudflare_url": "https://vorschau.magnet-xs.ch/die-schule-vollversion/images/siegel-initiative-gewaltfrei.jpg",
+          "cloudflare_short": "vorschau.magnet-xs.ch/die-schule-vollversion/images/siegel-initiative-gewaltfrei.jpg",
+          "is_used": true,
+          "used_in": [
+            {
+              "datei": "index.html",
+              "slot": "image",
+              "is_hero": false
+            }
+          ],
+          "used_in_pages": [
+            "index.html"
+          ],
+          "alt": "Initiative für gewaltfreies Hundetraining"
+        },
+        {
+          "nr": 16,
+          "id": "images_team_martina_sidler_portrait_jpg",
+          "filename": "team-martina-sidler-portrait.jpg",
+          "rel_path": "images/team-martina-sidler-portrait.jpg",
+          "folder": "preview-die-schule",
+          "category": "Team, Porträt & Kader",
+          "category_code": "team",
+          "dimensions": "1067x800",
+          "size_kb": 246.6,
+          "format": "JPG",
+          "mtime": 1794556142,
+          "mtime_str": "13.11.2026 07:49",
+          "cdn_url": "https://vorschau.magnet-xs.ch/die-schule-vollversion/images/team-martina-sidler-portrait.jpg",
+          "cloudflare_url": "https://vorschau.magnet-xs.ch/die-schule-vollversion/images/team-martina-sidler-portrait.jpg",
+          "cloudflare_short": "vorschau.magnet-xs.ch/die-schule-vollversion/images/team-martina-sidler-portrait.jpg",
+          "is_used": true,
+          "used_in": [
+            {
+              "datei": "index.html",
+              "slot": "image",
+              "is_hero": false
+            },
+            {
+              "datei": "kontakt.html",
+              "slot": "image",
+              "is_hero": false
+            },
+            {
+              "datei": "ueber-uns.html",
+              "slot": "image",
+              "is_hero": false
+            }
+          ],
+          "used_in_pages": [
+            "index.html",
+            "kontakt.html",
+            "ueber-uns.html"
+          ],
+          "alt": "Martina Sidler, Inhaberin Hundeschule Good for Dogs in Baden"
+        }
+      ]
+    },
+    {
+      "folder": "preview-die-schule-v2",
+      "company_name": "Good for Dogs · Hundeschule Martina Sidler (Zeigeversion v2)",
+      "city": "Baden & Birmenstorf AG",
+      "partner": "Jenny Ettle (JE-MI)",
+      "submitted_at": "13.11.2026 · 07:36 Uhr",
+      "cloudflare_base_url": "https://vorschau.magnet-xs.ch/die-schule-v2/",
+      "cloudflare_short_base": "vorschau.magnet-xs.ch/die-schule-v2",
+      "total_assets": 16,
+      "active_assets": 12,
+      "pool_assets": 4,
+      "external_hotlinks": 0,
+      "external_hotlink_details": [],
+      "total_kb": 1906.7,
+      "total_mb": 1.86,
+      "html_pages_count": 2,
+      "html_pages": [
+        "index.html",
+        "kontakt.html"
+      ],
+      "bilder_json_exists": true,
+      "bilder_verzeichnis_exists": true,
+      "assets": [
+        {
+          "nr": 1,
+          "id": "images_apple_touch_icon_png",
+          "filename": "apple-touch-icon.png",
+          "rel_path": "images/apple-touch-icon.png",
+          "folder": "preview-die-schule-v2",
+          "category": "Favicon & App-Icon",
+          "category_code": "icon",
+          "dimensions": "180x180",
+          "size_kb": 11.6,
+          "format": "PNG",
+          "mtime": 1794556142,
+          "mtime_str": "13.11.2026 07:49",
+          "cdn_url": "https://vorschau.magnet-xs.ch/die-schule-v2/images/apple-touch-icon.png",
+          "cloudflare_url": "https://vorschau.magnet-xs.ch/die-schule-v2/images/apple-touch-icon.png",
+          "cloudflare_short": "vorschau.magnet-xs.ch/die-schule-v2/images/apple-touch-icon.png",
+          "is_used": true,
+          "used_in": [
+            {
+              "datei": "index.html",
+              "slot": "image",
+              "is_hero": false
+            },
+            {
+              "datei": "kontakt.html",
+              "slot": "image",
+              "is_hero": false
+            }
+          ],
+          "used_in_pages": [
+            "index.html",
+            "kontakt.html"
+          ],
+          "alt": "Good for Dogs Baden (AG) – Offizielles Logo (Individuelles 1:1 Einzeltraining und Verhaltensberatung)"
+        },
+        {
+          "nr": 2,
+          "id": "images_favicon_32x32_png",
+          "filename": "favicon-32x32.png",
+          "rel_path": "images/favicon-32x32.png",
+          "folder": "preview-die-schule-v2",
+          "category": "Favicon & App-Icon",
+          "category_code": "icon",
+          "dimensions": "32x32",
+          "size_kb": 1.0,
+          "format": "PNG",
+          "mtime": 1794556142,
+          "mtime_str": "13.11.2026 07:49",
+          "cdn_url": "https://vorschau.magnet-xs.ch/die-schule-v2/images/favicon-32x32.png",
+          "cloudflare_url": "https://vorschau.magnet-xs.ch/die-schule-v2/images/favicon-32x32.png",
+          "cloudflare_short": "vorschau.magnet-xs.ch/die-schule-v2/images/favicon-32x32.png",
+          "is_used": true,
+          "used_in": [
+            {
+              "datei": "index.html",
+              "slot": "image",
+              "is_hero": false
+            },
+            {
+              "datei": "kontakt.html",
+              "slot": "image",
+              "is_hero": false
+            }
+          ],
+          "used_in_pages": [
+            "index.html",
+            "kontakt.html"
+          ],
+          "alt": "Good for Dogs Baden (AG) – Offizielles Logo (Individuelles 1:1 Einzeltraining und Verhaltensberatung)"
+        },
+        {
+          "nr": 3,
+          "id": "images_hero_mensch_hund_alltag_jpg",
+          "filename": "hero-mensch-hund-alltag.jpg",
+          "rel_path": "images/hero-mensch-hund-alltag.jpg",
+          "folder": "preview-die-schule-v2",
+          "category": "Startbühne & Header",
+          "category_code": "hero",
+          "dimensions": "1100x733",
+          "size_kb": 112.8,
+          "format": "JPG",
+          "mtime": 1794556142,
+          "mtime_str": "13.11.2026 07:49",
+          "cdn_url": "https://vorschau.magnet-xs.ch/die-schule-v2/images/hero-mensch-hund-alltag.jpg",
+          "cloudflare_url": "https://vorschau.magnet-xs.ch/die-schule-v2/images/hero-mensch-hund-alltag.jpg",
+          "cloudflare_short": "vorschau.magnet-xs.ch/die-schule-v2/images/hero-mensch-hund-alltag.jpg",
+          "is_used": true,
+          "used_in": [
+            {
+              "datei": "index.html",
+              "slot": "image",
+              "is_hero": true
+            },
+            {
+              "datei": "kontakt.html",
+              "slot": "image",
+              "is_hero": true
+            }
+          ],
+          "used_in_pages": [
+            "index.html",
+            "kontakt.html"
+          ],
+          "alt": "Martina Sidler beim Hundetraining mit aufmerksamem Hund im Freien"
+        },
+        {
+          "nr": 4,
+          "id": "images_hund_baumstamm_portraet_jpg",
+          "filename": "hund-baumstamm-portraet.jpg",
+          "rel_path": "images/hund-baumstamm-portraet.jpg",
+          "folder": "preview-die-schule-v2",
+          "category": "Team, Porträt & Kader",
+          "category_code": "team",
+          "dimensions": "533x800",
+          "size_kb": 102.7,
+          "format": "JPG",
+          "mtime": 1794556142,
+          "mtime_str": "13.11.2026 07:49",
+          "cdn_url": "https://vorschau.magnet-xs.ch/die-schule-v2/images/hund-baumstamm-portraet.jpg",
+          "cloudflare_url": "https://vorschau.magnet-xs.ch/die-schule-v2/images/hund-baumstamm-portraet.jpg",
+          "cloudflare_short": "vorschau.magnet-xs.ch/die-schule-v2/images/hund-baumstamm-portraet.jpg",
+          "is_used": true,
+          "used_in": [
+            {
+              "datei": "index.html",
+              "slot": "image",
+              "is_hero": false
+            }
+          ],
+          "used_in_pages": [
+            "index.html"
+          ],
+          "alt": "Good for Dogs Hundeschule Baden: Geprüfte Fachqualität"
+        },
+        {
+          "nr": 5,
+          "id": "images_kurs_einzeltraining_fokus_jpg",
+          "filename": "kurs-einzeltraining-fokus.jpg",
+          "rel_path": "images/kurs-einzeltraining-fokus.jpg",
+          "folder": "preview-die-schule-v2",
+          "category": "Referenz, Projekt & Angebot",
+          "category_code": "ref",
+          "dimensions": "1100x495",
+          "size_kb": 138.3,
+          "format": "JPG",
+          "mtime": 1794556142,
+          "mtime_str": "13.11.2026 07:49",
+          "cdn_url": "https://vorschau.magnet-xs.ch/die-schule-v2/images/kurs-einzeltraining-fokus.jpg",
+          "cloudflare_url": "https://vorschau.magnet-xs.ch/die-schule-v2/images/kurs-einzeltraining-fokus.jpg",
+          "cloudflare_short": "vorschau.magnet-xs.ch/die-schule-v2/images/kurs-einzeltraining-fokus.jpg",
+          "is_used": true,
+          "used_in": [
+            {
+              "datei": "index.html",
+              "slot": "image",
+              "is_hero": false
+            }
+          ],
+          "used_in_pages": [
+            "index.html"
+          ],
+          "alt": "Good for Dogs Baden &amp; Birmenstorf: Einzeltraining & Beratung"
+        },
+        {
+          "nr": 6,
+          "id": "images_kurs_familienhunde_wald_jpg",
+          "filename": "kurs-familienhunde-wald.jpg",
+          "rel_path": "images/kurs-familienhunde-wald.jpg",
+          "folder": "preview-die-schule-v2",
+          "category": "Referenz, Projekt & Angebot",
+          "category_code": "ref",
+          "dimensions": "1100x495",
+          "size_kb": 198.5,
+          "format": "JPG",
+          "mtime": 1794556142,
+          "mtime_str": "13.11.2026 07:49",
+          "cdn_url": "https://vorschau.magnet-xs.ch/die-schule-v2/images/kurs-familienhunde-wald.jpg",
+          "cloudflare_url": "https://vorschau.magnet-xs.ch/die-schule-v2/images/kurs-familienhunde-wald.jpg",
+          "cloudflare_short": "vorschau.magnet-xs.ch/die-schule-v2/images/kurs-familienhunde-wald.jpg",
+          "is_used": true,
+          "used_in": [
+            {
+              "datei": "index.html",
+              "slot": "image",
+              "is_hero": false
+            }
+          ],
+          "used_in_pages": [
+            "index.html"
+          ],
+          "alt": "Good for Dogs Baden &amp; Birmenstorf: Familienhunde-Gruppe"
+        },
+        {
+          "nr": 7,
+          "id": "images_kurs_junghunde_erziehung_jpg",
+          "filename": "kurs-junghunde-erziehung.jpg",
+          "rel_path": "images/kurs-junghunde-erziehung.jpg",
+          "folder": "preview-die-schule-v2",
+          "category": "Referenz, Projekt & Angebot",
+          "category_code": "ref",
+          "dimensions": "1100x734",
+          "size_kb": 179.4,
+          "format": "JPG",
+          "mtime": 1794556142,
+          "mtime_str": "13.11.2026 07:49",
+          "cdn_url": "https://vorschau.magnet-xs.ch/die-schule-v2/images/kurs-junghunde-erziehung.jpg",
+          "cloudflare_url": "https://vorschau.magnet-xs.ch/die-schule-v2/images/kurs-junghunde-erziehung.jpg",
+          "cloudflare_short": "vorschau.magnet-xs.ch/die-schule-v2/images/kurs-junghunde-erziehung.jpg",
+          "is_used": true,
+          "used_in": [
+            {
+              "datei": "index.html",
+              "slot": "image",
+              "is_hero": false
+            }
+          ],
+          "used_in_pages": [
+            "index.html"
+          ],
+          "alt": "Good for Dogs Baden &amp; Birmenstorf: Erziehungskurs 1"
+        },
+        {
+          "nr": 8,
+          "id": "images_kurs_schnueffelspass_zos_01_jpg",
+          "filename": "kurs-schnueffelspass-zos-01.jpg",
+          "rel_path": "images/kurs-schnueffelspass-zos-01.jpg",
+          "folder": "preview-die-schule-v2",
+          "category": "Referenz, Projekt & Angebot",
+          "category_code": "ref",
+          "dimensions": "1100x495",
+          "size_kb": 229.7,
+          "format": "JPG",
+          "mtime": 1794556142,
+          "mtime_str": "13.11.2026 07:49",
+          "cdn_url": "https://vorschau.magnet-xs.ch/die-schule-v2/images/kurs-schnueffelspass-zos-01.jpg",
+          "cloudflare_url": "https://vorschau.magnet-xs.ch/die-schule-v2/images/kurs-schnueffelspass-zos-01.jpg",
+          "cloudflare_short": "vorschau.magnet-xs.ch/die-schule-v2/images/kurs-schnueffelspass-zos-01.jpg",
+          "is_used": true,
+          "used_in": [
+            {
+              "datei": "index.html",
+              "slot": "image",
+              "is_hero": false
+            }
+          ],
+          "used_in_pages": [
+            "index.html"
+          ],
+          "alt": "Good for Dogs Baden &amp; Birmenstorf: Schnüffelspass-Gruppe"
+        },
+        {
+          "nr": 9,
+          "id": "images_kurs_schnueffelspass_zos_02_jpg",
+          "filename": "kurs-schnueffelspass-zos-02.jpg",
+          "rel_path": "images/kurs-schnueffelspass-zos-02.jpg",
+          "folder": "preview-die-schule-v2",
+          "category": "Referenz, Projekt & Angebot",
+          "category_code": "ref",
+          "dimensions": "1100x495",
+          "size_kb": 250.1,
+          "format": "JPG",
+          "mtime": 1794556142,
+          "mtime_str": "13.11.2026 07:49",
+          "cdn_url": "https://vorschau.magnet-xs.ch/die-schule-v2/images/kurs-schnueffelspass-zos-02.jpg",
+          "cloudflare_url": "https://vorschau.magnet-xs.ch/die-schule-v2/images/kurs-schnueffelspass-zos-02.jpg",
+          "cloudflare_short": "vorschau.magnet-xs.ch/die-schule-v2/images/kurs-schnueffelspass-zos-02.jpg",
+          "is_used": true,
+          "used_in": [
+            {
+              "datei": "index.html",
+              "slot": "image",
+              "is_hero": false
+            }
+          ],
+          "used_in_pages": [
+            "index.html"
+          ],
+          "alt": "Zielobjektsuche und Nasenarbeit auf dem Platz in Birmenstorf"
+        },
+        {
+          "nr": 10,
+          "id": "images_kurs_welpen_wiese_jpg",
+          "filename": "kurs-welpen-wiese.jpg",
+          "rel_path": "images/kurs-welpen-wiese.jpg",
+          "folder": "preview-die-schule-v2",
+          "category": "Referenz, Projekt & Angebot",
+          "category_code": "ref",
+          "dimensions": "1280x720",
+          "size_kb": 108.0,
+          "format": "JPG",
+          "mtime": 1794556142,
+          "mtime_str": "13.11.2026 07:49",
+          "cdn_url": "https://vorschau.magnet-xs.ch/die-schule-v2/images/kurs-welpen-wiese.jpg",
+          "cloudflare_url": "https://vorschau.magnet-xs.ch/die-schule-v2/images/kurs-welpen-wiese.jpg",
+          "cloudflare_short": "vorschau.magnet-xs.ch/die-schule-v2/images/kurs-welpen-wiese.jpg",
+          "is_used": true,
+          "used_in": [
+            {
+              "datei": "index.html",
+              "slot": "image",
+              "is_hero": false
+            }
+          ],
+          "used_in_pages": [
+            "index.html"
+          ],
+          "alt": "Good for Dogs Baden &amp; Birmenstorf: Welpen-Gruppe (ab 8 Wo.)"
+        },
+        {
+          "nr": 11,
+          "id": "images_logo_good_for_dogs_white_png",
+          "filename": "logo-good-for-dogs-white.png",
+          "rel_path": "images/logo-good-for-dogs-white.png",
+          "folder": "preview-die-schule-v2",
+          "category": "Logo & Marken-Icon",
+          "category_code": "logo",
+          "dimensions": "760x262",
+          "size_kb": 70.0,
+          "format": "PNG",
+          "mtime": 1794556142,
+          "mtime_str": "13.11.2026 07:49",
+          "cdn_url": "https://vorschau.magnet-xs.ch/die-schule-v2/images/logo-good-for-dogs-white.png",
+          "cloudflare_url": "https://vorschau.magnet-xs.ch/die-schule-v2/images/logo-good-for-dogs-white.png",
+          "cloudflare_short": "vorschau.magnet-xs.ch/die-schule-v2/images/logo-good-for-dogs-white.png",
+          "is_used": false,
+          "used_in": [],
+          "used_in_pages": [],
+          "alt": "Good for Dogs Baden (AG) – Offizielles Logo (Individuelles 1:1 Einzeltraining und Verhaltensberatung)"
+        },
+        {
+          "nr": 12,
+          "id": "images_logo_good_for_dogs_png",
+          "filename": "logo-good-for-dogs.png",
+          "rel_path": "images/logo-good-for-dogs.png",
+          "folder": "preview-die-schule-v2",
+          "category": "Logo & Marken-Icon",
+          "category_code": "logo",
+          "dimensions": "760x262",
+          "size_kb": 61.6,
+          "format": "PNG",
+          "mtime": 1794556142,
+          "mtime_str": "13.11.2026 07:49",
+          "cdn_url": "https://vorschau.magnet-xs.ch/die-schule-v2/images/logo-good-for-dogs.png",
+          "cloudflare_url": "https://vorschau.magnet-xs.ch/die-schule-v2/images/logo-good-for-dogs.png",
+          "cloudflare_short": "vorschau.magnet-xs.ch/die-schule-v2/images/logo-good-for-dogs.png",
+          "is_used": true,
+          "used_in": [
+            {
+              "datei": "index.html",
+              "slot": "image",
+              "is_hero": false
+            },
+            {
+              "datei": "kontakt.html",
+              "slot": "image",
+              "is_hero": false
+            }
+          ],
+          "used_in_pages": [
+            "index.html",
+            "kontakt.html"
+          ],
+          "alt": "Good for Dogs Baden (AG) – Offizielles Logo (Individuelles 1:1 Einzeltraining und Verhaltensberatung)"
+        },
+        {
+          "nr": 13,
+          "id": "images_logo_png",
+          "filename": "logo.png",
+          "rel_path": "images/logo.png",
+          "folder": "preview-die-schule-v2",
+          "category": "Logo & Marken-Icon",
+          "category_code": "logo",
+          "dimensions": "760x262",
+          "size_kb": 61.6,
+          "format": "PNG",
+          "mtime": 1794556142,
+          "mtime_str": "13.11.2026 07:49",
+          "cdn_url": "https://vorschau.magnet-xs.ch/die-schule-v2/images/logo.png",
+          "cloudflare_url": "https://vorschau.magnet-xs.ch/die-schule-v2/images/logo.png",
+          "cloudflare_short": "vorschau.magnet-xs.ch/die-schule-v2/images/logo.png",
+          "is_used": false,
+          "used_in": [],
+          "used_in_pages": [],
+          "alt": "Good for Dogs Baden (AG) – Offizielles Logo (Individuelles 1:1 Einzeltraining und Verhaltensberatung)"
+        },
+        {
+          "nr": 14,
+          "id": "images_siegel_fairplay_mit_hund_png",
+          "filename": "siegel-fairplay-mit-hund.png",
+          "rel_path": "images/siegel-fairplay-mit-hund.png",
+          "folder": "preview-die-schule-v2",
+          "category": "Logo & Marken-Icon",
+          "category_code": "logo",
+          "dimensions": "420x420",
+          "size_kb": 97.8,
+          "format": "PNG",
+          "mtime": 1794556142,
+          "mtime_str": "13.11.2026 07:49",
+          "cdn_url": "https://vorschau.magnet-xs.ch/die-schule-v2/images/siegel-fairplay-mit-hund.png",
+          "cloudflare_url": "https://vorschau.magnet-xs.ch/die-schule-v2/images/siegel-fairplay-mit-hund.png",
+          "cloudflare_short": "vorschau.magnet-xs.ch/die-schule-v2/images/siegel-fairplay-mit-hund.png",
+          "is_used": false,
+          "used_in": [],
+          "used_in_pages": [],
+          "alt": "Good for Dogs Baden (AG) – Offizielles Logo (Individuelles 1:1 Einzeltraining und Verhaltensberatung)"
+        },
+        {
+          "nr": 15,
+          "id": "images_siegel_initiative_gewaltfrei_jpg",
+          "filename": "siegel-initiative-gewaltfrei.jpg",
+          "rel_path": "images/siegel-initiative-gewaltfrei.jpg",
+          "folder": "preview-die-schule-v2",
+          "category": "Logo & Marken-Icon",
+          "category_code": "logo",
+          "dimensions": "420x420",
+          "size_kb": 37.0,
+          "format": "JPG",
+          "mtime": 1794556142,
+          "mtime_str": "13.11.2026 07:49",
+          "cdn_url": "https://vorschau.magnet-xs.ch/die-schule-v2/images/siegel-initiative-gewaltfrei.jpg",
+          "cloudflare_url": "https://vorschau.magnet-xs.ch/die-schule-v2/images/siegel-initiative-gewaltfrei.jpg",
+          "cloudflare_short": "vorschau.magnet-xs.ch/die-schule-v2/images/siegel-initiative-gewaltfrei.jpg",
+          "is_used": false,
+          "used_in": [],
+          "used_in_pages": [],
+          "alt": "Good for Dogs Baden (AG) – Offizielles Logo (Individuelles 1:1 Einzeltraining und Verhaltensberatung)"
+        },
+        {
+          "nr": 16,
+          "id": "images_team_martina_sidler_portrait_jpg",
+          "filename": "team-martina-sidler-portrait.jpg",
+          "rel_path": "images/team-martina-sidler-portrait.jpg",
+          "folder": "preview-die-schule-v2",
+          "category": "Team, Porträt & Kader",
+          "category_code": "team",
+          "dimensions": "1067x800",
+          "size_kb": 246.6,
+          "format": "JPG",
+          "mtime": 1794556142,
+          "mtime_str": "13.11.2026 07:49",
+          "cdn_url": "https://vorschau.magnet-xs.ch/die-schule-v2/images/team-martina-sidler-portrait.jpg",
+          "cloudflare_url": "https://vorschau.magnet-xs.ch/die-schule-v2/images/team-martina-sidler-portrait.jpg",
+          "cloudflare_short": "vorschau.magnet-xs.ch/die-schule-v2/images/team-martina-sidler-portrait.jpg",
+          "is_used": true,
+          "used_in": [
+            {
+              "datei": "kontakt.html",
+              "slot": "image",
+              "is_hero": false
+            }
+          ],
+          "used_in_pages": [
+            "kontakt.html"
+          ],
+          "alt": "Martina Sidler, Hundeschule Good for Dogs in Baden und Birmenstorf"
         }
       ]
     },

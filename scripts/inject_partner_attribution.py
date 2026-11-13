@@ -182,6 +182,22 @@ SHOWCASE_CONFIGS = {
         "navy_hex": "#003366",
         "font_heading": "'Lexend', sans-serif",
     },
+    "preview-die-schule": {
+        "routing_slug": "die-schule",
+        "site_label": "Good for Dogs · Hundeschule Martina Sidler (Baden & Birmenstorf)",
+        "entity_hint": "Good for Dogs (Martina Sidler, 5406 Baden & 5413 Birmenstorf)",
+        "accent_hex": "#007081",
+        "navy_hex": "#07191D",
+        "font_heading": "'Lora', Georgia, serif",
+    },
+    "preview-die-schule-v2": {
+        "routing_slug": "die-schule-v2",
+        "site_label": "Good for Dogs (Zeigeversion / Vorschau-Entwurf)",
+        "entity_hint": "Good for Dogs (Martina Sidler, 5406 Baden & 5413 Birmenstorf)",
+        "accent_hex": "#007081",
+        "navy_hex": "#07191D",
+        "font_heading": "'Lora', Georgia, serif",
+    },
     "preview-mondocani": {
         "routing_slug": "mondocani",
         "site_label": "MONDOCANI · Die mobile Hundeschule (Dorette Sieber, Solothurn)",

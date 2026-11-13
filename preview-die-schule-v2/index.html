@@ -1,0 +1,3307 @@
+<!DOCTYPE html>
+<html lang="de-CH">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <meta http-equiv="X-XSS-Protection" content="1; mode=block">
+  <meta name="referrer" content="no-referrer">
+  <title>Good for Dogs · Hundeschule Baden & Birmenstorf (Zeigeversion / Vorschau-Entwurf)</title>
+  <meta name="description" content="Hundeschule Good for Dogs in Baden & Birmenstorf (Zeigeversion): Gewaltfreies Einzeltraining, Welpengruppe, Erziehungskurse, Familienhunde und Schnüffelspass mit Martina Sidler.">
+  <link rel="icon" type="image/png" href="images/favicon-32x32.png">
+  <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,500;0,600;0,700;1,400&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<style>
+
+    :root {
+      /* === 1. Polaritaet & Schweizer Raster (#UI-02, #UI-16, Sensor S-27) === */
+      --wp-expected-hero-polarity: "light";
+      --wp-archetype: "warm_humanist_editorial";
+      --container-max: 1100px;
+      --container: 1100px;
+      --radius-card: 8px;
+      --radius-md: 8px;
+      --radius-badge: 4px;
+      --radius-sm: 4px;
+
+      /* === 2. Typografie (warm_humanist_editorial: Lora + Plus Jakarta Sans) === */
+      --font-display: 'Lora', Georgia, serif;
+      --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+
+      /* === 3. 60 % & 30 % Tinted Neutrals (Hue=212.8deg aus Source Visual DNA) === */
+      --bg-page: #F4FCFD;
+      --bg-page-oklch: oklch(0.985 0.008 212.8);
+      --bg-soft: #E5F3F7;
+      --bg-soft-oklch: oklch(0.955 0.016 212.8);
+      --bg-Warm: #E5F3F7;
+      --bg-elevated: #FFFFFF;
+      --bg-card: #FFFFFF;
+      --border-subtle: #D1DDE0;
+      --border-subtle-oklch: oklch(0.890 0.014 212.8);
+      --border-light: #D1DDE0;
+      --border-strong: #B4C8CD;
+      --text-main: #07191D;
+      --text-main-oklch: oklch(0.200 0.025 212.8);
+      --text-body: #1B3136;
+      --text-muted: #415054;
+      --text-muted-oklch: oklch(0.420 0.020 212.8);
+      --charcoal: #0D252B;
+      --charcoal-deep: #07191D;
+
+      /* === 4. 10 % Primaer-CTA-Chef (Marken-Hauptfarbe Petrol-Blau) === */
+      --primary: #00899E;
+      --primary-brand-raw: #5199A8;
+      --primary-oklch: oklch(0.580 0.160 212.8);
+      --primary-hover: #007081;
+      --gold: #007081;
+      --gold-hover: #005B6A;
+      --gold-dark: #005B6A;
+      --gold-soft: #E5F3F7;
+      --gold-border: #B3D6DF;
+      --green: #15803D;
+      --green-soft: #DCFCE7;
+
+      /* === 5. OKLCH-Harmonisierte Sekundaer-Palette === */
+      --accent-palette-1-soft: #E5EFFF;
+      --accent-palette-1-strong: #2B5CA6;
+      --accent-palette-2-soft: #EAEDFF;
+      --accent-palette-2-strong: #4C53A5;
+      --accent-palette-3-soft: #F5E9FF;
+      --accent-palette-3-strong: #734594;
+      --accent-palette-4-soft: #FFE6F5;
+      --accent-palette-4-strong: #8C3B73;
+
+      --shadow-sm: 0 2px 10px rgba(7, 25, 29, 0.05);
+      --shadow-md: 0 12px 28px rgba(7, 25, 29, 0.08);
+      --shadow-lg: 0 18px 40px rgba(7, 25, 29, 0.11);
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    ::selection {
+      background-color: rgba(0, 137, 158, 0.18);
+      color: #07191D;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+      overflow-x: hidden;
+    }
+
+    body {
+      font-family: var(--font-sans);
+      color: var(--text-main);
+      background-color: var(--bg-page);
+      line-height: 1.62;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+      font-variant-numeric: tabular-nums;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+      transition: color 0.18s ease, background-color 0.18s ease, border-color 0.18s ease, transform 0.18s ease;
+    }
+
+    ul {
+      list-style: none;
+    }
+
+    .container {
+      width: 100%;
+      max-width: var(--container-max);
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* Freistehende Marken-Kicker (#UI-01: Plus Jakarta Sans Bold, 0 JetBrains Mono, 0 //, 0 ::before) */
+    .section-kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--font-sans);
+      font-size: 0.76rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--gold-dark);
+      background: transparent !important;
+      border: none !important;
+      padding: 0 !important;
+      box-shadow: none !important;
+      margin-bottom: 12px;
+    }
+    .section-kicker.kicker-light {
+      color: var(--gold-dark);
+    }
+
+    h1, h2, h3, h4 {
+      font-family: var(--font-display);
+      color: var(--text-main);
+      line-height: 1.22;
+      letter-spacing: -0.01em;
+    }
+
+    .section-head {
+      max-width: 760px;
+      margin-bottom: 42px;
+    }
+    .section-title {
+      font-size: clamp(1.8rem, 3.0vw, 2.45rem);
+      font-weight: 700;
+      margin-bottom: 14px;
+    }
+    .section-desc {
+      font-size: 1.02rem;
+      color: var(--text-body);
+      line-height: 1.65;
+    }
+
+    section {
+      padding: 76px 0;
+      position: relative;
+    }
+
+    /* Sub-Topbar (V1) */
+    .top-bar {
+      background-color: var(--bg-soft);
+      color: var(--text-body);
+      font-size: 0.78rem;
+      padding: 8px 0;
+      border-bottom: 1px solid var(--border-light);
+    }
+    .top-bar-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .top-bar-left {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .top-bar-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      background-color: #FFFFFF;
+      color: var(--gold-dark);
+      border: 1px solid var(--gold-border);
+      font-family: var(--font-sans);
+      font-size: 0.71rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      padding: 3px 8px;
+      border-radius: var(--radius-sm);
+    }
+    .top-bar-links {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .top-bar-links a {
+      color: var(--text-main);
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      min-height: 32px;
+      padding: 4px 8px;
+    }
+    .top-bar-links a:hover {
+      color: var(--gold);
+    }
+
+    /* Sticky Main Header (#UI-02: 1-Zeilen-Navigations-Gesetz S-22) */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background-color: rgba(244, 252, 253, 0.97);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border-light);
+      box-shadow: 0 2px 12px rgba(7, 25, 29, 0.05);
+    }
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      min-height: 76px;
+      padding: 8px 0;
+    }
+    .brand-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      flex-shrink: 0;
+      min-height: 46px;
+      padding: 4px 0;
+    }
+    .brand-logo-wide {
+      height: 46px;
+      width: auto;
+      max-width: 176px;
+      object-fit: contain;
+      flex-shrink: 0;
+    }
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+      border-left: 1px solid var(--border-strong);
+      padding-left: 10px;
+    }
+    .brand-name {
+      font-family: var(--font-display);
+      font-size: 0.92rem;
+      font-weight: 700;
+      color: var(--charcoal-deep);
+      line-height: 1.15;
+      white-space: nowrap;
+    }
+    .brand-sub {
+      font-family: var(--font-sans);
+      font-size: 0.68rem;
+      font-weight: 700;
+      color: var(--gold-dark);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      margin-top: 2px;
+      white-space: nowrap;
+    }
+
+    .main-nav {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+      flex-wrap: nowrap;
+      white-space: nowrap;
+    }
+    .nav-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-family: var(--font-sans);
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--text-body);
+      padding: 6px 2px;
+      min-height: 36px;
+      border-radius: 0;
+      border: none;
+      border-bottom: 2px solid transparent;
+      background: transparent;
+      white-space: nowrap;
+      cursor: pointer;
+    }
+    .nav-link:hover,
+    .nav-link.active {
+      color: var(--gold-dark);
+      background: transparent;
+      border-bottom-color: var(--primary);
+    }
+    .nav-link-preview {
+      color: var(--text-muted);
+      background: transparent;
+      border: none;
+      border-bottom: 2px dashed rgba(0, 112, 129, 0.45);
+      font-size: 0.86rem;
+    }
+    .nav-link-preview:hover {
+      color: var(--gold-dark);
+      background: transparent;
+      border-bottom-color: var(--primary);
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-shrink: 0;
+    }
+
+    /* Buttons (#UI-01: 8px radius, WCAG AA >= 5.7:1 contrast on #007081) */
+    .btn-cta {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      font-family: var(--font-sans);
+      font-size: 0.89rem;
+      font-weight: 600;
+      padding: 12px 18px;
+      min-height: 44px;
+      border-radius: var(--radius-md);
+      border: 1px solid transparent;
+      cursor: pointer;
+      text-align: center;
+      line-height: 1.25;
+      transition: all 0.18s ease;
+    }
+    .btn-cta svg {
+      flex-shrink: 0;
+    }
+    .btn-cta-gold,
+    .btn-cta-primary {
+      background-color: #007081;
+      color: #FFFFFF;
+      border-color: #007081;
+      font-weight: 600;
+    }
+    .btn-cta-gold:hover,
+    .btn-cta-primary:hover {
+      background-color: #005B6A;
+      color: #FFFFFF;
+      border-color: #005B6A;
+      transform: translateY(-1px);
+    }
+    .btn-cta-outline,
+    .btn-cta-outline-light {
+      background-color: #FFFFFF;
+      color: var(--text-main);
+      border-color: var(--border-strong);
+    }
+    .btn-cta-outline:hover,
+    .btn-cta-outline-light:hover {
+      border-color: #007081;
+      color: var(--gold-dark);
+      background-color: var(--gold-soft);
+    }
+    .btn-sm {
+      font-size: 0.84rem;
+      padding: 9px 14px;
+      min-height: 40px;
+    }
+
+    /* Mobile Burger & Drawer */
+    .mobile-toggle {
+      display: none;
+      width: 44px;
+      height: 44px;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border-strong);
+      background-color: #FFFFFF;
+      color: var(--text-main);
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+    }
+    .mobile-drawer {
+      display: none;
+      flex-direction: column;
+      gap: 8px;
+      padding: 16px 24px 22px;
+      background-color: var(--bg-page);
+      border-top: 1px solid var(--border-light);
+    }
+    .mobile-drawer.open {
+      display: flex;
+    }
+    .mobile-drawer a,
+    .mobile-drawer button.mobile-nav-btn {
+      font-family: var(--font-sans);
+      font-size: 0.92rem;
+      font-weight: 600;
+      color: var(--text-main);
+      padding: 12px 14px;
+      min-height: 44px;
+      border-radius: var(--radius-sm);
+      background-color: #FFFFFF;
+      border: 1px solid var(--border-light);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      text-align: left;
+      width: 100%;
+      cursor: pointer;
+    }
+    .mobile-drawer button.mobile-nav-btn {
+      color: var(--gold-dark);
+      border-style: dashed;
+      border-color: rgba(0, 112, 129, 0.45);
+    }
+
+    /* Hero Section: Hell, freundlich & klar (#UI-16 Evolution, S-27 Light Lock & #UI-02 Bottom-Edge Baseline Lock S-23) */
+    .hero-section {
+      background: linear-gradient(135deg, #FFFFFF 0%, #F4FCFD 55%, #E5F3F7 100%);
+      background-color: #F4FCFD;
+      color: var(--text-main);
+      padding: 68px 0 80px;
+      border-bottom: 1px solid var(--border-light);
+      overflow: hidden;
+    }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.12fr 0.88fr;
+      gap: 40px;
+      align-items: stretch;
+    }
+    .hero-grid > div:first-child {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .hero-title {
+      font-size: clamp(2.0rem, 3.4vw, 2.95rem);
+      font-weight: 700;
+      color: var(--text-main);
+      line-height: 1.16;
+      margin-bottom: 16px;
+    }
+    .hero-title span {
+      color: var(--gold-dark);
+    }
+    .hero-lead {
+      font-size: 1.02rem;
+      color: var(--text-body);
+      line-height: 1.65;
+      margin-bottom: 18px;
+    }
+    .hero-quote-box {
+      background-color: #FFFFFF;
+      border: 1px solid var(--border-light);
+      border-left: 3px solid var(--primary);
+      border-radius: var(--radius-sm);
+      padding: 11px 14px;
+      font-family: var(--font-display);
+      font-style: italic;
+      font-size: 0.9rem;
+      color: var(--text-body);
+      margin-bottom: 22px;
+      line-height: 1.5;
+    }
+    .hero-actions {
+      display: flex;
+      flex-wrap: nowrap;
+      gap: 12px;
+      align-items: center;
+      margin-bottom: 24px;
+    }
+    .hero-actions:last-child,
+    .hero-badges:last-child {
+      margin-top: auto;
+      margin-bottom: 0;
+    }
+    .hero-actions .btn-cta {
+      padding: 11px 16px;
+      font-size: 0.86rem;
+      white-space: nowrap;
+    }
+    .hero-badges {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+    .hero-badge-card {
+      background-color: #FFFFFF;
+      border: 1px solid var(--border-light);
+      border-left: 3px solid var(--gold);
+      border-radius: var(--radius-sm);
+      padding: 10px 14px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      gap: 2px;
+      box-shadow: var(--shadow-sm);
+    }
+    .hero-badge-val {
+      font-family: var(--font-sans);
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: var(--gold-dark);
+    }
+    .hero-badge-lbl {
+      font-size: 0.77rem;
+      color: var(--text-body);
+      line-height: 1.35;
+    }
+
+    .hero-media-card {
+      background-color: #FFFFFF;
+      border: 1px solid var(--border-strong);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      box-shadow: var(--shadow-lg);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      height: 100%;
+    }
+    .hero-media-card img {
+      width: 100%;
+      height: 280px;
+      min-height: 260px;
+      flex: 1 1 auto;
+      object-fit: cover;
+      object-position: center 45%;
+    }
+    .hero-media-caption {
+      padding: 15px 18px;
+      background-color: var(--bg-soft);
+      border-top: 1px solid var(--border-light);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    /* Universal Symmetric Grids (#UI-14 & S-31 Sibling Card Anatomy Lock) */
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 26px;
+      align-items: stretch;
+    }
+    .grid-2 > :last-child:nth-child(odd) {
+      grid-column: 1 / -1;
+    }
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+      align-items: stretch;
+    }
+    .grid-4 {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+      align-items: stretch;
+    }
+
+    /* Cards */
+    .content-card {
+      background-color: var(--bg-card);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-md);
+      padding: 26px;
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 18px;
+      height: 100%;
+    }
+    .content-card.card-accent-top {
+      border-top: 4px solid var(--primary);
+    }
+    .content-card.card-dark {
+      background: linear-gradient(135deg, #FFFFFF 0%, #E5F3F7 100%);
+      background-color: #E5F3F7;
+      color: var(--text-main);
+      border-color: var(--gold-border);
+      border-top: 4px solid var(--gold);
+    }
+    .content-card.card-dark h3 {
+      color: var(--text-main);
+    }
+
+    .card-badge-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      flex-wrap: nowrap;
+      margin-bottom: 10px;
+      min-height: 28px;
+    }
+    .meta-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-family: var(--font-sans);
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      padding: 4px 9px;
+      border-radius: var(--radius-sm);
+      background-color: var(--gold-soft);
+      color: var(--gold-dark);
+      border: 1px solid var(--gold-border);
+      white-space: nowrap;
+    }
+    .icon-box {
+      width: 38px;
+      height: 38px;
+      border-radius: var(--radius-sm);
+      background-color: var(--gold-soft);
+      color: var(--gold-dark);
+      border: 1px solid var(--gold-border);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    /* Synchronized card headings for S-31 internal horizontal alignment */
+    .card-title-1 {
+      font-size: 1.16rem;
+      font-weight: 700;
+      line-height: 1.26;
+      margin-bottom: 8px;
+    }
+    .card-title-2 {
+      font-size: 1.15rem;
+      font-weight: 700;
+      line-height: 1.28;
+      min-height: 2.95rem;
+      margin-bottom: 8px;
+    }
+
+    .check-list {
+      display: flex;
+      flex-direction: column;
+      gap: 9px;
+      margin-top: 8px;
+    }
+    .check-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 9px;
+      font-size: 0.9rem;
+      color: var(--text-body);
+      line-height: 1.48;
+    }
+    .check-item svg {
+      color: var(--gold);
+      flex-shrink: 0;
+      margin-top: 3px;
+    }
+
+    /* Pillar Media Cards */
+    .pillar-card {
+      background-color: #FFFFFF;
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      height: 100%;
+    }
+    .pillar-img-wrap {
+      width: 100%;
+      height: 205px;
+      overflow: hidden;
+      background-color: var(--bg-soft);
+      position: relative;
+    }
+    .pillar-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 40%;
+    }
+    .pillar-body {
+      padding: 22px 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      flex: 1;
+      gap: 16px;
+    }
+
+    /* Founder / Team Cards */
+    .founder-card {
+      background-color: #FFFFFF;
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      box-shadow: var(--shadow-md);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      height: 100%;
+    }
+    .founder-top {
+      display: grid;
+      grid-template-columns: 185px 1fr;
+      gap: 22px;
+      padding: 26px 26px 0;
+      align-items: start;
+    }
+    .founder-portrait {
+      width: 100%;
+      height: 185px;
+      object-fit: cover;
+      object-position: 38% 25%;
+      border-radius: var(--radius-md);
+      border: 2px solid var(--primary);
+    }
+    .founder-body {
+      padding: 20px 26px 26px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      flex: 1;
+      gap: 16px;
+    }
+
+    /* Quality Seal Badges Row */
+    .seal-strip {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+      margin-top: 14px;
+    }
+    .seal-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px 14px;
+      background-color: var(--bg-page);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-sm);
+    }
+    .seal-item img {
+      width: 52px;
+      height: 52px;
+      object-fit: contain;
+      flex-shrink: 0;
+      border-radius: var(--radius-sm);
+      background-color: #FFFFFF;
+      padding: 2px;
+    }
+
+    /* Interactive Kurs-Finder Styles */
+    .calc-option-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      margin-bottom: 18px;
+      align-items: stretch;
+    }
+    .calc-option-btn {
+      background-color: var(--bg-page);
+      border: 2px solid var(--border-strong);
+      border-radius: var(--radius-sm);
+      padding: 12px;
+      text-align: left;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      gap: 4px;
+      font-family: inherit;
+      min-height: 74px;
+      transition: all 0.16s ease;
+    }
+    .calc-option-btn:hover {
+      border-color: var(--gold);
+      background-color: #FFFFFF;
+    }
+    .calc-option-btn.active {
+      border: 2px solid var(--gold);
+      background-color: var(--gold-soft);
+    }
+    .calc-opt-title {
+      font-family: var(--font-sans);
+      font-size: 0.81rem;
+      font-weight: 700;
+      color: var(--charcoal-deep);
+    }
+    .calc-opt-sub {
+      font-size: 0.75rem;
+      color: var(--text-body);
+      line-height: 1.35;
+    }
+    .calc-kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+      margin: 16px 0;
+    }
+    .calc-kpi-box {
+      background-color: #FFFFFF;
+      border: 1px solid var(--border-light);
+      border-left: 3px solid var(--gold);
+      border-radius: var(--radius-sm);
+      padding: 12px 14px;
+    }
+    .calc-kpi-val {
+      font-family: var(--font-sans);
+      font-size: 1.02rem;
+      font-weight: 700;
+      color: var(--gold-dark);
+    }
+    .calc-kpi-lbl {
+      font-size: 0.77rem;
+      color: var(--text-body);
+      margin-top: 2px;
+    }
+
+    /* V2 Vorschau-Entwurf (Zeigeversion) Spezifische Styles (#UI-03 Kunden-Sprache) */
+    .preview-scope-section {
+      background-color: var(--bg-soft);
+      border-top: 2px dashed rgba(0, 112, 129, 0.38);
+      border-bottom: 2px dashed rgba(0, 112, 129, 0.38);
+      padding: 74px 0 84px;
+    }
+    .preview-scope-banner {
+      background-color: #FFFFFF;
+      color: var(--text-main);
+      border: 2px dashed var(--gold);
+      border-radius: var(--radius-md);
+      padding: 26px 28px;
+      margin-bottom: 34px;
+      box-shadow: var(--shadow-md);
+    }
+    .preview-module-card {
+      background-color: #FFFFFF;
+      border: 2px dashed var(--gold);
+      border-radius: var(--radius-md);
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 18px;
+      box-shadow: var(--shadow-sm);
+      height: 100%;
+    }
+    .preview-status-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background-color: var(--gold-soft);
+      border: 1px solid var(--gold-border);
+      color: var(--gold-dark);
+      font-family: var(--font-sans);
+      font-size: 0.7rem;
+      font-weight: 700;
+      padding: 4px 9px;
+      border-radius: var(--radius-sm);
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    /* Footer */
+    .site-footer {
+      background-color: var(--bg-soft);
+      color: var(--text-main);
+      padding: 64px 0 34px;
+      border-top: 3px solid var(--primary);
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.3fr 1fr 1fr 1.1fr;
+      gap: 34px;
+      padding-bottom: 40px;
+      border-bottom: 1px solid var(--border-strong);
+    }
+    .footer-title {
+      font-family: var(--font-sans);
+      font-size: 0.86rem;
+      font-weight: 700;
+      color: var(--text-main);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 15px;
+    }
+    .footer-list {
+      display: flex;
+      flex-direction: column;
+      gap: 9px;
+    }
+    .footer-list a,
+    .footer-list button {
+      color: var(--text-body);
+      font-size: 0.87rem;
+      background: none;
+      border: none;
+      text-align: left;
+      cursor: pointer;
+      font-family: inherit;
+      padding: 5px 0;
+      min-height: 34px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .footer-list a:hover,
+    .footer-list button:hover {
+      color: var(--gold-dark);
+    }
+    .footer-bottom {
+      padding-top: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+      font-size: 0.82rem;
+      color: var(--text-body);
+    }
+    .footer-bottom a {
+      display: inline-flex;
+      align-items: center;
+      min-height: 34px;
+      padding: 4px 0;
+    }
+
+    /* Modals (#wpBlueprintModal & #wpImpressumModal) */
+    .wp-modal-backdrop {
+      position: fixed;
+      inset: 0;
+      background-color: rgba(7, 25, 29, 0.74);
+      backdrop-filter: blur(4px);
+      z-index: 9998;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      overflow-y: auto;
+    }
+    .wp-modal-backdrop.open {
+      display: flex;
+    }
+    .wp-modal-dialog {
+      background-color: #FFFFFF;
+      color: var(--text-main);
+      border: 2px solid var(--gold);
+      border-radius: var(--radius-md);
+      max-width: 660px;
+      width: 100%;
+      padding: 28px;
+      position: relative;
+      box-shadow: var(--shadow-lg);
+      max-height: 90vh;
+      overflow-y: auto;
+    }
+    .wp-modal-close {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      width: 38px;
+      height: 38px;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border-strong);
+      background-color: var(--bg-page);
+      color: var(--charcoal-deep);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+    }
+    .wp-modal-checklist {
+      background-color: var(--bg-page);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-md);
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-bottom: 18px;
+    }
+    .wp-modal-check-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 0.86rem;
+      color: var(--text-body);
+    }
+    .wp-modal-check-item svg {
+      color: var(--gold);
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    /* 3-Schritte Smart-Anmeldung & Anfrage Assistent (kontakt.html) */
+    .contact-layout {
+      display: grid;
+      grid-template-columns: 0.88fr 1.12fr;
+      gap: 36px;
+      align-items: stretch;
+    }
+    .contact-info-panel {
+      background-color: #FFFFFF;
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-md);
+      padding: 26px;
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      height: 100%;
+    }
+    .contact-direct-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-top: 18px;
+    }
+    .contact-direct-item {
+      padding: 12px 14px;
+      background-color: var(--bg-page);
+      border: 1px solid var(--border-light);
+      border-left: 3px solid var(--gold);
+      border-radius: var(--radius-sm);
+      font-size: 0.85rem;
+    }
+    .contact-direct-role {
+      font-family: var(--font-sans);
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: var(--gold-dark);
+      letter-spacing: 0.04em;
+    }
+    .contact-direct-person {
+      font-weight: 700;
+      color: var(--charcoal-deep);
+      margin-top: 2px;
+    }
+    .contact-direct-links {
+      color: var(--text-body);
+      font-size: 0.82rem;
+      margin-top: 2px;
+    }
+
+    .wizard-card {
+      background-color: #FFFFFF;
+      border: 2px solid var(--charcoal-deep);
+      border-radius: var(--radius-md);
+      padding: 28px;
+      box-shadow: var(--shadow-md);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      height: 100%;
+    }
+    .wp-stepper {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+      margin-bottom: 22px;
+      padding: 6px;
+      background-color: var(--bg-Warm);
+      border-radius: var(--radius-md);
+    }
+    .wp-step-pill {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 10px 8px;
+      border-radius: var(--radius-sm);
+      font-family: var(--font-sans);
+      font-size: 0.76rem;
+      font-weight: 700;
+      color: var(--text-muted);
+      text-align: center;
+    }
+    .wp-step-pill.active {
+      background-color: #007081;
+      color: #FFFFFF;
+    }
+    .wp-step-pill.done {
+      background-color: var(--green-soft);
+      color: #166534;
+    }
+    .wp-step-num {
+      width: 22px;
+      height: 22px;
+      border-radius: var(--radius-sm);
+      background-color: rgba(255, 255, 255, 0.22);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.74rem;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    .wp-step-pane {
+      display: none;
+    }
+    .wp-step-pane.active {
+      display: block;
+    }
+
+    .wp-role-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+      margin-bottom: 20px;
+      align-items: stretch;
+    }
+    .wp-role-tile {
+      background-color: var(--bg-page);
+      border: 2px solid var(--border-strong);
+      border-radius: var(--radius-md);
+      padding: 14px;
+      text-align: left;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      gap: 8px;
+      transition: all 0.18s ease;
+      font-family: inherit;
+      min-height: 92px;
+    }
+    .wp-role-tile:hover {
+      border-color: var(--gold);
+      background-color: #FFFFFF;
+    }
+    .wp-role-tile.selected {
+      border: 2px solid var(--gold);
+      background-color: var(--gold-soft);
+    }
+    .wp-role-head {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .wp-role-icon {
+      width: 28px;
+      height: 28px;
+      border-radius: var(--radius-sm);
+      background-color: #FFFFFF;
+      color: var(--gold-dark);
+      border: 1px solid var(--gold-border);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .wp-role-title {
+      font-family: var(--font-sans);
+      font-size: 0.86rem;
+      font-weight: 700;
+      color: var(--charcoal-deep);
+      line-height: 1.25;
+    }
+    .wp-role-desc {
+      font-size: 0.77rem;
+      color: var(--text-body);
+      line-height: 1.42;
+    }
+
+    .form-grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+      align-items: stretch;
+    }
+    .form-field {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 6px;
+    }
+    .form-label {
+      font-family: var(--font-sans);
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--charcoal-deep);
+      line-height: 1.3;
+    }
+    .form-input,
+    .form-textarea {
+      width: 100%;
+      font-family: var(--font-sans);
+      font-size: 1rem;
+      color: var(--text-main);
+      background-color: #FFFFFF;
+      border: 1px solid var(--border-strong);
+      border-radius: var(--radius-sm);
+      padding: 11px 14px;
+      min-height: 44px;
+    }
+    .form-input:focus,
+    .form-textarea:focus {
+      outline: none;
+      border-color: var(--gold);
+      box-shadow: 0 0 0 3px rgba(0, 137, 158, 0.16);
+    }
+    .form-textarea {
+      min-height: 96px;
+      resize: vertical;
+    }
+
+    .wp-upload-zone {
+      border: 1px dashed var(--border-strong);
+      background-color: var(--bg-page);
+      border-radius: var(--radius-md);
+      padding: 14px;
+      cursor: pointer;
+    }
+    .wp-photo-thumbs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 10px;
+    }
+    .wp-photo-thumb {
+      width: 72px;
+      height: 72px;
+      object-fit: cover;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border-strong);
+    }
+    .wizard-nav-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .wp-success-box {
+      display: none;
+      flex-direction: column;
+      gap: 14px;
+      padding: 22px;
+      background-color: var(--bg-page);
+      border: 2px solid var(--green);
+      border-radius: var(--radius-md);
+    }
+    .wp-success-box.visible {
+      display: flex;
+    }
+
+    @media (max-width: 1020px) {
+      .hero-grid,
+      .contact-layout,
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+      .grid-4 {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .main-nav {
+        display: none;
+      }
+      .mobile-toggle {
+        display: inline-flex;
+      }
+    }
+
+    @media (max-width: 768px) {
+      section {
+        padding: 54px 0;
+      }
+      .grid-2,
+      .grid-3,
+      .grid-4,
+      .hero-badges,
+      .wp-role-grid,
+      .form-grid-2,
+      .wp-stepper,
+      .founder-top,
+      .calc-option-grid,
+      .calc-kpi-grid,
+      .seal-strip {
+        grid-template-columns: 1fr;
+      }
+      .card-title-2 {
+        min-height: 0;
+      }
+      .header-actions .btn-cta {
+        display: none;
+      }
+      .hero-actions {
+        flex-wrap: wrap;
+      }
+      .hero-actions .btn-cta {
+        white-space: normal;
+        width: 100%;
+      }
+      .brand-link {
+        flex-shrink: 1;
+        min-width: 0;
+        min-height: 40px;
+        gap: 8px;
+      }
+      .brand-logo-wide {
+        height: 36px;
+        max-width: 128px;
+      }
+      .brand-text {
+        display: none;
+      }
+      .hero-media-card img {
+        height: 245px;
+      }
+      .founder-portrait {
+        height: 225px;
+      }
+      .wizard-card,
+      .content-card {
+        padding: 20px;
+      }
+    }
+
+  
+/* === WEBPILOT-PARTNER-ATTRIBUTION-CSS-START === */
+    .wp-partner-attr-bar {
+      margin-top: 20px;
+      padding: 16px 18px;
+      background: linear-gradient(135deg, #F8FAFC 0%, #F1F5F9 100%);
+      border: 1px solid #CBD5E1;
+      border-left: 4px solid #007081;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 14px;
+      box-sizing: border-box;
+      width: 100%;
+      overflow: hidden;
+    }
+    .wp-partner-attr-left {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      flex: 1 1 260px;
+      min-width: 0;
+    }
+    .wp-partner-attr-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 4px;
+      background-color: #07191D;
+      color: #FBBF24;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    .wp-partner-attr-text {
+      min-width: 0;
+      flex: 1;
+    }
+    .wp-partner-attr-title {
+      font-family: 'Lora', Georgia, serif;
+      font-size: 0.86rem;
+      font-weight: 800;
+      color: #07191D;
+      line-height: 1.35;
+      margin: 0 0 3px 0;
+    }
+    .wp-partner-attr-sub {
+      font-size: 0.79rem;
+      color: #475569;
+      line-height: 1.4;
+      margin: 0;
+    }
+    .wp-partner-cta-btn {
+      appearance: none;
+      background-color: #07191D;
+      color: #FFFFFF !important;
+      border: 1px solid #07191D;
+      border-radius: 8px;
+      padding: 10px 15px;
+      min-height: 42px;
+      min-width: 44px;
+      font-family: 'Lora', Georgia, serif;
+      font-size: 0.79rem;
+      font-weight: 700;
+      line-height: 1.3;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      text-align: left;
+      transition: background-color 0.18s ease, border-color 0.18s ease;
+      box-sizing: border-box;
+      overflow: hidden;
+      max-width: 100%;
+    }
+    .wp-partner-cta-btn:hover {
+      background-color: #007081;
+      border-color: #007081;
+      color: #FFFFFF !important;
+    }
+    .wp-partner-cta-btn svg {
+      flex-shrink: 0;
+    }
+    .wp-partner-footer-btn {
+      appearance: none;
+      background-color: #1e293b;
+      color: #F8FAFC !important;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 8px;
+      padding: 7px 13px;
+      min-height: 36px;
+      min-width: 44px;
+      font-family: inherit;
+      font-size: 0.78rem;
+      font-weight: 700;
+      line-height: 1.3;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      text-align: left;
+      transition: background-color 0.18s ease, border-color 0.18s ease;
+      box-sizing: border-box;
+      overflow: hidden;
+      max-width: 100%;
+    }
+    .wp-partner-footer-btn:hover {
+      background-color: #0f172a;
+      border-color: #FBBF24;
+      color: #FFFFFF !important;
+    }
+    .wp-partner-footer-btn svg {
+      color: #FBBF24;
+      flex-shrink: 0;
+    }
+    /* Partner Modal (#wpPartnerModal) */
+    .wp-partner-modal-backdrop {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background-color: rgba(11, 19, 36, 0.82);
+      backdrop-filter: blur(6px);
+      z-index: 2200;
+      align-items: center;
+      justify-content: center;
+      padding: 14px;
+      box-sizing: border-box;
+    }
+    .wp-partner-modal-backdrop.open {
+      display: flex;
+    }
+    .wp-partner-modal-dialog {
+      background-color: #FFFFFF;
+      color: #0F172A;
+      border: 2px solid #007081;
+      border-radius: 8px;
+      max-width: 640px;
+      width: 100%;
+      padding: 22px 22px 20px 22px;
+      box-shadow: 0 20px 45px rgba(15, 23, 42, 0.35);
+      position: relative;
+      max-height: calc(100dvh - 28px);
+      overflow-y: auto;
+      box-sizing: border-box;
+    }
+    .wp-partner-modal-head {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 10px;
+    }
+    .wp-partner-modal-kicker {
+      font-family: 'Lora', Georgia, serif;
+      font-size: 0.7rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+      color: #007081;
+      display: block;
+      margin-bottom: 4px;
+    }
+    .wp-partner-modal-title {
+      font-family: 'Lora', Georgia, serif;
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: #07191D;
+      line-height: 1.25;
+      margin: 0;
+    }
+    .wp-partner-modal-close {
+      appearance: none;
+      width: 38px;
+      height: 38px;
+      min-width: 38px;
+      min-height: 38px;
+      border-radius: 8px;
+      border: 1px solid #CBD5E1;
+      background-color: #F8FAFC;
+      color: #0F172A;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      padding: 0;
+    }
+    .wp-partner-modal-close:hover {
+      background-color: #E2E8F0;
+    }
+    .wp-partner-notice {
+      background-color: #F8FAFC;
+      border: 1px solid #E2E8F0;
+      border-left: 4px solid #07191D;
+      border-radius: 4px;
+      padding: 9px 12px;
+      font-size: 0.78rem;
+      color: #334155;
+      line-height: 1.42;
+      margin-bottom: 14px;
+    }
+    .wp-partner-vcard {
+      background-color: #F8FAFC;
+      border: 1px solid #CBD5E1;
+      border-radius: 8px;
+      padding: 13px 14px;
+      margin-bottom: 14px;
+    }
+    .wp-partner-vcard-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+    .wp-partner-vcard-name {
+      font-family: 'Lora', Georgia, serif;
+      font-size: 0.96rem;
+      font-weight: 800;
+      color: #07191D;
+      line-height: 1.25;
+    }
+    .wp-partner-vcard-role {
+      font-size: 0.77rem;
+      color: #475569;
+      margin-top: 2px;
+    }
+    .wp-partner-vcard-badge {
+      background-color: #07191D;
+      color: #FFFFFF;
+      font-family: 'Lora', Georgia, serif;
+      font-size: 0.68rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      padding: 4px 8px;
+      border-radius: 4px;
+      overflow: hidden;
+    }
+    .wp-partner-direct-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 8px;
+    }
+    .wp-partner-direct-btn {
+      text-decoration: none;
+      border-radius: 8px;
+      padding: 8px 10px;
+      min-height: 40px;
+      min-width: 44px;
+      font-family: 'Lora', Georgia, serif;
+      font-size: 0.76rem;
+      font-weight: 700;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      text-align: center;
+      box-sizing: border-box;
+      overflow: hidden;
+      transition: opacity 0.16s ease, transform 0.16s ease;
+    }
+    .wp-partner-direct-btn svg {
+      flex-shrink: 0;
+    }
+    .wp-partner-direct-wa {
+      background-color: #059669;
+      color: #FFFFFF !important;
+      border: 1px solid #059669;
+    }
+    .wp-partner-direct-tel {
+      background-color: #07191D;
+      color: #FFFFFF !important;
+      border: 1px solid #07191D;
+    }
+    .wp-partner-direct-mail {
+      background-color: #FFFFFF;
+      color: #07191D !important;
+      border: 1px solid #94A3B8;
+    }
+    .wp-partner-form-box {
+      background-color: #FFFFFF;
+      border: 1px solid #CBD5E1;
+      border-radius: 8px;
+      padding: 14px;
+    }
+    .wp-partner-form-title {
+      font-family: 'Lora', Georgia, serif;
+      font-size: 0.88rem;
+      font-weight: 800;
+      color: #07191D;
+      margin: 0 0 4px 0;
+    }
+    .wp-partner-form-sub {
+      font-size: 0.76rem;
+      color: #475569;
+      margin: 0 0 12px 0;
+      line-height: 1.4;
+    }
+    .wp-partner-form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+    .wp-partner-field {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      margin-bottom: 10px;
+    }
+    .wp-partner-form-grid .wp-partner-field {
+      margin-bottom: 0;
+    }
+    .wp-partner-label {
+      font-size: 0.74rem;
+      font-weight: 700;
+      color: #1E293B;
+      line-height: 1.25;
+    }
+    .wp-partner-input {
+      width: 100%;
+      min-height: 40px;
+      padding: 8px 11px;
+      border: 1px solid #CBD5E1;
+      border-radius: 8px;
+      font-family: inherit;
+      font-size: 0.84rem;
+      color: #0F172A;
+      background-color: #FFFFFF;
+      box-sizing: border-box;
+    }
+    .wp-partner-input:focus {
+      outline: none;
+      border-color: #007081;
+    }
+    .wp-partner-submit-btn {
+      appearance: none;
+      width: 100%;
+      min-height: 44px;
+      padding: 11px 16px;
+      background-color: #007081;
+      color: #FFFFFF !important;
+      border: 1px solid #007081;
+      border-radius: 8px;
+      font-family: 'Lora', Georgia, serif;
+      font-size: 0.84rem;
+      font-weight: 800;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      box-sizing: border-box;
+      overflow: hidden;
+    }
+    .wp-partner-submit-btn:hover {
+      opacity: 0.94;
+    }
+    .wp-partner-error {
+      display: none;
+      background-color: #FEE2E2;
+      border: 1px solid #FCA5A5;
+      color: #991B1B;
+      padding: 8px 11px;
+      border-radius: 4px;
+      font-size: 0.78rem;
+      margin-bottom: 10px;
+    }
+    .wp-partner-success {
+      display: none;
+      background-color: #ECFDF5;
+      border: 1px solid #6EE7B7;
+      border-radius: 8px;
+      padding: 14px;
+      margin-top: 4px;
+    }
+    @media (max-width: 768px) {
+      body {
+        padding-bottom: 92px !important;
+      }
+      .wp-partner-attr-bar {
+        padding: 14px;
+      }
+      .wp-partner-cta-btn {
+        width: 100%;
+        justify-content: space-between;
+      }
+      .wp-partner-direct-grid {
+        grid-template-columns: 1fr;
+      }
+      .wp-partner-form-grid {
+        grid-template-columns: 1fr;
+      }
+      .wp-partner-modal-dialog {
+        padding: 16px 14px;
+      }
+    }
+/* === WEBPILOT-PARTNER-ATTRIBUTION-CSS-END === */
+  </style>
+  <!-- WP-SEO-AUTOPILOT-START -->
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+  <meta name="geo.region" content="CH-AG">
+  <meta name="geo.placename" content="Baden">
+  <link rel="canonical" href="https://vorschau.magnet-xs.ch/die-schule-v2/">
+  <meta property="og:locale" content="de_CH">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Good for Dogs · Hundeschule Martina Sidler">
+  <meta property="og:title" content="Good for Dogs · Hundeschule Baden &amp; Birmenstorf (Zeigeversion / Vorschau-Entwurf)">
+  <meta property="og:description" content="Hundeschule Good for Dogs in Baden &amp; Birmenstorf (Zeigeversion): Gewaltfreies Einzeltraining, Welpengruppe, Erziehungskurse, Familienhunde und Schnüffelspass mit Martina Sidler.">
+  <meta property="og:url" content="https://vorschau.magnet-xs.ch/die-schule-v2/">
+  <meta property="og:image" content="https://vorschau.magnet-xs.ch/die-schule-v2/images/hero-mensch-hund-alltag.jpg">
+  <meta property="og:image:alt" content="Good for Dogs · Hundeschule Martina Sidler – Baden (AG)">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Good for Dogs · Hundeschule Baden &amp; Birmenstorf (Zeigeversion / Vorschau-Entwurf)">
+  <meta name="twitter:description" content="Hundeschule Good for Dogs in Baden &amp; Birmenstorf (Zeigeversion): Gewaltfreies Einzeltraining, Welpengruppe, Erziehungskurse, Familienhunde und Schnüffelspass mit Martina Sidler.">
+  <meta name="twitter:image" content="https://vorschau.magnet-xs.ch/die-schule-v2/images/hero-mensch-hund-alltag.jpg">
+  <script type="application/ld+json" id="wp-seo-schema">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": [
+        "LocalBusiness"
+      ],
+      "@id": "https://vorschau.magnet-xs.ch/die-schule-v2/#organization",
+      "name": "Good for Dogs · Hundeschule Martina Sidler",
+      "legalName": "Hundeschule Good for Dogs · Martina Sidler",
+      "description": "Good for Dogs ist die gewaltfreie Hundeschule von Certodog® Hundeinstruktorin Martina Sidler in 5406 Baden (Rütihof) mit eingezäuntem Übungsplatz in 5413 Birmenstorf sowie Trainingsorten im Gelände zwischen Baden und Lenzburg. Angeboten werden 1:1-Einzeltraining, Welpengruppe, Erziehungskurs 1 und 2, Familienhundegruppe und Schnüffelspass in Kleingruppen von maximal 3 bis 6 Teams.",
+      "url": "https://vorschau.magnet-xs.ch/die-schule-v2/",
+      "image": "https://vorschau.magnet-xs.ch/die-schule-v2/images/hero-mensch-hund-alltag.jpg",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Region Baden-Rütihof · Übungsplatz 5413 Birmenstorf",
+        "postalCode": "5406",
+        "addressLocality": "Baden",
+        "addressRegion": "AG",
+        "addressCountry": "CH"
+      },
+      "areaServed": [
+        {
+          "@type": "City",
+          "name": "Baden"
+        },
+        {
+          "@type": "City",
+          "name": "Baden-Rütihof"
+        },
+        {
+          "@type": "City",
+          "name": "Birmenstorf"
+        },
+        {
+          "@type": "City",
+          "name": "Mellingen"
+        },
+        {
+          "@type": "City",
+          "name": "Dättwil"
+        },
+        {
+          "@type": "City",
+          "name": "Fislisbach"
+        },
+        {
+          "@type": "City",
+          "name": "Wettingen"
+        },
+        {
+          "@type": "City",
+          "name": "Brugg"
+        },
+        {
+          "@type": "City",
+          "name": "Lenzburg"
+        },
+        {
+          "@type": "City",
+          "name": "Wohlenschwil"
+        },
+        {
+          "@type": "AdministrativeArea",
+          "name": "Kanton Aargau"
+        }
+      ],
+      "knowsAbout": [
+        "Individuelles 1:1 Einzeltraining und Verhaltensberatung im Alltag (CHF 80.— pro 60 Min.)",
+        "Welpen-Gruppe ab 8 Wochen jeden Montag um 18:00 Uhr (CHF 35.— / 10er-Abo CHF 300.—)",
+        "Erziehungskurs 1 für Junghunde ab 6 Monaten jeden Samstag um 09:00 Uhr (10 Lektionen CHF 300.—)",
+        "Erziehungskurs 2 für Distanzarbeit und Freilauf jeden Samstag um 10:15 Uhr (10 Lektionen CHF 300.—)",
+        "Familienhunde-Gruppe ab 16 Wochen jeden Montag um 16:30 Uhr (CHF 35.— / 10er-Abo CHF 300.—)",
+        "Schnüffelspass-Gruppe (ZOS, Geruchsdifferenzierung, Mantrailing) jeden zweiten Samstag um 10:30 Uhr (CHF 40.— / 10er-Abo CHF 350.—)",
+        "Verständliche Körpersprache, faire Führung und echte Freude",
+        "Unsere Kurse, Wochentage und Preise",
+        "Welcher Kurs passt zu Ihnen und Ihrem Hund?",
+        "So trainieren wir bei Good for Dogs",
+        "Frisch ab Übungsplatz Birmenstorf und aus dem Aargauer Gelände",
+        "Drei Fragen, die im Hundealltag den grössten Unterschied machen",
+        "Ausblick: Diese 3 weiteren Detailseiten folgen beim gemeinsamen Ausbau",
+        "Welpen & Junghunde"
+      ],
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Leistungen und Schwerpunkte – Good for Dogs · Hundeschule Martina Sidler",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Individuelles 1:1 Einzeltraining und Verhaltensberatung im Alltag (CHF 80.— pro 60 Min.)"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Welpen-Gruppe ab 8 Wochen jeden Montag um 18:00 Uhr (CHF 35.— / 10er-Abo CHF 300.—)"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Erziehungskurs 1 für Junghunde ab 6 Monaten jeden Samstag um 09:00 Uhr (10 Lektionen CHF 300.—)"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Erziehungskurs 2 für Distanzarbeit und Freilauf jeden Samstag um 10:15 Uhr (10 Lektionen CHF 300.—)"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Familienhunde-Gruppe ab 16 Wochen jeden Montag um 16:30 Uhr (CHF 35.— / 10er-Abo CHF 300.—)"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Schnüffelspass-Gruppe (ZOS, Geruchsdifferenzierung, Mantrailing) jeden zweiten Samstag um 10:30 Uhr (CHF 40.— / 10er-Abo CHF 350.—)"
+            }
+          }
+        ]
+      },
+      "telephone": "+41 76 454 54 06",
+      "email": "info@goodfordogs.ch",
+      "sameAs": [
+        "https://goodfordogs.ch/index.html"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://vorschau.magnet-xs.ch/die-schule-v2/#website",
+      "url": "https://vorschau.magnet-xs.ch/die-schule-v2/",
+      "name": "Good for Dogs · Hundeschule Martina Sidler",
+      "inLanguage": "de-CH",
+      "publisher": {
+        "@id": "https://vorschau.magnet-xs.ch/die-schule-v2/#organization"
+      }
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://vorschau.magnet-xs.ch/die-schule-v2/#webpage",
+      "url": "https://vorschau.magnet-xs.ch/die-schule-v2/",
+      "name": "Good for Dogs · Hundeschule Baden & Birmenstorf (Zeigeversion / Vorschau-Entwurf)",
+      "description": "Hundeschule Good for Dogs in Baden & Birmenstorf (Zeigeversion): Gewaltfreies Einzeltraining, Welpengruppe, Erziehungskurse, Familienhunde und Schnüffelspass mit Martina Sidler.",
+      "inLanguage": "de-CH",
+      "dateModified": "2026-11-13T08:22:45+00:00",
+      "isPartOf": {
+        "@id": "https://vorschau.magnet-xs.ch/die-schule-v2/#website"
+      },
+      "about": {
+        "@id": "https://vorschau.magnet-xs.ch/die-schule-v2/#organization"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://vorschau.magnet-xs.ch/die-schule-v2/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Kann ich bei Good for Dogs jederzeit in einen Kurs einsteigen?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "In die Welpen-Gruppe (Montag 18:00 Uhr), die Familienhunde-Gruppe (Montag 16:30 Uhr) und die Schnüffelspass-Gruppe (jeden zweiten Samstag 10:30 Uhr) ist ein Einstieg jederzeit möglich. Erziehungskurs 1 und 2 starten als aufbauender 10er-Block am Samstagvormittag."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Wo finden die Hundetrainings statt?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Der eingezäunte Übungsplatz liegt in 5413 Birmenstorf. Ergänzend finden Trainings an realen Alltagsorten im Gelände zwischen Baden und Lenzburg sowie im Einzeltraining direkt bei Ihnen zu Hause statt."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Wie gross sind die Trainingsgruppen bei Martina Sidler?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "In der Schnüffelspass-Gruppe trainieren maximal 3 Teams, in der Welpen-Gruppe maximal 5 Teams und in den Erziehungs- sowie Familienhundekursen maximal 6 Teams."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Nach welchen Grundsätzen arbeitet die Hundeschule Good for Dogs?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Martina Sidler ist zertifizierte Certodog® Hundeinstruktorin sowie Mitglied bei «Fairplay mit Hund» und der «Initiative für gewaltfreies Hundetraining». Trainiert wird fair, gewaltfrei und kynologisch fundiert."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Wie kann bezahlt werden und welche Abmeldefristen gelten?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Kurse und Einzelstunden können per Überweisung oder vor Ort via TWINT bezahlt werden. Gruppenstunden sind bis 24 Stunden, Einzeltrainings bis 48 Stunden vor Beginn kostenfrei abmeldbar."
+          }
+        }
+      ]
+    }
+  ]
+}
+  </script>
+  <!-- WP-SEO-AUTOPILOT-END -->
+</head>
+<body>
+
+  <!-- STICKY HEADER (ZEIGEVERSION OHNE OBEREN TOP-BALKEN GEMÄSS PROTOKOLL #031) -->
+  <header class="site-header" data-section="header">
+    <div class="container header-inner">
+      <a href="index.html" class="brand-link" aria-label="Good for Dogs Hundeschule Baden Startseite">
+        <img src="images/logo-good-for-dogs.png" alt="Good for Dogs Baden (AG) – Offizielles Logo (Individuelles 1:1 Einzeltraining und Verhaltensberatung)" class="brand-logo-wide" width="142" height="46" data-slot="brand_logo">
+        <div class="brand-text">
+          <span class="brand-name" data-slot="brand_name">Good for Dogs</span>
+          <span class="brand-sub" data-slot="brand_sub">Baden &amp; Birmenstorf</span>
+        </div>
+      </a>
+
+      <nav class="main-nav" aria-label="Hauptnavigation">
+        <a href="index.html" class="nav-link active" data-nav-href="index.html">
+          <svg width="8" height="8" viewBox="0 0 8 8" aria-hidden="true"><circle cx="4" cy="4" r="4" fill="#15803D"/></svg>
+          <span>Startseite</span>
+        </a>
+        <button type="button" class="nav-link nav-link-preview" data-nav-href="leistungen.html" onclick="wpOpenBlueprintModal('Alle 6 Kurse, Wochenplan, Abos &amp; Preise im Detail', 'Einzeltraining (CHF 80.—), Welpen (Mo 18:00), Erziehungskurs 1 &amp; 2 (Sa), Familienhunde (Mo 16:30) &amp; Schnüffelspass', 'Martina Sidler (Certodog®)')">
+          <span>Angebot</span>
+        </button>
+        <button type="button" class="nav-link nav-link-preview" data-nav-href="referenzen.html" onclick="wpOpenBlueprintModal('Trainings-Einblicke, Übungsplatz Birmenstorf &amp; Qualitätssiegel', 'Kleingruppen (max. 3 bis 6 Teams), Fairplay mit Hund, Gewaltfreies Hundetraining &amp; Google-Stimmen', 'Martina Sidler')">
+          <span>Einblicke</span>
+        </button>
+        <button type="button" class="nav-link nav-link-preview" data-nav-href="ueber-uns.html" onclick="wpOpenBlueprintModal('Über Martina Sidler, Certodog®-Ausbildungen &amp; Fachseminare', 'Certodog® Hundeinstruktorin, FBA-Ausbildungen, Praktische Psychologie (2026) &amp; 18+ Fachweiterbildungen', 'Martina Sidler')">
+          <span>Über mich</span>
+        </button>
+        <a href="kontakt.html" class="nav-link " data-nav-href="kontakt.html">
+          <svg width="8" height="8" viewBox="0 0 8 8" aria-hidden="true"><circle cx="4" cy="4" r="4" fill="#15803D"/></svg>
+          <span>Kontakt</span>
+        </a>
+      </nav>
+
+      <div class="header-actions">
+        <a href="kontakt.html" class="btn-cta btn-cta-primary btn-sm" data-slot="header_cta">
+          <span>3-Schritte-Anmeldung testen</span>
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
+        <button type="button" class="mobile-toggle" id="mobileMenuBtn" aria-label="Menü öffnen" onclick="wpToggleMobileMenu()">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <div class="mobile-drawer" id="mobileDrawer">
+    <a href="index.html" onclick="wpCloseMobileMenu()">Startseite (Ausgearbeitet)</a>
+    <button type="button" class="mobile-nav-btn" onclick="wpCloseMobileMenu();wpOpenBlueprintModal('Alle 6 Kurse, Wochenplan, Abos &amp; Preise im Detail', 'Einzeltraining, Welpen, Erziehungskurs 1 &amp; 2, Familienhunde &amp; Schnüffelspass', 'Martina Sidler')">
+      <span>Angebot</span>
+      <span class="preview-status-badge">Folgt beim Ausbau</span>
+    </button>
+    <button type="button" class="mobile-nav-btn" onclick="wpCloseMobileMenu();wpOpenBlueprintModal('Trainings-Einblicke, Übungsplatz Birmenstorf &amp; Qualitätssiegel', 'Echte Bilder aus dem Training, Fairplay mit Hund &amp; Initiative gewaltfreies Hundetraining', 'Martina Sidler')">
+      <span>Einblicke</span>
+      <span class="preview-status-badge">Folgt beim Ausbau</span>
+    </button>
+    <button type="button" class="mobile-nav-btn" onclick="wpCloseMobileMenu();wpOpenBlueprintModal('Über Martina Sidler, Certodog®-Ausbildungen &amp; Fachseminare', 'Porträt, Philosophie &amp; vollständiges Aus- und Weiterbildungs-Dossier (2020–2026)', 'Martina Sidler')">
+      <span>Über mich</span>
+      <span class="preview-status-badge">Folgt beim Ausbau</span>
+    </button>
+    <a href="kontakt.html" onclick="wpCloseMobileMenu()">Kontakt &amp; 3-Schritte Kursanmeldung (Ausgearbeitet)</a>
+  </div>
+
+  <main>
+
+  <!-- HERO SECTION (ZEIGEVERSION) -->
+  <section class="hero-section" data-section="hero">
+    <div class="container hero-grid">
+      <div>
+        <div class="section-kicker kicker-light" data-slot="hero_kicker">HUNDESCHULE IN BADEN, 5413 BIRMENSTORF &amp; REGION LENZBURG</div>
+        <h1 class="hero-title" data-slot="hero_title">
+          Die Schule für Halter <span>(und Hund).</span>
+        </h1>
+        <p class="hero-lead" data-slot="hero_lead">
+          Bei <strong>Good for Dogs</strong> begleitet Martina Sidler Sie und Ihren Hund fair, gewaltfrei und alltagsnah: vom behutsamen Welpenstart über Junghunde- und Familienhundekurse bis zum individuellen Einzeltraining und konzentrierten Schnüffelspass.
+        </p>
+        <div class="hero-quote-box">
+          «Ein gut erzogener Hund klaut dir kein Essen, er macht dir solange ein schlechtes Gewissen, bis du freiwillig teilst.»
+        </div>
+        <div class="hero-actions">
+          <a href="#projektberater" class="btn-cta btn-cta-gold" data-slot="hero_cta_primary">
+            <span>Passenden Kurs finden</span>
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </a>
+          <a href="kontakt.html" class="btn-cta btn-cta-outline-light" data-slot="hero_cta_secondary">
+            <span>3-Schritte-Anmeldung testen</span>
+          </a>
+        </div>
+        <div class="hero-badges">
+          <div class="hero-badge-card">
+            <span class="hero-badge-val">Certodog® &amp; FBA</span>
+            <span class="hero-badge-lbl">Geprüfte Hundeinstruktorin Martina Sidler</span>
+          </div>
+          <div class="hero-badge-card">
+            <span class="hero-badge-val">Max. 3 bis 6 Teams</span>
+            <span class="hero-badge-lbl">Kleine Gruppen für individuelle Betreuung</span>
+          </div>
+          <div class="hero-badge-card">
+            <span class="hero-badge-val">Fair &amp; Gewaltfrei</span>
+            <span class="hero-badge-lbl">Mitglied Fairplay mit Hund &amp; IGH</span>
+          </div>
+          <div class="hero-badge-card">
+            <span class="hero-badge-val">Birmenstorf &amp; Baden</span>
+            <span class="hero-badge-lbl">Eingezäunter Platz &amp; echtes Alltagsgelände</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-media-card">
+        <img src="images/hero-mensch-hund-alltag.jpg" alt="Martina Sidler beim Hundetraining mit aufmerksamem Hund im Freien" width="880" height="586" data-slot="hero_image">
+        <div class="hero-media-caption">
+          <div>
+            <div style="font-family:var(--font-sans);font-size:0.74rem;font-weight:700;text-transform:uppercase;color:var(--gold-dark);">Training auf Augenhöhe · Kanton Aargau</div>
+            <div style="font-size:0.88rem;font-weight:700;color:var(--text-main);">Übungsplatz 5413 Birmenstorf &amp; Gelände Baden–Lenzburg</div>
+          </div>
+          <a href="#angebot" class="btn-cta btn-cta-outline btn-sm">
+            <span>Alle 6 Kurse</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3 KERN-SÄULEN -->
+  <section data-section="zielgruppen" id="zielgruppen">
+    <div class="container">
+      <div class="section-head">
+        <div class="section-kicker" data-slot="pillars_kicker">WARUM DIE SCHULE FÜR HALTER (UND HUND)?</div>
+        <h2 class="section-title" data-slot="pillars_title">Verständliche Körpersprache, faire Führung und echte Freude</h2>
+        <p class="section-desc" data-slot="pillars_desc">
+          Ob frisch eingezogener Welpe, stürmischer Junghund oder ein konkretes Alltagsthema: Wir trainieren in ruhigen Kleingruppen ohne Überforderung, damit Lernen auf beiden Seiten der Leine Spass macht.
+        </p>
+      </div>
+
+      <div class="grid-3">
+        <div class="content-card card-accent-top">
+          <div>
+            <div class="card-badge-row">
+              <span class="meta-badge">Säule 1 · Junge Hunde</span>
+              <span class="icon-box"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></span>
+            </div>
+            <h3 class="card-title-1">Welpen &amp; Junghunde</h3>
+            <p style="font-size:0.9rem;color:var(--text-body);margin-bottom:12px;">
+              Vom sicheren Bindungsaufbau ab der 8. Woche bis zu den aufbauenden Erziehungskursen 1 und 2 am Samstagvormittag.
+            </p>
+            <div class="check-list">
+              <div class="check-item"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><polyline points="20 6 9 17 4 12"/></svg> <span>Dosierte Umweltreize &amp; bewusste Ruhephasen</span></div>
+              <div class="check-item"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><polyline points="20 6 9 17 4 12"/></svg> <span>Lockere Leine, Rückruf &amp; Impulskontrolle</span></div>
+            </div>
+          </div>
+          <button type="button" class="btn-cta btn-cta-outline btn-sm" style="width:100%;" onclick="wpOpenBlueprintModal('Welpen-Gruppe &amp; Junghunde-Erziehungskurse 1 &amp; 2', 'Welpen Montag 18:00 Uhr (max. 5 Teams) · Erziehungskurs 1 &amp; 2 Samstag 09:00 &amp; 10:15 Uhr', 'Martina Sidler')">
+            <span>Welpen &amp; Junghunde ansehen</span>
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </button>
+        </div>
+
+        <div class="content-card card-accent-top">
+          <div>
+            <div class="card-badge-row">
+              <span class="meta-badge">Säule 2 · Alltag &amp; Nase</span>
+              <span class="icon-box"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></span>
+            </div>
+            <h3 class="card-title-1">Familienhunde &amp; Nase</h3>
+            <p style="font-size:0.9rem;color:var(--text-body);margin-bottom:12px;">
+              Sinnvolle geistige und körperliche Auslastung für Hunde ab 16 Wochen in der Familienhunde-Gruppe oder beim Schnüffelspass.
+            </p>
+            <div class="check-list">
+              <div class="check-item"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><polyline points="20 6 9 17 4 12"/></svg> <span>Zielobjektsuche, Geruch &amp; Mantrailing (max. 3 Teams)</span></div>
+              <div class="check-item"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><polyline points="20 6 9 17 4 12"/></svg> <span>Einstieg jederzeit möglich · 10er-Abo verfügbar</span></div>
+            </div>
+          </div>
+          <button type="button" class="btn-cta btn-cta-outline btn-sm" style="width:100%;" onclick="wpOpenBlueprintModal('Familienhunde-Gruppe &amp; Schnüffelspass in Birmenstorf', 'Familienhunde Montag 16:30 Uhr · Schnüffelspass jeden 2. Samstag 10:30 Uhr (eingezäunt)', 'Martina Sidler')">
+            <span>Gruppenstunden ansehen</span>
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </button>
+        </div>
+
+        <div class="content-card card-accent-top">
+          <div>
+            <div class="card-badge-row">
+              <span class="meta-badge">Säule 3 · Individuell</span>
+              <span class="icon-box"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></span>
+            </div>
+            <h3 class="card-title-1">1:1 Einzeltraining</h3>
+            <p style="font-size:0.9rem;color:var(--text-body);margin-bottom:12px;">
+              Persönliche Verhaltensberatung direkt bei Ihnen zu Hause und auf Ihren gewohnten Spazierwegen im Raum Baden und Aargau.
+            </p>
+            <div class="check-list">
+              <div class="check-item"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><polyline points="20 6 9 17 4 12"/></svg> <span>Hilfe bei Leinenstress, Unsicherheit, Angst &amp; Bellen</span></div>
+              <div class="check-item"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><polyline points="20 6 9 17 4 12"/></svg> <span>CHF 80.— pro 60 Min. (zzgl. CHF 1.— / km Anfahrt)</span></div>
+            </div>
+          </div>
+          <button type="button" class="btn-cta btn-cta-outline btn-sm" style="width:100%;" onclick="wpOpenBlueprintModal('Individuelles 1:1 Einzeltraining &amp; Verhaltensberatung', 'CHF 80.— / 60 Min. (Anfahrt CHF 1.— / km) · Direkt bei Ihnen zu Hause &amp; im Alltag', 'Martina Sidler')">
+            <span>Einzeltraining entdecken</span>
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ALLE 6 KURSE & PREISE -->
+  <section data-section="kernangebote" id="angebot" style="background-color:#FFFFFF;border-top:1px solid var(--border-light);border-bottom:1px solid var(--border-light);">
+    <div class="container">
+      <div class="section-head">
+        <div class="section-kicker" data-slot="services_kicker">ALLE 6 ANGEBOTE AUF EINEN BLICK · TRANSPARENTE TARIFE</div>
+        <h2 class="section-title" data-slot="services_title">Unsere Kurse, Wochentage und Preise</h2>
+        <p class="section-desc" data-slot="services_desc">
+          Kleine Gruppen garantieren, dass jedes Mensch-Hund-Team individuell begleitet wird. Bequeme Zahlung per Überweisung oder direkt vor Ort via TWINT:
+        </p>
+      </div>
+
+      <div class="grid-3">
+
+        <div class="pillar-card" id="einzeltraining">
+          <div class="pillar-img-wrap">
+            <img src="images/kurs-einzeltraining-fokus.jpg" alt="Good for Dogs Baden &amp; Birmenstorf: Einzeltraining & Beratung" style="object-position:center 15%;" loading="lazy" decoding="async">
+          </div>
+          <div class="pillar-body">
+            <div>
+              <div class="card-badge-row">
+                <span class="meta-badge">CHF 80.— / Std.</span>
+                <span style="font-family:var(--font-sans);font-size:0.75rem;font-weight:700;color:var(--gold-dark);white-space:nowrap;">Individuell</span>
+              </div>
+              <h3 class="card-title-1">Einzeltraining & Beratung</h3>
+              <p style="font-size:0.89rem;color:var(--text-body);margin-bottom:12px;">Individuelles 1:1-Training bei Ihnen zu Hause und im gewohnten Umfeld: ideal bei Leinenaggression, Angst, Bellen, Jagdverhalten oder Rückruf-Themen.</p>
+              <div class="check-list">
+                <div class="check-item"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><polyline points="20 6 9 17 4 12"/></svg> <span>Massgeschneiderter Trainingsplan für Ihren Alltag</span></div>
+                <div class="check-item"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><polyline points="20 6 9 17 4 12"/></svg> <span>CHF 80.— pro 60 Min. (Anfahrt CHF 1.— pro km)</span></div>
+              </div>
+            </div>
+            <button type="button" class="btn-cta btn-cta-primary btn-sm" style="width:100%;" onclick="wpOpenBlueprintModal('Einzeltraining & Beratung (Individuell)', 'CHF 80.— / Std. · Massgeschneiderter Trainingsplan für Ihren Alltag', 'Martina Sidler (Certodog® Hundeinstruktorin)')">
+              <span>Details zum Einzeltraining</span>
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </button>
+          </div>
+        </div>
+
+        <div class="pillar-card" id="welpen">
+          <div class="pillar-img-wrap">
+            <img src="images/kurs-welpen-wiese.jpg" alt="Good for Dogs Baden &amp; Birmenstorf: Welpen-Gruppe (ab 8 Wo.)" style="object-position:center 40%;" loading="lazy" decoding="async">
+          </div>
+          <div class="pillar-body">
+            <div>
+              <div class="card-badge-row">
+                <span class="meta-badge">CHF 35.— / Lekt.</span>
+                <span style="font-family:var(--font-sans);font-size:0.75rem;font-weight:700;color:var(--gold-dark);white-space:nowrap;">Mo 18:00 Uhr</span>
+              </div>
+              <h3 class="card-title-1">Welpen-Gruppe (ab 8 Wo.)</h3>
+              <p style="font-size:0.89rem;color:var(--text-body);margin-bottom:12px;">Behutsamer Start ins Leben auf dem Platz in Birmenstorf und im Gelände Baden–Lenzburg: Umweltgewöhnung, Rückruf, Ruheübungen und soziales Lernen.</p>
+              <div class="check-list">
+                <div class="check-item"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><polyline points="20 6 9 17 4 12"/></svg> <span>Einstieg jederzeit möglich · Maximal 5 Teams</span></div>
+                <div class="check-item"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><polyline points="20 6 9 17 4 12"/></svg> <span>10er-Abo CHF 300.— (4 Monate gültig, übertragbar)</span></div>
+              </div>
+            </div>
+            <button type="button" class="btn-cta btn-cta-primary btn-sm" style="width:100%;" onclick="wpOpenBlueprintModal('Welpen-Gruppe (ab 8 Wo.) (Mo 18:00 Uhr)', 'CHF 35.— / Lekt. · Einstieg jederzeit möglich · Maximal 5 Teams', 'Martina Sidler (Certodog® Hundeinstruktorin)')">
+              <span>Details zur Welpen-Gruppe</span>
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </button>
+          </div>
+        </div>
+
+        <div class="pillar-card" id="erziehung1">
+          <div class="pillar-img-wrap">
+            <img src="images/kurs-junghunde-erziehung.jpg" alt="Good for Dogs Baden &amp; Birmenstorf: Erziehungskurs 1" style="object-position:center 35%;" loading="lazy" decoding="async">
+          </div>
+          <div class="pillar-body">
+            <div>
+              <div class="card-badge-row">
+                <span class="meta-badge">CHF 300.— / Kurs</span>
+                <span style="font-family:var(--font-sans);font-size:0.75rem;font-weight:700;color:var(--gold-dark);white-space:nowrap;">Sa 09:00 Uhr</span>
+              </div>
+              <h3 class="card-title-1">Erziehungskurs 1</h3>
+              <p style="font-size:0.89rem;color:var(--text-body);margin-bottom:12px;">Für junge Hunde ab 6 Monaten und neu übernommene Hunde: verlässliche Grundsignale, lockere Leine, Impulskontrolle und ruhige Begegnungen.</p>
+              <div class="check-list">
+                <div class="check-item"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><polyline points="20 6 9 17 4 12"/></svg> <span>Fester Kursblock à 10 Lektionen · Maximal 6 Teams</span></div>
+                <div class="check-item"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><polyline points="20 6 9 17 4 12"/></svg> <span>Übungsplatz 5413 Birmenstorf & Alltagsgelände</span></div>
+              </div>
+            </div>
+            <button type="button" class="btn-cta btn-cta-primary btn-sm" style="width:100%;" onclick="wpOpenBlueprintModal('Erziehungskurs 1 (Sa 09:00 Uhr)', 'CHF 300.— / Kurs · Fester Kursblock à 10 Lektionen · Maximal 6 Teams', 'Martina Sidler (Certodog® Hundeinstruktorin)')">
+              <span>Details zu Erziehungskurs 1</span>
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </button>
+          </div>
+        </div>
+
+        <div class="pillar-card" id="erziehung2">
+          <div class="pillar-img-wrap">
+            <img src="images/hero-mensch-hund-alltag.jpg" alt="Good for Dogs Baden &amp; Birmenstorf: Erziehungskurs 2" style="object-position:center 45%;" loading="lazy" decoding="async">
+          </div>
+          <div class="pillar-body">
+            <div>
+              <div class="card-badge-row">
+                <span class="meta-badge">CHF 300.— / Kurs</span>
+                <span style="font-family:var(--font-sans);font-size:0.75rem;font-weight:700;color:var(--gold-dark);white-space:nowrap;">Sa 10:15 Uhr</span>
+              </div>
+              <h3 class="card-title-1">Erziehungskurs 2</h3>
+              <p style="font-size:0.89rem;color:var(--text-body);margin-bottom:12px;">Der Aufbaukurs für fortgeschrittene Teams: Fokus auf sichere Distanzkontrolle, Orientierung trotz starker Ablenkung und entspannten Freilauf.</p>
+              <div class="check-list">
+                <div class="check-item"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><polyline points="20 6 9 17 4 12"/></svg> <span>10 Lektionen à 60 Min. · Maximal 6 Teams</span></div>
+                <div class="check-item"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><polyline points="20 6 9 17 4 12"/></svg> <span>Praxisnahe Trainingsorte zwischen Baden & Lenzburg</span></div>
+              </div>
+            </div>
+            <button type="button" class="btn-cta btn-cta-primary btn-sm" style="width:100%;" onclick="wpOpenBlueprintModal('Erziehungskurs 2 (Sa 10:15 Uhr)', 'CHF 300.— / Kurs · 10 Lektionen à 60 Min. · Maximal 6 Teams', 'Martina Sidler (Certodog® Hundeinstruktorin)')">
+              <span>Details zu Erziehungskurs 2</span>
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </button>
+          </div>
+        </div>
+
+        <div class="pillar-card" id="familienhunde">
+          <div class="pillar-img-wrap">
+            <img src="images/kurs-familienhunde-wald.jpg" alt="Good for Dogs Baden &amp; Birmenstorf: Familienhunde-Gruppe" style="object-position:center 55%;" loading="lazy" decoding="async">
+          </div>
+          <div class="pillar-body">
+            <div>
+              <div class="card-badge-row">
+                <span class="meta-badge">CHF 35.— / Lekt.</span>
+                <span style="font-family:var(--font-sans);font-size:0.75rem;font-weight:700;color:var(--gold-dark);white-space:nowrap;">Mo 16:30 Uhr</span>
+              </div>
+              <h3 class="card-title-1">Familienhunde-Gruppe</h3>
+              <p style="font-size:0.89rem;color:var(--text-body);margin-bottom:12px;">Abwechslungsreiche Alltags- und Beschäftigungsstunde für Hunde ab 16 Wochen: Körpersprache, sinnvolle Bewegung, Spass und Alltagssicherheit.</p>
+              <div class="check-list">
+                <div class="check-item"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><polyline points="20 6 9 17 4 12"/></svg> <span>Einstieg jederzeit möglich · Maximal 6 Teams</span></div>
+                <div class="check-item"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><polyline points="20 6 9 17 4 12"/></svg> <span>Einzellektion CHF 35.— oder 10er-Abo CHF 300.—</span></div>
+              </div>
+            </div>
+            <button type="button" class="btn-cta btn-cta-primary btn-sm" style="width:100%;" onclick="wpOpenBlueprintModal('Familienhunde-Gruppe (Mo 16:30 Uhr)', 'CHF 35.— / Lekt. · Einstieg jederzeit möglich · Maximal 6 Teams', 'Martina Sidler (Certodog® Hundeinstruktorin)')">
+              <span>Details zu Familienhunden</span>
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </button>
+          </div>
+        </div>
+
+        <div class="pillar-card" id="schnueffelspass">
+          <div class="pillar-img-wrap">
+            <img src="images/kurs-schnueffelspass-zos-01.jpg" alt="Good for Dogs Baden &amp; Birmenstorf: Schnüffelspass-Gruppe" style="object-position:center 45%;" loading="lazy" decoding="async">
+          </div>
+          <div class="pillar-body">
+            <div>
+              <div class="card-badge-row">
+                <span class="meta-badge">CHF 40.— / Lekt.</span>
+                <span style="font-family:var(--font-sans);font-size:0.75rem;font-weight:700;color:var(--gold-dark);white-space:nowrap;">2. Sa 10:30 Uhr</span>
+              </div>
+              <h3 class="card-title-1">Schnüffelspass-Gruppe</h3>
+              <p style="font-size:0.89rem;color:var(--text-body);margin-bottom:12px;">Geistige Auslastung ab 6 Monaten auf dem eingezäunten Gelände in 5413 Birmenstorf: Zielobjektsuche, Geruchsdifferenzierung und Mantrailing-Elemente.</p>
+              <div class="check-list">
+                <div class="check-item"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><polyline points="20 6 9 17 4 12"/></svg> <span>Maximal 3 Teams (jeder Hund arbeitet einzeln)</span></div>
+                <div class="check-item"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><polyline points="20 6 9 17 4 12"/></svg> <span>Einstieg jederzeit · 10er-Abo CHF 350.— (6 Mt.)</span></div>
+              </div>
+            </div>
+            <button type="button" class="btn-cta btn-cta-primary btn-sm" style="width:100%;" onclick="wpOpenBlueprintModal('Schnüffelspass-Gruppe (2. Sa 10:30 Uhr)', 'CHF 40.— / Lekt. · Maximal 3 Teams (jeder Hund arbeitet einzeln)', 'Martina Sidler (Certodog® Hundeinstruktorin)')">
+              <span>Details zum Schnüffelspass</span>
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- INTERAKTIVER KURS- & TRAININGS-FINDER -->
+  <section data-section="projektberater" id="projektberater" style="background-color:var(--bg-soft);border-top:1px solid var(--border-light);border-bottom:1px solid var(--border-light);">
+    <div class="container">
+      <div class="section-head">
+        <div class="section-kicker" data-slot="calc_kicker">INTERAKTIVER KURS- &amp; TRAININGS-FINDER · BADEN &amp; 5413 BIRMENSTORF</div>
+        <h2 class="section-title" data-slot="calc_title">Welcher Kurs passt zu Ihnen und Ihrem Hund?</h2>
+        <p class="section-desc" data-slot="calc_desc">
+          Wählen Sie das Alter Ihres Hundes, Ihren aktuellen Schwerpunkt und den bevorzugten Trainingstag. Unser Finder zeigt Ihnen sofort das passende Angebot bei Good for Dogs inklusive Uhrzeit und transparentem Tarif:
+        </p>
+      </div>
+
+      <div class="grid-2">
+        <div class="content-card">
+          <div>
+            <div class="card-badge-row">
+              <span class="meta-badge">In 15 Sekunden auswählen</span>
+              <span class="icon-box"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg></span>
+            </div>
+            <h3 class="card-title-1" style="margin-bottom:12px;">1. Alter &amp; Lebensphase Ihres Hundes</h3>
+            <div class="calc-option-grid" id="gfdCalcAgeGrid">
+              <button type="button" class="calc-option-btn active" data-age="welpe" onclick="gfdSetCalc('age','welpe')">
+                <span class="calc-opt-title">Welpe</span>
+                <span class="calc-opt-sub">Ab der 8. bis ca. 16. Lebenswoche</span>
+              </button>
+              <button type="button" class="calc-option-btn" data-age="junghund" onclick="gfdSetCalc('age','junghund')">
+                <span class="calc-opt-title">Junghund</span>
+                <span class="calc-opt-sub">Ab 4 bis 6 Monaten &amp; Aufbau</span>
+              </button>
+              <button type="button" class="calc-option-btn" data-age="erwachsen" onclick="gfdSetCalc('age','erwachsen')">
+                <span class="calc-opt-title">Erwachsen</span>
+                <span class="calc-opt-sub">Familienhund, Tierschutz oder Senior</span>
+              </button>
+            </div>
+
+            <h3 class="card-title-1" style="margin-bottom:12px;">2. Wichtigstes Trainingsziel</h3>
+            <div class="calc-option-grid" id="gfdCalcGoalGrid">
+              <button type="button" class="calc-option-btn active" data-goal="alltag" onclick="gfdSetCalc('goal','alltag')">
+                <span class="calc-opt-title">Alltag &amp; Gruppe</span>
+                <span class="calc-opt-sub">Grundsignale, Rückruf &amp; Soziales</span>
+              </button>
+              <button type="button" class="calc-option-btn" data-goal="nase" onclick="gfdSetCalc('goal','nase')">
+                <span class="calc-opt-title">Nasenarbeit</span>
+                <span class="calc-opt-sub">Schatzsuche, ZOS &amp; Spurensuche</span>
+              </button>
+              <button type="button" class="calc-option-btn" data-goal="verhalten" onclick="gfdSetCalc('goal','verhalten')">
+                <span class="calc-opt-title">Einzelthema</span>
+                <span class="calc-opt-sub">Leine, Bellen, Angst oder Zuhause</span>
+              </button>
+            </div>
+
+            <h3 class="card-title-1" style="margin-bottom:12px;">3. Bevorzugter Trainingstag</h3>
+            <div class="calc-option-grid" id="gfdCalcDayGrid" style="margin-bottom:0;">
+              <button type="button" class="calc-option-btn active" data-day="montag" onclick="gfdSetCalc('day','montag')">
+                <span class="calc-opt-title">Montag</span>
+                <span class="calc-opt-sub">Nachmittag / früher Abend</span>
+              </button>
+              <button type="button" class="calc-option-btn" data-day="samstag" onclick="gfdSetCalc('day','samstag')">
+                <span class="calc-opt-title">Samstag</span>
+                <span class="calc-opt-sub">Vormittags in Kleingruppen</span>
+              </button>
+              <button type="button" class="calc-option-btn" data-day="flexibel" onclick="gfdSetCalc('day','flexibel')">
+                <span class="calc-opt-title">Individuell</span>
+                <span class="calc-opt-sub">Nach Vereinbarung bei Ihnen</span>
+              </button>
+            </div>
+          </div>
+          <div style="padding-top:14px;border-top:1px solid var(--border-light);font-size:0.82rem;color:var(--text-body);display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap;">
+            <span>Fairplay mit Hund · Gewaltfreies Training</span>
+            <strong style="color:var(--gold-dark);">Good for Dogs · Martina Sidler</strong>
+          </div>
+        </div>
+
+        <div class="content-card card-dark">
+          <div>
+            <div class="card-badge-row">
+              <span class="top-bar-badge" id="gfdCalcBadge">EMPFEHLUNG: WELPEN-GRUPPE (AB 8 WOCHEN)</span>
+              <span class="icon-box"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></span>
+            </div>
+            <h3 style="font-size:1.34rem;font-weight:700;margin-bottom:8px;" id="gfdCalcHeadline">Welpen-Gruppe am Montagabend in Birmenstorf &amp; Region Baden</h3>
+            <p style="font-size:0.9rem;color:var(--text-body);margin-bottom:12px;" id="gfdCalcDesc">
+              Behutsame Sozialisierung, Rückruf-Aufbau, Umweltgewöhnung und gezielte Ruheübungen in einer überschaubaren Gruppe mit maximal fünf Teams. Ein Einstieg ist jederzeit möglich.
+            </p>
+
+            <div class="calc-kpi-grid">
+              <div class="calc-kpi-box">
+                <div class="calc-kpi-val" id="gfdCalcPrice">CHF 35.— / Std.</div>
+                <div class="calc-kpi-lbl" id="gfdCalcPriceSub">oder 10er-Abo CHF 300.— (4 Mt.)</div>
+              </div>
+              <div class="calc-kpi-box">
+                <div class="calc-kpi-val" id="gfdCalcSchedule">Montag, 18:00 Uhr</div>
+                <div class="calc-kpi-lbl">Fester Kurstermin (60 Minuten)</div>
+              </div>
+              <div class="calc-kpi-box">
+                <div class="calc-kpi-val" id="gfdCalcGroup">Max. 5 Teams</div>
+                <div class="calc-kpi-lbl">Viel Raum &amp; persönliche Anleitung</div>
+              </div>
+              <div class="calc-kpi-box">
+                <div class="calc-kpi-val" id="gfdCalcLoc">5413 Birmenstorf</div>
+                <div class="calc-kpi-lbl">&amp; Gelände Baden – Lenzburg</div>
+              </div>
+            </div>
+
+            <div class="check-list">
+              <div class="check-item"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><polyline points="20 6 9 17 4 12"/></svg> <span><strong>Ehrlich &amp; gewaltfrei:</strong> Wir trainieren mit positiver Verstärkung, klarer Körpersprache und ohne Leinenruck oder Einschüchterung.</span></div>
+              <div class="check-item"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><polyline points="20 6 9 17 4 12"/></svg> <span><strong>Bequeme Zahlung:</strong> Unkompliziert per Überweisung oder direkt vor Ort via TWINT.</span></div>
+            </div>
+          </div>
+
+          <a href="kontakt.html?thema=welpen" id="gfdCalcCta" class="btn-cta btn-cta-gold" style="width:100%;">
+            <span>Platz unverbindlich anfragen</span>
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRAININGS-EINBLICKE -->
+  <section data-section="referenzen-auszug" id="einblicke">
+    <div class="container">
+      <div class="section-head">
+        <div class="section-kicker" data-slot="refs_kicker">PRAXIS-EINBLICKE · 5413 BIRMENSTORF &amp; GELÄNDE BADEN–LENZBURG</div>
+        <h2 class="section-title" data-slot="refs_title">So trainieren wir bei Good for Dogs</h2>
+        <p class="section-desc" data-slot="refs_desc">
+          Kombination aus geschütztem, eingezäuntem Übungsplatz in Birmenstorf und abwechslungsreichen Trainingsorten im Alltag zwischen Baden und Lenzburg:
+        </p>
+      </div>
+
+      <div class="grid-3">
+
+        <div class="pillar-card">
+          <div class="pillar-img-wrap">
+            <img src="images/kurs-welpen-wiese.jpg" alt="Good for Dogs Hundeschule Baden: Ruhige Welpenprägung" style="object-position:center 40%;" loading="lazy" decoding="async">
+          </div>
+          <div class="pillar-body">
+            <div>
+              <div class="card-badge-row">
+                <span class="meta-badge">Welpenkurs</span>
+                <span style="font-family:var(--font-sans);font-size:0.75rem;font-weight:700;color:var(--gold-dark);white-space:nowrap;">Max. 5 Teams</span>
+              </div>
+              <h3 class="card-title-1">Ruhige Welpenprägung</h3>
+              <p style="font-size:0.8rem;font-weight:700;color:var(--gold-dark);margin-bottom:8px;">Montag 18:00 Uhr · Birmenstorf & Gelände</p>
+              <p style="font-size:0.88rem;color:var(--text-body);">Statt wildem Überdrehen lernen junge Hunde ab der 8. Woche ruhige Umweltgewöhnung, feine Körpersprache, Rückruf-Grundlagen und entspannte Pausen in einer überschaubaren Kleingruppe.</p>
+            </div>
+            <button type="button" class="btn-cta btn-cta-outline btn-sm" style="width:100%;" onclick="wpOpenBlueprintModal('Trainings-Einblick: Ruhige Welpenprägung', 'Welpenkurs · Montag 18:00 Uhr · Birmenstorf & Gelände', 'Martina Sidler (Good for Dogs)')">
+              <span>Trainings-Einblick öffnen</span>
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </button>
+          </div>
+        </div>
+
+        <div class="pillar-card">
+          <div class="pillar-img-wrap">
+            <img src="images/kurs-junghunde-erziehung.jpg" alt="Good for Dogs Hundeschule Baden: Klare Junghundezeit" style="object-position:center 35%;" loading="lazy" decoding="async">
+          </div>
+          <div class="pillar-body">
+            <div>
+              <div class="card-badge-row">
+                <span class="meta-badge">Junghundekurs</span>
+                <span style="font-family:var(--font-sans);font-size:0.75rem;font-weight:700;color:var(--gold-dark);white-space:nowrap;">Sa Vormittag</span>
+              </div>
+              <h3 class="card-title-1">Klare Junghundezeit</h3>
+              <p style="font-size:0.8rem;font-weight:700;color:var(--gold-dark);margin-bottom:8px;">Samstag 09:00 & 10:15 Uhr · Max. 6 Teams</p>
+              <p style="font-size:0.88rem;color:var(--text-body);">Wenn die Sturm-und-Drang-Phase beginnt, schaffen klare Signale, faire Belohnung, Impulskontrolle und schrittweise aufgebaute Distanzarbeit bis zum sicheren Freilauf verlässliche Orientierung.</p>
+            </div>
+            <button type="button" class="btn-cta btn-cta-outline btn-sm" style="width:100%;" onclick="wpOpenBlueprintModal('Trainings-Einblick: Klare Junghundezeit', 'Junghundekurs · Samstag 09:00 & 10:15 Uhr · Max. 6 Teams', 'Martina Sidler (Good for Dogs)')">
+              <span>Trainings-Einblick öffnen</span>
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </button>
+          </div>
+        </div>
+
+        <div class="pillar-card">
+          <div class="pillar-img-wrap">
+            <img src="images/kurs-einzeltraining-fokus.jpg" alt="Good for Dogs Hundeschule Baden: Entspannter Hundealltag" style="object-position:center 15%;" loading="lazy" decoding="async">
+          </div>
+          <div class="pillar-body">
+            <div>
+              <div class="card-badge-row">
+                <span class="meta-badge">Einzeltraining</span>
+                <span style="font-family:var(--font-sans);font-size:0.75rem;font-weight:700;color:var(--gold-dark);white-space:nowrap;">1:1 vor Ort</span>
+              </div>
+              <h3 class="card-title-1">Entspannter Hundealltag</h3>
+              <p style="font-size:0.8rem;font-weight:700;color:var(--gold-dark);margin-bottom:8px;">Bei Ihnen zu Hause & auf Spazierwegen</p>
+              <p style="font-size:0.88rem;color:var(--text-body);">Ob Leinenaggression, Unsicherheit, Bellen, Jagdverhalten oder Alleinebleiben: Im 1:1-Training analysieren wir die Auslöser direkt in Ihrem Wohnumfeld und erarbeiten faire, umsetzbare Schritte.</p>
+            </div>
+            <button type="button" class="btn-cta btn-cta-outline btn-sm" style="width:100%;" onclick="wpOpenBlueprintModal('Trainings-Einblick: Entspannter Hundealltag', 'Einzeltraining · Bei Ihnen zu Hause & auf Spazierwegen', 'Martina Sidler (Good for Dogs)')">
+              <span>Trainings-Einblick öffnen</span>
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </button>
+          </div>
+        </div>
+
+        <div class="pillar-card">
+          <div class="pillar-img-wrap">
+            <img src="images/kurs-familienhunde-wald.jpg" alt="Good for Dogs Hundeschule Baden: Aktive Familienhunde" style="object-position:center 55%;" loading="lazy" decoding="async">
+          </div>
+          <div class="pillar-body">
+            <div>
+              <div class="card-badge-row">
+                <span class="meta-badge">Familienhunde</span>
+                <span style="font-family:var(--font-sans);font-size:0.75rem;font-weight:700;color:var(--gold-dark);white-space:nowrap;">Mo 16:30 Uhr</span>
+              </div>
+              <h3 class="card-title-1">Aktive Familienhunde</h3>
+              <p style="font-size:0.8rem;font-weight:700;color:var(--gold-dark);margin-bottom:8px;">Einstieg jederzeit · Max. 6 Teams</p>
+              <p style="font-size:0.88rem;color:var(--text-body);">Gemeinsame Erfolgserlebnisse für den Familienalltag: alltagsnahe Übungen, Körpersprache lesen, sinnvolle Beschäftigung im Gelände und ruhiges Warten auch unter Ablenkung.</p>
+            </div>
+            <button type="button" class="btn-cta btn-cta-outline btn-sm" style="width:100%;" onclick="wpOpenBlueprintModal('Trainings-Einblick: Aktive Familienhunde', 'Familienhunde · Einstieg jederzeit · Max. 6 Teams', 'Martina Sidler (Good for Dogs)')">
+              <span>Trainings-Einblick öffnen</span>
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </button>
+          </div>
+        </div>
+
+        <div class="pillar-card">
+          <div class="pillar-img-wrap">
+            <img src="images/kurs-schnueffelspass-zos-01.jpg" alt="Good for Dogs Hundeschule Baden: Feine Nasenarbeit" style="object-position:center 45%;" loading="lazy" decoding="async">
+          </div>
+          <div class="pillar-body">
+            <div>
+              <div class="card-badge-row">
+                <span class="meta-badge">Schnüffelspass</span>
+                <span style="font-family:var(--font-sans);font-size:0.75rem;font-weight:700;color:var(--gold-dark);white-space:nowrap;">Max. 3 Teams</span>
+              </div>
+              <h3 class="card-title-1">Feine Nasenarbeit</h3>
+              <p style="font-size:0.8rem;font-weight:700;color:var(--gold-dark);margin-bottom:8px;">Jeden 2. Sa 10:30 Uhr · 5413 Birmenstorf</p>
+              <p style="font-size:0.88rem;color:var(--text-body);">Nasenarbeit lastet Hunde jeder Rasse und jedes Alters geistig tief und zufriedenstellend aus. Da jedes Team einzeln sucht, eignet sich die Stunde auch hervorragend für unsichere Hunde.</p>
+            </div>
+            <button type="button" class="btn-cta btn-cta-outline btn-sm" style="width:100%;" onclick="wpOpenBlueprintModal('Trainings-Einblick: Feine Nasenarbeit', 'Schnüffelspass · Jeden 2. Sa 10:30 Uhr · 5413 Birmenstorf', 'Martina Sidler (Good for Dogs)')">
+              <span>Trainings-Einblick öffnen</span>
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </button>
+          </div>
+        </div>
+
+        <div class="pillar-card">
+          <div class="pillar-img-wrap">
+            <img src="images/hund-baumstamm-portraet.jpg" alt="Good for Dogs Hundeschule Baden: Geprüfte Fachqualität" style="object-position:center 22%;" loading="lazy" decoding="async">
+          </div>
+          <div class="pillar-body">
+            <div>
+              <div class="card-badge-row">
+                <span class="meta-badge">Qualität</span>
+                <span style="font-family:var(--font-sans);font-size:0.75rem;font-weight:700;color:var(--gold-dark);white-space:nowrap;">Certodog®</span>
+              </div>
+              <h3 class="card-title-1">Geprüfte Fachqualität</h3>
+              <p style="font-size:0.8rem;font-weight:700;color:var(--gold-dark);margin-bottom:8px;">Laufende Fachseminare & Verhaltenswissen</p>
+              <p style="font-size:0.88rem;color:var(--text-body);">Hundetraining entwickelt sich stetig weiter. Jährliche Weiterbildungen in Verhaltensmedizin, Körpersprache, Nasenarbeit und Psychologie sichern Ihnen aktuelles Wissen ohne veralteten Zwang.</p>
+            </div>
+            <button type="button" class="btn-cta btn-cta-outline btn-sm" style="width:100%;" onclick="wpOpenBlueprintModal('Trainings-Einblick: Geprüfte Fachqualität', 'Qualität · Laufende Fachseminare & Verhaltenswissen', 'Martina Sidler (Good for Dogs)')">
+              <span>Trainings-Einblick öffnen</span>
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ACP BRÜCKE 1: SOCIAL MEDIA & ECHTE TRAININGS-MOMENTE -->
+  <section data-section="social-media" id="social-media" style="background-color:var(--bg-page);border-top:1px solid var(--border-light);">
+    <div class="container">
+      <div class="section-head">
+        <div class="section-kicker" data-slot="social_kicker">AKTUELLE EINBLICKE · @GOODFORDOGS.CH AUF INSTAGRAM &amp; FACEBOOK</div>
+        <h2 class="section-title" data-slot="social_title">Frisch ab Übungsplatz Birmenstorf und aus dem Aargauer Gelände</h2>
+        <p class="section-desc" data-slot="social_desc">
+          Auf <strong>@goodfordogs.ch</strong> teilen wir regelmässig echte Übungsmomente, Lernfortschritte unserer Teams und kleine Alltags-Impulse aus Birmenstorf, Baden-Rütihof und der Region Lenzburg.
+        </p>
+      </div>
+
+      <div class="grid-3">
+        <div class="pillar-card">
+          <div class="pillar-img-wrap">
+            <img src="images/kurs-schnueffelspass-zos-02.jpg" alt="Zielobjektsuche und Nasenarbeit auf dem Platz in Birmenstorf" style="object-position:center 50%;" loading="lazy" decoding="async">
+          </div>
+          <div class="pillar-body">
+            <div>
+              <div class="card-badge-row">
+                <span class="meta-badge">Nasenarbeit</span>
+                <span style="font-size:0.75rem;font-weight:700;color:var(--gold-dark);white-space:nowrap;">Birmenstorf</span>
+              </div>
+              <h3 class="card-title-1">Fokus bei der Schatzsuche</h3>
+              <p style="font-size:0.88rem;color:var(--text-body);">
+                Beim Schnüffelspass arbeiten maximal drei Teams nacheinander im eingezäunten Gelände: ruhig, fokussiert und für jeden Hund ein echtes Erfolgserlebnis.
+              </p>
+            </div>
+            <button type="button" class="btn-cta btn-cta-outline btn-sm" style="width:100%;" onclick="wpOpenBlueprintModal('Trainings-Momente @goodfordogs.ch', 'Instagram &amp; Facebook Einblicke aus 5413 Birmenstorf und Region Baden', 'Martina Sidler')"><span>Einblick ansehen</span><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></button>
+          </div>
+        </div>
+
+        <div class="pillar-card">
+          <div class="pillar-img-wrap">
+            <img src="images/kurs-welpen-wiese.jpg" alt="Welpenstunde im Grünen bei Good for Dogs" style="object-position:center 40%;" loading="lazy" decoding="async">
+          </div>
+          <div class="pillar-body">
+            <div>
+              <div class="card-badge-row">
+                <span class="meta-badge">Welpenstunde</span>
+                <span style="font-size:0.75rem;font-weight:700;color:var(--gold-dark);white-space:nowrap;">Mo 18:00 Uhr</span>
+              </div>
+              <h3 class="card-title-1">Sicher ins Leben starten</h3>
+              <p style="font-size:0.88rem;color:var(--text-body);">
+                In unserer Montags-Welpengruppe stehen Sicherheit, Bindung zur Bezugsperson und wohldosierte Umweltreize vor blossem Herumtoben.
+              </p>
+            </div>
+            <button type="button" class="btn-cta btn-cta-outline btn-sm" style="width:100%;" onclick="wpOpenBlueprintModal('Trainings-Momente @goodfordogs.ch', 'Instagram &amp; Facebook Einblicke aus 5413 Birmenstorf und Region Baden', 'Martina Sidler')"><span>Einblick ansehen</span><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></button>
+          </div>
+        </div>
+
+        <div class="pillar-card">
+          <div class="pillar-img-wrap">
+            <img src="images/kurs-familienhunde-wald.jpg" alt="Familienhunde-Training im Wald zwischen Baden und Lenzburg" style="object-position:center 55%;" loading="lazy" decoding="async">
+          </div>
+          <div class="pillar-body">
+            <div>
+              <div class="card-badge-row">
+                <span class="meta-badge">Alltagstraining</span>
+                <span style="font-size:0.75rem;font-weight:700;color:var(--gold-dark);white-space:nowrap;">Region Baden</span>
+              </div>
+              <h3 class="card-title-1">Gelassen im Wald unterwegs</h3>
+              <p style="font-size:0.88rem;color:var(--text-body);">
+                Gemeinsames Training im Wald und an Alltagsorten stärkt die gelassene Impulskontrolle genau dort, wo Sie täglich unterwegs sind.
+              </p>
+            </div>
+            <button type="button" class="btn-cta btn-cta-outline btn-sm" style="width:100%;" onclick="wpOpenBlueprintModal('Trainings-Momente @goodfordogs.ch', 'Instagram &amp; Facebook Einblicke aus 5413 Birmenstorf und Region Baden', 'Martina Sidler')"><span>Einblick ansehen</span><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ACP BRÜCKE 2: RATGEBER & ALLTAGSWISSEN FÜR HUNDEHALTER -->
+  <section data-section="blog" id="blog" style="background-color:var(--bg-soft);border-top:1px solid var(--border-light);border-bottom:1px solid var(--border-light);">
+    <div class="container">
+      <div class="section-head">
+        <div class="section-kicker" data-slot="blog_kicker">HUNDE-RATGEBER &amp; PRAXISWISSEN · FÜR HALTERINNEN &amp; HALTER</div>
+        <h2 class="section-title" data-slot="blog_title">Drei Fragen, die im Hundealltag den grössten Unterschied machen</h2>
+        <p class="section-desc" data-slot="blog_desc">
+          Gutes Hundetraining beginnt immer am oberen Ende der Leine: mit verständlicher Körpersprache, fairem Timing und den richtigen Pausen.
+        </p>
+      </div>
+
+      <div class="grid-3">
+        <div class="content-card card-accent-top">
+          <div>
+            <div class="card-badge-row">
+              <span class="meta-badge">Ratgeber #1 · Welpenzeit</span>
+              <span class="icon-box"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></span>
+            </div>
+            <h3 class="card-title-1">Ruhe in der Welpenzeit</h3>
+            <p style="font-size:0.88rem;color:var(--text-body);">
+              Viele junge Hunde sind nicht unterfordert, sondern durch zu viele Eindrücke überreizt. Gezielte Ruhephasen und maximal fünf Teams pro Gruppe schaffen ein stabiles Nervenkostüm.
+            </p>
+          </div>
+          <button type="button" class="btn-cta btn-cta-outline btn-sm" style="width:100%;" onclick="wpOpenBlueprintModal('Hunde-Ratgeber &amp; Alltagswissen', 'Praxistipps zu Welpenstart, Leinenführigkeit und Nasenarbeit', 'Martina Sidler')"><span>Praxistipp lesen</span><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></button>
+        </div>
+
+        <div class="content-card card-accent-top">
+          <div>
+            <div class="card-badge-row">
+              <span class="meta-badge">Ratgeber #2 · Begegnungen</span>
+              <span class="icon-box"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg></span>
+            </div>
+            <h3 class="card-title-1">Faire Hundebegegnungen</h3>
+            <p style="font-size:0.88rem;color:var(--text-body);">
+              Ziehen oder Bellen an der Leine löst sich selten über Druck. Wer Distanzen rechtzeitig liest und Alternativverhalten klar belohnt, gewinnt Schritt für Schritt Entspannung zurück.
+            </p>
+          </div>
+          <button type="button" class="btn-cta btn-cta-outline btn-sm" style="width:100%;" onclick="wpOpenBlueprintModal('Hunde-Ratgeber &amp; Alltagswissen', 'Praxistipps zu Welpenstart, Leinenführigkeit und Nasenarbeit', 'Martina Sidler')"><span>Praxistipp lesen</span><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></button>
+        </div>
+
+        <div class="content-card card-accent-top">
+          <div>
+            <div class="card-badge-row">
+              <span class="meta-badge">Ratgeber #3 · Auslastung</span>
+              <span class="icon-box"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></span>
+            </div>
+            <h3 class="card-title-1">Auslastung über die Nase</h3>
+            <p style="font-size:0.88rem;color:var(--text-body);">
+              Hektische Hetzspiele putschen das Stresshormonlevel hoch. Konzentrierte Zielobjektsuche und Spurensuche fördern dagegen Gelassenheit, Selbstvertrauen und tiefe Zufriedenheit.
+            </p>
+          </div>
+          <button type="button" class="btn-cta btn-cta-outline btn-sm" style="width:100%;" onclick="wpOpenBlueprintModal('Hunde-Ratgeber &amp; Alltagswissen', 'Praxistipps zu Welpenstart, Leinenführigkeit und Nasenarbeit', 'Martina Sidler')"><span>Praxistipp lesen</span><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- V2 AUSBLICK AUF DIE 3 WEITEREN UNTERSEITEN -->
+  <section class="preview-scope-section" id="weitere-themenbereiche" data-section="vorschau-umfang">
+    <div class="container">
+      <div class="preview-scope-banner">
+        <div class="section-kicker">UNVERBINDLICHER VORSCHAU-ENTWURF · 2 BEISPIEL-SEITEN AUSGEARBEITET</div>
+        <h2 style="font-size:clamp(1.5rem,2.4vw,2.05rem);font-weight:700;margin-bottom:10px;">
+          Ausblick: Diese 3 weiteren Detailseiten folgen beim gemeinsamen Ausbau
+        </h2>
+        <p style="font-size:0.94rem;color:var(--text-body);line-height:1.62;">
+          In dieser <strong>Zeigeversion</strong> sind Ihre neue <strong>Startseite</strong> (inklusive interaktivem Kurs-Finder) sowie die <strong>Kontaktseite mit dem 3-Schritte Smart-Anmelde-Assistenten</strong> bereits vollständig ausgearbeitet und live testbar. Beim gemeinsamen Ausbau schalten wir zusätzlich die folgenden drei vertieften Unterseiten mit allen Originaltexten und Bildern frei:
+        </p>
+      </div>
+
+      <div class="grid-3">
+        <div class="preview-module-card">
+          <div>
+            <div class="card-badge-row">
+              <span class="preview-status-badge">Folgt beim Ausbau · Seite 1</span>
+              <span class="icon-box"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></span>
+            </div>
+            <h3 class="card-title-1">Angebot &amp; Wochenplan</h3>
+            <p style="font-size:0.88rem;color:var(--text-body);margin-bottom:12px;">
+              Vertiefte Darstellung aller sechs Trainingsangebote und Konditionen:
+            </p>
+            <div class="check-list">
+              <div class="check-item"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><polyline points="20 6 9 17 4 12"/></svg> <span>Einzeltraining (CHF 80.—), Welpen &amp; Familienhunde (Montag)</span></div>
+              <div class="check-item"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><polyline points="20 6 9 17 4 12"/></svg> <span>Erziehungskurs 1 &amp; 2 sowie Schnüffelspass (Samstag)</span></div>
+              <div class="check-item"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><polyline points="20 6 9 17 4 12"/></svg> <span>Mitbring-Checkliste, Abo-Regelung &amp; TWINT-Zahlung</span></div>
+            </div>
+          </div>
+          <button type="button" class="btn-cta btn-cta-primary btn-sm" style="width:100%;" onclick="wpOpenBlueprintModal('Angebot &amp; Wochenplan im Detail', 'Alle 6 Kurse, 10er-Abos, Mitbring-Checkliste &amp; Trainingsbedingungen', 'Martina Sidler')">
+            <span>Vorschau zu Angebot öffnen</span>
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </button>
+        </div>
+
+        <div class="preview-module-card">
+          <div>
+            <div class="card-badge-row">
+              <span class="preview-status-badge">Folgt beim Ausbau · Seite 2</span>
+              <span class="icon-box"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg></span>
+            </div>
+            <h3 class="card-title-1">Einblicke &amp; Übungsplatz</h3>
+            <p style="font-size:0.88rem;color:var(--text-body);margin-bottom:12px;">
+              Authentische Trainingsmomente und geprüfte Qualitätsversprechen:
+            </p>
+            <div class="check-list">
+              <div class="check-item"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><polyline points="20 6 9 17 4 12"/></svg> <span>Eingezäunter Übungsplatz in 5413 Birmenstorf im Porträt</span></div>
+              <div class="check-item"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><polyline points="20 6 9 17 4 12"/></svg> <span>Alltagsorte im Gelände zwischen Baden und Lenzburg</span></div>
+              <div class="check-item"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><polyline points="20 6 9 17 4 12"/></svg> <span>Siegel «Fairplay mit Hund» &amp; «Gewaltfreies Hundetraining»</span></div>
+            </div>
+          </div>
+          <button type="button" class="btn-cta btn-cta-primary btn-sm" style="width:100%;" onclick="wpOpenBlueprintModal('Einblicke, Übungsplatz Birmenstorf &amp; Qualitätssiegel', 'Fotogalerie, @goodfordogs.ch Einblicke &amp; Google-Bewertungen', 'Martina Sidler')">
+            <span>Vorschau zu Einblicken öffnen</span>
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </button>
+        </div>
+
+        <div class="preview-module-card">
+          <div>
+            <div class="card-badge-row">
+              <span class="preview-status-badge">Folgt beim Ausbau · Seite 3</span>
+              <span class="icon-box"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg></span>
+            </div>
+            <h3 class="card-title-1">Über Martina Sidler</h3>
+            <p style="font-size:0.88rem;color:var(--text-body);margin-bottom:12px;">
+              Persönliches Porträt und lückenloser Ausbildungs-Nachweis:
+            </p>
+            <div class="check-list">
+              <div class="check-item"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><polyline points="20 6 9 17 4 12"/></svg> <span>Certodog® Hundeinstruktorin, Zuchtwartin &amp; 3x FBA</span></div>
+              <div class="check-item"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><polyline points="20 6 9 17 4 12"/></svg> <span>Lehrgang Praktische Psychologie (2026)</span></div>
+              <div class="check-item"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><polyline points="20 6 9 17 4 12"/></svg> <span>Chronologie aller 18+ Fachweiterbildungen (2020–2026)</span></div>
+            </div>
+          </div>
+          <button type="button" class="btn-cta btn-cta-primary btn-sm" style="width:100%;" onclick="wpOpenBlueprintModal('Über Martina Sidler &amp; Ausbildungen', 'Certodog®, FBA, Psychologie &amp; Fachseminare 2020–2026', 'Martina Sidler')">
+            <span>Vorschau zu Über mich öffnen</span>
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  </main>
+
+  <!-- FOOTER (ZEIGEVERSION) -->
+  <footer class="site-footer" data-section="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div style="margin-bottom:14px;">
+            <img src="images/logo-good-for-dogs.png" alt="Good for Dogs Hundeschule Baden" width="168" height="54" style="height:50px;width:auto;" loading="lazy" decoding="async">
+          </div>
+          <p style="font-size:0.86rem;color:var(--text-body);line-height:1.6;margin-bottom:14px;" data-slot="footer_about">
+            Die Schule für Halter (und Hund). Gewaltfreies, kynologisch fundiertes Hundetraining in Kleingruppen und im 1:1-Alltag in Baden, Birmenstorf und der Region Lenzburg.
+          </p>
+          <div style="font-size:0.84rem;color:var(--text-main);font-weight:600;">
+            Region 5406 Baden (Rütihof) · Übungsplatz: 5413 Birmenstorf
+          </div>
+        </div>
+
+        <div>
+          <div class="footer-title">Bereits in dieser Vorschau live</div>
+          <ul class="footer-list">
+            <li><a href="index.html">Startseite mit allen 6 Kursen &amp; Tarifen</a></li>
+            <li><a href="index.html#projektberater">Interaktiver Kurs- &amp; Trainings-Finder</a></li>
+            <li><a href="kontakt.html">3-Schritte Smart-Anmeldung (inkl. PDF)</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="footer-title">Weitere Detailseiten (Ausbau)</div>
+          <ul class="footer-list">
+            <li><button type="button" onclick="wpOpenBlueprintModal('Alle 6 Kurse, Wochenplan &amp; Preise im Detail', 'Einzeltraining, Welpen, Erziehungskurs 1 &amp; 2, Familienhunde &amp; Schnüffelspass', 'Martina Sidler')">Angebot im Detail (Vorschau)</button></li>
+            <li><button type="button" onclick="wpOpenBlueprintModal('Trainings-Einblicke &amp; Übungsplatz Birmenstorf', 'Kleingruppen, Alltagsorte Baden–Lenzburg &amp; Qualitätssiegel', 'Martina Sidler')">Einblicke &amp; Platz (Vorschau)</button></li>
+            <li><button type="button" onclick="wpOpenBlueprintModal('Über Martina Sidler &amp; Ausbildungen', 'Certodog®, FBA, Praktische Psychologie &amp; Fachweiterbildungen', 'Martina Sidler')">Über Martina Sidler (Vorschau)</button></li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="footer-title">Direktkontakt &amp; Rechtliches</div>
+          <ul class="footer-list">
+            <li><a href="tel:+41764545406">Telefon: 076 454 54 06</a></li>
+            <li><a href="mailto:info@goodfordogs.ch">E-Mail: info@goodfordogs.ch</a></li>
+            <li><a href="kontakt.html" style="color:var(--gold-dark);font-weight:700;">3-Schritte-Anmeldung testen</a></li>
+            <li><button type="button" onclick="wpOpenImpressumModal()">Impressum, AGB &amp; Datenschutz</button></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>&copy; 2026 Hundeschule Good for Dogs (Martina Sidler) · Unverbindlicher Vorschau-Entwurf (Zeigeversion).</div>
+        <div style="display:flex;gap:16px;flex-wrap:wrap;align-items:center;">
+          <a href="kontakt.html" style="color:var(--gold-dark);font-weight:700;">Smart-Anmeldung testen</a>
+          <a href="index.html#weitere-themenbereiche" style="color:var(--text-body);">Weitere Detailseiten</a>
+        </div>
+        <!-- === WEBPILOT-PARTNER-FOOTER-START === -->
+        <button type="button" class="wp-partner-footer-btn" data-studio-ignore="true" onclick="wpOpenPartnerModal('footer')">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+          <span>Powered by WebPilot · Partner: Jenny Ettle (JE-MI) · Kontakt &amp; Infos</span>
+        </button>
+        <!-- === WEBPILOT-PARTNER-FOOTER-END === -->
+      </div>
+    </div>
+  </footer>
+
+  <!-- KUNDENFREUNDLICHES VORSCHAU-MODAL (#wpBlueprintModal) -->
+  <div class="wp-modal-backdrop" id="wpBlueprintModal" role="dialog" aria-modal="true" aria-labelledby="wpBpTitle" data-allow-scroll="true">
+    <div class="wp-modal-dialog" data-allow-scroll="true">
+      <button type="button" class="wp-modal-close" aria-label="Dialog schliessen" onclick="wpCloseBlueprintModal()">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+      <div class="section-kicker">UNVERBINDLICHER VORSCHAU-ENTWURF FÜR GOODFORDOGS.CH</div>
+      <h3 id="wpBpTitle" style="font-size:1.34rem;font-weight:700;margin-bottom:8px;">Unverbindlicher Vorschau-Entwurf für Good for Dogs</h3>
+      <p id="wpBpSub" style="font-size:0.9rem;color:var(--text-body);margin-bottom:12px;">
+        In dieser <strong>Zeigeversion (2 Beispiel-Seiten ausgearbeitet)</strong> sehen Sie Ihre neue Startseite mit allen 6 Kursangeboten, dem interaktiven Kurs-Finder, den Social-Media- &amp; Ratgeber-Einblicken sowie den live funktionierenden 3-Schritte Smart-Anmelde-Assistenten. Dieser vertiefte Bereich wird beim gemeinsamen Ausbau schlüsselfertig mit allen Originaldaten freigeschaltet.
+      </p>
+      <div style="background-color:var(--gold-soft);border-left:4px solid var(--gold);padding:12px 14px;border-radius:var(--radius-sm);font-size:0.86rem;margin-bottom:14px;">
+        <div style="font-weight:700;color:var(--charcoal-deep);" id="wpBpCategory">Kurs- &amp; Themenbereich: Vorbereitet für den gemeinsamen Ausbau</div>
+        <div style="color:var(--text-body);margin-top:2px;" id="wpBpContact">Kursleitung: Martina Sidler (Certodog® Hundeinstruktorin)</div>
+      </div>
+
+      <div class="wp-modal-checklist">
+        <div style="font-family:var(--font-sans);font-size:0.8rem;font-weight:700;text-transform:uppercase;color:var(--charcoal-deep);">
+          Was beim gemeinsamen Ausbau in diesem Themenbereich enthalten ist:
+        </div>
+        <div class="wp-modal-check-item">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><polyline points="20 6 9 17 4 12"/></svg>
+          <span>Vollständige Angebotsseite mit Einzeltraining (CHF 80.—/60 Min.), Welpen-Gruppe (Mo 18:00), Erziehungskurs 1 &amp; 2 (Sa), Familienhunden (Mo 16:30), Schnüffelspass und Mitbring-Checkliste</span>
+        </div>
+        <div class="wp-modal-check-item">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><polyline points="20 6 9 17 4 12"/></svg>
+          <span>Eigene Einblicke-Seite zum eingezäunten Übungsplatz in 5413 Birmenstorf, den Alltagsorten zwischen Baden und Lenzburg sowie den Siegeln «Fairplay mit Hund» und «Gewaltfreies Hundetraining»</span>
+        </div>
+        <div class="wp-modal-check-item">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><polyline points="20 6 9 17 4 12"/></svg>
+          <span>Persönliche Porträtseite über Martina Sidler mit sämtlichen Certodog®- und FBA-Qualifikationen sowie allen Fachweiterbildungen (2020–2026)</span>
+        </div>
+      </div>
+
+      <div style="display:flex;gap:10px;flex-wrap:wrap;justify-content:flex-end;">
+        <button type="button" class="btn-cta btn-cta-primary btn-sm" onclick="wpCloseBlueprintModal()">
+          <span>Verstanden · Vorschau weiter ansehen</span>
+        </button>
+        <a href="kontakt.html" class="btn-cta btn-cta-outline btn-sm">
+          <span>3-Schritte-Anmeldung testen</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- IMPRESSUM, AGB & DATENSCHUTZ MODAL -->
+  <div class="wp-modal-backdrop" id="wpImpressumModal" role="dialog" aria-modal="true" aria-labelledby="wpImpTitle" data-allow-scroll="true">
+    <div class="wp-modal-dialog" data-allow-scroll="true">
+      <button type="button" class="wp-modal-close" aria-label="Dialog schliessen" onclick="wpCloseImpressumModal()">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+      <div class="section-kicker">RECHTLICHE ANGABEN &amp; TRAININGSBEDINGUNGEN · KANTON AARGAU</div>
+      <h3 id="wpImpTitle" style="font-size:1.34rem;font-weight:700;margin-bottom:10px;">Impressum, AGB &amp; Datenschutz (Good for Dogs)</h3>
+      <div style="font-size:0.87rem;color:var(--text-body);line-height:1.6;display:flex;flex-direction:column;gap:12px;">
+        <div style="background-color:var(--bg-page);border:1px solid var(--border-light);border-left:4px solid var(--gold);padding:12px 14px;border-radius:var(--radius-sm);">
+          <strong>Hundeschule Good for Dogs · Die Schule für Halter (und Hund)</strong><br>
+          Inhaberin: Martina Sidler (Good) · Certodog® Hundeinstruktorin<br>
+          Standort: Region 5406 Baden (Rütihof) · Eingezäunter Übungsplatz: CH-5413 Birmenstorf<br>
+          Telefon: +41 76 454 54 06 · E-Mail: info@goodfordogs.ch · Web: https://goodfordogs.ch
+        </div>
+        <p>
+          <strong>Wichtige Trainingsbedingungen (Auszug AGB):</strong><br>
+          Teilnehmende Hunde müssen altersgemäss geimpft, frei von ansteckenden Krankheiten und über eine gültige Privathaftpflichtversicherung der Halterin oder des Halters gedeckt sein. Läufige Hündinnen bitte vorab kurz melden. Die Kursleitung arbeitet gewaltfrei; tierschutzwidriges Zubehör ist auf dem Platz und im Gelände ausgeschlossen.
+        </p>
+        <p>
+          <strong>Abmeldung &amp; Abonnemente:</strong><br>
+          Gruppenstunden können bis 24 Stunden vor Beginn, Einzeltrainings bis 48 Stunden vor dem vereinbarten Termin kostenfrei verschoben oder abgesagt werden. 10er-Abonnemente der Welpen- und Familienhundegruppe sind 4 Monate gültig (Welpen-Restguthaben übertragbar auf Folgekurs), Schnüffelspass-10er-Abos sind 6 Monate gültig. Zahlung per Überweisung oder TWINT.
+        </p>
+        <p>
+          <strong>Datenschutz (Schweizer DSG) &amp; Urheberrecht:</strong><br>
+          Alle Angaben aus der 3-Schritte Smart-Anmeldung werden vertraulich behandelt und ausschliesslich zur Kursorganisation und Rückmeldung durch Martina Sidler verwendet. Sämtliche Fotografien, Logos und Texte sind urheberrechtlich geschütztes Eigentum von Good for Dogs.
+        </p>
+      </div>
+      <div style="margin-top:16px;display:flex;justify-content:flex-end;">
+        <button type="button" class="btn-cta btn-cta-primary btn-sm" onclick="wpCloseImpressumModal()">
+          <span>Schliessen</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function wpOpenImpressumModal() {
+      var m = document.getElementById('wpImpressumModal');
+      if (m) m.classList.add('open');
+    }
+    function wpCloseImpressumModal() {
+      var m = document.getElementById('wpImpressumModal');
+      if (m) m.classList.remove('open');
+    }
+    function wpOpenBlueprintModal(title, category, person) {
+      var m = document.getElementById('wpBlueprintModal');
+      if (!m) return;
+      var tEl = document.getElementById('wpBpTitle');
+      var cEl = document.getElementById('wpBpCategory');
+      var pEl = document.getElementById('wpBpContact');
+      if (tEl && title) tEl.textContent = title;
+      if (cEl && category) cEl.textContent = 'Kurs- & Themenbereich: ' + category;
+      if (pEl && person) pEl.textContent = 'Kursleitung: ' + person;
+      m.classList.add('open');
+    }
+    function wpCloseBlueprintModal() {
+      var m = document.getElementById('wpBlueprintModal');
+      if (m) m.classList.remove('open');
+    }
+    function wpToggleMobileMenu() {
+      var d = document.getElementById('mobileDrawer');
+      if (d) d.classList.toggle('open');
+    }
+    function wpCloseMobileMenu() {
+      var d = document.getElementById('mobileDrawer');
+      if (d) d.classList.remove('open');
+    }
+
+    var gfdCalcState = { age: 'welpe', goal: 'alltag', day: 'montag' };
+    function gfdSetCalc(group, val) {
+      gfdCalcState[group] = val;
+      var gridId = group === 'age' ? 'gfdCalcAgeGrid' : (group === 'goal' ? 'gfdCalcGoalGrid' : 'gfdCalcDayGrid');
+      var attr = 'data-' + group;
+      var btns = document.querySelectorAll('#' + gridId + ' .calc-option-btn');
+      for (var i = 0; i < btns.length; i++) {
+        btns[i].classList.toggle('active', btns[i].getAttribute(attr) === val);
+      }
+      gfdUpdateCalcView();
+    }
+    function gfdUpdateCalcView() {
+      var badge = document.getElementById('gfdCalcBadge');
+      var head = document.getElementById('gfdCalcHeadline');
+      var desc = document.getElementById('gfdCalcDesc');
+      var pEl = document.getElementById('gfdCalcPrice');
+      var pSub = document.getElementById('gfdCalcPriceSub');
+      var sEl = document.getElementById('gfdCalcSchedule');
+      var gEl = document.getElementById('gfdCalcGroup');
+      var lEl = document.getElementById('gfdCalcLoc');
+      var cta = document.getElementById('gfdCalcCta');
+      if (!head) return;
+
+      if (gfdCalcState.goal === 'verhalten' || gfdCalcState.day === 'flexibel') {
+        badge.textContent = 'EMPFEHLUNG: INDIVIDUELLES EINZELTRAINING (1:1)';
+        head.textContent = 'Einzeltraining & Verhaltensberatung bei Ihnen im Alltag';
+        desc.textContent = 'Wir schauen uns Ihre Situation direkt im Wohnumfeld und auf Ihren Spazierwegen an: massgeschneidert bei Leinenstress, Unsicherheit, Rückruf, Bellen oder Alleinebleiben.';
+        pEl.textContent = 'CHF 80.— / 60 Min.';
+        pSub.textContent = 'Anfahrt CHF 1.— pro km';
+        sEl.textContent = 'Nach Vereinbarung';
+        gEl.textContent = '1:1 Begleitung';
+        lEl.textContent = 'Hausbesuch & Region Baden';
+        if (cta) cta.href = 'kontakt.html?thema=einzeltraining';
+      } else if (gfdCalcState.goal === 'nase') {
+        badge.textContent = 'EMPFEHLUNG: SCHNÜFFELSPASS-GRUPPE (AB 6 MONATEN)';
+        head.textContent = 'Schnüffelspass: Zielobjektsuche, Geruch & Mantrailing';
+        desc.textContent = 'Ruhige, hochkonzentrierte Nasenarbeit auf dem eingezäunten Gelände in Birmenstorf. Da jedes Team einzeln arbeitet, fühlen sich auch sensible Hunde rundum wohl.';
+        pEl.textContent = 'CHF 40.— / 60 Min.';
+        pSub.textContent = 'oder 10er-Abo CHF 350.— (6 Mt.)';
+        sEl.textContent = 'Jeden 2. Sa, 10:30 Uhr';
+        gEl.textContent = 'Max. 3 Teams';
+        lEl.textContent = '5413 Birmenstorf (eingezäunt)';
+        if (cta) cta.href = 'kontakt.html?thema=schnueffelspass';
+      } else if (gfdCalcState.age === 'welpe') {
+        badge.textContent = 'EMPFEHLUNG: WELPEN-GRUPPE (AB 8 WOCHEN)';
+        head.textContent = 'Welpen-Gruppe am Montagabend in Birmenstorf & Region Baden';
+        desc.textContent = 'Behutsame Sozialisierung, Rückruf-Aufbau, Umweltgewöhnung und gezielte Ruheübungen in einer überschaubaren Gruppe mit maximal fünf Teams. Ein Einstieg ist jederzeit möglich.';
+        pEl.textContent = 'CHF 35.— / 60 Min.';
+        pSub.textContent = 'oder 10er-Abo CHF 300.— (4 Mt.)';
+        sEl.textContent = 'Montag, 18:00 Uhr';
+        gEl.textContent = 'Max. 5 Teams';
+        lEl.textContent = '5413 Birmenstorf & Gelände';
+        if (cta) cta.href = 'kontakt.html?thema=welpen';
+      } else if (gfdCalcState.age === 'junghund' && gfdCalcState.day === 'samstag') {
+        badge.textContent = 'EMPFEHLUNG: ERZIEHUNGSKURS 1 & 2 (SAMSTAGVORMITTAG)';
+        head.textContent = 'Aufbauender Erziehungskurs 1 (09:00 Uhr) oder 2 (10:15 Uhr)';
+        desc.textContent = 'Strukturierter 10-Lektionen-Kurs für Junghunde ab 6 Monaten und neu übernommene Hunde: von lockerer Leine und Impulskontrolle bis zu Distanzarbeit und Freilauf.';
+        pEl.textContent = 'CHF 300.— / Kurs';
+        pSub.textContent = '10 Lektionen à 60 Minuten';
+        sEl.textContent = 'Samstag, 09:00 / 10:15';
+        gEl.textContent = 'Max. 6 Teams';
+        lEl.textContent = 'Birmenstorf & Baden–Lenzburg';
+        if (cta) cta.href = 'kontakt.html?thema=junghunde';
+      } else {
+        badge.textContent = 'EMPFEHLUNG: FAMILIENHUNDE-GRUPPE (AB 16 WOCHEN)';
+        head.textContent = 'Familienhunde-Gruppe am Montagnachmittag';
+        desc.textContent = 'Spass, Alltagstauglichkeit, feine Körpersprache und abwechslungsreiche Beschäftigung für junge und erwachsene Familienhunde. Ein Einstieg ist jederzeit möglich.';
+        pEl.textContent = 'CHF 35.— / 60 Min.';
+        pSub.textContent = 'oder 10er-Abo CHF 300.— (4 Mt.)';
+        sEl.textContent = 'Montag, 16:30 Uhr';
+        gEl.textContent = 'Max. 6 Teams';
+        lEl.textContent = 'Birmenstorf & Baden–Lenzburg';
+        if (cta) cta.href = 'kontakt.html?thema=familienhunde';
+      }
+    }
+
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') {
+        wpCloseImpressumModal();
+        wpCloseBlueprintModal();
+        wpCloseMobileMenu();
+      }
+    });
+  </script>
+
+
+  <!-- === WEBPILOT-PARTNER-MODAL-START === -->
+  <div class="wp-partner-modal-backdrop" id="wpPartnerModal" role="dialog" aria-modal="true" aria-labelledby="wpPartnerModalTitle" data-studio-ignore="true" data-allow-scroll="true">
+    <div class="wp-partner-modal-dialog" data-studio-ignore="true" data-allow-scroll="true">
+      <div class="wp-partner-modal-head">
+        <div>
+          <span class="wp-partner-modal-kicker">WEBPILOT PARTNER-KONTAKT · JE-MI · JENNY ETTLE</span>
+          <h3 class="wp-partner-modal-title" id="wpPartnerModalTitle">WebPilot Partner-Kontakt · Eigene Webseite oder Smart-Anfrage modernisieren</h3>
+        </div>
+        <button type="button" class="wp-partner-modal-close" aria-label="Partner-Dialog schliessen" onclick="wpClosePartnerModal()">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+      </div>
+
+      <div class="wp-partner-notice">
+        <strong>Hinweis zur Zuständigkeit:</strong> Direktkontakt zur ausführenden Partner-Agentur (<strong>JE-MI · Jenny Ettle</strong>). Für Anfragen an Good for Dogs (Martina Sidler, 5406 Baden & 5413 Birmenstorf) nutzen Sie bitte das reguläre Formular auf der Seite.
+      </div>
+
+      <!-- TEIL 1: DIREKTE PARTNER-VISITENKARTE -->
+      <div class="wp-partner-vcard">
+        <div class="wp-partner-vcard-top">
+          <div>
+            <div class="wp-partner-vcard-name">JE-MI · Jenny Ettle</div>
+            <div class="wp-partner-vcard-role">Offizielle WebPilot-Partneragentur (Beratung & Umsetzung)</div>
+          </div>
+          <span class="wp-partner-vcard-badge">Direktkontakt</span>
+        </div>
+        <div class="wp-partner-direct-grid">
+          <a href="https://wa.me/41782232180?text=Guten%20Tag%20Jenny%20Ettle%2C%20ich%20habe%20den%20WebPilot-Auftritt%20von%20Good%20for%20Dogs%20%28Zeigeversion%20/%20Vorschau-Entwurf%29%20gesehen%20und%20interessiere%20mich%20f%C3%BCr%20einen%20unverbindlichen%20Vorschau-Entwurf%20/%20eine%20Smart-Anfrage-Zentrale." target="_blank" rel="noopener noreferrer" class="wp-partner-direct-btn wp-partner-direct-wa">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+            <span>WhatsApp direkt senden</span>
+          </a>
+          <a href="tel:+41782232180" class="wp-partner-direct-btn wp-partner-direct-tel">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            <span>Anrufen (+41 78 223 21 80)</span>
+          </a>
+          <a href="mailto:jenny@je-mi.ch?subject=Anfrage%20WebPilot%20Vorschau-Entwurf%20%28gesehen%20auf%20Good%20for%20Dogs%20%28Zeigeversion%20/%20Vorschau-Entwurf%29%29" class="wp-partner-direct-btn wp-partner-direct-mail">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+            <span>jenny@je-mi.ch</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- TEIL 2: 15-SEKUNDEN-SCHNELLANFRAGE FUER VORSCHAU-ENTWURF -->
+      <div class="wp-partner-form-box">
+        <div class="wp-partner-form-title">15-Sekunden-Schnellanfrage: Unverbindlicher Vorschau-Entwurf</div>
+        <p class="wp-partner-form-sub">
+          Geben Sie Ihre bestehende Webseiten-URL oder den Namen Ihres Vereins / Betriebs an. Jenny Ettle (JE-MI) zeigt Ihnen unverbindlich, wie Ihr moderner WebPilot-Auftritt aussieht.
+        </p>
+
+        <form id="wpPartnerLeadForm" onsubmit="return wpSubmitPartnerLead(event)" novalidate>
+          <div style="display:none;" aria-hidden="true">
+            <label for="wpPartnerHp">Website</label>
+            <input type="text" id="wpPartnerHp" name="website_url" tabindex="-1" autocomplete="off">
+          </div>
+
+          <div class="wp-partner-field">
+            <label for="wpPartnerTargetUrl" class="wp-partner-label">1. Bestehende Webseiten-URL oder Name Ihres Vereins / Betriebs *</label>
+            <input type="text" id="wpPartnerTargetUrl" class="wp-partner-input" placeholder="z. B. www.mein-verein.ch oder Muster AG" required>
+          </div>
+
+          <div class="wp-partner-form-grid">
+            <div class="wp-partner-field">
+              <label for="wpPartnerVisitorName" class="wp-partner-label">2. Ihr Vor- und Nachname *</label>
+              <input type="text" id="wpPartnerVisitorName" class="wp-partner-input" placeholder="Vorname Nachname" required>
+            </div>
+            <div class="wp-partner-field">
+              <label for="wpPartnerVisitorContact" class="wp-partner-label">3. Ihre Telefonnummer oder E-Mail *</label>
+              <input type="text" id="wpPartnerVisitorContact" class="wp-partner-input" placeholder="079 123 45 67 oder name@firma.ch" required>
+            </div>
+          </div>
+
+          <div class="wp-partner-field">
+            <label for="wpPartnerVisitorMsg" class="wp-partner-label">4. Kurze Nachricht (optional)</label>
+            <input type="text" id="wpPartnerVisitorMsg" class="wp-partner-input" placeholder="z. B. Fokus Vereins-Zentrale, Sponsoren oder Smart-Anfrage...">
+          </div>
+
+          <div class="wp-partner-error" id="wpPartnerFormError"></div>
+
+          <button type="submit" class="wp-partner-submit-btn" id="wpPartnerSubmitBtn">
+            <span id="wpPartnerSubmitBtnTxt">Unverbindlichen Vorschau-Entwurf bei Jenny Ettle anfordern</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </button>
+        </form>
+
+        <div class="wp-partner-success" id="wpPartnerSuccessBox" aria-live="polite">
+          <div style="display:flex;align-items:center;gap:8px;font-weight:800;color:#065F46;font-size:0.94rem;margin-bottom:6px;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2.4"><polyline points="20 6 9 17 4 12"/></svg>
+            <span>Anfrage an Jenny Ettle (JE-MI) übermittelt!</span>
+          </div>
+          <p style="font-size:0.8rem;color:#1E293B;line-height:1.45;margin:0 0 10px 0;">
+            Ihr 1-Seiten-Anfrage-Dossier (<strong id="wpPartnerResRef">#WP-2026</strong>) wurde erstellt und direkt an <strong>JE-MI · Jenny Ettle</strong> übermittelt.
+          </p>
+          <div style="display:flex;flex-wrap:wrap;gap:8px;">
+            <a href="#" id="wpPartnerResPdfBtn" target="_blank" rel="noopener noreferrer" class="wp-partner-direct-btn wp-partner-direct-tel" style="flex:1 1 200px;">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              <span>1-Seiten-PDF-Dossier öffnen</span>
+            </a>
+            <button type="button" class="wp-partner-direct-btn wp-partner-direct-mail" style="flex:1 1 140px;cursor:pointer;" onclick="wpResetPartnerModal()">
+              <span>Weitere Anfrage</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    var wpPartnerSourceTrigger = 'footer';
+    function wpOpenPartnerModal(triggerSource) {
+      wpPartnerSourceTrigger = triggerSource || 'footer';
+      var m = document.getElementById('wpPartnerModal');
+      if (m) {
+        m.classList.add('open');
+      }
+    }
+    function wpClosePartnerModal() {
+      var m = document.getElementById('wpPartnerModal');
+      if (m) {
+        m.classList.remove('open');
+      }
+    }
+    function wpResetPartnerModal() {
+      var f = document.getElementById('wpPartnerLeadForm');
+      var s = document.getElementById('wpPartnerSuccessBox');
+      var err = document.getElementById('wpPartnerFormError');
+      if (f) { f.reset(); f.style.display = 'block'; }
+      if (s) { s.style.display = 'none'; }
+      if (err) { err.style.display = 'none'; }
+    }
+    function wpSubmitPartnerLead(ev) {
+      if (ev) ev.preventDefault();
+      var hp = (document.getElementById('wpPartnerHp') || {}).value || '';
+      var targetUrl = ((document.getElementById('wpPartnerTargetUrl') || {}).value || '').trim();
+      var visitorName = ((document.getElementById('wpPartnerVisitorName') || {}).value || '').trim();
+      var rawContact = ((document.getElementById('wpPartnerVisitorContact') || {}).value || '').trim();
+      var msg = ((document.getElementById('wpPartnerVisitorMsg') || {}).value || '').trim();
+      var errBox = document.getElementById('wpPartnerFormError');
+      var btn = document.getElementById('wpPartnerSubmitBtn');
+      var btnTxt = document.getElementById('wpPartnerSubmitBtnTxt');
+
+      if (errBox) errBox.style.display = 'none';
+      if (!targetUrl || !visitorName || !rawContact) {
+        if (errBox) {
+          errBox.textContent = 'Bitte geben Sie die gewünschte Webseiten-URL (oder Verein/Betrieb), Ihren Namen sowie Ihre Telefonnummer oder E-Mail-Adresse an.';
+          errBox.style.display = 'block';
+        }
+        return false;
+      }
+
+      var isEmail = rawContact.indexOf('@') !== -1;
+      var emailVal = isEmail ? rawContact : '';
+      var phoneVal = isEmail ? '' : rawContact;
+
+      if (btn) btn.disabled = true;
+      if (btnTxt) btnTxt.textContent = 'Anfrage wird übermittelt...';
+
+      var payload = {
+        client_slug: 'webpilot_partner',
+        website_url: hp,
+        category: 'Vorschau-Entwurf & Web-Modernisierung',
+        sparte: 'Partner: Jenny Ettle (JE-MI)',
+        topic: 'Partner: Jenny Ettle (JE-MI)',
+        urgency: 'Vorschau-Entwurf angefordert',
+        name: visitorName,
+        company: targetUrl,
+        phone: phoneVal,
+        email: emailVal,
+        source_page: window.location.pathname || 'Good for Dogs (Zeigeversion / Vorschau-Entwurf)',
+        message: (msg ? msg + ' · ' : '') + 'Empfehlung über Showcase: Good for Dogs (Zeigeversion / Vorschau-Entwurf) (' + wpPartnerSourceTrigger + ') · Gewünschte Webseite / Verein / Betrieb: ' + targetUrl,
+        extra_fields: {
+          'Gewünschte Ziel-URL / Verein': targetUrl,
+          'Empfehlung über': 'Good for Dogs (Zeigeversion / Vorschau-Entwurf)',
+          'Partner-Agentur': 'JE-MI · Jenny Ettle'
+        }
+      };
+
+      fetch('/api/lead-submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      })
+      .then(function(r) { return r.json(); })
+      .then(function(res) {
+        if (btn) btn.disabled = false;
+        if (btnTxt) btnTxt.textContent = 'Unverbindlichen Vorschau-Entwurf bei Jenny Ettle anfordern';
+        if (!res || !res.ok) {
+          if (errBox) {
+            errBox.textContent = (res && res.error) ? res.error : 'Übermittlung fehlgeschlagen. Bitte versuchen Sie es erneut.';
+            errBox.style.display = 'block';
+          }
+          return;
+        }
+        var formEl = document.getElementById('wpPartnerLeadForm');
+        var succEl = document.getElementById('wpPartnerSuccessBox');
+        var refEl = document.getElementById('wpPartnerResRef');
+        var pdfBtn = document.getElementById('wpPartnerResPdfBtn');
+        if (refEl && res.ref_code) refEl.textContent = res.ref_code;
+        if (pdfBtn && res.pdf_url) pdfBtn.href = res.pdf_url;
+        if (formEl) formEl.style.display = 'none';
+        if (succEl) succEl.style.display = 'block';
+      })
+      .catch(function() {
+        if (btn) btn.disabled = false;
+        if (btnTxt) btnTxt.textContent = 'Unverbindlichen Vorschau-Entwurf bei Jenny Ettle anfordern';
+        if (errBox) {
+          errBox.textContent = 'Netzwerkfehler. Bitte kontaktieren Sie Jenny Ettle direkt per WhatsApp oder Telefon.';
+          errBox.style.display = 'block';
+        }
+      });
+      return false;
+    }
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') wpClosePartnerModal();
+    });
+  </script>
+  <!-- === WEBPILOT-PARTNER-MODAL-END === -->
+</body>
+</html>

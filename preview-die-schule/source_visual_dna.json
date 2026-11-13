@@ -1,0 +1,253 @@
+{
+  "schema_version": "1.0.0",
+  "generated_at": "2026-11-13T07:38:49.459Z",
+  "slug": "die-schule",
+  "source_url": "https://goodfordogs.ch/index.html",
+  "design_mode": "evolution",
+  "industry": "",
+  "stage_1_measured_facts": {
+    "luminance": {
+      "body_luminance": 0.972,
+      "hero_luminance": 0.985,
+      "header_px_luminance": 0.997,
+      "hero_px_luminance": 0.976,
+      "lower_px_luminance": 0.784,
+      "dom_body_luminance": 0.947,
+      "dom_hero_luminance": 0.947,
+      "body_bg_hex": "#F9F9F9",
+      "header_bg_hex": "#F9F9F9",
+      "hero_bg_hex": "#F9F9F9"
+    },
+    "colors": {
+      "distinct_accent_hues_count": 2,
+      "primary_detected_hex": "#5199A8",
+      "primary_detected_oklch": {
+        "L": 0.642,
+        "C": 0.075,
+        "H": 212.8
+      },
+      "distinct_hue_clusters": [
+        {
+          "representative_hex": "#5199A8",
+          "rgb": [
+            81,
+            153,
+            168
+          ],
+          "oklch": {
+            "L": 0.642,
+            "C": 0.075,
+            "H": 212.8
+          },
+          "total_weight": 51,
+          "roles": [
+            "accent_or_text",
+            "cta_button_bg",
+            "surface_or_badge_bg"
+          ]
+        },
+        {
+          "representative_hex": "#0073FF",
+          "rgb": [
+            0,
+            115,
+            255
+          ],
+          "oklch": {
+            "L": 0.589,
+            "C": 0.226,
+            "H": 258.8
+          },
+          "total_weight": 50,
+          "roles": [
+            "cta_button_bg"
+          ]
+        }
+      ]
+    },
+    "typography": {
+      "heading_font_family": "Lora",
+      "body_font_family": "Raleway, sans-serif",
+      "h1_font_size": "26px",
+      "h1_line_height": "normal",
+      "body_font_size": "15px",
+      "body_line_height": "normal",
+      "detected_border_radii_px": [
+        0,
+        3
+      ],
+      "detected_container_max_widths_px": [
+        1440
+      ]
+    },
+    "images": {
+      "total_visible_images": 2,
+      "content_images_count": 2,
+      "max_image_width_px": 621,
+      "hi_res_images_count": 0,
+      "low_res_images_count": 2,
+      "portrait_images_count": 0,
+      "landscape_images_count": 2,
+      "portrait_ratio_share": 0
+    },
+    "section_sequence": []
+  },
+  "sommelier_decisions": {
+    "polarity_decision": {
+      "design_mode": "evolution",
+      "target_hero_polarity": "light",
+      "target_page_polarity": "light",
+      "light_lock_active": true,
+      "s27_min_hero_luminance_threshold": 0.45,
+      "reason": "LICHT-SPERRE AKTIV (#UI-16): Ursprungsseite ist im Gesamteindruck (body_luminance=0.972) und Hero (hero_luminance=0.985) hell/freundlich. Dunkle Startbuehnen sind strikt verboten (Sensor S-27 ueberwacht >= 0.45)!"
+    },
+    "tinted_neutrals": {
+      "brand_hue_deg": 212.8,
+      "bg_page": {
+        "oklch": "oklch(0.985 0.008 212.8)",
+        "hex": "#F4FCFD",
+        "role": "60 % Haupt-Hintergrundflaeche mit feinem Marken-Hauch (Chroma 0.008)"
+      },
+      "bg_soft": {
+        "oklch": "oklch(0.955 0.016 212.8)",
+        "hex": "#E5F3F7",
+        "role": "30 % Sekundaer-Sektionen & Karten-Flaechen (Chroma 0.016)"
+      },
+      "bg_elevated": {
+        "oklch": "oklch(1.000 0.000 0.0)",
+        "hex": "#FFFFFF",
+        "role": "Erhabene Inhalts-Karten auf getoentem Canvas"
+      },
+      "border_subtle": {
+        "oklch": "oklch(0.890 0.014 212.8)",
+        "hex": "#D1DDE0",
+        "role": "Harmonische 1px Haarlinien-Rahmen im Marken-Farbton"
+      },
+      "text_main": {
+        "oklch": "oklch(0.200 0.025 212.8)",
+        "hex": "#07191D",
+        "contrast_vs_bg_page": "17.32:1",
+        "role": "Tiefdunkle, mit Marken-Hue abgetoente Textfarbe (Kontrast >= 10:1)"
+      },
+      "text_muted": {
+        "oklch": "oklch(0.420 0.020 212.8)",
+        "hex": "#415054",
+        "role": "Ruhige Sekundaer-Textfarbe fuer Metadaten und Bildlegenden"
+      }
+    },
+    "color_harmony_60_30_10": {
+      "distinct_accent_hues_count": 2,
+      "is_multicolor_chaos": false,
+      "sommelier_verdict": "Klare, fokussierte Marken-Farbwelt (2 Haupt-Akzentton erkannt). Wird im 60-30-10-Verhaeltnis mit Tinted Neutrals veredelt.",
+      "primary_10_percent_cta": {
+        "original_brand_hex": "#5199A8",
+        "original_oklch": {
+          "L": 0.642,
+          "C": 0.075,
+          "H": 212.8
+        },
+        "harmonized_oklch": "oklch(0.580 0.160 212.8)",
+        "harmonized_hex": "#00899E",
+        "hover_hex": "#007081"
+      },
+      "secondary_accent_palette": [
+        {
+          "slot": 1,
+          "token_prefix": "--accent-palette-1",
+          "source_hex": "#0073FF",
+          "source_hue_deg": 258.8,
+          "pastel_surface": {
+            "oklch": "oklch(0.950 0.035 258.8)",
+            "hex": "#E5EFFF",
+            "spec": "L=0.95, C=0.035"
+          },
+          "icon_accent": {
+            "oklch": "oklch(0.480 0.130 258.8)",
+            "hex": "#2B5CA6",
+            "spec": "L=0.48, C=0.13"
+          }
+        },
+        {
+          "slot": 2,
+          "token_prefix": "--accent-palette-2",
+          "source_hex": "#6E78C7",
+          "source_hue_deg": 276.8,
+          "pastel_surface": {
+            "oklch": "oklch(0.950 0.035 276.8)",
+            "hex": "#EAEDFF",
+            "spec": "L=0.95, C=0.035"
+          },
+          "icon_accent": {
+            "oklch": "oklch(0.480 0.130 276.8)",
+            "hex": "#4C53A5",
+            "spec": "L=0.48, C=0.13"
+          }
+        },
+        {
+          "slot": 3,
+          "token_prefix": "--accent-palette-3",
+          "source_hex": "#956BB6",
+          "source_hue_deg": 308.8,
+          "pastel_surface": {
+            "oklch": "oklch(0.950 0.035 308.8)",
+            "hex": "#F5E9FF",
+            "spec": "L=0.95, C=0.035"
+          },
+          "icon_accent": {
+            "oklch": "oklch(0.480 0.130 308.8)",
+            "hex": "#734594",
+            "spec": "L=0.48, C=0.13"
+          }
+        },
+        {
+          "slot": 4,
+          "token_prefix": "--accent-palette-4",
+          "source_hex": "#AF6196",
+          "source_hue_deg": 340.8,
+          "pastel_surface": {
+            "oklch": "oklch(0.950 0.035 340.8)",
+            "hex": "#FFE6F5",
+            "spec": "L=0.95, C=0.035"
+          },
+          "icon_accent": {
+            "oklch": "oklch(0.480 0.130 340.8)",
+            "hex": "#8C3B73",
+            "spec": "L=0.48, C=0.13"
+          }
+        }
+      ]
+    },
+    "typography_and_archetype": {
+      "measured_heading_font": "Lora",
+      "measured_body_font": "Raleway",
+      "heal_legacy_flaw": false,
+      "legacy_flaw_diagnosis": "Bestehende Schrift-Gattung (Lora / Raleway) wird typografisch im Schweizer Meister-Archetyp veredelt.",
+      "selected_archetype": {
+        "id": "warm_humanist_editorial",
+        "label": "1. Warm Humanist Editorial (Praxis, Coaching, Therapie, Gesundheit, Paedagogik)",
+        "font_display": "'Lora', Georgia, serif",
+        "font_sans": "'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif",
+        "google_fonts_import": "https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap",
+        "radius_card": "8px",
+        "radius_badge": "4px",
+        "grid_max_width": "1100px",
+        "default_polarity": "light",
+        "character_note": "Helle, warme Tinted Neutrals, entschleunigte Lesbarkeit, hohe menschliche Naehe und Vertrauenswuerdigkeit ohne sterile Spital-Kaelte."
+      }
+    },
+    "image_layout_decision": {
+      "max_source_image_width_px": 621,
+      "portrait_ratio_share": 0,
+      "forbid_fullscreen_bg_image": true,
+      "recommended_hero_layout": "split_framed_card",
+      "sommelier_verdict": "BILD-SCHUTZ-SPERRE AKTIV: Maximale Originalbild-Breite (621px < 1000px) bzw. Hochformat-Anteil (0 %). Unscharfe Fullscreen-Hintergrundbilder sind verboten -> zwingend \"split_framed_card\" (links Typografie + Kennzahlen, rechts eingerahmte Bild-Karte mit Unterkanten-Buendigkeit #UI-02) bauen!"
+    }
+  },
+  "stage_3_blueprint": {
+    "css_root_tokens": ":root {\n  /* === 1. Polaritaet & Schweizer Raster (#UI-02, #UI-16, Sensor S-27) === */\n  --wp-expected-hero-polarity: \"light\";\n  --wp-archetype: \"warm_humanist_editorial\";\n  --container-max: 1100px;\n  --radius-card: 8px;\n  --radius-badge: 4px;\n\n  /* === 2. Typografie (warm_humanist_editorial) === */\n  --font-display: 'Lora', Georgia, serif;\n  --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;\n\n  /* === 3. 60 % & 30 % Tinted Neutrals (impeccable / Refactoring UI, Hue=212.8deg) === */\n  --bg-page: #F4FCFD;\n  --bg-page-oklch: oklch(0.985 0.008 212.8);\n  --bg-soft: #E5F3F7;\n  --bg-soft-oklch: oklch(0.955 0.016 212.8);\n  --bg-elevated: #FFFFFF;\n  --border-subtle: #D1DDE0;\n  --border-subtle-oklch: oklch(0.890 0.014 212.8);\n  --text-main: #07191D;\n  --text-main-oklch: oklch(0.200 0.025 212.8);\n  --text-muted: #415054;\n  --text-muted-oklch: oklch(0.420 0.020 212.8);\n\n  /* === 4. 10 % Primaer-CTA-Chef (Marken-Hauptfarbe) === */\n  --primary: #00899E;\n  --primary-brand-raw: #5199A8;\n  --primary-oklch: oklch(0.580 0.160 212.8);\n  --primary-hover: #007081;\n\n  /* === 5. OKLCH-Harmonisierte Sekundaer-Palette (Bunter-Kuchen-Zaehmung: L=0.95/C=0.035 & L=0.48/C=0.13) === */\n  --accent-palette-1-soft: #E5EFFF; /* oklch(0.950 0.035 258.8) */\n  --accent-palette-1-strong: #2B5CA6; /* oklch(0.480 0.130 258.8) */\n  --accent-palette-2-soft: #EAEDFF; /* oklch(0.950 0.035 276.8) */\n  --accent-palette-2-strong: #4C53A5; /* oklch(0.480 0.130 276.8) */\n  --accent-palette-3-soft: #F5E9FF; /* oklch(0.950 0.035 308.8) */\n  --accent-palette-3-strong: #734594; /* oklch(0.480 0.130 308.8) */\n  --accent-palette-4-soft: #FFE6F5; /* oklch(0.950 0.035 340.8) */\n  --accent-palette-4-strong: #8C3B73; /* oklch(0.480 0.130 340.8) */\n}",
+    "recommended_hero_layout": "split_framed_card",
+    "target_hero_polarity": "light",
+    "selected_archetype_id": "warm_humanist_editorial",
+    "google_fonts_import": "https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
+  }
+}

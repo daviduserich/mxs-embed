@@ -231,6 +231,59 @@ SITE_SEO_PROFILES = {
             )
         ]
     },
+    "die-schule": {
+        "schema_type": "LocalBusiness",
+        "company_name": "Good for Dogs · Hundeschule Martina Sidler",
+        "legal_name": "Hundeschule Good for Dogs · Martina Sidler",
+        "city": "Baden",
+        "canton": "AG",
+        "postal_code": "5406",
+        "street_address": "Region Baden-Rütihof · Übungsplatz 5413 Birmenstorf",
+        "phone": "+41 76 454 54 06",
+        "email": "info@goodfordogs.ch",
+        "uid": "",
+        "source_url": "https://goodfordogs.ch/index.html",
+        "hero_image": "images/hero-mensch-hund-alltag.jpg",
+        "summary_2s": (
+            "Good for Dogs ist die gewaltfreie Hundeschule von Certodog® Hundeinstruktorin Martina Sidler "
+            "in 5406 Baden (Rütihof) mit eingezäuntem Übungsplatz in 5413 Birmenstorf sowie Trainingsorten im Gelände zwischen Baden und Lenzburg. "
+            "Angeboten werden 1:1-Einzeltraining, Welpengruppe, Erziehungskurs 1 und 2, Familienhundegruppe und Schnüffelspass in Kleingruppen von maximal 3 bis 6 Teams."
+        ),
+        "area_served": [
+            "Baden", "Baden-Rütihof", "Birmenstorf", "Mellingen", "Dättwil",
+            "Fislisbach", "Wettingen", "Brugg", "Lenzburg", "Wohlenschwil", "Kanton Aargau"
+        ],
+        "services": [
+            "Individuelles 1:1 Einzeltraining und Verhaltensberatung im Alltag (CHF 80.— pro 60 Min.)",
+            "Welpen-Gruppe ab 8 Wochen jeden Montag um 18:00 Uhr (CHF 35.— / 10er-Abo CHF 300.—)",
+            "Erziehungskurs 1 für Junghunde ab 6 Monaten jeden Samstag um 09:00 Uhr (10 Lektionen CHF 300.—)",
+            "Erziehungskurs 2 für Distanzarbeit und Freilauf jeden Samstag um 10:15 Uhr (10 Lektionen CHF 300.—)",
+            "Familienhunde-Gruppe ab 16 Wochen jeden Montag um 16:30 Uhr (CHF 35.— / 10er-Abo CHF 300.—)",
+            "Schnüffelspass-Gruppe (ZOS, Geruchsdifferenzierung, Mantrailing) jeden zweiten Samstag um 10:30 Uhr (CHF 40.— / 10er-Abo CHF 350.—)"
+        ],
+        "core_faqs": [
+            (
+                "Kann ich bei Good for Dogs jederzeit in einen Kurs einsteigen?",
+                "In die Welpen-Gruppe (Montag 18:00 Uhr), die Familienhunde-Gruppe (Montag 16:30 Uhr) und die Schnüffelspass-Gruppe (jeden zweiten Samstag 10:30 Uhr) ist ein Einstieg jederzeit möglich. Erziehungskurs 1 und 2 starten als aufbauender 10er-Block am Samstagvormittag."
+            ),
+            (
+                "Wo finden die Hundetrainings statt?",
+                "Der eingezäunte Übungsplatz liegt in 5413 Birmenstorf. Ergänzend finden Trainings an realen Alltagsorten im Gelände zwischen Baden und Lenzburg sowie im Einzeltraining direkt bei Ihnen zu Hause statt."
+            ),
+            (
+                "Wie gross sind die Trainingsgruppen bei Martina Sidler?",
+                "In der Schnüffelspass-Gruppe trainieren maximal 3 Teams, in der Welpen-Gruppe maximal 5 Teams und in den Erziehungs- sowie Familienhundekursen maximal 6 Teams."
+            ),
+            (
+                "Nach welchen Grundsätzen arbeitet die Hundeschule Good for Dogs?",
+                "Martina Sidler ist zertifizierte Certodog® Hundeinstruktorin sowie Mitglied bei «Fairplay mit Hund» und der «Initiative für gewaltfreies Hundetraining». Trainiert wird fair, gewaltfrei und kynologisch fundiert."
+            ),
+            (
+                "Wie kann bezahlt werden und welche Abmeldefristen gelten?",
+                "Kurse und Einzelstunden können per Überweisung oder vor Ort via TWINT bezahlt werden. Gruppenstunden sind bis 24 Stunden, Einzeltrainings bis 48 Stunden vor Beginn kostenfrei abmeldbar."
+            )
+        ]
+    },
     "mondocani": {
         "schema_type": "LocalBusiness",
         "company_name": "MONDOCANI · Die mobile Hundeschule · Dorette Sieber",
@@ -821,6 +874,8 @@ SITE_SEO_PROFILES = {
 PUBLIC_SLUG_MAP = {
     "preview-get-more-sales": "get-more-sales-vollversion",
     "preview-get-more-sales-v2": "get-more-sales-v2",
+    "preview-die-schule": "die-schule-vollversion",
+    "preview-die-schule-v2": "die-schule-v2",
     "preview-mondocani": "mondocani-vollversion",
     "preview-mondocani-v2": "mondocani-v2",
     "preview-holz-susi": "holz-susi-vollversion",
