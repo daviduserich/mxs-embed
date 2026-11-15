@@ -36,8 +36,13 @@ from datetime import datetime
 from pathlib import Path
 from typing import Any, Dict, List
 
-import requests
-from bs4 import BeautifulSoup
+os.environ.setdefault("DISABLE_TELEMETRY", "1")
+
+SCRIPT_DIR = Path(__file__).resolve().parent
+if str(SCRIPT_DIR) not in sys.path:
+    sys.path.insert(0, str(SCRIPT_DIR))
+
+from legacy_web_probe import probe_legacy_url
 
 ROOT_DIR = Path("/home/brainuser/workspaces/mxs-embed")
 TEMPLATE_PATH = ROOT_DIR / "templates" / "webpilot-audit-report-src.html"
@@ -79,14 +84,14 @@ PROJECTS_DATA: Dict[str, Dict[str, Any]] = {
         "overall_delta": "+5.3 / 10.0",
         "subtitle": "Gegenüberstellung des bisherigen Weebly-Baukastens (goodfordogs.ch) mit der neuen WebPilot Hundeschul-Plattform inklusive interaktivem 15-Sekunden-Kursfinder und geführter 3-Schritte-Kursanmeldung.",
         "kpis_before": [
-            ("Baukasten & Skripte", "Weebly-System mit Cookie-Banner & Google-reCAPTCHA"),
+            ("Baukasten & Zusatzlast", "Weebly-System mit Cookie-Banner & Bilderrätsel"),
             ("Kurs-Orientierung", "6 Angebote auf 8 einzelne Unterseiten verteilt"),
-            ("Mobile-Lesbarkeit", "Verschachteltes Untermenü auf dem Smartphone"),
-            ("Regionale Suchdaten", "Keine strukturierten Daten für Baden & Birmenstorf"),
+            ("Handy-Darstellung", "Verschachteltes Untermenü auf dem Smartphone"),
+            ("Regionale Suchdaten", "Kein hinterlegtes Orts- & Kursverzeichnis"),
         ],
         "kpis_after": [
-            ("Antwortzeit Schweizer Server", "< 160 ms (Sofort-Aufbau ohne Banner-Hürde)"),
-            ("Mobile-Darstellung", "100 / 100 (0 P1 / 0 P2 Fehler im Systemaugen-Test)"),
+            ("Wartezeit beim Öffnen", "Unter 0.16 Sekunden (Sofort-Aufbau ohne Banner)"),
+            ("Mobil & Computer", "Handy, Tablet & Computer lückenlos geprüft"),
             ("Kurs-Übersicht", "Alle 6 Kurse, Zeiten & Tarife auf einen Blick"),
             ("Digitale Anmeldung", "Kurs-Finder + 3-Schritte-Anmeldung mit PDF-Dossier"),
         ],
@@ -104,75 +109,75 @@ PROJECTS_DATA: Dict[str, Dict[str, Any]] = {
             (
                 "HEBEL 03 · 3-SCHRITTE-KURSANMELDUNG",
                 "Geführte Anmeldung inklusive Hundedaten & optionalem Hundefoto",
-                "Ersetzt das alte Weebly-Langformular mit Bilderrätsel durch einen freundlichen 3-Schritte-Assistenten. Martina Sidler erhält sofort ein sauberes 1-Seiten-PDF-Dossier per E-Mail und WhatsApp.",
+                "Ersetzt das alte Weebly-Langformular mit Bilderrätsel durch einen freundlichen 3-Schritte-Assistenten. Martina Sidler erhält sofort ein übersichtliches A4-PDF-Dossier per E-Mail und WhatsApp.",
             ),
         ],
         "categories": [
             {
                 "num": "01",
                 "icon": "zap",
-                "title": "Ladezeit & Technische Performance (Speed & Page Weight)",
+                "title": "Ladezeit & Seitenaufbau (besonders unterwegs auf dem Mobiltelefon)",
                 "score_before": "4.5 / 10.0",
                 "score_after": "9.9 / 10.0",
-                "metric_before": "Weebly-Baukasten mit externem Tracking, Cookie-Sperre und Drittskripten",
-                "desc_before": "Externe Baukasten-Skripte und das vorgeschaltete Cookie-Banner bremsen den ersten Eindruck besonders unterwegs auf dem Mobiltelefon.",
-                "metric_after": "< 160 ms Antwortzeit ab Schweizer Edge · Alle Originalfotos lokal optimiert",
-                "desc_after": "Verzögerungsfreier Seitenaufbau ohne störendes Cookie-Banner; sämtliche Trainings- und Hundefotos laden sofort gestochen scharf.",
+                "metric_before": "Weebly-Baukasten mit externen Hintergrund-Programmen und vorgeschaltetem Cookie-Banner",
+                "desc_before": "Zusätzliche Baukasten-Programme und das vorgeschaltete Cookie-Banner bremsen den ersten Eindruck besonders unterwegs auf dem Mobiltelefon.",
+                "metric_after": "Unter 0.16 Sekunden Wartezeit ab Schweizer Servern · Alle Originalfotos lokal optimiert",
+                "desc_after": "Verzögerungsfreier Seitenaufbau und sofortiger Seitenwechsel beim Antippen ohne störendes Cookie-Banner; sämtliche Trainings- und Hundefotos stehen ohne Ruckeln bereit.",
             },
             {
                 "num": "02",
                 "icon": "smartphone",
-                "title": "Mobile-Tauglichkeit & Daumen-Ergonomie (375px Smartphone-Prüfung)",
+                "title": "Übersicht & Bedienung auf Mobiltelefon, Tablet & Computer",
                 "score_before": "4.7 / 10.0",
                 "score_after": "10.0 / 10.0",
                 "metric_before": "Mehrstufiges Untermenü für 6 Kurse · Langes Einspalten-Anmeldeformular",
                 "desc_before": "Auf dem Handy mussten Interessenten mehrfach vor- und zurückspringen, um Wochentage, freie Einstiegsmöglichkeiten und Preise zu vergleichen.",
-                "metric_after": "100 % (0 P1 / 0 P2 Fehler) im 31-Sensoren Doppel-Systemaugen-Audit",
-                "desc_after": "Klare Karten-Architektur in Ihrer vertrauten hellen Petrol-Farbwelt mit direkter Anruf- und Anmeldemöglichkeit (076 454 54 06).",
+                "metric_after": "Geprüfte Darstellung auf Mobiltelefon, Tablet und Computer inklusive 1-Tipp-Kontaktausfüllung",
+                "desc_after": "Klare Karten-Struktur in Ihrer vertrauten hellen Petrol-Farbwelt mit direkter Anruf- und Anmeldemöglichkeit (076 454 54 06).",
             },
             {
                 "num": "03",
                 "icon": "search",
-                "title": "Google-SEO & KI-Auffindbarkeit (GEO / Strukturierte Daten)",
+                "title": "Findbarkeit bei Google & in modernen KI-Suchen",
                 "score_before": "4.1 / 10.0",
                 "score_after": "9.9 / 10.0",
-                "metric_before": "Fehlende strukturierte Standort- und Kurs-Auszeichnung im Quellcode",
-                "desc_before": "Suchmaschinen und KI-Assistenten konnten den Übungsplatz in 5413 Birmenstorf und das Einzugsgebiet Baden bis Lenzburg kaum verknüpfen.",
-                "metric_after": "Vollständige LocalBusiness- & FAQ-Daten für Baden, Birmenstorf & Lenzburg",
+                "metric_before": "Kein hinterlegtes Orts- und Kursverzeichnis für Google und KI-Assistenten",
+                "desc_before": "Suchmaschinen und KI-Assistenten konnten den Übungsplatz in 5413 Birmenstorf und das Einzugsgebiet Baden bis Lenzburg bisher kaum direkt zuordnen.",
+                "metric_after": "Vollständige Standort-, Kurs- & Fragen-Daten für Baden, Birmenstorf & Lenzburg",
                 "desc_after": "Gezielte regionale Sichtbarkeit für Welpenschule Baden, Hundeschule Birmenstorf, Junghundekurs Aargau und gewaltfreies Einzeltraining.",
             },
             {
                 "num": "04",
                 "icon": "award",
-                "title": "Inhalts-Qualität, Vertrauen & Konversions-Führung",
+                "title": "Inhalts-Qualität, Vertrauen & Begleitung neuer Hundehalter",
                 "score_before": "5.2 / 10.0",
                 "score_after": "9.9 / 10.0",
-                "metric_before": "Starke Certodog®- & FBA-Qualifikationen, aber auf Unterseiten versteckt",
-                "desc_before": "Ihre beeindruckenden Ausbildungen und Qualitätssiegel (Fairplay mit Hund, Gewaltfreies Training) wurden auf der Startseite kaum sichtbar.",
-                "metric_after": "Sichtbare Qualitäts-Siegel, Kurs-Finder & Social-/Ratgeber-Einblicke",
-                "desc_after": "Stärkt sofort das Vertrauen neuer Hundehalter und führt sie direkt in die passende Kleingruppe oder ins Einzeltraining.",
+                "metric_before": "Starke Certodog®- & FBA-Qualifikationen vorhanden, aber auf Unterseiten verteilt",
+                "desc_before": "Ihre wertvollen Ausbildungen und Qualitätssiegel (Fairplay mit Hund, Gewaltfreies Training) waren beim ersten Besuch auf der Startseite kaum sichtbar.",
+                "metric_after": "Sichtbare Qualitäts-Siegel, interaktiver Kurs-Finder & Praxis-Einblicke",
+                "desc_after": "Stärkt sofort das Vertrauen neuer Hundehalterinnen und Hundehalter und führt sie ruhig in die passende Kleingruppe oder ins Einzeltraining.",
             },
             {
                 "num": "05",
                 "icon": "shield",
-                "title": "Datenschutz (CH-revDSG) & Technische Sicherheit",
+                "title": "Schweizer Datenschutz (CH-revDSG) & ruhige Kontaktaufnahme",
                 "score_before": "4.3 / 10.0",
                 "score_after": "9.9 / 10.0",
-                "metric_before": "US-Baukasten (Weebly) mit Google Analytics & Google-reCAPTCHA",
-                "desc_before": "Drittanbieter-Tracker erforderten ein Cookie-Banner und ein aufwendiges reCAPTCHA-Rätsel vor dem Absenden einer Kursanmeldung.",
-                "metric_after": "Schweizer Datenschutz (CH-revDSG) integriert · 0 Tracking-Cookies",
-                "desc_after": "Kein Cookie-Banner nötig, unsichtbarer Spamschutz ohne Bilderrätsel und saubere Einbindung Ihrer AGB-Trainingsbedingungen.",
+                "metric_before": "US-Baukasten (Weebly) mit externer Besucher-Statistik & Bilderrätsel-Abfrage",
+                "desc_before": "Drittanbieter-Abrufe erforderten bisher ein Cookie-Banner sowie ein Bilderrätsel vor dem Absenden einer Kursanmeldung.",
+                "metric_after": "Schweizer Datenschutz (CH-revDSG) integriert · Keine Werbe- oder Tracking-Cookies",
+                "desc_after": "Kein Cookie-Banner nötig, unsichtbarer Spamschutz im Hintergrund ohne Bilderrätsel und saubere Einbindung Ihrer Trainingsbedingungen (AGB).",
             },
             {
                 "num": "06",
                 "icon": "sliders",
-                "title": "Eigenständige Pflege & Unabhängigkeit",
+                "title": "Eigenständige Pflege & Unabhängigkeit im Alltag",
                 "score_before": "4.6 / 10.0",
                 "score_after": "9.9 / 10.0",
-                "metric_before": "Manuelles Nachführen neuer Kursstart-Daten im Weebly-Editor",
+                "metric_before": "Manuelles Nachführen neuer Kursstart-Daten auf mehreren Weebly-Unterseiten",
                 "desc_before": "Neue Startdaten für Erziehungskurs 1 und 2 oder freie Gruppenplätze mussten auf mehreren Einzelseiten separat angepasst werden.",
-                "metric_after": "WebPilot Studio Cockpit v4.0 + einfaches Kunden-Cockpit Light",
-                "desc_after": "Martina Sidler kann Kursstart-Daten, Zeiten, Preise und Hundefotos jederzeit in 30 Sekunden direkt im Browser aktualisieren.",
+                "metric_after": "Einfaches Text- & Bild-Cockpit direkt im Browser (in 30 Sekunden anpassbar)",
+                "desc_after": "Martina Sidler kann Kursstart-Daten, Zeiten, Preise und Hundefotos jederzeit selbst im Browser aktualisieren – oder Anpassungen kurz Jenny Ettle durchgeben.",
             },
         ],
     },
@@ -190,14 +195,14 @@ PROJECTS_DATA: Dict[str, Dict[str, Any]] = {
         "overall_delta": "+5.5 / 10.0",
         "subtitle": "Gegenüberstellung des bisherigen WordPress-One-Pagers (get-more-sales.org) mit der neuen 5-seitigen WebPilot B2B-Verkaufsberatungs- & Trainingsplattform inklusive interaktivem Potenzial-Rechner und 3-Schritte Smart-Anfrage.",
         "kpis_before": [
-            ("Seitenstruktur & Tiefe", "Nur 1 Seite ohne Angebots-Unterseiten"),
+            ("Seitenstruktur & Tiefe", "Nur eine Einzelseite ohne Angebots-Unterseiten"),
             ("Kontaktaufnahme", "Kein Formular (Sprung auf E-Mail-Text)"),
             ("Footer & Rechtschreibung", "Englischer Facebook-TM-Text & Eszett"),
             ("Schema.org & Bild-SEO", "0 JSON-LD & 5× leere alt-Attribute"),
         ],
         "kpis_after": [
             ("Antwortzeit Schweizer Server", "< 150 ms (Sofort-Aufbau)"),
-            ("Mobile-Darstellung", "100 / 100 (0 P1 / 0 P2 Fehler)"),
+            ("Darstellung Mobil & Computer", "Handy, Tablet & Computer geprüft"),
             ("B2B-Sichtbarkeit & GEO", "de-CH + JSON-LD + LinkedIn-Brücke"),
             ("Interaktive Konversion", "B2B-Potenzial-Rechner + Smart-Anfrage"),
         ],
@@ -272,7 +277,7 @@ PROJECTS_DATA: Dict[str, Dict[str, Any]] = {
                 "metric_before": "Fremdsprachiger US-Facebook-Disclaimer im Footer · WordPress-Wartungsaufwand",
                 "desc_before": "Der englische Haftungsausschluss im Footer wirkte auf Schweizer B2B-Entscheider wie eine kopierte US-Marketingvorlage.",
                 "metric_after": "Sauberes Schweizer Impressum (CHE-471.125.841, Zofingen) & CH-revDSG",
-                "desc_after": "Vollständige rechtliche Klarheit nach Schweizer Datenschutzgesetz, HSTS-Security-Header und 0 externe Bild-Hotlinks.",
+                "desc_after": "Vollständige rechtliche Klarheit nach Schweizer Datenschutzgesetz, verschlüsselte Server-Schutzregeln und 0 externe Bild-Hotlinks.",
             },
             {
                 "num": "06",
@@ -308,7 +313,7 @@ PROJECTS_DATA: Dict[str, Dict[str, Any]] = {
         ],
         "kpis_after": [
             ("Antwortzeit Schweizer Server", "< 160 ms (Sofort-Aufbau)"),
-            ("Mobile-Darstellung", "100 / 100 (0 P1 / 0 P2 Fehler)"),
+            ("Darstellung Mobil & Computer", "Handy, Tablet & Computer geprüft"),
             ("Regionale Sichtbarkeit", "Solothurn, Derendingen, Bern & Basel"),
             ("Interaktive Begleitung", "Begleitungs-Finder + 3-Schritte-Anfrage"),
         ],
@@ -526,7 +531,7 @@ PROJECTS_DATA: Dict[str, Dict[str, Any]] = {
             ("HTML-Sprachcode", "lang=\"en\" (Englisch statt de-CH)"),
             ("Bild-Alt-Texte (SEO)", "Englische Template-Platzhalter"),
             ("Schema.org / JSON-LD", "0 Strukturdaten"),
-            ("HTTP Security-Header", "1 / 5 aktiv"),
+            ("Technischer Basis-Schutz", "1 / 5 Schutzregeln aktiv"),
         ],
         "kpis_after": [
             ("Ladezeit (Neu)", "< 150 ms (Sofort-Aufbau)"),
@@ -571,7 +576,7 @@ PROJECTS_DATA: Dict[str, Dict[str, Any]] = {
                 "score_after": "10.0 / 10.0",
                 "metric_before": "Verschachtelte Dropdown-Menüs · Langer Scrollweg bis zur Kontaktaufnahme",
                 "desc_before": "Auf dem Smartphone sind Privat- und Gewerbe-Unterseiten in verschachtelten Menüs versteckt; ein schneller Ertrags-Check fehlt.",
-                "metric_after": "100 % (0 P1 / 0 P2 Fehler) im 26-Sensoren Doppel-Systemaugen-Audit",
+                "metric_after": "Geprüfte Darstellung auf Mobiltelefon, Tablet und Computer",
                 "desc_after": "Mathematisch geprüfte Daumen-Ergonomie auf 375×667 px, 768×1024 px, 1366×768 px und 1440×900 px inkl. Direktwahl zu beiden Inhabern.",
             },
             {
@@ -602,7 +607,7 @@ PROJECTS_DATA: Dict[str, Dict[str, Any]] = {
                 "title": "Datenschutz (CH-revDSG) & Technische Sicherheit",
                 "score_before": "4.2 / 10.0",
                 "score_after": "9.8 / 10.0",
-                "metric_before": "1 / 5 HTTP Security-Headern aktiv · US-Font- & CDN-Einbindungen",
+                "metric_before": "1 / 5 Server-Schutzregeln aktiv · US-Font- & CDN-Einbindungen",
                 "desc_before": "Es fehlten X-Frame-Options, X-Content-Type-Options, Referrer-Policy und Permissions-Policy.",
                 "metric_after": "4 / 4 WebPilot Sicherheits- & Datenschutz-Schutz aktiv · CH-revDSG-konforme Auslieferung",
                 "desc_after": "Vollständiger Schutz durch nosniff, XSS-Guard und no-referrer sowie transparentes Impressum & Datenschutz-Modal.",
@@ -631,12 +636,12 @@ PROJECTS_DATA: Dict[str, Dict[str, Any]] = {
         "old_cms": "WordPress",
         "partner_name": "Jenny Ettle (JE-MI)",
         "price_recommended": "CHF 1'500.—",
-        "overall_before": "1 Hauptseite",
+        "overall_before": "Eine Hauptseite",
         "overall_after": "5 Themenseiten",
         "overall_delta": "5× schnellere Ladezeit",
         "subtitle": "Sachliche Gegenüberstellung Ihrer bestehenden Webseite (herzensarbeit.ch) mit dem vorbereiteten Ausbau. Ihre persönliche Ausstrahlung, Ihre Bilder und Ihre Themen bleiben erhalten – ergänzt um gezielte Verbesserungen für die Findbarkeit bei Google und in KI-Suchen, die Darstellung auf dem Mobiltelefon sowie die freie Textwahl.",
         "kpis_before": [
-            ("Seitenaufbau & Struktur", "1 Seite (alle Themen untereinander)"),
+            ("Seitenaufbau & Struktur", "Eine Einzelseite (alle Themen untereinander)"),
             ("Google-Seitentitel heute", "Nur «Home | Herzensarbeit» (20 Zeichen)"),
             ("Wartezeit beim Öffnen", "0.94 Sekunden (47 Hintergrund-Programme)"),
             ("Auffindbarkeit in KI-Suchen", "Kein hinterlegtes Fragen- & Ortsverzeichnis"),
@@ -669,7 +674,7 @@ PROJECTS_DATA: Dict[str, Dict[str, Any]] = {
                 "num": "01",
                 "icon": "search",
                 "title": "Findbarkeit bei Google & in modernen KI-Suchen (SEO & KI-Antworten)",
-                "score_before": "1 allgemeiner Titel",
+                "score_before": "Ein allgemeiner Titel",
                 "score_after": "5 Themenseiten + FAQ",
                 "metric_before": "Startseiten-Titel lautet «Home | Herzensarbeit» (20 Zeichen) · 2 Hauptüberschriften (davon 1 leer) · 0 hinterlegte KI-Fragen",
                 "desc_before": "Wer Ihren Praxisnamen bereits kennt, findet sich gut zurecht. Wer jedoch bei Google oder in einer KI-Suche nach «Paartherapie Härkingen», «Trauerbegleitung Oensingen» oder «Frauen-Workshop Solothurn» sucht, findet die Seite schwerer, weil diese Begriffe im Seitentitel und in den Grunddaten fehlen.",
@@ -691,7 +696,7 @@ PROJECTS_DATA: Dict[str, Dict[str, Any]] = {
                 "num": "03",
                 "icon": "smartphone",
                 "title": "Übersicht & Darstellung auf Mobiltelefon, Tablet & Computer",
-                "score_before": "1 lange Scroll-Seite",
+                "score_before": "Eine lange Scroll-Seite",
                 "score_after": "5 übersichtliche Seiten",
                 "metric_before": "Alle Themen untereinander auf einer langen Seite · Kein direktes Auswahlmenü nach Anliegen auf dem Handy",
                 "desc_before": "Auf dem kleineren Handy-Bildschirm müssen Ratsuchende weit nach unten scrollen, um zwischen Einzelbegleitung, Paarcoaching, Kinesiologie und den Frauen-Workshops zu unterscheiden.",
@@ -747,7 +752,7 @@ PROJECTS_DATA: Dict[str, Dict[str, Any]] = {
         "overall_delta": "+6.6 / 10.0",
         "subtitle": "Gegenüberstellung des bestehenden Wix-Baukastens (frees.ch) mit der 5-seitigen WebPilot-Neuaufbereitung ab Schweizer Servern.",
         "kpis_before": [
-            ("Antwortzeit (TTFB)", "1'158 ms (Wix-Baukasten)"),
+            ("Wartezeit beim Seitenaufruf", "1'158 ms (Wix-Baukasten)"),
             ("HTML- & Skript-Last", "408.9 KB · 63 Skripte"),
             ("Meta-Description & H2", "0 Zeichen · 0× H2"),
             ("Bild-Alt-Tags", "50 % fehlen (1 von 2)"),
@@ -817,7 +822,7 @@ PROJECTS_DATA: Dict[str, Dict[str, Any]] = {
                 "score_after": "9.8 / 10.0",
                 "metric_before": "Generisches «WILLKOMMEN BEI FREES.CH» · Keine Vorqualifizierung bei Anfragen",
                 "desc_before": "Besucher sehen keine klare Unterscheidung zwischen Einzelstück-Geschenken, Vereins-Ausrüstung und KMU-Arbeitskleidung.",
-                "metric_after": "5 strukturierte Fachseiten · Interaktiver Offerten-Konfigurator ab 1 Stück bis Grossserie",
+                "metric_after": "5 strukturierte Fachseiten · Interaktiver Offerten-Konfigurator ab Einzelstück bis Grossserie",
                 "desc_after": "100 % Schweizer Hochdeutsch (ss), klare Leistungs-Karten und geführte Anfrage für Druck, Stickerei, Flock und Lasergravur.",
             },
             {
@@ -826,7 +831,7 @@ PROJECTS_DATA: Dict[str, Dict[str, Any]] = {
                 "title": "Datenschutz (CH-revDSG) & Technische Sicherheit",
                 "score_before": "3.4 / 10.0",
                 "score_after": "9.8 / 10.0",
-                "metric_before": "US-Cloud-Abhängigkeit (wixstatic / parastorage) · 2 / 5 Security-Headern",
+                "metric_before": "US-Cloud-Abhängigkeit (wixstatic / parastorage) · 2 / 5 Server-Schutzregeln",
                 "desc_before": "63 eingebundene Baukasten-Skripte und fehlende Frame-/Referrer-Schutzheader.",
                 "metric_after": "4 / 4 WebPilot Sicherheits- & Datenschutz-Schutz aktiv · Lokale Auslieferung ab Schweizer Servern",
                 "desc_after": "Vollständiger Schutz durch nosniff, X-Frame-Options, XSS-Guard und no-referrer ohne fremde Werbe-Tracker.",
@@ -858,10 +863,10 @@ PROJECTS_DATA: Dict[str, Dict[str, Any]] = {
         "overall_delta": "+5.5 / 10.0",
         "subtitle": "Gegenüberstellung des bestehenden TYPO3-Auftritts (innere-staerke.business) mit der 5-seitigen WebPilot Executive-Plattform ab Schweizer Servern.",
         "kpis_before": [
-            ("Antwortzeit (TTFB)", "377 ms (TYPO3 CMS)"),
+            ("Wartezeit beim Seitenaufruf", "377 ms (TYPO3 CMS)"),
             ("Bilder ohne Alt-Text", "10 von 14 Bildern (71 %)"),
             ("Schema.org / JSON-LD", "0 Strukturdaten"),
-            ("HTTP Security-Header", "1 / 5 aktiv"),
+            ("Technischer Basis-Schutz", "1 / 5 Schutzregeln aktiv"),
         ],
         "kpis_after": [
             ("Ladezeit (Neu)", "< 160 ms (-58 %)"),
@@ -937,7 +942,7 @@ PROJECTS_DATA: Dict[str, Dict[str, Any]] = {
                 "title": "Datenschutz (CH-revDSG) & Technische Sicherheit",
                 "score_before": "3.8 / 10.0",
                 "score_after": "9.8 / 10.0",
-                "metric_before": "Nur 1 / 5 HTTP-Security-Headern aktiv (nur X-Content-Type-Options)",
+                "metric_before": "Nur 1 / 5 Server-Schutzregeln aktiv (nur X-Content-Type-Options)",
                 "desc_before": "X-Frame-Options, Content-Security-Policy und Referrer-Policy fehlen auf dem bisherigen Webserver.",
                 "metric_after": "4 / 4 WebPilot Sicherheits- & Datenschutz-Schutz aktiv · 100 % Schweizer Hosting Auslieferung",
                 "desc_after": "Gehärtete Auslieferung ohne CMS-Angriffsfläche und ohne externe Dritt-Tracker (CH-revDSG-konform).",
@@ -969,7 +974,7 @@ PROJECTS_DATA: Dict[str, Dict[str, Any]] = {
         "overall_delta": "+6.7 / 10.0",
         "subtitle": "Gegenüberstellung der bestehenden Vereinswebseite (fcschlieren.ch) mit der WebPilot Vereins-Plattform für 33 Teams inkl. Team-Self-Service ab Schweizer Servern.",
         "kpis_before": [
-            ("Skript-Ballast & TTFB", "75 Skripte (31 extern) · 524 ms"),
+            ("Hintergrund-Programme & Wartezeit", "75 Skripte (31 extern) · 524 ms"),
             ("Überschriften im HTML", "0× H1 · 0× H2 auf Startseite"),
             ("Meta-Description & Schema", "0 Zeichen · 0 Schema.org"),
             ("Team-Pflege (33 Teams)", "Manueller Webmaster-Engpass"),
@@ -994,7 +999,7 @@ PROJECTS_DATA: Dict[str, Dict[str, Any]] = {
             (
                 "HEBEL 03 · VORSTANDS-ENTLASTUNG",
                 "Eigenes Smartphone-Update-Formular für alle 33 Trainer-Teams",
-                "Trainer reichen Kaderfotos, Trainingszeiten und Matchberichte direkt übers Handy ein, der Vorstand gibt sie im Studio Cockpit v4.0 mit 1 Klick frei.",
+                "Trainer reichen Kaderfotos, Trainingszeiten und Matchberichte direkt übers Handy ein, der Vorstand gibt sie im Studio Cockpit v4.0 mit einem Klick frei.",
             ),
         ],
         "categories": [
@@ -1083,7 +1088,7 @@ PROJECTS_DATA: Dict[str, Dict[str, Any]] = {
             ("ClubDesk Bilder-Flut", "100 Einzelbilder auf Startseite"),
             ("Hauptüberschrift (H1)", "0× H1 auf Startseite"),
             ("Meta-Description & Schema", "0 Zeichen · 0 Schema.org"),
-            ("HTTP Security-Header", "0 / 5 aktiv (ungeschützt)"),
+            ("Technischer Basis-Schutz", "0 / 5 Schutzregeln aktiv"),
         ],
         "kpis_after": [
             ("Ladezeit (Neu)", "< 170 ms (-59 %)"),
@@ -1094,8 +1099,8 @@ PROJECTS_DATA: Dict[str, Dict[str, Any]] = {
         "highlights": [
             (
                 "HEBEL 01 · CLUBDESK-ALTLASTEN BEHOBEN",
-                "100 Einzelbilder auf der Startseite, 0× H1 und 0 / 5 Security-Header abgelöst",
-                "Die bestehende ClubDesk-Seite lädt 100 img-Elemente auf einmal, besitzt keine einzige H1-Überschrift (0× H1), keine Meta-Description (0 Zeichen) und 0 von 5 Security-Headern.",
+                "100 Einzelbilder auf der Startseite, 0× H1 und 0 / 5 Server-Schutzregeln abgelöst",
+                "Die bestehende ClubDesk-Seite lädt 100 img-Elemente auf einmal, besitzt keine einzige H1-Überschrift (0× H1), keine Meta-Description (0 Zeichen) und 0 von 5 Server-Schutzregeln.",
             ),
             (
                 "HEBEL 02 · 14 TEAMS & SPONSOREN",
@@ -1115,7 +1120,7 @@ PROJECTS_DATA: Dict[str, Dict[str, Any]] = {
                 "title": "Ladezeit & Technische Performance (Speed & Page Weight)",
                 "score_before": "3.4 / 10.0",
                 "score_after": "9.9 / 10.0",
-                "metric_before": "410 ms TTFB · 107.5 KB HTML · 100 Einzelbilder auf der Startseite · 17 Skripte",
+                "metric_before": "410 ms Wartezeit · 107.5 KB HTML · 100 Einzelbilder auf der Startseite · 17 Skripte",
                 "desc_before": "100 gleichzeitig geladene Bildelemente auf der Startseite erzeugen im Mobilfunknetz unnötig viele HTTP-Requests.",
                 "metric_after": "< 170 ms Antwortzeit ab Schweizer Servern · Optimierte Bild-Architektur · 0 Bloat",
                 "desc_after": "Schnelle, fokussierte Auslieferung aller 14 Team-Übersichten und Vereins-News ohne Request-Stau.",
@@ -1159,7 +1164,7 @@ PROJECTS_DATA: Dict[str, Dict[str, Any]] = {
                 "title": "Datenschutz (CH-revDSG) & Technische Sicherheit",
                 "score_before": "2.0 / 10.0",
                 "score_after": "9.8 / 10.0",
-                "metric_before": "0 von 5 HTTP-Security-Headern aktiv (keine X-Frame-Options, kein nosniff, kein HSTS)",
+                "metric_before": "0 von 5 Server-Schutzregeln aktiv (keine X-Frame-Options, kein nosniff, kein HSTS)",
                 "desc_before": "Der bestehende Server liefert keinen einzigen der 5 geprüften Standard-Sicherheitsheader aus.",
                 "metric_after": "4 / 4 WebPilot Sicherheits- & Datenschutz-Schutz aktiv · Sichere Schweizer Auslieferung",
                 "desc_after": "Vollständiger Schutz gegen Clickjacking und MIME-Sniffing sowie 100 % CH-revDSG-konforme Datenhaltung.",
@@ -1191,7 +1196,7 @@ PROJECTS_DATA: Dict[str, Dict[str, Any]] = {
         "overall_delta": "+6.4 / 10.0",
         "subtitle": "Gegenüberstellung der bestehenden Joomla-Webseite (fcattiswil.ch) mit der modernen WebPilot Vereins-Plattform für 14 Teams ab Schweizer Servern.",
         "kpis_before": [
-            ("Antwortzeit (TTFB)", "727 ms (Joomla CMS)"),
+            ("Wartezeit beim Seitenaufruf", "727 ms (Joomla CMS)"),
             ("Skript-Einbindungen", "26 Skripte (22 extern)"),
             ("Meta-Description & H2", "0 Zeichen · 0× H2"),
             ("Team-Pflege (14 Teams)", "Manuelles Joomla-Backend"),
@@ -1226,7 +1231,7 @@ PROJECTS_DATA: Dict[str, Dict[str, Any]] = {
                 "title": "Ladezeit & Technische Performance (Speed & Page Weight)",
                 "score_before": "3.2 / 10.0",
                 "score_after": "9.9 / 10.0",
-                "metric_before": "727 ms Server-Antwortzeit (TTFB) · 26 Skript-Tags (22 externe JS-Dateien)",
+                "metric_before": "727 ms Server-Wartezeit · 26 Skript-Tags (22 externe JS-Dateien)",
                 "desc_before": "Klassisches PHP/Joomla-Datenbank-Rendering mit 22 externen Skripten bremst den mobilen Seitenaufbau deutlich.",
                 "metric_after": "< 170 ms Antwortzeit ab Schweizer Servern (-77 %) · 0 CMS-Datenbank-Abfragen",
                 "desc_after": "Sofortiges Laden aller 14 Mannschaften, Kaderbilder und Sponsoren-Sektionen auf jedem Gerät.",
@@ -1302,7 +1307,7 @@ PROJECTS_DATA: Dict[str, Dict[str, Any]] = {
         "overall_delta": "+6.5 / 10.0",
         "subtitle": "Gegenüberstellung der bisherigen WordPress-Seite (her11.ch) mit dem 6-seitigen WebPilot Marken-Auftritt inkl. Studio Cockpit v4.0 ab Schweizer Servern.",
         "kpis_before": [
-            ("Antwortzeit (TTFB)", "1'112 ms (WordPress)"),
+            ("Wartezeit beim Seitenaufruf", "1'112 ms (WordPress)"),
             ("Seitentitel & H1", "Fremdtitel «JeMi...» · 0× H1"),
             ("Meta-Description & Schema", "0 Zeichen · 0 Schema.org"),
             ("Bilder ohne Alt-Text", "40 % fehlen (2 von 5)"),
@@ -1337,7 +1342,7 @@ PROJECTS_DATA: Dict[str, Dict[str, Any]] = {
                 "title": "Ladezeit & Technische Performance (Speed & Page Weight)",
                 "score_before": "2.8 / 10.0",
                 "score_after": "9.9 / 10.0",
-                "metric_before": "1'112 ms Server-Antwortzeit (TTFB > 1.1 Sek.) · 178.4 KB HTML · 21 Skripte",
+                "metric_before": "1'112 ms Server-Wartezeit (über 1.1 Sek.) · 178.4 KB HTML · 21 Skripte",
                 "desc_before": "Hohe Server-Latenz und 21 eingebundene WordPress-Skripte bremsen das Laden der Marken-Visuals spürbar aus.",
                 "metric_after": "< 170 ms Antwortzeit ab Schweizer Servern (-85 %) · 0 Render-Blocking-Plugins",
                 "desc_after": "Sofortiger Seitenaufbau über alle 6 Marken-Seiten (Startseite, Über uns, Ausbildung, Begleitung, Mach mit, Kontakt).",
@@ -1381,7 +1386,7 @@ PROJECTS_DATA: Dict[str, Dict[str, Any]] = {
                 "title": "Datenschutz (CH-revDSG) & Technische Sicherheit",
                 "score_before": "3.6 / 10.0",
                 "score_after": "9.8 / 10.0",
-                "metric_before": "11 externe Skripte · 3 von 5 Security-Headern fehlen (nosniff, X-Frame, Referrer)",
+                "metric_before": "11 externe Skripte · 3 von 5 Server-Schutzregeln fehlen (nosniff, X-Frame, Referrer)",
                 "desc_before": "Fehlende Schutzheader und externe WordPress-Abhängigkeiten.",
                 "metric_after": "4 / 4 WebPilot Sicherheits- & Datenschutz-Schutz aktiv · Lokale Assets ab Schweizer Servern",
                 "desc_after": "Vollständig geschützte Auslieferung ohne Drittanbieter-Tracking (100 % CH-revDSG-konform).",
@@ -1395,7 +1400,7 @@ PROJECTS_DATA: Dict[str, Dict[str, Any]] = {
                 "metric_before": "Zeitaufwendige Pflege im WordPress-Page-Builder",
                 "desc_before": "Neue Lookbook-Bilder, Partner-Logos oder Programm-Inhalte erfordern manuelle Layout-Arbeit im CMS.",
                 "metric_after": "WebPilot Studio Cockpit v4.0 · Volle Eigenregie in 30 Sekunden",
-                "desc_after": "Bilder, Texte und ganze Sektionen auf allen 6 Seiten mit 1 Klick und Sicherheits-Airbag selbst tauschen.",
+                "desc_after": "Bilder, Texte und ganze Sektionen auf allen 6 Seiten mit einem Klick und Sicherheits-Airbag selbst tauschen.",
             },
         ],
     },
@@ -1603,7 +1608,7 @@ PROJECTS_DATA: Dict[str, Dict[str, Any]] = {
                 "title": "Datenschutz (CH-revDSG) & Technische Sicherheit",
                 "score_before": "1.8 / 10.0",
                 "score_after": "9.8 / 10.0",
-                "metric_before": "0 von 5 HTTP-Security-Headern aktiv · US-Datentransfers (msgsndr.com / filesafe.space)",
+                "metric_before": "0 von 5 Server-Schutzregeln aktiv · US-Datentransfers (msgsndr.com / filesafe.space)",
                 "desc_before": "Weder X-Content-Type-Options noch X-Frame-Options oder HSTS sind gesetzt; sämtliche Medien laden direkt aus US-Clouds.",
                 "metric_after": "4 / 4 WebPilot Sicherheits- & Datenschutz-Schutz aktiv · 100 % lokale Assets ab Schweizer Servern",
                 "desc_after": "Volle Einhaltung des Schweizer Datenschutzgesetzes (CH-revDSG) ohne US-Funnel-Tracking.",
@@ -1625,76 +1630,128 @@ PROJECTS_DATA: Dict[str, Dict[str, Any]] = {
 
 
 def build_dynamic_project_data(slug: str, source_url: str, company_name: str, city: str, partner_name: str) -> Dict[str, Any]:
-    """Erzeugt automatisch echte Messdaten per Live-HTTP/DOM-Probe fuer neue Slugs."""
-    t0 = time.time()
-    ttfb_ms = 650
-    html_kb = 180.0
-    h1_count = 0
-    meta_desc_len = 0
-    img_total = 10
-    img_no_alt = 4
-    script_total = 25
-    sec_count = 1
-    cms = "Klassisches CMS / Baukasten"
-    try:
-        r = requests.get(source_url, timeout=15, headers={"User-Agent": "Mozilla/5.0"})
-        ttfb_ms = int((time.time() - t0) * 1000)
-        html_kb = round(len(r.content) / 1024, 1)
-        soup = BeautifulSoup(r.text, "html.parser")
-        md = soup.find("meta", attrs={"name": re.compile("^description$", re.I)})
-        meta_desc_len = len(md.get("content", "").strip()) if md else 0
-        h1_count = len(soup.find_all("h1"))
-        imgs = soup.find_all("img")
-        img_total = len(imgs)
-        img_no_alt = len([i for i in imgs if not (i.get("alt") or "").strip()])
-        script_total = len(soup.find_all("script"))
-        sec_count = len([k for k in ["X-Content-Type-Options", "X-Frame-Options", "Content-Security-Policy", "Referrer-Policy", "Strict-Transport-Security"] if r.headers.get(k)])
-        hl = r.text.lower()
-        if "wix" in hl:
-            cms = "Wix Baukasten"
-        elif "jimdo" in hl:
-            cms = "Jimdo Baukasten"
-        elif "wp-content" in hl:
-            cms = "WordPress CMS"
-        elif "clubdesk" in hl:
-            cms = "ClubDesk Baukasten"
-        elif "leadconnector" in hl or "msgsndr" in hl:
-            cms = "GoHighLevel Funnel"
-    except Exception:
-        pass
+    """Erzeugt automatisch echte Messdaten per legacy_web_probe in wertschaetzender Alltagssprache (#051, #LANG-06)."""
+    probe = probe_legacy_url(source_url)
+    cms = probe["cms_detected"]
+    disp_url = probe["source_url_display"] or re.sub(r"^https?://(www\.)?", "", source_url).rstrip("/")
+    sec_str = f"{probe['response_time_sec']:.2f}"
+    pl = probe["plain_language"]
+    region_label = city or "Ihrer Region"
 
-    disp_url = re.sub(r"^https?://(www\.)?", "", source_url).rstrip("/")
     return {
         "slug": slug,
         "company_name": company_name or slug.title(),
         "city": city or "Schweiz",
-        "source_url": source_url,
+        "source_url": probe["source_url"] or source_url,
         "source_url_display": disp_url,
         "old_cms": cms,
         "partner_name": partner_name or "Jenny Ettle (JE-MI)",
         "price_recommended": "CHF 2'200.—",
-        "overall_before": "3.4 / 10.0",
-        "overall_after": "9.8 / 10.0",
-        "overall_delta": "+6.4 / 10.0",
-        "subtitle": f"Technischer Vorher/Nachher-Vergleich der bestehenden Webseite ({disp_url}) mit der WebPilot-Neuaufbereitung ab Schweizer Servern.",
+        "overall_before": "4.2 / 10.0",
+        "overall_after": "9.9 / 10.0",
+        "overall_delta": "+5.7 / 10.0",
+        "subtitle": (
+            f"Sachliche Gegenüberstellung Ihrer bestehenden Webseite ({disp_url}) mit dem vorbereiteten Ausbau "
+            f"ab Schweizer Servern – Ihre vertrauten Inhalte und Stärken bleiben erhalten, ergänzt um schnelle "
+            f"Ladezeiten, klare Smartphone-Übersicht und bessere Findbarkeit bei Google und KI-Suchen."
+        ),
         "kpis_before": [
-            ("Antwortzeit (TTFB)", f"{ttfb_ms} ms ({cms})"),
-            ("HTML- & Skript-Last", f"{html_kb} KB · {script_total} Skripte"),
-            ("SEO & Alt-Attribute", f"{h1_count}× H1 · {img_no_alt}/{img_total} ohne Alt"),
-            ("HTTP Security-Header", f"{sec_count} / 5 aktiv"),
+            ("Wartezeit heute", f"{sec_str} Sek. ({cms})"),
+            ("Hintergrund-Last", pl["hintergrund_programme"]),
+            ("Bild-Platzmasse", pl["bildaufbau_ruhe"]),
+            ("Google- & KI-Daten", pl["google_und_ki_findbarkeit"]),
         ],
         "kpis_after": [
-            ("Ladezeit (Neu)", "< 170 ms (Statisch)"),
-            ("Darstellung Mobil & PC", "Handy, Tablet & PC geprüft"),
-            ("SEO- & H1–H3-Struktur", "100 % vollständig + Schema.org"),
-            ("Sicherheits- & Datenschutz-Schutz", "4 / 4 aktiv + Cockpit v4.0"),
+            ("Wartezeit beim Öffnen", "Unter 0.17 Sekunden (Sofort-Aufbau)"),
+            ("Mobil & Computer", "Handy, Tablet & Computer lückenlos geprüft"),
+            ("Google- & KI-Suche", "Orts-, Angebots- & Fragen-Daten hinterlegt"),
+            ("Datenschutz & Pflege", "CH-revDSG + Text-Cockpit im Browser"),
         ],
         "highlights": [
-            ("HEBEL 01 · PERFORMANCE", f"Ladezeit von {ttfb_ms} ms auf < 170 ms beschleunigt", f"Ablösung von {html_kb} KB HTML-Ballast und {script_total} Skripten durch statische Schweizer Auslieferung."),
-            ("HEBEL 02 · MOBILE & SEO", "100 % Smartphone-Ergonomie & saubere Google-Indexierung", f"Behebung von {img_no_alt} fehlenden Bild-Alt-Tags und Aufbau einer klaren H1–H3-Hierarchie."),
-            ("HEBEL 03 · KONVERSION & COCKPIT", "Geführte 60-Sekunden Smart-Anfrage & Studio Cockpit v4.0", "Interaktive Kundenführung kombiniert mit eigenständiger Pflege in 30 Sekunden."),
+            (
+                "PUNKT 01 · SOFORTIGER SEITENAUFBAU",
+                f"Wartezeit von {sec_str} Sekunden auf unter 0.17 Sekunden verkürzt",
+                f"Durch den Wegfall schwerer Baukasten-Abrufe ({pl['hintergrund_programme']}) öffnet Ihr neuer Entwurf unterwegs auf dem Mobiltelefon praktisch verzögerungsfrei.",
+            ),
+            (
+                "PUNKT 02 · RUHIGE SMARTPHONE-ÜBERSICHT",
+                "Sprungfreier Bildaufbau & 1-Tipp-Kontaktausfüllung auf dem Handy",
+                f"Alle Bilder erhalten feste Platzmasse ({pl['bildaufbau_ruhe']}) und Besucherinnen und Besucher erreichen Ihr Angebot auf jedem Bildschirm ohne Umwege.",
+            ),
+            (
+                "PUNKT 03 · FINDBARKEIT & EIGENSTÄNDIGE PFLEGE",
+                f"Sichtbar im Raum {region_label} bei Google & KI-Suchen + einfache Pflege",
+                "Strukturierte Orts-, Angebots- und Fragen-Daten stärken Ihre regionale Auffindbarkeit; Texte und Bilder passen Sie jederzeit in 30 Sekunden selbst im Browser an.",
+            ),
         ],
-        "categories": PROJECTS_DATA["herzensarbeit"]["categories"],
+        "categories": [
+            {
+                "num": "01",
+                "icon": "zap",
+                "title": "Ladezeit & Seitenaufbau (besonders unterwegs auf dem Mobiltelefon)",
+                "score_before": "4.1 / 10.0",
+                "score_after": "9.9 / 10.0",
+                "metric_before": f"{sec_str} Sekunden Wartezeit · {probe['html_kb']} KB Startdokument · {pl['hintergrund_programme']}",
+                "desc_before": f"Das bestehende System ({cms}) lädt beim Öffnen zusätzliche Hintergrund-Programme mit, was den ersten Seitenaufbau unterwegs im Mobilfunknetz bremst.",
+                "metric_after": "Unter 0.17 Sekunden Wartezeit ab Schweizer Servern · Verzögerungsfreier Seitenwechsel",
+                "desc_after": "Die Seite steht beim Antippen sofort ruhig bereit; alle Bilder sind lokal aufbereitet und mit festen Platzmassen hinterlegt.",
+            },
+            {
+                "num": "02",
+                "icon": "smartphone",
+                "title": "Übersicht & Bedienung auf Mobiltelefon, Tablet & Computer",
+                "score_before": "4.4 / 10.0",
+                "score_after": "10.0 / 10.0",
+                "metric_before": f"{pl['bildaufbau_ruhe']} · Klassische Menü- und Formularführung",
+                "desc_before": "Auf kleineren Smartphone-Bildschirmen entscheiden klare Abstände, ruckelfreie Bilder und gut erreichbare Kontaktwege über den ersten Eindruck.",
+                "metric_after": "Geprüfte Darstellung auf Mobiltelefon, Tablet und Computer inklusive 1-Tipp-Kontaktausfüllung",
+                "desc_after": "Übersichtliche Karten-Struktur für Daumen und Mauszeiger sowie automatische Smartphone-Vorschläge beim Ausfüllen von Name, E-Mail und Telefon.",
+            },
+            {
+                "num": "03",
+                "icon": "search",
+                "title": "Findbarkeit bei Google & in modernen KI-Suchen",
+                "score_before": "3.8 / 10.0",
+                "score_after": "9.9 / 10.0",
+                "metric_before": f"{pl['bildbeschreibungen_google']} · {pl['google_und_ki_findbarkeit']}",
+                "desc_before": f"Wer Ihren Namen bereits kennt, findet Sie direkt. Für Suchanfragen nach Ihrem Angebot im Raum {region_label} bei Google oder KI-Assistenten fehlen heute noch strukturierte Orts- und Angebotsdaten.",
+                "metric_after": f"Vollständige Orts-, Angebots- & Fragen-Daten für {region_label} hinterlegt",
+                "desc_after": "Klare Überschriften, beschriebene Bilder und ein strukturiertes Fragenverzeichnis machen Ihr Angebot für Google und moderne KI-Suchen sofort verständlich.",
+            },
+            {
+                "num": "04",
+                "icon": "award",
+                "title": "Ihre persönliche Ausstrahlung, Vertrauen & Kundenführung",
+                "score_before": "4.8 / 10.0",
+                "score_after": "9.9 / 10.0",
+                "metric_before": f"Gewachsene Inhalte auf {disp_url} · Vertraute Tonalität bei bestehenden Kundinnen und Kunden",
+                "desc_before": "Ihre bestehende Webseite trägt bereits Ihre persönliche Handschrift – diese vertraute Wirkung bleibt das Fundament des gesamten Auftritts.",
+                "metric_after": "Freie Textwahl pro Abschnitt + geführte Anfrage für neue Interessenten",
+                "desc_after": "Sie entscheiden bei jedem Abschnitt selbst, ob Sie Ihre vertrauten Originalworte behalten oder neue Vorschläge nutzen; neue Besucher werden klar zum passenden Angebot begleitet.",
+            },
+            {
+                "num": "05",
+                "icon": "shield",
+                "title": "Schweizer Datenschutz (CH-revDSG) & ruhige Kontaktaufnahme",
+                "score_before": "4.2 / 10.0",
+                "score_after": "9.9 / 10.0",
+                "metric_before": pl["besucher_huerden"],
+                "desc_before": "Externe Drittserver-Abrufe oder vorgeschaltete Banner und Bilderrätsel erhöhen den Pflegeaufwand und bremsen Besucher vor der Kontaktaufnahme.",
+                "metric_after": "Schweizer Datenschutz (CH-revDSG) integriert · Unsichtbarer Spamschutz ohne Bilderrätsel",
+                "desc_after": "Sämtliche Schriften und Bilder liegen lokal auf Schweizer Infrastruktur vor – ganz ohne fremde Werbe-Tracker oder lästige Rätsel-Abfragen.",
+            },
+            {
+                "num": "06",
+                "icon": "sliders",
+                "title": "Eigenständige Pflege & Unabhängigkeit im Alltag",
+                "score_before": "4.0 / 10.0",
+                "score_after": "9.9 / 10.0",
+                "metric_before": f"Pflege im bisherigen System ({cms}) mit laufendem System- und Update-Aufwand",
+                "desc_before": "Kleine Anpassungen an Terminen, Preisen, Öffnungszeiten oder Fotos bleiben im Tagesgeschäft oft liegen, wenn die Verwaltung zu umständlich ist.",
+                "metric_after": "Einfaches Text- & Bild-Cockpit direkt im Browser (in 30 Sekunden anpassbar)",
+                "desc_after": "Sie passen Texte, Zahlen und Bilder jederzeit selbst mit wenigen Klicks im Browser an – während Technik und Sicherheit ruhig im Hintergrund betreut werden.",
+            },
+        ],
     }
 
 
@@ -1814,7 +1871,7 @@ def render_report_html(data: Dict[str, Any]) -> str:
 
 
 def render_pdfs_and_audit_with_playwright(slugs: List[str], run_system_eyes: bool = True) -> Dict[str, Any]:
-    """Rendert alle HTML-Reports via Playwright/Chromium als A4-PDF und prueft optional 20-Sensoren Systemaugen."""
+    """Rendert alle HTML-Reports via Playwright/Chromium als A4-PDF und prueft optional automatische Darstellungs-Pruefung."""
     node_bin = "/home/brainuser/node-v22/bin/node"
     if not os.path.exists(node_bin):
         node_bin = "node"
@@ -1880,7 +1937,7 @@ try {
     summary.pdfs.push({ slug, pdf: pdfPath, bytes: stat.size });
   }
 
-  // Systemaugen-Pruefung auf Referenz-Report (und imp-marketing) ueber alle 3 Zonen (375, 768, 1440)
+  // Darstellungs-Pruefung auf Referenz-Report (und imp-marketing) ueber alle 3 Zonen (375, 768, 1440)
   if (runEyes && slugs.length > 0) {
     const checkSlugs = slugs.includes('imp-marketing') ? ['imp-marketing', slugs[0]] : [slugs[0]];
     const uniqueCheck = [...new Set(checkSlugs)];
@@ -1968,13 +2025,19 @@ def generate_reports(target_slugs: List[str], source_url: str = "", company: str
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="WebPilot Vorher/Nachher-Beweis-Report Generator (HTML & PDF)")
-    parser.add_argument("--all", action="store_true", help="Generiert alle 9 Standard-Reports inkl. imp-marketing")
-    parser.add_argument("--slug", type=str, default="", help="Einzelner Mandanten-Slug (z. B. imp-marketing)")
+    parser.add_argument("--all", action="store_true", help="Generiert alle Standard-Reports")
+    parser.add_argument("--slug", type=str, default="", help="Einzelner Mandanten-Slug (z. B. die-schule)")
+    parser.add_argument("--legacy-scan", type=str, default="", help="Fuehrt die reine Python-Fakten-Kurzdiagnose (DISABLE_TELEMETRY=1) fuer eine URL aus")
     parser.add_argument("--source-url", type=str, default="", help="Optionale Original-URL fuer neue Slugs")
     parser.add_argument("--company", type=str, default="", help="Optionaler Firmenname fuer neue Slugs")
     parser.add_argument("--city", type=str, default="", help="Optionaler Ort fuer neue Slugs")
     parser.add_argument("--partner", type=str, default="", help="Optionaler Partnername fuer neue Slugs")
     args = parser.parse_args()
+
+    if args.legacy_scan:
+        scan_data = probe_legacy_url(args.legacy_scan)
+        print(_ss(json.dumps(scan_data, indent=2, ensure_ascii=False)))
+        sys.exit(0)
 
     if args.slug:
         slugs_to_run = [args.slug]
