@@ -1758,7 +1758,7 @@
     }
 /* === WEBPILOT-PARTNER-ATTRIBUTION-CSS-END === */
   </style>
-  <!-- WP-SEO-GEO-AUTOPILOT-START -->
+  <!-- WP-SEO-AUTOPILOT-START -->
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
   <meta name="geo.region" content="CH-SO">
   <meta name="geo.placename" content="Fulenbach">
@@ -1775,7 +1775,81 @@
   <meta name="twitter:title" content="Beispiel-Team: 1. Mannschaft (2. Liga reg.) &amp; 14-Teams-Übersicht | SC Fulenbach">
   <meta name="twitter:description" content="Sportclub Fulenbach (gegründet Sommer 1944, SOFV-Verein Nr. 1826) – 14 Mannschaften, 1. Mannschaft (2. Liga regional), Juniorengruppierung rot/blau, Sportplatz Bad &amp; Clubhaus in 4629 Fulenbach.">
   <meta name="twitter:image" content="https://vorschau.magnet-xs.ch/scfulenbach-v2/images/sportplatz-bad-1.webp">
-  <script type="application/ld+json" id="wp-seo-geo-schema">
+  <style id="wp-modern-web-css">
+    @media (prefers-reduced-motion: no-preference) { @view-transition { navigation: auto; } }
+    html { interpolate-size: allow-keywords; }
+    :where(img[width][height]) { height: auto; }
+    input:user-invalid, textarea:user-invalid, select:user-invalid { border-color: #DC2626 !important; outline: none; }
+  </style>
+  <script type="speculationrules" id="wp-speculation-rules">
+{
+  "prefetch": [
+    {
+      "where": {
+        "and": [
+          {
+            "href_matches": "/*"
+          },
+          {
+            "not": {
+              "href_matches": [
+                "/*cockpit*",
+                "/cockpit*",
+                "/*team-update*",
+                "/*onboarding*",
+                "/api/*",
+                "/cdn-cgi/*",
+                "/*.pdf",
+                "/*?*",
+                "/*#*"
+              ]
+            }
+          },
+          {
+            "not": {
+              "selector_matches": "[target=_blank], [download], [data-no-prerender], [href^='mailto:'], [href^='tel:']"
+            }
+          }
+        ]
+      },
+      "eagerness": "moderate"
+    }
+  ],
+  "prerender": [
+    {
+      "where": {
+        "and": [
+          {
+            "href_matches": "/*"
+          },
+          {
+            "not": {
+              "href_matches": [
+                "/*cockpit*",
+                "/cockpit*",
+                "/*team-update*",
+                "/*onboarding*",
+                "/api/*",
+                "/cdn-cgi/*",
+                "/*.pdf",
+                "/*?*",
+                "/*#*"
+              ]
+            }
+          },
+          {
+            "not": {
+              "selector_matches": "[target=_blank], [download], [data-no-prerender], [href^='mailto:'], [href^='tel:']"
+            }
+          }
+        ]
+      },
+      "eagerness": "conservative"
+    }
+  ]
+}
+  </script>
+  <script type="application/ld+json" id="wp-seo-schema">
 {
   "@context": "https://schema.org",
   "@graph": [
@@ -1934,7 +2008,7 @@
       "name": "Beispiel-Team: 1. Mannschaft (2. Liga reg.) & 14-Teams-Übersicht | SC Fulenbach",
       "description": "Sportclub Fulenbach (gegründet Sommer 1944, SOFV-Verein Nr. 1826) – 14 Mannschaften, 1. Mannschaft (2. Liga regional), Juniorengruppierung rot/blau, Sportplatz Bad & Clubhaus in 4629 Fulenbach.",
       "inLanguage": "de-CH",
-      "dateModified": "2026-11-06T07:45:04+00:00",
+      "dateModified": "2026-11-15T16:20:54+00:00",
       "isPartOf": {
         "@id": "https://vorschau.magnet-xs.ch/scfulenbach-v2/#website"
       },
@@ -1983,14 +2057,14 @@
   ]
 }
   </script>
-  <!-- WP-SEO-GEO-AUTOPILOT-END -->
+  <!-- WP-SEO-AUTOPILOT-END -->
 </head>
 <body>
   <!-- STICKY HEADER MIT STATUS-DOTS -->
   <header class="site-header">
     <div class="container header-inner">
       <a href="index.html" class="brand-link" aria-label="SC Fulenbach Startseite">
-        <img src="images/logo-scfulenbach.webp" alt="Wappen SC Fulenbach" class="brand-logo" width="50" height="50" data-slot="brand_logo">
+        <img src="images/logo-scfulenbach.webp" alt="Wappen SC Fulenbach" class="brand-logo" width="50" height="50" data-slot="brand_logo" decoding="async">
         <div class="brand-text">
           <span class="brand-name" data-slot="brand_name">SC FULENBACH</span>
           <span class="brand-sub" data-slot="brand_sub">SEIT 1944 · SPORTPLATZ BAD</span>
@@ -2095,7 +2169,7 @@
       <div class="team-hero-card">
         <div class="team-hero-grid">
           <div class="team-photo-stage">
-            <img src="images/team-herren-1.webp" alt="SC Fulenbach 1. Mannschaft 2. Liga regional Mannschaftsfoto" width="760" height="440" data-slot="h1_team_photo">
+            <img src="images/team-herren-1.webp" alt="SC Fulenbach 1. Mannschaft 2. Liga regional Mannschaftsfoto" width="760" height="440" data-slot="h1_team_photo" fetchpriority="high" decoding="async">
             <span class="card-badge">1. Mannschaft · 2. Liga regional · Sportplatz Bad</span>
           </div>
           <div class="team-info-stage">
@@ -2647,7 +2721,7 @@
         <form id="wpPartnerLeadForm" onsubmit="return wpSubmitPartnerLead(event)" novalidate>
           <div style="display:none;" aria-hidden="true">
             <label for="wpPartnerHp">Website</label>
-            <input type="text" id="wpPartnerHp" name="website_url" tabindex="-1" autocomplete="off">
+            <input type="text" id="wpPartnerHp" name="website_url" tabindex="-1" autocomplete="off" form="wpTrapDetached">
           </div>
 
           <div class="wp-partner-field">

@@ -415,7 +415,7 @@
     }
 /* === WEBPILOT-PARTNER-ATTRIBUTION-CSS-END === */
   </style>
-  <!-- WP-SEO-GEO-AUTOPILOT-START -->
+  <!-- WP-SEO-AUTOPILOT-START -->
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
   <meta name="geo.region" content="CH-BE">
   <meta name="geo.placename" content="Obersteckholz">
@@ -432,7 +432,81 @@
   <meta name="twitter:title" content="Leistungen (Vorschau-Entwurf) | IMP GmbH · Matthias Iseli">
   <meta name="twitter:description" content="Vorschau-Entwurf der 4 Leistungsbereiche der IMP GmbH: Schreiner-Webseiten, Google-Geschäftsprofil, Anfrage-Systeme und Datenautomation.">
   <meta name="twitter:image" content="https://vorschau.magnet-xs.ch/imp-marketing-v2/images/hero-schreinerei.webp">
-  <script type="application/ld+json" id="wp-seo-geo-schema">
+  <style id="wp-modern-web-css">
+    @media (prefers-reduced-motion: no-preference) { @view-transition { navigation: auto; } }
+    html { interpolate-size: allow-keywords; }
+    :where(img[width][height]) { height: auto; }
+    input:user-invalid, textarea:user-invalid, select:user-invalid { border-color: #DC2626 !important; outline: none; }
+  </style>
+  <script type="speculationrules" id="wp-speculation-rules">
+{
+  "prefetch": [
+    {
+      "where": {
+        "and": [
+          {
+            "href_matches": "/*"
+          },
+          {
+            "not": {
+              "href_matches": [
+                "/*cockpit*",
+                "/cockpit*",
+                "/*team-update*",
+                "/*onboarding*",
+                "/api/*",
+                "/cdn-cgi/*",
+                "/*.pdf",
+                "/*?*",
+                "/*#*"
+              ]
+            }
+          },
+          {
+            "not": {
+              "selector_matches": "[target=_blank], [download], [data-no-prerender], [href^='mailto:'], [href^='tel:']"
+            }
+          }
+        ]
+      },
+      "eagerness": "moderate"
+    }
+  ],
+  "prerender": [
+    {
+      "where": {
+        "and": [
+          {
+            "href_matches": "/*"
+          },
+          {
+            "not": {
+              "href_matches": [
+                "/*cockpit*",
+                "/cockpit*",
+                "/*team-update*",
+                "/*onboarding*",
+                "/api/*",
+                "/cdn-cgi/*",
+                "/*.pdf",
+                "/*?*",
+                "/*#*"
+              ]
+            }
+          },
+          {
+            "not": {
+              "selector_matches": "[target=_blank], [download], [data-no-prerender], [href^='mailto:'], [href^='tel:']"
+            }
+          }
+        ]
+      },
+      "eagerness": "conservative"
+    }
+  ]
+}
+  </script>
+  <script type="application/ld+json" id="wp-seo-schema">
 {
   "@context": "https://schema.org",
   "@graph": [
@@ -596,7 +670,7 @@
       "name": "Leistungen (Vorschau-Entwurf) | IMP GmbH · Matthias Iseli",
       "description": "Vorschau-Entwurf der 4 Leistungsbereiche der IMP GmbH: Schreiner-Webseiten, Google-Geschäftsprofil, Anfrage-Systeme und Datenautomation.",
       "inLanguage": "de-CH",
-      "dateModified": "2026-11-06T07:45:03+00:00",
+      "dateModified": "2026-11-15T16:20:53+00:00",
       "isPartOf": {
         "@id": "https://vorschau.magnet-xs.ch/imp-marketing-v2/#website"
       },
@@ -653,7 +727,7 @@
   ]
 }
   </script>
-  <!-- WP-SEO-GEO-AUTOPILOT-END -->
+  <!-- WP-SEO-AUTOPILOT-END -->
 </head>
 <body>
   <div class="top-meta-bar">
@@ -672,7 +746,7 @@
   <header class="site-header" data-section="header">
     <div class="container header-inner">
       <a href="index.html" class="brand-logo" aria-label="IMP GmbH Startseite">
-        <img src="images/logo.png" alt="IMP GmbH Obersteckholz (BE) – Offizielles Logo (Verkaufsstarke Webseiten für Schreinereien, Küchenbau und)">
+        <img src="images/logo.png" alt="IMP GmbH Obersteckholz (BE) – Offizielles Logo (Verkaufsstarke Webseiten für Schreinereien, Küchenbau und)" width="1500" height="300" decoding="async">
         <div class="brand-sub">
           <span class="brand-title">IMP GmbH</span>
           <span class="brand-tagline">Sichtbarkeits-Systeme für Schreinereien &amp; Holzbau</span>
@@ -726,7 +800,7 @@
           </div>
         </div>
         <div class="tragwerk-visual-box" style="background:#ffffff;">
-          <img src="images/service-webseiten.png" alt="Unsere 4 Leistungsbereiche im Detail – Vorschau IMP GmbH">
+          <img src="images/service-webseiten.png" alt="Unsere 4 Leistungsbereiche im Detail – Vorschau IMP GmbH" width="119" height="119" fetchpriority="high" decoding="async">
         </div>
       </div>
     </div>
@@ -752,7 +826,7 @@
 
         <div class="card" style="padding:1.35rem;gap:0.75rem;">
           <div style="display:flex;align-items:center;gap:0.9rem;">
-            <img src="images/portrait-matthias-iseli.jpg" alt="Matthias Iseli – Inhaber IMP GmbH" style="width:62px;height:62px;object-fit:cover;object-position:top center;border-radius:var(--radius-sm);border:2px solid var(--oak-gold);">
+            <img src="images/portrait-matthias-iseli.jpg" alt="Matthias Iseli – Inhaber IMP GmbH" style="width:62px;height:62px;object-fit:cover;object-position:top center;border-radius:var(--radius-sm);border:2px solid var(--oak-gold);" width="1133" height="1600" loading="lazy" decoding="async">
             <div>
               <strong style="display:block;font-family:var(--font-display);color:#ffffff;font-size:1rem;">Matthias Iseli</strong>
               <span style="font-size:0.84rem;color:var(--text-light-muted);">Inhaber IMP GmbH · Gelernter Schreiner EFZ</span>
@@ -772,7 +846,7 @@
           <span class="step-pill" id="anf-pill-3">3. Zusammenfassung</span>
         </div>
 
-        <form id="imp-smart-anfrage-form" onsubmit="return window.submitImpAnfrage(event)">
+        <form id="imp-smart-anfrage-form" onsubmit="return window.submitImpAnfrage(event)" toolname="kontakt_anfrage_vorbereiten" tooldescription="Bereitet eine unverbindliche Anfrage bei IMP GmbH · Matthias Iseli (Schreinerei-Marketing) (Obersteckholz) zur Prüfung durch die Besucherin oder den Besucher vor.">
           <div id="anf-step-1">
             <h3 style="font-size:1.2rem;margin-bottom:0.4rem;">Welcher Bereich beschäftigt Sie aktuell am meisten?</h3>
             <p style="font-size:0.88rem;color:var(--text-muted);margin-bottom:1rem;">Wählen Sie ein oder mehrere Themen für Ihre Standortbestimmung:</p>
@@ -787,7 +861,7 @@
             <div class="form-grid">
               <div class="form-group">
                 <label for="anf-size">Betriebsgrösse</label>
-                <select id="anf-size" class="form-control">
+                <select id="anf-size" class="form-control" name="betriebsgroesse">
                   <option value="1–5 Mitarbeitende">1–5 Mitarbeitende</option>
                   <option value="6–10 Mitarbeitende" selected>6–10 Mitarbeitende</option>
                   <option value="11–15 Mitarbeitende">11–15 Mitarbeitende</option>
@@ -796,7 +870,7 @@
               </div>
               <div class="form-group">
                 <label for="anf-craft">Schwerpunkt</label>
-                <select id="anf-craft" class="form-control">
+                <select id="anf-craft" class="form-control" name="branche">
                   <option value="Innenausbau & Küchen" selected>Innenausbau &amp; Küchen</option>
                   <option value="Möbel & Massivholz">Möbel &amp; Massivholz</option>
                   <option value="Holzbau, Dach & Fassade">Holzbau, Dach &amp; Fassade</option>
@@ -817,23 +891,23 @@
             <div class="form-grid">
               <div class="form-group">
                 <label for="anf-name">Vor- und Nachname *</label>
-                <input type="text" id="anf-name" class="form-control" placeholder="z. B. Thomas Gerber" required>
+                <input type="text" id="anf-name" class="form-control" placeholder="z. B. Thomas Gerber" required name="name" autocomplete="name">
               </div>
               <div class="form-group">
                 <label for="anf-company">Schreinerei / Holzbau-Betrieb *</label>
-                <input type="text" id="anf-company" class="form-control" placeholder="z. B. Gerber Schreinerei AG" required>
+                <input type="text" id="anf-company" class="form-control" placeholder="z. B. Gerber Schreinerei AG" required name="organization" autocomplete="organization">
               </div>
               <div class="form-group">
                 <label for="anf-phone">Telefon / Mobile *</label>
-                <input type="tel" id="anf-phone" class="form-control" placeholder="+41 79 ..." required>
+                <input type="tel" id="anf-phone" class="form-control" placeholder="+41 79 ..." required name="tel" autocomplete="tel">
               </div>
               <div class="form-group">
                 <label for="anf-email">E-Mail-Adresse *</label>
-                <input type="email" id="anf-email" class="form-control" placeholder="info@ihre-schreinerei.ch" required>
+                <input type="email" id="anf-email" class="form-control" placeholder="info@ihre-schreinerei.ch" required name="email" autocomplete="email">
               </div>
               <div class="form-group full">
                 <label for="anf-notes">Optionale Notiz (z. B. aktuelle Webseite oder Wunschzeit für Rückruf)</label>
-                <textarea id="anf-notes" class="form-control" rows="2" placeholder="z. B. Erreichbar ab 17:00 Uhr oder mittags zwischen 12:00 und 13:00 Uhr"></textarea>
+                <textarea id="anf-notes" class="form-control" rows="2" placeholder="z. B. Erreichbar ab 17:00 Uhr oder mittags zwischen 12:00 und 13:00 Uhr" name="message"></textarea>
               </div>
             </div>
 
@@ -872,19 +946,19 @@
     <h3 id="imp-ausbau-title" style="font-size:1.35rem;margin-bottom:0.5rem;">Ausbau dieser Unterseite anfragen</h3>
     <p style="font-size:0.92rem;color:var(--text-muted);margin-bottom:1.25rem;">In dieser Vorschau ist die Startseite bereits komplett ausgearbeitet. Gerne schalten wir Ihnen auch die vollständige Detailseite <strong id="imp-ausbau-page-label">Leistungen</strong> inklusive aller Prozess-Schritte frei.</p>
 
-    <form onsubmit="return window.submitImpAusbau(event)">
+    <form onsubmit="return window.submitImpAusbau(event)" toolname="kontakt_anfrage_vorbereiten" tooldescription="Bereitet eine unverbindliche Anfrage bei IMP GmbH · Matthias Iseli (Schreinerei-Marketing) (Obersteckholz) zur Prüfung durch die Besucherin oder den Besucher vor.">
       <div class="form-grid">
         <div class="form-group">
           <label for="ausbau-name">Ihr Name *</label>
-          <input type="text" id="ausbau-name" class="form-control" value="Matthias Iseli" required>
+          <input type="text" id="ausbau-name" class="form-control" value="Matthias Iseli" required name="name" autocomplete="name">
         </div>
         <div class="form-group">
           <label for="ausbau-email">Ihre E-Mail *</label>
-          <input type="email" id="ausbau-email" class="form-control" value="kontakt@imp-marketing.ch" required>
+          <input type="email" id="ausbau-email" class="form-control" value="kontakt@imp-marketing.ch" required name="email" autocomplete="email">
         </div>
         <div class="form-group full">
           <label for="ausbau-msg">Gewünschte Schwerpunkte auf dieser Unterseite</label>
-          <textarea id="ausbau-msg" class="form-control" rows="3" placeholder="Welche Referenzen, Leistungsdetails oder Abläufe sollen wir hier besonders hervorheben?"></textarea>
+          <textarea id="ausbau-msg" class="form-control" rows="3" placeholder="Welche Referenzen, Leistungsdetails oder Abläufe sollen wir hier besonders hervorheben?" name="message"></textarea>
         </div>
       </div>
       <div id="ausbau-feedback" style="display:none;background:var(--oak-gold-pale);border:1px solid var(--oak-gold);padding:0.85rem;border-radius:var(--radius-sm);margin-bottom:1rem;font-size:0.9rem;color:var(--oak-gold-dark);font-weight:600;">
@@ -904,7 +978,7 @@
       <div class="footer-grid">
         <div>
           <div style="display:flex;align-items:center;gap:0.75rem;margin-bottom:1rem;">
-            <img src="images/logo.png" alt="IMP GmbH Obersteckholz (BE) – Offizielles Logo (Verkaufsstarke Webseiten für Schreinereien, Küchenbau und)" style="height:42px;width:auto;border-radius:var(--radius-sm);background:#ffffff;padding:2px;">
+            <img src="images/logo.png" alt="IMP GmbH Obersteckholz (BE) – Offizielles Logo (Verkaufsstarke Webseiten für Schreinereien, Küchenbau und)" style="height:42px;width:auto;border-radius:var(--radius-sm);background:#ffffff;padding:2px;" width="1500" height="300" loading="lazy" decoding="async">
             <div>
               <strong style="display:block;font-family:var(--font-display);color:#ffffff;font-size:1.05rem;">IMP GmbH</strong>
               <span style="font-size:0.8rem;color:var(--text-light-muted);">Matthias Iseli · Schreiner EFZ</span>
@@ -1182,7 +1256,7 @@ window.toggleImpMobileNav = function() {
         <form id="wpPartnerLeadForm" onsubmit="return wpSubmitPartnerLead(event)" novalidate>
           <div style="display:none;" aria-hidden="true">
             <label for="wpPartnerHp">Website</label>
-            <input type="text" id="wpPartnerHp" name="website_url" tabindex="-1" autocomplete="off">
+            <input type="text" id="wpPartnerHp" name="website_url" tabindex="-1" autocomplete="off" form="wpTrapDetached">
           </div>
 
           <div class="wp-partner-field">

@@ -1746,7 +1746,7 @@
     }
 /* === WEBPILOT-PARTNER-ATTRIBUTION-CSS-END === */
   </style>
-  <!-- WP-SEO-GEO-AUTOPILOT-START -->
+  <!-- WP-SEO-AUTOPILOT-START -->
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
   <meta name="geo.region" content="CH-AG">
   <meta name="geo.placename" content="Wettingen">
@@ -1763,7 +1763,81 @@
   <meta name="twitter:title" content="Leistungen: Privatkunden, Gewerbe, Batteriespeicher &amp; Contracting | JOMA Solar GmbH Wettingen">
   <meta name="twitter:description" content="JOMA Solar GmbH in Wettingen (AG): Solaranlagen, Batteriespeicher, Solar Manager Energiemanagement, ZEV und Contracting für Privat- und Geschäftskunden im Aargau.">
   <meta name="twitter:image" content="https://vorschau.magnet-xs.ch/joma-vollversion/images/efh-luftbild-quartier.jpg">
-  <script type="application/ld+json" id="wp-seo-geo-schema">
+  <style id="wp-modern-web-css">
+    @media (prefers-reduced-motion: no-preference) { @view-transition { navigation: auto; } }
+    html { interpolate-size: allow-keywords; }
+    :where(img[width][height]) { height: auto; }
+    input:user-invalid, textarea:user-invalid, select:user-invalid { border-color: #DC2626 !important; outline: none; }
+  </style>
+  <script type="speculationrules" id="wp-speculation-rules">
+{
+  "prefetch": [
+    {
+      "where": {
+        "and": [
+          {
+            "href_matches": "/*"
+          },
+          {
+            "not": {
+              "href_matches": [
+                "/*cockpit*",
+                "/cockpit*",
+                "/*team-update*",
+                "/*onboarding*",
+                "/api/*",
+                "/cdn-cgi/*",
+                "/*.pdf",
+                "/*?*",
+                "/*#*"
+              ]
+            }
+          },
+          {
+            "not": {
+              "selector_matches": "[target=_blank], [download], [data-no-prerender], [href^='mailto:'], [href^='tel:']"
+            }
+          }
+        ]
+      },
+      "eagerness": "moderate"
+    }
+  ],
+  "prerender": [
+    {
+      "where": {
+        "and": [
+          {
+            "href_matches": "/*"
+          },
+          {
+            "not": {
+              "href_matches": [
+                "/*cockpit*",
+                "/cockpit*",
+                "/*team-update*",
+                "/*onboarding*",
+                "/api/*",
+                "/cdn-cgi/*",
+                "/*.pdf",
+                "/*?*",
+                "/*#*"
+              ]
+            }
+          },
+          {
+            "not": {
+              "selector_matches": "[target=_blank], [download], [data-no-prerender], [href^='mailto:'], [href^='tel:']"
+            }
+          }
+        ]
+      },
+      "eagerness": "conservative"
+    }
+  ]
+}
+  </script>
+  <script type="application/ld+json" id="wp-seo-schema">
 {
   "@context": "https://schema.org",
   "@graph": [
@@ -1940,7 +2014,7 @@
       "name": "Leistungen: Privatkunden, Gewerbe, Batteriespeicher & Contracting | JOMA Solar GmbH Wettingen",
       "description": "JOMA Solar GmbH in Wettingen (AG): Solaranlagen, Batteriespeicher, Solar Manager Energiemanagement, ZEV und Contracting für Privat- und Geschäftskunden im Aargau.",
       "inLanguage": "de-CH",
-      "dateModified": "2026-11-06T07:50:19+00:00",
+      "dateModified": "2026-11-15T16:20:53+00:00",
       "isPartOf": {
         "@id": "https://vorschau.magnet-xs.ch/joma-vollversion/#website"
       },
@@ -1997,7 +2071,7 @@
   ]
 }
   </script>
-  <!-- WP-SEO-GEO-AUTOPILOT-END -->
+  <!-- WP-SEO-AUTOPILOT-END -->
 </head>
 <body>
 
@@ -2020,7 +2094,7 @@
   <header class="site-header" data-section="header">
     <div class="container header-inner">
       <a href="index.html" class="brand-link" aria-label="JOMA Solar GmbH Wettingen Startseite">
-        <img src="images/logo.svg" alt="JOMA Solar GmbH Wettingen (AG) – Offizielles Logo (Photovoltaikanlagen für Einfamilienhäuser und)" class="brand-logo" width="138" height="26" data-slot="brand_logo">
+        <img src="images/logo.svg" alt="JOMA Solar GmbH Wettingen (AG) – Offizielles Logo (Photovoltaikanlagen für Einfamilienhäuser und)" class="brand-logo" width="138" height="26" data-slot="brand_logo" decoding="async">
         <div class="brand-text">
           <span class="brand-name" data-slot="brand_name">JOMA Solar GmbH</span>
           <span class="brand-sub" data-slot="brand_sub">Wettingen · Kanton Aargau</span>
@@ -2100,7 +2174,7 @@
       </div>
 
       <div class="hero-media-card">
-        <img src="images/efh-luftbild-quartier.jpg" alt="Photovoltaikanlagen für Privat- und Geschäftskunden im Kanton Aargau" width="600" height="390">
+        <img src="images/efh-luftbild-quartier.jpg" alt="Photovoltaikanlagen für Privat- und Geschäftskunden im Kanton Aargau" width="600" height="390" fetchpriority="high" decoding="async">
         <div class="hero-media-caption">
           <div>
             <div style="font-family:'Lexend',sans-serif;font-weight:700;font-size:1.0rem;color:#12161F;">Vorausschauende Systemplanung</div>
@@ -2204,7 +2278,7 @@
       <div class="grid-2">
         <div class="pillar-card">
           <div class="pillar-img-wrap">
-            <img src="images/batteriespeicher-heim.jpg" alt="Batteriespeicher für Eigenheime von JOMA Solar" loading="lazy" decoding="async">
+            <img src="images/batteriespeicher-heim.jpg" alt="Batteriespeicher für Eigenheime von JOMA Solar" loading="lazy" decoding="async" width="1400" height="788">
           </div>
           <div class="pillar-body">
             <div>
@@ -2231,7 +2305,7 @@
 
         <div class="pillar-card">
           <div class="pillar-img-wrap">
-            <img src="images/gewerbe-speicher-technik.jpg" alt="Gewerbespeicher und Lastmanagement Technikraum" loading="lazy" decoding="async">
+            <img src="images/gewerbe-speicher-technik.jpg" alt="Gewerbespeicher und Lastmanagement Technikraum" loading="lazy" decoding="async" width="800" height="533">
           </div>
           <div class="pillar-body">
             <div>
@@ -2648,7 +2722,7 @@
         <form id="wpPartnerLeadForm" onsubmit="return wpSubmitPartnerLead(event)" novalidate>
           <div style="display:none;" aria-hidden="true">
             <label for="wpPartnerHp">Website</label>
-            <input type="text" id="wpPartnerHp" name="website_url" tabindex="-1" autocomplete="off">
+            <input type="text" id="wpPartnerHp" name="website_url" tabindex="-1" autocomplete="off" form="wpTrapDetached">
           </div>
 
           <div class="wp-partner-field">

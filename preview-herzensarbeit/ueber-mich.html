@@ -1707,7 +1707,7 @@
     }
 /* === WEBPILOT-PARTNER-ATTRIBUTION-CSS-END === */
   </style>
-  <!-- WP-SEO-GEO-AUTOPILOT-START -->
+  <!-- WP-SEO-AUTOPILOT-START -->
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
   <meta name="geo.region" content="CH-SO">
   <meta name="geo.placename" content="Härkingen">
@@ -1724,7 +1724,81 @@
   <meta name="twitter:title" content="Über Anne-Katrin Koch &amp; Alle 12 Klienten-Stimmen | Praxis Herzensarbeit Härkingen">
   <meta name="twitter:description" content="Herzensarbeit · Anne-Katrin Koch. Praxis für Paartherapie, Eheberatung, Trennungsberatung, Trauerbegleitung, Achtsamkeit und Frauen-Workshops in Härkingen (SO) und Online.">
   <meta name="twitter:image" content="https://vorschau.magnet-xs.ch/herzensarbeit-vollversion/images/paarcoaching-hero.jpg">
-  <script type="application/ld+json" id="wp-seo-geo-schema">
+  <style id="wp-modern-web-css">
+    @media (prefers-reduced-motion: no-preference) { @view-transition { navigation: auto; } }
+    html { interpolate-size: allow-keywords; }
+    :where(img[width][height]) { height: auto; }
+    input:user-invalid, textarea:user-invalid, select:user-invalid { border-color: #DC2626 !important; outline: none; }
+  </style>
+  <script type="speculationrules" id="wp-speculation-rules">
+{
+  "prefetch": [
+    {
+      "where": {
+        "and": [
+          {
+            "href_matches": "/*"
+          },
+          {
+            "not": {
+              "href_matches": [
+                "/*cockpit*",
+                "/cockpit*",
+                "/*team-update*",
+                "/*onboarding*",
+                "/api/*",
+                "/cdn-cgi/*",
+                "/*.pdf",
+                "/*?*",
+                "/*#*"
+              ]
+            }
+          },
+          {
+            "not": {
+              "selector_matches": "[target=_blank], [download], [data-no-prerender], [href^='mailto:'], [href^='tel:']"
+            }
+          }
+        ]
+      },
+      "eagerness": "moderate"
+    }
+  ],
+  "prerender": [
+    {
+      "where": {
+        "and": [
+          {
+            "href_matches": "/*"
+          },
+          {
+            "not": {
+              "href_matches": [
+                "/*cockpit*",
+                "/cockpit*",
+                "/*team-update*",
+                "/*onboarding*",
+                "/api/*",
+                "/cdn-cgi/*",
+                "/*.pdf",
+                "/*?*",
+                "/*#*"
+              ]
+            }
+          },
+          {
+            "not": {
+              "selector_matches": "[target=_blank], [download], [data-no-prerender], [href^='mailto:'], [href^='tel:']"
+            }
+          }
+        ]
+      },
+      "eagerness": "conservative"
+    }
+  ]
+}
+  </script>
+  <script type="application/ld+json" id="wp-seo-schema">
 {
   "@context": "https://schema.org",
   "@graph": [
@@ -1882,7 +1956,7 @@
       "name": "Über Anne-Katrin Koch & Alle 12 Klienten-Stimmen | Praxis Herzensarbeit Härkingen",
       "description": "Herzensarbeit · Anne-Katrin Koch. Praxis für Paartherapie, Eheberatung, Trennungsberatung, Trauerbegleitung, Achtsamkeit und Frauen-Workshops in Härkingen (SO) und Online.",
       "inLanguage": "de-CH",
-      "dateModified": "2026-11-06T07:45:03+00:00",
+      "dateModified": "2026-11-15T16:20:52+00:00",
       "isPartOf": {
         "@id": "https://vorschau.magnet-xs.ch/herzensarbeit-vollversion/#website"
       },
@@ -1939,7 +2013,7 @@
   ]
 }
   </script>
-  <!-- WP-SEO-GEO-AUTOPILOT-END -->
+  <!-- WP-SEO-AUTOPILOT-END -->
 </head>
 <body>
 
@@ -1962,7 +2036,7 @@
   <header class="site-header" data-section="header">
     <div class="container header-inner">
       <a href="index.html" class="brand-link" aria-label="Herzensarbeit Anne-Katrin Koch Startseite">
-        <img src="images/logo.png" alt="Herzensarbeit · Anne-Katrin Koch" class="brand-logo" width="48" height="48" data-slot="brand_logo">
+        <img src="images/logo.png" alt="Herzensarbeit · Anne-Katrin Koch" class="brand-logo" width="48" height="48" data-slot="brand_logo" decoding="async">
         <div class="brand-text">
           <span class="brand-name" data-slot="brand_name">HERZENSARBEIT</span>
           <span class="brand-sub" data-slot="brand_sub">Anne-Katrin Koch · Härkingen</span>
@@ -2022,7 +2096,7 @@
       </div>
 
       <div class="hero-media-card">
-        <img src="images/portrait-anne-katrin-praxis.jpg" alt="Anne-Katrin Koch in ihrer Praxis in Härkingen SO" width="600" height="390">
+        <img src="images/portrait-anne-katrin-praxis.jpg" alt="Anne-Katrin Koch in ihrer Praxis in Härkingen SO" width="600" height="390" fetchpriority="high" decoding="async">
         <div class="hero-media-caption">
           <div>
             <div style="font-family:'Josefin Sans',sans-serif;font-weight:700;font-size:1.02rem;color:#2b161e;">Anne-Katrin Koch Künzle</div>
@@ -2550,7 +2624,7 @@
         <form id="wpPartnerLeadForm" onsubmit="return wpSubmitPartnerLead(event)" novalidate>
           <div style="display:none;" aria-hidden="true">
             <label for="wpPartnerHp">Website</label>
-            <input type="text" id="wpPartnerHp" name="website_url" tabindex="-1" autocomplete="off">
+            <input type="text" id="wpPartnerHp" name="website_url" tabindex="-1" autocomplete="off" form="wpTrapDetached">
           </div>
 
           <div class="wp-partner-field">

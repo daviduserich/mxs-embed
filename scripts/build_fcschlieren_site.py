@@ -1981,7 +1981,7 @@ INDEX_BODY = """
             <span class="card-badge">Herren 1 · Heimspiel Zelgli</span>
           </div>
           <div class="card-body">
-            <div style="font-size:0.76rem;font-weight:700;color:var(--fcs-blue);text-transform:uppercase;">1. Mannschaft · Aktive Herren</div>
+            <div style="font-size:0.76rem;font-weight:700;color:var(--fcs-blue);text-transform:uppercase;min-height:39px;display:flex;align-items:flex-start;min-height:39px;display:flex;align-items:flex-start;">1. Mannschaft · Aktive Herren</div>
             <h3 class="card-title" style="font-size:1.08rem;" data-slot="social_1_title">Voller Einsatz auf Platz 1 mit Hauptsponsor Emil Frey AG Schlieren</h3>
             <p class="card-text" data-slot="social_1_text">
               Unser Fanionteam unter Trainer Diego Bürger und Co-Trainer Livio Sanseverino bedankt sich bei den zahlreichen Zuschauern und Supportern auf dem Zelgli.
@@ -1998,7 +1998,7 @@ INDEX_BODY = """
             <span class="card-badge">Frauen 1 · Tradition seit 1979</span>
           </div>
           <div class="card-body">
-            <div style="font-size:0.76rem;font-weight:700;color:var(--fcs-blue);text-transform:uppercase;">Frauenabteilung · 3 Aktiv- &amp; 8 Nachwuchsteams</div>
+            <div style="font-size:0.76rem;font-weight:700;color:var(--fcs-blue);text-transform:uppercase;min-height:39px;display:flex;align-items:flex-start;min-height:39px;display:flex;align-items:flex-start;">Frauenabteilung · 3 Aktiv- &amp; 8 Nachwuchsteams</div>
             <h3 class="card-title" style="font-size:1.08rem;" data-slot="social_2_title">Starke Frauen-Abteilung mit Partner J.F. Jost &amp; Co. &amp; Waser Facility Management</h3>
             <p class="card-text" data-slot="social_2_text">
               Drei aktive Frauenteams und acht Juniorinnen-Mannschaften machen den FC Schlieren zu einem Leuchtturm im Zürcher Frauen- und Mädchenfussball.
@@ -2015,7 +2015,7 @@ INDEX_BODY = """
             <span class="card-badge">Zelgli · Nachwuchs &amp; Partner</span>
           </div>
           <div class="card-body">
-            <div style="font-size:0.76rem;font-weight:700;color:var(--fcs-blue);text-transform:uppercase;">Fussballschule &amp; Vereinsleben</div>
+            <div style="font-size:0.76rem;font-weight:700;color:var(--fcs-blue);text-transform:uppercase;min-height:39px;display:flex;align-items:flex-start;min-height:39px;display:flex;align-items:flex-start;">Fussballschule &amp; Vereinsleben</div>
             <h3 class="card-title" style="font-size:1.08rem;" data-slot="social_3_title">Mittwochnachmittag auf dem Zelgli: Unsere Jüngsten (Jg. 2016–2022) am Ball</h3>
             <p class="card-text" data-slot="social_3_text">
               Jeden Mittwoch von 16:15 bis 17:45 Uhr trainieren die Kinder der Fussballschule auf dem Zelgli, während im Club-Beizli bei Müslüm Bozan für Eltern gesorgt ist.
@@ -2193,7 +2193,7 @@ INDEX_BODY = """
       <div class="grid-3" style="margin-top:36px;">
         <div class="card" style="padding:24px;background-color:var(--fcs-navy);color:#FFFFFF;border-color:var(--fcs-navy);">
           <div>
-            <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:14px;">
+            <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:14px;min-height:41px;">
               <span class="top-bar-badge">SEIT 1973 · RUND 120 MITGLIEDER</span>
               <img src="images/logo-supporter.webp" alt="Supporter-Vereinigung FC Schlieren" width="84" height="36" loading="lazy" decoding="async" style="object-fit:contain;background:#fff;padding:4px;border-radius:4px;">
             </div>
@@ -2210,7 +2210,7 @@ INDEX_BODY = """
 
         <div class="card" style="padding:24px;background-color:var(--fcs-navy);color:#FFFFFF;border-color:var(--fcs-navy);">
           <div>
-            <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:14px;">
+            <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:14px;min-height:41px;">
               <span class="top-bar-badge">SEIT 1997 · 49 FIRMENMITGLIEDER</span>
               <img src="images/logo-businessclub.webp" alt="Business-Club FC Schlieren" width="84" height="36" loading="lazy" decoding="async" style="object-fit:contain;background:#fff;padding:4px;border-radius:4px;">
             </div>
@@ -2227,7 +2227,7 @@ INDEX_BODY = """
 
         <div class="card" style="padding:24px;background-color:var(--fcs-blue-soft);border-color:#93C5FD;">
           <div>
-            <span class="pillar-count" style="margin-bottom:14px;">HAUPTPLATZ ZELGLI · SICHTBARKEIT</span>
+            <div style="display:flex;align-items:center;min-height:41px;margin-bottom:14px;"><span class="pillar-count" style="margin-bottom:0;">HAUPTPLATZ ZELGLI · SICHTBARKEIT</span></div>
             <h3 style="font-size:1.18rem;font-weight:800;margin-bottom:8px;">Bandenwerbung, Dress- &amp; Matchball-Sponsoring</h3>
             <p style="font-size:0.88rem;color:var(--text-body);margin-bottom:14px;">
               Präsentiere dein Unternehmen direkt am Hauptplatz 1 der Sportanlage Zelgli vor tausenden Spielerinnen, Spielern, Eltern und Zuschauern pro Saison (Kontakt: Dani Galantucci).
@@ -2498,6 +2498,11 @@ HERREN_1_CSS = """
       grid-template-columns: repeat(4, 1fr);
       gap: 12px;
     }
+    @media (min-width: 1081px) {
+      .matrix-grid:has(> :nth-child(3):last-child) {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
     .matrix-team-btn {
       background-color: #FFFFFF;
       border: 1px solid var(--border-light);
@@ -2507,7 +2512,7 @@ HERREN_1_CSS = """
       cursor: pointer;
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
+      justify-content: flex-start;
       gap: 8px;
       transition: all 0.2s ease;
       font-family: inherit;

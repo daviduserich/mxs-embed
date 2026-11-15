@@ -21,7 +21,7 @@ function acpIsLightMode() {
 
 var ACP_DUAL_VARIANT_BASES = [
   "holz-susi", "herzensarbeit", "joma", "mondocani",
-  "get-more-sales", "imp-marketing", "frees", "innere-staerke", "fcschlieren"
+  "get-more-sales", "imp-marketing", "frees", "innere-staerke", "fcschlieren", "die-schule"
 ];
 
 function acpGetVorschauClientSlug(subfolder) {

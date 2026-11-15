@@ -1769,6 +1769,101 @@
   <meta name="twitter:title" content="Kontakt &amp; 3-Schritte Smart-Anfrage (Zeigeversion) | get.more.sales Carmen Caselli Zofingen / Aargau">
   <meta name="twitter:description" content="get.more.sales · Carmen Caselli (Zeigeversion): B2B-Verkaufsberatung, Marktforschung, praxisnahes Vertriebstraining und 1:1 Sales-Sparring in Zofingen und im DACH-Raum.">
   <meta name="twitter:image" content="https://vorschau.magnet-xs.ch/get-more-sales-v2/images/hero-sales-dashboard-analytics.png">
+  <style id="wp-modern-web-css">
+    @media (prefers-reduced-motion: no-preference) { @view-transition { navigation: auto; } }
+    html { interpolate-size: allow-keywords; }
+    :where(img[width][height]) { height: auto; }
+    input:user-invalid, textarea:user-invalid, select:user-invalid { border-color: #DC2626 !important; outline: none; }
+  </style>
+  <script type="speculationrules" id="wp-speculation-rules">
+{
+  "prefetch": [
+    {
+      "where": {
+        "and": [
+          {
+            "href_matches": "/*"
+          },
+          {
+            "not": {
+              "href_matches": [
+                "/*cockpit*",
+                "/cockpit*",
+                "/*team-update*",
+                "/*onboarding*",
+                "/api/*",
+                "/cdn-cgi/*",
+                "/*.pdf",
+                "/*?*",
+                "/*#*"
+              ]
+            }
+          },
+          {
+            "not": {
+              "selector_matches": "[target=_blank], [download], [data-no-prerender], [href^='mailto:'], [href^='tel:']"
+            }
+          }
+        ]
+      },
+      "eagerness": "moderate"
+    }
+  ],
+  "prerender": [
+    {
+      "where": {
+        "and": [
+          {
+            "href_matches": "/*"
+          },
+          {
+            "not": {
+              "href_matches": [
+                "/*cockpit*",
+                "/cockpit*",
+                "/*team-update*",
+                "/*onboarding*",
+                "/api/*",
+                "/cdn-cgi/*",
+                "/*.pdf",
+                "/*?*",
+                "/*#*"
+              ]
+            }
+          },
+          {
+            "not": {
+              "selector_matches": "[target=_blank], [download], [data-no-prerender], [href^='mailto:'], [href^='tel:']"
+            }
+          }
+        ]
+      },
+      "eagerness": "conservative"
+    }
+  ]
+}
+  </script>
+  <script id="wp-webmcp-step-sync">
+    (function(){
+      var STEP3_IDS = {contactName:1,contactEmail:1,contactPhone:1,contactPlz:1,contactLoc:1,contactStreet:1,contactCompany:1};
+      function wpSyncStep3(e){
+        var t = e && e.target;
+        if (!t || !t.id || !STEP3_IDS[t.id]) return;
+        if (!String(t.value || '').trim()) return;
+        var s3 = document.getElementById('wpStep3');
+        if (!s3 || s3.classList.contains('active')) return;
+        if (typeof window.wpNextStep === 'function') { window.wpNextStep(3); return; }
+        var panes = document.querySelectorAll('.wp-step-pane');
+        for (var i = 0; i < panes.length; i++) panes[i].classList.toggle('active', panes[i].id === 'wpStep3');
+        for (var s = 1; s <= 3; s++) {
+          var pill = document.getElementById('wpStepPill' + s);
+          if (pill) { pill.classList.toggle('active', s === 3); pill.classList.toggle('done', s < 3); }
+        }
+      }
+      document.addEventListener('input', wpSyncStep3, true);
+      document.addEventListener('change', wpSyncStep3, true);
+    })();
+  </script>
   <script type="application/ld+json" id="wp-seo-schema">
 {
   "@context": "https://schema.org",
@@ -1878,7 +1973,7 @@
       "name": "Kontakt & 3-Schritte Smart-Anfrage (Zeigeversion) | get.more.sales Carmen Caselli Zofingen / Aargau",
       "description": "get.more.sales · Carmen Caselli (Zeigeversion): B2B-Verkaufsberatung, Marktforschung, praxisnahes Vertriebstraining und 1:1 Sales-Sparring in Zofingen und im DACH-Raum.",
       "inLanguage": "de-CH",
-      "dateModified": "2026-11-10T21:01:15+00:00",
+      "dateModified": "2026-11-15T16:20:52+00:00",
       "isPartOf": {
         "@id": "https://vorschau.magnet-xs.ch/get-more-sales-v2/#website"
       },
@@ -1927,7 +2022,7 @@
   <header class="site-header" data-section="header">
     <div class="container header-inner">
       <a href="index.html" class="brand-link" aria-label="get.more.sales Carmen Caselli Startseite">
-        <img src="images/logo-get-more-sales.png" alt="get.more.sales Zofingen (AG) – Offizielles Logo (Fachbetrieb in der Schweiz)" class="brand-logo" width="50" height="50" data-slot="brand_logo">
+        <img src="images/logo-get-more-sales.png" alt="get.more.sales Zofingen (AG) – Offizielles Logo (Fachbetrieb in der Schweiz)" class="brand-logo" width="50" height="50" data-slot="brand_logo" decoding="async">
         <div class="brand-text">
           <span class="brand-name" data-slot="brand_name">get.more.sales</span>
           <span class="brand-sub" data-slot="brand_sub">Carmen Caselli · Verkaufsberatung</span>
@@ -1998,7 +2093,7 @@
             Ob massgeschneiderte Verkaufsstrategie, Marktforschung, praxisnahes Vertriebstraining für Ihr Verkaufsteam oder ein kostenloser erster Beratungstermin: Starten Sie rechts die 3-Schritte Smart-Anfrage oder kontaktieren Sie uns direkt.
           </p>
 
-          <img src="images/carmen-caselli-portrait-color.jpg" alt="Carmen Caselli, Geschäftsführerin get.more.sales in Zofingen" style="width:100%;height:200px;object-fit:cover;object-position:center top;border-radius:var(--radius-sm);margin-bottom:16px;" loading="lazy" decoding="async">
+          <img src="images/carmen-caselli-portrait-color.jpg" alt="Carmen Caselli, Geschäftsführerin get.more.sales in Zofingen" style="width:100%;height:200px;object-fit:cover;object-position:center top;border-radius:var(--radius-sm);margin-bottom:16px;" decoding="async" width="960" height="540" fetchpriority="high">
 
           <div class="contact-direct-list">
             <div class="contact-direct-item">
@@ -2052,10 +2147,10 @@
             </div>
           </div>
 
-          <form id="isContactForm" onsubmit="return wpSubmitIsLead(event)" novalidate>
+          <form id="isContactForm" onsubmit="return wpSubmitIsLead(event)" novalidate toolname="kontakt_anfrage_vorbereiten" tooldescription="Bereitet eine unverbindliche Anfrage bei get.more.sales · Carmen Caselli (Zeigeversion / Vorschau-Entwurf) (Zofingen) zur Prüfung durch die Besucherin oder den Besucher vor.">
             <div style="display:none;" aria-hidden="true">
               <label for="wpHoneypot">Website URL</label>
-              <input type="text" id="wpHoneypot" name="website_url" tabindex="-1" autocomplete="off">
+              <input type="text" id="wpHoneypot" name="website_url" tabindex="-1" autocomplete="off" form="wpTrapDetached">
             </div>
 
             <!-- SCHRITT 1: LEISTUNGSBEREICH -->
@@ -2105,11 +2200,11 @@
               <div class="form-grid-2" style="margin-bottom:14px;">
                 <div class="form-field">
                   <label for="wpDetail1" class="form-label" id="wpDetail1Label">Branche &amp; Grösse Ihres Verkaufsteams</label>
-                  <input type="text" id="wpDetail1" class="form-input" placeholder="z. B. B2B-Industrie, 5 Mitarbeitende im Vertrieb">
+                  <input type="text" id="wpDetail1" class="form-input" placeholder="z. B. B2B-Industrie, 5 Mitarbeitende im Vertrieb" name="detail_1">
                 </div>
                 <div class="form-field">
                   <label for="wpDetail2" class="form-label" id="wpDetail2Label">Gewünschter Rahmen (Vor Ort, Zofingen oder Video-Call)</label>
-                  <input type="text" id="wpDetail2" class="form-input" placeholder="z. B. Erstgespräch per Video-Call oder Inhouse">
+                  <input type="text" id="wpDetail2" class="form-input" placeholder="z. B. Erstgespräch per Video-Call oder Inhouse" name="detail_2">
                 </div>
               </div>
 
@@ -2129,7 +2224,7 @@
 
               <div class="form-field" style="margin-bottom:14px;">
                 <label for="contactMessage" class="form-label">Welchen Engpass oder welches Ziel möchten Sie lösen? (optional)</label>
-                <textarea id="contactMessage" class="form-textarea" placeholder="Beschreiben Sie kurz Ihr Anliegen (z. B. höhere Abschlussquote bei Offerten, strukturierte Neukunden-Akquise, Preisgespräche oder 1:1 Sparring)..."></textarea>
+                <textarea id="contactMessage" class="form-textarea" placeholder="Beschreiben Sie kurz Ihr Anliegen (z. B. höhere Abschlussquote bei Offerten, strukturierte Neukunden-Akquise, Preisgespräche oder 1:1 Sparring)..." name="message"></textarea>
               </div>
 
               <div class="form-field" style="margin-bottom:18px;">
@@ -2158,33 +2253,33 @@
               <div class="form-grid-2" style="margin-bottom:14px;">
                 <div class="form-field">
                   <label for="contactName" class="form-label">Vor- und Nachname *</label>
-                  <input type="text" id="contactName" class="form-input" placeholder="z. B. Matthias Müller" required>
+                  <input type="text" id="contactName" class="form-input" placeholder="z. B. Matthias Müller" required name="name" autocomplete="name">
                 </div>
                 <div class="form-field">
                   <label for="contactCompany" class="form-label">Unternehmen &amp; Funktion (optional)</label>
-                  <input type="text" id="contactCompany" class="form-input" placeholder="z. B. Muster AG · Geschäftsführung">
+                  <input type="text" id="contactCompany" class="form-input" placeholder="z. B. Muster AG · Geschäftsführung" name="organization" autocomplete="organization">
                 </div>
               </div>
 
               <div class="form-grid-2" style="margin-bottom:14px;">
                 <div class="form-field">
                   <label for="contactPhone" class="form-label">Telefon / Mobile für Rückruf *</label>
-                  <input type="tel" id="contactPhone" class="form-input" placeholder="z. B. 079 123 45 67" required>
+                  <input type="tel" id="contactPhone" class="form-input" placeholder="z. B. 079 123 45 67" required name="tel" autocomplete="tel">
                 </div>
                 <div class="form-field">
                   <label for="contactEmail" class="form-label">E-Mail-Adresse *</label>
-                  <input type="email" id="contactEmail" class="form-input" placeholder="ihre.email@unternehmen.ch" required>
+                  <input type="email" id="contactEmail" class="form-input" placeholder="ihre.email@unternehmen.ch" required name="email" autocomplete="email">
                 </div>
               </div>
 
               <div class="form-grid-2" style="margin-bottom:16px;">
                 <div class="form-field">
                   <label for="contactStreet" class="form-label">Strasse &amp; Nr. (optional)</label>
-                  <input type="text" id="contactStreet" class="form-input" placeholder="z. B. Industriestrasse 12">
+                  <input type="text" id="contactStreet" class="form-input" placeholder="z. B. Industriestrasse 12" name="street-address" autocomplete="street-address">
                 </div>
                 <div class="form-field">
                   <label for="contactLocation" class="form-label">PLZ &amp; Ort *</label>
-                  <input type="text" id="contactLocation" class="form-input" placeholder="z. B. 4800 Zofingen" required>
+                  <input type="text" id="contactLocation" class="form-input" placeholder="z. B. 4800 Zofingen" required name="postal-code" autocomplete="postal-code">
                 </div>
               </div>
 
@@ -2745,7 +2840,7 @@
         <form id="wpPartnerLeadForm" onsubmit="return wpSubmitPartnerLead(event)" novalidate>
           <div style="display:none;" aria-hidden="true">
             <label for="wpPartnerHp">Website</label>
-            <input type="text" id="wpPartnerHp" name="website_url" tabindex="-1" autocomplete="off">
+            <input type="text" id="wpPartnerHp" name="website_url" tabindex="-1" autocomplete="off" form="wpTrapDetached">
           </div>
 
           <div class="wp-partner-field">

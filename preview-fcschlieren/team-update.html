@@ -1461,7 +1461,7 @@
     }
 /* === WEBPILOT-PARTNER-ATTRIBUTION-CSS-END === */
   </style>
-  <!-- WP-SEO-GEO-AUTOPILOT-START -->
+  <!-- WP-SEO-AUTOPILOT-START -->
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
   <meta name="geo.region" content="CH-ZH">
   <meta name="geo.placename" content="Schlieren">
@@ -1469,16 +1469,22 @@
   <meta property="og:locale" content="de_CH">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="FC Schlieren">
-  <meta property="og:title" content="Mannschafts-Daten &amp; Kader-Assistent – FC Schlieren">
+  <meta property="og:title" content="Mannschafts-Daten &amp; Kader-Assistent · FC Schlieren">
   <meta property="og:description" content="WebPilot Mannschafts-Daten &amp; Kader-Einreichungs-Formular für FC Schlieren. Trainingszeiten, Mannschaftsfoto, Trainerstab und Spielerkader einfach ohne Login einreichen.">
   <meta property="og:url" content="https://vorschau.magnet-xs.ch/fcschlieren-vollversion/team-update.html">
   <meta property="og:image" content="https://vorschau.magnet-xs.ch/fcschlieren-vollversion/images/fcs-100-jahre.webp">
   <meta property="og:image:alt" content="FC Schlieren – Schlieren (ZH)">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Mannschafts-Daten &amp; Kader-Assistent – FC Schlieren">
+  <meta name="twitter:title" content="Mannschafts-Daten &amp; Kader-Assistent · FC Schlieren">
   <meta name="twitter:description" content="WebPilot Mannschafts-Daten &amp; Kader-Einreichungs-Formular für FC Schlieren. Trainingszeiten, Mannschaftsfoto, Trainerstab und Spielerkader einfach ohne Login einreichen.">
   <meta name="twitter:image" content="https://vorschau.magnet-xs.ch/fcschlieren-vollversion/images/fcs-100-jahre.webp">
-  <script type="application/ld+json" id="wp-seo-geo-schema">
+  <style id="wp-modern-web-css">
+    @media (prefers-reduced-motion: no-preference) { @view-transition { navigation: auto; } }
+    html { interpolate-size: allow-keywords; }
+    :where(img[width][height]) { height: auto; }
+    input:user-invalid, textarea:user-invalid, select:user-invalid { border-color: #DC2626 !important; outline: none; }
+  </style>
+  <script type="application/ld+json" id="wp-seo-schema">
 {
   "@context": "https://schema.org",
   "@graph": [
@@ -1621,10 +1627,10 @@
       "@type": "WebPage",
       "@id": "https://vorschau.magnet-xs.ch/fcschlieren-vollversion/team-update.html#webpage",
       "url": "https://vorschau.magnet-xs.ch/fcschlieren-vollversion/team-update.html",
-      "name": "Mannschafts-Daten & Kader-Assistent – FC Schlieren",
+      "name": "Mannschafts-Daten & Kader-Assistent · FC Schlieren",
       "description": "WebPilot Mannschafts-Daten & Kader-Einreichungs-Formular für FC Schlieren. Trainingszeiten, Mannschaftsfoto, Trainerstab und Spielerkader einfach ohne Login einreichen.",
       "inLanguage": "de-CH",
-      "dateModified": "2026-11-06T07:45:03+00:00",
+      "dateModified": "2026-11-15T16:18:25+00:00",
       "isPartOf": {
         "@id": "https://vorschau.magnet-xs.ch/fcschlieren-vollversion/#website"
       },
@@ -1681,14 +1687,14 @@
   ]
 }
   </script>
-  <!-- WP-SEO-GEO-AUTOPILOT-END -->
+  <!-- WP-SEO-AUTOPILOT-END -->
 </head>
 <body>
   <!-- STICKY HEADER -->
   <header class="site-header">
     <div class="container header-inner">
       <a href="index.html" class="brand-link" aria-label="FC Schlieren Startseite">
-        <img src="images/logo-fcschlieren.webp" alt="Wappen FC Schlieren" class="brand-logo" width="46" height="46">
+        <img src="images/logo-fcschlieren.webp" alt="Wappen FC Schlieren" class="brand-logo" width="46" height="46" decoding="async">
         <div>
           <span class="brand-name">FC Schlieren</span>
           <span class="brand-sub">SEIT 1921 · SPORTANLAGE ZELGLI · SFV NR. 530</span>
@@ -1735,7 +1741,7 @@
       <div class="container">
         <div class="assistant-hero-box">
           <div class="assistant-hero-left">
-            <img src="images/logo-fcschlieren.webp" alt="Vereinswappen FC Schlieren" class="assistant-hero-crest" width="64" height="64">
+            <img src="images/logo-fcschlieren.webp" alt="Vereinswappen FC Schlieren" class="assistant-hero-crest" width="64" height="64" loading="lazy" decoding="async">
             <div>
               <span class="section-kicker kicker-light">WEBPILOT MANNSCHAFTS- &amp; KADER-ASSISTENT · FC Schlieren</span>
               <h1 style="color:#FFFFFF;font-size:clamp(1.45rem,2.5vw,2.05rem);font-weight:800;margin-bottom:8px;">
@@ -1868,7 +1874,7 @@
               </div>
 
               <div class="team-photo-preview-wrap">
-                <img id="teamPhotoPreviewImg" src="images/team-herren-1.webp" alt="Mannschaftsfoto Vorschau" width="760" height="420">
+                <img id="teamPhotoPreviewImg" src="images/team-herren-1.webp" alt="Mannschaftsfoto Vorschau" width="760" height="420" fetchpriority="high" decoding="async">
               </div>
 
               <div class="team-dropzone" id="teamPhotoDropzone" onclick="document.getElementById('teamPhotoInput').click()" ondragover="handleDragOver(event, this)" ondragleave="handleDragLeave(event, this)" ondrop="handleTeamPhotoDrop(event)">
@@ -2031,7 +2037,7 @@
 
               <div class="live-preview-body">
                 <div class="preview-photo-box">
-                  <img id="pvTeamPhoto" src="images/team-herren-1.webp" alt="Live-Vorschau Mannschaftsfoto" width="520" height="240">
+                  <img id="pvTeamPhoto" src="images/team-herren-1.webp" alt="Live-Vorschau Mannschaftsfoto" width="520" height="240" loading="lazy" decoding="async">
                   <span class="preview-photo-tag" id="pvBadgeText">1. Mannschaft · 2. Liga regional</span>
                 </div>
 

@@ -2026,7 +2026,7 @@
     }
 /* === WEBPILOT-PARTNER-ATTRIBUTION-CSS-END === */
   </style>
-  <!-- WP-SEO-GEO-AUTOPILOT-START -->
+  <!-- WP-SEO-AUTOPILOT-START -->
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
   <meta name="geo.region" content="CH-ZH">
   <meta name="geo.placename" content="Schlieren">
@@ -2043,7 +2043,81 @@
   <meta name="twitter:title" content="FC Schlieren (V2 Bauplan-Modus: 6 % Prototyp / 94 % Rohbau) | Architektur-Studie">
   <meta name="twitter:description" content="Unverbindlicher Vorschau-Entwurf (Variante 2) für den Fussballclub Schlieren: 3 von 48 Seiten als Beispiel ausgearbeitet, 45 weitere Unterseiten &amp; 32 Teams in der Übersicht.">
   <meta name="twitter:image" content="https://vorschau.magnet-xs.ch/fcschlieren-v2/images/fcs-100-jahre.webp">
-  <script type="application/ld+json" id="wp-seo-geo-schema">
+  <style id="wp-modern-web-css">
+    @media (prefers-reduced-motion: no-preference) { @view-transition { navigation: auto; } }
+    html { interpolate-size: allow-keywords; }
+    :where(img[width][height]) { height: auto; }
+    input:user-invalid, textarea:user-invalid, select:user-invalid { border-color: #DC2626 !important; outline: none; }
+  </style>
+  <script type="speculationrules" id="wp-speculation-rules">
+{
+  "prefetch": [
+    {
+      "where": {
+        "and": [
+          {
+            "href_matches": "/*"
+          },
+          {
+            "not": {
+              "href_matches": [
+                "/*cockpit*",
+                "/cockpit*",
+                "/*team-update*",
+                "/*onboarding*",
+                "/api/*",
+                "/cdn-cgi/*",
+                "/*.pdf",
+                "/*?*",
+                "/*#*"
+              ]
+            }
+          },
+          {
+            "not": {
+              "selector_matches": "[target=_blank], [download], [data-no-prerender], [href^='mailto:'], [href^='tel:']"
+            }
+          }
+        ]
+      },
+      "eagerness": "moderate"
+    }
+  ],
+  "prerender": [
+    {
+      "where": {
+        "and": [
+          {
+            "href_matches": "/*"
+          },
+          {
+            "not": {
+              "href_matches": [
+                "/*cockpit*",
+                "/cockpit*",
+                "/*team-update*",
+                "/*onboarding*",
+                "/api/*",
+                "/cdn-cgi/*",
+                "/*.pdf",
+                "/*?*",
+                "/*#*"
+              ]
+            }
+          },
+          {
+            "not": {
+              "selector_matches": "[target=_blank], [download], [data-no-prerender], [href^='mailto:'], [href^='tel:']"
+            }
+          }
+        ]
+      },
+      "eagerness": "conservative"
+    }
+  ]
+}
+  </script>
+  <script type="application/ld+json" id="wp-seo-schema">
 {
   "@context": "https://schema.org",
   "@graph": [
@@ -2190,7 +2264,7 @@
       "name": "FC Schlieren (V2 Bauplan-Modus: 6 % Prototyp / 94 % Rohbau) | Architektur-Studie",
       "description": "Unverbindlicher Vorschau-Entwurf (Variante 2) für den Fussballclub Schlieren: 3 von 48 Seiten als Beispiel ausgearbeitet, 45 weitere Unterseiten & 32 Teams in der Übersicht.",
       "inLanguage": "de-CH",
-      "dateModified": "2026-11-06T07:45:03+00:00",
+      "dateModified": "2026-11-15T16:20:51+00:00",
       "isPartOf": {
         "@id": "https://vorschau.magnet-xs.ch/fcschlieren-v2/#website"
       },
@@ -2247,7 +2321,7 @@
   ]
 }
   </script>
-  <!-- WP-SEO-GEO-AUTOPILOT-END -->
+  <!-- WP-SEO-AUTOPILOT-END -->
 </head>
 <body>
   <!-- TOP BAR -->
@@ -2270,7 +2344,7 @@
   <header class="site-header">
     <div class="container header-inner">
       <a href="index.html" class="brand-link" aria-label="FC Schlieren Startseite">
-        <img src="images/logo-fcschlieren.webp" alt="Wappen FC Schlieren" class="brand-logo" width="48" height="56" data-slot="brand_logo">
+        <img src="images/logo-fcschlieren.webp" alt="Wappen FC Schlieren" class="brand-logo" width="48" height="56" data-slot="brand_logo" decoding="async">
         <div class="brand-text">
           <span class="brand-name" data-slot="brand_name">FC SCHLIEREN</span>
           <span class="brand-sub" data-slot="brand_sub">GEGRÜNDET 1921 · ZELGLI</span>
@@ -2371,7 +2445,7 @@
 
       <div class="hero-visual-stack">
         <div class="hero-photo-card">
-          <img src="images/hero-herren-1.webp" alt="FC Schlieren 1. Mannschaft Herren 1 auf dem Sportplatz Zelgli" width="640" height="270" data-slot="hero_img_main">
+          <img src="images/hero-herren-1.webp" alt="FC Schlieren 1. Mannschaft Herren 1 auf dem Sportplatz Zelgli" width="640" height="270" data-slot="hero_img_main" fetchpriority="high" decoding="async">
           <div class="hero-photo-caption">
             <strong>1. Mannschaft – Herren 1 (Sportplatz Zelgli)</strong>
             <span>Hauptsponsor: Emil Frey AG, Schlieren</span>
@@ -2380,14 +2454,14 @@
 
         <div class="hero-secondary-row">
           <div class="hero-mini-card">
-            <img src="images/hero-frauen-1.webp" alt="FC Schlieren Frauen 1 Mannschaft" width="400" height="148" data-slot="hero_img_secondary">
+            <img src="images/hero-frauen-1.webp" alt="FC Schlieren Frauen 1 Mannschaft" width="400" height="148" data-slot="hero_img_secondary" loading="lazy" decoding="async">
             <div class="hero-mini-body">
               <strong style="color:#FDC500;font-family:'Montserrat',sans-serif;">Frauen 1 – Tradition seit 1979</strong><br>
               <span>Partner: J.F. Jost &amp; Co. · Waser Facility Management</span>
             </div>
           </div>
           <div class="hero-centenary-box">
-            <img src="images/fcs-100-jahre.webp" alt="100 Jahre FC Schlieren Jubiläumslogo" width="112" height="84" data-slot="hero_img_centenary">
+            <img src="images/fcs-100-jahre.webp" alt="100 Jahre FC Schlieren Jubiläumslogo" width="112" height="84" data-slot="hero_img_centenary" loading="lazy" decoding="async">
             <strong>Über 100 Jahre FC Schlieren</strong>
             <span style="font-size:0.73rem;color:var(--text-muted);">SFV-Verein Nr. 530 · 8952 Schlieren</span>
           </div>
@@ -2595,7 +2669,7 @@
 
         <div class="card" style="padding:24px;background-color:var(--fcs-blue-soft);border-color:#93C5FD;">
           <div>
-            <span class="pillar-count" style="margin-bottom:14px;">HAUPTPLATZ ZELGLI · SICHTBARKEIT</span>
+            <div style="display:flex;align-items:center;min-height:41px;margin-bottom:14px;"><span class="pillar-count" style="margin-bottom:0;">HAUPTPLATZ ZELGLI · SICHTBARKEIT</span></div>
             <h3 style="font-size:1.18rem;font-weight:800;margin-bottom:8px;">Bandenwerbung, Dress- &amp; Matchball-Sponsoring</h3>
             <p style="font-size:0.88rem;color:var(--text-body);margin-bottom:14px;">
               Präsentiere dein Unternehmen direkt am Hauptplatz 1 der Sportanlage Zelgli vor tausenden Spielerinnen, Spielern, Eltern und Zuschauern pro Saison (Kontakt: Dani Galantucci).
@@ -3091,7 +3165,7 @@
         <form id="wpPartnerLeadForm" onsubmit="return wpSubmitPartnerLead(event)" novalidate>
           <div style="display:none;" aria-hidden="true">
             <label for="wpPartnerHp">Website</label>
-            <input type="text" id="wpPartnerHp" name="website_url" tabindex="-1" autocomplete="off">
+            <input type="text" id="wpPartnerHp" name="website_url" tabindex="-1" autocomplete="off" form="wpTrapDetached">
           </div>
 
           <div class="wp-partner-field">

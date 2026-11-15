@@ -1582,7 +1582,7 @@
     }
 /* === WEBPILOT-PARTNER-ATTRIBUTION-CSS-END === */
   </style>
-  <!-- WP-SEO-GEO-AUTOPILOT-START -->
+  <!-- WP-SEO-AUTOPILOT-START -->
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
   <meta name="geo.region" content="CH-ZH">
   <meta name="geo.placename" content="Zürich">
@@ -1599,7 +1599,81 @@
   <meta name="twitter:title" content="HER11 · Dein Talent. Dein Weg. Deine Zukunft.">
   <meta name="twitter:description" content="HER11 · Ihr Weg. Ihr Spiel. Ihre Zukunft. Ausbildung und Karrierebegleitung für junge Fussballerinnen in der Schweiz.">
   <meta name="twitter:image" content="https://vorschau.magnet-xs.ch/her11-v2/images/hero-stadion-11.jpg">
-  <script type="application/ld+json" id="wp-seo-geo-schema">
+  <style id="wp-modern-web-css">
+    @media (prefers-reduced-motion: no-preference) { @view-transition { navigation: auto; } }
+    html { interpolate-size: allow-keywords; }
+    :where(img[width][height]) { height: auto; }
+    input:user-invalid, textarea:user-invalid, select:user-invalid { border-color: #DC2626 !important; outline: none; }
+  </style>
+  <script type="speculationrules" id="wp-speculation-rules">
+{
+  "prefetch": [
+    {
+      "where": {
+        "and": [
+          {
+            "href_matches": "/*"
+          },
+          {
+            "not": {
+              "href_matches": [
+                "/*cockpit*",
+                "/cockpit*",
+                "/*team-update*",
+                "/*onboarding*",
+                "/api/*",
+                "/cdn-cgi/*",
+                "/*.pdf",
+                "/*?*",
+                "/*#*"
+              ]
+            }
+          },
+          {
+            "not": {
+              "selector_matches": "[target=_blank], [download], [data-no-prerender], [href^='mailto:'], [href^='tel:']"
+            }
+          }
+        ]
+      },
+      "eagerness": "moderate"
+    }
+  ],
+  "prerender": [
+    {
+      "where": {
+        "and": [
+          {
+            "href_matches": "/*"
+          },
+          {
+            "not": {
+              "href_matches": [
+                "/*cockpit*",
+                "/cockpit*",
+                "/*team-update*",
+                "/*onboarding*",
+                "/api/*",
+                "/cdn-cgi/*",
+                "/*.pdf",
+                "/*?*",
+                "/*#*"
+              ]
+            }
+          },
+          {
+            "not": {
+              "selector_matches": "[target=_blank], [download], [data-no-prerender], [href^='mailto:'], [href^='tel:']"
+            }
+          }
+        ]
+      },
+      "eagerness": "conservative"
+    }
+  ]
+}
+  </script>
+  <script type="application/ld+json" id="wp-seo-schema">
 {
   "@context": "https://schema.org",
   "@graph": [
@@ -1748,7 +1822,7 @@
       "name": "HER11 · Dein Talent. Dein Weg. Deine Zukunft.",
       "description": "HER11 · Ihr Weg. Ihr Spiel. Ihre Zukunft. Ausbildung und Karrierebegleitung für junge Fussballerinnen in der Schweiz.",
       "inLanguage": "de-CH",
-      "dateModified": "2026-11-06T07:45:03+00:00",
+      "dateModified": "2026-11-15T16:20:52+00:00",
       "isPartOf": {
         "@id": "https://vorschau.magnet-xs.ch/her11-v2/#website"
       },
@@ -1805,7 +1879,7 @@
   ]
 }
   </script>
-  <!-- WP-SEO-GEO-AUTOPILOT-END -->
+  <!-- WP-SEO-AUTOPILOT-END -->
 </head>
 <body>
 
@@ -1836,7 +1910,7 @@
   <header class="top-bar" id="top-bar" data-section-id="top-bar" data-section="top-bar" data-section-label="Kopfzeile &amp; Navigation">
     <div class="top-bar-inner">
       <a href="index.html" class="brand-logo-wrap" aria-label="HER11 Startseite">
-        <img src="images/logo-her11.webp" alt="HER11 Offizielles Emblem" class="brand-emblem-img" data-slot="brand_logo">
+        <img src="images/logo-her11.webp" alt="HER11 Offizielles Emblem" class="brand-emblem-img" data-slot="brand_logo" width="500" height="500" decoding="async">
         <div class="brand-wordmark-box">
           <div class="brand-wordmark" data-slot="brand_wordmark">HER<span>11</span></div>
           <div class="brand-subclaim" data-slot="brand_subclaim">Ihr Weg. Ihr Spiel. Ihre Zukunft.</div>
@@ -1905,7 +1979,7 @@
       </div>
 
       <div class="hero-visual-card">
-        <img src="images/hero-stadion-11.webp" alt="Spielerin mit Rückennummer HER11 im Stadion-Flutlicht" class="hero-visual-img" data-slot="index_hero_img">
+        <img src="images/hero-stadion-11.webp" alt="Spielerin mit Rückennummer HER11 im Stadion-Flutlicht" class="hero-visual-img" data-slot="index_hero_img" width="1536" height="1024" fetchpriority="high" decoding="async">
         <div class="hero-visual-caption">
           <span style="font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif; font-variant-numeric: tabular-nums; font-weight: 700; color: #FF0066;" data-slot="index_hero_cap_tag">HER11 · #11</span>
           <span data-slot="index_hero_cap_text">Ihr Weg. Ihr Spiel. Ihre Zukunft.</span>
@@ -1935,7 +2009,7 @@
         </div>
 
         <div class="split-col-card" style="padding: 12px;">
-          <img src="images/perspektive-alpen-see.webp" alt="Spielerin mit HER11 Rucksack bei Sonnenaufgang über Schweizer See und Alpen" class="split-media-img" style="height: 100%; min-height: 260px;" data-slot="ausb_intro_img">
+          <img src="images/perspektive-alpen-see.webp" alt="Spielerin mit HER11 Rucksack bei Sonnenaufgang über Schweizer See und Alpen" class="split-media-img" style="height: 100%; min-height: 260px;" data-slot="ausb_intro_img" width="1536" height="1024" loading="lazy" decoding="async">
         </div>
       </div>
 
@@ -2217,7 +2291,7 @@
 
       <div class="social-grid">
         <div class="her-card-dark">
-          <img src="images/fokus-flutlicht-closeup.webp" alt="Stark – Mentale Stärke und Fokus im Flutlicht" class="media-card-img" data-slot="social_1_img">
+          <img src="images/fokus-flutlicht-closeup.webp" alt="Stark – Mentale Stärke und Fokus im Flutlicht" class="media-card-img" data-slot="social_1_img" width="1536" height="1024" loading="lazy" decoding="async">
           <div class="card-top-row">
             <span class="card-tag-badge" data-slot="social_1_badge">STARK. · FOKUS</span>
           </div>
@@ -2232,7 +2306,7 @@
         </div>
 
         <div class="her-card-dark">
-          <img src="images/social-authentisch-stollen.webp" alt="Authentisch – Fussballschuh auf dem Rasen im Stadionlicht" class="media-card-img" data-slot="social_2_img">
+          <img src="images/social-authentisch-stollen.webp" alt="Authentisch – Fussballschuh auf dem Rasen im Stadionlicht" class="media-card-img" data-slot="social_2_img" width="426" height="534" loading="lazy" decoding="async">
           <div class="card-top-row">
             <span class="card-tag-badge" data-slot="social_2_badge">AUTHENTISCH. · DUALER WEG</span>
           </div>
@@ -2247,7 +2321,7 @@
         </div>
 
         <div class="her-card-dark">
-          <img src="images/social-gemeinsam-team11.webp" alt="Gemeinsam – Vier Spielerinnen mit Rückennummer 11 Arm in Arm" class="media-card-img" data-slot="social_3_img">
+          <img src="images/social-gemeinsam-team11.webp" alt="Gemeinsam – Vier Spielerinnen mit Rückennummer 11 Arm in Arm" class="media-card-img" data-slot="social_3_img" width="465" height="534" loading="lazy" decoding="async">
           <div class="card-top-row">
             <span class="card-tag-badge" data-slot="social_3_badge">GEMEINSAM. · #HER11</span>
           </div>
@@ -2277,7 +2351,7 @@
 
       <div class="blog-grid">
         <div class="her-card">
-          <img src="images/nachwuchs-spielfeldrand.webp" alt="Junge Spielerin am Spielfeldrand im Abendflutlicht" class="media-card-img" data-slot="blog_1_img">
+          <img src="images/nachwuchs-spielfeldrand.webp" alt="Junge Spielerin am Spielfeldrand im Abendflutlicht" class="media-card-img" data-slot="blog_1_img" width="1536" height="1024" loading="lazy" decoding="async">
           <div class="card-top-row">
             <span class="card-tag-badge" data-slot="blog_1_tag">FÜR SPIELERINNEN &amp; ELTERN</span>
           </div>
@@ -2292,7 +2366,7 @@
         </div>
 
         <div class="her-card">
-          <img src="images/perspektive-alpen-see.webp" alt="Weitblick über See und Alpen mit HER11 Rucksack" class="media-card-img" data-slot="blog_2_img">
+          <img src="images/perspektive-alpen-see.webp" alt="Weitblick über See und Alpen mit HER11 Rucksack" class="media-card-img" data-slot="blog_2_img" width="1536" height="1024" loading="lazy" decoding="async">
           <div class="card-top-row">
             <span class="card-tag-badge" data-slot="blog_2_tag">FÜR UNTERNEHMEN &amp; KMU</span>
           </div>
@@ -2307,7 +2381,7 @@
         </div>
 
         <div class="her-card">
-          <img src="images/social-zukunft-stadion.webp" alt="Stadiontor im pink-blauen Flutlicht" class="media-card-img" data-slot="blog_3_img">
+          <img src="images/social-zukunft-stadion.webp" alt="Stadiontor im pink-blauen Flutlicht" class="media-card-img" data-slot="blog_3_img" width="438" height="534" loading="lazy" decoding="async">
           <div class="card-top-row">
             <span class="card-tag-badge" data-slot="blog_3_tag">GANZHEITLICHE ENTWICKLUNG</span>
           </div>
@@ -2330,7 +2404,7 @@
     <div class="footer-inner">
       <div class="footer-col">
         <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 12px;">
-          <img src="images/logo-her11.webp" alt="HER11 Zürich (ZH) – Offizielles Logo (Duale Karriereplanung (Verbindung von Spitzenfussball,)" style="width: 42px; height: 42px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.2);" data-slot="footer_logo">
+          <img src="images/logo-her11.webp" alt="HER11 Zürich (ZH) – Offizielles Logo (Duale Karriereplanung (Verbindung von Spitzenfussball,)" style="width: 42px; height: 42px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.2);" data-slot="footer_logo" width="500" height="500" loading="lazy" decoding="async">
           <div>
             <div style="font-size: 1.25rem; font-weight: 900; font-style: italic; color: #FFFFFF;" data-slot="footer_brand">HER<span style="color: #FF0066;">11</span></div>
             <div style="font-size: 0.72rem; color: #CBD5E1; font-weight: 600;" data-slot="footer_claim">Ihr Weg. Ihr Spiel. Ihre Zukunft.</div>
@@ -2483,7 +2557,7 @@
         <form id="wpPartnerLeadForm" onsubmit="return wpSubmitPartnerLead(event)" novalidate>
           <div style="display:none;" aria-hidden="true">
             <label for="wpPartnerHp">Website</label>
-            <input type="text" id="wpPartnerHp" name="website_url" tabindex="-1" autocomplete="off">
+            <input type="text" id="wpPartnerHp" name="website_url" tabindex="-1" autocomplete="off" form="wpTrapDetached">
           </div>
 
           <div class="wp-partner-field">

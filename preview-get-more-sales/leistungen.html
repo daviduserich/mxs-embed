@@ -1769,6 +1769,80 @@
   <meta name="twitter:title" content="Leistungen &amp; Trainings | Verkaufsstrategie, Marktforschung, Vertriebstraining &amp; 1:1 Sparring – get.more.sales">
   <meta name="twitter:description" content="get.more.sales · Carmen Caselli (Zofingen): Massgeschneiderte B2B-Verkaufsberatung, Marktforschung, praxisnahes Vertriebstraining und 1:1 Sales-Sparring in der Schweiz und im DACH-Raum.">
   <meta name="twitter:image" content="https://vorschau.magnet-xs.ch/get-more-sales-vollversion/images/hero-sales-dashboard-analytics.png">
+  <style id="wp-modern-web-css">
+    @media (prefers-reduced-motion: no-preference) { @view-transition { navigation: auto; } }
+    html { interpolate-size: allow-keywords; }
+    :where(img[width][height]) { height: auto; }
+    input:user-invalid, textarea:user-invalid, select:user-invalid { border-color: #DC2626 !important; outline: none; }
+  </style>
+  <script type="speculationrules" id="wp-speculation-rules">
+{
+  "prefetch": [
+    {
+      "where": {
+        "and": [
+          {
+            "href_matches": "/*"
+          },
+          {
+            "not": {
+              "href_matches": [
+                "/*cockpit*",
+                "/cockpit*",
+                "/*team-update*",
+                "/*onboarding*",
+                "/api/*",
+                "/cdn-cgi/*",
+                "/*.pdf",
+                "/*?*",
+                "/*#*"
+              ]
+            }
+          },
+          {
+            "not": {
+              "selector_matches": "[target=_blank], [download], [data-no-prerender], [href^='mailto:'], [href^='tel:']"
+            }
+          }
+        ]
+      },
+      "eagerness": "moderate"
+    }
+  ],
+  "prerender": [
+    {
+      "where": {
+        "and": [
+          {
+            "href_matches": "/*"
+          },
+          {
+            "not": {
+              "href_matches": [
+                "/*cockpit*",
+                "/cockpit*",
+                "/*team-update*",
+                "/*onboarding*",
+                "/api/*",
+                "/cdn-cgi/*",
+                "/*.pdf",
+                "/*?*",
+                "/*#*"
+              ]
+            }
+          },
+          {
+            "not": {
+              "selector_matches": "[target=_blank], [download], [data-no-prerender], [href^='mailto:'], [href^='tel:']"
+            }
+          }
+        ]
+      },
+      "eagerness": "conservative"
+    }
+  ]
+}
+  </script>
   <script type="application/ld+json" id="wp-seo-schema">
 {
   "@context": "https://schema.org",
@@ -1894,7 +1968,7 @@
       "name": "Leistungen & Trainings | Verkaufsstrategie, Marktforschung, Vertriebstraining & 1:1 Sparring – get.more.sales",
       "description": "get.more.sales · Carmen Caselli (Zofingen): Massgeschneiderte B2B-Verkaufsberatung, Marktforschung, praxisnahes Vertriebstraining und 1:1 Sales-Sparring in der Schweiz und im DACH-Raum.",
       "inLanguage": "de-CH",
-      "dateModified": "2026-11-10T21:01:16+00:00",
+      "dateModified": "2026-11-15T16:08:17+00:00",
       "isPartOf": {
         "@id": "https://vorschau.magnet-xs.ch/get-more-sales-vollversion/#website"
       },
@@ -1957,7 +2031,7 @@
   <header class="site-header" data-section="header">
     <div class="container header-inner">
       <a href="index.html" class="brand-link" aria-label="get.more.sales Carmen Caselli Startseite">
-        <img src="images/logo-get-more-sales.png" alt="get.more.sales Zofingen (AG) – Offizielles Logo (Fachbetrieb in der Schweiz)" class="brand-logo" width="50" height="50" data-slot="brand_logo">
+        <img src="images/logo-get-more-sales.png" alt="get.more.sales Zofingen (AG) – Offizielles Logo (Fachbetrieb in der Schweiz)" class="brand-logo" width="50" height="50" data-slot="brand_logo" decoding="async">
         <div class="brand-text">
           <span class="brand-name" data-slot="brand_name">get.more.sales</span>
           <span class="brand-sub" data-slot="brand_sub">Carmen Caselli · Verkaufsberatung</span>
@@ -2034,7 +2108,7 @@
       </div>
 
       <div class="hero-media-card">
-        <img src="images/sales-gallery-meeting-sparring.png" alt="B2B Verkaufsstrategie und Vertriebstraining bei get.more.sales" width="600" height="390">
+        <img src="images/sales-gallery-meeting-sparring.png" alt="B2B Verkaufsstrategie und Vertriebstraining bei get.more.sales" width="600" height="390" fetchpriority="high" decoding="async">
         <div class="hero-media-caption">
           <div>
             <div style="font-family:'Lexend',sans-serif;font-weight:700;font-size:1.0rem;color:#0E1721;">Praxisnahe B2B-Begleitung</div>
@@ -2590,7 +2664,7 @@
         <form id="wpPartnerLeadForm" onsubmit="return wpSubmitPartnerLead(event)" novalidate>
           <div style="display:none;" aria-hidden="true">
             <label for="wpPartnerHp">Website</label>
-            <input type="text" id="wpPartnerHp" name="website_url" tabindex="-1" autocomplete="off">
+            <input type="text" id="wpPartnerHp" name="website_url" tabindex="-1" autocomplete="off" form="wpTrapDetached">
           </div>
 
           <div class="wp-partner-field">

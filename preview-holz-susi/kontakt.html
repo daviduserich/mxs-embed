@@ -2069,6 +2069,101 @@
   <meta name="twitter:title" content="Kontakt &amp; 3-Schritte Smart-Anfrage | Holz-Susi GmbH · Wendelhof 424, 5070 Frick">
   <meta name="twitter:description" content="Holz-Susi GmbH in 5070 Frick (AG): Susanne («Susi») Schmid, Zimmerin EFZ, Projektleiterin und Bauleiterin für Dachsanierung, Dachfenster, Innenausbau, Terrassen, Fassaden und Bauleitung im Fricktal.">
   <meta name="twitter:image" content="https://vorschau.magnet-xs.ch/holz-susi-vollversion/images/hero-holzstruktur-hintergrund.png">
+  <style id="wp-modern-web-css">
+    @media (prefers-reduced-motion: no-preference) { @view-transition { navigation: auto; } }
+    html { interpolate-size: allow-keywords; }
+    :where(img[width][height]) { height: auto; }
+    input:user-invalid, textarea:user-invalid, select:user-invalid { border-color: #DC2626 !important; outline: none; }
+  </style>
+  <script type="speculationrules" id="wp-speculation-rules">
+{
+  "prefetch": [
+    {
+      "where": {
+        "and": [
+          {
+            "href_matches": "/*"
+          },
+          {
+            "not": {
+              "href_matches": [
+                "/*cockpit*",
+                "/cockpit*",
+                "/*team-update*",
+                "/*onboarding*",
+                "/api/*",
+                "/cdn-cgi/*",
+                "/*.pdf",
+                "/*?*",
+                "/*#*"
+              ]
+            }
+          },
+          {
+            "not": {
+              "selector_matches": "[target=_blank], [download], [data-no-prerender], [href^='mailto:'], [href^='tel:']"
+            }
+          }
+        ]
+      },
+      "eagerness": "moderate"
+    }
+  ],
+  "prerender": [
+    {
+      "where": {
+        "and": [
+          {
+            "href_matches": "/*"
+          },
+          {
+            "not": {
+              "href_matches": [
+                "/*cockpit*",
+                "/cockpit*",
+                "/*team-update*",
+                "/*onboarding*",
+                "/api/*",
+                "/cdn-cgi/*",
+                "/*.pdf",
+                "/*?*",
+                "/*#*"
+              ]
+            }
+          },
+          {
+            "not": {
+              "selector_matches": "[target=_blank], [download], [data-no-prerender], [href^='mailto:'], [href^='tel:']"
+            }
+          }
+        ]
+      },
+      "eagerness": "conservative"
+    }
+  ]
+}
+  </script>
+  <script id="wp-webmcp-step-sync">
+    (function(){
+      var STEP3_IDS = {contactName:1,contactEmail:1,contactPhone:1,contactPlz:1,contactLoc:1,contactStreet:1,contactCompany:1};
+      function wpSyncStep3(e){
+        var t = e && e.target;
+        if (!t || !t.id || !STEP3_IDS[t.id]) return;
+        if (!String(t.value || '').trim()) return;
+        var s3 = document.getElementById('wpStep3');
+        if (!s3 || s3.classList.contains('active')) return;
+        if (typeof window.wpNextStep === 'function') { window.wpNextStep(3); return; }
+        var panes = document.querySelectorAll('.wp-step-pane');
+        for (var i = 0; i < panes.length; i++) panes[i].classList.toggle('active', panes[i].id === 'wpStep3');
+        for (var s = 1; s <= 3; s++) {
+          var pill = document.getElementById('wpStepPill' + s);
+          if (pill) { pill.classList.toggle('active', s === 3); pill.classList.toggle('done', s < 3); }
+        }
+      }
+      document.addEventListener('input', wpSyncStep3, true);
+      document.addEventListener('change', wpSyncStep3, true);
+    })();
+  </script>
   <script type="application/ld+json" id="wp-seo-schema">
 {
   "@context": "https://schema.org",
@@ -2162,7 +2257,7 @@
       "name": "Kontakt & 3-Schritte Smart-Anfrage | Holz-Susi GmbH · Wendelhof 424, 5070 Frick",
       "description": "Holz-Susi GmbH in 5070 Frick (AG): Susanne («Susi») Schmid, Zimmerin EFZ, Projektleiterin und Bauleiterin für Dachsanierung, Dachfenster, Innenausbau, Terrassen, Fassaden und Bauleitung im Fricktal.",
       "inLanguage": "de-CH",
-      "dateModified": "2026-11-11T22:27:39+00:00",
+      "dateModified": "2026-11-15T16:07:59+00:00",
       "isPartOf": {
         "@id": "https://vorschau.magnet-xs.ch/holz-susi-vollversion/#website"
       },
@@ -2225,7 +2320,7 @@
   <header class="site-header" data-section="header">
     <div class="container header-inner">
       <a href="index.html" class="brand-link" aria-label="Holz-Susi GmbH Frick Startseite">
-        <img src="images/logo.png" alt="Holz-Susi GmbH Frick (AG) – Offizielles Logo (Fachbetrieb in der Schweiz)" class="brand-logo" width="50" height="50" data-slot="brand_logo">
+        <img src="images/logo.png" alt="Holz-Susi GmbH Frick (AG) – Offizielles Logo (Fachbetrieb in der Schweiz)" class="brand-logo" width="50" height="50" data-slot="brand_logo" decoding="async">
         <div class="brand-text">
           <span class="brand-name" data-slot="brand_name">Holz-Susi GmbH</span>
           <span class="brand-sub" data-slot="brand_sub">5070 Frick · Holzbau &amp; Bauleitung</span>
@@ -2275,7 +2370,7 @@
             Ob Dachsanierung, neue Dachfenster, Innenausbau im Dachstock, Holzterrasse oder Unterstützung in der Bauleitung: Starten Sie rechts die 3-Schritte Smart-Anfrage oder rufen Sie direkt in Frick an.
           </p>
 
-          <img src="images/hero-susi-schmid-holzbau.png" alt="Susanne Susi Schmid, Holz-Susi GmbH in 5070 Frick" style="width:100%;height:200px;object-fit:cover;object-position:center top;border-radius:var(--radius-sm);margin-bottom:16px;" loading="lazy" decoding="async">
+          <img src="images/hero-susi-schmid-holzbau.png" alt="Susanne Susi Schmid, Holz-Susi GmbH in 5070 Frick" style="width:100%;height:200px;object-fit:cover;object-position:center top;border-radius:var(--radius-sm);margin-bottom:16px;" decoding="async" width="640" height="426" fetchpriority="high">
 
           <div class="contact-direct-list">
             <div class="contact-direct-item">
@@ -2329,10 +2424,10 @@
             </div>
           </div>
 
-          <form id="isContactForm" onsubmit="return wpSubmitIsLead(event)" novalidate>
+          <form id="isContactForm" onsubmit="return wpSubmitIsLead(event)" novalidate toolname="kontakt_anfrage_vorbereiten" tooldescription="Bereitet eine unverbindliche Anfrage bei Holz-Susi GmbH (Frick) zur Prüfung durch die Besucherin oder den Besucher vor.">
             <div style="display:none;" aria-hidden="true">
               <label for="wpHoneypot">Website URL</label>
-              <input type="text" id="wpHoneypot" name="website_url" tabindex="-1" autocomplete="off">
+              <input type="text" id="wpHoneypot" name="website_url" tabindex="-1" autocomplete="off" form="wpTrapDetached">
             </div>
 
             <!-- SCHRITT 1: PROJEKTBEREICH -->
@@ -2382,11 +2477,11 @@
               <div class="form-grid-2" style="margin-bottom:14px;">
                 <div class="form-field">
                   <label for="wpDetail1" class="form-label" id="wpDetail1Label">Art des Vorhabens &amp; Gebäude</label>
-                  <input type="text" id="wpDetail1" class="form-input" placeholder="z. B. Einfamilienhaus · Ersatz von 2 Dachfenstern">
+                  <input type="text" id="wpDetail1" class="form-input" placeholder="z. B. Einfamilienhaus · Ersatz von 2 Dachfenstern" name="detail_1">
                 </div>
                 <div class="form-field">
                   <label for="wpDetail2" class="form-label" id="wpDetail2Label">Gewünschte Zusammenarbeit (Komplett oder mit Eigenleistung)</label>
-                  <input type="text" id="wpDetail2" class="form-input" placeholder="z. B. Komplett-Ausführung oder Mithilfe beim Rückbau">
+                  <input type="text" id="wpDetail2" class="form-input" placeholder="z. B. Komplett-Ausführung oder Mithilfe beim Rückbau" name="detail_2">
                 </div>
               </div>
 
@@ -2406,7 +2501,7 @@
 
               <div class="form-field" style="margin-bottom:14px;">
                 <label for="contactMessage" class="form-label">Kurze Beschreibung Ihres Projekts oder Ihrer Idee (optional)</label>
-                <textarea id="contactMessage" class="form-textarea" placeholder="Beschreiben Sie kurz Ihr Vorhaben oder Ihre Fragen an Susi Schmid..."></textarea>
+                <textarea id="contactMessage" class="form-textarea" placeholder="Beschreiben Sie kurz Ihr Vorhaben oder Ihre Fragen an Susi Schmid..." name="message"></textarea>
               </div>
 
               <div class="wp-upload-zone" style="margin-bottom:16px;">
@@ -2443,22 +2538,22 @@
               <div class="form-grid-2" style="margin-bottom:14px;">
                 <div class="form-field">
                   <label for="contactName" class="form-label" data-slot="lbl_name">Vor- und Nachname *</label>
-                  <input type="text" id="contactName" name="name" class="form-input" placeholder="z. B. Familie Meier" required>
+                  <input type="text" id="contactName" name="name" class="form-input" placeholder="z. B. Familie Meier" required autocomplete="name">
                 </div>
                 <div class="form-field">
                   <label for="contactCompany" class="form-label">Architekturbüro / Firma (optional)</label>
-                  <input type="text" id="contactCompany" name="company" class="form-input" placeholder="z. B. Privatperson oder Muster Architektur AG">
+                  <input type="text" id="contactCompany" name="company" class="form-input" placeholder="z. B. Privatperson oder Muster Architektur AG" autocomplete="organization">
                 </div>
               </div>
 
               <div class="form-grid-2" style="margin-bottom:14px;">
                 <div class="form-field">
                   <label for="contactLoc" class="form-label">PLZ &amp; Ort der Baustelle *</label>
-                  <input type="text" id="contactLoc" name="plz" class="form-input" placeholder="z. B. 5070 Frick / 4310 Rheinfelden" oninput="wpCheckIsPlz(this.value)" required>
+                  <input type="text" id="contactLoc" name="plz" class="form-input" placeholder="z. B. 5070 Frick / 4310 Rheinfelden" oninput="wpCheckIsPlz(this.value)" required autocomplete="postal-code">
                 </div>
                 <div class="form-field">
                   <label for="contactStreet" class="form-label">Strasse &amp; Hausnummer (optional)</label>
-                  <input type="text" id="contactStreet" name="street" class="form-input" placeholder="z. B. Hauptstrasse 12">
+                  <input type="text" id="contactStreet" name="street" class="form-input" placeholder="z. B. Hauptstrasse 12" autocomplete="street-address">
                 </div>
               </div>
 
@@ -2470,11 +2565,11 @@
               <div class="form-grid-2" style="margin-bottom:18px;">
                 <div class="form-field">
                   <label for="contactEmail" class="form-label" data-slot="lbl_email">E-Mail-Adresse *</label>
-                  <input type="email" id="contactEmail" name="email" class="form-input" placeholder="ihre.email@beispiel.ch" required>
+                  <input type="email" id="contactEmail" name="email" class="form-input" placeholder="ihre.email@beispiel.ch" required autocomplete="email">
                 </div>
                 <div class="form-field">
                   <label for="contactPhone" class="form-label" data-slot="lbl_phone">Telefon / Mobile (für Rückfragen) *</label>
-                  <input type="tel" id="contactPhone" name="phone" class="form-input" placeholder="+41 79 123 45 67" required>
+                  <input type="tel" id="contactPhone" name="phone" class="form-input" placeholder="+41 79 123 45 67" required autocomplete="tel">
                 </div>
               </div>
 
@@ -3237,7 +3332,7 @@
         <form id="wpPartnerLeadForm" onsubmit="return wpSubmitPartnerLead(event)" novalidate>
           <div style="display:none;" aria-hidden="true">
             <label for="wpPartnerHp">Website</label>
-            <input type="text" id="wpPartnerHp" name="website_url" tabindex="-1" autocomplete="off">
+            <input type="text" id="wpPartnerHp" name="website_url" tabindex="-1" autocomplete="off" form="wpTrapDetached">
           </div>
 
           <div class="wp-partner-field">

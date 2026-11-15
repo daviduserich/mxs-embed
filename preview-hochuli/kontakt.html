@@ -1913,7 +1913,7 @@
     }
 /* === WEBPILOT-PARTNER-ATTRIBUTION-CSS-END === */
   </style>
-  <!-- WP-SEO-GEO-AUTOPILOT-START -->
+  <!-- WP-SEO-AUTOPILOT-START -->
   <meta name="description" content="Hochuli Schlossrued AG (Schlossrued AG): Persönlich für Sie da, in Schlossrued und auf Ihrer Baustelle. – Ob Offerte für Ihr Bauvorhaben, persönlicher...">
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
   <meta name="geo.region" content="CH-AG">
@@ -1922,16 +1922,111 @@
   <meta property="og:locale" content="de_CH">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Hochuli Schlossrued AG">
-  <meta property="og:title" content="Kontakt, Standort Schlossrued &amp; 24h-Pikett – Hochuli Schlossrued AG">
+  <meta property="og:title" content="Kontakt, Standort Schlossrued &amp; 24h-Pikett · Hochuli Schlossrued AG">
   <meta property="og:description" content="Hochuli Schlossrued AG (Schlossrued AG): Persönlich für Sie da, in Schlossrued und auf Ihrer Baustelle. – Ob Offerte für Ihr Bauvorhaben, persönlicher...">
   <meta property="og:url" content="https://vorschau.magnet-xs.ch/hochuli-v2/kontakt.html">
   <meta property="og:image" content="https://vorschau.magnet-xs.ch/hochuli-v2/images/hero-poster.jpg">
   <meta property="og:image:alt" content="Hochuli Schlossrued AG – Schlossrued (AG)">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Kontakt, Standort Schlossrued &amp; 24h-Pikett – Hochuli Schlossrued AG">
+  <meta name="twitter:title" content="Kontakt, Standort Schlossrued &amp; 24h-Pikett · Hochuli Schlossrued AG">
   <meta name="twitter:description" content="Hochuli Schlossrued AG (Schlossrued AG): Persönlich für Sie da, in Schlossrued und auf Ihrer Baustelle. – Ob Offerte für Ihr Bauvorhaben, persönlicher...">
   <meta name="twitter:image" content="https://vorschau.magnet-xs.ch/hochuli-v2/images/hero-poster.jpg">
-  <script type="application/ld+json" id="wp-seo-geo-schema">
+  <style id="wp-modern-web-css">
+    @media (prefers-reduced-motion: no-preference) { @view-transition { navigation: auto; } }
+    html { interpolate-size: allow-keywords; }
+    :where(img[width][height]) { height: auto; }
+    input:user-invalid, textarea:user-invalid, select:user-invalid { border-color: #DC2626 !important; outline: none; }
+  </style>
+  <script type="speculationrules" id="wp-speculation-rules">
+{
+  "prefetch": [
+    {
+      "where": {
+        "and": [
+          {
+            "href_matches": "/*"
+          },
+          {
+            "not": {
+              "href_matches": [
+                "/*cockpit*",
+                "/cockpit*",
+                "/*team-update*",
+                "/*onboarding*",
+                "/api/*",
+                "/cdn-cgi/*",
+                "/*.pdf",
+                "/*?*",
+                "/*#*"
+              ]
+            }
+          },
+          {
+            "not": {
+              "selector_matches": "[target=_blank], [download], [data-no-prerender], [href^='mailto:'], [href^='tel:']"
+            }
+          }
+        ]
+      },
+      "eagerness": "moderate"
+    }
+  ],
+  "prerender": [
+    {
+      "where": {
+        "and": [
+          {
+            "href_matches": "/*"
+          },
+          {
+            "not": {
+              "href_matches": [
+                "/*cockpit*",
+                "/cockpit*",
+                "/*team-update*",
+                "/*onboarding*",
+                "/api/*",
+                "/cdn-cgi/*",
+                "/*.pdf",
+                "/*?*",
+                "/*#*"
+              ]
+            }
+          },
+          {
+            "not": {
+              "selector_matches": "[target=_blank], [download], [data-no-prerender], [href^='mailto:'], [href^='tel:']"
+            }
+          }
+        ]
+      },
+      "eagerness": "conservative"
+    }
+  ]
+}
+  </script>
+  <script id="wp-webmcp-step-sync">
+    (function(){
+      var STEP3_IDS = {contactName:1,contactEmail:1,contactPhone:1,contactPlz:1,contactLoc:1,contactStreet:1,contactCompany:1};
+      function wpSyncStep3(e){
+        var t = e && e.target;
+        if (!t || !t.id || !STEP3_IDS[t.id]) return;
+        if (!String(t.value || '').trim()) return;
+        var s3 = document.getElementById('wpStep3');
+        if (!s3 || s3.classList.contains('active')) return;
+        if (typeof window.wpNextStep === 'function') { window.wpNextStep(3); return; }
+        var panes = document.querySelectorAll('.wp-step-pane');
+        for (var i = 0; i < panes.length; i++) panes[i].classList.toggle('active', panes[i].id === 'wpStep3');
+        for (var s = 1; s <= 3; s++) {
+          var pill = document.getElementById('wpStepPill' + s);
+          if (pill) { pill.classList.toggle('active', s === 3); pill.classList.toggle('done', s < 3); }
+        }
+      }
+      document.addEventListener('input', wpSyncStep3, true);
+      document.addEventListener('change', wpSyncStep3, true);
+    })();
+  </script>
+  <script type="application/ld+json" id="wp-seo-schema">
 {
   "@context": "https://schema.org",
   "@graph": [
@@ -2085,10 +2180,10 @@
       "@type": "WebPage",
       "@id": "https://vorschau.magnet-xs.ch/hochuli-v2/kontakt.html#webpage",
       "url": "https://vorschau.magnet-xs.ch/hochuli-v2/kontakt.html",
-      "name": "Kontakt, Standort Schlossrued & 24h-Pikett – Hochuli Schlossrued AG",
+      "name": "Kontakt, Standort Schlossrued & 24h-Pikett · Hochuli Schlossrued AG",
       "description": "Hochuli Schlossrued AG (Schlossrued AG): Persönlich für Sie da, in Schlossrued und auf Ihrer Baustelle. – Ob Offerte für Ihr Bauvorhaben, persönlicher...",
       "inLanguage": "de-CH",
-      "dateModified": "2026-11-06T07:45:03+00:00",
+      "dateModified": "2026-11-15T16:20:52+00:00",
       "isPartOf": {
         "@id": "https://vorschau.magnet-xs.ch/hochuli-v2/#website"
       },
@@ -2137,7 +2232,7 @@
   ]
 }
   </script>
-  <!-- WP-SEO-GEO-AUTOPILOT-END -->
+  <!-- WP-SEO-AUTOPILOT-END -->
 </head>
 <body>
 
@@ -2163,7 +2258,7 @@
   <header class="top-bar" data-section-id="header" data-section="header">
     <div class="top-bar-inner">
       <a href="index.html" class="brand-logo-wrap" aria-label="Hochuli Schlossrued AG Startseite">
-        <img src="images/logo.svg" alt="Hochuli Schlossrued AG · Bauen im Vertrauen" class="brand-logo-img" data-slot="brand_logo">
+        <img src="images/logo.svg" alt="Hochuli Schlossrued AG · Bauen im Vertrauen" class="brand-logo-img" data-slot="brand_logo" decoding="async">
       </a>
       <nav class="desktop-nav" aria-label="Hauptnavigation">
         <a href="index.html" class="desk-nav-link" data-slot="nav_link">Startseite &amp; 5 Sparten</a>
@@ -2262,7 +2357,7 @@
 
           <div class="quotes-stack">
             <div class="leader-card">
-              <img src="images/stefan-hofmann.jpg" alt="Stefan Hofmann – Persönlicher Ansprechpartner und Fachteam bei Hochuli Schlossrued AG in Schlossrued (AG)" class="leader-avatar" style="--sparte-color:#e30613;" data-slot="terminbuchung_stefan_hofmann_img">
+              <img src="images/stefan-hofmann.jpg" alt="Stefan Hofmann – Persönlicher Ansprechpartner und Fachteam bei Hochuli Schlossrued AG in Schlossrued (AG)" class="leader-avatar" style="--sparte-color:#e30613;" data-slot="terminbuchung_stefan_hofmann_img" width="200" height="200" fetchpriority="high" decoding="async">
               <div class="leader-info">
                 <div class="leader-name" data-slot="terminbuchung_1_holzbau_bedachung_stef_name">1. Holzbau + Bedachung – Stefan &amp; Roger Hofmann</div>
                 <div class="leader-role" data-slot="terminbuchung_1_holzbau_bedachung__role">Holz-Elementbau, Umbau, Estrichdämmung, Fassaden, Carports, Dachsanierung</div>
@@ -2270,7 +2365,7 @@
               </div>
             </div>
             <div class="leader-card">
-              <img src="images/alex-kirchhofer.jpg" alt="Alex Kirchhofer: Offerte anfordern oder Beratungstermin vereinbaren – Hochuli Schlossrued AG in Schlossrued (AG)" class="leader-avatar" style="--sparte-color:#d97706;" data-slot="terminbuchung_alex_kirchhofer_img">
+              <img src="images/alex-kirchhofer.jpg" alt="Alex Kirchhofer: Offerte anfordern oder Beratungstermin vereinbaren – Hochuli Schlossrued AG in Schlossrued (AG)" class="leader-avatar" style="--sparte-color:#d97706;" data-slot="terminbuchung_alex_kirchhofer_img" width="333" height="333" loading="lazy" decoding="async">
               <div class="leader-info">
                 <div class="leader-name" data-slot="terminbuchung_2_spengler_flachdach_ale_name">2. Spengler + Flachdach – Alex Kirchhofer</div>
                 <div class="leader-role" data-slot="terminbuchung_2_spengler_flachdach_role">Allgemeine Spenglerarbeiten, Blechfassade + Dächer, Flachdachsanierung</div>
@@ -2278,7 +2373,7 @@
               </div>
             </div>
             <div class="leader-card">
-              <img src="images/thomas-bertschi.jpg" alt="Thomas Bertschi – Persönlicher Ansprechpartner und Fachteam bei Hochuli Schlossrued AG in Schlossrued (AG)" class="leader-avatar" style="--sparte-color:#0284c7;" data-slot="terminbuchung_thomas_bertschi_img">
+              <img src="images/thomas-bertschi.jpg" alt="Thomas Bertschi – Persönlicher Ansprechpartner und Fachteam bei Hochuli Schlossrued AG in Schlossrued (AG)" class="leader-avatar" style="--sparte-color:#0284c7;" data-slot="terminbuchung_thomas_bertschi_img" width="400" height="400" loading="lazy" decoding="async">
               <div class="leader-info">
                 <div class="leader-name" data-slot="terminbuchung_3_sanit_r_heizung_thomas_name">3. Sanitär + Heizung – Thomas Bertschi &amp; Roland Wüthrich</div>
                 <div class="leader-role" data-slot="terminbuchung_3_sanit_r_heizung_th_role">Badumbau, Entkalkung, WP-Boiler, Heizungs-Ersatz, Haustechnik-Check</div>
@@ -2286,7 +2381,7 @@
               </div>
             </div>
             <div class="leader-card">
-              <img src="images/claudia-hauri.jpg" alt="Claudia Hauri – Persönlicher Ansprechpartner und Fachteam bei Hochuli Schlossrued AG in Schlossrued (AG)" class="leader-avatar" style="--sparte-color:#059669;" data-slot="terminbuchung_claudia_hauri_img">
+              <img src="images/claudia-hauri.jpg" alt="Claudia Hauri – Persönlicher Ansprechpartner und Fachteam bei Hochuli Schlossrued AG in Schlossrued (AG)" class="leader-avatar" style="--sparte-color:#059669;" data-slot="terminbuchung_claudia_hauri_img" width="200" height="200" loading="lazy" decoding="async">
               <div class="leader-info">
                 <div class="leader-name" data-slot="terminbuchung_4_planung_5_photovoltaik_name">4. Planung &amp; 5. Photovoltaik – Claudia Hauri &amp; Michael Zubler</div>
                 <div class="leader-role" data-slot="terminbuchung_4_planung_5_photovol_role">Architektur, Bauleitung (+41 62 739 11 41) · Photovoltaik &amp; Speicher (+41 62 739 00 29)</div>
@@ -2325,8 +2420,8 @@
             In 60 Sekunden zum fertigen 1-Seiten-Auftrags-PDF («Monika-&amp;-Monteur-Blatt») mit automatischer Zuweisung an den zuständigen Bereichsleiter in Schlossrued.
           </p>
 
-          <form id="wpLeadForm" onsubmit="return wpSubmitLead(event)" novalidate>
-            <input type="text" name="website_url" id="wpHoneypot" value="" style="display:none !important;" tabindex="-1" autocomplete="off">
+          <form id="wpLeadForm" onsubmit="return wpSubmitLead(event)" novalidate toolname="kontakt_anfrage_vorbereiten" tooldescription="Bereitet eine unverbindliche Anfrage bei Hochuli Schlossrued AG (Schlossrued) zur Prüfung durch die Besucherin oder den Besucher vor.">
+            <input type="text" name="website_url" id="wpHoneypot" value="" style="display:none !important;" tabindex="-1" autocomplete="off" form="wpTrapDetached">
 
             <!-- SCHRITT 1: ANLIEGEN & SPARTE -->
             <div class="wp-step-pane active" id="wpStep1">
@@ -2477,7 +2572,7 @@
               <div class="form-grid form-grid-2" style="margin-bottom: 14px;">
                 <div class="form-field">
                   <label for="wpObjectType">Gebäude- / Objekt-Art</label>
-                  <select id="wpObjectType" class="form-select">
+                  <select id="wpObjectType" class="form-select" name="object_type">
                     <option value="Einfamilienhaus">Einfamilienhaus</option>
                     <option value="Mehrfamilienhaus / Verwaltung">Mehrfamilienhaus / Verwaltung</option>
                     <option value="Gewerbe / Landwirtschaft / Industrie">Gewerbe / Landwirtschaft / Industrie</option>
@@ -2486,13 +2581,13 @@
                 </div>
                 <div class="form-field">
                   <label for="wpDeviceAge">Bestehende Anlage / Baujahr (optional)</label>
-                  <input type="text" id="wpDeviceAge" class="form-input" placeholder="z. B. Ölheizung 2005, Flachdach 1998">
+                  <input type="text" id="wpDeviceAge" class="form-input" placeholder="z. B. Ölheizung 2005, Flachdach 1998" name="device_age">
                 </div>
               </div>
 
               <div class="form-field" style="margin-bottom: 14px;">
                 <label for="wpMessage">Kurzbeschreibung Ihres Anliegens (Stichworte genügen)</label>
-                <textarea id="wpMessage" class="form-textarea" rows="3" placeholder="Was dürfen wir für Sie lösen oder offerieren? (z. B. Fehlercode auf Display, gewünschter Umbau, Dachkontrolle)..."></textarea>
+                <textarea id="wpMessage" class="form-textarea" rows="3" placeholder="Was dürfen wir für Sie lösen oder offerieren? (z. B. Fehlercode auf Display, gewünschter Umbau, Dachkontrolle)..." name="message"></textarea>
               </div>
 
               <div class="form-field" style="margin-bottom: 18px;">
@@ -2525,22 +2620,22 @@
               <div class="form-grid form-grid-2" style="margin-bottom: 12px;">
                 <div class="form-field">
                   <label for="contactName" data-slot="terminbuchung_label_2">Vor- und Nachname *</label>
-                  <input type="text" id="contactName" class="form-input" placeholder="z. B. Hans Muster" required>
+                  <input type="text" id="contactName" class="form-input" placeholder="z. B. Hans Muster" required name="name" autocomplete="name">
                 </div>
                 <div class="form-field">
                   <label for="contactStreet">Strasse &amp; Hausnummer *</label>
-                  <input type="text" id="contactStreet" class="form-input" placeholder="z. B. Hauptstrasse 24" required>
+                  <input type="text" id="contactStreet" class="form-input" placeholder="z. B. Hauptstrasse 24" required name="street-address" autocomplete="street-address">
                 </div>
               </div>
 
               <div class="form-grid form-grid-2" style="margin-bottom: 8px;">
                 <div class="form-field">
                   <label for="contactLoc" data-slot="terminbuchung_label_3">PLZ &amp; Ort des Einsatzortes *</label>
-                  <input type="text" id="contactLoc" class="form-input" placeholder="z. B. 5040 Schöftland" oninput="wpCheckPlz(this.value)" required>
+                  <input type="text" id="contactLoc" class="form-input" placeholder="z. B. 5040 Schöftland" oninput="wpCheckPlz(this.value)" required name="postal-code" autocomplete="postal-code">
                 </div>
                 <div class="form-field">
                   <label for="contactCallbackPref">Bevorzugtes Rückruf-Zeitfenster</label>
-                  <select id="contactCallbackPref" class="form-select">
+                  <select id="contactCallbackPref" class="form-select" name="callback_preference">
                     <option value="So rasch wie möglich">So rasch wie möglich</option>
                     <option value="Vormittag (07:30 – 11:30 Uhr)">Vormittag (07:30 – 11:30 Uhr)</option>
                     <option value="Nachmittag (13:30 – 17:00 Uhr)">Nachmittag (13:30 – 17:00 Uhr)</option>
@@ -2558,11 +2653,11 @@
               <div class="form-grid form-grid-2" style="margin-bottom: 12px;">
                 <div class="form-field">
                   <label for="contactPhone" data-slot="terminbuchung_label_4">Mobiltelefon (für Rückruf &amp; WhatsApp) *</label>
-                  <input type="tel" id="contactPhone" class="form-input" placeholder="+41 79 ..." required>
+                  <input type="tel" id="contactPhone" class="form-input" placeholder="+41 79 ..." required name="tel" autocomplete="tel">
                 </div>
                 <div class="form-field">
                   <label for="contactEmail" data-slot="terminbuchung_label_5">E-Mail-Adresse (für Auftrags-PDF) *</label>
-                  <input type="email" id="contactEmail" class="form-input" placeholder="ihre@email.ch" required>
+                  <input type="email" id="contactEmail" class="form-input" placeholder="ihre@email.ch" required name="email" autocomplete="email">
                 </div>
               </div>
 
@@ -3102,7 +3197,7 @@
         <form id="wpPartnerLeadForm" onsubmit="return wpSubmitPartnerLead(event)" novalidate>
           <div style="display:none;" aria-hidden="true">
             <label for="wpPartnerHp">Website</label>
-            <input type="text" id="wpPartnerHp" name="website_url" tabindex="-1" autocomplete="off">
+            <input type="text" id="wpPartnerHp" name="website_url" tabindex="-1" autocomplete="off" form="wpTrapDetached">
           </div>
 
           <div class="wp-partner-field">

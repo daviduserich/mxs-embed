@@ -557,6 +557,80 @@
   <meta name="twitter:title" content="WebPilot · Die pfeilschnelle Schweizer Webseite für Google &amp; KI-Suchen">
   <meta name="twitter:description" content="WebPilot · magnet-Xs gmbh (Zofingen AG): Die pfeilschnelle Schweizer Webseite für Google &amp; KI-Suchen, selbst per Cockpit &amp; KI gesteuert oder...">
   <meta name="twitter:image" content="https://webpilot.magnet-xs.ch/images/hero.jpg">
+  <style id="wp-modern-web-css">
+    @media (prefers-reduced-motion: no-preference) { @view-transition { navigation: auto; } }
+    html { interpolate-size: allow-keywords; }
+    :where(img[width][height]) { height: auto; }
+    input:user-invalid, textarea:user-invalid, select:user-invalid { border-color: #DC2626 !important; outline: none; }
+  </style>
+  <script type="speculationrules" id="wp-speculation-rules">
+{
+  "prefetch": [
+    {
+      "where": {
+        "and": [
+          {
+            "href_matches": "/*"
+          },
+          {
+            "not": {
+              "href_matches": [
+                "/*cockpit*",
+                "/cockpit*",
+                "/*team-update*",
+                "/*onboarding*",
+                "/api/*",
+                "/cdn-cgi/*",
+                "/*.pdf",
+                "/*?*",
+                "/*#*"
+              ]
+            }
+          },
+          {
+            "not": {
+              "selector_matches": "[target=_blank], [download], [data-no-prerender], [href^='mailto:'], [href^='tel:']"
+            }
+          }
+        ]
+      },
+      "eagerness": "moderate"
+    }
+  ],
+  "prerender": [
+    {
+      "where": {
+        "and": [
+          {
+            "href_matches": "/*"
+          },
+          {
+            "not": {
+              "href_matches": [
+                "/*cockpit*",
+                "/cockpit*",
+                "/*team-update*",
+                "/*onboarding*",
+                "/api/*",
+                "/cdn-cgi/*",
+                "/*.pdf",
+                "/*?*",
+                "/*#*"
+              ]
+            }
+          },
+          {
+            "not": {
+              "selector_matches": "[target=_blank], [download], [data-no-prerender], [href^='mailto:'], [href^='tel:']"
+            }
+          }
+        ]
+      },
+      "eagerness": "conservative"
+    }
+  ]
+}
+  </script>
   <script type="application/ld+json" id="wp-seo-schema">
 {
   "@context": "https://schema.org",
@@ -729,7 +803,7 @@
       "name": "WebPilot · Die pfeilschnelle Schweizer Webseite für Google & KI-Suchen",
       "description": "WebPilot · magnet-Xs gmbh (Zofingen AG): Die pfeilschnelle Schweizer Webseite für Google & KI-Suchen, selbst per Cockpit & KI gesteuert oder...",
       "inLanguage": "de-CH",
-      "dateModified": "2026-11-10T18:08:45+00:00",
+      "dateModified": "2026-11-15T16:18:44+00:00",
       "isPartOf": {
         "@id": "https://webpilot.magnet-xs.ch/#website"
       },

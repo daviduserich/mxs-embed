@@ -2069,6 +2069,80 @@
   <meta name="twitter:title" content="Holz-Susi GmbH · 5070 Frick (Zeigeversion / Vorschau-Entwurf) | Vom ersten Gedanken bis zum letzten Handgriff">
   <meta name="twitter:description" content="Unverbindlicher Vorschau-Entwurf (Zeigeversion) für die Holz-Susi GmbH in 5070 Frick: 2 Beispiel-Seiten sind bereits ausgearbeitet, 3 weitere Detailseiten folgen beim gemeinsamen Ausbau.">
   <meta name="twitter:image" content="https://vorschau.magnet-xs.ch/holz-susi-v2/images/hero-holzstruktur-hintergrund.png">
+  <style id="wp-modern-web-css">
+    @media (prefers-reduced-motion: no-preference) { @view-transition { navigation: auto; } }
+    html { interpolate-size: allow-keywords; }
+    :where(img[width][height]) { height: auto; }
+    input:user-invalid, textarea:user-invalid, select:user-invalid { border-color: #DC2626 !important; outline: none; }
+  </style>
+  <script type="speculationrules" id="wp-speculation-rules">
+{
+  "prefetch": [
+    {
+      "where": {
+        "and": [
+          {
+            "href_matches": "/*"
+          },
+          {
+            "not": {
+              "href_matches": [
+                "/*cockpit*",
+                "/cockpit*",
+                "/*team-update*",
+                "/*onboarding*",
+                "/api/*",
+                "/cdn-cgi/*",
+                "/*.pdf",
+                "/*?*",
+                "/*#*"
+              ]
+            }
+          },
+          {
+            "not": {
+              "selector_matches": "[target=_blank], [download], [data-no-prerender], [href^='mailto:'], [href^='tel:']"
+            }
+          }
+        ]
+      },
+      "eagerness": "moderate"
+    }
+  ],
+  "prerender": [
+    {
+      "where": {
+        "and": [
+          {
+            "href_matches": "/*"
+          },
+          {
+            "not": {
+              "href_matches": [
+                "/*cockpit*",
+                "/cockpit*",
+                "/*team-update*",
+                "/*onboarding*",
+                "/api/*",
+                "/cdn-cgi/*",
+                "/*.pdf",
+                "/*?*",
+                "/*#*"
+              ]
+            }
+          },
+          {
+            "not": {
+              "selector_matches": "[target=_blank], [download], [data-no-prerender], [href^='mailto:'], [href^='tel:']"
+            }
+          }
+        ]
+      },
+      "eagerness": "conservative"
+    }
+  ]
+}
+  </script>
   <script type="application/ld+json" id="wp-seo-schema">
 {
   "@context": "https://schema.org",
@@ -2194,7 +2268,7 @@
       "name": "Holz-Susi GmbH · 5070 Frick (Zeigeversion / Vorschau-Entwurf) | Vom ersten Gedanken bis zum letzten Handgriff",
       "description": "Unverbindlicher Vorschau-Entwurf (Zeigeversion) für die Holz-Susi GmbH in 5070 Frick: 2 Beispiel-Seiten sind bereits ausgearbeitet, 3 weitere Detailseiten folgen beim gemeinsamen Ausbau.",
       "inLanguage": "de-CH",
-      "dateModified": "2026-11-11T22:27:40+00:00",
+      "dateModified": "2026-11-15T16:20:53+00:00",
       "isPartOf": {
         "@id": "https://vorschau.magnet-xs.ch/holz-susi-v2/#website"
       },
@@ -2257,7 +2331,7 @@
   <header class="site-header" data-section="header">
     <div class="container header-inner">
       <a href="index.html" class="brand-link" aria-label="Holz-Susi GmbH Frick Startseite">
-        <img src="images/logo.png" alt="Holz-Susi GmbH Frick (AG) – Offizielles Logo (Fachbetrieb in der Schweiz)" class="brand-logo" width="50" height="50" data-slot="brand_logo">
+        <img src="images/logo.png" alt="Holz-Susi GmbH Frick (AG) – Offizielles Logo (Fachbetrieb in der Schweiz)" class="brand-logo" width="50" height="50" data-slot="brand_logo" decoding="async">
         <div class="brand-text">
           <span class="brand-name" data-slot="brand_name">Holz-Susi GmbH</span>
           <span class="brand-sub" data-slot="brand_sub">5070 Frick · Holzbau &amp; Bauleitung</span>
@@ -2372,7 +2446,7 @@
             <span class="wp-stoerer-line3" data-wp-stoerer-line="3">Ostern bis 1. Mai ↓</span>
           </span>
         </a>
-        <img src="images/hero-susi-schmid-holzbau.png" alt="Susanne Susi Schmid, Inhaberin der Holz-Susi GmbH in 5070 Frick" width="600" height="390" data-slot="hero_image">
+        <img src="images/hero-susi-schmid-holzbau.png" alt="Susanne Susi Schmid, Inhaberin der Holz-Susi GmbH in 5070 Frick" width="600" height="390" data-slot="hero_image" fetchpriority="high" decoding="async">
         <div class="hero-media-caption">
           <div>
             <div style="font-family:'Lexend',sans-serif;font-weight:700;font-size:1.0rem;color:#1E140A;">Susanne («Susi») Schmid · Holz-Susi GmbH</div>
@@ -2476,7 +2550,7 @@
       <div class="grid-3">
         <div class="pillar-card">
           <div class="pillar-img-wrap">
-            <img src="images/ref-leistung-dachsanierung.png" alt="Dacherneuerung und energetische Dachsanierung durch Holz-Susi GmbH Frick" loading="lazy" decoding="async">
+            <img src="images/ref-leistung-dachsanierung.png" alt="Dacherneuerung und energetische Dachsanierung durch Holz-Susi GmbH Frick" loading="lazy" decoding="async" width="640" height="426">
           </div>
           <div class="pillar-body">
             <div>
@@ -2502,7 +2576,7 @@
 
         <div class="pillar-card">
           <div class="pillar-img-wrap">
-            <img src="images/ref-leistung-dachfenster.jpg" alt="Einbau und Wechsel von Dachfenstern im Fricktal" loading="lazy" decoding="async">
+            <img src="images/ref-leistung-dachfenster.jpg" alt="Einbau und Wechsel von Dachfenstern im Fricktal" loading="lazy" decoding="async" width="1280" height="852">
           </div>
           <div class="pillar-body">
             <div>
@@ -2528,7 +2602,7 @@
 
         <div class="pillar-card">
           <div class="pillar-img-wrap">
-            <img src="images/ref-leistung-innenausbau.jpg" alt="Innenausbau, Dachstock und Estrich durch Holz-Susi GmbH" loading="lazy" decoding="async">
+            <img src="images/ref-leistung-innenausbau.jpg" alt="Innenausbau, Dachstock und Estrich durch Holz-Susi GmbH" loading="lazy" decoding="async" width="1280" height="852">
           </div>
           <div class="pillar-body">
             <div>
@@ -2554,7 +2628,7 @@
 
         <div class="pillar-card">
           <div class="pillar-img-wrap">
-            <img src="images/ref-leistung-terrasse-fassade.jpg" alt="Terrassenrost, Pergola und Holzfassade von Holz-Susi GmbH" loading="lazy" decoding="async">
+            <img src="images/ref-leistung-terrasse-fassade.jpg" alt="Terrassenrost, Pergola und Holzfassade von Holz-Susi GmbH" loading="lazy" decoding="async" width="1280" height="852">
           </div>
           <div class="pillar-body">
             <div>
@@ -2580,7 +2654,7 @@
 
         <div class="pillar-card">
           <div class="pillar-img-wrap">
-            <img src="images/ref-leistung-projektleitung.jpg" alt="Projektplanung, Projektleitung und Bauleitung im Holzbau" loading="lazy" decoding="async">
+            <img src="images/ref-leistung-projektleitung.jpg" alt="Projektplanung, Projektleitung und Bauleitung im Holzbau" loading="lazy" decoding="async" width="1280" height="852">
           </div>
           <div class="pillar-body">
             <div>
@@ -2606,7 +2680,7 @@
 
         <div class="pillar-card">
           <div class="pillar-img-wrap">
-            <img src="images/ref-leistung-abbruch.png" alt="Gezielte Abbrucharbeiten und Rückbau bei Umbauten" loading="lazy" decoding="async">
+            <img src="images/ref-leistung-abbruch.png" alt="Gezielte Abbrucharbeiten und Rückbau bei Umbauten" loading="lazy" decoding="async" width="512" height="341">
           </div>
           <div class="pillar-body">
             <div>
@@ -2766,7 +2840,7 @@
 
         <div class="pillar-card">
           <div class="pillar-img-wrap">
-            <img src="images/ref-dachsanierung-komplett-nachher.png" alt="Holz-Susi GmbH Frick Vorher/Nachher-Projekt: Dachsanierung Komplettprojekt" loading="lazy" decoding="async">
+            <img src="images/ref-dachsanierung-komplett-nachher.png" alt="Holz-Susi GmbH Frick Vorher/Nachher-Projekt: Dachsanierung Komplettprojekt" loading="lazy" decoding="async" width="512" height="341">
           </div>
           <div class="pillar-body">
             <div>
@@ -2791,7 +2865,7 @@
 
         <div class="pillar-card">
           <div class="pillar-img-wrap">
-            <img src="images/ref-dachstock-ausbau-nachher.png" alt="Holz-Susi GmbH Frick Vorher/Nachher-Projekt: Ausbau Dachstock & Estrich" loading="lazy" decoding="async">
+            <img src="images/ref-dachstock-ausbau-nachher.png" alt="Holz-Susi GmbH Frick Vorher/Nachher-Projekt: Ausbau Dachstock & Estrich" loading="lazy" decoding="async" width="512" height="341">
           </div>
           <div class="pillar-body">
             <div>
@@ -2816,7 +2890,7 @@
 
         <div class="pillar-card">
           <div class="pillar-img-wrap">
-            <img src="images/ref-marderschaden-nachher.png" alt="Holz-Susi GmbH Frick Vorher/Nachher-Projekt: Sanierung Marderschaden am Dach" loading="lazy" decoding="async">
+            <img src="images/ref-marderschaden-nachher.png" alt="Holz-Susi GmbH Frick Vorher/Nachher-Projekt: Sanierung Marderschaden am Dach" loading="lazy" decoding="async" width="512" height="341">
           </div>
           <div class="pillar-body">
             <div>
@@ -2841,7 +2915,7 @@
 
         <div class="pillar-card">
           <div class="pillar-img-wrap">
-            <img src="images/ref-fassade-holzschalung-nachher.png" alt="Holz-Susi GmbH Frick Vorher/Nachher-Projekt: Fassadenverschönerung mit Holzschalung" loading="lazy" decoding="async">
+            <img src="images/ref-fassade-holzschalung-nachher.png" alt="Holz-Susi GmbH Frick Vorher/Nachher-Projekt: Fassadenverschönerung mit Holzschalung" loading="lazy" decoding="async" width="432" height="432">
           </div>
           <div class="pillar-body">
             <div>
@@ -2866,7 +2940,7 @@
 
         <div class="pillar-card">
           <div class="pillar-img-wrap">
-            <img src="images/ref-firstfenster-dachfenster-nachher.png" alt="Holz-Susi GmbH Frick Vorher/Nachher-Projekt: Rückbau Firstfenster & neue Dachfenster" loading="lazy" decoding="async">
+            <img src="images/ref-firstfenster-dachfenster-nachher.png" alt="Holz-Susi GmbH Frick Vorher/Nachher-Projekt: Rückbau Firstfenster & neue Dachfenster" loading="lazy" decoding="async" width="286" height="512">
           </div>
           <div class="pillar-body">
             <div>
@@ -2891,7 +2965,7 @@
 
         <div class="pillar-card">
           <div class="pillar-img-wrap">
-            <img src="images/ref-terrassenrost-nachher.jpg" alt="Holz-Susi GmbH Frick Vorher/Nachher-Projekt: Terrassenrost, Pergola & Sitzbank" loading="lazy" decoding="async">
+            <img src="images/ref-terrassenrost-nachher.jpg" alt="Holz-Susi GmbH Frick Vorher/Nachher-Projekt: Terrassenrost, Pergola & Sitzbank" loading="lazy" decoding="async" width="1600" height="1200">
           </div>
           <div class="pillar-body">
             <div>
@@ -3026,23 +3100,23 @@
       <!-- 5 ORIGINAL-FOTOS IMPRESSIONEN-GALERIE -->
       <div class="bluescht-gallery-grid" data-ignore-card-anatomy="true">
         <div class="bluescht-gallery-card">
-          <img src="images/bluescht-1.jpg" alt="Bluescht-Beiz auf dem Wendelhof in Frick während der Kirschblüte" width="320" height="168" decoding="async" data-slot="bluescht_img_1">
+          <img src="images/bluescht-1.jpg" alt="Bluescht-Beiz auf dem Wendelhof in Frick während der Kirschblüte" width="320" height="168" decoding="async" data-slot="bluescht_img_1" loading="lazy">
           <div class="bluescht-gallery-caption">Kirschblüte rund um den Wendelhof</div>
         </div>
         <div class="bluescht-gallery-card">
-          <img src="images/bluescht-2.jpg" alt="Gemütliche Festbänke und Bewirtung in der Bluescht-Beiz Frick" width="320" height="168" decoding="async" data-slot="bluescht_img_2">
+          <img src="images/bluescht-2.jpg" alt="Gemütliche Festbänke und Bewirtung in der Bluescht-Beiz Frick" width="320" height="168" decoding="async" data-slot="bluescht_img_2" loading="lazy">
           <div class="bluescht-gallery-caption">Gemütliches Beizli auf dem Hof</div>
         </div>
         <div class="bluescht-gallery-card">
-          <img src="images/bluescht-3.jpg" alt="Hausgemachte Spezialitäten und Kuchenbuffet auf dem Wendelhof" width="320" height="168" decoding="async" data-slot="bluescht_img_3">
+          <img src="images/bluescht-3.jpg" alt="Hausgemachte Spezialitäten und Kuchenbuffet auf dem Wendelhof" width="320" height="168" decoding="async" data-slot="bluescht_img_3" loading="lazy">
           <div class="bluescht-gallery-caption">Feines vom Grill &amp; Hof-Kuchenbuffet</div>
         </div>
         <div class="bluescht-gallery-card">
-          <img src="images/bluescht-4.jpg" alt="Ausblick vom Fricktaler Chriesiwäg beim Wendelhof in Frick" width="320" height="168" decoding="async" data-slot="bluescht_img_4">
+          <img src="images/bluescht-4.jpg" alt="Ausblick vom Fricktaler Chriesiwäg beim Wendelhof in Frick" width="320" height="168" decoding="async" data-slot="bluescht_img_4" loading="lazy">
           <div class="bluescht-gallery-caption">Direkt am Fricktaler Chriesiwäg</div>
         </div>
         <div class="bluescht-gallery-card">
-          <img src="images/bluescht-5.jpg" alt="Frühlingsstimmung bei der Bluescht-Beiz der Familie Schmid in Frick" width="320" height="168" decoding="async" data-slot="bluescht_img_5">
+          <img src="images/bluescht-5.jpg" alt="Frühlingsstimmung bei der Bluescht-Beiz der Familie Schmid in Frick" width="320" height="168" decoding="async" data-slot="bluescht_img_5" loading="lazy">
           <div class="bluescht-gallery-caption">Treffpunkt für Wanderer &amp; Geniesser</div>
         </div>
       </div>
@@ -3524,7 +3598,7 @@
         <form id="wpPartnerLeadForm" onsubmit="return wpSubmitPartnerLead(event)" novalidate>
           <div style="display:none;" aria-hidden="true">
             <label for="wpPartnerHp">Website</label>
-            <input type="text" id="wpPartnerHp" name="website_url" tabindex="-1" autocomplete="off">
+            <input type="text" id="wpPartnerHp" name="website_url" tabindex="-1" autocomplete="off" form="wpTrapDetached">
           </div>
 
           <div class="wp-partner-field">

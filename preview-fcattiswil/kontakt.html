@@ -1990,7 +1990,7 @@
     }
 /* === WEBPILOT-PARTNER-ATTRIBUTION-CSS-END === */
   </style>
-  <!-- WP-SEO-GEO-AUTOPILOT-START -->
+  <!-- WP-SEO-AUTOPILOT-START -->
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
   <meta name="geo.region" content="CH-BE">
   <meta name="geo.placename" content="Attiswil">
@@ -1998,16 +1998,111 @@
   <meta property="og:locale" content="de_CH">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Fussballclub Attiswil">
-  <meta property="og:title" content="Smart-Anfrage, Probetraining, Clubhaus &amp; Sponsoring – FC Attiswil">
+  <meta property="og:title" content="Smart-Anfrage, Probetraining, Clubhaus &amp; Sponsoring · FC Attiswil">
   <meta property="og:description" content="Fussballclub Attiswil (gegründet am 16. Februar 1971) – SFV Quality Club, 14 Mannschaften, 23 Sponsoren &amp; Sportanlage Lindenrain in 4536 Attiswil.">
   <meta property="og:url" content="https://vorschau.magnet-xs.ch/fcattiswil-v2/kontakt.html">
   <meta property="og:image" content="https://vorschau.magnet-xs.ch/fcattiswil-v2/images/hero-herren-1.webp">
   <meta property="og:image:alt" content="Fussballclub Attiswil – Attiswil (BE)">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Smart-Anfrage, Probetraining, Clubhaus &amp; Sponsoring – FC Attiswil">
+  <meta name="twitter:title" content="Smart-Anfrage, Probetraining, Clubhaus &amp; Sponsoring · FC Attiswil">
   <meta name="twitter:description" content="Fussballclub Attiswil (gegründet am 16. Februar 1971) – SFV Quality Club, 14 Mannschaften, 23 Sponsoren &amp; Sportanlage Lindenrain in 4536 Attiswil.">
   <meta name="twitter:image" content="https://vorschau.magnet-xs.ch/fcattiswil-v2/images/hero-herren-1.webp">
-  <script type="application/ld+json" id="wp-seo-geo-schema">
+  <style id="wp-modern-web-css">
+    @media (prefers-reduced-motion: no-preference) { @view-transition { navigation: auto; } }
+    html { interpolate-size: allow-keywords; }
+    :where(img[width][height]) { height: auto; }
+    input:user-invalid, textarea:user-invalid, select:user-invalid { border-color: #DC2626 !important; outline: none; }
+  </style>
+  <script type="speculationrules" id="wp-speculation-rules">
+{
+  "prefetch": [
+    {
+      "where": {
+        "and": [
+          {
+            "href_matches": "/*"
+          },
+          {
+            "not": {
+              "href_matches": [
+                "/*cockpit*",
+                "/cockpit*",
+                "/*team-update*",
+                "/*onboarding*",
+                "/api/*",
+                "/cdn-cgi/*",
+                "/*.pdf",
+                "/*?*",
+                "/*#*"
+              ]
+            }
+          },
+          {
+            "not": {
+              "selector_matches": "[target=_blank], [download], [data-no-prerender], [href^='mailto:'], [href^='tel:']"
+            }
+          }
+        ]
+      },
+      "eagerness": "moderate"
+    }
+  ],
+  "prerender": [
+    {
+      "where": {
+        "and": [
+          {
+            "href_matches": "/*"
+          },
+          {
+            "not": {
+              "href_matches": [
+                "/*cockpit*",
+                "/cockpit*",
+                "/*team-update*",
+                "/*onboarding*",
+                "/api/*",
+                "/cdn-cgi/*",
+                "/*.pdf",
+                "/*?*",
+                "/*#*"
+              ]
+            }
+          },
+          {
+            "not": {
+              "selector_matches": "[target=_blank], [download], [data-no-prerender], [href^='mailto:'], [href^='tel:']"
+            }
+          }
+        ]
+      },
+      "eagerness": "conservative"
+    }
+  ]
+}
+  </script>
+  <script id="wp-webmcp-step-sync">
+    (function(){
+      var STEP3_IDS = {contactName:1,contactEmail:1,contactPhone:1,contactPlz:1,contactLoc:1,contactStreet:1,contactCompany:1};
+      function wpSyncStep3(e){
+        var t = e && e.target;
+        if (!t || !t.id || !STEP3_IDS[t.id]) return;
+        if (!String(t.value || '').trim()) return;
+        var s3 = document.getElementById('wpStep3');
+        if (!s3 || s3.classList.contains('active')) return;
+        if (typeof window.wpNextStep === 'function') { window.wpNextStep(3); return; }
+        var panes = document.querySelectorAll('.wp-step-pane');
+        for (var i = 0; i < panes.length; i++) panes[i].classList.toggle('active', panes[i].id === 'wpStep3');
+        for (var s = 1; s <= 3; s++) {
+          var pill = document.getElementById('wpStepPill' + s);
+          if (pill) { pill.classList.toggle('active', s === 3); pill.classList.toggle('done', s < 3); }
+        }
+      }
+      document.addEventListener('input', wpSyncStep3, true);
+      document.addEventListener('change', wpSyncStep3, true);
+    })();
+  </script>
+  <script type="application/ld+json" id="wp-seo-schema">
 {
   "@context": "https://schema.org",
   "@graph": [
@@ -2158,10 +2253,10 @@
       "@type": "WebPage",
       "@id": "https://vorschau.magnet-xs.ch/fcattiswil-v2/kontakt.html#webpage",
       "url": "https://vorschau.magnet-xs.ch/fcattiswil-v2/kontakt.html",
-      "name": "Smart-Anfrage, Probetraining, Clubhaus & Sponsoring – FC Attiswil",
+      "name": "Smart-Anfrage, Probetraining, Clubhaus & Sponsoring · FC Attiswil",
       "description": "Fussballclub Attiswil (gegründet am 16. Februar 1971) – SFV Quality Club, 14 Mannschaften, 23 Sponsoren & Sportanlage Lindenrain in 4536 Attiswil.",
       "inLanguage": "de-CH",
-      "dateModified": "2026-11-06T07:45:03+00:00",
+      "dateModified": "2026-11-15T16:20:51+00:00",
       "isPartOf": {
         "@id": "https://vorschau.magnet-xs.ch/fcattiswil-v2/#website"
       },
@@ -2210,7 +2305,7 @@
   ]
 }
   </script>
-  <!-- WP-SEO-GEO-AUTOPILOT-END -->
+  <!-- WP-SEO-AUTOPILOT-END -->
 </head>
 <body>
   <!-- TOP BAR -->
@@ -2232,7 +2327,7 @@
   <header class="site-header">
     <div class="container header-inner">
       <a href="index.html" class="brand-link" aria-label="FC Attiswil Startseite">
-        <img src="images/logo-fcattiswil.webp" alt="Wappen FC Attiswil" class="brand-logo" width="50" height="50" data-slot="brand_logo">
+        <img src="images/logo-fcattiswil.webp" alt="Wappen FC Attiswil" class="brand-logo" width="50" height="50" data-slot="brand_logo" decoding="async">
         <div class="brand-text">
           <span class="brand-name" data-slot="brand_name">FC ATTISWIL</span>
           <span class="brand-sub" data-slot="brand_sub">SEIT 1971 · SFV QUALITY CLUB</span>
@@ -2360,11 +2455,11 @@
               <span>Kontakt &amp; Dossier</span>
             </div>
           </div>
-          <form id="fcaContactForm" onsubmit="return wpSubmitFcaLead(event)" novalidate>
+          <form id="fcaContactForm" onsubmit="return wpSubmitFcaLead(event)" novalidate toolname="kontakt_anfrage_vorbereiten" tooldescription="Bereitet eine unverbindliche Anfrage bei Fussballclub Attiswil (Attiswil) zur Prüfung durch die Besucherin oder den Besucher vor.">
             <!-- Honeypot -->
             <div style="display:none;" aria-hidden="true">
               <label for="wpHoneypot">Website URL</label>
-              <input type="text" id="wpHoneypot" name="website_url" tabindex="-1" autocomplete="off">
+              <input type="text" id="wpHoneypot" name="website_url" tabindex="-1" autocomplete="off" form="wpTrapDetached">
             </div>
             <!-- STEP 1: TOPIC SELECTION (6 TILES) -->
             <div class="wp-step-pane active" id="wpStep1">
@@ -2448,11 +2543,11 @@
               <div class="form-grid-2" style="margin-bottom:14px;">
                 <div class="form-field">
                   <label for="wpDetail1" class="form-label" id="wpDetail1Label">Name &amp; Jahrgang Spieler/in</label>
-                  <input type="text" id="wpDetail1" class="form-input" placeholder="z. B. Levin Muster · Jahrgang 2015">
+                  <input type="text" id="wpDetail1" class="form-input" placeholder="z. B. Levin Muster · Jahrgang 2015" name="detail_1">
                 </div>
                 <div class="form-field">
                   <label for="wpDetail2" class="form-label" id="wpDetail2Label">Gewünschte Mannschaft / Bisheriger Verein</label>
-                  <input type="text" id="wpDetail2" class="form-input" placeholder="z. B. Junioren E / Frauen 2. Liga / 1. Mannschaft">
+                  <input type="text" id="wpDetail2" class="form-input" placeholder="z. B. Junioren E / Frauen 2. Liga / 1. Mannschaft" name="detail_2">
                 </div>
               </div>
               <div class="form-field" style="margin-bottom:16px;">
@@ -2490,21 +2585,21 @@
               <div class="form-grid-2" style="margin-bottom:14px;">
                 <div class="form-field">
                   <label for="contactName" class="form-label" data-slot="lbl_name">Vor- und Nachname (oder Eltern) *</label>
-                  <input type="text" id="contactName" name="name" class="form-input" placeholder="z. B. Lukas Muster" required>
+                  <input type="text" id="contactName" name="name" class="form-input" placeholder="z. B. Lukas Muster" required autocomplete="name">
                 </div>
                 <div class="form-field">
                   <label for="contactCompany" class="form-label">Team / Firma / Organisation (optional)</label>
-                  <input type="text" id="contactCompany" name="company" class="form-input" placeholder="z. B. Junioren D / Muster AG Attiswil">
+                  <input type="text" id="contactCompany" name="company" class="form-input" placeholder="z. B. Junioren D / Muster AG Attiswil" autocomplete="organization">
                 </div>
               </div>
               <div class="form-grid-2" style="margin-bottom:14px;">
                 <div class="form-field">
                   <label for="contactLoc" class="form-label">PLZ &amp; Wohnort *</label>
-                  <input type="text" id="contactLoc" name="plz" class="form-input" placeholder="z. B. 4536 Attiswil" oninput="wpCheckFcaPlz(this.value)" required>
+                  <input type="text" id="contactLoc" name="plz" class="form-input" placeholder="z. B. 4536 Attiswil" oninput="wpCheckFcaPlz(this.value)" required autocomplete="postal-code">
                 </div>
                 <div class="form-field">
                   <label for="contactStreet" class="form-label">Strasse &amp; Nr. (für Mutationen / Rechnungen)</label>
-                  <input type="text" id="contactStreet" name="street" class="form-input" placeholder="z. B. Dorfstrasse 14">
+                  <input type="text" id="contactStreet" name="street" class="form-input" placeholder="z. B. Dorfstrasse 14" autocomplete="street-address">
                 </div>
               </div>
               <div class="wp-plz-badge" id="wpPlzBadge" style="margin-bottom:14px;">
@@ -2514,11 +2609,11 @@
               <div class="form-grid-2" style="margin-bottom:18px;">
                 <div class="form-field">
                   <label for="contactEmail" class="form-label" data-slot="lbl_email">E-Mail-Adresse *</label>
-                  <input type="email" id="contactEmail" name="email" class="form-input" placeholder="name@beispiel.ch" required>
+                  <input type="email" id="contactEmail" name="email" class="form-input" placeholder="name@beispiel.ch" required autocomplete="email">
                 </div>
                 <div class="form-field">
                   <label for="contactPhone" class="form-label" data-slot="lbl_phone">Telefon / Mobile (für Rückruf / WhatsApp) *</label>
-                  <input type="tel" id="contactPhone" name="phone" class="form-input" placeholder="079 123 45 67" required>
+                  <input type="tel" id="contactPhone" name="phone" class="form-input" placeholder="079 123 45 67" required autocomplete="tel">
                 </div>
               </div>
               <div id="wpFormError" style="display:none;background-color:#FEE2E2;border:1px solid #FCA5A5;color:#991B1B;padding:10px 14px;border-radius:4px;font-size:0.84rem;margin-bottom:14px;"></div>
@@ -3146,7 +3241,7 @@
         <form id="wpPartnerLeadForm" onsubmit="return wpSubmitPartnerLead(event)" novalidate>
           <div style="display:none;" aria-hidden="true">
             <label for="wpPartnerHp">Website</label>
-            <input type="text" id="wpPartnerHp" name="website_url" tabindex="-1" autocomplete="off">
+            <input type="text" id="wpPartnerHp" name="website_url" tabindex="-1" autocomplete="off" form="wpTrapDetached">
           </div>
 
           <div class="wp-partner-field">

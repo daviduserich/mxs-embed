@@ -1825,7 +1825,7 @@
     }
 /* === WEBPILOT-PARTNER-ATTRIBUTION-CSS-END === */
   </style>
-  <!-- WP-SEO-GEO-AUTOPILOT-START -->
+  <!-- WP-SEO-AUTOPILOT-START -->
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
   <meta name="geo.region" content="CH-LU">
   <meta name="geo.placename" content="Sursee">
@@ -1842,7 +1842,102 @@
   <meta name="twitter:title" content="Kontakt &amp; 3-Schritte Smart-Anfrage (Zeigeversion) | Wüest + Paneduro Sursee">
   <meta name="twitter:description" content="Unverbindlicher Vorschau-Entwurf (Zeigeversion) für Wüest + Paneduro: 2 Beispiel-Seiten sind bereits ausgearbeitet – 3 weitere Themenbereiche folgen beim Ausbau.">
   <meta name="twitter:image" content="https://vorschau.magnet-xs.ch/innere-staerke-v2/images/angebot-inner-strength-circle.jpg">
-  <script type="application/ld+json" id="wp-seo-geo-schema">
+  <style id="wp-modern-web-css">
+    @media (prefers-reduced-motion: no-preference) { @view-transition { navigation: auto; } }
+    html { interpolate-size: allow-keywords; }
+    :where(img[width][height]) { height: auto; }
+    input:user-invalid, textarea:user-invalid, select:user-invalid { border-color: #DC2626 !important; outline: none; }
+  </style>
+  <script type="speculationrules" id="wp-speculation-rules">
+{
+  "prefetch": [
+    {
+      "where": {
+        "and": [
+          {
+            "href_matches": "/*"
+          },
+          {
+            "not": {
+              "href_matches": [
+                "/*cockpit*",
+                "/cockpit*",
+                "/*team-update*",
+                "/*onboarding*",
+                "/api/*",
+                "/cdn-cgi/*",
+                "/*.pdf",
+                "/*?*",
+                "/*#*"
+              ]
+            }
+          },
+          {
+            "not": {
+              "selector_matches": "[target=_blank], [download], [data-no-prerender], [href^='mailto:'], [href^='tel:']"
+            }
+          }
+        ]
+      },
+      "eagerness": "moderate"
+    }
+  ],
+  "prerender": [
+    {
+      "where": {
+        "and": [
+          {
+            "href_matches": "/*"
+          },
+          {
+            "not": {
+              "href_matches": [
+                "/*cockpit*",
+                "/cockpit*",
+                "/*team-update*",
+                "/*onboarding*",
+                "/api/*",
+                "/cdn-cgi/*",
+                "/*.pdf",
+                "/*?*",
+                "/*#*"
+              ]
+            }
+          },
+          {
+            "not": {
+              "selector_matches": "[target=_blank], [download], [data-no-prerender], [href^='mailto:'], [href^='tel:']"
+            }
+          }
+        ]
+      },
+      "eagerness": "conservative"
+    }
+  ]
+}
+  </script>
+  <script id="wp-webmcp-step-sync">
+    (function(){
+      var STEP3_IDS = {contactName:1,contactEmail:1,contactPhone:1,contactPlz:1,contactLoc:1,contactStreet:1,contactCompany:1};
+      function wpSyncStep3(e){
+        var t = e && e.target;
+        if (!t || !t.id || !STEP3_IDS[t.id]) return;
+        if (!String(t.value || '').trim()) return;
+        var s3 = document.getElementById('wpStep3');
+        if (!s3 || s3.classList.contains('active')) return;
+        if (typeof window.wpNextStep === 'function') { window.wpNextStep(3); return; }
+        var panes = document.querySelectorAll('.wp-step-pane');
+        for (var i = 0; i < panes.length; i++) panes[i].classList.toggle('active', panes[i].id === 'wpStep3');
+        for (var s = 1; s <= 3; s++) {
+          var pill = document.getElementById('wpStepPill' + s);
+          if (pill) { pill.classList.toggle('active', s === 3); pill.classList.toggle('done', s < 3); }
+        }
+      }
+      document.addEventListener('input', wpSyncStep3, true);
+      document.addEventListener('change', wpSyncStep3, true);
+    })();
+  </script>
+  <script type="application/ld+json" id="wp-seo-schema">
 {
   "@context": "https://schema.org",
   "@graph": [
@@ -1919,7 +2014,6 @@
         "Keynotes, Referate und Management-Retreats zu Resilienz, Fokus und Selbstführung",
         "Team-Entwicklung und Begleitung in anspruchsvollen Transformationsphasen",
         "1. Worum geht es bei Ihrem Anliegen?",
-        "Unverbindlicher Vorschau-Entwurf für Wüest + Paneduro",
         "Impressum & Datenschutz (Wüest + Paneduro)",
         "WebPilot Partner-Kontakt · Eigene Webseite oder Smart-Anfrage modernisieren"
       ],
@@ -1996,7 +2090,7 @@
       "name": "Kontakt & 3-Schritte Smart-Anfrage (Zeigeversion) | Wüest + Paneduro Sursee",
       "description": "Unverbindlicher Vorschau-Entwurf (Zeigeversion) für Wüest + Paneduro: 2 Beispiel-Seiten sind bereits ausgearbeitet – 3 weitere Themenbereiche folgen beim Ausbau.",
       "inLanguage": "de-CH",
-      "dateModified": "2026-11-06T07:45:03+00:00",
+      "dateModified": "2026-11-15T16:20:53+00:00",
       "isPartOf": {
         "@id": "https://vorschau.magnet-xs.ch/innere-staerke-v2/#website"
       },
@@ -2053,7 +2147,7 @@
   ]
 }
   </script>
-  <!-- WP-SEO-GEO-AUTOPILOT-END -->
+  <!-- WP-SEO-AUTOPILOT-END -->
 </head>
 <body>
 
@@ -2076,7 +2170,7 @@
   <header class="site-header" data-section="header">
     <div class="container header-inner">
       <a href="index.html" class="brand-link" aria-label="Wüest + Paneduro Startseite">
-        <img src="images/logo.svg" alt="Wüest + Paneduro · Innere Stärke entwickeln" class="brand-logo" width="52" height="52" data-slot="brand_logo">
+        <img src="images/logo.svg" alt="Wüest + Paneduro · Innere Stärke entwickeln" class="brand-logo" width="52" height="52" data-slot="brand_logo" decoding="async">
         <div class="brand-text">
           <span class="brand-name" data-slot="brand_name">WÜEST + PANEDURO</span>
           <span class="brand-sub" data-slot="brand_sub">INNERE STÄRKE ENTWICKELN</span>
@@ -2147,7 +2241,7 @@
             Schreiben Sie uns, rufen Sie uns an oder starten Sie rechts unseren geführten 3-Schritte Smart-Anfrage-Assistenten. Wir beantworten gerne Ihre Fragen zum Thema innere Stärke und stellen für Sie, Ihr Team oder Ihr Unternehmen ein passgenaues Konzept zusammen.
           </p>
 
-          <img src="images/header-kontakt.jpg" alt="Christine Wüest und Nino Paneduro Kontakt Businesspark Sursee" style="width:100%;height:190px;object-fit:cover;border-radius:var(--radius-sm);margin-bottom:16px;" loading="lazy" decoding="async">
+          <img src="images/header-kontakt.jpg" alt="Christine Wüest und Nino Paneduro Kontakt Businesspark Sursee" style="width:100%;height:190px;object-fit:cover;border-radius:var(--radius-sm);margin-bottom:16px;" decoding="async" width="2560" height="960" fetchpriority="high">
 
           <div class="contact-direct-list">
             <div class="contact-direct-item">
@@ -2201,10 +2295,10 @@
             </div>
           </div>
 
-          <form id="isContactForm" onsubmit="return wpSubmitIsLead(event)" novalidate>
+          <form id="isContactForm" onsubmit="return wpSubmitIsLead(event)" novalidate toolname="kontakt_anfrage_vorbereiten" tooldescription="Bereitet eine unverbindliche Anfrage bei Wüest + Paneduro · Innere Stärke entwickeln (Sursee) zur Prüfung durch die Besucherin oder den Besucher vor.">
             <div style="display:none;" aria-hidden="true">
               <label for="wpHoneypot">Website URL</label>
-              <input type="text" id="wpHoneypot" name="website_url" tabindex="-1" autocomplete="off">
+              <input type="text" id="wpHoneypot" name="website_url" tabindex="-1" autocomplete="off" form="wpTrapDetached">
             </div>
 
             <!-- SCHRITT 1: WORUM GEHT ES? (4 AUSWAHLKARTEN) -->
@@ -2254,11 +2348,11 @@
               <div class="form-grid-2" style="margin-bottom:14px;">
                 <div class="form-field">
                   <label for="wpDetail1" class="form-label" id="wpDetail1Label">Themenfokus / Schwerpunkt</label>
-                  <input type="text" id="wpDetail1" class="form-input" placeholder="z. B. Selbstführung, Stressabbau, 9 Levels Werte, Fokus">
+                  <input type="text" id="wpDetail1" class="form-input" placeholder="z. B. Selbstführung, Stressabbau, 9 Levels Werte, Fokus" name="detail_1">
                 </div>
                 <div class="form-field">
                   <label for="wpDetail2" class="form-label" id="wpDetail2Label">Teilnehmerkreis &amp; Ort</label>
-                  <input type="text" id="wpDetail2" class="form-input" placeholder="z. B. 1:1 in Sursee / Online oder Führungsteam (12 Pers.)">
+                  <input type="text" id="wpDetail2" class="form-input" placeholder="z. B. 1:1 in Sursee / Online oder Führungsteam (12 Pers.)" name="detail_2">
                 </div>
               </div>
 
@@ -2322,22 +2416,22 @@
               <div class="form-grid-2" style="margin-bottom:14px;">
                 <div class="form-field">
                   <label for="contactName" class="form-label" data-slot="lbl_name">Vor- und Nachname *</label>
-                  <input type="text" id="contactName" name="name" class="form-input" placeholder="z. B. Daniel Muster" required>
+                  <input type="text" id="contactName" name="name" class="form-input" placeholder="z. B. Daniel Muster" required autocomplete="name">
                 </div>
                 <div class="form-field">
                   <label for="contactCompany" class="form-label">Firma / Organisation &amp; Funktion</label>
-                  <input type="text" id="contactCompany" name="company" class="form-input" placeholder="z. B. Muster AG Sursee · Mitglied der GL">
+                  <input type="text" id="contactCompany" name="company" class="form-input" placeholder="z. B. Muster AG Sursee · Mitglied der GL" autocomplete="organization">
                 </div>
               </div>
 
               <div class="form-grid-2" style="margin-bottom:14px;">
                 <div class="form-field">
                   <label for="contactLoc" class="form-label">PLZ &amp; Ort *</label>
-                  <input type="text" id="contactLoc" name="plz" class="form-input" placeholder="z. B. 6210 Sursee" oninput="wpCheckIsPlz(this.value)" required>
+                  <input type="text" id="contactLoc" name="plz" class="form-input" placeholder="z. B. 6210 Sursee" oninput="wpCheckIsPlz(this.value)" required autocomplete="postal-code">
                 </div>
                 <div class="form-field">
                   <label for="contactStreet" class="form-label">Strasse &amp; Nr. (optional)</label>
-                  <input type="text" id="contactStreet" name="street" class="form-input" placeholder="z. B. Allee 1b">
+                  <input type="text" id="contactStreet" name="street" class="form-input" placeholder="z. B. Allee 1b" autocomplete="street-address">
                 </div>
               </div>
 
@@ -2349,11 +2443,11 @@
               <div class="form-grid-2" style="margin-bottom:18px;">
                 <div class="form-field">
                   <label for="contactEmail" class="form-label" data-slot="lbl_email">E-Mail-Adresse *</label>
-                  <input type="email" id="contactEmail" name="email" class="form-input" placeholder="name@unternehmen.ch" required>
+                  <input type="email" id="contactEmail" name="email" class="form-input" placeholder="name@unternehmen.ch" required autocomplete="email">
                 </div>
                 <div class="form-field">
                   <label for="contactPhone" class="form-label" data-slot="lbl_phone">Telefon / Mobile (für Rückruf) *</label>
-                  <input type="tel" id="contactPhone" name="phone" class="form-input" placeholder="+41 79 123 45 67" required>
+                  <input type="tel" id="contactPhone" name="phone" class="form-input" placeholder="+41 79 123 45 67" required autocomplete="tel">
                 </div>
               </div>
 
@@ -3005,7 +3099,7 @@
         <form id="wpPartnerLeadForm" onsubmit="return wpSubmitPartnerLead(event)" novalidate>
           <div style="display:none;" aria-hidden="true">
             <label for="wpPartnerHp">Website</label>
-            <input type="text" id="wpPartnerHp" name="website_url" tabindex="-1" autocomplete="off">
+            <input type="text" id="wpPartnerHp" name="website_url" tabindex="-1" autocomplete="off" form="wpTrapDetached">
           </div>
 
           <div class="wp-partner-field">

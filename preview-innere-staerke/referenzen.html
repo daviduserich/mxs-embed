@@ -1825,7 +1825,7 @@
     }
 /* === WEBPILOT-PARTNER-ATTRIBUTION-CSS-END === */
   </style>
-  <!-- WP-SEO-GEO-AUTOPILOT-START -->
+  <!-- WP-SEO-AUTOPILOT-START -->
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
   <meta name="geo.region" content="CH-LU">
   <meta name="geo.placename" content="Sursee">
@@ -1842,7 +1842,81 @@
   <meta name="twitter:title" content="Referenzen &amp; Alle 10 Kundenstimmen | Wüest + Paneduro Sursee">
   <meta name="twitter:description" content="Wüest + Paneduro · Innere Stärke entwickeln. Mentoren, Coaches &amp; Ratgeber für Führungskräfte, Teams und Unternehmen im Businesspark Sursee &amp; schweizweit.">
   <meta name="twitter:image" content="https://vorschau.magnet-xs.ch/innere-staerke-vollversion/images/angebot-inner-strength-circle.jpg">
-  <script type="application/ld+json" id="wp-seo-geo-schema">
+  <style id="wp-modern-web-css">
+    @media (prefers-reduced-motion: no-preference) { @view-transition { navigation: auto; } }
+    html { interpolate-size: allow-keywords; }
+    :where(img[width][height]) { height: auto; }
+    input:user-invalid, textarea:user-invalid, select:user-invalid { border-color: #DC2626 !important; outline: none; }
+  </style>
+  <script type="speculationrules" id="wp-speculation-rules">
+{
+  "prefetch": [
+    {
+      "where": {
+        "and": [
+          {
+            "href_matches": "/*"
+          },
+          {
+            "not": {
+              "href_matches": [
+                "/*cockpit*",
+                "/cockpit*",
+                "/*team-update*",
+                "/*onboarding*",
+                "/api/*",
+                "/cdn-cgi/*",
+                "/*.pdf",
+                "/*?*",
+                "/*#*"
+              ]
+            }
+          },
+          {
+            "not": {
+              "selector_matches": "[target=_blank], [download], [data-no-prerender], [href^='mailto:'], [href^='tel:']"
+            }
+          }
+        ]
+      },
+      "eagerness": "moderate"
+    }
+  ],
+  "prerender": [
+    {
+      "where": {
+        "and": [
+          {
+            "href_matches": "/*"
+          },
+          {
+            "not": {
+              "href_matches": [
+                "/*cockpit*",
+                "/cockpit*",
+                "/*team-update*",
+                "/*onboarding*",
+                "/api/*",
+                "/cdn-cgi/*",
+                "/*.pdf",
+                "/*?*",
+                "/*#*"
+              ]
+            }
+          },
+          {
+            "not": {
+              "selector_matches": "[target=_blank], [download], [data-no-prerender], [href^='mailto:'], [href^='tel:']"
+            }
+          }
+        ]
+      },
+      "eagerness": "conservative"
+    }
+  ]
+}
+  </script>
+  <script type="application/ld+json" id="wp-seo-schema">
 {
   "@context": "https://schema.org",
   "@graph": [
@@ -1996,7 +2070,7 @@
       "name": "Referenzen & Alle 10 Kundenstimmen | Wüest + Paneduro Sursee",
       "description": "Wüest + Paneduro · Innere Stärke entwickeln. Mentoren, Coaches & Ratgeber für Führungskräfte, Teams und Unternehmen im Businesspark Sursee & schweizweit.",
       "inLanguage": "de-CH",
-      "dateModified": "2026-11-06T07:45:03+00:00",
+      "dateModified": "2026-11-15T16:20:53+00:00",
       "isPartOf": {
         "@id": "https://vorschau.magnet-xs.ch/innere-staerke-vollversion/#website"
       },
@@ -2053,7 +2127,7 @@
   ]
 }
   </script>
-  <!-- WP-SEO-GEO-AUTOPILOT-END -->
+  <!-- WP-SEO-AUTOPILOT-END -->
 </head>
 <body>
 
@@ -2076,7 +2150,7 @@
   <header class="site-header" data-section="header">
     <div class="container header-inner">
       <a href="index.html" class="brand-link" aria-label="Wüest + Paneduro Startseite">
-        <img src="images/logo.svg" alt="Wüest + Paneduro · Innere Stärke entwickeln" class="brand-logo" width="52" height="52" data-slot="brand_logo">
+        <img src="images/logo.svg" alt="Wüest + Paneduro · Innere Stärke entwickeln" class="brand-logo" width="52" height="52" data-slot="brand_logo" decoding="async">
         <div class="brand-text">
           <span class="brand-name" data-slot="brand_name">WÜEST + PANEDURO</span>
           <span class="brand-sub" data-slot="brand_sub">INNERE STÄRKE ENTWICKELN</span>
@@ -2136,7 +2210,7 @@
           </div>
         </div>
         <div class="hero-media-card">
-          <img src="images/header-kundenstimmen.jpg" alt="Kundenstimmen und Referenzen Wüest + Paneduro">
+          <img src="images/header-kundenstimmen.jpg" alt="Kundenstimmen und Referenzen Wüest + Paneduro" width="2560" height="960" fetchpriority="high" decoding="async">
           <div class="hero-media-caption">
             <div>
               <div style="font-family:'Barlow',sans-serif;font-weight:800;font-size:1rem;color:#181817;">9 Referenz-Logos &amp; 10 ausführliche Stimmen</div>
@@ -2164,7 +2238,7 @@
 
         <div class="ref-logo-card">
           <div class="ref-logo-stage">
-            <img src="images/ref-logoparts.png" alt="Offizieller Vereins-Sponsor und Partner von Wüest + Paneduro (Sursee): Parts GmbH" loading="lazy" decoding="async">
+            <img src="images/ref-logoparts.png" alt="Offizieller Vereins-Sponsor und Partner von Wüest + Paneduro (Sursee): Parts GmbH" loading="lazy" decoding="async" width="191" height="130">
           </div>
           <div>
             <div class="ref-logo-name">Logo Parts GmbH</div>
@@ -2174,7 +2248,7 @@
 
         <div class="ref-logo-card">
           <div class="ref-logo-stage">
-            <img src="images/ref-kanton-aargau.jpg" alt="Kanton Aargau (AWA & Recht)" loading="lazy" decoding="async">
+            <img src="images/ref-kanton-aargau.jpg" alt="Kanton Aargau (AWA & Recht)" loading="lazy" decoding="async" width="500" height="500">
           </div>
           <div>
             <div class="ref-logo-name">Kanton Aargau (AWA & Recht)</div>
@@ -2184,7 +2258,7 @@
 
         <div class="ref-logo-card">
           <div class="ref-logo-stage">
-            <img src="images/ref-generali.jpg" alt="Generali Versicherungen" loading="lazy" decoding="async">
+            <img src="images/ref-generali.jpg" alt="Generali Versicherungen" loading="lazy" decoding="async" width="500" height="500">
           </div>
           <div>
             <div class="ref-logo-name">Generali Versicherungen</div>
@@ -2194,7 +2268,7 @@
 
         <div class="ref-logo-card">
           <div class="ref-logo-stage">
-            <img src="images/ref-bioanalytica.jpg" alt="Referenzunternehmen Bioanalytica AG – Erfolgsprojekt mit Wüest + Paneduro (Sursee (LU))" loading="lazy" decoding="async">
+            <img src="images/ref-bioanalytica.jpg" alt="Referenzunternehmen Bioanalytica AG – Erfolgsprojekt mit Wüest + Paneduro (Sursee (LU))" loading="lazy" decoding="async" width="500" height="500">
           </div>
           <div>
             <div class="ref-logo-name">Bioanalytica AG</div>
@@ -2204,7 +2278,7 @@
 
         <div class="ref-logo-card">
           <div class="ref-logo-stage">
-            <img src="images/ref-stv.jpg" alt="Schweizerischer Turnverband (STV)" loading="lazy" decoding="async">
+            <img src="images/ref-stv.jpg" alt="Schweizerischer Turnverband (STV)" loading="lazy" decoding="async" width="500" height="500">
           </div>
           <div>
             <div class="ref-logo-name">Schweizerischer Turnverband (STV)</div>
@@ -2214,7 +2288,7 @@
 
         <div class="ref-logo-card">
           <div class="ref-logo-stage">
-            <img src="images/ref-soleil.jpg" alt="Soleil-Gesundheitspraxis" loading="lazy" decoding="async">
+            <img src="images/ref-soleil.jpg" alt="Soleil-Gesundheitspraxis" loading="lazy" decoding="async" width="500" height="500">
           </div>
           <div>
             <div class="ref-logo-name">Soleil-Gesundheitspraxis</div>
@@ -2224,7 +2298,7 @@
 
         <div class="ref-logo-card">
           <div class="ref-logo-stage">
-            <img src="images/ref-zeitlos.jpg" alt="Zeitlos Designermode Sursee" loading="lazy" decoding="async">
+            <img src="images/ref-zeitlos.jpg" alt="Zeitlos Designermode Sursee" loading="lazy" decoding="async" width="500" height="500">
           </div>
           <div>
             <div class="ref-logo-name">Zeitlos Designermode Sursee</div>
@@ -2234,7 +2308,7 @@
 
         <div class="ref-logo-card">
           <div class="ref-logo-stage">
-            <img src="images/ref-cyclinglounge.jpg" alt="Referenzunternehmen Cycling Lounge – Erfolgsprojekt mit Wüest + Paneduro (Sursee (LU))" loading="lazy" decoding="async">
+            <img src="images/ref-cyclinglounge.jpg" alt="Referenzunternehmen Cycling Lounge – Erfolgsprojekt mit Wüest + Paneduro (Sursee (LU))" loading="lazy" decoding="async" width="500" height="500">
           </div>
           <div>
             <div class="ref-logo-name">Cycling Lounge</div>
@@ -2244,7 +2318,7 @@
 
         <div class="ref-logo-card">
           <div class="ref-logo-stage">
-            <img src="images/ref-mo.jpg" alt="Referenzunternehmen MO – Erfolgsprojekt mit Wüest + Paneduro (Sursee (LU))" loading="lazy" decoding="async">
+            <img src="images/ref-mo.jpg" alt="Referenzunternehmen MO – Erfolgsprojekt mit Wüest + Paneduro (Sursee (LU))" loading="lazy" decoding="async" width="500" height="500">
           </div>
           <div>
             <div class="ref-logo-name">MO</div>
@@ -2671,7 +2745,7 @@
         <form id="wpPartnerLeadForm" onsubmit="return wpSubmitPartnerLead(event)" novalidate>
           <div style="display:none;" aria-hidden="true">
             <label for="wpPartnerHp">Website</label>
-            <input type="text" id="wpPartnerHp" name="website_url" tabindex="-1" autocomplete="off">
+            <input type="text" id="wpPartnerHp" name="website_url" tabindex="-1" autocomplete="off" form="wpTrapDetached">
           </div>
 
           <div class="wp-partner-field">

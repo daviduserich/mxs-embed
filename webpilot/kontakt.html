@@ -557,6 +557,80 @@
   <meta name="twitter:title" content="Kontakt, Vorschau &amp; Partner-Anfrage · WebPilot · magnet-Xs gmbh">
   <meta name="twitter:description" content="WebPilot · magnet-Xs gmbh (Zofingen AG): Fordern Sie Ihren Vorher/Nachher-Beweis oder Ihren -v2-Vorschau-Entwurf an. – Ob Sie Ihre Webseite künftig selbst...">
   <meta name="twitter:image" content="https://webpilot.magnet-xs.ch/images/hero.jpg">
+  <style id="wp-modern-web-css">
+    @media (prefers-reduced-motion: no-preference) { @view-transition { navigation: auto; } }
+    html { interpolate-size: allow-keywords; }
+    :where(img[width][height]) { height: auto; }
+    input:user-invalid, textarea:user-invalid, select:user-invalid { border-color: #DC2626 !important; outline: none; }
+  </style>
+  <script type="speculationrules" id="wp-speculation-rules">
+{
+  "prefetch": [
+    {
+      "where": {
+        "and": [
+          {
+            "href_matches": "/*"
+          },
+          {
+            "not": {
+              "href_matches": [
+                "/*cockpit*",
+                "/cockpit*",
+                "/*team-update*",
+                "/*onboarding*",
+                "/api/*",
+                "/cdn-cgi/*",
+                "/*.pdf",
+                "/*?*",
+                "/*#*"
+              ]
+            }
+          },
+          {
+            "not": {
+              "selector_matches": "[target=_blank], [download], [data-no-prerender], [href^='mailto:'], [href^='tel:']"
+            }
+          }
+        ]
+      },
+      "eagerness": "moderate"
+    }
+  ],
+  "prerender": [
+    {
+      "where": {
+        "and": [
+          {
+            "href_matches": "/*"
+          },
+          {
+            "not": {
+              "href_matches": [
+                "/*cockpit*",
+                "/cockpit*",
+                "/*team-update*",
+                "/*onboarding*",
+                "/api/*",
+                "/cdn-cgi/*",
+                "/*.pdf",
+                "/*?*",
+                "/*#*"
+              ]
+            }
+          },
+          {
+            "not": {
+              "selector_matches": "[target=_blank], [download], [data-no-prerender], [href^='mailto:'], [href^='tel:']"
+            }
+          }
+        ]
+      },
+      "eagerness": "conservative"
+    }
+  ]
+}
+  </script>
   <script type="application/ld+json" id="wp-seo-schema">
 {
   "@context": "https://schema.org",
@@ -723,7 +797,7 @@
       "name": "Kontakt, Vorschau & Partner-Anfrage · WebPilot · magnet-Xs gmbh",
       "description": "WebPilot · magnet-Xs gmbh (Zofingen AG): Fordern Sie Ihren Vorher/Nachher-Beweis oder Ihren -v2-Vorschau-Entwurf an. – Ob Sie Ihre Webseite künftig selbst...",
       "inLanguage": "de-CH",
-      "dateModified": "2026-11-10T18:08:45+00:00",
+      "dateModified": "2026-11-15T16:18:44+00:00",
       "isPartOf": {
         "@id": "https://webpilot.magnet-xs.ch/#website"
       },
@@ -896,14 +970,14 @@
             <span class="section-kicker">Kostenlose Ersteinschätzung &amp; Offerte</span>
             <h3 style="font-size: 1.3rem; font-weight: 800; color: #fff; margin-bottom: 12px;">Jetzt Website-URL prüfen lassen</h3>
 
-            <form onsubmit="event.preventDefault(); alert('Vielen Dank! Wir haben Ihre Angaben erhalten und erstellen Ihren Speed- & KI-Such-Report samt 2-Wege-Offerte.');">
+            <form onsubmit="event.preventDefault(); alert('Vielen Dank! Wir haben Ihre Angaben erhalten und erstellen Ihren Speed- & KI-Such-Report samt 2-Wege-Offerte.');" toolname="kontakt_anfrage_vorbereiten" tooldescription="Bereitet eine unverbindliche Anfrage bei WebPilot · magnet-Xs gmbh (Zofingen) zur Prüfung durch die Besucherin oder den Besucher vor.">
               <div class="form-group">
                 <label class="form-label" for="wpUrl">Ihre aktuelle Website-URL *</label>
-                <input id="wpUrl" type="url" class="form-input" placeholder="https://ihre-firma.ch" required>
+                <input id="wpUrl" type="url" class="form-input" placeholder="https://ihre-firma.ch" required name="url" autocomplete="url">
               </div>
               <div class="form-group">
                 <label class="form-label" for="wpMode">Wie möchten Sie Ihre Webseite betreiben? *</label>
-                <select id="wpMode" class="form-select">
+                <select id="wpMode" class="form-select" name="mode">
                   <option value="sorglos">Weg B: Schlüsselfertig betreuen lassen (Sorglos-Paket über Partner-Agentur)</option>
                   <option value="selbst">Weg A: Selbst per Studio-Cockpit &amp; ChatGPT-HTML steuern (CHF 0.— / Änderung)</option>
                   <option value="hybrid">Hybrid: Schlüsselfertig starten + eigener Cockpit-Light-Zugang für Texte</option>
@@ -912,15 +986,15 @@
               </div>
               <div class="form-group">
                 <label class="form-label" for="wpName">Vor- und Nachname / Firma *</label>
-                <input id="wpName" type="text" class="form-input" placeholder="Hans Muster · Muster AG" required>
+                <input id="wpName" type="text" class="form-input" placeholder="Hans Muster · Muster AG" required name="name" autocomplete="name">
               </div>
               <div class="form-group">
                 <label class="form-label" for="wpEmail">E-Mail-Adresse *</label>
-                <input id="wpEmail" type="email" class="form-input" placeholder="hans@muster.ch" required>
+                <input id="wpEmail" type="email" class="form-input" placeholder="hans@muster.ch" required name="email" autocomplete="email">
               </div>
               <div class="form-group">
                 <label class="form-label" for="wpPhone">Telefon / Natel für Rückfragen (optional)</label>
-                <input id="wpPhone" type="tel" class="form-input" placeholder="079 123 45 67">
+                <input id="wpPhone" type="tel" class="form-input" placeholder="079 123 45 67" name="tel" autocomplete="tel">
               </div>
               <button type="submit" class="btn-cta btn-cta-amber" style="width:100%; margin-top:6px;">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0;"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"/><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/></svg> Analyse &amp; 2-Wege-Offerte anfordern

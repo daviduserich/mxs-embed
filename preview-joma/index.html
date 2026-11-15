@@ -1746,7 +1746,7 @@
     }
 /* === WEBPILOT-PARTNER-ATTRIBUTION-CSS-END === */
   </style>
-  <!-- WP-SEO-GEO-AUTOPILOT-START -->
+  <!-- WP-SEO-AUTOPILOT-START -->
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
   <meta name="geo.region" content="CH-AG">
   <meta name="geo.placename" content="Wettingen">
@@ -1763,7 +1763,81 @@
   <meta name="twitter:title" content="JOMA Solar GmbH · Wettingen | Solaranlagen, Batteriespeicher &amp; ZEV im Aargau">
   <meta name="twitter:description" content="JOMA Solar GmbH in Wettingen (AG): Solaranlagen, Batteriespeicher, Solar Manager Energiemanagement, ZEV und Contracting für Privat- und Geschäftskunden im Aargau.">
   <meta name="twitter:image" content="https://vorschau.magnet-xs.ch/joma-vollversion/images/efh-luftbild-quartier.jpg">
-  <script type="application/ld+json" id="wp-seo-geo-schema">
+  <style id="wp-modern-web-css">
+    @media (prefers-reduced-motion: no-preference) { @view-transition { navigation: auto; } }
+    html { interpolate-size: allow-keywords; }
+    :where(img[width][height]) { height: auto; }
+    input:user-invalid, textarea:user-invalid, select:user-invalid { border-color: #DC2626 !important; outline: none; }
+  </style>
+  <script type="speculationrules" id="wp-speculation-rules">
+{
+  "prefetch": [
+    {
+      "where": {
+        "and": [
+          {
+            "href_matches": "/*"
+          },
+          {
+            "not": {
+              "href_matches": [
+                "/*cockpit*",
+                "/cockpit*",
+                "/*team-update*",
+                "/*onboarding*",
+                "/api/*",
+                "/cdn-cgi/*",
+                "/*.pdf",
+                "/*?*",
+                "/*#*"
+              ]
+            }
+          },
+          {
+            "not": {
+              "selector_matches": "[target=_blank], [download], [data-no-prerender], [href^='mailto:'], [href^='tel:']"
+            }
+          }
+        ]
+      },
+      "eagerness": "moderate"
+    }
+  ],
+  "prerender": [
+    {
+      "where": {
+        "and": [
+          {
+            "href_matches": "/*"
+          },
+          {
+            "not": {
+              "href_matches": [
+                "/*cockpit*",
+                "/cockpit*",
+                "/*team-update*",
+                "/*onboarding*",
+                "/api/*",
+                "/cdn-cgi/*",
+                "/*.pdf",
+                "/*?*",
+                "/*#*"
+              ]
+            }
+          },
+          {
+            "not": {
+              "selector_matches": "[target=_blank], [download], [data-no-prerender], [href^='mailto:'], [href^='tel:']"
+            }
+          }
+        ]
+      },
+      "eagerness": "conservative"
+    }
+  ]
+}
+  </script>
+  <script type="application/ld+json" id="wp-seo-schema">
 {
   "@context": "https://schema.org",
   "@graph": [
@@ -1940,7 +2014,7 @@
       "name": "JOMA Solar GmbH · Wettingen | Solaranlagen, Batteriespeicher & ZEV im Aargau",
       "description": "JOMA Solar GmbH in Wettingen (AG): Solaranlagen, Batteriespeicher, Solar Manager Energiemanagement, ZEV und Contracting für Privat- und Geschäftskunden im Aargau.",
       "inLanguage": "de-CH",
-      "dateModified": "2026-11-06T07:50:19+00:00",
+      "dateModified": "2026-11-15T16:20:53+00:00",
       "isPartOf": {
         "@id": "https://vorschau.magnet-xs.ch/joma-vollversion/#website"
       },
@@ -1997,7 +2071,7 @@
   ]
 }
   </script>
-  <!-- WP-SEO-GEO-AUTOPILOT-END -->
+  <!-- WP-SEO-AUTOPILOT-END -->
 </head>
 <body>
 
@@ -2020,7 +2094,7 @@
   <header class="site-header" data-section="header">
     <div class="container header-inner">
       <a href="index.html" class="brand-link" aria-label="JOMA Solar GmbH Wettingen Startseite">
-        <img src="images/logo.svg" alt="JOMA Solar GmbH Wettingen (AG) – Offizielles Logo (Photovoltaikanlagen für Einfamilienhäuser und)" class="brand-logo" width="138" height="26" data-slot="brand_logo">
+        <img src="images/logo.svg" alt="JOMA Solar GmbH Wettingen (AG) – Offizielles Logo (Photovoltaikanlagen für Einfamilienhäuser und)" class="brand-logo" width="138" height="26" data-slot="brand_logo" decoding="async">
         <div class="brand-text">
           <span class="brand-name" data-slot="brand_name">JOMA Solar GmbH</span>
           <span class="brand-sub" data-slot="brand_sub">Wettingen · Kanton Aargau</span>
@@ -2100,7 +2174,7 @@
       </div>
 
       <div class="hero-media-card">
-        <img src="images/team-gruppe-hero.jpg" alt="Das Team der JOMA Solar GmbH aus Wettingen" width="600" height="390" data-slot="hero_image">
+        <img src="images/team-gruppe-hero.jpg" alt="Das Team der JOMA Solar GmbH aus Wettingen" width="600" height="390" data-slot="hero_image" fetchpriority="high" decoding="async">
         <div class="hero-media-caption">
           <div>
             <div style="font-family:'Lexend',sans-serif;font-weight:700;font-size:1.0rem;color:#12161F;">JOMA Solar GmbH · Wettingen</div>
@@ -2127,7 +2201,7 @@
         <!-- 1. Solaranlagen EFH / MFH -->
         <div class="pillar-card">
           <div class="pillar-img-wrap">
-            <img src="images/ref-wettingen-indach.jpg" alt="Solaranlage für Einfamilienhaus und Mehrfamilienhaus in Wettingen" loading="lazy" decoding="async">
+            <img src="images/ref-wettingen-indach.jpg" alt="Solaranlage für Einfamilienhaus und Mehrfamilienhaus in Wettingen" loading="lazy" decoding="async" width="1200" height="675">
           </div>
           <div class="pillar-body">
             <div>
@@ -2154,7 +2228,7 @@
         <!-- 2. Batteriespeicher & Notstrom -->
         <div class="pillar-card">
           <div class="pillar-img-wrap">
-            <img src="images/batteriespeicher-heim.jpg" alt="Batteriespeicher für Eigenverbrauch und Notstrom" loading="lazy" decoding="async">
+            <img src="images/batteriespeicher-heim.jpg" alt="Batteriespeicher für Eigenverbrauch und Notstrom" loading="lazy" decoding="async" width="1400" height="788">
           </div>
           <div class="pillar-body">
             <div>
@@ -2181,7 +2255,7 @@
         <!-- 3. Energiemanagement & ZEV -->
         <div class="pillar-card">
           <div class="pillar-img-wrap">
-            <img src="images/solarmanager-app.jpg" alt="Solar Manager App und Smart-Me ZEV Abrechnung" loading="lazy" decoding="async">
+            <img src="images/solarmanager-app.jpg" alt="Solar Manager App und Smart-Me ZEV Abrechnung" loading="lazy" decoding="async" width="1216" height="832">
           </div>
           <div class="pillar-body">
             <div>
@@ -2208,7 +2282,7 @@
         <!-- 4. Gewerbe & Grossanlagen -->
         <div class="pillar-card">
           <div class="pillar-img-wrap">
-            <img src="images/grossanlage-gewerbe.jpg" alt="Photovoltaik Grossanlagen für Gewerbe und Industrie" loading="lazy" decoding="async">
+            <img src="images/grossanlage-gewerbe.jpg" alt="Photovoltaik Grossanlagen für Gewerbe und Industrie" loading="lazy" decoding="async" width="1200" height="800">
           </div>
           <div class="pillar-body">
             <div>
@@ -2235,7 +2309,7 @@
         <!-- 5. Solar-Contracting -->
         <div class="pillar-card">
           <div class="pillar-img-wrap">
-            <img src="images/gewerbe-solar-abend.jpg" alt="Solar-Contracting für Unternehmen ohne eigene Investition" loading="lazy" decoding="async">
+            <img src="images/gewerbe-solar-abend.jpg" alt="Solar-Contracting für Unternehmen ohne eigene Investition" loading="lazy" decoding="async" width="1400" height="800">
           </div>
           <div class="pillar-body">
             <div>
@@ -2262,7 +2336,7 @@
         <!-- 6. Vorgehen & Serviceversprechen -->
         <div class="pillar-card">
           <div class="pillar-img-wrap">
-            <img src="images/dachmontage-handwerk.jpg" alt="Präzise Dachmontage und Schweizer Qualitätsversprechen" loading="lazy" decoding="async">
+            <img src="images/dachmontage-handwerk.jpg" alt="Präzise Dachmontage und Schweizer Qualitätsversprechen" loading="lazy" decoding="async" width="800" height="533">
           </div>
           <div class="pillar-body">
             <div>
@@ -2422,7 +2496,7 @@
 
         <div class="pillar-card">
           <div class="pillar-img-wrap">
-            <img src="images/ref-wettingen-indach.jpg" alt="JOMA Solar Referenzprojekt Wettingen (Attenhoferstrasse) (11.54 kWp)" loading="lazy" decoding="async">
+            <img src="images/ref-wettingen-indach.jpg" alt="JOMA Solar Referenzprojekt Wettingen (Attenhoferstrasse) (11.54 kWp)" loading="lazy" decoding="async" width="1200" height="675">
           </div>
           <div class="pillar-body">
             <div>
@@ -2447,7 +2521,7 @@
 
         <div class="pillar-card">
           <div class="pillar-img-wrap">
-            <img src="images/ref-riniken-18kwp.jpg" alt="JOMA Solar Referenzprojekt Riniken (AG) (18.80 kWp)" loading="lazy" decoding="async">
+            <img src="images/ref-riniken-18kwp.jpg" alt="JOMA Solar Referenzprojekt Riniken (AG) (18.80 kWp)" loading="lazy" decoding="async" width="1400" height="788">
           </div>
           <div class="pillar-body">
             <div>
@@ -2472,7 +2546,7 @@
 
         <div class="pillar-card">
           <div class="pillar-img-wrap">
-            <img src="images/ref-ruetihof-zev-30kwp.jpg" alt="JOMA Solar Referenzprojekt Baden-Rütihof (MFH ZEV) (30.60 kWp)" loading="lazy" decoding="async">
+            <img src="images/ref-ruetihof-zev-30kwp.jpg" alt="JOMA Solar Referenzprojekt Baden-Rütihof (MFH ZEV) (30.60 kWp)" loading="lazy" decoding="async" width="1200" height="675">
           </div>
           <div class="pillar-body">
             <div>
@@ -2521,7 +2595,7 @@
             </div>
           </div>
           <div style="display:flex;">
-            <img src="images/ref-umbricht-untersiggenthal.jpg" alt="Referenzprojekt Wein und Gemüse Umbricht in Untersiggenthal" style="width:100%;height:100%;min-height:280px;object-fit:cover;border-radius:var(--radius-md);border:1px solid var(--border-strong);" loading="lazy" decoding="async">
+            <img src="images/ref-umbricht-untersiggenthal.jpg" alt="Referenzprojekt Wein und Gemüse Umbricht in Untersiggenthal" style="width:100%;height:100%;min-height:280px;object-fit:cover;border-radius:var(--radius-md);border:1px solid var(--border-strong);" loading="lazy" decoding="async" width="1280" height="720">
           </div>
         </div>
       </div>
@@ -2542,7 +2616,7 @@
       <div class="grid-2">
         <div class="founder-card">
           <div class="founder-top">
-            <img src="images/portrait-jonathan-muggli.jpg" alt="Jonathan Muggli – Gründer und Geschäftsführer JOMA Solar GmbH Wettingen" class="founder-portrait" loading="lazy" decoding="async">
+            <img src="images/portrait-jonathan-muggli.jpg" alt="Jonathan Muggli – Gründer und Geschäftsführer JOMA Solar GmbH Wettingen" class="founder-portrait" loading="lazy" decoding="async" width="450" height="450">
             <div>
               <span class="meta-badge" style="margin-bottom:8px;">Gründer &amp; Geschäftsführer</span>
               <h3 style="font-size:1.32rem;font-weight:700;margin-bottom:4px;">Jonathan Muggli</h3>
@@ -2568,7 +2642,7 @@
 
         <div class="founder-card">
           <div class="founder-top">
-            <img src="images/portrait-marco-keller.jpg" alt="Marco Keller – Gründer und Geschäftsführer JOMA Solar GmbH Wettingen" class="founder-portrait" loading="lazy" decoding="async">
+            <img src="images/portrait-marco-keller.jpg" alt="Marco Keller – Gründer und Geschäftsführer JOMA Solar GmbH Wettingen" class="founder-portrait" loading="lazy" decoding="async" width="450" height="450">
             <div>
               <span class="meta-badge" style="margin-bottom:8px;">Gründer &amp; Geschäftsführer</span>
               <h3 style="font-size:1.32rem;font-weight:700;margin-bottom:4px;">Marco Keller</h3>
@@ -2619,7 +2693,7 @@
       <div class="grid-3">
         <div class="pillar-card">
           <div class="pillar-img-wrap">
-            <img src="images/ref-riniken-18kwp.jpg" alt="Drohnenaufnahme der 18.8 kWp Solaranlage in Riniken" loading="lazy" decoding="async">
+            <img src="images/ref-riniken-18kwp.jpg" alt="Drohnenaufnahme der 18.8 kWp Solaranlage in Riniken" loading="lazy" decoding="async" width="1400" height="788">
           </div>
           <div class="pillar-body">
             <div>
@@ -2638,7 +2712,7 @@
 
         <div class="pillar-card">
           <div class="pillar-img-wrap">
-            <img src="images/elektrotechnik-planung.jpg" alt="Saubere Elektrotechnik und Speicher-Integration durch JOMA Solar" loading="lazy" decoding="async">
+            <img src="images/elektrotechnik-planung.jpg" alt="Saubere Elektrotechnik und Speicher-Integration durch JOMA Solar" loading="lazy" decoding="async" width="800" height="533">
           </div>
           <div class="pillar-body">
             <div>
@@ -2657,7 +2731,7 @@
 
         <div class="pillar-card">
           <div class="pillar-img-wrap">
-            <img src="images/beratung-kundengespraech.jpg" alt="Persönliches Beratungsgespräch bei JOMA Solar in Wettingen" loading="lazy" decoding="async">
+            <img src="images/beratung-kundengespraech.jpg" alt="Persönliches Beratungsgespräch bei JOMA Solar in Wettingen" loading="lazy" decoding="async" width="500" height="625">
           </div>
           <div class="pillar-body">
             <div>
@@ -3003,7 +3077,7 @@
         <form id="wpPartnerLeadForm" onsubmit="return wpSubmitPartnerLead(event)" novalidate>
           <div style="display:none;" aria-hidden="true">
             <label for="wpPartnerHp">Website</label>
-            <input type="text" id="wpPartnerHp" name="website_url" tabindex="-1" autocomplete="off">
+            <input type="text" id="wpPartnerHp" name="website_url" tabindex="-1" autocomplete="off" form="wpTrapDetached">
           </div>
 
           <div class="wp-partner-field">

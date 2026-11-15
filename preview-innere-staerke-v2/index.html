@@ -1825,7 +1825,7 @@
     }
 /* === WEBPILOT-PARTNER-ATTRIBUTION-CSS-END === */
   </style>
-  <!-- WP-SEO-GEO-AUTOPILOT-START -->
+  <!-- WP-SEO-AUTOPILOT-START -->
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
   <meta name="geo.region" content="CH-LU">
   <meta name="geo.placename" content="Sursee">
@@ -1842,7 +1842,81 @@
   <meta name="twitter:title" content="Wüest + Paneduro (Zeigeversion / Vorschau-Entwurf) | Innere Stärke entwickeln">
   <meta name="twitter:description" content="Unverbindlicher Vorschau-Entwurf (Zeigeversion) für Wüest + Paneduro: 2 Beispiel-Seiten sind bereits ausgearbeitet – 3 weitere Themenbereiche folgen beim Ausbau.">
   <meta name="twitter:image" content="https://vorschau.magnet-xs.ch/innere-staerke-v2/images/angebot-inner-strength-circle.jpg">
-  <script type="application/ld+json" id="wp-seo-geo-schema">
+  <style id="wp-modern-web-css">
+    @media (prefers-reduced-motion: no-preference) { @view-transition { navigation: auto; } }
+    html { interpolate-size: allow-keywords; }
+    :where(img[width][height]) { height: auto; }
+    input:user-invalid, textarea:user-invalid, select:user-invalid { border-color: #DC2626 !important; outline: none; }
+  </style>
+  <script type="speculationrules" id="wp-speculation-rules">
+{
+  "prefetch": [
+    {
+      "where": {
+        "and": [
+          {
+            "href_matches": "/*"
+          },
+          {
+            "not": {
+              "href_matches": [
+                "/*cockpit*",
+                "/cockpit*",
+                "/*team-update*",
+                "/*onboarding*",
+                "/api/*",
+                "/cdn-cgi/*",
+                "/*.pdf",
+                "/*?*",
+                "/*#*"
+              ]
+            }
+          },
+          {
+            "not": {
+              "selector_matches": "[target=_blank], [download], [data-no-prerender], [href^='mailto:'], [href^='tel:']"
+            }
+          }
+        ]
+      },
+      "eagerness": "moderate"
+    }
+  ],
+  "prerender": [
+    {
+      "where": {
+        "and": [
+          {
+            "href_matches": "/*"
+          },
+          {
+            "not": {
+              "href_matches": [
+                "/*cockpit*",
+                "/cockpit*",
+                "/*team-update*",
+                "/*onboarding*",
+                "/api/*",
+                "/cdn-cgi/*",
+                "/*.pdf",
+                "/*?*",
+                "/*#*"
+              ]
+            }
+          },
+          {
+            "not": {
+              "selector_matches": "[target=_blank], [download], [data-no-prerender], [href^='mailto:'], [href^='tel:']"
+            }
+          }
+        ]
+      },
+      "eagerness": "conservative"
+    }
+  ]
+}
+  </script>
+  <script type="application/ld+json" id="wp-seo-schema">
 {
   "@context": "https://schema.org",
   "@graph": [
@@ -2000,7 +2074,7 @@
       "name": "Wüest + Paneduro (Zeigeversion / Vorschau-Entwurf) | Innere Stärke entwickeln",
       "description": "Unverbindlicher Vorschau-Entwurf (Zeigeversion) für Wüest + Paneduro: 2 Beispiel-Seiten sind bereits ausgearbeitet – 3 weitere Themenbereiche folgen beim Ausbau.",
       "inLanguage": "de-CH",
-      "dateModified": "2026-11-06T07:45:03+00:00",
+      "dateModified": "2026-11-15T16:20:53+00:00",
       "isPartOf": {
         "@id": "https://vorschau.magnet-xs.ch/innere-staerke-v2/#website"
       },
@@ -2057,7 +2131,7 @@
   ]
 }
   </script>
-  <!-- WP-SEO-GEO-AUTOPILOT-END -->
+  <!-- WP-SEO-AUTOPILOT-END -->
 </head>
 <body>
 
@@ -2080,7 +2154,7 @@
   <header class="site-header" data-section="header">
     <div class="container header-inner">
       <a href="index.html" class="brand-link" aria-label="Wüest + Paneduro Startseite">
-        <img src="images/logo.svg" alt="Wüest + Paneduro · Innere Stärke entwickeln" class="brand-logo" width="52" height="52" data-slot="brand_logo">
+        <img src="images/logo.svg" alt="Wüest + Paneduro · Innere Stärke entwickeln" class="brand-logo" width="52" height="52" data-slot="brand_logo" decoding="async">
         <div class="brand-text">
           <span class="brand-name" data-slot="brand_name">WÜEST + PANEDURO</span>
           <span class="brand-sub" data-slot="brand_sub">INNERE STÄRKE ENTWICKELN</span>
@@ -2181,7 +2255,7 @@
         </div>
 
         <div class="hero-media-card">
-          <img src="images/hero-wueest-paneduro.jpg" alt="Christine Wüest und Nino Paneduro – Innere Stärke entwickeln" data-slot="hero_image">
+          <img src="images/hero-wueest-paneduro.jpg" alt="Christine Wüest und Nino Paneduro – Innere Stärke entwickeln" data-slot="hero_image" width="2560" height="1000" fetchpriority="high" decoding="async">
           <div class="hero-media-caption">
             <div>
               <div style="font-family:'Barlow',sans-serif;font-weight:800;font-size:1rem;color:#181817;">Christine Wüest &amp; Nino Paneduro</div>
@@ -2213,7 +2287,7 @@
         <!-- Säule 1: Selbstführung -->
         <div class="pillar-card">
           <div class="pillar-img-wrap">
-            <img src="images/header-selbstfuehrung.jpg" alt="Innere Stärke entwickeln mit Selbstführung" loading="lazy" decoding="async">
+            <img src="images/header-selbstfuehrung.jpg" alt="Innere Stärke entwickeln mit Selbstführung" loading="lazy" decoding="async" width="2560" height="960">
           </div>
           <div class="pillar-body">
             <div>
@@ -2240,7 +2314,7 @@
         <!-- Säule 2: Stressmanagement -->
         <div class="pillar-card">
           <div class="pillar-img-wrap">
-            <img src="images/header-stressmanagement.jpg" alt="Innere Stärke mit dem richtigen Stressmanagement" loading="lazy" decoding="async">
+            <img src="images/header-stressmanagement.jpg" alt="Innere Stärke mit dem richtigen Stressmanagement" loading="lazy" decoding="async" width="2560" height="960">
           </div>
           <div class="pillar-body">
             <div>
@@ -2267,7 +2341,7 @@
         <!-- Säule 3: Selbstwirksamkeit -->
         <div class="pillar-card">
           <div class="pillar-img-wrap">
-            <img src="images/header-selbstwirksamkeit.jpg" alt="Innere Stärke durch Selbstwirksamkeit" loading="lazy" decoding="async">
+            <img src="images/header-selbstwirksamkeit.jpg" alt="Innere Stärke durch Selbstwirksamkeit" loading="lazy" decoding="async" width="2560" height="960">
           </div>
           <div class="pillar-body">
             <div>
@@ -2294,7 +2368,7 @@
         <!-- Säule 4: Zukunftsgestaltung -->
         <div class="pillar-card">
           <div class="pillar-img-wrap">
-            <img src="images/header-zukunftsplanung.jpg" alt="Innere Stärke wächst durch Zukunftsgestaltung" loading="lazy" decoding="async">
+            <img src="images/header-zukunftsplanung.jpg" alt="Innere Stärke wächst durch Zukunftsgestaltung" loading="lazy" decoding="async" width="2560" height="960">
           </div>
           <div class="pillar-body">
             <div>
@@ -2337,7 +2411,7 @@
         <!-- Christine Wüest -->
         <div class="founder-card">
           <div class="founder-top">
-            <img src="images/portrait-christine-wueest.jpg" alt="Christine Wüest – Expertin für Resilienz und innere Stärke" class="founder-portrait" loading="lazy" decoding="async">
+            <img src="images/portrait-christine-wueest.jpg" alt="Christine Wüest – Expertin für Resilienz und innere Stärke" class="founder-portrait" loading="lazy" decoding="async" width="1392" height="1392">
             <div>
               <span class="meta-badge" style="margin-bottom:8px;">Geschäftsführerin · Dipl. Mental Coach</span>
               <h3 style="font-size:1.5rem;font-weight:800;margin-bottom:6px;">Christine Wüest</h3>
@@ -2366,7 +2440,7 @@
         <!-- Nino Paneduro -->
         <div class="founder-card">
           <div class="founder-top">
-            <img src="images/portrait-nino-paneduro.jpg" alt="Nino Paneduro – Mentor und Ratgeber für innere Stärke" class="founder-portrait" loading="lazy" decoding="async">
+            <img src="images/portrait-nino-paneduro.jpg" alt="Nino Paneduro – Mentor und Ratgeber für innere Stärke" class="founder-portrait" loading="lazy" decoding="async" width="1392" height="1392">
             <div>
               <span class="meta-badge" style="margin-bottom:8px;">Vorsitzender der GL · 4× Top 100 Trainer DACH</span>
               <h3 style="font-size:1.5rem;font-weight:800;margin-bottom:6px;">Nino Paneduro</h3>
@@ -2410,7 +2484,7 @@
 
         <div class="ref-logo-card">
           <div class="ref-logo-stage">
-            <img src="images/ref-logoparts.png" alt="Offizieller Vereins-Sponsor und Partner von Wüest + Paneduro (Sursee): Parts GmbH" loading="lazy" decoding="async">
+            <img src="images/ref-logoparts.png" alt="Offizieller Vereins-Sponsor und Partner von Wüest + Paneduro (Sursee): Parts GmbH" loading="lazy" decoding="async" width="191" height="130">
           </div>
           <div>
             <div class="ref-logo-name">Logo Parts GmbH</div>
@@ -2420,7 +2494,7 @@
 
         <div class="ref-logo-card">
           <div class="ref-logo-stage">
-            <img src="images/ref-kanton-aargau.jpg" alt="Kanton Aargau (AWA & Recht)" loading="lazy" decoding="async">
+            <img src="images/ref-kanton-aargau.jpg" alt="Kanton Aargau (AWA & Recht)" loading="lazy" decoding="async" width="500" height="500">
           </div>
           <div>
             <div class="ref-logo-name">Kanton Aargau (AWA & Recht)</div>
@@ -2430,7 +2504,7 @@
 
         <div class="ref-logo-card">
           <div class="ref-logo-stage">
-            <img src="images/ref-generali.jpg" alt="Generali Versicherungen" loading="lazy" decoding="async">
+            <img src="images/ref-generali.jpg" alt="Generali Versicherungen" loading="lazy" decoding="async" width="500" height="500">
           </div>
           <div>
             <div class="ref-logo-name">Generali Versicherungen</div>
@@ -2440,7 +2514,7 @@
 
         <div class="ref-logo-card">
           <div class="ref-logo-stage">
-            <img src="images/ref-bioanalytica.jpg" alt="Referenzunternehmen Bioanalytica AG – Erfolgsprojekt mit Wüest + Paneduro (Sursee (LU))" loading="lazy" decoding="async">
+            <img src="images/ref-bioanalytica.jpg" alt="Referenzunternehmen Bioanalytica AG – Erfolgsprojekt mit Wüest + Paneduro (Sursee (LU))" loading="lazy" decoding="async" width="500" height="500">
           </div>
           <div>
             <div class="ref-logo-name">Bioanalytica AG</div>
@@ -2450,7 +2524,7 @@
 
         <div class="ref-logo-card">
           <div class="ref-logo-stage">
-            <img src="images/ref-stv.jpg" alt="Schweizerischer Turnverband (STV)" loading="lazy" decoding="async">
+            <img src="images/ref-stv.jpg" alt="Schweizerischer Turnverband (STV)" loading="lazy" decoding="async" width="500" height="500">
           </div>
           <div>
             <div class="ref-logo-name">Schweizerischer Turnverband (STV)</div>
@@ -2460,7 +2534,7 @@
 
         <div class="ref-logo-card">
           <div class="ref-logo-stage">
-            <img src="images/ref-soleil.jpg" alt="Soleil-Gesundheitspraxis" loading="lazy" decoding="async">
+            <img src="images/ref-soleil.jpg" alt="Soleil-Gesundheitspraxis" loading="lazy" decoding="async" width="500" height="500">
           </div>
           <div>
             <div class="ref-logo-name">Soleil-Gesundheitspraxis</div>
@@ -2470,7 +2544,7 @@
 
         <div class="ref-logo-card">
           <div class="ref-logo-stage">
-            <img src="images/ref-zeitlos.jpg" alt="Zeitlos Designermode Sursee" loading="lazy" decoding="async">
+            <img src="images/ref-zeitlos.jpg" alt="Zeitlos Designermode Sursee" loading="lazy" decoding="async" width="500" height="500">
           </div>
           <div>
             <div class="ref-logo-name">Zeitlos Designermode Sursee</div>
@@ -2480,7 +2554,7 @@
 
         <div class="ref-logo-card">
           <div class="ref-logo-stage">
-            <img src="images/ref-cyclinglounge.jpg" alt="Referenzunternehmen Cycling Lounge – Erfolgsprojekt mit Wüest + Paneduro (Sursee (LU))" loading="lazy" decoding="async">
+            <img src="images/ref-cyclinglounge.jpg" alt="Referenzunternehmen Cycling Lounge – Erfolgsprojekt mit Wüest + Paneduro (Sursee (LU))" loading="lazy" decoding="async" width="500" height="500">
           </div>
           <div>
             <div class="ref-logo-name">Cycling Lounge</div>
@@ -2490,7 +2564,7 @@
 
         <div class="ref-logo-card">
           <div class="ref-logo-stage">
-            <img src="images/ref-mo.jpg" alt="Referenzunternehmen MO – Erfolgsprojekt mit Wüest + Paneduro (Sursee (LU))" loading="lazy" decoding="async">
+            <img src="images/ref-mo.jpg" alt="Referenzunternehmen MO – Erfolgsprojekt mit Wüest + Paneduro (Sursee (LU))" loading="lazy" decoding="async" width="500" height="500">
           </div>
           <div>
             <div class="ref-logo-name">MO</div>
@@ -2833,7 +2907,7 @@
         <form id="wpPartnerLeadForm" onsubmit="return wpSubmitPartnerLead(event)" novalidate>
           <div style="display:none;" aria-hidden="true">
             <label for="wpPartnerHp">Website</label>
-            <input type="text" id="wpPartnerHp" name="website_url" tabindex="-1" autocomplete="off">
+            <input type="text" id="wpPartnerHp" name="website_url" tabindex="-1" autocomplete="off" form="wpTrapDetached">
           </div>
 
           <div class="wp-partner-field">
