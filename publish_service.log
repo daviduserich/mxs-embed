@@ -215,3 +215,20 @@ error: failed to push some refs to 'github.com:daviduserich/mxs-embed.git'
 [2026-11-11 22:27:47] [preview-holz-susi-v2] [UPDATE_SEASONAL_STOERER_OK] [SUCCESS] files=2
 [2026-11-11 22:27:47] [preview-holz-susi-v2] [UPDATE_SEASONAL_STOERER_OK] [SUCCESS] files=2
 [2026-11-11 23:08:05] [preview-holz-susi-v2] [UPDATE_SEASONAL_STOERER_OK] [SUCCESS] files=2
+[2026-11-12 12:39:17] [partner] [LOGIN_OK] [200] user=jenny ip=213.55.185.186
+[2026-11-12 13:16:05] [partner] [LOGIN_OK] [200] user=jenny ip=194.230.160.229
+[2026-11-12 18:35:56] [partner] [LOGIN_OK] [200] user=jenny ip=62.167.162.50
+[2026-11-12 18:40:51] [partner] [LOGIN_OK] [200] user=jenny ip=62.167.162.50
+[2026-11-12 18:41:05] [partner] [LOGIN_OK] [200] user=jenny ip=62.167.162.50
+[2026-11-13 07:35:21] [partner] [LOGIN_OK] [200] user=jenny ip=213.55.156.121
+[2026-11-13 07:36:46] [partner] [SHEET_SYNC_OK] [QUEUED] slug=die-schule row=11
+[2026-11-13 07:36:47] [partner] [JOB_CLAIMED] [IN_PROGRESS] job_id=job_die-schule_20261113_073636
+[2026-11-13 07:36:51] [partner] [WHATSAPP_OK] [SENT] to=['+41782232180', '+41796326505'] msg_id=3EB060D828DDF7CDE5A56B
+[2026-11-13 07:36:51] [partner] [JOB_CREATED] [QUEUED] job_id=job_die-schule_20261113_073636 by=jenny
+[2026-11-13 08:37:50] [preview-die-schule] [SEO_GEO_AUTOPILOT] [OK] action=job_complete schema=LocalBusiness alt_up=0 ms=45.2
+[2026-11-13 08:37:50] [preview-die-schule-v2] [SEO_GEO_AUTOPILOT] [OK] action=job_complete schema=LocalBusiness alt_up=0 ms=18.1
+[2026-11-13 08:37:51] [preview-die-schule] [ASSET_CATALOG_SYNC] [OK] action=job_complete sites=28 assets=885 ms=586.1
+[2026-11-13 08:37:55] [partner] [SHEET_SYNC_OK] [COMPLETED] slug=die-schule row=2
+[2026-11-13 08:37:58] [partner] [WHATSAPP_OK] [SENT] to=['+41782232180', '+41796326505'] msg_id=3EB066A4D9F9C84202D186
+[2026-11-13 08:37:58] [partner] [JOB_COMPLETED] [LIVE] job_id=job_die-schule_20261113_073636 slug=die-schule wa=True
+[2026-11-13 08:48:21] [partner] [LOGIN_OK] [200] user=jenny ip=213.55.156.121

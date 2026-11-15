@@ -7,7 +7,7 @@ status: aktiv
 
 # WebPilot Bilder- und Cloudflare-Asset-Katalog (Master-Verzeichnis)
 
-> **Stand:** 13.11.2026 08:22 Uhr | **Umfang:** **28 Webseiten-Ordner** mit insgesamt **885 lokalen Medien-Assets** (**128.56 MB**)  
+> **Stand:** 13.11.2026 08:37 Uhr | **Umfang:** **28 Webseiten-Ordner** mit insgesamt **885 lokalen Medien-Assets** (**128.56 MB**)  
 > **Verwendung:** **🟢 607 aktiv im HTML eingebunden** · **⚪ 278 frei im Bild-Pool verfügbar** · **Externe Hotlinks: 0 (100 % lokal auf Cloudflare Edge)**  
 > **Single Source of Truth:** Automatisch generiert und nach jedem Bild-Upload, Bild-Tausch, Bild-Löschen oder Job-Abschluss live aktualisiert durch `scripts/webpilot_asset_catalog.py`.
 
