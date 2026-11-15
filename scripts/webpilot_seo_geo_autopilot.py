@@ -32,6 +32,17 @@ import argparse
 from datetime import datetime, timezone
 from pathlib import Path
 
+os.environ.setdefault("DISABLE_TELEMETRY", "1")
+
+try:
+    from PIL import Image as _PILImage
+    PIL_AVAILABLE = True
+except Exception:
+    _PILImage = None
+    PIL_AVAILABLE = False
+
+_IMG_DIM_CACHE: dict[str, tuple[int, int] | None] = {}
+
 BASE_DIR = Path("/home/brainuser/workspaces/mxs-embed")
 if not BASE_DIR.exists():
     BASE_DIR = Path(__file__).resolve().parent.parent
@@ -1412,6 +1423,466 @@ def enrich_html_images_alt(html_text: str, filename: str, profile: dict) -> tupl
     return new_html, updated_count, src_to_alt
 
 
+def _collect_ignored_spans(html_text: str, extra_tags: tuple[str, ...] = ()) -> list[tuple[int, int]]:
+    """Sammelt Spans für Kommentare, <script>, <style> (und optionale Zusatz-Tags), die nicht mutiert werden dürfen."""
+    spans: list[tuple[int, int]] = []
+    for cm in re.finditer(r"<!--[\s\S]*?-->", html_text):
+        spans.append((cm.start(), cm.end()))
+    for tname in ("script", "style", "template") + tuple(extra_tags):
+        for tm in re.finditer(rf"<{tname}\b[^>]*>[\s\S]*?</{tname}>", html_text, flags=re.I):
+            spans.append((tm.start(), tm.end()))
+    return spans
+
+
+def _pos_in_spans(pos: int, spans: list[tuple[int, int]]) -> bool:
+    for s_start, s_end in spans:
+        if s_start <= pos < s_end:
+            return True
+    return False
+
+
+def _get_attr_val(tag: str, attr_name: str) -> str | None:
+    m = re.search(rf'\b{re.escape(attr_name)}=(["\'])(.*?)\1', tag, flags=re.I)
+    if m:
+        return html_lib.unescape(m.group(2)).strip()
+    m_bare = re.search(rf'\b{re.escape(attr_name)}(?=\s|/?>)', tag, flags=re.I)
+    if m_bare:
+        return ""
+    return None
+
+
+def _remove_attr(tag: str, attr_name: str) -> str:
+    cleaned = re.sub(
+        rf'\s+\b{re.escape(attr_name)}=(["\']).*?\1|\s+\b{re.escape(attr_name)}(?=\s|/?>)',
+        "",
+        tag,
+        flags=re.I,
+    )
+    return cleaned
+
+
+def _set_or_add_attr(tag: str, attr_name: str, attr_val: str, overwrite: bool = False) -> str:
+    safe_val = html_lib.escape(str(attr_val), quote=True)
+    m = re.search(rf'\b{re.escape(attr_name)}=(["\'])(.*?)\1', tag, flags=re.I)
+    if m:
+        cur = m.group(2).strip()
+        if not overwrite and cur != "":
+            return tag
+        if cur == safe_val and m.group(1) == '"':
+            return tag
+        return tag[:m.start()] + f'{attr_name}="{safe_val}"' + tag[m.end():]
+    m_bare = re.search(rf'\b{re.escape(attr_name)}(?=\s|/?>)', tag, flags=re.I)
+    if m_bare:
+        if not overwrite:
+            return tag
+        return tag[:m_bare.start()] + f'{attr_name}="{safe_val}"' + tag[m_bare.end():]
+    if tag.endswith("/>"):
+        return tag[:-2].rstrip() + f' {attr_name}="{safe_val}" />'
+    if tag.endswith(">"):
+        return tag[:-1].rstrip() + f' {attr_name}="{safe_val}">'
+    return tag
+
+
+def _get_local_image_dimensions(site_dir: Path, src: str) -> tuple[int, int] | None:
+    """Liest lokale Raster-Bildmasse via Pillow mit In-Memory-Cache (überspringt SVGs und externe URLs)."""
+    if not PIL_AVAILABLE or not src:
+        return None
+    s = src.strip()
+    if not s or s.startswith(("data:", "http://", "https://", "//", "${", "#")):
+        return None
+    clean_rel = s.split("?")[0].split("#")[0].strip().lstrip("/")
+    if not clean_rel or clean_rel.lower().endswith(".svg"):
+        return None
+    try:
+        site_root = site_dir.resolve()
+        img_path = (site_root / clean_rel).resolve()
+        if not str(img_path).startswith(str(site_root)) or not img_path.is_file():
+            return None
+        cache_key = str(img_path)
+        if cache_key in _IMG_DIM_CACHE:
+            return _IMG_DIM_CACHE[cache_key]
+        with _PILImage.open(img_path) as im:
+            w, h = im.size
+        dims = (int(w), int(h)) if (w and h and w > 0 and h > 0) else None
+        _IMG_DIM_CACHE[cache_key] = dims
+        return dims
+    except Exception:
+        return None
+
+
+def upgrade_images_lcp_and_dimensions(html_text: str, site_dir: Path) -> tuple[str, dict]:
+    """
+    Stufe 2a (#UI-23):
+    - Erstes Bühnen-/Hero-Bild pro Seite (Nicht-Logo!) erhält fetchpriority="high" decoding="async"
+      und verliert ein allfälliges loading="lazy".
+    - Header-/Nav-Logos bleiben eager mit decoding="async" + lokalen Massen.
+    - Alle nachfolgenden Inhaltsbilder erhalten loading="lazy" decoding="async" sowie fehlende
+      width/height-Attribute aus der lokalen Bilddatei (SVGs werden übersprungen).
+    - Bestehende style-, class-, alt- und data-slot-Attribute bleiben zu 100 % unangetastet.
+    """
+    ignored_spans = _collect_ignored_spans(html_text)
+    header_nav_spans: list[tuple[int, int]] = []
+    footer_spans: list[tuple[int, int]] = []
+    for hm in re.finditer(r"<(?:header|nav)\b[^>]*>[\s\S]*?</(?:header|nav)>", html_text, flags=re.I):
+        header_nav_spans.append((hm.start(), hm.end()))
+    for fm in re.finditer(r"<footer\b[^>]*>[\s\S]*?</footer>", html_text, flags=re.I):
+        footer_spans.append((fm.start(), fm.end()))
+
+    real_matches: list[re.Match] = []
+    for im in re.finditer(r"<img\b[^>]*>", html_text, flags=re.I):
+        if not _pos_in_spans(im.start(), ignored_spans):
+            real_matches.append(im)
+
+    if not real_matches:
+        return html_text, {"hero_upgraded": 0, "dims_added": 0, "lazy_added": 0}
+
+    meta_list = []
+    for idx, im in enumerate(real_matches):
+        tag = im.group(0)
+        pos = im.start()
+        src = _get_attr_val(tag, "src") or ""
+        slot = (_get_attr_val(tag, "data-slot") or "").lower()
+        cls = (_get_attr_val(tag, "class") or "").lower()
+        fname = Path(src.split("?")[0].split("#")[0]).name.lower() if src else ""
+        in_hdr = _pos_in_spans(pos, header_nav_spans)
+        in_ftr = _pos_in_spans(pos, footer_spans)
+        ctx_before = html_text[max(0, pos - 360):pos].lower()
+
+        is_logo = (
+            in_hdr
+            or in_ftr
+            or ("logo" in slot)
+            or ("logo" in cls)
+            or ("brand-emblem" in cls)
+            or fname.startswith("logo")
+            or ("favicon" in fname)
+            or ("apple-touch-icon" in fname)
+            or ("top-bar-inner" in ctx_before[-180:])
+            or ("header-inner" in ctx_before[-180:])
+        )
+        is_explicit_hero = (not is_logo) and (
+            ("hero" in slot)
+            or ("hero" in cls)
+            or ("hero" in fname)
+            or ("hero" in ctx_before)
+        )
+        meta_list.append({
+            "idx": idx,
+            "match": im,
+            "src": src,
+            "in_hdr": in_hdr,
+            "is_logo": is_logo,
+            "is_explicit_hero": is_explicit_hero,
+        })
+
+    hero_idx: int | None = None
+    for item in meta_list:
+        if item["is_explicit_hero"]:
+            hero_idx = item["idx"]
+            break
+    if hero_idx is None:
+        for item in meta_list:
+            if not item["is_logo"]:
+                hero_idx = item["idx"]
+                break
+
+    stats = {"hero_upgraded": 0, "dims_added": 0, "lazy_added": 0}
+    out_parts: list[str] = []
+    cursor = 0
+
+    for item in meta_list:
+        im = item["match"]
+        out_parts.append(html_text[cursor:im.start()])
+        orig_tag = im.group(0)
+        new_tag = orig_tag
+        src = item["src"]
+
+        dims = _get_local_image_dimensions(site_dir, src)
+        if dims is not None:
+            has_w = _get_attr_val(new_tag, "width")
+            has_h = _get_attr_val(new_tag, "height")
+            if not has_w:
+                new_tag = _set_or_add_attr(new_tag, "width", str(dims[0]), overwrite=False)
+            if not has_h:
+                new_tag = _set_or_add_attr(new_tag, "height", str(dims[1]), overwrite=False)
+            if (not has_w) or (not has_h):
+                stats["dims_added"] += 1
+
+        if item["idx"] == hero_idx:
+            cur_load = (_get_attr_val(new_tag, "loading") or "").lower()
+            if cur_load == "lazy":
+                new_tag = _remove_attr(new_tag, "loading")
+            new_tag = _set_or_add_attr(new_tag, "fetchpriority", "high", overwrite=True)
+            new_tag = _set_or_add_attr(new_tag, "decoding", "async", overwrite=True)
+            if new_tag != orig_tag:
+                stats["hero_upgraded"] += 1
+        elif item["in_hdr"]:
+            new_tag = _set_or_add_attr(new_tag, "decoding", "async", overwrite=False)
+        else:
+            prev_load = _get_attr_val(new_tag, "loading")
+            new_tag = _set_or_add_attr(new_tag, "loading", "lazy", overwrite=False)
+            new_tag = _set_or_add_attr(new_tag, "decoding", "async", overwrite=False)
+            if not prev_load:
+                stats["lazy_added"] += 1
+
+        out_parts.append(new_tag)
+        cursor = im.end()
+
+    out_parts.append(html_text[cursor:])
+    return "".join(out_parts), stats
+
+
+_FIELD_ID_MAP: dict[str, tuple[str | None, str | None]] = {
+    "contactname": ("name", "name"),
+    "leadname": ("name", "name"),
+    "anf-name": ("name", "name"),
+    "wpname": ("name", "name"),
+    "contactemail": ("email", "email"),
+    "leademail": ("email", "email"),
+    "anf-email": ("email", "email"),
+    "wpemail": ("email", "email"),
+    "contactphone": ("tel", "tel"),
+    "leadphone": ("tel", "tel"),
+    "anf-phone": ("tel", "tel"),
+    "wpphone": ("tel", "tel"),
+    "contactplz": ("postal-code", "postal-code"),
+    "contactloc": ("postal-code", "postal-code"),
+    "contactstreet": ("street-address", "street-address"),
+    "contactcompany": ("organization", "organization"),
+    "leadcompany": ("organization", "organization"),
+    "anf-company": ("organization", "organization"),
+    "contactmessage": ("message", None),
+    "wpmessage": ("message", None),
+    "projectdetails": ("message", None),
+    "anf-notes": ("message", None),
+    "wpdetail1": ("detail_1", None),
+    "wpdetail2": ("detail_2", None),
+    "wpdeviceage": ("device_age", None),
+    "wpobjecttype": ("object_type", None),
+    "contactcallbackpref": ("callback_preference", None),
+    "wpurl": ("url", "url"),
+    "wpmode": ("mode", None),
+    "veredelungselect": ("veredelung", None),
+    "mengeselect": ("menge", None),
+    "anf-size": ("betriebsgroesse", None),
+    "anf-craft": ("branche", None),
+}
+
+_KNOWN_CONTACT_FORM_IDS = {
+    "iscontactform",
+    "fcscontactform",
+    "fcacontactform",
+    "scfcontactform",
+    "her11contactform",
+    "wpleadform",
+    "freesleadform",
+    "imp-smart-anfrage-form",
+    "expressform",
+}
+
+
+def enrich_forms_autofill_and_webmcp(html_text: str, profile: dict, filename: str) -> tuple[str, dict]:
+    """
+    Stufe 2b (#UI-23):
+    - Entkoppelt Honeypot-Inputs (#wpHoneypot, #wpPartnerHp, name="website_url") per form="wpTrapDetached".
+    - Rüstet sichtbare Kontaktfelder schonend mit fehlenden name- und autocomplete-Attributen nach
+      (überschreibt niemals bestehende gültige Attribute!).
+    - Deklariert auf echten Kunden-Kontaktformularen (NICHT Such-/Filter-/Partner-Modal-Formularen!)
+      toolname="kontakt_anfrage_vorbereiten" und tooldescription (100 % ss) – NIEMALS toolautosubmit!
+    """
+    fname_low = filename.lower()
+    stats = {"forms_webmcp": 0, "fields_enriched": 0, "honeypots_detached": 0}
+    if fname_low.startswith(("cockpit", "team-update", "onboarding")):
+        return html_text, stats
+
+    ignored_spans = _collect_ignored_spans(html_text)
+    form_matches = [
+        fm for fm in re.finditer(r"(<form\b[^>]*>)([\s\S]*?)(</form>)", html_text, flags=re.I)
+        if not _pos_in_spans(fm.start(), ignored_spans)
+    ]
+    if not form_matches:
+        return html_text, stats
+
+    out_parts: list[str] = []
+    cursor = 0
+    comp_clean = _ss(profile.get("company_name") or "unserem Betrieb")
+    city_clean = _ss(profile.get("city") or "Schweiz")
+    tool_desc = _ss(
+        f"Bereitet eine unverbindliche Anfrage bei {comp_clean} ({city_clean}) zur Prüfung durch die Besucherin oder den Besucher vor."
+    )
+
+    for fm in form_matches:
+        out_parts.append(html_text[cursor:fm.start()])
+        form_open, form_body, form_close = fm.group(1), fm.group(2), fm.group(3)
+
+        fid = (_get_attr_val(form_open, "id") or "").strip()
+        fid_low = fid.lower()
+        fcls_low = (_get_attr_val(form_open, "class") or "").lower()
+        frole_low = (_get_attr_val(form_open, "role") or "").lower()
+
+        is_partner_widget = fid_low == "wppartnerleadform"
+        is_search_or_filter = (
+            frole_low == "search"
+            or "search" in fid_low
+            or "filter" in fid_low
+            or "search" in fcls_low
+            or "filter" in fcls_low
+        )
+        has_contact_inputs = bool(
+            re.search(r"<(?:input|textarea|select)\b", form_body, flags=re.I)
+            and re.search(r'type=(["\'])(?:email|tel)\1|id=(["\'])[^"\']*(?:contact|lead|anf-)[^"\']*\2', form_body, flags=re.I)
+        )
+        is_contact_form = (
+            (not is_partner_widget)
+            and (not is_search_or_filter)
+            and (
+                fid_low in _KNOWN_CONTACT_FORM_IDS
+                or (fname_low in ("kontakt.html", "karriere.html") and has_contact_inputs)
+                or has_contact_inputs
+            )
+        )
+
+        # Sicherheits-Invariante (#UI-23): NIEMALS toolautosubmit zulassen!
+        new_form_open = _remove_attr(form_open, "toolautosubmit")
+        if is_contact_form:
+            prev_open = new_form_open
+            new_form_open = _set_or_add_attr(new_form_open, "toolname", "kontakt_anfrage_vorbereiten", overwrite=False)
+            new_form_open = _set_or_add_attr(new_form_open, "tooldescription", tool_desc, overwrite=False)
+            if new_form_open != prev_open:
+                stats["forms_webmcp"] += 1
+
+        used_fallback_names: set[str] = set()
+
+        def _field_replacer(m_fld: re.Match) -> str:
+            fld_tag = m_fld.group(0)
+            tag_name_m = re.match(r"<(input|textarea|select)\b", fld_tag, flags=re.I)
+            tag_name = tag_name_m.group(1).lower() if tag_name_m else "input"
+            el_id = (_get_attr_val(fld_tag, "id") or "").strip()
+            el_id_low = el_id.lower()
+            el_name = (_get_attr_val(fld_tag, "name") or "").strip()
+            el_type = (_get_attr_val(fld_tag, "type") or ("text" if tag_name == "input" else "")).lower()
+
+            # 1. Honeypot-Entkopplung via form="wpTrapDetached"
+            is_honeypot = (
+                el_id_low in ("wphoneypot", "wppartnerhp")
+                or "honeypot" in el_id_low
+                or el_name.lower() == "website_url"
+            )
+            if is_honeypot:
+                updated_hp = _set_or_add_attr(fld_tag, "form", "wpTrapDetached", overwrite=False)
+                if updated_hp != fld_tag:
+                    stats["honeypots_detached"] += 1
+                return updated_hp
+
+            if not is_contact_form:
+                return fld_tag
+
+            if tag_name == "input" and el_type in ("hidden", "submit", "button", "reset", "file", "image", "checkbox", "radio"):
+                return fld_tag
+
+            inferred_name: str | None = None
+            inferred_ac: str | None = None
+
+            if el_id_low in _FIELD_ID_MAP:
+                inferred_name, inferred_ac = _FIELD_ID_MAP[el_id_low]
+            else:
+                ph_low = (_get_attr_val(fld_tag, "placeholder") or "").lower()
+                ctx_before = form_body[max(0, m_fld.start() - 220):m_fld.start()].lower()
+                hint_blob = ph_low + " " + ctx_before
+                if tag_name == "textarea":
+                    inferred_name = "message"
+                elif el_type == "email":
+                    inferred_name, inferred_ac = "email", "email"
+                elif el_type == "tel":
+                    inferred_name, inferred_ac = "tel", "tel"
+                elif el_type == "url":
+                    inferred_name, inferred_ac = "url", "url"
+                elif tag_name == "input" and el_type in ("text", ""):
+                    if any(k in hint_blob for k in ("firma", "unternehmen", "organisation", "verein")):
+                        inferred_name, inferred_ac = "organization", "organization"
+                    elif any(k in hint_blob for k in ("plz", "wohnort", "ort")):
+                        inferred_name, inferred_ac = "postal-code", "postal-code"
+                    elif any(k in hint_blob for k in ("strasse", "adresse")):
+                        inferred_name, inferred_ac = "street-address", "street-address"
+                    elif any(k in hint_blob for k in ("name", "vor-", "meier", "muster")):
+                        inferred_name, inferred_ac = "name", "name"
+                elif tag_name == "select" and el_id:
+                    inferred_name = re.sub(r"[^a-z0-9_]+", "_", el_id_low).strip("_") or "selection"
+
+            if inferred_name and not el_id_low and inferred_name in used_fallback_names:
+                idx_s = 2
+                while f"{inferred_name}_{idx_s}" in used_fallback_names:
+                    idx_s += 1
+                inferred_name = f"{inferred_name}_{idx_s}"
+            if inferred_name and not el_id_low:
+                used_fallback_names.add(inferred_name)
+
+            new_fld = fld_tag
+            if inferred_name:
+                new_fld = _set_or_add_attr(new_fld, "name", inferred_name, overwrite=False)
+            if inferred_ac:
+                new_fld = _set_or_add_attr(new_fld, "autocomplete", inferred_ac, overwrite=False)
+            if new_fld != fld_tag:
+                stats["fields_enriched"] += 1
+            return new_fld
+
+        body_ignored = _collect_ignored_spans(form_body)
+
+        def _guarded_field_replacer(m_fld: re.Match) -> str:
+            if _pos_in_spans(m_fld.start(), body_ignored):
+                return m_fld.group(0)
+            return _field_replacer(m_fld)
+
+        new_form_body = re.sub(r"<(?:input|textarea|select)\b[^>]*>", _guarded_field_replacer, form_body, flags=re.I)
+        out_parts.append(new_form_open + new_form_body + form_close)
+        cursor = fm.end()
+
+    out_parts.append(html_text[cursor:])
+    return "".join(out_parts), stats
+
+
+def sanitize_faq_details_headings(html_text: str) -> tuple[str, int]:
+    """
+    Stufe 2c (#UI-23):
+    Wandelt allfällige <h1..h6>-Tags innerhalb von <summary>...</summary> verlustfrei in
+    <span class="wp-summary-heading" style="font:inherit;margin:0;display:inline;"> um.
+    """
+    converted = 0
+
+    def _summary_replacer(sm: re.Match) -> str:
+        nonlocal converted
+        s_open, s_inner, s_close = sm.group(1), sm.group(2), sm.group(3)
+
+        def _heading_to_span(hm: re.Match) -> str:
+            nonlocal converted
+            attrs_raw = hm.group(2) or ""
+            inner_html = hm.group(3)
+            dummy_tag = f"<span{attrs_raw}>"
+            cur_cls = _get_attr_val(dummy_tag, "class") or ""
+            cls_tokens = [c for c in cur_cls.split() if c]
+            if "wp-summary-heading" not in cls_tokens:
+                cls_tokens.append("wp-summary-heading")
+            dummy_tag = _set_or_add_attr(dummy_tag, "class", " ".join(cls_tokens), overwrite=True)
+
+            cur_style = (_get_attr_val(dummy_tag, "style") or "").strip()
+            base_style = "font:inherit;margin:0;display:inline;"
+            if not cur_style:
+                merged_style = base_style
+            elif "font:inherit" in cur_style.replace(" ", ""):
+                merged_style = cur_style
+            else:
+                merged_style = base_style + (" " + cur_style if cur_style else "")
+            dummy_tag = _set_or_add_attr(dummy_tag, "style", merged_style, overwrite=True)
+            converted += 1
+            return f"{dummy_tag}{inner_html}</span>"
+
+        new_inner = re.sub(r"<h([1-6])\b([^>]*)>([\s\S]*?)</h\1>", _heading_to_span, s_inner, flags=re.I)
+        return s_open + new_inner + s_close
+
+    new_html = re.sub(r"(<summary\b[^>]*>)([\s\S]*?)(</summary>)", _summary_replacer, html_text, flags=re.I)
+    return new_html, converted
+
+
 def build_json_ld_graph(profile: dict, page_info: dict, iso_now: str) -> dict:
     """
     Erzeugt den strukturierten Schema.org @graph (LocalBusiness/Branchen-Typ + WebSite/WebPage + FAQPage).
@@ -1546,14 +2017,24 @@ def build_json_ld_graph(profile: dict, page_info: dict, iso_now: str) -> dict:
     }
 
 
-def inject_head_seo_geo(html_text: str, profile: dict, page_info: dict, iso_now: str) -> str:
+def inject_head_seo_geo(
+    html_text: str,
+    profile: dict,
+    page_info: dict,
+    iso_now: str,
+    page_count: int = 1,
+    has_step3_wizard: bool = False,
+) -> str:
     """
     Injiziert bzw. aktualisiert idempotent im <head>:
     1. lang="de-CH" auf <html>
     2. <meta name="description"> (falls fehlend)
     3. <meta name="robots">, <meta name="geo.*">, <link rel="canonical">,
        OpenGraph (og:*) & Twitter-Card Tags
-    4. <script type="application/ld+json" id="wp-seo-schema">
+    4. <style id="wp-modern-web-css"> (@view-transition, interpolate-size, :user-invalid, img aspect-ratio guard)
+    5. <script type="speculationrules" id="wp-speculation-rules"> (nur bei Mehrseiten-Showcases >= 2 Seiten)
+    6. <script id="wp-webmcp-step-sync"> (nur bei mehrstufigen Formularen mit #wpStep3.wp-step-pane)
+    7. <script type="application/ld+json" id="wp-seo-schema">
     """
     # 1. Stelle sicher, dass <html lang="de-CH"> gesetzt ist
     if re.search(r"<html\b[^>]*\blang=", html_text, re.I):
@@ -1567,15 +2048,35 @@ def inject_head_seo_geo(html_text: str, profile: dict, page_info: dict, iso_now:
     else:
         html_text = re.sub(r"<html\b", '<html lang="de-CH"', html_text, count=1, flags=re.I)
 
+    # Entferne allfällige lose #wp-webmcp-step-sync Skripte ausserhalb von <head>
+    html_text = re.sub(
+        r'\s*<script\b[^>]*\bid=(["\'])wp-webmcp-step-sync\1[^>]*>[\s\S]*?</script>',
+        "",
+        html_text,
+        flags=re.I,
+    )
+
     head_m = re.search(r"(<head\b[^>]*>)([\s\S]*?)(</head>)", html_text, re.I)
     if not head_m:
         return html_text
 
     head_open, head_inner, head_close = head_m.group(1), head_m.group(2), head_m.group(3)
 
-    # Entferne früheren Autopilot-Block sowie lose Duplikat-Tags (robots, geo.*, canonical, og:*, twitter:*, ld+json)
+    # Entferne früheren Autopilot-Block sowie lose Duplikat-Tags (robots, geo.*, canonical, og:*, twitter:*, ld+json, modern-web)
     head_inner = re.sub(
         r"\s*<!-- WP-SEO-(?:GEO-)?AUTOPILOT-START -->[\s\S]*?<!-- WP-SEO-(?:GEO-)?AUTOPILOT-END -->\s*",
+        "\n",
+        head_inner,
+        flags=re.I,
+    )
+    head_inner = re.sub(
+        r'\s*<style\b[^>]*\bid=(["\'])wp-modern-web-css\1[^>]*>[\s\S]*?</style>\s*',
+        "\n",
+        head_inner,
+        flags=re.I,
+    )
+    head_inner = re.sub(
+        r'\s*<script\b[^>]*\bid=(["\'])wp-speculation-rules\1[^>]*>[\s\S]*?</script>\s*',
         "\n",
         head_inner,
         flags=re.I,
@@ -1612,6 +2113,8 @@ def inject_head_seo_geo(html_text: str, profile: dict, page_info: dict, iso_now:
 
     base_url = profile["public_base_url"]
     fname = page_info["filename"]
+    fname_low = fname.lower()
+    is_internal_tool_page = fname_low.startswith(("cockpit", "team-update", "onboarding"))
     page_url = base_url if fname == "index.html" else f"{base_url}{fname}"
     og_img_url = f"{base_url}{profile['hero_image']}" if profile.get("hero_image") else f"{base_url}images/logo.png"
 
@@ -1627,6 +2130,70 @@ def inject_head_seo_geo(html_text: str, profile: dict, page_info: dict, iso_now:
 
     ld_graph = build_json_ld_graph(profile, page_info, iso_now)
     ld_json_str = _ss(json.dumps(ld_graph, ensure_ascii=False, indent=2))
+
+    modern_css = (
+        '  <style id="wp-modern-web-css">\n'
+        "    @media (prefers-reduced-motion: no-preference) { @view-transition { navigation: auto; } }\n"
+        "    html { interpolate-size: allow-keywords; }\n"
+        "    :where(img[width][height]) { height: auto; }\n"
+        "    input:user-invalid, textarea:user-invalid, select:user-invalid { border-color: #DC2626 !important; outline: none; }\n"
+        "  </style>"
+    )
+
+    spec_where = {
+        "and": [
+            {"href_matches": "/*"},
+            {
+                "not": {
+                    "href_matches": [
+                        "/*cockpit*",
+                        "/cockpit*",
+                        "/*team-update*",
+                        "/*onboarding*",
+                        "/api/*",
+                        "/cdn-cgi/*",
+                        "/*.pdf",
+                        "/*?*",
+                        "/*#*",
+                    ]
+                }
+            },
+            {
+                "not": {
+                    "selector_matches": "[target=_blank], [download], [data-no-prerender], [href^='mailto:'], [href^='tel:']"
+                }
+            },
+        ]
+    }
+    spec_rules_obj = {
+        "prefetch": [{"where": spec_where, "eagerness": "moderate"}],
+        "prerender": [{"where": spec_where, "eagerness": "conservative"}],
+    }
+    spec_rules_json = json.dumps(spec_rules_obj, ensure_ascii=False, indent=2)
+
+    step_sync_js = (
+        '  <script id="wp-webmcp-step-sync">\n'
+        "    (function(){\n"
+        "      var STEP3_IDS = {contactName:1,contactEmail:1,contactPhone:1,contactPlz:1,contactLoc:1,contactStreet:1,contactCompany:1};\n"
+        "      function wpSyncStep3(e){\n"
+        "        var t = e && e.target;\n"
+        "        if (!t || !t.id || !STEP3_IDS[t.id]) return;\n"
+        "        if (!String(t.value || '').trim()) return;\n"
+        "        var s3 = document.getElementById('wpStep3');\n"
+        "        if (!s3 || s3.classList.contains('active')) return;\n"
+        "        if (typeof window.wpNextStep === 'function') { window.wpNextStep(3); return; }\n"
+        "        var panes = document.querySelectorAll('.wp-step-pane');\n"
+        "        for (var i = 0; i < panes.length; i++) panes[i].classList.toggle('active', panes[i].id === 'wpStep3');\n"
+        "        for (var s = 1; s <= 3; s++) {\n"
+        "          var pill = document.getElementById('wpStepPill' + s);\n"
+        "          if (pill) { pill.classList.toggle('active', s === 3); pill.classList.toggle('done', s < 3); }\n"
+        "        }\n"
+        "      }\n"
+        "      document.addEventListener('input', wpSyncStep3, true);\n"
+        "      document.addEventListener('change', wpSyncStep3, true);\n"
+        "    })();\n"
+        "  </script>"
+    )
 
     meta_lines = ["  <!-- WP-SEO-AUTOPILOT-START -->"]
     if not has_meta_desc:
@@ -1648,6 +2215,13 @@ def inject_head_seo_geo(html_text: str, profile: dict, page_info: dict, iso_now:
         f'  <meta name="twitter:title" content="{safe_title}">',
         f'  <meta name="twitter:description" content="{safe_desc}">',
         f'  <meta name="twitter:image" content="{og_img_url}">',
+        modern_css,
+    ])
+    if page_count >= 2 and not is_internal_tool_page:
+        meta_lines.append(f'  <script type="speculationrules" id="wp-speculation-rules">\n{spec_rules_json}\n  </script>')
+    if has_step3_wizard and not is_internal_tool_page:
+        meta_lines.append(step_sync_js)
+    meta_lines.extend([
         f'  <script type="application/ld+json" id="wp-seo-schema">\n{ld_json_str}\n  </script>',
         "  <!-- WP-SEO-AUTOPILOT-END -->",
     ])
@@ -1881,10 +2455,20 @@ def run_seo_geo_autopilot_for_site(site_dir: Path, context_action: str = "cli") 
         p for p in site_dir.glob("*.html")
         if not p.name.lower().startswith("cockpit")
     )
+    public_page_count = sum(
+        1 for p in html_files
+        if not p.name.lower().startswith(("cockpit", "team-update", "onboarding"))
+    )
 
     pages_intel = []
     combined_src_to_alt = {}
     total_imgs_updated = 0
+    total_dims_added = 0
+    total_heroes_upgraded = 0
+    total_forms_webmcp = 0
+    total_fields_enriched = 0
+    total_honeypots_detached = 0
+    total_summary_headings_fixed = 0
     files_modified = 0
 
     for hf in html_files:
@@ -1900,26 +2484,85 @@ def run_seo_geo_autopilot_for_site(site_dir: Path, context_action: str = "cli") 
         total_imgs_updated += img_upd
         combined_src_to_alt.update(page_alt_map)
 
-        # 3. <head> mit Schema.org JSON-LD, Meta, OpenGraph, Twitter-Card & Canonical ausstatten
-        working_html = inject_head_seo_geo(working_html, profile, p_info, iso_now)
-        working_html = _ss(working_html)
+        # 2a. Hero-LCP (fetchpriority="high") & lokale Pixelmasse (width/height + lazy)
+        working_html, img_perf_stats = upgrade_images_lcp_and_dimensions(working_html, site_dir)
+        total_dims_added += img_perf_stats["dims_added"]
+        total_heroes_upgraded += img_perf_stats["hero_upgraded"]
 
-        if working_html != raw_html:
-            hf.write_text(working_html, encoding="utf-8")
+        # 2b. Autofill, Honeypot-Entkopplung (form="wpTrapDetached") & deklaratives WebMCP
+        working_html, form_stats = enrich_forms_autofill_and_webmcp(working_html, profile, hf.name)
+        total_forms_webmcp += form_stats["forms_webmcp"]
+        total_fields_enriched += form_stats["fields_enriched"]
+        total_honeypots_detached += form_stats["honeypots_detached"]
+
+        # 2c. FAQ-Semantik (<summary> ohne <h1..h6>)
+        working_html, sum_fixed = sanitize_faq_details_headings(working_html)
+        total_summary_headings_fixed += sum_fixed
+
+        has_step3_wizard = bool(
+            re.search(r'\bid=(["\'])wpStep3\1', working_html, flags=re.I)
+            and re.search(r'\bwp-step-pane\b', working_html)
+        )
+
+        # 3. <head> idempotent ausstatten (dateModified nur erneuern, wenn echter Differenz-Bedarf besteht)
+        dm_m = re.search(r'"dateModified":\s*"([^"]+)"', raw_html)
+        existing_iso = dm_m.group(1) if dm_m else iso_now
+
+        candidate_html = _ss(
+            inject_head_seo_geo(
+                working_html,
+                profile,
+                p_info,
+                existing_iso,
+                page_count=public_page_count,
+                has_step3_wizard=has_step3_wizard,
+            )
+        )
+
+        if candidate_html != raw_html:
+            final_html = _ss(
+                inject_head_seo_geo(
+                    working_html,
+                    profile,
+                    p_info,
+                    iso_now,
+                    page_count=public_page_count,
+                    has_step3_wizard=has_step3_wizard,
+                )
+            )
+            hf.write_text(final_html, encoding="utf-8")
             files_modified += 1
 
     # 4. bilder.json mit sprechenden alt-Texten aktualisieren
     bilder_updated = update_bilder_json_alts(site_dir, profile, combined_src_to_alt)
 
-    # 5. /llms.txt, /sitemap.xml und /robots.txt taufrisch generieren
-    llms_content = generate_llms_txt(profile, pages_intel, human_now)
-    (site_dir / "llms.txt").write_text(llms_content, encoding="utf-8")
+    # 5. /llms.txt, /sitemap.xml und /robots.txt idempotent aktualisieren
+    llms_path = site_dir / "llms.txt"
+    if llms_path.is_file() and files_modified == 0 and bilder_updated == 0:
+        old_llms = llms_path.read_text(encoding="utf-8", errors="ignore")
+        hm_m = re.search(r"- \*\*Aktualisiert am:\*\* ([^\n]+)", old_llms)
+        existing_human = hm_m.group(1).strip() if hm_m else human_now
+        cand_llms = generate_llms_txt(profile, pages_intel, existing_human)
+        if cand_llms != old_llms:
+            llms_path.write_text(generate_llms_txt(profile, pages_intel, human_now), encoding="utf-8")
+    else:
+        llms_path.write_text(generate_llms_txt(profile, pages_intel, human_now), encoding="utf-8")
 
-    sitemap_content = generate_sitemap_xml(profile, pages_intel, iso_now)
-    (site_dir / "sitemap.xml").write_text(sitemap_content, encoding="utf-8")
+    sitemap_path = site_dir / "sitemap.xml"
+    if sitemap_path.is_file() and files_modified == 0 and bilder_updated == 0:
+        old_sm = sitemap_path.read_text(encoding="utf-8", errors="ignore")
+        sm_m = re.search(r"<lastmod>([^<]+)</lastmod>", old_sm)
+        existing_sm_iso = sm_m.group(1).strip() if sm_m else iso_now
+        cand_sm = generate_sitemap_xml(profile, pages_intel, existing_sm_iso)
+        if cand_sm != old_sm:
+            sitemap_path.write_text(generate_sitemap_xml(profile, pages_intel, iso_now), encoding="utf-8")
+    else:
+        sitemap_path.write_text(generate_sitemap_xml(profile, pages_intel, iso_now), encoding="utf-8")
 
+    robots_path = site_dir / "robots.txt"
     robots_content = generate_robots_txt(profile)
-    (site_dir / "robots.txt").write_text(robots_content, encoding="utf-8")
+    if (not robots_path.is_file()) or robots_path.read_text(encoding="utf-8", errors="ignore") != robots_content:
+        robots_path.write_text(robots_content, encoding="utf-8")
 
     elapsed_ms = round((time.perf_counter() - t0) * 1000, 1)
     return {
@@ -1932,6 +2575,12 @@ def run_seo_geo_autopilot_for_site(site_dir: Path, context_action: str = "cli") 
         "html_files_processed": len(html_files),
         "html_files_modified": files_modified,
         "imgs_alt_upgraded": total_imgs_updated,
+        "imgs_dims_added": total_dims_added,
+        "heroes_lcp_upgraded": total_heroes_upgraded,
+        "forms_webmcp_upgraded": total_forms_webmcp,
+        "fields_autofill_enriched": total_fields_enriched,
+        "honeypots_detached": total_honeypots_detached,
+        "summary_headings_sanitized": total_summary_headings_fixed,
         "bilder_json_updated": bilder_updated,
         "llms_txt": True,
         "sitemap_xml": True,
@@ -2060,6 +2709,9 @@ def main():
         target_dirs.append(cand)
     else:
         target_dirs = sorted(p for p in BASE_DIR.glob("preview-*") if p.is_dir())
+        wp_main = BASE_DIR / "webpilot"
+        if wp_main.is_dir():
+            target_dirs.append(wp_main)
 
     if args.all or args.site:
         t_start = time.perf_counter()

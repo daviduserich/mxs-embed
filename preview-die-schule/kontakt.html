@@ -1776,6 +1776,101 @@
   <meta name="twitter:title" content="Kontakt &amp; 3-Schritte Kursanmeldung | Hundeschule Good for Dogs Baden &amp; Birmenstorf">
   <meta name="twitter:description" content="Hundeschule Good for Dogs in 5406 Baden (Rütihof), 5413 Birmenstorf und Region Lenzburg: Gewaltfreies Einzeltraining, Welpengruppe, Junghunde-Erziehungskurse, Familienhunde und Schnüffelspass mit Certodog® Hundeinstruktorin Martina Sidler.">
   <meta name="twitter:image" content="https://vorschau.magnet-xs.ch/die-schule-vollversion/images/hero-mensch-hund-alltag.jpg">
+  <style id="wp-modern-web-css">
+    @media (prefers-reduced-motion: no-preference) { @view-transition { navigation: auto; } }
+    html { interpolate-size: allow-keywords; }
+    :where(img[width][height]) { height: auto; }
+    input:user-invalid, textarea:user-invalid, select:user-invalid { border-color: #DC2626 !important; outline: none; }
+  </style>
+  <script type="speculationrules" id="wp-speculation-rules">
+{
+  "prefetch": [
+    {
+      "where": {
+        "and": [
+          {
+            "href_matches": "/*"
+          },
+          {
+            "not": {
+              "href_matches": [
+                "/*cockpit*",
+                "/cockpit*",
+                "/*team-update*",
+                "/*onboarding*",
+                "/api/*",
+                "/cdn-cgi/*",
+                "/*.pdf",
+                "/*?*",
+                "/*#*"
+              ]
+            }
+          },
+          {
+            "not": {
+              "selector_matches": "[target=_blank], [download], [data-no-prerender], [href^='mailto:'], [href^='tel:']"
+            }
+          }
+        ]
+      },
+      "eagerness": "moderate"
+    }
+  ],
+  "prerender": [
+    {
+      "where": {
+        "and": [
+          {
+            "href_matches": "/*"
+          },
+          {
+            "not": {
+              "href_matches": [
+                "/*cockpit*",
+                "/cockpit*",
+                "/*team-update*",
+                "/*onboarding*",
+                "/api/*",
+                "/cdn-cgi/*",
+                "/*.pdf",
+                "/*?*",
+                "/*#*"
+              ]
+            }
+          },
+          {
+            "not": {
+              "selector_matches": "[target=_blank], [download], [data-no-prerender], [href^='mailto:'], [href^='tel:']"
+            }
+          }
+        ]
+      },
+      "eagerness": "conservative"
+    }
+  ]
+}
+  </script>
+  <script id="wp-webmcp-step-sync">
+    (function(){
+      var STEP3_IDS = {contactName:1,contactEmail:1,contactPhone:1,contactPlz:1,contactLoc:1,contactStreet:1,contactCompany:1};
+      function wpSyncStep3(e){
+        var t = e && e.target;
+        if (!t || !t.id || !STEP3_IDS[t.id]) return;
+        if (!String(t.value || '').trim()) return;
+        var s3 = document.getElementById('wpStep3');
+        if (!s3 || s3.classList.contains('active')) return;
+        if (typeof window.wpNextStep === 'function') { window.wpNextStep(3); return; }
+        var panes = document.querySelectorAll('.wp-step-pane');
+        for (var i = 0; i < panes.length; i++) panes[i].classList.toggle('active', panes[i].id === 'wpStep3');
+        for (var s = 1; s <= 3; s++) {
+          var pill = document.getElementById('wpStepPill' + s);
+          if (pill) { pill.classList.toggle('active', s === 3); pill.classList.toggle('done', s < 3); }
+        }
+      }
+      document.addEventListener('input', wpSyncStep3, true);
+      document.addEventListener('change', wpSyncStep3, true);
+    })();
+  </script>
   <script type="application/ld+json" id="wp-seo-schema">
 {
   "@context": "https://schema.org",
@@ -1927,7 +2022,7 @@
       "name": "Kontakt & 3-Schritte Kursanmeldung | Hundeschule Good for Dogs Baden & Birmenstorf",
       "description": "Hundeschule Good for Dogs in 5406 Baden (Rütihof), 5413 Birmenstorf und Region Lenzburg: Gewaltfreies Einzeltraining, Welpengruppe, Junghunde-Erziehungskurse, Familienhunde und Schnüffelspass mit Certodog® Hundeinstruktorin Martina Sidler.",
       "inLanguage": "de-CH",
-      "dateModified": "2026-11-13T08:37:50+00:00",
+      "dateModified": "2026-11-15T15:55:19+00:00",
       "isPartOf": {
         "@id": "https://vorschau.magnet-xs.ch/die-schule-vollversion/#website"
       },
@@ -2006,7 +2101,7 @@
   <header class="site-header" data-section="header">
     <div class="container header-inner">
       <a href="index.html" class="brand-link" aria-label="Good for Dogs Hundeschule Baden Startseite">
-        <img src="images/logo-good-for-dogs.png" alt="Good for Dogs Baden (AG) – Offizielles Logo (Individuelles 1:1 Einzeltraining und Verhaltensberatung)" class="brand-logo-wide" width="142" height="46" data-slot="brand_logo">
+        <img src="images/logo-good-for-dogs.png" alt="Good for Dogs Baden (AG) – Offizielles Logo (Individuelles 1:1 Einzeltraining und Verhaltensberatung)" class="brand-logo-wide" width="142" height="46" data-slot="brand_logo" decoding="async">
         <div class="brand-text">
           <span class="brand-name" data-slot="brand_name">Good for Dogs</span>
           <span class="brand-sub" data-slot="brand_sub">Baden &amp; Birmenstorf</span>
@@ -2057,7 +2152,7 @@
               Ob Anmeldung für die Welpen-, Junghunde-, Familienhunde- oder Schnüffelspass-Gruppe oder Terminwunsch fürs 1:1-Einzeltraining: Nutzen Sie rechts die 3-Schritte Smart-Anmeldung oder melden Sie sich direkt telefonisch.
             </p>
 
-            <img src="images/team-martina-sidler-portrait.jpg" alt="Martina Sidler, Hundeschule Good for Dogs in Baden und Birmenstorf" style="width:100%;height:195px;object-fit:cover;object-position:38% 25%;border-radius:var(--radius-sm);margin-bottom:16px;" loading="lazy" decoding="async">
+            <img src="images/team-martina-sidler-portrait.jpg" alt="Martina Sidler, Hundeschule Good for Dogs in Baden und Birmenstorf" style="width:100%;height:195px;object-fit:cover;object-position:38% 25%;border-radius:var(--radius-sm);margin-bottom:16px;" decoding="async" width="1067" height="800" fetchpriority="high">
 
             <div class="contact-direct-list">
               <div class="contact-direct-item">
@@ -2113,10 +2208,10 @@
               </div>
             </div>
 
-            <form id="isContactForm" onsubmit="return wpSubmitIsLead(event)" novalidate>
+            <form id="isContactForm" onsubmit="return wpSubmitIsLead(event)" novalidate toolname="kontakt_anfrage_vorbereiten" tooldescription="Bereitet eine unverbindliche Anfrage bei Good for Dogs · Hundeschule Martina Sidler (Baden) zur Prüfung durch die Besucherin oder den Besucher vor.">
               <div style="display:none;" aria-hidden="true">
                 <label for="wpHoneypot">Website URL</label>
-                <input type="text" id="wpHoneypot" name="website_url" tabindex="-1" autocomplete="off">
+                <input type="text" id="wpHoneypot" name="website_url" tabindex="-1" autocomplete="off" form="wpTrapDetached">
               </div>
 
               <!-- SCHRITT 1: KURSBEREICH -->
@@ -2166,11 +2261,11 @@
                 <div class="form-grid-2" style="margin-bottom:14px;">
                   <div class="form-field">
                     <label for="wpDetail1" class="form-label" id="wpDetail1Label">Rufname, Rasse/Mix &amp; Geburtsdatum Ihres Hundes</label>
-                    <input type="text" id="wpDetail1" class="form-input" placeholder="z. B. Balu, Labrador-Mix, geb. 14.05.2026">
+                    <input type="text" id="wpDetail1" class="form-input" placeholder="z. B. Balu, Labrador-Mix, geb. 14.05.2026" name="detail_1">
                   </div>
                   <div class="form-field">
                     <label for="wpDetail2" class="form-label" id="wpDetail2Label">Geschlecht &amp; Kastrationsstatus</label>
-                    <input type="text" id="wpDetail2" class="form-input" placeholder="z. B. Rüde intakt / Hündin kastriert">
+                    <input type="text" id="wpDetail2" class="form-input" placeholder="z. B. Rüde intakt / Hündin kastriert" name="detail_2">
                   </div>
                 </div>
 
@@ -2190,7 +2285,7 @@
 
                 <div class="form-field" style="margin-bottom:14px;">
                   <label for="contactMessage" class="form-label">Was ist Ihnen im Training besonders wichtig? (optional)</label>
-                  <textarea id="contactMessage" class="form-textarea" placeholder="Erzählen Sie kurz von Ihrem Hund oder Ihrem Wunschthema (z. B. Welpenstart, Leinenführigkeit, Hundebegegnungen, Rückruf oder Nasenarbeit)..."></textarea>
+                  <textarea id="contactMessage" class="form-textarea" placeholder="Erzählen Sie kurz von Ihrem Hund oder Ihrem Wunschthema (z. B. Welpenstart, Leinenführigkeit, Hundebegegnungen, Rückruf oder Nasenarbeit)..." name="message"></textarea>
                 </div>
 
                 <div class="form-field" style="margin-bottom:18px;">
@@ -2219,33 +2314,33 @@
                 <div class="form-grid-2" style="margin-bottom:14px;">
                   <div class="form-field">
                     <label for="contactName" class="form-label">Ihr Vor- und Nachname *</label>
-                    <input type="text" id="contactName" class="form-input" placeholder="z. B. Sandra Meier" required>
+                    <input type="text" id="contactName" class="form-input" placeholder="z. B. Sandra Meier" required name="name" autocomplete="name">
                   </div>
                   <div class="form-field">
                     <label for="contactCompany" class="form-label">Rufname Ihres Hundes (optional)</label>
-                    <input type="text" id="contactCompany" class="form-input" placeholder="z. B. Balu">
+                    <input type="text" id="contactCompany" class="form-input" placeholder="z. B. Balu" name="organization" autocomplete="organization">
                   </div>
                 </div>
 
                 <div class="form-grid-2" style="margin-bottom:14px;">
                   <div class="form-field">
                     <label for="contactStreet" class="form-label">Strasse &amp; Nr. (für Anfahrt / Kursliste)</label>
-                    <input type="text" id="contactStreet" class="form-input" placeholder="z. B. Dorfstrasse 18">
+                    <input type="text" id="contactStreet" class="form-input" placeholder="z. B. Dorfstrasse 18" name="street-address" autocomplete="street-address">
                   </div>
                   <div class="form-field">
                     <label for="contactPlz" class="form-label">PLZ &amp; Wohnort *</label>
-                    <input type="text" id="contactPlz" class="form-input" placeholder="z. B. 5406 Baden-Rütihof" required>
+                    <input type="text" id="contactPlz" class="form-input" placeholder="z. B. 5406 Baden-Rütihof" required name="postal-code" autocomplete="postal-code">
                   </div>
                 </div>
 
                 <div class="form-grid-2" style="margin-bottom:14px;">
                   <div class="form-field">
                     <label for="contactPhone" class="form-label">Mobile / Telefon (für Rückruf / WhatsApp) *</label>
-                    <input type="tel" id="contactPhone" class="form-input" placeholder="z. B. 079 123 45 67" required>
+                    <input type="tel" id="contactPhone" class="form-input" placeholder="z. B. 079 123 45 67" required name="tel" autocomplete="tel">
                   </div>
                   <div class="form-field">
                     <label for="contactEmail" class="form-label">E-Mail-Adresse *</label>
-                    <input type="email" id="contactEmail" class="form-input" placeholder="ihre.adresse@beispiel.ch" required>
+                    <input type="email" id="contactEmail" class="form-input" placeholder="ihre.adresse@beispiel.ch" required name="email" autocomplete="email">
                   </div>
                 </div>
 
@@ -2830,7 +2925,7 @@
         <form id="wpPartnerLeadForm" onsubmit="return wpSubmitPartnerLead(event)" novalidate>
           <div style="display:none;" aria-hidden="true">
             <label for="wpPartnerHp">Website</label>
-            <input type="text" id="wpPartnerHp" name="website_url" tabindex="-1" autocomplete="off">
+            <input type="text" id="wpPartnerHp" name="website_url" tabindex="-1" autocomplete="off" form="wpTrapDetached">
           </div>
 
           <div class="wp-partner-field">
