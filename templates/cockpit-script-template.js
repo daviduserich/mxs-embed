@@ -3944,6 +3944,15 @@ var acpCurrentDesignState = {
   navItems: [],
   hasHeroBgImage: false,
   heroBgTouched: false,
+  colorsTouched: false,
+  navTouched: false,
+  styleMatrix: {
+    archetype: "original",
+    surface: "original",
+    rhythm: "original",
+    heroLayout: "original",
+    typo: "original"
+  },
   colors: {
     primary: "#8c6747",
     heroBg: "#2c3140",
@@ -4199,13 +4208,21 @@ function acpReadCurrentColorsFromIframe() {
 
     var existingStyle = doc.getElementById("wp-custom-design-vibe");
     var cssEditor = document.getElementById("acp-vibe-css-editor");
-    if (existingStyle && cssEditor && !cssEditor.value.trim()) {
-      cssEditor.value = existingStyle.textContent.trim();
+    var existingCssText = existingStyle ? (existingStyle.textContent || "").trim() : "";
+    if (existingStyle && cssEditor) {
+      cssEditor.value = existingCssText;
+    } else if (cssEditor && !existingStyle) {
+      cssEditor.value = "";
     }
+    acpCurrentDesignState.colorsTouched = existingCssText.indexOf("1. FARBTABELLE") !== -1;
+    acpCurrentDesignState.navTouched = existingCssText.indexOf("HAUPTMENUE & NAVIGATION") !== -1;
+    var parsedMatrix = acpParseStyleMatrixFromText(existingCssText, doc);
+    acpCurrentDesignState.styleMatrix = parsedMatrix;
   } catch (e) {
     console.warn("[WebPilot Studio] Konnte Farben nicht aus Iframe lesen:", e);
   }
   acpSyncColorInputsFromState();
+  acpSyncStyleMatrixUI();
 }
 
 function acpGetIframePrimaryNavElements(doc) {
@@ -4358,8 +4375,409 @@ function acpBuildNavStyleCss(styleKey, primaryColor) {
   return base.join("\n");
 }
 
+var ACP_STYLE_ARCHETYPES = {
+  original: {
+    label: "Original-Design",
+    surface: "original",
+    rhythm: "original",
+    heroLayout: "original",
+    typo: "original"
+  },
+  editorial: {
+    label: "1. Boutique Editorial (Magazin-Stil)",
+    surface: "hairlines",
+    rhythm: "magazine_split",
+    heroLayout: "editorial_banner",
+    typo: "editorial_serif"
+  },
+  atelier: {
+    label: "2. Atelier & Organisch (Praxis)",
+    surface: "tonal",
+    rhythm: "editorial_airy",
+    heroLayout: "reversed_split",
+    typo: "warm_humanist"
+  },
+  swiss_studio: {
+    label: "3. Swiss Studio (Architektur-Raster)",
+    surface: "swiss_grid",
+    rhythm: "magazine_split",
+    heroLayout: "open_atelier",
+    typo: "swiss_geometric"
+  },
+  craft_bold: {
+    label: "4. Handwerk & Werkstoff (Markant)",
+    surface: "accent_top",
+    rhythm: "editorial_airy",
+    heroLayout: "editorial_banner",
+    typo: "craft_grotesk"
+  },
+  bento_modern: {
+    label: "5. Modern Bento (Kachel-System)",
+    surface: "original",
+    rhythm: "original",
+    heroLayout: "original",
+    typo: "swiss_geometric"
+  }
+};
+
+var acpDesignVibeSnapshot = null;
+
+function acpDefaultStyleMatrix() {
+  return {
+    archetype: "original",
+    surface: "original",
+    rhythm: "original",
+    heroLayout: "original",
+    typo: "original"
+  };
+}
+
+function acpNormalizeStyleMatrix(raw) {
+  var m = acpDefaultStyleMatrix();
+  if (raw && typeof raw === "object") {
+    if (raw.archetype) m.archetype = String(raw.archetype);
+    if (raw.surface) m.surface = String(raw.surface);
+    if (raw.rhythm) m.rhythm = String(raw.rhythm);
+    if (raw.heroLayout) m.heroLayout = String(raw.heroLayout);
+    else if (raw.hero_layout) m.heroLayout = String(raw.hero_layout);
+    if (raw.typo) m.typo = String(raw.typo);
+  }
+  return m;
+}
+
+function acpDetectArchetypeFromAxes(m) {
+  var keys = Object.keys(ACP_STYLE_ARCHETYPES);
+  for (var i = 0; i < keys.length; i++) {
+    var k = keys[i];
+    var a = ACP_STYLE_ARCHETYPES[k];
+    if (a.surface === m.surface && a.rhythm === m.rhythm && a.heroLayout === m.heroLayout && a.typo === m.typo) {
+      return k;
+    }
+  }
+  return "custom";
+}
+
+function acpIsStyleMatrixActive(m) {
+  if (!m) return false;
+  return (m.surface !== "original" || m.rhythm !== "original" || m.heroLayout !== "original" || m.typo !== "original");
+}
+
+function acpParseStyleMatrixFromText(cssText, doc) {
+  if (cssText) {
+    var match = cssText.match(/\/\*\s*WP_STYLE_MATRIX:(\{[^*]+\})\s*\*\//);
+    if (match && match[1]) {
+      try {
+        return acpNormalizeStyleMatrix(JSON.parse(match[1]));
+      } catch (e) {}
+    }
+  }
+  if (doc && doc.body) {
+    var b = doc.body;
+    var da = b.getAttribute("data-wp-archetype");
+    var ds = b.getAttribute("data-wp-surface");
+    var dr = b.getAttribute("data-wp-rhythm");
+    var dh = b.getAttribute("data-wp-hero");
+    var dt = b.getAttribute("data-wp-typo");
+    if (da || ds || dr || dh || dt) {
+      return acpNormalizeStyleMatrix({
+        archetype: da || "custom",
+        surface: ds || "original",
+        rhythm: dr || "original",
+        heroLayout: dh || "original",
+        typo: dt || "original"
+      });
+    }
+  }
+  return acpDefaultStyleMatrix();
+}
+
+function acpApplyStyleMatrixAttributesToDoc(doc, m) {
+  if (!doc || !doc.body) return;
+  var mat = acpNormalizeStyleMatrix(m);
+  if (acpIsStyleMatrixActive(mat) || (mat.archetype && mat.archetype !== "original")) {
+    doc.body.setAttribute("data-wp-archetype", mat.archetype || "custom");
+    doc.body.setAttribute("data-wp-surface", mat.surface);
+    doc.body.setAttribute("data-wp-rhythm", mat.rhythm);
+    doc.body.setAttribute("data-wp-hero", mat.heroLayout);
+    doc.body.setAttribute("data-wp-typo", mat.typo);
+  } else {
+    doc.body.removeAttribute("data-wp-archetype");
+    doc.body.removeAttribute("data-wp-surface");
+    doc.body.removeAttribute("data-wp-rhythm");
+    doc.body.removeAttribute("data-wp-hero");
+    doc.body.removeAttribute("data-wp-typo");
+  }
+}
+
+function acpSyncStyleMatrixUI() {
+  var m = acpNormalizeStyleMatrix(acpCurrentDesignState.styleMatrix);
+  acpCurrentDesignState.styleMatrix = m;
+  var archCards = document.querySelectorAll(".acp-style-arch-card[data-archetype]");
+  for (var i = 0; i < archCards.length; i++) {
+    archCards[i].classList.toggle("is-active", archCards[i].getAttribute("data-archetype") === m.archetype);
+  }
+  var axisBtns = document.querySelectorAll(".acp-style-axis-btn[data-axis][data-val]");
+  for (var j = 0; j < axisBtns.length; j++) {
+    var ax = axisBtns[j].getAttribute("data-axis");
+    var val = axisBtns[j].getAttribute("data-val");
+    axisBtns[j].classList.toggle("is-active", m[ax] === val);
+  }
+  var badge = document.getElementById("acp-style-matrix-active-badge");
+  if (badge) {
+    if (!acpIsStyleMatrixActive(m)) {
+      badge.textContent = "AKTIV: ORIGINAL-DESIGN";
+    } else if (ACP_STYLE_ARCHETYPES[m.archetype]) {
+      badge.textContent = "AKTIV: " + ACP_STYLE_ARCHETYPES[m.archetype].label.toUpperCase();
+    } else {
+      badge.textContent = "AKTIV: INDIVIDUELLE MATRIX";
+    }
+  }
+}
+
+function acpGetStyleFontImportCss(typo) {
+  if (typo === "editorial_serif") {
+    return "@import url('https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;0,6..72,700;1,6..72,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');";
+  }
+  if (typo === "warm_humanist") {
+    return "@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400&family=Source+Sans+3:wght@400;500;600;700&display=swap');";
+  }
+  if (typo === "craft_grotesk") {
+    return "@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap');";
+  }
+  if (typo === "swiss_geometric") {
+    return "@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');";
+  }
+  return "";
+}
+
+function acpBuildStyleMatrixCss(rawMatrix) {
+  var m = acpNormalizeStyleMatrix(rawMatrix);
+  if (!acpIsStyleMatrixActive(m)) return "";
+  var out = [];
+  out.push("/* === 2. STIL- & HANDSCHRIFT-MATRIX === */");
+
+  var cardSel = ":is(.content-card, .pillar-card, .testimonial-card, .founder-card, .card, .vorteil-karte, .stimme-karte, .bento-card, .grund, .service-card, .feature-card)";
+  var lightSecSel = "section:not(.dark-section):not(.hero-section):not(.hero):not(.page-hero):not(.cta-band):not(.blitz)";
+
+  // Schutz gegen S-31b (Karten-Anatomie-Horizont auf Desktop bei Schrift-/Layout-Wechsel)
+  out.push("@media (min-width: 769px) {");
+  out.push("  .card-badge-row { min-height: 64px !important; align-items: flex-start !important; align-content: flex-start !important; }");
+  out.push("  .card h3, .content-card h3, .bento-card h3, .service-card h3, .feature-card h3, .pillar-card h3, .grund h3, .vorteil-karte h3 { min-height: 2.55em !important; }");
+  out.push("}");
+
+  // Achse 1: surface
+  if (m.surface === "hairlines") {
+    out.push(lightSecSel + " " + cardSel + " {");
+    out.push("  background: transparent !important; background-color: transparent !important;");
+    out.push("  border: none !important; border-top: 1px solid var(--border-strong, rgba(15, 23, 42, 0.20)) !important;");
+    out.push("  border-radius: 0px !important; box-shadow: none !important;");
+    out.push("  padding-left: 0 !important; padding-right: 0 !important;");
+    out.push("  color: var(--text-main, inherit) !important;");
+    out.push("}");
+    out.push(lightSecSel + " .content-card.card-dark { border-top: 2px solid var(--primary, var(--gold-dark, currentColor)) !important; }");
+    out.push(lightSecSel + " .pillar-card .pillar-body { padding: 20px 0 6px !important; }");
+    out.push(lightSecSel + " .founder-card .founder-top { padding: 20px 0 0 !important; }");
+    out.push(lightSecSel + " .founder-card .founder-body { padding: 16px 0 6px !important; }");
+    out.push(".pillar-img-wrap, .pillar-img-wrap img, .founder-portrait, .hero-media-card, .btn-cta, .btn, .meta-badge, .top-bar-badge, .icon-box, .form-input, .form-textarea, .wp-role-tile { border-radius: 0px !important; }");
+    out.push(".hero-media-card { box-shadow: none !important; border: 1px solid var(--border-strong, rgba(15, 23, 42, 0.16)) !important; }");
+    // S-23 Schutz: unterste Kacheln in .hero-grid behalten Boden-Ausrichtung bei align-items: stretch
+    out.push(".hero-grid { align-items: stretch !important; }");
+    out.push(".hero-grid > div:first-child { display: flex !important; flex-direction: column !important; justify-content: space-between !important; }");
+    out.push(".hero-badge-card { background: transparent !important; background-color: transparent !important; box-shadow: none !important; border: none !important; border-top: 1px solid var(--border-strong, rgba(15, 23, 42, 0.18)) !important; border-bottom: 1px solid var(--border-strong, rgba(15, 23, 42, 0.14)) !important; border-radius: 0px !important; padding: 12px 0 !important; }");
+  } else if (m.surface === "tonal") {
+    out.push(lightSecSel + " " + cardSel + " {");
+    out.push("  border: none !important; box-shadow: none !important; border-radius: 8px !important;");
+    out.push("  background-color: var(--bg-Warm, var(--bg-alt, #f6f2ed)) !important;");
+    out.push("}");
+    out.push("section[style*='bg-Warm'] " + cardSel + ", section[style*='--surface'] " + cardSel + " { background-color: #ffffff !important; }");
+    out.push(".pillar-img-wrap, .hero-media-card, .founder-portrait, .btn-cta, .btn, .form-input, .form-textarea, .wp-role-tile { border-radius: 8px !important; box-shadow: none !important; }");
+    out.push(".hero-badge-card { background-color: rgba(255, 255, 255, 0.72) !important; border: none !important; border-left: 3px solid var(--primary, var(--gold-dark, currentColor)) !important; box-shadow: none !important; border-radius: 8px !important; }");
+  } else if (m.surface === "swiss_grid") {
+    out.push(lightSecSel + " " + cardSel + " {");
+    out.push("  background-color: var(--bg-page, #ffffff) !important;");
+    out.push("  border: 1px solid var(--border-strong, rgba(15, 23, 42, 0.24)) !important;");
+    out.push("  border-radius: 0px !important; box-shadow: none !important;");
+    out.push("}");
+    out.push(".pillar-img-wrap, .pillar-img-wrap img, .founder-portrait, .hero-media-card, .hero-badge-card, .btn-cta, .btn, .meta-badge, .top-bar-badge, .icon-box, .form-input, .form-textarea, .wp-role-tile { border-radius: 0px !important; box-shadow: none !important; }");
+  } else if (m.surface === "accent_top") {
+    out.push(lightSecSel + " " + cardSel + " {");
+    out.push("  border: 1px solid var(--border-light, rgba(15, 23, 42, 0.14)) !important;");
+    out.push("  border-top: 4px solid var(--primary, var(--gold-dark, var(--accent, #1e293b))) !important;");
+    out.push("  border-radius: 4px !important; box-shadow: none !important;");
+    out.push("}");
+    out.push(".pillar-img-wrap, .hero-media-card, .hero-badge-card, .btn-cta, .btn, .form-input, .form-textarea, .wp-role-tile { border-radius: 4px !important; box-shadow: none !important; }");
+  }
+
+  // Achse 2: rhythm
+  if (m.rhythm === "magazine_split") {
+    out.push("@media (min-width: 1024px) {");
+    out.push("  main > section:not(.hero-section):not(.hero):not(.page-hero):not(.hero-wrap):not(.dark-section):not(.cta-band):not(.blitz):not(#kontakt):not(#blitz):not([data-section='cta-banner']):not([data-section='hero']) > .container:has(> .section-head),");
+    out.push("  main > section:not(.hero-section):not(.hero):not(.page-hero):not(.hero-wrap):not(.dark-section):not(.cta-band):not(.blitz):not(#kontakt):not(#blitz):not([data-section='cta-banner']):not([data-section='hero']) > .container:has(> .section-header) {");
+    out.push("    display: grid !important;");
+    out.push("    grid-template-columns: 300px minmax(0, 1fr) !important;");
+    out.push("    column-gap: 44px !important;");
+    out.push("    row-gap: 28px !important;");
+    out.push("    align-items: start !important;");
+    out.push("  }");
+    out.push("  main > section:not(.hero-section):not(.hero):not(.page-hero):not(.hero-wrap):not(.dark-section):not(.cta-band):not(.blitz):not(#kontakt):not(#blitz):not([data-section='cta-banner']):not([data-section='hero']) > .container > :is(.section-head, .section-header) {");
+    out.push("    grid-column: 1 !important;");
+    out.push("    grid-row: 1 !important;");
+    out.push("    position: sticky !important;");
+    out.push("    top: 96px !important;");
+    out.push("    margin-bottom: 0 !important;");
+    out.push("    max-width: none !important;");
+    out.push("  }");
+    out.push("  main > section:not(.hero-section):not(.hero):not(.page-hero):not(.hero-wrap):not(.dark-section):not(.cta-band):not(.blitz):not(#kontakt):not(#blitz):not([data-section='cta-banner']):not([data-section='hero']) > .container > :is(.section-head, .section-header) ~ * {");
+    out.push("    grid-column: 2 !important;");
+    out.push("    min-width: 0 !important;");
+    out.push("  }");
+    out.push("  main > section > .container > :is(.section-head, .section-header) ~ .grid-3 {");
+    out.push("    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;");
+    out.push("    gap: 24px !important;");
+    out.push("  }");
+    out.push("  main > section > .container > :is(.section-head, .section-header) ~ .grid-3 > :last-child:nth-child(odd) {");
+    out.push("    grid-column: 1 / -1 !important;");
+    out.push("  }");
+    out.push("  main > section > .container > :is(.section-head, .section-header) ~ .grid-2 .founder-top {");
+    out.push("    grid-template-columns: 1fr !important;");
+    out.push("    gap: 14px !important;");
+    out.push("  }");
+    out.push("}");
+  } else if (m.rhythm === "editorial_airy") {
+    out.push("@media (min-width: 1024px) {");
+    out.push("  main > section:not(.hero-section):not(.hero):not(.page-hero):not(.hero-wrap) { padding: 104px 0 !important; }");
+    out.push("  .section-head, .section-header { max-width: 820px !important; margin-bottom: 52px !important; }");
+    out.push("  .grid-2, .grid-3, .grid-4 { gap: 32px !important; }");
+    out.push("}");
+  }
+
+  // Achse 3: heroLayout
+  if (m.heroLayout === "editorial_banner") {
+    out.push("@media (min-width: 1024px) {");
+    out.push("  .hero-section .hero-grid, .hero .hero-grid, .page-hero .hero-grid {");
+    out.push("    grid-template-columns: 1fr !important;");
+    out.push("    gap: 34px !important;");
+    out.push("  }");
+    out.push("  .hero-section .hero-grid > div:first-child {");
+    out.push("    max-width: 860px !important; margin: 0 auto !important; text-align: center !important; align-items: center !important;");
+    out.push("  }");
+    out.push("  .hero-section .hero-actions { justify-content: center !important; }");
+    out.push("  .hero-section .hero-badges { grid-template-columns: repeat(4, minmax(0, 1fr)) !important; width: 100% !important; max-width: 1080px !important; text-align: left !important; }");
+    out.push("  .hero-section .hero-media-card { max-width: 1080px !important; width: 100% !important; margin: 0 auto !important; }");
+    out.push("  .hero-section .hero-media-card img { height: 440px !important; max-height: 480px !important; object-fit: cover !important; object-position: center 8% !important; }");
+    out.push("}");
+  } else if (m.heroLayout === "reversed_split") {
+    out.push("@media (min-width: 1024px) {");
+    out.push("  .hero-section .hero-grid { grid-template-columns: 0.88fr 1.12fr !important; align-items: stretch !important; }");
+    out.push("  .hero-section .hero-grid > *:first-child { order: 2 !important; }");
+    out.push("  .hero-section .hero-grid > *:last-child { order: 1 !important; }");
+    out.push("}");
+  } else if (m.heroLayout === "open_atelier") {
+    out.push(".hero-media-card, .hero-card { background: transparent !important; border: none !important; box-shadow: none !important; border-radius: 0px !important; }");
+    out.push(".hero-media-caption { background: transparent !important; border-top: 1px solid var(--border-strong, rgba(15, 23, 42, 0.16)) !important; border-bottom: 1px solid var(--border-strong, rgba(15, 23, 42, 0.12)) !important; padding: 14px 0 !important; }");
+  }
+
+  // Achse 4: typo
+  if (m.typo === "editorial_serif") {
+    out.push("body { font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif !important; }");
+    out.push("h1, h2, h3, h4, .section-title, .hero-title, .brand-name { font-family: 'Newsreader', Georgia, serif !important; letter-spacing: -0.015em !important; font-weight: 600 !important; }");
+    out.push(".section-kicker, .section-eyebrow, .hero-eyebrow, .kicker, .meta-badge, .nav-link, .btn-cta { font-family: 'Plus Jakarta Sans', sans-serif !important; }");
+  } else if (m.typo === "warm_humanist") {
+    out.push("body { font-family: 'Source Sans 3', 'Plus Jakarta Sans', sans-serif !important; }");
+    out.push("h1, h2, h3, h4, .section-title, .hero-title, .brand-name { font-family: 'Lora', Georgia, serif !important; letter-spacing: -0.01em !important; }");
+    out.push(".section-kicker, .section-eyebrow, .hero-eyebrow, .kicker, .meta-badge, .nav-link, .btn-cta { font-family: 'Source Sans 3', 'Plus Jakarta Sans', sans-serif !important; }");
+  } else if (m.typo === "swiss_geometric") {
+    out.push("body, h1, h2, h3, h4, .section-title, .hero-title, .brand-name, .section-kicker, .nav-link, .btn-cta { font-family: 'Plus Jakarta Sans', -apple-system, sans-serif !important; }");
+    out.push("h1, h2, .section-title, .hero-title { letter-spacing: -0.025em !important; }");
+  } else if (m.typo === "craft_grotesk") {
+    out.push("body { font-family: 'Inter', -apple-system, sans-serif !important; }");
+    out.push("h1, h2, h3, h4, .section-title, .hero-title, .brand-name, .nav-link, .btn-cta { font-family: 'Space Grotesk', 'Plus Jakarta Sans', sans-serif !important; letter-spacing: -0.02em !important; }");
+  }
+
+  return out.join("\n");
+}
+
+function acpSelectStyleArchetype(archKey) {
+  var arch = ACP_STYLE_ARCHETYPES[archKey] || ACP_STYLE_ARCHETYPES.original;
+  acpCurrentDesignState.styleMatrix = {
+    archetype: archKey in ACP_STYLE_ARCHETYPES ? archKey : "original",
+    surface: arch.surface,
+    rhythm: arch.rhythm,
+    heroLayout: arch.heroLayout,
+    typo: arch.typo
+  };
+  acpSyncStyleMatrixUI();
+  var css = acpBuildClientSideColorCss();
+  acpInjectLiveDesignCss(css);
+  acpShowVibeBanner("Handschrift «" + arch.label + "» live im Simulator aktiviert (Markenfarben bleiben unverändert).", false);
+}
+
+function acpSelectStyleMatrixAxis(axis, val) {
+  var m = acpNormalizeStyleMatrix(acpCurrentDesignState.styleMatrix);
+  m[axis] = val;
+  m.archetype = acpDetectArchetypeFromAxes(m);
+  acpCurrentDesignState.styleMatrix = m;
+  acpSyncStyleMatrixUI();
+  var css = acpBuildClientSideColorCss();
+  acpInjectLiveDesignCss(css);
+  acpShowVibeBanner("Stil-Matrix angepasst (" + axis + ": " + val + "). Live im Simulator sichtbar.", false);
+}
+
+function acpTakeDesignVibeSnapshot() {
+  var iframe = document.getElementById("acp-widget-viewport");
+  var doc = iframe ? (iframe.contentDocument || (iframe.contentWindow && iframe.contentWindow.document)) : null;
+  var existingStyle = doc ? doc.getElementById("wp-custom-design-vibe") : null;
+  var editor = document.getElementById("acp-vibe-css-editor");
+  var promptInp = document.getElementById("acp-vibe-prompt-input");
+  acpDesignVibeSnapshot = {
+    state: JSON.parse(JSON.stringify(acpCurrentDesignState)),
+    iframeCss: existingStyle ? existingStyle.textContent : null,
+    hadStyleTag: Boolean(existingStyle),
+    editorValue: editor ? editor.value : "",
+    promptValue: promptInp ? promptInp.value : ""
+  };
+}
+
+function acpRestoreDesignVibeSnapshot() {
+  if (!acpDesignVibeSnapshot) return;
+  var snap = acpDesignVibeSnapshot;
+  acpCurrentDesignState = JSON.parse(JSON.stringify(snap.state));
+  var iframe = document.getElementById("acp-widget-viewport");
+  var doc = iframe ? (iframe.contentDocument || (iframe.contentWindow && iframe.contentWindow.document)) : null;
+  if (doc && doc.head) {
+    var styleEl = doc.getElementById("wp-custom-design-vibe");
+    if (snap.hadStyleTag && snap.iframeCss) {
+      if (!styleEl) {
+        styleEl = doc.createElement("style");
+        styleEl.id = "wp-custom-design-vibe";
+        doc.head.appendChild(styleEl);
+      }
+      styleEl.textContent = snap.iframeCss;
+    } else if (styleEl) {
+      styleEl.remove();
+    }
+    acpApplyStyleMatrixAttributesToDoc(doc, acpCurrentDesignState.styleMatrix);
+  }
+  var editor = document.getElementById("acp-vibe-css-editor");
+  if (editor) editor.value = snap.editorValue || "";
+  var promptInp = document.getElementById("acp-vibe-prompt-input");
+  if (promptInp) promptInp.value = snap.promptValue || "";
+  if (doc && Array.isArray(acpCurrentDesignState.navItems)) {
+    var els = acpGetIframePrimaryNavElements(doc);
+    for (var i = 0; i < acpCurrentDesignState.navItems.length && i < els.length; i++) {
+      var spans = els[i].querySelectorAll("span");
+      var targetNode = spans.length > 0 ? spans[spans.length - 1] : els[i];
+      targetNode.textContent = acpCurrentDesignState.navItems[i].label || "";
+    }
+  }
+  acpSyncColorInputsFromState();
+  acpSyncStyleMatrixUI();
+  acpRenderNavEditorList();
+}
+
 function acpSelectNavStyle(styleKey) {
   acpCurrentDesignState.navStyle = styleKey || "underline";
+  acpCurrentDesignState.navTouched = true;
   var btns = document.querySelectorAll("[data-nav-style]");
   for (var i = 0; i < btns.length; i++) {
     btns[i].classList.toggle("is-active", btns[i].getAttribute("data-nav-style") === acpCurrentDesignState.navStyle);
@@ -4378,16 +4796,23 @@ function acpOpenDesignVibeModal() {
   if (acpIsLightMode()) return;
   var modal = document.getElementById("designVibeModal");
   if (!modal) return;
+  var banner = document.getElementById("acp-vibe-status-banner");
+  if (banner) banner.style.display = "none";
   acpReadCurrentColorsFromIframe();
   acpReadCurrentNavFromIframe();
+  acpSyncStyleMatrixUI();
+  acpTakeDesignVibeSnapshot();
   modal.classList.add("is-open");
   modal.style.display = "flex";
   acpUpdateBodyModalClass();
 }
 
-function acpCloseDesignVibeModal() {
+function acpCloseDesignVibeModal(skipRollback) {
   var modal = document.getElementById("designVibeModal");
   if (!modal) return;
+  if (!skipRollback) {
+    acpRestoreDesignVibeSnapshot();
+  }
   modal.classList.remove("is-open");
   modal.style.display = "none";
   acpUpdateBodyModalClass();
@@ -4395,70 +4820,101 @@ function acpCloseDesignVibeModal() {
 
 function acpBuildClientSideColorCss() {
   var c = acpCurrentDesignState.colors;
-  var applyHeroBg = (!acpCurrentDesignState.hasHeroBgImage || acpCurrentDesignState.heroBgTouched);
-  var heroBgRule = "";
-  if (applyHeroBg) {
-    heroBgRule = acpCurrentDesignState.heroGradient
-      ? "background: " + acpCurrentDesignState.heroGradient + " !important; background-color: " + c.heroBg + " !important; "
-      : "background: " + c.heroBg + " !important; background-color: " + c.heroBg + " !important; ";
+  var m = acpNormalizeStyleMatrix(acpCurrentDesignState.styleMatrix);
+  var hasMatrix = acpIsStyleMatrixActive(m);
+  var includeColors = Boolean(acpCurrentDesignState.colorsTouched);
+  var includeNav = Boolean(acpCurrentDesignState.colorsTouched || acpCurrentDesignState.navTouched);
+  var hasVibe = Boolean(acpCurrentDesignState.vibeCssBlock && acpCurrentDesignState.vibeCssBlock.trim());
+
+  if (!hasMatrix && !includeColors && !includeNav && !hasVibe) {
+    return "";
   }
 
-  var lines = [
-    "/* === 1. FARBTABELLE (HEX & COLOR-PICKER) === */",
-    ":root {",
-    "  --primary: " + c.primary + " !important;",
-    "  --rot: " + c.primary + " !important;",
-    "  --rot-dunkel: " + c.primary + " !important;",
-    "  --accent: " + c.primary + " !important;",
-    "  --brand: " + c.primary + " !important;",
-    "  --gold: " + c.primary + " !important;",
-    "  --gold-dark: " + c.primary + " !important;",
-    "  --crimson: " + c.primary + " !important;",
-    "  --crimson-bright: " + c.primary + " !important;",
-    "  --pink: " + c.primary + " !important;",
-    "  --pink-hover: " + c.primary + " !important;",
-    "  --bg-page: " + c.bodyBg + " !important;",
-    "  --holz-hell: " + c.bodyBg + " !important;",
-    "  --bg-Warm: " + c.cardBg + " !important;",
-    "  --bg-alt: " + c.cardBg + " !important;",
-    "}",
-    "body { background-color: " + c.bodyBg + " !important; }",
-    ".btn-cta-gold, .btn-cta-primary, .btn-primary, .btn-haupt, .nav-cta, .sticky-cta a, .form-submit { background-color: " + c.primary + " !important; border-color: " + c.primary + " !important; color: #ffffff !important; }",
-    ".section-kicker, .section-eyebrow, .hero-eyebrow, .kicker, .hero-title span, .hero-badge-val, .sektion-label, .hero h1 em, .hero h1 span { color: " + c.primary + " !important; }",
-    ".hero-tag { background-color: " + c.primary + " !important; color: #ffffff !important; }",
-    "",
-    ".hero-badge-card, .contact-direct-item { border-left-color: " + c.primary + " !important; }",
-    ".hero-section, .hero, .page-hero, .hero-wrap, [data-section='hero'] { " + heroBgRule + "color: " + c.heroText + " !important; }",
-    ".hero-section h1, .hero-section .hero-title, .hero-section .hero-lead, .page-hero h1, .page-hero p, .hero-trust-item, .hero-badge-lbl, .hero h1, .hero .hero-sub, .hero p, .hero-wrap h1 { color: " + c.heroText + " !important; }",
-    ".hero-media-caption, .hero-quickbar { background-color: " + c.heroBg + " !important; color: " + c.heroText + " !important; }",
-    ".hero-media-caption * { color: " + c.heroText + " !important; }",
-    ".content-card, .pillar-card, .testimonial-card, .card, .vorteil-karte, .stimme-karte, .bento-card, .grund { background-color: " + c.cardBg + " !important; }",
-    ".site-footer, footer { background-color: " + c.footerBg + " !important; color: " + c.footerText + " !important; }",
-    ".site-footer .footer-title, .site-footer a, .site-footer p, .site-footer .footer-bottom, .site-footer div, footer p, footer a { color: " + c.footerText + " !important; }"
-  ];
-  lines.push("");
-  lines.push(acpBuildNavStyleCss(acpCurrentDesignState.navStyle || "underline", c.primary));
-  if (acpCurrentDesignState.vibeCssBlock) {
+  var lines = [];
+  if (hasMatrix || (m.archetype && m.archetype !== "original")) {
+    lines.push("/* WP_STYLE_MATRIX:" + JSON.stringify(m) + " */");
+    var fontImp = acpGetStyleFontImportCss(m.typo);
+    if (fontImp) lines.push(fontImp);
+  }
+
+  if (includeColors) {
+    var applyHeroBg = (!acpCurrentDesignState.hasHeroBgImage || acpCurrentDesignState.heroBgTouched);
+    var heroBgRule = "";
+    if (applyHeroBg) {
+      heroBgRule = acpCurrentDesignState.heroGradient
+        ? "background: " + acpCurrentDesignState.heroGradient + " !important; background-color: " + c.heroBg + " !important; "
+        : "background: " + c.heroBg + " !important; background-color: " + c.heroBg + " !important; ";
+    }
+    lines.push("/* === 1. FARBTABELLE (HEX & COLOR-PICKER) === */");
+    lines.push(":root {");
+    lines.push("  --primary: " + c.primary + " !important;");
+    lines.push("  --rot: " + c.primary + " !important;");
+    lines.push("  --rot-dunkel: " + c.primary + " !important;");
+    lines.push("  --accent: " + c.primary + " !important;");
+    lines.push("  --brand: " + c.primary + " !important;");
+    lines.push("  --gold: " + c.primary + " !important;");
+    lines.push("  --gold-dark: " + c.primary + " !important;");
+    lines.push("  --crimson: " + c.primary + " !important;");
+    lines.push("  --crimson-bright: " + c.primary + " !important;");
+    lines.push("  --pink: " + c.primary + " !important;");
+    lines.push("  --pink-hover: " + c.primary + " !important;");
+    lines.push("  --bg-page: " + c.bodyBg + " !important;");
+    lines.push("  --holz-hell: " + c.bodyBg + " !important;");
+    lines.push("  --bg-Warm: " + c.cardBg + " !important;");
+    lines.push("  --bg-alt: " + c.cardBg + " !important;");
+    lines.push("}");
+    lines.push("body { background-color: " + c.bodyBg + " !important; }");
+    lines.push(".btn-cta-gold, .btn-cta-primary, .btn-primary, .btn-haupt, .nav-cta, .sticky-cta a, .form-submit { background-color: " + c.primary + " !important; border-color: " + c.primary + " !important; color: #ffffff !important; }");
+    lines.push(".section-kicker, .section-eyebrow, .hero-eyebrow, .kicker, .hero-title span, .hero-badge-val, .sektion-label, .hero h1 em, .hero h1 span { color: " + c.primary + " !important; }");
+    lines.push(".hero-tag { background-color: " + c.primary + " !important; color: #ffffff !important; }");
+    lines.push("");
+    lines.push(".hero-badge-card, .contact-direct-item { border-left-color: " + c.primary + " !important; }");
+    lines.push(".hero-section, .hero, .page-hero, .hero-wrap, [data-section='hero'] { " + heroBgRule + "color: " + c.heroText + " !important; }");
+    lines.push(".hero-section h1, .hero-section .hero-title, .hero-section .hero-lead, .page-hero h1, .page-hero p, .hero-trust-item, .hero-badge-lbl, .hero h1, .hero .hero-sub, .hero p, .hero-wrap h1 { color: " + c.heroText + " !important; }");
+    lines.push(".hero-media-caption, .hero-quickbar { background-color: " + c.heroBg + " !important; color: " + c.heroText + " !important; }");
+    lines.push(".hero-media-caption * { color: " + c.heroText + " !important; }");
+    lines.push(".content-card, .pillar-card, .testimonial-card, .card, .vorteil-karte, .stimme-karte, .bento-card, .grund { background-color: " + c.cardBg + " !important; }");
+    lines.push(".site-footer, footer { background-color: " + c.footerBg + " !important; color: " + c.footerText + " !important; }");
+    lines.push(".site-footer .footer-title, .site-footer a, .site-footer p, .site-footer .footer-bottom, .site-footer div, footer p, footer a { color: " + c.footerText + " !important; }");
+  }
+
+  if (includeNav) {
+    lines.push("");
+    lines.push(acpBuildNavStyleCss(acpCurrentDesignState.navStyle || "underline", c.primary));
+  }
+
+  if (hasMatrix) {
+    lines.push("");
+    lines.push(acpBuildStyleMatrixCss(m));
+  }
+
+  if (hasVibe) {
     lines.push("");
     lines.push(acpCurrentDesignState.vibeCssBlock);
   }
-  return lines.join("\n");
+  return lines.join("\n").trim();
 }
 
 function acpInjectLiveDesignCss(cssString) {
   var iframe = document.getElementById("acp-widget-viewport");
   var doc = iframe ? (iframe.contentDocument || (iframe.contentWindow && iframe.contentWindow.document)) : null;
+  var cleanCss = (cssString || "").trim();
   if (doc && doc.head) {
     var styleEl = doc.getElementById("wp-custom-design-vibe");
-    if (!styleEl) {
-      styleEl = doc.createElement("style");
-      styleEl.id = "wp-custom-design-vibe";
-      doc.head.appendChild(styleEl);
+    if (cleanCss) {
+      if (!styleEl) {
+        styleEl = doc.createElement("style");
+        styleEl.id = "wp-custom-design-vibe";
+        doc.head.appendChild(styleEl);
+      }
+      styleEl.textContent = cleanCss;
+    } else if (styleEl) {
+      styleEl.remove();
     }
-    styleEl.textContent = cssString || "";
+    acpApplyStyleMatrixAttributesToDoc(doc, acpCurrentDesignState.styleMatrix);
   }
   var editor = document.getElementById("acp-vibe-css-editor");
-  if (editor) editor.value = cssString || "";
+  if (editor) editor.value = cleanCss;
   if (typeof acpScanAndRenderSections === "function") {
     var secModal = document.getElementById("acp-sections-modal");
     if (secModal && secModal.classList.contains("is-open")) {
@@ -4469,6 +4925,7 @@ function acpInjectLiveDesignCss(cssString) {
 
 function acpOnColorInput(key, val) {
   if (!val) return;
+  acpCurrentDesignState.colorsTouched = true;
   acpCurrentDesignState.colors[key] = val.toLowerCase();
   if (key === "heroBg") {
     acpCurrentDesignState.heroGradient = "";
@@ -4485,6 +4942,7 @@ function acpOnHexInput(key, val) {
   var clean = val.trim().toLowerCase();
   if (clean && clean[0] !== "#") clean = "#" + clean;
   if (/^#[0-9a-f]{6}$/.test(clean)) {
+    acpCurrentDesignState.colorsTouched = true;
     acpCurrentDesignState.colors[key] = clean;
     if (key === "heroBg") {
       acpCurrentDesignState.heroGradient = "";
@@ -4498,6 +4956,7 @@ function acpOnHexInput(key, val) {
 }
 
 function acpSwitchHeroBrightness(mode) {
+  acpCurrentDesignState.colorsTouched = true;
   acpCurrentDesignState.heroBgTouched = true;
   var btnLight = document.getElementById("acp-btn-hero-light");
   var btnDark = document.getElementById("acp-btn-hero-dark");
@@ -4524,6 +4983,7 @@ function acpSwitchHeroBrightness(mode) {
 function acpApplyDesignPreset(presetKey) {
   var preset = ACP_DESIGN_PRESETS[presetKey];
   if (!preset) return;
+  acpCurrentDesignState.colorsTouched = true;
   acpCurrentDesignState.heroBgTouched = true;
   acpCurrentDesignState.preset = preset.label;
   acpCurrentDesignState.heroGradient = preset.heroGradient || "";
@@ -4607,6 +5067,9 @@ function acpResetDesignVibe() {
   acpCurrentDesignState.heroGradient = "";
   acpCurrentDesignState.preset = "";
   acpCurrentDesignState.heroBgTouched = false;
+  acpCurrentDesignState.colorsTouched = false;
+  acpCurrentDesignState.navTouched = false;
+  acpCurrentDesignState.styleMatrix = acpDefaultStyleMatrix();
   var inp = document.getElementById("acp-vibe-prompt-input");
   if (inp) inp.value = "";
   var editor = document.getElementById("acp-vibe-css-editor");
@@ -4617,9 +5080,11 @@ function acpResetDesignVibe() {
   if (doc) {
     var existing = doc.getElementById("wp-custom-design-vibe");
     if (existing) existing.remove();
+    acpApplyStyleMatrixAttributesToDoc(doc, acpCurrentDesignState.styleMatrix);
   }
   acpReadCurrentColorsFromIframe();
-  acpShowVibeBanner("Alle temporären Design- & Farb-Änderungen im Simulator zurückgesetzt.", false);
+  acpSyncStyleMatrixUI();
+  acpShowVibeBanner("Alle temporären Design-, Stil-Matrix- & Farb-Änderungen im Simulator zurückgesetzt.", false);
 }
 
 function acpSaveDesignVibe() {
@@ -4648,12 +5113,14 @@ function acpSaveDesignVibe() {
       preset: acpCurrentDesignState.preset,
       vibe_prompt: vibePrompt,
       nav_style: acpCurrentDesignState.navStyle || "underline",
-      nav_items: acpCurrentDesignState.navItems || []
+      nav_items: acpCurrentDesignState.navItems || [],
+      style_matrix: acpCurrentDesignState.styleMatrix || acpDefaultStyleMatrix()
     })
   })
     .then(function(res) { return res.json(); })
     .then(function(data) {
       if (data && data.ok) {
+        acpTakeDesignVibeSnapshot();
         acpShowVibeBanner(data.message || "Design & Farben dauerhaft auf allen Seiten gespeichert!", false);
         if (typeof acpLog === "function") {
           acpLog("success", "Design & Farben dauerhaft gespeichert", "Aktualisierte Seiten: " + (data.updated_count || 0));
