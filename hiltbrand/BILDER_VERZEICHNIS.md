@@ -4,8 +4,8 @@
 > **Angefordert von (Partner):** David Hügli (Magnet XS · Referenz) · **Eingereicht am:** 29.09.2026 · 15:31 Uhr  
 > **Lokaler Ordner (VPS & Git):** `hiltbrand/`  
 > **Cloudflare-Basis-URL:** [embed.magnet-xs.ch/hiltbrand/](https://embed.magnet-xs.ch/hiltbrand/)  
-> **Bestand:** **40 Assets** (7.82 MB gesamt) · **🟢 16 aktiv im HTML** · **⚪ 24 frei im Bild-Pool** · **Externe Hotlinks: 0**  
-> **Letzte Aktualisierung:** 15.11.2026 16:17 Uhr (automatisch generiert via `webpilot_asset_catalog.py`)
+> **Bestand:** **27 Assets** (7.62 MB gesamt) · **🟢 6 aktiv im HTML** · **⚪ 21 frei im Bild-Pool** · **Externe Hotlinks: 0**  
+> **Letzte Aktualisierung:** 17.11.2026 17:45 Uhr (automatisch generiert via `webpilot_asset_catalog.py`)
 
 ---
 
@@ -40,19 +40,6 @@
 | 25 | `images/stefan.jpg` | Team, Porträt & Kader (`team`) | 1400×1337 px · 204.2 KB (JPG) | 🟢 Aktiv in `Hiltbrand_Dachdecker.html` | Stefan Dachdecker | [embed.magnet-xs.ch/hiltbrand/images/stefan.jpg](https://embed.magnet-xs.ch/hiltbrand/images/stefan.jpg) |
 | 26 | `images/team_alt.jpg` | Team, Porträt & Kader (`team`) | 1400×933 px · 259.8 KB (JPG) | 🟢 Aktiv in `Hiltbrand_Dachdecker.html` | Hiltbrand Gebäudehüllen AG (Krattigen BE) – Team & Ansprechpartner: Alt | [embed.magnet-xs.ch/hiltbrand/images/team_alt.jpg](https://embed.magnet-xs.ch/hiltbrand/images/team_alt.jpg) |
 | 27 | `images/vorstellung.jpg` | Referenz, Projekt & Angebot (`ref`) | 1400×933 px · 160.7 KB (JPG) | 🟢 Aktiv in `Hiltbrand_Dachdecker.html` | Hiltbrand Gebäudehüllen AG (Krattigen BE) – Einblick & Referenz: Vorstellung | [embed.magnet-xs.ch/hiltbrand/images/vorstellung.jpg](https://embed.magnet-xs.ch/hiltbrand/images/vorstellung.jpg) |
-| 28 | `images/zurbuchen/alain.jpg` | Team, Porträt & Kader (`team`) | 320×320 px · 10.5 KB (JPG) | 🟢 Aktiv in `Zurbuchen_Holzbauer_November.html`, `zurbuchen_Holzbauer.html` | Alain Gasser | [embed.magnet-xs.ch/hiltbrand/images/zurbuchen/alain.jpg](https://embed.magnet-xs.ch/hiltbrand/images/zurbuchen/alain.jpg) |
-| 29 | `images/zurbuchen/beat.jpg` | Team, Porträt & Kader (`team`) | 320×320 px · 10.2 KB (JPG) | 🟢 Aktiv in `Zurbuchen_Holzbauer_November.html`, `zurbuchen_Holzbauer.html` | Beat Fuhrer | [embed.magnet-xs.ch/hiltbrand/images/zurbuchen/beat.jpg](https://embed.magnet-xs.ch/hiltbrand/images/zurbuchen/beat.jpg) |
-| 30 | `images/zurbuchen/cta_bg.jpg` | Startbühne & Header (`hero`) | 300×300 px · 14.5 KB (JPG) | 🟢 Aktiv in `Zurbuchen_Holzbauer_November.html`, `zurbuchen_Holzbauer.html` | Hiltbrand Gebäudehüllen AG (Krattigen BE) – Startbühne & Hauptansicht: Cta Bg | [embed.magnet-xs.ch/hiltbrand/images/zurbuchen/cta_bg.jpg](https://embed.magnet-xs.ch/hiltbrand/images/zurbuchen/cta_bg.jpg) |
-| 31 | `images/zurbuchen/hero.jpg` | Startbühne & Header (`hero`) | 300×300 px · 23.8 KB (JPG) | 🟢 Aktiv in `Zurbuchen_Holzbauer_November.html`, `zurbuchen_Holzbauer.html` | Hiltbrand Gebäudehüllen AG (Krattigen BE) – Startbühne & Hauptansicht: Hero | [embed.magnet-xs.ch/hiltbrand/images/zurbuchen/hero.jpg](https://embed.magnet-xs.ch/hiltbrand/images/zurbuchen/hero.jpg) |
-| 32 | `images/zurbuchen/jonas.jpg` | Team, Porträt & Kader (`team`) | 320×320 px · 16.4 KB (JPG) | 🟢 Aktiv in `Zurbuchen_Holzbauer_November.html`, `zurbuchen_Holzbauer.html` | Jonas Zurbrügg | [embed.magnet-xs.ch/hiltbrand/images/zurbuchen/jonas.jpg](https://embed.magnet-xs.ch/hiltbrand/images/zurbuchen/jonas.jpg) |
-| 33 | `images/zurbuchen/levin.jpg` | Team, Porträt & Kader (`team`) | 320×320 px · 36.1 KB (JPG) | 🟢 Aktiv in `Zurbuchen_Holzbauer_November.html`, `zurbuchen_Holzbauer.html` | Levin Gadient | [embed.magnet-xs.ch/hiltbrand/images/zurbuchen/levin.jpg](https://embed.magnet-xs.ch/hiltbrand/images/zurbuchen/levin.jpg) |
-| 34 | `images/zurbuchen/logo-negativ.png` | Logo & Marken-Icon (`logo`) | 240×113 px · 3.7 KB (PNG) | ⚪ Frei im Pool | Zurbuchen Holzbau AG | [embed.magnet-xs.ch/hiltbrand/images/zurbuchen/logo-negativ.png](https://embed.magnet-xs.ch/hiltbrand/images/zurbuchen/logo-negativ.png) |
-| 35 | `images/zurbuchen/logo.png` | Logo & Marken-Icon (`logo`) | 240×113 px · 4.1 KB (PNG) | 🟢 Aktiv in `Zurbuchen_Holzbauer_November.html`, `zurbuchen_Holzbauer.html` | Zurbuchen Holzbau AG | [embed.magnet-xs.ch/hiltbrand/images/zurbuchen/logo.png](https://embed.magnet-xs.ch/hiltbrand/images/zurbuchen/logo.png) |
-| 36 | `images/zurbuchen/markus.jpg` | Team, Porträt & Kader (`team`) | 320×320 px · 37.4 KB (JPG) | 🟢 Aktiv in `Zurbuchen_Holzbauer_November.html`, `zurbuchen_Holzbauer.html` | Markus Zurbuchen | [embed.magnet-xs.ch/hiltbrand/images/zurbuchen/markus.jpg](https://embed.magnet-xs.ch/hiltbrand/images/zurbuchen/markus.jpg) |
-| 37 | `images/zurbuchen/michael.jpg` | Team, Porträt & Kader (`team`) | 320×320 px · 11.2 KB (JPG) | ⚪ Frei im Pool | Hiltbrand Gebäudehüllen AG (Krattigen BE) – Team & Ansprechpartner: Michael | [embed.magnet-xs.ch/hiltbrand/images/zurbuchen/michael.jpg](https://embed.magnet-xs.ch/hiltbrand/images/zurbuchen/michael.jpg) |
-| 38 | `images/zurbuchen/samuel.jpg` | Team, Porträt & Kader (`team`) | 320×320 px · 8.2 KB (JPG) | 🟢 Aktiv in `Zurbuchen_Holzbauer_November.html`, `zurbuchen_Holzbauer.html` | Samuel Siegenthaler | [embed.magnet-xs.ch/hiltbrand/images/zurbuchen/samuel.jpg](https://embed.magnet-xs.ch/hiltbrand/images/zurbuchen/samuel.jpg) |
-| 39 | `images/zurbuchen/simon.jpg` | Team, Porträt & Kader (`team`) | 320×321 px · 6.8 KB (JPG) | ⚪ Frei im Pool | Hiltbrand Gebäudehüllen AG (Krattigen BE) – Team & Ansprechpartner: Simon | [embed.magnet-xs.ch/hiltbrand/images/zurbuchen/simon.jpg](https://embed.magnet-xs.ch/hiltbrand/images/zurbuchen/simon.jpg) |
-| 40 | `images/zurbuchen/stephanie.jpg` | Team, Porträt & Kader (`team`) | 320×320 px · 29.5 KB (JPG) | 🟢 Aktiv in `Zurbuchen_Holzbauer_November.html`, `zurbuchen_Holzbauer.html` | Stephanie Zurbuchen | [embed.magnet-xs.ch/hiltbrand/images/zurbuchen/stephanie.jpg](https://embed.magnet-xs.ch/hiltbrand/images/zurbuchen/stephanie.jpg) |
 
 ---
 

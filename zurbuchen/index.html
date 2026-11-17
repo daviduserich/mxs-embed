@@ -63,7 +63,8 @@ header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,0.96);backdr
 .hero p{max-width:680px;margin:0 auto 28px;font-size:19px;opacity:.95;line-height:1.5}
 .hero-cta{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-bottom:26px}
 .trust{display:flex;gap:10px 22px;justify-content:center;flex-wrap:wrap;font-size:14.5px;font-weight:600;opacity:.92}
-.trust span::before{content:"✓ ";color:var(--holz);font-weight:900}
+.trust span{display:inline-flex;align-items:center;gap:6px}
+.trust span::before{content:"";width:15px;height:15px;flex-shrink:0;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23BC9B81' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'/%3E%3C/svg%3E") center/contain no-repeat}
 
 /* Das Doppelmeter-Massband */
 .massband{background:var(--holz);height:10px;background-image:repeating-linear-gradient(90deg,transparent 0 78px,var(--anthrazit) 78px 80px)}
@@ -79,7 +80,7 @@ h2{font-size:clamp(26px,3.8vw,40px);font-weight:800;font-stretch:88%;line-height
 .gruende{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px;margin-top:40px}
 .grund{background:var(--holz-hell);border-radius:var(--radius);padding:28px 24px;border-top:4px solid var(--rot);box-shadow:var(--shadow)}
 .grund .zahl{font-family:"Archivo",sans-serif;font-weight:900;font-size:36px;color:var(--rot);line-height:1;margin-bottom:8px}
-.grund h3{font-size:18.5px;margin-bottom:8px;font-weight:700}
+.grund h3{font-size:18.5px;line-height:1.3;margin-bottom:8px;font-weight:700;min-height:2.65em}
 .grund p{color:var(--grau);font-size:15.5px;line-height:1.55}
 
 /* Ehrlich-Box: Was du NICHT bekommst vs. Was du stattdessen bekommst */
@@ -90,15 +91,15 @@ h2{font-size:clamp(26px,3.8vw,40px);font-weight:800;font-stretch:88%;line-height
 .ehrlich-card h3{font-size:20px;font-weight:800;margin-bottom:16px;display:flex;align-items:center;gap:10px}
 .ehrlich-card ul{list-style:none}
 .ehrlich-card li{padding:8px 0;position:relative;padding-left:28px;font-size:15.5px;line-height:1.5}
-.ehrlich-card.rot-card li::before{content:"✕";position:absolute;left:0;color:#646E78;font-weight:900;font-size:16px}
-.ehrlich-card.gruen-card li::before{content:"✓";position:absolute;left:0;color:#8C6747;font-weight:900;font-size:16px}
+.ehrlich-card.rot-card li::before{content:"";position:absolute;left:0;top:12px;width:16px;height:16px;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23646E78' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cline x1='18' y1='6' x2='6' y2='18'/%3E%3Cline x1='6' y1='6' x2='18' y2='18'/%3E%3C/svg%3E") center/contain no-repeat}
+.ehrlich-card.gruen-card li::before{content:"";position:absolute;left:0;top:12px;width:16px;height:16px;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%238C6747' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'/%3E%3C/svg%3E") center/contain no-repeat}
 .durchgestrichen{text-decoration:line-through;opacity:.7;color:var(--grau)}
 
 /* Team */
 .team-strip{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:16px;margin-top:36px}
 @media(min-width:960px){.team-strip{grid-template-columns:repeat(7,1fr);gap:14px}}
 .kollege{text-align:center;background:white;padding:16px 12px;border-radius:var(--radius);border:1px solid var(--linie)}
-.kollege img{width:100%;aspect-ratio:1/1;object-fit:cover;border-radius:6px;margin-bottom:10px}
+.kollege img{width:100%;aspect-ratio:1/1;object-fit:cover;border-radius:4px;margin-bottom:10px}
 .kollege strong{display:block;font-size:15px;color:var(--anthrazit)}
 .kollege span{color:var(--grau);font-size:13px}
 
@@ -111,7 +112,7 @@ h2{font-size:clamp(26px,3.8vw,40px);font-weight:800;font-stretch:88%;line-height
 .badge{background:var(--rot);color:#fff;font-weight:800;padding:8px 16px;border-radius:4px;letter-spacing:.05em;font-size:13.5px;text-transform:uppercase}
 .inserat-body{padding:40px}
 .fakten{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:32px}
-.fakt{border:1px solid var(--linie);border-radius:99px;padding:7px 16px;font-weight:600;font-size:14px;background:var(--holz-hell)}
+.fakt{display:inline-flex;align-items:center;gap:7px;border:1px solid var(--linie);border-radius:4px;padding:7px 14px;font-weight:600;font-size:14px;background:var(--holz-hell)}
 .spalten{display:grid;grid-template-columns:1fr 1fr;gap:36px}
 .spalten h4{font-size:17px;font-weight:800;text-transform:uppercase;letter-spacing:.08em;color:var(--rot);margin-bottom:14px;padding-bottom:8px;border-bottom:2px solid var(--linie)}
 .spalten ul{list-style:none}
@@ -121,7 +122,7 @@ h2{font-size:clamp(26px,3.8vw,40px);font-weight:800;font-stretch:88%;line-height
 .bieten h4{font-size:17px;font-weight:800;text-transform:uppercase;letter-spacing:.08em;margin-bottom:16px}
 .bieten-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:10px 24px;list-style:none}
 .bieten-grid li{padding:5px 0 5px 26px;position:relative;font-weight:600;font-size:15px}
-.bieten-grid li::before{content:"✓";position:absolute;left:0;color:var(--rot);font-weight:900}
+.bieten-grid li::before{content:"";position:absolute;left:0;top:9px;width:16px;height:16px;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%238C6747' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'/%3E%3C/svg%3E") center/contain no-repeat}
 
 /* Blitzbewerbung */
 .blitz{background:var(--anthrazit);color:#fff}
@@ -135,8 +136,8 @@ h2{font-size:clamp(26px,3.8vw,40px);font-weight:800;font-stretch:88%;line-height
 .feld input,.feld select{width:100%;padding:13px 16px;border:1.5px solid var(--linie);border-radius:var(--radius);font-family:"Source Sans 3",sans-serif;font-size:16px;background:#fff;color:var(--anthrazit)}
 .feld input:focus,.feld select:focus{outline:2px solid var(--rot);outline-offset:1px;border-color:var(--rot)}
 .blitz-buttons{display:flex;gap:12px;flex-wrap:wrap;margin-top:22px}
-.klein{font-size:13.5px;color:var(--grau);margin-top:14px}
-.klein::before{content:"🔒 "}
+.klein{font-size:13.5px;color:var(--grau);margin-top:14px;display:flex;align-items:center;gap:7px}
+.klein::before{content:"";width:14px;height:14px;flex-shrink:0;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%235A6270' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='3' y='11' width='18' height='11' rx='2' ry='2'/%3E%3Cpath d='M7 11V7a5 5 0 0 1 10 0v4'/%3E%3C/svg%3E") center/contain no-repeat}
 
 .wa-direkt-box {
   margin-top: 26px;
@@ -177,7 +178,7 @@ h2{font-size:clamp(26px,3.8vw,40px);font-weight:800;font-stretch:88%;line-height
 .cta-band h2{color:#fff}
 .cta-band p{max-width:620px;margin:0 auto 26px;font-size:18.5px;opacity:.95}
 .kontakt-karte{margin:30px auto 0;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.25);border-radius:var(--radius);padding:24px 30px;max-width:500px;font-size:16px}
-.kontakt-karte a{color:#fff;text-decoration:underline;text-underline-offset:3px}
+.kontakt-karte a{color:#fff;text-decoration:underline;text-underline-offset:3px;display:inline-flex;align-items:center;min-height:36px;padding:4px 2px}
 
 /* Footer */
 footer{background:var(--anthrazit);color:#D5DAE2;padding:48px 20px 90px;font-size:14.5px}
@@ -191,7 +192,7 @@ footer{background:var(--anthrazit);color:#D5DAE2;padding:48px 20px 90px;font-siz
 
 /* Sticky Mobile-CTA */
 .sticky-cta{position:fixed;bottom:0;left:0;right:0;z-index:60;display:none;box-shadow:0 -4px 16px rgba(0,0,0,.18)}
-.sticky-cta a{flex:1;text-align:center;padding:15px 10px;font-weight:800;font-size:15px;color:#fff}
+.sticky-cta a{flex:1;display:inline-flex;align-items:center;justify-content:center;gap:7px;text-align:center;padding:15px 10px;font-weight:800;font-size:15px;color:#fff}
 .sticky-cta .s-wa{background:var(--gruen)}
 .sticky-cta .s-tel{background:var(--rot)}
 
@@ -476,10 +477,10 @@ body.acp-swap-mode-active .kollege span {
       </div>
       <div class="inserat-body">
         <div class="fakten" data-slot="stelle_fakten">
-          <span class="fakt">📍 Krattigstrasse 133, 3700 Spiez</span>
-          <span class="fakt">🕓 80–100% (du entscheidest)</span>
-          <span class="fakt">💰 Überdurchschnittlicher Lohn nach Erfahrung</span>
-          <span class="fakt">🏠 Baustellen in der Region – abends daheim</span>
+          <span class="fakt"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg> Krattigstrasse 133, 3700 Spiez</span>
+          <span class="fakt"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 80–100% (du entscheidest)</span>
+          <span class="fakt"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M19 7V4a1 1 0 0 0-1-1H5a2 2 0 0 0 0 4h15a1 1 0 0 1 1 1v4h-3a2 2 0 0 0 0 4h3a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1"/><path d="M3 5v14a2 2 0 0 0 2 2h15a1 1 0 0 0 1-1v-4"/></svg> Überdurchschnittlicher Lohn nach Erfahrung</span>
+          <span class="fakt"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg> Baustellen in der Region – abends daheim</span>
         </div>
 
         <div class="spalten">
@@ -562,16 +563,16 @@ body.acp-swap-mode-active .kollege span {
         </select>
       </div>
       <div class="blitz-buttons">
-        <button class="btn wa" onclick="sendeWA()" data-slot="blitz_btn_wa">💬 Rückruf-Wunsch per WhatsApp senden</button>
-        <button class="btn" onclick="sendeMail()" data-slot="blitz_btn_mail">✉️ Rückruf-Wunsch per E-Mail senden</button>
+        <button class="btn wa" onclick="sendeWA()" data-slot="blitz_btn_wa"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg> Rückruf-Wunsch per WhatsApp senden</button>
+        <button class="btn" onclick="sendeMail()" data-slot="blitz_btn_mail"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg> Rückruf-Wunsch per E-Mail senden</button>
       </div>
 
       <div class="wa-direkt-box" data-slot="blitz_wa_direkt">
         <h4>Noch einfacher: Direkt anrufen oder WhatsApp schicken</h4>
         <p>Schreib Markus Zurbuchen direkt einen kurzen Satz auf WhatsApp oder ruf ihn auf dem Natel an:</p>
         <div class="wa-direkt-actions">
-          <a class="btn wa" href="https://wa.me/41793545457?text=Hoi%20Markus%2C%20ich%20bin%20Zimmermann%20und%20habe%20eure%20Seite%20gesehen.%20Lass%20uns%20mal%20unverbindlich%20kurz%20telefonieren." data-required="whatsapp-cta" data-slot="blitz_wa_direkt_btn" target="_blank" rel="noopener noreferrer">💬 Direkt auf WhatsApp schreiben</a>
-          <a class="btn" style="background:var(--rot)" href="tel:+41793545457" data-slot="blitz_tel_direkt_btn" target="_top">📞 079 354 54 57 – Markus Zurbuchen direkt</a>
+          <a class="btn wa" href="https://wa.me/41793545457?text=Hoi%20Markus%2C%20ich%20bin%20Zimmermann%20und%20habe%20eure%20Seite%20gesehen.%20Lass%20uns%20mal%20unverbindlich%20kurz%20telefonieren." data-required="whatsapp-cta" data-slot="blitz_wa_direkt_btn" target="_blank" rel="noopener noreferrer"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg> Direkt auf WhatsApp schreiben</a>
+          <a class="btn" style="background:var(--rot)" href="tel:+41793545457" data-slot="blitz_tel_direkt_btn" target="_top"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg> 079 354 54 57 – Markus Zurbuchen direkt</a>
         </div>
       </div>
 
@@ -626,8 +627,8 @@ body.acp-swap-mode-active .kollege span {
     <a class="btn gross hell" href="#blitz" data-slot="cta_btn">Jetzt unverbindlich mit Markus sprechen</a>
     <div class="kontakt-karte" data-slot="cta_kontakt">
       <strong>Markus Zurbuchen</strong> · Geschäftsführer &amp; Zimmermann<br>
-      📞 Direkt / WhatsApp: <a href="tel:+41793545457" target="_top">079 354 54 57</a><br>
-      ☎️ Büro Spiez: <a href="tel:+41336543720" target="_top">033 654 37 20</a><br>
+      Direkt / WhatsApp: <a href="tel:+41793545457" target="_top">079 354 54 57</a><br>
+      Büro Spiez: <a href="tel:+41336543720" target="_top">033 654 37 20</a><br>
       <a href="mailto:markus@zurbuchen-holzbau.ch" target="_top">markus@zurbuchen-holzbau.ch</a><br>
       Zurbuchen Holzbau AG · Krattigstrasse 133 · 3700 Spiez
     </div>
@@ -636,8 +637,8 @@ body.acp-swap-mode-active .kollege span {
 
 <!-- STICKY MOBILE CTA -->
 <div class="sticky-cta" role="navigation" aria-label="Direktkontakt">
-  <a class="s-wa" href="https://wa.me/41793545457?text=Hoi%20Markus%2C%20ich%20bin%20Zimmermann%20und%20habe%20eure%20Seite%20gesehen.%20Lass%20uns%20mal%20unverbindlich%20kurz%20telefonieren." data-required="whatsapp-cta" target="_blank" rel="noopener noreferrer">💬 WhatsApp an Markus</a>
-  <a class="s-tel" href="tel:+41793545457" target="_top">📞 Direkt anrufen</a>
+  <a class="s-wa" href="https://wa.me/41793545457?text=Hoi%20Markus%2C%20ich%20bin%20Zimmermann%20und%20habe%20eure%20Seite%20gesehen.%20Lass%20uns%20mal%20unverbindlich%20kurz%20telefonieren." data-required="whatsapp-cta" target="_blank" rel="noopener noreferrer"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg> WhatsApp an Markus</a>
+  <a class="s-tel" href="tel:+41793545457" target="_top"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg> Direkt anrufen</a>
 </div>
 
 <script>

@@ -95,11 +95,13 @@ PUBLIC_CLOUDFLARE_SLUG_MAP = {
     "preview-hiltbrand": ("vorschau.magnet-xs.ch", "hiltbrand"),
     "preview-birchmeier": ("vorschau.magnet-xs.ch", "birchmeier"),
     "hiltbrand": ("embed.magnet-xs.ch", "hiltbrand"),
+    "zurbuchen": ("embed.magnet-xs.ch", "zurbuchen"),
     "webpilot": ("vorschau.magnet-xs.ch", "webpilot"),
 }
 
 CURATED_COMPANY_NAMES = {
     "hiltbrand": ("Hiltbrand Gebäudehüllen AG (Karriere-Cockpit)", "Krattigen BE"),
+    "zurbuchen": ("Zurbuchen Holzbau AG (Karriere-Cockpit)", "Spiez BE"),
     "preview-birchmeier": ("Birchmeier-Hohler GmbH", "Bremgarten AG"),
     "preview-fcattiswil": ("FC Attiswil", "Attiswil BE"),
     "preview-fcschlieren": ("FC Schlieren (Vollversion)", "Schlieren ZH"),
@@ -131,6 +133,7 @@ CURATED_COMPANY_NAMES = {
 
 FALLBACK_JOB_META = {
     "hiltbrand": ("David Hügli (Magnet XS · Referenz)", "29.09.2026 · 15:31 Uhr"),
+    "zurbuchen": ("David Hügli (Magnet XS · Referenz)", "17.11.2026 · 18:00 Uhr"),
     "preview-hiltbrand": ("David Hügli (Magnet XS · Referenz)", "04.10.2026 · 11:02 Uhr"),
     "preview-birchmeier": ("David Hügli (Magnet XS · Referenz)", "04.10.2026 · 11:02 Uhr"),
     "preview-hochuli": ("David Hügli (Magnet XS · Referenz)", "29.10.2026 · 13:08 Uhr"),
@@ -268,7 +271,7 @@ def discover_site_dirs(base_dir: Path = BASE_DIR) -> list[Path]:
     dirs = [
         d
         for d in base_dir.iterdir()
-        if d.is_dir() and (d.name.startswith("preview-") or d.name in ("hiltbrand", "webpilot"))
+        if d.is_dir() and (d.name.startswith("preview-") or d.name in ("hiltbrand", "zurbuchen", "webpilot"))
     ]
     return sorted(dirs, key=lambda x: x.name)
 
@@ -903,7 +906,7 @@ def update_asset_catalog(site_dir: Optional[Path] = None, update_master: bool = 
     target_Pre = None
     if site_dir is not None:
         sd = Path(site_dir).resolve()
-        if sd.is_dir() and (sd.name.startswith("preview-") or sd.name in ("hiltbrand", "webpilot")):
+        if sd.is_dir() and (sd.name.startswith("preview-") or sd.name in ("hiltbrand", "zurbuchen", "webpilot")):
             target_Pre = sd
 
     site_reports = []

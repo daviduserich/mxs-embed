@@ -103,6 +103,7 @@ const VORSCHAU_SLUG_TO_FOLDER = {
 
 const CLIENT_TOKENS = {
   'hiltbrand': ['hb_sec_9e2f48b7c0d3a5a81e9', 'hb2026'],
+  'zurbuchen': ['zurbuchen_sec_master', 'zurbuchen2026'],
   'preview-hiltbrand': ['hb_sec_9e2f48b7c0d3a5a81e9', 'hb2026'],
   'birchmeier': ['bm_sec_7a1c8f3e2d9b4a5f', 'bi_live_ea3776_a1ef'],
   'preview-birchmeier': ['bm_sec_7a1c8f3e2d9b4a5f', 'bi_live_ea3776_a1ef'],
@@ -439,6 +440,12 @@ async function handleRequestCore(context) {
         return Response.redirect(slashUrl.toString(), 302);
       }
 
+      const lowerRest = rest.toLowerCase();
+      if (activeClientSlug === 'hiltbrand' && (lowerRest === '/zurbuchen_holzbauer_november.html' || lowerRest === '/zurbuchen_holzbauer.html')) {
+        const redirectUrl = new URL(`/zurbuchen/${url.search}`, url.origin);
+        return Response.redirect(redirectUrl.toString(), 302);
+      }
+
       const isDirectEmbedHost = hostname.startsWith('embed.') || hostname.endsWith('.pages.dev');
       const baseSlugFolder = activeClientSlug.replace(/-(?:vollversion|vv|v1|v2)$/, '');
       const isCockpitRoute = (rest === '/cockpit' || rest === '/cockpit/' || rest === '/cockpit.html');
@@ -475,6 +482,8 @@ async function handleRequestCore(context) {
         return Response.redirect(cleanCockpitUrl.toString(), 302);
       } else if (rest === '/cockpit' || rest === '/cockpit.html') {
         targetPath = `/${targetFolder}/cockpit.html`;
+      } else if (activeClientSlug === 'zurbuchen' && (lowerRest === '/zurbuchen_holzbauer_november.html' || lowerRest === '/zurbuchen_holzbauer.html')) {
+        targetPath = '/zurbuchen/index.html';
       } else {
         targetPath = `/${targetFolder}${rest}`;
       }
