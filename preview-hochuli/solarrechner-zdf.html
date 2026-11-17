@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="de-CH">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Zahlen, Daten, Fakten: Solarrechner Hochuli Schlossrued AG</title>
+<style>
+  @page {
+    size: A4;
+    margin: 14mm 16mm 14mm 16mm;
+  }
+  * { box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    color: #1e293b;
+    background: #ffffff;
+    line-height: 1.45;
+    font-size: 13px;
+    margin: 0;
+    padding: 0;
+  }
+  .header {
+    border-bottom: 2px solid #0f766e;
+    padding-bottom: 12px;
+    margin-bottom: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
+  .title {
+    font-size: 20px;
+    font-weight: 800;
+    color: #0f172a;
+    margin: 0 0 4px 0;
+    letter-spacing: -0.02em;
+  }
+  .subtitle {
+    font-size: 12px;
+    color: #0f766e;
+    font-weight: 600;
+    margin: 0;
+  }
+  .meta-box {
+    text-align: right;
+    font-size: 11px;
+    color: #64748b;
+  }
+  .meta-badge {
+    display: inline-block;
+    background: #f1f5f9;
+    color: #334155;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-weight: 700;
+    margin-bottom: 2px;
+  }
+  h2 {
+    font-size: 14px;
+    font-weight: 700;
+    color: #0f172a;
+    border-left: 3px solid #0f766e;
+    padding-left: 8px;
+    margin: 16px 0 8px 0;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+  }
+  p { margin: 0 0 8px 0; }
+  .grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 12px;
+  }
+  .card {
+    border: 1px solid #e2e8f0;
+    border-radius: 6px;
+    padding: 10px 12px;
+    background: #fafafa;
+  }
+  .card.danger {
+    background: #fff5f5;
+    border-color: #fecaca;
+  }
+  .card.success {
+    background: #f0fdf4;
+    border-color: #bbf7d0;
+  }
+  .card h3 {
+    font-size: 12px;
+    margin: 0 0 6px 0;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .card.danger h3 { color: #b91c1c; }
+  .card.success h3 { color: #15803d; }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 11.5px;
+    margin: 10px 0 14px 0;
+  }
+  th, td {
+    padding: 6px 8px;
+    text-align: left;
+    border-bottom: 1px solid #e2e8f0;
+  }
+  th {
+    background: #f8fafc;
+    color: #475569;
+    font-weight: 700;
+    font-size: 11px;
+    text-transform: uppercase;
+  }
+  tr:last-child td { border-bottom: none; }
+  .tag-danger {
+    color: #b91c1c;
+    font-weight: 700;
+  }
+  .tag-success {
+    color: #15803d;
+    font-weight: 700;
+  }
+
+  .quote-box {
+    background: #f8fafc;
+    border-left: 3px solid #64748b;
+    padding: 8px 12px;
+    font-style: italic;
+    font-size: 12px;
+    color: #334155;
+    margin: 10px 0;
+  }
+
+  .footer {
+    margin-top: 20px;
+    padding-top: 8px;
+    border-top: 1px solid #e2e8f0;
+    display: flex;
+    justify-content: space-between;
+    font-size: 10px;
+    color: #94a3b8;
+  }
+  
+  .page-break {
+    page-break-before: always;
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div>
+    <div class="subtitle">STRATEGISCHES DOSSIER &middot; WEB-PILOT LEAD-ENGINE</div>
+    <h1 class="title">Zahlen, Daten, Fakten: Solarrechner Hochuli</h1>
+  </div>
+  <div class="meta-box">
+    <div class="meta-badge">ZDF-DOSSIER F&Uuml;R JENNY ETTLE</div>
+    <div>Stand: November 2026 &middot; Vertraulich</div>
+  </div>
+</div>
+
+<p><strong>Ausgangslage:</strong> Auf <code>hochuli-gruppe.ch/solarrechner/</code> existiert ein Rechner. Die technische Quellcode-Analyse belegt jedoch: Der Rechner ist eine starre Bastell&ouml;sung mit falschen regionalen Zahlen, null Eigenst&auml;ndigkeit f&uuml;r Hochuli und einer veralteten Lead-Verarbeitung. Nachfolgend die belegbaren Fakten f&uuml;r das Gespr&auml;ch mit der Gesch&auml;ftsleitung.</p>
+
+<h2>1. Die 4 Kardinalfehler im Quellcode des aktuellen Rechners</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th style="width: 28%;">Schwachstelle</th>
+      <th style="width: 32%;">Im Code hart hinterlegt</th>
+      <th style="width: 40%;">Reale Konsequenz f&uuml;r Hochuli &amp; Kunden</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td class="tag-danger">1. Schweizer Einheitsbrei statt Standort-Tarif</td>
+      <td>
+        <code>strompreis: 0.277 CHF/kWh</code><br>
+        <code>ruecklief: 0.090 CHF/kWh</code><br>
+        <em>(Starre Bundes-Mediane)</em>
+      </td>
+      <td>
+        <strong>Falsche Rentabilit&auml;tsrechnung!</strong> Hochuli sitzt in Schlossrued (Aargau / AEW-Netzgebiet). Die AEW verg&uuml;tet 2026 fix nur <strong>8.2 Rp./kWh</strong> (Marktpreis nur ca. 6&ndash;7 Rp.). Der Rechner rechnet sch&ouml;n &ndash; die echte Offerte weicht sp&auml;ter ab.
+      </td>
+    </tr>
+    <tr>
+      <td class="tag-danger">2. Null Selbstverwaltung (Hardcoded)</td>
+      <td>
+        W&auml;rmepumpe: fix <code>45'000 CHF</code><br>
+        Wallbox: fix <code>2'800 CHF</code><br>
+        Speicher: alte BFE-Formel 2025
+      </td>
+      <td>
+        <strong>Agentur-Abh&auml;ngigkeit &amp; Kostenfalle:</strong> Jedes Mal, wenn die ElCom Tarife publiziert oder Hochuli Aktionspreise auf Speichern hat, muss Hochuli bei der Agentur antanzen und teure Entwicklerstunden bezahlen.
+      </td>
+    </tr>
+    <tr>
+      <td class="tag-danger">3. Veraltende Subventionslogik</td>
+      <td>
+        Pronovo EIV starr codiert:<br>
+        <code>360 CHF / 400 CHF</code>
+      </td>
+      <td>
+        Verordnungen des Bundes &auml;ndern sich laufend (Wegfall Grundbeitr&auml;ge, Degression). Der Rechner veraltet lautlos, wenn niemand manuell im Code nachbessert.
+      </td>
+    </tr>
+    <tr>
+      <td class="tag-danger">4. Banale Lead-&Uuml;bergabe</td>
+      <td>
+        Plumpes Formular an ein altes PHP-Skript (<code>anfrage.php</code>)
+      </td>
+      <td>
+        Geht im Mail-Postfach unter. Kein PDF-Expos&eacute; f&uuml;r den Kunden, keine strukturierte &Uuml;bergabe an Roger Hofmann &amp; Michael Zubler, keine WhatsApp-Option.
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<h2>2. Direkt-Vergleich: Bisherige L&ouml;sung vs. Intelligenter WebPilot-Rechner</h2>
+
+<div class="grid-2">
+  <div class="card danger">
+    <h3>Bisheriger Rechner (Agentur-Modell)</h3>
+    <ul style="margin: 0; padding-left: 16px; font-size: 11.5px; line-height: 1.5;">
+      <li>Nimmt stur dieselben 2 Pauschalzahlen f&uuml;r die ganze Schweiz.</li>
+      <li>Hochuli kann keinen einzigen Franken selbst anpassen.</li>
+      <li>Kunde erh&auml;lt nur Textzahlen auf dem Bildschirm.</li>
+      <li>Hohe Abh&auml;ngigkeit: Jede Text-/Preis&auml;nderung kostet Geld.</li>
+      <li>Lead-Daten m&uuml;ssen manuell abgetippt werden.</li>
+    </ul>
+  </div>
+
+  <div class="card success">
+    <h3>Intelligenter WebPilot-Rechner (Unsere L&ouml;sung)</h3>
+    <ul style="margin: 0; padding-left: 16px; font-size: 11.5px; line-height: 1.5;">
+      <li><strong>Standort-Erkennung:</strong> Erkennt via PLZ/Gemeinde den Netzbetreiber (AEW, Eniwa, CKW etc.) und rechnet mit echten Tarifen.</li>
+      <li><strong>Eigenes Cockpit:</strong> Hochuli verstellt Strompreis, Einspeisung, W&auml;rmepumpen- und Speicherpreise in 30 Sekunden selbst.</li>
+      <li><strong>Sofort-PDF f&uuml;r Kunden:</strong> Professionelles Richtofferten-Blatt zum Downloaden &amp; Teilen.</li>
+      <li><strong>Direkt zu den PV-Profis:</strong> Lead geht strukturiert mit Dachm&sup2;, Neigung &amp; kWp an Hofmann/Zubler.</li>
+      <li><strong>CHF 0.&ndash; Lizenzkosten:</strong> Nutzt dieselben offiziellen Bundes-APIs (geo.admin.ch / swisstopo).</li>
+    </ul>
+  </div>
+</div>
+
+<h2>3. Machbarkeit &amp; Aufwand (Warum es kein Riesenprojekt ist)</h2>
+
+<p>Die wichtigste Botschaft f&uuml;r die Gesch&auml;ftsleitung: <strong>Das Rad muss nicht neu erfunden werden.</strong></p>
+<ul style="font-size: 12px; line-height: 1.5; margin-bottom: 12px;">
+  <li><strong>Offizielle Schnittstellen sind frei:</strong> Die Geodaten des Bundes (<code>geo.admin.ch</code>, Orthofotos der swisstopo, Sonnendach-Dachfl&auml;chenauswertung) sind gemeinfrei und kostenlos.</li>
+  <li><strong>Rechenlogik ist vollst&auml;ndig extrahiert:</strong> Die mathematischen Modelle f&uuml;r Ausrichtung, Ertrag, Neigung und Degradation liegen einsatzbereit vor.</li>
+  <li><strong>Realisierungsaufwand:</strong> Ca. <strong>1.5 bis 2 Tage</strong> f&uuml;r Frontend-Integration, Tarif-Matrix nach PLZ und Anbindung an das WebPilot-Cockpit.</li>
+  <li><strong>Wiederverwendbares Asset:</strong> Hochuli erh&auml;lt eine L&ouml;sung, die dauerhaft gepflegt werden kann und nie wieder teure Entwickler-Updates ben&ouml;tigt.</li>
+</ul>
+
+<h2>4. Der 3-Punkte-Leitfaden f&uuml;r Jenny im GL-Gespr&auml;ch</h2>
+
+<div class="quote-box">
+  <strong>1. Echte Regionalit&auml;t:</strong> &laquo;Der bisherige Rechner rechnet f&uuml;r ein Dach in Schlossrued mit denselben Tarifen wie f&uuml;r ein Chalet im Wallis. Unser neuer Rechner erkennt &uuml;ber die Postleitzahl den regionalen Versorger (z. B. AEW) und rechnet mit realistischen Zahlen.&raquo;
+</div>
+
+<div class="quote-box">
+  <strong>2. Volle Unabh&auml;ngigkeit:</strong> &laquo;Wenn die ElCom im Herbst die neuen Stromtarife publiziert oder Hochuli andere Margen ansetzt, muss k&uuml;nftig niemand mehr eine Agentur anrufen. Ihr k&ouml;nnt das im Cockpit mit einem Klick selbst pflegen.&raquo;
+</div>
+
+<div class="quote-box">
+  <strong>3. Qualifizierte Leads statt Formular-Mails:</strong> &laquo;Der Kunde h&auml;lt sofort eine saubere Richtofferte als PDF in der Hand &ndash; und Roger Hofmann sowie Michael Zubler haben alle Geb&auml;udedaten fixfertig auf dem Tisch, bevor das Telefonat &uuml;berhaupt beginnt.&raquo;
+</div>
+
+<div class="footer">
+  <div>WebPilot &middot; Strategie-Dossier f&uuml;r Hochuli Schlossrued AG</div>
+  <div>Vertraulich &middot; Dokumentiert via WebPilot Lead Engine</div>
+</div>
+
+</body>
+</html>
