@@ -1395,7 +1395,7 @@ body.is-embedded .site-header { position: static; }
       "name": "autohauser® – Unfallreparatur, Hagelschaden & Carrosserie Oftringen",
       "description": "Jakob Hauser AG (autohauser®) in Oftringen: Unfallinstandstellung nach Herstellervorgabe, Hagelschaden 2026, Glasschaden, Autobeschriftung und Classic Cars seit 1948.",
       "inLanguage": "de-CH",
-      "dateModified": "2026-11-18T19:05:05+00:00",
+      "dateModified": "2026-11-18T19:25:22+00:00",
       "isPartOf": {
         "@id": "https://vorschau.magnet-xs.ch/autohauser-v2/#website"
       },
@@ -1690,7 +1690,7 @@ body.is-embedded .site-header { position: static; }
       <div class="section-head">
         <span class="section-kicker">SCHNELL-MELDUNG &amp; FOTO-UPLOAD · OFTRINGEN</span>
         <h2>Schaden oder Anfrage in 60 Sekunden direkt melden</h2>
-        <p>Schluss mit toten Altformularen: Wählen Sie Ihren Bereich, laden Sie auf Wunsch bis zu 3 Fotos hoch und erhalten Sie sofort ein strukturiertes 1-Seiten-Auftrags-PDF.</p>
+        <p>Wählen Sie Ihren Bereich, laden Sie auf Wunsch direkt bis zu 3 Fotos hoch und erhalten Sie umgehend Ihre Bestätigung mit Rückruf-Zeitfenster.</p>
       </div>
       
     <div class="wp-wizard-card" id="wpSmartWizardCard">
@@ -1710,7 +1710,7 @@ body.is-embedded .site-header { position: static; }
         <div class="wp-progress-seg" id="wpProg3"></div>
       </div>
       <h3 data-slot="wizard_title">Schadenmeldung in 60 Sekunden</h3>
-      <p style="font-size:0.9rem;margin-bottom:18px;" data-slot="wizard_sub">In 60 Sekunden zur strukturierten Meldung inklusive 1-Seiten-Auftrags-PDF und direkter Zuweisung an Ihre Ansprechperson in Oftringen.</p>
+      <p style="font-size:0.9rem;margin-bottom:18px;" data-slot="wizard_sub">In 60 Sekunden zur strukturierten Anfrage inklusive PDF-Zusammenfassung und direkter Zuweisung an Ihre Ansprechperson in Oftringen.</p>
 
       <form id="wpLeadForm" onsubmit="return wpSubmitLead(event)" novalidate toolname="autohauser_anfrage_vorbereiten" tooldescription="Bereitet eine strukturierte Anfrage oder Schadenmeldung bei Jakob Hauser AG (autohauser) in Oftringen zur Prüfung vor.">
         <input type="text" name="website_url" id="wpHoneypot" value="" style="display:none !important;" tabindex="-1" autocomplete="off" form="wpTrapDetached">
@@ -1777,7 +1777,7 @@ body.is-embedded .site-header { position: static; }
               <textarea id="wpMessage" name="message" class="form-textarea" rows="3" placeholder="Beschreiben Sie kurz den Hergang, die betroffene Fahrzeugseite oder Ihr Projekt..."></textarea>
             </div>
             <div class="wp-field wp-field-full">
-              <label for="wpPhotoInput" class="wp-label">Fotos hochladen (optional, bis zu 3 Bilder für das Auftrags-PDF)</label>
+              <label for="wpPhotoInput" class="wp-label">Fotos hochladen (optional, bis zu 3 Bilder)</label>
               <div class="wp-photo-drop">
                 <span style="display:inline-flex;align-items:center;gap:8px;font-size:0.86rem;color:var(--text-muted);"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/><circle cx="12" cy="13" r="3"/></svg><span>Schaden-, Fahrzeug- oder Detailfotos direkt anhängen</span></span>
                 <label class="btn btn-outline btn-sm" style="cursor:pointer;">
@@ -1845,10 +1845,10 @@ body.is-embedded .site-header { position: static; }
         <p style="color:#0f172a;font-size:0.9rem;margin-bottom:10px;">
           <strong>Zuständig:</strong> <span id="wpResAssignee">–</span><br>
           <strong>Rückruf-Fenster:</strong> <span id="wpResWindow">–</span><br>
-          <strong>Vorschau-Schutzmodus:</strong> Die E-Mail inkl. 1-Seiten-Auftrags-PDF wurde im sicheren Vorschau-Modus direkt an Ihre angegebene Test-Adresse gesendet.
+          <strong>Bestätigung gesendet:</strong> Ihre Meldung inklusive PDF-Zusammenfassung wurde soeben an die angegebene E-Mail-Adresse übermittelt.
         </p>
         <div style="display:flex;flex-wrap:wrap;gap:10px;">
-          <a href="#" id="wpResPdfUrl" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg><span>1-Seiten-Auftrags-PDF öffnen</span></a>
+          <a href="#" id="wpResPdfUrl" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg><span>PDF-Zusammenfassung öffnen</span></a>
           <button type="button" class="btn btn-outline btn-sm" onclick="wpResetWizard()">Neue Meldung erfassen</button>
         </div>
       </div>

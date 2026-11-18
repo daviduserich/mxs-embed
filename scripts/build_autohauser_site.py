@@ -1032,7 +1032,7 @@ def render_footer(prefix: str = "", show_cockpit: bool = False) -> str:
     }})();
   </script>"""
 
-def render_smart_wizard(default_sparte: str = "Unfall & Hagel / Glasschaden", default_cat: str = "Unfallschaden", source_page: str = "schaden-kontakt.html", heading: str = "Schadenmeldung in 60 Sekunden", sub: str = "In 60 Sekunden zur strukturierten Meldung inklusive 1-Seiten-Auftrags-PDF und direkter Zuweisung an Ihre Ansprechperson in Oftringen.", show_extra_vehicle: bool = True) -> str:
+def render_smart_wizard(default_sparte: str = "Unfall & Hagel / Glasschaden", default_cat: str = "Unfallschaden", source_page: str = "schaden-kontakt.html", heading: str = "Schadenmeldung in 60 Sekunden", sub: str = "In 60 Sekunden zur strukturierten Anfrage inklusive PDF-Zusammenfassung und direkter Zuweisung an Ihre Ansprechperson in Oftringen.", show_extra_vehicle: bool = True) -> str:
     sparten_opts = [
         ("Unfall & Hagel / Glasschaden", "Unfallschaden", "Unfall & Carrosserie", "Javier Jimenez · Richtbank & Originalteile"),
         ("Hagelschaden 2026", "Hagelschaden", "Hagelschaden 2026", "Javier Jimenez · Versicherungs-Check inklusive"),
@@ -1120,7 +1120,7 @@ def render_smart_wizard(default_sparte: str = "Unfall & Hagel / Glasschaden", de
               <textarea id="wpMessage" name="message" class="form-textarea" rows="3" placeholder="Beschreiben Sie kurz den Hergang, die betroffene Fahrzeugseite oder Ihr Projekt..."></textarea>
             </div>
             <div class="wp-field wp-field-full">
-              <label for="wpPhotoInput" class="wp-label">Fotos hochladen (optional, bis zu 3 Bilder für das Auftrags-PDF)</label>
+              <label for="wpPhotoInput" class="wp-label">Fotos hochladen (optional, bis zu 3 Bilder)</label>
               <div class="wp-photo-drop">
                 <span style="display:inline-flex;align-items:center;gap:8px;font-size:0.86rem;color:var(--text-muted);">{ICONS["camera"]}<span>Schaden-, Fahrzeug- oder Detailfotos direkt anhängen</span></span>
                 <label class="btn btn-outline btn-sm" style="cursor:pointer;">
@@ -1188,10 +1188,10 @@ def render_smart_wizard(default_sparte: str = "Unfall & Hagel / Glasschaden", de
         <p style="color:#0f172a;font-size:0.9rem;margin-bottom:10px;">
           <strong>Zuständig:</strong> <span id="wpResAssignee">–</span><br>
           <strong>Rückruf-Fenster:</strong> <span id="wpResWindow">–</span><br>
-          <strong>Vorschau-Schutzmodus:</strong> Die E-Mail inkl. 1-Seiten-Auftrags-PDF wurde im sicheren Vorschau-Modus direkt an Ihre angegebene Test-Adresse gesendet.
+          <strong>Bestätigung gesendet:</strong> Ihre Meldung inklusive PDF-Zusammenfassung wurde soeben an die angegebene E-Mail-Adresse übermittelt.
         </p>
         <div style="display:flex;flex-wrap:wrap;gap:10px;">
-          <a href="#" id="wpResPdfUrl" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">{ICONS["download"]}<span>1-Seiten-Auftrags-PDF öffnen</span></a>
+          <a href="#" id="wpResPdfUrl" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">{ICONS["download"]}<span>PDF-Zusammenfassung öffnen</span></a>
           <button type="button" class="btn btn-outline btn-sm" onclick="wpResetWizard()">Neue Meldung erfassen</button>
         </div>
       </div>
@@ -1550,7 +1550,7 @@ def render_career_wizard() -> str:
         <p style="color:#0f172a;font-size:0.9rem;margin-bottom:10px;">
           <strong>HR-Ansprechperson:</strong> <span id="wpCResAssignee">Daniela Dähler</span><br>
           <strong>Rückmelde-Fenster:</strong> <span id="wpCResWindow">Zeitnah</span><br>
-          <strong>Vorschau-Schutzmodus:</strong> Ihre Bewerbungs-Zusammenfassung (inkl. PDF) wurde im sicheren Vorschau-Modus direkt an die angegebene Test-E-Mail-Adresse gesendet.
+          <strong>Bestätigung gesendet:</strong> Ihre Kurzbewerbung inklusive PDF-Zusammenfassung wurde soeben an die angegebene E-Mail-Adresse übermittelt.
         </p>
         <div style="display:flex;flex-wrap:wrap;gap:10px;">
           <a href="#" id="wpCResPdfUrl" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">{ICONS["download"]}<span>Bewerbungs-Zusammenfassung (PDF) öffnen</span></a>
@@ -1947,7 +1947,7 @@ def build_pages(out_dir: Path, scraped: dict, dims: dict, pdfs: list, pdf_meta: 
       <div class="section-head">
         <span class="section-kicker">SCHNELL-MELDUNG &amp; FOTO-UPLOAD · OFTRINGEN</span>
         <h2>Schaden oder Anfrage in 60 Sekunden direkt melden</h2>
-        <p>Schluss mit toten Altformularen: Wählen Sie Ihren Bereich, laden Sie auf Wunsch bis zu 3 Fotos hoch und erhalten Sie sofort ein strukturiertes 1-Seiten-Auftrags-PDF.</p>
+        <p>Wählen Sie Ihren Bereich, laden Sie auf Wunsch direkt bis zu 3 Fotos hoch und erhalten Sie umgehend Ihre Bestätigung mit Rückruf-Zeitfenster.</p>
       </div>
       {render_smart_wizard("Unfall & Hagel / Glasschaden", "Unfallschaden", "index.html")}
     </div>
@@ -2186,7 +2186,7 @@ def build_pages(out_dir: Path, scraped: dict, dims: dict, pdfs: list, pdf_meta: 
   <!-- SMART-PRO ANFRAGE BESCHRIFTUNG -->
   <section class="section" id="beschriftung-anfrage" data-section="beschriftung-smart">
     <div class="container">
-      {render_smart_wizard("Autobeschriftung & Folierung", "Beschriftung / Folierung", "beschriftung.html", heading="Schnellanfrage Autobeschriftung & Folierung", sub="Direkt an Fabienne Zingg (Leiterin Werbetechnik) – inklusive Fahrzeugfoto-Upload und 1-Seiten-Projektblatt.")}
+      {render_smart_wizard("Autobeschriftung & Folierung", "Beschriftung / Folierung", "beschriftung.html", heading="Schnellanfrage Autobeschriftung & Folierung", sub="Direkt an Fabienne Zingg (Leiterin Werbetechnik) – inklusive Fahrzeugfoto-Upload und kompakter Projekt-Zusammenfassung.")}
     </div>
   </section>
 </main>
@@ -2289,7 +2289,7 @@ def build_pages(out_dir: Path, scraped: dict, dims: dict, pdfs: list, pdf_meta: 
           </div>
           <div style="display:flex;flex-wrap:wrap;gap:8px;">
             <a href="#classics-anfrage" onclick="wpSetPreset('Classic Cars','Besichtigung Alfa Romeo 2000 GTV','Planbar')" class="btn btn-primary btn-sm"><span>Besichtigung anfragen</span></a>
-            <button type="button" class="btn btn-outline btn-sm" onclick="openJotFormModal('Besichtigungstermin Klassiker', 'https://form.jotform.com/70161783748968')"><span>JotForm Termin</span></button>
+            <button type="button" class="btn btn-outline btn-sm" onclick="openJotFormModal('Besichtigungstermin Klassiker', 'https://form.jotform.com/70161783748968')"><span>Detailformular Termin</span></button>
           </div>
         </div>
 
@@ -2320,7 +2320,7 @@ def build_pages(out_dir: Path, scraped: dict, dims: dict, pdfs: list, pdf_meta: 
           </div>
           <div style="display:flex;flex-wrap:wrap;gap:8px;">
             <a href="#classics-anfrage" onclick="wpSetPreset('Classic Cars','Besichtigung Fiat 124 Abarth','Planbar')" class="btn btn-primary btn-sm"><span>Besichtigung anfragen</span></a>
-            <button type="button" class="btn btn-outline btn-sm" onclick="openJotFormModal('Besichtigungstermin Klassiker', 'https://form.jotform.com/70161783748968')"><span>JotForm Termin</span></button>
+            <button type="button" class="btn btn-outline btn-sm" onclick="openJotFormModal('Besichtigungstermin Klassiker', 'https://form.jotform.com/70161783748968')"><span>Detailformular Termin</span></button>
           </div>
         </div>
       </div>
@@ -2394,7 +2394,7 @@ def build_pages(out_dir: Path, scraped: dict, dims: dict, pdfs: list, pdf_meta: 
 </html>"""
 
     # 4. schaden-kontakt.html (Heilt 503 & tote Glas-JotForm!)
-    schaden_html = f"""{render_head("Schaden-, Hagel-, Glas- & Kontakt-Zentrale – autohauser® Oftringen", "Melden Sie Ihren Unfall-, Hagel- oder Glasschaden in 60 Sekunden inklusive Foto-Upload und 1-Seiten-Auftrags-PDF. Gratis-Hotline 0800 875 875.", canonical_page="schaden-kontakt.html")}
+    schaden_html = f"""{render_head("Schaden-, Hagel-, Glas- & Kontakt-Zentrale – autohauser® Oftringen", "Melden Sie Ihren Unfall-, Hagel- oder Glasschaden in 60 Sekunden inklusive Foto-Upload und PDF-Zusammenfassung. Gratis-Hotline 0800 875 875.", canonical_page="schaden-kontakt.html")}
 <body>
 {render_header("unfall", "kontakt", dims, show_cockpit=show_cockpit)}
 
@@ -2403,7 +2403,7 @@ def build_pages(out_dir: Path, scraped: dict, dims: dict, pdfs: list, pdf_meta: 
     <div class="container">
       <div class="section-head">
         <span class="section-kicker">SCHADEN-, GLAS- &amp; KONTAKT-ZENTRALE</span>
-        <h1>Direkt melden – ohne Wartezeit und ohne defekte Formulare</h1>
+        <h1>Schaden melden oder Beratung anfragen</h1>
         <p>Wählen Sie den passenden Weg: Schnelle Erfassung mit Foto-Upload, Hagel-Check 2026, direkter Glas-Rückruf oder auf Wunsch das ausführliche 100-Felder-Versicherungsformular.</p>
       </div>
 
@@ -2411,30 +2411,30 @@ def build_pages(out_dir: Path, scraped: dict, dims: dict, pdfs: list, pdf_meta: 
         <button type="button" class="tab-btn active" onclick="switchSchadenTab('kurz', this)">1. Kurzmeldung &amp; Foto-Upload</button>
         <button type="button" class="tab-btn" onclick="switchSchadenTab('hagel', this)">2. Hagelschaden 2026</button>
         <button type="button" class="tab-btn" onclick="switchSchadenTab('glas', this)">3. Glasschaden &amp; Sofort-Rückruf</button>
-        <button type="button" class="tab-btn" onclick="switchSchadenTab('lang', this)">4. Ausführliche Meldung (JotForm)</button>
+        <button type="button" class="tab-btn" onclick="switchSchadenTab('lang', this)">4. Ausführliche Meldung (100 Felder)</button>
       </div>
 
       <div id="tabInfoBanner" class="card" style="margin-bottom:24px;background:var(--primary-soft);border-color:rgba(0,103,178,0.22);">
         <div id="tabBannerKurz">
           <h3 style="margin-bottom:4px;">Schnelle Schadenmeldung mit Foto-Upload (Empfohlen)</h3>
-          <p style="margin:0;">Erfassen Sie in unter einer Minute Ihren Schadenfall inklusive bis zu 3 Fotos. Sie erhalten umgehend ein strukturiertes 1-Seiten-Auftrags-PDF mit Rückruf-Zeitfenster.</p>
+          <p style="margin:0;">Erfassen Sie in unter einer Minute Ihren Schadenfall inklusive bis zu 3 Fotos. Sie erhalten umgehend eine strukturierte PDF-Zusammenfassung mit Rückruf-Zeitfenster.</p>
         </div>
         <div id="tabBannerHagel" style="display:none;">
           <h3 style="margin-bottom:4px;">Hagelschaden 2026 – Transparente Versicherungsprüfung</h3>
           <p style="margin-bottom:8px;">Wir klären vorab für Sie ab, ob Ihr Hagelschaden ohne Einschränkungen zu unseren Konditionen übernommen wird. Sollte dies bei Generali oder Vaudoise nicht vollumfänglich der Fall sein, informieren wir Sie transparent – und übernehmen bei einem begleiteten Versicherungswechsel die allfällige Differenz.</p>
-          <button type="button" class="btn btn-outline btn-sm" onclick="openJotFormModal('Hagelschaden 2026 melden (JotForm)', 'https://form.jotform.com/262393351245052')"><span>Optional: Klassisches Hagel-JotForm öffnen</span></button>
+          <button type="button" class="btn btn-outline btn-sm" onclick="openJotFormModal('Hagelschaden 2026 melden (JotForm)', 'https://form.jotform.com/262393351245052')"><span>Ausführliches Hagel-Formular öffnen</span></button>
         </div>
         <div id="tabBannerGlas" style="display:none;">
           <h3 style="margin-bottom:4px;">Glasschaden &amp; Sofort-Rückruf (Andrea Heimgartner)</h3>
-          <p style="margin-bottom:8px;">Die Frontscheibe ist ein tragendes Bauteil und stützt den Beifahrer-Airbag. Beim Scheibenersatz schenken wir Ihnen 1 Tag Gratis-Ersatzwagen sowie eine Innenreinigung. Nutzen Sie das direkte Formular unten für den Sofort-Rückruf – das veraltete externe Formular wurde komplett durch unseren schnellen Rückruf-Assistenten ersetzt.</p>
+          <p style="margin-bottom:8px;">Die Frontscheibe ist ein tragendes Bauteil und stützt den Beifahrer-Airbag. Beim Scheibenersatz schenken wir Ihnen 1 Tag Gratis-Ersatzwagen sowie eine Innenreinigung. Nutzen Sie das direkte Formular unten – Frau Andrea Heimgartner meldet sich umgehend persönlich für Ihren Termin bei Ihnen.</p>
         </div>
         <div id="tabBannerLang" style="display:none;">
-          <h3 style="margin-bottom:4px;">Ausführliche Versicherungsmeldung &amp; Spezial-JotForms</h3>
+          <h3 style="margin-bottom:4px;">Ausführliche Versicherungsmeldung &amp; Detailformulare</h3>
           <p style="margin-bottom:12px;">Falls Sie bereits sämtliche Unfallbeteiligten-, Zeugen- und Versicherungsdaten vollständig erfassen möchten, öffnen Sie hier direkt die ausführlichen Formulare:</p>
           <div style="display:flex;flex-wrap:wrap;gap:10px;">
             <button type="button" class="btn btn-primary btn-sm" onclick="openJotFormModal('Ausführliche Schadenmeldung (100 Felder)', 'https://form.jotform.com/63390924290963')"><span>Ausführliche Schadenmeldung (100 Felder)</span></button>
-            <button type="button" class="btn btn-outline btn-sm" onclick="openJotFormModal('Schadenmeldung kurz (JotForm)', 'https://form.jotform.com/63471863529970')"><span>JotForm Schadenmeldung kurz</span></button>
-            <button type="button" class="btn btn-outline btn-sm" onclick="openJotFormModal('Hagelschaden 2026 (JotForm)', 'https://form.jotform.com/262393351245052')"><span>JotForm Hagelschaden 2026</span></button>
+            <button type="button" class="btn btn-outline btn-sm" onclick="openJotFormModal('Schadenmeldung kurz (JotForm)', 'https://form.jotform.com/63471863529970')"><span>Schadenmeldung kurz (Detailformular)</span></button>
+            <button type="button" class="btn btn-outline btn-sm" onclick="openJotFormModal('Hagelschaden 2026 (JotForm)', 'https://form.jotform.com/262393351245052')"><span>Hagelschaden 2026 (Detailformular)</span></button>
           </div>
         </div>
       </div>
@@ -2812,7 +2812,7 @@ def build_pages(out_dir: Path, scraped: dict, dims: dict, pdfs: list, pdf_meta: 
           </div>
           <div style="display:flex;flex-wrap:wrap;gap:8px;">
             <a href="#kurzbewerbung" onclick="wpSetCareerPreset('Gestalter/in Werbetechnik')" class="btn btn-primary btn-sm"><span>Kurzbewerbung</span></a>
-            <button type="button" class="btn btn-outline btn-sm" onclick="openJotFormModal('Kurzbewerbung Werbetechnik', 'https://form.jotform.com/51061581490956')"><span>JotForm</span></button>
+            <button type="button" class="btn btn-outline btn-sm" onclick="openJotFormModal('Kurzbewerbung Werbetechnik', 'https://form.jotform.com/51061581490956')"><span>Detailformular</span></button>
           </div>
         </div>
 
@@ -2832,7 +2832,7 @@ def build_pages(out_dir: Path, scraped: dict, dims: dict, pdfs: list, pdf_meta: 
           </div>
           <div style="display:flex;flex-wrap:wrap;gap:8px;">
             <a href="#kurzbewerbung" onclick="wpSetCareerPreset('Verkaufsprofi mit Biss')" class="btn btn-primary btn-sm"><span>Kurzbewerbung</span></a>
-            <button type="button" class="btn btn-outline btn-sm" onclick="openJotFormModal('Bewerbungsformular YellowFox', 'https://form.jotform.com/folioboat/bewerbungsformular-yellowfox')"><span>JotForm</span></button>
+            <button type="button" class="btn btn-outline btn-sm" onclick="openJotFormModal('Bewerbungsformular YellowFox', 'https://form.jotform.com/folioboat/bewerbungsformular-yellowfox')"><span>Detailformular</span></button>
           </div>
         </div>
       </div>

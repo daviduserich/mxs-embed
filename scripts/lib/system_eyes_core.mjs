@@ -1156,6 +1156,7 @@ export function evaluateSystemEyesInPage({ relPage, zone, options = {} }) {
   const asciiOrtRe = /\b(?:Zuerich|Zuercher|Graubuenden|Duebendorf|Buelach|Kuesnacht|Kuessnacht)\b/;
   const emDashRe = /(?<!\.)\u2014/;
   const einserRe = /(?<![0-9:\.\-/])\b1\s+(?:Ansprechpartner(?:in|innen)?|System|Ziel|Beispiel-Team|Co-Sponsor|Haupt-Empf[aä]ngeradresse|St[uü]ck)\b/i;
+  const altseitenBashingRe = /\b(?:tote[nr]?\s+altformular[a-z]*|defekte[nr]?\s+formular[a-z]*|veraltete[nr]?\s+externe[nr]?\s+formular[a-z]*|vorschau-?schutzmodus)\b/i;
   const isPublicProductPage =
     relPage.includes('webpilot/') ||
     relPage.includes('kmu-kalender') ||
@@ -1220,6 +1221,16 @@ export function evaluateSystemEyesInPage({ relPage, zone, options = {} }) {
           getLabel(el),
           getCssPath(el),
           `Nackte Ziffer 1 vor gebeugtem Substantiv ("${m[0]}") gefunden — gemaess #LANG-01 Einser-Ausschreibungs-Regel als Wort (Ein/Eine/Einem) ausschreiben`
+        );
+      }
+      if (altseitenBashingRe.test(directText)) {
+        const m = directText.match(altseitenBashingRe);
+        addFinding(
+          'P2',
+          'P2_TYPOGRAPHIC_PLENK_OR_ASCII_ORT',
+          getLabel(el),
+          getCssPath(el),
+          `Unpassender Entwickler-/Altseiten-Seitenhieb ("${m[0]}") auf oeffentlicher Kundenseite gefunden (gehoert nur in den Audit-Report, nicht auf die Kunden-Website)`
         );
       }
       if (emDashRe.test(directText)) {
