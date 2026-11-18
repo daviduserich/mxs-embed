@@ -1,4 +1,14 @@
 const VORSCHAU_SLUG_TO_FOLDER = {
+  // Clean Equipe GmbH · Karolina Fabic (5727 Oberkulm): Zeigeversion (-v2, -v1, ohne Suffix) -> preview-seit-v2 | Vollversion (-vollversion, -vv) -> preview-seit
+  'seit': 'preview-seit-v2',
+  'seit-v1': 'preview-seit-v2',
+  'seit-v2': 'preview-seit-v2',
+  'seit-vollversion': 'preview-seit',
+  'seit-vv': 'preview-seit',
+  'clean-equipe': 'preview-seit-v2',
+  'clean-equipe-v2': 'preview-seit-v2',
+  'clean-equipe-vollversion': 'preview-seit',
+
   // Good for Dogs · Martina Sidler (Baden & Birmenstorf): Zeigeversion (-v2, -v1, ohne Suffix) -> preview-die-schule-v2 | Vollversion (-vollversion, -vv) -> preview-die-schule
   'die-schule': 'preview-die-schule-v2',
   'die-schule-v1': 'preview-die-schule-v2',
@@ -184,7 +194,14 @@ const CLIENT_TOKENS = {
   'die-schule-v2': ['dieschule_sec_master', 'die-schule2026', 'dieschule2026', 'die-schule-light2026', 'die-schule-v22026'],
   'preview-die-schule-v2': ['dieschule_sec_master', 'die-schule2026', 'dieschule2026', 'die-schule-light2026', 'die-schule-v22026'],
   'die-schule-vollversion': ['dieschule_sec_master', 'die-schule2026', 'dieschule2026', 'die-schule-light2026', 'die-schule-v22026'],
-  'die-schule-vv': ['dieschule_sec_master', 'die-schule2026', 'dieschule2026', 'die-schule-light2026', 'die-schule-v22026']
+  'die-schule-vv': ['dieschule_sec_master', 'die-schule2026', 'dieschule2026', 'die-schule-light2026', 'die-schule-v22026'],
+  'seit': ['seit_sec_master', 'seit2026', 'cleanequipe2026', 'clean-equipe2026', 'seit-light2026', 'seit-v22026'],
+  'preview-seit': ['seit_sec_master', 'seit2026', 'cleanequipe2026', 'clean-equipe2026', 'seit-light2026', 'seit-v22026'],
+  'seit-v1': ['seit_sec_master', 'seit2026', 'cleanequipe2026', 'clean-equipe2026', 'seit-light2026', 'seit-v22026'],
+  'seit-v2': ['seit_sec_master', 'seit2026', 'cleanequipe2026', 'clean-equipe2026', 'seit-light2026', 'seit-v22026'],
+  'preview-seit-v2': ['seit_sec_master', 'seit2026', 'cleanequipe2026', 'clean-equipe2026', 'seit-light2026', 'seit-v22026'],
+  'seit-vollversion': ['seit_sec_master', 'seit2026', 'cleanequipe2026', 'clean-equipe2026', 'seit-light2026', 'seit-v22026'],
+  'seit-vv': ['seit_sec_master', 'seit2026', 'cleanequipe2026', 'clean-equipe2026', 'seit-light2026', 'seit-v22026']
 };
 
 function getValidTokens(rootSegment, clientSlug) {

@@ -68,6 +68,8 @@ CATEGORY_DEFINITIONS = {
 
 # Kanonisches Cloudflare-Routing gemäss functions/_middleware.js
 PUBLIC_CLOUDFLARE_SLUG_MAP = {
+    "preview-seit": ("vorschau.magnet-xs.ch", "seit-vollversion"),
+    "preview-seit-v2": ("vorschau.magnet-xs.ch", "seit-v2"),
     "preview-get-more-sales": ("vorschau.magnet-xs.ch", "get-more-sales-vollversion"),
     "preview-get-more-sales-v2": ("vorschau.magnet-xs.ch", "get-more-sales-v2"),
     "preview-die-schule": ("vorschau.magnet-xs.ch", "die-schule-vollversion"),
@@ -100,6 +102,8 @@ PUBLIC_CLOUDFLARE_SLUG_MAP = {
 }
 
 CURATED_COMPANY_NAMES = {
+    "preview-seit": ("Clean Equipe GmbH · Karolina Fabic (Vollversion)", "Oberkulm AG"),
+    "preview-seit-v2": ("Clean Equipe GmbH · Karolina Fabic (Zeigeversion v2)", "Oberkulm AG"),
     "hiltbrand": ("Hiltbrand Gebäudehüllen AG (Karriere-Cockpit)", "Krattigen BE"),
     "zurbuchen": ("Zurbuchen Holzbau AG (Karriere-Cockpit)", "Spiez BE"),
     "preview-birchmeier": ("Birchmeier-Hohler GmbH", "Bremgarten AG"),
@@ -132,6 +136,8 @@ CURATED_COMPANY_NAMES = {
 }
 
 FALLBACK_JOB_META = {
+    "preview-seit": ("Jenny Ettle (JE-MI)", "18.11.2026 · 10:09 Uhr"),
+    "preview-seit-v2": ("Jenny Ettle (JE-MI)", "18.11.2026 · 10:09 Uhr"),
     "hiltbrand": ("David Hügli (Magnet XS · Referenz)", "29.09.2026 · 15:31 Uhr"),
     "zurbuchen": ("David Hügli (Magnet XS · Referenz)", "17.11.2026 · 18:00 Uhr"),
     "preview-hiltbrand": ("David Hügli (Magnet XS · Referenz)", "04.10.2026 · 11:02 Uhr"),

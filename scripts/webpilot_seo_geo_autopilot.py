@@ -71,6 +71,58 @@ def _strip_tags(raw_html: str) -> str:
 # KURATIERTES SCHWEIZER STAMMDATEN- & ORTS-/BRANCHEN-PROFIL-LEXIKON
 # ============================================================================
 SITE_SEO_PROFILES = {
+    "seit": {
+        "schema_type": "LocalBusiness",
+        "company_name": "Clean Equipe GmbH · Reinigung für Zuhause, Büro & Neubau",
+        "legal_name": "Clean Equipe GmbH",
+        "city": "Oberkulm",
+        "canton": "AG",
+        "postal_code": "5727",
+        "street_address": "Kreuzbündtenstrasse 8",
+        "phone": "+41 76 577 57 22",
+        "email": "info@clean-equipe.ch",
+        "uid": "CHE-115.334.918",
+        "source_url": "https://clean-equipe.ch/",
+        "hero_image": "images/fensterreinigung-fachfrau.jpg",
+        "summary_2s": (
+            "Clean Equipe GmbH (CHE-115.334.918) in 5727 Oberkulm unter Leitung von Karolina Fabic ist seit über 20 Jahren "
+            "das zuverlässige Reinigungsunternehmen für Privatpersonen und KMU im Wynental, Raum Aarau, Reinach AG und Lenzburg: "
+            "regelmässige Unterhaltsreinigung, Büroreinigung, Fenster- und Storenreinigung, Bügelservice sowie gründliche Baureinigung."
+        ),
+        "area_served": [
+            "Oberkulm", "Unterkulm", "Teufenthal", "Gränichen", "Suhr", "Buchs AG",
+            "Aarau", "Reinach AG", "Menziken", "Beinwil am See", "Seon", "Lenzburg", "Kanton Aargau"
+        ],
+        "services": [
+            "Unterhaltsreinigung für Haus und Wohnung (wöchentlich, 14-täglich oder nach individuellem Bedarf)",
+            "Büro- und Gewerbereinigung (Arbeitsplätze, Sitzungszimmer, Sanitäranlagen, Küchen und Pausenräume)",
+            "Baureinigung und Bauendreinigung für Neubauten, Umbauten und Sanierungen",
+            "Streifenfreie Fenster-, Rahmen- und Storenreinigung für Privathaushalte und Unternehmen",
+            "Treppenhausreinigung und sorgfältiger Bügelservice zur Entlastung im Alltag"
+        ],
+        "core_faqs": [
+            (
+                "Welche Reinigungsdienstleistungen bietet die Clean Equipe GmbH in Oberkulm an?",
+                "Die Clean Equipe GmbH bietet seit über 20 Jahren professionelle Reinigungen für Privatpersonen und Unternehmen an: regelmässige Unterhaltsreinigung für Haus und Wohnung, Büroreinigung, Fenster- und Storenreinigung, Treppenhausreinigung, Bügelservice sowie gründliche Baureinigungen für Neu- und Umbauten."
+            ),
+            (
+                "Kann ich eine regelmässige Reinigung im Abo oder flexibel buchen?",
+                "Ja, selbstverständlich. Ob wöchentlich, alle zwei Wochen, monatlich oder punktuell nach Bedarf: Karolina Fabic und ihr Team stimmen den Rhythmus, die Einsatztage und den genauen Leistungsumfang flexibel auf Ihr Zuhause oder Ihre Geschäftsräume ab."
+            ),
+            (
+                "In welcher Region ist Clean Equipe im Einsatz?",
+                "Von unserem Standort an der Kreuzbündtenstrasse 8 in 5727 Oberkulm betreuen wir Privathaushalte, Büros, Praxen und Bauprojekte im gesamten Wynental, in Unterkulm, Reinach AG, Menziken, Gränichen, Suhr, Aarau, Seon, Lenzburg und im Kanton Aargau."
+            ),
+            (
+                "Wie erhalte ich eine unverbindliche Reinigungsofferte?",
+                "Über unseren 3-Schritte-Offerten-Assistenten auf der Website oder telefonisch unter 076 577 57 22 können Sie Ihren Bedarf in zwei Minuten angeben. Wir besprechen Ihre Wünsche persönlich und erstellen Ihnen eine faire, transparente und unverbindliche Offerte."
+            ),
+            (
+                "Zu welchen Zeiten ist Clean Equipe erreichbar?",
+                "Wir sind von Montag bis Freitag zwischen 08:00 und 17:00 Uhr sowie am Samstag von 09:00 bis 14:00 Uhr für Sie im Einsatz und telefonisch oder per WhatsApp unter 076 577 57 22 erreichbar."
+            )
+        ]
+    },
     "webpilot": {
         "schema_type": "ProfessionalService",
         "company_name": "WebPilot · magnet-Xs gmbh",
@@ -883,6 +935,8 @@ SITE_SEO_PROFILES = {
 
 # Mapping von Ordnername auf die öffentliche Vorschau-URL auf vorschau.magnet-xs.ch
 PUBLIC_SLUG_MAP = {
+    "preview-seit": "seit-vollversion",
+    "preview-seit-v2": "seit-v2",
     "preview-get-more-sales": "get-more-sales-vollversion",
     "preview-get-more-sales-v2": "get-more-sales-v2",
     "preview-die-schule": "die-schule-vollversion",

@@ -30,6 +30,22 @@ BASE_DIR = Path("/home/brainuser/workspaces/mxs-embed")
 LEAD_ROUTING_FILE = BASE_DIR / "config" / "lead_routing.json"
 
 SHOWCASE_CONFIGS = {
+    "preview-seit": {
+        "routing_slug": "seit",
+        "site_label": "Clean Equipe GmbH · Karolina Fabic (5727 Oberkulm)",
+        "entity_hint": "Clean Equipe GmbH (Karolina Fabic, 5727 Oberkulm)",
+        "accent_hex": "#0086B0",
+        "navy_hex": "#09181F",
+        "font_heading": "'Lexend', 'Plus Jakarta Sans', sans-serif",
+    },
+    "preview-seit-v2": {
+        "routing_slug": "seit-v2",
+        "site_label": "Clean Equipe GmbH (Zeigeversion / Vorschau-Entwurf)",
+        "entity_hint": "Clean Equipe GmbH (Karolina Fabic, 5727 Oberkulm)",
+        "accent_hex": "#0086B0",
+        "navy_hex": "#09181F",
+        "font_heading": "'Lexend', 'Plus Jakarta Sans', sans-serif",
+    },
     "preview-fcschlieren": {
         "routing_slug": "fcschlieren",
         "site_label": "FC Schlieren",

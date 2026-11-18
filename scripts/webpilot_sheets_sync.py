@@ -180,6 +180,24 @@ def split_source_and_context(raw_source_or_context: str, explicit_context: str =
 # - In Jennys Partner-Sheet erscheinen ausschliesslich die 8 Projekte mit Partner "Jenny Ettle (JE-MI)".
 SEED_PROJECTS = [
     {
+        "slug": "seit",
+        "active": True,
+        "company": "Clean Equipe GmbH · Karolina Fabic (5727 Oberkulm AG)",
+        "pricing_recommended_chf": "CHF 2'200.—",
+        "complexity_score": "4.8 / 10.0",
+        "pricing_formula_chf": "CHF 2'150.—",
+        "pricing_rationale": "Vertrauensvoller 5-Seiten-Auftritt im Evolution-Modus für die Clean Equipe GmbH (dunkle Marken-Startbühne + helle Tinted-Neutral-Architektur in Blau/Grün, interaktiver Reinigungs-Intervall-Berater, Unterhalts-, Büro-, Fenster- & Baureinigung, echte Google-Bewertungen, Social- & Ratgeber-Einblicke sowie 3-Schritte Smart-Offerte) inkl. Studio Cockpit v4.0 + Light.",
+        "v2_url": "https://vorschau.magnet-xs.ch/seit-v2/",
+        "vollversion_url": "https://vorschau.magnet-xs.ch/seit-vollversion/",
+        "cockpit_url": "https://vorschau.magnet-xs.ch/seit-vollversion/cockpit.html?token=seit2026",
+        "cockpit_light_url": "https://vorschau.magnet-xs.ch/seit-vollversion/cockpit.html?token=seit2026&mode=light",
+        "audit_report_url": "https://vorschau.magnet-xs.ch/reports/seit-vorher-nachher-report.pdf",
+        "source_url": "https://clean-equipe.ch/",
+        "branch_context": "Reinigungsunternehmen (CHE-115.334.918, seit 20+ Jahren): Unterhaltsreinigung, Büroreinigung, Fenster/Storen, Bügelservice & Baureinigung in 5727 Oberkulm & Kanton Aargau",
+        "partner": "Jenny Ettle (JE-MI)",
+        "status": "🟢 Bereit zum Zeigen (Fertig: 18.11.2026 · 11:30 Uhr · 0 P1/P2)",
+    },
+    {
         "slug": "die-schule",
         "active": True,
         "company": "Good for Dogs · Hundeschule Martina Sidler (5406 Baden & 5413 Birmenstorf)",

@@ -1,11 +1,11 @@
 {
-  "generated_at": "2026-11-17T17:45:56",
-  "total_sites": 29,
-  "total_assets": 885,
-  "total_active": 607,
-  "total_pool": 278,
+  "generated_at": "2026-11-18T10:45:02",
+  "total_sites": 31,
+  "total_assets": 919,
+  "total_active": 628,
+  "total_pool": 291,
   "total_external_hotlinks": 0,
-  "total_mb": 128.56,
+  "total_mb": 131.46,
   "sites": [
     {
       "folder": "hiltbrand",
@@ -11407,11 +11407,12 @@
       "external_hotlink_details": [],
       "total_kb": 4047.6,
       "total_mb": 3.95,
-      "html_pages_count": 4,
+      "html_pages_count": 5,
       "html_pages": [
         "index.html",
         "karriere.html",
         "kontakt.html",
+        "solarrechner-zdf.html",
         "team.html"
       ],
       "bilder_json_exists": true,
@@ -26317,6 +26318,1091 @@
             "index.html"
           ],
           "alt": "Vorstand SC Fulenbach um Präsident Willi von Arx"
+        }
+      ]
+    },
+    {
+      "folder": "preview-seit",
+      "company_name": "Clean Equipe GmbH · Karolina Fabic (Vollversion)",
+      "city": "Oberkulm AG",
+      "partner": "Jenny Ettle (JE-MI)",
+      "submitted_at": "18.11.2026 · 10:09 Uhr",
+      "cloudflare_base_url": "https://vorschau.magnet-xs.ch/seit-vollversion/",
+      "cloudflare_short_base": "vorschau.magnet-xs.ch/seit-vollversion",
+      "total_assets": 17,
+      "active_assets": 12,
+      "pool_assets": 5,
+      "external_hotlinks": 0,
+      "external_hotlink_details": [],
+      "total_kb": 1486.8,
+      "total_mb": 1.45,
+      "html_pages_count": 5,
+      "html_pages": [
+        "index.html",
+        "kontakt.html",
+        "leistungen.html",
+        "referenzen.html",
+        "ueber-uns.html"
+      ],
+      "bilder_json_exists": true,
+      "bilder_verzeichnis_exists": true,
+      "assets": [
+        {
+          "nr": 1,
+          "id": "images_apple_touch_icon_png",
+          "filename": "apple-touch-icon.png",
+          "rel_path": "images/apple-touch-icon.png",
+          "folder": "preview-seit",
+          "category": "Favicon & App-Icon",
+          "category_code": "icon",
+          "dimensions": "180x180",
+          "size_kb": 24.3,
+          "format": "PNG",
+          "mtime": 1794997402,
+          "mtime_str": "18.11.2026 10:23",
+          "cdn_url": "https://vorschau.magnet-xs.ch/seit-vollversion/images/apple-touch-icon.png",
+          "cloudflare_url": "https://vorschau.magnet-xs.ch/seit-vollversion/images/apple-touch-icon.png",
+          "cloudflare_short": "vorschau.magnet-xs.ch/seit-vollversion/images/apple-touch-icon.png",
+          "is_used": true,
+          "used_in": [
+            {
+              "datei": "index.html",
+              "slot": "image",
+              "is_hero": false
+            },
+            {
+              "datei": "kontakt.html",
+              "slot": "image",
+              "is_hero": false
+            },
+            {
+              "datei": "leistungen.html",
+              "slot": "image",
+              "is_hero": false
+            },
+            {
+              "datei": "referenzen.html",
+              "slot": "image",
+              "is_hero": false
+            },
+            {
+              "datei": "ueber-uns.html",
+              "slot": "image",
+              "is_hero": false
+            }
+          ],
+          "used_in_pages": [
+            "index.html",
+            "kontakt.html",
+            "leistungen.html",
+            "referenzen.html",
+            "ueber-uns.html"
+          ],
+          "alt": "Clean Equipe GmbH Oberkulm (AG) – Offizielles Logo (Unterhaltsreinigung für Haus und Wohnung (wöchentlich,)"
+        },
+        {
+          "nr": 2,
+          "id": "images_banner_reinigung_02_jpg",
+          "filename": "banner-reinigung-02.jpg",
+          "rel_path": "images/banner-reinigung-02.jpg",
+          "folder": "preview-seit",
+          "category": "Referenz, Projekt & Angebot",
+          "category_code": "ref",
+          "dimensions": "1600x490",
+          "size_kb": 39.2,
+          "format": "JPG",
+          "mtime": 1794996991,
+          "mtime_str": "18.11.2026 10:16",
+          "cdn_url": "https://vorschau.magnet-xs.ch/seit-vollversion/images/banner-reinigung-02.jpg",
+          "cloudflare_url": "https://vorschau.magnet-xs.ch/seit-vollversion/images/banner-reinigung-02.jpg",
+          "cloudflare_short": "vorschau.magnet-xs.ch/seit-vollversion/images/banner-reinigung-02.jpg",
+          "is_used": true,
+          "used_in": [
+            {
+              "datei": "index.html",
+              "slot": "image",
+              "is_hero": false
+            },
+            {
+              "datei": "referenzen.html",
+              "slot": "image",
+              "is_hero": false
+            }
+          ],
+          "used_in_pages": [
+            "index.html",
+            "referenzen.html"
+          ],
+          "alt": "Gründliche Bauendreinigung bei Neubau und Umbau im Kanton Aargau"
+        },
+        {
+          "nr": 3,
+          "id": "images_banner_reinigung_03_jpg",
+          "filename": "banner-reinigung-03.jpg",
+          "rel_path": "images/banner-reinigung-03.jpg",
+          "folder": "preview-seit",
+          "category": "Referenz, Projekt & Angebot",
+          "category_code": "ref",
+          "dimensions": "1600x490",
+          "size_kb": 78.8,
+          "format": "JPG",
+          "mtime": 1794996992,
+          "mtime_str": "18.11.2026 10:16",
+          "cdn_url": "https://vorschau.magnet-xs.ch/seit-vollversion/images/banner-reinigung-03.jpg",
+          "cloudflare_url": "https://vorschau.magnet-xs.ch/seit-vollversion/images/banner-reinigung-03.jpg",
+          "cloudflare_short": "vorschau.magnet-xs.ch/seit-vollversion/images/banner-reinigung-03.jpg",
+          "is_used": true,
+          "used_in": [
+            {
+              "datei": "index.html",
+              "slot": "image",
+              "is_hero": false
+            }
+          ],
+          "used_in_pages": [
+            "index.html"
+          ],
+          "alt": "Gepflegte Büro- und Sitzungsräume nach der Reinigung durch Clean Equipe"
+        },
+        {
+          "nr": 4,
+          "id": "images_favicon_32x32_png",
+          "filename": "favicon-32x32.png",
+          "rel_path": "images/favicon-32x32.png",
+          "folder": "preview-seit",
+          "category": "Favicon & App-Icon",
+          "category_code": "icon",
+          "dimensions": "32x32",
+          "size_kb": 2.3,
+          "format": "PNG",
+          "mtime": 1794997402,
+          "mtime_str": "18.11.2026 10:23",
+          "cdn_url": "https://vorschau.magnet-xs.ch/seit-vollversion/images/favicon-32x32.png",
+          "cloudflare_url": "https://vorschau.magnet-xs.ch/seit-vollversion/images/favicon-32x32.png",
+          "cloudflare_short": "vorschau.magnet-xs.ch/seit-vollversion/images/favicon-32x32.png",
+          "is_used": true,
+          "used_in": [
+            {
+              "datei": "index.html",
+              "slot": "image",
+              "is_hero": false
+            },
+            {
+              "datei": "kontakt.html",
+              "slot": "image",
+              "is_hero": false
+            },
+            {
+              "datei": "leistungen.html",
+              "slot": "image",
+              "is_hero": false
+            },
+            {
+              "datei": "referenzen.html",
+              "slot": "image",
+              "is_hero": false
+            },
+            {
+              "datei": "ueber-uns.html",
+              "slot": "image",
+              "is_hero": false
+            }
+          ],
+          "used_in_pages": [
+            "index.html",
+            "kontakt.html",
+            "leistungen.html",
+            "referenzen.html",
+            "ueber-uns.html"
+          ],
+          "alt": "Clean Equipe GmbH Oberkulm (AG) – Offizielles Logo (Unterhaltsreinigung für Haus und Wohnung (wöchentlich,)"
+        },
+        {
+          "nr": 5,
+          "id": "images_favicon_512_png",
+          "filename": "favicon-512.png",
+          "rel_path": "images/favicon-512.png",
+          "folder": "preview-seit",
+          "category": "Favicon & App-Icon",
+          "category_code": "icon",
+          "dimensions": "512x512",
+          "size_kb": 86.7,
+          "format": "PNG",
+          "mtime": 1794996989,
+          "mtime_str": "18.11.2026 10:16",
+          "cdn_url": "https://vorschau.magnet-xs.ch/seit-vollversion/images/favicon-512.png",
+          "cloudflare_url": "https://vorschau.magnet-xs.ch/seit-vollversion/images/favicon-512.png",
+          "cloudflare_short": "vorschau.magnet-xs.ch/seit-vollversion/images/favicon-512.png",
+          "is_used": false,
+          "used_in": [],
+          "used_in_pages": [],
+          "alt": "Clean Equipe GmbH Oberkulm (AG) – Offizielles Logo (Unterhaltsreinigung für Haus und Wohnung (wöchentlich,)"
+        },
+        {
+          "nr": 6,
+          "id": "images_fensterreinigung_fachfrau_jpg",
+          "filename": "fensterreinigung-fachfrau.jpg",
+          "rel_path": "images/fensterreinigung-fachfrau.jpg",
+          "folder": "preview-seit",
+          "category": "Referenz, Projekt & Angebot",
+          "category_code": "ref",
+          "dimensions": "1080x1080",
+          "size_kb": 133.3,
+          "format": "JPG",
+          "mtime": 1794996990,
+          "mtime_str": "18.11.2026 10:16",
+          "cdn_url": "https://vorschau.magnet-xs.ch/seit-vollversion/images/fensterreinigung-fachfrau.jpg",
+          "cloudflare_url": "https://vorschau.magnet-xs.ch/seit-vollversion/images/fensterreinigung-fachfrau.jpg",
+          "cloudflare_short": "vorschau.magnet-xs.ch/seit-vollversion/images/fensterreinigung-fachfrau.jpg",
+          "is_used": true,
+          "used_in": [
+            {
+              "datei": "index.html",
+              "slot": "image",
+              "is_hero": false
+            },
+            {
+              "datei": "kontakt.html",
+              "slot": "image",
+              "is_hero": false
+            },
+            {
+              "datei": "leistungen.html",
+              "slot": "image",
+              "is_hero": false
+            },
+            {
+              "datei": "referenzen.html",
+              "slot": "image",
+              "is_hero": false
+            },
+            {
+              "datei": "ueber-uns.html",
+              "slot": "image",
+              "is_hero": false
+            }
+          ],
+          "used_in_pages": [
+            "index.html",
+            "kontakt.html",
+            "leistungen.html",
+            "referenzen.html",
+            "ueber-uns.html"
+          ],
+          "alt": "Karolina Fabic von der Clean Equipe GmbH bei der streifenfreien Fensterreinigung"
+        },
+        {
+          "nr": 7,
+          "id": "images_header_raum_01_jpg",
+          "filename": "header-raum-01.jpg",
+          "rel_path": "images/header-raum-01.jpg",
+          "folder": "preview-seit",
+          "category": "Referenz, Projekt & Angebot",
+          "category_code": "ref",
+          "dimensions": "1600x500",
+          "size_kb": 87.0,
+          "format": "JPG",
+          "mtime": 1794996993,
+          "mtime_str": "18.11.2026 10:16",
+          "cdn_url": "https://vorschau.magnet-xs.ch/seit-vollversion/images/header-raum-01.jpg",
+          "cloudflare_url": "https://vorschau.magnet-xs.ch/seit-vollversion/images/header-raum-01.jpg",
+          "cloudflare_short": "vorschau.magnet-xs.ch/seit-vollversion/images/header-raum-01.jpg",
+          "is_used": true,
+          "used_in": [
+            {
+              "datei": "index.html",
+              "slot": "image",
+              "is_hero": false
+            },
+            {
+              "datei": "referenzen.html",
+              "slot": "image",
+              "is_hero": false
+            }
+          ],
+          "used_in_pages": [
+            "index.html",
+            "referenzen.html"
+          ],
+          "alt": "Schonende Reinigungsmittel und saubere Mikrofasertücher im Einsatz"
+        },
+        {
+          "nr": 8,
+          "id": "images_header_raum_02_jpg",
+          "filename": "header-raum-02.jpg",
+          "rel_path": "images/header-raum-02.jpg",
+          "folder": "preview-seit",
+          "category": "Referenz, Projekt & Angebot",
+          "category_code": "ref",
+          "dimensions": "1600x500",
+          "size_kb": 183.7,
+          "format": "JPG",
+          "mtime": 1794996993,
+          "mtime_str": "18.11.2026 10:16",
+          "cdn_url": "https://vorschau.magnet-xs.ch/seit-vollversion/images/header-raum-02.jpg",
+          "cloudflare_url": "https://vorschau.magnet-xs.ch/seit-vollversion/images/header-raum-02.jpg",
+          "cloudflare_short": "vorschau.magnet-xs.ch/seit-vollversion/images/header-raum-02.jpg",
+          "is_used": false,
+          "used_in": [],
+          "used_in_pages": [],
+          "alt": "Clean Equipe GmbH · Karolina Fabic (Oberkulm AG) – Einblick & Referenz: Header Raum 02: Referenz, Projekt & Angebot – Clean Equipe GmbH in Oberkulm (AG) – Clean Equipe GmbH in Oberkulm (AG) – Clean Equipe GmbH in Oberkulm (AG) – Clean Equipe GmbH in Oberkulm (AG)"
+        },
+        {
+          "nr": 9,
+          "id": "images_header_raum_03_jpg",
+          "filename": "header-raum-03.jpg",
+          "rel_path": "images/header-raum-03.jpg",
+          "folder": "preview-seit",
+          "category": "Referenz, Projekt & Angebot",
+          "category_code": "ref",
+          "dimensions": "1600x500",
+          "size_kb": 217.0,
+          "format": "JPG",
+          "mtime": 1794996993,
+          "mtime_str": "18.11.2026 10:16",
+          "cdn_url": "https://vorschau.magnet-xs.ch/seit-vollversion/images/header-raum-03.jpg",
+          "cloudflare_url": "https://vorschau.magnet-xs.ch/seit-vollversion/images/header-raum-03.jpg",
+          "cloudflare_short": "vorschau.magnet-xs.ch/seit-vollversion/images/header-raum-03.jpg",
+          "is_used": true,
+          "used_in": [
+            {
+              "datei": "referenzen.html",
+              "slot": "image",
+              "is_hero": false
+            }
+          ],
+          "used_in_pages": [
+            "referenzen.html"
+          ],
+          "alt": "Farbcodierte Mikrofasertücher für saubere Bereiche"
+        },
+        {
+          "nr": 10,
+          "id": "images_hero_buero_reinigung_01_jpg",
+          "filename": "hero-buero-reinigung-01.jpg",
+          "rel_path": "images/hero-buero-reinigung-01.jpg",
+          "folder": "preview-seit",
+          "category": "Startbühne & Header",
+          "category_code": "hero",
+          "dimensions": "1600x490",
+          "size_kb": 83.5,
+          "format": "JPG",
+          "mtime": 1794996991,
+          "mtime_str": "18.11.2026 10:16",
+          "cdn_url": "https://vorschau.magnet-xs.ch/seit-vollversion/images/hero-buero-reinigung-01.jpg",
+          "cloudflare_url": "https://vorschau.magnet-xs.ch/seit-vollversion/images/hero-buero-reinigung-01.jpg",
+          "cloudflare_short": "vorschau.magnet-xs.ch/seit-vollversion/images/hero-buero-reinigung-01.jpg",
+          "is_used": false,
+          "used_in": [],
+          "used_in_pages": [],
+          "alt": "Clean Equipe GmbH · Karolina Fabic (Oberkulm AG) – Startbühne & Hauptansicht: Buero Reinigung 01: Startbühne & Header – Clean Equipe GmbH in Oberkulm (AG) – Clean Equipe GmbH in Oberkulm (AG) – Clean Equipe GmbH in Oberkulm (AG) – Clean Equipe GmbH in Oberkulm (AG)"
+        },
+        {
+          "nr": 11,
+          "id": "images_karolina_fabic_portrait_jpg",
+          "filename": "karolina-fabic-portrait.jpg",
+          "rel_path": "images/karolina-fabic-portrait.jpg",
+          "folder": "preview-seit",
+          "category": "Team, Porträt & Kader",
+          "category_code": "team",
+          "dimensions": "1080x1350",
+          "size_kb": 97.3,
+          "format": "JPG",
+          "mtime": 1794996990,
+          "mtime_str": "18.11.2026 10:16",
+          "cdn_url": "https://vorschau.magnet-xs.ch/seit-vollversion/images/karolina-fabic-portrait.jpg",
+          "cloudflare_url": "https://vorschau.magnet-xs.ch/seit-vollversion/images/karolina-fabic-portrait.jpg",
+          "cloudflare_short": "vorschau.magnet-xs.ch/seit-vollversion/images/karolina-fabic-portrait.jpg",
+          "is_used": true,
+          "used_in": [
+            {
+              "datei": "ueber-uns.html",
+              "slot": "image",
+              "is_hero": false
+            }
+          ],
+          "used_in_pages": [
+            "ueber-uns.html"
+          ],
+          "alt": "Karolina Fabic – Inhaberin der Clean Equipe GmbH in Oberkulm"
+        },
+        {
+          "nr": 12,
+          "id": "images_logo_clean_equipe_full_png",
+          "filename": "logo-clean-equipe-full.png",
+          "rel_path": "images/logo-clean-equipe-full.png",
+          "folder": "preview-seit",
+          "category": "Logo & Marken-Icon",
+          "category_code": "logo",
+          "dimensions": "662x512",
+          "size_kb": 21.6,
+          "format": "PNG",
+          "mtime": 1794996989,
+          "mtime_str": "18.11.2026 10:16",
+          "cdn_url": "https://vorschau.magnet-xs.ch/seit-vollversion/images/logo-clean-equipe-full.png",
+          "cloudflare_url": "https://vorschau.magnet-xs.ch/seit-vollversion/images/logo-clean-equipe-full.png",
+          "cloudflare_short": "vorschau.magnet-xs.ch/seit-vollversion/images/logo-clean-equipe-full.png",
+          "is_used": false,
+          "used_in": [],
+          "used_in_pages": [],
+          "alt": "Clean Equipe GmbH Oberkulm (AG) – Offizielles Logo (Unterhaltsreinigung für Haus und Wohnung (wöchentlich,)"
+        },
+        {
+          "nr": 13,
+          "id": "images_logo_clean_equipe_retina_png",
+          "filename": "logo-clean-equipe-retina.png",
+          "rel_path": "images/logo-clean-equipe-retina.png",
+          "folder": "preview-seit",
+          "category": "Logo & Marken-Icon",
+          "category_code": "logo",
+          "dimensions": "391x83",
+          "size_kb": 6.8,
+          "format": "PNG",
+          "mtime": 1794996988,
+          "mtime_str": "18.11.2026 10:16",
+          "cdn_url": "https://vorschau.magnet-xs.ch/seit-vollversion/images/logo-clean-equipe-retina.png",
+          "cloudflare_url": "https://vorschau.magnet-xs.ch/seit-vollversion/images/logo-clean-equipe-retina.png",
+          "cloudflare_short": "vorschau.magnet-xs.ch/seit-vollversion/images/logo-clean-equipe-retina.png",
+          "is_used": true,
+          "used_in": [
+            {
+              "datei": "index.html",
+              "slot": "image",
+              "is_hero": false
+            },
+            {
+              "datei": "kontakt.html",
+              "slot": "image",
+              "is_hero": false
+            },
+            {
+              "datei": "leistungen.html",
+              "slot": "image",
+              "is_hero": false
+            },
+            {
+              "datei": "referenzen.html",
+              "slot": "image",
+              "is_hero": false
+            },
+            {
+              "datei": "ueber-uns.html",
+              "slot": "image",
+              "is_hero": false
+            }
+          ],
+          "used_in_pages": [
+            "index.html",
+            "kontakt.html",
+            "leistungen.html",
+            "referenzen.html",
+            "ueber-uns.html"
+          ],
+          "alt": "Clean Equipe GmbH Oberkulm (AG) – Offizielles Logo (Unterhaltsreinigung für Haus und Wohnung (wöchentlich,)"
+        },
+        {
+          "nr": 14,
+          "id": "images_logo_png",
+          "filename": "logo.png",
+          "rel_path": "images/logo.png",
+          "folder": "preview-seit",
+          "category": "Logo & Marken-Icon",
+          "category_code": "logo",
+          "dimensions": "391x83",
+          "size_kb": 6.8,
+          "format": "PNG",
+          "mtime": 1794997402,
+          "mtime_str": "18.11.2026 10:23",
+          "cdn_url": "https://vorschau.magnet-xs.ch/seit-vollversion/images/logo.png",
+          "cloudflare_url": "https://vorschau.magnet-xs.ch/seit-vollversion/images/logo.png",
+          "cloudflare_short": "vorschau.magnet-xs.ch/seit-vollversion/images/logo.png",
+          "is_used": false,
+          "used_in": [],
+          "used_in_pages": [],
+          "alt": "Clean Equipe GmbH Oberkulm (AG) – Offizielles Logo (Unterhaltsreinigung für Haus und Wohnung (wöchentlich,)"
+        },
+        {
+          "nr": 15,
+          "id": "images_objekt_detail_01_jpg",
+          "filename": "objekt-detail-01.jpg",
+          "rel_path": "images/objekt-detail-01.jpg",
+          "folder": "preview-seit",
+          "category": "Referenz, Projekt & Angebot",
+          "category_code": "ref",
+          "dimensions": "1600x1066",
+          "size_kb": 105.9,
+          "format": "JPG",
+          "mtime": 1794996992,
+          "mtime_str": "18.11.2026 10:16",
+          "cdn_url": "https://vorschau.magnet-xs.ch/seit-vollversion/images/objekt-detail-01.jpg",
+          "cloudflare_url": "https://vorschau.magnet-xs.ch/seit-vollversion/images/objekt-detail-01.jpg",
+          "cloudflare_short": "vorschau.magnet-xs.ch/seit-vollversion/images/objekt-detail-01.jpg",
+          "is_used": true,
+          "used_in": [
+            {
+              "datei": "referenzen.html",
+              "slot": "image",
+              "is_hero": false
+            }
+          ],
+          "used_in_pages": [
+            "referenzen.html"
+          ],
+          "alt": "Sorgfältige Detailreinigung von Glas- und glatten Oberflächen"
+        },
+        {
+          "nr": 16,
+          "id": "images_objekt_detail_02_jpg",
+          "filename": "objekt-detail-02.jpg",
+          "rel_path": "images/objekt-detail-02.jpg",
+          "folder": "preview-seit",
+          "category": "Referenz, Projekt & Angebot",
+          "category_code": "ref",
+          "dimensions": "1600x1067",
+          "size_kb": 198.0,
+          "format": "JPG",
+          "mtime": 1794996992,
+          "mtime_str": "18.11.2026 10:16",
+          "cdn_url": "https://vorschau.magnet-xs.ch/seit-vollversion/images/objekt-detail-02.jpg",
+          "cloudflare_url": "https://vorschau.magnet-xs.ch/seit-vollversion/images/objekt-detail-02.jpg",
+          "cloudflare_short": "vorschau.magnet-xs.ch/seit-vollversion/images/objekt-detail-02.jpg",
+          "is_used": true,
+          "used_in": [
+            {
+              "datei": "index.html",
+              "slot": "image",
+              "is_hero": false
+            },
+            {
+              "datei": "referenzen.html",
+              "slot": "image",
+              "is_hero": false
+            }
+          ],
+          "used_in_pages": [
+            "index.html",
+            "referenzen.html"
+          ],
+          "alt": "Gründliche Bad- und Haushaltsreinigung durch Clean Equipe GmbH"
+        },
+        {
+          "nr": 17,
+          "id": "images_reinigung_einsatz_02_jpg",
+          "filename": "reinigung-einsatz-02.jpg",
+          "rel_path": "images/reinigung-einsatz-02.jpg",
+          "folder": "preview-seit",
+          "category": "Referenz, Projekt & Angebot",
+          "category_code": "ref",
+          "dimensions": "1080x1080",
+          "size_kb": 114.6,
+          "format": "JPG",
+          "mtime": 1794996991,
+          "mtime_str": "18.11.2026 10:16",
+          "cdn_url": "https://vorschau.magnet-xs.ch/seit-vollversion/images/reinigung-einsatz-02.jpg",
+          "cloudflare_url": "https://vorschau.magnet-xs.ch/seit-vollversion/images/reinigung-einsatz-02.jpg",
+          "cloudflare_short": "vorschau.magnet-xs.ch/seit-vollversion/images/reinigung-einsatz-02.jpg",
+          "is_used": true,
+          "used_in": [
+            {
+              "datei": "index.html",
+              "slot": "image",
+              "is_hero": false
+            },
+            {
+              "datei": "leistungen.html",
+              "slot": "image",
+              "is_hero": false
+            },
+            {
+              "datei": "referenzen.html",
+              "slot": "image",
+              "is_hero": false
+            }
+          ],
+          "used_in_pages": [
+            "index.html",
+            "leistungen.html",
+            "referenzen.html"
+          ],
+          "alt": "Karolina Fabic bei der Büroreinigung in der Region Oberkulm und Aarau"
+        }
+      ]
+    },
+    {
+      "folder": "preview-seit-v2",
+      "company_name": "Clean Equipe GmbH · Karolina Fabic (Zeigeversion v2)",
+      "city": "Oberkulm AG",
+      "partner": "Jenny Ettle (JE-MI)",
+      "submitted_at": "18.11.2026 · 10:09 Uhr",
+      "cloudflare_base_url": "https://vorschau.magnet-xs.ch/seit-v2/",
+      "cloudflare_short_base": "vorschau.magnet-xs.ch/seit-v2",
+      "total_assets": 17,
+      "active_assets": 9,
+      "pool_assets": 8,
+      "external_hotlinks": 0,
+      "external_hotlink_details": [],
+      "total_kb": 1486.8,
+      "total_mb": 1.45,
+      "html_pages_count": 2,
+      "html_pages": [
+        "index.html",
+        "kontakt.html"
+      ],
+      "bilder_json_exists": true,
+      "bilder_verzeichnis_exists": true,
+      "assets": [
+        {
+          "nr": 1,
+          "id": "images_apple_touch_icon_png",
+          "filename": "apple-touch-icon.png",
+          "rel_path": "images/apple-touch-icon.png",
+          "folder": "preview-seit-v2",
+          "category": "Favicon & App-Icon",
+          "category_code": "icon",
+          "dimensions": "180x180",
+          "size_kb": 24.3,
+          "format": "PNG",
+          "mtime": 1794997402,
+          "mtime_str": "18.11.2026 10:23",
+          "cdn_url": "https://vorschau.magnet-xs.ch/seit-v2/images/apple-touch-icon.png",
+          "cloudflare_url": "https://vorschau.magnet-xs.ch/seit-v2/images/apple-touch-icon.png",
+          "cloudflare_short": "vorschau.magnet-xs.ch/seit-v2/images/apple-touch-icon.png",
+          "is_used": true,
+          "used_in": [
+            {
+              "datei": "index.html",
+              "slot": "image",
+              "is_hero": false
+            },
+            {
+              "datei": "kontakt.html",
+              "slot": "image",
+              "is_hero": false
+            }
+          ],
+          "used_in_pages": [
+            "index.html",
+            "kontakt.html"
+          ],
+          "alt": "Clean Equipe GmbH Oberkulm (AG) – Offizielles Logo (Unterhaltsreinigung für Haus und Wohnung (wöchentlich,)"
+        },
+        {
+          "nr": 2,
+          "id": "images_banner_reinigung_02_jpg",
+          "filename": "banner-reinigung-02.jpg",
+          "rel_path": "images/banner-reinigung-02.jpg",
+          "folder": "preview-seit-v2",
+          "category": "Referenz, Projekt & Angebot",
+          "category_code": "ref",
+          "dimensions": "1600x490",
+          "size_kb": 39.2,
+          "format": "JPG",
+          "mtime": 1794996991,
+          "mtime_str": "18.11.2026 10:16",
+          "cdn_url": "https://vorschau.magnet-xs.ch/seit-v2/images/banner-reinigung-02.jpg",
+          "cloudflare_url": "https://vorschau.magnet-xs.ch/seit-v2/images/banner-reinigung-02.jpg",
+          "cloudflare_short": "vorschau.magnet-xs.ch/seit-v2/images/banner-reinigung-02.jpg",
+          "is_used": true,
+          "used_in": [
+            {
+              "datei": "index.html",
+              "slot": "image",
+              "is_hero": false
+            }
+          ],
+          "used_in_pages": [
+            "index.html"
+          ],
+          "alt": "Gründliche Bauendreinigung bei Neubau und Umbau im Kanton Aargau"
+        },
+        {
+          "nr": 3,
+          "id": "images_banner_reinigung_03_jpg",
+          "filename": "banner-reinigung-03.jpg",
+          "rel_path": "images/banner-reinigung-03.jpg",
+          "folder": "preview-seit-v2",
+          "category": "Referenz, Projekt & Angebot",
+          "category_code": "ref",
+          "dimensions": "1600x490",
+          "size_kb": 78.8,
+          "format": "JPG",
+          "mtime": 1794996992,
+          "mtime_str": "18.11.2026 10:16",
+          "cdn_url": "https://vorschau.magnet-xs.ch/seit-v2/images/banner-reinigung-03.jpg",
+          "cloudflare_url": "https://vorschau.magnet-xs.ch/seit-v2/images/banner-reinigung-03.jpg",
+          "cloudflare_short": "vorschau.magnet-xs.ch/seit-v2/images/banner-reinigung-03.jpg",
+          "is_used": true,
+          "used_in": [
+            {
+              "datei": "index.html",
+              "slot": "image",
+              "is_hero": false
+            }
+          ],
+          "used_in_pages": [
+            "index.html"
+          ],
+          "alt": "Gepflegte Büro- und Sitzungsräume nach der Reinigung durch Clean Equipe"
+        },
+        {
+          "nr": 4,
+          "id": "images_favicon_32x32_png",
+          "filename": "favicon-32x32.png",
+          "rel_path": "images/favicon-32x32.png",
+          "folder": "preview-seit-v2",
+          "category": "Favicon & App-Icon",
+          "category_code": "icon",
+          "dimensions": "32x32",
+          "size_kb": 2.3,
+          "format": "PNG",
+          "mtime": 1794997402,
+          "mtime_str": "18.11.2026 10:23",
+          "cdn_url": "https://vorschau.magnet-xs.ch/seit-v2/images/favicon-32x32.png",
+          "cloudflare_url": "https://vorschau.magnet-xs.ch/seit-v2/images/favicon-32x32.png",
+          "cloudflare_short": "vorschau.magnet-xs.ch/seit-v2/images/favicon-32x32.png",
+          "is_used": true,
+          "used_in": [
+            {
+              "datei": "index.html",
+              "slot": "image",
+              "is_hero": false
+            },
+            {
+              "datei": "kontakt.html",
+              "slot": "image",
+              "is_hero": false
+            }
+          ],
+          "used_in_pages": [
+            "index.html",
+            "kontakt.html"
+          ],
+          "alt": "Clean Equipe GmbH Oberkulm (AG) – Offizielles Logo (Unterhaltsreinigung für Haus und Wohnung (wöchentlich,)"
+        },
+        {
+          "nr": 5,
+          "id": "images_favicon_512_png",
+          "filename": "favicon-512.png",
+          "rel_path": "images/favicon-512.png",
+          "folder": "preview-seit-v2",
+          "category": "Favicon & App-Icon",
+          "category_code": "icon",
+          "dimensions": "512x512",
+          "size_kb": 86.7,
+          "format": "PNG",
+          "mtime": 1794996989,
+          "mtime_str": "18.11.2026 10:16",
+          "cdn_url": "https://vorschau.magnet-xs.ch/seit-v2/images/favicon-512.png",
+          "cloudflare_url": "https://vorschau.magnet-xs.ch/seit-v2/images/favicon-512.png",
+          "cloudflare_short": "vorschau.magnet-xs.ch/seit-v2/images/favicon-512.png",
+          "is_used": false,
+          "used_in": [],
+          "used_in_pages": [],
+          "alt": "Clean Equipe GmbH Oberkulm (AG) – Offizielles Logo (Unterhaltsreinigung für Haus und Wohnung (wöchentlich,)"
+        },
+        {
+          "nr": 6,
+          "id": "images_fensterreinigung_fachfrau_jpg",
+          "filename": "fensterreinigung-fachfrau.jpg",
+          "rel_path": "images/fensterreinigung-fachfrau.jpg",
+          "folder": "preview-seit-v2",
+          "category": "Referenz, Projekt & Angebot",
+          "category_code": "ref",
+          "dimensions": "1080x1080",
+          "size_kb": 133.3,
+          "format": "JPG",
+          "mtime": 1794996990,
+          "mtime_str": "18.11.2026 10:16",
+          "cdn_url": "https://vorschau.magnet-xs.ch/seit-v2/images/fensterreinigung-fachfrau.jpg",
+          "cloudflare_url": "https://vorschau.magnet-xs.ch/seit-v2/images/fensterreinigung-fachfrau.jpg",
+          "cloudflare_short": "vorschau.magnet-xs.ch/seit-v2/images/fensterreinigung-fachfrau.jpg",
+          "is_used": true,
+          "used_in": [
+            {
+              "datei": "index.html",
+              "slot": "image",
+              "is_hero": false
+            },
+            {
+              "datei": "kontakt.html",
+              "slot": "image",
+              "is_hero": false
+            }
+          ],
+          "used_in_pages": [
+            "index.html",
+            "kontakt.html"
+          ],
+          "alt": "Karolina Fabic von der Clean Equipe GmbH bei der streifenfreien Fensterreinigung"
+        },
+        {
+          "nr": 7,
+          "id": "images_header_raum_01_jpg",
+          "filename": "header-raum-01.jpg",
+          "rel_path": "images/header-raum-01.jpg",
+          "folder": "preview-seit-v2",
+          "category": "Referenz, Projekt & Angebot",
+          "category_code": "ref",
+          "dimensions": "1600x500",
+          "size_kb": 87.0,
+          "format": "JPG",
+          "mtime": 1794996993,
+          "mtime_str": "18.11.2026 10:16",
+          "cdn_url": "https://vorschau.magnet-xs.ch/seit-v2/images/header-raum-01.jpg",
+          "cloudflare_url": "https://vorschau.magnet-xs.ch/seit-v2/images/header-raum-01.jpg",
+          "cloudflare_short": "vorschau.magnet-xs.ch/seit-v2/images/header-raum-01.jpg",
+          "is_used": true,
+          "used_in": [
+            {
+              "datei": "index.html",
+              "slot": "image",
+              "is_hero": false
+            }
+          ],
+          "used_in_pages": [
+            "index.html"
+          ],
+          "alt": "Schonende Reinigungsmittel und saubere Mikrofasertücher im Einsatz"
+        },
+        {
+          "nr": 8,
+          "id": "images_header_raum_02_jpg",
+          "filename": "header-raum-02.jpg",
+          "rel_path": "images/header-raum-02.jpg",
+          "folder": "preview-seit-v2",
+          "category": "Referenz, Projekt & Angebot",
+          "category_code": "ref",
+          "dimensions": "1600x500",
+          "size_kb": 183.7,
+          "format": "JPG",
+          "mtime": 1794996993,
+          "mtime_str": "18.11.2026 10:16",
+          "cdn_url": "https://vorschau.magnet-xs.ch/seit-v2/images/header-raum-02.jpg",
+          "cloudflare_url": "https://vorschau.magnet-xs.ch/seit-v2/images/header-raum-02.jpg",
+          "cloudflare_short": "vorschau.magnet-xs.ch/seit-v2/images/header-raum-02.jpg",
+          "is_used": false,
+          "used_in": [],
+          "used_in_pages": [],
+          "alt": "Clean Equipe GmbH · Karolina Fabic (Oberkulm AG) – Einblick & Referenz: Header Raum 02: Referenz, Projekt & Angebot – Clean Equipe GmbH in Oberkulm (AG) – Clean Equipe GmbH in Oberkulm (AG) – Clean Equipe GmbH in Oberkulm (AG) – Clean Equipe GmbH in Oberkulm (AG)"
+        },
+        {
+          "nr": 9,
+          "id": "images_header_raum_03_jpg",
+          "filename": "header-raum-03.jpg",
+          "rel_path": "images/header-raum-03.jpg",
+          "folder": "preview-seit-v2",
+          "category": "Referenz, Projekt & Angebot",
+          "category_code": "ref",
+          "dimensions": "1600x500",
+          "size_kb": 217.0,
+          "format": "JPG",
+          "mtime": 1794996993,
+          "mtime_str": "18.11.2026 10:16",
+          "cdn_url": "https://vorschau.magnet-xs.ch/seit-v2/images/header-raum-03.jpg",
+          "cloudflare_url": "https://vorschau.magnet-xs.ch/seit-v2/images/header-raum-03.jpg",
+          "cloudflare_short": "vorschau.magnet-xs.ch/seit-v2/images/header-raum-03.jpg",
+          "is_used": false,
+          "used_in": [],
+          "used_in_pages": [],
+          "alt": "Clean Equipe GmbH · Karolina Fabic (Oberkulm AG) – Einblick & Referenz: Header Raum 03: Referenz, Projekt & Angebot – Clean Equipe GmbH in Oberkulm (AG) – Clean Equipe GmbH in Oberkulm (AG) – Clean Equipe GmbH in Oberkulm (AG) – Clean Equipe GmbH in Oberkulm (AG)"
+        },
+        {
+          "nr": 10,
+          "id": "images_hero_buero_reinigung_01_jpg",
+          "filename": "hero-buero-reinigung-01.jpg",
+          "rel_path": "images/hero-buero-reinigung-01.jpg",
+          "folder": "preview-seit-v2",
+          "category": "Startbühne & Header",
+          "category_code": "hero",
+          "dimensions": "1600x490",
+          "size_kb": 83.5,
+          "format": "JPG",
+          "mtime": 1794996991,
+          "mtime_str": "18.11.2026 10:16",
+          "cdn_url": "https://vorschau.magnet-xs.ch/seit-v2/images/hero-buero-reinigung-01.jpg",
+          "cloudflare_url": "https://vorschau.magnet-xs.ch/seit-v2/images/hero-buero-reinigung-01.jpg",
+          "cloudflare_short": "vorschau.magnet-xs.ch/seit-v2/images/hero-buero-reinigung-01.jpg",
+          "is_used": false,
+          "used_in": [],
+          "used_in_pages": [],
+          "alt": "Clean Equipe GmbH · Karolina Fabic (Oberkulm AG) – Startbühne & Hauptansicht: Buero Reinigung 01: Startbühne & Header – Clean Equipe GmbH in Oberkulm (AG) – Clean Equipe GmbH in Oberkulm (AG) – Clean Equipe GmbH in Oberkulm (AG) – Clean Equipe GmbH in Oberkulm (AG)"
+        },
+        {
+          "nr": 11,
+          "id": "images_karolina_fabic_portrait_jpg",
+          "filename": "karolina-fabic-portrait.jpg",
+          "rel_path": "images/karolina-fabic-portrait.jpg",
+          "folder": "preview-seit-v2",
+          "category": "Team, Porträt & Kader",
+          "category_code": "team",
+          "dimensions": "1080x1350",
+          "size_kb": 97.3,
+          "format": "JPG",
+          "mtime": 1794996990,
+          "mtime_str": "18.11.2026 10:16",
+          "cdn_url": "https://vorschau.magnet-xs.ch/seit-v2/images/karolina-fabic-portrait.jpg",
+          "cloudflare_url": "https://vorschau.magnet-xs.ch/seit-v2/images/karolina-fabic-portrait.jpg",
+          "cloudflare_short": "vorschau.magnet-xs.ch/seit-v2/images/karolina-fabic-portrait.jpg",
+          "is_used": false,
+          "used_in": [],
+          "used_in_pages": [],
+          "alt": "Clean Equipe GmbH · Karolina Fabic (Oberkulm AG) – Team & Ansprechpartner: Karolina Fabic Portrait – Persönlicher Ansprechpartner und Fachteam bei Clean Equipe GmbH in Oberkulm (AG) – Persönlicher Ansprechpartner und Fachteam bei Clean Equipe GmbH in Oberkulm (AG) – Persönlicher Ansprechpartner und Fachteam bei Clean Equipe GmbH in Oberkulm (AG) – Persönlicher Ansprechpartner und Fachteam bei Clean Equipe GmbH in Oberkulm (AG)"
+        },
+        {
+          "nr": 12,
+          "id": "images_logo_clean_equipe_full_png",
+          "filename": "logo-clean-equipe-full.png",
+          "rel_path": "images/logo-clean-equipe-full.png",
+          "folder": "preview-seit-v2",
+          "category": "Logo & Marken-Icon",
+          "category_code": "logo",
+          "dimensions": "662x512",
+          "size_kb": 21.6,
+          "format": "PNG",
+          "mtime": 1794996989,
+          "mtime_str": "18.11.2026 10:16",
+          "cdn_url": "https://vorschau.magnet-xs.ch/seit-v2/images/logo-clean-equipe-full.png",
+          "cloudflare_url": "https://vorschau.magnet-xs.ch/seit-v2/images/logo-clean-equipe-full.png",
+          "cloudflare_short": "vorschau.magnet-xs.ch/seit-v2/images/logo-clean-equipe-full.png",
+          "is_used": false,
+          "used_in": [],
+          "used_in_pages": [],
+          "alt": "Clean Equipe GmbH Oberkulm (AG) – Offizielles Logo (Unterhaltsreinigung für Haus und Wohnung (wöchentlich,)"
+        },
+        {
+          "nr": 13,
+          "id": "images_logo_clean_equipe_retina_png",
+          "filename": "logo-clean-equipe-retina.png",
+          "rel_path": "images/logo-clean-equipe-retina.png",
+          "folder": "preview-seit-v2",
+          "category": "Logo & Marken-Icon",
+          "category_code": "logo",
+          "dimensions": "391x83",
+          "size_kb": 6.8,
+          "format": "PNG",
+          "mtime": 1794996988,
+          "mtime_str": "18.11.2026 10:16",
+          "cdn_url": "https://vorschau.magnet-xs.ch/seit-v2/images/logo-clean-equipe-retina.png",
+          "cloudflare_url": "https://vorschau.magnet-xs.ch/seit-v2/images/logo-clean-equipe-retina.png",
+          "cloudflare_short": "vorschau.magnet-xs.ch/seit-v2/images/logo-clean-equipe-retina.png",
+          "is_used": true,
+          "used_in": [
+            {
+              "datei": "index.html",
+              "slot": "image",
+              "is_hero": false
+            },
+            {
+              "datei": "kontakt.html",
+              "slot": "image",
+              "is_hero": false
+            }
+          ],
+          "used_in_pages": [
+            "index.html",
+            "kontakt.html"
+          ],
+          "alt": "Clean Equipe GmbH Oberkulm (AG) – Offizielles Logo (Unterhaltsreinigung für Haus und Wohnung (wöchentlich,)"
+        },
+        {
+          "nr": 14,
+          "id": "images_logo_png",
+          "filename": "logo.png",
+          "rel_path": "images/logo.png",
+          "folder": "preview-seit-v2",
+          "category": "Logo & Marken-Icon",
+          "category_code": "logo",
+          "dimensions": "391x83",
+          "size_kb": 6.8,
+          "format": "PNG",
+          "mtime": 1794997402,
+          "mtime_str": "18.11.2026 10:23",
+          "cdn_url": "https://vorschau.magnet-xs.ch/seit-v2/images/logo.png",
+          "cloudflare_url": "https://vorschau.magnet-xs.ch/seit-v2/images/logo.png",
+          "cloudflare_short": "vorschau.magnet-xs.ch/seit-v2/images/logo.png",
+          "is_used": false,
+          "used_in": [],
+          "used_in_pages": [],
+          "alt": "Clean Equipe GmbH Oberkulm (AG) – Offizielles Logo (Unterhaltsreinigung für Haus und Wohnung (wöchentlich,)"
+        },
+        {
+          "nr": 15,
+          "id": "images_objekt_detail_01_jpg",
+          "filename": "objekt-detail-01.jpg",
+          "rel_path": "images/objekt-detail-01.jpg",
+          "folder": "preview-seit-v2",
+          "category": "Referenz, Projekt & Angebot",
+          "category_code": "ref",
+          "dimensions": "1600x1066",
+          "size_kb": 105.9,
+          "format": "JPG",
+          "mtime": 1794996992,
+          "mtime_str": "18.11.2026 10:16",
+          "cdn_url": "https://vorschau.magnet-xs.ch/seit-v2/images/objekt-detail-01.jpg",
+          "cloudflare_url": "https://vorschau.magnet-xs.ch/seit-v2/images/objekt-detail-01.jpg",
+          "cloudflare_short": "vorschau.magnet-xs.ch/seit-v2/images/objekt-detail-01.jpg",
+          "is_used": false,
+          "used_in": [],
+          "used_in_pages": [],
+          "alt": "Clean Equipe GmbH · Karolina Fabic (Oberkulm AG) – Einblick & Referenz: Objekt Detail 01: Referenz, Projekt & Angebot – Clean Equipe GmbH in Oberkulm (AG) – Clean Equipe GmbH in Oberkulm (AG) – Clean Equipe GmbH in Oberkulm (AG) – Clean Equipe GmbH in Oberkulm (AG)"
+        },
+        {
+          "nr": 16,
+          "id": "images_objekt_detail_02_jpg",
+          "filename": "objekt-detail-02.jpg",
+          "rel_path": "images/objekt-detail-02.jpg",
+          "folder": "preview-seit-v2",
+          "category": "Referenz, Projekt & Angebot",
+          "category_code": "ref",
+          "dimensions": "1600x1067",
+          "size_kb": 198.0,
+          "format": "JPG",
+          "mtime": 1794996993,
+          "mtime_str": "18.11.2026 10:16",
+          "cdn_url": "https://vorschau.magnet-xs.ch/seit-v2/images/objekt-detail-02.jpg",
+          "cloudflare_url": "https://vorschau.magnet-xs.ch/seit-v2/images/objekt-detail-02.jpg",
+          "cloudflare_short": "vorschau.magnet-xs.ch/seit-v2/images/objekt-detail-02.jpg",
+          "is_used": true,
+          "used_in": [
+            {
+              "datei": "index.html",
+              "slot": "image",
+              "is_hero": false
+            }
+          ],
+          "used_in_pages": [
+            "index.html"
+          ],
+          "alt": "Gründliche Bad- und Haushaltsreinigung durch Clean Equipe GmbH"
+        },
+        {
+          "nr": 17,
+          "id": "images_reinigung_einsatz_02_jpg",
+          "filename": "reinigung-einsatz-02.jpg",
+          "rel_path": "images/reinigung-einsatz-02.jpg",
+          "folder": "preview-seit-v2",
+          "category": "Referenz, Projekt & Angebot",
+          "category_code": "ref",
+          "dimensions": "1080x1080",
+          "size_kb": 114.6,
+          "format": "JPG",
+          "mtime": 1794996991,
+          "mtime_str": "18.11.2026 10:16",
+          "cdn_url": "https://vorschau.magnet-xs.ch/seit-v2/images/reinigung-einsatz-02.jpg",
+          "cloudflare_url": "https://vorschau.magnet-xs.ch/seit-v2/images/reinigung-einsatz-02.jpg",
+          "cloudflare_short": "vorschau.magnet-xs.ch/seit-v2/images/reinigung-einsatz-02.jpg",
+          "is_used": true,
+          "used_in": [
+            {
+              "datei": "index.html",
+              "slot": "image",
+              "is_hero": false
+            }
+          ],
+          "used_in_pages": [
+            "index.html"
+          ],
+          "alt": "Karolina Fabic bei der Büroreinigung in der Region Oberkulm und Aarau"
         }
       ]
     },
