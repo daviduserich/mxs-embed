@@ -119,7 +119,8 @@ def resolve_lead_routing_for_request(slug: str, category: str, sparte: str, urge
     """Ermittelt Mandanten-Brand-Config, den zustaendigen Ansprechpartner und den PLZ-Einzugsgebiets-Status."""
     all_routing = load_lead_routing()
     clean_slug = re.sub(r"^preview-", "", (slug or "hochuli").strip().lower())
-    client_cfg = all_routing.get(clean_slug) or all_routing.get("hochuli") or {}
+    base_slug = re.sub(r"-(?:vollversion|vv|v1|v2)$", "", clean_slug)
+    client_cfg = all_routing.get(clean_slug) or all_routing.get(base_slug) or all_routing.get("hochuli") or {}
 
     routes = client_cfg.get("routes") or {}
     default_assignee = client_cfg.get("default_assignee") or {
@@ -469,6 +470,92 @@ def build_lead_email_html(lead_data: dict, brand_cfg: dict) -> tuple[str, str]:
     return html_body, text_body
 
 
+
+
+def send_customer_confirmation_email(to_email: str, lead_data: dict, brand_cfg: dict, log_fn=None) -> tuple[bool, str]:
+    """Sendet eine freundliche Eingangsbestaetigung an den Endkunden (nur bei live_routing_enabled=True)."""
+    if not to_email or "@" not in to_email:
+        return False, "no_customer_email"
+    dom = to_email.split("@", 1)[1].lower().strip()
+    if dom in ("example.com", "example.ch", "example.org", "test.ch", "test.local", "invalid", "localhost"):
+        return False, "skipped_synthetic_domain"
+
+    smtp_cfg = get_smtp_config()
+    smtp_host = smtp_cfg.get("smtp_host") or os.environ.get("SMTP_HOST") or "w01b7af4.kasserver.com"
+    smtp_port = int(smtp_cfg.get("smtp_port") or os.environ.get("SMTP_PORT") or 587)
+    smtp_user = smtp_cfg.get("smtp_user") or os.environ.get("SMTP_USER") or ""
+    smtp_pass = smtp_cfg.get("smtp_pass") or os.environ.get("SMTP_PASS") or ""
+    smtp_from = smtp_cfg.get("smtp_from") or os.environ.get("SMTP_FROM") or "david.huegli@acp-authentic-content-pilot.com"
+
+    backup_host = smtp_cfg.get("smtp_backup_host") or os.environ.get("SMTP_BACKUP_HOST") or "w01b7af4.kasserver.com"
+    backup_port = int(smtp_cfg.get("smtp_backup_port") or os.environ.get("SMTP_BACKUP_PORT") or 587)
+    backup_user = smtp_cfg.get("smtp_backup_user") or os.environ.get("SMTP_BACKUP_USER") or "m07d99e5"
+    backup_pass = smtp_cfg.get("smtp_backup_pass") or os.environ.get("SMTP_BACKUP_PASS") or ""
+    backup_from = smtp_cfg.get("smtp_backup_from") or os.environ.get("SMTP_BACKUP_FROM") or smtp_from
+
+    company_name = brand_cfg.get("company_name") or "autohauser®"
+    primary_rgb = brand_cfg.get("primary_color") or [0, 103, 178]
+    primary_hex = "#{:02x}{:02x}{:02x}".format(*primary_rgb)
+    ref_code = lead_data.get("ref_code") or "#WP-2026"
+    name = lead_data.get("name") or "Kundin / Kunde"
+    sparte = lead_data.get("sparte") or lead_data.get("category") or "Ihre Anfrage"
+    assigned_to = lead_data.get("assigned_to") or "Unser Team"
+    callback_window = lead_data.get("callback_window") or "Zeitnah"
+    default_phone = brand_cfg.get("default_phone") or "+41 62 789 33 30"
+
+    html_body = f"""<!DOCTYPE html>
+<html lang="de"><body style="margin:0;padding:0;background:#f1f5f9;font-family:Arial,Helvetica,sans-serif;">
+  <div style="max-width:600px;margin:24px auto;background:#ffffff;border-radius:10px;overflow:hidden;border:1px solid #cbd5e1;">
+    <div style="background:{primary_hex};color:#ffffff;padding:20px 24px;">
+      <div style="font-size:12px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;">Eingangsbestätigung · {ref_code}</div>
+      <div style="font-size:20px;font-weight:800;margin-top:4px;">Vielen Dank für Ihre Anfrage bei {company_name}</div>
+    </div>
+    <div style="padding:22px 24px;color:#0f172a;font-size:14px;line-height:1.6;">
+      <p>Guten Tag {name},</p>
+      <p>wir haben Ihre Meldung im Bereich <strong>{sparte}</strong> unter der Referenz <strong>{ref_code}</strong> erhalten.</p>
+      <p><strong>Zuständige Ansprechperson:</strong> {assigned_to}<br>
+         <strong>Geplante Rückmeldung:</strong> {callback_window}</p>
+      <p>Bei dringenden Anliegen erreichen Sie uns direkt telefonisch unter <strong>{default_phone}</strong>.</p>
+      <p style="margin-top:18px;color:#475569;font-size:13px;">Freundliche Grüsse<br><strong>{company_name}</strong></p>
+    </div>
+  </div>
+</body></html>"""
+    text_body = (
+        f"Guten Tag {name},\n\n"
+        f"vielen Dank für Ihre Anfrage ({ref_code}) bei {company_name} im Bereich {sparte}.\n"
+        f"Zuständig: {assigned_to}\n"
+        f"Geplante Rückmeldung: {callback_window}\n"
+        f"Telefon: {default_phone}\n\n"
+        f"Freundliche Grüsse\n{company_name}\n"
+    )
+    msg = EmailMessage()
+    msg["Subject"] = f"Eingangsbestätigung {ref_code} · {company_name}"
+    clean_company = re.sub(r"[\r\n<>]", "", str(company_name)).strip() or "WebPilot"
+    msg["From"] = f"{clean_company} <{smtp_from}>"
+    msg["To"] = to_email
+    if brand_cfg.get("default_email"):
+        msg["Reply-To"] = brand_cfg.get("default_email")
+    msg.set_content(text_body)
+    msg.add_alternative(html_body, subtype="html")
+
+    if smtp_user and smtp_pass:
+        try:
+            _smtp_deliver_message(smtp_host, smtp_port, smtp_user, smtp_pass, msg, to_addrs=[to_email])
+            return True, "sent_customer_confirm"
+        except Exception:
+            pass
+    if backup_host and backup_user and backup_pass:
+        try:
+            msg.replace_header("From", f"{clean_company} <{backup_from}>")
+            _smtp_deliver_message(backup_host, backup_port, backup_user, backup_pass, msg, to_addrs=[to_email])
+            return True, "sent_customer_confirm_fallback"
+        except Exception as ex:
+            if log_fn:
+                log_fn("webpilot-lead", "CUST_CONFIRM_ERR", "WARN", str(ex))
+            return False, str(ex)
+    return False, "smtp_unavailable"
+
+
 def process_lead_submission(data: dict, client_ip: str, referer: str, resolve_client_dir_fn, send_partner_whatsapp_fn, log_fn) -> tuple[dict, int]:
     """Haupt-Controller fuer POST /api/lead-submit."""
     if str(data.get("website_url") or data.get("_hp") or "").strip():
@@ -574,21 +661,35 @@ def process_lead_submission(data: dict, client_ip: str, referer: str, resolve_cl
     lead_record["cc_email"] = cc_email
     meta_path.write_text(json.dumps(lead_record, indent=2, ensure_ascii=False), encoding="utf-8")
 
+    preview_safe_mode = bool(brand_cfg.get("preview_safe_mode", False))
+    live_routing_enabled = bool(brand_cfg.get("live_routing_enabled", False))
+    effective_cc = cc_email
+
     target_emails = []
-    if clean_slug == "webpilot_partner" and route_email and "@" in route_email:
-        if data.get("self_test_mode"):
-            target_emails.append(cc_email or "david.huegli@magnet-xs.ch")
-        else:
-            target_emails.append(route_email)
-    if email and "@" in email and email not in target_emails:
-        target_emails.append(email)
+    if preview_safe_mode and not live_routing_enabled:
+        # Strikt sicherer Vorschau-Modus: niemals an Kunden-Mitarbeitende senden, nur an eingetragene Test-Adresse
+        effective_cc = ""
+        if email and "@" in email:
+            target_emails.append(email)
+    elif live_routing_enabled:
+        internal_target = route_email or str(brand_cfg.get("default_email") or "").strip()
+        if internal_target and "@" in internal_target:
+            target_emails.append(internal_target)
+    else:
+        if clean_slug == "webpilot_partner" and route_email and "@" in route_email:
+            if data.get("self_test_mode"):
+                target_emails.append(cc_email or "david.huegli@magnet-xs.ch")
+            else:
+                target_emails.append(route_email)
+        if email and "@" in email and email not in target_emails:
+            target_emails.append(email)
 
     html_body, text_body = build_lead_email_html(lead_record, brand_cfg)
     pdf_filename = f"Auftrag_{ref_code.lstrip('#')}_{clean_slug.upper()}.pdf"
     subj = f"[{urgency.upper()}] Neue Smart-Anfrage {ref_code} · {brand_cfg.get('company_name', clean_slug)} ({sparte})"
     email_sent, email_status = send_lead_email_with_pdf(
         to_emails=target_emails,
-        reply_to=email or route_email,
+        reply_to=email or ("" if (preview_safe_mode and not live_routing_enabled) else route_email),
         subject=subj,
         html_body=html_body,
         text_body=text_body,
@@ -596,8 +697,12 @@ def process_lead_submission(data: dict, client_ip: str, referer: str, resolve_cl
         pdf_filename=pdf_filename,
         log_fn=log_fn,
         company_name=brand_cfg.get("company_name") or clean_slug.upper(),
-        cc_email=cc_email,
+        cc_email=effective_cc,
     )
+
+    customer_confirm_sent = False
+    if live_routing_enabled and email and "@" in email and email.lower() not in [t.lower() for t in target_emails]:
+        customer_confirm_sent, _ = send_customer_confirmation_email(email, lead_record, brand_cfg, log_fn=log_fn)
 
     whatsapp_sent = False
     whatsapp_status = "skipped_no_mobile"
@@ -673,6 +778,11 @@ def process_lead_submission(data: dict, client_ip: str, referer: str, resolve_cl
         "callback_window": callback_window,
         "email_sent": email_sent,
         "email_status": email_status,
+        "pdf_generated": pdf_path.exists() and pdf_path.stat().st_size > 100,
+        "preview_safe_mode": preview_safe_mode,
+        "live_routing_enabled": live_routing_enabled,
+        "delivered_to": target_emails,
+        "customer_confirm_sent": customer_confirm_sent,
         "whatsapp_sent": whatsapp_sent,
         "whatsapp_status": whatsapp_status,
         "whatsapp_preview_text": whatsapp_preview_text,

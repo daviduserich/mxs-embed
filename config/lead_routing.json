@@ -4619,5 +4619,106 @@
     },
     "partner_id": "jenny",
     "client_slug": "seit-vv"
+  },
+  "autohauser": {
+    "client_slug": "autohauser",
+    "company_name": "Jakob Hauser AG · autohauser®",
+    "brand_subtitle": "Carrosserie, Unfallinstandstellung, Autobeschriftung & Classic Cars · Oftringen (seit 1948)",
+    "primary_color": [
+      0,
+      103,
+      178
+    ],
+    "dark_color": [
+      0,
+      70,
+      139
+    ],
+    "logo_path": "/home/brainuser/workspaces/mxs-embed/preview-autohauser/assets/autohauser_logo.png",
+    "logo_white_bg": true,
+    "preview_safe_mode": true,
+    "live_routing_enabled": false,
+    "default_email": "info@autohauser.ch",
+    "default_phone": "+41 62 789 33 30",
+    "emergency_phone": "0800 875 875",
+    "service_area_label": "Oftringen, Region Zofingen, Aargau, Mittelland & ganze Schweiz",
+    "service_area_plz_prefixes": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6",
+      "7",
+      "8",
+      "9"
+    ],
+    "default_assignee": {
+      "name": "Javier Jimenez & Andrea Heimgartner",
+      "role": "Betriebsleitung & Schadenmanagement · Unfall, Hagel & Glas",
+      "department": "Unfall & Hagel / Glasschaden",
+      "phone": "+41 62 789 33 34",
+      "email": "javier.jimenez@autohauser.ch",
+      "whatsapp": "+41627893334"
+    },
+    "default": {
+      "name": "Javier Jimenez & Andrea Heimgartner",
+      "role": "Betriebsleitung & Schadenmanagement · Unfall, Hagel & Glas",
+      "department": "Unfall & Hagel / Glasschaden",
+      "phone": "+41 62 789 33 34",
+      "email": "javier.jimenez@autohauser.ch",
+      "whatsapp": "+41627893334"
+    },
+    "routes": {
+      "Unfall & Hagel / Glasschaden": {
+        "name": "Javier Jimenez",
+        "role": "Betriebsleiter | Schadenmanager (Koordination mit Andrea Heimgartner, +41 62 789 33 49)",
+        "department": "Unfall & Hagel / Glasschaden",
+        "phone": "+41 62 789 33 34",
+        "email": "javier.jimenez@autohauser.ch",
+        "whatsapp": "+41627893334"
+      },
+      "Hagelschaden 2026": {
+        "name": "Javier Jimenez",
+        "role": "Betriebsleiter | Schadenmanager · Hagelschaden & Versicherungsabklärung",
+        "department": "Unfall & Hagel / Glasschaden",
+        "phone": "+41 62 789 33 34",
+        "email": "javier.jimenez@autohauser.ch",
+        "whatsapp": "+41627893334"
+      },
+      "Glasschaden & Sofort-Rückruf": {
+        "name": "Andrea Heimgartner",
+        "role": "Schadenmanagerin · Frontscheibe & Direktabwicklung",
+        "department": "Unfall & Hagel / Glasschaden",
+        "phone": "+41 62 789 33 49",
+        "email": "andrea.heimgartner@autohauser.ch",
+        "whatsapp": "+41627893349"
+      },
+      "Autobeschriftung & Folierung": {
+        "name": "Fabienne Zingg",
+        "role": "Leiterin Werbetechnik · Fahrzeugbeschriftung, Flotten & folioCar®",
+        "department": "Autobeschriftung & Folierung",
+        "phone": "+41 62 789 33 52",
+        "email": "fabienne.zingg@autohauser.ch",
+        "whatsapp": "+41627893352"
+      },
+      "Classic Cars": {
+        "name": "Thomas Hauser",
+        "role": "Geschäftsleitung · Classic Cars, Restauration, Ankauf & YellowFox",
+        "department": "Classic Cars",
+        "phone": "+41 62 789 33 32",
+        "email": "thomas.hauser@autohauser.ch",
+        "whatsapp": "+41627893332"
+      },
+      "Karriere / Bewerbung": {
+        "name": "Daniela Dähler",
+        "role": "Leiterin HR & Finanz- und Rechnungswesen",
+        "department": "Karriere / Bewerbung",
+        "phone": "+41 62 789 33 54",
+        "email": "daniela.daehler@autohauser.ch",
+        "whatsapp": "+41627893354"
+      }
+    },
+    "partner_id": "david"
   }
 }

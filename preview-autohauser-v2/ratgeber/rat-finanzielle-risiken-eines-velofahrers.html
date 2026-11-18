@@ -1,0 +1,946 @@
+<!DOCTYPE html>
+<html lang="de-CH">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <meta http-equiv="X-XSS-Protection" content="1; mode=block">
+  <meta name="referrer" content="no-referrer">
+  <title>Finanzielle Risiken eines Velofahrers – Ratgeber autohauser®</title>
+  <meta name="description" content="Das Velofahren im Strassenverkehr birgt finanzielle Gefahren. Früher gab es die Velovignette, die gleichzeitig eine obligatorische Haftpflichtversicherung für V...">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+  <style id="ah-core-styles">
+:root {
+  --bg: #ffffff;
+  --bg-alt: #f6f8fb;
+  --surface: #ffffff;
+  --primary: #0067b2;
+  --primary-dark: #00468b;
+  --primary-soft: #eef5fc;
+  --accent: #0067b2;
+  --navy: #0b2545;
+  --text-main: #0f172a;
+  --text-muted: #475569;
+  --border: #e2e8f0;
+  --border-strong: rgba(15, 23, 42, 0.16);
+  --success: #059669;
+  --danger: #dc2626;
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --font-display: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --container: 1120px;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; interpolate-size: allow-keywords; }
+@media (prefers-reduced-motion: no-preference) {
+  @view-transition { navigation: auto; }
+}
+body {
+  margin: 0;
+  padding: 0;
+  background: var(--bg);
+  color: var(--text-main);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: clip;
+}
+::selection { background: rgba(0, 103, 178, 0.16); color: var(--primary-dark); }
+:focus-visible { outline: 2px solid var(--primary); outline-offset: 2px; }
+
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  color: var(--text-main);
+  margin: 0 0 12px 0;
+  line-height: 1.18;
+  letter-spacing: -0.02em;
+}
+h1 { font-size: clamp(1.85rem, 3.4vw, 2.7rem); font-weight: 800; }
+h2 { font-size: clamp(1.45rem, 2.5vw, 2.05rem); font-weight: 800; }
+h3 { font-size: 1.15rem; font-weight: 700; }
+p { margin: 0 0 14px 0; color: var(--text-muted); }
+a { color: var(--primary); text-decoration-thickness: 1.5px; text-underline-offset: 3px; }
+img { max-width: 100%; height: auto; display: block; }
+.tabular { font-variant-numeric: tabular-nums; }
+
+.container {
+  width: 100%;
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* Kicker: 100 % pur linksbuendig ohne Vor-Strich (#UI-01) */
+.section-kicker {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--primary);
+  margin: 0 0 8px 0;
+  background: transparent;
+  border: none;
+  padding: 0;
+}
+.section-head {
+  max-width: 720px;
+  margin-bottom: 36px;
+}
+.section { padding: 72px 0; }
+.section-alt { background: var(--bg-alt); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+.dark-section { background: var(--navy); color: #ffffff; }
+.dark-section h2, .dark-section h3 { color: #ffffff; }
+.dark-section p { color: #cbd5e1; }
+.dark-section .section-kicker { color: #7dd3fc; }
+
+/* Sparten Top Bar */
+.ah-sparten-bar {
+  background: var(--primary-dark);
+  color: #ffffff;
+  font-size: 0.8rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+}
+.ah-sparten-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  min-height: 40px;
+}
+.ah-sparten-tabs {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.ah-sparten-tabs::-webkit-scrollbar { display: none; }
+.ah-sparte-tab {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 12px;
+  color: rgba(255, 255, 255, 0.82);
+  text-decoration: none;
+  font-weight: 600;
+  white-space: nowrap;
+  border-bottom: 2px solid transparent;
+  transition: color 0.15s ease, background 0.15s ease;
+}
+.ah-sparte-tab:hover { color: #ffffff; background: rgba(255, 255, 255, 0.08); }
+.ah-sparte-tab.is-active {
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.12);
+  border-bottom-color: #ffffff;
+}
+.ah-top-hotline {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  white-space: nowrap;
+}
+.ah-top-hotline a {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: #ffffff;
+  font-weight: 700;
+  text-decoration: none;
+}
+.ah-top-meta { color: rgba(255, 255, 255, 0.8); }
+
+/* Header & Single-Line Desktop Nav (#UI-02 / S-22) */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 90;
+  background: rgba(255, 255, 255, 0.97);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--border);
+}
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  min-height: 70px;
+}
+.brand-logo {
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+  text-decoration: none;
+}
+.brand-logo img {
+  height: 36px;
+  width: auto;
+  object-fit: contain;
+}
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: nowrap;
+}
+.nav-links a {
+  color: var(--text-main);
+  text-decoration: none;
+  font-family: var(--font-display);
+  font-size: 0.9rem;
+  font-weight: 600;
+  white-space: nowrap;
+  padding: 6px 2px;
+  border-bottom: 2px solid transparent;
+  transition: color 0.15s ease, border-color 0.15s ease;
+}
+.nav-links a:hover, .nav-links a.active {
+  color: var(--primary);
+  border-bottom-color: var(--primary);
+}
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+}
+.mobile-menu-btn {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-md);
+  background: #ffffff;
+  color: var(--text-main);
+  cursor: pointer;
+}
+.mobile-drawer {
+  display: none;
+  background: #ffffff;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  padding: 16px 24px 20px;
+}
+.mobile-drawer.open { display: block; }
+.mobile-drawer-links {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 14px;
+}
+.mobile-drawer-links a {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 12px;
+  border-radius: var(--radius-md);
+  color: var(--text-main);
+  text-decoration: none;
+  font-weight: 600;
+  background: var(--bg-alt);
+}
+.mobile-drawer-links a.active {
+  background: var(--primary-soft);
+  color: var(--primary-dark);
+}
+
+/* Buttons & Badges (Strikte 4px / 8px Architektur!) */
+.btn, .btn-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 11px 18px;
+  border-radius: var(--radius-md);
+  font-family: var(--font-display);
+  font-size: 0.92rem;
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+  white-space: nowrap;
+}
+.btn-primary, .btn-cta {
+  background: var(--primary);
+  color: #ffffff;
+  border-color: var(--primary);
+}
+.btn-primary:hover, .btn-cta:hover {
+  background: var(--primary-dark);
+  border-color: var(--primary-dark);
+  color: #ffffff;
+}
+.btn-outline {
+  background: #ffffff;
+  color: var(--primary-dark);
+  border-color: var(--border-strong);
+}
+.btn-outline:hover {
+  background: var(--primary-soft);
+  border-color: var(--primary);
+}
+.btn-sm { padding: 8px 14px; font-size: 0.84rem; }
+.meta-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  border-radius: var(--radius-sm);
+  font-size: 0.76rem;
+  font-weight: 700;
+  background: var(--primary-soft);
+  color: var(--primary-dark);
+  border: 1px solid rgba(0, 103, 178, 0.18);
+}
+
+/* Hero & Bottom-Edge Baseline Lock (#UI-02 / S-23) */
+.hero-section {
+  padding: 52px 0 60px;
+  background: #ffffff;
+  border-bottom: 1px solid var(--border);
+}
+.hero-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+  gap: 40px;
+  align-items: stretch;
+}
+.hero-grid > div:first-child {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 24px;
+}
+.hero-lead {
+  font-size: 1.08rem;
+  color: var(--text-muted);
+  max-width: 60ch;
+}
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 20px;
+}
+.hero-metrics {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+.metric-box {
+  background: var(--bg-alt);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 14px 16px;
+}
+.metric-val {
+  font-family: var(--font-display);
+  font-size: 1.12rem;
+  font-weight: 800;
+  color: var(--primary-dark);
+  margin-bottom: 2px;
+}
+.metric-lbl { font-size: 0.82rem; color: var(--text-muted); }
+
+.hero-media-card {
+  background: var(--bg-alt);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+.hero-media-img {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+}
+.hero-media-body {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  flex: 1;
+  justify-content: space-between;
+}
+.hero-contact-strip {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding-top: 12px;
+  border-top: 1px solid var(--border);
+  font-size: 0.85rem;
+}
+
+/* Grids & Cards (Kompatibel mit Stil- & Handschrift-Matrix + S-31) */
+.grid-2 { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
+.grid-3 { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; }
+.grid-4 { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 20px; }
+
+.card, .content-card, .service-card, .feature-card, .founder-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 14px;
+}
+.card-img-top {
+  width: calc(100% + 48px);
+  margin: -24px -24px 8px -24px;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  border-bottom: 1px solid var(--border);
+  border-radius: var(--radius-md) var(--radius-md) 0 0;
+}
+.card-badge-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+}
+.icon-box {
+  width: 38px;
+  height: 38px;
+  border-radius: var(--radius-md);
+  background: var(--primary-soft);
+  color: var(--primary);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.sparte-logo-wrap {
+  height: 44px;
+  display: flex;
+  align-items: center;
+  margin-bottom: 6px;
+}
+.sparte-logo-wrap img {
+  max-height: 38px;
+  width: auto;
+  object-fit: contain;
+}
+.team-portrait {
+  width: 84px;
+  height: 84px;
+  border-radius: var(--radius-md);
+  object-fit: cover;
+  border: 1px solid var(--border);
+}
+.list-check {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.list-check li {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: 0.92rem;
+  color: var(--text-muted);
+}
+.list-check svg { color: var(--primary); flex-shrink: 0; margin-top: 3px; }
+
+/* Smart-Pro Wizard */
+.wp-wizard-card {
+  background: #ffffff;
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-md);
+  padding: 28px;
+  box-shadow: 0 12px 32px rgba(15, 23, 42, 0.06);
+}
+.wp-wizard-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 12px;
+  flex-wrap: wrap;
+}
+.wp-step-indicator {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--primary-dark);
+  background: var(--primary-soft);
+  padding: 4px 10px;
+  border-radius: var(--radius-sm);
+}
+.wp-progress-track {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 6px;
+  margin-bottom: 18px;
+}
+.wp-progress-seg {
+  height: 4px;
+  border-radius: 4px;
+  background: var(--border);
+}
+.wp-progress-seg.active { background: var(--primary); }
+.wp-step-pane { display: none; }
+.wp-step-pane.active { display: block; }
+.wp-tile-grid-2 {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+  margin-bottom: 16px;
+}
+.wp-tile-btn {
+  text-align: left;
+  padding: 12px 14px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  background: var(--bg-alt);
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 4px;
+  font-family: var(--font-body);
+  transition: border-color 0.15s ease, background 0.15s ease;
+}
+.wp-tile-btn:hover { border-color: var(--primary); background: #ffffff; }
+.wp-tile-btn.selected {
+  border-color: var(--primary);
+  background: var(--primary-soft);
+  box-shadow: inset 0 0 0 1px var(--primary);
+}
+.wp-tile-title { font-weight: 700; font-size: 0.92rem; color: var(--text-main); line-height: 1.3; min-height: 2.6em; }
+.wp-tile-sub { font-size: 0.78rem; color: var(--text-muted); line-height: 1.4; }
+.wp-form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  margin-bottom: 14px;
+}
+.wp-field { display: flex; flex-direction: column; gap: 5px; }
+.wp-field-full { grid-column: 1 / -1; }
+.wp-label { font-size: 0.84rem; font-weight: 600; color: var(--text-main); }
+.form-input, .form-textarea, .wp-select {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #cbd5e1;
+  border-radius: var(--radius-md);
+  font-family: var(--font-body);
+  font-size: 16px;
+  color: var(--text-main);
+  background: #ffffff;
+}
+.form-input:user-invalid, .form-textarea:user-invalid { border-color: var(--danger) !important; outline: none; }
+.wp-photo-drop {
+  border: 1px dashed #94a3b8;
+  border-radius: var(--radius-md);
+  padding: 14px;
+  background: var(--bg-alt);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+.wp-photo-thumbs { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px; }
+.wp-photo-thumb {
+  position: relative;
+  width: 68px;
+  height: 68px;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  border: 1px solid var(--border);
+}
+.wp-photo-thumb img { width: 100%; height: 100%; object-fit: cover; }
+.wp-photo-rm {
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  width: 20px;
+  height: 20px;
+  border: none;
+  border-radius: var(--radius-sm);
+  background: rgba(15, 23, 42, 0.78);
+  color: #ffffff;
+  font-size: 12px;
+  cursor: pointer;
+}
+.wp-err-box {
+  display: none;
+  padding: 10px 12px;
+  border-radius: var(--radius-md);
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+  color: #991b1b;
+  font-size: 0.86rem;
+  margin-bottom: 12px;
+}
+.wp-result-box {
+  display: none;
+  padding: 20px;
+  border-radius: var(--radius-md);
+  background: #ecfdf5;
+  border: 1px solid #6ee7b7;
+}
+
+/* Tabs & Filters */
+.tab-bar, .filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+.tab-btn, .filter-btn {
+  padding: 9px 15px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-strong);
+  background: #ffffff;
+  color: var(--text-main);
+  font-family: var(--font-display);
+  font-size: 0.86rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+.tab-btn.active, .filter-btn.active {
+  background: var(--primary);
+  border-color: var(--primary);
+  color: #ffffff;
+}
+
+/* JotForm Modal */
+.jf-modal-backdrop {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  background: rgba(15, 23, 42, 0.72);
+  padding: 20px;
+  align-items: center;
+  justify-content: center;
+}
+.jf-modal-backdrop.open { display: flex; }
+.jf-modal-dialog {
+  width: 100%;
+  max-width: 860px;
+  max-height: 90vh;
+  background: #ffffff;
+  border-radius: var(--radius-md);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border: 1px solid var(--border);
+}
+.jf-modal-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 14px 20px;
+  border-bottom: 1px solid var(--border);
+  background: var(--bg-alt);
+}
+.jf-modal-body {
+  flex: 1;
+  overflow-y: auto;
+  min-height: 460px;
+}
+.jf-modal-body iframe {
+  width: 100%;
+  height: 540px;
+  border: 0;
+}
+
+/* Specs Table */
+.spec-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+.spec-table th, .spec-table td {
+  padding: 8px 10px;
+  border-bottom: 1px solid var(--border);
+  text-align: left;
+}
+.spec-table th { color: var(--text-muted); font-weight: 600; width: 46%; }
+.spec-table td { color: var(--text-main); font-weight: 700; }
+
+/* Footer */
+.site-footer {
+  background: var(--navy);
+  color: #e2e8f0;
+  padding: 56px 0 28px;
+}
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr 1fr 1.1fr;
+  gap: 32px;
+  padding-bottom: 36px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+}
+.site-footer h4 { color: #ffffff; font-size: 0.95rem; margin-bottom: 14px; }
+.site-footer p, .site-footer li, .site-footer a {
+  color: #cbd5e1;
+  font-size: 0.88rem;
+  text-decoration: none;
+}
+.site-footer a:hover { color: #ffffff; text-decoration: underline; }
+.footer-list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 8px; }
+.footer-bottom {
+  padding-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  font-size: 0.82rem;
+  color: #94a3b8;
+}
+
+/* Responsive */
+@media (min-width: 1024px) {
+  .hero-actions { flex-wrap: nowrap; }
+  .founder-header-row { min-height: 92px; align-items: flex-start; }
+  .stimme-card { justify-content: flex-start; }
+  .stimme-header-row { min-height: 112px; align-items: flex-start; }
+  .stimme-header-row h3 { min-height: 3.1em; }
+}
+@media (max-width: 1023px) {
+  .nav-links, .header-actions .btn-desktop-only { display: none; }
+  .mobile-menu-btn { display: inline-flex; }
+  .ah-top-meta { display: none; }
+}
+@media (max-width: 900px) {
+  .hero-grid, .grid-3, .grid-4, .footer-grid { grid-template-columns: 1fr; }
+  .grid-2 { grid-template-columns: 1fr; }
+}
+@media (max-width: 767px) {
+  .ah-top-hotline { display: none; }
+  .ah-sparten-tabs { width: 100%; justify-content: space-between; }
+  .ah-sparte-tab { min-height: 38px; padding: 8px 10px; }
+  .footer-list a, .footer-bottom a, .founder-contact-links a, .contact-direct-list a, .hero-contact-strip a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 36px;
+    padding: 4px 0;
+  }
+}
+@media (max-width: 640px) {
+  .container { padding: 0 16px; }
+  .section { padding: 48px 0; }
+  .hero-section { padding: 32px 0 40px; }
+  .hero-metrics, .wp-tile-grid-2, .wp-form-grid { grid-template-columns: 1fr; }
+  .ah-sparten-bar { font-size: 0.76rem; }
+  .wp-wizard-card { padding: 18px; }
+}
+body.is-embedded .ah-sparten-bar,
+body.is-embedded .site-header { position: static; }
+</style>
+  <style id="wp-custom-design-vibe"></style>
+</head>
+<body>
+
+  <div class="ah-sparten-bar">
+    <div class="container ah-sparten-inner">
+      <div class="ah-sparten-tabs" role="navigation" aria-label="autohauser Sparten">
+        <a href="../index.html" class="ah-sparte-tab is-active">Unfallreparatur</a>
+        <a href="../beschriftung.html" class="ah-sparte-tab ">Autobeschriftung</a>
+        <a href="../classics.html" class="ah-sparte-tab ">Classic Cars</a>
+      </div>
+      <div class="ah-top-hotline">
+        <span class="ah-top-meta">Oftringen · Seit 1948</span>
+        <a href="tel:0800875875"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg><span class="tabular">0800 875 875</span></a>
+      </div>
+    </div>
+  </div>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="../index.html" class="brand-logo" aria-label="autohauser Startseite">
+        <img src="../assets/autohauser_logo.png" alt="autohauser® – Jakob Hauser AG Oftringen" width="768" height="158" loading="lazy" decoding="async">
+      </a>
+      <nav class="nav-links" aria-label="Hauptnavigation">
+        <a href="../index.html" class="">Unfall & Glas</a>
+        <a href="../beschriftung.html" class="">Beschriftung</a>
+        <a href="../classics.html" class="">Classic Cars</a>
+        <a href="../ratgeber.html" class="active">Ratgeber</a>
+        <a href="../team-unternehmen.html" class="">Team</a>
+        <a href="../karriere.html" class="">Karriere</a>
+      </nav>
+      <div class="header-actions">
+        
+        <a href="../schaden-kontakt.html" class="btn btn-primary btn-sm btn-desktop-only">Schaden melden</a>
+        <button type="button" class="mobile-menu-btn" aria-label="Menü öffnen" aria-expanded="false" onclick="toggleMobileDrawer(this)">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
+      </div>
+    </div>
+    <div class="mobile-drawer" id="mobileMenu">
+      <div class="mobile-drawer-links">
+        <a href="../index.html" class=""><span>Unfall & Glas</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+        <a href="../beschriftung.html" class=""><span>Beschriftung</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+        <a href="../classics.html" class=""><span>Classic Cars</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+        <a href="../ratgeber.html" class="active"><span>Ratgeber</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+        <a href="../team-unternehmen.html" class=""><span>Team</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+        <a href="../karriere.html" class=""><span>Karriere</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+        <a href="../schaden-kontakt.html" class=""><span>Schaden &amp; Kontakt</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+      </div>
+      <div style="display:flex;flex-wrap:wrap;gap:8px;">
+        <a href="../schaden-kontakt.html" class="btn btn-primary" style="flex:1;">Schaden melden</a>
+        <a href="tel:0800875875" class="btn btn-outline" style="flex:1;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg><span>0800 875 875</span></a>
+      </div>
+    </div>
+  </header>
+
+<main>
+  <section class="section" data-section="ratgeber-detail">
+    <div class="container" style="max-width:860px;">
+      <div style="margin-bottom:18px;">
+        <a href="../ratgeber.html" class="btn btn-outline btn-sm"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 18 9 12 15 6"/></svg><span>Zurück zu allen 26 Ratgebern</span></a>
+      </div>
+      <span class="section-kicker">RATGEBER · VELO &amp; HAFTPFLICHT</span>
+      <h1>Finanzielle Risiken eines Velofahrers</h1>
+      <div style="margin:18px 0 28px;border-radius:8px;overflow:hidden;border:1px solid var(--border);">
+        <img src="../assets/autohauser_header-bild_landingpage_1170x500px_ratgeber.png" alt="autohauser Ratgeber: Finanzielle Risiken eines Velofahrers" width="1170" height="500" fetchpriority="high" decoding="async">
+      </div>
+      <div class="card content-card" style="padding:32px;">
+        <div style="font-size:1.02rem;line-height:1.72;">
+          <p>Das Velofahren im Strassenverkehr birgt finanzielle Gefahren. Früher gab es die Velovignette, die gleichzeitig eine obligatorische Haftpflichtversicherung für Velos war. Seit Ende 2011 ist das nicht mehr der Fall.</p>
+<p>Wenn Sie oder ein Familienmitglied heute mit einem Fahrrad einem Motorfahrzeug einen Schaden zufü-gen, würde theoretisch Ihre Privathaftpflicht-Versicherung für den Schaden am Motorfahrzeug aufkom-men. In der Praxis ist dies allerdings nicht ganz so einfach: 1. Eine Privat-Haftpflichtversicherung ist in der Schweiz nicht obligatorisch. 2. Es gibt bei der Privat-Haftpflichtversicherung im Gegensatz zur obligatorischen Motorfahrzeughaftpflicht kein direktes Forderungsrecht des Geschädigten. Sie müssen sich also persönlich um den Schadenfall kümmern. Unter Umständen müssen Sie dem Geschädigten die Reparaturkosten bezahlen und den Be-trag anschliessend von Ihrer Privathaftpflicht-Versicherung zurückfordern. 3. Wenn der Autofahrer den Schaden Ihrer Privathaftpflicht-Versicherung meldet und eine Reparaturkos-ten-Übernahmebestätigung einfordert, wird die Versicherung ziemlich sicher auf die Gefährdungshaftung gemäss Strassenverkehrsgesetz hinweisen. Das führt dazu, dass die Privathaftpflicht-Versicherung ver-sucht einen Drittel der Reparaturkosten zu übernehmen. Ab und zu führen Verhandlungen von unserer Seite dazu, dass zwei Drittel übernommen werden. So oder so werden immer ein oder zwei Drittel am Fahrzeughalter hängen bleiben. Im Normalfall ist dieser damit nicht einverstanden, wenn die Verschul-densfrage eindeutig beim Velofahrer lag und auch nicht bestritten wird. Gehen wir zum Beispiel davon aus, dass Sie als Velofahrer an einem hochpreisigen Luxussportwagen einen Kratzer verursacht haben. Die Aussenteile des Sportwagens sind aus Carbon. In diesem Fall kann der Scha-den – auch wenn er optisch klein ist – auch schon mal 50&#x27;000 Franken betragen. Nehmen wir an, dass die Privathaftpflicht-Versicherung einen Drittel des Schadens bezahlen will, so ver-bleiben immer noch 33&#x27;333 Franken beim Fahrzeugbesitzer. Er ist kaum bereit, diesen Betrag zu über-nehmen. Wenn er keine Kaskoversicherung hat (die ist ja nicht obligatorisch), kann er eine Forderungskla-ge gegen Sie einreichen. Jetzt hätten Sie vermutlich ein Problem. Sie müssten auf Ihre Kosten einen hoch-karätigen Anwalt engagieren, wobei der Ausgang eines solchen Prozesses trotzdem ungewiss bliebe. Unser Tipp: Versuchen Sie mit Ihrem Privathaftpflicht-Versicherer sich in Ihrem Vertrag mit einer Verein-barung gegen dieses Risiko abzusichern. So, das war ausnahmsweise ein Tipp für die Velofahrer. Ob Sie mit dem Velo oder mit dem Auto unterwegs sind: Ich wünsche Ihnen weiterhin gute Fahrt.</p>
+        </div>
+        <div style="margin-top:24px;padding-top:20px;border-top:1px solid var(--border);display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between;">
+          <a href="../assets/pdfs/09-regress-nach-unfall-mit-einem-fussgaenger.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-outline"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg><span>Passendes Merkblatt als PDF öffnen</span></a>
+          <a href="../schaden-kontakt.html" class="btn btn-primary"><span>Schadenfall unverbindlich abklären</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+        </div>
+      </div>
+      <div style="margin-top:24px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;">
+        <a href="../ratgeber.html" class="btn btn-outline btn-sm">Alle 26 Ratgeber</a>
+        <a href="rat-unklares-verschulden--und-jetzt-.html" class="btn btn-outline btn-sm"><span>Nächster Ratgeber: Unklares Verschulden – und jetzt?</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+      </div>
+    </div>
+  </section>
+</main>
+
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <h4>Jakob Hauser AG · autohauser®</h4>
+          <p>Carrosserie, Unfallinstandstellung, Fahrzeugbeschriftung, folioCar® und Classic Cars seit 1948.</p>
+          <p>Äussere Luzernerstrasse 12, 4665 Oftringen<br>Postfach 950, CH-4800 Zofingen<br>UID: CHE-103.749.299</p>
+        </div>
+        <div>
+          <h4>Die 3 Sparten</h4>
+          <ul class="footer-list">
+            <li><a href="../index.html">Unfallreparatur &amp; Hagel</a></li>
+            <li><a href="../beschriftung.html">Autobeschriftung &amp; folioCar®</a></li>
+            <li><a href="../classics.html">Classic Cars &amp; YellowFox®</a></li>
+            <li><a href="../schaden-kontakt.html">Glasschaden &amp; Rückruf</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Wissen &amp; Unternehmen</h4>
+          <ul class="footer-list">
+            <li><a href="../ratgeber.html">26 Ratgeber &amp; Merkblätter</a></li>
+            <li><a href="../team-unternehmen.html">Team &amp; 6 Ansprechpersonen</a></li>
+            <li><a href="../karriere.html">Offene Stellen</a></li>
+            <li><a href="../team-unternehmen.html#rechtliches">Impressum, Datenschutz &amp; AGB</a></li>
+            
+          </ul>
+        </div>
+        <div>
+          <h4>24h-Hotline &amp; Zentrale</h4>
+          <ul class="footer-list">
+            <li><a href="tel:0800875875" class="tabular">Gratis-Hotline: 0800 875 875</a></li>
+            <li><a href="tel:+41627893330" class="tabular">Zentrale: +41 62 789 33 30</a></li>
+            <li><a href="mailto:info@autohauser.ch">info@autohauser.ch</a></li>
+            <li>Mo–Fr: 07:30–12:00 &amp; 13:15–17:30</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 Jakob Hauser AG · autohauser® · Oftringen / Zofingen (seit 1948)</span>
+        <span>Alle Rechte vorbehalten · <a href="../team-unternehmen.html#rechtliches" style="color:#cbd5e1;">Impressum &amp; Datenschutz</a></span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Lazy JotForm Modal (Zero-Bloat beim Initial-Load) -->
+  <div class="jf-modal-backdrop" id="jfModal" role="dialog" aria-modal="true" aria-labelledby="jfModalTitle">
+    <div class="jf-modal-dialog">
+      <div class="jf-modal-head">
+        <div>
+          <span class="section-kicker" style="margin-bottom:2px;">SPEZIALFORMULAR</span>
+          <h3 id="jfModalTitle" style="margin:0;font-size:1.05rem;">Formular wird geladen</h3>
+        </div>
+        <div style="display:flex;align-items:center;gap:8px;">
+          <a id="jfExternalLink" href="#" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg><span>Neuer Tab</span></a>
+          <button type="button" class="btn btn-outline btn-sm" onclick="closeJotFormModal()" aria-label="Modal schliessen"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
+        </div>
+      </div>
+      <div class="jf-modal-body" id="jfModalBody"></div>
+    </div>
+  </div>
+
+  <script>
+    function toggleMobileDrawer(btn) {
+      var m = document.getElementById('mobileMenu');
+      if (!m) return;
+      var open = m.classList.toggle('open');
+      if (btn) btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    }
+    function openJotFormModal(title, url) {
+      var m = document.getElementById('jfModal');
+      var t = document.getElementById('jfModalTitle');
+      var ext = document.getElementById('jfExternalLink');
+      var body = document.getElementById('jfModalBody');
+      if (!m || !body) return;
+      if (t) t.textContent = title;
+      if (ext) ext.href = url;
+      body.innerHTML = '<iframe src="' + url + '" title="' + title.replace(/"/g, '') + '" allow="camera; microphone; geolocation"></iframe>';
+      m.classList.add('open');
+    }
+    function closeJotFormModal() {
+      var m = document.getElementById('jfModal');
+      var body = document.getElementById('jfModalBody');
+      if (m) m.classList.remove('open');
+      if (body) body.innerHTML = '';
+    }
+    function notifyParentHeight() {
+      try {
+        if (window.parent && window.parent !== window) {
+          var h = Math.max(document.body.scrollHeight, document.documentElement.scrollHeight);
+          window.parent.postMessage({ type: 'acp-embed-resize', height: h }, '*');
+        }
+      } catch (e) {}
+    }
+    (function() {
+      if (window.location.search.indexOf('embed=true') !== -1) {
+        document.body.classList.add('is-embedded');
+      }
+      if (typeof ResizeObserver !== 'undefined') {
+        var ro = new ResizeObserver(notifyParentHeight);
+        ro.observe(document.body);
+      }
+      window.addEventListener('load', notifyParentHeight);
+    })();
+  </script>
+</body>
+</html>

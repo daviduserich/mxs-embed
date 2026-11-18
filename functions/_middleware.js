@@ -96,6 +96,13 @@ const VORSCHAU_SLUG_TO_FOLDER = {
   'fcattiswil-vollversion': 'preview-fcattiswil',
   'fcattiswil-vv': 'preview-fcattiswil',
 
+  // Autohauser AG (Oftringen): Zeigeversion (-v2, -v1, ohne Suffix) -> preview-autohauser-v2 | Vollversion (-vollversion, -vv) -> preview-autohauser
+  'autohauser': 'preview-autohauser-v2',
+  'autohauser-v1': 'preview-autohauser-v2',
+  'autohauser-v2': 'preview-autohauser-v2',
+  'autohauser-vollversion': 'preview-autohauser',
+  'autohauser-vv': 'preview-autohauser',
+
   // Weitere Mandanten-Aliase
   'hochuli-v2': 'preview-hochuli',
   'hochuli-vollversion': 'preview-hochuli',

@@ -1,0 +1,1965 @@
+<!DOCTYPE html>
+<html lang="de-CH">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <meta http-equiv="X-XSS-Protection" content="1; mode=block">
+  <meta name="referrer" content="no-referrer">
+  <title>Team &amp; Unternehmen seit 1948 – Jakob Hauser AG / autohauser®</title>
+  <meta name="description" content="Alle 6 Ansprechpersonen mit Direktdurchwahlen, Firmengeschichte seit 1948, Standort Oftringen, UID CHE-103.749.299, Impressum und Datenschutz.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+  <style id="ah-core-styles">
+:root {
+  --bg: #ffffff;
+  --bg-alt: #f6f8fb;
+  --surface: #ffffff;
+  --primary: #0067b2;
+  --primary-dark: #00468b;
+  --primary-soft: #eef5fc;
+  --accent: #0067b2;
+  --navy: #0b2545;
+  --text-main: #0f172a;
+  --text-muted: #475569;
+  --border: #e2e8f0;
+  --border-strong: rgba(15, 23, 42, 0.16);
+  --success: #059669;
+  --danger: #dc2626;
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --font-display: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --container: 1120px;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; interpolate-size: allow-keywords; }
+@media (prefers-reduced-motion: no-preference) {
+  @view-transition { navigation: auto; }
+}
+body {
+  margin: 0;
+  padding: 0;
+  background: var(--bg);
+  color: var(--text-main);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: clip;
+}
+::selection { background: rgba(0, 103, 178, 0.16); color: var(--primary-dark); }
+:focus-visible { outline: 2px solid var(--primary); outline-offset: 2px; }
+
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  color: var(--text-main);
+  margin: 0 0 12px 0;
+  line-height: 1.18;
+  letter-spacing: -0.02em;
+}
+h1 { font-size: clamp(1.85rem, 3.4vw, 2.7rem); font-weight: 800; }
+h2 { font-size: clamp(1.45rem, 2.5vw, 2.05rem); font-weight: 800; }
+h3 { font-size: 1.15rem; font-weight: 700; }
+p { margin: 0 0 14px 0; color: var(--text-muted); }
+a { color: var(--primary); text-decoration-thickness: 1.5px; text-underline-offset: 3px; }
+img { max-width: 100%; height: auto; display: block; }
+.tabular { font-variant-numeric: tabular-nums; }
+
+.container {
+  width: 100%;
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* Kicker: 100 % pur linksbuendig ohne Vor-Strich (#UI-01) */
+.section-kicker {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--primary);
+  margin: 0 0 8px 0;
+  background: transparent;
+  border: none;
+  padding: 0;
+}
+.section-head {
+  max-width: 720px;
+  margin-bottom: 36px;
+}
+.section { padding: 72px 0; }
+.section-alt { background: var(--bg-alt); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+.dark-section { background: var(--navy); color: #ffffff; }
+.dark-section h2, .dark-section h3 { color: #ffffff; }
+.dark-section p { color: #cbd5e1; }
+.dark-section .section-kicker { color: #7dd3fc; }
+
+/* Sparten Top Bar */
+.ah-sparten-bar {
+  background: var(--primary-dark);
+  color: #ffffff;
+  font-size: 0.8rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+}
+.ah-sparten-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  min-height: 40px;
+}
+.ah-sparten-tabs {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.ah-sparten-tabs::-webkit-scrollbar { display: none; }
+.ah-sparte-tab {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 12px;
+  color: rgba(255, 255, 255, 0.82);
+  text-decoration: none;
+  font-weight: 600;
+  white-space: nowrap;
+  border-bottom: 2px solid transparent;
+  transition: color 0.15s ease, background 0.15s ease;
+}
+.ah-sparte-tab:hover { color: #ffffff; background: rgba(255, 255, 255, 0.08); }
+.ah-sparte-tab.is-active {
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.12);
+  border-bottom-color: #ffffff;
+}
+.ah-top-hotline {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  white-space: nowrap;
+}
+.ah-top-hotline a {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: #ffffff;
+  font-weight: 700;
+  text-decoration: none;
+}
+.ah-top-meta { color: rgba(255, 255, 255, 0.8); }
+
+/* Header & Single-Line Desktop Nav (#UI-02 / S-22) */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 90;
+  background: rgba(255, 255, 255, 0.97);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--border);
+}
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  min-height: 70px;
+}
+.brand-logo {
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+  text-decoration: none;
+}
+.brand-logo img {
+  height: 36px;
+  width: auto;
+  object-fit: contain;
+}
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: nowrap;
+}
+.nav-links a {
+  color: var(--text-main);
+  text-decoration: none;
+  font-family: var(--font-display);
+  font-size: 0.9rem;
+  font-weight: 600;
+  white-space: nowrap;
+  padding: 6px 2px;
+  border-bottom: 2px solid transparent;
+  transition: color 0.15s ease, border-color 0.15s ease;
+}
+.nav-links a:hover, .nav-links a.active {
+  color: var(--primary);
+  border-bottom-color: var(--primary);
+}
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+}
+.mobile-menu-btn {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-md);
+  background: #ffffff;
+  color: var(--text-main);
+  cursor: pointer;
+}
+.mobile-drawer {
+  display: none;
+  background: #ffffff;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  padding: 16px 24px 20px;
+}
+.mobile-drawer.open { display: block; }
+.mobile-drawer-links {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 14px;
+}
+.mobile-drawer-links a {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 12px;
+  border-radius: var(--radius-md);
+  color: var(--text-main);
+  text-decoration: none;
+  font-weight: 600;
+  background: var(--bg-alt);
+}
+.mobile-drawer-links a.active {
+  background: var(--primary-soft);
+  color: var(--primary-dark);
+}
+
+/* Buttons & Badges (Strikte 4px / 8px Architektur!) */
+.btn, .btn-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 11px 18px;
+  border-radius: var(--radius-md);
+  font-family: var(--font-display);
+  font-size: 0.92rem;
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+  white-space: nowrap;
+}
+.btn-primary, .btn-cta {
+  background: var(--primary);
+  color: #ffffff;
+  border-color: var(--primary);
+}
+.btn-primary:hover, .btn-cta:hover {
+  background: var(--primary-dark);
+  border-color: var(--primary-dark);
+  color: #ffffff;
+}
+.btn-outline {
+  background: #ffffff;
+  color: var(--primary-dark);
+  border-color: var(--border-strong);
+}
+.btn-outline:hover {
+  background: var(--primary-soft);
+  border-color: var(--primary);
+}
+.btn-sm { padding: 8px 14px; font-size: 0.84rem; }
+.meta-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  border-radius: var(--radius-sm);
+  font-size: 0.76rem;
+  font-weight: 700;
+  background: var(--primary-soft);
+  color: var(--primary-dark);
+  border: 1px solid rgba(0, 103, 178, 0.18);
+}
+
+/* Hero & Bottom-Edge Baseline Lock (#UI-02 / S-23) */
+.hero-section {
+  padding: 52px 0 60px;
+  background: #ffffff;
+  border-bottom: 1px solid var(--border);
+}
+.hero-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+  gap: 40px;
+  align-items: stretch;
+}
+.hero-grid > div:first-child {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 24px;
+}
+.hero-lead {
+  font-size: 1.08rem;
+  color: var(--text-muted);
+  max-width: 60ch;
+}
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 20px;
+}
+.hero-metrics {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+.metric-box {
+  background: var(--bg-alt);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 14px 16px;
+}
+.metric-val {
+  font-family: var(--font-display);
+  font-size: 1.12rem;
+  font-weight: 800;
+  color: var(--primary-dark);
+  margin-bottom: 2px;
+}
+.metric-lbl { font-size: 0.82rem; color: var(--text-muted); }
+
+.hero-media-card {
+  background: var(--bg-alt);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+.hero-media-img {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+}
+.hero-media-body {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  flex: 1;
+  justify-content: space-between;
+}
+.hero-contact-strip {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding-top: 12px;
+  border-top: 1px solid var(--border);
+  font-size: 0.85rem;
+}
+
+/* Grids & Cards (Kompatibel mit Stil- & Handschrift-Matrix + S-31) */
+.grid-2 { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
+.grid-3 { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; }
+.grid-4 { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 20px; }
+
+.card, .content-card, .service-card, .feature-card, .founder-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 14px;
+}
+.card-img-top {
+  width: calc(100% + 48px);
+  margin: -24px -24px 8px -24px;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  border-bottom: 1px solid var(--border);
+  border-radius: var(--radius-md) var(--radius-md) 0 0;
+}
+.card-badge-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+}
+.icon-box {
+  width: 38px;
+  height: 38px;
+  border-radius: var(--radius-md);
+  background: var(--primary-soft);
+  color: var(--primary);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.sparte-logo-wrap {
+  height: 44px;
+  display: flex;
+  align-items: center;
+  margin-bottom: 6px;
+}
+.sparte-logo-wrap img {
+  max-height: 38px;
+  width: auto;
+  object-fit: contain;
+}
+.team-portrait {
+  width: 84px;
+  height: 84px;
+  border-radius: var(--radius-md);
+  object-fit: cover;
+  border: 1px solid var(--border);
+}
+.list-check {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.list-check li {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: 0.92rem;
+  color: var(--text-muted);
+}
+.list-check svg { color: var(--primary); flex-shrink: 0; margin-top: 3px; }
+
+/* Smart-Pro Wizard */
+.wp-wizard-card {
+  background: #ffffff;
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-md);
+  padding: 28px;
+  box-shadow: 0 12px 32px rgba(15, 23, 42, 0.06);
+}
+.wp-wizard-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 12px;
+  flex-wrap: wrap;
+}
+.wp-step-indicator {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--primary-dark);
+  background: var(--primary-soft);
+  padding: 4px 10px;
+  border-radius: var(--radius-sm);
+}
+.wp-progress-track {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 6px;
+  margin-bottom: 18px;
+}
+.wp-progress-seg {
+  height: 4px;
+  border-radius: 4px;
+  background: var(--border);
+}
+.wp-progress-seg.active { background: var(--primary); }
+.wp-step-pane { display: none; }
+.wp-step-pane.active { display: block; }
+.wp-tile-grid-2 {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+  margin-bottom: 16px;
+}
+.wp-tile-btn {
+  text-align: left;
+  padding: 12px 14px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  background: var(--bg-alt);
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 4px;
+  font-family: var(--font-body);
+  transition: border-color 0.15s ease, background 0.15s ease;
+}
+.wp-tile-btn:hover { border-color: var(--primary); background: #ffffff; }
+.wp-tile-btn.selected {
+  border-color: var(--primary);
+  background: var(--primary-soft);
+  box-shadow: inset 0 0 0 1px var(--primary);
+}
+.wp-tile-title { font-weight: 700; font-size: 0.92rem; color: var(--text-main); line-height: 1.3; min-height: 2.6em; }
+.wp-tile-sub { font-size: 0.78rem; color: var(--text-muted); line-height: 1.4; }
+.wp-form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  margin-bottom: 14px;
+}
+.wp-field { display: flex; flex-direction: column; gap: 5px; }
+.wp-field-full { grid-column: 1 / -1; }
+.wp-label { font-size: 0.84rem; font-weight: 600; color: var(--text-main); }
+.form-input, .form-textarea, .wp-select {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #cbd5e1;
+  border-radius: var(--radius-md);
+  font-family: var(--font-body);
+  font-size: 16px;
+  color: var(--text-main);
+  background: #ffffff;
+}
+.form-input:user-invalid, .form-textarea:user-invalid { border-color: var(--danger) !important; outline: none; }
+.wp-photo-drop {
+  border: 1px dashed #94a3b8;
+  border-radius: var(--radius-md);
+  padding: 14px;
+  background: var(--bg-alt);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+.wp-photo-thumbs { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px; }
+.wp-photo-thumb {
+  position: relative;
+  width: 68px;
+  height: 68px;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  border: 1px solid var(--border);
+}
+.wp-photo-thumb img { width: 100%; height: 100%; object-fit: cover; }
+.wp-photo-rm {
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  width: 20px;
+  height: 20px;
+  border: none;
+  border-radius: var(--radius-sm);
+  background: rgba(15, 23, 42, 0.78);
+  color: #ffffff;
+  font-size: 12px;
+  cursor: pointer;
+}
+.wp-err-box {
+  display: none;
+  padding: 10px 12px;
+  border-radius: var(--radius-md);
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+  color: #991b1b;
+  font-size: 0.86rem;
+  margin-bottom: 12px;
+}
+.wp-result-box {
+  display: none;
+  padding: 20px;
+  border-radius: var(--radius-md);
+  background: #ecfdf5;
+  border: 1px solid #6ee7b7;
+}
+
+/* Tabs & Filters */
+.tab-bar, .filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+.tab-btn, .filter-btn {
+  padding: 9px 15px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-strong);
+  background: #ffffff;
+  color: var(--text-main);
+  font-family: var(--font-display);
+  font-size: 0.86rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+.tab-btn.active, .filter-btn.active {
+  background: var(--primary);
+  border-color: var(--primary);
+  color: #ffffff;
+}
+
+/* JotForm Modal */
+.jf-modal-backdrop {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  background: rgba(15, 23, 42, 0.72);
+  padding: 20px;
+  align-items: center;
+  justify-content: center;
+}
+.jf-modal-backdrop.open { display: flex; }
+.jf-modal-dialog {
+  width: 100%;
+  max-width: 860px;
+  max-height: 90vh;
+  background: #ffffff;
+  border-radius: var(--radius-md);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border: 1px solid var(--border);
+}
+.jf-modal-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 14px 20px;
+  border-bottom: 1px solid var(--border);
+  background: var(--bg-alt);
+}
+.jf-modal-body {
+  flex: 1;
+  overflow-y: auto;
+  min-height: 460px;
+}
+.jf-modal-body iframe {
+  width: 100%;
+  height: 540px;
+  border: 0;
+}
+
+/* Specs Table */
+.spec-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+.spec-table th, .spec-table td {
+  padding: 8px 10px;
+  border-bottom: 1px solid var(--border);
+  text-align: left;
+}
+.spec-table th { color: var(--text-muted); font-weight: 600; width: 46%; }
+.spec-table td { color: var(--text-main); font-weight: 700; }
+
+/* Footer */
+.site-footer {
+  background: var(--navy);
+  color: #e2e8f0;
+  padding: 56px 0 28px;
+}
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr 1fr 1.1fr;
+  gap: 32px;
+  padding-bottom: 36px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+}
+.site-footer h4 { color: #ffffff; font-size: 0.95rem; margin-bottom: 14px; }
+.site-footer p, .site-footer li, .site-footer a {
+  color: #cbd5e1;
+  font-size: 0.88rem;
+  text-decoration: none;
+}
+.site-footer a:hover { color: #ffffff; text-decoration: underline; }
+.footer-list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 8px; }
+.footer-bottom {
+  padding-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  font-size: 0.82rem;
+  color: #94a3b8;
+}
+
+/* Responsive */
+@media (min-width: 1024px) {
+  .hero-actions { flex-wrap: nowrap; }
+  .founder-header-row { min-height: 92px; align-items: flex-start; }
+  .stimme-card { justify-content: flex-start; }
+  .stimme-header-row { min-height: 112px; align-items: flex-start; }
+  .stimme-header-row h3 { min-height: 3.1em; }
+}
+@media (max-width: 1023px) {
+  .nav-links, .header-actions .btn-desktop-only { display: none; }
+  .mobile-menu-btn { display: inline-flex; }
+  .ah-top-meta { display: none; }
+}
+@media (max-width: 900px) {
+  .hero-grid, .grid-3, .grid-4, .footer-grid { grid-template-columns: 1fr; }
+  .grid-2 { grid-template-columns: 1fr; }
+}
+@media (max-width: 767px) {
+  .ah-top-hotline { display: none; }
+  .ah-sparten-tabs { width: 100%; justify-content: space-between; }
+  .ah-sparte-tab { min-height: 38px; padding: 8px 10px; }
+  .footer-list a, .footer-bottom a, .founder-contact-links a, .contact-direct-list a, .hero-contact-strip a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 36px;
+    padding: 4px 0;
+  }
+}
+@media (max-width: 640px) {
+  .container { padding: 0 16px; }
+  .section { padding: 48px 0; }
+  .hero-section { padding: 32px 0 40px; }
+  .hero-metrics, .wp-tile-grid-2, .wp-form-grid { grid-template-columns: 1fr; }
+  .ah-sparten-bar { font-size: 0.76rem; }
+  .wp-wizard-card { padding: 18px; }
+}
+body.is-embedded .ah-sparten-bar,
+body.is-embedded .site-header { position: static; }
+
+/* === WEBPILOT-PARTNER-ATTRIBUTION-CSS-START === */
+    .wp-partner-attr-bar {
+      margin-top: 20px;
+      padding: 16px 18px;
+      background: linear-gradient(135deg, #F8FAFC 0%, #F1F5F9 100%);
+      border: 1px solid #CBD5E1;
+      border-left: 4px solid #0067B2;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 14px;
+      box-sizing: border-box;
+      width: 100%;
+      overflow: hidden;
+    }
+    .wp-partner-attr-left {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      flex: 1 1 260px;
+      min-width: 0;
+    }
+    .wp-partner-attr-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 4px;
+      background-color: #00468B;
+      color: #FBBF24;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    .wp-partner-attr-text {
+      min-width: 0;
+      flex: 1;
+    }
+    .wp-partner-attr-title {
+      font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
+      font-size: 0.86rem;
+      font-weight: 800;
+      color: #00468B;
+      line-height: 1.35;
+      margin: 0 0 3px 0;
+    }
+    .wp-partner-attr-sub {
+      font-size: 0.79rem;
+      color: #475569;
+      line-height: 1.4;
+      margin: 0;
+    }
+    .wp-partner-cta-btn {
+      appearance: none;
+      background-color: #00468B;
+      color: #FFFFFF !important;
+      border: 1px solid #00468B;
+      border-radius: 8px;
+      padding: 10px 15px;
+      min-height: 42px;
+      min-width: 44px;
+      font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
+      font-size: 0.79rem;
+      font-weight: 700;
+      line-height: 1.3;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      text-align: left;
+      transition: background-color 0.18s ease, border-color 0.18s ease;
+      box-sizing: border-box;
+      overflow: hidden;
+      max-width: 100%;
+    }
+    .wp-partner-cta-btn:hover {
+      background-color: #0067B2;
+      border-color: #0067B2;
+      color: #FFFFFF !important;
+    }
+    .wp-partner-cta-btn svg {
+      flex-shrink: 0;
+    }
+    .wp-partner-footer-btn {
+      appearance: none;
+      background-color: #1e293b;
+      color: #F8FAFC !important;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 8px;
+      padding: 7px 13px;
+      min-height: 36px;
+      min-width: 44px;
+      font-family: inherit;
+      font-size: 0.78rem;
+      font-weight: 700;
+      line-height: 1.3;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      text-align: left;
+      transition: background-color 0.18s ease, border-color 0.18s ease;
+      box-sizing: border-box;
+      overflow: hidden;
+      max-width: 100%;
+    }
+    .wp-partner-footer-btn:hover {
+      background-color: #0f172a;
+      border-color: #FBBF24;
+      color: #FFFFFF !important;
+    }
+    .wp-partner-footer-btn svg {
+      color: #FBBF24;
+      flex-shrink: 0;
+    }
+    /* Partner Modal (#wpPartnerModal) */
+    .wp-partner-modal-backdrop {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background-color: rgba(11, 19, 36, 0.82);
+      backdrop-filter: blur(6px);
+      z-index: 2200;
+      align-items: center;
+      justify-content: center;
+      padding: 14px;
+      box-sizing: border-box;
+    }
+    .wp-partner-modal-backdrop.open {
+      display: flex;
+    }
+    .wp-partner-modal-dialog {
+      background-color: #FFFFFF;
+      color: #0F172A;
+      border: 2px solid #0067B2;
+      border-radius: 8px;
+      max-width: 640px;
+      width: 100%;
+      padding: 22px 22px 20px 22px;
+      box-shadow: 0 20px 45px rgba(15, 23, 42, 0.35);
+      position: relative;
+      max-height: calc(100dvh - 28px);
+      overflow-y: auto;
+      box-sizing: border-box;
+    }
+    .wp-partner-modal-head {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 10px;
+    }
+    .wp-partner-modal-kicker {
+      font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
+      font-size: 0.7rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+      color: #0067B2;
+      display: block;
+      margin-bottom: 4px;
+    }
+    .wp-partner-modal-title {
+      font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: #00468B;
+      line-height: 1.25;
+      margin: 0;
+    }
+    .wp-partner-modal-close {
+      appearance: none;
+      width: 38px;
+      height: 38px;
+      min-width: 38px;
+      min-height: 38px;
+      border-radius: 8px;
+      border: 1px solid #CBD5E1;
+      background-color: #F8FAFC;
+      color: #0F172A;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      padding: 0;
+    }
+    .wp-partner-modal-close:hover {
+      background-color: #E2E8F0;
+    }
+    .wp-partner-notice {
+      background-color: #F8FAFC;
+      border: 1px solid #E2E8F0;
+      border-left: 4px solid #00468B;
+      border-radius: 4px;
+      padding: 9px 12px;
+      font-size: 0.78rem;
+      color: #334155;
+      line-height: 1.42;
+      margin-bottom: 14px;
+    }
+    .wp-partner-vcard {
+      background-color: #F8FAFC;
+      border: 1px solid #CBD5E1;
+      border-radius: 8px;
+      padding: 13px 14px;
+      margin-bottom: 14px;
+    }
+    .wp-partner-vcard-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+    .wp-partner-vcard-name {
+      font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
+      font-size: 0.96rem;
+      font-weight: 800;
+      color: #00468B;
+      line-height: 1.25;
+    }
+    .wp-partner-vcard-role {
+      font-size: 0.77rem;
+      color: #475569;
+      margin-top: 2px;
+    }
+    .wp-partner-vcard-badge {
+      background-color: #00468B;
+      color: #FFFFFF;
+      font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
+      font-size: 0.68rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      padding: 4px 8px;
+      border-radius: 4px;
+      overflow: hidden;
+    }
+    .wp-partner-direct-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 8px;
+    }
+    .wp-partner-direct-btn {
+      text-decoration: none;
+      border-radius: 8px;
+      padding: 8px 10px;
+      min-height: 40px;
+      min-width: 44px;
+      font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
+      font-size: 0.76rem;
+      font-weight: 700;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      text-align: center;
+      box-sizing: border-box;
+      overflow: hidden;
+      transition: opacity 0.16s ease, transform 0.16s ease;
+    }
+    .wp-partner-direct-btn svg {
+      flex-shrink: 0;
+    }
+    .wp-partner-direct-wa {
+      background-color: #059669;
+      color: #FFFFFF !important;
+      border: 1px solid #059669;
+    }
+    .wp-partner-direct-tel {
+      background-color: #00468B;
+      color: #FFFFFF !important;
+      border: 1px solid #00468B;
+    }
+    .wp-partner-direct-mail {
+      background-color: #FFFFFF;
+      color: #00468B !important;
+      border: 1px solid #94A3B8;
+    }
+    .wp-partner-form-box {
+      background-color: #FFFFFF;
+      border: 1px solid #CBD5E1;
+      border-radius: 8px;
+      padding: 14px;
+    }
+    .wp-partner-form-title {
+      font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
+      font-size: 0.88rem;
+      font-weight: 800;
+      color: #00468B;
+      margin: 0 0 4px 0;
+    }
+    .wp-partner-form-sub {
+      font-size: 0.76rem;
+      color: #475569;
+      margin: 0 0 12px 0;
+      line-height: 1.4;
+    }
+    .wp-partner-form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+    .wp-partner-field {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      margin-bottom: 10px;
+    }
+    .wp-partner-form-grid .wp-partner-field {
+      margin-bottom: 0;
+    }
+    .wp-partner-label {
+      font-size: 0.74rem;
+      font-weight: 700;
+      color: #1E293B;
+      line-height: 1.25;
+    }
+    .wp-partner-input {
+      width: 100%;
+      min-height: 40px;
+      padding: 8px 11px;
+      border: 1px solid #CBD5E1;
+      border-radius: 8px;
+      font-family: inherit;
+      font-size: 0.84rem;
+      color: #0F172A;
+      background-color: #FFFFFF;
+      box-sizing: border-box;
+    }
+    .wp-partner-input:focus {
+      outline: none;
+      border-color: #0067B2;
+    }
+    .wp-partner-submit-btn {
+      appearance: none;
+      width: 100%;
+      min-height: 44px;
+      padding: 11px 16px;
+      background-color: #0067B2;
+      color: #FFFFFF !important;
+      border: 1px solid #0067B2;
+      border-radius: 8px;
+      font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
+      font-size: 0.84rem;
+      font-weight: 800;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      box-sizing: border-box;
+      overflow: hidden;
+    }
+    .wp-partner-submit-btn:hover {
+      opacity: 0.94;
+    }
+    .wp-partner-error {
+      display: none;
+      background-color: #FEE2E2;
+      border: 1px solid #FCA5A5;
+      color: #991B1B;
+      padding: 8px 11px;
+      border-radius: 4px;
+      font-size: 0.78rem;
+      margin-bottom: 10px;
+    }
+    .wp-partner-success {
+      display: none;
+      background-color: #ECFDF5;
+      border: 1px solid #6EE7B7;
+      border-radius: 8px;
+      padding: 14px;
+      margin-top: 4px;
+    }
+    @media (max-width: 768px) {
+      body {
+        padding-bottom: 92px !important;
+      }
+      .wp-partner-attr-bar {
+        padding: 14px;
+      }
+      .wp-partner-cta-btn {
+        width: 100%;
+        justify-content: space-between;
+      }
+      .wp-partner-direct-grid {
+        grid-template-columns: 1fr;
+      }
+      .wp-partner-form-grid {
+        grid-template-columns: 1fr;
+      }
+      .wp-partner-modal-dialog {
+        padding: 16px 14px;
+      }
+    }
+/* === WEBPILOT-PARTNER-ATTRIBUTION-CSS-END === */
+  </style>
+  <style id="wp-custom-design-vibe"></style>
+  <!-- WP-SEO-AUTOPILOT-START -->
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+  <meta name="geo.region" content="CH-AG">
+  <meta name="geo.placename" content="Oftringen">
+  <link rel="canonical" href="https://vorschau.magnet-xs.ch/autohauser/team-unternehmen.html">
+  <meta property="og:locale" content="de_CH">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Jakob Hauser AG · autohauser®">
+  <meta property="og:title" content="Team &amp; Unternehmen seit 1948 – Jakob Hauser AG / autohauser®">
+  <meta property="og:description" content="Alle 6 Ansprechpersonen mit Direktdurchwahlen, Firmengeschichte seit 1948, Standort Oftringen, UID CHE-103.749.299, Impressum und Datenschutz.">
+  <meta property="og:url" content="https://vorschau.magnet-xs.ch/autohauser/team-unternehmen.html">
+  <meta property="og:image" content="https://vorschau.magnet-xs.ch/autohauser/images/logo.png">
+  <meta property="og:image:alt" content="Jakob Hauser AG · autohauser® – Oftringen (AG)">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Team &amp; Unternehmen seit 1948 – Jakob Hauser AG / autohauser®">
+  <meta name="twitter:description" content="Alle 6 Ansprechpersonen mit Direktdurchwahlen, Firmengeschichte seit 1948, Standort Oftringen, UID CHE-103.749.299, Impressum und Datenschutz.">
+  <meta name="twitter:image" content="https://vorschau.magnet-xs.ch/autohauser/images/logo.png">
+  <style id="wp-modern-web-css">
+    @media (prefers-reduced-motion: no-preference) { @view-transition { navigation: auto; } }
+    html { interpolate-size: allow-keywords; }
+    :where(img[width][height]) { height: auto; }
+    input:user-invalid, textarea:user-invalid, select:user-invalid { border-color: #DC2626 !important; outline: none; }
+  </style>
+  <script type="speculationrules" id="wp-speculation-rules">
+{
+  "prefetch": [
+    {
+      "where": {
+        "and": [
+          {
+            "href_matches": "/*"
+          },
+          {
+            "not": {
+              "href_matches": [
+                "/*cockpit*",
+                "/cockpit*",
+                "/*team-update*",
+                "/*onboarding*",
+                "/api/*",
+                "/cdn-cgi/*",
+                "/*.pdf",
+                "/*?*",
+                "/*#*"
+              ]
+            }
+          },
+          {
+            "not": {
+              "selector_matches": "[target=_blank], [download], [data-no-prerender], [href^='mailto:'], [href^='tel:']"
+            }
+          }
+        ]
+      },
+      "eagerness": "moderate"
+    }
+  ],
+  "prerender": [
+    {
+      "where": {
+        "and": [
+          {
+            "href_matches": "/*"
+          },
+          {
+            "not": {
+              "href_matches": [
+                "/*cockpit*",
+                "/cockpit*",
+                "/*team-update*",
+                "/*onboarding*",
+                "/api/*",
+                "/cdn-cgi/*",
+                "/*.pdf",
+                "/*?*",
+                "/*#*"
+              ]
+            }
+          },
+          {
+            "not": {
+              "selector_matches": "[target=_blank], [download], [data-no-prerender], [href^='mailto:'], [href^='tel:']"
+            }
+          }
+        ]
+      },
+      "eagerness": "conservative"
+    }
+  ]
+}
+  </script>
+  <script type="application/ld+json" id="wp-seo-schema">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": [
+        "LocalBusiness"
+      ],
+      "@id": "https://vorschau.magnet-xs.ch/autohauser/#organization",
+      "name": "Jakob Hauser AG · autohauser®",
+      "legalName": "Jakob Hauser AG",
+      "description": "Jakob Hauser AG · autohauser® mit Sitz in Oftringen (AG, Schweiz) ist Ihr regionaler Ansprechpartner für qualifizierte Fachleistungen. Der Betrieb betreut Kundinnen und Kunden in Oftringen und der gesamten Region mit Schweizer Qualität und persönlicher Beratung.",
+      "url": "https://vorschau.magnet-xs.ch/autohauser/",
+      "image": "https://vorschau.magnet-xs.ch/autohauser/images/logo.png",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Äussere Luzernerstrasse 12",
+        "postalCode": "4665",
+        "addressLocality": "Oftringen",
+        "addressRegion": "AG",
+        "addressCountry": "CH"
+      },
+      "areaServed": [
+        {
+          "@type": "City",
+          "name": "Oftringen"
+        },
+        {
+          "@type": "AdministrativeArea",
+          "name": "Kanton AG"
+        },
+        {
+          "@type": "AdministrativeArea",
+          "name": "Schweiz"
+        }
+      ],
+      "knowsAbout": [
+        "Jakob Hauser AG: Über 75 Jahre Carrosserie-Kompetenz seit 1948",
+        "Impressum, Datenschutz (DSG) & AGB",
+        "Thomas Hauser",
+        "Javier Jimenez",
+        "Andrea Heimgartner",
+        "Fabienne Zingg",
+        "Tatjana de Rose",
+        "Daniela Dähler",
+        "Drei Marken, eine Qualitätskultur",
+        "Impressum",
+        "Datenschutz",
+        "Garantie & AGB",
+        "Formular wird geladen",
+        "WebPilot Partner-Kontakt · Eigene Webseite oder Smart-Anfrage modernisieren"
+      ],
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Leistungen und Schwerpunkte – Jakob Hauser AG · autohauser®",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Jakob Hauser AG: Über 75 Jahre Carrosserie-Kompetenz seit 1948"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Impressum, Datenschutz (DSG) & AGB"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Thomas Hauser"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Javier Jimenez"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Andrea Heimgartner"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Fabienne Zingg"
+            }
+          }
+        ]
+      },
+      "telephone": "+41 62 789 33 30",
+      "email": "info@autohauser.ch",
+      "taxID": "CHE-103.749.299",
+      "identifier": "CHE-103.749.299",
+      "sameAs": [
+        "https://www.autohauser.ch/"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://vorschau.magnet-xs.ch/autohauser/#website",
+      "url": "https://vorschau.magnet-xs.ch/autohauser/",
+      "name": "Jakob Hauser AG · autohauser®",
+      "inLanguage": "de-CH",
+      "publisher": {
+        "@id": "https://vorschau.magnet-xs.ch/autohauser/#organization"
+      }
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://vorschau.magnet-xs.ch/autohauser/team-unternehmen.html#webpage",
+      "url": "https://vorschau.magnet-xs.ch/autohauser/team-unternehmen.html",
+      "name": "Team & Unternehmen seit 1948 – Jakob Hauser AG / autohauser®",
+      "description": "Alle 6 Ansprechpersonen mit Direktdurchwahlen, Firmengeschichte seit 1948, Standort Oftringen, UID CHE-103.749.299, Impressum und Datenschutz.",
+      "inLanguage": "de-CH",
+      "dateModified": "2026-11-18T18:29:45+00:00",
+      "isPartOf": {
+        "@id": "https://vorschau.magnet-xs.ch/autohauser/#website"
+      },
+      "about": {
+        "@id": "https://vorschau.magnet-xs.ch/autohauser/#organization"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://vorschau.magnet-xs.ch/autohauser/team-unternehmen.html#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Welche Leistungen bietet Jakob Hauser AG · autohauser® in Oftringen an?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Jakob Hauser AG · autohauser® in 4665 Oftringen (AG) bietet persönliche Beratung, massgeschneiderte Fachlösungen und verlässlichen Service für Kundinnen und Kunden in der gesamten Region."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Wie erreiche ich Jakob Hauser AG · autohauser® für eine Anfrage oder Offerte?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sie erreichen Jakob Hauser AG · autohauser® telefonisch unter +41 62 789 33 30, per E-Mail an info@autohauser.ch oder direkt über das Online-Anfrageformular auf der Website."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "In welchem Einzugsgebiet ist Jakob Hauser AG · autohauser® tätig?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Vom Standort in 4665 Oftringen aus betreut Jakob Hauser AG · autohauser® Kunden in Oftringen, Kanton AG, Schweiz und der umliegenden Region."
+          }
+        }
+      ]
+    }
+  ]
+}
+  </script>
+  <!-- WP-SEO-AUTOPILOT-END -->
+</head>
+<body>
+
+  <div class="ah-sparten-bar">
+    <div class="container ah-sparten-inner">
+      <div class="ah-sparten-tabs" role="navigation" aria-label="autohauser Sparten">
+        <a href="index.html" class="ah-sparte-tab is-active">Unfallreparatur</a>
+        <a href="beschriftung.html" class="ah-sparte-tab ">Autobeschriftung</a>
+        <a href="classics.html" class="ah-sparte-tab ">Classic Cars</a>
+      </div>
+      <div class="ah-top-hotline">
+        <span class="ah-top-meta">Oftringen · Seit 1948</span>
+        <a href="tel:0800875875"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg><span class="tabular">0800 875 875</span></a>
+      </div>
+    </div>
+  </div>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="brand-logo" aria-label="autohauser Startseite">
+        <img src="assets/autohauser_logo.png" alt="autohauser® – Jakob Hauser AG Oftringen" width="768" height="158" loading="lazy" decoding="async">
+      </a>
+      <nav class="nav-links" aria-label="Hauptnavigation">
+        <a href="index.html" class="">Unfall & Glas</a>
+        <a href="beschriftung.html" class="">Beschriftung</a>
+        <a href="classics.html" class="">Classic Cars</a>
+        <a href="ratgeber.html" class="">Ratgeber</a>
+        <a href="team-unternehmen.html" class="active">Team</a>
+        <a href="karriere.html" class="">Karriere</a>
+      </nav>
+      <div class="header-actions">
+        <a href="cockpit.html" class="btn btn-outline btn-sm btn-desktop-only" title="WebPilot Studio Cockpit öffnen">Cockpit</a>
+        <a href="schaden-kontakt.html" class="btn btn-primary btn-sm btn-desktop-only">Schaden melden</a>
+        <button type="button" class="mobile-menu-btn" aria-label="Menü öffnen" aria-expanded="false" onclick="toggleMobileDrawer(this)">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
+      </div>
+    </div>
+    <div class="mobile-drawer" id="mobileMenu">
+      <div class="mobile-drawer-links">
+        <a href="index.html" class=""><span>Unfall & Glas</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+        <a href="beschriftung.html" class=""><span>Beschriftung</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+        <a href="classics.html" class=""><span>Classic Cars</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+        <a href="ratgeber.html" class=""><span>Ratgeber</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+        <a href="team-unternehmen.html" class="active"><span>Team</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+        <a href="karriere.html" class=""><span>Karriere</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+        <a href="schaden-kontakt.html" class=""><span>Schaden &amp; Kontakt</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+      </div>
+      <div style="display:flex;flex-wrap:wrap;gap:8px;">
+        <a href="schaden-kontakt.html" class="btn btn-primary" style="flex:1;">Schaden melden</a>
+        <a href="tel:0800875875" class="btn btn-outline" style="flex:1;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg><span>0800 875 875</span></a>
+      </div>
+    </div>
+  </header>
+
+<main>
+  <section class="section" data-section="team-ansprechpersonen">
+    <div class="container">
+      <div class="section-head">
+        <span class="section-kicker">IHRE 6 DIREKTEN ANSPRECHPERSONEN</span>
+        <h1>Persönlich erreichbar in Oftringen</h1>
+        <p>Bei autohauser® landen Sie nicht in anonymen Callcentern, sondern direkt bei den verantwortlichen Fachpersonen für Schadenmanagement, Werbetechnik, Classic Cars und Administration.</p>
+      </div>
+      <div class="grid-3">
+        <div class="card founder-card">
+          <div>
+            <div class="founder-header-row" style="display:flex;gap:14px;align-items:flex-start;margin-bottom:14px;">
+              <img src="assets/thomas-hauser_mod_1.jpeg" alt="Thomas Hauser – Geschäftsleitung | dipl. Masch. Ing. HTL | Wirtschaftsing. STV M-V" width="222" height="300" class="team-portrait" decoding="async" fetchpriority="high">
+              <div>
+                <h3 style="margin-bottom:4px;">Thomas Hauser</h3>
+                <p style="font-size:0.84rem;color:var(--primary-dark);font-weight:600;margin:0;">Geschäftsleitung | dipl. Masch. Ing. HTL | Wirtschaftsing. STV M-V</p>
+              </div>
+            </div>
+            <p style="font-size:0.9rem;">Verantwortlich für Geschäftsleitung, Vertrieb, Marketing, Classic Cars und strategische Verhandlungen mit Kunden, Lieferanten und Behörden.</p>
+          </div>
+          <div class="founder-contact-links" style="display:flex;flex-direction:column;gap:6px;padding-top:12px;border-top:1px solid var(--border);font-size:0.88rem;">
+            <a href="tel:+41627893332" style="display:inline-flex;align-items:center;gap:6px;font-weight:700;" class="tabular"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg><span>+41 62 789 33 32</span></a>
+            <a href="mailto:thomas.hauser@autohauser.ch" style="display:inline-flex;align-items:center;gap:6px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg><span>thomas.hauser@autohauser.ch</span></a>
+          </div>
+        </div>
+<div class="card founder-card">
+          <div>
+            <div class="founder-header-row" style="display:flex;gap:14px;align-items:flex-start;margin-bottom:14px;">
+              <img src="assets/20220609_javi-klein.jpeg" alt="Javier Jimenez – Betriebsleiter | Schadenmanager" width="243" height="300" class="team-portrait" loading="lazy" decoding="async">
+              <div>
+                <h3 style="margin-bottom:4px;">Javier Jimenez</h3>
+                <p style="font-size:0.84rem;color:var(--primary-dark);font-weight:600;margin:0;">Betriebsleiter | Schadenmanager</p>
+              </div>
+            </div>
+            <p style="font-size:0.9rem;">Direkte Ansprechperson für unsere Kunden, ermittelt den optimalen Reparaturweg, leitet die komplette Schadenabwicklung und koordiniert das Werkstattteam.</p>
+          </div>
+          <div class="founder-contact-links" style="display:flex;flex-direction:column;gap:6px;padding-top:12px;border-top:1px solid var(--border);font-size:0.88rem;">
+            <a href="tel:+41627893334" style="display:inline-flex;align-items:center;gap:6px;font-weight:700;" class="tabular"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg><span>+41 62 789 33 34</span></a>
+            <a href="mailto:javier.jimenez@autohauser.ch" style="display:inline-flex;align-items:center;gap:6px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg><span>javier.jimenez@autohauser.ch</span></a>
+          </div>
+        </div>
+<div class="card founder-card">
+          <div>
+            <div class="founder-header-row" style="display:flex;gap:14px;align-items:flex-start;margin-bottom:14px;">
+              <img src="assets/20230203_andrea-klein.jpeg" alt="Andrea Heimgartner – Schadenmanagerin" width="222" height="300" class="team-portrait" loading="lazy" decoding="async">
+              <div>
+                <h3 style="margin-bottom:4px;">Andrea Heimgartner</h3>
+                <p style="font-size:0.84rem;color:var(--primary-dark);font-weight:600;margin:0;">Schadenmanagerin</p>
+              </div>
+            </div>
+            <p style="font-size:0.9rem;">Drehscheibe für Kundendienst, Glasschäden und sämtliche Aspekte der Schadenerledigung sowie Lieferantenkoordination.</p>
+          </div>
+          <div class="founder-contact-links" style="display:flex;flex-direction:column;gap:6px;padding-top:12px;border-top:1px solid var(--border);font-size:0.88rem;">
+            <a href="tel:+41627893349" style="display:inline-flex;align-items:center;gap:6px;font-weight:700;" class="tabular"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg><span>+41 62 789 33 49</span></a>
+            <a href="mailto:andrea.heimgartner@autohauser.ch" style="display:inline-flex;align-items:center;gap:6px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg><span>andrea.heimgartner@autohauser.ch</span></a>
+          </div>
+        </div>
+<div class="card founder-card">
+          <div>
+            <div class="founder-header-row" style="display:flex;gap:14px;align-items:flex-start;margin-bottom:14px;">
+              <img src="assets/fabienne_zingg_1.jpeg" alt="Fabienne Zingg – Leiterin Werbetechnik" width="220" height="300" class="team-portrait" loading="lazy" decoding="async">
+              <div>
+                <h3 style="margin-bottom:4px;">Fabienne Zingg</h3>
+                <p style="font-size:0.84rem;color:var(--primary-dark);font-weight:600;margin:0;">Leiterin Werbetechnik</p>
+              </div>
+            </div>
+            <p style="font-size:0.9rem;">Ihre Ansprechperson für Autobeschriftung, Flottenbranding (3 bis 500 Fahrzeuge), folioCar® Folierungen und Terminvereinbarungen.</p>
+          </div>
+          <div class="founder-contact-links" style="display:flex;flex-direction:column;gap:6px;padding-top:12px;border-top:1px solid var(--border);font-size:0.88rem;">
+            <a href="tel:+41627893352" style="display:inline-flex;align-items:center;gap:6px;font-weight:700;" class="tabular"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg><span>+41 62 789 33 52</span></a>
+            <a href="mailto:fabienne.zingg@autohauser.ch" style="display:inline-flex;align-items:center;gap:6px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg><span>fabienne.zingg@autohauser.ch</span></a>
+          </div>
+        </div>
+<div class="card founder-card">
+          <div>
+            <div class="founder-header-row" style="display:flex;gap:14px;align-items:flex-start;margin-bottom:14px;">
+              <img src="assets/20190618_tatjana-klein.jpeg" alt="Tatjana de Rose – Administration &amp; Rechnungswesen | Eidg. dipl. Kauffrau EFZ" width="231" height="300" class="team-portrait" loading="lazy" decoding="async">
+              <div>
+                <h3 style="margin-bottom:4px;">Tatjana de Rose</h3>
+                <p style="font-size:0.84rem;color:var(--primary-dark);font-weight:600;margin:0;">Administration &amp; Rechnungswesen | Eidg. dipl. Kauffrau EFZ</p>
+              </div>
+            </div>
+            <p style="font-size:0.9rem;">Zuständig für Rechnungen, Zahlungen, administrative Fragen und die Finanzbuchhaltung der Jakob Hauser AG.</p>
+          </div>
+          <div class="founder-contact-links" style="display:flex;flex-direction:column;gap:6px;padding-top:12px;border-top:1px solid var(--border);font-size:0.88rem;">
+            <a href="tel:+41627893330" style="display:inline-flex;align-items:center;gap:6px;font-weight:700;" class="tabular"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg><span>+41 62 789 33 30</span></a>
+            <a href="mailto:tatjana.derose@autohauser.ch" style="display:inline-flex;align-items:center;gap:6px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg><span>tatjana.derose@autohauser.ch</span></a>
+          </div>
+        </div>
+<div class="card founder-card">
+          <div>
+            <div class="founder-header-row" style="display:flex;gap:14px;align-items:flex-start;margin-bottom:14px;">
+              <img src="assets/danieladaehler.jpeg" alt="Daniela Dähler – Leiterin HR &amp; FRW | Fachfrau Finanz- und Rechnungswesen mit eidg. FA" width="222" height="300" class="team-portrait" loading="lazy" decoding="async">
+              <div>
+                <h3 style="margin-bottom:4px;">Daniela Dähler</h3>
+                <p style="font-size:0.84rem;color:var(--primary-dark);font-weight:600;margin:0;">Leiterin HR &amp; FRW | Fachfrau Finanz- und Rechnungswesen mit eidg. FA</p>
+              </div>
+            </div>
+            <p style="font-size:0.9rem;">Betreut alle Personal- und Sozialversicherungsfragen der Jakob Hauser AG sowie die Buchhaltungen der autohauser gmbh und immohauser oftringen AG.</p>
+          </div>
+          <div class="founder-contact-links" style="display:flex;flex-direction:column;gap:6px;padding-top:12px;border-top:1px solid var(--border);font-size:0.88rem;">
+            <a href="tel:+41627893354" style="display:inline-flex;align-items:center;gap:6px;font-weight:700;" class="tabular"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg><span>+41 62 789 33 54</span></a>
+            <a href="mailto:daniela.daehler@autohauser.ch" style="display:inline-flex;align-items:center;gap:6px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg><span>daniela.daehler@autohauser.ch</span></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-alt" data-section="unternehmen-historie">
+    <div class="container">
+      <div class="grid-2" style="align-items:center;">
+        <div>
+          <span class="section-kicker">FORTSCHRITTLICH TROTZ TRADITION</span>
+          <h2>Jakob Hauser AG: Über 75 Jahre Carrosserie-Kompetenz seit 1948</h2>
+          <p>Die Jakob Hauser AG ist ein traditionsreicher Carrosseriebetrieb, der seit 2012 unter der gemeinsamen Marke autohauser® auftritt. Unsere Kernkompetenz ist die Schadeninstandstellung von Automobilen nach Herstellervorgabe mit Originalersatzteilen.</p>
+          <p>Mit der Marke folioCar® (Schweiz) brachte Thomas Hauser Anfang der 2000er Jahre das vollflächige Folieren von Autos in die Schweiz. Ergänzt wird das Angebot durch Classic Cars sowie durch das Partnerunternehmen autohauser gmbh mit YellowFox® (Schweiz) Telematik- und Ortungssystemen.</p>
+          <ul class="list-check">
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg><span><strong>Standort Werkstatt:</strong> Äussere Luzernerstrasse 12, 4665 Oftringen</span></li>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg><span><strong>Postadresse:</strong> Jakob Hauser AG, Postfach 950, CH-4800 Zofingen</span></li>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg><span><strong>Handelsregister &amp; MWST:</strong> UID CHE-103.749.299 (seit 1995, Kanton Aargau, Gründungsjahr 1948)</span></li>
+          </ul>
+        </div>
+        <div class="card content-card">
+          <img src="assets/dsc_5262.jpeg" alt="Standort Jakob Hauser AG Oftringen" width="1600" height="650" class="card-img-top" loading="lazy" decoding="async">
+          <h3>Drei Marken, eine Qualitätskultur</h3>
+          <p style="margin:0;">Ob Unfallreparatur, Werbetechnik oder Classic Cars: Unsere Infrastruktur in Oftringen verbindet Spenglerei, Lackiererei, Folierzentrum und Schadenmanagement an einem Standort.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="rechtliches" data-section="impressum-datenschutz">
+    <div class="container">
+      <div class="section-head">
+        <span class="section-kicker">RECHTLICHE ANGABEN</span>
+        <h2>Impressum, Datenschutz (DSG) &amp; AGB</h2>
+      </div>
+      <div class="grid-3">
+        <div class="card">
+          <div>
+            <h3>Impressum</h3>
+            <p style="font-size:0.88rem;"><strong>Jakob Hauser AG</strong><br>Äussere Luzernerstrasse 12, 4665 Oftringen<br>Postfach 950, CH-4800 Zofingen<br>Geschäftsleitung: Thomas Hauser<br>UID / MWST: CHE-103.749.299<br>Gründungsjahr: 1948<br>Telefon: +41 62 789 33 30<br>E-Mail: info@autohauser.ch</p>
+          </div>
+        </div>
+        <div class="card">
+          <div>
+            <h3>Datenschutz</h3>
+            <p style="font-size:0.88rem;">Gestützt auf Artikel 13 der schweizerischen Bundesverfassung und das Bundesgesetz über den Datenschutz (DSG) behandeln wir Ihre Schaden-, Fahrzeug- und Kontaktdaten streng vertraulich und ausschliesslich zur Auftragsabwicklung. Einer Nutzung veröffentlichter Kontaktdaten für unaufgeforderte Werbung wird widersprochen.</p>
+          </div>
+        </div>
+        <div class="card">
+          <div>
+            <h3>Garantie &amp; AGB</h3>
+            <p style="font-size:0.88rem;">Für alle Unfallinstandstellungen gelten die Swissgarant-Garantiebestimmungen vom 11. Mai 2010. Urheberrechte an Bildern, Texten und Dokumenten liegen bei der Jakob Hauser AG.</p>
+          </div>
+          <a href="assets/pdfs/garantie_zertifikat_bestimmungen_05_2010.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg><span>Garantiebestimmungen (PDF)</span></a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <h4>Jakob Hauser AG · autohauser®</h4>
+          <p>Carrosserie, Unfallinstandstellung, Fahrzeugbeschriftung, folioCar® und Classic Cars seit 1948.</p>
+          <p>Äussere Luzernerstrasse 12, 4665 Oftringen<br>Postfach 950, CH-4800 Zofingen<br>UID: CHE-103.749.299</p>
+        </div>
+        <div>
+          <h4>Die 3 Sparten</h4>
+          <ul class="footer-list">
+            <li><a href="index.html">Unfallreparatur &amp; Hagel</a></li>
+            <li><a href="beschriftung.html">Autobeschriftung &amp; folioCar®</a></li>
+            <li><a href="classics.html">Classic Cars &amp; YellowFox®</a></li>
+            <li><a href="schaden-kontakt.html">Glasschaden &amp; Rückruf</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Wissen &amp; Unternehmen</h4>
+          <ul class="footer-list">
+            <li><a href="ratgeber.html">26 Ratgeber &amp; Merkblätter</a></li>
+            <li><a href="team-unternehmen.html">Team &amp; 6 Ansprechpersonen</a></li>
+            <li><a href="karriere.html">Offene Stellen</a></li>
+            <li><a href="team-unternehmen.html#rechtliches">Impressum, Datenschutz &amp; AGB</a></li>
+            <li><a href="cockpit.html">WebPilot Studio Cockpit</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>24h-Hotline &amp; Zentrale</h4>
+          <ul class="footer-list">
+            <li><a href="tel:0800875875" class="tabular">Gratis-Hotline: 0800 875 875</a></li>
+            <li><a href="tel:+41627893330" class="tabular">Zentrale: +41 62 789 33 30</a></li>
+            <li><a href="mailto:info@autohauser.ch">info@autohauser.ch</a></li>
+            <li>Mo–Fr: 07:30–12:00 &amp; 13:15–17:30</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 Jakob Hauser AG · autohauser® · Oftringen / Zofingen (seit 1948)</span>
+        <span>Alle Rechte vorbehalten · <a href="team-unternehmen.html#rechtliches" style="color:#cbd5e1;">Impressum &amp; Datenschutz</a></span>
+        <!-- === WEBPILOT-PARTNER-FOOTER-START === -->
+        <button type="button" class="wp-partner-footer-btn" data-studio-ignore="true" onclick="wpOpenPartnerModal('footer')">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+          <span>Powered by WebPilot · Partner: David Hügli (Magnet XS) · Kontakt &amp; Infos</span>
+        </button>
+        <!-- === WEBPILOT-PARTNER-FOOTER-END === -->
+      </div>
+    </div>
+  </footer>
+
+  <!-- Lazy JotForm Modal (Zero-Bloat beim Initial-Load) -->
+  <div class="jf-modal-backdrop" id="jfModal" role="dialog" aria-modal="true" aria-labelledby="jfModalTitle">
+    <div class="jf-modal-dialog">
+      <div class="jf-modal-head">
+        <div>
+          <span class="section-kicker" style="margin-bottom:2px;">SPEZIALFORMULAR</span>
+          <h3 id="jfModalTitle" style="margin:0;font-size:1.05rem;">Formular wird geladen</h3>
+        </div>
+        <div style="display:flex;align-items:center;gap:8px;">
+          <a id="jfExternalLink" href="#" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg><span>Neuer Tab</span></a>
+          <button type="button" class="btn btn-outline btn-sm" onclick="closeJotFormModal()" aria-label="Modal schliessen"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
+        </div>
+      </div>
+      <div class="jf-modal-body" id="jfModalBody"></div>
+    </div>
+  </div>
+
+  <script>
+    function toggleMobileDrawer(btn) {
+      var m = document.getElementById('mobileMenu');
+      if (!m) return;
+      var open = m.classList.toggle('open');
+      if (btn) btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    }
+    function openJotFormModal(title, url) {
+      var m = document.getElementById('jfModal');
+      var t = document.getElementById('jfModalTitle');
+      var ext = document.getElementById('jfExternalLink');
+      var body = document.getElementById('jfModalBody');
+      if (!m || !body) return;
+      if (t) t.textContent = title;
+      if (ext) ext.href = url;
+      body.innerHTML = '<iframe src="' + url + '" title="' + title.replace(/"/g, '') + '" allow="camera; microphone; geolocation"></iframe>';
+      m.classList.add('open');
+    }
+    function closeJotFormModal() {
+      var m = document.getElementById('jfModal');
+      var body = document.getElementById('jfModalBody');
+      if (m) m.classList.remove('open');
+      if (body) body.innerHTML = '';
+    }
+    function notifyParentHeight() {
+      try {
+        if (window.parent && window.parent !== window) {
+          var h = Math.max(document.body.scrollHeight, document.documentElement.scrollHeight);
+          window.parent.postMessage({ type: 'acp-embed-resize', height: h }, '*');
+        }
+      } catch (e) {}
+    }
+    (function() {
+      if (window.location.search.indexOf('embed=true') !== -1) {
+        document.body.classList.add('is-embedded');
+      }
+      if (typeof ResizeObserver !== 'undefined') {
+        var ro = new ResizeObserver(notifyParentHeight);
+        ro.observe(document.body);
+      }
+      window.addEventListener('load', notifyParentHeight);
+    })();
+  </script>
+
+  <!-- === WEBPILOT-PARTNER-MODAL-START === -->
+  <div class="wp-partner-modal-backdrop" id="wpPartnerModal" role="dialog" aria-modal="true" aria-labelledby="wpPartnerModalTitle" data-studio-ignore="true" data-allow-scroll="true">
+    <div class="wp-partner-modal-dialog" data-studio-ignore="true" data-allow-scroll="true">
+      <div class="wp-partner-modal-head">
+        <div>
+          <span class="wp-partner-modal-kicker">WEBPILOT PARTNER-KONTAKT · MAGNET XS · DAVID HÜGLI</span>
+          <h3 class="wp-partner-modal-title" id="wpPartnerModalTitle">WebPilot Partner-Kontakt · Eigene Webseite oder Smart-Anfrage modernisieren</h3>
+        </div>
+        <button type="button" class="wp-partner-modal-close" aria-label="Partner-Dialog schliessen" onclick="wpClosePartnerModal()">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+      </div>
+
+      <div class="wp-partner-notice">
+        <strong>Hinweis zur Zuständigkeit:</strong> Direktkontakt zur ausführenden Partner-Agentur (<strong>Magnet XS · David Hügli</strong>). Für Anfragen an die Jakob Hauser AG (autohauser®, Oftringen) nutzen Sie bitte das reguläre Formular auf der Seite.
+      </div>
+
+      <!-- TEIL 1: DIREKTE PARTNER-VISITENKARTE -->
+      <div class="wp-partner-vcard">
+        <div class="wp-partner-vcard-top">
+          <div>
+            <div class="wp-partner-vcard-name">Magnet XS · David Hügli</div>
+            <div class="wp-partner-vcard-role">WebPilot Plattform & Architektur</div>
+          </div>
+          <span class="wp-partner-vcard-badge">Direktkontakt</span>
+        </div>
+        <div class="wp-partner-direct-grid">
+          <a href="https://wa.me/41796326505?text=Guten%20Tag%20David%20H%C3%BCgli%2C%20ich%20habe%20den%20WebPilot-Auftritt%20von%20Jakob%20Hauser%20AG%20%C2%B7%20autohauser%C2%AE%20%28Oftringen%29%20gesehen%20und%20interessiere%20mich%20f%C3%BCr%20einen%20unverbindlichen%20Vorschau-Entwurf%20/%20eine%20Smart-Anfrage-Zentrale." target="_blank" rel="noopener noreferrer" class="wp-partner-direct-btn wp-partner-direct-wa">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+            <span>WhatsApp direkt senden</span>
+          </a>
+          <a href="tel:+41796326505" class="wp-partner-direct-btn wp-partner-direct-tel">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            <span>Anrufen (+41 79 632 65 05)</span>
+          </a>
+          <a href="mailto:david.huegli@magnet-xs.ch?subject=Anfrage%20WebPilot%20Vorschau-Entwurf%20%28gesehen%20auf%20Jakob%20Hauser%20AG%20%C2%B7%20autohauser%C2%AE%20%28Oftringen%29%29" class="wp-partner-direct-btn wp-partner-direct-mail">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+            <span>david.huegli@magnet-xs.ch</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- TEIL 2: 15-SEKUNDEN-SCHNELLANFRAGE FUER VORSCHAU-ENTWURF -->
+      <div class="wp-partner-form-box">
+        <div class="wp-partner-form-title">15-Sekunden-Schnellanfrage: Unverbindlicher Vorschau-Entwurf</div>
+        <p class="wp-partner-form-sub">
+          Geben Sie Ihre bestehende Webseiten-URL oder den Namen Ihres Vereins / Betriebs an. David Hügli (Magnet XS) zeigt Ihnen unverbindlich, wie Ihr moderner WebPilot-Auftritt aussieht.
+        </p>
+
+        <form id="wpPartnerLeadForm" onsubmit="return wpSubmitPartnerLead(event)" novalidate>
+          <div style="display:none;" aria-hidden="true">
+            <label for="wpPartnerHp">Website</label>
+            <input type="text" id="wpPartnerHp" name="website_url" tabindex="-1" autocomplete="off" form="wpTrapDetached">
+          </div>
+
+          <div class="wp-partner-field">
+            <label for="wpPartnerTargetUrl" class="wp-partner-label">1. Bestehende Webseiten-URL oder Name Ihres Vereins / Betriebs *</label>
+            <input type="text" id="wpPartnerTargetUrl" class="wp-partner-input" placeholder="z. B. www.mein-verein.ch oder Muster AG" required>
+          </div>
+
+          <div class="wp-partner-form-grid">
+            <div class="wp-partner-field">
+              <label for="wpPartnerVisitorName" class="wp-partner-label">2. Ihr Vor- und Nachname *</label>
+              <input type="text" id="wpPartnerVisitorName" class="wp-partner-input" placeholder="Vorname Nachname" required>
+            </div>
+            <div class="wp-partner-field">
+              <label for="wpPartnerVisitorContact" class="wp-partner-label">3. Ihre Telefonnummer oder E-Mail *</label>
+              <input type="text" id="wpPartnerVisitorContact" class="wp-partner-input" placeholder="079 123 45 67 oder name@firma.ch" required>
+            </div>
+          </div>
+
+          <div class="wp-partner-field">
+            <label for="wpPartnerVisitorMsg" class="wp-partner-label">4. Kurze Nachricht (optional)</label>
+            <input type="text" id="wpPartnerVisitorMsg" class="wp-partner-input" placeholder="z. B. Fokus Vereins-Zentrale, Sponsoren oder Smart-Anfrage...">
+          </div>
+
+          <div class="wp-partner-error" id="wpPartnerFormError"></div>
+
+          <button type="submit" class="wp-partner-submit-btn" id="wpPartnerSubmitBtn">
+            <span id="wpPartnerSubmitBtnTxt">Unverbindlichen Vorschau-Entwurf bei David Hügli anfordern</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </button>
+        </form>
+
+        <div class="wp-partner-success" id="wpPartnerSuccessBox" aria-live="polite">
+          <div style="display:flex;align-items:center;gap:8px;font-weight:800;color:#065F46;font-size:0.94rem;margin-bottom:6px;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2.4"><polyline points="20 6 9 17 4 12"/></svg>
+            <span>Anfrage an David Hügli (Magnet XS) übermittelt!</span>
+          </div>
+          <p style="font-size:0.8rem;color:#1E293B;line-height:1.45;margin:0 0 10px 0;">
+            Ihr 1-Seiten-Anfrage-Dossier (<strong id="wpPartnerResRef">#WP-2026</strong>) wurde erstellt und direkt an <strong>Magnet XS · David Hügli</strong> übermittelt.
+          </p>
+          <div style="display:flex;flex-wrap:wrap;gap:8px;">
+            <a href="#" id="wpPartnerResPdfBtn" target="_blank" rel="noopener noreferrer" class="wp-partner-direct-btn wp-partner-direct-tel" style="flex:1 1 200px;">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              <span>1-Seiten-PDF-Dossier öffnen</span>
+            </a>
+            <button type="button" class="wp-partner-direct-btn wp-partner-direct-mail" style="flex:1 1 140px;cursor:pointer;" onclick="wpResetPartnerModal()">
+              <span>Weitere Anfrage</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    var wpPartnerSourceTrigger = 'footer';
+    function wpOpenPartnerModal(triggerSource) {
+      wpPartnerSourceTrigger = triggerSource || 'footer';
+      var m = document.getElementById('wpPartnerModal');
+      if (m) {
+        m.classList.add('open');
+      }
+    }
+    function wpClosePartnerModal() {
+      var m = document.getElementById('wpPartnerModal');
+      if (m) {
+        m.classList.remove('open');
+      }
+    }
+    function wpResetPartnerModal() {
+      var f = document.getElementById('wpPartnerLeadForm');
+      var s = document.getElementById('wpPartnerSuccessBox');
+      var err = document.getElementById('wpPartnerFormError');
+      if (f) { f.reset(); f.style.display = 'block'; }
+      if (s) { s.style.display = 'none'; }
+      if (err) { err.style.display = 'none'; }
+    }
+    function wpSubmitPartnerLead(ev) {
+      if (ev) ev.preventDefault();
+      var hp = (document.getElementById('wpPartnerHp') || {}).value || '';
+      var targetUrl = ((document.getElementById('wpPartnerTargetUrl') || {}).value || '').trim();
+      var visitorName = ((document.getElementById('wpPartnerVisitorName') || {}).value || '').trim();
+      var rawContact = ((document.getElementById('wpPartnerVisitorContact') || {}).value || '').trim();
+      var msg = ((document.getElementById('wpPartnerVisitorMsg') || {}).value || '').trim();
+      var errBox = document.getElementById('wpPartnerFormError');
+      var btn = document.getElementById('wpPartnerSubmitBtn');
+      var btnTxt = document.getElementById('wpPartnerSubmitBtnTxt');
+
+      if (errBox) errBox.style.display = 'none';
+      if (!targetUrl || !visitorName || !rawContact) {
+        if (errBox) {
+          errBox.textContent = 'Bitte geben Sie die gewünschte Webseiten-URL (oder Verein/Betrieb), Ihren Namen sowie Ihre Telefonnummer oder E-Mail-Adresse an.';
+          errBox.style.display = 'block';
+        }
+        return false;
+      }
+
+      var isEmail = rawContact.indexOf('@') !== -1;
+      var emailVal = isEmail ? rawContact : '';
+      var phoneVal = isEmail ? '' : rawContact;
+
+      if (btn) btn.disabled = true;
+      if (btnTxt) btnTxt.textContent = 'Anfrage wird übermittelt...';
+
+      var payload = {
+        client_slug: 'webpilot_partner',
+        website_url: hp,
+        category: 'Vorschau-Entwurf & Web-Modernisierung',
+        sparte: 'Partner: David Hügli (Magnet XS)',
+        topic: 'Partner: David Hügli (Magnet XS)',
+        urgency: 'Vorschau-Entwurf angefordert',
+        name: visitorName,
+        company: targetUrl,
+        phone: phoneVal,
+        email: emailVal,
+        source_page: window.location.pathname || 'Jakob Hauser AG · autohauser® (Oftringen)',
+        message: (msg ? msg + ' · ' : '') + 'Empfehlung über Showcase: Jakob Hauser AG · autohauser® (Oftringen) (' + wpPartnerSourceTrigger + ') · Gewünschte Webseite / Verein / Betrieb: ' + targetUrl,
+        extra_fields: {
+          'Gewünschte Ziel-URL / Verein': targetUrl,
+          'Empfehlung über': 'Jakob Hauser AG · autohauser® (Oftringen)',
+          'Partner-Agentur': 'Magnet XS · David Hügli'
+        }
+      };
+
+      fetch('/api/lead-submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      })
+      .then(function(r) { return r.json(); })
+      .then(function(res) {
+        if (btn) btn.disabled = false;
+        if (btnTxt) btnTxt.textContent = 'Unverbindlichen Vorschau-Entwurf bei David Hügli anfordern';
+        if (!res || !res.ok) {
+          if (errBox) {
+            errBox.textContent = (res && res.error) ? res.error : 'Übermittlung fehlgeschlagen. Bitte versuchen Sie es erneut.';
+            errBox.style.display = 'block';
+          }
+          return;
+        }
+        var formEl = document.getElementById('wpPartnerLeadForm');
+        var succEl = document.getElementById('wpPartnerSuccessBox');
+        var refEl = document.getElementById('wpPartnerResRef');
+        var pdfBtn = document.getElementById('wpPartnerResPdfBtn');
+        if (refEl && res.ref_code) refEl.textContent = res.ref_code;
+        if (pdfBtn && res.pdf_url) pdfBtn.href = res.pdf_url;
+        if (formEl) formEl.style.display = 'none';
+        if (succEl) succEl.style.display = 'block';
+      })
+      .catch(function() {
+        if (btn) btn.disabled = false;
+        if (btnTxt) btnTxt.textContent = 'Unverbindlichen Vorschau-Entwurf bei David Hügli anfordern';
+        if (errBox) {
+          errBox.textContent = 'Netzwerkfehler. Bitte kontaktieren Sie David Hügli direkt per WhatsApp oder Telefon.';
+          errBox.style.display = 'block';
+        }
+      });
+      return false;
+    }
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') wpClosePartnerModal();
+    });
+  </script>
+  <!-- === WEBPILOT-PARTNER-MODAL-END === -->
+</body>
+</html>

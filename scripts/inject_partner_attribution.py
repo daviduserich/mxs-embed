@@ -86,6 +86,22 @@ SHOWCASE_CONFIGS = {
         "navy_hex": "#0B1A3B",
         "font_heading": "'Montserrat', sans-serif",
     },
+    "preview-autohauser": {
+        "routing_slug": "autohauser",
+        "site_label": "Jakob Hauser AG · autohauser® (Oftringen)",
+        "entity_hint": "die Jakob Hauser AG (autohauser®, Oftringen)",
+        "accent_hex": "#0067B2",
+        "navy_hex": "#00468B",
+        "font_heading": "'Plus Jakarta Sans', 'Inter', sans-serif",
+    },
+    "preview-autohauser-v2": {
+        "routing_slug": "autohauser",
+        "site_label": "Jakob Hauser AG · autohauser® (Zeigeversion)",
+        "entity_hint": "die Jakob Hauser AG (autohauser®, Oftringen)",
+        "accent_hex": "#0067B2",
+        "navy_hex": "#00468B",
+        "font_heading": "'Plus Jakarta Sans', 'Inter', sans-serif",
+    },
     "preview-hochuli": {
         "routing_slug": "hochuli",
         "site_label": "Hochuli Schlossrued AG",
