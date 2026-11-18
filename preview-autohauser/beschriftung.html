@@ -1395,7 +1395,7 @@ body.is-embedded .site-header { position: static; }
       "name": "Autobeschriftung, Flottenbranding & folioCar® – autohauser®",
       "description": "Fahrzeugbeschriftung, Teil- und Vollfolierung, Lackschutz und Sondermodelle für Autoimporteure in Oftringen. Mit folioCar® 100µ Q4-Folie.",
       "inLanguage": "de-CH",
-      "dateModified": "2026-11-18T18:44:41+00:00",
+      "dateModified": "2026-11-18T19:05:05+00:00",
       "isPartOf": {
         "@id": "https://vorschau.magnet-xs.ch/autohauser/#website"
       },
@@ -1721,9 +1721,9 @@ body.is-embedded .site-header { position: static; }
             <span class="wp-tile-title">Classic Cars</span>
             <span class="wp-tile-sub">Thomas Hauser · Besichtigung, Ankauf, YellowFox</span>
           </button>
-<button type="button" class="wp-tile-btn " data-sparte="Karriere / Bewerbung" data-cat="Kurzbewerbung" onclick="wpSelectSparte(this)">
-            <span class="wp-tile-title">Karriere / Bewerbung</span>
-            <span class="wp-tile-sub">Daniela Dähler · HR Oftringen</span>
+<button type="button" class="wp-tile-btn " data-sparte="Allgemeine Beratung &amp; Kontakt" data-cat="Beratung / Kontakt" onclick="wpSelectSparte(this)">
+            <span class="wp-tile-title">Allgemeine Beratung</span>
+            <span class="wp-tile-sub">Jakob Hauser AG · Zentrale Oftringen</span>
           </button>
           </div>
           <p class="wp-label" style="margin-bottom:10px;">2. Wie dringend ist Ihr Anliegen?</p>
@@ -1812,7 +1812,7 @@ body.is-embedded .site-header { position: static; }
           <div style="display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;align-items:center;">
             <button type="button" class="btn btn-outline" onclick="wpGoStep(2)"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 18 9 12 15 6"/></svg><span>Zurück</span></button>
             <button type="submit" class="btn btn-primary" id="wpSubmitBtn">
-              <span id="wpSubmitBtnTxt">Meldung &amp; 1-Seiten-Auftrags-PDF jetzt erstellen</span>
+              <span id="wpSubmitBtnTxt">Anfrage &amp; Zusammenfassung jetzt absenden</span>
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
             </button>
           </div>
@@ -1959,7 +1959,7 @@ body.is-embedded .site-header { position: static; }
         var btn = document.getElementById('wpSubmitBtn');
         var btnTxt = document.getElementById('wpSubmitBtnTxt');
         if (btn) btn.disabled = true;
-        if (btnTxt) btnTxt.textContent = 'Auftrags-PDF wird erstellt...';
+        if (btnTxt) btnTxt.textContent = 'Anfrage wird übermittelt...';
 
         fetch('/api/lead-submit', {
           method: 'POST',
@@ -1979,8 +1979,8 @@ body.is-embedded .site-header { position: static; }
             callback_pref: cbPref,
             message: msg,
             extra_fields: {
-              'Fahrzeug / Position': vehicle || 'Keine Angabe',
-              'Schild / Versicherung / Pensum': ins || 'Keine Angabe'
+              'Fahrzeug': vehicle || 'Keine Angabe',
+              'Schild / Versicherung': ins || 'Keine Angabe'
             },
             photos: wpState.photos,
             self_test_mode: true
@@ -1989,7 +1989,7 @@ body.is-embedded .site-header { position: static; }
         .then(function(r) { return r.json(); })
         .then(function(res) {
           if (btn) btn.disabled = false;
-          if (btnTxt) btnTxt.textContent = 'Meldung & 1-Seiten-Auftrags-PDF jetzt erstellen';
+          if (btnTxt) btnTxt.textContent = 'Anfrage & Zusammenfassung jetzt absenden';
           if (!res || !res.ok) {
             if (err) {
               err.textContent = (res && res.error) ? res.error : 'Übermittlung fehlgeschlagen.';
@@ -2008,7 +2008,7 @@ body.is-embedded .site-header { position: static; }
         })
         .catch(function() {
           if (btn) btn.disabled = false;
-          if (btnTxt) btnTxt.textContent = 'Meldung & 1-Seiten-Auftrags-PDF jetzt erstellen';
+          if (btnTxt) btnTxt.textContent = 'Anfrage & Zusammenfassung jetzt absenden';
           if (err) {
             err.textContent = 'Netzwerkfehler. Bitte versuchen Sie es direkt telefonisch über 0800 875 875.';
             err.style.display = 'block';

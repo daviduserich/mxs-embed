@@ -685,8 +685,13 @@ def process_lead_submission(data: dict, client_ip: str, referer: str, resolve_cl
             target_emails.append(email)
 
     html_body, text_body = build_lead_email_html(lead_record, brand_cfg)
-    pdf_filename = f"Auftrag_{ref_code.lstrip('#')}_{clean_slug.upper()}.pdf"
-    subj = f"[{urgency.upper()}] Neue Smart-Anfrage {ref_code} · {brand_cfg.get('company_name', clean_slug)} ({sparte})"
+    is_career_lead = ("bewerb" in category.lower()) or ("bewerb" in sparte.lower()) or ("karriere" in sparte.lower())
+    if is_career_lead:
+        pdf_filename = f"Bewerbung_{ref_code.lstrip('#')}_{clean_slug.upper()}.pdf"
+        subj = f"Neue Kurzbewerbung {ref_code} · {brand_cfg.get('company_name', clean_slug)} ({sparte})"
+    else:
+        pdf_filename = f"Auftrag_{ref_code.lstrip('#')}_{clean_slug.upper()}.pdf"
+        subj = f"[{urgency.upper()}] Neue Smart-Anfrage {ref_code} · {brand_cfg.get('company_name', clean_slug)} ({sparte})"
     email_sent, email_status = send_lead_email_with_pdf(
         to_emails=target_emails,
         reply_to=email or ("" if (preview_safe_mode and not live_routing_enabled) else route_email),

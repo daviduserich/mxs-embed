@@ -55,7 +55,8 @@ export const SYSTEM_EYES_SENSORS = [
   { id: 'S-28', code: 'P2_MULTILINE_CELL_INDENT_DRIFT', severity: 'P2', rule: '#UI-02', desc: 'In mehrzeiligen Tabellenzellen, Listen-Spalten oder Flex/Grid-Zellen muessen untereinanderliegende Zeilen exakt auf derselben linken/rechten Fluchtlinie starten (kein margin-left-Versatz auf Zeile 2, Toleranz <= 2.5px)' },
   { id: 'S-29', code: 'P2_CROSS_ROW_RHYTHM_MISMATCH', severity: 'P2', rule: '#UI-02', desc: 'Aufeinanderfolgende Listen-Zeilen gleicher Signatur muessen in allen Spalten exakt fluchten (x-Abweichung <= 3px) und wiederkehrende Tags/Badges im selben Stockwerk (y-Rhythmus) fuehren' },
   { id: 'S-30', code: 'P2_TYPOGRAPHIC_PLENK_OR_ASCII_ORT', severity: 'P2', rule: '#LANG-01/#LANG-06', desc: 'Keine Leerzeichen vor Kommas (Plenk), keine unkorrigierten Schweizer ASCII-Umlaut-Ortsnamen (Zuerich etc.), kein englischer KI-Geviertstrich ((?<!\.)\u2014) sowie 0 Kunden-Klarnamen/Geheimnis-Begriffe (#LANG-06) auf oeffentlichen Produktseiten' },
-  { id: 'S-31', code: 'P2_SIBLING_CARD_ANATOMY_DRIFT', severity: 'P2', rule: '#UI-02', desc: 'Nebeneinanderliegende Kacheln in 2er-/3er-/4er-Grids muessen sowohl aussen (2D-Spaltenflucht) als auch innen (Kicker-, Ueberschrift- und Textstart-Horizont) miteinander fluchten' }
+  { id: 'S-31', code: 'P2_SIBLING_CARD_ANATOMY_DRIFT', severity: 'P2', rule: '#UI-02', desc: 'Nebeneinanderliegende Kacheln in 2er-/3er-/4er-Grids muessen sowohl aussen (2D-Spaltenflucht) als auch innen (Kicker-, Ueberschrift- und Textstart-Horizont) miteinander fluchten' },
+  { id: 'S-32', code: 'P1_FORM_CONTEXT_BLEED', severity: 'P1', rule: '#UI-14/#SYS-01', desc: 'Formulare muessen thematisch rein bleiben: Keine Schaden-/Unfall-/Fahrzeug-Felder in Bewerbungsformularen und keine HR-/Bewerbungs-Kacheln in Schaden-/Kunden-Anfrageformularen' }
 ];
 
 /**
@@ -1233,6 +1234,66 @@ export function evaluateSystemEyesInPage({ relPage, zone, options = {} }) {
     }
   }
 
+  // S-32: P1_FORM_CONTEXT_BLEED (Systemische Kontext-Reinheit fuer Formulare: Karriere vs. Schaden/Kundenanfrage)
+  if (!isCockpit && !relPage.startsWith('partner/')) {
+    const pageForms = Array.from(queryRoot.querySelectorAll('form')).filter(f => !f.closest('#wpPartnerModal, [data-studio-ignore="true"]'));
+    const damageTermsRe = /\b(?:unfallschaden|hagelschaden|glasschaden|schadenfall|schadenbild|schadenfotos?|schadenhergang|schadenmeldung|kontrollschild|kennzeichen|auftrags-?pdf|fahrzeugseite|unfall\s*&\s*carrosserie)\b/i;
+    const careerBleedInServiceRe = /\b(?:karriere\s*\/\s*bewerbung|kurzbewerbung|stellenbewerbung|lebenslauf\s+hochladen|wunschposition)\b/i;
+    const serviceHeadingRe = /\b(?:schaden[a-zäöü]*|unfall[a-zäöü]*|hagel[a-zäöü]*|glas[a-zäöü]*|offert[a-zäöü]*|besichtigung[a-zäöü]*|beschriftung|classic\s*cars?)/i;
+    const careerHeadingRe = /\b(?:bewerbung|kurzbewerbung|initiativbewerbung|offene\s+stelle|vakanz)\b/i;
+
+    for (const formEl of pageForms) {
+      const fRect = formEl.getBoundingClientRect();
+      if (fRect.width < 50 && fRect.height < 50) continue;
+      const scopeEl = formEl.closest('.wp-wizard-card, .sparte-section-card, .card, section') || formEl;
+      const headingsText = Array.from(scopeEl.querySelectorAll('h1, h2, h3, .section-kicker, button[type="submit"], #wpSubmitBtnTxt'))
+        .map(el => (el.textContent || '').replace(/\s+/g, ' ').trim())
+        .join(' ');
+      const ownHeadings = Array.from((formEl.closest('.wp-wizard-card, .card') || scopeEl).querySelectorAll('h2, h3, button[type="submit"], #wpSubmitBtnTxt'))
+        .map(el => (el.textContent || '').replace(/\s+/g, ' ').trim())
+        .join(' ');
+
+      const attrTokens = Array.from(formEl.querySelectorAll('input, textarea, select, button'))
+        .map(el => [
+          el.getAttribute('placeholder') || '',
+          el.getAttribute('aria-label') || '',
+          el.getAttribute('data-sparte') || '',
+          el.getAttribute('data-cat') || '',
+          el.getAttribute('data-urg') || ''
+        ].join(' '))
+        .join(' ');
+      const formBodyText = ((formEl.textContent || '') + ' ' + ownHeadings + ' ' + attrTokens).replace(/\s+/g, ' ').trim();
+
+      const isKarrierePage = /(?:^|\/)karriere\.html$/i.test(relPage) || location.pathname.toLowerCase().endsWith('/karriere.html');
+      const isCareerForm = isKarrierePage || careerHeadingRe.test(ownHeadings);
+      const isServiceForm = !isCareerForm && serviceHeadingRe.test(ownHeadings);
+
+      if (isCareerForm) {
+        const m = formBodyText.match(damageTermsRe);
+        if (m) {
+          addFinding(
+            'P1',
+            'P1_FORM_CONTEXT_BLEED',
+            getLabel(formEl),
+            getCssPath(formEl),
+            `Kontext-Vermischung in Karriere-/Bewerbungsformular: Fachfremder Schaden-/Fahrzeug-Begriff "${m[0]}" in Bewerbung gefunden!`
+          );
+        }
+      } else if (isServiceForm) {
+        const m = formBodyText.match(careerBleedInServiceRe);
+        if (m) {
+          addFinding(
+            'P1',
+            'P1_FORM_CONTEXT_BLEED',
+            getLabel(formEl),
+            getCssPath(formEl),
+            `Kontext-Vermischung in Kunden-/Schadenformular: HR-/Bewerbungs-Element "${m[0]}" im Kunden-Anfrageformular gefunden!`
+          );
+        }
+      }
+    }
+  }
+
   return findings;
 }
 
@@ -1289,7 +1350,21 @@ if (
         options: {}
       });
       const s30Lang06Hit = lang06Findings.find(f => f.code === 'P2_TYPOGRAPHIC_PLENK_OR_ASCII_ORT' && f.details.includes('Verstoss gegen #LANG-06'));
-      const ok = Boolean(s17Hit && s30Hit && !s30FalsePositive && s30Lang06Hit);
+      // S-32 Positiv- & Negativ-Proben (Form Context Purity)
+      await page.setContent(`<!DOCTYPE html><html lang="de"><body>
+        <div class="wp-wizard-card"><h3>60-Sekunden-Kurzbewerbung</h3><form id="bad-career"><button type="button">Unfall &amp; Carrosserie</button><textarea placeholder="Schadenbild beschreiben"></textarea></form></div>
+        <div class="wp-wizard-card"><h3>Schadenmeldung in 60 Sekunden</h3><form id="bad-service"><button type="button" data-sparte="Karriere / Bewerbung">Karriere / Bewerbung</button></form></div>
+        <div class="wp-wizard-card"><h3>60-Sekunden-Kurzbewerbung</h3><form id="good-career"><button type="button">Carrosserie-Techniker EFZ</button><textarea placeholder="Kurze Vorstellung"></textarea></form></div>
+      </body></html>`);
+      const s32Findings = await page.evaluate(evaluateSystemEyesInPage, {
+        relPage: 'preview-canary/index.html',
+        zone: SYSTEM_EYES_ZONES[2],
+        options: {}
+      });
+      const s32CareerCaught = s32Findings.some(f => f.code === 'P1_FORM_CONTEXT_BLEED' && f.selector.includes('bad-career'));
+      const s32ServiceCaught = s32Findings.some(f => f.code === 'P1_FORM_CONTEXT_BLEED' && f.selector.includes('bad-service'));
+      const s32FalsePositive = s32Findings.some(f => f.code === 'P1_FORM_CONTEXT_BLEED' && f.selector.includes('good-career'));
+      const ok = Boolean(s17Hit && s30Hit && !s30FalsePositive && s30Lang06Hit && s32CareerCaught && s32ServiceCaught && !s32FalsePositive);
       console.log(JSON.stringify({
         ok,
         system_eyes_version: SYSTEM_EYES_VERSION,
@@ -1297,7 +1372,10 @@ if (
         s17_kicker_before_caught: Boolean(s17Hit),
         s30_em_dash_caught: Boolean(s30Hit),
         s30_chf_price_allowed: !s30FalsePositive,
-        s30_lang06_leak_caught: Boolean(s30Lang06Hit)
+        s30_lang06_leak_caught: Boolean(s30Lang06Hit),
+        s32_career_bleed_caught: s32CareerCaught,
+        s32_service_bleed_caught: s32ServiceCaught,
+        s32_clean_career_allowed: !s32FalsePositive
       }, null, 2));
       if (!ok) process.exit(1);
     } finally {

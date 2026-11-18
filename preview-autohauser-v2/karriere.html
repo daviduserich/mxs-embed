@@ -1249,27 +1249,6 @@ body.is-embedded .site-header { position: static; }
   ]
 }
   </script>
-  <script id="wp-webmcp-step-sync">
-    (function(){
-      var STEP3_IDS = {contactName:1,contactEmail:1,contactPhone:1,contactPlz:1,contactLoc:1,contactStreet:1,contactCompany:1};
-      function wpSyncStep3(e){
-        var t = e && e.target;
-        if (!t || !t.id || !STEP3_IDS[t.id]) return;
-        if (!String(t.value || '').trim()) return;
-        var s3 = document.getElementById('wpStep3');
-        if (!s3 || s3.classList.contains('active')) return;
-        if (typeof window.wpNextStep === 'function') { window.wpNextStep(3); return; }
-        var panes = document.querySelectorAll('.wp-step-pane');
-        for (var i = 0; i < panes.length; i++) panes[i].classList.toggle('active', panes[i].id === 'wpStep3');
-        for (var s = 1; s <= 3; s++) {
-          var pill = document.getElementById('wpStepPill' + s);
-          if (pill) { pill.classList.toggle('active', s === 3); pill.classList.toggle('done', s < 3); }
-        }
-      }
-      document.addEventListener('input', wpSyncStep3, true);
-      document.addEventListener('change', wpSyncStep3, true);
-    })();
-  </script>
   <script type="application/ld+json" id="wp-seo-schema">
 {
   "@context": "https://schema.org",
@@ -1379,7 +1358,7 @@ body.is-embedded .site-header { position: static; }
       "name": "Karriere & Offene Stellen – autohauser® Oftringen",
       "description": "Offene Stellen bei autohauser® und YellowFox® Schweiz in Oftringen: Carrosserie-Techniker, Gestalter/in Werbetechnik EFZ (20–40%) und Verkaufsprofi YellowFox.",
       "inLanguage": "de-CH",
-      "dateModified": "2026-11-18T18:44:41+00:00",
+      "dateModified": "2026-11-18T19:05:05+00:00",
       "isPartOf": {
         "@id": "https://vorschau.magnet-xs.ch/autohauser-v2/#website"
       },
@@ -1498,7 +1477,7 @@ body.is-embedded .site-header { position: static; }
               <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg><span>Präzise, qualitätsbewusste Arbeitsweise</span></li>
             </ul>
           </div>
-          <a href="#kurzbewerbung" onclick="wpSetPreset('Karriere / Bewerbung','Bewerbung Carrosserie-Techniker','Planbar')" class="btn btn-primary btn-sm"><span>Jetzt kurz bewerben</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+          <a href="#kurzbewerbung" onclick="wpSetCareerPreset('Carrosserie-Techniker')" class="btn btn-primary btn-sm"><span>Jetzt kurz bewerben</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
         </div>
 
         <div class="card service-card">
@@ -1516,7 +1495,7 @@ body.is-embedded .site-header { position: static; }
             </ul>
           </div>
           <div style="display:flex;flex-wrap:wrap;gap:8px;">
-            <a href="#kurzbewerbung" onclick="wpSetPreset('Karriere / Bewerbung','Bewerbung Werbetechnik 20-40%','Planbar')" class="btn btn-primary btn-sm"><span>Kurzbewerbung</span></a>
+            <a href="#kurzbewerbung" onclick="wpSetCareerPreset('Gestalter/in Werbetechnik')" class="btn btn-primary btn-sm"><span>Kurzbewerbung</span></a>
             <button type="button" class="btn btn-outline btn-sm" onclick="openJotFormModal('Kurzbewerbung Werbetechnik', 'https://form.jotform.com/51061581490956')"><span>JotForm</span></button>
           </div>
         </div>
@@ -1536,7 +1515,7 @@ body.is-embedded .site-header { position: static; }
             </ul>
           </div>
           <div style="display:flex;flex-wrap:wrap;gap:8px;">
-            <a href="#kurzbewerbung" onclick="wpSetPreset('Karriere / Bewerbung','Bewerbung Verkäufer YellowFox','Planbar')" class="btn btn-primary btn-sm"><span>Kurzbewerbung</span></a>
+            <a href="#kurzbewerbung" onclick="wpSetCareerPreset('Verkaufsprofi mit Biss')" class="btn btn-primary btn-sm"><span>Kurzbewerbung</span></a>
             <button type="button" class="btn btn-outline btn-sm" onclick="openJotFormModal('Bewerbungsformular YellowFox', 'https://form.jotform.com/folioboat/bewerbungsformular-yellowfox')"><span>JotForm</span></button>
           </div>
         </div>
@@ -1547,219 +1526,198 @@ body.is-embedded .site-header { position: static; }
   <section class="section section-alt" id="kurzbewerbung" data-section="karriere-form">
     <div class="container">
       
-    <div class="wp-wizard-card" id="wpSmartWizardCard">
+    <div class="wp-wizard-card" id="wpCareerWizardCard">
       <div class="wp-wizard-top">
-        <span class="wp-step-indicator" id="wpStepLabel">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
-          <span>Schritt 1/3: Bereich &amp; Dringlichkeit</span>
+        <span class="wp-step-indicator" id="wpCareerStepLabel">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          <span>Schritt 1/3: Stelle &amp; Pensum</span>
         </span>
         <div style="display:flex;gap:8px;">
-          <button type="button" class="btn btn-outline btn-sm" id="wpBtnBackTop" onclick="wpGoStep(wpState.step - 1)" style="display:none;"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 18 9 12 15 6"/></svg><span>Zurück</span></button>
-          <button type="button" class="btn btn-outline btn-sm" onclick="wpResetWizard()">Neu starten</button>
+          <button type="button" class="btn btn-outline btn-sm" id="wpCareerBtnBackTop" onclick="wpCareerGoStep(wpCareerState.step - 1)" style="display:none;"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 18 9 12 15 6"/></svg><span>Zurück</span></button>
+          <button type="button" class="btn btn-outline btn-sm" onclick="wpResetCareerWizard()">Neu starten</button>
         </div>
       </div>
       <div class="wp-progress-track" aria-hidden="true">
-        <div class="wp-progress-seg active" id="wpProg1"></div>
-        <div class="wp-progress-seg" id="wpProg2"></div>
-        <div class="wp-progress-seg" id="wpProg3"></div>
+        <div class="wp-progress-seg active" id="wpCProg1"></div>
+        <div class="wp-progress-seg" id="wpCProg2"></div>
+        <div class="wp-progress-seg" id="wpCProg3"></div>
       </div>
       <h3 data-slot="wizard_title">60-Sekunden-Kurzbewerbung an Daniela Dähler</h3>
-      <p style="font-size:0.9rem;margin-bottom:18px;" data-slot="wizard_sub">Kein kompliziertes Portal nötig: Tragen Sie Ihre Wunschposition und Kontaktdaten ein – wir melden uns persönlich bei Ihnen.</p>
+      <p style="font-size:0.9rem;margin-bottom:18px;" data-slot="wizard_sub">Kein kompliziertes Portal nötig: Wählen Sie Ihre Wunschposition und hinterlegen Sie Ihre Kontaktdaten – Frau Daniela Dähler (Leiterin HR) meldet sich persönlich bei Ihnen.</p>
 
-      <form id="wpLeadForm" onsubmit="return wpSubmitLead(event)" novalidate toolname="autohauser_anfrage_vorbereiten" tooldescription="Bereitet eine strukturierte Anfrage oder Schadenmeldung bei Jakob Hauser AG (autohauser) in Oftringen zur Prüfung vor.">
-        <input type="text" name="website_url" id="wpHoneypot" value="" style="display:none !important;" tabindex="-1" autocomplete="off" form="wpTrapDetached">
+      <form id="wpCareerForm" onsubmit="return wpSubmitCareer(event)" novalidate toolname="autohauser_kurzbewerbung" tooldescription="Erfasst eine unverbindliche Kurzbewerbung für offene Stellen bei Jakob Hauser AG (autohauser) in Oftringen.">
+        <input type="text" name="website_url" id="wpCareerHoneypot" value="" style="display:none !important;" tabindex="-1" autocomplete="off" form="wpTrapDetached">
 
         <!-- SCHRITT 1 -->
-        <div class="wp-step-pane active" id="wpStep1">
-          <p class="wp-label" style="margin-bottom:10px;">1. Welchen Bereich betrifft Ihr Anliegen?</p>
+        <div class="wp-step-pane active" id="wpCStep1">
+          <p class="wp-label" style="margin-bottom:10px;">1. Für welche Stelle interessieren Sie sich?</p>
           <div class="wp-tile-grid-2">
-            <button type="button" class="wp-tile-btn " data-sparte="Unfall &amp; Hagel / Glasschaden" data-cat="Unfallschaden" onclick="wpSelectSparte(this)">
-            <span class="wp-tile-title">Unfall &amp; Carrosserie</span>
-            <span class="wp-tile-sub">Javier Jimenez · Richtbank &amp; Originalteile</span>
+            <button type="button" class="wp-tile-btn selected" data-job="Carrosserie-Techniker / Carrosseriespengler EFZ" onclick="wpSelectJob(this)">
+            <span class="wp-tile-title">Carrosserie-Techniker / Carrosseriespengler EFZ</span>
+            <span class="wp-tile-sub">100 % · Unfallinstandstellung, Richtbank &amp; Originalteile</span>
           </button>
-<button type="button" class="wp-tile-btn " data-sparte="Hagelschaden 2026" data-cat="Hagelschaden" onclick="wpSelectSparte(this)">
-            <span class="wp-tile-title">Hagelschaden 2026</span>
-            <span class="wp-tile-sub">Javier Jimenez · Versicherungs-Check inklusive</span>
+<button type="button" class="wp-tile-btn " data-job="Gestalter/in Werbetechnik EFZ (20–40 %)" onclick="wpSelectJob(this)">
+            <span class="wp-tile-title">Gestalter/in Werbetechnik EFZ (20–40 %)</span>
+            <span class="wp-tile-sub">Fahrzeugbeschriftung, Carwrapping &amp; Adobe Illustrator</span>
           </button>
-<button type="button" class="wp-tile-btn " data-sparte="Glasschaden &amp; Sofort-Rückruf" data-cat="Glasschaden" onclick="wpSelectSparte(this)">
-            <span class="wp-tile-title">Glas &amp; Frontscheibe</span>
-            <span class="wp-tile-sub">Andrea Heimgartner · 1 Tag Gratis-Ersatzwagen</span>
+<button type="button" class="wp-tile-btn " data-job="Verkaufsprofi mit Biss (YellowFox® Schweiz)" onclick="wpSelectJob(this)">
+            <span class="wp-tile-title">Verkaufsprofi mit Biss (YellowFox® Schweiz)</span>
+            <span class="wp-tile-sub">100 % · Telematik- &amp; Ortungssysteme für KMU</span>
           </button>
-<button type="button" class="wp-tile-btn " data-sparte="Autobeschriftung &amp; Folierung" data-cat="Beschriftung / Folierung" onclick="wpSelectSparte(this)">
-            <span class="wp-tile-title">Beschriftung &amp; folioCar®</span>
-            <span class="wp-tile-sub">Fabienne Zingg · Flotten, Design &amp; Lackschutz</span>
-          </button>
-<button type="button" class="wp-tile-btn " data-sparte="Classic Cars" data-cat="Classic Cars / Oldtimer" onclick="wpSelectSparte(this)">
-            <span class="wp-tile-title">Classic Cars</span>
-            <span class="wp-tile-sub">Thomas Hauser · Besichtigung, Ankauf, YellowFox</span>
-          </button>
-<button type="button" class="wp-tile-btn selected" data-sparte="Karriere / Bewerbung" data-cat="Kurzbewerbung" onclick="wpSelectSparte(this)">
-            <span class="wp-tile-title">Karriere / Bewerbung</span>
-            <span class="wp-tile-sub">Daniela Dähler · HR Oftringen</span>
+<button type="button" class="wp-tile-btn " data-job="Initiativbewerbung / Spontanbewerbung" onclick="wpSelectJob(this)">
+            <span class="wp-tile-title">Initiativbewerbung / Spontanbewerbung</span>
+            <span class="wp-tile-sub">Werkstatt, Werbetechnik oder Administration in Oftringen</span>
           </button>
           </div>
-          <p class="wp-label" style="margin-bottom:10px;">2. Wie dringend ist Ihr Anliegen?</p>
+          <p class="wp-label" style="margin-bottom:10px;">2. Gewünschtes Pensum &amp; Gesprächswunsch</p>
           <div class="wp-tile-grid-2">
-            <button type="button" class="wp-tile-btn selected" data-urg="Sofort-Rückruf / Schadenfall" onclick="wpSelectUrgency(this)">
-              <span class="wp-tile-title">Sofort-Rückruf / Schadenfall</span>
-              <span class="wp-tile-sub">Rückmeldung innert kurzer Frist oder Ersatzwagen-Bedarf</span>
+            <button type="button" class="wp-tile-btn selected" data-avail="Ab sofort / Nach Vereinbarung" onclick="wpSelectAvail(this)">
+              <span class="wp-tile-title">Ab sofort / Nach Vereinbarung</span>
+              <span class="wp-tile-sub">Schnelles persönliches Kennenlernen in Oftringen</span>
             </button>
-            <button type="button" class="wp-tile-btn" data-urg="Planbar / Offerte &amp; Termin" onclick="wpSelectUrgency(this)">
-              <span class="wp-tile-title">Planbar / Offerte &amp; Termin</span>
-              <span class="wp-tile-sub">Besichtigung, Flotten-Offerte oder Classic-Beratung</span>
+            <button type="button" class="wp-tile-btn" data-avail="Teilzeit / Unverbindliches Erstgespräch" onclick="wpSelectAvail(this)">
+              <span class="wp-tile-title">Teilzeit (20–40 %) / Erstgespräch</span>
+              <span class="wp-tile-sub">Flexibles Pensum oder kurzer Vorab-Austausch</span>
             </button>
           </div>
           <div style="display:flex;justify-content:flex-end;">
-            <button type="button" class="btn btn-primary" onclick="wpGoStep(2)"><span>Weiter zu Fotos &amp; Details</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></button>
+            <button type="button" class="btn btn-primary" onclick="wpCareerGoStep(2)"><span>Weiter zu Erfahrung &amp; Unterlagen</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></button>
           </div>
         </div>
 
         <!-- SCHRITT 2 -->
-        <div class="wp-step-pane" id="wpStep2">
+        <div class="wp-step-pane" id="wpCStep2">
           <div class="wp-form-grid">
-            
             <div class="wp-field">
-              <label for="wpVehicle" class="wp-label">Gewünschte Position / Bereich</label>
-              <input type="text" id="wpVehicle" name="role_interest" class="form-input" placeholder="z. B. Gestalter/in Werbetechnik EFZ">
+              <label for="wpExpRole" class="wp-label">Ausbildung / Aktuelle Tätigkeit</label>
+              <input type="text" id="wpExpRole" name="experience" class="form-input" placeholder="z. B. Carrosseriespengler/in EFZ, 4 Jahre Praxis">
             </div>
             <div class="wp-field">
-              <label for="wpPlateOrIns" class="wp-label">Möglicher Eintritt / Pensum</label>
-              <input type="text" id="wpPlateOrIns" name="availability" class="form-input" placeholder="z. B. per sofort, 30 %" autocomplete="postal-code">
+              <label for="wpEntryDate" class="wp-label">Möglicher Eintritt / Kündigungsfrist</label>
+              <input type="text" id="wpEntryDate" name="entry_date" class="form-input" placeholder="z. B. per sofort oder 1 Monat" autocomplete="postal-code">
             </div>
             <div class="wp-field wp-field-full">
-              <label for="wpMessage" class="wp-label">Kurzbeschreibung (Schadenbild, Wunschdesign oder Anliegen)</label>
-              <textarea id="wpMessage" name="message" class="form-textarea" rows="3" placeholder="Beschreiben Sie kurz den Hergang, die betroffene Fahrzeugseite oder Ihr Projekt..."></textarea>
+              <label for="wpCareerMsg" class="wp-label">Kurze Vorstellung (2–3 Sätze, kein Motivationsschreiben nötig)</label>
+              <textarea id="wpCareerMsg" name="message" class="form-textarea" rows="3" placeholder="Was begeistert Sie an der Stelle oder welche Fragen möchten Sie kurz klären?"></textarea>
             </div>
             <div class="wp-field wp-field-full">
-              <label for="wpPhotoInput" class="wp-label">Fotos hochladen (optional, bis zu 3 Bilder für das Auftrags-PDF)</label>
+              <label for="wpCareerPhotoInput" class="wp-label">Lebenslauf-Foto, Zeugnis oder Porträt anhängen (optional, bis zu 3 Bilder)</label>
               <div class="wp-photo-drop">
-                <span style="display:inline-flex;align-items:center;gap:8px;font-size:0.86rem;color:var(--text-muted);"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/><circle cx="12" cy="13" r="3"/></svg><span>Schaden-, Fahrzeug- oder Detailfotos direkt anhängen</span></span>
+                <span style="display:inline-flex;align-items:center;gap:8px;font-size:0.86rem;color:var(--text-muted);"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/><circle cx="12" cy="13" r="3"/></svg><span>Unterlagen oder Foto direkt vom Smartphone anhängen</span></span>
                 <label class="btn btn-outline btn-sm" style="cursor:pointer;">
-                  <span>Fotos wählen</span>
-                  <input type="file" id="wpPhotoInput" accept="image/*" multiple style="display:none;" onchange="wpHandlePhotos(this.files)">
+                  <span>Dateien wählen</span>
+                  <input type="file" id="wpCareerPhotoInput" accept="image/*" multiple style="display:none;" onchange="wpHandleCareerPhotos(this.files)">
                 </label>
               </div>
-              <div class="wp-photo-thumbs" id="wpPhotoThumbs"></div>
+              <div class="wp-photo-thumbs" id="wpCareerPhotoThumbs"></div>
             </div>
           </div>
           <div style="display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;">
-            <button type="button" class="btn btn-outline" onclick="wpGoStep(1)"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 18 9 12 15 6"/></svg><span>Zurück</span></button>
-            <button type="button" class="btn btn-primary" onclick="wpGoStep(3)"><span>Weiter zu den Kontaktdaten</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></button>
+            <button type="button" class="btn btn-outline" onclick="wpCareerGoStep(1)"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 18 9 12 15 6"/></svg><span>Zurück</span></button>
+            <button type="button" class="btn btn-primary" onclick="wpCareerGoStep(3)"><span>Weiter zu Ihren Kontaktdaten</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></button>
           </div>
         </div>
 
         <!-- SCHRITT 3 -->
-        <div class="wp-step-pane" id="wpStep3">
+        <div class="wp-step-pane" id="wpCStep3">
           <div class="wp-form-grid">
             <div class="wp-field">
-              <label for="wpName" class="wp-label">Vorname &amp; Nachname *</label>
-              <input type="text" id="wpName" name="name" autocomplete="name" class="form-input" placeholder="Max Muster" required>
+              <label for="wpCName" class="wp-label">Vorname &amp; Nachname *</label>
+              <input type="text" id="wpCName" name="name" autocomplete="name" class="form-input" placeholder="Max Muster" required>
             </div>
             <div class="wp-field">
-              <label for="wpCompany" class="wp-label">Firma (optional)</label>
-              <input type="text" id="wpCompany" name="company" autocomplete="organization" class="form-input" placeholder="Firma AG">
+              <label for="wpCEmail" class="wp-label">E-Mail-Adresse *</label>
+              <input type="email" id="wpCEmail" name="email" autocomplete="email" class="form-input" placeholder="name@beispiel.ch" required>
             </div>
             <div class="wp-field">
-              <label for="wpEmail" class="wp-label">E-Mail-Adresse *</label>
-              <input type="email" id="wpEmail" name="email" autocomplete="email" class="form-input" placeholder="name@beispiel.ch" required>
+              <label for="wpCPhone" class="wp-label">Telefonnummer *</label>
+              <input type="tel" id="wpCPhone" name="phone" autocomplete="tel" class="form-input" placeholder="+41 79 000 00 00" required>
             </div>
             <div class="wp-field">
-              <label for="wpPhone" class="wp-label">Telefonnummer *</label>
-              <input type="tel" id="wpPhone" name="phone" autocomplete="tel" class="form-input" placeholder="+41 79 000 00 00" required>
+              <label for="wpCPlzCity" class="wp-label">PLZ &amp; Wohnort</label>
+              <input type="text" id="wpCPlzCity" name="postal-code" autocomplete="postal-code" class="form-input" placeholder="4665 Oftringen">
             </div>
-            <div class="wp-field">
-              <label for="wpPlzCity" class="wp-label">PLZ &amp; Ort</label>
-              <input type="text" id="wpPlzCity" name="postal-code" autocomplete="postal-code" class="form-input" placeholder="4665 Oftringen">
-            </div>
-            <div class="wp-field">
-              <label for="wpCallbackPref" class="wp-label">Bevorzugtes Zeitfenster</label>
-              <select id="wpCallbackPref" name="callback_pref" class="wp-select">
+            <div class="wp-field wp-field-full">
+              <label for="wpCCallbackPref" class="wp-label">Wann sind Sie am besten erreichbar?</label>
+              <select id="wpCCallbackPref" name="callback_pref" class="wp-select">
                 <option value="Vormittag (07:30–12:00)">Vormittag (07:30–12:00)</option>
                 <option value="Nachmittag (13:15–17:30)">Nachmittag (13:15–17:30)</option>
-                <option value="So rasch wie möglich">So rasch wie möglich</option>
+                <option value="Abend / Über Mittag nach Vereinbarung">Abend / Über Mittag nach Vereinbarung</option>
               </select>
             </div>
           </div>
-          <div class="wp-err-box" id="wpFormErr"></div>
+          <div class="wp-err-box" id="wpCareerErr"></div>
           <div style="display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;align-items:center;">
-            <button type="button" class="btn btn-outline" onclick="wpGoStep(2)"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 18 9 12 15 6"/></svg><span>Zurück</span></button>
-            <button type="submit" class="btn btn-primary" id="wpSubmitBtn">
-              <span id="wpSubmitBtnTxt">Meldung &amp; 1-Seiten-Auftrags-PDF jetzt erstellen</span>
+            <button type="button" class="btn btn-outline" onclick="wpCareerGoStep(2)"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 18 9 12 15 6"/></svg><span>Zurück</span></button>
+            <button type="submit" class="btn btn-primary" id="wpCareerSubmitBtn">
+              <span id="wpCareerSubmitTxt">Kurzbewerbung an Daniela Dähler absenden</span>
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
             </button>
           </div>
         </div>
       </form>
 
-      <div class="wp-result-box" id="wpResultBox" aria-live="polite">
+      <div class="wp-result-box" id="wpCareerResultBox" aria-live="polite">
         <div style="display:flex;align-items:center;gap:8px;color:#065f46;font-weight:800;font-size:1.02rem;margin-bottom:8px;">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
-          <span>Meldung erfolgreich erfasst (<span id="wpResRef">#WP-2026</span>)</span>
+          <span>Kurzbewerbung erfolgreich erfasst (<span id="wpCResRef">#WP-2026</span>)</span>
         </div>
         <p style="color:#0f172a;font-size:0.9rem;margin-bottom:10px;">
-          <strong>Zuständig:</strong> <span id="wpResAssignee">–</span><br>
-          <strong>Rückruf-Fenster:</strong> <span id="wpResWindow">–</span><br>
-          <strong>Vorschau-Schutzmodus:</strong> Die E-Mail inkl. 1-Seiten-Auftrags-PDF wurde im sicheren Vorschau-Modus direkt an Ihre angegebene Test-Adresse gesendet.
+          <strong>HR-Ansprechperson:</strong> <span id="wpCResAssignee">Daniela Dähler</span><br>
+          <strong>Rückmelde-Fenster:</strong> <span id="wpCResWindow">Zeitnah</span><br>
+          <strong>Vorschau-Schutzmodus:</strong> Ihre Bewerbungs-Zusammenfassung (inkl. PDF) wurde im sicheren Vorschau-Modus direkt an die angegebene Test-E-Mail-Adresse gesendet.
         </p>
         <div style="display:flex;flex-wrap:wrap;gap:10px;">
-          <a href="#" id="wpResPdfUrl" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg><span>1-Seiten-Auftrags-PDF öffnen</span></a>
-          <button type="button" class="btn btn-outline btn-sm" onclick="wpResetWizard()">Neue Meldung erfassen</button>
+          <a href="#" id="wpCResPdfUrl" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg><span>Bewerbungs-Zusammenfassung (PDF) öffnen</span></a>
+          <button type="button" class="btn btn-outline btn-sm" onclick="wpResetCareerWizard()">Weitere Bewerbung erfassen</button>
         </div>
       </div>
     </div>
     <script>
-      var wpState = {
+      var wpCareerState = {
         step: 1,
-        sparte: "Karriere / Bewerbung",
-        category: "Kurzbewerbung",
-        urgency: "Sofort-Rückruf / Schadenfall",
+        job: "Carrosserie-Techniker / Carrosseriespengler EFZ",
+        avail: "Ab sofort / Nach Vereinbarung",
         photos: []
       };
-      function wpSelectSparte(btn) {
-        var all = document.querySelectorAll('[data-sparte]');
+      function wpSelectJob(btn) {
+        var all = document.querySelectorAll('[data-job]');
         for (var i = 0; i < all.length; i++) all[i].classList.remove('selected');
         btn.classList.add('selected');
-        wpState.sparte = btn.getAttribute('data-sparte');
-        wpState.category = btn.getAttribute('data-cat');
+        wpCareerState.job = btn.getAttribute('data-job');
       }
-      function wpSelectUrgency(btn) {
-        var all = document.querySelectorAll('[data-urg]');
+      function wpSelectAvail(btn) {
+        var all = document.querySelectorAll('[data-avail]');
         for (var i = 0; i < all.length; i++) all[i].classList.remove('selected');
         btn.classList.add('selected');
-        wpState.urgency = btn.getAttribute('data-urg');
+        wpCareerState.avail = btn.getAttribute('data-avail');
       }
-      function wpGoStep(n) {
+      function wpCareerGoStep(n) {
         if (n < 1) n = 1;
         if (n > 3) n = 3;
-        wpState.step = n;
+        wpCareerState.step = n;
         for (var i = 1; i <= 3; i++) {
-          var p = document.getElementById('wpStep' + i);
-          var seg = document.getElementById('wpProg' + i);
+          var p = document.getElementById('wpCStep' + i);
+          var seg = document.getElementById('wpCProg' + i);
           if (p) p.classList.toggle('active', i === n);
           if (seg) seg.classList.toggle('active', i <= n);
         }
-        var lbl = document.getElementById('wpStepLabel');
-        var back = document.getElementById('wpBtnBackTop');
-        var titles = ['Schritt 1/3: Bereich & Dringlichkeit', 'Schritt 2/3: Details & Fotos', 'Schritt 3/3: Ihre Kontaktdaten'];
+        var lbl = document.getElementById('wpCareerStepLabel');
+        var back = document.getElementById('wpCareerBtnBackTop');
+        var titles = ['Schritt 1/3: Stelle & Pensum', 'Schritt 2/3: Erfahrung & Unterlagen', 'Schritt 3/3: Ihre Kontaktdaten'];
         if (lbl) lbl.querySelector('span').textContent = titles[n - 1];
         if (back) back.style.display = n > 1 ? 'inline-flex' : 'none';
         notifyParentHeight();
       }
-      function wpSetPreset(sparte, cat, urg) {
-        var btns = document.querySelectorAll('[data-sparte]');
+      function wpSetCareerPreset(jobTitle) {
+        var btns = document.querySelectorAll('[data-job]');
         for (var i = 0; i < btns.length; i++) {
-          if (btns[i].getAttribute('data-sparte') === sparte) wpSelectSparte(btns[i]);
-        }
-        if (urg) {
-          var ubtns = document.querySelectorAll('[data-urg]');
-          for (var j = 0; j < ubtns.length; j++) {
-            if (ubtns[j].getAttribute('data-urg').indexOf(urg) !== -1) wpSelectUrgency(ubtns[j]);
-          }
+          if (btns[i].getAttribute('data-job').indexOf(jobTitle) !== -1) wpSelectJob(btns[i]);
         }
       }
-      function wpHandlePhotos(files) {
+      function wpHandleCareerPhotos(files) {
         if (!files || !files.length) return;
-        Array.prototype.slice.call(files, 0, 3 - wpState.photos.length).forEach(function(file) {
+        Array.prototype.slice.call(files, 0, 3 - wpCareerState.photos.length).forEach(function(file) {
           var reader = new FileReader();
           reader.onload = function(ev) {
             var img = new Image();
@@ -1770,98 +1728,97 @@ body.is-embedded .site-header { position: static; }
               c.width = Math.round(img.width * scale);
               c.height = Math.round(img.height * scale);
               c.getContext('2d').drawImage(img, 0, 0, c.width, c.height);
-              wpState.photos.push(c.toDataURL('image/jpeg', 0.8));
-              wpRenderPhotos();
+              wpCareerState.photos.push(c.toDataURL('image/jpeg', 0.8));
+              wpRenderCareerPhotos();
             };
             img.src = ev.target.result;
           };
           reader.readAsDataURL(file);
         });
       }
-      function wpRenderPhotos() {
-        var wrap = document.getElementById('wpPhotoThumbs');
+      function wpRenderCareerPhotos() {
+        var wrap = document.getElementById('wpCareerPhotoThumbs');
         if (!wrap) return;
         wrap.innerHTML = '';
-        wpState.photos.forEach(function(src, idx) {
+        wpCareerState.photos.forEach(function(src, idx) {
           var d = document.createElement('div');
           d.className = 'wp-photo-thumb';
-          d.innerHTML = '<img src="' + src + '" alt="Upload ' + (idx+1) + '"><button type="button" class="wp-photo-rm" onclick="wpRemovePhoto(' + idx + ')">×</button>';
+          d.innerHTML = '<img src="' + src + '" alt="Unterlage ' + (idx+1) + '"><button type="button" class="wp-photo-rm" onclick="wpRemoveCareerPhoto(' + idx + ')">×</button>';
           wrap.appendChild(d);
         });
         notifyParentHeight();
       }
-      function wpRemovePhoto(idx) {
-        wpState.photos.splice(idx, 1);
-        wpRenderPhotos();
+      function wpRemoveCareerPhoto(idx) {
+        wpCareerState.photos.splice(idx, 1);
+        wpRenderCareerPhotos();
       }
-      function wpResetWizard() {
-        var f = document.getElementById('wpLeadForm');
-        var r = document.getElementById('wpResultBox');
-        var e = document.getElementById('wpFormErr');
+      function wpResetCareerWizard() {
+        var f = document.getElementById('wpCareerForm');
+        var r = document.getElementById('wpCareerResultBox');
+        var e = document.getElementById('wpCareerErr');
         if (f) { f.reset(); f.style.display = 'block'; }
         if (r) r.style.display = 'none';
         if (e) e.style.display = 'none';
-        wpState.photos = [];
-        wpRenderPhotos();
-        wpGoStep(1);
+        wpCareerState.photos = [];
+        wpRenderCareerPhotos();
+        wpCareerGoStep(1);
       }
-      function wpSubmitLead(ev) {
+      function wpSubmitCareer(ev) {
         if (ev) ev.preventDefault();
-        var name = (document.getElementById('wpName').value || '').trim();
-        var email = (document.getElementById('wpEmail').value || '').trim();
-        var phone = (document.getElementById('wpPhone').value || '').trim();
-        var company = (document.getElementById('wpCompany').value || '').trim();
-        var plzCity = (document.getElementById('wpPlzCity').value || '').trim();
-        var cbPref = (document.getElementById('wpCallbackPref').value || '').trim();
-        var vehicle = (document.getElementById('wpVehicle').value || '').trim();
-        var ins = (document.getElementById('wpPlateOrIns').value || '').trim();
-        var msg = (document.getElementById('wpMessage').value || '').trim();
-        var hp = (document.getElementById('wpHoneypot').value || '').trim();
-        var err = document.getElementById('wpFormErr');
+        var name = (document.getElementById('wpCName').value || '').trim();
+        var email = (document.getElementById('wpCEmail').value || '').trim();
+        var phone = (document.getElementById('wpCPhone').value || '').trim();
+        var plzCity = (document.getElementById('wpCPlzCity').value || '').trim();
+        var cbPref = (document.getElementById('wpCCallbackPref').value || '').trim();
+        var exp = (document.getElementById('wpExpRole').value || '').trim();
+        var entry = (document.getElementById('wpEntryDate').value || '').trim();
+        var msg = (document.getElementById('wpCareerMsg').value || '').trim();
+        var hp = (document.getElementById('wpCareerHoneypot').value || '').trim();
+        var err = document.getElementById('wpCareerErr');
         if (err) err.style.display = 'none';
 
         if (!name || (!email && !phone)) {
-          wpGoStep(3);
+          wpCareerGoStep(3);
           if (err) {
             err.textContent = 'Bitte geben Sie Ihren Namen sowie E-Mail oder Telefonnummer an.';
             err.style.display = 'block';
           }
           return false;
         }
-        var btn = document.getElementById('wpSubmitBtn');
-        var btnTxt = document.getElementById('wpSubmitBtnTxt');
+        var btn = document.getElementById('wpCareerSubmitBtn');
+        var btnTxt = document.getElementById('wpCareerSubmitTxt');
         if (btn) btn.disabled = true;
-        if (btnTxt) btnTxt.textContent = 'Auftrags-PDF wird erstellt...';
+        if (btnTxt) btnTxt.textContent = 'Bewerbung wird übermittelt...';
 
         fetch('/api/lead-submit', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
             client_slug: 'autohauser',
-            source_page: "preview-autohauser/karriere.html",
+            source_page: 'preview-autohauser/karriere.html',
             website_url: hp,
-            category: wpState.category,
-            sparte: wpState.sparte,
-            urgency: wpState.urgency,
+            category: 'Kurzbewerbung',
+            sparte: 'Karriere / Bewerbung',
+            urgency: wpCareerState.avail,
             name: name,
-            company: company,
             plz: plzCity,
             email: email,
             phone: phone,
             callback_pref: cbPref,
             message: msg,
             extra_fields: {
-              'Fahrzeug / Position': vehicle || 'Keine Angabe',
-              'Schild / Versicherung / Pensum': ins || 'Keine Angabe'
+              'Gewünschte Stelle': wpCareerState.job || 'Keine Angabe',
+              'Ausbildung / Tätigkeit': exp || 'Keine Angabe',
+              'Möglicher Eintritt': entry || 'Keine Angabe'
             },
-            photos: wpState.photos,
+            photos: wpCareerState.photos,
             self_test_mode: true
           })
         })
         .then(function(r) { return r.json(); })
         .then(function(res) {
           if (btn) btn.disabled = false;
-          if (btnTxt) btnTxt.textContent = 'Meldung & 1-Seiten-Auftrags-PDF jetzt erstellen';
+          if (btnTxt) btnTxt.textContent = 'Kurzbewerbung an Daniela Dähler absenden';
           if (!res || !res.ok) {
             if (err) {
               err.textContent = (res && res.error) ? res.error : 'Übermittlung fehlgeschlagen.';
@@ -1869,26 +1826,32 @@ body.is-embedded .site-header { position: static; }
             }
             return;
           }
-          document.getElementById('wpLeadForm').style.display = 'none';
-          document.getElementById('wpResRef').textContent = res.ref_code || '#WP-2026';
-          document.getElementById('wpResAssignee').textContent = res.assigned_to || 'autohauser Team';
-          document.getElementById('wpResWindow').textContent = res.callback_window || 'Zeitnah';
-          var pdfA = document.getElementById('wpResPdfUrl');
-          if (pdfA) pdfA.href = res.pdf_url || '#';
-          document.getElementById('wpResultBox').style.display = 'block';
+          document.getElementById('wpCareerForm').style.display = 'none';
+          document.getElementById('wpCResRef').textContent = res.ref_code || '#WP-2026';
+          document.getElementById('wpCResAssignee').textContent = res.assigned_to || 'Daniela Dähler';
+          document.getElementById('wpCResWindow').textContent = res.callback_window || 'Zeitnah';
+          var pdfA = document.getElementById('wpCResPdfUrl');
+          if (pdfA && res.pdf_url) {
+            pdfA.href = res.pdf_url;
+            pdfA.style.display = 'inline-flex';
+          } else if (pdfA) {
+            pdfA.style.display = 'none';
+          }
+          document.getElementById('wpCareerResultBox').style.display = 'block';
           notifyParentHeight();
         })
         .catch(function() {
           if (btn) btn.disabled = false;
-          if (btnTxt) btnTxt.textContent = 'Meldung & 1-Seiten-Auftrags-PDF jetzt erstellen';
+          if (btnTxt) btnTxt.textContent = 'Kurzbewerbung an Daniela Dähler absenden';
           if (err) {
-            err.textContent = 'Netzwerkfehler. Bitte versuchen Sie es direkt telefonisch über 0800 875 875.';
+            err.textContent = 'Verbindungsfehler. Bitte versuchen Sie es telefonisch unter +41 62 789 33 54.';
             err.style.display = 'block';
           }
         });
         return false;
       }
     </script>
+    
     </div>
   </section>
 </main>
