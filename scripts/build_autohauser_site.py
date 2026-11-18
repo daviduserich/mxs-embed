@@ -1032,7 +1032,7 @@ def render_footer(prefix: str = "", show_cockpit: bool = False) -> str:
     }})();
   </script>"""
 
-def render_smart_wizard(default_sparte: str = "Unfall & Hagel / Glasschaden", default_cat: str = "Unfallschaden", source_page: str = "schaden-kontakt.html", heading: str = "WebPilot Smart-Pro Assistent", sub: str = "In 60 Sekunden zur strukturierten Meldung inklusive 1-Seiten-Auftrags-PDF und direkter Zuweisung an Ihre Ansprechperson in Oftringen.", show_extra_vehicle: bool = True) -> str:
+def render_smart_wizard(default_sparte: str = "Unfall & Hagel / Glasschaden", default_cat: str = "Unfallschaden", source_page: str = "schaden-kontakt.html", heading: str = "Schadenmeldung in 60 Sekunden", sub: str = "In 60 Sekunden zur strukturierten Meldung inklusive 1-Seiten-Auftrags-PDF und direkter Zuweisung an Ihre Ansprechperson in Oftringen.", show_extra_vehicle: bool = True) -> str:
     sparten_opts = [
         ("Unfall & Hagel / Glasschaden", "Unfallschaden", "Unfall & Carrosserie", "Javier Jimenez · Richtbank & Originalteile"),
         ("Hagelschaden 2026", "Hagelschaden", "Hagelschaden 2026", "Javier Jimenez · Versicherungs-Check inklusive"),
@@ -1431,7 +1431,7 @@ def build_pages(out_dir: Path, scraped: dict, dims: dict, pdfs: list, pdf_meta: 
               Seit 1948 steht die Jakob Hauser AG unter der Marke autohauser® für kompromisslose Qualität mit Originalersatzteilen, digitaler Farbmessung, eigenen Ersatzwagen und lebenslanger Swissgarant-Garantie – unabhängig von Versicherungsvorgaben.
             </p>
             <div class="hero-actions">
-              <a href="#smart-schaden" class="btn btn-primary btn-cta"><span>Smart-Schadenmeldung starten</span>{ICONS["arrow-right"]}</a>
+              <a href="#smart-schaden" class="btn btn-primary btn-cta"><span>Schadenmeldung starten</span>{ICONS["arrow-right"]}</a>
               <a href="tel:0800875875" class="btn btn-outline">{ICONS["phone"]}<span class="tabular">Gratis-Hotline: 0800 875 875</span></a>
             </div>
           </div>
@@ -1616,7 +1616,7 @@ def build_pages(out_dir: Path, scraped: dict, dims: dict, pdfs: list, pdf_meta: 
   <section class="section" id="smart-schaden" data-section="smart-assistent">
     <div class="container">
       <div class="section-head">
-        <span class="section-kicker">WEBPILOT SMART-PRO SCHADENZENTRALE</span>
+        <span class="section-kicker">SCHNELL-MELDUNG &amp; FOTO-UPLOAD · OFTRINGEN</span>
         <h2>Schaden oder Anfrage in 60 Sekunden direkt melden</h2>
         <p>Schluss mit toten Altformularen: Wählen Sie Ihren Bereich, laden Sie auf Wunsch bis zu 3 Fotos hoch und erhalten Sie sofort ein strukturiertes 1-Seiten-Auftrags-PDF.</p>
       </div>
@@ -2087,7 +2087,7 @@ def build_pages(out_dir: Path, scraped: dict, dims: dict, pdfs: list, pdf_meta: 
 
       <div id="tabInfoBanner" class="card" style="margin-bottom:24px;background:var(--primary-soft);border-color:rgba(0,103,178,0.22);">
         <div id="tabBannerKurz">
-          <h3 style="margin-bottom:4px;">WebPilot Smart-Pro Kurzmeldung (Empfohlen)</h3>
+          <h3 style="margin-bottom:4px;">Schnelle Schadenmeldung mit Foto-Upload (Empfohlen)</h3>
           <p style="margin:0;">Erfassen Sie in unter einer Minute Ihren Schadenfall inklusive bis zu 3 Fotos. Sie erhalten umgehend ein strukturiertes 1-Seiten-Auftrags-PDF mit Rückruf-Zeitfenster.</p>
         </div>
         <div id="tabBannerHagel" style="display:none;">

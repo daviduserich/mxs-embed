@@ -73,6 +73,8 @@ EXCLUDED_PARTNER_SLUGS = EXCLUDED_INTERNAL_SLUGS | {
     "preview-holz-susi",
     "imp-marketing",
     "preview-imp-marketing",
+    "autohauser",
+    "preview-autohauser",
 }
 
 SA_PATHS = [
@@ -179,6 +181,24 @@ def split_source_and_context(raw_source_or_context: str, explicit_context: str =
 # - In Davids Master-Sheet erscheinen ALLE 9 Projekte (IMP GmbH an Position 1 + alle 8 Projekte von Jenny Ettle).
 # - In Jennys Partner-Sheet erscheinen ausschliesslich die 8 Projekte mit Partner "Jenny Ettle (JE-MI)".
 SEED_PROJECTS = [
+    {
+        "slug": "autohauser",
+        "active": True,
+        "company": "Jakob Hauser AG · autohauser® (3 Domains, 4665 Oftringen)",
+        "pricing_recommended_chf": "CHF 3'950.—",
+        "complexity_score": "8.8 / 10.0",
+        "pricing_formula_chf": "CHF 3'900.—",
+        "pricing_rationale": "Kompletter 3-Sparten-Webauftritt für alle 3 Domains (autohauser.ch Unfall/Hagel/Glas, autohauser-beschriftung.ch folioCar® & autohauser-classics.ch mit Fahrzeugangeboten & YellowFox®), 26 statischen Ratgeber-Seiten, 72 lokal gehosteten PDFs, 5 nativen 60-Sekunden-Foto-/PDF-Formularen inkl. sicherem Abteilungs-Mail-Routing plus Lazy-Einbindung aller aktiven Spezial-JotForms (behebt 503-Fehler & totes Glas-Formular) sowie Studio Cockpit v4.0 + Stil-Matrix.",
+        "v2_url": "https://vorschau.magnet-xs.ch/autohauser-v2/",
+        "vollversion_url": "https://vorschau.magnet-xs.ch/autohauser-vollversion/",
+        "cockpit_url": "https://vorschau.magnet-xs.ch/autohauser-vollversion/cockpit.html?token=autohauser2026",
+        "cockpit_light_url": "https://vorschau.magnet-xs.ch/autohauser-vollversion/cockpit.html?token=autohauser2026&mode=light",
+        "audit_report_url": "https://vorschau.magnet-xs.ch/reports/autohauser-vorher-nachher-report.pdf",
+        "source_url": "https://www.autohauser.ch/",
+        "branch_context": "3-Sparten-Carrosseriebetrieb seit 1948 (Unfallreparatur, Autobeschriftung, Classic Cars · CHE-103.749.299) in 4665 Oftringen AG",
+        "partner": "David Hügli (Magnet XS)",
+        "status": "🟢 Bereit zum Zeigen (Fertig: 18.11.2026 · 19:34 Uhr · 0 P1/P2)",
+    },
     {
         "slug": "seit",
         "active": True,
@@ -872,7 +892,7 @@ def get_all_rows(spreadsheet_id: str, tab_title: str) -> List[List[str]]:
 
 def _normalize_partner_label(raw_partner: str, slug: str = "") -> str:
     clean_slug = re.sub(r"-(?:vollversion|vv|v1|v2)$", "", (slug or "").strip().lower().replace("preview-", ""))
-    if clean_slug in ("imp-marketing", "holz-susi"):
+    if clean_slug in ("imp-marketing", "holz-susi", "autohauser"):
         return "David Hügli (Magnet XS)"
     s = (raw_partner or "").strip()
     low = s.lower()
@@ -919,6 +939,7 @@ def _seed_single_spreadsheet(
                     active_by_slug[item["slug"]] = is_act
 
     DEFAULT_SUBMITTED_MAP = {
+        "autohauser": ("18.11.2026 · 19:09 Uhr", "🟢 Bereit zum Zeigen (Fertig: 18.11.2026 · 19:34 Uhr · 0 P1/P2)"),
         "die-schule": ("13.11.2026 · 07:36 Uhr", "🟢 Bereit zum Zeigen (Fertig: 13.11.2026 · 09:25 Uhr · 0 P1/P2)"),
         "get-more-sales": ("10.11.2026 · 20:24 Uhr", "🟢 Bereit zum Zeigen (Fertig: 10.11.2026 · 21:25 Uhr · 0 P1/P2)"),
     "mondocani": ("10.11.2026 · 09:35 Uhr", "🟢 Bereit zum Zeigen (Fertig: 10.11.2026 · 10:15 Uhr · 0 P1/P2)"),
