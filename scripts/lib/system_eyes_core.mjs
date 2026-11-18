@@ -1156,7 +1156,7 @@ export function evaluateSystemEyesInPage({ relPage, zone, options = {} }) {
   const asciiOrtRe = /\b(?:Zuerich|Zuercher|Graubuenden|Duebendorf|Buelach|Kuesnacht|Kuessnacht)\b/;
   const emDashRe = /(?<!\.)\u2014/;
   const einserRe = /(?<![0-9:\.\-/])\b1\s+(?:Ansprechpartner(?:in|innen)?|System|Ziel|Beispiel-Team|Co-Sponsor|Haupt-Empf[aä]ngeradresse|St[uü]ck)\b/i;
-  const altseitenBashingRe = /\b(?:tote[nr]?\s+altformular[a-z]*|defekte[nr]?\s+formular[a-z]*|veraltete[nr]?\s+externe[nr]?\s+formular[a-z]*|vorschau-?schutzmodus)\b/i;
+  const altseitenBashingRe = /\b(?:tote[nr]?\s+altformular[a-z]*|defekte[nr]?\s+formular[a-z]*|veraltete[nr]?\s+externe[nr]?\s+formular[a-z]*|vorschau-?schutzmodus|ohne\s+externe\s+ladefehler|vollständig\s+lokal\s+archiviert|battle_card)\b/i;
   const isPublicProductPage =
     relPage.includes('webpilot/') ||
     relPage.includes('kmu-kalender') ||
@@ -1223,6 +1223,17 @@ export function evaluateSystemEyesInPage({ relPage, zone, options = {} }) {
           `Nackte Ziffer 1 vor gebeugtem Substantiv ("${m[0]}") gefunden — gemaess #LANG-01 Einser-Ausschreibungs-Regel als Wort (Ein/Eine/Einem) ausschreiben`
         );
       }
+      const unresolvedTemplateRe = /\{[a-z_][a-z0-9_]*\}/i;
+      if (!isCodeOrPre && !isCockpit && unresolvedTemplateRe.test(directText)) {
+        const tm = directText.match(unresolvedTemplateRe);
+        addFinding(
+          'P1',
+          'P1_FORM_CONTEXT_BLEED',
+          getLabel(el),
+          getCssPath(el),
+          `Unaufgeloeste Template-Variable "${tm[0]}" im sichtbaren Kundentext gefunden!`
+        );
+      }
       if (altseitenBashingRe.test(directText)) {
         const m = directText.match(altseitenBashingRe);
         addFinding(
@@ -1277,6 +1288,7 @@ export function evaluateSystemEyesInPage({ relPage, zone, options = {} }) {
 
       const isKarrierePage = /(?:^|\/)karriere\.html$/i.test(relPage) || location.pathname.toLowerCase().endsWith('/karriere.html');
       const isCareerForm = isKarrierePage || careerHeadingRe.test(ownHeadings);
+      const isSpecialtyOnlyForm = !isCareerForm && /\b(?:beschriftung|folierung|classic\s*cars?|oldtimer)\b/i.test(ownHeadings) && !/\b(?:schaden|unfall|hagel|glas)\b/i.test(ownHeadings);
       const isServiceForm = !isCareerForm && serviceHeadingRe.test(ownHeadings);
 
       if (isCareerForm) {
@@ -1288,6 +1300,28 @@ export function evaluateSystemEyesInPage({ relPage, zone, options = {} }) {
             getLabel(formEl),
             getCssPath(formEl),
             `Kontext-Vermischung in Karriere-/Bewerbungsformular: Fachfremder Schaden-/Fahrzeug-Begriff "${m[0]}" in Bewerbung gefunden!`
+          );
+        }
+      } else if (isSpecialtyOnlyForm) {
+        const specialtyDamageRe = /\b(?:unfallschaden|hagelschaden|glasschaden|schadenfall|schadenbild|schadenfotos?|schadenhergang|unfall\s*&\s*carrosserie|ersatzwagen-bedarf)\b/i;
+        const mDamage = formBodyText.match(specialtyDamageRe);
+        const mCareer = formBodyText.match(careerBleedInServiceRe);
+        if (mDamage) {
+          addFinding(
+            'P1',
+            'P1_FORM_CONTEXT_BLEED',
+            getLabel(formEl),
+            getCssPath(formEl),
+            `Kontext-Vermischung in Fachsparten-Formular: Fachfremder Unfall-/Schaden-Begriff "${mDamage[0]}" im Spezial-Formular gefunden!`
+          );
+        }
+        if (mCareer) {
+          addFinding(
+            'P1',
+            'P1_FORM_CONTEXT_BLEED',
+            getLabel(formEl),
+            getCssPath(formEl),
+            `Kontext-Vermischung in Fachsparten-Formular: HR-/Bewerbungs-Element "${mCareer[0]}" im Kunden-Formular gefunden!`
           );
         }
       } else if (isServiceForm) {

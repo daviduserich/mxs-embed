@@ -43,6 +43,10 @@ def ch_text(s: str) -> str:
         ("Ansprechsperson", "Ansprechperson"),
         ("Garantier-Anspruches", "Garantieanspruchs"),
         ("Mehrwehrtsteuernummer", "Mehrwertsteuernummer"),
+        ("Wa-gens", "Wagens"),
+        ("erhal-ten", "erhalten"),
+        ("Ver-sicherung", "Versicherung"),
+        ("Rechte , als", "Rechte, als"),
         ("Verfügen", "Verfügen"),
         ("autohauser ®", "autohauser®"),
         ("folioCar ®", "folioCar®"),
@@ -940,14 +944,14 @@ def render_footer(prefix: str = "", show_cockpit: bool = False) -> str:
           <ul class="footer-list">
             <li><a href="{prefix}index.html">Unfallreparatur &amp; Hagel</a></li>
             <li><a href="{prefix}beschriftung.html">Autobeschriftung &amp; folioCar®</a></li>
-            <li><a href="{prefix}classics.html">Classic Cars &amp; YellowFox®</a></li>
+            <li><a href="{prefix}classics.html">Classic Cars (Oldtimer)</a></li>
             <li><a href="{prefix}schaden-kontakt.html">Glasschaden &amp; Rückruf</a></li>
           </ul>
         </div>
         <div>
           <h4>Wissen &amp; Unternehmen</h4>
           <ul class="footer-list">
-            <li><a href="{prefix}ratgeber.html">26 Ratgeber &amp; Merkblätter</a></li>
+            <li><a href="{prefix}ratgeber.html">Ratgeber &amp; Merkblätter</a></li>
             <li><a href="{prefix}team-unternehmen.html">Team &amp; 6 Ansprechpersonen</a></li>
             <li><a href="{prefix}karriere.html">Offene Stellen</a></li>
             <li><a href="{prefix}team-unternehmen.html#rechtliches">Impressum, Datenschutz &amp; AGB</a></li>
@@ -960,7 +964,7 @@ def render_footer(prefix: str = "", show_cockpit: bool = False) -> str:
             <li><a href="tel:0800875875" class="tabular">Gratis-Hotline: 0800 875 875</a></li>
             <li><a href="tel:+41627893330" class="tabular">Zentrale: +41 62 789 33 30</a></li>
             <li><a href="mailto:info@autohauser.ch">info@autohauser.ch</a></li>
-            <li>Mo–Fr: 07:30–12:00 &amp; 13:15–17:30</li>
+            <li>Mo–Do: 07:30–12:00 &amp; 13:15–17:30 · Fr bis 17:00</li>
           </ul>
         </div>
       </div>
@@ -1032,15 +1036,57 @@ def render_footer(prefix: str = "", show_cockpit: bool = False) -> str:
     }})();
   </script>"""
 
-def render_smart_wizard(default_sparte: str = "Unfall & Hagel / Glasschaden", default_cat: str = "Unfallschaden", source_page: str = "schaden-kontakt.html", heading: str = "Schadenmeldung in 60 Sekunden", sub: str = "In 60 Sekunden zur strukturierten Anfrage inklusive PDF-Zusammenfassung und direkter Zuweisung an Ihre Ansprechperson in Oftringen.", show_extra_vehicle: bool = True) -> str:
-    sparten_opts = [
-        ("Unfall & Hagel / Glasschaden", "Unfallschaden", "Unfall & Carrosserie", "Javier Jimenez · Richtbank & Originalteile"),
-        ("Hagelschaden 2026", "Hagelschaden", "Hagelschaden 2026", "Javier Jimenez · Versicherungs-Check inklusive"),
-        ("Glasschaden & Sofort-Rückruf", "Glasschaden", "Glas & Frontscheibe", "Andrea Heimgartner · 1 Tag Gratis-Ersatzwagen"),
-        ("Autobeschriftung & Folierung", "Beschriftung / Folierung", "Beschriftung & folioCar®", "Fabienne Zingg · Flotten, Design & Lackschutz"),
-        ("Classic Cars", "Classic Cars / Oldtimer", "Classic Cars", "Thomas Hauser · Besichtigung, Ankauf, YellowFox"),
-        ("Allgemeine Beratung & Kontakt", "Beratung / Kontakt", "Allgemeine Beratung", "Jakob Hauser AG · Zentrale Oftringen"),
-    ]
+def render_smart_wizard(default_sparte: str = "Unfall & Hagel / Glasschaden", default_cat: str = "Unfallschaden", source_page: str = "schaden-kontakt.html", heading: str = "Schaden oder Anliegen direkt melden", sub: str = "Erfassen Sie Ihr Anliegen unkompliziert und senden Sie auf Wunsch direkt Fotos mit – Ihre zuständige Ansprechperson in Oftringen meldet sich bei Ihnen.", show_extra_vehicle: bool = True, mode: str = "service") -> str:
+    if mode == "beschriftung":
+        sparten_opts = [
+            ("Autobeschriftung & Folierung", "Firmenfahrzeuge / Flotte", "Firmenfahrzeuge & Flotte", "Fabienne Zingg · Vom Einzelfahrzeug bis zur Flotte"),
+            ("Autobeschriftung & Folierung", "Voll- oder Teilfolierung", "folioCar® Voll- & Teilfolierung", "Fabienne Zingg · Rückrüstbar in Spitzenqualität"),
+            ("Autobeschriftung & Folierung", "Lackschutz / Steinschlagschutz", "Steinschlagschutz & Matt-Folie", "Fabienne Zingg · Schutzfolie auf Mass"),
+            ("Autobeschriftung & Folierung", "Sondermodell / Decor", "Autoimporteure & Decor", "Fabienne Zingg · Beratung & Umsetzung"),
+        ]
+        urg_1 = ("Offerte & Beratung gewünscht", "Projekt- oder Flottenofferte innerhalb kurzer Frist")
+        urg_2 = ("Termin in Oftringen planen", "Persönliche Beratung in unserer Werbetechnik-Halle")
+        msg_label = "Kurzbeschreibung (Fahrzeugtyp, gewünschte Beschriftung oder Stückzahl)"
+        msg_ph = "Beschreiben Sie kurz Ihr Fahrzeug, Ihre Ideen oder die gewünschte Anzahl Fahrzeuge..."
+        photo_label = "Fahrzeugfoto, Logo oder Skizze anhängen (optional, bis zu 3 Bilder)"
+        veh_lbl_1 = "Fahrzeugtyp / Flottengrösse"
+        veh_ph_1 = "z. B. Lieferwagen, 5 Firmenfahrzeuge, Sportwagen"
+        veh_lbl_2 = "Gewünschter Zeitraum / Firma (optional)"
+        veh_ph_2 = "z. B. nächster Monat oder Firmenname"
+    elif mode == "classics":
+        sparten_opts = [
+            ("Classic Cars", "Besichtigung Klassiker", "Besichtigung & Kaufberatung", "Thomas Hauser · Terminvereinbarung Oftringen"),
+            ("Classic Cars", "Ankauf / Fahrzeug anbieten", "Klassisches Auto verkaufen", "Thomas Hauser · Direktankauf geprüfter Klassiker"),
+            ("Classic Cars", "Konsignation / Fahrzeugsuche", "Konsignation & Fahrzeugsuche", "Thomas Hauser · Suche & Vermittlung im Auftrag"),
+            ("Classic Cars", "Klassiker Instandstellung", "Oldtimer-Carrosserie & Lack", "Thomas Hauser · Werterhaltende Restauration"),
+        ]
+        urg_1 = ("Besichtigung vereinbaren", "Persönlicher Termin mit Thomas Hauser in Oftringen")
+        urg_2 = ("Unverbindliche Fachberatung", "Rückruf oder schriftliche Ersteinschätzung zu Ihrem Klassiker")
+        msg_label = "Angaben zum Fahrzeug oder Wunschklassiker"
+        msg_ph = "Marke, Jahrgang, gewünschter Besichtigungstermin oder Ihre Fragen zum Klassiker..."
+        photo_label = "Fahrzeugfotos anhängen (optional, z. B. bei Verkauf oder Konsignation)"
+        veh_lbl_1 = "Klassiker / Marke & Modell"
+        veh_ph_1 = "z. B. Alfa Romeo 2000 GTV, Porsche 911"
+        veh_lbl_2 = "Jahrgang oder Anliegen (optional)"
+        veh_ph_2 = "z. B. Baujahr 1974 oder Suchkriterien"
+    else:
+        sparten_opts = [
+            ("Unfall & Hagel / Glasschaden", "Unfallschaden", "Unfall & Carrosserie", "Javier Jimenez · Richtbank & Originalteile"),
+            ("Hagelschaden", "Hagelschaden", "Hagelschaden", "Javier Jimenez · Direkte Abklärung"),
+            ("Glasschaden & Sofort-Rückruf", "Glasschaden", "Glas & Frontscheibe", "Andrea Heimgartner · Reparatur oder Ersatz"),
+            ("Autobeschriftung & Folierung", "Beschriftung / Folierung", "Beschriftung & folioCar®", "Fabienne Zingg · Fahrzeugbeschriftung & Folierung"),
+            ("Classic Cars", "Classic Cars / Oldtimer", "Classic Cars", "Thomas Hauser · Verkauf, Suche & Restauration"),
+            ("Allgemeine Beratung & Kontakt", "Beratung / Kontakt", "Allgemeine Beratung", "Jakob Hauser AG · Zentrale Oftringen"),
+        ]
+        urg_1 = ("Sofort-Rückruf gewünscht", "Rasche Rückmeldung oder Ersatzwagen-Klärung")
+        urg_2 = ("Planbarer Termin / Offerte", "Wunschtermin oder unverbindliche Beratung")
+        msg_label = "Kurzbeschreibung Ihres Anliegens"
+        msg_ph = "Beschreiben Sie kurz Ihren Schaden oder Ihr Anliegen..."
+        photo_label = "Fotos hochladen (optional, bis zu 3 Bilder)"
+        veh_lbl_1 = "Fahrzeug-Marke &amp; Modell"
+        veh_ph_1 = "z. B. VW Golf, Volvo XC90"
+        veh_lbl_2 = "Kontrollschild / Versicherung (optional)"
+        veh_ph_2 = "z. B. AG 123456 · Mobiliar"
     tiles_html = "\n".join(
         f'''<button type="button" class="wp-tile-btn {"selected" if sp == default_sparte else ""}" data-sparte="{esc(sp)}" data-cat="{esc(cat)}" onclick="wpSelectSparte(this)">
             <span class="wp-tile-title">{esc(title)}</span>
@@ -1048,18 +1094,18 @@ def render_smart_wizard(default_sparte: str = "Unfall & Hagel / Glasschaden", de
           </button>'''
         for sp, cat, title, hint in sparten_opts
     )
-    vehicle_fields = """
+    vehicle_fields = f"""
             <div class="wp-field">
-              <label for="wpVehicle" class="wp-label">Fahrzeug-Marke &amp; Modell</label>
-              <input type="text" id="wpVehicle" name="vehicle" class="form-input" placeholder="z. B. VW Golf, Volvo XC90, Flotte 12 Fahrzeuge">
+              <label for="wpVehicle" class="wp-label">{veh_lbl_1}</label>
+              <input type="text" id="wpVehicle" name="vehicle" class="form-input" placeholder="{veh_ph_1}">
             </div>
             <div class="wp-field">
-              <label for="wpPlateOrIns" class="wp-label">Kontrollschild / Versicherung (optional)</label>
-              <input type="text" id="wpPlateOrIns" name="insurance" class="form-input" placeholder="z. B. AG 123456 · Mobiliar">
+              <label for="wpPlateOrIns" class="wp-label">{veh_lbl_2}</label>
+              <input type="text" id="wpPlateOrIns" name="insurance" class="form-input" placeholder="{veh_ph_2}">
             </div>""" if show_extra_vehicle else """
             <div class="wp-field">
               <label for="wpVehicle" class="wp-label">Gewünschte Position / Bereich</label>
-              <input type="text" id="wpVehicle" name="role_interest" class="form-input" placeholder="z. B. Gestalter/in Werbetechnik EFZ">
+              <input type="text" id="wpVehicle" name="role_interest" class="form-input" placeholder="z. B. Gestalter/in Werbetechnik EFZ (m/w)">
             </div>
             <div class="wp-field">
               <label for="wpPlateOrIns" class="wp-label">Möglicher Eintritt / Pensum</label>
@@ -1097,13 +1143,13 @@ def render_smart_wizard(default_sparte: str = "Unfall & Hagel / Glasschaden", de
           </div>
           <p class="wp-label" style="margin-bottom:10px;">2. Wie dringend ist Ihr Anliegen?</p>
           <div class="wp-tile-grid-2">
-            <button type="button" class="wp-tile-btn selected" data-urg="Sofort-Rückruf / Schadenfall" onclick="wpSelectUrgency(this)">
-              <span class="wp-tile-title">Sofort-Rückruf / Schadenfall</span>
-              <span class="wp-tile-sub">Rückmeldung innert kurzer Frist oder Ersatzwagen-Bedarf</span>
+            <button type="button" class="wp-tile-btn selected" data-urg="{esc(urg_1[0])}" onclick="wpSelectUrgency(this)">
+              <span class="wp-tile-title">{esc(urg_1[0])}</span>
+              <span class="wp-tile-sub">{esc(urg_1[1])}</span>
             </button>
-            <button type="button" class="wp-tile-btn" data-urg="Planbar / Offerte &amp; Termin" onclick="wpSelectUrgency(this)">
-              <span class="wp-tile-title">Planbar / Offerte &amp; Termin</span>
-              <span class="wp-tile-sub">Besichtigung, Flotten-Offerte oder Classic-Beratung</span>
+            <button type="button" class="wp-tile-btn" data-urg="{esc(urg_2[0])}" onclick="wpSelectUrgency(this)">
+              <span class="wp-tile-title">{esc(urg_2[0])}</span>
+              <span class="wp-tile-sub">{esc(urg_2[1])}</span>
             </button>
           </div>
           <div style="display:flex;justify-content:flex-end;">
@@ -1116,13 +1162,13 @@ def render_smart_wizard(default_sparte: str = "Unfall & Hagel / Glasschaden", de
           <div class="wp-form-grid">
             {vehicle_fields}
             <div class="wp-field wp-field-full">
-              <label for="wpMessage" class="wp-label">Kurzbeschreibung (Schadenbild, Wunschdesign oder Anliegen)</label>
-              <textarea id="wpMessage" name="message" class="form-textarea" rows="3" placeholder="Beschreiben Sie kurz den Hergang, die betroffene Fahrzeugseite oder Ihr Projekt..."></textarea>
+              <label for="wpMessage" class="wp-label">{msg_label}</label>
+              <textarea id="wpMessage" name="message" class="form-textarea" rows="3" placeholder="{msg_ph}"></textarea>
             </div>
             <div class="wp-field wp-field-full">
-              <label for="wpPhotoInput" class="wp-label">Fotos hochladen (optional, bis zu 3 Bilder)</label>
+              <label for="wpPhotoInput" class="wp-label">{photo_label}</label>
               <div class="wp-photo-drop">
-                <span style="display:inline-flex;align-items:center;gap:8px;font-size:0.86rem;color:var(--text-muted);">{ICONS["camera"]}<span>Schaden-, Fahrzeug- oder Detailfotos direkt anhängen</span></span>
+                <span style="display:inline-flex;align-items:center;gap:8px;font-size:0.86rem;color:var(--text-muted);">{ICONS["camera"]}<span>Bilder direkt ab Smartphone oder Computer anhängen</span></span>
                 <label class="btn btn-outline btn-sm" style="cursor:pointer;">
                   <span>Fotos wählen</span>
                   <input type="file" id="wpPhotoInput" accept="image/*" multiple style="display:none;" onchange="wpHandlePhotos(this.files)">
@@ -1164,7 +1210,7 @@ def render_smart_wizard(default_sparte: str = "Unfall & Hagel / Glasschaden", de
               <label for="wpCallbackPref" class="wp-label">Bevorzugtes Zeitfenster</label>
               <select id="wpCallbackPref" name="callback_pref" class="wp-select">
                 <option value="Vormittag (07:30–12:00)">Vormittag (07:30–12:00)</option>
-                <option value="Nachmittag (13:15–17:30)">Nachmittag (13:15–17:30)</option>
+                <option value="Nachmittag (Mo–Do 13:15–17:30 / Fr bis 17:00)">Nachmittag (Mo–Do 13:15–17:30 / Fr bis 17:00)</option>
                 <option value="So rasch wie möglich">So rasch wie möglich</option>
               </select>
             </div>
@@ -1183,11 +1229,11 @@ def render_smart_wizard(default_sparte: str = "Unfall & Hagel / Glasschaden", de
       <div class="wp-result-box" id="wpResultBox" aria-live="polite">
         <div style="display:flex;align-items:center;gap:8px;color:#065f46;font-weight:800;font-size:1.02rem;margin-bottom:8px;">
           {ICONS["check"]}
-          <span>Meldung erfolgreich erfasst (<span id="wpResRef">#WP-2026</span>)</span>
+          <span>Vielen Dank, wir haben Ihre Anfrage erhalten (<span id="wpResRef"></span>)</span>
         </div>
         <p style="color:#0f172a;font-size:0.9rem;margin-bottom:10px;">
-          <strong>Zuständig:</strong> <span id="wpResAssignee">–</span><br>
-          <strong>Rückruf-Fenster:</strong> <span id="wpResWindow">–</span><br>
+          <strong>Ansprechperson:</strong> <span id="wpResAssignee">autohauser Team</span><br>
+          <strong>Rückmeldung:</strong> <span id="wpResWindow">So rasch wie möglich</span><br>
           <strong>Bestätigung gesendet:</strong> Ihre Meldung inklusive PDF-Zusammenfassung wurde soeben an die angegebene E-Mail-Adresse übermittelt.
         </p>
         <div style="display:flex;flex-wrap:wrap;gap:10px;">
@@ -1201,7 +1247,7 @@ def render_smart_wizard(default_sparte: str = "Unfall & Hagel / Glasschaden", de
         step: 1,
         sparte: {json.dumps(default_sparte, ensure_ascii=False)},
         category: {json.dumps(default_cat, ensure_ascii=False)},
-        urgency: "Sofort-Rückruf / Schadenfall",
+        urgency: {json.dumps(urg_1[0], ensure_ascii=False)},
         photos: []
       }};
       function wpSelectSparte(btn) {{
@@ -1236,8 +1282,16 @@ def render_smart_wizard(default_sparte: str = "Unfall & Hagel / Glasschaden", de
       }}
       function wpSetPreset(sparte, cat, urg) {{
         var btns = document.querySelectorAll('[data-sparte]');
+        var matched = false;
         for (var i = 0; i < btns.length; i++) {{
-          if (btns[i].getAttribute('data-sparte') === sparte) wpSelectSparte(btns[i]);
+          if (cat && btns[i].getAttribute('data-cat') && btns[i].getAttribute('data-cat').toLowerCase().indexOf(cat.toLowerCase()) !== -1) {{
+            wpSelectSparte(btns[i]); matched = true; break;
+          }}
+        }}
+        if (!matched) {{
+          for (var j = 0; j < btns.length; j++) {{
+            if (btns[j].getAttribute('data-sparte') === sparte) {{ wpSelectSparte(btns[j]); break; }}
+          }}
         }}
         if (urg) {{
           var ubtns = document.querySelectorAll('[data-urg]');
@@ -1413,9 +1467,9 @@ RATGEBER_META = {
 def render_career_wizard() -> str:
     """Reines HR- und Kurzbewerbungs-Formular ausschliesslich für karriere.html (0 % Schaden-/Fahrzeug-Felder)."""
     jobs = [
-        ("Carrosserie-Techniker / Carrosseriespengler EFZ", "100 % · Unfallinstandstellung, Richtbank & Originalteile"),
-        ("Gestalter/in Werbetechnik EFZ (20–40 %)", "Fahrzeugbeschriftung, Carwrapping & Adobe Illustrator"),
-        ("Verkaufsprofi mit Biss (YellowFox® Schweiz)", "100 % · Telematik- & Ortungssysteme für KMU"),
+        ("Carrosserie-Techniker / Carrosseriespengler EFZ (m/w)", "100 % · Unfallinstandstellung, Richtbank & Originalteile"),
+        ("Gestalter/in Werbetechnik EFZ (m/w) (20–40 %)", "Fahrzeugbeschriftung, Carwrapping & Adobe Illustrator"),
+        ("Verkaufsberater/in Telematik YellowFox® (m/w)", "100 % · Telematik- & Ortungssysteme für KMU"),
         ("Initiativbewerbung / Spontanbewerbung", "Werkstatt, Werbetechnik oder Administration in Oftringen"),
     ]
     job_tiles = "\n".join(
@@ -1526,7 +1580,7 @@ def render_career_wizard() -> str:
               <label for="wpCCallbackPref" class="wp-label">Wann sind Sie am besten erreichbar?</label>
               <select id="wpCCallbackPref" name="callback_pref" class="wp-select">
                 <option value="Vormittag (07:30–12:00)">Vormittag (07:30–12:00)</option>
-                <option value="Nachmittag (13:15–17:30)">Nachmittag (13:15–17:30)</option>
+                <option value="Nachmittag (Mo–Do 13:15–17:30 / Fr bis 17:00)">Nachmittag (Mo–Do 13:15–17:30 / Fr bis 17:00)</option>
                 <option value="Abend / Über Mittag nach Vereinbarung">Abend / Über Mittag nach Vereinbarung</option>
               </select>
             </div>
@@ -1545,11 +1599,11 @@ def render_career_wizard() -> str:
       <div class="wp-result-box" id="wpCareerResultBox" aria-live="polite">
         <div style="display:flex;align-items:center;gap:8px;color:#065f46;font-weight:800;font-size:1.02rem;margin-bottom:8px;">
           {ICONS["check"]}
-          <span>Kurzbewerbung erfolgreich erfasst (<span id="wpCResRef">#WP-2026</span>)</span>
+          <span>Vielen Dank, Ihre Kurzbewerbung ist eingegangen (<span id="wpCResRef"></span>)</span>
         </div>
         <p style="color:#0f172a;font-size:0.9rem;margin-bottom:10px;">
-          <strong>HR-Ansprechperson:</strong> <span id="wpCResAssignee">Daniela Dähler</span><br>
-          <strong>Rückmelde-Fenster:</strong> <span id="wpCResWindow">Zeitnah</span><br>
+          <strong>Ansprechperson:</strong> <span id="wpCResAssignee">Daniela Dähler</span><br>
+          <strong>Rückmeldung:</strong> <span id="wpCResWindow">Wir melden uns persönlich bei Ihnen</span><br>
           <strong>Bestätigung gesendet:</strong> Ihre Kurzbewerbung inklusive PDF-Zusammenfassung wurde soeben an die angegebene E-Mail-Adresse übermittelt.
         </p>
         <div style="display:flex;flex-wrap:wrap;gap:10px;">
@@ -1561,7 +1615,7 @@ def render_career_wizard() -> str:
     <script>
       var wpCareerState = {{
         step: 1,
-        job: "Carrosserie-Techniker / Carrosseriespengler EFZ",
+        job: "Carrosserie-Techniker / Carrosseriespengler EFZ (m/w)",
         avail: "Ab sofort / Nach Vereinbarung",
         photos: []
       }};
@@ -1822,15 +1876,15 @@ def build_pages(out_dir: Path, scraped: dict, dims: dict, pdfs: list, pdf_meta: 
           <div>
             <div class="sparte-logo-wrap">{img_tag(dims, "autobeschriftung_logo.png", "autohauser Autobeschriftung Logo")}</div>
             <h3>Autobeschriftung &amp; folioCar®</h3>
-            <p>Flottenbranding von 3 bis 500 Fahrzeugen, Premium-Vollfolierung mit 100µ Q4-Folie, Steinschlagschutz und Sondermodelle für Autoimporteure.</p>
+            <p>Flottenbranding von Einzelfahrzeug bis Flotten, Premium-Vollfolierung mit 100µ Q4-Folie, Steinschlagschutz und Sondermodelle für Autoimporteure.</p>
           </div>
           <a href="beschriftung.html" class="btn btn-outline"><span>Zur Sparte Beschriftung</span>{ICONS["arrow-right"]}</a>
         </div>
         <div class="card service-card">
           <div>
             <div class="sparte-logo-wrap">{img_tag(dims, "classiccars_logo.png", "autohauser Classic Cars Logo")}</div>
-            <h3>Classic Cars &amp; YellowFox®</h3>
-            <p>Unrestaurierte und restaurierte Klassiker (Alfa Romeo 2000 GTV, Fiat 124 Abarth), Ankauf, Konsignation, Fahrzeugsuche und Diebstahlschutz.</p>
+            <h3>Classic Cars</h3>
+            <p>Ausgesuchte Klassiker und Oldtimer, Restauration, Ankauf, Konsignation, Fahrzeugsuche und fachgerechter Werterhalt.</p>
           </div>
           <a href="classics.html" class="btn btn-outline"><span>Zur Sparte Classic Cars</span>{ICONS["arrow-right"]}</a>
         </div>
@@ -1866,16 +1920,16 @@ def build_pages(out_dir: Path, scraped: dict, dims: dict, pdfs: list, pdf_meta: 
           <div>
             <div class="card-badge-row" style="margin-bottom:10px;">
               <span class="icon-box">{ICONS["cloud-rain"]}</span>
-              <span class="meta-badge">Hagel-Spezialist 2026</span>
+              <span class="meta-badge">Hagelschaden-Zentrum</span>
             </div>
-            <h3>Hagelschaden 2026</h3>
+            <h3>Hagelschaden</h3>
             <p>Kommen Sie direkt zu uns statt ins Versicherungs-Drive-In. Wir klären vorab transparent, ob Ihre Versicherung ohne Einschränkungen zu unseren Konditionen übernimmt.</p>
             <ul class="list-check">
-              <li>{ICONS["check"]}<span>Hinweis zu Generali &amp; Vaudoise: transparente Voraus-Klärung</span></li>
-              <li>{ICONS["check"]}<span>Differenzübernahme bei begleitetem Versicherungswechsel</span></li>
+              <li>{ICONS["check"]}<span>Direkte Abklärung noch vor dem Versicherungs-Drive-In</span></li>
+              <li>{ICONS["check"]}<span>Volle Unterstützung bei der Schadenabwicklung</span></li>
             </ul>
           </div>
-          <a href="schaden-kontakt.html?tab=hagel" class="btn btn-outline btn-sm"><span>Hagelschaden 2026 melden</span>{ICONS["arrow-right"]}</a>
+          <a href="schaden-kontakt.html?tab=hagel" class="btn btn-outline btn-sm"><span>Hagelschaden melden</span>{ICONS["arrow-right"]}</a>
         </div>
         <div class="card feature-card">
           <div>
@@ -1896,12 +1950,12 @@ def build_pages(out_dir: Path, scraped: dict, dims: dict, pdfs: list, pdf_meta: 
           <div>
             <div class="card-badge-row" style="margin-bottom:10px;">
               <span class="icon-box">{ICONS["car"]}</span>
-              <span class="meta-badge">Mobilitätsgarantie</span>
+              <span class="meta-badge">Mobilität vor Ort</span>
             </div>
             <h3>Parkschaden &amp; 15 Ersatzfahrzeuge</h3>
             <p>Ob fremdverursachter Parkschaden, Kasko oder Haftpflicht: Wir prüfen Ihre Police auf die günstigste Abwicklung und halten Sie mit 12 PW und 3 Lieferwagen mobil.</p>
             <ul class="list-check">
-              <li>{ICONS["check"]}<span>Wahl aus 12 Personenwagen und 3 Lieferwagen</span></li>
+              <li>{ICONS["check"]}<span>Direkte Bereitstellung während der Reparaturdauer</span></li>
               <li>{ICONS["check"]}<span>Rundum-Betreuung von der Bergung bis zur Auslieferung</span></li>
             </ul>
           </div>
@@ -1946,8 +2000,8 @@ def build_pages(out_dir: Path, scraped: dict, dims: dict, pdfs: list, pdf_meta: 
     <div class="container">
       <div class="section-head">
         <span class="section-kicker">SCHNELL-MELDUNG &amp; FOTO-UPLOAD · OFTRINGEN</span>
-        <h2>Schaden oder Anfrage in 60 Sekunden direkt melden</h2>
-        <p>Wählen Sie Ihren Bereich, laden Sie auf Wunsch direkt bis zu 3 Fotos hoch und erhalten Sie umgehend Ihre Bestätigung mit Rückruf-Zeitfenster.</p>
+        <h2>Schaden oder Anliegen direkt melden</h2>
+        <p>Wählen Sie Ihren Bereich, laden Sie auf Wunsch direkt vom Smartphone Fotos hoch und hinterlassen Sie Ihre Kontaktdaten.</p>
       </div>
       {render_smart_wizard("Unfall & Hagel / Glasschaden", "Unfallschaden", "index.html")}
     </div>
@@ -1984,11 +2038,11 @@ def build_pages(out_dir: Path, scraped: dict, dims: dict, pdfs: list, pdf_meta: 
       </div>
       <div class="card" style="background:var(--navy);color:#ffffff;border-color:var(--navy);flex-direction:row;flex-wrap:wrap;align-items:center;justify-content:space-between;">
         <div>
-          <span class="section-kicker" style="color:#7dd3fc;">26 RATGEBER-BEITRÄGE &amp; 72 PDF-MERKBLÄTTER</span>
+          <span class="section-kicker" style="color:#7dd3fc;">RATGEBER-BEITRÄGE &amp; PDF-MERKBLÄTTER</span>
           <h3 style="color:#ffffff;margin-bottom:4px;">Kennen Sie Ihre Rechte nach einem Unfall oder Hagelschaden?</h3>
           <p style="color:#cbd5e1;margin:0;">Freie Werkstattwahl, Schadenminderungspflicht, Totalschaden-Lockruf, Vollkasko und Leasingrückgabe verständlich erklärt.</p>
         </div>
-        <a href="ratgeber.html" class="btn btn-primary"><span>Alle 26 Ratgeber &amp; PDFs öffnen</span>{ICONS["arrow-right"]}</a>
+        <a href="ratgeber.html" class="btn btn-primary"><span>Ratgeber &amp; Merkblätter öffnen</span>{ICONS["arrow-right"]}</a>
       </div>
     </div>
   </section>
@@ -2010,7 +2064,7 @@ def build_pages(out_dir: Path, scraped: dict, dims: dict, pdfs: list, pdf_meta: 
         <div>
           <div>
             <span class="section-kicker">AUTOBESCHRIFTUNG &amp; FOLIOCAR® WERBETECHNIK</span>
-            <h1>Fahrzeugdesign, das funktioniert – von 3 bis 500 Fahrzeugen.</h1>
+            <h1>Fahrzeugdesign, das funktioniert – von Einzelfahrzeug bis Flotten.</h1>
             <p class="hero-lead">
               autohauser® beschäftigt sich exklusiv mit Fahrzeugoberflächen. Als Generalimporteur von folioCar® und Carrosseriebetrieb mit eigener Lackiererei beherrschen wir Flottenbranding, Vollfolierung, Lackschutz und Sondermodelle aus einer Hand.
             </p>
@@ -2022,7 +2076,7 @@ def build_pages(out_dir: Path, scraped: dict, dims: dict, pdfs: list, pdf_meta: 
           <div class="hero-metrics">
             <div class="metric-box">
               <div class="metric-val">100 % Fahrzeug-Fokus</div>
-              <div class="metric-lbl">Einziger reiner Fahrzeug-Werbetechniker der CH</div>
+              <div class="metric-lbl">Spezialisiert auf Fahrzeugoberflächen und Flottenbranding</div>
             </div>
             <div class="metric-box">
               <div class="metric-val tabular">100µ Q4-Folie</div>
@@ -2034,7 +2088,7 @@ def build_pages(out_dir: Path, scraped: dict, dims: dict, pdfs: list, pdf_meta: 
             </div>
             <div class="metric-box">
               <div class="metric-val">Eigene Lackiererei</div>
-              <div class="metric-lbl">Null Schneideschäden auf dem Originallack</div>
+              <div class="metric-lbl">Demontage, Folierung und Lackfinish unter einem Dach</div>
             </div>
           </div>
         </div>
@@ -2044,11 +2098,11 @@ def build_pages(out_dir: Path, scraped: dict, dims: dict, pdfs: list, pdf_meta: 
             <div>
               <span class="meta-badge" style="margin-bottom:8px;">Terminvereinbarung &amp; Beratung</span>
               <h3 style="margin-bottom:6px;">Persönliche Beratung durch Fabienne Zingg</h3>
-              <p style="font-size:0.9rem;margin-bottom:0;">Wegen hoher Auslastung empfangen wir Besucherinnen und Besucher ausschliesslich nach vorgängiger Terminvereinbarung.</p>
+              <p style="font-size:0.9rem;margin-bottom:0;">Um uns persönlich Zeit für Ihr Fahrzeugdesign zu nehmen, bitten wir um kurze vorgängige Terminvereinbarung.</p>
             </div>
             <div class="hero-contact-strip">
               <a href="mailto:fabienne.zingg@autohauser.ch" style="font-weight:700;">fabienne.zingg@autohauser.ch</a>
-              <a href="#spezial-formulare" style="font-weight:700;">Bestellformulare</a>
+              <a href="#beschriftung-anfrage" style="font-weight:700;">Projekt anfragen</a>
             </div>
           </div>
         </div>
@@ -2069,7 +2123,7 @@ def build_pages(out_dir: Path, scraped: dict, dims: dict, pdfs: list, pdf_meta: 
           <div>
             <div class="card-badge-row" style="margin-bottom:10px;">
               <span class="icon-box">{ICONS["layers"]}</span>
-              <span class="meta-badge">3 bis 500 Fahrzeuge</span>
+              <span class="meta-badge">Einzelfahrzeug bis Flotte</span>
             </div>
             <h3>Firmenfahrzeuge &amp; Flottenbranding</h3>
             <p>Vom Logobranding im Folienschnitt bis zur Teil- oder Vollfolierung in Corporate-Farben. Wir organisieren Design, 1:1-Prototyp, Montage (auch mobil vor Ort oder im Logistikcenter) sowie Aftersales-Unfallreparaturen.</p>
@@ -2080,7 +2134,7 @@ def build_pages(out_dir: Path, scraped: dict, dims: dict, pdfs: list, pdf_meta: 
           <div>
             <div class="card-badge-row" style="margin-bottom:10px;">
               <span class="icon-box">{ICONS["sparkles"]}</span>
-              <span class="meta-badge">Exklusiv in der Schweiz</span>
+              <span class="meta-badge">folioCar® Pioneer Schweiz</span>
             </div>
             <h3>folioCar® Premium-Folierungen</h3>
             <p>Gemeinsam mit MACtac entwickelt: 100µ Materialdicke für besten Steinschlagschutz, hoher Glanzgrad, waschstrassentauglich und nach Jahren sauber rückrüstbar ohne Kleberrückstände auf einwandfreiem Originallack.</p>
@@ -2096,7 +2150,7 @@ def build_pages(out_dir: Path, scraped: dict, dims: dict, pdfs: list, pdf_meta: 
             <h3>Lack schützen &amp; Matt-Folierung</h3>
             <p>Transparente selbstheilende Steinschlagschutz-Folie (z. B. für Sportwagen und Frontpartien) oder edle Matt- und Metallic-Beschichtungen – perfekt abgestimmt auf Karosserie-Sicken und -Mulden.</p>
           </div>
-          <a href="assets/pdfs/vorgaben-druckdaten.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm">{ICONS["download"]}<span>Vorgaben Druckdaten (PDF)</span></a>
+          <a href="#beschriftung-anfrage" onclick="wpSetPreset('Autobeschriftung & Folierung','Lackschutz','Offerte')" class="btn btn-outline btn-sm"><span>Steinschlagschutz anfragen</span></a>
         </div>
         <div class="card service-card">
           <div>
@@ -2104,10 +2158,10 @@ def build_pages(out_dir: Path, scraped: dict, dims: dict, pdfs: list, pdf_meta: 
               <span class="icon-box">{ICONS["car"]}</span>
               <span class="meta-badge">Autoimporteure &amp; Decor</span>
             </div>
-            <h3>Sondermodelle &amp; individuelles Decor</h3>
+            <h3>Sondermodelle &amp; individuelles Dekor</h3>
             <p>Spezielle Fahrzeugdecors abseits der Stange sowie komplette Veredelung von Serienmodellen für Autoimporteure und Leasingprovider – auf Wunsch inklusive Lackierung komplexer Anbauteile.</p>
           </div>
-          <button type="button" class="btn btn-outline btn-sm" onclick="openJotFormModal('Decor bestellen (Autohauser)', 'https://form.jotform.com/70001994754962')"><span>Decor-Formular öffnen</span>{ICONS["arrow-right"]}</button>
+          <button type="button" class="btn btn-outline btn-sm" onclick="openJotFormModal('Decor bestellen (Autohauser)', 'https://form.jotform.com/70001994754962')"><span>Dekor anfragen</span>{ICONS["arrow-right"]}</button>
         </div>
       </div>
     </div>
@@ -2123,7 +2177,7 @@ def build_pages(out_dir: Path, scraped: dict, dims: dict, pdfs: list, pdf_meta: 
       <div class="grid-3">
         <div class="card content-card">
           {img_tag(dims, "tesla-bachmann.jpeg", "Tesla Firmenbeschriftung Bachmann", css_class="card-img-top")}
-          <div><h3>Tesla Flottenbranding</h3><p style="margin:0;">Präzises Corporate-Design auf Elektrofahrzeugen.</p></div>
+          <div><h3>Tesla Promotion-Vollfolierung</h3><p style="margin:0;">Präzises Corporate-Design auf Elektrofahrzeugen.</p></div>
         </div>
         <div class="card content-card">
           {img_tag(dims, "postpandas.jpeg", "Schweizerische Post Fahrzeugflotte", css_class="card-img-top")}
@@ -2186,7 +2240,7 @@ def build_pages(out_dir: Path, scraped: dict, dims: dict, pdfs: list, pdf_meta: 
   <!-- SMART-PRO ANFRAGE BESCHRIFTUNG -->
   <section class="section" id="beschriftung-anfrage" data-section="beschriftung-smart">
     <div class="container">
-      {render_smart_wizard("Autobeschriftung & Folierung", "Beschriftung / Folierung", "beschriftung.html", heading="Schnellanfrage Autobeschriftung & Folierung", sub="Direkt an Fabienne Zingg (Leiterin Werbetechnik) – inklusive Fahrzeugfoto-Upload und kompakter Projekt-Zusammenfassung.")}
+      {render_smart_wizard("Autobeschriftung & Folierung", "Beschriftung / Folierung", "beschriftung.html", heading="Schnellanfrage Autobeschriftung & Folierung", sub="Direkt an Fabienne Zingg (Leiterin Werbetechnik) – senden Sie uns auf Wunsch direkt ein Fahrzeugfoto oder Ihren Gestaltungswunsch.", mode="beschriftung")}
     </div>
   </section>
 </main>
@@ -2196,7 +2250,7 @@ def build_pages(out_dir: Path, scraped: dict, dims: dict, pdfs: list, pdf_meta: 
 </html>"""
 
     # 3. classics.html
-    classics_html = f"""{render_head("autohauser® classics – Oldtimer, Youngtimer & YellowFox®", "Toprestaurierte und unrestaurierte Klassiker (Alfa Romeo 2000 GTV, Fiat 124 Abarth), Oldtimer-Unfallinstandstellung, Ankauf, Konsignation und YellowFox Diebstahlschutz.", canonical_page="classics.html")}
+    classics_html = f"""{render_head("autohauser® classics – Oldtimer & Youngtimer", "Toprestaurierte und unrestaurierte Klassiker (Alfa Romeo 2000 GTV, Fiat 124 Abarth), Oldtimer-Unfallinstandstellung, Ankauf, Konsignation und YellowFox Diebstahlschutz.", canonical_page="classics.html")}
 <body>
 {render_header("classics", "classics", dims, show_cockpit=show_cockpit)}
 
@@ -2219,7 +2273,7 @@ def build_pages(out_dir: Path, scraped: dict, dims: dict, pdfs: list, pdf_meta: 
           <div class="hero-metrics">
             <div class="metric-box">
               <div class="metric-val">Ungeschweisste Substanz</div>
-              <div class="metric-lbl">Strenge Selektion bei Karosserie &amp; Lack</div>
+              <div class="metric-lbl">Strenge Selektion bei Carrosserie &amp; Lack</div>
             </div>
             <div class="metric-box">
               <div class="metric-val">Carrosserie seit 1948</div>
@@ -2289,7 +2343,7 @@ def build_pages(out_dir: Path, scraped: dict, dims: dict, pdfs: list, pdf_meta: 
           </div>
           <div style="display:flex;flex-wrap:wrap;gap:8px;">
             <a href="#classics-anfrage" onclick="wpSetPreset('Classic Cars','Besichtigung Alfa Romeo 2000 GTV','Planbar')" class="btn btn-primary btn-sm"><span>Besichtigung anfragen</span></a>
-            <button type="button" class="btn btn-outline btn-sm" onclick="openJotFormModal('Besichtigungstermin Klassiker', 'https://form.jotform.com/70161783748968')"><span>Detailformular Termin</span></button>
+            <a href="#classics-services" class="btn btn-outline btn-sm"><span>Alle Classic-Services</span></a>
           </div>
         </div>
 
@@ -2320,7 +2374,7 @@ def build_pages(out_dir: Path, scraped: dict, dims: dict, pdfs: list, pdf_meta: 
           </div>
           <div style="display:flex;flex-wrap:wrap;gap:8px;">
             <a href="#classics-anfrage" onclick="wpSetPreset('Classic Cars','Besichtigung Fiat 124 Abarth','Planbar')" class="btn btn-primary btn-sm"><span>Besichtigung anfragen</span></a>
-            <button type="button" class="btn btn-outline btn-sm" onclick="openJotFormModal('Besichtigungstermin Klassiker', 'https://form.jotform.com/70161783748968')"><span>Detailformular Termin</span></button>
+            <a href="#classics-services" class="btn btn-outline btn-sm"><span>Alle Classic-Services</span></a>
           </div>
         </div>
       </div>
@@ -2384,7 +2438,7 @@ def build_pages(out_dir: Path, scraped: dict, dims: dict, pdfs: list, pdf_meta: 
   <!-- SMART-PRO ANFRAGE CLASSICS -->
   <section class="section section-alt" id="classics-anfrage" data-section="classics-smart">
     <div class="container">
-      {render_smart_wizard("Classic Cars", "Classic Cars / Oldtimer", "classics.html", heading="Direktanfrage an Thomas Hauser (autohauser® classics)", sub="Für Besichtigungen, Fahrzeugsuche, Konsignation oder YellowFox® Diebstahlschutz – inklusive PDF-Dossier.")}
+      {render_smart_wizard("Classic Cars", "Classic Cars / Oldtimer", "classics.html", heading="Direktanfrage an Thomas Hauser (autohauser® classics)", sub="Für Besichtigungen, Fahrzeugsuche oder Konsignation melden Sie sich hier direkt bei Thomas Hauser.", mode="classics")}
     </div>
   </section>
 </main>
@@ -2404,14 +2458,14 @@ def build_pages(out_dir: Path, scraped: dict, dims: dict, pdfs: list, pdf_meta: 
       <div class="section-head">
         <span class="section-kicker">SCHADEN-, GLAS- &amp; KONTAKT-ZENTRALE</span>
         <h1>Schaden melden oder Beratung anfragen</h1>
-        <p>Wählen Sie den passenden Weg: Schnelle Erfassung mit Foto-Upload, Hagel-Check 2026, direkter Glas-Rückruf oder auf Wunsch das ausführliche 100-Felder-Versicherungsformular.</p>
+        <p>Wählen Sie den passenden Weg: Schnelle Erfassung mit Foto-Upload, Hagel-Check 2026, direkter Glas-Rückruf oder auf Wunsch das ausführliche Versicherungsformular.</p>
       </div>
 
       <div class="tab-bar" role="tablist" aria-label="Schadenmeldungs-Wege">
         <button type="button" class="tab-btn active" onclick="switchSchadenTab('kurz', this)">1. Kurzmeldung &amp; Foto-Upload</button>
         <button type="button" class="tab-btn" onclick="switchSchadenTab('hagel', this)">2. Hagelschaden 2026</button>
         <button type="button" class="tab-btn" onclick="switchSchadenTab('glas', this)">3. Glasschaden &amp; Sofort-Rückruf</button>
-        <button type="button" class="tab-btn" onclick="switchSchadenTab('lang', this)">4. Ausführliche Meldung (100 Felder)</button>
+        <button type="button" class="tab-btn" onclick="switchSchadenTab('lang', this)">4. Ausführliche Schadenmeldung</button>
       </div>
 
       <div id="tabInfoBanner" class="card" style="margin-bottom:24px;background:var(--primary-soft);border-color:rgba(0,103,178,0.22);">
@@ -2452,7 +2506,7 @@ def build_pages(out_dir: Path, scraped: dict, dims: dict, pdfs: list, pdf_meta: 
               <li>{ICONS["phone"]}<span><strong>Zentrale Oftringen:</strong> <a href="tel:+41627893330" class="tabular">+41 62 789 33 30</a></span></li>
               <li>{ICONS["mail"]}<span><strong>E-Mail:</strong> <a href="mailto:info@autohauser.ch">info@autohauser.ch</a></span></li>
               <li>{ICONS["map-pin"]}<span><strong>Werkstatt:</strong> Äussere Luzernerstrasse 12, 4665 Oftringen</span></li>
-              <li>{ICONS["clock"]}<span><strong>Öffnungszeiten:</strong> Mo–Fr 07:30–12:00 / 13:15–17:30 Uhr</span></li>
+              <li>{ICONS["clock"]}<span><strong>Öffnungszeiten:</strong> Mo–Do 07:30–12:00 / 13:15–17:30 Uhr · Fr bis 17:00 Uhr</span></li>
             </ul>
             <a href="https://maps.google.com/?q=Aeussere+Luzernerstrasse+12,+4665+Oftringen" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm">{ICONS["map-pin"]}<span>Route in Google Maps öffnen</span></a>
           </div>
@@ -2499,15 +2553,26 @@ def build_pages(out_dir: Path, scraped: dict, dims: dict, pdfs: list, pdf_meta: 
     # 5. Build all 26 Ratgeber detail pages + ratgeber.html + 72 PDFs library
     rg_cards = []
     rg_entries = []
+    seen_excerpts = set()
+    seen_titles = set()
+    SLUG_TITLE_OVERRIDES = {
+        "rat-kleiner-kratzer-grosser-aufwand": "Kleiner Kratzer, grosser Aufwand",
+    }
     for slug, rg_data in scraped.get("ratgeber", {}).items():
+        if slug in ("rat-hp-ohne-schuld", "rat-schnelles-geld", "rat-vollkasko"):
+            continue
         items = rg_data.get("items", [])
-        title_txt = ""
-        for it in items:
-            if it.get("tag") in ("h1", "h2", "h3") and it.get("text"):
-                title_txt = ch_text(it["text"])
-                break
+        title_txt = SLUG_TITLE_OVERRIDES.get(slug, "")
+        if not title_txt:
+            for it in items:
+                if it.get("tag") in ("h1", "h2", "h3") and it.get("text"):
+                    title_txt = ch_text(it["text"])
+                    break
         if not title_txt:
             title_txt = slug.replace("rat-", "").replace("-", " ").title()
+        if title_txt.lower() in seen_titles:
+            continue
+        seen_titles.add(title_txt.lower())
         cat_label, pdf_file = RATGEBER_META.get(slug, ("Unfall & Recht", "03_rg_wer_repariert_mein_auto.pdf"))
         if pdf_file not in pdfs and pdfs:
             pdf_file = pdfs[0]
@@ -2520,7 +2585,7 @@ def build_pages(out_dir: Path, scraped: dict, dims: dict, pdfs: list, pdf_meta: 
             if not txt or txt in ("kontakt", "Bitte nehmen Sie Kontakt mit uns auf.", "Home"):
                 continue
             if not excerpt and tag == "p" and len(txt) > 40:
-                excerpt = txt[:160] + ("..." if len(txt) > 160 else "")
+                excerpt = (txt[:155].rsplit(" ", 1)[0] + "...") if len(txt) > 155 else txt
             body_blocks.append((tag, txt))
         if not excerpt:
             excerpt = f"Wichtiger Praxis-Ratgeber von autohauser® zum Thema {title_txt}."
@@ -2542,7 +2607,7 @@ def build_pages(out_dir: Path, scraped: dict, dims: dict, pdfs: list, pdf_meta: 
   <section class="section" data-section="ratgeber-detail">
     <div class="container" style="max-width:860px;">
       <div style="margin-bottom:18px;">
-        <a href="../ratgeber.html" class="btn btn-outline btn-sm">{ICONS["chevron-left"]}<span>Zurück zu allen 26 Ratgebern</span></a>
+        <a href="../ratgeber.html" class="btn btn-outline btn-sm">{ICONS["chevron-left"]}<span>Zurück zu allen Ratgebern</span></a>
       </div>
       <span class="section-kicker">RATGEBER · {esc(cat_label.upper())}</span>
       <h1>{esc(title_txt)}</h1>
@@ -2559,7 +2624,7 @@ def build_pages(out_dir: Path, scraped: dict, dims: dict, pdfs: list, pdf_meta: 
         </div>
       </div>
       <div style="margin-top:24px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;">
-        <a href="../ratgeber.html" class="btn btn-outline btn-sm">Alle 26 Ratgeber</a>
+        <a href="../ratgeber.html" class="btn btn-outline btn-sm">Alle Ratgeber</a>
         <a href="{next_slug}.html" class="btn btn-outline btn-sm"><span>Nächster Ratgeber: {esc(next_title[:38])}</span>{ICONS["arrow-right"]}</a>
       </div>
     </div>
@@ -2589,10 +2654,14 @@ def build_pages(out_dir: Path, scraped: dict, dims: dict, pdfs: list, pdf_meta: 
 
     # Build PDF cards for all 72 local PDFs
     pdf_cards = []
-    for pfn in pdfs:
+    pdfs_clean = [pfn for pfn in pdfs if "battle_card" not in pfn.lower()]
+    for pfn in pdfs_clean:
         info = pdf_meta.get(pfn, {})
         fld = ch_text(info.get("folder") or "Dokumente & Merkblätter")
-        nice_name = ch_text(re.sub(r"^\d+[-_]", "", pfn.replace(".pdf", "")).replace("-", " ").replace("_", " ").strip().capitalize())
+        raw_stem = re.sub(r"^(?:\d+[-_])+", "", pfn.replace(".pdf", "")).replace("rg_", "").replace("ratgeber_", "")
+        raw_stem = raw_stem.replace("bestellfomular", "Bestellformular").replace("swissgrant", "Swissgarant").replace("berattung", "Beratung").replace("haftplicht", "Haftpflicht")
+        raw_stem = raw_stem.replace("fuer", "für").replace("schadenfaelle", "Schadenfälle").replace("rueckgabe", "Rückgabe").replace("schaeden", "Schäden").replace("gefaehrdung", "Gefährdung").replace("moegliche", "Mögliche").replace("maerz", "März").replace("zubehoer", "Zubehör").replace("haeufig", "häufig")
+        nice_name = ch_text(raw_stem.replace("-", " ").replace("_", " ").strip().capitalize())
         pdf_cards.append(f"""
         <a href="assets/pdfs/{pfn}" target="_blank" rel="noopener noreferrer" class="card pdf-item" data-folder="{esc(fld)}" style="text-decoration:none;padding:16px 18px;gap:6px;">
           <div style="display:flex;align-items:center;justify-content:space-between;gap:8px;">
@@ -2600,10 +2669,10 @@ def build_pages(out_dir: Path, scraped: dict, dims: dict, pdfs: list, pdf_meta: 
             {ICONS["download"]}
           </div>
           <div style="font-weight:700;color:var(--text-main);font-size:0.92rem;line-height:1.35;">{esc(nice_name)}</div>
-          <div style="font-size:0.76rem;color:var(--text-muted);word-break:break-all;">{esc(pfn)}</div>
+          <div style="font-size:0.8rem;color:var(--primary-dark);font-weight:600;">Merkblatt als PDF öffnen</div>
         </a>""")
 
-    ratgeber_hub_html = f"""{render_head("Ratgeber & 72 PDF-Merkblätter – autohauser® Oftringen", "Alle 26 Versicherungs-, Unfall-, Hagel- und Leasing-Ratgeber von autohauser® sowie die komplette lokale PDF-Merkblatt-Bibliothek.", canonical_page="ratgeber.html")}
+    ratgeber_hub_html = f"""{render_head("Ratgeber & PDF-Merkblätter & Downloads – autohauser® Oftringen", "Alle 26 Versicherungs-, Unfall-, Hagel- und Leasing-Ratgeber von autohauser® sowie die komplette lokale PDF-Merkblatt-Bibliothek.", canonical_page="ratgeber.html")}
 <body>
 {render_header("unfall", "ratgeber", dims, show_cockpit=show_cockpit)}
 
@@ -2612,11 +2681,11 @@ def build_pages(out_dir: Path, scraped: dict, dims: dict, pdfs: list, pdf_meta: 
     <div class="container">
       <div class="section-head">
         <span class="section-kicker">UNABHÄNGIGER KUNDEN-RATGEBER</span>
-        <h1>Alle 26 Ratgeber-Beiträge &amp; 72 PDF-Merkblätter</h1>
-        <p>Klares Praxiswissen zu freier Werkstattwahl, Schadenminderungspflicht, Totalschaden, Vollkasko, Leasingrückgabe und Glasschäden – vollständig lokal archiviert ohne externe Ladefehler.</p>
+        <h1>Ratgeber-Beiträge &amp; PDF-Merkblätter & Downloads</h1>
+        <p>Klares Praxiswissen zu freier Werkstattwahl, Schadenminderungspflicht, Totalschaden, Vollkasko, Leasingrückgabe und Glasschäden.</p>
       </div>
       <div class="filter-bar" role="group" aria-label="Ratgeber nach Thema filtern">
-        <button type="button" class="filter-btn active" onclick="filterRatgeber('alle', this)">Alle (26)</button>
+        <button type="button" class="filter-btn active" onclick="filterRatgeber('alle', this)">Alle ({len(rg_entries)})</button>
         <button type="button" class="filter-btn" onclick="filterRatgeber('Unfall & Recht', this)">Unfall &amp; Recht</button>
         <button type="button" class="filter-btn" onclick="filterRatgeber('Versicherung', this)">Versicherung</button>
         <button type="button" class="filter-btn" onclick="filterRatgeber('Hagel & Glas', this)">Hagel &amp; Glas</button>
@@ -2633,7 +2702,7 @@ def build_pages(out_dir: Path, scraped: dict, dims: dict, pdfs: list, pdf_meta: 
     <div class="container">
       <div class="section-head">
         <span class="section-kicker">LOKALE DOKUMENTEN-BIBLIOTHEK</span>
-        <h2>Alle {len(pdfs)} PDF-Merkblätter, Zertifikate &amp; Druckvorgaben</h2>
+        <h2>Alle {len(pdfs_clean)} PDF-Merkblätter, Zertifikate &amp; Druckvorgaben</h2>
         <p>Sämtliche Merkblätter, KTI-Crashtests, Swissgarant-Bestimmungen und Folien-Datenblätter direkt zum Öffnen oder Herunterladen.</p>
       </div>
       <div class="grid-3">
@@ -2665,9 +2734,9 @@ def build_pages(out_dir: Path, scraped: dict, dims: dict, pdfs: list, pdf_meta: 
         ("Thomas Hauser", "Geschäftsleitung | dipl. Masch. Ing. HTL | Wirtschaftsing. STV M-V", "Verantwortlich für Geschäftsleitung, Vertrieb, Marketing, Classic Cars und strategische Verhandlungen mit Kunden, Lieferanten und Behörden.", "+41 62 789 33 32", "thomas.hauser@autohauser.ch", "thomas-hauser_mod_1.jpeg"),
         ("Javier Jimenez", "Betriebsleiter | Schadenmanager", "Direkte Ansprechperson für unsere Kunden, ermittelt den optimalen Reparaturweg, leitet die komplette Schadenabwicklung und koordiniert das Werkstattteam.", "+41 62 789 33 34", "javier.jimenez@autohauser.ch", "20220609_javi-klein.jpeg"),
         ("Andrea Heimgartner", "Schadenmanagerin", "Drehscheibe für Kundendienst, Glasschäden und sämtliche Aspekte der Schadenerledigung sowie Lieferantenkoordination.", "+41 62 789 33 49", "andrea.heimgartner@autohauser.ch", "20230203_andrea-klein.jpeg"),
-        ("Fabienne Zingg", "Leiterin Werbetechnik", "Ihre Ansprechperson für Autobeschriftung, Flottenbranding (3 bis 500 Fahrzeuge), folioCar® Folierungen und Terminvereinbarungen.", "+41 62 789 33 52", "fabienne.zingg@autohauser.ch", "fabienne_zingg_1.jpeg"),
-        ("Tatjana de Rose", "Administration & Rechnungswesen | Eidg. dipl. Kauffrau EFZ", "Zuständig für Rechnungen, Zahlungen, administrative Fragen und die Finanzbuchhaltung der Jakob Hauser AG.", "+41 62 789 33 30", "tatjana.derose@autohauser.ch", "20190618_tatjana-klein.jpeg"),
-        ("Daniela Dähler", "Leiterin HR & FRW | Fachfrau Finanz- und Rechnungswesen mit eidg. FA", "Betreut alle Personal- und Sozialversicherungsfragen der Jakob Hauser AG sowie die Buchhaltungen der autohauser gmbh und immohauser oftringen AG.", "+41 62 789 33 54", "daniela.daehler@autohauser.ch", "danieladaehler.jpeg"),
+        ("Fabienne Zingg", "Leiterin Werbetechnik", "Ihre Ansprechperson für Autobeschriftung, Flottenbranding (Einzelfahrzeug bis Flotte), folioCar® Folierungen und Terminvereinbarungen.", "+41 62 789 33 52", "fabienne.zingg@autohauser.ch", "fabienne_zingg_1.jpeg"),
+        ("Tatjana de Rose", "Administration & Rechnungswesen (Kauffrau EFZ)", "Zuständig für Rechnungen, Zahlungen, administrative Fragen und die Finanzbuchhaltung der Jakob Hauser AG.", "+41 62 789 33 30", "tatjana.derose@autohauser.ch", "20190618_tatjana-klein.jpeg"),
+        ("Daniela Dähler", "Leiterin HR & FRW | Fachfrau Finanz- und Rechnungswesen mit eidg. FA", "Betreut alle Personal- und Sozialversicherungsfragen der Jakob Hauser AG sowie die Buchhaltungen der Autohauser GmbH sowie die Unternehmensgruppe in Oftringen.", "+41 62 789 33 54", "daniela.daehler@autohauser.ch", "danieladaehler.jpeg"),
     ]
     team_cards_html = "\n".join(
         f"""<div class="card founder-card">
@@ -2697,7 +2766,7 @@ def build_pages(out_dir: Path, scraped: dict, dims: dict, pdfs: list, pdf_meta: 
   <section class="section" data-section="team-ansprechpersonen">
     <div class="container">
       <div class="section-head">
-        <span class="section-kicker">IHRE 6 DIREKTEN ANSPRECHPERSONEN</span>
+        <span class="section-kicker">IHRE DIREKTEN ANSPRECHPERSONEN</span>
         <h1>Persönlich erreichbar in Oftringen</h1>
         <p>Bei autohauser® landen Sie nicht in anonymen Callcentern, sondern direkt bei den verantwortlichen Fachpersonen für Schadenmanagement, Werbetechnik, Classic Cars und Administration.</p>
       </div>
@@ -2766,7 +2835,7 @@ def build_pages(out_dir: Path, scraped: dict, dims: dict, pdfs: list, pdf_meta: 
 </html>"""
 
     # 7. karriere.html
-    karriere_html = f"""{render_head("Karriere & Offene Stellen – autohauser® Oftringen", "Offene Stellen bei autohauser® und YellowFox® Schweiz in Oftringen: Carrosserie-Techniker, Gestalter/in Werbetechnik EFZ (20–40%) und Verkaufsprofi YellowFox.", canonical_page="karriere.html")}
+    karriere_html = f"""{render_head("Karriere & Offene Stellen – autohauser® Oftringen", "Offene Stellen bei autohauser® und YellowFox® Schweiz in Oftringen: Carrosserie-Techniker, Gestalter/in Werbetechnik EFZ (m/w) (20–40%) und Verkaufsprofi YellowFox.", canonical_page="karriere.html")}
 <body>
 {render_header("unfall", "karriere", dims, show_cockpit=show_cockpit)}
 
@@ -2786,14 +2855,17 @@ def build_pages(out_dir: Path, scraped: dict, dims: dict, pdfs: list, pdf_meta: 
               <span class="meta-badge">100 %</span>
               <span class="meta-badge">Unfallinstandstellung</span>
             </div>
-            <h3>Carrosserie-Techniker / Carrosseriespengler EFZ</h3>
+            <h3>Carrosserie-Techniker / Carrosseriespengler EFZ (m/w)</h3>
             <p style="font-size:0.9rem;">Für fachgerechte Reparaturen nach Herstellervorgaben auf Richtbank und mit Originalersatzteilen in unserem Swissgarant-Betrieb.</p>
             <ul class="list-check">
               <li>{ICONS["check"]}<span>Abgeschlossene Ausbildung als Carrosseriespengler/in EFZ</span></li>
               <li>{ICONS["check"]}<span>Präzise, qualitätsbewusste Arbeitsweise</span></li>
             </ul>
           </div>
-          <a href="#kurzbewerbung" onclick="wpSetCareerPreset('Carrosserie-Techniker')" class="btn btn-primary btn-sm"><span>Jetzt kurz bewerben</span>{ICONS["arrow-right"]}</a>
+          <div style="display:flex;flex-wrap:wrap;gap:8px;">
+            <a href="#kurzbewerbung" onclick="wpSetCareerPreset('Carrosserie-Techniker')" class="btn btn-primary btn-sm"><span>Kurzbewerbung</span></a>
+            <a href="tel:+41627893354" class="btn btn-outline btn-sm"><span>Fragen (HR)</span></a>
+          </div>
         </div>
 
         <div class="card service-card">
@@ -2803,10 +2875,10 @@ def build_pages(out_dir: Path, scraped: dict, dims: dict, pdfs: list, pdf_meta: 
               <span class="meta-badge tabular">20–40 %</span>
               <span class="meta-badge">Werbetechnik</span>
             </div>
-            <h3>Gestalter/in Werbetechnik EFZ</h3>
+            <h3>Gestalter/in Werbetechnik EFZ (m/w)</h3>
             <p style="font-size:0.9rem;">Druckdatenaufbereitung (Adobe Illustrator), Digitaldruck, Cut-Arbeiten, Fahrzeugbeschriftung und Carwrapping-Komplettfolierungen.</p>
             <ul class="list-check">
-              <li>{ICONS["check"]}<span>Abgeschlossene Lehre als Gestalter/in Werbetechnik EFZ</span></li>
+              <li>{ICONS["check"]}<span>Abgeschlossene Lehre als Gestalter/in Werbetechnik EFZ (m/w)</span></li>
               <li>{ICONS["check"]}<span>Führerausweis Kat. B &amp; Freude an Automobilen</span></li>
             </ul>
           </div>
@@ -2823,7 +2895,7 @@ def build_pages(out_dir: Path, scraped: dict, dims: dict, pdfs: list, pdf_meta: 
               <span class="meta-badge">100 %</span>
               <span class="meta-badge">YellowFox® Schweiz</span>
             </div>
-            <h3>Verkaufsprofi mit Biss (m/w)</h3>
+            <h3>Verkaufsberater/in Telematik YellowFox® (m/w)</h3>
             <p style="font-size:0.9rem;">Für unser Partnerunternehmen YellowFox® (Schweiz) Telematik- und Ortungssysteme: Verkaufsgespräche, Offerten, Abschlüsse für Schweizer KMU.</p>
             <ul class="list-check">
               <li>{ICONS["check"]}<span>Nachweisbare Verkaufserfolge &amp; hohe IT-Affinität</span></li>
@@ -2831,7 +2903,7 @@ def build_pages(out_dir: Path, scraped: dict, dims: dict, pdfs: list, pdf_meta: 
             </ul>
           </div>
           <div style="display:flex;flex-wrap:wrap;gap:8px;">
-            <a href="#kurzbewerbung" onclick="wpSetCareerPreset('Verkaufsprofi mit Biss')" class="btn btn-primary btn-sm"><span>Kurzbewerbung</span></a>
+            <a href="#kurzbewerbung" onclick="wpSetCareerPreset('Verkaufsberater/in Telematik')" class="btn btn-primary btn-sm"><span>Kurzbewerbung</span></a>
             <button type="button" class="btn btn-outline btn-sm" onclick="openJotFormModal('Bewerbungsformular YellowFox', 'https://form.jotform.com/folioboat/bewerbungsformular-yellowfox')"><span>Detailformular</span></button>
           </div>
         </div>
