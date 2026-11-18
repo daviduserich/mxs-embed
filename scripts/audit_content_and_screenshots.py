@@ -195,7 +195,7 @@ try {{
     let y = 0;
     let idx = 1;
     while (y < totalH && idx <= 4) {{
-      await page.evaluate(yy => window.scrollTo(0, yy), y);
+      await page.evaluate(yy => window.scrollTo({ top: yy, behavior: 'instant' }), y);
       await page.waitForTimeout(150);
       const outPng = path.join(outDir, rel.replace(/[^a-zA-Z0-9_-]/g, '_') + `_d${{idx}}.png`);
       await page.screenshot({{ path: outPng }});

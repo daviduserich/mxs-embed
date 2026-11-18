@@ -1072,11 +1072,9 @@ def render_smart_wizard(default_sparte: str = "Unfall & Hagel / Glasschaden", de
     else:
         sparten_opts = [
             ("Unfall & Hagel / Glasschaden", "Unfallschaden", "Unfall & Carrosserie", "Javier Jimenez · Richtbank & Originalteile"),
-            ("Hagelschaden", "Hagelschaden", "Hagelschaden", "Javier Jimenez · Direkte Abklärung"),
-            ("Glasschaden & Sofort-Rückruf", "Glasschaden", "Glas & Frontscheibe", "Andrea Heimgartner · Reparatur oder Ersatz"),
-            ("Autobeschriftung & Folierung", "Beschriftung / Folierung", "Beschriftung & folioCar®", "Fabienne Zingg · Fahrzeugbeschriftung & Folierung"),
-            ("Classic Cars", "Classic Cars / Oldtimer", "Classic Cars", "Thomas Hauser · Verkauf, Suche & Restauration"),
-            ("Allgemeine Beratung & Kontakt", "Beratung / Kontakt", "Allgemeine Beratung", "Jakob Hauser AG · Zentrale Oftringen"),
+            ("Hagelschaden", "Hagelschaden", "Hagelschaden", "Schadenabklärung & Instandstellung"),
+            ("Glasschaden & Sofort-Rückruf", "Glasschaden", "Glas & Frontscheibe", "Reparatur oder Frontscheiben-Ersatz"),
+            ("Parkschaden & Kleinschaden", "Parkschaden", "Parkschaden & Dellen", "Kasko- & Haftpflicht-Abklärung inklusive"),
         ]
         urg_1 = ("Sofort-Rückruf gewünscht", "Rasche Rückmeldung oder Ersatzwagen-Klärung")
         urg_2 = ("Planbarer Termin / Offerte", "Wunschtermin oder unverbindliche Beratung")
@@ -1200,7 +1198,7 @@ def render_smart_wizard(default_sparte: str = "Unfall & Hagel / Glasschaden", de
             </div>
             <div class="wp-field">
               <label for="wpPhone" class="wp-label">Telefonnummer *</label>
-              <input type="tel" id="wpPhone" name="phone" autocomplete="tel" class="form-input" placeholder="+41 79 000 00 00" required>
+              <input type="tel" id="wpPhone" name="phone" autocomplete="tel" class="form-input" placeholder="Ihre Telefonnummer" required>
             </div>
             <div class="wp-field">
               <label for="wpPlzCity" class="wp-label">PLZ &amp; Ort</label>
@@ -1229,7 +1227,7 @@ def render_smart_wizard(default_sparte: str = "Unfall & Hagel / Glasschaden", de
       <div class="wp-result-box" id="wpResultBox" aria-live="polite">
         <div style="display:flex;align-items:center;gap:8px;color:#065f46;font-weight:800;font-size:1.02rem;margin-bottom:8px;">
           {ICONS["check"]}
-          <span>Vielen Dank, wir haben Ihre Anfrage erhalten (<span id="wpResRef"></span>)</span>
+          <span>Vielen Dank, wir haben Ihre Anfrage erhalten <span id="wpResRef"></span></span>
         </div>
         <p style="color:#0f172a;font-size:0.9rem;margin-bottom:10px;">
           <strong>Ansprechperson:</strong> <span id="wpResAssignee">autohauser Team</span><br>
@@ -1570,7 +1568,7 @@ def render_career_wizard() -> str:
             </div>
             <div class="wp-field">
               <label for="wpCPhone" class="wp-label">Telefonnummer *</label>
-              <input type="tel" id="wpCPhone" name="phone" autocomplete="tel" class="form-input" placeholder="+41 79 000 00 00" required>
+              <input type="tel" id="wpCPhone" name="phone" autocomplete="tel" class="form-input" placeholder="Ihre Telefonnummer" required>
             </div>
             <div class="wp-field">
               <label for="wpCPlzCity" class="wp-label">PLZ &amp; Wohnort</label>
@@ -1599,7 +1597,7 @@ def render_career_wizard() -> str:
       <div class="wp-result-box" id="wpCareerResultBox" aria-live="polite">
         <div style="display:flex;align-items:center;gap:8px;color:#065f46;font-weight:800;font-size:1.02rem;margin-bottom:8px;">
           {ICONS["check"]}
-          <span>Vielen Dank, Ihre Kurzbewerbung ist eingegangen (<span id="wpCResRef"></span>)</span>
+          <span>Vielen Dank, Ihre Kurzbewerbung ist eingegangen <span id="wpCResRef"></span></span>
         </div>
         <p style="color:#0f172a;font-size:0.9rem;margin-bottom:10px;">
           <strong>Ansprechperson:</strong> <span id="wpCResAssignee">Daniela Dähler</span><br>
@@ -1876,7 +1874,7 @@ def build_pages(out_dir: Path, scraped: dict, dims: dict, pdfs: list, pdf_meta: 
           <div>
             <div class="sparte-logo-wrap">{img_tag(dims, "autobeschriftung_logo.png", "autohauser Autobeschriftung Logo")}</div>
             <h3>Autobeschriftung &amp; folioCar®</h3>
-            <p>Flottenbranding von Einzelfahrzeug bis Flotten, Premium-Vollfolierung mit 100µ Q4-Folie, Steinschlagschutz und Sondermodelle für Autoimporteure.</p>
+            <p>Flottenbranding von Einzelfahrzeug bis Flotten, Premium-Vollfolierung mit 100 µm Q4-Folie, Steinschlagschutz und Sondermodelle für Autoimporteure.</p>
           </div>
           <a href="beschriftung.html" class="btn btn-outline"><span>Zur Sparte Beschriftung</span>{ICONS["arrow-right"]}</a>
         </div>
@@ -2011,7 +2009,7 @@ def build_pages(out_dir: Path, scraped: dict, dims: dict, pdfs: list, pdf_meta: 
   <section class="section section-alt" data-section="stimmen">
     <div class="container">
       <div class="section-head">
-        <span class="section-kicker">ECHTE KUNDENMEINUNGEN &amp; WISSEN</span>
+        <span class="section-kicker">KUNDENSTIMMEN &amp; RATGEBER</span>
         <h2>Erfahrungen unserer Kundinnen und Kunden</h2>
       </div>
       <div class="grid-2" style="margin-bottom:32px;">
@@ -2053,7 +2051,7 @@ def build_pages(out_dir: Path, scraped: dict, dims: dict, pdfs: list, pdf_meta: 
 </html>"""
 
     # 2. beschriftung.html
-    beschriftung_html = f"""{render_head("Autobeschriftung, Flottenbranding & folioCar® – autohauser®", "Fahrzeugbeschriftung, Teil- und Vollfolierung, Lackschutz und Sondermodelle für Autoimporteure in Oftringen. Mit folioCar® 100µ Q4-Folie.", canonical_page="beschriftung.html")}
+    beschriftung_html = f"""{render_head("Autobeschriftung, Flottenbranding & folioCar® – autohauser®", "Fahrzeugbeschriftung, Teil- und Vollfolierung, Lackschutz und Sondermodelle für Autoimporteure in Oftringen. Mit folioCar® 100 µm Q4-Folie.", canonical_page="beschriftung.html")}
 <body>
 {render_header("beschriftung", "beschriftung", dims, show_cockpit=show_cockpit)}
 
@@ -2079,7 +2077,7 @@ def build_pages(out_dir: Path, scraped: dict, dims: dict, pdfs: list, pdf_meta: 
               <div class="metric-lbl">Spezialisiert auf Fahrzeugoberflächen und Flottenbranding</div>
             </div>
             <div class="metric-box">
-              <div class="metric-val tabular">100µ Q4-Folie</div>
+              <div class="metric-val tabular">100 µm Q4-Folie</div>
               <div class="metric-lbl">Über 100 Farbtöne &amp; rückstandslose Rückrüstung</div>
             </div>
             <div class="metric-box">
@@ -2137,7 +2135,7 @@ def build_pages(out_dir: Path, scraped: dict, dims: dict, pdfs: list, pdf_meta: 
               <span class="meta-badge">folioCar® Pioneer Schweiz</span>
             </div>
             <h3>folioCar® Premium-Folierungen</h3>
-            <p>Gemeinsam mit MACtac entwickelt: 100µ Materialdicke für besten Steinschlagschutz, hoher Glanzgrad, waschstrassentauglich und nach Jahren sauber rückrüstbar ohne Kleberrückstände auf einwandfreiem Originallack.</p>
+            <p>Gemeinsam mit MACtac entwickelt: 100 µm Materialdicke für besten Steinschlagschutz, hoher Glanzgrad, waschstrassentauglich und nach Jahren sauber rückrüstbar ohne Kleberrückstände auf einwandfreiem Originallack.</p>
           </div>
           <a href="assets/pdfs/6_04_02_infos_zur_folienbeschichtung.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm">{ICONS["download"]}<span>Infos zur Folienbeschichtung (PDF)</span></a>
         </div>
@@ -2290,12 +2288,12 @@ def build_pages(out_dir: Path, scraped: dict, dims: dict, pdfs: list, pdf_meta: 
           </div>
         </div>
         <div class="hero-media-card">
-          {img_tag(dims, "dsc_0077-breit.jpeg", "autohauser Classics Oldtimer und Youngtimer", css_class="hero-media-img", is_hero=True)}
+          {img_tag(dims, "dsc_9610.jpeg", "Alfa Romeo 2000 GTV Bertone bei autohauser classics", css_class="hero-media-img", is_hero=True)}
           <div class="hero-media-body">
             <div>
-              <span class="meta-badge" style="margin-bottom:8px;">Aktuell verfügbar</span>
-              <h3 style="margin-bottom:6px;">Alfa Romeo 2000 GTV &amp; Fiat 124 Abarth</h3>
-              <p style="font-size:0.9rem;margin-bottom:0;">Zwei seltene italienische Klassiker mit nachvollziehbarer Schweizer Historie – ab sofort nach Vereinbarung in Oftringen zu besichtigen.</p>
+              <span class="meta-badge" style="margin-bottom:8px;">Aktuell im Angebot</span>
+              <h3 style="margin-bottom:6px;">Ausgesuchte Klassiker in Oftringen</h3>
+              <p style="font-size:0.9rem;margin-bottom:0;">Unter anderem Alfa Romeo 2000 GTV (Bertone) und Fiat 124 Abarth – Besichtigung nach persönlicher Vereinbarung.</p>
             </div>
             <div class="hero-contact-strip">
               <span style="font-weight:700;color:var(--text-main);">Ansprechperson: Thomas Hauser</span>
@@ -2343,7 +2341,7 @@ def build_pages(out_dir: Path, scraped: dict, dims: dict, pdfs: list, pdf_meta: 
           </div>
           <div style="display:flex;flex-wrap:wrap;gap:8px;">
             <a href="#classics-anfrage" onclick="wpSetPreset('Classic Cars','Besichtigung Alfa Romeo 2000 GTV','Planbar')" class="btn btn-primary btn-sm"><span>Besichtigung anfragen</span></a>
-            <a href="#classics-services" class="btn btn-outline btn-sm"><span>Alle Classic-Services</span></a>
+            <a href="#classics-services" class="btn btn-outline btn-sm"><span>Details &amp; Services</span></a>
           </div>
         </div>
 
@@ -2374,7 +2372,7 @@ def build_pages(out_dir: Path, scraped: dict, dims: dict, pdfs: list, pdf_meta: 
           </div>
           <div style="display:flex;flex-wrap:wrap;gap:8px;">
             <a href="#classics-anfrage" onclick="wpSetPreset('Classic Cars','Besichtigung Fiat 124 Abarth','Planbar')" class="btn btn-primary btn-sm"><span>Besichtigung anfragen</span></a>
-            <a href="#classics-services" class="btn btn-outline btn-sm"><span>Alle Classic-Services</span></a>
+            <a href="#classics-services" class="btn btn-outline btn-sm"><span>Details &amp; Services</span></a>
           </div>
         </div>
       </div>
@@ -2476,7 +2474,7 @@ def build_pages(out_dir: Path, scraped: dict, dims: dict, pdfs: list, pdf_meta: 
         <div id="tabBannerHagel" style="display:none;">
           <h3 style="margin-bottom:4px;">Hagelschaden 2026 – Transparente Versicherungsprüfung</h3>
           <p style="margin-bottom:8px;">Wir klären vorab für Sie ab, ob Ihr Hagelschaden ohne Einschränkungen zu unseren Konditionen übernommen wird. Sollte dies bei Generali oder Vaudoise nicht vollumfänglich der Fall sein, informieren wir Sie transparent – und übernehmen bei einem begleiteten Versicherungswechsel die allfällige Differenz.</p>
-          <button type="button" class="btn btn-outline btn-sm" onclick="openJotFormModal('Hagelschaden 2026 melden (JotForm)', 'https://form.jotform.com/262393351245052')"><span>Ausführliches Hagel-Formular öffnen</span></button>
+          <button type="button" class="btn btn-outline btn-sm" onclick="openJotFormModal('Hagelschaden 2026 melden (JotForm)', 'https://form.jotform.com/262393351245052')"><span>Hagel-Formular öffnen</span></button>
         </div>
         <div id="tabBannerGlas" style="display:none;">
           <h3 style="margin-bottom:4px;">Glasschaden &amp; Sofort-Rückruf (Andrea Heimgartner)</h3>
@@ -2486,9 +2484,9 @@ def build_pages(out_dir: Path, scraped: dict, dims: dict, pdfs: list, pdf_meta: 
           <h3 style="margin-bottom:4px;">Ausführliche Versicherungsmeldung &amp; Detailformulare</h3>
           <p style="margin-bottom:12px;">Falls Sie bereits sämtliche Unfallbeteiligten-, Zeugen- und Versicherungsdaten vollständig erfassen möchten, öffnen Sie hier direkt die ausführlichen Formulare:</p>
           <div style="display:flex;flex-wrap:wrap;gap:10px;">
-            <button type="button" class="btn btn-primary btn-sm" onclick="openJotFormModal('Ausführliche Schadenmeldung (100 Felder)', 'https://form.jotform.com/63390924290963')"><span>Ausführliche Schadenmeldung (100 Felder)</span></button>
-            <button type="button" class="btn btn-outline btn-sm" onclick="openJotFormModal('Schadenmeldung kurz (JotForm)', 'https://form.jotform.com/63471863529970')"><span>Schadenmeldung kurz (Detailformular)</span></button>
-            <button type="button" class="btn btn-outline btn-sm" onclick="openJotFormModal('Hagelschaden 2026 (JotForm)', 'https://form.jotform.com/262393351245052')"><span>Hagelschaden 2026 (Detailformular)</span></button>
+            <button type="button" class="btn btn-primary btn-sm" onclick="openJotFormModal('Ausführliche Schadenmeldung (100 Felder)', 'https://form.jotform.com/63390924290963')"><span>Ausführliche Schadenmeldung</span></button>
+            <button type="button" class="btn btn-outline btn-sm" onclick="openJotFormModal('Schadenmeldung kurz (JotForm)', 'https://form.jotform.com/63471863529970')"><span>Schadenmeldung kurz</span></button>
+            <button type="button" class="btn btn-outline btn-sm" onclick="openJotFormModal('Hagelschaden 2026 (JotForm)', 'https://form.jotform.com/262393351245052')"><span>Hagelschaden-Formular</span></button>
           </div>
         </div>
       </div>
@@ -2517,7 +2515,7 @@ def build_pages(out_dir: Path, scraped: dict, dims: dict, pdfs: list, pdf_meta: 
             <p style="font-size:0.9rem;margin-bottom:8px;"><strong>Kundendienst &amp; Glas:</strong> Andrea Heimgartner (+41 62 789 33 49)</p>
             <p style="font-size:0.9rem;margin-bottom:8px;"><strong>Beschriftung &amp; Folierung:</strong> Fabienne Zingg (+41 62 789 33 52)</p>
             <p style="font-size:0.9rem;margin-bottom:12px;"><strong>Classic Cars &amp; Geschäftsleitung:</strong> Thomas Hauser (+41 62 789 33 32)</p>
-            <a href="team-unternehmen.html" class="btn btn-outline btn-sm"><span>Alle 6 Team-Profile ansehen</span>{ICONS["arrow-right"]}</a>
+            <a href="team-unternehmen.html" class="btn btn-outline btn-sm"><span>Zum gesamten Team</span>{ICONS["arrow-right"]}</a>
           </div>
         </div>
       </div>
@@ -2685,7 +2683,7 @@ def build_pages(out_dir: Path, scraped: dict, dims: dict, pdfs: list, pdf_meta: 
         <p>Klares Praxiswissen zu freier Werkstattwahl, Schadenminderungspflicht, Totalschaden, Vollkasko, Leasingrückgabe und Glasschäden.</p>
       </div>
       <div class="filter-bar" role="group" aria-label="Ratgeber nach Thema filtern">
-        <button type="button" class="filter-btn active" onclick="filterRatgeber('alle', this)">Alle ({len(rg_entries)})</button>
+        <button type="button" class="filter-btn active" onclick="filterRatgeber('alle', this)">Alle</button>
         <button type="button" class="filter-btn" onclick="filterRatgeber('Unfall & Recht', this)">Unfall &amp; Recht</button>
         <button type="button" class="filter-btn" onclick="filterRatgeber('Versicherung', this)">Versicherung</button>
         <button type="button" class="filter-btn" onclick="filterRatgeber('Hagel & Glas', this)">Hagel &amp; Glas</button>
@@ -2736,7 +2734,7 @@ def build_pages(out_dir: Path, scraped: dict, dims: dict, pdfs: list, pdf_meta: 
         ("Andrea Heimgartner", "Schadenmanagerin", "Drehscheibe für Kundendienst, Glasschäden und sämtliche Aspekte der Schadenerledigung sowie Lieferantenkoordination.", "+41 62 789 33 49", "andrea.heimgartner@autohauser.ch", "20230203_andrea-klein.jpeg"),
         ("Fabienne Zingg", "Leiterin Werbetechnik", "Ihre Ansprechperson für Autobeschriftung, Flottenbranding (Einzelfahrzeug bis Flotte), folioCar® Folierungen und Terminvereinbarungen.", "+41 62 789 33 52", "fabienne.zingg@autohauser.ch", "fabienne_zingg_1.jpeg"),
         ("Tatjana de Rose", "Administration & Rechnungswesen (Kauffrau EFZ)", "Zuständig für Rechnungen, Zahlungen, administrative Fragen und die Finanzbuchhaltung der Jakob Hauser AG.", "+41 62 789 33 30", "tatjana.derose@autohauser.ch", "20190618_tatjana-klein.jpeg"),
-        ("Daniela Dähler", "Leiterin HR & FRW | Fachfrau Finanz- und Rechnungswesen mit eidg. FA", "Betreut alle Personal- und Sozialversicherungsfragen der Jakob Hauser AG sowie die Buchhaltungen der Autohauser GmbH sowie die Unternehmensgruppe in Oftringen.", "+41 62 789 33 54", "daniela.daehler@autohauser.ch", "danieladaehler.jpeg"),
+        ("Daniela Dähler", "Leiterin HR & FRW | Fachfrau Finanz- und Rechnungswesen mit eidg. FA", "Betreut alle Personal- und Sozialversicherungsfragen sowie das Finanz- und Rechnungswesen der Jakob Hauser AG und der autohauser-Gruppe.", "+41 62 789 33 54", "daniela.daehler@autohauser.ch", "danieladaehler.jpeg"),
     ]
     team_cards_html = "\n".join(
         f"""<div class="card founder-card">
@@ -2884,7 +2882,7 @@ def build_pages(out_dir: Path, scraped: dict, dims: dict, pdfs: list, pdf_meta: 
           </div>
           <div style="display:flex;flex-wrap:wrap;gap:8px;">
             <a href="#kurzbewerbung" onclick="wpSetCareerPreset('Gestalter/in Werbetechnik')" class="btn btn-primary btn-sm"><span>Kurzbewerbung</span></a>
-            <button type="button" class="btn btn-outline btn-sm" onclick="openJotFormModal('Kurzbewerbung Werbetechnik', 'https://form.jotform.com/51061581490956')"><span>Detailformular</span></button>
+            <button type="button" class="btn btn-outline btn-sm" onclick="openJotFormModal('Kurzbewerbung Werbetechnik', 'https://form.jotform.com/51061581490956')"><span>Bewerbungsbogen</span></button>
           </div>
         </div>
 
@@ -2904,7 +2902,7 @@ def build_pages(out_dir: Path, scraped: dict, dims: dict, pdfs: list, pdf_meta: 
           </div>
           <div style="display:flex;flex-wrap:wrap;gap:8px;">
             <a href="#kurzbewerbung" onclick="wpSetCareerPreset('Verkaufsberater/in Telematik')" class="btn btn-primary btn-sm"><span>Kurzbewerbung</span></a>
-            <button type="button" class="btn btn-outline btn-sm" onclick="openJotFormModal('Bewerbungsformular YellowFox', 'https://form.jotform.com/folioboat/bewerbungsformular-yellowfox')"><span>Detailformular</span></button>
+            <button type="button" class="btn btn-outline btn-sm" onclick="openJotFormModal('Bewerbungsformular YellowFox', 'https://form.jotform.com/folioboat/bewerbungsformular-yellowfox')"><span>Bewerbungsbogen</span></button>
           </div>
         </div>
       </div>
