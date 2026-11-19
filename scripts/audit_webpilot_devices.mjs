@@ -443,6 +443,12 @@ function resolvePagesFromArgs() {
   if (requestedTargets.length > 0) {
     const collected = [];
     for (const rawTarget of requestedTargets) {
+      const cleanRel = rawTarget.replace(/^\/+/, '');
+      const directFile = path.join(ROOT_DIR, cleanRel);
+      if (cleanRel.endsWith('.html') && fs.existsSync(directFile) && fs.statSync(directFile).isFile()) {
+        collected.push(cleanRel);
+        continue;
+      }
       let siteSlug = path.basename(rawTarget.replace(/\/+$/, ''));
       if (!fs.existsSync(path.join(ROOT_DIR, siteSlug)) && fs.existsSync(path.join(ROOT_DIR, 'preview-' + siteSlug))) {
         siteSlug = 'preview-' + siteSlug;
@@ -720,7 +726,7 @@ async function main() {
     }
 
     // 4. 300px Embed-Schlauch Check (?embed=true) fuer Live-Karriere-Widgets
-    if ((relPage.startsWith('zurbuchen/') || relPage.startsWith('hiltbrand/')) &&
+    if ((relPage.startsWith('zurbuchen/') || relPage.startsWith('hiltbrand/') || relPage.startsWith('hochuli-zimmermann/')) &&
         !relPage.endsWith('cockpit.html') &&
         relPage !== 'hiltbrand/Hiltbrand_Dachdecker.html') {
       await page.goto(`${baseUrl}/${relPage}?embed=true`, { waitUntil: 'networkidle' });

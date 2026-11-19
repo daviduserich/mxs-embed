@@ -7,18 +7,20 @@ Verhindert vor jedem Git-Push in < 1s, dass ein Direkt-Mandantenordner (Karriere
 durch einen Fehl-Rewrite in functions/_middleware.js auf einen nicht existierenden preview-* Pfad
 umgeleitet wird (stiller HTTP 200 SPA-Fallback 'WebPilot Swiss Edge' mit X-Frame-Options: DENY).
 
-Prueft 4 harte Invarianzen (#BE-12 & #SYS-01):
+Prueft 5 harte Invarianzen (#BE-12 & #SYS-01):
 1. Jeder Top-Level-Mandantenordner ohne 'preview-'-Praefix, der eine stellen.json oder Widget-HTMLs
-   besitzt (z. B. hiltbrand, zurbuchen, cotra, muster-holzbau + kuenftige Ordner), MUSS in
+   besitzt (z. B. hiltbrand, zurbuchen, cotra, muster-holzbau, hochuli-zimmermann + kuenftige Ordner), MUSS in
    functions/_middleware.js in DIRECT_ONLY_FOLDERS oder DUAL_EMBED_AND_PREVIEW_FOLDERS stehen.
 2. Jede in stellen.json eines Direkt-Mandantenordners referenzierte "datei" muss physisch im
    jeweiligen Mandanten-Ordner existieren (und auch falls in hiltbrand/stellen.json auf einen
    Nachbarordner wie folder="zurbuchen" verwiesen wird).
 3. Keine Widget-HTML-Datei in einem Direkt-Mandantenordner darf <meta http-equiv="X-Frame-Options" content="DENY"
    enthalten.
-4. Synthetischer Negativ-Selbsttest (--self-test): Beweist deterministisch, dass das Gate bei
-   Ausbau eines Ordners aus DIRECT_ONLY_FOLDERS oder bei Injektion von X-Frame-Options: DENY sofort
-   anschlage und mit EXIT 1 blockiert.
+4. Jede Karriere-Widget-HTML-Datei (Ordner mit stellen.json, ohne cockpit.html) MUSS zwingend den
+   iFrame-Resize-Hook 'acp-embed-resize' sowie einen WhatsApp-Hook ('wa.me/' oder 'data-required="whatsapp-cta"')
+   im Body enthalten (100 % Paritaet zu watchdog_framework_integrity.py).
+5. Synthetischer 4-Proben Negativ-Selbsttest (--self-test): Beweist deterministisch, dass das Gate bei
+   Missing Folder, XFO DENY, fehlendem acp-embed-resize oder fehlendem WhatsApp-Hook sofort mit EXIT 1 blockiert.
 
 Canary: BACKEND-DB-2026-V1 | DEPLOY-MAP-2026-V1 | LANG-CH-2026-V1 (100 % ss statt Eszett)
 """
@@ -80,6 +82,7 @@ def parse_middleware_registered_folders(middleware_text: str) -> set[str]:
 def run_routing_audit(
     middleware_override: str | None = None,
     injected_xfo_html: tuple[str, str] | None = None,
+    injected_career_html: tuple[str, str] | None = None,
     quiet: bool = False,
 ) -> list[str]:
     errors: list[str] = []
@@ -161,20 +164,45 @@ def run_routing_audit(
             except Exception as exc:
                 errors.append(f"[INVALID-JSON] Konnte {stellen_file} nicht als JSON lesen: {exc}")
 
-        # 3. Pruefe alle Widget-HTML-Dateien auf verbotenes X-Frame-Options: DENY
+        # 3. Pruefe alle Widget-HTML-Dateien (ohne cockpit.html, s. Zeile 125) auf XFO-DENY & Pflicht-Hooks
+        has_stellen = stellen_file.is_file()
         for html_path in html_files:
+            if html_path.name == "cockpit.html":
+                continue
             html_text = html_path.read_text(encoding="utf-8", errors="ignore")
             if XFO_DENY_REGEX.search(html_text):
                 errors.append(
                     f"[XFO-DENY-BLOCKER] Widget-HTML '{folder_name}/{html_path.name}' enthaelt "
                     f"<meta http-equiv=\"X-Frame-Options\" content=\"DENY/SAMEORIGIN\"> (blockiert iFrame-Einbettung)!"
                 )
+            if has_stellen:
+                if "acp-embed-resize" not in html_text:
+                    errors.append(
+                        f"[MISSING-RESIZE-HOOK] Karriere-Widget '{folder_name}/{html_path.name}' enthaelt keinen "
+                        f"'acp-embed-resize' postMessage-Sender (iFrame schneidet Inhalt bei min-height:850px ab)!"
+                    )
+                if 'data-required="whatsapp-cta"' not in html_text and "wa.me/" not in html_text:
+                    errors.append(
+                        f"[MISSING-WHATSAPP-HOOK] Karriere-Widget '{folder_name}/{html_path.name}' enthaelt weder "
+                        f"'wa.me/' noch 'data-required=\"whatsapp-cta\"'!"
+                    )
 
     if injected_xfo_html is not None:
         virt_name, virt_html = injected_xfo_html
         if XFO_DENY_REGEX.search(virt_html):
             errors.append(
                 f"[XFO-DENY-BLOCKER] Virtuelles Test-Widget '{virt_name}' enthaelt X-Frame-Options: DENY!"
+            )
+
+    if injected_career_html is not None:
+        virt_c_name, virt_c_html = injected_career_html
+        if "acp-embed-resize" not in virt_c_html:
+            errors.append(
+                f"[MISSING-RESIZE-HOOK] Virtuelles Karriere-Widget '{virt_c_name}' enthaelt keinen 'acp-embed-resize' Hook!"
+            )
+        if 'data-required="whatsapp-cta"' not in virt_c_html and "wa.me/" not in virt_c_html:
+            errors.append(
+                f"[MISSING-WHATSAPP-HOOK] Virtuelles Karriere-Widget '{virt_c_name}' enthaelt keinen WhatsApp-Hook!"
             )
 
     if not quiet:
@@ -188,14 +216,14 @@ def run_routing_audit(
         else:
             print(
                 f"✅ [verify_embed_routing_gate] PASS: Alle Direkt-Mandantenordner ({sorted(registered_folders)}) "
-                f"in _middleware.js registriert, alle stellen.json-Dateien vorhanden & 0 XFO-DENY-Blocker."
+                f"in _middleware.js registriert, stellen.json-Dateien vorhanden, 0 XFO-Blocker & 100 % Resize-/WhatsApp-Hooks."
             )
 
     return errors
 
 
 def run_selftest() -> bool:
-    """Prueft deterministisch, dass das Gate bei Fehl-Routing und XFO-DENY anschlaegt."""
+    """Prueft deterministisch, dass das Gate bei Fehl-Routing, XFO-DENY und fehlenden Pflicht-Hooks anschlaegt."""
     mw_text = MIDDLEWARE_PATH.read_text(encoding="utf-8", errors="ignore")
     # Test 1: Entferne 'zurbuchen' aus DIRECT_ONLY_FOLDERS
     broken_mw = mw_text.replace("'zurbuchen',", "").replace("'zurbuchen'", "")
@@ -207,12 +235,32 @@ def run_selftest() -> bool:
         injected_xfo_html=("zurbuchen/test_widget.html", '<meta http-equiv="X-Frame-Options" content="DENY">'),
         quiet=True,
     )
-    cond_2 = any("XFO-DENY-BLOCKER" in e for e in errs_2)
+    cond_2 = any("test_widget.html" in e and "XFO-DENY-BLOCKER" in e for e in errs_2)
 
-    if cond_1 and cond_2:
-        print("🧪 [verify_embed_routing_gate --self-test] PASS: Beide Negativ-Proben (Missing Folder + XFO DENY) wurden hart blockiert.")
+    # Test 3: Injiziere Karriere-Widget ohne acp-embed-resize
+    errs_3 = run_routing_audit(
+        injected_career_html=("hochuli-zimmermann/test_no_resize.html", '<html><body><a href="https://wa.me/41790000000">WA</a></body></html>'),
+        quiet=True,
+    )
+    cond_3 = any("test_no_resize.html" in e and "MISSING-RESIZE-HOOK" in e for e in errs_3)
+
+    # Test 4: Injiziere Karriere-Widget ohne WhatsApp-Hook
+    errs_4 = run_routing_audit(
+        injected_career_html=("hochuli-zimmermann/test_no_wa.html", "<html><body><script>acp-embed-resize</script></body></html>"),
+        quiet=True,
+    )
+    cond_4 = any("test_no_wa.html" in e and "MISSING-WHATSAPP-HOOK" in e for e in errs_4)
+
+    if cond_1 and cond_2 and cond_3 and cond_4:
+        print(
+            "🧪 [verify_embed_routing_gate --self-test] PASS: Alle 4 Negativ-Proben "
+            "(Missing Folder + XFO DENY + Missing Resize + Missing WhatsApp) wurden hart blockiert."
+        )
         return True
-    print(f"🚨 [verify_embed_routing_gate --self-test] FAIL: cond_1={cond_1}, cond_2={cond_2}", file=sys.stderr)
+    print(
+        f"🚨 [verify_embed_routing_gate --self-test] FAIL: cond_1={cond_1}, cond_2={cond_2}, cond_3={cond_3}, cond_4={cond_4}",
+        file=sys.stderr,
+    )
     return False
 
 
