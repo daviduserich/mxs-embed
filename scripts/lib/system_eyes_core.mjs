@@ -24,6 +24,8 @@ export const SYSTEM_EYES_ZONES = [
   { name: 'desktop_1440x900', width: 1440, height: 900, label: 'Zone 3 Desktop (1440×900)' }
 ];
 
+export const EMBED_NARROW_ZONE = { name: 'embed_300x667', width: 300, height: 667, label: 'Zone 0 Embed-Schlauch (300×667 ?embed=true)' };
+
 export const SYSTEM_EYES_SENSORS = [
   { id: 'S-01', code: 'P1_HORIZONTAL_OVERFLOW', severity: 'P1', rule: '#UI-13', desc: 'Dokument scrollWidth darf Viewport-Breite (VW) niemals ueberschreiten' },
   { id: 'S-02', code: 'P1_OFFSCREEN_X', severity: 'P1', rule: '#UI-13', desc: 'Interaktive Elemente muessen horizontal vollstaendig im Viewport (0..VW) liegen' },
@@ -58,7 +60,8 @@ export const SYSTEM_EYES_SENSORS = [
   { id: 'S-31', code: 'P2_SIBLING_CARD_ANATOMY_DRIFT', severity: 'P2', rule: '#UI-02', desc: 'Nebeneinanderliegende Kacheln in 2er-/3er-/4er-Grids muessen sowohl aussen (2D-Spaltenflucht) als auch innen (Kicker-, Ueberschrift- und Textstart-Horizont) miteinander fluchten' },
   { id: 'S-32', code: 'P1_FORM_CONTEXT_BLEED', severity: 'P1', rule: '#UI-14/#SYS-01', desc: 'Formulare muessen thematisch rein bleiben: Keine Schaden-/Unfall-/Fahrzeug-Felder in Bewerbungsformularen und keine HR-/Bewerbungs-Kacheln in Schaden-/Kunden-Anfrageformularen' },
   { id: 'S-33', code: 'P2_FULLBLEED_IMAGE_GAP', severity: 'P2', rule: '#UI-02/#UI-14', desc: 'Vollflaechige Kartenbilder mit negativem Seitenrand (.card-img-top) muessen den gesamten horizontalen Kartenrahmen bis zum rechten Rand fuellen (max-width: none, Toleranz <= 8px)' },
-  { id: 'S-34', code: 'P2_CARD_CTA_STAIRCASE', severity: 'P2', rule: '#UI-02/#UI-14', desc: 'In nebeneinanderliegenden Karten derselben Zeile muessen untere CTA-Buttons auf derselben vertikalen Linie sitzen (topDiff <= 4px) und duerfen nicht asymmetrisch in einer Karte 1-zeilig und in der Nachbarkarte 2-zeilig umbrechen' }
+  { id: 'S-34', code: 'P2_CARD_CTA_STAIRCASE', severity: 'P2', rule: '#UI-02/#UI-14', desc: 'In nebeneinanderliegenden Karten derselben Zeile muessen untere CTA-Buttons auf derselben vertikalen Linie sitzen (topDiff <= 4px) und duerfen nicht asymmetrisch in einer Karte 1-zeilig und in der Nachbarkarte 2-zeilig umbrechen' },
+  { id: 'S-35', code: 'P2_EMBED_STICKY_OR_CLIP', severity: 'P2', rule: '#UI-13/#UI-14', desc: 'Im ?embed=true-Iframe duerfen keine position:fixed Bottom-Sticky-Bars aktiv bleiben und auf schmalen Mobile-/Embed-Ansichten (<=375px) darf kein Inhalts-Container ohne data-allow-x-scroll horizontal ueberlaufen' }
 ];
 
 /**
@@ -1418,6 +1421,47 @@ export function evaluateSystemEyesInPage({ relPage, zone, options = {} }) {
     }
   }
 
+  // S-35: P2_EMBED_STICKY_OR_CLIP (?embed=true Sticky-Bar + 300px Container-Overflow ohne data-allow-x-scroll)
+  {
+    const isEmbeddedPage = Boolean(
+      (document.body && document.body.classList.contains('is-embedded')) ||
+      (typeof relPage === 'string' && relPage.includes('embed=true'))
+    );
+    if (isEmbeddedPage) {
+      const stickies = Array.from(queryRoot.querySelectorAll('.sticky-cta, .mobile-thumb-bar, .thumb-bar'));
+      for (const st of stickies) {
+        if (!isVisible(st)) continue;
+        const scs = window.getComputedStyle(st);
+        if (scs.position === 'fixed') {
+          addFinding(
+            'P2',
+            'P2_EMBED_STICKY_OR_CLIP',
+            getLabel(st),
+            getCssPath(st),
+            'Sichtbare position:fixed Sticky-Bar im ?embed=true Auto-Height-Iframe (muss via body.is-embedded ausgeblendet werden)'
+          );
+        }
+      }
+    }
+    if (VW <= 375 && !activeScopeSelector) {
+      const checkContainers = Array.from(
+        queryRoot.querySelectorAll('.bieten, .bieten-grid, .inserat-body, .blitz-karte, .ehrlich-card, .grund, .kontakt-karte')
+      );
+      for (const el of checkContainers) {
+        if (!isVisible(el) || el.closest('[data-allow-x-scroll="true"]')) continue;
+        if (el.clientWidth > 0 && el.scrollWidth > el.clientWidth + 4) {
+          addFinding(
+            'P2',
+            'P2_EMBED_STICKY_OR_CLIP',
+            getLabel(el),
+            getCssPath(el),
+            `Inhalts-Container laeuft bei VW=${VW}px horizontal ueber (scrollWidth=${el.scrollWidth}px > clientWidth=${el.clientWidth}px)`
+          );
+        }
+      }
+    }
+  }
+
   return findings;
 }
 
@@ -1530,7 +1574,43 @@ if (
       });
       const s34Caught = s34Findings.some(f => f.code === 'P2_CARD_CTA_STAIRCASE' && f.selector.includes('bad-staircase-grid'));
       const s34FalsePositive = s34Findings.some(f => f.code === 'P2_CARD_CTA_STAIRCASE' && f.selector.includes('good-stacked-grid'));
-      const ok = Boolean(s17Hit && s30Hit && !s30FalsePositive && s30Lang06Hit && s32CareerCaught && s32ServiceCaught && !s32FalsePositive && s33GapCaught && !s33FalsePositive && s34Caught && !s34FalsePositive);
+      // S-35 Positiv- & Negativ-Proben (300px Embed Sticky & Container Clip)
+      await page.setViewportSize({ width: EMBED_NARROW_ZONE.width, height: EMBED_NARROW_ZONE.height });
+      await page.setContent(`<!DOCTYPE html><html lang="de"><head><style>
+        *{box-sizing:border-box;margin:0;padding:0;}
+        .wrap{width:100%;padding:0 16px;}
+        .bieten{padding:20px 32px;overflow:hidden;}
+        .bieten-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));}
+        .sticky-cta{position:fixed;bottom:0;left:0;right:0;height:60px;display:flex;background:#222;color:#fff;}
+      </style></head><body class="is-embedded">
+        <div class="wrap"><div class="bieten"><ul class="bieten-grid"><li>Vorteil im 300px Schlauch</li></ul></div></div>
+        <div class="sticky-cta"><a href="#wa">WhatsApp</a></div>
+      </body></html>`);
+      const s35Bad = await page.evaluate(evaluateSystemEyesInPage, {
+        relPage: 'zurbuchen/index.html?embed=true',
+        zone: EMBED_NARROW_ZONE,
+        options: {}
+      });
+      const s35StickyCaught = s35Bad.some(f => f.code === 'P2_EMBED_STICKY_OR_CLIP' && f.details.includes('Sticky-Bar'));
+      const s35ClipCaught = s35Bad.some(f => f.code === 'P2_EMBED_STICKY_OR_CLIP' && f.details.includes('horizontal ueber'));
+      await page.setContent(`<!DOCTYPE html><html lang="de"><head><style>
+        *{box-sizing:border-box;margin:0;padding:0;}
+        .wrap{width:100%;padding:0 10px;}
+        .bieten{padding:14px 12px;}
+        .bieten-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(240px,100%),1fr));}
+        .bieten-grid li{min-width:0;overflow-wrap:break-word;}
+        body.is-embedded .sticky-cta{display:none!important;}
+      </style></head><body class="is-embedded">
+        <div class="wrap"><div class="bieten"><ul class="bieten-grid"><li>Vorteil sauber verpackt</li></ul></div></div>
+        <div class="sticky-cta"><a href="#wa">WhatsApp</a></div>
+      </body></html>`);
+      const s35Clean = await page.evaluate(evaluateSystemEyesInPage, {
+        relPage: 'zurbuchen/index.html?embed=true',
+        zone: EMBED_NARROW_ZONE,
+        options: {}
+      });
+      const s35CleanAllowed = !s35Clean.some(f => f.code === 'P2_EMBED_STICKY_OR_CLIP');
+      const ok = Boolean(s17Hit && s30Hit && !s30FalsePositive && s30Lang06Hit && s32CareerCaught && s32ServiceCaught && !s32FalsePositive && s33GapCaught && !s33FalsePositive && s34Caught && !s34FalsePositive && s35StickyCaught && s35ClipCaught && s35CleanAllowed);
       console.log(JSON.stringify({
         ok,
         system_eyes_version: SYSTEM_EYES_VERSION,
@@ -1545,7 +1625,10 @@ if (
         s33_fullbleed_gap_caught: s33GapCaught,
         s33_clean_fullbleed_allowed: !s33FalsePositive,
         s34_cta_staircase_caught: s34Caught,
-        s34_aligned_cta_allowed: !s34FalsePositive
+        s34_aligned_cta_allowed: !s34FalsePositive,
+        s35_embed_sticky_caught: s35StickyCaught,
+        s35_embed_clip_caught: s35ClipCaught,
+        s35_clean_embed_allowed: s35CleanAllowed
       }, null, 2));
       if (!ok) process.exit(1);
     } finally {

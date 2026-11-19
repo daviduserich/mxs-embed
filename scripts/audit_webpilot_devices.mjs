@@ -19,6 +19,7 @@ import { createRequire } from 'module';
 import {
   SYSTEM_EYES_VERSION,
   SYSTEM_EYES_ZONES,
+  EMBED_NARROW_ZONE,
   SYSTEM_EYES_SENSORS,
   evaluateSystemEyesInPage
 } from './lib/system_eyes_core.mjs';
@@ -716,6 +717,16 @@ async function main() {
           await page.waitForTimeout(60);
         }
       }
+    }
+
+    // 4. 300px Embed-Schlauch Check (?embed=true) fuer Live-Karriere-Widgets
+    if ((relPage.startsWith('zurbuchen/') || relPage.startsWith('hiltbrand/')) &&
+        !relPage.endsWith('cockpit.html') &&
+        relPage !== 'hiltbrand/Hiltbrand_Dachdecker.html') {
+      await page.goto(`${baseUrl}/${relPage}?embed=true`, { waitUntil: 'networkidle' });
+      const ef = await auditPageZone(page, `${relPage}?embed=true`, EMBED_NARROW_ZONE, screenshotDir);
+      allFindings.push(...ef);
+      totalViewsAudited++;
     }
   }
 

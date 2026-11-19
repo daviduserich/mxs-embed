@@ -28,14 +28,16 @@
   --shadow: 0 10px 30px rgba(35,31,32,.08);
 }
 * { margin: 0; padding: 0; box-sizing: border-box; }
-html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; overflow-x: clip; }
 body {
   font-family: "Source Sans 3", -apple-system, BlinkMacSystemFont, sans-serif;
   color: var(--anthrazit);
   background: var(--weiss);
   line-height: 1.65;
   font-size: 17px;
+  overflow-x: clip;
 }
+body.is-embedded header, body.is-embedded footer, body.is-embedded .sticky-cta { display: none !important; }
 img { max-width: 100%; display: block; }
 a { color: var(--rot); text-decoration: none; }
 h1, h2, h3, h4 { font-family: "Archivo", sans-serif; }
@@ -134,7 +136,7 @@ h2 {
 /* ======================================================= */
 .hero {
   position: relative;
-  background: linear-gradient(rgba(35,31,32,.72), rgba(35,31,32,.86)), url("images/hero.jpg") center top/cover no-repeat;
+  background: linear-gradient(rgba(20,18,19,.76), rgba(20,18,19,.88)), url("images/benefits_drohne.jpg") center/cover no-repeat;
   color: #fff;
   text-align: center;
   padding: 85px 20px 75px;
@@ -146,7 +148,7 @@ h2 {
   font-stretch: 85%;
   margin-bottom: 18px;
 }
-.hero h1 span { color: var(--rot); }
+.hero h1 span { color: #FF7A70; }
 .hero p {
   max-width: 680px;
   margin: 0 auto 28px;
@@ -170,10 +172,17 @@ h2 {
   font-weight: 600;
   opacity: .94;
 }
+.trust span {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
 .trust span::before {
-  content: "✓ ";
-  color: var(--rot);
-  font-weight: 900;
+  content: "";
+  width: 15px;
+  height: 15px;
+  flex-shrink: 0;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23EF4035' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'/%3E%3C/svg%3E") center/contain no-repeat;
 }
 
 /* Brand-Trennlinie */
@@ -187,7 +196,7 @@ h2 {
 /* ======================================================= */
 .gruende {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(240px, 100%), 1fr));
   gap: 22px;
   margin-top: 36px;
 }
@@ -208,6 +217,8 @@ h2 {
 }
 .grund h3 {
   font-size: 18.5px;
+  line-height: 1.3;
+  min-height: 2.65em;
   margin-bottom: 8px;
   font-weight: 700;
   color: var(--anthrazit);
@@ -268,9 +279,12 @@ h2 {
   margin-bottom: 30px;
 }
 .fakt {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
   border: 1px solid var(--linie);
-  border-radius: 99px;
-  padding: 6px 16px;
+  border-radius: 4px;
+  padding: 7px 14px;
   font-weight: 600;
   font-size: 14px;
   background: var(--hell);
@@ -323,7 +337,7 @@ h2 {
 }
 .bieten-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(230px, 100%), 1fr));
   gap: 10px 24px;
   list-style: none;
 }
@@ -334,11 +348,13 @@ h2 {
   font-size: 15px;
 }
 .bieten-grid li::before {
-  content: "✓";
+  content: "";
   position: absolute;
   left: 0;
-  color: var(--rot);
-  font-weight: 900;
+  top: 9px;
+  width: 16px;
+  height: 16px;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23EF4035' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'/%3E%3C/svg%3E") center/contain no-repeat;
 }
 
 /* ======================================================= */
@@ -401,8 +417,17 @@ h2 {
   font-size: 13.5px;
   color: var(--grau);
   margin-top: 14px;
+  display: flex;
+  align-items: center;
+  gap: 7px;
 }
-.klein::before { content: "🔒 "; }
+.klein::before {
+  content: "";
+  width: 14px;
+  height: 14px;
+  flex-shrink: 0;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2364748B' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='3' y='11' width='18' height='11' rx='2' ry='2'/%3E%3Cpath d='M7 11V7a5 5 0 0 1 10 0v4'/%3E%3C/svg%3E") center/contain no-repeat;
+}
 
 .wa-direkt-box {
   margin-top: 26px;
@@ -463,7 +488,7 @@ h2 {
 /* 6. CTA-BAND / ABSCHLUSS                                 */
 /* ======================================================= */
 .cta-band {
-  background: linear-gradient(rgba(35,31,32,.92), rgba(35,31,32,.92)), url("images/hero.jpg") center/cover;
+  background: linear-gradient(rgba(35,31,32,.92), rgba(35,31,32,.92)), url("images/benefits_drohne.jpg") center/cover;
   color: #fff;
   text-align: center;
   padding: 70px 20px;
@@ -513,15 +538,73 @@ h2 {
 .sticky-cta .s-wa { background: var(--gruen); }
 .sticky-cta .s-tel { background: var(--rot); }
 
+
+.nowrap{white-space:nowrap}
+.swipe-hint{display:none;align-items:center;justify-content:space-between;gap:10px;margin-top:8px;padding:0 2px;font-size:13px;font-weight:700;color:var(--grau)}
+.swipe-hint-lbl{display:inline-flex;align-items:center;gap:4px}
+.swipe-dots{display:inline-flex;align-items:center;gap:5px}
+.swipe-dot{width:6px;height:4px;border-radius:4px;background:var(--linie);transition:width .2s ease,background-color .2s ease}
+.swipe-dot.is-active{width:16px;background:var(--rot)}
+.job-acc{display:block}
+.job-acc-sum{font-family:"Archivo",sans-serif;font-size:17px;font-weight:800;text-transform:uppercase;letter-spacing:.08em;color:var(--rot);margin-bottom:14px;padding-bottom:8px;border-bottom:2px solid var(--linie);list-style:none;display:flex;align-items:center;justify-content:space-between;gap:10px;pointer-events:none;cursor:default}
+.job-acc-sum::-webkit-details-marker{display:none}
+.job-acc-chev{display:none;flex-shrink:0;transition:transform .2s ease}
+.job-acc[open] .job-acc-chev{transform:rotate(180deg)}
+
+.einblicke-sec { background: var(--hell); }
+.einblicke-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 18px; margin-top: 28px; }
+.einblick-card { background: var(--weiss); border: 1px solid var(--linie); border-radius: var(--radius); padding: 12px; box-shadow: var(--shadow); display: flex; flex-direction: column; gap: 10px; min-width: 0; }
+.einblick-card img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; object-position: center 22%; border-radius: 4px; }
+.einblick-card figcaption { font-size: 14px; font-weight: 700; color: var(--anthrazit); line-height: 1.35; }
+.grund, .einblick-card, .bieten, .bieten-grid li, .inserat-body, .blitz-karte, .kontakt-karte, .spalten > div { min-width: 0; overflow-wrap: break-word; }
+.sticky-cta a { display: inline-flex; align-items: center; justify-content: center; gap: 7px; }
+.kontakt-karte a { display: inline-flex; align-items: center; gap: 6px; min-height: 36px; padding: 3px 2px; }
+.faq summary { min-height: 44px; }
+@media (max-width: 1020px) and (min-width: 761px) {
+  .einblicke-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
 @media (max-width: 900px) {
   .sticky-cta { display: flex; }
+  body:not(.is-embedded) .cta-band { padding-bottom: 108px; }
 }
 @media (max-width: 760px) {
-  .spalten { grid-template-columns: 1fr; }
-  .inserat-body { padding: 26px 20px; }
-  .inserat-kopf { padding: 24px 20px; }
-  section { padding: 48px 16px; }
-  .blitz-karte { padding: 24px 18px; }
+  .spalten { grid-template-columns: 1fr; gap: 14px; }
+  section { padding: 42px 14px; }
+  .hero { padding: 48px 14px 40px; }
+  .eyebrow { font-size: 11.5px; padding: 5px 12px; letter-spacing: .08em; }
+  .hero p { font-size: 16.5px; margin-bottom: 22px; }
+  .hero-cta { flex-direction: column; gap: 10px; }
+  .hero-cta .btn, .blitz-buttons .btn, .wa-direkt-actions .btn { width: 100%; padding: 13px 14px; font-size: 15px; line-height: 1.25; white-space: normal; text-align: center; }
+  .trust { font-size: 13.5px; gap: 8px 14px; }
+  .swipe-track { display: flex !important; flex-wrap: nowrap; overflow-x: auto; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; touch-action: pan-x pan-y; gap: 12px !important; margin-top: 22px; padding: 4px 2px 10px; scrollbar-width: none; align-items: stretch; }
+  .swipe-track::-webkit-scrollbar { display: none; }
+  .gruende.swipe-track > .grund { flex: 0 0 82%; min-width: 0; scroll-snap-align: start; padding: 20px 16px; }
+  .gruende.swipe-track > .grund h3 { min-height: 0; margin-bottom: 6px; font-size: 17.5px; }
+  .einblicke-grid.swipe-track > .einblick-card { flex: 0 0 80%; min-width: 0; scroll-snap-align: start; padding: 10px; }
+  .swipe-hint { display: flex; }
+  .inserat { margin-top: 22px; }
+  .inserat-kopf { padding: 20px 16px; }
+  .inserat-body { padding: 20px 14px; }
+  .fakten { gap: 8px; margin-bottom: 20px; }
+  .fakt { font-size: 13px; padding: 6px 10px; }
+  .job-acc-sum { pointer-events: auto; cursor: pointer; margin-bottom: 0; padding: 12px 14px; min-height: 44px; background: var(--hell); border: 1px solid var(--linie); border-radius: var(--radius); font-size: 14.5px; letter-spacing: .05em; }
+  .job-acc[open] .job-acc-sum { border-bottom-left-radius: 0; border-bottom-right-radius: 0; border-bottom-color: var(--rot); margin-bottom: 10px; }
+  .job-acc-chev { display: inline-block; }
+  .job-acc ul { padding: 0 2px 6px; }
+  .bieten { margin-top: 18px; padding: 18px 14px; }
+  .bieten-grid { gap: 8px 14px; }
+  .bieten-grid li { font-size: 14.5px; }
+  .blitz-karte { padding: 22px 16px; margin-top: 22px; }
+  .wa-direkt-box { padding: 18px 14px; margin-top: 20px; }
+  .kontakt-karte { padding: 18px 14px; }
+  body.is-embedded section { padding: 32px 10px; }
+  body.is-embedded .hero { padding: 36px 12px 30px; }
+  body.is-embedded .inserat-kopf { padding: 18px 14px; }
+  body.is-embedded .inserat-body { padding: 18px 12px; }
+  body.is-embedded .bieten { padding: 16px 12px; }
+  body.is-embedded .blitz-karte { padding: 20px 12px; }
+  body.is-embedded .wa-direkt-box { padding: 16px 12px; }
+  body.is-embedded .cta-band { padding: 38px 12px; }
 }
 
 /* Klick-Inspektor Modus */
@@ -645,8 +728,8 @@ body.acp-swap-mode-active [data-slot*="foto"]:hover {
   <p data-slot="hero.lead">Familienbetrieb in 3. Generation – Handwerk trifft Hightech (Drohnen, Solar &amp; modernste Gebäudehüllen). Bewirb dich direkt in 30 Sekunden ohne Bewerbungsmappe.</p>
   
   <div class="hero-cta">
-    <a class="btn gross wa" href="https://wa.me/41792318484?text=Hoi%20Eljas%2C%20ich%20interessiere%20mich%20f%C3%BCr%20die%20Dachdecker-Stelle%20bei%20Hiltbrand." data-required="whatsapp-cta" data-slot="hero.cta.whatsapp" target="_blank" rel="noopener noreferrer">💬 «Hoi Eljas» per WhatsApp</a>
-    <a class="btn gross outline" href="tel:+41792318484" data-slot="hero.cta.tel" target="_top">📞 Direkt anrufen (079 231 84 84)</a>
+    <a class="btn gross wa" href="https://wa.me/41792318484?text=Hoi%20Eljas%2C%20ich%20interessiere%20mich%20f%C3%BCr%20die%20Dachdecker-Stelle%20bei%20Hiltbrand." data-required="whatsapp-cta" data-slot="hero.cta.whatsapp" target="_blank" rel="noopener noreferrer"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg> <span>«Hoi Eljas» per WhatsApp</span></a>
+    <a class="btn gross outline" href="tel:+41792318484" data-slot="hero.cta.tel" target="_top"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg> <span>Direkt anrufen: <span class="nowrap">079 231 84 84</span></span></a>
   </div>
   
   <div class="trust" data-slot="hero.trust">
@@ -669,7 +752,7 @@ body.acp-swap-mode-active [data-slot*="foto"]:hover {
     <p class="lead" style="margin:0 auto" data-slot="vorteile.lead">Keine leeren Versprechungen: Wir bieten dir ein Umfeld, in dem Handwerk Spass macht und geschätzt wird.</p>
   </div>
 
-  <div class="gruende">
+  <div class="gruende swipe-track" data-allow-x-scroll="true">
     <div class="grund" data-slot="grund.1">
       <div class="zahl">01</div>
       <h3>Handwerk &amp; Hightech</h3>
@@ -690,6 +773,39 @@ body.acp-swap-mode-active [data-slot*="foto"]:hover {
       <h3>Einfacher Einstieg</h3>
       <p>Keine bürokratischen Bewerbungs-Marathons. Melde dich kurz per WhatsApp – ein Schnuppertag auf dem Dach sagt mehr als 10 Seiten Lebenslauf.</p>
     </div>
+  </div>
+  <div class="swipe-hint" aria-hidden="true"><span class="swipe-hint-lbl">Vorteile wischen <span class="swipe-idx">1</span>/4 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><polyline points="9 18 15 12 9 6"/></svg></span><span class="swipe-dots"><span class="swipe-dot is-active"></span><span class="swipe-dot"></span><span class="swipe-dot"></span><span class="swipe-dot"></span></span></div>
+</section>
+
+<!-- ======================================================= -->
+<!-- EINBLICKE: ECHTE BAUSTELLEN & TEAM IN KRATTIGEN         -->
+<!-- ======================================================= -->
+<section class="einblicke-sec" id="einblicke" data-section="einblicke">
+  <div class="wrap">
+    <div class="wrap-schmal" style="text-align:center">
+      <div class="eyebrow2" data-slot="einblicke.eyebrow">Einblicke aus der Praxis</div>
+      <h2 data-slot="einblicke.titel">Echte Baustellen, starke Technik und unser Team.</h2>
+      <p class="lead" style="margin:0 auto" data-slot="einblicke.lead">Kein Hochglanz-Stockfoto: So sehen unsere Dächer über dem Thunersee und der Alltag in Krattigen wirklich aus.</p>
+    </div>
+    <div class="einblicke-grid swipe-track" data-allow-x-scroll="true">
+      <figure class="einblick-card" data-slot="einblicke.1">
+        <img src="images/q1_benefit.jpg" alt="Zwei Dachdecker von Hiltbrand Gebäudehüllen AG auf einer modernen Indach-Solaranlage" decoding="async">
+        <figcaption>Indach-Solar &amp; Steildach am Thunersee</figcaption>
+      </figure>
+      <figure class="einblick-card" data-slot="einblicke.2">
+        <img src="images/benefits_drohne.jpg" alt="Eigener Böcker Autokran bei einer Dachsanierung über dem See" decoding="async">
+        <figcaption>Eigener Böcker-Kran &amp; top Ausrüstung</figcaption>
+      </figure>
+      <figure class="einblick-card" data-slot="einblicke.3">
+        <img src="images/team_alt.jpg" alt="Zwei erfahrene Handwerker von Hiltbrand Gebäudehüllen AG" decoding="async">
+        <figcaption>Kameradschaft auf Augenhöhe im Betrieb</figcaption>
+      </figure>
+      <figure class="einblick-card" data-slot="einblicke.4">
+        <img src="images/q2_benefit.jpg" alt="Präziser Holz-Dachstuhl von innen mit sichtbaren Sparren und Lattung" decoding="async">
+        <figcaption>Sauberes Handwerk vom Dachstuhl bis ins Detail</figcaption>
+      </figure>
+    </div>
+    <div class="swipe-hint" aria-hidden="true"><span class="swipe-hint-lbl">Fotos wischen <span class="swipe-idx">1</span>/4 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><polyline points="9 18 15 12 9 6"/></svg></span><span class="swipe-dots"><span class="swipe-dot is-active"></span><span class="swipe-dot"></span><span class="swipe-dot"></span><span class="swipe-dot"></span></span></div>
   </div>
 </section>
 
@@ -715,33 +831,33 @@ body.acp-swap-mode-active [data-slot*="foto"]:hover {
 
       <div class="inserat-body">
         <div class="fakten">
-          <div class="fakt">📍 Krattigen / Berner Oberland</div>
-          <div class="fakt">⏱️ 80–100% Pensum</div>
-          <div class="fakt">💰 Überdurchschnittlicher Lohn</div>
-          <div class="fakt">⚡ Modernste Ausrüstung</div>
-          <div class="fakt">🤝 Familienbetrieb</div>
+          <div class="fakt"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg> <span>Krattigen / Berner Oberland</span></div>
+          <div class="fakt"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> <span>80–100% Pensum</span></div>
+          <div class="fakt"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg> <span>Überdurchschnittlicher Lohn</span></div>
+          <div class="fakt"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg> <span>Modernste Ausrüstung</span></div>
+          <div class="fakt"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg> <span>Familienbetrieb</span></div>
         </div>
 
         <div class="spalten">
           <div>
-            <h4>Was du machst</h4>
+            <details class="job-acc" open data-mobile-collapse="true"><summary class="job-acc-sum"><span>Was du machst</span><svg class="job-acc-chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></summary>
             <ul>
               <li>Eindeckungen im Steildach (Ziegel, Schiefer, Faserzement)</li>
               <li>Flachdachabdichtungen (Bitumen, Kunststoff, Flüssigkunststoff)</li>
               <li>Montage von Unterdächern, Wärmedämmungen &amp; Dampfbremsen</li>
               <li>Einbau von Dachfenstern &amp; Solaranlagen</li>
               <li>Reparaturen, Sanierungen und Unterhaltsarbeiten</li>
-            </ul>
+            </ul></details>
           </div>
           <div>
-            <h4>Was du mitbringst</h4>
+            <details class="job-acc" open data-mobile-collapse="true"><summary class="job-acc-sum"><span>Was du mitbringst</span><svg class="job-acc-chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></summary>
             <ul>
               <li>Abgeschlossene Lehre als Dachdecker EFZ (oder verwandtes Handwerk wie Polybauer, Zimmermann, Spengler mit Steildach-Erfahrung)</li>
               <li>Schwindelfreiheit, Trittsicherheit und Freude an der Arbeit im Freien</li>
               <li>Zuverlässige, selbstständige und saubere Arbeitsweise</li>
               <li>Gute Deutschkenntnisse für die Verständigung im Team</li>
               <li>Führerausweis Kat. B (von Vorteil)</li>
-            </ul>
+            </ul></details>
           </div>
         </div>
 
@@ -758,7 +874,7 @@ body.acp-swap-mode-active [data-slot*="foto"]:hover {
         </div>
 
         <div style="text-align:center;margin-top:36px">
-          <a class="btn gross wa" href="https://wa.me/41792318484?text=Hoi%20Eljas%2C%20ich%20interessiere%20mich%20f%C3%BCr%20die%20Dachdecker-Stelle." data-required="whatsapp-cta" data-slot="inserat.cta.wa" target="_blank" rel="noopener noreferrer">💬 Per WhatsApp bewerben</a>
+          <a class="btn gross wa" href="https://wa.me/41792318484?text=Hoi%20Eljas%2C%20ich%20interessiere%20mich%20f%C3%BCr%20die%20Dachdecker-Stelle." data-required="whatsapp-cta" data-slot="inserat.cta.wa" target="_blank" rel="noopener noreferrer"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg> <span>Per WhatsApp bewerben</span></a>
           <p style="margin-top:10px;color:var(--grau);font-size:14.5px">Ohne Lebenslauf. Ohne Anschreiben. Eljas antwortet innert 24h.</p>
         </div>
       </div>
@@ -799,15 +915,15 @@ body.acp-swap-mode-active [data-slot*="foto"]:hover {
         </div>
         
         <div class="blitz-buttons">
-          <button type="submit" class="btn" style="width: 100%; font-size: 17px;" data-slot="blitz.btn.mail">📞 Nachricht senden &amp; Rückruf anfordern</button>
+          <button type="submit" class="btn" style="width: 100%;" data-slot="blitz.btn.mail"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg> <span>Rückruf anfordern</span></button>
         </div>
       </form>
       
       <div class="wa-direkt-box">
         <p>Lieber direkt ohne Formular per WhatsApp schreiben?</p>
         <div class="wa-direkt-actions">
-          <a class="btn wa" href="https://wa.me/41792318484?text=Hoi%20Eljas%2C%20ich%20interessiere%20mich%20f%C3%BCr%20die%20Dachdecker-Stelle%20bei%20Hiltbrand." data-required="whatsapp-cta" target="_blank" rel="noopener noreferrer">💬 Direkt-Chat auf WhatsApp öffnen</a>
-          <a class="btn" style="background:var(--anthrazit)" href="tel:+41792318484" target="_top">📞 Anrufen: 079 231 84 84</a>
+          <a class="btn wa" href="https://wa.me/41792318484?text=Hoi%20Eljas%2C%20ich%20interessiere%20mich%20f%C3%BCr%20die%20Dachdecker-Stelle%20bei%20Hiltbrand." data-required="whatsapp-cta" target="_blank" rel="noopener noreferrer"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg> <span>Direkt auf WhatsApp schreiben</span></a>
+          <a class="btn" style="background:var(--anthrazit)" href="tel:+41792318484" target="_top"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg> <span>Anrufen: <span class="nowrap">079 231 84 84</span></span></a>
         </div>
       </div>
 
@@ -852,13 +968,14 @@ body.acp-swap-mode-active [data-slot*="foto"]:hover {
   <div class="wrap-schmal">
     <h2 data-slot="cta.titel">Dachdecker aus Leidenschaft?</h2>
     <p data-slot="cta.lead">Melde dich direkt bei Eljas – kürzer als deine Znüni-Pause.</p>
-    <a class="btn gross wa" href="https://wa.me/41792318484?text=Hoi%20Eljas%2C%20ich%20interessiere%20mich%20f%C3%BCr%20die%20Dachdecker-Stelle." data-required="whatsapp-cta" data-slot="cta.btn" target="_blank" rel="noopener noreferrer">💬 Jetzt per WhatsApp bewerben</a>
+    <a class="btn gross wa" href="https://wa.me/41792318484?text=Hoi%20Eljas%2C%20ich%20interessiere%20mich%20f%C3%BCr%20die%20Dachdecker-Stelle." data-required="whatsapp-cta" data-slot="cta.btn" target="_blank" rel="noopener noreferrer"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg> <span>Jetzt per WhatsApp bewerben</span></a>
     
     <div class="kontakt-karte" data-slot="cta.kontakt">
-      <strong>Eljas Hiltbrand</strong> · Inhaber &amp; Geschäftsführer<br>
-      <a href="https://wa.me/41792318484?text=Hoi%20Eljas" data-required="whatsapp-cta" target="_blank" rel="noopener noreferrer">💬 WhatsApp: +41 79 231 84 84</a> · <a href="tel:+41792318484" target="_top">📞 079 231 84 84</a><br>
-      <a href="mailto:eh@hiltbrand.swiss?cc=info@hiltbrand.swiss" target="_blank" rel="noopener noreferrer">✉️ eh@hiltbrand.swiss</a><br>
-      Hiltbrand Gebäudehüllen AG · 3704 Krattigen BE
+      <div><strong>Eljas Hiltbrand</strong> · Inhaber &amp; Geschäftsführer</div>
+      <div><a href="https://wa.me/41792318484?text=Hoi%20Eljas" data-required="whatsapp-cta" target="_blank" rel="noopener noreferrer"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg> <span>WhatsApp: <span class="nowrap">+41 79 231 84 84</span></span></a></div>
+      <div><a href="tel:+41792318484" target="_top"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg> <span>Telefon: <span class="nowrap">079 231 84 84</span></span></a></div>
+      <div><a href="mailto:eh@hiltbrand.swiss?cc=info@hiltbrand.swiss" target="_blank" rel="noopener noreferrer"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg> <span>eh@hiltbrand.swiss</span></a></div>
+      <div style="margin-top:4px;opacity:.92">Hiltbrand Gebäudehüllen AG · 3704 Krattigen BE</div>
     </div>
   </div>
 </section>
@@ -867,8 +984,8 @@ body.acp-swap-mode-active [data-slot*="foto"]:hover {
 <!-- STICKY MOBILE CTA                                       -->
 <!-- ======================================================= -->
 <div class="sticky-cta" role="navigation" aria-label="Schnellbewerbung">
-  <a class="s-wa" href="https://wa.me/41792318484?text=Hoi%20Eljas%2C%20ich%20interessiere%20mich%20f%C3%BCr%20die%20Dachdecker-Stelle." data-required="whatsapp-cta" target="_blank" rel="noopener noreferrer">💬 WhatsApp</a>
-  <a class="s-tel" href="tel:+41792318484" target="_top">📞 Anrufen</a>
+  <a class="s-wa" href="https://wa.me/41792318484?text=Hoi%20Eljas%2C%20ich%20interessiere%20mich%20f%C3%BCr%20die%20Dachdecker-Stelle." data-required="whatsapp-cta" target="_blank" rel="noopener noreferrer"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg> <span>WhatsApp</span></a>
+  <a class="s-tel" href="tel:+41792318484" target="_top"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg> <span>Anrufen</span></a>
 </div>
 
 <!-- ======================================================= -->
@@ -890,7 +1007,10 @@ function sendeBewerbung(e) {
   window.open(mailUrl, "_blank");
 }
 
-// Widget Auto-Height Anpassung für iFrame Einbettung
+// Widget / Embed Modus & Auto-Height Anpassung für iFrame Einbettung
+if (new URLSearchParams(window.location.search).get("embed") === "true") {
+  document.body.classList.add("is-embedded");
+}
 function notifyParentHeight() {
   if (window.parent !== window) {
     var h = document.documentElement.scrollHeight || document.body.scrollHeight;
@@ -1029,6 +1149,53 @@ document.addEventListener('click', function(e) {
     }
   }
 }, true);
+
+
+// Mobile-First Peek-Swipe Indikatoren & Einklapp-Sektionen (inkl. Auto-Height-Resync)
+(function() {
+  var tracks = document.querySelectorAll('.swipe-track');
+  for (var i = 0; i < tracks.length; i++) {
+    (function(track) {
+      var hint = track.nextElementSibling;
+      if (!hint || !hint.classList.contains('swipe-hint')) return;
+      var idxEl = hint.querySelector('.swipe-idx');
+      var dots = hint.querySelectorAll('.swipe-dot');
+      var cards = track.children;
+      if (!cards.length) return;
+      function update() {
+        var sl = track.scrollLeft;
+        var cardW = cards[0].getBoundingClientRect().width + 12;
+        var idx = cardW > 20 ? Math.min(cards.length - 1, Math.max(0, Math.round(sl / cardW))) : 0;
+        if (idxEl) idxEl.textContent = String(idx + 1);
+        for (var d = 0; d < dots.length; d++) {
+          dots[d].classList.toggle('is-active', d === idx);
+        }
+      }
+      track.addEventListener('scroll', update, { passive: true });
+    })(tracks[i]);
+  }
+  var lastIsMobile = null;
+  function syncAccordions(forceInit) {
+    var isMob = window.innerWidth <= 760;
+    if (!forceInit && lastIsMobile === isMob) return;
+    lastIsMobile = isMob;
+    var accs = document.querySelectorAll('details.job-acc[data-mobile-collapse="true"]');
+    for (var j = 0; j < accs.length; j++) {
+      accs[j].open = !isMob;
+    }
+    if (typeof notifyParentHeight === 'function') notifyParentHeight();
+  }
+  var allAcc = document.querySelectorAll('details.job-acc');
+  for (var k = 0; k < allAcc.length; k++) {
+    allAcc[k].addEventListener('toggle', function() {
+      if (typeof notifyParentHeight === 'function') {
+        setTimeout(notifyParentHeight, 30);
+      }
+    });
+  }
+  syncAccordions(true);
+  window.addEventListener('resize', function() { syncAccordions(false); });
+})();
 
 document.addEventListener('keydown', function(e) {
   if (e.key === 'Escape') {
