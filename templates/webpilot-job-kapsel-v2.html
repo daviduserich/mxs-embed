@@ -1,0 +1,1169 @@
+<!DOCTYPE html>
+<html lang="de-CH">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <meta http-equiv="X-XSS-Protection" content="1; mode=block">
+  <meta name="referrer" content="no-referrer">
+  <title>[STELLENTITEL] | [FIRMENNAME]</title>
+  <meta name="description" content="[STELLENTITEL] bei [FIRMENNAME] in [ORT]. Unverbindlich melden per WhatsApp oder Rückruf ohne Lebenslauf.">
+  <meta name="firma" content="[FIRMENNAME]">
+  <meta name="host-website" content="[HOST_URL]">
+  <meta name="brand-color" content="[PRIMARY_HEX]">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+  <style>
+    /* ======================================================================
+       WebPilot Job-Kapsel v2 – Swiss Architectural Canvas (Mobile-First)
+       Nur diese 6 Marken-Tokens im :root je Mandant anpassen (#UI-16)
+       ====================================================================== */
+    :root {
+      --bg: #ffffff;
+      --bg-alt: #f6f8fb;
+      --surface: #ffffff;
+      --primary: #0f4c81;
+      --primary-dark: #0a355c;
+      --primary-text: #0f4c81;
+      --primary-soft: #eef5fc;
+      --ink: #161a20;
+      --muted: #4b5563;
+      --border: #e2e8f0;
+      --border-strong: rgba(22, 26, 32, 0.14);
+      --wa: #157a3c;
+      --wa-dark: #116230;
+      --danger: #dc2626;
+      --radius-sm: 4px;
+      --radius-md: 8px;
+      --font-display: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      --container: 1040px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html {
+      scroll-behavior: smooth;
+      -webkit-text-size-adjust: 100%;
+      overflow-x: clip;
+    }
+    body {
+      font-family: var(--font-body);
+      background: var(--bg);
+      color: var(--ink);
+      font-size: 15.5px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: clip;
+    }
+    body.is-embedded {
+      padding-bottom: 56px;
+    }
+    body.is-embedded .site-header,
+    body.is-embedded .site-footer,
+    body.is-embedded .sticky-cta {
+      display: none !important;
+    }
+
+    ::selection { background: var(--primary-soft); color: var(--primary-dark); }
+    :focus-visible { outline: 2px solid var(--primary); outline-offset: 2px; }
+    img { max-width: 100%; height: auto; display: block; }
+    a { color: var(--primary-text); text-decoration: none; text-underline-offset: 3px; }
+    .tabular { font-variant-numeric: tabular-nums; }
+
+    h1, h2, h3, h4 {
+      font-family: var(--font-display);
+      color: var(--ink);
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+    }
+    h1 { font-size: clamp(1.55rem, 3vw, 2.25rem); font-weight: 800; }
+    h2 { font-size: clamp(1.25rem, 2.2vw, 1.7rem); font-weight: 800; }
+    h3 { font-size: 1.05rem; font-weight: 700; }
+
+    .wrap {
+      width: 100%;
+      max-width: var(--container);
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* Freistehende linksbuendige Kicker (#UI-01: 0 Box, 0 Vorstrich) */
+    .section-kicker {
+      display: block;
+      font-family: var(--font-display);
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--primary-text);
+      margin: 0 0 8px 0;
+      background: transparent;
+      border: none;
+      padding: 0;
+    }
+    .sec {
+      padding: 56px 0;
+      background: var(--bg);
+      border-bottom: 1px solid var(--border);
+    }
+    .sec-alt {
+      background: var(--bg-alt);
+    }
+    .sec-head {
+      max-width: 680px;
+      margin-bottom: 28px;
+    }
+    .sec-head p {
+      margin-top: 8px;
+      color: var(--muted);
+    }
+
+    /* Standalone Header (im ?embed=true Modus automatisch ausgeblendet) */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 40;
+      background: rgba(255, 255, 255, 0.96);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border);
+    }
+    .site-header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      min-height: 62px;
+    }
+    .brand-link {
+      min-height: 40px;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 0.95rem;
+    }
+    .header-nav {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: nowrap;
+    }
+    .header-nav a {
+      color: var(--ink);
+      font-size: 0.88rem;
+      font-weight: 600;
+      white-space: nowrap;
+      padding: 6px 2px;
+    }
+    .header-nav a:hover { color: var(--primary-text); }
+
+    /* Buttons (2-Radius-Architektur: 8px) */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      min-height: 44px;
+      padding: 11px 18px;
+      border-radius: var(--radius-md);
+      font-family: var(--font-body);
+      font-size: 0.94rem;
+      font-weight: 600;
+      line-height: 1.25;
+      border: 1px solid transparent;
+      cursor: pointer;
+      transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+      background: var(--primary);
+      color: #ffffff;
+      text-align: center;
+      white-space: normal;
+    }
+    .btn:hover { background: var(--primary-dark); }
+    .btn-wa {
+      background: var(--wa);
+      color: #ffffff;
+    }
+    .btn-wa:hover { background: var(--wa-dark); }
+    .btn-outline {
+      background: var(--surface);
+      color: var(--ink);
+      border-color: var(--border-strong);
+    }
+    .btn-outline:hover {
+      background: var(--bg-alt);
+      border-color: var(--ink);
+    }
+    .btn:disabled { opacity: 0.65; cursor: not-allowed; }
+    .nowrap { white-space: nowrap; }
+
+    /* Sektion 1: Heller Swiss-Canvas Hero-Split (#hero) */
+    .hero {
+      padding: 44px 0 48px;
+      background: var(--bg);
+      border-bottom: 1px solid var(--border);
+    }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.12fr 0.88fr;
+      gap: 32px;
+      align-items: stretch;
+    }
+    .hero-copy {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 20px;
+    }
+    .hero-lead {
+      margin-top: 12px;
+      color: var(--muted);
+      font-size: 1rem;
+      max-width: 54ch;
+    }
+    .hero-cta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 20px;
+    }
+    .hero-trust {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 8px 16px;
+      padding-top: 16px;
+      border-top: 1px solid var(--border);
+    }
+    .trust-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      font-size: 0.875rem;
+      color: var(--ink);
+      font-weight: 500;
+    }
+    .trust-item svg {
+      color: var(--primary-text);
+      margin-top: 3px;
+      flex-shrink: 0;
+    }
+
+    /* Rechte Hero-Buehne: Full-Bleed Medien-Karte (#UI-02, #S-23, #S-33) */
+    .hero-media-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .hero-media-card img {
+      width: 100%;
+      max-width: none;
+      height: 100%;
+      min-height: 240px;
+      object-fit: cover;
+      flex: 1 1 auto;
+    }
+    .hero-media-cap {
+      padding: 12px 16px;
+      background: var(--bg-alt);
+      border-top: 1px solid var(--border);
+      font-size: 0.85rem;
+      color: var(--muted);
+      font-weight: 500;
+    }
+
+    /* Sektion 2: 4 Vorteile (Desktop 2x2 Grid, Mobile Peek-Swipe) */
+    .cards-grid-4 {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+    }
+    .reason-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .reason-num {
+      font-family: var(--font-display);
+      font-size: 0.8rem;
+      font-weight: 800;
+      letter-spacing: 0.06em;
+      color: var(--primary-text);
+      font-variant-numeric: tabular-nums;
+    }
+    .reason-card p {
+      color: var(--muted);
+      font-size: 0.94rem;
+    }
+
+    /* Sektion 3: Full-Bleed Medien/Einblicke (S-33 konform) */
+    .media-grid-4 {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 14px;
+    }
+    .media-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      padding: 0;
+    }
+    .media-card img {
+      width: 100%;
+      max-width: none;
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+      display: block;
+    }
+    .media-card figcaption {
+      padding: 12px 14px;
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--ink);
+      line-height: 1.38;
+    }
+
+    /* Swipe-Indikator (nur Mobile sichtbar) */
+    .swipe-hint { display: none; }
+
+    /* Sektion 4: Offene Stelle – flach ohne Box-in-Box */
+    .facts-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 20px;
+    }
+    .fact-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 10px;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border);
+      background: var(--surface);
+      font-size: 0.84rem;
+      font-weight: 500;
+      color: var(--ink);
+    }
+    .fact-chip svg { color: var(--primary-text); flex-shrink: 0; }
+    .job-accordions {
+      border-top: 1px solid var(--border);
+    }
+    details.job-acc {
+      border-bottom: 1px solid var(--border);
+    }
+    details.job-acc summary.job-acc-sum {
+      list-style: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 15px 4px;
+      min-height: 48px;
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 1rem;
+      color: var(--ink);
+    }
+    details.job-acc summary.job-acc-sum::-webkit-details-marker { display: none; }
+    .job-acc-chev {
+      flex-shrink: 0;
+      color: var(--muted);
+      transition: transform 0.15s ease;
+    }
+    details.job-acc[open] .job-acc-chev { transform: rotate(180deg); }
+    .job-acc-body {
+      padding: 0 4px 18px;
+    }
+    .clean-list {
+      list-style: none;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 8px 24px;
+    }
+    .clean-list li {
+      position: relative;
+      padding-left: 16px;
+      color: var(--muted);
+      font-size: 0.94rem;
+    }
+    .clean-list li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0.62em;
+      width: 6px;
+      height: 6px;
+      border-radius: var(--radius-sm);
+      background: var(--primary);
+    }
+
+    /* Sektion 5: Das EINE symmetrische 2-Spalten-Kontakt-Modul (#blitz) */
+    .two-col-grid {
+      display: grid;
+      grid-template-columns: 0.95fr 1.05fr;
+      gap: 32px;
+      align-items: stretch;
+    }
+    .blitz-info {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 24px;
+    }
+    .blitz-info p.lead {
+      margin-top: 10px;
+      color: var(--muted);
+    }
+    .direct-contact {
+      border-top: 1px solid var(--border);
+      padding-top: 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .direct-person {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 0.96rem;
+      color: var(--ink);
+    }
+    .direct-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .direct-link-line {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      min-height: 36px;
+      font-size: 0.92rem;
+      font-weight: 500;
+      color: var(--ink);
+    }
+    .direct-link-line:hover { color: var(--primary-text); text-decoration: underline; }
+    .direct-meta {
+      font-size: 0.84rem;
+      color: var(--muted);
+    }
+
+    .form-card {
+      background: var(--surface);
+      border: 1px solid var(--border-strong);
+      border-radius: var(--radius-md);
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    .form-card p.hint {
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+    .field {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+    .field label {
+      font-size: 0.86rem;
+      font-weight: 600;
+      color: var(--ink);
+    }
+    .field input,
+    .field select {
+      width: 100%;
+      min-height: 44px;
+      padding: 10px 12px;
+      border: 1px solid var(--border-strong);
+      border-radius: var(--radius-md);
+      background: var(--bg);
+      color: var(--ink);
+      font-family: var(--font-body);
+      font-size: 0.95rem;
+    }
+    .field input:user-invalid,
+    .field input.is-invalid {
+      border-color: var(--danger);
+    }
+    .field-error {
+      display: none;
+      font-size: 0.82rem;
+      color: var(--danger);
+      font-weight: 500;
+    }
+    .field-error.is-visible { display: block; }
+    .form-actions {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+      margin-top: 2px;
+    }
+    .form-status {
+      display: none;
+      padding: 10px 12px;
+      border-radius: var(--radius-sm);
+      font-size: 0.86rem;
+      font-weight: 500;
+      background: var(--primary-soft);
+      color: var(--ink);
+      border: 1px solid var(--border);
+    }
+    .form-status.is-visible { display: block; }
+    .form-privacy {
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+
+    /* Sektion 6: FAQ */
+    .faq-list {
+      border-top: 1px solid var(--border);
+    }
+    details.faq-item {
+      border-bottom: 1px solid var(--border);
+    }
+    details.faq-item summary {
+      list-style: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 14px 2px;
+      min-height: 48px;
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 0.96rem;
+      color: var(--ink);
+    }
+    details.faq-item summary::-webkit-details-marker { display: none; }
+    details.faq-item p {
+      padding: 0 2px 16px;
+      color: var(--muted);
+      font-size: 0.93rem;
+      max-width: 72ch;
+    }
+
+    /* Footer (im Embed ausgeblendet) */
+    .site-footer {
+      padding: 20px 0;
+      background: var(--bg);
+      color: var(--muted);
+      font-size: 0.84rem;
+    }
+    .site-footer-inner {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 8px 16px;
+    }
+
+    /* Sticky Standalone Mobile Bar (im ?embed=true Modus via body.is-embedded ausgeblendet) */
+    .sticky-cta { display: none; }
+
+    /* Inspector Highlight */
+    body.acp-inspector-on [data-slot]:hover {
+      outline: 2px dashed var(--primary);
+      outline-offset: 2px;
+      cursor: pointer;
+    }
+    body.acp-swap-mode-active [data-slot*="bild"]:hover,
+    body.acp-swap-mode-active [data-slot*="foto"]:hover,
+    body.acp-swap-mode-active img:hover {
+      outline: 2px solid var(--primary);
+      outline-offset: 2px;
+      cursor: crosshair;
+    }
+
+    /* ======================================================================
+       Responsive / Mobile-First (< 900px / <= 640px / <= 420px Embed)
+       ====================================================================== */
+    @media (max-width: 900px) {
+      .hero-grid,
+      .two-col-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+      .clean-list { grid-template-columns: 1fr; }
+      .media-grid-4 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+
+    @media (max-width: 760px) {
+      .header-nav { display: none; }
+      .sec { padding: 36px 0; }
+      .hero { padding: 24px 0 32px; }
+      .hero-trust { grid-template-columns: 1fr; gap: 6px; padding-top: 12px; }
+      .form-actions { grid-template-columns: 1fr; }
+
+      /* Mobile Horizontal Peek-Swipe */
+      .swipe-track {
+        display: flex !important;
+        flex-wrap: nowrap !important;
+        gap: 12px !important;
+        overflow-x: auto !important;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        padding-bottom: 4px;
+      }
+      .swipe-track::-webkit-scrollbar { display: none; }
+      .swipe-track > * {
+        flex: 0 0 84% !important;
+        min-width: 0 !important;
+        scroll-snap-align: start;
+      }
+      .swipe-hint {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-top: 10px;
+        font-size: 0.78rem;
+        font-weight: 600;
+        color: var(--muted);
+      }
+      .swipe-hint-lbl {
+        display: inline-flex;
+        align-items: center;
+        gap: 4px;
+      }
+      .swipe-dots {
+        display: inline-flex;
+        align-items: center;
+        gap: 5px;
+      }
+      .swipe-dot {
+        width: 6px;
+        height: 6px;
+        border-radius: var(--radius-sm);
+        background: var(--border-strong);
+        transition: width 0.15s ease, background-color 0.15s ease;
+      }
+      .swipe-dot.is-active {
+        width: 18px;
+        background: var(--primary);
+      }
+      .sticky-cta {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 8px;
+        position: fixed;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 45;
+        padding: 10px 14px calc(10px + env(safe-area-inset-bottom, 0px));
+        background: rgba(255, 255, 255, 0.96);
+        border-top: 1px solid var(--border);
+      }
+      body:not(.is-embedded) { padding-bottom: 74px; }
+    }
+
+    @media (max-width: 640px) {
+      body { font-size: 15px; line-height: 1.52; }
+      h1 { font-size: 1.44rem; }
+      h2 { font-size: 1.18rem; }
+      h3 { font-size: 0.96rem; }
+      .wrap { padding: 0 14px; }
+      .sec { padding: 26px 0; }
+      .hero { padding: 16px 0 24px; }
+      .sec-head { margin-bottom: 14px; }
+      .hero-grid, .two-col-grid { gap: 18px; }
+      .facts-row { gap: 6px; margin-bottom: 14px; }
+      .fact-chip { padding: 5px 8px; font-size: 0.8rem; }
+      .form-card { padding: 16px 14px; gap: 12px; }
+    }
+
+    @media (max-width: 420px) {
+      body.is-embedded .wrap { padding: 0 10px; }
+      .hero-cta .btn { width: 100%; }
+      .direct-links .btn { width: 100%; }
+    }
+  </style>
+</head>
+<body>
+
+<header class="site-header" data-section="header">
+  <div class="wrap site-header-inner">
+    <a class="brand-link" href="#hero">[FIRMENNAME]</a>
+    <nav class="header-nav" aria-label="Bereiche">
+      <a href="#vorteile">Vorteile</a>
+      <a href="#einblicke">Einblicke</a>
+      <a href="#stelle">Offene Stelle</a>
+      <a href="#blitz">Kurz melden</a>
+      <a href="#faq">Fragen</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <!-- [1] HERO SPLIT -->
+  <section class="hero" id="hero" data-section="hero" data-slot="hero.section">
+    <div class="wrap">
+      <div class="hero-grid">
+        <div class="hero-copy">
+          <div>
+            <span class="section-kicker" data-slot="hero.badge">[FIRMENNAME] · [ORT]</span>
+            <h1 data-slot="hero.titel">[STELLENTITEL] – Dein Platz in [ORT].</h1>
+            <p class="hero-lead" data-slot="hero.lead">[KURZE EINLEITUNG IN 2 KLARTEXT-SAETZEN OHNE WERBEFLOSKELN.]</p>
+            <div class="hero-cta">
+              <a class="btn btn-wa" href="https://wa.me/41790000000?text=Hoi%20..." data-required="whatsapp-cta" data-slot="hero.cta.whatsapp" target="_blank" rel="noopener noreferrer">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg>
+                <span>Direkt per WhatsApp melden</span>
+              </a>
+              <a class="btn btn-outline" href="#blitz" data-slot="hero.cta.secondary">
+                <span>Rückruf vereinbaren</span>
+              </a>
+            </div>
+          </div>
+          <div class="hero-trust" data-slot="hero.trust">
+            <div class="trust-item"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg><span>100 % vertraulich</span></div>
+            <div class="trust-item"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg><span>Kein Lebenslauf nötig</span></div>
+            <div class="trust-item"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg><span>Faire Entlöhnung über GAV</span></div>
+            <div class="trust-item"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg><span>Schnuppertag unkompliziert</span></div>
+          </div>
+        </div>
+
+        <figure class="hero-media-card">
+          <img src="default-images/benefits_drohne.jpg" width="1400" height="1050" alt="[BILDALT]" fetchpriority="high" decoding="async" data-slot="hero.hintergrund.bild">
+          <figcaption class="hero-media-cap">[BILDUNTERSCHRIFT]</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- [2] VORTEILE -->
+  <section class="sec sec-alt" id="vorteile" data-section="vorteile">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="section-kicker" data-slot="vorteile.eyebrow">Warum wir</span>
+        <h2 data-slot="vorteile.titel">Vier Dinge, auf die du dich verlassen kannst.</h2>
+        <p data-slot="vorteile.lead">Klare Rahmenbedingungen statt leere Versprechen.</p>
+      </div>
+      <div class="cards-grid-4 swipe-track" data-allow-x-scroll="true">
+        <div class="reason-card" data-slot="grund.1"><span class="reason-num">01</span><h3>[VORTEIL 1]</h3><p>[KURZE BESCHREIBUNG 1]</p></div>
+        <div class="reason-card" data-slot="grund.2"><span class="reason-num">02</span><h3>[VORTEIL 2]</h3><p>[KURZE BESCHREIBUNG 2]</p></div>
+        <div class="reason-card" data-slot="grund.3"><span class="reason-num">03</span><h3>[VORTEIL 3]</h3><p>[KURZE BESCHREIBUNG 3]</p></div>
+        <div class="reason-card" data-slot="grund.4"><span class="reason-num">04</span><h3>[VORTEIL 4]</h3><p>[KURZE BESCHREIBUNG 4]</p></div>
+      </div>
+      <div class="swipe-hint" aria-hidden="true">
+        <span class="swipe-hint-lbl">Vorteile wischen <span class="swipe-idx">1</span>/4</span>
+        <span class="swipe-dots"><span class="swipe-dot is-active"></span><span class="swipe-dot"></span><span class="swipe-dot"></span><span class="swipe-dot"></span></span>
+      </div>
+    </div>
+  </section>
+
+  <!-- [3] OFFENE STELLE -->
+  <section class="sec" id="stelle" data-section="stelle">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="section-kicker" data-slot="inserat.eyebrow">Offene Stelle</span>
+        <h2 data-slot="inserat.titel">[STELLENTITEL]</h2>
+        <p data-slot="inserat.lead">Pensum 80–100 % · Arbeitsort: [ORT] · Eintritt nach Vereinbarung</p>
+      </div>
+      <div class="facts-row">
+        <span class="fact-chip">[ORT]</span>
+        <span class="fact-chip">80–100 % Pensum</span>
+        <span class="fact-chip">Überdurchschnittlicher Lohn</span>
+      </div>
+      <div class="job-accordions">
+        <details class="job-acc" open data-mobile-collapse="true">
+          <summary class="job-acc-sum"><span>Was du machst</span><svg class="job-acc-chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></summary>
+          <div class="job-acc-body"><ul class="clean-list"><li>[AUFGABE 1]</li><li>[AUFGABE 2]</li></ul></div>
+        </details>
+        <details class="job-acc" open data-mobile-collapse="true">
+          <summary class="job-acc-sum"><span>Was du mitbringst</span><svg class="job-acc-chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></summary>
+          <div class="job-acc-body"><ul class="clean-list"><li>[PROFIL 1]</li><li>[PROFIL 2]</li></ul></div>
+        </details>
+        <details class="job-acc" open data-mobile-collapse="true">
+          <summary class="job-acc-sum"><span>Was wir dir bieten</span><svg class="job-acc-chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></summary>
+          <div class="job-acc-body"><ul class="clean-list"><li>[ANGEBOT 1]</li><li>[ANGEBOT 2]</li></ul></div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- [4] KONTAKT & RUECKRUF (SYMMETRISCHER 2-SPALTEN-SPLIT) -->
+  <section class="sec sec-alt" id="blitz" data-section="blitz">
+    <div class="wrap">
+      <div class="two-col-grid">
+        <div class="blitz-info">
+          <div>
+            <span class="section-kicker" data-slot="blitz.eyebrow">Unverbindlicher Kontakt</span>
+            <h2 data-slot="blitz.titel">Einfach kurz melden. Ganz ohne Papierkram.</h2>
+            <p class="lead" data-slot="blitz.lead">Kein Lebenslauf, kein Anschreiben. Schreib kurz per WhatsApp oder trag ein, wann wir telefonieren dürfen.</p>
+          </div>
+          <div class="direct-contact" data-slot="cta.kontakt">
+            <div class="direct-person">[ANSPRECHPARTNER] · [FUNKTION]</div>
+            <div class="direct-links">
+              <a class="btn btn-wa" href="https://wa.me/41790000000" data-required="whatsapp-cta" target="_blank" rel="noopener noreferrer">Direkt auf WhatsApp schreiben</a>
+              <a class="btn btn-outline" href="tel:+41790000000" target="_top"><span class="nowrap">079 000 00 00</span> anrufen</a>
+            </div>
+            <a class="direct-link-line" href="mailto:info@example.ch" target="_top">info@example.ch</a>
+            <div class="direct-meta">[FIRMENNAME] · [ADRESSE]</div>
+          </div>
+        </div>
+
+        <div class="form-card" data-slot="blitz.formular">
+          <h3 data-slot="blitz.karte.titel">Kurzen Rückruf anfordern</h3>
+          <p class="hint" data-slot="blitz.karte.hinweis">Gib kurz Namen und Nummer an. Wir melden uns persönlich bei dir.</p>
+          <form id="blitzForm" novalidate>
+            <div class="field">
+              <label for="bname">Dein Vor- und Nachname</label>
+              <input type="text" id="bname" placeholder="z. B. Marc Steiner" autocomplete="name">
+              <span class="field-error" id="err-bname">Bitte gib deinen Namen an.</span>
+            </div>
+            <div class="field">
+              <label for="btel">Deine Handynummer</label>
+              <input type="tel" id="btel" placeholder="z. B. 079 123 45 67" autocomplete="tel">
+              <span class="field-error" id="err-btel">Bitte gib eine gültige Nummer an.</span>
+            </div>
+            <div class="field">
+              <label for="bzeit">Wann passt es dir am besten?</label>
+              <select id="bzeit">
+                <option>Über Mittag (12–13 Uhr)</option>
+                <option>Nach Feierabend (ab 17 Uhr)</option>
+                <option>Am Samstagvormittag</option>
+                <option>Jederzeit – ruft einfach an</option>
+              </select>
+            </div>
+            <div class="form-actions" style="margin-top:10px">
+              <button type="button" class="btn btn-wa" id="btnSendWa">Per WhatsApp</button>
+              <button type="submit" class="btn" id="btnSendMail">Per E-Mail</button>
+            </div>
+            <div class="form-status" id="formStatus" role="status" aria-live="polite"></div>
+          </form>
+          <p class="form-privacy" data-slot="blitz.sicherheit">100 % vertraulich unter uns. Dein aktueller Arbeitgeber erfährt nichts.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- [5] FAQ -->
+  <section class="sec" id="faq" data-section="faq">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="section-kicker" data-slot="faq.eyebrow">Ehrliche Antworten</span>
+        <h2 data-slot="faq.titel">Was du dich vielleicht vorab fragst.</h2>
+      </div>
+      <div class="faq-list">
+        <details class="faq-item" data-slot="faq.1">
+          <summary><span>Ich bin aktuell fest angestellt. Bleibt das vertraulich?</span><svg class="job-acc-chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></summary>
+          <p>Ja, zu 100 %. Du bewirbst dich hier nicht offiziell, sondern führst zuerst ein vertrauliches Gespräch direkt mit der Geschäftsleitung.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer" data-section="footer">
+  <div class="wrap site-footer-inner">
+    <span>© 2026 [FIRMENNAME]</span>
+    <span>[ADRESSE]</span>
+  </div>
+</footer>
+
+<div class="sticky-cta" role="navigation" aria-label="Direktkontakt">
+  <a class="btn btn-wa" href="https://wa.me/41790000000" data-required="whatsapp-cta" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+  <a class="btn" href="tel:+41790000000" target="_top">Anrufen</a>
+</div>
+
+<script>
+(function() {
+  var params = new URLSearchParams(window.location.search);
+  var isEmbedded = params.get('embed') === 'true';
+  if (isEmbedded) {
+    document.body.classList.add('is-embedded');
+  }
+
+  /* FlyingPress-sicherer Embed-Resize-Heartbeat */
+  var lastSentHeight = 0;
+  var resizeTimer = null;
+  function notifyParentHeight(force) {
+    if (window.parent && window.parent !== window) {
+      var h = Math.max(
+        document.documentElement.scrollHeight || 0,
+        document.body.scrollHeight || 0
+      );
+      if (force || Math.abs(h - lastSentHeight) >= 2) {
+        lastSentHeight = h;
+        window.parent.postMessage({ type: 'acp-embed-resize', height: h }, '*');
+      }
+    }
+  }
+  window.notifyParentHeight = notifyParentHeight;
+
+  if (isEmbedded || window.parent !== window) {
+    [150, 600, 1500, 3500, 7000, 11500].forEach(function(ms) {
+      setTimeout(function() { notifyParentHeight(true); }, ms);
+    });
+    window.addEventListener('load', function() { notifyParentHeight(true); });
+    window.addEventListener('resize', function() {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(function() { notifyParentHeight(false); }, 50);
+    });
+    if (document.fonts && document.fonts.ready) {
+      document.fonts.ready.then(function() { notifyParentHeight(true); });
+    }
+    if (window.ResizeObserver) {
+      new ResizeObserver(function() {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(function() { notifyParentHeight(false); }, 40);
+      }).observe(document.body);
+    }
+    var lastTouchSync = 0;
+    function resyncOnInteract() {
+      var now = Date.now();
+      if (now - lastTouchSync > 400) {
+        lastTouchSync = now;
+        notifyParentHeight(true);
+      }
+    }
+    document.addEventListener('pointerdown', resyncOnInteract, { passive: true });
+    document.addEventListener('touchstart', resyncOnInteract, { passive: true });
+    document.addEventListener('focusin', resyncOnInteract);
+    document.addEventListener('visibilitychange', function() {
+      if (!document.hidden) notifyParentHeight(true);
+    });
+    if (window.IntersectionObserver) {
+      var io = new IntersectionObserver(function(entries) {
+        if (entries.some(function(en) { return en.isIntersecting; })) {
+          notifyParentHeight(true);
+        }
+      });
+      if (document.body) io.observe(document.body);
+    }
+  }
+
+  /* Externe Links im iFrame absichern */
+  document.addEventListener('click', function(e) {
+    var a = e.target.closest('a');
+    if (!a) return;
+    var href = a.getAttribute('href') || '';
+    if (href.indexOf('wa.me') !== -1 || href.indexOf('whatsapp.com') !== -1) {
+      a.target = '_blank';
+      a.rel = 'noopener noreferrer';
+    } else if (href.indexOf('tel:') === 0 || href.indexOf('mailto:') === 0) {
+      a.target = '_top';
+    }
+  }, true);
+
+  /* Formular-Lebenszyklus (#SYS-01: Inline-Validierung + Doppelklick-Lock + In-Place-Reset ohne F5) */
+  var form = document.getElementById('blitzForm');
+  var nameInput = document.getElementById('bname');
+  var telInput = document.getElementById('btel');
+  var zeitSelect = document.getElementById('bzeit');
+  var statusBox = document.getElementById('formStatus');
+  var submitLock = false;
+
+  function clearFieldError(input, errId) {
+    if (!input) return;
+    input.classList.remove('is-invalid');
+    input.setAttribute('aria-invalid', 'false');
+    var err = document.getElementById(errId);
+    if (err) err.classList.remove('is-visible');
+  }
+  if (nameInput) nameInput.addEventListener('input', function() { clearFieldError(nameInput, 'err-bname'); });
+  if (telInput) telInput.addEventListener('input', function() { clearFieldError(telInput, 'err-btel'); });
+
+  function validateForm() {
+    var valid = true;
+    var nVal = nameInput ? nameInput.value.trim() : '';
+    var tVal = telInput ? telInput.value.trim() : '';
+    if (!nVal && nameInput) {
+      nameInput.classList.add('is-invalid');
+      nameInput.setAttribute('aria-invalid', 'true');
+      var en = document.getElementById('err-bname');
+      if (en) en.classList.add('is-visible');
+      valid = false;
+    }
+    var digits = tVal.replace(/[^0-9+]/g, '');
+    if (digits.length < 7 && telInput) {
+      telInput.classList.add('is-invalid');
+      telInput.setAttribute('aria-invalid', 'true');
+      var et = document.getElementById('err-btel');
+      if (et) et.classList.add('is-visible');
+      valid = false;
+    }
+    notifyParentHeight(true);
+    return valid ? { n: nVal, t: tVal, z: zeitSelect ? zeitSelect.value : '' } : null;
+  }
+
+  function showFormStatus(msg) {
+    if (!statusBox) return;
+    statusBox.textContent = msg;
+    statusBox.classList.add('is-visible');
+    notifyParentHeight(true);
+  }
+
+  function handleSend(channel) {
+    if (submitLock) return;
+    var d = validateForm();
+    if (!d) return;
+    submitLock = true;
+    setTimeout(function() { submitLock = false; }, 600);
+    var text = 'Hoi\n\nIch interessiere mich für die offene Stelle.\n\nName: ' + d.n + '\nNummer: ' + d.t + '\nErreichbar: ' + d.z;
+    if (channel === 'wa') {
+      window.open('https://wa.me/41790000000?text=' + encodeURIComponent(text), '_blank', 'noopener,noreferrer');
+      showFormStatus('WhatsApp-Nachricht vorbereitet. Du kannst jederzeit weitere Angaben ändern oder erneut senden.');
+    } else {
+      window.open('mailto:info@example.ch?subject=' + encodeURIComponent('Rückrufanfrage – ' + d.n) + '&body=' + encodeURIComponent(text), '_top');
+      showFormStatus('E-Mail-Entwurf geöffnet. Bei Bedarf kannst du deine Angaben hier direkt anpassen.');
+    }
+  }
+
+  var btnWa = document.getElementById('btnSendWa');
+  if (btnWa) btnWa.addEventListener('click', function() { handleSend('wa'); });
+  if (form) form.addEventListener('submit', function(e) { e.preventDefault(); handleSend('mail'); });
+
+  /* Peek-Swipe Indikatoren & Mobile-Akkordeons */
+  var tracks = document.querySelectorAll('.swipe-track');
+  for (var i = 0; i < tracks.length; i++) {
+    (function(track) {
+      var hint = track.nextElementSibling;
+      if (!hint || !hint.classList.contains('swipe-hint')) return;
+      var idxEl = hint.querySelector('.swipe-idx');
+      var dots = hint.querySelectorAll('.swipe-dot');
+      var cards = track.children;
+      if (!cards.length) return;
+      track.addEventListener('scroll', function() {
+        var cw = cards[0].getBoundingClientRect().width + 12;
+        var idx = cw > 20 ? Math.min(cards.length - 1, Math.max(0, Math.round(track.scrollLeft / cw))) : 0;
+        if (idxEl) idxEl.textContent = String(idx + 1);
+        for (var d = 0; d < dots.length; d++) {
+          dots[d].classList.toggle('is-active', d === idx);
+        }
+      }, { passive: true });
+    })(tracks[i]);
+  }
+
+  var lastMob = null;
+  function syncAccordions(forceInit) {
+    var isMob = window.innerWidth <= 760;
+    if (!forceInit && lastMob === isMob) return;
+    lastMob = isMob;
+    var accs = document.querySelectorAll('details.job-acc[data-mobile-collapse="true"]');
+    for (var j = 0; j < accs.length; j++) {
+      accs[j].open = !isMob;
+    }
+    notifyParentHeight(true);
+  }
+  var allDetails = document.querySelectorAll('details');
+  for (var k = 0; k < allDetails.length; k++) {
+    allDetails[k].addEventListener('toggle', function() {
+      setTimeout(function() { notifyParentHeight(true); }, 30);
+    });
+  }
+  syncAccordions(true);
+  window.addEventListener('resize', function() { syncAccordions(false); });
+
+  /* Cockpit-Bridge (100 % abwaertskompatibel zu cockpit.html) */
+  var acpInspectorActive = false;
+  window.addEventListener('message', function(e) {
+    if (!e.data) return;
+    if (e.data.type === 'acp-toggle-inspector') {
+      acpInspectorActive = !!e.data.active;
+      document.body.classList.toggle('acp-inspector-on', acpInspectorActive);
+    }
+    if (e.data.type === 'acp-toggle-swap-mode') {
+      document.body.classList.toggle('acp-swap-mode-active', !!e.data.active);
+    }
+    if (e.data.type === 'acp-apply-swap-preview') {
+      var newSrc = e.data.newSrc;
+      var oldSrc = e.data.oldSrc || '';
+      if (e.data.isHero) {
+        var heroImg = document.querySelector('img[data-slot="hero.hintergrund.bild"]');
+        if (heroImg) {
+          heroImg.src = newSrc;
+        } else {
+          var hero = document.querySelector('.hero');
+          if (hero) {
+            hero.style.backgroundImage = 'linear-gradient(rgba(22,26,32,.68),rgba(22,26,32,.80)), url("' + newSrc + '")';
+            hero.style.backgroundPosition = 'center';
+            hero.style.backgroundSize = 'cover';
+          }
+        }
+      } else {
+        var targetEl = e.data.slot ? document.querySelector('[data-slot="' + e.data.slot + '"]') : null;
+        if (targetEl && targetEl.tagName !== 'IMG') {
+          targetEl = targetEl.querySelector('img') || targetEl;
+        }
+        if (!targetEl && oldSrc) {
+          var oldName = oldSrc.split('/').pop().split('?')[0];
+          var allImgs = document.querySelectorAll('img');
+          for (var i = 0; i < allImgs.length; i++) {
+            if ((allImgs[i].getAttribute('src') || '').indexOf(oldName) !== -1) {
+              targetEl = allImgs[i];
+              break;
+            }
+          }
+        }
+        if (targetEl && targetEl.tagName === 'IMG') {
+          targetEl.src = newSrc;
+        }
+      }
+      notifyParentHeight(true);
+    }
+  });
+
+  document.addEventListener('click', function(e) {
+    var isSwapActive = document.body.classList.contains('acp-swap-mode-active');
+    if (!acpInspectorActive && !isSwapActive) return;
+    var heroEl = e.target.closest('.hero');
+    var slotEl = e.target.closest('[data-slot]');
+    var imgEl = e.target.closest('img');
+    if (isSwapActive && !heroEl && !imgEl && (!slotEl || !slotEl.matches('[data-slot*="bild"], [data-slot*="foto"], [data-slot*="image"], [data-slot*="logo"], img'))) {
+      return;
+    }
+    if (slotEl || heroEl || imgEl) {
+      e.preventDefault();
+      e.stopPropagation();
+      var slotName = slotEl ? slotEl.getAttribute('data-slot') : '';
+      var isImg = imgEl ? true : (slotEl ? slotEl.tagName === 'IMG' : false);
+      var isHero = (slotName === 'hero.hintergrund.bild') || (!isImg && heroEl && !imgEl);
+      if (isHero) slotName = 'hero.hintergrund.bild';
+      else if (!slotName && imgEl) slotName = 'bild.' + (imgEl.getAttribute('src') || 'unbekannt').split('/').pop();
+      var currentSrc = '';
+      if (imgEl) currentSrc = imgEl.getAttribute('src') || '';
+      else if (slotEl && isImg) currentSrc = slotEl.getAttribute('src') || '';
+      else if (isHero) {
+        var hImg = document.querySelector('img[data-slot="hero.hintergrund.bild"]');
+        currentSrc = hImg ? (hImg.getAttribute('src') || '') : 'default-images/benefits_drohne.jpg';
+      }
+      var thisFile = (window.location.pathname.split('/').pop() || 'index.html').split('?')[0];
+      if (window.parent && window.parent !== window) {
+        window.parent.postMessage({
+          type: 'acp-slot-click',
+          slot: slotName,
+          isImg: isImg || isHero,
+          isHero: isHero,
+          currentSrc: currentSrc,
+          datei: thisFile
+        }, '*');
+        window.parent.postMessage({ type: 'acp-toast', text: 'Ziel gewählt: <strong>' + (currentSrc.split('/').pop() || slotName) + '</strong>' }, '*');
+      }
+    }
+  }, true);
+
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && window.parent && window.parent !== window) {
+      window.parent.postMessage({ type: 'acp-cancel-swap' }, '*');
+    }
+  });
+})();
+</script>
+</body>
+</html>

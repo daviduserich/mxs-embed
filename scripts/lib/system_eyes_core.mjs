@@ -61,7 +61,8 @@ export const SYSTEM_EYES_SENSORS = [
   { id: 'S-32', code: 'P1_FORM_CONTEXT_BLEED', severity: 'P1', rule: '#UI-14/#SYS-01', desc: 'Formulare muessen thematisch rein bleiben: Keine Schaden-/Unfall-/Fahrzeug-Felder in Bewerbungsformularen und keine HR-/Bewerbungs-Kacheln in Schaden-/Kunden-Anfrageformularen' },
   { id: 'S-33', code: 'P2_FULLBLEED_IMAGE_GAP', severity: 'P2', rule: '#UI-02/#UI-14', desc: 'Vollflaechige Kartenbilder mit negativem Seitenrand (.card-img-top) muessen den gesamten horizontalen Kartenrahmen bis zum rechten Rand fuellen (max-width: none, Toleranz <= 8px)' },
   { id: 'S-34', code: 'P2_CARD_CTA_STAIRCASE', severity: 'P2', rule: '#UI-02/#UI-14', desc: 'In nebeneinanderliegenden Karten derselben Zeile muessen untere CTA-Buttons auf derselben vertikalen Linie sitzen (topDiff <= 4px) und duerfen nicht asymmetrisch in einer Karte 1-zeilig und in der Nachbarkarte 2-zeilig umbrechen' },
-  { id: 'S-35', code: 'P2_EMBED_STICKY_OR_CLIP', severity: 'P2', rule: '#UI-13/#UI-14', desc: 'Im ?embed=true-Iframe duerfen keine position:fixed Bottom-Sticky-Bars aktiv bleiben und auf schmalen Mobile-/Embed-Ansichten (<=375px) darf kein Inhalts-Container ohne data-allow-x-scroll horizontal ueberlaufen' }
+  { id: 'S-35', code: 'P2_EMBED_STICKY_OR_CLIP', severity: 'P2', rule: '#UI-13/#UI-14', desc: 'Im ?embed=true-Iframe duerfen keine position:fixed Bottom-Sticky-Bars aktiv bleiben und auf schmalen Mobile-/Embed-Ansichten (<=375px) darf kein Inhalts-Container ohne data-allow-x-scroll horizontal ueberlaufen' },
+  { id: 'S-36', code: 'P2_SINGLE_CARD_ASYMMETRY', severity: 'P2', rule: '#UI-02/#UI-14', desc: 'Einzelne gerahmte Inhalts- oder Formularkarten in Desktop-Sektionen (>= 900px) duerfen nicht asymmetrisch an einer Seite kleben (|leftGap - rightGap| <= 100px)' }
 ];
 
 /**
@@ -1462,6 +1463,79 @@ export function evaluateSystemEyesInPage({ relPage, zone, options = {} }) {
     }
   }
 
+  // S-36: P2_SINGLE_CARD_ASYMMETRY (Asymmetrisch links/rechts klebende gerahmte Einzelkarte in Desktop-Sektion)
+  if (VW >= 1024 && !isCockpit && !activeScopeSelector && !relPage.startsWith('partner/')) {
+    const sections = Array.from(queryRoot.querySelectorAll('section, [data-section]')).filter(isVisible);
+    const excludeSuffixRe = /(grid|wrap|row|list|track|body|head|header|footer|title|sub|actions|stack|img|top|meta|badge|hint|strip)$/i;
+    function isVisiblyFramed(el, baseBg) {
+      const cs = window.getComputedStyle(el);
+      const bg = cs.backgroundColor;
+      const hasDistinctBg = Boolean(
+        bg && bg !== 'transparent' && bg !== 'rgba(0, 0, 0, 0)' && bg !== baseBg
+      );
+      const bt = parseFloat(cs.borderTopWidth || '0');
+      const bl = parseFloat(cs.borderLeftWidth || '0');
+      const hasBorder = (bt >= 1 || bl >= 1) && cs.borderTopStyle !== 'none' && cs.borderTopColor !== 'transparent' && !cs.borderTopColor.endsWith(', 0)');
+      const hasShadow = Boolean(cs.boxShadow && cs.boxShadow !== 'none');
+      return hasDistinctBg || hasBorder || hasShadow;
+    }
+    for (const sec of sections) {
+      if (sec.closest('[data-allow-asymmetric="true"], header, nav, footer, dialog, [role="dialog"]')) continue;
+      const secRect = sec.getBoundingClientRect();
+      if (secRect.width < 900 || secRect.height < 80) continue;
+      const secBg = window.getComputedStyle(sec).backgroundColor;
+      const rawCands = Array.from(
+        sec.querySelectorAll('form, .blitz-karte, .form-card, .card, .content-card, .service-card, .feature-card, .founder-card, .hero-card, .hero-media-card, .kontakt-karte, [class*="-card"], [class*="-karte"]')
+      ).filter(isVisible);
+      const framedCands = rawCands.filter(c => {
+        if (c.closest('[data-allow-asymmetric="true"], header, nav, footer, dialog, [role="dialog"]')) return false;
+        const tokens = (typeof c.className === 'string' ? c.className : '').trim().split(/\s+/).filter(Boolean);
+        if (tokens.some(t => excludeSuffixRe.test(t)) && c.tagName !== 'FORM') return false;
+        const r = c.getBoundingClientRect();
+        if (r.width < 320 || r.width > 820 || r.height < 120) return false;
+        if (r.width >= secRect.width - 140) return false;
+        return isVisiblyFramed(c, secBg);
+      });
+      for (const card of framedCands) {
+        if (framedCands.some(other => other !== card && other.contains(card))) continue;
+        const cardRect = card.getBoundingClientRect();
+        // Ausschluss mehrspaltiger Layouts: Pruefe ob irgendeine Vorfahren-Schicht bis sec ein sichtbares Geschwister-Element auf derselben Y-Hoehe daneben besitzt
+        let hasAdjacentColumn = false;
+        let cur = card;
+        while (cur && cur !== sec) {
+          const par = cur.parentElement;
+          if (!par) break;
+          for (const sib of Array.from(par.children)) {
+            if (sib === cur || !isVisible(sib)) continue;
+            const sCs = window.getComputedStyle(sib);
+            if (sCs.position === 'fixed' || sCs.position === 'absolute') continue;
+            const sr = sib.getBoundingClientRect();
+            const vOverlap = Math.min(sr.bottom, cardRect.bottom) - Math.max(sr.top, cardRect.top);
+            if (vOverlap >= 40 && (sr.right <= cardRect.left + 8 || sr.left >= cardRect.right - 8)) {
+              hasAdjacentColumn = true;
+              break;
+            }
+          }
+          if (hasAdjacentColumn) break;
+          cur = par;
+        }
+        if (hasAdjacentColumn) continue;
+        const leftGap = cardRect.left - secRect.left;
+        const rightGap = secRect.right - cardRect.right;
+        const asym = Math.abs(leftGap - rightGap);
+        if (asym > 100) {
+          addFinding(
+            'P2',
+            'P2_SINGLE_CARD_ASYMMETRY',
+            getLabel(card),
+            getCssPath(card),
+            `Einzelne gerahmte Karte in Desktop-Sektion (${Math.round(secRect.width)}px) klebt asymmetrisch (links=${Math.round(leftGap)}px vs rechts=${Math.round(rightGap)}px, Diff=${Math.round(asym)}px > 100px)`
+          );
+        }
+      }
+    }
+  }
+
   return findings;
 }
 
@@ -1610,7 +1684,47 @@ if (
         options: {}
       });
       const s35CleanAllowed = !s35Clean.some(f => f.code === 'P2_EMBED_STICKY_OR_CLIP');
-      const ok = Boolean(s17Hit && s30Hit && !s30FalsePositive && s30Lang06Hit && s32CareerCaught && s32ServiceCaught && !s32FalsePositive && s33GapCaught && !s33FalsePositive && s34Caught && !s34FalsePositive && s35StickyCaught && s35ClipCaught && s35CleanAllowed);
+      // S-36 Positiv- & Negativ-Proben (Asymmetrische Einzelkarte vs. zentrierte Karte & 2-Spalten-Split)
+      await page.setViewportSize({ width: 1440, height: 900 });
+      await page.setContent(`<!DOCTYPE html><html lang="de"><head><style>
+        *{box-sizing:border-box;margin:0;padding:0;}
+        body{background:#fff;}
+        .blitz{width:1140px;margin:0 auto;padding:48px 0;background:#1f2329;}
+        .wrap-schmal{max-width:820px;margin:0 auto;}
+        .blitz-karte{max-width:620px;min-height:180px;background:#fff;border:1px solid #ddd;padding:24px;margin-top:24px;}
+        .centered-karte{max-width:620px;min-height:180px;background:#fff;border:1px solid #ddd;padding:24px;margin:24px auto 0;}
+        .split-sec{width:1140px;margin:0 auto;padding:48px 24px;background:#f8f5f1;}
+        .split-grid{display:grid;grid-template-columns:1fr 1.05fr;gap:32px;align-items:start;}
+        .split-form{min-height:180px;background:#fff;border:1px solid #ddd;padding:24px;}
+      </style></head><body>
+        <section class="blitz" id="bad-blitz">
+          <div class="wrap-schmal">
+            <h2>Einfach kurz melden</h2>
+            <div class="blitz-karte" id="bad-asymmetric-card"><p>Ich klebe schief links im 820px Wrapper.</p></div>
+          </div>
+        </section>
+        <section class="blitz" id="good-blitz">
+          <div class="wrap-schmal">
+            <div class="centered-karte" id="good-centered-card"><p>Ich bin sauber horizontal zentriert.</p></div>
+          </div>
+        </section>
+        <section class="split-sec" id="good-split">
+          <div class="split-grid">
+            <div><h2>Direkt melden</h2><p>Kontaktinfos links auf gleicher Hoehe.</p></div>
+            <div class="split-form form-card" id="good-split-card"><p>Formular rechts in 2-Spalten-Grid.</p></div>
+          </div>
+        </section>
+      </body></html>`);
+      const s36Findings = await page.evaluate(evaluateSystemEyesInPage, {
+        relPage: 'preview-canary/index.html',
+        zone: SYSTEM_EYES_ZONES[2],
+        options: {}
+      });
+      const s36Caught = s36Findings.some(f => f.code === 'P2_SINGLE_CARD_ASYMMETRY' && f.selector.includes('bad-asymmetric-card'));
+      const s36CenteredFalsePos = s36Findings.some(f => f.code === 'P2_SINGLE_CARD_ASYMMETRY' && f.selector.includes('good-centered-card'));
+      const s36SplitFalsePos = s36Findings.some(f => f.code === 'P2_SINGLE_CARD_ASYMMETRY' && f.selector.includes('good-split-card'));
+
+      const ok = Boolean(s17Hit && s30Hit && !s30FalsePositive && s30Lang06Hit && s32CareerCaught && s32ServiceCaught && !s32FalsePositive && s33GapCaught && !s33FalsePositive && s34Caught && !s34FalsePositive && s35StickyCaught && s35ClipCaught && s35CleanAllowed && s36Caught && !s36CenteredFalsePos && !s36SplitFalsePos);
       console.log(JSON.stringify({
         ok,
         system_eyes_version: SYSTEM_EYES_VERSION,
@@ -1628,7 +1742,10 @@ if (
         s34_aligned_cta_allowed: !s34FalsePositive,
         s35_embed_sticky_caught: s35StickyCaught,
         s35_embed_clip_caught: s35ClipCaught,
-        s35_clean_embed_allowed: s35CleanAllowed
+        s35_clean_embed_allowed: s35CleanAllowed,
+        s36_asym_card_caught: s36Caught,
+        s36_centered_card_allowed: !s36CenteredFalsePos,
+        s36_split_col_allowed: !s36SplitFalsePos
       }, null, 2));
       if (!ok) process.exit(1);
     } finally {
