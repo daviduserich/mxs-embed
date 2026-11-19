@@ -129,6 +129,7 @@ const CLIENT_TOKENS = {
   'preview-cotra': ['cotra_sec_master', 'cotra2026'],
   'hochuli': ['hochuli_sec_master', 'hochuli2026'],
   'preview-hochuli': ['hochuli_sec_master', 'hochuli2026'],
+  'hochuli-zimmermann': ['hochuli-zimmermann_sec_master', 'hochuli2026'],
   'her11': ['her11_sec_master', 'her112026'],
   'preview-her11': ['her11_sec_master', 'her112026'],
   'fcschlieren': ['fcschlieren_sec_master', 'fcschlieren2026'],
@@ -450,7 +451,7 @@ async function handleRequestCore(context) {
     let activeClientSlug = '';
     let targetFolder = '';
 
-    const DIRECT_ONLY_FOLDERS = ['zurbuchen', 'cotra', 'muster-holzbau'];
+    const DIRECT_ONLY_FOLDERS = ['zurbuchen', 'cotra', 'muster-holzbau', 'hochuli-zimmermann'];
     const DUAL_EMBED_AND_PREVIEW_FOLDERS = ['hiltbrand'];
     const match = url.pathname.match(/^\/([a-zA-Z0-9_-]+)(\/.*)?$/);
     if (match && !['api', 'webpilot', 'boardroom', 'brand-gallery', 'client-preview', 'partner', 'partner-jobs', 'reports', 'mxs-talent', 'images', 'css', 'js', 'fonts'].includes(match[1])) {
