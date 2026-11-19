@@ -492,7 +492,9 @@ img { max-width: 100%; height: auto; display: block; }
   gap: 14px;
 }
 .card-img-top {
+  display: block;
   width: calc(100% + 48px);
+  max-width: none;
   margin: -24px -24px 8px -24px;
   aspect-ratio: 16 / 10;
   object-fit: cover;

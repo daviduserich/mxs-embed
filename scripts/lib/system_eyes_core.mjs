@@ -56,7 +56,8 @@ export const SYSTEM_EYES_SENSORS = [
   { id: 'S-29', code: 'P2_CROSS_ROW_RHYTHM_MISMATCH', severity: 'P2', rule: '#UI-02', desc: 'Aufeinanderfolgende Listen-Zeilen gleicher Signatur muessen in allen Spalten exakt fluchten (x-Abweichung <= 3px) und wiederkehrende Tags/Badges im selben Stockwerk (y-Rhythmus) fuehren' },
   { id: 'S-30', code: 'P2_TYPOGRAPHIC_PLENK_OR_ASCII_ORT', severity: 'P2', rule: '#LANG-01/#LANG-06', desc: 'Keine Leerzeichen vor Kommas (Plenk), keine unkorrigierten Schweizer ASCII-Umlaut-Ortsnamen (Zuerich etc.), kein englischer KI-Geviertstrich ((?<!\.)\u2014) sowie 0 Kunden-Klarnamen/Geheimnis-Begriffe (#LANG-06) auf oeffentlichen Produktseiten' },
   { id: 'S-31', code: 'P2_SIBLING_CARD_ANATOMY_DRIFT', severity: 'P2', rule: '#UI-02', desc: 'Nebeneinanderliegende Kacheln in 2er-/3er-/4er-Grids muessen sowohl aussen (2D-Spaltenflucht) als auch innen (Kicker-, Ueberschrift- und Textstart-Horizont) miteinander fluchten' },
-  { id: 'S-32', code: 'P1_FORM_CONTEXT_BLEED', severity: 'P1', rule: '#UI-14/#SYS-01', desc: 'Formulare muessen thematisch rein bleiben: Keine Schaden-/Unfall-/Fahrzeug-Felder in Bewerbungsformularen und keine HR-/Bewerbungs-Kacheln in Schaden-/Kunden-Anfrageformularen' }
+  { id: 'S-32', code: 'P1_FORM_CONTEXT_BLEED', severity: 'P1', rule: '#UI-14/#SYS-01', desc: 'Formulare muessen thematisch rein bleiben: Keine Schaden-/Unfall-/Fahrzeug-Felder in Bewerbungsformularen und keine HR-/Bewerbungs-Kacheln in Schaden-/Kunden-Anfrageformularen' },
+  { id: 'S-33', code: 'P2_FULLBLEED_IMAGE_GAP', severity: 'P2', rule: '#UI-02/#UI-14', desc: 'Vollflaechige Kartenbilder mit negativem Seitenrand (.card-img-top) muessen den gesamten horizontalen Kartenrahmen bis zum rechten Rand fuellen (max-width: none, Toleranz <= 8px)' }
 ];
 
 /**
@@ -1339,6 +1340,40 @@ export function evaluateSystemEyesInPage({ relPage, zone, options = {} }) {
     }
   }
 
+  // S-33: P2_FULLBLEED_IMAGE_GAP (Abgeschnittene Vollbild-Kartenraender durch max-width: 100% auf img)
+  {
+    const imgs = Array.from(queryRoot.querySelectorAll('img'));
+    for (const img of imgs) {
+      if (!isVisible(img)) continue;
+      const cs = getComputedStyle(img);
+      const ml = parseFloat(cs.marginLeft || '0');
+      const mr = parseFloat(cs.marginRight || '0');
+      const isNegativeBleed = ml <= -6 || mr <= -6 || img.classList.contains('card-img-top');
+      if (!isNegativeBleed) continue;
+      const card = img.closest('.card, .content-card, .service-card, .feature-card, .founder-card');
+      if (!card) continue;
+      const ir = img.getBoundingClientRect();
+      const cr = card.getBoundingClientRect();
+      if (ir.width <= 0 || cr.width <= 0) continue;
+      const cardCs = getComputedStyle(card);
+      const bl = parseFloat(cardCs.borderLeftWidth || '0');
+      const br = parseFloat(cardCs.borderRightWidth || '0');
+      const innerLeft = cr.left + bl;
+      const innerRight = cr.right - br;
+      const leftGap = Math.round(ir.left - innerLeft);
+      const rightGap = Math.round(innerRight - ir.right);
+      if (leftGap > 8 || rightGap > 8) {
+        addFinding(
+          'P2',
+          'P2_FULLBLEED_IMAGE_GAP',
+          img.getAttribute('alt') || img.getAttribute('src') || 'img.card-img-top',
+          getCssPath(img),
+          `Vollflaechiges Kartenbild fuellt Kartenrahmen nicht bis zum Rand aus (links=${leftGap}px, rechts=${rightGap}px Luecke, max-width=${cs.maxWidth})`
+        );
+      }
+    }
+  }
+
   return findings;
 }
 
@@ -1409,7 +1444,24 @@ if (
       const s32CareerCaught = s32Findings.some(f => f.code === 'P1_FORM_CONTEXT_BLEED' && f.selector.includes('bad-career'));
       const s32ServiceCaught = s32Findings.some(f => f.code === 'P1_FORM_CONTEXT_BLEED' && f.selector.includes('bad-service'));
       const s32FalsePositive = s32Findings.some(f => f.code === 'P1_FORM_CONTEXT_BLEED' && f.selector.includes('good-career'));
-      const ok = Boolean(s17Hit && s30Hit && !s30FalsePositive && s30Lang06Hit && s32CareerCaught && s32ServiceCaught && !s32FalsePositive);
+      // S-33 Positiv- & Negativ-Proben (Full-Bleed Card Image Gap)
+      await page.setContent(`<!DOCTYPE html><html lang="de"><head><style>
+        img { max-width: 100%; display: block; }
+        .card { width: 400px; padding: 24px; border: 1px solid #ddd; box-sizing: border-box; }
+        .card-img-top { width: calc(100% + 48px); margin: -24px -24px 8px -24px; height: 180px; }
+        .card-img-top.fixed { max-width: none; }
+      </style></head><body>
+        <div class="card"><img id="bad-img" class="card-img-top" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" alt="Abgeschnitten"></div>
+        <div class="card"><img id="good-img" class="card-img-top fixed" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" alt="Randbuendig"></div>
+      </body></html>`);
+      const s33Findings = await page.evaluate(evaluateSystemEyesInPage, {
+        relPage: 'preview-canary/index.html',
+        zone: SYSTEM_EYES_ZONES[2],
+        options: {}
+      });
+      const s33GapCaught = s33Findings.some(f => f.code === 'P2_FULLBLEED_IMAGE_GAP' && f.selector.includes('bad-img'));
+      const s33FalsePositive = s33Findings.some(f => f.code === 'P2_FULLBLEED_IMAGE_GAP' && f.selector.includes('good-img'));
+      const ok = Boolean(s17Hit && s30Hit && !s30FalsePositive && s30Lang06Hit && s32CareerCaught && s32ServiceCaught && !s32FalsePositive && s33GapCaught && !s33FalsePositive);
       console.log(JSON.stringify({
         ok,
         system_eyes_version: SYSTEM_EYES_VERSION,
@@ -1420,7 +1472,9 @@ if (
         s30_lang06_leak_caught: Boolean(s30Lang06Hit),
         s32_career_bleed_caught: s32CareerCaught,
         s32_service_bleed_caught: s32ServiceCaught,
-        s32_clean_career_allowed: !s32FalsePositive
+        s32_clean_career_allowed: !s32FalsePositive,
+        s33_fullbleed_gap_caught: s33GapCaught,
+        s33_clean_fullbleed_allowed: !s33FalsePositive
       }, null, 2));
       if (!ok) process.exit(1);
     } finally {
