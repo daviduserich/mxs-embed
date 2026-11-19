@@ -57,7 +57,8 @@ export const SYSTEM_EYES_SENSORS = [
   { id: 'S-30', code: 'P2_TYPOGRAPHIC_PLENK_OR_ASCII_ORT', severity: 'P2', rule: '#LANG-01/#LANG-06', desc: 'Keine Leerzeichen vor Kommas (Plenk), keine unkorrigierten Schweizer ASCII-Umlaut-Ortsnamen (Zuerich etc.), kein englischer KI-Geviertstrich ((?<!\.)\u2014) sowie 0 Kunden-Klarnamen/Geheimnis-Begriffe (#LANG-06) auf oeffentlichen Produktseiten' },
   { id: 'S-31', code: 'P2_SIBLING_CARD_ANATOMY_DRIFT', severity: 'P2', rule: '#UI-02', desc: 'Nebeneinanderliegende Kacheln in 2er-/3er-/4er-Grids muessen sowohl aussen (2D-Spaltenflucht) als auch innen (Kicker-, Ueberschrift- und Textstart-Horizont) miteinander fluchten' },
   { id: 'S-32', code: 'P1_FORM_CONTEXT_BLEED', severity: 'P1', rule: '#UI-14/#SYS-01', desc: 'Formulare muessen thematisch rein bleiben: Keine Schaden-/Unfall-/Fahrzeug-Felder in Bewerbungsformularen und keine HR-/Bewerbungs-Kacheln in Schaden-/Kunden-Anfrageformularen' },
-  { id: 'S-33', code: 'P2_FULLBLEED_IMAGE_GAP', severity: 'P2', rule: '#UI-02/#UI-14', desc: 'Vollflaechige Kartenbilder mit negativem Seitenrand (.card-img-top) muessen den gesamten horizontalen Kartenrahmen bis zum rechten Rand fuellen (max-width: none, Toleranz <= 8px)' }
+  { id: 'S-33', code: 'P2_FULLBLEED_IMAGE_GAP', severity: 'P2', rule: '#UI-02/#UI-14', desc: 'Vollflaechige Kartenbilder mit negativem Seitenrand (.card-img-top) muessen den gesamten horizontalen Kartenrahmen bis zum rechten Rand fuellen (max-width: none, Toleranz <= 8px)' },
+  { id: 'S-34', code: 'P2_CARD_CTA_STAIRCASE', severity: 'P2', rule: '#UI-02/#UI-14', desc: 'In nebeneinanderliegenden Karten derselben Zeile muessen untere CTA-Buttons auf derselben vertikalen Linie sitzen (topDiff <= 4px) und duerfen nicht asymmetrisch in einer Karte 1-zeilig und in der Nachbarkarte 2-zeilig umbrechen' }
 ];
 
 /**
@@ -579,6 +580,49 @@ export function evaluateSystemEyesInPage({ relPage, zone, options = {} }) {
           if (kA.tagName === 'P' && !kA.classList.contains('about-card-sub')) {
             break;
           }
+        }
+      }
+    }
+
+    // S-34: P2_CARD_CTA_STAIRCASE (Button-Zeilen & vertikale CTA-Flucht in Nachbarkarten)
+    if (VW >= 769) {
+      for (let ri = 0; ri < rows.length; ri++) {
+        const rw = rows[ri];
+        if (rw.items.length < 2) continue;
+        const ctaCards = [];
+        for (const item of rw.items) {
+          const btns = Array.from(item.el.querySelectorAll('a.btn, button.btn, a.btn-cta, button.btn-cta')).filter(isVisible);
+          if (btns.length === 0) continue;
+          const tops = btns.map(b => b.getBoundingClientRect().top);
+          const firstTop = Math.min(...tops);
+          const distinctRows = [];
+          for (const t of tops.slice().sort((a, b) => a - b)) {
+            if (!distinctRows.some(rt => Math.abs(rt - t) <= 8)) {
+              distinctRows.push(t);
+            }
+          }
+          ctaCards.push({
+            label: getLabel(item.el),
+            firstTop,
+            ctaRowCount: distinctRows.length
+          });
+        }
+        if (ctaCards.length < 2) continue;
+        const firstTops = ctaCards.map(c => c.firstTop);
+        const rowCounts = ctaCards.map(c => c.ctaRowCount);
+        const minTop = Math.min(...firstTops);
+        const maxTop = Math.max(...firstTops);
+        const topSpread = maxTop - minTop;
+        const minRows = Math.min(...rowCounts);
+        const maxRows = Math.max(...rowCounts);
+        if (topSpread > 4 || minRows !== maxRows) {
+          addFinding(
+            'P2',
+            'P2_CARD_CTA_STAIRCASE',
+            getLabel(g),
+            getCssPath(g),
+            `CTA-Button-Treppe in Nachbarkarten (Reihe ${ri + 1}): topDiff=${topSpread.toFixed(1)}px (minTop=${Math.round(minTop)}px vs maxTop=${Math.round(maxTop)}px, Pflicht <= 4px), Button-Zeilen=${minRows}..${maxRows}`
+          );
         }
       }
     }
@@ -1461,7 +1505,32 @@ if (
       });
       const s33GapCaught = s33Findings.some(f => f.code === 'P2_FULLBLEED_IMAGE_GAP' && f.selector.includes('bad-img'));
       const s33FalsePositive = s33Findings.some(f => f.code === 'P2_FULLBLEED_IMAGE_GAP' && f.selector.includes('good-img'));
-      const ok = Boolean(s17Hit && s30Hit && !s30FalsePositive && s30Lang06Hit && s32CareerCaught && s32ServiceCaught && !s32FalsePositive && s33GapCaught && !s33FalsePositive);
+      // S-34 Positiv- & Negativ-Proben (Card CTA Staircase)
+      await page.setContent(`<!DOCTYPE html><html lang="de"><head><style>
+        .grid { display: grid; grid-template-columns: repeat(2, 260px); gap: 20px; }
+        .card { border: 1px solid #ddd; padding: 20px; display: flex; flex-direction: column; justify-content: space-between; box-sizing: border-box; }
+        .wrap { display: flex; flex-wrap: wrap; gap: 8px; }
+        .stack { display: flex; flex-direction: column; gap: 8px; }
+        .btn { display: inline-flex; padding: 8px 14px; font-size: 14px; line-height: 1.25; white-space: nowrap; box-sizing: border-box; }
+        .stack .btn { width: 100%; }
+      </style></head><body>
+        <div id="bad-staircase-grid" class="grid">
+          <div class="card"><div><h3>Karte A</h3><p>Text</p></div><div class="wrap"><a class="btn">Kurz</a><a class="btn">Kurz</a></div></div>
+          <div class="card"><div><h3>Karte B</h3><p>Text</p></div><div class="wrap"><a class="btn">Kurzbewerbung</a><a class="btn">Bewerbungsbogen</a></div></div>
+        </div>
+        <div id="good-stacked-grid" class="grid">
+          <div class="card"><div><h3>Karte C</h3><p>Text</p></div><div class="stack"><a class="btn">Kurzbewerbung</a><a class="btn">Fragen (HR)</a></div></div>
+          <div class="card"><div><h3>Karte D</h3><p>Text</p></div><div class="stack"><a class="btn">Kurzbewerbung</a><a class="btn">Bewerbungsbogen</a></div></div>
+        </div>
+      </body></html>`);
+      const s34Findings = await page.evaluate(evaluateSystemEyesInPage, {
+        relPage: 'preview-canary/index.html',
+        zone: SYSTEM_EYES_ZONES[2],
+        options: {}
+      });
+      const s34Caught = s34Findings.some(f => f.code === 'P2_CARD_CTA_STAIRCASE' && f.selector.includes('bad-staircase-grid'));
+      const s34FalsePositive = s34Findings.some(f => f.code === 'P2_CARD_CTA_STAIRCASE' && f.selector.includes('good-stacked-grid'));
+      const ok = Boolean(s17Hit && s30Hit && !s30FalsePositive && s30Lang06Hit && s32CareerCaught && s32ServiceCaught && !s32FalsePositive && s33GapCaught && !s33FalsePositive && s34Caught && !s34FalsePositive);
       console.log(JSON.stringify({
         ok,
         system_eyes_version: SYSTEM_EYES_VERSION,
@@ -1474,7 +1543,9 @@ if (
         s32_service_bleed_caught: s32ServiceCaught,
         s32_clean_career_allowed: !s32FalsePositive,
         s33_fullbleed_gap_caught: s33GapCaught,
-        s33_clean_fullbleed_allowed: !s33FalsePositive
+        s33_clean_fullbleed_allowed: !s33FalsePositive,
+        s34_cta_staircase_caught: s34Caught,
+        s34_aligned_cta_allowed: !s34FalsePositive
       }, null, 2));
       if (!ok) process.exit(1);
     } finally {

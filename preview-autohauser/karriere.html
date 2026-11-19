@@ -263,6 +263,8 @@ img { max-width: 100%; height: auto; display: block; }
   font-family: var(--font-display);
   font-size: 0.92rem;
   font-weight: 700;
+  line-height: 1.25;
+  box-sizing: border-box;
   text-decoration: none;
   cursor: pointer;
   border: 1px solid transparent;
@@ -414,6 +416,15 @@ img { max-width: 100%; height: auto; display: block; }
   flex-wrap: wrap;
   gap: 8px;
   align-items: center;
+}
+.card-actions-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: auto;
+}
+.card-actions-stack > .btn {
+  width: 100%;
 }
 .icon-box {
   width: 38px;
@@ -1360,7 +1371,7 @@ body.is-embedded .site-header { position: static; }
       "name": "Karriere & Offene Stellen – autohauser® Oftringen",
       "description": "Offene Stellen bei autohauser® und YellowFox® Schweiz in Oftringen: Carrosserie-Techniker, Gestalter/in Werbetechnik EFZ (m/w) (20–40%) und Verkaufsprofi YellowFox.",
       "inLanguage": "de-CH",
-      "dateModified": "2026-11-19T07:31:49+00:00",
+      "dateModified": "2026-11-19T09:52:29+00:00",
       "isPartOf": {
         "@id": "https://vorschau.magnet-xs.ch/autohauser/#website"
       },
@@ -1479,7 +1490,7 @@ body.is-embedded .site-header { position: static; }
               <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg><span>Präzise, qualitätsbewusste Arbeitsweise</span></li>
             </ul>
           </div>
-          <div style="display:flex;flex-wrap:wrap;gap:8px;">
+          <div class="card-actions-stack">
             <a href="#kurzbewerbung" onclick="wpSetCareerPreset('Carrosserie-Techniker')" class="btn btn-primary btn-sm"><span>Kurzbewerbung</span></a>
             <a href="tel:+41627893354" class="btn btn-outline btn-sm"><span>Fragen (HR)</span></a>
           </div>
@@ -1499,7 +1510,7 @@ body.is-embedded .site-header { position: static; }
               <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg><span>Führerausweis Kat. B &amp; Freude an Automobilen</span></li>
             </ul>
           </div>
-          <div style="display:flex;flex-wrap:wrap;gap:8px;">
+          <div class="card-actions-stack">
             <a href="#kurzbewerbung" onclick="wpSetCareerPreset('Gestalter/in Werbetechnik')" class="btn btn-primary btn-sm"><span>Kurzbewerbung</span></a>
             <button type="button" class="btn btn-outline btn-sm" onclick="openJotFormModal('Kurzbewerbung Werbetechnik', 'https://form.jotform.com/51061581490956')"><span>Bewerbungsbogen</span></button>
           </div>
@@ -1519,7 +1530,7 @@ body.is-embedded .site-header { position: static; }
               <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg><span>Führerausweis Kat. B &amp; Provisionsmodell</span></li>
             </ul>
           </div>
-          <div style="display:flex;flex-wrap:wrap;gap:8px;">
+          <div class="card-actions-stack">
             <a href="#kurzbewerbung" onclick="wpSetCareerPreset('Verkaufsberater/in Telematik')" class="btn btn-primary btn-sm"><span>Kurzbewerbung</span></a>
             <button type="button" class="btn btn-outline btn-sm" onclick="openJotFormModal('Bewerbungsformular YellowFox', 'https://form.jotform.com/folioboat/bewerbungsformular-yellowfox')"><span>Bewerbungsbogen</span></button>
           </div>

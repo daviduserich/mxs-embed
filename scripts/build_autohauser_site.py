@@ -355,6 +355,8 @@ img { max-width: 100%; height: auto; display: block; }
   font-family: var(--font-display);
   font-size: 0.92rem;
   font-weight: 700;
+  line-height: 1.25;
+  box-sizing: border-box;
   text-decoration: none;
   cursor: pointer;
   border: 1px solid transparent;
@@ -506,6 +508,15 @@ img { max-width: 100%; height: auto; display: block; }
   flex-wrap: wrap;
   gap: 8px;
   align-items: center;
+}
+.card-actions-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: auto;
+}
+.card-actions-stack > .btn {
+  width: 100%;
 }
 .icon-box {
   width: 38px;
@@ -2862,7 +2873,7 @@ def build_pages(out_dir: Path, scraped: dict, dims: dict, pdfs: list, pdf_meta: 
               <li>{ICONS["check"]}<span>Präzise, qualitätsbewusste Arbeitsweise</span></li>
             </ul>
           </div>
-          <div style="display:flex;flex-wrap:wrap;gap:8px;">
+          <div class="card-actions-stack">
             <a href="#kurzbewerbung" onclick="wpSetCareerPreset('Carrosserie-Techniker')" class="btn btn-primary btn-sm"><span>Kurzbewerbung</span></a>
             <a href="tel:+41627893354" class="btn btn-outline btn-sm"><span>Fragen (HR)</span></a>
           </div>
@@ -2882,7 +2893,7 @@ def build_pages(out_dir: Path, scraped: dict, dims: dict, pdfs: list, pdf_meta: 
               <li>{ICONS["check"]}<span>Führerausweis Kat. B &amp; Freude an Automobilen</span></li>
             </ul>
           </div>
-          <div style="display:flex;flex-wrap:wrap;gap:8px;">
+          <div class="card-actions-stack">
             <a href="#kurzbewerbung" onclick="wpSetCareerPreset('Gestalter/in Werbetechnik')" class="btn btn-primary btn-sm"><span>Kurzbewerbung</span></a>
             <button type="button" class="btn btn-outline btn-sm" onclick="openJotFormModal('Kurzbewerbung Werbetechnik', 'https://form.jotform.com/51061581490956')"><span>Bewerbungsbogen</span></button>
           </div>
@@ -2902,7 +2913,7 @@ def build_pages(out_dir: Path, scraped: dict, dims: dict, pdfs: list, pdf_meta: 
               <li>{ICONS["check"]}<span>Führerausweis Kat. B &amp; Provisionsmodell</span></li>
             </ul>
           </div>
-          <div style="display:flex;flex-wrap:wrap;gap:8px;">
+          <div class="card-actions-stack">
             <a href="#kurzbewerbung" onclick="wpSetCareerPreset('Verkaufsberater/in Telematik')" class="btn btn-primary btn-sm"><span>Kurzbewerbung</span></a>
             <button type="button" class="btn btn-outline btn-sm" onclick="openJotFormModal('Bewerbungsformular YellowFox', 'https://form.jotform.com/folioboat/bewerbungsformular-yellowfox')"><span>Bewerbungsbogen</span></button>
           </div>

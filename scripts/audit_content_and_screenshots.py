@@ -190,19 +190,36 @@ try {{
     await page.waitForTimeout(250);
     const totalH = await page.evaluate(() => document.documentElement.scrollHeight);
     const shots = [];
-    // Slice tall pages in crisp ~1700px chunks so Vision AI can read every headline & card cleanly
-    const step = 1600;
+    // Zero-Blindspot Slicing: 750px Schritt bei 900px Viewport (150px Ueberlappung) bis ganz zum Footer
+    const vh = 900;
+    const step = 750;
+    const maxSlices = 10;
+    const lastY = Math.max(0, totalH - vh);
     let y = 0;
     let idx = 1;
-    while (y < totalH && idx <= 4) {{
+    while (idx <= maxSlices) {{
+      await page.evaluate(isScrolled => {{
+        for (const h of document.querySelectorAll('header, .site-header, .ah-sparten-bar')) {{
+          const pos = getComputedStyle(h).position;
+          if (pos === 'sticky' || pos === 'fixed') {{
+            h.style.visibility = isScrolled ? 'hidden' : '';
+          }}
+        }}
+      }}, idx >= 2);
       await page.evaluate(yy => window.scrollTo({{ top: yy, behavior: 'instant' }}), y);
       await page.waitForTimeout(150);
       const outPng = path.join(outDir, rel.replace(/[^a-zA-Z0-9_-]/g, '_') + `_d${{idx}}.png`);
       await page.screenshot({{ path: outPng }});
       shots.push(outPng);
-      y += step;
+      if (y >= lastY) break;
+      y = Math.min(y + step, lastY);
       idx++;
     }}
+    await page.evaluate(() => {{
+      for (const h of document.querySelectorAll('header, .site-header, .ah-sparten-bar')) {{
+        h.style.visibility = '';
+      }}
+    }});
     manifest[rel] = shots;
   }}
 }} finally {{
@@ -393,13 +410,13 @@ Antworte AUSSCHLIESSLICH mit validem JSON exakt in dieser Form:
                     "text": (
                         f"Du pruefst als strenger Schweizer Geschaeftsfuehrer und Artdirector die Full-Page-Screenshots der Seite '{page_name}' ({args.site}). "
                         "Suche schonungslos nach: (1) Texten die nicht zur Sektion/zum Foto passen, (2) peinlichem Entwickler-/KI-/Agentur-Sprech im UI, "
-                        "(3) komischen Buttons, Abstaenden, abgeschnittenen Karten, fehlenden Bildern oder optischen Bruchen, "
+                        "(3) komischen Buttons, asymmetrischen Button-Zeilen oder Treppenstufen in nebeneinanderliegenden Karten (1-zeilig vs. 2-zeilig umgebrochen), abgeschnittenen Kartenbildern mit weissem Randstreifen, Abstaenden, fehlenden Bildern oder optischen Bruchen, "
                         "(4) Behauptungen/Preisen die verdaechtig oder fehl am Platz wirken. "
                         'Antworte als kompaktes JSON: {"page":"' + page_name + '","issues":[{"severity":"P1|P2","location":"...","issue":"...","fix":"..."}]}'
                     ),
                 }
             ]
-            for png in pngs[:3]:
+            for png in pngs:
                 b64 = base64.b64encode(png.read_bytes()).decode("ascii")
                 content_parts.append({
                     "type": "image_url",
