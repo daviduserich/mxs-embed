@@ -68,6 +68,16 @@ XFO_DENY_REGEX = re.compile(
     re.IGNORECASE,
 )
 
+SHRINK_LOCK_REGEX = re.compile(r"documentElement\.scrollHeight", re.IGNORECASE)
+LEGACY_SHRINK_LOCK_ALLOWLIST = {
+    "cotra/Cotra_Autotransport_Fahrer.html",
+    "cotra/cotra_Chauffeur_CE.html",
+    "cotra/index.html",
+    "hiltbrand/Hiltbrand_Dachdecker.html",
+    "muster-holzbau/index.html",
+    "muster-holzbau/Muster_Holzbau_Zimmermann.html",
+}
+
 
 def parse_middleware_registered_folders(middleware_text: str) -> set[str]:
     registered = set()
@@ -186,6 +196,17 @@ def run_routing_audit(
                         f"[MISSING-WHATSAPP-HOOK] Karriere-Widget '{folder_name}/{html_path.name}' enthaelt weder "
                         f"'wa.me/' noch 'data-required=\"whatsapp-cta\"'!"
                     )
+                rel_key = f"{folder_name}/{html_path.name}"
+                if (
+                    rel_key not in LEGACY_SHRINK_LOCK_ALLOWLIST
+                    and "acp-embed-resize" in html_text
+                    and SHRINK_LOCK_REGEX.search(html_text)
+                    and "measureContentHeight" not in html_text
+                ):
+                    errors.append(
+                        f"[SHRINK-LOCK-BLOCKER] Karriere-Widget '{rel_key}' nutzt documentElement.scrollHeight im Resize-Sender "
+                        f"(verursacht Iframe-Shrink-Lock nach FAQ-/Akkordeon-Klick; bitte measureContentHeight() verwenden)!"
+                    )
 
     if injected_xfo_html is not None:
         virt_name, virt_html = injected_xfo_html
@@ -203,6 +224,15 @@ def run_routing_audit(
         if 'data-required="whatsapp-cta"' not in virt_c_html and "wa.me/" not in virt_c_html:
             errors.append(
                 f"[MISSING-WHATSAPP-HOOK] Virtuelles Karriere-Widget '{virt_c_name}' enthaelt keinen WhatsApp-Hook!"
+            )
+        if (
+            virt_c_name not in LEGACY_SHRINK_LOCK_ALLOWLIST
+            and "acp-embed-resize" in virt_c_html
+            and SHRINK_LOCK_REGEX.search(virt_c_html)
+            and "measureContentHeight" not in virt_c_html
+        ):
+            errors.append(
+                f"[SHRINK-LOCK-BLOCKER] Virtuelles Karriere-Widget '{virt_c_name}' nutzt documentElement.scrollHeight!"
             )
 
     if not quiet:
@@ -251,10 +281,20 @@ def run_selftest() -> bool:
     )
     cond_4 = any("test_no_wa.html" in e and "MISSING-WHATSAPP-HOOK" in e for e in errs_4)
 
-    if cond_1 and cond_2 and cond_3 and cond_4:
+    # Test 5: Injiziere Karriere-Widget mit documentElement.scrollHeight Shrink-Lock
+    errs_5 = run_routing_audit(
+        injected_career_html=(
+            "zurbuchen/test_shrink_lock.html",
+            '<html><body><a href="https://wa.me/41790000000">WA</a><script>var h=document.documentElement.scrollHeight;parent.postMessage({type:"acp-embed-resize",height:h},"*");</script></body></html>',
+        ),
+        quiet=True,
+    )
+    cond_5 = any("test_shrink_lock.html" in e and "SHRINK-LOCK-BLOCKER" in e for e in errs_5)
+
+    if cond_1 and cond_2 and cond_3 and cond_4 and cond_5:
         print(
-            "🧪 [verify_embed_routing_gate --self-test] PASS: Alle 4 Negativ-Proben "
-            "(Missing Folder + XFO DENY + Missing Resize + Missing WhatsApp) wurden hart blockiert."
+            "🧪 [verify_embed_routing_gate --self-test] PASS: Alle 5 Negativ-Proben "
+            "(Missing Folder + XFO DENY + Missing Resize + Missing WhatsApp + Shrink-Lock) wurden hart blockiert."
         )
         return True
     print(

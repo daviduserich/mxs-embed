@@ -442,19 +442,40 @@ def generate_index_html(config: dict) -> str:
       document.body.classList.add('is-embedded');
     }}
 
-    // Auto-Height Anpassung für Cockpit & WordPress-Einbettung
-    function notifyParentHeight() {{
+    // Shrink-sichere Auto-Height Anpassung fuer Cockpit & WordPress-Einbettung (ohne scrollHeight-High-Water-Mark)
+    function measureContentHeight() {{
+      var main = document.querySelector('main');
+      if (document.body.classList.contains('is-embedded') && main) {{
+        var r = main.getBoundingClientRect();
+        var bottom = Math.ceil(r.bottom + (window.scrollY || window.pageYOffset || 0));
+        if (bottom > 120) return bottom + 2;
+      }}
+      return Math.ceil(Math.max(
+        document.body.getBoundingClientRect().height || 0,
+        document.body.offsetHeight || 0
+      ));
+    }}
+    var lastSentHeight = 0;
+    function notifyParentHeight(force) {{
       if (window.parent !== window) {{
-        var h = Math.max(document.documentElement.scrollHeight, document.body.scrollHeight);
-        window.parent.postMessage({{ type: 'acp-embed-resize', height: h }}, '*');
+        var h = measureContentHeight();
+        if (force || Math.abs(h - lastSentHeight) >= 2) {{
+          lastSentHeight = h;
+          window.parent.postMessage({{ type: 'acp-embed-resize', height: h }}, '*');
+        }}
       }}
     }}
-    window.addEventListener('load', notifyParentHeight);
-    window.addEventListener('resize', notifyParentHeight);
+    window.addEventListener('load', function() {{ notifyParentHeight(true); }});
+    window.addEventListener('resize', function() {{ notifyParentHeight(false); }});
+    [150, 600, 1500, 3500, 7000, 11500].forEach(function(ms) {{
+      setTimeout(function() {{ notifyParentHeight(true); }}, ms);
+    }});
     if (window.ResizeObserver) {{
-      new ResizeObserver(notifyParentHeight).observe(document.body);
+      var ro = new ResizeObserver(function() {{ notifyParentHeight(false); }});
+      var mainEl = document.querySelector('main');
+      if (mainEl) ro.observe(mainEl);
+      if (document.body) ro.observe(document.body);
     }}
-    setInterval(notifyParentHeight, 1500);
 
     // WebPilot PostMessage Bridge für Cockpit
     window.addEventListener("message", function(e) {{

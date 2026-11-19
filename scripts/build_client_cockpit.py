@@ -312,7 +312,7 @@ def scan_stellen(client_dir: Path, slug: str, name: str, profile: dict = None):
         edge_url = f"https://embed.magnet-xs.ch/{slug}/{f.name}"
         widget_code = (
             f'<iframe src="{edge_url}?embed=true" '
-            f'style="width:100%; border:none; min-height:850px;" scrolling="no" id="acp-job-widget"></iframe>\n'
+            f'style="width:1px; min-width:100%; max-width:100%; display:block; border:none; min-height:600px;" scrolling="no" id="acp-job-widget"></iframe>\n'
             f'<script>window.addEventListener("message",function(e){{'
             f'if(e.data&&e.data.type==="acp-embed-resize"){{'
             f'var el=document.getElementById("acp-job-widget");'
