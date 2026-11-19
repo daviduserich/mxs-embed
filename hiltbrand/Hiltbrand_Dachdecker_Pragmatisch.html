@@ -58,12 +58,86 @@
       overflow-x: clip;
     }
     body.is-embedded {
-      padding-bottom: 56px;
+      padding-bottom: 0 !important;
+      min-height: 0 !important;
+      height: auto !important;
+      background: transparent;
+      width: 100%;
+      max-width: 100vw;
+      overflow-x: hidden;
+    }
+    body.is-embedded main,
+    body.is-embedded section,
+    body.is-embedded .wrap {
+      max-width: 100%;
+      min-width: 0;
     }
     body.is-embedded .site-header,
     body.is-embedded .site-footer,
     body.is-embedded .sticky-cta {
       display: none !important;
+    }
+    /* Embed-Pure-Modus: Doppel-Hero im Host-Iframe zu schlankem Job-Kopf verdichten */
+    body.is-embedded .hero {
+      padding: 6px 0 18px;
+      background: transparent;
+      border-bottom: 1px solid var(--border);
+    }
+    body.is-embedded .hero-grid {
+      display: block;
+    }
+    body.is-embedded .hero-copy {
+      display: block;
+    }
+    body.is-embedded .hero-copy > div:first-child {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px 20px;
+      width: 100%;
+    }
+    body.is-embedded .hero .section-kicker,
+    body.is-embedded .hero-lead,
+    body.is-embedded .hero-trust,
+    body.is-embedded .hero-media-card,
+    body.is-embedded .chef-card {
+      display: none !important;
+    }
+    body.is-embedded .hero h1 {
+      font-size: clamp(1.22rem, 2.2vw, 1.56rem);
+      line-height: 1.22;
+      margin: 0;
+      flex: 1 1 280px;
+    }
+    body.is-embedded .hero-cta {
+      margin-top: 0;
+      gap: 8px;
+      flex-shrink: 0;
+    }
+    body.is-embedded .hero-cta .btn {
+      min-height: 40px;
+      padding: 8px 14px;
+      font-size: 0.88rem;
+    }
+    /* Nahtloser Embed-Look ohne abgeschnittene graue Kastenraender + sauberer Footer-Abschluss */
+    body.is-embedded .sec {
+      background: transparent;
+    }
+    body.is-embedded .sec-alt {
+      background: transparent;
+    }
+    body.is-embedded .reason-card,
+    body.is-embedded .form-card,
+    body.is-embedded .media-card,
+    body.is-embedded .ehrlich-card,
+    body.is-embedded .ehrlich-panel,
+    body.is-embedded .team-card {
+      background: var(--bg-alt);
+    }
+    body.is-embedded main > section:last-of-type {
+      padding-bottom: 12px !important;
+      border-bottom: none !important;
     }
 
     ::selection { background: var(--primary-soft); color: var(--primary-dark); }
@@ -580,6 +654,10 @@
         -webkit-overflow-scrolling: touch;
         scrollbar-width: none;
         padding-bottom: 4px;
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+        box-sizing: border-box;
       }
       .swipe-track::-webkit-scrollbar { display: none; }
       .swipe-track > * {
@@ -637,10 +715,17 @@
       .fact-chip { padding: 5px 8px; font-size: 0.8rem; }
       .form-card { padding: 16px 14px; gap: 12px; }
       .hero-media-card img { min-height: 185px; aspect-ratio: 16 / 10; height: auto; }
+      body.is-embedded .wrap { padding: 0 6px; }
+      body.is-embedded .hero { padding: 2px 0 16px; }
+      body.is-embedded .hero-copy > div:first-child { flex-direction: column; align-items: stretch; gap: 10px; }
+      body.is-embedded .hero h1 { font-size: 1.24rem; flex: none; }
+      body.is-embedded .hero-cta { display: grid; grid-template-columns: 1fr; gap: 8px; width: 100%; }
+      body.is-embedded .hero-cta .btn { width: 100%; }
+      body.is-embedded .hero-cta .btn-outline { display: none; }
     }
 
     @media (max-width: 420px) {
-      body.is-embedded .wrap { padding: 0 10px; }
+      body.is-embedded .wrap { padding: 0 2px; }
       .section-kicker { font-size: 0.71rem; letter-spacing: 0.05em; }
       .hero-cta .btn,
       .direct-links .btn { width: 100%; }
@@ -957,12 +1042,21 @@
   /* FlyingPress-sicherer Embed-Resize-Heartbeat */
   var lastSentHeight = 0;
   var resizeTimer = null;
+  function measureContentHeight() {
+    var main = document.querySelector('main');
+    if (document.body.classList.contains('is-embedded') && main) {
+      var r = main.getBoundingClientRect();
+      var bottom = Math.ceil(r.bottom + (window.scrollY || window.pageYOffset || 0));
+      if (bottom > 120) return bottom + 2;
+    }
+    return Math.ceil(Math.max(
+      document.body.getBoundingClientRect().height || 0,
+      document.body.offsetHeight || 0
+    ));
+  }
   function notifyParentHeight(force) {
     if (window.parent && window.parent !== window) {
-      var h = Math.max(
-        document.documentElement.scrollHeight || 0,
-        document.body.scrollHeight || 0
-      );
+      var h = measureContentHeight();
       if (force || Math.abs(h - lastSentHeight) >= 2) {
         lastSentHeight = h;
         window.parent.postMessage({ type: 'acp-embed-resize', height: h }, '*');
@@ -984,10 +1078,13 @@
       document.fonts.ready.then(function() { notifyParentHeight(true); });
     }
     if (window.ResizeObserver) {
-      new ResizeObserver(function() {
+      var ro = new ResizeObserver(function() {
         clearTimeout(resizeTimer);
         resizeTimer = setTimeout(function() { notifyParentHeight(false); }, 40);
-      }).observe(document.body);
+      });
+      var mainEl = document.querySelector('main');
+      if (mainEl) ro.observe(mainEl);
+      if (document.body) ro.observe(document.body);
     }
     var lastTouchSync = 0;
     function resyncOnInteract() {
