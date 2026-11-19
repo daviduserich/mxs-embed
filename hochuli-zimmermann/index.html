@@ -8,7 +8,7 @@
   <meta name="referrer" content="no-referrer">
   <link rel="icon" href="images/logo.png" type="image/png">
   <title>Zimmermann / Zimmerin EFZ (80–100 %) · Hochuli Schlossrued AG</title>
-  <meta name="description" content="Zimmermann oder Zimmerin EFZ (80–100 %, mit Perspektive Richtung Vorarbeiter / Baustellenleiter) bei der Hochuli Schlossrued AG. Echte Umbauten in der Region, 42-Stunden-Woche, Freitag 16:30 Uhr Feierabend, 100 % Sicherheit.">
+  <meta name="description" content="Echtes Zimmermann-Handwerk statt Elementbau-Fliessband bei der Hochuli Schlossrued AG (100 %, auch 80 % möglich, Perspektive Vorarbeiter / Baustellenleiter). 5 Sparten unter einem Dach, 100 % Arbeitssicherheit, 50 % bezahlte Ausbildungszeit.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
@@ -456,31 +456,45 @@
     }
 
     .hero-card-footer {
-      padding: 20px 22px;
+      padding: 18px 20px;
       background: var(--schiefer);
       border-top: 3px solid var(--rot);
-    }
-
-    .hero-region-tags {
       display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-      margin-bottom: 12px;
+      flex-direction: column;
+      gap: 10px;
     }
 
-    .region-tag {
-      display: inline-block;
-      background: #1e293b;
-      color: #f1f5f9;
-      border: 1px solid #334155;
-      font-size: 12px;
-      font-weight: 600;
-      padding: 3px 8px;
-      border-radius: var(--radius-sm);
+    .hero-location-list {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid #334155;
+    }
+
+    .hero-location-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 9px;
+      font-size: 13.5px;
+      color: #cbd5e1;
+      line-height: 1.45;
+    }
+
+    .hero-location-row svg {
+      width: 16px;
+      height: 16px;
+      color: #f87171;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .hero-location-row strong {
+      color: #ffffff;
     }
 
     .hero-card-caption {
-      font-size: 14px;
+      font-size: 13.5px;
       color: #cbd5e1;
       line-height: 1.45;
     }
@@ -551,7 +565,12 @@
     .alltag-card p {
       font-size: 14.5px;
       color: var(--muted);
-      line-height: 1.55;
+      line-height: 1.58;
+    }
+
+    .alltag-card p strong {
+      color: var(--schiefer);
+      font-weight: 700;
     }
 
     .swipe-hint {
@@ -1724,9 +1743,9 @@
         <div class="hero-grid">
           <div class="hero-left">
             <div>
-              <span class="section-kicker">Zimmermann / Zimmerin EFZ · 80–100 % · Schlossrued AG</span>
-              <h1>Echter Holzbau statt Fliessband. Und am Freitag um 16:30 Uhr Feierabend.</h1>
-              <p class="hero-sub">Für Fachleute mit Anspruch und Perspektive Richtung Vorarbeiter oder Baustellenleiter. Abwechslungsreiche Umbauten und Sanierungen für Familien und Landwirte direkt in deiner Region.</p>
+              <span class="section-kicker">Zimmermann / Zimmerin EFZ · 100 % (auch 80 % möglich) · Schlossrued AG</span>
+              <h1>Echtes Zimmermann-Handwerk statt Elementbau-Fliessband – auf sicheren Baustellen, auf denen dein Mitdenken zählt.</h1>
+              <p class="hero-sub">Weg von anonymen Grossbaustellen und Preisdumping, hin zu abwechslungsreichen Umbauten und Sanierungen für regionale Privatkunden und Landwirte – als 100 %-Stelle (auch 80 % möglich) mit Perspektive Richtung Vorarbeiter oder Baustellenleiter.</p>
               <div class="hero-actions">
                 <a href="#quiz-1" class="btn btn-primary">
                   <span>60-Sekunden-Check starten</span>
@@ -1740,29 +1759,29 @@
               <div class="trust-item">
                 <svg class="trust-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
                 <div>
-                  <strong>42-Std.-Woche · 80 % geht auch</strong>
-                  <span>Freitag 16:30 / 17:15 Uhr frei, keine Samstagsarbeit</span>
+                  <strong>100 %-Stelle (auch 80 % möglich)</strong>
+                  <span>Mo–Do 17:15, Freitag pünktlich 16:30 Uhr Feierabend, keine Samstagsarbeit</span>
+                </div>
+              </div>
+              <div class="trust-item">
+                <svg class="trust-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+                <div>
+                  <strong>5 Sparten unter einem Dach</strong>
+                  <span>Holzbau, Spenglerei, Sanitär/Heizung, Planung &amp; PV – kein Schnittstellen-Theater</span>
                 </div>
               </div>
               <div class="trust-item">
                 <svg class="trust-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
                 <div>
                   <strong>100 % Arbeitssicherheit</strong>
-                  <span>Keine ungesicherten Billig-EFH, monatlicher Rapport</span>
+                  <span>Wir lehnen Billig-Baustellen ab, auf denen an Fangnetzen oder Schutzmassnahmen gespart wird</span>
                 </div>
               </div>
               <div class="trust-item">
                 <svg class="trust-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
                 <div>
-                  <strong>50 % bezahlte Weiterbildung</strong>
-                  <span>Richtung Vorarbeiter / Baustellenleiter ohne Druck</span>
-                </div>
-              </div>
-              <div class="trust-item">
-                <svg class="trust-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-                <div>
-                  <strong>Eigenes 5-Sparten-Haus</strong>
-                  <span>Holzbau, Spenglerei, Sanitär, Planung &amp; PV vereint</span>
+                  <strong>50 % bezahlte Ausbildungszeit</strong>
+                  <span>Für Berufsleute, die den nächsten Schritt gehen wollen (z. B. Vorarbeiter / Baustellenleiter)</span>
                 </div>
               </div>
             </div>
@@ -1773,12 +1792,15 @@
               <img src="images/ref-holzbau-webhaeuschen.jpg" alt="Holzbau-Projekt der Hochuli Schlossrued AG" width="900" height="599" fetchpriority="high" decoding="async">
             </div>
             <div class="hero-card-footer">
-              <div class="hero-region-tags">
-                <span class="region-tag">Schlossrued</span>
-                <span class="region-tag">Aarau</span>
-                <span class="region-tag">Sursee</span>
-                <span class="region-tag">Reinach</span>
-                <span class="region-tag">Olten</span>
+              <div class="hero-location-list">
+                <div class="hero-location-row">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                  <span><strong>Baustellen:</strong> Enges Einsatzgebiet direkt rund um <strong>Schlossrued</strong> im Rueder- und Suhrental (keine endlosen Fahrten und kein Autobahn-Stau).</span>
+                </div>
+                <div class="hero-location-row">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                  <span><strong>Wohnorte unseres Teams:</strong> Unsere Leute kommen aus dem ganzen Viereck <strong>Aarau – Olten – Sursee – Reinach</strong>.</span>
+                </div>
               </div>
               <p class="hero-card-caption"><strong>Kein Lebenslauf nötig:</strong> Drei kurze Fragen reichen, damit Stefan Hofmann weiss, was dir im Holzbau wichtig ist.</p>
             </div>
@@ -1791,8 +1813,8 @@
     <section class="alt-bg" id="alltag" data-section="alltag">
       <div class="container">
         <span class="section-kicker">Dein Alltag im Holzbau-Team</span>
-        <h2 class="section-title">Sechs Gründe, warum gute Zimmerleute bei Hochuli bleiben</h2>
-        <p class="section-lead">Keine Lockvogel-Prämien, sondern ein sauber organisierter Betrieb mit eigenem 5-Sparten-Ökosystem, respektvollem Umgang und echtem Handwerk in deiner Region.</p>
+        <h2 class="section-title">6 Gründe, warum gute Zimmerleute bei Hochuli bleiben</h2>
+        <p class="section-lead">Keine Lockvogel-Prämien, sondern ein sauber organisierter Familienbetrieb mit 5 Sparten unter einem Dach, respektvollem Umgang und echtem Handwerk in deiner Region.</p>
 
         <div class="alltag-grid swipe-track" id="alltag-track">
           <article class="alltag-card">
@@ -1802,19 +1824,8 @@
               </span>
               <span class="alltag-num">01</span>
             </div>
-            <h3>Umbauten &amp; Sanierungen statt Fliessband</h3>
-            <p>Kein monotones Elementbau-Fliessband und keine anonymen Grossbaustellen-Schlachten. Jede Woche oder alle 14 Tage baust du alleine oder zu zweit echte Lösungen direkt für Familien und Landwirte.</p>
-          </article>
-
-          <article class="alltag-card">
-            <div class="alltag-head">
-              <span class="alltag-icon-box" aria-hidden="true">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-              </span>
-              <span class="alltag-num">02</span>
-            </div>
-            <h3>100 % Sicherheit ohne Preisdumping</h3>
-            <p>Wir lehnen klassische EFH-Neubauten bewusst ab, wenn Mitbewerber an Fangnetzen oder Schutzmassnahmen sparen. Einmal im Monat besprechen wir im Team-Rapport offen Sicherheit und Engpässe.</p>
+            <h3>Abwechslung statt Fliessband &amp; Grossbaustelle</h3>
+            <p>Kein monatelanges Stehen am selben Betonklotz und kein monotones Elementbau-Fliessband. Jede Woche oder alle 14 Tage wartet ein neuer Umbau, eine Sanierung oder ein Wohnbau-Projekt direkt bei Familien und Landwirten – wo du alleine oder zu zweit selbständig Lösungen baust.</p>
           </article>
 
           <article class="alltag-card">
@@ -1822,10 +1833,21 @@
               <span class="alltag-icon-box" aria-hidden="true">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
               </span>
+              <span class="alltag-num">02</span>
+            </div>
+            <h3>Schluss mit dem Fingerzeigen auf dem Dach</h3>
+            <p>Du kennst es: Du bist bereit zum Aufrichten, aber der fremde Spengler fehlt und der externe Planer hat ein Mass vergessen. Bei Hochuli sitzen 5 Sparten unter einem Dach – oder wir arbeiten mit langjährigen Partnern aus der Region, die du beim Vornamen kennst. <strong>Das bedeutet für dich:</strong> Ein Anruf, ein Handschlag, und es läuft.</p>
+          </article>
+
+          <article class="alltag-card">
+            <div class="alltag-head">
+              <span class="alltag-icon-box" aria-hidden="true">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              </span>
               <span class="alltag-num">03</span>
             </div>
-            <h3>Eigenes 5-Sparten-Ökosystem</h3>
-            <p>Holzbau und Bedachung, Spenglerei, Sanitär und Heizung, Planung sowie Photovoltaik unter einem Dach. Dazu langjährige regionale Partner: Du kennst die Kollegen, ohne Schnittstellen-Theater und ohne Stau.</p>
+            <h3>Kompromisslose Sicherheit statt Preisdumping</h3>
+            <p>Bei klassischen EFH-Neubauten sparen Billiganbieter oft an Fangnetzen oder Absturzsicherungen, um den Preis zu drücken. Hochuli lehnt solche Baustellen konsequent ab – und im monatlichen Team-Rapport schauen wir gemeinsam auf Sicherheit und Engpässe. <strong>Das bedeutet für dich:</strong> Du kommst jeden Abend gesund nach Hause.</p>
           </article>
 
           <article class="alltag-card">
@@ -1835,8 +1857,8 @@
               </span>
               <span class="alltag-num">04</span>
             </div>
-            <h3>42-Stunden-Woche &amp; Freitag frei ab 16:30</h3>
-            <p>Eigene Planung im Haus sorgt für saubere Abläufe ohne Überzeiten und ohne Samstagsarbeit. 80 % Teilzeit geht auch (mit reduziertem PK-Koordinationsabzug), plus 15 Tage Vaterschaftsurlaub und Online-Einsatzplan.</p>
+            <h3>Geregelte Zeiten &amp; planbare Freizeit</h3>
+            <p>Dank eigener, realistischer Planung gibt es bei uns keine Überstunden-Schlachten und keine Samstagsarbeit: Mo–Do bis 17:15 Uhr, am Freitag um 16:30 Uhr pünktlich Feierabend (100 %-Stelle, auch 80 % möglich). Dazu sind attraktive Sozialleistungen, 15 Tage Vaterschaftsurlaub und unser Online-Einsatzplan für deine Familie an der Tagesordnung.</p>
           </article>
 
           <article class="alltag-card">
@@ -1846,8 +1868,8 @@
               </span>
               <span class="alltag-num">05</span>
             </div>
-            <h3>300-Franken-Werkzeugkultur &amp; Werkstatt</h3>
-            <p>Fehlt draussen eine Maschine oder ein Werkzeug, wird es sofort gekauft statt bis zum November-Gespräch zu warten. Dazu saubere Autos, private Werkstatt-Nutzung, gratis Kaffee und Feierabend-Bier.</p>
+            <h3>Kein Theater wegen 300 Franken Werkzeug</h3>
+            <p>Bei manchen Firmen merkst du im Sommer, dass eine Maschine fehlt – und erst am Jahresgespräch im November redet man darüber. Bei uns sagst du es heute, und wir schaffen es unbürokratisch an. Dazu stehen dir saubere Fahrzeuge, modernes Werkzeug und nach Absprache die Werkstatt für private Projekte offen.</p>
           </article>
 
           <article class="alltag-card">
@@ -1857,8 +1879,8 @@
               </span>
               <span class="alltag-num">06</span>
             </div>
-            <h3>50 % Ausbildungszeit &amp; Nachkalkulation</h3>
-            <p>Du willst dich Richtung Vorarbeiter oder Baustellenleiter weiterbilden? Wir bezahlen 50 % der Ausbildungszeit, auch ohne akuten Stellenzwang, und geben dir offenen Einblick in die Nachkalkulation.</p>
+            <h3>Weiterkommen &amp; immer wissen, woran man ist</h3>
+            <p>Wer sich entwickeln will (z. B. Richtung Vorarbeiter oder Baustellenleiter), wird aktiv gefördert – mit 50 % bezahlter Ausbildungszeit, auch ohne auf einen freien Posten warten zu müssen. Nach den Projekten schauen wir gemeinsam ehrlich drauf, wo wir stehen. <strong>Das bedeutet für dich:</strong> Jeder weiss, woran er ist – statt Gerüchteküche am Feierabend-Bier.</p>
           </article>
         </div>
 
@@ -1902,7 +1924,7 @@
                 <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
                 <span>Entwurf · Textvorschlag zum Absegnen</span>
               </span>
-              <p class="quote-text" style="margin-top:14px;">«Bei uns verheizt sich niemand im Preisdumping auf ungesicherten Baustellen. Und wenn dir im Sommer eine Maschine für 300 Franken die Arbeit leichter macht, warten wir nicht bis zum November-Gespräch: Dann kaufen wir sie sofort. Ich suche Berufsleute, die mitdenken und denen es bei uns wohl ist.»</p>
+              <p class="quote-text" style="margin-top:14px;">«Bei uns wird niemand auf ungesicherten Baustellen verheizt, nur um im Preisdumping mitzuhalten. Und wenn dir im Alltag eine Maschine für 300 Franken die Arbeit sauberer oder leichter macht, warten wir nicht bis zum November-Gespräch – dann kaufen wir sie sofort. Ich suche Berufsleute, die mitdenken und sich bei uns wohlfühlen.»</p>
             </div>
             <div class="quote-author">
               <img src="images/martin-hochuli.jpg" alt="Martin Hochuli, Inhaber und Geschäftsführer" width="200" height="200" loading="lazy" decoding="async" class="quote-avatar">
@@ -1975,7 +1997,7 @@
               </div>
               <div class="video-placeholder-bottom">
                 <h4>Mitarbeiter-Stimme 2: Ich bin froh, dass bei Hochuli...</h4>
-                <p>Geplant: 20–35 Sek. Mundart ab Baustelle über 100 % Sicherheit, 300-Franken-Werkzeugkultur und Weiterbildung.</p>
+                <p>Geplant: 20–35 Sek. Mundart ab Baustelle über 100 % Sicherheit, sofortiges Top-Werkzeug und echte Weiterbildung.</p>
               </div>
             </div>
           </div>
@@ -2028,19 +2050,19 @@
               </li>
               <li>
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
-                <span>42-Stunden-Woche, Freitag 16:30 oder 17:15 Uhr Feierabend, 80 % Pensum möglich (reduzierter PK-Abzug)</span>
+                <span>Geregelte Arbeitszeiten (Mo–Do 17:15, Freitag pünktlich 16:30 Uhr frei), 100 %-Stelle oder 80 % möglich</span>
               </li>
               <li>
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
-                <span>15 Tage Vaterschaftsurlaub, Online-Einsatzplan für die Familie und regionaler Arbeitsweg</span>
+                <span>Attraktive Sozialleistungen, 15 Tage Vaterschaftsurlaub, Online-Einsatzplan für die Familie &amp; kurze Wege</span>
               </li>
               <li>
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
-                <span>50 % bezahlte Ausbildungszeit Richtung Vorarbeiter / Baustellenleiter plus offene Nachkalkulation</span>
+                <span>50 % bezahlte Ausbildungszeit (z. B. Vorarbeiter / Baustellenleiter) &amp; offene Karten nach jedem Projekt</span>
               </li>
               <li>
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
-                <span>Top-Werkzeug (sofort beschafft), saubere Autos, private Werkstatt-Nutzung, Kaffee &amp; Feierabend-Bier</span>
+                <span>5 Sparten unter einem Dach, sofortiges Top-Werkzeug, saubere Autos, Werkstatt-Nutzung &amp; Feierabend-Bier</span>
               </li>
             </ul>
           </div>
@@ -2092,7 +2114,7 @@
             </span>
             <span class="quiz-opt-body">
               <strong>Saubere Planung &amp; Qualität</strong>
-              <span>Eigene Planer im Haus, Top-Werkzeug und Einblick in die Nachkalkulation statt Flickwerk.</span>
+              <span>5 Sparten unter einem Dach, Top-Werkzeug und offene Karten nach jedem Projekt statt Flickwerk.</span>
             </span>
           </button>
 
@@ -2131,7 +2153,7 @@
             </span>
             <span class="quiz-opt-body">
               <strong>Planbarer Feierabend &amp; Familie</strong>
-              <span>42-Stunden-Woche, Freitag 16:30 Uhr frei, keine Samstagsarbeit und Online-Einsatzplan.</span>
+              <span>Mo–Do 17:15, Freitag pünktlich 16:30 Uhr frei, keine Samstagsarbeit und Online-Einsatzplan.</span>
             </span>
           </button>
 
@@ -2160,8 +2182,8 @@
               <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
             </span>
             <span class="quiz-opt-body">
-              <strong>80 % Teilzeit &amp; regionaler Weg</strong>
-              <span>Auch mit 80 % Pensum und fairem PK-Abzug voll dabei sein, regional ohne Autobahn-Stau.</span>
+              <strong>80 % Teilzeit &amp; kurze Wege</strong>
+              <span>Auch mit 80 % Pensum voll dabei sein – auf regionalen Baustellen rund um Schlossrued ohne Stau.</span>
             </span>
           </button>
         </div>
@@ -2190,7 +2212,7 @@
             </span>
             <span class="quiz-opt-body">
               <strong>Verantwortung übernehmen</strong>
-              <span>Selbständig führen oder reinwachsen, mit offenen Zahlen aus der Nachkalkulation.</span>
+              <span>Selbständig führen oder reinwachsen – mit offenen Karten und klarem Feedback nach jedem Projekt.</span>
             </span>
           </button>
 
@@ -2263,7 +2285,7 @@
                 <label for="bpensum">Gewünschtes Pensum</label>
                 <select id="bpensum" name="pensum">
                   <option value="100 %">100 % Vollzeit</option>
-                  <option value="80–90 %">80–90 % Teilzeit (mit fairem PK-Abzug)</option>
+                  <option value="80–90 %">80–90 % Teilzeit</option>
                   <option value="Noch offen / besprechen">Noch offen, gerne besprechen</option>
                 </select>
               </div>
@@ -2542,9 +2564,9 @@
           title: "Saubere Planung & Qualität",
           disc: "blau",
           mot: "Qualität & Transparenz",
-          keyArg: "eigene Planung im Haus, Top-Werkzeug und offene Nachkalkulation",
-          benefitTitle: "Eigene Planung und offene Zahlen",
-          benefitText: "Weil Planung, Holzbau, Spenglerei und Haustechnik unter einem Dach laufen, sind Projekte sauber vorbereitet und du erhältst Einblick in die Nachkalkulation."
+          keyArg: "5 Sparten unter einem Dach, Top-Werkzeug und offene Karten nach jedem Projekt",
+          benefitTitle: "5 Sparten unter einem Dach & offene Karten",
+          benefitText: "Weil Planung, Holzbau, Spenglerei, Haustechnik und PV unter einem Dach laufen, sind Projekte sauber vorbereitet und im Team weiss jeder, woran er ist."
         },
         4: {
           title: "Eingespieltes Team & Sicherheit",
@@ -2552,7 +2574,7 @@
           mot: "Sicherheit & Verlässlichkeit",
           keyArg: "100 % Arbeitssicherheit ohne Billig-EFH und eingespieltes Team",
           benefitTitle: "100 % Sicherheit ohne Kompromisse",
-          benefitText: "Wir lehnen ungesicherte Billig-Baustellen bewusst ab und besprechen im monatlichen Team-Rapport offen Sicherheit und Engpässe."
+          benefitText: "Wir lehnen ungesicherte Billig-Baustellen konsequent ab und besprechen im monatlichen Team-Rapport offen Sicherheit und Engpässe."
         }
       },
       F02: {
@@ -2560,9 +2582,9 @@
           title: "Planbarer Feierabend & Familie",
           disc: "gruen",
           mot: "Planungssicherheit",
-          keyArg: "42-Stunden-Woche, Freitag 16:30 Uhr Feierabend und Online-Einsatzplan",
+          keyArg: "geregelte Arbeitszeiten (Mo–Do 17:15, Freitag 16:30 Uhr frei) und Online-Einsatzplan",
           benefitTitle: "Verlässlicher Feierabend ohne Samstag",
-          benefitText: "42-Stunden-Woche, Freitag 16:30 oder 17:15 Uhr frei, keine regelmässigen Überzeiten, 15 Tage Vaterschaftsurlaub und Online-Einsatzplan für die Familie."
+          benefitText: "Mo–Do bis 17:15 Uhr, am Freitag um 16:30 Uhr pünktlich Feierabend, attraktive Sozialleistungen, 15 Tage Vaterschaftsurlaub und Online-Einsatzplan für die Familie."
         },
         2: {
           title: "Weiterkommen & Verantwortung",
@@ -2570,23 +2592,23 @@
           mot: "Entwicklung & Aufstieg",
           keyArg: "50 % bezahlte Ausbildungszeit Richtung Vorarbeiter oder Baustellenleiter",
           benefitTitle: "50 % bezahlte Ausbildungszeit",
-          benefitText: "Wir fördern deinen nächsten Schritt Richtung Vorarbeiter oder Baustellenleiter aktiv mit 50 % bezahlter Ausbildungszeit, auch ohne akuten Stellenzwang."
+          benefitText: "Wir fördern deinen nächsten Schritt Richtung Vorarbeiter oder Baustellenleiter aktiv mit 50 % bezahlter Ausbildungszeit, auch ohne auf einen freien Posten warten zu müssen."
         },
         3: {
           title: "Sicherheit & sofortiges Werkzeug",
           disc: "blau",
           mot: "Profi-Ausrüstung",
-          keyArg: "300-Franken-Werkzeugkultur ohne Warten bis November und top Sicherheit",
+          keyArg: "sofortige Werkzeug-Beschaffung ohne Warten bis November und kompromisslose Sicherheit",
           benefitTitle: "Sofort das richtige Werkzeug am Start",
-          benefitText: "Fehlt draussen eine Maschine oder ein Spezialwerkzeug, wird es sofort beschafft statt bis zum Jahresgespräch zu warten."
+          benefitText: "Wenn dir draussen eine Maschine für 300 Franken die Arbeit sauberer oder leichter macht, sagst du es heute – und wir schaffen sie unbürokratisch an."
         },
         4: {
-          title: "80 % Teilzeit & regionaler Weg",
+          title: "80 % Teilzeit & kurze Wege",
           disc: "gelb",
           mot: "Flexibilität & Region",
-          keyArg: "80 % Pensum mit reduziertem PK-Abzug und Baustellen ohne Autobahn-Stau",
-          benefitTitle: "80 % geht auch und null Autobahn-Stau",
-          benefitText: "Mit reduziertem PK-Koordinationsabzug bleibt Teilzeit fair, und deine Baustellen liegen direkt im Raum Schlossrued, Aarau, Sursee, Reinach und Olten."
+          keyArg: "80 % Teilzeit-Option und enge regionale Baustellen rund um Schlossrued",
+          benefitTitle: "80 % möglich und null Autobahn-Stau",
+          benefitText: "Bei uns geht auch ein 80-%-Pensum, und deine Baustellen liegen direkt rund um Schlossrued im Rueder- und Suhrental ohne endlose Fahrten."
         }
       },
       F03: {
@@ -2595,21 +2617,21 @@
           disc: "rot",
           mot: "Mitunternehmertum",
           benefitTitle: "Raum zum Führen und Mitdenken",
-          benefitText: "Du bekommst echte Verantwortung auf deinen Baustellen, offenen Einblick in die Nachkalkulation und klare Entwicklungsmöglichkeiten."
+          benefitText: "Du bekommst echte Verantwortung auf deinen Baustellen, offene Karten nach jedem Projekt und klare Entwicklungsmöglichkeiten."
         },
         2: {
           title: "Unkompliziert & direkt",
           disc: "gelb",
           mot: "Kurze Wege",
           benefitTitle: "Direkter Draht statt Bürokratie",
-          benefitText: "Kurze Absprachen auf Augenhöhe mit Martin Hochuli und Stefan Hofmann, private Werkstatt-Nutzung, gratis Kaffee und Feierabend-Bier."
+          benefitText: "Kurze Absprachen auf Augenhöhe mit Martin Hochuli und Stefan Hofmann, private Werkstatt-Nutzung nach Absprache, gratis Kaffee und Feierabend-Bier."
         },
         3: {
           title: "Kameradschaft & Verlässlichkeit",
           disc: "gruen",
           mot: "Teamgeist",
-          benefitTitle: "Man kennt jeden Handwerker persönlich",
-          benefitText: "Dank unserem 5-Sparten-Ökosystem und langjährigen Partnern arbeitest du Hand in Hand ohne Schnittstellen-Theater."
+          benefitTitle: "Man kennt jeden Handwerker beim Vornamen",
+          benefitText: "Dank 5 Sparten unter einem Dach und langjährigen Partnern aus der Region arbeitest du Hand in Hand ohne Schnittstellen-Theater."
         },
         4: {
           title: "Struktur & klare Abläufe",
