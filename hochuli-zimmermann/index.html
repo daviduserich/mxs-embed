@@ -1003,6 +1003,19 @@
       border-radius: var(--radius);
       padding: 14px 18px;
       margin-bottom: 28px;
+      scroll-margin-top: 84px;
+    }
+
+    .quiz-intro-header {
+      margin-bottom: 4px;
+    }
+
+    .quiz-q-title {
+      font-size: clamp(24px, 3vw, 34px);
+      font-weight: 800;
+      line-height: 1.18;
+      margin-bottom: 12px;
+      max-width: 780px;
     }
 
     .quiz-progress-top {
@@ -1928,7 +1941,7 @@
               <span class="alltag-num">06</span>
             </div>
             <h3>Weiterkommen &amp; immer wissen, woran man ist</h3>
-            <p>Wer sich entwickeln will (z. B. Richtung Vorarbeiter oder Baustellenleiter), wird aktiv gefördert – mit 50 % bezahlter Ausbildungszeit, auch ohne auf einen freien Posten warten zu müssen. Nach den Projekten schauen wir gemeinsam ehrlich drauf, wo wir stehen. <strong>Das bedeutet für dich:</strong> Jeder weiss, woran er ist – statt Gerüchteküche am Feierabend-Bier.</p>
+            <p>Wer sich entwickeln will (z. B. Richtung Vorarbeiter oder Baustellenleiter), wird aktiv gefördert – mit 50 % bezahlter Ausbildungszeit, auch ohne auf einen freien Posten warten zu müssen. Nach den Projekten schauen wir gemeinsam offen drauf, wo wir stehen. <strong>Das bedeutet für dich:</strong> Jeder weiss, woran er ist – statt Gerüchteküche am Feierabend-Bier.</p>
           </article>
         </div>
 
@@ -2056,13 +2069,13 @@
     <!-- ZONE 1: DER EHRLICHE DEAL -->
     <section class="alt-bg" id="deal" data-section="deal">
       <div class="container">
-        <span class="section-kicker">Klartext statt Floskeln</span>
-        <h2 class="section-title">Der ehrliche Deal: Was dich erwartet und was nicht</h2>
-        <p class="section-lead">Damit du schon vor dem ersten Gespräch weisst, ob unsere Art zu bauen zu dir passt.</p>
+        <span class="section-kicker">Klartext</span>
+        <h2 class="section-title">Der ehrliche Deal: Was dich erwartet – und was nicht</h2>
+        <p class="section-lead">Damit du vor dem ersten Gespräch weisst, ob unsere Baustellen zu dir passen.</p>
 
         <div class="deal-grid">
           <div class="deal-card is-contra">
-            <span class="deal-card-tag">Bewusst aussortiert</span>
+            <span class="deal-card-tag">Gibt es bei uns nicht</span>
             <h3>Was du bei uns NICHT bekommst</h3>
             <ul class="deal-list">
               <li>
@@ -2089,7 +2102,7 @@
           </div>
 
           <div class="deal-card is-pro">
-            <span class="deal-card-tag">Echter Standard bei Hochuli</span>
+            <span class="deal-card-tag">Standard bei Hochuli</span>
             <h3>Was du bei uns BEKOMMST</h3>
             <ul class="deal-list">
               <li>
@@ -2121,9 +2134,9 @@
     <!-- ZONE 1: FAQ (VOR DEM QUIZ-FUNNEL) -->
     <section id="faq" data-section="faq">
       <div class="container">
-        <span class="section-kicker">Häufige Fragen</span>
-        <h2 class="section-title">Kurz geklärt vor dem ersten Gespräch</h2>
-        <p class="section-lead">Die vier wichtigsten Fragen von Zimmerleuten aus der Region, direkt und ehrlich beantwortet.</p>
+        <span class="section-kicker">Kurz &amp; direkt</span>
+        <h2 class="section-title">4 Fragen, die jeder gute Zimmermann zuerst stellt</h2>
+        <p class="section-lead">Kein Kleingedrucktes, keine HR-Umwege.</p>
 
         <div class="faq-list">
           <details class="faq-item">
@@ -2131,7 +2144,7 @@
               <span>Brauche ich für den 60-Sekunden-Check einen Lebenslauf oder Zeugnisse?</span>
               <svg class="faq-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
             </summary>
-            <div class="faq-body">Nein. Für den ersten Kontakt reichen die drei kurzen Fragen gleich unten und dein Name. Uns zählt zuerst, wer du bist und wie du arbeitest. Unterlagen können wir später immer noch unkompliziert austauschen.</div>
+            <div class="faq-body">Nein. Für den ersten Kontakt reichen die drei kurzen Fragen gleich unten und dein Name. Uns zählt zuerst, wer du bist und wie du arbeitest. Unterlagen können wir später immer noch nachreichen.</div>
           </details>
 
           <details class="faq-item">
@@ -2164,6 +2177,12 @@
     <!-- MAGNETISCHER ENDPUNKT: SCHRITT-FÜR-SCHRITT QUIZ-FOKUS-KAPSEL -->
     <div class="quiz-funnel-shell" id="quiz-funnel-shell">
       <div class="container">
+        <div class="quiz-intro-header" id="quiz-intro-header">
+          <span class="section-kicker">Dein nächster Schritt · 60 Sekunden</span>
+          <h2 class="section-title">Jetzt weisst du, wie wir arbeiten. Schauen wir, wie du tickst.</h2>
+          <p class="section-lead" style="margin-bottom:28px;">3 kurze Fragen aus dem Baustellen-Alltag, danach direkter Kontakt zu Stefan Hofmann. Ohne Lebenslauf und ohne Papierkram.</p>
+        </div>
+
         <div class="quiz-progress-shell" id="quiz-progress-bar">
           <div class="quiz-progress-top">
             <span class="quiz-step-badge" id="quiz-step-badge">Schritt 1 von 4 · 25 %</span>
@@ -2179,8 +2198,8 @@
     <section class="quiz-section" id="quiz-1" data-section="quiz-1">
       <div class="container">
         <span class="section-kicker">Frage 1 von 3</span>
-        <h2 class="section-title">Was macht für dich einen richtig guten Tag als Zimmermann aus?</h2>
-        <p class="section-lead">Tippe einfach die Antwort an, die am besten zu dir passt. Du kannst deine Wahl jederzeit ändern.</p>
+        <h3 class="quiz-q-title">Was macht für dich einen richtig guten Tag als Zimmermann aus?</h3>
+        <p class="section-lead">Kurz antippen – kein Richtig oder Falsch.</p>
 
         <div class="quiz-options-grid" role="group" aria-label="Frage 1 Antwortoptionen">
           <button type="button" class="quiz-opt-btn" data-q="F01" data-val="1" onclick="selectQuizOption('F01', 1)">
@@ -2244,8 +2263,8 @@
           </button>
         </div>
         <span class="section-kicker">Frage 2 von 3</span>
-        <h2 class="section-title">Was muss rund um Arbeitszeit und Perspektive zwingend stimmen?</h2>
-        <p class="section-lead">Wähle deinen wichtigsten Punkt für den Alltag neben der Baustelle.</p>
+        <h3 class="quiz-q-title">Was muss rund um Arbeitszeit und Perspektive zwingend stimmen?</h3>
+        <p class="section-lead">Wähle den Punkt, der für deinen Alltag am stärksten zählt.</p>
 
         <div class="quiz-options-grid" role="group" aria-label="Frage 2 Antwortoptionen">
           <button type="button" class="quiz-opt-btn" data-q="F02" data-val="1" onclick="selectQuizOption('F02', 1)">
@@ -2309,8 +2328,8 @@
           </button>
         </div>
         <span class="section-kicker">Frage 3 von 3</span>
-        <h2 class="section-title">Wie stellst du dir das Zusammenspiel mit Chef und Team vor?</h2>
-        <p class="section-lead">Letzter Klick vor deinem direkten Draht zu Stefan Hofmann.</p>
+        <h3 class="quiz-q-title">Wie stellst du dir das Zusammenspiel mit Chef und Team vor?</h3>
+        <p class="section-lead">Letzte Frage, danach bist du direkt bei Stefan Hofmann.</p>
 
         <div class="quiz-options-grid" role="group" aria-label="Frage 3 Antwortoptionen">
           <button type="button" class="quiz-opt-btn" data-q="F03" data-val="1" onclick="selectQuizOption('F03', 1)">
@@ -2328,7 +2347,7 @@
               <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
             </span>
             <span class="quiz-opt-body">
-              <strong>Unkompliziert &amp; direkt</strong>
+              <strong>Direkt &amp; ohne Umwege</strong>
               <span>Kurz absprechen statt Bürokratie, direkt am Werkhof oder beim Feierabend-Bier.</span>
             </span>
           </button>
@@ -2357,7 +2376,7 @@
         <div class="benefit-confirm-box" id="benefit-q3">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
           <div>
-            <h4 id="benefit-q3-title">Starker Match mit unserem Team</h4>
+            <h4 id="benefit-q3-title">Passt gut ins Team</h4>
             <p id="benefit-q3-text"></p>
           </div>
         </div>
@@ -2374,8 +2393,8 @@
           </button>
         </div>
         <span class="section-kicker">Schritt 4 von 4 · Direktkontakt</span>
-        <h2 class="section-title">Dein Match steht: Kurz melden ohne Bewerbungsmappe</h2>
-        <p class="section-lead">Wähle selbst, ob du deine Antworten direkt per WhatsApp (ohne Nummer eintippen) oder über das Kurzformular absenden möchtest.</p>
+        <h3 class="quiz-q-title">Passt – melde dich kurz direkt bei Stefan Hofmann</h3>
+        <p class="section-lead">Per WhatsApp ohne Nummer-Eintippen oder direkt über das Kurzformular – ganz wie es dir passt.</p>
 
         <div class="blitz-card">
           <div class="match-pills" id="match-summary-pills">
@@ -2444,8 +2463,8 @@
     <section class="quiz-section capsule-locked" id="danke" data-section="danke">
       <div class="container">
         <span class="section-kicker" id="danke-channel-badge">Anfrage erfasst · Vertraulich</span>
-        <h2 class="section-title" id="danke-headline">Vielen Dank für deine Rückmeldung!</h2>
-        <p class="section-lead">Stefan Hofmann schaut sich deine Antworten persönlich an und meldet sich unkompliziert bei dir.</p>
+        <h3 class="quiz-q-title" id="danke-headline">Danke – deine Angaben sind bei uns.</h3>
+        <p class="section-lead">Stefan Hofmann schaut sich deine Antworten selbst an und meldet sich zu deiner Wunschzeit bei dir.</p>
 
         <div class="danke-bento-grid">
           <div class="danke-visual-card">
@@ -2475,7 +2494,7 @@
                 </li>
                 <li>
                   <span class="step-num">2</span>
-                  <span>Ihr trefft euch auf einen unkomplizierten Kaffee am Werkhof in Schlossrued (ohne Bewerbungsmappe).</span>
+                  <span>Ihr trefft euch auf einen Kaffee am Werkhof in Schlossrued – ohne Bewerbungsmappe.</span>
                 </li>
                 <li>
                   <span class="step-num">3</span>
@@ -2691,7 +2710,7 @@
           benefitText: "Du bekommst echte Verantwortung auf deinen Baustellen, offene Karten nach jedem Projekt und klare Entwicklungsmöglichkeiten."
         },
         2: {
-          title: "Unkompliziert & direkt",
+          title: "Direkt & ohne Umwege",
           disc: "gelb",
           mot: "Kurze Wege",
           benefitTitle: "Direkter Draht statt Bürokratie",
@@ -2785,7 +2804,7 @@
         if (currentStepId === "danke") {
           text.textContent = "60-Sekunden-Check erledigt · Vertraulich erfasst";
         } else if (currentStepId === "blitz") {
-          text.textContent = "Dein Match steht · Jetzt kurz per WhatsApp oder direkt absenden";
+          text.textContent = "Passt – jetzt kurz per WhatsApp oder direkt absenden";
         } else {
           text.textContent = "60-Sekunden-Check · Kein Lebenslauf nötig";
         }
@@ -2815,7 +2834,9 @@
       notifyParentHeight(true);
 
       if (shouldScroll !== false) {
-        const anchor = document.getElementById("quiz-funnel-shell") || document.getElementById(stepId);
+        const anchor = stepId === "quiz-1"
+          ? (document.getElementById("quiz-funnel-shell") || document.getElementById(stepId))
+          : (document.getElementById("quiz-progress-bar") || document.getElementById(stepId));
         if (anchor) {
           anchor.scrollIntoView({ behavior: "smooth", block: "start" });
         }
@@ -3067,8 +3088,8 @@
       if (headEl) {
         const firstName = nameVal ? nameVal.split(/\s+/)[0] : "";
         headEl.textContent = firstName
-          ? "Vielen Dank, " + firstName + "!"
-          : "Vielen Dank für deine Rückmeldung!";
+          ? "Danke, " + firstName + " – deine Angaben sind bei uns."
+          : "Danke – deine Angaben sind bei uns.";
       }
 
       goToQuizStep("danke", true);
