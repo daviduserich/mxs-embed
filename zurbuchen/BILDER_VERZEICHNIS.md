@@ -5,7 +5,7 @@
 > **Lokaler Ordner (VPS & Git):** `zurbuchen/`  
 > **Cloudflare-Basis-URL:** [embed.magnet-xs.ch/zurbuchen/](https://embed.magnet-xs.ch/zurbuchen/)  
 > **Bestand:** **13 Assets** (0.21 MB gesamt) · **🟢 10 aktiv im HTML** · **⚪ 3 frei im Bild-Pool** · **Externe Hotlinks: 0**  
-> **Letzte Aktualisierung:** 17.11.2026 17:46 Uhr (automatisch generiert via `webpilot_asset_catalog.py`)
+> **Letzte Aktualisierung:** 18.11.2026 18:30 Uhr (automatisch generiert via `webpilot_asset_catalog.py`)
 
 ---
 

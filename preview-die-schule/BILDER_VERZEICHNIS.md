@@ -5,7 +5,7 @@
 > **Lokaler Ordner (VPS & Git):** `preview-die-schule/`  
 > **Cloudflare-Basis-URL:** [vorschau.magnet-xs.ch/die-schule-vollversion/](https://vorschau.magnet-xs.ch/die-schule-vollversion/)  
 > **Bestand:** **16 Assets** (1.86 MB gesamt) · **🟢 14 aktiv im HTML** · **⚪ 2 frei im Bild-Pool** · **Externe Hotlinks: 0**  
-> **Letzte Aktualisierung:** 15.11.2026 16:17 Uhr (automatisch generiert via `webpilot_asset_catalog.py`)
+> **Letzte Aktualisierung:** 18.11.2026 18:30 Uhr (automatisch generiert via `webpilot_asset_catalog.py`)
 
 ---
 

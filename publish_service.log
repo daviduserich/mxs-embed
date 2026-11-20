@@ -232,3 +232,81 @@ error: failed to push some refs to 'github.com:daviduserich/mxs-embed.git'
 [2026-11-13 08:37:58] [partner] [WHATSAPP_OK] [SENT] to=['+41782232180', '+41796326505'] msg_id=3EB066A4D9F9C84202D186
 [2026-11-13 08:37:58] [partner] [JOB_COMPLETED] [LIVE] job_id=job_die-schule_20261113_073636 slug=die-schule wa=True
 [2026-11-13 08:48:21] [partner] [LOGIN_OK] [200] user=jenny ip=213.55.156.121
+[2026-11-16 08:13:14] [partner] [LOGIN_OK] [200] user=jenny ip=2a02:1210:3629:ac00:38b5:4c72:1e4b:3c4f
+[2026-11-16 08:56:34] [partner] [LOGIN_OK] [200] user=david ip=46.126.155.130
+[2026-11-18 10:09:06] [partner] [LOGIN_OK] [200] user=jenny ip=2a02:1210:3629:ac00:c180:4fa8:4fa5:bfd8
+[2026-11-18 10:09:09] [partner] [LOGIN_OK] [200] user=jenny ip=2a02:1210:3629:ac00:c180:4fa8:4fa5:bfd8
+[2026-11-18 10:09:57] [partner] [JOB_CLAIMED] [IN_PROGRESS] job_id=job_seit_20261118_100951
+[2026-11-18 10:10:00] [partner] [SHEET_SYNC_OK] [QUEUED] slug=seit row=12
+[2026-11-18 10:10:04] [partner] [WHATSAPP_OK] [SENT] to=['+41782232180', '+41796326505'] msg_id=3EB0B70A38A4F924F911CB
+[2026-11-18 10:10:04] [partner] [JOB_CREATED] [QUEUED] job_id=job_seit_20261118_100951 by=jenny
+[2026-11-18 10:10:33] [partner] [JOB_CLAIMED] [IN_PROGRESS] job_id=job_seit_20261118_100951
+[2026-11-18 10:50:44] [preview-seit] [SEO_GEO_AUTOPILOT] [OK] action=job_complete schema=LocalBusiness alt_up=0 ms=130.6
+[2026-11-18 10:50:44] [preview-seit-v2] [SEO_GEO_AUTOPILOT] [OK] action=job_complete schema=LocalBusiness alt_up=0 ms=41.4
+[2026-11-18 10:50:45] [preview-seit] [ASSET_CATALOG_SYNC] [OK] action=job_complete sites=31 assets=919 ms=583.1
+[2026-11-18 10:50:50] [partner] [SHEET_SYNC_OK] [COMPLETED] slug=seit row=2
+[2026-11-18 10:50:54] [partner] [WHATSAPP_OK] [SENT] to=['+41782232180', '+41796326505'] msg_id=3EB03882A9580402E0C3EF
+[2026-11-18 10:50:54] [partner] [JOB_COMPLETED] [LIVE] job_id=job_seit_20261118_100951 slug=seit wa=True
+[2026-11-18 18:30:36] [webpilot-lead] [EMAIL_OK] [SENT] via=w01b7af4.kasserver.com:587 from=Jakob Hauser AG · autohauser® to=['david.huegli@magnet-xs.com'] cc=[] pdf=Auftrag_WP-2026-9589_AUTOHAUSER.pdf
+[2026-11-18 18:30:36] [autohauser] [LEAD_SUBMIT] [OK] ref=#WP-2026-9589 to=Javier Jimenez email=True wa=False
+[2026-11-18 19:07:21] [webpilot-lead] [EMAIL_OK] [SENT] via=w01b7af4.kasserver.com:587 from=Jakob Hauser AG · autohauser® to=['david.huegli@magnet-xs.com'] cc=[] pdf=Auftrag_WP-2026-4216_AUTOHAUSER.pdf
+[2026-11-18 19:07:21] [autohauser] [LEAD_SUBMIT] [OK] ref=#WP-2026-4216 to=Daniela Dähler email=True wa=False
+[2026-11-18 19:08:42] [webpilot-lead] [EMAIL_OK] [SENT] via=w01b7af4.kasserver.com:587 from=Jakob Hauser AG · autohauser® to=['david.huegli@magnet-xs.com'] cc=[] pdf=Bewerbung_WP-2026-6314_AUTOHAUSER.pdf
+[2026-11-18 19:08:42] [autohauser] [LEAD_SUBMIT] [OK] ref=#WP-2026-6314 to=Daniela Dähler email=True wa=False
+[2026-11-20 07:41:16] [partner] [LOGIN_OK] [200] user=jenny ip=213.55.187.137
+[2026-11-20 20:20:45] [partner] [LOGIN_OK] [200] user=jenny ip=2a02:1210:3629:ac00:6de7:fcb2:5690:8cac
+[2026-11-20 20:23:23] [partner] [LOGIN_OK] [200] user=jenny ip=2a02:1210:3629:ac00:6de7:fcb2:5690:8cac
+[2026-11-20 20:30:48] [hiltbrand] [REPLACE_SECTION_REQ] [START] file=index.html, sec_id=top-strip, len=1428
+[2026-11-20 20:30:48] [hiltbrand] [REPLACE_SECTION_REJ] [FILE_NOT_FOUND] Datei index.html existiert nicht
+[2026-11-20 20:30:48] [hiltbrand] [REPLACE_SECTION_REQ] [START] file=index.html, sec_id=saeule-ausbildungspartner, len=1837
+[2026-11-20 20:30:48] [hiltbrand] [REPLACE_SECTION_REJ] [FILE_NOT_FOUND] Datei index.html existiert nicht
+[2026-11-20 20:30:48] [hiltbrand] [REPLACE_SECTION_REQ] [START] file=index.html, sec_id=saeule-sponsor, len=5613
+[2026-11-20 20:30:48] [hiltbrand] [REPLACE_SECTION_REJ] [FILE_NOT_FOUND] Datei index.html existiert nicht
+[2026-11-20 20:30:48] [hiltbrand] [REPLACE_SECTION_REQ] [START] file=index.html, sec_id=saeule-netzwerkpartner, len=1812
+[2026-11-20 20:30:48] [hiltbrand] [REPLACE_SECTION_REJ] [FILE_NOT_FOUND] Datei index.html existiert nicht
+[2026-11-20 20:30:48] [hiltbrand] [REPLACE_SECTION_REQ] [START] file=index.html, sec_id=machmit-hero, len=2154
+[2026-11-20 20:30:48] [hiltbrand] [REPLACE_SECTION_REJ] [FILE_NOT_FOUND] Datei index.html existiert nicht
+[2026-11-20 20:32:13] [hiltbrand] [REPLACE_SECTION_REQ] [START] file=index.html, sec_id=machmit-hero, len=2154
+[2026-11-20 20:32:13] [hiltbrand] [REPLACE_SECTION_REJ] [FILE_NOT_FOUND] Datei index.html existiert nicht
+[2026-11-20 20:32:13] [hiltbrand] [REPLACE_SECTION_REQ] [START] file=index.html, sec_id=saeule-ausbildungspartner, len=1837
+[2026-11-20 20:32:13] [hiltbrand] [REPLACE_SECTION_REJ] [FILE_NOT_FOUND] Datei index.html existiert nicht
+[2026-11-20 20:32:13] [hiltbrand] [REPLACE_SECTION_REQ] [START] file=index.html, sec_id=saeule-netzwerkpartner, len=1812
+[2026-11-20 20:32:13] [hiltbrand] [REPLACE_SECTION_REJ] [FILE_NOT_FOUND] Datei index.html existiert nicht
+[2026-11-20 20:32:13] [hiltbrand] [REPLACE_SECTION_REQ] [START] file=index.html, sec_id=top-strip, len=1428
+[2026-11-20 20:32:13] [hiltbrand] [REPLACE_SECTION_REJ] [FILE_NOT_FOUND] Datei index.html existiert nicht
+[2026-11-20 20:32:13] [hiltbrand] [REPLACE_SECTION_REQ] [START] file=index.html, sec_id=machmit-cta, len=1214
+[2026-11-20 20:32:13] [hiltbrand] [REPLACE_SECTION_REJ] [FILE_NOT_FOUND] Datei index.html existiert nicht
+[2026-11-20 20:32:13] [hiltbrand] [REPLACE_SECTION_REQ] [START] file=index.html, sec_id=saeule-sponsor, len=5613
+[2026-11-20 20:32:13] [hiltbrand] [REPLACE_SECTION_REJ] [FILE_NOT_FOUND] Datei index.html existiert nicht
+[2026-11-20 20:32:13] [hiltbrand] [REPLACE_SECTION_REQ] [START] file=index.html, sec_id=sponsoren-showcase, len=4168
+[2026-11-20 20:32:13] [hiltbrand] [REPLACE_SECTION_REJ] [FILE_NOT_FOUND] Datei index.html existiert nicht
+[2026-11-20 20:32:21] [hiltbrand] [REPLACE_SECTION_REQ] [START] file=index.html, sec_id=machmit-hero, len=2154
+[2026-11-20 20:32:21] [hiltbrand] [REPLACE_SECTION_REJ] [FILE_NOT_FOUND] Datei index.html existiert nicht
+[2026-11-20 20:32:21] [hiltbrand] [REPLACE_SECTION_REQ] [START] file=index.html, sec_id=top-strip, len=1428
+[2026-11-20 20:32:21] [hiltbrand] [REPLACE_SECTION_REJ] [FILE_NOT_FOUND] Datei index.html existiert nicht
+[2026-11-20 20:32:21] [hiltbrand] [REPLACE_SECTION_REQ] [START] file=index.html, sec_id=saeule-ausbildungspartner, len=1837
+[2026-11-20 20:32:21] [hiltbrand] [REPLACE_SECTION_REJ] [FILE_NOT_FOUND] Datei index.html existiert nicht
+[2026-11-20 20:32:21] [hiltbrand] [REPLACE_SECTION_REQ] [START] file=index.html, sec_id=saeule-netzwerkpartner, len=1812
+[2026-11-20 20:32:21] [hiltbrand] [REPLACE_SECTION_REJ] [FILE_NOT_FOUND] Datei index.html existiert nicht
+[2026-11-20 20:32:21] [hiltbrand] [REPLACE_SECTION_REQ] [START] file=index.html, sec_id=machmit-cta, len=1214
+[2026-11-20 20:32:21] [hiltbrand] [REPLACE_SECTION_REJ] [FILE_NOT_FOUND] Datei index.html existiert nicht
+[2026-11-20 20:32:21] [hiltbrand] [REPLACE_SECTION_REQ] [START] file=index.html, sec_id=sponsoren-showcase, len=4168
+[2026-11-20 20:32:21] [hiltbrand] [REPLACE_SECTION_REJ] [FILE_NOT_FOUND] Datei index.html existiert nicht
+[2026-11-20 20:32:21] [hiltbrand] [REPLACE_SECTION_REQ] [START] file=index.html, sec_id=saeule-sponsor, len=5613
+[2026-11-20 20:32:21] [hiltbrand] [REPLACE_SECTION_REJ] [FILE_NOT_FOUND] Datei index.html existiert nicht
+[2026-11-20 20:32:32] [hiltbrand] [REPLACE_SECTION_REQ] [START] file=index.html, sec_id=top-strip, len=1428
+[2026-11-20 20:32:32] [hiltbrand] [REPLACE_SECTION_REJ] [FILE_NOT_FOUND] Datei index.html existiert nicht
+[2026-11-20 20:32:32] [hiltbrand] [REPLACE_SECTION_REQ] [START] file=index.html, sec_id=saeule-ausbildungspartner, len=1837
+[2026-11-20 20:32:32] [hiltbrand] [REPLACE_SECTION_REJ] [FILE_NOT_FOUND] Datei index.html existiert nicht
+[2026-11-20 20:32:32] [hiltbrand] [REPLACE_SECTION_REQ] [START] file=index.html, sec_id=saeule-sponsor, len=5613
+[2026-11-20 20:32:32] [hiltbrand] [REPLACE_SECTION_REJ] [FILE_NOT_FOUND] Datei index.html existiert nicht
+[2026-11-20 20:32:32] [hiltbrand] [REPLACE_SECTION_REQ] [START] file=index.html, sec_id=machmit-hero, len=2154
+[2026-11-20 20:32:32] [hiltbrand] [REPLACE_SECTION_REJ] [FILE_NOT_FOUND] Datei index.html existiert nicht
+[2026-11-20 20:32:32] [hiltbrand] [REPLACE_SECTION_REQ] [START] file=index.html, sec_id=sponsoren-showcase, len=4168
+[2026-11-20 20:32:32] [hiltbrand] [REPLACE_SECTION_REJ] [FILE_NOT_FOUND] Datei index.html existiert nicht
+[2026-11-20 20:32:32] [hiltbrand] [REPLACE_SECTION_REQ] [START] file=index.html, sec_id=machmit-cta, len=1214
+[2026-11-20 20:32:32] [hiltbrand] [REPLACE_SECTION_REJ] [FILE_NOT_FOUND] Datei index.html existiert nicht
+[2026-11-20 20:32:32] [hiltbrand] [REPLACE_SECTION_REQ] [START] file=index.html, sec_id=saeule-netzwerkpartner, len=1812
+[2026-11-20 20:32:32] [hiltbrand] [REPLACE_SECTION_REJ] [FILE_NOT_FOUND] Datei index.html existiert nicht
+[2026-11-20 20:33:26] [preview-her11] [SEO_GEO_AUTOPILOT] [OK] action=save_design schema=ProfessionalService alt_up=0 ms=509.2
+[2026-11-20 20:33:26] [preview-her11] [SAVE_DESIGN_OK] [SUCCESS] files=6 nav=7
