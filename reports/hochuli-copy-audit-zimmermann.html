@@ -1,0 +1,1415 @@
+<!DOCTYPE html>
+<html lang="de-CH">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <meta http-equiv="X-Frame-Options" content="SAMEORIGIN">
+  <meta http-equiv="X-XSS-Protection" content="1; mode=block">
+  <meta name="referrer" content="no-referrer">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Copy-Audit: Landingpage Hochuli Zimmermann (Stand 20.11.2026)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-page: #F8FAFC;
+      --bg-card: #FFFFFF;
+      --bg-subtle: #F1F5F9;
+      --text-main: #0F172A;
+      --text-secondary: #334155;
+      --text-muted: #475569;
+      --accent: #e30613;
+      --accent-dark: #b91c1c;
+      --mxs-accent: #e8781e;
+      --mxs-soft: #FFF7ED;
+      --mxs-border: #FDBA74;
+      --border: #CBD5E1;
+      --border-strong: #94A3B8;
+      --red-bg: #FEF2F2;
+      --red-border: #FCA5A5;
+      --red-text: #991B1B;
+      --orange-bg: #FFF7ED;
+      --orange-border: #FDBA74;
+      --orange-text: #9A3412;
+      --yellow-bg: #FEFCE8;
+      --yellow-border: #FDE047;
+      --yellow-text: #854D0E;
+      --green-bg: #F0FDF4;
+      --green-border: #86EFAC;
+      --green-text: #166534;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    ::selection {
+      background: rgba(232, 120, 30, 0.15);
+      color: var(--text-main);
+    }
+
+    html, body {
+      background-color: var(--bg-page);
+      color: var(--text-main);
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      font-size: 14px;
+      line-height: 1.55;
+      -webkit-font-smoothing: antialiased;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .top-bar {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(15, 23, 42, 0.96);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 12px 24px;
+    }
+
+    .top-bar-inner {
+      max-width: 1040px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .top-bar-title {
+      color: #F8FAFC;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 700;
+      font-size: 14px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .top-bar-badge {
+      background: rgba(232, 120, 30, 0.2);
+      color: #FDBA74;
+      border: 1px solid rgba(253, 186, 116, 0.35);
+      border-radius: 4px;
+      padding: 2px 8px;
+      font-size: 11.5px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .top-bar-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .btn-download {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #e8781e;
+      color: #FFFFFF;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 13px;
+      padding: 7px 15px;
+      border-radius: 6px;
+      border: none;
+      cursor: pointer;
+      transition: background 0.15s ease;
+    }
+
+    .btn-download:hover {
+      background: #c2410c;
+    }
+
+    .btn-print {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(255, 255, 255, 0.1);
+      color: #E2E8F0;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 13px;
+      padding: 7px 13px;
+      border-radius: 6px;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      cursor: pointer;
+    }
+
+    .btn-print:hover {
+      background: rgba(255, 255, 255, 0.18);
+    }
+
+    .page-wrap {
+      max-width: 1040px;
+      margin: 28px auto 56px;
+      padding: 0 20px;
+    }
+
+    .doc-sheet {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 38px 42px;
+      box-shadow: 0 8px 24px rgba(15, 23, 42, 0.05);
+    }
+
+    .doc-header {
+      border-bottom: 2px solid #0F172A;
+      padding-bottom: 20px;
+      margin-bottom: 24px;
+    }
+
+    .doc-kicker {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 11.5px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--mxs-accent);
+      margin-bottom: 6px;
+    }
+
+    h1 {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 24px;
+      font-weight: 800;
+      line-height: 1.25;
+      color: var(--text-main);
+      margin-bottom: 12px;
+    }
+
+    .meta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      font-size: 12.5px;
+      color: var(--text-muted);
+      background: var(--bg-subtle);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 10px 14px;
+      margin-bottom: 18px;
+    }
+
+    .meta-row strong {
+      color: var(--text-main);
+      font-weight: 600;
+    }
+
+    .intro-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin-bottom: 26px;
+    }
+
+    @media (max-width: 768px) {
+      .intro-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .info-card {
+      background: var(--bg-subtle);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 14px 16px;
+      font-size: 13px;
+    }
+
+    .info-card-title {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 700;
+      font-size: 12.5px;
+      color: #0F172A;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .info-card ul {
+      margin-left: 18px;
+      color: var(--text-secondary);
+    }
+
+    .info-card li {
+      margin-bottom: 3px;
+    }
+
+    .legend-list {
+      list-style: none !important;
+      margin-left: 0 !important;
+    }
+
+    .legend-item {
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+      margin-bottom: 6px;
+      font-size: 12.5px;
+    }
+
+    .badge-pill {
+      display: inline-flex;
+      align-items: center;
+      padding: 1px 7px;
+      border-radius: 4px;
+      font-size: 11px;
+      font-weight: 700;
+      white-space: nowrap;
+      letter-spacing: 0.02em;
+    }
+
+    .badge-red {
+      background: var(--red-bg);
+      border: 1px solid var(--red-border);
+      color: var(--red-text);
+    }
+
+    .badge-orange {
+      background: var(--orange-bg);
+      border: 1px solid var(--orange-border);
+      color: var(--orange-text);
+    }
+
+    .badge-yellow {
+      background: var(--yellow-bg);
+      border: 1px solid var(--yellow-border);
+      color: var(--yellow-text);
+    }
+
+    .badge-green {
+      background: var(--green-bg);
+      border: 1px solid var(--green-border);
+      color: var(--green-text);
+    }
+
+    .section-block {
+      margin-bottom: 32px;
+    }
+
+    h2 {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 16.5px;
+      font-weight: 800;
+      color: #FFFFFF;
+      background: #0F172A;
+      padding: 8px 14px;
+      border-radius: 6px;
+      margin-bottom: 14px;
+      letter-spacing: -0.01em;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    h3 {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 14.5px;
+      font-weight: 700;
+      color: #0F172A;
+      margin: 18px 0 8px;
+      padding-bottom: 4px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .lohn-box {
+      background: var(--mxs-soft);
+      border: 1px solid var(--mxs-border);
+      border-left: 4px solid var(--mxs-accent);
+      border-radius: 6px;
+      padding: 14px 18px;
+      margin-bottom: 20px;
+    }
+
+    .lohn-box-quote {
+      font-weight: 600;
+      color: #7C2D12;
+      margin-bottom: 8px;
+      font-size: 13.5px;
+    }
+
+    .lohn-box-sub {
+      color: var(--text-secondary);
+      font-size: 13px;
+      line-height: 1.5;
+    }
+
+    .findings-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    .finding-card {
+      background: #FFFFFF;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 12px 16px;
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      page-break-inside: avoid;
+      break-inside: avoid;
+    }
+
+    .finding-card.border-red {
+      border-left: 4px solid #DC2626;
+      background: #FEF2F208;
+    }
+
+    .finding-card.border-orange {
+      border-left: 4px solid #EA580C;
+      background: #FFF7ED08;
+    }
+
+    .finding-card.border-yellow {
+      border-left: 4px solid #CA8A04;
+      background: #FEFCE808;
+    }
+
+    .finding-num {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 800;
+      font-size: 13px;
+      color: var(--text-muted);
+      min-width: 20px;
+    }
+
+    .finding-content {
+      flex: 1;
+      font-size: 13px;
+    }
+
+    .finding-title {
+      font-weight: 700;
+      color: var(--text-main);
+      margin-bottom: 3px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .audit-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 10px;
+      margin-bottom: 22px;
+      font-size: 12.5px;
+      page-break-inside: auto;
+    }
+
+    .audit-table thead {
+      display: table-header-group;
+    }
+
+    .audit-table tr {
+      page-break-inside: avoid;
+      break-inside: avoid;
+    }
+
+    .audit-table th {
+      background: #0F172A;
+      color: #FFFFFF;
+      text-align: left;
+      padding: 9px 11px;
+      font-weight: 700;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 11.5px;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+    }
+
+    .audit-table th:first-child {
+      border-top-left-radius: 5px;
+      width: 38px;
+      text-align: center;
+    }
+
+    .audit-table th:last-child {
+      border-top-right-radius: 5px;
+      width: 110px;
+    }
+
+    .audit-table td {
+      padding: 9px 11px;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+      line-height: 1.48;
+      color: var(--text-main);
+    }
+
+    .audit-table td.col-num {
+      text-align: center;
+      font-weight: 700;
+      color: var(--text-muted);
+      font-size: 11.5px;
+      background: #F8FAFC;
+    }
+
+    .audit-table td.col-stelle {
+      font-weight: 500;
+      width: 25%;
+      color: var(--text-secondary);
+    }
+
+    .audit-table td.col-befund {
+      width: 32%;
+    }
+
+    .audit-table td.col-vorschlag {
+      width: 30%;
+      color: #0F172A;
+    }
+
+    .audit-table td.col-quelle {
+      font-size: 11px;
+      color: var(--text-muted);
+      width: 13%;
+    }
+
+    .audit-table tbody tr:nth-child(even) td:not(.col-num) {
+      background: #F8FAFC;
+    }
+
+    .audit-table tbody tr:hover td {
+      background: #F1F5F9;
+    }
+
+    .audit-table .target-text {
+      font-weight: 600;
+      color: #0F172A;
+      display: block;
+      margin-bottom: 3px;
+    }
+
+    .proposal-box {
+      background: #F0FDF4;
+      border-left: 3px solid #16A34A;
+      padding: 5px 8px;
+      border-radius: 0 4px 4px 0;
+      font-weight: 500;
+    }
+
+    .proposal-del {
+      color: #991B1B;
+      font-style: italic;
+    }
+
+    .qa-block {
+      background: var(--bg-subtle);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 16px 18px;
+      margin-bottom: 14px;
+      page-break-inside: avoid;
+      break-inside: avoid;
+    }
+
+    .qa-person-title {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 13.5px;
+      font-weight: 700;
+      color: #0F172A;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .qa-list {
+      margin-left: 20px;
+      font-size: 13px;
+    }
+
+    .qa-list li {
+      margin-bottom: 5px;
+    }
+
+    .checklist-block {
+      background: #FFFFFF;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 14px 18px;
+    }
+
+    .checklist-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      margin-bottom: 8px;
+      font-size: 13px;
+    }
+
+    .checklist-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .checklist-item input[type="checkbox"] {
+      margin-top: 3px;
+      accent-color: #e8781e;
+    }
+
+    .doc-footer {
+      margin-top: 30px;
+      padding-top: 14px;
+      border-top: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      font-size: 11.5px;
+      color: var(--text-muted);
+    }
+
+    @media (max-width: 640px) {
+      .doc-sheet {
+        padding: 20px 14px;
+      }
+      h1 {
+        font-size: 19px;
+      }
+      .audit-table {
+        display: block;
+        overflow-x: auto;
+      }
+    }
+
+    @media print {
+      @page {
+        size: A4;
+        margin: 10mm 12mm;
+      }
+      html, body {
+        background: #FFFFFF;
+        font-size: 11px;
+        line-height: 1.42;
+      }
+      .top-bar {
+        display: none !important;
+      }
+      .page-wrap {
+        max-width: 100%;
+        margin: 0;
+        padding: 0;
+      }
+      .doc-sheet {
+        border: none;
+        box-shadow: none;
+        padding: 0;
+      }
+      h2 {
+        margin-top: 12px;
+        margin-bottom: 8px;
+        padding: 6px 10px;
+        font-size: 13px;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+      h3 {
+        margin: 12px 0 6px;
+        font-size: 12px;
+      }
+      .audit-table th, .audit-table td {
+        padding: 6px 7px;
+        font-size: 10.5px;
+      }
+      .finding-card, .info-card, .lohn-box, .qa-block, .checklist-block, .badge-pill, .audit-table th {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+      .section-block {
+        margin-bottom: 18px;
+      }
+      .findings-grid {
+        gap: 6px;
+      }
+      .finding-card {
+        padding: 8px 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="top-bar">
+    <div class="top-bar-inner">
+      <div class="top-bar-title">
+        <span class="top-bar-badge">COPY-AUDIT</span>
+        <span>Hochuli Schlossrued AG · Landingpage Zimmermann EFZ (Stand 20.11.2026)</span>
+      </div>
+      <div class="top-bar-actions">
+        <a href="/reports/hochuli-copy-audit-zimmermann.pdf" download="Copy_Audit_Hochuli_Zimmermann_2026-11-20.pdf" class="btn-download">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Als PDF herunterladen
+        </a>
+        <button type="button" onclick="window.print()" class="btn-print">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+          Drucken
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <main class="page-wrap">
+    <article class="doc-sheet">
+      <header class="doc-header">
+        <div class="doc-kicker">Qualitäts- &amp; Quellen-Audit · Recruiting «Zimmermann EFZ»</div>
+        <h1>Copy-Audit: Landingpage Hochuli Zimmermann</h1>
+        <div class="meta-row">
+          <div><strong>Geprüfter Stand:</strong> Commit 4411e2a (20.11.2026)</div>
+          <div><strong>Geprüfte Live-URL:</strong> <a href="https://embed.magnet-xs.ch/hochuli-zimmermann/" target="_blank" style="color: inherit; text-decoration: underline;">embed.magnet-xs.ch/hochuli-zimmermann/</a></div>
+          <div><strong>Status:</strong> Vor Freigabe (0 Änderungen vor deinem OK)</div>
+        </div>
+
+        <div class="intro-grid">
+          <div class="info-card">
+            <div class="info-card-title">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+              Zweck &amp; Quellen-Kürzel
+            </div>
+            <p style="margin-bottom: 6px;">Jede Textstelle der Live-Seite wird gegen die belegbaren Quellen geprüft. Es gilt ausschliesslich:</p>
+            <ul>
+              <li><strong>N:</strong> Deine Handnotizen vom 04.11. (S. 1–6) &amp; Eindrucksbericht</li>
+              <li><strong>K:</strong> hochuli-gruppe.ch/kultur/</li>
+              <li><strong>W:</strong> übrige hochuli-gruppe.ch (in-kuerze, team, geschichte)</li>
+              <li><strong>D:</strong> Firmen-DNA im ACP-Cockpit (Texte vom 29.10.2026)</li>
+              <li><strong>David:</strong> Von dir im Chat freigegeben oder vorgegeben</li>
+              <li><strong>keine:</strong> Ohne Beleg / erfundene Annahme</li>
+            </ul>
+          </div>
+
+          <div class="info-card">
+            <div class="info-card-title">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+              Ampel-Definition
+            </div>
+            <ul class="legend-list">
+              <li class="legend-item">
+                <span class="badge-pill badge-red">🔴 Falsch / Unbestätigt</span>
+                <span>Falsch, unbestätigte Zusage oder intern sichtbar (muss vor den Ads zwingend raus).</span>
+              </li>
+              <li class="legend-item">
+                <span class="badge-pill badge-orange">🟠 Übertreibung / Widerspruch</span>
+                <span>Übertreibung, Widerspruch zu Hochuli oder nur halb erzählt.</span>
+              </li>
+              <li class="legend-item">
+                <span class="badge-pill badge-yellow">🟡 Floskel / Ton</span>
+                <span>Floskel, HR-Jargon, unpassender Tonfall oder Dramatisierung.</span>
+              </li>
+              <li class="legend-item">
+                <span class="badge-pill badge-green">⚪ In Ordnung</span>
+                <span>Inhaltlich sauber belegt und handwerklich stimmig.</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </header>
+
+      <!-- SEKTION 0: ENTSCHEID ZUM LOHN -->
+      <section class="section-block">
+        <h2>0. Entscheid zum Lohn (von dir am 20.11.)</h2>
+        <div class="lohn-box">
+          <div class="lohn-box-quote">«Lohn und ‹Mindestlohn› kommen nicht auf die Seite. Der Zimmermann soll wegen der Verhältnisse kommen: innovative Firma, proaktives Umfeld, beruflicher Einsatz. Geld ist kein Aufhänger.»</div>
+          <div class="lohn-box-sub">
+            <strong>Empfehlung:</strong> Genau ein neutraler Satz in der FAQ-Antwort zum Ablauf («Lohn und Pensum besprichst du direkt mit Stefan Hofmann»). So wirkt die Seite nicht ausweichend, und Geld wird trotzdem nicht als Köder beworben. Stefan muss dafür im ersten Gespräch eine klare Antwort bereit haben.
+          </div>
+        </div>
+      </section>
+
+      <!-- SEKTION 1: DIE WICHTIGSTEN BEFUNDE -->
+      <section class="section-block">
+        <h2>1. Die 10 wichtigsten Befunde (Zusammenfassung)</h2>
+        <div class="findings-grid">
+          
+          <div class="finding-card border-red">
+            <div class="finding-num">1.</div>
+            <div class="finding-content">
+              <div class="finding-title">
+                <span class="badge-pill badge-red">🔴 Falsche Telefonnummer</span>
+                <span>Stefan Hofmann auf Danke-Bühne</span>
+              </div>
+              <div>Auf der Danke-Bühne steht bei Stefan Hofmann «Tel. +41 62 739 00 20». Das ist die Zentrale bzw. WhatsApp-Nummer. Stefans persönliche Direktwahl ist <strong>062 739 00 22</strong> (Quelle: Inserat und Team-Seite).</div>
+            </div>
+          </div>
+
+          <div class="finding-card border-red">
+            <div class="finding-num">2.</div>
+            <div class="finding-content">
+              <div class="finding-title">
+                <span class="badge-pill badge-red">🔴 Unbestätigte Zusagen zum Ablauf</span>
+                <span>Kaffee, Werkstatt &amp; Schnuppertag</span>
+              </div>
+              <div>«Stefan ruft dich zur Wunschzeit an oder schreibt per WhatsApp», «Kaffee in Schlossrued, Werkstatt und Fahrzeuge anschauen», «Schnuppertag». Auf deiner Notiz steht dazu nur die offene Frage «Stefan → WhatsApp-Benachrichtigung i.O.?». Der Schnuppertag stammt aus der Cotra-Vorlage, nicht von Hochuli.</div>
+            </div>
+          </div>
+
+          <div class="finding-card border-red">
+            <div class="finding-num">3.</div>
+            <div class="finding-content">
+              <div class="finding-title">
+                <span class="badge-pill badge-red">🔴 Interne Sätze öffentlich sichtbar</span>
+                <span>Footer, Badges &amp; Sandbox</span>
+              </div>
+              <div>Footer «Bereit für die Aufschaltung auf offene-stellen.ch», Hinweis «(Dreh geplant)», Sandbox-Karte, Platzhalter-Beschreibungen. Muss vor Ad-Start bereinigt werden.</div>
+            </div>
+          </div>
+
+          <div class="finding-card border-orange">
+            <div class="finding-num">4.</div>
+            <div class="finding-content">
+              <div class="finding-title">
+                <span class="badge-pill badge-orange">🟠 Übertreibungen ohne Beleg</span>
+                <span>«100 % Sicherheit», «Jeden Abend gesund»</span>
+              </div>
+              <div>«100 % Arbeitssicherheit», «Du kommst jeden Abend gesund nach Hause», «keine Überstunden-Schlachten», «Jede Woche» (deine Notiz sagt «jede Woche, alle 14 Tage»), «100 % vertraulich». Nicht haltbar.</div>
+            </div>
+          </div>
+
+          <div class="finding-card border-orange">
+            <div class="finding-num">5.</div>
+            <div class="finding-content">
+              <div class="finding-title">
+                <span class="badge-pill badge-orange">🟠 Widerspruch zu Hochulis eigenem Text</span>
+                <span>«Ohne Zeitdruck» vs. Termindruck</span>
+              </div>
+              <div>Die Seite sagt «ohne Zeitdruck» und «ohne Hektik». Im Cockpit schreibt Hochuli selbst: «Der Arbeitsalltag kann auch anspruchsvoll und hektisch sein … Termindruck». Ein Zimmermann aus der Region merkt den Widerspruch sofort.</div>
+            </div>
+          </div>
+
+          <div class="finding-card border-orange">
+            <div class="finding-num">6.</div>
+            <div class="finding-content">
+              <div class="finding-title">
+                <span class="badge-pill badge-orange">🟠 Weiterbildung nur halb erzählt</span>
+                <span>Kurskosten &amp; Rückzahlungs-Klausel</span>
+              </div>
+              <div>«50 % bezahlte Ausbildungszeit» steht überall. Deine Notiz S. 6 sagt zusätzlich: «Kosten selber» und «Verpflichtung» (Rückzahlung bei Austritt nach Ausbildung). Wer das erst im Gespräch erfährt, fühlt sich getäuscht.</div>
+            </div>
+          </div>
+
+          <div class="finding-card border-orange">
+            <div class="finding-num">7.</div>
+            <div class="finding-content">
+              <div class="finding-title">
+                <span class="badge-pill badge-orange">🟠 Elementbau abgewertet, obwohl Hochuli es anbietet</span>
+                <span>«Fliessband», «stur nach Schema»</span>
+              </div>
+              <div>hochuli-gruppe.ch führt «Holz-Elementbau» offiziell als Leistung. Deine Notiz sagt nur «≠ Elementbau». «Fliessband», «monoton», «stur nach Schema» ist mein Zusatz, nicht Martins Aussage.</div>
+            </div>
+          </div>
+
+          <div class="finding-card border-orange">
+            <div class="finding-num">8.</div>
+            <div class="finding-content">
+              <div class="finding-title">
+                <span class="badge-pill badge-orange">🟠 Pauschale Aussage über Mitbewerber</span>
+                <span>UWG-Risiko</span>
+              </div>
+              <div>«Billiganbieter sparen oft an Fangnetzen» ist eine Tatsachenbehauptung über andere Firmen (UWG-Risiko). Besser ausschliesslich die eigene Haltung von Hochuli benennen.</div>
+            </div>
+          </div>
+
+          <div class="finding-card border-yellow">
+            <div class="finding-num">9.</div>
+            <div class="finding-content">
+              <div class="finding-title">
+                <span class="badge-pill badge-yellow">🟡 Leerformeln &amp; Coaching-Ton</span>
+                <span>«Attraktive Sozialleistungen», «Lockvogel-Prämien»</span>
+              </div>
+              <div>«Attraktive Sozialleistungen» (genau die Floskel, die du in der Original-Anzeige mit «?» markiert hast), «Passt stark zu Hochuli» (erscheint bei jeder Antwort unglaubwürdig), «Lockvogel-Prämien» (bringt das Geldthema selbst hinein).</div>
+            </div>
+          </div>
+
+          <div class="finding-card border-yellow">
+            <div class="finding-num">10.</div>
+            <div class="finding-content">
+              <div class="finding-title">
+                <span class="badge-pill badge-yellow">🟡 Redundanter Aufbau</span>
+                <span>Dieselbe 5 Fakten bis zu 5-mal wiederholt</span>
+              </div>
+              <div>Dieselben 5 Fakten (5 Sparten, Freitag 16:30, 50 %, 300 Franken, kein Elementbau) stehen bis zu 5-mal auf der Seite (Hero, 6 Gründe, Deal, Zitate, Quiz). Verwässert die Botschaft.</div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- SEKTION 2: ZEILE FÜR ZEILE -->
+      <section class="section-block">
+        <h2>2. Zeile für Zeile (Detaillierte Audit-Tabelle)</h2>
+
+        <!-- 2.1 SEITENWEIT -->
+        <h3>2.1 Seitenweit</h3>
+        <table class="audit-table">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Stelle</th>
+              <th>Befund</th>
+              <th>Vorschlag</th>
+              <th>Quelle</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="col-num">S1</td>
+              <td class="col-stelle">Aufbau &amp; Struktur</td>
+              <td class="col-befund"><span class="badge-pill badge-yellow">🟡 Floskel / Redundanz</span><br>Fakten wiederholen sich 4- bis 5-mal, das verwässert die Gesamtwirkung.</td>
+              <td class="col-vorschlag"><div class="proposal-box">Jeder Fakt bekommt eine klare «Heimat»: Hero = Haltung, 6 Gründe = Beweise, Deal = nur «Was es bei uns nicht gibt», Quiz = nur Fragen. Spalte «BEKOMMST» im Deal streichen (doppelt zu den 6 Gründen).</div></td>
+              <td class="col-quelle">keine</td>
+            </tr>
+            <tr>
+              <td class="col-num">S2</td>
+              <td class="col-stelle">Interne Texte &amp; Sandbox</td>
+              <td class="col-befund"><span class="badge-pill badge-red">🔴 Intern sichtbar</span><br>Footer-Notiz «Bereit für...», Dreh geplant, Sandbox-Modus.</td>
+              <td class="col-vorschlag"><div class="proposal-box">Vor Go-live der Kampagne restlos entfernen. Siehe Checkliste am Ende.</div></td>
+              <td class="col-quelle">David</td>
+            </tr>
+            <tr>
+              <td class="col-num">S3</td>
+              <td class="col-stelle">CTA «60-Sekunden-Check starten» (3×)</td>
+              <td class="col-befund"><span class="badge-pill badge-yellow">🟡 Sprache</span><br>«Check» ist Plattform- und Berater-Sprache, nicht die Sprache des Zimmermanns. Die Handlung ist «sich melden».</td>
+              <td class="col-vorschlag"><div class="proposal-box">«In 60 Sekunden melden»</div></td>
+              <td class="col-quelle">David (Offerte: «ohne Lebenslauf-Hürde melden»)</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <!-- 2.2 HERO -->
+        <h3>2.2 Hero-Bühne</h3>
+        <table class="audit-table">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Ist-Text</th>
+              <th>Befund</th>
+              <th>Vorschlag</th>
+              <th>Quelle</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="col-num">H1</td>
+              <td class="col-stelle"><span class="target-text">H1:</span> «Echtes Zimmermann-Handwerk statt Elementbau-Fliessband – auf sicheren Baustellen, auf denen dein Mitdenken zählt.»</td>
+              <td class="col-befund"><span class="badge-pill badge-orange">🟠 Übertreibung</span><br>19 Wörter, drei Behauptungen in einem Satz. Wertet Elementbau pauschal ab (Befund 7).</td>
+              <td class="col-vorschlag"><div class="proposal-box"><strong>A (Empfehlung):</strong> «Umbauten und Sanierungen für Familien und Landwirte. Und ein Chef, der dein Mitdenken will.»<br><br><strong>B:</strong> «Alle ein bis zwei Wochen eine neue Baustelle. Du löst selbst, was dort anfällt.»</div></td>
+              <td class="col-quelle">N (Umbau, Sanierung, Familien, Landwirte; «Inputs sind gefragt»; selbständig lösen)</td>
+            </tr>
+            <tr>
+              <td class="col-num">H2</td>
+              <td class="col-stelle"><span class="target-text">Unterzeile:</span> «Weg von anonymen Grossbaustellen und Preisdumping, hin zu …»</td>
+              <td class="col-befund"><span class="badge-pill badge-yellow">🟡 Jargon</span><br>Zu lang, wiederholt die H1, «Preisdumping» ist Fach- und Agenturjargon.</td>
+              <td class="col-vorschlag"><div class="proposal-box">Streichen oder auf einen klaren Satz kürzen:<br>«Als 100 %-Stelle, auch 80 % möglich, mit Perspektive Richtung Vorarbeiter oder Baustellenleiter.»</div></td>
+              <td class="col-quelle">N</td>
+            </tr>
+            <tr>
+              <td class="col-num">H3</td>
+              <td class="col-stelle"><span class="target-text">Bullet:</span> «100 % Arbeitssicherheit»</td>
+              <td class="col-befund"><span class="badge-pill badge-orange">🟠 Behauptung</span><br>«100 %» ist rechtlich und faktisch nicht belegbar.</td>
+              <td class="col-vorschlag"><div class="proposal-box">«Sicherheit vor Preis» / «Baustellen, auf denen die Absicherung nicht stimmt, nimmt Hochuli nicht an.»</div></td>
+              <td class="col-quelle">N (Bericht: lehnt solche Baustellen ab)</td>
+            </tr>
+            <tr>
+              <td class="col-num">H4</td>
+              <td class="col-stelle"><span class="target-text">Bullet:</span> «5 Sparten … kein Schnittstellen-Theater»</td>
+              <td class="col-befund"><span class="badge-pill badge-yellow">🟡 Wortwahl</span><br>«Theater» kommt 5-mal auf der Seite vor. Wirkt aufgesetzt.</td>
+              <td class="col-vorschlag"><div class="proposal-box">«5 Sparten unter einem Dach: kurze Wege zu Spengler, Sanitär und Planung.»</div></td>
+              <td class="col-quelle">N, W</td>
+            </tr>
+            <tr>
+              <td class="col-num">H5</td>
+              <td class="col-stelle"><span class="target-text">Bullet:</span> «50 % bezahlte Ausbildungszeit»</td>
+              <td class="col-befund"><span class="badge-pill badge-orange">🟠 Halb erzählt</span><br>Verschweigt eigene Kurskosten und Rückzahlungsklausel (Befund 6).</td>
+              <td class="col-vorschlag"><div class="proposal-box">«Weiterbildung: Hochuli übernimmt 50 % der Ausbildungszeit.» (Genaue Konditionen sauber in der FAQ erklären).</div></td>
+              <td class="col-quelle">N S. 6</td>
+            </tr>
+            <tr>
+              <td class="col-num">H6</td>
+              <td class="col-stelle"><span class="target-text">Bullet:</span> «Mo–Do 17:15, Freitag 16:30, keine Samstagsarbeit»</td>
+              <td class="col-befund"><span class="badge-pill badge-orange">🟠 Unklarheit</span><br>Notiz sagt «Freitag 16:30 / 17:15». «Keine Samstagsarbeit» ist belegt, «keine Überzeiten» nicht eindeutig.</td>
+              <td class="col-vorschlag"><div class="proposal-box">Beibehalten, aber zwingend bei Stefan rückversichern (Frage 2).</div></td>
+              <td class="col-quelle">N, David</td>
+            </tr>
+            <tr>
+              <td class="col-num">H7</td>
+              <td class="col-stelle"><span class="target-text">Zusage:</span> «Kein Lebenslauf nötig: Drei kurze Fragen reichen …»</td>
+              <td class="col-befund"><span class="badge-pill badge-orange">🟠 Zusage</span><br>Prozesszusage, von Hochuli intern noch nicht formell abgesegnet.</td>
+              <td class="col-vorschlag"><div class="proposal-box">Bleibt, sobald Martin/Stefan bestätigen (Frage 1).</div></td>
+              <td class="col-quelle">Offerte</td>
+            </tr>
+            <tr>
+              <td class="col-num">H8</td>
+              <td class="col-stelle"><span class="target-text">Ort:</span> «keine endlosen Fahrten und kein Autobahn-Stau»</td>
+              <td class="col-befund"><span class="badge-pill badge-green">⚪ Belegt</span><br>Passt präzise zu deiner Korrektur (enges regionales Einsatzgebiet).</td>
+              <td class="col-vorschlag"><div class="proposal-box">Beibehalten.</div></td>
+              <td class="col-quelle">N, David</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <!-- 2.3 DIE 6 GRÜNDE -->
+        <h3>2.3 Die 6 Gründe</h3>
+        <table class="audit-table">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Ist-Text</th>
+              <th>Befund</th>
+              <th>Vorschlag</th>
+              <th>Quelle</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="col-num">A1</td>
+              <td class="col-stelle"><span class="target-text">Lead:</span> «Keine Lockvogel-Prämien, sondern …»</td>
+              <td class="col-befund"><span class="badge-pill badge-orange">🟠 Falscher Fokus</span><br>Bringt das Geldthema selbst auf die Seite und klingt nach moralischem Vorwurf.</td>
+              <td class="col-vorschlag"><div class="proposal-box">«Familienbetrieb seit 1934, fünf Sparten im selben Haus, Baustellen in der Region.»</div></td>
+              <td class="col-quelle">W (geschichte)</td>
+            </tr>
+            <tr>
+              <td class="col-num">A2</td>
+              <td class="col-stelle"><span class="target-text">Karte 1:</span> «Jede Woche oder alle 14 Tage»</td>
+              <td class="col-befund"><span class="badge-pill badge-orange">🟠 Ungenau</span><br>Notiz: «Jede Woche, alle 14 Tage neu».</td>
+              <td class="col-vorschlag"><div class="proposal-box">«Alle ein bis zwei Wochen»</div></td>
+              <td class="col-quelle">N</td>
+            </tr>
+            <tr>
+              <td class="col-num">A3</td>
+              <td class="col-stelle"><span class="target-text">Karte 2:</span> «der fremde Spengler fehlt und der externe Planer hat ein Mass vergessen»</td>
+              <td class="col-befund"><span class="badge-pill badge-yellow">🟡 Konstruiert</span><br>Konstruiertes Negativ-Beispiel als Tatsachenbehauptung über andere.</td>
+              <td class="col-vorschlag"><div class="proposal-box">Als Frage formulieren:<br>«Wartest du auch manchmal auf den Spengler, bevor du weiterbauen kannst?»</div></td>
+              <td class="col-quelle">N (eigenes Ökosystem)</td>
+            </tr>
+            <tr>
+              <td class="col-num">A4</td>
+              <td class="col-stelle"><span class="target-text">Karte 3:</span> «Billiganbieter sparen oft an Fangnetzen … Du kommst jeden Abend gesund nach Hause.»</td>
+              <td class="col-befund"><span class="badge-pill badge-orange">🟠 UWG / Versprechen</span><br>UWG-Risiko bezüglich Mitbewerbern und ein Garantieversprechen, das niemand halten kann.</td>
+              <td class="col-vorschlag"><div class="proposal-box">«Hochuli nimmt keine Baustelle an, auf der die Absicherung nicht stimmt. Im Team-Rapport reden wir jeden Monat über Sicherheit und Engpässe.» Letzten Satz streichen.</div></td>
+              <td class="col-quelle">N</td>
+            </tr>
+            <tr>
+              <td class="col-num">A5</td>
+              <td class="col-stelle"><span class="target-text">Karte 4:</span> «keine Überstunden-Schlachten und keine Samstagsarbeit»</td>
+              <td class="col-befund"><span class="badge-pill badge-orange">🟠 Widerspruch</span><br>«Pl. teilweise» auf Notiz ist unklar. Hochuli schreibt im Cockpit selbst von Termindruck (D).</td>
+              <td class="col-vorschlag"><div class="proposal-box">Erst Stefan fragen (Frage 2). Falls Überzeit vorkommt:<br>«Überzeit ist die Ausnahme, am Samstag wird nicht gearbeitet.»</div></td>
+              <td class="col-quelle">N, D</td>
+            </tr>
+            <tr>
+              <td class="col-num">A6</td>
+              <td class="col-stelle"><span class="target-text">Karte 4:</span> «attraktive Sozialleistungen»</td>
+              <td class="col-befund"><span class="badge-pill badge-yellow">🟡 Leerformel</span><br>Genau die Floskel, die du in der Original-Anzeige kritisiert hast.</td>
+              <td class="col-vorschlag"><div class="proposal-box">Konkrete Fakten nennen:<br>«15 Tage Vaterschaftsurlaub (GAV: 10)», «5 Wochen Ferien, ab 51 sechs», «Online-Einsatzplan für die Familie».</div></td>
+              <td class="col-quelle">K</td>
+            </tr>
+            <tr>
+              <td class="col-num">A7</td>
+              <td class="col-stelle"><span class="target-text">Karte 5:</span> «Kein Theater wegen 300 Franken für eine neue Maschine»</td>
+              <td class="col-befund"><span class="badge-pill badge-green">⚪ Belegt</span><br>Titel von dir, Inhalt voll belegt.</td>
+              <td class="col-vorschlag"><div class="proposal-box">Beibehalten.</div></td>
+              <td class="col-quelle">David, N, K</td>
+            </tr>
+            <tr>
+              <td class="col-num">A8</td>
+              <td class="col-stelle"><span class="target-text">Karte 6:</span> «50 % bezahlter Ausbildungszeit»</td>
+              <td class="col-befund"><span class="badge-pill badge-orange">🟠 Halb erzählt</span><br>Verschweigt Kurskosten und Verpflichtung.</td>
+              <td class="col-vorschlag"><div class="proposal-box">«… Hochuli übernimmt 50 % der Ausbildungszeit, die Kurskosten trägst du selbst.»</div></td>
+              <td class="col-quelle">N S. 6</td>
+            </tr>
+            <tr>
+              <td class="col-num">A9</td>
+              <td class="col-stelle"><span class="target-text">Karte 6:</span> «Gerüchteküche am Feierabend-Bier»</td>
+              <td class="col-befund"><span class="badge-pill badge-green">⚪ Authentisch</span><br>Sehr gut, spricht echte Zimmermanns-Sorgen an.</td>
+              <td class="col-vorschlag"><div class="proposal-box">Beibehalten.</div></td>
+              <td class="col-quelle">N</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <!-- 2.4 TEAM UND ZITATE -->
+        <h3>2.4 Team und Zitate</h3>
+        <table class="audit-table">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Ist-Text</th>
+              <th>Befund</th>
+              <th>Vorschlag</th>
+              <th>Quelle</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="col-num">T1</td>
+              <td class="col-stelle"><span class="target-text">Lead:</span> «… im ganzen Aargau»</td>
+              <td class="col-befund"><span class="badge-pill badge-orange">🟠 Widerspruch</span><br>Widerspricht deiner Korrektur (kein ganzer Kanton, sondern enge Region).</td>
+              <td class="col-vorschlag"><div class="proposal-box">«… im Rueder- und Suhrental.»</div></td>
+              <td class="col-quelle">David, W</td>
+            </tr>
+            <tr>
+              <td class="col-num">T2</td>
+              <td class="col-stelle"><span class="target-text">Begriff:</span> «Fünf Fachbereiche unter einem Dach»</td>
+              <td class="col-befund"><span class="badge-pill badge-yellow">🟡 Inkonsistenz</span><br>Du sagst «Sparten» (A bis H). Begriffe vereinheitlichen.</td>
+              <td class="col-vorschlag"><div class="proposal-box">«Fünf Sparten unter einem Dach»</div></td>
+              <td class="col-quelle">David</td>
+            </tr>
+            <tr>
+              <td class="col-num">T3</td>
+              <td class="col-stelle"><span class="target-text">Martin-Zitat:</span> «Bei uns verheizt sich niemand…»</td>
+              <td class="col-befund"><span class="badge-pill badge-yellow">🟡 Entwurf</span><br>Inhalt stammt aus Gespräch, Wortlaut ist Agentur-Entwurf. Letzter Satz («Ich suche Berufsleute…») von uns formuliert.</td>
+              <td class="col-vorschlag"><div class="proposal-box">Bleibt als Entwurf markiert; Martin muss es abnicken oder in eigenen Worten sagen.</div></td>
+              <td class="col-quelle">N (Inhalt), keine (Wortlaut)</td>
+            </tr>
+            <tr>
+              <td class="col-num">T4</td>
+              <td class="col-stelle"><span class="target-text">Stefan-Zitat:</span> «Kein monotones Elementbau-Fliessband…»</td>
+              <td class="col-befund"><span class="badge-pill badge-orange">🟠 Erfunden</span><br>Wiederholt Hero und Deal. Wortwahl («Schnittstellen-Theater») passt nicht zu Bauführer HF. Stefan hat bisher nichts gesagt.</td>
+              <td class="col-vorschlag"><div class="proposal-box">Nur Foto plus «Zitat folgt», bis Stefan selbst antwortet (Fragen am Ende). So winkt niemand erfundene Sätze durch.</div></td>
+              <td class="col-quelle">keine</td>
+            </tr>
+            <tr>
+              <td class="col-num">T5</td>
+              <td class="col-stelle"><span class="target-text">Video-Platzhalter:</span> «Zwei echte Stimmen (Dreh geplant)»</td>
+              <td class="col-befund"><span class="badge-pill badge-red">🔴 Intern sichtbar</span><br>Platzhalter beschreiben bereits das Fazit («über … Freitag 16:30 Uhr»). Widerspricht «ungeskriptet».</td>
+              <td class="col-vorschlag"><div class="proposal-box">Neutral: «Video folgt». Vor Ad-Start ausblenden, falls noch nicht gedreht.</div></td>
+              <td class="col-quelle">David</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <!-- 2.5 DER EHRLICHE DEAL -->
+        <h3>2.5 Der ehrliche Deal</h3>
+        <table class="audit-table">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Ist-Text</th>
+              <th>Befund</th>
+              <th>Vorschlag</th>
+              <th>Quelle</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="col-num">D1</td>
+              <td class="col-stelle"><span class="target-text">Titel:</span> «Der ehrliche Deal: Was dich erwartet und was nicht»</td>
+              <td class="col-befund"><span class="badge-pill badge-green">⚪ Genehmigt</span><br>Von dir explizit gelobt und freigegeben.</td>
+              <td class="col-vorschlag"><div class="proposal-box">Beibehalten.</div></td>
+              <td class="col-quelle">David</td>
+            </tr>
+            <tr>
+              <td class="col-num">D2</td>
+              <td class="col-stelle"><span class="target-text">Formulierungen:</span> «Grossbaustellen-Schlachten», «kein Schnittstellen-Theater», «Blindflug ohne Projektzahlen»</td>
+              <td class="col-befund"><span class="badge-pill badge-yellow">🟡 Dramatisiert</span><br>Dramatisierend, «Projektzahlen» ist unklar.</td>
+              <td class="col-vorschlag"><div class="proposal-box">«Du erfährst nach jedem Projekt, wie es gelaufen ist.»</div></td>
+              <td class="col-quelle">N (Nachkalkulation)</td>
+            </tr>
+            <tr>
+              <td class="col-num">D3</td>
+              <td class="col-stelle"><span class="target-text">Zusage:</span> «Keine dauernden Überzeiten, keine Samstagsarbeit, kein täglicher Stau»</td>
+              <td class="col-befund"><span class="badge-pill badge-orange">🟠 Ungeklärt</span><br>Wie A5: Überzeit-Realität erst verifizieren.</td>
+              <td class="col-vorschlag"><div class="proposal-box">Nach Klärung mit Stefan anpassen.</div></td>
+              <td class="col-quelle">N</td>
+            </tr>
+            <tr>
+              <td class="col-num">D4</td>
+              <td class="col-stelle"><span class="target-text">Layout:</span> Spalte «Standard bei Hochuli»</td>
+              <td class="col-befund"><span class="badge-pill badge-yellow">🟡 Redundanz</span><br>Doppelt zu den 6 Gründen (S1).</td>
+              <td class="col-vorschlag"><div class="proposal-box">Streichen. Der Deal bleibt eine pointierte, kurze Abgrenzungsliste («Was es bei uns nicht gibt»).</div></td>
+              <td class="col-quelle">David</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <!-- 2.6 FAQ -->
+        <h3>2.6 Häufige Fragen (FAQ)</h3>
+        <table class="audit-table">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Ist-Text</th>
+              <th>Befund</th>
+              <th>Vorschlag</th>
+              <th>Quelle</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="col-num">F1</td>
+              <td class="col-stelle"><span class="target-text">H2:</span> «4 Fragen, die jeder gute Zimmermann zuerst stellt»</td>
+              <td class="col-befund"><span class="badge-pill badge-orange">🟠 Falsche Behauptung</span><br>Von dir scharf kritisiert: kein Zimmermann stellt als 1. Frage die 80 %-Quote.</td>
+              <td class="col-vorschlag"><div class="proposal-box">Kicker: <code>VORAB GEKLÄRT</code><br>H2: «Pensum, Weiterbildung, Ablauf»</div></td>
+              <td class="col-quelle">David</td>
+            </tr>
+            <tr>
+              <td class="col-num">F2</td>
+              <td class="col-stelle"><span class="target-text">Lead:</span> «Kein Kleingedrucktes, keine HR-Umwege.»</td>
+              <td class="col-befund"><span class="badge-pill badge-yellow">🟡 Jargon</span><br>Selbst HR- und Agentur-Jargon.</td>
+              <td class="col-vorschlag"><div class="proposal-box proposal-del">Ersatzlos streichen.</div></td>
+              <td class="col-quelle">David</td>
+            </tr>
+            <tr>
+              <td class="col-num">F3</td>
+              <td class="col-stelle"><span class="target-text">Reihenfolge:</span> Reihenfolge der 4 Fragen</td>
+              <td class="col-befund"><span class="badge-pill badge-yellow">🟡 Logik</span><br>Lebenslauf steht zuerst; der Zimmermann interessiert sich für die Bedingungen.</td>
+              <td class="col-vorschlag"><div class="proposal-box">Neue Reihenfolge:<br>1. Pensum (80/100 %)<br>2. Weiterbildung<br>3. Lebenslauf / Bewerbungsunterlagen<br>4. Ablauf erstes Kennenlernen</div></td>
+              <td class="col-quelle">N S. 1</td>
+            </tr>
+            <tr>
+              <td class="col-num">F4</td>
+              <td class="col-stelle"><span class="target-text">Lebenslauf:</span> «Uns zählt zuerst, wer du bist und wie du arbeitest.»</td>
+              <td class="col-befund"><span class="badge-pill badge-yellow">🟡 Floskel</span><br>Abgedroschene HR-Floskel.</td>
+              <td class="col-vorschlag"><div class="proposal-box">«Nein. Name, Nummer und drei Antworten reichen. Unterlagen kannst du später nachreichen.»</div></td>
+              <td class="col-quelle">David</td>
+            </tr>
+            <tr>
+              <td class="col-num">F5</td>
+              <td class="col-stelle"><span class="target-text">80 % / PK:</span> «reduzieren wir den PK-Koordinationsabzug entsprechend deinem Pensum»</td>
+              <td class="col-befund"><span class="badge-pill badge-orange">🟠 Unverständlich</span><br>«entsprechend deinem Pensum» steht nicht in der Quelle; Koordinationsabzug ist unverständlich.</td>
+              <td class="col-vorschlag"><div class="proposal-box">«Ja, 80 % ist möglich. Bei Teilzeit ist bei uns mehr von deinem Lohn in der Pensionskasse versichert (reduzierter Koordinationsabzug).» Von Jacqueline Kunz bestätigen lassen.</div></td>
+              <td class="col-quelle">K</td>
+            </tr>
+            <tr>
+              <td class="col-num">F6</td>
+              <td class="col-stelle"><span class="target-text">Weiterbildung:</span> 50 % Ausbildungszeit</td>
+              <td class="col-befund"><span class="badge-pill badge-orange">🟠 Halb erzählt</span><br>Verschweigt Kurskosten und Rückzahlungsregel (Befund 6).</td>
+              <td class="col-vorschlag"><div class="proposal-box">«Hochuli übernimmt 50 % der Ausbildungszeit, die Kurskosten trägst du selbst. Verlässt du die Firma kurz nach dem Abschluss, gibt es eine Rückzahlungsregel.» Von Jacqueline Kunz bestätigen lassen.</div></td>
+              <td class="col-quelle">N S. 6</td>
+            </tr>
+            <tr>
+              <td class="col-num">F7</td>
+              <td class="col-stelle"><span class="target-text">Ablauf:</span> «ruft dich an oder schreibt per WhatsApp … Kaffee … Werkstatt und Fahrzeuge … von Zimmermann zu Zimmermann»</td>
+              <td class="col-befund"><span class="badge-pill badge-red">🔴 Unbestätigt</span><br>Befund 2. Ob Stefan Zimmermann gelernt hat, ist ungeprüft.</td>
+              <td class="col-vorschlag"><div class="proposal-box">Nach Klärung (Fragen 1 &amp; 4). Entwurf:<br>«Stefan Hofmann meldet sich bei dir, per Telefon oder WhatsApp, wie du es angibst. Lohn und Pensum besprecht ihr direkt.»</div></td>
+              <td class="col-quelle">N S. 2 (offen)</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <!-- 2.7 QUIZ -->
+        <h3>2.7 Quiz &amp; Kennenlern-Funnel</h3>
+        <table class="audit-table">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Ist-Text</th>
+              <th>Befund</th>
+              <th>Vorschlag</th>
+              <th>Quelle</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="col-num">Q0</td>
+              <td class="col-stelle"><span class="target-text">Brücke:</span> «Jetzt weisst du, wie wir arbeiten. Schauen wir, wie du tickst.»</td>
+              <td class="col-befund"><span class="badge-pill badge-yellow">🟡 Coaching-Jargon</span><br>«wie du tickst» ist Coaching-Jargon und dreht das Augenhöhe-Verhältnis um (wir testen ihn).</td>
+              <td class="col-vorschlag"><div class="proposal-box">Kicker: <code>60 SEKUNDEN · OHNE LEBENSLAUF</code><br>H2: «Drei Fragen zu deiner Arbeitsweise. Dann sprichst du direkt mit Stefan Hofmann.»<br>Unterzeile: «Kein Lebenslauf, keine Mappe. Dauert eine Minute.»</div></td>
+              <td class="col-quelle">David</td>
+            </tr>
+            <tr>
+              <td class="col-num">Q1</td>
+              <td class="col-stelle"><span class="target-text">Frage 1:</span> «Was macht für dich einen richtig guten Tag als Zimmermann aus?»</td>
+              <td class="col-befund"><span class="badge-pill badge-green">⚪ Gut</span><br>Konkret, berufsbezogen, holt den Zimmermann fachlich ab.</td>
+              <td class="col-vorschlag"><div class="proposal-box">Beibehalten.</div></td>
+              <td class="col-quelle">David</td>
+            </tr>
+            <tr>
+              <td class="col-num">Q2</td>
+              <td class="col-stelle"><span class="target-text">Antwort:</span> «… statt stur nach Schema im Elementbau»</td>
+              <td class="col-befund"><span class="badge-pill badge-orange">🟠 Abwertung</span><br>Befund 7: Elementbau nicht herabsetzen.</td>
+              <td class="col-vorschlag"><div class="proposal-box">«… statt Arbeit nach Schema F.»</div></td>
+              <td class="col-quelle">N</td>
+            </tr>
+            <tr>
+              <td class="col-num">Q3</td>
+              <td class="col-stelle"><span class="target-text">Antwort:</span> «Abwechslung jede Woche»</td>
+              <td class="col-befund"><span class="badge-pill badge-orange">🟠 Ungenau</span><br>Wie A2: Notiz sagt jede Woche oder alle 14 Tage.</td>
+              <td class="col-vorschlag"><div class="proposal-box">«Abwechslung» (Karten-Subtext: «Alle ein bis zwei Wochen ein neues Projekt…»).</div></td>
+              <td class="col-quelle">N</td>
+            </tr>
+            <tr>
+              <td class="col-num">Q4</td>
+              <td class="col-stelle"><span class="target-text">Antwort:</span> «Ohne Zeitdruck sauber abgesichert arbeiten»</td>
+              <td class="col-befund"><span class="badge-pill badge-orange">🟠 Widerspruch</span><br>Befund 5: Zeitdruck existiert auch bei Hochuli.</td>
+              <td class="col-vorschlag"><div class="proposal-box">«Sauber abgesichert arbeiten, mit Kollegen, auf die man sich verlassen kann.»</div></td>
+              <td class="col-quelle">D</td>
+            </tr>
+            <tr>
+              <td class="col-num">Q5</td>
+              <td class="col-stelle"><span class="target-text">Rückmeldung:</span> «Passt stark zu Hochuli», «Genau so leben wir es», «Passt gut ins Team»</td>
+              <td class="col-befund"><span class="badge-pill badge-yellow">🟡 Unglaubwürdig</span><br>Erscheint bei buchstäblich jeder Antwort, wirkt dadurch beliebig und unaufrichtig.</td>
+              <td class="col-vorschlag"><div class="proposal-box">Statt oberflächlichem Lob einen echten Fakten-Beleg je Antwort einblenden («Bei Hochuli: …» mit passendem Fakt aus den 6 Gründen).</div></td>
+              <td class="col-quelle">David</td>
+            </tr>
+            <tr>
+              <td class="col-num">Q6</td>
+              <td class="col-stelle"><span class="target-text">Frage 3:</span> «Zusammenspiel mit Chef und Team»</td>
+              <td class="col-befund"><span class="badge-pill badge-yellow">🟡 HR-Wort</span><br>«Zusammenspiel» ist HR-Jargon.</td>
+              <td class="col-vorschlag"><div class="proposal-box">«Wie arbeitest du am liebsten mit Chef und Team?»</div></td>
+              <td class="col-quelle">David</td>
+            </tr>
+            <tr>
+              <td class="col-num">Q7</td>
+              <td class="col-stelle"><span class="target-text">Antwort:</span> «verlässliche Organisation ohne Hektik»</td>
+              <td class="col-befund"><span class="badge-pill badge-orange">🟠 Widerspruch</span><br>Befund 5: Termindruck und hektische Tage existieren.</td>
+              <td class="col-vorschlag"><div class="proposal-box">«verlässliche Organisation» (Zusatz «ohne Hektik» streichen).</div></td>
+              <td class="col-quelle">D</td>
+            </tr>
+            <tr>
+              <td class="col-num">Q8</td>
+              <td class="col-stelle"><span class="target-text">Kontakt-Titel:</span> «Passt – melde dich kurz direkt bei Stefan Hofmann»</td>
+              <td class="col-befund"><span class="badge-pill badge-yellow">🟡 Floskel</span><br>«Passt» wirkt wie ein unbegründetes System-Urteil.</td>
+              <td class="col-vorschlag"><div class="proposal-box">«Melde dich bei Stefan Hofmann»</div></td>
+              <td class="col-quelle">David</td>
+            </tr>
+            <tr>
+              <td class="col-num">Q9</td>
+              <td class="col-stelle"><span class="target-text">Badge:</span> «100 % vertraulich»</td>
+              <td class="col-befund"><span class="badge-pill badge-orange">🟠 Vage</span><br>Wer sieht die Daten genau? Was bedeutet 100 %?</td>
+              <td class="col-vorschlag"><div class="proposal-box">«Deine Angaben sehen nur Stefan Hofmann und das Hochuli-Team.» (Genaue Klärung bei Frage 6).</div></td>
+              <td class="col-quelle">keine</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <!-- 2.8 DANKE-BÜHNE UND FOOTER -->
+        <h3>2.8 Danke-Bühne und Footer</h3>
+        <table class="audit-table">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Ist-Text</th>
+              <th>Befund</th>
+              <th>Vorschlag</th>
+              <th>Quelle</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="col-num">X1</td>
+              <td class="col-stelle"><span class="target-text">Telefon:</span> Stefan Hofmann · «Tel. +41 62 739 00 20»</td>
+              <td class="col-befund"><span class="badge-pill badge-red">🔴 Falsche Nummer</span><br>Befund 1: 062 739 00 20 ist Zentrale/WhatsApp. Direktwahl Stefan ist 062 739 00 22.</td>
+              <td class="col-vorschlag"><div class="proposal-box">Direktwahl 062 739 00 22 einsetzen oder als Zentrale beschriften. Klären, welche Nummer Stefan bevorzugt.</div></td>
+              <td class="col-quelle">W, Inserat</td>
+            </tr>
+            <tr>
+              <td class="col-num">X2</td>
+              <td class="col-stelle"><span class="target-text">Fahrplan:</span> Schritt 2 und 3 (Kaffee am Werkhof, Schnuppertag)</td>
+              <td class="col-befund"><span class="badge-pill badge-red">🔴 Unbestätigt</span><br>Befund 2: Schnuppertag stammt ungeprüft aus Cotra-Vorlage.</td>
+              <td class="col-vorschlag"><div class="proposal-box">Nach Klärung mit Stefan. Bis dahin neutral formulieren:<br>«Stefan meldet sich bei dir.»</div></td>
+              <td class="col-quelle">Cotra-Vorlage</td>
+            </tr>
+            <tr>
+              <td class="col-num">X3</td>
+              <td class="col-stelle"><span class="target-text">Firmenname:</span> «Einblick in den Hochuli Holzbau»</td>
+              <td class="col-befund"><span class="badge-pill badge-orange">🟠 Historisch</span><br>«Hochuli Holzbau AG» hiess die Firma nur bis 2021. Heute: Hochuli Schlossrued AG.</td>
+              <td class="col-vorschlag"><div class="proposal-box">«Einblick in den Holzbau bei Hochuli»</div></td>
+              <td class="col-quelle">W (geschichte)</td>
+            </tr>
+            <tr>
+              <td class="col-num">X4</td>
+              <td class="col-stelle"><span class="target-text">Footer:</span> «Bereit für die Aufschaltung auf offene-stellen.ch»</td>
+              <td class="col-befund"><span class="badge-pill badge-red">🔴 Intern sichtbar</span><br>Befund 3: Interner Arbeitsvermerk sichtbar.</td>
+              <td class="col-vorschlag"><div class="proposal-box proposal-del">Ersatzlos streichen.</div></td>
+              <td class="col-quelle">David</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <!-- SEKTION 3: FRAGEN -->
+      <section class="section-block">
+        <h2>3. Fragen, die zuerst beantwortet sein müssen</h2>
+        
+        <div class="qa-block">
+          <div class="qa-person-title">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+            An Stefan Hofmann (er führt die ersten Gespräche – seine Antworten sind die beste Primärquelle):
+          </div>
+          <ol class="qa-list">
+            <li><strong>Meldeweg &amp; Reaktionszeit:</strong> Wer meldet sich nach einer Anfrage, wie schnell, per Telefon oder WhatsApp, und über welche Nummer?</li>
+            <li><strong>Überzeit &amp; Samstag:</strong> Gibt es nie Überzeit? Wie oft wird tatsächlich am Samstag gearbeitet (z. B. bei Schlechtwetter oder Notdach)?</li>
+            <li><strong>Elementbau-Quote:</strong> Wie viel Elementbau machen die Zimmerleute im Alltag tatsächlich?</li>
+            <li><strong>Erstes Kennenlernen:</strong> Was passiert beim ersten Treffen (Kaffee, Werkstatt-Rundgang, Schnuppertag)? Was davon stimmt wirklich und wird gelebt?</li>
+            <li><strong>Telefon-Realität:</strong> Was fragen Zimmerleute im ersten Telefonat zuerst? Was schreckt sie ab? Was bringt sie zum Ja?</li>
+            <li><strong>Lohn-Gespräch:</strong> Wie gehst du im ersten Gespräch mit der Lohnfrage um, wenn der Bewerber direkt danach fragt?</li>
+          </ol>
+        </div>
+
+        <div class="qa-block">
+          <div class="qa-person-title">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="8.5" cy="7" r="4"/><line x1="20" y1="8" x2="20" y2="14"/><line x1="23" y1="11" x2="17" y2="11"/></svg>
+            An Jacqueline Kunz (Personal / Administration):
+          </div>
+          <ul class="qa-list" style="list-style-type: disc;">
+            <li><strong>Pensionskasse:</strong> Stimmt die Formulierung zur PK bei Teilzeit (reduzierter Koordinationsabzug) exakt so (F5)?</li>
+            <li><strong>Weiterbildung:</strong> Wie lautet die genaue Rückzahlungs- und Verpflichtungsregel bei Weiterbildungen (F6)?</li>
+            <li><strong>Datenschutz:</strong> Wer hat intern Einsicht in die Bewerberdaten (Q9)?</li>
+          </ul>
+        </div>
+
+        <div class="qa-block">
+          <div class="qa-person-title">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            An Martin Hochuli (Inhaber &amp; Geschäftsführer):
+          </div>
+          <ul class="qa-list" style="list-style-type: disc;">
+            <li><strong>Zitat-Freigabe:</strong> Zitat-Entwurf freigeben oder in eigenen authentischen Worten formulieren (T3).</li>
+            <li><strong>Bewerbungshürde:</strong> Ist die Zusage «kein Lebenslauf nötig» für ihn und den Betrieb vollumfänglich in Ordnung (H7)?</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- SEKTION 4: CHECKLISTE -->
+      <section class="section-block">
+        <h2>4. Checkliste vor dem Go-live der Werbekampagne (Meta / Ads)</h2>
+        <div class="checklist-block">
+          <div class="checklist-item">
+            <input type="checkbox" id="c1">
+            <label for="c1">Footer-Satz «Bereit für die Aufschaltung auf offene-stellen.ch» restlos entfernt</label>
+          </div>
+          <div class="checklist-item">
+            <input type="checkbox" id="c2">
+            <label for="c2">«(Dreh geplant)», Video-Platzhalter und Entwurf-Badges entfernt oder durch echtes Material ersetzt</label>
+          </div>
+          <div class="checklist-item">
+            <input type="checkbox" id="c3">
+            <label for="c3">Sandbox-Karte und <code>LIVE_CONNECTIONS_ENABLED</code> bewusst für Produktion geschaltet</label>
+          </div>
+          <div class="checklist-item">
+            <input type="checkbox" id="c4">
+            <label for="c4">Persönliche Telefonnummer von Stefan Hofmann final verifiziert und korrekt hinterlegt</label>
+          </div>
+          <div class="checklist-item">
+            <input type="checkbox" id="c5">
+            <label for="c5">Alle 🔴 (Rot) und 🟠 (Orange) markierten Audit-Punkte im Code sauber überarbeitet</label>
+          </div>
+          <div class="checklist-item">
+            <input type="checkbox" id="c6">
+            <label for="c6">Echte Zitate von Martin Hochuli und Stefan Hofmann freigegeben</label>
+          </div>
+        </div>
+      </section>
+
+      <footer class="doc-footer">
+        <div>Hochuli Schlossrued AG · Hauptstrasse 106 · 5044 Schlossrued</div>
+        <div>Audit erstellt am 20.11.2026 · magnet-Xs gmbh (David Hügli)</div>
+      </footer>
+    </article>
+  </main>
+
+</body>
+</html>
