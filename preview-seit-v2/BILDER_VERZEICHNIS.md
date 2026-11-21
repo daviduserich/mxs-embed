@@ -5,7 +5,7 @@
 > **Lokaler Ordner (VPS & Git):** `preview-seit-v2/`  
 > **Cloudflare-Basis-URL:** [vorschau.magnet-xs.ch/seit-v2/](https://vorschau.magnet-xs.ch/seit-v2/)  
 > **Bestand:** **17 Assets** (1.45 MB gesamt) · **🟢 9 aktiv im HTML** · **⚪ 8 frei im Bild-Pool** · **Externe Hotlinks: 0**  
-> **Letzte Aktualisierung:** 18.11.2026 18:30 Uhr (automatisch generiert via `webpilot_asset_catalog.py`)
+> **Letzte Aktualisierung:** 21.11.2026 07:36 Uhr (automatisch generiert via `webpilot_asset_catalog.py`)
 
 ---
 
