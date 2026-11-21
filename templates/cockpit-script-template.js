@@ -2878,7 +2878,7 @@ function acpNormalizeAndValidateSection(rawInput, secId) {
   }
 
   // Whitelist für legitime WebPilot-System-Handler (Navigation, Formulare, Stellen-Auswahl)
-  var allowedHandlers = /^(?:toggleDrawer\(\)|toggleMobileMenu\(\)|closeMobileMenu\(\)|document\.getElementById\(\x27mobileDrawer\x27\)\.classList\.(?:toggle|remove)\(\x27open\x27\)|filterSparten\([\s\S]*\)|selectQuizOpt\([\s\S]*\)|selectQuizOption\([\s\S]*\)|selectJobForApply\([\s\S]*\)|setJobChoice\([\s\S]*\)|toggleJobs\(\)|handleApplySubmit\(event\)|handleJobSubmit\(event\)|handleContactSubmit\(event\)|handleHer11Submit\(event\)|handleHer11ContactSubmit\(event\)|selectContactTopic\([\s\S]*\)|syncTopicChips\([\s\S]*\)|selectRolePill\([\s\S]*\)|wp[a-zA-Z0-9_]+\([\s\S]*\)|return\s+wp[a-zA-Z0-9_]+\([\s\S]*\)|handleExpressApply\(event\)|sendeBewerbung\(event\)|submitCotraApplication\([\s\S]*\)|playInterviewVideo\(this\)|openLightbox\([\s\S]*\)|closeLightbox\(\)|toggleLightboxZoom\(event\)|event\.preventDefault\(\).*?|history\.back\(\))$/i;
+  var allowedHandlers = /^(?:toggleDrawer\(\)|toggleMobileMenu\(\)|closeMobileMenu\(\)|document\.getElementById\(\x27(?:mobileDrawer|mobileNavDrawer)\x27\)\.classList\.(?:toggle|remove|add)\(\x27open\x27\)|document\.getElementById\(\x27[a-zA-Z0-9_-]+\x27\)\.scrollIntoView\([\s\S]*\)|filterSparten\([\s\S]*\)|filterRatgeber\([\s\S]*\)|ceSelectAdvisor\([\s\S]*\)|gfdSetCalc\([\s\S]*\)|closeJotFormModal\(\)|toggleFaq\([\s\S]*\)|selectQuizOpt\([\s\S]*\)|selectQuizOption\([\s\S]*\)|selectJobForApply\([\s\S]*\)|setJobChoice\([\s\S]*\)|toggleJobs\(\)|handleApplySubmit\(event\)|handleJobSubmit\(event\)|handleContactSubmit\(event\)|handleHer11Submit\(event\)|handleHer11ContactSubmit\(event\)|selectContactTopic\([\s\S]*\)|syncTopicChips\([\s\S]*\)|selectRolePill\([\s\S]*\)|wp[a-zA-Z0-9_]+\([\s\S]*\)|return\s+wp[a-zA-Z0-9_]+\([\s\S]*\)|handleExpressApply\(event\)|sendeBewerbung\(event\)|submitCotraApplication\([\s\S]*\)|playInterviewVideo\(this\)|openLightbox\([\s\S]*\)|closeLightbox\(\)|toggleLightboxZoom\(event\)|event\.preventDefault\(\).*?|history\.back\(\))$/i;
   var evRegex = /\s(on[a-zA-Z]+)\s*=\s*(?:"([^"]*)"|'([^']*)'|([^\s>]+))/gi;
   var evMatch;
   while ((evMatch = evRegex.exec(clean)) !== null) {
@@ -3836,9 +3836,27 @@ function acpOpenNewSectionModal() {
   var status = document.getElementById("acp-new-airbag-status");
   if (status) status.style.display = "none";
 
+  var pageBadge = document.getElementById("acp-new-sec-active-page-badge");
+  if (pageBadge) {
+    var vp = document.getElementById("acp-widget-viewport");
+    var activeFile = "index.html";
+    if (vp && vp.getAttribute("src")) {
+      var rawSrc = vp.getAttribute("src").split("?")[0];
+      if (rawSrc.endsWith(".html")) activeFile = rawSrc.split("/").pop();
+    }
+    var activeLabel = activeFile === "index.html" ? "Startseite" : activeFile.replace(/\.html$/i, "");
+    if (typeof ACP_STELLEN !== "undefined" && Array.isArray(ACP_STELLEN)) {
+      var matchedJob = ACP_STELLEN.find(function(j) { return j.datei === activeFile; });
+      if (matchedJob && matchedJob.titel) activeLabel = matchedJob.titel;
+    }
+    pageBadge.textContent = "Aktive Seite: " + activeLabel + " (" + activeFile + ")";
+  }
+
   if (select) {
     select.innerHTML = "";
-    acpScannedSections.forEach(function(s) {
+    var candidates = acpScannedSections.filter(function(s) { return s.id !== "footer"; });
+    if (candidates.length === 0) candidates = acpScannedSections;
+    candidates.forEach(function(s) {
       var opt = document.createElement("option");
       opt.value = s.id;
       opt.textContent = "Nach [" + s.id + "] " + s.title;
@@ -3900,6 +3918,127 @@ promptRules;
     alert("Neuer Coach-Prompt für zusätzlichen Abschnitt kopiert!\n\nJetzt in ChatGPT oder Claude einfügen.");
   }).catch(function() {
     window.prompt("Kopiere diesen Prompt:", prompt);
+  });
+}
+
+function acpSubmitNewSection() {
+  var select = document.getElementById("acp-new-sec-position");
+  var topicInput = document.getElementById("acp-new-sec-topic");
+  var textarea = document.getElementById("acp-new-sec-code-input");
+  var status = document.getElementById("acp-new-airbag-status");
+  var applyBtn = document.getElementById("acp-btn-apply-new");
+
+  function showStatus(kind, htmlMsg) {
+    if (!status) return;
+    status.style.display = "block";
+    status.style.padding = "10px 14px";
+    status.style.borderRadius = "8px";
+    if (kind === "error") {
+      status.style.color = "#ef4444";
+      status.style.background = "rgba(239, 68, 68, 0.1)";
+      status.style.border = "1px solid rgba(239, 68, 68, 0.3)";
+    } else if (kind === "warn") {
+      status.style.color = "#fbbf24";
+      status.style.background = "rgba(245, 158, 11, 0.1)";
+      status.style.border = "1px solid rgba(245, 158, 11, 0.3)";
+    } else {
+      status.style.color = "#4ade80";
+      status.style.background = "rgba(34, 197, 94, 0.1)";
+      status.style.border = "1px solid rgba(34, 197, 94, 0.3)";
+    }
+    status.innerHTML = htmlMsg;
+  }
+
+  var rawVal = textarea ? (textarea.value || "").trim() : "";
+  if (!rawVal) {
+    showStatus("error", "<strong>Bitte zuerst Code einfügen:</strong> Das Feld in Schritt B ist noch leer.");
+    return;
+  }
+
+  var insertAfter = select ? select.value : "";
+  if (!insertAfter && acpScannedSections && acpScannedSections.length > 0) {
+    insertAfter = acpScannedSections[0].id;
+  }
+
+  var topic = topicInput && topicInput.value ? topicInput.value.trim() : "neuer-abschnitt";
+  var slug = topic.toLowerCase()
+    .replace(/ä/g, "ae").replace(/ö/g, "oe").replace(/ü/g, "ue")
+    .replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "") || ("sektion-" + Date.now().toString().slice(-4));
+
+  // Falls KI eine komplette HTML-Seite (<head>/<style>/<body>) statt nur <section> geliefert hat:
+  var cleanedInput = rawVal;
+  var fenceM = cleanedInput.match(/```(?:html|xml)?\s*([\s\S]*?)```/i);
+  if (fenceM && fenceM[1]) cleanedInput = fenceM[1].trim();
+  if (/<(html|head|body|style)\b/i.test(cleanedInput)) {
+    var secOnlyM = cleanedInput.match(/<section\b[\s\S]*?<\/section>/i);
+    if (secOnlyM && secOnlyM[0]) {
+      cleanedInput = secOnlyM[0].trim();
+    }
+  }
+
+  var validation = acpNormalizeAndValidateSection(cleanedInput, slug);
+  if (!validation.ok) {
+    showStatus("error", "<strong>Airbag-Schranke:</strong> " + validation.error + "<br><span style=\"font-size:11.5px;color:#cbd5e1;\">Tipp: Bitte nur den reinen &lt;section&gt;...&lt;/section&gt;-Block der KI einfügen (ohne &lt;style&gt; oder &lt;script&gt;).</span>");
+    return;
+  }
+
+  var finalSecId = validation.detectedSecId || slug;
+  var iframe = document.getElementById("acp-widget-viewport");
+  var targetFile = "index.html";
+  if (iframe && iframe.getAttribute("src")) {
+    var srcVal = iframe.getAttribute("src").split("?")[0];
+    if (srcVal.endsWith(".html")) targetFile = srcVal.split("/").pop();
+  }
+
+  var clientSlug = window.ACP_CURRENT_CLIENT || (window.location.pathname.split("/")[1] || "preview-birchmeier");
+
+  if (applyBtn) {
+    applyBtn.disabled = true;
+    applyBtn.innerHTML = "<span>Sektion wird eingehängt &amp; live gespeichert...</span>";
+  }
+  showStatus("warn", "<strong>Airbag grün:</strong> Füge neue Sektion [" + finalSecId + "] nach [" + insertAfter + "] in " + targetFile + " ein...");
+
+  fetch("/api/publish-career/replace-section", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      client: clientSlug,
+      file: targetFile,
+      section_id: finalSecId,
+      insert_after: insertAfter,
+      content: validation.html
+    })
+  })
+  .then(function(res) {
+    if (!res.ok) {
+      return res.json().then(function(j) { throw new Error(j.error || ("HTTP " + res.status)); });
+    }
+    return res.json();
+  })
+  .then(function() {
+    if (applyBtn) {
+      applyBtn.disabled = false;
+      applyBtn.innerHTML = "<svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><polyline points=\"20 6 9 17 4 12\"/></svg><span>Neue Sektion einhängen &amp; aktivieren</span>";
+    }
+    if (textarea) textarea.value = "";
+    acpCloseNewSectionModal();
+
+    if (typeof acpAutoSyncViewport === "function") {
+      acpAutoSyncViewport("Neue Sektion [" + finalSecId + "] eingehängt");
+    } else if (iframe) {
+      var curSrc = iframe.src.split("?")[0];
+      iframe.src = curSrc + "?t=" + Date.now();
+    }
+    setTimeout(function() {
+      acpScanAndRenderSections();
+    }, 1500);
+  })
+  .catch(function(err) {
+    if (applyBtn) {
+      applyBtn.disabled = false;
+      applyBtn.innerHTML = "<svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><polyline points=\"20 6 9 17 4 12\"/></svg><span>Neue Sektion einhängen &amp; aktivieren</span>";
+    }
+    showStatus("error", "<strong>Fehler beim Einhängen:</strong> " + (err && err.message ? err.message : String(err)));
   });
 }
 
