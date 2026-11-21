@@ -116,20 +116,10 @@ function acpGetActivePreviewUrl() {
 
   var targetFile = "index.html";
   var job = (typeof getActiveJob === "function") ? getActiveJob() : null;
-  if (job && job.datei) {
+  if (iframe && typeof acpGetActualIframeFile === "function") {
+    targetFile = acpGetActualIframeFile(iframe);
+  } else if (job && job.datei) {
     targetFile = job.datei;
-  }
-  if (iframe) {
-    try {
-      if (iframe.contentWindow && iframe.contentWindow.location && iframe.contentWindow.location.pathname) {
-        var path = iframe.contentWindow.location.pathname.split("/").pop();
-        if (path && path.endsWith(".html")) targetFile = path;
-      }
-    } catch (_) {}
-    if (targetFile === "index.html" && iframe.getAttribute("src")) {
-      var srcVal = iframe.getAttribute("src").split("?")[0].split("/").pop();
-      if (srcVal && srcVal.endsWith(".html")) targetFile = srcVal;
-    }
   }
 
   var cleanPage = targetFile.replace(/\.html$/, "");
@@ -498,22 +488,63 @@ function renderJobPicker() {
   }
 }
 
-function acpSwitchJob(jobId, forceReload) {
-  if (acpSyncPollTimer) {
-    clearTimeout(acpSyncPollTimer);
-    acpSyncPollTimer = null;
-  }
-  activeJobId = jobId;
-  var job = getActiveJob();
-  if (!job || !job.id) return;
-  
-  renderJobPicker();
+function acpNormalizePageFile(rawPathOrUrl) {
+  if (!rawPathOrUrl || typeof rawPathOrUrl !== "string") return "";
+  var clean = rawPathOrUrl.split("?")[0].split("#")[0].trim();
+  if (!clean || clean.toLowerCase() === "about:blank" || clean.toLowerCase() === "blank") return "";
+  clean = clean.replace(/^https?:\/\/[^\/]+/i, "");
+  var parts = clean.split("/").filter(function(p) { return !!p; });
+  if (parts.length === 0) return "index.html";
+  var lastSeg = parts[parts.length - 1];
+  var low = lastSeg.toLowerCase();
+  var profileSlug = (typeof ACP_CLIENT_PROFILE !== "undefined" && ACP_CLIENT_PROFILE.slug) ? String(ACP_CLIENT_PROFILE.slug).toLowerCase() : "";
+  var vorschauSlug = (typeof acpGetVorschauClientSlug === "function") ? String(acpGetVorschauClientSlug(profileSlug)).toLowerCase() : "";
+  var winSeg = (window.location.pathname.split("/")[1] || "").toLowerCase();
 
+  var isRootIndexSlug = (
+    !low ||
+    low === "index" ||
+    low === "index.html" ||
+    low === "cockpit" ||
+    low === "cockpit.html" ||
+    low.indexOf("preview-") === 0 ||
+    /-(?:vollversion|vv|v1|v2)$/.test(low) ||
+    (profileSlug && low === profileSlug) ||
+    (vorschauSlug && low === vorschauSlug) ||
+    (parts.length === 1 && !/\.html$/i.test(low)) ||
+    (winSeg && low === winSeg && !/\.html$/i.test(low))
+  );
+  if (isRootIndexSlug) return "index.html";
+  return /\.html$/i.test(lastSeg) ? lastSeg : (lastSeg + ".html");
+}
+
+function acpGetActualIframeFile(frame) {
+  if (!frame) return "index.html";
+  try {
+    var win = frame.contentWindow;
+    if (win && win.location) {
+      var href = "";
+      try { href = win.location.href || ""; } catch (_) {}
+      var path = "";
+      try { path = win.location.pathname || ""; } catch (_) {}
+      if (href && href !== "about:blank" && path) {
+        var normLive = acpNormalizePageFile(path);
+        if (normLive) return normLive;
+      }
+    }
+  } catch (_) {}
+
+  var attrSrc = frame.getAttribute("src") || frame.src || "";
+  var normAttr = acpNormalizePageFile(attrSrc);
+  return normAttr || "index.html";
+}
+
+function acpUpdateStageForJob(job) {
+  if (!job || !job.id) return null;
   var hostDomain = job.host_label || "dachdecker-berneroberland.ch";
   var firmaName = job.firma || "Kundenbetrieb";
   var brandColor = job.farb_akzent || "#3b82f6";
 
-  // Studio Device Stage updates
   var stageUrl = document.getElementById("acp-stage-browser-url");
   var stageLink = document.getElementById("acp-stage-external-link");
   var stagePill = document.getElementById("acp-stage-client-pill");
@@ -558,6 +589,75 @@ function acpSwitchJob(jobId, forceReload) {
     topPreviewBtn.title = "Vorschau «" + (job.titel || firmaName) + "» im neuen Tab öffnen (" + targetLiveUrl + ")";
   }
   if (stagePill) stagePill.textContent = firmaName;
+  return {
+    hostDomain: hostDomain,
+    firmaName: firmaName,
+    brandColor: brandColor,
+    subfolder: subfolder,
+    edgePreviewUrl: edgePreviewUrl
+  };
+}
+
+function acpSyncCockpitToIframeLocation(frame) {
+  if (!frame || typeof ACP_STELLEN === "undefined" || !Array.isArray(ACP_STELLEN)) return;
+  var livePathname = "";
+  try {
+    if (frame.contentWindow && frame.contentWindow.location) {
+      if ((frame.contentWindow.location.href || "") === "about:blank") return;
+      livePathname = frame.contentWindow.location.pathname || "";
+    }
+  } catch (_) {
+    return;
+  }
+  if (!livePathname) return;
+
+  var actualFile = acpNormalizePageFile(livePathname);
+  if (!actualFile) return;
+
+  var matchedJob = null;
+  for (var i = 0; i < ACP_STELLEN.length; i++) {
+    var d = (ACP_STELLEN[i].datei || "").toLowerCase();
+    if (d === actualFile.toLowerCase()) {
+      matchedJob = ACP_STELLEN[i];
+      break;
+    }
+  }
+  if (!matchedJob) return;
+
+  var prevJobId = activeJobId;
+  acpScannedSections = [];
+  if (matchedJob.id !== prevJobId) {
+    activeJobId = matchedJob.id;
+    renderJobPicker();
+    acpUpdateStageForJob(matchedJob);
+    updateSnippetBox();
+    if (typeof acpDirtySections !== "undefined" && acpDirtySections && typeof acpDirtySections.clear === "function") {
+      acpDirtySections.clear();
+      if (typeof acpUpdateInlineEditStatus === "function") acpUpdateInlineEditStatus();
+    }
+  }
+  if (typeof acpSectionsModalOpen !== "undefined" && acpSectionsModalOpen && typeof acpScanAndRenderSections === "function") {
+    acpScanAndRenderSections();
+  }
+}
+
+function acpSwitchJob(jobId, forceReload) {
+  if (acpSyncPollTimer) {
+    clearTimeout(acpSyncPollTimer);
+    acpSyncPollTimer = null;
+  }
+  activeJobId = jobId;
+  var job = getActiveJob();
+  if (!job || !job.id) return;
+  
+  renderJobPicker();
+
+  var stageInfo = acpUpdateStageForJob(job) || {};
+  var hostDomain = stageInfo.hostDomain || job.host_label || "dachdecker-berneroberland.ch";
+  var firmaName = stageInfo.firmaName || job.firma || "Kundenbetrieb";
+  var brandColor = stageInfo.brandColor || job.farb_akzent || "#3b82f6";
+  var subfolder = stageInfo.subfolder || job.folder || "";
+  var edgePreviewUrl = stageInfo.edgePreviewUrl || job.edge_url || ("https://embed.magnet-xs.ch/" + subfolder + "/" + job.datei);
 
   // Fallbacks for mock headers if present
   var hBadge = document.getElementById("host-badge");
@@ -581,12 +681,13 @@ function acpSwitchJob(jobId, forceReload) {
 
   var frame = document.getElementById("acp-widget-viewport");
   if (frame && job.datei) {
-    var currentSrc = frame.getAttribute("src") || frame.src || "";
-    var cleanCurrent = currentSrc.split("?")[0].replace(/\.html$/, "").split("/").pop().toLowerCase();
+    var actualCurrentFile = acpGetActualIframeFile(frame);
+    var cleanCurrent = actualCurrentFile.replace(/\.html$/, "").toLowerCase();
     var cleanTarget = job.datei.replace(/\.html$/, "").toLowerCase();
     var isSameJob = (cleanCurrent === cleanTarget);
 
     if (!isSameJob || forceReload) {
+      acpScannedSections = [];
       frame.style.opacity = "0.3";
       var targetSrc = "";
       if (window.location.protocol === "file:") {
@@ -1578,7 +1679,13 @@ function acpAutoSyncViewport(targetFile, cleanNewImageName, jobId) {
   var frame = document.getElementById("acp-widget-viewport");
   if (!frame) return;
 
-  var currentSrc = frame.getAttribute("src") || frame.src || "";
+  var currentSrc = "";
+  try {
+    if (frame.contentWindow && frame.contentWindow.location && frame.contentWindow.location.href && frame.contentWindow.location.href !== "about:blank") {
+      currentSrc = frame.contentWindow.location.href;
+    }
+  } catch (_) {}
+  if (!currentSrc) currentSrc = frame.getAttribute("src") || frame.src || "";
   if (!currentSrc) return;
 
   // Saubere Basis-URL ohne veraltete Cache-Buster oder Probes
@@ -2977,13 +3084,7 @@ function acpSubmitReplaceSection() {
   }
 
   var iframe = document.getElementById("acp-widget-viewport");
-  var targetFile = "index.html";
-  if (iframe && iframe.getAttribute("src")) {
-    var srcVal = iframe.getAttribute("src").split("?")[0];
-    if (srcVal.endsWith(".html")) {
-      targetFile = srcVal.split("/").pop();
-    }
-  }
+  var targetFile = iframe ? acpGetActualIframeFile(iframe) : "index.html";
 
   var clientSlug = window.ACP_CURRENT_CLIENT || (window.location.pathname.split("/")[1] || "preview-birchmeier");
 
@@ -3709,13 +3810,7 @@ function acpSaveInlineEdits() {
   var doc = iframe.contentDocument || (iframe.contentWindow && iframe.contentWindow.document);
   if (!doc) return;
 
-  var targetFile = "index.html";
-  if (iframe.getAttribute("src")) {
-    var srcVal = iframe.getAttribute("src").split("?")[0];
-    if (srcVal.endsWith(".html")) {
-      targetFile = srcVal.split("/").pop();
-    }
-  }
+  var targetFile = acpGetActualIframeFile(iframe);
 
   var clientSlug = window.ACP_CURRENT_CLIENT || (window.location.pathname.split("/")[1] || "preview-birchmeier");
   var saveBtn = document.getElementById("acp-btn-save-inline");
@@ -3750,7 +3845,8 @@ function acpSaveInlineEdits() {
           var cleanTel = txtVal.replace(/[^+0-9]/g, "");
           if (cleanTel.length >= 7) edEl.setAttribute("href", "tel:" + cleanTel);
         } else if (hrefVal.indexOf("mailto:") === 0 && txtVal.indexOf("@") !== -1) {
-          edEl.setAttribute("href", "mailto:" + txtVal);
+          var mailMatch = txtVal.match(/[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}/);
+          if (mailMatch) edEl.setAttribute("href", "mailto:" + mailMatch[0]);
         }
       }
       edEl.removeAttribute("contenteditable");
@@ -3839,11 +3935,7 @@ function acpOpenNewSectionModal() {
   var pageBadge = document.getElementById("acp-new-sec-active-page-badge");
   if (pageBadge) {
     var vp = document.getElementById("acp-widget-viewport");
-    var activeFile = "index.html";
-    if (vp && vp.getAttribute("src")) {
-      var rawSrc = vp.getAttribute("src").split("?")[0];
-      if (rawSrc.endsWith(".html")) activeFile = rawSrc.split("/").pop();
-    }
+    var activeFile = vp ? acpGetActualIframeFile(vp) : "index.html";
     var activeLabel = activeFile === "index.html" ? "Startseite" : activeFile.replace(/\.html$/i, "");
     if (typeof ACP_STELLEN !== "undefined" && Array.isArray(ACP_STELLEN)) {
       var matchedJob = ACP_STELLEN.find(function(j) { return j.datei === activeFile; });
@@ -3984,11 +4076,7 @@ function acpSubmitNewSection() {
 
   var finalSecId = validation.detectedSecId || slug;
   var iframe = document.getElementById("acp-widget-viewport");
-  var targetFile = "index.html";
-  if (iframe && iframe.getAttribute("src")) {
-    var srcVal = iframe.getAttribute("src").split("?")[0];
-    if (srcVal.endsWith(".html")) targetFile = srcVal.split("/").pop();
-  }
+  var targetFile = iframe ? acpGetActualIframeFile(iframe) : "index.html";
 
   var clientSlug = window.ACP_CURRENT_CLIENT || (window.location.pathname.split("/")[1] || "preview-birchmeier");
 
@@ -4060,10 +4148,20 @@ function acpRemoveSection(secId) {
   var viewportIframe = document.getElementById("acp-widget-viewport");
   if (viewportIframe) {
     viewportIframe.addEventListener("load", function() {
-      if (acpInlineEditActive) {
+      viewportIframe.style.opacity = "1";
+      if (typeof acpSyncCockpitToIframeLocation === "function") {
+        acpSyncCockpitToIframeLocation(viewportIframe);
+      }
+      if (acpInlineEditActive || acpIsLightMode()) {
         try {
           var doc = viewportIframe.contentDocument || (viewportIframe.contentWindow && viewportIframe.contentWindow.document);
           if (doc) acpApplyInlineEditToIframe(doc);
+          setTimeout(function() {
+            try {
+              var doc2 = viewportIframe.contentDocument || (viewportIframe.contentWindow && viewportIframe.contentWindow.document);
+              if (doc2) acpApplyInlineEditToIframe(doc2);
+            } catch (_) {}
+          }, 350);
         } catch(e) {
           console.warn("[WebPilot Studio] Konnte Inline-Edit nach Iframe-Reload nicht reaktivieren:", e);
         }
