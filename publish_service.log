@@ -358,3 +358,6 @@ error: failed to push some refs to 'github.com:daviduserich/mxs-embed.git'
 [2026-11-21 10:11:46] [partner] [LOGIN_OK] [200] user=jenny ip=2a02:1210:3629:ac00:6de7:fcb2:5690:8cac
 [2026-11-21 10:13:22] [preview-her11] [REPLACE_SECTION_REQ] [START] file=index.html, sec_id=hero, insert_after=, len=2776
 [2026-11-21 10:13:22] [preview-her11] [SEO_GEO_AUTOPILOT] [OK] action=replace_section schema=ProfessionalService alt_up=0 ms=116.6
+[2026-11-21 10:13:25] [preview-her11] [REPLACE_SECTION_OK] [DEPLOYED] [hero] in index.html
+[2026-11-21 10:13:25] [preview-her11] [REPLACE_SECTION_REQ] [START] file=index.html, sec_id=ausbildung-intro, insert_after=, len=5393
+[2026-11-21 10:13:25] [preview-her11] [SEO_GEO_AUTOPILOT] [OK] action=replace_section schema=ProfessionalService alt_up=0 ms=102.3
