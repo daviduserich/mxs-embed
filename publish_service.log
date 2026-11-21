@@ -370,3 +370,9 @@ error: failed to push some refs to 'github.com:daviduserich/mxs-embed.git'
 [2026-11-21 10:13:33] [preview-her11] [REPLACE_SECTION_OK] [DEPLOYED] [partner-netzwerk] in index.html
 [2026-11-21 10:14:53] [preview-her11] [REPLACE_SECTION_REQ] [START] file=index.html, sec_id=footer, insert_after=, len=4717
 [2026-11-21 10:14:53] [preview-her11] [SEO_GEO_AUTOPILOT] [OK] action=replace_section schema=ProfessionalService alt_up=0 ms=106.4
+[2026-11-21 10:14:56] [preview-her11] [REPLACE_SECTION_OK] [DEPLOYED] [footer] in index.html
+[2026-11-21 10:15:22] [preview-her11] [REPLACE_SECTION_REQ] [START] file=index.html, sec_id=ueber-hero, insert_after=, len=2471
+[2026-11-21 10:15:22] [preview-her11] [REPLACE_SECTION_REJ] [SEC_NOT_FOUND] Sektion 'ueber-hero' in 'index.html' nicht gefunden.
+[2026-11-21 10:36:51] [preview-her11] [REPLACE_SECTION_REQ] [START] file=index.html, sec_id=footer, insert_after=, len=4727
+[2026-11-21 10:36:51] [preview-her11] [FOOTER_MULTIPAGE_SYNC_OK] [SYNCED] 5 Geschwister-Seiten aktualisiert
+[2026-11-21 10:36:51] [preview-her11] [SEO_GEO_AUTOPILOT] [OK] action=replace_section schema=ProfessionalService alt_up=0 ms=135.0
