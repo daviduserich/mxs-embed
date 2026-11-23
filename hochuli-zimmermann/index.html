@@ -6,6 +6,7 @@
   <meta http-equiv="X-Content-Type-Options" content="nosniff">
   <meta http-equiv="X-XSS-Protection" content="1; mode=block">
   <meta name="referrer" content="no-referrer">
+  <meta name="robots" content="noindex, nofollow">
   <link rel="icon" href="images/logo.png" type="image/png">
   <title>Zimmermann / Zimmerin EFZ (80–100 %) · Hochuli Schlossrued AG</title>
   <meta name="description" content="Zimmermann / Zimmerin EFZ bei der Hochuli Schlossrued AG (100 %, auch 80 % möglich, Perspektive Vorarbeiter / Baustellenleiter). In der Regel alle ein bis zwei Wochen eine neue Baustelle. 5 Sparten unter einem Dach, Sicherheit vor Preis.">
@@ -782,6 +783,8 @@
       filter: brightness(0.42) contrast(1.05);
       z-index: 0;
     }
+
+    video.video-placeholder-bg { filter: brightness(0.9) contrast(1.05); }
 
     .video-placeholder-grad {
       position: absolute;
@@ -1789,14 +1792,6 @@
     </div>
   </header>
 
-  <!-- STUDIO PREVIEW NOTICE -->
-  <div class="draft-notice-bar" role="status">
-    <div class="draft-notice-inner">
-      <span class="draft-pill">Entwurf · Vorab-Ansicht</span>
-      <span>Vorab-Ansicht für die Hochuli Schlossrued AG: Die zwei Chef-Zitate sind Textvorschläge zum Absegnen, die zwei Mitarbeiter-Videos folgen nach dem Dreh. Alle Test-Eingaben bleiben im sicheren Sandbox-Modus.</span>
-    </div>
-  </div>
-
   <main>
     <!-- ZONE 1: HERO -->
     <section class="hero" id="top" data-section="hero">
@@ -2029,15 +2024,10 @@
 
           <div class="video-placeholders-row">
             <div class="video-placeholder-card" role="group" aria-label="Video-Platzhalter Mitarbeiter-Stimme 1">
-              <img src="images/ref-planung-aufstockung.jpg" alt="Holzbau Umbau Hochuli Schlossrued AG" width="900" height="675" loading="lazy" decoding="async" class="video-placeholder-bg">
+              <video class="video-placeholder-bg" autoplay muted loop playsinline preload="metadata" poster="videos/zimmerei-abbund.jpg" aria-hidden="true"><source src="videos/zimmerei-abbund.mp4" type="video/mp4"></video>
               <div class="video-placeholder-grad" aria-hidden="true"></div>
               <div class="video-placeholder-top">
                 <span class="video-badge">Video folgt</span>
-              </div>
-              <div class="video-placeholder-center">
-                <span class="video-play-btn" aria-hidden="true">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="6 4 20 12 6 20 6 4"/></svg>
-                </span>
               </div>
               <div class="video-placeholder-bottom">
                 <h4>Mitarbeiter-Stimme 1</h4>
@@ -2046,15 +2036,10 @@
             </div>
 
             <div class="video-placeholder-card" role="group" aria-label="Video-Platzhalter Mitarbeiter-Stimme 2">
-              <img src="images/ref-holzbau-hirschthal.jpg" alt="Umbau Baustelle Hochuli Holzbau" width="900" height="506" loading="lazy" decoding="async" class="video-placeholder-bg">
+              <video class="video-placeholder-bg" autoplay muted loop playsinline preload="metadata" poster="videos/dach-spenglerei.jpg" aria-hidden="true"><source src="videos/dach-spenglerei.mp4" type="video/mp4"></video>
               <div class="video-placeholder-grad" aria-hidden="true"></div>
               <div class="video-placeholder-top">
                 <span class="video-badge">Video folgt</span>
-              </div>
-              <div class="video-placeholder-center">
-                <span class="video-play-btn" aria-hidden="true">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="6 4 20 12 6 20 6 4"/></svg>
-                </span>
               </div>
               <div class="video-placeholder-bottom">
                 <h4>Mitarbeiter-Stimme 2</h4>
@@ -2389,7 +2374,7 @@
         </div>
         <span class="section-kicker">Schritt 4 von 4 · Direktkontakt</span>
         <h3 class="quiz-q-title">Melde dich bei Stefan Hofmann</h3>
-        <p class="section-lead">Per WhatsApp ohne Nummer-Eintippen oder direkt über das Kurzformular – ganz wie es dir passt.</p>
+        <p class="section-lead">Zwei kurze Angaben, dann öffnet sich WhatsApp mit deiner vorbereiteten Nachricht.</p>
 
         <div class="blitz-card">
           <div class="match-pills" id="match-summary-pills">
@@ -2403,10 +2388,6 @@
               <div class="form-field">
                 <label for="bname">Dein Vorname und Name</label>
                 <input type="text" id="bname" name="name" placeholder="z. B. Lukas Meier" autocomplete="name" required>
-              </div>
-              <div class="form-field">
-                <label for="btel">Deine Handynummer (nur für Direkt-Rückruf)</label>
-                <input type="tel" id="btel" name="tel" placeholder="z. B. 079 123 45 67" autocomplete="tel" required>
               </div>
               <div class="form-field">
                 <label for="bpensum">Gewünschtes Pensum</label>
@@ -2425,10 +2406,6 @@
                   <option value="Lieber zuerst per WhatsApp">Lieber zuerst per WhatsApp</option>
                 </select>
               </div>
-              <div class="form-field is-full">
-                <label for="bmail">E-Mail (freiwillig)</label>
-                <input type="email" id="bmail" name="email" placeholder="dein.name@beispiel.ch" autocomplete="email">
-              </div>
             </div>
 
             <label class="form-check">
@@ -2443,31 +2420,26 @@
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
                 <span>Per WhatsApp absenden</span>
               </button>
-              <button type="button" class="btn btn-primary" id="btn-submit-direct" onclick="submitHochuliApplication('direct')">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
-                <span>Direkt hier absenden</span>
-              </button>
             </div>
-            <p class="dual-finish-note">Bei «Per WhatsApp absenden» brauchst du deine Nummer nicht extra einzutippen: WhatsApp übermittelt sie direkt beim Senden. Deine Angaben sehen nur Stefan Hofmann und das Hochuli-Team.</p>
+            <p class="dual-finish-note">Du brauchst deine Nummer nicht einzutippen: WhatsApp übermittelt sie beim Senden. Deine Angaben sehen nur Stefan Hofmann und das Hochuli-Team.</p>
           </form>
         </div>
       </div>
     </section>
 
-    <!-- SCHRITT 5: 2-SPALTEN-BENTO-DANKE-BÜHNE + SAFE-SANDBOX -->
+    <!-- SCHRITT 5: 2-SPALTEN-BENTO-DANKE-BÜHNE -->
     <section class="quiz-section capsule-locked" id="danke" data-section="danke">
       <div class="container">
-        <span class="section-kicker" id="danke-channel-badge">Anfrage erfasst · Vertraulich</span>
-        <h3 class="quiz-q-title" id="danke-headline">Danke – deine Angaben sind bei uns.</h3>
-        <p class="section-lead">Stefan Hofmann schaut sich deine Antworten selbst an und meldet sich bei dir.</p>
+        <span class="section-kicker" id="danke-channel-badge">Fast geschafft</span>
+        <h3 class="quiz-q-title" id="danke-headline">Danke – deine Nachricht ist bereit.</h3>
+        <p class="section-lead">Drücke in WhatsApp auf «Senden», damit deine Nachricht ankommt. Danach schaut sich Stefan Hofmann deine Antworten an und meldet sich bei dir.</p>
 
         <div class="danke-bento-grid">
           <div class="danke-visual-card">
             <img src="images/ref-planung-aufstockung.jpg" alt="Holzbau Aufstockung und Umbau der Hochuli Schlossrued AG" width="900" height="675" loading="lazy" decoding="async">
             <div class="danke-visual-body">
-              <span class="placeholder-badge" style="margin-bottom:10px;">Video-Platzhalter · Dreh folgt</span>
               <h3>Einblick in den Holzbau bei Hochuli</h3>
-              <p>Nach dem Dreh erscheinen hier direkt die kurzen Original-Clips aus der Abbundhalle und von unseren Umbau-Baustellen im Suhrental.</p>
+              <p>Holzbau, Bedachung und Spenglerei: So arbeiten wir auf unseren Umbau-Baustellen im Suhrental.</p>
             </div>
           </div>
 
@@ -2477,7 +2449,7 @@
                 <img src="images/stefan-hofmann.jpg" alt="Stefan Hofmann, Leiter Holzbau und Bedachung" width="200" height="200" loading="lazy" decoding="async" class="quote-avatar">
                 <div>
                   <strong style="display:block;font-family:'Plus Jakarta Sans',sans-serif;font-size:16px;color:#0f172a;">Stefan Hofmann</strong>
-                  <span style="display:block;font-size:13.5px;color:#475569;">Leiter Holzbau + Bedachung · Tel. +41 62 739 00 22</span>
+                  <span style="display:block;font-size:13.5px;color:#475569;">Leiter Holzbau + Bedachung</span>
                 </div>
               </div>
 
@@ -2500,82 +2472,15 @@
 
             <div class="danke-wa-box" id="danke-wa-handover-box">
               <div>
-                <strong style="display:block;font-size:14.5px;color:#064e3b;margin-bottom:3px;">Direkt per WhatsApp starten</strong>
-                <p id="danke-wa-desc">Deine Antworten sind bereits fertig vorbereitet. Im Sandbox-Modus geht der Test-Link an unsere Prüfnummer.</p>
+                <strong style="display:block;font-size:14.5px;color:#064e3b;margin-bottom:3px;">Nachricht in WhatsApp senden</strong>
+                <p id="danke-wa-desc">Deine Antworten sind bereits fertig vorbereitet. Tippe auf den Button, falls sich WhatsApp nicht von selbst geöffnet hat.</p>
               </div>
-              <a id="danke-wa-direct-btn" href="https://wa.me/41796326505" target="_blank" rel="noopener noreferrer" class="btn btn-wa">
+              <a id="danke-wa-direct-btn" href="https://wa.me/41625112105" target="_blank" rel="noopener noreferrer" class="btn btn-wa">
                 <span>WhatsApp öffnen</span>
               </a>
             </div>
           </div>
         </div>
-
-        <!-- COLLAPSIBLE SAFE-SANDBOX PREVIEW -->
-        <details class="sandbox-details" id="sandbox-details" open>
-          <summary class="sandbox-summary">
-            <span class="sandbox-summary-left">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
-              <span>Safe-Sandbox-Vorschau · mXs-TalentMatch &amp; DISG-Auswertung</span>
-            </span>
-            <span class="sandbox-tag" id="sandbox-mode-pill">Sandbox Safe Mode (0 Live Calls)</span>
-          </summary>
-
-          <div class="sandbox-body" id="sandbox-preview-card">
-            <div class="sandbox-grid">
-              <div class="sandbox-box">
-                <h4>Generierte Bewerber-Zeile (Google Sheet Vorschau)</h4>
-                <table class="sandbox-table">
-                  <tr><th>Spalte A (Zeitpunkt)</th><td id="sb-col-a">–</td></tr>
-                  <tr><th>Spalte B (Name)</th><td id="sb-col-b">–</td></tr>
-                  <tr><th>Spalte C (Kanal / Mail)</th><td id="sb-col-c">–</td></tr>
-                  <tr><th>Spalte D (Telefon)</th><td id="sb-col-d">–</td></tr>
-                  <tr><th>Spalte E (Pensum / Zeit)</th><td id="sb-col-e">–</td></tr>
-                  <tr><th>Spalte F (Quiz-Parameter)</th><td id="sb-col-f" style="color:#4ade80;font-weight:700;">–</td></tr>
-                </table>
-              </div>
-
-              <div class="sandbox-box">
-                <h4>Live berechnetes mXs-TalentMatch DISG-Profil</h4>
-                <div class="disc-badges" id="sb-disc-badges"></div>
-                <table class="sandbox-table">
-                  <tr><th>Profil-Typ</th><td id="sb-disc-type">–</td></tr>
-                  <tr><th>Einzel-Farben</th><td id="sb-disc-single">–</td></tr>
-                  <tr><th>Kern-Motivatoren</th><td id="sb-disc-motivators">–</td></tr>
-                  <tr><th>Gesprächs-Opener (Stefan)</th><td id="sb-disc-opener" style="font-style:italic;">–</td></tr>
-                </table>
-              </div>
-            </div>
-
-            <div class="sandbox-grid" style="margin-top:0;">
-              <div class="sandbox-box">
-                <h4>Session-Tracker-Log (Sandbox)</h4>
-                <table class="sandbox-table">
-                  <thead>
-                    <tr>
-                      <th>Step</th>
-                      <th>Pfad</th>
-                      <th>Grund</th>
-                    </tr>
-                  </thead>
-                  <tbody id="sb-tracker-tbody"></tbody>
-                </table>
-              </div>
-
-              <div class="sandbox-box">
-                <h4>Vorbereiteter WhatsApp-Text</h4>
-                <pre class="sandbox-pre" id="sb-wa-preview">–</pre>
-              </div>
-            </div>
-
-            <div class="sandbox-footer-bar">
-              <span style="font-size:13px;color:#94a3b8;">LIVE_CONNECTIONS_ENABLED: false · Es wurden null Daten an externe Kunden-Tabellen übertragen.</span>
-              <button type="button" class="sandbox-reset-btn" id="btn-reset-funnel" onclick="resetHochuliFunnel()">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"/></svg>
-                <span>Neuen Testlauf starten</span>
-              </button>
-            </div>
-          </div>
-        </details>
       </div>
     </section>
     </div><!-- /#quiz-funnel-shell -->
@@ -2616,7 +2521,7 @@
       LIVE_CONNECTIONS_ENABLED: false,
       BEWERBER_SHEET_WEBHOOK_URL: "",
       TRACKER_SHEET_WEBHOOK_URL: "",
-      WHATSAPP_NUMBER: "41796326505",
+      WHATSAPP_NUMBER: "41625112105",
       APPLICATION_EMAIL: "mail@hochuli-gruppe.ch"
     };
 
@@ -2797,7 +2702,7 @@
       if (fill) fill.style.width = pct + "%";
       if (text) {
         if (currentStepId === "danke") {
-          text.textContent = "Meldung erledigt · Vertraulich erfasst";
+          text.textContent = "Fast geschafft: Nachricht in WhatsApp senden";
         } else if (currentStepId === "blitz") {
           text.textContent = "Passt – jetzt kurz per WhatsApp oder direkt absenden";
         } else {
@@ -2957,11 +2862,14 @@
       const m1 = QUIZ_META.F01[payload.f01].title;
       const m2 = QUIZ_META.F02[payload.f02].title;
       const m3 = QUIZ_META.F03[payload.f03].title;
+      const disgMsg = calcDisgProfile(payload.f01, payload.f02, payload.f03);
+      const discTxt = disgMsg.primary.name + (disgMsg.secondaryKey !== disgMsg.primaryKey ? " / " + disgMsg.secondary.name : "");
       const greetingName = payload.name ? ("Ich bin " + payload.name + ".") : "Ich melde mich wegen der Stelle als Zimmermann / Zimmerin EFZ.";
       return "Hallo Stefan,\n" + greetingName + "\n\nMeine Meldung bei Hochuli Schlossrued AG:\n" +
         "- Wichtig im Alltag: " + m1 + "\n" +
         "- Arbeitszeit & Perspektive: " + m2 + "\n" +
         "- Team & Zusammenarbeit: " + m3 + "\n" +
+        "- Antwort-Muster (DISG): " + discTxt + "\n" +
         "- Wunsch-Pensum: " + payload.pensum + "\n" +
         "- Beste Zeit: " + payload.zeit + "\n" +
         "- EFZ / Holzbau-Praxis: " + (payload.efz ? "Ja" : "Quereinstieg / abklären") + "\n\n" +
@@ -3036,10 +2944,10 @@
       }
 
       const nameVal = (document.getElementById("bname").value || "").trim();
-      const telVal = (document.getElementById("btel").value || "").trim();
+      const telVal = "";
       const pensumVal = document.getElementById("bpensum").value;
       const zeitVal = document.getElementById("bzeit").value;
-      const mailVal = (document.getElementById("bmail").value || "").trim();
+      const mailVal = "";
       const efzVal = document.getElementById("befz").checked;
 
       // Smart Dual-Finish: Direct requires Name + Phone; WhatsApp does NOT force phone entry!
@@ -3081,21 +2989,23 @@
         localStorage.setItem("hochuli_last_sandbox_submission", JSON.stringify(payload));
       } catch (e) {}
 
-      logTrackerStep(5, "/hochuli-zimmermann/danke", "Submit via " + channel + " (Sandbox)");
+      logTrackerStep(5, "/hochuli-zimmermann/danke", "Submit via " + channel + "");
       refreshSandboxView(payload);
+      const waLink = document.getElementById("danke-wa-direct-btn");
+      if (waLink && waLink.href) { try { window.open(waLink.href, "_blank", "noopener"); } catch (e) {} }
 
       const badgeEl = document.getElementById("danke-channel-badge");
       const headEl = document.getElementById("danke-headline");
       if (badgeEl) {
         badgeEl.textContent = channel === "whatsapp"
           ? "WhatsApp-Nachricht bereit · Vertraulich"
-          : "Direkt-Anfrage erfasst · Vertraulich";
+          : "Direkt-Fast geschafft";
       }
       if (headEl) {
         const firstName = nameVal ? nameVal.split(/\s+/)[0] : "";
         headEl.textContent = firstName
-          ? "Danke, " + firstName + " – deine Angaben sind bei uns."
-          : "Danke – deine Angaben sind bei uns.";
+          ? "Danke, " + firstName + " – deine Nachricht ist bereit."
+          : "Danke – deine Nachricht ist bereit.";
       }
 
       goToQuizStep("danke", true);
