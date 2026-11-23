@@ -985,6 +985,27 @@
       }
     }
 
+    .alt-contact {
+      margin-top: 24px;
+      padding-top: 20px;
+      border-top: 1px solid var(--border);
+    }
+
+    .alt-contact-title {
+      font-family: "Plus Jakarta Sans", sans-serif;
+      font-weight: 700;
+      font-size: 15px;
+      color: var(--text);
+      margin-bottom: 12px;
+    }
+
+    .alt-contact-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 10px;
+    }
+
     .quiz-step-nav {
       display: flex;
       align-items: center;
@@ -2167,7 +2188,7 @@
               <span>Wie läuft das erste Kennenlernen mit Stefan Hofmann ab?</span>
               <svg class="faq-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
             </summary>
-            <div class="faq-body">Du beantwortest drei kurze Fragen und schickst deine Nachricht per WhatsApp ab. Danach meldet sich Stefan Hofmann, Leiter Holzbau und Bedachung, direkt bei dir, per Telefon oder WhatsApp. Lohn und Pensum besprecht ihr direkt.</div>
+            <div class="faq-body">Du beantwortest drei kurze Fragen und schickst deine Nachricht per WhatsApp ab (ohne WhatsApp geht es auch per Telefon oder E-Mail). Danach meldet sich Stefan Hofmann, Leiter Holzbau und Bedachung, direkt bei dir, per Telefon oder WhatsApp. Lohn und Pensum besprecht ihr direkt.</div>
           </details>
         </div>
       </div>
@@ -2438,6 +2459,15 @@
             </div>
             <p class="dual-finish-note">WhatsApp öffnet sich mit deiner fertigen Nachricht, du tippst dort nur noch auf «Senden». Deine Nummer übermittelt WhatsApp automatisch. Deine Angaben sehen nur Stefan Hofmann und unser Team.</p>
           </form>
+
+          <div class="alt-contact">
+            <p class="alt-contact-title">Kein WhatsApp? Melde dich so:</p>
+            <div class="alt-contact-actions">
+              <a class="btn btn-secondary" id="alt-tel" href="tel:+41627390022">Stefan anrufen: 062 739 00 22</a>
+              <a class="btn btn-secondary" id="alt-mail" href="mailto:stefan.hofmann@hochuli-gruppe.ch" onclick="this.href = buildMailtoHref();">Per E-Mail schreiben</a>
+            </div>
+            <p class="dual-finish-note">In der E-Mail sind deine Antworten schon eingetragen, du musst sie nur absenden.</p>
+          </div>
         </div>
       </div>
     </section>
@@ -2881,6 +2911,22 @@
         bl.scrollIntoView({ behavior: "smooth", block: "start" });
         notifyParentHeight(true);
       }, 150);
+    }
+
+    function buildMailtoHref() {
+      const g = function (id) { const el = document.getElementById(id); return el ? el.value : ""; };
+      const efzEl = document.getElementById("befz");
+      const payload = {
+        name: (g("bname") || "").trim(),
+        pensum: g("bpensum") || "Noch offen / besprechen",
+        zeit: g("bzeit") || "Egal, ich bin flexibel",
+        efz: efzEl ? efzEl.checked : false,
+        f01: quizState.F01 || 1,
+        f02: quizState.F02 || 1,
+        f03: quizState.F03 || 1
+      };
+      const body = buildWhatsAppMessage(payload).replace(/\n/g, "\r\n") + "\r\n\r\nMeine Telefonnummer: ";
+      return "mailto:stefan.hofmann@hochuli-gruppe.ch?subject=" + encodeURIComponent("Zimmermann EFZ: Meldung über die Stellenseite") + "&body=" + encodeURIComponent(body);
     }
 
     function showFormError(msg) {
