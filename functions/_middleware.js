@@ -39,6 +39,7 @@ const VORSCHAU_SLUG_TO_FOLDER = {
   'holz-susi-v2': 'preview-holz-susi-v2',
   'holz-susi-vollversion': 'preview-holz-susi',
   'holz-susi-vv': 'preview-holz-susi',
+  'holz-susi-original': 'preview-holz-susi-original',
 
   // JOMA Solar GmbH (Wettingen): Zeigeversion (-v2, -v1, ohne Suffix) -> preview-joma-v2 | Vollversion (-vollversion, -vv) -> preview-joma
   'joma': 'preview-joma-v2',
@@ -182,6 +183,8 @@ const CLIENT_TOKENS = {
   'preview-holz-susi-v2': ['holzsusi_sec_master', 'holzsusi2026', 'holz-susi2026', 'holzsusi-light2026', 'holz-susi-v22026'],
   'holz-susi-vollversion': ['holzsusi_sec_master', 'holzsusi2026', 'holz-susi2026', 'holzsusi-light2026', 'holz-susi-v22026'],
   'holz-susi-vv': ['holzsusi_sec_master', 'holzsusi2026', 'holz-susi2026', 'holzsusi-light2026', 'holz-susi-v22026'],
+  'holz-susi-original': ['holzsusi_sec_master', 'holzsusi2026', 'holz-susi2026', 'holzsusi-light2026', 'holz-susi-v22026'],
+  'preview-holz-susi-original': ['holzsusi_sec_master', 'holzsusi2026', 'holz-susi2026', 'holzsusi-light2026', 'holz-susi-v22026'],
   'mondocani': ['mondocani_sec_master', 'mondocani2026', 'mondocani-light2026', 'mondocani-v22026'],
   'preview-mondocani': ['mondocani_sec_master', 'mondocani2026', 'mondocani-light2026', 'mondocani-v22026'],
   'mondocani-v1': ['mondocani_sec_master', 'mondocani2026', 'mondocani-light2026', 'mondocani-v22026'],

@@ -1,0 +1,1036 @@
+<!DOCTYPE html>
+<html lang="de-CH">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <meta name="referrer" content="no-referrer">
+  <title>Impressum · Holz-Susi GmbH</title>
+  <link rel="icon" type="image/png" href="images/favicon-32x32.png">
+  <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
+  <style>
+
+  :root {
+    --copper: #A67B52;
+    --copper-light: #F0AD6E;
+    --copper-dark: #8C633D;
+    --beige-band: #F6F2ED;
+    --heading: #33271C;
+    --text: #1F1914;
+    --muted: #5C4F43;
+    --white: #FFFFFF;
+    --neu-shadow: 6px 6px 12px #dbdbdb, -6px -6px 12px #ffffff;
+    --card-shadow: 0 6px 20px rgba(51, 39, 28, 0.07);
+    --maxw: 1120px;
+  }
+
+  *, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    overflow-x: clip;
+  }
+
+  body {
+    font-family: "Comfortaa", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    font-size: 15px;
+    line-height: 1.65;
+    color: var(--text);
+    background-color: var(--white);
+    overflow-x: clip;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .wrap {
+    max-width: var(--maxw);
+    margin: 0 auto;
+    padding: 0 24px;
+    width: 100%;
+  }
+
+  /* Header / Top-Bar */
+  .top-bar {
+    position: sticky;
+    top: 0;
+    z-index: 900;
+    background: rgba(255, 255, 255, 0.97);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid rgba(166, 123, 82, 0.16);
+  }
+
+  .top-bar-inner {
+    max-width: var(--maxw);
+    margin: 0 auto;
+    padding: 10px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 18px;
+  }
+
+  .brand-link {
+    display: inline-flex;
+    align-items: center;
+    flex-shrink: 0;
+  }
+
+  .brand-logo {
+    height: 44px;
+    width: auto;
+    object-fit: contain;
+  }
+
+  .desktop-nav {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    flex-wrap: nowrap;
+  }
+
+  .desk-nav-link {
+    font-size: 13.5px;
+    font-weight: 600;
+    color: var(--heading);
+    white-space: nowrap;
+    padding: 6px 2px;
+    border-bottom: 2px solid transparent;
+    transition: color 0.18s ease, border-color 0.18s ease;
+  }
+
+  .desk-nav-link:hover,
+  .desk-nav-link.active {
+    color: var(--copper);
+    border-bottom-color: var(--copper);
+  }
+
+  .nav-tel-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    padding: 9px 15px;
+    border-radius: 5px;
+    background: linear-gradient(to right top, #A67B52, #D99B63);
+    color: #FFFFFF;
+    font-size: 13px;
+    font-weight: 700;
+    white-space: nowrap;
+    box-shadow: 0 3px 10px rgba(166, 123, 82, 0.25);
+    transition: transform 0.15s ease, filter 0.15s ease;
+  }
+
+  .nav-tel-btn:hover {
+    filter: brightness(1.05);
+    transform: translateY(-1px);
+  }
+
+  .nav-burger {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+    border: 1px solid rgba(166, 123, 82, 0.28);
+    border-radius: 5px;
+    background: #FFFFFF;
+    color: var(--heading);
+    cursor: pointer;
+  }
+
+  .mobile-nav-drawer {
+    display: none;
+    flex-direction: column;
+    gap: 6px;
+    padding: 14px 24px 20px;
+    background: #FFFFFF;
+    border-top: 1px solid rgba(166, 123, 82, 0.16);
+  }
+
+  .mobile-nav-drawer.open {
+    display: flex;
+  }
+
+  .mob-nav-link {
+    padding: 10px 8px;
+    font-size: 14.5px;
+    font-weight: 600;
+    color: var(--heading);
+    border-bottom: 1px solid rgba(166, 123, 82, 0.1);
+  }
+
+  .mob-nav-tel {
+    margin-top: 8px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 12px 16px;
+    border-radius: 5px;
+    background: linear-gradient(to right top, #A67B52, #D99B63);
+    color: #FFFFFF;
+    font-weight: 700;
+    font-size: 14px;
+  }
+
+  @media (max-width: 1060px) {
+    .desktop-nav {
+      display: none;
+    }
+    .nav-burger {
+      display: inline-flex;
+    }
+  }
+
+  /* Section Bands */
+  .sec {
+    padding: 64px 0;
+  }
+
+  .sec-white {
+    background-color: var(--white);
+  }
+
+  .sec-beige {
+    background-color: var(--beige-band);
+  }
+
+  .sec-title {
+    font-size: clamp(24px, 3vw, 31px);
+    font-weight: 600;
+    line-height: 1.35;
+    color: var(--heading);
+    text-align: center;
+    margin-bottom: 42px;
+  }
+
+  /* 1. Bluescht Banner */
+  .sec-banner {
+    padding: 28px 0 26px;
+  }
+
+  .banner-link {
+    display: block;
+    border-radius: 3px;
+    overflow: hidden;
+    box-shadow: 0 10px 26px rgba(51, 39, 28, 0.16);
+    transition: transform 0.2s ease;
+  }
+
+  .banner-link:hover {
+    transform: translateY(-2px);
+  }
+
+  .banner-img {
+    width: 100%;
+    height: auto;
+  }
+
+  /* 2. Hero */
+  .sec-hero {
+    padding: 14px 0 42px;
+  }
+
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1.03fr 1fr;
+    gap: 44px;
+    align-items: center;
+  }
+
+  .hero-title {
+    font-size: clamp(22px, 2.3vw, 25px);
+    font-weight: 600;
+    line-height: 1.4;
+    color: var(--heading);
+    margin-bottom: 14px;
+  }
+
+  .hero-lead {
+    font-size: 15px;
+    line-height: 1.68;
+    color: var(--text);
+    margin-bottom: 20px;
+  }
+
+  .hero-checks {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 26px;
+  }
+
+  .hero-checks li {
+    display: flex;
+    align-items: flex-start;
+    gap: 11px;
+    font-size: 14.5px;
+    line-height: 1.55;
+    color: var(--text);
+  }
+
+  .hero-check-ico {
+    width: 18px;
+    height: 18px;
+    color: var(--copper);
+    flex-shrink: 0;
+    margin-top: 3px;
+  }
+
+  .cta-gradient-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 15px 38px;
+    border-radius: 5px;
+    background: linear-gradient(to right top, #A67B52, #F0AD6E);
+    color: #FFFFFF;
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 0.01em;
+    box-shadow: 0 6px 18px rgba(166, 123, 82, 0.28);
+    transition: transform 0.16s ease, filter 0.16s ease;
+  }
+
+  .cta-gradient-btn:hover {
+    filter: brightness(1.04);
+    transform: translateY(-1px);
+  }
+
+  .hero-photo-box img {
+    width: 100%;
+    border-radius: 3px;
+    box-shadow: 0 8px 24px rgba(51, 39, 28, 0.1);
+  }
+
+  .hero-caption {
+    margin-top: 10px;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text);
+  }
+
+  /* 3. Werte (3 Pillars) */
+  .sec-werte {
+    padding: 58px 0 54px;
+  }
+
+  .werte-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+    text-align: center;
+  }
+
+  .wert-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
+    padding: 12px 10px;
+  }
+
+  .wert-icon {
+    width: 50px;
+    height: 50px;
+    color: var(--copper);
+  }
+
+  .wert-label {
+    font-size: 15.5px;
+    font-weight: 700;
+    color: var(--heading);
+  }
+
+  /* 4. Kunden (3 Cards) */
+  .kunden-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+    align-items: stretch;
+  }
+
+  .kunden-card {
+    background: var(--white);
+    border-radius: 3px;
+    box-shadow: var(--card-shadow);
+    padding: 20px 22px 28px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .kunden-card-img {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    border-radius: 3px;
+    margin-bottom: 20px;
+  }
+
+  .kunden-card-title {
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 1.4;
+    color: var(--heading);
+    text-align: center;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+    text-decoration-thickness: 1.5px;
+    margin-bottom: 18px;
+  }
+
+  .kunden-card-sub {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--heading);
+    margin-bottom: 14px;
+  }
+
+  .kunden-card p {
+    font-size: 14.5px;
+    line-height: 1.65;
+    color: var(--text);
+    margin-bottom: 12px;
+  }
+
+  .kunden-card p:last-child {
+    margin-bottom: 0;
+  }
+
+  /* 5. Dienstleistungen (2x3 Cards) */
+  .dl-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 28px;
+  }
+
+  .dl-card {
+    background: var(--white);
+    border-radius: 3px;
+    box-shadow: var(--neu-shadow);
+    padding: 18px 18px 22px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .dl-card-img {
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    object-fit: cover;
+    border-radius: 3px;
+    margin-bottom: 18px;
+  }
+
+  .dl-card-title {
+    font-size: 16.5px;
+    font-weight: 700;
+    line-height: 1.45;
+    color: var(--heading);
+  }
+
+  /* 6. Referenz-Projekte (14 Vorher/Nachher) */
+  .ref-project {
+    margin-bottom: 62px;
+  }
+
+  .ref-project:last-child {
+    margin-bottom: 0;
+  }
+
+  .ref-project-title {
+    font-size: 19px;
+    font-weight: 700;
+    line-height: 1.45;
+    color: var(--heading);
+    text-align: center;
+    max-width: 820px;
+    margin: 0 auto 24px;
+  }
+
+  .ref-pair-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 28px;
+    align-items: stretch;
+  }
+
+  .ref-card {
+    background: var(--white);
+    border-radius: 3px;
+    box-shadow: var(--neu-shadow);
+    padding: 18px 18px 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .ref-card img {
+    width: 100%;
+    border-radius: 3px;
+    object-fit: cover;
+  }
+
+  .ref-card-stacked {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .ref-card-note {
+    font-size: 14px;
+    line-height: 1.62;
+    color: var(--text);
+    text-align: center;
+    margin-bottom: 14px;
+    padding: 4px 10px 0;
+  }
+
+  .ref-label {
+    text-align: center;
+    font-size: 13.5px;
+    font-weight: 600;
+    color: var(--muted);
+    margin-top: 12px;
+  }
+
+  /* 7 & 11 & 12 Split Editorial Panels */
+  .split-editorial {
+    display: grid;
+    grid-template-columns: 1fr 1.05fr;
+    align-items: center;
+    gap: 0;
+  }
+
+  .split-photo-frame {
+    position: relative;
+    z-index: 2;
+  }
+
+  .split-photo-frame img {
+    width: 100%;
+    border-radius: 3px;
+    border: 6px solid #FFFFFF;
+    box-shadow: var(--card-shadow);
+  }
+
+  .split-photo-credit {
+    margin-top: 10px;
+    font-size: 13.5px;
+    color: var(--muted);
+  }
+
+  .split-photo-credit a {
+    color: var(--copper-dark);
+    font-weight: 600;
+    text-decoration: underline;
+  }
+
+  .split-panel-beige {
+    background: var(--beige-band);
+    padding: 46px 46px 44px 72px;
+    margin-left: -36px;
+    border-radius: 3px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .split-panel-beige h3 {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--heading);
+    margin-bottom: 18px;
+  }
+
+  .split-panel-beige h4 {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--heading);
+    margin: 20px 0 10px;
+  }
+
+  .split-panel-beige p {
+    font-size: 14.5px;
+    line-height: 1.68;
+    color: var(--text);
+    margin-bottom: 14px;
+  }
+
+  .split-panel-beige p:last-child {
+    margin-bottom: 0;
+  }
+
+  .split-panel-beige a {
+    color: var(--copper-dark);
+    font-weight: 600;
+    text-decoration: underline;
+  }
+
+  /* 8. Susi @ Work Collage 2x2 */
+  .work-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 22px;
+  }
+
+  .work-card {
+    background: #FFFFFF;
+    border-radius: 3px;
+    box-shadow: var(--neu-shadow);
+    padding: 10px;
+  }
+
+  .work-card img {
+    width: 100%;
+    border-radius: 3px;
+  }
+
+  /* 9. Netzwerk Logo Cards */
+  .net-intro {
+    text-align: center;
+    max-width: 780px;
+    margin: -18px auto 34px;
+    font-size: 14.5px;
+    color: var(--text);
+  }
+
+  .net-grid-3 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-bottom: 24px;
+  }
+
+  .net-center-row {
+    display: flex;
+    justify-content: center;
+  }
+
+  .net-card {
+    background: #FFFFFF;
+    border-radius: 3px;
+    box-shadow: var(--neu-shadow);
+    padding: 26px 22px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 160px;
+    width: 100%;
+  }
+
+  .net-center-row .net-card {
+    max-width: calc((100% - 48px) / 3);
+  }
+
+  .net-card img {
+    max-height: 96px;
+    width: auto;
+    object-fit: contain;
+  }
+
+  /* 10. Sponsoring */
+  .sponsor-grid {
+    display: grid;
+    grid-template-columns: 0.95fr 1.05fr;
+    align-items: center;
+    gap: 0;
+  }
+
+  .sponsor-quote-card {
+    background: #FFFFFF;
+    padding: 48px 58px 44px 44px;
+    margin-right: -36px;
+    border-radius: 3px;
+    box-shadow: var(--card-shadow);
+    position: relative;
+    z-index: 2;
+  }
+
+  .sponsor-quote-card p {
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 1.65;
+    color: var(--heading);
+  }
+
+  .sponsor-sig {
+    margin-top: 42px;
+    text-align: right;
+    font-size: 14.5px;
+    line-height: 1.5;
+    color: var(--heading);
+  }
+
+  .sponsor-photo img {
+    width: 100%;
+    border-radius: 3px;
+    border: 6px solid #FFFFFF;
+    box-shadow: var(--card-shadow);
+  }
+
+  /* 11. Bluescht Gallery 4 Thumbnails */
+  .bluescht-gallery {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+    margin-top: 28px;
+  }
+
+  .bluescht-thumb {
+    background: #FFFFFF;
+    border-radius: 3px;
+    box-shadow: var(--card-shadow);
+    padding: 6px;
+  }
+
+  .bluescht-thumb img {
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    object-fit: cover;
+    border-radius: 2px;
+  }
+
+  /* 12. Kontakt */
+  .kontakt-block {
+    margin-bottom: 22px;
+  }
+
+  .kontakt-block:last-child {
+    margin-bottom: 0;
+  }
+
+  .kontakt-heading {
+    font-size: 15.5px;
+    font-weight: 700;
+    color: var(--heading);
+    margin-bottom: 8px;
+  }
+
+  /* Footer */
+  .site-footer {
+    width: 100%;
+  }
+
+  .footer-copper {
+    background: var(--copper);
+    color: #FFFFFF;
+    padding: 28px 0;
+  }
+
+  .footer-copper-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.25fr;
+    gap: 24px;
+    align-items: center;
+    font-size: 12.5px;
+    line-height: 1.6;
+  }
+
+  .footer-legal-strip {
+    background: #FFFFFF;
+    color: var(--copper);
+    padding: 18px 0;
+    text-align: center;
+    font-size: 13px;
+    font-weight: 600;
+    border-top: 1px solid rgba(166, 123, 82, 0.14);
+  }
+
+  .footer-legal-strip a:hover {
+    text-decoration: underline;
+  }
+
+  /* Legal subpages */
+  .legal-hero {
+    padding: 46px 0 28px;
+    background: var(--beige-band);
+    border-bottom: 1px solid rgba(166, 123, 82, 0.16);
+  }
+
+  .legal-hero h1 {
+    font-size: clamp(24px, 3vw, 30px);
+    color: var(--heading);
+    margin-bottom: 8px;
+  }
+
+  .legal-card {
+    background: #FFFFFF;
+    border-radius: 3px;
+    box-shadow: var(--card-shadow);
+    padding: 36px 38px;
+    max-width: 820px;
+    margin: 0 auto;
+  }
+
+  .legal-card h2 {
+    font-size: 18px;
+    color: var(--heading);
+    margin: 24px 0 10px;
+  }
+
+  .legal-card h2:first-child {
+    margin-top: 0;
+  }
+
+  .legal-card p {
+    margin-bottom: 12px;
+    font-size: 14.5px;
+    color: var(--text);
+  }
+
+  .legal-back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 18px;
+    color: var(--copper-dark);
+    font-weight: 700;
+    font-size: 14px;
+  }
+
+  /* Responsive Breakpoints */
+  @media (max-width: 960px) {
+    .hero-grid,
+    .kunden-grid,
+    .dl-grid,
+    .ref-pair-grid,
+    .work-grid,
+    .net-grid-3,
+    .split-editorial,
+    .sponsor-grid,
+    .footer-copper-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .werte-grid {
+      grid-template-columns: 1fr;
+      gap: 18px;
+    }
+
+    .split-panel-beige {
+      margin-left: 0;
+      margin-top: 20px;
+      padding: 28px 22px;
+    }
+
+    .sponsor-quote-card {
+      margin-right: 0;
+      margin-bottom: 20px;
+      padding: 28px 22px;
+    }
+
+    .net-center-row .net-card {
+      max-width: 100%;
+    }
+
+    .bluescht-gallery {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .legal-card {
+      padding: 24px 20px;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .wrap {
+      padding: 0 16px;
+    }
+
+    .sec {
+      padding: 44px 0;
+    }
+
+    .sec-banner {
+      padding: 18px 0 16px;
+    }
+
+    .cta-gradient-btn {
+      width: 100%;
+      padding: 14px 20px;
+    }
+  }
+
+  </style>
+</head>
+<body>
+  <header class="top-bar" id="top-bar" data-section="top-bar" data-section-id="top-bar" data-section-label="Kopfzeile &amp; Navigation">
+    <div class="top-bar-inner">
+      <a href="index.html" class="brand-link" aria-label="Holz-Susi GmbH Startseite">
+        <img src="images/f8f4879f7d67d0071ac38796a54783b1.png" alt="Holz-Susi GmbH Logo" class="brand-logo" data-slot="brand_logo">
+      </a>
+
+      <nav class="desktop-nav" aria-label="Hauptnavigation">
+        <a href="index.html#kunden" class="desk-nav-link" data-slot="nav_kunden">Kunden</a>
+        <a href="index.html#dienstleistungen" class="desk-nav-link" data-slot="nav_dienstleistungen">Dienstleistungen</a>
+        <a href="index.html#referenzen" class="desk-nav-link" data-slot="nav_referenzen">Referenzen</a>
+        <a href="index.html#ueber-mich" class="desk-nav-link" data-slot="nav_ueber_mich">Über mich</a>
+        <a href="index.html#netzwerk" class="desk-nav-link" data-slot="nav_netzwerk">Netzwerk</a>
+        <a href="index.html#sponsoring" class="desk-nav-link" data-slot="nav_sponsoring">Sponsoring</a>
+        <a href="index.html#kontakt" class="desk-nav-link" data-slot="nav_kontakt">Kontakt</a>
+        <a href="tel:+41775219697" class="nav-tel-btn" data-slot="nav_phone_cta">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          <span>077 521 96 97</span>
+        </a>
+      </nav>
+
+      <button type="button" class="nav-burger" aria-label="Menü öffnen" onclick="document.getElementById('mobileNavDrawer').classList.toggle('open')">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+    </div>
+
+    <div class="mobile-nav-drawer" id="mobileNavDrawer">
+      <a href="index.html#kunden" class="mob-nav-link" onclick="document.getElementById('mobileNavDrawer').classList.remove('open')">Kunden</a>
+      <a href="index.html#dienstleistungen" class="mob-nav-link" onclick="document.getElementById('mobileNavDrawer').classList.remove('open')">Dienstleistungen</a>
+      <a href="index.html#referenzen" class="mob-nav-link" onclick="document.getElementById('mobileNavDrawer').classList.remove('open')">Referenzen</a>
+      <a href="index.html#ueber-mich" class="mob-nav-link" onclick="document.getElementById('mobileNavDrawer').classList.remove('open')">Über mich</a>
+      <a href="index.html#netzwerk" class="mob-nav-link" onclick="document.getElementById('mobileNavDrawer').classList.remove('open')">Netzwerk</a>
+      <a href="index.html#sponsoring" class="mob-nav-link" onclick="document.getElementById('mobileNavDrawer').classList.remove('open')">Sponsoring</a>
+      <a href="index.html#kontakt" class="mob-nav-link" onclick="document.getElementById('mobileNavDrawer').classList.remove('open')">Kontakt</a>
+      <a href="tel:+41775219697" class="mob-nav-tel">077 521 96 97</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="legal-hero" id="impressum-header" data-section="impressum-header" data-section-id="impressum-header" data-section-label="Impressum Kopfbereich">
+      <div class="wrap">
+        <h1 data-slot="impressum_title">Impressum</h1>
+        <p data-slot="impressum_sub">Gesetzliche Angaben gemäss Schweizer Recht</p>
+      </div>
+    </section>
+
+    <section class="sec sec-white" id="impressum-inhalt" data-section="impressum-inhalt" data-section-id="impressum-inhalt" data-section-label="Impressum Inhalt">
+      <div class="wrap">
+        <div class="legal-card">
+          <h2 data-slot="imp_h1">Kontaktadresse</h2>
+          <p data-slot="imp_p1">
+            <strong>Holz-Susi GmbH</strong><br>
+            Susanne («Susi») Schmid, Inhaberin &amp; Geschäftsführerin<br>
+            Wendelhof 424<br>
+            CH-5070 Frick<br>
+            Schweiz
+          </p>
+          <p data-slot="imp_p2">
+            Telefon: <a href="tel:+41775219697">+41 77 521 96 97</a><br>
+            E-Mail: <a href="mailto:info@holz-susi.ch">info@holz-susi.ch</a>
+          </p>
+
+          <h2 data-slot="imp_h2">Handelsregister-Eintrag</h2>
+          <p data-slot="imp_p3">
+            Eingetragener Firmenname: Holz-Susi GmbH<br>
+            Unternehmens-Identifikationsnummer (UID): CHE-187.492.373<br>
+            Handelsregisteramt: Kanton Aargau
+          </p>
+
+          <h2 data-slot="imp_h3">Haftungsausschluss</h2>
+          <p data-slot="imp_p4">
+            Die Autorin übernimmt keinerlei Gewähr hinsichtlich der inhaltlichen Richtigkeit, Genauigkeit, Aktualität, Zuverlässigkeit und Vollständigkeit der Informationen. Haftungsansprüche gegen die Autorin wegen Schäden materieller oder immaterieller Art, welche aus dem Zugriff oder der Nutzung bzw. Nichtnutzung der veröffentlichten Informationen entstanden sind, werden ausgeschlossen.
+          </p>
+
+          <h2 data-slot="imp_h4">Urheberrechte</h2>
+          <p data-slot="imp_p5">
+            Die Urheber- und alle anderen Rechte an Inhalten, Bildern, Fotos oder anderen Dateien auf dieser Website gehören ausschliesslich der Firma Holz-Susi GmbH oder den speziell genannten Rechtsinhabern. Für die Reproduktion jeglicher Elemente ist die schriftliche Zustimmung der Urheberrechtsträger im Voraus einzuholen.
+          </p>
+
+          <a href="index.html" class="legal-back-link">&lsaquo; Zurück zur Startseite</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer" id="footer" data-section="footer" data-section-id="footer" data-section-label="Fusszeile &amp; Rechtliches">
+    <div class="footer-copper">
+      <div class="wrap footer-copper-grid">
+        <div data-slot="footer_copyright">&copy; 2026 Holz-Susi GmbH - Alle Rechte vorbehalten</div>
+        <div data-slot="footer_disclaimer">
+          FACEBOOK TM is a trademark of FACEBOOK TM, Inc. Additionally, this site is NOT endorsed by FacebookTM in any way.
+        </div>
+      </div>
+    </div>
+    <div class="footer-legal-strip">
+      <div class="wrap">
+        <a href="index.html" data-slot="footer_home_link">Home</a> &nbsp;|&nbsp;
+        <a href="impressum.html" data-slot="footer_impressum_link">Impressum</a> &nbsp;|&nbsp;
+        <a href="datenschutz.html" data-slot="footer_datenschutz_link">Datenschutzerklärung</a>
+      </div>
+    </div>
+  </footer>
+  <script>
+(function() {
+  var params = new URLSearchParams(window.location.search);
+  var isEmbedded = params.get('embed') === 'true' || window.self !== window.top;
+  if (isEmbedded) {
+    document.body.classList.add('is-embedded');
+  }
+
+  var lastSentHeight = 0;
+  var resizeTimer = null;
+  function measureContentHeight() {
+    var main = document.querySelector('main');
+    if (document.body.classList.contains('is-embedded') && main) {
+      var footer = document.querySelector('footer');
+      var target = footer || main;
+      var r = target.getBoundingClientRect();
+      var bottom = Math.ceil(r.bottom + (window.scrollY || window.pageYOffset || 0));
+      if (bottom > 120) return bottom + 2;
+    }
+    return Math.ceil(Math.max(
+      document.body.getBoundingClientRect().height || 0,
+      document.body.offsetHeight || 0
+    ));
+  }
+
+  function notifyParentHeight(force) {
+    if (window.parent && window.parent !== window) {
+      var h = measureContentHeight();
+      if (force || Math.abs(h - lastSentHeight) >= 2) {
+        lastSentHeight = h;
+        window.parent.postMessage({ type: 'acp-embed-resize', height: h }, '*');
+      }
+    }
+  }
+  window.notifyParentHeight = notifyParentHeight;
+
+  if (isEmbedded || window.parent !== window) {
+    [150, 600, 1500, 3500, 7000].forEach(function(ms) {
+      setTimeout(function() { notifyParentHeight(true); }, ms);
+    });
+    window.addEventListener('load', function() { notifyParentHeight(true); });
+    window.addEventListener('resize', function() {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(function() { notifyParentHeight(false); }, 60);
+    });
+    if (document.fonts && document.fonts.ready) {
+      document.fonts.ready.then(function() { notifyParentHeight(true); });
+    }
+    if (window.ResizeObserver) {
+      var ro = new ResizeObserver(function() {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(function() { notifyParentHeight(false); }, 50);
+      });
+      if (document.body) ro.observe(document.body);
+    }
+  }
+})();
+</script>
+</body>
+</html>

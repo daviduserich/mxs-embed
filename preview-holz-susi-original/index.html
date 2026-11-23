@@ -1,0 +1,1515 @@
+<!DOCTYPE html>
+<html lang="de-CH">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <meta name="referrer" content="no-referrer">
+  <title>Holz-Susi GmbH</title>
+  <meta name="description" content="Holz-Susi GmbH in 5070 Frick: Susanne Schmid, Inhaberin &amp; Geschäftsführerin. Dacherneuerung, Dachsanierung, Dachfenster, Innenausbau, Terrassendeck &amp; Fassaden, Bauleitung.">
+  <link rel="icon" type="image/png" href="images/favicon-32x32.png">
+  <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
+  <style>
+
+  :root {
+    --copper: #A67B52;
+    --copper-light: #F0AD6E;
+    --copper-dark: #8C633D;
+    --beige-band: #F6F2ED;
+    --heading: #33271C;
+    --text: #1F1914;
+    --muted: #5C4F43;
+    --white: #FFFFFF;
+    --neu-shadow: 6px 6px 12px #dbdbdb, -6px -6px 12px #ffffff;
+    --card-shadow: 0 6px 20px rgba(51, 39, 28, 0.07);
+    --maxw: 1120px;
+  }
+
+  *, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    overflow-x: clip;
+  }
+
+  body {
+    font-family: "Comfortaa", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    font-size: 15px;
+    line-height: 1.65;
+    color: var(--text);
+    background-color: var(--white);
+    overflow-x: clip;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .wrap {
+    max-width: var(--maxw);
+    margin: 0 auto;
+    padding: 0 24px;
+    width: 100%;
+  }
+
+  /* Header / Top-Bar */
+  .top-bar {
+    position: sticky;
+    top: 0;
+    z-index: 900;
+    background: rgba(255, 255, 255, 0.97);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid rgba(166, 123, 82, 0.16);
+  }
+
+  .top-bar-inner {
+    max-width: var(--maxw);
+    margin: 0 auto;
+    padding: 10px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 18px;
+  }
+
+  .brand-link {
+    display: inline-flex;
+    align-items: center;
+    flex-shrink: 0;
+  }
+
+  .brand-logo {
+    height: 44px;
+    width: auto;
+    object-fit: contain;
+  }
+
+  .desktop-nav {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    flex-wrap: nowrap;
+  }
+
+  .desk-nav-link {
+    font-size: 13.5px;
+    font-weight: 600;
+    color: var(--heading);
+    white-space: nowrap;
+    padding: 6px 2px;
+    border-bottom: 2px solid transparent;
+    transition: color 0.18s ease, border-color 0.18s ease;
+  }
+
+  .desk-nav-link:hover,
+  .desk-nav-link.active {
+    color: var(--copper);
+    border-bottom-color: var(--copper);
+  }
+
+  .nav-tel-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    padding: 9px 15px;
+    border-radius: 5px;
+    background: linear-gradient(to right top, #A67B52, #D99B63);
+    color: #FFFFFF;
+    font-size: 13px;
+    font-weight: 700;
+    white-space: nowrap;
+    box-shadow: 0 3px 10px rgba(166, 123, 82, 0.25);
+    transition: transform 0.15s ease, filter 0.15s ease;
+  }
+
+  .nav-tel-btn:hover {
+    filter: brightness(1.05);
+    transform: translateY(-1px);
+  }
+
+  .nav-burger {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+    border: 1px solid rgba(166, 123, 82, 0.28);
+    border-radius: 5px;
+    background: #FFFFFF;
+    color: var(--heading);
+    cursor: pointer;
+  }
+
+  .mobile-nav-drawer {
+    display: none;
+    flex-direction: column;
+    gap: 6px;
+    padding: 14px 24px 20px;
+    background: #FFFFFF;
+    border-top: 1px solid rgba(166, 123, 82, 0.16);
+  }
+
+  .mobile-nav-drawer.open {
+    display: flex;
+  }
+
+  .mob-nav-link {
+    padding: 10px 8px;
+    font-size: 14.5px;
+    font-weight: 600;
+    color: var(--heading);
+    border-bottom: 1px solid rgba(166, 123, 82, 0.1);
+  }
+
+  .mob-nav-tel {
+    margin-top: 8px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 12px 16px;
+    border-radius: 5px;
+    background: linear-gradient(to right top, #A67B52, #D99B63);
+    color: #FFFFFF;
+    font-weight: 700;
+    font-size: 14px;
+  }
+
+  @media (max-width: 1060px) {
+    .desktop-nav {
+      display: none;
+    }
+    .nav-burger {
+      display: inline-flex;
+    }
+  }
+
+  /* Section Bands */
+  .sec {
+    padding: 64px 0;
+  }
+
+  .sec-white {
+    background-color: var(--white);
+  }
+
+  .sec-beige {
+    background-color: var(--beige-band);
+  }
+
+  .sec-title {
+    font-size: clamp(24px, 3vw, 31px);
+    font-weight: 600;
+    line-height: 1.35;
+    color: var(--heading);
+    text-align: center;
+    margin-bottom: 42px;
+  }
+
+  /* 1. Bluescht Banner */
+  .sec-banner {
+    padding: 28px 0 26px;
+  }
+
+  .banner-link {
+    display: block;
+    border-radius: 3px;
+    overflow: hidden;
+    box-shadow: 0 10px 26px rgba(51, 39, 28, 0.16);
+    transition: transform 0.2s ease;
+  }
+
+  .banner-link:hover {
+    transform: translateY(-2px);
+  }
+
+  .banner-img {
+    width: 100%;
+    height: auto;
+  }
+
+  /* 2. Hero */
+  .sec-hero {
+    padding: 14px 0 42px;
+  }
+
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1.03fr 1fr;
+    gap: 44px;
+    align-items: center;
+  }
+
+  .hero-title {
+    font-size: clamp(22px, 2.3vw, 25px);
+    font-weight: 600;
+    line-height: 1.4;
+    color: var(--heading);
+    margin-bottom: 14px;
+  }
+
+  .hero-lead {
+    font-size: 15px;
+    line-height: 1.68;
+    color: var(--text);
+    margin-bottom: 20px;
+  }
+
+  .hero-checks {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 26px;
+  }
+
+  .hero-checks li {
+    display: flex;
+    align-items: flex-start;
+    gap: 11px;
+    font-size: 14.5px;
+    line-height: 1.55;
+    color: var(--text);
+  }
+
+  .hero-check-ico {
+    width: 18px;
+    height: 18px;
+    color: var(--copper);
+    flex-shrink: 0;
+    margin-top: 3px;
+  }
+
+  .cta-gradient-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 15px 38px;
+    border-radius: 5px;
+    background: linear-gradient(to right top, #A67B52, #F0AD6E);
+    color: #FFFFFF;
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 0.01em;
+    box-shadow: 0 6px 18px rgba(166, 123, 82, 0.28);
+    transition: transform 0.16s ease, filter 0.16s ease;
+  }
+
+  .cta-gradient-btn:hover {
+    filter: brightness(1.04);
+    transform: translateY(-1px);
+  }
+
+  .hero-photo-box img {
+    width: 100%;
+    border-radius: 3px;
+    box-shadow: 0 8px 24px rgba(51, 39, 28, 0.1);
+  }
+
+  .hero-caption {
+    margin-top: 10px;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text);
+  }
+
+  /* 3. Werte (3 Pillars) */
+  .sec-werte {
+    padding: 58px 0 54px;
+  }
+
+  .werte-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+    text-align: center;
+  }
+
+  .wert-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
+    padding: 12px 10px;
+  }
+
+  .wert-icon {
+    width: 50px;
+    height: 50px;
+    color: var(--copper);
+  }
+
+  .wert-label {
+    font-size: 15.5px;
+    font-weight: 700;
+    color: var(--heading);
+  }
+
+  /* 4. Kunden (3 Cards) */
+  .kunden-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+    align-items: stretch;
+  }
+
+  .kunden-card {
+    background: var(--white);
+    border-radius: 3px;
+    box-shadow: var(--card-shadow);
+    padding: 20px 22px 28px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .kunden-card-img {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    border-radius: 3px;
+    margin-bottom: 20px;
+  }
+
+  .kunden-card-title {
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 1.4;
+    color: var(--heading);
+    text-align: center;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+    text-decoration-thickness: 1.5px;
+    margin-bottom: 18px;
+  }
+
+  .kunden-card-sub {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--heading);
+    margin-bottom: 14px;
+  }
+
+  .kunden-card p {
+    font-size: 14.5px;
+    line-height: 1.65;
+    color: var(--text);
+    margin-bottom: 12px;
+  }
+
+  .kunden-card p:last-child {
+    margin-bottom: 0;
+  }
+
+  /* 5. Dienstleistungen (2x3 Cards) */
+  .dl-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 28px;
+  }
+
+  .dl-card {
+    background: var(--white);
+    border-radius: 3px;
+    box-shadow: var(--neu-shadow);
+    padding: 18px 18px 22px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .dl-card-img {
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    object-fit: cover;
+    border-radius: 3px;
+    margin-bottom: 18px;
+  }
+
+  .dl-card-title {
+    font-size: 16.5px;
+    font-weight: 700;
+    line-height: 1.45;
+    color: var(--heading);
+  }
+
+  /* 6. Referenz-Projekte (14 Vorher/Nachher) */
+  .ref-project {
+    margin-bottom: 62px;
+  }
+
+  .ref-project:last-child {
+    margin-bottom: 0;
+  }
+
+  .ref-project-title {
+    font-size: 19px;
+    font-weight: 700;
+    line-height: 1.45;
+    color: var(--heading);
+    text-align: center;
+    max-width: 820px;
+    margin: 0 auto 24px;
+  }
+
+  .ref-pair-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 28px;
+    align-items: stretch;
+  }
+
+  .ref-card {
+    background: var(--white);
+    border-radius: 3px;
+    box-shadow: var(--neu-shadow);
+    padding: 18px 18px 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .ref-card img {
+    width: 100%;
+    border-radius: 3px;
+    object-fit: cover;
+  }
+
+  .ref-card-stacked {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .ref-card-note {
+    font-size: 14px;
+    line-height: 1.62;
+    color: var(--text);
+    text-align: center;
+    margin-bottom: 14px;
+    padding: 4px 10px 0;
+  }
+
+  .ref-label {
+    text-align: center;
+    font-size: 13.5px;
+    font-weight: 600;
+    color: var(--muted);
+    margin-top: 12px;
+  }
+
+  /* 7 & 11 & 12 Split Editorial Panels */
+  .split-editorial {
+    display: grid;
+    grid-template-columns: 1fr 1.05fr;
+    align-items: center;
+    gap: 0;
+  }
+
+  .split-photo-frame {
+    position: relative;
+    z-index: 2;
+  }
+
+  .split-photo-frame img {
+    width: 100%;
+    border-radius: 3px;
+    border: 6px solid #FFFFFF;
+    box-shadow: var(--card-shadow);
+  }
+
+  .split-photo-credit {
+    margin-top: 10px;
+    font-size: 13.5px;
+    color: var(--muted);
+  }
+
+  .split-photo-credit a {
+    color: var(--copper-dark);
+    font-weight: 600;
+    text-decoration: underline;
+  }
+
+  .split-panel-beige {
+    background: var(--beige-band);
+    padding: 46px 46px 44px 72px;
+    margin-left: -36px;
+    border-radius: 3px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .split-panel-beige h3 {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--heading);
+    margin-bottom: 18px;
+  }
+
+  .split-panel-beige h4 {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--heading);
+    margin: 20px 0 10px;
+  }
+
+  .split-panel-beige p {
+    font-size: 14.5px;
+    line-height: 1.68;
+    color: var(--text);
+    margin-bottom: 14px;
+  }
+
+  .split-panel-beige p:last-child {
+    margin-bottom: 0;
+  }
+
+  .split-panel-beige a {
+    color: var(--copper-dark);
+    font-weight: 600;
+    text-decoration: underline;
+  }
+
+  /* 8. Susi @ Work Collage 2x2 */
+  .work-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 22px;
+  }
+
+  .work-card {
+    background: #FFFFFF;
+    border-radius: 3px;
+    box-shadow: var(--neu-shadow);
+    padding: 10px;
+  }
+
+  .work-card img {
+    width: 100%;
+    border-radius: 3px;
+  }
+
+  /* 9. Netzwerk Logo Cards */
+  .net-intro {
+    text-align: center;
+    max-width: 780px;
+    margin: -18px auto 34px;
+    font-size: 14.5px;
+    color: var(--text);
+  }
+
+  .net-grid-3 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-bottom: 24px;
+  }
+
+  .net-center-row {
+    display: flex;
+    justify-content: center;
+  }
+
+  .net-card {
+    background: #FFFFFF;
+    border-radius: 3px;
+    box-shadow: var(--neu-shadow);
+    padding: 26px 22px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 160px;
+    width: 100%;
+  }
+
+  .net-center-row .net-card {
+    max-width: calc((100% - 48px) / 3);
+  }
+
+  .net-card img {
+    max-height: 96px;
+    width: auto;
+    object-fit: contain;
+  }
+
+  /* 10. Sponsoring */
+  .sponsor-grid {
+    display: grid;
+    grid-template-columns: 0.95fr 1.05fr;
+    align-items: center;
+    gap: 0;
+  }
+
+  .sponsor-quote-card {
+    background: #FFFFFF;
+    padding: 48px 58px 44px 44px;
+    margin-right: -36px;
+    border-radius: 3px;
+    box-shadow: var(--card-shadow);
+    position: relative;
+    z-index: 2;
+  }
+
+  .sponsor-quote-card p {
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 1.65;
+    color: var(--heading);
+  }
+
+  .sponsor-sig {
+    margin-top: 42px;
+    text-align: right;
+    font-size: 14.5px;
+    line-height: 1.5;
+    color: var(--heading);
+  }
+
+  .sponsor-photo img {
+    width: 100%;
+    border-radius: 3px;
+    border: 6px solid #FFFFFF;
+    box-shadow: var(--card-shadow);
+  }
+
+  /* 11. Bluescht Gallery 4 Thumbnails */
+  .bluescht-gallery {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+    margin-top: 28px;
+  }
+
+  .bluescht-thumb {
+    background: #FFFFFF;
+    border-radius: 3px;
+    box-shadow: var(--card-shadow);
+    padding: 6px;
+  }
+
+  .bluescht-thumb img {
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    object-fit: cover;
+    border-radius: 2px;
+  }
+
+  /* 12. Kontakt */
+  .kontakt-block {
+    margin-bottom: 22px;
+  }
+
+  .kontakt-block:last-child {
+    margin-bottom: 0;
+  }
+
+  .kontakt-heading {
+    font-size: 15.5px;
+    font-weight: 700;
+    color: var(--heading);
+    margin-bottom: 8px;
+  }
+
+  /* Footer */
+  .site-footer {
+    width: 100%;
+  }
+
+  .footer-copper {
+    background: var(--copper);
+    color: #FFFFFF;
+    padding: 28px 0;
+  }
+
+  .footer-copper-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.25fr;
+    gap: 24px;
+    align-items: center;
+    font-size: 12.5px;
+    line-height: 1.6;
+  }
+
+  .footer-legal-strip {
+    background: #FFFFFF;
+    color: var(--copper);
+    padding: 18px 0;
+    text-align: center;
+    font-size: 13px;
+    font-weight: 600;
+    border-top: 1px solid rgba(166, 123, 82, 0.14);
+  }
+
+  .footer-legal-strip a:hover {
+    text-decoration: underline;
+  }
+
+  /* Legal subpages */
+  .legal-hero {
+    padding: 46px 0 28px;
+    background: var(--beige-band);
+    border-bottom: 1px solid rgba(166, 123, 82, 0.16);
+  }
+
+  .legal-hero h1 {
+    font-size: clamp(24px, 3vw, 30px);
+    color: var(--heading);
+    margin-bottom: 8px;
+  }
+
+  .legal-card {
+    background: #FFFFFF;
+    border-radius: 3px;
+    box-shadow: var(--card-shadow);
+    padding: 36px 38px;
+    max-width: 820px;
+    margin: 0 auto;
+  }
+
+  .legal-card h2 {
+    font-size: 18px;
+    color: var(--heading);
+    margin: 24px 0 10px;
+  }
+
+  .legal-card h2:first-child {
+    margin-top: 0;
+  }
+
+  .legal-card p {
+    margin-bottom: 12px;
+    font-size: 14.5px;
+    color: var(--text);
+  }
+
+  .legal-back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 18px;
+    color: var(--copper-dark);
+    font-weight: 700;
+    font-size: 14px;
+  }
+
+  /* Responsive Breakpoints */
+  @media (max-width: 960px) {
+    .hero-grid,
+    .kunden-grid,
+    .dl-grid,
+    .ref-pair-grid,
+    .work-grid,
+    .net-grid-3,
+    .split-editorial,
+    .sponsor-grid,
+    .footer-copper-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .werte-grid {
+      grid-template-columns: 1fr;
+      gap: 18px;
+    }
+
+    .split-panel-beige {
+      margin-left: 0;
+      margin-top: 20px;
+      padding: 28px 22px;
+    }
+
+    .sponsor-quote-card {
+      margin-right: 0;
+      margin-bottom: 20px;
+      padding: 28px 22px;
+    }
+
+    .net-center-row .net-card {
+      max-width: 100%;
+    }
+
+    .bluescht-gallery {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .legal-card {
+      padding: 24px 20px;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .wrap {
+      padding: 0 16px;
+    }
+
+    .sec {
+      padding: 44px 0;
+    }
+
+    .sec-banner {
+      padding: 18px 0 16px;
+    }
+
+    .cta-gradient-btn {
+      width: 100%;
+      padding: 14px 20px;
+    }
+  }
+
+  </style>
+</head>
+<body>
+  <header class="top-bar" id="top-bar" data-section="top-bar" data-section-id="top-bar" data-section-label="Kopfzeile &amp; Navigation">
+    <div class="top-bar-inner">
+      <a href="index.html" class="brand-link" aria-label="Holz-Susi GmbH Startseite">
+        <img src="images/f8f4879f7d67d0071ac38796a54783b1.png" alt="Holz-Susi GmbH Logo" class="brand-logo" data-slot="brand_logo">
+      </a>
+
+      <nav class="desktop-nav" aria-label="Hauptnavigation">
+        <a href="#kunden" class="desk-nav-link" data-slot="nav_kunden">Kunden</a>
+        <a href="#dienstleistungen" class="desk-nav-link" data-slot="nav_dienstleistungen">Dienstleistungen</a>
+        <a href="#referenzen" class="desk-nav-link" data-slot="nav_referenzen">Referenzen</a>
+        <a href="#ueber-mich" class="desk-nav-link" data-slot="nav_ueber_mich">Über mich</a>
+        <a href="#netzwerk" class="desk-nav-link" data-slot="nav_netzwerk">Netzwerk</a>
+        <a href="#sponsoring" class="desk-nav-link" data-slot="nav_sponsoring">Sponsoring</a>
+        <a href="#kontakt" class="desk-nav-link" data-slot="nav_kontakt">Kontakt</a>
+        <a href="tel:+41775219697" class="nav-tel-btn" data-slot="nav_phone_cta">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          <span>077 521 96 97</span>
+        </a>
+      </nav>
+
+      <button type="button" class="nav-burger" aria-label="Menü öffnen" onclick="document.getElementById('mobileNavDrawer').classList.toggle('open')">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+    </div>
+
+    <div class="mobile-nav-drawer" id="mobileNavDrawer">
+      <a href="#kunden" class="mob-nav-link" onclick="document.getElementById('mobileNavDrawer').classList.remove('open')">Kunden</a>
+      <a href="#dienstleistungen" class="mob-nav-link" onclick="document.getElementById('mobileNavDrawer').classList.remove('open')">Dienstleistungen</a>
+      <a href="#referenzen" class="mob-nav-link" onclick="document.getElementById('mobileNavDrawer').classList.remove('open')">Referenzen</a>
+      <a href="#ueber-mich" class="mob-nav-link" onclick="document.getElementById('mobileNavDrawer').classList.remove('open')">Über mich</a>
+      <a href="#netzwerk" class="mob-nav-link" onclick="document.getElementById('mobileNavDrawer').classList.remove('open')">Netzwerk</a>
+      <a href="#sponsoring" class="mob-nav-link" onclick="document.getElementById('mobileNavDrawer').classList.remove('open')">Sponsoring</a>
+      <a href="#kontakt" class="mob-nav-link" onclick="document.getElementById('mobileNavDrawer').classList.remove('open')">Kontakt</a>
+      <a href="tel:+41775219697" class="mob-nav-tel">077 521 96 97</a>
+    </div>
+  </header>
+
+  <main>
+    <!-- SEKTION 1: APRIL SPECIAL BANNER -->
+    <section class="sec sec-white sec-banner" id="bluescht-banner" data-section="bluescht-banner" data-section-id="bluescht-banner" data-section-label="April Special Banner (Bluescht-Beiz)">
+      <div class="wrap">
+        <a href="#bluescht-beiz" class="banner-link" aria-label="Zu den Bluescht-Beiz Infos">
+          <img src="images/f66ae9e0beb8207fd8496b864ad1e3a8.png" alt="April Special: Bluescht-Beiz" class="banner-img" data-slot="bluescht_banner_img">
+        </a>
+      </div>
+    </section>
+
+    <!-- SEKTION 2: HERO -->
+    <section class="sec sec-white sec-hero" id="hero" data-section="hero" data-section-id="hero" data-section-label="Startbühne &amp; Vorstellung">
+      <div class="wrap">
+        <div class="hero-grid">
+          <div>
+            <h1 class="hero-title" data-slot="hero_title">Ihr Holzbau-Vorhaben ist meine Passion!</h1>
+            <p class="hero-lead" data-slot="hero_lead">
+              Für private Bauherrinnen, Bauherren, Architektinnen, Architekten und Bauunternehmen – profitieren Sie von meinen umfassenden Dienstleistungen.
+            </p>
+            <ul class="hero-checks">
+              <li><svg class="hero-check-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg><span data-slot="hero_bullet_1">Dacherneuerung &amp; Dachsanierung</span></li>
+              <li><svg class="hero-check-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg><span data-slot="hero_bullet_2">Dachfenster Einbau / Wechsel</span></li>
+              <li><svg class="hero-check-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg><span data-slot="hero_bullet_3">Innenausbau &amp; Renovation</span></li>
+              <li><svg class="hero-check-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg><span data-slot="hero_bullet_4">Terrassendeck &amp; Fassaden</span></li>
+              <li><svg class="hero-check-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg><span data-slot="hero_bullet_5">Abbrucharbeiten</span></li>
+              <li><svg class="hero-check-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg><span data-slot="hero_bullet_6">Projektplanung, Projektleitung &amp; Bauleitung bei Renovationsarbeiten</span></li>
+            </ul>
+            <a href="#kontakt" class="cta-gradient-btn" data-slot="hero_cta_btn">&rsaquo; Jetzt beraten lassen!</a>
+          </div>
+
+          <div class="hero-photo-box">
+            <img src="images/eca2b09f13c8e608952684be08705c0f.png" alt="Susi Schmid, Inhaberin &amp; Geschäftsführerin" decoding="async" data-slot="hero_portrait_img">
+            <p class="hero-caption" data-slot="hero_portrait_caption">Susi Schmid, Inhaberin &amp; Geschäftsführerin</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SEKTION 3: 3 WERTE -->
+    <section class="sec sec-white sec-werte" id="werte" data-section="werte" data-section-id="werte" data-section-label="3 Werte (Lösungsorientiert, Loyal, Sicherheit)">
+      <div class="wrap">
+        <div class="werte-grid">
+          <div class="wert-item">
+            <svg class="wert-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M12 10a2 2 0 0 0-2 2c0 1.02-.1 2.51-.26 4"/><path d="M14 13.12c0 2.38 0 6.38-1 8.88"/><path d="M17.29 21.02c.12-.6.43-2.3.5-3.02"/><path d="M2 12a10 10 0 0 1 18-6"/><path d="M2 16h.01"/><path d="M21.8 16c.2-2 .131-5.354 0-6"/><path d="M5 19.5C5.5 18 6 15 6 12a6 6 0 0 1 .34-2"/><path d="M8.65 22c.21-.66.45-1.32.57-2"/><path d="M9 6.8a6 6 0 0 1 9 5.2v2"/>
+            </svg>
+            <div class="wert-label" data-slot="wert_1_label">Lösungsorientiert</div>
+          </div>
+
+          <div class="wert-item">
+            <svg class="wert-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="m11 17 2 2a1 1 0 1 0 3-3"/><path d="m14 14 2.5 2.5a1 1 0 1 0 3-3l-3.88-3.88a3 3 0 0 0-4.24 0l-.88.88a1 1 0 1 1-3-3l2.81-2.81a5.79 5.79 0 0 1 7.06-.87l.47.28a2 2 0 0 0 1.42.25L21 4"/><path d="m21 3 1 11h-2"/><path d="M3 3 2 14l6.5 6.5a1 1 0 1 0 3-3"/><path d="M3 4h8"/>
+            </svg>
+            <div class="wert-label" data-slot="wert_2_label">Loyal</div>
+          </div>
+
+          <div class="wert-item">
+            <svg class="wert-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+            </svg>
+            <div class="wert-label" data-slot="wert_3_label">Sicherheit &amp; Nachhaltigkeit</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SEKTION 4: KUNDEN -->
+    <section class="sec sec-beige" id="kunden" data-section="kunden" data-section-id="kunden" data-section-label="Kundengruppen">
+      <div class="wrap">
+        <h2 class="sec-title" data-slot="kunden_heading">Kunden</h2>
+        <div class="kunden-grid">
+          <div class="kunden-card">
+            <img src="images/b2f3020dec3e7ce101a8d8e4d564d122.jpg" alt="Private Bauherren &amp; Bauherrinnen" class="kunden-card-img" loading="lazy" decoding="async" data-slot="kunden_1_img">
+            <h3 class="kunden-card-title" data-slot="kunden_1_title">Private Bauherren<br>&amp; Bauherrinnen</h3>
+            <p class="kunden-card-sub" data-slot="kunden_1_sub">Ihre Idee ist Holz wert?!</p>
+            <p data-slot="kunden_1_p1">Haben Sie ein Projekt und möchten es mit Holz verwirklichen? Ich unterstütze und berate Sie gerne bei der Planung und Umsetzung.</p>
+            <p data-slot="kunden_1_p2">Möchten Sie selbst aktiv an Ihrem Projekt mitwirken? Kein Problem! Wir realisieren Ihr Vorhaben gemeinsam.</p>
+            <p data-slot="kunden_1_p3">Kontaktieren Sie mich und lassen Sie uns gemeinsam Ihr Holzprojekt zum Leben erwecken!</p>
+          </div>
+
+          <div class="kunden-card">
+            <img src="images/36a71e0217aa6bf78459eaca29f9083b.jpg" alt="Architekten &amp; Architektinnen" class="kunden-card-img" loading="lazy" decoding="async" data-slot="kunden_2_img">
+            <h3 class="kunden-card-title" data-slot="kunden_2_title">Architekten &amp;<br>Architektinnen</h3>
+            <p class="kunden-card-sub" data-slot="kunden_2_sub">Ihr Projekt braucht Holz?!</p>
+            <p data-slot="kunden_2_p1">Als Architektin oder Architekt finden Sie in mir die perfekte Partnerin für Ihre Holzbauprojekte.</p>
+            <p data-slot="kunden_2_p2">Ich erarbeite mit Ihnen gemeinsam alle notwendigen Schritte der Holzbauplanung – von der Statik bis zum kleinsten Detail, einschliesslich Terminplanung und Bauführung.</p>
+            <p data-slot="kunden_2_p3">Kontaktieren Sie mich, um Ihre Visionen in Holz zu verwirklichen und eine erfolgreiche Zusammenarbeit zu starten.</p>
+          </div>
+
+          <div class="kunden-card">
+            <img src="images/0f2532519639e336aa7d150dc79af365.jpg" alt="Bauunternehmen" class="kunden-card-img" loading="lazy" decoding="async" data-slot="kunden_3_img">
+            <h3 class="kunden-card-title" data-slot="kunden_3_title">Bauunternehmen</h3>
+            <p class="kunden-card-sub" data-slot="kunden_3_sub">Holzkompetenz für Ihr Bauprojekt?!</p>
+            <p data-slot="kunden_3_p1">Benötigen Sie Unterstützung im Holzbau?</p>
+            <p data-slot="kunden_3_p2">Ob Fachkraft, Kranführerin oder Planung und Projektleitung – ich stehe Ihnen mit meiner Expertise zur Verfügung.</p>
+            <p data-slot="kunden_3_p3">Von der Dachsanierung bis zum Innenausbau, von Abbrucharbeiten bis zur Fassadengestaltung – ich setze Ihre Projekte effizient und präzise um.</p>
+            <p data-slot="kunden_3_p4">Kontaktieren Sie mich, um Ihre Projekte effizient und professionell umzusetzen.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SEKTION 5: DIENSTLEISTUNGEN -->
+    <section class="sec sec-white" id="dienstleistungen" data-section="dienstleistungen" data-section-id="dienstleistungen" data-section-label="Mein Dienstleistungsportfolio">
+      <div class="wrap">
+        <h2 class="sec-title" data-slot="dl_heading">Mein Dienstleistungsportfolio für Sie</h2>
+        <div class="dl-grid">
+          <div class="dl-card">
+            <img src="images/6c010b59f0b4297b4d267cd1b3ac034b.png" alt="Dachsanierung &amp; Dacherneuerung" class="dl-card-img" loading="lazy" decoding="async" data-slot="dl_1_img">
+            <h3 class="dl-card-title" data-slot="dl_1_title">Dachsanierung &amp; Dacherneuerung</h3>
+          </div>
+
+          <div class="dl-card">
+            <img src="images/9fec52b17dae020157985e4f1514387f.jpg" alt="Einbau &amp; Wechsel von Dachfenstern" class="dl-card-img" loading="lazy" decoding="async" data-slot="dl_2_img">
+            <h3 class="dl-card-title" data-slot="dl_2_title">Einbau &amp; Wechsel von Dachfenstern</h3>
+          </div>
+
+          <div class="dl-card">
+            <img src="images/559f25a4c89239e72986f0b926f0c3ca.jpg" alt="Innenausbau &amp; Renovation" class="dl-card-img" loading="lazy" decoding="async" data-slot="dl_3_img">
+            <h3 class="dl-card-title" data-slot="dl_3_title">Innenausbau &amp; Renovation</h3>
+          </div>
+
+          <div class="dl-card">
+            <img src="images/d1147d3576440ce6c61c423a70de94df.jpg" alt="Terrassendeck &amp; Fassaden" class="dl-card-img" loading="lazy" decoding="async" data-slot="dl_4_img">
+            <h3 class="dl-card-title" data-slot="dl_4_title">Terrassendeck &amp; Fassaden</h3>
+          </div>
+
+          <div class="dl-card">
+            <img src="images/65a7943cb7302bf2b0f5f22f76bb55e9.jpg" alt="Projektleitung, Planung &amp; Bauleitung bei Renovationsarbeiten" class="dl-card-img" loading="lazy" decoding="async" data-slot="dl_5_img">
+            <h3 class="dl-card-title" data-slot="dl_5_title">Projektleitung, Planung &amp; Bauleitung bei Renovationsarbeiten</h3>
+          </div>
+
+          <div class="dl-card">
+            <img src="images/b8c2a4c749f19279196c7dad0a8086f9.png" alt="Abbrucharbeiten" class="dl-card-img" loading="lazy" decoding="async" data-slot="dl_6_img">
+            <h3 class="dl-card-title" data-slot="dl_6_title">Abbrucharbeiten</h3>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SEKTION 6: REFERENZ-PROJEKTE (14 PROJEKTE) -->
+    <section class="sec sec-beige" id="referenzen" data-section="referenzen" data-section-id="referenzen" data-section-label="Referenz-Projekte (14 Vorher/Nachher)">
+      <div class="wrap">
+        <h2 class="sec-title" data-slot="ref_heading">Referenz-Projekte</h2>
+        
+      <div class="ref-project">
+        <h3 class="ref-project-title" data-slot="ref_1_title">Ausbau Dachstock</h3>
+        <div class="ref-pair-grid">
+          
+          <div class="ref-card">
+            <img src="images/97a6bcd6a209b2eb5f1ba0cecd4e6a95.png" alt="Ausbau Dachstock (Vorher)" loading="lazy" decoding="async" data-slot="ref_1_img_1">
+            <div class="ref-label">Vorher</div>
+          </div>
+          <div class="ref-card">
+            <img src="images/c99f53ccb7d0d2b71afd34193832bc81.png" alt="Ausbau Dachstock (Nachher)" loading="lazy" decoding="async" data-slot="ref_1_img_2">
+            <div class="ref-label">Nachher</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="ref-project">
+        <h3 class="ref-project-title" data-slot="ref_2_title">Sanierung Marderschaden</h3>
+        <div class="ref-pair-grid">
+          
+          <div class="ref-card">
+            <img src="images/4d3db7c541c346b0e4def1c2281dde55.png" alt="Sanierung Marderschaden (Vorher)" loading="lazy" decoding="async" data-slot="ref_2_img_1">
+            <div class="ref-label">Vorher</div>
+          </div>
+          <div class="ref-card">
+            <img src="images/77513fb92563a42aba7eb8905d4c6d6e.png" alt="Sanierung Marderschaden (Nachher)" loading="lazy" decoding="async" data-slot="ref_2_img_2">
+            <div class="ref-label">Nachher</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="ref-project">
+        <h3 class="ref-project-title" data-slot="ref_3_title">Ersatz Teppichboden durch Laminat</h3>
+        <div class="ref-pair-grid">
+          
+          <div class="ref-card">
+            <img src="images/3f318d72a72bad116ef042e2d92c25d0.png" alt="Ersatz Teppichboden durch Laminat (Vorher)" loading="lazy" decoding="async" data-slot="ref_3_img_1">
+            <div class="ref-label">Vorher</div>
+          </div>
+          <div class="ref-card">
+            <img src="images/6667ce135f01b28bf05ebe01dc165fb9.png" alt="Ersatz Teppichboden durch Laminat (Nachher)" loading="lazy" decoding="async" data-slot="ref_3_img_2">
+            <div class="ref-label">Nachher</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="ref-project">
+        <h3 class="ref-project-title" data-slot="ref_4_title">Dachsanierung: Rückbau Kamin, Einbau von vier Dachfenstern, thermische Sanierung und kompletter Innenausbau</h3>
+        <div class="ref-pair-grid">
+          
+          <div class="ref-card">
+            <img src="images/bbf88dee5af9e81c6c9d80699dda7e20.png" alt="Dachsanierung: Rückbau Kamin, Einbau von vier Dachfenstern, thermische Sanierung und kompletter Innenausbau (Vorher)" loading="lazy" decoding="async" data-slot="ref_4_img_1">
+            <div class="ref-label">Vorher</div>
+          </div>
+          <div class="ref-card">
+            <img src="images/f070b44ad7f68f070e9859f3cb7b7be5.png" alt="Dachsanierung: Rückbau Kamin, Einbau von vier Dachfenstern, thermische Sanierung und kompletter Innenausbau (Nachher)" loading="lazy" decoding="async" data-slot="ref_4_img_2">
+            <div class="ref-label">Nachher</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="ref-project">
+        <h3 class="ref-project-title" data-slot="ref_5_title">Blindboden für Umbau</h3>
+        <div class="ref-pair-grid">
+          
+          <div class="ref-card">
+            <img src="images/f8dddfd922cf3147995ae0e17a7a8039.png" alt="Blindboden für Umbau (Vorher)" loading="lazy" decoding="async" data-slot="ref_5_img_1">
+            <div class="ref-label">Vorher</div>
+          </div>
+          <div class="ref-card">
+            <img src="images/3be010fbd1b5d42736e479d74a97c5f9.png" alt="Blindboden für Umbau (Nachher)" loading="lazy" decoding="async" data-slot="ref_5_img_2">
+            <div class="ref-label">Nachher</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="ref-project">
+        <h3 class="ref-project-title" data-slot="ref_6_title">Blindboden für Umbau</h3>
+        <div class="ref-pair-grid">
+          
+          <div class="ref-card">
+            <img src="images/21c94f1b9de40538ec6ab6e63f646cb5.png" alt="Blindboden für Umbau (Vorher)" loading="lazy" decoding="async" data-slot="ref_6_img_1">
+            <div class="ref-label">Vorher</div>
+          </div>
+          <div class="ref-card">
+            <img src="images/5b54564b16e97837da33aa6b09d559dd.png" alt="Blindboden für Umbau (Nachher)" loading="lazy" decoding="async" data-slot="ref_6_img_2">
+            <div class="ref-label">Nachher</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="ref-project">
+        <h3 class="ref-project-title" data-slot="ref_7_title">Von der Planung bis zur Montage</h3>
+        <div class="ref-pair-grid">
+          <div class="ref-card">
+            <div class="ref-card-stacked">
+              <img src="images/73c7d2e4cd0035f75aee3fd17d2da9fc.png" alt="Von der Planung bis zur Montage Planung 1" loading="lazy" decoding="async" data-slot="ref_7_img_1">
+              <img src="images/fd970958af096d0d057f5a8e9bee5ff9.png" alt="Von der Planung bis zur Montage Planung 2" loading="lazy" decoding="async" data-slot="ref_7_img_2">
+            </div>
+          </div>
+          <div class="ref-card">
+            <div>
+              <p class="ref-card-note" data-slot="ref_7_caption">
+                In Zusammenarbeit mit der Firma Mangold Holzbau GmbH und Dionys Soder Holzbau entstehen diese Dachstühle.<br><br>
+                Auch einen herzlichen Dank an die Firma Rebmann AG für die unkomplizierte Zusammenarbeit.
+              </p>
+              <img src="images/76b315effa8e5d57e879fc40b818acc7.png" alt="Von der Planung bis zur Montage Montage" loading="lazy" decoding="async" data-slot="ref_7_img_3">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="ref-project">
+        <h3 class="ref-project-title" data-slot="ref_8_title">Erneuerung Dach</h3>
+        <div class="ref-pair-grid">
+          
+          <div class="ref-card">
+            <img src="images/24ba5557e7506cc65ab66ee26cafc9c6.png" alt="Erneuerung Dach (Vorher)" loading="lazy" decoding="async" data-slot="ref_8_img_1">
+            <div class="ref-label">Vorher</div>
+          </div>
+          <div class="ref-card">
+            <img src="images/78d61171e8f120511ec3f0ca3c4d05a8.png" alt="Erneuerung Dach (Nachher)" loading="lazy" decoding="async" data-slot="ref_8_img_2">
+            <div class="ref-label">Nachher</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="ref-project">
+        <h3 class="ref-project-title" data-slot="ref_9_title">Erneuerung Estrich</h3>
+        <div class="ref-pair-grid">
+          
+          <div class="ref-card">
+            <img src="images/66595fd8db57fed2dbde0a87a84bfd00.png" alt="Erneuerung Estrich (Vorher)" loading="lazy" decoding="async" data-slot="ref_9_img_1">
+            <div class="ref-label">Vorher</div>
+          </div>
+          <div class="ref-card">
+            <img src="images/3642b9766b22ca08f15acfdfc798ea8c.png" alt="Erneuerung Estrich (Nachher)" loading="lazy" decoding="async" data-slot="ref_9_img_2">
+            <div class="ref-label">Nachher</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="ref-project">
+        <h3 class="ref-project-title" data-slot="ref_10_title">Erneuerung Pergola</h3>
+        <div class="ref-pair-grid">
+          
+          <div class="ref-card">
+            <img src="images/b895e2e843161cecfba698fd36e295ef.png" alt="Erneuerung Pergola (Vorher)" loading="lazy" decoding="async" data-slot="ref_10_img_1">
+            <div class="ref-label">Vorher</div>
+          </div>
+          <div class="ref-card">
+            <img src="images/db85aa7a0f8b4913195ceaccbe0d731e.png" alt="Erneuerung Pergola (Nachher)" loading="lazy" decoding="async" data-slot="ref_10_img_2">
+            <div class="ref-label">Nachher</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="ref-project">
+        <h3 class="ref-project-title" data-slot="ref_11_title">Fassadenverschönerung mit Holzschalung</h3>
+        <div class="ref-pair-grid">
+          
+          <div class="ref-card">
+            <img src="images/c07b4360591b708339ff6cb75b1f05f2.png" alt="Fassadenverschönerung mit Holzschalung (Vorher)" loading="lazy" decoding="async" data-slot="ref_11_img_1">
+            <div class="ref-label">Vorher</div>
+          </div>
+          <div class="ref-card">
+            <img src="images/2682a266da59c452b8d57e070eaa5a13.png" alt="Fassadenverschönerung mit Holzschalung (Nachher)" loading="lazy" decoding="async" data-slot="ref_11_img_2">
+            <div class="ref-label">Nachher</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="ref-project">
+        <h3 class="ref-project-title" data-slot="ref_12_title">Rückbau von Firstfenster und neue Lösung mit Dachfenster</h3>
+        <div class="ref-pair-grid">
+          
+          <div class="ref-card">
+            <img src="images/2abb70d316b99b69091d604303d4a2ee.png" alt="Rückbau von Firstfenster und neue Lösung mit Dachfenster (Vorher)" loading="lazy" decoding="async" data-slot="ref_12_img_1">
+            <div class="ref-label">Vorher</div>
+          </div>
+          <div class="ref-card">
+            <img src="images/ed8c313f3937a951080ad92f56a1f09a.png" alt="Rückbau von Firstfenster und neue Lösung mit Dachfenster (Nachher)" loading="lazy" decoding="async" data-slot="ref_12_img_2">
+            <div class="ref-label">Nachher</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="ref-project">
+        <h3 class="ref-project-title" data-slot="ref_13_title">Erneuerung Sitzbank</h3>
+        <div class="ref-pair-grid">
+          
+          <div class="ref-card">
+            <img src="images/e811359058213f64028fd1d736a1609d.jpg" alt="Erneuerung Sitzbank (Vorher)" loading="lazy" decoding="async" data-slot="ref_13_img_1">
+            <div class="ref-label">Vorher</div>
+          </div>
+          <div class="ref-card">
+            <img src="images/7eb13195e12eba0bf52e072454c7ea38.jpg" alt="Erneuerung Sitzbank (Nachher)" loading="lazy" decoding="async" data-slot="ref_13_img_2">
+            <div class="ref-label">Nachher</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="ref-project">
+        <h3 class="ref-project-title" data-slot="ref_14_title">Erneuerung Terrassenrost</h3>
+        <div class="ref-pair-grid">
+          
+          <div class="ref-card">
+            <img src="images/d5bedbcef26f321a3dc6f2f78b192e25.jpg" alt="Erneuerung Terrassenrost (Vorher)" loading="lazy" decoding="async" data-slot="ref_14_img_1">
+            <div class="ref-label">Vorher</div>
+          </div>
+          <div class="ref-card">
+            <img src="images/1f7efae110550e864f38145da88fddcb.jpg" alt="Erneuerung Terrassenrost (Nachher)" loading="lazy" decoding="async" data-slot="ref_14_img_2">
+            <div class="ref-label">Nachher</div>
+          </div>
+        </div>
+      </div>
+      </div>
+    </section>
+
+    <!-- SEKTION 7: ÜBER MICH -->
+    <section class="sec sec-white" id="ueber-mich" data-section="ueber-mich" data-section-id="ueber-mich" data-section-label="Über mich (Wie ich zum Holzbau kam)">
+      <div class="wrap">
+        <h2 class="sec-title" data-slot="ueber_heading">Über mich</h2>
+        <div class="split-editorial">
+          <div class="split-photo-frame">
+            <img src="images/a6c0a64b8161c83ee410b51b43dc8728.png" alt="Susanne Schmid mit Motorsäge" loading="lazy" decoding="async" data-slot="ueber_img">
+          </div>
+          <div class="split-panel-beige">
+            <h3 data-slot="ueber_sub_1">Wie ich zum Holzbau kam</h3>
+            <p data-slot="ueber_p1">Nach meinem Abschluss als Landwirtin und vor dem Start der Handelsschule hatte ich drei Monate Zeit, die ich nutzen wollte, um neue Erfahrungen zu sammeln. Ich entschied mich, diese Zeit auf dem Bau als Maurerin zu verbringen. Aus den geplanten drei Monaten wurden fünf Jahre bei der GLB Aargau. Während dieser Zeit kam ich in Kontakt mit verschiedenen Zimmerbetrieben, und so wurde mein Interesse am Holzbau geweckt. Mein Herzblut für Holz war damit entflammt und deshalb absolvierte ich noch die Lehre als Zimmerin EFZ bei der PM Mangol AG in Ormalingen.</p>
+            <p data-slot="ueber_p2">In den letzten 15 Jahren habe ich umfassende Erfahrungen auf und abseits der Baustellen gesammelt. Draussen als Zimmerin, Vorarbeiterin, Lehrlingsausbilderin und Kranführerin, und drinnen in der Projektleitung über Planung, Kommunikation, Organisation, Lehrlingsbetreuung, Terminplanung, Sicherheitskonzepte und Bauleitung.</p>
+            <p data-slot="ueber_p3">Besonders schätze ich die Arbeit an Renovationen, Umbauten und Sanierungen, da diese Projekte immer wieder neue und unvorhersehbare Herausforderungen mit sich bringen. In meiner Arbeit, sowohl auf der Baustelle als auch in der Projektleitung, bin ich stets lösungsorientiert, motiviert und arbeite mit Freude im Team zusammen.</p>
+            <h4 data-slot="ueber_sub_2">Wie schaffe ich grössere Projekte alleine?</h4>
+            <p data-slot="ueber_p4">Ich bin nicht alleine unterwegs – mit meinem Netzwerk an selbständigen Zimmerleuten helfen wir uns gegenseitig mit tatkräftiger Unterstützung.</p>
+            <p data-slot="ueber_sig"><strong>Susanne Schmid</strong><br>Inhaberin &amp; Geschäftsführerin</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SEKTION 8: SUSI @ WORK -->
+    <section class="sec sec-beige" id="susi-at-work" data-section="susi-at-work" data-section-id="susi-at-work" data-section-label="Susi @ Work Galerie">
+      <div class="wrap">
+        <h2 class="sec-title" data-slot="work_heading">Susi @ Work</h2>
+        <div class="work-grid">
+                  <div class="work-card">
+          <img src="images/9b02e56ec52b0669c4fc6baf1616c89c.png" alt="Susi @ Work Collage 1" loading="lazy" decoding="async" data-slot="work_img_1">
+        </div>
+        <div class="work-card">
+          <img src="images/76ccac4b26cd966d265e02d5563aa725.png" alt="Susi @ Work Collage 2" loading="lazy" decoding="async" data-slot="work_img_2">
+        </div>
+        <div class="work-card">
+          <img src="images/fb2178227ccce76c6b9d5cda46214907.png" alt="Susi @ Work Collage 3" loading="lazy" decoding="async" data-slot="work_img_3">
+        </div>
+        <div class="work-card">
+          <img src="images/58a0bc16ad3ad002ee2d7d659f615705.png" alt="Susi @ Work Collage 4" loading="lazy" decoding="async" data-slot="work_img_4">
+        </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SEKTION 9: MEIN NETZWERK -->
+    <section class="sec sec-white" id="netzwerk" data-section="netzwerk" data-section-id="netzwerk" data-section-label="Mein Netzwerk &amp; Partner">
+      <div class="wrap">
+        <h2 class="sec-title" data-slot="netzwerk_heading">Mein Netzwerk</h2>
+        <p class="net-intro" data-slot="netzwerk_intro">Dank meines umfangreichen Netzwerks in der Holzbaubranche kann ich auf die Unterstützung zahlreicher erfahrener Zimmerleute und Handwerker zählen.</p>
+        <div class="net-grid-3">
+                  <div class="net-card">
+          <img src="images/6ccd4484461e3cb145f2d24f274144ae.png" alt="Netzwerk-Partner 1" loading="lazy" decoding="async" data-slot="netzwerk_img_1">
+        </div>
+        <div class="net-card">
+          <img src="images/1447d51242a8a53370836b22822e05e8.png" alt="Netzwerk-Partner 2" loading="lazy" decoding="async" data-slot="netzwerk_img_2">
+        </div>
+        <div class="net-card">
+          <img src="images/2e83a600424e6da7819fc9971f217208.png" alt="Netzwerk-Partner 3" loading="lazy" decoding="async" data-slot="netzwerk_img_3">
+        </div>
+        </div>
+        <div class="net-center-row">
+                  <div class="net-card">
+          <img src="images/d1fde21f3716b9e3395b1dba8f229793.png" alt="Netzwerk-Partner 4" loading="lazy" decoding="async" data-slot="netzwerk_img_4">
+        </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SEKTION 10: SPONSORING -->
+    <section class="sec sec-beige" id="sponsoring" data-section="sponsoring" data-section-id="sponsoring" data-section-label="Sponsoring (Selina Burger)">
+      <div class="wrap">
+        <h2 class="sec-title" data-slot="sponsoring_heading">Sponsoring</h2>
+        <div class="sponsor-grid">
+          <div class="sponsor-quote-card">
+            <p data-slot="sponsoring_text">Mit Stolz und Freude unterstützt die Holz-Susi GmbH die Jungsportlerin Selina Burger im TSV Frick.</p>
+            <div class="sponsor-sig" data-slot="sponsoring_sig">
+              <strong>Selina Burger</strong><br>
+              TSV Frick
+            </div>
+          </div>
+          <div class="sponsor-photo">
+            <img src="images/b45ad4460ab5bea9b1e004b9aecb17fb.jpg" alt="Selina Burger TSV Frick" loading="lazy" decoding="async" data-slot="sponsoring_img">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SEKTION 11: BLUESCHT-BEIZ -->
+    <section class="sec sec-white" id="bluescht-beiz" data-section="bluescht-beiz" data-section-id="bluescht-beiz" data-section-label="Bluescht-Beiz">
+      <div class="wrap">
+        <h2 class="sec-title" data-slot="bluescht_heading">&quot;Bluescht-Beiz&quot;</h2>
+        <div class="split-editorial">
+          <div>
+            <div class="split-photo-frame">
+              <img src="images/92ade43c9a5f8ce408ed94f466429744.jpg" alt="Bluescht-Beiz auf dem Wendelhof in Frick" loading="lazy" decoding="async" data-slot="bluescht_main_img">
+            </div>
+            <p class="split-photo-credit" data-slot="bluescht_credit">
+              Ein besonderer Dank geht an Anastasiia Batiuk <a href="https://www.instagram.com/asi_batiuk/" target="_blank" rel="noopener noreferrer">Photography &amp; Travel</a> für das atemberaubende Foto.
+            </p>
+          </div>
+          <div class="split-panel-beige">
+            <h3 data-slot="bluescht_sub">Ein Frühlingstraum geht zu Ende – wir bedanken uns bei unzähligen, tollen Gästen!</h3>
+            <p data-slot="bluescht_p1">Die Kirschblüten haben den Wendelhof im April 2026 in ein Meer aus Weiss getaucht, und die &quot;Bluescht-Beiz&quot; war mittendrin.</p>
+            <p data-slot="bluescht_p2">Unsere Besucher, gross und klein, kamen vorbei und liessen die Seele baumeln bei Bio-Burgern, Highland-Bratwürsten, Gemüsespiess und hausgemachtem Kartoffelsalat oder einfach bei einem Osterkaffe und einer Nascherei vom Dessertbuffet – alles mit viel Herzblut von Susi und dem Wendelhof-Team zubereitet und serviert.</p>
+            <p data-slot="bluescht_p3">Das Beizli unter freiem Himmel hat seine Türen am 1. Mai 2026 für dieses Jahr geschlossen.</p>
+            <p data-slot="bluescht_p4"><strong>Bleiben Sie dran:</strong> Alle Detail-Infos zur Bluescht-Beiz im April 2027 erhalten Sie kurz vor Saison-Start hier auf <a href="index.html">holz-susi.ch</a>.</p>
+            <p data-slot="bluescht_sig">Bis bald wieder!<br>Susi und das Wendelhof-Team</p>
+          </div>
+        </div>
+
+        <div class="bluescht-gallery">
+                  <div class="bluescht-thumb">
+          <img src="images/28707bc6303f0e1e8cbd28f2f8979351.jpg" alt="Bluescht-Beiz Eindruck 1" loading="lazy" decoding="async" data-slot="bluescht_thumb_1">
+        </div>
+        <div class="bluescht-thumb">
+          <img src="images/2153b939975d2ed99e72ed6238f62ebd.jpg" alt="Bluescht-Beiz Eindruck 2" loading="lazy" decoding="async" data-slot="bluescht_thumb_2">
+        </div>
+        <div class="bluescht-thumb">
+          <img src="images/d2017d43580735738b457a7c3888f8cd.jpg" alt="Bluescht-Beiz Eindruck 3" loading="lazy" decoding="async" data-slot="bluescht_thumb_3">
+        </div>
+        <div class="bluescht-thumb">
+          <img src="images/a074b50d3d5fa1b04faaa95391c070d7.jpg" alt="Bluescht-Beiz Eindruck 4" loading="lazy" decoding="async" data-slot="bluescht_thumb_4">
+        </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SEKTION 12: KONTAKT (OHNE ZUSAETZLICHES FORMULAR) -->
+    <section class="sec sec-white" id="kontakt" data-section="kontakt" data-section-id="kontakt" data-section-label="Kontaktadresse &amp; Erreichbarkeit">
+      <div class="wrap">
+        <h2 class="sec-title" data-slot="kontakt_heading">Kontakt</h2>
+        <div class="split-editorial">
+          <div class="split-photo-frame">
+            <img src="images/4b2816f5428f3e3a13208188f84f6068.png" alt="Susanne Schmid im Firmenfahrzeug" loading="lazy" decoding="async" data-slot="kontakt_img">
+          </div>
+          <div class="split-panel-beige">
+            <div class="kontakt-block">
+              <div class="kontakt-heading" data-slot="kontakt_addr_label">Kontaktadresse</div>
+              <p data-slot="kontakt_addr_lines">
+                Holz-Susi GmbH<br>
+                Wendelhof 424<br>
+                5070 Frick
+              </p>
+              <p data-slot="kontakt_email">
+                E-Mail: <a href="mailto:info@holz-susi.ch">info [at] holz-susi.ch</a>
+              </p>
+            </div>
+
+            <div class="kontakt-block">
+              <div class="kontakt-heading" data-slot="kontakt_tel_label">Telefonische Erreichbarkeit</div>
+              <p data-slot="kontakt_hours">
+                Montag bis Freitag<br>
+                07:00 – 12:00 Uhr | 13:00 – 17:30 Uhr
+              </p>
+              <p data-slot="kontakt_mobile">
+                Mobile: <a href="tel:+41775219697">077 521 96 97</a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer" id="footer" data-section="footer" data-section-id="footer" data-section-label="Fusszeile &amp; Rechtliches">
+    <div class="footer-copper">
+      <div class="wrap footer-copper-grid">
+        <div data-slot="footer_copyright">&copy; 2026 Holz-Susi GmbH - Alle Rechte vorbehalten</div>
+        <div data-slot="footer_disclaimer">
+          FACEBOOK TM is a trademark of FACEBOOK TM, Inc. Additionally, this site is NOT endorsed by FacebookTM in any way.
+        </div>
+      </div>
+    </div>
+    <div class="footer-legal-strip">
+      <div class="wrap">
+        <a href="index.html" data-slot="footer_home_link">Home</a> &nbsp;|&nbsp;
+        <a href="impressum.html" data-slot="footer_impressum_link">Impressum</a> &nbsp;|&nbsp;
+        <a href="datenschutz.html" data-slot="footer_datenschutz_link">Datenschutzerklärung</a>
+      </div>
+    </div>
+  </footer>
+  <script>
+(function() {
+  var params = new URLSearchParams(window.location.search);
+  var isEmbedded = params.get('embed') === 'true' || window.self !== window.top;
+  if (isEmbedded) {
+    document.body.classList.add('is-embedded');
+  }
+
+  var lastSentHeight = 0;
+  var resizeTimer = null;
+  function measureContentHeight() {
+    var main = document.querySelector('main');
+    if (document.body.classList.contains('is-embedded') && main) {
+      var footer = document.querySelector('footer');
+      var target = footer || main;
+      var r = target.getBoundingClientRect();
+      var bottom = Math.ceil(r.bottom + (window.scrollY || window.pageYOffset || 0));
+      if (bottom > 120) return bottom + 2;
+    }
+    return Math.ceil(Math.max(
+      document.body.getBoundingClientRect().height || 0,
+      document.body.offsetHeight || 0
+    ));
+  }
+
+  function notifyParentHeight(force) {
+    if (window.parent && window.parent !== window) {
+      var h = measureContentHeight();
+      if (force || Math.abs(h - lastSentHeight) >= 2) {
+        lastSentHeight = h;
+        window.parent.postMessage({ type: 'acp-embed-resize', height: h }, '*');
+      }
+    }
+  }
+  window.notifyParentHeight = notifyParentHeight;
+
+  if (isEmbedded || window.parent !== window) {
+    [150, 600, 1500, 3500, 7000].forEach(function(ms) {
+      setTimeout(function() { notifyParentHeight(true); }, ms);
+    });
+    window.addEventListener('load', function() { notifyParentHeight(true); });
+    window.addEventListener('resize', function() {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(function() { notifyParentHeight(false); }, 60);
+    });
+    if (document.fonts && document.fonts.ready) {
+      document.fonts.ready.then(function() { notifyParentHeight(true); });
+    }
+    if (window.ResizeObserver) {
+      var ro = new ResizeObserver(function() {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(function() { notifyParentHeight(false); }, 50);
+      });
+      if (document.body) ro.observe(document.body);
+    }
+  }
+})();
+</script>
+</body>
+</html>
