@@ -522,6 +522,11 @@
     gap: 0;
   }
 
+  .split-editorial > div:first-child {
+    position: relative;
+    z-index: 2;
+  }
+
   .split-photo-frame {
     position: relative;
     z-index: 2;
@@ -535,9 +540,13 @@
   }
 
   .split-photo-credit {
-    margin-top: 10px;
+    margin-top: 12px;
+    padding-right: 48px;
     font-size: 13.5px;
+    line-height: 1.55;
     color: var(--muted);
+    position: relative;
+    z-index: 3;
   }
 
   .split-photo-credit a {
@@ -624,27 +633,29 @@
   .net-center-row {
     display: flex;
     justify-content: center;
+    gap: 24px;
   }
 
   .net-card {
     background: #FFFFFF;
     border-radius: 3px;
     box-shadow: var(--neu-shadow);
-    padding: 26px 22px;
+    padding: 20px 18px;
     display: flex;
     align-items: center;
     justify-content: center;
-    min-height: 160px;
+    min-height: 225px;
     width: 100%;
   }
 
   .net-center-row .net-card {
+    flex: 0 1 calc((100% - 48px) / 3);
     max-width: calc((100% - 48px) / 3);
   }
 
   .net-card img {
-    max-height: 96px;
-    width: auto;
+    width: 100%;
+    max-height: 170px;
     object-fit: contain;
   }
 
@@ -839,8 +850,18 @@
       padding: 28px 22px;
     }
 
+    .net-center-row {
+      flex-direction: column;
+      align-items: center;
+    }
+
     .net-center-row .net-card {
       max-width: 100%;
+      flex: 1 1 auto;
+    }
+
+    .split-photo-credit {
+      padding-right: 0;
     }
 
     .bluescht-gallery {
@@ -1335,6 +1356,9 @@
         <div class="net-center-row">
                   <div class="net-card">
           <img src="images/d1fde21f3716b9e3395b1dba8f229793.png" alt="Netzwerk-Partner 4" decoding="async" data-slot="netzwerk_img_4">
+        </div>
+        <div class="net-card">
+          <img src="images/partner-schmid-holzbau.jpg" alt="SCHMID Holzbau | Umbau | Bedachungen" decoding="async" data-slot="netzwerk_img_5">
         </div>
         </div>
       </div>

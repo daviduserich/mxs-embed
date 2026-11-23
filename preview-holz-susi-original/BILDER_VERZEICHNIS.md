@@ -4,8 +4,8 @@
 > **Angefordert von (Partner):** Jenny Ettle (JE-MI) · **Eingereicht am:** -  
 > **Lokaler Ordner (VPS & Git):** `preview-holz-susi-original/`  
 > **Cloudflare-Basis-URL:** [vorschau.magnet-xs.ch/holz-susi-original/](https://vorschau.magnet-xs.ch/holz-susi-original/)  
-> **Bestand:** **62 Assets** (15.81 MB gesamt) · **🟢 59 aktiv im HTML** · **⚪ 3 frei im Bild-Pool** · **Externe Hotlinks: 0**  
-> **Letzte Aktualisierung:** 23.11.2026 10:26 Uhr (automatisch generiert via `webpilot_asset_catalog.py`)
+> **Bestand:** **63 Assets** (15.84 MB gesamt) · **🟢 60 aktiv im HTML** · **⚪ 3 frei im Bild-Pool** · **Externe Hotlinks: 0**  
+> **Letzte Aktualisierung:** 23.11.2026 14:51 Uhr (automatisch generiert via `webpilot_asset_catalog.py`)
 
 ---
 
@@ -74,7 +74,8 @@
 | 59 | `images/fb2178227ccce76c6b9d5cda46214907.png` | Referenz, Projekt & Angebot (`ref`) | 432×432 px · 407.8 KB (PNG) | 🟢 Aktiv in `index.html` | Susi @ Work Collage 3 | [vorschau.magnet-xs.ch/holz-susi-original/images/fb2178227ccce76c6b9d5cda46214907.png](https://vorschau.magnet-xs.ch/holz-susi-original/images/fb2178227ccce76c6b9d5cda46214907.png) |
 | 60 | `images/fd970958af096d0d057f5a8e9bee5ff9.png` | Referenz, Projekt & Angebot (`ref`) | 512×341 px · 332.5 KB (PNG) | 🟢 Aktiv in `index.html` | Von der Planung bis zur Montage Planung 2 | [vorschau.magnet-xs.ch/holz-susi-original/images/fd970958af096d0d057f5a8e9bee5ff9.png](https://vorschau.magnet-xs.ch/holz-susi-original/images/fd970958af096d0d057f5a8e9bee5ff9.png) |
 | 61 | `images/fingerprint.svg` | Referenz, Projekt & Angebot (`ref`) | 24×24 px · 1.7 KB (SVG) | ⚪ Frei im Pool | Holz-Susi GmbH (Frick) – Einblick & Referenz: Fingerprint | [vorschau.magnet-xs.ch/holz-susi-original/images/fingerprint.svg](https://vorschau.magnet-xs.ch/holz-susi-original/images/fingerprint.svg) |
-| 62 | `images/people.svg` | Referenz, Projekt & Angebot (`ref`) | 24×24 px · 0.5 KB (SVG) | ⚪ Frei im Pool | Holz-Susi GmbH (Frick) – Einblick & Referenz: People | [vorschau.magnet-xs.ch/holz-susi-original/images/people.svg](https://vorschau.magnet-xs.ch/holz-susi-original/images/people.svg) |
+| 62 | `images/partner-schmid-holzbau.jpg` | Sponsor & Partner (`sponsor`) | 1024×377 px · 35.0 KB (JPG) | 🟢 Aktiv in `index.html` | SCHMID Holzbau · Umbau · Bedachungen | [vorschau.magnet-xs.ch/holz-susi-original/images/partner-schmid-holzbau.jpg](https://vorschau.magnet-xs.ch/holz-susi-original/images/partner-schmid-holzbau.jpg) |
+| 63 | `images/people.svg` | Referenz, Projekt & Angebot (`ref`) | 24×24 px · 0.5 KB (SVG) | ⚪ Frei im Pool | Holz-Susi GmbH (Frick) – Einblick & Referenz: People | [vorschau.magnet-xs.ch/holz-susi-original/images/people.svg](https://vorschau.magnet-xs.ch/holz-susi-original/images/people.svg) |
 
 ---
 
