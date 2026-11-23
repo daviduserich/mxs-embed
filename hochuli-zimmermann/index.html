@@ -985,6 +985,18 @@
       }
     }
 
+    .match-label {
+      font-family: "Plus Jakarta Sans", sans-serif;
+      font-weight: 700;
+      font-size: 14px;
+      color: var(--text);
+      margin: 0 0 8px;
+    }
+
+    #quiz-progress-bar {
+      scroll-margin-top: 84px;
+    }
+
     .alt-contact {
       margin-top: 24px;
       padding-top: 20px;
@@ -2439,10 +2451,11 @@
     <section class="quiz-section capsule-locked" id="blitz" data-section="blitz">
       <div class="container">
         <span class="section-kicker">Schritt 4 von 4 · Kontakt</span>
-        <h3 class="quiz-q-title">Jetzt per WhatsApp an Stefan Hofmann</h3>
+        <h3 class="quiz-q-title">Jetzt per WhatsApp bei Stefan Hofmann melden</h3>
         <p class="section-lead">Du musst nichts ausfüllen: Ein Tipp auf den Button genügt, deine Antworten stehen schon in der Nachricht.</p>
 
         <div class="blitz-card">
+          <p class="match-label">Deine Antworten:</p>
           <div class="match-pills" id="match-summary-pills">
             <span class="match-pill" id="pill-f01">1. Offen</span>
             <span class="match-pill" id="pill-f02">2. Offen</span>
@@ -2842,7 +2855,8 @@
           ? (document.getElementById("quiz-funnel-shell") || document.getElementById(stepId))
           : (document.getElementById("quiz-progress-bar") || document.getElementById(stepId));
         if (anchor) {
-          anchor.scrollIntoView({ behavior: "smooth", block: "start" });
+          // Sofort statt animiert: Der Schrittwechsel verändert die Seitenhöhe, ein sanftes Scrollen davon wirkte wie runter und wieder hoch
+          anchor.scrollIntoView({ behavior: "auto", block: "start" });
         }
       }
     }
