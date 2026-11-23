@@ -999,6 +999,38 @@
       margin-bottom: 12px;
     }
 
+    .hp-field {
+      position: absolute;
+      left: -9999px;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+      opacity: 0;
+    }
+
+    .callback-box {
+      margin-top: 8px;
+      padding: 20px;
+      background: var(--bg-alt);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+    }
+
+    .callback-box[hidden] {
+      display: none;
+    }
+
+    .callback-box .btn {
+      margin-top: 4px;
+    }
+
+    .callback-success {
+      font-size: 16px;
+      font-weight: 600;
+      color: #064e3b;
+      line-height: 1.5;
+    }
+
     .alt-contact-actions {
       display: flex;
       flex-wrap: wrap;
@@ -2188,7 +2220,7 @@
               <span>Wie läuft das erste Kennenlernen mit Stefan Hofmann ab?</span>
               <svg class="faq-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
             </summary>
-            <div class="faq-body">Du beantwortest drei kurze Fragen und schickst deine Nachricht per WhatsApp ab (ohne WhatsApp geht es auch per Telefon oder E-Mail). Danach meldet sich Stefan Hofmann, Leiter Holzbau und Bedachung, direkt bei dir, per Telefon oder WhatsApp. Lohn und Pensum besprecht ihr direkt.</div>
+            <div class="faq-body">Du beantwortest drei kurze Fragen und schickst deine Nachricht per WhatsApp ab (ohne WhatsApp geht es auch per Telefon oder Rückruf). Danach meldet sich Stefan Hofmann, Leiter Holzbau und Bedachung, direkt bei dir, per Telefon oder WhatsApp. Lohn und Pensum besprecht ihr direkt.</div>
           </details>
         </div>
       </div>
@@ -2464,9 +2496,30 @@
             <p class="alt-contact-title">Kein WhatsApp? Melde dich so:</p>
             <div class="alt-contact-actions">
               <a class="btn btn-secondary" id="alt-tel" href="tel:+41627390022">Stefan anrufen: 062 739 00 22</a>
-              <a class="btn btn-secondary" id="alt-mail" href="mailto:stefan.hofmann@hochuli-gruppe.ch" onclick="this.href = buildMailtoHref();">Per E-Mail schreiben</a>
+              <button type="button" class="btn btn-secondary" id="alt-callback-toggle" aria-expanded="false" aria-controls="callback-box" onclick="toggleCallbackForm()">Rückruf anfordern</button>
             </div>
-            <p class="dual-finish-note">In der E-Mail sind deine Antworten schon eingetragen, du musst sie nur absenden.</p>
+            <div class="callback-box" id="callback-box" hidden>
+              <form id="callback-form" novalidate onsubmit="return submitCallback(event)">
+                <div class="form-grid">
+                  <div class="form-field">
+                    <label for="cb-name">Dein Name</label>
+                    <input type="text" id="cb-name" autocomplete="name" placeholder="z. B. Lukas Meier" maxlength="80">
+                  </div>
+                  <div class="form-field">
+                    <label for="cb-phone">Deine Telefonnummer</label>
+                    <input type="tel" id="cb-phone" autocomplete="tel" inputmode="tel" placeholder="z. B. 079 123 45 67" maxlength="30">
+                  </div>
+                </div>
+                <div class="hp-field" aria-hidden="true">
+                  <label for="cb-website">Website</label>
+                  <input type="text" id="cb-website" tabindex="-1" autocomplete="off">
+                </div>
+                <div class="form-error-msg" id="cb-error" role="alert"></div>
+                <button type="submit" class="btn btn-primary" id="cb-submit">Rückruf anfordern</button>
+                <p class="dual-finish-note">Wir verwenden deine Nummer nur, um dich zurückzurufen. Dein Zeitfenster von oben geben wir mit.</p>
+              </form>
+              <div class="callback-success" id="cb-success" role="status" hidden></div>
+            </div>
           </div>
         </div>
       </div>
@@ -2913,20 +2966,109 @@
       }, 150);
     }
 
-    function buildMailtoHref() {
-      const g = function (id) { const el = document.getElementById(id); return el ? el.value : ""; };
-      const efzEl = document.getElementById("befz");
+    const PAGE_LOADED_AT = Date.now();
+    const RUECKRUF_URL = "https://n8n-mxs.com/webhook/hochuli-zimmermann-rueckruf";
+    let callbackBusy = false;
+
+    function toggleCallbackForm() {
+      const box = document.getElementById("callback-box");
+      const btn = document.getElementById("alt-callback-toggle");
+      if (!box) return;
+      const opening = box.hasAttribute("hidden");
+      if (opening) {
+        box.removeAttribute("hidden");
+        const cn = document.getElementById("cb-name");
+        const bn = document.getElementById("bname");
+        if (cn && !cn.value && bn && bn.value) cn.value = bn.value;
+        if (cn) cn.focus();
+      } else {
+        box.setAttribute("hidden", "");
+      }
+      if (btn) btn.setAttribute("aria-expanded", opening ? "true" : "false");
+      notifyParentHeight(true);
+    }
+
+    function setCallbackError(msg) {
+      const el = document.getElementById("cb-error");
+      if (!el) return;
+      el.textContent = msg || "";
+      el.classList.toggle("is-visible", !!msg);
+      notifyParentHeight(true);
+    }
+
+    async function submitCallback(ev) {
+      if (ev) ev.preventDefault();
+      if (callbackBusy) return false;
+      setCallbackError("");
+      const nameEl = document.getElementById("cb-name");
+      const phoneEl = document.getElementById("cb-phone");
+      const name = (nameEl.value || "").trim();
+      const phone = (phoneEl.value || "").trim();
+      if (name.length < 2) {
+        setCallbackError("Bitte gib deinen Namen an.");
+        nameEl.focus();
+        return false;
+      }
+      if (phone.replace(/[^0-9]/g, "").length < 9) {
+        setCallbackError("Bitte gib eine gültige Telefonnummer an, damit wir dich erreichen.");
+        phoneEl.focus();
+        return false;
+      }
+      callbackBusy = true;
+      const btn = document.getElementById("cb-submit");
+      if (btn) { btn.disabled = true; btn.textContent = "Wird gesendet …"; }
+
+      const f1 = quizState.F01 || 1, f2 = quizState.F02 || 1, f3 = quizState.F03 || 1;
+      const disg = calcDisgProfile(f1, f2, f3);
+      const zeitEl = document.getElementById("bzeit");
       const payload = {
-        name: (g("bname") || "").trim(),
-        pensum: g("bpensum") || "Noch offen / besprechen",
-        zeit: g("bzeit") || "Egal, ich bin flexibel",
-        efz: efzEl ? efzEl.checked : false,
-        f01: quizState.F01 || 1,
-        f02: quizState.F02 || 1,
-        f03: quizState.F03 || 1
+        name: name,
+        phone: phone,
+        zeit: zeitEl ? zeitEl.value : "",
+        answers: [QUIZ_META.F01[f1].title, QUIZ_META.F02[f2].title, QUIZ_META.F03[f3].title],
+        disg: disg.primary.name + (disg.secondaryKey !== disg.primaryKey ? " / " + disg.secondary.name : ""),
+        website: (document.getElementById("cb-website").value || ""),
+        t: Date.now() - PAGE_LOADED_AT
       };
-      const body = buildWhatsAppMessage(payload).replace(/\n/g, "\r\n") + "\r\n\r\nMeine Telefonnummer: ";
-      return "mailto:stefan.hofmann@hochuli-gruppe.ch?subject=" + encodeURIComponent("Zimmermann EFZ: Meldung über die Stellenseite") + "&body=" + encodeURIComponent(body);
+
+      const fallbackMsg = "Das hat leider nicht geklappt. Bitte ruf direkt an: 062 739 00 22.";
+      const ctrl = new AbortController();
+      const timer = setTimeout(function () { ctrl.abort(); }, 20000);
+      try {
+        const res = await fetch(RUECKRUF_URL, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(payload),
+          signal: ctrl.signal
+        });
+        let data = {};
+        try { data = await res.json(); } catch (e) {}
+        if (res.ok && data && data.ok) {
+          const first = name.split(/\s+/)[0];
+          const form = document.getElementById("callback-form");
+          const ok = document.getElementById("cb-success");
+          if (form) form.setAttribute("hidden", "");
+          if (ok) {
+            ok.textContent = "Danke, " + first + ". Wir rufen dich so bald wie möglich zurück.";
+            ok.removeAttribute("hidden");
+          }
+          logTrackerStep(5, "/hochuli-zimmermann/rueckruf", "Rueckruf angefordert");
+        } else if (res.status === 400 && data && data.field === "name") {
+          setCallbackError("Bitte gib deinen Namen an.");
+        } else if (res.status === 400 && data && data.field === "phone") {
+          setCallbackError("Bitte gib eine gültige Telefonnummer an, damit wir dich erreichen.");
+        } else {
+          setCallbackError(fallbackMsg);
+        }
+      } catch (e) {
+        setCallbackError(fallbackMsg);
+      } finally {
+        clearTimeout(timer);
+        callbackBusy = false;
+        if (btn) { btn.disabled = false; btn.textContent = "Rückruf anfordern"; }
+        notifyParentHeight(true);
+      }
+      return false;
     }
 
     function showFormError(msg) {
