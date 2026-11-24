@@ -380,6 +380,45 @@ async function serveTenant404(context, folder, url, baseHref = '/') {
   });
 }
 
+const WEBPILOT_EDGE_CHECK_URL = 'https://acp-plausible-tracking.acp-authentic-content-pilot.com/api/publish-career/auth/edge-check';
+
+async function enforceWebPilotEdgeAuth(context, url, scope, siteSlug = '') {
+  const checkUrl = `${WEBPILOT_EDGE_CHECK_URL}?scope=${encodeURIComponent(scope)}&site=${encodeURIComponent(siteSlug)}`;
+  try {
+    const authRes = await fetch(checkUrl, {
+      method: 'GET',
+      headers: {
+        'Cookie': context.request.headers.get('Cookie') || '',
+        'X-Forwarded-Host': url.hostname
+      }
+    });
+    if (authRes.status === 200) {
+      return null;
+    }
+    if (authRes.status === 403) {
+      const html = '<!doctype html><html lang="de-CH"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Kein Zugriff</title><style>body{font-family:system-ui,sans-serif;background:#0b0f17;color:#f1f5f9;display:flex;align-items:center;justify-content:center;min-height:100vh;margin:0;padding:24px}.card{max-width:480px;background:#131a26;border:1px solid #263145;border-radius:12px;padding:28px}.btn{display:inline-block;margin-top:16px;margin-right:10px;padding:10px 16px;border-radius:8px;background:#f97316;color:#fff;text-decoration:none;font-weight:600}.btn-sec{background:#1e293b;color:#cbd5e1}</style></head><body><div class="card"><h2>Kein Zugriff auf diesen Bereich</h2><p>Dein Konto ist angemeldet, besitzt aber keine Berechtigung fuer diese Website oder das Partner-Portal.</p><a class="btn" href="/partner/">Zum Dashboard</a><a class="btn btn-sec" href="/login">Konto wechseln</a></div></body></html>';
+      return new Response(html, {
+        status: 403,
+        headers: {
+          'Content-Type': 'text/html; charset=utf-8',
+          'Cache-Control': 'no-store, no-cache, must-revalidate, max-age=0'
+        }
+      });
+    }
+  } catch (err) {
+    // Fail-Closed bei Netzwerk- oder Backend-Fehler
+  }
+  const nextTarget = `${url.pathname}${url.search}`;
+  const loginUrl = `${url.origin}/login?next=${encodeURIComponent(nextTarget)}`;
+  return new Response(null, {
+    status: 302,
+    headers: {
+      'Location': loginUrl,
+      'Cache-Control': 'no-store, no-cache, must-revalidate, max-age=0'
+    }
+  });
+}
+
 export async function onRequest(context) {
   const response = await handleRequestCore(context);
   return applyEnterpriseSecurityHeaders(response);
@@ -501,7 +540,19 @@ async function handleRequestCore(context) {
   // 1b. Hostname: webpilot.magnet-xs.ch
   if (hostname.startsWith('webpilot.')) {
     let targetPath = url.pathname;
+    if (targetPath === '/login' || targetPath.startsWith('/login/')) {
+      return context.next();
+    }
     const isCockpitSpecial = (targetPath === '/cockpit-app.html' || targetPath.includes('/cockpit'));
+    if (isCockpitSpecial) {
+      let edgeSite = (url.searchParams.get('site') || url.searchParams.get('client') || '').replace(/^sites\//, '').trim();
+      if (!edgeSite) {
+        const seg = targetPath.split('/').filter(Boolean)[0] || '';
+        if (seg && seg !== 'cockpit-app.html' && seg !== 'webpilot') edgeSite = seg;
+      }
+      const denyRes = await enforceWebPilotEdgeAuth(context, url, 'cockpit', edgeSite);
+      if (denyRes) return denyRes;
+    }
     if (targetPath === '/cockpit-app.html') {
       const siteParam = (url.searchParams.get('site') || 'preview-holz-susi').replace(/^sites\//, '');
       targetPath = `/${siteParam}/cockpit.html`;
@@ -573,48 +624,35 @@ async function handleRequestCore(context) {
   const pathParts = url.pathname.split('/').filter(Boolean);
   const rootSegment = pathParts[0] || '';
 
-  // API-Routen direkt an functions/api/[[catchall]].js durchlassen (Bypass für Schutzwall & Client-Routing)
-  if (rootSegment === 'api') {
+  // API- und zentrale Login-Routen direkt durchlassen
+  if (rootSegment === 'api' || rootSegment === 'login') {
     return context.next();
   }
 
-  const isReservedRoot = ['api', 'webpilot', 'boardroom', 'brand-gallery', 'client-preview', 'partner', 'partner-jobs', 'reports', 'images', 'css', 'js', 'fonts', 'favicon.ico', 'robots.txt'].includes(rootSegment);
+  // Zero-Trust Partner-Portal Guard (nur HTML-Dokumente)
+  if (rootSegment === 'partner' && !STATIC_ASSET_EXT_RE.test(url.pathname)) {
+    const denyPartner = await enforceWebPilotEdgeAuth(context, url, 'partner', '');
+    if (denyPartner) return denyPartner;
+  }
 
-  // 2. Token-Guard & Multi-Tenant Isolation für Mandanten-Pfade
-  if (rootSegment && !isReservedRoot) {
-    const clientSlug = rootSegment.replace(/^preview-/, '');
-    const baseClientSlug = clientSlug.replace(/-(?:vollversion|vv|v1|v2)$/, '');
+  // Zero-Trust /cockpit-app.html Guard auf allen Hosts
+  if (url.pathname === '/cockpit-app.html') {
+    const siteParam = (url.searchParams.get('site') || url.searchParams.get('client') || '').replace(/^sites\//, '').trim();
+    const denyApp = await enforceWebPilotEdgeAuth(context, url, 'cockpit', siteParam);
+    if (denyApp) return denyApp;
+  }
+
+  const isReservedRoot = ['api', 'login', 'webpilot', 'boardroom', 'brand-gallery', 'client-preview', 'partner', 'partner-jobs', 'reports', 'images', 'css', 'js', 'fonts', 'favicon.ico', 'robots.txt'].includes(rootSegment);
+
+  // 2. Zero-Trust Edge Auth Guard fuer alle Cockpits (statische Read-Only-Vorschauen bleiben lesbar)
+  if (rootSegment && (!isReservedRoot || rootSegment === 'webpilot')) {
     const isCockpit = url.pathname.includes('/cockpit') || url.pathname.endsWith('/cockpit.html');
-    const validTokens = getValidTokens(rootSegment, clientSlug);
-
-    const tokenParam = url.searchParams.get('token');
-    const cookieHeader = context.request.headers.get('Cookie') || '';
-
-    const tenantCookieKey = 'mxs_auth_' + clientSlug + '=';
-    const baseCookieKey = 'mxs_auth_' + baseClientSlug + '=';
-    const legacyCockpitKey = 'hb_cockpit_token=';
-    const legacyPreviewKey = 'hb_preview_token=';
-
-    const hasValidCookie = validTokens.some(t =>
-      cookieHeader.includes(tenantCookieKey + t) ||
-      cookieHeader.includes(baseCookieKey + t) ||
-      (clientSlug === 'hiltbrand' && (cookieHeader.includes(legacyCockpitKey + t) || cookieHeader.includes(legacyPreviewKey + t)))
-    );
-
-    const hasValidToken = tokenParam && validTokens.includes(tokenParam);
-
-    // Schutzwall:
-    // A) COCKPITS (/cockpit): Verlangen zwingend einen gültigen Token oder Cookie!
     if (isCockpit) {
-      if (!hasValidToken && !hasValidCookie) {
-        if (clientSlug === 'birchmeier' || rootSegment.includes('birchmeier')) {
-          return Response.redirect('https://vorschau.magnet-xs.ch/webpilot/', 302);
-        }
-        return new Response('Zugriff geschützt. Bitte Cockpit mit gültigem Mandanten-Token öffnen.', {
-          status: 403,
-          headers: { 'Content-Type': 'text/plain; charset=utf-8' }
-        });
-      }
+      const edgeSite = (rootSegment === 'webpilot')
+        ? (url.searchParams.get('site') || url.searchParams.get('client') || 'webpilot').trim()
+        : rootSegment;
+      const denyCockpit = await enforceWebPilotEdgeAuth(context, url, 'cockpit', edgeSite);
+      if (denyCockpit) return denyCockpit;
     }
   }
 
@@ -641,7 +679,7 @@ async function handleRequestCore(context) {
     const DIRECT_ONLY_FOLDERS = ['zurbuchen', 'cotra', 'muster-holzbau', 'hochuli-zimmermann'];
     const DUAL_EMBED_AND_PREVIEW_FOLDERS = ['hiltbrand'];
     const match = url.pathname.match(/^\/([a-zA-Z0-9_-]+)(\/.*)?$/);
-    if (match && !['api', 'webpilot', 'boardroom', 'brand-gallery', 'client-preview', 'partner', 'partner-jobs', 'reports', 'mxs-talent', 'images', 'css', 'js', 'fonts'].includes(match[1])) {
+    if (match && !['api', 'login', 'webpilot', 'boardroom', 'brand-gallery', 'client-preview', 'partner', 'partner-jobs', 'reports', 'mxs-talent', 'images', 'css', 'js', 'fonts'].includes(match[1])) {
       isClientPath = true;
       activeClientSlug = match[1].toLowerCase();
       const rest = match[2];
@@ -673,11 +711,7 @@ async function handleRequestCore(context) {
           'Location': redirectUrl.toString(),
           'Cache-Control': 'no-store, no-cache, must-revalidate, max-age=0'
         });
-        const tokenParam = url.searchParams.get('token');
-        if (tokenParam) {
-          redirectHeaders.append('Set-Cookie', `mxs_auth_${baseSlugFolder}-vollversion=${tokenParam}; Path=/${baseSlugFolder}-vollversion/; Max-Age=86400; SameSite=Lax`);
-          redirectHeaders.append('Set-Cookie', `mxs_auth_${baseSlugFolder}=${tokenParam}; Path=/; Max-Age=86400; SameSite=Lax`);
-        }
+
         return new Response(null, { status: 302, headers: redirectHeaders });
       }
 

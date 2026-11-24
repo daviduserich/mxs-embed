@@ -50,6 +50,7 @@ SYSTEM_AND_RESERVED_FOLDERS = {
     "functions",
     "leads",
     "mxs-talent",
+    "login",
     "partner",
     "partner-jobs",
     "reports",
