@@ -615,12 +615,12 @@
       40% { transform: translateX(-36px); }
     }
 
-    .swipe-track.is-nudging > .alltag-card {
+    .swipe-track.is-nudging > * {
       animation: swipe-nudge 0.9s ease-in-out 1;
     }
 
     @media (prefers-reduced-motion: reduce) {
-      .swipe-track.is-nudging > .alltag-card { animation: none; }
+      .swipe-track.is-nudging > * { animation: none; }
     }
 
     .swipe-dots {
@@ -1867,7 +1867,9 @@
         display: none;
       }
 
-      .swipe-track > .alltag-card {
+      .swipe-track > .alltag-card,
+      .swipe-track > .quote-card,
+      .swipe-track > .video-placeholder-card {
         flex: 0 0 85%;
         max-width: 85%;
         scroll-snap-align: start;
@@ -2082,7 +2084,7 @@
         </div>
 
         <!-- 2 Chef Quote Cards with ENTWURF Badge -->
-        <div class="quotes-grid">
+        <div class="quotes-grid swipe-track">
           <article class="quote-card">
             <div>
               <span class="placeholder-badge">
@@ -2117,6 +2119,16 @@
             </div>
           </article>
         </div>
+        <div class="swipe-hint" aria-hidden="true">
+          <span class="swipe-hint-lbl">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+            <span>Karte <span class="swipe-idx tabular">1</span> von 2</span>
+          </span>
+          <span class="swipe-dots">
+            <span class="swipe-dot is-active"></span>
+            <span class="swipe-dot"></span>
+          </span>
+        </div>
 
                 <!-- 2 Mitarbeiter-Video-Platzhalter mit Name und Kurzaussage -->
         <div class="video-section-box">
@@ -2127,7 +2139,7 @@
             </div>
           </div>
 
-          <div class="video-placeholders-row">
+          <div class="video-placeholders-row swipe-track">
             <div class="video-placeholder-card" role="group" aria-label="Video-Platzhalter Mitarbeiter-Stimme 1" style="background: linear-gradient(165deg, #1e293b 0%, #0f172a 100%);">
               <div class="video-placeholder-top">
                 <span class="video-badge">Video folgt</span>
@@ -2160,6 +2172,16 @@
               </div>
             </div>
           </div>
+        <div class="swipe-hint" aria-hidden="true">
+          <span class="swipe-hint-lbl">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+            <span>Karte <span class="swipe-idx tabular">1</span> von 2</span>
+          </span>
+          <span class="swipe-dots">
+            <span class="swipe-dot is-active"></span>
+            <span class="swipe-dot"></span>
+          </span>
+        </div>
         </div>
       </div>
     </section>
