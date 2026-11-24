@@ -610,6 +610,19 @@
       gap: 6px;
     }
 
+    @keyframes swipe-nudge {
+      0%, 100% { transform: translateX(0); }
+      40% { transform: translateX(-36px); }
+    }
+
+    .swipe-track.is-nudging > .alltag-card {
+      animation: swipe-nudge 0.9s ease-in-out 1;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .swipe-track.is-nudging > .alltag-card { animation: none; }
+    }
+
     .swipe-dots {
       display: inline-flex;
       align-items: center;
@@ -2039,7 +2052,7 @@
         <div class="swipe-hint" aria-hidden="true">
           <span class="swipe-hint-lbl">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
-            <span>Wischen · Karte <span class="swipe-idx tabular">1</span> von 6</span>
+            <span>Karte <span class="swipe-idx tabular">1</span> von 6</span>
           </span>
           <span class="swipe-dots">
             <span class="swipe-dot is-active"></span>
@@ -3301,6 +3314,15 @@
     (function initSwipeTracks() {
       const tracks = document.querySelectorAll(".swipe-track");
       tracks.forEach(function (track) {
+        if ("IntersectionObserver" in window) {
+          const io = new IntersectionObserver(function (en) {
+            if (en[0].isIntersecting && window.matchMedia("(max-width: 760px)").matches) {
+              track.classList.add("is-nudging");
+              io.disconnect();
+            }
+          }, { threshold: 0.6 });
+          io.observe(track);
+        }
         const hint = track.nextElementSibling;
         if (!hint || !hint.classList.contains("swipe-hint")) return;
         const idxEl = hint.querySelector(".swipe-idx");
