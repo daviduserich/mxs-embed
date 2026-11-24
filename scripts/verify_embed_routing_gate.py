@@ -34,6 +34,8 @@ from pathlib import Path
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
 MIDDLEWARE_PATH = REPO_ROOT / "functions" / "_middleware.js"
+TENANT_REDIRECTS_PATH = REPO_ROOT / "functions" / "lib" / "tenant_redirects.js"
+LIVE_CUSTOM_DOMAIN_FOLDERS = ("webpilot", "mxs-talent")
 
 SYSTEM_AND_RESERVED_FOLDERS = {
     ".git",
@@ -89,10 +91,50 @@ def parse_middleware_registered_folders(middleware_text: str) -> set[str]:
     return registered
 
 
+def parse_redirects_file(redirects_path: Path) -> dict[str, dict]:
+    rules: dict[str, dict] = {}
+    if not redirects_path.is_file():
+        return rules
+    for raw_line in redirects_path.read_text(encoding="utf-8", errors="ignore").splitlines():
+        line = raw_line.strip()
+        if not line or line.startswith("#"):
+            continue
+        parts = line.split()
+        if len(parts) < 2:
+            continue
+        raw_src, raw_dst = parts[0].strip(), parts[1].strip()
+        status = 301
+        if len(parts) >= 3:
+            try:
+                status = int(parts[2].strip())
+            except ValueError:
+                status = 301
+        norm_src = "/" + raw_src.lstrip("/").rstrip("/") if raw_src != "/" else "/"
+        if not norm_src:
+            norm_src = "/"
+        rules[norm_src] = {"to": raw_dst, "status": status}
+    return dict(sorted(rules.items(), key=lambda kv: kv[0]))
+
+
+def collect_repo_redirects(repo_root: Path) -> dict[str, dict]:
+    expected: dict[str, dict] = {}
+    for redir_file in sorted(repo_root.glob("*/_redirects")):
+        folder = redir_file.parent.name
+        if folder.startswith("."):
+            continue
+        parsed = parse_redirects_file(redir_file)
+        if parsed:
+            expected[folder] = parsed
+    return expected
+
+
 def run_routing_audit(
     middleware_override: str | None = None,
     injected_xfo_html: tuple[str, str] | None = None,
     injected_career_html: tuple[str, str] | None = None,
+    root_404_override: str | None = None,
+    live_domain_override: dict[tuple[str, str], str] | None = None,
+    redirects_js_override: str | None = None,
     quiet: bool = False,
 ) -> list[str]:
     errors: list[str] = []
@@ -235,6 +277,78 @@ def run_routing_audit(
                 f"[SHRINK-LOCK-BLOCKER] Virtuelles Karriere-Widget '{virt_c_name}' nutzt documentElement.scrollHeight!"
             )
 
+    # 6. Go-Live SEO- & HTTP-404-Gate (Root 404.html + Live-Custom-Domain-Ordner)
+    root_404_path = REPO_ROOT / "404.html"
+    if root_404_override is not None:
+        root_404_txt = root_404_override
+        root_404_exists = bool(root_404_txt.strip())
+    else:
+        root_404_exists = root_404_path.is_file()
+        root_404_txt = root_404_path.read_text(encoding="utf-8", errors="ignore") if root_404_exists else ""
+
+    if not root_404_exists or "noindex" not in root_404_txt.lower():
+        errors.append("[GO-LIVE-SEO-404-GATE] Root-Datei '404.html' fehlt oder enthaelt kein 'noindex'!")
+    elif "\u00df" in root_404_txt or "\u1e9e" in root_404_txt:
+        errors.append("[GO-LIVE-SEO-404-GATE] Root-Datei '404.html' enthaelt Eszett!")
+
+    live_overrides = live_domain_override or {}
+    for live_folder in LIVE_CUSTOM_DOMAIN_FOLDERS:
+        folder_path = REPO_ROOT / live_folder
+        if not folder_path.is_dir():
+            errors.append(f"[GO-LIVE-SEO-404-GATE] Live-Custom-Domain-Ordner '{live_folder}' fehlt!")
+            continue
+
+        def _read_live_file(fname: str) -> str | None:
+            if (live_folder, fname) in live_overrides:
+                val = live_overrides[(live_folder, fname)]
+                return val if val else None
+            fp = folder_path / fname
+            return fp.read_text(encoding="utf-8", errors="ignore") if fp.is_file() else None
+
+        rob = _read_live_file("robots.txt")
+        if rob is None or "Content-Signal:" not in rob:
+            errors.append(f"[GO-LIVE-SEO-404-GATE] '{live_folder}/robots.txt' fehlt oder enthaelt kein 'Content-Signal:'!")
+
+        llms = _read_live_file("llms.txt")
+        if llms is None or len(llms.strip()) < 100:
+            errors.append(f"[GO-LIVE-SEO-404-GATE] '{live_folder}/llms.txt' fehlt oder ist zu kurz!")
+
+        sm = _read_live_file("sitemap.xml")
+        if sm is None or len(sm.strip()) < 80:
+            errors.append(f"[GO-LIVE-SEO-404-GATE] '{live_folder}/sitemap.xml' fehlt oder ist zu kurz!")
+
+        err404 = _read_live_file("404.html")
+        if err404 is None or "noindex" not in err404.lower():
+            errors.append(f"[GO-LIVE-SEO-404-GATE] '{live_folder}/404.html' fehlt oder enthaelt kein 'noindex'!")
+        elif "\u00df" in err404 or "\u1e9e" in err404:
+            errors.append(f"[GO-LIVE-SEO-404-GATE] '{live_folder}/404.html' enthaelt Eszett!")
+
+    # 7. Edge-Redirects-Sync-Gate (1:1 Abgleich <folder>/_redirects <-> functions/lib/tenant_redirects.js)
+    expected_redirects = collect_repo_redirects(REPO_ROOT)
+    if redirects_js_override is not None:
+        js_text = redirects_js_override
+        js_exists = bool(js_text.strip())
+    else:
+        js_exists = TENANT_REDIRECTS_PATH.is_file()
+        js_text = TENANT_REDIRECTS_PATH.read_text(encoding="utf-8", errors="ignore") if js_exists else ""
+
+    if not js_exists:
+        errors.append("[REDIRECTS-SYNC-GATE] 'functions/lib/tenant_redirects.js' fehlt!")
+    else:
+        js_m = re.search(r"export\s+const\s+TENANT_REDIRECTS\s*=\s*(\{[\s\S]*\})\s*;?", js_text)
+        if not js_m:
+            errors.append("[REDIRECTS-SYNC-GATE] Konnte 'TENANT_REDIRECTS' in functions/lib/tenant_redirects.js nicht parsen!")
+        else:
+            try:
+                actual_redirects = json.loads(js_m.group(1))
+                if actual_redirects != expected_redirects:
+                    errors.append(
+                        "[REDIRECTS-SYNC-GATE] Drift zwischen '<folder>/_redirects' und 'functions/lib/tenant_redirects.js'! "
+                        "Bitte 'python3 scripts/webpilot_seo_geo_autopilot.py --sync-redirects' ausfuehren."
+                    )
+            except Exception as exc:
+                errors.append(f"[REDIRECTS-SYNC-GATE] Ungueltiges JSON in tenant_redirects.js: {exc}")
+
     if not quiet:
         if errors:
             print("=" * 72, file=sys.stderr)
@@ -245,15 +359,16 @@ def run_routing_audit(
             print("=" * 72, file=sys.stderr)
         else:
             print(
-                f"✅ [verify_embed_routing_gate] PASS: Alle Direkt-Mandantenordner ({sorted(registered_folders)}) "
-                f"in _middleware.js registriert, stellen.json-Dateien vorhanden, 0 XFO-Blocker & 100 % Resize-/WhatsApp-Hooks."
+                f"✅ [verify_embed_routing_gate] PASS: Alle Direkt-Mandantenordner ({sorted(registered_folders)}), "
+                f"Live-Domain SEO/404-Dateien ({list(LIVE_CUSTOM_DOMAIN_FOLDERS)}) & {len(expected_redirects)} "
+                f"Edge-Redirect-Tabellen 100 % verifiziert (0 XFO-Blocker, 0 Drift)."
             )
 
     return errors
 
 
 def run_selftest() -> bool:
-    """Prueft deterministisch, dass das Gate bei Fehl-Routing, XFO-DENY und fehlenden Pflicht-Hooks anschlaegt."""
+    """Prueft deterministisch, dass das Gate bei Fehl-Routing, XFO-DENY, fehlenden Hooks, SEO/404 & Redirect-Drift anschlaegt."""
     mw_text = MIDDLEWARE_PATH.read_text(encoding="utf-8", errors="ignore")
     # Test 1: Entferne 'zurbuchen' aus DIRECT_ONLY_FOLDERS
     broken_mw = mw_text.replace("'zurbuchen',", "").replace("'zurbuchen'", "")
@@ -291,14 +406,34 @@ def run_selftest() -> bool:
     )
     cond_5 = any("test_shrink_lock.html" in e and "SHRINK-LOCK-BLOCKER" in e for e in errs_5)
 
-    if cond_1 and cond_2 and cond_3 and cond_4 and cond_5:
+    # Test 6: Go-Live SEO & 404 Gate (fehlendes Content-Signal in mxs-talent/robots.txt & fehlende Root-404)
+    errs_6a = run_routing_audit(
+        live_domain_override={("mxs-talent", "robots.txt"): "User-agent: *\nAllow: /\n"},
+        quiet=True,
+    )
+    errs_6b = run_routing_audit(root_404_override="", quiet=True)
+    cond_6 = (
+        any("mxs-talent/robots.txt" in e and "GO-LIVE-SEO-404-GATE" in e for e in errs_6a)
+        and any("Root-Datei '404.html'" in e and "GO-LIVE-SEO-404-GATE" in e for e in errs_6b)
+    )
+
+    # Test 7: Edge-Redirects-Sync Gate (Drift in functions/lib/tenant_redirects.js)
+    errs_7 = run_routing_audit(
+        redirects_js_override='export const TENANT_REDIRECTS = {};\n',
+        quiet=True,
+    )
+    cond_7 = any("REDIRECTS-SYNC-GATE" in e for e in errs_7)
+
+    if cond_1 and cond_2 and cond_3 and cond_4 and cond_5 and cond_6 and cond_7:
         print(
-            "🧪 [verify_embed_routing_gate --self-test] PASS: Alle 5 Negativ-Proben "
-            "(Missing Folder + XFO DENY + Missing Resize + Missing WhatsApp + Shrink-Lock) wurden hart blockiert."
+            "🧪 [verify_embed_routing_gate --self-test] PASS: Alle 7 Negativ-Proben "
+            "(Missing Folder + XFO DENY + Missing Resize + Missing WhatsApp + Shrink-Lock + GoLive SEO/404 + Redirect-Drift) "
+            "wurden hart blockiert."
         )
         return True
     print(
-        f"🚨 [verify_embed_routing_gate --self-test] FAIL: cond_1={cond_1}, cond_2={cond_2}, cond_3={cond_3}, cond_4={cond_4}",
+        f"🚨 [verify_embed_routing_gate --self-test] FAIL: cond_1={cond_1}, cond_2={cond_2}, cond_3={cond_3}, "
+        f"cond_4={cond_4}, cond_5={cond_5}, cond_6={cond_6}, cond_7={cond_7}",
         file=sys.stderr,
     )
     return False

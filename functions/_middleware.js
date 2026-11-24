@@ -1,3 +1,5 @@
+import { TENANT_REDIRECTS } from './lib/tenant_redirects.js';
+
 const VORSCHAU_SLUG_TO_FOLDER = {
   // Clean Equipe GmbH · Karolina Fabic (5727 Oberkulm): Zeigeversion (-v2, -v1, ohne Suffix) -> preview-seit-v2 | Vollversion (-vollversion, -vv) -> preview-seit
   'seit': 'preview-seit-v2',
@@ -267,6 +269,117 @@ function applyEnterpriseSecurityHeaders(response) {
   });
 }
 
+const STATIC_ASSET_EXT_RE = /\.(?:png|jpe?g|webp|gif|svg|ico|css|js|mjs|woff2?|ttf|eot|map|json|xml|txt|pdf|mp4|webm)$/i;
+
+function wantsMarkdownNegotiation(request) {
+  const accept = (request.headers.get('Accept') || '').toLowerCase();
+  if (!accept.includes('text/markdown')) return false;
+  const mdIdx = accept.indexOf('text/markdown');
+  const htmlIdx = accept.indexOf('text/html');
+  return htmlIdx === -1 || mdIdx < htmlIdx;
+}
+
+function resolveTenantRedirect(folder, relPath, url, externalPrefix = '') {
+  const rules = folder && TENANT_REDIRECTS ? TENANT_REDIRECTS[folder] : null;
+  if (!rules) return null;
+  let normRel = (relPath || '/').replace(/\/+$/, '');
+  if (!normRel) normRel = '/';
+  const rule = rules[normRel] || rules[normRel.toLowerCase()];
+  if (!rule || !rule.to) return null;
+
+  let dest = rule.to;
+  let targetUrl;
+  if (/^https?:\/\//i.test(dest)) {
+    targetUrl = new URL(dest);
+  } else {
+    if (!dest.startsWith('/')) dest = `/${dest}`;
+    targetUrl = new URL(`${externalPrefix}${dest}`, url.origin);
+  }
+  if (url.search && !targetUrl.search) {
+    targetUrl.search = url.search;
+  }
+  return new Response(null, {
+    status: rule.status || 301,
+    headers: {
+      'Location': targetUrl.toString(),
+      'Cache-Control': 'public, max-age=3600'
+    }
+  });
+}
+
+async function serveMarkdownTwin(context, folder, url) {
+  if (!folder) return null;
+  const method = context.request.method === 'HEAD' ? 'HEAD' : 'GET';
+  const mdUrl = new URL(`/${folder}/llms.txt`, url.origin);
+  const mdRes = await context.env.ASSETS.fetch(new Request(mdUrl, { method }));
+  if (mdRes.status === 200) {
+    const headers = new Headers(mdRes.headers);
+    headers.set('Content-Type', 'text/markdown; charset=utf-8');
+    headers.set('Vary', 'Accept');
+    headers.set('Cache-Control', 'public, max-age=300');
+    return new Response(method === 'HEAD' ? null : mdRes.body, {
+      status: 200,
+      headers
+    });
+  }
+  return null;
+}
+
+function appendDiscoveryLinkHeader(headers, prefix = '') {
+  const cleanPrefix = prefix ? `/${prefix.replace(/^\/+|\/+$/g, '')}` : '';
+  headers.append(
+    'Link',
+    `<${cleanPrefix}/llms.txt>; rel="describedby"; type="text/markdown", <${cleanPrefix}/sitemap.xml>; rel="sitemap"; type="application/xml"`
+  );
+}
+
+async function serveTenant404(context, folder, url, baseHref = '/') {
+  if (STATIC_ASSET_EXT_RE.test(url.pathname)) {
+    return new Response('Not Found', {
+      status: 404,
+      headers: {
+        'Content-Type': 'text/plain; charset=utf-8',
+        'Cache-Control': 'no-store'
+      }
+    });
+  }
+  const isHead = context.request.method === 'HEAD';
+  let usedTenant = false;
+  let errRes = null;
+  if (folder) {
+    const tenantErrUrl = new URL(`/${folder}/404.html`, url.origin);
+    const cand = await context.env.ASSETS.fetch(new Request(tenantErrUrl, { method: 'GET' }));
+    if (cand.status === 200) {
+      errRes = cand;
+      usedTenant = true;
+    }
+  }
+  if (!errRes) {
+    const rootErrUrl = new URL('/404.html', url.origin);
+    errRes = await context.env.ASSETS.fetch(new Request(rootErrUrl, { method: 'GET' }));
+  }
+  if (!errRes || errRes.status !== 200) {
+    return new Response('404 Not Found', {
+      status: 404,
+      headers: {
+        'Content-Type': 'text/html; charset=utf-8',
+        'Cache-Control': 'no-store'
+      }
+    });
+  }
+  let html = await errRes.text();
+  if (usedTenant && baseHref && !/<base\b/i.test(html)) {
+    html = html.replace(/<head\b([^>]*)>/i, `<head$1>\n  <base href="${baseHref}">`);
+  }
+  return new Response(isHead ? null : html, {
+    status: 404,
+    headers: {
+      'Content-Type': 'text/html; charset=utf-8',
+      'Cache-Control': 'no-store'
+    }
+  });
+}
+
 export async function onRequest(context) {
   const response = await handleRequestCore(context);
   return applyEnterpriseSecurityHeaders(response);
@@ -325,6 +438,21 @@ async function handleRequestCore(context) {
     if (url.pathname.includes('/cockpit')) {
       return Response.redirect(`https://embed.magnet-xs.ch/mxs-talent/cockpit${url.search}`, 302);
     }
+    const relPath = url.pathname.startsWith('/mxs-talent/')
+      ? (url.pathname.slice('/mxs-talent'.length) || '/')
+      : (url.pathname === '/mxs-talent' ? '/' : (url.pathname || '/'));
+
+    const tenantRedir = resolveTenantRedirect('mxs-talent', relPath, url, '');
+    if (tenantRedir) {
+      return tenantRedir;
+    }
+
+    const isRootHtmlRoute = (relPath === '/' || relPath === '/index.html');
+    if (isRootHtmlRoute && wantsMarkdownNegotiation(context.request)) {
+      const mdRes = await serveMarkdownTwin(context, 'mxs-talent', url);
+      if (mdRes) return mdRes;
+    }
+
     let targetPath = url.pathname;
     if (targetPath === '/' || targetPath === '') {
       targetPath = '/mxs-talent/';
@@ -335,6 +463,10 @@ async function handleRequestCore(context) {
     const rewriteUrl = new URL(targetPath, url.origin);
     rewriteUrl.search = url.search;
     const response = await context.env.ASSETS.fetch(new Request(rewriteUrl, context.request));
+
+    if (response.status === 404) {
+      return serveTenant404(context, 'mxs-talent', url, '/');
+    }
 
     if ([301, 302, 307, 308].includes(response.status)) {
       const loc = response.headers.get('location');
@@ -348,12 +480,28 @@ async function handleRequestCore(context) {
         });
       }
     }
+
+    if (response.status === 200 && url.pathname !== '/404.html' && !url.pathname.endsWith('/404.html')) {
+      const ct = (response.headers.get('content-type') || '').toLowerCase();
+      if (ct.includes('text/html')) {
+        const newHeaders = new Headers(response.headers);
+        appendDiscoveryLinkHeader(newHeaders, '');
+        if (isRootHtmlRoute) {
+          newHeaders.append('Vary', 'Accept');
+        }
+        return new Response(response.body, {
+          status: response.status,
+          headers: newHeaders
+        });
+      }
+    }
     return response;
   }
 
   // 1b. Hostname: webpilot.magnet-xs.ch
   if (hostname.startsWith('webpilot.')) {
     let targetPath = url.pathname;
+    const isCockpitSpecial = (targetPath === '/cockpit-app.html' || targetPath.includes('/cockpit'));
     if (targetPath === '/cockpit-app.html') {
       const siteParam = (url.searchParams.get('site') || 'preview-holz-susi').replace(/^sites\//, '');
       targetPath = `/${siteParam}/cockpit.html`;
@@ -367,9 +515,29 @@ async function handleRequestCore(context) {
       targetPath = `/webpilot${targetPath}`;
     }
 
+    if (!isCockpitSpecial && !targetPath.startsWith('/preview-')) {
+      const relPath = url.pathname.startsWith('/webpilot/')
+        ? (url.pathname.slice('/webpilot'.length) || '/')
+        : (url.pathname === '/webpilot' ? '/' : (url.pathname || '/'));
+      const wpRedir = resolveTenantRedirect('webpilot', relPath, url, '');
+      if (wpRedir) return wpRedir;
+      if ((relPath === '/' || relPath === '/index.html') && wantsMarkdownNegotiation(context.request)) {
+        const mdRes = await serveMarkdownTwin(context, 'webpilot', url);
+        if (mdRes) return mdRes;
+      }
+    }
+
     const rewriteUrl = new URL(targetPath, url.origin);
     rewriteUrl.search = url.search;
     const response = await context.env.ASSETS.fetch(new Request(rewriteUrl, context.request));
+
+    if (response.status === 404) {
+      if (targetPath.startsWith('/preview-')) {
+        const pFolder = targetPath.split('/').filter(Boolean)[0] || '';
+        return serveTenant404(context, pFolder, url, pFolder ? `/${pFolder}/` : '/');
+      }
+      return serveTenant404(context, 'webpilot', url, '/');
+    }
 
     if ([301, 302, 307, 308].includes(response.status)) {
       const loc = response.headers.get('location');
@@ -377,6 +545,21 @@ async function handleRequestCore(context) {
         const cleanLoc = loc.replace(/^\/webpilot/, '') || '/';
         const newHeaders = new Headers(response.headers);
         newHeaders.set('location', cleanLoc);
+        return new Response(response.body, {
+          status: response.status,
+          headers: newHeaders
+        });
+      }
+    }
+
+    if (response.status === 200 && !isCockpitSpecial && !targetPath.startsWith('/preview-') && url.pathname !== '/404.html' && !url.pathname.endsWith('/404.html')) {
+      const ct = (response.headers.get('content-type') || '').toLowerCase();
+      if (ct.includes('text/html')) {
+        const newHeaders = new Headers(response.headers);
+        appendDiscoveryLinkHeader(newHeaders, '');
+        if (url.pathname === '/' || url.pathname === '/index.html' || url.pathname === '/webpilot' || url.pathname === '/webpilot/') {
+          newHeaders.append('Vary', 'Accept');
+        }
         return new Response(response.body, {
           status: response.status,
           headers: newHeaders
@@ -453,6 +636,7 @@ async function handleRequestCore(context) {
     let isClientPath = false;
     let activeClientSlug = '';
     let targetFolder = '';
+    let isPublicClientHtml = false;
 
     const DIRECT_ONLY_FOLDERS = ['zurbuchen', 'cotra', 'muster-holzbau', 'hochuli-zimmermann'];
     const DUAL_EMBED_AND_PREVIEW_FOLDERS = ['hiltbrand'];
@@ -510,11 +694,24 @@ async function handleRequestCore(context) {
         return Response.redirect(cleanCockpitUrl.toString(), 302);
       } else if (rest === '/cockpit' || rest === '/cockpit.html') {
         targetPath = `/${targetFolder}/cockpit.html`;
-      } else if (activeClientSlug === 'zurbuchen' && (lowerRest === '/zurbuchen_holzbauer_november.html' || lowerRest === '/zurbuchen_holzbauer.html')) {
-        targetPath = '/zurbuchen/index.html';
       } else {
-        targetPath = `/${targetFolder}${rest}`;
+        const clientRedir = resolveTenantRedirect(targetFolder, rest, url, `/${activeClientSlug}`);
+        if (clientRedir) {
+          return clientRedir;
+        }
+        if (activeClientSlug === 'zurbuchen' && (lowerRest === '/zurbuchen_holzbauer_november.html' || lowerRest === '/zurbuchen_holzbauer.html')) {
+          targetPath = '/zurbuchen/index.html';
+        } else {
+          targetPath = `/${targetFolder}${rest}`;
+        }
+        if (!DIRECT_ONLY_FOLDERS.includes(activeClientSlug)) {
+          isPublicClientHtml = true;
+        }
       }
+    } else if (url.pathname.startsWith('/mxs-talent/')) {
+      const mxsRel = url.pathname.slice('/mxs-talent'.length) || '/';
+      const mxsRedir = resolveTenantRedirect('mxs-talent', mxsRel, url, '/mxs-talent');
+      if (mxsRedir) return mxsRedir;
     }
 
     const rewriteUrl = new URL(targetPath, url.origin);
@@ -543,12 +740,28 @@ async function handleRequestCore(context) {
       }
     }
 
+    if (response.status === 404) {
+      if (isClientPath) {
+        return serveTenant404(context, targetFolder, url, `/${activeClientSlug}/`);
+      }
+      if (url.pathname.startsWith('/webpilot')) {
+        return serveTenant404(context, 'webpilot', url, '/webpilot/');
+      }
+      if (url.pathname.startsWith('/mxs-talent')) {
+        return serveTenant404(context, 'mxs-talent', url, '/mxs-talent/');
+      }
+      return serveTenant404(context, '', url, '/');
+    }
+
     let newHeaders = new Headers(response.headers);
+    const ct = (newHeaders.get('content-type') || '').toLowerCase();
     if (isClientPath) {
-      const ct = (newHeaders.get('content-type') || '').toLowerCase();
       if (ct.includes('text/html')) {
         newHeaders.set('Cache-Control', 'no-store, no-cache, must-revalidate, max-age=0');
         newHeaders.delete('ETag');
+        if (response.status === 200 && isPublicClientHtml && !url.pathname.endsWith('/404.html')) {
+          appendDiscoveryLinkHeader(newHeaders, activeClientSlug);
+        }
       }
       const tokenParam = url.searchParams.get('token');
       if (tokenParam) {
@@ -558,6 +771,12 @@ async function handleRequestCore(context) {
         if (activeClientSlug === 'hiltbrand') {
           newHeaders.append('Set-Cookie', `hb_preview_token=${tokenParam}; Path=/hiltbrand/; Max-Age=86400; SameSite=Lax`);
         }
+      }
+    } else if (response.status === 200 && ct.includes('text/html') && url.pathname !== '/404.html' && !url.pathname.endsWith('/404.html')) {
+      if (url.pathname.startsWith('/webpilot') && !url.pathname.includes('/cockpit')) {
+        appendDiscoveryLinkHeader(newHeaders, 'webpilot');
+      } else if (url.pathname.startsWith('/mxs-talent') && !url.pathname.includes('/cockpit')) {
+        appendDiscoveryLinkHeader(newHeaders, 'mxs-talent');
       }
     }
 

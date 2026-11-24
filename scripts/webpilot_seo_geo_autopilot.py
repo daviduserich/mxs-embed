@@ -123,6 +123,55 @@ SITE_SEO_PROFILES = {
             )
         ]
     },
+    "mxs-talent": {
+        "schema_type": "ProfessionalService",
+        "company_name": "mXs Talent Solutions · magnet-Xs gmbh",
+        "legal_name": "magnet-Xs gmbh",
+        "city": "Zofingen",
+        "canton": "AG",
+        "postal_code": "4800",
+        "street_address": "Vordere Hauptgasse 104",
+        "phone": "+41 62 511 21 06",
+        "email": "recruiting@mxs-talent-solutions.com",
+        "uid": "",
+        "source_url": "https://mxs-talent-solutions.com/",
+        "hero_image": "images/Hue_im_Anzug_mit_Beschriftung-1024x684.png",
+        "summary_2s": (
+            "mXs Talent Solutions (eine Einheit der magnet-Xs gmbh in 4800 Zofingen AG) ist Ihre "
+            "externe Personalabteilung, Social-Recruiting-Agentur und Ausbildungspartner für Schweizer KMU "
+            "und Konzerne: über 30 Jahre Erfahrung, über 400 betreute Unternehmen und 4'200 rekrutierte "
+            "Mitarbeitende durch authentische Arbeitgeber-Videos und geführtes Employer Branding."
+        ),
+        "area_served": [
+            "Zofingen", "Aarau", "Olten", "Baden", "Zürich", "Bern",
+            "Basel", "Luzern", "Solothurn", "Kanton Aargau", "Deutschschweiz", "Schweiz"
+        ],
+        "services": [
+            "Externe Personalabteilung (Done-for-You Rekrutierung und Kandidatengewinnung)",
+            "Social Recruiting Agentur mit authentischen Mitarbeiter- und Arbeitgeber-Videos",
+            "Ausbildungspartner und Inhouse-Coaching für HR-, Marketing- und Employer-Branding-Teams",
+            "Personalvermittlung Classic, Konzept-Beratungen und HR on Demand",
+            "Employer Branding auf Autopilot für Schweizer KMU, Handwerk, Industrie und Dienstleistung"
+        ],
+        "core_faqs": [
+            (
+                "Wie unterstützt mXs Talent Solutions Unternehmen als externe Personalabteilung?",
+                "mXs Talent Solutions übernimmt als erfahrene externe Personalabteilung die gezielte Ansprache passender Fachkräfte über Social Recruiting, authentische Mitarbeiter-Videos und klare Bewerbungsprozesse, sodass Sie qualifizierte Bewerbungen erhalten, die fachlich und menschlich zu Ihrem Betrieb passen."
+            ),
+            (
+                "Können interne HR- und Marketing-Teams die Methode auch selbst erlernen?",
+                "Ja. Als Ausbildungspartner befähigt mXs Talent Solutions Ihr HR-, Marketing- und Führungsteam in kompakten Trainings direkt in Ihrem Unternehmen, Employer Branding und Social Recruiting eigenständig und wirksam umzusetzen."
+            ),
+            (
+                "Warum verzichtet mXs Talent Solutions auf öffentliche Video-Testimonials?",
+                "Zum Schutz bestehender Kundinnen und Kunden vor digitalem Daten- und KI-Missbrauch veröffentlicht mXs Talent Solutions keine frei zugänglichen Video-Testimonials im Netz. Referenzen und Projektbeispiele werden im persönlichen Kennenlerngespräch vertraulich vorgestellt."
+            ),
+            (
+                "Wie vereinbare ich ein unverbindliches Erstgespräch mit mXs Talent Solutions?",
+                "Über die Seite «Strategie kennenlernen», telefonisch unter +41 62 511 21 06 oder per E-Mail an recruiting@mxs-talent-solutions.com vereinbaren Sie direkt ein persönliches Gespräch mit David Hügli oder Carmen Caselli in 4800 Zofingen."
+            )
+        ]
+    },
     "webpilot": {
         "schema_type": "ProfessionalService",
         "company_name": "WebPilot · magnet-Xs gmbh",
@@ -980,6 +1029,8 @@ def _resolve_public_base_url(site_dir: Path) -> str:
     folder = site_dir.name
     if folder == "webpilot":
         return "https://webpilot.magnet-xs.ch/"
+    if folder == "mxs-talent":
+        return "https://mxs-talent-solutions.com/"
     pub_slug = PUBLIC_SLUG_MAP.get(folder)
     if not pub_slug:
         clean = folder[len("preview-"):] if folder.startswith("preview-") else folder
@@ -1818,9 +1869,9 @@ def enrich_forms_autofill_and_webmcp(html_text: str, profile: dict, filename: st
 
             # 1. Honeypot-Entkopplung via form="wpTrapDetached"
             is_honeypot = (
-                el_id_low in ("wphoneypot", "wppartnerhp")
+                el_id_low in ("wphoneypot", "wppartnerhp", "hpfield")
                 or "honeypot" in el_id_low
-                or el_name.lower() == "website_url"
+                or el_name.lower() in ("website_url", "_hp")
             )
             if is_honeypot:
                 updated_hp = _set_or_add_attr(fld_tag, "form", "wpTrapDetached", overwrite=False)
@@ -2071,6 +2122,174 @@ def build_json_ld_graph(profile: dict, page_info: dict, iso_now: str) -> dict:
     }
 
 
+def _hex_to_rgb(hex_str: str) -> tuple[int, int, int] | None:
+    """Konvertiert #RGB oder #RRGGBB in ein (r, g, b)-Tupel."""
+    if not hex_str:
+        return None
+    s = hex_str.strip().lstrip("#")
+    if len(s) == 3 and re.fullmatch(r"[0-9a-fA-F]{3}", s):
+        s = "".join(c * 2 for c in s)
+    if len(s) == 8 and re.fullmatch(r"[0-9a-fA-F]{8}", s):
+        s = s[:6]
+    if len(s) != 6 or not re.fullmatch(r"[0-9a-fA-F]{6}", s):
+        return None
+    return int(s[0:2], 16), int(s[2:4], 16), int(s[4:6], 16)
+
+
+def _rel_lum(rgb: tuple[int, int, int]) -> float:
+    """Berechnet die relative WCAG-Luminanz (0.0 bis 1.0)."""
+    def _c(v: int) -> float:
+        s = v / 255.0
+        return s / 12.92 if s <= 0.03928 else ((s + 0.055) / 1.055) ** 2.4
+    return 0.2126 * _c(rgb[0]) + 0.7152 * _c(rgb[1]) + 0.0722 * _c(rgb[2])
+
+
+def _contrast_ratio(c1: tuple[int, int, int], c2: tuple[int, int, int]) -> float:
+    l1 = _rel_lum(c1)
+    l2 = _rel_lum(c2)
+    return (max(l1, l2) + 0.05) / (min(l1, l2) + 0.05)
+
+
+def _parse_css_vars(html_text: str) -> dict[str, str]:
+    """Extrahiert CSS-Custom-Properties aus :root-Blöcken."""
+    vars_map: dict[str, str] = {}
+    for rm in re.finditer(r":root\s*\{([^}]+)\}", html_text, flags=re.I):
+        for decl in rm.group(1).split(";"):
+            if ":" not in decl:
+                continue
+            k, v = decl.split(":", 1)
+            k = k.strip()
+            v = re.sub(r"/\*[\s\S]*?\*/", "", v).strip()
+            if k.startswith("--") and v:
+                vars_map[k] = v
+    return vars_map
+
+
+def _resolve_css_color(raw_val: str, css_vars: dict[str, str], depth: int = 0) -> str | None:
+    """Löst var(--...) rekursiv auf und gibt #RRGGBB zurück (oder rgba -> RGB-Hex)."""
+    if not raw_val or depth > 4:
+        return None
+    val = raw_val.strip()
+    m_var = re.match(r"var\(\s*(--[a-zA-Z0-9_-]+)(?:\s*,\s*([^)]+))?\s*\)", val)
+    if m_var:
+        var_name = m_var.group(1)
+        if var_name in css_vars:
+            res = _resolve_css_color(css_vars[var_name], css_vars, depth + 1)
+            if res:
+                return res
+        if m_var.group(2):
+            return _resolve_css_color(m_var.group(2), css_vars, depth + 1)
+        return None
+    rgb = _hex_to_rgb(val)
+    if rgb is not None:
+        return f"#{rgb[0]:02x}{rgb[1]:02x}{rgb[2]:02x}"
+    m_rgba = re.match(r"rgba?\(\s*(\d+)\s*,\s*(\d+)\s*,\s*(\d+)", val)
+    if m_rgba:
+        r, g, b = int(m_rgba.group(1)), int(m_rgba.group(2)), int(m_rgba.group(3))
+        return f"#{min(255,r):02x}{min(255,g):02x}{min(255,b):02x}"
+    return None
+
+
+def _find_apple_touch_icon(site_dir: Path | None, head_inner: str) -> str:
+    """Sucht ein physisch existierendes lokales Icon/Logo für <link rel='apple-touch-icon'>."""
+    if not site_dir or not site_dir.is_dir():
+        return ""
+    site_root = site_dir.resolve()
+
+    def _is_valid_local(rel_path: str) -> bool:
+        if not rel_path or rel_path.startswith(("http://", "https://", "data:", "//", "${")):
+            return False
+        clean = rel_path.split("?")[0].split("#")[0].strip().lstrip("/")
+        if not clean:
+            return False
+        try:
+            cand = (site_root / clean).resolve()
+            return str(cand).startswith(str(site_root)) and cand.is_file()
+        except Exception:
+            return False
+
+    # 1. Standard-Pfad images/apple-touch-icon.png
+    if _is_valid_local("images/apple-touch-icon.png"):
+        return "images/apple-touch-icon.png"
+
+    # 2. Bestehender <link rel="icon" href="..."> (bevorzugt Raster-PNG/JPG/WEBP)
+    icon_hrefs = re.findall(
+        r'<link\s+[^>]*rel=(["\'])(?:shortcut\s+)?icon\1[^>]*href=(["\'])([^"\']+)\2',
+        head_inner,
+        flags=re.I,
+    )
+    if not icon_hrefs:
+        icon_hrefs = [
+            ("", "", m)
+            for m in re.findall(
+                r'<link\s+[^>]*href=(["\'])([^"\']+)\1[^>]*rel=(["\'])(?:shortcut\s+)?icon\3',
+                head_inner,
+                flags=re.I,
+            )
+        ]
+    local_icons = []
+    for item in icon_hrefs:
+        href = item[2] if len(item) >= 3 else item[1]
+        if isinstance(href, tuple):
+            href = href[1]
+        if _is_valid_local(href):
+            local_icons.append(href)
+    for href in local_icons:
+        if Path(href.split("?")[0]).suffix.lower() in (".png", ".jpg", ".jpeg", ".webp"):
+            return href
+
+    # 3. Lokale *favicon* oder *logo*.png unter images/ und assets/
+    for sub in ("images", "assets"):
+        subdir = site_root / sub
+        if not subdir.is_dir():
+            continue
+        for pat in ("*favicon*.png", "*favicon*.webp", "*favicon*.jpg", "*favicon*.ico", "*logo*.png"):
+            matches = sorted(p for p in subdir.glob(pat) if p.is_file())
+            # Bevorzuge nicht-invertierte Logos (_neg zuletzt)
+            matches.sort(key=lambda p: (1 if "_neg" in p.name.lower() else 0, p.name.lower()))
+            if matches:
+                return f"{sub}/{matches[0].name}"
+
+    if local_icons:
+        return local_icons[0]
+    return ""
+
+
+def inject_skip_to_content(html_text: str, filename: str) -> str:
+    """
+    Injiziert idempotent einen WCAG-2.2-Skip-Link nach <body>, sofern noch kein
+    Skip-Link existiert UND ein <main>-Landmark vorhanden ist (#UI-23 / Paket D).
+    """
+    fname_low = filename.lower()
+    if fname_low.startswith(("cockpit", "team-update", "onboarding")) or fname_low == "404.html":
+        return html_text
+    if re.search(r'\bwp-skip-link\b|\bskip-link\b', html_text, flags=re.I):
+        return html_text
+    if re.search(r'<a\b[^>]*href=(["\'])#main(?:-content)?\1[^>]*>[^<]*(?:Inhalt|Skip)', html_text, flags=re.I):
+        return html_text
+
+    main_m = re.search(r"<main\b([^>]*)>", html_text, flags=re.I)
+    if not main_m:
+        return html_text
+
+    main_attrs = main_m.group(1) or ""
+    id_m = re.search(r'\bid=(["\'])(.*?)\1', main_attrs, flags=re.I)
+    if id_m and id_m.group(2).strip():
+        main_id = id_m.group(2).strip()
+        working = html_text
+    else:
+        main_id = "main-content"
+        new_main_tag = f'<main id="{main_id}"{main_attrs}>'
+        working = html_text[:main_m.start()] + new_main_tag + html_text[main_m.end():]
+
+    body_m = re.search(r"<body\b[^>]*>", working, flags=re.I)
+    if not body_m:
+        return html_text
+
+    skip_tag = f'\n  <a class="wp-skip-link" href="#{html_lib.escape(main_id, quote=True)}">Direkt zum Inhalt</a>'
+    return working[:body_m.end()] + skip_tag + working[body_m.end():]
+
+
 def inject_head_seo_geo(
     html_text: str,
     profile: dict,
@@ -2078,6 +2297,7 @@ def inject_head_seo_geo(
     iso_now: str,
     page_count: int = 1,
     has_step3_wizard: bool = False,
+    site_dir: Path | None = None,
 ) -> str:
     """
     Injiziert bzw. aktualisiert idempotent im <head>:
@@ -2160,10 +2380,14 @@ def inject_head_seo_geo(
         flags=re.I,
     )
 
-    # Prüfe, ob <meta name="description"> bereits im <head> existiert
+    # Prüfe, ob <meta name="description"> oder <link rel="apple-touch-icon"> bereits im <head> existiert
     has_meta_desc = bool(
         re.search(r'<meta\s+[^>]*name=(["\'])description\1', head_inner, re.I)
     )
+    has_apple_touch_icon = bool(
+        re.search(r'<link\s+[^>]*rel=(["\'])apple-touch-icon\1', head_inner, re.I)
+    )
+    apple_icon_href = "" if has_apple_touch_icon else _find_apple_touch_icon(site_dir, head_inner)
 
     base_url = profile["public_base_url"]
     fname = page_info["filename"]
@@ -2191,6 +2415,9 @@ def inject_head_seo_geo(
         "    html { interpolate-size: allow-keywords; }\n"
         "    :where(img[width][height]) { height: auto; }\n"
         "    input:user-invalid, textarea:user-invalid, select:user-invalid { border-color: #DC2626 !important; outline: none; }\n"
+        "    :where(a,button,input,select,textarea,summary,[tabindex]):focus-visible{outline:2px solid var(--accent,var(--primary,#e8781e));outline-offset:2px;}\n"
+        "    .wp-skip-link{position:absolute;top:0;left:0;width:1px;height:1px;padding:0;margin:-1px;border:0;overflow:hidden;clip-path:inset(50%);white-space:nowrap;z-index:99999;background:#0d0f12;color:#ffffff;font-weight:600;text-decoration:none;border-radius:4px;}\n"
+        "    .wp-skip-link:focus,.wp-skip-link:focus-visible{width:auto;height:auto;margin:0;padding:10px 16px;clip-path:none;overflow:visible;top:8px;left:8px;}\n"
         "  </style>"
     )
 
@@ -2252,6 +2479,8 @@ def inject_head_seo_geo(
     meta_lines = ["  <!-- WP-SEO-AUTOPILOT-START -->"]
     if not has_meta_desc:
         meta_lines.append(f'  <meta name="description" content="{safe_desc}">')
+    if apple_icon_href and not is_internal_tool_page:
+        meta_lines.append(f'  <link rel="apple-touch-icon" href="{html_lib.escape(apple_icon_href, quote=True)}">')
     meta_lines.extend([
         '  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">',
         f'  <meta name="geo.region" content="{region_code}">',
@@ -2321,7 +2550,7 @@ def generate_llms_txt(profile: dict, pages_intel: list[dict], human_now: str) ->
 
     live_headings = []
     for pi in pages_intel:
-        if pi["filename"] in ("onboarding.html", "team-update.html"):
+        if pi["filename"] in ("onboarding.html", "team-update.html", "404.html"):
             continue
         for h in pi.get("h2", []) + pi.get("h3", []):
             h_clean = _ss(h).strip()
@@ -2340,7 +2569,7 @@ def generate_llms_txt(profile: dict, pages_intel: list[dict], human_now: str) ->
 
     live_leads = []
     for pi in pages_intel:
-        if pi["filename"] in ("onboarding.html", "team-update.html"):
+        if pi["filename"] in ("onboarding.html", "team-update.html", "404.html"):
             continue
         for lp in pi.get("lead_paragraphs", [])[:2]:
             if lp not in live_leads:
@@ -2357,7 +2586,7 @@ def generate_llms_txt(profile: dict, pages_intel: list[dict], human_now: str) ->
     base_url = profile["public_base_url"]
     for pi in pages_intel:
         fname = pi["filename"]
-        if fname in ("onboarding.html",):
+        if fname in ("onboarding.html", "404.html"):
             continue
         p_url = base_url if fname == "index.html" else f"{base_url}{fname}"
         h1_str = f" – {pi['h1'][0]}" if pi.get("h1") else ""
@@ -2394,7 +2623,7 @@ def generate_sitemap_xml(profile: dict, pages_intel: list[dict], iso_now: str) -
     ]
     for pi in pages_intel:
         fname = pi["filename"]
-        if fname.startswith("cockpit") or fname == "onboarding.html":
+        if fname.startswith("cockpit") or fname in ("onboarding.html", "404.html"):
             continue
         loc = base_url if fname == "index.html" else f"{base_url}{fname}"
         prio = "1.0" if fname == "index.html" else ("0.6" if fname == "team-update.html" else "0.8")
@@ -2423,7 +2652,7 @@ def generate_sitemap_xml(profile: dict, pages_intel: list[dict], iso_now: str) -
 def generate_robots_txt(profile: dict) -> str:
     """
     Generiert /robots.txt mit expliziter Freigabe für Googlebot und alle KI-Such-Bots
-    (GPTBot, OAI-SearchBot, ChatGPT-User, PerplexityBot, ClaudeBot, Google-Extended).
+    (inkl. Content-Signal gemäss isitagentready.com & Claude/Perplexity/Anthropic-User-Agents).
     """
     base_url = profile["public_base_url"]
     bots = [
@@ -2434,8 +2663,12 @@ def generate_robots_txt(profile: dict) -> str:
         "OAI-SearchBot",
         "ChatGPT-User",
         "PerplexityBot",
+        "Perplexity-User",
         "ClaudeBot",
+        "Claude-SearchBot",
+        "Claude-User",
         "Claude-Web",
+        "anthropic-ai",
         "Google-Extended",
         "Applebot-Extended",
     ]
@@ -2448,12 +2681,460 @@ def generate_robots_txt(profile: dict) -> str:
             "Allow: /",
             "Disallow: /cockpit.html",
             "Disallow: /cockpit",
-            "",
         ])
+        if b == "*":
+            lines.append("Content-Signal: ai-train=yes, search=yes, ai-input=yes")
+        lines.append("")
     lines.append(f"Sitemap: {base_url}sitemap.xml")
     lines.append(f"# LLMs: {base_url}llms.txt")
     lines.append("")
     return _ss("\n".join(lines))
+
+
+def generate_404_html(profile: dict, site_dir: Path) -> str:
+    """
+    Erzeugt eine schlanke, farblich und typografisch passende Mandanten-404.html
+    (#UI-01, #UI-10 ohne X-Frame-Options: DENY, #UI-16 Helligkeits-Treue, #LANG-01 100 % ss).
+    """
+    site_dir = Path(site_dir)
+    idx_path = site_dir / "index.html"
+    idx_html = idx_path.read_text(encoding="utf-8", errors="ignore") if idx_path.is_file() else ""
+    css_vars = _parse_css_vars(idx_html)
+
+    # 1. Polarität & Hintergrundfarbe aus index.html + source_visual_dna.json ermitteln (#UI-16)
+    bg_hex = None
+    body_css_m = re.search(r"body\s*\{([^}]+)\}", idx_html)
+    if body_css_m:
+        bg_decl = re.search(r"background(?:-color)?\s*:\s*([^;]+);", body_css_m.group(1))
+        if bg_decl:
+            bg_hex = _resolve_css_color(bg_decl.group(1), css_vars)
+    if not bg_hex:
+        for vk in ("--bg-page", "--bg", "--bg-light", "--canvas", "--white"):
+            if vk in css_vars:
+                bg_hex = _resolve_css_color(css_vars[vk], css_vars)
+                if bg_hex:
+                    break
+    if not bg_hex:
+        bg_hex = "#090a0f" if site_dir.name == "webpilot" else "#f8fafc"
+
+    bg_rgb = _hex_to_rgb(bg_hex) or (248, 250, 252)
+    is_dark = _rel_lum(bg_rgb) < 0.25
+
+    if is_dark:
+        bg_hex = "#090a0f"
+        surface_hex = "#111420"
+        text_hex = "#f8fafc"
+        muted_hex = "#cbd5e1"
+        border_hex = "#232a42"
+    else:
+        surface_hex = "#ffffff"
+        text_hex = "#0f172a"
+        muted_hex = "#475569"
+        border_hex = "#e2e8f0"
+
+    # 2. Marken-Akzentfarbe extrahieren & Button-/Badge-Kontrast garantieren (S-26)
+    accent_hex = None
+    for vk in (
+        "--accent", "--primary", "--recruiting", "--copper", "--fca-red",
+        "--fcs-red", "--scf-red", "--pink", "--crimson", "--gold", "--amber", "--brand"
+    ):
+        if vk in css_vars:
+            cand = _resolve_css_color(css_vars[vk], css_vars)
+            if cand and cand.lower() not in ("#ffffff", "#000000"):
+                accent_hex = cand
+                break
+    if not accent_hex:
+        accent_hex = "#f59e0b" if is_dark else "#e8781e"
+    accent_rgb = _hex_to_rgb(accent_hex) or (232, 120, 30)
+
+    btn_fg_hex = "#090a0f" if _contrast_ratio((9, 10, 15), accent_rgb) >= _contrast_ratio((255, 255, 255), accent_rgb) else "#ffffff"
+
+    if is_dark:
+        badge_bg_css = "rgba(245, 158, 11, 0.14)"
+        badge_fg_hex = "#fbbf24"
+        badge_border_css = "rgba(245, 158, 11, 0.32)"
+    else:
+        blended_badge_bg = (
+            round(accent_rgb[0] * 0.10 + 255 * 0.90),
+            round(accent_rgb[1] * 0.10 + 255 * 0.90),
+            round(accent_rgb[2] * 0.10 + 255 * 0.90),
+        )
+        if _contrast_ratio(accent_rgb, blended_badge_bg) >= 4.5:
+            badge_bg_css = f"rgba({accent_rgb[0]}, {accent_rgb[1]}, {accent_rgb[2]}, 0.10)"
+            badge_fg_hex = accent_hex
+            badge_border_css = f"rgba({accent_rgb[0]}, {accent_rgb[1]}, {accent_rgb[2]}, 0.28)"
+        else:
+            badge_bg_css = "#f1f5f9"
+            badge_fg_hex = "#0f172a"
+            badge_border_css = "#cbd5e1"
+
+    # 3. Header-Hintergrund bestimmen (schützt helle Logos auf dunklen Headers wie preview-seit / preview-frees)
+    hdr_bg_hex = None
+    hdr_css_m = re.search(r"(?:\.top-bar|header(?:\.site-header|\.main-header)?)\s*\{([^}]+)\}", idx_html)
+    if hdr_css_m:
+        hbg_decl = re.search(r"background(?:-color)?\s*:\s*([^;]+);", hdr_css_m.group(1))
+        if hbg_decl:
+            hdr_bg_hex = _resolve_css_color(hbg_decl.group(1), css_vars)
+    if not hdr_bg_hex:
+        hdr_bg_hex = "#090a0f" if is_dark else "#ffffff"
+    hdr_rgb = _hex_to_rgb(hdr_bg_hex) or (255, 255, 255)
+    hdr_is_dark = _rel_lum(hdr_rgb) < 0.35
+    hdr_text_hex = "#ffffff" if hdr_is_dark else "#0f172a"
+    hdr_border_css = "rgba(255, 255, 255, 0.12)" if hdr_is_dark else "#e2e8f0"
+
+    # 4. Markenname, Logo & Google Fonts ohne JetBrains Mono (#UI-01 Pt 4)
+    comp_short = _ss(profile.get("company_name") or site_dir.name).split("\u2014")[0].split("·")[0].strip()
+    if site_dir.name == "webpilot":
+        comp_short = "WebPilot"
+    legal_footer = _ss(profile.get("legal_name") or comp_short)
+    city_str = _ss(profile.get("city") or "")
+    footer_line = f"{legal_footer} · {profile['postal_code']} {city_str}".strip() if profile.get("postal_code") and city_str else (f"{legal_footer} · {city_str}".strip(" ·"))
+
+    logo_html = ""
+    if site_dir.name == "webpilot":
+        logo_html = (
+            '<svg width="32" height="32" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">'
+            '<defs><linearGradient id="wpDelta404" x1="20" y1="80" x2="85" y2="20" gradientUnits="userSpaceOnUse">'
+            '<stop offset="0%" stop-color="#f59e0b"/><stop offset="100%" stop-color="#fbbf24"/>'
+            '</linearGradient></defs>'
+            '<path d="M18 76L82 22L54 82L46 58L18 76Z" fill="url(#wpDelta404)"/>'
+            '</svg>'
+            '<span class="err-brand-name">WebPilot</span>'
+        )
+    else:
+        body_m = re.search(r"<body[^>]*>([\s\S]{0,6000})", idx_html, re.I)
+        body_head = body_m.group(1) if body_m else ""
+        logo_rel = ""
+        for src in re.findall(r'<img\b[^>]*src=(["\'])([^"\']+)\1', body_head, re.I):
+            cand_src = src[1].strip()
+            clean_cand = cand_src.split("?")[0].split("#")[0].lstrip("/")
+            if "favicon" in clean_cand.lower() or cand_src.startswith(("http://", "https://", "data:", "//")):
+                continue
+            if (site_dir / clean_cand).is_file():
+                logo_rel = cand_src
+                break
+        if not logo_rel:
+            for sub in ("images", "assets"):
+                sdir = site_dir / sub
+                if sdir.is_dir():
+                    for pat in ("*logo*.png", "*logo*.webp", "*logo*.svg", "*logo*.jpg"):
+                        cands = sorted(p for p in sdir.glob(pat) if p.is_file())
+                        if cands:
+                            logo_rel = f"{sub}/{cands[0].name}"
+                            break
+                if logo_rel:
+                    break
+        if logo_rel:
+            dims = _get_local_image_dimensions(site_dir, logo_rel)
+            dim_attrs = f' width="{dims[0]}" height="{dims[1]}"' if dims else ""
+            logo_html = (
+                f'<img src="{html_lib.escape(logo_rel, quote=True)}" '
+                f'alt="{html_lib.escape(comp_short, quote=True)}"{dim_attrs} '
+                f'class="err-logo-img" decoding="async">'
+            )
+        else:
+            logo_html = f'<span class="err-brand-name">{html_lib.escape(comp_short)}</span>'
+
+    # 5. Lokaler Kontakt-Link (falls kontakt.html / schaden-kontakt.html / strategie-kennen-lernen.html existiert)
+    contact_btn_html = ""
+    for cname, clabel in (
+        ("kontakt.html", "Kontakt aufnehmen"),
+        ("schaden-kontakt.html", "Kontakt und Schadenmeldung"),
+        ("strategie-kennen-lernen.html", "Strategie kennenlernen"),
+    ):
+        if (site_dir / cname).is_file():
+            contact_btn_html = (
+                f'        <a class="err-btn err-btn-secondary" href="{cname}">\n'
+                '          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">'
+                '<rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>\n'
+                f'          <span>{html_lib.escape(_ss(clabel))}</span>\n'
+                '        </a>\n'
+            )
+            break
+
+    safe_title = html_lib.escape(_ss(f"Seite nicht gefunden (404) · {comp_short}"))
+    safe_comp_label = html_lib.escape(comp_short)
+    safe_footer_line = html_lib.escape(_ss(footer_line))
+    apple_href = _find_apple_touch_icon(site_dir, idx_html)
+    apple_tag = f'  <link rel="apple-touch-icon" href="{html_lib.escape(apple_href, quote=True)}">\n' if apple_href else ""
+
+    html_out = f"""<!DOCTYPE html>
+<html lang="de-CH">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <meta http-equiv="X-XSS-Protection" content="1; mode=block">
+  <meta name="referrer" content="no-referrer">
+{apple_tag}  <title>{safe_title}</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after {{ box-sizing: border-box; margin: 0; padding: 0; }}
+    :root {{
+      --bg: {bg_hex};
+      --surface: {surface_hex};
+      --border: {border_hex};
+      --text: {text_hex};
+      --muted: {muted_hex};
+      --accent: {accent_hex};
+      --btn-fg: {btn_fg_hex};
+      --radius-sm: 4px;
+      --radius-md: 8px;
+    }}
+    html, body {{
+      width: 100%;
+      min-height: 100vh;
+      overflow-x: clip;
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }}
+    body {{
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }}
+    :where(a, button):focus-visible {{
+      outline: 2px solid var(--accent);
+      outline-offset: 2px;
+    }}
+    .err-header {{
+      width: 100%;
+      background: {hdr_bg_hex};
+      color: {hdr_text_hex};
+      border-bottom: 1px solid {hdr_border_css};
+    }}
+    .err-header-inner {{
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 12px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }}
+    .err-brand {{
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      color: {hdr_text_hex};
+      min-height: 44px;
+    }}
+    .err-brand-name {{
+      font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
+      font-weight: 800;
+      font-size: 1.05rem;
+      letter-spacing: -0.02em;
+      color: {hdr_text_hex};
+    }}
+    .err-logo-img {{
+      max-height: 38px;
+      width: auto;
+      height: auto;
+      display: block;
+      object-fit: contain;
+    }}
+    .err-hdr-link {{
+      display: inline-flex;
+      align-items: center;
+      min-height: 44px;
+      padding: 8px 12px;
+      border-radius: var(--radius-sm);
+      color: {hdr_text_hex};
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 600;
+    }}
+    .err-hdr-link:hover {{ text-decoration: underline; text-underline-offset: 3px; }}
+    .err-main {{
+      width: 100%;
+      flex: 1 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 16px;
+    }}
+    .err-section {{
+      width: 100%;
+      max-width: 1100px;
+      margin: 0 auto;
+    }}
+    .err-card {{
+      max-width: 560px;
+      margin: 0 auto;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 36px 28px;
+      text-align: center;
+      box-shadow: 0 8px 24px rgba(15, 23, 42, 0.06);
+    }}
+    .err-badge {{
+      display: inline-block;
+      background: {badge_bg_css};
+      color: {badge_fg_hex};
+      border: 1px solid {badge_border_css};
+      border-radius: var(--radius-sm);
+      padding: 4px 10px;
+      font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+    }}
+    h1 {{
+      font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
+      font-size: clamp(1.5rem, 3.5vw, 2rem);
+      font-weight: 800;
+      letter-spacing: -0.025em;
+      line-height: 1.2;
+      color: var(--text);
+      margin-bottom: 12px;
+    }}
+    .err-desc {{
+      color: var(--muted);
+      font-size: 0.98rem;
+      margin: 0 auto 24px;
+      max-width: 440px;
+    }}
+    .err-actions {{
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px;
+    }}
+    .err-btn {{
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      min-height: 44px;
+      padding: 11px 20px;
+      border-radius: var(--radius-md);
+      font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
+      font-size: 0.94rem;
+      font-weight: 700;
+      text-decoration: none;
+    }}
+    .err-btn-primary {{
+      background: var(--accent);
+      color: var(--btn-fg);
+      border: 1px solid var(--accent);
+    }}
+    .err-btn-secondary {{
+      background: var(--surface);
+      color: var(--text);
+      border: 1px solid var(--border);
+    }}
+    .err-footer {{
+      width: 100%;
+      border-top: 1px solid var(--border);
+      padding: 18px 20px;
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.84rem;
+    }}
+  </style>
+</head>
+<body>
+  <header class="err-header">
+    <div class="err-header-inner">
+      <a href="./" class="err-brand" aria-label="{safe_comp_label} Startseite">
+        {logo_html}
+      </a>
+      <a href="./" class="err-hdr-link">Startseite</a>
+    </div>
+  </header>
+
+  <main id="main-content" class="err-main">
+    <section class="err-section" aria-label="Fehlermeldung 404">
+      <div class="err-card">
+        <div class="err-badge">Fehler 404 · Seite nicht gefunden</div>
+        <h1>Diese Seite wurde nicht gefunden</h1>
+        <p class="err-desc">Die aufgerufene Adresse bei {safe_comp_label} existiert nicht oder wurde verschoben. Über die Startseite gelangen Sie direkt zurück zur Übersicht.</p>
+        <div class="err-actions">
+          <a class="err-btn err-btn-primary" href="./">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg>
+            <span>Zur Startseite</span>
+          </a>
+{contact_btn_html}        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="err-footer">
+    {safe_footer_line}
+  </footer>
+</body>
+</html>
+"""
+    return _ss(html_out)
+
+
+def parse_redirects_file(redirects_path: Path) -> dict[str, dict]:
+    """Parst eine _redirects-Datei deterministisch (Source-Pfad ohne Trailing-Slash -> {to, status})."""
+    rules: dict[str, dict] = {}
+    if not redirects_path.is_file():
+        return rules
+    for raw_line in redirects_path.read_text(encoding="utf-8", errors="ignore").splitlines():
+        line = raw_line.strip()
+        if not line or line.startswith("#"):
+            continue
+        parts = line.split()
+        if len(parts) < 2:
+            continue
+        raw_src, raw_dst = parts[0].strip(), parts[1].strip()
+        status = 301
+        if len(parts) >= 3:
+            try:
+                status = int(parts[2].strip())
+            except ValueError:
+                status = 301
+        norm_src = "/" + raw_src.lstrip("/").rstrip("/") if raw_src != "/" else "/"
+        if not norm_src:
+            norm_src = "/"
+        rules[norm_src] = {"to": raw_dst, "status": status}
+    return dict(sorted(rules.items(), key=lambda kv: kv[0]))
+
+
+def sync_edge_tenant_redirects(base_dir: Path | None = None) -> dict:
+    """
+    Liest alle <folder>/_redirects-Dateien im Repo ein und erzeugt sortiert
+    functions/lib/tenant_redirects.js fuer Cloudflare Pages Edge-Middleware.
+    """
+    root = Path(base_dir) if base_dir else BASE_DIR
+    all_redirects: dict[str, dict] = {}
+    for redir_file in sorted(root.glob("*/_redirects")):
+        folder = redir_file.parent.name
+        if folder.startswith("."):
+            continue
+        parsed = parse_redirects_file(redir_file)
+        if parsed:
+            all_redirects[folder] = parsed
+
+    out_path = root / "functions" / "lib" / "tenant_redirects.js"
+    out_path.parent.mkdir(parents=True, exist_ok=True)
+    js_body = (
+        "// Auto-generated by scripts/webpilot_seo_geo_autopilot.py (--sync-redirects). Do not edit manually.\n"
+        f"export const TENANT_REDIRECTS = {json.dumps(all_redirects, ensure_ascii=False, indent=2, sort_keys=True)};\n"
+    )
+    changed = (not out_path.is_file()) or (out_path.read_text(encoding="utf-8", errors="ignore") != js_body)
+    if changed:
+        out_path.write_text(js_body, encoding="utf-8")
+    return {
+        "ok": True,
+        "folders": sorted(all_redirects.keys()),
+        "rules_count": sum(len(v) for v in all_redirects.values()),
+        "changed": changed,
+        "path": str(out_path),
+    }
 
 
 def update_bilder_json_alts(site_dir: Path, profile: dict, src_to_alt_map: dict) -> int:
@@ -2507,11 +3188,11 @@ def run_seo_geo_autopilot_for_site(site_dir: Path, context_action: str = "cli") 
 
     html_files = sorted(
         p for p in site_dir.glob("*.html")
-        if not p.name.lower().startswith("cockpit")
+        if not p.name.lower().startswith("cockpit") and p.name.lower() != "404.html"
     )
     public_page_count = sum(
         1 for p in html_files
-        if not p.name.lower().startswith(("cockpit", "team-update", "onboarding"))
+        if not p.name.lower().startswith(("cockpit", "team-update", "onboarding", "404"))
     )
 
     pages_intel = []
@@ -2549,9 +3230,10 @@ def run_seo_geo_autopilot_for_site(site_dir: Path, context_action: str = "cli") 
         total_fields_enriched += form_stats["fields_enriched"]
         total_honeypots_detached += form_stats["honeypots_detached"]
 
-        # 2c. FAQ-Semantik (<summary> ohne <h1..h6>)
+        # 2c. FAQ-Semantik (<summary> ohne <h1..h6>) & WCAG-2.2 Skip-to-Content
         working_html, sum_fixed = sanitize_faq_details_headings(working_html)
         total_summary_headings_fixed += sum_fixed
+        working_html = inject_skip_to_content(working_html, hf.name)
 
         has_step3_wizard = bool(
             re.search(r'\bid=(["\'])wpStep3\1', working_html, flags=re.I)
@@ -2570,6 +3252,7 @@ def run_seo_geo_autopilot_for_site(site_dir: Path, context_action: str = "cli") 
                 existing_iso,
                 page_count=public_page_count,
                 has_step3_wizard=has_step3_wizard,
+                site_dir=site_dir,
             )
         )
 
@@ -2582,6 +3265,7 @@ def run_seo_geo_autopilot_for_site(site_dir: Path, context_action: str = "cli") 
                     iso_now,
                     page_count=public_page_count,
                     has_step3_wizard=has_step3_wizard,
+                    site_dir=site_dir,
                 )
             )
             hf.write_text(final_html, encoding="utf-8")
@@ -2618,6 +3302,14 @@ def run_seo_geo_autopilot_for_site(site_dir: Path, context_action: str = "cli") 
     if (not robots_path.is_file()) or robots_path.read_text(encoding="utf-8", errors="ignore") != robots_content:
         robots_path.write_text(robots_content, encoding="utf-8")
 
+    # 6. Mandanten-gebrandete 404.html idempotent erzeugen (ausgeschlossen aus sitemap/llms.txt)
+    err404_path = site_dir / "404.html"
+    err404_content = generate_404_html(profile, site_dir)
+    err404_modified = 0
+    if (not err404_path.is_file()) or err404_path.read_text(encoding="utf-8", errors="ignore") != err404_content:
+        err404_path.write_text(err404_content, encoding="utf-8")
+        err404_modified = 1
+
     elapsed_ms = round((time.perf_counter() - t0) * 1000, 1)
     return {
         "ok": True,
@@ -2628,6 +3320,7 @@ def run_seo_geo_autopilot_for_site(site_dir: Path, context_action: str = "cli") 
         "schema_type": profile["schema_type"],
         "html_files_processed": len(html_files),
         "html_files_modified": files_modified,
+        "error_404_modified": err404_modified,
         "imgs_alt_upgraded": total_imgs_updated,
         "imgs_dims_added": total_dims_added,
         "heroes_lcp_upgraded": total_heroes_upgraded,
@@ -2639,6 +3332,7 @@ def run_seo_geo_autopilot_for_site(site_dir: Path, context_action: str = "cli") 
         "llms_txt": True,
         "sitemap_xml": True,
         "robots_txt": True,
+        "error_404_html": True,
         "elapsed_ms": elapsed_ms,
         "context_action": context_action,
     }
@@ -2647,15 +3341,15 @@ def run_seo_geo_autopilot_for_site(site_dir: Path, context_action: str = "cli") 
 def verify_showcase_dir(site_dir: Path) -> dict:
     """
     Prüft einen Showcase-Ordner auf 100 % Erfüllung aller SEO- & GEO-Kriterien:
-    - ld+json (LocalBusiness/SportsOrganization + WebSite + FAQPage) auf jeder Inhaltsseite
+    - ld+json (LocalBusiness/SportsOrganization/ProfessionalService + WebSite + FAQPage) auf jeder Inhaltsseite
     - meta-description & og:title / og:description / og:image auf jeder Inhaltsseite
     - 100 % aller <img>-Tags haben alt-Text >= 12 Zeichen
-    - llms.txt, sitemap.xml & robots.txt vorhanden und nicht leer
+    - llms.txt, sitemap.xml, robots.txt (mit Content-Signal) & 404.html (mit noindex) vorhanden und gueltig
     - 0 Vorkommen von Eszett (\u00df)
     """
     html_files = sorted(
         p for p in site_dir.glob("*.html")
-        if not p.name.lower().startswith("cockpit")
+        if not p.name.lower().startswith("cockpit") and p.name.lower() != "404.html"
     )
 
     ld_ok_all = len(html_files) > 0
@@ -2689,7 +3383,11 @@ def verify_showcase_dir(site_dir: Path) -> dict:
                         types.add(t)
                 has_org = bool(types.intersection({"LocalBusiness", "SportsOrganization", "Electrician", "ProfessionalService", "HealthAndBeautyBusiness", "ClothingStore", "HomeAndConstructionBusiness"}))
                 has_web = "WebSite" in types and "WebPage" in types
-                has_faq = "FAQPage" in types or site_dir.name == "webpilot"
+                has_faq = (
+                    "FAQPage" in types
+                    or site_dir.name in {"webpilot", "mxs-talent"}
+                    or not re.search(r"<details\b", txt, re.I)
+                )
                 if not (has_org and has_web and has_faq):
                     ld_ok_all = False
             except Exception:
@@ -2712,13 +3410,27 @@ def verify_showcase_dir(site_dir: Path) -> dict:
     llms_f = site_dir / "llms.txt"
     sitemap_f = site_dir / "sitemap.xml"
     robots_f = site_dir / "robots.txt"
+    err404_f = site_dir / "404.html"
+
+    robots_txt = robots_f.read_text(encoding="utf-8", errors="ignore") if robots_f.is_file() else ""
+    err404_txt = err404_f.read_text(encoding="utf-8", errors="ignore") if err404_f.is_file() else ""
+
+    err404_ok = (
+        err404_f.is_file()
+        and err404_f.stat().st_size > 200
+        and "noindex" in err404_txt.lower()
+        and ("\u00df" not in err404_txt and "\u1e9e" not in err404_txt)
+    )
+    robots_signal_ok = "Content-Signal:" in robots_txt
 
     files_ok = (
         llms_f.is_file() and llms_f.stat().st_size > 200
         and sitemap_f.is_file() and sitemap_f.stat().st_size > 100
         and robots_f.is_file() and robots_f.stat().st_size > 80
+        and robots_signal_ok
+        and err404_ok
     )
-    for aux_f in (llms_f, sitemap_f, robots_f):
+    for aux_f in (llms_f, sitemap_f, robots_f, err404_f):
         if aux_f.is_file():
             atxt = aux_f.read_text(encoding="utf-8", errors="ignore")
             eszett_hits += atxt.count("\u00df") + atxt.count("\u1e9e")
@@ -2734,6 +3446,8 @@ def verify_showcase_dir(site_dir: Path) -> dict:
         "valid_alt_imgs": valid_alt_imgs,
         "alt_pct": alt_pct,
         "files_ok": files_ok,
+        "err404_ok": err404_ok,
+        "robots_signal_ok": robots_signal_ok,
         "eszett_hits": eszett_hits,
         "passed": ld_ok_all and meta_og_ok_all and (valid_alt_imgs == total_imgs) and files_ok and (eszett_hits == 0),
     }
@@ -2742,11 +3456,12 @@ def verify_showcase_dir(site_dir: Path) -> dict:
 def main():
     parser = argparse.ArgumentParser(description="WebPilot Auto-SEO & GEO Hintergrund-Autopilot")
     parser.add_argument("--site", "--slug", dest="site", help="Einzelner Showcase-Ordner (z. B. preview-joma oder joma)")
-    parser.add_argument("--all", action="store_true", help="Alle preview-* Showcases im Workspace verarbeiten")
+    parser.add_argument("--all", action="store_true", help="Alle preview-* Showcases sowie webpilot & mxs-talent im Workspace verarbeiten")
     parser.add_argument("--verify", action="store_true", help="Verifiziert alle verarbeiteten Showcases auf 100 %% SEO/GEO-Parität")
+    parser.add_argument("--sync-redirects", action="store_true", help="Synchronisiert alle <folder>/_redirects nach functions/lib/tenant_redirects.js")
     args = parser.parse_args()
 
-    if not args.site and not args.all and not args.verify:
+    if not args.site and not args.all and not args.verify and not args.sync_redirects:
         parser.print_help()
         sys.exit(1)
 
@@ -2761,11 +3476,12 @@ def main():
             print(f"Fehler: Showcase-Ordner '{args.site}' nicht gefunden.", file=sys.stderr)
             sys.exit(1)
         target_dirs.append(cand)
-    else:
+    elif args.all or args.verify:
         target_dirs = sorted(p for p in BASE_DIR.glob("preview-*") if p.is_dir())
-        wp_main = BASE_DIR / "webpilot"
-        if wp_main.is_dir():
-            target_dirs.append(wp_main)
+        for extra_name in ("webpilot", "mxs-talent"):
+            extra_dir = BASE_DIR / extra_name
+            if extra_dir.is_dir() and extra_dir not in target_dirs:
+                target_dirs.append(extra_dir)
 
     if args.all or args.site:
         t_start = time.perf_counter()
@@ -2776,10 +3492,17 @@ def main():
             print(
                 f"[SEO/GEO Autopilot] {res['site']:26s} | {res['schema_type']:26s} | "
                 f"HTML: {res['html_files_processed']} ({res['html_files_modified']} mod) | "
-                f"Alt+: {res['imgs_alt_upgraded']:2d} | {res['elapsed_ms']:5.1f} ms"
+                f"404: {res['error_404_modified']} | Alt+: {res['imgs_alt_upgraded']:2d} | {res['elapsed_ms']:5.1f} ms"
             )
         total_ms = round((time.perf_counter() - t_start) * 1000, 1)
         print(f"\n==> {len(results)} Showcases in {total_ms} ms erfolgreich SEO- & GEO-optimiert.")
+
+    if args.all or args.sync_redirects or (args.site and any((td / "_redirects").is_file() for td in target_dirs)):
+        red_res = sync_edge_tenant_redirects(BASE_DIR)
+        print(
+            f"[Edge Redirects] {len(red_res['folders'])} Mandanten ({red_res['rules_count']} Regeln) "
+            f"-> functions/lib/tenant_redirects.js (changed={red_res['changed']})"
+        )
 
     if args.verify:
         print("\n=== VERIFIKATIONS-REPORT (SEO & GEO HINTERGRUND-AUTOPILOT) ===")
@@ -2788,6 +3511,7 @@ def main():
         n_ld = sum(1 for r in v_results if r["ld_json_ok"])
         n_meta = sum(1 for r in v_results if r["meta_og_ok"])
         n_files = sum(1 for r in v_results if r["files_ok"])
+        n_404 = sum(1 for r in v_results if r["err404_ok"])
         sum_imgs = sum(r["total_imgs"] for r in v_results)
         sum_valid_imgs = sum(r["valid_alt_imgs"] for r in v_results)
         sum_eszett = sum(r["eszett_hits"] for r in v_results)
@@ -2797,15 +3521,16 @@ def main():
             print(
                 f"  [{status_icon}] {r['site']:26s} | ld+json={str(r['ld_json_ok']):5s} | "
                 f"meta/og={str(r['meta_og_ok']):5s} | imgs={r['valid_alt_imgs']:3d}/{r['total_imgs']:3d} ({r['alt_pct']:5.1f}%) | "
-                f"llms/sitemap/robots={str(r['files_ok']):5s} | ss_violation={r['eszett_hits']}"
+                f"404={str(r['err404_ok']):5s} | llms/sitemap/robots={str(r['files_ok']):5s} | ss_violation={r['eszett_hits']}"
             )
 
         overall_img_pct = 100.0 if sum_imgs == 0 else round((sum_valid_imgs / sum_imgs) * 100.0, 2)
-        print("-" * 98)
+        print("-" * 108)
         print(f"  ld+json (LocalBusiness/SportsOrg + WebSite + FAQPage): {n_ld} / {n_total} ({n_ld == n_total})")
         print(f"  meta-description & og:title / og:description / og:image: {n_meta} / {n_total} ({n_meta == n_total})")
         print(f"  imgs mit sprechendem SEO-alt-Text (>= 12 Zeichen):     {sum_valid_imgs} / {sum_imgs} ({overall_img_pct}%)")
-        print(f"  llms.txt & sitemap.xml & robots.txt vorhanden:         {n_files} / {n_total} ({n_files == n_total})")
+        print(f"  404.html (noindex, 0 Eszett) vorhanden:                {n_404} / {n_total} ({n_404 == n_total})")
+        print(f"  llms.txt & sitemap.xml & robots.txt (Content-Signal):  {n_files} / {n_total} ({n_files == n_total})")
         print(f"  Helvetischer Standard (0 Vorkommen von Eszett):        {sum_eszett} Treffer")
 
         if not all(r["passed"] for r in v_results):

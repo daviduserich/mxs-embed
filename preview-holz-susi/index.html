@@ -2074,6 +2074,9 @@
     html { interpolate-size: allow-keywords; }
     :where(img[width][height]) { height: auto; }
     input:user-invalid, textarea:user-invalid, select:user-invalid { border-color: #DC2626 !important; outline: none; }
+    :where(a,button,input,select,textarea,summary,[tabindex]):focus-visible{outline:2px solid var(--accent,var(--primary,#e8781e));outline-offset:2px;}
+    .wp-skip-link{position:absolute;top:0;left:0;width:1px;height:1px;padding:0;margin:-1px;border:0;overflow:hidden;clip-path:inset(50%);white-space:nowrap;z-index:99999;background:#0d0f12;color:#ffffff;font-weight:600;text-decoration:none;border-radius:4px;}
+    .wp-skip-link:focus,.wp-skip-link:focus-visible{width:auto;height:auto;margin:0;padding:10px 16px;clip-path:none;overflow:visible;top:8px;left:8px;}
   </style>
   <script type="speculationrules" id="wp-speculation-rules">
 {
@@ -2268,7 +2271,7 @@
       "name": "Holz-Susi GmbH · 5070 Frick | Holzbau, Dachsanierung, Innenausbau & Bauleitung im Fricktal",
       "description": "Holz-Susi GmbH in 5070 Frick (AG): Susanne («Susi») Schmid, Zimmerin EFZ, Projektleiterin und Bauleiterin für Dachsanierung, Dachfenster, Innenausbau, Terrassen, Fassaden und Bauleitung im Fricktal.",
       "inLanguage": "de-CH",
-      "dateModified": "2026-11-15T16:07:59+00:00",
+      "dateModified": "2026-11-24T08:43:18+00:00",
       "isPartOf": {
         "@id": "https://vorschau.magnet-xs.ch/holz-susi-vollversion/#website"
       },
@@ -2312,6 +2315,7 @@
   <!-- WP-SEO-AUTOPILOT-END -->
 </head>
 <body>
+  <a class="wp-skip-link" href="#main-content">Direkt zum Inhalt</a>
 
   <!-- TOP INFO BAR -->
   <div class="top-bar">
@@ -2366,7 +2370,7 @@
     <a href="kontakt.html" onclick="wpCloseMobileMenu()">3-Schritte Smart-Anfrage &amp; Kontakt</a>
   </div>
 
-  <main>
+  <main id="main-content">
 
   <!-- HERO SECTION -->
   <section class="hero-section" data-section="hero" data-wp-hidden="false">
@@ -3633,7 +3637,7 @@
         <form id="wpPartnerLeadForm" onsubmit="return wpSubmitPartnerLead(event)" novalidate>
           <div style="display:none;" aria-hidden="true">
             <label for="wpPartnerHp">Website</label>
-            <input type="text" id="wpPartnerHp" name="website_url" tabindex="-1" autocomplete="off">
+            <input type="text" id="wpPartnerHp" name="website_url" tabindex="-1" autocomplete="off" form="wpTrapDetached">
           </div>
 
           <div class="wp-partner-field">

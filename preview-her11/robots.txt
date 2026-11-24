@@ -3,6 +3,7 @@ User-agent: *
 Allow: /
 Disallow: /cockpit.html
 Disallow: /cockpit
+Content-Signal: ai-train=yes, search=yes, ai-input=yes
 
 User-agent: Googlebot
 Allow: /
@@ -34,12 +35,32 @@ Allow: /
 Disallow: /cockpit.html
 Disallow: /cockpit
 
+User-agent: Perplexity-User
+Allow: /
+Disallow: /cockpit.html
+Disallow: /cockpit
+
 User-agent: ClaudeBot
 Allow: /
 Disallow: /cockpit.html
 Disallow: /cockpit
 
+User-agent: Claude-SearchBot
+Allow: /
+Disallow: /cockpit.html
+Disallow: /cockpit
+
+User-agent: Claude-User
+Allow: /
+Disallow: /cockpit.html
+Disallow: /cockpit
+
 User-agent: Claude-Web
+Allow: /
+Disallow: /cockpit.html
+Disallow: /cockpit
+
+User-agent: anthropic-ai
 Allow: /
 Disallow: /cockpit.html
 Disallow: /cockpit
