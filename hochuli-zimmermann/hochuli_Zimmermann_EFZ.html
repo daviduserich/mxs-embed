@@ -2973,7 +2973,9 @@
         nb.onclick = function () { goToQuizStep(nextId, true); };
         nb.style.display = "inline-flex";
         notifyParentHeight(true);
-        box.scrollIntoView({ behavior: "smooth", block: "nearest" });
+        // Der Weiter-Button muss sichtbar sein, nicht nur die Rückmeldung
+        nb.style.scrollMarginBottom = "24px";
+        setTimeout(function () { nb.scrollIntoView({ behavior: "smooth", block: "nearest" }); }, 80);
       }
     }
 
