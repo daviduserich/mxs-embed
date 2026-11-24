@@ -368,10 +368,25 @@
     }
 
     .hero h1 {
-      font-size: clamp(30px, 4vw, 44px);
+      font-size: clamp(42px, 6.2vw, 72px);
       font-weight: 800;
-      line-height: 1.12;
-      margin-bottom: 16px;
+      line-height: 1.04;
+      letter-spacing: -0.02em;
+      margin-bottom: 18px;
+    }
+
+    .h1-nowrap {
+      white-space: nowrap;
+    }
+
+    .hero-lead {
+      font-family: "Plus Jakarta Sans", sans-serif;
+      font-size: clamp(20px, 2.3vw, 26px);
+      font-weight: 700;
+      line-height: 1.3;
+      color: var(--text);
+      max-width: 600px;
+      margin-bottom: 14px;
     }
 
     .hero-sub {
@@ -1879,8 +1894,9 @@
         <div class="hero-grid">
           <div class="hero-left">
             <div>
-              <span class="section-kicker">Zimmermann / Zimmerin EFZ · Hochuli Schlossrued AG</span>
-              <h1>In der Regel alle ein bis zwei Wochen eine neue Baustelle. Du löst selbst, was dort anfällt.</h1>
+              <span class="section-kicker">Wir suchen Verstärkung · Hochuli Schlossrued AG</span>
+              <h1>Zimmermann /<br><span class="h1-nowrap">Zimmerin EFZ</span></h1>
+              <p class="hero-lead">In der Regel alle ein bis zwei Wochen eine neue Baustelle. Du löst selbst, was dort anfällt.</p>
               <p class="hero-sub">Als 100 %-Stelle, auch 80 % möglich.<br><span style="display:inline-block; margin-top:6px;">Mit Perspektive Richtung Vorarbeiter oder Baustellenleiter.</span></p>
               <div class="hero-actions">
                 <a href="#quiz-funnel-shell" class="btn btn-primary">
