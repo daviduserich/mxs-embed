@@ -6428,8 +6428,7 @@ function acpIsLightMode() {
     var sp = new URLSearchParams(window.location.search);
     var m = (sp.get("mode") || "").toLowerCase();
     var l = sp.get("light");
-    var tok = (sp.get("token") || "").toLowerCase();
-    if (m === "light" || l === "1" || l === "true" || tok.slice(-6) === "-light" || tok.slice(-9) === "light2026") {
+    if (m === "light" || l === "1" || l === "true") {
       window.ACP_COCKPIT_LIGHT_MODE = true;
       return true;
     }
@@ -6532,7 +6531,6 @@ function acpSetSimulatorDevice(mode) {
 
 function acpGetActivePreviewUrl() {
   var iframe = document.getElementById("acp-widget-viewport");
-  var curToken = new URLSearchParams(window.location.search).get("token");
   var profileSlug = (typeof ACP_CLIENT_PROFILE !== "undefined" && ACP_CLIENT_PROFILE.slug) ? ACP_CLIENT_PROFILE.slug : "";
   var clientSlug = window.ACP_CURRENT_CLIENT || profileSlug || (window.location.pathname.split("/")[1] || "preview-birchmeier");
   var cleanClient = (window.location.origin.indexOf("vorschau.magnet-xs.ch") !== -1) ? acpGetVorschauClientSlug(clientSlug) : clientSlug.replace("preview-", "");
@@ -6662,7 +6660,7 @@ function acpFetchServerLog() {
 // Build: 2026-10-03 15:30 CEST
 // =======================================================
 var ACP_COCKPIT_VERSION = "v4.0.0";
-var ACP_COCKPIT_BUILD = "2026-11-24 12:15";
+var ACP_COCKPIT_BUILD = "2026-11-24 21:56";
 
 function sanitizeStellen(list) {
   if (!Array.isArray(list)) return [];
@@ -7009,7 +7007,6 @@ function acpUpdateStageForJob(job) {
   var cleanClient = (window.location.origin.indexOf("vorschau.magnet-xs.ch") !== -1) ? acpGetVorschauClientSlug(subfolder) : (profileSlug.replace("preview-", "") || subfolder.replace("preview-", ""));
   var edgePreviewUrl = job.edge_url || ("https://embed.magnet-xs.ch/" + subfolder + "/" + job.datei);
 
-  var curToken = new URLSearchParams(window.location.search).get("token");
   var isDirectHost = (window.location.origin.indexOf("vorschau.magnet-xs.ch") !== -1);
   var cleanPage = (job.datei || "index.html").replace(/\.html$/, "");
   if (cleanPage === "index") cleanPage = "";
@@ -7154,11 +7151,7 @@ function acpSwitchJob(jobId, forceReload) {
         } else if (base.indexOf("embed.magnet-xs.ch") !== -1 && base.endsWith(".html")) {
           base = base.replace(/\.html$/, "");
         }
-        var curToken = new URLSearchParams(window.location.search).get("token");
         targetSrc = base + (base.indexOf("?") === -1 ? "?embed=true" : "&embed=true");
-        if (curToken && targetSrc.indexOf("token=") === -1) {
-          targetSrc += "&token=" + encodeURIComponent(curToken);
-        }
       }
       if (forceReload) {
         var sep = targetSrc.indexOf("?") === -1 ? "?" : "&";
@@ -12354,6 +12347,265 @@ window.addEventListener("message", function(ev) {
   }
 });
 
+
+function acpOpenTeamModal(siteSlug, siteName) {
+  var ROLE_LABELS = {
+    platform_owner: "Super-Admin",
+    platform_staff: "Plattform-Mitarbeiter",
+    agency_owner: "Agentur-Inhaber",
+    agency_staff: "Agentur-Mitarbeiter",
+    client_owner: "Kunden-Inhaber",
+    client_staff: "Kunden-Mitarbeiter"
+  };
+  var oldOv = document.getElementById("wp-team-modal-overlay");
+  if (oldOv && oldOv.parentNode) oldOv.parentNode.removeChild(oldOv);
+
+  var ov = document.createElement("div");
+  ov.id = "wp-team-modal-overlay";
+  ov.style.cssText = "position:fixed;inset:0;z-index:99999;background:rgba(2,6,23,0.78);backdrop-filter:blur(6px);display:flex;align-items:center;justify-content:center;padding:12px;";
+
+  var box = document.createElement("div");
+  box.id = "wp-team-modal";
+  box.setAttribute("role", "dialog");
+  box.setAttribute("aria-modal", "true");
+  box.style.cssText = "width:min(560px,100%);max-height:calc(100vh - 24px);overflow-y:auto;background:#0f172a;color:#f8fafc;border:1px solid rgba(148,163,184,0.26);border-radius:14px;padding:20px;box-sizing:border-box;font-family:Inter,system-ui,sans-serif;display:flex;flex-direction:column;gap:14px;box-shadow:0 24px 60px rgba(0,0,0,0.65);";
+
+  var hdr = document.createElement("div");
+  hdr.style.cssText = "display:flex;align-items:flex-start;justify-content:space-between;gap:12px;";
+  var hL = document.createElement("div");
+  var hT = document.createElement("h3");
+  hT.style.cssText = "margin:0;font-size:18px;font-weight:700;color:#ffffff;";
+  hT.textContent = "👥 Team & Zugänge";
+  var hS = document.createElement("div");
+  hS.style.cssText = "margin-top:4px;font-size:13px;color:#94a3b8;word-break:break-word;";
+  hS.textContent = (siteName || siteSlug) + " (" + siteSlug + ")";
+  hL.appendChild(hT);
+  hL.appendChild(hS);
+
+  var closeBtn = document.createElement("button");
+  closeBtn.type = "button";
+  closeBtn.textContent = "Schliessen";
+  closeBtn.style.cssText = "min-height:36px;padding:6px 12px;border-radius:8px;border:1px solid rgba(148,163,184,0.28);background:rgba(255,255,255,0.06);color:#e2e8f0;font-size:13px;font-weight:600;cursor:pointer;flex-shrink:0;";
+  function closeModal() {
+    if (ov.parentNode) ov.parentNode.removeChild(ov);
+    document.removeEventListener("keydown", onEsc);
+  }
+  function onEsc(e) {
+    if (e.key === "Escape") closeModal();
+  }
+  closeBtn.addEventListener("click", closeModal);
+  ov.addEventListener("click", function(e) { if (e.target === ov) closeModal(); });
+  document.addEventListener("keydown", onEsc);
+  hdr.appendChild(hL);
+  hdr.appendChild(closeBtn);
+  box.appendChild(hdr);
+
+  var modeBox = document.createElement("div");
+  modeBox.style.cssText = "display:none;padding:12px;border-radius:10px;background:rgba(30,41,59,0.72);border:1px solid rgba(148,163,184,0.2);gap:10px;align-items:center;justify-content:space-between;flex-wrap:wrap;";
+  box.appendChild(modeBox);
+
+  var statusEl = document.createElement("div");
+  statusEl.style.cssText = "display:none;padding:10px 12px;border-radius:8px;font-size:13.5px;";
+  box.appendChild(statusEl);
+  function showStatus(msg, ok) {
+    statusEl.style.display = "block";
+    statusEl.style.background = ok ? "rgba(34,197,94,0.14)" : "rgba(239,68,68,0.14)";
+    statusEl.style.border = ok ? "1px solid rgba(34,197,94,0.4)" : "1px solid rgba(239,68,68,0.4)";
+    statusEl.style.color = ok ? "#86efac" : "#fca5a5";
+    statusEl.textContent = msg;
+  }
+
+  var listEl = document.createElement("div");
+  listEl.style.cssText = "display:flex;flex-direction:column;gap:8px;";
+  listEl.textContent = "Lade Team-Zugänge...";
+  box.appendChild(listEl);
+
+  var form = document.createElement("form");
+  form.style.cssText = "display:flex;flex-direction:column;gap:10px;padding-top:8px;border-top:1px solid rgba(148,163,184,0.18);";
+  var fTitle = document.createElement("div");
+  fTitle.style.cssText = "font-size:13px;font-weight:700;color:#cbd5e1;";
+  fTitle.textContent = "Neuen Zugang einladen";
+  form.appendChild(fTitle);
+
+  var emailInput = document.createElement("input");
+  emailInput.id = "wp-team-invite-email";
+  emailInput.type = "email";
+  emailInput.required = true;
+  emailInput.placeholder = "E-Mail-Adresse eingeben (z. B. mitarbeiter@firma.ch)";
+  emailInput.style.cssText = "width:100%;min-height:44px;padding:10px 12px;font-size:16px;border-radius:8px;border:1px solid rgba(148,163,184,0.28);background:#020617;color:#f8fafc;box-sizing:border-box;";
+  form.appendChild(emailInput);
+
+  var roleSelect = document.createElement("select");
+  roleSelect.id = "wp-team-invite-role";
+  roleSelect.style.cssText = "width:100%;min-height:44px;padding:10px 12px;font-size:16px;border-radius:8px;border:1px solid rgba(148,163,184,0.28);background:#020617;color:#f8fafc;box-sizing:border-box;";
+  form.appendChild(roleSelect);
+
+  var invBtn = document.createElement("button");
+  invBtn.type = "submit";
+  invBtn.textContent = "Zugang freigeben & Einladung senden";
+  invBtn.style.cssText = "width:100%;min-height:44px;padding:10px 16px;border-radius:8px;border:none;background:#f97316;color:#ffffff;font-size:15px;font-weight:700;cursor:pointer;";
+  form.appendChild(invBtn);
+  box.appendChild(form);
+
+  ov.appendChild(box);
+  document.body.appendChild(ov);
+
+  function loadMembers() {
+    fetch("/api/auth/team/members?scope=site&site=" + encodeURIComponent(siteSlug), {
+      method: "GET",
+      credentials: "include"
+    })
+    .then(function(r) { return r.json().then(function(d) { return { status: r.status, data: d }; }); })
+    .then(function(res) {
+      if (res.status !== 200 || !res.data || !res.data.ok) {
+        listEl.textContent = "";
+        showStatus((res.data && res.data.error) || "Zugänge konnten nicht geladen werden.", false);
+        return;
+      }
+      var d = res.data;
+      roleSelect.textContent = "";
+      (d.allowed_roles || []).forEach(function(rk) {
+        var opt = document.createElement("option");
+        opt.value = rk;
+        opt.textContent = (ROLE_LABELS[rk] || rk) + " (" + rk + ")";
+        roleSelect.appendChild(opt);
+      });
+
+      if (d.can_change_site_mode) {
+        modeBox.textContent = "";
+        modeBox.style.display = "flex";
+        var ml = document.createElement("span");
+        ml.style.cssText = "font-size:13px;font-weight:600;color:#e2e8f0;";
+        ml.textContent = "Kunden-Cockpit-Modus:";
+        var mr = document.createElement("div");
+        mr.style.cssText = "display:flex;gap:8px;align-items:center;flex-wrap:wrap;width:100%;";
+        var mSel = document.createElement("select");
+        mSel.style.cssText = "flex:1;min-width:190px;min-height:42px;padding:8px 10px;font-size:16px;border-radius:8px;border:1px solid rgba(148,163,184,0.28);background:#020617;color:#f8fafc;box-sizing:border-box;";
+        [
+          { v: "full", l: "Voll-Cockpit (Design, Bilder, Texte)" },
+          { v: "light", l: "Light (nur Texte & Aktuelles)" }
+        ].forEach(function(item) {
+          var o = document.createElement("option");
+          o.value = item.v;
+          o.textContent = item.l;
+          if (d.site_cockpit_mode === item.v) o.selected = true;
+          mSel.appendChild(o);
+        });
+        var mSave = document.createElement("button");
+        mSave.type = "button";
+        mSave.textContent = "Speichern";
+        mSave.style.cssText = "min-height:42px;padding:8px 14px;border-radius:8px;border:1px solid rgba(148,163,184,0.3);background:rgba(255,255,255,0.08);color:#ffffff;font-size:14px;font-weight:600;cursor:pointer;";
+        mSave.addEventListener("click", function() {
+          mSave.disabled = true;
+          fetch("/api/auth/team/site-mode", {
+            method: "POST",
+            credentials: "include",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ site_slug: d.site_slug, cockpit_mode: mSel.value })
+          })
+          .then(function(r) { return r.json().then(function(x) { return { status: r.status, data: x }; }); })
+          .then(function(r2) {
+            if (r2.status === 200 && r2.data && r2.data.ok) {
+              showStatus(r2.data.message || "Modus gespeichert.", true);
+            } else {
+              showStatus((r2.data && r2.data.error) || "Speichern fehlgeschlagen.", false);
+            }
+          })
+          .finally(function() { mSave.disabled = false; });
+        });
+        mr.appendChild(mSel);
+        mr.appendChild(mSave);
+        modeBox.appendChild(ml);
+        modeBox.appendChild(mr);
+      }
+
+      listEl.textContent = "";
+      if (!d.members || !d.members.length) {
+        var emp = document.createElement("div");
+        emp.style.cssText = "font-size:13px;color:#94a3b8;padding:4px 0;";
+        emp.textContent = "Noch keine direkten Kunden-Zugänge eingetragen.";
+        listEl.appendChild(emp);
+        return;
+      }
+      d.members.forEach(function(m) {
+        var row = document.createElement("div");
+        row.style.cssText = "display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;padding:10px 12px;border-radius:8px;background:rgba(30,41,59,0.65);border:1px solid rgba(148,163,184,0.16);";
+        var left = document.createElement("div");
+        var em = document.createElement("div");
+        em.style.cssText = "font-size:14px;font-weight:600;color:#ffffff;word-break:break-word;";
+        em.textContent = m.user_email + (m.is_self ? " (Du)" : "");
+        var rl = document.createElement("div");
+        rl.style.cssText = "font-size:12px;color:#94a3b8;";
+        rl.textContent = ROLE_LABELS[m.role] || m.role;
+        left.appendChild(em);
+        left.appendChild(rl);
+        row.appendChild(left);
+        if (m.can_revoke && !m.is_self) {
+          var rb = document.createElement("button");
+          rb.type = "button";
+          rb.textContent = "Entfernen";
+          rb.style.cssText = "min-height:36px;padding:6px 12px;border-radius:7px;border:1px solid rgba(239,68,68,0.45);background:rgba(239,68,68,0.12);color:#fca5a5;font-size:13px;font-weight:600;cursor:pointer;";
+          rb.addEventListener("click", function() {
+            rb.disabled = true;
+            fetch("/api/auth/team/revoke", {
+              method: "POST",
+              credentials: "include",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({ membership_id: m.id })
+            })
+            .then(function(r) { return r.json().then(function(x) { return { status: r.status, data: x }; }); })
+            .then(function(r2) {
+              if (r2.status === 200 && r2.data && r2.data.ok) {
+                showStatus(r2.data.message || "Zugang entfernt.", true);
+                loadMembers();
+              } else {
+                showStatus((r2.data && r2.data.error) || "Entfernen fehlgeschlagen.", false);
+              }
+            })
+            .finally(function() { rb.disabled = false; });
+          });
+          row.appendChild(rb);
+        }
+        listEl.appendChild(row);
+      });
+    })
+    .catch(function() {
+      listEl.textContent = "";
+      showStatus("Verbindungsfehler beim Laden der Zugänge.", false);
+    });
+  }
+
+  form.addEventListener("submit", function(e) {
+    e.preventDefault();
+    var emVal = emailInput.value.trim();
+    var rVal = roleSelect.value;
+    if (!emVal || !rVal) return;
+    invBtn.disabled = true;
+    fetch("/api/auth/team/invite", {
+      method: "POST",
+      credentials: "include",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ email: emVal, role: rVal, scope: "site", site_slug: siteSlug })
+    })
+    .then(function(r) { return r.json().then(function(x) { return { status: r.status, data: x }; }); })
+    .then(function(res) {
+      if (res.status === 201 && res.data && res.data.ok) {
+        emailInput.value = "";
+        showStatus(res.data.message || "Einladung gespeichert.", true);
+        loadMembers();
+      } else {
+        showStatus((res.data && res.data.error) || "Einladung fehlgeschlagen.", false);
+      }
+    })
+    .catch(function() {
+      showStatus("Verbindungsfehler bei der Einladung.", false);
+    })
+    .finally(function() { invBtn.disabled = false; });
+  });
+
+  loadMembers();
+}
+
 function acpBootstrapAuthSession() {
   fetch("/api/auth/me", { method: "GET", credentials: "include" })
     .then(function(res) {
@@ -12390,6 +12642,15 @@ function acpBootstrapAuthSession() {
         if (typeof acpUpdateInlineEditStatus === "function") acpUpdateInlineEditStatus();
       }
 
+      var resolvedSiteSlug = (matchedSite && matchedSite.slug) ? matchedSite.slug : curSlug;
+      var resolvedSiteName = (matchedSite && matchedSite.display_name) ? matchedSite.display_name : resolvedSiteSlug;
+      var canManageThisSite = Boolean(
+        me.can_manage_team && (
+          me.highest_role === "platform_owner" ||
+          (matchedSite && (matchedSite.effective_role === "agency_owner" || matchedSite.effective_role === "client_owner"))
+        )
+      );
+
       // Kompakte User-/SSO-/Logout-Pill in der Topbar
       var barRight = document.querySelector(".acp-cockpit-right");
       if (barRight && !document.getElementById("wp-auth-topbar-cluster")) {
@@ -12403,6 +12664,19 @@ function acpBootstrapAuthSession() {
         userTag.title = me.email + " (" + me.highest_role + ")";
         userTag.textContent = me.email;
         cluster.appendChild(userTag);
+
+        if (canManageThisSite) {
+          var teamBtn = document.createElement("button");
+          teamBtn.type = "button";
+          teamBtn.className = "acp-nav-btn";
+          teamBtn.id = "wp-auth-team-btn";
+          teamBtn.title = "Benutzer, Mitarbeiter & Cockpit-Modus dieser Website verwalten";
+          teamBtn.textContent = "👥 Team";
+          teamBtn.addEventListener("click", function() {
+            acpOpenTeamModal(resolvedSiteSlug, resolvedSiteName);
+          });
+          cluster.appendChild(teamBtn);
+        }
 
         if (me.is_partner_portal_allowed) {
           var dashLink = document.createElement("a");

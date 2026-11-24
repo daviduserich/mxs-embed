@@ -1143,6 +1143,101 @@
       }
     }
 
+    .wp-team-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      background: rgba(2, 6, 23, 0.78);
+      backdrop-filter: blur(6px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px;
+    }
+    .wp-team-overlay.hidden {
+      display: none;
+    }
+    .wp-team-modal {
+      width: min(640px, 100%);
+      max-height: calc(100vh - 24px);
+      overflow-y: auto;
+      background: #0f172a;
+      border: 1px solid rgba(148, 163, 184, 0.24);
+      border-radius: 14px;
+      padding: 20px;
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.6);
+      color: #f8fafc;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      box-sizing: border-box;
+    }
+    .wp-team-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 12px;
+    }
+    .wp-team-tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .wp-team-tab {
+      min-height: 40px;
+      padding: 6px 12px;
+      border-radius: 8px;
+      border: 1px solid rgba(148, 163, 184, 0.25);
+      background: rgba(255, 255, 255, 0.04);
+      color: #cbd5e1;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+    .wp-team-tab.active {
+      background: rgba(240, 133, 45, 0.18);
+      border-color: rgba(240, 133, 45, 0.55);
+      color: #ffffff;
+    }
+    .wp-team-input,
+    .wp-team-select {
+      width: 100%;
+      min-height: 44px;
+      padding: 9px 12px;
+      font-size: 16px;
+      border-radius: 8px;
+      border: 1px solid rgba(148, 163, 184, 0.28);
+      background: rgba(2, 6, 23, 0.72);
+      color: #f8fafc;
+      box-sizing: border-box;
+    }
+    .wp-team-list {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .wp-team-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      flex-wrap: wrap;
+      padding: 10px 12px;
+      border-radius: 9px;
+      background: rgba(30, 41, 59, 0.65);
+      border: 1px solid rgba(148, 163, 184, 0.16);
+    }
+    .wp-team-form-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr) auto;
+      gap: 8px;
+      align-items: stretch;
+    }
+    @media (max-width: 640px) {
+      .wp-team-form-grid {
+        grid-template-columns: 1fr;
+      }
+    }
     .wp-sso-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
@@ -1317,11 +1412,12 @@
             <span class="kicker">ZERO-TRUST SINGLE SIGN-ON</span>
             <h2>Websites &amp; 1-Klick-SSO</h2>
             <p class="section-desc">
-              Alle für dein Konto freigegebenen WebPilot-Cockpits. Klicke direkt auf «Cockpit öffnen» (ohne zweites Passwort) oder erzeuge einen 48h Read-Only Demo-Link.
+              Alle für dein Konto freigegebenen WebPilot-Cockpits. Klicke direkt auf «Cockpit öffnen» (ohne zweites Passwort) oder verwalte Benutzer unter «Team &amp; Zugänge».
             </p>
           </div>
           <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;">
             <span id="wpSsoCountBadge" class="badge-4">0 Sites</span>
+            <button type="button" id="wpPartnerTeamBtn" class="btn btn-secondary btn-sm hidden">👥 Team &amp; Zugänge</button>
             <input id="wpSsoSearch" class="wp-sso-search" type="search" placeholder="Website oder Slug suchen...">
           </div>
         </div>
@@ -2722,33 +2818,9 @@
 
       document.getElementById("btnLogout").addEventListener("click", logout);
 
-      loginForm.addEventListener("submit", async function (e) {
+      loginForm.addEventListener("submit", function (e) {
         e.preventDefault();
-        hideBanner(loginStatusBanner);
-        const btn = document.getElementById("btnLoginSubmit");
-        btn.disabled = true;
-        try {
-          const resp = await apiCall("/api/partner/login", {
-            method: "POST",
-            body: JSON.stringify({
-              username: loginUsername.value.trim(),
-              password: loginPassword.value
-            })
-          });
-          if (resp.status !== 200 || !resp.data.ok) {
-            showBanner(loginStatusBanner, resp.data.error || "Anmeldung fehlgeschlagen.", false);
-            btn.disabled = false;
-            return;
-          }
-          currentToken = resp.data.token;
-          sessionStorage.setItem(STORAGE_TOKEN_KEY, currentToken);
-          sessionStorage.setItem(STORAGE_USER_KEY, JSON.stringify(resp.data.user));
-          enterStudio(resp.data.user);
-        } catch (err) {
-          showBanner(loginStatusBanner, "Verbindungsfehler: " + err.message, false);
-        } finally {
-          btn.disabled = false;
-        }
+        window.location.assign("/login?next=" + encodeURIComponent(window.location.pathname + window.location.search));
       });
 
       document.getElementById("btnSendCredsTop").addEventListener("click", async function () {
@@ -3890,35 +3962,384 @@
           openLink.rel = "noopener";
           openLink.textContent = "Cockpit öffnen";
 
-          var demoBtn = document.createElement("button");
-          demoBtn.type = "button";
-          demoBtn.className = "btn btn-ghost btn-sm";
-          demoBtn.textContent = "48h Demo-Link";
-          demoBtn.addEventListener("click", async function () {
-            demoBtn.disabled = true;
-            try {
-              var dr = await apiCall("/api/auth/demo-pass", {
-                method: "POST",
-                body: JSON.stringify({ site: site.slug })
-              });
-              if (dr.status === 200 && dr.data && dr.data.ok && dr.data.demo_url) {
-                if (navigator.clipboard) {
-                  await navigator.clipboard.writeText(dr.data.demo_url).catch(function () {});
-                }
-                showBanner(topActionFeedback, "48h Demo-Link kopiert: " + dr.data.demo_url, true);
-              } else {
-                showBanner(topActionFeedback, (dr.data && dr.data.error) || "Demo-Link konnte nicht erstellt werden.", false);
-              }
-            } finally {
-              demoBtn.disabled = false;
-            }
-          });
-
           acts.appendChild(openLink);
-          acts.appendChild(demoBtn);
+          if (window.wpAuthMe && window.wpAuthMe.can_manage_team) {
+            var teamCardBtn = document.createElement("button");
+            teamCardBtn.type = "button";
+            teamCardBtn.className = "btn btn-ghost btn-sm";
+            teamCardBtn.textContent = "👥 Team";
+            teamCardBtn.addEventListener("click", function () {
+              openPartnerTeamModal({ scope: "site", siteSlug: site.slug });
+            });
+            acts.appendChild(teamCardBtn);
+          }
           card.appendChild(top);
           card.appendChild(acts);
           grid.appendChild(card);
+        });
+      }
+
+
+      var WP_ROLE_LABELS = {
+        platform_owner: "Super-Admin (Plattform)",
+        platform_staff: "Plattform-Mitarbeiter",
+        agency_owner: "Agentur-Inhaber",
+        agency_staff: "Agentur-Mitarbeiter",
+        client_owner: "Kunden-Inhaber",
+        client_staff: "Kunden-Mitarbeiter"
+      };
+      var wpTeamModalState = { scope: "site", siteSlug: "", agencyId: "" };
+
+      function ensurePartnerTeamModalDom() {
+        var existing = document.getElementById("wpPartnerTeamOverlay");
+        if (existing) return existing;
+
+        var overlay = document.createElement("div");
+        overlay.id = "wpPartnerTeamOverlay";
+        overlay.className = "wp-team-overlay hidden";
+
+        var modal = document.createElement("div");
+        modal.id = "wpPartnerTeamModal";
+        modal.className = "wp-team-modal";
+        modal.setAttribute("role", "dialog");
+        modal.setAttribute("aria-modal", "true");
+        modal.setAttribute("aria-label", "Team und Zugaenge verwalten");
+
+        var hdr = document.createElement("div");
+        hdr.className = "wp-team-header";
+        var hText = document.createElement("div");
+        var hTitle = document.createElement("h3");
+        hTitle.style.cssText = "margin:0;font-size:18px;font-weight:700;color:#fff;";
+        hTitle.textContent = "Team & Zugänge";
+        var hSub = document.createElement("p");
+        hSub.id = "wpTeamSub";
+        hSub.style.cssText = "margin:4px 0 0;font-size:13px;color:#94a3b8;";
+        hSub.textContent = "Rollen & Cockpit-Zugänge direkt verwalten.";
+        hText.appendChild(hTitle);
+        hText.appendChild(hSub);
+
+        var closeBtn = document.createElement("button");
+        closeBtn.type = "button";
+        closeBtn.className = "btn btn-ghost btn-sm";
+        closeBtn.textContent = "Schliessen";
+        closeBtn.addEventListener("click", function () { overlay.classList.add("hidden"); });
+        hdr.appendChild(hText);
+        hdr.appendChild(closeBtn);
+        modal.appendChild(hdr);
+
+        var tabs = document.createElement("div");
+        tabs.id = "wpTeamTabs";
+        tabs.className = "wp-team-tabs";
+        modal.appendChild(tabs);
+
+        var targetWrap = document.createElement("div");
+        targetWrap.id = "wpTeamTargetWrap";
+        modal.appendChild(targetWrap);
+
+        var modeWrap = document.createElement("div");
+        modeWrap.id = "wpTeamModeWrap";
+        modeWrap.style.cssText = "display:none;padding:12px;border-radius:10px;background:rgba(15,23,42,0.85);border:1px solid rgba(148,163,184,0.2);gap:10px;align-items:center;justify-content:space-between;flex-wrap:wrap;";
+        modal.appendChild(modeWrap);
+
+        var statusBox = document.createElement("div");
+        statusBox.id = "wpTeamStatus";
+        statusBox.className = "status-banner";
+        statusBox.style.marginTop = "0";
+        modal.appendChild(statusBox);
+
+        var listWrap = document.createElement("div");
+        listWrap.id = "wpTeamMembersList";
+        listWrap.className = "wp-team-list";
+        modal.appendChild(listWrap);
+
+        var form = document.createElement("form");
+        form.id = "wpTeamInviteForm";
+        form.className = "wp-team-form-grid";
+        var emailIn = document.createElement("input");
+        emailIn.id = "wpTeamInviteEmail";
+        emailIn.className = "wp-team-input";
+        emailIn.type = "email";
+        emailIn.required = true;
+        emailIn.placeholder = "name@firma.ch";
+        var roleSel = document.createElement("select");
+        roleSel.id = "wpTeamInviteRole";
+        roleSel.className = "wp-team-select";
+        var subBtn = document.createElement("button");
+        subBtn.type = "submit";
+        subBtn.className = "btn btn-primary btn-sm";
+        subBtn.textContent = "Einladen";
+        form.appendChild(emailIn);
+        form.appendChild(roleSel);
+        form.appendChild(subBtn);
+        modal.appendChild(form);
+
+        overlay.appendChild(modal);
+        document.body.appendChild(overlay);
+
+        overlay.addEventListener("click", function (ev) {
+          if (ev.target === overlay) overlay.classList.add("hidden");
+        });
+        document.addEventListener("keydown", function (ev) {
+          if (ev.key === "Escape" && !overlay.classList.contains("hidden")) {
+            overlay.classList.add("hidden");
+          }
+        });
+
+        form.addEventListener("submit", async function (ev) {
+          ev.preventDefault();
+          var emailVal = emailIn.value.trim();
+          var roleVal = roleSel.value;
+          if (!emailVal || !roleVal) return;
+          subBtn.disabled = true;
+          hideBanner(statusBox);
+          try {
+            var payload = { email: emailVal, role: roleVal, scope: wpTeamModalState.scope };
+            if (wpTeamModalState.scope === "site") payload.site_slug = wpTeamModalState.siteSlug;
+            if (wpTeamModalState.scope === "agency") payload.agency_id = wpTeamModalState.agencyId;
+            var res = await apiCall("/api/auth/team/invite", {
+              method: "POST",
+              body: JSON.stringify(payload)
+            });
+            if (res.status === 201 && res.data && res.data.ok) {
+              emailIn.value = "";
+              showBanner(statusBox, res.data.message || "Zugang freigegeben.", true);
+              await loadPartnerTeamMembers();
+            } else {
+              showBanner(statusBox, (res.data && res.data.error) || "Einladung fehlgeschlagen.", false);
+            }
+          } finally {
+            subBtn.disabled = false;
+          }
+        });
+
+        return overlay;
+      }
+
+      function renderPartnerTeamScopeControls() {
+        var me = window.wpAuthMe || {};
+        var tabs = document.getElementById("wpTeamTabs");
+        var targetWrap = document.getElementById("wpTeamTargetWrap");
+        if (!tabs || !targetWrap) return;
+
+        tabs.textContent = "";
+        var availableTabs = [];
+        if (me.highest_role === "platform_owner") {
+          availableTabs.push({ id: "platform", label: "Plattform-Team" });
+        }
+        if (me.highest_role === "platform_owner" || me.highest_role === "agency_owner") {
+          availableTabs.push({ id: "agency", label: "Agentur-Team" });
+        }
+        availableTabs.push({ id: "site", label: "Website-Team" });
+
+        if (!availableTabs.some(function (t) { return t.id === wpTeamModalState.scope; })) {
+          wpTeamModalState.scope = availableTabs[0].id;
+        }
+
+        availableTabs.forEach(function (t) {
+          var b = document.createElement("button");
+          b.type = "button";
+          b.className = "wp-team-tab" + (wpTeamModalState.scope === t.id ? " active" : "");
+          b.textContent = t.label;
+          b.addEventListener("click", function () {
+            wpTeamModalState.scope = t.id;
+            renderPartnerTeamScopeControls();
+            loadPartnerTeamMembers();
+          });
+          tabs.appendChild(b);
+        });
+
+        targetWrap.textContent = "";
+        if (wpTeamModalState.scope === "agency") {
+          var agList = Array.isArray(me.agencies) ? me.agencies : [];
+          if (!wpTeamModalState.agencyId && agList.length) wpTeamModalState.agencyId = agList[0].id;
+          var agSel = document.createElement("select");
+          agSel.className = "wp-team-select";
+          agList.forEach(function (ag) {
+            var opt = document.createElement("option");
+            opt.value = ag.id;
+            opt.textContent = ag.name + " (" + ag.slug + ")";
+            if (ag.id === wpTeamModalState.agencyId) opt.selected = true;
+            agSel.appendChild(opt);
+          });
+          agSel.addEventListener("change", function () {
+            wpTeamModalState.agencyId = agSel.value;
+            loadPartnerTeamMembers();
+          });
+          targetWrap.appendChild(agSel);
+        } else if (wpTeamModalState.scope === "site") {
+          if (!wpTeamModalState.siteSlug && wpSsoAllSites.length) {
+            wpTeamModalState.siteSlug = wpSsoAllSites[0].slug;
+          }
+          var sSel = document.createElement("select");
+          sSel.className = "wp-team-select";
+          wpSsoAllSites.forEach(function (st) {
+            var opt = document.createElement("option");
+            opt.value = st.slug;
+            opt.textContent = (st.display_name || st.slug) + " (" + st.slug + ")";
+            if (st.slug === wpTeamModalState.siteSlug) opt.selected = true;
+            sSel.appendChild(opt);
+          });
+          sSel.addEventListener("change", function () {
+            wpTeamModalState.siteSlug = sSel.value;
+            loadPartnerTeamMembers();
+          });
+          targetWrap.appendChild(sSel);
+        }
+      }
+
+      async function loadPartnerTeamMembers() {
+        var listWrap = document.getElementById("wpTeamMembersList");
+        var roleSel = document.getElementById("wpTeamInviteRole");
+        var modeWrap = document.getElementById("wpTeamModeWrap");
+        var statusBox = document.getElementById("wpTeamStatus");
+        if (!listWrap || !roleSel || !modeWrap) return;
+
+        listWrap.textContent = "Lade Team-Mitglieder...";
+        modeWrap.style.display = "none";
+        var q = "scope=" + encodeURIComponent(wpTeamModalState.scope);
+        if (wpTeamModalState.scope === "site") q += "&site=" + encodeURIComponent(wpTeamModalState.siteSlug);
+        if (wpTeamModalState.scope === "agency") q += "&agency_id=" + encodeURIComponent(wpTeamModalState.agencyId);
+
+        var res = await apiCall("/api/auth/team/members?" + q, { method: "GET" });
+        if (res.status !== 200 || !res.data || !res.data.ok) {
+          listWrap.textContent = "";
+          showBanner(statusBox, (res.data && res.data.error) || "Team konnte nicht geladen werden.", false);
+          return;
+        }
+        var d = res.data;
+        roleSel.textContent = "";
+        (d.allowed_roles || []).forEach(function (r) {
+          var opt = document.createElement("option");
+          opt.value = r;
+          opt.textContent = WP_ROLE_LABELS[r] || r;
+          roleSel.appendChild(opt);
+        });
+
+        if (wpTeamModalState.scope === "site" && d.can_change_site_mode) {
+          modeWrap.textContent = "";
+          modeWrap.style.display = "flex";
+          var ml = document.createElement("span");
+          ml.style.cssText = "font-size:13px;font-weight:600;color:#e2e8f0;";
+          ml.textContent = "Kunden-Cockpit-Modus:";
+          var mRight = document.createElement("div");
+          mRight.style.cssText = "display:flex;gap:8px;align-items:center;flex-wrap:wrap;";
+          var mSel = document.createElement("select");
+          mSel.className = "wp-team-select";
+          mSel.style.width = "auto";
+          [
+            { v: "full", l: "Voll-Cockpit (Design, Bilder, Texte)" },
+            { v: "light", l: "Light (nur Texte & Aktuelles)" }
+          ].forEach(function (o) {
+            var op = document.createElement("option");
+            op.value = o.v;
+            op.textContent = o.l;
+            if (d.site_cockpit_mode === o.v) op.selected = true;
+            mSel.appendChild(op);
+          });
+          var mBtn = document.createElement("button");
+          mBtn.type = "button";
+          mBtn.className = "btn btn-secondary btn-sm";
+          mBtn.textContent = "Modus speichern";
+          mBtn.addEventListener("click", async function () {
+            mBtn.disabled = true;
+            try {
+              var mr = await apiCall("/api/auth/team/site-mode", {
+                method: "POST",
+                body: JSON.stringify({ site_slug: d.site_slug, cockpit_mode: mSel.value })
+              });
+              if (mr.status === 200 && mr.data && mr.data.ok) {
+                showBanner(statusBox, mr.data.message || "Modus gespeichert.", true);
+                wpSsoAllSites.forEach(function (st) {
+                  if (st.slug === d.site_slug) {
+                    st.cockpit_mode = mSel.value;
+                    if (st.effective_role === "client_owner" || st.effective_role === "client_staff") {
+                      st.effective_mode = mSel.value;
+                    }
+                  }
+                });
+                renderWpSsoSites((document.getElementById("wpSsoSearch") || {}).value || "");
+              } else {
+                showBanner(statusBox, (mr.data && mr.data.error) || "Modus konnte nicht gespeichert werden.", false);
+              }
+            } finally {
+              mBtn.disabled = false;
+            }
+          });
+          mRight.appendChild(mSel);
+          mRight.appendChild(mBtn);
+          modeWrap.appendChild(ml);
+          modeWrap.appendChild(mRight);
+        }
+
+        listWrap.textContent = "";
+        if (!d.members || !d.members.length) {
+          var emp = document.createElement("p");
+          emp.style.cssText = "margin:4px 0;font-size:13px;color:#94a3b8;";
+          emp.textContent = "Noch keine Zugänge in diesem Bereich.";
+          listWrap.appendChild(emp);
+          return;
+        }
+        d.members.forEach(function (m) {
+          var row = document.createElement("div");
+          row.className = "wp-team-row";
+          var info = document.createElement("div");
+          var em = document.createElement("div");
+          em.style.cssText = "font-size:14px;font-weight:600;color:#fff;";
+          em.textContent = m.user_email + (m.is_self ? " (Du)" : "");
+          var rl = document.createElement("div");
+          rl.style.cssText = "font-size:12px;color:#94a3b8;";
+          rl.textContent = (WP_ROLE_LABELS[m.role] || m.role);
+          info.appendChild(em);
+          info.appendChild(rl);
+          row.appendChild(info);
+
+          if (m.can_revoke && !m.is_self) {
+            var revBtn = document.createElement("button");
+            revBtn.type = "button";
+            revBtn.className = "btn btn-ghost btn-sm";
+            revBtn.textContent = "Entfernen";
+            revBtn.addEventListener("click", async function () {
+              revBtn.disabled = true;
+              try {
+                var rr = await apiCall("/api/auth/team/revoke", {
+                  method: "POST",
+                  body: JSON.stringify({ membership_id: m.id })
+                });
+                if (rr.status === 200 && rr.data && rr.data.ok) {
+                  showBanner(statusBox, rr.data.message || "Zugang entfernt.", true);
+                  await loadPartnerTeamMembers();
+                } else {
+                  showBanner(statusBox, (rr.data && rr.data.error) || "Entzug fehlgeschlagen.", false);
+                }
+              } finally {
+                revBtn.disabled = false;
+              }
+            });
+            row.appendChild(revBtn);
+          }
+          listWrap.appendChild(row);
+        });
+      }
+
+      async function openPartnerTeamModal(opts) {
+        var o = opts || {};
+        var overlay = ensurePartnerTeamModalDom();
+        var statusBox = document.getElementById("wpTeamStatus");
+        if (statusBox) hideBanner(statusBox);
+        if (o.scope) wpTeamModalState.scope = o.scope;
+        if (o.siteSlug) wpTeamModalState.siteSlug = o.siteSlug;
+        if (o.agencyId) wpTeamModalState.agencyId = o.agencyId;
+        overlay.classList.remove("hidden");
+        renderPartnerTeamScopeControls();
+        await loadPartnerTeamMembers();
+      }
+
+      var wpPartnerTeamTopBtn = document.getElementById("wpPartnerTeamBtn");
+      if (wpPartnerTeamTopBtn) {
+        wpPartnerTeamTopBtn.addEventListener("click", function () {
+          var me = window.wpAuthMe || {};
+          var defScope = (me.highest_role === "platform_owner") ? "platform" : "agency";
+          openPartnerTeamModal({ scope: defScope });
         });
       }
 
@@ -3942,9 +4363,14 @@
             window.location.assign("/login?next=" + encodeURIComponent(window.location.pathname + window.location.search));
             return;
           }
+          window.wpAuthMe = me;
           wpSsoAllSites = Array.isArray(me.sites) ? me.sites : [];
           wpSsoAgenciesById = {};
           (me.agencies || []).forEach(function (a) { wpSsoAgenciesById[a.id] = a; });
+          var teamTopBtn = document.getElementById("wpPartnerTeamBtn");
+          if (teamTopBtn) {
+            teamTopBtn.classList.toggle("hidden", !me.can_manage_team);
+          }
           renderWpSsoSites("");
           enterStudio({
             username: me.email,

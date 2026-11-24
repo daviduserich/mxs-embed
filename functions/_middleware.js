@@ -121,129 +121,6 @@ const VORSCHAU_SLUG_TO_FOLDER = {
   'birchmeier-vv': 'preview-birchmeier'
 };
 
-const CLIENT_TOKENS = {
-  'hiltbrand': ['hb_sec_9e2f48b7c0d3a5a81e9', 'hb2026'],
-  'zurbuchen': ['zurbuchen_sec_master', 'zurbuchen2026'],
-  'preview-hiltbrand': ['hb_sec_9e2f48b7c0d3a5a81e9', 'hb2026'],
-  'birchmeier': ['bm_sec_7a1c8f3e2d9b4a5f', 'bi_live_ea3776_a1ef'],
-  'preview-birchmeier': ['bm_sec_7a1c8f3e2d9b4a5f', 'bi_live_ea3776_a1ef'],
-  'mxs-talent': ['mxs-talent_sec_master', 'mxs-talent2026'],
-  'cotra': ['cotra_sec_master', 'cotra2026'],
-  'preview-cotra': ['cotra_sec_master', 'cotra2026'],
-  'hochuli': ['hochuli_sec_master', 'hochuli2026'],
-  'preview-hochuli': ['hochuli_sec_master', 'hochuli2026'],
-  'hochuli-zimmermann': ['hochuli-zimmermann_sec_master', 'hochuli2026'],
-  'her11': ['her11_sec_master', 'her112026'],
-  'preview-her11': ['her11_sec_master', 'her112026'],
-  'fcschlieren': ['fcschlieren_sec_master', 'fcschlieren2026'],
-  'preview-fcschlieren': ['fcschlieren_sec_master', 'fcschlieren2026'],
-  'fcschlieren-v2': ['fcschlieren_sec_master', 'fcschlieren2026'],
-  'preview-fcschlieren-v2': ['fcschlieren_sec_master', 'fcschlieren2026'],
-  'fcschlieren-vollversion': ['fcschlieren_sec_master', 'fcschlieren2026'],
-  'fcschlieren-vv': ['fcschlieren_sec_master', 'fcschlieren2026'],
-  'fcattiswil': ['fcattiswil_sec_master', 'fcattiswil2026'],
-  'preview-fcattiswil': ['fcattiswil_sec_master', 'fcattiswil2026'],
-  'fcattiswil-v2': ['fcattiswil_sec_master', 'fcattiswil2026'],
-  'scfulenbach': ['scfulenbach_sec_master', 'scfulenbach2026'],
-  'preview-scfulenbach': ['scfulenbach_sec_master', 'scfulenbach2026'],
-  'scfulenbach-v2': ['scfulenbach_sec_master', 'scfulenbach2026'],
-  'innere-staerke': ['innerestaerke_sec_master', 'innerestaerke2026', 'innere-staerke2026'],
-  'preview-innere-staerke': ['innerestaerke_sec_master', 'innerestaerke2026', 'innere-staerke2026'],
-  'innere-staerke-v2': ['innerestaerke_sec_master', 'innerestaerke2026', 'innere-staerke2026'],
-  'preview-innere-staerke-v2': ['innerestaerke_sec_master', 'innerestaerke2026', 'innere-staerke2026'],
-  'innere-staerke-vollversion': ['innerestaerke_sec_master', 'innerestaerke2026', 'innere-staerke2026'],
-  'innere-staerke-vv': ['innerestaerke_sec_master', 'innerestaerke2026', 'innere-staerke2026'],
-  'frees': ['frees_sec_master', 'frees2026', 'frees-v22026'],
-  'preview-frees': ['frees_sec_master', 'frees2026', 'frees-v22026'],
-  'frees-v2': ['frees_sec_master', 'frees2026', 'frees-v22026'],
-  'preview-frees-v2': ['frees_sec_master', 'frees2026', 'frees-v22026'],
-  'frees-vollversion': ['frees_sec_master', 'frees2026', 'frees-v22026'],
-  'frees-vv': ['frees_sec_master', 'frees2026', 'frees-v22026'],
-  'herzensarbeit': ['herzensarbeit_sec_master', 'herzensarbeit2026', 'herzensarbeit-v22026'],
-  'preview-herzensarbeit': ['herzensarbeit_sec_master', 'herzensarbeit2026', 'herzensarbeit-v22026'],
-  'herzensarbeit-v2': ['herzensarbeit_sec_master', 'herzensarbeit2026', 'herzensarbeit-v22026'],
-  'preview-herzensarbeit-v2': ['herzensarbeit_sec_master', 'herzensarbeit2026', 'herzensarbeit-v22026'],
-  'herzensarbeit-vollversion': ['herzensarbeit_sec_master', 'herzensarbeit2026', 'herzensarbeit-v22026'],
-  'herzensarbeit-vv': ['herzensarbeit_sec_master', 'herzensarbeit2026', 'herzensarbeit-v22026'],
-  'imp-marketing': ['impmarketing_sec_master', 'impmarketing2026', 'imp-marketing2026', 'imp-marketing-v22026'],
-  'preview-imp-marketing': ['impmarketing_sec_master', 'impmarketing2026', 'imp-marketing2026', 'imp-marketing-v22026'],
-  'imp-marketing-v2': ['impmarketing_sec_master', 'impmarketing2026', 'imp-marketing2026', 'imp-marketing-v22026'],
-  'preview-imp-marketing-v2': ['impmarketing_sec_master', 'impmarketing2026', 'imp-marketing2026', 'imp-marketing-v22026'],
-  'imp-marketing-vollversion': ['impmarketing_sec_master', 'impmarketing2026', 'imp-marketing2026', 'imp-marketing-v22026'],
-  'imp-marketing-vv': ['impmarketing_sec_master', 'impmarketing2026', 'imp-marketing2026', 'imp-marketing-v22026'],
-  'joma': ['joma_sec_master', 'joma2026', 'jomalight2026', 'joma-v22026'],
-  'preview-joma': ['joma_sec_master', 'joma2026', 'jomalight2026', 'joma-v22026'],
-  'joma-v1': ['joma_sec_master', 'joma2026', 'jomalight2026', 'joma-v22026'],
-  'joma-v2': ['joma_sec_master', 'joma2026', 'jomalight2026', 'joma-v22026'],
-  'preview-joma-v2': ['joma_sec_master', 'joma2026', 'jomalight2026', 'joma-v22026'],
-  'joma-vollversion': ['joma_sec_master', 'joma2026', 'jomalight2026', 'joma-v22026'],
-  'joma-vv': ['joma_sec_master', 'joma2026', 'jomalight2026', 'joma-v22026'],
-  'holz-susi': ['holzsusi_sec_master', 'holzsusi2026', 'holz-susi2026', 'holzsusi-light2026', 'holz-susi-v22026'],
-  'preview-holz-susi': ['holzsusi_sec_master', 'holzsusi2026', 'holz-susi2026', 'holzsusi-light2026', 'holz-susi-v22026'],
-  'holz-susi-v1': ['holzsusi_sec_master', 'holzsusi2026', 'holz-susi2026', 'holzsusi-light2026', 'holz-susi-v22026'],
-  'holz-susi-v2': ['holzsusi_sec_master', 'holzsusi2026', 'holz-susi2026', 'holzsusi-light2026', 'holz-susi-v22026'],
-  'preview-holz-susi-v2': ['holzsusi_sec_master', 'holzsusi2026', 'holz-susi2026', 'holzsusi-light2026', 'holz-susi-v22026'],
-  'holz-susi-vollversion': ['holzsusi_sec_master', 'holzsusi2026', 'holz-susi2026', 'holzsusi-light2026', 'holz-susi-v22026'],
-  'holz-susi-vv': ['holzsusi_sec_master', 'holzsusi2026', 'holz-susi2026', 'holzsusi-light2026', 'holz-susi-v22026'],
-  'holz-susi-original': ['holzsusi_sec_master', 'holzsusi2026', 'holz-susi2026', 'holzsusi-light2026', 'holz-susi-v22026'],
-  'preview-holz-susi-original': ['holzsusi_sec_master', 'holzsusi2026', 'holz-susi2026', 'holzsusi-light2026', 'holz-susi-v22026'],
-  'mondocani': ['mondocani_sec_master', 'mondocani2026', 'mondocani-light2026', 'mondocani-v22026'],
-  'preview-mondocani': ['mondocani_sec_master', 'mondocani2026', 'mondocani-light2026', 'mondocani-v22026'],
-  'mondocani-v1': ['mondocani_sec_master', 'mondocani2026', 'mondocani-light2026', 'mondocani-v22026'],
-  'mondocani-v2': ['mondocani_sec_master', 'mondocani2026', 'mondocani-light2026', 'mondocani-v22026'],
-  'preview-mondocani-v2': ['mondocani_sec_master', 'mondocani2026', 'mondocani-light2026', 'mondocani-v22026'],
-  'mondocani-vollversion': ['mondocani_sec_master', 'mondocani2026', 'mondocani-light2026', 'mondocani-v22026'],
-  'mondocani-vv': ['mondocani_sec_master', 'mondocani2026', 'mondocani-light2026', 'mondocani-v22026'],
-  'get-more-sales': ['getmoresales_sec_master', 'getmoresales2026', 'get-more-sales2026', 'getmoresales-light2026', 'get-more-sales-v22026'],
-  'preview-get-more-sales': ['getmoresales_sec_master', 'getmoresales2026', 'get-more-sales2026', 'getmoresales-light2026', 'get-more-sales-v22026'],
-  'get-more-sales-v1': ['getmoresales_sec_master', 'getmoresales2026', 'get-more-sales2026', 'getmoresales-light2026', 'get-more-sales-v22026'],
-  'get-more-sales-v2': ['getmoresales_sec_master', 'getmoresales2026', 'get-more-sales2026', 'getmoresales-light2026', 'get-more-sales-v22026'],
-  'preview-get-more-sales-v2': ['getmoresales_sec_master', 'getmoresales2026', 'get-more-sales2026', 'getmoresales-light2026', 'get-more-sales-v22026'],
-  'get-more-sales-vollversion': ['getmoresales_sec_master', 'getmoresales2026', 'get-more-sales2026', 'getmoresales-light2026', 'get-more-sales-v22026'],
-  'get-more-sales-vv': ['getmoresales_sec_master', 'getmoresales2026', 'get-more-sales2026', 'getmoresales-light2026', 'get-more-sales-v22026'],
-  'die-schule': ['dieschule_sec_master', 'die-schule2026', 'dieschule2026', 'die-schule-light2026', 'die-schule-v22026'],
-  'preview-die-schule': ['dieschule_sec_master', 'die-schule2026', 'dieschule2026', 'die-schule-light2026', 'die-schule-v22026'],
-  'die-schule-v1': ['dieschule_sec_master', 'die-schule2026', 'dieschule2026', 'die-schule-light2026', 'die-schule-v22026'],
-  'die-schule-v2': ['dieschule_sec_master', 'die-schule2026', 'dieschule2026', 'die-schule-light2026', 'die-schule-v22026'],
-  'preview-die-schule-v2': ['dieschule_sec_master', 'die-schule2026', 'dieschule2026', 'die-schule-light2026', 'die-schule-v22026'],
-  'die-schule-vollversion': ['dieschule_sec_master', 'die-schule2026', 'dieschule2026', 'die-schule-light2026', 'die-schule-v22026'],
-  'die-schule-vv': ['dieschule_sec_master', 'die-schule2026', 'dieschule2026', 'die-schule-light2026', 'die-schule-v22026'],
-  'seit': ['seit_sec_master', 'seit2026', 'cleanequipe2026', 'clean-equipe2026', 'seit-light2026', 'seit-v22026'],
-  'preview-seit': ['seit_sec_master', 'seit2026', 'cleanequipe2026', 'clean-equipe2026', 'seit-light2026', 'seit-v22026'],
-  'seit-v1': ['seit_sec_master', 'seit2026', 'cleanequipe2026', 'clean-equipe2026', 'seit-light2026', 'seit-v22026'],
-  'seit-v2': ['seit_sec_master', 'seit2026', 'cleanequipe2026', 'clean-equipe2026', 'seit-light2026', 'seit-v22026'],
-  'preview-seit-v2': ['seit_sec_master', 'seit2026', 'cleanequipe2026', 'clean-equipe2026', 'seit-light2026', 'seit-v22026'],
-  'seit-vollversion': ['seit_sec_master', 'seit2026', 'cleanequipe2026', 'clean-equipe2026', 'seit-light2026', 'seit-v22026'],
-  'seit-vv': ['seit_sec_master', 'seit2026', 'cleanequipe2026', 'clean-equipe2026', 'seit-light2026', 'seit-v22026']
-};
-
-function getValidTokens(rootSegment, clientSlug) {
-  const baseSlug = clientSlug.replace(/-(?:vollversion|vv|v1|v2)$/, '');
-  const baseList = CLIENT_TOKENS[rootSegment] ||
-         CLIENT_TOKENS[clientSlug] ||
-         CLIENT_TOKENS[baseSlug] ||
-         [baseSlug + '_sec_master', baseSlug + '2026', clientSlug + '2026'];
-  const compactBase = baseSlug.replace(/-/g, '');
-  const extended = new Set(baseList);
-  extended.add(baseSlug + '2026');
-  extended.add(baseSlug + 'light2026');
-  extended.add(baseSlug + '-light2026');
-  extended.add(compactBase + '2026');
-  extended.add(compactBase + 'light2026');
-  extended.add(compactBase + '-light2026');
-  extended.add(clientSlug + '2026');
-  extended.add(clientSlug + 'light2026');
-  extended.add(clientSlug + '-light2026');
-  for (const tok of baseList) {
-    extended.add(tok + '-light');
-    if (tok.endsWith('2026')) {
-      const stem = tok.slice(0, -4);
-      extended.add(stem + 'light2026');
-      extended.add(stem + '-light2026');
-    }
-  }
-  return Array.from(extended);
-}
 
 const ENTERPRISE_SECURITY_HEADERS = {
   'Strict-Transport-Security': 'max-age=31536000; includeSubDomains; preload',
@@ -642,6 +519,36 @@ async function handleRequestCore(context) {
     });
   }
 
+  // Default-Deny für interne Repo-/Systemdateien (Markdown, Logs, Python, Configs, Templates, Scripts)
+  const lowerRoot = rootSegment.toLowerCase();
+  const BLOCKED_INTERNAL_ROOTS = new Set([
+    'scripts', 'templates', 'config', 'artifacts', 'leads',
+    'team_submissions', 'visual-dna', 'partner-jobs', 'staging-mxs-talent',
+    'functions', 'version', 'version.json', '_headers', 'bilder.json', 'stellen.json'
+  ]);
+  if (
+    /\.(?:md|log|py|sh|bak|sql|env|toml|yaml|yml)$/i.test(url.pathname) ||
+    BLOCKED_INTERNAL_ROOTS.has(lowerRoot)
+  ) {
+    return new Response('Not Found', {
+      status: 404,
+      headers: {
+        'Content-Type': 'text/plain; charset=utf-8',
+        'Cache-Control': 'no-store'
+      }
+    });
+  }
+
+  // Zero-Trust Edge Auth Guards für interne Side-Door-Tools
+  if (rootSegment === 'boardroom' && !STATIC_ASSET_EXT_RE.test(url.pathname)) {
+    const denyBoardroom = await enforceWebPilotEdgeAuth(context, url, 'platform', '');
+    if (denyBoardroom) return denyBoardroom;
+  }
+  if ((rootSegment === 'brand-gallery' || rootSegment === 'client-preview') && !STATIC_ASSET_EXT_RE.test(url.pathname)) {
+    const denyTool = await enforceWebPilotEdgeAuth(context, url, 'partner', '');
+    if (denyTool) return denyTool;
+  }
+
   // Zero-Trust Partner-Portal Guard (nur HTML-Dokumente)
   if (rootSegment === 'partner' && !STATIC_ASSET_EXT_RE.test(url.pathname)) {
     const denyPartner = await enforceWebPilotEdgeAuth(context, url, 'partner', '');
@@ -810,15 +717,7 @@ async function handleRequestCore(context) {
           appendDiscoveryLinkHeader(newHeaders, activeClientSlug);
         }
       }
-      const tokenParam = url.searchParams.get('token');
-      if (tokenParam) {
-        const baseClientSlug = activeClientSlug.replace(/-(?:vollversion|vv|v1|v2)$/, '');
-        newHeaders.append('Set-Cookie', `mxs_auth_${activeClientSlug}=${tokenParam}; Path=/${activeClientSlug}/; Max-Age=86400; SameSite=Lax`);
-        newHeaders.append('Set-Cookie', `mxs_auth_${baseClientSlug}=${tokenParam}; Path=/; Max-Age=86400; SameSite=Lax`);
-        if (activeClientSlug === 'hiltbrand') {
-          newHeaders.append('Set-Cookie', `hb_preview_token=${tokenParam}; Path=/hiltbrand/; Max-Age=86400; SameSite=Lax`);
-        }
-      }
+
     } else if (response.status === 200 && ct.includes('text/html') && url.pathname !== '/404.html' && !url.pathname.endsWith('/404.html')) {
       if (url.pathname.startsWith('/webpilot') && !url.pathname.includes('/cockpit')) {
         appendDiscoveryLinkHeader(newHeaders, 'webpilot');
@@ -831,32 +730,6 @@ async function handleRequestCore(context) {
       status: response.status,
       headers: newHeaders
     });
-  }
-
-  // 4. Default: embed.magnet-xs.ch (Tenant-Scoped Cookie setzen)
-  if (rootSegment && !isReservedRoot) {
-    const clientSlug = rootSegment.replace(/^preview-/, '');
-    const baseClientSlug = clientSlug.replace(/-(?:vollversion|vv|v1|v2)$/, '');
-    const tokenParam = url.searchParams.get('token');
-    const response = await context.next();
-    if (tokenParam) {
-      const validTokens = getValidTokens(rootSegment, clientSlug);
-      if (validTokens.includes(tokenParam)) {
-        const newHeaders = new Headers(response.headers);
-        const cookiePath = '/' + rootSegment + '/';
-        newHeaders.append('Set-Cookie', 'mxs_auth_' + clientSlug + '=' + tokenParam + '; Path=' + cookiePath + '; Max-Age=2592000; SameSite=Lax');
-        newHeaders.append('Set-Cookie', 'mxs_auth_' + baseClientSlug + '=' + tokenParam + '; Path=/; Max-Age=2592000; SameSite=Lax');
-        if (clientSlug === 'hiltbrand') {
-          newHeaders.append('Set-Cookie', 'hb_cockpit_token=' + tokenParam + '; Path=' + cookiePath + '; Max-Age=2592000; SameSite=Lax');
-          newHeaders.append('Set-Cookie', 'hb_preview_token=' + tokenParam + '; Path=' + cookiePath + '; Max-Age=2592000; SameSite=Lax');
-        }
-        return new Response(response.body, {
-          status: response.status,
-          headers: newHeaders
-        });
-      }
-    }
-    return response;
   }
 
   return context.next();
