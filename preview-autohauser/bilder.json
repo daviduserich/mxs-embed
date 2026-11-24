@@ -26,7 +26,7 @@
     "used_in_pages": [
       "team-unternehmen.html"
     ],
-    "alt": "Tatjana de Rose – Administration & Rechnungswesen (Kauffrau EFZ)"
+    "alt": "Tatjana de Rose – Administration &amp; Rechnungswesen (Kauffrau EFZ)"
   },
   {
     "nr": 2,
@@ -213,13 +213,55 @@
     "is_used": true,
     "used_in": [
       {
+        "datei": "404.html",
+        "slot": "image",
+        "is_hero": false
+      },
+      {
+        "datei": "beschriftung.html",
+        "slot": "image",
+        "is_hero": false
+      },
+      {
+        "datei": "classics.html",
+        "slot": "image",
+        "is_hero": false
+      },
+      {
         "datei": "index.html",
+        "slot": "image",
+        "is_hero": false
+      },
+      {
+        "datei": "karriere.html",
+        "slot": "image",
+        "is_hero": false
+      },
+      {
+        "datei": "ratgeber.html",
+        "slot": "image",
+        "is_hero": false
+      },
+      {
+        "datei": "schaden-kontakt.html",
+        "slot": "image",
+        "is_hero": false
+      },
+      {
+        "datei": "team-unternehmen.html",
         "slot": "image",
         "is_hero": false
       }
     ],
     "used_in_pages": [
-      "index.html"
+      "404.html",
+      "beschriftung.html",
+      "classics.html",
+      "index.html",
+      "karriere.html",
+      "ratgeber.html",
+      "schaden-kontakt.html",
+      "team-unternehmen.html"
     ],
     "alt": "Jakob Hauser AG Oftringen (AG) – Offizielles Logo (Fachbetrieb in der Schweiz)"
   },
@@ -284,6 +326,11 @@
     "is_used": true,
     "used_in": [
       {
+        "datei": "404.html",
+        "slot": "image",
+        "is_hero": false
+      },
+      {
         "datei": "beschriftung.html",
         "slot": "image",
         "is_hero": false
@@ -320,6 +367,7 @@
       }
     ],
     "used_in_pages": [
+      "404.html",
       "beschriftung.html",
       "classics.html",
       "index.html",
@@ -328,7 +376,7 @@
       "schaden-kontakt.html",
       "team-unternehmen.html"
     ],
-    "alt": "autohauser® – Jakob Hauser AG Oftringen"
+    "alt": "Jakob Hauser AG"
   },
   {
     "nr": 12,
@@ -520,7 +568,7 @@
     "used_in_pages": [
       "team-unternehmen.html"
     ],
-    "alt": "Daniela Dähler – Leiterin HR & FRW | Fachfrau Finanz- und Rechnungswesen mit eidg. FA"
+    "alt": "Daniela Dähler – Leiterin HR &amp; FRW | Fachfrau Finanz- und Rechnungswesen mit eidg. FA"
   },
   {
     "nr": 20,
@@ -647,7 +695,7 @@
       "index.html",
       "team-unternehmen.html"
     ],
-    "alt": "Standort Jakob Hauser AG Oftringen"
+    "alt": "autohauser Werkstatt und Fachbetrieb Oftringen"
   },
   {
     "nr": 25,
@@ -705,7 +753,7 @@
     "used_in_pages": [
       "classics.html"
     ],
-    "alt": "Alfa Romeo 2000 GTV Bertone Baujahr 1974"
+    "alt": "Alfa Romeo 2000 GTV Bertone bei autohauser classics"
   },
   {
     "nr": 27,

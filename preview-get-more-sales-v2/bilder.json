@@ -18,6 +18,11 @@
     "is_used": true,
     "used_in": [
       {
+        "datei": "404.html",
+        "slot": "image",
+        "is_hero": false
+      },
+      {
         "datei": "index.html",
         "slot": "image",
         "is_hero": false
@@ -29,6 +34,7 @@
       }
     ],
     "used_in_pages": [
+      "404.html",
       "index.html",
       "kontakt.html"
     ],
@@ -117,7 +123,7 @@
       "index.html",
       "kontakt.html"
     ],
-    "alt": "Carmen Caselli, Geschäftsführerin get.more.sales in Zofingen"
+    "alt": "Carmen Caselli, Geschäftsführerin get.more.sales Verkaufsberatung und Vertriebstraining"
   },
   {
     "nr": 5,
@@ -146,7 +152,7 @@
     "used_in_pages": [
       "index.html"
     ],
-    "alt": "get.more.sales Carmen Caselli B2B Vertriebsberatung: Preisgespräche & Abschlussstärke ohne Rabattschlacht"
+    "alt": "1:1 Executive Sales-Sparring mit Carmen Caselli"
   },
   {
     "nr": 6,
@@ -308,7 +314,7 @@
       "index.html",
       "kontakt.html"
     ],
-    "alt": "get.more.sales Carmen Caselli B2B Vertriebsberatung: Marktforschung & Zielgruppen-Positionierung"
+    "alt": "Verkaufsprozess-Audit und Standortbestimmung"
   },
   {
     "nr": 12,
@@ -416,6 +422,11 @@
     "is_used": true,
     "used_in": [
       {
+        "datei": "404.html",
+        "slot": "image",
+        "is_hero": false
+      },
+      {
         "datei": "index.html",
         "slot": "image",
         "is_hero": false
@@ -427,10 +438,11 @@
       }
     ],
     "used_in_pages": [
+      "404.html",
       "index.html",
       "kontakt.html"
     ],
-    "alt": "get.more.sales Carmen Caselli"
+    "alt": "get.more.sales"
   },
   {
     "nr": 16,
@@ -459,6 +471,6 @@
     "used_in_pages": [
       "index.html"
     ],
-    "alt": "get.more.sales Carmen Caselli B2B Vertriebsberatung: B2B-Vertriebsarchitektur & Pipeline-Klarheit"
+    "alt": "Moderne B2B Akquise über Telefon und LinkedIn"
   }
 ]

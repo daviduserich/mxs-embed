@@ -624,9 +624,22 @@ async function handleRequestCore(context) {
   const pathParts = url.pathname.split('/').filter(Boolean);
   const rootSegment = pathParts[0] || '';
 
-  // API- und zentrale Login-Routen direkt durchlassen
-  if (rootSegment === 'api' || rootSegment === 'login') {
+  // API-Routen direkt durchlassen
+  if (rootSegment === 'api') {
     return context.next();
+  }
+
+  // Zentrale Login-Seite mit Clickjacking-Schutz (nur auf /login!)
+  if (rootSegment === 'login') {
+    const loginRes = await context.next();
+    const hdrs = new Headers(loginRes.headers);
+    hdrs.set('X-Frame-Options', 'DENY');
+    hdrs.set('Cache-Control', 'no-store, no-cache, must-revalidate, max-age=0');
+    return new Response(loginRes.body, {
+      status: loginRes.status,
+      statusText: loginRes.statusText,
+      headers: hdrs
+    });
   }
 
   // Zero-Trust Partner-Portal Guard (nur HTML-Dokumente)

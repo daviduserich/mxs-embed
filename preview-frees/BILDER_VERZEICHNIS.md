@@ -5,7 +5,7 @@
 > **Lokaler Ordner (VPS & Git):** `preview-frees/`  
 > **Cloudflare-Basis-URL:** [vorschau.magnet-xs.ch/frees-vollversion/](https://vorschau.magnet-xs.ch/frees-vollversion/)  
 > **Bestand:** **23 Assets** (1.66 MB gesamt) · **🟢 20 aktiv im HTML** · **⚪ 3 frei im Bild-Pool** · **Externe Hotlinks: 0**  
-> **Letzte Aktualisierung:** 21.11.2026 07:36 Uhr (automatisch generiert via `webpilot_asset_catalog.py`)
+> **Letzte Aktualisierung:** 24.11.2026 11:15 Uhr (automatisch generiert via `webpilot_asset_catalog.py`)
 
 ---
 
@@ -13,7 +13,7 @@
 
 | Nr. | Dateiname (Lokal) | Kategorie | Auflösung & Grösse | Verwendet auf Seite(n) | SEO/GEO Alt-Text | Direkt-Link auf Cloudflare |
 |---:|---|---|---|---|---|---|
-| 1 | `images/apple-touch-icon.png` | Favicon & App-Icon (`icon`) | 180×180 px · 13.4 KB (PNG) | 🟢 Aktiv in `dienstleistungen.html`, `index.html`, `kontakt.html`, `profil.html`, `textilsortiment.html` | Free's Niederrohrdorf (AG) – Offizielles Logo (Inhouse Textildruck (Siebdruck, Transferdruck,) | [vorschau.magnet-xs.ch/frees-vollversion/images/apple-touch-icon.png](https://vorschau.magnet-xs.ch/frees-vollversion/images/apple-touch-icon.png) |
+| 1 | `images/apple-touch-icon.png` | Favicon & App-Icon (`icon`) | 180×180 px · 13.4 KB (PNG) | 🟢 Aktiv in `404.html`, `dienstleistungen.html`, `index.html`, `kontakt.html`, `profil.html`, `textilsortiment.html` | Free's Niederrohrdorf (AG) – Offizielles Logo (Inhouse Textildruck (Siebdruck, Transferdruck,) | [vorschau.magnet-xs.ch/frees-vollversion/images/apple-touch-icon.png](https://vorschau.magnet-xs.ch/frees-vollversion/images/apple-touch-icon.png) |
 | 2 | `images/atelier-inside.jpg` | Referenz, Projekt & Angebot (`ref`) | 800×452 px · 87.8 KB (JPG) | 🟢 Aktiv in `index.html`, `profil.html` | Free | [vorschau.magnet-xs.ch/frees-vollversion/images/atelier-inside.jpg](https://vorschau.magnet-xs.ch/frees-vollversion/images/atelier-inside.jpg) |
 | 3 | `images/druckservice-maschine.jpg` | Referenz, Projekt & Angebot (`ref`) | 1280×853 px · 84.9 KB (JPG) | 🟢 Aktiv in `dienstleistungen.html`, `index.html`, `profil.html` | Free | [vorschau.magnet-xs.ch/frees-vollversion/images/druckservice-maschine.jpg](https://vorschau.magnet-xs.ch/frees-vollversion/images/druckservice-maschine.jpg) |
 | 4 | `images/favicon-32x32.png` | Favicon & App-Icon (`icon`) | 32×32 px · 0.8 KB (PNG) | 🟢 Aktiv in `dienstleistungen.html`, `index.html`, `kontakt.html`, `profil.html`, `textilsortiment.html` | Free's Niederrohrdorf (AG) – Offizielles Logo (Inhouse Textildruck (Siebdruck, Transferdruck,) | [vorschau.magnet-xs.ch/frees-vollversion/images/favicon-32x32.png](https://vorschau.magnet-xs.ch/frees-vollversion/images/favicon-32x32.png) |
@@ -35,7 +35,7 @@
 | 20 | `images/katalog-14-wikland.png` | Sponsor & Partner (`sponsor`) | 338×149 px · 6.2 KB (PNG) | 🟢 Aktiv in `textilsortiment.html` | WIKLAND Schweizer Berufsbekleidung | [vorschau.magnet-xs.ch/frees-vollversion/images/katalog-14-wikland.png](https://vorschau.magnet-xs.ch/frees-vollversion/images/katalog-14-wikland.png) |
 | 21 | `images/logo-192.png` | Logo & Marken-Icon (`logo`) | 192×192 px · 15.1 KB (PNG) | ⚪ Frei im Pool | Free's Niederrohrdorf (AG) – Offizielles Logo (Inhouse Textildruck (Siebdruck, Transferdruck,) | [vorschau.magnet-xs.ch/frees-vollversion/images/logo-192.png](https://vorschau.magnet-xs.ch/frees-vollversion/images/logo-192.png) |
 | 22 | `images/logo-frees.png` | Logo & Marken-Icon (`logo`) | 567×208 px · 104.5 KB (PNG) | ⚪ Frei im Pool | Free's Niederrohrdorf (AG) – Offizielles Logo (Inhouse Textildruck (Siebdruck, Transferdruck,) | [vorschau.magnet-xs.ch/frees-vollversion/images/logo-frees.png](https://vorschau.magnet-xs.ch/frees-vollversion/images/logo-frees.png) |
-| 23 | `images/logo.svg` | Logo & Marken-Icon (`logo`) | 567×208 px · 139.6 KB (SVG) | 🟢 Aktiv in `dienstleistungen.html`, `index.html`, `kontakt.html`, `profil.html`, `textilsortiment.html` | Free | [vorschau.magnet-xs.ch/frees-vollversion/images/logo.svg](https://vorschau.magnet-xs.ch/frees-vollversion/images/logo.svg) |
+| 23 | `images/logo.svg` | Logo & Marken-Icon (`logo`) | 567×208 px · 139.6 KB (SVG) | 🟢 Aktiv in `404.html`, `dienstleistungen.html`, `index.html`, `kontakt.html`, `profil.html`, `textilsortiment.html` | Free&#x27;s | [vorschau.magnet-xs.ch/frees-vollversion/images/logo.svg](https://vorschau.magnet-xs.ch/frees-vollversion/images/logo.svg) |
 
 ---
 

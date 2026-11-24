@@ -160,7 +160,7 @@
       "index.html",
       "mach-mit.html"
     ],
-    "alt": "Fokus und professionelle Begleitung im Frauenfussball"
+    "alt": "Fokus und mentale Stärke einer jungen Fussballerin im Flutlicht"
   },
   {
     "nr": 6,
@@ -254,7 +254,7 @@
       "index.html",
       "kontakt.html"
     ],
-    "alt": "HER11 Spielerin im Stadion"
+    "alt": "Spielerin mit Rückennummer HER11 im Stadion-Flutlicht"
   },
   {
     "nr": 8,
@@ -293,9 +293,53 @@
     "cdn_url": "https://vorschau.magnet-xs.ch/her11/images/logo-her11.png",
     "cloudflare_url": "https://vorschau.magnet-xs.ch/her11/images/logo-her11.png",
     "cloudflare_short": "vorschau.magnet-xs.ch/her11/images/logo-her11.png",
-    "is_used": false,
-    "used_in": [],
-    "used_in_pages": [],
+    "is_used": true,
+    "used_in": [
+      {
+        "datei": "404.html",
+        "slot": "image",
+        "is_hero": false
+      },
+      {
+        "datei": "ausbildung.html",
+        "slot": "image",
+        "is_hero": false
+      },
+      {
+        "datei": "begleitung.html",
+        "slot": "image",
+        "is_hero": false
+      },
+      {
+        "datei": "index.html",
+        "slot": "image",
+        "is_hero": false
+      },
+      {
+        "datei": "kontakt.html",
+        "slot": "image",
+        "is_hero": false
+      },
+      {
+        "datei": "mach-mit.html",
+        "slot": "image",
+        "is_hero": false
+      },
+      {
+        "datei": "ueber-uns.html",
+        "slot": "image",
+        "is_hero": false
+      }
+    ],
+    "used_in_pages": [
+      "404.html",
+      "ausbildung.html",
+      "begleitung.html",
+      "index.html",
+      "kontakt.html",
+      "mach-mit.html",
+      "ueber-uns.html"
+    ],
     "alt": "HER11 Zürich (ZH) – Offizielles Logo (Duale Karriereplanung (Verbindung von Spitzenfussball,)"
   },
   {
@@ -338,6 +382,11 @@
     "is_used": true,
     "used_in": [
       {
+        "datei": "404.html",
+        "slot": "image",
+        "is_hero": false
+      },
+      {
         "datei": "ausbildung.html",
         "slot": "image",
         "is_hero": false
@@ -369,6 +418,7 @@
       }
     ],
     "used_in_pages": [
+      "404.html",
       "ausbildung.html",
       "begleitung.html",
       "index.html",
@@ -376,7 +426,7 @@
       "mach-mit.html",
       "ueber-uns.html"
     ],
-    "alt": "HER11 Zürich (ZH) – Offizielles Logo (Duale Karriereplanung (Verbindung von Spitzenfussball,)"
+    "alt": "HER11"
   },
   {
     "nr": 12,
@@ -453,7 +503,7 @@
       "index.html",
       "ueber-uns.html"
     ],
-    "alt": "Junge Spielerin mit Fussball am Spielfeldrand"
+    "alt": "Junge Spielerin am Spielfeldrand im Abendflutlicht"
   },
   {
     "nr": 15,
@@ -521,7 +571,7 @@
       "mach-mit.html",
       "ueber-uns.html"
     ],
-    "alt": "Weitblick und Zukunftsperspektive für junge Fussballerinnen"
+    "alt": "Spielerin mit HER11 Rucksack und Fussball mit Blick in die Zukunft"
   },
   {
     "nr": 17,
@@ -627,7 +677,7 @@
       "index.html",
       "mach-mit.html"
     ],
-    "alt": "Vier HER11 Spielerinnen Arm in Arm vor dem Stadion"
+    "alt": "Gemeinsam – Vier Spielerinnen mit Rückennummer 11 Arm in Arm"
   },
   {
     "nr": 21,

@@ -5343,6 +5343,7 @@ body.acp-cockpit-light-mode #btn-seasonal-stoerer {
       <div>
         <span class="acp-modal-kicker">WEBPILOT STUDIO · NEUEN ABSCHNITT ERSTELLEN</span>
         <h3 style="color:#fff; font-size:19px; margin-top:2px; font-family:'Plus Jakarta Sans','Inter',sans-serif;">Neue Sektion mit KI erstellen</h3>
+        <div id="acp-new-sec-active-page-badge" style="display:inline-flex; align-items:center; gap:6px; margin-top:8px; padding:4px 10px; border-radius:4px; background:rgba(249,115,22,0.12); border:1px solid rgba(249,115,22,0.28); color:#fdba74; font-size:12px; font-weight:600;">Aktive Seite: Hauptseite (index.html)</div>
       </div>
       <button type="button" class="acp-btn-close" onclick="acpCloseNewSectionModal()">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
@@ -6383,7 +6384,45 @@ body.acp-cockpit-light-mode #btn-seasonal-stoerer {
 <!-- ======================================================= -->
 <script id="acp-studio-main-engine">
 
+function acpShowReauthBanner(reasonText) {
+  if (document.getElementById("acp-reauth-banner")) return;
+  var bar = document.createElement("div");
+  bar.id = "acp-reauth-banner";
+  bar.setAttribute("role", "alert");
+  bar.style.cssText = "position:fixed;bottom:16px;right:16px;z-index:99999;max-width:420px;background:#1e293b;color:#f8fafc;border:1px solid #f97316;border-radius:10px;padding:14px 16px;box-shadow:0 16px 40px rgba(0,0,0,0.45);font-family:Inter,system-ui,sans-serif;font-size:13.5px;display:flex;align-items:center;gap:12px;justify-content:space-between;";
+  var txt = document.createElement("div");
+  txt.textContent = reasonText || "Deine Sitzung ist abgelaufen. Ungespeicherte Texte bleiben offen.";
+  var btn = document.createElement("a");
+  btn.href = "/login?next=" + encodeURIComponent(window.location.pathname + window.location.search);
+  btn.textContent = "Neu anmelden";
+  btn.style.cssText = "flex-shrink:0;padding:8px 12px;border-radius:7px;background:#f97316;color:#fff;font-weight:700;text-decoration:none;font-size:13px;";
+  bar.appendChild(txt);
+  bar.appendChild(btn);
+  if (document.body) document.body.appendChild(bar);
+}
+
+(function wrapFetchForWebPilotAuth() {
+  if (typeof window === "undefined" || !window.fetch || window.__wpAuthFetchWrapped) return;
+  window.__wpAuthFetchWrapped = true;
+  var origFetch = window.fetch.bind(window);
+  window.fetch = function(input, init) {
+    var urlStr = (typeof input === "string") ? input : (input && input.url ? input.url : "");
+    var isApi = urlStr.indexOf("/api/") === 0 || urlStr.indexOf(window.location.origin + "/api/") === 0;
+    var nextInit = init ? Object.assign({}, init) : {};
+    if (isApi && !nextInit.credentials) {
+      nextInit.credentials = "include";
+    }
+    return origFetch(input, nextInit).then(function(res) {
+      if (isApi && res && res.status === 401 && urlStr.indexOf("/api/auth/login") === -1) {
+        acpShowReauthBanner("Anmeldung abgelaufen (HTTP 401). Bitte kurz neu anmelden, um weiterzuspeichern.");
+      }
+      return res;
+    });
+  };
+})();
+
 function acpIsLightMode() {
+  if (window.WP_SERVER_ENFORCED_MODE === "light") return true;
   if (window.ACP_COCKPIT_LIGHT_MODE === true) return true;
   try {
     var sp = new URLSearchParams(window.location.search);
@@ -6500,20 +6539,10 @@ function acpGetActivePreviewUrl() {
 
   var targetFile = "index.html";
   var job = (typeof getActiveJob === "function") ? getActiveJob() : null;
-  if (job && job.datei) {
+  if (iframe && typeof acpGetActualIframeFile === "function") {
+    targetFile = acpGetActualIframeFile(iframe);
+  } else if (job && job.datei) {
     targetFile = job.datei;
-  }
-  if (iframe) {
-    try {
-      if (iframe.contentWindow && iframe.contentWindow.location && iframe.contentWindow.location.pathname) {
-        var path = iframe.contentWindow.location.pathname.split("/").pop();
-        if (path && path.endsWith(".html")) targetFile = path;
-      }
-    } catch (_) {}
-    if (targetFile === "index.html" && iframe.getAttribute("src")) {
-      var srcVal = iframe.getAttribute("src").split("?")[0].split("/").pop();
-      if (srcVal && srcVal.endsWith(".html")) targetFile = srcVal;
-    }
   }
 
   var cleanPage = targetFile.replace(/\.html$/, "");
@@ -6524,15 +6553,8 @@ function acpGetActivePreviewUrl() {
 
   if (isDirectHost) {
     url = window.location.origin + "/" + cleanClient + "/" + (cleanPage ? cleanPage : "");
-    if (curToken) {
-      url += (url.indexOf("?") === -1 ? "?token=" : "&token=") + encodeURIComponent(curToken);
-    }
   } else {
-    var base = (job && job.edge_url) ? job.edge_url : (window.location.origin + "/" + cleanClient + "/" + (cleanPage ? cleanPage + ".html" : "index.html"));
-    url = base;
-    if (curToken && url.indexOf("token=") === -1) {
-      url += (url.indexOf("?") === -1 ? "?token=" : "&token=") + encodeURIComponent(curToken);
-    }
+    url = (job && job.edge_url) ? job.edge_url : (window.location.origin + "/" + cleanClient + "/" + (cleanPage ? cleanPage + ".html" : "index.html"));
   }
   return url;
 }
@@ -6640,7 +6662,7 @@ function acpFetchServerLog() {
 // Build: 2026-10-03 15:30 CEST
 // =======================================================
 var ACP_COCKPIT_VERSION = "v4.0.0";
-var ACP_COCKPIT_BUILD = "2026-11-16 19:15";
+var ACP_COCKPIT_BUILD = "2026-11-24 12:15";
 
 function sanitizeStellen(list) {
   if (!Array.isArray(list)) return [];
@@ -6680,7 +6702,7 @@ var ACP_CLIENT_PROFILE = {
 
 // Manifest-Daten mit robusten Fallbacks
 var ACP_BILDER = [{"nr": 1, "id": "images_benefits_drohne_jpg", "filename": "benefits_drohne.jpg", "rel_path": "images/benefits_drohne.jpg", "folder": "muster-holzbau", "category": "Referenz, Projekt & Angebot", "category_code": "ref", "dimensions": "1400x1050", "size_kb": 482.5, "format": "JPG", "mtime": 1791096955, "mtime_str": "04.10.2026 06:55", "cdn_url": "https://vorschau.magnet-xs.ch/muster-holzbau/images/benefits_drohne.jpg", "cloudflare_url": "https://vorschau.magnet-xs.ch/muster-holzbau/images/benefits_drohne.jpg", "cloudflare_short": "vorschau.magnet-xs.ch/muster-holzbau/images/benefits_drohne.jpg", "is_used": true, "used_in": [{"datei": "Muster_Holzbau_Zimmermann.html", "slot": "image", "is_hero": false}, {"datei": "index.html", "slot": "image", "is_hero": false}], "used_in_pages": ["Muster_Holzbau_Zimmermann.html", "index.html"], "alt": "Team Muster Holzbau AG"}, {"nr": 2, "id": "images_hero_jpg", "filename": "hero.jpg", "rel_path": "images/hero.jpg", "folder": "muster-holzbau", "category": "Startbühne & Header", "category_code": "hero", "dimensions": "1400x933", "size_kb": 160.7, "format": "JPG", "mtime": 1791096955, "mtime_str": "04.10.2026 06:55", "cdn_url": "https://vorschau.magnet-xs.ch/muster-holzbau/images/hero.jpg", "cloudflare_url": "https://vorschau.magnet-xs.ch/muster-holzbau/images/hero.jpg", "cloudflare_short": "vorschau.magnet-xs.ch/muster-holzbau/images/hero.jpg", "is_used": false, "used_in": [], "used_in_pages": [], "alt": "muster-holzbau (Schweiz) – Startbühne & Hauptansicht: Hero"}, {"nr": 3, "id": "images_hero_svg", "filename": "hero.svg", "rel_path": "images/hero.svg", "folder": "muster-holzbau", "category": "Startbühne & Header", "category_code": "hero", "dimensions": "1200x675", "size_kb": 0.8, "format": "SVG", "mtime": 1791095801, "mtime_str": "04.10.2026 06:36", "cdn_url": "https://vorschau.magnet-xs.ch/muster-holzbau/images/hero.svg", "cloudflare_url": "https://vorschau.magnet-xs.ch/muster-holzbau/images/hero.svg", "cloudflare_short": "vorschau.magnet-xs.ch/muster-holzbau/images/hero.svg", "is_used": false, "used_in": [], "used_in_pages": [], "alt": "muster-holzbau (Schweiz) – Startbühne & Hauptansicht: Hero"}, {"nr": 4, "id": "images_logo_png", "filename": "logo.png", "rel_path": "images/logo.png", "folder": "muster-holzbau", "category": "Logo & Marken-Icon", "category_code": "logo", "dimensions": "260x150", "size_kb": 8.2, "format": "PNG", "mtime": 1791096955, "mtime_str": "04.10.2026 06:55", "cdn_url": "https://vorschau.magnet-xs.ch/muster-holzbau/images/logo.png", "cloudflare_url": "https://vorschau.magnet-xs.ch/muster-holzbau/images/logo.png", "cloudflare_short": "vorschau.magnet-xs.ch/muster-holzbau/images/logo.png", "is_used": false, "used_in": [], "used_in_pages": [], "alt": "muster-holzbau (Schweiz) – Offizielles Marken-Logo (Logo)"}, {"nr": 5, "id": "images_michael_jpg", "filename": "michael.jpg", "rel_path": "images/michael.jpg", "folder": "muster-holzbau", "category": "Team, Porträt & Kader", "category_code": "team", "dimensions": "834x788", "size_kb": 186.7, "format": "JPG", "mtime": 1791096955, "mtime_str": "04.10.2026 06:55", "cdn_url": "https://vorschau.magnet-xs.ch/muster-holzbau/images/michael.jpg", "cloudflare_url": "https://vorschau.magnet-xs.ch/muster-holzbau/images/michael.jpg", "cloudflare_short": "vorschau.magnet-xs.ch/muster-holzbau/images/michael.jpg", "is_used": false, "used_in": [], "used_in_pages": [], "alt": "muster-holzbau (Schweiz) – Team & Ansprechpartner: Michael"}, {"nr": 6, "id": "images_stefan_jpg", "filename": "stefan.jpg", "rel_path": "images/stefan.jpg", "folder": "muster-holzbau", "category": "Team, Porträt & Kader", "category_code": "team", "dimensions": "1400x1337", "size_kb": 204.2, "format": "JPG", "mtime": 1791096955, "mtime_str": "04.10.2026 06:55", "cdn_url": "https://vorschau.magnet-xs.ch/muster-holzbau/images/stefan.jpg", "cloudflare_url": "https://vorschau.magnet-xs.ch/muster-holzbau/images/stefan.jpg", "cloudflare_short": "vorschau.magnet-xs.ch/muster-holzbau/images/stefan.jpg", "is_used": true, "used_in": [{"datei": "Muster_Holzbau_Zimmermann.html", "slot": "image", "is_hero": false}, {"datei": "index.html", "slot": "image", "is_hero": false}], "used_in_pages": ["Muster_Holzbau_Zimmermann.html", "index.html"], "alt": "Stefan · Fachhandwerker"}, {"nr": 7, "id": "images_team_alt_jpg", "filename": "team_alt.jpg", "rel_path": "images/team_alt.jpg", "folder": "muster-holzbau", "category": "Team, Porträt & Kader", "category_code": "team", "dimensions": "1400x933", "size_kb": 259.8, "format": "JPG", "mtime": 1791096955, "mtime_str": "04.10.2026 06:55", "cdn_url": "https://vorschau.magnet-xs.ch/muster-holzbau/images/team_alt.jpg", "cloudflare_url": "https://vorschau.magnet-xs.ch/muster-holzbau/images/team_alt.jpg", "cloudflare_short": "vorschau.magnet-xs.ch/muster-holzbau/images/team_alt.jpg", "is_used": false, "used_in": [], "used_in_pages": [], "alt": "muster-holzbau (Schweiz) – Team & Ansprechpartner: Alt"}];
-var ACP_STELLEN = sanitizeStellen([{"id": "index", "titel": "Muster Holzbau AG (Hauptseite)", "firma": "Muster Holzbau AG", "icon": "", "datei": "index.html", "folder": "muster-holzbau", "edge_url": "https://embed.magnet-xs.ch/muster-holzbau/index.html", "host_webseite": "https://muster-holzbau.ch", "host_label": "Nicht eingebaut", "farb_akzent": "#d97706", "widget_code": "<iframe src=\"https://embed.magnet-xs.ch/muster-holzbau/index.html?embed=true\" style=\"width:100%; border:none; min-height:850px;\" scrolling=\"no\" id=\"acp-job-widget\"></iframe>\n<script>window.addEventListener(\"message\",function(e){if(e.data&&e.data.type===\"acp-embed-resize\"){var el=document.getElementById(\"acp-job-widget\");if(el)el.style.height=e.data.height+\"px\";}});<\\/script>", "is_live": false, "is_live_embedded": false, "live_url": "https://embed.magnet-xs.ch/muster-holzbau/index.html", "embedded_page_url": null, "embedded_page_label": "Nicht eingebaut", "status": "Entwurf im Studio", "status_badge": "ENTWURF"}, {"id": "muster_holzbau_zimmermann", "titel": "Muster Holzbau AG", "firma": "Muster Holzbau AG", "icon": "", "datei": "Muster_Holzbau_Zimmermann.html", "folder": "muster-holzbau", "edge_url": "https://embed.magnet-xs.ch/muster-holzbau/Muster_Holzbau_Zimmermann.html", "host_webseite": "https://muster-holzbau.ch", "host_label": "Nicht eingebaut", "farb_akzent": "#d97706", "widget_code": "<iframe src=\"https://embed.magnet-xs.ch/muster-holzbau/Muster_Holzbau_Zimmermann.html?embed=true\" style=\"width:100%; border:none; min-height:850px;\" scrolling=\"no\" id=\"acp-job-widget\"></iframe>\n<script>window.addEventListener(\"message\",function(e){if(e.data&&e.data.type===\"acp-embed-resize\"){var el=document.getElementById(\"acp-job-widget\");if(el)el.style.height=e.data.height+\"px\";}});<\\/script>", "is_live": false, "is_live_embedded": false, "live_url": "https://embed.magnet-xs.ch/muster-holzbau/Muster_Holzbau_Zimmermann.html", "embedded_page_url": null, "embedded_page_label": "Nicht eingebaut", "status": "Entwurf im Studio", "status_badge": "ENTWURF"}]);
+var ACP_STELLEN = sanitizeStellen([{"id": "index", "titel": "Muster Holzbau AG (Hauptseite)", "firma": "Muster Holzbau AG", "icon": "", "datei": "index.html", "folder": "muster-holzbau", "edge_url": "https://embed.magnet-xs.ch/muster-holzbau/index.html", "host_webseite": "https://muster-holzbau.ch", "host_label": "Nicht eingebaut", "farb_akzent": "#d97706", "widget_code": "<iframe src=\"https://embed.magnet-xs.ch/muster-holzbau/index.html?embed=true\" style=\"width:1px; min-width:100%; max-width:100%; display:block; border:none; min-height:600px;\" scrolling=\"no\" id=\"acp-job-widget\"></iframe>\n<script>window.addEventListener(\"message\",function(e){if(e.data&&e.data.type===\"acp-embed-resize\"){var el=document.getElementById(\"acp-job-widget\");if(el)el.style.height=e.data.height+\"px\";}});<\\/script>", "is_live": false, "is_live_embedded": false, "live_url": "https://embed.magnet-xs.ch/muster-holzbau/index.html", "embedded_page_url": null, "embedded_page_label": "Nicht eingebaut", "status": "Entwurf im Studio", "status_badge": "ENTWURF"}, {"id": "muster_holzbau_zimmermann", "titel": "Muster Holzbau AG", "firma": "Muster Holzbau AG", "icon": "", "datei": "Muster_Holzbau_Zimmermann.html", "folder": "muster-holzbau", "edge_url": "https://embed.magnet-xs.ch/muster-holzbau/Muster_Holzbau_Zimmermann.html", "host_webseite": "https://muster-holzbau.ch", "host_label": "Nicht eingebaut", "farb_akzent": "#d97706", "widget_code": "<iframe src=\"https://embed.magnet-xs.ch/muster-holzbau/Muster_Holzbau_Zimmermann.html?embed=true\" style=\"width:1px; min-width:100%; max-width:100%; display:block; border:none; min-height:600px;\" scrolling=\"no\" id=\"acp-job-widget\"></iframe>\n<script>window.addEventListener(\"message\",function(e){if(e.data&&e.data.type===\"acp-embed-resize\"){var el=document.getElementById(\"acp-job-widget\");if(el)el.style.height=e.data.height+\"px\";}});<\\/script>", "is_live": false, "is_live_embedded": false, "live_url": "https://embed.magnet-xs.ch/muster-holzbau/Muster_Holzbau_Zimmermann.html", "embedded_page_url": null, "embedded_page_label": "Nicht eingebaut", "status": "Entwurf im Studio", "status_badge": "ENTWURF"}]);
 
 // Globaler State
 var activeJobId = "";
@@ -6904,22 +6926,63 @@ function renderJobPicker() {
   }
 }
 
-function acpSwitchJob(jobId, forceReload) {
-  if (acpSyncPollTimer) {
-    clearTimeout(acpSyncPollTimer);
-    acpSyncPollTimer = null;
-  }
-  activeJobId = jobId;
-  var job = getActiveJob();
-  if (!job || !job.id) return;
-  
-  renderJobPicker();
+function acpNormalizePageFile(rawPathOrUrl) {
+  if (!rawPathOrUrl || typeof rawPathOrUrl !== "string") return "";
+  var clean = rawPathOrUrl.split("?")[0].split("#")[0].trim();
+  if (!clean || clean.toLowerCase() === "about:blank" || clean.toLowerCase() === "blank") return "";
+  clean = clean.replace(/^https?:\/\/[^\/]+/i, "");
+  var parts = clean.split("/").filter(function(p) { return !!p; });
+  if (parts.length === 0) return "index.html";
+  var lastSeg = parts[parts.length - 1];
+  var low = lastSeg.toLowerCase();
+  var profileSlug = (typeof ACP_CLIENT_PROFILE !== "undefined" && ACP_CLIENT_PROFILE.slug) ? String(ACP_CLIENT_PROFILE.slug).toLowerCase() : "";
+  var vorschauSlug = (typeof acpGetVorschauClientSlug === "function") ? String(acpGetVorschauClientSlug(profileSlug)).toLowerCase() : "";
+  var winSeg = (window.location.pathname.split("/")[1] || "").toLowerCase();
 
+  var isRootIndexSlug = (
+    !low ||
+    low === "index" ||
+    low === "index.html" ||
+    low === "cockpit" ||
+    low === "cockpit.html" ||
+    low.indexOf("preview-") === 0 ||
+    /-(?:vollversion|vv|v1|v2)$/.test(low) ||
+    (profileSlug && low === profileSlug) ||
+    (vorschauSlug && low === vorschauSlug) ||
+    (parts.length === 1 && !/\.html$/i.test(low)) ||
+    (winSeg && low === winSeg && !/\.html$/i.test(low))
+  );
+  if (isRootIndexSlug) return "index.html";
+  return /\.html$/i.test(lastSeg) ? lastSeg : (lastSeg + ".html");
+}
+
+function acpGetActualIframeFile(frame) {
+  if (!frame) return "index.html";
+  try {
+    var win = frame.contentWindow;
+    if (win && win.location) {
+      var href = "";
+      try { href = win.location.href || ""; } catch (_) {}
+      var path = "";
+      try { path = win.location.pathname || ""; } catch (_) {}
+      if (href && href !== "about:blank" && path) {
+        var normLive = acpNormalizePageFile(path);
+        if (normLive) return normLive;
+      }
+    }
+  } catch (_) {}
+
+  var attrSrc = frame.getAttribute("src") || frame.src || "";
+  var normAttr = acpNormalizePageFile(attrSrc);
+  return normAttr || "index.html";
+}
+
+function acpUpdateStageForJob(job) {
+  if (!job || !job.id) return null;
   var hostDomain = job.host_label || "dachdecker-berneroberland.ch";
   var firmaName = job.firma || "Kundenbetrieb";
   var brandColor = job.farb_akzent || "#3b82f6";
 
-  // Studio Device Stage updates
   var stageUrl = document.getElementById("acp-stage-browser-url");
   var stageLink = document.getElementById("acp-stage-external-link");
   var stagePill = document.getElementById("acp-stage-client-pill");
@@ -6941,15 +7004,9 @@ function acpSwitchJob(jobId, forceReload) {
     displayUrl = targetLiveUrl.replace(/^https?:\/\//, "");
   } else if (isDirectHost) {
     targetLiveUrl = window.location.origin + "/" + cleanClient + "/" + (cleanPage ? cleanPage : "");
-    if (curToken) {
-      targetLiveUrl += (targetLiveUrl.indexOf("?") === -1 ? "?token=" : "&token=") + encodeURIComponent(curToken);
-    }
     displayUrl = window.location.origin.replace(/^https?:\/\//, "") + "/" + cleanClient + "/" + (cleanPage ? cleanPage : "");
   } else {
     targetLiveUrl = edgePreviewUrl;
-    if (curToken && targetLiveUrl.indexOf("token=") === -1) {
-      targetLiveUrl += (targetLiveUrl.indexOf("?") === -1 ? "?token=" : "&token=") + encodeURIComponent(curToken);
-    }
     displayUrl = edgePreviewUrl.replace(/^https?:\/\//, "");
   }
 
@@ -6964,6 +7021,75 @@ function acpSwitchJob(jobId, forceReload) {
     topPreviewBtn.title = "Vorschau «" + (job.titel || firmaName) + "» im neuen Tab öffnen (" + targetLiveUrl + ")";
   }
   if (stagePill) stagePill.textContent = firmaName;
+  return {
+    hostDomain: hostDomain,
+    firmaName: firmaName,
+    brandColor: brandColor,
+    subfolder: subfolder,
+    edgePreviewUrl: edgePreviewUrl
+  };
+}
+
+function acpSyncCockpitToIframeLocation(frame) {
+  if (!frame || typeof ACP_STELLEN === "undefined" || !Array.isArray(ACP_STELLEN)) return;
+  var livePathname = "";
+  try {
+    if (frame.contentWindow && frame.contentWindow.location) {
+      if ((frame.contentWindow.location.href || "") === "about:blank") return;
+      livePathname = frame.contentWindow.location.pathname || "";
+    }
+  } catch (_) {
+    return;
+  }
+  if (!livePathname) return;
+
+  var actualFile = acpNormalizePageFile(livePathname);
+  if (!actualFile) return;
+
+  var matchedJob = null;
+  for (var i = 0; i < ACP_STELLEN.length; i++) {
+    var d = (ACP_STELLEN[i].datei || "").toLowerCase();
+    if (d === actualFile.toLowerCase()) {
+      matchedJob = ACP_STELLEN[i];
+      break;
+    }
+  }
+  if (!matchedJob) return;
+
+  var prevJobId = activeJobId;
+  acpScannedSections = [];
+  if (matchedJob.id !== prevJobId) {
+    activeJobId = matchedJob.id;
+    renderJobPicker();
+    acpUpdateStageForJob(matchedJob);
+    updateSnippetBox();
+    if (typeof acpDirtySections !== "undefined" && acpDirtySections && typeof acpDirtySections.clear === "function") {
+      acpDirtySections.clear();
+      if (typeof acpUpdateInlineEditStatus === "function") acpUpdateInlineEditStatus();
+    }
+  }
+  if (typeof acpSectionsModalOpen !== "undefined" && acpSectionsModalOpen && typeof acpScanAndRenderSections === "function") {
+    acpScanAndRenderSections();
+  }
+}
+
+function acpSwitchJob(jobId, forceReload) {
+  if (acpSyncPollTimer) {
+    clearTimeout(acpSyncPollTimer);
+    acpSyncPollTimer = null;
+  }
+  activeJobId = jobId;
+  var job = getActiveJob();
+  if (!job || !job.id) return;
+  
+  renderJobPicker();
+
+  var stageInfo = acpUpdateStageForJob(job) || {};
+  var hostDomain = stageInfo.hostDomain || job.host_label || "dachdecker-berneroberland.ch";
+  var firmaName = stageInfo.firmaName || job.firma || "Kundenbetrieb";
+  var brandColor = stageInfo.brandColor || job.farb_akzent || "#3b82f6";
+  var subfolder = stageInfo.subfolder || job.folder || "";
+  var edgePreviewUrl = stageInfo.edgePreviewUrl || job.edge_url || ("https://embed.magnet-xs.ch/" + subfolder + "/" + job.datei);
 
   // Fallbacks for mock headers if present
   var hBadge = document.getElementById("host-badge");
@@ -6987,12 +7113,13 @@ function acpSwitchJob(jobId, forceReload) {
 
   var frame = document.getElementById("acp-widget-viewport");
   if (frame && job.datei) {
-    var currentSrc = frame.getAttribute("src") || frame.src || "";
-    var cleanCurrent = currentSrc.split("?")[0].replace(/\.html$/, "").split("/").pop().toLowerCase();
+    var actualCurrentFile = acpGetActualIframeFile(frame);
+    var cleanCurrent = actualCurrentFile.replace(/\.html$/, "").toLowerCase();
     var cleanTarget = job.datei.replace(/\.html$/, "").toLowerCase();
     var isSameJob = (cleanCurrent === cleanTarget);
 
     if (!isSameJob || forceReload) {
+      acpScannedSections = [];
       frame.style.opacity = "0.3";
       var targetSrc = "";
       if (window.location.protocol === "file:") {
@@ -7984,7 +8111,13 @@ function acpAutoSyncViewport(targetFile, cleanNewImageName, jobId) {
   var frame = document.getElementById("acp-widget-viewport");
   if (!frame) return;
 
-  var currentSrc = frame.getAttribute("src") || frame.src || "";
+  var currentSrc = "";
+  try {
+    if (frame.contentWindow && frame.contentWindow.location && frame.contentWindow.location.href && frame.contentWindow.location.href !== "about:blank") {
+      currentSrc = frame.contentWindow.location.href;
+    }
+  } catch (_) {}
+  if (!currentSrc) currentSrc = frame.getAttribute("src") || frame.src || "";
   if (!currentSrc) return;
 
   // Saubere Basis-URL ohne veraltete Cache-Buster oder Probes
@@ -9284,7 +9417,7 @@ function acpNormalizeAndValidateSection(rawInput, secId) {
   }
 
   // Whitelist für legitime WebPilot-System-Handler (Navigation, Formulare, Stellen-Auswahl)
-  var allowedHandlers = /^(?:toggleDrawer\(\)|toggleMobileMenu\(\)|closeMobileMenu\(\)|document\.getElementById\(\x27mobileDrawer\x27\)\.classList\.(?:toggle|remove)\(\x27open\x27\)|filterSparten\([\s\S]*\)|selectQuizOpt\([\s\S]*\)|selectQuizOption\([\s\S]*\)|selectJobForApply\([\s\S]*\)|setJobChoice\([\s\S]*\)|toggleJobs\(\)|handleApplySubmit\(event\)|handleJobSubmit\(event\)|handleContactSubmit\(event\)|handleHer11Submit\(event\)|handleHer11ContactSubmit\(event\)|selectContactTopic\([\s\S]*\)|syncTopicChips\([\s\S]*\)|selectRolePill\([\s\S]*\)|wp[a-zA-Z0-9_]+\([\s\S]*\)|return\s+wp[a-zA-Z0-9_]+\([\s\S]*\)|handleExpressApply\(event\)|sendeBewerbung\(event\)|submitCotraApplication\([\s\S]*\)|playInterviewVideo\(this\)|openLightbox\([\s\S]*\)|closeLightbox\(\)|toggleLightboxZoom\(event\)|event\.preventDefault\(\).*?|history\.back\(\))$/i;
+  var allowedHandlers = /^(?:toggleDrawer\(\)|toggleMobileMenu\(\)|closeMobileMenu\(\)|document\.getElementById\(\x27(?:mobileDrawer|mobileNavDrawer)\x27\)\.classList\.(?:toggle|remove|add)\(\x27open\x27\)|document\.getElementById\(\x27[a-zA-Z0-9_-]+\x27\)\.scrollIntoView\([\s\S]*\)|filterSparten\([\s\S]*\)|filterRatgeber\([\s\S]*\)|ceSelectAdvisor\([\s\S]*\)|gfdSetCalc\([\s\S]*\)|closeJotFormModal\(\)|toggleFaq\([\s\S]*\)|selectQuizOpt\([\s\S]*\)|selectQuizOption\([\s\S]*\)|selectJobForApply\([\s\S]*\)|setJobChoice\([\s\S]*\)|toggleJobs\(\)|handleApplySubmit\(event\)|handleJobSubmit\(event\)|handleContactSubmit\(event\)|handleHer11Submit\(event\)|handleHer11ContactSubmit\(event\)|selectContactTopic\([\s\S]*\)|syncTopicChips\([\s\S]*\)|selectRolePill\([\s\S]*\)|wp[a-zA-Z0-9_]+\([\s\S]*\)|return\s+wp[a-zA-Z0-9_]+\([\s\S]*\)|handleExpressApply\(event\)|sendeBewerbung\(event\)|submitCotraApplication\([\s\S]*\)|playInterviewVideo\(this\)|openLightbox\([\s\S]*\)|closeLightbox\(\)|toggleLightboxZoom\(event\)|event\.preventDefault\(\).*?|history\.back\(\))$/i;
   var evRegex = /\s(on[a-zA-Z]+)\s*=\s*(?:"([^"]*)"|'([^']*)'|([^\s>]+))/gi;
   var evMatch;
   while ((evMatch = evRegex.exec(clean)) !== null) {
@@ -9383,13 +9516,7 @@ function acpSubmitReplaceSection() {
   }
 
   var iframe = document.getElementById("acp-widget-viewport");
-  var targetFile = "index.html";
-  if (iframe && iframe.getAttribute("src")) {
-    var srcVal = iframe.getAttribute("src").split("?")[0];
-    if (srcVal.endsWith(".html")) {
-      targetFile = srcVal.split("/").pop();
-    }
-  }
+  var targetFile = iframe ? acpGetActualIframeFile(iframe) : "index.html";
 
   var clientSlug = window.ACP_CURRENT_CLIENT || (window.location.pathname.split("/")[1] || "preview-birchmeier");
 
@@ -10115,13 +10242,7 @@ function acpSaveInlineEdits() {
   var doc = iframe.contentDocument || (iframe.contentWindow && iframe.contentWindow.document);
   if (!doc) return;
 
-  var targetFile = "index.html";
-  if (iframe.getAttribute("src")) {
-    var srcVal = iframe.getAttribute("src").split("?")[0];
-    if (srcVal.endsWith(".html")) {
-      targetFile = srcVal.split("/").pop();
-    }
-  }
+  var targetFile = acpGetActualIframeFile(iframe);
 
   var clientSlug = window.ACP_CURRENT_CLIENT || (window.location.pathname.split("/")[1] || "preview-birchmeier");
   var saveBtn = document.getElementById("acp-btn-save-inline");
@@ -10156,7 +10277,8 @@ function acpSaveInlineEdits() {
           var cleanTel = txtVal.replace(/[^+0-9]/g, "");
           if (cleanTel.length >= 7) edEl.setAttribute("href", "tel:" + cleanTel);
         } else if (hrefVal.indexOf("mailto:") === 0 && txtVal.indexOf("@") !== -1) {
-          edEl.setAttribute("href", "mailto:" + txtVal);
+          var mailMatch = txtVal.match(/[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}/);
+          if (mailMatch) edEl.setAttribute("href", "mailto:" + mailMatch[0]);
         }
       }
       edEl.removeAttribute("contenteditable");
@@ -10242,9 +10364,23 @@ function acpOpenNewSectionModal() {
   var status = document.getElementById("acp-new-airbag-status");
   if (status) status.style.display = "none";
 
+  var pageBadge = document.getElementById("acp-new-sec-active-page-badge");
+  if (pageBadge) {
+    var vp = document.getElementById("acp-widget-viewport");
+    var activeFile = vp ? acpGetActualIframeFile(vp) : "index.html";
+    var activeLabel = activeFile === "index.html" ? "Startseite" : activeFile.replace(/\.html$/i, "");
+    if (typeof ACP_STELLEN !== "undefined" && Array.isArray(ACP_STELLEN)) {
+      var matchedJob = ACP_STELLEN.find(function(j) { return j.datei === activeFile; });
+      if (matchedJob && matchedJob.titel) activeLabel = matchedJob.titel;
+    }
+    pageBadge.textContent = "Aktive Seite: " + activeLabel + " (" + activeFile + ")";
+  }
+
   if (select) {
     select.innerHTML = "";
-    acpScannedSections.forEach(function(s) {
+    var candidates = acpScannedSections.filter(function(s) { return s.id !== "footer"; });
+    if (candidates.length === 0) candidates = acpScannedSections;
+    candidates.forEach(function(s) {
       var opt = document.createElement("option");
       opt.value = s.id;
       opt.textContent = "Nach [" + s.id + "] " + s.title;
@@ -10309,6 +10445,123 @@ promptRules;
   });
 }
 
+function acpSubmitNewSection() {
+  var select = document.getElementById("acp-new-sec-position");
+  var topicInput = document.getElementById("acp-new-sec-topic");
+  var textarea = document.getElementById("acp-new-sec-code-input");
+  var status = document.getElementById("acp-new-airbag-status");
+  var applyBtn = document.getElementById("acp-btn-apply-new");
+
+  function showStatus(kind, htmlMsg) {
+    if (!status) return;
+    status.style.display = "block";
+    status.style.padding = "10px 14px";
+    status.style.borderRadius = "8px";
+    if (kind === "error") {
+      status.style.color = "#ef4444";
+      status.style.background = "rgba(239, 68, 68, 0.1)";
+      status.style.border = "1px solid rgba(239, 68, 68, 0.3)";
+    } else if (kind === "warn") {
+      status.style.color = "#fbbf24";
+      status.style.background = "rgba(245, 158, 11, 0.1)";
+      status.style.border = "1px solid rgba(245, 158, 11, 0.3)";
+    } else {
+      status.style.color = "#4ade80";
+      status.style.background = "rgba(34, 197, 94, 0.1)";
+      status.style.border = "1px solid rgba(34, 197, 94, 0.3)";
+    }
+    status.innerHTML = htmlMsg;
+  }
+
+  var rawVal = textarea ? (textarea.value || "").trim() : "";
+  if (!rawVal) {
+    showStatus("error", "<strong>Bitte zuerst Code einfügen:</strong> Das Feld in Schritt B ist noch leer.");
+    return;
+  }
+
+  var insertAfter = select ? select.value : "";
+  if (!insertAfter && acpScannedSections && acpScannedSections.length > 0) {
+    insertAfter = acpScannedSections[0].id;
+  }
+
+  var topic = topicInput && topicInput.value ? topicInput.value.trim() : "neuer-abschnitt";
+  var slug = topic.toLowerCase()
+    .replace(/ä/g, "ae").replace(/ö/g, "oe").replace(/ü/g, "ue")
+    .replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "") || ("sektion-" + Date.now().toString().slice(-4));
+
+  // Falls KI eine komplette HTML-Seite (<head>/<style>/<body>) statt nur <section> geliefert hat:
+  var cleanedInput = rawVal;
+  var fenceM = cleanedInput.match(/```(?:html|xml)?\s*([\s\S]*?)```/i);
+  if (fenceM && fenceM[1]) cleanedInput = fenceM[1].trim();
+  if (/<(html|head|body|style)\b/i.test(cleanedInput)) {
+    var secOnlyM = cleanedInput.match(/<section\b[\s\S]*?<\/section>/i);
+    if (secOnlyM && secOnlyM[0]) {
+      cleanedInput = secOnlyM[0].trim();
+    }
+  }
+
+  var validation = acpNormalizeAndValidateSection(cleanedInput, slug);
+  if (!validation.ok) {
+    showStatus("error", "<strong>Airbag-Schranke:</strong> " + validation.error + "<br><span style=\"font-size:11.5px;color:#cbd5e1;\">Tipp: Bitte nur den reinen &lt;section&gt;...&lt;/section&gt;-Block der KI einfügen (ohne &lt;style&gt; oder &lt;script&gt;).</span>");
+    return;
+  }
+
+  var finalSecId = validation.detectedSecId || slug;
+  var iframe = document.getElementById("acp-widget-viewport");
+  var targetFile = iframe ? acpGetActualIframeFile(iframe) : "index.html";
+
+  var clientSlug = window.ACP_CURRENT_CLIENT || (window.location.pathname.split("/")[1] || "preview-birchmeier");
+
+  if (applyBtn) {
+    applyBtn.disabled = true;
+    applyBtn.innerHTML = "<span>Sektion wird eingehängt &amp; live gespeichert...</span>";
+  }
+  showStatus("warn", "<strong>Airbag grün:</strong> Füge neue Sektion [" + finalSecId + "] nach [" + insertAfter + "] in " + targetFile + " ein...");
+
+  fetch("/api/publish-career/replace-section", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      client: clientSlug,
+      file: targetFile,
+      section_id: finalSecId,
+      insert_after: insertAfter,
+      content: validation.html
+    })
+  })
+  .then(function(res) {
+    if (!res.ok) {
+      return res.json().then(function(j) { throw new Error(j.error || ("HTTP " + res.status)); });
+    }
+    return res.json();
+  })
+  .then(function() {
+    if (applyBtn) {
+      applyBtn.disabled = false;
+      applyBtn.innerHTML = "<svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><polyline points=\"20 6 9 17 4 12\"/></svg><span>Neue Sektion einhängen &amp; aktivieren</span>";
+    }
+    if (textarea) textarea.value = "";
+    acpCloseNewSectionModal();
+
+    if (typeof acpAutoSyncViewport === "function") {
+      acpAutoSyncViewport("Neue Sektion [" + finalSecId + "] eingehängt");
+    } else if (iframe) {
+      var curSrc = iframe.src.split("?")[0];
+      iframe.src = curSrc + "?t=" + Date.now();
+    }
+    setTimeout(function() {
+      acpScanAndRenderSections();
+    }, 1500);
+  })
+  .catch(function(err) {
+    if (applyBtn) {
+      applyBtn.disabled = false;
+      applyBtn.innerHTML = "<svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><polyline points=\"20 6 9 17 4 12\"/></svg><span>Neue Sektion einhängen &amp; aktivieren</span>";
+    }
+    showStatus("error", "<strong>Fehler beim Einhängen:</strong> " + (err && err.message ? err.message : String(err)));
+  });
+}
+
 function acpRemoveSection(secId) {
   if (!confirm("Möchtest du die Sektion [" + secId + "] wirklich ausblenden?")) return;
   var iframe = document.getElementById("acp-widget-viewport");
@@ -10327,10 +10580,20 @@ function acpRemoveSection(secId) {
   var viewportIframe = document.getElementById("acp-widget-viewport");
   if (viewportIframe) {
     viewportIframe.addEventListener("load", function() {
-      if (acpInlineEditActive) {
+      viewportIframe.style.opacity = "1";
+      if (typeof acpSyncCockpitToIframeLocation === "function") {
+        acpSyncCockpitToIframeLocation(viewportIframe);
+      }
+      if (acpInlineEditActive || acpIsLightMode()) {
         try {
           var doc = viewportIframe.contentDocument || (viewportIframe.contentWindow && viewportIframe.contentWindow.document);
           if (doc) acpApplyInlineEditToIframe(doc);
+          setTimeout(function() {
+            try {
+              var doc2 = viewportIframe.contentDocument || (viewportIframe.contentWindow && viewportIframe.contentWindow.document);
+              if (doc2) acpApplyInlineEditToIframe(doc2);
+            } catch (_) {}
+          }, 350);
         } catch(e) {
           console.warn("[WebPilot Studio] Konnte Inline-Edit nach Iframe-Reload nicht reaktivieren:", e);
         }
@@ -12073,7 +12336,84 @@ window.addEventListener("message", function(ev) {
   }
 });
 
+function acpBootstrapAuthSession() {
+  fetch("/api/auth/me", { method: "GET", credentials: "include" })
+    .then(function(res) {
+      if (res.status !== 200) {
+        if (window.location.protocol === "https:") {
+          acpShowReauthBanner("Bitte im Studio anmelden, um Änderungen zu speichern.");
+        }
+        return null;
+      }
+      return res.json();
+    })
+    .then(function(me) {
+      if (!me || !me.authenticated) return;
+      window.WP_AUTH_ME = me;
+
+      // Serverseitiger Modus-Lock (full vs light) pro Site
+      var curSlug = ((typeof ACP_CLIENT_PROFILE !== "undefined" && ACP_CLIENT_PROFILE.slug) ? ACP_CLIENT_PROFILE.slug : (window.location.pathname.split("/")[1] || "")).toLowerCase();
+      var matchedSite = null;
+      if (Array.isArray(me.sites)) {
+        for (var i = 0; i < me.sites.length; i++) {
+          var s = me.sites[i];
+          var ss = String(s.slug || "").toLowerCase();
+          if (ss === curSlug || ss.replace(/^preview-/, "") === curSlug.replace(/^preview-/, "").replace(/-(?:vollversion|vv)$/, "")) {
+            matchedSite = s;
+            break;
+          }
+        }
+      }
+      if (matchedSite && matchedSite.effective_mode === "light" && (matchedSite.effective_role === "client_owner" || matchedSite.effective_role === "client_staff")) {
+        window.WP_SERVER_ENFORCED_MODE = "light";
+        window.ACP_COCKPIT_LIGHT_MODE = true;
+        if (typeof checkEnvironmentAndRender === "function") checkEnvironmentAndRender();
+        if (typeof acpToggleInlineEdit === "function") acpToggleInlineEdit(true);
+        if (typeof acpUpdateInlineEditStatus === "function") acpUpdateInlineEditStatus();
+      }
+
+      // Kompakte User-/SSO-/Logout-Pill in der Topbar
+      var barRight = document.querySelector(".acp-cockpit-right");
+      if (barRight && !document.getElementById("wp-auth-topbar-cluster")) {
+        var cluster = document.createElement("div");
+        cluster.id = "wp-auth-topbar-cluster";
+        cluster.style.cssText = "display:inline-flex;align-items:center;gap:6px;margin-left:4px;padding-left:8px;border-left:1px solid rgba(255,255,255,0.12);";
+
+        var userTag = document.createElement("span");
+        userTag.id = "wp-auth-user-pill";
+        userTag.style.cssText = "font-size:12px;color:#cbd5e1;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);border-radius:6px;padding:4px 8px;max-width:190px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;";
+        userTag.title = me.email + " (" + me.highest_role + ")";
+        userTag.textContent = me.email;
+        cluster.appendChild(userTag);
+
+        if (me.is_partner_portal_allowed) {
+          var dashLink = document.createElement("a");
+          dashLink.className = "acp-nav-btn";
+          dashLink.href = "/partner/";
+          dashLink.title = "Zurück zum Partner- & Agentur-Dashboard";
+          dashLink.textContent = "Dashboard";
+          cluster.appendChild(dashLink);
+        }
+
+        var logoutBtn = document.createElement("button");
+        logoutBtn.type = "button";
+        logoutBtn.className = "acp-nav-btn";
+        logoutBtn.id = "wp-auth-logout-btn";
+        logoutBtn.title = "Vom WebPilot-Studio abmelden";
+        logoutBtn.textContent = "Abmelden";
+        logoutBtn.addEventListener("click", function() {
+          fetch("/api/auth/logout", { method: "POST", credentials: "include" })
+            .finally(function() { window.location.assign("/login"); });
+        });
+        cluster.appendChild(logoutBtn);
+        barRight.appendChild(cluster);
+      }
+    })
+    .catch(function() {});
+}
+
 document.addEventListener("DOMContentLoaded", function() {
+  acpBootstrapAuthSession();
   var params = new URLSearchParams(window.location.search);
   var siteParam = (params.get("site") || "").replace(/^sites\//, "");
   if (siteParam && (window.location.pathname === "/cockpit-app.html" || window.location.pathname.endsWith("/cockpit-app.html"))) {

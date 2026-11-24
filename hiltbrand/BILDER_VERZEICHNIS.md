@@ -5,7 +5,7 @@
 > **Lokaler Ordner (VPS & Git):** `hiltbrand/`  
 > **Cloudflare-Basis-URL:** [embed.magnet-xs.ch/hiltbrand/](https://embed.magnet-xs.ch/hiltbrand/)  
 > **Bestand:** **27 Assets** (7.62 MB gesamt) · **🟢 9 aktiv im HTML** · **⚪ 18 frei im Bild-Pool** · **Externe Hotlinks: 0**  
-> **Letzte Aktualisierung:** 21.11.2026 07:36 Uhr (automatisch generiert via `webpilot_asset_catalog.py`)
+> **Letzte Aktualisierung:** 24.11.2026 11:15 Uhr (automatisch generiert via `webpilot_asset_catalog.py`)
 
 ---
 

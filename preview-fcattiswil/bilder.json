@@ -18,6 +18,11 @@
     "is_used": true,
     "used_in": [
       {
+        "datei": "404.html",
+        "slot": "image",
+        "is_hero": false
+      },
+      {
         "datei": "herren-1.html",
         "slot": "image",
         "is_hero": false
@@ -39,6 +44,7 @@
       }
     ],
     "used_in_pages": [
+      "404.html",
       "herren-1.html",
       "index.html",
       "kontakt.html",
@@ -244,6 +250,11 @@
     "is_used": true,
     "used_in": [
       {
+        "datei": "404.html",
+        "slot": "image",
+        "is_hero": false
+      },
+      {
         "datei": "herren-1.html",
         "slot": "image",
         "is_hero": false
@@ -265,12 +276,13 @@
       }
     ],
     "used_in_pages": [
+      "404.html",
       "herren-1.html",
       "index.html",
       "kontakt.html",
       "team-update.html"
     ],
-    "alt": "Vereinswappen FC Attiswil"
+    "alt": "Fussballclub Attiswil"
   },
   {
     "nr": 8,
@@ -355,7 +367,7 @@
       "herren-1.html",
       "index.html"
     ],
-    "alt": "Offizieller Vereins-Sponsor und Partner von Fussballclub Attiswil (Attiswil): Auto Lemp AG, Attiswil"
+    "alt": "Auto Lemp AG Dresssponsor"
   },
   {
     "nr": 11,
@@ -390,7 +402,7 @@
       "herren-1.html",
       "index.html"
     ],
-    "alt": "Offizieller Vereins-Sponsor und Partner von Fussballclub Attiswil (Attiswil): Giacometto Transport AG"
+    "alt": "Giacometto Transport AG Einlaufleibchen"
   },
   {
     "nr": 12,
@@ -593,7 +605,7 @@
     "used_in_pages": [
       "index.html"
     ],
-    "alt": "Offizieller Vereins-Sponsor und Partner von Fussballclub Attiswil (Attiswil): W+H AG Ingenieure & Planer"
+    "alt": "Offizieller Vereins-Sponsor und Partner von Fussballclub Attiswil (Attiswil): W+H AG Ingenieure &amp; Planer"
   },
   {
     "nr": 19,
@@ -970,7 +982,7 @@
     "used_in_pages": [
       "index.html"
     ],
-    "alt": "Offizieller Vereins-Sponsor und Partner von Fussballclub Attiswil (Attiswil): Zurich Generalagentur Howald & Scheidegger AG"
+    "alt": "Offizieller Vereins-Sponsor und Partner von Fussballclub Attiswil (Attiswil): Zurich Generalagentur Howald &amp; Scheidegger AG"
   },
   {
     "nr": 32,
@@ -1139,6 +1151,6 @@
       "herren-1.html",
       "team-update.html"
     ],
-    "alt": "Live-Vorschau Mannschaftsfoto"
+    "alt": "FC Attiswil 1. Mannschaft Herren 4. Liga Mannschaftsfoto"
   }
 ]

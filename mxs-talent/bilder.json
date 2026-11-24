@@ -61,7 +61,7 @@
       "index.html",
       "strategie-kennen-lernen.html"
     ],
-    "alt": "Kundenstimme & Referenzschutz 1"
+    "alt": "Kundenstimme &amp; Referenzschutz 1"
   },
   {
     "nr": 3,
@@ -131,7 +131,7 @@
       "index.html",
       "strategie-kennen-lernen.html"
     ],
-    "alt": "Carmen Caselli: Unsere Referenzen: Vertrauen und Schutz im digitalen Zeitalter – mXs Talent Solutions in Zofingen (AG)"
+    "alt": "Carmen Caselli: Social Recruiting: Der Schlüssel zu Ihrem Recruiting-Erfolg – mXs Talent Solutions in Zofingen (AG)"
   },
   {
     "nr": 5,
@@ -151,6 +151,11 @@
     "cloudflare_short": "vorschau.magnet-xs.ch/mxs-talent/images/2.png",
     "is_used": true,
     "used_in": [
+      {
+        "datei": "404.html",
+        "slot": "image",
+        "is_hero": false
+      },
       {
         "datei": "bremskloetze.html",
         "slot": "image",
@@ -178,13 +183,14 @@
       }
     ],
     "used_in_pages": [
+      "404.html",
       "bremskloetze.html",
       "datenschutz.html",
       "impressum.html",
       "index.html",
       "strategie-kennen-lernen.html"
     ],
-    "alt": "Kundenstimme & Referenzschutz 2"
+    "alt": "Kundenstimme &amp; Referenzschutz 2"
   },
   {
     "nr": 6,
@@ -318,7 +324,7 @@
       "index.html",
       "strategie-kennen-lernen.html"
     ],
-    "alt": "Kundenstimme & Referenzschutz 3"
+    "alt": "Kundenstimme &amp; Referenzschutz 3"
   },
   {
     "nr": 10,
@@ -368,6 +374,11 @@
     "is_used": true,
     "used_in": [
       {
+        "datei": "404.html",
+        "slot": "image",
+        "is_hero": false
+      },
+      {
         "datei": "bremskloetze.html",
         "slot": "image",
         "is_hero": false
@@ -394,13 +405,14 @@
       }
     ],
     "used_in_pages": [
+      "404.html",
       "bremskloetze.html",
       "datenschutz.html",
       "impressum.html",
       "index.html",
       "strategie-kennen-lernen.html"
     ],
-    "alt": "Kundenstimme & Referenzschutz 4"
+    "alt": "Kundenstimme &amp; Referenzschutz 4"
   },
   {
     "nr": 12,
@@ -429,7 +441,7 @@
     "used_in_pages": [
       "strategie-kennen-lernen.html"
     ],
-    "alt": "Kundenstimme & Referenzschutz 5"
+    "alt": "Kundenstimme &amp; Referenzschutz 5"
   },
   {
     "nr": 13,
@@ -487,7 +499,7 @@
     "used_in_pages": [
       "strategie-kennen-lernen.html"
     ],
-    "alt": "Kundenstimme & Referenzschutz 6"
+    "alt": "Kundenstimme &amp; Referenzschutz 6"
   },
   {
     "nr": 15,
@@ -624,6 +636,65 @@
     "is_used": true,
     "used_in": [
       {
+        "datei": "404.html",
+        "slot": "image",
+        "is_hero": false
+      },
+      {
+        "datei": "bremskloetze.html",
+        "slot": "image",
+        "is_hero": false
+      },
+      {
+        "datei": "datenschutz.html",
+        "slot": "image",
+        "is_hero": false
+      },
+      {
+        "datei": "impressum.html",
+        "slot": "image",
+        "is_hero": false
+      },
+      {
+        "datei": "index.html",
+        "slot": "image",
+        "is_hero": false
+      },
+      {
+        "datei": "strategie-kennen-lernen.html",
+        "slot": "image",
+        "is_hero": false
+      }
+    ],
+    "used_in_pages": [
+      "404.html",
+      "bremskloetze.html",
+      "datenschutz.html",
+      "impressum.html",
+      "index.html",
+      "strategie-kennen-lernen.html"
+    ],
+    "alt": "mXs Talent Solutions Zofingen (AG) – Offizielles Logo (Externe Personalabteilung (Done-for-You Rekrutierung und)"
+  },
+  {
+    "nr": 20,
+    "id": "images_Hue_im_Anzug_mit_Beschriftung_1024x684_png",
+    "filename": "Hue_im_Anzug_mit_Beschriftung-1024x684.png",
+    "rel_path": "images/Hue_im_Anzug_mit_Beschriftung-1024x684.png",
+    "folder": "mxs-talent",
+    "category": "Referenz, Projekt & Angebot",
+    "category_code": "ref",
+    "dimensions": "1024x684",
+    "size_kb": 405.7,
+    "format": "PNG",
+    "mtime": 1792739126,
+    "mtime_str": "23.10.2026 07:05",
+    "cdn_url": "https://vorschau.magnet-xs.ch/mxs-talent/images/Hue_im_Anzug_mit_Beschriftung-1024x684.png",
+    "cloudflare_url": "https://vorschau.magnet-xs.ch/mxs-talent/images/Hue_im_Anzug_mit_Beschriftung-1024x684.png",
+    "cloudflare_short": "vorschau.magnet-xs.ch/mxs-talent/images/Hue_im_Anzug_mit_Beschriftung-1024x684.png",
+    "is_used": true,
+    "used_in": [
+      {
         "datei": "bremskloetze.html",
         "slot": "image",
         "is_hero": false
@@ -656,27 +727,6 @@
       "index.html",
       "strategie-kennen-lernen.html"
     ],
-    "alt": "mXs Talent Solutions Zofingen (AG) – Offizielles Logo (Externe Personalabteilung (Done-for-You Rekrutierung und)"
-  },
-  {
-    "nr": 20,
-    "id": "images_Hue_im_Anzug_mit_Beschriftung_1024x684_png",
-    "filename": "Hue_im_Anzug_mit_Beschriftung-1024x684.png",
-    "rel_path": "images/Hue_im_Anzug_mit_Beschriftung-1024x684.png",
-    "folder": "mxs-talent",
-    "category": "Referenz, Projekt & Angebot",
-    "category_code": "ref",
-    "dimensions": "1024x684",
-    "size_kb": 405.7,
-    "format": "PNG",
-    "mtime": 1792739126,
-    "mtime_str": "23.10.2026 07:05",
-    "cdn_url": "https://vorschau.magnet-xs.ch/mxs-talent/images/Hue_im_Anzug_mit_Beschriftung-1024x684.png",
-    "cloudflare_url": "https://vorschau.magnet-xs.ch/mxs-talent/images/Hue_im_Anzug_mit_Beschriftung-1024x684.png",
-    "cloudflare_short": "vorschau.magnet-xs.ch/mxs-talent/images/Hue_im_Anzug_mit_Beschriftung-1024x684.png",
-    "is_used": false,
-    "used_in": [],
-    "used_in_pages": [],
     "alt": "mXs Talent Solutions (Zofingen) – Einblick & Referenz: Hue Im Anzug Mit Beschriftung 1024x684: Referenz, Projekt & Angebot – mXs Talent Solutions in Zofingen (AG) – mXs Talent Solutions in Zofingen (AG) – mXs Talent Solutions in Zofingen (AG) – mXs Talent Solutions in Zofingen (AG)"
   },
   {
@@ -864,7 +914,7 @@
     "used_in_pages": [
       "index.html"
     ],
-    "alt": "Kampagnen-Beispiel Staub & Zbinden Projektleiter"
+    "alt": "Kampagnen-Beispiel Staub &amp; Zbinden Projektleiter"
   },
   {
     "nr": 28,
@@ -1334,6 +1384,11 @@
     "is_used": true,
     "used_in": [
       {
+        "datei": "404.html",
+        "slot": "image",
+        "is_hero": false
+      },
+      {
         "datei": "bremskloetze.html",
         "slot": "image",
         "is_hero": false
@@ -1360,6 +1415,7 @@
       }
     ],
     "used_in_pages": [
+      "404.html",
       "bremskloetze.html",
       "datenschutz.html",
       "impressum.html",

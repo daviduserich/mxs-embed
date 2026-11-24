@@ -18,6 +18,11 @@
     "is_used": true,
     "used_in": [
       {
+        "datei": "404.html",
+        "slot": "image",
+        "is_hero": false
+      },
+      {
         "datei": "index.html",
         "slot": "image",
         "is_hero": false
@@ -29,6 +34,7 @@
       }
     ],
     "used_in_pages": [
+      "404.html",
       "index.html",
       "kontakt.html"
     ],
@@ -282,7 +288,7 @@
       "index.html",
       "kontakt.html"
     ],
-    "alt": "Susanne Susi Schmid, Holz-Susi GmbH in 5070 Frick"
+    "alt": "Susanne Susi Schmid, Inhaberin der Holz-Susi GmbH in 5070 Frick"
   },
   {
     "nr": 10,
@@ -303,6 +309,11 @@
     "is_used": true,
     "used_in": [
       {
+        "datei": "404.html",
+        "slot": "image",
+        "is_hero": false
+      },
+      {
         "datei": "index.html",
         "slot": "image",
         "is_hero": false
@@ -314,10 +325,11 @@
       }
     ],
     "used_in_pages": [
+      "404.html",
       "index.html",
       "kontakt.html"
     ],
-    "alt": "Holz-Susi GmbH Frick (AG) – Offizielles Logo (Fachbetrieb in der Schweiz)"
+    "alt": "Holz-Susi GmbH"
   },
   {
     "nr": 11,

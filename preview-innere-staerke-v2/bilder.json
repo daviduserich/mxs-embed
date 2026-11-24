@@ -95,6 +95,11 @@
     "is_used": true,
     "used_in": [
       {
+        "datei": "404.html",
+        "slot": "image",
+        "is_hero": false
+      },
+      {
         "datei": "index.html",
         "slot": "image",
         "is_hero": false
@@ -106,6 +111,7 @@
       }
     ],
     "used_in_pages": [
+      "404.html",
       "index.html",
       "kontakt.html"
     ],
@@ -649,6 +655,11 @@
     "is_used": true,
     "used_in": [
       {
+        "datei": "404.html",
+        "slot": "image",
+        "is_hero": false
+      },
+      {
         "datei": "index.html",
         "slot": "image",
         "is_hero": false
@@ -660,10 +671,11 @@
       }
     ],
     "used_in_pages": [
+      "404.html",
       "index.html",
       "kontakt.html"
     ],
-    "alt": "Wüest + Paneduro Sursee (LU) – Offizielles Logo (1:1 Executive Coaching und Sparring für)"
+    "alt": "Wüest + Paneduro"
   },
   {
     "nr": 27,

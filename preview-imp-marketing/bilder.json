@@ -317,7 +317,7 @@
       "index.html",
       "ueber-uns.html"
     ],
-    "alt": "Schreiner EFZ – Persönlicher Ansprechpartner und Fachteam bei IMP GmbH in Obersteckholz (BE)"
+    "alt": "Schreiner EFZ Icon: Sichtbarkeits- &amp; Anfrage-Potenzial für Ihren Betrieb berechnen – IMP GmbH in Obersteckholz (BE)"
   },
   {
     "nr": 11,
@@ -335,9 +335,47 @@
     "cdn_url": "https://vorschau.magnet-xs.ch/imp-marketing-vollversion/images/logo-imp-footer.png",
     "cloudflare_url": "https://vorschau.magnet-xs.ch/imp-marketing-vollversion/images/logo-imp-footer.png",
     "cloudflare_short": "vorschau.magnet-xs.ch/imp-marketing-vollversion/images/logo-imp-footer.png",
-    "is_used": false,
-    "used_in": [],
-    "used_in_pages": [],
+    "is_used": true,
+    "used_in": [
+      {
+        "datei": "404.html",
+        "slot": "image",
+        "is_hero": false
+      },
+      {
+        "datei": "index.html",
+        "slot": "image",
+        "is_hero": false
+      },
+      {
+        "datei": "kontakt.html",
+        "slot": "image",
+        "is_hero": false
+      },
+      {
+        "datei": "leistungen.html",
+        "slot": "image",
+        "is_hero": false
+      },
+      {
+        "datei": "methode.html",
+        "slot": "image",
+        "is_hero": false
+      },
+      {
+        "datei": "ueber-uns.html",
+        "slot": "image",
+        "is_hero": false
+      }
+    ],
+    "used_in_pages": [
+      "404.html",
+      "index.html",
+      "kontakt.html",
+      "leistungen.html",
+      "methode.html",
+      "ueber-uns.html"
+    ],
     "alt": "IMP GmbH Obersteckholz (BE) – Offizielles Logo (Verkaufsstarke Webseiten für Schreinereien, Küchenbau und)"
   },
   {
@@ -380,6 +418,11 @@
     "is_used": true,
     "used_in": [
       {
+        "datei": "404.html",
+        "slot": "image",
+        "is_hero": false
+      },
+      {
         "datei": "index.html",
         "slot": "image",
         "is_hero": false
@@ -406,13 +449,14 @@
       }
     ],
     "used_in_pages": [
+      "404.html",
       "index.html",
       "kontakt.html",
       "leistungen.html",
       "methode.html",
       "ueber-uns.html"
     ],
-    "alt": "IMP GmbH Obersteckholz (BE) – Offizielles Logo (Verkaufsstarke Webseiten für Schreinereien, Küchenbau und)"
+    "alt": "IMP GmbH"
   },
   {
     "nr": 14,
@@ -658,7 +702,7 @@
       "index.html",
       "leistungen.html"
     ],
-    "alt": "Chat-Widgets & Anfrage-Systeme"
+    "alt": "Chat-Widgets und Anfrage-Systeme für Schreinereien"
   },
   {
     "nr": 22,
@@ -693,7 +737,7 @@
       "index.html",
       "leistungen.html"
     ],
-    "alt": "Datenautomation & Handwerks-Prozesse"
+    "alt": "Datenautomation und Handwerks-Prozesse"
   },
   {
     "nr": 23,
@@ -728,7 +772,7 @@
       "index.html",
       "leistungen.html"
     ],
-    "alt": "Google-Geschäftsprofil & Regionale SEO"
+    "alt": "Google-Geschäftsprofil und Regionale SEO für Schreinereien"
   },
   {
     "nr": 24,
@@ -763,7 +807,7 @@
       "index.html",
       "leistungen.html"
     ],
-    "alt": "Webseiten für Schreinereien"
+    "alt": "Webseiten für Schreinereien und Holzbau"
   },
   {
     "nr": 25,
@@ -798,7 +842,7 @@
       "index.html",
       "methode.html"
     ],
-    "alt": "IMP Sichtbarkeits-Tragwerk Diagramm"
+    "alt": "Das IMP Sichtbarkeits-Tragwerk für Schreinereien und Holzbau"
   },
   {
     "nr": 26,

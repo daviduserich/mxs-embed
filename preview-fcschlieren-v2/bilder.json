@@ -18,6 +18,11 @@
     "is_used": true,
     "used_in": [
       {
+        "datei": "404.html",
+        "slot": "image",
+        "is_hero": false
+      },
+      {
         "datei": "herren-1.html",
         "slot": "image",
         "is_hero": false
@@ -39,6 +44,7 @@
       }
     ],
     "used_in_pages": [
+      "404.html",
       "herren-1.html",
       "index.html",
       "kontakt.html",
@@ -401,6 +407,11 @@
     "is_used": true,
     "used_in": [
       {
+        "datei": "404.html",
+        "slot": "image",
+        "is_hero": false
+      },
+      {
         "datei": "herren-1.html",
         "slot": "image",
         "is_hero": false
@@ -422,12 +433,13 @@
       }
     ],
     "used_in_pages": [
+      "404.html",
       "herren-1.html",
       "index.html",
       "kontakt.html",
       "team-update.html"
     ],
-    "alt": "Vereinswappen FC Schlieren"
+    "alt": "FC Schlieren"
   },
   {
     "nr": 15,
@@ -665,7 +677,7 @@
       "herren-1.html",
       "index.html"
     ],
-    "alt": "Emil Frey AG Schlieren – Gold Sponsor FC Schlieren"
+    "alt": "Emil Frey AG Schlieren Hauptsponsor Herren 1"
   },
   {
     "nr": 23,
@@ -1037,7 +1049,7 @@
       "herren-1.html",
       "team-update.html"
     ],
-    "alt": "Live-Vorschau Mannschaftsfoto"
+    "alt": "FC Schlieren Herren 1 Mannschaftsfoto"
   },
   {
     "nr": 35,

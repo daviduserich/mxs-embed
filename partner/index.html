@@ -1142,6 +1142,68 @@
         justify-content: flex-start;
       }
     }
+
+    .wp-sso-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+      gap: 12px;
+      margin-top: 14px;
+    }
+    .wp-sso-card {
+      background: rgba(15, 23, 42, 0.72);
+      border: 1px solid rgba(148, 163, 184, 0.16);
+      border-radius: 10px;
+      padding: 14px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 10px;
+    }
+    .wp-sso-title {
+      font-weight: 700;
+      font-size: 14.5px;
+      color: #f8fafc;
+      margin: 0 0 3px;
+    }
+    .wp-sso-meta {
+      font-size: 12px;
+      color: #94a3b8;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      align-items: center;
+    }
+    .wp-sso-pill {
+      display: inline-block;
+      padding: 2px 8px;
+      border-radius: 999px;
+      font-size: 11px;
+      font-weight: 600;
+      background: rgba(249, 115, 22, 0.14);
+      color: #fdba74;
+      border: 1px solid rgba(249, 115, 22, 0.35);
+    }
+    .wp-sso-pill.light {
+      background: rgba(148, 163, 184, 0.14);
+      color: #cbd5e1;
+      border-color: rgba(148, 163, 184, 0.28);
+    }
+    .wp-sso-actions {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .wp-sso-search {
+      width: 100%;
+      max-width: 340px;
+      min-height: 42px;
+      padding: 8px 12px;
+      font-size: 16px;
+      border-radius: 8px;
+      border: 1px solid rgba(148, 163, 184, 0.25);
+      background: rgba(15, 23, 42, 0.9);
+      color: #f8fafc;
+    }
   </style>
 </head>
 <body>
@@ -1247,6 +1309,24 @@
     <div class="container-1100" style="display: flex; flex-direction: column; gap: 22px;">
 
       <div id="topActionFeedback" class="status-banner" role="status"></div>
+
+      <!-- 1-KLICK-SSO COCKPIT ZENTRALE -->
+      <section id="wpSsoSitesPanel" class="obsidian-card" data-section="partner-sso-sites">
+        <div class="section-head">
+          <div>
+            <span class="kicker">ZERO-TRUST SINGLE SIGN-ON</span>
+            <h2>Websites &amp; 1-Klick-SSO</h2>
+            <p class="section-desc">
+              Alle für dein Konto freigegebenen WebPilot-Cockpits. Klicke direkt auf «Cockpit öffnen» (ohne zweites Passwort) oder erzeuge einen 48h Read-Only Demo-Link.
+            </p>
+          </div>
+          <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;">
+            <span id="wpSsoCountBadge" class="badge-4">0 Sites</span>
+            <input id="wpSsoSearch" class="wp-sso-search" type="search" placeholder="Website oder Slug suchen...">
+          </div>
+        </div>
+        <div id="wpSsoGrid" class="wp-sso-grid"></div>
+      </section>
 
       <!-- HAUPT-TABS NAVIGATION -->
       <nav id="studioTabsBar" class="studio-tabs-bar" aria-label="Partner-Studio Bereiche">
@@ -2574,7 +2654,7 @@
       });
 
       async function apiCall(path, options) {
-        const opts = Object.assign({ method: "GET", headers: {} }, options || {});
+        const opts = Object.assign({ method: "GET", credentials: "include", headers: {} }, options || {});
         opts.headers["Content-Type"] = "application/json";
         if (currentToken) {
           opts.headers["Authorization"] = "Bearer " + currentToken;
@@ -2592,7 +2672,7 @@
         topbarUserArea.classList.remove("hidden");
 
         const uname = String((user && user.username) || "").toLowerCase();
-        const isAdmin = Boolean(user && (user.role === "admin" || uname === "david"));
+        const isAdmin = Boolean(user && (user.role === "admin" || uname === "david" || uname.indexOf("david.") === 0));
         tabBtnAdmin.classList.toggle("hidden", !isAdmin);
         studioTabsBar.classList.toggle("has-admin", isAdmin);
 
@@ -2602,7 +2682,7 @@
 
         const JENNY_SHEET_URL = "https://docs.google.com/spreadsheets/d/1O3EqOCqGS5HbE5rWxIBoTk8lLA0a2Pz30F7yKiEbRms/edit";
         const DAVID_MASTER_SHEET_URL = "https://docs.google.com/spreadsheets/d/1horD2vDfLDnVb9SEoBmXc-tjP8auMAMaqfdrb_g-Sho/edit";
-        const hasSheetAccess = isAdmin || uname === "jenny" || Boolean(user && user.google_sheet_url);
+        const hasSheetAccess = isAdmin || uname === "jenny" || uname.indexOf("jenny@") === 0 || Boolean(user && user.google_sheet_url);
         const targetSheetUrl = (user && user.google_sheet_url) ? user.google_sheet_url : (isAdmin ? DAVID_MASTER_SHEET_URL : JENNY_SHEET_URL);
         const b1 = document.getElementById("btnTopGoogleSheet");
         const b2 = document.getElementById("btnSectionGoogleSheet");
@@ -2628,16 +2708,16 @@
         pollInterval = setInterval(loadJobs, 20000);
       }
 
-      function logout() {
+      async function logout() {
         currentToken = "";
         currentUser = null;
         sessionStorage.removeItem(STORAGE_TOKEN_KEY);
         sessionStorage.removeItem(STORAGE_USER_KEY);
         if (pollInterval) clearInterval(pollInterval);
-        studioView.classList.add("hidden");
-        topbarUserArea.classList.add("hidden");
-        loginView.classList.remove("hidden");
-        loginPassword.value = "";
+        try {
+          await fetch("/api/auth/logout", { method: "POST", credentials: "include" });
+        } catch (_) {}
+        window.location.assign("/login");
       }
 
       document.getElementById("btnLogout").addEventListener("click", logout);
@@ -2948,8 +3028,8 @@
           const tokenStr = job.access_token || (baseSlug.replace(/-/g, "") + "2026");
           const v2Href = job.v2_url || ("https://vorschau.magnet-xs.ch/" + baseSlug + "-v2/");
           const vollHref = job.vollversion_url || ("https://vorschau.magnet-xs.ch/" + baseSlug + "-vollversion/");
-          const cockpitHref = job.cockpit_url || ("https://vorschau.magnet-xs.ch/" + baseSlug + "-vollversion/cockpit?token=" + tokenStr);
-          const cockpitLightHref = job.cockpit_light_url || ("https://vorschau.magnet-xs.ch/" + baseSlug + "-vollversion/cockpit.html?token=" + baseSlug + "2026&mode=light");
+          const cockpitHref = String(job.cockpit_url || ("https://vorschau.magnet-xs.ch/" + baseSlug + "-vollversion/cockpit")).split("?")[0];
+          const cockpitLightHref = String(job.cockpit_light_url || ("https://vorschau.magnet-xs.ch/" + baseSlug + "-vollversion/cockpit.html")).split("?")[0] + "?mode=light";
           const auditPdfHref = job.audit_report_url || ("https://vorschau.magnet-xs.ch/reports/" + baseSlug + "-vorher-nachher-report.pdf");
           const origHref = job.source_url || v2Href;
           const pInfo = getJobPricingInfo(job);
@@ -3405,8 +3485,8 @@
           const tokenStr = job.access_token || (baseSlug.replace(/-/g, "") + "2026");
           const v2Href = job.v2_url || ("https://vorschau.magnet-xs.ch/" + baseSlug + "-v2/");
           const vollHref = job.vollversion_url || ("https://vorschau.magnet-xs.ch/" + baseSlug + "-vollversion/");
-          const cockpitHref = job.cockpit_url || ("https://vorschau.magnet-xs.ch/" + baseSlug + "-vollversion/cockpit?token=" + tokenStr);
-          const cockpitLightHref = job.cockpit_light_url || ("https://vorschau.magnet-xs.ch/" + baseSlug + "-vollversion/cockpit.html?token=" + baseSlug + "2026&mode=light");
+          const cockpitHref = String(job.cockpit_url || ("https://vorschau.magnet-xs.ch/" + baseSlug + "-vollversion/cockpit")).split("?")[0];
+          const cockpitLightHref = String(job.cockpit_light_url || ("https://vorschau.magnet-xs.ch/" + baseSlug + "-vollversion/cockpit.html")).split("?")[0] + "?mode=light";
           const auditPdfHref = job.audit_report_url || ("https://vorschau.magnet-xs.ch/reports/" + baseSlug + "-vorher-nachher-report.pdf");
           const origHref = job.source_url || v2Href;
 
@@ -3743,40 +3823,139 @@
         }
       };
 
-      // 1-Klick-Direkt-Login per URL (?token=david2026 oder ?token=jenny2026), bereinigt URL sofort nach #UI-10
-      const urlParams = new URLSearchParams(window.location.search);
-      const quickToken = (urlParams.get("token") || "").trim().toLowerCase();
-      if (quickToken) {
-        if (window.history && window.history.replaceState) {
-          window.history.replaceState({}, document.title, window.location.pathname);
-        }
-        // Sofortige lokale Entsperrung fuer bekannte Partner-Tokens (verhindert Lade-Flackern & funktioniert auch offline im Audit)
-        if (quickToken === "david2026") {
-          enterStudio({ username: "david", display_name: "David Hügli", phone: "+41796326505", role: "admin" });
-        } else if (quickToken === "jenny2026") {
-          enterStudio({ username: "jenny", display_name: "Jenny Ettle (JE-MI)", phone: "+41782232180", role: "partner" });
-        }
-        apiCall("/api/partner/login", {
-          method: "POST",
-          body: JSON.stringify({ quick_token: quickToken })
-        }).then(function (resp) {
-          if (resp.status === 200 && resp.data && resp.data.ok) {
-            currentToken = resp.data.token;
-            currentUser = resp.data.user;
-            sessionStorage.setItem(STORAGE_TOKEN_KEY, currentToken);
-            sessionStorage.setItem(STORAGE_USER_KEY, JSON.stringify(currentUser));
-            enterStudio(currentUser);
+      var wpSsoAllSites = [];
+      var wpSsoAgenciesById = {};
+
+      function wpResolveCockpitUrl(slug, allSites) {
+        var s = String(slug || "");
+        if (s.indexOf("preview-") === 0) {
+          var rest = s.slice(8);
+          var hasV2 = allSites.some(function (x) { return x.slug === s + "-v2"; });
+          if (hasV2 && s.slice(-3) !== "-v2" && s.indexOf("-original") === -1) {
+            return "/" + rest + "-vollversion/cockpit";
           }
-        }).catch(function () {});
-      } else if (currentToken && currentUser) {
-        apiCall("/api/partner/me", { method: "GET" }).then(function (resp) {
-          if (resp.status === 200 && resp.data.ok) {
-            enterStudio(resp.data.user);
-          } else {
-            logout();
-          }
+          return "/" + rest + "/cockpit";
+        }
+        return "/" + s + "/cockpit";
+      }
+
+      function renderWpSsoSites(filterText) {
+        var grid = document.getElementById("wpSsoGrid");
+        var badge = document.getElementById("wpSsoCountBadge");
+        if (!grid) return;
+        var q = String(filterText || "").trim().toLowerCase();
+        var filtered = wpSsoAllSites.filter(function (s) {
+          if (!q) return true;
+          return (String(s.display_name || "").toLowerCase().indexOf(q) !== -1) ||
+                 (String(s.slug || "").toLowerCase().indexOf(q) !== -1);
+        });
+        if (badge) badge.textContent = filtered.length + " Sites";
+        grid.textContent = "";
+        if (!filtered.length) {
+          var empty = document.createElement("p");
+          empty.style.color = "#94a3b8";
+          empty.textContent = "Keine passenden Websites gefunden.";
+          grid.appendChild(empty);
+          return;
+        }
+        filtered.forEach(function (site) {
+          var card = document.createElement("div");
+          card.className = "wp-sso-card";
+
+          var top = document.createElement("div");
+          var h3 = document.createElement("h3");
+          h3.className = "wp-sso-title";
+          h3.textContent = site.display_name || site.slug;
+          var meta = document.createElement("div");
+          meta.className = "wp-sso-meta";
+          var ag = wpSsoAgenciesById[site.agency_id];
+          var slugSpan = document.createElement("span");
+          slugSpan.textContent = (ag ? ag.name + " · " : "") + site.slug;
+          var pill = document.createElement("span");
+          var effMode = site.effective_mode || site.cockpit_mode || "full";
+          pill.className = "wp-sso-pill" + (effMode === "light" ? " light" : "");
+          pill.textContent = (effMode === "full" ? "Voll-Cockpit" : "Light") + " · " + (site.effective_role || "");
+          meta.appendChild(slugSpan);
+          meta.appendChild(pill);
+          top.appendChild(h3);
+          top.appendChild(meta);
+
+          var acts = document.createElement("div");
+          acts.className = "wp-sso-actions";
+
+          var openLink = document.createElement("a");
+          openLink.className = "btn btn-primary btn-sm";
+          openLink.href = wpResolveCockpitUrl(site.slug, wpSsoAllSites);
+          openLink.target = "_blank";
+          openLink.rel = "noopener";
+          openLink.textContent = "Cockpit öffnen";
+
+          var demoBtn = document.createElement("button");
+          demoBtn.type = "button";
+          demoBtn.className = "btn btn-ghost btn-sm";
+          demoBtn.textContent = "48h Demo-Link";
+          demoBtn.addEventListener("click", async function () {
+            demoBtn.disabled = true;
+            try {
+              var dr = await apiCall("/api/auth/demo-pass", {
+                method: "POST",
+                body: JSON.stringify({ site: site.slug })
+              });
+              if (dr.status === 200 && dr.data && dr.data.ok && dr.data.demo_url) {
+                if (navigator.clipboard) {
+                  await navigator.clipboard.writeText(dr.data.demo_url).catch(function () {});
+                }
+                showBanner(topActionFeedback, "48h Demo-Link kopiert: " + dr.data.demo_url, true);
+              } else {
+                showBanner(topActionFeedback, (dr.data && dr.data.error) || "Demo-Link konnte nicht erstellt werden.", false);
+              }
+            } finally {
+              demoBtn.disabled = false;
+            }
+          });
+
+          acts.appendChild(openLink);
+          acts.appendChild(demoBtn);
+          card.appendChild(top);
+          card.appendChild(acts);
+          grid.appendChild(card);
         });
       }
+
+      var ssoSearchInput = document.getElementById("wpSsoSearch");
+      if (ssoSearchInput) {
+        ssoSearchInput.addEventListener("input", function () {
+          renderWpSsoSites(ssoSearchInput.value);
+        });
+      }
+
+      // Zero-Trust Session-Bootstrap über HttpOnly Cookie (/api/auth/me)
+      (async function bootstrapPartnerSession() {
+        try {
+          var res = await fetch("/api/auth/me", { method: "GET", credentials: "include" });
+          if (res.status !== 200) {
+            window.location.assign("/login?next=" + encodeURIComponent(window.location.pathname + window.location.search));
+            return;
+          }
+          var me = await res.json();
+          if (!me || !me.authenticated || !me.is_partner_portal_allowed) {
+            window.location.assign("/login?next=" + encodeURIComponent(window.location.pathname + window.location.search));
+            return;
+          }
+          wpSsoAllSites = Array.isArray(me.sites) ? me.sites : [];
+          wpSsoAgenciesById = {};
+          (me.agencies || []).forEach(function (a) { wpSsoAgenciesById[a.id] = a; });
+          renderWpSsoSites("");
+          enterStudio({
+            username: me.email,
+            display_name: me.email + " (" + me.highest_role + ")",
+            role: me.is_platform ? "admin" : "partner",
+            highest_role: me.highest_role
+          });
+        } catch (err) {
+          window.location.assign("/login?next=" + encodeURIComponent(window.location.pathname + window.location.search));
+        }
+      })();
     })();
   </script>
 </body>

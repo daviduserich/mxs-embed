@@ -1,0 +1,888 @@
+<!DOCTYPE html>
+<html lang="de-CH">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Anmeldung · WebPilot Studio · Magnet-XS</title>
+  <style>
+    :root {
+      --bg: #0B0F17;
+      --surface: #131A26;
+      --surface-2: #1A2333;
+      --border: #263145;
+      --text: #F1F5F9;
+      --muted: #94A3B8;
+      --copper: #F97316;
+      --copper-hover: #EA580C;
+      --ok-bg: rgba(16, 185, 129, 0.14);
+      --ok-border: rgba(16, 185, 129, 0.45);
+      --ok-text: #6EE7B7;
+      --err-bg: rgba(239, 68, 68, 0.14);
+      --err-border: rgba(239, 68, 68, 0.45);
+      --err-text: #FCA5A5;
+      --radius: 12px;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background:
+        radial-gradient(900px 420px at 15% -10%, rgba(249, 115, 22, 0.12), transparent 65%),
+        radial-gradient(700px 420px at 90% 110%, rgba(59, 130, 246, 0.10), transparent 65%),
+        var(--bg);
+      color: var(--text);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px 16px;
+      line-height: 1.5;
+    }
+
+    .auth-shell {
+      width: 100%;
+      max-width: 440px;
+    }
+
+    .brand-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 18px;
+      padding: 0 4px;
+    }
+
+    .brand-mark {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 700;
+      font-size: 16px;
+      letter-spacing: -0.01em;
+      color: var(--text);
+      text-decoration: none;
+    }
+
+    .brand-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--copper);
+      box-shadow: 0 0 12px rgba(249, 115, 22, 0.7);
+      flex-shrink: 0;
+    }
+
+    .security-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 12px;
+      color: var(--muted);
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--border);
+      padding: 5px 10px;
+      border-radius: 999px;
+    }
+
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 28px 24px;
+      box-shadow: 0 22px 60px rgba(0, 0, 0, 0.45);
+    }
+
+    .card h1 {
+      margin: 0 0 6px;
+      font-size: 22px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+
+    .subtitle {
+      margin: 0 0 22px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .banner {
+      display: none;
+      padding: 11px 14px;
+      border-radius: 8px;
+      font-size: 13.5px;
+      margin-bottom: 16px;
+      border: 1px solid transparent;
+    }
+
+    .banner.show { display: block; }
+    .banner.err { background: var(--err-bg); border-color: var(--err-border); color: var(--err-text); }
+    .banner.ok { background: var(--ok-bg); border-color: var(--ok-border); color: var(--ok-text); }
+
+    .field { margin-bottom: 16px; }
+
+    .field label {
+      display: block;
+      font-size: 13px;
+      font-weight: 600;
+      color: #CBD5E1;
+      margin-bottom: 6px;
+    }
+
+    .field input[type="email"],
+    .field input[type="password"],
+    .field input[type="text"] {
+      width: 100%;
+      min-height: 46px;
+      padding: 11px 14px;
+      font-size: 16px;
+      font-family: inherit;
+      color: var(--text);
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      outline: none;
+      transition: border-color 0.15s ease, box-shadow 0.15s ease;
+    }
+
+    .field input:focus {
+      border-color: var(--copper);
+      box-shadow: 0 0 0 3px rgba(249, 115, 22, 0.20);
+    }
+
+    .otp-input {
+      text-align: center;
+      letter-spacing: 0.35em;
+      font-weight: 700;
+      font-size: 20px !important;
+    }
+
+    .check-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      margin: 14px 0 18px;
+      font-size: 13.5px;
+      color: #CBD5E1;
+      cursor: pointer;
+    }
+
+    .check-row input[type="checkbox"] {
+      width: 18px;
+      height: 18px;
+      margin-top: 2px;
+      accent-color: var(--copper);
+      flex-shrink: 0;
+    }
+
+    .btn {
+      width: 100%;
+      min-height: 46px;
+      padding: 11px 16px;
+      border-radius: 8px;
+      border: 1px solid transparent;
+      font-family: inherit;
+      font-size: 15px;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      transition: background 0.15s ease, opacity 0.15s ease;
+    }
+
+    .btn-primary {
+      background: var(--copper);
+      color: #FFFFFF;
+    }
+
+    .btn-primary:hover:not(:disabled) { background: var(--copper-hover); }
+    .btn-primary:disabled { opacity: 0.55; cursor: not-allowed; }
+
+    .btn-ghost {
+      margin-top: 10px;
+      background: transparent;
+      border-color: var(--border);
+      color: var(--muted);
+      min-height: 42px;
+      font-size: 14px;
+    }
+
+    .btn-ghost:hover:not(:disabled) {
+      color: var(--text);
+      border-color: #3B4963;
+    }
+
+    .links-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      margin-top: 14px;
+      flex-wrap: wrap;
+    }
+
+    .text-link {
+      background: none;
+      border: none;
+      padding: 4px 0;
+      color: var(--muted);
+      font-size: 13.5px;
+      font-family: inherit;
+      cursor: pointer;
+      text-decoration: underline;
+    }
+
+    .text-link:hover { color: var(--text); }
+
+    .qr-box {
+      background: #FFFFFF;
+      padding: 12px;
+      border-radius: 10px;
+      width: 196px;
+      height: 196px;
+      margin: 0 auto 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .qr-box img {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+
+    .secret-box {
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 10px 12px;
+      margin-bottom: 16px;
+      font-size: 12.5px;
+      color: var(--muted);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      word-break: break-all;
+    }
+
+    .secret-box code {
+      color: var(--text);
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 13px;
+    }
+
+    .recovery-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 8px;
+      margin: 14px 0;
+    }
+
+    .recovery-code {
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 8px 10px;
+      text-align: center;
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 14px;
+      color: var(--text);
+    }
+
+    .view { display: none; }
+    .view.active { display: block; }
+
+    .footer-note {
+      margin-top: 16px;
+      text-align: center;
+      font-size: 12px;
+      color: #64748B;
+    }
+
+    .lucide {
+      width: 16px;
+      height: 16px;
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      flex-shrink: 0;
+    }
+  </style>
+</head>
+<body>
+  <main class="auth-shell">
+    <div class="brand-bar">
+      <a class="brand-mark" href="https://webpilot.magnet-xs.ch/">
+        <span class="brand-dot" aria-hidden="true"></span>
+        <span>WebPilot Studio</span>
+      </a>
+      <span class="security-pill">
+        <svg class="lucide" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+        2FA-gesichert
+      </span>
+    </div>
+
+    <section class="card" aria-live="polite">
+      <div id="statusBanner" class="banner" role="alert"></div>
+
+      <!-- VIEW 1: E-MAIL & PASSWORT -->
+      <div id="view-login" class="view active">
+        <h1>Willkommen zurück</h1>
+        <p class="subtitle">Melde dich mit deinem WebPilot-Konto an.</p>
+        <form id="formLogin" novalidate>
+          <div class="field">
+            <label for="loginEmail">E-Mail-Adresse</label>
+            <input id="loginEmail" type="email" autocomplete="username" placeholder="name@firma.ch" required>
+          </div>
+          <div class="field">
+            <label for="loginPassword">Passwort</label>
+            <input id="loginPassword" type="password" autocomplete="current-password" placeholder="Dein Passwort" required>
+          </div>
+          <button id="btnLogin" type="submit" class="btn btn-primary">
+            <svg class="lucide" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"></path><polyline points="10 17 15 12 10 7"></polyline><line x1="15" y1="12" x2="3" y2="12"></line></svg>
+            Weiter zur Bestätigung
+          </button>
+          <div class="links-row">
+            <button type="button" id="btnToRecover" class="text-link">Passwort vergessen?</button>
+          </div>
+        </form>
+      </div>
+
+      <!-- VIEW 2: TOTP EINRICHTEN (ERST-LOGIN PLATTFORM / AGENTUR) -->
+      <div id="view-totp-enroll" class="view">
+        <h1>Authenticator einrichten</h1>
+        <p class="subtitle">Scanne den QR-Code einmalig mit Google Authenticator, Authy oder 1Password.</p>
+        <div class="qr-box"><img id="enrollQrImg" alt="Authenticator QR-Code"></div>
+        <div class="secret-box">
+          <span>Code: <code id="enrollSecretText">...</code></span>
+          <button type="button" id="btnCopySecret" class="text-link">Kopieren</button>
+        </div>
+        <form id="formTotpEnroll" novalidate>
+          <div class="field">
+            <label for="enrollCodeInput">6-stelliger Bestätigungscode</label>
+            <input id="enrollCodeInput" class="otp-input" type="text" inputmode="numeric" autocomplete="one-time-code" maxlength="6" placeholder="000000" required>
+          </div>
+          <button id="btnEnrollVerify" type="submit" class="btn btn-primary">Authenticator aktivieren</button>
+          <button type="button" id="btnEnrollBack" class="btn btn-ghost">Zurück zur Anmeldung</button>
+        </form>
+      </div>
+
+      <!-- VIEW 3: RECOVERY CODES ANZEIGEN -->
+      <div id="view-recovery-show" class="view">
+        <h1>Notfall-Codes sichern</h1>
+        <p class="subtitle">Speichere diese 8 Einmal-Codes an einem sicheren Ort, falls dein Handy einmal ersetzt wird.</p>
+        <div id="recoveryList" class="recovery-grid"></div>
+        <button type="button" id="btnCopyRecovery" class="btn btn-ghost">Alle Codes kopieren</button>
+        <label class="check-row">
+          <input id="chkRecoverySaved" type="checkbox">
+          <span>Ich habe meine 8 Notfall-Codes sicher gespeichert.</span>
+        </label>
+        <button id="btnRecoveryDone" type="button" class="btn btn-primary" disabled>Weiter ins Cockpit</button>
+      </div>
+
+      <!-- VIEW 4: TOTP CODE EINGEBEN -->
+      <div id="view-totp-verify" class="view">
+        <h1>2-Faktor-Bestätigung</h1>
+        <p class="subtitle">Gib den aktuellen 6-stelligen Code aus deiner Authenticator-App ein (<span id="totpEmailLabel"></span>).</p>
+        <form id="formTotpVerify" novalidate>
+          <div class="field">
+            <label for="totpCodeInput">Authenticator-Code</label>
+            <input id="totpCodeInput" class="otp-input" type="text" inputmode="numeric" autocomplete="one-time-code" maxlength="6" placeholder="000000" required>
+          </div>
+          <button id="btnTotpVerify" type="submit" class="btn btn-primary">Anmeldung abschliessen</button>
+          <div class="links-row">
+            <button type="button" id="btnToRecoveryInput" class="text-link">Mit Notfall-Code anmelden</button>
+            <button type="button" id="btnTotpBack" class="text-link">Anderes Konto</button>
+          </div>
+        </form>
+      </div>
+
+      <!-- VIEW 5: RECOVERY CODE EINGEBEN -->
+      <div id="view-recovery-input" class="view">
+        <h1>Notfall-Code eingeben</h1>
+        <p class="subtitle">Gib einen deiner unbenutzten 8-stelligen Recovery-Codes ein.</p>
+        <form id="formRecoveryInput" novalidate>
+          <div class="field">
+            <label for="recoveryCodeInput">Recovery-Code</label>
+            <input id="recoveryCodeInput" type="text" autocomplete="off" placeholder="XXXX-XXXX" required>
+          </div>
+          <button id="btnRecoveryVerify" type="submit" class="btn btn-primary">Mit Notfall-Code anmelden</button>
+          <button type="button" id="btnBackToTotp" class="btn btn-ghost">Zurück zur App-Eingabe</button>
+        </form>
+      </div>
+
+      <!-- VIEW 6: KMU E-MAIL OTP -->
+      <div id="view-email-otp" class="view">
+        <h1>Sicherheitscode per E-Mail</h1>
+        <p class="subtitle">Wir haben einen 6-stelligen Code an <strong id="emailOtpTarget"></strong> gesendet.</p>
+        <form id="formEmailOtp" novalidate>
+          <div class="field">
+            <label for="emailOtpInput">6-stelliger E-Mail-Code</label>
+            <input id="emailOtpInput" class="otp-input" type="text" inputmode="numeric" autocomplete="one-time-code" maxlength="6" placeholder="000000" required>
+          </div>
+          <label class="check-row">
+            <input id="chkTrustDevice" type="checkbox" checked>
+            <span>Diesem Gerät 30 Tage vertrauen</span>
+          </label>
+          <button id="btnEmailOtpVerify" type="submit" class="btn btn-primary">Bestätigen &amp; öffnen</button>
+          <div class="links-row">
+            <button type="button" id="btnResendOtp" class="text-link">Code erneut senden</button>
+            <button type="button" id="btnEmailOtpBack" class="text-link">Anderes Konto</button>
+          </div>
+        </form>
+      </div>
+
+      <!-- VIEW 7: PASSWORT VERGESSEN -->
+      <div id="view-recover" class="view">
+        <h1>Passwort zurücksetzen</h1>
+        <p class="subtitle">Gib deine E-Mail-Adresse ein. Du erhältst einen Link zum Setzen eines neuen Passworts.</p>
+        <form id="formRecover" novalidate>
+          <div class="field">
+            <label for="recoverEmail">E-Mail-Adresse</label>
+            <input id="recoverEmail" type="email" autocomplete="username" placeholder="name@firma.ch" required>
+          </div>
+          <button id="btnRecoverSubmit" type="submit" class="btn btn-primary">Reset-Link senden</button>
+          <button type="button" id="btnRecoverBack" class="btn btn-ghost">Zurück zum Login</button>
+        </form>
+      </div>
+
+      <!-- VIEW 8: NEUES PASSWORT SETZEN (EINLADUNG / RESET) -->
+      <div id="view-set-password" class="view">
+        <h1>Neues Passwort festlegen</h1>
+        <p class="subtitle">Wähle ein sicheres Passwort mit mindestens 10 Zeichen.</p>
+        <form id="formSetPassword" novalidate>
+          <div class="field">
+            <label for="newPw1">Neues Passwort</label>
+            <input id="newPw1" type="password" autocomplete="new-password" minlength="10" placeholder="Mindestens 10 Zeichen" required>
+          </div>
+          <div class="field">
+            <label for="newPw2">Passwort wiederholen</label>
+            <input id="newPw2" type="password" autocomplete="new-password" minlength="10" placeholder="Passwort bestätigen" required>
+          </div>
+          <button id="btnSetPassword" type="submit" class="btn btn-primary">Passwort speichern</button>
+        </form>
+      </div>
+    </section>
+
+    <p class="footer-note">Magnet-XS AG · WebPilot Zero-Trust Zugang</p>
+  </main>
+
+  <script>
+    (function () {
+      "use strict";
+
+      var state = {
+        email: "",
+        factorId: "",
+        enrollSecret: "",
+        pendingRedirectData: null,
+        recoveryCodes: [],
+        hashAccessToken: "",
+        activeAbort: null
+      };
+
+      var banner = document.getElementById("statusBanner");
+
+      function showBanner(msg, ok) {
+        banner.textContent = msg;
+        banner.className = "banner show " + (ok ? "ok" : "err");
+      }
+
+      function hideBanner() {
+        banner.className = "banner";
+        banner.textContent = "";
+      }
+
+      function abortInflight() {
+        if (state.activeAbort) {
+          try { state.activeAbort.abort(); } catch (_) {}
+          state.activeAbort = null;
+        }
+      }
+
+      function showView(name) {
+        abortInflight();
+        var views = document.querySelectorAll(".view");
+        for (var i = 0; i < views.length; i++) {
+          views[i].classList.remove("active");
+        }
+        var target = document.getElementById("view-" + name);
+        if (target) target.classList.add("active");
+      }
+
+      async function apiPost(path, payload) {
+        abortInflight();
+        state.activeAbort = new AbortController();
+        var res = await fetch(path, {
+          method: "POST",
+          credentials: "include",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(payload || {}),
+          signal: state.activeAbort.signal
+        });
+        var data = await res.json().catch(function () {
+          return { ok: false, error: "Ungültige Server-Antwort." };
+        });
+        return { status: res.status, data: data };
+      }
+
+      function safeNextPath() {
+        var sp = new URLSearchParams(window.location.search);
+        var next = (sp.get("next") || "").trim();
+        if (next && next.charAt(0) === "/" && next.indexOf("//") !== 0 && next.indexOf("/login") !== 0) {
+          return next;
+        }
+        return "";
+      }
+
+      function resolvePostLoginUrl(data) {
+        var next = safeNextPath();
+        if (next) return next;
+        var sites = (data && Array.isArray(data.sites)) ? data.sites : [];
+        var role = (data && data.highest_role) || "";
+        var isClientOnly = (role === "client_owner" || role === "client_staff");
+        if (isClientOnly && sites.length === 1 && sites[0].slug) {
+          var pub = String(sites[0].slug).replace(/^preview-/, "");
+          return "/" + pub + "/cockpit";
+        }
+        return "/partner/";
+      }
+
+      function completeAndRedirect(data) {
+        window.location.assign(resolvePostLoginUrl(data));
+      }
+
+      async function startTotpEnrollment() {
+        showView("totp-enroll");
+        document.getElementById("enrollQrImg").removeAttribute("src");
+        document.getElementById("enrollSecretText").textContent = "Lädt...";
+        var res = await apiPost("/api/auth/totp/enroll", {});
+        if (res.status !== 200 || !res.data.ok) {
+          showBanner(res.data.error || "Authenticator konnte nicht geladen werden.", false);
+          return;
+        }
+        state.factorId = res.data.factor_id || "";
+        state.enrollSecret = res.data.secret || "";
+        document.getElementById("enrollSecretText").textContent = state.enrollSecret || "-";
+        var qr = String(res.data.qr_code || "");
+        var img = document.getElementById("enrollQrImg");
+        if (qr.indexOf("data:image/") === 0) {
+          img.src = qr;
+        } else if (qr.trim().indexOf("<svg") === 0) {
+          img.src = "data:image/svg+xml;charset=utf-8," + encodeURIComponent(qr);
+        }
+        document.getElementById("enrollCodeInput").focus();
+      }
+
+      async function sendEmailOtp() {
+        var res = await apiPost("/api/auth/email-otp/send", {});
+        if (res.status === 200 && res.data.ok) {
+          showBanner(res.data.message || "Sicherheitscode wurde gesendet.", true);
+        } else {
+          showBanner(res.data.error || "Code konnte nicht gesendet werden.", false);
+        }
+      }
+
+      function renderRecoveryCodes(codes) {
+        state.recoveryCodes = codes;
+        var box = document.getElementById("recoveryList");
+        box.textContent = "";
+        for (var i = 0; i < codes.length; i++) {
+          var item = document.createElement("div");
+          item.className = "recovery-code";
+          item.textContent = codes[i];
+          box.appendChild(item);
+        }
+        var chk = document.getElementById("chkRecoverySaved");
+        var btn = document.getElementById("btnRecoveryDone");
+        chk.checked = false;
+        btn.disabled = true;
+        showView("recovery-show");
+      }
+
+      document.getElementById("formLogin").addEventListener("submit", async function (e) {
+        e.preventDefault();
+        hideBanner();
+        var email = document.getElementById("loginEmail").value.trim().toLowerCase();
+        var pw = document.getElementById("loginPassword").value;
+        if (!email || !pw) {
+          showBanner("Bitte E-Mail-Adresse und Passwort eingeben.", false);
+          return;
+        }
+        var btn = document.getElementById("btnLogin");
+        btn.disabled = true;
+        try {
+          var res = await apiPost("/api/auth/login", { email: email, password: pw });
+          if (res.status !== 200 || !res.data.ok) {
+            showBanner(res.data.error || "Anmeldung fehlgeschlagen.", false);
+            return;
+          }
+          state.email = res.data.email || email;
+          if (res.data.next_step === "done") {
+            completeAndRedirect(res.data);
+            return;
+          }
+          if (res.data.next_step === "totp_enroll") {
+            await startTotpEnrollment();
+            return;
+          }
+          if (res.data.next_step === "totp_verify") {
+            var factors = res.data.factors || [];
+            state.factorId = factors.length ? factors[0].id : "";
+            document.getElementById("totpEmailLabel").textContent = state.email;
+            document.getElementById("totpCodeInput").value = "";
+            showView("totp-verify");
+            document.getElementById("totpCodeInput").focus();
+            return;
+          }
+          if (res.data.next_step === "email_otp") {
+            document.getElementById("emailOtpTarget").textContent = state.email;
+            document.getElementById("emailOtpInput").value = "";
+            showView("email-otp");
+            await sendEmailOtp();
+            document.getElementById("emailOtpInput").focus();
+          }
+        } catch (err) {
+          if (err && err.name !== "AbortError") {
+            showBanner("Netzwerkfehler bei der Anmeldung.", false);
+          }
+        } finally {
+          btn.disabled = false;
+        }
+      });
+
+      document.getElementById("formTotpEnroll").addEventListener("submit", async function (e) {
+        e.preventDefault();
+        hideBanner();
+        var code = document.getElementById("enrollCodeInput").value.replace(/\D/g, "");
+        if (code.length !== 6) {
+          showBanner("Bitte den 6-stelligen Code aus der Authenticator-App eingeben.", false);
+          return;
+        }
+        var btn = document.getElementById("btnEnrollVerify");
+        btn.disabled = true;
+        try {
+          var res = await apiPost("/api/auth/totp/verify", { factor_id: state.factorId, code: code });
+          if (res.status !== 200 || !res.data.ok) {
+            showBanner(res.data.error || "Code ungültig.", false);
+            return;
+          }
+          if (Array.isArray(res.data.recovery_codes) && res.data.recovery_codes.length) {
+            state.pendingRedirectData = res.data;
+            renderRecoveryCodes(res.data.recovery_codes);
+          } else {
+            completeAndRedirect(res.data);
+          }
+        } finally {
+          btn.disabled = false;
+        }
+      });
+
+      document.getElementById("formTotpVerify").addEventListener("submit", async function (e) {
+        e.preventDefault();
+        hideBanner();
+        var code = document.getElementById("totpCodeInput").value.replace(/\D/g, "");
+        if (code.length !== 6) {
+          showBanner("Bitte den 6-stelligen Code eingeben.", false);
+          return;
+        }
+        var btn = document.getElementById("btnTotpVerify");
+        btn.disabled = true;
+        try {
+          var res = await apiPost("/api/auth/totp/verify", { factor_id: state.factorId, code: code });
+          if (res.status !== 200 || !res.data.ok) {
+            showBanner(res.data.error || "Code ungültig.", false);
+            return;
+          }
+          completeAndRedirect(res.data);
+        } finally {
+          btn.disabled = false;
+        }
+      });
+
+      document.getElementById("formRecoveryInput").addEventListener("submit", async function (e) {
+        e.preventDefault();
+        hideBanner();
+        var code = document.getElementById("recoveryCodeInput").value.trim().toUpperCase();
+        if (!code) {
+          showBanner("Bitte Notfall-Code eingeben.", false);
+          return;
+        }
+        var btn = document.getElementById("btnRecoveryVerify");
+        btn.disabled = true;
+        try {
+          var res = await apiPost("/api/auth/recovery/verify", { code: code });
+          if (res.status !== 200 || !res.data.ok) {
+            showBanner(res.data.error || "Notfall-Code ungültig.", false);
+            return;
+          }
+          completeAndRedirect(res.data);
+        } finally {
+          btn.disabled = false;
+        }
+      });
+
+      document.getElementById("formEmailOtp").addEventListener("submit", async function (e) {
+        e.preventDefault();
+        hideBanner();
+        var code = document.getElementById("emailOtpInput").value.replace(/\D/g, "");
+        var trust = document.getElementById("chkTrustDevice").checked;
+        if (code.length !== 6) {
+          showBanner("Bitte den 6-stelligen Code eingeben.", false);
+          return;
+        }
+        var btn = document.getElementById("btnEmailOtpVerify");
+        btn.disabled = true;
+        try {
+          var res = await apiPost("/api/auth/email-otp/verify", { code: code, trust_device: trust });
+          if (res.status !== 200 || !res.data.ok) {
+            showBanner(res.data.error || "Code ungültig oder abgelaufen.", false);
+            return;
+          }
+          completeAndRedirect(res.data);
+        } finally {
+          btn.disabled = false;
+        }
+      });
+
+      document.getElementById("formRecover").addEventListener("submit", async function (e) {
+        e.preventDefault();
+        hideBanner();
+        var email = document.getElementById("recoverEmail").value.trim().toLowerCase();
+        if (!email || email.indexOf("@") === -1) {
+          showBanner("Bitte gültige E-Mail-Adresse eingeben.", false);
+          return;
+        }
+        var btn = document.getElementById("btnRecoverSubmit");
+        btn.disabled = true;
+        try {
+          var res = await apiPost("/api/auth/recover", { email: email });
+          showBanner(res.data.message || "Reset-Link gesendet.", res.status === 200);
+        } finally {
+          btn.disabled = false;
+        }
+      });
+
+      document.getElementById("formSetPassword").addEventListener("submit", async function (e) {
+        e.preventDefault();
+        hideBanner();
+        var p1 = document.getElementById("newPw1").value;
+        var p2 = document.getElementById("newPw2").value;
+        if (p1.length < 10) {
+          showBanner("Bitte mindestens 10 Zeichen wählen.", false);
+          return;
+        }
+        if (p1 !== p2) {
+          showBanner("Die beiden Passwörter stimmen nicht überein.", false);
+          return;
+        }
+        var btn = document.getElementById("btnSetPassword");
+        btn.disabled = true;
+        try {
+          var res = await apiPost("/api/auth/set-password", {
+            access_token: state.hashAccessToken,
+            new_password: p1
+          });
+          if (res.status !== 200 || !res.data.ok) {
+            showBanner(res.data.error || "Passwort konnte nicht gesetzt werden.", false);
+            return;
+          }
+          state.hashAccessToken = "";
+          showView("login");
+          showBanner(res.data.message || "Passwort gesetzt. Bitte jetzt anmelden.", true);
+        } finally {
+          btn.disabled = false;
+        }
+      });
+
+      document.getElementById("chkRecoverySaved").addEventListener("change", function (e) {
+        document.getElementById("btnRecoveryDone").disabled = !e.target.checked;
+      });
+      document.getElementById("btnRecoveryDone").addEventListener("click", function () {
+        completeAndRedirect(state.pendingRedirectData || {});
+      });
+      document.getElementById("btnCopyRecovery").addEventListener("click", function () {
+        if (navigator.clipboard && state.recoveryCodes.length) {
+          navigator.clipboard.writeText(state.recoveryCodes.join("\n"));
+          showBanner("Alle 8 Notfall-Codes kopiert.", true);
+        }
+      });
+      document.getElementById("btnCopySecret").addEventListener("click", function () {
+        if (navigator.clipboard && state.enrollSecret) {
+          navigator.clipboard.writeText(state.enrollSecret);
+          showBanner("Setup-Schlüssel kopiert.", true);
+        }
+      });
+      document.getElementById("btnToRecover").addEventListener("click", function () {
+        hideBanner();
+        document.getElementById("recoverEmail").value = document.getElementById("loginEmail").value.trim();
+        showView("recover");
+      });
+      document.getElementById("btnRecoverBack").addEventListener("click", function () {
+        hideBanner();
+        showView("login");
+      });
+      document.getElementById("btnEnrollBack").addEventListener("click", function () {
+        hideBanner();
+        showView("login");
+      });
+      document.getElementById("btnTotpBack").addEventListener("click", function () {
+        hideBanner();
+        showView("login");
+      });
+      document.getElementById("btnEmailOtpBack").addEventListener("click", function () {
+        hideBanner();
+        showView("login");
+      });
+      document.getElementById("btnToRecoveryInput").addEventListener("click", function () {
+        hideBanner();
+        showView("recovery-input");
+      });
+      document.getElementById("btnBackToTotp").addEventListener("click", function () {
+        hideBanner();
+        showView("totp-verify");
+      });
+      document.getElementById("btnResendOtp").addEventListener("click", async function () {
+        hideBanner();
+        await sendEmailOtp();
+      });
+
+      // Boot: Einladungs-/Reset-Hash (#UI-10 sofort bereinigen) oder aktive Session prüfen
+      (async function boot() {
+        var rawHash = (window.location.hash || "").replace(/^#/, "");
+        if (rawHash) {
+          var hp = new URLSearchParams(rawHash);
+          var tok = hp.get("access_token") || "";
+          var typ = (hp.get("type") || "").toLowerCase();
+          if (tok && (typ === "recovery" || typ === "invite" || typ === "signup")) {
+            state.hashAccessToken = tok;
+            if (window.history && window.history.replaceState) {
+              window.history.replaceState({}, document.title, window.location.pathname + window.location.search);
+            }
+            showView("set-password");
+            return;
+          }
+        }
+        try {
+          var res = await fetch("/api/auth/me", { credentials: "include" });
+          if (res.status === 200) {
+            var data = await res.json();
+            if (data && data.authenticated) {
+              completeAndRedirect(data);
+              return;
+            }
+          }
+        } catch (_) {}
+      })();
+    })();
+  </script>
+</body>
+</html>

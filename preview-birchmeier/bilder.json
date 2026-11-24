@@ -118,6 +118,11 @@
     "is_used": true,
     "used_in": [
       {
+        "datei": "404.html",
+        "slot": "image",
+        "is_hero": false
+      },
+      {
         "datei": "index.html",
         "slot": "image",
         "is_hero": false
@@ -139,12 +144,13 @@
       }
     ],
     "used_in_pages": [
+      "404.html",
       "index.html",
       "karriere.html",
       "kontakt.html",
       "team.html"
     ],
-    "alt": "Birchmeier-Hohler GmbH Bremgarten (AG) – Offizielles Logo (Sanitär-Installationen für Neubau, Umbau und)"
+    "alt": "Birchmeier-Hohler GmbH"
   },
   {
     "nr": 6,
@@ -162,9 +168,41 @@
     "cdn_url": "https://vorschau.magnet-xs.ch/birchmeier/images/logo_original.png",
     "cloudflare_url": "https://vorschau.magnet-xs.ch/birchmeier/images/logo_original.png",
     "cloudflare_short": "vorschau.magnet-xs.ch/birchmeier/images/logo_original.png",
-    "is_used": false,
-    "used_in": [],
-    "used_in_pages": [],
+    "is_used": true,
+    "used_in": [
+      {
+        "datei": "404.html",
+        "slot": "image",
+        "is_hero": false
+      },
+      {
+        "datei": "index.html",
+        "slot": "image",
+        "is_hero": false
+      },
+      {
+        "datei": "karriere.html",
+        "slot": "image",
+        "is_hero": false
+      },
+      {
+        "datei": "kontakt.html",
+        "slot": "image",
+        "is_hero": false
+      },
+      {
+        "datei": "team.html",
+        "slot": "image",
+        "is_hero": false
+      }
+    ],
+    "used_in_pages": [
+      "404.html",
+      "index.html",
+      "karriere.html",
+      "kontakt.html",
+      "team.html"
+    ],
     "alt": "Birchmeier-Hohler GmbH Bremgarten (AG) – Offizielles Logo (Sanitär-Installationen für Neubau, Umbau und)"
   },
   {
@@ -194,7 +232,7 @@
     "used_in_pages": [
       "index.html"
     ],
-    "alt": "Sanitär & Badumbau Birchmeier-Hohler"
+    "alt": "Sanitär &amp; Badumbau Birchmeier-Hohler"
   },
   {
     "nr": 8,

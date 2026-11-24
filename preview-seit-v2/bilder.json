@@ -18,6 +18,11 @@
     "is_used": true,
     "used_in": [
       {
+        "datei": "404.html",
+        "slot": "image",
+        "is_hero": false
+      },
+      {
         "datei": "index.html",
         "slot": "image",
         "is_hero": false
@@ -29,6 +34,7 @@
       }
     ],
     "used_in_pages": [
+      "404.html",
       "index.html",
       "kontakt.html"
     ],
@@ -181,7 +187,7 @@
       "index.html",
       "kontakt.html"
     ],
-    "alt": "Streifenfreie Fensterreinigung durch Karolina Fabic von Clean Equipe"
+    "alt": "Karolina Fabic von der Clean Equipe GmbH bei der streifenfreien Fensterreinigung"
   },
   {
     "nr": 7,
@@ -336,6 +342,11 @@
     "is_used": true,
     "used_in": [
       {
+        "datei": "404.html",
+        "slot": "image",
+        "is_hero": false
+      },
+      {
         "datei": "index.html",
         "slot": "image",
         "is_hero": false
@@ -347,10 +358,11 @@
       }
     ],
     "used_in_pages": [
+      "404.html",
       "index.html",
       "kontakt.html"
     ],
-    "alt": "Clean Equipe GmbH Oberkulm"
+    "alt": "Clean Equipe GmbH"
   },
   {
     "nr": 14,

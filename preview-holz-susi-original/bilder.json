@@ -18,12 +18,24 @@
     "is_used": true,
     "used_in": [
       {
+        "datei": "datenschutz.html",
+        "slot": "image",
+        "is_hero": false
+      },
+      {
+        "datei": "impressum.html",
+        "slot": "image",
+        "is_hero": false
+      },
+      {
         "datei": "index.html",
         "slot": "image",
         "is_hero": false
       }
     ],
     "used_in_pages": [
+      "datenschutz.html",
+      "impressum.html",
       "index.html"
     ],
     "alt": "Bauunternehmen – Holz-Susi GmbH in Frick (AG)"
@@ -345,7 +357,7 @@
     "used_in_pages": [
       "index.html"
     ],
-    "alt": "Architekten & Architektinnen"
+    "alt": "Architekten &amp; Architektinnen"
   },
   {
     "nr": 13,
@@ -490,7 +502,7 @@
     "used_in_pages": [
       "index.html"
     ],
-    "alt": "Innenausbau & Renovation"
+    "alt": "Innenausbau &amp; Renovation"
   },
   {
     "nr": 18,
@@ -577,7 +589,7 @@
     "used_in_pages": [
       "index.html"
     ],
-    "alt": "Projektleitung, Planung & Bauleitung bei Renovationsarbeiten"
+    "alt": "Projektleitung, Planung &amp; Bauleitung bei Renovationsarbeiten"
   },
   {
     "nr": 21,
@@ -664,7 +676,7 @@
     "used_in_pages": [
       "index.html"
     ],
-    "alt": "Dachsanierung & Dacherneuerung"
+    "alt": "Dachsanierung &amp; Dacherneuerung"
   },
   {
     "nr": 24,
@@ -983,7 +995,7 @@
     "used_in_pages": [
       "index.html"
     ],
-    "alt": "Einbau & Wechsel von Dachfenstern"
+    "alt": "Einbau &amp; Wechsel von Dachfenstern"
   },
   {
     "nr": 35,
@@ -1062,6 +1074,11 @@
     "is_used": true,
     "used_in": [
       {
+        "datei": "404.html",
+        "slot": "image",
+        "is_hero": false
+      },
+      {
         "datei": "datenschutz.html",
         "slot": "image",
         "is_hero": false
@@ -1078,6 +1095,7 @@
       }
     ],
     "used_in_pages": [
+      "404.html",
       "datenschutz.html",
       "impressum.html",
       "index.html"
@@ -1111,7 +1129,7 @@
     "used_in_pages": [
       "index.html"
     ],
-    "alt": "Private Bauherren & Bauherrinnen"
+    "alt": "Private Bauherren &amp; Bauherrinnen"
   },
   {
     "nr": 39,
@@ -1335,7 +1353,7 @@
     "used_in_pages": [
       "index.html"
     ],
-    "alt": "Terrassendeck & Fassaden"
+    "alt": "Terrassendeck &amp; Fassaden"
   },
   {
     "nr": 47,
@@ -1509,7 +1527,7 @@
     "used_in_pages": [
       "index.html"
     ],
-    "alt": "Susi Schmid, Inhaberin & Geschäftsführerin"
+    "alt": "Susi Schmid, Inhaberin &amp; Geschäftsführerin"
   },
   {
     "nr": 53,
@@ -1646,6 +1664,11 @@
     "is_used": true,
     "used_in": [
       {
+        "datei": "404.html",
+        "slot": "image",
+        "is_hero": false
+      },
+      {
         "datei": "datenschutz.html",
         "slot": "image",
         "is_hero": false
@@ -1662,11 +1685,12 @@
       }
     ],
     "used_in_pages": [
+      "404.html",
       "datenschutz.html",
       "impressum.html",
       "index.html"
     ],
-    "alt": "Holz-Susi GmbH Frick (AG) – Offizielles Logo (Fachbetrieb in der Schweiz)"
+    "alt": "Holz-Susi GmbH"
   },
   {
     "nr": 58,
