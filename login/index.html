@@ -242,9 +242,9 @@
     .qr-box {
       background: #FFFFFF;
       padding: 12px;
-      border-radius: 10px;
-      width: 196px;
-      height: 196px;
+      border-radius: 8px;
+      width: 216px;
+      height: 216px;
       margin: 0 auto 14px;
       display: flex;
       align-items: center;
@@ -255,6 +255,17 @@
       width: 100%;
       height: 100%;
       display: block;
+      object-fit: contain;
+      image-rendering: pixelated;
+    }
+
+    .qr-fallback {
+      display: none;
+      color: #111827;
+      font-size: 12.5px;
+      line-height: 1.45;
+      text-align: center;
+      padding: 8px;
     }
 
     .secret-box {
@@ -361,7 +372,10 @@
       <div id="view-totp-enroll" class="view">
         <h1>Authenticator einrichten</h1>
         <p class="subtitle">Scanne den QR-Code einmalig mit Google Authenticator, Authy oder 1Password.</p>
-        <div class="qr-box"><img id="enrollQrImg" alt="Authenticator QR-Code"></div>
+        <div class="qr-box">
+          <img id="enrollQrImg" alt="Authenticator QR-Code">
+          <div id="enrollQrFallback" class="qr-fallback">QR-Code nicht verfügbar: Bitte Code unten kopieren und manuell eingeben.</div>
+        </div>
         <div class="secret-box">
           <span>Code: <code id="enrollSecretText">...</code></span>
           <button type="button" id="btnCopySecret" class="text-link">Kopieren</button>
@@ -563,24 +577,63 @@
         window.location.assign(resolvePostLoginUrl(data));
       }
 
+      function normalizeQrSrc(raw) {
+        var s = String(raw || "").trim();
+        if (!s) return "";
+        if (s.indexOf("data:image/png;base64,") === 0 || s.indexOf("data:image/svg+xml;base64,") === 0) {
+          return s;
+        }
+        if (s.indexOf("data:image/svg+xml") === 0) {
+          var commaIdx = s.indexOf(",");
+          if (commaIdx !== -1) {
+            var svg = s.slice(commaIdx + 1);
+            if (svg.indexOf("%3C") !== -1 || svg.indexOf("%3c") !== -1) {
+              try { svg = decodeURIComponent(svg); } catch (e) {}
+            }
+            return "data:image/svg+xml;charset=utf-8," + encodeURIComponent(svg);
+          }
+        }
+        if (s.indexOf("<svg") === 0) {
+          return "data:image/svg+xml;charset=utf-8," + encodeURIComponent(s);
+        }
+        if (s.indexOf("data:image/") === 0) {
+          return s;
+        }
+        return "";
+      }
+
       async function startTotpEnrollment() {
         showView("totp-enroll");
-        document.getElementById("enrollQrImg").removeAttribute("src");
+        var img = document.getElementById("enrollQrImg");
+        var fallback = document.getElementById("enrollQrFallback");
+        img.style.display = "block";
+        if (fallback) fallback.style.display = "none";
+        img.removeAttribute("src");
         document.getElementById("enrollSecretText").textContent = "Lädt...";
         var res = await apiPost("/api/auth/totp/enroll", {});
         if (res.status !== 200 || !res.data.ok) {
           showBanner(res.data.error || "Authenticator konnte nicht geladen werden.", false);
+          if (img) img.style.display = "none";
+          if (fallback) fallback.style.display = "block";
           return;
         }
         state.factorId = res.data.factor_id || "";
         state.enrollSecret = res.data.secret || "";
         document.getElementById("enrollSecretText").textContent = state.enrollSecret || "-";
-        var qr = String(res.data.qr_code || "");
-        var img = document.getElementById("enrollQrImg");
-        if (qr.indexOf("data:image/") === 0) {
-          img.src = qr;
-        } else if (qr.trim().indexOf("<svg") === 0) {
-          img.src = "data:image/svg+xml;charset=utf-8," + encodeURIComponent(qr);
+        img.onload = function () {
+          img.style.display = "block";
+          if (fallback) fallback.style.display = "none";
+        };
+        img.onerror = function () {
+          img.style.display = "none";
+          if (fallback) fallback.style.display = "block";
+        };
+        var src = normalizeQrSrc(res.data.qr_code || "");
+        if (src) {
+          img.src = src;
+        } else {
+          img.style.display = "none";
+          if (fallback) fallback.style.display = "block";
         }
         document.getElementById("enrollCodeInput").focus();
       }
