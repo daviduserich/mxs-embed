@@ -487,6 +487,8 @@
         pendingRedirectData: null,
         recoveryCodes: [],
         hashAccessToken: "",
+        hashTokenHash: "",
+        hashTokenType: "recovery",
         activeAbort: null
       };
 
@@ -789,6 +791,8 @@
         btn.disabled = true;
         try {
           var res = await apiPost("/api/auth/set-password", {
+            token_hash: state.hashTokenHash,
+            token_type: state.hashTokenType || "recovery",
             access_token: state.hashAccessToken,
             new_password: p1
           });
@@ -797,6 +801,8 @@
             return;
           }
           state.hashAccessToken = "";
+          state.hashTokenHash = "";
+          state.hashTokenType = "recovery";
           showView("login");
           showBanner(res.data.message || "Passwort gesetzt. Bitte jetzt anmelden.", true);
         } finally {
@@ -856,21 +862,27 @@
         await sendEmailOtp();
       });
 
-      // Boot: Einladungs-/Reset-Hash (#UI-10 sofort bereinigen) oder aktive Session prüfen
+      // Boot: Einladungs-/Reset-Token (#token_hash oder #access_token, #UI-10 sofort bereinigen) oder aktive Session prüfen
       (async function boot() {
         var rawHash = (window.location.hash || "").replace(/^#/, "");
-        if (rawHash) {
-          var hp = new URLSearchParams(rawHash);
-          var tok = hp.get("access_token") || "";
-          var typ = (hp.get("type") || "").toLowerCase();
-          if (tok && (typ === "recovery" || typ === "invite" || typ === "signup")) {
-            state.hashAccessToken = tok;
-            if (window.history && window.history.replaceState) {
-              window.history.replaceState({}, document.title, window.location.pathname + window.location.search);
-            }
-            showView("set-password");
-            return;
+        var hp = rawHash ? new URLSearchParams(rawHash) : null;
+        var sp = new URLSearchParams(window.location.search || "");
+        var th = (hp && hp.get("token_hash")) || sp.get("token_hash") || "";
+        var tok = (hp && hp.get("access_token")) || sp.get("access_token") || "";
+        var typ = ((hp && hp.get("type")) || sp.get("type") || "recovery").toLowerCase();
+        if ((th || tok) && (typ === "recovery" || typ === "invite" || typ === "signup" || typ === "magiclink")) {
+          state.hashTokenHash = th;
+          state.hashAccessToken = tok;
+          state.hashTokenType = typ;
+          if (window.history && window.history.replaceState) {
+            sp.delete("token_hash");
+            sp.delete("access_token");
+            sp.delete("type");
+            var cleanSearch = sp.toString();
+            window.history.replaceState({}, document.title, window.location.pathname + (cleanSearch ? "?" + cleanSearch : ""));
           }
+          showView("set-password");
+          return;
         }
         try {
           var res = await fetch("/api/auth/me?soft=1", { credentials: "include" });
