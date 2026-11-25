@@ -5,7 +5,7 @@
 > **Lokaler Ordner (VPS & Git):** `hochuli-zimmermann/`  
 > **Cloudflare-Basis-URL:** [vorschau.magnet-xs.ch/hochuli-zimmermann/](https://vorschau.magnet-xs.ch/hochuli-zimmermann/)  
 > **Bestand:** **14 Assets** (1.15 MB gesamt) · **🟢 6 aktiv im HTML** · **⚪ 8 frei im Bild-Pool** · **Externe Hotlinks: 0**  
-> **Letzte Aktualisierung:** 24.11.2026 11:15 Uhr (automatisch generiert via `webpilot_asset_catalog.py`)
+> **Letzte Aktualisierung:** 24.11.2026 20:56 Uhr (automatisch generiert via `webpilot_asset_catalog.py`)
 
 ---
 
