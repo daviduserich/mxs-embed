@@ -423,11 +423,11 @@
       <!-- VIEW 6: KMU E-MAIL OTP -->
       <div id="view-email-otp" class="view">
         <h1>Sicherheitscode per E-Mail</h1>
-        <p class="subtitle">Wir haben einen 6-stelligen Code an <strong id="emailOtpTarget"></strong> gesendet.</p>
+        <p class="subtitle">Wir haben einen Sicherheitscode an <strong id="emailOtpTarget"></strong> gesendet.</p>
         <form id="formEmailOtp" novalidate>
           <div class="field">
-            <label for="emailOtpInput">6-stelliger E-Mail-Code</label>
-            <input id="emailOtpInput" class="otp-input" type="text" inputmode="numeric" autocomplete="one-time-code" maxlength="6" placeholder="000000" required>
+            <label for="emailOtpInput">E-Mail-Sicherheitscode (6–8 Ziffern)</label>
+            <input id="emailOtpInput" class="otp-input" type="text" inputmode="numeric" autocomplete="one-time-code" maxlength="8" placeholder="Code eingeben" required>
           </div>
           <label class="check-row">
             <input id="chkTrustDevice" type="checkbox" checked>
@@ -693,8 +693,8 @@
         e.preventDefault();
         hideBanner();
         var code = document.getElementById("totpCodeInput").value.replace(/\D/g, "");
-        if (code.length !== 6) {
-          showBanner("Bitte den 6-stelligen Code eingeben.", false);
+        if (code.length < 6 || code.length > 8) {
+          showBanner("Bitte den 6- bis 8-stelligen Code eingeben.", false);
           return;
         }
         var btn = document.getElementById("btnTotpVerify");
