@@ -230,6 +230,47 @@ SITE_SEO_PROFILES = {
             )
         ]
     },
+    "ewagsuhr": {
+        "schema_type": "Electrician",
+        "company_name": "EWAG / E. Widmer AG",
+        "legal_name": "E. Widmer AG",
+        "city": "Suhr",
+        "canton": "AG",
+        "postal_code": "5034",
+        "street_address": "Tramstrasse 47",
+        "phone": "+41 62 855 08 80",
+        "email": "office@ewagsuhr.ch",
+        "source_url": "https://www.ewagsuhr.ch/",
+        "hero_image": "images/film-02.jpg",
+        "summary_2s": (
+            "Die EWAG / E. Widmer AG mit Sitz an der Tramstrasse 47 in 5034 Suhr (Kanton Aargau) "
+            "ist seit 1925 Ihr Spezialist für den gesamten Stark- und Schwachstrombereich bei Wohnungs-, "
+            "Gewerbe- und Industriebauten. Mit rund 45 Mitarbeitenden bietet der Traditionsbetrieb Beratung, "
+            "Elektroplanung, Installation, Gebäudeautomation, e-Mobilität, Photovoltaik, Ausstellung, Verkaufsladen und 24h-Pikettdienst."
+        ),
+        "area_served": [
+            "Suhr", "Aarau", "Gränichen", "Buchs AG", "Oberentfelden",
+            "Unterentfelden", "Kölliken", "Hunzenschwil", "Rohr", "Kanton Aargau"
+        ],
+        "faqs": [
+            (
+                "Wie erreiche ich den 24h-Pikettdienst der EWAG / E. Widmer AG in Suhr?",
+                "Die EWAG / E. Widmer AG ist rund um die Uhr unter der Telefonnummer 062 855 08 80 erreichbar. Ausserhalb der regulären Öffnungszeiten wird Ihr Anruf bei dringenden Störungen direkt an die Pikett-Hotline weitergeleitet."
+            ),
+            (
+                "Welche Leistungen deckt die EWAG / E. Widmer AG ab?",
+                "Die EWAG deckt elf Fachbereiche ab: Haus und Wohnungen, Gewerbe und Industrie, Service und Notfälle (24h-Pikett), Schwachstrom und Netzwerk, Gebäudeautomation, Elektroplanung, e-Mobilität, Photovoltaikanlagen, Geräteprüfung, Haushaltsgeräte sowie Beleuchtung inklusive Ausstellung."
+            ),
+            (
+                "Wo befinden sich Ausstellung und Verkaufsladen der EWAG?",
+                "Die Ausstellung und der Verkaufsladen (Leuchtmittel, Installationsmaterial und Sicherungen mit Kundenparkplätzen vor und hinter dem Haus) befinden sich an der Tramstrasse 47 in 5034 Suhr."
+            ),
+            (
+                "Bildet die EWAG Lernende im Elektroberuf aus und bietet Schnupperwochen an?",
+                "Ja. In über 100 Jahren Firmengeschichte wurden bei der EWAG über 300 Lernende ausgebildet. Aktuell werden Ausbildungen zum Elektroinstallateur/in EFZ (4 Jahre) und Montageelektriker/in EFZ (3 Jahre) inklusive unverbindlicher Schnupperwochen sowie Sportler-Lehrstellen angeboten."
+            ),
+        ],
+    },
     "joma": {
         "schema_type": "Electrician",
         "company_name": "JOMA Solar GmbH",
@@ -998,6 +1039,8 @@ PUBLIC_SLUG_MAP = {
     "preview-joma-v2": "joma-v2",
     "preview-joma-original": "joma-original",
     "preview-joma-modern": "joma-modern",
+    "preview-ewagsuhr-original": "ewagsuhr-original",
+    "preview-ewagsuhr-modern": "ewagsuhr-modern",
     "preview-imp-marketing": "imp-marketing-vollversion",
     "preview-imp-marketing-v2": "imp-marketing-v2",
     "preview-herzensarbeit": "herzensarbeit-vollversion",

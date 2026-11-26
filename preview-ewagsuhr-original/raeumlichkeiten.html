@@ -1,0 +1,1610 @@
+<!DOCTYPE html>
+<html lang="de-CH" data-design-mode="evolution" data-expected-hero-polarity="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <meta http-equiv="X-XSS-Protection" content="1; mode=block">
+  <meta name="referrer" content="no-referrer">
+  <title>Ausstellung &amp; Verkaufsladen | EWAG / E. Widmer AG Suhr</title>
+  <meta name="description" content="Besuchen Sie die Ausstellung für Beleuchtung und Gebäudeautomation sowie unseren Verkaufsladen an der Tramstrasse 47 in Suhr.">
+  <link rel="icon" type="image/png" href="images/favicon-32x32.png">
+  <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Plus+Jakarta+Sans:wght@500;600;700;800&amp;display=swap" rel="stylesheet">
+  <style>
+
+    :root {
+      --ewag-blue: #00508E;
+      --ewag-blue-bright: #006EC7;
+      --ewag-blue-dark: #003A68;
+      --ewag-ice: #EEF5FC;
+      --bg-page: #E7E7E7;
+      --bg-hero: #FFFFFF;
+      --bg-light: #FFFFFF;
+      --bg-alt: #F8FAFC;
+      --text-main: #0F172A;
+      --text-muted: #475569;
+      --text-on-dark: #FFFFFF;
+      --text-on-dark-muted: #DCE8F5;
+      --accent: #00508E;
+      --accent-hover: #003A68;
+      --accent-link: #00508E;
+      --border-light: #DCE3EC;
+      --border-dark: rgba(255, 255, 255, 0.18);
+      --radius-sm: 4px;
+      --radius-md: 8px;
+      --maxw: 1160px;
+      --font-head: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-body: 'Inter', 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; overflow-x: clip; interpolate-size: allow-keywords; }
+    body {
+      font-family: var(--font-body);
+      font-size: 16px;
+      line-height: 1.6;
+      color: var(--text-main);
+      background: var(--bg-page);
+      overflow-x: clip;
+      -webkit-font-smoothing: antialiased;
+    }
+    ::selection { background: var(--ewag-blue); color: #FFFFFF; }
+    :focus-visible { outline: 2px solid var(--ewag-blue-bright); outline-offset: 2px; }
+    img { display: block; max-width: 100%; height: auto; }
+    a { color: inherit; text-decoration: none; text-underline-offset: 3px; }
+
+    .wrap {
+      max-width: var(--maxw);
+      margin: 0 auto;
+      padding: 0 24px;
+      width: 100%;
+    }
+
+    /* Header & 1-Zeilen Desktop Nav (#UI-02 / S-22) */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 900;
+      background: #FFFFFF;
+      border-bottom: 1px solid var(--border-light);
+      box-shadow: 0 2px 10px rgba(0, 58, 104, 0.06);
+    }
+    .orig-topband {
+      background: #FFFFFF;
+      border-bottom: 1px solid var(--border-light);
+    }
+    .orig-topband-inner {
+      max-width: var(--maxw);
+      margin: 0 auto;
+      padding: 10px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+    .orig-brand-meta {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: nowrap;
+      white-space: nowrap;
+      font-size: 14.5px;
+      font-weight: 600;
+      color: var(--ewag-blue);
+    }
+    .orig-navband {
+      background: #00508E;
+      color: #FFFFFF;
+    }
+    .orig-navband-inner {
+      max-width: var(--maxw);
+      margin: 0 auto;
+      padding: 0 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+    .orig-nav-links {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      flex-wrap: nowrap;
+    }
+    .orig-nav-link {
+      color: #FFFFFF;
+      font-size: 15px;
+      font-weight: 500;
+      padding: 0 16px;
+      line-height: 1.2;
+      white-space: nowrap;
+      display: inline-flex;
+      align-items: center;
+      height: 42px;
+      transition: background-color 0.16s ease;
+    }
+    .orig-nav-link:hover, .orig-nav-link.active {
+      background: #1B75C7;
+      color: #FFFFFF;
+    }
+    .orig-pikett-chip {
+      color: #FFFFFF;
+      font-size: 13.5px;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      white-space: nowrap;
+      padding: 8px 12px;
+      border-radius: var(--radius-sm);
+      background: rgba(255, 255, 255, 0.12);
+    }
+    .orig-pikett-chip:hover { background: rgba(255, 255, 255, 0.22); }
+
+    .header-inner {
+      max-width: var(--maxw);
+      margin: 0 auto;
+      padding: 10px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+    }
+    .brand-link {
+      display: inline-flex;
+      align-items: center;
+      flex-shrink: 0;
+      min-height: 44px;
+    }
+    .brand-logo {
+      height: 44px;
+      width: auto;
+      object-fit: contain;
+    }
+    .desktop-nav {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      flex-wrap: nowrap;
+    }
+    .nav-link {
+      font-size: 14.5px;
+      font-weight: 600;
+      color: var(--text-main);
+      white-space: nowrap;
+      padding: 8px 2px;
+      min-height: 40px;
+      display: inline-flex;
+      align-items: center;
+      border-bottom: 2px solid transparent;
+      transition: color 0.16s ease, border-color 0.16s ease;
+    }
+    .nav-link:hover, .nav-link.active {
+      color: var(--ewag-blue);
+      border-bottom-color: var(--ewag-blue);
+    }
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-shrink: 0;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 11px 18px;
+      min-height: 44px;
+      border-radius: var(--radius-md);
+      font-family: var(--font-body);
+      font-size: 14.5px;
+      font-weight: 600;
+      cursor: pointer;
+      border: 1px solid transparent;
+      white-space: nowrap;
+      transition: background-color 0.16s ease, border-color 0.16s ease, color 0.16s ease;
+    }
+    .btn-primary {
+      background: var(--ewag-blue);
+      color: #FFFFFF;
+    }
+    .btn-primary:hover {
+      background: var(--ewag-blue-dark);
+    }
+    .btn-outline-light {
+      background: #FFFFFF;
+      color: var(--ewag-blue);
+      border-color: var(--ewag-blue);
+    }
+    .btn-outline-light:hover {
+      background: var(--ewag-ice);
+    }
+    .btn-outline-dark {
+      background: transparent;
+      color: #FFFFFF;
+      border-color: rgba(255, 255, 255, 0.45);
+    }
+    .btn-outline-dark:hover {
+      background: rgba(255, 255, 255, 0.12);
+      border-color: #FFFFFF;
+    }
+
+    .nav-burger {
+      display: none;
+      align-items: center;
+      justify-content: center;
+      width: 44px;
+      height: 44px;
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-md);
+      background: #FFFFFF;
+      color: var(--ewag-blue);
+      cursor: pointer;
+    }
+    .mobile-drawer {
+      display: none;
+      position: fixed;
+      top: 66px;
+      left: 0;
+      right: 0;
+      z-index: 895;
+      flex-direction: column;
+      gap: 4px;
+      padding: 12px 24px 20px;
+      background: #FFFFFF;
+      border-top: 1px solid var(--border-light);
+      border-bottom: 1px solid var(--border-light);
+      box-shadow: 0 12px 28px rgba(15, 23, 42, 0.14);
+    }
+    .mobile-drawer.open { display: flex; }
+    .mob-link {
+      padding: 12px 4px;
+      min-height: 44px;
+      display: flex;
+      align-items: center;
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--text-main);
+      border-bottom: 1px solid var(--border-light);
+    }
+    .mob-cta { margin-top: 10px; width: 100%; }
+
+    /* Typography, Pure Left-Aligned Kicker (#UI-01) */
+    .section-kicker {
+      font-family: var(--font-head);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--ewag-blue-bright);
+      margin-bottom: 8px;
+      display: block;
+    }
+    .section-blue .section-kicker {
+      color: #BFDBFE;
+    }
+    h1, h2, h3, h4 {
+      font-family: var(--font-head);
+      letter-spacing: -0.015em;
+      line-height: 1.15;
+    }
+    .section-light {
+      background: var(--bg-light);
+      padding: 64px 0;
+    }
+    .section-alt {
+      background: var(--bg-alt);
+      padding: 64px 0;
+      border-top: 1px solid var(--border-light);
+      border-bottom: 1px solid var(--border-light);
+    }
+    .section-blue {
+      background: var(--ewag-blue);
+      color: #FFFFFF;
+      padding: 64px 0;
+    }
+    .center-head {
+      max-width: 720px;
+      margin: 0 auto 38px;
+      text-align: center;
+    }
+    .center-head h2 {
+      font-size: clamp(1.75rem, 3.2vw, 2.5rem);
+      font-weight: 700;
+      margin-bottom: 12px;
+      color: var(--ewag-blue);
+    }
+    .section-blue .center-head h2 { color: #FFFFFF; }
+    .lead-p {
+      font-size: 16px;
+      line-height: 1.65;
+      color: var(--text-muted);
+    }
+
+    /* Original 1:1 Stage + 3-Col Welcome */
+    .orig-stage-wrap {
+      background: var(--bg-light);
+      padding: 24px 0 0;
+    }
+    .orig-stage-card {
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      background: #FFFFFF;
+    }
+    .orig-stage-img {
+      width: 100%;
+      height: 390px;
+      object-fit: cover;
+    }
+    .orig-stage-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+      padding: 16px 22px;
+      background: #F8FAFC;
+      border-top: 1px solid var(--border-light);
+    }
+    .orig-stage-bar h1 {
+      font-size: clamp(1.5rem, 2.8vw, 2.15rem);
+      color: var(--ewag-blue);
+      font-weight: 700;
+    }
+    .orig-3col {
+      display: grid;
+      grid-template-columns: 1.35fr 0.95fr 0.95fr;
+      gap: 28px;
+      align-items: stretch;
+    }
+    .orig-col-box {
+      background: #FFFFFF;
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-md);
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 16px;
+    }
+    .orig-col-box h2 {
+      font-size: 21px;
+      color: var(--ewag-blue);
+      margin-bottom: 10px;
+    }
+    .orig-job-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .orig-job-link {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      padding: 11px 12px;
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-md);
+      background: #F8FAFC;
+      color: var(--ewag-blue);
+      font-weight: 600;
+      font-size: 14px;
+      min-height: 44px;
+    }
+    .orig-job-link:hover {
+      background: var(--ewag-ice);
+      border-color: var(--ewag-blue);
+    }
+
+    /* Modern Light Hero with Bottom-Edge Baseline Lock (#UI-02 / S-23) */
+    .hero-modern {
+      background: var(--bg-hero);
+      padding: 48px 0 56px;
+      border-bottom: 1px solid var(--border-light);
+    }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.06fr 0.94fr;
+      gap: 44px;
+      align-items: stretch;
+    }
+    .hero-left {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 22px;
+    }
+    .hero-h1 {
+      font-size: clamp(2.25rem, 4.2vw, 3.45rem);
+      font-weight: 800;
+      line-height: 1.06;
+      color: var(--ewag-blue);
+    }
+    .hero-sub {
+      font-size: 17px;
+      line-height: 1.62;
+      color: var(--text-muted);
+      max-width: 560px;
+    }
+    .hero-cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 12px;
+    }
+    .hero-metrics {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+    }
+    .metric-box {
+      background: #FFFFFF;
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-md);
+      padding: 14px;
+    }
+    .metric-val {
+      font-family: var(--font-head);
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--ewag-blue);
+      font-variant-numeric: tabular-nums;
+    }
+    .metric-lbl {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-top: 2px;
+    }
+    .hero-modern-mosaic {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      grid-template-rows: 1.35fr 1fr;
+      gap: 12px;
+      height: 100%;
+    }
+    .hero-modern-mosaic .span-2 {
+      grid-column: 1 / -1;
+    }
+    .photo-frame {
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      border: 1px solid var(--border-light);
+      background: #E2E8F0;
+      height: 100%;
+      min-height: 155px;
+    }
+    .photo-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* Split Grids (Bottom-Edge Baseline Lock) */
+    .split-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 44px;
+      align-items: stretch;
+    }
+    .split-media {
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      border: 1px solid var(--border-light);
+      background: #FFFFFF;
+      height: 100%;
+      min-height: 320px;
+    }
+    .split-media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .split-content {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 20px;
+      background: #FFFFFF;
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-md);
+      padding: 28px;
+    }
+    .split-h2 {
+      font-size: clamp(1.65rem, 3vw, 2.35rem);
+      font-weight: 700;
+      color: var(--ewag-blue);
+      margin-bottom: 10px;
+    }
+
+    /* Cards & Uniform Grids */
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 20px;
+    }
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 20px;
+    }
+    .grid-4 {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 16px;
+    }
+    .card {
+      background: #FFFFFF;
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-md);
+      padding: 22px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      height: 100%;
+    }
+    .card-blue {
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      border-radius: var(--radius-md);
+      padding: 22px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      height: 100%;
+    }
+    .card-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+    .card-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: var(--radius-sm);
+      background: var(--ewag-ice);
+      color: var(--ewag-blue);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .card h3 {
+      font-size: 18.5px;
+      font-weight: 700;
+      color: var(--ewag-blue);
+    }
+    .card-cta {
+      margin-top: auto;
+      padding-top: 8px;
+    }
+    .card-cta a:not(.btn), .orig-col-box a:not(.btn), .clean-list a:not(.btn) {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      min-height: 40px;
+      padding: 4px 0;
+    }
+    @media (min-width: 1024px) {
+      .card-title-2line { min-height: 46px; }
+    }
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 10px;
+      border-radius: var(--radius-sm);
+      font-size: 12px;
+      font-weight: 700;
+      background: var(--ewag-ice);
+      color: var(--ewag-blue);
+      width: fit-content;
+    }
+    .clean-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+      color: var(--text-muted);
+      font-size: 14.5px;
+    }
+    .clean-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+    }
+    .clean-list svg {
+      color: var(--ewag-blue);
+      flex-shrink: 0;
+      margin-top: 3px;
+    }
+
+    /* Reference & Team Photos */
+    .ref-img {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      object-fit: cover;
+      border-radius: var(--radius-sm);
+    }
+    .team-portrait {
+      width: 100%;
+      aspect-ratio: 3 / 2;
+      object-fit: cover;
+      object-position: center 20%;
+      border-radius: var(--radius-sm);
+    }
+    .roster-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 14px;
+    }
+    .roster-card {
+      background: #FFFFFF;
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-md);
+      padding: 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .roster-card img {
+      width: 100%;
+      aspect-ratio: 3 / 2;
+      object-fit: cover;
+      object-position: center 20%;
+      border-radius: var(--radius-sm);
+    }
+    .roster-name {
+      font-size: 14.5px;
+      font-weight: 700;
+      color: var(--text-main);
+    }
+
+    /* Forms (Standard Original + 3-Step Smart Modern) */
+    .contact-panel {
+      max-width: 820px;
+      margin: 0 auto;
+      background: #FFFFFF;
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-md);
+      padding: 30px;
+      box-shadow: 0 8px 24px rgba(0, 58, 104, 0.06);
+    }
+    .form-grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+    .field {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .field label {
+      font-size: 13.5px;
+      font-weight: 600;
+      color: var(--text-main);
+    }
+    .field input, .field select, .field textarea {
+      width: 100%;
+      padding: 11px 13px;
+      min-height: 44px;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border-light);
+      background: #FFFFFF;
+      font-family: var(--font-body);
+      font-size: 15px;
+      color: var(--text-main);
+    }
+    .field input:user-invalid, .field select:user-invalid, .field textarea:user-invalid {
+      border-color: #DC2626 !important;
+      outline: none;
+    }
+    .field textarea { min-height: 110px; resize: vertical; }
+    .check-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 13.5px;
+      color: var(--text-muted);
+      min-height: 36px;
+    }
+    .check-row input {
+      width: 18px;
+      height: 18px;
+      accent-color: var(--ewag-blue);
+      flex-shrink: 0;
+    }
+    .form-feedback {
+      display: none;
+      padding: 13px 16px;
+      border-radius: var(--radius-md);
+      font-size: 14.5px;
+      font-weight: 600;
+    }
+    .form-feedback.ok {
+      display: block;
+      background: #DCFCE7;
+      color: #166534;
+      border: 1px solid #86EFAC;
+    }
+    .form-feedback.err {
+      display: block;
+      background: #FEE2E2;
+      color: #991B1B;
+      border: 1px solid #FCA5A5;
+    }
+
+    /* Modern 3-Step Smart Form */
+    .wp-step-bar {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 8px;
+    }
+    .wp-step-pill {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 12px;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border-light);
+      background: var(--bg-alt);
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text-muted);
+      cursor: pointer;
+      min-height: 44px;
+    }
+    .wp-step-pill.active {
+      border-color: var(--ewag-blue);
+      background: var(--ewag-ice);
+      color: var(--ewag-blue);
+    }
+    .wp-step-num {
+      width: 22px;
+      height: 22px;
+      border-radius: var(--radius-sm);
+      background: #CBD5E1;
+      color: var(--text-main);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+    .wp-step-pill.active .wp-step-num {
+      background: var(--ewag-blue);
+      color: #FFFFFF;
+    }
+    .wp-step-pane { display: none; flex-direction: column; gap: 14px; }
+    .wp-step-pane.active { display: flex; }
+    .topic-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+    }
+    .topic-btn {
+      padding: 13px 14px;
+      min-height: 52px;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border-light);
+      background: #FFFFFF;
+      color: var(--text-main);
+      font-family: var(--font-body);
+      font-size: 14px;
+      font-weight: 600;
+      text-align: left;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .topic-btn.selected {
+      border-color: var(--ewag-blue);
+      background: var(--ewag-ice);
+      color: var(--ewag-blue);
+    }
+    .plz-badge {
+      display: none;
+      padding: 8px 12px;
+      border-radius: var(--radius-sm);
+      font-size: 13px;
+      font-weight: 600;
+      background: #DCFCE7;
+      color: #166534;
+    }
+    .plz-badge.visible { display: inline-flex; align-items: center; gap: 6px; }
+
+    /* Subpage Hero (Light) */
+    .page-hero {
+      background: var(--ewag-ice);
+      border-bottom: 1px solid var(--border-light);
+      padding: 46px 0 48px;
+    }
+    .page-hero h1 {
+      font-size: clamp(1.85rem, 3.8vw, 2.85rem);
+      font-weight: 800;
+      color: var(--ewag-blue);
+      max-width: 820px;
+      margin-bottom: 12px;
+    }
+    .page-hero p {
+      font-size: 17px;
+      color: var(--text-muted);
+      max-width: 720px;
+      margin-bottom: 20px;
+    }
+
+    /* Footer */
+    .site-footer {
+      background: var(--ewag-blue);
+      color: #FFFFFF;
+      padding: 52px 0 28px;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr)) 1.3fr;
+      gap: 32px;
+      padding-bottom: 32px;
+      border-bottom: 1px solid var(--border-dark);
+    }
+    .footer-col h4 {
+      font-size: 13.5px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: #BFDBFE;
+      margin-bottom: 12px;
+    }
+    .footer-links {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .footer-links a {
+      font-size: 14.5px;
+      color: #FFFFFF;
+      padding: 4px 0;
+      min-height: 36px;
+      display: inline-flex;
+      align-items: center;
+    }
+    .footer-links a:hover { text-decoration: underline; }
+    .footer-brand-box {
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid var(--border-dark);
+      border-radius: var(--radius-md);
+      padding: 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      font-size: 14.5px;
+    }
+    .footer-brand-box a {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      min-height: 34px;
+      color: #FFFFFF;
+      font-weight: 600;
+    }
+    .footer-bottom {
+      padding-top: 22px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      font-size: 13.5px;
+      color: #DCE8F5;
+    }
+    .footer-legal {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+    .footer-legal a {
+      min-height: 36px;
+      display: inline-flex;
+      align-items: center;
+    }
+    .footer-legal a:hover { text-decoration: underline; color: #FFFFFF; }
+    .legal-box {
+      max-width: 840px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      background: #FFFFFF;
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-md);
+      padding: 28px;
+    }
+    .legal-box h2 { font-size: 21px; color: var(--ewag-blue); margin-top: 8px; }
+    .legal-box p { color: var(--text-muted); line-height: 1.7; }
+
+    .mobile-sticky-bar { display: none; }
+
+    @media (max-width: 1023px) {
+      .desktop-nav, .header-actions, .orig-navband, .orig-brand-meta { display: none; }
+      .nav-burger { display: inline-flex; }
+      .hero-grid, .split-grid, .orig-3col, .grid-2, .grid-3, .grid-4, .roster-grid, .footer-grid {
+        grid-template-columns: 1fr;
+      }
+      .hero-modern-mosaic {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto;
+      }
+      .hero-metrics { grid-template-columns: 1fr; }
+      .split-media { min-height: 240px; }
+    }
+
+    @media (max-width: 768px) {
+      .btn { white-space: normal; text-align: center; max-width: 100%; }
+      .section-light, .section-alt, .section-blue { padding: 44px 0; }
+      .hero-modern { padding: 32px 0 40px; }
+      .orig-stage-img { height: 220px; }
+      .form-grid-2, .wp-step-bar, .topic-grid { grid-template-columns: 1fr; }
+      .contact-panel { padding: 20px; }
+      body.has-sticky-bar .site-footer { padding-bottom: 104px; }
+      body.has-sticky-bar .mobile-sticky-bar {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+        position: fixed;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 880;
+        padding: 10px 14px calc(10px + env(safe-area-inset-bottom, 0px));
+        background: #FFFFFF;
+        border-top: 1px solid var(--border-light);
+        box-shadow: 0 -4px 16px rgba(15, 23, 42, 0.08);
+      }
+    }
+    @media (prefers-reduced-motion: no-preference) {
+      @view-transition { navigation: auto; }
+    }
+    
+  </style>
+  <!-- WP-SEO-AUTOPILOT-START -->
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+  <meta name="geo.region" content="CH-AG">
+  <meta name="geo.placename" content="Suhr">
+  <link rel="canonical" href="https://vorschau.magnet-xs.ch/ewagsuhr-original/raeumlichkeiten.html">
+  <meta property="og:locale" content="de_CH">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="EWAG / E. Widmer AG">
+  <meta property="og:title" content="Ausstellung &amp; Verkaufsladen | EWAG / E. Widmer AG Suhr">
+  <meta property="og:description" content="Besuchen Sie die Ausstellung für Beleuchtung und Gebäudeautomation sowie unseren Verkaufsladen an der Tramstrasse 47 in Suhr.">
+  <meta property="og:url" content="https://vorschau.magnet-xs.ch/ewagsuhr-original/raeumlichkeiten.html">
+  <meta property="og:image" content="https://vorschau.magnet-xs.ch/ewagsuhr-original/images/film-02.jpg">
+  <meta property="og:image:alt" content="EWAG / E. Widmer AG – Suhr (AG)">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Ausstellung &amp; Verkaufsladen | EWAG / E. Widmer AG Suhr">
+  <meta name="twitter:description" content="Besuchen Sie die Ausstellung für Beleuchtung und Gebäudeautomation sowie unseren Verkaufsladen an der Tramstrasse 47 in Suhr.">
+  <meta name="twitter:image" content="https://vorschau.magnet-xs.ch/ewagsuhr-original/images/film-02.jpg">
+  <style id="wp-modern-web-css">
+    @media (prefers-reduced-motion: no-preference) { @view-transition { navigation: auto; } }
+    html { interpolate-size: allow-keywords; }
+    :where(img[width][height]) { height: auto; }
+    input:user-invalid, textarea:user-invalid, select:user-invalid { border-color: #DC2626 !important; outline: none; }
+    :where(a,button,input,select,textarea,summary,[tabindex]):focus-visible{outline:2px solid var(--accent,var(--primary,#e8781e));outline-offset:2px;}
+    .wp-skip-link{position:absolute;top:0;left:0;width:1px;height:1px;padding:0;margin:-1px;border:0;overflow:hidden;clip-path:inset(50%);white-space:nowrap;z-index:99999;background:#0d0f12;color:#ffffff;font-weight:600;text-decoration:none;border-radius:4px;}
+    .wp-skip-link:focus,.wp-skip-link:focus-visible{width:auto;height:auto;margin:0;padding:10px 16px;clip-path:none;overflow:visible;top:8px;left:8px;}
+  </style>
+  <script type="speculationrules" id="wp-speculation-rules">
+{
+  "prefetch": [
+    {
+      "where": {
+        "and": [
+          {
+            "href_matches": "/*"
+          },
+          {
+            "not": {
+              "href_matches": [
+                "/*cockpit*",
+                "/cockpit*",
+                "/*team-update*",
+                "/*onboarding*",
+                "/api/*",
+                "/cdn-cgi/*",
+                "/*.pdf",
+                "/*?*",
+                "/*#*"
+              ]
+            }
+          },
+          {
+            "not": {
+              "selector_matches": "[target=_blank], [download], [data-no-prerender], [href^='mailto:'], [href^='tel:']"
+            }
+          }
+        ]
+      },
+      "eagerness": "moderate"
+    }
+  ],
+  "prerender": [
+    {
+      "where": {
+        "and": [
+          {
+            "href_matches": "/*"
+          },
+          {
+            "not": {
+              "href_matches": [
+                "/*cockpit*",
+                "/cockpit*",
+                "/*team-update*",
+                "/*onboarding*",
+                "/api/*",
+                "/cdn-cgi/*",
+                "/*.pdf",
+                "/*?*",
+                "/*#*"
+              ]
+            }
+          },
+          {
+            "not": {
+              "selector_matches": "[target=_blank], [download], [data-no-prerender], [href^='mailto:'], [href^='tel:']"
+            }
+          }
+        ]
+      },
+      "eagerness": "conservative"
+    }
+  ]
+}
+  </script>
+  <script type="application/ld+json" id="wp-seo-schema">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": [
+        "Electrician",
+        "LocalBusiness"
+      ],
+      "@id": "https://vorschau.magnet-xs.ch/ewagsuhr-original/#organization",
+      "name": "EWAG / E. Widmer AG",
+      "legalName": "E. Widmer AG",
+      "description": "Die EWAG / E. Widmer AG mit Sitz an der Tramstrasse 47 in 5034 Suhr (Kanton Aargau) ist seit 1925 Ihr Spezialist für den gesamten Stark- und Schwachstrombereich bei Wohnungs-, Gewerbe- und Industriebauten. Mit rund 45 Mitarbeitenden bietet der Traditionsbetrieb Beratung, Elektroplanung, Installation, Gebäudeautomation, e-Mobilität, Photovoltaik, Ausstellung, Verkaufsladen und 24h-Pikettdienst.",
+      "url": "https://vorschau.magnet-xs.ch/ewagsuhr-original/",
+      "image": "https://vorschau.magnet-xs.ch/ewagsuhr-original/images/film-02.jpg",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Tramstrasse 47",
+        "postalCode": "5034",
+        "addressLocality": "Suhr",
+        "addressRegion": "AG",
+        "addressCountry": "CH"
+      },
+      "areaServed": [
+        {
+          "@type": "City",
+          "name": "Suhr"
+        },
+        {
+          "@type": "City",
+          "name": "Aarau"
+        },
+        {
+          "@type": "City",
+          "name": "Gränichen"
+        },
+        {
+          "@type": "City",
+          "name": "Buchs AG"
+        },
+        {
+          "@type": "City",
+          "name": "Oberentfelden"
+        },
+        {
+          "@type": "City",
+          "name": "Unterentfelden"
+        },
+        {
+          "@type": "City",
+          "name": "Kölliken"
+        },
+        {
+          "@type": "City",
+          "name": "Hunzenschwil"
+        },
+        {
+          "@type": "City",
+          "name": "Rohr"
+        },
+        {
+          "@type": "AdministrativeArea",
+          "name": "Kanton Aargau"
+        }
+      ],
+      "knowsAbout": [
+        "Aktuelle Technologien am Muster erleben",
+        "Schreiben Sie uns",
+        "Verkaufsladen an der Tramstrasse 47",
+        "Wann Sie uns erreichen"
+      ],
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Leistungen und Schwerpunkte – EWAG / E. Widmer AG",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Aktuelle Technologien am Muster erleben"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Schreiben Sie uns"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Verkaufsladen an der Tramstrasse 47"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Wann Sie uns erreichen"
+            }
+          }
+        ]
+      },
+      "telephone": "+41 62 855 08 80",
+      "email": "office@ewagsuhr.ch",
+      "sameAs": [
+        "https://www.ewagsuhr.ch/"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://vorschau.magnet-xs.ch/ewagsuhr-original/#website",
+      "url": "https://vorschau.magnet-xs.ch/ewagsuhr-original/",
+      "name": "EWAG / E. Widmer AG",
+      "inLanguage": "de-CH",
+      "publisher": {
+        "@id": "https://vorschau.magnet-xs.ch/ewagsuhr-original/#organization"
+      }
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://vorschau.magnet-xs.ch/ewagsuhr-original/raeumlichkeiten.html#webpage",
+      "url": "https://vorschau.magnet-xs.ch/ewagsuhr-original/raeumlichkeiten.html",
+      "name": "Ausstellung & Verkaufsladen | EWAG / E. Widmer AG Suhr",
+      "description": "Besuchen Sie die Ausstellung für Beleuchtung und Gebäudeautomation sowie unseren Verkaufsladen an der Tramstrasse 47 in Suhr.",
+      "inLanguage": "de-CH",
+      "dateModified": "2026-11-26T22:14:56+00:00",
+      "isPartOf": {
+        "@id": "https://vorschau.magnet-xs.ch/ewagsuhr-original/#website"
+      },
+      "about": {
+        "@id": "https://vorschau.magnet-xs.ch/ewagsuhr-original/#organization"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://vorschau.magnet-xs.ch/ewagsuhr-original/raeumlichkeiten.html#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Welche Leistungen bietet EWAG / E. Widmer AG in Suhr an?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "EWAG / E. Widmer AG in 5034 Suhr (AG) bietet persönliche Beratung, massgeschneiderte Fachlösungen und verlässlichen Service für Kundinnen und Kunden in der gesamten Region."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Wie erreiche ich EWAG / E. Widmer AG für eine Anfrage oder Offerte?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sie erreichen EWAG / E. Widmer AG telefonisch unter +41 62 855 08 80, per E-Mail an office@ewagsuhr.ch oder direkt über das Online-Anfrageformular auf der Website."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "In welchem Einzugsgebiet ist EWAG / E. Widmer AG tätig?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Vom Standort in 5034 Suhr aus betreut EWAG / E. Widmer AG Kunden in Suhr, Aarau, Gränichen, Buchs AG, Oberentfelden und der umliegenden Region."
+          }
+        }
+      ]
+    }
+  ]
+}
+  </script>
+  <!-- WP-SEO-AUTOPILOT-END -->
+</head>
+<body>
+  <a class="wp-skip-link" href="#main-content">Direkt zum Inhalt</a>
+  <header class="site-header">
+    <div class="orig-topband">
+      <div class="orig-topband-inner">
+        <a href="index.html" class="brand-link" aria-label="EWAG / E. Widmer AG Startseite">
+          <img src="images/logo.png" alt="EWAG / E. Widmer AG Suhr (AG) – Offizielles Logo (Fachbetrieb in der Schweiz)" width="270" height="82" class="brand-logo" data-slot="brand_logo" loading="lazy" decoding="async">
+        </a>
+        <div class="orig-brand-meta">
+          <span>Elektro · Telecom · Netzwerk</span>
+          <a href="tel:+41628550880" data-slot="phone">+41 62 855 08 80</a>
+        </div>
+        <button type="button" class="nav-burger" id="navBurger" aria-label="Menü öffnen" aria-expanded="false">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
+        </button>
+      </div>
+    </div>
+    <div class="orig-navband">
+      <div class="orig-navband-inner">
+        <nav class="orig-nav-links" aria-label="Hauptnavigation">
+        <a href="index.html" class="orig-nav-link">Home</a>
+        <a href="firma.html" class="orig-nav-link">Firma</a>
+        <a href="dienstleistungen.html" class="orig-nav-link">Dienstleistungen</a>
+        <a href="referenzen.html" class="orig-nav-link">Referenzen</a>
+        <a href="raeumlichkeiten.html" class="orig-nav-link active">Räumlichkeiten</a>
+        <a href="kontakt.html" class="orig-nav-link">Kontakt</a>
+        </nav>
+        <a href="tel:+41628550880" class="orig-pikett-chip"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg><span>24h-Pikett: 062 855 08 80</span></a>
+      </div>
+    </div>
+  </header>
+  <div class="mobile-drawer" id="mobileDrawer">
+      <a href="index.html" class="mob-link">Home</a>
+      <a href="firma.html" class="mob-link">Firma</a>
+      <a href="dienstleistungen.html" class="mob-link">Dienstleistungen</a>
+      <a href="referenzen.html" class="mob-link">Referenzen</a>
+      <a href="raeumlichkeiten.html" class="mob-link">Räumlichkeiten</a>
+      <a href="kontakt.html" class="mob-link">Kontakt</a>
+    <a href="jobs.html" class="mob-link">Offene Stellen &amp; Lehrstelle</a>
+    <a href="kontakt.html#kontakt" class="btn btn-primary mob-cta">Kontakt aufnehmen</a>
+  </div>
+  <main id="main-content">
+    <section class="page-hero">
+      <div class="wrap">
+        <span class="section-kicker">Räumlichkeiten · Tramstrasse 47, 5034 Suhr</span>
+        <h1 data-slot="raum_h1">Ausstellung &amp; Verkaufsladen in Suhr</h1>
+        <p data-slot="raum_sub">Während unserer umfassenden Beratung zeigen Ihnen unsere kompetenten Mitarbeiter Geräte und Installationen gerne direkt am Muster.</p>
+      </div>
+    </section>
+
+    <section class="section-light">
+      <div class="wrap">
+        <div class="split-grid">
+          <div class="split-media">
+            <img src="images/raum-ausstellung.jpg" alt="Ausstellung der EWAG / E. Widmer AG in Suhr" width="1000" height="500" decoding="async" fetchpriority="high">
+          </div>
+          <div class="split-content">
+            <div>
+              <span class="section-kicker">Ausstellung</span>
+              <h2 class="split-h2">Aktuelle Technologien am Muster erleben</h2>
+              <p class="lead-p">In unserer Ausstellung präsentieren wir Ihnen moderne Trends und bewährte Geräte. Vereinbaren Sie gerne einen Termin mit der entsprechenden Fachperson für eine persönliche Beratung.</p>
+              <ul class="clean-list" style="margin-top:14px;">
+                <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Beleuchtung (LED / OLED, Leuchten und Lichtkanäle)</span></li>
+                <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Sicherheitsinstallationen und Gegensprechanlagen</span></li>
+                <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Gebäudeautomation</span></li>
+                <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Elektroinstallationen</span></li>
+              </ul>
+            </div>
+            <div>
+              <a href="kontakt.html#kontakt" class="btn btn-primary">Beratungstermin vereinbaren <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-alt">
+      <div class="wrap">
+        <div class="grid-2">
+          <article class="card">
+            <span class="badge">Direkt vor Ort</span>
+            <h3>Verkaufsladen an der Tramstrasse 47</h3>
+            <p class="lead-p">In unserem Verkaufsladen bieten wir Ihnen während der Öffnungszeiten fachkundige Beratung und direkt verfügbares Material:</p>
+            <ul class="clean-list">
+              <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Leuchtmittel</span></li>
+              <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Installationsmaterial für den Heimgebrauch</span></li>
+              <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Sicherungen</span></li>
+              <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Kundenparkplätze direkt vor der Eingangstüre oder hinter dem Haus</span></li>
+            </ul>
+          </article>
+          <article class="card">
+            <span class="badge">Öffnungszeiten &amp; Pikett</span>
+            <h3>Wann Sie uns erreichen</h3>
+            <p class="lead-p"><strong>Montag bis Donnerstag:</strong> 07:00 bis 11:45 Uhr und 13:00 bis 17:00 Uhr<br><strong>Freitag:</strong> 07:00 bis 11:45 Uhr und 13:00 bis 16:00 Uhr</p>
+            <p class="lead-p">Rund um die Uhr erreichbar unter <strong>062 855 08 80</strong>. Ausserhalb der Öffnungszeiten wird Ihr Anruf bei dringenden Störungen an den Pikett-Servicedienst weitergeleitet (Kosten Serviceeinsatz ausserhalb normaler Arbeitszeiten: CHF 300.00 / Stunde).</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-alt" id="kontakt">
+      <div class="wrap">
+        <div class="center-head">
+          <span class="section-kicker">Kontakt aufnehmen</span>
+          <h2 data-slot="contact_heading">Schreiben Sie uns</h2>
+          <p class="lead-p" data-slot="contact_sub">EWAG / E. Widmer AG · Tramstrasse 47 · CH-5034 Suhr · Tel. 062 855 08 80 · office@ewagsuhr.ch</p>
+        </div>
+        <div class="contact-panel">
+          <form id="ewagContactForm" toolname="ewag_kontakt" tooldescription="Kontaktformular der EWAG / E. Widmer AG in Suhr" onsubmit="return wpSubmitEwagLead(event);" style="display:flex;flex-direction:column;gap:14px;">
+            <input type="text" id="wpHoneypot" name="website_url" form="wpTrapDetached" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0;">
+            <div class="form-grid-2">
+              <div class="field">
+                <label for="contactName">Vor- und Nachname *</label>
+                <input type="text" id="contactName" name="name" autocomplete="name" required placeholder="Ihr Name">
+              </div>
+              <div class="field">
+                <label for="contactEmail">E-Mail-Adresse *</label>
+                <input type="email" id="contactEmail" name="email" autocomplete="email" required placeholder="name@beispiel.ch">
+              </div>
+            </div>
+            <div class="form-grid-2">
+              <div class="field">
+                <label for="contactPhone">Telefonnummer</label>
+                <input type="tel" id="contactPhone" name="tel" autocomplete="tel" placeholder="062 ...">
+              </div>
+              <div class="field">
+                <label for="contactProjectType">Bereich / Thema</label>
+                <select id="contactProjectType" name="topic">
+                  <option value="Elektroinstallation / Umbau">Elektroinstallation / Umbau</option>
+                  <option value="24h-Pikett / Serviceeinsatz">24h-Pikett / Serviceeinsatz</option>
+                  <option value="Photovoltaik &amp; e-Mobilität">Photovoltaik &amp; e-Mobilität</option>
+                  <option value="Bewerbung / Lehrstelle EFZ">Bewerbung / Lehrstelle EFZ</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-grid-2">
+              <div class="field">
+                <label for="contactStreet">Strasse &amp; Nr.</label>
+                <input type="text" id="contactStreet" name="street-address" autocomplete="street-address" placeholder="Strasse">
+              </div>
+              <div class="field">
+                <label for="contactLoc">PLZ &amp; Ort</label>
+                <input type="text" id="contactLoc" name="postal-code" autocomplete="postal-code" placeholder="5034 Suhr">
+              </div>
+            </div>
+            <div class="field">
+              <label for="contactMessage">Nachricht</label>
+              <textarea id="contactMessage" name="message" placeholder="Ihre Mitteilung an die EWAG / E. Widmer AG..."></textarea>
+            </div>
+            <label class="check-row">
+              <input type="checkbox" id="contactConsent" required>
+              <span>Ich bin mit der Bearbeitung meiner Anfrage gemäss Datenschutzerklärung einverstanden.</span>
+            </label>
+            <div style="display:flex;justify-content:flex-end;">
+              <button type="submit" id="wpSubmitBtn" class="btn btn-primary"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></svg><span>Nachricht senden</span></button>
+            </div>
+            <div id="wpFormOk" class="form-feedback" role="status"></div>
+            <div id="wpFormErr" class="form-feedback" role="alert"></div>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h4>Leistungen</h4>
+          <div class="footer-links">
+            <a href="dienstleistungen.html#haus-und-wohnungen">Haus und Wohnungen</a>
+            <a href="dienstleistungen.html#gewerbe-und-industrie">Gewerbe und Industrie</a>
+            <a href="dienstleistungen.html#service-und-notfaelle">Service und 24h-Pikett</a>
+            <a href="dienstleistungen.html#photovoltaikanlage">Photovoltaik &amp; e-Mobilität</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Firma &amp; Karriere</h4>
+          <div class="footer-links">
+            <a href="firma.html">Über uns &amp; Chronik</a>
+            <a href="firma.html#team">Team</a>
+            <a href="firma.html#ausbildung">Ausbildung EFZ</a>
+            <a href="jobs.html">Offene Stellen</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Service &amp; Ort</h4>
+          <div class="footer-links">
+            <a href="referenzen.html">Referenzen</a>
+            <a href="raeumlichkeiten.html">Ausstellung &amp; Verkaufsladen</a>
+            <a href="kontakt.html#oeffnungszeiten">Öffnungszeiten</a>
+            <a href="kontakt.html#kontakt">Kontaktformular</a>
+          </div>
+        </div>
+        <div class="footer-brand-box">
+          <strong data-slot="footer_company">EWAG / E. Widmer AG</strong>
+          <span>Tramstrasse 47 · 5034 Suhr</span>
+          <a href="tel:+41628550880" data-slot="phone">+41 62 855 08 80</a>
+          <a href="mailto:office@ewagsuhr.ch" data-slot="email">office@ewagsuhr.ch</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div class="footer-legal">
+          <span data-slot="footer_copyright">© 2026 EWAG / E. Widmer AG · Tramstrasse 47 · 5034 Suhr</span>
+          <a href="impressum.html">Impressum</a>
+          <a href="datenschutz.html">Datenschutzerklärung</a>
+        </div>
+        <div>Seit 1925 in Suhr · Elektro · Telecom · Netzwerk</div>
+      </div>
+    </div>
+  </footer>
+  <script>
+    (function() {
+      var burger = document.getElementById('navBurger');
+      var drawer = document.getElementById('mobileDrawer');
+      if (burger && drawer) {
+        burger.addEventListener('click', function() {
+          var open = drawer.classList.toggle('open');
+          burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+        });
+      }
+      if (window.location.search.indexOf('embed=true') !== -1) {
+        document.body.classList.remove('has-sticky-bar');
+      }
+      var params = new URLSearchParams(window.location.search);
+      var qTopic = params.get('thema');
+      if (qTopic) {
+        var sel = document.getElementById('contactProjectType');
+        var hid = document.getElementById('wpSelectedTopic');
+        if (sel) sel.value = qTopic;
+        if (hid) hid.value = qTopic;
+      }
+    })();
+
+    function wpSelectTopic(topic, btn) {
+      var inp = document.getElementById('wpSelectedTopic');
+      if (inp) inp.value = topic;
+      var btns = document.querySelectorAll('.topic-btn');
+      for (var i = 0; i < btns.length; i++) {
+        btns[i].classList.remove('selected');
+      }
+      if (btn) btn.classList.add('selected');
+    }
+
+    function wpPreselectTopic(topic) {
+      var inp = document.getElementById('wpSelectedTopic');
+      if (inp) inp.value = topic;
+      var sel = document.getElementById('contactProjectType');
+      if (sel) {
+        for (var i = 0; i < sel.options.length; i++) {
+          if (sel.options[i].text.indexOf('Bewerbung') !== -1 || sel.options[i].value.indexOf('Bewerbung') !== -1) {
+            sel.selectedIndex = i;
+            break;
+          }
+        }
+      }
+      if (document.getElementById('wpStep2')) wpGoStep(2);
+    }
+
+    function wpGoStep(step) {
+      var panes = document.querySelectorAll('.wp-step-pane');
+      var pills = document.querySelectorAll('.wp-step-pill');
+      for (var i = 0; i < panes.length; i++) {
+        panes[i].classList.toggle('active', panes[i].getAttribute('data-step') === String(step));
+      }
+      for (var j = 0; j < pills.length; j++) {
+        pills[j].classList.toggle('active', pills[j].getAttribute('data-step-btn') === String(step));
+      }
+    }
+
+    function wpUpdatePlzBadge() {
+      var locEl = document.getElementById('contactLoc');
+      var badge = document.getElementById('wpPlzBadge');
+      if (!locEl || !badge) return;
+      var val = (locEl.value || '').trim();
+      var m = val.match(/^(\d{4})/);
+      if (m) {
+        var p = m[1].charAt(0);
+        if (['4', '5'].indexOf(p) !== -1) {
+          badge.classList.add('visible');
+          return;
+        }
+      }
+      badge.classList.remove('visible');
+    }
+
+    (function() {
+      var nameEl = document.getElementById('contactName');
+      if (nameEl) {
+        nameEl.addEventListener('input', function() {
+          if (document.getElementById('wpStep3') && !document.getElementById('wpStep3').classList.contains('active')) {
+            wpGoStep(3);
+          }
+        });
+      }
+    })();
+
+    function wpSubmitEwagLead(e) {
+      if (e) e.preventDefault();
+      var form = document.getElementById('ewagContactForm');
+      var okBox = document.getElementById('wpFormOk');
+      var errBox = document.getElementById('wpFormErr');
+      if (okBox) okBox.className = 'form-feedback';
+      if (errBox) errBox.className = 'form-feedback';
+
+      var hp = (document.getElementById('wpHoneypot') && document.getElementById('wpHoneypot').value || '').trim();
+      if (hp) {
+        if (okBox) { okBox.textContent = 'Vielen Dank. Wir melden uns so schnell wie möglich.'; okBox.className = 'form-feedback ok'; }
+        return false;
+      }
+
+      var name = (document.getElementById('contactName').value || '').trim();
+      var street = (document.getElementById('contactStreet') ? document.getElementById('contactStreet').value : '').trim();
+      var loc = (document.getElementById('contactLoc') ? document.getElementById('contactLoc').value : '').trim();
+      var phone = (document.getElementById('contactPhone') ? document.getElementById('contactPhone').value : '').trim();
+      var email = (document.getElementById('contactEmail').value || '').trim();
+      var topicEl = document.getElementById('wpSelectedTopic') || document.getElementById('contactProjectType');
+      var topic = (topicEl && topicEl.value || 'Allgemeine Anfrage').trim();
+      var msg = (document.getElementById('contactMessage').value || '').trim();
+      var consent = document.getElementById('contactConsent');
+
+      if (!name || !email || (consent && !consent.checked)) {
+        if (document.getElementById('wpStep3')) wpGoStep(3);
+        if (errBox) {
+          errBox.textContent = 'Bitte füllen Sie Name, E-Mail-Adresse und die Datenschutz-Bestätigung aus.';
+          errBox.className = 'form-feedback err';
+        }
+        return false;
+      }
+
+      var btn = document.getElementById('wpSubmitBtn');
+      if (btn) btn.disabled = true;
+
+      fetch('/api/lead-submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          client_slug: 'ewagsuhr-original',
+          preview_safe_mode: true,
+          name: name,
+          email: email,
+          phone: phone,
+          street: street,
+          location: loc,
+          topic: topic,
+          message: msg
+        })
+      })
+      .then(function(r) { return r.json().catch(function() { return { ok: r.ok }; }); })
+      .then(function() {
+        if (btn) btn.disabled = false;
+        if (okBox) {
+          okBox.textContent = 'Vielen Dank. Ihre Anfrage wurde im Vorschau-Modus erfolgreich geprüft.';
+          okBox.className = 'form-feedback ok';
+        }
+        if (form) form.reset();
+      })
+      .catch(function() {
+        if (btn) btn.disabled = false;
+        if (errBox) {
+          errBox.textContent = 'Es ist ein Fehler aufgetreten. Bitte prüfen Sie Ihre Eingaben oder rufen Sie 062 855 08 80 an.';
+          errBox.className = 'form-feedback err';
+        }
+      });
+      return false;
+    }
+  </script>
+</body>
+</html>

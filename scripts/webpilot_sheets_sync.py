@@ -192,6 +192,27 @@ def split_source_and_context(raw_source_or_context: str, explicit_context: str =
 # - In Jennys Partner-Sheet erscheinen ausschliesslich die 8 Projekte mit Partner "Jenny Ettle (JE-MI)".
 SEED_PROJECTS = [
     {
+        "slug": "ewagsuhr",
+        "active": True,
+        "company": "EWAG / E. Widmer AG (Suhr AG)",
+        "pricing_recommended_chf": "CHF 2'400.—",
+        "complexity_score": "5.4 / 10.0",
+        "pricing_formula_chf": "CHF 2'350.—",
+        "pricing_rationale": "Traditionsreicher Elektro-Fachbetrieb seit 1925 (45 Mitarbeitende, 11 Dienstleistungen, 11 Referenzen EFH/MFH/Gewerbe, Ausstellung & Verkaufsladen, 24h-Pikett, 4 offene EFZ-/Lehrstellen 2027) – komplett als 1:1 Original-Übernahme und 1:1 Modern-Tweak inkl. 3-Schritte Smart-Anfrage & Studio Cockpit v4.0.",
+        "v2_url": "https://vorschau.magnet-xs.ch/ewagsuhr-modern/",
+        "vollversion_url": "https://vorschau.magnet-xs.ch/ewagsuhr-original/",
+        "original_url": "https://vorschau.magnet-xs.ch/ewagsuhr-original/",
+        "modern_url": "https://vorschau.magnet-xs.ch/ewagsuhr-modern/",
+        "cockpit_url": "https://vorschau.magnet-xs.ch/ewagsuhr-modern/cockpit.html?token=ewagsuhr2026",
+        "cockpit_light_url": "https://vorschau.magnet-xs.ch/ewagsuhr-modern/cockpit.html?token=ewagsuhr2026&mode=light",
+        "audit_report_url": "",
+        "source_url": "https://www.ewagsuhr.ch/",
+        "branch_context": "Elektro-, Telecom- & Netzwerkinstallationen, Gebäudeautomation, PV, e-Mobilität, Haushaltsgeräte, Ausstellung & 24h-Pikett in 5034 Suhr AG",
+        "partner": "Jenny Ettle (JE-MI)",
+        "submitted_at": "26.11.2026 · 22:00 Uhr",
+        "status": "🟢 Bereit zum Zeigen (Fertig: 26.11.2026 · 22:15 Uhr · 0 P1/P2)",
+    },
+    {
         "slug": "autohauser",
         "active": True,
         "company": "Jakob Hauser AG · autohauser® (3 Domains, 4665 Oftringen)",
@@ -951,6 +972,7 @@ def _seed_single_spreadsheet(
                     active_by_slug[item["slug"]] = is_act
 
     DEFAULT_SUBMITTED_MAP = {
+        "ewagsuhr": ("26.11.2026 · 22:00 Uhr", "🟢 Bereit zum Zeigen (Fertig: 26.11.2026 · 22:15 Uhr · 0 P1/P2)"),
         "autohauser": ("18.11.2026 · 19:09 Uhr", "🟢 Bereit zum Zeigen (Fertig: 18.11.2026 · 19:34 Uhr · 0 P1/P2)"),
         "die-schule": ("13.11.2026 · 07:36 Uhr", "🟢 Bereit zum Zeigen (Fertig: 13.11.2026 · 09:25 Uhr · 0 P1/P2)"),
         "get-more-sales": ("10.11.2026 · 20:24 Uhr", "🟢 Bereit zum Zeigen (Fertig: 10.11.2026 · 21:25 Uhr · 0 P1/P2)"),
