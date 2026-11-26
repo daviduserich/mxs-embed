@@ -996,6 +996,8 @@ PUBLIC_SLUG_MAP = {
     "preview-holz-susi-v2": "holz-susi-v2",
     "preview-joma": "joma-vollversion",
     "preview-joma-v2": "joma-v2",
+    "preview-joma-original": "joma-original",
+    "preview-joma-modern": "joma-modern",
     "preview-imp-marketing": "imp-marketing-vollversion",
     "preview-imp-marketing-v2": "imp-marketing-v2",
     "preview-herzensarbeit": "herzensarbeit-vollversion",
@@ -1020,7 +1022,7 @@ def _resolve_base_slug(folder_name: str) -> str:
     s = folder_name.strip().lower()
     if s.startswith("preview-"):
         s = s[len("preview-"):]
-    s = re.sub(r"-(?:vollversion|vv|v1|v2)$", "", s)
+    s = re.sub(r"-(?:vollversion|vv|v1|v2|original|modern)$", "", s)
     return s
 
 

@@ -95,6 +95,8 @@ HEADERS = [
     "Preis-Begründung & Aha-Punkte",
     "Zeigeversion (-v2 für Kunden)",
     "Vollversion (-vollversion für uns)",
+    "1:1 Original-Übernahme",
+    "1:1 Modern-Tweak",
     "Studio Cockpit v4.0",
     "Kunden-Cockpit Light (Nur Texte)",
     "Vorher/Nachher-Report (PDF)",
@@ -104,6 +106,14 @@ HEADERS = [
     "Eingereicht am (Datum & Uhrzeit)",
     "Status & Fertigstellung",
 ]
+
+
+def resolve_variant_urls(clean_slug: str) -> Tuple[str, str]:
+    """Ermittelt automatisch 1:1 Original- & Modern-Tweak-URLs anhand realer Ordner (#SYS-01)."""
+    base_dir = Path("/home/brainuser/workspaces/mxs-embed")
+    orig_url = f"https://vorschau.magnet-xs.ch/{clean_slug}-original/" if (base_dir / f"preview-{clean_slug}-original").is_dir() else ""
+    mod_url = f"https://vorschau.magnet-xs.ch/{clean_slug}-modern/" if (base_dir / f"preview-{clean_slug}-modern").is_dir() else ""
+    return orig_url, mod_url
 
 
 def format_ch_datetime(raw_ts: Any, fallback: str = "") -> str:
@@ -655,7 +665,7 @@ def apply_sheet_formatting(
                 "startRowIndex": 1,
                 "endRowIndex": max(total_rows, 100),
                 "startColumnIndex": 0,
-                "endColumnIndex": max(num_cols, 16),
+                "endColumnIndex": max(num_cols, 17),
             },
             "cell": {
                 "userEnteredFormat": {
@@ -738,7 +748,7 @@ def apply_sheet_formatting(
         }
     })
 
-    # 5b. URL-Spalten F bis K (Index 5..11: v2, Vollversion, Cockpit, Cockpit Light, PDF, Ursprungs-Webseite) explizit blau & unterstrichen (#1d4ed8)
+    # 5b. URL-Spalten F bis M (Index 5..13: v2, Vollversion, 1:1 Original, 1:1 Modern, Cockpit, Cockpit Light, PDF, Ursprungs-Webseite) explizit blau & unterstrichen (#1d4ed8)
     requests_list.append({
         "repeatCell": {
             "range": {
@@ -746,7 +756,7 @@ def apply_sheet_formatting(
                 "startRowIndex": 1,
                 "endRowIndex": max(total_rows, 100),
                 "startColumnIndex": 5,
-                "endColumnIndex": 11,
+                "endColumnIndex": 13,
             },
             "cell": {
                 "userEnteredFormat": {
@@ -762,15 +772,15 @@ def apply_sheet_formatting(
         }
     })
 
-    # 5c. Spalte M (Partner, Index 12) fett hervorheben fuer schnelle Filterung
+    # 5c. Spalte O (Partner, Index 14) fett hervorheben fuer schnelle Filterung
     requests_list.append({
         "repeatCell": {
             "range": {
                 "sheetId": sheet_id,
                 "startRowIndex": 1,
                 "endRowIndex": max(total_rows, 100),
-                "startColumnIndex": 12,
-                "endColumnIndex": 13,
+                "startColumnIndex": 14,
+                "endColumnIndex": 15,
             },
             "cell": {
                 "userEnteredFormat": {
@@ -810,14 +820,16 @@ def apply_sheet_formatting(
         (4, 5, 370),    # E: Preis-Begruendung & Aha-Punkte
         (5, 6, 300),    # F: Zeigeversion (-v2)
         (6, 7, 320),    # G: Vollversion (-vollversion)
-        (7, 8, 380),    # H: Studio Cockpit v4.0
-        (8, 9, 410),    # I: Kunden-Cockpit Light (Nur Texte)
-        (9, 10, 380),   # J: Vorher/Nachher-Report (PDF)
-        (10, 11, 260),  # K: Ursprungs-Webseite (Original)
-        (11, 12, 320),  # L: Branche & Kontext
-        (12, 13, 195),  # M: Partner (Filterbar per 1 Klick!)
-        (13, 14, 210),  # N: Eingereicht am (Datum & Uhrzeit)
-        (14, 15, 290),  # O: Status & Fertigstellung
+        (7, 8, 310),    # H: 1:1 Original-Uebernahme
+        (8, 9, 310),    # I: 1:1 Modern-Tweak
+        (9, 10, 380),   # J: Studio Cockpit v4.0
+        (10, 11, 410),  # K: Kunden-Cockpit Light (Nur Texte)
+        (11, 12, 380),  # L: Vorher/Nachher-Report (PDF)
+        (12, 13, 260),  # M: Ursprungs-Webseite (Original)
+        (13, 14, 320),  # N: Branche & Kontext
+        (14, 15, 195),  # O: Partner (Filterbar per 1 Klick!)
+        (15, 16, 210),  # P: Eingereicht am (Datum & Uhrzeit)
+        (16, 17, 290),  # Q: Status & Fertigstellung
     ]
     for start_col, end_col, px in col_widths:
         requests_list.append({
@@ -883,7 +895,7 @@ def apply_sheet_formatting(
 
 
 def get_all_rows(spreadsheet_id: str, tab_title: str) -> List[List[str]]:
-    safe_range = urllib.parse.quote(f"'{tab_title}'!A1:O200")
+    safe_range = urllib.parse.quote(f"'{tab_title}'!A1:Q200")
     url = f"https://sheets.googleapis.com/v4/spreadsheets/{spreadsheet_id}/values/{safe_range}"
     r = _request_with_retry("GET", url)
     r.raise_for_status()
@@ -998,6 +1010,9 @@ def _seed_single_spreadsheet(
             item["pricing_formula_chf"],
         )
         m_info = compute_monthly_pricing(item["pricing_recommended_chf"])
+        auto_orig_url, auto_mod_url = resolve_variant_urls(slug)
+        orig_url = item.get("original_url") or auto_orig_url
+        mod_url = item.get("modern_url") or auto_mod_url
         values_matrix.append([
             is_active,
             item["company"],
@@ -1006,6 +1021,8 @@ def _seed_single_spreadsheet(
             item["pricing_rationale"],
             item["v2_url"],
             item["vollversion_url"],
+            orig_url,
+            mod_url,
             item["cockpit_url"],
             cockpit_light_url,
             audit_pdf_url,
@@ -1020,7 +1037,7 @@ def _seed_single_spreadsheet(
     clear_url = f"https://sheets.googleapis.com/v4/spreadsheets/{spreadsheet_id}/values/{clear_range}:clear"
     _request_with_retry("POST", clear_url, json={})
 
-    safe_range = urllib.parse.quote(f"'{tab_title}'!A1:O{len(values_matrix)}")
+    safe_range = urllib.parse.quote(f"'{tab_title}'!A1:Q{len(values_matrix)}")
     put_url = f"https://sheets.googleapis.com/v4/spreadsheets/{spreadsheet_id}/values/{safe_range}"
     r_put = _request_with_retry(
         "PUT",
@@ -1092,6 +1109,8 @@ def _upsert_into_single_sheet(
     monthly_sheet_display: str,
     pricing_rationale: str,
     owner_filter: Optional[str] = None,
+    original_url: str = "",
+    modern_url: str = "",
 ) -> Dict[str, Any]:
     props = _get_first_sheet_meta(spreadsheet_id)
     sheet_id = props["sheetId"]
@@ -1126,6 +1145,10 @@ def _upsert_into_single_sheet(
     default_audit_url = f"https://vorschau.magnet-xs.ch/reports/{clean_slug}-vorher-nachher-report.pdf" if clean_slug else ""
     default_cockpit_light_url = f"https://vorschau.magnet-xs.ch/{clean_slug}-vollversion/cockpit.html?token={clean_slug}2026&mode=light" if clean_slug else ""
 
+    auto_orig_url, auto_mod_url = resolve_variant_urls(clean_slug)
+    resolved_orig = (original_url or auto_orig_url).strip()
+    resolved_mod = (modern_url or auto_mod_url).strip()
+
     if target_row_idx is not None:
         prev_active = False if (len(existing_row) > 0 and str(existing_row[0]).strip().upper() == "FALSE") else True
         row_active = prev_active if active is None else bool(active)
@@ -1135,14 +1158,16 @@ def _upsert_into_single_sheet(
         final_rationale = (existing_row[4] if len(existing_row) > 4 and existing_row[4].strip() else pricing_rationale)
         final_v2 = v2_url.strip() if v2_url else (existing_row[5] if len(existing_row) > 5 else "")
         final_voll = vollversion_url.strip() if vollversion_url else (existing_row[6] if len(existing_row) > 6 else "")
-        final_cockpit = cockpit_url.strip() if cockpit_url else (existing_row[7] if len(existing_row) > 7 else "")
-        final_cockpit_light = cockpit_light_url.strip() if cockpit_light_url else (existing_row[8] if len(existing_row) > 8 else default_cockpit_light_url)
-        final_audit = audit_report_url.strip() if audit_report_url else (existing_row[9] if len(existing_row) > 9 else default_audit_url)
-        final_source_url = parsed_url if parsed_url else (existing_row[10] if len(existing_row) > 10 else "")
-        final_branch_ctx = parsed_ctx if parsed_ctx else (existing_row[11] if len(existing_row) > 11 else "")
-        final_partner = partner_norm if partner_norm else (existing_row[12] if len(existing_row) > 12 else "Jenny Ettle (JE-MI)")
-        final_submitted = submitted_at.strip() if submitted_at else (existing_row[13] if len(existing_row) > 13 else datetime.now().strftime("%d.%m.%Y · %H:%M Uhr"))
-        final_status = status_text.strip() if status_text else (existing_row[14] if len(existing_row) > 14 else "")
+        final_orig = resolved_orig if resolved_orig else (existing_row[7] if len(existing_row) > 7 else "")
+        final_mod = resolved_mod if resolved_mod else (existing_row[8] if len(existing_row) > 8 else "")
+        final_cockpit = cockpit_url.strip() if cockpit_url else (existing_row[9] if len(existing_row) > 9 else "")
+        final_cockpit_light = cockpit_light_url.strip() if cockpit_light_url else (existing_row[10] if len(existing_row) > 10 else default_cockpit_light_url)
+        final_audit = audit_report_url.strip() if audit_report_url else (existing_row[11] if len(existing_row) > 11 else default_audit_url)
+        final_source_url = parsed_url if parsed_url else (existing_row[12] if len(existing_row) > 12 else "")
+        final_branch_ctx = parsed_ctx if parsed_ctx else (existing_row[13] if len(existing_row) > 13 else "")
+        final_partner = partner_norm if partner_norm else (existing_row[14] if len(existing_row) > 14 else "Jenny Ettle (JE-MI)")
+        final_submitted = submitted_at.strip() if submitted_at else (existing_row[15] if len(existing_row) > 15 else datetime.now().strftime("%d.%m.%Y · %H:%M Uhr"))
+        final_status = status_text.strip() if status_text else (existing_row[16] if len(existing_row) > 16 else "")
 
         row_values = [
             row_active,
@@ -1152,6 +1177,8 @@ def _upsert_into_single_sheet(
             final_rationale,
             final_v2,
             final_voll,
+            final_orig,
+            final_mod,
             final_cockpit,
             final_cockpit_light,
             final_audit,
@@ -1161,7 +1188,7 @@ def _upsert_into_single_sheet(
             final_submitted,
             final_status,
         ]
-        safe_range = urllib.parse.quote(f"'{tab_title}'!A{target_row_idx}:O{target_row_idx}")
+        safe_range = urllib.parse.quote(f"'{tab_title}'!A{target_row_idx}:Q{target_row_idx}")
         url = f"https://sheets.googleapis.com/v4/spreadsheets/{spreadsheet_id}/values/{safe_range}"
         r_put = _request_with_retry(
             "PUT",
@@ -1187,6 +1214,8 @@ def _upsert_into_single_sheet(
             pricing_rationale.strip(),
             v2_url.strip(),
             vollversion_url.strip(),
+            resolved_orig,
+            resolved_mod,
             cockpit_url.strip(),
             cockpit_light_url.strip(),
             audit_report_url.strip(),
@@ -1197,7 +1226,7 @@ def _upsert_into_single_sheet(
             status_text.strip(),
         ]
         new_row_idx = len(rows) + 1
-        safe_range = urllib.parse.quote(f"'{tab_title}'!A{new_row_idx}:O{new_row_idx}")
+        safe_range = urllib.parse.quote(f"'{tab_title}'!A{new_row_idx}:Q{new_row_idx}")
         url = f"https://sheets.googleapis.com/v4/spreadsheets/{spreadsheet_id}/values/{safe_range}"
         r_put = _request_with_retry(
             "PUT",
@@ -1241,7 +1270,7 @@ def upsert_webpilot_sheet_row(
     2. Wenn Partner == Jenny Ettle (JE-MI), zusaetzlich in Jennys Partner-Sheet.
     """
     clean_slug = (slug or "").strip().lower().replace("preview-", "")
-    for suffix in ("-vollversion", "-vv", "-v2", "-v1"):
+    for suffix in ("-vollversion", "-vv", "-v2", "-v1", "-original", "-modern"):
         if clean_slug.endswith(suffix):
             clean_slug = clean_slug[: -len(suffix)]
 
@@ -1350,7 +1379,7 @@ def _verify_single_sheet(spreadsheet_id: str, spreadsheet_url: str) -> Dict[str,
         url,
         params={
             "includeGridData": "true",
-            "ranges": f"'{DEFAULT_TAB_TITLE}'!A1:O25",
+            "ranges": f"'{DEFAULT_TAB_TITLE}'!A1:Q25",
             "fields": "properties.title,sheets(properties(sheetId,title,gridProperties.frozenRowCount),basicFilter,conditionalFormats,data.rowData.values(userEnteredValue,dataValidation,hyperlink,effectiveFormat.textFormat))",
         },
     )
@@ -1358,6 +1387,10 @@ def _verify_single_sheet(spreadsheet_id: str, spreadsheet_url: str) -> Dict[str,
     meta = r.json()
     sh = (meta.get("sheets") or [{}])[0]
     row_data = ((sh.get("data") or [{}])[0]).get("rowData") or []
+    header_vals = [
+        (c.get("userEnteredValue") or {}).get("stringValue", "")
+        for c in ((row_data[0].get("values") or []) if row_data else [])
+    ]
     checkbox_count = 0
     clickable_source_links = 0
     clickable_cockpit_light_links = 0
@@ -1371,24 +1404,28 @@ def _verify_single_sheet(spreadsheet_id: str, spreadsheet_url: str) -> Dict[str,
             continue
         if (vals[0].get("dataValidation") or {}).get("condition", {}).get("type") == "BOOLEAN":
             checkbox_count += 1
-        light_cell = vals[8] if len(vals) > 8 else {}
+        orig_url = (vals[7].get("userEnteredValue") or {}).get("stringValue", "") if len(vals) > 7 else ""
+        mod_url = (vals[8].get("userEnteredValue") or {}).get("stringValue", "") if len(vals) > 8 else ""
+        light_cell = vals[10] if len(vals) > 10 else {}
         light_url = (light_cell.get("userEnteredValue") or {}).get("stringValue", "")
         light_hl = light_cell.get("hyperlink") or ((light_cell.get("effectiveFormat") or {}).get("textFormat") or {}).get("link", {}).get("uri", "")
         if light_url.startswith("http") and light_hl:
             clickable_cockpit_light_links += 1
-        src_cell = vals[10] if len(vals) > 10 else {}
+        src_cell = vals[12] if len(vals) > 12 else {}
         src_url = (src_cell.get("userEnteredValue") or {}).get("stringValue", "")
         src_hyperlink = src_cell.get("hyperlink") or ((src_cell.get("effectiveFormat") or {}).get("textFormat") or {}).get("link", {}).get("uri", "")
         if src_url.startswith("http") and src_hyperlink:
             clickable_source_links += 1
-        partner_val = (vals[12].get("userEnteredValue") or {}).get("stringValue", "") if len(vals) > 12 else ""
-        submitted_val = (vals[13].get("userEnteredValue") or {}).get("stringValue", "") if len(vals) > 13 else ""
-        status_val = (vals[14].get("userEnteredValue") or {}).get("stringValue", "") if len(vals) > 14 else ""
+        partner_val = (vals[14].get("userEnteredValue") or {}).get("stringValue", "") if len(vals) > 14 else ""
+        submitted_val = (vals[15].get("userEnteredValue") or {}).get("stringValue", "") if len(vals) > 15 else ""
+        status_val = (vals[16].get("userEnteredValue") or {}).get("stringValue", "") if len(vals) > 16 else ""
         rows_summary.append({
             "row": r_idx,
             "company": comp_val,
             "einmal_price": (vals[2].get("userEnteredValue") or {}).get("stringValue", "").splitlines()[0] if len(vals) > 2 else "",
             "monthly_offer": (vals[3].get("userEnteredValue") or {}).get("stringValue", "").splitlines()[0] if len(vals) > 3 else "",
+            "original_1to1_url": orig_url,
+            "modern_1to1_url": mod_url,
             "cockpit_light_url": light_url,
             "is_clickable_cockpit_light": bool(light_hl),
             "source_url": src_url,
@@ -1403,7 +1440,7 @@ def _verify_single_sheet(spreadsheet_id: str, spreadsheet_url: str) -> Dict[str,
         "ok": True,
         "title": meta.get("properties", {}).get("title"),
         "tab_title": sh.get("properties", {}).get("title"),
-        "headers": HEADERS,
+        "headers": header_vals or HEADERS,
         "frozen_rows": sh.get("properties", {}).get("gridProperties", {}).get("frozenRowCount"),
         "has_basic_filter": bool(sh.get("basicFilter")),
         "conditional_format_rules": len(sh.get("conditionalFormats") or []),
