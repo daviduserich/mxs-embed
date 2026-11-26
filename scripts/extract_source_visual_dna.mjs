@@ -1,8 +1,10 @@
 #!/usr/bin/env node
 /**
- * extract_source_visual_dna.mjs – 3-Stufen «Source Visual DNA & Design-Sommelier» Engine v1.0
+ * extract_source_visual_dna.mjs – 3-Stufen «Source Visual DNA & Design-Sommelier» Engine v1.1
  * ===========================================================================================
  * Verbindliches Vorab-Analyse- & Veredelungs-Werkzeug fuer WebPilot (#UI-01, #UI-02, #UI-14, #UI-16, #LANG-01).
+ * Upgrade v1.1 (MKT-045): Anti-Template Direction-Vertrag, 3-Stufen-Slop-Triage,
+ *   geordnete 9-Pass Redline-Reihenfolge, Microcopy-Hygiene & Swap-the-Name Template-Gate.
  *
  * Warum dieses Werkzeug existiert:
  *   Zwischen dem optischen Messen einer bestehenden Kunden-Webseite (Stufe 1) und dem Bau der
@@ -332,6 +334,312 @@ function selectMasterArchetype({ slug = '', industry = '', title = '', hasSerifH
     return SWISS_MASTER_ARCHETYPES.warm_humanist_editorial;
   }
   return SWISS_MASTER_ARCHETYPES.swiss_architectural_craft;
+}
+
+// ============================================================================
+// MKT-045: ANTI-TEMPLATE DIRECTION-VERTRAG & 9-PASS REDLINE (SCHWEIZER KMU)
+// ============================================================================
+
+export const BANNED_TEMPLATE_ADJECTIVES = [
+  'clean',
+  'modern',
+  'sleek',
+  'minimal',
+  'minimalistisch',
+  'premium',
+  'innovativ',
+  'professionell'
+];
+
+export const NINE_PASS_REDLINE_ORDER = [
+  '1. Spacing (4px-Raster)',
+  '2. Color (Tinted Neutrals + 60-30-10)',
+  '3. Icons (1 Lucide-Set, 0 Emojis)',
+  '4. Copy (Echte CH-Texte VOR Type & Layout)',
+  '5. Type (Groessen- & Ruhe-Hierarchie, 400–600 Display statt 800/900)',
+  '6. Layout (Asymmetrie & Rhythmus-Wechsel statt 3x Einheits-Grid)',
+  '7. Details (Nested-Radius inner = outer - padding, min 4px & Kontrast)',
+  '8. Visuals (Echte KMU-Fotos statt KI-Filler)',
+  '9. Motion (cubic-bezier(0.22, 1, 0.36, 1), 0 hover:scale / animate-pulse)'
+];
+
+function resolveBranchDirectionProfile({ slug = '', industry = '', pageTitle = '', selectedArchetype = null, hasRealPhotos = true }) {
+  const haystack = `${slug} ${industry} ${pageTitle}`.toLowerCase();
+  const photoLead = hasRealPhotos
+    ? 'mit echtem Schweizer Betriebsfoto'
+    : 'mit klarem Betriebs-Beleg und ruhiger Typografie';
+
+  if (/(textil|stickerei|bekleidung|frees)/.test(haystack)) {
+    return {
+      key: 'textil_handwerk',
+      product_one_liner: 'Konfigurierbare Schweizer Arbeits- und Teamkleidung direkt vom Veredelungsbetrieb ohne Umwege.',
+      character_words: ['griffig', 'farbtreu', 'massgeschneidert'],
+      world_material: 'Stoffwebung, Stickgarn & Farbmuster-Karte',
+      rich_moments: [
+        `Asymmetrische Startbuehne ${photoLead} und greifbarer Sortiments-Einordnung`,
+        'Direkter Stick- und Druckmuster-Beleg mit Stueckzahl- und Lieferklarheit'
+      ],
+      signature_detail: 'Gewebter Garn-Akzentstreifen kombiniert mit direktem Muster- und Stueckzahl-Anker'
+    };
+  }
+
+  if (/(fussball|fc |fcschlieren|fcattiswil|scfulenbach|sportverein|frauenfussball|verein|club|her11|sport)/.test(haystack)) {
+    return {
+      key: 'verein_sport',
+      product_one_liner: 'Lebendiger Schweizer Sportverein mit klaren Trainingszeiten, Teams und Sponsoren-Zugang.',
+      character_words: ['stolz', 'dynamisch', 'nahbar'],
+      world_material: 'Stadion-Flutlicht, Trikotstoff & Anzeigetafel',
+      rich_moments: [
+        `Asymmetrische Mannschafts-Buehne ${photoLead} und sofortiger Spielplan-Einordnung`,
+        'Klarer Nachwuchs- und Sponsoren-Block mit echten Vereinszahlen statt Standard-Kacheln'
+      ],
+      signature_detail: 'Trikotfarben-Akzentstreifen mit direktem Heimspiel- und Probetraining-Anker'
+    };
+  }
+
+  if (/(therapie|paar|herzensarbeit|praxis|psycholog|gesundheit|hebamme|paedagog|pädagog|kinder|begleitung|coaching)/.test(haystack)) {
+    return {
+      key: 'praxis_therapie_coaching',
+      product_one_liner: 'Ruhiger Schweizer Praxis- und Begleitungsauftritt fuer ein sicheres Erstgespraech ohne Huerden.',
+      character_words: ['ruhig', 'vertrauensvoll', 'zugewandt'],
+      world_material: 'Warmes Papier, Naturleinen & ruhiges Tageslicht',
+      rich_moments: [
+        `Eingerahmte Portrait- und Praxis-Buehne ${photoLead} mit ruhigem Erstgespraechs-Einstieg`,
+        'Strukturierter Ablauf der Begleitung in klaren Schritten ohne aufdringliche Werbe-Floskeln'
+      ],
+      signature_detail: 'Feine Haarlinie in warmer Leinen-Toenung mit direktem Erstgespraechs-Anker auf Blickhoehe'
+    };
+  }
+
+  if (/(solar|photovoltaik|batteriespeicher|elektro|ewag|joma|energie|haustechnik)/.test(haystack)) {
+    return {
+      key: 'solar_elektro_technik',
+      product_one_liner: 'Verlaessliche Schweizer Energie-, Solar- und Elektrotechnik mit nachvollziehbarer Anlagen-Planung.',
+      character_words: ['praezise', 'verlaesslich', 'technisch'],
+      world_material: 'Kupfer, Schaltschrank & praezise Masslinien',
+      rich_moments: [
+        `Asymmetrische Projekt-Buehne ${photoLead} einer realen Anlage statt generischer Symbol-Grafik`,
+        'Messbare Leistungs- und Ertrags-Einordnung mit klarem Offerten-Pfad fuer Eigenheim und Betrieb'
+      ],
+      signature_detail: 'Schaltplan-Masslinie mit buendigen Leistungsdaten in tabular-nums'
+    };
+  }
+
+  if (/(executive|fuehrung|führung|innere-staerke|innere stärke|treuhand|kanzlei|recht|consulting|unternehmensberatung|beratung|management)/.test(haystack)) {
+    return {
+      key: 'beratung_treuhand_recht',
+      product_one_liner: 'Klarer Schweizer Beratungs- und Kanzleiauftritt fuer fundierte Entscheide auf Geschaeftsleitungs-Ebene.',
+      character_words: ['sachlich', 'souveraen', 'diskret'],
+      world_material: 'Feinpapier, Anthrazit-Tinte & Kanzlei-Ruhe',
+      rich_moments: [
+        `Asymmetrische Kanzlei-Buehne ${photoLead} mit sofortiger Mandats- und Kompetenz-Klarheit`,
+        'Fall- und Entscheidungs-Beleg in variiertem 2/3-zu-1/3-Raster ohne Baukasten-Spalten'
+      ],
+      signature_detail: 'Aktenregister-Trennlinie mit pur linksbuendigem Mandats-Kicker ohne Vor-Strich'
+    };
+  }
+
+  if (/(holzbau|zimmerei|schreinerei|hochuli|hiltbrand|birchmeier|gebaeude|gebäude|dach|sanitaer|sanitär|heizung|bau|handwerk|technik)/.test(haystack)) {
+    return {
+      key: 'holzbau_bau_schreinerei',
+      product_one_liner: 'Bodenstaendiger Schweizer Handwerks- und Baubetrieb mit sichtbarer Werkqualitaet und direktem Kontakt.',
+      character_words: ['handfest', 'praezise', 'bodenstaendig'],
+      world_material: 'Laerchenholz, Kreide & Bauplan-Linien',
+      rich_moments: [
+        `Asymmetrische Referenz-Buehne ${photoLead} aus dem echten Betriebsalltag`,
+        'Konkreter Objekt- und Leistungsnachweis mit Region, Bauweise und direkter Offerten-Anfrage'
+      ],
+      signature_detail: 'Bauplan-Massstablinie mit exakter 1100px-Fluchtlinie (#UI-02) ueber dem Objekt-Einstieg'
+    };
+  }
+
+  if (selectedArchetype?.id === 'warm_humanist_editorial') {
+    return {
+      key: 'praxis_therapie_coaching',
+      product_one_liner: 'Ruhiger Schweizer Praxis- und Begleitungsauftritt fuer ein sicheres Erstgespraech ohne Huerden.',
+      character_words: ['ruhig', 'vertrauensvoll', 'zugewandt'],
+      world_material: 'Warmes Papier, Naturleinen & ruhiges Tageslicht',
+      rich_moments: [
+        `Eingerahmte Portrait- und Praxis-Buehne ${photoLead} mit ruhigem Erstgespraechs-Einstieg`,
+        'Strukturierter Ablauf in klaren Schritten ohne aufdringliche Werbe-Floskeln'
+      ],
+      signature_detail: 'Feine Haarlinie in warmer Leinen-Toenung mit direktem Erstgespraechs-Anker auf Blickhoehe'
+    };
+  }
+
+  if (selectedArchetype?.id === 'executive_authority') {
+    return {
+      key: 'beratung_treuhand_recht',
+      product_one_liner: 'Klarer Schweizer Beratungs- und Kanzleiauftritt fuer fundierte Entscheide auf Geschaeftsleitungs-Ebene.',
+      character_words: ['sachlich', 'souveraen', 'diskret'],
+      world_material: 'Feinpapier, Anthrazit-Tinte & Kanzlei-Ruhe',
+      rich_moments: [
+        `Asymmetrische Kanzlei-Buehne ${photoLead} mit sofortiger Mandats- und Kompetenz-Klarheit`,
+        'Fall- und Entscheidungs-Beleg in variiertem 2/3-zu-1/3-Raster ohne Baukasten-Spalten'
+      ],
+      signature_detail: 'Aktenregister-Trennlinie mit pur linksbuendigem Mandats-Kicker ohne Vor-Strich'
+    };
+  }
+
+  if (selectedArchetype?.id === 'dynamic_club_spirit') {
+    return {
+      key: 'verein_sport',
+      product_one_liner: 'Lebendiger Schweizer Sportverein mit klaren Trainingszeiten, Teams und Sponsoren-Zugang.',
+      character_words: ['stolz', 'dynamisch', 'nahbar'],
+      world_material: 'Stadion-Flutlicht, Trikotstoff & Anzeigetafel',
+      rich_moments: [
+        `Asymmetrische Mannschafts-Buehne ${photoLead} und sofortiger Spielplan-Einordnung`,
+        'Klarer Nachwuchs- und Sponsoren-Block mit echten Vereinszahlen statt Standard-Kacheln'
+      ],
+      signature_detail: 'Trikotfarben-Akzentstreifen mit direktem Heimspiel- und Probetraining-Anker'
+    };
+  }
+
+  return {
+    key: 'default_swiss_kmu',
+    product_one_liner: 'Eigenstaendiger Schweizer KMU-Auftritt mit klarer Leistung, echten Belegen und kurzem Weg zur Anfrage.',
+    character_words: ['klar', 'glaubwuerdig', 'unverwechselbar'],
+    world_material: 'Schweizer Feinpapier, klare Rasterlinien & echte Betriebs-Atmosphaere',
+    rich_moments: [
+      `Asymmetrische Startbuehne ${photoLead} und eindeutigem Nutzen-Versprechen`,
+      'Konkreter Praxisbeleg aus dem Betriebsalltag im variierten 2/3-zu-1/3-Rhythmus'
+    ],
+    signature_detail: 'Pur linksbuendiger Marken-Kicker ohne Vor-Strich mit exakter 1100px-Fluchtlinie (#UI-01/#UI-02)'
+  };
+}
+
+export function buildDirectionContract({
+  slug = '',
+  industry = '',
+  pageTitle = '',
+  selectedArchetype = null,
+  designMode = 'evolution',
+  isMulticolorChaos = false,
+  healLegacyFlaw = false,
+  lowResCount = 0,
+  hasRealPhotos = true
+} = {}) {
+  const mode = String(designMode || 'evolution').toLowerCase() === 'redesign' ? 'redesign' : 'evolution';
+  const branch = resolveBranchDirectionProfile({
+    slug,
+    industry,
+    pageTitle,
+    selectedArchetype,
+    hasRealPhotos: Boolean(hasRealPhotos)
+  });
+
+  let slopTriageMode = 'no_slop';
+  if (mode === 'redesign' || (Boolean(isMulticolorChaos) && Boolean(healLegacyFlaw))) {
+    slopTriageMode = 'heavy_slop';
+  } else if (Boolean(isMulticolorChaos) || Boolean(healLegacyFlaw) || Number(lowResCount || 0) > 0) {
+    slopTriageMode = 'light_slop';
+  }
+
+  const maxArchetypeWeight =
+    selectedArchetype?.id === 'dynamic_club_spirit' || selectedArchetype?.id === 'swiss_architectural_craft'
+      ? '400–600 (max. 700 laut Archetyp, Verbot von 800/900)'
+      : '400–600 (max. 700, Verbot von 800/900)';
+
+  return {
+    branch_profile: branch.key,
+    product_one_liner: branch.product_one_liner,
+    character_words: branch.character_words,
+    world_material: branch.world_material,
+    rich_moments: branch.rich_moments,
+    signature_detail: branch.signature_detail,
+    slop_triage_mode: slopTriageMode,
+    rhythm_and_typography_guard: {
+      hero_composition: 'Asymmetrischer Split oder Produkt-Buehne (>= 50 % visuelles Gewicht) statt zentriertem Standard-Stack',
+      section_rhythm_rule: 'Variierte Blockbreiten 2/3 + 1/3 statt wiederholter identischer 3-Spalten-Karten',
+      display_weight_cap: maxArchetypeWeight,
+      motion_curve: 'cubic-bezier(0.22, 1, 0.36, 1)',
+      forbidden_motion: ['transition-all', 'hover:scale', 'animate-pulse auf statischen Elementen'],
+      preserved_acp_laws: [
+        '#UI-01 Freistehende Marken-Kicker ohne Vor-Strich & 4px/8px-Basis',
+        '#UI-16 Evolution & Luminanz-Treue',
+        '#LANG-04 Echte KMU-Fotos statt KI-Hero-Bilder'
+      ]
+    },
+    nine_pass_redline_order: [...NINE_PASS_REDLINE_ORDER],
+    microcopy_hygiene_rules: [
+      '0 Ausrufezeichen in UI-Oberflaechen',
+      'Keine Begruessungs-Headlines (Willkommen zurueck...)',
+      'Prozentwerte immer mit Vergleichszeitraum (+12 % ggue. Vormonat)',
+      'Keine Schlusspunkte auf Labels, Buttons & Ueberschriften',
+      'Keine unbelegten Vertrauenszahlen (10000+ Kunden)'
+    ],
+    swap_the_name_template_gate:
+      'Wenn Firmenname und Logo getauscht werden: Passt der Hero noch 1:1 auf einen beliebigen Mitbewerber? Wenn JA -> Direction, Copy & Visual nachschaerfen!'
+  };
+}
+
+export function validateDirectionContract(contract) {
+  const violations = [];
+  if (!contract || typeof contract !== 'object') {
+    return { valid: false, violations: ['direction_contract fehlt oder ist kein Objekt'] };
+  }
+
+  // (a) character_words: 2-3 Woerter, 0 Treffer gegen BANNED_TEMPLATE_ADJECTIVES
+  const words = Array.isArray(contract.character_words) ? contract.character_words : [];
+  if (words.length < 2 || words.length > 3) {
+    violations.push(`character_words muss 2–3 konkrete Adjektive enthalten (gefunden: ${words.length})`);
+  }
+  for (const w of words) {
+    const clean = String(w || '').trim();
+    if (!clean) {
+      violations.push('character_words enthaelt ein leeres Element');
+      continue;
+    }
+    const lower = clean.toLowerCase();
+    for (const banned of BANNED_TEMPLATE_ADJECTIVES) {
+      if (lower === banned || new RegExp(`\\b${banned}\\b`, 'i').test(lower)) {
+        violations.push(`Verbotenes Template-Leerwort in character_words: "${clean}" (${banned})`);
+      }
+    }
+  }
+
+  // (b) rich_moments: Laenge 1..2
+  const moments = Array.isArray(contract.rich_moments) ? contract.rich_moments : [];
+  if (moments.length < 1 || moments.length > 2) {
+    violations.push(`rich_moments muss exakt 1–2 Eintraege enthalten (gefunden: ${moments.length})`);
+  } else if (moments.some(m => typeof m !== 'string' || m.trim().length === 0)) {
+    violations.push('rich_moments enthaelt einen leeren Eintrag');
+  }
+
+  // (c) signature_detail: nicht-leerer Einzel-String
+  if (typeof contract.signature_detail !== 'string' || contract.signature_detail.trim().length === 0) {
+    violations.push('signature_detail muss ein nicht-leerer Einzel-String sein');
+  }
+
+  // (d) nine_pass_redline_order: Laenge 9, Copy strikt vor Type und Layout
+  const order = Array.isArray(contract.nine_pass_redline_order) ? contract.nine_pass_redline_order : [];
+  if (order.length !== 9) {
+    violations.push(`nine_pass_redline_order muss exakt 9 Stufen enthalten (gefunden: ${order.length})`);
+  } else {
+    const stepLabel = item => String(item || '').split('(')[0].trim();
+    const copyIdx = order.findIndex(item => /\bCopy\b/i.test(stepLabel(item)));
+    const typeIdx = order.findIndex(item => /\bType\b/i.test(stepLabel(item)));
+    const layoutIdx = order.findIndex(item => /\bLayout\b/i.test(stepLabel(item)));
+    if (copyIdx === -1 || typeIdx === -1 || layoutIdx === -1) {
+      violations.push('nine_pass_redline_order muss Copy, Type und Layout enthalten');
+    } else if (!(copyIdx < typeIdx && copyIdx < layoutIdx)) {
+      violations.push(`Copy-Index (${copyIdx}) muss strikt vor Type (${typeIdx}) und Layout (${layoutIdx}) liegen`);
+    }
+  }
+
+  // (e) Helvetik & Anti-KI-Gedankenstrich: 0 Treffer auf \u00df und 0 Satz-\u2014
+  const serialized = JSON.stringify(contract);
+  if (/\u00df|\u1e9e/.test(serialized)) {
+    violations.push('Verbotenes Eszett (\\u00df) im direction_contract gefunden (#LANG-01)');
+  }
+  if (/\u2014/.test(serialized)) {
+    violations.push('Verbotener langer englischer Gedankenstrich (\\u2014) im direction_contract gefunden (#LANG-01)');
+  }
+
+  return {
+    valid: violations.length === 0,
+    violations
+  };
 }
 
 // ============================================================================
@@ -1005,6 +1313,22 @@ export function runDesignSommelier({
   };
 
   // ==========================================================================
+  // REGEL 6: ANTI-TEMPLATE DIRECTION-VERTRAG & 9-PASS REDLINE (MKT-045)
+  // ==========================================================================
+  const directionContract = buildDirectionContract({
+    slug,
+    industry,
+    pageTitle: domFacts.page_title,
+    selectedArchetype,
+    designMode: mode,
+    isMulticolorChaos,
+    healLegacyFlaw: usesCheapSystemPrimary,
+    lowResCount: domFacts.images?.low_res_images_count || 0,
+    hasRealPhotos: (domFacts.images?.content_images_count || 0) > 0
+  });
+  const directionContractValidation = validateDirectionContract(directionContract);
+
+  // ==========================================================================
   // STUFE 3: FIXFERTIGER CSS :root TOKEN-BLOCK GENERIEREN
   // ==========================================================================
   const p1 = harmonizedAccentPalette[0];
@@ -1055,7 +1379,7 @@ export function runDesignSommelier({
 }`;
 
   return {
-    schema_version: '1.0.0',
+    schema_version: '1.1.0',
     generated_at: new Date().toISOString(),
     slug,
     source_url: sourceUrl || '',
@@ -1096,14 +1420,18 @@ export function runDesignSommelier({
       tinted_neutrals: tintedNeutrals,
       color_harmony_60_30_10: colorHarmonyDecision,
       typography_and_archetype: typographyDecision,
-      image_layout_decision: imageLayoutDecision
+      image_layout_decision: imageLayoutDecision,
+      direction_contract: directionContract,
+      direction_contract_validation: directionContractValidation
     },
     stage_3_blueprint: {
       css_root_tokens: cssRootBlock,
       recommended_hero_layout: imageLayoutDecision.recommended_hero_layout,
       target_hero_polarity: targetHeroPolarity,
       selected_archetype_id: selectedArchetype.id,
-      google_fonts_import: selectedArchetype.google_fonts_import
+      google_fonts_import: selectedArchetype.google_fonts_import,
+      slop_triage_mode: directionContract.slop_triage_mode,
+      world_material: directionContract.world_material
     }
   };
 }
@@ -1140,6 +1468,13 @@ export function renderVisualDnaReportMarkdown(dna) {
         `| Slot ${p.slot} (\`${p.token_prefix}\`) | \`${p.source_hex}\` (\`H=${p.source_hue_deg}deg\`) | \`${p.pastel_surface.hex}\` (\`${p.pastel_surface.oklch}\`) | \`${p.icon_accent.hex}\` (\`${p.icon_accent.oklch}\`) |`
     )
     .join('\n');
+
+  const dc = s.direction_contract || buildDirectionContract({ slug: dna.slug, industry: dna.industry, designMode: dna.design_mode });
+  const dcVal = s.direction_contract_validation || validateDirectionContract(dc);
+  const dcMomentsList = (dc.rich_moments || []).map((m, idx) => `${idx + 1}. ${m}`).join('<br>');
+  const dcRedlineList = (dc.nine_pass_redline_order || []).map(step => `- ${step}`).join('\n');
+  const dcMicrocopyList = (dc.microcopy_hygiene_rules || []).map(rule => `- ${rule}`).join('\n');
+  const dcGuard = dc.rhythm_and_typography_guard || {};
 
   const report = `# Source Visual DNA & Design-Sommelier Dossier: \`${dna.slug}\`
 
@@ -1182,10 +1517,38 @@ ${secondaryRows}
 */
 ${dna.stage_3_blueprint.css_root_tokens}
 \`\`\`
+
+---
+
+## 4. Anti-Template Direction-Vertrag & 9-Pass Redline-Leitplanke (MKT-045)
+
+- **Slop-Triage-Stufe:** \`${dc.slop_triage_mode}\` | **Vertrags-Pruefung:** \`${dcVal.valid ? 'PASS (0 Verstoesse)' : `FAIL (${dcVal.violations.join('; ')})`}\`
+
+| Direction-Vertrag (5 Zeilen vor dem ersten Code) | Verbindliche Festlegung fuer \`${dna.slug}\` |
+|---|---|
+| **1. Product** | ${dc.product_one_liner} |
+| **2. Character (Sperrliste aktiv)** | \`${(dc.character_words || []).join('`, `')}\` *(0 Treffer gegen \`BANNED_TEMPLATE_ADJECTIVES\`)* |
+| **3. World & Material** | ${dc.world_material} |
+| **4. Rich Moments (1–2 Hoehepunkte)** | ${dcMomentsList} |
+| **5. Signature Detail (genau 1)** | ${dc.signature_detail} |
+
+### Rhythmus-, Typografie- & Motion-Leitplanken
+- **Hero-Komposition:** ${dcGuard.hero_composition || ''}
+- **Sektions-Rhythmus:** ${dcGuard.section_rhythm_rule || ''}
+- **Display-Schnittgewicht:** ${dcGuard.display_weight_cap || ''}
+- **Motion-Kurve:** \`${dcGuard.motion_curve || 'cubic-bezier(0.22, 1, 0.36, 1)'}\` (Verboten: \`${(dcGuard.forbidden_motion || []).join('`, `')}\`)
+- **Geschuetzte ACP-Gesetze:** ${(dcGuard.preserved_acp_laws || []).join(' | ')}
+
+### Geordnete 9-Pass Redline-Reihenfolge
+${dcRedlineList}
+
+### Microcopy-Hygiene & Swap-the-Name Gate
+${dcMicrocopyList}
+- **Swap-the-Name Template-Gate:** ${dc.swap_the_name_template_gate}
 `;
 
-  // #LANG-01 Guard: 0x Eszett
-  return report.replace(/\u00df/g, 'ss').replace(/\u1e9e/g, 'SS');
+  // #LANG-01 Guard: 0x Eszett & 0x Satz-Em-Dash
+  return report.replace(/\u00df/g, 'ss').replace(/\u1e9e/g, 'SS').replace(/\u2014/g, '-');
 }
 
 // ============================================================================
@@ -1494,6 +1857,15 @@ async function runSelfTest(browser) {
   const pol = d.sommelier_decisions.polarity_decision;
   const typo = d.sommelier_decisions.typography_and_archetype;
   const img = d.sommelier_decisions.image_layout_decision;
+  const dc = d.sommelier_decisions.direction_contract;
+  const dcVal = d.sommelier_decisions.direction_contract_validation;
+  const negCanary = validateDirectionContract({
+    ...(dc || {}),
+    character_words: ['clean', 'modern', 'premium']
+  });
+  const negAllReported =
+    negCanary.valid === false &&
+    ['clean', 'modern', 'premium'].every(w => negCanary.violations.some(v => v.toLowerCase().includes(w)));
 
   const checks = [
     {
@@ -1525,6 +1897,21 @@ async function runSelfTest(browser) {
       name: 'Regel 5 Bild-Schutz erzwingt split_framed_card bei kleinem Hochformat-Bild (420x560px)',
       passed: img.forbid_fullscreen_bg_image === true && img.recommended_hero_layout === 'split_framed_card',
       detail: `max_w=${img.max_source_image_width_px}px, layout=${img.recommended_hero_layout}`
+    },
+    {
+      name: 'MKT-045 direction_contract vorhanden & besteht validateDirectionContract() (heavy_slop)',
+      passed:
+        Boolean(dc) &&
+        dcVal?.valid === true &&
+        Array.isArray(dcVal?.violations) &&
+        dcVal.violations.length === 0 &&
+        dc.slop_triage_mode === 'heavy_slop',
+      detail: `schema_version=${d.schema_version}, slop_triage_mode=${dc?.slop_triage_mode}, valid=${dcVal?.valid}, violations=${dcVal?.violations?.length}`
+    },
+    {
+      name: 'Negativ-Canary: validateDirectionContract() lehnt [' + "'clean', 'modern', 'premium'" + '] komplett ab',
+      passed: negAllReported,
+      detail: `neg_valid=${negCanary.valid}, violations_count=${negCanary.violations.length}`
     }
   ];
 
