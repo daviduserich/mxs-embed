@@ -51,7 +51,7 @@ DEFAULT_TAB_TITLE = "Kunden & URL-Zentrale"
 
 MONTHLY_YEAR2_CHF = 35
 MONTHLY_SMART_PRO_YEAR2_CHF = 45
-MONTHLY_PLAN_LABEL = "CHF 35.— / Mt. (Basis: Hosting, Cockpit & SEO-/KI-Such-Autopilot) bzw. CHF 45.— / Mt. (Smart-Pro: inkl. aktivem Formular-, E-Mail-, 1-Seiten-A4-PDF- & WhatsApp-Service, statt CHF 295.—/Mt. bei separaten Formular-Anbietern)"
+MONTHLY_PLAN_LABEL = "CHF 35.— / Mt. (Basis: Hosting, Cockpit, SEO-/KI-Such-Autopilot & einfaches Standard-Kontaktformular) bzw. CHF 45.— / Mt. (Smart-Pro: inkl. geführter Smart-Anfrage, Foto-Upload, Sparten-Routing, 1-Seiten-A4-PDF & WhatsApp-Service, statt CHF 295.—/Mt. bei separaten Formular-Anbietern)"
 
 PARTNER_SHEET_OWNER = "jenny"
 
@@ -158,8 +158,8 @@ def compute_monthly_pricing(recommended_chf: Any) -> Dict[str, Any]:
         "monthly_display": f"1. Jahr: CHF {year1}.—/Mt. (Smart-Pro: CHF {year1_pro}.—/Mt.) · ab 2. Jahr: CHF 35.— / 45.— Mt.",
         "monthly_sheet_display": (
             f"1. Jahr: CHF {year1}.— / Mt. Basis (CHF {year1_pro}.— / Mt. Smart-Pro)\n"
-            f"Ab 2. Jahr: CHF 35.— / Mt. (Basis: Hosting, Cockpit & SEO-/KI-Such-Autopilot) bzw. CHF 45.— / Mt. (Smart-Pro: inkl. aktivem Formular-, E-Mail-, 1-Seiten-A4-PDF- & WhatsApp-Service, statt CHF 295.—/Mt. bei separaten Formular-Anbietern)\n"
-            f"Individuelle Formular-Anpassungen (massgeschneiderte Fragen, zusätzliche Formulare oder Empfänger-Weichen) richten wir auf Wunsch gerne im Rahmen der Offerte passgenau für Sie ein."
+            f"Ab 2. Jahr: CHF 35.— / Mt. (Basis: Hosting, Cockpit, SEO-/KI-Such-Autopilot & einfaches Standard-Kontaktformular) bzw. CHF 45.— / Mt. (Smart-Pro: inkl. geführter Smart-Anfrage, Foto-Upload, Sparten-Routing, 1-Seiten-A4-PDF & WhatsApp-Service, statt CHF 295.—/Mt. bei separaten Formular-Anbietern)\n"
+            f"Individuelle Formular-Anpassungen (massgeschneiderte Fragen, zusätzliche Formulare oder Empfänger-Weichen) richten wir auf Wunsch einmalig nach Aufwand passgenau ein."
         ),
     }
 
@@ -170,7 +170,7 @@ def format_einmal_price_sheet_cell(recommended_chf: str, complexity_score: str, 
     form = (formula_chf or rec).strip()
     return (
         f"{rec} einmalig\n"
-        f"+ CHF 35.— / Mt. (Basis) bzw. CHF 45.— / Mt. (Smart-Pro inkl. Formular/PDF/E-Mail statt CHF 295.—/Mt.)\n"
+        f"+ CHF 35.— / Mt. (Basis inkl. Standard-Kontaktformular) bzw. CHF 45.— / Mt. (Smart-Pro inkl. Smart-Anfrage/Routing/PDF/WhatsApp)\n"
         f"Score: {score} · Formel: {form}"
     )
 

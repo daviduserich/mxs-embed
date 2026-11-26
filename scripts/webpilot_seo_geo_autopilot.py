@@ -191,8 +191,8 @@ SITE_SEO_PROFILES = {
             "Zwei-Wege-Freiheit: Kunden passen ihre Webseite entweder selbst in 10 Sekunden im Browser über das "
             "Studio Cockpit v4.0 und Kunden-Cockpit Light für CHF 0.— pro Änderung an oder wählen die "
             "schlüsselfertige Sorglos-Betreuung über angeschlossene Schweizer Partner-Agenturen – "
-            "mit transparenter 2-Stufen-Monatspauschale (CHF 35.— / Mt. Basis inkl. Schweizer Hosting, Cockpit & "
-            "automatischer Google-/KI-Such-Aufbereitung bzw. CHF 45.— / Mt. Smart-Formular & PDF-Pro statt CHF 295.—/Mt. bei Drittanbietern)."
+            "mit transparenter 2-Stufen-Monatspauschale (CHF 35.— / Mt. Basis inkl. Schweizer Hosting, Cockpit, "
+            "Google-/KI-Such-Aufbereitung & einfachem Standard-Kontaktformular bzw. CHF 45.— / Mt. Smart-Formular & PDF-Pro statt CHF 295.—/Mt. bei Drittanbietern)."
         ),
         "area_served": [
             "Zofingen", "Aarau", "Baden", "Wettingen", "Olten", "Solothurn",
@@ -218,7 +218,7 @@ SITE_SEO_PROFILES = {
             ),
             (
                 "Was ist in den beiden Monats-Stufen (CHF 35.— Basis vs. CHF 45.— Smart-Formular & PDF-Pro) enthalten?",
-                "In WebPilot Basis (CHF 35.— / Monat) sind schnelles Schweizer Hosting in Zürich und Genf inklusive SSL ohne überraschende Update- oder Wartungsrechnungen, der volle Zugang zum Studio Cockpit v4.0 und Kunden-Cockpit Light (CHF 0.— Lizenz) sowie die automatische Aufbereitung für Google und moderne KI-Suchen enthalten. Im Tarif WebPilot Smart-Formular & PDF-Pro (CHF 45.— / Monat, nur + CHF 10.— / Mt. statt CHF 195.— bis 295.—/Mt. bei separaten Formular-Anbietern) ist zusätzlich der laufende Betrieb für interaktive Anfrage-, Offerten-, Bewerbungs- oder Vereinsformulare mit Handy-Foto-Upload, direkter E-Mail-Zustellung, 1-Seiten-A4-PDF mit 2 QR-Codes und WhatsApp-Sofortmeldung integriert. Ein Standard-Formular ist im Aufbau vorbereitet; individuelle Frage-Strecken, Spezial-Formulare oder Abteilungs-Weichen richten wir im persönlichen Angebot (Richtwert ab CHF 250.— bis 600.— einmalig) passgenau ein."
+                "In WebPilot Basis (CHF 35.— / Monat) sind schnelles Schweizer Hosting in Zürich und Genf inklusive SSL ohne überraschende Update- oder Wartungsrechnungen, der volle Zugang zum Studio Cockpit v4.0 und Kunden-Cockpit Light (CHF 0.— Lizenz), die automatische Aufbereitung für Google und moderne KI-Suchen sowie ein einfaches Standard-Kontaktformular (Name, Kontakt, Nachricht direkt per E-Mail ans Büro) enthalten. Im Tarif WebPilot Smart-Formular & PDF-Pro (CHF 45.— / Monat, nur + CHF 10.— / Mt. statt CHF 195.— bis 295.—/Mt. bei separaten Formular-Anbietern) kommt der laufende Betrieb für geführte, mehrstufige Anfrage-, Offerten-, Bewerbungs- oder Vereinsformulare mit Handy-Foto-Upload, Sparten-/Mitarbeiter-Routing, druckfertigem 1-Seiten-A4-PDF inklusive 2 QR-Codes und WhatsApp-Sofortmeldung hinzu. Individuelle oder besonders umfangreiche Spezial-Formulare richten wir einmalig nach Aufwand passgenau ein."
             ),
             (
                 "Wie sorgt WebPilot dafür, dass meine Firma bei Google und in modernen KI-Suchen gefunden wird?",
