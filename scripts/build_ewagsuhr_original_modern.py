@@ -2012,7 +2012,7 @@ def build_index(mode: str, folder: str) -> str:
               {img_tag(folder, "images/film-35.jpg", "Elektroinstallateur der EWAG Suhr im Einsatz", slot="hero_img_2")}
             </div>
             <div class="photo-frame">
-              {img_tag(folder, "images/raum-ausstellung.jpg", "EWAG Ausstellung für Beleuchtung und Gebäudeautomation in Suhr", slot="hero_img_3")}
+              {img_tag(folder, "images/ref-mfh-zopfmatte-suhr_01.jpg", "Realisiertes Elektroprojekt in Suhr – MFH Zopfmatte", slot="hero_img_3")}
             </div>
           </div>
         </div>
@@ -2023,7 +2023,7 @@ def build_index(mode: str, folder: str) -> str:
       <div class="wrap">
         <div class="split-grid">
           <div class="split-media">
-            {img_tag(folder, "images/team_02.jpg", "Das Team der EWAG / E. Widmer AG in Suhr", slot="team_group_img")}
+            {img_tag(folder, "images/film-15.jpg", "Empfang und Projektleitung bei der EWAG / E. Widmer AG in Suhr", slot="team_group_img")}
           </div>
           <div class="split-content">
             <div>

@@ -392,7 +392,7 @@
     "is_used": false,
     "used_in": [],
     "used_in_pages": [],
-    "alt": "EWAG / E. Widmer AG (Suhr) – Einblick & Referenz: Film 115: Referenz, Projekt & Angebot – EWAG / E. Widmer AG in Suhr (AG) – EWAG / E. Widmer AG in Suhr (AG)"
+    "alt": "EWAG / E. Widmer AG (Suhr) – Einblick & Referenz: Film 115: Referenz, Projekt & Angebot – EWAG / E. Widmer AG in Suhr (AG) – EWAG / E. Widmer AG in Suhr (AG) – EWAG / E. Widmer AG in Suhr (AG)"
   },
   {
     "nr": 10,
@@ -410,10 +410,18 @@
     "cdn_url": "https://vorschau.magnet-xs.ch/ewagsuhr-modern/images/film-15.jpg",
     "cloudflare_url": "https://vorschau.magnet-xs.ch/ewagsuhr-modern/images/film-15.jpg",
     "cloudflare_short": "vorschau.magnet-xs.ch/ewagsuhr-modern/images/film-15.jpg",
-    "is_used": false,
-    "used_in": [],
-    "used_in_pages": [],
-    "alt": "EWAG / E. Widmer AG (Suhr) – Einblick & Referenz: Film 15: Referenz, Projekt & Angebot – EWAG / E. Widmer AG in Suhr (AG) – EWAG / E. Widmer AG in Suhr (AG)"
+    "is_used": true,
+    "used_in": [
+      {
+        "datei": "index.html",
+        "slot": "image",
+        "is_hero": false
+      }
+    ],
+    "used_in_pages": [
+      "index.html"
+    ],
+    "alt": "Empfang und Projektleitung bei der EWAG / E. Widmer AG in Suhr"
   },
   {
     "nr": 11,
@@ -660,21 +668,15 @@
     "is_used": true,
     "used_in": [
       {
-        "datei": "index.html",
-        "slot": "image",
-        "is_hero": false
-      },
-      {
         "datei": "raeumlichkeiten.html",
         "slot": "image",
         "is_hero": false
       }
     ],
     "used_in_pages": [
-      "index.html",
       "raeumlichkeiten.html"
     ],
-    "alt": "EWAG Ausstellung für Beleuchtung und Gebäudeautomation in Suhr"
+    "alt": "Ausstellung der EWAG / E. Widmer AG in Suhr"
   },
   {
     "nr": 18,
@@ -956,15 +958,21 @@
     "is_used": true,
     "used_in": [
       {
+        "datei": "index.html",
+        "slot": "image",
+        "is_hero": false
+      },
+      {
         "datei": "referenzen.html",
         "slot": "image",
         "is_hero": false
       }
     ],
     "used_in_pages": [
+      "index.html",
       "referenzen.html"
     ],
-    "alt": "MFH Zopfmatte Suhr – Referenz EWAG Suhr"
+    "alt": "Realisiertes Elektroprojekt in Suhr – MFH Zopfmatte"
   },
   {
     "nr": 28,
@@ -2090,16 +2098,10 @@
         "datei": "firma.html",
         "slot": "image",
         "is_hero": false
-      },
-      {
-        "datei": "index.html",
-        "slot": "image",
-        "is_hero": false
       }
     ],
     "used_in_pages": [
-      "firma.html",
-      "index.html"
+      "firma.html"
     ],
     "alt": "Das gesamte Team der EWAG / E. Widmer AG"
   }
