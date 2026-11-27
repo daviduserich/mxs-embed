@@ -4525,6 +4525,10 @@ function acpRenderNavEditorList() {
   var listEl = document.getElementById("acp-nav-editor-list");
   if (!listEl) return;
   var items = acpCurrentDesignState.navItems || [];
+  listEl.classList.remove("acp-nav-cols-1", "acp-nav-cols-2", "acp-nav-cols-3", "acp-nav-cols-4");
+  if (items.length >= 1 && items.length <= 4) {
+    listEl.classList.add("acp-nav-cols-" + items.length);
+  }
   if (items.length === 0) {
     listEl.innerHTML = '<div style="grid-column:1/-1;font-size:13px;color:#94a3b8;padding:8px 0;">Keine Hauptmenü-Punkte im aktuellen Dokument erkannt.</div>';
     return;

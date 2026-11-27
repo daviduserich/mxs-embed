@@ -4094,6 +4094,12 @@ body.acp-dock-open #acp-draft-widget {
   gap: 12px;
   align-items: stretch;
 }
+@media (min-width: 681px) {
+  .acp-nav-editor-grid.acp-nav-cols-1 { grid-template-columns: 1fr; }
+  .acp-nav-editor-grid.acp-nav-cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .acp-nav-editor-grid.acp-nav-cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .acp-nav-editor-grid.acp-nav-cols-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+}
 .acp-nav-item-card {
   background: #0b0f17;
   border: 1px solid rgba(255, 255, 255, 0.12);

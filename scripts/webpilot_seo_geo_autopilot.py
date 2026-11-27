@@ -491,6 +491,50 @@ SITE_SEO_PROFILES = {
             )
         ]
     },
+    "atelier-piede": {
+        "schema_type": "HealthAndBeautyBusiness",
+        "company_name": "Atelier Piede – Praxis für Fusspflege",
+        "legal_name": "Atelier Piede · Christina Widmer – von Moos",
+        "city": "Kölliken",
+        "canton": "AG",
+        "postal_code": "5742",
+        "street_address": "Wiesenstrasse 44",
+        "phone": "+41 79 939 99 88",
+        "email": "christina@atelierpiede.ch",
+        "uid": "",
+        "source_url": "https://www.atelierpiede.ch/",
+        "hero_image": "images/hero-fusspflege.jpg",
+        "summary_2s": (
+            "Atelier Piede an der Wiesenstrasse 44 in 5742 Kölliken (Kanton Aargau) ist die Praxis für Fusspflege "
+            "von Christina Widmer – von Moos, diplomierte Fusspflegerin. Angeboten werden die Praxisbehandlungen "
+            "Small (CHF 79.–, 50 Min.), Standard (CHF 89.–, 65 Min.) und Premium (CHF 115.–, 80 Min.) sowie "
+            "mobile Fusspflege bei Ihnen zu Hause, in Seniorenresidenzen, Pflegeheimen, Spitälern und Kliniken."
+        ),
+        "area_served": [
+            "Kölliken", "Safenwil", "Entfelden", "Oberentfelden", "Unterentfelden",
+            "Muhen", "Holziken", "Schöftland", "Oftringen", "Zofingen", "Aarau", "Kanton Aargau"
+        ],
+        "services": [
+            "Small Fusspflege (CHF 79.–, 50 Minuten): Fussbad, Nägel kürzen, Hornhautbehandlung, Entfernen von Druckstellen, Füsse eincremen",
+            "Standard Fusspflege (CHF 89.–, 65 Minuten): inklusive Fussmassage",
+            "Premium Fusspflege (CHF 115.–, 80 Minuten): inklusive Ein Glas Prosecco und etwas zum Knabbern, Fusspeeling und Fussmassage",
+            "Mobile Fusspflege nach Aufwand: bei Ihnen zu Hause, in Seniorenresidenzen und Pflegeheimen sowie im Spital oder in einer Klinik"
+        ],
+        "core_faqs": [
+            (
+                "Welche Fusspflege-Behandlungen bietet Atelier Piede in Kölliken an?",
+                "Atelier Piede bietet drei Praxisbehandlungen: Small (CHF 79.–, 50 Minuten), Standard mit Fussmassage (CHF 89.–, 65 Minuten) sowie Premium mit einem Glas Prosecco, Fusspeeling und Fussmassage (CHF 115.–, 80 Minuten)."
+            ),
+            (
+                "Bietet Atelier Piede auch mobile Fusspflege und Hausbesuche an?",
+                "Ja. Christina Widmer – von Moos bietet mobile Fusspflege nach Aufwand direkt bei Ihnen zu Hause, in Seniorenresidenzen und Pflegeheimen sowie im Spital oder in einer Klinik an."
+            ),
+            (
+                "Wie kann ich bei Atelier Piede einen Termin vereinbaren?",
+                "Termine können telefonisch oder per WhatsApp unter 079 939 99 88, per E-Mail an christina@atelierpiede.ch oder direkt über das Terminanfrage-Formular auf dieser Seite vereinbart werden."
+            )
+        ]
+    },
     "herzensarbeit": {
         "schema_type": "HealthAndBeautyBusiness",
         "company_name": "Herzensarbeit · Anne-Katrin Koch",
@@ -1040,6 +1084,7 @@ PUBLIC_SLUG_MAP = {
     "preview-joma-original": "joma-original",
     "preview-joma-modern": "joma-modern",
     "preview-ewagsuhr-original": "ewagsuhr-original",
+    "preview-atelier-piede": "atelier-piede",
     "preview-ewagsuhr-modern": "ewagsuhr-modern",
     "preview-imp-marketing": "imp-marketing-vollversion",
     "preview-imp-marketing-v2": "imp-marketing-v2",

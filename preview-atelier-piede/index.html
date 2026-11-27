@@ -1,0 +1,1408 @@
+<!DOCTYPE html>
+<html lang="de-CH" data-design-mode="evolution" data-expected-hero-polarity="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <meta http-equiv="X-Frame-Options" content="DENY">
+  <meta http-equiv="X-XSS-Protection" content="1; mode=block">
+  <meta name="referrer" content="no-referrer">
+  <title>Atelier Piede – Praxis für Fusspflege | Christina Widmer – von Moos, 5742 Kölliken</title>
+  <meta name="description" content="Atelier Piede in 5742 Kölliken: Diplomierte Fusspflegerin Christina Widmer – von Moos. Behandlung in der Praxis oder mobil bei Ihnen zu Hause, im Heim oder Spital.">
+  <link rel="icon" type="image/png" href="images/favicon-32x32.png">
+  <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-page: #FAF4EC;
+      --bg-card: #F3E7DA;
+      --bg-elevated: #FDF9F4;
+      --espresso: #4A3327;
+      --espresso-dark: #3E271C;
+      --accent: #9C643B;
+      --accent-hover: #7F4F2C;
+      --text-main: #3E271C;
+      --text-muted: #6E5445;
+      --text-on-dark: #FAF4EC;
+      --text-on-dark-muted: #E6D6C5;
+      --border-light: #E2D1BE;
+      --border-dark: rgba(250, 244, 236, 0.22);
+      --radius-sm: 4px;
+      --radius-md: 8px;
+      --maxw: 1100px;
+      --font-head: 'Cormorant Garamond', Georgia, serif;
+      --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+
+    @media (prefers-reduced-motion: no-preference) {
+      @view-transition { navigation: auto; }
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; overflow-x: clip; }
+    body {
+      font-family: var(--font-body);
+      background: var(--bg-page);
+      color: var(--text-main);
+      line-height: 1.62;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: clip;
+      font-variant-numeric: tabular-nums;
+      caret-color: var(--accent);
+    }
+    ::selection { background: rgba(156, 100, 59, 0.2); color: var(--espresso-dark); }
+    :focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+    a { color: inherit; text-decoration: none; text-underline-offset: 3px; }
+    img { max-width: 100%; height: auto; display: block; }
+    button { font-family: inherit; }
+
+    .wrap {
+      max-width: var(--maxw);
+      margin: 0 auto;
+      padding: 0 24px;
+      width: 100%;
+    }
+
+    /* Header (1-Zeilen-Gesetz #UI-02) */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 60;
+      background: rgba(250, 244, 236, 0.96);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border-light);
+    }
+    .header-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      min-height: 74px;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex: 0 0 auto;
+    }
+    .brand img {
+      height: 44px;
+      width: auto;
+      object-fit: contain;
+    }
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.15;
+    }
+    .brand-name {
+      font-family: var(--font-head);
+      font-size: 21px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      color: var(--espresso-dark);
+      white-space: nowrap;
+    }
+    .brand-sub {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      white-space: nowrap;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      flex-wrap: nowrap;
+    }
+    .nav-links a {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--text-main);
+      white-space: nowrap;
+      padding: 6px 0;
+      border-bottom: 2px solid transparent;
+      transition: color 0.15s ease, border-color 0.15s ease;
+    }
+    .nav-links a:hover {
+      color: var(--accent);
+      border-bottom-color: var(--accent);
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex: 0 0 auto;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      min-height: 44px;
+      padding: 10px 18px;
+      border-radius: var(--radius-md);
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      border: 1px solid transparent;
+      transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+      white-space: nowrap;
+    }
+    .btn-primary {
+      background: var(--espresso);
+      color: var(--text-on-dark);
+      border-color: var(--espresso);
+    }
+    .btn-primary:hover {
+      background: var(--espresso-dark);
+      border-color: var(--espresso-dark);
+    }
+    .btn-secondary {
+      background: var(--bg-elevated);
+      color: var(--espresso-dark);
+      border-color: var(--accent);
+    }
+    .btn-secondary:hover {
+      background: var(--bg-card);
+      border-color: var(--espresso);
+    }
+    .btn-on-dark {
+      background: var(--bg-page);
+      color: var(--espresso-dark);
+      border-color: var(--bg-page);
+    }
+    .btn-on-dark:hover {
+      background: var(--bg-card);
+    }
+    .btn-on-dark-outline {
+      background: rgba(250, 244, 236, 0.08);
+      color: var(--text-on-dark);
+      border-color: rgba(250, 244, 236, 0.36);
+    }
+    .btn-on-dark-outline:hover {
+      background: rgba(250, 244, 236, 0.16);
+      border-color: var(--bg-page);
+    }
+
+    .burger-btn {
+      display: none;
+      align-items: center;
+      justify-content: center;
+      width: 44px;
+      height: 44px;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border-light);
+      background: var(--bg-elevated);
+      color: var(--espresso-dark);
+      cursor: pointer;
+    }
+    .mobile-nav {
+      display: none;
+      flex-direction: column;
+      gap: 4px;
+      padding: 12px 24px 18px;
+      background: var(--bg-page);
+      border-top: 1px solid var(--border-light);
+    }
+    @media (max-width: 980px) { .mobile-nav.open { display: flex; } }
+    @media (min-width: 981px) { .mobile-nav { display: none !important; } }
+    .mobile-nav a {
+      padding: 12px 10px;
+      font-size: 15px;
+      font-weight: 500;
+      border-radius: var(--radius-md);
+      color: var(--espresso-dark);
+    }
+    .mobile-nav a:hover { background: var(--bg-card); }
+
+    /* Kicker (#UI-01: pur linksbuendig ohne Vorstrich) */
+    .section-kicker {
+      display: block;
+      font-family: var(--font-body);
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 10px;
+      background: transparent;
+      border: none;
+      padding: 0;
+    }
+
+    /* Hero Section (#UI-02 Bottom-Edge Baseline Lock) */
+    .hero-section {
+      padding: 52px 0 56px;
+      background: var(--bg-page);
+    }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 44px;
+      align-items: stretch;
+    }
+    .hero-left {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 28px;
+    }
+    .hero-title {
+      font-family: var(--font-head);
+      font-size: clamp(46px, 5.2vw, 66px);
+      font-weight: 600;
+      font-style: italic;
+      line-height: 1.04;
+      color: var(--espresso-dark);
+      margin-bottom: 14px;
+      letter-spacing: -0.01em;
+    }
+    .hero-subtitle {
+      font-family: var(--font-head);
+      font-size: clamp(22px, 2.4vw, 28px);
+      font-weight: 500;
+      font-style: italic;
+      line-height: 1.3;
+      color: var(--espresso);
+      margin-bottom: 18px;
+    }
+    .hero-lead {
+      font-size: 16px;
+      color: var(--text-muted);
+      max-width: 50ch;
+      margin-bottom: 26px;
+    }
+    .hero-ctas {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .trust-row {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+    }
+    .trust-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-md);
+      padding: 14px 12px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      gap: 4px;
+    }
+    .trust-title {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--espresso-dark);
+      line-height: 1.3;
+    }
+    .trust-sub {
+      font-size: 12px;
+      color: var(--text-muted);
+      line-height: 1.35;
+    }
+
+    .hero-media {
+      height: 100%;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      border: 1px solid var(--border-light);
+      background: var(--bg-card);
+    }
+    .hero-media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 45%;
+    }
+
+    /* Sections */
+    .section-block {
+      padding: 56px 0;
+      border-top: 1px solid var(--border-light);
+    }
+    .section-header {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+      margin-bottom: 28px;
+    }
+    .section-title {
+      font-family: var(--font-head);
+      font-size: clamp(32px, 3.6vw, 42px);
+      font-weight: 600;
+      line-height: 1.12;
+      color: var(--espresso-dark);
+    }
+    .pdf-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--accent);
+      padding: 8px 14px;
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-md);
+      background: var(--bg-elevated);
+      transition: background 0.15s ease, border-color 0.15s ease;
+    }
+    .pdf-link:hover {
+      background: var(--bg-card);
+      border-color: var(--accent);
+    }
+
+    /* Treatment Cards (#UI-14 S-15, S-31, S-34) */
+    .treatments-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 20px;
+      align-items: stretch;
+    }
+    .treatment-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-md);
+      padding: 26px 24px;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+    .treatment-top {
+      padding-bottom: 18px;
+      border-bottom: 1px solid var(--border-light);
+      margin-bottom: 18px;
+    }
+    .treatment-name {
+      font-family: var(--font-head);
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--espresso-dark);
+      line-height: 1.15;
+      margin-bottom: 6px;
+    }
+    .treatment-meta {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 12px;
+    }
+    .treatment-price {
+      font-family: var(--font-head);
+      font-size: 26px;
+      font-weight: 700;
+      color: var(--espresso);
+      font-variant-numeric: tabular-nums;
+    }
+    .treatment-duration {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 13px;
+      font-style: italic;
+      color: var(--text-muted);
+    }
+    .treatment-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-bottom: 24px;
+    }
+    .treatment-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 9px;
+      font-size: 15px;
+      color: var(--text-main);
+      line-height: 1.45;
+    }
+    .treatment-list li svg {
+      flex: 0 0 auto;
+      margin-top: 3px;
+      color: var(--accent);
+    }
+    .treatment-cta {
+      margin-top: auto;
+      width: 100%;
+    }
+
+    /* Mobile Fusspflege Banner (#mobil) */
+    .mobile-care-card {
+      margin-top: 22px;
+      background: var(--bg-card);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-md);
+      padding: 28px 28px;
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 28px;
+      align-items: center;
+    }
+    .mobile-care-head {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .mobile-care-title-row {
+      display: flex;
+      align-items: baseline;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+    .mobile-care-title {
+      font-family: var(--font-head);
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--espresso-dark);
+      line-height: 1.15;
+    }
+    .mobile-care-price {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      color: var(--espresso-dark);
+      background: var(--bg-elevated);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-sm);
+      padding: 4px 10px;
+    }
+    .mobile-care-desc {
+      font-size: 15px;
+      color: var(--text-muted);
+      max-width: 48ch;
+    }
+    .mobile-care-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .mobile-care-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 15px;
+      font-weight: 500;
+      color: var(--espresso-dark);
+    }
+    .mobile-care-list li svg {
+      flex: 0 0 auto;
+      margin-top: 3px;
+      color: var(--accent);
+    }
+
+    /* Dark Espresso Contact & Appointment Section (#termin) */
+    .contact-section {
+      padding: 60px 0;
+      background: var(--espresso);
+      color: var(--text-on-dark);
+    }
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 0.95fr 1.05fr;
+      gap: 40px;
+      align-items: stretch;
+    }
+    .contact-info {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 24px;
+    }
+    .contact-heading {
+      font-family: var(--font-head);
+      font-size: clamp(34px, 3.8vw, 44px);
+      font-weight: 600;
+      font-style: italic;
+      line-height: 1.1;
+      color: var(--text-on-dark);
+      margin-bottom: 12px;
+    }
+    .owner-name {
+      font-size: 19px;
+      font-weight: 600;
+      color: var(--text-on-dark);
+      margin-bottom: 2px;
+    }
+    .owner-role {
+      font-size: 15px;
+      color: var(--text-on-dark-muted);
+      margin-bottom: 18px;
+    }
+    .address-block {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 15px;
+      color: var(--text-on-dark);
+      padding: 14px 16px;
+      border-radius: var(--radius-md);
+      background: rgba(62, 39, 28, 0.55);
+      border: 1px solid var(--border-dark);
+      margin-bottom: 18px;
+    }
+    .address-block svg {
+      flex: 0 0 auto;
+      margin-top: 3px;
+      color: #E6C7A8;
+    }
+    .contact-actions {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+    }
+    .contact-actions .btn {
+      width: 100%;
+      justify-content: flex-start;
+      padding: 10px 14px;
+    }
+
+    /* Standard Terminanfrage-Formular (CHF 35.–/Mt. Basis) */
+    .form-card {
+      background: var(--bg-page);
+      color: var(--text-main);
+      border-radius: var(--radius-md);
+      padding: 28px 26px;
+      border: 1px solid var(--border-light);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .form-title {
+      font-family: var(--font-head);
+      font-size: 26px;
+      font-weight: 700;
+      color: var(--espresso-dark);
+      margin-bottom: 4px;
+    }
+    .form-sub {
+      font-size: 14px;
+      color: var(--text-muted);
+      margin-bottom: 18px;
+    }
+    .form-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+    }
+    .field {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      margin-bottom: 14px;
+    }
+    .field label {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--espresso-dark);
+    }
+    .field input,
+    .field select,
+    .field textarea {
+      width: 100%;
+      min-height: 44px;
+      padding: 10px 12px;
+      border-radius: var(--radius-md);
+      border: 1px solid #CBB69F;
+      background: #FFFFFF;
+      color: var(--espresso-dark);
+      font-family: inherit;
+      font-size: 15px;
+      transition: border-color 0.15s ease;
+    }
+    .field textarea {
+      min-height: 88px;
+      resize: vertical;
+    }
+    .field input:focus,
+    .field select:focus,
+    .field textarea:focus {
+      outline: none;
+      border-color: var(--accent);
+      box-shadow: 0 0 0 2px rgba(156, 100, 59, 0.18);
+    }
+    .field input:user-invalid,
+    .field select:user-invalid {
+      border-color: #B42318;
+    }
+    .check-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-bottom: 16px;
+      cursor: pointer;
+    }
+    .check-row input {
+      width: 18px;
+      height: 18px;
+      margin-top: 2px;
+      accent-color: var(--espresso);
+      flex: 0 0 auto;
+    }
+    .form-feedback {
+      display: none;
+      margin-top: 12px;
+      padding: 12px 14px;
+      border-radius: var(--radius-md);
+      font-size: 14px;
+      font-weight: 500;
+    }
+    .form-feedback.ok {
+      display: block;
+      background: #ECFDF3;
+      color: #065F46;
+      border: 1px solid #A7F3D0;
+    }
+    .form-feedback.err {
+      display: block;
+      background: #FEF2F2;
+      color: #991B1B;
+      border: 1px solid #FECACA;
+    }
+
+    /* Footer */
+    .site-footer {
+      background: var(--espresso-dark);
+      color: var(--text-on-dark-muted);
+      padding: 34px 0;
+      border-top: 1px solid var(--border-dark);
+    }
+    .footer-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    .footer-brand {
+      font-size: 14px;
+      color: var(--text-on-dark);
+    }
+    .footer-links {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      flex-wrap: wrap;
+      font-size: 13px;
+    }
+    .footer-links a:hover {
+      color: var(--text-on-dark);
+      text-decoration: underline;
+    }
+
+    /* Mobile Sticky Bar (#UI-13) */
+    .mobile-sticky-bar {
+      display: none;
+      position: fixed;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 70;
+      background: rgba(250, 244, 236, 0.98);
+      border-top: 1px solid var(--border-light);
+      padding: 10px 14px calc(10px + env(safe-area-inset-bottom, 0px));
+      gap: 10px;
+    }
+    .mobile-sticky-bar .btn {
+      flex: 1 1 0;
+      min-height: 44px;
+      font-size: 14px;
+    }
+
+    /* Legal Pages */
+    .legal-hero {
+      padding: 46px 0 28px;
+      border-bottom: 1px solid var(--border-light);
+    }
+    .legal-box {
+      background: var(--bg-card);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-md);
+      padding: 32px 28px;
+      max-width: 780px;
+    }
+    .legal-box h2 {
+      font-family: var(--font-head);
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--espresso-dark);
+      margin: 22px 0 8px;
+    }
+    .legal-box h2:first-child { margin-top: 0; }
+    .legal-box p { font-size: 15px; color: var(--text-main); margin-bottom: 10px; }
+
+    /* Responsive */
+    @media (max-width: 980px) {
+      .nav-links, .header-cta-desktop { display: none; }
+      .burger-btn { display: inline-flex; }
+      .hero-grid,
+      .treatments-grid,
+      .mobile-care-card,
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+      .hero-media {
+        max-height: 420px;
+      }
+    }
+    @media (max-width: 640px) {
+      .wrap { padding: 0 18px; }
+      .hero-section { padding: 32px 0 38px; }
+      .trust-row,
+      .contact-actions,
+      .form-grid {
+        grid-template-columns: 1fr;
+      }
+      .field input,
+      .field select,
+      .field textarea {
+        font-size: 16px;
+      }
+      .mobile-sticky-bar { display: flex; }
+      .site-footer { padding-bottom: 92px; }
+      .brand-sub { display: none; }
+      .footer-links { gap: 8px; }
+      .footer-links a, .legal-box a {
+        display: inline-flex;
+        align-items: center;
+        min-height: 36px;
+        padding: 6px 8px;
+      }
+    }
+</style>
+  <!-- WP-SEO-AUTOPILOT-START -->
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+  <meta name="geo.region" content="CH-AG">
+  <meta name="geo.placename" content="Kölliken">
+  <link rel="canonical" href="https://vorschau.magnet-xs.ch/atelier-piede/">
+  <meta property="og:locale" content="de_CH">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Atelier Piede – Praxis für Fusspflege">
+  <meta property="og:title" content="Atelier Piede – Praxis für Fusspflege | Christina Widmer – von Moos, 5742 Kölliken">
+  <meta property="og:description" content="Atelier Piede in 5742 Kölliken: Diplomierte Fusspflegerin Christina Widmer – von Moos. Behandlung in der Praxis oder mobil bei Ihnen zu Hause, im Heim oder Spital.">
+  <meta property="og:url" content="https://vorschau.magnet-xs.ch/atelier-piede/">
+  <meta property="og:image" content="https://vorschau.magnet-xs.ch/atelier-piede/images/hero-fusspflege.jpg">
+  <meta property="og:image:alt" content="Atelier Piede – Praxis für Fusspflege – Kölliken (AG)">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Atelier Piede – Praxis für Fusspflege | Christina Widmer – von Moos, 5742 Kölliken">
+  <meta name="twitter:description" content="Atelier Piede in 5742 Kölliken: Diplomierte Fusspflegerin Christina Widmer – von Moos. Behandlung in der Praxis oder mobil bei Ihnen zu Hause, im Heim oder Spital.">
+  <meta name="twitter:image" content="https://vorschau.magnet-xs.ch/atelier-piede/images/hero-fusspflege.jpg">
+  <style id="wp-modern-web-css">
+    @media (prefers-reduced-motion: no-preference) { @view-transition { navigation: auto; } }
+    html { interpolate-size: allow-keywords; }
+    :where(img[width][height]) { height: auto; }
+    input:user-invalid, textarea:user-invalid, select:user-invalid { border-color: #DC2626 !important; outline: none; }
+    :where(a,button,input,select,textarea,summary,[tabindex]):focus-visible{outline:2px solid var(--accent,var(--primary,#e8781e));outline-offset:2px;}
+    .wp-skip-link{position:absolute;top:0;left:0;width:1px;height:1px;padding:0;margin:-1px;border:0;overflow:hidden;clip-path:inset(50%);white-space:nowrap;z-index:99999;background:#0d0f12;color:#ffffff;font-weight:600;text-decoration:none;border-radius:4px;}
+    .wp-skip-link:focus,.wp-skip-link:focus-visible{width:auto;height:auto;margin:0;padding:10px 16px;clip-path:none;overflow:visible;top:8px;left:8px;}
+  </style>
+  <script type="speculationrules" id="wp-speculation-rules">
+{
+  "prefetch": [
+    {
+      "where": {
+        "and": [
+          {
+            "href_matches": "/*"
+          },
+          {
+            "not": {
+              "href_matches": [
+                "/*cockpit*",
+                "/cockpit*",
+                "/*team-update*",
+                "/*onboarding*",
+                "/api/*",
+                "/cdn-cgi/*",
+                "/*.pdf",
+                "/*?*",
+                "/*#*"
+              ]
+            }
+          },
+          {
+            "not": {
+              "selector_matches": "[target=_blank], [download], [data-no-prerender], [href^='mailto:'], [href^='tel:']"
+            }
+          }
+        ]
+      },
+      "eagerness": "moderate"
+    }
+  ],
+  "prerender": [
+    {
+      "where": {
+        "and": [
+          {
+            "href_matches": "/*"
+          },
+          {
+            "not": {
+              "href_matches": [
+                "/*cockpit*",
+                "/cockpit*",
+                "/*team-update*",
+                "/*onboarding*",
+                "/api/*",
+                "/cdn-cgi/*",
+                "/*.pdf",
+                "/*?*",
+                "/*#*"
+              ]
+            }
+          },
+          {
+            "not": {
+              "selector_matches": "[target=_blank], [download], [data-no-prerender], [href^='mailto:'], [href^='tel:']"
+            }
+          }
+        ]
+      },
+      "eagerness": "conservative"
+    }
+  ]
+}
+  </script>
+  <script type="application/ld+json" id="wp-seo-schema">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": [
+        "HealthAndBeautyBusiness",
+        "LocalBusiness"
+      ],
+      "@id": "https://vorschau.magnet-xs.ch/atelier-piede/#organization",
+      "name": "Atelier Piede – Praxis für Fusspflege",
+      "legalName": "Atelier Piede · Christina Widmer – von Moos",
+      "description": "Atelier Piede an der Wiesenstrasse 44 in 5742 Kölliken (Kanton Aargau) ist die Praxis für Fusspflege von Christina Widmer – von Moos, diplomierte Fusspflegerin. Angeboten werden die Praxisbehandlungen Small (CHF 79.–, 50 Min.), Standard (CHF 89.–, 65 Min.) und Premium (CHF 115.–, 80 Min.) sowie mobile Fusspflege bei Ihnen zu Hause, in Seniorenresidenzen, Pflegeheimen, Spitälern und Kliniken.",
+      "url": "https://vorschau.magnet-xs.ch/atelier-piede/",
+      "image": "https://vorschau.magnet-xs.ch/atelier-piede/images/hero-fusspflege.jpg",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Wiesenstrasse 44",
+        "postalCode": "5742",
+        "addressLocality": "Kölliken",
+        "addressRegion": "AG",
+        "addressCountry": "CH"
+      },
+      "areaServed": [
+        {
+          "@type": "City",
+          "name": "Kölliken"
+        },
+        {
+          "@type": "City",
+          "name": "Safenwil"
+        },
+        {
+          "@type": "City",
+          "name": "Entfelden"
+        },
+        {
+          "@type": "City",
+          "name": "Oberentfelden"
+        },
+        {
+          "@type": "City",
+          "name": "Unterentfelden"
+        },
+        {
+          "@type": "City",
+          "name": "Muhen"
+        },
+        {
+          "@type": "City",
+          "name": "Holziken"
+        },
+        {
+          "@type": "City",
+          "name": "Schöftland"
+        },
+        {
+          "@type": "City",
+          "name": "Oftringen"
+        },
+        {
+          "@type": "City",
+          "name": "Zofingen"
+        },
+        {
+          "@type": "City",
+          "name": "Aarau"
+        },
+        {
+          "@type": "AdministrativeArea",
+          "name": "Kanton Aargau"
+        }
+      ],
+      "knowsAbout": [
+        "Small Fusspflege (CHF 79.–, 50 Minuten): Fussbad, Nägel kürzen, Hornhautbehandlung, Entfernen von Druckstellen, Füsse eincremen",
+        "Standard Fusspflege (CHF 89.–, 65 Minuten): inklusive Fussmassage",
+        "Premium Fusspflege (CHF 115.–, 80 Minuten): inklusive Ein Glas Prosecco und etwas zum Knabbern, Fusspeeling und Fussmassage",
+        "Mobile Fusspflege nach Aufwand: bei Ihnen zu Hause, in Seniorenresidenzen und Pflegeheimen sowie im Spital oder in einer Klinik",
+        "Behandlungen in der Praxis",
+        "Termin vereinbaren",
+        "Small",
+        "Standard",
+        "Premium",
+        "Mobile Fusspflege",
+        "Terminanfrage senden"
+      ],
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Leistungen und Schwerpunkte – Atelier Piede – Praxis für Fusspflege",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Small Fusspflege (CHF 79.–, 50 Minuten): Fussbad, Nägel kürzen, Hornhautbehandlung, Entfernen von Druckstellen, Füsse eincremen"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Standard Fusspflege (CHF 89.–, 65 Minuten): inklusive Fussmassage"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Premium Fusspflege (CHF 115.–, 80 Minuten): inklusive Ein Glas Prosecco und etwas zum Knabbern, Fusspeeling und Fussmassage"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Mobile Fusspflege nach Aufwand: bei Ihnen zu Hause, in Seniorenresidenzen und Pflegeheimen sowie im Spital oder in einer Klinik"
+            }
+          }
+        ]
+      },
+      "telephone": "+41 79 939 99 88",
+      "email": "christina@atelierpiede.ch",
+      "sameAs": [
+        "https://www.atelierpiede.ch/"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://vorschau.magnet-xs.ch/atelier-piede/#website",
+      "url": "https://vorschau.magnet-xs.ch/atelier-piede/",
+      "name": "Atelier Piede – Praxis für Fusspflege",
+      "inLanguage": "de-CH",
+      "publisher": {
+        "@id": "https://vorschau.magnet-xs.ch/atelier-piede/#organization"
+      }
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://vorschau.magnet-xs.ch/atelier-piede/#webpage",
+      "url": "https://vorschau.magnet-xs.ch/atelier-piede/",
+      "name": "Atelier Piede – Praxis für Fusspflege | Christina Widmer – von Moos, 5742 Kölliken",
+      "description": "Atelier Piede in 5742 Kölliken: Diplomierte Fusspflegerin Christina Widmer – von Moos. Behandlung in der Praxis oder mobil bei Ihnen zu Hause, im Heim oder Spital.",
+      "inLanguage": "de-CH",
+      "dateModified": "2026-11-27T15:38:39+00:00",
+      "isPartOf": {
+        "@id": "https://vorschau.magnet-xs.ch/atelier-piede/#website"
+      },
+      "about": {
+        "@id": "https://vorschau.magnet-xs.ch/atelier-piede/#organization"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://vorschau.magnet-xs.ch/atelier-piede/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Welche Fusspflege-Behandlungen bietet Atelier Piede in Kölliken an?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Atelier Piede bietet drei Praxisbehandlungen: Small (CHF 79.–, 50 Minuten), Standard mit Fussmassage (CHF 89.–, 65 Minuten) sowie Premium mit einem Glas Prosecco, Fusspeeling und Fussmassage (CHF 115.–, 80 Minuten)."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Bietet Atelier Piede auch mobile Fusspflege und Hausbesuche an?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Ja. Christina Widmer – von Moos bietet mobile Fusspflege nach Aufwand direkt bei Ihnen zu Hause, in Seniorenresidenzen und Pflegeheimen sowie im Spital oder in einer Klinik an."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Wie kann ich bei Atelier Piede einen Termin vereinbaren?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Termine können telefonisch oder per WhatsApp unter 079 939 99 88, per E-Mail an christina@atelierpiede.ch oder direkt über das Terminanfrage-Formular auf dieser Seite vereinbart werden."
+          }
+        }
+      ]
+    }
+  ]
+}
+  </script>
+  <!-- WP-SEO-AUTOPILOT-END -->
+</head>
+<body>
+  <a class="wp-skip-link" href="#main-content">Direkt zum Inhalt</a>
+  <header class="site-header">
+    <div class="wrap">
+      <div class="header-row">
+        <a href="index.html" class="brand" aria-label="Atelier Piede Startseite">
+          <img src="images/logo-ap.png" alt="Atelier Piede Monogramm-Logo" width="333" height="360" decoding="async">
+          <span class="brand-text">
+            <span class="brand-name" data-slot="brand_short">ATELIER PIEDE</span>
+            <span class="brand-sub" data-slot="brand_subtitle">Praxis für Fusspflege</span>
+          </span>
+        </a>
+        <nav class="nav-links" aria-label="Hauptnavigation">
+          <a href="#preise">Behandlungen &amp; Preise</a>
+          <a href="#mobil">Mobile Fusspflege</a>
+          <a href="#termin">Kontakt</a>
+        </nav>
+        <div class="header-actions">
+          <a href="#termin" class="btn btn-primary header-cta-desktop"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg><span>Termin vereinbaren</span></a>
+          <button type="button" class="burger-btn" id="burgerBtn" aria-label="Menü öffnen" aria-expanded="false" onclick="toggleMobileNav()"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg></button>
+        </div>
+      </div>
+    </div>
+    <div class="mobile-nav" id="mobileNav" role="navigation" aria-label="Mobile Navigation">
+      <a href="#preise" onclick="closeMobileNav()">Behandlungen &amp; Preise</a>
+      <a href="#mobil" onclick="closeMobileNav()">Mobile Fusspflege</a>
+      <a href="#termin" onclick="closeMobileNav()">Kontakt &amp; Termin</a>
+      <a href="tel:+41799399988" onclick="closeMobileNav()">Anrufen: 079 939 99 88</a>
+    </div>
+  </header>
+  <main id="main-content">
+    <section class="hero-section" id="top">
+      <div class="wrap">
+        <div class="hero-grid">
+          <div class="hero-left">
+            <div>
+              <span class="section-kicker" data-slot="hero_kicker">ATELIER PIEDE · PRAXIS FÜR FUSSPFLEGE</span>
+              <h1 class="hero-title" data-slot="hero_title">Fusspflege</h1>
+              <p class="hero-subtitle" data-slot="hero_subtitle">Behandlung in der Praxis oder bei Ihnen zu Hause</p>
+              <p class="hero-lead" data-slot="hero_lead">Sorgfältige, persönliche Fusspflege in ruhiger Atmosphäre an der Wiesenstrasse 44 in Kölliken oder direkt bei Ihnen vor Ort.</p>
+              <div class="hero-ctas">
+                <a href="#termin" class="btn btn-primary"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg><span>Termin vereinbaren</span></a>
+                <a href="#preise" class="btn btn-secondary">Behandlungen &amp; Preise <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
+              </div>
+            </div>
+            <div class="trust-row">
+              <div class="trust-card">
+                <span class="trust-title" data-slot="trust_1_title">5742 Kölliken</span>
+                <span class="trust-sub" data-slot="trust_1_sub">Wiesenstrasse 44</span>
+              </div>
+              <div class="trust-card">
+                <span class="trust-title" data-slot="trust_2_title">Dipl. Fusspflegerin</span>
+                <span class="trust-sub" data-slot="trust_2_sub">Christina Widmer – von Moos</span>
+              </div>
+              <div class="trust-card">
+                <span class="trust-title" data-slot="trust_3_title">Praxis &amp; Mobil</span>
+                <span class="trust-sub" data-slot="trust_3_sub">Auch im Heim oder Spital</span>
+              </div>
+            </div>
+          </div>
+          <div class="hero-media">
+            <img src="images/hero-fusspflege.jpg" alt="Atelier Piede Fusspflege in warmer Spa-Atmosphäre mit Handtüchern, Kerzenlicht und wohltuender Fussmassage" width="1400" height="1396" fetchpriority="high" decoding="async" data-slot="hero_image">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-block" id="preise">
+      <div class="wrap">
+        <div class="section-header">
+          <div>
+            <span class="section-kicker" data-slot="prices_kicker">BEHANDLUNGEN &amp; PREISE</span>
+            <h2 class="section-title" data-slot="prices_title">Behandlungen in der Praxis</h2>
+          </div>
+          <a href="assets/atelier-piede-flyer.pdf" class="pdf-link" target="_blank" rel="noopener"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/></svg><span>Original-Flyer als PDF</span></a>
+        </div>
+        <div class="treatments-grid">
+          <article class="treatment-card">
+            <div class="treatment-top">
+              <h3 class="treatment-name" data-slot="treatment_1_name">Small</h3>
+              <div class="treatment-meta">
+                <span class="treatment-price" data-slot="treatment_1_price">CHF 79.–</span>
+                <span class="treatment-duration" data-slot="treatment_1_duration"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg><span>50 Minuten</span></span>
+              </div>
+            </div>
+            <ul class="treatment-list">
+              <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Fussbad</span></li>
+              <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Nägel kürzen und in Form bringen</span></li>
+              <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Hornhautbehandlung</span></li>
+              <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Entfernen von Druckstellen</span></li>
+              <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Füsse eincremen</span></li>
+            </ul>
+            <a href="#termin" class="btn btn-secondary treatment-cta" onclick="selectTreatment('Small')">Termin anfragen <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
+          </article>
+          <article class="treatment-card">
+            <div class="treatment-top">
+              <h3 class="treatment-name" data-slot="treatment_2_name">Standard</h3>
+              <div class="treatment-meta">
+                <span class="treatment-price" data-slot="treatment_2_price">CHF 89.–</span>
+                <span class="treatment-duration" data-slot="treatment_2_duration"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg><span>65 Minuten</span></span>
+              </div>
+            </div>
+            <ul class="treatment-list">
+              <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Fussbad</span></li>
+              <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Nägel kürzen und in Form bringen</span></li>
+              <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Hornhautbehandlung</span></li>
+              <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Entfernen von Druckstellen</span></li>
+              <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Fussmassage</span></li>
+            </ul>
+            <a href="#termin" class="btn btn-secondary treatment-cta" onclick="selectTreatment('Standard')">Termin anfragen <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
+          </article>
+          <article class="treatment-card">
+            <div class="treatment-top">
+              <h3 class="treatment-name" data-slot="treatment_3_name">Premium</h3>
+              <div class="treatment-meta">
+                <span class="treatment-price" data-slot="treatment_3_price">CHF 115.–</span>
+                <span class="treatment-duration" data-slot="treatment_3_duration"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg><span>80 Minuten</span></span>
+              </div>
+            </div>
+            <ul class="treatment-list">
+              <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Ein Glas Prosecco und etwas zum Knabbern</span></li>
+              <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Fussbad</span></li>
+              <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Nägel kürzen und in Form bringen</span></li>
+              <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Hornhautbehandlung</span></li>
+              <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Entfernen von Druckstellen</span></li>
+              <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Fusspeeling</span></li>
+              <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Fussmassage</span></li>
+            </ul>
+            <a href="#termin" class="btn btn-secondary treatment-cta" onclick="selectTreatment('Premium')">Termin anfragen <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
+          </article>
+        </div>
+
+        <div class="mobile-care-card" id="mobil">
+          <div class="mobile-care-head">
+            <span class="section-kicker" data-slot="mobile_kicker">AUSSERHALB DER PRAXIS</span>
+            <div class="mobile-care-title-row">
+              <h3 class="mobile-care-title" data-slot="mobile_title">Mobile Fusspflege</h3>
+              <span class="mobile-care-price" data-slot="mobile_price">Nach Aufwand</span>
+            </div>
+            <p class="mobile-care-desc" data-slot="mobile_desc">Für alle, die ihre Fusspflege bequem in vertrauter Umgebung wünschen.</p>
+            <div style="margin-top:6px;">
+              <a href="#termin" class="btn btn-secondary" onclick="selectTreatment('Mobile Fusspflege')"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8"/><path d="M3 10a2 2 0 0 1 .709-1.528l7-5.999a2 2 0 0 1 2.582 0l7 5.999A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg><span>Hausbesuch anfragen</span></a>
+            </div>
+          </div>
+          <ul class="mobile-care-list">
+            <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Bei Ihnen zu Hause</span></li>
+            <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>In Seniorenresidenzen und Pflegeheimen</span></li>
+            <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Im Spital oder in einer Klinik</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact-section" id="termin">
+      <div class="wrap">
+        <div class="contact-grid">
+          <div class="contact-info">
+            <div>
+              <h2 class="contact-heading" data-slot="contact_title">Termin vereinbaren</h2>
+              <p class="owner-name" data-slot="owner_name">Christina Widmer – von Moos</p>
+              <p class="owner-role" data-slot="owner_role">Diplomierte Fusspflegerin</p>
+              <div class="address-block">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+                <div>
+                  <div data-slot="street">Wiesenstrasse 44</div>
+                  <div data-slot="city_zip">5742 Kölliken</div>
+                </div>
+              </div>
+            </div>
+            <div class="contact-actions">
+              <a href="tel:+41799399988" class="btn btn-on-dark" data-slot="phone_cta"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg><span>079 939 99 88</span></a>
+              <a href="https://wa.me/41799399988" target="_blank" rel="noopener" class="btn btn-on-dark-outline"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg><span>WhatsApp schreiben</span></a>
+              <a href="mailto:christina@atelierpiede.ch" class="btn btn-on-dark-outline" data-slot="email_cta"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg><span>christina@atelierpiede.ch</span></a>
+              <a href="https://www.google.com/maps/search/?api=1&amp;query=Wiesenstrasse+44,+5742+K%C3%B6lliken" target="_blank" rel="noopener" class="btn btn-on-dark-outline"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg><span>Route in Google Maps</span></a>
+            </div>
+          </div>
+
+          <div class="form-card">
+            <div>
+              <h3 class="form-title">Terminanfrage senden</h3>
+              <p class="form-sub">Gerne melde ich mich persönlich zur Terminbestätigung bei Ihnen.</p>
+            </div>
+            <form id="apContactForm" onsubmit="return submitApLead(event);" novalidate toolname="kontakt_anfrage_vorbereiten" tooldescription="Bereitet eine unverbindliche Anfrage bei Atelier Piede – Praxis für Fusspflege (Kölliken) zur Prüfung durch die Besucherin oder den Besucher vor.">
+              <input type="text" id="wpHoneypot" name="website_url" form="wpTrapDetached" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0;">
+              <div class="form-grid">
+                <div class="field">
+                  <label for="contactName">Ihr Name *</label>
+                  <input type="text" id="contactName" name="name" autocomplete="name" required placeholder="Vor- und Nachname">
+                </div>
+                <div class="field">
+                  <label for="contactPhone">Telefonnummer</label>
+                  <input type="tel" id="contactPhone" name="tel" autocomplete="tel" placeholder="079 ...">
+                </div>
+              </div>
+              <div class="form-grid">
+                <div class="field">
+                  <label for="contactEmail">E-Mail-Adresse *</label>
+                  <input type="email" id="contactEmail" name="email" autocomplete="email" required placeholder="name@beispiel.ch">
+                </div>
+                <div class="field">
+                  <label for="contactTreatment">Gewünschte Behandlung</label>
+                  <select id="contactTreatment" name="topic">
+                    <option value="Small (CHF 79.– · 50 Min.)">Small (CHF 79.– · 50 Min.)</option>
+                    <option value="Standard (CHF 89.– · 65 Min.)" selected>Standard (CHF 89.– · 65 Min.)</option>
+                    <option value="Premium (CHF 115.– · 80 Min.)">Premium (CHF 115.– · 80 Min.)</option>
+                    <option value="Mobile Fusspflege (Nach Aufwand)">Mobile Fusspflege (Nach Aufwand)</option>
+                  </select>
+                </div>
+              </div>
+              <div class="field">
+                <label for="contactMessage">Nachricht / Wunschtage</label>
+                <textarea id="contactMessage" name="message" placeholder="z. B. Wunschtag, Tageszeit oder Hinweis für einen Hausbesuch"></textarea>
+              </div>
+              <label class="check-row">
+                <input type="checkbox" id="contactConsent" required>
+                <span>Ich bin einverstanden, dass meine Angaben zur Terminvereinbarung bearbeitet werden.</span>
+              </label>
+              <button type="submit" id="wpSubmitBtn" class="btn btn-primary" style="width:100%;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></svg><span>Terminanfrage absenden</span></button>
+              <div id="wpFormOk" class="form-feedback" role="status"></div>
+              <div id="wpFormErr" class="form-feedback" role="alert"></div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <strong data-slot="footer_company">Atelier Piede · Praxis für Fusspflege</strong> · Christina Widmer – von Moos · Wiesenstrasse 44 · 5742 Kölliken
+        </div>
+        <div class="footer-links">
+          <a href="#preise">Behandlungen &amp; Preise</a>
+          <a href="assets/atelier-piede-flyer.pdf" target="_blank" rel="noopener">Flyer als PDF</a>
+          <a href="impressum.html">Impressum</a>
+          <a href="datenschutz.html">Datenschutz</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <div class="mobile-sticky-bar" id="mobileStickyBar">
+    <a href="tel:+41799399988" class="btn btn-secondary"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg><span>Anrufen</span></a>
+    <a href="#termin" class="btn btn-primary"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg><span>Termin / WhatsApp</span></a>
+  </div>
+  <script>
+    function toggleMobileNav() {
+      var nav = document.getElementById('mobileNav');
+      var btn = document.getElementById('burgerBtn');
+      if (!nav || !btn) return;
+      var open = nav.classList.toggle('open');
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    }
+    function closeMobileNav() {
+      var nav = document.getElementById('mobileNav');
+      var btn = document.getElementById('burgerBtn');
+      if (nav) nav.classList.remove('open');
+      if (btn) btn.setAttribute('aria-expanded', 'false');
+    }
+  </script>
+  <script>
+    function selectTreatment(label) {
+      var sel = document.getElementById('contactTreatment');
+      if (!sel) return;
+      for (var i = 0; i < sel.options.length; i++) {
+        if (sel.options[i].value.indexOf(label) === 0) {
+          sel.selectedIndex = i;
+          break;
+        }
+      }
+    }
+
+    function submitApLead(ev) {
+      ev.preventDefault();
+      var okBox = document.getElementById('wpFormOk');
+      var errBox = document.getElementById('wpFormErr');
+      if (okBox) { okBox.className = 'form-feedback'; okBox.textContent = ''; }
+      if (errBox) { errBox.className = 'form-feedback'; errBox.textContent = ''; }
+
+      var hp = (document.getElementById('wpHoneypot') && document.getElementById('wpHoneypot').value || '').trim();
+      if (hp) {
+        if (okBox) { okBox.textContent = 'Vielen Dank für Ihre Anfrage.'; okBox.className = 'form-feedback ok'; }
+        return false;
+      }
+
+      var name = (document.getElementById('contactName').value || '').trim();
+      var phone = (document.getElementById('contactPhone').value || '').trim();
+      var email = (document.getElementById('contactEmail').value || '').trim();
+      var topic = (document.getElementById('contactTreatment').value || 'Standard').trim();
+      var message = (document.getElementById('contactMessage').value || '').trim();
+      var consent = document.getElementById('contactConsent');
+
+      if (!name || !email || (consent && !consent.checked)) {
+        if (errBox) {
+          errBox.textContent = 'Bitte füllen Sie Name, E-Mail-Adresse und die Datenschutz-Bestätigung aus.';
+          errBox.className = 'form-feedback err';
+        }
+        return false;
+      }
+
+      var btn = document.getElementById('wpSubmitBtn');
+      if (btn) btn.disabled = true;
+
+      fetch('/api/lead-submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          client_slug: 'atelier-piede',
+          preview_safe_mode: true,
+          name: name,
+          phone: phone,
+          email: email,
+          topic: topic,
+          message: message
+        })
+      })
+      .then(function(r) { return r.json().catch(function() { return { ok: r.ok }; }); })
+      .then(function() {
+        if (btn) btn.disabled = false;
+        if (okBox) {
+          okBox.textContent = 'Vielen Dank. Ihre Terminanfrage wurde im Vorschau-Modus erfolgreich geprüft.';
+          okBox.className = 'form-feedback ok';
+        }
+        document.getElementById('apContactForm').reset();
+      })
+      .catch(function() {
+        if (btn) btn.disabled = false;
+        if (errBox) {
+          errBox.textContent = 'Es ist ein Fehler aufgetreten. Bitte rufen Sie direkt unter 079 939 99 88 an.';
+          errBox.className = 'form-feedback err';
+        }
+      });
+      return false;
+    }
+  </script>
+</body>
+</html>

@@ -5084,5 +5084,83 @@
     "partner_id": "jenny",
     "preview_safe_mode": true,
     "live_routing_enabled": false
+  },
+  "atelier-piede": {
+    "client_slug": "atelier-piede",
+    "company_name": "Atelier Piede – Praxis für Fusspflege",
+    "brand_subtitle": "Christina Widmer – von Moos · Diplomierte Fusspflegerin · Wiesenstrasse 44, 5742 Kölliken",
+    "primary_color": [
+      156,
+      100,
+      59
+    ],
+    "dark_color": [
+      74,
+      51,
+      39
+    ],
+    "logo_path": "/home/brainuser/workspaces/mxs-embed/preview-atelier-piede/images/logo-ap.png",
+    "logo_white_bg": false,
+    "preview_safe_mode": true,
+    "live_routing_enabled": false,
+    "default_email": "christina@atelierpiede.ch",
+    "default_phone": "+41 79 939 99 88",
+    "emergency_phone": "+41 79 939 99 88",
+    "service_area_label": "Praxis in 5742 Kölliken (Wiesenstrasse 44) & Mobile Fusspflege in der Region",
+    "service_area_plz_prefixes": [
+      "4",
+      "5"
+    ],
+    "default_assignee": {
+      "name": "Christina Widmer – von Moos",
+      "role": "Diplomierte Fusspflegerin · Inhaberin Atelier Piede",
+      "department": "Praxis & Mobile Fusspflege",
+      "phone": "+41 79 939 99 88",
+      "email": "christina@atelierpiede.ch",
+      "whatsapp": "+41799399988"
+    },
+    "default": {
+      "name": "Christina Widmer – von Moos",
+      "role": "Diplomierte Fusspflegerin · Inhaberin Atelier Piede",
+      "department": "Praxis & Mobile Fusspflege",
+      "phone": "+41 79 939 99 88",
+      "email": "christina@atelierpiede.ch",
+      "whatsapp": "+41799399988"
+    },
+    "routes": {
+      "Small (CHF 79.– · 50 Min.)": {
+        "name": "Christina Widmer – von Moos",
+        "role": "Fusspflege Small (50 Minuten)",
+        "department": "Praxis-Behandlung",
+        "phone": "+41 79 939 99 88",
+        "email": "christina@atelierpiede.ch",
+        "whatsapp": "+41799399988"
+      },
+      "Standard (CHF 89.– · 65 Min.)": {
+        "name": "Christina Widmer – von Moos",
+        "role": "Fusspflege Standard (65 Minuten)",
+        "department": "Praxis-Behandlung",
+        "phone": "+41 79 939 99 88",
+        "email": "christina@atelierpiede.ch",
+        "whatsapp": "+41799399988"
+      },
+      "Premium (CHF 115.– · 80 Min.)": {
+        "name": "Christina Widmer – von Moos",
+        "role": "Fusspflege Premium (80 Minuten)",
+        "department": "Praxis-Behandlung",
+        "phone": "+41 79 939 99 88",
+        "email": "christina@atelierpiede.ch",
+        "whatsapp": "+41799399988"
+      },
+      "Mobile Fusspflege (Nach Aufwand)": {
+        "name": "Christina Widmer – von Moos",
+        "role": "Mobile Fusspflege (zu Hause, im Heim oder Spital)",
+        "department": "Mobile Fusspflege",
+        "phone": "+41 79 939 99 88",
+        "email": "christina@atelierpiede.ch",
+        "whatsapp": "+41799399988"
+      }
+    },
+    "partner_id": "jenny"
   }
 }

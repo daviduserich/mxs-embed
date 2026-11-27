@@ -52,6 +52,12 @@ const VORSCHAU_SLUG_TO_FOLDER = {
   'joma-original': 'preview-joma-original',
   'joma-modern': 'preview-joma-modern',
 
+  // Atelier Piede – Praxis fuer Fusspflege (Koelliken AG): Pragmatischer One-Pager ab Flyer
+  'atelier-piede': 'preview-atelier-piede',
+  'atelier-piede-v2': 'preview-atelier-piede',
+  'atelier-piede-vollversion': 'preview-atelier-piede',
+  'piede': 'preview-atelier-piede',
+
   // EWAG / E. Widmer AG (Suhr AG): 1:1 Original-Uebernahme & 1:1 Modern-Tweak
   'ewagsuhr': 'preview-ewagsuhr-modern',
   'ewagsuhr-original': 'preview-ewagsuhr-original',

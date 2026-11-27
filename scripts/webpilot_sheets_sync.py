@@ -192,6 +192,27 @@ def split_source_and_context(raw_source_or_context: str, explicit_context: str =
 # - In Jennys Partner-Sheet erscheinen ausschliesslich die 8 Projekte mit Partner "Jenny Ettle (JE-MI)".
 SEED_PROJECTS = [
     {
+        "slug": "atelier-piede",
+        "active": True,
+        "company": "Atelier Piede – Praxis für Fusspflege (Christina Widmer – von Moos, 5742 Kölliken AG)",
+        "pricing_recommended_chf": "CHF 1'200.—",
+        "complexity_score": "3.0 / 10.0",
+        "pricing_formula_chf": "CHF 1'200.—",
+        "pricing_rationale": "Pragmatischer, edler One-Pager «Flyer = Webseite» direkt ab Original-PDF-Flyer (Hero mit Original-Spa-Foto & AP-Monogramm, alle 3 Praxisbehandlungen Small CHF 79.– / Standard CHF 89.– / Premium CHF 115.–, Mobile Fusspflege nach Aufwand, Direktkontakt inkl. WhatsApp & einfaches Standard-Terminformular im CHF 35.—/Mt. Basis-Tarif plus Studio Cockpit v4.0).",
+        "v2_url": "https://vorschau.magnet-xs.ch/atelier-piede/",
+        "vollversion_url": "https://vorschau.magnet-xs.ch/atelier-piede/",
+        "original_url": "https://vorschau.magnet-xs.ch/atelier-piede/",
+        "modern_url": "",
+        "cockpit_url": "https://vorschau.magnet-xs.ch/atelier-piede/cockpit.html?token=atelierpiede2026",
+        "cockpit_light_url": "https://vorschau.magnet-xs.ch/atelier-piede/cockpit.html?token=atelierpiede2026&mode=light",
+        "audit_report_url": "https://vorschau.magnet-xs.ch/atelier-piede/assets/atelier-piede-flyer.pdf",
+        "source_url": "https://www.atelierpiede.ch",
+        "branch_context": "One-Pager ab PDF-Flyer · Praxis für Fusspflege & Mobile Fusspflege (5742 Kölliken AG)",
+        "partner": "Jenny Ettle (JE-MI)",
+        "submitted_at": "27.11.2026 · 15:30 Uhr",
+        "status": "🟢 Bereit zum Zeigen (Fertig: 27.11.2026 · 16:00 Uhr · 0 P1/P2)",
+    },
+    {
         "slug": "ewagsuhr",
         "active": True,
         "company": "EWAG / E. Widmer AG (Suhr AG)",
@@ -972,6 +993,7 @@ def _seed_single_spreadsheet(
                     active_by_slug[item["slug"]] = is_act
 
     DEFAULT_SUBMITTED_MAP = {
+        "atelier-piede": ("27.11.2026 · 15:30 Uhr", "🟢 Bereit zum Zeigen (Fertig: 27.11.2026 · 16:00 Uhr · 0 P1/P2)"),
         "ewagsuhr": ("26.11.2026 · 22:00 Uhr", "🟢 Bereit zum Zeigen (Fertig: 26.11.2026 · 22:15 Uhr · 0 P1/P2)"),
         "autohauser": ("18.11.2026 · 19:09 Uhr", "🟢 Bereit zum Zeigen (Fertig: 18.11.2026 · 19:34 Uhr · 0 P1/P2)"),
         "die-schule": ("13.11.2026 · 07:36 Uhr", "🟢 Bereit zum Zeigen (Fertig: 13.11.2026 · 09:25 Uhr · 0 P1/P2)"),
