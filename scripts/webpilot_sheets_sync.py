@@ -90,8 +90,8 @@ PARTNER_CONFIG_PATHS = [
 HEADERS = [
     "Aktiv",
     "Firma / Verein",
-    "Einmal-Preis & Score",
-    "Monats-Offerte (1. Jahr / ab 2. Jahr)",
+    "Option 1: Einmal-Preis & Score",
+    "Option 2: ODER Monats-Offerte (ohne Einmalzahlung)",
     "Preis-Begründung & Aha-Punkte",
     "Zeigeversion (-v2 für Kunden)",
     "Vollversion (-vollversion für uns)",
@@ -157,9 +157,11 @@ def compute_monthly_pricing(recommended_chf: Any) -> Dict[str, Any]:
         "monthly_plan_label": MONTHLY_PLAN_LABEL,
         "monthly_display": f"1. Jahr: CHF {year1}.—/Mt. (Smart-Pro: CHF {year1_pro}.—/Mt.) · ab 2. Jahr: CHF 35.— / 45.— Mt.",
         "monthly_sheet_display": (
-            f"1. Jahr: CHF {year1}.— / Mt. Basis (CHF {year1_pro}.— / Mt. Smart-Pro)\n"
-            f"Ab 2. Jahr: CHF 35.— / Mt. (Basis: Hosting, Cockpit, SEO-/KI-Such-Autopilot & einfaches Standard-Kontaktformular) bzw. CHF 45.— / Mt. (Smart-Pro: inkl. geführter Smart-Anfrage, Foto-Upload, Sparten-Routing, 1-Seiten-A4-PDF & WhatsApp-Service, statt CHF 295.—/Mt. bei separaten Formular-Anbietern)\n"
-            f"Individuelle Formular-Anpassungen (massgeschneiderte Fragen, zusätzliche Formulare oder Empfänger-Weichen) richten wir auf Wunsch einmalig nach Aufwand passgenau ein."
+            f"ODER ohne Einmalzahlung (Aufbau inklusive):\n"
+            f"1. Jahr: CHF {year1}.— / Mt. Basis · ab 2. Jahr: CHF 35.— / Mt.\n"
+            f"(Hosting, Cockpit, SEO-/KI-Such-Autopilot & einfaches Standard-Kontaktformular)\n"
+            f"Optional Smart-Pro (+ CHF 10.— / Mt., d. h. CHF {year1_pro}.— im 1. Jahr / CHF 45.— ab 2. Jahr): geführte Smart-Anfrage, Foto-Upload, Routing, A4-PDF & WhatsApp.\n"
+            f"Individuelle Formular-Anpassungen auf Wunsch einmalig nach Aufwand."
         ),
     }
 
@@ -170,7 +172,7 @@ def format_einmal_price_sheet_cell(recommended_chf: str, complexity_score: str, 
     form = (formula_chf or rec).strip()
     return (
         f"{rec} einmalig\n"
-        f"+ CHF 35.— / Mt. (Basis inkl. Standard-Kontaktformular) bzw. CHF 45.— / Mt. (Smart-Pro inkl. Smart-Anfrage/Routing/PDF/WhatsApp)\n"
+        f"+ CHF 35.— / Mt. Basis (inkl. Standard-Kontaktformular) · Optional Smart-Pro: + CHF 10.— / Mt.\n"
         f"Score: {score} · Formel: {form}"
     )
 
@@ -857,8 +859,8 @@ def apply_sheet_formatting(
     col_widths = [
         (0, 1, 75),     # A: Aktiv
         (1, 2, 260),    # B: Firma / Verein
-        (2, 3, 260),    # C: Einmal-Preis & Score
-        (3, 4, 275),    # D: Monats-Offerte (1. Jahr / ab 2. Jahr)
+        (2, 3, 260),    # C: Option 1: Einmal-Preis & Score
+        (3, 4, 295),    # D: Option 2: ODER Monats-Offerte (ohne Einmalzahlung)
         (4, 5, 370),    # E: Preis-Begruendung & Aha-Punkte
         (5, 6, 300),    # F: Zeigeversion (-v2)
         (6, 7, 320),    # G: Vollversion (-vollversion)
