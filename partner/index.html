@@ -324,6 +324,7 @@
     input[type="url"],
     input[type="number"],
     input[type="search"],
+    input[type="file"],
     textarea,
     select {
       width: 100%;
@@ -1001,6 +1002,115 @@
       font-size: 12.5px;
       color: var(--text-secondary);
       margin-top: 4px;
+    }
+
+    .dropzone:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 2px;
+    }
+
+    .badge-4 svg.lucide {
+      width: 13px;
+      height: 13px;
+    }
+
+    .badge-pdf {
+      background: rgba(240, 133, 45, 0.14);
+      border-color: rgba(240, 133, 45, 0.38);
+      color: var(--accent-text);
+    }
+
+    .assets-chip-list {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-top: 10px;
+    }
+
+    .assets-chip-list:empty {
+      display: none;
+    }
+
+    .asset-chip {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      padding: 8px 12px;
+      border-radius: 8px;
+      background: var(--bg-elevated);
+      border: 1px solid var(--border-strong);
+      box-shadow: var(--bevel);
+    }
+
+    .asset-chip-main {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      min-width: 0;
+      flex: 1 1 auto;
+    }
+
+    .asset-type-badge {
+      border-radius: 4px;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      padding: 3px 7px;
+      flex-shrink: 0;
+      text-transform: uppercase;
+    }
+
+    .asset-type-badge.is-pdf {
+      background: rgba(240, 133, 45, 0.16);
+      border: 1px solid rgba(240, 133, 45, 0.42);
+      color: var(--accent-text);
+    }
+
+    .asset-type-badge.is-img {
+      background: rgba(255, 255, 255, 0.07);
+      border: 1px solid var(--border-strong);
+      color: var(--text-secondary);
+    }
+
+    .asset-chip-name {
+      font-size: 13.5px;
+      font-weight: 600;
+      color: var(--text-primary);
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      min-width: 0;
+    }
+
+    .asset-chip-size {
+      font-size: 12px;
+      color: var(--text-muted);
+      flex-shrink: 0;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .asset-chip-remove {
+      min-width: 44px;
+      min-height: 44px;
+      padding: 8px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      background: transparent;
+      color: var(--text-secondary);
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      transition: color 0.15s ease, border-color 0.15s ease, background-color 0.15s ease;
+    }
+
+    .asset-chip-remove:hover {
+      color: #fca5a5;
+      border-color: rgba(239, 68, 68, 0.45);
+      background: var(--danger-bg);
     }
 
     /* Admin Partner Cards */
@@ -1710,11 +1820,22 @@
 
             <div class="form-group full-width">
               <label class="field-label" for="jobAssetsInput">
-                <span>Optionale Bilder / Logo hochladen (falls keine bestehende Website vorhanden ist)</span>
-                <span class="field-hint">Max. 10 Dateien (.png, .jpg, .webp, .svg)</span>
+                <span>5. Flyer-PDF, Logo oder Bilder hochladen (optional)</span>
+                <span class="field-hint">Max. 20 Dateien (.pdf, .png, .jpg, .webp, .svg) · je max. 15 MB · gesamt max. 25 MB</span>
               </label>
-              <input type="file" id="jobAssetsInput" accept=".png,.jpg,.jpeg,.webp,.svg" multiple style="padding: 10px; background: var(--bg-input); border: 1px solid var(--border-strong); border-radius: 8px; color: var(--text-secondary);">
-              <div id="assetsSummary" class="field-hint"></div>
+              <div id="assetsDropzone" class="dropzone" role="button" tabindex="0" aria-label="Flyer-PDF, Logo oder Bilder per Klick oder Ziehen hochladen">
+                <input type="file" id="jobAssetsInput" accept=".pdf,.png,.jpg,.jpeg,.webp,.svg" multiple class="hidden">
+                <svg class="lucide" viewBox="0 0 24 24" style="width: 28px; height: 28px; color: var(--accent-text); margin: 0 auto;">
+                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                  <polyline points="17 8 12 3 7 8"></polyline>
+                  <line x1="12" y1="3" x2="12" y2="15"></line>
+                </svg>
+                <div id="assetsDropzoneTitle" class="dropzone-title">Flyer-PDF, Preisliste, Logo oder Bilder hierher ziehen oder antippen</div>
+                <div class="dropzone-sub">1-Klick-Upload auch ohne bestehende Website-URL (z. B. Firmenflyer oder Leistungsübersicht als PDF).</div>
+              </div>
+              <div id="assetsErrorBanner" class="status-banner err" role="alert" style="margin-top: 8px;"></div>
+              <div id="assetsChipList" class="assets-chip-list" aria-live="polite"></div>
+              <div id="assetsSummary" class="field-hint" style="margin-top: 4px;"></div>
             </div>
           </div>
 
@@ -1731,7 +1852,7 @@
               <svg class="lucide" viewBox="0 0 24 24">
                 <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
               </svg>
-              <span>Vorschau-Seite durch Antigravity bauen lassen</span>
+              <span id="btnSubmitJobLabel">Vorschau-Seite durch Antigravity bauen lassen</span>
             </button>
           </div>
         </form>
@@ -1874,7 +1995,13 @@
       const jobChatgptHtml = document.getElementById("jobChatgptHtml");
       const jobContextNotes = document.getElementById("jobContextNotes");
       const jobAssetsInput = document.getElementById("jobAssetsInput");
+      const assetsDropzone = document.getElementById("assetsDropzone");
+      const assetsErrorBanner = document.getElementById("assetsErrorBanner");
+      const assetsChipList = document.getElementById("assetsChipList");
       const assetsSummary = document.getElementById("assetsSummary");
+      const btnSubmitJob = document.getElementById("btnSubmitJob");
+      const btnSubmitJobLabel = document.getElementById("btnSubmitJobLabel");
+      const SUBMIT_JOB_DEFAULT_LABEL = "Vorschau-Seite durch Antigravity bauen lassen";
       const htmlDropzone = document.getElementById("htmlDropzone");
       const htmlFileInput = document.getElementById("htmlFileInput");
       const htmlDropzoneTitle = document.getElementById("htmlDropzoneTitle");
@@ -1900,6 +2027,9 @@
       let currentUser = null;
       let loadedChatgptFilename = "";
       let selectedAssets = [];
+      let activeAssetReads = 0;
+      let assetSeqCounter = 0;
+      let isSubmittingJob = false;
       let pollInterval = null;
 
       let activeTab = "projects";
@@ -2724,29 +2854,215 @@
         reader.readAsText(file, "UTF-8");
       }
 
-      jobAssetsInput.addEventListener("change", function () {
-        const files = Array.from(jobAssetsInput.files || []).slice(0, 10);
-        selectedAssets = [];
-        if (files.length === 0) {
-          assetsSummary.textContent = "";
-          return;
+      const ALLOWED_ASSET_EXTS = [".pdf", ".png", ".jpg", ".jpeg", ".webp", ".svg"];
+      const MAX_ASSET_FILES = 20;
+      const MAX_ASSET_FILE_BYTES = 15 * 1024 * 1024;
+      const MAX_ASSET_TOTAL_BYTES = 25 * 1024 * 1024;
+
+      function getFileExtLower(name) {
+        const idx = String(name || "").lastIndexOf(".");
+        return idx >= 0 ? String(name).slice(idx).toLowerCase() : "";
+      }
+
+      function formatAssetBytes(bytes) {
+        const n = Number(bytes || 0);
+        if (n < 1024) return n + " B";
+        if (n < 1024 * 1024) return (n / 1024).toFixed(1) + " KB";
+        return (n / (1024 * 1024)).toFixed(2) + " MB";
+      }
+
+      function showAssetError(msg) {
+        if (!assetsErrorBanner) return;
+        showBanner(assetsErrorBanner, msg, false);
+      }
+
+      function hideAssetError() {
+        if (!assetsErrorBanner) return;
+        hideBanner(assetsErrorBanner);
+      }
+
+      function syncAssetUploadUiState() {
+        if (!btnSubmitJob || !btnSubmitJobLabel) return;
+        if (isSubmittingJob) {
+          btnSubmitJob.disabled = true;
+          btnSubmitJobLabel.textContent = "Auftrag wird übermittelt...";
+        } else if (activeAssetReads > 0) {
+          btnSubmitJob.disabled = true;
+          btnSubmitJobLabel.textContent = "Dateien werden eingelesen...";
+        } else {
+          btnSubmitJob.disabled = false;
+          btnSubmitJobLabel.textContent = SUBMIT_JOB_DEFAULT_LABEL;
         }
-        assetsSummary.textContent = files.length + " Datei(en) ausgewählt, werden vorbereitet...";
-        let done = 0;
-        files.forEach(function (f) {
+      }
+
+      function renderSelectedAssets() {
+        if (!assetsChipList || !assetsSummary) return;
+        assetsChipList.textContent = "";
+        let totalBytes = 0;
+        let pdfCount = 0;
+
+        selectedAssets.forEach(function (item) {
+          totalBytes += item.sizeBytes;
+          if (item.isPdf) pdfCount += 1;
+
+          const chip = document.createElement("div");
+          chip.className = "asset-chip";
+
+          const main = document.createElement("div");
+          main.className = "asset-chip-main";
+
+          const typeBadge = document.createElement("span");
+          typeBadge.className = "asset-type-badge " + (item.isPdf ? "is-pdf" : "is-img");
+          typeBadge.textContent = item.isPdf ? "PDF" : "BILD";
+
+          const nameSpan = document.createElement("span");
+          nameSpan.className = "asset-chip-name";
+          nameSpan.textContent = item.filename;
+          nameSpan.title = item.filename;
+
+          const sizeSpan = document.createElement("span");
+          sizeSpan.className = "asset-chip-size";
+          sizeSpan.textContent = formatAssetBytes(item.sizeBytes);
+
+          main.appendChild(typeBadge);
+          main.appendChild(nameSpan);
+          main.appendChild(sizeSpan);
+
+          const btnRem = document.createElement("button");
+          btnRem.type = "button";
+          btnRem.className = "asset-chip-remove";
+          btnRem.setAttribute("aria-label", "Datei " + item.filename + " entfernen");
+          btnRem.title = "Datei entfernen";
+          btnRem.appendChild(createSvgIcon('<line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line>'));
+          btnRem.addEventListener("click", function () {
+            selectedAssets = selectedAssets.filter(function (a) { return a.id !== item.id; });
+            hideAssetError();
+            renderSelectedAssets();
+          });
+
+          chip.appendChild(main);
+          chip.appendChild(btnRem);
+          assetsChipList.appendChild(chip);
+        });
+
+        if (activeAssetReads > 0) {
+          assetsSummary.textContent = "Dateien werden eingelesen... (" + selectedAssets.length + " bereit)";
+        } else if (selectedAssets.length === 0) {
+          assetsSummary.textContent = "";
+        } else {
+          const pdfPart = pdfCount > 0 ? (", davon " + pdfCount + " PDF-Flyer") : "";
+          assetsSummary.textContent = selectedAssets.length + " Datei(en) (" + formatAssetBytes(totalBytes) + " / 25.00 MB" + pdfPart + ") bereit für Übertragung.";
+        }
+      }
+
+      function addAssetFiles(fileList) {
+        const incoming = Array.from(fileList || []);
+        if (incoming.length === 0) return;
+
+        const errors = [];
+        const accepted = [];
+        let projectedCount = selectedAssets.length + activeAssetReads;
+        let projectedBytes = selectedAssets.reduce(function (acc, a) { return acc + a.sizeBytes; }, 0);
+
+        incoming.forEach(function (f) {
+          const ext = getFileExtLower(f.name);
+          if (ALLOWED_ASSET_EXTS.indexOf(ext) === -1) {
+            errors.push("Dateityp bei «" + f.name + "» nicht erlaubt (nur .pdf, .png, .jpg, .jpeg, .webp, .svg).");
+            return;
+          }
+          if (f.size === 0) {
+            errors.push("Datei «" + f.name + "» ist leer (0 Bytes).");
+            return;
+          }
+          if (f.size > MAX_ASSET_FILE_BYTES) {
+            errors.push("Datei «" + f.name + "» überschreitet 15 MB (" + formatAssetBytes(f.size) + ").");
+            return;
+          }
+          if (projectedCount + 1 > MAX_ASSET_FILES) {
+            errors.push("Maximal " + MAX_ASSET_FILES + " Dateien pro Auftrag erlaubt.");
+            return;
+          }
+          if (projectedBytes + f.size > MAX_ASSET_TOTAL_BYTES) {
+            errors.push("Gesamtgrösse von 25 MB wird mit «" + f.name + "» überschritten.");
+            return;
+          }
+          projectedCount += 1;
+          projectedBytes += f.size;
+          accepted.push({ file: f, isPdf: ext === ".pdf" });
+        });
+
+        if (errors.length > 0) {
+          showAssetError(errors.join(" "));
+        } else {
+          hideAssetError();
+        }
+
+        if (accepted.length === 0) return;
+
+        activeAssetReads += accepted.length;
+        syncAssetUploadUiState();
+        renderSelectedAssets();
+
+        accepted.forEach(function (entry) {
+          const f = entry.file;
           const r = new FileReader();
+          const finishRead = function () {
+            activeAssetReads = Math.max(0, activeAssetReads - 1);
+            renderSelectedAssets();
+            syncAssetUploadUiState();
+          };
           r.onload = function (ev) {
             selectedAssets.push({
+              id: ++assetSeqCounter,
               filename: f.name,
+              sizeBytes: f.size,
+              isPdf: entry.isPdf,
               data_base64: String(ev.target.result || "")
             });
-            done += 1;
-            if (done === files.length) {
-              assetsSummary.textContent = selectedAssets.length + " Datei(en) bereit für Übertragung an Antigravity.";
-            }
+            finishRead();
+          };
+          r.onerror = function () {
+            showAssetError("Datei «" + f.name + "» konnte nicht eingelesen werden.");
+            finishRead();
+          };
+          r.onabort = function () {
+            finishRead();
           };
           r.readAsDataURL(f);
         });
+      }
+
+      if (assetsDropzone) {
+        assetsDropzone.addEventListener("click", function () {
+          jobAssetsInput.click();
+        });
+        assetsDropzone.addEventListener("keydown", function (e) {
+          if (e.key === "Enter" || e.key === " ") {
+            e.preventDefault();
+            jobAssetsInput.click();
+          }
+        });
+        assetsDropzone.addEventListener("dragover", function (e) {
+          e.preventDefault();
+          assetsDropzone.classList.add("dragover");
+        });
+        assetsDropzone.addEventListener("dragleave", function () {
+          assetsDropzone.classList.remove("dragover");
+        });
+        assetsDropzone.addEventListener("drop", function (e) {
+          e.preventDefault();
+          assetsDropzone.classList.remove("dragover");
+          if (e.dataTransfer && e.dataTransfer.files && e.dataTransfer.files.length > 0) {
+            addAssetFiles(e.dataTransfer.files);
+          }
+        });
+      }
+
+      jobAssetsInput.addEventListener("change", function () {
+        if (jobAssetsInput.files && jobAssetsInput.files.length > 0) {
+          addAssetFiles(jobAssetsInput.files);
+        }
+        jobAssetsInput.value = "";
       });
 
       async function apiCall(path, options) {
@@ -2853,9 +3169,13 @@
 
       jobForm.addEventListener("submit", async function (e) {
         e.preventDefault();
+        if (activeAssetReads > 0) {
+          showAssetError("Bitte kurz warten, bis alle Dateien vollständig eingelesen sind.");
+          return;
+        }
         hideBanner(jobSubmitBanner);
-        const btn = document.getElementById("btnSubmitJob");
-        btn.disabled = true;
+        isSubmittingJob = true;
+        syncAssetUploadUiState();
         try {
           const selectedDesignRadio = document.querySelector('input[name="design_mode"]:checked');
           const designModeVal = selectedDesignRadio ? selectedDesignRadio.value : "evolution";
@@ -2868,7 +3188,9 @@
             chatgpt_html: jobChatgptHtml.value,
             chatgpt_filename: loadedChatgptFilename,
             context_notes: jobContextNotes.value.trim(),
-            assets: selectedAssets,
+            assets: selectedAssets.map(function (a) {
+              return { filename: a.filename, data_base64: a.data_base64 };
+            }),
             send_whatsapp: true
           };
           const resp = await apiCall("/api/partner/jobs", {
@@ -2891,7 +3213,8 @@
             jobAssetsInput.value = "";
             selectedAssets = [];
             loadedChatgptFilename = "";
-            assetsSummary.textContent = "";
+            hideAssetError();
+            renderSelectedAssets();
             htmlDropzoneTitle.textContent = "ChatGPT .html-Datei hierher ziehen oder antippen zum Auswählen";
             updateCharCount();
             await loadJobs();
@@ -2907,7 +3230,8 @@
         } catch (err) {
           showBanner(jobSubmitBanner, "Netzwerkfehler: " + err.message, false);
         } finally {
-          btn.disabled = false;
+          isSubmittingJob = false;
+          syncAssetUploadUiState();
         }
       });
 
@@ -3085,6 +3409,28 @@
         }
       }
 
+      function getJobPdfCount(job) {
+        if (!job) return 0;
+        if (typeof job.pdf_count === "number" && job.pdf_count >= 0) return job.pdf_count;
+        if (Array.isArray(job.saved_pdfs)) return job.saved_pdfs.length;
+        if (Array.isArray(job.saved_assets)) {
+          return job.saved_assets.filter(function (p) {
+            return String(p || "").toLowerCase().endsWith(".pdf");
+          }).length;
+        }
+        return 0;
+      }
+
+      function createPdfFlyerBadge(pdfCount) {
+        const badge = document.createElement("span");
+        badge.className = "badge-4 badge-pdf";
+        badge.appendChild(createSvgIcon('<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line>'));
+        const lbl = document.createElement("span");
+        lbl.textContent = "PDF-Flyer (" + pdfCount + ")";
+        badge.appendChild(lbl);
+        return badge;
+      }
+
       function formatSubmittedAt(rawTs) {
         const s = String(rawTs || "").trim();
         if (!s) return "";
@@ -3139,7 +3485,13 @@
           compSub.className = "company-sub-line";
           const partnerDisplay = String(job.created_by || "").toLowerCase() === "david" ? "David Hügli (Magnet XS)" : "Jenny Ettle (JE-MI)";
           const subTimeStr = formatSubmittedAt(job.created_at);
-          compSub.textContent = (job.city ? job.city + " · " : "") + "Slug: " + baseSlug + " · " + partnerDisplay + (subTimeStr ? (" · Eingereicht: " + subTimeStr) : "");
+          const compMetaTxt = document.createElement("span");
+          compMetaTxt.textContent = (job.city ? job.city + " · " : "") + "Slug: " + baseSlug + " · " + partnerDisplay + (subTimeStr ? (" · Eingereicht: " + subTimeStr) : "");
+          compSub.appendChild(compMetaTxt);
+          const listPdfCount = getJobPdfCount(job);
+          if (listPdfCount > 0) {
+            compSub.appendChild(createPdfFlyerBadge(listPdfCount));
+          }
           colComp.appendChild(compTitle);
           colComp.appendChild(compSub);
 
@@ -3435,6 +3787,11 @@
           rightBadges.style.display = "flex";
           rightBadges.style.alignItems = "center";
           rightBadges.style.gap = "8px";
+          rightBadges.style.flexWrap = "wrap";
+          const cardPdfCount = getJobPdfCount(job);
+          if (cardPdfCount > 0) {
+            rightBadges.appendChild(createPdfFlyerBadge(cardPdfCount));
+          }
 
           const btnActToggle = document.createElement("button");
           btnActToggle.type = "button";
