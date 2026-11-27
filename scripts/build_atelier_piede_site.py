@@ -1117,10 +1117,10 @@ def build_index_html() -> str:
                 <div class="field">
                   <label for="contactTreatment">Gewünschte Behandlung</label>
                   <select id="contactTreatment" name="topic">
-                    <option value="Small (CHF 79.– · 50 Min.)">Small (CHF 79.– · 50 Min.)</option>
-                    <option value="Standard (CHF 89.– · 65 Min.)" selected>Standard (CHF 89.– · 65 Min.)</option>
-                    <option value="Premium (CHF 115.– · 80 Min.)">Premium (CHF 115.– · 80 Min.)</option>
-                    <option value="Mobile Fusspflege (Nach Aufwand)">Mobile Fusspflege (Nach Aufwand)</option>
+                    <option value="Small (CHF 79.– · 50 Min.)">Small · CHF 79.–</option>
+                    <option value="Standard (CHF 89.– · 65 Min.)" selected>Standard · CHF 89.–</option>
+                    <option value="Premium (CHF 115.– · 80 Min.)">Premium · CHF 115.–</option>
+                    <option value="Mobile Fusspflege (Nach Aufwand)">Mobile Fusspflege</option>
                   </select>
                 </div>
               </div>

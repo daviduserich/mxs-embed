@@ -5,7 +5,7 @@
 > **Lokaler Ordner (VPS & Git):** `preview-atelier-piede/`  
 > **Cloudflare-Basis-URL:** [vorschau.magnet-xs.ch/atelier-piede/](https://vorschau.magnet-xs.ch/atelier-piede/)  
 > **Bestand:** **5 Assets** (0.57 MB gesamt) · **🟢 4 aktiv im HTML** · **⚪ 1 frei im Bild-Pool** · **Externe Hotlinks: 0**  
-> **Letzte Aktualisierung:** 27.11.2026 15:38 Uhr (automatisch generiert via `webpilot_asset_catalog.py`)
+> **Letzte Aktualisierung:** 27.11.2026 15:41 Uhr (automatisch generiert via `webpilot_asset_catalog.py`)
 
 ---
 
@@ -16,7 +16,7 @@
 | 1 | `images/apple-touch-icon.png` | Favicon & App-Icon (`icon`) | 180×180 px · 15.2 KB (PNG) | 🟢 Aktiv in `404.html`, `datenschutz.html`, `impressum.html`, `index.html` | Atelier Piede – Praxis für Fusspflege Kölliken (AG) – Offizielles Logo (Small Fusspflege (CHF 79.–, 50 Minuten): Fussbad, Nägel) | [vorschau.magnet-xs.ch/atelier-piede/images/apple-touch-icon.png](https://vorschau.magnet-xs.ch/atelier-piede/images/apple-touch-icon.png) |
 | 2 | `images/favicon-32x32.png` | Favicon & App-Icon (`icon`) | 32×32 px · 1.4 KB (PNG) | 🟢 Aktiv in `datenschutz.html`, `impressum.html`, `index.html` | Atelier Piede – Praxis für Fusspflege Kölliken (AG) – Offizielles Logo (Small Fusspflege (CHF 79.–, 50 Minuten): Fussbad, Nägel) | [vorschau.magnet-xs.ch/atelier-piede/images/favicon-32x32.png](https://vorschau.magnet-xs.ch/atelier-piede/images/favicon-32x32.png) |
 | 3 | `images/hero-fusspflege.jpg` | Startbühne & Header (`hero`) | 1400×1396 px · 290.4 KB (JPG) | 🟢 Aktiv in `datenschutz.html`, `impressum.html`, `index.html` | Atelier Piede Fusspflege in warmer Spa-Atmosphäre mit Handtüchern, Kerzenlicht und wohltuender Fussmassage | [vorschau.magnet-xs.ch/atelier-piede/images/hero-fusspflege.jpg](https://vorschau.magnet-xs.ch/atelier-piede/images/hero-fusspflege.jpg) |
-| 4 | `images/hero-fusspflege.webp` | Startbühne & Header (`hero`) | 1400×1396 px · 214.0 KB (WEBP) | ⚪ Frei im Pool | Atelier Piede – Praxis für Fusspflege (Kölliken) – Startbühne & Hauptansicht: Fusspflege: Startbühne & Header – Atelier Piede – Praxis für Fusspflege in Kölliken (AG) – Atelier Piede – Praxis für Fusspflege in Kölliken (AG) – Atelier Piede – Praxis für Fusspflege in Kölliken (AG) – Atelier Piede – Praxis für Fusspflege in Kölliken (AG) – Atelier Piede – Praxis für Fusspflege in Kölliken (AG) | [vorschau.magnet-xs.ch/atelier-piede/images/hero-fusspflege.webp](https://vorschau.magnet-xs.ch/atelier-piede/images/hero-fusspflege.webp) |
+| 4 | `images/hero-fusspflege.webp` | Startbühne & Header (`hero`) | 1400×1396 px · 214.0 KB (WEBP) | ⚪ Frei im Pool | Atelier Piede – Praxis für Fusspflege (Kölliken) – Startbühne & Hauptansicht: Fusspflege: Startbühne & Header – Atelier Piede – Praxis für Fusspflege in Kölliken (AG) – Atelier Piede – Praxis für Fusspflege in Kölliken (AG) – Atelier Piede – Praxis für Fusspflege in Kölliken (AG) – Atelier Piede – Praxis für Fusspflege in Kölliken (AG) – Atelier Piede – Praxis für Fusspflege in Kölliken (AG) – Atelier Piede – Praxis für Fusspflege in Kölliken (AG) | [vorschau.magnet-xs.ch/atelier-piede/images/hero-fusspflege.webp](https://vorschau.magnet-xs.ch/atelier-piede/images/hero-fusspflege.webp) |
 | 5 | `images/logo-ap.png` | Logo & Marken-Icon (`logo`) | 333×360 px · 59.7 KB (PNG) | 🟢 Aktiv in `404.html`, `datenschutz.html`, `impressum.html`, `index.html` | Atelier Piede – Praxis für Fusspflege | [vorschau.magnet-xs.ch/atelier-piede/images/logo-ap.png](https://vorschau.magnet-xs.ch/atelier-piede/images/logo-ap.png) |
 
 ---
